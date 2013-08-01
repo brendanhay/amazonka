@@ -32,11 +32,6 @@ data CreateHealthCheck = CreateHealthCheck
     , chcFQDN      :: String
     } deriving (Show, Data, Typeable)
 
--- FIXME: Use template haskell for instances
--- Function which determines the template from the class name underscored
--- and takes the uri as an argument
--- use TH to read in the actual template at compile time and set it to
--- the template typeclass function :: ByteString
 instance AWSRequest CreateHealthCheck where
     template _ = $(embedTemplate "route53/create_health_check")
     endpoint _ = route53Base

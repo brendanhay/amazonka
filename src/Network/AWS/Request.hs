@@ -28,11 +28,13 @@ import qualified Data.ByteString.Lazy   as LBS
 import           Data.Data
 import qualified Data.Digest.Pure.SHA   as SHA
 import           Data.List
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Time              (UTCTime, formatTime, getCurrentTime)
 import qualified Network.HTTP.Types     as HTTP
 import           Network.Http.Client
 import           OpenSSL                (withOpenSSL)
+import           System.Environment
 import qualified System.IO.Streams      as Streams
 import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
 import           Text.Hastache
@@ -51,8 +53,20 @@ data Credentials = Credentials
 newtype AWS a = AWS { unWrap :: ReaderT Credentials IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Credentials)
 
-runAWS :: Credentials -> AWS a -> IO a
-runAWS creds aws = runReaderT (unWrap aws) creds
+runAWS :: Maybe Credentials -> AWS a -> IO a
+runAWS mcreds aws = do
+    creds <- maybe env return mcreds
+    runReaderT (unWrap aws) creds
+  where
+    env :: IO Credentials
+    env = do
+        (acc, sec) <- (,)
+            <$> lookupEnv "ACCESS_KEY_ID"
+            <*> lookupEnv "SECRET_ACCESS_KEY"
+        return . fromMaybe (error "Oh noes!") $
+            Credentials <$> fmap BS.pack acc <*> fmap BS.pack sec
+
+    -- metadataCredentials
 
 class (Data a, Typeable a) => AWSRequest a where
     template :: a -> ByteString

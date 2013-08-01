@@ -17,12 +17,10 @@
 
 module Network.AWS.Request where
 
-
 import           Control.Applicative
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.Aeson
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Base64 as Base64
 import qualified Data.ByteString.Char8  as BS
@@ -32,15 +30,10 @@ import qualified Data.Digest.Pure.SHA   as SHA
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Monoid
-import           Data.Time
 import           Data.Time              (UTCTime, formatTime, getCurrentTime)
-import           GHC.Word
 import qualified Network.HTTP.Types     as HTTP
 import           Network.Http.Client
-import           Network.Http.Client
 import           OpenSSL                (withOpenSSL)
-import           System.IO.Streams      (InputStream, OutputStream, stdout)
 import qualified System.IO.Streams      as Streams
 import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
 import           Text.Hastache
@@ -66,6 +59,26 @@ class (Data a, Typeable a) => AWSRequest a where
     template :: a -> ByteString
     endpoint :: a -> ByteString
     request  :: a -> AWS Request
+
+send :: AWSRequest a => a -> AWS ()
+send rq = do
+    r <- request rq
+    liftIO . withOpenSSL $ do
+        s <- baselineContextSSL
+        c <- openConnectionSSL s (endpoint rq) 443
+
+        bodyStream >>= sendRequest c r . inputStreamBody
+
+        -- receiveResponse c (\p i -> do
+        --     x <- Streams.read i
+        --     BS.putStr $ fromMaybe "" x)
+
+        closeConnection c
+  where
+    bodyStream = do
+       b <- hastacheStr defaultConfig (template rq) $ mkGenericContext rq
+       print b
+       Streams.makeInputStream . return . Just $ LBS.toStrict b
 
 apiVersion :: ByteString
 apiVersion = "2012-12-01"
@@ -133,25 +146,6 @@ version3 meth end path params = do
         . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
         . timeFormat
-
-send :: AWSRequest a => a -> AWS ()
-send rq = do
-    r <- request rq
-    liftIO . withOpenSSL $ do
-        s <- baselineContextSSL
-        c <- openConnectionSSL s (endpoint rq) 443
-
-        bodyStream >>= sendRequest c r . inputStreamBody
-
-        receiveResponse c (\p i -> do
-            x <- Streams.read i
-            BS.putStr $ fromMaybe "" x)
-
-        closeConnection c
-  where
-    bodyStream = do
-       b <- hastacheStr defaultConfig (template rq) $ mkGenericContext rq
-       Streams.makeInputStream . return . Just $ LBS.toStrict b
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show

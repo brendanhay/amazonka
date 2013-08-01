@@ -17,8 +17,8 @@
 
 module Network.AWS.Route53 where
 
+import Data.ByteString     (ByteString)
 import Data.Data
-import GHC.Word
 import Network.AWS.Request
 import Network.AWS.TH
 import Network.Http.Client
@@ -26,11 +26,11 @@ import Network.Http.Client
 data CreateHealthCheck = CreateHealthCheck
     { chcCallerRef :: String
     , chcIpAddress :: String
-    , chcPort      :: Word16
+    , chcPort      :: Int
     , chcProtocol  :: String
     , chcResource  :: String
     , chcFQDN      :: String
-    } deriving (Data, Typeable)
+    } deriving (Show, Data, Typeable)
 
 -- FIXME: Use template haskell for instances
 -- Function which determines the template from the class name underscored

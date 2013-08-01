@@ -17,27 +17,11 @@
 
 module Network.AWS.Route53 where
 
-import           Control.Applicative
-import           Control.Monad
-import           Control.Monad.IO.Class
-import           Control.Monad.Reader
-import           Data.Aeson
-import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Char8  as BS
-import qualified Data.ByteString.Lazy   as LBS
-import           Data.Data
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Time
-import           GHC.Word
-import           Network.AWS.Request
-import           Network.AWS.TH
-import           Network.Http.Client
-import           OpenSSL                (withOpenSSL)
-import           System.IO.Streams      (InputStream, OutputStream, stdout)
-import qualified System.IO.Streams      as Streams
-import           Text.Hastache
-import           Text.Hastache.Context
+import Data.Data
+import GHC.Word
+import Network.AWS.Request
+import Network.AWS.TH
+import Network.Http.Client
 
 data CreateHealthCheck = CreateHealthCheck
     { chcCallerRef :: String

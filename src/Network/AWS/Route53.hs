@@ -1,8 +1,6 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE TemplateHaskell    #-}
 
 -- |
 -- Module      : Network.AWS.Route53
@@ -35,7 +33,7 @@ data CreateHealthCheck = CreateHealthCheck
 instance AWSRequest CreateHealthCheck where
     template _ = $(embedTemplate "route53/create_health_check")
     endpoint _ = route53Base
-    request  _ = version3 POST route53Base "healthcheck" []
+    request  _ = version3 POST "healthcheck" []
 
 route53Base :: ByteString
 route53Base = "route53.amazonaws.com"

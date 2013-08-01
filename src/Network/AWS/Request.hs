@@ -28,7 +28,6 @@ import qualified Data.ByteString.Lazy   as LBS
 import           Data.Data
 import qualified Data.Digest.Pure.SHA   as SHA
 import           Data.List
-import           Data.Maybe
 import           Data.Monoid
 import           Data.Time              (UTCTime, formatTime, getCurrentTime)
 import qualified Network.HTTP.Types     as HTTP
@@ -121,11 +120,10 @@ version2 meth end action params = do
         ]
 
 version3 :: Method
-         -> Endpoint
          -> Path
          -> [(ByteString, ByteString)]
          -> AWS Request
-version3 meth end path params = do
+version3 meth path params = do
     creds <- ask
     time  <- liftIO getCurrentTime
     liftIO . buildRequest $ do

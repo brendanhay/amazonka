@@ -58,7 +58,6 @@ runAWS mcreds aws = do
     creds <- maybe env return mcreds
     runReaderT (unWrap aws) creds
   where
-    env :: IO Credentials
     env = do
         (acc, sec) <- (,)
             <$> lookupEnv "ACCESS_KEY_ID"

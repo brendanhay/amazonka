@@ -1,0 +1,3 @@
+:set -isrc
+:set -XOverloadedStrings
+:set -hide-package monads-tf

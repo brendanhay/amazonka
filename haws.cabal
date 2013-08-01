@@ -43,6 +43,7 @@ library
       , base64-bytestring
       , bytestring
       , hastache
+      , HsOpenSSL
       , http-streams
       , http-types
       , hxt

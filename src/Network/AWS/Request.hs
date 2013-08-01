@@ -1,4 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TemplateHaskell            #-}
 
 -- |
 -- Module      : Network.AWS.Request
@@ -13,17 +17,34 @@
 
 module Network.AWS.Request where
 
+
+import           Control.Applicative
+import           Control.Monad
+import           Control.Monad.IO.Class
+import           Control.Monad.Reader
+import           Data.Aeson
 import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Char8  as BS
 import qualified Data.ByteString.Base64 as Base64
+import qualified Data.ByteString.Char8  as BS
 import qualified Data.ByteString.Lazy   as LBS
+import           Data.Data
 import qualified Data.Digest.Pure.SHA   as SHA
 import           Data.List
+import           Data.Maybe
 import           Data.Monoid
+import           Data.Monoid
+import           Data.Time
 import           Data.Time              (UTCTime, formatTime, getCurrentTime)
+import           GHC.Word
 import qualified Network.HTTP.Types     as HTTP
 import           Network.Http.Client
+import           Network.Http.Client
+import           OpenSSL                (withOpenSSL)
+import           System.IO.Streams      (InputStream, OutputStream, stdout)
+import qualified System.IO.Streams      as Streams
 import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
+import           Text.Hastache
+import           Text.Hastache.Context
 
 type Endpoint  = ByteString
 type Action    = ByteString
@@ -35,63 +56,102 @@ data Credentials = Credentials
     , secretKey :: ByteString
     } deriving (Show)
 
+newtype AWS a = AWS { unWrap :: ReaderT Credentials IO a }
+    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Credentials)
+
+runAWS :: Credentials -> AWS a -> IO a
+runAWS creds aws = runReaderT (unWrap aws) creds
+
+class (Data a, Typeable a) => AWSRequest a where
+    template :: a -> ByteString
+    endpoint :: a -> ByteString
+    request  :: a -> AWS Request
+
 apiVersion :: ByteString
 apiVersion = "2012-12-01"
 
-version2 :: Endpoint
+version2 :: Method
+         -> Endpoint
          -> Action
-         -> Method
-         -> Credentials
          -> [(ByteString, ByteString)]
-         -> IO Request
-version2 end action meth creds params = do
-    time <- getCurrentTime
-    buildRequest . http meth
-        $ "/?" <> query time <> "&Signature=" <> signature time
+         -> AWS Request
+version2 meth end action params = do
+    creds <- ask
+    time  <- liftIO getCurrentTime
+    liftIO . buildRequest . http meth $ mconcat
+        [ "/?"
+        , query (accessKey creds) time
+        , "&Signature="
+        , signature creds time
+        ]
   where
-    signature time = HTTP.urlEncode True
+    signature creds time = HTTP.urlEncode True
         . Base64.encode
         . LBS.toStrict
         . SHA.bytestringDigest
         . SHA.hmacSha256 (LBS.fromStrict $ secretKey creds)
         . LBS.fromStrict
-        $ BS.intercalate "\n" [packMethod meth, end, action, query time]
+        $ BS.intercalate "\n"
+            [packMethod meth
+            , end
+            , action
+            , query (accessKey creds) time
+            ]
 
-    query time = queryString $ params `union`
+    query access time = queryString $ params `union`
         [ ("Action", action)
         , ("Version", apiVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod", "HmacSHA256")
         , ("Timestamp", timeFormat time)
-        , ("AWSAccessKeyId", accessKey creds)
+        , ("AWSAccessKeyId", access)
         ]
 
-version3 :: Endpoint
+version3 :: Method
+         -> Endpoint
          -> Path
-         -> Method
-         -> Credentials
          -> [(ByteString, ByteString)]
-         -> IO Request
-version3 end path meth creds params = do
-    time <- getCurrentTime
-    buildRequest $ do
-        http meth $ "/" <> apiVersion <> "/" <> path <> "?" <> query
-        setHeader "X-Amzn-Authorization" $ authorization time
+         -> AWS Request
+version3 meth end path params = do
+    creds <- ask
+    time  <- liftIO getCurrentTime
+    liftIO . buildRequest $ do
+        http meth $ "/" <> apiVersion <> "/" <> path <> "?" <> query (accessKey creds)
+        setHeader "X-Amzn-Authorization" $ authorization creds time
   where
-    query = queryString $ ("AWSAccessKeyId", accessKey creds) : params
+    query access = queryString $ ("AWSAccessKeyId", access) : params
 
-    authorization time = mconcat
+    authorization creds time = mconcat
         [ "AWS3-HTTPS AWSAccessKeyId="
         , accessKey creds
         , ", Algorithm=HmacSHA256, Signature="
-        , signature time
+        , signature (secretKey creds) time
         ]
 
-    signature = LBS.toStrict
+    signature secret = LBS.toStrict
         . SHA.bytestringDigest
-        . SHA.hmacSha256 (LBS.fromStrict $ secretKey creds)
+        . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
         . timeFormat
+
+send :: AWSRequest a => a -> AWS ()
+send rq = do
+    r <- request rq
+    liftIO . withOpenSSL $ do
+        s <- baselineContextSSL
+        c <- openConnectionSSL s (endpoint rq) 443
+
+        bodyStream >>= sendRequest c r . inputStreamBody
+
+        receiveResponse c (\p i -> do
+            x <- Streams.read i
+            BS.putStr $ fromMaybe "" x)
+
+        closeConnection c
+  where
+    bodyStream = do
+       b <- hastacheStr defaultConfig (template rq) $ mkGenericContext rq
+       Streams.makeInputStream . return . Just $ LBS.toStrict b
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show

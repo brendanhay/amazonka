@@ -15,11 +15,13 @@
 module Network.AWS.TH where
 
 import qualified Data.ByteString.Char8 as BS
+import           Data.Monoid
 import           Language.Haskell.TH
 import           Paths_haws            (getDataFileName)
 
 embedTemplate :: FilePath -> Q Exp
-embedTemplate name = (runIO $ getDataFileName name >>= BS.readFile) >>= bsExp
+embedTemplate name =
+    (runIO $ getDataFileName ("template/" <> name) >>= BS.readFile) >>= bsExp
   where
     bsExp bs = do
         pack <- [| BS.pack |]

@@ -35,14 +35,16 @@ data Credentials = Credentials
     , secretKey :: ByteString
     } deriving (Show)
 
-version2 :: Method
-         -> Endpoint
+apiVersion :: ByteString
+apiVersion = "2012-12-01"
+
+version2 :: Endpoint
          -> Action
+         -> Method
          -> Credentials
-         -> Version
          -> [(ByteString, ByteString)]
          -> IO Request
-version2 meth end action creds ver params = do
+version2 end action meth creds params = do
     time <- getCurrentTime
     buildRequest . http meth
         $ "/?" <> query time <> "&Signature=" <> signature time
@@ -57,23 +59,23 @@ version2 meth end action creds ver params = do
 
     query time = queryString $ params `union`
         [ ("Action", action)
-        , ("Version", ver)
+        , ("Version", apiVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod", "HmacSHA256")
         , ("Timestamp", timeFormat time)
         , ("AWSAccessKeyId", accessKey creds)
         ]
 
-version3 :: Method
-         -> Endpoint
+version3 :: Endpoint
          -> Path
+         -> Method
          -> Credentials
          -> [(ByteString, ByteString)]
          -> IO Request
-version3 meth end path creds params = do
+version3 end path meth creds params = do
     time <- getCurrentTime
     buildRequest $ do
-        http meth $ path <> "/?" <> query
+        http meth $ "/" <> apiVersion <> "/" <> path <> "?" <> query
         setHeader "X-Amzn-Authorization" $ authorization time
   where
     query = queryString $ ("AWSAccessKeyId", accessKey creds) : params

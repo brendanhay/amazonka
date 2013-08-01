@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- |
 -- Module      : Network.AWS.Route53
@@ -30,16 +31,16 @@ import           Data.Monoid
 import           Data.Time
 import           GHC.Word
 import           Network.AWS.Request
+import           Network.AWS.TH
 import           Network.Http.Client
-import           Paths_haws             (getDataFileName)
 import           System.IO.Streams      (InputStream, OutputStream, stdout)
 import qualified System.IO.Streams      as Streams
 import           Text.Hastache
 import           Text.Hastache.Context
 
 class (Data a, Typeable a) => AWSRequest a where
-    rqTemplate :: a -> FilePath
-    rqUri      :: a -> ByteString
+    template :: a -> ByteString
+    version  :: a -> Method -> Credentials -> [(ByteString, ByteString)] -> IO Request
 
 data CreateHealthCheck = CreateHealthCheck
     { chcCallerRef :: String
@@ -50,19 +51,6 @@ data CreateHealthCheck = CreateHealthCheck
     , chcFQDN      :: String
     } deriving (Data, Typeable)
 
-data Signed = Signed
-    { sigMethod       :: Method
-    , sigUri          :: ByteString
-    , sigDate         :: Maybe UTCTime
-    , sigAuth         :: Maybe ByteString
-    , sigContentType  :: Maybe ByteString
-    , sigContentMD5   :: Maybe MD5.MD5
-    , sigAWSHeaders   :: HTTP.RequestHeaders
-    , sigHeaders      :: HTTP.RequestHeaders
-    , sigBody         :: Maybe ByteString
-    , sigStringToSign :: ByteString
-    } deriving (Show)
-
 newtype AWS a = AWS { unWrap :: ReaderT Credentials IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Credentials)
 
@@ -72,27 +60,23 @@ runAWS creds aws = runReaderT (unWrap aws) creds
 -- FIXME: Use template haskell for instances
 -- Function which determines the template from the class name underscored
 -- and takes the uri as an argument
+-- use TH to read in the actual template at compile time and set it to
+-- the template typeclass function :: ByteString
 instance AWSRequest CreateHealthCheck where
-    requestTemplate _ = "create_health_check"
-    request  _ = route53Base <> "healthcheck"
-    signingVersion _ =
+    template _ = $(embedTemplate "create_health_check")
+    version  _ = version3 route53Base "healthcheck"
 
 route53Base :: ByteString
-route53Base = "https://route53.amazonaws.com/doc/2012-12-12/"
+route53Base = "route53.amazonaws.com"
 
 awsRequest :: AWSRequest a => a -> AWS ()
 awsRequest rq = do
     Credentials{..} <- ask
-    liftIO $ request' rq
+    liftIO $ do
+        c <- openConnection (requestUri rq) 80
+        r <- version rq
 
-request' :: AWSRequest a => a -> IO ()
-request' rq = do
-    c <- openConnection (requestUri rq) 80
-    q <- buildRequest $ do
-        http GET "/"
-        setAccept "text/html"
-
-    bodyStream >>= sendRequest c q . inputStreamBody
+    bodyStream >>= sendRequest c r . inputStreamBody
 
     receiveResponse c (\p i -> do
         x <- Streams.read i
@@ -101,7 +85,7 @@ request' rq = do
     closeConnection c
   where
     bodyStream = do
-       t <- readTemplate $ requestTmpl rq
+       t <- readTemplate $ template rq
        b <- hastacheStr defaultConfig t $ mkGenericContext rq
        Streams.makeInputStream . return . Just $ LBS.toStrict b
 

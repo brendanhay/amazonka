@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateHealthCheckRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
+  <CallerReference>{{chcCallerRef}}</CallerReference>
+  <HealthCheckConfig>
+    <IPAddress>{{chcIpAddress}}</IPAddress>
+    <Port>{{chcPort}}</Port>
+    <Type>{{chcProtocol}}</Type>
+    <ResourcePath>{{chcResource}}</ResourcePath>
+    <FullyQualifiedDomainName>{{chcFQDN}}</FullyQualifiedDomainName>
+  </HealthCheckConfig>
+</CreateHealthCheckRequest>

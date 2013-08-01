@@ -1,0 +1,79 @@
+name:                  haws
+version:               0.1.0
+synopsis:              Pending
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013 Brendan Hay
+stability:             Experimental
+category:              Network
+build-type:            Simple
+cabal-version:         >= 1.10
+
+extra-source-files:
+    README.md
+
+data-files:
+    template/route53/create_health_check
+
+description:
+    Pending
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src
+
+    exposed-modules:
+        Paths_haws
+
+        Network.AWS.Route53
+
+    other-modules:
+
+    ghc-options:
+        -Wall
+        -rtsopts
+        -fwarn-tabs
+        -funbox-strict-fields
+
+    build-depends:
+        aeson
+      , base                 >= 4 && < 5
+      , base64-bytestring
+      , bytestring
+      , containers
+      , hastache
+      , http-streams
+      , http-types
+      , hxt
+      , hxt-expat
+      , hxt-tagsoup
+      , io-streams
+      , mtl
+      , old-locale
+      , regex-posix
+      , SHA
+      , text
+      , time
+      , transformers
+      , unordered-containers
+      , vector
+
+-- executable haws
+--     default-language:  Haskell2010
+--     main-is:           Main.hs
+--     hs-source-dirs:    src
+
+--     ghc-options:
+--         -threaded
+--         -Wall
+--         -fwarn-tabs
+--         -funbox-strict-fields
+--         -with-rtsopts=-N
+--         -with-rtsopts=-T
+
+--     build-depends:
+--         base >= 4 && < 5
+--       , haws
+--       , hastache

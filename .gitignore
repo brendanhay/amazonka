@@ -1,0 +1,38 @@
+# Haskell
+.conf
+*.o
+*.hi
+*.chi
+*.chs.h
+*.imports
+
+# Dirs
+cabal-dev
+bin
+dist
+tmp
+.shelly
+vendor
+
+# CTAGS
+TAGS
+tags
+
+# Emacs/Vim
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+*.org
+
+# OSX
+.DS_Store
+
+# Keiretsu
+.env
+Procfile
+
+# Protobufs
+Protocol*

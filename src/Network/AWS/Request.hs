@@ -18,6 +18,7 @@
 module Network.AWS.Request where
 
 import           Control.Applicative
+import           Control.Exception
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
@@ -28,34 +29,24 @@ import qualified Data.ByteString.Lazy   as LBS
 import           Data.Data
 import qualified Data.Digest.Pure.SHA   as SHA
 import           Data.List
+import           Data.Map               (Map)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Time              (UTCTime, formatTime, getCurrentTime)
+import           Network.AWS.Types
 import qualified Network.HTTP.Types     as HTTP
 import           Network.Http.Client
-import           OpenSSL                (withOpenSSL)
 import           System.Environment
+import           System.IO.Streams      (InputStream)
 import qualified System.IO.Streams      as Streams
 import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
 import           Text.Hastache
 import           Text.Hastache.Context
 
-type Endpoint  = ByteString
-type Action    = ByteString
-type Path      = ByteString
-type Version   = ByteString
-
-data Credentials = Credentials
-    { accessKey :: ByteString
-    , secretKey :: ByteString
-    } deriving (Show)
-
-newtype AWS a = AWS { unWrap :: ReaderT Credentials IO a }
-    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Credentials)
-
-runAWS :: Maybe Credentials -> AWS a -> IO a
-runAWS mcreds aws = do
-    creds <- maybe env return mcreds
+runAWS :: AWS a -> IO a
+runAWS aws = do
+    creds <- maybe env return Nothing
+    putStrLn $ "Found: " ++ show creds
     runReaderT (unWrap aws) creds
   where
     env = do
@@ -64,99 +55,101 @@ runAWS mcreds aws = do
             <*> lookupEnv "SECRET_ACCESS_KEY"
         return . fromMaybe (error "Oh noes!") $
             Credentials <$> fmap BS.pack acc <*> fmap BS.pack sec
-
     -- metadataCredentials
-
-class (Data a, Typeable a) => AWSRequest a where
-    template :: a -> ByteString
-    endpoint :: a -> ByteString
-    request  :: a -> AWS Request
 
 send :: AWSRequest a => a -> AWS ()
 send rq = do
-    r <- request rq
-    liftIO . withOpenSSL $ do
-        s <- baselineContextSSL
-        c <- openConnectionSSL s (endpoint rq) 443
+    SignedRequest{..} <- request rq
+    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
+        sendRequest conn rqRequest $ inputStreamBody rqStream
+        receiveResponse conn (\p i -> do
+            x <- Streams.read i
+            BS.putStr $ fromMaybe "" x)
 
-        bodyStream >>= sendRequest c r . inputStreamBody
+sign :: SigningVersion -> RawRequest a -> AWS SignedRequest
+sign Version2 = version2
+sign Version3 = version3
 
-        -- receiveResponse c (\p i -> do
-        --     x <- Streams.read i
-        --     BS.putStr $ fromMaybe "" x)
+version2 :: RawRequest a -> AWS SignedRequest
+version2 RawRequest{..} = do
+    Credentials{..} <- ask
+    time            <- liftIO getCurrentTime
 
-        closeConnection c
+    let act = fromMaybe (error "Handle missing action") rqAction
+        qry = query act accessKey time
+        sig = signature secretKey act qry
+        url = "https://"
+            <> rqHost
+            <> "/"
+            <> rqPath
+            <> "?"
+            <> qry
+            <> "&Signature="
+            <> sig
+
+    liftIO $ SignedRequest url
+        <$> buildRequest (http rqMethod url)
+        <*> templateStream rqBody
   where
-    bodyStream = do
-       b <- hastacheStr defaultConfig (template rq) $ mkGenericContext rq
-       print b
-       Streams.makeInputStream . return . Just $ LBS.toStrict b
-
-apiVersion :: ByteString
-apiVersion = "2012-12-01"
-
-version2 :: Method
-         -> Endpoint
-         -> Action
-         -> [(ByteString, ByteString)]
-         -> AWS Request
-version2 meth end action params = do
-    creds <- ask
-    time  <- liftIO getCurrentTime
-    liftIO . buildRequest . http meth $ mconcat
-        [ "/?"
-        , query (accessKey creds) time
-        , "&Signature="
-        , signature creds time
+    query action access time = queryString $ rqQuery `union`
+        [ ("Action",           action)
+        , ("Version",          apiVersion)
+        , ("SignatureVersion", "2")
+        , ("SignatureMethod",  "HmacSHA256")
+        , ("Timestamp",        timeFormat time)
+        , ("AWSAccessKeyId",   access)
         ]
-  where
-    signature creds time = HTTP.urlEncode True
+
+    signature secret action qry = HTTP.urlEncode True
         . Base64.encode
         . LBS.toStrict
         . SHA.bytestringDigest
-        . SHA.hmacSha256 (LBS.fromStrict $ secretKey creds)
+        . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
         $ BS.intercalate "\n"
-            [packMethod meth
-            , end
+            [ packMethod rqMethod
+            , rqHost
             , action
-            , query (accessKey creds) time
+            , qry
             ]
 
-    query access time = queryString $ params `union`
-        [ ("Action", action)
-        , ("Version", apiVersion)
-        , ("SignatureVersion", "2")
-        , ("SignatureMethod", "HmacSHA256")
-        , ("Timestamp", timeFormat time)
-        , ("AWSAccessKeyId", access)
-        ]
+version3 :: RawRequest a -> AWS SignedRequest
+version3 RawRequest{..} = do
+    Credentials{..} <- ask
+    time            <- liftIO getCurrentTime
 
-version3 :: Method
-         -> Path
-         -> [(ByteString, ByteString)]
-         -> AWS Request
-version3 meth path params = do
-    creds <- ask
-    time  <- liftIO getCurrentTime
+    let meth = packMethod rqMethod
+        sig  = signature secretKey time
+        auth = authorization accessKey sig
+        url  = "https://"
+            <> rqHost
+            <> "/"
+            <> apiVersion
+            <> "/"
+            <> rqPath
+            <> "?"
+            <> query accessKey
+
     liftIO . buildRequest $ do
-        http meth $ "/" <> apiVersion <> "/" <> path <> "?" <> query (accessKey creds)
-        setHeader "X-Amzn-Authorization" $ authorization creds time
+        http meth url
+        setHeader "X-Amzn-Authorization" auth
   where
-    query access = queryString $ ("AWSAccessKeyId", access) : params
+    query access = queryString $ ("AWSAccessKeyId", access) : rqQuery
 
-    authorization creds time = mconcat
-        [ "AWS3-HTTPS AWSAccessKeyId="
-        , accessKey creds
-        , ", Algorithm=HmacSHA256, Signature="
-        , signature (secretKey creds) time
-        ]
+    authorization access sig = "AWS3-HTTPS AWSAccessKeyId="
+        <> access
+        <> ",Algorithm=HmacSHA256,Signature="
+        <> sig
 
-    signature secret = LBS.toStrict
+    signature secret = Base64.encode
+        . LBS.toStrict
         . SHA.bytestringDigest
         . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
         . timeFormat
+
+apiVersion :: ByteString
+apiVersion = "2012-12-01"
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show
@@ -170,3 +163,7 @@ timeFormat :: UTCTime -> ByteString
 timeFormat = BS.pack . formatTime defaultTimeLocale fmt
   where
     fmt = iso8601DateFormat $ Just "%XZ"
+
+templateStream :: AWSTemplate a => a -> IO (InputStream ByteString)
+templateStream tmpl = Streams.fromByteString
+    <$> hastacheStr defaultConfig (template tmpl) (mkGenericContext tmpl)

@@ -42,8 +42,8 @@ library
       , base                 >= 4 && < 5
       , base64-bytestring
       , bytestring
+      , containers
       , hastache
-      , HsOpenSSL
       , http-streams
       , http-types
       , hxt

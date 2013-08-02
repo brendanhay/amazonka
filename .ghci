@@ -1,3 +1,10 @@
 :set -isrc
 :set -XOverloadedStrings
 :set -hide-package monads-tf
+
+:load Network.AWS.Request
+:load Network.AWS.Route53
+
+ref <- callerRef
+
+let check = CreateHealthCheck ref "127.0.0.1" 80 HTTP "/index.html" "fqdn.something.aws"

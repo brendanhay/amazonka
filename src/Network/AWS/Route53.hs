@@ -1,6 +1,7 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE TemplateHaskell    #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE TemplateHaskell            #-}
 
 -- |
 -- Module      : Network.AWS.Route53
@@ -15,25 +16,37 @@
 
 module Network.AWS.Route53 where
 
+import Control.Applicative
 import Data.ByteString     (ByteString)
 import Data.Data
+import Data.String
+import Data.Time
 import Network.AWS.Request
 import Network.AWS.TH
 import Network.Http.Client
 
+newtype CallerRef = CallerRef String
+    deriving (Show, IsString, Data, Typeable)
+
+data Protocol = HTTP | TCP
+    deriving (Show, Data, Typeable)
+
 data CreateHealthCheck = CreateHealthCheck
-    { chcCallerRef :: String
-    , chcIpAddress :: String
-    , chcPort      :: Int
-    , chcProtocol  :: String
-    , chcResource  :: String
-    , chcFQDN      :: String
+    { chcCallerRef :: !CallerRef
+    , chcIpAddress :: !String
+    , chcPort      :: !Int
+    , chcProtocol  :: !Protocol
+    , chcResource  :: !String
+    , chcFQDN      :: !String
     } deriving (Show, Data, Typeable)
 
 instance AWSRequest CreateHealthCheck where
     template _ = $(embedTemplate "route53/create_health_check")
     endpoint _ = route53Base
-    request  _ = version3 POST "healthcheck" []
+    request  _ = version3 POST route53Base "healthcheck" []
 
 route53Base :: ByteString
 route53Base = "route53.amazonaws.com"
+
+callerRef :: IO CallerRef
+callerRef = fromString . show <$> getCurrentTime

@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE StandaloneDeriving         #-}
 
 -- |
@@ -25,7 +26,7 @@ import qualified Data.ByteString.Char8  as BS
 import           Data.Data
 import           Data.Map               (Map)
 import qualified Data.Map               as Map
-import           Network.Http.Client
+import           Network.Http.Client    hiding (post, put)
 import           System.IO.Streams      (InputStream)
 
 data Credentials = Credentials
@@ -81,8 +82,14 @@ data SignedRequest = SignedRequest
     , rqStream  :: !(InputStream ByteString)
     }
 
-class (Data a, Typeable a) => AWSTemplate a where
+instance Show SignedRequest where
+    show SignedRequest{..} = "SignedRequest: "
+        ++ show rqUrl
+        ++ "\n"
+        ++ show rqRequest
+
+class (Show a, Data a, Typeable a) => AWSTemplate a where
     readTemplate :: a -> ByteString
 
-class AWSRequest a where
+class Show a => AWSRequest a where
     signRequest :: a -> AWS SignedRequest

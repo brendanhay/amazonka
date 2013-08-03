@@ -24,7 +24,6 @@ import Data.Time
 import Network.AWS.Request
 import Network.AWS.TH
 import Network.AWS.Types
-import Network.Http.Client
 
 newtype CallerRef = CallerRef String
     deriving (Show, IsString, Data, Typeable)

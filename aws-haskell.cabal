@@ -18,7 +18,7 @@ extra-source-files:
     README.md
 
 data-files:
-    template/route53/create_health_check
+    template/Route53/CreateHealthCheck
 
 source-repository head
     type:     git
@@ -52,6 +52,7 @@ library
       , bytestring
       , containers
       , hastache
+      , HsOpenSSL
       , http-streams
       , http-types
       , hxt

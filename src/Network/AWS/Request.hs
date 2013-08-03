@@ -33,6 +33,7 @@ import           Data.Time              (UTCTime, formatTime, getCurrentTime)
 import           Network.AWS.Types
 import qualified Network.HTTP.Types     as HTTP
 import           Network.Http.Client
+import           OpenSSL                (withOpenSSL)
 import           System.Environment
 import           System.IO.Streams      (InputStream)
 import qualified System.IO.Streams      as Streams
@@ -41,7 +42,7 @@ import           Text.Hastache
 import           Text.Hastache.Context
 
 runAWS :: AWS a -> IO a
-runAWS aws = do
+runAWS aws = withOpenSSL $ do
     creds <- maybe env return Nothing
     putStrLn $ "Found: " ++ show creds
     runReaderT (unWrap aws) creds

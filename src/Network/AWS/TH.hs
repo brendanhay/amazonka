@@ -17,13 +17,10 @@ module Network.AWS.TH
     (embedTemplate
     ) where
 
-import           Control.Applicative
 import qualified Data.ByteString.Char8      as BS
 import           Data.List
-import           Data.Maybe
 import           Data.Monoid
 import           Language.Haskell.TH
-import           Language.Haskell.TH.Syntax
 import           Network.AWS.Types
 import           Paths_haws                 (getDataFileName)
 

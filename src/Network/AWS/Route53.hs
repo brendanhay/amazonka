@@ -42,11 +42,11 @@ data CreateHealthCheck = CreateHealthCheck
 
 instance AWSRequest CreateHealthCheck where
     template _ = $(embedTemplate "route53/create_health_check")
-    endpoint _ = route53Base
-    request  _ = version3 POST route53Base "healthcheck" []
+    endpoint _ = route53Endpoint
+    request  _ = version3 POST route53Endpoint "healthcheck" []
 
-route53Base :: ByteString
-route53Base = "route53.amazonaws.com"
+route53Endpoint :: ByteString
+route53Endpoint = "route53.amazonaws.com"
 
 callerRef :: IO CallerRef
 callerRef = fromString . show <$> getCurrentTime

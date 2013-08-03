@@ -55,16 +55,16 @@ runAWS aws = do
             <*> lookupEnv "SECRET_ACCESS_KEY"
         return . fromMaybe (error "Oh noes!") $
             Credentials <$> fmap BS.pack acc <*> fmap BS.pack sec
-    -- metadataCredentials
+    -- metadata
 
-send :: AWSRequest a => a -> AWS ()
+-- FIXME: XHT -> Aeson
+send :: AWSRequest a => a -> AWS ByteString
 send rq = do
-    SignedRequest{..} <- request rq
+    SignedRequest{..} <- signRequest rq
     liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
         sendRequest conn rqRequest $ inputStreamBody rqStream
-        receiveResponse conn (\p i -> do
-            x <- Streams.read i
-            BS.putStr $ fromMaybe "" x)
+        receiveResponse conn $ \_ inp -> do
+            fromMaybe "" <$> Streams.read inp
 
 sign :: SigningVersion -> RawRequest a -> AWS SignedRequest
 sign Version2 = version2

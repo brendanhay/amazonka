@@ -26,11 +26,6 @@ import Data.Map               (Map)
 import Network.Http.Client
 import System.IO.Streams      (InputStream)
 
-type Endpoint  = ByteString
-type Action    = ByteString
-type Path      = ByteString
-type Version   = ByteString
-
 data Credentials = Credentials
     { accessKey :: ByteString
     , secretKey :: ByteString
@@ -68,4 +63,4 @@ class (Data a, Typeable a) => AWSTemplate a where
     template :: a -> ByteString
 
 class AWSRequest a where
-    request :: a -> AWS SignedRequest
+    signRequest :: a -> AWS SignedRequest

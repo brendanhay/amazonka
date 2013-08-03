@@ -23,6 +23,7 @@ import Data.String
 import Data.Time
 import Network.AWS.Request
 import Network.AWS.TH
+import Network.AWS.Types
 import Network.Http.Client
 
 newtype CallerRef = CallerRef String
@@ -40,10 +41,14 @@ data CreateHealthCheck = CreateHealthCheck
     , chcFQDN      :: !String
     } deriving (Show, Data, Typeable)
 
+$(embedTemplate ''CreateHealthCheck)
+
 instance AWSRequest CreateHealthCheck where
-    template _ = $(embedTemplate "route53/create_health_check")
-    endpoint _ = route53Endpoint
-    request  _ = version3 POST route53Endpoint "healthcheck" []
+    signRequest = sign Version3 . post route53Endpoint "healthcheck"
+
+--
+-- Internal
+--
 
 route53Endpoint :: ByteString
 route53Endpoint = "route53.amazonaws.com"

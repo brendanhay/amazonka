@@ -19,17 +19,14 @@ module Network.AWS.Request where
 
 import           Control.Applicative
 import           Control.Exception
-import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Base64 as Base64
 import qualified Data.ByteString.Char8  as BS
 import qualified Data.ByteString.Lazy   as LBS
-import           Data.Data
 import qualified Data.Digest.Pure.SHA   as SHA
 import           Data.List
-import           Data.Map               (Map)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Time              (UTCTime, formatTime, getCurrentTime)
@@ -70,6 +67,10 @@ sign :: SigningVersion -> RawRequest a -> AWS SignedRequest
 sign Version2 = version2
 sign Version3 = version3
 
+--
+-- Internal
+--
+
 version2 :: RawRequest a -> AWS SignedRequest
 version2 RawRequest{..} = do
     Credentials{..} <- ask
@@ -79,9 +80,9 @@ version2 RawRequest{..} = do
         qry = query act accessKey time
         sig = signature secretKey act qry
         url = "https://"
-            <> rqHost
+            <> rqHost  -- Test for '/' suffix
             <> "/"
-            <> rqPath
+            <> fromMaybe "" rqPath -- Test for '/' prefix
             <> "?"
             <> qry
             <> "&Signature="
@@ -118,21 +119,22 @@ version3 RawRequest{..} = do
     Credentials{..} <- ask
     time            <- liftIO getCurrentTime
 
-    let meth = packMethod rqMethod
-        sig  = signature secretKey time
+    let sig  = signature secretKey time
         auth = authorization accessKey sig
         url  = "https://"
-            <> rqHost
+            <> rqHost  -- Test for '/' suffix
             <> "/"
             <> apiVersion
             <> "/"
-            <> rqPath
+            <> fromMaybe "" rqPath  -- Test for '/' prefix
             <> "?"
             <> query accessKey
 
-    liftIO . buildRequest $ do
-        http meth url
-        setHeader "X-Amzn-Authorization" auth
+    liftIO $ SignedRequest url
+        <$> buildRequest (do
+                http rqMethod url
+                setHeader "X-Amzn-Authorization" auth)
+        <*> templateStream rqBody
   where
     query access = queryString $ ("AWSAccessKeyId", access) : rqQuery
 
@@ -165,5 +167,6 @@ timeFormat = BS.pack . formatTime defaultTimeLocale fmt
     fmt = iso8601DateFormat $ Just "%XZ"
 
 templateStream :: AWSTemplate a => a -> IO (InputStream ByteString)
-templateStream tmpl = Streams.fromByteString
-    <$> hastacheStr defaultConfig (template tmpl) (mkGenericContext tmpl)
+templateStream tmpl = do
+    bstr <- hastacheStr defaultConfig (readTemplate tmpl) (mkGenericContext tmpl)
+    Streams.fromLazyByteString bstr

@@ -16,15 +16,17 @@
 
 module Network.AWS.Types where
 
-import Control.Applicative
-import Control.Monad
-import Control.Monad.IO.Class
-import Control.Monad.Reader
-import Data.ByteString        (ByteString)
-import Data.Data
-import Data.Map               (Map)
-import Network.Http.Client
-import System.IO.Streams      (InputStream)
+import           Control.Applicative
+import           Control.Monad
+import           Control.Monad.IO.Class
+import           Control.Monad.Reader
+import           Data.ByteString        (ByteString)
+import qualified Data.ByteString.Char8  as BS
+import           Data.Data
+import           Data.Map               (Map)
+import qualified Data.Map               as Map
+import           Network.Http.Client
+import           System.IO.Streams      (InputStream)
 
 data Credentials = Credentials
     { accessKey :: ByteString
@@ -44,12 +46,32 @@ data RawRequest a where
                => { rqMethod  :: !Method
                  , rqHost    :: !ByteString
                  , rqAction  :: !(Maybe ByteString)
-                 , rqPath    :: !ByteString
+                 , rqPath    :: !(Maybe ByteString)
                  , rqHeaders :: !(Map ByteString [ByteString])
                  , rqQuery   :: ![(ByteString, ByteString)]
                  , rqBody    :: !a
                  }
                -> RawRequest a
+
+emptyRequest :: AWSTemplate a
+             => Method
+             -> ByteString
+             -> ByteString
+             -> a
+             -> RawRequest a
+emptyRequest meth host path body = RawRequest
+    { rqMethod  = meth
+    , rqHost    = host
+    , rqAction  = Nothing
+    , rqPath    = if BS.null path then Nothing else Just path
+    , rqHeaders = Map.empty
+    , rqQuery   = []
+    , rqBody    = body
+    }
+
+post, put :: AWSTemplate a => ByteString -> ByteString -> a -> RawRequest a
+post = emptyRequest POST
+put  = emptyRequest PUT
 
 deriving instance Show a => Show (RawRequest a)
 
@@ -60,7 +82,7 @@ data SignedRequest = SignedRequest
     }
 
 class (Data a, Typeable a) => AWSTemplate a where
-    template :: a -> ByteString
+    readTemplate :: a -> ByteString
 
 class AWSRequest a where
     signRequest :: a -> AWS SignedRequest

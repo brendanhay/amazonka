@@ -1,5 +1,6 @@
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE QuasiQuotes     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE QuasiQuotes       #-}
 
 -- |
 -- Module      : Network.AWS.TH
@@ -12,17 +13,45 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.TH where
+module Network.AWS.TH
+    (embedTemplate
+    ) where
 
-import qualified Data.ByteString.Char8 as BS
+import           Control.Applicative
+import qualified Data.ByteString.Char8      as BS
+import           Data.List
+import           Data.Maybe
 import           Data.Monoid
 import           Language.Haskell.TH
-import           Paths_haws            (getDataFileName)
+import           Language.Haskell.TH.Syntax
+import           Network.AWS.Types
+import           Paths_haws                 (getDataFileName)
 
-embedTemplate :: FilePath -> Q Exp
-embedTemplate name =
+-- Tries to read: template/<NameOfModule>/<Type>
+-- IE: Network.AWS.Route53.CreateHealthCheck
+-- becomes template/Route53/CreateHealthCheck
+embedTemplate :: Name -> Q [Dec]
+embedTemplate name = [d|
+    instance AWSTemplate $(conT name) where
+        readTemplate _ = $(readTemplate' (suffix $ show name))
+    |]
+
+--
+-- Internal
+--
+
+readTemplate' :: FilePath -> Q Exp
+readTemplate' name =
     (runIO $ getDataFileName ("template/" <> name) >>= BS.readFile) >>= bsExp
   where
     bsExp bs = do
         pack <- [| BS.pack |]
         return $! AppE pack $! LitE $! StringL $! BS.unpack bs
+
+suffix :: String -> String
+suffix str = map rep $ drop idx str
+  where
+    idx = (+ 1) $ reverse (elemIndices '.' str) !! 1
+
+    rep '.' = '/'
+    rep  c  = c

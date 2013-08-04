@@ -14,15 +14,31 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.TH
-    (embedTemplate
+    ( deriveTemplate
     ) where
 
-import qualified Data.ByteString.Char8      as BS
+import           Control.Applicative
+import           Data.Aeson.TH
+import qualified Data.ByteString.Char8 as BS
+import           Data.Char             (isUpper, toLower)
 import           Data.List
+import           Data.Maybe
 import           Data.Monoid
 import           Language.Haskell.TH
 import           Network.AWS.Types
-import           Paths_haws                 (getDataFileName)
+import           Paths_haws            (getDataFileName)
+
+deriveTemplate :: String -> Name -> Q [Dec]
+deriveTemplate pre name = concat <$> sequence
+    [ deriveToJSON key name
+    , embedTemplate name
+    ]
+  where
+    key s = underscore . fromMaybe s $ pre `stripPrefix` s
+
+--
+-- Internal
+--
 
 -- Tries to read: template/<NameOfModule>/<Type>
 -- IE: Network.AWS.Route53.CreateHealthCheck
@@ -32,10 +48,6 @@ embedTemplate name = [d|
     instance AWSTemplate $(conT name) where
         readTemplate _ = $(readTemplate' (suffix $ show name))
     |]
-
---
--- Internal
---
 
 readTemplate' :: FilePath -> Q Exp
 readTemplate' name =
@@ -52,3 +64,9 @@ suffix str = map rep $ drop idx str
 
     rep '.' = '/'
     rep  c  = c
+
+underscore :: String -> String
+underscore (x:xs) | isUpper x = toLower x : underscore xs
+underscore xs                 = concatMap f xs
+  where
+    f x = ['_' | isUpper x] ++ [toLower x]

@@ -1,6 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
 -- |
@@ -17,8 +16,8 @@
 module Network.AWS.Route53 where
 
 import Control.Applicative
+import Data.Aeson
 import Data.ByteString     (ByteString)
-import Data.Data
 import Data.String
 import Data.Time
 import Network.AWS.Request
@@ -26,10 +25,16 @@ import Network.AWS.TH
 import Network.AWS.Types
 
 newtype CallerRef = CallerRef String
-    deriving (Show, IsString, Data, Typeable)
+    deriving (Show, IsString)
+
+instance ToJSON CallerRef where
+    toJSON (CallerRef s) = toJSON s
 
 data Protocol = HTTP | TCP
-    deriving (Show, Data, Typeable)
+    deriving (Show)
+
+instance ToJSON Protocol where
+    toJSON = toJSON . show
 
 data CreateHealthCheck = CreateHealthCheck
     { chcCallerRef :: !CallerRef
@@ -38,9 +43,9 @@ data CreateHealthCheck = CreateHealthCheck
     , chcProtocol  :: !Protocol
     , chcResource  :: !String
     , chcFQDN      :: !String
-    } deriving (Show, Data, Typeable)
+    } deriving (Show)
 
-$(embedTemplate ''CreateHealthCheck)
+$(deriveTemplate "chc" ''CreateHealthCheck)
 
 instance AWSRequest CreateHealthCheck where
     signRequest = sign Version3 . post route53Endpoint "healthcheck"

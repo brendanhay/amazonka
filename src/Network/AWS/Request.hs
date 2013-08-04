@@ -2,7 +2,6 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TemplateHaskell            #-}
 
 -- |
 -- Module      : Network.AWS.Request
@@ -21,6 +20,7 @@ import           Control.Applicative
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
+import           Data.Aeson
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Base64 as Base64
 import qualified Data.ByteString.Char8  as BS
@@ -39,7 +39,7 @@ import           System.IO.Streams      (InputStream)
 import qualified System.IO.Streams      as Streams
 import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
 import           Text.Hastache
-import           Text.Hastache.Context
+import           Text.Hastache.Aeson
 
 runAWS :: AWS a -> IO a
 runAWS aws = withOpenSSL $ do
@@ -60,8 +60,9 @@ send :: AWSRequest a => a -> AWS ByteString
 send rq = do
     SignedRequest{..} <- signRequest rq
     liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
+        print rqRequest
         sendRequest conn rqRequest $ inputStreamBody rqStream
-        receiveResponse conn $ \_ inp -> do
+        receiveResponse conn $ \_ inp ->
             fromMaybe "" <$> Streams.read inp
 
 sign :: SigningVersion -> RawRequest a -> AWS SignedRequest
@@ -98,7 +99,7 @@ version2 RawRequest{..} = do
         , ("Version",          apiVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
-        , ("Timestamp",        timeFormat time)
+        , ("Timestamp",        awsTime time)
         , ("AWSAccessKeyId",   access)
         ]
 
@@ -118,7 +119,7 @@ version2 RawRequest{..} = do
 version3 :: RawRequest a -> AWS SignedRequest
 version3 RawRequest{..} = do
     Credentials{..} <- ask
-    time            <- timeFormat <$> liftIO getCurrentTime
+    time            <- liftIO getCurrentTime
 
     let sig  = signature secretKey time
         auth = authorization accessKey sig
@@ -128,17 +129,19 @@ version3 RawRequest{..} = do
             <> apiVersion
             <> "/"
             <> fromMaybe "" rqPath  -- Test for '/' prefix
-            <> "?"
-            <> query accessKey
+            <> query
+
+    liftIO $ print rqBody
 
     liftIO $ SignedRequest url
         <$> buildRequest (do
                 http rqMethod url
-                setHeader "X-AMZ-Date" $ time
+                setHeader "X-AMZ-Date" $ rfc822Time time
                 setHeader "X-Amzn-Authorization" auth)
         <*> templateStream rqBody
   where
-    query access = queryString $ ("AWSAccessKeyId", access) : rqQuery
+    query | null rqQuery = ""
+          | otherwise    = "?" <> queryString rqQuery
 
     authorization access sig = "AWS3-HTTPS AWSAccessKeyId="
         <> access
@@ -150,9 +153,10 @@ version3 RawRequest{..} = do
         . SHA.bytestringDigest
         . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
+        . awsTime
 
 apiVersion :: ByteString
-apiVersion = "2012-12-01"
+apiVersion = "2012-12-12"
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show
@@ -162,12 +166,15 @@ queryString = BS.intercalate "&" . map concatEq . sort
   where
     concatEq (k, v) = mconcat [k, "=", HTTP.urlEncode True v]
 
-timeFormat :: UTCTime -> ByteString
-timeFormat = BS.pack . formatTime defaultTimeLocale fmt
-  where
-    fmt = iso8601DateFormat $ Just "%XZ"
+rfc822Time :: UTCTime -> ByteString
+rfc822Time = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
+
+awsTime :: UTCTime -> ByteString
+awsTime = BS.pack . formatTime defaultTimeLocale (iso8601DateFormat $ Just "%XZ")
 
 templateStream :: AWSTemplate a => a -> IO (InputStream ByteString)
 templateStream tmpl = do
-    bstr <- hastacheStr defaultConfig (readTemplate tmpl) (mkGenericContext tmpl)
+    bstr <- hastacheStr defaultConfig
+        (readTemplate tmpl)
+        (jsonContext $ toJSON tmpl)
     Streams.fromLazyByteString bstr

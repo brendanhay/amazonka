@@ -1,7 +1,4 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Metadata

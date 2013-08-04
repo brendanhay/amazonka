@@ -21,9 +21,9 @@ import           Control.Applicative
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
+import           Data.Aeson
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Char8  as BS
-import           Data.Data
 import           Data.Map               (Map)
 import qualified Data.Map               as Map
 import           Network.Http.Client    hiding (post, put)
@@ -88,7 +88,7 @@ instance Show SignedRequest where
         ++ "\n"
         ++ show rqRequest
 
-class (Show a, Data a, Typeable a) => AWSTemplate a where
+class (Show a, ToJSON a) => AWSTemplate a where
     readTemplate :: a -> ByteString
 
 class Show a => AWSRequest a where

@@ -118,7 +118,7 @@ version2 RawRequest{..} = do
 version3 :: RawRequest a -> AWS SignedRequest
 version3 RawRequest{..} = do
     Credentials{..} <- ask
-    time            <- liftIO getCurrentTime
+    time            <- timeFormat <$> liftIO getCurrentTime
 
     let sig  = signature secretKey time
         auth = authorization accessKey sig
@@ -134,6 +134,7 @@ version3 RawRequest{..} = do
     liftIO $ SignedRequest url
         <$> buildRequest (do
                 http rqMethod url
+                setHeader "X-AMZ-Date" $ time
                 setHeader "X-Amzn-Authorization" auth)
         <*> templateStream rqBody
   where
@@ -149,7 +150,6 @@ version3 RawRequest{..} = do
         . SHA.bytestringDigest
         . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
-        . timeFormat
 
 apiVersion :: ByteString
 apiVersion = "2012-12-01"

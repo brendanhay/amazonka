@@ -65,7 +65,6 @@ buildMap name m val
             Null             -> MuNothing
             t                -> MuVariable $ show t
 
-
 buildContext :: Monad m
              => Map ByteString (MuType m)
              -> ByteString

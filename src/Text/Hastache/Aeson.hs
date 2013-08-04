@@ -36,7 +36,7 @@ jsonContext = buildContext . buildMap "" Map.empty . toJSON
 --
 
 buildMap :: Monad m
-         => [Char]
+         => String
          -> Map ByteString (MuType m)
          -> Value
          -> Map ByteString (MuType m)
@@ -70,5 +70,5 @@ buildContext :: Monad m
              -> ByteString
              -> m (MuType m)
 buildContext m a = return $ fromMaybe
-    (if a == "." then maybe MuNothing id $ Map.lookup BS.empty m else MuNothing)
+    (if a == "." then fromMaybe MuNothing $ Map.lookup BS.empty m else MuNothing)
     (Map.lookup a m)

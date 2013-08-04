@@ -40,18 +40,22 @@ deriveTemplate pre name = concat <$> sequence
 
 deriveQueryString :: String -> Name -> Q [Dec]
 deriveQueryString pre name = do
-    TyConI (DataD _ _ _ [RecC _ fields] _) <- reify name
+    ref <- reify name
 
-    let names   = map (\(n, _, _) -> n) fields
-        field n = [| queryParam t . $(global n) |]
-          where
-            t = BS.pack . fromMaybe s $ pre `stripPrefix` s
-            s = nameBase n
-        query   = listE $ map field names
+    case ref of
+        TyConI (DataD _ _ _ [RecC _ fields] _) -> do
+            let names   = map (\(n, _, _) -> n) fields
+                field n = [| queryParam t . $(global n) |]
+                  where
+                    t = BS.pack . fromMaybe s $ pre `stripPrefix` s
+                    s = nameBase n
+                query   = listE $ map field names
 
-    [d|instance AWSQuery $(conT name) where
-           queryString x = concatMap ($ x) $query|]
-
+            [d|instance AWSQuery $(conT name) where
+                   queryString x = concatMap ($ x) $query|]
+        _ ->
+            [d|instance AWSQuery $(conT name) where
+                   queryString _ = []|]
 --
 -- Internal
 --

@@ -1,8 +1,7 @@
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE GADTs                      #-}
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TupleSections              #-}
 
 -- |
@@ -27,20 +26,13 @@ import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Char8  as BS
 import           Data.Map               (Map)
 import qualified Data.Map               as Map
+import           Data.Monoid
 import           Data.String
 import           Network.Http.Client    hiding (post, put)
 import           System.IO.Streams      (InputStream)
 
 class IsByteString a where
     toBS :: a -> ByteString
-
-data Credentials = Credentials
-    { accessKey :: ByteString
-    , secretKey :: ByteString
-    } deriving (Show)
-
-newtype AWS a = AWS { unWrap :: ReaderT Credentials IO a }
-    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Credentials)
 
 data SigningVersion
     = Version2
@@ -56,16 +48,36 @@ instance IsString ApiVersion where
 instance IsByteString ApiVersion where
     toBS (ApiVersion ver) = ver
 
-data RawRequest where
-    RawRequest :: { rqMethod  :: !Method
-                 , rqVersion :: !ApiVersion
-                 , rqHost    :: !ByteString
-                 , rqAction  :: !(Maybe ByteString)
-                 , rqPath    :: !(Maybe ByteString)
-                 , rqHeaders :: !(Map ByteString [ByteString])
-                 , rqQuery   :: ![(ByteString, ByteString)]
-                 , rqBody    :: !(Maybe (InputStream ByteString))
-                 } -> RawRequest
+data Region
+    = NorthVirgnia    -- us-east-1
+    | NorthCalifornia -- us-west-1
+    | Oregon          -- us-west-2
+    | Ireland         -- eu-west-1
+    | Singapore       -- ap-southeast-1
+    | Tokyo           -- ap-northeast-1
+    | Sydney          -- ap-southeast-2
+    | SaoPaulo        -- sa-east-1
+      deriving (Show)
+
+data Context = Context
+    { currentRegion :: Region
+    , accessKey     :: ByteString
+    , secretKey     :: ByteString
+    }
+
+newtype AWS a = AWS { unWrap :: ReaderT Context IO a }
+    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Context)
+
+data RawRequest = RawRequest
+    { rqMethod  :: !Method
+    , rqVersion :: !ApiVersion
+    , rqHost    :: !ByteString
+    , rqAction  :: !(Maybe ByteString)
+    , rqPath    :: !(Maybe ByteString)
+    , rqHeaders :: !(Map ByteString [ByteString])
+    , rqQuery   :: ![(ByteString, ByteString)]
+    , rqBody    :: !(Maybe (InputStream ByteString))
+    }
 
 emptyRequest :: Method
              -> ApiVersion
@@ -114,3 +126,8 @@ instance AWSParam a => AWSParam (Maybe a) where
 
 instance AWSParam ByteString where
     queryParam k bstr = [(k, bstr)]
+
+instance AWSParam [ByteString] where
+    queryParam k = zipWith params ([1..] :: [Int])
+      where
+        params n v = (k <> "." <> BS.pack (show n), v)

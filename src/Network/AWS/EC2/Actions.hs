@@ -22,19 +22,6 @@ import           Network.AWS.TH
 import           Network.AWS.Types
 import           Network.Http.Client
 
-data AllocateAddress = AllocateAddress
-    { allocateAddressDomain :: !(Maybe ByteString)
-    } deriving (Show)
-
-$(deriveQueryString "allocateAddress" ''AllocateAddress)
-
-instance AWSRequest AllocateAddress where
-    signRequest = signer GET "AllocateAddress"
-
---
--- Internal
---
-
 signer :: AWSQuery a => Method -> ByteString -> a -> AWS SignedRequest
 signer meth action qry = sign Version2 rq
   where
@@ -45,6 +32,28 @@ signer meth action qry = sign Version2 rq
 
     version  = "2013-06-15"
     endpoint = "ec2.amazonaws.com"
+
+data AllocateAddress = AllocateAddress
+    { allocateAddressDomain :: !(Maybe ByteString)
+    } deriving (Show)
+
+$(deriveQueryString "allocateAddress" ''AllocateAddress)
+
+instance AWSRequest AllocateAddress where
+    signRequest = signer GET "AllocateAddress"
+
+data DescribeInstances = DescribeInstances
+    { describeInstancesInstanceId :: [ByteString]
+    } deriving (Show)
+
+$(deriveQueryString "describeInstances" ''DescribeInstances)
+
+instance AWSRequest DescribeInstances where
+    signRequest = signer GET "DescribeInstances"
+
+--
+-- Internal
+--
 
 data Action
     = ActivateLicense
@@ -124,7 +133,7 @@ data Action
     | DescribeImageAttribute
     | DescribeImages
     | DescribeInstanceAttribute
-    | DescribeInstances
+--    | DescribeInstances
     | DescribeInstanceStatus
     | DescribeInternetGateways
     | DescribeKeyPairs

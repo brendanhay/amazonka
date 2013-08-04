@@ -37,19 +37,18 @@ import           System.Environment
 import qualified System.IO.Streams      as Streams
 import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
 
-runAWS :: AWS a -> IO a
-runAWS aws = withOpenSSL $ do
-    creds <- maybe env return Nothing
-    putStrLn $ "Found: " ++ show creds
-    runReaderT (unWrap aws) creds
+runAWS :: Region -> AWS a -> IO a
+runAWS region aws = withOpenSSL $ do
+    (acc, sec) <- env
+    putStrLn $ "Found: " ++ show (acc, sec)
+    runReaderT (unWrap aws) (Context region acc sec)
   where
     env = do
-        (acc, sec) <- (,)
-            <$> lookupEnv "ACCESS_KEY_ID"
-            <*> lookupEnv "SECRET_ACCESS_KEY"
-        return . fromMaybe (error "Oh noes!") $
-            Credentials <$> fmap BS.pack acc <*> fmap BS.pack sec
-    -- metadata
+        macc <- pack "ACCESS_KEY_ID"
+        msec <- pack "SECRET_ACCESS_KEY"
+        return . fromMaybe (error "Oh noes!") $ (,) <$> macc <*> msec
+
+    pack = fmap (fmap BS.pack) . lookupEnv
 
 -- FIXME: XHT -> Aeson
 send :: AWSRequest a => a -> AWS ByteString
@@ -71,8 +70,8 @@ sign Version3 = version3
 
 version2 :: RawRequest -> AWS SignedRequest
 version2 RawRequest{..} = do
-    Credentials{..} <- ask
-    time            <- liftIO getCurrentTime
+    Context{..} <- ask
+    time        <- liftIO getCurrentTime
 
     let act = fromMaybe (error "Handle missing action") rqAction
         qry = query act accessKey time
@@ -113,8 +112,8 @@ version2 RawRequest{..} = do
 
 version3 :: RawRequest -> AWS SignedRequest
 version3 RawRequest{..} = do
-    Credentials{..} <- ask
-    time            <- rfc822Time <$> liftIO getCurrentTime
+    Context{..} <- ask
+    time        <- rfc822Time <$> liftIO getCurrentTime
 
     let sig  = signature secretKey time
         auth = authorization accessKey sig
@@ -166,9 +165,10 @@ validPath :: Maybe ByteString -> ByteString
 validPath = maybe "/" (mappend "/" . strip '/')
 
 strip :: Char -> ByteString -> ByteString
-strip c bstr = ($ bstr) $
-    case (BS.head bstr == c, BS.last bstr == c) of
-        (True, True)  -> BS.tail . BS.init
-        (False, True) -> BS.init
-        (True, False) -> BS.tail
-        _             -> id
+strip c bstr
+    | BS.cons c "" == bstr = ""
+    | otherwise = ($ bstr) $ case (BS.head bstr == c, BS.last bstr == c) of
+        (True,  True)  -> BS.tail . BS.init
+        (False, True)  -> BS.init
+        (True,  False) -> BS.tail
+        _              -> id

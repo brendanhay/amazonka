@@ -15,14 +15,19 @@
 
 module Network.AWS.Route53 where
 
-import Control.Applicative
-import Data.Aeson
-import Data.ByteString     (ByteString)
-import Data.String
-import Data.Time
-import Network.AWS.Request
-import Network.AWS.TH
-import Network.AWS.Types
+import           Control.Applicative
+import           Control.Monad.IO.Class
+import           Data.Aeson
+import           Data.ByteString        (ByteString)
+import           Data.String
+import           Data.Time
+import           Network.AWS.Request
+import           Network.AWS.TH
+import           Network.AWS.Types
+import           Network.Http.Client
+import qualified System.IO.Streams      as Streams
+import           Text.Hastache
+import           Text.Hastache.Aeson
 
 newtype CallerRef = CallerRef String
     deriving (Show, IsString)
@@ -48,14 +53,23 @@ data CreateHealthCheck = CreateHealthCheck
 $(deriveTemplate "chc" ''CreateHealthCheck)
 
 instance AWSRequest CreateHealthCheck where
-    signRequest = sign Version3 . post route53Endpoint "healthcheck"
+    signRequest = signer POST "healthcheck"
 
 --
 -- Internal
 --
 
-route53Endpoint :: ByteString
-route53Endpoint = "route53.amazonaws.com"
+signer :: AWSTemplate a => Method -> ByteString -> a -> AWS SignedRequest
+signer meth path tmpl = render >>= sign Version3
+    . emptyRequest meth version endpoint path
+    . Just
+  where
+    render = liftIO $ do
+        bstr <- hastacheStr defaultConfig (readTemplate tmpl) (jsonContext tmpl)
+        Streams.fromLazyByteString bstr
+
+    version  = "2012-12-12"
+    endpoint = "route53.amazonaws.com"
 
 callerRef :: IO CallerRef
 callerRef = fromString . show <$> getCurrentTime

@@ -16,6 +16,7 @@
 
 module Network.AWS.EC2
     ( module Metadata
+    , ec2Endpoint
     ) where
 
 import Data.ByteString          (ByteString)
@@ -23,4 +24,5 @@ import Network.AWS.EC2.Metadata as Metadata
 
 ec2Endpoint :: ByteString
 ec2Endpoint = "ec2.amazonaws.com"
+
 

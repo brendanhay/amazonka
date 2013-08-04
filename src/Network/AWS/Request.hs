@@ -30,15 +30,12 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Time              (UTCTime, formatTime, getCurrentTime)
 import           Network.AWS.Types
-import qualified Network.HTTP.Types     as HTTP
+import           Network.HTTP.Types     (urlEncode)
 import           Network.Http.Client
 import           OpenSSL                (withOpenSSL)
 import           System.Environment
-import           System.IO.Streams      (InputStream)
 import qualified System.IO.Streams      as Streams
 import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
-import           Text.Hastache
-import           Text.Hastache.Aeson
 
 runAWS :: AWS a -> IO a
 runAWS aws = withOpenSSL $ do
@@ -60,11 +57,11 @@ send rq = do
     SignedRequest{..} <- signRequest rq
     liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
         print rqRequest
-        sendRequest conn rqRequest $ inputStreamBody rqStream
+        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
         receiveResponse conn $ \_ inp ->
             fromMaybe "" <$> Streams.read inp
 
-sign :: SigningVersion -> RawRequest a -> AWS SignedRequest
+sign :: SigningVersion -> RawRequest -> AWS SignedRequest
 sign Version2 = version2
 sign Version3 = version3
 
@@ -72,37 +69,36 @@ sign Version3 = version3
 -- Internal
 --
 
-version2 :: RawRequest a -> AWS SignedRequest
+version2 :: RawRequest -> AWS SignedRequest
 version2 RawRequest{..} = do
     Credentials{..} <- ask
     time            <- liftIO getCurrentTime
 
     let act = fromMaybe (error "Handle missing action") rqAction
         qry = query act accessKey time
-        sig = signature secretKey act qry
+        sig = signature secretKey qry
         url = "https://"
-            <> rqHost  -- Test for '/' suffix
-            <> "/"
-            <> fromMaybe "" rqPath -- Test for '/' prefix
+            <> validHost rqHost
+            <> path
             <> "?"
             <> qry
             <> "&Signature="
             <> sig
 
-    liftIO $ SignedRequest url
-        <$> buildRequest (http rqMethod url)
-        <*> templateStream rqBody
+    liftIO $ SignedRequest url rqBody <$> buildRequest (http rqMethod url)
   where
-    query action access time = queryString $ rqQuery `union`
+    path = validPath rqPath
+
+    query action access time = fmtQueryString $ rqQuery `union`
         [ ("Action",           action)
-        , ("Version",          apiVersion)
+        , ("Version",          toBS rqVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
         , ("Timestamp",        awsTime time)
         , ("AWSAccessKeyId",   access)
         ]
 
-    signature secret action qry = HTTP.urlEncode True
+    signature secret qry = urlEncode True
         . Base64.encode
         . LBS.toStrict
         . SHA.bytestringDigest
@@ -111,11 +107,11 @@ version2 RawRequest{..} = do
         $ BS.intercalate "\n"
             [ packMethod rqMethod
             , rqHost
-            , action
+            , path
             , qry
             ]
 
-version3 :: RawRequest a -> AWS SignedRequest
+version3 :: RawRequest -> AWS SignedRequest
 version3 RawRequest{..} = do
     Credentials{..} <- ask
     time            <- rfc822Time <$> liftIO getCurrentTime
@@ -123,24 +119,20 @@ version3 RawRequest{..} = do
     let sig  = signature secretKey time
         auth = authorization accessKey sig
         url  = "https://"
-            <> rqHost  -- Test for '/' suffix
+            <> validHost rqHost
             <> "/"
-            <> apiVersion
-            <> "/"
-            <> fromMaybe "" rqPath  -- Test for '/' prefix
+            <> toBS rqVersion
+            <> validPath rqPath
             <> query
 
-    liftIO $ print rqBody
-
-    liftIO $ SignedRequest url
+    liftIO $ SignedRequest url rqBody
         <$> buildRequest (do
                 http rqMethod url
                 setHeader "X-AMZ-Date" time
                 setHeader "X-Amzn-Authorization" auth)
-        <*> templateStream rqBody
   where
     query | null rqQuery = ""
-          | otherwise    = "?" <> queryString rqQuery
+          | otherwise    = "?" <> fmtQueryString rqQuery
 
     authorization access sig = "AWS3-HTTPS AWSAccessKeyId="
         <> access
@@ -153,16 +145,13 @@ version3 RawRequest{..} = do
         . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
 
-apiVersion :: ByteString
-apiVersion = "2012-12-12"
-
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show
 
-queryString :: [(ByteString, ByteString)] -> ByteString
-queryString = BS.intercalate "&" . map concatEq . sort
+fmtQueryString :: [(ByteString, ByteString)] -> ByteString
+fmtQueryString = BS.intercalate "&" . map concatEq . sort
   where
-    concatEq (k, v) = mconcat [k, "=", HTTP.urlEncode True v]
+    concatEq (k, v) = mconcat [k, "=", urlEncode True v]
 
 rfc822Time :: UTCTime -> ByteString
 rfc822Time = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
@@ -170,8 +159,16 @@ rfc822Time = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
 awsTime :: UTCTime -> ByteString
 awsTime = BS.pack . formatTime defaultTimeLocale (iso8601DateFormat $ Just "%XZ")
 
-templateStream :: AWSTemplate a => a -> IO (InputStream ByteString)
-templateStream tmpl = do
-    bstr <- hastacheStr defaultConfig (readTemplate tmpl) (jsonContext tmpl)
-    print bstr
-    Streams.fromLazyByteString bstr
+validHost :: ByteString -> ByteString
+validHost = strip '/'
+
+validPath :: Maybe ByteString -> ByteString
+validPath = maybe "/" (mappend "/" . strip '/')
+
+strip :: Char -> ByteString -> ByteString
+strip c bstr = ($ bstr) $
+    case (BS.head bstr == c, BS.last bstr == c) of
+        (True, True)  -> BS.tail . BS.init
+        (False, True) -> BS.init
+        (True, False) -> BS.tail
+        _             -> id

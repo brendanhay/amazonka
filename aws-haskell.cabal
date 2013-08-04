@@ -34,7 +34,9 @@ library
       , Network.AWS.Types
 
       , Network.AWS.EC2
+      , Network.AWS.EC2.Actions
       , Network.AWS.EC2.Metadata
+
       , Network.AWS.Route53
 
     other-modules:
@@ -44,6 +46,7 @@ library
         -rtsopts
         -fwarn-tabs
         -funbox-strict-fields
+        -ddump-splices
 
     build-depends:
         aeson

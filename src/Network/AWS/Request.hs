@@ -20,7 +20,6 @@ import           Control.Applicative
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.Aeson
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Base64 as Base64
 import qualified Data.ByteString.Char8  as BS
@@ -119,7 +118,7 @@ version2 RawRequest{..} = do
 version3 :: RawRequest a -> AWS SignedRequest
 version3 RawRequest{..} = do
     Credentials{..} <- ask
-    time            <- liftIO getCurrentTime
+    time            <- rfc822Time <$> liftIO getCurrentTime
 
     let sig  = signature secretKey time
         auth = authorization accessKey sig
@@ -136,7 +135,7 @@ version3 RawRequest{..} = do
     liftIO $ SignedRequest url
         <$> buildRequest (do
                 http rqMethod url
-                setHeader "X-AMZ-Date" $ rfc822Time time
+                setHeader "X-AMZ-Date" time
                 setHeader "X-Amzn-Authorization" auth)
         <*> templateStream rqBody
   where
@@ -153,7 +152,6 @@ version3 RawRequest{..} = do
         . SHA.bytestringDigest
         . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
-        . awsTime
 
 apiVersion :: ByteString
 apiVersion = "2012-12-12"
@@ -174,7 +172,6 @@ awsTime = BS.pack . formatTime defaultTimeLocale (iso8601DateFormat $ Just "%XZ"
 
 templateStream :: AWSTemplate a => a -> IO (InputStream ByteString)
 templateStream tmpl = do
-    bstr <- hastacheStr defaultConfig
-        (readTemplate tmpl)
-        (jsonContext $ toJSON tmpl)
+    bstr <- hastacheStr defaultConfig (readTemplate tmpl) (jsonContext tmpl)
+    print bstr
     Streams.fromLazyByteString bstr

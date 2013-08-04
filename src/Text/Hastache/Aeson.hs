@@ -16,7 +16,7 @@ module Text.Hastache.Aeson
     ( jsonContext
     ) where
 
-import           Data.Aeson.Types
+import           Data.Aeson
 import           Data.Attoparsec.Number (Number(I, D))
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Char8  as BS
@@ -28,8 +28,8 @@ import qualified Data.Text              as T
 import qualified Data.Vector            as V
 import           Text.Hastache
 
-jsonContext :: Monad m => Value -> MuContext m
-jsonContext = buildContext . buildMap "" Map.empty
+jsonContext :: (Monad m, ToJSON a) => a -> MuContext m
+jsonContext = buildContext . buildMap "" Map.empty . toJSON
 
 --
 -- Internal
@@ -42,7 +42,7 @@ buildMap :: Monad m
          -> Map ByteString (MuType m)
 buildMap name m val
     | Object obj <- val = insertObject obj
-    | otherwise      = insertValue
+    | otherwise        = insertValue
   where
     insertObject obj = Map.insert
         (encodeStr name)

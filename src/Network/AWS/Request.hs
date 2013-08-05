@@ -1,6 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE RecordWildCards            #-}
 
 -- |
@@ -37,28 +36,24 @@ import           System.Environment
 import qualified System.IO.Streams      as Streams
 import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
 
-runAWS :: Region -> AWS a -> IO a
-runAWS region aws = withOpenSSL $ do
-    (acc, sec) <- env
-    putStrLn $ "Found: " ++ show (acc, sec)
-    runReaderT (unWrap aws) (Context region acc sec)
+runAWS :: AWS a -> IO a
+runAWS aws = withOpenSSL $ do
+    auth <- locateAuth
+    putStrLn $ "Found: " ++ show auth
+    runReaderT (unWrap aws) auth
   where
-    env = do
+    locateAuth = do
         macc <- pack "ACCESS_KEY_ID"
         msec <- pack "SECRET_ACCESS_KEY"
-        return . fromMaybe (error "Oh noes!") $ (,) <$> macc <*> msec
+        return . fromMaybe (error "Oh noes!") $ Auth <$> macc <*> msec
 
     pack = fmap (fmap BS.pack) . lookupEnv
 
--- FIXME: XHT -> Aeson
-send :: AWSRequest a => a -> AWS ByteString
-send rq = do
-    SignedRequest{..} <- signRequest rq
-    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
-        print rqRequest
-        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
-        receiveResponse conn $ \_ inp ->
-            fromMaybe "" <$> Streams.read inp
+global :: GlobalRequest a => a -> AWS ByteString
+global = send signGlobal
+
+region :: RegionRequest a => Region -> a -> AWS ByteString
+region reg = send (signRegion reg)
 
 sign :: SigningVersion -> RawRequest -> AWS SignedRequest
 sign Version2 = version2
@@ -68,10 +63,19 @@ sign Version3 = version3
 -- Internal
 --
 
+-- FIXME: XHT -> Aeson
+send :: (a -> AWS SignedRequest) -> a -> AWS ByteString
+send signer rq = do
+    SignedRequest{..} <- signer rq
+    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
+        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
+        receiveResponse conn $ \_ inp ->
+            fromMaybe "" <$> Streams.read inp
+
 version2 :: RawRequest -> AWS SignedRequest
 version2 RawRequest{..} = do
-    Context{..} <- ask
-    time        <- liftIO getCurrentTime
+    Auth{..} <- ask
+    time     <- liftIO getCurrentTime
 
     let act = fromMaybe (error "Handle missing action") rqAction
         qry = query act accessKey time
@@ -112,8 +116,8 @@ version2 RawRequest{..} = do
 
 version3 :: RawRequest -> AWS SignedRequest
 version3 RawRequest{..} = do
-    Context{..} <- ask
-    time        <- rfc822Time <$> liftIO getCurrentTime
+    Auth{..} <- ask
+    time     <- rfc822Time <$> liftIO getCurrentTime
 
     let sig  = signature secretKey time
         auth = authorization accessKey sig

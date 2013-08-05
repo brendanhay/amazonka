@@ -2,7 +2,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TupleSections              #-}
 
 -- |
 -- Module      : Network.AWS.Types
@@ -49,24 +48,33 @@ instance IsByteString ApiVersion where
     toBS (ApiVersion ver) = ver
 
 data Region
-    = NorthVirgnia    -- us-east-1
-    | NorthCalifornia -- us-west-1
-    | Oregon          -- us-west-2
-    | Ireland         -- eu-west-1
-    | Singapore       -- ap-southeast-1
-    | Tokyo           -- ap-northeast-1
-    | Sydney          -- ap-southeast-2
-    | SaoPaulo        -- sa-east-1
-      deriving (Show)
+    = NorthVirgnia
+    | NorthCalifornia
+    | Oregon
+    | Ireland
+    | Singapore
+    | Tokyo
+    | Sydney
+    | SaoPaulo
 
-data Context = Context
-    { currentRegion :: Region
-    , accessKey     :: ByteString
-    , secretKey     :: ByteString
-    }
+instance IsByteString Region where
+    toBS reg = case reg of
+        NorthVirgnia    -> "us-east-1"
+        NorthCalifornia -> "us-west-1"
+        Oregon          -> "us-west-2"
+        Ireland         -> "eu-west-1"
+        Singapore       -> "ap-southeast-1"
+        Tokyo           -> "ap-northeast-1"
+        Sydney          -> "ap-southeast-2"
+        SaoPaulo        -> "sa-east-1"
 
-newtype AWS a = AWS { unWrap :: ReaderT Context IO a }
-    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Context)
+data Auth = Auth
+    { accessKey :: ByteString
+    , secretKey :: ByteString
+    } deriving (Show)
+
+newtype AWS a = AWS { unWrap :: ReaderT Auth IO a }
+    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Auth)
 
 data RawRequest = RawRequest
     { rqMethod  :: !Method
@@ -108,26 +116,29 @@ instance Show SignedRequest where
         ++ "\n"
         ++ show rqRequest
 
-class (Show a, ToJSON a) => AWSTemplate a where
+class (Show a, ToJSON a) => Template a where
     readTemplate :: a -> ByteString
 
-class Show a => AWSRequest a where
-    signRequest :: a -> AWS SignedRequest
+class Show a => GlobalRequest a where
+    signGlobal :: a -> AWS SignedRequest
 
-class Show a => AWSQuery a where
+class Show a => RegionRequest a where
+    signRegion :: Region -> a -> AWS SignedRequest
+
+class Show a => QueryString a where
     queryString :: a -> [(ByteString, ByteString)]
 
-class Show a => AWSParam a where
+class Show a => QueryParam a where
     queryParam :: ByteString -> a -> [(ByteString, ByteString)]
 
-instance AWSParam a => AWSParam (Maybe a) where
+instance QueryParam a => QueryParam (Maybe a) where
     queryParam _ Nothing  = []
     queryParam k (Just v) = queryParam k v
 
-instance AWSParam ByteString where
+instance QueryParam ByteString where
     queryParam k bstr = [(k, bstr)]
 
-instance AWSParam [ByteString] where
+instance QueryParam [ByteString] where
     queryParam k = zipWith params ([1..] :: [Int])
       where
         params n v = (k <> "." <> BS.pack (show n), v)

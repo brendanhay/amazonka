@@ -15,15 +15,15 @@
 
 module Network.AWS.EC2.Actions where
 
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import           Network.AWS.Request
-import           Network.AWS.TH
-import           Network.AWS.Types
-import           Network.Http.Client
+import Data.ByteString     (ByteString)
+import Data.Monoid
+import Network.AWS.Request
+import Network.AWS.TH
+import Network.AWS.Types
+import Network.Http.Client
 
-signer :: AWSQuery a => Method -> ByteString -> a -> AWS SignedRequest
-signer meth action qry = sign Version2 rq
+signer :: QueryString a => Method -> ByteString -> Region -> a -> AWS SignedRequest
+signer meth action reg qry = sign Version2 rq
   where
     rq = (emptyRequest meth version endpoint "/" Nothing)
         { rqAction = Just action
@@ -31,7 +31,7 @@ signer meth action qry = sign Version2 rq
         }
 
     version  = "2013-06-15"
-    endpoint = "ec2.amazonaws.com"
+    endpoint = "ec2." <> toBS reg <> ".amazonaws.com"
 
 data AllocateAddress = AllocateAddress
     { allocateAddressDomain :: !(Maybe ByteString)
@@ -39,8 +39,8 @@ data AllocateAddress = AllocateAddress
 
 $(deriveQueryString "allocateAddress" ''AllocateAddress)
 
-instance AWSRequest AllocateAddress where
-    signRequest = signer GET "AllocateAddress"
+instance RegionRequest AllocateAddress where
+    signRegion = signer GET "AllocateAddress"
 
 data DescribeInstances = DescribeInstances
     { describeInstancesInstanceId :: [ByteString]
@@ -48,8 +48,8 @@ data DescribeInstances = DescribeInstances
 
 $(deriveQueryString "describeInstances" ''DescribeInstances)
 
-instance AWSRequest DescribeInstances where
-    signRequest = signer GET "DescribeInstances"
+instance RegionRequest DescribeInstances where
+    signRegion = signer GET "DescribeInstances"
 
 --
 -- Internal

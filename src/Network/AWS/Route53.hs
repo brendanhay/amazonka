@@ -52,14 +52,14 @@ data CreateHealthCheck = CreateHealthCheck
 
 $(deriveTemplate "chc" ''CreateHealthCheck)
 
-instance AWSRequest CreateHealthCheck where
-    signRequest = signer POST "healthcheck"
+instance GlobalRequest CreateHealthCheck where
+    signGlobal = signer POST "healthcheck"
 
 --
 -- Internal
 --
 
-signer :: AWSTemplate a => Method -> ByteString -> a -> AWS SignedRequest
+signer :: Template a => Method -> ByteString -> a -> AWS SignedRequest
 signer meth path tmpl = render >>= sign Version3
     . emptyRequest meth version endpoint path
     . Just

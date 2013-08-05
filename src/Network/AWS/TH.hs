@@ -51,10 +51,10 @@ deriveQueryString pre name = do
                     s = nameBase n
                 query   = listE $ map field names
 
-            [d|instance AWSQuery $(conT name) where
+            [d|instance QueryString $(conT name) where
                    queryString x = concatMap ($ x) $query|]
         _ ->
-            [d|instance AWSQuery $(conT name) where
+            [d|instance QueryString $(conT name) where
                    queryString _ = []|]
 --
 -- Internal
@@ -63,12 +63,10 @@ deriveQueryString pre name = do
 instance Lift BS.ByteString where
     lift = return . LitE . StringL . BS.unpack
 
--- Tries to read: template/<NameOfModule>/<Type>
--- IE: Network.AWS.Route53.CreateHealthCheck
--- becomes template/Route53/CreateHealthCheck
+-- | template/<NameOfModule>/<Type>
 embedTemplate :: Name -> Q [Dec]
 embedTemplate name =
-    [d|instance AWSTemplate $(conT name) where
+    [d|instance Template $(conT name) where
            readTemplate _ = $(readTemplate' (suffix $ show name))|]
 
 readTemplate' :: FilePath -> Q Exp

@@ -57,6 +57,9 @@ data Region
     | Sydney
     | SaoPaulo
 
+instance Show Region where
+    show = BS.unpack . toBS
+
 instance IsByteString Region where
     toBS reg = case reg of
         NorthVirgnia    -> "us-east-1"
@@ -72,6 +75,12 @@ data Auth = Auth
     { accessKey :: ByteString
     , secretKey :: ByteString
     } deriving (Show)
+
+instance FromJSON Auth where
+    parseJSON (Object o) = Auth
+        <$> o .: "AccessKeyId"
+        <*> o .: "SecretAccessKey"
+    parseJSON _ = mzero
 
 newtype AWS a = AWS { unWrap :: ReaderT Auth IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Auth)

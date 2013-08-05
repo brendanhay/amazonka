@@ -19,35 +19,30 @@ import           Control.Applicative
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Base64 as Base64
-import qualified Data.ByteString.Char8  as BS
-import qualified Data.ByteString.Lazy   as LBS
-import qualified Data.Digest.Pure.SHA   as SHA
+import           Data.Aeson
+import           Data.ByteString          (ByteString)
+import qualified Data.ByteString.Base64   as Base64
+import qualified Data.ByteString.Char8    as BS
+import qualified Data.ByteString.Lazy     as LBS
+import qualified Data.Digest.Pure.SHA     as SHA
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Time              (UTCTime, formatTime, getCurrentTime)
+import           Data.Time                (UTCTime, formatTime, getCurrentTime)
+import           Network.AWS.EC2.Metadata
 import           Network.AWS.Types
-import           Network.HTTP.Types     (urlEncode)
+import           Network.HTTP.Types       (urlEncode)
 import           Network.Http.Client
-import           OpenSSL                (withOpenSSL)
+import           OpenSSL                  (withOpenSSL)
 import           System.Environment
-import qualified System.IO.Streams      as Streams
-import           System.Locale          (defaultTimeLocale, iso8601DateFormat)
+import qualified System.IO.Streams        as Streams
+import           System.Locale            (defaultTimeLocale, iso8601DateFormat)
 
 runAWS :: AWS a -> IO a
 runAWS aws = withOpenSSL $ do
-    auth <- locateAuth
+    auth <- discover
     putStrLn $ "Found: " ++ show auth
     runReaderT (unWrap aws) auth
-  where
-    locateAuth = do
-        macc <- pack "ACCESS_KEY_ID"
-        msec <- pack "SECRET_ACCESS_KEY"
-        return . fromMaybe (error "Oh noes!") $ Auth <$> macc <*> msec
-
-    pack = fmap (fmap BS.pack) . lookupEnv
 
 global :: GlobalRequest a => a -> AWS ByteString
 global = send signGlobal
@@ -62,6 +57,26 @@ sign Version3 = version3
 --
 -- Internal
 --
+
+-- FIXME: Should I try to be smart about choosing the IAM role name
+-- from the metadata, or require it to be specified?
+discover :: MonadIO m => m Auth
+discover = liftIO $ do
+    me <- fromEnv
+    case me of
+        Just x  -> return x
+        Nothing -> fromMaybe (error msg) <$> fromMetadata
+  where
+    fromEnv = do
+        acc <- pack "ACCESS_KEY_ID"
+        sec <- pack "SECRET_ACCESS_KEY"
+        return $ Auth <$> acc <*> sec
+
+    pack = fmap (fmap BS.pack) . lookupEnv
+
+    fromMetadata = decode . LBS.fromStrict <$> metadata (SecurityCredentials "s3_ro")
+
+    msg = "Failed to get authentication information from environment or EC2 metadata"
 
 -- FIXME: XHT -> Aeson
 send :: (a -> AWS SignedRequest) -> a -> AWS ByteString

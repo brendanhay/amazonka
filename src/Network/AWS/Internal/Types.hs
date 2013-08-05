@@ -27,20 +27,18 @@ import           Data.Map               (Map)
 import qualified Data.Map               as Map
 import           Data.Monoid
 import           Data.String
+import           Data.Time
 import           Network.Http.Client    hiding (post, put)
 import           System.IO.Streams      (InputStream)
 
 class IsByteString a where
     toBS :: a -> ByteString
 
+instance IsByteString ByteString where
+    toBS = id
+
 newtype ApiVersion = ApiVersion ByteString
-    deriving (Show)
-
-instance IsString ApiVersion where
-    fromString = ApiVersion . BS.pack
-
-instance IsByteString ApiVersion where
-    toBS (ApiVersion ver) = ver
+    deriving (Show, IsString, IsByteString)
 
 data Region
     = NorthVirgnia
@@ -51,9 +49,7 @@ data Region
     | Tokyo
     | Sydney
     | SaoPaulo
-
-instance Show Region where
-    show = BS.unpack . toBS
+      deriving (Show)
 
 instance IsByteString Region where
     toBS reg = case reg of
@@ -65,6 +61,21 @@ instance IsByteString Region where
         Tokyo           -> "ap-northeast-1"
         Sydney          -> "ap-southeast-2"
         SaoPaulo        -> "sa-east-1"
+
+newtype CallerRef = CallerRef String
+    deriving (Show, IsString)
+
+instance ToJSON CallerRef where
+    toJSON (CallerRef s) = toJSON s
+
+callerRef :: IO CallerRef
+callerRef = fromString . show <$> getCurrentTime
+
+data Protocol = HTTP | TCP
+    deriving (Show)
+
+instance ToJSON Protocol where
+    toJSON = toJSON . show
 
 data Auth = Auth
     { accessKey :: ByteString
@@ -146,3 +157,6 @@ instance QueryParam [ByteString] where
     queryParam k = zipWith params ([1..] :: [Int])
       where
         params n v = (k <> "." <> BS.pack (show n), v)
+
+instance QueryParam Integer where
+    queryParam k n = [(k, BS.pack $ show n)]

@@ -1,6 +1,6 @@
 name:                  aws-haskell
 version:               0.1.0
-synopsis:              Pending
+synopsis:              Interfaces to various Amazon Web Service APIs
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
@@ -18,7 +18,9 @@ extra-source-files:
     README.md
 
 data-files:
-    template/Route53/CreateHealthCheck
+      template/Route53/ChangeResourceRecordSets
+    , template/Route53/CreateHealthCheck
+    , template/Route53/CreateHostedZone
 
 source-repository head
     type:     git
@@ -31,19 +33,23 @@ library
     exposed-modules:
         Network.AWS
 
-      , Network.AWS.Internal
-      , Network.AWS.Internal.Signing
-      , Network.AWS.Internal.TH
-      , Network.AWS.Internal.Types
-
       , Network.AWS.EC2
+      , Network.AWS.Route53
+
+    other-modules:
+        Data.Aeson.Hastache
+      , Data.Aeson.XML
+
       , Network.AWS.EC2.Actions
       , Network.AWS.EC2.Metadata
 
-      , Network.AWS.Route53
+      , Network.AWS.Internal
+      , Network.AWS.Internal.Signing
+      , Network.AWS.Internal.String
+      , Network.AWS.Internal.TH
+      , Network.AWS.Internal.Types
 
-
-    other-modules:
+      , Paths_aws_haskell
 
     ghc-options:
         -Wall
@@ -77,21 +83,3 @@ library
       , time
       , transformers
       , unordered-containers
-
--- executable haws
---     default-language:  Haskell2010
---     main-is:           Main.hs
---     hs-source-dirs:    src
-
---     ghc-options:
---         -threaded
---         -Wall
---         -fwarn-tabs
---         -funbox-strict-fields
---         -with-rtsopts=-N
---         -with-rtsopts=-T
-
---     build-depends:
---         base >= 4 && < 5
---       , haws
---       , hastache

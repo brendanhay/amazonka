@@ -17,6 +17,9 @@ module Network.AWS
     ( runAWS
     , global
     , region
+
+    , module EC2
+    , module Route53
     ) where
 
 import           Control.Applicative
@@ -34,6 +37,9 @@ import           Network.Http.Client
 import           OpenSSL                  (withOpenSSL)
 import           System.Environment
 import qualified System.IO.Streams        as Streams
+
+import           Network.AWS.EC2          as EC2
+import           Network.AWS.Route53      as Route53
 
 runAWS :: AWS a -> IO a
 runAWS aws = withOpenSSL $ do
@@ -77,5 +83,6 @@ send signer rq = do
     SignedRequest{..} <- signer rq
     liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
         sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
+        print rqRequest
         receiveResponse conn $ \_ inp ->
             fromMaybe "" <$> Streams.read inp

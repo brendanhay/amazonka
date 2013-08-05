@@ -16,41 +16,43 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.TH
-    ( deriveTemplate
-    , deriveQueryString
+    ( deriveTmpl
+    , deriveQS
+    , deriveQS'
     ) where
 
 import           Control.Applicative
 import           Data.Aeson.TH
-import qualified Data.ByteString.Char8      as BS
-import           Data.Char                  (isUpper, toLower)
-import           Data.List
-import           Data.Maybe
+import qualified Data.ByteString.Char8       as BS
+import           Data.Char                   (toLower)
 import           Data.Monoid
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Syntax
+import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Types
-import           Paths_haws                 (getDataFileName)
+import           Paths_aws_haskell           (getDataFileName)
 
-deriveTemplate :: String -> Name -> Q [Dec]
-deriveTemplate pre name = concat <$> sequence
-    [ deriveToJSON key name
+deriveTmpl :: (String -> String) -> Name -> Q [Dec]
+deriveTmpl f name = concat <$> sequence
+    [ deriveToJSON f name
     , embedTemplate name
     ]
-  where
-    key s = underscore . fromMaybe s $ pre `stripPrefix` s
 
-deriveQueryString :: String -> Name -> Q [Dec]
-deriveQueryString pre name = do
+deriveQS :: Name -> Q [Dec]
+deriveQS name = deriveQS' (dropPrefix $ toLower x : xs) name
+  where
+    (x : xs) = nameBase name
+
+deriveQS' :: (String -> String) -> Name -> Q [Dec]
+deriveQS' f name = do
     ref <- reify name
 
     case ref of
         TyConI (DataD _ _ _ [RecC _ fields] _) -> do
             let names   = map (\(n, _, _) -> n) fields
-                field n = [| queryParam t . $(global n) |]
+                field n = [| queryParam s . $(global n) |]
                   where
-                    t = BS.pack . fromMaybe s $ pre `stripPrefix` s
-                    s = nameBase n
+                    s = BS.pack . f $ nameBase n
                 query   = listE $ map field names
 
             [d|instance QueryString $(conT name) where
@@ -58,6 +60,7 @@ deriveQueryString pre name = do
         _ ->
             [d|instance QueryString $(conT name) where
                    queryString _ = []|]
+
 --
 -- Internal
 --
@@ -78,17 +81,3 @@ readTemplate' name =
     bsExp bs = do
         pack <- [| BS.pack |]
         return $! AppE pack $! LitE $! StringL $! BS.unpack bs
-
-suffix :: String -> String
-suffix str = map rep $ drop idx str
-  where
-    idx = (+ 1) $ reverse (elemIndices '.' str) !! 1
-
-    rep '.' = '/'
-    rep  c  = c
-
-underscore :: String -> String
-underscore (x:xs) | isUpper x = toLower x : underscore xs
-underscore xs                 = concatMap f xs
-  where
-    f x = ['_' | isUpper x] ++ [toLower x]

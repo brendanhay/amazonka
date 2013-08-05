@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
+   <ChangeBatch>
+      {{#comment}}
+      <Comment>{{comment}}</Comment>
+      {{/comment}}
+      <Changes>
+        {{#changes}}
+         <Change>
+            <Action>{{action}}</Action>
+            <ResourceRecordSet>
+               <Name>{{name}}</Name>
+               <Type>{{type}}</Type>
+               <TTL>{{ttl}}</TTL>
+               <ResourceRecords>
+                  {{#values}}
+                  <ResourceRecord>
+                     <Value>{{.}}</Value>
+                  </ResourceRecord>
+                  {{/values}}
+               </ResourceRecords>
+               {{#health_check_id}}
+               <HealthCheckId>{{health_check_id}}</HealthCheckId>
+               {{/health_check}}
+            </ResourceRecordSet>
+         </Change>
+         {{/changes}}
+      </Changes>
+   </ChangeBatch>
+</ChangeResourceRecordSetsRequest>

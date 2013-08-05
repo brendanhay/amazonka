@@ -1,7 +1,6 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 -- |
 -- Module      : Network.AWS.EC2
@@ -14,15 +13,42 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.EC2
-    ( module Metadata
-    , ec2Endpoint
-    ) where
+module Network.AWS.EC2 where
 
-import Data.ByteString          (ByteString)
-import Network.AWS.EC2.Metadata as Metadata
+import Data.ByteString      (ByteString)
+import Data.Monoid
+import Network.AWS.Internal
+import Network.Http.Client
 
-ec2Endpoint :: ByteString
-ec2Endpoint = "ec2.amazonaws.com"
+ec2Sign :: QueryString a => Method -> ByteString -> Region -> a -> AWS SignedRequest
+ec2Sign meth action reg qry = version2 rq
+  where
+    rq = (emptyRequest meth ec2Version (ec2Endpoint reg) "" Nothing)
+        { rqAction = Just action
+        , rqQuery  = queryString qry
+        }
 
+ec2Version :: ApiVersion
+ec2Version  = "2013-06-15"
+
+ec2Endpoint :: Region -> ByteString
+ec2Endpoint reg = "ec2." <> toBS reg <> ".amazonaws.com"
+
+data AllocateAddress = AllocateAddress
+    { allocateAddressDomain :: !(Maybe ByteString)
+    } deriving (Show)
+
+$(deriveQS ''AllocateAddress)
+
+instance RegionRequest AllocateAddress where
+    signRegion = ec2Sign GET "AllocateAddress"
+
+data DescribeInstances = DescribeInstances
+    { describeInstancesInstanceId :: [ByteString]
+    } deriving (Show)
+
+$(deriveQS ''DescribeInstances)
+
+instance RegionRequest DescribeInstances where
+    signRegion = ec2Sign GET "DescribeInstances"
 

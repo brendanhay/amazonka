@@ -14,5 +14,6 @@ module Network.AWS.Internal
     ) where
 
 import Network.AWS.Internal.Signing as Internal
+import Network.AWS.Internal.String  as Internal
 import Network.AWS.Internal.TH      as Internal
 import Network.AWS.Internal.Types   as Internal

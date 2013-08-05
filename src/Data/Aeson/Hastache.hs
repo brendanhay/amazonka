@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |
--- Module      : Text.Hastache.Aeson
+-- Module      : Data.Aeson.Hastache
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               Berkeley Software Distribution License, v. 3.0.
@@ -12,7 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Text.Hastache.Aeson
+module Data.Aeson.Hastache
     ( jsonContext
     ) where
 
@@ -34,6 +34,14 @@ jsonContext = buildContext . buildMap "" Map.empty . toJSON
 --
 -- Internal
 --
+
+buildContext :: Monad m
+             => Map ByteString (MuType m)
+             -> ByteString
+             -> m (MuType m)
+buildContext m a = return $ fromMaybe
+    (if a == "." then fromMaybe MuNothing $ Map.lookup BS.empty m else MuNothing)
+    (Map.lookup a m)
 
 buildMap :: Monad m
          => String
@@ -64,11 +72,3 @@ buildMap name m val
             Bool b           -> MuBool b
             Null             -> MuNothing
             t                -> MuVariable $ show t
-
-buildContext :: Monad m
-             => Map ByteString (MuType m)
-             -> ByteString
-             -> m (MuType m)
-buildContext m a = return $ fromMaybe
-    (if a == "." then fromMaybe MuNothing $ Map.lookup BS.empty m else MuNothing)
-    (Map.lookup a m)

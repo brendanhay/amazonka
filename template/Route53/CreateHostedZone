@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
+   <Name>{{domain_name}}</Name>
+   <CallerReference>{{caller_ref}}</CallerReference>
+   {{#comment}}
+   <HostedZoneConfig>
+      <Comment>{{comment}}</Comment>
+   </HostedZoneConfig>
+   {{/comment}}
+</CreateHostedZoneRequest>

@@ -15,40 +15,6 @@
 
 module Network.AWS.EC2.Actions where
 
-import Data.ByteString      (ByteString)
-import Data.Monoid
-import Network.AWS.Internal
-import Network.Http.Client
-
-signer :: QueryString a => Method -> ByteString -> Region -> a -> AWS SignedRequest
-signer meth action reg qry = version2 rq
-  where
-    rq = (emptyRequest meth version endpoint "/" Nothing)
-        { rqAction = Just action
-        , rqQuery  = queryString qry
-        }
-
-    version  = "2013-06-15"
-    endpoint = "ec2." <> toBS reg <> ".amazonaws.com"
-
-data AllocateAddress = AllocateAddress
-    { allocateAddressDomain :: !(Maybe ByteString)
-    } deriving (Show)
-
-$(deriveQueryString "allocateAddress" ''AllocateAddress)
-
-instance RegionRequest AllocateAddress where
-    signRegion = signer GET "AllocateAddress"
-
-data DescribeInstances = DescribeInstances
-    { describeInstancesInstanceId :: [ByteString]
-    } deriving (Show)
-
-$(deriveQueryString "describeInstances" ''DescribeInstances)
-
-instance RegionRequest DescribeInstances where
-    signRegion = signer GET "DescribeInstances"
-
 --
 -- Internal
 --
@@ -58,12 +24,12 @@ data Action
 --    | AllocateAddress
     | AssignPrivateIpAddresses
     | AssociateAddress
-    | AssociateDhcpOptions
+    | AssociateDHCPOptions
     | AssociateRouteTable
     | AttachInternetGateway
     | AttachNetworkInterface
     | AttachVolume
-    | AttachVpnGateway
+    | AttachVPNGateway
     | AuthorizeSecurityGroupEgress
     | AuthorizeSecurityGroupIngress
     | BundleInstance
@@ -76,7 +42,7 @@ data Action
     | CopyImage
     | CopySnapshot
     | CreateCustomerGateway
-    | CreateDhcpOptions
+    | CreateDHCPOptions
     | CreateImage
     | CreateInstanceExportTask
     | CreateInternetGateway
@@ -94,13 +60,13 @@ data Action
     | CreateSubnet
     | CreateTags
     | CreateVolume
-    | CreateVpc
-    | CreateVpnConnection
-    | CreateVpnConnectionRoute
-    | CreateVpnGateway
+    | CreateVPC
+    | CreateVPNConnection
+    | CreateVPNConnectionRoute
+    | CreateVPNGateway
     | DeactivateLicense
     | DeleteCustomerGateway
-    | DeleteDhcpOptions
+    | DeleteDHCPOptions
     | DeleteInternetGateway
     | DeleteKeyPair
     | DeleteNetworkAcl
@@ -115,10 +81,10 @@ data Action
     | DeleteSubnet
     | DeleteTags
     | DeleteVolume
-    | DeleteVpc
-    | DeleteVpnConnection
-    | DeleteVpnConnectionRoute
-    | DeleteVpnGateway
+    | DeleteVPC
+    | DeleteVPNConnection
+    | DeleteVPNConnectionRoute
+    | DeleteVPNGateway
     | DeregisterImage
     | DescribeAccountAttributes
     | DescribeAddresses
@@ -126,7 +92,7 @@ data Action
     | DescribeBundleTasks
     | DescribeConversionTasks
     | DescribeCustomerGateways
-    | DescribeDhcpOptions
+    | DescribeDHCPOptions
     | DescribeExportTasks
     | DescribeImageAttribute
     | DescribeImages
@@ -156,18 +122,18 @@ data Action
     | DescribeVolumeAttribute
     | DescribeVolumes
     | DescribeVolumeStatus
-    | DescribeVpcAttribute
-    | DescribeVpcs
-    | DescribeVpnConnections
-    | DescribeVpnGateways
+    | DescribeVPCAttribute
+    | DescribeVPCs
+    | DescribeVPNConnections
+    | DescribeVPNGateways
     | DetachInternetGateway
     | DetachNetworkInterface
     | DetachVolume
-    | DetachVpnGateway
-    | DisableVgwRoutePropagation
+    | DetachVPNGateway
+    | DisableVGWRoutePropagation
     | DisassociateAddress
     | DisassociateRouteTable
-    | EnableVgwRoutePropagation
+    | EnableVGWRoutePropagation
     | EnableVolumeIO
     | GetConsoleOutput
     | GetPasswordData
@@ -179,7 +145,7 @@ data Action
     | ModifyNetworkInterfaceAttribute
     | ModifySnapshotAttribute
     | ModifyVolumeAttribute
-    | ModifyVpcAttribute
+    | ModifyVPCAttribute
     | MonitorInstances
     | PurchaseReservedInstancesOffering
     | RebootInstances

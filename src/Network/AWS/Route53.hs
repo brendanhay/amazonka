@@ -169,14 +169,16 @@ $(deriveToJSON (underscore . dropPrefix "rrs") ''ResourceRecordSet)
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { crrsComment :: !(Maybe ByteString)
+    { crrsZoneId  :: !ByteString
+    , crrsComment :: !(Maybe ByteString)
     , crrsChanges :: ![ResourceRecordSet]
     } deriving (Show)
 
 $(deriveTmpl (underscore . dropPrefix "crrs") ''ChangeResourceRecordSets)
 
 instance GlobalRequest ChangeResourceRecordSets where
-    signGlobal = r53Post ""
+    signGlobal rs@ChangeResourceRecordSets{..} =
+        r53Post ("hostedzone/" <> crrsZoneId <> "/rrset") rs
 
 -- | Lists details about all of the resource record sets in a hosted zone.
 --

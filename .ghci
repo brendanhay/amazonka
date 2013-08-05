@@ -7,6 +7,6 @@
 import Network.AWS.Internal
 import Network.AWS.Route53
 
-let changeSet = ResourceRecordSet CreateAction "test.z-infra.com" CNAME 900 Nothing ["a.test.z-infra.com"]
-let changeRecord = ChangeResourceRecordSets (Just "comment") [changeSet, changeSet, changeSet]
+let changeSet = ResourceRecordSet CreateAction "test.testicles.com" CNAME 900 Nothing ["a.test.testicles.com"]
+let changeRecord = ChangeResourceRecordSets "testicles.com" (Just "comment") [changeSet, changeSet, changeSet]
 

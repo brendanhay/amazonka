@@ -3,7 +3,7 @@
 {-# LANGUAGE RecordWildCards            #-}
 
 -- |
--- Module      : Network.AWS.Request
+-- Module      : Network.AWS.Internal.Signing
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,79 +13,27 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request where
+module Network.AWS.Internal.Signing
+    ( version2
+    , version3
+    ) where
 
 import           Control.Applicative
-import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.Aeson
-import           Data.ByteString          (ByteString)
-import qualified Data.ByteString.Base64   as Base64
-import qualified Data.ByteString.Char8    as BS
-import qualified Data.ByteString.Lazy     as LBS
-import qualified Data.Digest.Pure.SHA     as SHA
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Base64     as Base64
+import qualified Data.ByteString.Char8      as BS
+import qualified Data.ByteString.Lazy       as LBS
+import qualified Data.Digest.Pure.SHA       as SHA
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Time                (UTCTime, formatTime, getCurrentTime)
-import           Network.AWS.EC2.Metadata
-import           Network.AWS.Types
-import           Network.HTTP.Types       (urlEncode)
+import           Data.Time                  (UTCTime, formatTime, getCurrentTime)
+import           Network.AWS.Internal.Types
+import           Network.HTTP.Types         (urlEncode)
 import           Network.Http.Client
-import           OpenSSL                  (withOpenSSL)
-import           System.Environment
-import qualified System.IO.Streams        as Streams
-import           System.Locale            (defaultTimeLocale, iso8601DateFormat)
-
-runAWS :: AWS a -> IO a
-runAWS aws = withOpenSSL $ do
-    auth <- discover
-    putStrLn $ "Found: " ++ show auth
-    runReaderT (unWrap aws) auth
-
-global :: GlobalRequest a => a -> AWS ByteString
-global = send signGlobal
-
-region :: RegionRequest a => Region -> a -> AWS ByteString
-region reg = send (signRegion reg)
-
-sign :: SigningVersion -> RawRequest -> AWS SignedRequest
-sign Version2 = version2
-sign Version3 = version3
-
---
--- Internal
---
-
--- FIXME: Should I try to be smart about choosing the IAM role name
--- from the metadata, or require it to be specified?
-discover :: MonadIO m => m Auth
-discover = liftIO $ do
-    me <- fromEnv
-    case me of
-        Just x  -> return x
-        Nothing -> fromMaybe (error msg) <$> fromMetadata
-  where
-    fromEnv = do
-        acc <- pack "ACCESS_KEY_ID"
-        sec <- pack "SECRET_ACCESS_KEY"
-        return $ Auth <$> acc <*> sec
-
-    pack = fmap (fmap BS.pack) . lookupEnv
-
-    fromMetadata = decode . LBS.fromStrict <$> metadata (SecurityCredentials "s3_ro")
-
-    msg = "Failed to get authentication information from environment or EC2 metadata"
-
--- FIXME: XHT -> Aeson
-send :: (a -> AWS SignedRequest) -> a -> AWS ByteString
-send signer rq = do
-    SignedRequest{..} <- signer rq
-    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
-        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
-        receiveResponse conn $ \_ inp ->
-            fromMaybe "" <$> Streams.read inp
+import           System.Locale              (defaultTimeLocale, iso8601DateFormat)
 
 version2 :: RawRequest -> AWS SignedRequest
 version2 RawRequest{..} = do
@@ -162,6 +110,10 @@ version3 RawRequest{..} = do
         . SHA.bytestringDigest
         . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
+
+--
+-- Internal
+--
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show

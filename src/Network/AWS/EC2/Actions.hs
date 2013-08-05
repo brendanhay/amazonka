@@ -15,15 +15,13 @@
 
 module Network.AWS.EC2.Actions where
 
-import Data.ByteString     (ByteString)
+import Data.ByteString      (ByteString)
 import Data.Monoid
-import Network.AWS.Request
-import Network.AWS.TH
-import Network.AWS.Types
+import Network.AWS.Internal
 import Network.Http.Client
 
 signer :: QueryString a => Method -> ByteString -> Region -> a -> AWS SignedRequest
-signer meth action reg qry = sign Version2 rq
+signer meth action reg qry = version2 rq
   where
     rq = (emptyRequest meth version endpoint "/" Nothing)
         { rqAction = Just action

@@ -24,7 +24,7 @@ import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Char8  as BS
 import           Data.Maybe
 import           Data.Monoid
-import           Network.AWS.Types
+import           Network.AWS.Internal
 import           Network.Http.Client
 import qualified System.IO.Streams      as Streams
 

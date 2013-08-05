@@ -10,6 +10,7 @@ install:
 
 clean:
 	-rm -rf .conf bin dist .shelly
+	cabal-dev clean
 
 lint:
 	hlint src

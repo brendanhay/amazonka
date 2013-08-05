@@ -29,15 +29,19 @@ library
     hs-source-dirs:    src
 
     exposed-modules:
-        Network.AWS.Request
-      , Network.AWS.TH
-      , Network.AWS.Types
+        Network.AWS
+
+      , Network.AWS.Internal
+      , Network.AWS.Internal.Signing
+      , Network.AWS.Internal.TH
+      , Network.AWS.Internal.Types
 
       , Network.AWS.EC2
       , Network.AWS.EC2.Actions
       , Network.AWS.EC2.Metadata
 
       , Network.AWS.Route53
+
 
     other-modules:
 

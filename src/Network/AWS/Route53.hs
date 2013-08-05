@@ -21,9 +21,7 @@ import           Data.Aeson
 import           Data.ByteString        (ByteString)
 import           Data.String
 import           Data.Time
-import           Network.AWS.Request
-import           Network.AWS.TH
-import           Network.AWS.Types
+import           Network.AWS.Internal
 import           Network.Http.Client
 import qualified System.IO.Streams      as Streams
 import           Text.Hastache
@@ -60,7 +58,7 @@ instance GlobalRequest CreateHealthCheck where
 --
 
 signer :: Template a => Method -> ByteString -> a -> AWS SignedRequest
-signer meth path tmpl = render >>= sign Version3
+signer meth path tmpl = render >>= version3
     . emptyRequest meth version endpoint path
     . Just
   where

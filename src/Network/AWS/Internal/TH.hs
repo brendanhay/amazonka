@@ -1,9 +1,11 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE QuasiQuotes       #-}
 
 -- |
--- Module      : Network.AWS.TH
+-- Module      : Network.AWS.Internal.TH
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,7 +15,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.TH
+module Network.AWS.Internal.TH
     ( deriveTemplate
     , deriveQueryString
     ) where
@@ -27,7 +29,7 @@ import           Data.Maybe
 import           Data.Monoid
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Syntax
-import           Network.AWS.Types
+import           Network.AWS.Internal.Types
 import           Paths_haws                 (getDataFileName)
 
 deriveTemplate :: String -> Name -> Q [Dec]
@@ -90,4 +92,3 @@ underscore (x:xs) | isUpper x = toLower x : underscore xs
 underscore xs                 = concatMap f xs
   where
     f x = ['_' | isUpper x] ++ [toLower x]
-

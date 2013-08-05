@@ -4,7 +4,7 @@
 {-# LANGUAGE RecordWildCards            #-}
 
 -- |
--- Module      : Network.AWS.Types
+-- Module      : Network.AWS.Internal.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Types where
+module Network.AWS.Internal.Types where
 
 import           Control.Applicative
 import           Control.Monad
@@ -32,11 +32,6 @@ import           System.IO.Streams      (InputStream)
 
 class IsByteString a where
     toBS :: a -> ByteString
-
-data SigningVersion
-    = Version2
-    | Version3
-      deriving (Show)
 
 newtype ApiVersion = ApiVersion ByteString
     deriving (Show)

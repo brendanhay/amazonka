@@ -70,16 +70,6 @@ instance IsByteString Metadata where
         SecurityCredentials r -> "iam/security-credentials/" <> r
         AvailabilityZone      -> "placement/availability-zone"
 
--- {
---   "Code" : "Success",
---   "LastUpdated" : "2013-08-05T06:32:22Z",
---   "Type" : "AWS-HMAC",
---   "AccessKeyId" : "ASIAJL2P226VZ5IWGPCA",
---   "SecretAccessKey" : "/0cu7VvUbOgYP8zSKLj3imkovMGbKvMMZOFItYXd",
---   "Token" : "AQoDYXdzEBAaoAL80jr5LjYBukdIym/QOGHvFH+ER7bJC9h0ScihxfLB06Kw3jwO7nxlPNXxLJT1vY3i2klLyK4aIEfQ1hnHUUzrSpFm1I75bJBfLaV7cWuXQCdJl4Uyu30lngYca9M33Irk9GgkTZiC6ovKX4Ma/S9yDYI+b4W8PTrmvvX0mDbYjlm90RpzRqND82wOr/AyUeci6Z9TN5dHaS3vtzgO4tv92YWYJJ6sxhT/7cwcYnavFb69X24uF1EW9cte0gJvHlDFuXw/v7YI1CGJsvuLzMmz7qWdPs23I+KvLOcfkYKYmxz1uyWuIdXDEsOS2XWSc9OGe1fzDCFPe/U5Me1wozcw2+k12YGK87btxOwHPUONfpVczMiWytswrzgi3VwwSxAgsI79jwU=",
---   "Expiration" : "2013-08-05T12:53:28Z"
--- }
-
 metadata :: MonadIO m => Metadata -> m ByteString
 metadata = metadataByKey . toBS
 

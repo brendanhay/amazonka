@@ -1,12 +1,10 @@
 {-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE FunctionalDependencies     #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
-
 {-# LANGUAGE RecordWildCards            #-}
-
-{-# LANGUAGE FunctionalDependencies     #-}
 
 -- |
 -- Module      : Network.AWS.Internal.Types

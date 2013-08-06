@@ -1,7 +1,12 @@
 {-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
+
 {-# LANGUAGE RecordWildCards            #-}
+
+{-# LANGUAGE FunctionalDependencies     #-}
 
 -- |
 -- Module      : Network.AWS.Internal.Types
@@ -78,8 +83,8 @@ instance ToJSON Protocol where
     toJSON = toJSON . show
 
 data Auth = Auth
-    { accessKey :: ByteString
-    , secretKey :: ByteString
+    { accessKey :: !ByteString
+    , secretKey :: !ByteString
     } deriving (Show)
 
 instance FromJSON Auth where
@@ -88,26 +93,43 @@ instance FromJSON Auth where
         <*> o .: "SecretAccessKey"
     parseJSON _ = mzero
 
-newtype AWS a = AWS { unWrap :: ReaderT Auth IO a }
-    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Auth)
-
-data RawRequest = RawRequest
-    { rqMethod  :: !Method
-    , rqVersion :: !ApiVersion
-    , rqHost    :: !ByteString
-    , rqAction  :: !(Maybe ByteString)
-    , rqPath    :: !(Maybe ByteString)
-    , rqHeaders :: !(Map ByteString [ByteString])
-    , rqQuery   :: ![(ByteString, ByteString)]
-    , rqBody    :: !(Maybe (InputStream ByteString))
+data Env = Env
+    { awsRegion :: !(Maybe Region)
+    , awsAuth   :: !Auth
     }
 
-emptyRequest :: Method
+newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
+    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
+
+data RawRequest a where
+    RawRequest :: AWSSigner a
+               => { rqMethod  :: !Method
+                 , rqVersion :: !ApiVersion
+                 , rqHost    :: !ByteString
+                 , rqAction  :: !(Maybe ByteString)
+                 , rqPath    :: !(Maybe ByteString)
+                 , rqHeaders :: !(Map ByteString [ByteString])
+                 , rqQuery   :: ![(ByteString, ByteString)]
+                 , rqBody    :: !(Maybe (InputStream ByteString))
+                 }
+               -> RawRequest a
+
+class AWSSigner a where
+    sign :: RawRequest a -> AWS SignedRequest
+
+class AWSRegion a where
+    regionalise :: Region -> RawRequest a -> RawRequest a
+
+class AWSSigner b => AWSRequest b a | a -> b where
+    request :: a -> AWS (RawRequest b)
+
+emptyRequest :: AWSSigner a
+             => Method
              -> ApiVersion
              -> ByteString
              -> ByteString
              -> Maybe (InputStream ByteString)
-             -> RawRequest
+             -> RawRequest a
 emptyRequest meth ver host path body = RawRequest
     { rqMethod  = meth
     , rqVersion = ver
@@ -134,12 +156,6 @@ instance Show SignedRequest where
 class (Show a, ToJSON a) => Template a where
     readTemplate :: a -> ByteString
 
-class Show a => GlobalRequest a where
-    signGlobal :: a -> AWS SignedRequest
-
-class Show a => RegionRequest a where
-    signRegion :: Region -> a -> AWS SignedRequest
-
 class Show a => QueryString a where
     queryString :: a -> [(ByteString, ByteString)]
 
@@ -160,3 +176,4 @@ instance QueryParam [ByteString] where
 
 instance QueryParam Integer where
     queryParam k n = [(k, BS.pack $ show n)]
+

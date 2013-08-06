@@ -15,8 +15,8 @@
 
 module Network.AWS
     ( runAWS
-    , global
-    , region
+    , withRegion
+    , send
 
     , module EC2
     , module Route53
@@ -42,16 +42,22 @@ import           Network.AWS.EC2          as EC2
 import           Network.AWS.Route53      as Route53
 
 runAWS :: AWS a -> IO a
-runAWS aws = withOpenSSL $ do
-    auth <- discover
-    putStrLn $ "Found: " ++ show auth
-    runReaderT (unWrap aws) auth
+runAWS aws = withOpenSSL $ discover >>=
+    runReaderT (unWrap aws) . Env Nothing
 
-global :: GlobalRequest a => a -> AWS ByteString
-global = send signGlobal
+withRegion :: Region -> AWS a -> AWS a
+withRegion reg aws = awsAuth <$> ask >>=
+    liftIO . runReaderT (unWrap aws) . Env (Just reg)
 
-region :: RegionRequest a => Region -> a -> AWS ByteString
-region reg = send (signRegion reg)
+-- FIXME: XHT -> Aeson
+send :: AWSRequest b a => a -> AWS ByteString
+send payload = do
+    SignedRequest{..} <- request payload >>= sign
+    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
+        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
+        print rqRequest
+        receiveResponse conn $ \_ inp ->
+            fromMaybe "" <$> Streams.read inp
 
 --
 -- Internal
@@ -73,16 +79,7 @@ discover = liftIO $ do
 
     pack = fmap (fmap BS.pack) . lookupEnv
 
-    fromMetadata = decode . LBS.fromStrict <$> metadata (SecurityCredentials "s3_ro")
+    fromMetadata = decode
+        . LBS.fromStrict <$> metadata (SecurityCredentials "s3_ro")
 
-    msg = "Failed to get authentication information from environment or EC2 metadata"
-
--- FIXME: XHT -> Aeson
-send :: (a -> AWS SignedRequest) -> a -> AWS ByteString
-send signer rq = do
-    SignedRequest{..} <- signer rq
-    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
-        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
-        print rqRequest
-        receiveResponse conn $ \_ inp ->
-            fromMaybe "" <$> Streams.read inp
+    msg = "Failed to get auth information from environment or EC2 metadata"

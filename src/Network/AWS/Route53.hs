@@ -1,4 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
@@ -35,12 +36,9 @@ module Network.AWS.Route53
     , GetHealthCheck           (..)
     , ListHealthChecks         (..)
     , DeleteHealthCheck        (..)
-
-    -- * Request Signing
-    , r53Sign
-    , r53Post
     ) where
 
+import           Control.Applicative
 import           Control.Monad.IO.Class
 import           Data.Aeson
 import           Data.Aeson.Hastache
@@ -52,35 +50,46 @@ import           Data.Monoid
 import           Data.String
 import qualified Data.Text                  as Text
 import           Network.AWS.Internal
-import           Network.Http.Client
+import           Network.Http.Client        hiding (get)
+import           System.IO.Streams          (InputStream)
 import qualified System.IO.Streams          as Streams
 import           Text.Hastache
 
 --
--- Signing
+-- R53 Requests
 --
 
-r53Sign :: Method -> ByteString -> [(ByteString, ByteString)] -> AWS SignedRequest
-r53Sign meth path qry = version3 $
-    (emptyRequest meth r53Version r53Endpoint path Nothing)
-        { rqQuery = qry
-        }
+data R53
 
-r53Post :: Template a =>  ByteString -> a -> AWS SignedRequest
-r53Post path tmpl = render >>= version3
-    . emptyRequest POST r53Version r53Endpoint path
-    . Just
+instance AWSSigner R53 where
+    sign = version2
+
+instance AWSRegion R53 where
+    regionalise _ = id
+
+get, delete :: ByteString -> [(ByteString, ByteString)] -> AWS (RawRequest R53)
+get    = req GET
+delete = req DELETE
+
+post :: Template a => ByteString -> a -> AWS (RawRequest R53)
+post path tmpl = emptyRequest POST version endpoint path . Just <$> render tmpl
+
+req :: Method -> ByteString -> [(ByteString, ByteString)] -> AWS (RawRequest R53)
+req meth path qry = return $ rq { rqQuery = qry }
   where
-    render = liftIO $ do
-        bstr <- hastacheStr defaultConfig (readTemplate tmpl) (jsonContext tmpl)
-        LBS.putStrLn bstr
-        Streams.fromLazyByteString bstr
+    rq = emptyRequest meth version endpoint path Nothing
 
-r53Version :: ApiVersion
-r53Version = "2012-12-12"
+version :: ApiVersion
+version = "2012-12-12"
 
-r53Endpoint :: ByteString
-r53Endpoint = "route53.amazonaws.com"
+endpoint :: ByteString
+endpoint = "route53.amazonaws.com"
+
+render :: (MonadIO m, Template a) => a -> m (InputStream ByteString)
+render tmpl = liftIO $ do
+    bstr <- hastacheStr defaultConfig (readTemplate tmpl) (jsonContext tmpl)
+    LBS.putStrLn bstr
+    Streams.fromLazyByteString bstr
 
 --
 -- Hosted Zones
@@ -88,7 +97,7 @@ r53Endpoint = "route53.amazonaws.com"
 
 -- | Creates a new hosted zone.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_CreateHostedZone.html>
 data CreateHostedZone = CreateHostedZone
     { chzCallerRef  :: !CallerRef
     , chzDomainName :: !ByteString
@@ -97,22 +106,22 @@ data CreateHostedZone = CreateHostedZone
 
 $(deriveTmpl (underscore . dropPrefix "chz") ''CreateHostedZone)
 
-instance GlobalRequest CreateHostedZone where
-    signGlobal = r53Post "hostedzone"
+instance AWSRequest R53 CreateHostedZone where
+    request = post "hostedzone"
 
 -- | Gets information about a specified hosted zone.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetHostedZone.html>
 newtype GetHostedZone = GetHostedZone ByteString
     deriving (Show, IsString, IsByteString)
 
-instance GlobalRequest GetHostedZone where
-    signGlobal chk = r53Sign GET ("hostedzone/" <> toBS chk) []
+instance AWSRequest R53 GetHostedZone where
+    request chk = get ("hostedzone/" <> toBS chk) []
 
 -- | Gets a list of the hosted zones that are associated with the
 -- current AWS account.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListHostedZones.html>
 data ListHostedZones = ListHostedZones
     { lhzMarker   :: !(Maybe ByteString)
     , lhzMaxItems :: !(Maybe Integer)
@@ -120,17 +129,17 @@ data ListHostedZones = ListHostedZones
 
 $(deriveQS' (lowercase . dropPrefix "lhz") ''ListHostedZones)
 
-instance GlobalRequest ListHostedZones where
-    signGlobal = r53Sign GET "hostedzone" . queryString
+instance AWSRequest R53 ListHostedZones where
+    request = get "hostedzone" . queryString
 
 -- | Deletes a hosted zone.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_DeleteHostedZone.html>
 newtype DeleteHostedZone = DeleteHostedZone ByteString
     deriving (Show, IsString, IsByteString)
 
-instance GlobalRequest DeleteHostedZone where
-    signGlobal chk = r53Sign DELETE ("hostedzone/" <> toBS chk) []
+instance AWSRequest R53 DeleteHostedZone where
+    request chk = delete ("hostedzone/" <> toBS chk) []
 
 --
 -- Resource Records
@@ -167,7 +176,7 @@ $(deriveToJSON (underscore . dropPrefix "rrs") ''ResourceRecordSet)
 
 -- | Adds, deletes, and changes resource record sets in a Route 53 hosted zone.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ChangeResourceRecordSets.html>
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { crrsZoneId  :: !ByteString
     , crrsComment :: !(Maybe ByteString)
@@ -176,13 +185,13 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
 
 $(deriveTmpl (underscore . dropPrefix "crrs") ''ChangeResourceRecordSets)
 
-instance GlobalRequest ChangeResourceRecordSets where
-    signGlobal rs@ChangeResourceRecordSets{..} =
-        r53Post ("hostedzone/" <> crrsZoneId <> "/rrset") rs
+instance AWSRequest R53 ChangeResourceRecordSets where
+    request rs@ChangeResourceRecordSets{..} =
+        post ("hostedzone/" <> crrsZoneId <> "/rrset") rs
 
 -- | Lists details about all of the resource record sets in a hosted zone.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListResourceRecordSets.html>
 data ListResourceRecordSets = ListResourceRecordSets
     { lrrsZoneId     :: !ByteString
     , lrrsName       :: !(Maybe ByteString)
@@ -193,19 +202,19 @@ data ListResourceRecordSets = ListResourceRecordSets
 
 $(deriveQS' (lowercase . dropPrefix "lrrs") ''ListResourceRecordSets)
 
-instance GlobalRequest ListResourceRecordSets where
-    signGlobal rs@ListResourceRecordSets{..} =
-        r53Sign GET ("hostedzone/" <> lrrsZoneId <> "/rrset") $ queryString rs
+instance AWSRequest R53 ListResourceRecordSets where
+    request rs@ListResourceRecordSets{..} =
+        get ("hostedzone/" <> lrrsZoneId <> "/rrset") $ queryString rs
 
 -- | Returns the current status of a change batch request that you
 -- submitted by using ChangeResourceRecordSets.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetChange.html>
 newtype GetChange = GetChange ByteString
     deriving (Show, IsString, IsByteString)
 
-instance GlobalRequest GetChange where
-    signGlobal chk = r53Sign GET ("change/" <> toBS chk) []
+instance AWSRequest R53 GetChange where
+    request chk = get ("change/" <> toBS chk) []
 
 --
 -- HealthChecks
@@ -213,7 +222,7 @@ instance GlobalRequest GetChange where
 
 -- | Creates a new health check.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_CreateHealthCheck.html>
 data CreateHealthCheck = CreateHealthCheck
     { chcCallerRef :: !CallerRef
     , chcIpAddress :: !ByteString
@@ -225,22 +234,22 @@ data CreateHealthCheck = CreateHealthCheck
 
 $(deriveTmpl (underscore . dropPrefix "chc") ''CreateHealthCheck)
 
-instance GlobalRequest CreateHealthCheck where
-    signGlobal = r53Post "healthcheck"
+instance AWSRequest R53 CreateHealthCheck where
+    request = post "healthcheck"
 
 -- | Gets information about a specified health check.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetHealthCheck.html>
 newtype GetHealthCheck = GetHealthCheck ByteString
     deriving (Show, IsString, IsByteString)
 
-instance GlobalRequest GetHealthCheck where
-    signGlobal chk = r53Sign GET ("healthcheck/" <> toBS chk) []
+instance AWSRequest R53 GetHealthCheck where
+    request chk = get ("healthcheck/" <> toBS chk) []
 
 -- | Gets a list of the health checks that are associated
 -- with the current AWS account.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListHealthChecks.html>
 data ListHealthChecks = ListHealthChecks
     { lhcMarker   :: !(Maybe ByteString)
     , lhcMaxItems :: !(Maybe Integer)
@@ -248,14 +257,14 @@ data ListHealthChecks = ListHealthChecks
 
 $(deriveQS' (lowercase . dropPrefix "lhc") ''ListHealthChecks)
 
-instance GlobalRequest ListHealthChecks where
-    signGlobal = r53Sign GET "healthcheck" . queryString
+instance AWSRequest R53 ListHealthChecks where
+    request = get "healthcheck" . queryString
 
 -- | Deletes a health check.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
+-- <http://docs.aws.amazon.com/R53/latest/APIReference/API_DeleteHealthCheck.html>
 newtype DeleteHealthCheck = DeleteHealthCheck ByteString
     deriving (Show, IsString, IsByteString)
 
-instance GlobalRequest DeleteHealthCheck where
-    signGlobal chk = r53Sign DELETE (mappend "healthcheck/" $ toBS chk) []
+instance AWSRequest R53 DeleteHealthCheck where
+    request chk = delete (mappend "healthcheck/" $ toBS chk) []

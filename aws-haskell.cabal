@@ -34,14 +34,10 @@ library
         Network.AWS
 
       , Network.AWS.EC2
-      , Network.AWS.Route53
-
-    other-modules:
-        Data.Aeson.Hastache
-      , Data.Aeson.XML
-
       , Network.AWS.EC2.Actions
       , Network.AWS.EC2.Metadata
+
+      , Network.AWS.Route53
 
       , Network.AWS.Internal
       , Network.AWS.Internal.Signing
@@ -49,14 +45,17 @@ library
       , Network.AWS.Internal.TH
       , Network.AWS.Internal.Types
 
-      , Paths_aws_haskell
+      , Data.Aeson.Hastache
+      , Data.Aeson.XML
+
+    other-modules:
+        Paths_aws_haskell
 
     ghc-options:
         -Wall
         -rtsopts
         -fwarn-tabs
         -funbox-strict-fields
-        -ddump-splices
 
     build-depends:
         aeson

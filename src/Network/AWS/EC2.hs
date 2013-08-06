@@ -1,6 +1,7 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE RecordWildCards       #-}
+{-# LANGUAGE TemplateHaskell       #-}
 
 -- |
 -- Module      : Network.AWS.EC2
@@ -20,35 +21,58 @@ import Data.Monoid
 import Network.AWS.Internal
 import Network.Http.Client
 
-ec2Sign :: QueryString a => Method -> ByteString -> Region -> a -> AWS SignedRequest
-ec2Sign meth action reg qry = version2 rq
-  where
-    rq = (emptyRequest meth ec2Version (ec2Endpoint reg) "" Nothing)
-        { rqAction = Just action
-        , rqQuery  = queryString qry
-        }
+--
+-- EC2 Requests
+--
 
-ec2Version :: ApiVersion
-ec2Version  = "2013-06-15"
+data EC2
 
-ec2Endpoint :: Region -> ByteString
-ec2Endpoint reg = "ec2." <> toBS reg <> ".amazonaws.com"
+instance AWSSigner EC2 where
+    sign = version2
 
+instance AWSRegion EC2 where
+    regionalise reg rq = rq { rqHost = "ec2." <> toBS reg <> ".amazonaws.com" }
+
+get :: QueryString a => ByteString -> a -> AWS (RawRequest EC2)
+get = req GET
+
+req :: QueryString a => Method -> ByteString -> a -> AWS (RawRequest EC2)
+req meth action qry = return $ (emptyRequest meth version endpoint "" Nothing)
+    { rqAction = Just action
+    , rqQuery  = queryString qry
+    }
+
+version :: ApiVersion
+version  = "2013-06-15"
+
+endpoint :: ByteString
+endpoint = "ec2.amazonaws.com"
+
+--
+-- Actions
+--
+
+-- |
+--
+--
 data AllocateAddress = AllocateAddress
     { allocateAddressDomain :: !(Maybe ByteString)
     } deriving (Show)
 
 $(deriveQS ''AllocateAddress)
 
-instance RegionRequest AllocateAddress where
-    signRegion = ec2Sign GET "AllocateAddress"
+instance AWSRequest EC2 AllocateAddress where
+    request = get "AllocateAddress"
 
+-- |
+--
+--
 data DescribeInstances = DescribeInstances
     { describeInstancesInstanceId :: [ByteString]
     } deriving (Show)
 
 $(deriveQS ''DescribeInstances)
 
-instance RegionRequest DescribeInstances where
-    signRegion = ec2Sign GET "DescribeInstances"
+instance AWSRequest EC2 DescribeInstances where
+    request = get "DescribeInstances"
 

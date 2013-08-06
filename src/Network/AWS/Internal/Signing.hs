@@ -35,10 +35,28 @@ import           Network.HTTP.Types         (urlEncode)
 import           Network.Http.Client
 import           System.Locale              (defaultTimeLocale, iso8601DateFormat)
 
-version2 :: RawRequest -> AWS SignedRequest
-version2 RawRequest{..} = do
-    Auth{..} <- ask
-    time     <- liftIO getCurrentTime
+version2 :: AWSRegion a => RawRequest a -> AWS SignedRequest
+version2 = signer version2Signer
+
+version3 :: AWSRegion a => RawRequest a -> AWS SignedRequest
+version3 = signer version3Signer
+
+--
+-- Internal
+--
+
+signer :: AWSRegion a
+       => (Auth -> RawRequest a -> IO SignedRequest)
+       -> RawRequest a
+       -> AWS SignedRequest
+signer f raw = do
+    auth <- awsAuth <$> ask
+    rq   <- maybe raw (`regionalise` raw) <$> (awsRegion <$> ask)
+    liftIO $ f auth rq
+
+version2Signer :: Auth -> RawRequest a -> IO SignedRequest
+version2Signer Auth{..} RawRequest{..} = do
+    time <- getCurrentTime
 
     let act = fromMaybe (error "Handle missing action") rqAction
         qry = query act accessKey time
@@ -51,7 +69,7 @@ version2 RawRequest{..} = do
             <> "&Signature="
             <> sig
 
-    liftIO $ SignedRequest url rqBody <$> buildRequest (http rqMethod url)
+    SignedRequest url rqBody <$> buildRequest (http rqMethod url)
   where
     path = validPath rqPath
 
@@ -77,10 +95,9 @@ version2 RawRequest{..} = do
             , qry
             ]
 
-version3 :: RawRequest -> AWS SignedRequest
-version3 RawRequest{..} = do
-    Auth{..} <- ask
-    time     <- rfc822Time <$> liftIO getCurrentTime
+version3Signer :: Auth -> RawRequest a -> IO SignedRequest
+version3Signer Auth{..} RawRequest{..} = do
+    time <- rfc822Time <$> getCurrentTime
 
     let sig  = signature secretKey time
         auth = authorization accessKey sig
@@ -91,11 +108,11 @@ version3 RawRequest{..} = do
             <> validPath rqPath
             <> query
 
-    liftIO $ SignedRequest url rqBody
-        <$> buildRequest (do
-                http rqMethod url
-                setHeader "X-AMZ-Date" time
-                setHeader "X-Amzn-Authorization" auth)
+    SignedRequest url rqBody <$>
+        buildRequest (do
+            http rqMethod url
+            setHeader "X-AMZ-Date" time
+            setHeader "X-Amzn-Authorization" auth)
   where
     query | null rqQuery = ""
           | otherwise    = "?" <> fmtQueryString rqQuery
@@ -110,10 +127,6 @@ version3 RawRequest{..} = do
         . SHA.bytestringDigest
         . SHA.hmacSha256 (LBS.fromStrict secret)
         . LBS.fromStrict
-
---
--- Internal
---
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show

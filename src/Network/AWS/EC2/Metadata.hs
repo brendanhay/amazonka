@@ -25,7 +25,7 @@ import qualified Data.ByteString.Char8  as BS
 import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Internal
-import           Network.Http.Client
+import           Network.Http.Client    hiding (get)
 import qualified System.IO.Streams      as Streams
 
 data Metadata
@@ -74,14 +74,14 @@ metadata :: MonadIO m => Metadata -> m ByteString
 metadata = metadataByKey . toBS
 
 metadataByKey :: MonadIO m => ByteString -> m ByteString
-metadataByKey key = request $ "http://169.254.169.254/latest/meta-data" <> key
+metadataByKey key = get $ "http://169.254.169.254/latest/meta-data" <> key
 
 --
 -- Internal
 --
 
-request :: MonadIO m => ByteString -> m ByteString
-request url = liftIO $
+get :: MonadIO m => ByteString -> m ByteString
+get url = liftIO $
     bracket (establishConnection url) closeConnection $ \conn -> do
         rq <- buildRequest $ http GET url
         sendRequest conn rq emptyBody

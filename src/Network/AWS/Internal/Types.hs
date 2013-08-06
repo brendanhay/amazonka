@@ -34,14 +34,14 @@ import           Data.Time
 import           Network.Http.Client    hiding (post, put)
 import           System.IO.Streams      (InputStream)
 
-class IsByteString a where
+class ToByteString a where
     toBS :: a -> ByteString
 
-instance IsByteString ByteString where
+instance ToByteString ByteString where
     toBS = id
 
 newtype ApiVersion = ApiVersion ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Show, IsString, ToByteString)
 
 data Region
     = NorthVirgnia
@@ -54,7 +54,7 @@ data Region
     | SaoPaulo
       deriving (Show)
 
-instance IsByteString Region where
+instance ToByteString Region where
     toBS reg = case reg of
         NorthVirgnia    -> "us-east-1"
         NorthCalifornia -> "us-west-1"

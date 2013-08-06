@@ -50,7 +50,7 @@ data Metadata
 instance Show Metadata where
     show = BS.unpack . toBS
 
-instance IsByteString Metadata where
+instance ToByteString Metadata where
     toBS meta = case meta of
         AmiId                 -> "ami-id"
         AmiLaunchIndex        -> "ami-launch-index"

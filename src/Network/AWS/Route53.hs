@@ -113,7 +113,7 @@ instance AWSRequest R53 CreateHostedZone where
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetHostedZone.html>
 newtype GetHostedZone = GetHostedZone ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Show, IsString, ToByteString)
 
 instance AWSRequest R53 GetHostedZone where
     request chk = get ("hostedzone/" <> toBS chk) []
@@ -136,7 +136,7 @@ instance AWSRequest R53 ListHostedZones where
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_DeleteHostedZone.html>
 newtype DeleteHostedZone = DeleteHostedZone ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Show, IsString, ToByteString)
 
 instance AWSRequest R53 DeleteHostedZone where
     request chk = delete ("hostedzone/" <> toBS chk) []
@@ -211,7 +211,7 @@ instance AWSRequest R53 ListResourceRecordSets where
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetChange.html>
 newtype GetChange = GetChange ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Show, IsString, ToByteString)
 
 instance AWSRequest R53 GetChange where
     request chk = get ("change/" <> toBS chk) []
@@ -241,7 +241,7 @@ instance AWSRequest R53 CreateHealthCheck where
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetHealthCheck.html>
 newtype GetHealthCheck = GetHealthCheck ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Show, IsString, ToByteString)
 
 instance AWSRequest R53 GetHealthCheck where
     request chk = get ("healthcheck/" <> toBS chk) []
@@ -264,7 +264,7 @@ instance AWSRequest R53 ListHealthChecks where
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_DeleteHealthCheck.html>
 newtype DeleteHealthCheck = DeleteHealthCheck ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Show, IsString, ToByteString)
 
 instance AWSRequest R53 DeleteHealthCheck where
     request chk = delete (mappend "healthcheck/" $ toBS chk) []

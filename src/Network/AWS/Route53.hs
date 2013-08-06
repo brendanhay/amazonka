@@ -104,7 +104,7 @@ data CreateHostedZone = CreateHostedZone
     , chzComment    :: !(Maybe String)
     } deriving (Show)
 
-$(deriveTmpl (underscore . dropPrefix "chz") ''CreateHostedZone)
+$(deriveTmpl ''CreateHostedZone)
 
 instance AWSRequest R53 CreateHostedZone where
     request = post "hostedzone"
@@ -127,7 +127,7 @@ data ListHostedZones = ListHostedZones
     , lhzMaxItems :: !(Maybe Integer)
     } deriving (Show)
 
-$(deriveQS' (lowercase . dropPrefix "lhz") ''ListHostedZones)
+$(deriveQS' (lowercase . dropLower) ''ListHostedZones)
 
 instance AWSRequest R53 ListHostedZones where
     request = get "hostedzone" . queryString
@@ -172,7 +172,7 @@ data ResourceRecordSet = ResourceRecordSet
     , rrsValues        :: ![ByteString]
     } deriving (Show)
 
-$(deriveToJSON (underscore . dropPrefix "rrs") ''ResourceRecordSet)
+$(deriveToJSON (underscore . dropLower) ''ResourceRecordSet)
 
 -- | Adds, deletes, and changes resource record sets in a Route 53 hosted zone.
 --
@@ -183,7 +183,7 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
     , crrsChanges :: ![ResourceRecordSet]
     } deriving (Show)
 
-$(deriveTmpl (underscore . dropPrefix "crrs") ''ChangeResourceRecordSets)
+$(deriveTmpl ''ChangeResourceRecordSets)
 
 instance AWSRequest R53 ChangeResourceRecordSets where
     request rs@ChangeResourceRecordSets{..} =
@@ -200,7 +200,7 @@ data ListResourceRecordSets = ListResourceRecordSets
     , lrrsMaxItems   :: !(Maybe Integer)
     } deriving (Show)
 
-$(deriveQS' (lowercase . dropPrefix "lrrs") ''ListResourceRecordSets)
+$(deriveQS' (lowercase . dropLower) ''ListResourceRecordSets)
 
 instance AWSRequest R53 ListResourceRecordSets where
     request rs@ListResourceRecordSets{..} =
@@ -232,7 +232,7 @@ data CreateHealthCheck = CreateHealthCheck
     , chcFQDN      :: !ByteString
     } deriving (Show)
 
-$(deriveTmpl (underscore . dropPrefix "chc") ''CreateHealthCheck)
+$(deriveTmpl ''CreateHealthCheck)
 
 instance AWSRequest R53 CreateHealthCheck where
     request = post "healthcheck"
@@ -255,7 +255,7 @@ data ListHealthChecks = ListHealthChecks
     , lhcMaxItems :: !(Maybe Integer)
     } deriving (Show)
 
-$(deriveQS' (lowercase . dropPrefix "lhc") ''ListHealthChecks)
+$(deriveQS' (lowercase . dropLower) ''ListHealthChecks)
 
 instance AWSRequest R53 ListHealthChecks where
     request = get "healthcheck" . queryString

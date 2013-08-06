@@ -32,16 +32,17 @@ import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Types
 import           Paths_aws_haskell           (getDataFileName)
 
-deriveTmpl :: (String -> String) -> Name -> Q [Dec]
-deriveTmpl f name = concat <$> sequence
+deriveTmpl :: Name -> Q [Dec]
+deriveTmpl name = deriveTmpl' (underscore . dropLower)
+
+deriveTmpl' :: (String -> String) -> Name -> Q [Dec]
+deriveTmpl' f name = concat <$> sequence
     [ deriveToJSON f name
     , embedTemplate name
     ]
 
 deriveQS :: Name -> Q [Dec]
-deriveQS name = deriveQS' (dropPrefix $ toLower x : xs) name
-  where
-    (x : xs) = nameBase name
+deriveQS name = deriveQS' (lowerFirst . dropLower) name
 
 deriveQS' :: (String -> String) -> Name -> Q [Dec]
 deriveQS' f name = do

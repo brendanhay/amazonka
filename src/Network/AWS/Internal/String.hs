@@ -11,15 +11,21 @@
 
 module Network.AWS.Internal.String where
 
-import Data.Char  (isUpper, toLower)
+import Data.Char
 import Data.List
 import Data.Maybe
 
 dropPrefix :: String -> String -> String
 dropPrefix pre s = fromMaybe s $ pre `stripPrefix` s
 
-lowercase :: String -> String
-lowercase = map toLower
+dropLower :: String -> String
+dropLower = dropWhile (== isLower)
+
+lowerFirst :: String -> String
+lowerFirst (x:xs) = toLower x : xs
+
+lowerAll :: String -> String
+lowerAll = map toLower
 
 suffix :: String -> String
 suffix str = map rep $ drop idx str

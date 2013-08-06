@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Types

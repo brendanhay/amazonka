@@ -3518,6 +3518,7 @@ data DescribeVolumeAttributesGroup = DescribeVolumeAttributesGroup
     { AutoEnableIO :: !EmptyElement
     , ProductCodes :: !EmptyElement
     } deriving (Show)
+
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { RequestId    :: !String
     , VolumeId     :: !String

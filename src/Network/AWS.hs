@@ -59,6 +59,7 @@ send payload = do
             print rqRequest
             receiveResponse conn $ \_ inp ->
                 fromMaybe "" <$> Streams.read inp
+
 --
 -- Internal
 --

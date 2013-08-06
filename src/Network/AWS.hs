@@ -52,16 +52,13 @@ withRegion reg aws = awsAuth <$> ask >>=
 -- FIXME: XHT -> Aeson
 send :: AWSRequest b a => a -> AWS ByteString
 send payload = do
-    rq <- sign =<< request payload
-    liftIO . bracket open closeConnection (deliver rq)
-  where
-    open = establishConnection rqUrl
-
-    deliver SignedRequest{..} conn = do
-        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
-        print rqRequest
-        receiveResponse conn $ \_ inp ->
-            fromMaybe "" <$> Streams.read inp
+    SignedRequest{..} <- sign =<< request payload
+    liftIO . bracket (establishConnection rqUrl) closeConnection $
+        \conn -> do
+            sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
+            print rqRequest
+            receiveResponse conn $ \_ inp ->
+                fromMaybe "" <$> Streams.read inp
 --
 -- Internal
 --

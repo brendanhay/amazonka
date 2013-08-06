@@ -19,10 +19,11 @@ dropPrefix :: String -> String -> String
 dropPrefix pre s = fromMaybe s $ pre `stripPrefix` s
 
 dropLower :: String -> String
-dropLower = dropWhile (== isLower)
+dropLower = dropWhile isLower
 
 lowerFirst :: String -> String
 lowerFirst (x:xs) = toLower x : xs
+lowerFirst []     = []
 
 lowerAll :: String -> String
 lowerAll = map toLower

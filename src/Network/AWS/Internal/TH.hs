@@ -16,7 +16,12 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.TH
-    ( deriveTmpl
+    (
+    -- * Template Instances
+      deriveTmpl
+    , deriveTmpl'
+
+    -- * QueryString Instances
     , deriveQS
     , deriveQS'
     ) where
@@ -33,7 +38,7 @@ import           Network.AWS.Internal.Types
 import           Paths_aws_haskell           (getDataFileName)
 
 deriveTmpl :: Name -> Q [Dec]
-deriveTmpl name = deriveTmpl' (underscore . dropLower)
+deriveTmpl name = deriveTmpl' (underscore . dropLower) name
 
 deriveTmpl' :: (String -> String) -> Name -> Q [Dec]
 deriveTmpl' f name = concat <$> sequence
@@ -70,12 +75,12 @@ instance Lift BS.ByteString where
 embedTemplate :: Name -> Q [Dec]
 embedTemplate name =
     [d|instance Template $(conT name) where
-           readTemplate _ = $(readTemplate' (suffix $ show name))|]
-
-readTemplate' :: FilePath -> Q Exp
-readTemplate' name =
-    (runIO $ getDataFileName ("template/" <> name) >>= BS.readFile) >>= bsExp
+           readTemplate _ = $(template >>= embed)|]
   where
-    bsExp bs = do
+    template = runIO $ do
+        path <- getDataFileName ("template/" <> suffix (show name))
+        BS.readFile path
+
+    embed bstr = do
         pack <- [| BS.pack |]
-        return $! AppE pack $! LitE $! StringL $! BS.unpack bs
+        return $! AppE pack $! LitE $! StringL $! BS.unpack bstr

@@ -127,7 +127,7 @@ data ListHostedZones = ListHostedZones
     , lhzMaxItems :: !(Maybe Integer)
     } deriving (Show)
 
-$(deriveQS' (lowercase . dropLower) ''ListHostedZones)
+$(deriveQS' (lowerAll . dropLower) ''ListHostedZones)
 
 instance AWSRequest R53 ListHostedZones where
     request = get "hostedzone" . queryString
@@ -200,7 +200,7 @@ data ListResourceRecordSets = ListResourceRecordSets
     , lrrsMaxItems   :: !(Maybe Integer)
     } deriving (Show)
 
-$(deriveQS' (lowercase . dropLower) ''ListResourceRecordSets)
+$(deriveQS' (lowerAll . dropLower) ''ListResourceRecordSets)
 
 instance AWSRequest R53 ListResourceRecordSets where
     request rs@ListResourceRecordSets{..} =
@@ -255,7 +255,7 @@ data ListHealthChecks = ListHealthChecks
     , lhcMaxItems :: !(Maybe Integer)
     } deriving (Show)
 
-$(deriveQS' (lowercase . dropLower) ''ListHealthChecks)
+$(deriveQS' (lowerAll . dropLower) ''ListHealthChecks)
 
 instance AWSRequest R53 ListHealthChecks where
     request = get "healthcheck" . queryString

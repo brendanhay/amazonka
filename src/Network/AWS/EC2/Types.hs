@@ -17,28 +17,22 @@ import Data.ByteString      (ByteString)
 import Data.Monoid
 import Network.AWS.Internal
 
-type CreateImage = CreateImageType
+(?s)data ([a-zA-Z =]+)[^\}]+
 
-data CreateImageType = CreateImageType
+data CreateImage = CreateImage
     { InstanceId         :: !String
     , Name               :: !String
     , Description        :: !(Maybe String)
     , NoReboot           :: !(Maybe Boolean)
-    , BlockDeviceMapping :: !(Maybe BlockDeviceMappingType)
+    , BlockDeviceMapping :: !(Maybe BlockDeviceMapping)
     } deriving (Show)
 
-type CreateImageResponse = CreateImageResponseType
-
-data CreateImageResponseType = CreateImageResponseType
+data CreateImageResponse = CreateImageResponse
     { RequestId :: !String
     , ImageId   :: !String
     } deriving (Show)
 
-type RegisterImage = RegisterImageType
-
-type RegisterImageResponse = RegisterImageResponseType
-
-data RegisterImageType = RegisterImageType
+data RegisterImage = RegisterImage
     { ImageLocation      :: !(Maybe String)
     , Name               :: !String
     , Description        :: !(Maybe String)
@@ -46,299 +40,275 @@ data RegisterImageType = RegisterImageType
     , KernelId           :: !(Maybe String)
     , RamdiskId          :: !(Maybe String)
     , RootDeviceName     :: !(Maybe String)
-    , BlockDeviceMapping :: !(Maybe BlockDeviceMappingType)
+    , BlockDeviceMapping :: !(Maybe BlockDeviceMapping)
     } deriving (Show)
 
-data RegisterImageResponseType = RegisterImageResponseType
+data RegisterImageResponse = RegisterImageResponse
     { RequestId :: !String
     , ImageId   :: !String
     } deriving (Show)
 
-type DeregisterImage = DeregisterImageType
-
-data DeregisterImageType = DeregisterImageType
+data DeregisterImage = DeregisterImage
     { ImageId :: !String
     } deriving (Show)
 
-type DeregisterImageResponse = DeregisterImageResponseType
-
-data DeregisterImageResponseType = DeregisterImageResponseType
+data DeregisterImageResponse = DeregisterImageResponse
     { RequestId :: !String
-    , Return :: !Boolean
+    , Return    :: !Boolean
     } deriving (Show)
 
-type CreateKeyPair = CreateKeyPairType
-
-data CreateKeyPairType = CreateKeyPairType
+data CreateKeyPair = CreateKeyPair
     { KeyName :: !String
     } deriving (Show)
 
-type CreateKeyPairResponse = CreateKeyPairResponseType
-
-data CreateKeyPairResponseType = CreateKeyPairResponseType
+data CreateKeyPairResponse = CreateKeyPairResponse
     { RequestId      :: !String
     , KeyName        :: !String
     , KeyFingerprint :: !String
     , KeyMaterial    :: !String
     } deriving (Show)
 
-type ImportKeyPair = ImportKeyPairType
-
-type ImportKeyPairResponse = ImportKeyPairResponseType
-
-data ImportKeyPairType = ImportKeyPairType
+data ImportKeyPair = ImportKeyPair
     { KeyName           :: !String
     , PublicKeyMaterial :: !String
     } deriving (Show)
 
-data ImportKeyPairResponseType = ImportKeyPairResponseType
+data ImportKeyPairResponse = ImportKeyPairResponse
     { RequestId      :: !String
     , KeyName        :: !String
     , KeyFingerprint :: !String
     } deriving (Show)
 
-type DeleteKeyPair = DeleteKeyPairType
-
-data DeleteKeyPairType = DeleteKeyPairType
+data DeleteKeyPair = DeleteKeyPair
     { KeyName :: !String
     } deriving (Show)
 
-type DeleteKeyPairResponse = DeleteKeyPairResponseType
-
-data DeleteKeyPairResponseType = DeleteKeyPairResponseType
+data DeleteKeyPairResponse = DeleteKeyPairResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeKeyPairs = DescribeKeyPairsType
-
-data DescribeKeyPairsType = DescribeKeyPairsType
-    { KeySet    :: !DescribeKeyPairsInfoType
-    , FilterSet :: !(Maybe FilterSetType)
+data DescribeKeyPairs = DescribeKeyPairs
+    { KeySet    :: !DescribeKeyPairsInfo
+    , FilterSet :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeKeyPairsInfoType = DescribeKeyPairsInfoType
-    { Item :: ![DescribeKeyPairsItemType]
+data DescribeKeyPairsInfo = DescribeKeyPairsInfo
+    { Item :: ![DescribeKeyPairsItem]
     } deriving (Show)
 
-data DescribeKeyPairsItemType = DescribeKeyPairsItemType
+data DescribeKeyPairsItem = DescribeKeyPairsItem
     { KeyName :: !String
     } deriving (Show)
 
-type DescribeKeyPairsResponse = DescribeKeyPairsResponseType
-
-data DescribeKeyPairsResponseType = DescribeKeyPairsResponseType
+data DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { RequestId :: !String
-    , KeySet    :: !DescribeKeyPairsResponseInfoType
+    , KeySet    :: !DescribeKeyPairsResponseInfo
     } deriving (Show)
 
-data DescribeKeyPairsResponseInfoType = DescribeKeyPairsResponseInfoType
-    { Item :: ![DescribeKeyPairsResponseItemType]
+data DescribeKeyPairsResponseInfo = DescribeKeyPairsResponseInfo
+    { Item :: ![DescribeKeyPairsResponseItem]
     } deriving (Show)
 
-data DescribeKeyPairsResponseItemType = DescribeKeyPairsResponseItemType
+data DescribeKeyPairsResponseItem = DescribeKeyPairsResponseItem
     { KeyName        :: !String
     , KeyFingerprint :: !String
     } deriving (Show)
 
-type RunInstances = RunInstancesType
-
-data RunInstancesType = RunInstancesType
+data RunInstances = RunInstances
     { ImageId                           :: !String
     , MinCount                          :: !Int
     , MaxCount                          :: !Int
     , KeyName                           :: !(Maybe String)
-    , GroupSet                          :: !GroupSetType
-    , UserData                          :: !(Maybe UserDataType)
-    , InstanceType                      :: !String
-    , Placement                         :: !(Maybe PlacementRequestType)
+    , GroupSet                          :: !GroupSet
+    , UserData                          :: !(Maybe UserData)
+    , Instance                      :: !String
+    , Placement                         :: !(Maybe PlacementRequest)
     , KernelId                          :: !(Maybe String)
     , RamdiskId                         :: !(Maybe String)
-    , BlockDeviceMapping                :: !(Maybe BlockDeviceMappingType)
-    , Monitoring                        :: !(Maybe MonitoringInstanceType)
+    , BlockDeviceMapping                :: !(Maybe BlockDeviceMapping)
+    , Monitoring                        :: !(Maybe MonitoringInstance)
     , SubnetId                          :: !(Maybe String)
     , DisableApiTermination             :: !(Maybe Boolean)
     , InstanceInitiatedShutdownBehavior :: !(Maybe String)
-    , License                           :: !(Maybe InstanceLicenseRequestType)
+    , License                           :: !(Maybe InstanceLicenseRequest)
     , PrivateIpAddress                  :: !(Maybe String)
     , ClientToken                       :: !(Maybe String)
-    , NetworkInterfaceSet               :: !(Maybe InstanceNetworkInterfaceSetRequestType)
-    , IamInstanceProfile                :: !(Maybe IamInstanceProfileRequestType)
+    , NetworkInterfaceSet               :: !(Maybe InstanceNetworkInterfaceSetRequest)
+    , IamInstanceProfile                :: !(Maybe IamInstanceProfileRequest)
     , EbsOptimized                      :: !(Maybe Boolean)
     } deriving (Show)
 
-data IamInstanceProfileRequestType = IamInstanceProfileRequestType
+data IamInstanceProfileRequest = IamInstanceProfileRequest
     { Arn  :: !(Maybe String)
     , Name :: !(Maybe String)
     } deriving (Show)
 
-data InstanceNetworkInterfaceSetRequestType = InstanceNetworkInterfaceSetRequestType
-    { Item :: ![InstanceNetworkInterfaceSetItemRequestType]
+data InstanceNetworkInterfaceSetRequest = InstanceNetworkInterfaceSetRequest
+    { Item :: ![InstanceNetworkInterfaceSetItemRequest]
     } deriving (Show)
 
-data InstanceNetworkInterfaceSetItemRequestType = InstanceNetworkInterfaceSetItemRequestType
+data InstanceNetworkInterfaceSetItemRequest = InstanceNetworkInterfaceSetItemRequest
     { NetworkInterfaceId             :: !(Maybe String)
     , DeviceIndex                    :: !Int
     , SubnetId                       :: !(Maybe String)
     , Description                    :: !(Maybe String)
     , PrivateIpAddress               :: !(Maybe String)
-    , GroupSet                       :: !(Maybe SecurityGroupIdSetType)
+    , GroupSet                       :: !(Maybe SecurityGroupIdSet)
     , DeleteOnTermination            :: !(Maybe Boolean)
-    , PrivateIpAddressesSet          :: !(Maybe PrivateIpAddressesSetRequestType)
+    , PrivateIpAddressesSet          :: !(Maybe PrivateIpAddressesSetRequest)
     , SecondaryPrivateIpAddressCount :: !(Maybe Int)
     } deriving (Show)
 
-data PrivateIpAddressesSetRequestType = PrivateIpAddressesSetRequestType
-    { Item :: ![PrivateIpAddressesSetItemRequestType]
+data PrivateIpAddressesSetRequest = PrivateIpAddressesSetRequest
+    { Item :: ![PrivateIpAddressesSetItemRequest]
     } deriving (Show)
 
-data PrivateIpAddressesSetItemRequestType = PrivateIpAddressesSetItemRequestType
+data PrivateIpAddressesSetItemRequest = PrivateIpAddressesSetItemRequest
     { PrivateIpAddress :: !String
     , Primary          :: !(Maybe Boolean)
     } deriving (Show)
 
-data ImportInstanceGroupSetType = ImportInstanceGroupSetType
-    { Item :: ![ImportInstanceGroupItemType]
+data ImportInstanceGroupSet = ImportInstanceGroupSet
+    { Item :: ![ImportInstanceGroupItem]
     } deriving (Show)
 
-data ImportInstanceGroupItemType = ImportInstanceGroupItemType
+data ImportInstanceGroupItem = ImportInstanceGroupItem
     { GroupId   :: !(Maybe String)
     , GroupName :: !(Maybe String)
     } deriving (Show)
 
-data GroupSetType = GroupSetType
-    { Item :: ![GroupItemType]
+data GroupSet = GroupSet
+    { Item :: ![GroupItem]
     } deriving (Show)
 
-data GroupItemType = GroupItemType
+data GroupItem = GroupItem
     { GroupId   :: !(Maybe String)
     , GroupName :: !(Maybe String)
     } deriving (Show)
 
-data UserDataType = UserDataType
+data UserData = UserData
     { Data     :: !(Maybe String)
     , Version  :: !String -- fixed: 1.0
     , Encoding :: !String -- fixed: base64
     } deriving (Show)
 
-data BlockDeviceMappingType = BlockDeviceMappingType
-    { Item :: ![BlockDeviceMappingItemType]
+data BlockDeviceMapping = BlockDeviceMapping
+    { Item :: ![BlockDeviceMappingItem]
     } deriving (Show)
 
-data BlockDeviceMappingItemType = BlockDeviceMappingItemType
+data BlockDeviceMappingItem = BlockDeviceMappingItem
     { DeviceName  :: !String
   -- <xs:choice>
     , VirtualName :: !(Maybe String)
-    , Ebs         :: !(Maybe EbsBlockDeviceType)
-   , NoDevice     :: !(Maybe EmptyElementType)
+    , Ebs         :: !(Maybe EbsBlockDevice)
+   , NoDevice     :: !(Maybe EmptyElement)
   -- </xs:choice>
     } deriving (Show)
 
-data EbsBlockDeviceType = EbsBlockDeviceType
+data EbsBlockDevice = EbsBlockDevice
     { SnapshotId          :: !(Maybe String)
     , VolumeSize          :: !(Maybe Int)
     , DeleteOnTermination :: !(Maybe Boolean)
-    , VolumeType          :: !(Maybe String)
+    , Volume          :: !(Maybe String)
     , Iops                :: !(Maybe Int)
     } deriving (Show)
 
-data PlacementRequestType = PlacementRequestType
+data PlacementRequest = PlacementRequest
     { AvailabilityZone :: !(Maybe String)
     , GroupName        :: !(Maybe String)
     , Tenancy          :: !(Maybe String)
     } deriving (Show)
 
-data SpotPlacementRequestType = SpotPlacementRequestType
+data SpotPlacementRequest = SpotPlacementRequest
     { AvailabilityZone :: !(Maybe String)
     , GroupName        :: !(Maybe String)
     } deriving (Show)
 
-data InstancePlacementType = InstancePlacementType
+data InstancePlacement = InstancePlacement
     { AvailabilityZone :: !(Maybe String)
     , GroupName        :: !(Maybe String)
     } deriving (Show)
 
-data MonitoringInstanceType = MonitoringInstanceType
+data MonitoringInstance = MonitoringInstance
     { Enabled :: !(Maybe Boolean)
     } deriving (Show)
 
-data InstanceLicenseRequestType = InstanceLicenseRequestType
+data InstanceLicenseRequest = InstanceLicenseRequest
     { Pool :: !String
     } deriving (Show)
 
-type RunInstancesResponse = RunInstancesResponseType
-
-data RunInstancesResponseType = RunInstancesResponseType
+data RunInstancesResponse = RunInstancesResponse
     { RequestId     :: !String
     , ReservationId :: !String
     , OwnerId       :: !String
-    , GroupSet      :: !GroupSetType
-    , InstancesSet  :: !RunningInstancesSetType
+    , GroupSet      :: !GroupSet
+    , InstancesSet  :: !RunningInstancesSet
     , RequesterId   :: !(Maybe String)
     } deriving (Show)
 
-data ReservationInfoType = ReservationInfoType
+data ReservationInfo = ReservationInfo
     { ReservationId :: !String
     , OwnerId       :: !String
-    , GroupSet      :: !GroupSetType
-    , InstancesSet  :: !RunningInstancesSetType
+    , GroupSet      :: !GroupSet
+    , InstancesSet  :: !RunningInstancesSet
     , RequesterId   :: !(Maybe String)
     } deriving (Show)
 
-data RunningInstancesSetType = RunningInstancesSetType
-    { Item :: ![RunningInstancesItemType]
+data RunningInstancesSet = RunningInstancesSet
+    { Item :: ![RunningInstancesItem]
     } deriving (Show)
 
-data RunningInstancesItemType = RunningInstancesItemType
+data RunningInstancesItem = RunningInstancesItem
     { InstanceId            :: !String
     , ImageId               :: !(Maybe String)
-    , InstanceState         :: !InstanceStateType
+    , InstanceState         :: !InstanceState
     , PrivateDnsName        :: !String
     , DnsName               :: !(Maybe String)
     , Reason                :: !(Maybe String)
     , KeyName               :: !(Maybe String)
     , AmiLaunchIndex        :: !(Maybe String)
-    , ProductCodes          :: !(Maybe ProductCodesSetType)
-    , InstanceType          :: !String
+    , ProductCodes          :: !(Maybe ProductCodesSet)
+    , Instance          :: !String
     , LaunchTime            :: !DateTime
-    , Placement             :: !(Maybe PlacementResponseType)
+    , Placement             :: !(Maybe PlacementResponse)
     , KernelId              :: !(Maybe String)
     , RamdiskId             :: !(Maybe String)
     , Platform              :: !(Maybe String)
-    , Monitoring            :: !(Maybe InstanceMonitoringStateType)
+    , Monitoring            :: !(Maybe InstanceMonitoringState)
     , SubnetId              :: !(Maybe String)
     , VpcId                 :: !(Maybe String)
     , PrivateIpAddress      :: !(Maybe String)
     , IpAddress             :: !(Maybe String)
     , SourceDestCheck       :: !(Maybe Boolean)
-    , GroupSet              :: !GroupSetType
-    , StateReason           :: !(Maybe StateReasonType)
+    , GroupSet              :: !GroupSet
+    , StateReason           :: !(Maybe StateReason)
     , Architecture          :: !(Maybe String)
-    , RootDeviceType        :: !(Maybe String)
+    , RootDevice        :: !(Maybe String)
     , RootDeviceName        :: !(Maybe String)
-    , BlockDeviceMapping    :: !(Maybe InstanceBlockDeviceMappingResponseType)
+    , BlockDeviceMapping    :: !(Maybe InstanceBlockDeviceMappingResponse)
     , InstanceLifecycle     :: !(Maybe String)
     , SpotInstanceRequestId :: !(Maybe String)
-    , License               :: !(Maybe InstanceLicenseResponseType)
-    , VirtualizationType    :: !(Maybe String)
+    , License               :: !(Maybe InstanceLicenseResponse)
+    , Virtualization    :: !(Maybe String)
     , ClientToken           :: !(Maybe String)
-    , TagSet                :: !(Maybe ResourceTagSetType)
+    , TagSet                :: !(Maybe ResourceTagSet)
     , Hypervisor            :: !(Maybe String)
-    , NetworkInterfaceSet   :: !(Maybe InstanceNetworkInterfaceSetType)
-    , IamInstanceProfile    :: !(Maybe IamInstanceProfileResponseType)
+    , NetworkInterfaceSet   :: !(Maybe InstanceNetworkInterfaceSet)
+    , IamInstanceProfile    :: !(Maybe IamInstanceProfileResponse)
     , EbsOptimized          :: !(Maybe Boolean)
     } deriving (Show)
 
-data IamInstanceProfileResponseType = IamInstanceProfileResponseType
+data IamInstanceProfileResponse = IamInstanceProfileResponse
     { Arn :: !String
     , Id  :: !String
     } deriving (Show)
 
-data InstanceNetworkInterfaceSetType = InstanceNetworkInterfaceSetType
-    { Item :: ![InstanceNetworkInterfaceSetItemType]
+data InstanceNetworkInterfaceSet = InstanceNetworkInterfaceSet
+    { Item :: ![InstanceNetworkInterfaceSetItem]
     } deriving (Show)
 
-data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
+data InstanceNetworkInterfaceSetItem = InstanceNetworkInterfaceSetItem
     { NetworkInterfaceId    :: !String
     , SubnetId              :: !(Maybe String)
     , VpcId                 :: !(Maybe String)
@@ -349,24 +319,24 @@ data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
     , PrivateIpAddress      :: !(Maybe String)
     , PrivateDnsName        :: !(Maybe String)
     , SourceDestCheck       :: !(Maybe Boolean)
-    , GroupSet              :: !(Maybe GroupSetType)
-    , Attachment            :: !InstanceNetworkInterfaceAttachmentType
-    , Association           :: !(Maybe InstanceNetworkInterfaceAssociationType)
-    , PrivateIpAddressesSet :: !(Maybe InstancePrivateIpAddressesSetType)
+    , GroupSet              :: !(Maybe GroupSet)
+    , Attachment            :: !InstanceNetworkInterfaceAttachment
+    , Association           :: !(Maybe InstanceNetworkInterfaceAssociation)
+    , PrivateIpAddressesSet :: !(Maybe InstancePrivateIpAddressesSet)
     } deriving (Show)
 
-data InstancePrivateIpAddressesSetType = InstancePrivateIpAddressesSetType
-    { Item :: ![InstancePrivateIpAddressesSetItemType]
+data InstancePrivateIpAddressesSet = InstancePrivateIpAddressesSet
+    { Item :: ![InstancePrivateIpAddressesSetItem]
     } deriving (Show)
 
-data InstancePrivateIpAddressesSetItemType = InstancePrivateIpAddressesSetItemType
+data InstancePrivateIpAddressesSetItem = InstancePrivateIpAddressesSetItem
     { PrivateIpAddress :: !(Maybe String)
     , PrivateDnsName   :: !(Maybe String)
     , Primary          :: !(Maybe Boolean)
-    , Association      :: !(Maybe InstanceNetworkInterfaceAssociationType)
+    , Association      :: !(Maybe InstanceNetworkInterfaceAssociation)
     } deriving (Show)
 
-data InstanceNetworkInterfaceAttachmentType = InstanceNetworkInterfaceAttachmentType
+data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
     { AttachmentId        :: !String
     , DeviceIndex         :: !Int
     , Status              :: !String
@@ -374,647 +344,561 @@ data InstanceNetworkInterfaceAttachmentType = InstanceNetworkInterfaceAttachment
     , DeleteOnTermination :: !Boolean
     } deriving (Show)
 
-data InstanceNetworkInterfaceAssociationType = InstanceNetworkInterfaceAssociationType
+data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
     { PublicIp      :: !String
     , PublicDnsName :: !(Maybe String)
     , IpOwnerId     :: !(Maybe String)
     } deriving (Show)
 
-data PlacementResponseType = PlacementResponseType
+data PlacementResponse = PlacementResponse
     { AvailabilityZone :: !String
     , GroupName        :: !(Maybe String)
     , Tenancy          :: !(Maybe String)
     } deriving (Show)
 
-data StateReasonType = StateReasonType
+data StateReason = StateReason
     { Code    :: !String
     , Message :: !String
     } deriving (Show)
 
-data InstanceBlockDeviceMappingResponseType = InstanceBlockDeviceMappingResponseType
-    { Item :: ![InstanceBlockDeviceMappingResponseItemType]
+data InstanceBlockDeviceMappingResponse = InstanceBlockDeviceMappingResponse
+    { Item :: ![InstanceBlockDeviceMappingResponseItem]
     } deriving (Show)
 
-data InstanceBlockDeviceMappingResponseItemType = InstanceBlockDeviceMappingResponseItemType
+data InstanceBlockDeviceMappingResponseItem = InstanceBlockDeviceMappingResponseItem
     { DeviceName :: !String
   -- <xs:choice>
-    , Ebs        :: !EbsInstanceBlockDeviceMappingResponseType
+    , Ebs        :: !EbsInstanceBlockDeviceMappingResponse
   -- </xs:choice>
     } deriving (Show)
 
-data EbsInstanceBlockDeviceMappingResponseType = EbsInstanceBlockDeviceMappingResponseType
+data EbsInstanceBlockDeviceMappingResponse = EbsInstanceBlockDeviceMappingResponse
     { VolumeId            :: !String
     , Status              :: !String
     , AttachTime          :: !DateTime
     , DeleteOnTermination :: !(Maybe Boolean)
     } deriving (Show)
 
-data InstanceLicenseResponseType = InstanceLicenseResponseType
+data InstanceLicenseResponse = InstanceLicenseResponse
     { Pool :: !String
     } deriving (Show)
 
-type DescribeAccountAttributes = DescribeAccountAttributesType
-
-data DescribeAccountAttributesType = DescribeAccountAttributesType
-    { AccountAttributeNameSet :: !(Maybe AccountAttributeNameSetType)
-    , FilterSet               :: !(Maybe FilterSetType)
+data DescribeAccountAttributes = DescribeAccountAttributes
+    { AccountAttributeNameSet :: !(Maybe AccountAttributeNameSet)
+    , FilterSet               :: !(Maybe FilterSet)
     } deriving (Show)
 
-type DescribeAccountAttributesResponse = DescribeAccountAttributesResponseType
-
-data DescribeAccountAttributesResponseType = DescribeAccountAttributesResponseType
+data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { RequestId           :: !String
-    , AccountAttributeSet :: !(Maybe AccountAttributeSetType)
+    , AccountAttributeSet :: !(Maybe AccountAttributeSet)
     } deriving (Show)
 
-data AccountAttributeNameSetType = AccountAttributeNameSetType
-    { Item :: ![AccountAttributeNameSetItemType]
+data AccountAttributeNameSet = AccountAttributeNameSet
+    { Item :: ![AccountAttributeNameSetItem]
     } deriving (Show)
 
-data AccountAttributeNameSetItemType = AccountAttributeNameSetItemType
+data AccountAttributeNameSetItem = AccountAttributeNameSetItem
     { AttributeName :: !String
     } deriving (Show)
 
-data AccountAttributeSetType = AccountAttributeSetType
-    { Item :: ![AccountAttributeSetItemType]
+data AccountAttributeSet = AccountAttributeSet
+    { Item :: ![AccountAttributeSetItem]
     } deriving (Show)
 
-data AccountAttributeSetItemType = AccountAttributeSetItemType
+data AccountAttributeSetItem = AccountAttributeSetItem
     { AttributeName     :: !String
-    , AttributeValueSet :: !AccountAttributeValueSetType
+    , AttributeValueSet :: !AccountAttributeValueSet
     } deriving (Show)
 
-data AccountAttributeValueSetType = AccountAttributeValueSetType
-    { Item :: ![AccountAttributeValueSetItemType]
+data AccountAttributeValueSet = AccountAttributeValueSet
+    { Item :: ![AccountAttributeValueSetItem]
     } deriving (Show)
 
-data AccountAttributeValueSetItemType = AccountAttributeValueSetItemType
+data AccountAttributeValueSetItem = AccountAttributeValueSetItem
     { AttributeValue :: !String
     } deriving (Show)
 
-type DescribeVpcAttribute = DescribeVpcAttributeType
-
-type DescribeVpcAttributeResponse = DescribeVpcAttributeResponseType
-
-data DescribeVpcAttributeType = DescribeVpcAttributeType
+data DescribeVpcAttribute = DescribeVpcAttribute
     { VpcId                      :: !String
     , DescribeVpcAttributesGroup :: !DescribeVpcAttributesGroup
     } deriving (Show)
 
 data DescribeVpcAttributesGroup = DescribeVpcAttributesGroup
-    { EnableDnsSupport   :: !EmptyElementType
-    , EnableDnsHostnames :: !EmptyElementType
+    { EnableDnsSupport   :: !EmptyElement
+    , EnableDnsHostnames :: !EmptyElement
     } deriving (Show)
-data DescribeVpcAttributeResponseType = DescribeVpcAttributeResponseType
+data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     { RequestId          :: !String
     , VpcId              :: !String
   -- <xs:choice>
-    , EnableDnsSupport   :: !(Maybe AttributeBooleanValueType)
-    , EnableDnsHostnames :: !(Maybe AttributeBooleanValueType)
+    , EnableDnsSupport   :: !(Maybe AttributeBooleanValue)
+    , EnableDnsHostnames :: !(Maybe AttributeBooleanValue)
   -- </xs:choice>
     } deriving (Show)
 
-type ModifyVpcAttribute = ModifyVpcAttributeType
-
-type ModifyVpcAttributeResponse = ModifyVpcAttributeResponseType
-
-data ModifyVpcAttributeType = ModifyVpcAttributeType
+data ModifyVpcAttribute = ModifyVpcAttribute
     { VpcId              :: !String
   -- <xs:choice>
-    , EnableDnsSupport   :: !(Maybe AttributeBooleanValueType)
-    , EnableDnsHostnames :: !(Maybe AttributeBooleanValueType)
+    , EnableDnsSupport   :: !(Maybe AttributeBooleanValue)
+    , EnableDnsHostnames :: !(Maybe AttributeBooleanValue)
   -- </xs:choice>
     } deriving (Show)
 
-data ModifyVpcAttributeResponseType = ModifyVpcAttributeResponseType
+data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type GetConsoleOutput = GetConsoleOutputType
-
-data GetConsoleOutputType = GetConsoleOutputType
+data GetConsoleOutput = GetConsoleOutput
     { InstanceId :: !String
     } deriving (Show)
 
-type GetConsoleOutputResponse = GetConsoleOutputResponseType
-
-data GetConsoleOutputResponseType = GetConsoleOutputResponseType
+data GetConsoleOutputResponse = GetConsoleOutputResponse
     { RequestId  :: !String
     , InstanceId :: !String
     , Timestamp  :: !DateTime
     , Output     :: !String
     } deriving (Show)
 
-type GetPasswordData = GetPasswordDataType
-
-data GetPasswordDataType = GetPasswordDataType
+data GetPasswordData = GetPasswordData
     { InstanceId :: !String
     } deriving (Show)
 
-type GetPasswordDataResponse = GetPasswordDataResponseType
-
-data GetPasswordDataResponseType = GetPasswordDataResponseType
+data GetPasswordDataResponse = GetPasswordDataResponse
     { RequestId    :: !String
     , InstanceId   :: !String
     , Timestamp    :: !DateTime
     , PasswordData :: !String
     } deriving (Show)
 
-data InstanceIdType = InstanceIdType
+data InstanceId = InstanceId
     { InstanceId :: !String
     } deriving (Show)
 
-data InstanceIdSetType = InstanceIdSetType
-    { Item :: ![InstanceIdType]
+data InstanceIdSet = InstanceIdSet
+    { Item :: ![InstanceId]
     } deriving (Show)
 
-data InstanceStateChangeType = InstanceStateChangeType
+data InstanceStateChange = InstanceStateChange
     { InstanceId    :: !String
-    , CurrentState  :: !InstanceStateType
-    , PreviousState :: !InstanceStateType
+    , CurrentState  :: !InstanceState
+    , PreviousState :: !InstanceState
     } deriving (Show)
 
-data InstanceStateChangeSetType = InstanceStateChangeSetType
-    { Item :: ![InstanceStateChangeType]
+data InstanceStateChangeSet = InstanceStateChangeSet
+    { Item :: ![InstanceStateChange]
     } deriving (Show)
 
-type TerminateInstances = TerminateInstancesType
-
-type TerminateInstancesResponse = TerminateInstancesResponseType
-
-data TerminateInstancesType = TerminateInstancesType
-    { InstancesSet :: !InstanceIdSetType
+data TerminateInstances = TerminateInstances
+    { InstancesSet :: !InstanceIdSet
     } deriving (Show)
 
-data TerminateInstancesResponseType = TerminateInstancesResponseType
+data TerminateInstancesResponse = TerminateInstancesResponse
     { RequestId    :: !String
-    , InstancesSet :: !InstanceStateChangeSetType
+    , InstancesSet :: !InstanceStateChangeSet
     } deriving (Show)
 
-data InstanceBlockDeviceMappingType = InstanceBlockDeviceMappingType
-    { Item :: ![InstanceBlockDeviceMappingItemType]
+data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
+    { Item :: ![InstanceBlockDeviceMappingItem]
     } deriving (Show)
 
-data InstanceBlockDeviceMappingItemType = InstanceBlockDeviceMappingItemType
+data InstanceBlockDeviceMappingItem = InstanceBlockDeviceMappingItem
     { DeviceName  :: !String
   -- <xs:choice>
     , VirtualName :: !(Maybe String)
-    , Ebs         :: !(Maybe InstanceEbsBlockDeviceType)
-    , NoDevice    :: !(Maybe EmptyElementType)
+    , Ebs         :: !(Maybe InstanceEbsBlockDevice)
+    , NoDevice    :: !(Maybe EmptyElement)
   -- </xs:choice>
     } deriving (Show)
 
-data InstanceEbsBlockDeviceType = InstanceEbsBlockDeviceType
+data InstanceEbsBlockDevice = InstanceEbsBlockDevice
     { VolumeId            :: !String
     , DeleteOnTermination :: !(Maybe Boolean)
     } deriving (Show)
 
-type StopInstances = StopInstancesType
-
-type StopInstancesResponse = StopInstancesResponseType
-
-data StopInstancesType = StopInstancesType
-    { InstancesSet :: !InstanceIdSetType
+data StopInstances = StopInstances
+    { InstancesSet :: !InstanceIdSet
     , Force        :: !(Maybe Boolean)
     } deriving (Show)
 
-data StopInstancesResponseType = StopInstancesResponseType
+data StopInstancesResponse = StopInstancesResponse
     { RequestId    :: !String
-    , InstancesSet :: !InstanceStateChangeSetType
+    , InstancesSet :: !InstanceStateChangeSet
     } deriving (Show)
 
-type StartInstances = StartInstancesType
-
-type StartInstancesResponse = StartInstancesResponseType
-
-data StartInstancesType = StartInstancesType
-    { InstancesSet :: !InstanceIdSetType
+data StartInstances = StartInstances
+    { InstancesSet :: !InstanceIdSet
     } deriving (Show)
 
-data StartInstancesResponseType = StartInstancesResponseType
+data StartInstancesResponse = StartInstancesResponse
     { RequestId    :: !String
-    , InstancesSet :: !InstanceStateChangeSetType
+    , InstancesSet :: !InstanceStateChangeSet
     } deriving (Show)
 
-type RebootInstances = RebootInstancesType
-
-data RebootInstancesType = RebootInstancesType
-    { InstancesSet :: !RebootInstancesInfoType
+data RebootInstances = RebootInstances
+    { InstancesSet :: !RebootInstancesInfo
     } deriving (Show)
 
-data RebootInstancesInfoType = RebootInstancesInfoType
+data RebootInstancesInfo = RebootInstancesInfo
     {
-  Item :: !(NonEmpty RebootInstancesItemType)
+  Item :: !(NonEmpty RebootInstancesItem)
     } deriving (Show)
 
-data RebootInstancesItemType = RebootInstancesItemType
+data RebootInstancesItem = RebootInstancesItem
     { InstanceId :: !String
     } deriving (Show)
 
-type RebootInstancesResponse = RebootInstancesResponseType
-
-data RebootInstancesResponseType = RebootInstancesResponseType
+data RebootInstancesResponse = RebootInstancesResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeInstances = DescribeInstancesType
-
-data DescribeInstancesType = DescribeInstancesType
-    { InstancesSet :: !DescribeInstancesInfoType
-    , FilterSet    :: !(Maybe FilterSetType)
+data DescribeInstances = DescribeInstances
+    { InstancesSet :: !DescribeInstancesInfo
+    , FilterSet    :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeInstancesInfoType = DescribeInstancesInfoType
-    { Item :: ![DescribeInstancesItemType]
+data DescribeInstancesInfo = DescribeInstancesInfo
+    { Item :: ![DescribeInstancesItem]
     } deriving (Show)
 
-data DescribeInstancesItemType = DescribeInstancesItemType
+data DescribeInstancesItem = DescribeInstancesItem
     { InstanceId :: !String
     } deriving (Show)
 
-type DescribeInstancesResponse = DescribeInstancesResponseType
-
-data DescribeInstancesResponseType = DescribeInstancesResponseType
+data DescribeInstancesResponse = DescribeInstancesResponse
     { RequestId      :: !String
-    , ReservationSet :: !ReservationSetType
+    , ReservationSet :: !ReservationSet
     } deriving (Show)
 
-data ReservationSetType = ReservationSetType
-    { Item :: ![ReservationInfoType]
+data ReservationSet = ReservationSet
+    { Item :: ![ReservationInfo]
     } deriving (Show)
 
-data UnavailableResultSetType = UnavailableResultSetType
-    { Item :: ![UnavailableResultType]
+data UnavailableResultSet = UnavailableResultSet
+    { Item :: ![UnavailableResult]
     } deriving (Show)
 
-data UnavailableResultType = UnavailableResultType
+data UnavailableResult = UnavailableResult
     { AvailabilityZone :: !String
     } deriving (Show)
 
-type DescribeImages = DescribeImagesType
-
-data DescribeImagesType = DescribeImagesType
-    { ExecutableBySet :: !(Maybe DescribeImagesExecutableBySetType)
-    , ImagesSet       :: !DescribeImagesInfoType
-    , OwnersSet       :: !(Maybe DescribeImagesOwnersType)
-    , FilterSet       :: !(Maybe FilterSetType)
+data DescribeImages = DescribeImages
+    { ExecutableBySet :: !(Maybe DescribeImagesExecutableBySet)
+    , ImagesSet       :: !DescribeImagesInfo
+    , OwnersSet       :: !(Maybe DescribeImagesOwners)
+    , FilterSet       :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeImagesInfoType = DescribeImagesInfoType
-    { Item :: ![DescribeImagesItemType]
+data DescribeImagesInfo = DescribeImagesInfo
+    { Item :: ![DescribeImagesItem]
     } deriving (Show)
 
-data DescribeImagesItemType = DescribeImagesItemType
+data DescribeImagesItem = DescribeImagesItem
     { ImageId :: !String
     } deriving (Show)
 
-data DescribeImagesOwnersType = DescribeImagesOwnersType
-    { Item :: ![DescribeImagesOwnerType]
+data DescribeImagesOwners = DescribeImagesOwners
+    { Item :: ![DescribeImagesOwner]
     } deriving (Show)
 
-data DescribeImagesOwnerType = DescribeImagesOwnerType
+data DescribeImagesOwner = DescribeImagesOwner
     { Owner :: !String
     } deriving (Show)
 
-data DescribeImagesExecutableBySetType = DescribeImagesExecutableBySetType
-    { Item :: ![DescribeImagesExecutableByType]
+data DescribeImagesExecutableBySet = DescribeImagesExecutableBySet
+    { Item :: ![DescribeImagesExecutableBy]
     } deriving (Show)
 
-data DescribeImagesExecutableByType = DescribeImagesExecutableByType
+data DescribeImagesExecutableBy = DescribeImagesExecutableBy
     { User :: !String
     } deriving (Show)
 
-type DescribeImagesResponse = DescribeImagesResponseType
-
-data DescribeImagesResponseType = DescribeImagesResponseType
+data DescribeImagesResponse = DescribeImagesResponse
     { RequestId :: !String
-    , ImagesSet :: !DescribeImagesResponseInfoType
+    , ImagesSet :: !DescribeImagesResponseInfo
     } deriving (Show)
 
-data DescribeImagesResponseInfoType = DescribeImagesResponseInfoType
-    { Item :: ![DescribeImagesResponseItemType]
+data DescribeImagesResponseInfo = DescribeImagesResponseInfo
+    { Item :: ![DescribeImagesResponseItem]
     } deriving (Show)
 
-data DescribeImagesResponseItemType = DescribeImagesResponseItemType
+data DescribeImagesResponseItem = DescribeImagesResponseItem
     { ImageId            :: !String
     , ImageLocation      :: !(Maybe String)
     , ImageState         :: !String
     , ImageOwnerId       :: !String
     , IsPublic           :: !Boolean
-    , ProductCodes       :: !(Maybe ProductCodesSetType)
+    , ProductCodes       :: !(Maybe ProductCodesSet)
     , Architecture       :: !(Maybe String)
-    , ImageType          :: !(Maybe String)
+    , Image          :: !(Maybe String)
     , KernelId           :: !(Maybe String)
     , RamdiskId          :: !(Maybe String)
     , Platform           :: !(Maybe String)
-    , StateReason        :: !(Maybe StateReasonType)
+    , StateReason        :: !(Maybe StateReason)
     , ImageOwnerAlias    :: !(Maybe String)
     , Name               :: !(Maybe String)
     , Description        :: !(Maybe String)
-    , RootDeviceType     :: !(Maybe String)
+    , RootDevice     :: !(Maybe String)
     , RootDeviceName     :: !(Maybe String)
-    , BlockDeviceMapping :: !(Maybe BlockDeviceMappingType)
-    , VirtualizationType :: !(Maybe String)
-    , TagSet             :: !(Maybe ResourceTagSetType)
+    , BlockDeviceMapping :: !(Maybe BlockDeviceMapping)
+    , Virtualization :: !(Maybe String)
+    , TagSet             :: !(Maybe ResourceTagSet)
     , Hypervisor         :: !(Maybe String)
     } deriving (Show)
 
-type CreateSecurityGroup = CreateSecurityGroupType
-
-data CreateSecurityGroupType = CreateSecurityGroupType
+data CreateSecurityGroup = CreateSecurityGroup
     { GroupName        :: !String
     , GroupDescription :: !String
     , VpcId            :: !(Maybe String)
     } deriving (Show)
 
-type CreateSecurityGroupResponse = CreateSecurityGroupResponseType
-
-data CreateSecurityGroupResponseType = CreateSecurityGroupResponseType
+data CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { RequestId :: !String
     , Return    :: !Boolean
     , GroupId   :: !String
     } deriving (Show)
 
-type DeleteSecurityGroup = DeleteSecurityGroupType
-
-data DeleteSecurityGroupType = DeleteSecurityGroupType
+data DeleteSecurityGroup = DeleteSecurityGroup
 -- <xs:choice>
     , GroupId   :: !(Maybe String)
     , GroupName :: !(Maybe String)
 -- </xs:choice>
 
-type DeleteSecurityGroupResponse = DeleteSecurityGroupResponseType
-
-data DeleteSecurityGroupResponseType = DeleteSecurityGroupResponseType
+data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeSecurityGroups = DescribeSecurityGroupsType
-
-data DescribeSecurityGroupsType = DescribeSecurityGroupsType
-    { SecurityGroupSet   :: !DescribeSecurityGroupsSetType
-    , SecurityGroupIdSet :: !(Maybe DescribeSecurityGroupsIdSetType)
-    , FilterSet          :: !(Maybe FilterSetType)
+data DescribeSecurityGroups = DescribeSecurityGroups
+    { SecurityGroupSet   :: !DescribeSecurityGroupsSet
+    , SecurityGroupIdSet :: !(Maybe DescribeSecurityGroupsIdSet)
+    , FilterSet          :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeSecurityGroupsSetType = DescribeSecurityGroupsSetType
-    { Item :: ![DescribeSecurityGroupsSetItemType]
+data DescribeSecurityGroupsSet = DescribeSecurityGroupsSet
+    { Item :: ![DescribeSecurityGroupsSetItem]
     } deriving (Show)
 
-data DescribeSecurityGroupsSetItemType = DescribeSecurityGroupsSetItemType
+data DescribeSecurityGroupsSetItem = DescribeSecurityGroupsSetItem
     { GroupName :: !String
     } deriving (Show)
 
-data DescribeSecurityGroupsIdSetType = DescribeSecurityGroupsIdSetType
-    { Item :: ![DescribeSecurityGroupsIdSetItemType]
+data DescribeSecurityGroupsIdSet = DescribeSecurityGroupsIdSet
+    { Item :: ![DescribeSecurityGroupsIdSetItem]
     } deriving (Show)
 
-data DescribeSecurityGroupsIdSetItemType = DescribeSecurityGroupsIdSetItemType
+data DescribeSecurityGroupsIdSetItem = DescribeSecurityGroupsIdSetItem
     { GroupId :: !String
     } deriving (Show)
 
-type DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponseType
-
-data DescribeSecurityGroupsResponseType = DescribeSecurityGroupsResponseType
+data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { RequestId         :: !String
-    , SecurityGroupInfo :: !SecurityGroupSetType
+    , SecurityGroupInfo :: !SecurityGroupSet
     } deriving (Show)
 
-data IpPermissionSetType = IpPermissionSetType
-    { Item :: ![IpPermissionType]
+data IpPermissionSet = IpPermissionSet
+    { Item :: ![IpPermission]
     } deriving (Show)
 
-data IpPermissionType = IpPermissionType
+data IpPermission = IpPermission
     { IpProtocol :: !String
     , FromPort   :: !(Maybe Int)
     , ToPort     :: !(Maybe Int)
-    , Groups     :: !UserIdGroupPairSetType
-    , IpRanges   :: !IpRangeSetType
+    , Groups     :: !UserIdGroupPairSet
+    , IpRanges   :: !IpRangeSet
     } deriving (Show)
 
-data IpRangeSetType = IpRangeSetType
-    { Item :: ![IpRangeItemType]
+data IpRangeSet = IpRangeSet
+    { Item :: ![IpRangeItem]
     } deriving (Show)
 
-data IpRangeItemType = IpRangeItemType
+data IpRangeItem = IpRangeItem
     { CidrIp :: !String
     } deriving (Show)
 
-data UserIdGroupPairSetType = UserIdGroupPairSetType
-    { Item :: ![UserIdGroupPairType]
+data UserIdGroupPairSet = UserIdGroupPairSet
+    { Item :: ![UserIdGroupPair]
     } deriving (Show)
 
-data UserIdGroupPairType = UserIdGroupPairType
+data UserIdGroupPair = UserIdGroupPair
     { UserId    :: !(Maybe String)
     , GroupId   :: !(Maybe String)
     , GroupName :: !(Maybe String)
     } deriving (Show)
 
-data SecurityGroupSetType = SecurityGroupSetType
-    { Item :: ![SecurityGroupItemType]
+data SecurityGroupSet = SecurityGroupSet
+    { Item :: ![SecurityGroupItem]
     } deriving (Show)
 
-data SecurityGroupItemType = SecurityGroupItemType
+data SecurityGroupItem = SecurityGroupItem
     { OwnerId             :: !String
     , GroupId             :: !String
     , GroupName           :: !String
     , GroupDescription    :: !String
     , VpcId               :: !(Maybe String)
-    , IpPermissions       :: !IpPermissionSetType
-    , IpPermissionsEgress :: !(Maybe IpPermissionSetType)
-    , TagSet              :: !(Maybe ResourceTagSetType)
+    , IpPermissions       :: !IpPermissionSet
+    , IpPermissionsEgress :: !(Maybe IpPermissionSet)
+    , TagSet              :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-type AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressType
-
-data AuthorizeSecurityGroupIngressType = AuthorizeSecurityGroupIngressType
+data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     { UserId        :: !(Maybe String)
   -- <xs:choice>
     , GroupId       :: !(Maybe String)
     , GroupName     :: !(Maybe String)
   -- </xs:choice>
-    , IpPermissions :: !IpPermissionSetType
+    , IpPermissions :: !IpPermissionSet
     } deriving (Show)
 
-type AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponseType
-
-data AuthorizeSecurityGroupIngressResponseType = AuthorizeSecurityGroupIngressResponseType
+data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type RevokeSecurityGroupIngress = RevokeSecurityGroupIngressType
-
-data RevokeSecurityGroupIngressType = RevokeSecurityGroupIngressType
+data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
     { UserId        :: !(Maybe String)
   -- <xs:choice>
     , GroupId       :: !(Maybe String)
     , GroupName     :: !(Maybe String)
   -- </xs:choice>
-    , IpPermissions :: !IpPermissionSetType
+    , IpPermissions :: !IpPermissionSet
     } deriving (Show)
 
-type RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponseType
-
-data RevokeSecurityGroupIngressResponseType = RevokeSecurityGroupIngressResponseType
+data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressType
-
-data AuthorizeSecurityGroupEgressType = AuthorizeSecurityGroupEgressType
+data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     { GroupId       :: !String
-    , IpPermissions :: !IpPermissionSetType
+    , IpPermissions :: !IpPermissionSet
     } deriving (Show)
 
-type AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponseType
-
-data AuthorizeSecurityGroupEgressResponseType = AuthorizeSecurityGroupEgressResponseType
+data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type RevokeSecurityGroupEgress = RevokeSecurityGroupEgressType
-
-data RevokeSecurityGroupEgressType = RevokeSecurityGroupEgressType
+data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     { GroupId       :: !String
-    , IpPermissions :: !IpPermissionSetType
+    , IpPermissions :: !IpPermissionSet
     } deriving (Show)
 
-type RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponseType
-
-data RevokeSecurityGroupEgressResponseType = RevokeSecurityGroupEgressResponseType
+data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data InstanceStateType = InstanceStateType
+data InstanceState = InstanceState
     { Code :: !Int
     , Name :: !String
     } deriving (Show)
 
-type ModifyInstanceAttribute = ModifyInstanceAttributeType
-
-data ModifyInstanceAttributeType = ModifyInstanceAttributeType
+data ModifyInstanceAttribute = ModifyInstanceAttribute
     { InstanceId                        :: !String
   -- <xs:choice>
-    , InstanceType                      :: !(Maybe AttributeValueType)
-    , Kernel                            :: !(Maybe AttributeValueType)
-    , Ramdisk                           :: !(Maybe AttributeValueType)
-    , UserData                          :: !(Maybe AttributeValueType)
-    , DisableApiTermination             :: !(Maybe AttributeBooleanValueType)
-    , InstanceInitiatedShutdownBehavior :: !(Maybe AttributeValueType)
-    , BlockDeviceMapping                :: !(Maybe InstanceBlockDeviceMappingType)
-    , SourceDestCheck                   :: !(Maybe AttributeBooleanValueType)
-    , GroupSet                          :: !(Maybe SecurityGroupIdSetType)
-    , EbsOptimized                      :: !(Maybe AttributeBooleanValueType)
+    , Instance                      :: !(Maybe AttributeValue)
+    , Kernel                            :: !(Maybe AttributeValue)
+    , Ramdisk                           :: !(Maybe AttributeValue)
+    , UserData                          :: !(Maybe AttributeValue)
+    , DisableApiTermination             :: !(Maybe AttributeBooleanValue)
+    , InstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+    , BlockDeviceMapping                :: !(Maybe InstanceBlockDeviceMapping)
+    , SourceDestCheck                   :: !(Maybe AttributeBooleanValue)
+    , GroupSet                          :: !(Maybe SecurityGroupIdSet)
+    , EbsOptimized                      :: !(Maybe AttributeBooleanValue)
   -- </xs:choice>
     } deriving (Show)
 
-data SecurityGroupIdSetType = SecurityGroupIdSetType
-    { Item :: ![SecurityGroupIdSetItemType]
+data SecurityGroupIdSet = SecurityGroupIdSet
+    { Item :: ![SecurityGroupIdSetItem]
     } deriving (Show)
 
-data SecurityGroupIdSetItemType = SecurityGroupIdSetItemType
+data SecurityGroupIdSetItem = SecurityGroupIdSetItem
     { GroupId :: !String
     } deriving (Show)
 
-type ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponseType
-
-data ModifyInstanceAttributeResponseType = ModifyInstanceAttributeResponseType
+data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ResetInstanceAttribute = ResetInstanceAttributeType
-
-data ResetInstanceAttributeType = ResetInstanceAttributeType
+data ResetInstanceAttribute = ResetInstanceAttribute
     { InstanceId                   :: !String
     , ResetInstanceAttributesGroup :: !ResetInstanceAttributesGroup
     } deriving (Show)
 
 data ResetInstanceAttributesGroup = ResetInstanceAttributesGroup
-    { Kernel          :: !EmptyElementType
-    , Ramdisk         :: !EmptyElementType
-    , SourceDestCheck :: !EmptyElementType
+    { Kernel          :: !EmptyElement
+    , Ramdisk         :: !EmptyElement
+    , SourceDestCheck :: !EmptyElement
     } deriving (Show)
-type ResetInstanceAttributeResponse = ResetInstanceAttributeResponseType
-
-data ResetInstanceAttributeResponseType = ResetInstanceAttributeResponseType
+data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeInstanceAttribute = DescribeInstanceAttributeType
-
-data DescribeInstanceAttributeType = DescribeInstanceAttributeType
+data DescribeInstanceAttribute = DescribeInstanceAttribute
     { InstanceId                      :: !String
     , DescribeInstanceAttributesGroup :: !DescribeInstanceAttributesGroup
     } deriving (Show)
 
 data DescribeInstanceAttributesGroup = DescribeInstanceAttributesGroup
-    { InstanceType                      :: !EmptyElementType
-    , Kernel                            :: !EmptyElementType
-    , Ramdisk                           :: !EmptyElementType
-    , UserData                          :: !EmptyElementType
-    , DisableApiTermination             :: !EmptyElementType
-    , InstanceInitiatedShutdownBehavior :: !EmptyElementType
-    , RootDeviceName                    :: !EmptyElementType
-    , BlockDeviceMapping                :: !EmptyElementType
-    , SourceDestCheck                   :: !EmptyElementType
-    , GroupSet                          :: !EmptyElementType
-    , ProductCodes                      :: !EmptyElementType
-    , EbsOptimized                      :: !EmptyElementType
+    { Instance                      :: !EmptyElement
+    , Kernel                            :: !EmptyElement
+    , Ramdisk                           :: !EmptyElement
+    , UserData                          :: !EmptyElement
+    , DisableApiTermination             :: !EmptyElement
+    , InstanceInitiatedShutdownBehavior :: !EmptyElement
+    , RootDeviceName                    :: !EmptyElement
+    , BlockDeviceMapping                :: !EmptyElement
+    , SourceDestCheck                   :: !EmptyElement
+    , GroupSet                          :: !EmptyElement
+    , ProductCodes                      :: !EmptyElement
+    , EbsOptimized                      :: !EmptyElement
     } deriving (Show)
-type DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponseType
-
-data DescribeInstanceAttributeResponseType = DescribeInstanceAttributeResponseType
+data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     { RequestId                         :: !String
     , InstanceId                        :: !String
   -- <xs:choice>
-    , InstanceType                      :: !(Maybe NullableAttributeValueType)
-    , Kernel                            :: !(Maybe NullableAttributeValueType)
-    , Ramdisk                           :: !(Maybe NullableAttributeValueType)
-    , UserData                          :: !(Maybe NullableAttributeValueType)
-    , DisableApiTermination             :: !(Maybe NullableAttributeBooleanValueType)
-    , InstanceInitiatedShutdownBehavior :: !(Maybe NullableAttributeValueType)
-    , RootDeviceName                    :: !(Maybe NullableAttributeValueType)
-    , BlockDeviceMapping                :: !(Maybe InstanceBlockDeviceMappingResponseType)
-    , SourceDestCheck                   :: !(Maybe NullableAttributeBooleanValueType)
-    , GroupSet                          :: !(Maybe GroupSetType)
-    , ProductCodes                      :: !(Maybe ProductCodesSetType)
-    , EbsOptimized                      :: !(Maybe NullableAttributeBooleanValueType)
+    , Instance                      :: !(Maybe NullableAttributeValue)
+    , Kernel                            :: !(Maybe NullableAttributeValue)
+    , Ramdisk                           :: !(Maybe NullableAttributeValue)
+    , UserData                          :: !(Maybe NullableAttributeValue)
+    , DisableApiTermination             :: !(Maybe NullableAttributeBooleanValue)
+    , InstanceInitiatedShutdownBehavior :: !(Maybe NullableAttributeValue)
+    , RootDeviceName                    :: !(Maybe NullableAttributeValue)
+    , BlockDeviceMapping                :: !(Maybe InstanceBlockDeviceMappingResponse)
+    , SourceDestCheck                   :: !(Maybe NullableAttributeBooleanValue)
+    , GroupSet                          :: !(Maybe GroupSet)
+    , ProductCodes                      :: !(Maybe ProductCodesSet)
+    , EbsOptimized                      :: !(Maybe NullableAttributeBooleanValue)
   -- </xs:choice>
     } deriving (Show)
 
-type ModifyImageAttribute = ModifyImageAttributeType
-
-data ModifyImageAttributeType = ModifyImageAttributeType
+data ModifyImageAttribute = ModifyImageAttribute
     { ImageId          :: !String
   -- <xs:choice>
-    , LaunchPermission :: !(Maybe LaunchPermissionOperationType)
-    , ProductCodes     :: !(Maybe ProductCodeListType)
-    , Description      :: !(Maybe AttributeValueType)
+    , LaunchPermission :: !(Maybe LaunchPermissionOperation)
+    , ProductCodes     :: !(Maybe ProductCodeList)
+    , Description      :: !(Maybe AttributeValue)
   -- </xs:choice>
     } deriving (Show)
 
-data LaunchPermissionOperationType = LaunchPermissionOperationType
+data LaunchPermissionOperation = LaunchPermissionOperation
     {
 -- <xs:choice>
-    , Add    :: !(Maybe LaunchPermissionListType)
-    , Remove :: !(Maybe LaunchPermissionListType)
+    , Add    :: !(Maybe LaunchPermissionList)
+    , Remove :: !(Maybe LaunchPermissionList)
 -- </xs:choice>
     } deriving (Show)
 
-data LaunchPermissionListType = LaunchPermissionListType
-    { Item :: ![LaunchPermissionItemType]
+data LaunchPermissionList = LaunchPermissionList
+    { Item :: ![LaunchPermissionItem]
     } deriving (Show)
 
-data LaunchPermissionItemType = LaunchPermissionItemType
+data LaunchPermissionItem = LaunchPermissionItem
     {
 -- <xs:choice>
     , UserId :: !(Maybe String)
@@ -1022,171 +906,147 @@ data LaunchPermissionItemType = LaunchPermissionItemType
 -- </xs:choice>
     } deriving (Show)
 
-data ProductCodeListType = ProductCodeListType
-    { Item :: ![ProductCodeItemType]
+data ProductCodeList = ProductCodeList
+    { Item :: ![ProductCodeItem]
     } deriving (Show)
 
-data ProductCodeItemType = ProductCodeItemType
+data ProductCodeItem = ProductCodeItem
     { ProductCode :: !String
     } deriving (Show)
 
-type ModifyImageAttributeResponse = ModifyImageAttributeResponseType
-
-data ModifyImageAttributeResponseType = ModifyImageAttributeResponseType
+data ModifyImageAttributeResponse = ModifyImageAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ResetImageAttribute = ResetImageAttributeType
-
-data ResetImageAttributeType = ResetImageAttributeType
+data ResetImageAttribute = ResetImageAttribute
     { ImageId                   :: !String
     , ResetImageAttributesGroup :: !ResetImageAttributesGroup
     } deriving (Show)
 
 data ResetImageAttributesGroup = ResetImageAttributesGroup
-    { LaunchPermission :: !EmptyElementType
+    { LaunchPermission :: !EmptyElement
     } deriving (Show)
 
-data EmptyElementType = EmptyElementType
+data EmptyElement = EmptyElement
 
-type ResetImageAttributeResponse = ResetImageAttributeResponseType
-
-data ResetImageAttributeResponseType = ResetImageAttributeResponseType
+data ResetImageAttributeResponse = ResetImageAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeImageAttribute = DescribeImageAttributeType
-
-data DescribeImageAttributeType = DescribeImageAttributeType
+data DescribeImageAttribute = DescribeImageAttribute
     { ImageId                      :: !String
     , DescribeImageAttributesGroup :: !DescribeImageAttributesGroup
     } deriving (Show)
 
 data DescribeImageAttributesGroup = DescribeImageAttributesGroup
-    { LaunchPermission     :: !EmptyElementType
-    , ProductCodes         :: !EmptyElementType
-    , Kernel               :: !EmptyElementType
-    , Ramdisk              :: !EmptyElementType
-    , BlockDeviceMapping   :: !EmptyElementType
-    , Description          :: !EmptyElementType
-    , InstanceTypeCategory :: !EmptyElementType
+    { LaunchPermission     :: !EmptyElement
+    , ProductCodes         :: !EmptyElement
+    , Kernel               :: !EmptyElement
+    , Ramdisk              :: !EmptyElement
+    , BlockDeviceMapping   :: !EmptyElement
+    , Description          :: !EmptyElement
+    , InstanceCategory :: !EmptyElement
     } deriving (Show)
-type DescribeImageAttributeResponse = DescribeImageAttributeResponseType
-
-data DescribeImageAttributeResponseType = DescribeImageAttributeResponseType
+data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     { RequestId          :: !String
     , ImageId            :: !String
   -- <xs:choice>
-    , LaunchPermission   :: !(Maybe LaunchPermissionListType)
-    , ProductCodes       :: !(Maybe ProductCodesSetType)
-    , Kernel             :: !(Maybe NullableAttributeValueType)
-    , Ramdisk            :: !(Maybe NullableAttributeValueType)
-    , Description        :: !(Maybe NullableAttributeValueType)
-    , BlockDeviceMapping :: !(Maybe BlockDeviceMappingType)
+    , LaunchPermission   :: !(Maybe LaunchPermissionList)
+    , ProductCodes       :: !(Maybe ProductCodesSet)
+    , Kernel             :: !(Maybe NullableAttributeValue)
+    , Ramdisk            :: !(Maybe NullableAttributeValue)
+    , Description        :: !(Maybe NullableAttributeValue)
+    , BlockDeviceMapping :: !(Maybe BlockDeviceMapping)
   -- </xs:choice>
     } deriving (Show)
 
-data NullableAttributeValueType = NullableAttributeValueType
+data NullableAttributeValue = NullableAttributeValue
     { Value :: !(Maybe String)
     } deriving (Show)
 
-data NullableAttributeBooleanValueType = NullableAttributeBooleanValueType
+data NullableAttributeBooleanValue = NullableAttributeBooleanValue
     { Value :: !(Maybe Boolean)
     } deriving (Show)
 
-data AttributeValueType = AttributeValueType
+data AttributeValue = AttributeValue
     { Value :: !String
     } deriving (Show)
 
-data AttributeBooleanValueType = AttributeBooleanValueType
+data AttributeBooleanValue = AttributeBooleanValue
     { Value :: !Boolean
     } deriving (Show)
 
-type ConfirmProductInstance = ConfirmProductInstanceType
-
-data ConfirmProductInstanceType = ConfirmProductInstanceType
+data ConfirmProductInstance = ConfirmProductInstance
     { ProductCode :: !String
     , InstanceId  :: !String
     } deriving (Show)
 
-data ProductCodesSetType = ProductCodesSetType
-    { Item :: ![ProductCodesSetItemType]
+data ProductCodesSet = ProductCodesSet
+    { Item :: ![ProductCodesSetItem]
     } deriving (Show)
 
-data ProductCodesSetItemType = ProductCodesSetItemType
+data ProductCodesSetItem = ProductCodesSetItem
     { ProductCode :: !String
     , Type        :: !String
     } deriving (Show)
 
-type ConfirmProductInstanceResponse = ConfirmProductInstanceResponseType
-
-data ConfirmProductInstanceResponseType = ConfirmProductInstanceResponseType
+data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { RequestId :: !String
     , Return    :: !Boolean
     , OwnerId   :: !(Maybe String)
     } deriving (Show)
 
-type DescribeAvailabilityZones = DescribeAvailabilityZonesType
-
-data DescribeAvailabilityZonesType = DescribeAvailabilityZonesType
-    { AvailabilityZoneSet :: !DescribeAvailabilityZonesSetType
-    , FilterSet           :: !(Maybe FilterSetType)
+data DescribeAvailabilityZones = DescribeAvailabilityZones
+    { AvailabilityZoneSet :: !DescribeAvailabilityZonesSet
+    , FilterSet           :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeAvailabilityZonesSetType = DescribeAvailabilityZonesSetType
-    { Item :: ![DescribeAvailabilityZonesSetItemType]
+data DescribeAvailabilityZonesSet = DescribeAvailabilityZonesSet
+    { Item :: ![DescribeAvailabilityZonesSetItem]
     } deriving (Show)
 
-data DescribeAvailabilityZonesSetItemType = DescribeAvailabilityZonesSetItemType
+data DescribeAvailabilityZonesSetItem = DescribeAvailabilityZonesSetItem
     { ZoneName :: !String
     } deriving (Show)
 
-type DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponseType
-
-data DescribeAvailabilityZonesResponseType = DescribeAvailabilityZonesResponseType
+data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { RequestId            :: !String
-    , AvailabilityZoneInfo :: !AvailabilityZoneSetType
+    , AvailabilityZoneInfo :: !AvailabilityZoneSet
     } deriving (Show)
 
-data AvailabilityZoneSetType = AvailabilityZoneSetType
-    { Item :: ![AvailabilityZoneItemType]
+data AvailabilityZoneSet = AvailabilityZoneSet
+    { Item :: ![AvailabilityZoneItem]
     } deriving (Show)
 
-data AvailabilityZoneMessageType = AvailabilityZoneMessageType
+data AvailabilityZoneMessage = AvailabilityZoneMessage
     { Message :: !String
     } deriving (Show)
 
-data AvailabilityZoneMessageSetType = AvailabilityZoneMessageSetType
-    { Item :: ![AvailabilityZoneMessageType]
+data AvailabilityZoneMessageSet = AvailabilityZoneMessageSet
+    { Item :: ![AvailabilityZoneMessage]
     } deriving (Show)
 
-data AvailabilityZoneItemType = AvailabilityZoneItemType
+data AvailabilityZoneItem = AvailabilityZoneItem
     { ZoneName   :: !String
     , ZoneState  :: !String
     , RegionName :: !String
-    , MessageSet :: !AvailabilityZoneMessageSetType
+    , MessageSet :: !AvailabilityZoneMessageSet
     } deriving (Show)
 
-type AllocateAddress = AllocateAddressType
-
-data AllocateAddressType = AllocateAddressType
+data AllocateAddress = AllocateAddress
     { Domain :: !(Maybe String)
     } deriving (Show)
 
-type AllocateAddressResponse = AllocateAddressResponseType
-
-data AllocateAddressResponseType = AllocateAddressResponseType
+data AllocateAddressResponse = AllocateAddressResponse
     { RequestId    :: !String
     , PublicIp     :: !String
     , Domain       :: !String
     , AllocationId :: !(Maybe String)
     } deriving (Show)
 
-type ReleaseAddress = ReleaseAddressType
-
-data ReleaseAddressType = ReleaseAddressType
+data ReleaseAddress = ReleaseAddress
     {
   -- <xs:choice>
     , PublicIp     :: !(Maybe String)
@@ -1194,49 +1054,43 @@ data ReleaseAddressType = ReleaseAddressType
   -- </xs:choice>
     } deriving (Show)
 
-type ReleaseAddressResponse = ReleaseAddressResponseType
-
-data ReleaseAddressResponseType = ReleaseAddressResponseType
+data ReleaseAddressResponse = ReleaseAddressResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeAddresses = DescribeAddressesType
-
-data DescribeAddressesType = DescribeAddressesType
-    { PublicIpsSet     :: !DescribeAddressesInfoType
-    , AllocationIdsSet :: !AllocationIdSetType
-    , FilterSet        :: !(Maybe FilterSetType)
+data DescribeAddresses = DescribeAddresses
+    { PublicIpsSet     :: !DescribeAddressesInfo
+    , AllocationIdsSet :: !AllocationIdSet
+    , FilterSet        :: !(Maybe FilterSet)
     } deriving (Show)
 
-data AllocationIdSetType = AllocationIdSetType
-    { Item :: ![AllocationIdSetItemType]
+data AllocationIdSet = AllocationIdSet
+    { Item :: ![AllocationIdSetItem]
     } deriving (Show)
 
-data AllocationIdSetItemType = AllocationIdSetItemType
+data AllocationIdSetItem = AllocationIdSetItem
     { AllocationId :: !String
     } deriving (Show)
 
-data DescribeAddressesInfoType = DescribeAddressesInfoType
-    { Item :: ![DescribeAddressesItemType]
+data DescribeAddressesInfo = DescribeAddressesInfo
+    { Item :: ![DescribeAddressesItem]
     } deriving (Show)
 
-data DescribeAddressesItemType = DescribeAddressesItemType
+data DescribeAddressesItem = DescribeAddressesItem
     { PublicIp :: !String
     } deriving (Show)
 
-type DescribeAddressesResponse = DescribeAddressesResponseType
-
-data DescribeAddressesResponseType = DescribeAddressesResponseType
+data DescribeAddressesResponse = DescribeAddressesResponse
     { RequestId    :: !String
-    , AddressesSet :: !DescribeAddressesResponseInfoType
+    , AddressesSet :: !DescribeAddressesResponseInfo
     } deriving (Show)
 
-data DescribeAddressesResponseInfoType = DescribeAddressesResponseInfoType
-    { Item :: ![DescribeAddressesResponseItemType]
+data DescribeAddressesResponseInfo = DescribeAddressesResponseInfo
+    { Item :: ![DescribeAddressesResponseItem]
     } deriving (Show)
 
-data DescribeAddressesResponseItemType = DescribeAddressesResponseItemType
+data DescribeAddressesResponseItem = DescribeAddressesResponseItem
     { PublicIp                :: !String
     , AllocationId            :: !(Maybe String)
     , Domain                  :: !String
@@ -1247,9 +1101,7 @@ data DescribeAddressesResponseItemType = DescribeAddressesResponseItemType
     , PrivateIpAddress        :: !(Maybe String)
     } deriving (Show)
 
-type AssociateAddress = AssociateAddressType
-
-data AssociateAddressType = AssociateAddressType
+data AssociateAddress = AssociateAddress
     {
   -- <xs:choice>
     , PublicIp           :: !(Maybe String)
@@ -1263,17 +1115,13 @@ data AssociateAddressType = AssociateAddressType
     , AllowReassociation :: !(Maybe Boolean)
     } deriving (Show)
 
-type AssociateAddressResponse = AssociateAddressResponseType
-
-data AssociateAddressResponseType = AssociateAddressResponseType
+data AssociateAddressResponse = AssociateAddressResponse
     { RequestId     :: !String
     , Return        :: !Boolean
     , AssociationId :: !(Maybe String)
     } deriving (Show)
 
-type DisassociateAddress = DisassociateAddressType
-
-data DisassociateAddressType = DisassociateAddressType
+data DisassociateAddress = DisassociateAddress
     {
 -- <xs:choice>
     , PublicIp      :: !(Maybe String)
@@ -1281,26 +1129,20 @@ data DisassociateAddressType = DisassociateAddressType
 -- </xs:choice>
      } deriving (Show)
 
-type DisassociateAddressResponse = DisassociateAddressResponseType
-
-data DisassociateAddressResponseType = DisassociateAddressResponseType
+data DisassociateAddressResponse = DisassociateAddressResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type CreateVolume = CreateVolumeType
-
-data CreateVolumeType = CreateVolumeType
+data CreateVolume = CreateVolume
     { Size             :: !(Maybe String)
     , SnapshotId       :: !(Maybe String)
     , AvailabilityZone :: !String
-    , VolumeType       :: !(Maybe String)
+    , Volume       :: !(Maybe String)
     , Iops             :: !(Maybe Int)
     } deriving (Show)
 
-type CreateVolumeResponse = CreateVolumeResponseType
-
-data CreateVolumeResponseType = CreateVolumeResponseType
+data CreateVolumeResponse = CreateVolumeResponse
     { RequestId        :: !String
     , VolumeId         :: !String
     , Size             :: !String
@@ -1308,67 +1150,59 @@ data CreateVolumeResponseType = CreateVolumeResponseType
     , AvailabilityZone :: !String
     , Status           :: !String
     , CreateTime       :: !DateTime
-    , VolumeType       :: !String
+    , Volume       :: !String
     , Iops             :: !(Maybe Int)
     } deriving (Show)
 
-type DeleteVolume = DeleteVolumeType
-
-data DeleteVolumeType = DeleteVolumeType
+data DeleteVolume = DeleteVolume
     { VolumeId :: !String
     } deriving (Show)
 
-type DeleteVolumeResponse = DeleteVolumeResponseType
-
-data DeleteVolumeResponseType = DeleteVolumeResponseType
+data DeleteVolumeResponse = DeleteVolumeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeVolumes = DescribeVolumesType
-
-data DescribeVolumesType = DescribeVolumesType
-    { VolumeSet :: !DescribeVolumesSetType
-    , FilterSet :: !(Maybe FilterSetType)
+data DescribeVolumes = DescribeVolumes
+    { VolumeSet :: !DescribeVolumesSet
+    , FilterSet :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeVolumesSetType = DescribeVolumesSetType
-    { Item :: ![DescribeVolumesSetItemType]
+data DescribeVolumesSet = DescribeVolumesSet
+    { Item :: ![DescribeVolumesSetItem]
     } deriving (Show)
 
-data DescribeVolumesSetItemType = DescribeVolumesSetItemType
+data DescribeVolumesSetItem = DescribeVolumesSetItem
     { VolumeId :: !String
     } deriving (Show)
 
-type DescribeVolumesResponse = DescribeVolumesResponseType
-
-data DescribeVolumesResponseType = DescribeVolumesResponseType
+data DescribeVolumesResponse = DescribeVolumesResponse
     { RequestId :: !String
-    , VolumeSet :: !DescribeVolumesSetResponseType
+    , VolumeSet :: !DescribeVolumesSetResponse
     } deriving (Show)
 
-data DescribeVolumesSetResponseType = DescribeVolumesSetResponseType
-    { Item :: ![DescribeVolumesSetItemResponseType]
+data DescribeVolumesSetResponse = DescribeVolumesSetResponse
+    { Item :: ![DescribeVolumesSetItemResponse]
     } deriving (Show)
 
-data DescribeVolumesSetItemResponseType = DescribeVolumesSetItemResponseType
+data DescribeVolumesSetItemResponse = DescribeVolumesSetItemResponse
     { VolumeId         :: !String
     , Size             :: !String
     , SnapshotId       :: !String
     , AvailabilityZone :: !String
     , Status           :: !String
     , CreateTime       :: !DateTime
-    , AttachmentSet    :: !AttachmentSetResponseType
-    , TagSet           :: !(Maybe ResourceTagSetType)
-    , VolumeType       :: !String
+    , AttachmentSet    :: !AttachmentSetResponse
+    , TagSet           :: !(Maybe ResourceTagSet)
+    , Volume       :: !String
     , Iops             :: !(Maybe Int)
     } deriving (Show)
 
-data AttachmentSetResponseType = AttachmentSetResponseType
-    { Item :: ![AttachmentSetItemResponseType]
+data AttachmentSetResponse = AttachmentSetResponse
+    { Item :: ![AttachmentSetItemResponse]
     } deriving (Show)
 
-data AttachmentSetItemResponseType = AttachmentSetItemResponseType
+data AttachmentSetItemResponse = AttachmentSetItemResponse
     { VolumeId            :: !String
     , InstanceId          :: !String
     , Device              :: !String
@@ -1377,17 +1211,13 @@ data AttachmentSetItemResponseType = AttachmentSetItemResponseType
     , DeleteOnTermination :: !Boolean
     } deriving (Show)
 
-type AttachVolume = AttachVolumeType
-
-data AttachVolumeType = AttachVolumeType
+data AttachVolume = AttachVolume
     { VolumeId   :: !String
     , InstanceId :: !String
     , Device     :: !String
     } deriving (Show)
 
-type AttachVolumeResponse = AttachVolumeResponseType
-
-data AttachVolumeResponseType = AttachVolumeResponseType
+data AttachVolumeResponse = AttachVolumeResponse
     { RequestId  :: !String
     , VolumeId   :: !String
     , InstanceId :: !String
@@ -1396,18 +1226,14 @@ data AttachVolumeResponseType = AttachVolumeResponseType
     , AttachTime :: !DateTime
     } deriving (Show)
 
-type DetachVolume = DetachVolumeType
-
-data DetachVolumeType = DetachVolumeType
+data DetachVolume = DetachVolume
     { VolumeId   :: !String
     , InstanceId :: !(Maybe String)
     , Device     :: !(Maybe String)
     , Force      :: !(Maybe Boolean)
     } deriving (Show)
 
-type DetachVolumeResponse = DetachVolumeResponseType
-
-data DetachVolumeResponseType = DetachVolumeResponseType
+data DetachVolumeResponse = DetachVolumeResponse
     { RequestId  :: !String
     , VolumeId   :: !String
     , InstanceId :: !String
@@ -1416,16 +1242,12 @@ data DetachVolumeResponseType = DetachVolumeResponseType
     , AttachTime :: !DateTime
     } deriving (Show)
 
-type CreateSnapshot = CreateSnapshotType
-
-data CreateSnapshotType = CreateSnapshotType
+data CreateSnapshot = CreateSnapshot
     { VolumeId    :: !String
     , Description :: !(Maybe String)
     } deriving (Show)
 
-type CreateSnapshotResponse = CreateSnapshotResponseType
-
-data CreateSnapshotResponseType = CreateSnapshotResponseType
+data CreateSnapshotResponse = CreateSnapshotResponse
     { RequestId   :: !String
     , SnapshotId  :: !String
     , VolumeId    :: !String
@@ -1437,79 +1259,67 @@ data CreateSnapshotResponseType = CreateSnapshotResponseType
     , Description :: !(Maybe String)
     } deriving (Show)
 
-type CopySnapshot = CopySnapshotType
-
-data CopySnapshotType = CopySnapshotType
+data CopySnapshot = CopySnapshot
     { SourceRegion     :: !String
     , SourceSnapshotId :: !String
     , Description      :: !(Maybe String)
     } deriving (Show)
 
-type CopySnapshotResponse = CopySnapshotResponseType
-
-data CopySnapshotResponseType = CopySnapshotResponseType
+data CopySnapshotResponse = CopySnapshotResponse
     { RequestId  :: !String
     , SnapshotId :: !String
     } deriving (Show)
 
-type DeleteSnapshot = DeleteSnapshotType
-
-data DeleteSnapshotType = DeleteSnapshotType
+data DeleteSnapshot = DeleteSnapshot
     { SnapshotId :: !String
     } deriving (Show)
 
-type DeleteSnapshotResponse = DeleteSnapshotResponseType
-
-data DeleteSnapshotResponseType = DeleteSnapshotResponseType
+data DeleteSnapshotResponse = DeleteSnapshotResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeSnapshots = DescribeSnapshotsType
-
-data DescribeSnapshotsType = DescribeSnapshotsType
-    { SnapshotSet     :: !DescribeSnapshotsSetType
-    , OwnersSet       :: !(Maybe DescribeSnapshotsOwnersType)
-    , RestorableBySet :: !(Maybe DescribeSnapshotsRestorableBySetType)
-    , FilterSet       :: !(Maybe FilterSetType)
+data DescribeSnapshots = DescribeSnapshots
+    { SnapshotSet     :: !DescribeSnapshotsSet
+    , OwnersSet       :: !(Maybe DescribeSnapshotsOwners)
+    , RestorableBySet :: !(Maybe DescribeSnapshotsRestorableBySet)
+    , FilterSet       :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeSnapshotsSetType = DescribeSnapshotsSetType
-    { Item :: ![DescribeSnapshotsSetItemType]
+data DescribeSnapshotsSet = DescribeSnapshotsSet
+    { Item :: ![DescribeSnapshotsSetItem]
     } deriving (Show)
 
-data DescribeSnapshotsSetItemType = DescribeSnapshotsSetItemType
+data DescribeSnapshotsSetItem = DescribeSnapshotsSetItem
     { SnapshotId :: !String
     } deriving (Show)
 
-data DescribeSnapshotsOwnersType = DescribeSnapshotsOwnersType
-    { Item :: ![DescribeSnapshotsOwnerType]
+data DescribeSnapshotsOwners = DescribeSnapshotsOwners
+    { Item :: ![DescribeSnapshotsOwner]
     } deriving (Show)
 
-data DescribeSnapshotsOwnerType = DescribeSnapshotsOwnerType
+data DescribeSnapshotsOwner = DescribeSnapshotsOwner
     { Owner :: !String
     } deriving (Show)
 
-data DescribeSnapshotsRestorableBySetType = DescribeSnapshotsRestorableBySetType
-    { Item :: ![DescribeSnapshotsRestorableByType]
+data DescribeSnapshotsRestorableBySet = DescribeSnapshotsRestorableBySet
+    { Item :: ![DescribeSnapshotsRestorableBy]
     } deriving (Show)
 
-data DescribeSnapshotsRestorableByType = DescribeSnapshotsRestorableByType
+data DescribeSnapshotsRestorableBy = DescribeSnapshotsRestorableBy
     { User :: !String
     } deriving (Show)
 
-type DescribeSnapshotsResponse = DescribeSnapshotsResponseType
-
-data DescribeSnapshotsResponseType = DescribeSnapshotsResponseType
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { RequestId   :: !String
-    , SnapshotSet :: !DescribeSnapshotsSetResponseType
+    , SnapshotSet :: !DescribeSnapshotsSetResponse
     } deriving (Show)
 
-data DescribeSnapshotsSetResponseType = DescribeSnapshotsSetResponseType
-    { Item :: ![DescribeSnapshotsSetItemResponseType]
+data DescribeSnapshotsSetResponse = DescribeSnapshotsSetResponse
+    { Item :: ![DescribeSnapshotsSetItemResponse]
     } deriving (Show)
 
-data DescribeSnapshotsSetItemResponseType = DescribeSnapshotsSetItemResponseType
+data DescribeSnapshotsSetItemResponse = DescribeSnapshotsSetItemResponse
     { SnapshotId  :: !String
     , VolumeId    :: !String
     , Status      :: !String
@@ -1519,29 +1329,27 @@ data DescribeSnapshotsSetItemResponseType = DescribeSnapshotsSetItemResponseType
     , VolumeSize  :: !String
     , Description :: !(Maybe String)
     , OwnerAlias  :: !(Maybe String)
-    , TagSet      :: !(Maybe ResourceTagSetType)
+    , TagSet      :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-type ModifySnapshotAttribute = ModifySnapshotAttributeType
-
-data ModifySnapshotAttributeType = ModifySnapshotAttributeType
+data ModifySnapshotAttribute = ModifySnapshotAttribute
     { SnapshotId             :: !String
-    , CreateVolumePermission :: !CreateVolumePermissionOperationType
+    , CreateVolumePermission :: !CreateVolumePermissionOperation
     } deriving (Show)
 
-data CreateVolumePermissionOperationType = CreateVolumePermissionOperationType
+data CreateVolumePermissionOperation = CreateVolumePermissionOperation
     {
 -- <xs:choice>
-    , Add    :: !(Maybe CreateVolumePermissionListType)
-    , Remove :: !(Maybe CreateVolumePermissionListType)
+    , Add    :: !(Maybe CreateVolumePermissionList)
+    , Remove :: !(Maybe CreateVolumePermissionList)
 -- </xs:choice>
     } deriving (Show)
 
-data CreateVolumePermissionListType = CreateVolumePermissionListType
-    { Item :: ![CreateVolumePermissionItemType]
+data CreateVolumePermissionList = CreateVolumePermissionList
+    { Item :: ![CreateVolumePermissionItem]
     } deriving (Show)
 
-data CreateVolumePermissionItemType = CreateVolumePermissionItemType
+data CreateVolumePermissionItem = CreateVolumePermissionItem
     {
 -- <xs:choice>
     , UserId :: !(Maybe String)
@@ -1549,64 +1357,52 @@ data CreateVolumePermissionItemType = CreateVolumePermissionItemType
 -- </xs:choice>
     } deriving (Show)
 
-type ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponseType
-
-data ModifySnapshotAttributeResponseType = ModifySnapshotAttributeResponseType
+data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ResetSnapshotAttribute = ResetSnapshotAttributeType
-
-data ResetSnapshotAttributeType = ResetSnapshotAttributeType
+data ResetSnapshotAttribute = ResetSnapshotAttribute
     { SnapshotId                   :: !String
     , ResetSnapshotAttributesGroup :: !ResetSnapshotAttributesGroup
     } deriving (Show)
 
 data ResetSnapshotAttributesGroup = ResetSnapshotAttributesGroup
-    { CreateVolumePermission :: !EmptyElementType
+    { CreateVolumePermission :: !EmptyElement
     } deriving (Show)
-type ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponseType
-
-data ResetSnapshotAttributeResponseType = ResetSnapshotAttributeResponseType
+data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeSnapshotAttribute = DescribeSnapshotAttributeType
-
-data DescribeSnapshotAttributeType = DescribeSnapshotAttributeType
+data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { SnapshotId                      :: !String
     , DescribeSnapshotAttributesGroup :: !DescribeSnapshotAttributesGroup
     } deriving (Show)
 
 data DescribeSnapshotAttributesGroup = DescribeSnapshotAttributesGroup
-    { CreateVolumePermission :: !EmptyElementType
-    , ProductCodes           :: !EmptyElementType
+    { CreateVolumePermission :: !EmptyElement
+    , ProductCodes           :: !EmptyElement
     } deriving (Show)
-type DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponseType
-
-data DescribeSnapshotAttributeResponseType = DescribeSnapshotAttributeResponseType
+data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { RequestId              :: !String
     , SnapshotId             :: !String
   -- <xs:choice>
-    , CreateVolumePermission :: !(Maybe CreateVolumePermissionListType)
-    , ProductCodes           :: !(Maybe ProductCodesSetType)
+    , CreateVolumePermission :: !(Maybe CreateVolumePermissionList)
+    , ProductCodes           :: !(Maybe ProductCodesSet)
   -- </xs:choice>
     } deriving (Show)
 
-type BundleInstance = BundleInstanceType
-
-data BundleInstanceType = BundleInstanceType
+data BundleInstance = BundleInstance
     { InstanceId :: !String
-    , Storage    :: !BundleInstanceTaskStorageType
+    , Storage    :: !BundleInstanceTaskStorage
     } deriving (Show)
 
-data BundleInstanceTaskStorageType = BundleInstanceTaskStorageType
-    { S3 :: !BundleInstanceS3StorageType
+data BundleInstanceTaskStorage = BundleInstanceTaskStorage
+    { S3 :: !BundleInstanceS3Storage
     } deriving (Show)
 
-data BundleInstanceS3StorageType = BundleInstanceS3StorageType
+data BundleInstanceS3Storage = BundleInstanceS3Storage
     { Bucket                :: !String
     , Prefix                :: !String
     , AwsAccessKeyId        :: !(Maybe String)
@@ -1614,71 +1410,59 @@ data BundleInstanceS3StorageType = BundleInstanceS3StorageType
     , UploadPolicySignature :: !(Maybe String)
     } deriving (Show)
 
-type BundleInstanceResponse = BundleInstanceResponseType
-
-data BundleInstanceResponseType = BundleInstanceResponseType
+data BundleInstanceResponse = BundleInstanceResponse
     { RequestId          :: !String
-    , BundleInstanceTask :: !BundleInstanceTaskType
+    , BundleInstanceTask :: !BundleInstanceTask
     } deriving (Show)
 
-data BundleInstanceTaskType = BundleInstanceTaskType
+data BundleInstanceTask = BundleInstanceTask
     { InstanceId :: !String
     , BundleId   :: !String
     , State      :: !String
     , StartTime  :: !DateTime
     , UpdateTime :: !DateTime
-    , Storage    :: !BundleInstanceTaskStorageType
+    , Storage    :: !BundleInstanceTaskStorage
     , Progress   :: !(Maybe String)
-    , Error      :: !(Maybe BundleInstanceTaskErrorType)
+    , Error      :: !(Maybe BundleInstanceTaskError)
     } deriving (Show)
 
-data BundleInstanceTaskErrorType = BundleInstanceTaskErrorType
+data BundleInstanceTaskError = BundleInstanceTaskError
     { Code    :: !String
     , Message :: !String
     } deriving (Show)
 
-type DescribeBundleTasks = DescribeBundleTasksType
-
-data DescribeBundleTasksType = DescribeBundleTasksType
-    { BundlesSet :: !DescribeBundleTasksInfoType
-    , FilterSet  :: !(Maybe FilterSetType)
+data DescribeBundleTasks = DescribeBundleTasks
+    { BundlesSet :: !DescribeBundleTasksInfo
+    , FilterSet  :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeBundleTasksInfoType = DescribeBundleTasksInfoType
-    { Item :: ![DescribeBundleTasksItemType]
+data DescribeBundleTasksInfo = DescribeBundleTasksInfo
+    { Item :: ![DescribeBundleTasksItem]
     } deriving (Show)
 
-data DescribeBundleTasksItemType = DescribeBundleTasksItemType
+data DescribeBundleTasksItem = DescribeBundleTasksItem
     { BundleId :: !String
     } deriving (Show)
 
-type DescribeBundleTasksResponse = DescribeBundleTasksResponseType
-
-data DescribeBundleTasksResponseType = DescribeBundleTasksResponseType
+data DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { RequestId              :: !String
-    , BundleInstanceTasksSet :: !BundleInstanceTasksSetType
+    , BundleInstanceTasksSet :: !BundleInstanceTasksSet
     } deriving (Show)
 
-data BundleInstanceTasksSetType = BundleInstanceTasksSetType
-    { Item :: ![BundleInstanceTaskType]
+data BundleInstanceTasksSet = BundleInstanceTasksSet
+    { Item :: ![BundleInstanceTask]
     } deriving (Show)
 
-type CancelBundleTask = CancelBundleTaskType
-
-data CancelBundleTaskType = CancelBundleTaskType
+data CancelBundleTask = CancelBundleTask
     { BundleId :: !String
     } deriving (Show)
 
-type CancelBundleTaskResponse = CancelBundleTaskResponseType
-
-data CancelBundleTaskResponseType = CancelBundleTaskResponseType
+data CancelBundleTaskResponse = CancelBundleTaskResponse
     { RequestId          :: !String
-    , BundleInstanceTask :: !BundleInstanceTaskType
+    , BundleInstanceTask :: !BundleInstanceTask
     } deriving (Show)
 
-type CopyImage = CopyImageType
-
-data CopyImageType = CopyImageType
+data CopyImage = CopyImage
     { SourceRegion  :: !String
     , SourceImageId :: !String
     , Name          :: !String
@@ -1686,54 +1470,46 @@ data CopyImageType = CopyImageType
     , ClientToken   :: !(Maybe String)
     } deriving (Show)
 
-type CopyImageResponse = CopyImageResponseType
-
-data CopyImageResponseType = CopyImageResponseType
+data CopyImageResponse = CopyImageResponse
     { RequestId :: !String
     , ImageId   :: !String
     } deriving (Show)
 
-type DescribeRegions = DescribeRegionsType
-
-data DescribeRegionsType = DescribeRegionsType
-    { RegionSet :: !DescribeRegionsSetType
-    , FilterSet :: !(Maybe FilterSetType)
+data DescribeRegions = DescribeRegions
+    { RegionSet :: !DescribeRegionsSet
+    , FilterSet :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeRegionsSetType = DescribeRegionsSetType
-    { Item :: ![DescribeRegionsSetItemType]
+data DescribeRegionsSet = DescribeRegionsSet
+    { Item :: ![DescribeRegionsSetItem]
     } deriving (Show)
 
-data DescribeRegionsSetItemType = DescribeRegionsSetItemType
+data DescribeRegionsSetItem = DescribeRegionsSetItem
     { RegionName :: !String
     } deriving (Show)
 
-type DescribeRegionsResponse = DescribeRegionsResponseType
-
-data DescribeRegionsResponseType = DescribeRegionsResponseType
+data DescribeRegionsResponse = DescribeRegionsResponse
     { RequestId  :: !String
-    , RegionInfo :: !RegionSetType
+    , RegionInfo :: !RegionSet
     } deriving (Show)
 
-data RegionSetType = RegionSetType
-    { Item :: ![RegionItemType]
+data RegionSet = RegionSet
+    { Item :: ![RegionItem]
     } deriving (Show)
 
-data RegionItemType = RegionItemType
+data RegionItem = RegionItem
     { RegionName     :: !String
     , RegionEndpoint :: !String
     } deriving (Show)
 
-type DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferingsType
-
-data DescribeReservedInstancesOfferingsType = DescribeReservedInstancesOfferingsType
-    { ReservedInstancesOfferingsSet :: !(Maybe DescribeReservedInstancesOfferingsSetType)
-    , InstanceType                  :: !(Maybe String)
+data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
+    { ReservedInstancesOfferingsSet :: !(Maybe DescribeReservedInstancesOfferingsSet)
+    , Instance                  :: !(Maybe String)
     , AvailabilityZone              :: !(Maybe String)
     , ProductDescription            :: !(Maybe String)
-    , FilterSet                     :: !(Maybe FilterSetType)
+    , FilterSet                     :: !(Maybe FilterSet)
     , InstanceTenancy               :: !(Maybe String)
-    , OfferingType                  :: !(Maybe String)
+    , Offering                  :: !(Maybe String)
     , IncludeMarketplace            :: !(Maybe Boolean)
     , MinDuration                   :: !(Maybe Long)
     , MaxDuration                   :: !(Maybe Long)
@@ -1742,29 +1518,27 @@ data DescribeReservedInstancesOfferingsType = DescribeReservedInstancesOfferings
     , MaxResults                    :: !(Maybe Int)
     } deriving (Show)
 
-data DescribeReservedInstancesOfferingsSetType = DescribeReservedInstancesOfferingsSetType
-    { Item :: ![DescribeReservedInstancesOfferingsSetItemType]
+data DescribeReservedInstancesOfferingsSet = DescribeReservedInstancesOfferingsSet
+    { Item :: ![DescribeReservedInstancesOfferingsSetItem]
     } deriving (Show)
 
-data DescribeReservedInstancesOfferingsSetItemType = DescribeReservedInstancesOfferingsSetItemType
+data DescribeReservedInstancesOfferingsSetItem = DescribeReservedInstancesOfferingsSetItem
     { ReservedInstancesOfferingId :: !String
     } deriving (Show)
 
-type DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponseType
-
-data DescribeReservedInstancesOfferingsResponseType = DescribeReservedInstancesOfferingsResponseType
+data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { RequestId                     :: !String
-    , ReservedInstancesOfferingsSet :: !DescribeReservedInstancesOfferingsResponseSetType
+    , ReservedInstancesOfferingsSet :: !DescribeReservedInstancesOfferingsResponseSet
     , NextToken                     :: !(Maybe String)
     } deriving (Show)
 
-data DescribeReservedInstancesOfferingsResponseSetType = DescribeReservedInstancesOfferingsResponseSetType
-    { Item :: ![DescribeReservedInstancesOfferingsResponseSetItemType]
+data DescribeReservedInstancesOfferingsResponseSet = DescribeReservedInstancesOfferingsResponseSet
+    { Item :: ![DescribeReservedInstancesOfferingsResponseSetItem]
     } deriving (Show)
 
-data DescribeReservedInstancesOfferingsResponseSetItemType = DescribeReservedInstancesOfferingsResponseSetItemType
+data DescribeReservedInstancesOfferingsResponseSetItem = DescribeReservedInstancesOfferingsResponseSetItem
     { ReservedInstancesOfferingId :: !String
-    , InstanceType                :: !String
+    , Instance                :: !String
     , AvailabilityZone            :: !String
     , Duration                    :: !Long
     , FixedPrice                  :: !Double
@@ -1772,80 +1546,72 @@ data DescribeReservedInstancesOfferingsResponseSetItemType = DescribeReservedIns
     , ProductDescription          :: !String
     , InstanceTenancy             :: !String
     , CurrencyCode                :: !String
-    , OfferingType                :: !String
-    , RecurringCharges            :: !RecurringChargesSetType
+    , Offering                :: !String
+    , RecurringCharges            :: !RecurringChargesSet
     , Marketplace                 :: !(Maybe Boolean)
-    , PricingDetailsSet           :: !(Maybe PricingDetailsSetType)
+    , PricingDetailsSet           :: !(Maybe PricingDetailsSet)
     } deriving (Show)
 
-data RecurringChargesSetType = RecurringChargesSetType
-    { Item :: ![RecurringChargesSetItemType]
+data RecurringChargesSet = RecurringChargesSet
+    { Item :: ![RecurringChargesSetItem]
     } deriving (Show)
 
-data RecurringChargesSetItemType = RecurringChargesSetItemType
+data RecurringChargesSetItem = RecurringChargesSetItem
     { Frequency :: !String
     , Amount    :: !Double
     } deriving (Show)
 
-data PricingDetailsSetType = PricingDetailsSetType
-    { Item :: ![PricingDetailsSetItemType]
+data PricingDetailsSet = PricingDetailsSet
+    { Item :: ![PricingDetailsSetItem]
     } deriving (Show)
 
-data PricingDetailsSetItemType = PricingDetailsSetItemType
+data PricingDetailsSetItem = PricingDetailsSetItem
     { Price :: !Double
     , Count :: !Int
     } deriving (Show)
 
-type PurchaseReservedInstancesOffering = PurchaseReservedInstancesOfferingType
-
-data PurchaseReservedInstancesOfferingType = PurchaseReservedInstancesOfferingType
+data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     { ReservedInstancesOfferingId :: !String
     , InstanceCount               :: !Int
-    , LimitPrice                  :: !(Maybe ReservedInstanceLimitPriceType)
+    , LimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
     } deriving (Show)
 
-data ReservedInstanceLimitPriceType = ReservedInstanceLimitPriceType
+data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
     { Amount       :: !Double
     , CurrencyCode :: !(Maybe String)
     } deriving (Show)
 
-type PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponseType
-
-data PurchaseReservedInstancesOfferingResponseType = PurchaseReservedInstancesOfferingResponseType
+data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { RequestId           :: !String
     , ReservedInstancesId :: !String
     } deriving (Show)
 
-type DescribeReservedInstances = DescribeReservedInstancesType
-
-data DescribeReservedInstancesType = DescribeReservedInstancesType
-    { ReservedInstancesSet :: !(Maybe DescribeReservedInstancesSetType)
-    , FilterSet            :: !(Maybe FilterSetType)
-    , OfferingType         :: !(Maybe String)
+data DescribeReservedInstances = DescribeReservedInstances
+    { ReservedInstancesSet :: !(Maybe DescribeReservedInstancesSet)
+    , FilterSet            :: !(Maybe FilterSet)
+    , Offering         :: !(Maybe String)
     } deriving (Show)
 
-data DescribeReservedInstancesSetType = DescribeReservedInstancesSetType
-    { Item :: ![DescribeReservedInstancesSetItemType]
+data DescribeReservedInstancesSet = DescribeReservedInstancesSet
+    { Item :: ![DescribeReservedInstancesSetItem]
     } deriving (Show)
 
-data DescribeReservedInstancesSetItemType = DescribeReservedInstancesSetItemType
+data DescribeReservedInstancesSetItem = DescribeReservedInstancesSetItem
     { ReservedInstancesId :: !String
     } deriving (Show)
 
-type DescribeReservedInstancesResponse = DescribeReservedInstancesResponseType
-
-data DescribeReservedInstancesResponseType = DescribeReservedInstancesResponseType
+data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { RequestId            :: !String
-    , ReservedInstancesSet :: !DescribeReservedInstancesResponseSetType
+    , ReservedInstancesSet :: !DescribeReservedInstancesResponseSet
     } deriving (Show)
 
-data DescribeReservedInstancesResponseSetType = DescribeReservedInstancesResponseSetType
-    { Item :: ![DescribeReservedInstancesResponseSetItemType]
+data DescribeReservedInstancesResponseSet = DescribeReservedInstancesResponseSet
+    { Item :: ![DescribeReservedInstancesResponseSetItem]
     } deriving (Show)
 
-data DescribeReservedInstancesResponseSetItemType = DescribeReservedInstancesResponseSetItemType
+data DescribeReservedInstancesResponseSetItem = DescribeReservedInstancesResponseSetItem
     { ReservedInstancesId :: !String
-    , InstanceType        :: !String
+    , Instance        :: !String
     , AvailabilityZone    :: !String
     , Start               :: !DateTime
     , Duration            :: !Long
@@ -1854,211 +1620,191 @@ data DescribeReservedInstancesResponseSetItemType = DescribeReservedInstancesRes
     , InstanceCount       :: !Integer
     , ProductDescription  :: !String
     , State               :: !String
-    , TagSet              :: !(Maybe ResourceTagSetType)
+    , TagSet              :: !(Maybe ResourceTagSet)
     , InstanceTenancy     :: !String
     , CurrencyCode        :: !String
-    , OfferingType        :: !String
-    , RecurringCharges    :: !(Maybe RecurringChargesSetType)
+    , Offering        :: !String
+    , RecurringCharges    :: !(Maybe RecurringChargesSet)
     } deriving (Show)
 
-type CreateReservedInstancesListing = CreateReservedInstancesListingType
-
-data CreateReservedInstancesListingType = CreateReservedInstancesListingType
+data CreateReservedInstancesListing = CreateReservedInstancesListing
     { ReservedInstancesId :: !String
     , InstanceCount       :: !(Maybe Int)
-    , PriceSchedules      :: !PriceScheduleRequestSetType
+    , PriceSchedules      :: !PriceScheduleRequestSet
     , ClientToken         :: !String
     } deriving (Show)
 
-data PriceScheduleRequestSetType = PriceScheduleRequestSetType
-    { Item :: ![PriceScheduleRequestSetItemType]
+data PriceScheduleRequestSet = PriceScheduleRequestSet
+    { Item :: ![PriceScheduleRequestSetItem]
     } deriving (Show)
 
-data PriceScheduleRequestSetItemType = PriceScheduleRequestSetItemType
+data PriceScheduleRequestSetItem = PriceScheduleRequestSetItem
     { Term         :: !Long
     , Price        :: !Double
     , CurrencyCode :: !(Maybe String)
     } deriving (Show)
 
-type CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponseType
-
-data CreateReservedInstancesListingResponseType = CreateReservedInstancesListingResponseType
+data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { RequestId                    :: !String
-    , ReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetType
+    , ReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
     } deriving (Show)
 
-type CancelReservedInstancesListing = CancelReservedInstancesListingType
-
-data CancelReservedInstancesListingType = CancelReservedInstancesListingType
+data CancelReservedInstancesListing = CancelReservedInstancesListing
     { ReservedInstancesListingId :: !String
     } deriving (Show)
 
-type CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponseType
-
-data CancelReservedInstancesListingResponseType = CancelReservedInstancesListingResponseType
+data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { RequestId                    :: !String
-    , ReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetType
+    , ReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
     } deriving (Show)
 
-type DescribeReservedInstancesListings = DescribeReservedInstancesListingsType
-
-data DescribeReservedInstancesListingsType = DescribeReservedInstancesListingsType
-    { ReservedInstancesListingSet :: !(Maybe DescribeReservedInstancesListingSetType)
-    , ReservedInstancesSet        :: !(Maybe DescribeReservedInstancesSetType)
-    , FilterSet                   :: !(Maybe FilterSetType)
+data DescribeReservedInstancesListings = DescribeReservedInstancesListings
+    { ReservedInstancesListingSet :: !(Maybe DescribeReservedInstancesListingSet)
+    , ReservedInstancesSet        :: !(Maybe DescribeReservedInstancesSet)
+    , FilterSet                   :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeReservedInstancesListingSetType = DescribeReservedInstancesListingSetType
-    { Item :: ![DescribeReservedInstancesListingSetItemType]
+data DescribeReservedInstancesListingSet = DescribeReservedInstancesListingSet
+    { Item :: ![DescribeReservedInstancesListingSetItem]
     } deriving (Show)
 
-data DescribeReservedInstancesListingSetItemType = DescribeReservedInstancesListingSetItemType
+data DescribeReservedInstancesListingSetItem = DescribeReservedInstancesListingSetItem
     { ReservedInstancesListingId :: !String
     } deriving (Show)
 
-type DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponseType
-
-data DescribeReservedInstancesListingsResponseType = DescribeReservedInstancesListingsResponseType
+data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { RequestId                    :: !String
-    , ReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetType
+    , ReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
     } deriving (Show)
 
-data DescribeReservedInstancesListingsResponseSetType = DescribeReservedInstancesListingsResponseSetType
-    { Item :: ![DescribeReservedInstancesListingsResponseSetItemType]
+data DescribeReservedInstancesListingsResponseSet = DescribeReservedInstancesListingsResponseSet
+    { Item :: ![DescribeReservedInstancesListingsResponseSetItem]
     } deriving (Show)
 
-data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInstancesListingsResponseSetItemType
+data DescribeReservedInstancesListingsResponseSetItem = DescribeReservedInstancesListingsResponseSetItem
     { ReservedInstancesListingId :: !String
     , ReservedInstancesId        :: !String
     , CreateDate                 :: !DateTime
     , UpdateDate                 :: !DateTime
     , Status                     :: !String
     , StatusMessage              :: !String
-    , InstanceCounts             :: !InstanceCountsSetType
-    , PriceSchedules             :: !PriceScheduleSetType
-    , TagSet                     :: !(Maybe ResourceTagSetType)
+    , InstanceCounts             :: !InstanceCountsSet
+    , PriceSchedules             :: !PriceScheduleSet
+    , TagSet                     :: !(Maybe ResourceTagSet)
     , ClientToken                :: !(Maybe String)
     } deriving (Show)
 
-data InstanceCountsSetType = InstanceCountsSetType
-    { Item :: ![InstanceCountsSetItemType]
+data InstanceCountsSet = InstanceCountsSet
+    { Item :: ![InstanceCountsSetItem]
     } deriving (Show)
 
-data InstanceCountsSetItemType = InstanceCountsSetItemType
+data InstanceCountsSetItem = InstanceCountsSetItem
     { State         :: !String
     , InstanceCount :: !Int
     } deriving (Show)
 
-data PriceScheduleSetType = PriceScheduleSetType
-    { Item :: ![PriceScheduleSetItemType]
+data PriceScheduleSet = PriceScheduleSet
+    { Item :: ![PriceScheduleSetItem]
     } deriving (Show)
 
-data PriceScheduleSetItemType = PriceScheduleSetItemType
+data PriceScheduleSetItem = PriceScheduleSetItem
     { Term         :: !Long
     , Price        :: !Double
     , CurrencyCode :: !(Maybe String)
     , Active       :: !Boolean
     } deriving (Show)
 
-type MonitorInstances = MonitorInstancesType
-
-type UnmonitorInstances = MonitorInstancesType
-
-data MonitorInstancesType = MonitorInstancesType
-    { InstancesSet :: !MonitorInstancesSetType
+data MonitorInstances = MonitorInstances
+    { InstancesSet :: !MonitorInstancesSet
     } deriving (Show)
 
-data MonitorInstancesSetType = MonitorInstancesSetType
+data MonitorInstancesSet = MonitorInstancesSet
     {
-  Item :: !(NonEmpty MonitorInstancesSetItemType)
+  Item :: !(NonEmpty MonitorInstancesSetItem)
     } deriving (Show)
 
-data MonitorInstancesSetItemType = MonitorInstancesSetItemType
+data MonitorInstancesSetItem = MonitorInstancesSetItem
     { InstanceId :: !String
     } deriving (Show)
 
-type MonitorInstancesResponse = MonitorInstancesResponseType
-
-type UnmonitorInstancesResponse = MonitorInstancesResponseType
-
-data MonitorInstancesResponseType = MonitorInstancesResponseType
+data MonitorInstancesResponse = MonitorInstancesResponse
     { RequestId    :: !String
-    , InstancesSet :: !MonitorInstancesResponseSetType
+    , InstancesSet :: !MonitorInstancesResponseSet
     } deriving (Show)
 
-data MonitorInstancesResponseSetType = MonitorInstancesResponseSetType
+data MonitorInstancesResponseSet = MonitorInstancesResponseSet
     {
-  Item :: !(NonEmpty MonitorInstancesResponseSetItemType)
+  Item :: !(NonEmpty MonitorInstancesResponseSetItem)
     } deriving (Show)
 
-data MonitorInstancesResponseSetItemType = MonitorInstancesResponseSetItemType
+data MonitorInstancesResponseSetItem = MonitorInstancesResponseSetItem
     { InstanceId :: !String
-    , Monitoring :: !InstanceMonitoringStateType
+    , Monitoring :: !InstanceMonitoringState
     } deriving (Show)
 
-data InstanceMonitoringStateType = InstanceMonitoringStateType
+data InstanceMonitoringState = InstanceMonitoringState
     { State :: !String
     } deriving (Show)
 
-data AttachmentType = AttachmentType
+data Attachment = Attachment
     { VpcId :: !String
     , State :: !String
     } deriving (Show)
 
-data AttachmentSetType = AttachmentSetType
-    { Item :: ![AttachmentType]
+data AttachmentSet = AttachmentSet
+    { Item :: ![Attachment]
     } deriving (Show)
 
-data VpnGatewayType = VpnGatewayType
+data VpnGateway = VpnGateway
     { VpnGatewayId     :: !String
     , State            :: !String
     , Type             :: !String
     , AvailabilityZone :: !(Maybe String)
-    , Attachments      :: !AttachmentSetType
-    , TagSet           :: !(Maybe ResourceTagSetType)
+    , Attachments      :: !AttachmentSet
+    , TagSet           :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data CustomerGatewayType = CustomerGatewayType
+data CustomerGateway = CustomerGateway
     { CustomerGatewayId :: !String
     , State             :: !String
     , Type              :: !String
     , IpAddress         :: !String
     , BgpAsn            :: !(Maybe Int)
-    , TagSet            :: !(Maybe ResourceTagSetType)
+    , TagSet            :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data VpnConnectionType = VpnConnectionType
+data VpnConnection = VpnConnection
     { VpnConnectionId              :: !String
     , State                        :: !String
     , CustomerGatewayConfiguration :: !(Maybe String)
     , Type                         :: !(Maybe String)
     , CustomerGatewayId            :: !String
     , VpnGatewayId                 :: !String
-    , TagSet                       :: !(Maybe ResourceTagSetType)
-    , VgwTelemetry                 :: !(Maybe VgwTelemetryType)
-    , Options                      :: !(Maybe VpnConnectionOptionsResponseType)
-    , Routes                       :: !(Maybe VpnStaticRoutesSetType)
+    , TagSet                       :: !(Maybe ResourceTagSet)
+    , VgwTelemetry                 :: !(Maybe VgwTelemetry)
+    , Options                      :: !(Maybe VpnConnectionOptionsResponse)
+    , Routes                       :: !(Maybe VpnStaticRoutesSet)
     } deriving (Show)
 
-data VpnConnectionOptionsResponseType = VpnConnectionOptionsResponseType
+data VpnConnectionOptionsResponse = VpnConnectionOptionsResponse
     { StaticRoutesOnly :: !(Maybe Boolean)
     } deriving (Show)
 
-data VpnStaticRoutesSetType = VpnStaticRoutesSetType
-    { Item :: ![VpnStaticRouteType]
+data VpnStaticRoutesSet = VpnStaticRoutesSet
+    { Item :: ![VpnStaticRoute]
     } deriving (Show)
 
-data VpnStaticRouteType = VpnStaticRouteType
+data VpnStaticRoute = VpnStaticRoute
     { DestinationCidrBlock :: !String
     , Source               :: !String
     , State                :: !String
     } deriving (Show)
 
-data VgwTelemetryType = VgwTelemetryType
-    { Item :: ![VpnTunnelTelemetryType]
+data VgwTelemetry = VgwTelemetry
+    { Item :: ![VpnTunnelTelemetry]
     } deriving (Show)
 
-data VpnTunnelTelemetryType = VpnTunnelTelemetryType
+data VpnTunnelTelemetry = VpnTunnelTelemetry
     { OutsideIpAddress   :: !String
     , Status             :: !String
     , LastStatusChange   :: !DateTime
@@ -2066,17 +1812,17 @@ data VpnTunnelTelemetryType = VpnTunnelTelemetryType
     , AcceptedRouteCount :: !Int
     } deriving (Show)
 
-data VpcType = VpcType
+data Vpc = Vpc
     { VpcId           :: !String
     , State           :: !(Maybe String)
     , CidrBlock       :: !(Maybe String)
     , DhcpOptionsId   :: !(Maybe String)
-    , TagSet          :: !(Maybe ResourceTagSetType)
+    , TagSet          :: !(Maybe ResourceTagSet)
     , InstanceTenancy :: !(Maybe String)
     , IsDefault       :: !(Maybe Boolean)
     } deriving (Show)
 
-data SubnetType = SubnetType
+data Subnet = Subnet
     { SubnetId                :: !String
     , State                   :: !(Maybe String)
     , VpcId                   :: !(Maybe String)
@@ -2085,473 +1831,353 @@ data SubnetType = SubnetType
     , AvailabilityZone        :: !(Maybe String)
     , DefaultForAz            :: !(Maybe Boolean)
     , MapPublicIpOnLaunch     :: !(Maybe Boolean)
-    , TagSet                  :: !(Maybe ResourceTagSetType)
+    , TagSet                  :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data CustomerGatewaySetType = CustomerGatewaySetType
-    { Item :: ![CustomerGatewayType]
+data CustomerGatewaySet = CustomerGatewaySet
+    { Item :: ![CustomerGateway]
     } deriving (Show)
 
-data VpnGatewaySetType = VpnGatewaySetType
-    { Item :: ![VpnGatewayType]
+data VpnGatewaySet = VpnGatewaySet
+    { Item :: ![VpnGateway]
     } deriving (Show)
 
-data VpnConnectionSetType = VpnConnectionSetType
-    { Item :: ![VpnConnectionType]
+data VpnConnectionSet = VpnConnectionSet
+    { Item :: ![VpnConnection]
     } deriving (Show)
 
-data VpcSetType = VpcSetType
-    { Item :: ![VpcType]
+data VpcSet = VpcSet
+    { Item :: ![Vpc]
     } deriving (Show)
 
-data SubnetSetType = SubnetSetType
-    { Item :: ![SubnetType]
+data SubnetSet = SubnetSet
+    { Item :: ![Subnet]
     } deriving (Show)
 
-data CustomerGatewayIdSetItemType = CustomerGatewayIdSetItemType
+data CustomerGatewayIdSetItem = CustomerGatewayIdSetItem
     { CustomerGatewayId :: !String
     } deriving (Show)
 
-data CustomerGatewayIdSetType = CustomerGatewayIdSetType
-    { Item :: ![CustomerGatewayIdSetItemType]
+data CustomerGatewayIdSet = CustomerGatewayIdSet
+    { Item :: ![CustomerGatewayIdSetItem]
     } deriving (Show)
 
-data VpnGatewayIdSetItemType = VpnGatewayIdSetItemType
+data VpnGatewayIdSetItem = VpnGatewayIdSetItem
     { VpnGatewayId :: !String
     } deriving (Show)
 
-data VpnGatewayIdSetType = VpnGatewayIdSetType
-    { Item :: ![VpnGatewayIdSetItemType]
+data VpnGatewayIdSet = VpnGatewayIdSet
+    { Item :: ![VpnGatewayIdSetItem]
     } deriving (Show)
 
-data VpnConnectionIdSetItemType = VpnConnectionIdSetItemType
+data VpnConnectionIdSetItem = VpnConnectionIdSetItem
     { VpnConnectionId :: !String
     } deriving (Show)
 
-data VpnConnectionIdSetType = VpnConnectionIdSetType
-    { Item :: ![VpnConnectionIdSetItemType]
+data VpnConnectionIdSet = VpnConnectionIdSet
+    { Item :: ![VpnConnectionIdSetItem]
     } deriving (Show)
 
-data VpcIdSetItemType = VpcIdSetItemType
+data VpcIdSetItem = VpcIdSetItem
     { VpcId :: !String
     } deriving (Show)
 
-data VpcIdSetType = VpcIdSetType
-    { Item :: ![VpcIdSetItemType]
+data VpcIdSet = VpcIdSet
+    { Item :: ![VpcIdSetItem]
     } deriving (Show)
 
-data SubnetIdSetItemType = SubnetIdSetItemType
+data SubnetIdSetItem = SubnetIdSetItem
     { SubnetId :: !String
     } deriving (Show)
 
-data SubnetIdSetType = SubnetIdSetType
-    { Item :: ![SubnetIdSetItemType]
+data SubnetIdSet = SubnetIdSet
+    { Item :: ![SubnetIdSetItem]
     } deriving (Show)
 
-data DhcpOptionsIdSetItemType = DhcpOptionsIdSetItemType
+data DhcpOptionsIdSetItem = DhcpOptionsIdSetItem
     { DhcpOptionsId :: !String
     } deriving (Show)
 
-data DhcpOptionsIdSetType = DhcpOptionsIdSetType
-    { Item :: ![DhcpOptionsIdSetItemType]
+data DhcpOptionsIdSet = DhcpOptionsIdSet
+    { Item :: ![DhcpOptionsIdSetItem]
     } deriving (Show)
 
-data DhcpConfigurationItemSetType = DhcpConfigurationItemSetType
-    { Item :: ![DhcpConfigurationItemType]
+data DhcpConfigurationItemSet = DhcpConfigurationItemSet
+    { Item :: ![DhcpConfigurationItem]
     } deriving (Show)
 
-data DhcpOptionsSetType = DhcpOptionsSetType
-    { Item :: ![DhcpOptionsType]
+data DhcpOptionsSet = DhcpOptionsSet
+    { Item :: ![DhcpOptions]
     } deriving (Show)
 
-data DhcpConfigurationItemType = DhcpConfigurationItemType
+data DhcpConfigurationItem = DhcpConfigurationItem
     { Key      :: !String
-    , ValueSet :: !DhcpValueSetType
+    , ValueSet :: !DhcpValueSet
     } deriving (Show)
 
-data DhcpOptionsType = DhcpOptionsType
+data DhcpOptions = DhcpOptions
     { DhcpOptionsId        :: !String
-    , DhcpConfigurationSet :: !DhcpConfigurationItemSetType
-    , TagSet               :: !(Maybe ResourceTagSetType)
+    , DhcpConfigurationSet :: !DhcpConfigurationItemSet
+    , TagSet               :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data DhcpValueType = DhcpValueType
+data DhcpValue = DhcpValue
     { Value :: !String
     } deriving (Show)
 
-data DhcpValueSetType = DhcpValueSetType
-    { Item :: ![DhcpValueType]
+data DhcpValueSet = DhcpValueSet
+    { Item :: ![DhcpValue]
     } deriving (Show)
 
-data FilterType = FilterType
+data Filter = Filter
     { Name     :: !String
-    , ValueSet :: !ValueSetType
+    , ValueSet :: !ValueSet
     } deriving (Show)
 
-data FilterSetType = FilterSetType
-    { Item :: ![FilterType]
+data FilterSet = FilterSet
+    { Item :: ![Filter]
     } deriving (Show)
 
-data ValueType = ValueType
+data Value = Value
     { Value :: !String
     } deriving (Show)
 
-data ValueSetType = ValueSetType
-    { Item :: ![ValueType]
+data ValueSet = ValueSet
+    { Item :: ![Value]
     } deriving (Show)
 
-type CreateCustomerGateway = CreateCustomerGatewayType
-
-type CreateCustomerGatewayResponse = CreateCustomerGatewayResponseType
-
-type DeleteCustomerGateway = DeleteCustomerGatewayType
-
-type DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponseType
-
-type DescribeCustomerGateways = DescribeCustomerGatewaysType
-
-type DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponseType
-
-type CreateVpnGateway = CreateVpnGatewayType
-
-type CreateVpnGatewayResponse = CreateVpnGatewayResponseType
-
-type DeleteVpnGateway = DeleteVpnGatewayType
-
-type DeleteVpnGatewayResponse = DeleteVpnGatewayResponseType
-
-type DescribeVpnGateways = DescribeVpnGatewaysType
-
-type DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponseType
-
-type CreateVpnConnection = CreateVpnConnectionType
-
-type CreateVpnConnectionResponse = CreateVpnConnectionResponseType
-
-type CreateVpnConnectionRoute = CreateVpnConnectionRouteType
-
-type CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponseType
-
-type DeleteVpnConnectionRoute = DeleteVpnConnectionRouteType
-
-type DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponseType
-
-type DeleteVpnConnection = DeleteVpnConnectionType
-
-type DeleteVpnConnectionResponse = DeleteVpnConnectionResponseType
-
-type DescribeVpnConnections = DescribeVpnConnectionsType
-
-type DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponseType
-
-type AttachVpnGateway = AttachVpnGatewayType
-
-type AttachVpnGatewayResponse = AttachVpnGatewayResponseType
-
-type DetachVpnGateway = DetachVpnGatewayType
-
-type DetachVpnGatewayResponse = DetachVpnGatewayResponseType
-
-type CreateVpc = CreateVpcType
-
-type CreateVpcResponse = CreateVpcResponseType
-
-type DescribeVpcs = DescribeVpcsType
-
-type DescribeVpcsResponse = DescribeVpcsResponseType
-
-type DeleteVpc = DeleteVpcType
-
-type DeleteVpcResponse = DeleteVpcResponseType
-
-type CreateSubnet = CreateSubnetType
-
-type CreateSubnetResponse = CreateSubnetResponseType
-
-type DescribeSubnets = DescribeSubnetsType
-
-type DescribeSubnetsResponse = DescribeSubnetsResponseType
-
-type DeleteSubnet = DeleteSubnetType
-
-type DeleteSubnetResponse = DeleteSubnetResponseType
-
-type DeleteDhcpOptions = DeleteDhcpOptionsType
-
-type DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponseType
-
-type DescribeDhcpOptions = DescribeDhcpOptionsType
-
-type DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponseType
-
-type CreateDhcpOptions = CreateDhcpOptionsType
-
-type CreateDhcpOptionsResponse = CreateDhcpOptionsResponseType
-
-type AssociateDhcpOptions = AssociateDhcpOptionsType
-
-type AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponseType
-
-data CreateCustomerGatewayType = CreateCustomerGatewayType
+data CreateCustomerGateway = CreateCustomerGateway
     { Type      :: !String
     , IpAddress :: !String
     , BgpAsn    :: !(Maybe Int)
     } deriving (Show)
 
-data CreateCustomerGatewayResponseType = CreateCustomerGatewayResponseType
+data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { RequestId       :: !String
-    , CustomerGateway :: !CustomerGatewayType
+    , CustomerGateway :: !CustomerGateway
     } deriving (Show)
 
-data DeleteCustomerGatewayType = DeleteCustomerGatewayType
+data DeleteCustomerGateway = DeleteCustomerGateway
     { CustomerGatewayId :: !String
     } deriving (Show)
 
-data DeleteCustomerGatewayResponseType = DeleteCustomerGatewayResponseType
+data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data DescribeCustomerGatewaysType = DescribeCustomerGatewaysType
-    { CustomerGatewaySet :: !(Maybe CustomerGatewayIdSetType)
-    , FilterSet          :: !(Maybe FilterSetType)
+data DescribeCustomerGateways = DescribeCustomerGateways
+    { CustomerGatewaySet :: !(Maybe CustomerGatewayIdSet)
+    , FilterSet          :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeCustomerGatewaysResponseType = DescribeCustomerGatewaysResponseType
+data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { RequestId          :: !String
-    , CustomerGatewaySet :: !CustomerGatewaySetType
+    , CustomerGatewaySet :: !CustomerGatewaySet
     } deriving (Show)
 
-data CreateVpnGatewayType = CreateVpnGatewayType
+data CreateVpnGateway = CreateVpnGateway
     { Type             :: !String
     , AvailabilityZone :: !(Maybe String)
     } deriving (Show)
 
-data CreateVpnGatewayResponseType = CreateVpnGatewayResponseType
+data CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { RequestId  :: !String
-    , VpnGateway :: !VpnGatewayType
+    , VpnGateway :: !VpnGateway
     } deriving (Show)
 
-data DeleteVpnGatewayType = DeleteVpnGatewayType
+data DeleteVpnGateway = DeleteVpnGateway
     { VpnGatewayId :: !String
     } deriving (Show)
 
-data DeleteVpnGatewayResponseType = DeleteVpnGatewayResponseType
+data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data DescribeVpnGatewaysType = DescribeVpnGatewaysType
-    { VpnGatewaySet :: !(Maybe VpnGatewayIdSetType)
-    , FilterSet     :: !(Maybe FilterSetType)
+data DescribeVpnGateways = DescribeVpnGateways
+    { VpnGatewaySet :: !(Maybe VpnGatewayIdSet)
+    , FilterSet     :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeVpnGatewaysResponseType = DescribeVpnGatewaysResponseType
+data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { RequestId     :: !String
-    , VpnGatewaySet :: !VpnGatewaySetType
+    , VpnGatewaySet :: !VpnGatewaySet
     } deriving (Show)
 
-data CreateVpnConnectionType = CreateVpnConnectionType
+data CreateVpnConnection = CreateVpnConnection
     { Type              :: !String
     , CustomerGatewayId :: !String
     , VpnGatewayId      :: !String
-    , Options           :: !(Maybe VpnConnectionOptionsRequestType)
+    , Options           :: !(Maybe VpnConnectionOptionsRequest)
     } deriving (Show)
 
-data VpnConnectionOptionsRequestType = VpnConnectionOptionsRequestType
+data VpnConnectionOptionsRequest = VpnConnectionOptionsRequest
     { StaticRoutesOnly :: !(Maybe Boolean)
     } deriving (Show)
 
-data CreateVpnConnectionResponseType = CreateVpnConnectionResponseType
+data CreateVpnConnectionResponse = CreateVpnConnectionResponse
     { RequestId     :: !String
-    , VpnConnection :: !VpnConnectionType
+    , VpnConnection :: !VpnConnection
     } deriving (Show)
 
-data CreateVpnConnectionRouteType = CreateVpnConnectionRouteType
+data CreateVpnConnectionRoute = CreateVpnConnectionRoute
     { VpnConnectionId      :: !String
     , DestinationCidrBlock :: !String
     } deriving (Show)
 
-data CreateVpnConnectionRouteResponseType = CreateVpnConnectionRouteResponseType
+data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data DeleteVpnConnectionRouteType = DeleteVpnConnectionRouteType
+data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { VpnConnectionId      :: !String
     , DestinationCidrBlock :: !String
     } deriving (Show)
 
-data DeleteVpnConnectionRouteResponseType = DeleteVpnConnectionRouteResponseType
+data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data DeleteVpnConnectionType = DeleteVpnConnectionType
+data DeleteVpnConnection = DeleteVpnConnection
     { VpnConnectionId :: !String
     } deriving (Show)
 
-data DeleteVpnConnectionResponseType = DeleteVpnConnectionResponseType
+data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data DescribeVpnConnectionsType = DescribeVpnConnectionsType
-    { VpnConnectionSet :: !(Maybe VpnConnectionIdSetType)
-    , FilterSet        :: !(Maybe FilterSetType)
+data DescribeVpnConnections = DescribeVpnConnections
+    { VpnConnectionSet :: !(Maybe VpnConnectionIdSet)
+    , FilterSet        :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeVpnConnectionsResponseType = DescribeVpnConnectionsResponseType
+data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { RequestId        :: !String
-    , VpnConnectionSet :: !VpnConnectionSetType
+    , VpnConnectionSet :: !VpnConnectionSet
     } deriving (Show)
 
-data AttachVpnGatewayType = AttachVpnGatewayType
+data AttachVpnGateway = AttachVpnGateway
     { VpnGatewayId :: !String
     , VpcId        :: !String
     } deriving (Show)
 
-data AttachVpnGatewayResponseType = AttachVpnGatewayResponseType
+data AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { RequestId  :: !String
-    , Attachment :: !AttachmentType
+    , Attachment :: !Attachment
     } deriving (Show)
 
-data DetachVpnGatewayType = DetachVpnGatewayType
+data DetachVpnGateway = DetachVpnGateway
     { VpnGatewayId :: !String
     , VpcId        :: !String
     } deriving (Show)
 
-data DetachVpnGatewayResponseType = DetachVpnGatewayResponseType
+data DetachVpnGatewayResponse = DetachVpnGatewayResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data CreateVpcType = CreateVpcType
+data CreateVpc = CreateVpc
     { CidrBlock       :: !String
     , InstanceTenancy :: !(Maybe String)
     } deriving (Show)
 
-data CreateVpcResponseType = CreateVpcResponseType
+data CreateVpcResponse = CreateVpcResponse
     { RequestId :: !String
-    , Vpc       :: !VpcType
+    , Vpc       :: !Vpc
     } deriving (Show)
 
-data DescribeVpcsType = DescribeVpcsType
-    { VpcSet    :: !(Maybe VpcIdSetType)
-    , FilterSet :: !(Maybe FilterSetType)
+data DescribeVpcs = DescribeVpcs
+    { VpcSet    :: !(Maybe VpcIdSet)
+    , FilterSet :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeVpcsResponseType = DescribeVpcsResponseType
+data DescribeVpcsResponse = DescribeVpcsResponse
     { RequestId :: !String
-    , VpcSet    :: !VpcSetType
+    , VpcSet    :: !VpcSet
     } deriving (Show)
 
-data DeleteVpcType = DeleteVpcType
+data DeleteVpc = DeleteVpc
     { VpcId :: !String
     } deriving (Show)
 
-data DeleteVpcResponseType = DeleteVpcResponseType
+data DeleteVpcResponse = DeleteVpcResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data CreateSubnetType = CreateSubnetType
+data CreateSubnet = CreateSubnet
     { VpcId            :: !String
     , CidrBlock        :: !String
     , AvailabilityZone :: !(Maybe String)
     } deriving (Show)
 
-data CreateSubnetResponseType = CreateSubnetResponseType
+data CreateSubnetResponse = CreateSubnetResponse
     { RequestId :: !String
-    , Subnet    :: !SubnetType
+    , Subnet    :: !Subnet
     } deriving (Show)
 
-data DescribeSubnetsType = DescribeSubnetsType
-    { SubnetSet :: !(Maybe SubnetIdSetType)
-    , FilterSet :: !(Maybe FilterSetType)
+data DescribeSubnets = DescribeSubnets
+    { SubnetSet :: !(Maybe SubnetIdSet)
+    , FilterSet :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeSubnetsResponseType = DescribeSubnetsResponseType
+data DescribeSubnetsResponse = DescribeSubnetsResponse
     { RequestId :: !String
-    , SubnetSet :: !SubnetSetType
+    , SubnetSet :: !SubnetSet
     } deriving (Show)
 
-data DeleteSubnetType = DeleteSubnetType
+data DeleteSubnet = DeleteSubnet
     { SubnetId :: !String
     } deriving (Show)
 
-data DeleteSubnetResponseType = DeleteSubnetResponseType
+data DeleteSubnetResponse = DeleteSubnetResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data DeleteDhcpOptionsType = DeleteDhcpOptionsType
+data DeleteDhcpOptions = DeleteDhcpOptions
     { DhcpOptionsId :: !String
     } deriving (Show)
 
-data DeleteDhcpOptionsResponseType = DeleteDhcpOptionsResponseType
+data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data DescribeDhcpOptionsType = DescribeDhcpOptionsType
-    { DhcpOptionsSet :: !(Maybe DhcpOptionsIdSetType)
-    , FilterSet      :: !(Maybe FilterSetType)
+data DescribeDhcpOptions = DescribeDhcpOptions
+    { DhcpOptionsSet :: !(Maybe DhcpOptionsIdSet)
+    , FilterSet      :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeDhcpOptionsResponseType = DescribeDhcpOptionsResponseType
+data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { RequestId      :: !String
-    , DhcpOptionsSet :: !DhcpOptionsSetType
+    , DhcpOptionsSet :: !DhcpOptionsSet
     } deriving (Show)
 
-data CreateDhcpOptionsType = CreateDhcpOptionsType
-    { DhcpConfigurationSet :: !DhcpConfigurationItemSetType
+data CreateDhcpOptions = CreateDhcpOptions
+    { DhcpConfigurationSet :: !DhcpConfigurationItemSet
     } deriving (Show)
 
-data CreateDhcpOptionsResponseType = CreateDhcpOptionsResponseType
+data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { RequestId   :: !String
-    , DhcpOptions :: !DhcpOptionsType
+    , DhcpOptions :: !DhcpOptions
     } deriving (Show)
 
-data AssociateDhcpOptionsType = AssociateDhcpOptionsType
+data AssociateDhcpOptions = AssociateDhcpOptions
     { DhcpOptionsId :: !String
     , VpcId         :: !String
     } deriving (Show)
 
-data AssociateDhcpOptionsResponseType = AssociateDhcpOptionsResponseType
+data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type RequestSpotInstances = RequestSpotInstancesType
-
-type RequestSpotInstancesResponse = RequestSpotInstancesResponseType
-
-type DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsType
-
-type DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponseType
-
-type CancelSpotInstanceRequests = CancelSpotInstanceRequestsType
-
-type CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponseType
-
-type DescribeSpotPriceHistory = DescribeSpotPriceHistoryType
-
-type DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponseType
-
-type CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionType
-
-type CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponseType
-
-type DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscriptionType
-
-type DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponseType
-
-type DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscriptionType
-
-type DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponseType
-
-data RequestSpotInstancesType = RequestSpotInstancesType
+data RequestSpotInstances = RequestSpotInstances
     { SpotPrice             :: !String
     , InstanceCount         :: !(Maybe Integer)
     , Type                  :: !(Maybe String)
@@ -2559,759 +2185,671 @@ data RequestSpotInstancesType = RequestSpotInstancesType
     , ValidUntil            :: !(Maybe DateTime)
     , LaunchGroup           :: !(Maybe String)
     , AvailabilityZoneGroup :: !(Maybe String)
-    , LaunchSpecification   :: !LaunchSpecificationRequestType
+    , LaunchSpecification   :: !LaunchSpecificationRequest
     } deriving (Show)
 
-data LaunchSpecificationRequestType = LaunchSpecificationRequestType
+data LaunchSpecificationRequest = LaunchSpecificationRequest
     { ImageId             :: !String
     , KeyName             :: !(Maybe String)
-    , GroupSet            :: !GroupSetType
-    , UserData            :: !(Maybe UserDataType)
-    , AddressingType      :: !(Maybe String)
-    , InstanceType        :: !String
-    , Placement           :: !(Maybe SpotPlacementRequestType)
+    , GroupSet            :: !GroupSet
+    , UserData            :: !(Maybe UserData)
+    , Addressing      :: !(Maybe String)
+    , Instance        :: !String
+    , Placement           :: !(Maybe SpotPlacementRequest)
     , KernelId            :: !(Maybe String)
     , RamdiskId           :: !(Maybe String)
-    , BlockDeviceMapping  :: !(Maybe BlockDeviceMappingType)
-    , Monitoring          :: !(Maybe MonitoringInstanceType)
+    , BlockDeviceMapping  :: !(Maybe BlockDeviceMapping)
+    , Monitoring          :: !(Maybe MonitoringInstance)
     , SubnetId            :: !(Maybe String)
-    , NetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequestType)
-    , IamInstanceProfile  :: !(Maybe IamInstanceProfileRequestType)
+    , NetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequest)
+    , IamInstanceProfile  :: !(Maybe IamInstanceProfileRequest)
     , EbsOptimized        :: !(Maybe Boolean)
     } deriving (Show)
 
-data LaunchSpecificationResponseType = LaunchSpecificationResponseType
+data LaunchSpecificationResponse = LaunchSpecificationResponse
     { ImageId             :: !String
     , KeyName             :: !(Maybe String)
-    , GroupSet            :: !GroupSetType
-    , AddressingType      :: !(Maybe String)
-    , InstanceType        :: !String
-    , Placement           :: !(Maybe SpotPlacementRequestType)
+    , GroupSet            :: !GroupSet
+    , Addressing      :: !(Maybe String)
+    , Instance        :: !String
+    , Placement           :: !(Maybe SpotPlacementRequest)
     , KernelId            :: !(Maybe String)
     , RamdiskId           :: !(Maybe String)
-    , BlockDeviceMapping  :: !(Maybe BlockDeviceMappingType)
-    , Monitoring          :: !(Maybe MonitoringInstanceType)
+    , BlockDeviceMapping  :: !(Maybe BlockDeviceMapping)
+    , Monitoring          :: !(Maybe MonitoringInstance)
     , SubnetId            :: !(Maybe String)
-    , NetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequestType)
-    , IamInstanceProfile  :: !(Maybe IamInstanceProfileRequestType)
+    , NetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequest)
+    , IamInstanceProfile  :: !(Maybe IamInstanceProfileRequest)
     , EbsOptimized        :: !(Maybe Boolean)
     } deriving (Show)
 
-data SpotInstanceRequestSetItemType = SpotInstanceRequestSetItemType
+data SpotInstanceRequestSetItem = SpotInstanceRequestSetItem
     { SpotInstanceRequestId    :: !String
     , SpotPrice                :: !String
     , Type                     :: !String
     , State                    :: !String
-    , Fault                    :: !(Maybe SpotInstanceStateFaultType)
-    , Status                   :: !(Maybe SpotInstanceStatusMessageType)
+    , Fault                    :: !(Maybe SpotInstanceStateFault)
+    , Status                   :: !(Maybe SpotInstanceStatusMessage)
     , ValidFrom                :: !(Maybe DateTime)
     , ValidUntil               :: !(Maybe DateTime)
     , LaunchGroup              :: !(Maybe String)
     , AvailabilityZoneGroup    :: !(Maybe String)
-    , LaunchSpecification      :: !(Maybe LaunchSpecificationResponseType)
+    , LaunchSpecification      :: !(Maybe LaunchSpecificationResponse)
     , InstanceId               :: !(Maybe String)
     , CreateTime               :: !(Maybe DateTime)
     , ProductDescription       :: !(Maybe String)
-    , TagSet                   :: !(Maybe ResourceTagSetType)
+    , TagSet                   :: !(Maybe ResourceTagSet)
     , LaunchedAvailabilityZone :: !(Maybe String)
     } deriving (Show)
 
-data SpotInstanceStateFaultType = SpotInstanceStateFaultType
+data SpotInstanceStateFault = SpotInstanceStateFault
     { Code    :: !String
     , Message :: !String
     } deriving (Show)
 
-data SpotInstanceStatusMessageType = SpotInstanceStatusMessageType
+data SpotInstanceStatusMessage = SpotInstanceStatusMessage
     { Code       :: !(Maybe String)
     , UpdateTime :: !(Maybe DateTime)
     , Message    :: !(Maybe String)
     } deriving (Show)
 
-data SpotInstanceRequestSetType = SpotInstanceRequestSetType
-    { Item :: ![SpotInstanceRequestSetItemType]
+data SpotInstanceRequestSet = SpotInstanceRequestSet
+    { Item :: ![SpotInstanceRequestSetItem]
     } deriving (Show)
 
-data RequestSpotInstancesResponseType = RequestSpotInstancesResponseType
+data RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { RequestId              :: !String
-    , SpotInstanceRequestSet :: !SpotInstanceRequestSetType
+    , SpotInstanceRequestSet :: !SpotInstanceRequestSet
     } deriving (Show)
 
-data DescribeSpotInstanceRequestsType = DescribeSpotInstanceRequestsType
-    { SpotInstanceRequestIdSet :: !SpotInstanceRequestIdSetType
-    , FilterSet                :: !(Maybe FilterSetType)
+data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
+    { SpotInstanceRequestIdSet :: !SpotInstanceRequestIdSet
+    , FilterSet                :: !(Maybe FilterSet)
     } deriving (Show)
 
-data SpotInstanceRequestIdSetType = SpotInstanceRequestIdSetType
-    { Item :: ![SpotInstanceRequestIdSetItemType]
+data SpotInstanceRequestIdSet = SpotInstanceRequestIdSet
+    { Item :: ![SpotInstanceRequestIdSetItem]
     } deriving (Show)
 
-data SpotInstanceRequestIdSetItemType = SpotInstanceRequestIdSetItemType
+data SpotInstanceRequestIdSetItem = SpotInstanceRequestIdSetItem
     { SpotInstanceRequestId :: !String
     } deriving (Show)
 
-data DescribeSpotInstanceRequestsResponseType = DescribeSpotInstanceRequestsResponseType
+data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { RequestId              :: !String
-    , SpotInstanceRequestSet :: !SpotInstanceRequestSetType
+    , SpotInstanceRequestSet :: !SpotInstanceRequestSet
     } deriving (Show)
 
-data CancelSpotInstanceRequestsType = CancelSpotInstanceRequestsType
-    { SpotInstanceRequestIdSet :: !SpotInstanceRequestIdSetType
+data CancelSpotInstanceRequests = CancelSpotInstanceRequests
+    { SpotInstanceRequestIdSet :: !SpotInstanceRequestIdSet
     } deriving (Show)
 
-data CancelSpotInstanceRequestsResponseType = CancelSpotInstanceRequestsResponseType
+data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { RequestId              :: !String
-    , SpotInstanceRequestSet :: !CancelSpotInstanceRequestsResponseSetType
+    , SpotInstanceRequestSet :: !CancelSpotInstanceRequestsResponseSet
     } deriving (Show)
 
-data CancelSpotInstanceRequestsResponseSetType = CancelSpotInstanceRequestsResponseSetType
+data CancelSpotInstanceRequestsResponseSet = CancelSpotInstanceRequestsResponseSet
     {
-  Item :: !(NonEmpty CancelSpotInstanceRequestsResponseSetItemType)
+  Item :: !(NonEmpty CancelSpotInstanceRequestsResponseSetItem)
     } deriving (Show)
 
-data CancelSpotInstanceRequestsResponseSetItemType = CancelSpotInstanceRequestsResponseSetItemType
+data CancelSpotInstanceRequestsResponseSetItem = CancelSpotInstanceRequestsResponseSetItem
     { SpotInstanceRequestId :: !String
     , State                 :: !String
     } deriving (Show)
 
-data DescribeSpotPriceHistoryType = DescribeSpotPriceHistoryType
+data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     { StartTime             :: !(Maybe DateTime)
     , EndTime               :: !(Maybe DateTime)
-    , InstanceTypeSet       :: !(Maybe InstanceTypeSetType)
-    , ProductDescriptionSet :: !(Maybe ProductDescriptionSetType)
-    , FilterSet             :: !(Maybe FilterSetType)
+    , InstanceSet       :: !(Maybe InstanceSet)
+    , ProductDescriptionSet :: !(Maybe ProductDescriptionSet)
+    , FilterSet             :: !(Maybe FilterSet)
     , AvailabilityZone      :: !(Maybe String)
     , MaxResults            :: !(Maybe Integer)
     , NextToken             :: !(Maybe String)
     } deriving (Show)
 
-data InstanceTypeSetType = InstanceTypeSetType
+data InstanceSet = InstanceSet
     {
-  Item :: !(NonEmpty InstanceTypeSetItemType)
+  Item :: !(NonEmpty InstanceSetItem)
     } deriving (Show)
 
-data InstanceTypeSetItemType = InstanceTypeSetItemType
-    { InstanceType :: !String
+data InstanceSetItem = InstanceSetItem
+    { Instance :: !String
     } deriving (Show)
 
-data ProductDescriptionSetType = ProductDescriptionSetType
+data ProductDescriptionSet = ProductDescriptionSet
     {
-  Item :: !(NonEmpty ProductDescriptionSetItemType)
+  Item :: !(NonEmpty ProductDescriptionSetItem)
     } deriving (Show)
 
-data ProductDescriptionSetItemType = ProductDescriptionSetItemType
+data ProductDescriptionSetItem = ProductDescriptionSetItem
     { ProductDescription :: !String
     } deriving (Show)
 
-data DescribeSpotPriceHistoryResponseType = DescribeSpotPriceHistoryResponseType
+data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { RequestId           :: !String
-    , SpotPriceHistorySet :: !SpotPriceHistorySetType
+    , SpotPriceHistorySet :: !SpotPriceHistorySet
     , NextToken           :: !(Maybe String)
     } deriving (Show)
 
-data SpotPriceHistorySetType = SpotPriceHistorySetType
-    { Item :: ![SpotPriceHistorySetItemType]
+data SpotPriceHistorySet = SpotPriceHistorySet
+    { Item :: ![SpotPriceHistorySetItem]
     } deriving (Show)
 
-data SpotPriceHistorySetItemType = SpotPriceHistorySetItemType
-    { InstanceType       :: !String
+data SpotPriceHistorySetItem = SpotPriceHistorySetItem
+    { Instance       :: !String
     , ProductDescription :: !String
     , SpotPrice          :: !String
     , Timestamp          :: !DateTime
     , AvailabilityZone   :: !(Maybe String)
     } deriving (Show)
 
-data SpotDatafeedSubscriptionType = SpotDatafeedSubscriptionType
+data SpotDatafeedSubscription = SpotDatafeedSubscription
     { OwnerId :: !String
     , Bucket  :: !String
     , Prefix  :: !String
     , State   :: !String
-    , Fault   :: !(Maybe SpotInstanceStateFaultType)
+    , Fault   :: !(Maybe SpotInstanceStateFault)
     } deriving (Show)
 
-data CreateSpotDatafeedSubscriptionType = CreateSpotDatafeedSubscriptionType
+data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { Bucket :: !String
     , Prefix :: !String
     } deriving (Show)
 
-data CreateSpotDatafeedSubscriptionResponseType = CreateSpotDatafeedSubscriptionResponseType
+data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { RequestId                :: !String
-    , SpotDatafeedSubscription :: !SpotDatafeedSubscriptionType
+    , SpotDatafeedSubscription :: !SpotDatafeedSubscription
     } deriving (Show)
 
-data DescribeSpotDatafeedSubscriptionType = DescribeSpotDatafeedSubscriptionType
+data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
-data DescribeSpotDatafeedSubscriptionResponseType = DescribeSpotDatafeedSubscriptionResponseType
+data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { RequestId                :: !String
-    , SpotDatafeedSubscription :: !SpotDatafeedSubscriptionType
+    , SpotDatafeedSubscription :: !SpotDatafeedSubscription
     } deriving (Show)
 
-data DescribeSpotDatafeedSubscriptionType = DescribeSpotDatafeedSubscriptionType
+data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
-data DeleteSpotDatafeedSubscriptionResponseType = DeleteSpotDatafeedSubscriptionResponseType
+data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeLicenses = DescribeLicensesType
-
-type DescribeLicensesResponse = DescribeLicensesResponseType
-
-type ActivateLicense = ActivateLicenseType
-
-type ActivateLicenseResponse = ActivateLicenseResponseType
-
-type DeactivateLicense = DeactivateLicenseType
-
-type DeactivateLicenseResponse = DeactivateLicenseResponseType
-
-data DescribeLicensesType = DescribeLicensesType
-    { LicenseIdSet :: !(Maybe LicenseIdSetType)
-    , FilterSet    :: !(Maybe FilterSetType)
+data DescribeLicenses = DescribeLicenses
+    { LicenseIdSet :: !(Maybe LicenseIdSet)
+    , FilterSet    :: !(Maybe FilterSet)
     } deriving (Show)
 
-data LicenseIdSetType = LicenseIdSetType
-    { Item :: ![LicenseIdSetItemType]
+data LicenseIdSet = LicenseIdSet
+    { Item :: ![LicenseIdSetItem]
     } deriving (Show)
 
-data LicenseIdSetItemType = LicenseIdSetItemType
+data LicenseIdSetItem = LicenseIdSetItem
     { LicenseId :: !String
     } deriving (Show)
 
-data DescribeLicensesResponseType = DescribeLicensesResponseType
+data DescribeLicensesResponse = DescribeLicensesResponse
     { RequestId  :: !String
-    , LicenseSet :: !LicenseSetType
+    , LicenseSet :: !LicenseSet
     } deriving (Show)
 
-data LicenseSetType = LicenseSetType
-    { Item :: ![LicenseSetItemType]
+data LicenseSet = LicenseSet
+    { Item :: ![LicenseSetItem]
     } deriving (Show)
 
-data LicenseSetItemType = LicenseSetItemType
+data LicenseSetItem = LicenseSetItem
     { LicenseId   :: !String
     , Type        :: !String
     , Pool        :: !String
-    , CapacitySet :: !LicenseCapacitySetType
-    , TagSet      :: !(Maybe ResourceTagSetType)
+    , CapacitySet :: !LicenseCapacitySet
+    , TagSet      :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data LicenseCapacitySetType = LicenseCapacitySetType
-    { Item :: ![LicenseCapacitySetItemType]
+data LicenseCapacitySet = LicenseCapacitySet
+    { Item :: ![LicenseCapacitySetItem]
     } deriving (Show)
 
-data LicenseCapacitySetItemType = LicenseCapacitySetItemType
+data LicenseCapacitySetItem = LicenseCapacitySetItem
     { Capacity                        :: !Int
     , InstanceCapacity                :: !Int
     , State                           :: !String
     , EarliestAllowedDeactivationTime :: !(Maybe DateTime)
     } deriving (Show)
 
-data ActivateLicenseType = ActivateLicenseType
+data ActivateLicense = ActivateLicense
     { LicenseId :: !String
     , Capacity  :: !Int
     } deriving (Show)
 
-data ActivateLicenseResponseType = ActivateLicenseResponseType
+data ActivateLicenseResponse = ActivateLicenseResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data DeactivateLicenseType = DeactivateLicenseType
+data DeactivateLicense = DeactivateLicense
     { LicenseId :: !String
     , Capacity  :: !Int
     } deriving (Show)
 
-data DeactivateLicenseResponseType = DeactivateLicenseResponseType
+data DeactivateLicenseResponse = DeactivateLicenseResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type CreatePlacementGroup = CreatePlacementGroupType
-
-type CreatePlacementGroupResponse = CreatePlacementGroupResponseType
-
-data CreatePlacementGroupType = CreatePlacementGroupType
+data CreatePlacementGroup = CreatePlacementGroup
     { GroupName :: !String
     , Strategy  :: !String
     } deriving (Show)
 
-data CreatePlacementGroupResponseType = CreatePlacementGroupResponseType
+data CreatePlacementGroupResponse = CreatePlacementGroupResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DeletePlacementGroup = DeletePlacementGroupType
-
-type DeletePlacementGroupResponse = DeletePlacementGroupResponseType
-
-data DeletePlacementGroupType = DeletePlacementGroupType
+data DeletePlacementGroup = DeletePlacementGroup
     { GroupName :: !String
     } deriving (Show)
 
-data DeletePlacementGroupResponseType = DeletePlacementGroupResponseType
+data DeletePlacementGroupResponse = DeletePlacementGroupResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribePlacementGroups = DescribePlacementGroupsType
-
-type DescribePlacementGroupsResponse = DescribePlacementGroupsResponseType
-
-data DescribePlacementGroupItemType = DescribePlacementGroupItemType
+data DescribePlacementGroupItem = DescribePlacementGroupItem
     { GroupName :: !String
     } deriving (Show)
 
-data DescribePlacementGroupsInfoType = DescribePlacementGroupsInfoType
-    { Item :: ![DescribePlacementGroupItemType]
+data DescribePlacementGroupsInfo = DescribePlacementGroupsInfo
+    { Item :: ![DescribePlacementGroupItem]
     } deriving (Show)
 
-data DescribePlacementGroupsType = DescribePlacementGroupsType
-    { PlacementGroupSet :: !DescribePlacementGroupsInfoType
-    , FilterSet         :: !(Maybe FilterSetType)
+data DescribePlacementGroups = DescribePlacementGroups
+    { PlacementGroupSet :: !DescribePlacementGroupsInfo
+    , FilterSet         :: !(Maybe FilterSet)
     } deriving (Show)
 
-data PlacementGroupInfoType = PlacementGroupInfoType
+data PlacementGroupInfo = PlacementGroupInfo
     { GroupName :: !String
     , Strategy  :: !String
     , State     :: !String
     } deriving (Show)
 
-data PlacementGroupSetType = PlacementGroupSetType
-    { Item :: ![PlacementGroupInfoType]
+data PlacementGroupSet = PlacementGroupSet
+    { Item :: ![PlacementGroupInfo]
     } deriving (Show)
 
-data DescribePlacementGroupsResponseType = DescribePlacementGroupsResponseType
+data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { RequestId         :: !String
-    , PlacementGroupSet :: !PlacementGroupSetType
+    , PlacementGroupSet :: !PlacementGroupSet
     } deriving (Show)
 
-type CreateTags = CreateTagsType
-
-type CreateTagsResponse = CreateTagsResponseType
-
-type DescribeTags = DescribeTagsType
-
-type DescribeTagsResponse = DescribeTagsResponseType
-
-type DeleteTags = DeleteTagsType
-
-type DeleteTagsResponse = DeleteTagsResponseType
-
-data ResourceIdSetType = ResourceIdSetType
-    { Item :: ![ResourceIdSetItemType]
+data ResourceIdSet = ResourceIdSet
+    { Item :: ![ResourceIdSetItem]
     } deriving (Show)
 
-data ResourceIdSetItemType = ResourceIdSetItemType
+data ResourceIdSetItem = ResourceIdSetItem
     { ResourceId :: !String
     } deriving (Show)
 
-data ResourceTagSetItemType = ResourceTagSetItemType
+data ResourceTagSetItem = ResourceTagSetItem
     { Key   :: !String
     , Value :: !String
     } deriving (Show)
 
-data ResourceTagSetType = ResourceTagSetType
-    { Item :: ![ResourceTagSetItemType]
+data ResourceTagSet = ResourceTagSet
+    { Item :: ![ResourceTagSetItem]
     } deriving (Show)
 
-data CreateTagsType = CreateTagsType
-    { ResourcesSet :: !ResourceIdSetType
-    , TagSet       :: !ResourceTagSetType
+data CreateTags = CreateTags
+    { ResourcesSet :: !ResourceIdSet
+    , TagSet       :: !ResourceTagSet
     } deriving (Show)
 
-data CreateTagsResponseType = CreateTagsResponseType
+data CreateTagsResponse = CreateTagsResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data TagSetItemType = TagSetItemType
+data TagSetItem = TagSetItem
     { ResourceId   :: !(Maybe String)
-    , ResourceType :: !(Maybe String)
+    , Resource :: !(Maybe String)
     , Key          :: !(Maybe String)
     , Value        :: !(Maybe String)
     } deriving (Show)
 
-data TagSetType = TagSetType
-    { Item :: ![TagSetItemType]
+data TagSet = TagSet
+    { Item :: ![TagSetItem]
     } deriving (Show)
 
-data DescribeTagsType = DescribeTagsType
-    { FilterSet :: !(Maybe FilterSetType)
+data DescribeTags = DescribeTags
+    { FilterSet :: !(Maybe FilterSet)
     } deriving (Show)
 
-data DescribeTagsResponseType = DescribeTagsResponseType
+data DescribeTagsResponse = DescribeTagsResponse
     { RequestId :: !String
-    , TagSet    :: !TagSetType
+    , TagSet    :: !TagSet
     } deriving (Show)
 
-data DeleteTagsSetItemType = DeleteTagsSetItemType
+data DeleteTagsSetItem = DeleteTagsSetItem
     { Key   :: !(Maybe String)
     , Value :: !(Maybe String)
     } deriving (Show)
 
-data DeleteTagsSetType = DeleteTagsSetType
-    { Item :: ![DeleteTagsSetItemType]
+data DeleteTagsSet = DeleteTagsSet
+    { Item :: ![DeleteTagsSetItem]
     } deriving (Show)
 
-data DeleteTagsType = DeleteTagsType
-    { ResourcesSet :: !ResourceIdSetType
-    , TagSet       :: !DeleteTagsSetType
+data DeleteTags = DeleteTags
+    { ResourcesSet :: !ResourceIdSet
+    , TagSet       :: !DeleteTagsSet
     } deriving (Show)
 
-data DeleteTagsResponseType = DeleteTagsResponseType
+data DeleteTagsResponse = DeleteTagsResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ImportInstance = ImportInstanceType
-
-type ImportInstanceResponse = ImportInstanceResponseType
-
-data ImportInstanceType = ImportInstanceType
+data ImportInstance = ImportInstance
     { Description         :: !(Maybe String)
-    , LaunchSpecification :: !ImportInstanceLaunchSpecificationType
-    , DiskImageSet        :: !DiskImageSetType
+    , LaunchSpecification :: !ImportInstanceLaunchSpecification
+    , DiskImageSet        :: !DiskImageSet
     , KeepPartialImports  :: !(Maybe Boolean)
     , Platform            :: !String
     } deriving (Show)
 
-data ImportInstanceResponseType = ImportInstanceResponseType
+data ImportInstanceResponse = ImportInstanceResponse
     { RequestId      :: !String
-    , ConversionTask :: !ConversionTaskType
+    , ConversionTask :: !ConversionTask
     } deriving (Show)
 
-data ImportInstanceLaunchSpecificationType = ImportInstanceLaunchSpecificationType
+data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     { Architecture                      :: !String
-    , GroupSet                          :: !(Maybe ImportInstanceGroupSetType)
-    , UserData                          :: !(Maybe UserDataType)
-    , InstanceType                      :: !String
-    , Placement                         :: !(Maybe InstancePlacementType)
-    , Monitoring                        :: !(Maybe MonitoringInstanceType)
+    , GroupSet                          :: !(Maybe ImportInstanceGroupSet)
+    , UserData                          :: !(Maybe UserData)
+    , Instance                      :: !String
+    , Placement                         :: !(Maybe InstancePlacement)
+    , Monitoring                        :: !(Maybe MonitoringInstance)
     , SubnetId                          :: !(Maybe String)
     , InstanceInitiatedShutdownBehavior :: !(Maybe String)
     , PrivateIpAddress                  :: !(Maybe String)
     } deriving (Show)
 
-data DiskImageSetType = DiskImageSetType
-    { Item :: ![DiskImageType]
+data DiskImageSet = DiskImageSet
+    { Item :: ![DiskImage]
     } deriving (Show)
 
-data DiskImageType = DiskImageType
-    { Image       :: !DiskImageDetailType
+data DiskImage = DiskImage
+    { Image       :: !DiskImageDetail
     , Description :: !(Maybe String)
-    , Volume      :: !DiskImageVolumeType
+    , Volume      :: !DiskImageVolume
     } deriving (Show)
 
-data DiskImageDetailType = DiskImageDetailType
+data DiskImageDetail = DiskImageDetail
     { Format            :: !String
     , Bytes             :: !Long
     , ImportManifestUrl :: !String
     } deriving (Show)
 
-data DiskImageVolumeType = DiskImageVolumeType
+data DiskImageVolume = DiskImageVolume
     { Size :: !Integer
     } deriving (Show)
 
-data ConversionTaskType = ConversionTaskType
+data ConversionTask = ConversionTask
     { ConversionTaskId :: !String
     , ExpirationTime   :: !(Maybe String)
   -- <xs:choice>
-    , ImportVolume     :: !(Maybe ImportVolumeTaskDetailsType)
-    , ImportInstance   :: !(Maybe ImportInstanceTaskDetailsType)
+    , ImportVolume     :: !(Maybe ImportVolumeTaskDetails)
+    , ImportInstance   :: !(Maybe ImportInstanceTaskDetails)
   -- </xs:choice>
     , State            :: !String
     , StatusMessage    :: !(Maybe String)
-    , TagSet           :: !(Maybe ResourceTagSetType)
+    , TagSet           :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data ImportInstanceTaskDetailsType = ImportInstanceTaskDetailsType
-    { Volumes     :: !ImportInstanceVolumeDetailSetType
+data ImportInstanceTaskDetails = ImportInstanceTaskDetails
+    { Volumes     :: !ImportInstanceVolumeDetailSet
     , InstanceId  :: !(Maybe String)
     , Platform    :: !(Maybe String)
     , Description :: !(Maybe String)
     } deriving (Show)
 
-data ImportVolumeTaskDetailsType = ImportVolumeTaskDetailsType
+data ImportVolumeTaskDetails = ImportVolumeTaskDetails
     { BytesConverted   :: !Long
     , AvailabilityZone :: !String
     , Description      :: !(Maybe String)
-    , Image            :: !DiskImageDescriptionType
-    , Volume           :: !DiskImageVolumeDescriptionType
+    , Image            :: !DiskImageDescription
+    , Volume           :: !DiskImageVolumeDescription
     } deriving (Show)
 
-data ImportInstanceVolumeDetailSetType = ImportInstanceVolumeDetailSetType
-    { Item :: ![ImportInstanceVolumeDetailItemType]
+data ImportInstanceVolumeDetailSet = ImportInstanceVolumeDetailSet
+    { Item :: ![ImportInstanceVolumeDetailItem]
     } deriving (Show)
 
-data ImportInstanceVolumeDetailItemType = ImportInstanceVolumeDetailItemType
+data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
     { BytesConverted   :: !Long
     , AvailabilityZone :: !String
-    , Image            :: !DiskImageDescriptionType
+    , Image            :: !DiskImageDescription
     , Description      :: !(Maybe String)
-    , Volume           :: !DiskImageVolumeDescriptionType
+    , Volume           :: !DiskImageVolumeDescription
     , Status           :: !String
     , StatusMessage    :: !(Maybe String)
     } deriving (Show)
 
-data DiskImageVolumeDescriptionType = DiskImageVolumeDescriptionType
+data DiskImageVolumeDescription = DiskImageVolumeDescription
     { Size :: !Integer
     , Id   :: !String
     } deriving (Show)
 
-data DiskImageDescriptionType = DiskImageDescriptionType
+data DiskImageDescription = DiskImageDescription
     { Format            :: !String
     , Size              :: !Long
     , ImportManifestUrl :: !String
     , Checksum          :: !(Maybe String)
     } deriving (Show)
 
-type ImportVolume = ImportVolumeType
-
-type ImportVolumeResponse = ImportVolumeResponseType
-
-data ImportVolumeType = ImportVolumeType
+data ImportVolume = ImportVolume
     { AvailabilityZone :: !String
-    , Image            :: !DiskImageDetailType
+    , Image            :: !DiskImageDetail
     , Description      :: !(Maybe String)
-    , Volume           :: !DiskImageVolumeType
+    , Volume           :: !DiskImageVolume
     } deriving (Show)
 
-data ImportVolumeResponseType = ImportVolumeResponseType
+data ImportVolumeResponse = ImportVolumeResponse
     { RequestId      :: !String
-    , ConversionTask :: !ConversionTaskType
+    , ConversionTask :: !ConversionTask
     } deriving (Show)
 
-type DescribeConversionTasks = DescribeConversionTasksType
-
-type DescribeConversionTasksResponse = DescribeConversionTasksResponseType
-
-data DescribeConversionTasksType = DescribeConversionTasksType
-    { ConversionTaskIdSet :: !ConversionTaskIdSetType
+data DescribeConversionTasks = DescribeConversionTasks
+    { ConversionTaskIdSet :: !ConversionTaskIdSet
     } deriving (Show)
 
-data DescribeConversionTasksResponseType = DescribeConversionTasksResponseType
+data DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { RequestId       :: !String
-    , ConversionTasks :: !ConversionTaskSetType
+    , ConversionTasks :: !ConversionTaskSet
     } deriving (Show)
 
-data ConversionTaskIdSetType = ConversionTaskIdSetType
-    { Item :: ![ConversionTaskIdItemType]
+data ConversionTaskIdSet = ConversionTaskIdSet
+    { Item :: ![ConversionTaskIdItem]
     } deriving (Show)
 
-data ConversionTaskIdItemType = ConversionTaskIdItemType
+data ConversionTaskIdItem = ConversionTaskIdItem
     { ConversionTaskId :: !String
     } deriving (Show)
 
-data ConversionTaskSetType = ConversionTaskSetType
-    { Item :: ![ConversionTaskType]
+data ConversionTaskSet = ConversionTaskSet
+    { Item :: ![ConversionTask]
     } deriving (Show)
 
-type CancelConversionTask = CancelConversionTaskType
-
-type CancelConversionTaskResponse = CancelConversionTaskResponseType
-
-data CancelConversionTaskType = CancelConversionTaskType
+data CancelConversionTask = CancelConversionTask
     { ConversionTaskId :: !String
     } deriving (Show)
 
-data CancelConversionTaskResponseType = CancelConversionTaskResponseType
+data CancelConversionTaskResponse = CancelConversionTaskResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type CreateInstanceExportTask = CreateInstanceExportTaskType
-
-type CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponseType
-
-data CreateInstanceExportTaskType = CreateInstanceExportTaskType
+data CreateInstanceExportTask = CreateInstanceExportTask
     { Description       :: !(Maybe String)
     , InstanceId        :: !String
     , TargetEnvironment :: !String
   -- <xs:choice>
-    , ExportToS3        :: !(Maybe ExportToS3TaskType)
+    , ExportToS3        :: !(Maybe ExportToS3Task)
   -- </xs:choice>
     } deriving (Show)
 
-data ExportToS3TaskType = ExportToS3TaskType
+data ExportToS3Task = ExportToS3Task
     { DiskImageFormat :: !(Maybe String)
     , ContainerFormat :: !(Maybe String)
     , S3Bucket        :: !String
     , S3Prefix        :: !String
     } deriving (Show)
 
-data CreateInstanceExportTaskResponseType = CreateInstanceExportTaskResponseType
+data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { RequestId  :: !String
-    , ExportTask :: !ExportTaskResponseType
+    , ExportTask :: !ExportTaskResponse
     } deriving (Show)
 
-type DescribeExportTasks = DescribeExportTasksType
-
-type DescribeExportTasksResponse = DescribeExportTasksResponseType
-
-data DescribeExportTasksType = DescribeExportTasksType
-    { ExportTaskIdSet :: !ExportTaskIdSetType
+data DescribeExportTasks = DescribeExportTasks
+    { ExportTaskIdSet :: !ExportTaskIdSet
     } deriving (Show)
 
-data ExportTaskIdSetType = ExportTaskIdSetType
-    { Item :: ![ExportTaskIdType]
+data ExportTaskIdSet = ExportTaskIdSet
+    { Item :: ![ExportTaskId]
     } deriving (Show)
 
-data ExportTaskIdType = ExportTaskIdType
+data ExportTaskId = ExportTaskId
     { ExportTaskId :: !String
     } deriving (Show)
 
-data DescribeExportTasksResponseType = DescribeExportTasksResponseType
+data DescribeExportTasksResponse = DescribeExportTasksResponse
     { RequestId     :: !String
-    , ExportTaskSet :: !ExportTaskSetResponseType
+    , ExportTaskSet :: !ExportTaskSetResponse
     } deriving (Show)
 
-data ExportTaskSetResponseType = ExportTaskSetResponseType
-    { Item :: ![ExportTaskResponseType]
+data ExportTaskSetResponse = ExportTaskSetResponse
+    { Item :: ![ExportTaskResponse]
     } deriving (Show)
 
-data ExportTaskResponseType = ExportTaskResponseType
+data ExportTaskResponse = ExportTaskResponse
     { ExportTaskId   :: !String
     , Description    :: !(Maybe String)
     , State          :: !String
     , StatusMessage  :: !(Maybe String)
   -- <xs:choice>
-    , InstanceExport :: !(Maybe InstanceExportTaskResponseType)
+    , InstanceExport :: !(Maybe InstanceExportTaskResponse)
   -- </xs:choice>
   -- <xs:choice>
-    , ExportToS3     :: !(Maybe ExportToS3TaskResponseType)
+    , ExportToS3     :: !(Maybe ExportToS3TaskResponse)
   -- </xs:choice>
     } deriving (Show)
 
-data InstanceExportTaskResponseType = InstanceExportTaskResponseType
+data InstanceExportTaskResponse = InstanceExportTaskResponse
     { InstanceId        :: !String
     , TargetEnvironment :: !(Maybe String)
     } deriving (Show)
 
-data ExportToS3TaskResponseType = ExportToS3TaskResponseType
+data ExportToS3TaskResponse = ExportToS3TaskResponse
     { DiskImageFormat :: !String
     , ContainerFormat :: !(Maybe String)
     , S3Bucket        :: !String
     , S3Key           :: !String
     } deriving (Show)
 
-type CancelExportTask = CancelExportTaskType
-
-type CancelExportTaskResponse = CancelExportTaskResponseType
-
-data CancelExportTaskType = CancelExportTaskType
+data CancelExportTask = CancelExportTask
     { ExportTaskId :: !String
     } deriving (Show)
 
-data CancelExportTaskResponseType = CancelExportTaskResponseType
+data CancelExportTaskResponse = CancelExportTaskResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type CreateInternetGateway = CreateInternetGatewayType
+data CreateInternetGateway = CreateInternetGateway
 
-type CreateInternetGatewayResponse = CreateInternetGatewayResponseType
-
-data CreateInternetGatewayType = CreateInternetGatewayType
-
-data InternetGatewayAttachmentSetType = InternetGatewayAttachmentSetType
-    { Item :: ![InternetGatewayAttachmentType]
+data InternetGatewayAttachmentSet = InternetGatewayAttachmentSet
+    { Item :: ![InternetGatewayAttachment]
     } deriving (Show)
 
-data InternetGatewayAttachmentType = InternetGatewayAttachmentType
+data InternetGatewayAttachment = InternetGatewayAttachment
     { VpcId :: !String
     , State :: !String
     } deriving (Show)
 
-data InternetGatewayType = InternetGatewayType
+data InternetGateway = InternetGateway
     { InternetGatewayId :: !String
-    , AttachmentSet     :: !InternetGatewayAttachmentSetType
-    , TagSet            :: !(Maybe ResourceTagSetType)
+    , AttachmentSet     :: !InternetGatewayAttachmentSet
+    , TagSet            :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data CreateInternetGatewayResponseType = CreateInternetGatewayResponseType
+data CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { RequestId       :: !String
-    , InternetGateway :: !InternetGatewayType
+    , InternetGateway :: !InternetGateway
     } deriving (Show)
 
-type DescribeInternetGateways = DescribeInternetGatewaysType
-
-type DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponseType
-
-data InternetGatewayIdSetType = InternetGatewayIdSetType
-    { Item :: ![InternetGatewayIdSetItemType]
+data InternetGatewayIdSet = InternetGatewayIdSet
+    { Item :: ![InternetGatewayIdSetItem]
     } deriving (Show)
 
-data InternetGatewayIdSetItemType = InternetGatewayIdSetItemType
+data InternetGatewayIdSetItem = InternetGatewayIdSetItem
     { InternetGatewayId :: !String
     } deriving (Show)
 
-data DescribeInternetGatewaysType = DescribeInternetGatewaysType
-    { InternetGatewayIdSet :: !InternetGatewayIdSetType
-    , FilterSet            :: !(Maybe FilterSetType)
+data DescribeInternetGateways = DescribeInternetGateways
+    { InternetGatewayIdSet :: !InternetGatewayIdSet
+    , FilterSet            :: !(Maybe FilterSet)
     } deriving (Show)
 
-data InternetGatewaySetType = InternetGatewaySetType
-    { Item :: ![InternetGatewayType]
+data InternetGatewaySet = InternetGatewaySet
+    { Item :: ![InternetGateway]
     } deriving (Show)
 
-data DescribeInternetGatewaysResponseType = DescribeInternetGatewaysResponseType
+data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { RequestId          :: !String
-    , InternetGatewaySet :: !InternetGatewaySetType
+    , InternetGatewaySet :: !InternetGatewaySet
     } deriving (Show)
 
-type DeleteInternetGateway = DeleteInternetGatewayType
-
-type DeleteInternetGatewayResponse = DeleteInternetGatewayResponseType
-
-data DeleteInternetGatewayType = DeleteInternetGatewayType
+data DeleteInternetGateway = DeleteInternetGateway
     { InternetGatewayId :: !String
     } deriving (Show)
 
-data DeleteInternetGatewayResponseType = DeleteInternetGatewayResponseType
+data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type AttachInternetGateway = AttachInternetGatewayType
-
-type AttachInternetGatewayResponse = AttachInternetGatewayResponseType
-
-data AttachInternetGatewayType = AttachInternetGatewayType
+data AttachInternetGateway = AttachInternetGateway
     { InternetGatewayId :: !String
     , VpcId             :: !String
     } deriving (Show)
 
-data AttachInternetGatewayResponseType = AttachInternetGatewayResponseType
+data AttachInternetGatewayResponse = AttachInternetGatewayResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DetachInternetGateway = DetachInternetGatewayType
-
-type DetachInternetGatewayResponse = DetachInternetGatewayResponseType
-
-data DetachInternetGatewayType = DetachInternetGatewayType
+data DetachInternetGateway = DetachInternetGateway
     { InternetGatewayId :: !String
     , VpcId             :: !String
     } deriving (Show)
 
-data DetachInternetGatewayResponseType = DetachInternetGatewayResponseType
+data DetachInternetGatewayResponse = DetachInternetGatewayResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type CreateRouteTable = CreateRouteTableType
-
-type CreateRouteTableResponse = CreateRouteTableResponseType
-
-data CreateRouteTableType = CreateRouteTableType
+data CreateRouteTable = CreateRouteTable
     { VpcId :: !String
     } deriving (Show)
 
-data RouteSetType = RouteSetType
-    { Item :: ![RouteType]
+data RouteSet = RouteSet
+    { Item :: ![Route]
     } deriving (Show)
 
-data RouteType = RouteType
+data Route = Route
     { DestinationCidrBlock :: !String
     , GatewayId            :: !(Maybe String)
     , InstanceId           :: !(Maybe String)
@@ -3321,11 +2859,11 @@ data RouteType = RouteType
     , Origin               :: !String
     } deriving (Show)
 
-data RouteTableAssociationSetType = RouteTableAssociationSetType
-    { Item :: ![RouteTableAssociationType]
+data RouteTableAssociationSet = RouteTableAssociationSet
+    { Item :: ![RouteTableAssociation]
     } deriving (Show)
 
-data RouteTableAssociationType = RouteTableAssociationType
+data RouteTableAssociation = RouteTableAssociation
     { RouteTableAssociationId :: !String
     , RouteTableId            :: !String
   -- <xs:choice>
@@ -3334,141 +2872,109 @@ data RouteTableAssociationType = RouteTableAssociationType
   -- </xs:choice>
     } deriving (Show)
 
-data PropagatingVgwSetType = PropagatingVgwSetType
-    { Item :: ![PropagatingVgwType]
+data PropagatingVgwSet = PropagatingVgwSet
+    { Item :: ![PropagatingVgw]
     } deriving (Show)
 
-data PropagatingVgwType = PropagatingVgwType
+data PropagatingVgw = PropagatingVgw
     { GatewayId :: !String
     } deriving (Show)
 
-data RouteTableType = RouteTableType
+data RouteTable = RouteTable
     { RouteTableId      :: !String
     , VpcId             :: !String
-    , RouteSet          :: !RouteSetType
-    , AssociationSet    :: !RouteTableAssociationSetType
-    , PropagatingVgwSet :: !PropagatingVgwSetType
-    , TagSet            :: !(Maybe ResourceTagSetType)
+    , RouteSet          :: !RouteSet
+    , AssociationSet    :: !RouteTableAssociationSet
+    , PropagatingVgwSet :: !PropagatingVgwSet
+    , TagSet            :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data CreateRouteTableResponseType = CreateRouteTableResponseType
+data CreateRouteTableResponse = CreateRouteTableResponse
     { RequestId  :: !String
-    , RouteTable :: !RouteTableType
+    , RouteTable :: !RouteTable
     } deriving (Show)
 
-type DescribeRouteTables = DescribeRouteTablesType
-
-type DescribeRouteTablesResponse = DescribeRouteTablesResponseType
-
-data RouteTableIdSetType = RouteTableIdSetType
-    { Item :: ![RouteTableIdSetItemType]
+data RouteTableIdSet = RouteTableIdSet
+    { Item :: ![RouteTableIdSetItem]
     } deriving (Show)
 
-data RouteTableIdSetItemType = RouteTableIdSetItemType
+data RouteTableIdSetItem = RouteTableIdSetItem
     { RouteTableId :: !String
     } deriving (Show)
 
-data DescribeRouteTablesType = DescribeRouteTablesType
-    { RouteTableIdSet :: !RouteTableIdSetType
-    , FilterSet       :: !(Maybe FilterSetType)
+data DescribeRouteTables = DescribeRouteTables
+    { RouteTableIdSet :: !RouteTableIdSet
+    , FilterSet       :: !(Maybe FilterSet)
     } deriving (Show)
 
-data RouteTableSetType = RouteTableSetType
-    { Item :: ![RouteTableType]
+data RouteTableSet = RouteTableSet
+    { Item :: ![RouteTable]
     } deriving (Show)
 
-data DescribeRouteTablesResponseType = DescribeRouteTablesResponseType
+data DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { RequestId     :: !String
-    , RouteTableSet :: !RouteTableSetType
+    , RouteTableSet :: !RouteTableSet
     } deriving (Show)
 
-type EnableVgwRoutePropagation = EnableVgwRoutePropagationRequestType
-
-type EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponseType
-
-data EnableVgwRoutePropagationRequestType = EnableVgwRoutePropagationRequestType
+data EnableVgwRoutePropagationRequest = EnableVgwRoutePropagationRequest
     { RouteTableId :: !String
     , GatewayId    :: !String
     } deriving (Show)
 
-data EnableVgwRoutePropagationResponseType = EnableVgwRoutePropagationResponseType
+data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DisableVgwRoutePropagation = DisableVgwRoutePropagationRequestType
-
-type DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponseType
-
-data DisableVgwRoutePropagationRequestType = DisableVgwRoutePropagationRequestType
+data DisableVgwRoutePropagationRequest = DisableVgwRoutePropagationRequest
     { RouteTableId :: !String
     , GatewayId    :: !String
     } deriving (Show)
 
-data DisableVgwRoutePropagationResponseType = DisableVgwRoutePropagationResponseType
+data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DeleteRouteTable = DeleteRouteTableType
-
-type DeleteRouteTableResponse = DeleteRouteTableResponseType
-
-data DeleteRouteTableType = DeleteRouteTableType
+data DeleteRouteTable = DeleteRouteTable
     { RouteTableId :: !String
     } deriving (Show)
 
-data DeleteRouteTableResponseType = DeleteRouteTableResponseType
+data DeleteRouteTableResponse = DeleteRouteTableResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type AssociateRouteTable = AssociateRouteTableType
-
-type AssociateRouteTableResponse = AssociateRouteTableResponseType
-
-data AssociateRouteTableType = AssociateRouteTableType
+data AssociateRouteTable = AssociateRouteTable
     { RouteTableId :: !String
     , SubnetId     :: !String
     } deriving (Show)
 
-data AssociateRouteTableResponseType = AssociateRouteTableResponseType
+data AssociateRouteTableResponse = AssociateRouteTableResponse
     { RequestId     :: !String
     , AssociationId :: !String
     } deriving (Show)
 
-type ReplaceRouteTableAssociation = ReplaceRouteTableAssociationType
-
-type ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponseType
-
-data ReplaceRouteTableAssociationType = ReplaceRouteTableAssociationType
+data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { AssociationId :: !String
     , RouteTableId  :: !String
     } deriving (Show)
 
-data ReplaceRouteTableAssociationResponseType = ReplaceRouteTableAssociationResponseType
+data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { RequestId        :: !String
     , NewAssociationId :: !String
     } deriving (Show)
 
-type DisassociateRouteTable = DisassociateRouteTableType
-
-type DisassociateRouteTableResponse = DisassociateRouteTableResponseType
-
-data DisassociateRouteTableType = DisassociateRouteTableType
+data DisassociateRouteTable = DisassociateRouteTable
     { AssociationId :: !String
     } deriving (Show)
 
-data DisassociateRouteTableResponseType = DisassociateRouteTableResponseType
+data DisassociateRouteTableResponse = DisassociateRouteTableResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type CreateRoute = CreateRouteType
-
-type CreateRouteResponse = CreateRouteResponseType
-
-data CreateRouteType = CreateRouteType
+data CreateRoute = CreateRoute
     { RouteTableId         :: !String
     , DestinationCidrBlock :: !String
   -- <xs:choice>
@@ -3478,16 +2984,12 @@ data CreateRouteType = CreateRouteType
   -- </xs:choice>
     } deriving (Show)
 
-data CreateRouteResponseType = CreateRouteResponseType
+data CreateRouteResponse = CreateRouteResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ReplaceRoute = ReplaceRouteType
-
-type ReplaceRouteResponse = ReplaceRouteResponseType
-
-data ReplaceRouteType = ReplaceRouteType
+data ReplaceRoute = ReplaceRoute
     { RouteTableId         :: !String
     , DestinationCidrBlock :: !String
   -- <xs:choice>
@@ -3497,309 +2999,261 @@ data ReplaceRouteType = ReplaceRouteType
   -- </xs:choice>
     } deriving (Show)
 
-data ReplaceRouteResponseType = ReplaceRouteResponseType
+data ReplaceRouteResponse = ReplaceRouteResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DeleteRoute = DeleteRouteType
-
-type DeleteRouteResponse = DeleteRouteResponseType
-
-data DeleteRouteType = DeleteRouteType
+data DeleteRoute = DeleteRoute
     { RouteTableId         :: !String
     , DestinationCidrBlock :: !String
     } deriving (Show)
 
-data DeleteRouteResponseType = DeleteRouteResponseType
+data DeleteRouteResponse = DeleteRouteResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type CreateNetworkAcl = CreateNetworkAclType
-
-type CreateNetworkAclResponse = CreateNetworkAclResponseType
-
-data CreateNetworkAclType = CreateNetworkAclType
+data CreateNetworkAcl = CreateNetworkAcl
     { VpcId :: !String
     } deriving (Show)
 
-data NetworkAclEntrySetType = NetworkAclEntrySetType
-    { Item :: ![NetworkAclEntryType]
+data NetworkAclEntrySet = NetworkAclEntrySet
+    { Item :: ![NetworkAclEntry]
     } deriving (Show)
 
-data IcmpTypeCodeType = IcmpTypeCodeType
+data IcmpCode = IcmpCode
     { Code :: !Int
     , Type :: !Int
     } deriving (Show)
 
-data PortRangeType = PortRangeType
+data PortRange = PortRange
     { From :: !Int
     , To   :: !Int
     } deriving (Show)
 
-data NetworkAclEntryType = NetworkAclEntryType
+data NetworkAclEntry = NetworkAclEntry
     { RuleNumber   :: !Int
     , Protocol     :: !String
     , RuleAction   :: !String
     , Egress       :: !Boolean
     , CidrBlock    :: !String
-    , IcmpTypeCode :: !(Maybe IcmpTypeCodeType)
-    , PortRange    :: !(Maybe PortRangeType)
+    , IcmpCode :: !(Maybe IcmpCode)
+    , PortRange    :: !(Maybe PortRange)
     } deriving (Show)
 
-data NetworkAclAssociationSetType = NetworkAclAssociationSetType
-    { Item :: ![NetworkAclAssociationType]
+data NetworkAclAssociationSet = NetworkAclAssociationSet
+    { Item :: ![NetworkAclAssociation]
     } deriving (Show)
 
-data NetworkAclAssociationType = NetworkAclAssociationType
+data NetworkAclAssociation = NetworkAclAssociation
     { NetworkAclAssociationId :: !String
     , NetworkAclId            :: !String
     , SubnetId                :: !String
     } deriving (Show)
 
-data NetworkAclType = NetworkAclType
+data NetworkAcl = NetworkAcl
     { NetworkAclId   :: !String
     , VpcId          :: !String
     , Default        :: !Boolean
-    , EntrySet       :: !NetworkAclEntrySetType
-    , AssociationSet :: !NetworkAclAssociationSetType
-    , TagSet         :: !(Maybe ResourceTagSetType)
+    , EntrySet       :: !NetworkAclEntrySet
+    , AssociationSet :: !NetworkAclAssociationSet
+    , TagSet         :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
-data CreateNetworkAclResponseType = CreateNetworkAclResponseType
+data CreateNetworkAclResponse = CreateNetworkAclResponse
     { RequestId  :: !String
-    , NetworkAcl :: !NetworkAclType
+    , NetworkAcl :: !NetworkAcl
     } deriving (Show)
 
-type DescribeNetworkAcls = DescribeNetworkAclsType
-
-type DescribeNetworkAclsResponse = DescribeNetworkAclsResponseType
-
-data NetworkAclIdSetType = NetworkAclIdSetType
-    { Item :: ![NetworkAclIdSetItemType]
+data NetworkAclIdSet = NetworkAclIdSet
+    { Item :: ![NetworkAclIdSetItem]
     } deriving (Show)
 
-data NetworkAclIdSetItemType = NetworkAclIdSetItemType
+data NetworkAclIdSetItem = NetworkAclIdSetItem
     { NetworkAclId :: !String
     } deriving (Show)
 
-data DescribeNetworkAclsType = DescribeNetworkAclsType
-    { NetworkAclIdSet :: !NetworkAclIdSetType
-    , FilterSet       :: !(Maybe FilterSetType)
+data DescribeNetworkAcls = DescribeNetworkAcls
+    { NetworkAclIdSet :: !NetworkAclIdSet
+    , FilterSet       :: !(Maybe FilterSet)
     } deriving (Show)
 
-data NetworkAclSetType = NetworkAclSetType
-    { Item :: ![NetworkAclType]
+data NetworkAclSet = NetworkAclSet
+    { Item :: ![NetworkAcl]
     } deriving (Show)
 
-data DescribeNetworkAclsResponseType = DescribeNetworkAclsResponseType
+data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { RequestId     :: !String
-    , NetworkAclSet :: !NetworkAclSetType
+    , NetworkAclSet :: !NetworkAclSet
     } deriving (Show)
 
-type DeleteNetworkAcl = DeleteNetworkAclType
-
-type DeleteNetworkAclResponse = DeleteNetworkAclResponseType
-
-data DeleteNetworkAclType = DeleteNetworkAclType
+data DeleteNetworkAcl = DeleteNetworkAcl
     { NetworkAclId :: !String
     } deriving (Show)
 
-data DeleteNetworkAclResponseType = DeleteNetworkAclResponseType
+data DeleteNetworkAclResponse = DeleteNetworkAclResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociationType
-
-type ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponseType
-
-data ReplaceNetworkAclAssociationType = ReplaceNetworkAclAssociationType
+data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { AssociationId :: !String
     , NetworkAclId  :: !String
     } deriving (Show)
 
-data ReplaceNetworkAclAssociationResponseType = ReplaceNetworkAclAssociationResponseType
+data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { RequestId        :: !String
     , NewAssociationId :: !String
     } deriving (Show)
 
-type CreateNetworkAclEntry = CreateNetworkAclEntryType
-
-type CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponseType
-
-data CreateNetworkAclEntryType = CreateNetworkAclEntryType
+data CreateNetworkAclEntry = CreateNetworkAclEntry
     { NetworkAclId :: !String
     , RuleNumber   :: !Int
     , Protocol     :: !String
     , RuleAction   :: !String
     , Egress       :: !Boolean
     , CidrBlock    :: !String
-    , IcmpTypeCode :: !(Maybe IcmpTypeCodeType)
-    , PortRange    :: !(Maybe PortRangeType)
+    , IcmpCode :: !(Maybe IcmpCode)
+    , PortRange    :: !(Maybe PortRange)
     } deriving (Show)
 
-data CreateNetworkAclEntryResponseType = CreateNetworkAclEntryResponseType
+data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ReplaceNetworkAclEntry = ReplaceNetworkAclEntryType
-
-type ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponseType
-
-data ReplaceNetworkAclEntryType = ReplaceNetworkAclEntryType
+data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     { NetworkAclId :: !String
     , RuleNumber   :: !Int
     , Protocol     :: !String
     , RuleAction   :: !String
     , Egress       :: !Boolean
     , CidrBlock    :: !String
-    , IcmpTypeCode :: !(Maybe IcmpTypeCodeType)
-    , PortRange    :: !(Maybe PortRangeType)
+    , IcmpCode :: !(Maybe IcmpCode)
+    , PortRange    :: !(Maybe PortRange)
     } deriving (Show)
 
-data ReplaceNetworkAclEntryResponseType = ReplaceNetworkAclEntryResponseType
+data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DeleteNetworkAclEntry = DeleteNetworkAclEntryType
-
-type DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponseType
-
-data DeleteNetworkAclEntryType = DeleteNetworkAclEntryType
+data DeleteNetworkAclEntry = DeleteNetworkAclEntry
     { NetworkAclId :: !String
     , RuleNumber   :: !Int
     , Egress       :: !Boolean
     } deriving (Show)
 
-data DeleteNetworkAclEntryResponseType = DeleteNetworkAclEntryResponseType
+data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeInstanceStatus = DescribeInstanceStatusType
-
-data DescribeInstanceStatusType = DescribeInstanceStatusType
-    { InstancesSet        :: !InstanceIdSetType
-    , FilterSet           :: !(Maybe FilterSetType)
+data DescribeInstanceStatus = DescribeInstanceStatus
+    { InstancesSet        :: !InstanceIdSet
+    , FilterSet           :: !(Maybe FilterSet)
     , NextToken           :: !(Maybe String)
     , MaxResults          :: !(Maybe Int)
     , IncludeAllInstances :: !(Maybe Boolean)
     } deriving (Show)
 
-type DescribeInstanceStatusResponse = DescribeInstanceStatusResponseType
-
-data DescribeInstanceStatusResponseType = DescribeInstanceStatusResponseType
+data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { RequestId         :: !String
-    , InstanceStatusSet :: !InstanceStatusSetType
+    , InstanceStatusSet :: !InstanceStatusSet
     , NextToken         :: !(Maybe String)
     } deriving (Show)
 
-data InstanceStatusSetType = InstanceStatusSetType
-    { Item :: ![InstanceStatusItemType]
+data InstanceStatusSet = InstanceStatusSet
+    { Item :: ![InstanceStatusItem]
     } deriving (Show)
 
-data InstanceStatusType = InstanceStatusType
+data InstanceStatus = InstanceStatus
     { Status  :: !String
-    , Details :: !(Maybe InstanceStatusDetailsSetType)
+    , Details :: !(Maybe InstanceStatusDetailsSet)
     } deriving (Show)
 
-data InstanceStatusDetailsSetType = InstanceStatusDetailsSetType
-    { Item :: ![InstanceStatusDetailsSetItemType]
+data InstanceStatusDetailsSet = InstanceStatusDetailsSet
+    { Item :: ![InstanceStatusDetailsSetItem]
     } deriving (Show)
 
-data InstanceStatusDetailsSetItemType = InstanceStatusDetailsSetItemType
+data InstanceStatusDetailsSetItem = InstanceStatusDetailsSetItem
     { Name          :: !String
     , Status        :: !String
     , ImpairedSince :: !(Maybe DateTime)
     } deriving (Show)
 
-data InstanceStatusEventType = InstanceStatusEventType
+data InstanceStatusEvent = InstanceStatusEvent
     { Code        :: !String
     , Description :: !String
     , NotBefore   :: !DateTime
     , NotAfter    :: !(Maybe DateTime)
     } deriving (Show)
 
-data InstanceStatusEventsSetType = InstanceStatusEventsSetType
-    { Item :: ![InstanceStatusEventType]
+data InstanceStatusEventsSet = InstanceStatusEventsSet
+    { Item :: ![InstanceStatusEvent]
     } deriving (Show)
 
-data InstanceStatusItemType = InstanceStatusItemType
+data InstanceStatusItem = InstanceStatusItem
     { InstanceId       :: !String
     , AvailabilityZone :: !String
-    , EventsSet        :: !(Maybe InstanceStatusEventsSetType)
-    , InstanceState    :: !InstanceStateType
-    , SystemStatus     :: !InstanceStatusType
-    , InstanceStatus   :: !InstanceStatusType
+    , EventsSet        :: !(Maybe InstanceStatusEventsSet)
+    , InstanceState    :: !InstanceState
+    , SystemStatus     :: !InstanceStatus
+    , InstanceStatus   :: !InstanceStatus
     } deriving (Show)
 
-type ReportInstanceStatus = ReportInstanceStatusType
-
-data ReportInstanceStatusType = ReportInstanceStatusType
-    { InstancesSet   :: !InstanceIdSetType
+data ReportInstanceStatus = ReportInstanceStatus
+    { InstancesSet   :: !InstanceIdSet
     , Status         :: !String
     , StartTime      :: !(Maybe DateTime)
     , EndTime        :: !(Maybe DateTime)
-    , ReasonCodesSet :: !ReportInstanceStatusReasonCodesSetType
+    , ReasonCodesSet :: !ReportInstanceStatusReasonCodesSet
     , Description    :: !(Maybe String)
     } deriving (Show)
 
-data ReportInstanceStatusReasonCodesSetType = ReportInstanceStatusReasonCodesSetType
+data ReportInstanceStatusReasonCodesSet = ReportInstanceStatusReasonCodesSet
     {
-  Item :: !(NonEmpty ReportInstanceStatusReasonCodeSetItemType)
+  Item :: !(NonEmpty ReportInstanceStatusReasonCodeSetItem)
     } deriving (Show)
 
-data ReportInstanceStatusReasonCodeSetItemType = ReportInstanceStatusReasonCodeSetItemType
+data ReportInstanceStatusReasonCodeSetItem = ReportInstanceStatusReasonCodeSetItem
     { ReasonCode :: !String
     } deriving (Show)
 
-type ReportInstanceStatusResponse = ReportInstanceStatusResponseType
-
-data ReportInstanceStatusResponseType = ReportInstanceStatusResponseType
+data ReportInstanceStatusResponse = ReportInstanceStatusResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type CreateNetworkInterface = CreateNetworkInterfaceType
-
-type CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponseType
-
-data CreateNetworkInterfaceType = CreateNetworkInterfaceType
+data CreateNetworkInterface = CreateNetworkInterface
     { SubnetId                       :: !String
     , Description                    :: !(Maybe String)
     , PrivateIpAddress               :: !(Maybe String)
-    , GroupSet                       :: !(Maybe SecurityGroupIdSetType)
-    , PrivateIpAddressesSet          :: !(Maybe PrivateIpAddressesSetRequestType)
+    , GroupSet                       :: !(Maybe SecurityGroupIdSet)
+    , PrivateIpAddressesSet          :: !(Maybe PrivateIpAddressesSetRequest)
     , SecondaryPrivateIpAddressCount :: !(Maybe Int)
     } deriving (Show)
 
-data CreateNetworkInterfaceResponseType = CreateNetworkInterfaceResponseType
+data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { RequestId        :: !String
-    , NetworkInterface :: !NetworkInterfaceType
+    , NetworkInterface :: !NetworkInterface
     } deriving (Show)
 
-type DescribeNetworkInterfaces = DescribeNetworkInterfacesType
-
-type DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponseType
-
-data NetworkInterfaceIdSetType = NetworkInterfaceIdSetType
-    { Item :: ![NetworkInterfaceIdSetItemType]
+data NetworkInterfaceIdSet = NetworkInterfaceIdSet
+    { Item :: ![NetworkInterfaceIdSetItem]
     } deriving (Show)
 
-data NetworkInterfaceIdSetItemType = NetworkInterfaceIdSetItemType
+data NetworkInterfaceIdSetItem = NetworkInterfaceIdSetItem
     { NetworkInterfaceId :: !String
     } deriving (Show)
 
-data DescribeNetworkInterfacesType = DescribeNetworkInterfacesType
-    { NetworkInterfaceIdSet :: !(Maybe NetworkInterfaceIdSetType)
-    , FilterSet             :: !(Maybe FilterSetType)
+data DescribeNetworkInterfaces = DescribeNetworkInterfaces
+    { NetworkInterfaceIdSet :: !(Maybe NetworkInterfaceIdSet)
+    , FilterSet             :: !(Maybe FilterSet)
     } deriving (Show)
 
-data NetworkInterfaceType = NetworkInterfaceType
+data NetworkInterface = NetworkInterface
     { NetworkInterfaceId    :: !String
     , SubnetId              :: !(Maybe String)
     , VpcId                 :: !(Maybe String)
@@ -3813,25 +3267,25 @@ data NetworkInterfaceType = NetworkInterfaceType
     , PrivateIpAddress      :: !String
     , PrivateDnsName        :: !(Maybe String)
     , SourceDestCheck       :: !Boolean
-    , GroupSet              :: !GroupSetType
-    , Attachment            :: !(Maybe NetworkInterfaceAttachmentType)
-    , Association           :: !(Maybe NetworkInterfaceAssociationType)
-    , TagSet                :: !(Maybe ResourceTagSetType)
-    , PrivateIpAddressesSet :: !(Maybe NetworkInterfacePrivateIpAddressesSetType)
+    , GroupSet              :: !GroupSet
+    , Attachment            :: !(Maybe NetworkInterfaceAttachment)
+    , Association           :: !(Maybe NetworkInterfaceAssociation)
+    , TagSet                :: !(Maybe ResourceTagSet)
+    , PrivateIpAddressesSet :: !(Maybe NetworkInterfacePrivateIpAddressesSet)
     } deriving (Show)
 
-data NetworkInterfacePrivateIpAddressesSetType = NetworkInterfacePrivateIpAddressesSetType
-    { Item :: ![NetworkInterfacePrivateIpAddressesSetItemType]
+data NetworkInterfacePrivateIpAddressesSet = NetworkInterfacePrivateIpAddressesSet
+    { Item :: ![NetworkInterfacePrivateIpAddressesSetItem]
     } deriving (Show)
 
-data NetworkInterfacePrivateIpAddressesSetItemType = NetworkInterfacePrivateIpAddressesSetItemType
+data NetworkInterfacePrivateIpAddressesSetItem = NetworkInterfacePrivateIpAddressesSetItem
     { PrivateIpAddress :: !String
     , PrivateDnsName   :: !(Maybe String)
     , Primary          :: !Boolean
-    , Association      :: !(Maybe NetworkInterfaceAssociationType)
+    , Association      :: !(Maybe NetworkInterfaceAssociation)
     } deriving (Show)
 
-data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
+data NetworkInterfaceAttachment = NetworkInterfaceAttachment
     { AttachmentId        :: !String
     , InstanceId          :: !(Maybe String)
     , InstanceOwnerId     :: !(Maybe String)
@@ -3841,7 +3295,7 @@ data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
     , DeleteOnTermination :: !Boolean
     } deriving (Show)
 
-data NetworkInterfaceAssociationType = NetworkInterfaceAssociationType
+data NetworkInterfaceAssociation = NetworkInterfaceAssociation
     { PublicIp      :: !String
     , PublicDnsName :: !(Maybe String)
     , IpOwnerId     :: !(Maybe String)
@@ -3849,277 +3303,228 @@ data NetworkInterfaceAssociationType = NetworkInterfaceAssociationType
     , AssociationId :: !(Maybe String)
     } deriving (Show)
 
-data NetworkInterfaceSetType = NetworkInterfaceSetType
-    { Item :: ![NetworkInterfaceType]
+data NetworkInterfaceSet = NetworkInterfaceSet
+    { Item :: ![NetworkInterface]
     } deriving (Show)
 
-data DescribeNetworkInterfacesResponseType = DescribeNetworkInterfacesResponseType
+data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { RequestId           :: !String
-    , NetworkInterfaceSet :: !NetworkInterfaceSetType
+    , NetworkInterfaceSet :: !NetworkInterfaceSet
     } deriving (Show)
 
-type DeleteNetworkInterface = DeleteNetworkInterfaceType
-
-type DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponseType
-
-data DeleteNetworkInterfaceType = DeleteNetworkInterfaceType
+data DeleteNetworkInterface = DeleteNetworkInterface
     { NetworkInterfaceId :: !String
     } deriving (Show)
 
-data DeleteNetworkInterfaceResponseType = DeleteNetworkInterfaceResponseType
+data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type AttachNetworkInterface = AttachNetworkInterfaceType
-
-type AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponseType
-
-data AttachNetworkInterfaceType = AttachNetworkInterfaceType
+data AttachNetworkInterface = AttachNetworkInterface
     { NetworkInterfaceId :: !String
     , InstanceId         :: !String
     , DeviceIndex        :: !Int
     } deriving (Show)
 
-data AttachNetworkInterfaceResponseType = AttachNetworkInterfaceResponseType
+data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { RequestId    :: !String
     , AttachmentId :: !String
     } deriving (Show)
 
-type DetachNetworkInterface = DetachNetworkInterfaceType
-
-type DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponseType
-
-data DetachNetworkInterfaceType = DetachNetworkInterfaceType
+data DetachNetworkInterface = DetachNetworkInterface
     { AttachmentId :: !String
     , Force        :: !(Maybe Boolean)
     } deriving (Show)
 
-data DetachNetworkInterfaceResponseType = DetachNetworkInterfaceResponseType
+data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttributeType
-
-type DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponseType
-
-data DescribeNetworkInterfaceAttributeType = DescribeNetworkInterfaceAttributeType
+data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { NetworkInterfaceId                      :: !String
     , DescribeNetworkInterfaceAttributesGroup :: !DescribeNetworkInterfaceAttributesGroup
     } deriving (Show)
 
 data DescribeNetworkInterfaceAttributesGroup = DescribeNetworkInterfaceAttributesGroup
-    { Description     :: !EmptyElementType
-    , SourceDestCheck :: !EmptyElementType
-    , GroupSet        :: !EmptyElementType
-    , Attachment      :: !EmptyElementType
+    { Description     :: !EmptyElement
+    , SourceDestCheck :: !EmptyElement
+    , GroupSet        :: !EmptyElement
+    , Attachment      :: !EmptyElement
     } deriving (Show)
-data DescribeNetworkInterfaceAttributeResponseType = DescribeNetworkInterfaceAttributeResponseType
+data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { RequestId          :: !String
     , NetworkInterfaceId :: !String
   -- <xs:choice>
-    , Description        :: !(Maybe NullableAttributeValueType)
-    , SourceDestCheck    :: !(Maybe AttributeBooleanValueType)
-    , GroupSet           :: !(Maybe GroupSetType)
-    , Attachment         :: !(Maybe NetworkInterfaceAttachmentType)
+    , Description        :: !(Maybe NullableAttributeValue)
+    , SourceDestCheck    :: !(Maybe AttributeBooleanValue)
+    , GroupSet           :: !(Maybe GroupSet)
+    , Attachment         :: !(Maybe NetworkInterfaceAttachment)
   -- </xs:choice>
     } deriving (Show)
 
-type ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttributeType
-
-type ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponseType
-
-data ModifyNetworkInterfaceAttributeType = ModifyNetworkInterfaceAttributeType
+data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     { NetworkInterfaceId :: !String
   -- <xs:choice>
-    , Description        :: !(Maybe NullableAttributeValueType)
-    , SourceDestCheck    :: !(Maybe AttributeBooleanValueType)
-    , GroupSet           :: !(Maybe SecurityGroupIdSetType)
-    , Attachment         :: !(Maybe ModifyNetworkInterfaceAttachmentType)
+    , Description        :: !(Maybe NullableAttributeValue)
+    , SourceDestCheck    :: !(Maybe AttributeBooleanValue)
+    , GroupSet           :: !(Maybe SecurityGroupIdSet)
+    , Attachment         :: !(Maybe ModifyNetworkInterfaceAttachment)
   -- </xs:choice>
     } deriving (Show)
 
-data ModifyNetworkInterfaceAttachmentType = ModifyNetworkInterfaceAttachmentType
+data ModifyNetworkInterfaceAttachment = ModifyNetworkInterfaceAttachment
     { AttachmentId        :: !String
     , DeleteOnTermination :: !Boolean
     } deriving (Show)
 
-data ModifyNetworkInterfaceAttributeResponseType = ModifyNetworkInterfaceAttributeResponseType
+data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeType
-
-type ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponseType
-
-data ResetNetworkInterfaceAttributeType = ResetNetworkInterfaceAttributeType
+data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { NetworkInterfaceId                   :: !String
     , ResetNetworkInterfaceAttributesGroup :: !ResetNetworkInterfaceAttributesGroup
     } deriving (Show)
 
 data ResetNetworkInterfaceAttributesGroup = ResetNetworkInterfaceAttributesGroup
-    { SourceDestCheck :: !EmptyElementType
+    { SourceDestCheck :: !EmptyElement
     } deriving (Show)
-data ResetNetworkInterfaceAttributeResponseType = ResetNetworkInterfaceAttributeResponseType
+data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type AssignPrivateIpAddresses = AssignPrivateIpAddressesType
-
-data AssignPrivateIpAddressesType = AssignPrivateIpAddressesType
+data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     { NetworkInterfaceId             :: !String
-    , PrivateIpAddressesSet          :: !(Maybe AssignPrivateIpAddressesSetRequestType)
+    , PrivateIpAddressesSet          :: !(Maybe AssignPrivateIpAddressesSetRequest)
     , SecondaryPrivateIpAddressCount :: !(Maybe Int)
     , AllowReassignment              :: !(Maybe Boolean)
     } deriving (Show)
 
-type AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponseType
-
-data AssignPrivateIpAddressesResponseType = AssignPrivateIpAddressesResponseType
+data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type UnassignPrivateIpAddresses = UnassignPrivateIpAddressesType
-
-data UnassignPrivateIpAddressesType = UnassignPrivateIpAddressesType
+data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { NetworkInterfaceId    :: !String
-    , PrivateIpAddressesSet :: !AssignPrivateIpAddressesSetRequestType
+    , PrivateIpAddressesSet :: !AssignPrivateIpAddressesSetRequest
     } deriving (Show)
 
-type UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponseType
-
-data UnassignPrivateIpAddressesResponseType = UnassignPrivateIpAddressesResponseType
+data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-data AssignPrivateIpAddressesSetRequestType = AssignPrivateIpAddressesSetRequestType
+data AssignPrivateIpAddressesSetRequest = AssignPrivateIpAddressesSetRequest
     {
-  Item :: !(NonEmpty AssignPrivateIpAddressesSetItemRequestType)
+  Item :: !(NonEmpty AssignPrivateIpAddressesSetItemRequest)
     } deriving (Show)
 
-data AssignPrivateIpAddressesSetItemRequestType = AssignPrivateIpAddressesSetItemRequestType
+data AssignPrivateIpAddressesSetItemRequest = AssignPrivateIpAddressesSetItemRequest
     { PrivateIpAddress :: !String
     } deriving (Show)
 
-type DescribeVolumeStatus = DescribeVolumeStatusType
-
-data DescribeVolumeStatusType = DescribeVolumeStatusType
-    { VolumeSet  :: !DescribeVolumesSetType
-    , FilterSet  :: !(Maybe FilterSetType)
+data DescribeVolumeStatus = DescribeVolumeStatus
+    { VolumeSet  :: !DescribeVolumesSet
+    , FilterSet  :: !(Maybe FilterSet)
     , MaxResults :: !(Maybe Integer)
     , NextToken  :: !(Maybe String)
     } deriving (Show)
 
-type DescribeVolumeStatusResponse = DescribeVolumeStatusResponseType
-
-data DescribeVolumeStatusResponseType = DescribeVolumeStatusResponseType
+data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { RequestId       :: !String
-    , VolumeStatusSet :: !VolumeStatusSetType
+    , VolumeStatusSet :: !VolumeStatusSet
     , NextToken       :: !(Maybe String)
     } deriving (Show)
 
-data VolumeStatusSetType = VolumeStatusSetType
-    { Item :: ![VolumeStatusItemType]
+data VolumeStatusSet = VolumeStatusSet
+    { Item :: ![VolumeStatusItem]
     } deriving (Show)
 
-data VolumeStatusItemType = VolumeStatusItemType
+data VolumeStatusItem = VolumeStatusItem
     { VolumeId         :: !String
     , AvailabilityZone :: !String
-    , VolumeStatus     :: !VolumeStatusInfoType
-    , EventsSet        :: !VolumeStatusEventsSetType
-    , ActionsSet       :: !VolumeStatusActionsSetType
+    , VolumeStatus     :: !VolumeStatusInfo
+    , EventsSet        :: !VolumeStatusEventsSet
+    , ActionsSet       :: !VolumeStatusActionsSet
     } deriving (Show)
 
-data VolumeStatusInfoType = VolumeStatusInfoType
+data VolumeStatusInfo = VolumeStatusInfo
     { Status  :: !String
-    , Details :: !VolumeStatusDetailsSetType
+    , Details :: !VolumeStatusDetailsSet
     } deriving (Show)
 
-data VolumeStatusDetailsSetType = VolumeStatusDetailsSetType
-    { Item :: ![VolumeStatusDetailsItemType]
+data VolumeStatusDetailsSet = VolumeStatusDetailsSet
+    { Item :: ![VolumeStatusDetailsItem]
     } deriving (Show)
 
-data VolumeStatusDetailsItemType = VolumeStatusDetailsItemType
+data VolumeStatusDetailsItem = VolumeStatusDetailsItem
     { Name   :: !String
     , Status :: !String
     } deriving (Show)
 
-data VolumeStatusEventsSetType = VolumeStatusEventsSetType
-    { Item :: ![VolumeStatusEventItemType]
+data VolumeStatusEventsSet = VolumeStatusEventsSet
+    { Item :: ![VolumeStatusEventItem]
     } deriving (Show)
 
-data VolumeStatusEventItemType = VolumeStatusEventItemType
+data VolumeStatusEventItem = VolumeStatusEventItem
     { Description :: !String
     , NotBefore   :: !DateTime
     , NotAfter    :: !DateTime
     , EventId     :: !String
-    , EventType   :: !String
+    , Event   :: !String
     } deriving (Show)
 
-data VolumeStatusActionsSetType = VolumeStatusActionsSetType
-    { Item :: ![VolumeStatusActionItemType]
+data VolumeStatusActionsSet = VolumeStatusActionsSet
+    { Item :: ![VolumeStatusActionItem]
     } deriving (Show)
 
-data VolumeStatusActionItemType = VolumeStatusActionItemType
+data VolumeStatusActionItem = VolumeStatusActionItem
     { Description :: !String
     , Code        :: !String
     , EventId     :: !String
-    , EventType   :: !String
+    , Event   :: !String
     } deriving (Show)
 
-type EnableVolumeIO = EnableVolumeIOType
-
-data EnableVolumeIOType = EnableVolumeIOType
+data EnableVolumeIO = EnableVolumeIO
     { VolumeId :: !String
     } deriving (Show)
 
-type EnableVolumeIOResponse = EnableVolumeIOResponseType
-
-data EnableVolumeIOResponseType = EnableVolumeIOResponseType
+data EnableVolumeIOResponse = EnableVolumeIOResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type ModifyVolumeAttribute = ModifyVolumeAttributeType
-
-data ModifyVolumeAttributeType = ModifyVolumeAttributeType
+data ModifyVolumeAttribute = ModifyVolumeAttribute
     { VolumeId     :: !String
   -- <xs:choice>
-    , AutoEnableIO :: !AttributeBooleanValueType
+    , AutoEnableIO :: !AttributeBooleanValue
   -- </xs:choice>
     } deriving (Show)
 
-type ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponseType
-
-data ModifyVolumeAttributeResponseType = ModifyVolumeAttributeResponseType
+data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
     { RequestId :: !String
     , Return    :: !Boolean
     } deriving (Show)
 
-type DescribeVolumeAttribute = DescribeVolumeAttributeType
-
-type DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponseType
-
-data DescribeVolumeAttributeType = DescribeVolumeAttributeType
+data DescribeVolumeAttribute = DescribeVolumeAttribute
     { VolumeId                      :: !String
     , DescribeVolumeAttributesGroup :: !DescribeVolumeAttributesGroup
     } deriving (Show)
 
 data DescribeVolumeAttributesGroup = DescribeVolumeAttributesGroup
-    { AutoEnableIO :: !EmptyElementType
-    , ProductCodes :: !EmptyElementType
+    { AutoEnableIO :: !EmptyElement
+    , ProductCodes :: !EmptyElement
     } deriving (Show)
-
-data DescribeVolumeAttributeResponseType = DescribeVolumeAttributeResponseType
+data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { RequestId    :: !String
     , VolumeId     :: !String
   -- <xs:choice>
-    , AutoEnableIO :: !(Maybe NullableAttributeBooleanValueType)
-    , ProductCodes :: !(Maybe ProductCodesSetType)
+    , AutoEnableIO :: !(Maybe NullableAttributeBooleanValue)
+    , ProductCodes :: !(Maybe ProductCodesSet)
   -- </xs:choice>
     } deriving (Show)

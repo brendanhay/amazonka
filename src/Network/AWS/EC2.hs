@@ -16,8 +16,9 @@
 
 module Network.AWS.EC2 where
 
-import Data.ByteString      (ByteString)
+import Data.ByteString       (ByteString)
 import Data.Monoid
+-- import Network.AWS.EC2.Types
 import Network.AWS.Internal
 import Network.Http.Client
 

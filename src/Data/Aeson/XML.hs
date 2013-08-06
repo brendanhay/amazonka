@@ -66,7 +66,7 @@ treeToJSON node
     objMap cs = arrayValuesToJSON     -- unify into a single map,
         . concatValues                -- grouping into arrays by pair name
         . map (uncurry Map.singleton) -- convert pairs to maps
-        . (++) attrValues
+        . (++) attrValues             -- attributes turned into normal pairs
         . catMaybes                   -- filter out the empty values (unconvertable nodes)
         $ map treeToJSON cs           -- convert xml nodes to Maybe (QName, Value) pairs
 

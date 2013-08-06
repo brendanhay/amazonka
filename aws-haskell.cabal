@@ -74,7 +74,6 @@ library
       , io-streams
       , mtl
       , old-locale
-      , regex-posix
       , SHA
       , template-haskell
       , text

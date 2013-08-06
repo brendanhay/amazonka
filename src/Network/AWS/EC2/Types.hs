@@ -17,8 +17,6 @@ import Data.ByteString      (ByteString)
 import Data.Monoid
 import Network.AWS.Internal
 
-(?s)data ([a-zA-Z =]+)[^\}]+
-
 data CreateImage = CreateImage
     { InstanceId         :: !String
     , Name               :: !String

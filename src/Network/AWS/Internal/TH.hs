@@ -46,7 +46,6 @@ deriveQS name = deriveQS' (dropPrefix $ toLower x : xs) name
 deriveQS' :: (String -> String) -> Name -> Q [Dec]
 deriveQS' f name = do
     ref <- reify name
-
     case ref of
         TyConI (DataD _ _ _ [RecC _ fields] _) -> do
             let names   = map (\(n, _, _) -> n) fields
@@ -58,8 +57,7 @@ deriveQS' f name = do
             [d|instance QueryString $(conT name) where
                    queryString x = concatMap ($ x) $query|]
         _ ->
-            [d|instance QueryString $(conT name) where
-                   queryString _ = []|]
+            error "Can only derive QueryString instances for named record fields"
 
 --
 -- Internal
@@ -68,7 +66,6 @@ deriveQS' f name = do
 instance Lift BS.ByteString where
     lift = return . LitE . StringL . BS.unpack
 
--- | template/<NameOfModule>/<Type>
 embedTemplate :: Name -> Q [Dec]
 embedTemplate name =
     [d|instance Template $(conT name) where

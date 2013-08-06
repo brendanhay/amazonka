@@ -26,6 +26,7 @@ import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Data.Aeson
+import           Data.Aeson.XML
 import           Data.ByteString          (ByteString)
 import qualified Data.ByteString.Char8    as BS
 import qualified Data.ByteString.Lazy     as LBS
@@ -49,15 +50,19 @@ withRegion reg aws = awsAuth <$> ask >>=
     liftIO . runReaderT (unWrap aws) . Env (Just reg)
 
 -- FIXME: XHT -> Aeson
-send :: AWSRequest b a => a -> AWS ByteString
+send :: AWSRequest b a => a -> AWS (Maybe Value)
 send payload = do
     SignedRequest{..} <- sign =<< request payload
     liftIO . bracket (establishConnection rqUrl) closeConnection $
         \conn -> do
             sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
+
             print rqRequest
-            receiveResponse conn $ \_ inp ->
-                fromMaybe "" <$> Streams.read inp
+
+            receiveResponse conn $ \_ inp -> do
+                x <- Streams.read inp
+                r <- maybe (return Nothing) (convertXML "/" . BS.unpack) x
+                return r
 
 --
 -- Internal

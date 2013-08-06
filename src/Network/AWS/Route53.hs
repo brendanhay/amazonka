@@ -62,7 +62,7 @@ import           Text.Hastache
 data R53
 
 instance AWSSigner R53 where
-    sign = version2
+    sign = version3
 
 instance AWSRegion R53 where
     regionalise _ = id

@@ -34,7 +34,6 @@ library
         Network.AWS
 
       , Network.AWS.EC2
-      , Network.AWS.EC2.Actions
       , Network.AWS.EC2.Metadata
 
       , Network.AWS.Route53

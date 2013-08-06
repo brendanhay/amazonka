@@ -14,152 +14,81 @@
 
 module Data.Aeson.XML where
 
--- import           Control.Applicative        ((<*), (*>))
--- import           Control.Arrow              (first, (>>>), (&&&), (***))
--- import           Control.Category           (id)
--- import           Control.Monad              (when, forM_)
--- import qualified Data.Aeson                 as Aeson
--- import qualified Data.ByteString.Lazy.Char8 as BS
--- import qualified Data.HashMap.Strict        as HashMap
--- import qualified Data.Map                   as M
--- import           Data.Maybe                 (catMaybes)
--- import qualified Data.Text                  as T
--- import           Data.Tree.NTree.TypeDefs
--- import qualified Data.Vector                as Vector
--- import           Prelude                    hiding (id)
--- import           System.Console.GetOpt      (OptDescr(..), ArgDescr(NoArg, ReqArg), ArgOrder(Permute), usageInfo, getOpt)
--- import           System.Environment         (getArgs)
--- import           System.Exit                (ExitCode(ExitFailure), exitWith)
--- import           System.IO                  (hPutStrLn, stderr)
--- import           Text.Regex.Posix           ((=~))
--- import           Text.XML.HXT.Core          (readDocument, getChildren, getText, isElem, XmlTree, XNode(..), deep, getName, localPart, hasName, ArrowXml, runLA, getAttrl, runX, withValidate, no)
--- import           Text.XML.HXT.Curl                                                                                                                                                                 -- use libcurl for HTTP access, only necessary when reading http://...
--- import           Text.XML.HXT.Expat         (withExpat)
+import           Control.Applicative
+import           Data.Aeson
+import qualified Data.HashMap.Strict      as HashMap
+import qualified Data.Map                 as Map
+import           Data.Maybe
+import qualified Data.Text                as T
+import           Data.Tree.NTree.TypeDefs
+import qualified Data.Vector              as V
+import           Text.XML.HXT.Core
+import           Text.XML.HXT.Expat       (withExpat)
 
+data JSValue = Text | Tag String | Attr String
+    deriving (Eq, Ord, Show)
 
--- getStartNodes :: ArrowXml cat => [Flag] -> cat (NTree XNode) XmlTree
--- getStartNodes flags =
---   case [x | StartFrom x <- flags] of
---   []  -> getChildren >>> isElem
---   [x] -> deep (isElem >>> hasName x)
---   _   -> error "Expecting at most one --tag-name (-t) option"
+convertXML :: String -> String -> IO (Maybe Value)
+convertXML name src = do
+    elems <- runX $ flip readString src
+        [ withValidate no
+        , withCheckNamespaces no
+        , withParseByMimeType no
+        , withExpat yes
+        ] >>> startNodes
 
--- main :: IO ()
--- main = do
---   args <- getArgs
---   (flags, inputFiles) <- parseOptions args
+    return . decodeFirst $ encode <$> map (wrapRoot . treeToJSON) elems
+  where
+    startNodes = deep (isElem >>> hasName name)
 
---   when (elem ShowHelp flags || (null flags && null inputFiles)) .
---     die $ usageInfo usageHeader options
+    wrapRoot (Just (a, b)) = object [(packJSValue a, b)]
+    wrapRoot Nothing       = Null
 
---   let
---     skipRoots     = SkipRoots      `elem` flags
---     wrapArray     = WrapArray      `elem` flags
---     collapseTextRegex = singleOrNothing "Expecting at most one --no-collapse-text option" [x | NoCollapseText x <- flags]
---     wrapAction act
---       | wrapArray = putStr "[" *> act <* putStr "]"
---       | otherwise = act
---     multiline = case (wrapArray, Multiline `elem` flags) of
---       (False, _)     -> BS.intercalate (BS.pack "\n")
---       (True,  False) -> BS.intercalate (BS.pack ",")
---       (True,  True)  -> BS.intercalate (BS.pack ",\n")
+    decodeFirst xs = case listToMaybe xs of
+        Just x  -> decode x
+        Nothing -> Nothing
 
---     ignoreNulls
---       | NoIgnoreNulls `notElem` flags =
---         filter (/= Aeson.Null)
---       | otherwise =  id
+--
+-- Internal
+--
 
---     nodesFilter
---       | skipRoots = getChildren
---       | otherwise = id
+treeToJSON :: XmlTree -> Maybe (JSValue, Value)
+treeToJSON node
+    | (NTree (XText str) _)     <- node = text str
+    | (NTree (XTag qName _) cs) <- node = tag qName cs
+    | otherwise                        = Nothing
+  where
+    text "" = Nothing
+    text s  = Just (Text, String . T.strip $ T.pack s)
 
---   forM_ inputFiles $ \src -> do
---     rootElems <-
---       runX $
---       readDocument
---       [ withValidate no
---       , withExpat True
---       , withCurl []
---       ]
---       src
---       >>> getStartNodes flags
---       >>> nodesFilter
---     -- TODO: de-uglify and optimize the following
---     wrapAction
---       . BS.putStr . multiline
---       . map Aeson.encode
---       . ignoreNulls
---       . map (wrapRoot . xmlTreeToJSON collapseTextRegex)
---       $ rootElems
+    tag qName cs = Just (Tag (localPart qName), mapToJSValue $ objMap cs)
 
--- data JSValueName = Text | Tag String | Attr String
---   deriving (Eq, Ord, Show)
+    objMap cs = arrayValuesToJSON     -- unify into a single map,
+        . concatValues                -- grouping into arrays by pair name
+        . map (uncurry Map.singleton) -- convert pairs to maps
+        . (++) attrValues
+        . catMaybes                   -- filter out the empty values (unconvertable nodes)
+        $ map treeToJSON cs           -- convert xml nodes to Maybe (QName, Value) pairs
 
--- concatMapValues :: (Ord k) => [M.Map k v] -> M.Map k [v]
--- concatMapValues = M.unionsWith (++) . (fmap . fmap) (: [])
+    arrayValuesToJSON = Map.mapMaybe f
+      where
+        f []  = Nothing                        -- will be discarded
+        f [x] = Just x                         -- don't store as array, just a single value
+        f xs  = Just $ Array . V.fromList $ xs -- arrays with more than one element are kept
 
--- getAttrVals :: XmlTree -> [(String, String)]
--- getAttrVals = runLA (getAttrl >>> getName &&& (getChildren >>> getText))
+    attrValues = map (Attr *** String . T.pack) $
+        runLA (getAttrl >>> getName &&& (getChildren >>> getText)) node
 
--- arrayValuesToJSONArrays :: (Ord k) => M.Map k [Aeson.Value] -> M.Map k Aeson.Value
--- arrayValuesToJSONArrays = M.mapMaybe f
---   where
---     f [] = Nothing -- will be discarded
---     f [x] = Just x  -- don't store as array, just a single value
---     f xss = Just $ Aeson.Array . Vector.fromList $ xss -- arrays with more than one element are kept
+    concatValues = Map.unionsWith (++) . (fmap . fmap) (: [])
 
--- packJSValueName :: JSValueName -> T.Text
--- packJSValueName Text = T.pack "value"
--- packJSValueName (Attr x) = T.pack x
--- packJSValueName (Tag x)  = T.pack x
+    mapToJSValue m = case Map.toList m of
+        [(Text, val)] -> val
+        _ -> Object
+            . HashMap.fromList
+            . (map . first) packJSValue
+            $ Map.toList m
 
--- wrapRoot :: Maybe (JSValueName, Aeson.Value) -> Aeson.Value
--- wrapRoot Nothing       = Aeson.Null
--- wrapRoot (Just (a, b)) = Aeson.object [(packJSValueName a, b)]
-
--- -- converts a map to a json value, usually resulting in a json object unless the map contains ONLY a single Text entry,
--- -- in which case the value produced is a json string
--- tagMapToJSValue :: Bool -> M.Map JSValueName Aeson.Value -> Aeson.Value
--- tagMapToJSValue collapseTextRegex m = case (collapseTextRegex, M.toList m) of
---   (True, [(Text, val)]) -> val
---   _                     ->
---     Aeson.Object . HashMap.fromList . (map . first) packJSValueName $ M.toList m
-
--- xmlTreeToJSON :: Maybe String -> XmlTree -> Maybe (JSValueName, Aeson.Value)
--- xmlTreeToJSON collapseTextRegex node@(NTree (XTag qName _) children)
---   = Just (Tag (localPart qName),
---           tagMapToJSValue shouldCollapseText objMap)
---   where
---     objMap =
---         arrayValuesToJSONArrays    -- unify into a single map,
---       . concatMapValues            -- grouping into arrays by pair name
---       . map (uncurry M.singleton)  -- convert pairs to maps
---       . (++) attrVals
---       . catMaybes                  -- filter out the empty values (unconvertable nodes)
---       $ map (xmlTreeToJSON collapseTextRegex) children -- convert xml nodes to Maybe (QName, Aeson.Value) pairs
-
---     attrVals =
---       map (Attr *** Aeson.String . T.pack) $ getAttrVals node
-
---     shouldCollapseText = case collapseTextRegex of
---                          Nothing -> True
---                          Just "" -> False
---                          Just pattern -> not $ (localPart qName) =~ pattern
-
--- xmlTreeToJSON _ (NTree (XText str) _)
---   | T.null text = Nothing
---   | otherwise = Just (Text, Aeson.String text)
---   where
---     text = T.strip $ T.pack str
-
--- xmlTreeToJSON _ _ = Nothing
-
--- die :: String -> IO a
--- die msg = do
---   hPutStrLn stderr msg
---   exitWith (ExitFailure 1)
-
--- singleOrNothing :: String -> [a] -> Maybe a
--- singleOrNothing _   []  = Nothing
--- singleOrNothing _   [x] = Just x
--- singleOrNothing msg _   = error msg
+packJSValue :: JSValue -> T.Text
+packJSValue Text     = T.pack "value"
+packJSValue (Attr x) = T.pack x
+packJSValue (Tag x)  = T.pack x

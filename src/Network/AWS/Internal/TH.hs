@@ -26,7 +26,7 @@ module Network.AWS.Internal.TH
     , deriveQS'
     ) where
 
-import           Control.Applicative
+import           Control.Monad
 import           Data.Aeson.TH
 import qualified Data.ByteString.Char8       as BS
 import           Data.Monoid
@@ -37,13 +37,12 @@ import           Network.AWS.Internal.Types
 import           Paths_aws_haskell           (getDataFileName)
 
 deriveTmpl :: Name -> Q [Dec]
-deriveTmpl name = deriveTmpl' (underscore . dropLower) name
+deriveTmpl = deriveTmpl' (underscore . dropLower)
 
 deriveTmpl' :: (String -> String) -> Name -> Q [Dec]
-deriveTmpl' f name = concat <$> sequence
-    [ deriveToJSON f name
-    , embedTemplate name
-    ]
+deriveTmpl' f name = liftM2 (++)
+    (deriveToJSON (defaultOptions { fieldLabelModifier = f }) name)
+    (embedTemplate name)
 
 deriveQS :: Name -> Q [Dec]
 deriveQS name = deriveQS' (lowerFirst . dropLower) name

@@ -1,8 +1,8 @@
 {-# LANGUAGE ConstraintKinds            #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE FunctionalDependencies     #-}
 {-# LANGUAGE GADTs                      #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE Rank2Types                 #-}
@@ -66,21 +66,6 @@ instance ToByteString Region where
         Tokyo           -> "ap-northeast-1"
         Sydney          -> "ap-southeast-2"
         SaoPaulo        -> "sa-east-1"
-
-newtype CallerRef = CallerRef String
-    deriving (Show, IsString)
-
-instance ToJSON CallerRef where
-    toJSON (CallerRef s) = toJSON s
-
-callerRef :: IO CallerRef
-callerRef = fromString . show <$> getCurrentTime
-
-data Protocol = HTTP | TCP
-    deriving (Show)
-
-instance ToJSON Protocol where
-    toJSON = toJSON . show
 
 data Auth = Auth
     { accessKey :: !ByteString

@@ -17,7 +17,7 @@ module Network.AWS
     , withRegion
     , send
 
-    , module EC2
+--    , module EC2
     , module Route53
     ) where
 
@@ -37,7 +37,7 @@ import           OpenSSL                  (withOpenSSL)
 import           System.Environment
 import qualified System.IO.Streams        as Streams
 
-import           Network.AWS.EC2          as EC2
+-- import           Network.AWS.EC2          as EC2
 import           Network.AWS.Route53      as Route53
 
 runAWS :: AWS a -> IO a
@@ -52,16 +52,16 @@ withRegion reg aws = awsAuth <$> ask >>=
 send :: AWSRequest b a c => a -> AWS (Maybe c)
 send payload = do
     SignedRequest{..} <- sign =<< request payload
-    liftIO . bracket (establishConnection rqUrl) closeConnection $
-        \conn -> do
-            sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
+    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
+        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
 
-            print rqRequest
+        print rqRequest
 
-            receiveResponse conn $ \_ inp -> do
-                x <- Streams.read inp
-                r <- maybe (return Nothing) (convertXML "/" . BS.unpack) x
-                return r
+        receiveResponse conn $ \_ inp -> do
+            x <- Streams.read inp
+            maybe (return Nothing) (\bstr -> do
+                BS.putStrLn bstr
+                fromXML $ BS.unpack bstr) x
 
 --
 -- Internal

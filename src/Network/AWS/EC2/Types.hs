@@ -13,6 +13,7 @@ module Network.AWS.EC2.Types where
 
 import Data.ByteString      (ByteString)
 import Data.Monoid
+import Data.Text
 import Network.AWS.Internal
 
 data CreateImage = CreateImage

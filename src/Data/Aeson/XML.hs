@@ -11,9 +11,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Data.Aeson.XML where
+module Data.Aeson.XML
+    ( fromXML
+    ) where
 
 import           Control.Applicative
+import           Control.Category         (id)
 import           Data.Aeson
 import qualified Data.HashMap.Strict      as HashMap
 import qualified Data.Map                 as Map
@@ -21,31 +24,31 @@ import           Data.Maybe
 import qualified Data.Text                as T
 import           Data.Tree.NTree.TypeDefs
 import qualified Data.Vector              as V
+import           Prelude                  hiding (id)
 import           Text.XML.HXT.Core
 import           Text.XML.HXT.Expat       (withExpat)
 
 data JSValue = Text | Tag String | Attr String
     deriving (Eq, Ord, Show)
 
-convertXML :: FromJSON a => String -> String -> IO (Maybe a)
-convertXML name src = do
+fromXML :: FromJSON a => String -> IO (Maybe a)
+fromXML src = do
     elems <- runX $ flip readString src
         [ withValidate no
         , withCheckNamespaces no
         , withParseByMimeType no
         , withExpat yes
-        ] >>> startNodes
+        ] >>> getChildren
 
-    return . decodeFirst $ encode <$> map (wrapRoot . treeToJSON) elems
+    print $ encode <$> map (unWrap . treeToJSON) elems
+
+    return . decodeFirst $ encode <$> map (unWrap . treeToJSON) elems
   where
-    startNodes = deep (isElem >>> hasName name)
+    unWrap (Just (_, x)) = x -- object [(packJSValue a, b)]
+    unWrap Nothing       = Null
 
-    wrapRoot (Just (a, b)) = object [(packJSValue a, b)]
-    wrapRoot Nothing       = Null
-
-    decodeFirst xs = case listToMaybe xs of
-        Just x  -> decode x
-        Nothing -> Nothing
+    decodeFirst (x:_) = decode x
+    decodeFirst _     = Nothing
 
 --
 -- Internal
@@ -80,12 +83,14 @@ treeToJSON node
 
     concatValues = Map.unionsWith (++) . (fmap . fmap) (: [])
 
-    mapToJSValue m = case Map.toList m of
-        [(Text, val)] -> val
-        _ -> Object
-            . HashMap.fromList
-            . (map . first) packJSValue
-            $ Map.toList m
+    mapToJSValue m
+        | Map.null m = Array V.empty -- convert empty elements to empty arrays
+        | otherwise  =  case Map.toList m of
+              [(Text, val)] -> val
+              _             -> Object
+                  . HashMap.fromList
+                  . (map . first) packJSValue
+                  $ Map.toList m
 
 packJSValue :: JSValue -> T.Text
 packJSValue Text     = T.pack "value"

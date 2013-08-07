@@ -18,6 +18,11 @@ import Data.Maybe
 dropPrefix :: String -> String -> String
 dropPrefix pre s = fromMaybe s $ pre `stripPrefix` s
 
+dropSuffix :: String -> String -> String
+dropSuffix suf s
+    | suf `isSuffixOf` s = take (length s - length suf) s
+    | otherwise          = s
+
 dropLower :: String -> String
 dropLower = dropWhile isLower
 
@@ -27,6 +32,9 @@ lowerFirst []     = []
 
 lowerAll :: String -> String
 lowerAll = map toLower
+
+upperAll :: String -> String
+upperAll = map toUpper
 
 suffix :: String -> String
 suffix str = map rep $ drop idx str

@@ -49,10 +49,8 @@ import           Data.Aeson
 import           Data.Aeson.Hastache
 import           Data.Aeson.TH
 import           Data.ByteString           (ByteString)
-import qualified Data.ByteString.Char8     as BS
 import           Data.Monoid
 import           Data.String
-import qualified Data.Text                 as Text
 import           Network.AWS.Internal
 import           Network.AWS.Route53.Types as Types
 import           Network.Http.Client       hiding (get)
@@ -165,7 +163,7 @@ data ResourceRecordSet = ResourceRecordSet
     , rrsValues        :: ![ByteString]
     } deriving (Show)
 
-$(deriveToJSON (defaultOptions { fieldLabelModifier = underscore . dropLower }) ''ResourceRecordSet)
+$(deriveToJSON underscoredFieldOptions ''ResourceRecordSet)
 
 -- | Adds, deletes, and changes resource record sets in a Route 53 hosted zone.
 --

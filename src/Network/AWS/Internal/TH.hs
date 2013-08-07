@@ -24,6 +24,12 @@ module Network.AWS.Internal.TH
     -- * QueryString Instances
     , deriveQS
     , deriveQS'
+
+    -- * Aeson.TH Options
+    , options
+    , fieldOptions
+    , loweredFieldOptions
+    , underscoredFieldOptions
     ) where
 
 import           Control.Monad
@@ -62,6 +68,16 @@ deriveQS' f name = do
                    queryString x = concatMap ($ x) $query|]
         _ ->
             error "Can only derive QueryString instances for named record fields"
+
+--
+-- Aeson.TH Options
+--
+
+options, fieldOptions, loweredFieldOptions, underscoredFieldOptions :: Options
+options                 = defaultOptions
+fieldOptions            = options { fieldLabelModifier = dropLower }
+loweredFieldOptions     = options { fieldLabelModifier = lowerAll . dropLower }
+underscoredFieldOptions = options { fieldLabelModifier = underscore . dropLower }
 
 --
 -- Internal

@@ -42,7 +42,7 @@ callerRef = fromString . show <$> getCurrentTime
 data Protocol = HTTP | TCP
     deriving (Show)
 
-$(deriveJSON defaultOptions ''Protocol)
+$(deriveJSON options ''Protocol)
 
 data RecordAction = CreateAction | DeleteAction
 
@@ -56,7 +56,7 @@ instance ToJSON RecordAction where
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
     deriving (Show)
 
-$(deriveJSON defaultOptions ''RecordType)
+$(deriveJSON options ''RecordType)
 
 instance QueryParam RecordType where
     queryParam k v = [(k, BS.pack $ show v)]
@@ -64,13 +64,13 @@ instance QueryParam RecordType where
 data ChangeStatus = PENDING | INSYNC
     deriving (Show)
 
-$(deriveJSON defaultOptions ''ChangeStatus)
+$(deriveJSON options ''ChangeStatus)
 
 data Config = Config
     { cComment :: !Text
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''Config)
+$(deriveJSON loweredFieldOptions ''Config)
 
 data HostedZone = HostedZone
     { hzId                     :: !Text
@@ -80,7 +80,7 @@ data HostedZone = HostedZone
     , hzResourceRecordSetCount :: !Integer
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''HostedZone)
+$(deriveJSON loweredFieldOptions ''HostedZone)
 
 data ChangeInfo = ChangeInfo
     { ciId          :: !Text
@@ -88,13 +88,13 @@ data ChangeInfo = ChangeInfo
     , ciSubmittedAt :: !UTCTime
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''ChangeInfo)
+$(deriveJSON loweredFieldOptions ''ChangeInfo)
 
 data DelegationSet = DelegationSet
     { dsNameServers :: ![Text]
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''DelegationSet)
+$(deriveJSON loweredFieldOptions ''DelegationSet)
 
 --
 -- Hosted Zones
@@ -134,7 +134,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , chzrDelegationSet :: !DelegationSet
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''CreateHostedZoneResponse)
+$(deriveJSON loweredFieldOptions ''CreateHostedZoneResponse)
 
 -- <GetHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HostedZone>
@@ -164,7 +164,7 @@ data GetHostedZoneResponse = GetHostedZoneResponse
     , ghzrDelegationSet :: !DelegationSet
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''GetHostedZoneResponse)
+$(deriveJSON loweredFieldOptions ''GetHostedZoneResponse)
 
 -- <ListHostedZonesResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HostedZones>
@@ -202,7 +202,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     , lhzrMaxItems    :: !Integer
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''ListHostedZonesResponse)
+$(deriveJSON loweredFieldOptions ''ListHostedZonesResponse)
 
 -- <DeleteHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ChangeInfo>
@@ -216,7 +216,7 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''DeleteHostedZoneResponse)
+$(deriveJSON loweredFieldOptions ''DeleteHostedZoneResponse)
 
 --
 -- Record Sets
@@ -234,7 +234,7 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''ChangeResourceRecordSetsResponse)
+$(deriveJSON loweredFieldOptions ''ChangeResourceRecordSetsResponse)
 
 -- <ListResourceRecordSetsResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ResourceRecordSets>
@@ -411,7 +411,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     
     deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''ListResourceRecordSetsResponse)
+$(deriveJSON loweredFieldOptions ''ListResourceRecordSetsResponse)
 
 -- <GetChangeResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ChangeInfo>
@@ -426,7 +426,7 @@ data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''GetChangeResponse)
+$(deriveJSON loweredFieldOptions ''GetChangeResponse)
 
 --
 -- Health Checks
@@ -440,7 +440,7 @@ data HealthCheckConfig = HealthCheckConfig
     , hccFullyQualifiedDomainName :: !Text
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''HealthCheckConfig)
+$(deriveJSON loweredFieldOptions ''HealthCheckConfig)
 
 data HealthCheck = HealthCheck
     { hcId                :: !Text
@@ -448,7 +448,7 @@ data HealthCheck = HealthCheck
     , hcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''HealthCheck)
+$(deriveJSON loweredFieldOptions ''HealthCheck)
 
 -- <CreateHealthCheckResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HealthCheck>
@@ -516,7 +516,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 --         <*> o .: "MaxItems"
 --     parseJSON _ = mzero
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''ListHealthChecksResponse)
+$(deriveJSON loweredFieldOptions ''ListHealthChecksResponse)
 
 -- <DeleteHealthCheckResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 -- </DeleteHealthCheckResponse>
@@ -524,4 +524,4 @@ $(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''ListHealthChe
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Show)
 
-$(deriveJSON (defaultOptions { fieldLabelModifier = dropLower }) ''DeleteHealthCheckResponse)
+$(deriveJSON options ''DeleteHealthCheckResponse)

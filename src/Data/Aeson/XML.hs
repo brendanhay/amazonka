@@ -16,7 +16,6 @@ module Data.Aeson.XML
     ) where
 
 import           Control.Applicative
-import           Control.Category         (id)
 import           Data.Aeson
 import qualified Data.HashMap.Strict      as HashMap
 import qualified Data.Map                 as Map
@@ -24,7 +23,6 @@ import           Data.Maybe
 import qualified Data.Text                as T
 import           Data.Tree.NTree.TypeDefs
 import qualified Data.Vector              as V
-import           Prelude                  hiding (id)
 import           Text.XML.HXT.Core
 import           Text.XML.HXT.Expat       (withExpat)
 

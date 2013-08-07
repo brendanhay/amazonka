@@ -14,7 +14,7 @@
 
 module Network.AWS
     ( runAWS
-    , withRegion
+    , within
     , send
 
 --    , module EC2
@@ -44,8 +44,8 @@ runAWS :: AWS a -> IO a
 runAWS aws = withOpenSSL $ discover >>=
     runReaderT (unWrap aws) . Env Nothing
 
-withRegion :: Region -> AWS a -> AWS a
-withRegion reg aws = awsAuth <$> ask >>=
+within :: Region -> AWS a -> AWS a
+within reg aws = awsAuth <$> ask >>=
     liftIO . runReaderT (unWrap aws) . Env (Just reg)
 
 -- FIXME: XHT -> Aeson

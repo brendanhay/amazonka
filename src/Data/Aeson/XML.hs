@@ -1,13 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |
--- Module      : Data.Aeson.XML
+-- Module      : Network.AWS.XML
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
---               Berkeley Software Distribution License, v. 3.0.
---               You can obtain it at
---               http://http://opensource.org/licenses/BSD-3-Clause.
--- Author      : Vladimir Kirillov <proger@hackndev.com>
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)

@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -5,7 +6,7 @@
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TypeSynonymInstances       #-}
 
-{-# LANGUAGE FlexibleInstances       #-}
+{-# LANGUAGE ConstraintKinds          #-}
 
 -- |
 -- Module      : Network.AWS.Route53
@@ -70,14 +71,21 @@ instance AWSSigner R53 where
 instance AWSRegion R53 where
     regionalise _ = id
 
-get, delete :: FromJSON a => ByteString -> [(ByteString, ByteString)] -> AWS (RawRequest R53 a)
+get, delete :: FromJSON a
+            => ByteString
+            -> [(ByteString, ByteString)]
+            -> AWS (RawRequest R53 a)
 get    = req GET
 delete = req DELETE
 
 post :: (Template a, FromJSON b) => ByteString -> a -> AWS (RawRequest R53 b)
 post path tmpl = emptyRequest POST version endpoint path . Just <$> render tmpl
 
-req :: FromJSON a => Method -> ByteString -> [(ByteString, ByteString)] -> AWS (RawRequest R53 a)
+req :: FromJSON a
+    => Method
+    -> ByteString
+    -> [(ByteString, ByteString)]
+    -> AWS (RawRequest R53 a)
 req meth path qry = return $ rq { rqQuery = qry }
   where
     rq = emptyRequest meth version endpoint path Nothing

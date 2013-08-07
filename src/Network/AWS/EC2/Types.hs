@@ -655,10 +655,12 @@ data CreateSecurityGroupResponse = CreateSecurityGroupResponse
     } deriving (Show)
 
 data DeleteSecurityGroup = DeleteSecurityGroup
+    {
 -- <xs:choice>
-    , dsgGroupId :: !(Maybe String)
+      dsgGroupId :: !(Maybe String)
     , dsgGroupName :: !(Maybe String)
 -- </xs:choice>
+    } deriving (Show)
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     { dsgrRequestId :: !String

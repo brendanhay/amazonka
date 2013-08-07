@@ -18,13 +18,33 @@ module Network.AWS.EC2 where
 
 import Data.ByteString       (ByteString)
 import Data.Monoid
-import Network.AWS.EC2.Types
+--- import Network.AWS.EC2.Types
 import Network.AWS.Internal
 import Network.Http.Client
 
 --
 -- EC2 Requests
 --
+
+-- <Response>
+--     <Errors>
+--          <Error>
+--            <Code>Error code text</Code>
+--            <Message>Error message</Message>
+--          </Error>
+--     </Errors>
+--     <RequestID>request ID</RequestID>
+-- </Response>
+
+data ErrorResponse = ErrorResponse
+    { errErrors    :: ![(String, String)]
+    , errRequestId :: !String
+    } deriving (Show)
+
+data EC2Response a
+    = Error !ErrorResponse
+    | Valid !a
+      deriving (Show)
 
 data EC2
 

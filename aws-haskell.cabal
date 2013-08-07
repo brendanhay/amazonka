@@ -33,8 +33,8 @@ library
     exposed-modules:
         Network.AWS
 
-      , Network.AWS.EC2
-      , Network.AWS.EC2.Metadata
+      -- , Network.AWS.EC2
+      -- , Network.AWS.EC2.Metadata
 
       , Network.AWS.Route53
 

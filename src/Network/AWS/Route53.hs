@@ -3,6 +3,9 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE TypeSynonymInstances       #-}
+
+{-# LANGUAGE FlexibleInstances       #-}
 
 -- |
 -- Module      : Network.AWS.Route53
@@ -67,14 +70,14 @@ instance AWSSigner R53 where
 instance AWSRegion R53 where
     regionalise _ = id
 
-get, delete :: ByteString -> [(ByteString, ByteString)] -> AWS (RawRequest R53)
+get, delete :: FromJSON a => ByteString -> [(ByteString, ByteString)] -> AWS (RawRequest R53 a)
 get    = req GET
 delete = req DELETE
 
-post :: Template a => ByteString -> a -> AWS (RawRequest R53)
+post :: (Template a, FromJSON b) => ByteString -> a -> AWS (RawRequest R53 b)
 post path tmpl = emptyRequest POST version endpoint path . Just <$> render tmpl
 
-req :: Method -> ByteString -> [(ByteString, ByteString)] -> AWS (RawRequest R53)
+req :: FromJSON a => Method -> ByteString -> [(ByteString, ByteString)] -> AWS (RawRequest R53 a)
 req meth path qry = return $ rq { rqQuery = qry }
   where
     rq = emptyRequest meth version endpoint path Nothing
@@ -106,7 +109,7 @@ data CreateHostedZone = CreateHostedZone
 
 $(deriveTmpl ''CreateHostedZone)
 
-instance AWSRequest R53 CreateHostedZone where
+instance AWSRequest R53 CreateHostedZone Object where
     request = post "hostedzone"
 
 -- | Gets information about a specified hosted zone.
@@ -115,7 +118,7 @@ instance AWSRequest R53 CreateHostedZone where
 newtype GetHostedZone = GetHostedZone ByteString
     deriving (Show, IsString, ToByteString)
 
-instance AWSRequest R53 GetHostedZone where
+instance AWSRequest R53 GetHostedZone Object where
     request chk = get ("hostedzone/" <> toBS chk) []
 
 -- | Gets a list of the hosted zones that are associated with the
@@ -129,7 +132,7 @@ data ListHostedZones = ListHostedZones
 
 $(deriveQS' (lowerAll . dropLower) ''ListHostedZones)
 
-instance AWSRequest R53 ListHostedZones where
+instance AWSRequest R53 ListHostedZones Object where
     request = get "hostedzone" . queryString
 
 -- | Deletes a hosted zone.
@@ -138,7 +141,7 @@ instance AWSRequest R53 ListHostedZones where
 newtype DeleteHostedZone = DeleteHostedZone ByteString
     deriving (Show, IsString, ToByteString)
 
-instance AWSRequest R53 DeleteHostedZone where
+instance AWSRequest R53 DeleteHostedZone Object where
     request chk = delete ("hostedzone/" <> toBS chk) []
 
 --
@@ -185,7 +188,7 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
 
 $(deriveTmpl ''ChangeResourceRecordSets)
 
-instance AWSRequest R53 ChangeResourceRecordSets where
+instance AWSRequest R53 ChangeResourceRecordSets Object where
     request rs@ChangeResourceRecordSets{..} =
         post ("hostedzone/" <> crrsZoneId <> "/rrset") rs
 
@@ -202,7 +205,7 @@ data ListResourceRecordSets = ListResourceRecordSets
 
 $(deriveQS' (lowerAll . dropLower) ''ListResourceRecordSets)
 
-instance AWSRequest R53 ListResourceRecordSets where
+instance AWSRequest R53 ListResourceRecordSets Object where
     request rs@ListResourceRecordSets{..} =
         get ("hostedzone/" <> lrrsZoneId <> "/rrset") $ queryString rs
 
@@ -213,7 +216,7 @@ instance AWSRequest R53 ListResourceRecordSets where
 newtype GetChange = GetChange ByteString
     deriving (Show, IsString, ToByteString)
 
-instance AWSRequest R53 GetChange where
+instance AWSRequest R53 GetChange Object where
     request chk = get ("change/" <> toBS chk) []
 
 --
@@ -234,7 +237,7 @@ data CreateHealthCheck = CreateHealthCheck
 
 $(deriveTmpl ''CreateHealthCheck)
 
-instance AWSRequest R53 CreateHealthCheck where
+instance AWSRequest R53 CreateHealthCheck Object where
     request = post "healthcheck"
 
 -- | Gets information about a specified health check.
@@ -243,7 +246,7 @@ instance AWSRequest R53 CreateHealthCheck where
 newtype GetHealthCheck = GetHealthCheck ByteString
     deriving (Show, IsString, ToByteString)
 
-instance AWSRequest R53 GetHealthCheck where
+instance AWSRequest R53 GetHealthCheck Object where
     request chk = get ("healthcheck/" <> toBS chk) []
 
 -- | Gets a list of the health checks that are associated
@@ -257,7 +260,7 @@ data ListHealthChecks = ListHealthChecks
 
 $(deriveQS' (lowerAll . dropLower) ''ListHealthChecks)
 
-instance AWSRequest R53 ListHealthChecks where
+instance AWSRequest R53 ListHealthChecks Object where
     request = get "healthcheck" . queryString
 
 -- | Deletes a health check.
@@ -266,5 +269,5 @@ instance AWSRequest R53 ListHealthChecks where
 newtype DeleteHealthCheck = DeleteHealthCheck ByteString
     deriving (Show, IsString, ToByteString)
 
-instance AWSRequest R53 DeleteHealthCheck where
+instance AWSRequest R53 DeleteHealthCheck Object where
     request chk = delete (mappend "healthcheck/" $ toBS chk) []

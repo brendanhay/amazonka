@@ -17,7 +17,7 @@ module Network.AWS
     , withRegion
     , send
 
-    , module EC2
+--    , module EC2
     , module Route53
     ) where
 
@@ -38,7 +38,7 @@ import           OpenSSL                  (withOpenSSL)
 import           System.Environment
 import qualified System.IO.Streams        as Streams
 
-import           Network.AWS.EC2          as EC2
+-- import           Network.AWS.EC2          as EC2
 import           Network.AWS.Route53      as Route53
 
 runAWS :: AWS a -> IO a
@@ -50,7 +50,7 @@ withRegion reg aws = awsAuth <$> ask >>=
     liftIO . runReaderT (unWrap aws) . Env (Just reg)
 
 -- FIXME: XHT -> Aeson
-send :: AWSRequest b a => a -> AWS (Maybe Value)
+send :: AWSRequest b a c => a -> AWS (Maybe c)
 send payload = do
     SignedRequest{..} <- sign =<< request payload
     liftIO . bracket (establishConnection rqUrl) closeConnection $

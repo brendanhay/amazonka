@@ -28,7 +28,7 @@ import           Text.XML.HXT.Expat       (withExpat)
 data JSValue = Text | Tag String | Attr String
     deriving (Eq, Ord, Show)
 
-convertXML :: String -> String -> IO (Maybe Value)
+convertXML :: FromJSON a => String -> String -> IO (Maybe a)
 convertXML name src = do
     elems <- runX $ flip readString src
         [ withValidate no

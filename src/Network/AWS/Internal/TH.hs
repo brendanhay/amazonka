@@ -29,7 +29,6 @@ module Network.AWS.Internal.TH
 import           Control.Applicative
 import           Data.Aeson.TH
 import qualified Data.ByteString.Char8       as BS
-import           Data.Char                   (toLower)
 import           Data.Monoid
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Syntax

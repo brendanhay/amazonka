@@ -1,9 +1,11 @@
+{-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE FunctionalDependencies     #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE Rank2Types                 #-}
 {-# LANGUAGE RecordWildCards            #-}
 
 -- |
@@ -99,8 +101,8 @@ data Env = Env
 newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
 
-data RawRequest a where
-    RawRequest :: AWSSigner a
+data RawRequest a b where
+    RawRequest :: (AWSSigner a, FromJSON b)
                => { rqMethod  :: !Method
                  , rqVersion :: !ApiVersion
                  , rqHost    :: !ByteString
@@ -110,24 +112,23 @@ data RawRequest a where
                  , rqQuery   :: ![(ByteString, ByteString)]
                  , rqBody    :: !(Maybe (InputStream ByteString))
                  }
-               -> RawRequest a
+               -> RawRequest a b
 
-class AWSSigner a where
-    sign :: RawRequest a -> AWS SignedRequest
+data SignedRequest a where
+    SignedRequest :: FromJSON a
+                  => { rqUrl     :: !ByteString
+                    , rqStream  :: !(Maybe (InputStream ByteString))
+                    , rqRequest :: !Request
+                    }
+                  -> SignedRequest a
 
-class AWSRegion a where
-    regionalise :: Region -> RawRequest a -> RawRequest a
-
-class AWSSigner b => AWSRequest b a | a -> b where
-    request :: a -> AWS (RawRequest b)
-
-emptyRequest :: AWSSigner a
+emptyRequest :: (AWSSigner a, FromJSON b)
              => Method
              -> ApiVersion
              -> ByteString
              -> ByteString
              -> Maybe (InputStream ByteString)
-             -> RawRequest a
+             -> RawRequest a b
 emptyRequest meth ver host path body = RawRequest
     { rqMethod  = meth
     , rqVersion = ver
@@ -139,13 +140,16 @@ emptyRequest meth ver host path body = RawRequest
     , rqBody    = body
     }
 
-data SignedRequest = SignedRequest
-    { rqUrl     :: !ByteString
-    , rqStream  :: !(Maybe (InputStream ByteString))
-    , rqRequest :: !Request
-    }
+class AWSSigner a where
+    sign :: RawRequest a b -> AWS (SignedRequest b)
 
-instance Show SignedRequest where
+class AWSRegion a where
+    regionalise :: Region -> RawRequest a b -> RawRequest a b
+
+class (AWSSigner b, FromJSON c) => AWSRequest b a c | a -> b c where
+    request :: a -> AWS (RawRequest b c)
+
+instance Show (SignedRequest a) where
     show SignedRequest{..} = "SignedRequest: "
         ++ show rqUrl
         ++ "\n"

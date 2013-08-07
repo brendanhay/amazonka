@@ -35,10 +35,10 @@ import           Network.HTTP.Types         (urlEncode)
 import           Network.Http.Client
 import           System.Locale              (defaultTimeLocale, iso8601DateFormat)
 
-version2 :: AWSRegion a => RawRequest a -> AWS SignedRequest
+version2 :: AWSRegion a => RawRequest a b -> AWS (SignedRequest b)
 version2 = signer version2Signer
 
-version3 :: AWSRegion a => RawRequest a -> AWS SignedRequest
+version3 :: AWSRegion a => RawRequest a b -> AWS (SignedRequest b)
 version3 = signer version3Signer
 
 --
@@ -46,15 +46,15 @@ version3 = signer version3Signer
 --
 
 signer :: AWSRegion a
-       => (Auth -> RawRequest a -> IO SignedRequest)
-       -> RawRequest a
-       -> AWS SignedRequest
+       => (Auth -> RawRequest a b -> IO (SignedRequest b))
+       -> RawRequest a b
+       -> AWS (SignedRequest b)
 signer f raw = do
     auth <- awsAuth <$> ask
     rq   <- maybe raw (`regionalise` raw) <$> (awsRegion <$> ask)
     liftIO $ f auth rq
 
-version2Signer :: Auth -> RawRequest a -> IO SignedRequest
+version2Signer :: Auth -> RawRequest a b -> IO (SignedRequest b)
 version2Signer Auth{..} RawRequest{..} = do
     time <- getCurrentTime
 
@@ -95,7 +95,7 @@ version2Signer Auth{..} RawRequest{..} = do
             , qry
             ]
 
-version3Signer :: Auth -> RawRequest a -> IO SignedRequest
+version3Signer :: Auth -> RawRequest a b -> IO (SignedRequest b)
 version3Signer Auth{..} RawRequest{..} = do
     time <- rfc822Time <$> getCurrentTime
 

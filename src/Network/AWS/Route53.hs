@@ -6,8 +6,6 @@
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TypeSynonymInstances       #-}
 
-{-# LANGUAGE ConstraintKinds          #-}
-
 -- |
 -- Module      : Network.AWS.Route53
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>

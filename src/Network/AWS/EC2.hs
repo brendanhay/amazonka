@@ -1,7 +1,9 @@
-{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE OverloadedStrings     #-}
 {-# LANGUAGE RecordWildCards       #-}
 {-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeSynonymInstances  #-}
 
 -- |
 -- Module      : Network.AWS.EC2
@@ -16,9 +18,9 @@
 
 module Network.AWS.EC2 where
 
-import Data.ByteString       (ByteString)
+import Data.Aeson
+import Data.ByteString      (ByteString)
 import Data.Monoid
---- import Network.AWS.EC2.Types
 import Network.AWS.Internal
 import Network.Http.Client
 
@@ -54,10 +56,14 @@ instance AWSSigner EC2 where
 instance AWSRegion EC2 where
     regionalise reg rq = rq { rqHost = "ec2." <> toBS reg <> ".amazonaws.com" }
 
-get :: QueryString a => ByteString -> a -> AWS (RawRequest EC2)
+get :: (QueryString a, FromJSON b) => ByteString -> a -> AWS (RawRequest EC2 b)
 get = req GET
 
-req :: QueryString a => Method -> ByteString -> a -> AWS (RawRequest EC2)
+req :: (QueryString a, FromJSON b)
+    => Method
+    -> ByteString
+    -> a
+    -> AWS (RawRequest EC2 b)
 req meth action qry = return $ (emptyRequest meth version endpoint "" Nothing)
     { rqAction = Just action
     , rqQuery  = queryString qry
@@ -82,7 +88,7 @@ data AllocateAddress = AllocateAddress
 
 $(deriveQS ''AllocateAddress)
 
-instance AWSRequest EC2 AllocateAddress where
+instance AWSRequest EC2 AllocateAddress Object where
     request = get "AllocateAddress"
 
 -- |
@@ -94,7 +100,7 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 
 $(deriveQS ''AssignPrivateIpAddresses)
 
-instance AWSRequest EC2 AssignPrivateIpAddresses where
+instance AWSRequest EC2 AssignPrivateIpAddresses Object where
     request = get "AssignPrivateIpAddresses"
 
 -- |
@@ -106,7 +112,7 @@ data AssociateAddress = AssociateAddress
 
 $(deriveQS ''AssociateAddress)
 
-instance AWSRequest EC2 AssociateAddress where
+instance AWSRequest EC2 AssociateAddress Object where
     request = get "AssociateAddress"
 
 -- |
@@ -118,7 +124,7 @@ data AssociateDhcpOptions = AssociateDhcpOptions
 
 $(deriveQS ''AssociateDhcpOptions)
 
-instance AWSRequest EC2 AssociateDhcpOptions where
+instance AWSRequest EC2 AssociateDhcpOptions Object where
     request = get "AssociateDhcpOptions"
 
 -- |
@@ -130,7 +136,7 @@ data AssociateRouteTable = AssociateRouteTable
 
 $(deriveQS ''AssociateRouteTable)
 
-instance AWSRequest EC2 AssociateRouteTable where
+instance AWSRequest EC2 AssociateRouteTable Object where
     request = get "AssociateRouteTable"
 
 -- |
@@ -142,7 +148,7 @@ data AttachInternetGateway = AttachInternetGateway
 
 $(deriveQS ''AttachInternetGateway)
 
-instance AWSRequest EC2 AttachInternetGateway where
+instance AWSRequest EC2 AttachInternetGateway Object where
     request = get "AttachInternetGateway"
 
 -- |
@@ -154,7 +160,7 @@ data AttachNetworkInterface = AttachNetworkInterface
 
 $(deriveQS ''AttachNetworkInterface)
 
-instance AWSRequest EC2 AttachNetworkInterface where
+instance AWSRequest EC2 AttachNetworkInterface Object where
     request = get "AttachNetworkInterface"
 
 -- |
@@ -166,7 +172,7 @@ data AttachVolume = AttachVolume
 
 $(deriveQS ''AttachVolume)
 
-instance AWSRequest EC2 AttachVolume where
+instance AWSRequest EC2 AttachVolume Object where
     request = get "AttachVolume"
 
 -- |
@@ -178,7 +184,7 @@ data AttachVpnGateway = AttachVpnGateway
 
 $(deriveQS ''AttachVpnGateway)
 
-instance AWSRequest EC2 AttachVpnGateway where
+instance AWSRequest EC2 AttachVpnGateway Object where
     request = get "AttachVpnGateway"
 
 -- |
@@ -190,7 +196,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
 
 $(deriveQS ''AuthorizeSecurityGroupEgress)
 
-instance AWSRequest EC2 AuthorizeSecurityGroupEgress where
+instance AWSRequest EC2 AuthorizeSecurityGroupEgress Object where
     request = get "AuthorizeSecurityGroupEgress"
 
 -- |
@@ -202,7 +208,7 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 
 $(deriveQS ''AuthorizeSecurityGroupIngress)
 
-instance AWSRequest EC2 AuthorizeSecurityGroupIngress where
+instance AWSRequest EC2 AuthorizeSecurityGroupIngress Object where
     request = get "AuthorizeSecurityGroupIngress"
 
 -- |
@@ -214,7 +220,7 @@ data BundleInstance = BundleInstance
 
 $(deriveQS ''BundleInstance)
 
-instance AWSRequest EC2 BundleInstance where
+instance AWSRequest EC2 BundleInstance Object where
     request = get "BundleInstance"
 
 -- |
@@ -226,7 +232,7 @@ data CancelBundleTask = CancelBundleTask
 
 $(deriveQS ''CancelBundleTask)
 
-instance AWSRequest EC2 CancelBundleTask where
+instance AWSRequest EC2 CancelBundleTask Object where
     request = get "CancelBundleTask"
 
 -- |
@@ -238,7 +244,7 @@ data CancelConversionTask = CancelConversionTask
 
 $(deriveQS ''CancelConversionTask)
 
-instance AWSRequest EC2 CancelConversionTask where
+instance AWSRequest EC2 CancelConversionTask Object where
     request = get "CancelConversionTask"
 
 -- |
@@ -250,7 +256,7 @@ data CancelExportTask = CancelExportTask
 
 $(deriveQS ''CancelExportTask)
 
-instance AWSRequest EC2 CancelExportTask where
+instance AWSRequest EC2 CancelExportTask Object where
     request = get "CancelExportTask"
 
 -- |
@@ -262,7 +268,7 @@ data CancelReservedInstancesListing = CancelReservedInstancesListing
 
 $(deriveQS ''CancelReservedInstancesListing)
 
-instance AWSRequest EC2 CancelReservedInstancesListing where
+instance AWSRequest EC2 CancelReservedInstancesListing Object where
     request = get "CancelReservedInstancesListing"
 
 -- |
@@ -274,7 +280,7 @@ data CancelSpotInstanceRequests = CancelSpotInstanceRequests
 
 $(deriveQS ''CancelSpotInstanceRequests)
 
-instance AWSRequest EC2 CancelSpotInstanceRequests where
+instance AWSRequest EC2 CancelSpotInstanceRequests Object where
     request = get "CancelSpotInstanceRequests"
 
 -- |
@@ -286,7 +292,7 @@ data ConfirmProductInstance = ConfirmProductInstance
 
 $(deriveQS ''ConfirmProductInstance)
 
-instance AWSRequest EC2 ConfirmProductInstance where
+instance AWSRequest EC2 ConfirmProductInstance Object where
     request = get "ConfirmProductInstance"
 
 -- |
@@ -298,7 +304,7 @@ data CopyImage = CopyImage
 
 $(deriveQS ''CopyImage)
 
-instance AWSRequest EC2 CopyImage where
+instance AWSRequest EC2 CopyImage Object where
     request = get "CopyImage"
 
 -- |
@@ -310,7 +316,7 @@ data CopySnapshot = CopySnapshot
 
 $(deriveQS ''CopySnapshot)
 
-instance AWSRequest EC2 CopySnapshot where
+instance AWSRequest EC2 CopySnapshot Object where
     request = get "CopySnapshot"
 
 -- |
@@ -322,7 +328,7 @@ data CreateCustomerGateway = CreateCustomerGateway
 
 $(deriveQS ''CreateCustomerGateway)
 
-instance AWSRequest EC2 CreateCustomerGateway where
+instance AWSRequest EC2 CreateCustomerGateway Object where
     request = get "CreateCustomerGateway"
 
 -- |
@@ -334,7 +340,7 @@ data CreateDhcpOptions = CreateDhcpOptions
 
 $(deriveQS ''CreateDhcpOptions)
 
-instance AWSRequest EC2 CreateDhcpOptions where
+instance AWSRequest EC2 CreateDhcpOptions Object where
     request = get "CreateDhcpOptions"
 
 -- |
@@ -346,7 +352,7 @@ data CreateImage = CreateImage
 
 $(deriveQS ''CreateImage)
 
-instance AWSRequest EC2 CreateImage where
+instance AWSRequest EC2 CreateImage Object where
     request = get "CreateImage"
 
 -- |
@@ -358,7 +364,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
 
 $(deriveQS ''CreateInstanceExportTask)
 
-instance AWSRequest EC2 CreateInstanceExportTask where
+instance AWSRequest EC2 CreateInstanceExportTask Object where
     request = get "CreateInstanceExportTask"
 
 -- |
@@ -370,7 +376,7 @@ data CreateInternetGateway = CreateInternetGateway
 
 $(deriveQS ''CreateInternetGateway)
 
-instance AWSRequest EC2 CreateInternetGateway where
+instance AWSRequest EC2 CreateInternetGateway Object where
     request = get "CreateInternetGateway"
 
 -- |
@@ -382,7 +388,7 @@ data CreateKeyPair = CreateKeyPair
 
 $(deriveQS ''CreateKeyPair)
 
-instance AWSRequest EC2 CreateKeyPair where
+instance AWSRequest EC2 CreateKeyPair Object where
     request = get "CreateKeyPair"
 
 -- |
@@ -394,7 +400,7 @@ data CreateNetworkAcl = CreateNetworkAcl
 
 $(deriveQS ''CreateNetworkAcl)
 
-instance AWSRequest EC2 CreateNetworkAcl where
+instance AWSRequest EC2 CreateNetworkAcl Object where
     request = get "CreateNetworkAcl"
 
 -- |
@@ -406,7 +412,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
 
 $(deriveQS ''CreateNetworkAclEntry)
 
-instance AWSRequest EC2 CreateNetworkAclEntry where
+instance AWSRequest EC2 CreateNetworkAclEntry Object where
     request = get "CreateNetworkAclEntry"
 
 -- |
@@ -418,7 +424,7 @@ data CreateNetworkInterface = CreateNetworkInterface
 
 $(deriveQS ''CreateNetworkInterface)
 
-instance AWSRequest EC2 CreateNetworkInterface where
+instance AWSRequest EC2 CreateNetworkInterface Object where
     request = get "CreateNetworkInterface"
 
 -- |
@@ -430,7 +436,7 @@ data CreatePlacementGroup = CreatePlacementGroup
 
 $(deriveQS ''CreatePlacementGroup)
 
-instance AWSRequest EC2 CreatePlacementGroup where
+instance AWSRequest EC2 CreatePlacementGroup Object where
     request = get "CreatePlacementGroup"
 
 -- |
@@ -442,7 +448,7 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
 
 $(deriveQS ''CreateReservedInstancesListing)
 
-instance AWSRequest EC2 CreateReservedInstancesListing where
+instance AWSRequest EC2 CreateReservedInstancesListing Object where
     request = get "CreateReservedInstancesListing"
 
 -- |
@@ -454,7 +460,7 @@ data CreateRoute = CreateRoute
 
 $(deriveQS ''CreateRoute)
 
-instance AWSRequest EC2 CreateRoute where
+instance AWSRequest EC2 CreateRoute Object where
     request = get "CreateRoute"
 
 -- |
@@ -466,7 +472,7 @@ data CreateRouteTable = CreateRouteTable
 
 $(deriveQS ''CreateRouteTable)
 
-instance AWSRequest EC2 CreateRouteTable where
+instance AWSRequest EC2 CreateRouteTable Object where
     request = get "CreateRouteTable"
 
 -- |
@@ -478,7 +484,7 @@ data CreateSecurityGroup = CreateSecurityGroup
 
 $(deriveQS ''CreateSecurityGroup)
 
-instance AWSRequest EC2 CreateSecurityGroup where
+instance AWSRequest EC2 CreateSecurityGroup Object where
     request = get "CreateSecurityGroup"
 
 -- |
@@ -490,7 +496,7 @@ data CreateSnapshot = CreateSnapshot
 
 $(deriveQS ''CreateSnapshot)
 
-instance AWSRequest EC2 CreateSnapshot where
+instance AWSRequest EC2 CreateSnapshot Object where
     request = get "CreateSnapshot"
 
 -- |
@@ -502,7 +508,7 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
 
 $(deriveQS ''CreateSpotDatafeedSubscription)
 
-instance AWSRequest EC2 CreateSpotDatafeedSubscription where
+instance AWSRequest EC2 CreateSpotDatafeedSubscription Object where
     request = get "CreateSpotDatafeedSubscription"
 
 -- |
@@ -514,7 +520,7 @@ data CreateSubnet = CreateSubnet
 
 $(deriveQS ''CreateSubnet)
 
-instance AWSRequest EC2 CreateSubnet where
+instance AWSRequest EC2 CreateSubnet Object where
     request = get "CreateSubnet"
 
 -- |
@@ -526,7 +532,7 @@ data CreateTags = CreateTags
 
 $(deriveQS ''CreateTags)
 
-instance AWSRequest EC2 CreateTags where
+instance AWSRequest EC2 CreateTags Object where
     request = get "CreateTags"
 
 -- |
@@ -538,7 +544,7 @@ data CreateVolume = CreateVolume
 
 $(deriveQS ''CreateVolume)
 
-instance AWSRequest EC2 CreateVolume where
+instance AWSRequest EC2 CreateVolume Object where
     request = get "CreateVolume"
 
 -- |
@@ -550,7 +556,7 @@ data CreateVPC = CreateVPC
 
 $(deriveQS ''CreateVPC)
 
-instance AWSRequest EC2 CreateVPC where
+instance AWSRequest EC2 CreateVPC Object where
     request = get "CreateVPC"
 
 -- |
@@ -562,7 +568,7 @@ data CreateVpnConnection = CreateVpnConnection
 
 $(deriveQS ''CreateVpnConnection)
 
-instance AWSRequest EC2 CreateVpnConnection where
+instance AWSRequest EC2 CreateVpnConnection Object where
     request = get "CreateVpnConnection"
 
 -- |
@@ -574,7 +580,7 @@ data CreateVpnConnectionRoute = CreateVpnConnectionRoute
 
 $(deriveQS ''CreateVpnConnectionRoute)
 
-instance AWSRequest EC2 CreateVpnConnectionRoute where
+instance AWSRequest EC2 CreateVpnConnectionRoute Object where
     request = get "CreateVpnConnectionRoute"
 
 -- |
@@ -586,7 +592,7 @@ data CreateVpnGateway = CreateVpnGateway
 
 $(deriveQS ''CreateVpnGateway)
 
-instance AWSRequest EC2 CreateVpnGateway where
+instance AWSRequest EC2 CreateVpnGateway Object where
     request = get "CreateVpnGateway"
 
 -- |
@@ -598,7 +604,7 @@ data DeactivateLicense = DeactivateLicense
 
 $(deriveQS ''DeactivateLicense)
 
-instance AWSRequest EC2 DeactivateLicense where
+instance AWSRequest EC2 DeactivateLicense Object where
     request = get "DeactivateLicense"
 
 -- |
@@ -610,7 +616,7 @@ data DeleteCustomerGateway = DeleteCustomerGateway
 
 $(deriveQS ''DeleteCustomerGateway)
 
-instance AWSRequest EC2 DeleteCustomerGateway where
+instance AWSRequest EC2 DeleteCustomerGateway Object where
     request = get "DeleteCustomerGateway"
 
 -- |
@@ -622,7 +628,7 @@ data DeleteDhcpOptions = DeleteDhcpOptions
 
 $(deriveQS ''DeleteDhcpOptions)
 
-instance AWSRequest EC2 DeleteDhcpOptions where
+instance AWSRequest EC2 DeleteDhcpOptions Object where
     request = get "DeleteDhcpOptions"
 
 -- |
@@ -634,7 +640,7 @@ data DeleteInternetGateway = DeleteInternetGateway
 
 $(deriveQS ''DeleteInternetGateway)
 
-instance AWSRequest EC2 DeleteInternetGateway where
+instance AWSRequest EC2 DeleteInternetGateway Object where
     request = get "DeleteInternetGateway"
 
 -- |
@@ -646,7 +652,7 @@ data DeleteKeyPair = DeleteKeyPair
 
 $(deriveQS ''DeleteKeyPair)
 
-instance AWSRequest EC2 DeleteKeyPair where
+instance AWSRequest EC2 DeleteKeyPair Object where
     request = get "DeleteKeyPair"
 
 -- |
@@ -658,7 +664,7 @@ data DeleteNetworkAcl = DeleteNetworkAcl
 
 $(deriveQS ''DeleteNetworkAcl)
 
-instance AWSRequest EC2 DeleteNetworkAcl where
+instance AWSRequest EC2 DeleteNetworkAcl Object where
     request = get "DeleteNetworkAcl"
 
 -- |
@@ -670,7 +676,7 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
 
 $(deriveQS ''DeleteNetworkAclEntry)
 
-instance AWSRequest EC2 DeleteNetworkAclEntry where
+instance AWSRequest EC2 DeleteNetworkAclEntry Object where
     request = get "DeleteNetworkAclEntry"
 
 -- |
@@ -682,7 +688,7 @@ data DeleteNetworkInterface = DeleteNetworkInterface
 
 $(deriveQS ''DeleteNetworkInterface)
 
-instance AWSRequest EC2 DeleteNetworkInterface where
+instance AWSRequest EC2 DeleteNetworkInterface Object where
     request = get "DeleteNetworkInterface"
 
 -- |
@@ -694,7 +700,7 @@ data DeletePlacementGroup = DeletePlacementGroup
 
 $(deriveQS ''DeletePlacementGroup)
 
-instance AWSRequest EC2 DeletePlacementGroup where
+instance AWSRequest EC2 DeletePlacementGroup Object where
     request = get "DeletePlacementGroup"
 
 -- |
@@ -706,7 +712,7 @@ data DeleteRoute = DeleteRoute
 
 $(deriveQS ''DeleteRoute)
 
-instance AWSRequest EC2 DeleteRoute where
+instance AWSRequest EC2 DeleteRoute Object where
     request = get "DeleteRoute"
 
 -- |
@@ -718,7 +724,7 @@ data DeleteRouteTable = DeleteRouteTable
 
 $(deriveQS ''DeleteRouteTable)
 
-instance AWSRequest EC2 DeleteRouteTable where
+instance AWSRequest EC2 DeleteRouteTable Object where
     request = get "DeleteRouteTable"
 
 -- |
@@ -730,7 +736,7 @@ data DeleteSecurityGroup = DeleteSecurityGroup
 
 $(deriveQS ''DeleteSecurityGroup)
 
-instance AWSRequest EC2 DeleteSecurityGroup where
+instance AWSRequest EC2 DeleteSecurityGroup Object where
     request = get "DeleteSecurityGroup"
 
 -- |
@@ -742,7 +748,7 @@ data DeleteSnapshot = DeleteSnapshot
 
 $(deriveQS ''DeleteSnapshot)
 
-instance AWSRequest EC2 DeleteSnapshot where
+instance AWSRequest EC2 DeleteSnapshot Object where
     request = get "DeleteSnapshot"
 
 -- |
@@ -754,7 +760,7 @@ data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
 
 $(deriveQS ''DeleteSpotDatafeedSubscription)
 
-instance AWSRequest EC2 DeleteSpotDatafeedSubscription where
+instance AWSRequest EC2 DeleteSpotDatafeedSubscription Object where
     request = get "DeleteSpotDatafeedSubscription"
 
 -- |
@@ -766,7 +772,7 @@ data DeleteSubnet = DeleteSubnet
 
 $(deriveQS ''DeleteSubnet)
 
-instance AWSRequest EC2 DeleteSubnet where
+instance AWSRequest EC2 DeleteSubnet Object where
     request = get "DeleteSubnet"
 
 -- |
@@ -778,7 +784,7 @@ data DeleteTags = DeleteTags
 
 $(deriveQS ''DeleteTags)
 
-instance AWSRequest EC2 DeleteTags where
+instance AWSRequest EC2 DeleteTags Object where
     request = get "DeleteTags"
 
 -- |
@@ -790,7 +796,7 @@ data DeleteVolume = DeleteVolume
 
 $(deriveQS ''DeleteVolume)
 
-instance AWSRequest EC2 DeleteVolume where
+instance AWSRequest EC2 DeleteVolume Object where
     request = get "DeleteVolume"
 
 -- |
@@ -802,7 +808,7 @@ data DeleteVPC = DeleteVPC
 
 $(deriveQS ''DeleteVPC)
 
-instance AWSRequest EC2 DeleteVPC where
+instance AWSRequest EC2 DeleteVPC Object where
     request = get "DeleteVPC"
 
 -- |
@@ -814,7 +820,7 @@ data DeleteVpnConnection = DeleteVpnConnection
 
 $(deriveQS ''DeleteVpnConnection)
 
-instance AWSRequest EC2 DeleteVpnConnection where
+instance AWSRequest EC2 DeleteVpnConnection Object where
     request = get "DeleteVpnConnection"
 
 -- |
@@ -826,7 +832,7 @@ data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
 
 $(deriveQS ''DeleteVpnConnectionRoute)
 
-instance AWSRequest EC2 DeleteVpnConnectionRoute where
+instance AWSRequest EC2 DeleteVpnConnectionRoute Object where
     request = get "DeleteVpnConnectionRoute"
 
 -- |
@@ -838,7 +844,7 @@ data DeleteVpnGateway = DeleteVpnGateway
 
 $(deriveQS ''DeleteVpnGateway)
 
-instance AWSRequest EC2 DeleteVpnGateway where
+instance AWSRequest EC2 DeleteVpnGateway Object where
     request = get "DeleteVpnGateway"
 
 -- |
@@ -850,7 +856,7 @@ data DeregisterImage = DeregisterImage
 
 $(deriveQS ''DeregisterImage)
 
-instance AWSRequest EC2 DeregisterImage where
+instance AWSRequest EC2 DeregisterImage Object where
     request = get "DeregisterImage"
 
 -- |
@@ -862,7 +868,7 @@ data DescribeAccountAttributes = DescribeAccountAttributes
 
 $(deriveQS ''DescribeAccountAttributes)
 
-instance AWSRequest EC2 DescribeAccountAttributes where
+instance AWSRequest EC2 DescribeAccountAttributes Object where
     request = get "DescribeAccountAttributes"
 
 -- |
@@ -874,7 +880,7 @@ data DescribeAddresses = DescribeAddresses
 
 $(deriveQS ''DescribeAddresses)
 
-instance AWSRequest EC2 DescribeAddresses where
+instance AWSRequest EC2 DescribeAddresses Object where
     request = get "DescribeAddresses"
 
 -- |
@@ -886,7 +892,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
 
 $(deriveQS ''DescribeAvailabilityZones)
 
-instance AWSRequest EC2 DescribeAvailabilityZones where
+instance AWSRequest EC2 DescribeAvailabilityZones Object where
     request = get "DescribeAvailabilityZones"
 
 -- |
@@ -898,7 +904,7 @@ data DescribeBundleTasks = DescribeBundleTasks
 
 $(deriveQS ''DescribeBundleTasks)
 
-instance AWSRequest EC2 DescribeBundleTasks where
+instance AWSRequest EC2 DescribeBundleTasks Object where
     request = get "DescribeBundleTasks"
 
 -- |
@@ -910,7 +916,7 @@ data DescribeConversionTasks = DescribeConversionTasks
 
 $(deriveQS ''DescribeConversionTasks)
 
-instance AWSRequest EC2 DescribeConversionTasks where
+instance AWSRequest EC2 DescribeConversionTasks Object where
     request = get "DescribeConversionTasks"
 
 -- |
@@ -922,7 +928,7 @@ data DescribeCustomerGateways = DescribeCustomerGateways
 
 $(deriveQS ''DescribeCustomerGateways)
 
-instance AWSRequest EC2 DescribeCustomerGateways where
+instance AWSRequest EC2 DescribeCustomerGateways Object where
     request = get "DescribeCustomerGateways"
 
 -- |
@@ -934,7 +940,7 @@ data DescribeDhcpOptions = DescribeDhcpOptions
 
 $(deriveQS ''DescribeDhcpOptions)
 
-instance AWSRequest EC2 DescribeDhcpOptions where
+instance AWSRequest EC2 DescribeDhcpOptions Object where
     request = get "DescribeDhcpOptions"
 
 -- |
@@ -946,7 +952,7 @@ data DescribeExportTasks = DescribeExportTasks
 
 $(deriveQS ''DescribeExportTasks)
 
-instance AWSRequest EC2 DescribeExportTasks where
+instance AWSRequest EC2 DescribeExportTasks Object where
     request = get "DescribeExportTasks"
 
 -- |
@@ -958,7 +964,7 @@ data DescribeImageAttribute = DescribeImageAttribute
 
 $(deriveQS ''DescribeImageAttribute)
 
-instance AWSRequest EC2 DescribeImageAttribute where
+instance AWSRequest EC2 DescribeImageAttribute Object where
     request = get "DescribeImageAttribute"
 
 -- |
@@ -970,7 +976,7 @@ data DescribeImages = DescribeImages
 
 $(deriveQS ''DescribeImages)
 
-instance AWSRequest EC2 DescribeImages where
+instance AWSRequest EC2 DescribeImages Object where
     request = get "DescribeImages"
 
 -- |
@@ -982,7 +988,7 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
 
 $(deriveQS ''DescribeInstanceAttribute)
 
-instance AWSRequest EC2 DescribeInstanceAttribute where
+instance AWSRequest EC2 DescribeInstanceAttribute Object where
     request = get "DescribeInstanceAttribute"
 
 -- |
@@ -994,7 +1000,7 @@ data DescribeInstances = DescribeInstances
 
 $(deriveQS ''DescribeInstances)
 
-instance AWSRequest EC2 DescribeInstances where
+instance AWSRequest EC2 DescribeInstances Object where
     request = get "DescribeInstances"
 
 -- |
@@ -1006,7 +1012,7 @@ data DescribeInstanceStatus = DescribeInstanceStatus
 
 $(deriveQS ''DescribeInstanceStatus)
 
-instance AWSRequest EC2 DescribeInstanceStatus where
+instance AWSRequest EC2 DescribeInstanceStatus Object where
     request = get "DescribeInstanceStatus"
 
 -- |
@@ -1018,7 +1024,7 @@ data DescribeInternetGateways = DescribeInternetGateways
 
 $(deriveQS ''DescribeInternetGateways)
 
-instance AWSRequest EC2 DescribeInternetGateways where
+instance AWSRequest EC2 DescribeInternetGateways Object where
     request = get "DescribeInternetGateways"
 
 -- |
@@ -1030,7 +1036,7 @@ data DescribeKeyPairs = DescribeKeyPairs
 
 $(deriveQS ''DescribeKeyPairs)
 
-instance AWSRequest EC2 DescribeKeyPairs where
+instance AWSRequest EC2 DescribeKeyPairs Object where
     request = get "DescribeKeyPairs"
 
 -- |
@@ -1042,7 +1048,7 @@ data DescribeLicenses = DescribeLicenses
 
 $(deriveQS ''DescribeLicenses)
 
-instance AWSRequest EC2 DescribeLicenses where
+instance AWSRequest EC2 DescribeLicenses Object where
     request = get "DescribeLicenses"
 
 -- |
@@ -1054,7 +1060,7 @@ data DescribeNetworkAcls = DescribeNetworkAcls
 
 $(deriveQS ''DescribeNetworkAcls)
 
-instance AWSRequest EC2 DescribeNetworkAcls where
+instance AWSRequest EC2 DescribeNetworkAcls Object where
     request = get "DescribeNetworkAcls"
 
 -- |
@@ -1066,7 +1072,7 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
 
 $(deriveQS ''DescribeNetworkInterfaceAttribute)
 
-instance AWSRequest EC2 DescribeNetworkInterfaceAttribute where
+instance AWSRequest EC2 DescribeNetworkInterfaceAttribute Object where
     request = get "DescribeNetworkInterfaceAttribute"
 
 -- |
@@ -1078,7 +1084,7 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
 
 $(deriveQS ''DescribeNetworkInterfaces)
 
-instance AWSRequest EC2 DescribeNetworkInterfaces where
+instance AWSRequest EC2 DescribeNetworkInterfaces Object where
     request = get "DescribeNetworkInterfaces"
 
 -- |
@@ -1090,7 +1096,7 @@ data DescribePlacementGroups = DescribePlacementGroups
 
 $(deriveQS ''DescribePlacementGroups)
 
-instance AWSRequest EC2 DescribePlacementGroups where
+instance AWSRequest EC2 DescribePlacementGroups Object where
     request = get "DescribePlacementGroups"
 
 -- |
@@ -1102,7 +1108,7 @@ data DescribeRegions = DescribeRegions
 
 $(deriveQS ''DescribeRegions)
 
-instance AWSRequest EC2 DescribeRegions where
+instance AWSRequest EC2 DescribeRegions Object where
     request = get "DescribeRegions"
 
 -- |
@@ -1114,7 +1120,7 @@ data DescribeReservedInstances = DescribeReservedInstances
 
 $(deriveQS ''DescribeReservedInstances)
 
-instance AWSRequest EC2 DescribeReservedInstances where
+instance AWSRequest EC2 DescribeReservedInstances Object where
     request = get "DescribeReservedInstances"
 
 -- |
@@ -1126,7 +1132,7 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
 
 $(deriveQS ''DescribeReservedInstancesListings)
 
-instance AWSRequest EC2 DescribeReservedInstancesListings where
+instance AWSRequest EC2 DescribeReservedInstancesListings Object where
     request = get "DescribeReservedInstancesListings"
 
 -- |
@@ -1138,7 +1144,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 
 $(deriveQS ''DescribeReservedInstancesOfferings)
 
-instance AWSRequest EC2 DescribeReservedInstancesOfferings where
+instance AWSRequest EC2 DescribeReservedInstancesOfferings Object where
     request = get "DescribeReservedInstancesOfferings"
 
 -- |
@@ -1150,7 +1156,7 @@ data DescribeRouteTables = DescribeRouteTables
 
 $(deriveQS ''DescribeRouteTables)
 
-instance AWSRequest EC2 DescribeRouteTables where
+instance AWSRequest EC2 DescribeRouteTables Object where
     request = get "DescribeRouteTables"
 
 -- |
@@ -1162,7 +1168,7 @@ data DescribeSecurityGroups = DescribeSecurityGroups
 
 $(deriveQS ''DescribeSecurityGroups)
 
-instance AWSRequest EC2 DescribeSecurityGroups where
+instance AWSRequest EC2 DescribeSecurityGroups Object where
     request = get "DescribeSecurityGroups"
 
 -- |
@@ -1174,7 +1180,7 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
 
 $(deriveQS ''DescribeSnapshotAttribute)
 
-instance AWSRequest EC2 DescribeSnapshotAttribute where
+instance AWSRequest EC2 DescribeSnapshotAttribute Object where
     request = get "DescribeSnapshotAttribute"
 
 -- |
@@ -1186,7 +1192,7 @@ data DescribeSnapshots = DescribeSnapshots
 
 $(deriveQS ''DescribeSnapshots)
 
-instance AWSRequest EC2 DescribeSnapshots where
+instance AWSRequest EC2 DescribeSnapshots Object where
     request = get "DescribeSnapshots"
 
 -- |
@@ -1198,7 +1204,7 @@ data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
 $(deriveQS ''DescribeSpotDatafeedSubscription)
 
-instance AWSRequest EC2 DescribeSpotDatafeedSubscription where
+instance AWSRequest EC2 DescribeSpotDatafeedSubscription Object where
     request = get "DescribeSpotDatafeedSubscription"
 
 -- |
@@ -1210,7 +1216,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
 
 $(deriveQS ''DescribeSpotInstanceRequests)
 
-instance AWSRequest EC2 DescribeSpotInstanceRequests where
+instance AWSRequest EC2 DescribeSpotInstanceRequests Object where
     request = get "DescribeSpotInstanceRequests"
 
 -- |
@@ -1222,7 +1228,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
 
 $(deriveQS ''DescribeSpotPriceHistory)
 
-instance AWSRequest EC2 DescribeSpotPriceHistory where
+instance AWSRequest EC2 DescribeSpotPriceHistory Object where
     request = get "DescribeSpotPriceHistory"
 
 -- |
@@ -1234,7 +1240,7 @@ data DescribeSubnets = DescribeSubnets
 
 $(deriveQS ''DescribeSubnets)
 
-instance AWSRequest EC2 DescribeSubnets where
+instance AWSRequest EC2 DescribeSubnets Object where
     request = get "DescribeSubnets"
 
 -- |
@@ -1246,7 +1252,7 @@ data DescribeTags = DescribeTags
 
 $(deriveQS ''DescribeTags)
 
-instance AWSRequest EC2 DescribeTags where
+instance AWSRequest EC2 DescribeTags Object where
     request = get "DescribeTags"
 
 -- |
@@ -1258,7 +1264,7 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
 
 $(deriveQS ''DescribeVolumeAttribute)
 
-instance AWSRequest EC2 DescribeVolumeAttribute where
+instance AWSRequest EC2 DescribeVolumeAttribute Object where
     request = get "DescribeVolumeAttribute"
 
 -- |
@@ -1270,7 +1276,7 @@ data DescribeVolumes = DescribeVolumes
 
 $(deriveQS ''DescribeVolumes)
 
-instance AWSRequest EC2 DescribeVolumes where
+instance AWSRequest EC2 DescribeVolumes Object where
     request = get "DescribeVolumes"
 
 -- |
@@ -1282,7 +1288,7 @@ data DescribeVolumeStatus = DescribeVolumeStatus
 
 $(deriveQS ''DescribeVolumeStatus)
 
-instance AWSRequest EC2 DescribeVolumeStatus where
+instance AWSRequest EC2 DescribeVolumeStatus Object where
     request = get "DescribeVolumeStatus"
 
 -- |
@@ -1294,7 +1300,7 @@ data DescribeVPCAttribute = DescribeVPCAttribute
 
 $(deriveQS ''DescribeVPCAttribute)
 
-instance AWSRequest EC2 DescribeVPCAttribute where
+instance AWSRequest EC2 DescribeVPCAttribute Object where
     request = get "DescribeVPCAttribute"
 
 -- |
@@ -1306,7 +1312,7 @@ data DescribeVPCs = DescribeVPCs
 
 $(deriveQS ''DescribeVPCs)
 
-instance AWSRequest EC2 DescribeVPCs where
+instance AWSRequest EC2 DescribeVPCs Object where
     request = get "DescribeVPCs"
 
 -- |
@@ -1318,7 +1324,7 @@ data DescribeVpnConnections = DescribeVpnConnections
 
 $(deriveQS ''DescribeVpnConnections)
 
-instance AWSRequest EC2 DescribeVpnConnections where
+instance AWSRequest EC2 DescribeVpnConnections Object where
     request = get "DescribeVpnConnections"
 
 -- |
@@ -1330,7 +1336,7 @@ data DescribeVpnGateways = DescribeVpnGateways
 
 $(deriveQS ''DescribeVpnGateways)
 
-instance AWSRequest EC2 DescribeVpnGateways where
+instance AWSRequest EC2 DescribeVpnGateways Object where
     request = get "DescribeVpnGateways"
 
 -- |
@@ -1342,7 +1348,7 @@ data DetachInternetGateway = DetachInternetGateway
 
 $(deriveQS ''DetachInternetGateway)
 
-instance AWSRequest EC2 DetachInternetGateway where
+instance AWSRequest EC2 DetachInternetGateway Object where
     request = get "DetachInternetGateway"
 
 -- |
@@ -1354,7 +1360,7 @@ data DetachNetworkInterface = DetachNetworkInterface
 
 $(deriveQS ''DetachNetworkInterface)
 
-instance AWSRequest EC2 DetachNetworkInterface where
+instance AWSRequest EC2 DetachNetworkInterface Object where
     request = get "DetachNetworkInterface"
 
 -- |
@@ -1366,7 +1372,7 @@ data DetachVolume = DetachVolume
 
 $(deriveQS ''DetachVolume)
 
-instance AWSRequest EC2 DetachVolume where
+instance AWSRequest EC2 DetachVolume Object where
     request = get "DetachVolume"
 
 -- |
@@ -1378,7 +1384,7 @@ data DetachVpnGateway = DetachVpnGateway
 
 $(deriveQS ''DetachVpnGateway)
 
-instance AWSRequest EC2 DetachVpnGateway where
+instance AWSRequest EC2 DetachVpnGateway Object where
     request = get "DetachVpnGateway"
 
 -- |
@@ -1390,7 +1396,7 @@ data DisableVgwRoutePropagation = DisableVgwRoutePropagation
 
 $(deriveQS ''DisableVgwRoutePropagation)
 
-instance AWSRequest EC2 DisableVgwRoutePropagation where
+instance AWSRequest EC2 DisableVgwRoutePropagation Object where
     request = get "DisableVgwRoutePropagation"
 
 -- |
@@ -1402,7 +1408,7 @@ data DisassociateAddress = DisassociateAddress
 
 $(deriveQS ''DisassociateAddress)
 
-instance AWSRequest EC2 DisassociateAddress where
+instance AWSRequest EC2 DisassociateAddress Object where
     request = get "DisassociateAddress"
 
 -- |
@@ -1414,7 +1420,7 @@ data DisassociateRouteTable = DisassociateRouteTable
 
 $(deriveQS ''DisassociateRouteTable)
 
-instance AWSRequest EC2 DisassociateRouteTable where
+instance AWSRequest EC2 DisassociateRouteTable Object where
     request = get "DisassociateRouteTable"
 
 -- |
@@ -1426,7 +1432,7 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation
 
 $(deriveQS ''EnableVgwRoutePropagation)
 
-instance AWSRequest EC2 EnableVgwRoutePropagation where
+instance AWSRequest EC2 EnableVgwRoutePropagation Object where
     request = get "EnableVgwRoutePropagation"
 
 -- |
@@ -1438,7 +1444,7 @@ data EnableVolumeIO = EnableVolumeIO
 
 $(deriveQS ''EnableVolumeIO)
 
-instance AWSRequest EC2 EnableVolumeIO where
+instance AWSRequest EC2 EnableVolumeIO Object where
     request = get "EnableVolumeIO"
 
 -- |
@@ -1450,7 +1456,7 @@ data GetConsoleOutput = GetConsoleOutput
 
 $(deriveQS ''GetConsoleOutput)
 
-instance AWSRequest EC2 GetConsoleOutput where
+instance AWSRequest EC2 GetConsoleOutput Object where
     request = get "GetConsoleOutput"
 
 -- |
@@ -1462,7 +1468,7 @@ data GetPasswordData = GetPasswordData
 
 $(deriveQS ''GetPasswordData)
 
-instance AWSRequest EC2 GetPasswordData where
+instance AWSRequest EC2 GetPasswordData Object where
     request = get "GetPasswordData"
 
 -- |
@@ -1474,7 +1480,7 @@ data ImportInstance = ImportInstance
 
 $(deriveQS ''ImportInstance)
 
-instance AWSRequest EC2 ImportInstance where
+instance AWSRequest EC2 ImportInstance Object where
     request = get "ImportInstance"
 
 -- |
@@ -1486,7 +1492,7 @@ data ImportKeyPair = ImportKeyPair
 
 $(deriveQS ''ImportKeyPair)
 
-instance AWSRequest EC2 ImportKeyPair where
+instance AWSRequest EC2 ImportKeyPair Object where
     request = get "ImportKeyPair"
 
 -- |
@@ -1498,7 +1504,7 @@ data ImportVolume = ImportVolume
 
 $(deriveQS ''ImportVolume)
 
-instance AWSRequest EC2 ImportVolume where
+instance AWSRequest EC2 ImportVolume Object where
     request = get "ImportVolume"
 
 -- |
@@ -1510,7 +1516,7 @@ data ModifyImageAttribute = ModifyImageAttribute
 
 $(deriveQS ''ModifyImageAttribute)
 
-instance AWSRequest EC2 ModifyImageAttribute where
+instance AWSRequest EC2 ModifyImageAttribute Object where
     request = get "ModifyImageAttribute"
 
 -- |
@@ -1522,7 +1528,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
 
 $(deriveQS ''ModifyInstanceAttribute)
 
-instance AWSRequest EC2 ModifyInstanceAttribute where
+instance AWSRequest EC2 ModifyInstanceAttribute Object where
     request = get "ModifyInstanceAttribute"
 
 -- |
@@ -1534,7 +1540,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
 
 $(deriveQS ''ModifyNetworkInterfaceAttribute)
 
-instance AWSRequest EC2 ModifyNetworkInterfaceAttribute where
+instance AWSRequest EC2 ModifyNetworkInterfaceAttribute Object where
     request = get "ModifyNetworkInterfaceAttribute"
 
 -- |
@@ -1546,7 +1552,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
 
 $(deriveQS ''ModifySnapshotAttribute)
 
-instance AWSRequest EC2 ModifySnapshotAttribute where
+instance AWSRequest EC2 ModifySnapshotAttribute Object where
     request = get "ModifySnapshotAttribute"
 
 -- |
@@ -1558,7 +1564,7 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
 
 $(deriveQS ''ModifyVolumeAttribute)
 
-instance AWSRequest EC2 ModifyVolumeAttribute where
+instance AWSRequest EC2 ModifyVolumeAttribute Object where
     request = get "ModifyVolumeAttribute"
 
 -- |
@@ -1570,7 +1576,7 @@ data ModifyVPCAttribute = ModifyVPCAttribute
 
 $(deriveQS ''ModifyVPCAttribute)
 
-instance AWSRequest EC2 ModifyVPCAttribute where
+instance AWSRequest EC2 ModifyVPCAttribute Object where
     request = get "ModifyVPCAttribute"
 
 -- |
@@ -1582,7 +1588,7 @@ data MonitorInstances = MonitorInstances
 
 $(deriveQS ''MonitorInstances)
 
-instance AWSRequest EC2 MonitorInstances where
+instance AWSRequest EC2 MonitorInstances Object where
     request = get "MonitorInstances"
 
 -- |
@@ -1594,7 +1600,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
 
 $(deriveQS ''PurchaseReservedInstancesOffering)
 
-instance AWSRequest EC2 PurchaseReservedInstancesOffering where
+instance AWSRequest EC2 PurchaseReservedInstancesOffering Object where
     request = get "PurchaseReservedInstancesOffering"
 
 -- |
@@ -1606,7 +1612,7 @@ data RebootInstances = RebootInstances
 
 $(deriveQS ''RebootInstances)
 
-instance AWSRequest EC2 RebootInstances where
+instance AWSRequest EC2 RebootInstances Object where
     request = get "RebootInstances"
 
 -- |
@@ -1618,7 +1624,7 @@ data RegisterImage = RegisterImage
 
 $(deriveQS ''RegisterImage)
 
-instance AWSRequest EC2 RegisterImage where
+instance AWSRequest EC2 RegisterImage Object where
     request = get "RegisterImage"
 
 -- |
@@ -1630,7 +1636,7 @@ data ReleaseAddress = ReleaseAddress
 
 $(deriveQS ''ReleaseAddress)
 
-instance AWSRequest EC2 ReleaseAddress where
+instance AWSRequest EC2 ReleaseAddress Object where
     request = get "ReleaseAddress"
 
 -- |
@@ -1642,7 +1648,7 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
 
 $(deriveQS ''ReplaceNetworkAclAssociation)
 
-instance AWSRequest EC2 ReplaceNetworkAclAssociation where
+instance AWSRequest EC2 ReplaceNetworkAclAssociation Object where
     request = get "ReplaceNetworkAclAssociation"
 
 -- |
@@ -1654,7 +1660,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
 
 $(deriveQS ''ReplaceNetworkAclEntry)
 
-instance AWSRequest EC2 ReplaceNetworkAclEntry where
+instance AWSRequest EC2 ReplaceNetworkAclEntry Object where
     request = get "ReplaceNetworkAclEntry"
 
 -- |
@@ -1666,7 +1672,7 @@ data ReplaceRoute = ReplaceRoute
 
 $(deriveQS ''ReplaceRoute)
 
-instance AWSRequest EC2 ReplaceRoute where
+instance AWSRequest EC2 ReplaceRoute Object where
     request = get "ReplaceRoute"
 
 -- |
@@ -1678,7 +1684,7 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
 
 $(deriveQS ''ReplaceRouteTableAssociation)
 
-instance AWSRequest EC2 ReplaceRouteTableAssociation where
+instance AWSRequest EC2 ReplaceRouteTableAssociation Object where
     request = get "ReplaceRouteTableAssociation"
 
 -- |
@@ -1690,7 +1696,7 @@ data ReportInstanceStatus = ReportInstanceStatus
 
 $(deriveQS ''ReportInstanceStatus)
 
-instance AWSRequest EC2 ReportInstanceStatus where
+instance AWSRequest EC2 ReportInstanceStatus Object where
     request = get "ReportInstanceStatus"
 
 -- |
@@ -1702,7 +1708,7 @@ data RequestSpotInstances = RequestSpotInstances
 
 $(deriveQS ''RequestSpotInstances)
 
-instance AWSRequest EC2 RequestSpotInstances where
+instance AWSRequest EC2 RequestSpotInstances Object where
     request = get "RequestSpotInstances"
 
 -- |
@@ -1714,7 +1720,7 @@ data ResetImageAttribute = ResetImageAttribute
 
 $(deriveQS ''ResetImageAttribute)
 
-instance AWSRequest EC2 ResetImageAttribute where
+instance AWSRequest EC2 ResetImageAttribute Object where
     request = get "ResetImageAttribute"
 
 -- |
@@ -1726,7 +1732,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute
 
 $(deriveQS ''ResetInstanceAttribute)
 
-instance AWSRequest EC2 ResetInstanceAttribute where
+instance AWSRequest EC2 ResetInstanceAttribute Object where
     request = get "ResetInstanceAttribute"
 
 -- |
@@ -1738,7 +1744,7 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
 
 $(deriveQS ''ResetNetworkInterfaceAttribute)
 
-instance AWSRequest EC2 ResetNetworkInterfaceAttribute where
+instance AWSRequest EC2 ResetNetworkInterfaceAttribute Object where
     request = get "ResetNetworkInterfaceAttribute"
 
 -- |
@@ -1750,7 +1756,7 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute
 
 $(deriveQS ''ResetSnapshotAttribute)
 
-instance AWSRequest EC2 ResetSnapshotAttribute where
+instance AWSRequest EC2 ResetSnapshotAttribute Object where
     request = get "ResetSnapshotAttribute"
 
 -- |
@@ -1762,7 +1768,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
 
 $(deriveQS ''RevokeSecurityGroupEgress)
 
-instance AWSRequest EC2 RevokeSecurityGroupEgress where
+instance AWSRequest EC2 RevokeSecurityGroupEgress Object where
     request = get "RevokeSecurityGroupEgress"
 
 -- |
@@ -1774,7 +1780,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
 
 $(deriveQS ''RevokeSecurityGroupIngress)
 
-instance AWSRequest EC2 RevokeSecurityGroupIngress where
+instance AWSRequest EC2 RevokeSecurityGroupIngress Object where
     request = get "RevokeSecurityGroupIngress"
 
 -- |
@@ -1786,7 +1792,7 @@ data RunInstances = RunInstances
 
 $(deriveQS ''RunInstances)
 
-instance AWSRequest EC2 RunInstances where
+instance AWSRequest EC2 RunInstances Object where
     request = get "RunInstances"
 
 -- |
@@ -1798,7 +1804,7 @@ data StartInstances = StartInstances
 
 $(deriveQS ''StartInstances)
 
-instance AWSRequest EC2 StartInstances where
+instance AWSRequest EC2 StartInstances Object where
     request = get "StartInstances"
 
 -- |
@@ -1810,7 +1816,7 @@ data StopInstances = StopInstances
 
 $(deriveQS ''StopInstances)
 
-instance AWSRequest EC2 StopInstances where
+instance AWSRequest EC2 StopInstances Object where
     request = get "StopInstances"
 
 -- |
@@ -1822,7 +1828,7 @@ data TerminateInstances = TerminateInstances
 
 $(deriveQS ''TerminateInstances)
 
-instance AWSRequest EC2 TerminateInstances where
+instance AWSRequest EC2 TerminateInstances Object where
     request = get "TerminateInstances"
 
 -- |
@@ -1834,7 +1840,7 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
 
 $(deriveQS ''UnassignPrivateIpAddresses)
 
-instance AWSRequest EC2 UnassignPrivateIpAddresses where
+instance AWSRequest EC2 UnassignPrivateIpAddresses Object where
     request = get "UnassignPrivateIpAddresses"
 
 -- |
@@ -1846,5 +1852,5 @@ data UnmonitorInstances = UnmonitorInstances
 
 $(deriveQS ''UnmonitorInstances)
 
-instance AWSRequest EC2 UnmonitorInstances where
+instance AWSRequest EC2 UnmonitorInstances Object where
     request = get "UnmonitorInstances"

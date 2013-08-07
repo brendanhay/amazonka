@@ -9,4 +9,4 @@ import Network.AWS.Route53
 
 let changeSet = ResourceRecordSet CreateAction "test.testicles.com" CNAME 900 Nothing ["a.test.testicles.com"]
 let changeRecord = ChangeResourceRecordSets "testicles.com" (Just "comment") [changeSet, changeSet, changeSet]
-
+let listChecks = ListHealthChecks Nothing Nothing

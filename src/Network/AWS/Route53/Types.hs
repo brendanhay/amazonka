@@ -42,7 +42,7 @@ callerRef = fromString . show <$> getCurrentTime
 data Protocol = HTTP | TCP
     deriving (Show)
 
-$(deriveJSON options ''Protocol)
+$(deriveJSON defaultOptions ''Protocol)
 
 data RecordAction = CreateAction | DeleteAction
 
@@ -56,7 +56,7 @@ instance ToJSON RecordAction where
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
     deriving (Show)
 
-$(deriveJSON options ''RecordType)
+$(deriveJSON defaultOptions ''RecordType)
 
 instance QueryParam RecordType where
     queryParam k v = [(k, BS.pack $ show v)]
@@ -64,7 +64,7 @@ instance QueryParam RecordType where
 data ChangeStatus = PENDING | INSYNC
     deriving (Show)
 
-$(deriveJSON options ''ChangeStatus)
+$(deriveJSON defaultOptions ''ChangeStatus)
 
 data Config = Config
     { cComment :: !Text
@@ -524,4 +524,4 @@ $(deriveJSON loweredFieldOptions ''ListHealthChecksResponse)
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Show)
 
-$(deriveJSON options ''DeleteHealthCheckResponse)
+$(deriveJSON defaultOptions ''DeleteHealthCheckResponse)

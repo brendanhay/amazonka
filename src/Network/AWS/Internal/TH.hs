@@ -26,7 +26,6 @@ module Network.AWS.Internal.TH
     , deriveQS'
 
     -- * Aeson.TH Options
-    , options
     , fieldOptions
     , loweredFieldOptions
     , underscoredFieldOptions

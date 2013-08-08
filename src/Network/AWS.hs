@@ -32,13 +32,13 @@ import qualified Data.ByteString.Lazy     as LBS
 import           Data.Maybe
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
+import           Network.AWS.Route53      as Route53
 import           Network.Http.Client
 import           OpenSSL                  (withOpenSSL)
 import           System.Environment
 import qualified System.IO.Streams        as Streams
 
 -- import           Network.AWS.EC2          as EC2
-import           Network.AWS.Route53      as Route53
 
 runAWS :: AWS a -> IO a
 runAWS aws = withOpenSSL $ credentials >>=

@@ -32,6 +32,7 @@ module Network.AWS.Internal.TH
     ) where
 
 import           Control.Monad
+import           Data.Aeson
 import           Data.Aeson.TH
 import qualified Data.ByteString.Char8       as BS
 import           Data.Monoid
@@ -41,13 +42,23 @@ import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Types
 import           Paths_aws_haskell           (getDataFileName)
 
-deriveTmpl :: Name -> Q [Dec]
-deriveTmpl = deriveTmpl' (underscore . dropLower)
+--
+-- Template
+--
 
-deriveTmpl' :: (String -> String) -> Name -> Q [Dec]
-deriveTmpl' f name = liftM2 (++)
+deriveTmpl :: Name -> Q [Dec]
+deriveTmpl name = deriveTmpl' "template/" name
+
+deriveTmpl' :: FilePath -> Name -> Q [Dec]
+deriveTmpl' path name = liftM2 (++)
     (deriveToJSON (defaultOptions { fieldLabelModifier = f }) name)
-    (embedTemplate name)
+    (embedTemplate path name)
+  where
+    f = lowerFirst . dropLower
+
+--
+-- QueryString
+--
 
 deriveQS :: Name -> Q [Dec]
 deriveQS name = deriveQS' (lowerFirst . dropLower) name
@@ -66,7 +77,8 @@ deriveQS' f name = do
             [d|instance QueryString $(conT name) where
                    queryString x = concatMap ($ x) $query|]
         _ ->
-            error "Can only derive QueryString instances for named record fields"
+            error $ show name ++
+                ": can only derive QueryString instances for named record fields"
 
 --
 -- Aeson.TH Options
@@ -85,14 +97,13 @@ underscoredFieldOptions = options { fieldLabelModifier = underscore . dropLower 
 instance Lift BS.ByteString where
     lift = return . LitE . StringL . BS.unpack
 
-embedTemplate :: Name -> Q [Dec]
-embedTemplate name =
+embedTemplate :: FilePath -> Name -> Q [Dec]
+embedTemplate path name =
     [d|instance Template $(conT name) where
            readTemplate _ = $(template >>= embed)|]
   where
-    template = runIO $ do
-        path <- getDataFileName ("template/" <> suffix (show name))
-        BS.readFile path
+    template = runIO $
+        getDataFileName (path <> suffix (show name)) >>= BS.readFile
 
     embed bstr = do
         pack <- [| BS.pack |]

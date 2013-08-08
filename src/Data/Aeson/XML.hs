@@ -20,11 +20,13 @@ import           Data.Aeson
 import qualified Data.HashMap.Strict      as HashMap
 import qualified Data.Map                 as Map
 import           Data.Maybe
-import qualified Data.Text                as T
+import qualified Data.Text                as Text
 import           Data.Tree.NTree.TypeDefs
 import qualified Data.Vector              as V
 import           Text.XML.HXT.Core
 import           Text.XML.HXT.Expat       (withExpat)
+
+-- FIXME: Whole model is inefficient, revisit
 
 data JSValue = Text | Tag String | Attr String
     deriving (Eq, Ord, Show)
@@ -42,7 +44,7 @@ fromXML src = do
 
     return . decodeFirst $ encode <$> map (unWrap . treeToJSON) elems
   where
-    unWrap (Just (_, x)) = x -- object [(packJSValue a, b)]
+    unWrap (Just (_, x)) = x
     unWrap Nothing       = Null
 
     decodeFirst (x:_) = decode x
@@ -59,7 +61,7 @@ treeToJSON node
     | otherwise                        = Nothing
   where
     text "" = Nothing
-    text s  = Just (Text, String . T.strip $ T.pack s)
+    text s  = Just (Text, String . Text.strip $ Text.pack s)
 
     tag qName cs = Just (Tag (localPart qName), mapToJSValue $ objMap cs)
 
@@ -76,21 +78,20 @@ treeToJSON node
         f [x] = Just x                         -- don't store as array, just a single value
         f xs  = Just $ Array . V.fromList $ xs -- arrays with more than one element are kept
 
-    attrValues = map (Attr *** String . T.pack) $
+    attrValues = map (Attr *** String . Text.pack) $
         runLA (getAttrl >>> getName &&& (getChildren >>> getText)) node
 
     concatValues = Map.unionsWith (++) . (fmap . fmap) (: [])
 
     mapToJSValue m
         | Map.null m = Array V.empty -- convert empty elements to empty arrays
-        | otherwise  =  case Map.toList m of
-              [(Text, val)] -> val
-              _             -> Object
-                  . HashMap.fromList
-                  . (map . first) packJSValue
-                  $ Map.toList m
+        | otherwise  =
+            case Map.toList m of
+                [(Text, val)] -> val
+                _             -> Object . HashMap.fromList
+                                       . (map . first) packJSValue
+                                       $ Map.toList m
 
-packJSValue :: JSValue -> T.Text
-packJSValue Text     = T.pack "value"
-packJSValue (Attr x) = T.pack x
-packJSValue (Tag x)  = T.pack x
+    packJSValue Text     = Text.pack "value"
+    packJSValue (Attr x) = Text.pack x
+    packJSValue (Tag x)  = Text.pack x

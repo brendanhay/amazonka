@@ -32,18 +32,29 @@ import           Data.Map               (Map)
 import qualified Data.Map               as Map
 import           Data.Monoid
 import           Data.String
-import           Data.Time
+import           Data.Text              (Text)
+import qualified Data.Text              as Text
+import qualified Data.Text.Encoding     as Enc
 import           Network.Http.Client    hiding (post, put)
 import           System.IO.Streams      (InputStream)
 
-class ToByteString a where
-    toBS :: a -> ByteString
+class IsText a where
+    toText :: a -> Text
+    toBS   :: a -> ByteString
+    toStr  :: a -> String
 
-instance ToByteString ByteString where
-    toBS = id
+    toBS  = Enc.encodeUtf8 . toText
+    toStr = Text.unpack . toText
+
+instance IsText ByteString where
+    toText = Enc.decodeUtf8
+    toBS   = id
+
+instance IsText Text where
+    toText = id
 
 newtype ApiVersion = ApiVersion ByteString
-    deriving (Show, IsString, ToByteString)
+    deriving (Show, IsString, IsText)
 
 data Region
     = NorthVirgnia
@@ -56,8 +67,8 @@ data Region
     | SaoPaulo
       deriving (Show)
 
-instance ToByteString Region where
-    toBS reg = case reg of
+instance IsText Region where
+    toText reg = case reg of
         NorthVirgnia    -> "us-east-1"
         NorthCalifornia -> "us-west-1"
         Oregon          -> "us-west-2"
@@ -87,9 +98,8 @@ newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
 
 data RawRequest a b where
-    RawRequest :: (AWSSigner a, FromJSON b)
+    RawRequest :: (AWSService a, FromJSON b)
                => { rqMethod  :: !Method
-                 , rqVersion :: !ApiVersion
                  , rqHost    :: !ByteString
                  , rqAction  :: !(Maybe ByteString)
                  , rqPath    :: !(Maybe ByteString)
@@ -107,32 +117,42 @@ data SignedRequest a where
                     }
                   -> SignedRequest a
 
-emptyRequest :: (AWSSigner a, FromJSON b)
+emptyRequest :: (AWSService a, FromJSON b, IsText p)
              => Method
-             -> ApiVersion
              -> ByteString
-             -> ByteString
+             -> p
              -> Maybe (InputStream ByteString)
              -> RawRequest a b
-emptyRequest meth ver host path body = RawRequest
+emptyRequest meth host path body = RawRequest
     { rqMethod  = meth
-    , rqVersion = ver
     , rqHost    = host
     , rqAction  = Nothing
-    , rqPath    = if BS.null path then Nothing else Just path
+    , rqPath    = if BS.null path' then Nothing else Just path'
     , rqHeaders = Map.empty
     , rqQuery   = []
     , rqBody    = body
     }
+  where
+    path' = toBS path
 
-class AWSSigner a where
-    sign :: RawRequest a b -> AWS (SignedRequest b)
+data SigningVersion
+    = Version2
+    | Version3
+    | Version4
 
-class AWSRegion a where
-    regionalise :: Region -> RawRequest a b -> RawRequest a b
+data Service = Service
+    { svcName     :: !ByteString
+    , svcVersion  :: !ApiVersion
+    , svcSigning  :: !SigningVersion
+    , svcEndpoint :: !ByteString
+    , svcRegion   :: !Region
+    }
 
-class (AWSSigner b, FromJSON c) => AWSRequest b a c | a -> b c where
-    request :: a -> AWS (RawRequest b c)
+class AWSService a where
+    service :: RawRequest a b -> AWS Service
+
+class (AWSService a, FromJSON b) => AWSRequest a c b | c -> a b where
+    request :: c -> AWS (RawRequest a b)
 
 instance Show (SignedRequest a) where
     show SignedRequest{..} = "SignedRequest: "
@@ -161,6 +181,8 @@ instance QueryParam [ByteString] where
       where
         params n v = (k <> "." <> BS.pack (show n), v)
 
+instance QueryParam Text where
+    queryParam k text = [(k, Enc.encodeUtf8 text)]
+
 instance QueryParam Integer where
     queryParam k n = [(k, BS.pack $ show n)]
-

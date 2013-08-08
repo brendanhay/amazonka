@@ -70,7 +70,7 @@ data Config = Config
     { cComment :: !Text
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''Config)
+$(deriveJSON fieldOptions ''Config)
 
 data HostedZone = HostedZone
     { hzId                     :: !Text
@@ -80,7 +80,7 @@ data HostedZone = HostedZone
     , hzResourceRecordSetCount :: !Integer
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''HostedZone)
+$(deriveJSON fieldOptions ''HostedZone)
 
 data ChangeInfo = ChangeInfo
     { ciId          :: !Text
@@ -88,13 +88,13 @@ data ChangeInfo = ChangeInfo
     , ciSubmittedAt :: !UTCTime
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''ChangeInfo)
+$(deriveJSON fieldOptions ''ChangeInfo)
 
 data DelegationSet = DelegationSet
     { dsNameServers :: ![Text]
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''DelegationSet)
+$(deriveJSON fieldOptions ''DelegationSet)
 
 --
 -- Hosted Zones
@@ -134,7 +134,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , chzrDelegationSet :: !DelegationSet
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''CreateHostedZoneResponse)
+$(deriveJSON fieldOptions ''CreateHostedZoneResponse)
 
 -- <GetHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HostedZone>
@@ -164,7 +164,7 @@ data GetHostedZoneResponse = GetHostedZoneResponse
     , ghzrDelegationSet :: !DelegationSet
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''GetHostedZoneResponse)
+$(deriveJSON fieldOptions ''GetHostedZoneResponse)
 
 -- <ListHostedZonesResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HostedZones>
@@ -202,7 +202,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     , lhzrMaxItems    :: !Integer
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''ListHostedZonesResponse)
+$(deriveJSON fieldOptions ''ListHostedZonesResponse)
 
 -- <DeleteHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ChangeInfo>
@@ -216,7 +216,7 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''DeleteHostedZoneResponse)
+$(deriveJSON fieldOptions ''DeleteHostedZoneResponse)
 
 --
 -- Record Sets
@@ -234,7 +234,7 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''ChangeResourceRecordSetsResponse)
+$(deriveJSON fieldOptions ''ChangeResourceRecordSetsResponse)
 
 -- <ListResourceRecordSetsResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ResourceRecordSets>
@@ -411,7 +411,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     
     deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''ListResourceRecordSetsResponse)
+$(deriveJSON fieldOptions ''ListResourceRecordSetsResponse)
 
 -- <GetChangeResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ChangeInfo>
@@ -426,7 +426,7 @@ data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''GetChangeResponse)
+$(deriveJSON fieldOptions ''GetChangeResponse)
 
 --
 -- Health Checks
@@ -440,7 +440,7 @@ data HealthCheckConfig = HealthCheckConfig
     , hccFullyQualifiedDomainName :: !Text
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''HealthCheckConfig)
+$(deriveJSON fieldOptions ''HealthCheckConfig)
 
 data HealthCheck = HealthCheck
     { hcId                :: !Text
@@ -448,7 +448,7 @@ data HealthCheck = HealthCheck
     , hcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Show)
 
-$(deriveJSON loweredFieldOptions ''HealthCheck)
+$(deriveJSON fieldOptions ''HealthCheck)
 
 -- <CreateHealthCheckResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HealthCheck>
@@ -516,7 +516,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 --         <*> o .: "MaxItems"
 --     parseJSON _ = mzero
 
-$(deriveJSON loweredFieldOptions ''ListHealthChecksResponse)
+$(deriveJSON fieldOptions ''ListHealthChecksResponse)
 
 -- <DeleteHealthCheckResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 -- </DeleteHealthCheckResponse>

@@ -19,9 +19,9 @@
                   </ResourceRecord>
                   {{/values}}
                </ResourceRecords>
-               {{#health_check_id}}
-               <HealthCheckId>{{health_check_id}}</HealthCheckId>
-               {{/health_check}}
+               {{#healthCheckId}}
+               <HealthCheckId>{{healthCheckId}}</HealthCheckId>
+               {{/healthCheckId}}
             </ResourceRecordSet>
          </Change>
          {{/changes}}

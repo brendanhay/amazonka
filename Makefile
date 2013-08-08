@@ -9,7 +9,7 @@ install: vendor/aeson
 	 --disable-library-coverage
 
 clean:
-	-rm -rf .conf bin dist .shelly vendor
+	-rm -rf .conf bin dist .shelly
 	cabal-dev clean
 
 lint:

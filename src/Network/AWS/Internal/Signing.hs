@@ -14,8 +14,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.Signing
-    ( version2
-    , version3
+    ( sign
     ) where
 
 import           Control.Applicative
@@ -35,27 +34,21 @@ import           Network.HTTP.Types         (urlEncode)
 import           Network.Http.Client
 import           System.Locale              (defaultTimeLocale, iso8601DateFormat)
 
-version2 :: AWSRegion a => RawRequest a b -> AWS (SignedRequest b)
-version2 = signer version2Signer
-
-version3 :: AWSRegion a => RawRequest a b -> AWS (SignedRequest b)
-version3 = signer version3Signer
+sign :: RawRequest a b -> AWS (SignedRequest b)
+sign rq = do
+    svc  <- service rq
+    auth <- awsAuth <$> ask
+    liftIO . ($ svc auth) $ case svcVersion svc of
+        Version2 -> version2
+        Version3 -> version3
+        Version4 -> version4
 
 --
 -- Internal
 --
 
-signer :: AWSRegion a
-       => (Auth -> RawRequest a b -> IO (SignedRequest b))
-       -> RawRequest a b
-       -> AWS (SignedRequest b)
-signer f raw = do
-    auth <- awsAuth <$> ask
-    rq   <- maybe raw (`regionalise` raw) <$> (awsRegion <$> ask)
-    liftIO $ f auth rq
-
-version2Signer :: Auth -> RawRequest a b -> IO (SignedRequest b)
-version2Signer Auth{..} RawRequest{..} = do
+version2 :: Service -> Auth -> RawRequest a b -> IO (SignedRequest b)
+version2 Service{..} Auth{..} RawRequest{..} = do
     time <- getCurrentTime
 
     let act = fromMaybe (error "Handle missing action") rqAction
@@ -84,10 +77,7 @@ version2Signer Auth{..} RawRequest{..} = do
 
     signature secret qry = urlEncode True
         . Base64.encode
-        . LBS.toStrict
-        . SHA.bytestringDigest
-        . SHA.hmacSha256 (LBS.fromStrict secret)
-        . LBS.fromStrict
+        . hmac secret
         $ BS.intercalate "\n"
             [ packMethod rqMethod
             , rqHost
@@ -95,8 +85,8 @@ version2Signer Auth{..} RawRequest{..} = do
             , qry
             ]
 
-version3Signer :: Auth -> RawRequest a b -> IO (SignedRequest b)
-version3Signer Auth{..} RawRequest{..} = do
+version3 :: Service -> Auth -> RawRequest a b -> IO (SignedRequest b)
+version3 Serivce{..} Auth{..} RawRequest{..} = do
     time <- rfc822Time <$> getCurrentTime
 
     let sig  = signature secretKey time
@@ -122,11 +112,77 @@ version3Signer Auth{..} RawRequest{..} = do
         <> ",Algorithm=HmacSHA256,Signature="
         <> sig
 
-    signature secret = Base64.encode
-        . LBS.toStrict
-        . SHA.bytestringDigest
-        . SHA.hmacSha256 (LBS.fromStrict secret)
-        . LBS.fromStrict
+    signature = Base64.encode . hmac
+
+version4 :: Service -> Auth -> RawRequest a b -> IO (SignedRequest b)
+version4 Service{..} Auth{..} RawRequest{..} = do
+    time <- getCurrentTime
+
+    let act = fromMaybe (error "Handle missing action") rqAction
+        qry = query act accessKey time
+        url = "https://"
+            <> validHost rqHost
+            <> path
+            <> "?"
+            <> qry
+
+    SignedRequest url rqBody <$> buildRequest (http rqMethod url)
+  where
+    path = validPath rqPath
+
+    query action access time = fmtQueryString $ rqQuery `union`
+        [ ("Action", action)
+        , ("Version", toBS rqVersion)
+        , ("X-Amz-Algorithm", "AWS4-HMAC-SHA256")
+        , ("X-Amz-Credential", "AKIAIOSFODNN7EXAMPLE%2F20110909%2Fus-east-1%2Fiam%2Faws4_request")
+        , ("X-Amz-Date", awsTime time)
+        , ("X-Amz-SignedHeaders", signedHdrs)
+        ]
+
+    signature secret time qry = hmac signingKey stringToSign
+
+    signingKey = hmac service "aws4_request"
+      where
+        date    = hmac ("AWS4" <> secret) time
+        region  = hmac date reg
+        service = hmac region svc
+
+    stringToSign time = str <> canonicalRq qry
+      where
+        str = hmac . LBS.fromStrict $ BS.intercalate "\n"
+            [ "AWS4-HMAC-SHA256"
+            , awsTime time
+            , credentialScope time
+            ]
+
+        credentialScope time = BS.intercalate "/"
+            [ scopeTime time
+            , toBS reg
+            , svc
+            , "aws4_request\n"
+            ]
+
+        canonicalRq qry = hmac . LBS.fromStrict $ BS.intercalate "\n"
+            [ packMethod rqMethod    -- HTTPRequestMethod
+            , path                   -- CanonicalURI
+            , qry                    -- CanonicalQueryString
+            , canonicalHdrs          -- CanonicalHeaders
+            , signedHdrs             -- SignedHeaders
+            , lBS.toStrict $ hmac "" -- HexEncode(Hash(Payload))
+            ]
+
+        canonicalHdrs = BS.intercalate ";"
+            . map (\(k, v) -> BS.map toLower k <> ':' <> strip v)
+            $ Map.toList rqHeaders
+
+        signedHdrs = BS.intercalate ";"
+            . map (BS.map toLower)
+            $ Map.keys rqHeaders
+
+strip :: ByteString -> ByteString
+strip = f . f
+  where
+    f = BS.reverse . BS.dropWhile (== ' ')
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show
@@ -142,6 +198,9 @@ rfc822Time = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
 awsTime :: UTCTime -> ByteString
 awsTime = BS.pack . formatTime defaultTimeLocale (iso8601DateFormat $ Just "%XZ")
 
+scopeTime :: UTCTime -> ByteString
+scopeTime = BS.pack . formatTime defaultTimeLocale "%Y%m%d"
+
 validHost :: ByteString -> ByteString
 validHost = strip '/'
 
@@ -156,3 +215,15 @@ strip c bstr
         (False, True)  -> BS.init
         (True,  False) -> BS.tail
         _              -> id
+
+sha256 :: ByteString -> ByteString
+sha256 = LBS.toStrict
+    . SHA.bytestringDigest
+    . SHA.sha256
+    . LBS.fromStrict
+
+hmac :: ByteString -> ByteString -> ByteString
+hmac key msg = LBS.toStrict
+    . SHA.bytestringDigest
+    . SHA.hmacSha256 (LBS.fromStrict key) (LBS.fromStrict msg)
+

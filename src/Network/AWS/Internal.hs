@@ -13,6 +13,7 @@ module Network.AWS.Internal
     ( module Internal
     ) where
 
+import Network.AWS.Internal.IO      as Internal
 import Network.AWS.Internal.Signing as Internal
 import Network.AWS.Internal.String  as Internal
 import Network.AWS.Internal.TH      as Internal

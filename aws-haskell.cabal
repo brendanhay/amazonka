@@ -33,22 +33,25 @@ library
     exposed-modules:
         Network.AWS
 
-      -- , Network.AWS.EC2
-      -- , Network.AWS.EC2.Metadata
-
-      , Network.AWS.Route53
-
-      , Network.AWS.Internal
+      , Network.AWS.Internal.IO
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
       , Network.AWS.Internal.TH
       , Network.AWS.Internal.Types
+      , Network.AWS.Internal
+
+      -- , Network.AWS.EC2
+      -- , Network.AWS.EC2.Metadata
+      -- , Network.AWS.EC2.Types
+      -- , Network.AWS.EC2.WSDL
+
+      , Network.AWS.Route53
+      , Network.AWS.Route53.Types
 
       , Data.Aeson.Hastache
       , Data.Aeson.XML
 
-    other-modules:
-        Paths_aws_haskell
+      , Paths_aws_haskell
 
     ghc-options:
         -Wall
@@ -83,34 +86,42 @@ library
       , unordered-containers
 
       -- vendor/aeson dependencies
-      , attoparsec           >= 0.8.6.1
-      , base                 == 4.*
       , blaze-builder        >= 0.2.1.4
-      , bytestring
-      , containers
       , deepseq
       , hashable             >= 1.1.2.0
-      , mtl
       , old-locale
       , syb
-      , template-haskell     >= 2.4
-      , text                 >= 0.11.1.0
-      , time
-      , unordered-containers >= 0.1.3.0
       , vector               >= 0.7.1
 
 test-suite aws-haskell-tests
     default-language:  Haskell2010
-    hs-source-dirs:    test
+    hs-source-dirs:    test vendor/aeson
     type:              exitcode-stdio-1.0
     main-is:           Main.hs
 
     build-depends:
-         aws-haskell
+         aeson
+       , aws-haskell
        , base
+       , bytestring
+       , text
+       , transformers
 
+      -- vendor/aeson dependencies
+      , blaze-builder        >= 0.2.1.4
+      , containers
+      , deepseq
+      , hashable             >= 1.1.2.0
+      , old-locale
+      , syb
+      , vector               >= 0.7.1
+      , unordered-containers
+      , attoparsec
+      , template-haskell
+      , time
+
+       , HUnit
+       , QuickCheck
        , test-framework             >= 0.3
        , test-framework-quickcheck2 >= 0.3
        , test-framework-hunit       >= 0.3
-       , HUnit
-       , QuickCheck

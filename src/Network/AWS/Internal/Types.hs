@@ -30,6 +30,7 @@ import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Char8  as BS
 import           Data.Map               (Map)
 import qualified Data.Map               as Map
+import           Data.Maybe
 import           Data.Monoid
 import           Data.String
 import           Data.Text              (Text)
@@ -97,13 +98,16 @@ data Env = Env
 newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
 
+currentRegion :: AWS Region
+currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
+
 data RawRequest a b where
     RawRequest :: (AWSService a, FromJSON b)
                => { rqMethod  :: !Method
                  , rqHost    :: !ByteString
                  , rqAction  :: !(Maybe ByteString)
                  , rqPath    :: !(Maybe ByteString)
-                 , rqHeaders :: !(Map ByteString [ByteString])
+                 , rqHeaders :: !(Map ByteString ByteString)
                  , rqQuery   :: ![(ByteString, ByteString)]
                  , rqBody    :: !(Maybe (InputStream ByteString))
                  }
@@ -127,13 +131,12 @@ emptyRequest meth host path body = RawRequest
     { rqMethod  = meth
     , rqHost    = host
     , rqAction  = Nothing
-    , rqPath    = if BS.null path' then Nothing else Just path'
+    , rqPath    = let p = toBS path
+                  in if BS.null p then Nothing else Just p
     , rqHeaders = Map.empty
     , rqQuery   = []
     , rqBody    = body
     }
-  where
-    path' = toBS path
 
 data SigningVersion
     = Version2
@@ -143,8 +146,8 @@ data SigningVersion
 data Service = Service
     { svcName     :: !ByteString
     , svcVersion  :: !ApiVersion
-    , svcSigning  :: !SigningVersion
     , svcEndpoint :: !ByteString
+    , svcSigner   :: !SigningVersion
     , svcRegion   :: !Region
     }
 

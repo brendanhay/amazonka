@@ -24,8 +24,10 @@ import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Base64     as Base64
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
+import           Data.Char                  (isSpace, toLower)
 import qualified Data.Digest.Pure.SHA       as SHA
 import           Data.List
+import qualified Data.Map                   as Map
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Time                  (UTCTime, formatTime, getCurrentTime)
@@ -34,21 +36,22 @@ import           Network.HTTP.Types         (urlEncode)
 import           Network.Http.Client
 import           System.Locale              (defaultTimeLocale, iso8601DateFormat)
 
-sign :: RawRequest a b -> AWS (SignedRequest b)
+sign :: AWSService a => RawRequest a b -> AWS (SignedRequest b)
 sign rq = do
-    svc  <- service rq
-    auth <- awsAuth <$> ask
-    liftIO . ($ svc auth) $ case svcVersion svc of
-        Version2 -> version2
-        Version3 -> version3
-        Version4 -> version4
+    svc <- service rq
+    let signer =
+          case svcSigner svc of
+              Version2 -> version2
+              Version3 -> version3
+              Version4 -> version4
+    awsAuth <$> ask >>= liftIO . signer rq svc
 
 --
 -- Internal
 --
 
-version2 :: Service -> Auth -> RawRequest a b -> IO (SignedRequest b)
-version2 Service{..} Auth{..} RawRequest{..} = do
+version2 :: RawRequest a b -> Service -> Auth -> IO (SignedRequest b)
+version2 RawRequest{..} Service{..} Auth{..} = do
     time <- getCurrentTime
 
     let act = fromMaybe (error "Handle missing action") rqAction
@@ -68,7 +71,7 @@ version2 Service{..} Auth{..} RawRequest{..} = do
 
     query action access time = fmtQueryString $ rqQuery `union`
         [ ("Action",           action)
-        , ("Version",          toBS rqVersion)
+        , ("Version",          toBS svcVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
         , ("Timestamp",        awsTime time)
@@ -85,16 +88,16 @@ version2 Service{..} Auth{..} RawRequest{..} = do
             , qry
             ]
 
-version3 :: Service -> Auth -> RawRequest a b -> IO (SignedRequest b)
-version3 Serivce{..} Auth{..} RawRequest{..} = do
+version3 :: RawRequest a b -> Service -> Auth -> IO (SignedRequest b)
+version3 RawRequest{..} Service{..} Auth{..} = do
     time <- rfc822Time <$> getCurrentTime
 
-    let sig  = signature secretKey time
+    let sig  = Base64.encode $ hmac secretKey time
         auth = authorization accessKey sig
         url  = "https://"
             <> validHost rqHost
             <> "/"
-            <> toBS rqVersion
+            <> toBS svcVersion
             <> validPath rqPath
             <> query
 
@@ -112,10 +115,8 @@ version3 Serivce{..} Auth{..} RawRequest{..} = do
         <> ",Algorithm=HmacSHA256,Signature="
         <> sig
 
-    signature = Base64.encode . hmac
-
-version4 :: Service -> Auth -> RawRequest a b -> IO (SignedRequest b)
-version4 Service{..} Auth{..} RawRequest{..} = do
+version4 :: RawRequest a b -> Service -> Auth -> IO (SignedRequest b)
+version4 RawRequest{..} Service{..} Auth{..} = do
     time <- getCurrentTime
 
     let act = fromMaybe (error "Handle missing action") rqAction
@@ -132,57 +133,57 @@ version4 Service{..} Auth{..} RawRequest{..} = do
 
     query action access time = fmtQueryString $ rqQuery `union`
         [ ("Action", action)
-        , ("Version", toBS rqVersion)
+        , ("Version", toBS svcVersion)
         , ("X-Amz-Algorithm", "AWS4-HMAC-SHA256")
         , ("X-Amz-Credential", "AKIAIOSFODNN7EXAMPLE%2F20110909%2Fus-east-1%2Fiam%2Faws4_request")
         , ("X-Amz-Date", awsTime time)
         , ("X-Amz-SignedHeaders", signedHdrs)
         ]
 
-    signature secret time qry = hmac signingKey stringToSign
+    signedHdrs = BS.intercalate ";"
+        . map (BS.map toLower)
+        $ Map.keys rqHeaders
 
-    signingKey = hmac service "aws4_request"
+    canonicalHdrs = BS.intercalate ";"
+        . map (\(k, v) -> BS.map toLower k <> ":" <> strip ' ' v)
+        $ Map.toList rqHeaders
+
+    -- FIXME: Double check time formats
+
+    -- FIXME: Use the tests from:
+    -- https://awsiammedia.s3.amazonaws.com/public/sample/aws4_testsuite/aws4_testsuite.zip
+
+    signature secret time qry = hmac signingKey $ stringToSign time qry
       where
-        date    = hmac ("AWS4" <> secret) time
-        region  = hmac date reg
-        service = hmac region svc
+        signingKey = hmac service "aws4_request"
+          where
+            date    = hmac ("AWS4" <> secret) $ awsTime time
+            region  = hmac date $ toBS svcRegion
+            service = hmac region svcName
 
-    stringToSign time = str <> canonicalRq qry
-      where
-        str = hmac . LBS.fromStrict $ BS.intercalate "\n"
-            [ "AWS4-HMAC-SHA256"
-            , awsTime time
-            , credentialScope time
-            ]
+        stringToSign time qry = str <> canonicalRq qry
+          where
+            str = sha256 $ BS.intercalate "\n"
+                [ "AWS4-HMAC-SHA256"
+                , awsTime time
+                , credentialScope time
+                ]
 
-        credentialScope time = BS.intercalate "/"
-            [ scopeTime time
-            , toBS reg
-            , svc
-            , "aws4_request\n"
-            ]
+            credentialScope time = BS.intercalate "/"
+                [ scopeTime time
+                , toBS svcRegion
+                , svcName
+                , "aws4_request\n"
+                ]
 
-        canonicalRq qry = hmac . LBS.fromStrict $ BS.intercalate "\n"
-            [ packMethod rqMethod    -- HTTPRequestMethod
-            , path                   -- CanonicalURI
-            , qry                    -- CanonicalQueryString
-            , canonicalHdrs          -- CanonicalHeaders
-            , signedHdrs             -- SignedHeaders
-            , lBS.toStrict $ hmac "" -- HexEncode(Hash(Payload))
-            ]
-
-        canonicalHdrs = BS.intercalate ";"
-            . map (\(k, v) -> BS.map toLower k <> ':' <> strip v)
-            $ Map.toList rqHeaders
-
-        signedHdrs = BS.intercalate ";"
-            . map (BS.map toLower)
-            $ Map.keys rqHeaders
-
-strip :: ByteString -> ByteString
-strip = f . f
-  where
-    f = BS.reverse . BS.dropWhile (== ' ')
+            canonicalRq qry = sha256 $ BS.intercalate "\n"
+                [ packMethod rqMethod -- HTTPRequestMethod
+                , path                -- CanonicalURI
+                , qry                 -- CanonicalQueryString
+                , canonicalHdrs       -- CanonicalHeaders
+                , signedHdrs          -- SignedHeaders
+                , sha256 ""           -- HexEncode(Hash(Payload))
+                ]
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show
@@ -207,6 +208,11 @@ validHost = strip '/'
 validPath :: Maybe ByteString -> ByteString
 validPath = maybe "/" (mappend "/" . strip '/')
 
+stripSpaces :: ByteString -> ByteString
+stripSpaces = f . f
+  where
+    f = BS.reverse . BS.dropWhile isSpace
+
 strip :: Char -> ByteString -> ByteString
 strip c bstr
     | BS.cons c "" == bstr = ""
@@ -225,5 +231,5 @@ sha256 = LBS.toStrict
 hmac :: ByteString -> ByteString -> ByteString
 hmac key msg = LBS.toStrict
     . SHA.bytestringDigest
-    . SHA.hmacSha256 (LBS.fromStrict key) (LBS.fromStrict msg)
+    $ SHA.hmacSha256 (LBS.fromStrict key) (LBS.fromStrict msg)
 

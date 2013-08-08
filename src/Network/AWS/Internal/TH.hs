@@ -32,7 +32,6 @@ module Network.AWS.Internal.TH
     ) where
 
 import           Control.Monad
-import           Data.Aeson
 import           Data.Aeson.TH
 import qualified Data.ByteString.Char8       as BS
 import           Data.Monoid

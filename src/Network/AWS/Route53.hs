@@ -60,26 +60,17 @@ import Network.Http.Client       hiding (get)
 
 data R53
 
-instance AWSSigner R53 where
-    sign = version3
+instance AWSService R53 where
+    service _ = Service "route53" "2012-12-12" "route53.amazonaws.com" Version3
+        <$> currentRegion
 
-instance AWSRegion R53 where
-    regionalise _ = id
+-- FIXME: How to deal with RawRequest's rqHost + signers?
 
 body :: (Template a, FromJSON b) => Method -> Text -> a -> AWS (RawRequest R53 b)
-body meth path tmpl = emptyRequest meth version endpoint path
-    . Just <$> render tmpl
+body meth path tmpl = emptyRequest meth path . Just <$> render tmpl
 
 req :: FromJSON a => Method -> Text -> [(ByteString, ByteString)] -> AWS (RawRequest R53 a)
-req meth path qry = return $ (emptyRequest meth version endpoint path Nothing)
-    { rqQuery = qry
-    }
-
-version :: ApiVersion
-version = "2012-12-12"
-
-endpoint :: ByteString
-endpoint = "route53.amazonaws.com"
+req meth path qry = return $ (emptyRequest meth path Nothing) { rqQuery = qry }
 
 --
 -- Hosted Zones

@@ -41,14 +41,13 @@ import qualified System.IO.Streams        as Streams
 import           Network.AWS.Route53      as Route53
 
 runAWS :: AWS a -> IO a
-runAWS aws = withOpenSSL $ discover >>=
+runAWS aws = withOpenSSL $ credentials >>=
     runReaderT (unWrap aws) . Env Nothing
 
 within :: Region -> AWS a -> AWS a
 within reg aws = awsAuth <$> ask >>=
     liftIO . runReaderT (unWrap aws) . Env (Just reg)
 
--- FIXME: XHT -> Aeson
 send :: AWSRequest b a c => a -> AWS (Maybe c)
 send payload = do
     SignedRequest{..} <- sign =<< request payload
@@ -69,8 +68,8 @@ send payload = do
 
 -- FIXME: Should I try to be smart about choosing the IAM role name
 -- from the metadata, or require it to be specified?
-discover :: MonadIO m => m Auth
-discover = liftIO $ do
+credentials :: MonadIO m => m Auth
+credentials = liftIO $ do
     me <- fromEnv
     case me of
         Just x  -> return x

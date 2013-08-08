@@ -124,7 +124,9 @@ emptyRequest meth host path body = RawRequest
     , rqHost    = host
     , rqAction  = Nothing
     , rqPath    = let p = toBS path
-                  in if BS.null p then Nothing else Just p
+                  in if BS.null p
+                      then Nothing
+                      else Just p
     , rqHeaders = Map.empty
     , rqQuery   = []
     , rqBody    = body

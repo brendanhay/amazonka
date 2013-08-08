@@ -123,13 +123,13 @@ emptyRequest meth host path body = RawRequest
     { rqMethod  = meth
     , rqHost    = host
     , rqAction  = Nothing
+    , rqHeaders = Map.empty
+    , rqQuery   = []
+    , rqBody    = body
     , rqPath    = let p = toBS path
                   in if BS.null p
                       then Nothing
                       else Just p
-    , rqHeaders = Map.empty
-    , rqQuery   = []
-    , rqBody    = body
     }
 
 data SignedRequest = SignedRequest

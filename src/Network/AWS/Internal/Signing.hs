@@ -36,7 +36,7 @@ import           Network.HTTP.Types         (urlEncode)
 import           Network.Http.Client
 import           System.Locale              (defaultTimeLocale, iso8601DateFormat)
 
-sign :: AWSService a => RawRequest a b -> AWS (SignedRequest b)
+sign :: AWSService a => RawRequest a b -> AWS SignedRequest
 sign rq = do
     svc <- service rq
     let signer =
@@ -50,7 +50,7 @@ sign rq = do
 -- Internal
 --
 
-version2 :: RawRequest a b -> Service -> Auth -> IO (SignedRequest b)
+version2 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
 version2 RawRequest{..} Service{..} Auth{..} = do
     time <- getCurrentTime
 
@@ -88,7 +88,7 @@ version2 RawRequest{..} Service{..} Auth{..} = do
             , qry
             ]
 
-version3 :: RawRequest a b -> Service -> Auth -> IO (SignedRequest b)
+version3 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
 version3 RawRequest{..} Service{..} Auth{..} = do
     time <- rfc822Time <$> getCurrentTime
 
@@ -115,7 +115,7 @@ version3 RawRequest{..} Service{..} Auth{..} = do
         <> ",Algorithm=HmacSHA256,Signature="
         <> sig
 
-version4 :: RawRequest a b -> Service -> Auth -> IO (SignedRequest b)
+version4 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
 version4 RawRequest{..} Service{..} Auth{..} = do
     time <- getCurrentTime
 

@@ -113,14 +113,6 @@ data RawRequest a b where
                  }
                -> RawRequest a b
 
-data SignedRequest a where
-    SignedRequest :: FromJSON a
-                  => { rqUrl     :: !ByteString
-                    , rqStream  :: !(Maybe (InputStream ByteString))
-                    , rqRequest :: !Request
-                    }
-                  -> SignedRequest a
-
 emptyRequest :: (AWSService a, FromJSON b, IsText p)
              => Method
              -> ByteString
@@ -137,6 +129,18 @@ emptyRequest meth host path body = RawRequest
     , rqQuery   = []
     , rqBody    = body
     }
+
+data SignedRequest = SignedRequest
+    { rqUrl     :: !ByteString
+    , rqStream  :: !(Maybe (InputStream ByteString))
+    , rqRequest :: !Request
+    }
+
+instance Show SignedRequest where
+    show SignedRequest{..} = "SignedRequest: "
+        ++ show rqUrl
+        ++ "\n"
+        ++ show rqRequest
 
 data SigningVersion
     = Version2
@@ -156,12 +160,6 @@ class AWSService a where
 
 class (AWSService a, FromJSON b) => AWSRequest a c b | c -> a b where
     request :: c -> AWS (RawRequest a b)
-
-instance Show (SignedRequest a) where
-    show SignedRequest{..} = "SignedRequest: "
-        ++ show rqUrl
-        ++ "\n"
-        ++ show rqRequest
 
 class (Show a, ToJSON a) => Template a where
     readTemplate :: a -> ByteString

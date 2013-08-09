@@ -16,9 +16,11 @@
 module Network.AWS.AutoScaling.V20110101 where
 
 import Data.Aeson
-import Data.ByteString                         (ByteString)
-import Data.Text                               (Text, empty)
+import Data.Aeson.XML
+import Data.ByteString                             (ByteString)
+import Data.Text                                   (Text, empty)
 import Data.Time
+import Network.AWS.AutoScaling.V20110101.Responses
 import Network.AWS.AutoScaling.V20110101.Types
 import Network.AWS.Internal
 import Network.Http.Client
@@ -67,7 +69,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
 
 $(deriveQS ''CreateAutoScalingGroup)
 
-instance AWSRequest AutoScaling CreateAutoScalingGroup ResponseMetadata where
+instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
     request = req GET "CreateAutoScalingGroup"
 
 -- |
@@ -91,7 +93,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 
 $(deriveQS ''CreateLaunchConfiguration)
 
-instance AWSRequest AutoScaling CreateLaunchConfiguration ResponseMetadata where
+instance AWSRequest AutoScaling CreateLaunchConfiguration MetadataResponse where
     request = req GET "CreateLaunchConfiguration"
 
 -- |
@@ -103,7 +105,7 @@ data CreateOrUpdateTags = CreateOrUpdateTags
 
 $(deriveQS ''CreateOrUpdateTags)
 
-instance AWSRequest AutoScaling CreateOrUpdateTags ResponseMetadata where
+instance AWSRequest AutoScaling CreateOrUpdateTags MetadataResponse where
     request = req GET "CreateOrUpdateTags"
 
 -- |
@@ -116,7 +118,7 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 
 $(deriveQS ''DeleteAutoScalingGroup)
 
-instance AWSRequest AutoScaling DeleteAutoScalingGroup ResponseMetadata where
+instance AWSRequest AutoScaling DeleteAutoScalingGroup MetadataResponse where
     request = req GET "DeleteAutoScalingGroup"
 
 -- |
@@ -128,7 +130,7 @@ data DeleteLaunchConfiguration = DeleteLaunchConfiguration
 
 $(deriveQS ''DeleteLaunchConfiguration)
 
-instance AWSRequest AutoScaling DeleteLaunchConfiguration ResponseMetadata where
+instance AWSRequest AutoScaling DeleteLaunchConfiguration MetadataResponse where
     request = req GET "DeleteLaunchConfiguration"
 
 -- |
@@ -141,7 +143,7 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration
 
 $(deriveQS ''DeleteNotificationConfiguration)
 
-instance AWSRequest AutoScaling DeleteNotificationConfiguration ResponseMetadata where
+instance AWSRequest AutoScaling DeleteNotificationConfiguration MetadataResponse where
     request = req GET "DeleteNotificationConfiguration"
 
 -- |
@@ -154,7 +156,7 @@ data DeletePolicy = DeletePolicy
 
 $(deriveQS ''DeletePolicy)
 
-instance AWSRequest AutoScaling DeletePolicy ResponseMetadata where
+instance AWSRequest AutoScaling DeletePolicy MetadataResponse where
     request = req GET "DeletePolicy"
 
 -- |
@@ -167,7 +169,7 @@ data DeleteScheduledAction = DeleteScheduledAction
 
 $(deriveQS ''DeleteScheduledAction)
 
-instance AWSRequest AutoScaling DeleteScheduledAction ResponseMetadata where
+instance AWSRequest AutoScaling DeleteScheduledAction MetadataResponse where
     request = req GET "DeleteScheduledAction"
 
 -- |
@@ -179,7 +181,7 @@ data DeleteTags = DeleteTags
 
 $(deriveQS ''DeleteTags)
 
-instance AWSRequest AutoScaling DeleteTags ResponseMetadata where
+instance AWSRequest AutoScaling DeleteTags MetadataResponse where
     request = req GET "DeleteTags"
 
 -- |
@@ -353,7 +355,7 @@ data DisableMetricsCollection = DisableMetricsCollection
 
 $(deriveQS ''DisableMetricsCollection)
 
-instance AWSRequest AutoScaling DisableMetricsCollection ResponseMetadata where
+instance AWSRequest AutoScaling DisableMetricsCollection MetadataResponse where
     request = req GET "DisableMetricsCollection"
 
 -- |
@@ -367,7 +369,7 @@ data EnableMetricsCollection = EnableMetricsCollection
 
 $(deriveQS ''EnableMetricsCollection)
 
-instance AWSRequest AutoScaling EnableMetricsCollection ResponseMetadata where
+instance AWSRequest AutoScaling EnableMetricsCollection MetadataResponse where
     request = req GET "EnableMetricsCollection"
 
 -- |
@@ -381,7 +383,7 @@ data ExecutePolicy = ExecutePolicy
 
 $(deriveQS ''ExecutePolicy)
 
-instance AWSRequest AutoScaling ExecutePolicy ResponseMetadata where
+instance AWSRequest AutoScaling ExecutePolicy MetadataResponse where
     request = req GET "ExecutePolicy"
 
 -- |
@@ -395,7 +397,7 @@ data PutNotificationConfiguration = PutNotificationConfiguration
 
 $(deriveQS ''PutNotificationConfiguration)
 
-instance AWSRequest AutoScaling PutNotificationConfiguration ResponseMetadata where
+instance AWSRequest AutoScaling PutNotificationConfiguration MetadataResponse where
     request = req GET "PutNotificationConfiguration"
 
 -- |
@@ -432,7 +434,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
 
 $(deriveQS ''PutScheduledUpdateGroupAction)
 
-instance AWSRequest AutoScaling PutScheduledUpdateGroupAction ResponseMetadata where
+instance AWSRequest AutoScaling PutScheduledUpdateGroupAction MetadataResponse where
     request = req GET "PutScheduledUpdateGroupAction"
 
 -- |
@@ -445,7 +447,7 @@ data ResumeProcesses = ResumeProcesses
 
 $(deriveQS ''ResumeProcesses)
 
-instance AWSRequest AutoScaling ResumeProcesses ResponseMetadata where
+instance AWSRequest AutoScaling ResumeProcesses MetadataResponse where
     request = req GET "ResumeProcesses"
 
 -- |
@@ -459,7 +461,7 @@ data SetDesiredCapacity = SetDesiredCapacity
 
 $(deriveQS ''SetDesiredCapacity)
 
-instance AWSRequest AutoScaling SetDesiredCapacity ResponseMetadata where
+instance AWSRequest AutoScaling SetDesiredCapacity MetadataResponse where
     request = req GET "SetDesiredCapacity"
 
 -- |
@@ -473,7 +475,7 @@ data SetInstanceHealth = SetInstanceHealth
 
 $(deriveQS ''SetInstanceHealth)
 
-instance AWSRequest AutoScaling SetInstanceHealth ResponseMetadata where
+instance AWSRequest AutoScaling SetInstanceHealth MetadataResponse where
     request = req GET "SetInstanceHealth"
 
 -- |
@@ -486,7 +488,7 @@ data SuspendProcesses = SuspendProcesses
 
 $(deriveQS ''SuspendProcesses)
 
-instance AWSRequest AutoScaling SuspendProcesses ResponseMetadata where
+instance AWSRequest AutoScaling SuspendProcesses MetadataResponse where
     request = req GET "SuspendProcesses"
 
 -- |
@@ -522,5 +524,5 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
 
 $(deriveQS ''UpdateAutoScalingGroup)
 
-instance AWSRequest AutoScaling UpdateAutoScalingGroup ResponseMetadata where
+instance AWSRequest AutoScaling UpdateAutoScalingGroup MetadataResponse where
     request = req GET "UpdateAutoScalingGroup"

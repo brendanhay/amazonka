@@ -25,7 +25,10 @@ module Network.AWS.Internal.TH
     , deriveQS
     , deriveQS'
 
-    -- * Aeson.TH Options
+    -- * Data.Aeson.XML Instances
+    , deriveXML
+
+    -- * Data.Aeson.TH Options
     , fieldOptions
     , loweredFieldOptions
     , underscoredFieldOptions
@@ -33,6 +36,7 @@ module Network.AWS.Internal.TH
 
 import           Control.Monad
 import           Data.Aeson.TH
+import           Data.Aeson.XML
 import qualified Data.ByteString.Char8       as BS
 import           Data.Monoid
 import           Language.Haskell.TH
@@ -77,6 +81,11 @@ deriveQS' f name = reify name >>= derive
         key = toBS . f $ nameBase ctor
 
     derive err = error $ "Cannot derive QueryString instance from: " ++ show err
+
+deriveXML :: Name -> Q [Dec]
+deriveXML name = liftM2 (++)
+    (deriveJSON fieldOptions name)
+    ([d|instance FromXML $(conT name)|])
 
 options, fieldOptions, loweredFieldOptions, underscoredFieldOptions :: Options
 options                 = defaultOptions

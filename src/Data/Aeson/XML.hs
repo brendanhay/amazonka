@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Data.Aeson.XML
-    ( FromXML ()
+    ( FromXML(..)
     , stringToXML
     ) where
 

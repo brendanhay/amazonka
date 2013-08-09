@@ -11,77 +11,75 @@
 
 module Network.AWS.EC2.Types where
 
-import Data.ByteString      (ByteString)
-import Data.Monoid
 import Data.Text
 import Network.AWS.Internal
 
 data CreateImage = CreateImage
-    { ciInstanceId :: !String
-    , ciName :: !String
-    , ciDescription :: !(Maybe String)
+    { ciInstanceId :: !Text
+    , ciName :: !Text
+    , ciDescription :: !(Maybe Text)
     , ciNoReboot :: !(Maybe Boolean)
     , ciBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
     } deriving (Show)
 
 data CreateImageResponse = CreateImageResponse
-    { cirRequestId :: !String
-    , cirImageId :: !String
+    { cirRequestId :: !Text
+    , cirImageId :: !Text
     } deriving (Show)
 
 data RegisterImage = RegisterImage
-    { riImageLocation :: !(Maybe String)
-    , riName :: !String
-    , riDescription :: !(Maybe String)
-    , riArchitecture :: !(Maybe String)
-    , riKernelId :: !(Maybe String)
-    , riRamdiskId :: !(Maybe String)
-    , riRootDeviceName :: !(Maybe String)
+    { riImageLocation :: !(Maybe Text)
+    , riName :: !Text
+    , riDescription :: !(Maybe Text)
+    , riArchitecture :: !(Maybe Text)
+    , riKernelId :: !(Maybe Text)
+    , riRamdiskId :: !(Maybe Text)
+    , riRootDeviceName :: !(Maybe Text)
     , riBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
     } deriving (Show)
 
 data RegisterImageResponse = RegisterImageResponse
-    { rirRequestId :: !String
-    , rirImageId :: !String
+    { rirRequestId :: !Text
+    , rirImageId :: !Text
     } deriving (Show)
 
 data DeregisterImage = DeregisterImage
-    { diImageId :: !String
+    { diImageId :: !Text
     } deriving (Show)
 
 data DeregisterImageResponse = DeregisterImageResponse
-    { dirRequestId :: !String
+    { dirRequestId :: !Text
     , dirReturn :: !Boolean
     } deriving (Show)
 
 data CreateKeyPair = CreateKeyPair
-    { ckpKeyName :: !String
+    { ckpKeyName :: !Text
     } deriving (Show)
 
 data CreateKeyPairResponse = CreateKeyPairResponse
-    { ckprRequestId :: !String
-    , ckprKeyName :: !String
-    , ckprKeyFingerprint :: !String
-    , ckprKeyMaterial :: !String
+    { ckprRequestId :: !Text
+    , ckprKeyName :: !Text
+    , ckprKeyFingerprint :: !Text
+    , ckprKeyMaterial :: !Text
     } deriving (Show)
 
 data ImportKeyPair = ImportKeyPair
-    { ikpKeyName :: !String
-    , ikpPublicKeyMaterial :: !String
+    { ikpKeyName :: !Text
+    , ikpPublicKeyMaterial :: !Text
     } deriving (Show)
 
 data ImportKeyPairResponse = ImportKeyPairResponse
-    { ikprRequestId :: !String
-    , ikprKeyName :: !String
-    , ikprKeyFingerprint :: !String
+    { ikprRequestId :: !Text
+    , ikprKeyName :: !Text
+    , ikprKeyFingerprint :: !Text
     } deriving (Show)
 
 data DeleteKeyPair = DeleteKeyPair
-    { dkpKeyName :: !String
+    { dkpKeyName :: !Text
     } deriving (Show)
 
 data DeleteKeyPairResponse = DeleteKeyPairResponse
-    { dkprRequestId :: !String
+    { dkprRequestId :: !Text
     , dkprReturn :: !Boolean
     } deriving (Show)
 
@@ -95,11 +93,11 @@ data DescribeKeyPairsInfo = DescribeKeyPairsInfo
     } deriving (Show)
 
 data DescribeKeyPairsItem = DescribeKeyPairsItem
-    { dkpiKeyName :: !String
+    { dkpiKeyName :: !Text
     } deriving (Show)
 
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse
-    { dkprRequestId :: !String
+    { dkprRequestId :: !Text
     , dkprKeySet :: !DescribeKeyPairsResponseInfo
     } deriving (Show)
 
@@ -108,37 +106,37 @@ data DescribeKeyPairsResponseInfo = DescribeKeyPairsResponseInfo
     } deriving (Show)
 
 data DescribeKeyPairsResponseItem = DescribeKeyPairsResponseItem
-    { dkpriKeyName :: !String
-    , dkpriKeyFingerprint :: !String
+    { dkpriKeyName :: !Text
+    , dkpriKeyFingerprint :: !Text
     } deriving (Show)
 
 data RunInstances = RunInstances
-    { riImageId :: !String
+    { riImageId :: !Text
     , riMinCount :: !Int
     , riMaxCount :: !Int
-    , riKeyName :: !(Maybe String)
+    , riKeyName :: !(Maybe Text)
     , riGroupSet :: !GroupSet
     , riUserData :: !(Maybe UserData)
-    , riInstance :: !String
+    , riInstance :: !Text
     , riPlacement :: !(Maybe PlacementRequest)
-    , riKernelId :: !(Maybe String)
-    , riRamdiskId :: !(Maybe String)
+    , riKernelId :: !(Maybe Text)
+    , riRamdiskId :: !(Maybe Text)
     , riBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
     , riMonitoring :: !(Maybe MonitoringInstance)
-    , riSubnetId :: !(Maybe String)
+    , riSubnetId :: !(Maybe Text)
     , riDisableApiTermination :: !(Maybe Boolean)
-    , riInstanceInitiatedShutdownBehavior :: !(Maybe String)
+    , riInstanceInitiatedShutdownBehavior :: !(Maybe Text)
     , riLicense :: !(Maybe InstanceLicenseRequest)
-    , riPrivateIpAddress :: !(Maybe String)
-    , riClientToken :: !(Maybe String)
+    , riPrivateIpAddress :: !(Maybe Text)
+    , riClientToken :: !(Maybe Text)
     , riNetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequest)
     , riIamInstanceProfile :: !(Maybe IamInstanceProfileRequest)
     , riEbsOptimized :: !(Maybe Boolean)
     } deriving (Show)
 
 data IamInstanceProfileRequest = IamInstanceProfileRequest
-    { iiprArn :: !(Maybe String)
-    , iiprName :: !(Maybe String)
+    { iiprArn :: !(Maybe Text)
+    , iiprName :: !(Maybe Text)
     } deriving (Show)
 
 data InstanceNetworkInterfaceSetRequest = InstanceNetworkInterfaceSetRequest
@@ -146,11 +144,11 @@ data InstanceNetworkInterfaceSetRequest = InstanceNetworkInterfaceSetRequest
     } deriving (Show)
 
 data InstanceNetworkInterfaceSetItemRequest = InstanceNetworkInterfaceSetItemRequest
-    { inisirNetworkInterfaceId :: !(Maybe String)
+    { inisirNetworkInterfaceId :: !(Maybe Text)
     , inisirDeviceIndex :: !Int
-    , inisirSubnetId :: !(Maybe String)
-    , inisirDescription :: !(Maybe String)
-    , inisirPrivateIpAddress :: !(Maybe String)
+    , inisirSubnetId :: !(Maybe Text)
+    , inisirDescription :: !(Maybe Text)
+    , inisirPrivateIpAddress :: !(Maybe Text)
     , inisirGroupSet :: !(Maybe SecurityGroupIdSet)
     , inisirDeleteOnTermination :: !(Maybe Boolean)
     , inisirPrivateIpAddressesSet :: !(Maybe PrivateIpAddressesSetRequest)
@@ -162,7 +160,7 @@ data PrivateIpAddressesSetRequest = PrivateIpAddressesSetRequest
     } deriving (Show)
 
 data PrivateIpAddressesSetItemRequest = PrivateIpAddressesSetItemRequest
-    { piasirPrivateIpAddress :: !String
+    { piasirPrivateIpAddress :: !Text
     , piasirPrimary :: !(Maybe Boolean)
     } deriving (Show)
 
@@ -171,8 +169,8 @@ data ImportInstanceGroupSet = ImportInstanceGroupSet
     } deriving (Show)
 
 data ImportInstanceGroupItem = ImportInstanceGroupItem
-    { iigiGroupId :: !(Maybe String)
-    , iigiGroupName :: !(Maybe String)
+    { iigiGroupId :: !(Maybe Text)
+    , iigiGroupName :: !(Maybe Text)
     } deriving (Show)
 
 data GroupSet = GroupSet
@@ -180,14 +178,14 @@ data GroupSet = GroupSet
     } deriving (Show)
 
 data GroupItem = GroupItem
-    { giGroupId :: !(Maybe String)
-    , giGroupName :: !(Maybe String)
+    { giGroupId :: !(Maybe Text)
+    , giGroupName :: !(Maybe Text)
     } deriving (Show)
 
 data UserData = UserData
-    { udData :: !(Maybe String)
-    , udVersion :: !String
-    , udEncoding :: !String
+    { udData :: !(Maybe Text)
+    , udVersion :: !Text
+    , udEncoding :: !Text
     } deriving (Show)
 
 data BlockDeviceMapping = BlockDeviceMapping
@@ -195,36 +193,36 @@ data BlockDeviceMapping = BlockDeviceMapping
     } deriving (Show)
 
 data BlockDeviceMappingItem = BlockDeviceMappingItem
-    { bdmiDeviceName :: !String
+    { bdmiDeviceName :: !Text
   -- <xs:choice>
-    , bdmiVirtualName :: !(Maybe String)
+    , bdmiVirtualName :: !(Maybe Text)
     , bdmiEbs :: !(Maybe EbsBlockDevice)
     , bdmiNoDevice :: !(Maybe EmptyElement)
   -- </xs:choice>
     } deriving (Show)
 
 data EbsBlockDevice = EbsBlockDevice
-    { ebdSnapshotId :: !(Maybe String)
+    { ebdSnapshotId :: !(Maybe Text)
     , ebdVolumeSize :: !(Maybe Int)
     , ebdDeleteOnTermination :: !(Maybe Boolean)
-    , ebdVolume :: !(Maybe String)
+    , ebdVolume :: !(Maybe Text)
     , ebdIops :: !(Maybe Int)
     } deriving (Show)
 
 data PlacementRequest = PlacementRequest
-    { prAvailabilityZone :: !(Maybe String)
-    , prGroupName :: !(Maybe String)
-    , prTenancy :: !(Maybe String)
+    { prAvailabilityZone :: !(Maybe Text)
+    , prGroupName :: !(Maybe Text)
+    , prTenancy :: !(Maybe Text)
     } deriving (Show)
 
 data SpotPlacementRequest = SpotPlacementRequest
-    { sprAvailabilityZone :: !(Maybe String)
-    , sprGroupName :: !(Maybe String)
+    { sprAvailabilityZone :: !(Maybe Text)
+    , sprGroupName :: !(Maybe Text)
     } deriving (Show)
 
 data InstancePlacement = InstancePlacement
-    { ipAvailabilityZone :: !(Maybe String)
-    , ipGroupName :: !(Maybe String)
+    { ipAvailabilityZone :: !(Maybe Text)
+    , ipGroupName :: !(Maybe Text)
     } deriving (Show)
 
 data MonitoringInstance = MonitoringInstance
@@ -232,24 +230,24 @@ data MonitoringInstance = MonitoringInstance
     } deriving (Show)
 
 data InstanceLicenseRequest = InstanceLicenseRequest
-    { ilrPool :: !String
+    { ilrPool :: !Text
     } deriving (Show)
 
 data RunInstancesResponse = RunInstancesResponse
-    { rirRequestId :: !String
-    , rirReservationId :: !String
-    , rirOwnerId :: !String
+    { rirRequestId :: !Text
+    , rirReservationId :: !Text
+    , rirOwnerId :: !Text
     , rirGroupSet :: !GroupSet
     , rirInstancesSet :: !RunningInstancesSet
-    , rirRequesterId :: !(Maybe String)
+    , rirRequesterId :: !(Maybe Text)
     } deriving (Show)
 
 data ReservationInfo = ReservationInfo
-    { riReservationId :: !String
-    , riOwnerId :: !String
+    { riReservationId :: !Text
+    , riOwnerId :: !Text
     , riGroupSet :: !GroupSet
     , riInstancesSet :: !RunningInstancesSet
-    , riRequesterId :: !(Maybe String)
+    , riRequesterId :: !(Maybe Text)
     } deriving (Show)
 
 data RunningInstancesSet = RunningInstancesSet
@@ -257,48 +255,48 @@ data RunningInstancesSet = RunningInstancesSet
     } deriving (Show)
 
 data RunningInstancesItem = RunningInstancesItem
-    { riiInstanceId :: !String
-    , riiImageId :: !(Maybe String)
+    { riiInstanceId :: !Text
+    , riiImageId :: !(Maybe Text)
     , riiInstanceState :: !InstanceState
-    , riiPrivateDnsName :: !String
-    , riiDnsName :: !(Maybe String)
-    , riiReason :: !(Maybe String)
-    , riiKeyName :: !(Maybe String)
-    , riiAmiLaunchIndex :: !(Maybe String)
+    , riiPrivateDnsName :: !Text
+    , riiDnsName :: !(Maybe Text)
+    , riiReason :: !(Maybe Text)
+    , riiKeyName :: !(Maybe Text)
+    , riiAmiLaunchIndex :: !(Maybe Text)
     , riiProductCodes :: !(Maybe ProductCodesSet)
-    , riiInstance :: !String
+    , riiInstance :: !Text
     , riiLaunchTime :: !DateTime
     , riiPlacement :: !(Maybe PlacementResponse)
-    , riiKernelId :: !(Maybe String)
-    , riiRamdiskId :: !(Maybe String)
-    , riiPlatform :: !(Maybe String)
+    , riiKernelId :: !(Maybe Text)
+    , riiRamdiskId :: !(Maybe Text)
+    , riiPlatform :: !(Maybe Text)
     , riiMonitoring :: !(Maybe InstanceMonitoringState)
-    , riiSubnetId :: !(Maybe String)
-    , riiVpcId :: !(Maybe String)
-    , riiPrivateIpAddress :: !(Maybe String)
-    , riiIpAddress :: !(Maybe String)
+    , riiSubnetId :: !(Maybe Text)
+    , riiVpcId :: !(Maybe Text)
+    , riiPrivateIpAddress :: !(Maybe Text)
+    , riiIpAddress :: !(Maybe Text)
     , riiSourceDestCheck :: !(Maybe Boolean)
     , riiGroupSet :: !GroupSet
     , riiStateReason :: !(Maybe StateReason)
-    , riiArchitecture :: !(Maybe String)
-    , riiRootDevice :: !(Maybe String)
-    , riiRootDeviceName :: !(Maybe String)
+    , riiArchitecture :: !(Maybe Text)
+    , riiRootDevice :: !(Maybe Text)
+    , riiRootDeviceName :: !(Maybe Text)
     , riiBlockDeviceMapping :: !(Maybe InstanceBlockDeviceMappingResponse)
-    , riiInstanceLifecycle :: !(Maybe String)
-    , riiSpotInstanceRequestId :: !(Maybe String)
+    , riiInstanceLifecycle :: !(Maybe Text)
+    , riiSpotInstanceRequestId :: !(Maybe Text)
     , riiLicense :: !(Maybe InstanceLicenseResponse)
-    , riiVirtualization :: !(Maybe String)
-    , riiClientToken :: !(Maybe String)
+    , riiVirtualization :: !(Maybe Text)
+    , riiClientToken :: !(Maybe Text)
     , riiTagSet :: !(Maybe ResourceTagSet)
-    , riiHypervisor :: !(Maybe String)
+    , riiHypervisor :: !(Maybe Text)
     , riiNetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSet)
     , riiIamInstanceProfile :: !(Maybe IamInstanceProfileResponse)
     , riiEbsOptimized :: !(Maybe Boolean)
     } deriving (Show)
 
 data IamInstanceProfileResponse = IamInstanceProfileResponse
-    { iiprArn :: !String
-    , iiprId :: !String
+    { iiprArn :: !Text
+    , iiprId :: !Text
     } deriving (Show)
 
 data InstanceNetworkInterfaceSet = InstanceNetworkInterfaceSet
@@ -306,15 +304,15 @@ data InstanceNetworkInterfaceSet = InstanceNetworkInterfaceSet
     } deriving (Show)
 
 data InstanceNetworkInterfaceSetItem = InstanceNetworkInterfaceSetItem
-    { inisiNetworkInterfaceId :: !String
-    , inisiSubnetId :: !(Maybe String)
-    , inisiVpcId :: !(Maybe String)
-    , inisiDescription :: !(Maybe String)
-    , inisiOwnerId :: !String
-    , inisiStatus :: !String
-    , inisiMacAddress :: !(Maybe String)
-    , inisiPrivateIpAddress :: !(Maybe String)
-    , inisiPrivateDnsName :: !(Maybe String)
+    { inisiNetworkInterfaceId :: !Text
+    , inisiSubnetId :: !(Maybe Text)
+    , inisiVpcId :: !(Maybe Text)
+    , inisiDescription :: !(Maybe Text)
+    , inisiOwnerId :: !Text
+    , inisiStatus :: !Text
+    , inisiMacAddress :: !(Maybe Text)
+    , inisiPrivateIpAddress :: !(Maybe Text)
+    , inisiPrivateDnsName :: !(Maybe Text)
     , inisiSourceDestCheck :: !(Maybe Boolean)
     , inisiGroupSet :: !(Maybe GroupSet)
     , inisiAttachment :: !InstanceNetworkInterfaceAttachment
@@ -327,35 +325,35 @@ data InstancePrivateIpAddressesSet = InstancePrivateIpAddressesSet
     } deriving (Show)
 
 data InstancePrivateIpAddressesSetItem = InstancePrivateIpAddressesSetItem
-    { ipiasiPrivateIpAddress :: !(Maybe String)
-    , ipiasiPrivateDnsName :: !(Maybe String)
+    { ipiasiPrivateIpAddress :: !(Maybe Text)
+    , ipiasiPrivateDnsName :: !(Maybe Text)
     , ipiasiPrimary :: !(Maybe Boolean)
     , ipiasiAssociation :: !(Maybe InstanceNetworkInterfaceAssociation)
     } deriving (Show)
 
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
-    { iniaAttachmentId :: !String
+    { iniaAttachmentId :: !Text
     , iniaDeviceIndex :: !Int
-    , iniaStatus :: !String
+    , iniaStatus :: !Text
     , iniaAttachTime :: !DateTime
     , iniaDeleteOnTermination :: !Boolean
     } deriving (Show)
 
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
-    { iniaPublicIp :: !String
-    , iniaPublicDnsName :: !(Maybe String)
-    , iniaIpOwnerId :: !(Maybe String)
+    { iniaPublicIp :: !Text
+    , iniaPublicDnsName :: !(Maybe Text)
+    , iniaIpOwnerId :: !(Maybe Text)
     } deriving (Show)
 
 data PlacementResponse = PlacementResponse
-    { prAvailabilityZone :: !String
-    , prGroupName :: !(Maybe String)
-    , prTenancy :: !(Maybe String)
+    { prAvailabilityZone :: !Text
+    , prGroupName :: !(Maybe Text)
+    , prTenancy :: !(Maybe Text)
     } deriving (Show)
 
 data StateReason = StateReason
-    { srCode :: !String
-    , srMessage :: !String
+    { srCode :: !Text
+    , srMessage :: !Text
     } deriving (Show)
 
 data InstanceBlockDeviceMappingResponse = InstanceBlockDeviceMappingResponse
@@ -363,21 +361,21 @@ data InstanceBlockDeviceMappingResponse = InstanceBlockDeviceMappingResponse
     } deriving (Show)
 
 data InstanceBlockDeviceMappingResponseItem = InstanceBlockDeviceMappingResponseItem
-    { ibdmriDeviceName :: !String
+    { ibdmriDeviceName :: !Text
   -- <xs:choice>
     , ibdmriEbs :: !EbsInstanceBlockDeviceMappingResponse
   -- </xs:choice>
     } deriving (Show)
 
 data EbsInstanceBlockDeviceMappingResponse = EbsInstanceBlockDeviceMappingResponse
-    { eibdmrVolumeId :: !String
-    , eibdmrStatus :: !String
+    { eibdmrVolumeId :: !Text
+    , eibdmrStatus :: !Text
     , eibdmrAttachTime :: !DateTime
     , eibdmrDeleteOnTermination :: !(Maybe Boolean)
     } deriving (Show)
 
 data InstanceLicenseResponse = InstanceLicenseResponse
-    { ilrPool :: !String
+    { ilrPool :: !Text
     } deriving (Show)
 
 data DescribeAccountAttributes = DescribeAccountAttributes
@@ -386,7 +384,7 @@ data DescribeAccountAttributes = DescribeAccountAttributes
     } deriving (Show)
 
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
-    { daarRequestId :: !String
+    { daarRequestId :: !Text
     , daarAccountAttributeSet :: !(Maybe AccountAttributeSet)
     } deriving (Show)
 
@@ -395,7 +393,7 @@ data AccountAttributeNameSet = AccountAttributeNameSet
     } deriving (Show)
 
 data AccountAttributeNameSetItem = AccountAttributeNameSetItem
-    { aansiAttributeName :: !String
+    { aansiAttributeName :: !Text
     } deriving (Show)
 
 data AccountAttributeSet = AccountAttributeSet
@@ -403,7 +401,7 @@ data AccountAttributeSet = AccountAttributeSet
     } deriving (Show)
 
 data AccountAttributeSetItem = AccountAttributeSetItem
-    { aasiAttributeName :: !String
+    { aasiAttributeName :: !Text
     , aasiAttributeValueSet :: !AccountAttributeValueSet
     } deriving (Show)
 
@@ -412,11 +410,11 @@ data AccountAttributeValueSet = AccountAttributeValueSet
     } deriving (Show)
 
 data AccountAttributeValueSetItem = AccountAttributeValueSetItem
-    { aavsiAttributeValue :: !String
+    { aavsiAttributeValue :: !Text
     } deriving (Show)
 
 data DescribeVpcAttribute = DescribeVpcAttribute
-    { dvaVpcId :: !String
+    { dvaVpcId :: !Text
     , dvaDescribeVpcAttributesGroup :: !DescribeVpcAttributesGroup
     } deriving (Show)
 
@@ -425,8 +423,8 @@ data DescribeVpcAttributesGroup = DescribeVpcAttributesGroup
     , dvagEnableDnsHostnames :: !EmptyElement
     } deriving (Show)
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
-    { dvarRequestId :: !String
-    , dvarVpcId :: !String
+    { dvarRequestId :: !Text
+    , dvarVpcId :: !Text
   -- <xs:choice>
     , dvarEnableDnsSupport :: !(Maybe AttributeBooleanValue)
     , dvarEnableDnsHostnames :: !(Maybe AttributeBooleanValue)
@@ -434,7 +432,7 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     } deriving (Show)
 
 data ModifyVpcAttribute = ModifyVpcAttribute
-    { mvaVpcId :: !String
+    { mvaVpcId :: !Text
   -- <xs:choice>
     , mvaEnableDnsSupport :: !(Maybe AttributeBooleanValue)
     , mvaEnableDnsHostnames :: !(Maybe AttributeBooleanValue)
@@ -442,34 +440,34 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     } deriving (Show)
 
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
-    { mvarRequestId :: !String
+    { mvarRequestId :: !Text
     , mvarReturn :: !Boolean
     } deriving (Show)
 
 data GetConsoleOutput = GetConsoleOutput
-    { gcoInstanceId :: !String
+    { gcoInstanceId :: !Text
     } deriving (Show)
 
 data GetConsoleOutputResponse = GetConsoleOutputResponse
-    { gcorRequestId :: !String
-    , gcorInstanceId :: !String
+    { gcorRequestId :: !Text
+    , gcorInstanceId :: !Text
     , gcorTimestamp :: !DateTime
-    , gcorOutput :: !String
+    , gcorOutput :: !Text
     } deriving (Show)
 
 data GetPasswordData = GetPasswordData
-    { gpdInstanceId :: !String
+    { gpdInstanceId :: !Text
     } deriving (Show)
 
 data GetPasswordDataResponse = GetPasswordDataResponse
-    { gpdrRequestId :: !String
-    , gpdrInstanceId :: !String
+    { gpdrRequestId :: !Text
+    , gpdrInstanceId :: !Text
     , gpdrTimestamp :: !DateTime
-    , gpdrPasswordData :: !String
+    , gpdrPasswordData :: !Text
     } deriving (Show)
 
 data InstanceId = InstanceId
-    { iiInstanceId :: !String
+    { iiInstanceId :: !Text
     } deriving (Show)
 
 data InstanceIdSet = InstanceIdSet
@@ -477,7 +475,7 @@ data InstanceIdSet = InstanceIdSet
     } deriving (Show)
 
 data InstanceStateChange = InstanceStateChange
-    { iscInstanceId :: !String
+    { iscInstanceId :: !Text
     , iscCurrentState :: !InstanceState
     , iscPreviousState :: !InstanceState
     } deriving (Show)
@@ -491,7 +489,7 @@ data TerminateInstances = TerminateInstances
     } deriving (Show)
 
 data TerminateInstancesResponse = TerminateInstancesResponse
-    { tirRequestId :: !String
+    { tirRequestId :: !Text
     , tirInstancesSet :: !InstanceStateChangeSet
     } deriving (Show)
 
@@ -500,16 +498,16 @@ data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
     } deriving (Show)
 
 data InstanceBlockDeviceMappingItem = InstanceBlockDeviceMappingItem
-    { ibdmiDeviceName :: !String
+    { ibdmiDeviceName :: !Text
   -- <xs:choice>
-    , ibdmiVirtualName :: !(Maybe String)
+    , ibdmiVirtualName :: !(Maybe Text)
     , ibdmiEbs :: !(Maybe InstanceEbsBlockDevice)
     , ibdmiNoDevice :: !(Maybe EmptyElement)
   -- </xs:choice>
     } deriving (Show)
 
 data InstanceEbsBlockDevice = InstanceEbsBlockDevice
-    { iebdVolumeId :: !String
+    { iebdVolumeId :: !Text
     , iebdDeleteOnTermination :: !(Maybe Boolean)
     } deriving (Show)
 
@@ -519,7 +517,7 @@ data StopInstances = StopInstances
     } deriving (Show)
 
 data StopInstancesResponse = StopInstancesResponse
-    { sirRequestId :: !String
+    { sirRequestId :: !Text
     , sirInstancesSet :: !InstanceStateChangeSet
     } deriving (Show)
 
@@ -528,7 +526,7 @@ data StartInstances = StartInstances
     } deriving (Show)
 
 data StartInstancesResponse = StartInstancesResponse
-    { sirRequestId :: !String
+    { sirRequestId :: !Text
     , sirInstancesSet :: !InstanceStateChangeSet
     } deriving (Show)
 
@@ -541,11 +539,11 @@ data RebootInstancesInfo = RebootInstancesInfo
     } deriving (Show)
 
 data RebootInstancesItem = RebootInstancesItem
-    { riiInstanceId :: !String
+    { riiInstanceId :: !Text
     } deriving (Show)
 
 data RebootInstancesResponse = RebootInstancesResponse
-    { rirRequestId :: !String
+    { rirRequestId :: !Text
     , rirReturn :: !Boolean
     } deriving (Show)
 
@@ -559,11 +557,11 @@ data DescribeInstancesInfo = DescribeInstancesInfo
     } deriving (Show)
 
 data DescribeInstancesItem = DescribeInstancesItem
-    { diiInstanceId :: !String
+    { diiInstanceId :: !Text
     } deriving (Show)
 
 data DescribeInstancesResponse = DescribeInstancesResponse
-    { dirRequestId :: !String
+    { dirRequestId :: !Text
     , dirReservationSet :: !ReservationSet
     } deriving (Show)
 
@@ -576,7 +574,7 @@ data UnavailableResultSet = UnavailableResultSet
     } deriving (Show)
 
 data UnavailableResult = UnavailableResult
-    { urAvailabilityZone :: !String
+    { urAvailabilityZone :: !Text
     } deriving (Show)
 
 data DescribeImages = DescribeImages
@@ -591,7 +589,7 @@ data DescribeImagesInfo = DescribeImagesInfo
     } deriving (Show)
 
 data DescribeImagesItem = DescribeImagesItem
-    { diiImageId :: !String
+    { diiImageId :: !Text
     } deriving (Show)
 
 data DescribeImagesOwners = DescribeImagesOwners
@@ -599,7 +597,7 @@ data DescribeImagesOwners = DescribeImagesOwners
     } deriving (Show)
 
 data DescribeImagesOwner = DescribeImagesOwner
-    { dioOwner :: !String
+    { dioOwner :: !Text
     } deriving (Show)
 
 data DescribeImagesExecutableBySet = DescribeImagesExecutableBySet
@@ -607,11 +605,11 @@ data DescribeImagesExecutableBySet = DescribeImagesExecutableBySet
     } deriving (Show)
 
 data DescribeImagesExecutableBy = DescribeImagesExecutableBy
-    { diebUser :: !String
+    { diebUser :: !Text
     } deriving (Show)
 
 data DescribeImagesResponse = DescribeImagesResponse
-    { dirRequestId :: !String
+    { dirRequestId :: !Text
     , dirImagesSet :: !DescribeImagesResponseInfo
     } deriving (Show)
 
@@ -620,51 +618,51 @@ data DescribeImagesResponseInfo = DescribeImagesResponseInfo
     } deriving (Show)
 
 data DescribeImagesResponseItem = DescribeImagesResponseItem
-    { diriImageId :: !String
-    , diriImageLocation :: !(Maybe String)
-    , diriImageState :: !String
-    , diriImageOwnerId :: !String
+    { diriImageId :: !Text
+    , diriImageLocation :: !(Maybe Text)
+    , diriImageState :: !Text
+    , diriImageOwnerId :: !Text
     , diriIsPublic :: !Boolean
     , diriProductCodes :: !(Maybe ProductCodesSet)
-    , diriArchitecture :: !(Maybe String)
-    , diriImage :: !(Maybe String)
-    , diriKernelId :: !(Maybe String)
-    , diriRamdiskId :: !(Maybe String)
-    , diriPlatform :: !(Maybe String)
+    , diriArchitecture :: !(Maybe Text)
+    , diriImage :: !(Maybe Text)
+    , diriKernelId :: !(Maybe Text)
+    , diriRamdiskId :: !(Maybe Text)
+    , diriPlatform :: !(Maybe Text)
     , diriStateReason :: !(Maybe StateReason)
-    , diriImageOwnerAlias :: !(Maybe String)
-    , diriName :: !(Maybe String)
-    , diriDescription :: !(Maybe String)
-    , diriRootDevice :: !(Maybe String)
-    , diriRootDeviceName :: !(Maybe String)
+    , diriImageOwnerAlias :: !(Maybe Text)
+    , diriName :: !(Maybe Text)
+    , diriDescription :: !(Maybe Text)
+    , diriRootDevice :: !(Maybe Text)
+    , diriRootDeviceName :: !(Maybe Text)
     , diriBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
-    , diriVirtualization :: !(Maybe String)
+    , diriVirtualization :: !(Maybe Text)
     , diriTagSet :: !(Maybe ResourceTagSet)
-    , diriHypervisor :: !(Maybe String)
+    , diriHypervisor :: !(Maybe Text)
     } deriving (Show)
 
 data CreateSecurityGroup = CreateSecurityGroup
-    { csgGroupName :: !String
-    , csgGroupDescription :: !String
-    , csgVpcId :: !(Maybe String)
+    { csgGroupName :: !Text
+    , csgGroupDescription :: !Text
+    , csgVpcId :: !(Maybe Text)
     } deriving (Show)
 
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse
-    { csgrRequestId :: !String
+    { csgrRequestId :: !Text
     , csgrReturn :: !Boolean
-    , csgrGroupId :: !String
+    , csgrGroupId :: !Text
     } deriving (Show)
 
 data DeleteSecurityGroup = DeleteSecurityGroup
     {
 -- <xs:choice>
-      dsgGroupId :: !(Maybe String)
-    , dsgGroupName :: !(Maybe String)
+      dsgGroupId :: !(Maybe Text)
+    , dsgGroupName :: !(Maybe Text)
 -- </xs:choice>
     } deriving (Show)
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
-    { dsgrRequestId :: !String
+    { dsgrRequestId :: !Text
     , dsgrReturn :: !Boolean
     } deriving (Show)
 
@@ -679,7 +677,7 @@ data DescribeSecurityGroupsSet = DescribeSecurityGroupsSet
     } deriving (Show)
 
 data DescribeSecurityGroupsSetItem = DescribeSecurityGroupsSetItem
-    { dsgsiGroupName :: !String
+    { dsgsiGroupName :: !Text
     } deriving (Show)
 
 data DescribeSecurityGroupsIdSet = DescribeSecurityGroupsIdSet
@@ -687,11 +685,11 @@ data DescribeSecurityGroupsIdSet = DescribeSecurityGroupsIdSet
     } deriving (Show)
 
 data DescribeSecurityGroupsIdSetItem = DescribeSecurityGroupsIdSetItem
-    { dsgisiGroupId :: !String
+    { dsgisiGroupId :: !Text
     } deriving (Show)
 
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
-    { dsgrRequestId :: !String
+    { dsgrRequestId :: !Text
     , dsgrSecurityGroupInfo :: !SecurityGroupSet
     } deriving (Show)
 
@@ -700,7 +698,7 @@ data IpPermissionSet = IpPermissionSet
     } deriving (Show)
 
 data IpPermission = IpPermission
-    { ipIpProtocol :: !String
+    { ipIpProtocol :: !Text
     , ipFromPort :: !(Maybe Int)
     , ipToPort :: !(Maybe Int)
     , ipGroups :: !UserIdGroupPairSet
@@ -712,7 +710,7 @@ data IpRangeSet = IpRangeSet
     } deriving (Show)
 
 data IpRangeItem = IpRangeItem
-    { iriCidrIp :: !String
+    { iriCidrIp :: !Text
     } deriving (Show)
 
 data UserIdGroupPairSet = UserIdGroupPairSet
@@ -720,9 +718,9 @@ data UserIdGroupPairSet = UserIdGroupPairSet
     } deriving (Show)
 
 data UserIdGroupPair = UserIdGroupPair
-    { uigpUserId :: !(Maybe String)
-    , uigpGroupId :: !(Maybe String)
-    , uigpGroupName :: !(Maybe String)
+    { uigpUserId :: !(Maybe Text)
+    , uigpGroupId :: !(Maybe Text)
+    , uigpGroupName :: !(Maybe Text)
     } deriving (Show)
 
 data SecurityGroupSet = SecurityGroupSet
@@ -730,71 +728,71 @@ data SecurityGroupSet = SecurityGroupSet
     } deriving (Show)
 
 data SecurityGroupItem = SecurityGroupItem
-    { sgiOwnerId :: !String
-    , sgiGroupId :: !String
-    , sgiGroupName :: !String
-    , sgiGroupDescription :: !String
-    , sgiVpcId :: !(Maybe String)
+    { sgiOwnerId :: !Text
+    , sgiGroupId :: !Text
+    , sgiGroupName :: !Text
+    , sgiGroupDescription :: !Text
+    , sgiVpcId :: !(Maybe Text)
     , sgiIpPermissions :: !IpPermissionSet
     , sgiIpPermissionsEgress :: !(Maybe IpPermissionSet)
     , sgiTagSet :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
-    { asgiUserId :: !(Maybe String)
+    { asgiUserId :: !(Maybe Text)
   -- <xs:choice>
-    , asgiGroupId :: !(Maybe String)
-    , asgiGroupName :: !(Maybe String)
+    , asgiGroupId :: !(Maybe Text)
+    , asgiGroupName :: !(Maybe Text)
   -- </xs:choice>
     , asgiIpPermissions :: !IpPermissionSet
     } deriving (Show)
 
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
-    { asgirRequestId :: !String
+    { asgirRequestId :: !Text
     , asgirReturn :: !Boolean
     } deriving (Show)
 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { rsgiUserId :: !(Maybe String)
+    { rsgiUserId :: !(Maybe Text)
   -- <xs:choice>
-    , rsgiGroupId :: !(Maybe String)
-    , rsgiGroupName :: !(Maybe String)
+    , rsgiGroupId :: !(Maybe Text)
+    , rsgiGroupName :: !(Maybe Text)
   -- </xs:choice>
     , rsgiIpPermissions :: !IpPermissionSet
     } deriving (Show)
 
 data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
-    { rsgirRequestId :: !String
+    { rsgirRequestId :: !Text
     , rsgirReturn :: !Boolean
     } deriving (Show)
 
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
-    { asgeGroupId :: !String
+    { asgeGroupId :: !Text
     , asgeIpPermissions :: !IpPermissionSet
     } deriving (Show)
 
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
-    { asgerRequestId :: !String
+    { asgerRequestId :: !Text
     , asgerReturn :: !Boolean
     } deriving (Show)
 
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
-    { rsgeGroupId :: !String
+    { rsgeGroupId :: !Text
     , rsgeIpPermissions :: !IpPermissionSet
     } deriving (Show)
 
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
-    { rsgerRequestId :: !String
+    { rsgerRequestId :: !Text
     , rsgerReturn :: !Boolean
     } deriving (Show)
 
 data InstanceState = InstanceState
     { isCode :: !Int
-    , isName :: !String
+    , isName :: !Text
     } deriving (Show)
 
 data ModifyInstanceAttribute = ModifyInstanceAttribute
-    { miaInstanceId :: !String
+    { miaInstanceId :: !Text
   -- <xs:choice>
     , miaInstance :: !(Maybe AttributeValue)
     , miaKernel :: !(Maybe AttributeValue)
@@ -814,16 +812,16 @@ data SecurityGroupIdSet = SecurityGroupIdSet
     } deriving (Show)
 
 data SecurityGroupIdSetItem = SecurityGroupIdSetItem
-    { sgisiGroupId :: !String
+    { sgisiGroupId :: !Text
     } deriving (Show)
 
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
-    { miarRequestId :: !String
+    { miarRequestId :: !Text
     , miarReturn :: !Boolean
     } deriving (Show)
 
 data ResetInstanceAttribute = ResetInstanceAttribute
-    { riaInstanceId :: !String
+    { riaInstanceId :: !Text
     , riaResetInstanceAttributesGroup :: !ResetInstanceAttributesGroup
     } deriving (Show)
 
@@ -833,12 +831,12 @@ data ResetInstanceAttributesGroup = ResetInstanceAttributesGroup
     , riagSourceDestCheck :: !EmptyElement
     } deriving (Show)
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
-    { riarRequestId :: !String
+    { riarRequestId :: !Text
     , riarReturn :: !Boolean
     } deriving (Show)
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
-    { diaInstanceId :: !String
+    { diaInstanceId :: !Text
     , diaDescribeInstanceAttributesGroup :: !DescribeInstanceAttributesGroup
     } deriving (Show)
 
@@ -857,8 +855,8 @@ data DescribeInstanceAttributesGroup = DescribeInstanceAttributesGroup
     , diagEbsOptimized :: !EmptyElement
     } deriving (Show)
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
-    { diarRequestId :: !String
-    , diarInstanceId :: !String
+    { diarRequestId :: !Text
+    , diarInstanceId :: !Text
   -- <xs:choice>
     , diarInstance :: !(Maybe NullableAttributeValue)
     , diarKernel :: !(Maybe NullableAttributeValue)
@@ -876,7 +874,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     } deriving (Show)
 
 data ModifyImageAttribute = ModifyImageAttribute
-    { miaImageId :: !String
+    { miaImageId :: !Text
   -- <xs:choice>
     , miaLaunchPermission :: !(Maybe LaunchPermissionOperation)
     , miaProductCodes :: !(Maybe ProductCodeList)
@@ -899,8 +897,8 @@ data LaunchPermissionList = LaunchPermissionList
 data LaunchPermissionItem = LaunchPermissionItem
     { lpi 
 -- <xs:choice>
-    , lpiUserId :: !(Maybe String)
-    , lpiGroup :: !(Maybe String)
+    , lpiUserId :: !(Maybe Text)
+    , lpiGroup :: !(Maybe Text)
 -- </xs:choice>
     } deriving (Show)
 
@@ -909,16 +907,16 @@ data ProductCodeList = ProductCodeList
     } deriving (Show)
 
 data ProductCodeItem = ProductCodeItem
-    { pciProductCode :: !String
+    { pciProductCode :: !Text
     } deriving (Show)
 
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse
-    { miarRequestId :: !String
+    { miarRequestId :: !Text
     , miarReturn :: !Boolean
     } deriving (Show)
 
 data ResetImageAttribute = ResetImageAttribute
-    { riaImageId :: !String
+    { riaImageId :: !Text
     , riaResetImageAttributesGroup :: !ResetImageAttributesGroup
     } deriving (Show)
 
@@ -929,12 +927,12 @@ data ResetImageAttributesGroup = ResetImageAttributesGroup
 data EmptyElement = EmptyElement
 
 data ResetImageAttributeResponse = ResetImageAttributeResponse
-    { riarRequestId :: !String
+    { riarRequestId :: !Text
     , riarReturn :: !Boolean
     } deriving (Show)
 
 data DescribeImageAttribute = DescribeImageAttribute
-    { diaImageId :: !String
+    { diaImageId :: !Text
     , diaDescribeImageAttributesGroup :: !DescribeImageAttributesGroup
     } deriving (Show)
 
@@ -948,8 +946,8 @@ data DescribeImageAttributesGroup = DescribeImageAttributesGroup
     , diagInstanceCategory :: !EmptyElement
     } deriving (Show)
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
-    { diarRequestId :: !String
-    , diarImageId :: !String
+    { diarRequestId :: !Text
+    , diarImageId :: !Text
   -- <xs:choice>
     , diarLaunchPermission :: !(Maybe LaunchPermissionList)
     , diarProductCodes :: !(Maybe ProductCodesSet)
@@ -961,7 +959,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     } deriving (Show)
 
 data NullableAttributeValue = NullableAttributeValue
-    { navValue :: !(Maybe String)
+    { navValue :: !(Maybe Text)
     } deriving (Show)
 
 data NullableAttributeBooleanValue = NullableAttributeBooleanValue
@@ -969,7 +967,7 @@ data NullableAttributeBooleanValue = NullableAttributeBooleanValue
     } deriving (Show)
 
 data AttributeValue = AttributeValue
-    { avValue :: !String
+    { avValue :: !Text
     } deriving (Show)
 
 data AttributeBooleanValue = AttributeBooleanValue
@@ -977,8 +975,8 @@ data AttributeBooleanValue = AttributeBooleanValue
     } deriving (Show)
 
 data ConfirmProductInstance = ConfirmProductInstance
-    { cpiProductCode :: !String
-    , cpiInstanceId :: !String
+    { cpiProductCode :: !Text
+    , cpiInstanceId :: !Text
     } deriving (Show)
 
 data ProductCodesSet = ProductCodesSet
@@ -986,14 +984,14 @@ data ProductCodesSet = ProductCodesSet
     } deriving (Show)
 
 data ProductCodesSetItem = ProductCodesSetItem
-    { pcsiProductCode :: !String
-    , pcsiType :: !String
+    { pcsiProductCode :: !Text
+    , pcsiType :: !Text
     } deriving (Show)
 
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
-    { cpirRequestId :: !String
+    { cpirRequestId :: !Text
     , cpirReturn :: !Boolean
-    , cpirOwnerId :: !(Maybe String)
+    , cpirOwnerId :: !(Maybe Text)
     } deriving (Show)
 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
@@ -1006,11 +1004,11 @@ data DescribeAvailabilityZonesSet = DescribeAvailabilityZonesSet
     } deriving (Show)
 
 data DescribeAvailabilityZonesSetItem = DescribeAvailabilityZonesSetItem
-    { dazsiZoneName :: !String
+    { dazsiZoneName :: !Text
     } deriving (Show)
 
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
-    { dazrRequestId :: !String
+    { dazrRequestId :: !Text
     , dazrAvailabilityZoneInfo :: !AvailabilityZoneSet
     } deriving (Show)
 
@@ -1019,7 +1017,7 @@ data AvailabilityZoneSet = AvailabilityZoneSet
     } deriving (Show)
 
 data AvailabilityZoneMessage = AvailabilityZoneMessage
-    { azmMessage :: !String
+    { azmMessage :: !Text
     } deriving (Show)
 
 data AvailabilityZoneMessageSet = AvailabilityZoneMessageSet
@@ -1027,33 +1025,33 @@ data AvailabilityZoneMessageSet = AvailabilityZoneMessageSet
     } deriving (Show)
 
 data AvailabilityZoneItem = AvailabilityZoneItem
-    { aziZoneName :: !String
-    , aziZoneState :: !String
-    , aziRegionName :: !String
+    { aziZoneName :: !Text
+    , aziZoneState :: !Text
+    , aziRegionName :: !Text
     , aziMessageSet :: !AvailabilityZoneMessageSet
     } deriving (Show)
 
 data AllocateAddress = AllocateAddress
-    { aaDomain :: !(Maybe String)
+    { aaDomain :: !(Maybe Text)
     } deriving (Show)
 
 data AllocateAddressResponse = AllocateAddressResponse
-    { aarRequestId :: !String
-    , aarPublicIp :: !String
-    , aarDomain :: !String
-    , aarAllocationId :: !(Maybe String)
+    { aarRequestId :: !Text
+    , aarPublicIp :: !Text
+    , aarDomain :: !Text
+    , aarAllocationId :: !(Maybe Text)
     } deriving (Show)
 
 data ReleaseAddress = ReleaseAddress
     { ra 
   -- <xs:choice>
-    , raPublicIp :: !(Maybe String)
-    , raAllocationId :: !(Maybe String)
+    , raPublicIp :: !(Maybe Text)
+    , raAllocationId :: !(Maybe Text)
   -- </xs:choice>
     } deriving (Show)
 
 data ReleaseAddressResponse = ReleaseAddressResponse
-    { rarRequestId :: !String
+    { rarRequestId :: !Text
     , rarReturn :: !Boolean
     } deriving (Show)
 
@@ -1068,7 +1066,7 @@ data AllocationIdSet = AllocationIdSet
     } deriving (Show)
 
 data AllocationIdSetItem = AllocationIdSetItem
-    { aisiAllocationId :: !String
+    { aisiAllocationId :: !Text
     } deriving (Show)
 
 data DescribeAddressesInfo = DescribeAddressesInfo
@@ -1076,11 +1074,11 @@ data DescribeAddressesInfo = DescribeAddressesInfo
     } deriving (Show)
 
 data DescribeAddressesItem = DescribeAddressesItem
-    { daiPublicIp :: !String
+    { daiPublicIp :: !Text
     } deriving (Show)
 
 data DescribeAddressesResponse = DescribeAddressesResponse
-    { darRequestId :: !String
+    { darRequestId :: !Text
     , darAddressesSet :: !DescribeAddressesResponseInfo
     } deriving (Show)
 
@@ -1089,75 +1087,75 @@ data DescribeAddressesResponseInfo = DescribeAddressesResponseInfo
     } deriving (Show)
 
 data DescribeAddressesResponseItem = DescribeAddressesResponseItem
-    { dariPublicIp :: !String
-    , dariAllocationId :: !(Maybe String)
-    , dariDomain :: !String
-    , dariInstanceId :: !(Maybe String)
-    , dariAssociationId :: !(Maybe String)
-    , dariNetworkInterfaceId :: !(Maybe String)
-    , dariNetworkInterfaceOwnerId :: !(Maybe String)
-    , dariPrivateIpAddress :: !(Maybe String)
+    { dariPublicIp :: !Text
+    , dariAllocationId :: !(Maybe Text)
+    , dariDomain :: !Text
+    , dariInstanceId :: !(Maybe Text)
+    , dariAssociationId :: !(Maybe Text)
+    , dariNetworkInterfaceId :: !(Maybe Text)
+    , dariNetworkInterfaceOwnerId :: !(Maybe Text)
+    , dariPrivateIpAddress :: !(Maybe Text)
     } deriving (Show)
 
 data AssociateAddress = AssociateAddress
     { aa 
   -- <xs:choice>
-    , aaPublicIp :: !(Maybe String)
-    , aaAllocationId :: !(Maybe String)
+    , aaPublicIp :: !(Maybe Text)
+    , aaAllocationId :: !(Maybe Text)
   -- </xs:choice>
   -- <xs:choice>
-    , aaNetworkInterfaceId :: !(Maybe String)
-    , aaInstanceId :: !(Maybe String)
+    , aaNetworkInterfaceId :: !(Maybe Text)
+    , aaInstanceId :: !(Maybe Text)
   -- </xs:choice>
-    , aaPrivateIpAddress :: !(Maybe String)
+    , aaPrivateIpAddress :: !(Maybe Text)
     , aaAllowReassociation :: !(Maybe Boolean)
     } deriving (Show)
 
 data AssociateAddressResponse = AssociateAddressResponse
-    { aarRequestId :: !String
+    { aarRequestId :: !Text
     , aarReturn :: !Boolean
-    , aarAssociationId :: !(Maybe String)
+    , aarAssociationId :: !(Maybe Text)
     } deriving (Show)
 
 data DisassociateAddress = DisassociateAddress
     { da 
 -- <xs:choice>
-    , daPublicIp :: !(Maybe String)
-    , daAssociationId :: !(Maybe String)
+    , daPublicIp :: !(Maybe Text)
+    , daAssociationId :: !(Maybe Text)
 -- </xs:choice>
      } deriving (Show)
 
 data DisassociateAddressResponse = DisassociateAddressResponse
-    { darRequestId :: !String
+    { darRequestId :: !Text
     , darReturn :: !Boolean
     } deriving (Show)
 
 data CreateVolume = CreateVolume
-    { cvSize :: !(Maybe String)
-    , cvSnapshotId :: !(Maybe String)
-    , cvAvailabilityZone :: !String
-    , cvVolume :: !(Maybe String)
+    { cvSize :: !(Maybe Text)
+    , cvSnapshotId :: !(Maybe Text)
+    , cvAvailabilityZone :: !Text
+    , cvVolume :: !(Maybe Text)
     , cvIops :: !(Maybe Int)
     } deriving (Show)
 
 data CreateVolumeResponse = CreateVolumeResponse
-    { cvrRequestId :: !String
-    , cvrVolumeId :: !String
-    , cvrSize :: !String
-    , cvrSnapshotId :: !String
-    , cvrAvailabilityZone :: !String
-    , cvrStatus :: !String
+    { cvrRequestId :: !Text
+    , cvrVolumeId :: !Text
+    , cvrSize :: !Text
+    , cvrSnapshotId :: !Text
+    , cvrAvailabilityZone :: !Text
+    , cvrStatus :: !Text
     , cvrCreateTime :: !DateTime
-    , cvrVolume :: !String
+    , cvrVolume :: !Text
     , cvrIops :: !(Maybe Int)
     } deriving (Show)
 
 data DeleteVolume = DeleteVolume
-    { dvVolumeId :: !String
+    { dvVolumeId :: !Text
     } deriving (Show)
 
 data DeleteVolumeResponse = DeleteVolumeResponse
-    { dvrRequestId :: !String
+    { dvrRequestId :: !Text
     , dvrReturn :: !Boolean
     } deriving (Show)
 
@@ -1171,11 +1169,11 @@ data DescribeVolumesSet = DescribeVolumesSet
     } deriving (Show)
 
 data DescribeVolumesSetItem = DescribeVolumesSetItem
-    { dvsiVolumeId :: !String
+    { dvsiVolumeId :: !Text
     } deriving (Show)
 
 data DescribeVolumesResponse = DescribeVolumesResponse
-    { dvrRequestId :: !String
+    { dvrRequestId :: !Text
     , dvrVolumeSet :: !DescribeVolumesSetResponse
     } deriving (Show)
 
@@ -1184,15 +1182,15 @@ data DescribeVolumesSetResponse = DescribeVolumesSetResponse
     } deriving (Show)
 
 data DescribeVolumesSetItemResponse = DescribeVolumesSetItemResponse
-    { dvsirVolumeId :: !String
-    , dvsirSize :: !String
-    , dvsirSnapshotId :: !String
-    , dvsirAvailabilityZone :: !String
-    , dvsirStatus :: !String
+    { dvsirVolumeId :: !Text
+    , dvsirSize :: !Text
+    , dvsirSnapshotId :: !Text
+    , dvsirAvailabilityZone :: !Text
+    , dvsirStatus :: !Text
     , dvsirCreateTime :: !DateTime
     , dvsirAttachmentSet :: !AttachmentSetResponse
     , dvsirTagSet :: !(Maybe ResourceTagSet)
-    , dvsirVolume :: !String
+    , dvsirVolume :: !Text
     , dvsirIops :: !(Maybe Int)
     } deriving (Show)
 
@@ -1201,79 +1199,79 @@ data AttachmentSetResponse = AttachmentSetResponse
     } deriving (Show)
 
 data AttachmentSetItemResponse = AttachmentSetItemResponse
-    { asirVolumeId :: !String
-    , asirInstanceId :: !String
-    , asirDevice :: !String
-    , asirStatus :: !String
+    { asirVolumeId :: !Text
+    , asirInstanceId :: !Text
+    , asirDevice :: !Text
+    , asirStatus :: !Text
     , asirAttachTime :: !DateTime
     , asirDeleteOnTermination :: !Boolean
     } deriving (Show)
 
 data AttachVolume = AttachVolume
-    { avVolumeId :: !String
-    , avInstanceId :: !String
-    , avDevice :: !String
+    { avVolumeId :: !Text
+    , avInstanceId :: !Text
+    , avDevice :: !Text
     } deriving (Show)
 
 data AttachVolumeResponse = AttachVolumeResponse
-    { avrRequestId :: !String
-    , avrVolumeId :: !String
-    , avrInstanceId :: !String
-    , avrDevice :: !String
-    , avrStatus :: !String
+    { avrRequestId :: !Text
+    , avrVolumeId :: !Text
+    , avrInstanceId :: !Text
+    , avrDevice :: !Text
+    , avrStatus :: !Text
     , avrAttachTime :: !DateTime
     } deriving (Show)
 
 data DetachVolume = DetachVolume
-    { dvVolumeId :: !String
-    , dvInstanceId :: !(Maybe String)
-    , dvDevice :: !(Maybe String)
+    { dvVolumeId :: !Text
+    , dvInstanceId :: !(Maybe Text)
+    , dvDevice :: !(Maybe Text)
     , dvForce :: !(Maybe Boolean)
     } deriving (Show)
 
 data DetachVolumeResponse = DetachVolumeResponse
-    { dvrRequestId :: !String
-    , dvrVolumeId :: !String
-    , dvrInstanceId :: !String
-    , dvrDevice :: !String
-    , dvrStatus :: !String
+    { dvrRequestId :: !Text
+    , dvrVolumeId :: !Text
+    , dvrInstanceId :: !Text
+    , dvrDevice :: !Text
+    , dvrStatus :: !Text
     , dvrAttachTime :: !DateTime
     } deriving (Show)
 
 data CreateSnapshot = CreateSnapshot
-    { csVolumeId :: !String
-    , csDescription :: !(Maybe String)
+    { csVolumeId :: !Text
+    , csDescription :: !(Maybe Text)
     } deriving (Show)
 
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { csrRequestId :: !String
-    , csrSnapshotId :: !String
-    , csrVolumeId :: !String
-    , csrStatus :: !String
+    { csrRequestId :: !Text
+    , csrSnapshotId :: !Text
+    , csrVolumeId :: !Text
+    , csrStatus :: !Text
     , csrStartTime :: !DateTime
-    , csrProgress :: !String
-    , csrOwnerId :: !String
-    , csrVolumeSize :: !String
-    , csrDescription :: !(Maybe String)
+    , csrProgress :: !Text
+    , csrOwnerId :: !Text
+    , csrVolumeSize :: !Text
+    , csrDescription :: !(Maybe Text)
     } deriving (Show)
 
 data CopySnapshot = CopySnapshot
-    { csSourceRegion :: !String
-    , csSourceSnapshotId :: !String
-    , csDescription :: !(Maybe String)
+    { csSourceRegion :: !Text
+    , csSourceSnapshotId :: !Text
+    , csDescription :: !(Maybe Text)
     } deriving (Show)
 
 data CopySnapshotResponse = CopySnapshotResponse
-    { csrRequestId :: !String
-    , csrSnapshotId :: !String
+    { csrRequestId :: !Text
+    , csrSnapshotId :: !Text
     } deriving (Show)
 
 data DeleteSnapshot = DeleteSnapshot
-    { dsSnapshotId :: !String
+    { dsSnapshotId :: !Text
     } deriving (Show)
 
 data DeleteSnapshotResponse = DeleteSnapshotResponse
-    { dsrRequestId :: !String
+    { dsrRequestId :: !Text
     , dsrReturn :: !Boolean
     } deriving (Show)
 
@@ -1289,7 +1287,7 @@ data DescribeSnapshotsSet = DescribeSnapshotsSet
     } deriving (Show)
 
 data DescribeSnapshotsSetItem = DescribeSnapshotsSetItem
-    { dssiSnapshotId :: !String
+    { dssiSnapshotId :: !Text
     } deriving (Show)
 
 data DescribeSnapshotsOwners = DescribeSnapshotsOwners
@@ -1297,7 +1295,7 @@ data DescribeSnapshotsOwners = DescribeSnapshotsOwners
     } deriving (Show)
 
 data DescribeSnapshotsOwner = DescribeSnapshotsOwner
-    { dsoOwner :: !String
+    { dsoOwner :: !Text
     } deriving (Show)
 
 data DescribeSnapshotsRestorableBySet = DescribeSnapshotsRestorableBySet
@@ -1305,11 +1303,11 @@ data DescribeSnapshotsRestorableBySet = DescribeSnapshotsRestorableBySet
     } deriving (Show)
 
 data DescribeSnapshotsRestorableBy = DescribeSnapshotsRestorableBy
-    { dsrbUser :: !String
+    { dsrbUser :: !Text
     } deriving (Show)
 
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { dsrRequestId :: !String
+    { dsrRequestId :: !Text
     , dsrSnapshotSet :: !DescribeSnapshotsSetResponse
     } deriving (Show)
 
@@ -1318,20 +1316,20 @@ data DescribeSnapshotsSetResponse = DescribeSnapshotsSetResponse
     } deriving (Show)
 
 data DescribeSnapshotsSetItemResponse = DescribeSnapshotsSetItemResponse
-    { dssirSnapshotId :: !String
-    , dssirVolumeId :: !String
-    , dssirStatus :: !String
+    { dssirSnapshotId :: !Text
+    , dssirVolumeId :: !Text
+    , dssirStatus :: !Text
     , dssirStartTime :: !DateTime
-    , dssirProgress :: !String
-    , dssirOwnerId :: !String
-    , dssirVolumeSize :: !String
-    , dssirDescription :: !(Maybe String)
-    , dssirOwnerAlias :: !(Maybe String)
+    , dssirProgress :: !Text
+    , dssirOwnerId :: !Text
+    , dssirVolumeSize :: !Text
+    , dssirDescription :: !(Maybe Text)
+    , dssirOwnerAlias :: !(Maybe Text)
     , dssirTagSet :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
-    { msaSnapshotId :: !String
+    { msaSnapshotId :: !Text
     , msaCreateVolumePermission :: !CreateVolumePermissionOperation
     } deriving (Show)
 
@@ -1350,18 +1348,18 @@ data CreateVolumePermissionList = CreateVolumePermissionList
 data CreateVolumePermissionItem = CreateVolumePermissionItem
     { cvpi 
 -- <xs:choice>
-    , cvpiUserId :: !(Maybe String)
-    , cvpiGroup :: !(Maybe String)
+    , cvpiUserId :: !(Maybe Text)
+    , cvpiGroup :: !(Maybe Text)
 -- </xs:choice>
     } deriving (Show)
 
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
-    { msarRequestId :: !String
+    { msarRequestId :: !Text
     , msarReturn :: !Boolean
     } deriving (Show)
 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
-    { rsaSnapshotId :: !String
+    { rsaSnapshotId :: !Text
     , rsaResetSnapshotAttributesGroup :: !ResetSnapshotAttributesGroup
     } deriving (Show)
 
@@ -1369,12 +1367,12 @@ data ResetSnapshotAttributesGroup = ResetSnapshotAttributesGroup
     { rsagCreateVolumePermission :: !EmptyElement
     } deriving (Show)
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
-    { rsarRequestId :: !String
+    { rsarRequestId :: !Text
     , rsarReturn :: !Boolean
     } deriving (Show)
 
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
-    { dsaSnapshotId :: !String
+    { dsaSnapshotId :: !Text
     , dsaDescribeSnapshotAttributesGroup :: !DescribeSnapshotAttributesGroup
     } deriving (Show)
 
@@ -1383,8 +1381,8 @@ data DescribeSnapshotAttributesGroup = DescribeSnapshotAttributesGroup
     , dsagProductCodes :: !EmptyElement
     } deriving (Show)
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
-    { dsarRequestId :: !String
-    , dsarSnapshotId :: !String
+    { dsarRequestId :: !Text
+    , dsarSnapshotId :: !Text
   -- <xs:choice>
     , dsarCreateVolumePermission :: !(Maybe CreateVolumePermissionList)
     , dsarProductCodes :: !(Maybe ProductCodesSet)
@@ -1392,7 +1390,7 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     } deriving (Show)
 
 data BundleInstance = BundleInstance
-    { biInstanceId :: !String
+    { biInstanceId :: !Text
     , biStorage :: !BundleInstanceTaskStorage
     } deriving (Show)
 
@@ -1401,32 +1399,32 @@ data BundleInstanceTaskStorage = BundleInstanceTaskStorage
     } deriving (Show)
 
 data BundleInstanceS3Storage = BundleInstanceS3Storage
-    { bis3sBucket :: !String
-    , bis3sPrefix :: !String
-    , bis3sAwsAccessKeyId :: !(Maybe String)
-    , bis3sUploadPolicy :: !(Maybe String)
-    , bis3sUploadPolicySignature :: !(Maybe String)
+    { bis3sBucket :: !Text
+    , bis3sPrefix :: !Text
+    , bis3sAwsAccessKeyId :: !(Maybe Text)
+    , bis3sUploadPolicy :: !(Maybe Text)
+    , bis3sUploadPolicySignature :: !(Maybe Text)
     } deriving (Show)
 
 data BundleInstanceResponse = BundleInstanceResponse
-    { birRequestId :: !String
+    { birRequestId :: !Text
     , birBundleInstanceTask :: !BundleInstanceTask
     } deriving (Show)
 
 data BundleInstanceTask = BundleInstanceTask
-    { bitInstanceId :: !String
-    , bitBundleId :: !String
-    , bitState :: !String
+    { bitInstanceId :: !Text
+    , bitBundleId :: !Text
+    , bitState :: !Text
     , bitStartTime :: !DateTime
     , bitUpdateTime :: !DateTime
     , bitStorage :: !BundleInstanceTaskStorage
-    , bitProgress :: !(Maybe String)
+    , bitProgress :: !(Maybe Text)
     , bitError :: !(Maybe BundleInstanceTaskError)
     } deriving (Show)
 
 data BundleInstanceTaskError = BundleInstanceTaskError
-    { biteCode :: !String
-    , biteMessage :: !String
+    { biteCode :: !Text
+    , biteMessage :: !Text
     } deriving (Show)
 
 data DescribeBundleTasks = DescribeBundleTasks
@@ -1439,11 +1437,11 @@ data DescribeBundleTasksInfo = DescribeBundleTasksInfo
     } deriving (Show)
 
 data DescribeBundleTasksItem = DescribeBundleTasksItem
-    { dbtiBundleId :: !String
+    { dbtiBundleId :: !Text
     } deriving (Show)
 
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse
-    { dbtrRequestId :: !String
+    { dbtrRequestId :: !Text
     , dbtrBundleInstanceTasksSet :: !BundleInstanceTasksSet
     } deriving (Show)
 
@@ -1452,25 +1450,25 @@ data BundleInstanceTasksSet = BundleInstanceTasksSet
     } deriving (Show)
 
 data CancelBundleTask = CancelBundleTask
-    { cbtBundleId :: !String
+    { cbtBundleId :: !Text
     } deriving (Show)
 
 data CancelBundleTaskResponse = CancelBundleTaskResponse
-    { cbtrRequestId :: !String
+    { cbtrRequestId :: !Text
     , cbtrBundleInstanceTask :: !BundleInstanceTask
     } deriving (Show)
 
 data CopyImage = CopyImage
-    { ciSourceRegion :: !String
-    , ciSourceImageId :: !String
-    , ciName :: !String
-    , ciDescription :: !(Maybe String)
-    , ciClientToken :: !(Maybe String)
+    { ciSourceRegion :: !Text
+    , ciSourceImageId :: !Text
+    , ciName :: !Text
+    , ciDescription :: !(Maybe Text)
+    , ciClientToken :: !(Maybe Text)
     } deriving (Show)
 
 data CopyImageResponse = CopyImageResponse
-    { cirRequestId :: !String
-    , cirImageId :: !String
+    { cirRequestId :: !Text
+    , cirImageId :: !Text
     } deriving (Show)
 
 data DescribeRegions = DescribeRegions
@@ -1483,11 +1481,11 @@ data DescribeRegionsSet = DescribeRegionsSet
     } deriving (Show)
 
 data DescribeRegionsSetItem = DescribeRegionsSetItem
-    { drsiRegionName :: !String
+    { drsiRegionName :: !Text
     } deriving (Show)
 
 data DescribeRegionsResponse = DescribeRegionsResponse
-    { drrRequestId :: !String
+    { drrRequestId :: !Text
     , drrRegionInfo :: !RegionSet
     } deriving (Show)
 
@@ -1496,23 +1494,23 @@ data RegionSet = RegionSet
     } deriving (Show)
 
 data RegionItem = RegionItem
-    { riRegionName :: !String
-    , riRegionEndpoint :: !String
+    { riRegionName :: !Text
+    , riRegionEndpoint :: !Text
     } deriving (Show)
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     { drioReservedInstancesOfferingsSet :: !(Maybe DescribeReservedInstancesOfferingsSet)
-    , drioInstance :: !(Maybe String)
-    , drioAvailabilityZone :: !(Maybe String)
-    , drioProductDescription :: !(Maybe String)
+    , drioInstance :: !(Maybe Text)
+    , drioAvailabilityZone :: !(Maybe Text)
+    , drioProductDescription :: !(Maybe Text)
     , drioFilterSet :: !(Maybe FilterSet)
-    , drioInstanceTenancy :: !(Maybe String)
-    , drioOffering :: !(Maybe String)
+    , drioInstanceTenancy :: !(Maybe Text)
+    , drioOffering :: !(Maybe Text)
     , drioIncludeMarketplace :: !(Maybe Boolean)
     , drioMinDuration :: !(Maybe Long)
     , drioMaxDuration :: !(Maybe Long)
     , drioMaxInstanceCount :: !(Maybe Int)
-    , drioNextToken :: !(Maybe String)
+    , drioNextToken :: !(Maybe Text)
     , drioMaxResults :: !(Maybe Int)
     } deriving (Show)
 
@@ -1521,13 +1519,13 @@ data DescribeReservedInstancesOfferingsSet = DescribeReservedInstancesOfferingsS
     } deriving (Show)
 
 data DescribeReservedInstancesOfferingsSetItem = DescribeReservedInstancesOfferingsSetItem
-    { driosiReservedInstancesOfferingId :: !String
+    { driosiReservedInstancesOfferingId :: !Text
     } deriving (Show)
 
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
-    { driorRequestId :: !String
+    { driorRequestId :: !Text
     , driorReservedInstancesOfferingsSet :: !DescribeReservedInstancesOfferingsResponseSet
-    , driorNextToken :: !(Maybe String)
+    , driorNextToken :: !(Maybe Text)
     } deriving (Show)
 
 data DescribeReservedInstancesOfferingsResponseSet = DescribeReservedInstancesOfferingsResponseSet
@@ -1535,16 +1533,16 @@ data DescribeReservedInstancesOfferingsResponseSet = DescribeReservedInstancesOf
     } deriving (Show)
 
 data DescribeReservedInstancesOfferingsResponseSetItem = DescribeReservedInstancesOfferingsResponseSetItem
-    { driorsiReservedInstancesOfferingId :: !String
-    , driorsiInstance :: !String
-    , driorsiAvailabilityZone :: !String
+    { driorsiReservedInstancesOfferingId :: !Text
+    , driorsiInstance :: !Text
+    , driorsiAvailabilityZone :: !Text
     , driorsiDuration :: !Long
     , driorsiFixedPrice :: !Double
     , driorsiUsagePrice :: !Double
-    , driorsiProductDescription :: !String
-    , driorsiInstanceTenancy :: !String
-    , driorsiCurrencyCode :: !String
-    , driorsiOffering :: !String
+    , driorsiProductDescription :: !Text
+    , driorsiInstanceTenancy :: !Text
+    , driorsiCurrencyCode :: !Text
+    , driorsiOffering :: !Text
     , driorsiRecurringCharges :: !RecurringChargesSet
     , driorsiMarketplace :: !(Maybe Boolean)
     , driorsiPricingDetailsSet :: !(Maybe PricingDetailsSet)
@@ -1555,7 +1553,7 @@ data RecurringChargesSet = RecurringChargesSet
     } deriving (Show)
 
 data RecurringChargesSetItem = RecurringChargesSetItem
-    { rcsiFrequency :: !String
+    { rcsiFrequency :: !Text
     , rcsiAmount :: !Double
     } deriving (Show)
 
@@ -1569,25 +1567,25 @@ data PricingDetailsSetItem = PricingDetailsSetItem
     } deriving (Show)
 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
-    { prioReservedInstancesOfferingId :: !String
+    { prioReservedInstancesOfferingId :: !Text
     , prioInstanceCount :: !Int
     , prioLimitPrice :: !(Maybe ReservedInstanceLimitPrice)
     } deriving (Show)
 
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
     { rilpAmount :: !Double
-    , rilpCurrencyCode :: !(Maybe String)
+    , rilpCurrencyCode :: !(Maybe Text)
     } deriving (Show)
 
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
-    { priorRequestId :: !String
-    , priorReservedInstancesId :: !String
+    { priorRequestId :: !Text
+    , priorReservedInstancesId :: !Text
     } deriving (Show)
 
 data DescribeReservedInstances = DescribeReservedInstances
     { driReservedInstancesSet :: !(Maybe DescribeReservedInstancesSet)
     , driFilterSet :: !(Maybe FilterSet)
-    , driOffering :: !(Maybe String)
+    , driOffering :: !(Maybe Text)
     } deriving (Show)
 
 data DescribeReservedInstancesSet = DescribeReservedInstancesSet
@@ -1595,11 +1593,11 @@ data DescribeReservedInstancesSet = DescribeReservedInstancesSet
     } deriving (Show)
 
 data DescribeReservedInstancesSetItem = DescribeReservedInstancesSetItem
-    { drisiReservedInstancesId :: !String
+    { drisiReservedInstancesId :: !Text
     } deriving (Show)
 
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
-    { drirRequestId :: !String
+    { drirRequestId :: !Text
     , drirReservedInstancesSet :: !DescribeReservedInstancesResponseSet
     } deriving (Show)
 
@@ -1608,28 +1606,28 @@ data DescribeReservedInstancesResponseSet = DescribeReservedInstancesResponseSet
     } deriving (Show)
 
 data DescribeReservedInstancesResponseSetItem = DescribeReservedInstancesResponseSetItem
-    { drirsiReservedInstancesId :: !String
-    , drirsiInstance :: !String
-    , drirsiAvailabilityZone :: !String
+    { drirsiReservedInstancesId :: !Text
+    , drirsiInstance :: !Text
+    , drirsiAvailabilityZone :: !Text
     , drirsiStart :: !DateTime
     , drirsiDuration :: !Long
     , drirsiFixedPrice :: !Double
     , drirsiUsagePrice :: !Double
     , drirsiInstanceCount :: !Integer
-    , drirsiProductDescription :: !String
-    , drirsiState :: !String
+    , drirsiProductDescription :: !Text
+    , drirsiState :: !Text
     , drirsiTagSet :: !(Maybe ResourceTagSet)
-    , drirsiInstanceTenancy :: !String
-    , drirsiCurrencyCode :: !String
-    , drirsiOffering :: !String
+    , drirsiInstanceTenancy :: !Text
+    , drirsiCurrencyCode :: !Text
+    , drirsiOffering :: !Text
     , drirsiRecurringCharges :: !(Maybe RecurringChargesSet)
     } deriving (Show)
 
 data CreateReservedInstancesListing = CreateReservedInstancesListing
-    { crilReservedInstancesId :: !String
+    { crilReservedInstancesId :: !Text
     , crilInstanceCount :: !(Maybe Int)
     , crilPriceSchedules :: !PriceScheduleRequestSet
-    , crilClientToken :: !String
+    , crilClientToken :: !Text
     } deriving (Show)
 
 data PriceScheduleRequestSet = PriceScheduleRequestSet
@@ -1639,20 +1637,20 @@ data PriceScheduleRequestSet = PriceScheduleRequestSet
 data PriceScheduleRequestSetItem = PriceScheduleRequestSetItem
     { psrsiTerm :: !Long
     , psrsiPrice :: !Double
-    , psrsiCurrencyCode :: !(Maybe String)
+    , psrsiCurrencyCode :: !(Maybe Text)
     } deriving (Show)
 
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
-    { crilrRequestId :: !String
+    { crilrRequestId :: !Text
     , crilrReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
     } deriving (Show)
 
 data CancelReservedInstancesListing = CancelReservedInstancesListing
-    { crilReservedInstancesListingId :: !String
+    { crilReservedInstancesListingId :: !Text
     } deriving (Show)
 
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
-    { crilrRequestId :: !String
+    { crilrRequestId :: !Text
     , crilrReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
     } deriving (Show)
 
@@ -1667,11 +1665,11 @@ data DescribeReservedInstancesListingSet = DescribeReservedInstancesListingSet
     } deriving (Show)
 
 data DescribeReservedInstancesListingSetItem = DescribeReservedInstancesListingSetItem
-    { drilsiReservedInstancesListingId :: !String
+    { drilsiReservedInstancesListingId :: !Text
     } deriving (Show)
 
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
-    { drilrRequestId :: !String
+    { drilrRequestId :: !Text
     , drilrReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
     } deriving (Show)
 
@@ -1680,16 +1678,16 @@ data DescribeReservedInstancesListingsResponseSet = DescribeReservedInstancesLis
     } deriving (Show)
 
 data DescribeReservedInstancesListingsResponseSetItem = DescribeReservedInstancesListingsResponseSetItem
-    { drilrsiReservedInstancesListingId :: !String
-    , drilrsiReservedInstancesId :: !String
+    { drilrsiReservedInstancesListingId :: !Text
+    , drilrsiReservedInstancesId :: !Text
     , drilrsiCreateDate :: !DateTime
     , drilrsiUpdateDate :: !DateTime
-    , drilrsiStatus :: !String
-    , drilrsiStatusMessage :: !String
+    , drilrsiStatus :: !Text
+    , drilrsiStatusMessage :: !Text
     , drilrsiInstanceCounts :: !InstanceCountsSet
     , drilrsiPriceSchedules :: !PriceScheduleSet
     , drilrsiTagSet :: !(Maybe ResourceTagSet)
-    , drilrsiClientToken :: !(Maybe String)
+    , drilrsiClientToken :: !(Maybe Text)
     } deriving (Show)
 
 data InstanceCountsSet = InstanceCountsSet
@@ -1697,7 +1695,7 @@ data InstanceCountsSet = InstanceCountsSet
     } deriving (Show)
 
 data InstanceCountsSetItem = InstanceCountsSetItem
-    { icsiState :: !String
+    { icsiState :: !Text
     , icsiInstanceCount :: !Int
     } deriving (Show)
 
@@ -1708,7 +1706,7 @@ data PriceScheduleSet = PriceScheduleSet
 data PriceScheduleSetItem = PriceScheduleSetItem
     { pssiTerm :: !Long
     , pssiPrice :: !Double
-    , pssiCurrencyCode :: !(Maybe String)
+    , pssiCurrencyCode :: !(Maybe Text)
     , pssiActive :: !Boolean
     } deriving (Show)
 
@@ -1721,11 +1719,11 @@ data MonitorInstancesSet = MonitorInstancesSet
     } deriving (Show)
 
 data MonitorInstancesSetItem = MonitorInstancesSetItem
-    { misiInstanceId :: !String
+    { misiInstanceId :: !Text
     } deriving (Show)
 
 data MonitorInstancesResponse = MonitorInstancesResponse
-    { mirRequestId :: !String
+    { mirRequestId :: !Text
     , mirInstancesSet :: !MonitorInstancesResponseSet
     } deriving (Show)
 
@@ -1734,17 +1732,17 @@ data MonitorInstancesResponseSet = MonitorInstancesResponseSet
     } deriving (Show)
 
 data MonitorInstancesResponseSetItem = MonitorInstancesResponseSetItem
-    { mirsiInstanceId :: !String
+    { mirsiInstanceId :: !Text
     , mirsiMonitoring :: !InstanceMonitoringState
     } deriving (Show)
 
 data InstanceMonitoringState = InstanceMonitoringState
-    { imsState :: !String
+    { imsState :: !Text
     } deriving (Show)
 
 data Attachment = Attachment
-    { aVpcId :: !String
-    , aState :: !String
+    { aVpcId :: !Text
+    , aState :: !Text
     } deriving (Show)
 
 data AttachmentSet = AttachmentSet
@@ -1752,30 +1750,30 @@ data AttachmentSet = AttachmentSet
     } deriving (Show)
 
 data VpnGateway = VpnGateway
-    { vgVpnGatewayId :: !String
-    , vgState :: !String
-    , vgType :: !String
-    , vgAvailabilityZone :: !(Maybe String)
+    { vgVpnGatewayId :: !Text
+    , vgState :: !Text
+    , vgType :: !Text
+    , vgAvailabilityZone :: !(Maybe Text)
     , vgAttachments :: !AttachmentSet
     , vgTagSet :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
 data CustomerGateway = CustomerGateway
-    { cgCustomerGatewayId :: !String
-    , cgState :: !String
-    , cgType :: !String
-    , cgIpAddress :: !String
+    { cgCustomerGatewayId :: !Text
+    , cgState :: !Text
+    , cgType :: !Text
+    , cgIpAddress :: !Text
     , cgBgpAsn :: !(Maybe Int)
     , cgTagSet :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
 data VpnConnection = VpnConnection
-    { vcVpnConnectionId :: !String
-    , vcState :: !String
-    , vcCustomerGatewayConfiguration :: !(Maybe String)
-    , vcType :: !(Maybe String)
-    , vcCustomerGatewayId :: !String
-    , vcVpnGatewayId :: !String
+    { vcVpnConnectionId :: !Text
+    , vcState :: !Text
+    , vcCustomerGatewayConfiguration :: !(Maybe Text)
+    , vcType :: !(Maybe Text)
+    , vcCustomerGatewayId :: !Text
+    , vcVpnGatewayId :: !Text
     , vcTagSet :: !(Maybe ResourceTagSet)
     , vcVgwTelemetry :: !(Maybe VgwTelemetry)
     , vcOptions :: !(Maybe VpnConnectionOptionsResponse)
@@ -1791,9 +1789,9 @@ data VpnStaticRoutesSet = VpnStaticRoutesSet
     } deriving (Show)
 
 data VpnStaticRoute = VpnStaticRoute
-    { vsrDestinationCidrBlock :: !String
-    , vsrSource :: !String
-    , vsrState :: !String
+    { vsrDestinationCidrBlock :: !Text
+    , vsrSource :: !Text
+    , vsrState :: !Text
     } deriving (Show)
 
 data VgwTelemetry = VgwTelemetry
@@ -1801,30 +1799,30 @@ data VgwTelemetry = VgwTelemetry
     } deriving (Show)
 
 data VpnTunnelTelemetry = VpnTunnelTelemetry
-    { vttOutsideIpAddress :: !String
-    , vttStatus :: !String
+    { vttOutsideIpAddress :: !Text
+    , vttStatus :: !Text
     , vttLastStatusChange :: !DateTime
-    , vttStatusMessage :: !(Maybe String)
+    , vttStatusMessage :: !(Maybe Text)
     , vttAcceptedRouteCount :: !Int
     } deriving (Show)
 
 data Vpc = Vpc
-    { vVpcId :: !String
-    , vState :: !(Maybe String)
-    , vCidrBlock :: !(Maybe String)
-    , vDhcpOptionsId :: !(Maybe String)
+    { vVpcId :: !Text
+    , vState :: !(Maybe Text)
+    , vCidrBlock :: !(Maybe Text)
+    , vDhcpOptionsId :: !(Maybe Text)
     , vTagSet :: !(Maybe ResourceTagSet)
-    , vInstanceTenancy :: !(Maybe String)
+    , vInstanceTenancy :: !(Maybe Text)
     , vIsDefault :: !(Maybe Boolean)
     } deriving (Show)
 
 data Subnet = Subnet
-    { sSubnetId :: !String
-    , sState :: !(Maybe String)
-    , sVpcId :: !(Maybe String)
-    , sCidrBlock :: !(Maybe String)
+    { sSubnetId :: !Text
+    , sState :: !(Maybe Text)
+    , sVpcId :: !(Maybe Text)
+    , sCidrBlock :: !(Maybe Text)
     , sAvailableIpAddressCount :: !(Maybe Int)
-    , sAvailabilityZone :: !(Maybe String)
+    , sAvailabilityZone :: !(Maybe Text)
     , sDefaultForAz :: !(Maybe Boolean)
     , sMapPublicIpOnLaunch :: !(Maybe Boolean)
     , sTagSet :: !(Maybe ResourceTagSet)
@@ -1851,7 +1849,7 @@ data SubnetSet = SubnetSet
     } deriving (Show)
 
 data CustomerGatewayIdSetItem = CustomerGatewayIdSetItem
-    { cgisiCustomerGatewayId :: !String
+    { cgisiCustomerGatewayId :: !Text
     } deriving (Show)
 
 data CustomerGatewayIdSet = CustomerGatewayIdSet
@@ -1859,7 +1857,7 @@ data CustomerGatewayIdSet = CustomerGatewayIdSet
     } deriving (Show)
 
 data VpnGatewayIdSetItem = VpnGatewayIdSetItem
-    { vgisiVpnGatewayId :: !String
+    { vgisiVpnGatewayId :: !Text
     } deriving (Show)
 
 data VpnGatewayIdSet = VpnGatewayIdSet
@@ -1867,7 +1865,7 @@ data VpnGatewayIdSet = VpnGatewayIdSet
     } deriving (Show)
 
 data VpnConnectionIdSetItem = VpnConnectionIdSetItem
-    { vcisiVpnConnectionId :: !String
+    { vcisiVpnConnectionId :: !Text
     } deriving (Show)
 
 data VpnConnectionIdSet = VpnConnectionIdSet
@@ -1875,7 +1873,7 @@ data VpnConnectionIdSet = VpnConnectionIdSet
     } deriving (Show)
 
 data VpcIdSetItem = VpcIdSetItem
-    { visiVpcId :: !String
+    { visiVpcId :: !Text
     } deriving (Show)
 
 data VpcIdSet = VpcIdSet
@@ -1883,7 +1881,7 @@ data VpcIdSet = VpcIdSet
     } deriving (Show)
 
 data SubnetIdSetItem = SubnetIdSetItem
-    { sisiSubnetId :: !String
+    { sisiSubnetId :: !Text
     } deriving (Show)
 
 data SubnetIdSet = SubnetIdSet
@@ -1891,7 +1889,7 @@ data SubnetIdSet = SubnetIdSet
     } deriving (Show)
 
 data DhcpOptionsIdSetItem = DhcpOptionsIdSetItem
-    { doisiDhcpOptionsId :: !String
+    { doisiDhcpOptionsId :: !Text
     } deriving (Show)
 
 data DhcpOptionsIdSet = DhcpOptionsIdSet
@@ -1907,18 +1905,18 @@ data DhcpOptionsSet = DhcpOptionsSet
     } deriving (Show)
 
 data DhcpConfigurationItem = DhcpConfigurationItem
-    { dciKey :: !String
+    { dciKey :: !Text
     , dciValueSet :: !DhcpValueSet
     } deriving (Show)
 
 data DhcpOptions = DhcpOptions
-    { doDhcpOptionsId :: !String
+    { doDhcpOptionsId :: !Text
     , doDhcpConfigurationSet :: !DhcpConfigurationItemSet
     , doTagSet :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
 data DhcpValue = DhcpValue
-    { dvValue :: !String
+    { dvValue :: !Text
     } deriving (Show)
 
 data DhcpValueSet = DhcpValueSet
@@ -1926,7 +1924,7 @@ data DhcpValueSet = DhcpValueSet
     } deriving (Show)
 
 data Filter = Filter
-    { fName :: !String
+    { fName :: !Text
     , fValueSet :: !ValueSet
     } deriving (Show)
 
@@ -1935,7 +1933,7 @@ data FilterSet = FilterSet
     } deriving (Show)
 
 data Value = Value
-    { vValue :: !String
+    { vValue :: !Text
     } deriving (Show)
 
 data ValueSet = ValueSet
@@ -1943,22 +1941,22 @@ data ValueSet = ValueSet
     } deriving (Show)
 
 data CreateCustomerGateway = CreateCustomerGateway
-    { ccgType :: !String
-    , ccgIpAddress :: !String
+    { ccgType :: !Text
+    , ccgIpAddress :: !Text
     , ccgBgpAsn :: !(Maybe Int)
     } deriving (Show)
 
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
-    { ccgrRequestId :: !String
+    { ccgrRequestId :: !Text
     , ccgrCustomerGateway :: !CustomerGateway
     } deriving (Show)
 
 data DeleteCustomerGateway = DeleteCustomerGateway
-    { dcgCustomerGatewayId :: !String
+    { dcgCustomerGatewayId :: !Text
     } deriving (Show)
 
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
-    { dcgrRequestId :: !String
+    { dcgrRequestId :: !Text
     , dcgrReturn :: !Boolean
     } deriving (Show)
 
@@ -1968,26 +1966,26 @@ data DescribeCustomerGateways = DescribeCustomerGateways
     } deriving (Show)
 
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { dcgrRequestId :: !String
+    { dcgrRequestId :: !Text
     , dcgrCustomerGatewaySet :: !CustomerGatewaySet
     } deriving (Show)
 
 data CreateVpnGateway = CreateVpnGateway
-    { cvgType :: !String
-    , cvgAvailabilityZone :: !(Maybe String)
+    { cvgType :: !Text
+    , cvgAvailabilityZone :: !(Maybe Text)
     } deriving (Show)
 
 data CreateVpnGatewayResponse = CreateVpnGatewayResponse
-    { cvgrRequestId :: !String
+    { cvgrRequestId :: !Text
     , cvgrVpnGateway :: !VpnGateway
     } deriving (Show)
 
 data DeleteVpnGateway = DeleteVpnGateway
-    { dvgVpnGatewayId :: !String
+    { dvgVpnGatewayId :: !Text
     } deriving (Show)
 
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
-    { dvgrRequestId :: !String
+    { dvgrRequestId :: !Text
     , dvgrReturn :: !Boolean
     } deriving (Show)
 
@@ -1997,14 +1995,14 @@ data DescribeVpnGateways = DescribeVpnGateways
     } deriving (Show)
 
 data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
-    { dvgrRequestId :: !String
+    { dvgrRequestId :: !Text
     , dvgrVpnGatewaySet :: !VpnGatewaySet
     } deriving (Show)
 
 data CreateVpnConnection = CreateVpnConnection
-    { cvcType :: !String
-    , cvcCustomerGatewayId :: !String
-    , cvcVpnGatewayId :: !String
+    { cvcType :: !Text
+    , cvcCustomerGatewayId :: !Text
+    , cvcVpnGatewayId :: !Text
     , cvcOptions :: !(Maybe VpnConnectionOptionsRequest)
     } deriving (Show)
 
@@ -2013,36 +2011,36 @@ data VpnConnectionOptionsRequest = VpnConnectionOptionsRequest
     } deriving (Show)
 
 data CreateVpnConnectionResponse = CreateVpnConnectionResponse
-    { cvcrRequestId :: !String
+    { cvcrRequestId :: !Text
     , cvcrVpnConnection :: !VpnConnection
     } deriving (Show)
 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
-    { cvcrVpnConnectionId :: !String
-    , cvcrDestinationCidrBlock :: !String
+    { cvcrVpnConnectionId :: !Text
+    , cvcrDestinationCidrBlock :: !Text
     } deriving (Show)
 
 data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
-    { cvcrrRequestId :: !String
+    { cvcrrRequestId :: !Text
     , cvcrrReturn :: !Boolean
     } deriving (Show)
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
-    { dvcrVpnConnectionId :: !String
-    , dvcrDestinationCidrBlock :: !String
+    { dvcrVpnConnectionId :: !Text
+    , dvcrDestinationCidrBlock :: !Text
     } deriving (Show)
 
 data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
-    { dvcrrRequestId :: !String
+    { dvcrrRequestId :: !Text
     , dvcrrReturn :: !Boolean
     } deriving (Show)
 
 data DeleteVpnConnection = DeleteVpnConnection
-    { dvcVpnConnectionId :: !String
+    { dvcVpnConnectionId :: !Text
     } deriving (Show)
 
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
-    { dvcrRequestId :: !String
+    { dvcrRequestId :: !Text
     , dvcrReturn :: !Boolean
     } deriving (Show)
 
@@ -2052,37 +2050,37 @@ data DescribeVpnConnections = DescribeVpnConnections
     } deriving (Show)
 
 data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
-    { dvcrRequestId :: !String
+    { dvcrRequestId :: !Text
     , dvcrVpnConnectionSet :: !VpnConnectionSet
     } deriving (Show)
 
 data AttachVpnGateway = AttachVpnGateway
-    { avgVpnGatewayId :: !String
-    , avgVpcId :: !String
+    { avgVpnGatewayId :: !Text
+    , avgVpcId :: !Text
     } deriving (Show)
 
 data AttachVpnGatewayResponse = AttachVpnGatewayResponse
-    { avgrRequestId :: !String
+    { avgrRequestId :: !Text
     , avgrAttachment :: !Attachment
     } deriving (Show)
 
 data DetachVpnGateway = DetachVpnGateway
-    { dvgVpnGatewayId :: !String
-    , dvgVpcId :: !String
+    { dvgVpnGatewayId :: !Text
+    , dvgVpcId :: !Text
     } deriving (Show)
 
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse
-    { dvgrRequestId :: !String
+    { dvgrRequestId :: !Text
     , dvgrReturn :: !Boolean
     } deriving (Show)
 
 data CreateVpc = CreateVpc
-    { cvCidrBlock :: !String
-    , cvInstanceTenancy :: !(Maybe String)
+    { cvCidrBlock :: !Text
+    , cvInstanceTenancy :: !(Maybe Text)
     } deriving (Show)
 
 data CreateVpcResponse = CreateVpcResponse
-    { cvrRequestId :: !String
+    { cvrRequestId :: !Text
     , cvrVpc :: !Vpc
     } deriving (Show)
 
@@ -2092,27 +2090,27 @@ data DescribeVpcs = DescribeVpcs
     } deriving (Show)
 
 data DescribeVpcsResponse = DescribeVpcsResponse
-    { dvrRequestId :: !String
+    { dvrRequestId :: !Text
     , dvrVpcSet :: !VpcSet
     } deriving (Show)
 
 data DeleteVpc = DeleteVpc
-    { dvVpcId :: !String
+    { dvVpcId :: !Text
     } deriving (Show)
 
 data DeleteVpcResponse = DeleteVpcResponse
-    { dvrRequestId :: !String
+    { dvrRequestId :: !Text
     , dvrReturn :: !Boolean
     } deriving (Show)
 
 data CreateSubnet = CreateSubnet
-    { csVpcId :: !String
-    , csCidrBlock :: !String
-    , csAvailabilityZone :: !(Maybe String)
+    { csVpcId :: !Text
+    , csCidrBlock :: !Text
+    , csAvailabilityZone :: !(Maybe Text)
     } deriving (Show)
 
 data CreateSubnetResponse = CreateSubnetResponse
-    { csrRequestId :: !String
+    { csrRequestId :: !Text
     , csrSubnet :: !Subnet
     } deriving (Show)
 
@@ -2122,25 +2120,25 @@ data DescribeSubnets = DescribeSubnets
     } deriving (Show)
 
 data DescribeSubnetsResponse = DescribeSubnetsResponse
-    { dsrRequestId :: !String
+    { dsrRequestId :: !Text
     , dsrSubnetSet :: !SubnetSet
     } deriving (Show)
 
 data DeleteSubnet = DeleteSubnet
-    { dsSubnetId :: !String
+    { dsSubnetId :: !Text
     } deriving (Show)
 
 data DeleteSubnetResponse = DeleteSubnetResponse
-    { dsrRequestId :: !String
+    { dsrRequestId :: !Text
     , dsrReturn :: !Boolean
     } deriving (Show)
 
 data DeleteDhcpOptions = DeleteDhcpOptions
-    { ddoDhcpOptionsId :: !String
+    { ddoDhcpOptionsId :: !Text
     } deriving (Show)
 
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
-    { ddorRequestId :: !String
+    { ddorRequestId :: !Text
     , ddorReturn :: !Boolean
     } deriving (Show)
 
@@ -2150,7 +2148,7 @@ data DescribeDhcpOptions = DescribeDhcpOptions
     } deriving (Show)
 
 data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
-    { ddorRequestId :: !String
+    { ddorRequestId :: !Text
     , ddorDhcpOptionsSet :: !DhcpOptionsSet
     } deriving (Show)
 
@@ -2159,94 +2157,94 @@ data CreateDhcpOptions = CreateDhcpOptions
     } deriving (Show)
 
 data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
-    { cdorRequestId :: !String
+    { cdorRequestId :: !Text
     , cdorDhcpOptions :: !DhcpOptions
     } deriving (Show)
 
 data AssociateDhcpOptions = AssociateDhcpOptions
-    { adoDhcpOptionsId :: !String
-    , adoVpcId :: !String
+    { adoDhcpOptionsId :: !Text
+    , adoVpcId :: !Text
     } deriving (Show)
 
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
-    { adorRequestId :: !String
+    { adorRequestId :: !Text
     , adorReturn :: !Boolean
     } deriving (Show)
 
 data RequestSpotInstances = RequestSpotInstances
-    { rsiSpotPrice :: !String
+    { rsiSpotPrice :: !Text
     , rsiInstanceCount :: !(Maybe Integer)
-    , rsiType :: !(Maybe String)
+    , rsiType :: !(Maybe Text)
     , rsiValidFrom :: !(Maybe DateTime)
     , rsiValidUntil :: !(Maybe DateTime)
-    , rsiLaunchGroup :: !(Maybe String)
-    , rsiAvailabilityZoneGroup :: !(Maybe String)
+    , rsiLaunchGroup :: !(Maybe Text)
+    , rsiAvailabilityZoneGroup :: !(Maybe Text)
     , rsiLaunchSpecification :: !LaunchSpecificationRequest
     } deriving (Show)
 
 data LaunchSpecificationRequest = LaunchSpecificationRequest
-    { lsrImageId :: !String
-    , lsrKeyName :: !(Maybe String)
+    { lsrImageId :: !Text
+    , lsrKeyName :: !(Maybe Text)
     , lsrGroupSet :: !GroupSet
     , lsrUserData :: !(Maybe UserData)
-    , lsrAddressing :: !(Maybe String)
-    , lsrInstance :: !String
+    , lsrAddressing :: !(Maybe Text)
+    , lsrInstance :: !Text
     , lsrPlacement :: !(Maybe SpotPlacementRequest)
-    , lsrKernelId :: !(Maybe String)
-    , lsrRamdiskId :: !(Maybe String)
+    , lsrKernelId :: !(Maybe Text)
+    , lsrRamdiskId :: !(Maybe Text)
     , lsrBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
     , lsrMonitoring :: !(Maybe MonitoringInstance)
-    , lsrSubnetId :: !(Maybe String)
+    , lsrSubnetId :: !(Maybe Text)
     , lsrNetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequest)
     , lsrIamInstanceProfile :: !(Maybe IamInstanceProfileRequest)
     , lsrEbsOptimized :: !(Maybe Boolean)
     } deriving (Show)
 
 data LaunchSpecificationResponse = LaunchSpecificationResponse
-    { lsrImageId :: !String
-    , lsrKeyName :: !(Maybe String)
+    { lsrImageId :: !Text
+    , lsrKeyName :: !(Maybe Text)
     , lsrGroupSet :: !GroupSet
-    , lsrAddressing :: !(Maybe String)
-    , lsrInstance :: !String
+    , lsrAddressing :: !(Maybe Text)
+    , lsrInstance :: !Text
     , lsrPlacement :: !(Maybe SpotPlacementRequest)
-    , lsrKernelId :: !(Maybe String)
-    , lsrRamdiskId :: !(Maybe String)
+    , lsrKernelId :: !(Maybe Text)
+    , lsrRamdiskId :: !(Maybe Text)
     , lsrBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
     , lsrMonitoring :: !(Maybe MonitoringInstance)
-    , lsrSubnetId :: !(Maybe String)
+    , lsrSubnetId :: !(Maybe Text)
     , lsrNetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequest)
     , lsrIamInstanceProfile :: !(Maybe IamInstanceProfileRequest)
     , lsrEbsOptimized :: !(Maybe Boolean)
     } deriving (Show)
 
 data SpotInstanceRequestSetItem = SpotInstanceRequestSetItem
-    { sirsiSpotInstanceRequestId :: !String
-    , sirsiSpotPrice :: !String
-    , sirsiType :: !String
-    , sirsiState :: !String
+    { sirsiSpotInstanceRequestId :: !Text
+    , sirsiSpotPrice :: !Text
+    , sirsiType :: !Text
+    , sirsiState :: !Text
     , sirsiFault :: !(Maybe SpotInstanceStateFault)
     , sirsiStatus :: !(Maybe SpotInstanceStatusMessage)
     , sirsiValidFrom :: !(Maybe DateTime)
     , sirsiValidUntil :: !(Maybe DateTime)
-    , sirsiLaunchGroup :: !(Maybe String)
-    , sirsiAvailabilityZoneGroup :: !(Maybe String)
+    , sirsiLaunchGroup :: !(Maybe Text)
+    , sirsiAvailabilityZoneGroup :: !(Maybe Text)
     , sirsiLaunchSpecification :: !(Maybe LaunchSpecificationResponse)
-    , sirsiInstanceId :: !(Maybe String)
+    , sirsiInstanceId :: !(Maybe Text)
     , sirsiCreateTime :: !(Maybe DateTime)
-    , sirsiProductDescription :: !(Maybe String)
+    , sirsiProductDescription :: !(Maybe Text)
     , sirsiTagSet :: !(Maybe ResourceTagSet)
-    , sirsiLaunchedAvailabilityZone :: !(Maybe String)
+    , sirsiLaunchedAvailabilityZone :: !(Maybe Text)
     } deriving (Show)
 
 data SpotInstanceStateFault = SpotInstanceStateFault
-    { sisfCode :: !String
-    , sisfMessage :: !String
+    { sisfCode :: !Text
+    , sisfMessage :: !Text
     } deriving (Show)
 
 data SpotInstanceStatusMessage = SpotInstanceStatusMessage
-    { sismCode :: !(Maybe String)
+    { sismCode :: !(Maybe Text)
     , sismUpdateTime :: !(Maybe DateTime)
-    , sismMessage :: !(Maybe String)
+    , sismMessage :: !(Maybe Text)
     } deriving (Show)
 
 data SpotInstanceRequestSet = SpotInstanceRequestSet
@@ -2254,7 +2252,7 @@ data SpotInstanceRequestSet = SpotInstanceRequestSet
     } deriving (Show)
 
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse
-    { rsirRequestId :: !String
+    { rsirRequestId :: !Text
     , rsirSpotInstanceRequestSet :: !SpotInstanceRequestSet
     } deriving (Show)
 
@@ -2268,11 +2266,11 @@ data SpotInstanceRequestIdSet = SpotInstanceRequestIdSet
     } deriving (Show)
 
 data SpotInstanceRequestIdSetItem = SpotInstanceRequestIdSetItem
-    { sirisiSpotInstanceRequestId :: !String
+    { sirisiSpotInstanceRequestId :: !Text
     } deriving (Show)
 
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
-    { dsirrRequestId :: !String
+    { dsirrRequestId :: !Text
     , dsirrSpotInstanceRequestSet :: !SpotInstanceRequestSet
     } deriving (Show)
 
@@ -2281,7 +2279,7 @@ data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     } deriving (Show)
 
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
-    { csirrRequestId :: !String
+    { csirrRequestId :: !Text
     , csirrSpotInstanceRequestSet :: !CancelSpotInstanceRequestsResponseSet
     } deriving (Show)
 
@@ -2290,8 +2288,8 @@ data CancelSpotInstanceRequestsResponseSet = CancelSpotInstanceRequestsResponseS
     } deriving (Show)
 
 data CancelSpotInstanceRequestsResponseSetItem = CancelSpotInstanceRequestsResponseSetItem
-    { csirrsiSpotInstanceRequestId :: !String
-    , csirrsiState :: !String
+    { csirrsiSpotInstanceRequestId :: !Text
+    , csirrsiState :: !Text
     } deriving (Show)
 
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
@@ -2300,9 +2298,9 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     , dsphInstanceSet :: !(Maybe InstanceSet)
     , dsphProductDescriptionSet :: !(Maybe ProductDescriptionSet)
     , dsphFilterSet :: !(Maybe FilterSet)
-    , dsphAvailabilityZone :: !(Maybe String)
+    , dsphAvailabilityZone :: !(Maybe Text)
     , dsphMaxResults :: !(Maybe Integer)
-    , dsphNextToken :: !(Maybe String)
+    , dsphNextToken :: !(Maybe Text)
     } deriving (Show)
 
 data InstanceSet = InstanceSet
@@ -2310,7 +2308,7 @@ data InstanceSet = InstanceSet
     } deriving (Show)
 
 data InstanceSetItem = InstanceSetItem
-    { isiInstance :: !String
+    { isiInstance :: !Text
     } deriving (Show)
 
 data ProductDescriptionSet = ProductDescriptionSet
@@ -2318,13 +2316,13 @@ data ProductDescriptionSet = ProductDescriptionSet
     } deriving (Show)
 
 data ProductDescriptionSetItem = ProductDescriptionSetItem
-    { pdsiProductDescription :: !String
+    { pdsiProductDescription :: !Text
     } deriving (Show)
 
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
-    { dsphrRequestId :: !String
+    { dsphrRequestId :: !Text
     , dsphrSpotPriceHistorySet :: !SpotPriceHistorySet
-    , dsphrNextToken :: !(Maybe String)
+    , dsphrNextToken :: !(Maybe Text)
     } deriving (Show)
 
 data SpotPriceHistorySet = SpotPriceHistorySet
@@ -2332,42 +2330,42 @@ data SpotPriceHistorySet = SpotPriceHistorySet
     } deriving (Show)
 
 data SpotPriceHistorySetItem = SpotPriceHistorySetItem
-    { sphsiInstance :: !String
-    , sphsiProductDescription :: !String
-    , sphsiSpotPrice :: !String
+    { sphsiInstance :: !Text
+    , sphsiProductDescription :: !Text
+    , sphsiSpotPrice :: !Text
     , sphsiTimestamp :: !DateTime
-    , sphsiAvailabilityZone :: !(Maybe String)
+    , sphsiAvailabilityZone :: !(Maybe Text)
     } deriving (Show)
 
 data SpotDatafeedSubscription = SpotDatafeedSubscription
-    { sdsOwnerId :: !String
-    , sdsBucket :: !String
-    , sdsPrefix :: !String
-    , sdsState :: !String
+    { sdsOwnerId :: !Text
+    , sdsBucket :: !Text
+    , sdsPrefix :: !Text
+    , sdsState :: !Text
     , sdsFault :: !(Maybe SpotInstanceStateFault)
     } deriving (Show)
 
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
-    { csdsBucket :: !String
-    , csdsPrefix :: !String
+    { csdsBucket :: !Text
+    , csdsPrefix :: !Text
     } deriving (Show)
 
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
-    { csdsrRequestId :: !String
+    { csdsrRequestId :: !Text
     , csdsrSpotDatafeedSubscription :: !SpotDatafeedSubscription
     } deriving (Show)
 
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
-    { dsdsrRequestId :: !String
+    { dsdsrRequestId :: !Text
     , dsdsrSpotDatafeedSubscription :: !SpotDatafeedSubscription
     } deriving (Show)
 
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
-    { dsdsrRequestId :: !String
+    { dsdsrRequestId :: !Text
     , dsdsrReturn :: !Boolean
     } deriving (Show)
 
@@ -2381,11 +2379,11 @@ data LicenseIdSet = LicenseIdSet
     } deriving (Show)
 
 data LicenseIdSetItem = LicenseIdSetItem
-    { lisiLicenseId :: !String
+    { lisiLicenseId :: !Text
     } deriving (Show)
 
 data DescribeLicensesResponse = DescribeLicensesResponse
-    { dlrRequestId :: !String
+    { dlrRequestId :: !Text
     , dlrLicenseSet :: !LicenseSet
     } deriving (Show)
 
@@ -2394,9 +2392,9 @@ data LicenseSet = LicenseSet
     } deriving (Show)
 
 data LicenseSetItem = LicenseSetItem
-    { lsiLicenseId :: !String
-    , lsiType :: !String
-    , lsiPool :: !String
+    { lsiLicenseId :: !Text
+    , lsiType :: !Text
+    , lsiPool :: !Text
     , lsiCapacitySet :: !LicenseCapacitySet
     , lsiTagSet :: !(Maybe ResourceTagSet)
     } deriving (Show)
@@ -2408,51 +2406,51 @@ data LicenseCapacitySet = LicenseCapacitySet
 data LicenseCapacitySetItem = LicenseCapacitySetItem
     { lcsiCapacity :: !Int
     , lcsiInstanceCapacity :: !Int
-    , lcsiState :: !String
+    , lcsiState :: !Text
     , lcsiEarliestAllowedDeactivationTime :: !(Maybe DateTime)
     } deriving (Show)
 
 data ActivateLicense = ActivateLicense
-    { alLicenseId :: !String
+    { alLicenseId :: !Text
     , alCapacity :: !Int
     } deriving (Show)
 
 data ActivateLicenseResponse = ActivateLicenseResponse
-    { alrRequestId :: !String
+    { alrRequestId :: !Text
     , alrReturn :: !Boolean
     } deriving (Show)
 
 data DeactivateLicense = DeactivateLicense
-    { dlLicenseId :: !String
+    { dlLicenseId :: !Text
     , dlCapacity :: !Int
     } deriving (Show)
 
 data DeactivateLicenseResponse = DeactivateLicenseResponse
-    { dlrRequestId :: !String
+    { dlrRequestId :: !Text
     , dlrReturn :: !Boolean
     } deriving (Show)
 
 data CreatePlacementGroup = CreatePlacementGroup
-    { cpgGroupName :: !String
-    , cpgStrategy :: !String
+    { cpgGroupName :: !Text
+    , cpgStrategy :: !Text
     } deriving (Show)
 
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse
-    { cpgrRequestId :: !String
+    { cpgrRequestId :: !Text
     , cpgrReturn :: !Boolean
     } deriving (Show)
 
 data DeletePlacementGroup = DeletePlacementGroup
-    { dpgGroupName :: !String
+    { dpgGroupName :: !Text
     } deriving (Show)
 
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
-    { dpgrRequestId :: !String
+    { dpgrRequestId :: !Text
     , dpgrReturn :: !Boolean
     } deriving (Show)
 
 data DescribePlacementGroupItem = DescribePlacementGroupItem
-    { dpgiGroupName :: !String
+    { dpgiGroupName :: !Text
     } deriving (Show)
 
 data DescribePlacementGroupsInfo = DescribePlacementGroupsInfo
@@ -2465,9 +2463,9 @@ data DescribePlacementGroups = DescribePlacementGroups
     } deriving (Show)
 
 data PlacementGroupInfo = PlacementGroupInfo
-    { pgiGroupName :: !String
-    , pgiStrategy :: !String
-    , pgiState :: !String
+    { pgiGroupName :: !Text
+    , pgiStrategy :: !Text
+    , pgiState :: !Text
     } deriving (Show)
 
 data PlacementGroupSet = PlacementGroupSet
@@ -2475,7 +2473,7 @@ data PlacementGroupSet = PlacementGroupSet
     } deriving (Show)
 
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
-    { dpgrRequestId :: !String
+    { dpgrRequestId :: !Text
     , dpgrPlacementGroupSet :: !PlacementGroupSet
     } deriving (Show)
 
@@ -2484,12 +2482,12 @@ data ResourceIdSet = ResourceIdSet
     } deriving (Show)
 
 data ResourceIdSetItem = ResourceIdSetItem
-    { risiResourceId :: !String
+    { risiResourceId :: !Text
     } deriving (Show)
 
 data ResourceTagSetItem = ResourceTagSetItem
-    { rtsiKey :: !String
-    , rtsiValue :: !String
+    { rtsiKey :: !Text
+    , rtsiValue :: !Text
     } deriving (Show)
 
 data ResourceTagSet = ResourceTagSet
@@ -2502,15 +2500,15 @@ data CreateTags = CreateTags
     } deriving (Show)
 
 data CreateTagsResponse = CreateTagsResponse
-    { ctrRequestId :: !String
+    { ctrRequestId :: !Text
     , ctrReturn :: !Boolean
     } deriving (Show)
 
 data TagSetItem = TagSetItem
-    { tsiResourceId :: !(Maybe String)
-    , tsiResource :: !(Maybe String)
-    , tsiKey :: !(Maybe String)
-    , tsiValue :: !(Maybe String)
+    { tsiResourceId :: !(Maybe Text)
+    , tsiResource :: !(Maybe Text)
+    , tsiKey :: !(Maybe Text)
+    , tsiValue :: !(Maybe Text)
     } deriving (Show)
 
 data TagSet = TagSet
@@ -2522,13 +2520,13 @@ data DescribeTags = DescribeTags
     } deriving (Show)
 
 data DescribeTagsResponse = DescribeTagsResponse
-    { dtrRequestId :: !String
+    { dtrRequestId :: !Text
     , dtrTagSet :: !TagSet
     } deriving (Show)
 
 data DeleteTagsSetItem = DeleteTagsSetItem
-    { dtsiKey :: !(Maybe String)
-    , dtsiValue :: !(Maybe String)
+    { dtsiKey :: !(Maybe Text)
+    , dtsiValue :: !(Maybe Text)
     } deriving (Show)
 
 data DeleteTagsSet = DeleteTagsSet
@@ -2541,33 +2539,33 @@ data DeleteTags = DeleteTags
     } deriving (Show)
 
 data DeleteTagsResponse = DeleteTagsResponse
-    { dtrRequestId :: !String
+    { dtrRequestId :: !Text
     , dtrReturn :: !Boolean
     } deriving (Show)
 
 data ImportInstance = ImportInstance
-    { iiDescription :: !(Maybe String)
+    { iiDescription :: !(Maybe Text)
     , iiLaunchSpecification :: !ImportInstanceLaunchSpecification
     , iiDiskImageSet :: !DiskImageSet
     , iiKeepPartialImports :: !(Maybe Boolean)
-    , iiPlatform :: !String
+    , iiPlatform :: !Text
     } deriving (Show)
 
 data ImportInstanceResponse = ImportInstanceResponse
-    { iirRequestId :: !String
+    { iirRequestId :: !Text
     , iirConversionTask :: !ConversionTask
     } deriving (Show)
 
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
-    { iilsArchitecture :: !String
+    { iilsArchitecture :: !Text
     , iilsGroupSet :: !(Maybe ImportInstanceGroupSet)
     , iilsUserData :: !(Maybe UserData)
-    , iilsInstance :: !String
+    , iilsInstance :: !Text
     , iilsPlacement :: !(Maybe InstancePlacement)
     , iilsMonitoring :: !(Maybe MonitoringInstance)
-    , iilsSubnetId :: !(Maybe String)
-    , iilsInstanceInitiatedShutdownBehavior :: !(Maybe String)
-    , iilsPrivateIpAddress :: !(Maybe String)
+    , iilsSubnetId :: !(Maybe Text)
+    , iilsInstanceInitiatedShutdownBehavior :: !(Maybe Text)
+    , iilsPrivateIpAddress :: !(Maybe Text)
     } deriving (Show)
 
 data DiskImageSet = DiskImageSet
@@ -2576,14 +2574,14 @@ data DiskImageSet = DiskImageSet
 
 data DiskImage = DiskImage
     { diImage :: !DiskImageDetail
-    , diDescription :: !(Maybe String)
+    , diDescription :: !(Maybe Text)
     , diVolume :: !DiskImageVolume
     } deriving (Show)
 
 data DiskImageDetail = DiskImageDetail
-    { didFormat :: !String
+    { didFormat :: !Text
     , didBytes :: !Long
-    , didImportManifestUrl :: !String
+    , didImportManifestUrl :: !Text
     } deriving (Show)
 
 data DiskImageVolume = DiskImageVolume
@@ -2591,28 +2589,28 @@ data DiskImageVolume = DiskImageVolume
     } deriving (Show)
 
 data ConversionTask = ConversionTask
-    { ctConversionTaskId :: !String
-    , ctExpirationTime :: !(Maybe String)
+    { ctConversionTaskId :: !Text
+    , ctExpirationTime :: !(Maybe Text)
   -- <xs:choice>
     , ctImportVolume :: !(Maybe ImportVolumeTaskDetails)
     , ctImportInstance :: !(Maybe ImportInstanceTaskDetails)
   -- </xs:choice>
-    , ctState :: !String
-    , ctStatusMessage :: !(Maybe String)
+    , ctState :: !Text
+    , ctStatusMessage :: !(Maybe Text)
     , ctTagSet :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails
     { iitdVolumes :: !ImportInstanceVolumeDetailSet
-    , iitdInstanceId :: !(Maybe String)
-    , iitdPlatform :: !(Maybe String)
-    , iitdDescription :: !(Maybe String)
+    , iitdInstanceId :: !(Maybe Text)
+    , iitdPlatform :: !(Maybe Text)
+    , iitdDescription :: !(Maybe Text)
     } deriving (Show)
 
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails
     { ivtdBytesConverted :: !Long
-    , ivtdAvailabilityZone :: !String
-    , ivtdDescription :: !(Maybe String)
+    , ivtdAvailabilityZone :: !Text
+    , ivtdDescription :: !(Maybe Text)
     , ivtdImage :: !DiskImageDescription
     , ivtdVolume :: !DiskImageVolumeDescription
     } deriving (Show)
@@ -2623,35 +2621,35 @@ data ImportInstanceVolumeDetailSet = ImportInstanceVolumeDetailSet
 
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
     { iivdiBytesConverted :: !Long
-    , iivdiAvailabilityZone :: !String
+    , iivdiAvailabilityZone :: !Text
     , iivdiImage :: !DiskImageDescription
-    , iivdiDescription :: !(Maybe String)
+    , iivdiDescription :: !(Maybe Text)
     , iivdiVolume :: !DiskImageVolumeDescription
-    , iivdiStatus :: !String
-    , iivdiStatusMessage :: !(Maybe String)
+    , iivdiStatus :: !Text
+    , iivdiStatusMessage :: !(Maybe Text)
     } deriving (Show)
 
 data DiskImageVolumeDescription = DiskImageVolumeDescription
     { divdSize :: !Integer
-    , divdId :: !String
+    , divdId :: !Text
     } deriving (Show)
 
 data DiskImageDescription = DiskImageDescription
-    { didFormat :: !String
+    { didFormat :: !Text
     , didSize :: !Long
-    , didImportManifestUrl :: !String
-    , didChecksum :: !(Maybe String)
+    , didImportManifestUrl :: !Text
+    , didChecksum :: !(Maybe Text)
     } deriving (Show)
 
 data ImportVolume = ImportVolume
-    { ivAvailabilityZone :: !String
+    { ivAvailabilityZone :: !Text
     , ivImage :: !DiskImageDetail
-    , ivDescription :: !(Maybe String)
+    , ivDescription :: !(Maybe Text)
     , ivVolume :: !DiskImageVolume
     } deriving (Show)
 
 data ImportVolumeResponse = ImportVolumeResponse
-    { ivrRequestId :: !String
+    { ivrRequestId :: !Text
     , ivrConversionTask :: !ConversionTask
     } deriving (Show)
 
@@ -2660,7 +2658,7 @@ data DescribeConversionTasks = DescribeConversionTasks
     } deriving (Show)
 
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse
-    { dctrRequestId :: !String
+    { dctrRequestId :: !Text
     , dctrConversionTasks :: !ConversionTaskSet
     } deriving (Show)
 
@@ -2669,7 +2667,7 @@ data ConversionTaskIdSet = ConversionTaskIdSet
     } deriving (Show)
 
 data ConversionTaskIdItem = ConversionTaskIdItem
-    { ctiiConversionTaskId :: !String
+    { ctiiConversionTaskId :: !Text
     } deriving (Show)
 
 data ConversionTaskSet = ConversionTaskSet
@@ -2677,32 +2675,32 @@ data ConversionTaskSet = ConversionTaskSet
     } deriving (Show)
 
 data CancelConversionTask = CancelConversionTask
-    { cctConversionTaskId :: !String
+    { cctConversionTaskId :: !Text
     } deriving (Show)
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse
-    { cctrRequestId :: !String
+    { cctrRequestId :: !Text
     , cctrReturn :: !Boolean
     } deriving (Show)
 
 data CreateInstanceExportTask = CreateInstanceExportTask
-    { cietDescription :: !(Maybe String)
-    , cietInstanceId :: !String
-    , cietTargetEnvironment :: !String
+    { cietDescription :: !(Maybe Text)
+    , cietInstanceId :: !Text
+    , cietTargetEnvironment :: !Text
   -- <xs:choice>
     , cietExportToS3 :: !(Maybe ExportToS3Task)
   -- </xs:choice>
     } deriving (Show)
 
 data ExportToS3Task = ExportToS3Task
-    { ets3tDiskImageFormat :: !(Maybe String)
-    , ets3tContainerFormat :: !(Maybe String)
-    , ets3tS3Bucket :: !String
-    , ets3tS3Prefix :: !String
+    { ets3tDiskImageFormat :: !(Maybe Text)
+    , ets3tContainerFormat :: !(Maybe Text)
+    , ets3tS3Bucket :: !Text
+    , ets3tS3Prefix :: !Text
     } deriving (Show)
 
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
-    { cietrRequestId :: !String
+    { cietrRequestId :: !Text
     , cietrExportTask :: !ExportTaskResponse
     } deriving (Show)
 
@@ -2715,11 +2713,11 @@ data ExportTaskIdSet = ExportTaskIdSet
     } deriving (Show)
 
 data ExportTaskId = ExportTaskId
-    { etiExportTaskId :: !String
+    { etiExportTaskId :: !Text
     } deriving (Show)
 
 data DescribeExportTasksResponse = DescribeExportTasksResponse
-    { detrRequestId :: !String
+    { detrRequestId :: !Text
     , detrExportTaskSet :: !ExportTaskSetResponse
     } deriving (Show)
 
@@ -2728,10 +2726,10 @@ data ExportTaskSetResponse = ExportTaskSetResponse
     } deriving (Show)
 
 data ExportTaskResponse = ExportTaskResponse
-    { etrExportTaskId :: !String
-    , etrDescription :: !(Maybe String)
-    , etrState :: !String
-    , etrStatusMessage :: !(Maybe String)
+    { etrExportTaskId :: !Text
+    , etrDescription :: !(Maybe Text)
+    , etrState :: !Text
+    , etrStatusMessage :: !(Maybe Text)
   -- <xs:choice>
     , etrInstanceExport :: !(Maybe InstanceExportTaskResponse)
   -- </xs:choice>
@@ -2741,23 +2739,23 @@ data ExportTaskResponse = ExportTaskResponse
     } deriving (Show)
 
 data InstanceExportTaskResponse = InstanceExportTaskResponse
-    { ietrInstanceId :: !String
-    , ietrTargetEnvironment :: !(Maybe String)
+    { ietrInstanceId :: !Text
+    , ietrTargetEnvironment :: !(Maybe Text)
     } deriving (Show)
 
 data ExportToS3TaskResponse = ExportToS3TaskResponse
-    { ets3trDiskImageFormat :: !String
-    , ets3trContainerFormat :: !(Maybe String)
-    , ets3trS3Bucket :: !String
-    , ets3trS3Key :: !String
+    { ets3trDiskImageFormat :: !Text
+    , ets3trContainerFormat :: !(Maybe Text)
+    , ets3trS3Bucket :: !Text
+    , ets3trS3Key :: !Text
     } deriving (Show)
 
 data CancelExportTask = CancelExportTask
-    { cetExportTaskId :: !String
+    { cetExportTaskId :: !Text
     } deriving (Show)
 
 data CancelExportTaskResponse = CancelExportTaskResponse
-    { cetrRequestId :: !String
+    { cetrRequestId :: !Text
     , cetrReturn :: !Boolean
     } deriving (Show)
 
@@ -2768,18 +2766,18 @@ data InternetGatewayAttachmentSet = InternetGatewayAttachmentSet
     } deriving (Show)
 
 data InternetGatewayAttachment = InternetGatewayAttachment
-    { igaVpcId :: !String
-    , igaState :: !String
+    { igaVpcId :: !Text
+    , igaState :: !Text
     } deriving (Show)
 
 data InternetGateway = InternetGateway
-    { igInternetGatewayId :: !String
+    { igInternetGatewayId :: !Text
     , igAttachmentSet :: !InternetGatewayAttachmentSet
     , igTagSet :: !(Maybe ResourceTagSet)
     } deriving (Show)
 
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse
-    { cigrRequestId :: !String
+    { cigrRequestId :: !Text
     , cigrInternetGateway :: !InternetGateway
     } deriving (Show)
 
@@ -2788,7 +2786,7 @@ data InternetGatewayIdSet = InternetGatewayIdSet
     } deriving (Show)
 
 data InternetGatewayIdSetItem = InternetGatewayIdSetItem
-    { igisiInternetGatewayId :: !String
+    { igisiInternetGatewayId :: !Text
     } deriving (Show)
 
 data DescribeInternetGateways = DescribeInternetGateways
@@ -2801,41 +2799,41 @@ data InternetGatewaySet = InternetGatewaySet
     } deriving (Show)
 
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
-    { digrRequestId :: !String
+    { digrRequestId :: !Text
     , digrInternetGatewaySet :: !InternetGatewaySet
     } deriving (Show)
 
 data DeleteInternetGateway = DeleteInternetGateway
-    { digInternetGatewayId :: !String
+    { digInternetGatewayId :: !Text
     } deriving (Show)
 
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
-    { digrRequestId :: !String
+    { digrRequestId :: !Text
     , digrReturn :: !Boolean
     } deriving (Show)
 
 data AttachInternetGateway = AttachInternetGateway
-    { aigInternetGatewayId :: !String
-    , aigVpcId :: !String
+    { aigInternetGatewayId :: !Text
+    , aigVpcId :: !Text
     } deriving (Show)
 
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
-    { aigrRequestId :: !String
+    { aigrRequestId :: !Text
     , aigrReturn :: !Boolean
     } deriving (Show)
 
 data DetachInternetGateway = DetachInternetGateway
-    { digInternetGatewayId :: !String
-    , digVpcId :: !String
+    { digInternetGatewayId :: !Text
+    , digVpcId :: !Text
     } deriving (Show)
 
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse
-    { digrRequestId :: !String
+    { digrRequestId :: !Text
     , digrReturn :: !Boolean
     } deriving (Show)
 
 data CreateRouteTable = CreateRouteTable
-    { crtVpcId :: !String
+    { crtVpcId :: !Text
     } deriving (Show)
 
 data RouteSet = RouteSet
@@ -2843,13 +2841,13 @@ data RouteSet = RouteSet
     } deriving (Show)
 
 data Route = Route
-    { rDestinationCidrBlock :: !String
-    , rGatewayId :: !(Maybe String)
-    , rInstanceId :: !(Maybe String)
-    , rInstanceOwnerId :: !(Maybe String)
-    , rNetworkInterfaceId :: !(Maybe String)
-    , rState :: !String
-    , rOrigin :: !String
+    { rDestinationCidrBlock :: !Text
+    , rGatewayId :: !(Maybe Text)
+    , rInstanceId :: !(Maybe Text)
+    , rInstanceOwnerId :: !(Maybe Text)
+    , rNetworkInterfaceId :: !(Maybe Text)
+    , rState :: !Text
+    , rOrigin :: !Text
     } deriving (Show)
 
 data RouteTableAssociationSet = RouteTableAssociationSet
@@ -2857,10 +2855,10 @@ data RouteTableAssociationSet = RouteTableAssociationSet
     } deriving (Show)
 
 data RouteTableAssociation = RouteTableAssociation
-    { rtaRouteTableAssociationId :: !String
-    , rtaRouteTableId :: !String
+    { rtaRouteTableAssociationId :: !Text
+    , rtaRouteTableId :: !Text
   -- <xs:choice>
-    , rtaSubnetId :: !(Maybe String)
+    , rtaSubnetId :: !(Maybe Text)
     , rtaMain :: !(Maybe Boolean)
   -- </xs:choice>
     } deriving (Show)
@@ -2870,12 +2868,12 @@ data PropagatingVgwSet = PropagatingVgwSet
     } deriving (Show)
 
 data PropagatingVgw = PropagatingVgw
-    { pvGatewayId :: !String
+    { pvGatewayId :: !Text
     } deriving (Show)
 
 data RouteTable = RouteTable
-    { rtRouteTableId :: !String
-    , rtVpcId :: !String
+    { rtRouteTableId :: !Text
+    , rtVpcId :: !Text
     , rtRouteSet :: !RouteSet
     , rtAssociationSet :: !RouteTableAssociationSet
     , rtPropagatingVgwSet :: !PropagatingVgwSet
@@ -2883,7 +2881,7 @@ data RouteTable = RouteTable
     } deriving (Show)
 
 data CreateRouteTableResponse = CreateRouteTableResponse
-    { crtrRequestId :: !String
+    { crtrRequestId :: !Text
     , crtrRouteTable :: !RouteTable
     } deriving (Show)
 
@@ -2892,7 +2890,7 @@ data RouteTableIdSet = RouteTableIdSet
     } deriving (Show)
 
 data RouteTableIdSetItem = RouteTableIdSetItem
-    { rtisiRouteTableId :: !String
+    { rtisiRouteTableId :: !Text
     } deriving (Show)
 
 data DescribeRouteTables = DescribeRouteTables
@@ -2905,110 +2903,110 @@ data RouteTableSet = RouteTableSet
     } deriving (Show)
 
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse
-    { drtrRequestId :: !String
+    { drtrRequestId :: !Text
     , drtrRouteTableSet :: !RouteTableSet
     } deriving (Show)
 
 data EnableVgwRoutePropagationRequest = EnableVgwRoutePropagationRequest
-    { evrprRouteTableId :: !String
-    , evrprGatewayId :: !String
+    { evrprRouteTableId :: !Text
+    , evrprGatewayId :: !Text
     } deriving (Show)
 
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
-    { evrprRequestId :: !String
+    { evrprRequestId :: !Text
     , evrprReturn :: !Boolean
     } deriving (Show)
 
 data DisableVgwRoutePropagationRequest = DisableVgwRoutePropagationRequest
-    { dvrprRouteTableId :: !String
-    , dvrprGatewayId :: !String
+    { dvrprRouteTableId :: !Text
+    , dvrprGatewayId :: !Text
     } deriving (Show)
 
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
-    { dvrprRequestId :: !String
+    { dvrprRequestId :: !Text
     , dvrprReturn :: !Boolean
     } deriving (Show)
 
 data DeleteRouteTable = DeleteRouteTable
-    { drtRouteTableId :: !String
+    { drtRouteTableId :: !Text
     } deriving (Show)
 
 data DeleteRouteTableResponse = DeleteRouteTableResponse
-    { drtrRequestId :: !String
+    { drtrRequestId :: !Text
     , drtrReturn :: !Boolean
     } deriving (Show)
 
 data AssociateRouteTable = AssociateRouteTable
-    { artRouteTableId :: !String
-    , artSubnetId :: !String
+    { artRouteTableId :: !Text
+    , artSubnetId :: !Text
     } deriving (Show)
 
 data AssociateRouteTableResponse = AssociateRouteTableResponse
-    { artrRequestId :: !String
-    , artrAssociationId :: !String
+    { artrRequestId :: !Text
+    , artrAssociationId :: !Text
     } deriving (Show)
 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
-    { rrtaAssociationId :: !String
-    , rrtaRouteTableId :: !String
+    { rrtaAssociationId :: !Text
+    , rrtaRouteTableId :: !Text
     } deriving (Show)
 
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
-    { rrtarRequestId :: !String
-    , rrtarNewAssociationId :: !String
+    { rrtarRequestId :: !Text
+    , rrtarNewAssociationId :: !Text
     } deriving (Show)
 
 data DisassociateRouteTable = DisassociateRouteTable
-    { drtAssociationId :: !String
+    { drtAssociationId :: !Text
     } deriving (Show)
 
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse
-    { drtrRequestId :: !String
+    { drtrRequestId :: !Text
     , drtrReturn :: !Boolean
     } deriving (Show)
 
 data CreateRoute = CreateRoute
-    { crRouteTableId :: !String
-    , crDestinationCidrBlock :: !String
+    { crRouteTableId :: !Text
+    , crDestinationCidrBlock :: !Text
   -- <xs:choice>
-    , crGatewayId :: !(Maybe String)
-    , crInstanceId :: !(Maybe String)
-    , crNetworkInterfaceId :: !(Maybe String)
+    , crGatewayId :: !(Maybe Text)
+    , crInstanceId :: !(Maybe Text)
+    , crNetworkInterfaceId :: !(Maybe Text)
   -- </xs:choice>
     } deriving (Show)
 
 data CreateRouteResponse = CreateRouteResponse
-    { crrRequestId :: !String
+    { crrRequestId :: !Text
     , crrReturn :: !Boolean
     } deriving (Show)
 
 data ReplaceRoute = ReplaceRoute
-    { rrRouteTableId :: !String
-    , rrDestinationCidrBlock :: !String
+    { rrRouteTableId :: !Text
+    , rrDestinationCidrBlock :: !Text
   -- <xs:choice>
-    , rrGatewayId :: !(Maybe String)
-    , rrInstanceId :: !(Maybe String)
-    , rrNetworkInterfaceId :: !(Maybe String)
+    , rrGatewayId :: !(Maybe Text)
+    , rrInstanceId :: !(Maybe Text)
+    , rrNetworkInterfaceId :: !(Maybe Text)
   -- </xs:choice>
     } deriving (Show)
 
 data ReplaceRouteResponse = ReplaceRouteResponse
-    { rrrRequestId :: !String
+    { rrrRequestId :: !Text
     , rrrReturn :: !Boolean
     } deriving (Show)
 
 data DeleteRoute = DeleteRoute
-    { drRouteTableId :: !String
-    , drDestinationCidrBlock :: !String
+    { drRouteTableId :: !Text
+    , drDestinationCidrBlock :: !Text
     } deriving (Show)
 
 data DeleteRouteResponse = DeleteRouteResponse
-    { drrRequestId :: !String
+    { drrRequestId :: !Text
     , drrReturn :: !Boolean
     } deriving (Show)
 
 data CreateNetworkAcl = CreateNetworkAcl
-    { cnaVpcId :: !String
+    { cnaVpcId :: !Text
     } deriving (Show)
 
 data NetworkAclEntrySet = NetworkAclEntrySet
@@ -3027,10 +3025,10 @@ data PortRange = PortRange
 
 data NetworkAclEntry = NetworkAclEntry
     { naeRuleNumber :: !Int
-    , naeProtocol :: !String
-    , naeRuleAction :: !String
+    , naeProtocol :: !Text
+    , naeRuleAction :: !Text
     , naeEgress :: !Boolean
-    , naeCidrBlock :: !String
+    , naeCidrBlock :: !Text
     , naeIcmpCode :: !(Maybe IcmpCode)
     , naePortRange :: !(Maybe PortRange)
     } deriving (Show)
@@ -3040,14 +3038,14 @@ data NetworkAclAssociationSet = NetworkAclAssociationSet
     } deriving (Show)
 
 data NetworkAclAssociation = NetworkAclAssociation
-    { naaNetworkAclAssociationId :: !String
-    , naaNetworkAclId :: !String
-    , naaSubnetId :: !String
+    { naaNetworkAclAssociationId :: !Text
+    , naaNetworkAclId :: !Text
+    , naaSubnetId :: !Text
     } deriving (Show)
 
 data NetworkAcl = NetworkAcl
-    { naNetworkAclId :: !String
-    , naVpcId :: !String
+    { naNetworkAclId :: !Text
+    , naVpcId :: !Text
     , naDefault :: !Boolean
     , naEntrySet :: !NetworkAclEntrySet
     , naAssociationSet :: !NetworkAclAssociationSet
@@ -3055,7 +3053,7 @@ data NetworkAcl = NetworkAcl
     } deriving (Show)
 
 data CreateNetworkAclResponse = CreateNetworkAclResponse
-    { cnarRequestId :: !String
+    { cnarRequestId :: !Text
     , cnarNetworkAcl :: !NetworkAcl
     } deriving (Show)
 
@@ -3064,7 +3062,7 @@ data NetworkAclIdSet = NetworkAclIdSet
     } deriving (Show)
 
 data NetworkAclIdSetItem = NetworkAclIdSetItem
-    { naisiNetworkAclId :: !String
+    { naisiNetworkAclId :: !Text
     } deriving (Show)
 
 data DescribeNetworkAcls = DescribeNetworkAcls
@@ -3077,84 +3075,84 @@ data NetworkAclSet = NetworkAclSet
     } deriving (Show)
 
 data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
-    { dnarRequestId :: !String
+    { dnarRequestId :: !Text
     , dnarNetworkAclSet :: !NetworkAclSet
     } deriving (Show)
 
 data DeleteNetworkAcl = DeleteNetworkAcl
-    { dnaNetworkAclId :: !String
+    { dnaNetworkAclId :: !Text
     } deriving (Show)
 
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse
-    { dnarRequestId :: !String
+    { dnarRequestId :: !Text
     , dnarReturn :: !Boolean
     } deriving (Show)
 
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
-    { rnaaAssociationId :: !String
-    , rnaaNetworkAclId :: !String
+    { rnaaAssociationId :: !Text
+    , rnaaNetworkAclId :: !Text
     } deriving (Show)
 
 data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
-    { rnaarRequestId :: !String
-    , rnaarNewAssociationId :: !String
+    { rnaarRequestId :: !Text
+    , rnaarNewAssociationId :: !Text
     } deriving (Show)
 
 data CreateNetworkAclEntry = CreateNetworkAclEntry
-    { cnaeNetworkAclId :: !String
+    { cnaeNetworkAclId :: !Text
     , cnaeRuleNumber :: !Int
-    , cnaeProtocol :: !String
-    , cnaeRuleAction :: !String
+    , cnaeProtocol :: !Text
+    , cnaeRuleAction :: !Text
     , cnaeEgress :: !Boolean
-    , cnaeCidrBlock :: !String
+    , cnaeCidrBlock :: !Text
     , cnaeIcmpCode :: !(Maybe IcmpCode)
     , cnaePortRange :: !(Maybe PortRange)
     } deriving (Show)
 
 data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
-    { cnaerRequestId :: !String
+    { cnaerRequestId :: !Text
     , cnaerReturn :: !Boolean
     } deriving (Show)
 
 data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
-    { rnaeNetworkAclId :: !String
+    { rnaeNetworkAclId :: !Text
     , rnaeRuleNumber :: !Int
-    , rnaeProtocol :: !String
-    , rnaeRuleAction :: !String
+    , rnaeProtocol :: !Text
+    , rnaeRuleAction :: !Text
     , rnaeEgress :: !Boolean
-    , rnaeCidrBlock :: !String
+    , rnaeCidrBlock :: !Text
     , rnaeIcmpCode :: !(Maybe IcmpCode)
     , rnaePortRange :: !(Maybe PortRange)
     } deriving (Show)
 
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
-    { rnaerRequestId :: !String
+    { rnaerRequestId :: !Text
     , rnaerReturn :: !Boolean
     } deriving (Show)
 
 data DeleteNetworkAclEntry = DeleteNetworkAclEntry
-    { dnaeNetworkAclId :: !String
+    { dnaeNetworkAclId :: !Text
     , dnaeRuleNumber :: !Int
     , dnaeEgress :: !Boolean
     } deriving (Show)
 
 data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
-    { dnaerRequestId :: !String
+    { dnaerRequestId :: !Text
     , dnaerReturn :: !Boolean
     } deriving (Show)
 
 data DescribeInstanceStatus = DescribeInstanceStatus
     { disInstancesSet :: !InstanceIdSet
     , disFilterSet :: !(Maybe FilterSet)
-    , disNextToken :: !(Maybe String)
+    , disNextToken :: !(Maybe Text)
     , disMaxResults :: !(Maybe Int)
     , disIncludeAllInstances :: !(Maybe Boolean)
     } deriving (Show)
 
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
-    { disrRequestId :: !String
+    { disrRequestId :: !Text
     , disrInstanceStatusSet :: !InstanceStatusSet
-    , disrNextToken :: !(Maybe String)
+    , disrNextToken :: !(Maybe Text)
     } deriving (Show)
 
 data InstanceStatusSet = InstanceStatusSet
@@ -3162,7 +3160,7 @@ data InstanceStatusSet = InstanceStatusSet
     } deriving (Show)
 
 data InstanceStatus = InstanceStatus
-    { isStatus :: !String
+    { isStatus :: !Text
     , isDetails :: !(Maybe InstanceStatusDetailsSet)
     } deriving (Show)
 
@@ -3171,14 +3169,14 @@ data InstanceStatusDetailsSet = InstanceStatusDetailsSet
     } deriving (Show)
 
 data InstanceStatusDetailsSetItem = InstanceStatusDetailsSetItem
-    { isdsiName :: !String
-    , isdsiStatus :: !String
+    { isdsiName :: !Text
+    , isdsiStatus :: !Text
     , isdsiImpairedSince :: !(Maybe DateTime)
     } deriving (Show)
 
 data InstanceStatusEvent = InstanceStatusEvent
-    { iseCode :: !String
-    , iseDescription :: !String
+    { iseCode :: !Text
+    , iseDescription :: !Text
     , iseNotBefore :: !DateTime
     , iseNotAfter :: !(Maybe DateTime)
     } deriving (Show)
@@ -3188,8 +3186,8 @@ data InstanceStatusEventsSet = InstanceStatusEventsSet
     } deriving (Show)
 
 data InstanceStatusItem = InstanceStatusItem
-    { isiInstanceId :: !String
-    , isiAvailabilityZone :: !String
+    { isiInstanceId :: !Text
+    , isiAvailabilityZone :: !Text
     , isiEventsSet :: !(Maybe InstanceStatusEventsSet)
     , isiInstanceState :: !InstanceState
     , isiSystemStatus :: !InstanceStatus
@@ -3198,11 +3196,11 @@ data InstanceStatusItem = InstanceStatusItem
 
 data ReportInstanceStatus = ReportInstanceStatus
     { risInstancesSet :: !InstanceIdSet
-    , risStatus :: !String
+    , risStatus :: !Text
     , risStartTime :: !(Maybe DateTime)
     , risEndTime :: !(Maybe DateTime)
     , risReasonCodesSet :: !ReportInstanceStatusReasonCodesSet
-    , risDescription :: !(Maybe String)
+    , risDescription :: !(Maybe Text)
     } deriving (Show)
 
 data ReportInstanceStatusReasonCodesSet = ReportInstanceStatusReasonCodesSet
@@ -3210,25 +3208,25 @@ data ReportInstanceStatusReasonCodesSet = ReportInstanceStatusReasonCodesSet
     } deriving (Show)
 
 data ReportInstanceStatusReasonCodeSetItem = ReportInstanceStatusReasonCodeSetItem
-    { risrcsiReasonCode :: !String
+    { risrcsiReasonCode :: !Text
     } deriving (Show)
 
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse
-    { risrRequestId :: !String
+    { risrRequestId :: !Text
     , risrReturn :: !Boolean
     } deriving (Show)
 
 data CreateNetworkInterface = CreateNetworkInterface
-    { cniSubnetId :: !String
-    , cniDescription :: !(Maybe String)
-    , cniPrivateIpAddress :: !(Maybe String)
+    { cniSubnetId :: !Text
+    , cniDescription :: !(Maybe Text)
+    , cniPrivateIpAddress :: !(Maybe Text)
     , cniGroupSet :: !(Maybe SecurityGroupIdSet)
     , cniPrivateIpAddressesSet :: !(Maybe PrivateIpAddressesSetRequest)
     , cniSecondaryPrivateIpAddressCount :: !(Maybe Int)
     } deriving (Show)
 
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
-    { cnirRequestId :: !String
+    { cnirRequestId :: !Text
     , cnirNetworkInterface :: !NetworkInterface
     } deriving (Show)
 
@@ -3237,7 +3235,7 @@ data NetworkInterfaceIdSet = NetworkInterfaceIdSet
     } deriving (Show)
 
 data NetworkInterfaceIdSetItem = NetworkInterfaceIdSetItem
-    { niisiNetworkInterfaceId :: !String
+    { niisiNetworkInterfaceId :: !Text
     } deriving (Show)
 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
@@ -3246,18 +3244,18 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     } deriving (Show)
 
 data NetworkInterface = NetworkInterface
-    { niNetworkInterfaceId :: !String
-    , niSubnetId :: !(Maybe String)
-    , niVpcId :: !(Maybe String)
-    , niAvailabilityZone :: !(Maybe String)
-    , niDescription :: !(Maybe String)
-    , niOwnerId :: !String
-    , niRequesterId :: !(Maybe String)
+    { niNetworkInterfaceId :: !Text
+    , niSubnetId :: !(Maybe Text)
+    , niVpcId :: !(Maybe Text)
+    , niAvailabilityZone :: !(Maybe Text)
+    , niDescription :: !(Maybe Text)
+    , niOwnerId :: !Text
+    , niRequesterId :: !(Maybe Text)
     , niRequesterManaged :: !(Maybe Boolean)
-    , niStatus :: !String
-    , niMacAddress :: !String
-    , niPrivateIpAddress :: !String
-    , niPrivateDnsName :: !(Maybe String)
+    , niStatus :: !Text
+    , niMacAddress :: !Text
+    , niPrivateIpAddress :: !Text
+    , niPrivateDnsName :: !(Maybe Text)
     , niSourceDestCheck :: !Boolean
     , niGroupSet :: !GroupSet
     , niAttachment :: !(Maybe NetworkInterfaceAttachment)
@@ -3271,28 +3269,28 @@ data NetworkInterfacePrivateIpAddressesSet = NetworkInterfacePrivateIpAddressesS
     } deriving (Show)
 
 data NetworkInterfacePrivateIpAddressesSetItem = NetworkInterfacePrivateIpAddressesSetItem
-    { nipiasiPrivateIpAddress :: !String
-    , nipiasiPrivateDnsName :: !(Maybe String)
+    { nipiasiPrivateIpAddress :: !Text
+    , nipiasiPrivateDnsName :: !(Maybe Text)
     , nipiasiPrimary :: !Boolean
     , nipiasiAssociation :: !(Maybe NetworkInterfaceAssociation)
     } deriving (Show)
 
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment
-    { niaAttachmentId :: !String
-    , niaInstanceId :: !(Maybe String)
-    , niaInstanceOwnerId :: !(Maybe String)
+    { niaAttachmentId :: !Text
+    , niaInstanceId :: !(Maybe Text)
+    , niaInstanceOwnerId :: !(Maybe Text)
     , niaDeviceIndex :: !Int
-    , niaStatus :: !String
+    , niaStatus :: !Text
     , niaAttachTime :: !DateTime
     , niaDeleteOnTermination :: !Boolean
     } deriving (Show)
 
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation
-    { niaPublicIp :: !String
-    , niaPublicDnsName :: !(Maybe String)
-    , niaIpOwnerId :: !(Maybe String)
-    , niaAllocationId :: !(Maybe String)
-    , niaAssociationId :: !(Maybe String)
+    { niaPublicIp :: !Text
+    , niaPublicDnsName :: !(Maybe Text)
+    , niaIpOwnerId :: !(Maybe Text)
+    , niaAllocationId :: !(Maybe Text)
+    , niaAssociationId :: !(Maybe Text)
     } deriving (Show)
 
 data NetworkInterfaceSet = NetworkInterfaceSet
@@ -3300,42 +3298,42 @@ data NetworkInterfaceSet = NetworkInterfaceSet
     } deriving (Show)
 
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
-    { dnirRequestId :: !String
+    { dnirRequestId :: !Text
     , dnirNetworkInterfaceSet :: !NetworkInterfaceSet
     } deriving (Show)
 
 data DeleteNetworkInterface = DeleteNetworkInterface
-    { dniNetworkInterfaceId :: !String
+    { dniNetworkInterfaceId :: !Text
     } deriving (Show)
 
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
-    { dnirRequestId :: !String
+    { dnirRequestId :: !Text
     , dnirReturn :: !Boolean
     } deriving (Show)
 
 data AttachNetworkInterface = AttachNetworkInterface
-    { aniNetworkInterfaceId :: !String
-    , aniInstanceId :: !String
+    { aniNetworkInterfaceId :: !Text
+    , aniInstanceId :: !Text
     , aniDeviceIndex :: !Int
     } deriving (Show)
 
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
-    { anirRequestId :: !String
-    , anirAttachmentId :: !String
+    { anirRequestId :: !Text
+    , anirAttachmentId :: !Text
     } deriving (Show)
 
 data DetachNetworkInterface = DetachNetworkInterface
-    { dniAttachmentId :: !String
+    { dniAttachmentId :: !Text
     , dniForce :: !(Maybe Boolean)
     } deriving (Show)
 
 data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
-    { dnirRequestId :: !String
+    { dnirRequestId :: !Text
     , dnirReturn :: !Boolean
     } deriving (Show)
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
-    { dniaNetworkInterfaceId :: !String
+    { dniaNetworkInterfaceId :: !Text
     , dniaDescribeNetworkInterfaceAttributesGroup :: !DescribeNetworkInterfaceAttributesGroup
     } deriving (Show)
 
@@ -3346,8 +3344,8 @@ data DescribeNetworkInterfaceAttributesGroup = DescribeNetworkInterfaceAttribute
     , dniagAttachment :: !EmptyElement
     } deriving (Show)
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
-    { dniarRequestId :: !String
-    , dniarNetworkInterfaceId :: !String
+    { dniarRequestId :: !Text
+    , dniarNetworkInterfaceId :: !Text
   -- <xs:choice>
     , dniarDescription :: !(Maybe NullableAttributeValue)
     , dniarSourceDestCheck :: !(Maybe AttributeBooleanValue)
@@ -3357,7 +3355,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     } deriving (Show)
 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
-    { mniaNetworkInterfaceId :: !String
+    { mniaNetworkInterfaceId :: !Text
   -- <xs:choice>
     , mniaDescription :: !(Maybe NullableAttributeValue)
     , mniaSourceDestCheck :: !(Maybe AttributeBooleanValue)
@@ -3367,17 +3365,17 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     } deriving (Show)
 
 data ModifyNetworkInterfaceAttachment = ModifyNetworkInterfaceAttachment
-    { mniaAttachmentId :: !String
+    { mniaAttachmentId :: !Text
     , mniaDeleteOnTermination :: !Boolean
     } deriving (Show)
 
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
-    { mniarRequestId :: !String
+    { mniarRequestId :: !Text
     , mniarReturn :: !Boolean
     } deriving (Show)
 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
-    { rniaNetworkInterfaceId :: !String
+    { rniaNetworkInterfaceId :: !Text
     , rniaResetNetworkInterfaceAttributesGroup :: !ResetNetworkInterfaceAttributesGroup
     } deriving (Show)
 
@@ -3385,29 +3383,29 @@ data ResetNetworkInterfaceAttributesGroup = ResetNetworkInterfaceAttributesGroup
     { rniagSourceDestCheck :: !EmptyElement
     } deriving (Show)
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
-    { rniarRequestId :: !String
+    { rniarRequestId :: !Text
     , rniarReturn :: !Boolean
     } deriving (Show)
 
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
-    { apiaNetworkInterfaceId :: !String
+    { apiaNetworkInterfaceId :: !Text
     , apiaPrivateIpAddressesSet :: !(Maybe AssignPrivateIpAddressesSetRequest)
     , apiaSecondaryPrivateIpAddressCount :: !(Maybe Int)
     , apiaAllowReassignment :: !(Maybe Boolean)
     } deriving (Show)
 
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
-    { apiarRequestId :: !String
+    { apiarRequestId :: !Text
     , apiarReturn :: !Boolean
     } deriving (Show)
 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
-    { upiaNetworkInterfaceId :: !String
+    { upiaNetworkInterfaceId :: !Text
     , upiaPrivateIpAddressesSet :: !AssignPrivateIpAddressesSetRequest
     } deriving (Show)
 
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
-    { upiarRequestId :: !String
+    { upiarRequestId :: !Text
     , upiarReturn :: !Boolean
     } deriving (Show)
 
@@ -3416,20 +3414,20 @@ data AssignPrivateIpAddressesSetRequest = AssignPrivateIpAddressesSetRequest
     } deriving (Show)
 
 data AssignPrivateIpAddressesSetItemRequest = AssignPrivateIpAddressesSetItemRequest
-    { apiasirPrivateIpAddress :: !String
+    { apiasirPrivateIpAddress :: !Text
     } deriving (Show)
 
 data DescribeVolumeStatus = DescribeVolumeStatus
     { dvsVolumeSet :: !DescribeVolumesSet
     , dvsFilterSet :: !(Maybe FilterSet)
     , dvsMaxResults :: !(Maybe Integer)
-    , dvsNextToken :: !(Maybe String)
+    , dvsNextToken :: !(Maybe Text)
     } deriving (Show)
 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
-    { dvsrRequestId :: !String
+    { dvsrRequestId :: !Text
     , dvsrVolumeStatusSet :: !VolumeStatusSet
-    , dvsrNextToken :: !(Maybe String)
+    , dvsrNextToken :: !(Maybe Text)
     } deriving (Show)
 
 data VolumeStatusSet = VolumeStatusSet
@@ -3437,15 +3435,15 @@ data VolumeStatusSet = VolumeStatusSet
     } deriving (Show)
 
 data VolumeStatusItem = VolumeStatusItem
-    { vsiVolumeId :: !String
-    , vsiAvailabilityZone :: !String
+    { vsiVolumeId :: !Text
+    , vsiAvailabilityZone :: !Text
     , vsiVolumeStatus :: !VolumeStatusInfo
     , vsiEventsSet :: !VolumeStatusEventsSet
     , vsiActionsSet :: !VolumeStatusActionsSet
     } deriving (Show)
 
 data VolumeStatusInfo = VolumeStatusInfo
-    { vsiStatus :: !String
+    { vsiStatus :: !Text
     , vsiDetails :: !VolumeStatusDetailsSet
     } deriving (Show)
 
@@ -3454,8 +3452,8 @@ data VolumeStatusDetailsSet = VolumeStatusDetailsSet
     } deriving (Show)
 
 data VolumeStatusDetailsItem = VolumeStatusDetailsItem
-    { vsdiName :: !String
-    , vsdiStatus :: !String
+    { vsdiName :: !Text
+    , vsdiStatus :: !Text
     } deriving (Show)
 
 data VolumeStatusEventsSet = VolumeStatusEventsSet
@@ -3463,11 +3461,11 @@ data VolumeStatusEventsSet = VolumeStatusEventsSet
     } deriving (Show)
 
 data VolumeStatusEventItem = VolumeStatusEventItem
-    { vseiDescription :: !String
+    { vseiDescription :: !Text
     , vseiNotBefore :: !DateTime
     , vseiNotAfter :: !DateTime
-    , vseiEventId :: !String
-    , vseiEvent :: !String
+    , vseiEventId :: !Text
+    , vseiEvent :: !Text
     } deriving (Show)
 
 data VolumeStatusActionsSet = VolumeStatusActionsSet
@@ -3475,35 +3473,35 @@ data VolumeStatusActionsSet = VolumeStatusActionsSet
     } deriving (Show)
 
 data VolumeStatusActionItem = VolumeStatusActionItem
-    { vsaiDescription :: !String
-    , vsaiCode :: !String
-    , vsaiEventId :: !String
-    , vsaiEvent :: !String
+    { vsaiDescription :: !Text
+    , vsaiCode :: !Text
+    , vsaiEventId :: !Text
+    , vsaiEvent :: !Text
     } deriving (Show)
 
 data EnableVolumeIO = EnableVolumeIO
-    { evioVolumeId :: !String
+    { evioVolumeId :: !Text
     } deriving (Show)
 
 data EnableVolumeIOResponse = EnableVolumeIOResponse
-    { eviorRequestId :: !String
+    { eviorRequestId :: !Text
     , eviorReturn :: !Boolean
     } deriving (Show)
 
 data ModifyVolumeAttribute = ModifyVolumeAttribute
-    { mvaVolumeId :: !String
+    { mvaVolumeId :: !Text
   -- <xs:choice>
     , mvaAutoEnableIO :: !AttributeBooleanValue
   -- </xs:choice>
     } deriving (Show)
 
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
-    { mvarRequestId :: !String
+    { mvarRequestId :: !Text
     , mvarReturn :: !Boolean
     } deriving (Show)
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
-    { dvaVolumeId :: !String
+    { dvaVolumeId :: !Text
     , dvaDescribeVolumeAttributesGroup :: !DescribeVolumeAttributesGroup
     } deriving (Show)
 
@@ -3513,8 +3511,8 @@ data DescribeVolumeAttributesGroup = DescribeVolumeAttributesGroup
     } deriving (Show)
 
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
-    { dvarRequestId :: !String
-    , dvarVolumeId :: !String
+    { dvarRequestId :: !Text
+    , dvarVolumeId :: !Text
   -- <xs:choice>
     , dvarAutoEnableIO :: !(Maybe NullableAttributeBooleanValue)
     , dvarProductCodes :: !(Maybe ProductCodesSet)

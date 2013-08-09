@@ -24,7 +24,7 @@ import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Base64     as Base64
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
-import           Data.Char                  (isSpace, toLower)
+import           Data.Char                  (toLower)
 import qualified Data.Digest.Pure.SHA       as SHA
 import           Data.List
 import qualified Data.Map                   as Map
@@ -41,9 +41,9 @@ sign rq = do
     svc <- service rq
     let signer =
           case svcSigner svc of
-              Version2 -> version2
-              Version3 -> version3
-              Version4 -> version4
+              SigningVersion2 -> version2
+              SigningVersion3 -> version3
+              SigningVersion4 -> version4
     awsAuth <$> ask >>= liftIO . signer rq svc
 
 --
@@ -54,36 +54,37 @@ version2 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
 version2 RawRequest{..} Service{..} Auth{..} = do
     time <- getCurrentTime
 
-    let act = fromMaybe (error "Handle missing action") rqAction
-        qry = query act accessKey time
-        sig = signature secretKey qry
+    let qry = query time $ fromMaybe (error "Handle missing action") rqAction
+        sig = signature qry
         url = "https://"
-            <> validHost rqHost
+            <> svcEndpoint
             <> path
             <> "?"
             <> qry
             <> "&Signature="
             <> sig
 
-    SignedRequest url rqBody <$> buildRequest (http rqMethod url)
+    SignedRequest url rqBody <$> buildRequest (do
+        http rqMethod url
+        mapM_ (uncurry setHeader) $ Map.toList rqHeaders)
   where
     path = validPath rqPath
 
-    query action access time = fmtQueryString $ rqQuery `union`
-        [ ("Action",           action)
-        , ("Version",          toBS svcVersion)
+    query time action = fmtQueryString $ rqQuery `union`
+        [ ("Action", action)
+        , ("Version", toBS svcVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
-        , ("Timestamp",        awsTime time)
-        , ("AWSAccessKeyId",   access)
+        , ("Timestamp", awsTime time)
+        , ("AWSAccessKeyId", accessKey)
         ]
 
-    signature secret qry = urlEncode True
+    signature qry = urlEncode True
         . Base64.encode
-        . hmac secret
+        . hmac secretKey
         $ BS.intercalate "\n"
             [ packMethod rqMethod
-            , rqHost
+            , svcEndpoint
             , path
             , qry
             ]
@@ -92,98 +93,103 @@ version3 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
 version3 RawRequest{..} Service{..} Auth{..} = do
     time <- rfc822Time <$> getCurrentTime
 
-    let sig  = Base64.encode $ hmac secretKey time
-        auth = authorization accessKey sig
-        url  = "https://"
-            <> validHost rqHost
-            <> "/"
-            <> toBS svcVersion
+    let url = "https://"
+            <> svcEndpoint
             <> validPath rqPath
             <> query
 
-    SignedRequest url rqBody <$>
-        buildRequest (do
-            http rqMethod url
-            setHeader "X-AMZ-Date" time
-            setHeader "X-Amzn-Authorization" auth)
+    SignedRequest url rqBody <$> buildRequest (do
+        http rqMethod url
+        mapM_ (uncurry setHeader) $ Map.toList rqHeaders ++
+            [ ("X-Amz-Date", time)
+            , ("X-Amzn-Authorization", authorization time)
+            ])
   where
     query | null rqQuery = ""
           | otherwise    = "?" <> fmtQueryString rqQuery
 
-    authorization access sig = "AWS3-HTTPS AWSAccessKeyId="
-        <> access
+    authorization time = "AWS3-HTTPS AWSAccessKeyId="
+        <> accessKey
         <> ",Algorithm=HmacSHA256,Signature="
-        <> sig
+        <> Base64.encode (hmac secretKey time)
+
+-- FIXME: need to investigate how to set the body/payload to x-url-formencoded
+-- or in the querystring
 
 version4 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
 version4 RawRequest{..} Service{..} Auth{..} = do
     time <- getCurrentTime
 
-    let act = fromMaybe (error "Handle missing action") rqAction
-        qry = query act accessKey time
+    let hs  = headers time
+        qry = query $ fromMaybe (error "Handle missing action") rqAction
+        sig = signature time hs qry
         url = "https://"
-            <> validHost rqHost
+            <> svcEndpoint
             <> path
             <> "?"
             <> qry
 
-    SignedRequest url rqBody <$> buildRequest (http rqMethod url)
+    SignedRequest url rqBody <$> buildRequest (do
+        http rqMethod url
+        mapM_ (uncurry setHeader) $
+            ("Authorization", authorization time hs sig) : hs)
   where
     path = validPath rqPath
 
-    query action access time = fmtQueryString $ rqQuery `union`
-        [ ("Action", action)
-        , ("Version", toBS svcVersion)
-        , ("X-Amz-Algorithm", "AWS4-HMAC-SHA256")
-        , ("X-Amz-Credential", "AKIAIOSFODNN7EXAMPLE%2F20110909%2Fus-east-1%2Fiam%2Faws4_request")
-        , ("X-Amz-Date", awsTime time)
-        , ("X-Amz-SignedHeaders", signedHdrs)
+    authorization time hdrs sig = BS.intercalate ","
+        [ "AWS4-HMAC-SHA256 Credential=" <> accessKey <> "/" <> credentialScope time
+        , "SignedHeaders=" <> signedHeaders hdrs
+        , "Signature=" <> sig
         ]
 
-    signedHdrs = BS.intercalate ";"
-        . map (BS.map toLower)
-        $ Map.keys rqHeaders
+    query action = fmtQueryString $ rqQuery `union`
+        [ ("Action", action)
+        , ("Version", toBS svcVersion)
+        ]
 
-    canonicalHdrs = BS.intercalate ";"
+    signedHeaders    = BS.intercalate ";" . map (BS.map toLower . fst)
+    canonicalHeaders = BS.intercalate ";"
         . map (\(k, v) -> BS.map toLower k <> ":" <> strip ' ' v)
-        $ Map.toList rqHeaders
 
-    -- FIXME: Double check time formats
+    headers time = Map.toList rqHeaders `union`
+        [ ("Host", svcEndpoint)
+        , ("X-Amz-Date", awsTime time)
+        , ("Content-Type", toBS rqContent)
+        ]
 
-    -- FIXME: Use the tests from:
-    -- https://awsiammedia.s3.amazonaws.com/public/sample/aws4_testsuite/aws4_testsuite.zip
+    credentialScope time = BS.intercalate "/"
+        [ scopeTime time
+        , toBS svcRegion
+        , svcName
+        , "aws4_request"
+        ]
 
-    signature secret time qry = hmac signingKey $ stringToSign time qry
+    signature time hs qry = hmac signingKey stringToSign
       where
-        signingKey = hmac service "aws4_request"
-          where
-            date    = hmac ("AWS4" <> secret) $ awsTime time
-            region  = hmac date $ toBS svcRegion
-            service = hmac region svcName
+        signingKey = foldl' hmac ("AWS4" <> secretKey)
+            [ awsTime time
+            , toBS svcRegion
+            , svcName
+            , "aws4_request"
+            ]
 
-        stringToSign time qry = str <> canonicalRq qry
-          where
-            str = sha256 $ BS.intercalate "\n"
-                [ "AWS4-HMAC-SHA256"
-                , awsTime time
-                , credentialScope time
-                ]
+        stringToSign = BS.intercalate "\n"
+            [ "AWS4-HMAC-SHA256"
+            , awsTime time
+            , credentialScope time
+            , canonicalRq
+            ]
 
-            credentialScope time = BS.intercalate "/"
-                [ scopeTime time
-                , toBS svcRegion
-                , svcName
-                , "aws4_request\n"
-                ]
+        -- FIXME: must be lowercase base 16 encoded
+        canonicalRq = sha256 $ BS.intercalate "\n"
+            [ packMethod rqMethod
+            , path
+            , qry
+            , canonicalHeaders hs
+            , signedHeaders hs
+            , sha256 ""
+            ]
 
-            canonicalRq qry = sha256 $ BS.intercalate "\n"
-                [ packMethod rqMethod -- HTTPRequestMethod
-                , path                -- CanonicalURI
-                , qry                 -- CanonicalQueryString
-                , canonicalHdrs       -- CanonicalHeaders
-                , signedHdrs          -- SignedHeaders
-                , sha256 ""           -- HexEncode(Hash(Payload))
-                ]
 
 packMethod :: Method -> ByteString
 packMethod = BS.pack . show
@@ -202,16 +208,8 @@ awsTime = BS.pack . formatTime defaultTimeLocale (iso8601DateFormat $ Just "%XZ"
 scopeTime :: UTCTime -> ByteString
 scopeTime = BS.pack . formatTime defaultTimeLocale "%Y%m%d"
 
-validHost :: ByteString -> ByteString
-validHost = strip '/'
-
 validPath :: Maybe ByteString -> ByteString
 validPath = maybe "/" (mappend "/" . strip '/')
-
-stripSpaces :: ByteString -> ByteString
-stripSpaces = f . f
-  where
-    f = BS.reverse . BS.dropWhile isSpace
 
 strip :: Char -> ByteString -> ByteString
 strip c bstr

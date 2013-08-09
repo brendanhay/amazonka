@@ -32,11 +32,10 @@ import           Data.Map               (Map)
 import qualified Data.Map               as Map
 import           Data.Maybe
 import           Data.Monoid
-import           Data.String
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.Encoding     as Enc
-import           Network.Http.Client    hiding (post, put)
+import           Network.Http.Client    hiding (ContentType, post, put)
 import           System.IO.Streams      (InputStream)
 
 class IsText a where
@@ -53,9 +52,6 @@ instance IsText ByteString where
 
 instance IsText Text where
     toText = id
-
-newtype ApiVersion = ApiVersion ByteString
-    deriving (Show, IsString, IsText)
 
 data Region
     = NorthVirgnia
@@ -95,6 +91,14 @@ data Env = Env
     , awsAuth   :: !Auth
     }
 
+data ContentType
+    = FormEncoded
+    | Xml
+
+instance IsText ContentType where
+    toText FormEncoded = "application/x-www-form-urlencoded"
+    toText Xml         = "application/xml"
+
 newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
 
@@ -104,7 +108,7 @@ currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
 data RawRequest a b where
     RawRequest :: (AWSService a, FromJSON b)
                => { rqMethod  :: !Method
-                 , rqHost    :: !ByteString
+                 , rqContent :: !ContentType
                  , rqAction  :: !(Maybe ByteString)
                  , rqPath    :: !(Maybe ByteString)
                  , rqHeaders :: !(Map ByteString ByteString)
@@ -115,21 +119,19 @@ data RawRequest a b where
 
 emptyRequest :: (AWSService a, FromJSON b, IsText p)
              => Method
-             -> ByteString
+             -> ContentType
              -> p
              -> Maybe (InputStream ByteString)
              -> RawRequest a b
-emptyRequest meth host path body = RawRequest
+emptyRequest meth content path body = RawRequest
     { rqMethod  = meth
-    , rqHost    = host
+    , rqContent = content
     , rqAction  = Nothing
     , rqHeaders = Map.empty
     , rqQuery   = []
     , rqBody    = body
     , rqPath    = let p = toBS path
-                  in if BS.null p
-                      then Nothing
-                      else Just p
+                  in if BS.null p then Nothing else Just p
     }
 
 data SignedRequest = SignedRequest
@@ -145,17 +147,25 @@ instance Show SignedRequest where
         ++ show rqRequest
 
 data SigningVersion
-    = Version2
-    | Version3
-    | Version4
+    = SigningVersion2
+    | SigningVersion3
+    | SigningVersion4
+      deriving (Show)
 
 data Service = Service
     { svcName     :: !ByteString
-    , svcVersion  :: !ApiVersion
+    , svcVersion  :: !ByteString
     , svcEndpoint :: !ByteString
     , svcSigner   :: !SigningVersion
     , svcRegion   :: !Region
     }
+
+awsService :: ByteString -> ByteString -> SigningVersion -> AWS Service
+awsService name ver signer = do
+    reg <- currentRegion
+    return $! Service name ver (endpoint reg) signer reg
+ where
+   endpoint reg = name <> "." <> toBS reg <> ".amazonaws.com"
 
 class AWSService a where
     service :: RawRequest a b -> AWS Service

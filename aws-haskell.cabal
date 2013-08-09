@@ -45,8 +45,13 @@ library
       -- , Network.AWS.EC2.Types
       -- , Network.AWS.EC2.WSDL
 
+      , Network.AWS.AutoScaling
+      , Network.AWS.AutoScaling.V20110101
+      , Network.AWS.AutoScaling.V20110101.Types
+
       , Network.AWS.Route53
-      , Network.AWS.Route53.Types
+      , Network.AWS.Route53.V20121212
+      , Network.AWS.Route53.V20121212.Types
 
       , Data.Aeson.Hastache
       , Data.Aeson.XML

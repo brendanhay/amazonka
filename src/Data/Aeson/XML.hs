@@ -12,7 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 
 module Data.Aeson.XML
-    ( fromXML
+    ( FromXML ()
+    , stringToXML
     ) where
 
 import           Control.Applicative
@@ -26,24 +27,27 @@ import qualified Data.Vector              as V
 import           Text.XML.HXT.Core
 import           Text.XML.HXT.Expat       (withExpat)
 
--- FIXME: Whole model is inefficient, revisit
+-- FIXME: Whole model is inefficient; revisit
 
 data JSValue = Text | Tag String | Attr String
     deriving (Eq, Ord, Show)
 
-fromXML :: FromJSON a => String -> IO (Maybe a)
-fromXML src = do
-    elems <- runX $ flip readString src
+class FromJSON a => FromXML a where
+    fromXML :: String -> IO (Maybe a)
+    fromXML = stringToXML 1
+
+stringToXML :: FromJSON a => Int -> String -> IO (Maybe a)
+stringToXML level src = do
+    elems <- runX . foldl1 (>>>) $ readString options src : replicate level getChildren
+    return . decodeFirst $ encode <$> map (unWrap . treeToJSON) elems
+  where
+    options =
         [ withValidate no
         , withCheckNamespaces no
         , withParseByMimeType no
         , withExpat yes
-        ] >>> getChildren
+        ]
 
-    print $ encode <$> map (unWrap . treeToJSON) elems
-
-    return . decodeFirst $ encode <$> map (unWrap . treeToJSON) elems
-  where
     unWrap (Just (_, x)) = x
     unWrap Nothing       = Null
 

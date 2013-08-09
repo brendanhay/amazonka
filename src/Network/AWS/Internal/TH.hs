@@ -41,10 +41,6 @@ import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Types
 import           Paths_aws_haskell           (getDataFileName)
 
---
--- Template
---
-
 deriveTmpl :: Name -> Q [Dec]
 deriveTmpl name = deriveTmpl' "template/" name
 
@@ -55,33 +51,32 @@ deriveTmpl' path name = liftM2 (++)
   where
     f = lowerFirst . dropLower
 
---
--- QueryString
---
-
 deriveQS :: Name -> Q [Dec]
 deriveQS name = deriveQS' (lowerFirst . dropLower) name
 
 deriveQS' :: (String -> String) -> Name -> Q [Dec]
-deriveQS' f name = do
-    ref <- reify name
-    case ref of
-        TyConI (DataD _ _ _ [RecC _ fields] _) -> do
-            let names   = map (\(n, _, _) -> n) fields
-                field n = [| queryParam s . $(global n) |]
-                  where
-                    s = BS.pack . f $ nameBase n
-                query   = listE $ map field names
+deriveQS' f name = reify name >>= derive
+  where
+    derive (TyConI (DataD _ _ _ [RecC _ fields] _)) = do
+        let names   = map (\(n, _, _) -> n) fields
+            field n = [| queryParam s . $(global n) |]
+              where
+                s = BS.pack . f $ nameBase n
+            query   = listE $ map field names
+        [d|instance QueryString $(conT name) where
+               queryString x = concatMap ($ x) $query|]
 
-            [d|instance QueryString $(conT name) where
-                   queryString x = concatMap ($ x) $query|]
-        _ ->
-            error $ show name ++
-                ": can only derive QueryString instances for named record fields"
+    derive (TyConI (DataD _ _ _ _ _)) = do
+        [d|instance QueryString $(conT name) where
+               queryString _ = []|]
 
---
--- Aeson.TH Options
---
+    derive (TyConI (NewtypeD _ _ _ (NormalC ctor [field]) _)) = do
+        [d|instance QueryString $(conT name) where
+               queryString x = [(key, toBS x)]|]
+      where
+        key = toBS . f $ nameBase ctor
+
+    derive err = error $ "Cannot derive QueryString instance from: " ++ show err
 
 options, fieldOptions, loweredFieldOptions, underscoredFieldOptions :: Options
 options                 = defaultOptions

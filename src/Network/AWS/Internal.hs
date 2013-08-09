@@ -10,8 +10,13 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal
-    ( module Internal
+    (
+    -- * Re-exported
+      module Internal
+    , FromXML ()
     ) where
+
+import Data.Aeson.XML
 
 import Network.AWS.Internal.IO      as Internal
 import Network.AWS.Internal.Signing as Internal

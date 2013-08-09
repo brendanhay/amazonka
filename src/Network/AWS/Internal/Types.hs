@@ -26,12 +26,14 @@ import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Data.Aeson
+import           Data.Aeson.XML
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Char8  as BS
 import           Data.Map               (Map)
 import qualified Data.Map               as Map
 import           Data.Maybe
 import           Data.Monoid
+import           Data.String
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.Encoding     as Enc
@@ -52,6 +54,11 @@ instance IsText ByteString where
 
 instance IsText Text where
     toText = id
+
+instance IsText String where
+    toText = fromString
+    toBS   = fromString
+    toStr  = id
 
 data Region
     = NorthVirgnia
@@ -106,7 +113,7 @@ currentRegion :: AWS Region
 currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
 
 data RawRequest a b where
-    RawRequest :: (AWSService a, FromJSON b)
+    RawRequest :: (AWSService a, FromXML b)
                => { rqMethod  :: !Method
                  , rqContent :: !ContentType
                  , rqAction  :: !(Maybe ByteString)
@@ -117,7 +124,7 @@ data RawRequest a b where
                  }
                -> RawRequest a b
 
-emptyRequest :: (AWSService a, FromJSON b, IsText p)
+emptyRequest :: (AWSService a, FromXML b, IsText p)
              => Method
              -> ContentType
              -> p

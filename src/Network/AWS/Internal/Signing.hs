@@ -222,4 +222,3 @@ hmac :: ByteString -> ByteString -> ByteString
 hmac key msg = LBS.toStrict
     . SHA.bytestringDigest
     $ SHA.hmacSha256 (LBS.fromStrict key) (LBS.fromStrict msg)
-

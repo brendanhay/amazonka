@@ -37,9 +37,11 @@ import           Data.String
 import           Data.Text                   (Text)
 import qualified Data.Text                   as Text
 import qualified Data.Text.Encoding          as Enc
+import           Data.Time
 import           Network.AWS.Internal.String
 import           Network.Http.Client         hiding (ContentType, post, put)
 import           System.IO.Streams           (InputStream)
+import           System.Locale               (defaultTimeLocale)
 
 data Region
     = NorthVirgnia
@@ -177,11 +179,19 @@ instance QueryString ByteString where
 instance QueryString Text where
     queryString = packQS
 
+instance QueryString [Text] where
+    queryString k = zipWith f ([1..] :: [Integer])
+      where
+        f n v = (k <> "." <> toBS n, toBS v)
+
 instance QueryString Integer where
     queryString = packQS
 
 instance QueryString Bool where
     queryString k = packQS k . lowerAll . show
+
+instance QueryString UTCTime where
+    queryString = packQS
 
 packQS :: IsText a => ByteString -> a -> [(ByteString, ByteString)]
 packQS k v = [(strip '.' k, toBS v)]
@@ -210,3 +220,9 @@ instance IsText Integer where
     toText = Text.pack . toStr
     toBS   = BS.pack . toStr
     toStr  = show
+
+instance IsText UTCTime where
+    toText = Text.pack . toStr
+    toBS   = BS.pack . toStr
+    toStr  = formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
+

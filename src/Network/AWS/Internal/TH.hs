@@ -77,22 +77,36 @@ deriveQS' f name = reify name >>= derive
         [d|instance QueryString $(conT name) where
                queryString _ _ = []|]
 
-    derive (TyConI (NewtypeD _ _ _ (NormalC ctor [field]) _)) = (:[]) `fmap` do
+    derive (TyConI (NewtypeD _ _ _ (NormalC ctor [(_, AppT ListT (ConT typ))]) _)) = (:[]) `fmap` do
         instanceD (cxt []) (conT ''QueryString `appT` conT name)
             [ funD 'queryString . (:[]) $ do
-                 k <- newName "k"
-                 v <- newName "v"
-                 clause [varP k, conP ctor [varP v]]
-                     (normalB [|queryString (key <> $(global k)) $(global v)|]) []
+                 k  <- newName "k"
+                 vs <- newName "vs"
+                 clause [varP k, conP ctor [varP vs]]
+                     (normalB [|
+                         let z n = queryString ($(global k) <> key <> "." <> toBS n <> ".")
+                         in concat (zipWith z ([1..] :: [Integer]) $(global vs))
+                     |]) []
             ]
       where
         key = toBS . f $ nameBase ctor
 
+    derive (TyConI (NewtypeD _ _ _ (NormalC ctor [field]) _)) = (:[]) `fmap` do
+       instanceD (cxt []) (conT ''QueryString `appT` conT name)
+           [ funD 'queryString . (:[]) $ do
+                k <- newName "k"
+                v <- newName "v"
+                clause [varP k, conP ctor [varP v]]
+                    (normalB [|queryString ($(global k) <> key) $(global v)|]) []
+           ]
+     where
+       key = toBS . f $ nameBase ctor
+
     derive (TyConI (TySynD _ _ (AppT ListT (ConT typ)))) = do
         [d|instance QueryString [$(conT typ)] where
-               queryString k = concat . zipWith zipper ([1..] :: [Integer])
+               queryString k = concat . zipWith z ([1..] :: [Integer])
                  where
-                   zipper n = queryString (k <> key <> "." <> toBS n <> ".")|]
+                   z n = queryString (k <> key <> "." <> toBS n <> ".")|]
       where
         key = toBS . f $ nameBase name
 

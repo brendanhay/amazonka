@@ -48,6 +48,8 @@ $(deriveJSON fieldOptions ''Error)
 newtype ResourceName = ResourceName Text
     deriving (Show, IsText)
 
+$(deriveQS ''ResourceName)
+
 --
 -- Types
 --
@@ -55,17 +57,19 @@ newtype ResourceName = ResourceName Text
 -- Shouldnt need a FromXML since i've just aliased the MetadataResponse?
 -- get as object then lookup ResponseMetadata as a key
 
-data AutoScalingNotificationTypes = AutoScalingNotificationTypes
-    { asntMember :: ![Text]
-    } deriving (Show)
+newtype AutoScalingNotificationTypes = AutoScalingNotificationTypes [Text]
+    deriving (Show)
+
+$(deriveQS' (++ ".member") ''AutoScalingNotificationTypes)
 
 data MetricGranularityType = MetricGranularityType
     { mgtGranularity :: !(Maybe Text)
     } deriving (Show)
 
-data LoadBalancerNames = LoadBalancerNames
-    { lbnMember :: ![Text]
-    } deriving (Show)
+newtype LoadBalancerNames = LoadBalancerNames [Text]
+    deriving (Show)
+
+$(deriveQS' (++ ".member") ''LoadBalancerNames)
 
 data SuspendedProcess = SuspendedProcess
     { spProcessName :: !(Maybe Text)
@@ -74,9 +78,8 @@ data SuspendedProcess = SuspendedProcess
 
 $(deriveQS ''SuspendedProcess)
 
-type SuspendedProcesses = [SuspendedProcess]
-
-$(deriveQS' (++ ".member") ''SuspendedProcesses)
+newtype SuspendedProcesses = SuspendedProcesses [SuspendedProcess]
+    deriving (Show)
 
 data Tag = Tag
     { tResourceId :: !(Maybe Text)
@@ -88,7 +91,8 @@ data Tag = Tag
 
 $(deriveQS ''Tag)
 
-type Tags = [Tag]
+newtype Tags = Tags [Tag]
+    deriving (Show)
 
 $(deriveQS' (++ ".member") ''Tags)
 
@@ -96,9 +100,10 @@ $(deriveQS' (++ ".member") ''Tags)
 --     { tMember :: ![Tag]
 --     } deriving (Show)
 
-data PolicyNames = PolicyNames
-    { pnMember :: ![ResourceName]
-    } deriving (Show)
+newtype PolicyNames = PolicyNames [ResourceName]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''PolicyNames)
 
 data NotificationConfiguration = NotificationConfiguration
     { ncAutoScalingGroupName :: !(Maybe ResourceName)
@@ -106,17 +111,10 @@ data NotificationConfiguration = NotificationConfiguration
     , ncNotificationType :: !(Maybe Text)
     } deriving (Show)
 
-data AdjustmentType = AdjustmentType
-    { atAdjustmentType :: !(Maybe Text)
-    } deriving (Show)
+newtype ScheduledActionNames = ScheduledActionNames [ResourceName]
+   deriving (Show)
 
-data AdjustmentTypes = AdjustmentTypes
-    { atMember :: ![AdjustmentType]
-    } deriving (Show)
-
-data ScheduledActionNames = ScheduledActionNames
-    { sanMember :: ![ResourceName]
-    } deriving (Show)
+$(deriveQS' (++ ".member") ''ScheduledActionNames)
 
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     { sugaAutoScalingGroupName :: !(Maybe Text)
@@ -131,22 +129,23 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     , sugaDesiredCapacity :: !(Maybe Integer)
     } deriving (Show)
 
-data ScheduledUpdateGroupActions = ScheduledUpdateGroupActions
-    { sugaMember :: ![ScheduledUpdateGroupAction]
-    } deriving (Show)
+newtype ScheduledUpdateGroupActions = ScheduledUpdateGroupActions [ScheduledUpdateGroupAction]
+   deriving (Show)
 
-data NotificationConfigurations = NotificationConfigurations
-    { ncMember :: ![NotificationConfiguration]
-    } deriving (Show)
+newtype NotificationConfigurations = NotificationConfigurations [NotificationConfiguration]
+   deriving (Show)
 
-data SecurityGroups = SecurityGroups
-    { sgMember :: ![Text]
-    } deriving (Show)
+newtype SecurityGroups = SecurityGroups [Text]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''SecurityGroups)
 
 data Ebs = Ebs
     { eSnapshotId :: !(Maybe Text)
     , eVolumeSize :: !(Maybe Integer)
     } deriving (Show)
+
+$(deriveQS ''Ebs)
 
 data BlockDeviceMapping = BlockDeviceMapping
     { bdmVirtualName :: !(Maybe Text)
@@ -154,13 +153,23 @@ data BlockDeviceMapping = BlockDeviceMapping
     , bdmEbs :: !(Maybe Ebs)
     } deriving (Show)
 
-data BlockDeviceMappings = BlockDeviceMappings
-    { bdmMember :: ![BlockDeviceMapping]
-    } deriving (Show)
+$(deriveQS ''BlockDeviceMapping)
+
+newtype BlockDeviceMappings = BlockDeviceMappings [BlockDeviceMapping]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''BlockDeviceMappings)
 
 data InstanceMonitoring = InstanceMonitoring
     { imEnabled :: !(Maybe Bool)
     } deriving (Show)
+
+$(deriveQS ''InstanceMonitoring)
+
+newtype LaunchConfigurationNames = LaunchConfigurationNames [ResourceName]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''LaunchConfigurationNames)
 
 data LaunchConfiguration = LaunchConfiguration
     { lcLaunchConfigurationName :: !Text
@@ -180,22 +189,25 @@ data LaunchConfiguration = LaunchConfiguration
     , lcEbsOptimized :: !(Maybe Bool)
     } deriving (Show)
 
-data LaunchConfigurations = LaunchConfigurations
-    { lcMember :: ![LaunchConfiguration]
-    } deriving (Show)
+$(deriveQS ''LaunchConfiguration)
 
-data AvailabilityZones = AvailabilityZones
-    { azMember :: ![Text]
-    } deriving (Show)
+newtype LaunchConfigurations = LaunchConfigurations [LaunchConfiguration]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''LaunchConfigurations)
+
+newtype AvailabilityZones = AvailabilityZones [Text]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''AvailabilityZones)
 
 data EnabledMetric = EnabledMetric
     { emMetric :: !(Maybe Text)
     , emGranularity :: !(Maybe Text)
     } deriving (Show)
 
-data EnabledMetrics = EnabledMetrics
-    { emMember :: ![EnabledMetric]
-    } deriving (Show)
+newtype EnabledMetrics = EnabledMetrics [EnabledMetric]
+   deriving (Show)
 
 data TagDescription = TagDescription
     { tdResourceId :: !(Maybe Text)
@@ -205,14 +217,28 @@ data TagDescription = TagDescription
     , tdPropagateAtLaunch :: !(Maybe Bool)
     } deriving (Show)
 
-data TagDescriptionList = TagDescriptionList
-    { tdlMember :: ![TagDescription]
-    } deriving (Show)
+$(deriveQS ''TagDescription)
+
+newtype TagDescriptionList = TagDescriptionList [TagDescription]
+    deriving (Show)
+
+$(deriveQS' (++ ".member") ''TagDescriptionList)
 
 newtype TerminationPolicies = TerminationPolicies [Text]
     deriving (Show)
 
 $(deriveQS' (++ ".member") ''TerminationPolicies)
+
+data Instance = Instance
+    { iInstanceId :: !Text
+    , iAvailabilityZone :: !Text
+    , iLifecycleState :: !LifecycleState
+    , iHealthStatus :: !Text
+    , iLaunchConfigurationName :: !Text
+    } deriving (Show)
+
+newtype Instances = Instances [Instance]
+   deriving (Show)
 
 data AutoScalingGroup = AutoScalingGroup
     { asgAutoScalingGroupName :: !Text
@@ -234,7 +260,7 @@ data AutoScalingGroup = AutoScalingGroup
     , asgEnabledMetrics :: !(Maybe EnabledMetrics)
     , asgStatus :: !(Maybe Text)
     , asgTags :: !(Maybe TagDescriptionList)
-    , asgTerminationPolicies :: !(Maybe TerminationPolicies)
+    , asgTerminationPolicies :: !TerminationPolicies
     } deriving (Show)
 
 data LifecycleState
@@ -245,25 +271,12 @@ data LifecycleState
     | Terminated
       deriving (Show)
 
-data Instance = Instance
-    { iInstanceId :: !Text
-    , iAvailabilityZone :: !Text
-    , iLifecycleState :: !LifecycleState
-    , iHealthStatus :: !Text
-    , iLaunchConfigurationName :: !Text
-    } deriving (Show)
-
-data Instances = Instances
-    { iMember :: ![Instance]
-    } deriving (Show)
-
 data MetricCollectionType = MetricCollectionType
     { mctMetric :: !(Maybe Text)
     } deriving (Show)
 
-data MetricCollectionTypes = MetricCollectionTypes
-    { mctMember :: ![MetricCollectionType]
-    } deriving (Show)
+newtype MetricCollectionTypes = MetricCollectionTypes [MetricCollectionType]
+   deriving (Show)
 
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     { asidInstanceId :: !Text
@@ -274,9 +287,10 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     , asidLaunchConfigurationName :: !Text
     } deriving (Show)
 
-data Metrics = Metrics
-    { mMember :: ![Text]
-    } deriving (Show)
+newtype Metrics = Metrics [Text]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''Metrics)
 
 data ScalingActivityStatusCode
     = WaitingForSpotInstanceRequestId
@@ -306,6 +320,14 @@ data Activity = Activity
 
 $(deriveXML ''Activity)
 
+data Alarm = Alarm
+    { aAlarmName :: !(Maybe Text)
+    , aAlarmARN :: !(Maybe ResourceName)
+    } deriving (Show)
+
+newtype Alarms = Alarms [Alarm]
+   deriving (Show)
+
 data ScalingPolicy = ScalingPolicy
     { spAutoScalingGroupName :: !(Maybe Text)
     , spPolicyName :: !(Maybe Text)
@@ -313,80 +335,70 @@ data ScalingPolicy = ScalingPolicy
     , spAdjustmentType :: !(Maybe Text)
     , spCooldown :: !(Maybe Integer)
     , spPolicyARN :: !(Maybe ResourceName)
-    , spAlarms :: !(Maybe Alarms)
+    , spAlarms :: ![Alarms]
     , spMinAdjustmentStep :: !(Maybe Integer)
     } deriving (Show)
 
-data Values = Values
-    { vMember :: ![Text]
-    } deriving (Show)
+newtype Values = Values [Text]
+   deriving (Show)
 
-data AutoScalingInstances = AutoScalingInstances
-    { asiMember :: ![AutoScalingInstanceDetails]
-    } deriving (Show)
-
-data ProcessType = ProcessType
-    { ptProcessName :: !Text
-    } deriving (Show)
-
-data Processes = Processes
-    { pMember :: ![ProcessType]
-    } deriving (Show)
-
-data Alarm = Alarm
-    { aAlarmName :: !(Maybe Text)
-    , aAlarmARN :: !(Maybe ResourceName)
-    } deriving (Show)
-
-data InstanceIds = InstanceIds
-    { iiMember :: ![Text]
-    } deriving (Show)
-
-data LaunchConfigurationNames = LaunchConfigurationNames
-    { lcnMember :: ![ResourceName]
-    } deriving (Show)
-
-data MetricGranularityTypes = MetricGranularityTypes
-    { mgtMember :: ![MetricGranularityType]
-    } deriving (Show)
-
-data AutoScalingGroupNames = AutoScalingGroupNames
-    { asgnMember :: ![ResourceName]
-    } deriving (Show)
-
-data Filters = Filters
-    { fMember :: ![Filter]
-    } deriving (Show)
+$(deriveQS' (++ ".member") ''Values)
 
 data Filter = Filter
     { fName :: !(Maybe Text)
     , fValues :: !(Maybe Values)
     } deriving (Show)
 
-data AutoScalingGroups = AutoScalingGroups
-    { asgMember :: ![AutoScalingGroup]
+$(deriveQS ''Filter)
+
+newtype Filters = Filters [Filter]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''Filters)
+
+newtype AutoScalingInstances = AutoScalingInstances [AutoScalingInstanceDetails]
+   deriving (Show)
+
+data ProcessType = ProcessType
+    { ptProcessName :: !Text
     } deriving (Show)
 
-data Alarms = Alarms
-    { asMember :: ![Alarm]
-    } deriving (Show)
+newtype Processes = Processes [ProcessType]
+   deriving (Show)
 
-data ScalingPolicies = ScalingPolicies
-    { spMember :: ![ScalingPolicy]
-    } deriving (Show)
+newtype InstanceIds = InstanceIds [Text]
+   deriving (Show)
 
-data Activities = Activities
-    { aMember :: ![Activity]
-    } deriving (Show)
+$(deriveQS' (++ ".member") ''InstanceIds)
 
-data ActivityIds = ActivityIds
-    { aiMember :: ![Text]
-    } deriving (Show)
+newtype MetricGranularityTypes = MetricGranularityTypes [MetricGranularityType]
+   deriving (Show)
 
-data ProcessNames = ProcessNames
-    { pnsMember :: ![Text]
-    } deriving (Show)
+newtype AutoScalingGroupNames = AutoScalingGroupNames [ResourceName]
+   deriving (Show)
 
---
--- Responses
---
+$(deriveQS' (++ ".member") ''AutoScalingGroupNames)
+
+newtype AutoScalingGroups = AutoScalingGroups [AutoScalingGroup]
+   deriving (Show)
+
+newtype ScalingPolicies = ScalingPolicies [ScalingPolicy]
+   deriving (Show)
+
+newtype Activities = Activities [Activity]
+   deriving (Show)
+
+newtype ActivityIds = ActivityIds [Text]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''ActivityIds)
+
+newtype ProcessNames = ProcessNames [Text]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''ProcessNames)
+
+newtype AdjustmentTypes = AdjustmentTypes [Text]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''AdjustmentTypes)

@@ -173,6 +173,9 @@ instance QueryString a => QueryString (Maybe a) where
     queryString _ Nothing  = []
     queryString k (Just v) = queryString k v
 
+instance QueryString () where
+    queryString _ _ = []
+
 instance QueryString ByteString where
     queryString = packQS
 

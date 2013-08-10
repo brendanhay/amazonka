@@ -15,7 +15,6 @@
 
 module Network.AWS.AutoScaling.V20110101 where
 
-import Data.Aeson
 import Data.Aeson.XML
 import Data.ByteString                             (ByteString)
 import Data.Text                                   (Text, empty)
@@ -64,7 +63,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , casgPlacementGroup :: !(Maybe Text)
     , casgVPCZoneIdentifier :: !(Maybe Text)
     , casgTerminationPolicies :: !(Maybe TerminationPolicies)
-    , casgTags :: ![Tag]
+    , casgTags :: !Tags
     } deriving (Show)
 
 -- data Tags = Tags

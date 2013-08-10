@@ -30,6 +30,7 @@ module Network.AWS.Internal.TH
     , deriveXML
 
     -- * Data.Aeson.TH Options
+    , defaultOptions
     , fieldOptions
     , loweredFieldOptions
     , underscoredFieldOptions
@@ -40,6 +41,7 @@ import           Data.Aeson.TH
 import           Data.Aeson.XML
 import           Data.ByteString             (ByteString)
 import qualified Data.ByteString.Char8       as BS
+import           Data.List
 import           Data.Monoid
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Syntax
@@ -141,3 +143,11 @@ embedTemplate path name =
     embed bstr = do
         pack <- [| BS.pack |]
         return $! AppE pack $! LitE $! StringL $! BS.unpack bstr
+
+suffix :: String -> String
+suffix str = map rep $ drop idx str
+  where
+    idx = (+ 1) $ reverse (elemIndices '.' str) !! 2
+
+    rep '.' = '/'
+    rep  c  = c

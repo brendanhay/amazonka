@@ -58,8 +58,8 @@ data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
 
 $(deriveJSON defaultOptions ''RecordType)
 
-instance QueryParam RecordType where
-    queryParam k v = [(k, BS.pack $ show v)]
+instance QueryString RecordType where
+    queryString k v = [(k, BS.pack $ show v)]
 
 data ChangeStatus = PENDING | INSYNC
     deriving (Show)
@@ -134,7 +134,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , chzrDelegationSet :: !DelegationSet
     } deriving (Show)
 
-$(deriveJSON fieldOptions ''CreateHostedZoneResponse)
+$(deriveXML ''CreateHostedZoneResponse)
 
 -- <GetHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HostedZone>
@@ -164,7 +164,7 @@ data GetHostedZoneResponse = GetHostedZoneResponse
     , ghzrDelegationSet :: !DelegationSet
     } deriving (Show)
 
-$(deriveJSON fieldOptions ''GetHostedZoneResponse)
+$(deriveXML ''GetHostedZoneResponse)
 
 -- <ListHostedZonesResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HostedZones>
@@ -202,7 +202,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     , lhzrMaxItems    :: !Integer
     } deriving (Show)
 
-$(deriveJSON fieldOptions ''ListHostedZonesResponse)
+$(deriveXML ''ListHostedZonesResponse)
 
 -- <DeleteHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ChangeInfo>
@@ -216,7 +216,7 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON fieldOptions ''DeleteHostedZoneResponse)
+$(deriveXML ''DeleteHostedZoneResponse)
 
 --
 -- Record Sets
@@ -234,7 +234,7 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON fieldOptions ''ChangeResourceRecordSetsResponse)
+$(deriveXML ''ChangeResourceRecordSetsResponse)
 
 -- <ListResourceRecordSetsResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ResourceRecordSets>
@@ -411,7 +411,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     
     deriving (Show)
 
-$(deriveJSON fieldOptions ''ListResourceRecordSetsResponse)
+$(deriveXML ''ListResourceRecordSetsResponse)
 
 -- <GetChangeResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <ChangeInfo>
@@ -426,7 +426,7 @@ data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
     } deriving (Show)
 
-$(deriveJSON fieldOptions ''GetChangeResponse)
+$(deriveXML ''GetChangeResponse)
 
 --
 -- Health Checks
@@ -448,7 +448,7 @@ data HealthCheck = HealthCheck
     , hcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Show)
 
-$(deriveJSON fieldOptions ''HealthCheck)
+$(deriveXML ''HealthCheck)
 
 -- <CreateHealthCheckResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 --    <HealthCheck>
@@ -516,7 +516,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 --         <*> o .: "MaxItems"
 --     parseJSON _ = mzero
 
-$(deriveJSON fieldOptions ''ListHealthChecksResponse)
+$(deriveXML ''ListHealthChecksResponse)
 
 -- <DeleteHealthCheckResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
 -- </DeleteHealthCheckResponse>
@@ -524,4 +524,4 @@ $(deriveJSON fieldOptions ''ListHealthChecksResponse)
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Show)
 
-$(deriveJSON defaultOptions ''DeleteHealthCheckResponse)
+$(deriveXML ''DeleteHealthCheckResponse)

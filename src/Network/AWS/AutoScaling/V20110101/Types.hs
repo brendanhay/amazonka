@@ -49,6 +49,7 @@ newtype ResourceName = ResourceName Text
     deriving (Show, IsText)
 
 $(deriveQS ''ResourceName)
+$(deriveJSON fieldOptions ''ResourceName)
 
 --
 -- Types
@@ -57,19 +58,22 @@ $(deriveQS ''ResourceName)
 -- Shouldnt need a FromXML since i've just aliased the MetadataResponse?
 -- get as object then lookup ResponseMetadata as a key
 
-newtype AutoScalingNotificationTypes = AutoScalingNotificationTypes [Text]
-    deriving (Show)
-
-$(deriveQS' (++ ".member") ''AutoScalingNotificationTypes)
-
 data MetricGranularityType = MetricGranularityType
     { mgtGranularity :: !(Maybe Text)
     } deriving (Show)
+
+$(deriveJSON fieldOptions ''MetricGranularityType)
+
+newtype MetricGranularityTypes = MetricGranularityTypes [MetricGranularityType]
+   deriving (Show)
+
+$(deriveJSON fieldOptions ''MetricGranularityTypes)
 
 newtype LoadBalancerNames = LoadBalancerNames [Text]
     deriving (Show)
 
 $(deriveQS' (++ ".member") ''LoadBalancerNames)
+$(deriveJSON fieldOptions ''LoadBalancerNames)
 
 data SuspendedProcess = SuspendedProcess
     { spProcessName :: !(Maybe Text)
@@ -77,9 +81,12 @@ data SuspendedProcess = SuspendedProcess
     } deriving (Show)
 
 $(deriveQS ''SuspendedProcess)
+$(deriveJSON fieldOptions ''SuspendedProcess)
 
 newtype SuspendedProcesses = SuspendedProcesses [SuspendedProcess]
     deriving (Show)
+
+$(deriveJSON fieldOptions ''SuspendedProcesses)
 
 data Tag = Tag
     { tResourceId :: !(Maybe Text)
@@ -111,6 +118,13 @@ data NotificationConfiguration = NotificationConfiguration
     , ncNotificationType :: !(Maybe Text)
     } deriving (Show)
 
+$(deriveJSON fieldOptions ''NotificationConfiguration)
+
+newtype NotificationConfigurations = NotificationConfigurations [NotificationConfiguration]
+   deriving (Show)
+
+$(deriveJSON fieldOptions ''NotificationConfigurations)
+
 newtype ScheduledActionNames = ScheduledActionNames [ResourceName]
    deriving (Show)
 
@@ -129,16 +143,18 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     , sugaDesiredCapacity :: !(Maybe Integer)
     } deriving (Show)
 
+$(deriveJSON fieldOptions ''ScheduledUpdateGroupAction)
+
 newtype ScheduledUpdateGroupActions = ScheduledUpdateGroupActions [ScheduledUpdateGroupAction]
    deriving (Show)
 
-newtype NotificationConfigurations = NotificationConfigurations [NotificationConfiguration]
-   deriving (Show)
+$(deriveJSON fieldOptions ''ScheduledUpdateGroupActions)
 
 newtype SecurityGroups = SecurityGroups [Text]
    deriving (Show)
 
 $(deriveQS' (++ ".member") ''SecurityGroups)
+$(deriveJSON fieldOptions ''SecurityGroups)
 
 data Ebs = Ebs
     { eSnapshotId :: !(Maybe Text)
@@ -146,6 +162,7 @@ data Ebs = Ebs
     } deriving (Show)
 
 $(deriveQS ''Ebs)
+$(deriveJSON fieldOptions ''Ebs)
 
 data BlockDeviceMapping = BlockDeviceMapping
     { bdmVirtualName :: !(Maybe Text)
@@ -154,22 +171,26 @@ data BlockDeviceMapping = BlockDeviceMapping
     } deriving (Show)
 
 $(deriveQS ''BlockDeviceMapping)
+$(deriveJSON fieldOptions ''BlockDeviceMapping)
 
 newtype BlockDeviceMappings = BlockDeviceMappings [BlockDeviceMapping]
    deriving (Show)
 
 $(deriveQS' (++ ".member") ''BlockDeviceMappings)
+$(deriveJSON fieldOptions ''BlockDeviceMappings)
 
 data InstanceMonitoring = InstanceMonitoring
     { imEnabled :: !(Maybe Bool)
     } deriving (Show)
 
 $(deriveQS ''InstanceMonitoring)
+$(deriveJSON fieldOptions ''InstanceMonitoring)
 
 newtype LaunchConfigurationNames = LaunchConfigurationNames [ResourceName]
    deriving (Show)
 
 $(deriveQS' (++ ".member") ''LaunchConfigurationNames)
+$(deriveJSON fieldOptions ''LaunchConfigurationNames)
 
 data LaunchConfiguration = LaunchConfiguration
     { lcLaunchConfigurationName :: !Text
@@ -190,24 +211,31 @@ data LaunchConfiguration = LaunchConfiguration
     } deriving (Show)
 
 $(deriveQS ''LaunchConfiguration)
+$(deriveJSON fieldOptions ''LaunchConfiguration)
 
 newtype LaunchConfigurations = LaunchConfigurations [LaunchConfiguration]
    deriving (Show)
 
 $(deriveQS' (++ ".member") ''LaunchConfigurations)
+$(deriveJSON fieldOptions ''LaunchConfigurations)
 
 newtype AvailabilityZones = AvailabilityZones [Text]
    deriving (Show)
 
 $(deriveQS' (++ ".member") ''AvailabilityZones)
+$(deriveJSON fieldOptions ''AvailabilityZones)
 
 data EnabledMetric = EnabledMetric
     { emMetric :: !(Maybe Text)
     , emGranularity :: !(Maybe Text)
     } deriving (Show)
 
+$(deriveJSON fieldOptions ''EnabledMetric)
+
 newtype EnabledMetrics = EnabledMetrics [EnabledMetric]
    deriving (Show)
+
+$(deriveJSON fieldOptions ''EnabledMetrics)
 
 data TagDescription = TagDescription
     { tdResourceId :: !(Maybe Text)
@@ -218,16 +246,29 @@ data TagDescription = TagDescription
     } deriving (Show)
 
 $(deriveQS ''TagDescription)
+$(deriveJSON fieldOptions ''TagDescription)
 
 newtype TagDescriptionList = TagDescriptionList [TagDescription]
     deriving (Show)
 
 $(deriveQS' (++ ".member") ''TagDescriptionList)
+$(deriveJSON fieldOptions ''TagDescriptionList)
 
 newtype TerminationPolicies = TerminationPolicies [Text]
     deriving (Show)
 
 $(deriveQS' (++ ".member") ''TerminationPolicies)
+$(deriveJSON fieldOptions ''TerminationPolicies)
+
+data LifecycleState
+    = Pending
+    | Quarantined
+    | InService
+    | Terminating
+    | Terminated
+      deriving (Show)
+
+$(deriveJSON defaultOptions ''LifecycleState)
 
 data Instance = Instance
     { iInstanceId :: !Text
@@ -237,8 +278,12 @@ data Instance = Instance
     , iLaunchConfigurationName :: !Text
     } deriving (Show)
 
+$(deriveJSON fieldOptions ''Instance)
+
 newtype Instances = Instances [Instance]
    deriving (Show)
+
+$(deriveJSON fieldOptions ''Instances)
 
 data AutoScalingGroup = AutoScalingGroup
     { asgAutoScalingGroupName :: !Text
@@ -263,20 +308,24 @@ data AutoScalingGroup = AutoScalingGroup
     , asgTerminationPolicies :: !TerminationPolicies
     } deriving (Show)
 
-data LifecycleState
-    = Pending
-    | Quarantined
-    | InService
-    | Terminating
-    | Terminated
-      deriving (Show)
+$(deriveJSON fieldOptions ''AutoScalingGroup)
 
 data MetricCollectionType = MetricCollectionType
     { mctMetric :: !(Maybe Text)
     } deriving (Show)
 
+$(deriveJSON fieldOptions ''MetricCollectionType)
+
 newtype MetricCollectionTypes = MetricCollectionTypes [MetricCollectionType]
    deriving (Show)
+
+$(deriveJSON fieldOptions ''MetricCollectionTypes)
+
+newtype AutoScalingNotificationTypes = AutoScalingNotificationTypes [Text]
+    deriving (Show)
+
+$(deriveQS' (++ ".member") ''AutoScalingNotificationTypes)
+$(deriveJSON fieldOptions ''AutoScalingNotificationTypes)
 
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     { asidInstanceId :: !Text
@@ -286,6 +335,13 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     , asidHealthStatus :: !Text
     , asidLaunchConfigurationName :: !Text
     } deriving (Show)
+
+$(deriveJSON fieldOptions ''AutoScalingInstanceDetails)
+
+newtype AutoScalingInstances = AutoScalingInstances [AutoScalingInstanceDetails]
+   deriving (Show)
+
+$(deriveJSON fieldOptions ''AutoScalingInstances)
 
 newtype Metrics = Metrics [Text]
    deriving (Show)
@@ -303,7 +359,7 @@ data ScalingActivityStatusCode
     | Cancelled
       deriving (Show)
 
-$(deriveXML ''ScalingActivityStatusCode)
+$(deriveJSON fieldOptions ''ScalingActivityStatusCode)
 
 data Activity = Activity
     { aActivityId :: !Text
@@ -318,15 +374,29 @@ data Activity = Activity
     , aDetails :: !(Maybe Text)
     } deriving (Show)
 
-$(deriveXML ''Activity)
+$(deriveJSON fieldOptions ''Activity)
+
+newtype Activities = Activities [Activity]
+   deriving (Show)
+
+$(deriveJSON fieldOptions ''Activities)
+
+newtype ActivityIds = ActivityIds [Text]
+   deriving (Show)
+
+$(deriveQS' (++ ".member") ''ActivityIds)
 
 data Alarm = Alarm
     { aAlarmName :: !(Maybe Text)
     , aAlarmARN :: !(Maybe ResourceName)
     } deriving (Show)
 
+$(deriveJSON fieldOptions ''Alarm)
+
 newtype Alarms = Alarms [Alarm]
    deriving (Show)
+
+$(deriveJSON fieldOptions ''Alarms)
 
 data ScalingPolicy = ScalingPolicy
     { spAutoScalingGroupName :: !(Maybe Text)
@@ -338,6 +408,13 @@ data ScalingPolicy = ScalingPolicy
     , spAlarms :: ![Alarms]
     , spMinAdjustmentStep :: !(Maybe Integer)
     } deriving (Show)
+
+$(deriveJSON fieldOptions ''ScalingPolicy)
+
+newtype ScalingPolicies = ScalingPolicies [ScalingPolicy]
+   deriving (Show)
+
+$(deriveJSON fieldOptions ''ScalingPolicies)
 
 newtype Values = Values [Text]
    deriving (Show)
@@ -356,23 +433,21 @@ newtype Filters = Filters [Filter]
 
 $(deriveQS' (++ ".member") ''Filters)
 
-newtype AutoScalingInstances = AutoScalingInstances [AutoScalingInstanceDetails]
-   deriving (Show)
-
 data ProcessType = ProcessType
     { ptProcessName :: !Text
     } deriving (Show)
 
+$(deriveJSON fieldOptions ''ProcessType)
+
 newtype Processes = Processes [ProcessType]
    deriving (Show)
+
+$(deriveJSON fieldOptions ''Processes)
 
 newtype InstanceIds = InstanceIds [Text]
    deriving (Show)
 
 $(deriveQS' (++ ".member") ''InstanceIds)
-
-newtype MetricGranularityTypes = MetricGranularityTypes [MetricGranularityType]
-   deriving (Show)
 
 newtype AutoScalingGroupNames = AutoScalingGroupNames [ResourceName]
    deriving (Show)
@@ -382,16 +457,7 @@ $(deriveQS' (++ ".member") ''AutoScalingGroupNames)
 newtype AutoScalingGroups = AutoScalingGroups [AutoScalingGroup]
    deriving (Show)
 
-newtype ScalingPolicies = ScalingPolicies [ScalingPolicy]
-   deriving (Show)
-
-newtype Activities = Activities [Activity]
-   deriving (Show)
-
-newtype ActivityIds = ActivityIds [Text]
-   deriving (Show)
-
-$(deriveQS' (++ ".member") ''ActivityIds)
+$(deriveJSON fieldOptions ''AutoScalingGroups)
 
 newtype ProcessNames = ProcessNames [Text]
    deriving (Show)
@@ -402,3 +468,4 @@ newtype AdjustmentTypes = AdjustmentTypes [Text]
    deriving (Show)
 
 $(deriveQS' (++ ".member") ''AdjustmentTypes)
+$(deriveJSON fieldOptions ''AdjustmentTypes)

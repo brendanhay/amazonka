@@ -40,14 +40,6 @@ lowerAll = map toLower
 upperAll :: String -> String
 upperAll = map toUpper
 
-suffix :: String -> String
-suffix str = map rep $ drop idx str
-  where
-    idx = (+ 1) $ reverse (elemIndices '.' str) !! 1
-
-    rep '.' = '/'
-    rep  c  = c
-
 underscore :: String -> String
 underscore (x:xs) | isUpper x = toLower x : underscore xs
 underscore xs                 = concatMap f xs

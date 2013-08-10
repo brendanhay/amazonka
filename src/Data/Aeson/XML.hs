@@ -1,4 +1,6 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE TypeSynonymInstances #-}
 
 -- |
 -- Module      : Network.AWS.XML
@@ -34,6 +36,9 @@ data JSValue = Text | Tag String | Attr String
 
 class FromJSON a => FromXML a where
     fromXML :: String -> IO (Maybe a)
+    fromXML = stringToXML 1
+
+instance FromXML Object where
     fromXML = stringToXML 1
 
 stringToXML :: FromJSON a => Int -> String -> IO (Maybe a)

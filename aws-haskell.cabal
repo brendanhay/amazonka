@@ -80,7 +80,6 @@ library
       , http-types
       , hxt
       , hxt-expat
-      , hxt-tagsoup
       , io-streams
       , mtl
       , old-locale

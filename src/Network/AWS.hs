@@ -47,7 +47,7 @@ within :: Region -> AWS a -> AWS a
 within reg aws = awsAuth <$> ask >>=
     liftIO . runReaderT (unWrap aws) . Env (Just reg)
 
-send :: AWSRequest b a c => a -> AWS (Maybe c)
+send :: (FromXML c, AWSRequest b a c) => a -> AWS (Maybe c)
 send payload = do
     SignedRequest{..} <- sign =<< request payload
     liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do

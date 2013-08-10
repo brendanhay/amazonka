@@ -1,5 +1,10 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE TypeSynonymInstances       #-}
 
 -- |
 -- Module      : Network.AWS.Route53.V20121212
@@ -38,30 +43,35 @@ module Network.AWS.Route53.V20121212
     , module Types
     ) where
 
+import Control.Applicative                 ((<$>))
 import Data.Aeson
+import Data.Aeson.TH
+import Data.Aeson.XML
 import Data.ByteString                     (ByteString)
+import Data.Monoid
+import Data.String
 import Data.Text                           (Text)
 import Network.AWS.Internal
 import Network.AWS.Route53.V20121212.Types as Types
+import Network.Http.Client                 (Method(..))
 
 data R53
 
-instance AWSService Route53 where
+instance AWSService R53 where
     service _ = Service "route53" (toBS route53Version) "route53.amazonaws.com"
         SigningVersion3 <$> currentRegion
 
 route53Version :: Text
 route53Version = "2011-01-01"
 
-req :: (QueryString a, FromJSON b) => ByteString -> a -> AWS (RawRequest Route53 b)
-req meth action qry = return $ (emptyRequest meth FormEncoded "" Nothing)
-    { rqAction = Just action
-    , rqQuery  = queryString qry
+req :: (QueryString a, FromXML b) => Method -> Text -> a -> AWS (RawRequest R53 b)
+req meth path qry = return $ (emptyRequest meth FormEncoded path Nothing)
+    { rqQuery = queryString "" qry
     }
 
-body :: (Template a, FromJSON b) => Method -> Text -> a -> AWS (RawRequest R53 b)
+body :: (Template a, FromXML b) => Method -> Text -> a -> AWS (RawRequest R53 b)
 body meth path tmpl =
-    emptyRequest meth Xml (version <> "/" <> path) . Just <$> render tmpl
+    emptyRequest meth Xml (route53Version <> "/" <> path) . Just <$> render tmpl
 
 --
 -- Hosted Zones
@@ -88,7 +98,7 @@ newtype GetHostedZone = GetHostedZone ByteString
     deriving (Show, IsString, IsText)
 
 instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
-    request chk = req GET ("hostedzone/" <> toText chk) []
+    request chk = req GET ("hostedzone/" <> toText chk) ()
 
 -- | Gets a list of the hosted zones that are associated with the
 -- current AWS account.
@@ -102,7 +112,7 @@ data ListHostedZones = ListHostedZones
 $(deriveQS' (lowerAll . dropLower) ''ListHostedZones)
 
 instance AWSRequest R53 ListHostedZones ListHostedZonesResponse where
-    request = req GET "hostedzone" . queryString
+    request = req GET "hostedzone"
 
 -- | Deletes a hosted zone.
 --
@@ -111,7 +121,7 @@ newtype DeleteHostedZone = DeleteHostedZone Text
     deriving (Show, IsString, IsText)
 
 instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
-    request chk = req DELETE ("hostedzone/" <> toText chk) []
+    request chk = req DELETE ("hostedzone/" <> toText chk) ()
 
 --
 -- Record Sets
@@ -158,7 +168,7 @@ $(deriveQS' (lowerAll . dropLower) ''ListResourceRecordSets)
 
 instance AWSRequest R53 ListResourceRecordSets Object where
     request rs@ListResourceRecordSets{..} =
-        req GET ("hostedzone/" <> lrrsZoneId <> "/rrset") $ queryString rs
+        req GET ("hostedzone/" <> lrrsZoneId <> "/rrset") rs
 
 -- | Returns the current status of a change batch request that you
 -- submitted by using ChangeResourceRecordSets.
@@ -168,7 +178,7 @@ newtype GetChange = GetChange Text
     deriving (Show, IsString, IsText)
 
 instance AWSRequest R53 GetChange Object where
-    request chk = req GET ("change/" <> toText chk) []
+    request chk = req GET ("change/" <> toText chk) ()
 
 --
 -- Health Checks
@@ -194,7 +204,7 @@ newtype GetHealthCheck = GetHealthCheck Text
     deriving (Show, IsString, IsText)
 
 instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
-    request chk = req GET ("healthcheck/" <> toText chk) []
+    request chk = req GET ("healthcheck/" <> toText chk) ()
 
 -- | Gets a list of the health checks that are associated
 -- with the current AWS account.
@@ -208,7 +218,7 @@ data ListHealthChecks = ListHealthChecks
 $(deriveQS' (lowerAll . dropLower) ''ListHealthChecks)
 
 instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
-    request = req GET "healthcheck" . queryString
+    request = req GET "healthcheck"
 
 -- | Deletes a health check.
 --
@@ -217,4 +227,4 @@ newtype DeleteHealthCheck = DeleteHealthCheck Text
     deriving (Show, IsString, IsText)
 
 instance AWSRequest R53 DeleteHealthCheck DeleteHealthCheckResponse where
-    request chk = req DELETE ("healthcheck/" <> toText chk) []
+    request chk = req DELETE ("healthcheck/" <> toText chk) ()

@@ -27,38 +27,19 @@ import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Data.Aeson
 import           Data.Aeson.XML
-import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Char8  as BS
-import           Data.Map               (Map)
-import qualified Data.Map               as Map
+import           Data.ByteString             (ByteString)
+import qualified Data.ByteString.Char8       as BS
+import           Data.Map                    (Map)
+import qualified Data.Map                    as Map
 import           Data.Maybe
 import           Data.Monoid
 import           Data.String
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
-import qualified Data.Text.Encoding     as Enc
-import           Network.Http.Client    hiding (ContentType, post, put)
-import           System.IO.Streams      (InputStream)
-
-class IsText a where
-    toText :: a -> Text
-    toBS   :: a -> ByteString
-    toStr  :: a -> String
-
-    toBS  = Enc.encodeUtf8 . toText
-    toStr = Text.unpack . toText
-
-instance IsText ByteString where
-    toText = Enc.decodeUtf8
-    toBS   = id
-
-instance IsText Text where
-    toText = id
-
-instance IsText String where
-    toText = fromString
-    toBS   = fromString
-    toStr  = id
+import           Data.Text                   (Text)
+import qualified Data.Text                   as Text
+import qualified Data.Text.Encoding          as Enc
+import           Network.AWS.Internal.String
+import           Network.Http.Client         hiding (ContentType, post, put)
+import           System.IO.Streams           (InputStream)
 
 data Region
     = NorthVirgnia
@@ -184,25 +165,48 @@ class (Show a, ToJSON a) => Template a where
     readTemplate :: a -> ByteString
 
 class Show a => QueryString a where
-    queryString :: a -> [(ByteString, ByteString)]
+    queryString :: ByteString -> a -> [(ByteString, ByteString)]
 
-class Show a => QueryParam a where
-    queryParam :: ByteString -> a -> [(ByteString, ByteString)]
+instance QueryString a => QueryString (Maybe a) where
+    queryString _ Nothing  = []
+    queryString k (Just v) = queryString k v
 
-instance QueryParam a => QueryParam (Maybe a) where
-    queryParam _ Nothing  = []
-    queryParam k (Just v) = queryParam k v
+instance QueryString ByteString where
+    queryString = packQS
 
-instance QueryParam ByteString where
-    queryParam k bstr = [(k, bstr)]
+instance QueryString Text where
+    queryString = packQS
 
-instance QueryParam [ByteString] where
-    queryParam k = zipWith params ([1..] :: [Int])
-      where
-        params n v = (k <> "." <> BS.pack (show n), v)
+instance QueryString Integer where
+    queryString = packQS
 
-instance QueryParam Text where
-    queryParam k text = [(k, Enc.encodeUtf8 text)]
+instance QueryString Bool where
+    queryString k = packQS k . lowerAll . show
 
-instance QueryParam Integer where
-    queryParam k n = [(k, BS.pack $ show n)]
+packQS :: IsText a => ByteString -> a -> [(ByteString, ByteString)]
+packQS k v = [(strip '.' k, toBS v)]
+
+class IsText a where
+    toText :: a -> Text
+    toBS   :: a -> ByteString
+    toStr  :: a -> String
+
+    toBS  = Enc.encodeUtf8 . toText
+    toStr = Text.unpack . toText
+
+instance IsText ByteString where
+    toText = Enc.decodeUtf8
+    toBS   = id
+
+instance IsText Text where
+    toText = id
+
+instance IsText String where
+    toText = fromString
+    toBS   = fromString
+    toStr  = id
+
+instance IsText Integer where
+    toText = Text.pack . toStr
+    toBS   = BS.pack . toStr
+    toStr  = show

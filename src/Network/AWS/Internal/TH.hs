@@ -1,6 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE QuasiQuotes       #-}
 
@@ -37,6 +38,7 @@ module Network.AWS.Internal.TH
 import           Control.Monad
 import           Data.Aeson.TH
 import           Data.Aeson.XML
+import           Data.ByteString             (ByteString)
 import qualified Data.ByteString.Char8       as BS
 import           Data.Monoid
 import           Language.Haskell.TH
@@ -46,7 +48,7 @@ import           Network.AWS.Internal.Types
 import           Paths_aws_haskell           (getDataFileName)
 
 deriveTmpl :: Name -> Q [Dec]
-deriveTmpl name = deriveTmpl' "template/" name
+deriveTmpl = deriveTmpl' "template/"
 
 deriveTmpl' :: FilePath -> Name -> Q [Dec]
 deriveTmpl' path name = liftM2 (++)
@@ -56,31 +58,45 @@ deriveTmpl' path name = liftM2 (++)
     f = lowerFirst . dropLower
 
 deriveQS :: Name -> Q [Dec]
-deriveQS name = deriveQS' (lowerFirst . dropLower) name
+deriveQS = deriveQS' dropLower
 
 deriveQS' :: (String -> String) -> Name -> Q [Dec]
 deriveQS' f name = reify name >>= derive
   where
+    derive :: Info -> DecsQ
+
     derive (TyConI (DataD _ _ _ [RecC _ fields] _)) = do
-        let names   = map (\(n, _, _) -> n) fields
-            field n = [| queryParam s . $(global n) |]
-              where
-                s = BS.pack . f $ nameBase n
-            query   = listE $ map field names
+        let field n = [| \k -> queryString (k <> s) . $(global n) |]
+              where s = toBS . f $ nameBase n
+            names = map (\(n, _, _) -> n) fields
+            query = listE $ map field names
         [d|instance QueryString $(conT name) where
-               queryString x = concatMap ($ x) $query|]
+               queryString k v = concatMap (($ v) . ($ k)) $query|]
 
     derive (TyConI (DataD _ _ _ _ _)) = do
         [d|instance QueryString $(conT name) where
-               queryString _ = []|]
+               queryString _ _ = []|]
 
-    derive (TyConI (NewtypeD _ _ _ (NormalC ctor [field]) _)) = do
-        [d|instance QueryString $(conT name) where
-               queryString x = [(key, toBS x)]|]
+    derive (TyConI (NewtypeD _ _ _ (NormalC ctor [field]) _)) = (:[]) `fmap` do
+        instanceD (cxt []) (conT ''QueryString `appT` conT name)
+            [ funD 'queryString . (:[]) $ do
+                 k <- newName "k"
+                 v <- newName "v"
+                 clause [varP k, conP ctor [varP v]]
+                     (normalB [|queryString (key <> $(global k)) $(global v)|]) []
+            ]
       where
         key = toBS . f $ nameBase ctor
 
-    derive err = error $ "Cannot derive QueryString instance from: " ++ show err
+    derive (TyConI (TySynD _ _ (AppT ListT (ConT typ)))) = do
+        [d|instance QueryString [$(conT typ)] where
+               queryString k = concat . zipWith zipper ([1..] :: [Integer])
+                 where
+                   zipper n = queryString (k <> key <> "." <> toBS n <> ".")|]
+      where
+        key = toBS . f $ nameBase name
+
+    derive err = error $ "Cannot derive QueryString instance for: " ++ show err
 
 deriveXML :: Name -> Q [Dec]
 deriveXML name = liftM2 (++)
@@ -97,7 +113,7 @@ underscoredFieldOptions = options { fieldLabelModifier = underscore . dropLower 
 -- Internal
 --
 
-instance Lift BS.ByteString where
+instance Lift ByteString where
     lift = return . LitE . StringL . BS.unpack
 
 embedTemplate :: FilePath -> Name -> Q [Dec]

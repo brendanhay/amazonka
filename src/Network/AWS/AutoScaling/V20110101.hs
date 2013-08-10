@@ -40,7 +40,7 @@ req :: (QueryString a, FromXML b)
     -> AWS (RawRequest AutoScaling b)
 req meth action qry = return $ (emptyRequest meth FormEncoded empty Nothing)
     { rqAction = Just action
-    , rqQuery  = queryString qry
+    , rqQuery  = queryString "" qry
     }
 
 --
@@ -64,8 +64,12 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , casgPlacementGroup :: !(Maybe Text)
     , casgVPCZoneIdentifier :: !(Maybe Text)
     , casgTerminationPolicies :: !(Maybe TerminationPolicies)
-    , casgTags :: !(Maybe Tags)
+    , casgTags :: ![Tag]
     } deriving (Show)
+
+-- data Tags = Tags
+--     { tMember :: ![Tag]
+--     } deriving (Show)
 
 $(deriveQS ''CreateAutoScalingGroup)
 
@@ -99,9 +103,8 @@ instance AWSRequest AutoScaling CreateLaunchConfiguration MetadataResponse where
 -- |
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
-data CreateOrUpdateTags = CreateOrUpdateTags
-    { coutTags :: !Tags
-    } deriving (Show)
+newtype CreateOrUpdateTags = CreateOrUpdateTags [Tag]
+    deriving (Show)
 
 $(deriveQS ''CreateOrUpdateTags)
 
@@ -175,9 +178,8 @@ instance AWSRequest AutoScaling DeleteScheduledAction MetadataResponse where
 -- |
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteTags.html>
-data DeleteTags = DeleteTags
-    { dtTags :: !Tags
-    } deriving (Show)
+data DeleteTags = DeleteTags [Tag]
+    deriving (Show)
 
 $(deriveQS ''DeleteTags)
 

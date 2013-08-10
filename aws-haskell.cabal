@@ -63,6 +63,7 @@ library
         -rtsopts
         -fwarn-tabs
         -funbox-strict-fields
+--        -ddump-splices
 
     build-depends:
         aeson

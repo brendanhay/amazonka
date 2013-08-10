@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 -- |
 -- Module      : Network.AWS.Internal.String
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -11,9 +13,11 @@
 
 module Network.AWS.Internal.String where
 
-import Data.Char
-import Data.List
-import Data.Maybe
+import           Data.ByteString       (ByteString)
+import qualified Data.ByteString.Char8 as BS
+import           Data.Char
+import           Data.List
+import           Data.Maybe
 
 dropPrefix :: String -> String -> String
 dropPrefix pre s = fromMaybe s $ pre `stripPrefix` s
@@ -49,3 +53,12 @@ underscore (x:xs) | isUpper x = toLower x : underscore xs
 underscore xs                 = concatMap f xs
   where
     f x = ['_' | isUpper x] ++ [toLower x]
+
+strip :: Char -> ByteString -> ByteString
+strip c bstr
+    | BS.cons c "" == bstr = ""
+    | otherwise = ($ bstr) $ case (BS.head bstr == c, BS.last bstr == c) of
+        (True,  True)  -> BS.tail . BS.init
+        (False, True)  -> BS.init
+        (True,  False) -> BS.tail
+        _              -> id

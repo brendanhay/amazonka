@@ -20,21 +20,22 @@ module Network.AWS.Internal.Signing
 import           Control.Applicative
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Base64     as Base64
-import qualified Data.ByteString.Char8      as BS
-import qualified Data.ByteString.Lazy       as LBS
-import           Data.Char                  (toLower)
-import qualified Data.Digest.Pure.SHA       as SHA
+import           Data.ByteString             (ByteString)
+import qualified Data.ByteString.Base64      as Base64
+import qualified Data.ByteString.Char8       as BS
+import qualified Data.ByteString.Lazy        as LBS
+import           Data.Char                   (toLower)
+import qualified Data.Digest.Pure.SHA        as SHA
 import           Data.List
-import qualified Data.Map                   as Map
+import qualified Data.Map                    as Map
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Time                  (UTCTime, formatTime, getCurrentTime)
+import           Data.Time                   (UTCTime, formatTime, getCurrentTime)
+import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Types
-import           Network.HTTP.Types         (urlEncode)
+import           Network.HTTP.Types          (urlEncode)
 import           Network.Http.Client
-import           System.Locale              (defaultTimeLocale, iso8601DateFormat)
+import           System.Locale               (defaultTimeLocale, iso8601DateFormat)
 
 sign :: AWSService a => RawRequest a b -> AWS SignedRequest
 sign rq = do
@@ -210,15 +211,6 @@ scopeTime = BS.pack . formatTime defaultTimeLocale "%Y%m%d"
 
 validPath :: Maybe ByteString -> ByteString
 validPath = maybe "/" (mappend "/" . strip '/')
-
-strip :: Char -> ByteString -> ByteString
-strip c bstr
-    | BS.cons c "" == bstr = ""
-    | otherwise = ($ bstr) $ case (BS.head bstr == c, BS.last bstr == c) of
-        (True,  True)  -> BS.tail . BS.init
-        (False, True)  -> BS.init
-        (True,  False) -> BS.tail
-        _              -> id
 
 sha256 :: ByteString -> ByteString
 sha256 = LBS.toStrict

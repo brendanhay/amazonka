@@ -1,4 +1,6 @@
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
 -- |
@@ -50,6 +52,9 @@ newtype ResourceName = ResourceName Text
 -- Types
 --
 
+-- Shouldnt need a FromXML since i've just aliased the MetadataResponse?
+-- get as object then lookup ResponseMetadata as a key
+
 data AutoScalingNotificationTypes = AutoScalingNotificationTypes
     { asntMember :: ![Text]
     } deriving (Show)
@@ -58,18 +63,20 @@ data MetricGranularityType = MetricGranularityType
     { mgtGranularity :: !(Maybe Text)
     } deriving (Show)
 
+data LoadBalancerNames = LoadBalancerNames
+    { lbnMember :: ![Text]
+    } deriving (Show)
+
 data SuspendedProcess = SuspendedProcess
     { spProcessName :: !(Maybe Text)
     , spSuspensionReason :: !(Maybe Text)
     } deriving (Show)
 
-data SuspendedProcesses = SuspendedProcesses
-    { spsMember :: ![SuspendedProcess]
-    } deriving (Show)
+$(deriveQS ''SuspendedProcess)
 
-data LoadBalancerNames = LoadBalancerNames
-    { lbnMember :: ![Text]
-    } deriving (Show)
+type SuspendedProcesses = [SuspendedProcess]
+
+$(deriveQS' (++ ".member") ''SuspendedProcesses)
 
 data Tag = Tag
     { tResourceId :: !(Maybe Text)
@@ -79,9 +86,15 @@ data Tag = Tag
     , tPropagateAtLaunch :: !(Maybe Bool)
     } deriving (Show)
 
-data Tags = Tags
-    { tMember :: ![Tag]
-    } deriving (Show)
+$(deriveQS ''Tag)
+
+type Tags = [Tag]
+
+$(deriveQS' (++ ".member") ''Tags)
+
+-- data Tags = Tags
+--     { tMember :: ![Tag]
+--     } deriving (Show)
 
 data PolicyNames = PolicyNames
     { pnMember :: ![ResourceName]
@@ -128,6 +141,11 @@ data NotificationConfigurations = NotificationConfigurations
 
 data SecurityGroups = SecurityGroups
     { sgMember :: ![Text]
+    } deriving (Show)
+
+data Ebs = Ebs
+    { eSnapshotId :: !(Maybe Text)
+    , eVolumeSize :: !(Maybe Integer)
     } deriving (Show)
 
 data BlockDeviceMapping = BlockDeviceMapping
@@ -191,9 +209,10 @@ data TagDescriptionList = TagDescriptionList
     { tdlMember :: ![TagDescription]
     } deriving (Show)
 
-data TerminationPolicies = TerminationPolicies
-    { tpMember :: ![Text]
-    } deriving (Show)
+newtype TerminationPolicies = TerminationPolicies [Text]
+    deriving (Show)
+
+$(deriveQS' (++ ".member") ''TerminationPolicies)
 
 data AutoScalingGroup = AutoScalingGroup
     { asgAutoScalingGroupName :: !Text
@@ -209,18 +228,13 @@ data AutoScalingGroup = AutoScalingGroup
     , asgHealthCheckGracePeriod :: !(Maybe Integer)
     , asgInstances :: !(Maybe Instances)
     , asgCreatedTime :: !UTCTime
-    , asgSuspendedProcesses :: !(Maybe SuspendedProcesses)
+    , asgSuspendedProcesses :: !SuspendedProcesses
     , asgPlacementGroup :: !(Maybe Text)
     , asgVPCZoneIdentifier :: !(Maybe Text)
     , asgEnabledMetrics :: !(Maybe EnabledMetrics)
     , asgStatus :: !(Maybe Text)
     , asgTags :: !(Maybe TagDescriptionList)
     , asgTerminationPolicies :: !(Maybe TerminationPolicies)
-    } deriving (Show)
-
-data Ebs = Ebs
-    { eSnapshotId :: !(Maybe Text)
-    , eVolumeSize :: !(Maybe Integer)
     } deriving (Show)
 
 data LifecycleState

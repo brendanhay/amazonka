@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -16,456 +17,456 @@
 
 module Network.AWS.AutoScaling.V20110101.Types where
 
-import Data.Aeson.TH
-import Data.Text
+import Data.ByteString      (ByteString)
 import Data.Time
+import GHC.Generics
 import Network.AWS.Internal
 
 --
 -- Common
 --
 
-data ResponseMetadata = ResponseMetadata
-    { rmRequestId :: !Text
-    } deriving (Show)
+-- data ResponseMetadata = ResponseMetadata
+--     { rmRequestId :: !ByteString
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''ResponseMetadata)
+-- instance IsXML ResponseMetadata
 
-data ErrorType = Receiver | Sender
-    deriving (Show)
+-- data ErrorType = Receiver | Sender
+--     deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''ErrorType)
+-- instance IsXML ErrorType
 
-data Error = Error
-    { eType :: !ErrorType
-    , eCode :: !Text
-    , eMessage :: !Text
-    , eDetail :: !Text
-    } deriving (Show)
+-- data Error = Error
+--     { eType :: !ErrorType
+--     , eCode :: !ByteString
+--     , eMessage :: !ByteString
+--     , eDetail :: !ByteString
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''Error)
+-- instance IsXML Error
 
-newtype ResourceName = ResourceName Text
-    deriving (Show, IsText)
+newtype ResourceName = ResourceName ByteString
+    deriving (Eq, Show, Generic, IsByteString)
 
-$(deriveQS ''ResourceName)
-$(deriveJSON fieldOptions ''ResourceName)
+instance ToQuery ResourceName
+-- instance IsXML ResourceName
 
---
--- Types
---
+-- --
+-- -- Types
+-- --
 
--- Shouldnt need a FromXML since i've just aliased the MetadataResponse?
--- get as object then lookup ResponseMetadata as a key
+-- -- Shouldnt need a FromXML since i've just aliased the MetadataResponse?
+-- -- get as object then lookup ResponseMetadata as a key
 
-data MetricGranularityType = MetricGranularityType
-    { mgtGranularity :: !(Maybe Text)
-    } deriving (Show)
+-- data MetricGranularityType = MetricGranularityType
+--     { mgtGranularity :: !(Maybe ByteString)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''MetricGranularityType)
+-- instance IsXML MetricGranularityType
 
-newtype MetricGranularityTypes = MetricGranularityTypes [MetricGranularityType]
-   deriving (Show)
+-- newtype MetricGranularityTypes = MetricGranularityTypes [MetricGranularityType]
+--    deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''MetricGranularityTypes)
+-- instance IsXML MetricGranularityTypes
 
-newtype LoadBalancerNames = LoadBalancerNames [Text]
-    deriving (Show)
+-- newtype LoadBalancerNames = LoadBalancerNames [ByteString]
+--     deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''LoadBalancerNames)
-$(deriveJSON fieldOptions ''LoadBalancerNames)
+-- -- -- $(deriveQS' (++ ".member") ''LoadBalancerNames)
+-- instance IsXML LoadBalancerNames
 
-data SuspendedProcess = SuspendedProcess
-    { spProcessName :: !(Maybe Text)
-    , spSuspensionReason :: !(Maybe Text)
-    } deriving (Show)
+-- data SuspendedProcess = SuspendedProcess
+--     { spProcessName :: !(Maybe ByteString)
+--     , spSuspensionReason :: !(Maybe ByteString)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveQS ''SuspendedProcess)
-$(deriveJSON fieldOptions ''SuspendedProcess)
+-- instance ToQuery SuspendedProcess
+-- instance IsXML SuspendedProcess
 
-newtype SuspendedProcesses = SuspendedProcesses [SuspendedProcess]
-    deriving (Show)
+-- newtype SuspendedProcesses = SuspendedProcesses [SuspendedProcess]
+--     deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''SuspendedProcesses)
+-- instance IsXML SuspendedProcesses
 
 data Tag = Tag
-    { tResourceId :: !(Maybe Text)
-    , tResourceType :: !(Maybe Text)
-    , tKey :: !Text
-    , tValue :: !(Maybe Text)
+    { tResourceId :: !(Maybe ByteString)
+    , tResourceType :: !(Maybe ByteString)
+    , tKey :: !ByteString
+    , tValue :: !(Maybe ByteString)
     , tPropagateAtLaunch :: !(Maybe Bool)
-    } deriving (Show)
+    } deriving (Eq, Show, Generic)
 
-$(deriveQS ''Tag)
+instance ToQuery Tag
 
-newtype Tags = Tags [Tag]
-    deriving (Show)
+-- newtype Tags = Tags [Tag]
+--     deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''Tags)
+-- -- $(deriveQS' (++ ".member") ''Tags)
 
--- data Tags = Tags
---     { tMember :: ![Tag]
---     } deriving (Show)
+-- -- data Tags = Tags
+-- --     { tMember :: ![Tag]
+-- --     } deriving (Eq, Show, Generic)
 
-newtype PolicyNames = PolicyNames [ResourceName]
-   deriving (Show)
+-- newtype PolicyNames = PolicyNames [ResourceName]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''PolicyNames)
+-- -- $(deriveQS' (++ ".member") ''PolicyNames)
 
-data NotificationConfiguration = NotificationConfiguration
-    { ncAutoScalingGroupName :: !(Maybe ResourceName)
-    , ncTopicARN :: !(Maybe ResourceName)
-    , ncNotificationType :: !(Maybe Text)
-    } deriving (Show)
+-- data NotificationConfiguration = NotificationConfiguration
+--     { ncAutoScalingGroupName :: !(Maybe ResourceName)
+--     , ncTopicARN :: !(Maybe ResourceName)
+--     , ncNotificationType :: !(Maybe ByteString)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''NotificationConfiguration)
+-- instance IsXML NotificationConfiguration
 
-newtype NotificationConfigurations = NotificationConfigurations [NotificationConfiguration]
-   deriving (Show)
+-- newtype NotificationConfigurations = NotificationConfigurations [NotificationConfiguration]
+--    deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''NotificationConfigurations)
+-- instance IsXML NotificationConfigurations
 
-newtype ScheduledActionNames = ScheduledActionNames [ResourceName]
-   deriving (Show)
+-- newtype ScheduledActionNames = ScheduledActionNames [ResourceName]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''ScheduledActionNames)
+-- -- $(deriveQS' (++ ".member") ''ScheduledActionNames)
 
-data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
-    { sugaAutoScalingGroupName :: !(Maybe Text)
-    , sugaScheduledActionName :: !(Maybe Text)
-    , sugaScheduledActionARN :: !(Maybe ResourceName)
-    , sugaTime :: !(Maybe UTCTime)
-    , sugaStartTime :: !(Maybe UTCTime)
-    , sugaEndTime :: !(Maybe UTCTime)
-    , sugaRecurrence :: !(Maybe Text)
-    , sugaMinSize :: !(Maybe Integer)
-    , sugaMaxSize :: !(Maybe Integer)
-    , sugaDesiredCapacity :: !(Maybe Integer)
-    } deriving (Show)
+-- data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
+--     { sugaAutoScalingGroupName :: !(Maybe ByteString)
+--     , sugaScheduledActionName :: !(Maybe ByteString)
+--     , sugaScheduledActionARN :: !(Maybe ResourceName)
+--     , sugaTime :: !(Maybe UTCTime)
+--     , sugaStartTime :: !(Maybe UTCTime)
+--     , sugaEndTime :: !(Maybe UTCTime)
+--     , sugaRecurrence :: !(Maybe ByteString)
+--     , sugaMinSize :: !(Maybe Integer)
+--     , sugaMaxSize :: !(Maybe Integer)
+--     , sugaDesiredCapacity :: !(Maybe Integer)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''ScheduledUpdateGroupAction)
+-- instance IsXML ScheduledUpdateGroupAction
 
-newtype ScheduledUpdateGroupActions = ScheduledUpdateGroupActions [ScheduledUpdateGroupAction]
-   deriving (Show)
+-- newtype ScheduledUpdateGroupActions = ScheduledUpdateGroupActions [ScheduledUpdateGroupAction]
+--    deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''ScheduledUpdateGroupActions)
+-- instance IsXML ScheduledUpdateGroupActions
 
-newtype SecurityGroups = SecurityGroups [Text]
-   deriving (Show)
+-- newtype SecurityGroups = SecurityGroups [ByteString]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''SecurityGroups)
-$(deriveJSON fieldOptions ''SecurityGroups)
+-- -- $(deriveQS' (++ ".member") ''SecurityGroups)
+-- instance IsXML SecurityGroups
 
-data Ebs = Ebs
-    { eSnapshotId :: !(Maybe Text)
-    , eVolumeSize :: !(Maybe Integer)
-    } deriving (Show)
+-- data Ebs = Ebs
+--     { eSnapshotId :: !(Maybe ByteString)
+--     , eVolumeSize :: !(Maybe Integer)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveQS ''Ebs)
-$(deriveJSON fieldOptions ''Ebs)
+-- instance ToQuery Ebs
+-- instance IsXML Ebs
 
-data BlockDeviceMapping = BlockDeviceMapping
-    { bdmVirtualName :: !(Maybe Text)
-    , bdmDeviceName :: !Text
-    , bdmEbs :: !(Maybe Ebs)
-    } deriving (Show)
+-- data BlockDeviceMapping = BlockDeviceMapping
+--     { bdmVirtualName :: !(Maybe ByteString)
+--     , bdmDeviceName :: !ByteString
+--     , bdmEbs :: !(Maybe Ebs)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveQS ''BlockDeviceMapping)
-$(deriveJSON fieldOptions ''BlockDeviceMapping)
+-- instance ToQuery BlockDeviceMapping
+-- instance IsXML BlockDeviceMapping
 
-newtype BlockDeviceMappings = BlockDeviceMappings [BlockDeviceMapping]
-   deriving (Show)
+-- newtype BlockDeviceMappings = BlockDeviceMappings [BlockDeviceMapping]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''BlockDeviceMappings)
-$(deriveJSON fieldOptions ''BlockDeviceMappings)
+-- -- $(deriveQS' (++ ".member") ''BlockDeviceMappings)
+-- instance IsXML BlockDeviceMappings
 
-data InstanceMonitoring = InstanceMonitoring
-    { imEnabled :: !(Maybe Bool)
-    } deriving (Show)
+-- data InstanceMonitoring = InstanceMonitoring
+--     { imEnabled :: !(Maybe Bool)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveQS ''InstanceMonitoring)
-$(deriveJSON fieldOptions ''InstanceMonitoring)
+-- instance ToQuery InstanceMonitoring
+-- instance IsXML InstanceMonitoring
 
-newtype LaunchConfigurationNames = LaunchConfigurationNames [ResourceName]
-   deriving (Show)
+-- newtype LaunchConfigurationNames = LaunchConfigurationNames [ResourceName]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''LaunchConfigurationNames)
-$(deriveJSON fieldOptions ''LaunchConfigurationNames)
+-- -- $(deriveQS' (++ ".member") ''LaunchConfigurationNames)
+-- instance IsXML LaunchConfigurationNames
 
-data LaunchConfiguration = LaunchConfiguration
-    { lcLaunchConfigurationName :: !Text
-    , lcLaunchConfigurationARN :: !(Maybe ResourceName)
-    , lcImageId :: !Text
-    , lcKeyName :: !(Maybe Text)
-    , lcSecurityGroups :: !(Maybe SecurityGroups)
-    , lcUserData :: !(Maybe Text)
-    , lcInstanceType :: !Text
-    , lcKernelId :: !(Maybe Text)
-    , lcRamdiskId :: !(Maybe Text)
-    , lcBlockDeviceMappings :: !(Maybe BlockDeviceMappings)
-    , lcInstanceMonitoring :: !(Maybe InstanceMonitoring)
-    , lcSpotPrice :: !(Maybe Text)
-    , lcIamInstanceProfile :: !(Maybe Text)
-    , lcCreatedTime :: !UTCTime
-    , lcEbsOptimized :: !(Maybe Bool)
-    } deriving (Show)
-
-$(deriveQS ''LaunchConfiguration)
-$(deriveJSON fieldOptions ''LaunchConfiguration)
-
-newtype LaunchConfigurations = LaunchConfigurations [LaunchConfiguration]
-   deriving (Show)
-
-$(deriveQS' (++ ".member") ''LaunchConfigurations)
-$(deriveJSON fieldOptions ''LaunchConfigurations)
-
-newtype AvailabilityZones = AvailabilityZones [Text]
-   deriving (Show)
-
-$(deriveQS' (++ ".member") ''AvailabilityZones)
-$(deriveJSON fieldOptions ''AvailabilityZones)
-
-data EnabledMetric = EnabledMetric
-    { emMetric :: !(Maybe Text)
-    , emGranularity :: !(Maybe Text)
-    } deriving (Show)
-
-$(deriveJSON fieldOptions ''EnabledMetric)
-
-newtype EnabledMetrics = EnabledMetrics [EnabledMetric]
-   deriving (Show)
-
-$(deriveJSON fieldOptions ''EnabledMetrics)
-
-data TagDescription = TagDescription
-    { tdResourceId :: !(Maybe Text)
-    , tdResourceType :: !(Maybe Text)
-    , tdKey :: !(Maybe Text)
-    , tdValue :: !(Maybe Text)
-    , tdPropagateAtLaunch :: !(Maybe Bool)
-    } deriving (Show)
-
-$(deriveQS ''TagDescription)
-$(deriveJSON fieldOptions ''TagDescription)
-
-newtype TagDescriptionList = TagDescriptionList [TagDescription]
-    deriving (Show)
-
-$(deriveQS' (++ ".member") ''TagDescriptionList)
-$(deriveJSON fieldOptions ''TagDescriptionList)
-
-newtype TerminationPolicies = TerminationPolicies [Text]
-    deriving (Show)
-
-$(deriveQS' (++ ".member") ''TerminationPolicies)
-$(deriveJSON fieldOptions ''TerminationPolicies)
-
-data LifecycleState
-    = Pending
-    | Quarantined
-    | InService
-    | Terminating
-    | Terminated
-      deriving (Show)
-
-$(deriveJSON defaultOptions ''LifecycleState)
-
-data Instance = Instance
-    { iInstanceId :: !Text
-    , iAvailabilityZone :: !Text
-    , iLifecycleState :: !LifecycleState
-    , iHealthStatus :: !Text
-    , iLaunchConfigurationName :: !Text
-    } deriving (Show)
-
-$(deriveJSON fieldOptions ''Instance)
-
-newtype Instances = Instances [Instance]
-   deriving (Show)
-
-$(deriveJSON fieldOptions ''Instances)
-
-data AutoScalingGroup = AutoScalingGroup
-    { asgAutoScalingGroupName :: !Text
-    , asgAutoScalingGroupARN :: !(Maybe ResourceName)
-    , asgLaunchConfigurationName :: !Text
-    , asgMinSize :: !Integer
-    , asgMaxSize :: !Integer
-    , asgDesiredCapacity :: !Integer
-    , asgDefaultCooldown :: !Integer
-    , asgAvailabilityZones :: !AvailabilityZones
-    , asgLoadBalancerNames :: !(Maybe LoadBalancerNames)
-    , asgHealthCheckType :: !Text
-    , asgHealthCheckGracePeriod :: !(Maybe Integer)
-    , asgInstances :: !(Maybe Instances)
-    , asgCreatedTime :: !UTCTime
-    , asgSuspendedProcesses :: !SuspendedProcesses
-    , asgPlacementGroup :: !(Maybe Text)
-    , asgVPCZoneIdentifier :: !(Maybe Text)
-    , asgEnabledMetrics :: !(Maybe EnabledMetrics)
-    , asgStatus :: !(Maybe Text)
-    , asgTags :: !(Maybe TagDescriptionList)
-    , asgTerminationPolicies :: !TerminationPolicies
-    } deriving (Show)
-
-$(deriveJSON fieldOptions ''AutoScalingGroup)
-
-data MetricCollectionType = MetricCollectionType
-    { mctMetric :: !(Maybe Text)
-    } deriving (Show)
-
-$(deriveJSON fieldOptions ''MetricCollectionType)
-
-newtype MetricCollectionTypes = MetricCollectionTypes [MetricCollectionType]
-   deriving (Show)
-
-$(deriveJSON fieldOptions ''MetricCollectionTypes)
-
-newtype AutoScalingNotificationTypes = AutoScalingNotificationTypes [Text]
-    deriving (Show)
-
-$(deriveQS' (++ ".member") ''AutoScalingNotificationTypes)
-$(deriveJSON fieldOptions ''AutoScalingNotificationTypes)
-
-data AutoScalingInstanceDetails = AutoScalingInstanceDetails
-    { asidInstanceId :: !Text
-    , asidAutoScalingGroupName :: !Text
-    , asidAvailabilityZone :: !Text
-    , asidLifecycleState :: !Text
-    , asidHealthStatus :: !Text
-    , asidLaunchConfigurationName :: !Text
-    } deriving (Show)
-
-$(deriveJSON fieldOptions ''AutoScalingInstanceDetails)
-
-newtype AutoScalingInstances = AutoScalingInstances [AutoScalingInstanceDetails]
-   deriving (Show)
-
-$(deriveJSON fieldOptions ''AutoScalingInstances)
-
-newtype Metrics = Metrics [Text]
-   deriving (Show)
-
-$(deriveQS' (++ ".member") ''Metrics)
-
-data ScalingActivityStatusCode
-    = WaitingForSpotInstanceRequestId
-    | WaitingForSpotInstanceId
-    | WaitingForInstanceId
-    | PreInService
-    | InProgress
-    | Successful
-    | Failed
-    | Cancelled
-      deriving (Show)
+-- data LaunchConfiguration = LaunchConfiguration
+--     { lcLaunchConfigurationName :: !ByteString
+--     , lcLaunchConfigurationARN :: !(Maybe ResourceName)
+--     , lcImageId :: !ByteString
+--     , lcKeyName :: !(Maybe ByteString)
+--     , lcSecurityGroups :: !(Params Member SecurityGroup)
+--     , lcUserData :: !(Maybe ByteString)
+--     , lcInstanceType :: !ByteString
+--     , lcKernelId :: !(Maybe ByteString)
+--     , lcRamdiskId :: !(Maybe ByteString)
+--     , lcBlockDeviceMappings :: !(Maybe BlockDeviceMappings)
+--     , lcInstanceMonitoring :: !(Maybe InstanceMonitoring)
+--     , lcSpotPrice :: !(Maybe ByteString)
+--     , lcIamInstanceProfile :: !(Maybe ByteString)
+--     , lcCreatedTime :: !UTCTime
+--     , lcEbsOptimized :: !(Maybe Bool)
+--     } deriving (Eq, Show, Generic)
+
+-- instance ToQuery LaunchConfiguration
+-- instance IsXML LaunchConfiguration
+
+-- newtype LaunchConfigurations = LaunchConfigurations [LaunchConfiguration]
+--    deriving (Eq, Show, Generic)
+
+-- -- $(deriveQS' (++ ".member") ''LaunchConfigurations)
+-- instance IsXML LaunchConfigurations
+
+-- newtype AvailabilityZones = AvailabilityZones [ByteString]
+--    deriving (Eq, Show, Generic)
+
+-- -- $(deriveQS' (++ ".member") ''AvailabilityZones)
+-- instance IsXML AvailabilityZones
+
+-- data EnabledMetric = EnabledMetric
+--     { emMetric :: !(Maybe ByteString)
+--     , emGranularity :: !(Maybe ByteString)
+--     } deriving (Eq, Show, Generic)
+
+-- instance IsXML EnabledMetric
+
+-- newtype EnabledMetrics = EnabledMetrics [EnabledMetric]
+--    deriving (Eq, Show, Generic)
+
+-- instance IsXML EnabledMetrics
+
+-- data TagDescription = TagDescription
+--     { tdResourceId :: !(Maybe ByteString)
+--     , tdResourceType :: !(Maybe ByteString)
+--     , tdKey :: !(Maybe ByteString)
+--     , tdValue :: !(Maybe ByteString)
+--     , tdPropagateAtLaunch :: !(Maybe Bool)
+--     } deriving (Eq, Show, Generic)
+
+-- instance ToQuery TagDescription
+-- instance IsXML TagDescription
+
+-- newtype TagDescriptionList = TagDescriptionList [TagDescription]
+--     deriving (Eq, Show, Generic)
+
+-- -- $(deriveQS' (++ ".member") ''TagDescriptionList)
+-- instance IsXML TagDescriptionList
+
+-- newtype TerminationPolicies = TerminationPolicies [ByteString]
+--     deriving (Eq, Show, Generic)
+
+-- -- $(deriveQS' (++ ".member") ''TerminationPolicies)
+-- instance IsXML TerminationPolicies
+
+-- data LifecycleState
+--     = Pending
+--     | Quarantined
+--     | InService
+--     | Terminating
+--     | Terminated
+--       deriving (Eq, Show, Generic)
+
+-- instance IsXML LifecycleState
+
+-- data Instance = Instance
+--     { iInstanceId :: !ByteString
+--     , iAvailabilityZone :: !ByteString
+--     , iLifecycleState :: !LifecycleState
+--     , iHealthStatus :: !ByteString
+--     , iLaunchConfigurationName :: !ByteString
+--     } deriving (Eq, Show, Generic)
+
+-- instance IsXML Instance
+
+-- newtype Instances = Instances [Instance]
+--    deriving (Eq, Show, Generic)
+
+-- instance IsXML Instances
+
+-- data AutoScalingGroup = AutoScalingGroup
+--     { asgAutoScalingGroupName :: !ByteString
+--     , asgAutoScalingGroupARN :: !(Maybe ResourceName)
+--     , asgLaunchConfigurationName :: !ByteString
+--     , asgMinSize :: !Integer
+--     , asgMaxSize :: !Integer
+--     , asgDesiredCapacity :: !Integer
+--     , asgDefaultCooldown :: !Integer
+--     , asgAvailabilityZones :: !AvailabilityZones
+--     , asgLoadBalancerNames :: !(Maybe LoadBalancerNames)
+--     , asgHealthCheckType :: !ByteString
+--     , asgHealthCheckGracePeriod :: !(Maybe Integer)
+--     , asgInstances :: !(Maybe Instances)
+--     , asgCreatedTime :: !UTCTime
+--     , asgSuspendedProcesses :: !SuspendedProcesses
+--     , asgPlacementGroup :: !(Maybe ByteString)
+--     , asgVPCZoneIdentifier :: !(Maybe ByteString)
+--     , asgEnabledMetrics :: !(Maybe EnabledMetrics)
+--     , asgStatus :: !(Maybe ByteString)
+--     , asgTags :: !(Maybe TagDescriptionList)
+--     , asgTerminationPolicies :: !TerminationPolicies
+--     } deriving (Eq, Show, Generic)
+
+-- instance IsXML AutoScalingGroup
+
+-- data MetricCollectionType = MetricCollectionType
+--     { mctMetric :: !(Maybe ByteString)
+--     } deriving (Eq, Show, Generic)
+
+-- instance IsXML MetricCollectionType
+
+-- newtype MetricCollectionTypes = MetricCollectionTypes [MetricCollectionType]
+--    deriving (Eq, Show, Generic)
+
+-- instance IsXML MetricCollectionTypes
+
+-- newtype AutoScalingNotificationTypes = AutoScalingNotificationTypes [ByteString]
+--     deriving (Eq, Show, Generic)
+
+-- -- $(deriveQS' (++ ".member") ''AutoScalingNotificationTypes)
+-- instance IsXML AutoScalingNotificationTypes
+
+-- data AutoScalingInstanceDetails = AutoScalingInstanceDetails
+--     { asidInstanceId :: !ByteString
+--     , asidAutoScalingGroupName :: !ByteString
+--     , asidAvailabilityZone :: !ByteString
+--     , asidLifecycleState :: !ByteString
+--     , asidHealthStatus :: !ByteString
+--     , asidLaunchConfigurationName :: !ByteString
+--     } deriving (Eq, Show, Generic)
+
+-- instance IsXML AutoScalingInstanceDetails
+
+-- newtype AutoScalingInstances = AutoScalingInstances [AutoScalingInstanceDetails]
+--    deriving (Eq, Show, Generic)
+
+-- instance IsXML AutoScalingInstances
+
+-- newtype Metrics = Metrics [ByteString]
+--    deriving (Eq, Show, Generic)
+
+-- -- $(deriveQS' (++ ".member") ''Metrics)
+
+-- data ScalingActivityStatusCode
+--     = WaitingForSpotInstanceRequestId
+--     | WaitingForSpotInstanceId
+--     | WaitingForInstanceId
+--     | PreInService
+--     | InProgress
+--     | Successful
+--     | Failed
+--     | Cancelled
+--       deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''ScalingActivityStatusCode)
+-- instance IsXML ScalingActivityStatusCode
 
-data Activity = Activity
-    { aActivityId :: !Text
-    , aAutoScalingGroupName :: !Text
-    , aDescription :: !(Maybe Text)
-    , aCause :: !Text
-    , aStartTime :: !UTCTime
-    , aEndTime :: !(Maybe UTCTime)
-    , aStatusCode :: !ScalingActivityStatusCode
-    , aStatusMessage :: !(Maybe Text)
-    , aProgress :: !(Maybe Integer)
-    , aDetails :: !(Maybe Text)
-    } deriving (Show)
+-- data Activity = Activity
+--     { aActivityId :: !ByteString
+--     , aAutoScalingGroupName :: !ByteString
+--     , aDescription :: !(Maybe ByteString)
+--     , aCause :: !ByteString
+--     , aStartTime :: !UTCTime
+--     , aEndTime :: !(Maybe UTCTime)
+--     , aStatusCode :: !ScalingActivityStatusCode
+--     , aStatusMessage :: !(Maybe ByteString)
+--     , aProgress :: !(Maybe Integer)
+--     , aDetails :: !(Maybe ByteString)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''Activity)
+-- instance IsXML Activity
 
-newtype Activities = Activities [Activity]
-   deriving (Show)
+-- newtype Activities = Activities [Activity]
+--    deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''Activities)
+-- instance IsXML Activities
 
-newtype ActivityIds = ActivityIds [Text]
-   deriving (Show)
+-- newtype ActivityIds = ActivityIds [ByteString]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''ActivityIds)
+-- -- $(deriveQS' (++ ".member") ''ActivityIds)
 
-data Alarm = Alarm
-    { aAlarmName :: !(Maybe Text)
-    , aAlarmARN :: !(Maybe ResourceName)
-    } deriving (Show)
+-- data Alarm = Alarm
+--     { aAlarmName :: !(Maybe ByteString)
+--     , aAlarmARN :: !(Maybe ResourceName)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''Alarm)
+-- instance IsXML Alarm
 
-newtype Alarms = Alarms [Alarm]
-   deriving (Show)
+-- newtype Alarms = Alarms [Alarm]
+--    deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''Alarms)
+-- instance IsXML Alarms
 
-data ScalingPolicy = ScalingPolicy
-    { spAutoScalingGroupName :: !(Maybe Text)
-    , spPolicyName :: !(Maybe Text)
-    , spScalingAdjustment :: !(Maybe Integer)
-    , spAdjustmentType :: !(Maybe Text)
-    , spCooldown :: !(Maybe Integer)
-    , spPolicyARN :: !(Maybe ResourceName)
-    , spAlarms :: ![Alarms]
-    , spMinAdjustmentStep :: !(Maybe Integer)
-    } deriving (Show)
+-- data ScalingPolicy = ScalingPolicy
+--     { spAutoScalingGroupName :: !(Maybe ByteString)
+--     , spPolicyName :: !(Maybe ByteString)
+--     , spScalingAdjustment :: !(Maybe Integer)
+--     , spAdjustmentType :: !(Maybe ByteString)
+--     , spCooldown :: !(Maybe Integer)
+--     , spPolicyARN :: !(Maybe ResourceName)
+--     , spAlarms :: ![Alarms]
+--     , spMinAdjustmentStep :: !(Maybe Integer)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''ScalingPolicy)
+-- instance IsXML ScalingPolicy
 
-newtype ScalingPolicies = ScalingPolicies [ScalingPolicy]
-   deriving (Show)
+-- newtype ScalingPolicies = ScalingPolicies [ScalingPolicy]
+--    deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''ScalingPolicies)
+-- instance IsXML ScalingPolicies
 
-newtype Values = Values [Text]
-   deriving (Show)
+-- newtype Values = Values [ByteString]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''Values)
+-- -- $(deriveQS' (++ ".member") ''Values)
 
-data Filter = Filter
-    { fName :: !(Maybe Text)
-    , fValues :: !(Maybe Values)
-    } deriving (Show)
+-- data Filter = Filter
+--     { fName :: !(Maybe ByteString)
+--     , fValues :: !(Maybe Values)
+--     } deriving (Eq, Show, Generic)
 
-$(deriveQS ''Filter)
+-- instance ToQuery Filter
 
-newtype Filters = Filters [Filter]
-   deriving (Show)
+-- newtype Filters = Filters [Filter]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''Filters)
+-- -- $(deriveQS' (++ ".member") ''Filters)
 
-data ProcessType = ProcessType
-    { ptProcessName :: !Text
-    } deriving (Show)
+-- data ProcessType = ProcessType
+--     { ptProcessName :: !ByteString
+--     } deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''ProcessType)
+-- instance IsXML ProcessType
 
-newtype Processes = Processes [ProcessType]
-   deriving (Show)
+-- newtype Processes = Processes [ProcessType]
+--    deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''Processes)
+-- instance IsXML Processes
 
-newtype InstanceIds = InstanceIds [Text]
-   deriving (Show)
+-- newtype InstanceIds = InstanceIds [ByteString]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''InstanceIds)
+-- -- $(deriveQS' (++ ".member") ''InstanceIds)
 
-newtype AutoScalingGroupNames = AutoScalingGroupNames [ResourceName]
-   deriving (Show)
+-- newtype AutoScalingGroupNames = AutoScalingGroupNames [ResourceName]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''AutoScalingGroupNames)
+-- -- $(deriveQS' (++ ".member") ''AutoScalingGroupNames)
 
-newtype AutoScalingGroups = AutoScalingGroups [AutoScalingGroup]
-   deriving (Show)
+-- newtype AutoScalingGroups = AutoScalingGroups [AutoScalingGroup]
+--    deriving (Eq, Show, Generic)
 
-$(deriveJSON fieldOptions ''AutoScalingGroups)
+-- instance IsXML AutoScalingGroups
 
-newtype ProcessNames = ProcessNames [Text]
-   deriving (Show)
+-- newtype ProcessNames = ProcessNames [ByteString]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''ProcessNames)
+-- -- $(deriveQS' (++ ".member") ''ProcessNames)
 
-newtype AdjustmentTypes = AdjustmentTypes [Text]
-   deriving (Show)
+-- newtype AdjustmentTypes = AdjustmentTypes [ByteString]
+--    deriving (Eq, Show, Generic)
 
-$(deriveQS' (++ ".member") ''AdjustmentTypes)
-$(deriveJSON fieldOptions ''AdjustmentTypes)
+-- -- $(deriveQS' (++ ".member") ''AdjustmentTypes)
+-- instance IsXML AdjustmentTypes

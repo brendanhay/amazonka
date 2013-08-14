@@ -34,12 +34,6 @@ lowerFirst :: String -> String
 lowerFirst (x:xs) = toLower x : xs
 lowerFirst []     = []
 
-lowerAll :: String -> String
-lowerAll = map toLower
-
-upperAll :: String -> String
-upperAll = map toUpper
-
 underscore :: String -> String
 underscore (x:xs) | isUpper x = toLower x : underscore xs
 underscore xs                 = concatMap f xs
@@ -48,9 +42,6 @@ underscore xs                 = concatMap f xs
 
 strip :: Char -> ByteString -> ByteString
 strip c bstr
-    | BS.cons c "" == bstr = ""
-    | otherwise = ($ bstr) $ case (BS.head bstr == c, BS.last bstr == c) of
-        (True,  True)  -> BS.tail . BS.init
-        (False, True)  -> BS.init
-        (True,  False) -> BS.tail
-        _              -> id
+    | BS.null bstr        = bstr
+    | BS.last bstr == c    = strip c $ BS.init bstr
+    | otherwise           = BS.dropWhile (== c) bstr

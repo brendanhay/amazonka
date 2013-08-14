@@ -18,9 +18,9 @@ extra-source-files:
     README.md
 
 data-files:
-      template/Route53/ChangeResourceRecordSets
-    , template/Route53/CreateHealthCheck
-    , template/Route53/CreateHostedZone
+      template/Route53/V20121212/*.tmpl
+
+    , test/response/Route53/V20121212/*.xml
 
 source-repository head
     type:     git
@@ -28,12 +28,12 @@ source-repository head
 
 library
     default-language:  Haskell2010
-    hs-source-dirs:    src vendor/aeson
+    hs-source-dirs:    src
 
     exposed-modules:
         Network.AWS
 
-      , Network.AWS.Internal.IO
+      , Network.AWS.Internal.Generic
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
       , Network.AWS.Internal.TH
@@ -47,14 +47,12 @@ library
 
       , Network.AWS.AutoScaling
       , Network.AWS.AutoScaling.V20110101
+      , Network.AWS.AutoScaling.V20110101.Responses
       , Network.AWS.AutoScaling.V20110101.Types
 
       , Network.AWS.Route53
       , Network.AWS.Route53.V20121212
       , Network.AWS.Route53.V20121212.Types
-
-      , Data.Aeson.Hastache
-      , Data.Aeson.XML
 
       , Paths_aws_haskell
 
@@ -63,23 +61,18 @@ library
         -rtsopts
         -fwarn-tabs
         -funbox-strict-fields
---        -ddump-splices
 
     build-depends:
         aeson
-      , attoparsec
       , base                 >= 4 && < 5
       , base64-bytestring
       , bytestring
       , containers
-      , data-default
-      , vector
       , hastache
+      , hexpat-generic
       , HsOpenSSL
       , http-streams
       , http-types
-      , hxt
-      , hxt-expat
       , io-streams
       , mtl
       , old-locale
@@ -90,43 +83,25 @@ library
       , transformers
       , unordered-containers
 
-      -- vendor/aeson dependencies
-      , blaze-builder        >= 0.2.1.4
-      , deepseq
-      , hashable             >= 1.1.2.0
-      , old-locale
-      , syb
-      , vector               >= 0.7.1
-
 test-suite aws-haskell-tests
     default-language:  Haskell2010
-    hs-source-dirs:    test vendor/aeson
+    hs-source-dirs:    test
     type:              exitcode-stdio-1.0
     main-is:           Main.hs
 
     build-depends:
-         aeson
-       , aws-haskell
-       , base
-       , bytestring
-       , text
-       , transformers
-
-      -- vendor/aeson dependencies
-      , blaze-builder        >= 0.2.1.4
-      , containers
-      , deepseq
-      , hashable             >= 1.1.2.0
+        aeson
+      , aws-haskell
+      , base
+      , bytestring
+      , hexpat-generic
       , old-locale
-      , syb
-      , vector               >= 0.7.1
-      , unordered-containers
-      , attoparsec
-      , template-haskell
+      , text
       , time
+      , transformers
 
-       , HUnit
-       , QuickCheck
-       , test-framework             >= 0.3
-       , test-framework-quickcheck2 >= 0.3
-       , test-framework-hunit       >= 0.3
+      , HUnit
+      , QuickCheck
+      , test-framework             >= 0.3
+      , test-framework-quickcheck2 >= 0.3
+      , test-framework-hunit       >= 0.3

@@ -13,10 +13,13 @@ module Network.AWS.Internal
     (
     -- * Re-exported
       module Internal
+    , module Generic
     ) where
 
-import Network.AWS.Internal.IO      as Internal
 import Network.AWS.Internal.Signing as Internal
 import Network.AWS.Internal.String  as Internal
 import Network.AWS.Internal.TH      as Internal
 import Network.AWS.Internal.Types   as Internal
+
+import Network.AWS.Internal.Generic as Generic
+import Text.XML.Expat.Generic       as Generic

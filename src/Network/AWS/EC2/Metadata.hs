@@ -21,9 +21,9 @@ import           Control.Applicative
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Data.ByteString        (ByteString)
+import qualified Data.ByteString.Char8  as BS
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text              (Text)
 import           Network.AWS.Internal
 import           Network.Http.Client    hiding (get)
 import qualified System.IO.Streams      as Streams
@@ -44,14 +44,14 @@ data Metadata
     | PublicHostname
     | PublicIPV4
     | ReservationId
-    | SecurityCredentials Text
+    | SecurityCredentials ByteString
     | AvailabilityZone
 
 instance Show Metadata where
-    show = toStr
+    show = BS.unpack . toBS
 
-instance IsText Metadata where
-    toText meta = case meta of
+instance IsByteString Metadata where
+    toBS meta = case meta of
         AmiId                 -> "ami-id"
         AmiLaunchIndex        -> "ami-launch-index"
         AmiManifestPath       -> "ami-manifest-path"

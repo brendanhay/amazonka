@@ -3,8 +3,9 @@ all: build
 build: .conf
 	cabal-dev build
 
-install: vendor/aeson
-	cabal-dev install -j \
+install:
+	cabal-meta install \
+	 --dev \
 	 --disable-documentation \
 	 --disable-library-coverage
 
@@ -17,6 +18,3 @@ lint:
 
 .conf:
 	cabal-dev configure && touch .conf
-
-vendor/aeson:
-	git clone git@github.com:bos/aeson.git $@

@@ -17,27 +17,27 @@ module Network.AWS
     , within
     , send
 
-    , module AutoScaling
-    , module Route53
+    -- , module AutoScaling
+    -- , module Route53
     ) where
 
 import           Control.Applicative
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.Aeson
-import           Data.Aeson.XML
+import           Data.Aeson               as Aeson
 import qualified Data.ByteString.Char8    as BS
 import qualified Data.ByteString.Lazy     as LBS
 import           Data.Maybe
-import           Network.AWS.AutoScaling  as AutoScaling
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
-import           Network.AWS.Route53      as Route53
 import           Network.Http.Client
 import           OpenSSL                  (withOpenSSL)
 import           System.Environment
 import qualified System.IO.Streams        as Streams
+
+import           Network.AWS.AutoScaling  as AutoScaling
+import           Network.AWS.Route53      as Route53
 
 runAWS :: AWS a -> IO a
 runAWS aws = withOpenSSL $ credentials >>=
@@ -47,7 +47,7 @@ within :: Region -> AWS a -> AWS a
 within reg aws = awsAuth <$> ask >>=
     liftIO . runReaderT (unWrap aws) . Env (Just reg)
 
-send :: (FromXML c, AWSRequest b a c) => a -> AWS (Maybe c)
+send :: (AWSService c, AWSRequest c a b, IsXML b) => a -> AWS (Either String b)
 send payload = do
     SignedRequest{..} <- sign =<< request payload
     liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
@@ -57,9 +57,7 @@ send payload = do
 
         receiveResponse conn $ \_ inp -> do
             x <- Streams.read inp
-            maybe (return Nothing) (\bstr -> do
-                BS.putStrLn bstr
-                fromXML $ BS.unpack bstr) x
+            return $ maybe (Left "Failed to read any data") decodeEither x
 
 --
 -- Internal
@@ -81,7 +79,7 @@ credentials = liftIO $ do
 
     pack = fmap (fmap BS.pack) . lookupEnv
 
-    fromMetadata = decode
+    fromMetadata = Aeson.decode
         . LBS.fromStrict <$> metadata (SecurityCredentials "s3_ro")
 
     msg = "Failed to get auth information from environment or EC2 metadata"

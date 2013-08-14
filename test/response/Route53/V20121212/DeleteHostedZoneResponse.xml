@@ -1,0 +1,7 @@
+<DeleteHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
+   <ChangeInfo>
+      <Id>/change/C1PA6795UKMFR9</Id>
+      <Status>PENDING</Status>
+      <SubmittedAt>2012-03-10T01:36:41.958Z</SubmittedAt>
+   </ChangeInfo>
+</DeleteHostedZoneResponse>

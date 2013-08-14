@@ -1,12 +1,24 @@
 :set -isrc
 :set -XOverloadedStrings
+:set -XDeriveGeneric
+:set -XGeneralizedNewtypeDeriving
 :set -hide-package monads-tf
+:load Network.AWS.Internal
 
-:load Network.AWS
+import Data.ByteString (ByteString)
+import Text.XML.Expat.Generic
+import Network.AWS.Internal.Generic
+import GHC.Generics
 
-import Network.AWS.Internal
-import Network.AWS.Route53
+data Tag = Tag { tResourceId :: !(Maybe ByteString), tResourceType :: !(Maybe ByteString), tKey :: !ByteString, tValue :: !(Maybe ByteString), tPropagateAtLaunch :: !(Maybe Bool) } deriving (Show, Generic)
 
-let changeSet = ResourceRecordSet CreateAction "test.testicles.com" CNAME 900 Nothing ["a.test.testicles.com"]
-let changeRecord = ChangeResourceRecordSets "testicles.com" (Just "comment") [changeSet, changeSet, changeSet]
-let listChecks = ListHealthChecks Nothing Nothing
+instance ToQuery Tag
+
+
+data CreateOrUpdateTags = CreateOrUpdateTags { coutrsAZs :: Params Member ByteString, coutsTags :: Params Member Tag } deriving (Show, Generic)
+
+instance ToQuery CreateOrUpdateTags
+
+let t = Tag (Just "resource-id") (Just "resource-type") "key" (Just "value") Nothing
+let coruts = CreateOrUpdateTags (Params ["a", "b"]) (Params [t, t, t])
+

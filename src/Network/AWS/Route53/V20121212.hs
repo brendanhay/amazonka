@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
@@ -43,17 +45,19 @@ module Network.AWS.Route53.V20121212
     , module Types
     ) where
 
-import Control.Applicative                 ((<$>))
-import Data.Aeson
-import Data.Aeson.TH
-import Data.Aeson.XML
-import Data.ByteString                     (ByteString)
-import Data.Monoid
-import Data.String
-import Data.Text                           (Text)
-import Network.AWS.Internal
-import Network.AWS.Route53.V20121212.Types as Types
-import Network.Http.Client                 (Method(..))
+import           Control.Applicative                 ((<$>))
+import           Control.Monad.IO.Class
+import           Data.ByteString                     (ByteString)
+import           Data.Data
+import           Data.Monoid
+import           Data.String
+import           GHC.Generics
+import           Network.AWS.Internal
+import           Network.AWS.Route53.V20121212.Types as Types
+import           Network.Http.Client                 (Method(..))
+import qualified System.IO.Streams                   as Streams
+import           Text.Hastache
+import           Text.Hastache.Context
 
 data R53
 
@@ -61,17 +65,18 @@ instance AWSService R53 where
     service _ = Service "route53" (toBS route53Version) "route53.amazonaws.com"
         SigningVersion3 <$> currentRegion
 
-route53Version :: Text
-route53Version = "2011-01-01"
+route53Version :: ByteString
+route53Version = "2012-12-12"
 
-req :: (QueryString a, FromXML b) => Method -> Text -> a -> AWS (RawRequest R53 b)
+req :: ToQuery a => Method -> ByteString -> a -> AWS (RawRequest R53 b)
 req meth path qry = return $ (emptyRequest meth FormEncoded path Nothing)
-    { rqQuery = queryString "" qry
+    { rqQuery = queryString qry
     }
 
-body :: (Template a, FromXML b) => Method -> Text -> a -> AWS (RawRequest R53 b)
-body meth path tmpl =
-    emptyRequest meth Xml (route53Version <> "/" <> path) . Just <$> render tmpl
+body :: (Data a, Template a) => Method -> ByteString -> a -> AWS (RawRequest R53 b)
+body meth path tmpl = emptyRequest meth Xml (route53Version <> "/" <> path)
+    . Just <$> liftIO (Streams.fromLazyByteString =<<
+        hastacheStr defaultConfig (readTemplate tmpl) (mkGenericContext tmpl))
 
 --
 -- Hosted Zones
@@ -82,11 +87,11 @@ body meth path tmpl =
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_CreateHostedZone.html>
 data CreateHostedZone = CreateHostedZone
     { chzCallerRef  :: !CallerRef
-    , chzDomainName :: !Text
-    , chzComment    :: !(Maybe Text)
-    } deriving (Show)
+    , chzDomainName :: !ByteString
+    , chzComment    :: !(Maybe ByteString)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
-$(deriveTmpl ''CreateHostedZone)
+$(embedTemplate ''CreateHostedZone)
 
 instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
     request = body POST "hostedzone"
@@ -95,21 +100,22 @@ instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetHostedZone.html>
 newtype GetHostedZone = GetHostedZone ByteString
-    deriving (Show, IsString, IsText)
+    deriving (Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
-    request chk = req GET ("hostedzone/" <> toText chk) ()
+    request chk = req GET ("hostedzone/" <> toBS chk) ()
 
 -- | Gets a list of the hosted zones that are associated with the
 -- current AWS account.
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListHostedZones.html>
 data ListHostedZones = ListHostedZones
-    { lhzMarker   :: !(Maybe Text)
+    { lhzMarker   :: !(Maybe ByteString)
     , lhzMaxItems :: !(Maybe Integer)
-    } deriving (Show)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
-$(deriveQS' (lowerAll . dropLower) ''ListHostedZones)
+instance ToQuery ListHostedZones where
+    toQuery = genericQuery loweredQuery
 
 instance AWSRequest R53 ListHostedZones ListHostedZonesResponse where
     request = req GET "hostedzone"
@@ -117,11 +123,11 @@ instance AWSRequest R53 ListHostedZones ListHostedZonesResponse where
 -- | Deletes a hosted zone.
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_DeleteHostedZone.html>
-newtype DeleteHostedZone = DeleteHostedZone Text
-    deriving (Show, IsString, IsText)
+newtype DeleteHostedZone = DeleteHostedZone ByteString
+    deriving (Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
-    request chk = req DELETE ("hostedzone/" <> toText chk) ()
+    request chk = req DELETE ("hostedzone/" <> toBS chk) ()
 
 --
 -- Record Sets
@@ -129,27 +135,25 @@ instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
 
 data ResourceRecordSet = ResourceRecordSet
     { rrsAction        :: !RecordAction
-    , rrsName          :: !Text
+    , rrsName          :: !ByteString
     , rrsType          :: !RecordType
     , rrsTTL           :: !Integer
-    , rrsHealthCheckId :: !(Maybe Text)
-    , rrsValues        :: ![Text]
-    } deriving (Show)
-
-$(deriveToJSON underscoredFieldOptions ''ResourceRecordSet)
+    , rrsHealthCheckId :: !(Maybe ByteString)
+    , rrsValues        :: ![ByteString]
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 -- | Adds, deletes, and changes resource record sets in a Route 53 hosted zone.
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ChangeResourceRecordSets.html>
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { crrsZoneId  :: !Text
-    , crrsComment :: !(Maybe Text)
+    { crrsZoneId  :: !ByteString
+    , crrsComment :: !(Maybe ByteString)
     , crrsChanges :: ![ResourceRecordSet]
-    } deriving (Show)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
-$(deriveTmpl ''ChangeResourceRecordSets)
+$(embedTemplate ''ChangeResourceRecordSets)
 
-instance AWSRequest R53 ChangeResourceRecordSets Object where
+instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsResponse where
     request rs@ChangeResourceRecordSets{..} =
         body POST ("hostedzone/" <> crrsZoneId <> "/rrset") rs
 
@@ -157,16 +161,17 @@ instance AWSRequest R53 ChangeResourceRecordSets Object where
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListResourceRecordSets.html>
 data ListResourceRecordSets = ListResourceRecordSets
-    { lrrsZoneId     :: !Text
-    , lrrsName       :: !(Maybe Text)
+    { lrrsZoneId     :: !ByteString
+    , lrrsName       :: !(Maybe ByteString)
     , lrrsType       :: !(Maybe RecordType)
-    , lrrsIdentifier :: !(Maybe Text)
+    , lrrsIdentifier :: !(Maybe ByteString)
     , lrrsMaxItems   :: !(Maybe Integer)
-    } deriving (Show)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
-$(deriveQS' (lowerAll . dropLower) ''ListResourceRecordSets)
+instance ToQuery ListResourceRecordSets where
+    toQuery = genericQuery loweredQuery
 
-instance AWSRequest R53 ListResourceRecordSets Object where
+instance AWSRequest R53 ListResourceRecordSets ListResourceRecordSetsResponse where
     request rs@ListResourceRecordSets{..} =
         req GET ("hostedzone/" <> lrrsZoneId <> "/rrset") rs
 
@@ -174,11 +179,11 @@ instance AWSRequest R53 ListResourceRecordSets Object where
 -- submitted by using ChangeResourceRecordSets.
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetChange.html>
-newtype GetChange = GetChange Text
-    deriving (Show, IsString, IsText)
+newtype GetChange = GetChange ByteString
+    deriving (Show, IsString, IsByteString)
 
-instance AWSRequest R53 GetChange Object where
-    request chk = req GET ("change/" <> toText chk) ()
+instance AWSRequest R53 GetChange GetChangeResponse where
+    request chk = req GET ("change/" <> toBS chk) ()
 
 --
 -- Health Checks
@@ -190,32 +195,33 @@ instance AWSRequest R53 GetChange Object where
 data CreateHealthCheck = CreateHealthCheck
     { chcCallerRef         :: !CallerRef
     , chcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Show)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
-$(deriveTmpl ''CreateHealthCheck)
+$(embedTemplate ''CreateHealthCheck)
 
-instance AWSRequest R53 CreateHealthCheck Object where
+instance AWSRequest R53 CreateHealthCheck CreateHealthCheckResponse where
     request = body POST "healthcheck"
 
 -- | Gets information about a specified health check.
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetHealthCheck.html>
-newtype GetHealthCheck = GetHealthCheck Text
-    deriving (Show, IsString, IsText)
+newtype GetHealthCheck = GetHealthCheck ByteString
+    deriving (Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
-    request chk = req GET ("healthcheck/" <> toText chk) ()
+    request chk = req GET ("healthcheck/" <> toBS chk) ()
 
 -- | Gets a list of the health checks that are associated
 -- with the current AWS account.
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListHealthChecks.html>
 data ListHealthChecks = ListHealthChecks
-    { lhcMarker   :: !(Maybe Text)
+    { lhcMarker   :: !(Maybe ByteString)
     , lhcMaxItems :: !(Maybe Integer)
-    } deriving (Show)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
-$(deriveQS' (lowerAll . dropLower) ''ListHealthChecks)
+instance ToQuery ListHealthChecks where
+    toQuery = genericQuery loweredQuery
 
 instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
     request = req GET "healthcheck"
@@ -223,8 +229,8 @@ instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
 -- | Deletes a health check.
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_DeleteHealthCheck.html>
-newtype DeleteHealthCheck = DeleteHealthCheck Text
-    deriving (Show, IsString, IsText)
+newtype DeleteHealthCheck = DeleteHealthCheck ByteString
+    deriving (Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHealthCheck DeleteHealthCheckResponse where
-    request chk = req DELETE ("healthcheck/" <> toText chk) ()
+    request chk = req DELETE ("healthcheck/" <> toBS chk) ()

@@ -1,0 +1,25 @@
+<CreateHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
+  <HostedZone>
+    <Id>/hostedzone/Route 53 hosted zone ID</Id>
+    <Name>DNS domain name</Name>
+    <CallerReference>unique description</CallerReference>
+    <Config>
+      <Comment>optional comment</Comment>
+    </Config>
+    <ResourceRecordSetCount>
+      number of resource record sets in the hosted zone
+    </ResourceRecordSetCount>
+  </HostedZone>
+  <ChangeInfo>
+    <Id>/change/unique identifier for the change batch request
+    </Id>
+    <Status>PENDING</Status>
+    <SubmittedAt>March 7 2009 7:30pm EST</SubmittedAt>
+  </ChangeInfo>
+  <DelegationSet>
+    <NameServers>
+      <NameServer>ns1.test</NameServer>
+      <NameServer>nst2.test</NameServer>
+    </NameServers>
+  </DelegationSet>
+</CreateHostedZoneResponse>

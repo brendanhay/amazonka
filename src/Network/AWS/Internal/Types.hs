@@ -26,22 +26,18 @@ import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Data.Aeson
-import           Data.Aeson.XML
-import           Data.ByteString             (ByteString)
-import qualified Data.ByteString.Char8       as BS
-import           Data.Map                    (Map)
-import qualified Data.Map                    as Map
+import           Data.ByteString        (ByteString)
+import qualified Data.ByteString.Char8  as BS
+import           Data.Map               (Map)
+import qualified Data.Map               as Map
 import           Data.Maybe
 import           Data.Monoid
 import           Data.String
-import           Data.Text                   (Text)
-import qualified Data.Text                   as Text
-import qualified Data.Text.Encoding          as Enc
+import qualified Data.Text.Encoding     as Enc
 import           Data.Time
-import           Network.AWS.Internal.String
-import           Network.Http.Client         hiding (ContentType, post, put)
-import           System.IO.Streams           (InputStream)
-import           System.Locale               (defaultTimeLocale)
+import           Network.Http.Client    hiding (ContentType, post, put)
+import           System.IO.Streams      (InputStream)
+import           System.Locale          (defaultTimeLocale)
 
 data Region
     = NorthVirgnia
@@ -54,8 +50,8 @@ data Region
     | SaoPaulo
       deriving (Show)
 
-instance IsText Region where
-    toText reg = case reg of
+instance IsByteString Region where
+    toBS reg = case reg of
         NorthVirgnia    -> "us-east-1"
         NorthCalifornia -> "us-west-1"
         Oregon          -> "us-west-2"
@@ -85,9 +81,9 @@ data ContentType
     = FormEncoded
     | Xml
 
-instance IsText ContentType where
-    toText FormEncoded = "application/x-www-form-urlencoded"
-    toText Xml         = "application/xml"
+instance IsByteString ContentType where
+    toBS FormEncoded = "application/x-www-form-urlencoded"
+    toBS Xml         = "application/xml"
 
 newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
@@ -96,7 +92,7 @@ currentRegion :: AWS Region
 currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
 
 data RawRequest a b where
-    RawRequest :: (AWSService a, FromXML b)
+    RawRequest :: AWSService a
                => { rqMethod  :: !Method
                  , rqContent :: !ContentType
                  , rqAction  :: !(Maybe ByteString)
@@ -107,7 +103,7 @@ data RawRequest a b where
                  }
                -> RawRequest a b
 
-emptyRequest :: (AWSService a, FromXML b, IsText p)
+emptyRequest :: (AWSService a, IsByteString p)
              => Method
              -> ContentType
              -> p
@@ -160,72 +156,26 @@ awsService name ver signer = do
 class AWSService a where
     service :: RawRequest a b -> AWS Service
 
-class (AWSService a, FromJSON b) => AWSRequest a c b | c -> a b where
-    request :: c -> AWS (RawRequest a b)
+class AWSRequest c a b | a -> c b where
+    request :: a -> AWS (RawRequest c b)
 
-class (Show a, ToJSON a) => Template a where
+class Show a => Template a where
     readTemplate :: a -> ByteString
 
-class Show a => QueryString a where
-    queryString :: ByteString -> a -> [(ByteString, ByteString)]
+class IsByteString a where
+    toBS :: a -> ByteString
 
-instance QueryString a => QueryString (Maybe a) where
-    queryString _ Nothing  = []
-    queryString k (Just v) = queryString k v
+instance IsByteString ByteString where
+    toBS = id
 
-instance QueryString () where
-    queryString _ _ = []
+instance IsByteString String where
+    toBS = fromString
 
-instance QueryString ByteString where
-    queryString = packQS
+instance IsByteString Int where
+    toBS = BS.pack . show
 
-instance QueryString Text where
-    queryString = packQS
+instance IsByteString Integer where
+    toBS = BS.pack . show
 
-instance QueryString [Text] where
-    queryString k = zipWith f ([1..] :: [Integer])
-      where
-        f n v = (k <> "." <> toBS n, toBS v)
-
-instance QueryString Integer where
-    queryString = packQS
-
-instance QueryString Bool where
-    queryString k = packQS k . lowerAll . show
-
-instance QueryString UTCTime where
-    queryString = packQS
-
-packQS :: IsText a => ByteString -> a -> [(ByteString, ByteString)]
-packQS k v = [(strip '.' k, toBS v)]
-
-class IsText a where
-    toText :: a -> Text
-    toBS   :: a -> ByteString
-    toStr  :: a -> String
-
-    toBS  = Enc.encodeUtf8 . toText
-    toStr = Text.unpack . toText
-
-instance IsText ByteString where
-    toText = Enc.decodeUtf8
-    toBS   = id
-
-instance IsText Text where
-    toText = id
-
-instance IsText String where
-    toText = fromString
-    toBS   = fromString
-    toStr  = id
-
-instance IsText Integer where
-    toText = Text.pack . toStr
-    toBS   = BS.pack . toStr
-    toStr  = show
-
-instance IsText UTCTime where
-    toText = Text.pack . toStr
-    toBS   = BS.pack . toStr
-    toStr  = formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
-
+instance IsByteString UTCTime where
+    toBS = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"

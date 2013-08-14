@@ -1,11 +1,11 @@
-{-# LANGUAGE DefaultSignatures          #-}
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleContexts           #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE ScopedTypeVariables        #-}
-{-# LANGUAGE TypeOperators              #-}
-{-# LANGUAGE PatternGuards               #-}
+{-# LANGUAGE DefaultSignatures   #-}
+{-# LANGUAGE DeriveGeneric       #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE FlexibleInstances   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeOperators       #-}
+{-# LANGUAGE PatternGuards       #-}
 
 -- |
 -- Module      : Network.AWS.Internal.Generic

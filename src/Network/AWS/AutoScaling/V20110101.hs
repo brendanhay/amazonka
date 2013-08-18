@@ -18,7 +18,6 @@ module Network.AWS.AutoScaling.V20110101 where
 
 import Data.ByteString                             (ByteString, empty)
 import Data.Time
-import GHC.Generics
 import Network.AWS.AutoScaling.V20110101.Responses
 import Network.AWS.AutoScaling.V20110101.Types
 import Network.AWS.Internal
@@ -32,10 +31,10 @@ instance AWSService AutoScaling where
 autoScalingVersion :: ByteString
 autoScalingVersion = "2011-01-01"
 
-req :: (ToQuery a, IsXML b) => Method -> ByteString -> a -> AWS (RawRequest AutoScaling b)
+req :: (IsQuery a, IsXML b) => Method -> ByteString -> a -> AWS (RawRequest AutoScaling b)
 req meth action qry = return $ (emptyRequest meth FormEncoded empty Nothing)
     { rqAction = Just action
-    , rqQuery  = queryString qry
+    , rqQuery  = toQuery qry
     }
 
 --
@@ -52,17 +51,17 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , casgMaxSize :: !Integer
     , casgDesiredCapacity :: !(Maybe Integer)
     , casgDefaultCooldown :: !(Maybe Integer)
-    , casgAvailabilityZones :: !(Params Member ByteString)
-    , casgLoadBalancerNames :: !(Params Member ByteString)
+    , casgAvailabilityZones :: !(Member ByteString)
+    , casgLoadBalancerNames :: !(Member ByteString)
     , casgHealthCheckType :: !(Maybe ByteString)
     , casgHealthCheckGracePeriod :: !(Maybe Integer)
     , casgPlacementGroup :: !(Maybe ByteString)
     , casgVPCZoneIdentifier :: !(Maybe ByteString)
-    , casgTerminationPolicies :: !(Params Member ByteString)
-    , casgTags :: !(Params Member Tag)
+    , casgTerminationPolicies :: !(Member ByteString)
+    , casgTags :: !(Member Tag)
     } deriving (Eq, Show, Generic)
 
-instance ToQuery CreateAutoScalingGroup
+instance IsQuery CreateAutoScalingGroup
 
 instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
     request = req GET "CreateAutoScalingGroup"
@@ -86,7 +85,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , clcEbsOptimized :: !(Maybe Bool)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery CreateLaunchConfiguration
+-- instance IsQuery CreateLaunchConfiguration
 
 -- instance AWSRequest AutoScaling CreateLaunchConfiguration MetadataResponse where
 --     request = req GET "CreateLaunchConfiguration"
@@ -97,7 +96,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 -- newtype CreateOrUpdateTags = CreateOrUpdateTags [Tag]
 --     deriving (Eq, Show, Generic)
 
--- instance ToQuery CreateOrUpdateTags
+-- instance IsQuery CreateOrUpdateTags
 
 -- instance AWSRequest AutoScaling CreateOrUpdateTags MetadataResponse where
 --     request = req GET "CreateOrUpdateTags"
@@ -110,7 +109,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dasgForceDelete :: !(Maybe Bool)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DeleteAutoScalingGroup
+-- instance IsQuery DeleteAutoScalingGroup
 
 -- instance AWSRequest AutoScaling DeleteAutoScalingGroup MetadataResponse where
 --     request = req GET "DeleteAutoScalingGroup"
@@ -122,7 +121,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     { dlcLaunchConfigurationName :: !ResourceName
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DeleteLaunchConfiguration
+-- instance IsQuery DeleteLaunchConfiguration
 
 -- instance AWSRequest AutoScaling DeleteLaunchConfiguration MetadataResponse where
 --     request = req GET "DeleteLaunchConfiguration"
@@ -135,7 +134,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dncTopicARN :: !ResourceName
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DeleteNotificationConfiguration
+-- instance IsQuery DeleteNotificationConfiguration
 
 -- instance AWSRequest AutoScaling DeleteNotificationConfiguration MetadataResponse where
 --     request = req GET "DeleteNotificationConfiguration"
@@ -148,7 +147,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dpPolicyName :: !ResourceName
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DeletePolicy
+-- instance IsQuery DeletePolicy
 
 -- instance AWSRequest AutoScaling DeletePolicy MetadataResponse where
 --     request = req GET "DeletePolicy"
@@ -161,7 +160,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dsaScheduledActionName :: !ResourceName
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DeleteScheduledAction
+-- instance IsQuery DeleteScheduledAction
 
 -- instance AWSRequest AutoScaling DeleteScheduledAction MetadataResponse where
 --     request = req GET "DeleteScheduledAction"
@@ -172,7 +171,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 -- data DeleteTags = DeleteTags [Tag]
 --     deriving (Eq, Show, Generic)
 
--- instance ToQuery DeleteTags
+-- instance IsQuery DeleteTags
 
 -- instance AWSRequest AutoScaling DeleteTags MetadataResponse where
 --     request = req GET "DeleteTags"
@@ -183,7 +182,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 -- data DescribeAdjustmentTypes = DescribeAdjustmentTypes
 --     deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeAdjustmentTypes
+-- instance IsQuery DescribeAdjustmentTypes
 
 -- instance AWSRequest AutoScaling DescribeAdjustmentTypes DescribeAdjustmentTypesResponse where
 --     request = req GET "DescribeAdjustmentTypes"
@@ -197,7 +196,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dasgMaxRecords :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeAutoScalingGroups
+-- instance IsQuery DescribeAutoScalingGroups
 
 -- instance AWSRequest AutoScaling DescribeAutoScalingGroups DescribeAutoScalingGroupsResponse where
 --     request = req GET "DescribeAutoScalingGroups"
@@ -211,7 +210,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dasiNextToken :: !(Maybe ByteString)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeAutoScalingInstances
+-- instance IsQuery DescribeAutoScalingInstances
 
 -- instance AWSRequest AutoScaling DescribeAutoScalingInstances DescribeAutoScalingInstancesResponse where
 --     request = req GET "DescribeAutoScalingInstances"
@@ -225,7 +224,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dlcMaxRecords :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeLaunchConfigurations
+-- instance IsQuery DescribeLaunchConfigurations
 
 -- instance AWSRequest AutoScaling DescribeLaunchConfigurations DescribeLaunchConfigurationsResponse where
 --     request = req GET "DescribeLaunchConfigurations"
@@ -236,7 +235,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 -- data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
 --     deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeMetricCollectionTypes
+-- instance IsQuery DescribeMetricCollectionTypes
 
 -- instance AWSRequest AutoScaling DescribeMetricCollectionTypes DescribeMetricCollectionTypesResponse where
 --     request = req GET "DescribeMetricCollectionTypes"
@@ -250,7 +249,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dncMaxRecords :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeNotificationConfigurations
+-- instance IsQuery DescribeNotificationConfigurations
 
 -- instance AWSRequest AutoScaling DescribeNotificationConfigurations DescribeNotificationConfigurationsResponse where
 --     request = req GET "DescribeNotificationConfigurations"
@@ -265,7 +264,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dpsMaxRecords :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribePolicies
+-- instance IsQuery DescribePolicies
 
 -- instance AWSRequest AutoScaling DescribePolicies DescribePoliciesResponse where
 --     request = req GET "DescribePolicies"
@@ -276,7 +275,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 -- data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 --     deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeScalingProcessTypes
+-- instance IsQuery DescribeScalingProcessTypes
 
 -- instance AWSRequest AutoScaling DescribeScalingProcessTypes DescribeScalingProcessTypesResponse where
 --     request = req GET "DescribeScalingProcessTypes"
@@ -291,7 +290,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dsasNextToken :: !(Maybe ByteString)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeScalingActivities
+-- instance IsQuery DescribeScalingActivities
 
 -- instance AWSRequest AutoScaling DescribeScalingActivities DescribeScalingActivitiesResponse where
 --     request = req GET "DescribeScalingActivities"
@@ -308,7 +307,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dsacMaxRecords :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeScheduledActions
+-- instance IsQuery DescribeScheduledActions
 
 -- instance AWSRequest AutoScaling DescribeScheduledActions DescribeScheduledActionsResponse where
 --     request = req GET "DescribeScheduledActions"
@@ -322,7 +321,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dtMaxRecords :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeTags
+-- instance IsQuery DescribeTags
 
 -- instance AWSRequest AutoScaling DescribeTags DescribeTagsResponse where
 --     request = req GET "DescribeTags"
@@ -333,7 +332,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 -- data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 --     deriving (Eq, Show, Generic)
 
--- instance ToQuery DescribeTerminationPolicyTypes
+-- instance IsQuery DescribeTerminationPolicyTypes
 
 -- instance AWSRequest AutoScaling DescribeTerminationPolicyTypes DescribeTerminationPolicyTypesResponse where
 --     request = req GET "DescribeTerminationPolicyTypes"
@@ -346,7 +345,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , dmcMetrics :: !(Maybe Metrics)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery DisableMetricsCollection
+-- instance IsQuery DisableMetricsCollection
 
 -- instance AWSRequest AutoScaling DisableMetricsCollection MetadataResponse where
 --     request = req GET "DisableMetricsCollection"
@@ -360,7 +359,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , emcGranularity :: !ByteString
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery EnableMetricsCollection
+-- instance IsQuery EnableMetricsCollection
 
 -- instance AWSRequest AutoScaling EnableMetricsCollection MetadataResponse where
 --     request = req GET "EnableMetricsCollection"
@@ -374,7 +373,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , epHonorCooldown :: !(Maybe Bool)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery ExecutePolicy
+-- instance IsQuery ExecutePolicy
 
 -- instance AWSRequest AutoScaling ExecutePolicy MetadataResponse where
 --     request = req GET "ExecutePolicy"
@@ -388,7 +387,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , pncNotificationTypes :: !AutoScalingNotificationTypes
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery PutNotificationConfiguration
+-- instance IsQuery PutNotificationConfiguration
 
 -- instance AWSRequest AutoScaling PutNotificationConfiguration MetadataResponse where
 --     request = req GET "PutNotificationConfiguration"
@@ -405,7 +404,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , pspMinAdjustmentStep :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery PutScalingPolicy
+-- instance IsQuery PutScalingPolicy
 
 -- instance AWSRequest AutoScaling PutScalingPolicy PutScalingPolicyResponse where
 --     request = req GET "PutScalingPolicy"
@@ -425,7 +424,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , psugaDesiredCapacity :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery PutScheduledUpdateGroupAction
+-- instance IsQuery PutScheduledUpdateGroupAction
 
 -- instance AWSRequest AutoScaling PutScheduledUpdateGroupAction MetadataResponse where
 --     request = req GET "PutScheduledUpdateGroupAction"
@@ -438,7 +437,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , rpScalingProcesses :: !(Maybe ProcessNames)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery ResumeProcesses
+-- instance IsQuery ResumeProcesses
 
 -- instance AWSRequest AutoScaling ResumeProcesses MetadataResponse where
 --     request = req GET "ResumeProcesses"
@@ -452,7 +451,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , sdcHonorCooldown :: !(Maybe Bool)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery SetDesiredCapacity
+-- instance IsQuery SetDesiredCapacity
 
 -- instance AWSRequest AutoScaling SetDesiredCapacity MetadataResponse where
 --     request = req GET "SetDesiredCapacity"
@@ -466,7 +465,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , sihShouldRespectGracePeriod :: !(Maybe Bool)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery SetInstanceHealth
+-- instance IsQuery SetInstanceHealth
 
 -- instance AWSRequest AutoScaling SetInstanceHealth MetadataResponse where
 --     request = req GET "SetInstanceHealth"
@@ -479,7 +478,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , spScalingProcesses :: !(Maybe ProcessNames)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery SuspendProcesses
+-- instance IsQuery SuspendProcesses
 
 -- instance AWSRequest AutoScaling SuspendProcesses MetadataResponse where
 --     request = req GET "SuspendProcesses"
@@ -492,7 +491,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , tiiasgShouldDecrementDesiredCapacity :: !Bool
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery TerminateInstanceInAutoScalingGroup
+-- instance IsQuery TerminateInstanceInAutoScalingGroup
 
 -- instance AWSRequest AutoScaling TerminateInstanceInAutoScalingGroup TerminateInstanceInAutoScalingGroupResponse where
 --     request = req GET "TerminateInstanceInAutoScalingGroup"
@@ -515,7 +514,7 @@ instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
 --     , uasgTerminationPolicies :: !(Param Member ByteString)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery UpdateAutoScalingGroup
+-- instance IsQuery UpdateAutoScalingGroup
 
 -- instance AWSRequest AutoScaling UpdateAutoScalingGroup MetadataResponse where
 --     request = req GET "UpdateAutoScalingGroup"

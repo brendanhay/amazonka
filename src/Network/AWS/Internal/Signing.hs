@@ -20,23 +20,23 @@ module Network.AWS.Internal.Signing
 import           Control.Applicative
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Base64       as Base64
-import qualified Data.ByteString.Char8        as BS
-import qualified Data.ByteString.Lazy         as LBS
-import           Data.Char                    (toLower)
-import qualified Data.Digest.Pure.SHA         as SHA
+import           Data.ByteString                 (ByteString)
+import qualified Data.ByteString.Base64          as Base64
+import qualified Data.ByteString.Char8           as BS
+import qualified Data.ByteString.Lazy            as LBS
+import           Data.Char                       (toLower)
+import qualified Data.Digest.Pure.SHA            as SHA
 import           Data.List
-import qualified Data.Map                     as Map
+import qualified Data.Map                        as Map
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Time                    (UTCTime, formatTime, getCurrentTime)
-import           Network.AWS.Internal.Generic
+import           Data.Time                       (UTCTime, formatTime, getCurrentTime)
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Types
-import           Network.HTTP.Types           (urlEncode)
+import           Network.HTTP.QueryString.Pickle
+import           Network.HTTP.Types              (urlEncode)
 import           Network.Http.Client
-import           System.Locale                (defaultTimeLocale, iso8601DateFormat)
+import           System.Locale                   (defaultTimeLocale, iso8601DateFormat)
 
 sign :: AWSService a => RawRequest a b -> AWS SignedRequest
 sign rq = do
@@ -72,7 +72,7 @@ version2 RawRequest{..} Service{..} Auth{..} = do
   where
     path = validPath rqPath
 
-    query time action = fmtQueryString $ rqQuery `union`
+    query time action = encodeQuery (urlEncode True) $ rqQuery `union`
         [ ("Action", action)
         , ("Version", toBS svcVersion)
         , ("SignatureVersion", "2")
@@ -81,8 +81,7 @@ version2 RawRequest{..} Service{..} Auth{..} = do
         , ("AWSAccessKeyId", accessKey)
         ]
 
-    signature qry = urlEncode True
-        . Base64.encode
+    signature qry = Base64.encode
         . hmac secretKey
         $ BS.intercalate "\n"
             [ packMethod rqMethod
@@ -108,7 +107,7 @@ version3 RawRequest{..} Service{..} Auth{..} = do
             ])
   where
     query | null rqQuery = ""
-          | otherwise    = "?" <> fmtQueryString rqQuery
+          | otherwise    = "?" <> encodeQuery (urlEncode True) rqQuery
 
     authorization time = "AWS3-HTTPS AWSAccessKeyId="
         <> accessKey
@@ -144,7 +143,7 @@ version4 RawRequest{..} Service{..} Auth{..} = do
         , "Signature=" <> sig
         ]
 
-    query action = fmtQueryString $ rqQuery `union`
+    query action = encodeQuery (urlEncode True) $ rqQuery `union`
         [ ("Action", action)
         , ("Version", toBS svcVersion)
         ]

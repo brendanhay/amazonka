@@ -21,7 +21,6 @@ import Control.Applicative
 import Data.ByteString              (ByteString)
 import Data.Data
 import Data.Time
-import GHC.Generics
 import Network.AWS.Internal
 import Text.ParserCombinators.ReadP (string)
 import Text.Read
@@ -60,16 +59,16 @@ data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
 
 instance IsXML RecordType
 
-instance ToQuery RecordType
+instance IsQuery RecordType
 
 data ChangeStatus = PENDING | INSYNC
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML ChangeStatus
 
 data Config = Config
     { cComment :: !ByteString
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML Config
 
@@ -79,7 +78,7 @@ data HostedZone = HostedZone
     , hzCallerRef              :: !CallerRef
     , hzConfig                 :: !Config
     , hzResourceRecordSetCount :: !Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML HostedZone
 
@@ -87,13 +86,13 @@ data ChangeInfo = ChangeInfo
     { ciId          :: !ByteString
     , ciStatus      :: !ChangeStatus
     , ciSubmittedAt :: !UTCTime
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML ChangeInfo
 
 data DelegationSet = DelegationSet
     { dsNameServers :: ![ByteString]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML DelegationSet
 
@@ -105,14 +104,14 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     { chzrHostedZone    :: !HostedZone
     , chzrChangeInfo    :: !ChangeInfo
     , chzrDelegationSet :: !DelegationSet
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML CreateHostedZoneResponse
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostZone      :: !HostedZone
     , ghzrDelegationSet :: !DelegationSet
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML GetHostedZoneResponse
 
@@ -122,13 +121,13 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     , lhzrMarker      :: !ByteString
     , lhzrNextMarker  :: !(Maybe ByteString)
     , lhzrMaxItems    :: !Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML ListHostedZonesResponse
 
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML DeleteHostedZoneResponse
 
@@ -138,18 +137,18 @@ instance IsXML DeleteHostedZoneResponse
 
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML ChangeResourceRecordSetsResponse
 
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML ListResourceRecordSetsResponse
 
 data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML GetChangeResponse
 
@@ -171,7 +170,7 @@ data HealthCheck = HealthCheck
     { hcId                :: !ByteString
     , hcCallerRef         :: !CallerRef
     , hcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML HealthCheck
 
@@ -185,11 +184,11 @@ data ListHealthChecksResponse = ListHealthChecksResponse
     , lhcrMaxItems     :: !ByteString
     , lhcrMarker       :: !(Maybe ByteString)
     , lhcrNextMarker   :: !(Maybe ByteString)
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML ListHealthChecksResponse
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Show, Data, Typeable, Generic)
 
 instance IsXML DeleteHealthCheckResponse

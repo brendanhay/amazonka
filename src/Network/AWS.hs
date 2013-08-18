@@ -56,8 +56,8 @@ send payload = do
         print rqRequest
 
         receiveResponse conn $ \_ inp -> do
-            x <- Streams.read inp
-            return $ maybe (Left "Failed to read any data") decodeEither x
+            xml <- Streams.read inp
+            return $ maybe (Left "Failed to read any data") decodeXML xml
 
 --
 -- Internal

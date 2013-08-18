@@ -19,7 +19,6 @@ module Network.AWS.AutoScaling.V20110101.Types where
 
 import Data.ByteString      (ByteString)
 import Data.Time
-import GHC.Generics
 import Network.AWS.Internal
 
 --
@@ -49,7 +48,7 @@ import Network.AWS.Internal
 newtype ResourceName = ResourceName ByteString
     deriving (Eq, Show, Generic, IsByteString)
 
-instance ToQuery ResourceName
+instance IsQuery ResourceName
 -- instance IsXML ResourceName
 
 -- --
@@ -81,7 +80,7 @@ instance ToQuery ResourceName
 --     , spSuspensionReason :: !(Maybe ByteString)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery SuspendedProcess
+-- instance IsQuery SuspendedProcess
 -- instance IsXML SuspendedProcess
 
 -- newtype SuspendedProcesses = SuspendedProcesses [SuspendedProcess]
@@ -97,7 +96,7 @@ data Tag = Tag
     , tPropagateAtLaunch :: !(Maybe Bool)
     } deriving (Eq, Show, Generic)
 
-instance ToQuery Tag
+instance IsQuery Tag
 
 -- newtype Tags = Tags [Tag]
 --     deriving (Eq, Show, Generic)
@@ -162,7 +161,7 @@ instance ToQuery Tag
 --     , eVolumeSize :: !(Maybe Integer)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery Ebs
+-- instance IsQuery Ebs
 -- instance IsXML Ebs
 
 -- data BlockDeviceMapping = BlockDeviceMapping
@@ -171,7 +170,7 @@ instance ToQuery Tag
 --     , bdmEbs :: !(Maybe Ebs)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery BlockDeviceMapping
+-- instance IsQuery BlockDeviceMapping
 -- instance IsXML BlockDeviceMapping
 
 -- newtype BlockDeviceMappings = BlockDeviceMappings [BlockDeviceMapping]
@@ -184,7 +183,7 @@ instance ToQuery Tag
 --     { imEnabled :: !(Maybe Bool)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery InstanceMonitoring
+-- instance IsQuery InstanceMonitoring
 -- instance IsXML InstanceMonitoring
 
 -- newtype LaunchConfigurationNames = LaunchConfigurationNames [ResourceName]
@@ -211,7 +210,7 @@ instance ToQuery Tag
 --     , lcEbsOptimized :: !(Maybe Bool)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery LaunchConfiguration
+-- instance IsQuery LaunchConfiguration
 -- instance IsXML LaunchConfiguration
 
 -- newtype LaunchConfigurations = LaunchConfigurations [LaunchConfiguration]
@@ -246,7 +245,7 @@ instance ToQuery Tag
 --     , tdPropagateAtLaunch :: !(Maybe Bool)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery TagDescription
+-- instance IsQuery TagDescription
 -- instance IsXML TagDescription
 
 -- newtype TagDescriptionList = TagDescriptionList [TagDescription]
@@ -427,7 +426,7 @@ instance ToQuery Tag
 --     , fValues :: !(Maybe Values)
 --     } deriving (Eq, Show, Generic)
 
--- instance ToQuery Filter
+-- instance IsQuery Filter
 
 -- newtype Filters = Filters [Filter]
 --    deriving (Eq, Show, Generic)

@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 -- |
 -- Module      : Test.Route53.V20121212
@@ -13,23 +14,28 @@
 
 module Test.Route53.V20121212 (tests) where
 
-import Control.Applicative
-import Control.Monad.IO.Class
-import Data.Maybe
-import Data.Monoid
-import Data.String
-import Data.Text                           (Text)
-import Data.Time
-import Network.AWS.Internal
-import Network.AWS.Route53.V20121212
-import Network.AWS.Route53.V20121212.Types
-import Paths_aws_haskell                   (getDataFileName)
-import System.Locale
-import Test.Framework
-import Test.Framework.Providers.HUnit
-import Test.HUnit                          hiding (Test)
-import Test.QuickCheck
-import Test.QuickCheck.Monadic
+import           Control.Applicative
+import           Control.Monad.IO.Class
+import           Data.ByteString                      (ByteString)
+import qualified Data.ByteString.Lazy.Char8           as LBS
+import           Data.Data
+import           Data.DeriveTH
+import           Data.Maybe
+import           Data.Monoid
+import           Data.String
+import           Data.Text                            (Text)
+import           Data.Time
+import           Network.AWS.Internal
+import           Network.AWS.Route53.V20121212
+import           Network.AWS.Route53.V20121212.Types
+import           System.Locale
+import           Test.Framework
+import           Test.Framework.Providers.QuickCheck2
+import           Test.QuickCheck
+import           Test.QuickCheck.Instances
+import           Test.QuickCheck.Monadic
+
+import           System.IO.Unsafe
 
 version :: String
 version = "V20121212"
@@ -37,41 +43,42 @@ version = "V20121212"
 tests :: [Test]
 tests =
     [ testGroup version
-        [ -- testCase "Parse CreateHostedZoneResponse" test_parse_create_hosted_zone_response
+        [ testGroup "XML Response Parsing"
+            [ testProperty "CreateHostedZoneResponse" (res :: Res CreateHostedZoneResponse)
+            ]
         ]
     ]
 
--- test_parse_create_hosted_zone_response = parse "CreateHostedZoneResponse" $
---     CreateHostedZoneResponse hostedZone changeInfo delegationSet
+type Res a = Response a -> Bool
 
--- parse :: (Show a, Eq a, FromXML a) => String -> a -> IO ()
--- parse name expected = do
---      ma <- fromXML =<< response name
---      ma @?= Just expected
+data Response a = Res
+    { response :: a
+    , template :: ByteString
+    , xml      :: ByteString
+    , parse    :: Either String a
+    } deriving (Show)
 
--- response :: String -> IO String
--- response name = getDataFileName
---     ("test/response/Route53/" <> version <> "/" <> name <> ".xml") >>= readFile
+instance (Eq a, Arbitrary a, Data a, Template a, IsXML a) => Arbitrary (Response a) where
+    arbitrary = do
+        i <- arbitrary
 
--- hostedZone :: HostedZone
--- hostedZone = HostedZone
---    "hosted-zone-identifier"
---    "hosted-zone-name"
---    "hosted-zone-caller-ref"
---    config
---    302
+        let x = unsafePerformIO $ LBS.toStrict <$> render i
 
--- config :: Config
--- config = Config "config-comment"
+        return $ Res i (encodeXML i) x (decodeXML x)
 
--- changeInfo :: ChangeInfo
--- changeInfo = ChangeInfo
---     "change-info-identifier"
---     PENDING
---     time
+res :: (Eq a, Arbitrary a) => Response a -> Bool
+res (Res d _ _ i) = either (const False) (== d) i
 
--- delegationSet :: DelegationSet
--- delegationSet = DelegationSet ["ns1.test", "ns2.test"]
+$(derives [makeArbitrary]
+    [ ''CreateHostedZoneResponse
+    , ''DelegationSet
+    , ''CallerRef
+    , ''ChangeInfo
+    , ''ChangeStatus
+    , ''Config
+    , ''HostedZone
+    ])
 
--- time :: UTCTime
--- time = readTime defaultTimeLocale "%B %e %Y %l:%M%P %Z" "March 7 2009 7:30pm EST"
+$(embedTemplates "test/response/Route53/V20121212"
+    [ ''CreateHostedZoneResponse
+    ])

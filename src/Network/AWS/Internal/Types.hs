@@ -33,7 +33,6 @@ import qualified Data.Map               as Map
 import           Data.Maybe
 import           Data.Monoid
 import           Data.String
-import qualified Data.Text.Encoding     as Enc
 import           Data.Time
 import           Network.Http.Client    hiding (ContentType, post, put)
 import           System.IO.Streams      (InputStream)

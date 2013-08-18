@@ -51,13 +51,10 @@ import           Data.ByteString                     (ByteString)
 import           Data.Data
 import           Data.Monoid
 import           Data.String
-import           GHC.Generics
 import           Network.AWS.Internal
 import           Network.AWS.Route53.V20121212.Types as Types
 import           Network.Http.Client                 (Method(..))
 import qualified System.IO.Streams                   as Streams
-import           Text.Hastache
-import           Text.Hastache.Context
 
 data R53
 
@@ -68,15 +65,16 @@ instance AWSService R53 where
 route53Version :: ByteString
 route53Version = "2012-12-12"
 
-req :: ToQuery a => Method -> ByteString -> a -> AWS (RawRequest R53 b)
+req :: IsQuery a => Method -> ByteString -> a -> AWS (RawRequest R53 b)
 req meth path qry = return $ (emptyRequest meth FormEncoded path Nothing)
-    { rqQuery = queryString qry
+    { rqQuery = toQuery qry
     }
 
 body :: (Data a, Template a) => Method -> ByteString -> a -> AWS (RawRequest R53 b)
-body meth path tmpl = emptyRequest meth Xml (route53Version <> "/" <> path)
-    . Just <$> liftIO (Streams.fromLazyByteString =<<
-        hastacheStr defaultConfig (readTemplate tmpl) (mkGenericContext tmpl))
+body meth path tmpl =
+    emptyRequest meth Xml (route53Version <> "/" <> path) . Just <$> contents
+  where
+    contents = liftIO $ Streams.fromLazyByteString =<< render tmpl
 
 --
 -- Hosted Zones
@@ -114,8 +112,8 @@ data ListHostedZones = ListHostedZones
     , lhzMaxItems :: !(Maybe Integer)
     } deriving (Eq, Show, Data, Typeable, Generic)
 
-instance ToQuery ListHostedZones where
-    toQuery = genericQuery loweredQuery
+instance IsQuery ListHostedZones where
+    queryPickler = genericQueryPickler loweredQueryOptions
 
 instance AWSRequest R53 ListHostedZones ListHostedZonesResponse where
     request = req GET "hostedzone"
@@ -168,8 +166,8 @@ data ListResourceRecordSets = ListResourceRecordSets
     , lrrsMaxItems   :: !(Maybe Integer)
     } deriving (Eq, Show, Data, Typeable, Generic)
 
-instance ToQuery ListResourceRecordSets where
-    toQuery = genericQuery loweredQuery
+instance IsQuery ListResourceRecordSets where
+    queryPickler = genericQueryPickler loweredQueryOptions
 
 instance AWSRequest R53 ListResourceRecordSets ListResourceRecordSetsResponse where
     request rs@ListResourceRecordSets{..} =
@@ -220,8 +218,8 @@ data ListHealthChecks = ListHealthChecks
     , lhcMaxItems :: !(Maybe Integer)
     } deriving (Eq, Show, Data, Typeable, Generic)
 
-instance ToQuery ListHealthChecks where
-    toQuery = genericQuery loweredQuery
+instance IsQuery ListHealthChecks where
+    queryPickler = genericQueryPickler loweredQueryOptions
 
 instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
     request = req GET "healthcheck"

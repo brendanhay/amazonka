@@ -33,7 +33,8 @@ library
     exposed-modules:
         Network.AWS
 
-      , Network.AWS.Internal.Generic
+      , Network.AWS.Internal.IO
+      , Network.AWS.Internal.Instances
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
       , Network.AWS.Internal.TH
@@ -41,7 +42,7 @@ library
       , Network.AWS.Internal
 
       -- , Network.AWS.EC2
-      -- , Network.AWS.EC2.Metadata
+      , Network.AWS.EC2.Metadata
       -- , Network.AWS.EC2.Types
       -- , Network.AWS.EC2.WSDL
 
@@ -64,19 +65,19 @@ library
 
     build-depends:
         aeson
-      , base                 >= 4.6 && < 5
+      , base                  >= 4.6 && < 5
       , base64-bytestring
       , bytestring
       , containers
       , hastache
-      , hexpat-pickle-generic
+      , hexpat-pickle-generic >= 0.1.3
       , HsOpenSSL
       , http-streams
       , http-types
       , io-streams
       , mtl
       , old-locale
-      , querystring-pickle
+      , querystring-pickle    >= 0.1.3
       , SHA
       , template-haskell
       , text
@@ -90,17 +91,24 @@ test-suite aws-haskell-tests
     hs-source-dirs:    test
     main-is:           Main.hs
 
+    ghc-options:
+        -Wall
+        -fwarn-tabs
+        -ddump-splices
+
     build-depends:
-        aeson
-      , aws-haskell
+        aws-haskell
       , base                       >= 4.6 && < 5
       , bytestring
-      , hexpat-pickle-generic
+      , derive
+      , hexpat-pickle-generic      >= 0.1.3
+      , HUnit
       , old-locale
+      , QuickCheck                 >= 2.5.1.1
+      , quickcheck-instances
+      , test-framework             >= 0.8
+      , test-framework-hunit       >= 0.3
+      , test-framework-quickcheck2 >= 0.3
       , text
       , time
       , transformers
-
-      , test-framework             >= 0.8
-      , test-framework-quickcheck2 >= 0.3
-      , QuickCheck                 >= 2.5

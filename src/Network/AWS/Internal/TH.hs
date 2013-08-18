@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell   #-}
-
+b
 -- |
 -- Module      : Network.AWS.Internal.TH
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>

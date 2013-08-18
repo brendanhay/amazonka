@@ -64,18 +64,19 @@ library
 
     build-depends:
         aeson
-      , base                 >= 4 && < 5
+      , base                 >= 4.6 && < 5
       , base64-bytestring
       , bytestring
       , containers
       , hastache
-      , hexpat-generic
+      , hexpat-pickle-generic
       , HsOpenSSL
       , http-streams
       , http-types
       , io-streams
       , mtl
       , old-locale
+      , querystring-pickle
       , SHA
       , template-haskell
       , text
@@ -85,23 +86,21 @@ library
 
 test-suite aws-haskell-tests
     default-language:  Haskell2010
-    hs-source-dirs:    test
     type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
     main-is:           Main.hs
 
     build-depends:
         aeson
       , aws-haskell
-      , base
+      , base                       >= 4.6 && < 5
       , bytestring
-      , hexpat-generic
+      , hexpat-pickle-generic
       , old-locale
       , text
       , time
       , transformers
 
-      , HUnit
-      , QuickCheck
-      , test-framework             >= 0.3
+        test-framework             >= 0.8
       , test-framework-quickcheck2 >= 0.3
-      , test-framework-hunit       >= 0.3
+      , QuickCheck                 >= 2.5

@@ -3,7 +3,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 
 -- |
--- Module      : Network.AWS.Internal.TH
+-- Module      : Test.TH
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,35 +13,50 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.TH
+module Test.TH
     (
-    -- * Template Instances
-      embedTemplate
-    , embedTemplates
+    -- * Specific Derivations
+      deriveResponse
+
+    -- * Individual Derivations
+    , deriveJSON
+    , deriveArbitrary
+    , deriveTemplate
     ) where
 
 import           Control.Monad
-import qualified Data.ByteString.Char8       as BS
+import qualified Data.Aeson.TH         as Aeson
+import qualified Data.ByteString.Char8 as BS
+import qualified Data.DeriveTH         as Derive
 import           Data.List
 import           Language.Haskell.TH
-import           Network.AWS.Internal.String
-import           Network.AWS.Internal.Types
-import           Paths_aws_haskell           (getDataFileName)
+import           Network.AWS.Internal
+import           Paths_aws_haskell     (getDataFileName)
 
-embedTemplate :: Name -> Q [Dec]
-embedTemplate name = embedTemplate' ("template/" ++ suffix (show name)) name
+deriveResponse :: FilePath -> [Name] -> Q [Dec]
+deriveResponse path names = liftM concat $ mapM ($ names)
+     [ deriveJSON
+     , deriveArbitrary
+     , deriveTemplate path
+     ]
 
-embedTemplates :: FilePath -> [Name] -> Q [Dec]
-embedTemplates path = liftM concat . mapM derive
+deriveJSON :: [Name] -> Q [Dec]
+deriveJSON = liftM concat . mapM (Aeson.deriveToJSON id)
+
+deriveArbitrary :: [Name] -> Q [Dec]
+deriveArbitrary = Derive.derives [Derive.makeArbitrary]
+
+deriveTemplate :: FilePath -> [Name] -> Q [Dec]
+deriveTemplate path = liftM concat . mapM derive
   where
-    derive n = embedTemplate' (dropSuffix "/" path ++ "/" ++ nameBase n) n
+    derive n = embedTemplate (dropSuffix "/" path ++ "/" ++ nameBase n) n
 
 --
 -- Internal
 --
 
-embedTemplate' :: FilePath -> Name -> Q [Dec]
-embedTemplate' path name =
+embedTemplate :: FilePath -> Name -> Q [Dec]
+embedTemplate path name =
     [d|instance Template $(conT name) where
            readTemplate _ = $(template >>= embed)|]
   where

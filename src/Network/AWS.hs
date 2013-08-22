@@ -57,7 +57,7 @@ send payload = do
 
         receiveResponse conn $ \_ inp -> do
             xml <- Streams.read inp
-            return $ maybe (Left "Failed to read any data") decodeXML xml
+            return $ maybe (Left "Failed to read any data") fromXML xml
 
 --
 -- Internal

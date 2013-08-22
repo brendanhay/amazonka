@@ -1,5 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TupleSections              #-}
@@ -19,27 +19,28 @@ module Network.AWS.Route53.V20121212.Types where
 
 import Control.Applicative
 import Data.ByteString              (ByteString)
-import Data.Data
 import Data.Time
 import Network.AWS.Internal
 import Text.ParserCombinators.ReadP (string)
 import Text.Read
 
-newtype CallerRef = CallerRef ByteString
-    deriving (Eq, Ord, Show, Data, Typeable, Generic)
+newtype CallerReference = CallerReference { unCallerReference :: ByteString }
+    deriving (Eq, Ord, Show, Generic)
 
-instance IsXML CallerRef
+instance IsXML CallerReference where
+    xmlPickler = (CallerReference, unCallerReference) `xpWrap` xpContent xpText
 
-callerRef :: IO CallerRef
-callerRef = CallerRef . toBS <$> getCurrentTime
+callerRef :: IO CallerReference
+callerRef = CallerReference . toBS <$> getCurrentTime
 
 data Protocol = HTTP | TCP
-    deriving (Eq, Show, Data, Typeable, Generic)
+    deriving (Eq, Read, Show, Generic)
 
-instance IsXML Protocol
+instance IsXML Protocol where
+    xmlPickler = xpContent xpPrim
 
 data RecordAction = CreateAction | DeleteAction
-    deriving (Eq, Data, Typeable)
+    deriving (Eq)
 
 instance Show RecordAction where
     show CreateAction = "CREATE"
@@ -52,33 +53,35 @@ instance Read RecordAction where
          ]
 
 instance IsXML RecordAction where
-    xmlPickler = xpPrim
+    xmlPickler = xpContent xpPrim
 
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
-    deriving (Eq, Show, Data, Typeable, Generic)
+    deriving (Eq, Read, Show, Generic)
 
-instance IsXML RecordType
+instance IsXML RecordType where
+    xmlPickler = xpContent xpPrim
 
 instance IsQuery RecordType
 
 data ChangeStatus = PENDING | INSYNC
-    deriving (Eq, Show, Data, Typeable, Generic)
+    deriving (Eq, Read, Show, Generic)
 
-instance IsXML ChangeStatus
+instance IsXML ChangeStatus where
+    xmlPickler = xpContent xpPrim
 
 data Config = Config
     { cComment :: !ByteString
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML Config
 
 data HostedZone = HostedZone
     { hzId                     :: !ByteString
     , hzName                   :: !ByteString
-    , hzCallerRef              :: !CallerRef
+    , hzCallerReference        :: !CallerReference
     , hzConfig                 :: !Config
     , hzResourceRecordSetCount :: !Integer
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML HostedZone
 
@@ -86,15 +89,34 @@ data ChangeInfo = ChangeInfo
     { ciId          :: !ByteString
     , ciStatus      :: !ChangeStatus
     , ciSubmittedAt :: !UTCTime
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML ChangeInfo
 
-data DelegationSet = DelegationSet
-    { dsNameServers :: ![ByteString]
-    } deriving (Eq, Show, Data, Typeable, Generic)
+newtype DelegationSet = DelegationSet { dsNameServers :: [ByteString] }
+    deriving (Eq, Show, Generic)
 
-instance IsXML DelegationSet
+instance IsXML DelegationSet where
+    xmlPickler = xpWrap (DelegationSet, dsNameServers)
+        (xpElem "NameServers" $ xpElemList "NameServer" xmlPickler)
+
+newtype ResourceRecords = ResourceRecords { rrValues :: [ByteString] }
+    deriving (Eq, Show, Generic)
+
+instance IsXML ResourceRecords where
+    xmlPickler = xpWrap (ResourceRecords, rrValues)
+        (xpElemList "ResourceRecord" $ xpElem "Value" xmlPickler)
+
+data ResourceRecordSet = ResourceRecordSet
+    { rrsAction          :: !RecordAction
+    , rrsName            :: !ByteString
+    , rrsType            :: !RecordType
+    , rrsTTL             :: !Integer
+    , rrsHealthCheckId   :: !(Maybe ByteString)
+    , rrsResourceRecords :: !ResourceRecords
+    } deriving (Eq, Show, Generic)
+
+instance IsXML ResourceRecordSet
 
 --
 -- Hosted Zones
@@ -104,14 +126,14 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     { chzrHostedZone    :: !HostedZone
     , chzrChangeInfo    :: !ChangeInfo
     , chzrDelegationSet :: !DelegationSet
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZoneResponse
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostZone      :: !HostedZone
     , ghzrDelegationSet :: !DelegationSet
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML GetHostedZoneResponse
 
@@ -121,13 +143,13 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     , lhzrMarker      :: !ByteString
     , lhzrNextMarker  :: !(Maybe ByteString)
     , lhzrMaxItems    :: !Integer
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML ListHostedZonesResponse
 
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteHostedZoneResponse
 
@@ -137,18 +159,19 @@ instance IsXML DeleteHostedZoneResponse
 
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML ChangeResourceRecordSetsResponse
 
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
-    deriving (Eq, Show, Data, Typeable, Generic)
+    deriving (Eq, Read, Show, Generic)
 
-instance IsXML ListResourceRecordSetsResponse
+instance IsXML ListResourceRecordSetsResponse where
+    xmlPickler = xpEmpty
 
 data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML GetChangeResponse
 
@@ -162,15 +185,15 @@ data HealthCheckConfig = HealthCheckConfig
     , hccType                     :: !Protocol
     , hccResourcePath             :: !ByteString
     , hccFullyQualifiedDomainName :: !ByteString
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML HealthCheckConfig
 
 data HealthCheck = HealthCheck
     { hcId                :: !ByteString
-    , hcCallerRef         :: !CallerRef
+    , hcCallerReference   :: !CallerReference
     , hcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML HealthCheck
 
@@ -184,11 +207,12 @@ data ListHealthChecksResponse = ListHealthChecksResponse
     , lhcrMaxItems     :: !ByteString
     , lhcrMarker       :: !(Maybe ByteString)
     , lhcrNextMarker   :: !(Maybe ByteString)
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsXML ListHealthChecksResponse
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
-    deriving (Eq, Show, Data, Typeable, Generic)
+    deriving (Eq, Read, Show, Generic)
 
-instance IsXML DeleteHealthCheckResponse
+instance IsXML DeleteHealthCheckResponse where
+    xmlPickler = xpEmpty

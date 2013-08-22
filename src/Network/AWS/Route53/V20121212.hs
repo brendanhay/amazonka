@@ -5,7 +5,6 @@
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TypeSynonymInstances       #-}
 
 -- |
@@ -48,13 +47,13 @@ module Network.AWS.Route53.V20121212
 import           Control.Applicative                 ((<$>))
 import           Control.Monad.IO.Class
 import           Data.ByteString                     (ByteString)
-import           Data.Data
 import           Data.Monoid
 import           Data.String
 import           Network.AWS.Internal
 import           Network.AWS.Route53.V20121212.Types as Types
 import           Network.Http.Client                 (Method(..))
 import qualified System.IO.Streams                   as Streams
+import           Text.XML.Expat.Pickle.Generic
 
 data R53
 
@@ -70,11 +69,11 @@ req meth path qry = return $ (emptyRequest meth FormEncoded path Nothing)
     { rqQuery = toQuery qry
     }
 
-body :: (Data a, Template a) => Method -> ByteString -> a -> AWS (RawRequest R53 b)
-body meth path tmpl =
+body :: IsXML a => Method -> ByteString -> a -> AWS (RawRequest R53 b)
+body meth path val =
     emptyRequest meth Xml (route53Version <> "/" <> path) . Just <$> contents
   where
-    contents = liftIO $ Streams.fromLazyByteString =<< render tmpl
+    contents = liftIO . Streams.fromByteString $ toXML val
 
 --
 -- Hosted Zones
@@ -84,12 +83,12 @@ body meth path tmpl =
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_CreateHostedZone.html>
 data CreateHostedZone = CreateHostedZone
-    { chzCallerRef  :: !CallerRef
-    , chzDomainName :: !ByteString
-    , chzComment    :: !(Maybe ByteString)
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    { chzCallerReference :: !CallerReference
+    , chzDomainName      :: !ByteString
+    , chzComment         :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
-$(embedTemplate ''CreateHostedZone)
+instance IsXML CreateHostedZone
 
 instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
     request = body POST "hostedzone"
@@ -110,7 +109,7 @@ instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
 data ListHostedZones = ListHostedZones
     { lhzMarker   :: !(Maybe ByteString)
     , lhzMaxItems :: !(Maybe Integer)
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsQuery ListHostedZones where
     queryPickler = genericQueryPickler loweredQueryOptions
@@ -131,15 +130,6 @@ instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
 -- Record Sets
 --
 
-data ResourceRecordSet = ResourceRecordSet
-    { rrsAction        :: !RecordAction
-    , rrsName          :: !ByteString
-    , rrsType          :: !RecordType
-    , rrsTTL           :: !Integer
-    , rrsHealthCheckId :: !(Maybe ByteString)
-    , rrsValues        :: ![ByteString]
-    } deriving (Eq, Show, Data, Typeable, Generic)
-
 -- | Adds, deletes, and changes resource record sets in a Route 53 hosted zone.
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ChangeResourceRecordSets.html>
@@ -147,9 +137,9 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
     { crrsZoneId  :: !ByteString
     , crrsComment :: !(Maybe ByteString)
     , crrsChanges :: ![ResourceRecordSet]
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
-$(embedTemplate ''ChangeResourceRecordSets)
+instance IsXML ChangeResourceRecordSets
 
 instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsResponse where
     request rs@ChangeResourceRecordSets{..} =
@@ -164,7 +154,7 @@ data ListResourceRecordSets = ListResourceRecordSets
     , lrrsType       :: !(Maybe RecordType)
     , lrrsIdentifier :: !(Maybe ByteString)
     , lrrsMaxItems   :: !(Maybe Integer)
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsQuery ListResourceRecordSets where
     queryPickler = genericQueryPickler loweredQueryOptions
@@ -191,11 +181,11 @@ instance AWSRequest R53 GetChange GetChangeResponse where
 --
 -- <http://docs.aws.amazon.com/R53/latest/APIReference/API_CreateHealthCheck.html>
 data CreateHealthCheck = CreateHealthCheck
-    { chcCallerRef         :: !CallerRef
+    { chcCallerReference   :: !CallerReference
     , chcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
-$(embedTemplate ''CreateHealthCheck)
+instance IsXML CreateHealthCheck
 
 instance AWSRequest R53 CreateHealthCheck CreateHealthCheckResponse where
     request = body POST "healthcheck"
@@ -216,7 +206,7 @@ instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
 data ListHealthChecks = ListHealthChecks
     { lhcMarker   :: !(Maybe ByteString)
     , lhcMaxItems :: !(Maybe Integer)
-    } deriving (Eq, Show, Data, Typeable, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance IsQuery ListHealthChecks where
     queryPickler = genericQueryPickler loweredQueryOptions

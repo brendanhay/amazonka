@@ -20,9 +20,7 @@ import GHC.Generics                    as Generics
 import Network.HTTP.QueryString.Pickle as Generics
 import Text.XML.Expat.Pickle.Generic   as Generics
 
-import Network.AWS.Internal.IO         as Internal
 import Network.AWS.Internal.Instances  as Internal
 import Network.AWS.Internal.Signing    as Internal
 import Network.AWS.Internal.String     as Internal
-import Network.AWS.Internal.TH         as Internal
 import Network.AWS.Internal.Types      as Internal

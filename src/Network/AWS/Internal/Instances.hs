@@ -14,10 +14,14 @@
 
 module Network.AWS.Internal.Instances where
 
-import Data.Time
-import GHC.Generics
-import Network.HTTP.QueryString.Pickle
-import Text.XML.Expat.Pickle.Generic
+import qualified Data.ByteString.Char8           as BS
+import qualified Data.ByteString.Lazy.Char8      as LBS
+import           Data.Time
+import           Data.Time.Format                (FormatTime, formatTime, parseTime)
+import           GHC.Generics
+import           Network.HTTP.QueryString.Pickle
+import           System.Locale                   (defaultTimeLocale)
+import           Text.XML.Expat.Pickle.Generic
 
 newtype Member a = Member { member :: [a] }
     deriving (Eq, Show, Generic)
@@ -32,7 +36,15 @@ instance IsQuery () where
     queryPickler = qpLift ()
 
 instance IsXML Bool where
-    xmlPickler = xpPrim
+    xmlPickler = xpContent xpPrim
 
 instance IsXML UTCTime where
-    xmlPickler = xpPrim
+    xmlPickler = xpContent $ XMLPU
+        { pickleTree   = \d ->
+              BS.pack (take 23 (formatTime defaultTimeLocale "%FT%T%Q" d) ++ "Z")
+        , unpickleTree = \t ->
+              case parseTime defaultTimeLocale "%FT%T%QZ" (BS.unpack t) of
+                  Just d -> Right d
+                  _      -> Left "could not parse ISO-8601 date"
+        , root         = Nothing
+        }

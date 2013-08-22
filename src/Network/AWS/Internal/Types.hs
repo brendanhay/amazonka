@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE FlexibleInstances          #-}
@@ -26,17 +28,21 @@ import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Data.Aeson
-import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Char8  as BS
-import           Data.Map               (Map)
-import qualified Data.Map               as Map
+import           Data.ByteString               (ByteString)
+import qualified Data.ByteString.Char8         as BS
+import qualified Data.ByteString.Lazy.Char8    as LBS
+import           Data.Data
+import           Data.Map                      (Map)
+import qualified Data.Map                      as Map
 import           Data.Maybe
 import           Data.Monoid
 import           Data.String
 import           Data.Time
-import           Network.Http.Client    hiding (ContentType, post, put)
-import           System.IO.Streams      (InputStream)
-import           System.Locale          (defaultTimeLocale)
+import           GHC.Generics
+import           Network.Http.Client           hiding (ContentType, post, put)
+import           System.IO.Streams             (InputStream)
+import           System.Locale                 (defaultTimeLocale)
+import           Text.XML.Expat.Pickle.Generic
 
 data Region
     = NorthVirgnia
@@ -158,7 +164,7 @@ class AWSService a where
 class AWSRequest c a b | a -> c b where
     request :: a -> AWS (RawRequest c b)
 
-class Show a => Template a where
+class Template a where
     readTemplate :: a -> ByteString
 
 class IsByteString a where

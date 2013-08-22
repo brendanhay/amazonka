@@ -19,7 +19,6 @@ module Network.AWS.Route53.V20121212.Types where
 
 import Control.Applicative
 import Data.ByteString              (ByteString)
-import Data.Time
 import Network.AWS.Internal
 import Text.ParserCombinators.ReadP (string)
 import Text.Read

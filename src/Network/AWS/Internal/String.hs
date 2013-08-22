@@ -11,11 +11,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.String where
+module Network.AWS.Internal.String
+    ( dropPrefix
+    , dropSuffix
+    , strip
+    ) where
 
 import           Data.ByteString       (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import           Data.Char
 import           Data.List
 import           Data.Maybe
 
@@ -26,19 +29,6 @@ dropSuffix :: String -> String -> String
 dropSuffix suf s
     | suf `isSuffixOf` s = take (length s - length suf) s
     | otherwise          = s
-
-dropLower :: String -> String
-dropLower = dropWhile isLower
-
-lowerFirst :: String -> String
-lowerFirst (x:xs) = toLower x : xs
-lowerFirst []     = []
-
-underscore :: String -> String
-underscore (x:xs) | isUpper x = toLower x : underscore xs
-underscore xs                 = concatMap f xs
-  where
-    f x = ['_' | isUpper x] ++ [toLower x]
 
 strip :: Char -> ByteString -> ByteString
 strip c bstr

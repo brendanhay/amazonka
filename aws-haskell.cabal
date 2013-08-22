@@ -18,9 +18,7 @@ extra-source-files:
     README.md
 
 data-files:
-      template/Route53/V20121212/*.tmpl
-
-    , test/response/Route53/V20121212/*.xml
+    test/response/Route53/V20121212/*.tmpl
 
 source-repository head
     type:     git
@@ -33,11 +31,9 @@ library
     exposed-modules:
         Network.AWS
 
-      , Network.AWS.Internal.IO
       , Network.AWS.Internal.Instances
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
-      , Network.AWS.Internal.TH
       , Network.AWS.Internal.Types
       , Network.AWS.Internal
 
@@ -69,17 +65,15 @@ library
       , base64-bytestring
       , bytestring
       , containers
-      , hastache
-      , hexpat-pickle-generic >= 0.1.3
+      , hexpat-pickle-generic
       , HsOpenSSL
       , http-streams
       , http-types
       , io-streams
       , mtl
       , old-locale
-      , querystring-pickle    >= 0.1.3
+      , querystring-pickle
       , SHA
-      , template-haskell
       , text
       , time
       , transformers
@@ -94,18 +88,20 @@ test-suite aws-haskell-tests
     ghc-options:
         -Wall
         -fwarn-tabs
-        -ddump-splices
 
     build-depends:
-        aws-haskell
+        aeson
+      , aws-haskell
       , base                       >= 4.6 && < 5
       , bytestring
       , derive
+      , hastache
+      , hastache-aeson
       , hexpat-pickle-generic      >= 0.1.3
       , HUnit
       , old-locale
       , QuickCheck                 >= 2.5.1.1
-      , quickcheck-instances
+      , template-haskell
       , test-framework             >= 0.8
       , test-framework-hunit       >= 0.3
       , test-framework-quickcheck2 >= 0.3

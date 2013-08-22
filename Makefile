@@ -15,7 +15,10 @@ clean:
 	cabal-dev clean
 
 test:
-	rm -f .conf && cabal-dev install --enable-tests
+	rm -rf cabal-dev/share/x86_64-osx-ghc-7.6.3/aws-haskell-0.1.0/test && \
+	 mkdir -p cabal-dev/share/x86_64-osx-ghc-7.6.3/aws-haskell-0.1.0/test && \
+	 cp -rf test/response cabal-dev/share/x86_64-osx-ghc-7.6.3/aws-haskell-0.1.0/test/ && \
+	 rm -f .conf && cabal-dev install --enable-tests
 
 lint:
 	hlint src
@@ -25,3 +28,4 @@ doc:
 
 .conf:
 	cabal-dev configure && touch $@
+

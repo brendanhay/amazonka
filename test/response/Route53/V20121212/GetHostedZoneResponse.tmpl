@@ -1,22 +1,24 @@
 <GetHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
-   <HostedZone>
-      <Id>/hostedzone/Route 53 hosted zone ID</Id>
-      <Name>DNS domain name</Name>
-      <CallerReference>unique identifier that you specified
-         when you created the hosted zone</CallerReference>
-      <Config>
-         <Comment>comment that you specified when you
-            created the hosted zone</Comment>
-      </Config>
-      <ResourceRecordSetCount>number of resource record sets
-         in the hosted zone</ResourceRecordSetCount>
-   </HostedZone>
-   <DelegationSet>
-      <NameServers>
-         <NameServer>DNS name for Route 53 name server</NameServer>
-         <NameServer>DNS name for Route 53 name server</NameServer>
-         <NameServer>DNS name for Route 53 name server</NameServer>
-         <NameServer>DNS name for Route 53 name server</NameServer>
-      </NameServers>
-   </DelegationSet>
+  {{#ghzrHostedZone}}
+  <HostedZone>
+    <Id>{{hzId}}</Id>
+    <Name>{{hzName}}</Name>
+    <CallerReference>{{hzCallerReference}}</CallerReference>
+    {{#hzConfig}}
+    <Config>
+      <Comment>{{cComment}}</Comment>
+    </Config>
+    {{/hzConfig}}
+    <ResourceRecordSetCount>{{hzResourceRecordSetCount}}</ResourceRecordSetCount>
+  </HostedZone>
+  {{/ghzrHostedZone}}
+  {{#ghzrDelegationSet}}
+  <DelegationSet>
+    <NameServers>
+    {{#dsNameServers}}
+      <NameServer>{{.}}</NameServer>
+    {{/dsNameServers}}
+    </NameServers>
+  </DelegationSet>
+  {{/ghzrDelegationSet}}
 </GetHostedZoneResponse>

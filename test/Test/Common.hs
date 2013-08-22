@@ -13,8 +13,11 @@
 
 module Test.Common
     (
+    -- * Test Case Setup
+      testVersion
+
     -- * Response Tests
-      Res
+    , Res
     , res
 
     -- * Re-used Imports
@@ -27,6 +30,7 @@ import           Data.Aeson                           as Common (Value(..), ToJS
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import qualified Data.ByteString.Lazy.Char8           as LBS
+import           Data.Monoid
 import           Network.AWS.Internal                 as Common
 import           System.IO.Unsafe                     (unsafePerformIO)
 import           Test.Arbitrary                       ()
@@ -36,6 +40,10 @@ import           Test.QuickCheck                      as Test
 import           Test.TH                              as Test
 import           Text.Hastache
 import           Text.Hastache.Aeson
+
+testVersion :: ByteString -> [Test] -> Test
+testVersion ver = plusTestOptions
+    (mempty { topt_maximum_test_size = Just 50 }) . testGroup (BS.unpack ver)
 
 type Res a = Response a -> Bool
 

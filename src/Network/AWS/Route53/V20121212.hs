@@ -20,8 +20,11 @@
 
 module Network.AWS.Route53.V20121212
     (
+    -- * Version
+      route53Version
+
     -- * Hosted Zones
-      CreateHostedZone         (..)
+    , CreateHostedZone         (..)
     , GetHostedZone            (..)
     , ListHostedZones          (..)
     , DeleteHostedZone         (..)

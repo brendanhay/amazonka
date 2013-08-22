@@ -1,4 +1,3 @@
--- {-# LANGUAGE OverloadedStrings    #-}
 {-# LANGUAGE TemplateHaskell      #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
@@ -21,15 +20,14 @@ import           Data.Text.Encoding
 import           Network.AWS.Route53.V20121212
 import           Test.Common
 
-version :: String
-version = "V20121212"
-
-tests :: [Test]
-tests =
-    [ testGroup version
-        [ testGroup "XML Response Parsing"
-            [ testProperty "CreateHostedZoneResponse" (res :: Res CreateHostedZoneResponse)
-            , testProperty "DeleteHostedZoneResponse" (res :: Res DeleteHostedZoneResponse)
+tests :: Test
+tests = testVersion route53Version
+    [ testGroup "XML Response Parsing"
+        [ testGroup "Hosted Zones"
+            [ testProperty "Create" (res :: Res CreateHostedZoneResponse)
+            , testProperty "Delete" (res :: Res DeleteHostedZoneResponse)
+            , testProperty "Get"    (res :: Res GetHostedZoneResponse)
+--            , testProperty "List"   (res :: Res ListHostedZonesResponse)
             ]
         ]
     ]

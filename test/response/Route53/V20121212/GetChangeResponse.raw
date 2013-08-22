@@ -1,8 +1,0 @@
-<GetChangeResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
-   <ChangeInfo>
-      <Id>unique identifier for the change batch request</Id>
-      <Status>PENDING | INSYNC</Status>
-      <SubmittedAt>date and time in Coordinated Universal Time
-         format</SubmittedAt>
-   </ChangeInfo>
-</GetChangeResponse>

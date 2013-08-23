@@ -56,12 +56,9 @@ $(deriveArbitrary
     , ''HostedZone
     ])
 
-$(deriveResponse "test/request/Route53/V20121212"
+$(deriveProperty "test/resources/Route53/V20121212"
     [ ''CreateHostedZone
-    ])
-
-$(deriveResponse "test/response/Route53/V20121212"
-    [ ''CreateHostedZoneResponse
+    , ''CreateHostedZoneResponse
     , ''DeleteHostedZoneResponse
     , ''GetHostedZoneResponse
     , ''ListHostedZonesResponse

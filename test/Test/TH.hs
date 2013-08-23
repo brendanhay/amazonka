@@ -15,7 +15,7 @@
 module Test.TH
     (
     -- * Specific Derivations
-      deriveResponse
+      deriveProperty
 
     -- * Individual Derivations
     , deriveJSON
@@ -32,8 +32,8 @@ import           Language.Haskell.TH
 import           Network.AWS.Internal
 import           Paths_aws_haskell     (getDataFileName)
 
-deriveResponse :: FilePath -> [Name] -> Q [Dec]
-deriveResponse path names = liftM concat $ mapM ($ names)
+deriveProperty :: FilePath -> [Name] -> Q [Dec]
+deriveProperty path names = liftM concat $ mapM ($ names)
      [ deriveJSON
      , deriveArbitrary
      , deriveTemplate path

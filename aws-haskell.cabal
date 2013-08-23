@@ -18,8 +18,7 @@ extra-source-files:
     README.md
 
 data-files:
-      test/request/Route53/V20121212/*.tmpl
-    , test/response/Route53/V20121212/*.tmpl
+      test/resources/Route53/V20121212/*.tmpl
 
 source-repository head
     type:     git

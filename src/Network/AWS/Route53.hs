@@ -1,4 +1,3 @@
--- |
 -- Module      : Network.AWS.Route53
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -9,8 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Re-exports the most current version of the Route53 API.
 module Network.AWS.Route53
-    ( module Current
+    ( module Network.AWS.Route53.V20121212
     ) where
 
-import Network.AWS.Route53.V20121212 as Current
+import Network.AWS.Route53.V20121212

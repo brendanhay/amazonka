@@ -5,7 +5,6 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 
--- |
 -- Module      : Network.AWS.Route53.V20121212
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -16,6 +15,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Route 53 is a web service that enables you to manage your DNS records.
 module Network.AWS.Route53.V20121212
     (
     -- * Version
@@ -39,7 +39,7 @@ module Network.AWS.Route53.V20121212
     , DeleteHealthCheck        (..)
 
     -- * Response Types
-    , module Types
+    , module Network.AWS.Route53.V20121212.Types
     ) where
 
 import           Control.Applicative                 ((<$>))
@@ -48,7 +48,7 @@ import           Data.ByteString                     (ByteString)
 import           Data.Monoid
 import           Data.String
 import           Network.AWS.Internal
-import           Network.AWS.Route53.V20121212.Types as Types
+import           Network.AWS.Route53.V20121212.Types
 import           Network.Http.Client                 (Method(..))
 import qualified System.IO.Streams                   as Streams
 

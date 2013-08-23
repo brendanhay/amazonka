@@ -1,4 +1,3 @@
--- |
 -- Module      : Network.AWS.AutoScaling
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -9,8 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Re-exports the most current version of the AutoScaling API.
 module Network.AWS.AutoScaling
-    ( module Current
+    ( module Network.AWS.AutoScaling.V20110101
     ) where
 
-import Network.AWS.AutoScaling.V20110101 as Current
+import Network.AWS.AutoScaling.V20110101

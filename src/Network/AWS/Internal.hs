@@ -1,4 +1,3 @@
--- |
 -- Module      : Network.AWS.Internal
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of

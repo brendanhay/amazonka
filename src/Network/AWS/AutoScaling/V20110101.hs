@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings     #-}
 {-# LANGUAGE TemplateHaskell       #-}
 
--- |
 -- Module      : Network.AWS.AutoScaling.V20110101
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -14,6 +13,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Auto Scaling is a web service designed to automatically launch or terminate
+-- Amazon Elastic Compute Cloud (Amazon EC2) instances based on user-defined
+-- policies, schedules, and health checks.
+--
+-- This service is used in conjunction with Amazon CloudWatch and
+-- Elastic Load Balancing services.
 module Network.AWS.AutoScaling.V20110101 where
 
 import Data.ByteString                             (ByteString, empty)

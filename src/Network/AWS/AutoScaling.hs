@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Network.AWS.AutoScaling
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>

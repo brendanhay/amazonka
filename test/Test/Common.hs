@@ -131,8 +131,8 @@ render x = unsafePerformIO $
 
 difference :: ByteString -> ByteString -> [(Integer, String)]
 difference x y = dropWhile (null . snd)
-     . zipWith (,) [1..]
-     $ zipWithTail (normalise x) (normalise y)
+    . zipWith (,) [1..]
+    $ zipWithTail (normalise x) (normalise y)
   where
     normalise = map (BS.unpack . BS.unwords . BS.words) . BS.lines
 

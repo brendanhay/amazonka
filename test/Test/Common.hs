@@ -13,16 +13,13 @@
 
 module Test.Common
     (
-    -- * Test Case Setup
+    -- * Group Tests
       testVersion
 
-    -- * Request Tests
-    , Body
-    , body
-
-    -- * Response Tests
-    , Res
-    , res
+    -- * Properties
+    , XMLRq
+    , XMLRs
+    , prop
 
     -- * Re-used Imports
     , module Test
@@ -50,76 +47,80 @@ testVersion :: ByteString -> [Test] -> Test
 testVersion ver = plusTestOptions
     (mempty { topt_maximum_test_size = Just 50 }) . testGroup (BS.unpack ver)
 
-type Body a = Bdy a -> Bool
+type XMLRq a = XMLRequest  a -> Bool
+type XMLRs a = XMLResponse a -> Bool
 
-body :: (Eq a, Arbitrary a) => Body a
-body (Bdy b _ _ d p) = (either (const False) (== b) p) &&  (all null d)
+class TestProperty a where
+    prop :: a -> Bool
 
-type Res a = Response a -> Bool
-
-res :: (Eq a, Arbitrary a) => Res a
-res (Response r _ _ p) = either (const False) (== r) p
-
-data Bdy a = Bdy
-    { bdyBody     :: a
-    , bdyTemplate :: ByteString
-    , bdyXML      :: ByteString
-    , bdyDiff     :: [String]
-    , bdyParsed   :: Either String a
+data XMLRequest a = XMLRequest
+    { rqBody     :: a
+    , rqTemplate :: ByteString
+    , rqXML      :: ByteString
+    , rqDiff     :: [String]
+    , rqParsed   :: Either String a
     }
 
-instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
-         => Arbitrary (Bdy a) where
-    arbitrary = do
-        bdy <- arbitrary
-        let tmpl = render bdy
-            xml  = toIndentedXML 2 bdy
-            diff = difference xml tmpl
-        return . Bdy bdy tmpl xml diff $ fromXML tmpl
+instance (Eq a, Arbitrary a) => TestProperty (XMLRequest a) where
+    prop XMLRequest{..} = (&&)
+        (either (const False) (== rqBody) rqParsed)
+        (all null rqDiff)
 
-instance Show a => Show (Bdy a) where
-    show Bdy{..} = unlines
-        [ "[Body]"
-        , show bdyBody
+instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
+         => Arbitrary (XMLRequest a) where
+    arbitrary = do
+        rq <- arbitrary
+        let tmpl = render rq
+            xml  = toIndentedXML 2 rq
+            diff = difference xml tmpl
+        return . XMLRequest rq tmpl xml diff $ fromXML tmpl
+
+instance Show a => Show (XMLRequest a) where
+    show XMLRequest{..} = unlines
+        [ "[Request]"
+        , show rqBody
         , ""
         , "[Parsed]"
-        , show bdyParsed
+        , show rqParsed
         , ""
         , "[Template]"
-        , formatBS bdyTemplate
+        , formatBS rqTemplate
         , "[Encoded]"
-        , formatBS bdyXML
+        , formatBS rqXML
         , "[Diff]"
-        , formatLines bdyDiff
+        , formatLines rqDiff
         ]
 
-data Response a = Response
-    { resResponse :: a
-    , resTemplate :: ByteString
-    , resXML      :: ByteString
-    , resParsed   :: Either String a
+data XMLResponse a = XMLResponse
+    { rsResponse :: a
+    , rsTemplate :: ByteString
+    , rsXML      :: ByteString
+    , rsParsed   :: Either String a
     }
 
-instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
-         => Arbitrary (Response a) where
-    arbitrary = do
-        resp <- arbitrary
-        let tmpl = render resp
-            xml  = toIndentedXML 2 resp
-        return . Response resp tmpl xml $ fromXML tmpl
+instance (Eq a, Arbitrary a) => TestProperty (XMLResponse a) where
+    prop XMLResponse{..} = either (const False) (== rsResponse) rsParsed
 
-instance Show a => Show (Response a) where
-    show Response{..} = unlines
+instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
+         => Arbitrary (XMLResponse a) where
+    arbitrary = do
+        rsp <- arbitrary
+        let tmpl = render rsp
+            xml  = toIndentedXML 2 rsp
+        return . XMLResponse rsp tmpl xml $ fromXML tmpl
+
+instance Show a => Show (XMLResponse a) where
+    show XMLResponse{..} = unlines
         [ "[Response]"
-        , show resResponse
+        , show rsResponse
         , ""
         , "[Parsed]"
-        , show resParsed
+        , show rsParsed
         , ""
         , "[Template]"
-        , formatBS resTemplate
+        , formatBS rsTemplate
         , "[Encoded]"
-        , formatBS resXML
+        , formatBS rsXML
         ]
 
 render :: (Template a, ToJSON a) => a -> ByteString

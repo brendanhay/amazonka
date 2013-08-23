@@ -24,15 +24,15 @@ tests :: Test
 tests = testVersion route53Version
     [ testGroup "XML Request Encoding"
         [ testGroup "Hosted Zones"
-            [ testProperty "Create" (body :: Body CreateHostedZone)
+            [ testProperty "Create" (prop :: XMLRq CreateHostedZone)
             ]
         ]
     , testGroup "XML Response Parsing"
         [ testGroup "Hosted Zones"
-            [ testProperty "Create" (res :: Res CreateHostedZoneResponse)
-            , testProperty "Delete" (res :: Res DeleteHostedZoneResponse)
-            , testProperty "Get"    (res :: Res GetHostedZoneResponse)
-            , testProperty "List"   (res :: Res ListHostedZonesResponse)
+            [ testProperty "Create" (prop :: XMLRs CreateHostedZoneResponse)
+            , testProperty "Delete" (prop :: XMLRs DeleteHostedZoneResponse)
+            , testProperty "Get"    (prop :: XMLRs GetHostedZoneResponse)
+            , testProperty "List"   (prop :: XMLRs ListHostedZonesResponse)
             ]
         ]
     ]

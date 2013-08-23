@@ -24,7 +24,7 @@ tests :: Test
 tests = testVersion route53Version
     [ testGroup "XML Request Encoding"
         [ testGroup "Hosted Zones"
-            [ testProperty "Create" (req :: Req CreateHostedZone)
+            [ testProperty "Create" (body :: Body CreateHostedZone)
             ]
         ]
     , testGroup "XML Response Parsing"

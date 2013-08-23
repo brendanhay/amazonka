@@ -17,8 +17,8 @@ module Test.Common
       testVersion
 
     -- * Request Tests
-    , Req
-    , req
+    , Body
+    , body
 
     -- * Response Tests
     , Res
@@ -34,6 +34,7 @@ import           Data.Aeson                           as Common (Value(..), ToJS
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import qualified Data.ByteString.Lazy.Char8           as LBS
+import           Data.List                            ((\\))
 import           Data.Monoid
 import           Network.AWS.Internal                 as Common
 import           System.IO.Unsafe                     (unsafePerformIO)
@@ -49,30 +50,67 @@ testVersion :: ByteString -> [Test] -> Test
 testVersion ver = plusTestOptions
     (mempty { topt_maximum_test_size = Just 50 }) . testGroup (BS.unpack ver)
 
+type Body a = Bdy a -> Bool
 
--- rename to encoding.parsing and so on
-
-type Req a = Response a -> Bool
-
-req :: (Eq a, Arbitrary a) => Res a
-req (Res _ t x _) = normalise t == normalise x
-  where
-    normalise = BS.unlines . map (BS.unwords . BS.words) . BS.lines
+body :: (Eq a, Arbitrary a) => Body a
+body (Bdy b _ _ d p) = (either (const False) (== b) p) &&  (all (null . snd) d)
 
 type Res a = Response a -> Bool
 
 res :: (Eq a, Arbitrary a) => Res a
-res (Res d _ _ i) = either (const False) (== d) i
+res (Response r _ _ p) = either (const False) (== r) p
 
-data Response a = Res
+data Bdy a = Bdy
+    { bdyBody     :: a
+    , bdyTemplate :: ByteString
+    , bdyXML      :: ByteString
+    , bdyDiff     :: [(Integer, String)]
+    , bdyParsed   :: Either String a
+    }
+
+instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
+         => Arbitrary (Bdy a) where
+    arbitrary = do
+        bdy <- arbitrary
+        let tmpl = render bdy
+            xml  = toIndentedXML 2 bdy
+            diff = difference xml tmpl
+        return . Bdy bdy tmpl xml diff $ fromXML tmpl
+
+instance Show a => Show (Bdy a) where
+    show Bdy{..} = unlines
+        [ "[Body]"
+        , show bdyBody
+        , ""
+        , "[Parsed]"
+        , show bdyParsed
+        , ""
+        , "[Template]"
+        , BS.unpack bdyTemplate
+        , "[Encoded]"
+        , BS.unpack bdyXML
+        , ""
+        , "[Line Diff]"
+        , concatMap (\(n, s) -> show n ++ ": " ++ s ++ "\n") bdyDiff
+        ]
+
+data Response a = Response
     { resResponse :: a
     , resTemplate :: ByteString
     , resXML      :: ByteString
     , resParsed   :: Either String a
     }
 
+instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
+         => Arbitrary (Response a) where
+    arbitrary = do
+        resp <- arbitrary
+        let tmpl = render resp
+            xml  = toIndentedXML 2 resp
+        return . Response resp tmpl xml $ fromXML tmpl
+
 instance Show a => Show (Response a) where
-    show Res{..} = unlines
+    show Response{..} = unlines
         [ "[Response]"
         , show resResponse
         , ""
@@ -85,13 +123,19 @@ instance Show a => Show (Response a) where
         , BS.unpack resXML
         ]
 
-instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
-         => Arbitrary (Response a) where
-    arbitrary = do
-        inp <- arbitrary
-        let tmpl = unsafePerformIO $ LBS.toStrict <$> render inp
-            xml  = toIndentedXML 2 inp
-        return . Res inp tmpl xml $ fromXML tmpl
-      where
-        render x = hastacheStr defaultConfig (readTemplate x)
-            (jsonValueContext $ toJSON x)
+render :: (Template a, ToJSON a) => a -> ByteString
+render x = unsafePerformIO $
+    LBS.toStrict <$> hastacheStr defaultConfig
+        (readTemplate x)
+        (jsonValueContext $ toJSON x)
+
+difference :: ByteString -> ByteString -> [(Integer, String)]
+difference x y = dropWhile (null . snd)
+     . zipWith (,) [1..]
+     $ zipWithTail (normalise x) (normalise y)
+  where
+    normalise = map (BS.unpack . BS.unwords . BS.words) . BS.lines
+
+    zipWithTail (a:as) (b:bs) = (\\) a b : zipWithTail as bs
+    zipWithTail []     bs     = bs
+    zipWithTail as     _      = as

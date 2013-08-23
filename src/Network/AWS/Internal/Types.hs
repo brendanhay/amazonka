@@ -1,16 +1,10 @@
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE FunctionalDependencies     #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE Rank2Types                 #-}
 {-# LANGUAGE RecordWildCards            #-}
 
--- |
 -- Module      : Network.AWS.Internal.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -30,19 +24,14 @@ import           Control.Monad.Reader
 import           Data.Aeson
 import           Data.ByteString               (ByteString)
 import qualified Data.ByteString.Char8         as BS
-import qualified Data.ByteString.Lazy.Char8    as LBS
-import           Data.Data
 import           Data.Map                      (Map)
 import qualified Data.Map                      as Map
 import           Data.Maybe
 import           Data.Monoid
-import           Data.String
 import           Data.Time
-import           GHC.Generics
 import           Network.Http.Client           hiding (ContentType, post, put)
 import           System.IO.Streams             (InputStream)
 import           System.Locale                 (defaultTimeLocale)
-import           Text.XML.Expat.Pickle.Generic
 
 data Region
     = NorthVirgnia
@@ -53,7 +42,10 @@ data Region
     | Tokyo
     | Sydney
     | SaoPaulo
-      deriving (Show)
+      deriving (Eq)
+
+instance Show Region where
+    show = BS.unpack . toBS
 
 instance IsByteString Region where
     toBS reg = case reg of
@@ -96,24 +88,23 @@ newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
 currentRegion :: AWS Region
 currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
 
-data RawRequest a b where
-    RawRequest :: AWSService a
-               => { rqMethod  :: !Method
-                 , rqContent :: !ContentType
-                 , rqAction  :: !(Maybe ByteString)
-                 , rqPath    :: !(Maybe ByteString)
-                 , rqHeaders :: !(Map ByteString ByteString)
-                 , rqQuery   :: ![(ByteString, ByteString)]
-                 , rqBody    :: !(Maybe (InputStream ByteString))
-                 }
-               -> RawRequest a b
+data RawRequest s b where
+    RawRequest :: { rqMethod  :: !Method
+                  , rqContent :: !ContentType
+                  , rqAction  :: !(Maybe ByteString)
+                  , rqPath    :: !(Maybe ByteString)
+                  , rqHeaders :: !(Map ByteString ByteString)
+                  , rqQuery   :: ![(ByteString, ByteString)]
+                  , rqBody    :: !(Maybe (InputStream ByteString))
+                  }
+                -> RawRequest s b
 
-emptyRequest :: (AWSService a, IsByteString p)
+emptyRequest :: IsByteString p
              => Method
              -> ContentType
              -> p
              -> Maybe (InputStream ByteString)
-             -> RawRequest a b
+             -> RawRequest s b
 emptyRequest meth content path body = RawRequest
     { rqMethod  = meth
     , rqContent = content
@@ -158,11 +149,11 @@ awsService name ver signer = do
  where
    endpoint reg = name <> "." <> toBS reg <> ".amazonaws.com"
 
-class AWSService a where
-    service :: RawRequest a b -> AWS Service
+class AWSService s where
+    service :: RawRequest s b -> AWS Service
 
-class AWSRequest c a b | a -> c b where
-    request :: a -> AWS (RawRequest c b)
+class AWSRequest s a b | a -> s b where
+    request :: a -> AWS (RawRequest s b)
 
 class Template a where
     readTemplate :: a -> ByteString
@@ -172,9 +163,6 @@ class IsByteString a where
 
 instance IsByteString ByteString where
     toBS = id
-
-instance IsByteString String where
-    toBS = fromString
 
 instance IsByteString Int where
     toBS = BS.pack . show

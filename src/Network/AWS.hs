@@ -1,7 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 
--- |
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -12,13 +11,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- |
 module Network.AWS
-    ( runAWS
-    , within
+    (
+    -- * AWS Monadic Context
+      runAWS
     , send
-
-    -- , module AutoScaling
-    -- , module Route53
+    , within
     ) where
 
 import           Control.Applicative
@@ -36,18 +35,16 @@ import           OpenSSL                  (withOpenSSL)
 import           System.Environment
 import qualified System.IO.Streams        as Streams
 
-import           Network.AWS.AutoScaling  as AutoScaling
-import           Network.AWS.Route53      as Route53
-
 runAWS :: AWS a -> IO a
 runAWS aws = withOpenSSL $ credentials >>=
     runReaderT (unWrap aws) . Env Nothing
 
+-- | Run an 'AWS' operation inside a specific 'Region'.
 within :: Region -> AWS a -> AWS a
 within reg aws = awsAuth <$> ask >>=
     liftIO . runReaderT (unWrap aws) . Env (Just reg)
 
-send :: (AWSService c, AWSRequest c a b, IsXML b) => a -> AWS (Either String b)
+send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWS (Either String b)
 send payload = do
     SignedRequest{..} <- sign =<< request payload
     liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do

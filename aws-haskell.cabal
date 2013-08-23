@@ -32,6 +32,12 @@ library
     exposed-modules:
         Network.AWS
 
+        Network.AWS.Internal
+      , Network.AWS.Internal.Instances
+      , Network.AWS.Internal.Signing
+      , Network.AWS.Internal.String
+      , Network.AWS.Internal.Types
+
       -- , Network.AWS.EC2
       , Network.AWS.EC2.Metadata
       -- , Network.AWS.EC2.Types
@@ -39,24 +45,16 @@ library
 
       , Network.AWS.AutoScaling
       , Network.AWS.AutoScaling.V20110101
+      , Network.AWS.AutoScaling.V20110101.Responses
+      , Network.AWS.AutoScaling.V20110101.Types
 
       , Network.AWS.Route53
       , Network.AWS.Route53.V20121212
+      , Network.AWS.Route53.V20121212.Types
 
       , Paths_aws_haskell
 
     other-modules:
-        Network.AWS.Internal
-
-      , Network.AWS.Internal.Instances
-      , Network.AWS.Internal.Signing
-      , Network.AWS.Internal.String
-      , Network.AWS.Internal.Types
-
-      , Network.AWS.AutoScaling.V20110101.Responses
-      , Network.AWS.AutoScaling.V20110101.Types
-
-      , Network.AWS.Route53.V20121212.Types
 
     ghc-options:
         -Wall

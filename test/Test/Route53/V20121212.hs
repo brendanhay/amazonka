@@ -22,13 +22,11 @@ import           Test.Common
 
 tests :: Test
 tests = testVersion route53Version
-    [ testGroup "XML Request Encoding"
-        [ testGroup "Hosted Zones"
+    [ testGroup "Hosted Zones"
+        [ testGroup "Requests"
             [ testProperty "Create" (prop :: XMLRq CreateHostedZone)
             ]
-        ]
-    , testGroup "XML Response Parsing"
-        [ testGroup "Hosted Zones"
+        , testGroup "Responses"
             [ testProperty "Create" (prop :: XMLRs CreateHostedZoneResponse)
             , testProperty "Delete" (prop :: XMLRs DeleteHostedZoneResponse)
             , testProperty "Get"    (prop :: XMLRs GetHostedZoneResponse)

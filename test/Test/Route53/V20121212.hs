@@ -24,7 +24,7 @@ tests :: Test
 tests = testVersion route53Version
     [ testGroup "Hosted Zones"
         [ testGroup "Requests"
-            [ testProperty "Create" (prop :: XMLRq CreateHostedZone)
+            [ testProperty "Create" (prop :: XMLRq CreateHostedZoneRequest)
             ]
         , testGroup "Responses"
             [ testProperty "Create" (prop :: XMLRs CreateHostedZoneResponse)

@@ -78,7 +78,7 @@ body meth path val =
 
 -- | Creates a new hosted zone.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_CreateHostedZone.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html>
 data CreateHostedZone = CreateHostedZone
     { chzName             :: !ByteString
     , chzCallerReference  :: !CallerReference
@@ -93,7 +93,7 @@ instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
 
 -- | Gets information about a specified hosted zone.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetHostedZone.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
 newtype GetHostedZone = GetHostedZone ByteString
     deriving (Show, IsString, IsByteString)
 
@@ -103,7 +103,7 @@ instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
 -- | Gets a list of the hosted zones that are associated with the
 -- current AWS account.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListHostedZones.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html>
 data ListHostedZones = ListHostedZones
     { lhzMarker   :: !(Maybe ByteString)
     , lhzMaxItems :: !(Maybe Integer)
@@ -117,7 +117,7 @@ instance AWSRequest R53 ListHostedZones ListHostedZonesResponse where
 
 -- | Deletes a hosted zone.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_DeleteHostedZone.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
 newtype DeleteHostedZone = DeleteHostedZone ByteString
     deriving (Show, IsString, IsByteString)
 
@@ -130,7 +130,7 @@ instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
 
 -- | Adds, deletes, and changes resource record sets in a Route 53 hosted zone.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ChangeResourceRecordSets.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { crrsZoneId  :: !ByteString
     , crrsComment :: !(Maybe ByteString)
@@ -145,7 +145,7 @@ instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsRespons
 
 -- | Lists details about all of the resource record sets in a hosted zone.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListResourceRecordSets.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html>
 data ListResourceRecordSets = ListResourceRecordSets
     { lrrsZoneId     :: !ByteString
     , lrrsName       :: !(Maybe ByteString)
@@ -164,7 +164,7 @@ instance AWSRequest R53 ListResourceRecordSets ListResourceRecordSetsResponse wh
 -- | Returns the current status of a change batch request that you
 -- submitted by using ChangeResourceRecordSets.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetChange.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html>
 newtype GetChange = GetChange ByteString
     deriving (Show, IsString, IsByteString)
 
@@ -177,7 +177,7 @@ instance AWSRequest R53 GetChange GetChangeResponse where
 
 -- | Creates a new health check.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_CreateHealthCheck.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html>
 data CreateHealthCheck = CreateHealthCheck
     { chcCallerReference   :: !CallerReference
     , chcHealthCheckConfig :: !HealthCheckConfig
@@ -190,7 +190,7 @@ instance AWSRequest R53 CreateHealthCheck CreateHealthCheckResponse where
 
 -- | Gets information about a specified health check.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_GetHealthCheck.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>
 newtype GetHealthCheck = GetHealthCheck ByteString
     deriving (Show, IsString, IsByteString)
 
@@ -200,7 +200,7 @@ instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
 -- | Gets a list of the health checks that are associated
 -- with the current AWS account.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_ListHealthChecks.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html>
 data ListHealthChecks = ListHealthChecks
     { lhcMarker   :: !(Maybe ByteString)
     , lhcMaxItems :: !(Maybe Integer)
@@ -214,7 +214,7 @@ instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
 
 -- | Deletes a health check.
 --
--- <http://docs.aws.amazon.com/R53/latest/APIReference/API_DeleteHealthCheck.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
 newtype DeleteHealthCheck = DeleteHealthCheck ByteString
     deriving (Show, IsString, IsByteString)
 

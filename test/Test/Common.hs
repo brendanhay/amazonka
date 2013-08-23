@@ -89,8 +89,7 @@ instance Show a => Show (Bdy a) where
         , formatBS bdyTemplate
         , "[Encoded]"
         , formatBS bdyXML
-        , ""
-        , "[Line Diff]"
+        , "[Diff]"
         , formatLines bdyDiff
         ]
 

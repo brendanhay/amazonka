@@ -11,8 +11,8 @@ cabal-dev
 bin
 dist
 tmp
-.shelly
 vendor
+.shelly
 
 # CTAGS
 TAGS
@@ -30,9 +30,5 @@ tags
 # OSX
 .DS_Store
 
-# Keiretsu
-.env
-Procfile
-
-# Protobufs
-Protocol*
+# Generators
+*.awk

@@ -16,6 +16,10 @@ module Test.Common
     -- * Test Case Setup
       testVersion
 
+    -- * Request Tests
+    , Req
+    , req
+
     -- * Response Tests
     , Res
     , res
@@ -44,6 +48,16 @@ import           Text.Hastache.Aeson
 testVersion :: ByteString -> [Test] -> Test
 testVersion ver = plusTestOptions
     (mempty { topt_maximum_test_size = Just 50 }) . testGroup (BS.unpack ver)
+
+
+-- rename to encoding.parsing and so on
+
+type Req a = Response a -> Bool
+
+req :: (Eq a, Arbitrary a) => Res a
+req (Res _ t x _) = normalise t == normalise x
+  where
+    normalise = BS.unlines . map (BS.unwords . BS.words) . BS.lines
 
 type Res a = Response a -> Bool
 

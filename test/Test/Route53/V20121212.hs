@@ -22,12 +22,17 @@ import           Test.Common
 
 tests :: Test
 tests = testVersion route53Version
-    [ testGroup "XML Response Parsing"
+    [ testGroup "XML Request Encoding"
+        [ testGroup "Hosted Zones"
+            [ testProperty "Create" (req :: Req CreateHostedZone)
+            ]
+        ]
+    , testGroup "XML Response Parsing"
         [ testGroup "Hosted Zones"
             [ testProperty "Create" (res :: Res CreateHostedZoneResponse)
             , testProperty "Delete" (res :: Res DeleteHostedZoneResponse)
             , testProperty "Get"    (res :: Res GetHostedZoneResponse)
---            , testProperty "List"   (res :: Res ListHostedZonesResponse)
+            , testProperty "List"   (res :: Res ListHostedZonesResponse)
             ]
         ]
     ]
@@ -54,10 +59,15 @@ $(deriveArbitrary
     , ''HostedZone
     ])
 
+$(deriveResponse "test/request/Route53/V20121212"
+    [ ''CreateHostedZone
+    ])
+
 $(deriveResponse "test/response/Route53/V20121212"
     [ ''CreateHostedZoneResponse
     , ''DeleteHostedZoneResponse
     , ''GetHostedZoneResponse
+    , ''ListHostedZonesResponse
     ])
 
  -- ''ChangeResourceRecordSetsResponse

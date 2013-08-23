@@ -53,7 +53,7 @@ testVersion ver = plusTestOptions
 type Body a = Bdy a -> Bool
 
 body :: (Eq a, Arbitrary a) => Body a
-body (Bdy b _ _ d p) = (either (const False) (== b) p) &&  (all (null . snd) d)
+body (Bdy b _ _ d p) = (either (const False) (== b) p) &&  (all null d)
 
 type Res a = Response a -> Bool
 
@@ -64,7 +64,7 @@ data Bdy a = Bdy
     { bdyBody     :: a
     , bdyTemplate :: ByteString
     , bdyXML      :: ByteString
-    , bdyDiff     :: [(Integer, String)]
+    , bdyDiff     :: [String]
     , bdyParsed   :: Either String a
     }
 
@@ -86,12 +86,12 @@ instance Show a => Show (Bdy a) where
         , show bdyParsed
         , ""
         , "[Template]"
-        , BS.unpack bdyTemplate
+        , formatBS bdyTemplate
         , "[Encoded]"
-        , BS.unpack bdyXML
+        , formatBS bdyXML
         , ""
         , "[Line Diff]"
-        , concatMap (\(n, s) -> show n ++ ": " ++ s ++ "\n") bdyDiff
+        , formatLines bdyDiff
         ]
 
 data Response a = Response
@@ -118,9 +118,9 @@ instance Show a => Show (Response a) where
         , show resParsed
         , ""
         , "[Template]"
-        , BS.unpack resTemplate
+        , formatBS resTemplate
         , "[Encoded]"
-        , BS.unpack resXML
+        , formatBS resXML
         ]
 
 render :: (Template a, ToJSON a) => a -> ByteString
@@ -129,10 +129,18 @@ render x = unsafePerformIO $
         (readTemplate x)
         (jsonValueContext $ toJSON x)
 
-difference :: ByteString -> ByteString -> [(Integer, String)]
-difference x y = dropWhile (null . snd)
-    . zipWith (,) [1..]
-    $ zipWithTail (normalise x) (normalise y)
+formatBS :: ByteString -> String
+formatBS = formatLines . lines . BS.unpack
+
+formatLines :: [String] -> String
+formatLines = concatMap fmt
+    . dropWhile (null . snd)
+    . zipWith (,) ([1..] :: [Int])
+  where
+    fmt (n, s) = show n ++ ": " ++ s ++ "\n"
+
+difference :: ByteString -> ByteString -> [String]
+difference x y = zipWithTail (normalise x) (normalise y)
   where
     normalise = map (BS.unpack . BS.unwords . BS.words) . BS.lines
 

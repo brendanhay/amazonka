@@ -121,9 +121,7 @@ data Response a = Response
     }
 
 instance (Eq a, Arbitrary a) => TestProperty (Response a) where
-    prop Response{..} = (&&)
-        (either (const False) (== trsResponse) trsParsed)
-        (all null trsDiff)
+    prop Response{..} = either (const False) (== trsResponse) trsParsed
 
 instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
          => Arbitrary (Response a) where
@@ -151,7 +149,6 @@ instance Show a => Show (Response a) where
         , formatBS trsXML
         , "[Expected]"
         , formatBS trsTemplate
-        , ""
         , "[Diff]"
         , if all null trsDiff then "<identical>" else formatLines trsDiff
         ]

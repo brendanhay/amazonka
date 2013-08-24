@@ -99,6 +99,9 @@ body meth path = (emptyRequest meth XML $ "/" <> route53Version <> "/" <> path)
     . Just
     . toIndentedXML 2 -- For Debugging/Testing purposes
 
+ns :: ByteString
+ns = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
+
 --
 -- Hosted Zones
 --
@@ -113,7 +116,7 @@ data CreateHostedZone = CreateHostedZone
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZone where
-    xmlPickler = rootXMLPickler "CreateHostedZoneRequest"
+    xmlPickler = withNS "CreateHostedZoneRequest" ns
 
 instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
     request = body POST "hostedzone"
@@ -124,7 +127,8 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , chzrDelegationSet :: !DelegationSet
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateHostedZoneResponse
+instance IsXML CreateHostedZoneResponse where
+    xmlPickler = withNS "CreateHostedZoneResponse" ns
 
 -- | Gets information about a specified hosted zone.
 --

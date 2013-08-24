@@ -1,3 +1,7 @@
+{-# LANGUAGE OverloadedStrings               #-}
+
+{-# OPTIONS_GHC -fno-warn-missing-signatures #-}
+
 -- Module      : Network.AWS.Internal
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -20,13 +24,20 @@ module Network.AWS.Internal
     , module GHC.Generics
     , module Network.HTTP.QueryString.Pickle
     , module Text.XML.Expat.Pickle.Generic
+
+    -- * XML Helpers
+    , withNS
     ) where
 
-import Network.AWS.Internal.Instances
-import Network.AWS.Internal.Signing
-import Network.AWS.Internal.String
-import Network.AWS.Internal.Types
-
-import GHC.Generics
-import Network.HTTP.QueryString.Pickle
+import           Data.Monoid
+import           GHC.Generics
+import           Network.AWS.Internal.Instances
+import           Network.AWS.Internal.Signing
+import           Network.AWS.Internal.String
+import           Network.AWS.Internal.Types
+import           Network.HTTP.QueryString.Pickle
 import Text.XML.Expat.Pickle.Generic
+
+withNS name ns = (genericXMLPickler defaultXMLOptions)
+    { root = Just $ name <> " xmlns=\"" <> ns <> "\""
+    }

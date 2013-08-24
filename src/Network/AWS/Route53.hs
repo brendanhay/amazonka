@@ -73,14 +73,12 @@ module Network.AWS.Route53
     ) where
 
 import           Control.Applicative       ((<$>))
-import           Control.Monad.IO.Class
 import           Data.ByteString           (ByteString)
 import           Data.Monoid
 import           Data.String
 import           Network.AWS.Internal
 import           Network.AWS.Route53.Types
 import           Network.Http.Client       (Method(..))
-import qualified System.IO.Streams         as Streams
 
 data R53
 
@@ -91,16 +89,15 @@ instance AWSService R53 where
 route53Version :: ByteString
 route53Version = "2012-12-12"
 
-req :: IsQuery a => Method -> ByteString -> a -> AWS (RawRequest R53 b)
-req meth path qry = return $ (emptyRequest meth FormEncoded path Nothing)
+req :: IsQuery a => Method -> ByteString -> a -> RawRequest R53 b
+req meth path qry = (emptyRequest meth FormEncoded path Nothing)
     { rqQuery = toQuery qry
     }
 
-body :: IsXML a => Method -> ByteString -> a -> AWS (RawRequest R53 b)
-body meth path val =
-    emptyRequest meth Xml (route53Version <> "/" <> path) . Just <$> contents
-  where
-    contents = liftIO . Streams.fromByteString $ toXML val
+body :: IsXML a => Method -> ByteString -> a -> RawRequest R53 b
+body meth path = (emptyRequest meth XML $ "/" <> route53Version <> "/" <> path)
+    . Just
+    . toIndentedXML 2 -- For Debugging/Testing purposes
 
 --
 -- Hosted Zones

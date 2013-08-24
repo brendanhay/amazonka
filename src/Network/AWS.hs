@@ -46,12 +46,12 @@ within reg aws = awsAuth <$> ask >>=
 
 send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWS (Either String b)
 send payload = do
-    SignedRequest{..} <- sign =<< request payload
+    SignedRequest{..} <- sign $ request payload
     liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
-        sendRequest conn rqRequest $ maybe emptyBody inputStreamBody rqStream
-
+        body <- maybe (return emptyBody)
+            (fmap inputStreamBody . Streams.fromByteString) rqPayload
+        sendRequest conn rqRequest body
         print rqRequest
-
         receiveResponse conn $ \_ inp -> do
             xml <- Streams.read inp
             return $ maybe (Left "Failed to read any data") fromXML xml

@@ -36,8 +36,8 @@ instance AWSService AutoScaling where
 autoScalingVersion :: ByteString
 autoScalingVersion = "2011-01-01"
 
-req :: (IsQuery a, IsXML b) => Method -> ByteString -> a -> AWS (RawRequest AutoScaling b)
-req meth action qry = return $ (emptyRequest meth FormEncoded empty Nothing)
+req :: (IsQuery a, IsXML b) => Method -> ByteString -> a -> RawRequest AutoScaling b
+req meth action qry = (emptyRequest meth FormEncoded empty Nothing)
     { rqAction = Just action
     , rqQuery  = toQuery qry
     }

@@ -4,6 +4,7 @@
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE StandaloneDeriving         #-}
 
 -- Module      : Network.AWS.Internal.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,16 +23,18 @@ import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Data.Aeson
-import           Data.ByteString               (ByteString)
-import qualified Data.ByteString.Char8         as BS
-import           Data.Map                      (Map)
-import qualified Data.Map                      as Map
+import           Data.ByteString        (ByteString)
+import qualified Data.ByteString.Char8  as BS
+import           Data.Map               (Map)
+import qualified Data.Map               as Map
 import           Data.Maybe
 import           Data.Monoid
+import           Data.Text              (Text)
+import qualified Data.Text              as Text
+import           Data.Text.Encoding
 import           Data.Time
-import           Network.Http.Client           hiding (ContentType, post, put)
-import           System.IO.Streams             (InputStream)
-import           System.Locale                 (defaultTimeLocale)
+import           Network.Http.Client    hiding (ContentType, post, put)
+import           System.Locale          (defaultTimeLocale)
 
 data Region
     = NorthVirgnia
@@ -76,11 +79,14 @@ data Env = Env
 
 data ContentType
     = FormEncoded
-    | Xml
+    | XML
+
+instance Show ContentType where
+    show = BS.unpack . toBS
 
 instance IsByteString ContentType where
     toBS FormEncoded = "application/x-www-form-urlencoded"
-    toBS Xml         = "application/xml"
+    toBS XML         = "application/xml"
 
 newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
@@ -95,15 +101,26 @@ data RawRequest s b where
                   , rqPath    :: !(Maybe ByteString)
                   , rqHeaders :: !(Map ByteString ByteString)
                   , rqQuery   :: ![(ByteString, ByteString)]
-                  , rqBody    :: !(Maybe (InputStream ByteString))
+                  , rqBody    :: !(Maybe ByteString)
                   }
                 -> RawRequest s b
+
+deriving instance Show (RawRequest s b)
+
+instance ToJSON (RawRequest s b) where
+    toJSON RawRequest{..} = object
+        [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
+        , "rqContent" .= (String $ toText rqContent)
+        , "rqAction"  .= rqAction
+        , "rqPath"    .= rqPath
+        , "rqQuery"   .= rqQuery
+        ]
 
 emptyRequest :: IsByteString p
              => Method
              -> ContentType
              -> p
-             -> Maybe (InputStream ByteString)
+             -> Maybe ByteString
              -> RawRequest s b
 emptyRequest meth content path body = RawRequest
     { rqMethod  = meth
@@ -113,20 +130,16 @@ emptyRequest meth content path body = RawRequest
     , rqQuery   = []
     , rqBody    = body
     , rqPath    = let p = toBS path
-                  in if BS.null p then Nothing else Just p
+                  in if BS.null p
+                         then Nothing
+                         else Just p
     }
 
 data SignedRequest = SignedRequest
     { rqUrl     :: !ByteString
-    , rqStream  :: !(Maybe (InputStream ByteString))
+    , rqPayload :: !(Maybe ByteString)
     , rqRequest :: !Request
-    }
-
-instance Show SignedRequest where
-    show SignedRequest{..} = "SignedRequest: "
-        ++ show rqUrl
-        ++ "\n"
-        ++ show rqRequest
+    } deriving (Show)
 
 data SigningVersion
     = SigningVersion2
@@ -153,13 +166,16 @@ class AWSService s where
     service :: RawRequest s b -> AWS Service
 
 class AWSRequest s a b | a -> s b where
-    request :: a -> AWS (RawRequest s b)
+    request :: a -> RawRequest s b
 
 class Template a where
     readTemplate :: a -> ByteString
 
 class IsByteString a where
-    toBS :: a -> ByteString
+    toBS   :: a -> ByteString
+    toText :: a -> Text
+
+    toText = decodeUtf8 . toBS
 
 instance IsByteString ByteString where
     toBS = id

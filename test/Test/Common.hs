@@ -1,5 +1,11 @@
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+
+{-# LANGUAGE ScopedTypeVariables   #-}
+{-# LANGUAGE UndecidableInstances             #-}
+
 
 -- Module      : Test.Common
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,6 +40,7 @@ import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import qualified Data.ByteString.Lazy.Char8           as LBS
 import           Data.List                            ((\\))
+import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Internal                 as Common hiding (Query)
 import           Network.HTTP.Types                   (urlEncode, urlDecode)
@@ -54,58 +61,63 @@ testVersion ver = plusTestOptions
 class TestProperty a where
     prop :: a -> Bool
 
+data Plain
 data Query
 data XML
 
-type Rq t a = Request t a -> Bool
-type Rs a   = Response a  -> Bool
+type Rq a = Request  a -> Bool
+type Rs a = Response a -> Bool
 
-data Request t a = Request
-    { rqRequest  :: a
-    , rqTemplate :: ByteString
-    , rqEncoded  :: ByteString
-    , rqDiff     :: [String]
-    , rqParsed   :: Either String a
-    }
+data Request a where
+    Request :: AWSRequest s a b
+            => { trqRequest  :: a
+               , trqRaw      :: RawRequest s b
+               , trqEncoded  :: ByteString
+               , trqTemplate :: ByteString
+               , trqDiff     :: [String]
+               }
+            -> Request a
 
-instance (Eq a, Arbitrary a) => TestProperty (Request t a) where
-    prop Request{..} = (&&)
-        (either (const False) (== rqRequest) rqParsed)
-        (all null rqDiff)
+instance (Eq a, Arbitrary a) => TestProperty (Request a) where
+    prop = all null . trqDiff
 
-instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, IsXML a)
-         => Arbitrary (Request XML a) where
+instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, AWSRequest s a b)
+         => Arbitrary (Request a) where
     arbitrary = do
-        xml <- arbitrary
-        let tmpl = render xml
-            enc  = toIndentedXML 2 xml
-            diff = difference enc tmpl
-        return . Request xml tmpl enc diff $ fromXML tmpl
+        rq <- arbitrary
+        let raw  = request rq
+            enc  = encode raw
+            tmpl = render rq raw
+            diff = difference tmpl enc
+        return $ Request rq raw enc tmpl diff
+      where
+        encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
+            [ BS.pack (show rqMethod) <> " " <> fromMaybe "/" rqPath
+            , fromMaybe "" rqBody
+            ]
 
-instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, IsQuery a)
-         => Arbitrary (Request Query a) where
-    arbitrary = do
-        qry <- arbitrary
-        let tmpl = render qry
-            enc  = encodeQuery (urlEncode True) $ toQuery qry
-            dec  = fromQuery $ decodeQuery (urlDecode True) tmpl
-            diff = difference enc tmpl
-        return $ Request qry tmpl enc diff dec
+        render x y = unsafePerformIO $
+            LBS.toStrict <$> hastacheStr defaultConfig
+                (readTemplate x)
+                (jsonValueContext $ concatJSON (toJSON x) (toJSON y))
 
-instance Show a => Show (Request t a) where
-    show Request{..} = unlines
+        concatJSON (Object x) (Object y) = Object $ x <> y
+        concatJSON _          y          = y
+
+instance Show a => Show (Request a) where
+    show Request{..} = unlines $
         [ "[Request]"
-        , show rqRequest
+        , show trqRequest
         , ""
-        , "[Parsed]"
-        , show rqParsed
+        , "[Raw]"
+        , show trqRaw
         , ""
-        , "[Template]"
-        , formatBS rqTemplate
         , "[Encoded]"
-        , formatBS rqEncoded
+        , formatBS trqEncoded
+        , "[Template]"
+        , formatBS trqTemplate
         , "[Diff]"
-        , formatLines rqDiff
+        , if all null trqDiff then "<identical>" else formatLines trqDiff
         ]
 
 data Response a = Response
@@ -125,6 +137,11 @@ instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
         let tmpl = render rsp
             xml  = toIndentedXML 2 rsp
         return . Response rsp tmpl xml $ fromXML tmpl
+      where
+        render x = unsafePerformIO $
+            LBS.toStrict <$> hastacheStr defaultConfig
+                (readTemplate x)
+                (jsonValueContext $ toJSON x)
 
 instance Show a => Show (Response a) where
     show Response{..} = unlines
@@ -140,17 +157,12 @@ instance Show a => Show (Response a) where
         , formatBS rsXML
         ]
 
-render :: (Template a, ToJSON a) => a -> ByteString
-render x = unsafePerformIO $
-    LBS.toStrict <$> hastacheStr defaultConfig
-        (readTemplate x)
-        (jsonValueContext $ toJSON x)
-
 formatBS :: ByteString -> String
 formatBS = formatLines . lines . BS.unpack
 
 formatLines :: [String] -> String
 formatLines = concatMap fmt
+    . takeWhile (not . null . snd)
     . dropWhile (null . snd)
     . zipWith (,) ([1..] :: [Int])
   where

@@ -25,15 +25,20 @@ module Network.AWS.AutoScaling
       autoScalingVersion
 
     -- * Actions
-    , CreateAutoScalingGroup         (..)
-    , CreateAutoScalingGroupResponse (..)
+    , CreateAutoScalingGroup            (..)
+    , CreateAutoScalingGroupResponse    (..)
+
+    , CreateLaunchConfiguration         (..)
+    , CreateLaunchConfigurationResponse (..)
+
+    , CreateOrUpdateTags                (..)
+    , CreateOrUpdateTagsResponse        (..)
 
     -- * Data Types
     , module Network.AWS.AutoScaling.Types
     ) where
 
 import Data.ByteString               (ByteString, empty)
-import Data.Time
 import Network.AWS.AutoScaling.Types
 import Network.AWS.Internal
 import Network.Http.Client
@@ -87,40 +92,52 @@ data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 
 instance IsXML CreateAutoScalingGroupResponse
 
--- -- |
--- --
--- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html>
--- data CreateLaunchConfiguration = CreateLaunchConfiguration
---     { clcLaunchConfigurationName :: !ByteString
---     , clcImageId :: !ByteString
---     , clcKeyName :: !(Maybe ByteString)
---     , clcSecurityGroups :: !(Maybe SecurityGroups)
---     , clcUserData :: !(Maybe ByteString)
---     , clcInstanceType :: !ByteString
---     , clcKernelId :: !(Maybe ByteString)
---     , clcRamdiskId :: !(Maybe ByteString)
---     , clcBlockDeviceMappings :: !(Maybe BlockDeviceMappings)
---     , clcInstanceMonitoring :: !(Maybe InstanceMonitoring)
---     , clcSpotPrice :: !(Maybe ByteString)
---     , clcIamInstanceProfile :: !(Maybe ByteString)
---     , clcEbsOptimized :: !(Maybe Bool)
---     } deriving (Eq, Show, Generic)
+-- |
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html>
+data CreateLaunchConfiguration = CreateLaunchConfiguration
+    { clcLaunchConfigurationName :: !ByteString
+    , clcImageId                 :: !ByteString
+    , clcKeyName                 :: !(Maybe ByteString)
+    , clcSecurityGroups          :: !(Member ByteString)
+    , clcUserData                :: !(Maybe ByteString)
+    , clcInstanceType            :: !ByteString
+    , clcKernelId                :: !(Maybe ByteString)
+    , clcRamdiskId               :: !(Maybe ByteString)
+    , clcBlockDeviceMappings     :: !(Member BlockDeviceMapping)
+    , clcInstanceMonitoring      :: !InstanceMonitoring
+    , clcSpotPrice               :: !(Maybe ByteString)
+    , clcIamInstanceProfile      :: !(Maybe ByteString)
+    , clcEbsOptimized            :: !(Maybe Bool)
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery CreateLaunchConfiguration
+instance IsQuery CreateLaunchConfiguration
 
--- instance AWSRequest AutoScaling CreateLaunchConfiguration MetadataResponse where
---     request = req GET "CreateLaunchConfiguration"
+instance AWSRequest AutoScaling CreateLaunchConfiguration CreateLaunchConfigurationResponse where
+    request = req GET "CreateLaunchConfiguration"
 
--- -- |
--- --
--- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
--- newtype CreateOrUpdateTags = CreateOrUpdateTags [Tag]
---     deriving (Eq, Show, Generic)
+data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
+    { clcrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery CreateOrUpdateTags
+instance IsXML CreateLaunchConfigurationResponse
 
--- instance AWSRequest AutoScaling CreateOrUpdateTags MetadataResponse where
---     request = req GET "CreateOrUpdateTags"
+-- |
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
+newtype CreateOrUpdateTags = CreateOrUpdateTags (Member Tag)
+    deriving (Eq, Show, Generic)
+
+instance IsQuery CreateOrUpdateTags
+
+instance AWSRequest AutoScaling CreateOrUpdateTags CreateOrUpdateTagsResponse where
+    request = req GET "CreateOrUpdateTags"
+
+data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
+    { coutrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
+
+instance IsXML CreateOrUpdateTagsResponse
 
 -- -- |
 -- --

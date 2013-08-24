@@ -48,7 +48,6 @@ newtype ResourceName = ResourceName ByteString
     deriving (Eq, Show, Generic, IsByteString)
 
 instance IsQuery ResourceName
--- instance IsXML ResourceName
 
 -- --
 -- -- Types
@@ -96,6 +95,8 @@ data Tag = Tag
     } deriving (Eq, Show, Generic)
 
 instance IsQuery Tag
+
+-- instance IsQuery [Tag] where
 
 -- newtype Tags = Tags [Tag]
 --     deriving (Eq, Show, Generic)
@@ -152,24 +153,27 @@ instance IsQuery Tag
 -- newtype SecurityGroups = SecurityGroups [ByteString]
 --    deriving (Eq, Show, Generic)
 
+-- newtype SecurityGroup = SecurityGroup ByteString
+--     deriving (Eq, Show, Generic)
+
 -- -- $(deriveQS' (++ ".member") ''SecurityGroups)
 -- instance IsXML SecurityGroups
 
--- data Ebs = Ebs
---     { eSnapshotId :: !(Maybe ByteString)
---     , eVolumeSize :: !(Maybe Integer)
---     } deriving (Eq, Show, Generic)
+data Ebs = Ebs
+    { eSnapshotId :: !(Maybe ByteString)
+    , eVolumeSize :: !(Maybe Integer)
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery Ebs
+instance IsQuery Ebs
 -- instance IsXML Ebs
 
--- data BlockDeviceMapping = BlockDeviceMapping
---     { bdmVirtualName :: !(Maybe ByteString)
---     , bdmDeviceName :: !ByteString
---     , bdmEbs :: !(Maybe Ebs)
---     } deriving (Eq, Show, Generic)
+data BlockDeviceMapping = BlockDeviceMapping
+    { bdmVirtualName :: !(Maybe ByteString)
+    , bdmDeviceName  :: !ByteString
+    , bdmEbs         :: !(Maybe Ebs)
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery BlockDeviceMapping
+instance IsQuery BlockDeviceMapping
 -- instance IsXML BlockDeviceMapping
 
 -- newtype BlockDeviceMappings = BlockDeviceMappings [BlockDeviceMapping]
@@ -178,12 +182,11 @@ instance IsQuery Tag
 -- -- $(deriveQS' (++ ".member") ''BlockDeviceMappings)
 -- instance IsXML BlockDeviceMappings
 
--- data InstanceMonitoring = InstanceMonitoring
---     { imEnabled :: !(Maybe Bool)
---     } deriving (Eq, Show, Generic)
+data InstanceMonitoring = InstanceMonitoring
+    { imEnabled :: !(Maybe Bool)
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InstanceMonitoring
--- instance IsXML InstanceMonitoring
+instance IsQuery InstanceMonitoring
 
 -- newtype LaunchConfigurationNames = LaunchConfigurationNames [ResourceName]
 --    deriving (Eq, Show, Generic)

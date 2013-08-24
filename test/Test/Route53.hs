@@ -71,25 +71,14 @@ instance ToJSON CallerReference where
 instance ToJSON ChangeStatus where
     toJSON = String . Text.pack . show
 
-$(deriveJSON
-    [ ''DelegationSet
-    , ''ChangeInfo
-    , ''Config
-    , ''HostedZone
-    , ''ResourceRecords
-    , ''ResourceRecordSet
-    , ''HealthCheck
-    , ''HealthCheckConfig
-    , ''RecordAction
-    , ''RecordType
-    , ''Protocol
+$(deriveArbitrary
+    [ ''CallerReference
+    , ''ChangeStatus
     ])
 
-$(deriveArbitrary
+$(deriveDependency
     [ ''DelegationSet
-    , ''CallerReference
     , ''ChangeInfo
-    , ''ChangeStatus
     , ''Config
     , ''HostedZone
     , ''ResourceRecords

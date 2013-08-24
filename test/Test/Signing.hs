@@ -2,7 +2,7 @@
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
--- Module      : Test.AutoScaling
+-- Module      : Test.Signing
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,12 +12,21 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Test.AutoScaling (tests) where
+module Test.Signing (tests) where
 
-import qualified Data.Text               as Text
-import           Data.Text.Encoding
-import           Network.AWS.AutoScaling
-import           Test.Common
+import Network.AWS.Internal
+import Test.Common
 
 tests :: [Test]
-tests = (:[]) $ testVersion autoScalingVersion []
+tests =
+    [ testVersion "Version4"
+        [
+
+        ]
+    ]
+
+-- <file-name>.req—the web request to be signed.
+-- <file-name>.creq—the resulting canonical request.
+-- <file-name>.sts—the resulting string to sign.
+-- <file-name>.authz—the authorization header.
+-- <file-name>.sreq— the signed request.

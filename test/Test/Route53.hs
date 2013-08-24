@@ -19,8 +19,8 @@ import           Data.Text.Encoding
 import           Network.AWS.Route53
 import           Test.Common
 
-tests :: Test
-tests = testVersion route53Version
+tests :: [Test]
+tests = (:[]) $ testVersion route53Version
     [ testGroup "Hosted Zones"
         [ testGroup "Requests"
             [ testProperty "CreateHostedZone" (prop :: Rq XML CreateHostedZone)

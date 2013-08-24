@@ -21,50 +21,50 @@ module Network.AWS.Route53
     -- * Route53 API Version
       route53Version
 
-    -- * Hosted Zones
-    -- ** CreateHostedZone
+    -- * Actions on Hosted Zones
+    -- ** POST CreateHostedZone
     , CreateHostedZone                 (..)
     , CreateHostedZoneResponse         (..)
 
-    -- ** GetHostedZone
+    -- ** GET GetHostedZone
     , GetHostedZone                    (..)
     , GetHostedZoneResponse            (..)
 
-    -- ** ListHostedZones
+    -- ** GET ListHostedZones
     , ListHostedZones                  (..)
     , ListHostedZonesResponse          (..)
 
-    -- ** DeleteHostedZone
+    -- ** DELETE DeleteHostedZone
     , DeleteHostedZone                 (..)
     , DeleteHostedZoneResponse         (..)
 
-    -- * Record Sets
-    -- ** ChangeResourceRecordSets
+    -- * Actions on Record Sets
+    -- ** POST ChangeResourceRecordSets
     , ChangeResourceRecordSets         (..)
     , ChangeResourceRecordSetsResponse (..)
 
-    -- ** ListResourceRecordSets
+    -- ** GET ListResourceRecordSets
     , ListResourceRecordSets           (..)
     , ListResourceRecordSetsResponse   (..)
 
-    -- ** GetChange
+    -- ** GET GetChange
     , GetChange                        (..)
     , GetChangeResponse                (..)
 
-    -- * Health Checks
-    -- ** CreateHealthCheck
+    -- * Actions on Health Checks
+    -- ** POST CreateHealthCheck
     , CreateHealthCheck                (..)
     , CreateHealthCheckResponse
 
-    -- ** GetHealthCheck
+    -- ** GET GetHealthCheck
     , GetHealthCheck                   (..)
     , GetHealthCheckResponse
 
-    -- ** ListHealthChecks
+    -- ** GET ListHealthChecks
     , ListHealthChecks                 (..)
     , ListHealthChecksResponse         (..)
 
-    -- ** DeleteHealthCheck
+    -- ** DELETE DeleteHealthCheck
     , DeleteHealthCheck                (..)
     , DeleteHealthCheckResponse        (..)
 

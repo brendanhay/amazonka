@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
+   <ChangeBatch>
+      <Comment>optional comment about the changes in this 
+         change batch request</Comment>
+      <Changes>
+         <Change>
+            <Action>CREATE | DELETE</Action>
+            <ResourceRecordSet>
+               <Name>DNS domain name</Name>
+               <Type>DNS record type</Type>
+               <SetIdentifier>unique description for this 
+                  resource record set</SetIdentifier>
+               <Weight>value between 0 and 255</Weight>
+               <AliasTarget>
+                  <HostedZoneId>hosted zone ID for your 
+                     CloudFront distribution, Amazon S3 bucket, 
+                     Elastic Load Balancing load balancer, 
+                     or Route 53 hosted zone</HostedZoneId>
+                  <DNSName>DNS domain name for your 
+                     CloudFront distribution, Amazon S3 bucket, 
+                     Elastic Load Balancing load balancer, 
+                     or another resource record set 
+                     in this hosted zone</DNSName>
+                  <EvaluateTargetHealth>true | false</EvaluateTargetHealth>
+               </AliasTarget>
+               <HealthCheckId>optional ID of a 
+                  Route 53 health check</HealthCheckId>
+            </ResourceRecordSet>
+         </Change>
+         ...
+      </Changes>
+   </ChangeBatch>
+</ChangeResourceRecordSetsRequest>

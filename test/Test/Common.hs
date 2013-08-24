@@ -1,4 +1,5 @@
-{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Test.Common
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,8 +17,10 @@ module Test.Common
       testVersion
 
     -- * Properties
-    , XMLRq
-    , XMLRs
+    , Query
+    , XML
+    , Rq
+    , Rs
     , prop
 
     -- * Re-used Imports
@@ -32,7 +35,8 @@ import qualified Data.ByteString.Char8                as BS
 import qualified Data.ByteString.Lazy.Char8           as LBS
 import           Data.List                            ((\\))
 import           Data.Monoid
-import           Network.AWS.Internal                 as Common
+import           Network.AWS.Internal                 as Common hiding (Query)
+import           Network.HTTP.Types                   (urlEncode, urlDecode)
 import           System.IO.Unsafe                     (unsafePerformIO)
 import           Test.Arbitrary                       ()
 import           Test.Framework                       as Test
@@ -42,42 +46,56 @@ import           Test.TH                              as Test
 import           Text.Hastache
 import           Text.Hastache.Aeson
 
+
 testVersion :: ByteString -> [Test] -> Test
 testVersion ver = plusTestOptions
     (mempty { topt_maximum_test_size = Just 50 }) . testGroup (BS.unpack ver)
 
-type XMLRq a = XMLRequest  a -> Bool
-type XMLRs a = XMLResponse a -> Bool
-
 class TestProperty a where
     prop :: a -> Bool
 
-data XMLRequest a = XMLRequest
-    { rqBody     :: a
+data Query
+data XML
+
+type Rq t a = Request t a -> Bool
+type Rs a   = Response a  -> Bool
+
+data Request t a = Request
+    { rqRequest  :: a
     , rqTemplate :: ByteString
-    , rqXML      :: ByteString
+    , rqEncoded  :: ByteString
     , rqDiff     :: [String]
     , rqParsed   :: Either String a
     }
 
-instance (Eq a, Arbitrary a) => TestProperty (XMLRequest a) where
-    prop XMLRequest{..} = (&&)
-        (either (const False) (== rqBody) rqParsed)
+instance (Eq a, Arbitrary a) => TestProperty (Request t a) where
+    prop Request{..} = (&&)
+        (either (const False) (== rqRequest) rqParsed)
         (all null rqDiff)
 
-instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
-         => Arbitrary (XMLRequest a) where
+instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, IsXML a)
+         => Arbitrary (Request XML a) where
     arbitrary = do
-        rq <- arbitrary
-        let tmpl = render rq
-            xml  = toIndentedXML 2 rq
-            diff = difference xml tmpl
-        return . XMLRequest rq tmpl xml diff $ fromXML tmpl
+        xml <- arbitrary
+        let tmpl = render xml
+            enc  = toIndentedXML 2 xml
+            diff = difference enc tmpl
+        return . Request xml tmpl enc diff $ fromXML tmpl
 
-instance Show a => Show (XMLRequest a) where
-    show XMLRequest{..} = unlines
+instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, IsQuery a)
+         => Arbitrary (Request Query a) where
+    arbitrary = do
+        qry <- arbitrary
+        let tmpl = render qry
+            enc  = encodeQuery (urlEncode True) $ toQuery qry
+            dec  = fromQuery $ decodeQuery (urlDecode True) tmpl
+            diff = difference enc tmpl
+        return $ Request qry tmpl enc diff dec
+
+instance Show a => Show (Request t a) where
+    show Request{..} = unlines
         [ "[Request]"
-        , show rqBody
+        , show rqRequest
         , ""
         , "[Parsed]"
         , show rqParsed
@@ -85,33 +103,33 @@ instance Show a => Show (XMLRequest a) where
         , "[Template]"
         , formatBS rqTemplate
         , "[Encoded]"
-        , formatBS rqXML
+        , formatBS rqEncoded
         , "[Diff]"
         , formatLines rqDiff
         ]
 
-data XMLResponse a = XMLResponse
-    { rsResponse :: a
+data Response a = Response
+    { rsContent  :: a
     , rsTemplate :: ByteString
     , rsXML      :: ByteString
     , rsParsed   :: Either String a
     }
 
-instance (Eq a, Arbitrary a) => TestProperty (XMLResponse a) where
-    prop XMLResponse{..} = either (const False) (== rsResponse) rsParsed
+instance (Eq a, Arbitrary a) => TestProperty (Response a) where
+    prop Response{..} = either (const False) (== rsContent) rsParsed
 
 instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
-         => Arbitrary (XMLResponse a) where
+         => Arbitrary (Response a) where
     arbitrary = do
         rsp <- arbitrary
         let tmpl = render rsp
             xml  = toIndentedXML 2 rsp
-        return . XMLResponse rsp tmpl xml $ fromXML tmpl
+        return . Response rsp tmpl xml $ fromXML tmpl
 
-instance Show a => Show (XMLResponse a) where
-    show XMLResponse{..} = unlines
+instance Show a => Show (Response a) where
+    show Response{..} = unlines
         [ "[Response]"
-        , show rsResponse
+        , show rsContent
         , ""
         , "[Parsed]"
         , show rsParsed

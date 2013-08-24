@@ -18,7 +18,8 @@ extra-source-files:
     README.md
 
 data-files:
-      test/resources/Route53/V20121212/*.tmpl
+      test/resources/AutoScaling/*.tmpl
+    , test/resources/Route53/*.tmpl
 
 source-repository head
     type:     git
@@ -48,8 +49,6 @@ library
 
       , Network.AWS.Route53
       , Network.AWS.Route53.Types
-
-      , Paths_aws_haskell
 
     other-modules:
 
@@ -98,6 +97,7 @@ test-suite aws-haskell-tests
       , hastache
       , hastache-aeson
       , hexpat-pickle-generic      >= 0.1.3
+      , http-types
       , HUnit
       , old-locale
       , QuickCheck                 >= 2.5.1.1

@@ -23,17 +23,50 @@ tests :: Test
 tests = testVersion route53Version
     [ testGroup "Hosted Zones"
         [ testGroup "Requests"
-            [ testProperty "Create" (prop :: XMLRq CreateHostedZone)
+            [ testProperty "CreateHostedZone" (prop :: Rq XML CreateHostedZone)
+            , testProperty "GetHostedZone"    (prop :: Rq Query GetHostedZone)
+            , testProperty "ListHostedZones"  (prop :: Rq Query ListHostedZones)
+            , testProperty "DeleteHostedZone" (prop :: Rq Query DeleteHostedZone)
             ]
         , testGroup "Responses"
-            [ testProperty "Create" (prop :: XMLRs CreateHostedZoneResponse)
-            , testProperty "Delete" (prop :: XMLRs DeleteHostedZoneResponse)
-            , testProperty "Get"    (prop :: XMLRs GetHostedZoneResponse)
-            , testProperty "List"   (prop :: XMLRs ListHostedZonesResponse)
+            [ testProperty "CreateHostedZoneResponse" (prop :: Rs CreateHostedZoneResponse)
+            , testProperty "GetHostedZoneResponse"    (prop :: Rs GetHostedZoneResponse)
+            , testProperty "ListHostedZonesResponse"  (prop :: Rs ListHostedZonesResponse)
+            , testProperty "DeleteHostedZoneResponse" (prop :: Rs DeleteHostedZoneResponse)
+            ]
+        ]
+
+    , testGroup "Record Sets"
+        [ testGroup "Requests"
+            [ testProperty "ChangeResourceRecordSets" (prop :: Rq XML ChangeResourceRecordSets)
+            , testProperty "ListResourceRecordSets"   (prop :: Rq Query ListResourceRecordSets)
+            , testProperty "GetChange"                (prop :: Rq Query GetChange)
+            ]
+        , testGroup "Responses"
+            [ testProperty "ChangeResourceRecordSetsResponse" (prop :: Rs ChangeResourceRecordSetsResponse)
+            , testProperty "ListResourceRecordSetsResponse"   (prop :: Rs ListResourceRecordSetsResponse)
+            , testProperty "GetChangeResponse"                (prop :: Rs GetChangeResponse)
+            ]
+        ]
+
+    , testGroup "Health Checks"
+        [ testGroup "Requests"
+            [ testProperty "CreateHealthCheck" (prop :: Rq XML CreateHealthCheck)
+            , testProperty "GetHealthCheck"    (prop :: Rq Query GetHealthCheck)
+            , testProperty "ListHealthChecks"  (prop :: Rq Query ListHealthChecks)
+            , testProperty "DeleteHealthCheck" (prop :: Rq Query DeleteHealthCheck)
+            ]
+        , testGroup "Responses"
+            [ testProperty "CreateHealthCheckResponse" (prop :: Rq XML CreateHealthCheckResponse)
+            , testProperty "GetHealthCheckResponse"    (prop :: Rs GetHealthCheckResponse)
+            , testProperty "ListHealthChecksResponse"  (prop :: Rs ListHealthChecksResponse)
+            , testProperty "DeleteHealthCheckResponse" (prop :: Rs DeleteHealthCheckResponse)
             ]
         ]
     ]
 
+How to test actual query strings ? like GET /resource/id
+n
 instance ToJSON CallerReference where
     toJSON = String . decodeUtf8 . unCallerReference
 
@@ -56,17 +89,24 @@ $(deriveArbitrary
     , ''HostedZone
     ])
 
-$(deriveProperty "test/resources/Route53/V20121212"
+$(deriveProperty "test/resources/Route53"
     [ ''CreateHostedZone
     , ''CreateHostedZoneResponse
-    , ''DeleteHostedZoneResponse
+    , ''GetHostedZone
     , ''GetHostedZoneResponse
+    , ''ListHostedZones
     , ''ListHostedZonesResponse
+    , ''DeleteHostedZone
+    , ''DeleteHostedZoneResponse
+    , ''ChangeResourceRecordSets
+    , ''ChangeResourceRecordSetsResponse
+    , ''ListResourceRecordSets
+    , ''ListResourceRecordSetsResponse
+    , ''GetChange
+    , ''GetChangeResponse
+    , ''CreateHealthCheck
+    , ''GetHealthCheck
+    , ''ListHealthChecks
+    , ''ListHealthChecksResponse
+    , ''DeleteHealthCheck
     ])
-
- -- ''ChangeResourceRecordSetsResponse
- -- ''DeleteHealthCheckResponse
- -- ''GetChangeResponse
- -- ''ListHealthChecksResponse
- -- ''ListHostedZonesResponse
- -- ''ListResourceRecordSetsResponse

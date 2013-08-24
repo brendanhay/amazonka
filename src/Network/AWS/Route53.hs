@@ -18,25 +18,55 @@
 -- | Route 53 is a web service that enables you to manage your DNS records.
 module Network.AWS.Route53
     (
-    -- * Version
+    -- * Route53 API Version
       route53Version
 
     -- * Hosted Zones
-    , CreateHostedZone         (..)
-    , GetHostedZone            (..)
-    , ListHostedZones          (..)
-    , DeleteHostedZone         (..)
+    -- ** CreateHostedZone
+    , CreateHostedZone                 (..)
+    , CreateHostedZoneResponse         (..)
+
+    -- ** GetHostedZone
+    , GetHostedZone                    (..)
+    , GetHostedZoneResponse            (..)
+
+    -- ** ListHostedZones
+    , ListHostedZones                  (..)
+    , ListHostedZonesResponse          (..)
+
+    -- ** DeleteHostedZone
+    , DeleteHostedZone                 (..)
+    , DeleteHostedZoneResponse         (..)
 
     -- * Record Sets
-    , ChangeResourceRecordSets (..)
-    , ListResourceRecordSets   (..)
-    , GetChange                (..)
+    -- ** ChangeResourceRecordSets
+    , ChangeResourceRecordSets         (..)
+    , ChangeResourceRecordSetsResponse (..)
+
+    -- ** ListResourceRecordSets
+    , ListResourceRecordSets           (..)
+    , ListResourceRecordSetsResponse   (..)
+
+    -- ** GetChange
+    , GetChange                        (..)
+    , GetChangeResponse                (..)
 
     -- * Health Checks
-    , CreateHealthCheck        (..)
-    , GetHealthCheck           (..)
-    , ListHealthChecks         (..)
-    , DeleteHealthCheck        (..)
+    -- ** CreateHealthCheck
+    , CreateHealthCheck                (..)
+    , CreateHealthCheckResponse
+
+    -- ** GetHealthCheck
+    , GetHealthCheck                   (..)
+    , GetHealthCheckResponse
+
+    -- ** ListHealthChecks
+    , ListHealthChecks                 (..)
+    , ListHealthChecksResponse         (..)
+
+    -- ** DeleteHealthCheck
+    , DeleteHealthCheck                (..)
+    , DeleteHealthCheckResponse        (..)
 
     -- * Route53 Types
     , module Network.AWS.Route53.Types
@@ -91,6 +121,14 @@ instance IsXML CreateHostedZone where
 instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
     request = body POST "hostedzone"
 
+data CreateHostedZoneResponse = CreateHostedZoneResponse
+    { chzrHostedZone    :: !HostedZone
+    , chzrChangeInfo    :: !ChangeInfo
+    , chzrDelegationSet :: !DelegationSet
+    } deriving (Eq, Show, Generic)
+
+instance IsXML CreateHostedZoneResponse
+
 -- | Gets information about a specified hosted zone.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
@@ -99,6 +137,13 @@ newtype GetHostedZone = GetHostedZone ByteString
 
 instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
     request chk = req GET ("hostedzone/" <> toBS chk) ()
+
+data GetHostedZoneResponse = GetHostedZoneResponse
+    { ghzrHostedZone    :: !HostedZone
+    , ghzrDelegationSet :: !DelegationSet
+    } deriving (Eq, Show, Generic)
+
+instance IsXML GetHostedZoneResponse
 
 -- | Gets a list of the hosted zones that are associated with the
 -- current AWS account.
@@ -115,6 +160,16 @@ instance IsQuery ListHostedZones where
 instance AWSRequest R53 ListHostedZones ListHostedZonesResponse where
     request = req GET "hostedzone"
 
+data ListHostedZonesResponse = ListHostedZonesResponse
+    { lhzrHostedZones :: ![HostedZone]
+    , lhzrIsTruncated :: !Bool
+    , lhzrMarker      :: !ByteString
+    , lhzrNextMarker  :: !(Maybe ByteString)
+    , lhzrMaxItems    :: !Integer
+    } deriving (Eq, Show, Generic)
+
+instance IsXML ListHostedZonesResponse
+
 -- | Deletes a hosted zone.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
@@ -123,6 +178,12 @@ newtype DeleteHostedZone = DeleteHostedZone ByteString
 
 instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
     request chk = req DELETE ("hostedzone/" <> toBS chk) ()
+
+data DeleteHostedZoneResponse = DeleteHostedZoneResponse
+    { dhzrChangeInfo :: !ChangeInfo
+    } deriving (Eq, Show, Generic)
+
+instance IsXML DeleteHostedZoneResponse
 
 --
 -- Record Sets
@@ -143,6 +204,12 @@ instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsRespons
     request rs@ChangeResourceRecordSets{..} =
         body POST ("hostedzone/" <> crrsZoneId <> "/rrset") rs
 
+data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
+    { crrsrChangeInfo :: !ChangeInfo
+    } deriving (Eq, Show, Generic)
+
+instance IsXML ChangeResourceRecordSetsResponse
+
 -- | Lists details about all of the resource record sets in a hosted zone.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html>
@@ -161,6 +228,12 @@ instance AWSRequest R53 ListResourceRecordSets ListResourceRecordSetsResponse wh
     request rs@ListResourceRecordSets{..} =
         req GET ("hostedzone/" <> lrrsZoneId <> "/rrset") rs
 
+data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
+    deriving (Eq, Read, Show, Generic)
+
+instance IsXML ListResourceRecordSetsResponse where
+    xmlPickler = xpEmpty
+
 -- | Returns the current status of a change batch request that you
 -- submitted by using ChangeResourceRecordSets.
 --
@@ -170,6 +243,12 @@ newtype GetChange = GetChange ByteString
 
 instance AWSRequest R53 GetChange GetChangeResponse where
     request chk = req GET ("change/" <> toBS chk) ()
+
+data GetChangeResponse = GetChangeResponse
+    { gcrChangeInfo :: !ChangeInfo
+    } deriving (Eq, Show, Generic)
+
+instance IsXML GetChangeResponse
 
 --
 -- Health Checks
@@ -188,6 +267,8 @@ instance IsXML CreateHealthCheck
 instance AWSRequest R53 CreateHealthCheck CreateHealthCheckResponse where
     request = body POST "healthcheck"
 
+type CreateHealthCheckResponse = HealthCheck
+
 -- | Gets information about a specified health check.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>
@@ -196,6 +277,8 @@ newtype GetHealthCheck = GetHealthCheck ByteString
 
 instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
     request chk = req GET ("healthcheck/" <> toBS chk) ()
+
+type GetHealthCheckResponse = HealthCheck
 
 -- | Gets a list of the health checks that are associated
 -- with the current AWS account.
@@ -212,6 +295,16 @@ instance IsQuery ListHealthChecks where
 instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
     request = req GET "healthcheck"
 
+data ListHealthChecksResponse = ListHealthChecksResponse
+    { lhcrIsTruncated  :: !ByteString
+    , lhcrHealthChecks :: ![HealthCheck]
+    , lhcrMaxItems     :: !ByteString
+    , lhcrMarker       :: !(Maybe ByteString)
+    , lhcrNextMarker   :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
+
+instance IsXML ListHealthChecksResponse
+
 -- | Deletes a health check.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
@@ -220,3 +313,9 @@ newtype DeleteHealthCheck = DeleteHealthCheck ByteString
 
 instance AWSRequest R53 DeleteHealthCheck DeleteHealthCheckResponse where
     request chk = req DELETE ("healthcheck/" <> toBS chk) ()
+
+data DeleteHealthCheckResponse = DeleteHealthCheckResponse
+    deriving (Eq, Read, Show, Generic)
+
+instance IsXML DeleteHealthCheckResponse where
+    xmlPickler = xpEmpty

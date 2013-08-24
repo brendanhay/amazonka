@@ -10,16 +10,23 @@
 
 module Network.AWS.Internal
     (
-    -- * Re-exported
-      module Generics
-    , module Internal
+    -- * Convenience
+      module GHC.Generics
+    , module Network.HTTP.QueryString.Pickle
+    , module Text.XML.Expat.Pickle.Generic
+
+    -- * Internal Modules
+    , module Network.AWS.Internal.Instances
+    , module Network.AWS.Internal.Signing
+    , module Network.AWS.Internal.String
+    , module Network.AWS.Internal.Types
     ) where
 
-import GHC.Generics                    as Generics
-import Network.HTTP.QueryString.Pickle as Generics
-import Text.XML.Expat.Pickle.Generic   as Generics
+import GHC.Generics
+import Network.HTTP.QueryString.Pickle
+import Text.XML.Expat.Pickle.Generic
 
-import Network.AWS.Internal.Instances  as Internal
-import Network.AWS.Internal.Signing    as Internal
-import Network.AWS.Internal.String     as Internal
-import Network.AWS.Internal.Types      as Internal
+import Network.AWS.Internal.Instances
+import Network.AWS.Internal.Signing
+import Network.AWS.Internal.String
+import Network.AWS.Internal.Types

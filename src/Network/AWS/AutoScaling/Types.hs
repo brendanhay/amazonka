@@ -17,32 +17,32 @@
 module Network.AWS.AutoScaling.Types where
 
 import Data.ByteString      (ByteString)
-import Data.Time
 import Network.AWS.Internal
 
 --
 -- Common
 --
 
--- data ResponseMetadata = ResponseMetadata
---     { rmRequestId :: !ByteString
---     } deriving (Eq, Show, Generic)
+data ResponseMetadata = ResponseMetadata
+    { rmRequestId :: !ByteString
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML ResponseMetadata
+instance IsXML ResponseMetadata
 
--- data ErrorType = Receiver | Sender
---     deriving (Eq, Show, Generic)
+data ErrorType = Receiver | Sender
+    deriving (Eq, Show, Read, Generic)
 
--- instance IsXML ErrorType
+instance IsXML ErrorType where
+    xmlPickler = xpContent xpPrim
 
--- data Error = Error
---     { eType :: !ErrorType
---     , eCode :: !ByteString
---     , eMessage :: !ByteString
---     , eDetail :: !ByteString
---     } deriving (Eq, Show, Generic)
+data Error = Error
+    { eType    :: !ErrorType
+    , eCode    :: !ByteString
+    , eMessage :: !ByteString
+    , eDetail  :: !ByteString
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML Error
+instance IsXML Error
 
 newtype ResourceName = ResourceName ByteString
     deriving (Eq, Show, Generic, IsByteString)
@@ -88,10 +88,10 @@ instance IsQuery ResourceName
 -- instance IsXML SuspendedProcesses
 
 data Tag = Tag
-    { tResourceId :: !(Maybe ByteString)
-    , tResourceType :: !(Maybe ByteString)
-    , tKey :: !ByteString
-    , tValue :: !(Maybe ByteString)
+    { tResourceId        :: !(Maybe ByteString)
+    , tResourceType      :: !(Maybe ByteString)
+    , tKey               :: !ByteString
+    , tValue             :: !(Maybe ByteString)
     , tPropagateAtLaunch :: !(Maybe Bool)
     } deriving (Eq, Show, Generic)
 

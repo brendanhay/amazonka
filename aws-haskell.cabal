@@ -44,7 +44,6 @@ library
       -- , Network.AWS.EC2.WSDL
 
       , Network.AWS.AutoScaling
-      , Network.AWS.AutoScaling.Responses
       , Network.AWS.AutoScaling.Types
 
       , Network.AWS.Route53

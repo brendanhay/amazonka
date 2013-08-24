@@ -19,219 +19,213 @@ import GHC.Generics
 import Network.AWS.AutoScaling.Types
 import Network.AWS.Internal
 
-data MetadataResponse = MetadataResponse
-    { rmrRequestId :: !ByteString
+data ErrorResponse = ErrorResponse
+    { erError :: ![Error]
+    , erRequestId :: !ByteString
     } deriving (Eq, Show, Generic)
 
-instance IsXML MetadataResponse
+instance IsXML ErrorResponse
 
--- data ErrorResponse = ErrorResponse
---     { erError :: ![Error]
---     , erRequestId :: !ByteString
---     } deriving (Eq, Show, Generic)
+data DescribeAutoScalingGroupsResult = DescribeAutoScalingGroupsResult
+    { dasgrAutoScalingGroups :: !AutoScalingGroups
+    , dasgrNextToken :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML ErrorResponse
+instance IsXML DescribeAutoScalingGroupsResult
 
--- data DescribeAutoScalingGroupsResult = DescribeAutoScalingGroupsResult
---     { dasgrAutoScalingGroups :: !AutoScalingGroups
---     , dasgrNextToken :: !(Maybe ByteString)
---     } deriving (Eq, Show, Generic)
+data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
+    { dasgrDescribeAutoScalingGroupsResult :: !DescribeAutoScalingGroupsResult
+    , dasgrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAutoScalingGroupsResult
+instance IsXML DescribeAutoScalingGroupsResponse
 
--- data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
---     { dasgrDescribeAutoScalingGroupsResult :: !DescribeAutoScalingGroupsResult
---     , dasgrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribePoliciesResult = DescribePoliciesResult
+    { dprScalingPolicies :: !(Maybe ScalingPolicies)
+    , dprNextToken :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAutoScalingGroupsResponse
+instance IsXML DescribePoliciesResult
 
--- data DescribePoliciesResult = DescribePoliciesResult
---     { dprScalingPolicies :: !(Maybe ScalingPolicies)
---     , dprNextToken :: !(Maybe ByteString)
---     } deriving (Eq, Show, Generic)
+data DescribePoliciesResponse = DescribePoliciesResponse
+    { dprDescribePoliciesResult :: !DescribePoliciesResult
+    , dprResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribePoliciesResult
+instance IsXML DescribePoliciesResponse
 
--- data DescribePoliciesResponse = DescribePoliciesResponse
---     { dprDescribePoliciesResult :: !DescribePoliciesResult
---     , dprResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeScalingProcessTypesResult = DescribeScalingProcessTypesResult
+    { dsptrProcesses :: !(Maybe Processes)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribePoliciesResponse
+instance IsXML DescribeScalingProcessTypesResult
 
--- data DescribeScalingProcessTypesResult = DescribeScalingProcessTypesResult
---     { dsptrProcesses :: !(Maybe Processes)
---     } deriving (Eq, Show, Generic)
+data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
+    { dsptrDescribeScalingProcessTypesResult :: !DescribeScalingProcessTypesResult
+    , dsptrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeScalingProcessTypesResult
+instance IsXML DescribeScalingProcessTypesResponse
 
--- data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
---     { dsptrDescribeScalingProcessTypesResult :: !DescribeScalingProcessTypesResult
---     , dsptrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeScalingActivitiesResult = DescribeScalingActivitiesResult
+    { dsarActivities :: !Activities
+    , dsarNextToken :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeScalingProcessTypesResponse
+instance IsXML DescribeScalingActivitiesResult
 
--- data DescribeScalingActivitiesResult = DescribeScalingActivitiesResult
---     { dsarActivities :: !Activities
---     , dsarNextToken :: !(Maybe ByteString)
---     } deriving (Eq, Show, Generic)
+data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
+    { dsarDescribeScalingActivitiesResult :: !DescribeScalingActivitiesResult
+    , dsarResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeScalingActivitiesResult
+instance IsXML DescribeScalingActivitiesResponse
 
--- data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
---     { dsarDescribeScalingActivitiesResult :: !DescribeScalingActivitiesResult
---     , dsarResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeNotificationConfigurationsResult = DescribeNotificationConfigurationsResult
+    { dncrNotificationConfigurations :: !NotificationConfigurations
+    , dncrNextToken :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeScalingActivitiesResponse
+instance IsXML DescribeNotificationConfigurationsResult
 
--- data DescribeNotificationConfigurationsResult = DescribeNotificationConfigurationsResult
---     { dncrNotificationConfigurations :: !NotificationConfigurations
---     , dncrNextToken :: !(Maybe ByteString)
---     } deriving (Eq, Show, Generic)
+data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
+    { dncrDescribeNotificationConfigurationsResult :: !DescribeNotificationConfigurationsResult
+    , dncrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeNotificationConfigurationsResult
+instance IsXML DescribeNotificationConfigurationsResponse
 
--- data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
---     { dncrDescribeNotificationConfigurationsResult :: !DescribeNotificationConfigurationsResult
---     , dncrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeTerminationPolicyTypesResult = DescribeTerminationPolicyTypesResult
+    { dtptrTerminationPolicyTypes :: !(Maybe TerminationPolicies)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeNotificationConfigurationsResponse
+instance IsXML DescribeTerminationPolicyTypesResult
 
--- data DescribeTerminationPolicyTypesResult = DescribeTerminationPolicyTypesResult
---     { dtptrTerminationPolicyTypes :: !(Maybe TerminationPolicies)
---     } deriving (Eq, Show, Generic)
+data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
+    { dtptrDescribeTerminationPolicyTypesResult :: !DescribeTerminationPolicyTypesResult
+    , dtptrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeTerminationPolicyTypesResult
+instance IsXML DescribeTerminationPolicyTypesResponse
 
--- data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
---     { dtptrDescribeTerminationPolicyTypesResult :: !DescribeTerminationPolicyTypesResult
---     , dtptrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeTagsResult = DescribeTagsResult
+    { dtrTags :: !(Maybe TagDescriptionList)
+    , dtrNextToken :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeTerminationPolicyTypesResponse
+instance IsXML DescribeTagsResult
 
--- data DescribeTagsResult = DescribeTagsResult
---     { dtrTags :: !(Maybe TagDescriptionList)
---     , dtrNextToken :: !(Maybe ByteString)
---     } deriving (Eq, Show, Generic)
+data DescribeTagsResponse = DescribeTagsResponse
+    { dtrDescribeTagsResult :: !DescribeTagsResult
+    , dtrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeTagsResult
+instance IsXML DescribeTagsResponse
 
--- data DescribeTagsResponse = DescribeTagsResponse
---     { dtrDescribeTagsResult :: !DescribeTagsResult
---     , dtrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data PutScalingPolicyResult = PutScalingPolicyResult
+    { psprPolicyARN :: !(Maybe ResourceName)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeTagsResponse
+instance IsXML PutScalingPolicyResult
 
--- data PutScalingPolicyResult = PutScalingPolicyResult
---     { psprPolicyARN :: !(Maybe ResourceName)
---     } deriving (Eq, Show, Generic)
+data PutScalingPolicyResponse = PutScalingPolicyResponse
+    { psprPutScalingPolicyResult :: !PutScalingPolicyResult
+    , psprResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML PutScalingPolicyResult
+instance IsXML PutScalingPolicyResponse
 
--- data PutScalingPolicyResponse = PutScalingPolicyResponse
---     { psprPutScalingPolicyResult :: !PutScalingPolicyResult
---     , psprResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeAutoScalingNotificationTypesResult = DescribeAutoScalingNotificationTypesResult
+    { dasntrAutoScalingNotificationTypes :: !(Maybe AutoScalingNotificationTypes)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML PutScalingPolicyResponse
+instance IsXML DescribeAutoScalingNotificationTypesResult
 
--- data DescribeAutoScalingNotificationTypesResult = DescribeAutoScalingNotificationTypesResult
---     { dasntrAutoScalingNotificationTypes :: !(Maybe AutoScalingNotificationTypes)
---     } deriving (Eq, Show, Generic)
+data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
+    { dasntrDescribeAutoScalingNotificationTypesResult :: !DescribeAutoScalingNotificationTypesResult
+    , dasntrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAutoScalingNotificationTypesResult
+instance IsXML DescribeAutoScalingNotificationTypesResponse
 
--- data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
---     { dasntrDescribeAutoScalingNotificationTypesResult :: !DescribeAutoScalingNotificationTypesResult
---     , dasntrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeAutoScalingInstancesResult = DescribeAutoScalingInstancesResult
+    { dasirAutoScalingInstances :: !(Maybe AutoScalingInstances)
+    , dasirNextToken :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAutoScalingNotificationTypesResponse
+instance IsXML DescribeAutoScalingInstancesResult
 
--- data DescribeAutoScalingInstancesResult = DescribeAutoScalingInstancesResult
---     { dasirAutoScalingInstances :: !(Maybe AutoScalingInstances)
---     , dasirNextToken :: !(Maybe ByteString)
---     } deriving (Eq, Show, Generic)
+data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
+    { dasirDescribeAutoScalingInstancesResult :: !DescribeAutoScalingInstancesResult
+    , dasirResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAutoScalingInstancesResult
+instance IsXML DescribeAutoScalingInstancesResponse
 
--- data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
---     { dasirDescribeAutoScalingInstancesResult :: !DescribeAutoScalingInstancesResult
---     , dasirResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeLaunchConfigurationsResult = DescribeLaunchConfigurationsResult
+    { dlcrLaunchConfigurations :: !LaunchConfigurations
+    , dlcrNextToken :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAutoScalingInstancesResponse
+instance IsXML DescribeLaunchConfigurationsResult
 
--- data DescribeLaunchConfigurationsResult = DescribeLaunchConfigurationsResult
---     { dlcrLaunchConfigurations :: !LaunchConfigurations
---     , dlcrNextToken :: !(Maybe ByteString)
---     } deriving (Eq, Show, Generic)
+data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
+    { dlcrDescribeLaunchConfigurationsResult :: !DescribeLaunchConfigurationsResult
+    , dlcrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeLaunchConfigurationsResult
+instance IsXML DescribeLaunchConfigurationsResponse
 
--- data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
---     { dlcrDescribeLaunchConfigurationsResult :: !DescribeLaunchConfigurationsResult
---     , dlcrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeAdjustmentTypesResult = DescribeAdjustmentTypesResult
+    { datrAdjustmentTypes :: !(Maybe AdjustmentTypes)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeLaunchConfigurationsResponse
+instance IsXML DescribeAdjustmentTypesResult
 
--- data DescribeAdjustmentTypesResult = DescribeAdjustmentTypesResult
---     { datrAdjustmentTypes :: !(Maybe AdjustmentTypes)
---     } deriving (Eq, Show, Generic)
+data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
+    { datrDescribeAdjustmentTypesResult :: !DescribeAdjustmentTypesResult
+    , datrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAdjustmentTypesResult
+instance IsXML DescribeAdjustmentTypesResponse
 
--- data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
---     { datrDescribeAdjustmentTypesResult :: !DescribeAdjustmentTypesResult
---     , datrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeScheduledActionsResult = DescribeScheduledActionsResult
+    { dsarrScheduledUpdateGroupActions :: !(Maybe ScheduledUpdateGroupActions)
+    , dsarrNextToken :: !(Maybe ByteString)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAdjustmentTypesResponse
+instance IsXML DescribeScheduledActionsResult
 
--- data DescribeScheduledActionsResult = DescribeScheduledActionsResult
---     { dsarrScheduledUpdateGroupActions :: !(Maybe ScheduledUpdateGroupActions)
---     , dsarrNextToken :: !(Maybe ByteString)
---     } deriving (Eq, Show, Generic)
+data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
+    { dsarrDescribeScheduledActionsResult :: !DescribeScheduledActionsResult
+    , dsarrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeScheduledActionsResult
+instance IsXML DescribeScheduledActionsResponse
 
--- data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
---     { dsarrDescribeScheduledActionsResult :: !DescribeScheduledActionsResult
---     , dsarrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data DescribeMetricCollectionTypesResult = DescribeMetricCollectionTypesResult
+    { dmctrMetrics :: !(Maybe MetricCollectionTypes)
+    , dmctrGranularities :: !(Maybe MetricGranularityTypes)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeScheduledActionsResponse
+instance IsXML DescribeMetricCollectionTypesResult
 
--- data DescribeMetricCollectionTypesResult = DescribeMetricCollectionTypesResult
---     { dmctrMetrics :: !(Maybe MetricCollectionTypes)
---     , dmctrGranularities :: !(Maybe MetricGranularityTypes)
---     } deriving (Eq, Show, Generic)
+data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
+    { dmctrDescribeMetricCollectionTypesResult :: !DescribeMetricCollectionTypesResult
+    , dmctrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeMetricCollectionTypesResult
+instance IsXML DescribeMetricCollectionTypesResponse
 
--- data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
---     { dmctrDescribeMetricCollectionTypesResult :: !DescribeMetricCollectionTypesResult
---     , dmctrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
+data TerminateInstanceInAutoScalingGroupResult = TerminateInstanceInAutoScalingGroupResult
+    { tiiasgrActivity :: !(Maybe Activity)
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeMetricCollectionTypesResponse
+instance IsXML TerminateInstanceInAutoScalingGroupResult
 
--- data TerminateInstanceInAutoScalingGroupResult = TerminateInstanceInAutoScalingGroupResult
---     { tiiasgrActivity :: !(Maybe Activity)
---     } deriving (Eq, Show, Generic)
+data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
+    { tiiasgrTerminateInstanceInAutoScalingGroupResult :: !TerminateInstanceInAutoScalingGroupResult
+    , tiiasgrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML TerminateInstanceInAutoScalingGroupResult
-
--- data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
---     { tiiasgrTerminateInstanceInAutoScalingGroupResult :: !TerminateInstanceInAutoScalingGroupResult
---     , tiiasgrResponseMetadata :: !ResponseMetadata
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML TerminateInstanceInAutoScalingGroupResponse
+instance IsXML TerminateInstanceInAutoScalingGroupResponse

@@ -68,7 +68,7 @@ module Network.AWS.Route53
     , DeleteHealthCheck                (..)
     , DeleteHealthCheckResponse        (..)
 
-    -- * Route53 Types
+    -- * Data Types
     , module Network.AWS.Route53.Types
     ) where
 

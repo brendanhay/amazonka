@@ -19,11 +19,21 @@
 --
 -- This service is used in conjunction with Amazon CloudWatch and
 -- Elastic Load Balancing services.
-module Network.AWS.AutoScaling where
+module Network.AWS.AutoScaling
+    (
+    -- * AutoScaling API Version
+      autoScalingVersion
 
-import Data.ByteString                   (ByteString, empty)
+    -- * Actions
+    , CreateAutoScalingGroup         (..)
+    , CreateAutoScalingGroupResponse (..)
+
+    -- * Data Types
+    , module Network.AWS.AutoScaling.Types
+    ) where
+
+import Data.ByteString               (ByteString, empty)
 import Data.Time
-import Network.AWS.AutoScaling.Responses
 import Network.AWS.AutoScaling.Types
 import Network.AWS.Internal
 import Network.Http.Client
@@ -36,7 +46,7 @@ instance AWSService AutoScaling where
 autoScalingVersion :: ByteString
 autoScalingVersion = "2011-01-01"
 
-req :: (IsQuery a, IsXML b) => Method -> ByteString -> a -> RawRequest AutoScaling b
+req :: IsQuery a => Method -> ByteString -> a -> RawRequest AutoScaling b
 req meth action qry = (emptyRequest meth FormEncoded empty Nothing)
     { rqAction = Just action
     , rqQuery  = toQuery qry
@@ -50,26 +60,32 @@ req meth action qry = (emptyRequest meth FormEncoded empty Nothing)
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html>
 data CreateAutoScalingGroup = CreateAutoScalingGroup
-    { casgAutoScalingGroupName :: !ByteString
+    { casgAutoScalingGroupName    :: !ByteString
     , casgLaunchConfigurationName :: !ResourceName
-    , casgMinSize :: !Integer
-    , casgMaxSize :: !Integer
-    , casgDesiredCapacity :: !(Maybe Integer)
-    , casgDefaultCooldown :: !(Maybe Integer)
-    , casgAvailabilityZones :: !(Member ByteString)
-    , casgLoadBalancerNames :: !(Member ByteString)
-    , casgHealthCheckType :: !(Maybe ByteString)
-    , casgHealthCheckGracePeriod :: !(Maybe Integer)
-    , casgPlacementGroup :: !(Maybe ByteString)
-    , casgVPCZoneIdentifier :: !(Maybe ByteString)
-    , casgTerminationPolicies :: !(Member ByteString)
-    , casgTags :: !(Member Tag)
+    , casgMinSize                 :: !Integer
+    , casgMaxSize                 :: !Integer
+    , casgDesiredCapacity         :: !(Maybe Integer)
+    , casgDefaultCooldown         :: !(Maybe Integer)
+    , casgAvailabilityZones       :: !(Member ByteString)
+    , casgLoadBalancerNames       :: !(Member ByteString)
+    , casgHealthCheckType         :: !(Maybe ByteString)
+    , casgHealthCheckGracePeriod  :: !(Maybe Integer)
+    , casgPlacementGroup          :: !(Maybe ByteString)
+    , casgVPCZoneIdentifier       :: !(Maybe ByteString)
+    , casgTerminationPolicies     :: !(Member ByteString)
+    , casgTags                    :: !(Member Tag)
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateAutoScalingGroup
 
-instance AWSRequest AutoScaling CreateAutoScalingGroup MetadataResponse where
+instance AWSRequest AutoScaling CreateAutoScalingGroup CreateAutoScalingGroupResponse where
     request = req GET "CreateAutoScalingGroup"
+
+data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
+    { casgrResponseMetadata :: !ResponseMetadata
+    } deriving (Eq, Show, Generic)
+
+instance IsXML CreateAutoScalingGroupResponse
 
 -- -- |
 -- --

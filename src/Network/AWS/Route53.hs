@@ -97,7 +97,7 @@ req meth path qry = (emptyRequest meth FormEncoded path Nothing)
 body :: IsXML a => Method -> ByteString -> a -> RawRequest R53 b
 body meth path = (emptyRequest meth XML $ "/" <> route53Version <> "/" <> path)
     . Just
-    . toIndentedXML 2 -- For Debugging/Testing purposes
+    . toIndentedXML 2 -- Indented for Debugging/Testing purposes
 
 ns :: ByteString
 ns = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"

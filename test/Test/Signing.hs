@@ -15,7 +15,6 @@
 
 module Test.Signing (tests) where
 
-import Network.AWS.Internal
 import Test.Common
 
 tests :: [Test]

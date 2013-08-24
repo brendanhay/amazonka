@@ -43,16 +43,15 @@ instance AWSService EC2 where
 ec2Version :: ByteString
 ec2Version = "2013-07-15"
 
-ec2Pickler :: XMLGeneric a
-ec2Pickler = withNS'
-    ("https://ec2.amazonaws.com/doc/" <> ec2Version <> "/")
-    (defaultXMLOptions { xmlFieldModifier = BS.pack . lowerFirst . dropLower })
-
 req :: IsQuery a => Method -> ByteString -> a -> RawRequest EC2 b
 req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
     { rqAction = Just act
     , rqQuery  = toQuery qry
     }
+
+res :: XMLGeneric a
+res = withNS' ("https://ec2.amazonaws.com/doc/" <> ec2Version <> "/")
+    (defaultXMLOptions { xmlFieldModifier = BS.pack . lowerFirst . dropLower })
 
 --
 -- Actions
@@ -78,7 +77,7 @@ data AllocateAddressResponse = AllocateAddressResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML AllocateAddressResponse where
-    xmlPickler = ec2Pickler
+    xmlPickler = res
 
 -- -- |
 -- --

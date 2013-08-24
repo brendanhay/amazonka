@@ -24,49 +24,46 @@ tests = (:[]) $ testVersion route53Version
     [ testGroup "Hosted Zones"
         [ testGroup "Requests"
             [ testProperty "CreateHostedZone" (prop :: Rq CreateHostedZone)
-    --         , testProperty "GetHostedZone"    (prop :: Rq Query GetHostedZone)
-    --         , testProperty "ListHostedZones"  (prop :: Rq Query ListHostedZones)
-    --         , testProperty "DeleteHostedZone" (prop :: Rq Query DeleteHostedZone)
+            , testProperty "GetHostedZone"    (prop :: Rq GetHostedZone)
+            , testProperty "ListHostedZones"  (prop :: Rq ListHostedZones)
+            , testProperty "DeleteHostedZone" (prop :: Rq DeleteHostedZone)
             ]
         , testGroup "Responses"
             [ testProperty "CreateHostedZoneResponse" (prop :: Rs CreateHostedZoneResponse)
+            , testProperty "GetHostedZoneResponse"    (prop :: Rs GetHostedZoneResponse)
+            , testProperty "ListHostedZonesResponse"  (prop :: Rs ListHostedZonesResponse)
+            , testProperty "DeleteHostedZoneResponse" (prop :: Rs DeleteHostedZoneResponse)
             ]
-    --         , testProperty "GetHostedZoneResponse"    (prop :: Rs GetHostedZoneResponse)
-    --         , testProperty "ListHostedZonesResponse"  (prop :: Rs ListHostedZonesResponse)
-    --         , testProperty "DeleteHostedZoneResponse" (prop :: Rs DeleteHostedZoneResponse)
-    --         ]
-    --     ]
+        ]
 
-    -- , testGroup "Record Sets"
-    --     [ testGroup "Requests"
-    --         [ testProperty "ChangeResourceRecordSets" (prop :: Rq XML ChangeResourceRecordSets)
-    --         , testProperty "ListResourceRecordSets"   (prop :: Rq Query ListResourceRecordSets)
-    --         , testProperty "GetChange"                (prop :: Rq Query GetChange)
-    --         ]
-    --     , testGroup "Responses"
-    --         [ testProperty "ChangeResourceRecordSetsResponse" (prop :: Rs ChangeResourceRecordSetsResponse)
-    --         , testProperty "ListResourceRecordSetsResponse"   (prop :: Rs ListResourceRecordSetsResponse)
-    --         , testProperty "GetChangeResponse"                (prop :: Rs GetChangeResponse)
-    --         ]
-    --     ]
+    , testGroup "Record Sets"
+        [ testGroup "Requests"
+            [ testProperty "ChangeResourceRecordSets" (prop :: Rq ChangeResourceRecordSets)
+            , testProperty "ListResourceRecordSets"   (prop :: Rq ListResourceRecordSets)
+            , testProperty "GetChange"                (prop :: Rq GetChange)
+            ]
+        , testGroup "Responses"
+            [ testProperty "ChangeResourceRecordSetsResponse" (prop :: Rs ChangeResourceRecordSetsResponse)
+            , testProperty "ListResourceRecordSetsResponse"   (prop :: Rs ListResourceRecordSetsResponse)
+            , testProperty "GetChangeResponse"                (prop :: Rs GetChangeResponse)
+            ]
+        ]
 
-    -- , testGroup "Health Checks"
-    --     [ testGroup "Requests"
-    --         [ testProperty "CreateHealthCheck" (prop :: Rq XML CreateHealthCheck)
-    --         , testProperty "GetHealthCheck"    (prop :: Rq Query GetHealthCheck)
-    --         , testProperty "ListHealthChecks"  (prop :: Rq Query ListHealthChecks)
-    --         , testProperty "DeleteHealthCheck" (prop :: Rq Query DeleteHealthCheck)
-    --         ]
-    --     , testGroup "Responses"
-    --         [ testProperty "CreateHealthCheckResponse" (prop :: Rq XML CreateHealthCheckResponse)
-    --         , testProperty "GetHealthCheckResponse"    (prop :: Rs GetHealthCheckResponse)
-    --         , testProperty "ListHealthChecksResponse"  (prop :: Rs ListHealthChecksResponse)
-    --         , testProperty "DeleteHealthCheckResponse" (prop :: Rs DeleteHealthCheckResponse)
-    --         ]
+    , testGroup "Health Checks"
+        [ testGroup "Requests"
+            [ testProperty "CreateHealthCheck" (prop :: Rq CreateHealthCheck)
+            , testProperty "GetHealthCheck"    (prop :: Rq GetHealthCheck)
+            , testProperty "ListHealthChecks"  (prop :: Rq ListHealthChecks)
+            , testProperty "DeleteHealthCheck" (prop :: Rq DeleteHealthCheck)
+            ]
+        , testGroup "Responses"
+            [ testProperty "CreateHealthCheckResponse" (prop :: Rs CreateHealthCheckResponse)
+            , testProperty "GetHealthCheckResponse"    (prop :: Rs GetHealthCheckResponse)
+            , testProperty "ListHealthChecksResponse"  (prop :: Rs ListHealthChecksResponse)
+            , testProperty "DeleteHealthCheckResponse" (prop :: Rs DeleteHealthCheckResponse)
+            ]
         ]
     ]
-
--- How to test actual query strings ? like GET /resource/id
 
 instance ToJSON CallerReference where
     toJSON = String . decodeUtf8 . unCallerReference
@@ -79,7 +76,13 @@ $(deriveJSON
     , ''ChangeInfo
     , ''Config
     , ''HostedZone
---    , ''ResourceRecordSet
+    , ''ResourceRecords
+    , ''ResourceRecordSet
+    , ''HealthCheck
+    , ''HealthCheckConfig
+    , ''RecordAction
+    , ''RecordType
+    , ''Protocol
     ])
 
 $(deriveArbitrary
@@ -89,26 +92,36 @@ $(deriveArbitrary
     , ''ChangeStatus
     , ''Config
     , ''HostedZone
+    , ''ResourceRecords
+    , ''ResourceRecordSet
+    , ''HealthCheck
+    , ''HealthCheckConfig
+    , ''RecordAction
+    , ''RecordType
+    , ''Protocol
     ])
 
 $(deriveProperty "test/resources/Route53"
     [ ''CreateHostedZone
     , ''CreateHostedZoneResponse
-    -- , ''GetHostedZone
-    -- , ''GetHostedZoneResponse
-    -- , ''ListHostedZones
-    -- , ''ListHostedZonesResponse
-    -- , ''DeleteHostedZone
-    -- , ''DeleteHostedZoneResponse
-    -- , ''ChangeResourceRecordSets
-    -- , ''ChangeResourceRecordSetsResponse
-    -- , ''ListResourceRecordSets
-    -- , ''ListResourceRecordSetsResponse
-    -- , ''GetChange
-    -- , ''GetChangeResponse
-    -- , ''CreateHealthCheck
-    -- , ''GetHealthCheck
-    -- , ''ListHealthChecks
-    -- , ''ListHealthChecksResponse
-    -- , ''DeleteHealthCheck
+    , ''GetHostedZone
+    , ''GetHostedZoneResponse
+    , ''ListHostedZones
+    , ''ListHostedZonesResponse
+    , ''DeleteHostedZone
+    , ''DeleteHostedZoneResponse
+    , ''ChangeResourceRecordSets
+    , ''ChangeResourceRecordSetsResponse
+    , ''ListResourceRecordSets
+    , ''ListResourceRecordSetsResponse
+    , ''GetChange
+    , ''GetChangeResponse
+    , ''CreateHealthCheck
+    , ''CreateHealthCheckResponse
+    , ''GetHealthCheck
+    , ''GetHealthCheckResponse
+    , ''ListHealthChecks
+    , ''ListHealthChecksResponse
+    , ''DeleteHealthCheck
+    , ''DeleteHealthCheckResponse
     ])

@@ -54,11 +54,11 @@ module Network.AWS.Route53
     -- * Actions on Health Checks
     -- ** POST CreateHealthCheck
     , CreateHealthCheck                (..)
-    , CreateHealthCheckResponse
+    , CreateHealthCheckResponse        (..)
 
     -- ** GET GetHealthCheck
     , GetHealthCheck                   (..)
-    , GetHealthCheckResponse
+    , GetHealthCheckResponse           (..)
 
     -- ** GET ListHealthChecks
     , ListHealthChecks                 (..)
@@ -134,7 +134,7 @@ instance IsXML CreateHostedZoneResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
 newtype GetHostedZone = GetHostedZone ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
     request chk = req GET ("hostedzone/" <> toBS chk) ()
@@ -175,7 +175,7 @@ instance IsXML ListHostedZonesResponse
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
 newtype DeleteHostedZone = DeleteHostedZone ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
     request chk = req DELETE ("hostedzone/" <> toBS chk) ()
@@ -240,7 +240,7 @@ instance IsXML ListResourceRecordSetsResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html>
 newtype GetChange = GetChange ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetChange GetChangeResponse where
     request chk = req GET ("change/" <> toBS chk) ()
@@ -268,18 +268,26 @@ instance IsXML CreateHealthCheck
 instance AWSRequest R53 CreateHealthCheck CreateHealthCheckResponse where
     request = body POST "healthcheck"
 
-type CreateHealthCheckResponse = HealthCheck
+data CreateHealthCheckResponse = CreateHealthCheckResponse
+    { chcrHealthCheck :: !HealthCheck
+    } deriving (Eq, Show, Generic)
+
+instance IsXML CreateHealthCheckResponse
 
 -- | Gets information about a specified health check.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>
 newtype GetHealthCheck = GetHealthCheck ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
     request chk = req GET ("healthcheck/" <> toBS chk) ()
 
-type GetHealthCheckResponse = HealthCheck
+data GetHealthCheckResponse = GetHealthCheckResponse
+    { ghcrHealthCheck :: !HealthCheck
+    } deriving (Eq, Show, Generic)
+
+instance IsXML GetHealthCheckResponse
 
 -- | Gets a list of the health checks that are associated
 -- with the current AWS account.
@@ -310,7 +318,7 @@ instance IsXML ListHealthChecksResponse
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
 newtype DeleteHealthCheck = DeleteHealthCheck ByteString
-    deriving (Show, IsString, IsByteString)
+    deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHealthCheck DeleteHealthCheckResponse where
     request chk = req DELETE ("healthcheck/" <> toBS chk) ()

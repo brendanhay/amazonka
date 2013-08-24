@@ -65,8 +65,8 @@ tests = testVersion route53Version
         ]
     ]
 
-How to test actual query strings ? like GET /resource/id
-n
+-- How to test actual query strings ? like GET /resource/id
+
 instance ToJSON CallerReference where
     toJSON = String . decodeUtf8 . unCallerReference
 

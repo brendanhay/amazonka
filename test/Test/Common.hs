@@ -23,8 +23,6 @@ module Test.Common
       testVersion
 
     -- * Properties
-    , Query
-    , XML
     , Rq
     , Rs
     , prop
@@ -43,7 +41,6 @@ import           Data.List                            ((\\))
 import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Internal                 as Common hiding (Query)
-import           Network.HTTP.Types                   (urlEncode, urlDecode)
 import           System.IO.Unsafe                     (unsafePerformIO)
 import           Test.Arbitrary                       ()
 import           Test.Framework                       as Test
@@ -53,17 +50,12 @@ import           Test.TH                              as Test
 import           Text.Hastache
 import           Text.Hastache.Aeson
 
-
 testVersion :: ByteString -> [Test] -> Test
 testVersion ver = plusTestOptions
     (mempty { topt_maximum_test_size = Just 50 }) . testGroup (BS.unpack ver)
 
 class TestProperty a where
     prop :: a -> Bool
-
-data Plain
-data Query
-data XML
 
 type Rq a = Request  a -> Bool
 type Rs a = Response a -> Bool
@@ -112,31 +104,35 @@ instance Show a => Show (Request a) where
         , "[Raw]"
         , show trqRaw
         , ""
-        , "[Encoded]"
+        , "[Actual]"
         , formatBS trqEncoded
-        , "[Template]"
+        , "[Expected]"
         , formatBS trqTemplate
         , "[Diff]"
         , if all null trqDiff then "<identical>" else formatLines trqDiff
         ]
 
 data Response a = Response
-    { rsContent  :: a
-    , rsTemplate :: ByteString
-    , rsXML      :: ByteString
-    , rsParsed   :: Either String a
+    { trsResponse :: a
+    , trsParsed   :: Either String a
+    , trsTemplate :: ByteString
+    , trsXML      :: ByteString
+    , trsDiff     :: [String]
     }
 
 instance (Eq a, Arbitrary a) => TestProperty (Response a) where
-    prop Response{..} = either (const False) (== rsContent) rsParsed
+    prop Response{..} = (&&)
+        (either (const False) (== trsResponse) trsParsed)
+        (all null trsDiff)
 
 instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
          => Arbitrary (Response a) where
     arbitrary = do
         rsp <- arbitrary
-        let tmpl = render rsp
-            xml  = toIndentedXML 2 rsp
-        return . Response rsp tmpl xml $ fromXML tmpl
+        let xml  = toIndentedXML 2 rsp
+            tmpl = render rsp
+            diff = difference tmpl xml
+        return $ Response rsp (fromXML tmpl) tmpl xml diff
       where
         render x = unsafePerformIO $
             LBS.toStrict <$> hastacheStr defaultConfig
@@ -146,15 +142,18 @@ instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
 instance Show a => Show (Response a) where
     show Response{..} = unlines
         [ "[Response]"
-        , show rsContent
+        , show trsResponse
         , ""
         , "[Parsed]"
-        , show rsParsed
+        , show trsParsed
         , ""
-        , "[Template]"
-        , formatBS rsTemplate
-        , "[Encoded]"
-        , formatBS rsXML
+        , "[Actual]"
+        , formatBS trsXML
+        , "[Expected]"
+        , formatBS trsTemplate
+        , ""
+        , "[Diff]"
+        , if all null trsDiff then "<identical>" else formatLines trsDiff
         ]
 
 formatBS :: ByteString -> String

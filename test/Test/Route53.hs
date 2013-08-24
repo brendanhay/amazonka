@@ -28,8 +28,9 @@ tests = (:[]) $ testVersion route53Version
     --         , testProperty "ListHostedZones"  (prop :: Rq Query ListHostedZones)
     --         , testProperty "DeleteHostedZone" (prop :: Rq Query DeleteHostedZone)
             ]
-    --     , testGroup "Responses"
-    --         [ testProperty "CreateHostedZoneResponse" (prop :: Rs CreateHostedZoneResponse)
+        , testGroup "Responses"
+            [ testProperty "CreateHostedZoneResponse" (prop :: Rs CreateHostedZoneResponse)
+            ]
     --         , testProperty "GetHostedZoneResponse"    (prop :: Rs GetHostedZoneResponse)
     --         , testProperty "ListHostedZonesResponse"  (prop :: Rs ListHostedZonesResponse)
     --         , testProperty "DeleteHostedZoneResponse" (prop :: Rs DeleteHostedZoneResponse)
@@ -92,7 +93,7 @@ $(deriveArbitrary
 
 $(deriveProperty "test/resources/Route53"
     [ ''CreateHostedZone
-    -- , ''CreateHostedZoneResponse
+    , ''CreateHostedZoneResponse
     -- , ''GetHostedZone
     -- , ''GetHostedZoneResponse
     -- , ''ListHostedZones

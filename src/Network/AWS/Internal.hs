@@ -1,6 +1,6 @@
-{-# LANGUAGE OverloadedStrings               #-}
-
-{-# OPTIONS_GHC -fno-warn-missing-signatures #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE Rank2Types        #-}
 
 -- Module      : Network.AWS.Internal
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,9 +27,12 @@ module Network.AWS.Internal
 
     -- * XML Helpers
     , withNS
+    , withNS'
     , withRootNS
+    , withRootNS'
     ) where
 
+import Data.ByteString                 (ByteString)
 import Data.Monoid
 import GHC.Generics
 import Network.AWS.Internal.Instances
@@ -38,13 +41,20 @@ import Network.AWS.Internal.String
 import Network.AWS.Internal.Types
 import Network.HTTP.QueryString.Pickle
 import Text.XML.Expat.Pickle.Generic
-import Data.ByteString                 (ByteString)
 
-withNS ns = pu { root = namespace ns `fmap` (root pu) }
+withNS :: ByteString -> XMLGeneric a
+withNS ns = withNS' ns defaultXMLOptions
+
+withNS' :: ByteString -> XMLOptions -> XMLGeneric a
+withNS' ns opts = pu { root = namespace ns `fmap` (root pu) }
   where
-    pu = genericXMLPickler defaultXMLOptions
+    pu = genericXMLPickler opts
 
-withRootNS ns name = (genericXMLPickler defaultXMLOptions)
+withRootNS :: ByteString -> ByteString -> XMLGeneric a
+withRootNS ns name = withRootNS' ns name defaultXMLOptions
+
+withRootNS' :: ByteString -> ByteString -> XMLOptions -> XMLGeneric a
+withRootNS' ns name opts = (genericXMLPickler opts)
    { root = Just $ namespace ns name
    }
 

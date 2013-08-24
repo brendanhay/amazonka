@@ -116,10 +116,9 @@ instance ToJSON (RawRequest s b) where
         , "rqQuery"   .= rqQuery
         ]
 
-emptyRequest :: IsByteString p
-             => Method
+emptyRequest :: Method
              -> ContentType
-             -> p
+             -> ByteString
              -> Maybe ByteString
              -> RawRequest s b
 emptyRequest meth content path body = RawRequest

@@ -1,7 +1,6 @@
 {-# LANGUAGE DeriveGeneric         #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE TemplateHaskell       #-}
 
 -- Module      : Network.AWS.AutoScaling
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +37,7 @@ module Network.AWS.AutoScaling
     , module Network.AWS.AutoScaling.Types
     ) where
 
-import Data.ByteString               (ByteString, empty)
+import Data.ByteString               (ByteString)
 import Network.AWS.AutoScaling.Types
 import Network.AWS.Internal
 import Network.Http.Client
@@ -52,7 +51,7 @@ autoScalingVersion :: ByteString
 autoScalingVersion = "2011-01-01"
 
 req :: IsQuery a => Method -> ByteString -> a -> RawRequest AutoScaling b
-req meth action qry = (emptyRequest meth FormEncoded empty Nothing)
+req meth action qry = (emptyRequest meth FormEncoded "" Nothing)
     { rqAction = Just action
     , rqQuery  = toQuery qry
     }

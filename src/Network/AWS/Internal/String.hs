@@ -11,13 +11,18 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.String
-    ( dropPrefix
+    (
+    -- * String Convenience Functions
+      dropPrefix
     , dropSuffix
+    , dropLower
+    , lowerFirst
     , strip
     ) where
 
 import           Data.ByteString       (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import           Data.Char
 import           Data.List
 import           Data.Maybe
 
@@ -28,6 +33,13 @@ dropSuffix :: String -> String -> String
 dropSuffix suf s
     | suf `isSuffixOf` s = take (length s - length suf) s
     | otherwise          = s
+
+dropLower :: String -> String
+dropLower = dropWhile isLower
+
+lowerFirst :: String -> String
+lowerFirst (x:xs) = toLower x : xs
+lowerFirst []     = []
 
 strip :: Char -> ByteString -> ByteString
 strip c bstr

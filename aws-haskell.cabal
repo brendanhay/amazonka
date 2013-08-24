@@ -38,10 +38,9 @@ library
       , Network.AWS.Internal.String
       , Network.AWS.Internal.Types
 
-      -- , Network.AWS.EC2
+      , Network.AWS.EC2
       , Network.AWS.EC2.Metadata
-      -- , Network.AWS.EC2.Types
-      -- , Network.AWS.EC2.WSDL
+      , Network.AWS.EC2.Types
 
       , Network.AWS.AutoScaling
       , Network.AWS.AutoScaling.Types

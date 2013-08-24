@@ -128,7 +128,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZoneResponse where
-    xmlPickler = withRootNS ns "CreateHostedZoneResponse"
+    xmlPickler = withNS ns
 
 -- | Gets information about a specified hosted zone.
 --

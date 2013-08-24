@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
--- Module      : Network.AWS.AutoScaling.V20110101.Types
+-- Module      : Network.AWS.AutoScaling.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.AutoScaling.V20110101.Types where
+module Network.AWS.AutoScaling.Types where
 
 import Data.ByteString      (ByteString)
 import Data.Time

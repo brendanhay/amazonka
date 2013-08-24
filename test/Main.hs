@@ -12,11 +12,9 @@
 module Main (main) where
 
 import           Test.Framework
--- import qualified Test.AutoScaling.V20110101 as AutoScaling_V20110101
-import qualified Test.Route53.V20121212     as Route53_V20121212
+import qualified Test.Route53   as Route53
 
 main :: IO ()
 main = defaultMain
-    [ testGroup "Route53" [Route53_V20121212.tests]
---    , testGroup "Auto Scaling" AutoScaling_V20110101.tests
+    [ testGroup "Route53" [Route53.tests]
     ]

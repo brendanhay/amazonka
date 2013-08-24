@@ -1,10 +1,7 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE TupleSections              #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Route53.V20121212.Types
+-- Module      : Network.AWS.Route53.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,9 +11,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53.V20121212.Types where
+module Network.AWS.Route53.Types where
 
-import Control.Applicative
+import Control.Applicative          ((<$>))
 import Data.ByteString              (ByteString)
 import Data.Time
 import Network.AWS.Internal
@@ -117,6 +114,25 @@ data ResourceRecordSet = ResourceRecordSet
 
 instance IsXML ResourceRecordSet
 
+data HealthCheckConfig = HealthCheckConfig
+    { hccIPAddress                :: !ByteString
+    , hccPort                     :: !Int
+    , hccType                     :: !Protocol
+    , hccResourcePath             :: !ByteString
+    , hccFullyQualifiedDomainName :: !ByteString
+    } deriving (Eq, Show, Generic)
+
+instance IsXML HealthCheckConfig
+
+data HealthCheck = HealthCheck
+    { hcId                :: !ByteString
+    , hcCallerReference   :: !CallerReference
+    , hcHealthCheckConfig :: !HealthCheckConfig
+    } deriving (Eq, Show, Generic)
+
+instance IsXML HealthCheck
+
+
 --
 -- Hosted Zones
 --
@@ -177,24 +193,6 @@ instance IsXML GetChangeResponse
 --
 -- Health Checks
 --
-
-data HealthCheckConfig = HealthCheckConfig
-    { hccIPAddress                :: !ByteString
-    , hccPort                     :: !Int
-    , hccType                     :: !Protocol
-    , hccResourcePath             :: !ByteString
-    , hccFullyQualifiedDomainName :: !ByteString
-    } deriving (Eq, Show, Generic)
-
-instance IsXML HealthCheckConfig
-
-data HealthCheck = HealthCheck
-    { hcId                :: !ByteString
-    , hcCallerReference   :: !CallerReference
-    , hcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Eq, Show, Generic)
-
-instance IsXML HealthCheck
 
 type CreateHealthCheckResponse = HealthCheck
 

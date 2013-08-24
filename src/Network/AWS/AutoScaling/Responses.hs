@@ -2,7 +2,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
--- Module      : Network.AWS.AutoScaling.V20110101.Responses
+-- Module      : Network.AWS.AutoScaling.Responses
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,12 +12,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.AutoScaling.V20110101.Responses where
+module Network.AWS.AutoScaling.Responses where
 
-import Data.ByteString                         (ByteString)
-import Network.AWS.AutoScaling.V20110101.Types
-import Network.AWS.Internal
+import Data.ByteString               (ByteString)
 import GHC.Generics
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Internal
 
 data MetadataResponse = MetadataResponse
     { rmrRequestId :: !ByteString

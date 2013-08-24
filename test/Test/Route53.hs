@@ -2,7 +2,7 @@
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
--- Module      : Test.Route53.V20121212
+-- Module      : Test.Route53
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,11 +12,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Test.Route53.V20121212 (tests) where
+module Test.Route53 (tests) where
 
-import qualified Data.Text                     as Text
+import qualified Data.Text           as Text
 import           Data.Text.Encoding
-import           Network.AWS.Route53.V20121212
+import           Network.AWS.Route53
 import           Test.Common
 
 tests :: Test

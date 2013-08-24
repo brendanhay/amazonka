@@ -27,17 +27,26 @@ module Network.AWS.Internal
 
     -- * XML Helpers
     , withNS
+    , withRootNS
     ) where
 
-import           Data.Monoid
-import           GHC.Generics
-import           Network.AWS.Internal.Instances
-import           Network.AWS.Internal.Signing
-import           Network.AWS.Internal.String
-import           Network.AWS.Internal.Types
-import           Network.HTTP.QueryString.Pickle
+import Data.Monoid
+import GHC.Generics
+import Network.AWS.Internal.Instances
+import Network.AWS.Internal.Signing
+import Network.AWS.Internal.String
+import Network.AWS.Internal.Types
+import Network.HTTP.QueryString.Pickle
 import Text.XML.Expat.Pickle.Generic
+import Data.ByteString                 (ByteString)
 
-withNS name ns = (genericXMLPickler defaultXMLOptions)
-    { root = Just $ name <> " xmlns=\"" <> ns <> "\""
-    }
+withNS ns = pu { root = namespace ns `fmap` (root pu) }
+  where
+    pu = genericXMLPickler defaultXMLOptions
+
+withRootNS ns name = (genericXMLPickler defaultXMLOptions)
+   { root = Just $ namespace ns name
+   }
+
+namespace :: ByteString -> ByteString -> ByteString
+namespace ns name = name <> " xmlns=\"" <> ns <> "\""

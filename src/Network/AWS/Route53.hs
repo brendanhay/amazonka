@@ -116,7 +116,7 @@ data CreateHostedZone = CreateHostedZone
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZone where
-    xmlPickler = withNS "CreateHostedZoneRequest" ns
+    xmlPickler = withRootNS ns "CreateHostedZoneRequest"
 
 instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
     request = body POST "hostedzone"
@@ -128,7 +128,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZoneResponse where
-    xmlPickler = withNS "CreateHostedZoneResponse" ns
+    xmlPickler = withRootNS ns "CreateHostedZoneResponse"
 
 -- | Gets information about a specified hosted zone.
 --
@@ -312,7 +312,8 @@ data ListHealthChecksResponse = ListHealthChecksResponse
     , lhcrNextMarker   :: !(Maybe ByteString)
     } deriving (Eq, Show, Generic)
 
-instance IsXML ListHealthChecksResponse
+instance IsXML ListHealthChecksResponse where
+    xmlPickler = withNS ns
 
 -- | Deletes a health check.
 --

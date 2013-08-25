@@ -31,7 +31,7 @@ import qualified Data.DeriveTH         as Derive
 import           Data.List
 import           Language.Haskell.TH
 import           Network.AWS.Internal
-import           Paths_aws_haskell     (getDataFileName)
+import           System.Directory
 
 deriveDependency :: [Name] -> Q [Dec]
 deriveDependency names = liftM concat $ mapM ($ names)
@@ -40,10 +40,10 @@ deriveDependency names = liftM concat $ mapM ($ names)
      ]
 
 deriveProperty :: FilePath -> [Name] -> Q [Dec]
-deriveProperty path names = liftM concat $ mapM ($ names)
+deriveProperty dir names = liftM concat $ mapM ($ names)
      [ deriveJSON
      , deriveArbitrary
-     , deriveTemplate path
+     , deriveTemplate dir
      ]
 
 deriveJSON :: [Name] -> Q [Dec]
@@ -53,30 +53,16 @@ deriveArbitrary :: [Name] -> Q [Dec]
 deriveArbitrary = Derive.derives [Derive.makeArbitrary]
 
 deriveTemplate :: FilePath -> [Name] -> Q [Dec]
-deriveTemplate path = liftM concat . mapM derive
+deriveTemplate dir = liftM concat . mapM derive
   where
-    derive n = embedTemplate (dropSuffix "/" path ++ "/" ++ nameBase n) n
+    derive name =
+        [d|instance Template $(conT name) where
+              readTemplate _ = $(template >>= embed)|]
+      where
+        template = runIO $ fullPath `fmap` getCurrentDirectory >>= BS.readFile
 
---
--- Internal
---
+        fullPath = (++ concat ["/", dropPrefix "/" dir, "/", nameBase name])
 
-embedTemplate :: FilePath -> Name -> Q [Dec]
-embedTemplate path name =
-    [d|instance Template $(conT name) where
-           readTemplate _ = $(template >>= embed)|]
-  where
-    template = runIO $
-        getDataFileName (path ++ ".tmpl") >>= BS.readFile
-
-    embed bstr = do
-        pack <- [| BS.pack |]
-        return $! AppE pack $! LitE $! StringL $! BS.unpack bstr
-
-suffix :: String -> String
-suffix str = map rep $ drop idx str
-  where
-    idx = (+ 1) $ reverse (elemIndices '.' str) !! 2
-
-    rep '.' = '/'
-    rep  c  = c
+        embed bstr = do
+            pack <- [| BS.pack |]
+            return $! AppE pack $! LitE $! StringL $! BS.unpack bstr

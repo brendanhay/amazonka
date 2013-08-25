@@ -1,11 +1,9 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-
-{-# LANGUAGE ScopedTypeVariables   #-}
-{-# LANGUAGE UndecidableInstances             #-}
-
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE GADTs                #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE RecordWildCards      #-}
+{-# LANGUAGE ScopedTypeVariables  #-}
+{-# LANGUAGE UndecidableInstances #-}
 
 -- Module      : Test.Common
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +35,7 @@ import           Data.Aeson                           as Common (Value(..), ToJS
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import qualified Data.ByteString.Lazy.Char8           as LBS
-import           Data.List                            ((\\))
+import           Data.List                            ((\\), sort)
 import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Internal                 as Common hiding (Query)
@@ -84,7 +82,11 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, AWSRequest s a b)
         return $ Request rq raw enc tmpl diff
       where
         encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
-            [ BS.pack (show rqMethod) <> " " <> fromMaybe "/" rqPath
+            [ BS.pack (show rqMethod)
+            , fromMaybe "/" rqPath
+            , "QUERY"
+            , BS.intercalate "\n" . map (\(k, v) -> k <> "=" <> v) $ sort rqQuery
+            , "BODY"
             , fromMaybe "" rqBody
             ]
 

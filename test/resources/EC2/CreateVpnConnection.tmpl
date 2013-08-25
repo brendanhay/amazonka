@@ -1,0 +1,58 @@
+https://ec2.amazonaws.com/?Action=CreateVpnConnection
+&Type=ipsec.1
+&CustomerGatewayId=cgw-b4dc3961
+&VpnGatewayId=vgw-8db04f81
+&AUTHPARAMS
+
+<CreateVpnConnectionResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>
+  <vpnConnection>
+    <vpnConnectionId>vpn-44a8938f</vpnConnectionId>
+    <state>pending</state>
+    <customerGatewayConfiguration>
+       <?xml version="1.0" encoding="UTF-8"?>
+        <vpn_connection id="vpn-44a8938f">
+          <customer_gateway_id>cgw-b4dc3961</customer_gateway_id>
+          <vpn_gateway_id>vgw-8db04f81</vpn_gateway_id>
+          <vpn_connection_type>ipsec.1</vpn_connection_type>
+          ...
+        </vpn_connection>    
+    </customerGatewayConfiguration>    
+    <type>ipsec.1</type>
+    <customerGatewayId>cgw-b4dc3961</customerGatewayId>
+    <vpnGatewayId>vgw-8db04f81</vpnGatewayId>
+    <tagSet/>
+  </vpnConnection>
+</CreateVpnConnectionResponse>
+
+https://ec2.amazonaws.com/?Action=CreateVpnConnection
+&Type=ipsec.1
+&CustomerGatewayId=cgw-b4dc3961
+&VpnGatewayId=vgw-8db04f81
+&Options.StaticRoutesOnly=true
+&AUTHPARAMS
+
+<CreateVpnConnectionResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>5cc7891f-1f3b-4fc4-a626-bdea8f63ff5a</requestId>
+  <vpnConnection>
+    <vpnConnectionId>vpn-83ad48ea</vpnConnectionId>
+    <state>pending</state>
+    <customerGatewayConfiguration>
+      <?xml version="1.0" encoding="UTF-8"?>
+      <vpn_connection id="vpn-83ad48ea">
+        <customer_gateway_id>cgw-63ae4b0a</customer_gateway_id>
+        <vpn_gateway_id>vgw-4ea04527</vpn_gateway_id>
+        <vpn_connection_type>ipsec.1</vpn_connection_type>
+        <vpn_connection_attributes>NoBGPVPNConnection</vpn_connection_attributes>
+        ...
+      </vpn_connection>
+    </customerGatewayConfiguration>
+    <customerGatewayId>cgw-63ae4b0a</customerGatewayId>
+    <vpnGatewayId>vgw-4ea04527</vpnGatewayId>
+    <options>
+      <staticRoutesOnly>true</staticRoutesOnly>
+    </options>
+    <routes/>
+  </vpnConnection>
+</CreateVpnConnectionResponse>
+

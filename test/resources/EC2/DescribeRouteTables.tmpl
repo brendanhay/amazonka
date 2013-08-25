@@ -1,0 +1,53 @@
+https://ec2.amazonaws.com/?Action=DescribeRouteTables
+
+DescribeRouteTablesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>6f570b0b-9c18-4b07-bdec-73740dcf861a</requestId>
+   <routeTableSet>
+      <item>
+         <routeTableId>rtb-13ad487a</routeTableId>
+         <vpcId>vpc-11ad4878</vpcId>
+         <routeSet>
+            <item>
+               <destinationCidrBlock>10.0.0.0/22</destinationCidrBlock>
+               <gatewayId>local</gatewayId>
+               <state>active</state>
+               <origin>CreateRouteTable</origin>
+            </item>
+         </routeSet>
+         <associationSet>
+             <item>
+                <routeTableAssociationId>rtbassoc-12ad487b</routeTableAssociationId>
+                <routeTableId>rtb-13ad487a</routeTableId>
+                <main>true</main>
+             </item>
+         </associationSet>
+        <tagSet/>
+      </item>
+      <item>
+         <routeTableId>rtb-f9ad4890</routeTableId>
+         <vpcId>vpc-11ad4878</vpcId>
+         <routeSet>
+            <item>
+               <destinationCidrBlock>10.0.0.0/22</destinationCidrBlock>
+               <gatewayId>local</gatewayId>
+               <state>active</state>
+               <origin>CreateRouteTable</origin>
+            </item>
+            <item>
+               <destinationCidrBlock>0.0.0.0/0</destinationCidrBlock>
+               <gatewayId>igw-eaad4883</gatewayId>
+               <state>active</state>
+            </item>
+         </routeSet>
+         <associationSet>
+            <item>
+                <routeTableAssociationId>rtbassoc-faad4893</routeTableAssociationId>
+                <routeTableId>rtb-f9ad4890</routeTableId>
+                <subnetId>subnet-15ad487c</subnetId>
+            </item>
+         </associationSet>
+         <tagSet/>
+      </item>
+   </routeTableSet>
+</DescribeRouteTablesResponse>
+

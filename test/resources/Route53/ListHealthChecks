@@ -1,6 +1,3 @@
-GET
-/2012-12-12/healthcheck
-QUERY
+GET /2012-12-12/healthcheck
 {{#lhcMarker}}marker={{lhzMarker}}{{/lhcMarker}}
 {{#lhcMaxItems}}maxitems={{lhcMaxItems}}{{/lhcMaxItems}}
-BODY

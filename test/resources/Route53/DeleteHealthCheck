@@ -1,4 +1,1 @@
-DELETE
-/2012-12-12/healthcheck/{{dhcId}}
-QUERY
-BODY
+DELETE /2012-12-12/healthcheck/{{dhcId}}

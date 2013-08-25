@@ -74,10 +74,14 @@ instance ToJSON Protocol where
 instance ToJSON ChangeStatus where
     toJSON = String . Text.pack . show
 
+instance ToJSON RecordType where
+    toJSON = String . Text.pack . show
+
 $(deriveArbitrary
     [ ''CallerReference
     , ''Protocol
     , ''ChangeStatus
+    , ''RecordType
     ])
 
 $(deriveDependency
@@ -90,7 +94,6 @@ $(deriveDependency
     , ''HealthCheck
     , ''HealthCheckConfig
     , ''RecordAction
-    , ''RecordType
     ])
 
 $(deriveProperty "test/resources/Route53"

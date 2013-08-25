@@ -82,11 +82,9 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, AWSRequest s a b)
         return $ Request rq raw enc tmpl diff
       where
         encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
-            [ BS.pack (show rqMethod)
-            , fromMaybe "/" rqPath
-            , "QUERY"
+            [ BS.pack (show rqMethod) <> " " <> fromMaybe "/" rqPath
             , BS.intercalate "\n" . map (\(k, v) -> k <> "=" <> v) $ sort rqQuery
-            , "BODY"
+            , maybe "" (const $ toBS rqContent) rqBody
             , fromMaybe "" rqBody
             ]
 

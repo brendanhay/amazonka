@@ -28,7 +28,6 @@ import           Control.Monad
 import qualified Data.Aeson.TH         as Aeson
 import qualified Data.ByteString.Char8 as BS
 import qualified Data.DeriveTH         as Derive
-import           Data.List
 import           Language.Haskell.TH
 import           Network.AWS.Internal
 import           System.Directory

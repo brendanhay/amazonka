@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListHostedZonesResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
-  {{#lhzrHostedZones}}
   <HostedZones>
+  {{#lhzrHostedZones}}
     <HostedZone>
       <Id>{{hzId}}</Id>
       <Name>{{hzName}}</Name>
@@ -16,8 +16,8 @@
       {{/hzConfig}}
       <ResourceRecordSetCount>{{hzResourceRecordSetCount}}</ResourceRecordSetCount>
     </HostedZone>
-  </HostedZones>
   {{/lhzrHostedZones}}
+  </HostedZones>
   <IsTruncated>{{lhzrIsTruncated}}</IsTruncated>
   {{#lhzrMarker}}
   <Marker>{{lhzrMarker}}</Marker>

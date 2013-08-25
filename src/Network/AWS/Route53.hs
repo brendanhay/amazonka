@@ -135,7 +135,7 @@ instance IsXML CreateHostedZoneResponse where
 -- | Gets information about a specified hosted zone.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
-newtype GetHostedZone = GetHostedZone ByteString
+newtype GetHostedZone = GetHostedZone { ghzId :: ByteString }
     deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
@@ -176,7 +176,7 @@ instance IsXML ListHostedZonesResponse
 -- | Deletes a hosted zone.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
-newtype DeleteHostedZone = DeleteHostedZone ByteString
+newtype DeleteHostedZone = DeleteHostedZone { dhzId :: ByteString }
     deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
@@ -201,7 +201,8 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
     , crrsChanges :: ![ResourceRecordSet]
     } deriving (Eq, Show, Generic)
 
-instance IsXML ChangeResourceRecordSets
+instance IsXML ChangeResourceRecordSets where
+    xmlPickler = withRootNS ns "ChangeResourceRecordSetsRequest"
 
 instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsResponse where
     request rs@ChangeResourceRecordSets{..} =
@@ -241,7 +242,7 @@ instance IsXML ListResourceRecordSetsResponse where
 -- submitted by using ChangeResourceRecordSets.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html>
-newtype GetChange = GetChange ByteString
+newtype GetChange = GetChange { gcId :: ByteString }
     deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetChange GetChangeResponse where
@@ -265,7 +266,8 @@ data CreateHealthCheck = CreateHealthCheck
     , chcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateHealthCheck
+instance IsXML CreateHealthCheck where
+    xmlPickler = withRootNS ns "CreateHealthCheckRequest"
 
 instance AWSRequest R53 CreateHealthCheck CreateHealthCheckResponse where
     request = body POST "healthcheck"

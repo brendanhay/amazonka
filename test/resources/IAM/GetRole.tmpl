@@ -1,0 +1,26 @@
+
+https://iam.amazonaws.com/
+?Action=GetRole
+&RoleName=S3Access
+&Version=2010-05-08
+&AUTHPARAMS
+      
+
+
+<GetRoleResponse xmlns="https://iam.amazonaws.com/doc/2010-05-08/">
+  <GetRoleResult>
+    <Role>
+      <Path>/application_abc/component_xyz/</Path>
+      <Arn>arn:aws:iam::123456789012:role/application_abc/component_xyz/S3Access</Arn>
+      <RoleName>S3Access</RoleName>
+      <AssumeRolePolicyDocument>{"Version":"2008-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}</AssumeRolePolicyDocument>
+      <CreateDate>2012-05-08T23:34:01Z</CreateDate>
+      <RoleId>AROADBQP57FF2AEXAMPLE</RoleId>
+    </Role>
+  </GetRoleResult>
+  <ResponseMetadata>
+    <RequestId>df37e965-9967-11e1-a4c3-270EXAMPLE04</RequestId>
+  </ResponseMetadata>
+</GetRoleResponse>
+      
+

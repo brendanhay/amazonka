@@ -17,10 +17,6 @@ description:
 extra-source-files:
     README.md
 
-data-files:
-      test/resources/AutoScaling/*.tmpl
-    , test/resources/Route53/*.tmpl
-
 source-repository head
     type:     git
     location: git://github.com/brendanhay/aws-haskell.git
@@ -47,8 +43,6 @@ library
 
       , Network.AWS.Route53
       , Network.AWS.Route53.Types
-
-    other-modules:
 
     ghc-options:
         -Wall
@@ -92,6 +86,7 @@ test-suite aws-haskell-tests
       , base                       >= 4.6 && < 5
       , bytestring
       , derive
+      , directory
       , hastache
       , hastache-aeson
       , hexpat-pickle-generic      >= 0.1.3

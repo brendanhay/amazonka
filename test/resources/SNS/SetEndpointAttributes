@@ -1,0 +1,29 @@
+
+        
+POST http://sns.us-west-2.amazonaws.com/ HTTP/1.1
+...
+Attributes.entry.1.key=CustomUserData
+&Action=SetEndpointAttributes
+&SignatureMethod=HmacSHA256
+&Attributes.entry.1.value=My+custom+userdata
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&EndpointArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aendpoint%2FGCM%2Fgcmpushapp%2F5e3e9847-3183-3f18-a7e8-671c3a57d4b3
+&SignatureVersion=2
+&Version=2010-03-31
+&Signature=CFTGfGOS5vgSU3%2FZgv2h%2FJdWgr2JQdDJSrUU9k38wSM%3D
+&Timestamp=2013-07-01T22%3A56%3A45.582Z
+
+      
+
+
+        
+HTTP/1.1 200 OK
+...
+<SetEndpointAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <ResponseMetadata>
+    <RequestId>2fe0bfc7-3e85-5ee5-a9e2-f58b35e85f6a</RequestId>
+  </ResponseMetadata>
+</SetEndpointAttributesResponse>
+
+      
+

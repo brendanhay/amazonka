@@ -14,9 +14,7 @@ clean:
 	-rm -rf .conf dist
 	cabal-dev clean
 
-test: clean
-	rm -rf cabal-dev/share/x86_64-osx-ghc-7.6.3/aws-haskell-0.1.0/test && \
-	 cp -rf test cabal-dev/share/x86_64-osx-ghc-7.6.3/aws-haskell-0.1.0/ && \
+test:
 	 rm -f .conf && cabal-dev install --enable-tests
 
 lint:

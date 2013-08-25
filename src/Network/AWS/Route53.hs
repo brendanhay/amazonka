@@ -90,14 +90,16 @@ route53Version :: ByteString
 route53Version = "2012-12-12"
 
 req :: IsQuery a => Method -> ByteString -> a -> RawRequest R53 b
-req meth path qry = (emptyRequest meth FormEncoded path Nothing)
+req meth path qry = (emptyRequest meth FormEncoded (ver path) Nothing)
     { rqQuery = toQuery qry
     }
 
 body :: IsXML a => Method -> ByteString -> a -> RawRequest R53 b
-body meth path = (emptyRequest meth XML $ "/" <> route53Version <> "/" <> path)
-    . Just
-    . toIndentedXML 2 -- Indented for Debugging/Testing purposes
+body meth path = (emptyRequest meth XML $ ver path) . Just . toIndentedXML 2
+    -- ^ Indented for Debugging/Testing purposes
+
+ver :: ByteString -> ByteString
+ver = mappend ("/" <> route53Version <> "/")
 
 ns :: ByteString
 ns = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
@@ -277,7 +279,7 @@ instance IsXML CreateHealthCheckResponse
 -- | Gets information about a specified health check.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>
-newtype GetHealthCheck = GetHealthCheck ByteString
+newtype GetHealthCheck = GetHealthCheck { ghcId :: ByteString }
     deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
@@ -318,7 +320,7 @@ instance IsXML ListHealthChecksResponse where
 -- | Deletes a health check.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
-newtype DeleteHealthCheck = DeleteHealthCheck ByteString
+newtype DeleteHealthCheck = DeleteHealthCheck { dhcId :: ByteString }
     deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHealthCheck DeleteHealthCheckResponse where

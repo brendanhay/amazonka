@@ -1,0 +1,31 @@
+https://rds.amazonaws.com/
+    ?Action=DescribeDBParameterGroups
+    &DBParameterGroupName=myparamsgroup
+    &MaxRecords=100
+    &Version=2013-05-15
+    &SignatureVersion=2
+    &SignatureMethod=HmacSHA256
+    &Timestamp=2011-02-15T17%3A54%3A32.899Z
+    &AWSAccessKeyId=<AWS Access Key ID>
+    &Signature=<Signature>
+
+<DescribeDBParameterGroupsResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <DescribeDBParameterGroupsResult>
+    <DBParameterGroups>
+      <DBParameterGroup>
+        <DBParameterGroupFamily>mysql5.1</DBParameterGroupFamily>
+        <Description>Default parameter group for mysql5.1</Description>
+        <DBParameterGroupName>default.mysql5.1</DBParameterGroupName>
+      </DBParameterGroup>
+      <DBParameterGroup>
+        <DBParameterGroupFamily>mysql5.1</DBParameterGroupFamily>
+        <Description>My DB Param Group</Description>
+        <DBParameterGroupName>testdbparamgroup</DBParameterGroupName>
+      </DBParameterGroup>
+    </DBParameterGroups>
+  </DescribeDBParameterGroupsResult>
+  <ResponseMetadata>
+    <RequestId>cb8d9bb4-a02a-11df-bd60-c955b7d6e8e0</RequestId>
+  </ResponseMetadata>
+</DescribeDBParameterGroupsResponse>
+

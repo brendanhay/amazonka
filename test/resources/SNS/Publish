@@ -1,0 +1,70 @@
+
+        
+  The following example publishes the same message to all protocols:
+  
+  http://sns.us-east-1.amazonaws.com/
+  ?Subject=My%20first%20message
+  &TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A698519295917%3AMy-Topic
+  &Message=Hello%20world%21
+  &Action=Publish
+  &SignatureVersion=2
+  &SignatureMethod=HmacSHA256
+  &Timestamp=2010-03-31T12%3A00%3A00.000Z
+  &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+  &Signature=9GZysQ4Jpnz%2BHklqM7VFTvEcjR2LIUtn6jW47054xxE%3D
+  
+  Use the following JSON object format for the Message parameter to send different messages to each protocol (linebreaks added for readability):
+  {
+  "default" : "some message",
+  "email" : "some email message",
+  "email-json" : "some email-json message",
+  "http" : "some http message",
+  "https" : "some https message",
+  "sqs" : "some sqs message"
+  }
+  
+
+       
+        
+POST http://sns.us-west-2.amazonaws.com/ HTTP/1.1
+...
+Action=Publish
+&Message=%7B%22default%22%3A%22This+is+the+default+Message%22%2C%22APNS_SANDBOX%22%3A%22%7B+%5C%22aps%5C%22+%3A+%7B+%5C%22alert%5C%22+%3A+%5C%22You+have+got+email.%5C%22%2C+%5C%22badge%5C%22+%3A+9%2C%5C%22sound%5C%22+%3A%5C%22default%5C%22%7D%7D%22%7D
+&TargetArn=arn%3Aaws%3Asns%3Aus-west-2%3A803981987763%3Aendpoint%2FAPNS_SANDBOX%2Fpushapp%2F98e9ced9-f136-3893-9d60-776547eafebb
+&SignatureMethod=HmacSHA256
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&SignatureVersion=2
+&Version=2010-03-31
+&Signature=vmqc4XRupKAxsDAdN4j4Ayw5LQljXMps3kss4bkDfCk%3D
+&Timestamp=2013-07-18T22%3A44%3A09.452Z
+&MessageStructure=json
+  
+
+      
+
+
+        
+<PublishResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <PublishResult>
+    <MessageId>94f20ce6-13c5-43a0-9a9e-ca52d816e90b</MessageId>
+  </PublishResult>
+  <ResponseMetadata>
+    <RequestId>f187a3c1-376f-11df-8963-01868b7c937a</RequestId>
+  </ResponseMetadata>
+</PublishResponse>
+  
+       
+        
+HTTP/1.1 200 OK
+...
+<PublishResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <PublishResult>
+    <MessageId>567910cd-659e-55d4-8ccb-5aaf14679dc0</MessageId>
+  </PublishResult>
+  <ResponseMetadata>
+    <RequestId>d74b8436-ae13-5ab4-a9ff-ce54dfea72a0</RequestId>
+  </ResponseMetadata>
+</PublishResponse>
+  
+      
+

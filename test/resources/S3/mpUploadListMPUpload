@@ -1,0 +1,135 @@
+GET /?uploads HTTP/1.1
+Host: BucketName.s3.amazonaws.com
+Date: Date
+Authorization: Signature			
+
+GET /?uploads&max-uploads=3 HTTP/1.1
+Host: example-bucket.s3.amazonaws.com
+Date: Mon, 1 Nov 2010 20:34:56 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+
+HTTP/1.1 200 OK
+x-amz-id-2: Uuag1LuByRx9e6j5Onimru9pO4ZVKnJ2Qz7/C1NPcfTWAtRPfTaOFg==
+x-amz-request-id: 656c76696e6727732072657175657374
+Date: Mon, 1 Nov 2010 20:34:56 GMT
+Content-Length: 1330
+Connection: keep-alive
+Server: AmazonS3
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ListMultipartUploadsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Bucket>bucket</Bucket>
+  <KeyMarker></KeyMarker>
+  <UploadIdMarker></UploadIdMarker>
+  <NextKeyMarker>my-movie.m2ts</NextKeyMarker>
+  <NextUploadIdMarker>YW55IGlkZWEgd2h5IGVsdmluZydzIHVwbG9hZCBmYWlsZWQ</NextUploadIdMarker>
+  <MaxUploads>3</MaxUploads>
+  <IsTruncated>true</IsTruncated>
+  <Upload>
+    <Key>my-divisor</Key>
+    <UploadId>XMgbGlrZSBlbHZpbmcncyBub3QgaGF2aW5nIG11Y2ggbHVjaw</UploadId>
+    <Initiator>
+      <ID>arn:aws:iam::111122223333:user/user1-11111a31-17b5-4fb7-9df5-b111111f13de</ID>
+      <DisplayName>user1-11111a31-17b5-4fb7-9df5-b111111f13de</DisplayName>
+    </Initiator>
+    <Owner>
+      <ID>75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a</ID>
+      <DisplayName>OwnerDisplayName</DisplayName>
+    </Owner>
+    <StorageClass>STANDARD</StorageClass>
+    <Initiated>2010-11-10T20:48:33.000Z</Initiated>  
+  </Upload>
+  <Upload>
+    <Key>my-movie.m2ts</Key>
+    <UploadId>VXBsb2FkIElEIGZvciBlbHZpbmcncyBteS1tb3ZpZS5tMnRzIHVwbG9hZA</UploadId>
+    <Initiator>
+      <ID>b1d16700c70b0b05597d7acd6a3f92be</ID>
+      <DisplayName>InitiatorDisplayName</DisplayName>
+    </Initiator>
+    <Owner>
+      <ID>b1d16700c70b0b05597d7acd6a3f92be</ID>
+      <DisplayName>OwnerDisplayName</DisplayName>
+    </Owner>
+    <StorageClass>STANDARD</StorageClass>
+    <Initiated>2010-11-10T20:48:33.000Z</Initiated>
+  </Upload>
+  <Upload>
+    <Key>my-movie.m2ts</Key>
+    <UploadId>YW55IGlkZWEgd2h5IGVsdmluZydzIHVwbG9hZCBmYWlsZWQ</UploadId>
+    <Initiator>
+      <ID>arn:aws:iam::444455556666:user/user1-22222a31-17b5-4fb7-9df5-b222222f13de</ID>
+      <DisplayName>user1-22222a31-17b5-4fb7-9df5-b222222f13de</DisplayName>
+    </Initiator>
+    <Owner>
+      <ID>b1d16700c70b0b05597d7acd6a3f92be</ID>
+      <DisplayName>OwnerDisplayName</DisplayName>
+    </Owner>
+    <StorageClass>STANDARD</StorageClass>
+    <Initiated>2010-11-10T20:49:33.000Z</Initiated>
+  </Upload>
+</ListMultipartUploadsResult>
+
+GET /?uploads&delimiter=/ HTTP/1.1
+Host: example-bucket.s3.amazonaws.com
+Date: Mon, 1 Nov 2010 20:34:56 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+
+<ListMultipartUploadsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Bucket>example-bucket</Bucket>
+  <KeyMarker/>
+  <UploadIdMarker/>
+  <NextKeyMarker>sample.jpg</NextKeyMarker>
+  <NextUploadIdMarker>Xgw4MJT6ZPAVxpY0SAuGN7q4uWJJM22ZYg1W99trdp4tpO88.PT6.MhO0w2E17eutfAvQfQWoajgE_W2gpcxQw--</NextUploadIdMarker>
+  <Delimiter>/</Delimiter>
+  <Prefix/>
+  <MaxUploads>1000</MaxUploads>
+  <IsTruncated>false</IsTruncated>
+  <Upload>
+    <Key>sample.jpg</Key>
+    <UploadId>Agw4MJT6ZPAVxpY0SAuGN7q4uWJJM22ZYg1N99trdp4tpO88.PT6.MhO0w2E17eutfAvQfQWoajgE_W2gpcxQw--</UploadId>
+    <Initiator>
+      <ID>314133b66967d86f031c7249d1d9a80249109428335cd0ef1cdc487b4566cb1b</ID>
+      <DisplayName>s3-nickname</DisplayName>
+    </Initiator>
+    <Owner>
+      <ID>314133b66967d86f031c7249d1d9a80249109428335cd0ef1cdc487b4566cb1b</ID>
+      <DisplayName>s3-nickname</DisplayName>
+    </Owner>
+    <StorageClass>STANDARD</StorageClass>
+    <Initiated>2010-11-26T19:24:17.000Z</Initiated>
+  </Upload>
+  <CommonPrefixes>
+    <Prefix>photos/</Prefix>
+  </CommonPrefixes>
+  <CommonPrefixes>
+    <Prefix>videos/</Prefix>
+  </CommonPrefixes>
+  </ListMultipartUploadsResult>
+
+GET /?uploads&delimiter=/&prefix=photos/2006/ HTTP/1.1
+Host: example-bucket.s3.amazonaws.com
+Date: Mon, 1 Nov 2010 20:34:56 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ListMultipartUploadsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Bucket>example-bucket</Bucket>
+  <KeyMarker/>
+  <UploadIdMarker/>
+  <NextKeyMarker/>
+  <NextUploadIdMarker/>
+  <Delimiter>/</Delimiter>
+  <Prefix>photos/2006/</Prefix>
+  <MaxUploads>1000</MaxUploads>
+  <IsTruncated>false</IsTruncated>
+  <CommonPrefixes>
+    <Prefix>photos/2006/February/</Prefix>
+  </CommonPrefixes>
+  <CommonPrefixes>
+    <Prefix>photos/2006/January/</Prefix>
+  </CommonPrefixes>
+  <CommonPrefixes>
+    <Prefix>photos/2006/March/</Prefix>
+  </CommonPrefixes>
+</ListMultipartUploadsResult>
+

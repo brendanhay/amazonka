@@ -1,0 +1,35 @@
+https://rds.us-east-1.amazonaws.com/
+        ?Action=DeleteEventSubscription
+        &SubscriptionName=EventSubscription01
+        &Version=2013-01-10
+        &SignatureVersion=4
+        &SignatureMethod=HmacSHA256
+        &Timestamp=20130128T012739Z
+        &AWSAccessKeyId=<AWS Access Key ID>
+        &Signature=<Signature>
+         
+
+
+<DeleteEventSubscriptionResponse xmlns="http://rds.amazonaws.com/doc/2013-01-10/">
+  <DeleteEventSubscriptionResult>
+    <EventSubscription>
+      <Enabled>true</Enabled>
+      <CustomerAwsId>012345678901</CustomerAwsId>
+      <SourceType>db-instance</SourceType>
+      <Status>deleting</Status>
+      <SubscriptionCreationTime>2013-01-28 00:29:23.736</SubscriptionCreationTime>
+      <EventCategoriesList>
+        <EventCategory>creation</EventCategory>
+        <EventCategory>deletion</EventCategory>
+      </EventCategoriesList>
+      <CustSubscriptionId>EventSubscription01</CustSubscriptionId>
+      <SnsTopicArn>arn:aws:sns:us-east-1:012345678901:EventSubscription01</SnsTopicArn>
+    </EventSubscription>
+  </DeleteEventSubscriptionResult>
+  <ResponseMetadata>
+    <RequestId>e7cf30ac-68e9-11e2-bd13-a92da73b3119</RequestId>
+  </ResponseMetadata>
+</DeleteEventSubscriptionResponse>
+
+        
+

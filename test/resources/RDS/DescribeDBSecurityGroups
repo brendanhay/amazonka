@@ -1,0 +1,60 @@
+https://rds.amazonaws.com/
+    ?Action=DescribeDBSecurityGroups
+    &Version=2013-05-15
+    &MaxRecords=100
+    &SignatureVersion=2
+    &SignatureMethod=HmacSHA256
+    &Timestamp=2011-02-15T19%3A40%3A19.926Z
+    &AWSAccessKeyId=<AWS Access Key ID>
+    &Signature=<Signature>
+
+<DescribeDBSecurityGroupsResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <DescribeDBSecurityGroupsResult>
+    <DBSecurityGroups>
+      <DBSecurityGroup>
+        <EC2SecurityGroups>
+          <EC2SecurityGroup>
+            <Status>authorized</Status>
+            <EC2SecurityGroupName>myec2securitygroup</EC2SecurityGroupName>
+            <EC2SecurityGroupOwnerId>054794666394</EC2SecurityGroupOwnerId>
+          </EC2SecurityGroup>
+        </EC2SecurityGroups>
+        <DBSecurityGroupDescription>default</DBSecurityGroupDescription>
+        <IPRanges>
+          <IPRange>
+            <CIDRIP>127.0.0.1/30</CIDRIP>
+            <Status>authorized</Status>
+          </IPRange>
+        </IPRanges>
+        <OwnerId>621567473609</OwnerId>
+        <DBSecurityGroupName>default</DBSecurityGroupName>
+        <VpcId>vpc-1ab2c3d4</VpcId>
+      </DBSecurityGroup>
+      <DBSecurityGroup>
+        <EC2SecurityGroups/>
+        <DBSecurityGroupDescription>My new DBSecurityGroup</DBSecurityGroupDescription>
+        <IPRanges>
+          <IPRange>
+            <CIDRIP>192.168.1.1/24</CIDRIP>
+            <Status>authorized</Status>
+          </IPRange>
+        </IPRanges>
+        <OwnerId>621567473609</OwnerId>
+        <DBSecurityGroupName>mydbsecuritygroup</DBSecurityGroupName>
+        <VpcId>vpc-1ab2c3d5</VpcId>
+      </DBSecurityGroup>
+      <DBSecurityGroup>
+        <EC2SecurityGroups/>
+        <DBSecurityGroupDescription>My new DBSecurityGroup</DBSecurityGroupDescription>
+        <IPRanges/>
+        <OwnerId>621567473609</OwnerId>
+        <DBSecurityGroupName>mydbsecuritygroup4</DBSecurityGroupName>
+        <VpcId>vpc-1ab2c3d6</VpcId>
+      </DBSecurityGroup>
+    </DBSecurityGroups>
+  </DescribeDBSecurityGroupsResult>
+  <ResponseMetadata>
+    <RequestId>bbdad154-bf42-11de-86a4-97241dfaadff</RequestId>
+  </ResponseMetadata>
+</DescribeDBSecurityGroupsResponse>
+

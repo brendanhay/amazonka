@@ -1,0 +1,48 @@
+
+{
+    "ExclusiveStartTableName": "string",
+    "Limit": "number"
+}
+			
+
+
+{
+    "LastEvaluatedTableName": "string",
+    "TableNames": [
+        "string"
+    ]
+}
+			
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive
+X-Amz-Target: DynamoDB_20120810.ListTables 
+
+{
+    "ExclusiveStartTableName": "Forum",
+    "Limit": 3
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+
+{
+    "LastEvaluatedTableName": "Thread",
+    "TableNames": ["Forum","Reply","Thread"]
+}
+        
+

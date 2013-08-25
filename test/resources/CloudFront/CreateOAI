@@ -1,0 +1,54 @@
+POST /2013-05-12/origin-access-identity/cloudfront HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: time stamp
+Other required headers
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CloudFrontOriginAccessIdentityConfig xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <CallerReference>ref</CallerReference>
+   <Comment>The comment.</Comment>
+</CloudFrontOriginAccessIdentityConfig>
+
+201 Created
+Location: URI of new origin access identity
+x-amz-request-id: Request ID
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CloudFrontOriginAccessIdentity xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Id>E74FTE3AEXAMPLE</Id>
+   <S3CanonicalUserId>cd13868f797c227fbea2830611a26fe0a21ba1b826ab4bed9b7771c9aEXAMPLE</S3CanonicalUserId>
+   <CloudFrontOriginAccessIdentityConfig>
+      <CallerReference/>   
+      <Comment/>
+   </CloudFrontOriginAccessIdentityConfig>
+</CloudFrontOriginAccessIdentity>
+
+POST /2013-05-12/origin-access-identity/cloudfront HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: Thu, 17 May 2012 19:37:58 GMT
+Other required headers
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CloudFrontOriginAccessIdentityConfig xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">  
+   <CallerReference>20120229090000</CallerReference>
+   <Comment>My comments</Comment>
+</CloudFrontOriginAccessIdentityConfig>
+
+201 Created
+Location: https://cloudfront.amazonaws.com/2013-05-12/origin-access-identity/cloudfront/E74FTE3AEXAMPLE
+x-amz-request-id: request_id
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CloudFrontOriginAccessIdentity xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+    <Id>E74FTE3AEXAMPLE</Id>
+    <S3CanonicalUserId>
+       cd13868f797c227fbea2830611a26fe0a21ba1b826ab4bed9b7771c9aEXAMPLE
+    </S3CanonicalUserId>
+    <CloudFrontOriginAccessIdentityConfig>
+      <CallerReference>20120229090000</CallerReference>
+      <Comment>My comments</Comment>
+   </CloudFrontOriginAccessIdentityConfig>
+</CloudFrontOriginAccessIdentity>
+

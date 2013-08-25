@@ -1,0 +1,88 @@
+<CORSConfiguration>
+ <CORSRule>
+   <AllowedOrigin>http://www.example.com</AllowedOrigin>
+
+   <AllowedMethod>PUT</AllowedMethod>
+   <AllowedMethod>POST</AllowedMethod>
+   <AllowedMethod>DELETE</AllowedMethod>
+
+   <AllowedHeader>*</AllowedHeader>
+ </CORSRule>
+ <CORSRule>
+   <AllowedOrigin>*</AllowedOrigin>
+   <AllowedMethod>GET</AllowedMethod>
+ </CORSRule>
+</CORSConfiguration>
+
+<CORSConfiguration>
+ <CORSRule>
+   <AllowedOrigin>http://www.example.com</AllowedOrigin>
+   <AllowedMethod>PUT</AllowedMethod>
+   <AllowedMethod>POST</AllowedMethod>
+   <AllowedMethod>DELETE</AllowedMethod>
+   <AllowedHeader>*</AllowedHeader>
+   <MaxAgeSeconds>3000</MaxAgeSeconds>
+   <ExposeHeader>x-amz-server-side-encryption</ExposeHeader>
+ </CORSRule>
+</CORSConfiguration>
+
+PUT /?cors HTTP/1.1
+Host: bucketname.s3.amazonaws.com
+Content-Length: length
+Date: date
+Authorization: signatureValue
+Content-MD5: MD5
+
+<CORSConfiguration>
+  <CORSRule>
+    <AllowedOrigin>Origin you want to allow cross-domain requests from</AllowedOrigin>
+    <AllowedOrigin>...</AllowedOrigin>
+    ...
+    <AllowedMethod>HTTP method</AllowedMethod>
+    <AllowedMethod>...</AllowedMethod>
+    ...
+    <MaxAgeSeconds>Time in seconds your browser to cache the pre-flight OPTIONS response for a resource</MaxAgeSeconds>
+    <AllowedHeader>Headers that you want the browser to be allowed to send</AllowedHeader>
+    <AllowedHeader>...</AllowedHeader>
+     ...
+    <ExposeHeader>Headers in the response that you want accessible from client application</ExposeHeader>
+    <ExposeHeader>...</ExposeHeader>
+     ...
+  </CORSRule>
+  <CORSRule>
+    ...
+  </CORSRule>
+    ...
+</CORSConfiguration>
+
+PUT /?cors HTTP/1.1
+Host: examplebucket.s3.amazonaws.com 
+x-amz-date: Tue, 21 Aug 2012 17:54:50 GMT
+Content-MD5: 8dYiLewFWZyGgV2Q5FNI4W==
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:z6mvnXscCWad60vdmB9xZVVZn46=
+Content-Length: 216
+
+<CORSConfiguration>
+ <CORSRule>
+   <AllowedOrigin>http://www.example.com</AllowedOrigin>
+   <AllowedMethod>PUT</AllowedMethod>
+   <AllowedMethod>POST</AllowedMethod>
+   <AllowedMethod>DELETE</AllowedMethod>
+   <AllowedHeader>*</AllowedHeader>
+   <MaxAgeSeconds>3000</MaxAgeSec>
+   <ExposeHeader>x-amz-server-side-encryption</ExposeHeader>
+ </CORSRule>
+ <CORSRule>
+   <AllowedOrigin>*</AllowedOrigin>
+   <AllowedMethod>GET</AllowedMethod>
+   <AllowedHeader>*</AllowedHeader>
+   <MaxAgeSeconds>3000</MaxAgeSeconds>
+ </CORSRule>
+</CORSConfiguration>
+
+HTTP/1.1 200 OK
+x-amz-id-2: CCshOvbOPfxzhwOADyC4qHj/Ck3F9Q0viXKw3rivZ+GcBoZSOOahvEJfPisZB7B
+x-amz-request-id: BDC4B83DF5096BBE
+Date: Tue, 21 Aug 2012 17:54:50 GMT
+Server: AmazonS3
+

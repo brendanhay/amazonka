@@ -1,0 +1,68 @@
+GET /2013-05-12/origin-access-identity/cloudfront?Marker=value&MaxItems=value HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: time stamp
+Other required headers
+
+200 OK
+x-amz-request-id: Request ID
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CloudFrontOriginAccessIdentityList xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Marker>value that you specified for 
+      Marker parameter in last request</Marker>
+   <NextMarker>value to specify for Marker parameter 
+      in next request</NextMarker>
+   <MaxItems>value specified for MaxItems in request</MaxItems>
+   <IsTruncated>true | false</IsTruncated>
+   <Quantity>number of origin access identities created by 
+      the current AWS account</Quantity>
+   <Items>
+      <CloudFrontOriginAccessIdentitySummary>
+         <Id>origin access identity</Id>
+         <S3CanonicalUserId>user id</S3CanonicalUserId>
+         <Comment>comment about the origin access identity</Comment>
+      </CloudFrontOriginAccessIdentitySummary>
+   </Items>
+</CloudFrontOriginAccessIdentityList>
+
+GET /2013-05-12/origin-access-identity/cloudfront?MaxItems=2 HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: Thu, 17 May 2012 19:37:58 GMT
+Other required headers
+
+200 OK
+x-amz-request-id: request_id
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CloudFrontOriginAccessIdentityList xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Marker>EDFDVBD6EXAMPLE</Marker>
+   <NextMarker>EMLARXS9EXAMPLE</NextMarker>
+   <MaxItems>2</MaxItems>
+   <IsTruncated>true</IsTruncated>
+   <Quantity>4</Quantity>
+   <Items>
+      <CloudFrontOriginAccessIdentitySummary>
+         <Id>E74FTE3AEXAMPLE</Id>
+         <S3CanonicalUserId>
+            cd13868f797c227fbea2830611a26fe0a21ba1b826ab4bed9b7771c9aEXAMPLE
+         </S3CanonicalUserId>
+         <Comment>First origin access identity</Comment>
+      </CloudFrontOriginAccessIdentitySummary>
+      <CloudFrontOriginAccessIdentitySummary>
+         <Id>E58SRM2XEXAMPLE</Id>
+         <S3CanonicalUserId>
+            7d843ae7f1792436e72691ab96a9c1414b7c3fbe2ab739a1cf21b0fe2EXAMPLE
+         </S3CanonicalUserId>
+         <Comment>Another origin access identity</Comment>
+      </CloudFrontOriginAccessIdentitySummary>
+   </Items>
+</CloudFrontOriginAccessIdentityList>
+
+GET /2013-05-12/origin-access-identity/cloudfront?MaxItems=4?Marker=E58SRM2XEXAMPLE HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: Thu, 17 May 2012 19:39:00 GMT
+Other required headers
+

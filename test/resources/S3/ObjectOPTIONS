@@ -1,0 +1,22 @@
+OPTIONS /ObjectName HTTP/1.1
+Host: BucketName.s3.amazonaws.com 
+Origin: Origin
+Access-Control-Request-Method: HTTPMethod
+Access-Control-Request-Headers: RequestHeader
+
+OPTIONS /exampleobject HTTP/1.1
+Host: examplebucket.s3.amazonaws.com 
+Origin: http://www.example.com
+Access-Control-Request-Method: PUT
+
+HTTP/1.1 200 OK
+x-amz-id-2: 6SvaESv3VULYPLik5LLl7lSPPtSnBvDdGmnklX1HfUl7uS2m1DF6td6KWKNjYMXZ
+x-amz-request-id: BDC4B83DF5096BBE
+Date: Wed, 21 Aug 2012 23:09:55 GMT
+Etag: "1f1a1af1f1111111111111c11aed1da1"
+Access-Control-Allow-Origin: http://www.example.com
+Access-Control-Allow-Methods: PUT
+Access-Control-Expose-Headers: x-amz-request-id
+Content-Length: 0
+Server: AmazonS3
+

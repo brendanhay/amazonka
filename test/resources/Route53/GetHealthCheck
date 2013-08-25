@@ -1,0 +1,5 @@
+GET
+/2012-12-12/healthcheck/{{ghcId}}
+QUERY
+BODY
+

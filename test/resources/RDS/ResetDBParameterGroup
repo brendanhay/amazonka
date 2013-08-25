@@ -1,0 +1,23 @@
+https://rds.amazonaws.com/
+    ?Action=ResetDBParameterGroup
+    &DBParameterGroupName=mydbparametergroup
+    &Parameters.member.1.ParameterName=max_user_connections
+    &Parameters.member.1.ApplyMethod=pending-reboot
+    &Parameters.member.2.ParameterName=max_allowed_packet
+    &Parameters.member.2.ApplyMethod=immediate
+    &ResetAllParameters=false
+    &Version=2013-05-15
+    &SignatureVersion=2
+    &SignatureMethod=HmacSHA256
+    &AWSAccessKeyId=<AWS Access Key ID>
+    &Signature=<Signature>
+
+<ResetDBParameterGroupResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <ResetDBParameterGroupResult>
+    <DBParameterGroupName>mydbparametergroup</DBParameterGroupName>
+  </ResetDBParameterGroupResult>
+  <ResponseMetadata>
+    <RequestId>071e758f-bf57-11de-9f9f-53d6aee22de9</RequestId>
+  </ResponseMetadata>
+</ResetDBParameterGroupResponse>
+

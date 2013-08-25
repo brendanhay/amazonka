@@ -1,0 +1,19 @@
+
+https://sdb.amazonaws.com/
+?Action=CreateDomain
+&AWSAccessKeyId=[valid access key id]
+&DomainName=MyDomain
+&SignatureVersion=2
+&SignatureMethod=HmacSHA256
+&Timestamp=2010-01-25T15%3A01%3A28-07%3A00
+&Version=2009-04-15
+&Signature=[valid signature]
+
+
+<CreateDomainResponse>
+  <ResponseMetadata>
+    <RequestId>2a1305a2-ed1c-43fc-b7c4-e6966b5e2727</RequestId>
+    <BoxUsage>0.0000219907</BoxUsage>
+  </ResponseMetadata>
+</CreateDomainResponse>
+

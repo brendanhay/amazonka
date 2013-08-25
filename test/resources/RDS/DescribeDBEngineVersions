@@ -1,0 +1,166 @@
+https://rds.amazonaws.com/
+   ?Action=DescribeDBEngineVersions
+   &MaxRecords=100
+   &Version=2013-05-15
+   &SignatureVersion=2
+   &SignatureMethod=HmacSHA256
+   &Timestamp=2011-05-23T07%3A34%3A17.435Z
+   &AWSAccessKeyId=<AWS Access Key ID>
+   &Signature=<Signature>
+
+<DescribeDBEngineVersionsResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <DescribeDBEngineVersionsResult>
+    <DBEngineVersions>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>mysql5.1</DBParameterGroupFamily>
+        <Engine>mysql</Engine>
+        <EngineVersion>5.1.42</EngineVersion>
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>mysql5.1</DBParameterGroupFamily>
+        <Engine>mysql</Engine>
+        <DBEngineDescription>Use instead of mysql5.1</DBEngineDescription>
+        <EngineVersion>5.1.45</EngineVersion>
+        <DBEngineVersionDescription>yaSSL Security Fixes</DBEngineVersionDescription>
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>mysql5.1</DBParameterGroupFamily>
+        <Engine>mysql</Engine>
+        <DBEngineDescription>Use instead of mysql5.1</DBEngineDescription>
+        <EngineVersion>5.1.47</EngineVersion>
+        <DBEngineVersionDescription>MySQL 5.1.47.R1 with InnoDB Plugin 1.0.8</DBEngineVersionDescription>
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>mysql5.1</DBParameterGroupFamily>
+        <Engine>mysql</Engine>
+        <DBEngineDescription>Use instead of mysql5.1</DBEngineDescription>
+        <EngineVersion>5.1.48</EngineVersion>
+        <DBEngineVersionDescription>MySQL 5.1.47.R1 with InnoDB Plugin 1.0.8</DBEngineVersionDescription>
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>mysql5.1</DBParameterGroupFamily>
+        <Engine>mysql</Engine>
+        <DBEngineDescription>Use instead of mysql5.1</DBEngineDescription>
+        <EngineVersion>5.1.49</EngineVersion>
+        <DBEngineVersionDescription>MySQL 5.1.49-R1 with innodb plugin</DBEngineVersionDescription>
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>mysql5.1</DBParameterGroupFamily>
+        <Engine>mysql</Engine>
+        <DBEngineDescription>Use instead of mysql5.1</DBEngineDescription>
+        <EngineVersion>5.1.50</EngineVersion>
+        <DBEngineVersionDescription>MySQL 5.1.50-R3</DBEngineVersionDescription>
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>mysql5.5</DBParameterGroupFamily>
+        <Engine>mysql</Engine>
+        <DBEngineDescription>Use instead of mysql5.1</DBEngineDescription>
+        <EngineVersion>5.5.7</EngineVersion>
+        <DBEngineVersionDescription>MySQL 5.5.7.R1</DBEngineVersionDescription>
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-ee-11.2</DBParameterGroupFamily>
+        <Engine>oracle-ee</Engine>
+        <DBEngineDescription>Oracle Database Server EE</DBEngineDescription>
+        <EngineVersion>11.2.0.2</EngineVersion>
+        <DBEngineVersionDescription>Oracle EE release</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-ee-11.2</DBParameterGroupFamily>
+        <Engine>oracle-ee</Engine>
+        <DBEngineDescription>Oracle Database Server EE</DBEngineDescription>
+        <EngineVersion>11.2.0.2.v2</EngineVersion>
+        <DBEngineVersionDescription>First Oracle Enterprise Edition One - DB Engine Version 11.2.0.2.v2</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-ee-11.2</DBParameterGroupFamily>
+        <Engine>oracle-ee</Engine>
+        <DBEngineDescription>Oracle Database Server EE</DBEngineDescription>
+        <EngineVersion>11.2.0.2.v3</EngineVersion>
+        <DBEngineVersionDescription>Oracle EE release</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-se-11.2</DBParameterGroupFamily>
+        <Engine>oracle-se</Engine>
+        <DBEngineDescription>Oracle Database Server SE</DBEngineDescription>
+        <EngineVersion>11.2.0.2</EngineVersion>
+        <DBEngineVersionDescription>Oracle SE release</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-se-11.2</DBParameterGroupFamily>
+        <Engine>oracle-se</Engine>
+        <DBEngineDescription>Oracle Database Server SE</DBEngineDescription>
+        <EngineVersion>11.2.0.2.v2</EngineVersion>
+        <DBEngineVersionDescription>Oracle SE release</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-se-11.2</DBParameterGroupFamily>
+        <Engine>oracle-se</Engine>
+        <DBEngineDescription>Oracle Database Server SE</DBEngineDescription>
+        <EngineVersion>11.2.0.2.v3</EngineVersion>
+        <DBEngineVersionDescription>Oracle SE release</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-se1-11.2</DBParameterGroupFamily>
+        <Engine>oracle-se1</Engine>
+        <DBEngineDescription>Oracle Database Server SE1</DBEngineDescription>
+        <EngineVersion>11.2.0.2</EngineVersion>
+        <DBEngineVersionDescription>Oracle SE1 release</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-se1-11.2</DBParameterGroupFamily>
+        <Engine>oracle-se1</Engine>
+        <DBEngineDescription>Oracle Database Server SE1</DBEngineDescription>
+        <EngineVersion>11.2.0.2.v2</EngineVersion>
+        <DBEngineVersionDescription>Oracle SE1 release</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+      <DBEngineVersion>
+        <DBParameterGroupFamily>oracle-se1-11.2</DBParameterGroupFamily>
+        <Engine>oracle-se1</Engine>
+        <DBEngineDescription>Oracle Database Server SE1</DBEngineDescription>
+        <EngineVersion>11.2.0.2.v3</EngineVersion>
+        <DBEngineVersionDescription>Oracle SE1 release</DBEngineVersionDescription>
+        <CharacterSet>
+            <CharacterSetName>AL32UTF8</CharacterSetName>
+            <CharacterSetDescription>Unicode 5.0 UTF-8 Universal character set</CharacterSetDescription>
+        </CharacterSet> 
+      </DBEngineVersion>
+    </DBEngineVersions>
+  </DescribeDBEngineVersionsResult>
+  <ResponseMetadata>
+    <RequestId>1162dc55-850f-11e0-90aa-eb648410240d</RequestId>
+  </ResponseMetadata>
+</DescribeDBEngineVersionsResponse>
+

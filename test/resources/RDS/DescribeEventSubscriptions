@@ -1,0 +1,38 @@
+https://rds.us-east-1.amazonaws.com/
+        ?Action=DescribeEventSubscriptions
+        &MaxRecords=100
+        &Version=2013-01-10
+        &SignatureVersion=4
+        &SignatureMethod=HmacSHA256
+        &Timestamp=20130128T004543Z
+        &AWSAccessKeyId=<AWS Access Key ID>
+        &Signature=<Signature>
+         
+
+<DescribeEventSubscriptionsResponse xmlns="http://rds.amazonaws.com/doc/2013-01-10/">
+  <DescribeEventSubscriptionsResult>
+    <EventSubscriptionsList>
+      <EventSubscription>
+        <Enabled>true</Enabled>
+        <CustomerAwsId>012345678901</CustomerAwsId>
+        <Status>active</Status>
+        <SubscriptionCreationTime>2013-01-28 00:29:23.736</SubscriptionCreationTime>
+        <CustSubscriptionId>EventSubscription01</CustSubscriptionId>
+        <SnsTopicArn>arn:aws:sns:us-east-1:012345678901:EventSubscription01</SnsTopicArn>
+      </EventSubscription>
+      <EventSubscription>
+        <Enabled>true</Enabled>
+        <CustomerAwsId>012345678901</CustomerAwsId>
+        <Status>active</Status>
+        <SubscriptionCreationTime>2013-01-28 00:29:42.851</SubscriptionCreationTime>
+        <CustSubscriptionId>EventSubscription02</CustSubscriptionId>
+        <SnsTopicArn>arn:aws:sns:us-east-1:012345678901:EventSubscription01</SnsTopicArn>
+      </EventSubscription>
+    </EventSubscriptionsList>
+  </DescribeEventSubscriptionsResult>
+  <ResponseMetadata>
+    <RequestId>0ce48079-68e4-11e2-91fe-5daa8e68c7d4</RequestId>
+  </ResponseMetadata>
+</DescribeEventSubscriptionsResponse>
+        
+

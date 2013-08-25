@@ -1,0 +1,240 @@
+
+{
+    "AttributeUpdates": 
+        {
+            "string" :
+                {
+                    "Action": "string",
+                    "Value": {
+                        "B": "blob",
+                        "BS": [
+                            "blob"
+                        ],
+                        "N": "string",
+                        "NS": [
+                            "string"
+                        ],
+                        "S": "string",
+                        "SS": [
+                            "string"
+                        ]
+                    }
+                }
+        },
+    "Expected": 
+        {
+            "string" :
+                {
+                    "Exists": "boolean",
+                    "Value": {
+                        "B": "blob",
+                        "BS": [
+                            "blob"
+                        ],
+                        "N": "string",
+                        "NS": [
+                            "string"
+                        ],
+                        "S": "string",
+                        "SS": [
+                            "string"
+                        ]
+                    }
+                }
+        },
+    "Key": 
+        {
+            "string" :
+                {
+                    "B": "blob",
+                    "BS": [
+                        "blob"
+                    ],
+                    "N": "string",
+                    "NS": [
+                        "string"
+                    ],
+                    "S": "string",
+                    "SS": [
+                        "string"
+                    ]
+                }
+        },
+    "ReturnConsumedCapacity": "string",
+    "ReturnItemCollectionMetrics": "string",
+    "ReturnValues": "string",
+    "TableName": "string"
+}
+			
+
+
+{
+    "Attributes": 
+        {
+            "string" :
+                {
+                    "B": "blob",
+                    "BS": [
+                        "blob"
+                    ],
+                    "N": "string",
+                    "NS": [
+                        "string"
+                    ],
+                    "S": "string",
+                    "SS": [
+                        "string"
+                    ]
+                }
+        },
+    "ConsumedCapacity": {
+        "CapacityUnits": "number",
+        "TableName": "string"
+    },
+    "ItemCollectionMetrics": {
+        "ItemCollectionKey": 
+            {
+                "string" :
+                    {
+                        "B": "blob",
+                        "BS": [
+                            "blob"
+                        ],
+                        "N": "string",
+                        "NS": [
+                            "string"
+                        ],
+                        "S": "string",
+                        "SS": [
+                            "string"
+                        ]
+                    }
+            },
+        "SizeEstimateRangeGB": [
+            "number"
+        ]
+    }
+}
+			
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive
+X-Amz-Target: DynamoDB_20120810.UpdateItem 
+
+{
+    "TableName": "Thread",
+    "Key": {
+        "ForumName": {
+            "S": "Amazon DynamoDB"
+        },
+        "Subject": {
+            "S": "Maximum number of items?"
+        }
+    },
+    "AttributeUpdates": {
+        "LastPostedBy": {
+            "Value": {
+                "S": "alice@example.com"
+            },
+            "Action": "PUT"
+        }
+    },
+    "Expected": {
+        "LastPostedBy": {
+            "Value": {
+                "S": "fred@example.com"
+            },
+            "Exists": true
+        }
+    },
+    "ReturnValues": "ALL_NEW"
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+
+{
+    "Attributes": {
+        "LastPostedBy": {
+            "S": "alice@example.com"
+        },
+        "ForumName": {
+            "S": "Amazon DynamoDB"
+        },
+        "LastPostDateTime": {
+            "S": "20130320010350"
+        },
+        "Tags": {
+            "SS": ["Update","Multiple Items","HelpMe"]
+        },
+        "Subject": {
+            "S": "Maximum number of items?"
+        },
+        "Views": {
+            "N": "5"
+        },
+        "Message": {
+            "S": "I want to put 10 million data items to an Amazon DynamoDB table.  Is there an upper limit?"
+        }
+    }
+}
+        
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive
+X-Amz-Target: DynamoDB_20120810.UpdateItem 
+
+{
+    "TableName": "Thread",
+    "Key": {
+        "ForumName": {
+            "S": "Amazon DynamoDB"
+        },
+        "Subject": {
+            "S": "A question about updates"
+        }
+    },
+    "AttributeUpdates": {
+        "Replies": {
+            "Action": "ADD",
+            "Value": {"N": "1"}
+        }
+    },
+    "ReturnValues" : "NONE"
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+
+{          
+}
+        
+

@@ -1,0 +1,28 @@
+
+
+  http://sns.us-east-1.amazonaws.com/
+  ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic
+  &Endpoint=example%40amazon.com
+  &Protocol=email
+  &Action=Subscribe
+  &SignatureVersion=2
+  &SignatureMethod=HmacSHA256
+  &Timestamp=2010-03-31T12%3A00%3A00.000Z
+  &AWSAccessKeyId=(AWS Access Key ID)
+  &Signature=1%2FeGaDphxXq%2Fa89x6HvKh%2Fc1yLGXzuhS7vS2MslToDM%3D
+
+ 
+
+
+  
+<SubscribeResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <SubscribeResult>
+    <SubscriptionArn>pending confirmation</SubscriptionArn>
+  </SubscribeResult>
+  <ResponseMetadata>
+    <RequestId>a169c740-3766-11df-8963-01868b7c937a</RequestId>
+  </ResponseMetadata>
+</SubscribeResponse>
+  
+ 
+

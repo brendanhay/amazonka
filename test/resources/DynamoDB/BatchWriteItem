@@ -1,0 +1,244 @@
+
+{
+    "RequestItems": 
+        {
+            "string" :
+                [
+                    {
+                        "DeleteRequest": {
+                            "Key": 
+                                {
+                                    "string" :
+                                        {
+                                            "B": "blob",
+                                            "BS": [
+                                                "blob"
+                                            ],
+                                            "N": "string",
+                                            "NS": [
+                                                "string"
+                                            ],
+                                            "S": "string",
+                                            "SS": [
+                                                "string"
+                                            ]
+                                        }
+                                }
+                        },
+                        "PutRequest": {
+                            "Item": 
+                                {
+                                    "string" :
+                                        {
+                                            "B": "blob",
+                                            "BS": [
+                                                "blob"
+                                            ],
+                                            "N": "string",
+                                            "NS": [
+                                                "string"
+                                            ],
+                                            "S": "string",
+                                            "SS": [
+                                                "string"
+                                            ]
+                                        }
+                                }
+                        }
+                    }
+                ]
+        },
+    "ReturnConsumedCapacity": "string",
+    "ReturnItemCollectionMetrics": "string"
+}
+			
+
+
+{
+    "ConsumedCapacity": [
+        {
+            "CapacityUnits": "number",
+            "TableName": "string"
+        }
+    ],
+    "ItemCollectionMetrics": 
+        {
+            "string" :
+                [
+                    {
+                        "ItemCollectionKey": 
+                            {
+                                "string" :
+                                    {
+                                        "B": "blob",
+                                        "BS": [
+                                            "blob"
+                                        ],
+                                        "N": "string",
+                                        "NS": [
+                                            "string"
+                                        ],
+                                        "S": "string",
+                                        "SS": [
+                                            "string"
+                                        ]
+                                    }
+                            },
+                        "SizeEstimateRangeGB": [
+                            "number"
+                        ]
+                    }
+                ]
+        },
+    "UnprocessedItems": 
+        {
+            "string" :
+                [
+                    {
+                        "DeleteRequest": {
+                            "Key": 
+                                {
+                                    "string" :
+                                        {
+                                            "B": "blob",
+                                            "BS": [
+                                                "blob"
+                                            ],
+                                            "N": "string",
+                                            "NS": [
+                                                "string"
+                                            ],
+                                            "S": "string",
+                                            "SS": [
+                                                "string"
+                                            ]
+                                        }
+                                }
+                        },
+                        "PutRequest": {
+                            "Item": 
+                                {
+                                    "string" :
+                                        {
+                                            "B": "blob",
+                                            "BS": [
+                                                "blob"
+                                            ],
+                                            "N": "string",
+                                            "NS": [
+                                                "string"
+                                            ],
+                                            "S": "string",
+                                            "SS": [
+                                                "string"
+                                            ]
+                                        }
+                                }
+                        }
+                    }
+                ]
+        }
+}
+			
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive X-Amz-Target: DynamoDB_20120810.BatchWriteItem 
+
+{
+    "RequestItems": {
+        "Forum": [
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Amazon DynamoDB"
+                        },
+                        "Category": {
+                            "S": "Amazon Web Services"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Amazon RDS"
+                        },
+                        "Category": {
+                            "S": "Amazon Web Services"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Amazon Redshift"
+                        },
+                        "Category": {
+                            "S": "Amazon Web Services"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Amazon ElastiCache"
+                        },
+                        "Category": {
+                            "S": "Amazon Web Services"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "ReturnConsumedCapacity": "TOTAL"
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+ {
+    "UnprocessedItems": {
+        "Forum": [
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Amazon ElastiCache"
+                        },
+                        "Category": {
+                            "S": "Amazon Web Services"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "ConsumedCapacity": [
+        {
+            "TableName": "Forum",
+            "CapacityUnits": 3
+        }
+    ]
+}
+        
+

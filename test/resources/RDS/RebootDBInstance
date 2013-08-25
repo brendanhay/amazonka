@@ -1,0 +1,54 @@
+https://rds.amazonaws.com/
+    ?Action=RebootDBInstance
+    &DBInstanceIdentifier=simcoprod01
+    &Version=2013-05-15
+    &SignatureVersion=2
+    &SignatureMethod=HmacSHA256
+    &Timestamp=2011-05-23T06%3A10%3A31.216Z
+    &AWSAccessKeyId=<AWS Access Key ID>
+    &Signature=<Signature>
+
+<RebootDBInstanceResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <RebootDBInstanceResult>
+    <DBInstance>
+      <ReadReplicaDBInstanceIdentifiers/>
+      <LatestRestorableTime>2011-05-23T06:07:38.831Z</LatestRestorableTime>
+      <Engine>mysql</Engine>
+      <PendingModifiedValues/>
+      <BackupRetentionPeriod>1</BackupRetentionPeriod>
+      <MultiAZ>false</MultiAZ>
+      <LicenseModel>general-public-license</LicenseModel>
+      <DBInstanceStatus>rebooting</DBInstanceStatus>
+      <EngineVersion>5.1.50</EngineVersion>
+      <Endpoint>
+        <Port>3306</Port>
+        <Address>simcoprod01.cu7u2t4uz396.us-east-1.rds.amazonaws.com</Address>
+      </Endpoint>
+      <DBInstanceIdentifier>simcoprod01</DBInstanceIdentifier>
+      <DBParameterGroups>
+        <DBParameterGroup>
+          <ParameterApplyStatus>in-sync</ParameterApplyStatus>
+          <DBParameterGroupName>default.mysql5.1</DBParameterGroupName>
+        </DBParameterGroup>
+      </DBParameterGroups>
+      <DBSecurityGroups>
+        <DBSecurityGroup>
+          <Status>active</Status>
+          <DBSecurityGroupName>default</DBSecurityGroupName>
+        </DBSecurityGroup>
+      </DBSecurityGroups>
+      <PreferredBackupWindow>00:00-00:30</PreferredBackupWindow>
+      <AutoMinorVersionUpgrade>true</AutoMinorVersionUpgrade>
+      <PreferredMaintenanceWindow>sat:07:30-sat:08:00</PreferredMaintenanceWindow>
+      <AvailabilityZone>us-east-1a</AvailabilityZone>
+      <InstanceCreateTime>2011-05-23T06:06:43.110Z</InstanceCreateTime>
+      <AllocatedStorage>10</AllocatedStorage>
+      <DBInstanceClass>db.m1.large</DBInstanceClass>
+      <MasterUsername>master</MasterUsername>
+    </DBInstance>
+  </RebootDBInstanceResult>
+  <ResponseMetadata>
+    <RequestId>5d5df758-8503-11e0-90aa-eb648410240d</RequestId>
+  </ResponseMetadata>
+</RebootDBInstanceResponse>
+

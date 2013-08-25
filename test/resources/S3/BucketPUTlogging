@@ -1,0 +1,64 @@
+<BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />
+
+PUT /?logging HTTP/1.1
+Host: BucketName.s3.amazonaws.com
+Date: date
+Authorization: signatureValue
+
+Request elements vary depending on what you're setting.
+
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+  <ID>ID</ID>
+  <DisplayName>GranteesEmail</DisplayName>
+</Grantee>
+
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail">
+  <EmailAddress>Grantees@email.com</EmailAddress>
+</Grantee>
+
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+  <URI>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<URI>
+</Grantee>
+
+PUT ?logging HTTP/1.1
+Host: quotes.s3.amazonaws.com
+Content-Length: 214
+Date: Wed, 25 Nov 2009 12:00:00 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:xQE0diMbLRepdf3YB+FIEXAMPLE=
+
+<?xml version="1.0" encoding="UTF-8"?>
+<BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
+  <LoggingEnabled>
+    <TargetBucket>mybucketlogs</TargetBucket>
+    <TargetPrefix>mybucket-access_log-/</TargetPrefix>
+    <TargetGrants>
+      <Grant>
+        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:type="AmazonCustomerByEmail">
+          <EmailAddress>user@company.com</EmailAddress>
+        </Grantee>
+        <Permission>READ</Permission>
+      </Grant>
+    </TargetGrants>
+  </LoggingEnabled>
+</BucketLoggingStatus>
+
+HTTP/1.1 200 OK
+x-amz-id-2: YgIPIfBiKa2bj0KMg95r/0zo3emzU4dzsD4rcKCHQUAdQkf3ShJTOOpXUueF6QKo
+x-amz-request-id: 236A8905248E5A01
+Date: Wed, 01 Mar  2009 12:00:00 GMT
+
+PUT ?logging HTTP/1.1
+Host: quotes.s3.amazonaws.com
+Content-Length: 214
+Date: Wed, 25 Nov 2009 12:00:00 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:xQE0diMbLRepdf3YB+FIEXAMPLE=
+
+<?xml version="1.0" encoding="UTF-8"?>
+<BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />
+
+HTTP/1.1 200 OK
+x-amz-id-2: YgIPIfBiKa2bj0KMg95r/0zo3emzU4dzsD4rcKCHQUAdQkf3ShJTOOpXUueF6QKo
+x-amz-request-id: 236A8905248E5A01
+Date: Wed, 01 Mar  2009 12:00:00 GMT
+

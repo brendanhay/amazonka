@@ -1,0 +1,41 @@
+GET /2013-05-12/origin-access-identity/cloudfront/<identity ID> HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: time stamp
+Other required headers
+
+200 OK
+Etag: ETag value to use later when doing a PUT or DELETE
+x-amz-request-id: Request ID
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CloudFrontOriginAccessIdentity xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Id/>
+   <S3CanonicalUserId>id</S3CanonicalUserId>
+   <CloudFrontOriginAccessIdentityConfig>
+      <CallerReference> ref </CallerReference>
+      <Comment>The comment.</Comment>
+   </CloudFrontOriginAccessIdentityConfig>
+</CloudFrontOriginAccessIdentity>
+
+GET /2013-05-12/origin-access-identity/cloudfront/E74FTE3AEXAMPLE HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: Thu, 17 May 2012 19:37:58 GMT
+Other required headers
+
+200 OK
+ETag: E2QWRUHEXAMPLE
+x-amz-request-id: request_id
+
+<CloudFrontOriginAccessIdentity xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Id>E74FTE3AEXAMPLE</Id>
+   <S3CanonicalUserId>
+      cd13868f797c227fbea2830611a26fe0a21ba1b826ab4bed9b7771c9aEXAMPLE
+   </S3CanonicalUserId>
+   <CloudFrontOriginAccessIdentityConfig> 
+      <CallerReference>20120229090000</CallerReference>
+      <Comment>My comments</Comment>
+   </CloudFrontOriginAccessIdentityConfig>
+</CloudFrontOriginAccessIdentity>
+

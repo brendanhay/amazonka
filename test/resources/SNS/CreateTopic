@@ -1,0 +1,26 @@
+
+
+  http://sns.us-east-1.amazonaws.com/
+  ?Name=My-Topic
+  &Action=CreateTopic
+  &SignatureVersion=2
+  &SignatureMethod=HmacSHA256
+  &Timestamp=2010-03-31T12%3A00%3A00.000Z
+  &AWSAccessKeyId=(AWS Access Key ID)
+  &Signature=gfzIF53exFVdpSNb8AiwN3Lv%2FNYXh6S%2Br3yySK70oX4%3D
+
+ 
+
+
+  
+   <CreateTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+     <CreateTopicResult>
+       <TopicArn>arn:aws:sns:us-east-1:123456789012:My-Topic</TopicArn>
+     </CreateTopicResult>
+     <ResponseMetadata>
+       <RequestId>a8dec8b3-33a4-11df-8963-01868b7c937a</RequestId>
+     </ResponseMetadata>
+   </CreateTopicResponse>
+  
+ 
+

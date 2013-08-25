@@ -1,0 +1,22 @@
+https://rds.amazonaws.com/
+                ?Action=CreateOptionGroup
+                &OptionGroupName=myoptiongroup
+                &EngineName=oracle-se1
+                &MajorEngineVersion=11.2
+                &OptionGroupDescription=Test option group
+
+<CreateOptionGroupResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+                <CreateOptionGroupResult>
+                    <OptionGroup>
+                        <MajorEngineVersion>11.2</MajorEngineVersion>
+                        <OptionGroupName>myoptiongroup</OptionGroupName>
+                        <EngineName>oracle-se1</EngineName>
+                        <OptionGroupDescription>Test option group</OptionGroupDescription>
+                        <Options/>
+                    </OptionGroup>
+                </CreateOptionGroupResult>
+                <ResponseMetadata>
+                    <RequestId>b2416a8a-84c9-11e1-a264-0b23c28bc344</RequestId>
+                </ResponseMetadata>
+            </CreateOptionGroupResponse>
+

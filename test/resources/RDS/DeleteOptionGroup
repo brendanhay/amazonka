@@ -1,0 +1,7 @@
+https://rds.amazonaws.com/
+                ?Action=DeleteOptionGroup
+                &OptionGroupName=myoptiongroup
+
+<DeleteOptionGroupResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+            </DeleteOptionGroupResponse>
+

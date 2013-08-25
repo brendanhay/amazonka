@@ -1,0 +1,6 @@
+GET
+/2012-12-12/healthcheck
+QUERY
+{{#lhcMarker}}marker={{lhzMarker}}{{/lhcMarker}}
+{{#lhcMaxItems}}maxitems={{lhcMaxItems}}{{/lhcMaxItems}}
+BODY

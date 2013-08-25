@@ -1,0 +1,50 @@
+GET /2013-05-12/distribution/distribution ID/invalidation?Marker=value&MaxItems=value HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Other required headers
+
+HTTP/1.0 200 OK
+Content-Type: text/xml
+
+<InvalidationList>
+   <Marker>value specified in request</Marker>
+   <NextMarker>value for Marker parameter in 
+      next request</NextMarker>
+   <MaxItems>value specified in request</MaxItems>
+   <IsTruncated>true | false</IsTruncated>
+   <Quantity>number of invalidation batches created by 
+      current AWS account</Quantity>
+   <Items>
+      <InvalidationSummary>
+         <Id>Invalidation ID</Id>
+         <Status>InProgress | Completed</Status>
+      </InvalidationSummary>
+   </Items>
+</InvalidationList>
+
+GET /2013-05-12/distribution/distribution ID/invalidation?MaxItems=2 HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Other required headers
+
+HTTP/1.0 200 OK
+Content-Type: text/xml
+
+<InvalidationList>
+   <Marker>EGTXBD79EXAMPLE</Marker>
+   <NextMarker>Invalidation ID</NextMarker>
+   <MaxItems>2</MaxItems>
+   <IsTruncated>true</IsTruncated>
+   <Quantity>10</Quantity>
+   <Items>
+      <InvalidationSummary>
+         <Id>Second Invalidation ID</Id>
+         <Status>Completed</Status>
+      </InvalidationSummary>
+      <InvalidationSummary>
+         <Id>First Invalidation ID</Id>
+         <Status>Completed</Status>
+      </InvalidationSummary>
+   </Items>
+</InvalidationList>
+

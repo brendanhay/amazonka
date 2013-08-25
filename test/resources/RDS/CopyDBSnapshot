@@ -1,0 +1,32 @@
+https://rds.amazonaws.com/
+    ?Action=CopyDBSnapshot
+    &SourceDBSnapshotIdentifier=rds:simcoprod01-2012-04-02-00-01
+    &TargetDBSnapshotIdentifier=mydbsnapshot
+    &Version=2013-05-15
+    &SignatureVersion=2&SignatureMethod=HmacSHA256
+    &Timestamp=2011-12-12T06%3A27%3A42.551Z
+    &AWSAccessKeyId=<AWS Access Key ID>
+    &Signature=<Signature>
+
+<CopyDBSnapshotResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <CopyDBSnapshotResult>
+    <DBSnapshot>
+      <Port>3306</Port>
+      <Engine>mysql</Engine>
+      <Status>available</Status>
+      <AvailabilityZone>us-east-1a</AvailabilityZone>
+      <LicenseModel>general-public-license</LicenseModel>
+      <InstanceCreateTime>2011-05-23T06:06:43.110Z</InstanceCreateTime>
+      <AllocatedStorage>10</AllocatedStorage>
+      <DBInstanceIdentifier>simcoprod01</DBInstanceIdentifier>
+      <EngineVersion>5.1.50</EngineVersion>
+      <DBSnapshotIdentifier>mydbsnapshot</DBSnapshotIdentifier>
+      <SnapshotType>manual</SnapshotType>
+      <MasterUsername>master</MasterUsername>
+    </DBSnapshot>
+  </CopyDBSnapshotResult>
+  <ResponseMetadata>
+    <RequestId>c4181d1d-8505-11e0-90aa-eb648410240d</RequestId>
+  </ResponseMetadata>
+</CopyDBSnapshotResponse>
+

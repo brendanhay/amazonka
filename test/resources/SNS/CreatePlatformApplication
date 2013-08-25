@@ -1,0 +1,35 @@
+
+        
+POST http://sns.us-west-2.amazonaws.com/ HTTP/1.1
+...
+Attributes.entry.2.key=PlatformPrincipal
+&SignatureMethod=HmacSHA256
+&Attributes.entry.1.value=AIzaSyClE2lcV2zEKTLYYo645zfk2jhQPFeyxDo
+&Attributes.entry.2.value=There+is+no+principal+for+GCM
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Signature=82sHzg1Wfbgisw3i%2BHA2OgBmRktsqUKFinknkq3u%2FQ4%3D
+&Timestamp=2013-07-01T15%3A49%3A50.354Z
+&Name=gcmpushapp
+&Attributes.entry.1.key=PlatformCredential
+&Action=CreatePlatformApplication
+&Version=2010-03-31
+&SignatureVersion=2
+&Platform=GCM
+
+      
+
+
+        
+HTTP/1.1 200 OK
+...
+<CreatePlatformApplicationResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <CreatePlatformApplicationResult>
+    <PlatformApplicationArn>arn:aws:sns:us-west-2:123456789012:app/GCM/gcmpushapp</PlatformApplicationArn>
+  </CreatePlatformApplicationResult>
+  <ResponseMetadata>
+    <RequestId>b6f0e78b-e9d4-5a0e-b973-adc04e8a4ff9</RequestId>
+  </ResponseMetadata>
+</CreatePlatformApplicationResponse>
+
+      
+

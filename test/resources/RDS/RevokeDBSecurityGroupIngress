@@ -1,0 +1,31 @@
+https://rds.amazonaws.com/
+    ?Action=RevokeDBSecurityGroupIngress
+    &DBSecurityGroupName=mydbsecuritygroup
+    &CIDRIP=192.168.1.1%2F24
+    &Version=2013-05-15
+    &SignatureVersion=2&SignatureMethod=HmacSHA256
+    &Timestamp=2011-02-15T22%3A32%3A12.515Z
+    &AWSAccessKeyId=<AWS Access Key ID>
+    &Signature=<Signature>
+
+<RevokeDBSecurityGroupIngressResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <RevokeDBSecurityGroupIngressResult>
+    <DBSecurityGroup>
+      <EC2SecurityGroups/>
+      <DBSecurityGroupDescription>My new DBSecurityGroup</DBSecurityGroupDescription>
+      <IPRanges>
+        <IPRange>
+          <CIDRIP>192.168.1.1/24</CIDRIP>
+          <Status>revoking</Status>
+        </IPRange>
+      </IPRanges>
+      <OwnerId>621567473609</OwnerId>
+      <DBSecurityGroupName>mydbsecuritygroup</DBSecurityGroupName>
+      <VpcId>vpc-1ab2c3d4</VpcId>
+    </DBSecurityGroup>
+  </RevokeDBSecurityGroupIngressResult>
+  <ResponseMetadata>
+    <RequestId>beecb8ac-bf5a-11de-9f9f-53d6aee22de9</RequestId>
+  </ResponseMetadata>
+</RevokeDBSecurityGroupIngressResponse>
+

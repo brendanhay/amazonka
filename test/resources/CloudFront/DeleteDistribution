@@ -1,0 +1,19 @@
+DELETE /2013-05-12/distribution/distribution ID HTTP/1.1
+Host: cloudfront.amazonaws.com
+If-Match: value from ETag header in previous GET or PUT response
+Authorization: AWS authentication string
+Date: time stamp
+Other required headers
+
+204 No Content
+x-amz-request-id: Request ID
+
+DELETE /2013-05-12/distribution/EDFDVBD6EXAMPLE HTTP 1.1
+Host: cloudfront.amazonaws.com
+If-Match: E2QWRUHEXAMPLE
+Authorization: AWS authentication string
+Other required headers
+
+204 No Content
+x-amz-request-id: request_id
+

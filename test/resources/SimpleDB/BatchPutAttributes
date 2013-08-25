@@ -1,0 +1,34 @@
+
+https://sdb.amazonaws.com/
+?Action=BatchPutAttributes
+&Item.1.ItemName=Shirt1
+&Item.1.Attribute.1.Name=Color
+&Item.1.Attribute.1.Value=Blue
+&Item.1.Attribute.2.Name=Size
+&Item.1.Attribute.2.Value=Med
+&Item.1.Attribute.3.Name=Price
+&Item.1.Attribute.3.Value=0014.99
+&Item.1.Attribute.3.Replace=true
+&Item.2.ItemName=Shirt2
+&Item.2.Attribute.1.Name=Color
+&Item.2.Attribute.1.Value=Red
+&Item.2.Attribute.2.Name=Size
+&Item.2.Attribute.2.Value=Large
+&Item.2.Attribute.3.Name=Price
+&Item.2.Attribute.3.Value=0019.99
+&AWSAccessKeyId=[valid access key id]
+&DomainName=MyDomain
+&SignatureVersion=2
+&SignatureMethod=HmacSHA256
+&Timestamp=2009-01-12T15%3A03%3A05-07%3A00
+&Version=2009-04-15
+&Signature=[valid signature]
+
+
+<BatchPutAttributesResponse>
+  <ResponseMetadata>
+    <RequestId>490206ce-8292-456c-a00f-61b335eb202b</RequestId>
+    <BoxUsage>0.0000219907</BoxUsage>
+  </ResponseMetadata>
+</BatchPutAttributesResponse>
+

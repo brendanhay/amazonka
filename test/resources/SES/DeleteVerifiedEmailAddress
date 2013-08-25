@@ -1,0 +1,28 @@
+
+                
+POST / HTTP/1.1
+Date: Thu, 18 Aug 2011 22:20:50 GMT
+Host: email.us-east-1.amazonaws.com
+Content-Type: application/x-www-form-urlencoded
+X-Amzn-Authorization: AWS3 AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
+ Signature=Rxzyd6cQe/YjkV4yoQAZ243OzzNjFgrsclizTKwRIRc=,
+ Algorithm=HmacSHA256, SignedHeaders=Date;Host
+Content-Length: 142
+
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Action=DeleteVerifiedEmailAddress
+&EmailAddress=user%40example.com
+&Timestamp=2011-08-18T22%3A20%3A50.000Z
+          
+            
+
+
+                
+<DeleteVerifiedEmailAddressResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+  <ResponseMetadata>
+    <RequestId>5634af08-c865-11e0-8986-3f99a698f914</RequestId>
+  </ResponseMetadata>
+</DeleteVerifiedEmailAddressResponse>
+          
+            
+

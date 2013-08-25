@@ -1,0 +1,49 @@
+https://rds.amazonaws.com/
+   ?Action=CreateDBInstanceReadReplica
+   &DBInstanceIdentifier=myreadreplica
+   &SourceDBInstanceIdentifier=mydbinstance
+   &Version=2013-05-15
+   &SignatureVersion=2
+   &SignatureMethod=HmacSHA256
+   &Timestamp=2011-05-15T23%3A35%3A07.325Z
+   &AWSAccessKeyId=<AWS Access Key ID>
+   &Signature=<Signature>
+
+<CreateDBInstanceReadReplicaResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <CreateDBInstanceReadReplicaResult>
+    <DBInstance>
+      <ReadReplicaDBInstanceIdentifiers/>
+      <Engine>mysql</Engine>
+      <PendingModifiedValues/>
+      <BackupRetentionPeriod>0</BackupRetentionPeriod>
+      <MultiAZ>false</MultiAZ>
+      <LicenseModel>general-public-license</LicenseModel>
+      <DBInstanceStatus>creating</DBInstanceStatus>
+      <EngineVersion>5.1.50</EngineVersion>
+      <DBInstanceIdentifier>myreadreplica</DBInstanceIdentifier>
+      <DBParameterGroups>
+        <DBParameterGroup>
+          <ParameterApplyStatus>in-sync</ParameterApplyStatus>
+          <DBParameterGroupName>default.mysql5.1</DBParameterGroupName>
+        </DBParameterGroup>
+      </DBParameterGroups>
+      <ReadReplicaSourceDBInstanceIdentifier>mydbinstance</ReadReplicaSourceDBInstanceIdentifier>
+      <DBSecurityGroups>
+        <DBSecurityGroup>
+          <Status>active</Status>
+          <DBSecurityGroupName>default</DBSecurityGroupName>
+        </DBSecurityGroup>
+      </DBSecurityGroups>
+      <PreferredBackupWindow>23:00-01:00</PreferredBackupWindow>
+      <AutoMinorVersionUpgrade>true</AutoMinorVersionUpgrade>
+      <PreferredMaintenanceWindow>sun:05:00-sun:09:00</PreferredMaintenanceWindow>
+      <AllocatedStorage>10</AllocatedStorage>
+      <DBInstanceClass>db.m1.small</DBInstanceClass>
+      <MasterUsername>master</MasterUsername>
+    </DBInstance>
+  </CreateDBInstanceReadReplicaResult>
+  <ResponseMetadata>
+    <RequestId>3e24c5cd-c6e2-11df-8463-4f0c49644cb7</RequestId>
+  </ResponseMetadata>
+</CreateDBInstanceReadReplicaResponse>
+

@@ -1,0 +1,35 @@
+
+        
+POST http://sns.us-west-2.amazonaws.com/ HTTP/1.1
+...
+PlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp
+&Action=GetPlatformApplicationAttributes
+&SignatureMethod=HmacSHA256
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&SignatureVersion=2
+&Version=2010-03-31
+&Signature=UGMaCq8CCJGSYXO9Ehr2VuHIBYSe6WbxkqgMKRslTK4%3D
+&Timestamp=2013-07-01T22%3A40%3A50.643Z
+
+      
+
+
+        
+HTTP/1.1 200 OK
+...
+<GetPlatformApplicationAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <GetPlatformApplicationAttributesResult>
+    <Attributes>
+      <entry>
+        <key>AllowEndpointPolicies</key>
+        <value>false</value>
+      </entry>
+    </Attributes>
+  </GetPlatformApplicationAttributesResult>
+  <ResponseMetadata>
+    <RequestId>74848df2-87f6-55ed-890c-c7be80442462</RequestId>
+  </ResponseMetadata>
+</GetPlatformApplicationAttributesResponse>
+
+      
+

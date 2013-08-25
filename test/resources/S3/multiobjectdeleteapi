@@ -1,0 +1,176 @@
+POST /?delete HTTP/1.1
+Host: bucketname.s3.amazonaws.com
+Authorization: Signature
+Content-Length: Size
+Content-MD5: MD5
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Delete>
+    <Quiet>true</Quiet>
+    <Object>
+         <Key>Key</Key>
+         <VersionId>VersionId</VersionId>
+    </Object>
+    <Object>
+         <Key>Key</Key>
+    </Object>
+    ...
+</Delete>			
+
+POST /?delete HTTP/1.1
+Host: bucketname.S3.amazonaws.com
+Accept: */*
+x-amz-date: Wed, 30 Nov 2011 03:39:05 GMT
+Content-MD5: p5/WA/oEr30qrEEl21PAqw==
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:W0qPYCLe6JwkZAD1ei6hp9XZIee=
+Content-Length: 125
+Connection: Keep-Alive
+
+<Delete>
+  <Object>
+    <Key>sample1.txt</Key>
+  </Object>
+  <Object>
+    <Key>sample2.txt</Key>
+  </Object>
+</Delete>
+
+HTTP/1.1 200 OK
+x-amz-id-2: 5h4FxSNCUS7wP5z92eGCWDshNpMnRuXvETa4HH3LvvH6VAIr0jU7tH9kM7X+njXx
+x-amz-request-id: A437B3B641629AEE
+Date: Fri, 02 Dec 2011 01:53:42 GMT
+Content-Type: application/xml
+Server: AmazonS3
+Content-Length: 251
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DeleteResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Deleted>
+    <Key>sample1.txt</Key>
+  </Deleted>
+  <Error>
+    <Key>sample2.txt</Key>
+    <Code>AccessDenied</Code>
+    <Message>Access Denied</Message>
+  </Error>
+</DeleteResult>
+
+POST /?delete HTTP/1.1
+Host: bucketname.S3.amazonaws.com
+Accept: */*
+x-amz-date: Wed, 30 Nov 2011 03:39:05 GMT
+Content-MD5: p5/WA/oEr30qrEEl21PAqw==
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:W0qPYCLe6JwkZAD1ei6hp9XZIee=
+Content-Length: 79
+Connection: Keep-Alive
+
+<Delete>
+  <Object>
+    <Key>SampleDocument.txt</Key>
+  </Object>
+</Delete>
+
+HTTP/1.1 200 OK
+x-amz-id-2: P3xqrhuhYxlrefdw3rEzmJh8z5KDtGzb+/FB7oiQaScI9Yaxd8olYXc7d1111ab+
+x-amz-request-id: 264A17BF16E9E80A
+Date: Wed, 30 Nov 2011 03:39:32 GMT
+Content-Type: application/xml
+Server: AmazonS3
+Content-Length: 276
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DeleteResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Deleted>
+    <Key>SampleDocument.txt</Key>
+    <DeleteMarker>true</DeleteMarker> 
+    <DeleteMarkerVersionId>NeQt5xeFTfgPJD8B4CGWnkSLtluMr11s</DeleteMarkerVersionId>
+  </Deleted>
+</DeleteResult>
+
+POST /?delete HTTP/1.1
+Host: bucketname.S3.amazonaws.com
+Accept: */*
+x-amz-date: Wed, 30 Nov 2011 03:39:05 GMT
+Content-MD5: p5/WA/oEr30qrEEl21PAqw==
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:W0qPYCLe6JwkZAD1ei6hp9XZIxx=
+Content-Length: 140
+Connection: Keep-Alive
+
+<Delete>
+  <Object>
+    <Key>SampleDocument.txt</Key>
+    <VersionId>OYcLXagmS.WaD..oyH4KRguB95_YhLs7</VersionId>
+  </Object>
+</Delete>
+
+HTTP/1.1 200 OK
+x-amz-id-2: P3xqrhuhYxlrefdw3rEzmJh8z5KDtGzb+/FB7oiQaScI9Yaxd8olYXc7d1111xx+
+x-amz-request-id: 264A17BF16E9E80A
+Date: Wed, 30 Nov 2011 03:39:32 GMT
+Content-Type: application/xml
+Server: AmazonS3
+Content-Length: 219
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DeleteResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Deleted>
+    <Key>SampleDocument.txt</Key>
+    <VersionId>OYcLXagmS.WaD..oyH4KRguB95_YhLs7</VersionId>
+  </Deleted>
+</DeleteResult>
+
+HTTP/1.1 200 OK
+x-amz-id-2: IIPUZrtolxDEmWsKOae9JlSZe6yWfTye3HQ3T2iAe0ZE4XHa6NKvAJcPp51zZaBr
+x-amz-request-id: D6B284CEC9B05E4E
+Date: Wed, 30 Nov 2011 03:43:25 GMT
+Content-Type: application/xml
+Server: AmazonS3
+Content-Length: 331
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DeleteResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Deleted>
+    <Key>SampleDocument.txt</Key>
+    <VersionId>NeQt5xeFTfgPJD8B4CGWnkSLtluMr11s</VersionId>
+    <DeleteMarker>true</DeleteMarker>  
+    <DeleteMarkerVersionId>NeQt5xeFTfgPJD8B4CGWnkSLtluMr11s</DeleteMarkerVersionId> 
+  </Deleted>
+</DeleteResult>
+
+<DeleteMarker>true</DeleteMarker>  
+<DeleteMarkerVersionId>NeQt5xeFTfgPJD8B4CGWnkSLtluMr11s</DeleteMarkerVersionId> 
+
+POST /?delete HTTP/1.1
+Host: bucketname.S3.amazonaws.com
+Accept: */*
+x-amz-date: Wed, 30 Nov 2011 03:39:05 GMT
+Content-MD5: p5/WA/oEr30qrEEl21PAqw==
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:W0qPYCLe6JwkZAD1ei6hp9XZIee=
+Content-Length: 104
+Connection: Keep-Alive
+
+<Delete>
+  <Object>
+    <Key>404.txt</Key>
+  </Object>
+  <Object>
+    <Key>a.txt</Key>
+  </Object>
+
+HTTP/1.1 200 OK
+x-amz-id-2: P3xqrhuhYxlrefdw3rEzmJh8z5KDtGzb+/FB7oiQaScI9Yaxd8olYXc7d1111ab+
+x-amz-request-id: 264A17BF16E9E80A
+Date: Wed, 30 Nov 2011 03:39:32 GMT
+Content-Type: application/xml
+Server: AmazonS3
+Content-Length: 207
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>MalformedXML</Code>
+  <Message>The XML you provided was not well-formed or did not 
+           validate against our published schema</Message>
+  <RequestId>91F27FB5811111F</RequestId>
+  <HostId>LCiQK7KbXyJ1t+tncmjRwmNoeeRNW1/ktJ61IC8kN32SFXJx7UBhOzseJCixAbcD</HostId>
+</Error>
+

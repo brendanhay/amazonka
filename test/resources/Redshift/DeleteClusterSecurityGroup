@@ -1,0 +1,15 @@
+https://redshift.us-east-1.amazonaws.com/
+    ?Action=DeleteClusterSecurityGroup
+    &ClusterSecurityGroupName=securitygroup1
+    &Version=2012-12-01
+    &x-amz-algorithm=AWS4-HMAC-SHA256
+    &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20121208/us-east-1/redshift/aws4_request
+    &x-amz-date=20121208T015926Z
+    &x-amz-signedheaders=content-type;host;x-amz-date
+
+<DeleteClusterSecurityGroupResponse xmlns="http://redshift.amazonaws.com/doc/2012-12-01/">
+  <ResponseMetadata>
+    <RequestId>e54e05dc-40da-11e2-955f-313c36e9e01d</RequestId>
+  </ResponseMetadata>
+</DeleteClusterSecurityGroupResponse>
+

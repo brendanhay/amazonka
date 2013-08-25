@@ -1,0 +1,45 @@
+
+                
+POST / HTTP/1.1
+Date: Fri, 29 Jun 2012 22:41:32 GMT
+Host: email.us-east-1.amazonaws.com
+Content-Type: application/x-www-form-urlencoded
+X-Amzn-Authorization: AWS3 AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE, 
+ Signature=MJdhrIAt3c4BRC6jdzueMM+AJLEx17bnIHjZwlSenyk=, 
+ Algorithm=HmacSHA256, SignedHeaders=Date;Host
+Content-Length: 165
+
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Action=GetIdentityDkimAttributes
+&Identities.member.1=example.com
+&Timestamp=2012-06-29T22%3A41%3A32.000Z
+&Version=2010-12-01
+          
+            
+
+
+                
+<GetIdentityDkimAttributesResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+  <GetIdentityDkimAttributesResult>
+    <DkimAttributes>
+      <entry>
+        <key>amazon.com</key>
+      <value>
+        <DkimEnabled>true</DkimEnabled>
+        <DkimVerificationStatus>Success</DkimVerificationStatus>
+        <DkimTokens>
+          <member>vvjuipp74whm76gqoni7qmwwn4w4qusjiainivf6f</member>
+          <member>3frqe7jn4obpuxjpwpolz6ipb3k5nvt2nhjpik2oy</member>
+          <member>wrqplteh7oodxnad7hsl4mixg2uavzneazxv5sxi2</member>
+        </DkimTokens>
+      </value>
+    </entry>
+    </DkimAttributes>
+  </GetIdentityDkimAttributesResult>
+  <ResponseMetadata>
+    <RequestId>bb5a105d-c468-11e1-82eb-dff885ccc06a</RequestId>
+  </ResponseMetadata>
+</GetIdentityDkimAttributesResponse>
+          
+            
+

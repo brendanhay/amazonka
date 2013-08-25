@@ -1,0 +1,16 @@
+https://rds.amazonaws.com/
+ ?Action=DeleteDBSecurityGroup
+ &DBSecurityGroupName=mysecuritygroup
+ &Version=2013-05-15
+ &SignatureVersion=2
+ &SignatureMethod=HmacSHA256
+ &Timestamp=2011-02-15T17%3A48%3A21.746Z
+ &AWSAccessKeyId=<AWS Access Key ID>
+ &Signature=<Signature>
+
+<DeleteDBSecurityGroupResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <ResponseMetadata>
+    <RequestId>5d013245-4172-11df-8520-e7e1e602a915</RequestId>
+  </ResponseMetadata>
+</DeleteDBSecurityGroupResponse>
+

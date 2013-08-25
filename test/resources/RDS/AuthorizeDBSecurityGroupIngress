@@ -1,0 +1,32 @@
+https://rds.amazonaws.com/
+    ?CIDRIP=192.168.1.1%2F24
+    &DBSecurityGroupName=mydbsecuritygroup
+    &Version=2013-05-15
+    &Action=AuthorizeDBSecurityGroupIngress
+    &SignatureVersion=2
+    &SignatureMethod=HmacSHA256
+    &Timestamp=2011-02-15T17%3A10%3A50.274Z
+    &AWSAccessKeyId=<AWS Access Key ID>
+    &Signature=<Signature>
+
+<AuthorizeDBSecurityGroupIngressResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <AuthorizeDBSecurityGroupIngressResult>
+    <DBSecurityGroup>
+      <EC2SecurityGroups/>
+      <DBSecurityGroupDescription>My new DBSecurityGroup</DBSecurityGroupDescription>
+      <IPRanges>
+        <IPRange>
+          <CIDRIP>192.168.1.1/24</CIDRIP>
+          <Status>authorizing</Status>
+        </IPRange>
+      </IPRanges>
+      <OwnerId>621567473609</OwnerId>
+      <DBSecurityGroupName>mydbsecuritygroup</DBSecurityGroupName>
+      <VpcId>vpc-1ab2c3d4</VpcId>
+    </DBSecurityGroup>
+  </AuthorizeDBSecurityGroupIngressResult>
+  <ResponseMetadata>
+    <RequestId>d9799197-bf2d-11de-b88d-993294bf1c81</RequestId>
+  </ResponseMetadata>
+</AuthorizeDBSecurityGroupIngressResponse>
+

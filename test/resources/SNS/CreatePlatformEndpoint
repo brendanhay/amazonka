@@ -1,0 +1,32 @@
+
+        
+POST http://sns.us-west-2.amazonaws.com/ HTTP/1.1
+...
+PlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp
+&Action=CreatePlatformEndpoint
+&SignatureMethod=HmacSHA256
+&CustomUserData=UserId%3D27576823
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Token=APA91bGi7fFachkC1xjlqT66VYEucGHochmf1VQAr9k...jsM0PKPxKhddCzx6paEsyay9Zn3D4wNUJb8m6HZrBEXAMPLE
+&SignatureVersion=2
+&Version=2010-03-31
+&Signature=Rg5vXBS6OfgPtWkt1u32p1w14uiGh%2BKOicvXNWTEz2w%3D
+&Timestamp=2013-07-01T15%3A49%3A50.598Z
+
+      
+
+
+        
+HTTP/1.1 200 OK
+...
+<CreatePlatformEndpointResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <CreatePlatformEndpointResult>
+    <EndpointArn>arn:aws:sns:us-west-2:123456789012:endpoint/GCM/gcmpushapp/5e3e9847-3183-3f18-a7e8-671c3a57d4b3</EndpointArn>
+  </CreatePlatformEndpointResult>
+  <ResponseMetadata>
+    <RequestId>6613341d-3e15-53f7-bf3c-7e56994ba278</RequestId>
+  </ResponseMetadata>
+</CreatePlatformEndpointResponse>
+
+      
+

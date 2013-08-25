@@ -1,0 +1,41 @@
+https://rds.amazonaws.com/
+    ?Action=DescribeDBParameters
+    &DBParameterGroupName=mydbparametergroup
+    &Source=system
+    &MaxRecords=100
+    &Version=2013-05-15
+    &SignatureVersion=2
+    &SignatureMethod=HmacSHA256
+    &Timestamp=2011-05-11T19%3A31%3A42.262Z
+    &AWSAccessKeyId=<AWS Access Key ID>
+    &Signature=<Signature>
+
+<DescribeDBParametersResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <DescribeDBParametersResult>
+    <Parameters>
+      <Parameter>
+        <ParameterValue>/rdsdbbin/mysql</ParameterValue>
+        <DataType>string</DataType>
+        <Source>system</Source>
+        <IsModifiable>false</IsModifiable>
+        <Description>The MySQL installation base directory.</Description>
+        <ApplyType>static</ApplyType>
+        <ParameterName>basedir</ParameterName>
+      </Parameter>
+      <Parameter>
+        <ParameterValue>32768</ParameterValue>
+        <DataType>integer</DataType>
+        <Source>system</Source>
+        <IsModifiable>true</IsModifiable>
+        <Description>The size of the cache to hold the SQL statements for the binary log during a transaction.</Description>
+        <ApplyType>dynamic</ApplyType>
+        <AllowedValues>4096-9223372036854775807</AllowedValues>
+        <ParameterName>binlog_cache_size</ParameterName>
+      </Parameter>
+    </Parameters>
+  </DescribeDBParametersResult>
+  <ResponseMetadata>
+    <RequestId>8743f2cf-bf41-11de-8c8e-49155882c409</RequestId>
+  </ResponseMetadata>
+</DescribeDBParametersResponse>
+

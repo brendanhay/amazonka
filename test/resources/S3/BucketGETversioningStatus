@@ -1,0 +1,26 @@
+<VersioningConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Status>Enabled</Status>
+</VersioningConfiguration>
+
+<VersioningConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Status>Suspended</Status>
+</VersioningConfiguration>
+
+<VersioningConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"/>
+
+GET /?versioning HTTP/1.1
+Host: BucketName.s3.amazonaws.com
+Content-Length: length
+Date: date
+Authorization: signatureValue
+
+GET /?versioning HTTP/1.1
+Host: myBucket.s3.amazonaws.com
+Date: Wed, 12 Oct 2009 17:50:00 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:xQE0diMbLRepdf3YB+FIEXAMPLE=
+Content-Type: text/plain
+
+<VersioningConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Status>Enabled</Status>
+</VersioningConfiguration>
+

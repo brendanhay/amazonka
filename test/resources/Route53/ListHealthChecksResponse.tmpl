@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListHealthChecksResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
-   <HealthChecks>
-      <HealthCheck>
-         <Id>abcdef11-2222-3333-4444-555555fedcba</Id>
-         <CallerReference>example.com 192.0.2.17</CallerReference>
-         <HealthCheckConfig>
-            <IPAddress>192.0.2.17</IPAddress>
-            <Port>80</Port>
-            <Type>HTTP</Type>
-            <ResourcePath>/docs/route-53-health-check.html</ResourcePath>
-            <FullyQualifiedDomainName>example.com</FullyQualifiedDomainName>
-         </HealthCheckConfig>
-      </HealthCheck>
-      ...
-   </HealthChecks>
-   <IsTruncated>true</IsTruncated>
-   <NextMarker>aaaaaaaa-1234-5678-9012-bbbbbbcccccc</NextMarker>
-   <MaxItems>1</MaxItems>
+  <HealthChecks>
+    {{#lhcrHealthChecks}}
+    <HealthCheck>
+      <Id>{{hcId}}</Id>
+      <CallerReference>{{hcCallerReference}}</CallerReference>
+      {{#hcHealthCheckConfig}}
+      <HealthCheckConfig>
+        <IPAddress>{{hccIPAddress}}</IPAddress>
+        <Port>{{hccPort}}</Port>
+        <Type>{{hccType}}</Type>
+        <ResourcePath>{{hccResourcePath}}</ResourcePath>
+        <FullyQualifiedDomainName>{{hccFullyQualifiedDomainName}}</FullyQualifiedDomainName>
+      </HealthCheckConfig>
+      {{/hcHealthCheckConfig}}
+    </HealthCheck>
+    {{/lhcrHealthChecks}}
+  </HealthChecks>
+  <IsTruncated>{{lhcrIsTruncated}}</IsTruncated>
+  {{#lhcrMarker}}
+  <Marker>{{lhcrMarker}}</Marker>
+  {{/lhcrMarker}}
+  {{#lhcrNextMarker}}
+  <NextMarker>{{lhcrNextMarker}}</NextMarker>
+  {{/lhcrNextMarker}}
+  <MaxItems>{{lhcrMaxItems}}</MaxItems>
 </ListHealthChecksResponse>

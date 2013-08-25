@@ -305,11 +305,11 @@ instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
     request = req GET "healthcheck"
 
 data ListHealthChecksResponse = ListHealthChecksResponse
-    { lhcrIsTruncated  :: !ByteString
-    , lhcrHealthChecks :: ![HealthCheck]
-    , lhcrMaxItems     :: !ByteString
+    { lhcrHealthChecks :: ![HealthCheck]
+    , lhcrIsTruncated  :: !Bool
     , lhcrMarker       :: !(Maybe ByteString)
     , lhcrNextMarker   :: !(Maybe ByteString)
+    , lhcrMaxItems     :: !Integer
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListHealthChecksResponse where

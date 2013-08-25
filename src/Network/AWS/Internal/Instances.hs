@@ -1,5 +1,6 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE DeriveGeneric        #-}
+
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- Module      : Network.AWS.Internal.Instances
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,9 +15,7 @@
 module Network.AWS.Internal.Instances where
 
 import qualified Data.ByteString.Char8           as BS
-import qualified Data.ByteString.Lazy.Char8      as LBS
 import           Data.Time
-import           Data.Time.Format                (FormatTime, formatTime, parseTime)
 import           GHC.Generics
 import           Network.HTTP.QueryString.Pickle
 import           System.Locale                   (defaultTimeLocale)

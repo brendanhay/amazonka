@@ -68,11 +68,15 @@ tests = (:[]) $ testVersion route53Version
 instance ToJSON CallerReference where
     toJSON = String . decodeUtf8 . unCallerReference
 
+instance ToJSON Protocol where
+    toJSON = String . Text.pack . show
+
 instance ToJSON ChangeStatus where
     toJSON = String . Text.pack . show
 
 $(deriveArbitrary
     [ ''CallerReference
+    , ''Protocol
     , ''ChangeStatus
     ])
 
@@ -87,7 +91,6 @@ $(deriveDependency
     , ''HealthCheckConfig
     , ''RecordAction
     , ''RecordType
-    , ''Protocol
     ])
 
 $(deriveProperty "test/resources/Route53"

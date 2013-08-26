@@ -72,18 +72,18 @@ module Network.AWS.Route53
     , module Network.AWS.Route53.Types
     ) where
 
-import           Control.Applicative       ((<$>))
-import           Data.ByteString           (ByteString)
-import           Data.Monoid
-import           Data.String
-import           Network.AWS.Internal
-import           Network.AWS.Route53.Types
-import           Network.Http.Client       (Method(..))
+import Control.Applicative       ((<$>))
+import Data.ByteString           (ByteString)
+import Data.Monoid
+import Data.String
+import Network.AWS.Internal
+import Network.AWS.Route53.Types
+import Network.Http.Client       (Method(..))
 
 data R53
 
 instance AWSService R53 where
-    service _ = Service "route53" (toBS route53Version) "route53.amazonaws.com"
+    service _ = Service "route53" route53Version "route53.amazonaws.com"
         SigningVersion3 <$> currentRegion
 
 route53Version :: ByteString

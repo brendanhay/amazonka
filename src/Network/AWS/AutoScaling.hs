@@ -45,7 +45,7 @@ import Network.Http.Client
 data AutoScaling
 
 instance AWSService AutoScaling where
-    service _ = awsService "autoscaling" (toBS autoScalingVersion) SigningVersion4
+    service _ = awsService "autoscaling" autoScalingVersion SigningVersion4
 
 autoScalingVersion :: ByteString
 autoScalingVersion = "2011-01-01"

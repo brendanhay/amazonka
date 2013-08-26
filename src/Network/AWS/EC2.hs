@@ -38,7 +38,7 @@ import           Network.Http.Client
 data EC2
 
 instance AWSService EC2 where
-    service _ = awsService "ec2" (toBS ec2Version) SigningVersion4
+    service _ = awsService "ec2" ec2Version SigningVersion4
 
 ec2Version :: ByteString
 ec2Version = "2013-07-15"

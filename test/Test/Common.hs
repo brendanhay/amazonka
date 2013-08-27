@@ -177,6 +177,8 @@ difference x y = zipWithTail (normalise x) (normalise y)
   where
     normalise = map (BS.unpack . BS.unwords . BS.words) . BS.lines
 
-    zipWithTail (a:as) (b:bs) = (\\) b a : zipWithTail as bs
+    zipWithTail (a:as) (b:bs) = twoWay b a : zipWithTail as bs
     zipWithTail []     bs     = bs
     zipWithTail as     _      = as
+
+    twoWay a b = (a \\ b) ++ (b \\ a)

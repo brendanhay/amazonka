@@ -47,9 +47,6 @@ data AutoScaling
 instance AWSService AutoScaling where
     service _ = awsService "autoscaling" autoScalingVersion SigningVersion4
 
-autoScalingVersion :: ByteString
-autoScalingVersion = "2011-01-01"
-
 req :: IsQuery a => Method -> ByteString -> a -> RawRequest AutoScaling b
 req meth action qry = (emptyRequest meth FormEncoded "" Nothing)
     { rqAction = Just action
@@ -89,7 +86,8 @@ data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
     { casgrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateAutoScalingGroupResponse
+instance IsXML CreateAutoScalingGroupResponse where
+    xmlPickler = withNS autoScalingNS
 
 -- |
 --
@@ -119,12 +117,13 @@ data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
     { clcrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateLaunchConfigurationResponse
+instance IsXML CreateLaunchConfigurationResponse where
+    xmlPickler = withNS autoScalingNS
 
 -- |
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
-newtype CreateOrUpdateTags = CreateOrUpdateTags (Member Tag)
+newtype CreateOrUpdateTags = CreateOrUpdateTags { coutTags :: Member Tag }
     deriving (Eq, Show, Generic)
 
 instance IsQuery CreateOrUpdateTags
@@ -136,7 +135,8 @@ data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
     { coutrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateOrUpdateTagsResponse
+instance IsXML CreateOrUpdateTagsResponse where
+    xmlPickler = withNS autoScalingNS
 
 -- -- |
 -- --

@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric        #-}
+{-# LANGUAGE OverloadedStrings    #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
@@ -25,7 +26,8 @@ newtype Member a = Member { member :: [a] }
     deriving (Eq, Show, Generic)
 
 instance IsQuery a => IsQuery (Member a) where
-    queryPickler = (Member, member) `qpWrap` qpOrdinalList queryPickler
+    queryPickler = qpWrap (Member, member)
+        (qpElem "member" $ qpOrdinalList queryPickler)
 
 instance IsQuery Bool where
     queryPickler = qpPrim

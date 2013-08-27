@@ -1,8 +1,18 @@
-https://autoscaling.amazonaws.com/?Tags.member.1.ResourceId=my-test-asg
-&Tags.member.1.ResourceType=auto-scaling-group
-&Tags.member.1.Key=version
-&Tags.member.1.Value=1.0
-&Tags.member.1.PropagateAtLaunch=true
-&Version=2011-01-01
-&Action=CreateOrUpdateTags
-&AUTHPARAMS
+GET /
+{{#coutTags}}
+{{#tKey}}
+Tags.member.Key={{tKey}}
+{{/tKey}}
+{{#tPropagateAtLaunch}}
+Tags.member.PropagateAtLaunch={{tPropagateAtLaunch}}
+{{/tPropagateAtLaunch}}
+{{#tResourceId}}
+Tags.member.ResourceId={{tResourceId}}
+{{/tResourceId}}
+{{#tResourceType}}
+Tags.member.ResourceType={{tResourceType}}
+{{/tResourceType}}
+{{#tValue}}
+Tags.member.Value={{tValue}}
+{{/tValue}}
+{{/coutTags}}

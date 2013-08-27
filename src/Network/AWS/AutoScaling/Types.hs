@@ -17,17 +17,24 @@
 module Network.AWS.AutoScaling.Types where
 
 import Data.ByteString      (ByteString)
+import Data.Monoid
 import Network.AWS.Internal
 
---
--- Common
---
+autoScalingVersion :: ByteString
+autoScalingVersion = "2011-01-01"
+
+autoScalingNS :: ByteString
+autoScalingNS = "http://autoscaling.amazonaws.com/doc/" <> autoScalingVersion <> "/"
+
+autoScalingElem :: ByteString -> NName ByteString
+autoScalingElem = mkNName autoScalingNS
 
 data ResponseMetadata = ResponseMetadata
     { rmRequestId :: !ByteString
     } deriving (Eq, Show, Generic)
 
-instance IsXML ResponseMetadata
+instance IsXML ResponseMetadata where
+    xmlPickler = withNS autoScalingNS
 
 data ErrorType = Receiver | Sender
     deriving (Eq, Show, Read, Generic)
@@ -42,7 +49,8 @@ data Error = Error
     , eDetail  :: !ByteString
     } deriving (Eq, Show, Generic)
 
-instance IsXML Error
+instance IsXML Error where
+    xmlPickler = withNS autoScalingNS
 
 newtype ResourceName = ResourceName ByteString
     deriving (Eq, Show, Generic, IsByteString)

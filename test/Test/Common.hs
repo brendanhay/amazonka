@@ -46,7 +46,6 @@ import           Test.Framework.Providers.QuickCheck2 as Test
 import           Test.QuickCheck                      as Test
 import           Test.TH                              as Test
 import           Text.Hastache
-import           Text.Hastache.Aeson
 
 testVersion :: ByteString -> [Test] -> Test
 testVersion ver = plusTestOptions

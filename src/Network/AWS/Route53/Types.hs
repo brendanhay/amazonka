@@ -18,7 +18,6 @@ import Data.ByteString      (ByteString)
 import Data.Time
 import Network.AWS.Internal
 import Text.Read
-import qualified Data.ByteString.Char8 as BS
 
 newtype CallerReference = CallerReference { unCallerReference :: ByteString }
     deriving (Eq, Ord, Show, Generic)
@@ -35,22 +34,6 @@ data Protocol = HTTP | TCP
 instance IsXML Protocol where
     xmlPickler = xpContent xpPrim
 
-data RecordAction = CreateAction | DeleteAction
-    deriving (Eq)
-
-instance Show RecordAction where
-    show CreateAction = "CREATE"
-    show DeleteAction = "DELETE"
-
-instance Read RecordAction where
-    readPrec = readAssocList
-         [ ("CREATE", CreateAction)
-         , ("DELETE", DeleteAction)
-         ]
-
-instance IsXML RecordAction where
-    xmlPickler = xpContent xpPrim
-
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
     deriving (Eq, Read, Show, Generic)
 
@@ -58,12 +41,6 @@ instance IsXML RecordType where
     xmlPickler = xpContent xpPrim
 
 instance IsQuery RecordType
-
-data ChangeStatus = PENDING | INSYNC
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML ChangeStatus where
-    xmlPickler = xpContent xpPrim
 
 data Config = Config
     { cComment :: !ByteString
@@ -81,6 +58,19 @@ data HostedZone = HostedZone
 
 instance IsXML HostedZone
 
+newtype DelegationSet = DelegationSet { dsNameServers :: [ByteString] }
+    deriving (Eq, Show, Generic)
+
+instance IsXML DelegationSet where
+    xmlPickler = xpWrap (DelegationSet, dsNameServers)
+        (xpElem "NameServers" $ xpElemList "NameServer" xmlPickler)
+
+data ChangeStatus = PENDING | INSYNC
+    deriving (Eq, Read, Show, Generic)
+
+instance IsXML ChangeStatus where
+    xmlPickler = xpContent xpPrim
+
 data ChangeInfo = ChangeInfo
     { ciId          :: !ByteString
     , ciStatus      :: !ChangeStatus
@@ -89,12 +79,35 @@ data ChangeInfo = ChangeInfo
 
 instance IsXML ChangeInfo
 
-newtype DelegationSet = DelegationSet { dsNameServers :: [ByteString] }
-    deriving (Eq, Show, Generic)
+data ChangeAction = CreateAction | DeleteAction
+    deriving (Eq)
 
-instance IsXML DelegationSet where
-    xmlPickler = xpWrap (DelegationSet, dsNameServers)
-        (xpElem "NameServers" $ xpElemList "NameServer" xmlPickler)
+instance Show ChangeAction where
+    show CreateAction = "CREATE"
+    show DeleteAction = "DELETE"
+
+instance Read ChangeAction where
+    readPrec = readAssocList
+         [ ("CREATE", CreateAction)
+         , ("DELETE", DeleteAction)
+         ]
+
+instance IsXML ChangeAction where
+    xmlPickler = xpContent xpPrim
+
+data Change = Change
+    { cAction            :: !ChangeAction
+    , cResourceRecordSet :: !ResourceRecordSet
+    } deriving (Eq, Show, Generic)
+
+instance IsXML Change
+
+data ChangeBatch = ChangeBatch
+    { cbComment :: Maybe ByteString
+    , cbChanges :: [Change]
+    } deriving (Eq, Show, Generic)
+
+instance IsXML ChangeBatch
 
 newtype ResourceRecords = ResourceRecords { rrValues :: [ByteString] }
     deriving (Eq, Show, Generic)
@@ -193,42 +206,9 @@ data ResourceRecordSet
     deriving (Eq, Show, Generic)
 
 instance IsXML ResourceRecordSet where
-    xmlPickler =
-        genericXMLPickler $ defaultXMLOptions
-            { xmlCtorModifier = const "ResourceRecordSet"
-            }
-
-
-    -- xmlPickler = xpElem "ResourceRecordSet" $ xpAlt
-    --     [ 
-
-    --     ]
-    --   where
-    --     basic = xp
-
-    --     alias
-    --     weighted
-    --     weightedAlias
-    --     latency
-    --     latencyAlias
-    --     failover
-    --     failoverAlias
-
-    --   rrsName
-    --   rrsType
-    --   rrsSetIdentifier
-    --   rrsRegion
-    --   rrsTTL
-    --   rrsWeight
-    --   rrsAliasTarget
-    --   rrsFailover
-    --   rrsResourceRecords
-    --   rrsHealthCheckId
-
-    --     xpElem "Name" xmlPickler
-
-    -- xmlPickler = xpWrap (ResourceRecords, rrValues)
-    --     (xpElemList "ResourceRecord" $ xpElem "Value" xmlPickler)
+    xmlPickler = genericXMLPickler $ defaultXMLOptions
+        { xmlCtorModifier = const "ResourceRecordSet"
+        }
 
 data HealthCheckConfig = HealthCheckConfig
     { hccIPAddress                :: !ByteString

@@ -65,7 +65,7 @@ data Request a where
                , trqEncoded  :: ByteString
                , trqTemplate :: ByteString
                , trqDiff     :: [String]
-               , trqJSON :: Value
+               , trqJSON     :: Value
                }
             -> Request a
 
@@ -102,6 +102,9 @@ instance Show a => Show (Request a) where
         [ "[Request]"
         , show trqRequest
         , ""
+        , "[JSON]"
+        , show trqJSON
+        , ""
         , "[Raw]"
         , show trqRaw
         , ""
@@ -111,8 +114,6 @@ instance Show a => Show (Request a) where
         , formatBS trqTemplate
         , "[Diff]"
         , if all null trqDiff then "<identical>" else formatLines trqDiff
-        , "[JSON]"
-        , show trqJSON
         ]
 
 data Response a = Response
@@ -149,14 +150,15 @@ instance Show a => Show (Response a) where
         , "[Parsed]"
         , show trsParsed
         , ""
+        , "[JSON]"
+        , show trsJSON
+        , ""
         , "[Actual]"
         , formatBS trsXML
         , "[Expected]"
         , formatBS trsTemplate
         , "[Diff]"
         , if all null trsDiff then "<identical>" else formatLines trsDiff
-        , "[JSON]"
-        , show trsJSON
         ]
 
 formatBS :: ByteString -> String

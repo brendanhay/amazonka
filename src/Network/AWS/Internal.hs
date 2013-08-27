@@ -30,6 +30,7 @@ module Network.AWS.Internal
     , withNS'
     , withRootNS
     , withRootNS'
+    , namespace
     ) where
 
 import Data.ByteString                 (ByteString)

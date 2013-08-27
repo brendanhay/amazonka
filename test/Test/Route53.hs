@@ -97,8 +97,10 @@ $(deriveDependency
     , ''ResourceRecordSet
     , ''HealthCheck
     , ''HealthCheckConfig
-    , ''RecordAction
     , ''AliasTarget
+    , ''ChangeAction
+    , ''ChangeBatch
+    , ''Change
     ])
 
 $(deriveProperty "test/resources/Route53"

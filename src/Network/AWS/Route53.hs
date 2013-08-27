@@ -199,13 +199,16 @@ instance IsXML DeleteHostedZoneResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { crrsZoneId  :: !ByteString
-    , crrsComment :: Maybe ByteString
-    , crrsChanges :: [ResourceRecordSet]
+    { crrsZoneId      :: !ByteString
+    , crrsChangeBatch :: !ChangeBatch
     } deriving (Eq, Show, Generic)
 
 instance IsXML ChangeResourceRecordSets where
-    xmlPickler = withRootNS ns "ChangeResourceRecordSetsRequest"
+    xmlPickler = (xpWrap
+        (ChangeResourceRecordSets "", \(ChangeResourceRecordSets _ cs) -> cs)
+        (xpElem "ChangeBatch" $ genericXMLPickler defaultXMLOptions))
+            { root = Just $ namespace ns "ChangeResourceRecordSetsRequest"
+            }
 
 instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsResponse where
     request rs@ChangeResourceRecordSets{..} =

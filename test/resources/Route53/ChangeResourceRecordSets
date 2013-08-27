@@ -1,34 +1,165 @@
+POST /2012-12-12/hostedzone/{{crrsZoneId}}/rrset
+application/xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
-   <ChangeBatch>
-      <Comment>optional comment about the changes in this 
-         change batch request</Comment>
-      <Changes>
-         <Change>
-            <Action>CREATE | DELETE</Action>
-            <ResourceRecordSet>
-               <Name>DNS domain name</Name>
-               <Type>DNS record type</Type>
-               <SetIdentifier>unique description for this 
-                  resource record set</SetIdentifier>
-               <Weight>value between 0 and 255</Weight>
-               <AliasTarget>
-                  <HostedZoneId>hosted zone ID for your 
-                     CloudFront distribution, Amazon S3 bucket, 
-                     Elastic Load Balancing load balancer, 
-                     or Route 53 hosted zone</HostedZoneId>
-                  <DNSName>DNS domain name for your 
-                     CloudFront distribution, Amazon S3 bucket, 
-                     Elastic Load Balancing load balancer, 
-                     or another resource record set 
-                     in this hosted zone</DNSName>
-                  <EvaluateTargetHealth>true | false</EvaluateTargetHealth>
-               </AliasTarget>
-               <HealthCheckId>optional ID of a 
-                  Route 53 health check</HealthCheckId>
-            </ResourceRecordSet>
-         </Change>
-         ...
-      </Changes>
-   </ChangeBatch>
+  {{#crrsChangeBatch}}
+  <ChangeBatch>
+    {{#cbComment}}
+    <Comment>{{cbComment}}</Comment>
+    {{/cbComment}}
+    <Changes>
+    {{#cbChanges}}<Change>
+        <Action>{{cAction}}</Action>
+        {{#cResourceRecordSet}}
+        <ResourceRecordSet>
+          {{#BasicRecordSet}}
+          <Name>{{rrsName}}</Name>
+          <Type>{{rrsType}}</Type>
+          <TTL>{{rrsTTL}}</TTL>
+          {{#rrsResourceRecords}}
+          <ResourceRecords>
+            {{#rrValues}}
+            <ResourceRecord>
+              <Value>{{.}}</Value>
+            </ResourceRecord>
+            {{/rrValues}}
+          </ResourceRecords>
+          {{/rrsResourceRecords}}
+          {{#rrsHealthCheckId}}
+          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
+          {{/rrsHealthCheckId}}
+          {{/BasicRecordSet}}
+          {{#AliasRecordSet}}
+          <Name>{{rrsName}}</Name>
+          <Type>{{rrsType}}</Type>
+          {{#rrsAliasTarget}}
+          <AliasTarget>
+            <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
+            <DNSName>{{atDNSName}}</DNSName>
+            {{#atEvaluateTargetHealth}}
+            <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
+            {{/atEvaluateTargetHealth}}
+          </AliasTarget>
+          {{/rrsAliasTarget}}
+          {{#rrsHealthCheckId}}
+          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
+          {{/rrsHealthCheckId}}
+          {{/AliasRecordSet}}
+          {{#WeightedRecordSet}}
+          <Name>{{rrsName}}</Name>
+          <Type>{{rrsType}}</Type>
+          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
+          <Weight>{{rrsWeight}}</Weight>
+          <TTL>{{rrsTTL}}</TTL>
+          {{#rrsResourceRecords}}
+          <ResourceRecords>
+            {{#rrValues}}
+            <ResourceRecord>
+              <Value>{{.}}</Value>
+            </ResourceRecord>
+            {{/rrValues}}
+          </ResourceRecords>
+          {{/rrsResourceRecords}}
+          {{#rrsHealthCheckId}}
+          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
+          {{/rrsHealthCheckId}}
+          {{/WeightedRecordSet}}
+          {{#WeightedAliasRecordSet}}
+          <Name>{{rrsName}}</Name>
+          <Type>{{rrsType}}</Type>
+          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
+          <Weight>{{rrsWeight}}</Weight>
+          {{#rrsAliasTarget}}
+          <AliasTarget>
+            <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
+            <DNSName>{{atDNSName}}</DNSName>
+            {{#atEvaluateTargetHealth}}
+            <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
+            {{/atEvaluateTargetHealth}}
+          </AliasTarget>
+          {{/rrsAliasTarget}}
+          {{#rrsHealthCheckId}}
+          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
+          {{/rrsHealthCheckId}}
+          {{/WeightedAliasRecordSet}}
+          {{#LatencyRecordSet}}
+          <Name>{{rrsName}}</Name>
+          <Type>{{rrsType}}</Type>
+          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
+          <Region>{{rrsRegion}}</Region>
+          <TTL>{{rrsTTL}}</TTL>
+          {{#rrsResourceRecords}}
+          <ResourceRecords>
+            {{#rrValues}}
+            <ResourceRecord>
+              <Value>{{.}}</Value>
+            </ResourceRecord>
+            {{/rrValues}}
+          </ResourceRecords>
+          {{/rrsResourceRecords}}
+          {{#rrsHealthCheckId}}
+          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
+          {{/rrsHealthCheckId}}
+          {{/LatencyRecordSet}}
+          {{#LatencyAliasRecordSet}}
+          <Name>{{rrsName}}</Name>
+          <Type>{{rrsType}}</Type>
+          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
+          <Region>{{rrsRegion}}</Region>
+          {{#rrsAliasTarget}}
+          <AliasTarget>
+            <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
+            <DNSName>{{atDNSName}}</DNSName>
+            {{#atEvaluateTargetHealth}}
+            <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
+            {{/atEvaluateTargetHealth}}
+          </AliasTarget>
+          {{/rrsAliasTarget}}
+          {{#rrsHealthCheckId}}
+          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
+          {{/rrsHealthCheckId}}
+          {{/LatencyAliasRecordSet}}
+          {{#FailoverRecordSet}}
+          <Name>{{rrsName}}</Name>
+          <Type>{{rrsType}}</Type>
+          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
+          <Failover>{{rrsFailover}}</Failover>
+          <TTL>{{rrsTTL}}</TTL>
+          {{#rrsResourceRecords}}
+          <ResourceRecords>
+            {{#rrValues}}
+            <ResourceRecord>
+              <Value>{{.}}</Value>
+            </ResourceRecord>
+            {{/rrValues}}
+          </ResourceRecords>
+          {{/rrsResourceRecords}}
+          {{#rrsHealthCheckId}}
+          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
+          {{/rrsHealthCheckId}}
+          {{/FailoverRecordSet}}
+          {{#FailoverAliasRecordSet}}
+          <Name>{{rrsName}}</Name>
+          <Type>{{rrsType}}</Type>
+          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
+          <Failover>{{rrsFailover}}</Failover>
+          {{#rrsAliasTarget}}
+          <AliasTarget>
+            <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
+            <DNSName>{{atDNSName}}</DNSName>
+            {{#atEvaluateTargetHealth}}
+            <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
+            {{/atEvaluateTargetHealth}}
+          </AliasTarget>
+          {{/rrsAliasTarget}}
+          {{#rrsHealthCheckId}}
+          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
+          {{/rrsHealthCheckId}}
+          {{/FailoverAliasRecordSet}}
+        </ResourceRecordSet>
+        {{/cResourceRecordSet}}
+      </Change>{{/cbChanges}}
+    </Changes>
+  </ChangeBatch>
+  {{/crrsChangeBatch}}
 </ChangeResourceRecordSetsRequest>

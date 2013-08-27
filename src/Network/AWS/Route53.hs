@@ -114,7 +114,7 @@ ns = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
 data CreateHostedZone = CreateHostedZone
     { chzName             :: !ByteString
     , chzCallerReference  :: !CallerReference
-    , chzHostedZoneConfig :: !(Maybe Config)
+    , chzHostedZoneConfig :: Maybe Config
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZone where
@@ -146,15 +146,16 @@ data GetHostedZoneResponse = GetHostedZoneResponse
     , ghzrDelegationSet :: !DelegationSet
     } deriving (Eq, Show, Generic)
 
-instance IsXML GetHostedZoneResponse
+instance IsXML GetHostedZoneResponse where
+    xmlPickler = withNS ns
 
 -- | Gets a list of the hosted zones that are associated with the
 -- current AWS account.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html>
 data ListHostedZones = ListHostedZones
-    { lhzMarker   :: !(Maybe ByteString)
-    , lhzMaxItems :: !(Maybe Integer)
+    { lhzMarker   :: Maybe ByteString
+    , lhzMaxItems :: Maybe Integer
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListHostedZones where
@@ -164,14 +165,15 @@ instance AWSRequest R53 ListHostedZones ListHostedZonesResponse where
     request = req GET "hostedzone"
 
 data ListHostedZonesResponse = ListHostedZonesResponse
-    { lhzrHostedZones :: ![HostedZone]
+    { lhzrHostedZones :: [HostedZone]
     , lhzrIsTruncated :: !Bool
     , lhzrMarker      :: !ByteString
-    , lhzrNextMarker  :: !(Maybe ByteString)
+    , lhzrNextMarker  :: Maybe ByteString
     , lhzrMaxItems    :: !Integer
     } deriving (Eq, Show, Generic)
 
-instance IsXML ListHostedZonesResponse
+instance IsXML ListHostedZonesResponse where
+    xmlPickler = withNS ns
 
 -- | Deletes a hosted zone.
 --
@@ -186,7 +188,8 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
     } deriving (Eq, Show, Generic)
 
-instance IsXML DeleteHostedZoneResponse
+instance IsXML DeleteHostedZoneResponse where
+    xmlPickler = withNS ns
 
 --
 -- Record Sets
@@ -197,8 +200,8 @@ instance IsXML DeleteHostedZoneResponse
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { crrsZoneId  :: !ByteString
-    , crrsComment :: !(Maybe ByteString)
-    , crrsChanges :: ![ResourceRecordSet]
+    , crrsComment :: Maybe ByteString
+    , crrsChanges :: [ResourceRecordSet]
     } deriving (Eq, Show, Generic)
 
 instance IsXML ChangeResourceRecordSets where
@@ -212,17 +215,18 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
     } deriving (Eq, Show, Generic)
 
-instance IsXML ChangeResourceRecordSetsResponse
+instance IsXML ChangeResourceRecordSetsResponse where
+    xmlPickler = withNS ns
 
 -- | Lists details about all of the resource record sets in a hosted zone.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html>
 data ListResourceRecordSets = ListResourceRecordSets
     { lrrsZoneId     :: !ByteString
-    , lrrsName       :: !(Maybe ByteString)
-    , lrrsType       :: !(Maybe RecordType)
-    , lrrsIdentifier :: !(Maybe ByteString)
-    , lrrsMaxItems   :: !(Maybe Integer)
+    , lrrsName       :: Maybe ByteString
+    , lrrsType       :: Maybe RecordType
+    , lrrsIdentifier :: Maybe ByteString
+    , lrrsMaxItems   :: Maybe Integer
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListResourceRecordSets where
@@ -233,10 +237,16 @@ instance AWSRequest R53 ListResourceRecordSets ListResourceRecordSetsResponse wh
         req GET ("hostedzone/" <> lrrsZoneId <> "/rrset") rs
 
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
-    deriving (Eq, Read, Show, Generic)
+    { lrrsrResourceRecordSets   :: [ResourceRecordSet]
+    , lrrsrIsTruncated          :: !Bool
+    , lrrsrMaxItems             :: !Integer
+    , lrrsrNextRecordName       :: Maybe ByteString
+    , lrrsrNextRecordType       :: Maybe RecordType
+    , lrrsrNextRecordIdentifier :: Maybe ByteString
+    } deriving (Eq, Show, Generic)
 
 instance IsXML ListResourceRecordSetsResponse where
-    xmlPickler = xpEmpty
+    xmlPickler = withNS ns
 
 -- | Returns the current status of a change batch request that you
 -- submitted by using ChangeResourceRecordSets.
@@ -252,7 +262,8 @@ data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
     } deriving (Eq, Show, Generic)
 
-instance IsXML GetChangeResponse
+instance IsXML GetChangeResponse where
+    xmlPickler = withNS ns
 
 --
 -- Health Checks
@@ -276,7 +287,8 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
     { chcrHealthCheck :: !HealthCheck
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateHealthCheckResponse
+instance IsXML CreateHealthCheckResponse where
+    xmlPickler = withNS ns
 
 -- | Gets information about a specified health check.
 --
@@ -291,15 +303,16 @@ data GetHealthCheckResponse = GetHealthCheckResponse
     { ghcrHealthCheck :: !HealthCheck
     } deriving (Eq, Show, Generic)
 
-instance IsXML GetHealthCheckResponse
+instance IsXML GetHealthCheckResponse where
+    xmlPickler = withNS ns
 
 -- | Gets a list of the health checks that are associated
 -- with the current AWS account.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html>
 data ListHealthChecks = ListHealthChecks
-    { lhcMarker   :: !(Maybe ByteString)
-    , lhcMaxItems :: !(Maybe Integer)
+    { lhcMarker   :: Maybe ByteString
+    , lhcMaxItems :: Maybe Integer
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListHealthChecks where
@@ -309,10 +322,10 @@ instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
     request = req GET "healthcheck"
 
 data ListHealthChecksResponse = ListHealthChecksResponse
-    { lhcrHealthChecks :: ![HealthCheck]
+    { lhcrHealthChecks :: [HealthCheck]
     , lhcrIsTruncated  :: !Bool
-    , lhcrMarker       :: !(Maybe ByteString)
-    , lhcrNextMarker   :: !(Maybe ByteString)
+    , lhcrMarker       :: Maybe ByteString
+    , lhcrNextMarker   :: Maybe ByteString
     , lhcrMaxItems     :: !Integer
     } deriving (Eq, Show, Generic)
 

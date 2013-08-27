@@ -1,3 +1,5 @@
+{-# LANGUAGE TemplateHaskell      #-}
+
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- Module      : Test.Arbitrary
@@ -13,9 +15,13 @@
 module Test.Arbitrary where
 
 import           Control.Applicative
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString.Char8 as BS
+import           Data.Aeson
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Char8      as BS
+import           Data.DeriveTH
+import qualified Data.Text                  as Text
 import           Data.Time
+import           Network.AWS.Internal.Types
 import           Test.QuickCheck
 
 instance Arbitrary ByteString where
@@ -27,7 +33,6 @@ instance Arbitrary ByteString where
 
 instance Arbitrary UTCTime where
     arbitrary = flip UTCTime 0 <$> arbitrary
-
     shrink ut@(UTCTime day dayTime) =
         [ut { utctDay     = d' } | d' <- shrink day    ] ++
         [ut { utctDayTime = t' } | t' <- shrink dayTime]
@@ -39,3 +44,11 @@ instance Arbitrary Day where
 instance Arbitrary DiffTime where
     arbitrary = arbitrarySizedFractional
     shrink    = shrinkRealFrac
+
+instance ToJSON Region where
+    toJSON = String . Text.pack . show
+
+$(derives [makeArbitrary]
+    [ ''Region
+    ])
+

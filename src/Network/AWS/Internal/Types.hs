@@ -21,20 +21,23 @@ module Network.AWS.Internal.Types where
 import           Control.Applicative
 import           Control.Monad
 import           Control.Monad.IO.Class
-import           Control.Monad.Reader
+import           Control.Monad.Reader          hiding (lift)
 import           Data.Aeson
-import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Char8  as BS
-import           Data.Map               (Map)
-import qualified Data.Map               as Map
+import           Data.ByteString               (ByteString)
+import qualified Data.ByteString.Char8         as BS
+import           Data.Map                      (Map)
+import qualified Data.Map                      as Map
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
+import           Data.Text                     (Text)
+import qualified Data.Text                     as Text
 import           Data.Text.Encoding
 import           Data.Time
-import           Network.Http.Client    hiding (ContentType, post, put)
-import           System.Locale          (defaultTimeLocale)
+import           Network.Http.Client           hiding (ContentType, post, put)
+import           System.Locale                 (defaultTimeLocale)
+import           Text.ParserCombinators.ReadP  (string)
+import           Text.Read                     hiding (String)
+import           Text.XML.Expat.Pickle.Generic
 
 data Region
     = NorthVirgnia
@@ -48,10 +51,7 @@ data Region
       deriving (Eq)
 
 instance Show Region where
-    show = BS.unpack . toBS
-
-instance IsByteString Region where
-    toBS reg = case reg of
+    show reg = case reg of
         NorthVirgnia    -> "us-east-1"
         NorthCalifornia -> "us-west-1"
         Oregon          -> "us-west-2"
@@ -60,6 +60,27 @@ instance IsByteString Region where
         Tokyo           -> "ap-northeast-1"
         Sydney          -> "ap-southeast-2"
         SaoPaulo        -> "sa-east-1"
+
+instance Read Region where
+    readPrec = readAssocList
+        [ ("us-east-1",      NorthVirgnia)
+        , ("us-west-1",      NorthCalifornia)
+        , ("us-west-2",      Oregon)
+        , ("eu-west-1",      Ireland)
+        , ("ap-southeast-1", Singapore)
+        , ("ap-northeast-1", Tokyo)
+        , ("ap-southeast-2", Sydney)
+        , ("sa-east-1",      SaoPaulo)
+        ]
+
+instance IsByteString Region where
+    toBS = BS.pack . show
+
+instance IsXML Region where
+    xmlPickler = xpContent xpPrim
+
+readAssocList :: [(String, a)] -> ReadPrec a
+readAssocList xs = choice $ map (\(x, y) -> lift $ string x >> return y) xs
 
 data Auth = Auth
     { accessKey :: !ByteString

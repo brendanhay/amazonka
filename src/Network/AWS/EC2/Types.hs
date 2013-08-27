@@ -12,7 +12,6 @@
 module Network.AWS.EC2.Types where
 
 import Network.AWS.Internal
-import Text.ParserCombinators.ReadP (string)
 import Text.Read
 
 data Domain = Standard | VPC
@@ -23,7 +22,7 @@ instance Show Domain where
     show VPC      = "vpc"
 
 instance Read Domain where
-    readPrec = choice $ map (\(x, y) -> lift $ string x >> return y)
+    readPrec = readAssocList
          [ ("standard", Standard)
          , ("vpc",      VPC)
          ]
@@ -34,9 +33,9 @@ instance IsQuery Domain where
 -- data CreateImage = CreateImage
 --     { ciInstanceId :: !ByteString
 --     , ciName :: !ByteString
---     , ciDescription :: !(Maybe ByteString)
---     , ciNoReboot :: !(Maybe Boolean)
---     , ciBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
+--     , ciDescription :: Maybe ByteString
+--     , ciNoReboot :: Maybe Boolean
+--     , ciBlockDeviceMapping :: Maybe BlockDeviceMapping
 --     } deriving (Show)
 
 -- data CreateImageResponse = CreateImageResponse
@@ -45,14 +44,14 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data RegisterImage = RegisterImage
---     { riImageLocation :: !(Maybe ByteString)
+--     { riImageLocation :: Maybe ByteString
 --     , riName :: !ByteString
---     , riDescription :: !(Maybe ByteString)
---     , riArchitecture :: !(Maybe ByteString)
---     , riKernelId :: !(Maybe ByteString)
---     , riRamdiskId :: !(Maybe ByteString)
---     , riRootDeviceName :: !(Maybe ByteString)
---     , riBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
+--     , riDescription :: Maybe ByteString
+--     , riArchitecture :: Maybe ByteString
+--     , riKernelId :: Maybe ByteString
+--     , riRamdiskId :: Maybe ByteString
+--     , riRootDeviceName :: Maybe ByteString
+--     , riBlockDeviceMapping :: Maybe BlockDeviceMapping
 --     } deriving (Show)
 
 -- data RegisterImageResponse = RegisterImageResponse
@@ -102,11 +101,11 @@ instance IsQuery Domain where
 
 -- data DescribeKeyPairs = DescribeKeyPairs
 --     { dkpKeySet :: !DescribeKeyPairsInfo
---     , dkpFilterSet :: !(Maybe FilterSet)
+--     , dkpFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeKeyPairsInfo = DescribeKeyPairsInfo
---     { dkpiItem :: ![DescribeKeyPairsItem]
+--     { dkpiItem :: [DescribeKeyPairsItem]
 --     } deriving (Show)
 
 -- data DescribeKeyPairsItem = DescribeKeyPairsItem
@@ -119,7 +118,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeKeyPairsResponseInfo = DescribeKeyPairsResponseInfo
---     { dkpriItem :: ![DescribeKeyPairsResponseItem]
+--     { dkpriItem :: [DescribeKeyPairsResponseItem]
 --     } deriving (Show)
 
 -- data DescribeKeyPairsResponseItem = DescribeKeyPairsResponseItem
@@ -131,119 +130,119 @@ instance IsQuery Domain where
 --     { riImageId :: !ByteString
 --     , riMinCount :: !Int
 --     , riMaxCount :: !Int
---     , riKeyName :: !(Maybe ByteString)
+--     , riKeyName :: Maybe ByteString
 --     , riGroupSet :: !GroupSet
---     , riUserData :: !(Maybe UserData)
+--     , riUserData :: Maybe UserData
 --     , riInstance :: !ByteString
---     , riPlacement :: !(Maybe PlacementRequest)
---     , riKernelId :: !(Maybe ByteString)
---     , riRamdiskId :: !(Maybe ByteString)
---     , riBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
---     , riMonitoring :: !(Maybe MonitoringInstance)
---     , riSubnetId :: !(Maybe ByteString)
---     , riDisableApiTermination :: !(Maybe Boolean)
---     , riInstanceInitiatedShutdownBehavior :: !(Maybe ByteString)
---     , riLicense :: !(Maybe InstanceLicenseRequest)
---     , riPrivateIpAddress :: !(Maybe ByteString)
---     , riClientToken :: !(Maybe ByteString)
---     , riNetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequest)
---     , riIamInstanceProfile :: !(Maybe IamInstanceProfileRequest)
---     , riEbsOptimized :: !(Maybe Boolean)
+--     , riPlacement :: Maybe PlacementRequest
+--     , riKernelId :: Maybe ByteString
+--     , riRamdiskId :: Maybe ByteString
+--     , riBlockDeviceMapping :: Maybe BlockDeviceMapping
+--     , riMonitoring :: Maybe MonitoringInstance
+--     , riSubnetId :: Maybe ByteString
+--     , riDisableApiTermination :: Maybe Boolean
+--     , riInstanceInitiatedShutdownBehavior :: Maybe ByteString
+--     , riLicense :: Maybe InstanceLicenseRequest
+--     , riPrivateIpAddress :: Maybe ByteString
+--     , riClientToken :: Maybe ByteString
+--     , riNetworkInterfaceSet :: Maybe InstanceNetworkInterfaceSetRequest
+--     , riIamInstanceProfile :: Maybe IamInstanceProfileRequest
+--     , riEbsOptimized :: Maybe Boolean
 --     } deriving (Show)
 
 -- data IamInstanceProfileRequest = IamInstanceProfileRequest
---     { iiprArn :: !(Maybe ByteString)
---     , iiprName :: !(Maybe ByteString)
+--     { iiprArn :: Maybe ByteString
+--     , iiprName :: Maybe ByteString
 --     } deriving (Show)
 
 -- data InstanceNetworkInterfaceSetRequest = InstanceNetworkInterfaceSetRequest
---     { inisrItem :: ![InstanceNetworkInterfaceSetItemRequest]
+--     { inisrItem :: [InstanceNetworkInterfaceSetItemRequest]
 --     } deriving (Show)
 
 -- data InstanceNetworkInterfaceSetItemRequest = InstanceNetworkInterfaceSetItemRequest
---     { inisirNetworkInterfaceId :: !(Maybe ByteString)
+--     { inisirNetworkInterfaceId :: Maybe ByteString
 --     , inisirDeviceIndex :: !Int
---     , inisirSubnetId :: !(Maybe ByteString)
---     , inisirDescription :: !(Maybe ByteString)
---     , inisirPrivateIpAddress :: !(Maybe ByteString)
---     , inisirGroupSet :: !(Maybe SecurityGroupIdSet)
---     , inisirDeleteOnTermination :: !(Maybe Boolean)
---     , inisirPrivateIpAddressesSet :: !(Maybe PrivateIpAddressesSetRequest)
---     , inisirSecondaryPrivateIpAddressCount :: !(Maybe Int)
+--     , inisirSubnetId :: Maybe ByteString
+--     , inisirDescription :: Maybe ByteString
+--     , inisirPrivateIpAddress :: Maybe ByteString
+--     , inisirGroupSet :: Maybe SecurityGroupIdSet
+--     , inisirDeleteOnTermination :: Maybe Boolean
+--     , inisirPrivateIpAddressesSet :: Maybe PrivateIpAddressesSetRequest
+--     , inisirSecondaryPrivateIpAddressCount :: Maybe Int
 --     } deriving (Show)
 
 -- data PrivateIpAddressesSetRequest = PrivateIpAddressesSetRequest
---     { piasrItem :: ![PrivateIpAddressesSetItemRequest]
+--     { piasrItem :: [PrivateIpAddressesSetItemRequest]
 --     } deriving (Show)
 
 -- data PrivateIpAddressesSetItemRequest = PrivateIpAddressesSetItemRequest
 --     { piasirPrivateIpAddress :: !ByteString
---     , piasirPrimary :: !(Maybe Boolean)
+--     , piasirPrimary :: Maybe Boolean
 --     } deriving (Show)
 
 -- data ImportInstanceGroupSet = ImportInstanceGroupSet
---     { iigsItem :: ![ImportInstanceGroupItem]
+--     { iigsItem :: [ImportInstanceGroupItem]
 --     } deriving (Show)
 
 -- data ImportInstanceGroupItem = ImportInstanceGroupItem
---     { iigiGroupId :: !(Maybe ByteString)
---     , iigiGroupName :: !(Maybe ByteString)
+--     { iigiGroupId :: Maybe ByteString
+--     , iigiGroupName :: Maybe ByteString
 --     } deriving (Show)
 
 -- data GroupSet = GroupSet
---     { gsItem :: ![GroupItem]
+--     { gsItem :: [GroupItem]
 --     } deriving (Show)
 
 -- data GroupItem = GroupItem
---     { giGroupId :: !(Maybe ByteString)
---     , giGroupName :: !(Maybe ByteString)
+--     { giGroupId :: Maybe ByteString
+--     , giGroupName :: Maybe ByteString
 --     } deriving (Show)
 
 -- data UserData = UserData
---     { udData :: !(Maybe ByteString)
+--     { udData :: Maybe ByteString
 --     , udVersion :: !ByteString
 --     , udEncoding :: !ByteString
 --     } deriving (Show)
 
 -- data BlockDeviceMapping = BlockDeviceMapping
---     { bdmItem :: ![BlockDeviceMappingItem]
+--     { bdmItem :: [BlockDeviceMappingItem]
 --     } deriving (Show)
 
 -- data BlockDeviceMappingItem = BlockDeviceMappingItem
 --     { bdmiDeviceName :: !ByteString
 --   -- <xs:choice>
---     , bdmiVirtualName :: !(Maybe ByteString)
---     , bdmiEbs :: !(Maybe EbsBlockDevice)
---     , bdmiNoDevice :: !(Maybe EmptyElement)
+--     , bdmiVirtualName :: Maybe ByteString
+--     , bdmiEbs :: Maybe EbsBlockDevice
+--     , bdmiNoDevice :: Maybe EmptyElement
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data EbsBlockDevice = EbsBlockDevice
---     { ebdSnapshotId :: !(Maybe ByteString)
---     , ebdVolumeSize :: !(Maybe Int)
---     , ebdDeleteOnTermination :: !(Maybe Boolean)
---     , ebdVolume :: !(Maybe ByteString)
---     , ebdIops :: !(Maybe Int)
+--     { ebdSnapshotId :: Maybe ByteString
+--     , ebdVolumeSize :: Maybe Int
+--     , ebdDeleteOnTermination :: Maybe Boolean
+--     , ebdVolume :: Maybe ByteString
+--     , ebdIops :: Maybe Int
 --     } deriving (Show)
 
 -- data PlacementRequest = PlacementRequest
---     { prAvailabilityZone :: !(Maybe ByteString)
---     , prGroupName :: !(Maybe ByteString)
---     , prTenancy :: !(Maybe ByteString)
+--     { prAvailabilityZone :: Maybe ByteString
+--     , prGroupName :: Maybe ByteString
+--     , prTenancy :: Maybe ByteString
 --     } deriving (Show)
 
 -- data SpotPlacementRequest = SpotPlacementRequest
---     { sprAvailabilityZone :: !(Maybe ByteString)
---     , sprGroupName :: !(Maybe ByteString)
+--     { sprAvailabilityZone :: Maybe ByteString
+--     , sprGroupName :: Maybe ByteString
 --     } deriving (Show)
 
 -- data InstancePlacement = InstancePlacement
---     { ipAvailabilityZone :: !(Maybe ByteString)
---     , ipGroupName :: !(Maybe ByteString)
+--     { ipAvailabilityZone :: Maybe ByteString
+--     , ipGroupName :: Maybe ByteString
 --     } deriving (Show)
 
 -- data MonitoringInstance = MonitoringInstance
---     { miEnabled :: !(Maybe Boolean)
+--     { miEnabled :: Maybe Boolean
 --     } deriving (Show)
 
 -- data InstanceLicenseRequest = InstanceLicenseRequest
@@ -256,7 +255,7 @@ instance IsQuery Domain where
 --     , rirOwnerId :: !ByteString
 --     , rirGroupSet :: !GroupSet
 --     , rirInstancesSet :: !RunningInstancesSet
---     , rirRequesterId :: !(Maybe ByteString)
+--     , rirRequesterId :: Maybe ByteString
 --     } deriving (Show)
 
 -- data ReservationInfo = ReservationInfo
@@ -264,51 +263,51 @@ instance IsQuery Domain where
 --     , riOwnerId :: !ByteString
 --     , riGroupSet :: !GroupSet
 --     , riInstancesSet :: !RunningInstancesSet
---     , riRequesterId :: !(Maybe ByteString)
+--     , riRequesterId :: Maybe ByteString
 --     } deriving (Show)
 
 -- data RunningInstancesSet = RunningInstancesSet
---     { risItem :: ![RunningInstancesItem]
+--     { risItem :: [RunningInstancesItem]
 --     } deriving (Show)
 
 -- data RunningInstancesItem = RunningInstancesItem
 --     { riiInstanceId :: !ByteString
---     , riiImageId :: !(Maybe ByteString)
+--     , riiImageId :: Maybe ByteString
 --     , riiInstanceState :: !InstanceState
 --     , riiPrivateDnsName :: !ByteString
---     , riiDnsName :: !(Maybe ByteString)
---     , riiReason :: !(Maybe ByteString)
---     , riiKeyName :: !(Maybe ByteString)
---     , riiAmiLaunchIndex :: !(Maybe ByteString)
---     , riiProductCodes :: !(Maybe ProductCodesSet)
+--     , riiDnsName :: Maybe ByteString
+--     , riiReason :: Maybe ByteString
+--     , riiKeyName :: Maybe ByteString
+--     , riiAmiLaunchIndex :: Maybe ByteString
+--     , riiProductCodes :: Maybe ProductCodesSet
 --     , riiInstance :: !ByteString
 --     , riiLaunchTime :: !DateTime
---     , riiPlacement :: !(Maybe PlacementResponse)
---     , riiKernelId :: !(Maybe ByteString)
---     , riiRamdiskId :: !(Maybe ByteString)
---     , riiPlatform :: !(Maybe ByteString)
---     , riiMonitoring :: !(Maybe InstanceMonitoringState)
---     , riiSubnetId :: !(Maybe ByteString)
---     , riiVpcId :: !(Maybe ByteString)
---     , riiPrivateIpAddress :: !(Maybe ByteString)
---     , riiIpAddress :: !(Maybe ByteString)
---     , riiSourceDestCheck :: !(Maybe Boolean)
+--     , riiPlacement :: Maybe PlacementResponse
+--     , riiKernelId :: Maybe ByteString
+--     , riiRamdiskId :: Maybe ByteString
+--     , riiPlatform :: Maybe ByteString
+--     , riiMonitoring :: Maybe InstanceMonitoringState
+--     , riiSubnetId :: Maybe ByteString
+--     , riiVpcId :: Maybe ByteString
+--     , riiPrivateIpAddress :: Maybe ByteString
+--     , riiIpAddress :: Maybe ByteString
+--     , riiSourceDestCheck :: Maybe Boolean
 --     , riiGroupSet :: !GroupSet
---     , riiStateReason :: !(Maybe StateReason)
---     , riiArchitecture :: !(Maybe ByteString)
---     , riiRootDevice :: !(Maybe ByteString)
---     , riiRootDeviceName :: !(Maybe ByteString)
---     , riiBlockDeviceMapping :: !(Maybe InstanceBlockDeviceMappingResponse)
---     , riiInstanceLifecycle :: !(Maybe ByteString)
---     , riiSpotInstanceRequestId :: !(Maybe ByteString)
---     , riiLicense :: !(Maybe InstanceLicenseResponse)
---     , riiVirtualization :: !(Maybe ByteString)
---     , riiClientToken :: !(Maybe ByteString)
---     , riiTagSet :: !(Maybe ResourceTagSet)
---     , riiHypervisor :: !(Maybe ByteString)
---     , riiNetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSet)
---     , riiIamInstanceProfile :: !(Maybe IamInstanceProfileResponse)
---     , riiEbsOptimized :: !(Maybe Boolean)
+--     , riiStateReason :: Maybe StateReason
+--     , riiArchitecture :: Maybe ByteString
+--     , riiRootDevice :: Maybe ByteString
+--     , riiRootDeviceName :: Maybe ByteString
+--     , riiBlockDeviceMapping :: Maybe InstanceBlockDeviceMappingResponse
+--     , riiInstanceLifecycle :: Maybe ByteString
+--     , riiSpotInstanceRequestId :: Maybe ByteString
+--     , riiLicense :: Maybe InstanceLicenseResponse
+--     , riiVirtualization :: Maybe ByteString
+--     , riiClientToken :: Maybe ByteString
+--     , riiTagSet :: Maybe ResourceTagSet
+--     , riiHypervisor :: Maybe ByteString
+--     , riiNetworkInterfaceSet :: Maybe InstanceNetworkInterfaceSet
+--     , riiIamInstanceProfile :: Maybe IamInstanceProfileResponse
+--     , riiEbsOptimized :: Maybe Boolean
 --     } deriving (Show)
 
 -- data IamInstanceProfileResponse = IamInstanceProfileResponse
@@ -317,35 +316,35 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data InstanceNetworkInterfaceSet = InstanceNetworkInterfaceSet
---     { inisItem :: ![InstanceNetworkInterfaceSetItem]
+--     { inisItem :: [InstanceNetworkInterfaceSetItem]
 --     } deriving (Show)
 
 -- data InstanceNetworkInterfaceSetItem = InstanceNetworkInterfaceSetItem
 --     { inisiNetworkInterfaceId :: !ByteString
---     , inisiSubnetId :: !(Maybe ByteString)
---     , inisiVpcId :: !(Maybe ByteString)
---     , inisiDescription :: !(Maybe ByteString)
+--     , inisiSubnetId :: Maybe ByteString
+--     , inisiVpcId :: Maybe ByteString
+--     , inisiDescription :: Maybe ByteString
 --     , inisiOwnerId :: !ByteString
 --     , inisiStatus :: !ByteString
---     , inisiMacAddress :: !(Maybe ByteString)
---     , inisiPrivateIpAddress :: !(Maybe ByteString)
---     , inisiPrivateDnsName :: !(Maybe ByteString)
---     , inisiSourceDestCheck :: !(Maybe Boolean)
---     , inisiGroupSet :: !(Maybe GroupSet)
+--     , inisiMacAddress :: Maybe ByteString
+--     , inisiPrivateIpAddress :: Maybe ByteString
+--     , inisiPrivateDnsName :: Maybe ByteString
+--     , inisiSourceDestCheck :: Maybe Boolean
+--     , inisiGroupSet :: Maybe GroupSet
 --     , inisiAttachment :: !InstanceNetworkInterfaceAttachment
---     , inisiAssociation :: !(Maybe InstanceNetworkInterfaceAssociation)
---     , inisiPrivateIpAddressesSet :: !(Maybe InstancePrivateIpAddressesSet)
+--     , inisiAssociation :: Maybe InstanceNetworkInterfaceAssociation
+--     , inisiPrivateIpAddressesSet :: Maybe InstancePrivateIpAddressesSet
 --     } deriving (Show)
 
 -- data InstancePrivateIpAddressesSet = InstancePrivateIpAddressesSet
---     { ipiasItem :: ![InstancePrivateIpAddressesSetItem]
+--     { ipiasItem :: [InstancePrivateIpAddressesSetItem]
 --     } deriving (Show)
 
 -- data InstancePrivateIpAddressesSetItem = InstancePrivateIpAddressesSetItem
---     { ipiasiPrivateIpAddress :: !(Maybe ByteString)
---     , ipiasiPrivateDnsName :: !(Maybe ByteString)
---     , ipiasiPrimary :: !(Maybe Boolean)
---     , ipiasiAssociation :: !(Maybe InstanceNetworkInterfaceAssociation)
+--     { ipiasiPrivateIpAddress :: Maybe ByteString
+--     , ipiasiPrivateDnsName :: Maybe ByteString
+--     , ipiasiPrimary :: Maybe Boolean
+--     , ipiasiAssociation :: Maybe InstanceNetworkInterfaceAssociation
 --     } deriving (Show)
 
 -- data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
@@ -358,14 +357,14 @@ instance IsQuery Domain where
 
 -- data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
 --     { iniaPublicIp :: !ByteString
---     , iniaPublicDnsName :: !(Maybe ByteString)
---     , iniaIpOwnerId :: !(Maybe ByteString)
+--     , iniaPublicDnsName :: Maybe ByteString
+--     , iniaIpOwnerId :: Maybe ByteString
 --     } deriving (Show)
 
 -- data PlacementResponse = PlacementResponse
 --     { prAvailabilityZone :: !ByteString
---     , prGroupName :: !(Maybe ByteString)
---     , prTenancy :: !(Maybe ByteString)
+--     , prGroupName :: Maybe ByteString
+--     , prTenancy :: Maybe ByteString
 --     } deriving (Show)
 
 -- data StateReason = StateReason
@@ -374,7 +373,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data InstanceBlockDeviceMappingResponse = InstanceBlockDeviceMappingResponse
---     { ibdmrItem :: ![InstanceBlockDeviceMappingResponseItem]
+--     { ibdmrItem :: [InstanceBlockDeviceMappingResponseItem]
 --     } deriving (Show)
 
 -- data InstanceBlockDeviceMappingResponseItem = InstanceBlockDeviceMappingResponseItem
@@ -388,7 +387,7 @@ instance IsQuery Domain where
 --     { eibdmrVolumeId :: !ByteString
 --     , eibdmrStatus :: !ByteString
 --     , eibdmrAttachTime :: !DateTime
---     , eibdmrDeleteOnTermination :: !(Maybe Boolean)
+--     , eibdmrDeleteOnTermination :: Maybe Boolean
 --     } deriving (Show)
 
 -- data InstanceLicenseResponse = InstanceLicenseResponse
@@ -396,17 +395,17 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeAccountAttributes = DescribeAccountAttributes
---     { daaAccountAttributeNameSet :: !(Maybe AccountAttributeNameSet)
---     , daaFilterSet :: !(Maybe FilterSet)
+--     { daaAccountAttributeNameSet :: Maybe AccountAttributeNameSet
+--     , daaFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
 --     { daarRequestId :: !ByteString
---     , daarAccountAttributeSet :: !(Maybe AccountAttributeSet)
+--     , daarAccountAttributeSet :: Maybe AccountAttributeSet
 --     } deriving (Show)
 
 -- data AccountAttributeNameSet = AccountAttributeNameSet
---     { aansItem :: ![AccountAttributeNameSetItem]
+--     { aansItem :: [AccountAttributeNameSetItem]
 --     } deriving (Show)
 
 -- data AccountAttributeNameSetItem = AccountAttributeNameSetItem
@@ -414,7 +413,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data AccountAttributeSet = AccountAttributeSet
---     { aasItem :: ![AccountAttributeSetItem]
+--     { aasItem :: [AccountAttributeSetItem]
 --     } deriving (Show)
 
 -- data AccountAttributeSetItem = AccountAttributeSetItem
@@ -423,7 +422,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data AccountAttributeValueSet = AccountAttributeValueSet
---     { aavsItem :: ![AccountAttributeValueSetItem]
+--     { aavsItem :: [AccountAttributeValueSetItem]
 --     } deriving (Show)
 
 -- data AccountAttributeValueSetItem = AccountAttributeValueSetItem
@@ -443,16 +442,16 @@ instance IsQuery Domain where
 --     { dvarRequestId :: !ByteString
 --     , dvarVpcId :: !ByteString
 --   -- <xs:choice>
---     , dvarEnableDnsSupport :: !(Maybe AttributeBooleanValue)
---     , dvarEnableDnsHostnames :: !(Maybe AttributeBooleanValue)
+--     , dvarEnableDnsSupport :: Maybe AttributeBooleanValue
+--     , dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data ModifyVpcAttribute = ModifyVpcAttribute
 --     { mvaVpcId :: !ByteString
 --   -- <xs:choice>
---     , mvaEnableDnsSupport :: !(Maybe AttributeBooleanValue)
---     , mvaEnableDnsHostnames :: !(Maybe AttributeBooleanValue)
+--     , mvaEnableDnsSupport :: Maybe AttributeBooleanValue
+--     , mvaEnableDnsHostnames :: Maybe AttributeBooleanValue
 --   -- </xs:choice>
 --     } deriving (Show)
 
@@ -488,7 +487,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data InstanceIdSet = InstanceIdSet
---     { iisItem :: ![InstanceId]
+--     { iisItem :: [InstanceId]
 --     } deriving (Show)
 
 -- data InstanceStateChange = InstanceStateChange
@@ -498,7 +497,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data InstanceStateChangeSet = InstanceStateChangeSet
---     { iscsItem :: ![InstanceStateChange]
+--     { iscsItem :: [InstanceStateChange]
 --     } deriving (Show)
 
 -- data TerminateInstances = TerminateInstances
@@ -511,26 +510,26 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
---     { ibdmItem :: ![InstanceBlockDeviceMappingItem]
+--     { ibdmItem :: [InstanceBlockDeviceMappingItem]
 --     } deriving (Show)
 
 -- data InstanceBlockDeviceMappingItem = InstanceBlockDeviceMappingItem
 --     { ibdmiDeviceName :: !ByteString
 --   -- <xs:choice>
---     , ibdmiVirtualName :: !(Maybe ByteString)
---     , ibdmiEbs :: !(Maybe InstanceEbsBlockDevice)
---     , ibdmiNoDevice :: !(Maybe EmptyElement)
+--     , ibdmiVirtualName :: Maybe ByteString
+--     , ibdmiEbs :: Maybe InstanceEbsBlockDevice
+--     , ibdmiNoDevice :: Maybe EmptyElement
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data InstanceEbsBlockDevice = InstanceEbsBlockDevice
 --     { iebdVolumeId :: !ByteString
---     , iebdDeleteOnTermination :: !(Maybe Boolean)
+--     , iebdDeleteOnTermination :: Maybe Boolean
 --     } deriving (Show)
 
 -- data StopInstances = StopInstances
 --     { siInstancesSet :: !InstanceIdSet
---     , siForce :: !(Maybe Boolean)
+--     , siForce :: Maybe Boolean
 --     } deriving (Show)
 
 -- data StopInstancesResponse = StopInstancesResponse
@@ -566,11 +565,11 @@ instance IsQuery Domain where
 
 -- data DescribeInstances = DescribeInstances
 --     { diInstancesSet :: !DescribeInstancesInfo
---     , diFilterSet :: !(Maybe FilterSet)
+--     , diFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeInstancesInfo = DescribeInstancesInfo
---     { diiItem :: ![DescribeInstancesItem]
+--     { diiItem :: [DescribeInstancesItem]
 --     } deriving (Show)
 
 -- data DescribeInstancesItem = DescribeInstancesItem
@@ -583,11 +582,11 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ReservationSet = ReservationSet
---     { rsItem :: ![ReservationInfo]
+--     { rsItem :: [ReservationInfo]
 --     } deriving (Show)
 
 -- data UnavailableResultSet = UnavailableResultSet
---     { ursItem :: ![UnavailableResult]
+--     { ursItem :: [UnavailableResult]
 --     } deriving (Show)
 
 -- data UnavailableResult = UnavailableResult
@@ -595,14 +594,14 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeImages = DescribeImages
---     { diExecutableBySet :: !(Maybe DescribeImagesExecutableBySet)
+--     { diExecutableBySet :: Maybe DescribeImagesExecutableBySet
 --     , diImagesSet :: !DescribeImagesInfo
---     , diOwnersSet :: !(Maybe DescribeImagesOwners)
---     , diFilterSet :: !(Maybe FilterSet)
+--     , diOwnersSet :: Maybe DescribeImagesOwners
+--     , diFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeImagesInfo = DescribeImagesInfo
---     { diiItem :: ![DescribeImagesItem]
+--     { diiItem :: [DescribeImagesItem]
 --     } deriving (Show)
 
 -- data DescribeImagesItem = DescribeImagesItem
@@ -610,7 +609,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeImagesOwners = DescribeImagesOwners
---     { dioItem :: ![DescribeImagesOwner]
+--     { dioItem :: [DescribeImagesOwner]
 --     } deriving (Show)
 
 -- data DescribeImagesOwner = DescribeImagesOwner
@@ -618,7 +617,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeImagesExecutableBySet = DescribeImagesExecutableBySet
---     { diebsItem :: ![DescribeImagesExecutableBy]
+--     { diebsItem :: [DescribeImagesExecutableBy]
 --     } deriving (Show)
 
 -- data DescribeImagesExecutableBy = DescribeImagesExecutableBy
@@ -631,37 +630,37 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeImagesResponseInfo = DescribeImagesResponseInfo
---     { diriItem :: ![DescribeImagesResponseItem]
+--     { diriItem :: [DescribeImagesResponseItem]
 --     } deriving (Show)
 
 -- data DescribeImagesResponseItem = DescribeImagesResponseItem
 --     { diriImageId :: !ByteString
---     , diriImageLocation :: !(Maybe ByteString)
+--     , diriImageLocation :: Maybe ByteString
 --     , diriImageState :: !ByteString
 --     , diriImageOwnerId :: !ByteString
 --     , diriIsPublic :: !Boolean
---     , diriProductCodes :: !(Maybe ProductCodesSet)
---     , diriArchitecture :: !(Maybe ByteString)
---     , diriImage :: !(Maybe ByteString)
---     , diriKernelId :: !(Maybe ByteString)
---     , diriRamdiskId :: !(Maybe ByteString)
---     , diriPlatform :: !(Maybe ByteString)
---     , diriStateReason :: !(Maybe StateReason)
---     , diriImageOwnerAlias :: !(Maybe ByteString)
---     , diriName :: !(Maybe ByteString)
---     , diriDescription :: !(Maybe ByteString)
---     , diriRootDevice :: !(Maybe ByteString)
---     , diriRootDeviceName :: !(Maybe ByteString)
---     , diriBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
---     , diriVirtualization :: !(Maybe ByteString)
---     , diriTagSet :: !(Maybe ResourceTagSet)
---     , diriHypervisor :: !(Maybe ByteString)
+--     , diriProductCodes :: Maybe ProductCodesSet
+--     , diriArchitecture :: Maybe ByteString
+--     , diriImage :: Maybe ByteString
+--     , diriKernelId :: Maybe ByteString
+--     , diriRamdiskId :: Maybe ByteString
+--     , diriPlatform :: Maybe ByteString
+--     , diriStateReason :: Maybe StateReason
+--     , diriImageOwnerAlias :: Maybe ByteString
+--     , diriName :: Maybe ByteString
+--     , diriDescription :: Maybe ByteString
+--     , diriRootDevice :: Maybe ByteString
+--     , diriRootDeviceName :: Maybe ByteString
+--     , diriBlockDeviceMapping :: Maybe BlockDeviceMapping
+--     , diriVirtualization :: Maybe ByteString
+--     , diriTagSet :: Maybe ResourceTagSet
+--     , diriHypervisor :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CreateSecurityGroup = CreateSecurityGroup
 --     { csgGroupName :: !ByteString
 --     , csgGroupDescription :: !ByteString
---     , csgVpcId :: !(Maybe ByteString)
+--     , csgVpcId :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CreateSecurityGroupResponse = CreateSecurityGroupResponse
@@ -673,8 +672,8 @@ instance IsQuery Domain where
 -- data DeleteSecurityGroup = DeleteSecurityGroup
 --     {
 -- -- <xs:choice>
---       dsgGroupId :: !(Maybe ByteString)
---     , dsgGroupName :: !(Maybe ByteString)
+--       dsgGroupId :: Maybe ByteString
+--     , dsgGroupName :: Maybe ByteString
 -- -- </xs:choice>
 --     } deriving (Show)
 
@@ -685,12 +684,12 @@ instance IsQuery Domain where
 
 -- data DescribeSecurityGroups = DescribeSecurityGroups
 --     { dsgSecurityGroupSet :: !DescribeSecurityGroupsSet
---     , dsgSecurityGroupIdSet :: !(Maybe DescribeSecurityGroupsIdSet)
---     , dsgFilterSet :: !(Maybe FilterSet)
+--     , dsgSecurityGroupIdSet :: Maybe DescribeSecurityGroupsIdSet
+--     , dsgFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeSecurityGroupsSet = DescribeSecurityGroupsSet
---     { dsgsItem :: ![DescribeSecurityGroupsSetItem]
+--     { dsgsItem :: [DescribeSecurityGroupsSetItem]
 --     } deriving (Show)
 
 -- data DescribeSecurityGroupsSetItem = DescribeSecurityGroupsSetItem
@@ -698,7 +697,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeSecurityGroupsIdSet = DescribeSecurityGroupsIdSet
---     { dsgisItem :: ![DescribeSecurityGroupsIdSetItem]
+--     { dsgisItem :: [DescribeSecurityGroupsIdSetItem]
 --     } deriving (Show)
 
 -- data DescribeSecurityGroupsIdSetItem = DescribeSecurityGroupsIdSetItem
@@ -711,19 +710,19 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data IpPermissionSet = IpPermissionSet
---     { ipsItem :: ![IpPermission]
+--     { ipsItem :: [IpPermission]
 --     } deriving (Show)
 
 -- data IpPermission = IpPermission
 --     { ipIpProtocol :: !ByteString
---     , ipFromPort :: !(Maybe Int)
---     , ipToPort :: !(Maybe Int)
+--     , ipFromPort :: Maybe Int
+--     , ipToPort :: Maybe Int
 --     , ipGroups :: !UserIdGroupPairSet
 --     , ipIpRanges :: !IpRangeSet
 --     } deriving (Show)
 
 -- data IpRangeSet = IpRangeSet
---     { irsItem :: ![IpRangeItem]
+--     { irsItem :: [IpRangeItem]
 --     } deriving (Show)
 
 -- data IpRangeItem = IpRangeItem
@@ -731,17 +730,17 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data UserIdGroupPairSet = UserIdGroupPairSet
---     { uigpsItem :: ![UserIdGroupPair]
+--     { uigpsItem :: [UserIdGroupPair]
 --     } deriving (Show)
 
 -- data UserIdGroupPair = UserIdGroupPair
---     { uigpUserId :: !(Maybe ByteString)
---     , uigpGroupId :: !(Maybe ByteString)
---     , uigpGroupName :: !(Maybe ByteString)
+--     { uigpUserId :: Maybe ByteString
+--     , uigpGroupId :: Maybe ByteString
+--     , uigpGroupName :: Maybe ByteString
 --     } deriving (Show)
 
 -- data SecurityGroupSet = SecurityGroupSet
---     { sgsItem :: ![SecurityGroupItem]
+--     { sgsItem :: [SecurityGroupItem]
 --     } deriving (Show)
 
 -- data SecurityGroupItem = SecurityGroupItem
@@ -749,17 +748,17 @@ instance IsQuery Domain where
 --     , sgiGroupId :: !ByteString
 --     , sgiGroupName :: !ByteString
 --     , sgiGroupDescription :: !ByteString
---     , sgiVpcId :: !(Maybe ByteString)
+--     , sgiVpcId :: Maybe ByteString
 --     , sgiIpPermissions :: !IpPermissionSet
---     , sgiIpPermissionsEgress :: !(Maybe IpPermissionSet)
---     , sgiTagSet :: !(Maybe ResourceTagSet)
+--     , sgiIpPermissionsEgress :: Maybe IpPermissionSet
+--     , sgiTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
---     { asgiUserId :: !(Maybe ByteString)
+--     { asgiUserId :: Maybe ByteString
 --   -- <xs:choice>
---     , asgiGroupId :: !(Maybe ByteString)
---     , asgiGroupName :: !(Maybe ByteString)
+--     , asgiGroupId :: Maybe ByteString
+--     , asgiGroupName :: Maybe ByteString
 --   -- </xs:choice>
 --     , asgiIpPermissions :: !IpPermissionSet
 --     } deriving (Show)
@@ -770,10 +769,10 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
---     { rsgiUserId :: !(Maybe ByteString)
+--     { rsgiUserId :: Maybe ByteString
 --   -- <xs:choice>
---     , rsgiGroupId :: !(Maybe ByteString)
---     , rsgiGroupName :: !(Maybe ByteString)
+--     , rsgiGroupId :: Maybe ByteString
+--     , rsgiGroupName :: Maybe ByteString
 --   -- </xs:choice>
 --     , rsgiIpPermissions :: !IpPermissionSet
 --     } deriving (Show)
@@ -811,21 +810,21 @@ instance IsQuery Domain where
 -- data ModifyInstanceAttribute = ModifyInstanceAttribute
 --     { miaInstanceId :: !ByteString
 --   -- <xs:choice>
---     , miaInstance :: !(Maybe AttributeValue)
---     , miaKernel :: !(Maybe AttributeValue)
---     , miaRamdisk :: !(Maybe AttributeValue)
---     , miaUserData :: !(Maybe AttributeValue)
---     , miaDisableApiTermination :: !(Maybe AttributeBooleanValue)
---     , miaInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
---     , miaBlockDeviceMapping :: !(Maybe InstanceBlockDeviceMapping)
---     , miaSourceDestCheck :: !(Maybe AttributeBooleanValue)
---     , miaGroupSet :: !(Maybe SecurityGroupIdSet)
---     , miaEbsOptimized :: !(Maybe AttributeBooleanValue)
+--     , miaInstance :: Maybe AttributeValue
+--     , miaKernel :: Maybe AttributeValue
+--     , miaRamdisk :: Maybe AttributeValue
+--     , miaUserData :: Maybe AttributeValue
+--     , miaDisableApiTermination :: Maybe AttributeBooleanValue
+--     , miaInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
+--     , miaBlockDeviceMapping :: Maybe InstanceBlockDeviceMapping
+--     , miaSourceDestCheck :: Maybe AttributeBooleanValue
+--     , miaGroupSet :: Maybe SecurityGroupIdSet
+--     , miaEbsOptimized :: Maybe AttributeBooleanValue
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data SecurityGroupIdSet = SecurityGroupIdSet
---     { sgisItem :: ![SecurityGroupIdSetItem]
+--     { sgisItem :: [SecurityGroupIdSetItem]
 --     } deriving (Show)
 
 -- data SecurityGroupIdSetItem = SecurityGroupIdSetItem
@@ -875,52 +874,52 @@ instance IsQuery Domain where
 --     { diarRequestId :: !ByteString
 --     , diarInstanceId :: !ByteString
 --   -- <xs:choice>
---     , diarInstance :: !(Maybe NullableAttributeValue)
---     , diarKernel :: !(Maybe NullableAttributeValue)
---     , diarRamdisk :: !(Maybe NullableAttributeValue)
---     , diarUserData :: !(Maybe NullableAttributeValue)
---     , diarDisableApiTermination :: !(Maybe NullableAttributeBooleanValue)
---     , diarInstanceInitiatedShutdownBehavior :: !(Maybe NullableAttributeValue)
---     , diarRootDeviceName :: !(Maybe NullableAttributeValue)
---     , diarBlockDeviceMapping :: !(Maybe InstanceBlockDeviceMappingResponse)
---     , diarSourceDestCheck :: !(Maybe NullableAttributeBooleanValue)
---     , diarGroupSet :: !(Maybe GroupSet)
---     , diarProductCodes :: !(Maybe ProductCodesSet)
---     , diarEbsOptimized :: !(Maybe NullableAttributeBooleanValue)
+--     , diarInstance :: Maybe NullableAttributeValue
+--     , diarKernel :: Maybe NullableAttributeValue
+--     , diarRamdisk :: Maybe NullableAttributeValue
+--     , diarUserData :: Maybe NullableAttributeValue
+--     , diarDisableApiTermination :: Maybe NullableAttributeBooleanValue
+--     , diarInstanceInitiatedShutdownBehavior :: Maybe NullableAttributeValue
+--     , diarRootDeviceName :: Maybe NullableAttributeValue
+--     , diarBlockDeviceMapping :: Maybe InstanceBlockDeviceMappingResponse
+--     , diarSourceDestCheck :: Maybe NullableAttributeBooleanValue
+--     , diarGroupSet :: Maybe GroupSet
+--     , diarProductCodes :: Maybe ProductCodesSet
+--     , diarEbsOptimized :: Maybe NullableAttributeBooleanValue
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data ModifyImageAttribute = ModifyImageAttribute
 --     { miaImageId :: !ByteString
 --   -- <xs:choice>
---     , miaLaunchPermission :: !(Maybe LaunchPermissionOperation)
---     , miaProductCodes :: !(Maybe ProductCodeList)
---     , miaDescription :: !(Maybe AttributeValue)
+--     , miaLaunchPermission :: Maybe LaunchPermissionOperation
+--     , miaProductCodes :: Maybe ProductCodeList
+--     , miaDescription :: Maybe AttributeValue
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data LaunchPermissionOperation = LaunchPermissionOperation
 --     { lpo 
 -- -- <xs:choice>
---     , lpoAdd :: !(Maybe LaunchPermissionList)
---     , lpoRemove :: !(Maybe LaunchPermissionList)
+--     , lpoAdd :: Maybe LaunchPermissionList
+--     , lpoRemove :: Maybe LaunchPermissionList
 -- -- </xs:choice>
 --     } deriving (Show)
 
 -- data LaunchPermissionList = LaunchPermissionList
---     { lplItem :: ![LaunchPermissionItem]
+--     { lplItem :: [LaunchPermissionItem]
 --     } deriving (Show)
 
 -- data LaunchPermissionItem = LaunchPermissionItem
 --     { lpi 
 -- -- <xs:choice>
---     , lpiUserId :: !(Maybe ByteString)
---     , lpiGroup :: !(Maybe ByteString)
+--     , lpiUserId :: Maybe ByteString
+--     , lpiGroup :: Maybe ByteString
 -- -- </xs:choice>
 --     } deriving (Show)
 
 -- data ProductCodeList = ProductCodeList
---     { pclItem :: ![ProductCodeItem]
+--     { pclItem :: [ProductCodeItem]
 --     } deriving (Show)
 
 -- data ProductCodeItem = ProductCodeItem
@@ -966,21 +965,21 @@ instance IsQuery Domain where
 --     { diarRequestId :: !ByteString
 --     , diarImageId :: !ByteString
 --   -- <xs:choice>
---     , diarLaunchPermission :: !(Maybe LaunchPermissionList)
---     , diarProductCodes :: !(Maybe ProductCodesSet)
---     , diarKernel :: !(Maybe NullableAttributeValue)
---     , diarRamdisk :: !(Maybe NullableAttributeValue)
---     , diarDescription :: !(Maybe NullableAttributeValue)
---     , diarBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
+--     , diarLaunchPermission :: Maybe LaunchPermissionList
+--     , diarProductCodes :: Maybe ProductCodesSet
+--     , diarKernel :: Maybe NullableAttributeValue
+--     , diarRamdisk :: Maybe NullableAttributeValue
+--     , diarDescription :: Maybe NullableAttributeValue
+--     , diarBlockDeviceMapping :: Maybe BlockDeviceMapping
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data NullableAttributeValue = NullableAttributeValue
---     { navValue :: !(Maybe ByteString)
+--     { navValue :: Maybe ByteString
 --     } deriving (Show)
 
 -- data NullableAttributeBooleanValue = NullableAttributeBooleanValue
---     { nabvValue :: !(Maybe Boolean)
+--     { nabvValue :: Maybe Boolean
 --     } deriving (Show)
 
 -- data AttributeValue = AttributeValue
@@ -997,7 +996,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ProductCodesSet = ProductCodesSet
---     { pcsItem :: ![ProductCodesSetItem]
+--     { pcsItem :: [ProductCodesSetItem]
 --     } deriving (Show)
 
 -- data ProductCodesSetItem = ProductCodesSetItem
@@ -1008,16 +1007,16 @@ instance IsQuery Domain where
 -- data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 --     { cpirRequestId :: !ByteString
 --     , cpirReturn :: !Boolean
---     , cpirOwnerId :: !(Maybe ByteString)
+--     , cpirOwnerId :: Maybe ByteString
 --     } deriving (Show)
 
 -- data DescribeAvailabilityZones = DescribeAvailabilityZones
 --     { dazAvailabilityZoneSet :: !DescribeAvailabilityZonesSet
---     , dazFilterSet :: !(Maybe FilterSet)
+--     , dazFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeAvailabilityZonesSet = DescribeAvailabilityZonesSet
---     { dazsItem :: ![DescribeAvailabilityZonesSetItem]
+--     { dazsItem :: [DescribeAvailabilityZonesSetItem]
 --     } deriving (Show)
 
 -- data DescribeAvailabilityZonesSetItem = DescribeAvailabilityZonesSetItem
@@ -1030,7 +1029,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data AvailabilityZoneSet = AvailabilityZoneSet
---     { azsItem :: ![AvailabilityZoneItem]
+--     { azsItem :: [AvailabilityZoneItem]
 --     } deriving (Show)
 
 -- data AvailabilityZoneMessage = AvailabilityZoneMessage
@@ -1038,7 +1037,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data AvailabilityZoneMessageSet = AvailabilityZoneMessageSet
---     { azmsItem :: ![AvailabilityZoneMessage]
+--     { azmsItem :: [AvailabilityZoneMessage]
 --     } deriving (Show)
 
 -- data AvailabilityZoneItem = AvailabilityZoneItem
@@ -1051,8 +1050,8 @@ instance IsQuery Domain where
 -- data ReleaseAddress = ReleaseAddress
 --     { ra 
 --   -- <xs:choice>
---     , raPublicIp :: !(Maybe ByteString)
---     , raAllocationId :: !(Maybe ByteString)
+--     , raPublicIp :: Maybe ByteString
+--     , raAllocationId :: Maybe ByteString
 --   -- </xs:choice>
 --     } deriving (Show)
 
@@ -1064,11 +1063,11 @@ instance IsQuery Domain where
 -- data DescribeAddresses = DescribeAddresses
 --     { daPublicIpsSet :: !DescribeAddressesInfo
 --     , daAllocationIdsSet :: !AllocationIdSet
---     , daFilterSet :: !(Maybe FilterSet)
+--     , daFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data AllocationIdSet = AllocationIdSet
---     { aisItem :: ![AllocationIdSetItem]
+--     { aisItem :: [AllocationIdSetItem]
 --     } deriving (Show)
 
 -- data AllocationIdSetItem = AllocationIdSetItem
@@ -1076,7 +1075,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeAddressesInfo = DescribeAddressesInfo
---     { daiItem :: ![DescribeAddressesItem]
+--     { daiItem :: [DescribeAddressesItem]
 --     } deriving (Show)
 
 -- data DescribeAddressesItem = DescribeAddressesItem
@@ -1089,45 +1088,45 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeAddressesResponseInfo = DescribeAddressesResponseInfo
---     { dariItem :: ![DescribeAddressesResponseItem]
+--     { dariItem :: [DescribeAddressesResponseItem]
 --     } deriving (Show)
 
 -- data DescribeAddressesResponseItem = DescribeAddressesResponseItem
 --     { dariPublicIp :: !ByteString
---     , dariAllocationId :: !(Maybe ByteString)
+--     , dariAllocationId :: Maybe ByteString
 --     , dariDomain :: !ByteString
---     , dariInstanceId :: !(Maybe ByteString)
---     , dariAssociationId :: !(Maybe ByteString)
---     , dariNetworkInterfaceId :: !(Maybe ByteString)
---     , dariNetworkInterfaceOwnerId :: !(Maybe ByteString)
---     , dariPrivateIpAddress :: !(Maybe ByteString)
+--     , dariInstanceId :: Maybe ByteString
+--     , dariAssociationId :: Maybe ByteString
+--     , dariNetworkInterfaceId :: Maybe ByteString
+--     , dariNetworkInterfaceOwnerId :: Maybe ByteString
+--     , dariPrivateIpAddress :: Maybe ByteString
 --     } deriving (Show)
 
 -- data AssociateAddress = AssociateAddress
 --     { aa 
 --   -- <xs:choice>
---     , aaPublicIp :: !(Maybe ByteString)
---     , aaAllocationId :: !(Maybe ByteString)
+--     , aaPublicIp :: Maybe ByteString
+--     , aaAllocationId :: Maybe ByteString
 --   -- </xs:choice>
 --   -- <xs:choice>
---     , aaNetworkInterfaceId :: !(Maybe ByteString)
---     , aaInstanceId :: !(Maybe ByteString)
+--     , aaNetworkInterfaceId :: Maybe ByteString
+--     , aaInstanceId :: Maybe ByteString
 --   -- </xs:choice>
---     , aaPrivateIpAddress :: !(Maybe ByteString)
---     , aaAllowReassociation :: !(Maybe Boolean)
+--     , aaPrivateIpAddress :: Maybe ByteString
+--     , aaAllowReassociation :: Maybe Boolean
 --     } deriving (Show)
 
 -- data AssociateAddressResponse = AssociateAddressResponse
 --     { aarRequestId :: !ByteString
 --     , aarReturn :: !Boolean
---     , aarAssociationId :: !(Maybe ByteString)
+--     , aarAssociationId :: Maybe ByteString
 --     } deriving (Show)
 
 -- data DisassociateAddress = DisassociateAddress
 --     { da 
 -- -- <xs:choice>
---     , daPublicIp :: !(Maybe ByteString)
---     , daAssociationId :: !(Maybe ByteString)
+--     , daPublicIp :: Maybe ByteString
+--     , daAssociationId :: Maybe ByteString
 -- -- </xs:choice>
 --      } deriving (Show)
 
@@ -1137,11 +1136,11 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data CreateVolume = CreateVolume
---     { cvSize :: !(Maybe ByteString)
---     , cvSnapshotId :: !(Maybe ByteString)
+--     { cvSize :: Maybe ByteString
+--     , cvSnapshotId :: Maybe ByteString
 --     , cvAvailabilityZone :: !ByteString
---     , cvVolume :: !(Maybe ByteString)
---     , cvIops :: !(Maybe Int)
+--     , cvVolume :: Maybe ByteString
+--     , cvIops :: Maybe Int
 --     } deriving (Show)
 
 -- data CreateVolumeResponse = CreateVolumeResponse
@@ -1153,7 +1152,7 @@ instance IsQuery Domain where
 --     , cvrStatus :: !ByteString
 --     , cvrCreateTime :: !DateTime
 --     , cvrVolume :: !ByteString
---     , cvrIops :: !(Maybe Int)
+--     , cvrIops :: Maybe Int
 --     } deriving (Show)
 
 -- data DeleteVolume = DeleteVolume
@@ -1167,11 +1166,11 @@ instance IsQuery Domain where
 
 -- data DescribeVolumes = DescribeVolumes
 --     { dvVolumeSet :: !DescribeVolumesSet
---     , dvFilterSet :: !(Maybe FilterSet)
+--     , dvFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeVolumesSet = DescribeVolumesSet
---     { dvsItem :: ![DescribeVolumesSetItem]
+--     { dvsItem :: [DescribeVolumesSetItem]
 --     } deriving (Show)
 
 -- data DescribeVolumesSetItem = DescribeVolumesSetItem
@@ -1184,7 +1183,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeVolumesSetResponse = DescribeVolumesSetResponse
---     { dvsrItem :: ![DescribeVolumesSetItemResponse]
+--     { dvsrItem :: [DescribeVolumesSetItemResponse]
 --     } deriving (Show)
 
 -- data DescribeVolumesSetItemResponse = DescribeVolumesSetItemResponse
@@ -1195,13 +1194,13 @@ instance IsQuery Domain where
 --     , dvsirStatus :: !ByteString
 --     , dvsirCreateTime :: !DateTime
 --     , dvsirAttachmentSet :: !AttachmentSetResponse
---     , dvsirTagSet :: !(Maybe ResourceTagSet)
+--     , dvsirTagSet :: Maybe ResourceTagSet
 --     , dvsirVolume :: !ByteString
---     , dvsirIops :: !(Maybe Int)
+--     , dvsirIops :: Maybe Int
 --     } deriving (Show)
 
 -- data AttachmentSetResponse = AttachmentSetResponse
---     { asrItem :: ![AttachmentSetItemResponse]
+--     { asrItem :: [AttachmentSetItemResponse]
 --     } deriving (Show)
 
 -- data AttachmentSetItemResponse = AttachmentSetItemResponse
@@ -1230,9 +1229,9 @@ instance IsQuery Domain where
 
 -- data DetachVolume = DetachVolume
 --     { dvVolumeId :: !ByteString
---     , dvInstanceId :: !(Maybe ByteString)
---     , dvDevice :: !(Maybe ByteString)
---     , dvForce :: !(Maybe Boolean)
+--     , dvInstanceId :: Maybe ByteString
+--     , dvDevice :: Maybe ByteString
+--     , dvForce :: Maybe Boolean
 --     } deriving (Show)
 
 -- data DetachVolumeResponse = DetachVolumeResponse
@@ -1246,7 +1245,7 @@ instance IsQuery Domain where
 
 -- data CreateSnapshot = CreateSnapshot
 --     { csVolumeId :: !ByteString
---     , csDescription :: !(Maybe ByteString)
+--     , csDescription :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CreateSnapshotResponse = CreateSnapshotResponse
@@ -1258,13 +1257,13 @@ instance IsQuery Domain where
 --     , csrProgress :: !ByteString
 --     , csrOwnerId :: !ByteString
 --     , csrVolumeSize :: !ByteString
---     , csrDescription :: !(Maybe ByteString)
+--     , csrDescription :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CopySnapshot = CopySnapshot
 --     { csSourceRegion :: !ByteString
 --     , csSourceSnapshotId :: !ByteString
---     , csDescription :: !(Maybe ByteString)
+--     , csDescription :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CopySnapshotResponse = CopySnapshotResponse
@@ -1283,13 +1282,13 @@ instance IsQuery Domain where
 
 -- data DescribeSnapshots = DescribeSnapshots
 --     { dsSnapshotSet :: !DescribeSnapshotsSet
---     , dsOwnersSet :: !(Maybe DescribeSnapshotsOwners)
---     , dsRestorableBySet :: !(Maybe DescribeSnapshotsRestorableBySet)
---     , dsFilterSet :: !(Maybe FilterSet)
+--     , dsOwnersSet :: Maybe DescribeSnapshotsOwners
+--     , dsRestorableBySet :: Maybe DescribeSnapshotsRestorableBySet
+--     , dsFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeSnapshotsSet = DescribeSnapshotsSet
---     { dssItem :: ![DescribeSnapshotsSetItem]
+--     { dssItem :: [DescribeSnapshotsSetItem]
 --     } deriving (Show)
 
 -- data DescribeSnapshotsSetItem = DescribeSnapshotsSetItem
@@ -1297,7 +1296,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeSnapshotsOwners = DescribeSnapshotsOwners
---     { dsoItem :: ![DescribeSnapshotsOwner]
+--     { dsoItem :: [DescribeSnapshotsOwner]
 --     } deriving (Show)
 
 -- data DescribeSnapshotsOwner = DescribeSnapshotsOwner
@@ -1305,7 +1304,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeSnapshotsRestorableBySet = DescribeSnapshotsRestorableBySet
---     { dsrbsItem :: ![DescribeSnapshotsRestorableBy]
+--     { dsrbsItem :: [DescribeSnapshotsRestorableBy]
 --     } deriving (Show)
 
 -- data DescribeSnapshotsRestorableBy = DescribeSnapshotsRestorableBy
@@ -1318,7 +1317,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeSnapshotsSetResponse = DescribeSnapshotsSetResponse
---     { dssrItem :: ![DescribeSnapshotsSetItemResponse]
+--     { dssrItem :: [DescribeSnapshotsSetItemResponse]
 --     } deriving (Show)
 
 -- data DescribeSnapshotsSetItemResponse = DescribeSnapshotsSetItemResponse
@@ -1329,9 +1328,9 @@ instance IsQuery Domain where
 --     , dssirProgress :: !ByteString
 --     , dssirOwnerId :: !ByteString
 --     , dssirVolumeSize :: !ByteString
---     , dssirDescription :: !(Maybe ByteString)
---     , dssirOwnerAlias :: !(Maybe ByteString)
---     , dssirTagSet :: !(Maybe ResourceTagSet)
+--     , dssirDescription :: Maybe ByteString
+--     , dssirOwnerAlias :: Maybe ByteString
+--     , dssirTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data ModifySnapshotAttribute = ModifySnapshotAttribute
@@ -1342,20 +1341,20 @@ instance IsQuery Domain where
 -- data CreateVolumePermissionOperation = CreateVolumePermissionOperation
 --     { cvpo 
 -- -- <xs:choice>
---     , cvpoAdd :: !(Maybe CreateVolumePermissionList)
---     , cvpoRemove :: !(Maybe CreateVolumePermissionList)
+--     , cvpoAdd :: Maybe CreateVolumePermissionList
+--     , cvpoRemove :: Maybe CreateVolumePermissionList
 -- -- </xs:choice>
 --     } deriving (Show)
 
 -- data CreateVolumePermissionList = CreateVolumePermissionList
---     { cvplItem :: ![CreateVolumePermissionItem]
+--     { cvplItem :: [CreateVolumePermissionItem]
 --     } deriving (Show)
 
 -- data CreateVolumePermissionItem = CreateVolumePermissionItem
 --     { cvpi 
 -- -- <xs:choice>
---     , cvpiUserId :: !(Maybe ByteString)
---     , cvpiGroup :: !(Maybe ByteString)
+--     , cvpiUserId :: Maybe ByteString
+--     , cvpiGroup :: Maybe ByteString
 -- -- </xs:choice>
 --     } deriving (Show)
 
@@ -1390,8 +1389,8 @@ instance IsQuery Domain where
 --     { dsarRequestId :: !ByteString
 --     , dsarSnapshotId :: !ByteString
 --   -- <xs:choice>
---     , dsarCreateVolumePermission :: !(Maybe CreateVolumePermissionList)
---     , dsarProductCodes :: !(Maybe ProductCodesSet)
+--     , dsarCreateVolumePermission :: Maybe CreateVolumePermissionList
+--     , dsarProductCodes :: Maybe ProductCodesSet
 --   -- </xs:choice>
 --     } deriving (Show)
 
@@ -1407,9 +1406,9 @@ instance IsQuery Domain where
 -- data BundleInstanceS3Storage = BundleInstanceS3Storage
 --     { bis3sBucket :: !ByteString
 --     , bis3sPrefix :: !ByteString
---     , bis3sAwsAccessKeyId :: !(Maybe ByteString)
---     , bis3sUploadPolicy :: !(Maybe ByteString)
---     , bis3sUploadPolicySignature :: !(Maybe ByteString)
+--     , bis3sAwsAccessKeyId :: Maybe ByteString
+--     , bis3sUploadPolicy :: Maybe ByteString
+--     , bis3sUploadPolicySignature :: Maybe ByteString
 --     } deriving (Show)
 
 -- data BundleInstanceResponse = BundleInstanceResponse
@@ -1424,8 +1423,8 @@ instance IsQuery Domain where
 --     , bitStartTime :: !DateTime
 --     , bitUpdateTime :: !DateTime
 --     , bitStorage :: !BundleInstanceTaskStorage
---     , bitProgress :: !(Maybe ByteString)
---     , bitError :: !(Maybe BundleInstanceTaskError)
+--     , bitProgress :: Maybe ByteString
+--     , bitError :: Maybe BundleInstanceTaskError
 --     } deriving (Show)
 
 -- data BundleInstanceTaskError = BundleInstanceTaskError
@@ -1435,11 +1434,11 @@ instance IsQuery Domain where
 
 -- data DescribeBundleTasks = DescribeBundleTasks
 --     { dbtBundlesSet :: !DescribeBundleTasksInfo
---     , dbtFilterSet :: !(Maybe FilterSet)
+--     , dbtFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeBundleTasksInfo = DescribeBundleTasksInfo
---     { dbtiItem :: ![DescribeBundleTasksItem]
+--     { dbtiItem :: [DescribeBundleTasksItem]
 --     } deriving (Show)
 
 -- data DescribeBundleTasksItem = DescribeBundleTasksItem
@@ -1452,7 +1451,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data BundleInstanceTasksSet = BundleInstanceTasksSet
---     { bitsItem :: ![BundleInstanceTask]
+--     { bitsItem :: [BundleInstanceTask]
 --     } deriving (Show)
 
 -- data CancelBundleTask = CancelBundleTask
@@ -1468,8 +1467,8 @@ instance IsQuery Domain where
 --     { ciSourceRegion :: !ByteString
 --     , ciSourceImageId :: !ByteString
 --     , ciName :: !ByteString
---     , ciDescription :: !(Maybe ByteString)
---     , ciClientToken :: !(Maybe ByteString)
+--     , ciDescription :: Maybe ByteString
+--     , ciClientToken :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CopyImageResponse = CopyImageResponse
@@ -1479,11 +1478,11 @@ instance IsQuery Domain where
 
 -- data DescribeRegions = DescribeRegions
 --     { drRegionSet :: !DescribeRegionsSet
---     , drFilterSet :: !(Maybe FilterSet)
+--     , drFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeRegionsSet = DescribeRegionsSet
---     { drsItem :: ![DescribeRegionsSetItem]
+--     { drsItem :: [DescribeRegionsSetItem]
 --     } deriving (Show)
 
 -- data DescribeRegionsSetItem = DescribeRegionsSetItem
@@ -1496,7 +1495,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data RegionSet = RegionSet
---     { rsItem :: ![RegionItem]
+--     { rsItem :: [RegionItem]
 --     } deriving (Show)
 
 -- data RegionItem = RegionItem
@@ -1505,23 +1504,23 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
---     { drioReservedInstancesOfferingsSet :: !(Maybe DescribeReservedInstancesOfferingsSet)
---     , drioInstance :: !(Maybe ByteString)
---     , drioAvailabilityZone :: !(Maybe ByteString)
---     , drioProductDescription :: !(Maybe ByteString)
---     , drioFilterSet :: !(Maybe FilterSet)
---     , drioInstanceTenancy :: !(Maybe ByteString)
---     , drioOffering :: !(Maybe ByteString)
---     , drioIncludeMarketplace :: !(Maybe Boolean)
---     , drioMinDuration :: !(Maybe Long)
---     , drioMaxDuration :: !(Maybe Long)
---     , drioMaxInstanceCount :: !(Maybe Int)
---     , drioNextToken :: !(Maybe ByteString)
---     , drioMaxResults :: !(Maybe Int)
+--     { drioReservedInstancesOfferingsSet :: Maybe DescribeReservedInstancesOfferingsSet
+--     , drioInstance :: Maybe ByteString
+--     , drioAvailabilityZone :: Maybe ByteString
+--     , drioProductDescription :: Maybe ByteString
+--     , drioFilterSet :: Maybe FilterSet
+--     , drioInstanceTenancy :: Maybe ByteString
+--     , drioOffering :: Maybe ByteString
+--     , drioIncludeMarketplace :: Maybe Boolean
+--     , drioMinDuration :: Maybe Long
+--     , drioMaxDuration :: Maybe Long
+--     , drioMaxInstanceCount :: Maybe Int
+--     , drioNextToken :: Maybe ByteString
+--     , drioMaxResults :: Maybe Int
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesOfferingsSet = DescribeReservedInstancesOfferingsSet
---     { driosItem :: ![DescribeReservedInstancesOfferingsSetItem]
+--     { driosItem :: [DescribeReservedInstancesOfferingsSetItem]
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesOfferingsSetItem = DescribeReservedInstancesOfferingsSetItem
@@ -1531,11 +1530,11 @@ instance IsQuery Domain where
 -- data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
 --     { driorRequestId :: !ByteString
 --     , driorReservedInstancesOfferingsSet :: !DescribeReservedInstancesOfferingsResponseSet
---     , driorNextToken :: !(Maybe ByteString)
+--     , driorNextToken :: Maybe ByteString
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesOfferingsResponseSet = DescribeReservedInstancesOfferingsResponseSet
---     { driorsItem :: ![DescribeReservedInstancesOfferingsResponseSetItem]
+--     { driorsItem :: [DescribeReservedInstancesOfferingsResponseSetItem]
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesOfferingsResponseSetItem = DescribeReservedInstancesOfferingsResponseSetItem
@@ -1550,12 +1549,12 @@ instance IsQuery Domain where
 --     , driorsiCurrencyCode :: !ByteString
 --     , driorsiOffering :: !ByteString
 --     , driorsiRecurringCharges :: !RecurringChargesSet
---     , driorsiMarketplace :: !(Maybe Boolean)
---     , driorsiPricingDetailsSet :: !(Maybe PricingDetailsSet)
+--     , driorsiMarketplace :: Maybe Boolean
+--     , driorsiPricingDetailsSet :: Maybe PricingDetailsSet
 --     } deriving (Show)
 
 -- data RecurringChargesSet = RecurringChargesSet
---     { rcsItem :: ![RecurringChargesSetItem]
+--     { rcsItem :: [RecurringChargesSetItem]
 --     } deriving (Show)
 
 -- data RecurringChargesSetItem = RecurringChargesSetItem
@@ -1564,7 +1563,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data PricingDetailsSet = PricingDetailsSet
---     { pdsItem :: ![PricingDetailsSetItem]
+--     { pdsItem :: [PricingDetailsSetItem]
 --     } deriving (Show)
 
 -- data PricingDetailsSetItem = PricingDetailsSetItem
@@ -1575,12 +1574,12 @@ instance IsQuery Domain where
 -- data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
 --     { prioReservedInstancesOfferingId :: !ByteString
 --     , prioInstanceCount :: !Int
---     , prioLimitPrice :: !(Maybe ReservedInstanceLimitPrice)
+--     , prioLimitPrice :: Maybe ReservedInstanceLimitPrice
 --     } deriving (Show)
 
 -- data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
 --     { rilpAmount :: !Double
---     , rilpCurrencyCode :: !(Maybe ByteString)
+--     , rilpCurrencyCode :: Maybe ByteString
 --     } deriving (Show)
 
 -- data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
@@ -1589,13 +1588,13 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeReservedInstances = DescribeReservedInstances
---     { driReservedInstancesSet :: !(Maybe DescribeReservedInstancesSet)
---     , driFilterSet :: !(Maybe FilterSet)
---     , driOffering :: !(Maybe ByteString)
+--     { driReservedInstancesSet :: Maybe DescribeReservedInstancesSet
+--     , driFilterSet :: Maybe FilterSet
+--     , driOffering :: Maybe ByteString
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesSet = DescribeReservedInstancesSet
---     { drisItem :: ![DescribeReservedInstancesSetItem]
+--     { drisItem :: [DescribeReservedInstancesSetItem]
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesSetItem = DescribeReservedInstancesSetItem
@@ -1608,7 +1607,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesResponseSet = DescribeReservedInstancesResponseSet
---     { drirsItem :: ![DescribeReservedInstancesResponseSetItem]
+--     { drirsItem :: [DescribeReservedInstancesResponseSetItem]
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesResponseSetItem = DescribeReservedInstancesResponseSetItem
@@ -1622,28 +1621,28 @@ instance IsQuery Domain where
 --     , drirsiInstanceCount :: !Integer
 --     , drirsiProductDescription :: !ByteString
 --     , drirsiState :: !ByteString
---     , drirsiTagSet :: !(Maybe ResourceTagSet)
+--     , drirsiTagSet :: Maybe ResourceTagSet
 --     , drirsiInstanceTenancy :: !ByteString
 --     , drirsiCurrencyCode :: !ByteString
 --     , drirsiOffering :: !ByteString
---     , drirsiRecurringCharges :: !(Maybe RecurringChargesSet)
+--     , drirsiRecurringCharges :: Maybe RecurringChargesSet
 --     } deriving (Show)
 
 -- data CreateReservedInstancesListing = CreateReservedInstancesListing
 --     { crilReservedInstancesId :: !ByteString
---     , crilInstanceCount :: !(Maybe Int)
+--     , crilInstanceCount :: Maybe Int
 --     , crilPriceSchedules :: !PriceScheduleRequestSet
 --     , crilClientToken :: !ByteString
 --     } deriving (Show)
 
 -- data PriceScheduleRequestSet = PriceScheduleRequestSet
---     { psrsItem :: ![PriceScheduleRequestSetItem]
+--     { psrsItem :: [PriceScheduleRequestSetItem]
 --     } deriving (Show)
 
 -- data PriceScheduleRequestSetItem = PriceScheduleRequestSetItem
 --     { psrsiTerm :: !Long
 --     , psrsiPrice :: !Double
---     , psrsiCurrencyCode :: !(Maybe ByteString)
+--     , psrsiCurrencyCode :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
@@ -1661,13 +1660,13 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesListings = DescribeReservedInstancesListings
---     { drilReservedInstancesListingSet :: !(Maybe DescribeReservedInstancesListingSet)
---     , drilReservedInstancesSet :: !(Maybe DescribeReservedInstancesSet)
---     , drilFilterSet :: !(Maybe FilterSet)
+--     { drilReservedInstancesListingSet :: Maybe DescribeReservedInstancesListingSet
+--     , drilReservedInstancesSet :: Maybe DescribeReservedInstancesSet
+--     , drilFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesListingSet = DescribeReservedInstancesListingSet
---     { drilsItem :: ![DescribeReservedInstancesListingSetItem]
+--     { drilsItem :: [DescribeReservedInstancesListingSetItem]
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesListingSetItem = DescribeReservedInstancesListingSetItem
@@ -1680,7 +1679,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesListingsResponseSet = DescribeReservedInstancesListingsResponseSet
---     { drilrsItem :: ![DescribeReservedInstancesListingsResponseSetItem]
+--     { drilrsItem :: [DescribeReservedInstancesListingsResponseSetItem]
 --     } deriving (Show)
 
 -- data DescribeReservedInstancesListingsResponseSetItem = DescribeReservedInstancesListingsResponseSetItem
@@ -1692,12 +1691,12 @@ instance IsQuery Domain where
 --     , drilrsiStatusMessage :: !ByteString
 --     , drilrsiInstanceCounts :: !InstanceCountsSet
 --     , drilrsiPriceSchedules :: !PriceScheduleSet
---     , drilrsiTagSet :: !(Maybe ResourceTagSet)
---     , drilrsiClientToken :: !(Maybe ByteString)
+--     , drilrsiTagSet :: Maybe ResourceTagSet
+--     , drilrsiClientToken :: Maybe ByteString
 --     } deriving (Show)
 
 -- data InstanceCountsSet = InstanceCountsSet
---     { icsItem :: ![InstanceCountsSetItem]
+--     { icsItem :: [InstanceCountsSetItem]
 --     } deriving (Show)
 
 -- data InstanceCountsSetItem = InstanceCountsSetItem
@@ -1706,13 +1705,13 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data PriceScheduleSet = PriceScheduleSet
---     { pssItem :: ![PriceScheduleSetItem]
+--     { pssItem :: [PriceScheduleSetItem]
 --     } deriving (Show)
 
 -- data PriceScheduleSetItem = PriceScheduleSetItem
 --     { pssiTerm :: !Long
 --     , pssiPrice :: !Double
---     , pssiCurrencyCode :: !(Maybe ByteString)
+--     , pssiCurrencyCode :: Maybe ByteString
 --     , pssiActive :: !Boolean
 --     } deriving (Show)
 
@@ -1752,16 +1751,16 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data AttachmentSet = AttachmentSet
---     { asItem :: ![Attachment]
+--     { asItem :: [Attachment]
 --     } deriving (Show)
 
 -- data VpnGateway = VpnGateway
 --     { vgVpnGatewayId :: !ByteString
 --     , vgState :: !ByteString
 --     , vgType :: !ByteString
---     , vgAvailabilityZone :: !(Maybe ByteString)
+--     , vgAvailabilityZone :: Maybe ByteString
 --     , vgAttachments :: !AttachmentSet
---     , vgTagSet :: !(Maybe ResourceTagSet)
+--     , vgTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data CustomerGateway = CustomerGateway
@@ -1769,29 +1768,29 @@ instance IsQuery Domain where
 --     , cgState :: !ByteString
 --     , cgType :: !ByteString
 --     , cgIpAddress :: !ByteString
---     , cgBgpAsn :: !(Maybe Int)
---     , cgTagSet :: !(Maybe ResourceTagSet)
+--     , cgBgpAsn :: Maybe Int
+--     , cgTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data VpnConnection = VpnConnection
 --     { vcVpnConnectionId :: !ByteString
 --     , vcState :: !ByteString
---     , vcCustomerGatewayConfiguration :: !(Maybe ByteString)
---     , vcType :: !(Maybe ByteString)
+--     , vcCustomerGatewayConfiguration :: Maybe ByteString
+--     , vcType :: Maybe ByteString
 --     , vcCustomerGatewayId :: !ByteString
 --     , vcVpnGatewayId :: !ByteString
---     , vcTagSet :: !(Maybe ResourceTagSet)
---     , vcVgwTelemetry :: !(Maybe VgwTelemetry)
---     , vcOptions :: !(Maybe VpnConnectionOptionsResponse)
---     , vcRoutes :: !(Maybe VpnStaticRoutesSet)
+--     , vcTagSet :: Maybe ResourceTagSet
+--     , vcVgwTelemetry :: Maybe VgwTelemetry
+--     , vcOptions :: Maybe VpnConnectionOptionsResponse
+--     , vcRoutes :: Maybe VpnStaticRoutesSet
 --     } deriving (Show)
 
 -- data VpnConnectionOptionsResponse = VpnConnectionOptionsResponse
---     { vcorStaticRoutesOnly :: !(Maybe Boolean)
+--     { vcorStaticRoutesOnly :: Maybe Boolean
 --     } deriving (Show)
 
 -- data VpnStaticRoutesSet = VpnStaticRoutesSet
---     { vsrsItem :: ![VpnStaticRoute]
+--     { vsrsItem :: [VpnStaticRoute]
 --     } deriving (Show)
 
 -- data VpnStaticRoute = VpnStaticRoute
@@ -1801,57 +1800,57 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data VgwTelemetry = VgwTelemetry
---     { vtItem :: ![VpnTunnelTelemetry]
+--     { vtItem :: [VpnTunnelTelemetry]
 --     } deriving (Show)
 
 -- data VpnTunnelTelemetry = VpnTunnelTelemetry
 --     { vttOutsideIpAddress :: !ByteString
 --     , vttStatus :: !ByteString
 --     , vttLastStatusChange :: !DateTime
---     , vttStatusMessage :: !(Maybe ByteString)
+--     , vttStatusMessage :: Maybe ByteString
 --     , vttAcceptedRouteCount :: !Int
 --     } deriving (Show)
 
 -- data Vpc = Vpc
 --     { vVpcId :: !ByteString
---     , vState :: !(Maybe ByteString)
---     , vCidrBlock :: !(Maybe ByteString)
---     , vDhcpOptionsId :: !(Maybe ByteString)
---     , vTagSet :: !(Maybe ResourceTagSet)
---     , vInstanceTenancy :: !(Maybe ByteString)
---     , vIsDefault :: !(Maybe Boolean)
+--     , vState :: Maybe ByteString
+--     , vCidrBlock :: Maybe ByteString
+--     , vDhcpOptionsId :: Maybe ByteString
+--     , vTagSet :: Maybe ResourceTagSet
+--     , vInstanceTenancy :: Maybe ByteString
+--     , vIsDefault :: Maybe Boolean
 --     } deriving (Show)
 
 -- data Subnet = Subnet
 --     { sSubnetId :: !ByteString
---     , sState :: !(Maybe ByteString)
---     , sVpcId :: !(Maybe ByteString)
---     , sCidrBlock :: !(Maybe ByteString)
---     , sAvailableIpAddressCount :: !(Maybe Int)
---     , sAvailabilityZone :: !(Maybe ByteString)
---     , sDefaultForAz :: !(Maybe Boolean)
---     , sMapPublicIpOnLaunch :: !(Maybe Boolean)
---     , sTagSet :: !(Maybe ResourceTagSet)
+--     , sState :: Maybe ByteString
+--     , sVpcId :: Maybe ByteString
+--     , sCidrBlock :: Maybe ByteString
+--     , sAvailableIpAddressCount :: Maybe Int
+--     , sAvailabilityZone :: Maybe ByteString
+--     , sDefaultForAz :: Maybe Boolean
+--     , sMapPublicIpOnLaunch :: Maybe Boolean
+--     , sTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data CustomerGatewaySet = CustomerGatewaySet
---     { cgsItem :: ![CustomerGateway]
+--     { cgsItem :: [CustomerGateway]
 --     } deriving (Show)
 
 -- data VpnGatewaySet = VpnGatewaySet
---     { vgsItem :: ![VpnGateway]
+--     { vgsItem :: [VpnGateway]
 --     } deriving (Show)
 
 -- data VpnConnectionSet = VpnConnectionSet
---     { vcsItem :: ![VpnConnection]
+--     { vcsItem :: [VpnConnection]
 --     } deriving (Show)
 
 -- data VpcSet = VpcSet
---     { vsItem :: ![Vpc]
+--     { vsItem :: [Vpc]
 --     } deriving (Show)
 
 -- data SubnetSet = SubnetSet
---     { ssItem :: ![Subnet]
+--     { ssItem :: [Subnet]
 --     } deriving (Show)
 
 -- data CustomerGatewayIdSetItem = CustomerGatewayIdSetItem
@@ -1859,7 +1858,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data CustomerGatewayIdSet = CustomerGatewayIdSet
---     { cgisItem :: ![CustomerGatewayIdSetItem]
+--     { cgisItem :: [CustomerGatewayIdSetItem]
 --     } deriving (Show)
 
 -- data VpnGatewayIdSetItem = VpnGatewayIdSetItem
@@ -1867,7 +1866,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data VpnGatewayIdSet = VpnGatewayIdSet
---     { vgisItem :: ![VpnGatewayIdSetItem]
+--     { vgisItem :: [VpnGatewayIdSetItem]
 --     } deriving (Show)
 
 -- data VpnConnectionIdSetItem = VpnConnectionIdSetItem
@@ -1875,7 +1874,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data VpnConnectionIdSet = VpnConnectionIdSet
---     { vcisItem :: ![VpnConnectionIdSetItem]
+--     { vcisItem :: [VpnConnectionIdSetItem]
 --     } deriving (Show)
 
 -- data VpcIdSetItem = VpcIdSetItem
@@ -1883,7 +1882,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data VpcIdSet = VpcIdSet
---     { visItem :: ![VpcIdSetItem]
+--     { visItem :: [VpcIdSetItem]
 --     } deriving (Show)
 
 -- data SubnetIdSetItem = SubnetIdSetItem
@@ -1891,7 +1890,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data SubnetIdSet = SubnetIdSet
---     { sisItem :: ![SubnetIdSetItem]
+--     { sisItem :: [SubnetIdSetItem]
 --     } deriving (Show)
 
 -- data DhcpOptionsIdSetItem = DhcpOptionsIdSetItem
@@ -1899,15 +1898,15 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DhcpOptionsIdSet = DhcpOptionsIdSet
---     { doisItem :: ![DhcpOptionsIdSetItem]
+--     { doisItem :: [DhcpOptionsIdSetItem]
 --     } deriving (Show)
 
 -- data DhcpConfigurationItemSet = DhcpConfigurationItemSet
---     { dcisItem :: ![DhcpConfigurationItem]
+--     { dcisItem :: [DhcpConfigurationItem]
 --     } deriving (Show)
 
 -- data DhcpOptionsSet = DhcpOptionsSet
---     { dosItem :: ![DhcpOptions]
+--     { dosItem :: [DhcpOptions]
 --     } deriving (Show)
 
 -- data DhcpConfigurationItem = DhcpConfigurationItem
@@ -1918,7 +1917,7 @@ instance IsQuery Domain where
 -- data DhcpOptions = DhcpOptions
 --     { doDhcpOptionsId :: !ByteString
 --     , doDhcpConfigurationSet :: !DhcpConfigurationItemSet
---     , doTagSet :: !(Maybe ResourceTagSet)
+--     , doTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data DhcpValue = DhcpValue
@@ -1926,7 +1925,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DhcpValueSet = DhcpValueSet
---     { dvsItem :: ![DhcpValue]
+--     { dvsItem :: [DhcpValue]
 --     } deriving (Show)
 
 -- data Filter = Filter
@@ -1935,7 +1934,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data FilterSet = FilterSet
---     { fsItem :: ![Filter]
+--     { fsItem :: [Filter]
 --     } deriving (Show)
 
 -- data Value = Value
@@ -1943,13 +1942,13 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ValueSet = ValueSet
---     { vsItem :: ![Value]
+--     { vsItem :: [Value]
 --     } deriving (Show)
 
 -- data CreateCustomerGateway = CreateCustomerGateway
 --     { ccgType :: !ByteString
 --     , ccgIpAddress :: !ByteString
---     , ccgBgpAsn :: !(Maybe Int)
+--     , ccgBgpAsn :: Maybe Int
 --     } deriving (Show)
 
 -- data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
@@ -1967,8 +1966,8 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeCustomerGateways = DescribeCustomerGateways
---     { dcgCustomerGatewaySet :: !(Maybe CustomerGatewayIdSet)
---     , dcgFilterSet :: !(Maybe FilterSet)
+--     { dcgCustomerGatewaySet :: Maybe CustomerGatewayIdSet
+--     , dcgFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
@@ -1978,7 +1977,7 @@ instance IsQuery Domain where
 
 -- data CreateVpnGateway = CreateVpnGateway
 --     { cvgType :: !ByteString
---     , cvgAvailabilityZone :: !(Maybe ByteString)
+--     , cvgAvailabilityZone :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CreateVpnGatewayResponse = CreateVpnGatewayResponse
@@ -1996,8 +1995,8 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeVpnGateways = DescribeVpnGateways
---     { dvgVpnGatewaySet :: !(Maybe VpnGatewayIdSet)
---     , dvgFilterSet :: !(Maybe FilterSet)
+--     { dvgVpnGatewaySet :: Maybe VpnGatewayIdSet
+--     , dvgFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
@@ -2009,11 +2008,11 @@ instance IsQuery Domain where
 --     { cvcType :: !ByteString
 --     , cvcCustomerGatewayId :: !ByteString
 --     , cvcVpnGatewayId :: !ByteString
---     , cvcOptions :: !(Maybe VpnConnectionOptionsRequest)
+--     , cvcOptions :: Maybe VpnConnectionOptionsRequest
 --     } deriving (Show)
 
 -- data VpnConnectionOptionsRequest = VpnConnectionOptionsRequest
---     { vcorStaticRoutesOnly :: !(Maybe Boolean)
+--     { vcorStaticRoutesOnly :: Maybe Boolean
 --     } deriving (Show)
 
 -- data CreateVpnConnectionResponse = CreateVpnConnectionResponse
@@ -2051,8 +2050,8 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeVpnConnections = DescribeVpnConnections
---     { dvcVpnConnectionSet :: !(Maybe VpnConnectionIdSet)
---     , dvcFilterSet :: !(Maybe FilterSet)
+--     { dvcVpnConnectionSet :: Maybe VpnConnectionIdSet
+--     , dvcFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
@@ -2082,7 +2081,7 @@ instance IsQuery Domain where
 
 -- data CreateVpc = CreateVpc
 --     { cvCidrBlock :: !ByteString
---     , cvInstanceTenancy :: !(Maybe ByteString)
+--     , cvInstanceTenancy :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CreateVpcResponse = CreateVpcResponse
@@ -2091,8 +2090,8 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeVpcs = DescribeVpcs
---     { dvVpcSet :: !(Maybe VpcIdSet)
---     , dvFilterSet :: !(Maybe FilterSet)
+--     { dvVpcSet :: Maybe VpcIdSet
+--     , dvFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeVpcsResponse = DescribeVpcsResponse
@@ -2112,7 +2111,7 @@ instance IsQuery Domain where
 -- data CreateSubnet = CreateSubnet
 --     { csVpcId :: !ByteString
 --     , csCidrBlock :: !ByteString
---     , csAvailabilityZone :: !(Maybe ByteString)
+--     , csAvailabilityZone :: Maybe ByteString
 --     } deriving (Show)
 
 -- data CreateSubnetResponse = CreateSubnetResponse
@@ -2121,8 +2120,8 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeSubnets = DescribeSubnets
---     { dsSubnetSet :: !(Maybe SubnetIdSet)
---     , dsFilterSet :: !(Maybe FilterSet)
+--     { dsSubnetSet :: Maybe SubnetIdSet
+--     , dsFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeSubnetsResponse = DescribeSubnetsResponse
@@ -2149,8 +2148,8 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeDhcpOptions = DescribeDhcpOptions
---     { ddoDhcpOptionsSet :: !(Maybe DhcpOptionsIdSet)
---     , ddoFilterSet :: !(Maybe FilterSet)
+--     { ddoDhcpOptionsSet :: Maybe DhcpOptionsIdSet
+--     , ddoFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
@@ -2179,48 +2178,48 @@ instance IsQuery Domain where
 
 -- data RequestSpotInstances = RequestSpotInstances
 --     { rsiSpotPrice :: !ByteString
---     , rsiInstanceCount :: !(Maybe Integer)
---     , rsiType :: !(Maybe ByteString)
---     , rsiValidFrom :: !(Maybe DateTime)
---     , rsiValidUntil :: !(Maybe DateTime)
---     , rsiLaunchGroup :: !(Maybe ByteString)
---     , rsiAvailabilityZoneGroup :: !(Maybe ByteString)
+--     , rsiInstanceCount :: Maybe Integer
+--     , rsiType :: Maybe ByteString
+--     , rsiValidFrom :: Maybe DateTime
+--     , rsiValidUntil :: Maybe DateTime
+--     , rsiLaunchGroup :: Maybe ByteString
+--     , rsiAvailabilityZoneGroup :: Maybe ByteString
 --     , rsiLaunchSpecification :: !LaunchSpecificationRequest
 --     } deriving (Show)
 
 -- data LaunchSpecificationRequest = LaunchSpecificationRequest
 --     { lsrImageId :: !ByteString
---     , lsrKeyName :: !(Maybe ByteString)
+--     , lsrKeyName :: Maybe ByteString
 --     , lsrGroupSet :: !GroupSet
---     , lsrUserData :: !(Maybe UserData)
---     , lsrAddressing :: !(Maybe ByteString)
+--     , lsrUserData :: Maybe UserData
+--     , lsrAddressing :: Maybe ByteString
 --     , lsrInstance :: !ByteString
---     , lsrPlacement :: !(Maybe SpotPlacementRequest)
---     , lsrKernelId :: !(Maybe ByteString)
---     , lsrRamdiskId :: !(Maybe ByteString)
---     , lsrBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
---     , lsrMonitoring :: !(Maybe MonitoringInstance)
---     , lsrSubnetId :: !(Maybe ByteString)
---     , lsrNetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequest)
---     , lsrIamInstanceProfile :: !(Maybe IamInstanceProfileRequest)
---     , lsrEbsOptimized :: !(Maybe Boolean)
+--     , lsrPlacement :: Maybe SpotPlacementRequest
+--     , lsrKernelId :: Maybe ByteString
+--     , lsrRamdiskId :: Maybe ByteString
+--     , lsrBlockDeviceMapping :: Maybe BlockDeviceMapping
+--     , lsrMonitoring :: Maybe MonitoringInstance
+--     , lsrSubnetId :: Maybe ByteString
+--     , lsrNetworkInterfaceSet :: Maybe InstanceNetworkInterfaceSetRequest
+--     , lsrIamInstanceProfile :: Maybe IamInstanceProfileRequest
+--     , lsrEbsOptimized :: Maybe Boolean
 --     } deriving (Show)
 
 -- data LaunchSpecificationResponse = LaunchSpecificationResponse
 --     { lsrImageId :: !ByteString
---     , lsrKeyName :: !(Maybe ByteString)
+--     , lsrKeyName :: Maybe ByteString
 --     , lsrGroupSet :: !GroupSet
---     , lsrAddressing :: !(Maybe ByteString)
+--     , lsrAddressing :: Maybe ByteString
 --     , lsrInstance :: !ByteString
---     , lsrPlacement :: !(Maybe SpotPlacementRequest)
---     , lsrKernelId :: !(Maybe ByteString)
---     , lsrRamdiskId :: !(Maybe ByteString)
---     , lsrBlockDeviceMapping :: !(Maybe BlockDeviceMapping)
---     , lsrMonitoring :: !(Maybe MonitoringInstance)
---     , lsrSubnetId :: !(Maybe ByteString)
---     , lsrNetworkInterfaceSet :: !(Maybe InstanceNetworkInterfaceSetRequest)
---     , lsrIamInstanceProfile :: !(Maybe IamInstanceProfileRequest)
---     , lsrEbsOptimized :: !(Maybe Boolean)
+--     , lsrPlacement :: Maybe SpotPlacementRequest
+--     , lsrKernelId :: Maybe ByteString
+--     , lsrRamdiskId :: Maybe ByteString
+--     , lsrBlockDeviceMapping :: Maybe BlockDeviceMapping
+--     , lsrMonitoring :: Maybe MonitoringInstance
+--     , lsrSubnetId :: Maybe ByteString
+--     , lsrNetworkInterfaceSet :: Maybe InstanceNetworkInterfaceSetRequest
+--     , lsrIamInstanceProfile :: Maybe IamInstanceProfileRequest
+--     , lsrEbsOptimized :: Maybe Boolean
 --     } deriving (Show)
 
 -- data SpotInstanceRequestSetItem = SpotInstanceRequestSetItem
@@ -2228,18 +2227,18 @@ instance IsQuery Domain where
 --     , sirsiSpotPrice :: !ByteString
 --     , sirsiType :: !ByteString
 --     , sirsiState :: !ByteString
---     , sirsiFault :: !(Maybe SpotInstanceStateFault)
---     , sirsiStatus :: !(Maybe SpotInstanceStatusMessage)
---     , sirsiValidFrom :: !(Maybe DateTime)
---     , sirsiValidUntil :: !(Maybe DateTime)
---     , sirsiLaunchGroup :: !(Maybe ByteString)
---     , sirsiAvailabilityZoneGroup :: !(Maybe ByteString)
---     , sirsiLaunchSpecification :: !(Maybe LaunchSpecificationResponse)
---     , sirsiInstanceId :: !(Maybe ByteString)
---     , sirsiCreateTime :: !(Maybe DateTime)
---     , sirsiProductDescription :: !(Maybe ByteString)
---     , sirsiTagSet :: !(Maybe ResourceTagSet)
---     , sirsiLaunchedAvailabilityZone :: !(Maybe ByteString)
+--     , sirsiFault :: Maybe SpotInstanceStateFault
+--     , sirsiStatus :: Maybe SpotInstanceStatusMessage
+--     , sirsiValidFrom :: Maybe DateTime
+--     , sirsiValidUntil :: Maybe DateTime
+--     , sirsiLaunchGroup :: Maybe ByteString
+--     , sirsiAvailabilityZoneGroup :: Maybe ByteString
+--     , sirsiLaunchSpecification :: Maybe LaunchSpecificationResponse
+--     , sirsiInstanceId :: Maybe ByteString
+--     , sirsiCreateTime :: Maybe DateTime
+--     , sirsiProductDescription :: Maybe ByteString
+--     , sirsiTagSet :: Maybe ResourceTagSet
+--     , sirsiLaunchedAvailabilityZone :: Maybe ByteString
 --     } deriving (Show)
 
 -- data SpotInstanceStateFault = SpotInstanceStateFault
@@ -2248,13 +2247,13 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data SpotInstanceStatusMessage = SpotInstanceStatusMessage
---     { sismCode :: !(Maybe ByteString)
---     , sismUpdateTime :: !(Maybe DateTime)
---     , sismMessage :: !(Maybe ByteString)
+--     { sismCode :: Maybe ByteString
+--     , sismUpdateTime :: Maybe DateTime
+--     , sismMessage :: Maybe ByteString
 --     } deriving (Show)
 
 -- data SpotInstanceRequestSet = SpotInstanceRequestSet
---     { sirsItem :: ![SpotInstanceRequestSetItem]
+--     { sirsItem :: [SpotInstanceRequestSetItem]
 --     } deriving (Show)
 
 -- data RequestSpotInstancesResponse = RequestSpotInstancesResponse
@@ -2264,11 +2263,11 @@ instance IsQuery Domain where
 
 -- data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
 --     { dsirSpotInstanceRequestIdSet :: !SpotInstanceRequestIdSet
---     , dsirFilterSet :: !(Maybe FilterSet)
+--     , dsirFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data SpotInstanceRequestIdSet = SpotInstanceRequestIdSet
---     { sirisItem :: ![SpotInstanceRequestIdSetItem]
+--     { sirisItem :: [SpotInstanceRequestIdSetItem]
 --     } deriving (Show)
 
 -- data SpotInstanceRequestIdSetItem = SpotInstanceRequestIdSetItem
@@ -2299,14 +2298,14 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeSpotPriceHistory = DescribeSpotPriceHistory
---     { dsphStartTime :: !(Maybe DateTime)
---     , dsphEndTime :: !(Maybe DateTime)
---     , dsphInstanceSet :: !(Maybe InstanceSet)
---     , dsphProductDescriptionSet :: !(Maybe ProductDescriptionSet)
---     , dsphFilterSet :: !(Maybe FilterSet)
---     , dsphAvailabilityZone :: !(Maybe ByteString)
---     , dsphMaxResults :: !(Maybe Integer)
---     , dsphNextToken :: !(Maybe ByteString)
+--     { dsphStartTime :: Maybe DateTime
+--     , dsphEndTime :: Maybe DateTime
+--     , dsphInstanceSet :: Maybe InstanceSet
+--     , dsphProductDescriptionSet :: Maybe ProductDescriptionSet
+--     , dsphFilterSet :: Maybe FilterSet
+--     , dsphAvailabilityZone :: Maybe ByteString
+--     , dsphMaxResults :: Maybe Integer
+--     , dsphNextToken :: Maybe ByteString
 --     } deriving (Show)
 
 -- data InstanceSet = InstanceSet
@@ -2328,11 +2327,11 @@ instance IsQuery Domain where
 -- data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 --     { dsphrRequestId :: !ByteString
 --     , dsphrSpotPriceHistorySet :: !SpotPriceHistorySet
---     , dsphrNextToken :: !(Maybe ByteString)
+--     , dsphrNextToken :: Maybe ByteString
 --     } deriving (Show)
 
 -- data SpotPriceHistorySet = SpotPriceHistorySet
---     { sphsItem :: ![SpotPriceHistorySetItem]
+--     { sphsItem :: [SpotPriceHistorySetItem]
 --     } deriving (Show)
 
 -- data SpotPriceHistorySetItem = SpotPriceHistorySetItem
@@ -2340,7 +2339,7 @@ instance IsQuery Domain where
 --     , sphsiProductDescription :: !ByteString
 --     , sphsiSpotPrice :: !ByteString
 --     , sphsiTimestamp :: !DateTime
---     , sphsiAvailabilityZone :: !(Maybe ByteString)
+--     , sphsiAvailabilityZone :: Maybe ByteString
 --     } deriving (Show)
 
 -- data SpotDatafeedSubscription = SpotDatafeedSubscription
@@ -2348,7 +2347,7 @@ instance IsQuery Domain where
 --     , sdsBucket :: !ByteString
 --     , sdsPrefix :: !ByteString
 --     , sdsState :: !ByteString
---     , sdsFault :: !(Maybe SpotInstanceStateFault)
+--     , sdsFault :: Maybe SpotInstanceStateFault
 --     } deriving (Show)
 
 -- data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
@@ -2376,12 +2375,12 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeLicenses = DescribeLicenses
---     { dlLicenseIdSet :: !(Maybe LicenseIdSet)
---     , dlFilterSet :: !(Maybe FilterSet)
+--     { dlLicenseIdSet :: Maybe LicenseIdSet
+--     , dlFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data LicenseIdSet = LicenseIdSet
---     { lisItem :: ![LicenseIdSetItem]
+--     { lisItem :: [LicenseIdSetItem]
 --     } deriving (Show)
 
 -- data LicenseIdSetItem = LicenseIdSetItem
@@ -2394,7 +2393,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data LicenseSet = LicenseSet
---     { lsItem :: ![LicenseSetItem]
+--     { lsItem :: [LicenseSetItem]
 --     } deriving (Show)
 
 -- data LicenseSetItem = LicenseSetItem
@@ -2402,18 +2401,18 @@ instance IsQuery Domain where
 --     , lsiType :: !ByteString
 --     , lsiPool :: !ByteString
 --     , lsiCapacitySet :: !LicenseCapacitySet
---     , lsiTagSet :: !(Maybe ResourceTagSet)
+--     , lsiTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data LicenseCapacitySet = LicenseCapacitySet
---     { lcsItem :: ![LicenseCapacitySetItem]
+--     { lcsItem :: [LicenseCapacitySetItem]
 --     } deriving (Show)
 
 -- data LicenseCapacitySetItem = LicenseCapacitySetItem
 --     { lcsiCapacity :: !Int
 --     , lcsiInstanceCapacity :: !Int
 --     , lcsiState :: !ByteString
---     , lcsiEarliestAllowedDeactivationTime :: !(Maybe DateTime)
+--     , lcsiEarliestAllowedDeactivationTime :: Maybe DateTime
 --     } deriving (Show)
 
 -- data ActivateLicense = ActivateLicense
@@ -2460,12 +2459,12 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribePlacementGroupsInfo = DescribePlacementGroupsInfo
---     { dpgiItem :: ![DescribePlacementGroupItem]
+--     { dpgiItem :: [DescribePlacementGroupItem]
 --     } deriving (Show)
 
 -- data DescribePlacementGroups = DescribePlacementGroups
 --     { dpgPlacementGroupSet :: !DescribePlacementGroupsInfo
---     , dpgFilterSet :: !(Maybe FilterSet)
+--     , dpgFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data PlacementGroupInfo = PlacementGroupInfo
@@ -2475,7 +2474,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data PlacementGroupSet = PlacementGroupSet
---     { pgsItem :: ![PlacementGroupInfo]
+--     { pgsItem :: [PlacementGroupInfo]
 --     } deriving (Show)
 
 -- data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
@@ -2484,7 +2483,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ResourceIdSet = ResourceIdSet
---     { risItem :: ![ResourceIdSetItem]
+--     { risItem :: [ResourceIdSetItem]
 --     } deriving (Show)
 
 -- data ResourceIdSetItem = ResourceIdSetItem
@@ -2497,7 +2496,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ResourceTagSet = ResourceTagSet
---     { rtsItem :: ![ResourceTagSetItem]
+--     { rtsItem :: [ResourceTagSetItem]
 --     } deriving (Show)
 
 -- data CreateTags = CreateTags
@@ -2511,18 +2510,18 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data TagSetItem = TagSetItem
---     { tsiResourceId :: !(Maybe ByteString)
---     , tsiResource :: !(Maybe ByteString)
---     , tsiKey :: !(Maybe ByteString)
---     , tsiValue :: !(Maybe ByteString)
+--     { tsiResourceId :: Maybe ByteString
+--     , tsiResource :: Maybe ByteString
+--     , tsiKey :: Maybe ByteString
+--     , tsiValue :: Maybe ByteString
 --     } deriving (Show)
 
 -- data TagSet = TagSet
---     { tsItem :: ![TagSetItem]
+--     { tsItem :: [TagSetItem]
 --     } deriving (Show)
 
 -- data DescribeTags = DescribeTags
---     { dtFilterSet :: !(Maybe FilterSet)
+--     { dtFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data DescribeTagsResponse = DescribeTagsResponse
@@ -2531,12 +2530,12 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DeleteTagsSetItem = DeleteTagsSetItem
---     { dtsiKey :: !(Maybe ByteString)
---     , dtsiValue :: !(Maybe ByteString)
+--     { dtsiKey :: Maybe ByteString
+--     , dtsiValue :: Maybe ByteString
 --     } deriving (Show)
 
 -- data DeleteTagsSet = DeleteTagsSet
---     { dtsItem :: ![DeleteTagsSetItem]
+--     { dtsItem :: [DeleteTagsSetItem]
 --     } deriving (Show)
 
 -- data DeleteTags = DeleteTags
@@ -2550,10 +2549,10 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ImportInstance = ImportInstance
---     { iiDescription :: !(Maybe ByteString)
+--     { iiDescription :: Maybe ByteString
 --     , iiLaunchSpecification :: !ImportInstanceLaunchSpecification
 --     , iiDiskImageSet :: !DiskImageSet
---     , iiKeepPartialImports :: !(Maybe Boolean)
+--     , iiKeepPartialImports :: Maybe Boolean
 --     , iiPlatform :: !ByteString
 --     } deriving (Show)
 
@@ -2564,23 +2563,23 @@ instance IsQuery Domain where
 
 -- data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
 --     { iilsArchitecture :: !ByteString
---     , iilsGroupSet :: !(Maybe ImportInstanceGroupSet)
---     , iilsUserData :: !(Maybe UserData)
+--     , iilsGroupSet :: Maybe ImportInstanceGroupSet
+--     , iilsUserData :: Maybe UserData
 --     , iilsInstance :: !ByteString
---     , iilsPlacement :: !(Maybe InstancePlacement)
---     , iilsMonitoring :: !(Maybe MonitoringInstance)
---     , iilsSubnetId :: !(Maybe ByteString)
---     , iilsInstanceInitiatedShutdownBehavior :: !(Maybe ByteString)
---     , iilsPrivateIpAddress :: !(Maybe ByteString)
+--     , iilsPlacement :: Maybe InstancePlacement
+--     , iilsMonitoring :: Maybe MonitoringInstance
+--     , iilsSubnetId :: Maybe ByteString
+--     , iilsInstanceInitiatedShutdownBehavior :: Maybe ByteString
+--     , iilsPrivateIpAddress :: Maybe ByteString
 --     } deriving (Show)
 
 -- data DiskImageSet = DiskImageSet
---     { disItem :: ![DiskImage]
+--     { disItem :: [DiskImage]
 --     } deriving (Show)
 
 -- data DiskImage = DiskImage
 --     { diImage :: !DiskImageDetail
---     , diDescription :: !(Maybe ByteString)
+--     , diDescription :: Maybe ByteString
 --     , diVolume :: !DiskImageVolume
 --     } deriving (Show)
 
@@ -2596,43 +2595,43 @@ instance IsQuery Domain where
 
 -- data ConversionTask = ConversionTask
 --     { ctConversionTaskId :: !ByteString
---     , ctExpirationTime :: !(Maybe ByteString)
+--     , ctExpirationTime :: Maybe ByteString
 --   -- <xs:choice>
---     , ctImportVolume :: !(Maybe ImportVolumeTaskDetails)
---     , ctImportInstance :: !(Maybe ImportInstanceTaskDetails)
+--     , ctImportVolume :: Maybe ImportVolumeTaskDetails
+--     , ctImportInstance :: Maybe ImportInstanceTaskDetails
 --   -- </xs:choice>
 --     , ctState :: !ByteString
---     , ctStatusMessage :: !(Maybe ByteString)
---     , ctTagSet :: !(Maybe ResourceTagSet)
+--     , ctStatusMessage :: Maybe ByteString
+--     , ctTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data ImportInstanceTaskDetails = ImportInstanceTaskDetails
 --     { iitdVolumes :: !ImportInstanceVolumeDetailSet
---     , iitdInstanceId :: !(Maybe ByteString)
---     , iitdPlatform :: !(Maybe ByteString)
---     , iitdDescription :: !(Maybe ByteString)
+--     , iitdInstanceId :: Maybe ByteString
+--     , iitdPlatform :: Maybe ByteString
+--     , iitdDescription :: Maybe ByteString
 --     } deriving (Show)
 
 -- data ImportVolumeTaskDetails = ImportVolumeTaskDetails
 --     { ivtdBytesConverted :: !Long
 --     , ivtdAvailabilityZone :: !ByteString
---     , ivtdDescription :: !(Maybe ByteString)
+--     , ivtdDescription :: Maybe ByteString
 --     , ivtdImage :: !DiskImageDescription
 --     , ivtdVolume :: !DiskImageVolumeDescription
 --     } deriving (Show)
 
 -- data ImportInstanceVolumeDetailSet = ImportInstanceVolumeDetailSet
---     { iivdsItem :: ![ImportInstanceVolumeDetailItem]
+--     { iivdsItem :: [ImportInstanceVolumeDetailItem]
 --     } deriving (Show)
 
 -- data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
 --     { iivdiBytesConverted :: !Long
 --     , iivdiAvailabilityZone :: !ByteString
 --     , iivdiImage :: !DiskImageDescription
---     , iivdiDescription :: !(Maybe ByteString)
+--     , iivdiDescription :: Maybe ByteString
 --     , iivdiVolume :: !DiskImageVolumeDescription
 --     , iivdiStatus :: !ByteString
---     , iivdiStatusMessage :: !(Maybe ByteString)
+--     , iivdiStatusMessage :: Maybe ByteString
 --     } deriving (Show)
 
 -- data DiskImageVolumeDescription = DiskImageVolumeDescription
@@ -2644,13 +2643,13 @@ instance IsQuery Domain where
 --     { didFormat :: !ByteString
 --     , didSize :: !Long
 --     , didImportManifestUrl :: !ByteString
---     , didChecksum :: !(Maybe ByteString)
+--     , didChecksum :: Maybe ByteString
 --     } deriving (Show)
 
 -- data ImportVolume = ImportVolume
 --     { ivAvailabilityZone :: !ByteString
 --     , ivImage :: !DiskImageDetail
---     , ivDescription :: !(Maybe ByteString)
+--     , ivDescription :: Maybe ByteString
 --     , ivVolume :: !DiskImageVolume
 --     } deriving (Show)
 
@@ -2669,7 +2668,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ConversionTaskIdSet = ConversionTaskIdSet
---     { ctisItem :: ![ConversionTaskIdItem]
+--     { ctisItem :: [ConversionTaskIdItem]
 --     } deriving (Show)
 
 -- data ConversionTaskIdItem = ConversionTaskIdItem
@@ -2677,7 +2676,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ConversionTaskSet = ConversionTaskSet
---     { ctsItem :: ![ConversionTask]
+--     { ctsItem :: [ConversionTask]
 --     } deriving (Show)
 
 -- data CancelConversionTask = CancelConversionTask
@@ -2690,17 +2689,17 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data CreateInstanceExportTask = CreateInstanceExportTask
---     { cietDescription :: !(Maybe ByteString)
+--     { cietDescription :: Maybe ByteString
 --     , cietInstanceId :: !ByteString
 --     , cietTargetEnvironment :: !ByteString
 --   -- <xs:choice>
---     , cietExportToS3 :: !(Maybe ExportToS3Task)
+--     , cietExportToS3 :: Maybe ExportToS3Task
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data ExportToS3Task = ExportToS3Task
---     { ets3tDiskImageFormat :: !(Maybe ByteString)
---     , ets3tContainerFormat :: !(Maybe ByteString)
+--     { ets3tDiskImageFormat :: Maybe ByteString
+--     , ets3tContainerFormat :: Maybe ByteString
 --     , ets3tS3Bucket :: !ByteString
 --     , ets3tS3Prefix :: !ByteString
 --     } deriving (Show)
@@ -2715,7 +2714,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ExportTaskIdSet = ExportTaskIdSet
---     { etisItem :: ![ExportTaskId]
+--     { etisItem :: [ExportTaskId]
 --     } deriving (Show)
 
 -- data ExportTaskId = ExportTaskId
@@ -2728,30 +2727,30 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data ExportTaskSetResponse = ExportTaskSetResponse
---     { etsrItem :: ![ExportTaskResponse]
+--     { etsrItem :: [ExportTaskResponse]
 --     } deriving (Show)
 
 -- data ExportTaskResponse = ExportTaskResponse
 --     { etrExportTaskId :: !ByteString
---     , etrDescription :: !(Maybe ByteString)
+--     , etrDescription :: Maybe ByteString
 --     , etrState :: !ByteString
---     , etrStatusMessage :: !(Maybe ByteString)
+--     , etrStatusMessage :: Maybe ByteString
 --   -- <xs:choice>
---     , etrInstanceExport :: !(Maybe InstanceExportTaskResponse)
+--     , etrInstanceExport :: Maybe InstanceExportTaskResponse
 --   -- </xs:choice>
 --   -- <xs:choice>
---     , etrExportToS3 :: !(Maybe ExportToS3TaskResponse)
+--     , etrExportToS3 :: Maybe ExportToS3TaskResponse
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data InstanceExportTaskResponse = InstanceExportTaskResponse
 --     { ietrInstanceId :: !ByteString
---     , ietrTargetEnvironment :: !(Maybe ByteString)
+--     , ietrTargetEnvironment :: Maybe ByteString
 --     } deriving (Show)
 
 -- data ExportToS3TaskResponse = ExportToS3TaskResponse
 --     { ets3trDiskImageFormat :: !ByteString
---     , ets3trContainerFormat :: !(Maybe ByteString)
+--     , ets3trContainerFormat :: Maybe ByteString
 --     , ets3trS3Bucket :: !ByteString
 --     , ets3trS3Key :: !ByteString
 --     } deriving (Show)
@@ -2768,7 +2767,7 @@ instance IsQuery Domain where
 -- data CreateInternetGateway = CreateInternetGateway
 
 -- data InternetGatewayAttachmentSet = InternetGatewayAttachmentSet
---     { igasItem :: ![InternetGatewayAttachment]
+--     { igasItem :: [InternetGatewayAttachment]
 --     } deriving (Show)
 
 -- data InternetGatewayAttachment = InternetGatewayAttachment
@@ -2779,7 +2778,7 @@ instance IsQuery Domain where
 -- data InternetGateway = InternetGateway
 --     { igInternetGatewayId :: !ByteString
 --     , igAttachmentSet :: !InternetGatewayAttachmentSet
---     , igTagSet :: !(Maybe ResourceTagSet)
+--     , igTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data CreateInternetGatewayResponse = CreateInternetGatewayResponse
@@ -2788,7 +2787,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data InternetGatewayIdSet = InternetGatewayIdSet
---     { igisItem :: ![InternetGatewayIdSetItem]
+--     { igisItem :: [InternetGatewayIdSetItem]
 --     } deriving (Show)
 
 -- data InternetGatewayIdSetItem = InternetGatewayIdSetItem
@@ -2797,11 +2796,11 @@ instance IsQuery Domain where
 
 -- data DescribeInternetGateways = DescribeInternetGateways
 --     { digInternetGatewayIdSet :: !InternetGatewayIdSet
---     , digFilterSet :: !(Maybe FilterSet)
+--     , digFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data InternetGatewaySet = InternetGatewaySet
---     { igsItem :: ![InternetGateway]
+--     { igsItem :: [InternetGateway]
 --     } deriving (Show)
 
 -- data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
@@ -2843,34 +2842,34 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data RouteSet = RouteSet
---     { rsItem :: ![Route]
+--     { rsItem :: [Route]
 --     } deriving (Show)
 
 -- data Route = Route
 --     { rDestinationCidrBlock :: !ByteString
---     , rGatewayId :: !(Maybe ByteString)
---     , rInstanceId :: !(Maybe ByteString)
---     , rInstanceOwnerId :: !(Maybe ByteString)
---     , rNetworkInterfaceId :: !(Maybe ByteString)
+--     , rGatewayId :: Maybe ByteString
+--     , rInstanceId :: Maybe ByteString
+--     , rInstanceOwnerId :: Maybe ByteString
+--     , rNetworkInterfaceId :: Maybe ByteString
 --     , rState :: !ByteString
 --     , rOrigin :: !ByteString
 --     } deriving (Show)
 
 -- data RouteTableAssociationSet = RouteTableAssociationSet
---     { rtasItem :: ![RouteTableAssociation]
+--     { rtasItem :: [RouteTableAssociation]
 --     } deriving (Show)
 
 -- data RouteTableAssociation = RouteTableAssociation
 --     { rtaRouteTableAssociationId :: !ByteString
 --     , rtaRouteTableId :: !ByteString
 --   -- <xs:choice>
---     , rtaSubnetId :: !(Maybe ByteString)
---     , rtaMain :: !(Maybe Boolean)
+--     , rtaSubnetId :: Maybe ByteString
+--     , rtaMain :: Maybe Boolean
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data PropagatingVgwSet = PropagatingVgwSet
---     { pvsItem :: ![PropagatingVgw]
+--     { pvsItem :: [PropagatingVgw]
 --     } deriving (Show)
 
 -- data PropagatingVgw = PropagatingVgw
@@ -2883,7 +2882,7 @@ instance IsQuery Domain where
 --     , rtRouteSet :: !RouteSet
 --     , rtAssociationSet :: !RouteTableAssociationSet
 --     , rtPropagatingVgwSet :: !PropagatingVgwSet
---     , rtTagSet :: !(Maybe ResourceTagSet)
+--     , rtTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data CreateRouteTableResponse = CreateRouteTableResponse
@@ -2892,7 +2891,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data RouteTableIdSet = RouteTableIdSet
---     { rtisItem :: ![RouteTableIdSetItem]
+--     { rtisItem :: [RouteTableIdSetItem]
 --     } deriving (Show)
 
 -- data RouteTableIdSetItem = RouteTableIdSetItem
@@ -2901,11 +2900,11 @@ instance IsQuery Domain where
 
 -- data DescribeRouteTables = DescribeRouteTables
 --     { drtRouteTableIdSet :: !RouteTableIdSet
---     , drtFilterSet :: !(Maybe FilterSet)
+--     , drtFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data RouteTableSet = RouteTableSet
---     { rtsItem :: ![RouteTable]
+--     { rtsItem :: [RouteTable]
 --     } deriving (Show)
 
 -- data DescribeRouteTablesResponse = DescribeRouteTablesResponse
@@ -2975,9 +2974,9 @@ instance IsQuery Domain where
 --     { crRouteTableId :: !ByteString
 --     , crDestinationCidrBlock :: !ByteString
 --   -- <xs:choice>
---     , crGatewayId :: !(Maybe ByteString)
---     , crInstanceId :: !(Maybe ByteString)
---     , crNetworkInterfaceId :: !(Maybe ByteString)
+--     , crGatewayId :: Maybe ByteString
+--     , crInstanceId :: Maybe ByteString
+--     , crNetworkInterfaceId :: Maybe ByteString
 --   -- </xs:choice>
 --     } deriving (Show)
 
@@ -2990,9 +2989,9 @@ instance IsQuery Domain where
 --     { rrRouteTableId :: !ByteString
 --     , rrDestinationCidrBlock :: !ByteString
 --   -- <xs:choice>
---     , rrGatewayId :: !(Maybe ByteString)
---     , rrInstanceId :: !(Maybe ByteString)
---     , rrNetworkInterfaceId :: !(Maybe ByteString)
+--     , rrGatewayId :: Maybe ByteString
+--     , rrInstanceId :: Maybe ByteString
+--     , rrNetworkInterfaceId :: Maybe ByteString
 --   -- </xs:choice>
 --     } deriving (Show)
 
@@ -3016,7 +3015,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data NetworkAclEntrySet = NetworkAclEntrySet
---     { naesItem :: ![NetworkAclEntry]
+--     { naesItem :: [NetworkAclEntry]
 --     } deriving (Show)
 
 -- data IcmpCode = IcmpCode
@@ -3035,12 +3034,12 @@ instance IsQuery Domain where
 --     , naeRuleAction :: !ByteString
 --     , naeEgress :: !Boolean
 --     , naeCidrBlock :: !ByteString
---     , naeIcmpCode :: !(Maybe IcmpCode)
---     , naePortRange :: !(Maybe PortRange)
+--     , naeIcmpCode :: Maybe IcmpCode
+--     , naePortRange :: Maybe PortRange
 --     } deriving (Show)
 
 -- data NetworkAclAssociationSet = NetworkAclAssociationSet
---     { naasItem :: ![NetworkAclAssociation]
+--     { naasItem :: [NetworkAclAssociation]
 --     } deriving (Show)
 
 -- data NetworkAclAssociation = NetworkAclAssociation
@@ -3055,7 +3054,7 @@ instance IsQuery Domain where
 --     , naDefault :: !Boolean
 --     , naEntrySet :: !NetworkAclEntrySet
 --     , naAssociationSet :: !NetworkAclAssociationSet
---     , naTagSet :: !(Maybe ResourceTagSet)
+--     , naTagSet :: Maybe ResourceTagSet
 --     } deriving (Show)
 
 -- data CreateNetworkAclResponse = CreateNetworkAclResponse
@@ -3064,7 +3063,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data NetworkAclIdSet = NetworkAclIdSet
---     { naisItem :: ![NetworkAclIdSetItem]
+--     { naisItem :: [NetworkAclIdSetItem]
 --     } deriving (Show)
 
 -- data NetworkAclIdSetItem = NetworkAclIdSetItem
@@ -3073,11 +3072,11 @@ instance IsQuery Domain where
 
 -- data DescribeNetworkAcls = DescribeNetworkAcls
 --     { dnaNetworkAclIdSet :: !NetworkAclIdSet
---     , dnaFilterSet :: !(Maybe FilterSet)
+--     , dnaFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data NetworkAclSet = NetworkAclSet
---     { nasItem :: ![NetworkAcl]
+--     { nasItem :: [NetworkAcl]
 --     } deriving (Show)
 
 -- data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
@@ -3111,8 +3110,8 @@ instance IsQuery Domain where
 --     , cnaeRuleAction :: !ByteString
 --     , cnaeEgress :: !Boolean
 --     , cnaeCidrBlock :: !ByteString
---     , cnaeIcmpCode :: !(Maybe IcmpCode)
---     , cnaePortRange :: !(Maybe PortRange)
+--     , cnaeIcmpCode :: Maybe IcmpCode
+--     , cnaePortRange :: Maybe PortRange
 --     } deriving (Show)
 
 -- data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
@@ -3127,8 +3126,8 @@ instance IsQuery Domain where
 --     , rnaeRuleAction :: !ByteString
 --     , rnaeEgress :: !Boolean
 --     , rnaeCidrBlock :: !ByteString
---     , rnaeIcmpCode :: !(Maybe IcmpCode)
---     , rnaePortRange :: !(Maybe PortRange)
+--     , rnaeIcmpCode :: Maybe IcmpCode
+--     , rnaePortRange :: Maybe PortRange
 --     } deriving (Show)
 
 -- data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
@@ -3149,52 +3148,52 @@ instance IsQuery Domain where
 
 -- data DescribeInstanceStatus = DescribeInstanceStatus
 --     { disInstancesSet :: !InstanceIdSet
---     , disFilterSet :: !(Maybe FilterSet)
---     , disNextToken :: !(Maybe ByteString)
---     , disMaxResults :: !(Maybe Int)
---     , disIncludeAllInstances :: !(Maybe Boolean)
+--     , disFilterSet :: Maybe FilterSet
+--     , disNextToken :: Maybe ByteString
+--     , disMaxResults :: Maybe Int
+--     , disIncludeAllInstances :: Maybe Boolean
 --     } deriving (Show)
 
 -- data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
 --     { disrRequestId :: !ByteString
 --     , disrInstanceStatusSet :: !InstanceStatusSet
---     , disrNextToken :: !(Maybe ByteString)
+--     , disrNextToken :: Maybe ByteString
 --     } deriving (Show)
 
 -- data InstanceStatusSet = InstanceStatusSet
---     { issItem :: ![InstanceStatusItem]
+--     { issItem :: [InstanceStatusItem]
 --     } deriving (Show)
 
 -- data InstanceStatus = InstanceStatus
 --     { isStatus :: !ByteString
---     , isDetails :: !(Maybe InstanceStatusDetailsSet)
+--     , isDetails :: Maybe InstanceStatusDetailsSet
 --     } deriving (Show)
 
 -- data InstanceStatusDetailsSet = InstanceStatusDetailsSet
---     { isdsItem :: ![InstanceStatusDetailsSetItem]
+--     { isdsItem :: [InstanceStatusDetailsSetItem]
 --     } deriving (Show)
 
 -- data InstanceStatusDetailsSetItem = InstanceStatusDetailsSetItem
 --     { isdsiName :: !ByteString
 --     , isdsiStatus :: !ByteString
---     , isdsiImpairedSince :: !(Maybe DateTime)
+--     , isdsiImpairedSince :: Maybe DateTime
 --     } deriving (Show)
 
 -- data InstanceStatusEvent = InstanceStatusEvent
 --     { iseCode :: !ByteString
 --     , iseDescription :: !ByteString
 --     , iseNotBefore :: !DateTime
---     , iseNotAfter :: !(Maybe DateTime)
+--     , iseNotAfter :: Maybe DateTime
 --     } deriving (Show)
 
 -- data InstanceStatusEventsSet = InstanceStatusEventsSet
---     { isesItem :: ![InstanceStatusEvent]
+--     { isesItem :: [InstanceStatusEvent]
 --     } deriving (Show)
 
 -- data InstanceStatusItem = InstanceStatusItem
 --     { isiInstanceId :: !ByteString
 --     , isiAvailabilityZone :: !ByteString
---     , isiEventsSet :: !(Maybe InstanceStatusEventsSet)
+--     , isiEventsSet :: Maybe InstanceStatusEventsSet
 --     , isiInstanceState :: !InstanceState
 --     , isiSystemStatus :: !InstanceStatus
 --     , isiInstanceStatus :: !InstanceStatus
@@ -3203,10 +3202,10 @@ instance IsQuery Domain where
 -- data ReportInstanceStatus = ReportInstanceStatus
 --     { risInstancesSet :: !InstanceIdSet
 --     , risStatus :: !ByteString
---     , risStartTime :: !(Maybe DateTime)
---     , risEndTime :: !(Maybe DateTime)
+--     , risStartTime :: Maybe DateTime
+--     , risEndTime :: Maybe DateTime
 --     , risReasonCodesSet :: !ReportInstanceStatusReasonCodesSet
---     , risDescription :: !(Maybe ByteString)
+--     , risDescription :: Maybe ByteString
 --     } deriving (Show)
 
 -- data ReportInstanceStatusReasonCodesSet = ReportInstanceStatusReasonCodesSet
@@ -3224,11 +3223,11 @@ instance IsQuery Domain where
 
 -- data CreateNetworkInterface = CreateNetworkInterface
 --     { cniSubnetId :: !ByteString
---     , cniDescription :: !(Maybe ByteString)
---     , cniPrivateIpAddress :: !(Maybe ByteString)
---     , cniGroupSet :: !(Maybe SecurityGroupIdSet)
---     , cniPrivateIpAddressesSet :: !(Maybe PrivateIpAddressesSetRequest)
---     , cniSecondaryPrivateIpAddressCount :: !(Maybe Int)
+--     , cniDescription :: Maybe ByteString
+--     , cniPrivateIpAddress :: Maybe ByteString
+--     , cniGroupSet :: Maybe SecurityGroupIdSet
+--     , cniPrivateIpAddressesSet :: Maybe PrivateIpAddressesSetRequest
+--     , cniSecondaryPrivateIpAddressCount :: Maybe Int
 --     } deriving (Show)
 
 -- data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
@@ -3237,7 +3236,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data NetworkInterfaceIdSet = NetworkInterfaceIdSet
---     { niisItem :: ![NetworkInterfaceIdSetItem]
+--     { niisItem :: [NetworkInterfaceIdSetItem]
 --     } deriving (Show)
 
 -- data NetworkInterfaceIdSetItem = NetworkInterfaceIdSetItem
@@ -3245,46 +3244,46 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data DescribeNetworkInterfaces = DescribeNetworkInterfaces
---     { dniNetworkInterfaceIdSet :: !(Maybe NetworkInterfaceIdSet)
---     , dniFilterSet :: !(Maybe FilterSet)
+--     { dniNetworkInterfaceIdSet :: Maybe NetworkInterfaceIdSet
+--     , dniFilterSet :: Maybe FilterSet
 --     } deriving (Show)
 
 -- data NetworkInterface = NetworkInterface
 --     { niNetworkInterfaceId :: !ByteString
---     , niSubnetId :: !(Maybe ByteString)
---     , niVpcId :: !(Maybe ByteString)
---     , niAvailabilityZone :: !(Maybe ByteString)
---     , niDescription :: !(Maybe ByteString)
+--     , niSubnetId :: Maybe ByteString
+--     , niVpcId :: Maybe ByteString
+--     , niAvailabilityZone :: Maybe ByteString
+--     , niDescription :: Maybe ByteString
 --     , niOwnerId :: !ByteString
---     , niRequesterId :: !(Maybe ByteString)
---     , niRequesterManaged :: !(Maybe Boolean)
+--     , niRequesterId :: Maybe ByteString
+--     , niRequesterManaged :: Maybe Boolean
 --     , niStatus :: !ByteString
 --     , niMacAddress :: !ByteString
 --     , niPrivateIpAddress :: !ByteString
---     , niPrivateDnsName :: !(Maybe ByteString)
+--     , niPrivateDnsName :: Maybe ByteString
 --     , niSourceDestCheck :: !Boolean
 --     , niGroupSet :: !GroupSet
---     , niAttachment :: !(Maybe NetworkInterfaceAttachment)
---     , niAssociation :: !(Maybe NetworkInterfaceAssociation)
---     , niTagSet :: !(Maybe ResourceTagSet)
---     , niPrivateIpAddressesSet :: !(Maybe NetworkInterfacePrivateIpAddressesSet)
+--     , niAttachment :: Maybe NetworkInterfaceAttachment
+--     , niAssociation :: Maybe NetworkInterfaceAssociation
+--     , niTagSet :: Maybe ResourceTagSet
+--     , niPrivateIpAddressesSet :: Maybe NetworkInterfacePrivateIpAddressesSet
 --     } deriving (Show)
 
 -- data NetworkInterfacePrivateIpAddressesSet = NetworkInterfacePrivateIpAddressesSet
---     { nipiasItem :: ![NetworkInterfacePrivateIpAddressesSetItem]
+--     { nipiasItem :: [NetworkInterfacePrivateIpAddressesSetItem]
 --     } deriving (Show)
 
 -- data NetworkInterfacePrivateIpAddressesSetItem = NetworkInterfacePrivateIpAddressesSetItem
 --     { nipiasiPrivateIpAddress :: !ByteString
---     , nipiasiPrivateDnsName :: !(Maybe ByteString)
+--     , nipiasiPrivateDnsName :: Maybe ByteString
 --     , nipiasiPrimary :: !Boolean
---     , nipiasiAssociation :: !(Maybe NetworkInterfaceAssociation)
+--     , nipiasiAssociation :: Maybe NetworkInterfaceAssociation
 --     } deriving (Show)
 
 -- data NetworkInterfaceAttachment = NetworkInterfaceAttachment
 --     { niaAttachmentId :: !ByteString
---     , niaInstanceId :: !(Maybe ByteString)
---     , niaInstanceOwnerId :: !(Maybe ByteString)
+--     , niaInstanceId :: Maybe ByteString
+--     , niaInstanceOwnerId :: Maybe ByteString
 --     , niaDeviceIndex :: !Int
 --     , niaStatus :: !ByteString
 --     , niaAttachTime :: !DateTime
@@ -3293,14 +3292,14 @@ instance IsQuery Domain where
 
 -- data NetworkInterfaceAssociation = NetworkInterfaceAssociation
 --     { niaPublicIp :: !ByteString
---     , niaPublicDnsName :: !(Maybe ByteString)
---     , niaIpOwnerId :: !(Maybe ByteString)
---     , niaAllocationId :: !(Maybe ByteString)
---     , niaAssociationId :: !(Maybe ByteString)
+--     , niaPublicDnsName :: Maybe ByteString
+--     , niaIpOwnerId :: Maybe ByteString
+--     , niaAllocationId :: Maybe ByteString
+--     , niaAssociationId :: Maybe ByteString
 --     } deriving (Show)
 
 -- data NetworkInterfaceSet = NetworkInterfaceSet
---     { nisItem :: ![NetworkInterface]
+--     { nisItem :: [NetworkInterface]
 --     } deriving (Show)
 
 -- data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
@@ -3330,7 +3329,7 @@ instance IsQuery Domain where
 
 -- data DetachNetworkInterface = DetachNetworkInterface
 --     { dniAttachmentId :: !ByteString
---     , dniForce :: !(Maybe Boolean)
+--     , dniForce :: Maybe Boolean
 --     } deriving (Show)
 
 -- data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
@@ -3353,20 +3352,20 @@ instance IsQuery Domain where
 --     { dniarRequestId :: !ByteString
 --     , dniarNetworkInterfaceId :: !ByteString
 --   -- <xs:choice>
---     , dniarDescription :: !(Maybe NullableAttributeValue)
---     , dniarSourceDestCheck :: !(Maybe AttributeBooleanValue)
---     , dniarGroupSet :: !(Maybe GroupSet)
---     , dniarAttachment :: !(Maybe NetworkInterfaceAttachment)
+--     , dniarDescription :: Maybe NullableAttributeValue
+--     , dniarSourceDestCheck :: Maybe AttributeBooleanValue
+--     , dniarGroupSet :: Maybe GroupSet
+--     , dniarAttachment :: Maybe NetworkInterfaceAttachment
 --   -- </xs:choice>
 --     } deriving (Show)
 
 -- data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
 --     { mniaNetworkInterfaceId :: !ByteString
 --   -- <xs:choice>
---     , mniaDescription :: !(Maybe NullableAttributeValue)
---     , mniaSourceDestCheck :: !(Maybe AttributeBooleanValue)
---     , mniaGroupSet :: !(Maybe SecurityGroupIdSet)
---     , mniaAttachment :: !(Maybe ModifyNetworkInterfaceAttachment)
+--     , mniaDescription :: Maybe NullableAttributeValue
+--     , mniaSourceDestCheck :: Maybe AttributeBooleanValue
+--     , mniaGroupSet :: Maybe SecurityGroupIdSet
+--     , mniaAttachment :: Maybe ModifyNetworkInterfaceAttachment
 --   -- </xs:choice>
 --     } deriving (Show)
 
@@ -3395,9 +3394,9 @@ instance IsQuery Domain where
 
 -- data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 --     { apiaNetworkInterfaceId :: !ByteString
---     , apiaPrivateIpAddressesSet :: !(Maybe AssignPrivateIpAddressesSetRequest)
---     , apiaSecondaryPrivateIpAddressCount :: !(Maybe Int)
---     , apiaAllowReassignment :: !(Maybe Boolean)
+--     , apiaPrivateIpAddressesSet :: Maybe AssignPrivateIpAddressesSetRequest
+--     , apiaSecondaryPrivateIpAddressCount :: Maybe Int
+--     , apiaAllowReassignment :: Maybe Boolean
 --     } deriving (Show)
 
 -- data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
@@ -3425,19 +3424,19 @@ instance IsQuery Domain where
 
 -- data DescribeVolumeStatus = DescribeVolumeStatus
 --     { dvsVolumeSet :: !DescribeVolumesSet
---     , dvsFilterSet :: !(Maybe FilterSet)
---     , dvsMaxResults :: !(Maybe Integer)
---     , dvsNextToken :: !(Maybe ByteString)
+--     , dvsFilterSet :: Maybe FilterSet
+--     , dvsMaxResults :: Maybe Integer
+--     , dvsNextToken :: Maybe ByteString
 --     } deriving (Show)
 
 -- data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
 --     { dvsrRequestId :: !ByteString
 --     , dvsrVolumeStatusSet :: !VolumeStatusSet
---     , dvsrNextToken :: !(Maybe ByteString)
+--     , dvsrNextToken :: Maybe ByteString
 --     } deriving (Show)
 
 -- data VolumeStatusSet = VolumeStatusSet
---     { vssItem :: ![VolumeStatusItem]
+--     { vssItem :: [VolumeStatusItem]
 --     } deriving (Show)
 
 -- data VolumeStatusItem = VolumeStatusItem
@@ -3454,7 +3453,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data VolumeStatusDetailsSet = VolumeStatusDetailsSet
---     { vsdsItem :: ![VolumeStatusDetailsItem]
+--     { vsdsItem :: [VolumeStatusDetailsItem]
 --     } deriving (Show)
 
 -- data VolumeStatusDetailsItem = VolumeStatusDetailsItem
@@ -3463,7 +3462,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data VolumeStatusEventsSet = VolumeStatusEventsSet
---     { vsesItem :: ![VolumeStatusEventItem]
+--     { vsesItem :: [VolumeStatusEventItem]
 --     } deriving (Show)
 
 -- data VolumeStatusEventItem = VolumeStatusEventItem
@@ -3475,7 +3474,7 @@ instance IsQuery Domain where
 --     } deriving (Show)
 
 -- data VolumeStatusActionsSet = VolumeStatusActionsSet
---     { vsasItem :: ![VolumeStatusActionItem]
+--     { vsasItem :: [VolumeStatusActionItem]
 --     } deriving (Show)
 
 -- data VolumeStatusActionItem = VolumeStatusActionItem
@@ -3520,7 +3519,7 @@ instance IsQuery Domain where
 --     { dvarRequestId :: !ByteString
 --     , dvarVolumeId :: !ByteString
 --   -- <xs:choice>
---     , dvarAutoEnableIO :: !(Maybe NullableAttributeBooleanValue)
---     , dvarProductCodes :: !(Maybe ProductCodesSet)
+--     , dvarAutoEnableIO :: Maybe NullableAttributeBooleanValue
+--     , dvarProductCodes :: Maybe ProductCodesSet
 --   -- </xs:choice>
 --     } deriving (Show)

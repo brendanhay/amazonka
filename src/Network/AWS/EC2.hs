@@ -61,7 +61,7 @@ res = withNS' ("https://ec2.amazonaws.com/doc/" <> ec2Version <> "/")
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html>
 data AllocateAddress = AllocateAddress
-    { aaDomain :: !(Maybe Domain)
+    { aaDomain :: Maybe Domain
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AllocateAddress
@@ -73,7 +73,7 @@ data AllocateAddressResponse = AllocateAddressResponse
     { aarRequestId    :: !ByteString
     , aarPublicIp     :: !ByteString
     , aarDomain       :: !ByteString
-    , aarAllocationId :: !(Maybe ByteString)
+    , aarAllocationId :: Maybe ByteString
     } deriving (Eq, Show, Generic)
 
 instance IsXML AllocateAddressResponse where

@@ -46,6 +46,7 @@ import           Test.Framework.Providers.QuickCheck2 as Test
 import           Test.QuickCheck                      as Test
 import           Test.TH                              as Test
 import           Text.Hastache
+import           Text.Hastache.Aeson
 
 testVersion :: ByteString -> [Test] -> Test
 testVersion ver = plusTestOptions
@@ -64,6 +65,7 @@ data Request a where
                , trqEncoded  :: ByteString
                , trqTemplate :: ByteString
                , trqDiff     :: [String]
+               , trqJSON :: Value
                }
             -> Request a
 
@@ -78,7 +80,7 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, AWSRequest s a b)
             enc  = encode raw
             tmpl = render rq raw
             diff = difference tmpl enc
-        return $ Request rq raw enc tmpl diff
+        return $ Request rq raw enc tmpl diff (toJSON rq)
       where
         encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
             [ BS.pack (show rqMethod) <> " " <> fromMaybe "/" rqPath
@@ -90,7 +92,7 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, AWSRequest s a b)
         render x y = unsafePerformIO $
             LBS.toStrict <$> hastacheStr defaultConfig
                 (readTemplate x)
-                (jsonValueContext $ concatJSON (toJSON x) (toJSON y))
+                (jsonContext $ concatJSON (toJSON x) (toJSON y))
 
         concatJSON (Object x) (Object y) = Object $ x <> y
         concatJSON _          y          = y
@@ -109,6 +111,8 @@ instance Show a => Show (Request a) where
         , formatBS trqTemplate
         , "[Diff]"
         , if all null trqDiff then "<identical>" else formatLines trqDiff
+        , "[JSON]"
+        , show trqJSON
         ]
 
 data Response a = Response
@@ -117,6 +121,7 @@ data Response a = Response
     , trsTemplate :: ByteString
     , trsXML      :: ByteString
     , trsDiff     :: [String]
+    , trsJSON     :: Value
     }
 
 instance (Eq a, Arbitrary a) => TestProperty (Response a) where
@@ -129,12 +134,12 @@ instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
         let xml  = toIndentedXML 2 rsp
             tmpl = render rsp
             diff = difference tmpl xml
-        return $ Response rsp (fromXML tmpl) tmpl xml diff
+        return $ Response rsp (fromXML tmpl) tmpl xml diff (toJSON rsp)
       where
         render x = unsafePerformIO $
             LBS.toStrict <$> hastacheStr defaultConfig
                 (readTemplate x)
-                (jsonValueContext $ toJSON x)
+                (jsonContext $ toJSON x)
 
 instance Show a => Show (Response a) where
     show Response{..} = unlines
@@ -150,6 +155,8 @@ instance Show a => Show (Response a) where
         , formatBS trsTemplate
         , "[Diff]"
         , if all null trsDiff then "<identical>" else formatLines trsDiff
+        , "[JSON]"
+        , show trsJSON
         ]
 
 formatBS :: ByteString -> String

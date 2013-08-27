@@ -13,12 +13,12 @@
 
 module Network.AWS.Route53.Types where
 
-import Control.Applicative          ((<$>))
-import Data.ByteString              (ByteString)
+import Control.Applicative  ((<$>))
+import Data.ByteString      (ByteString)
 import Data.Time
 import Network.AWS.Internal
-import Text.ParserCombinators.ReadP (string)
 import Text.Read
+import qualified Data.ByteString.Char8 as BS
 
 newtype CallerReference = CallerReference { unCallerReference :: ByteString }
     deriving (Eq, Ord, Show, Generic)
@@ -43,7 +43,7 @@ instance Show RecordAction where
     show DeleteAction = "DELETE"
 
 instance Read RecordAction where
-    readPrec = choice $ map (\(x, y) -> lift $ string x >> return y)
+    readPrec = readAssocList
          [ ("CREATE", CreateAction)
          , ("DELETE", DeleteAction)
          ]
@@ -103,16 +103,132 @@ instance IsXML ResourceRecords where
     xmlPickler = xpWrap (ResourceRecords, rrValues)
         (xpElemList "ResourceRecord" $ xpElem "Value" xmlPickler)
 
-data ResourceRecordSet = ResourceRecordSet
-    { rrsAction          :: !RecordAction
-    , rrsName            :: !ByteString
-    , rrsType            :: !RecordType
-    , rrsTTL             :: !Integer
-    , rrsHealthCheckId   :: !(Maybe ByteString)
-    , rrsResourceRecords :: !ResourceRecords
+data AliasTarget = AliasTarget
+    { atHostedZoneId         :: !ByteString
+    , atDNSName              :: !ByteString
+    , atEvaluateTargetHealth :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
-instance IsXML ResourceRecordSet
+instance IsXML AliasTarget
+
+data Failover = PRIMARY | SECONDARY
+    deriving (Eq, Read, Show, Generic)
+
+instance IsXML Failover where
+    xmlPickler = xpContent xpPrim
+
+data ResourceRecordSet
+    = FailoverRecordSet
+      { rrsName            :: !ByteString
+      , rrsType            :: !RecordType
+      , rrsSetIdentifier   :: !ByteString
+      , rrsFailover        :: !Failover
+      , rrsTTL             :: !Integer
+      , rrsResourceRecords :: !ResourceRecords
+      , rrsHealthCheckId   :: Maybe ByteString
+      }
+
+    | FailoverAliasRecordSet
+      { rrsName          :: !ByteString
+      , rrsType          :: !RecordType
+      , rrsSetIdentifier :: !ByteString
+      , rrsFailover      :: !Failover
+      , rrsAliasTarget   :: !AliasTarget
+      , rrsHealthCheckId :: Maybe ByteString
+      }
+
+    | LatencyRecordSet
+      { rrsName            :: !ByteString
+      , rrsType            :: !RecordType
+      , rrsSetIdentifier   :: !ByteString
+      , rrsRegion          :: !Region
+      , rrsTTL             :: !Integer
+      , rrsResourceRecords :: !ResourceRecords
+      , rrsHealthCheckId   :: Maybe ByteString
+      }
+
+    | LatencyAliasRecordSet
+      { rrsName          :: !ByteString
+      , rrsType          :: !RecordType
+      , rrsSetIdentifier :: !ByteString
+      , rrsRegion        :: !Region
+      , rrsAliasTarget   :: !AliasTarget
+      , rrsHealthCheckId :: Maybe ByteString
+      }
+
+    | WeightedRecordSet
+      { rrsName            :: !ByteString
+      , rrsType            :: !RecordType
+      , rrsSetIdentifier   :: !ByteString
+      , rrsWeight          :: !Integer
+      , rrsTTL             :: !Integer
+      , rrsResourceRecords :: !ResourceRecords
+      , rrsHealthCheckId   :: Maybe ByteString
+      }
+
+    | WeightedAliasRecordSet
+      { rrsName          :: !ByteString
+      , rrsType          :: !RecordType
+      , rrsSetIdentifier :: !ByteString
+      , rrsWeight        :: !Integer
+      , rrsAliasTarget   :: !AliasTarget
+      , rrsHealthCheckId :: Maybe ByteString
+      }
+
+    | BasicRecordSet
+      { rrsName            :: !ByteString
+      , rrsType            :: !RecordType
+      , rrsTTL             :: !Integer
+      , rrsResourceRecords :: !ResourceRecords
+      , rrsHealthCheckId   :: Maybe ByteString
+      }
+
+    | AliasRecordSet
+      { rrsName          :: !ByteString
+      , rrsType          :: !RecordType
+      , rrsAliasTarget   :: !AliasTarget
+      , rrsHealthCheckId :: Maybe ByteString
+      }
+
+    deriving (Eq, Show, Generic)
+
+instance IsXML ResourceRecordSet where
+    xmlPickler =
+        genericXMLPickler $ defaultXMLOptions
+            { xmlCtorModifier = const "ResourceRecordSet"
+            }
+
+
+    -- xmlPickler = xpElem "ResourceRecordSet" $ xpAlt
+    --     [ 
+
+    --     ]
+    --   where
+    --     basic = xp
+
+    --     alias
+    --     weighted
+    --     weightedAlias
+    --     latency
+    --     latencyAlias
+    --     failover
+    --     failoverAlias
+
+    --   rrsName
+    --   rrsType
+    --   rrsSetIdentifier
+    --   rrsRegion
+    --   rrsTTL
+    --   rrsWeight
+    --   rrsAliasTarget
+    --   rrsFailover
+    --   rrsResourceRecords
+    --   rrsHealthCheckId
+
+    --     xpElem "Name" xmlPickler
+
+    -- xmlPickler = xpWrap (ResourceRecords, rrValues)
+    --     (xpElemList "ResourceRecord" $ xpElem "Value" xmlPickler)
 
 data HealthCheckConfig = HealthCheckConfig
     { hccIPAddress                :: !ByteString

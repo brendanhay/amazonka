@@ -4,9 +4,6 @@ application/xml
 <CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
   <Name>{{chzName}}</Name>
   <CallerReference>{{chzCallerReference}}</CallerReference>
-  {{^chzHostedZoneConfig}}
-  <HostedZoneConfig/>
-  {{/chzHostedZoneConfig}}
   {{#chzHostedZoneConfig}}
   <HostedZoneConfig>
     <Comment>{{cComment}}</Comment>

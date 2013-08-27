@@ -19,8 +19,8 @@ import qualified Test.Signing     as Signing
 
 main :: IO ()
 main = defaultMain
-    [ testGroup "AutoScaling" AutoScaling.tests
-    , testGroup "EC2"         EC2.tests
-    , testGroup "Route53"     Route53.tests
-    , testGroup "Signing"     Signing.tests
+    [ -- testGroup "AutoScaling" AutoScaling.tests
+--    , testGroup "EC2"         EC2.tests
+     testGroup "Route53"     Route53.tests
+--    , testGroup "Signing"     Signing.tests
     ]

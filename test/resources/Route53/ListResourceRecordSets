@@ -1,6 +1,17 @@
 GET /2012-12-12/hostedzone/{{lrrsZoneId}}/rrset
-{{#lrrsIdentifier}}identifier={{lrrsIdentifier}}{{/lrrsIdentifier}}
-{{#lrrsName}}name={{lrrsName}}{{/lrrsName}}
-{{#lrrsMaxItems}}maxitems={{lrrsMaxItems}}{{/lrrsMaxItems}}
-{{#lrrsType}}type={{lrrsType}}{{/lrrsType}}
-{{#lrrsZoneId}}zoneid={{lrrsZoneId}}{{/lrrsZoneId}}
+{{#lrrsIdentifier}}
+identifier={{lrrsIdentifier}}
+{{/lrrsIdentifier}}
+{{#lrrsMaxItems}}
+maxitems={{lrrsMaxItems}}
+{{/lrrsMaxItems}}
+{{#lrrsName}}
+name={{lrrsName}}
+{{/lrrsName}}
+{{#lrrsType}}
+type={{lrrsType}}
+{{/lrrsType}}
+{{#lrrsZoneId}}
+zoneid={{lrrsZoneId}}
+{{/lrrsZoneId}}
+

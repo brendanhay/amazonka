@@ -57,7 +57,7 @@ instance IsQuery ResourceName
 -- -- get as object then lookup ResponseMetadata as a key
 
 -- data MetricGranularityType = MetricGranularityType
---     { mgtGranularity :: !(Maybe ByteString)
+--     { mgtGranularity :: Maybe ByteString
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML MetricGranularityType
@@ -74,8 +74,8 @@ instance IsQuery ResourceName
 -- instance IsXML LoadBalancerNames
 
 -- data SuspendedProcess = SuspendedProcess
---     { spProcessName :: !(Maybe ByteString)
---     , spSuspensionReason :: !(Maybe ByteString)
+--     { spProcessName :: Maybe ByteString
+--     , spSuspensionReason :: Maybe ByteString
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery SuspendedProcess
@@ -87,11 +87,11 @@ instance IsQuery ResourceName
 -- instance IsXML SuspendedProcesses
 
 data Tag = Tag
-    { tResourceId        :: !(Maybe ByteString)
-    , tResourceType      :: !(Maybe ByteString)
+    { tResourceId        :: Maybe ByteString
+    , tResourceType      :: Maybe ByteString
     , tKey               :: !ByteString
-    , tValue             :: !(Maybe ByteString)
-    , tPropagateAtLaunch :: !(Maybe Bool)
+    , tValue             :: Maybe ByteString
+    , tPropagateAtLaunch :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
 instance IsQuery Tag
@@ -104,7 +104,7 @@ instance IsQuery Tag
 -- -- $(deriveQS' (++ ".member") ''Tags)
 
 -- -- data Tags = Tags
--- --     { tMember :: ![Tag]
+-- --     { tMember :: [Tag]
 -- --     } deriving (Eq, Show, Generic)
 
 -- newtype PolicyNames = PolicyNames [ResourceName]
@@ -113,9 +113,9 @@ instance IsQuery Tag
 -- -- $(deriveQS' (++ ".member") ''PolicyNames)
 
 -- data NotificationConfiguration = NotificationConfiguration
---     { ncAutoScalingGroupName :: !(Maybe ResourceName)
---     , ncTopicARN :: !(Maybe ResourceName)
---     , ncNotificationType :: !(Maybe ByteString)
+--     { ncAutoScalingGroupName :: Maybe ResourceName
+--     , ncTopicARN :: Maybe ResourceName
+--     , ncNotificationType :: Maybe ByteString
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML NotificationConfiguration
@@ -131,16 +131,16 @@ instance IsQuery Tag
 -- -- $(deriveQS' (++ ".member") ''ScheduledActionNames)
 
 -- data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
---     { sugaAutoScalingGroupName :: !(Maybe ByteString)
---     , sugaScheduledActionName :: !(Maybe ByteString)
---     , sugaScheduledActionARN :: !(Maybe ResourceName)
---     , sugaTime :: !(Maybe UTCTime)
---     , sugaStartTime :: !(Maybe UTCTime)
---     , sugaEndTime :: !(Maybe UTCTime)
---     , sugaRecurrence :: !(Maybe ByteString)
---     , sugaMinSize :: !(Maybe Integer)
---     , sugaMaxSize :: !(Maybe Integer)
---     , sugaDesiredCapacity :: !(Maybe Integer)
+--     { sugaAutoScalingGroupName :: Maybe ByteString
+--     , sugaScheduledActionName :: Maybe ByteString
+--     , sugaScheduledActionARN :: Maybe ResourceName
+--     , sugaTime :: Maybe UTCTime
+--     , sugaStartTime :: Maybe UTCTime
+--     , sugaEndTime :: Maybe UTCTime
+--     , sugaRecurrence :: Maybe ByteString
+--     , sugaMinSize :: Maybe Integer
+--     , sugaMaxSize :: Maybe Integer
+--     , sugaDesiredCapacity :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML ScheduledUpdateGroupAction
@@ -160,17 +160,17 @@ instance IsQuery Tag
 -- instance IsXML SecurityGroups
 
 data Ebs = Ebs
-    { eSnapshotId :: !(Maybe ByteString)
-    , eVolumeSize :: !(Maybe Integer)
+    { eSnapshotId :: Maybe ByteString
+    , eVolumeSize :: Maybe Integer
     } deriving (Eq, Show, Generic)
 
 instance IsQuery Ebs
 -- instance IsXML Ebs
 
 data BlockDeviceMapping = BlockDeviceMapping
-    { bdmVirtualName :: !(Maybe ByteString)
+    { bdmVirtualName :: Maybe ByteString
     , bdmDeviceName  :: !ByteString
-    , bdmEbs         :: !(Maybe Ebs)
+    , bdmEbs         :: Maybe Ebs
     } deriving (Eq, Show, Generic)
 
 instance IsQuery BlockDeviceMapping
@@ -183,7 +183,7 @@ instance IsQuery BlockDeviceMapping
 -- instance IsXML BlockDeviceMappings
 
 data InstanceMonitoring = InstanceMonitoring
-    { imEnabled :: !(Maybe Bool)
+    { imEnabled :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
 instance IsQuery InstanceMonitoring
@@ -196,20 +196,20 @@ instance IsQuery InstanceMonitoring
 
 -- data LaunchConfiguration = LaunchConfiguration
 --     { lcLaunchConfigurationName :: !ByteString
---     , lcLaunchConfigurationARN :: !(Maybe ResourceName)
+--     , lcLaunchConfigurationARN :: Maybe ResourceName
 --     , lcImageId :: !ByteString
---     , lcKeyName :: !(Maybe ByteString)
+--     , lcKeyName :: Maybe ByteString
 --     , lcSecurityGroups :: !(Params Member SecurityGroup)
---     , lcUserData :: !(Maybe ByteString)
+--     , lcUserData :: Maybe ByteString
 --     , lcInstanceType :: !ByteString
---     , lcKernelId :: !(Maybe ByteString)
---     , lcRamdiskId :: !(Maybe ByteString)
---     , lcBlockDeviceMappings :: !(Maybe BlockDeviceMappings)
---     , lcInstanceMonitoring :: !(Maybe InstanceMonitoring)
---     , lcSpotPrice :: !(Maybe ByteString)
---     , lcIamInstanceProfile :: !(Maybe ByteString)
+--     , lcKernelId :: Maybe ByteString
+--     , lcRamdiskId :: Maybe ByteString
+--     , lcBlockDeviceMappings :: Maybe BlockDeviceMappings
+--     , lcInstanceMonitoring :: Maybe InstanceMonitoring
+--     , lcSpotPrice :: Maybe ByteString
+--     , lcIamInstanceProfile :: Maybe ByteString
 --     , lcCreatedTime :: !UTCTime
---     , lcEbsOptimized :: !(Maybe Bool)
+--     , lcEbsOptimized :: Maybe Bool
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery LaunchConfiguration
@@ -228,8 +228,8 @@ instance IsQuery InstanceMonitoring
 -- instance IsXML AvailabilityZones
 
 -- data EnabledMetric = EnabledMetric
---     { emMetric :: !(Maybe ByteString)
---     , emGranularity :: !(Maybe ByteString)
+--     { emMetric :: Maybe ByteString
+--     , emGranularity :: Maybe ByteString
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML EnabledMetric
@@ -240,11 +240,11 @@ instance IsQuery InstanceMonitoring
 -- instance IsXML EnabledMetrics
 
 -- data TagDescription = TagDescription
---     { tdResourceId :: !(Maybe ByteString)
---     , tdResourceType :: !(Maybe ByteString)
---     , tdKey :: !(Maybe ByteString)
---     , tdValue :: !(Maybe ByteString)
---     , tdPropagateAtLaunch :: !(Maybe Bool)
+--     { tdResourceId :: Maybe ByteString
+--     , tdResourceType :: Maybe ByteString
+--     , tdKey :: Maybe ByteString
+--     , tdValue :: Maybe ByteString
+--     , tdPropagateAtLaunch :: Maybe Bool
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery TagDescription
@@ -289,31 +289,31 @@ instance IsQuery InstanceMonitoring
 
 -- data AutoScalingGroup = AutoScalingGroup
 --     { asgAutoScalingGroupName :: !ByteString
---     , asgAutoScalingGroupARN :: !(Maybe ResourceName)
+--     , asgAutoScalingGroupARN :: Maybe ResourceName
 --     , asgLaunchConfigurationName :: !ByteString
 --     , asgMinSize :: !Integer
 --     , asgMaxSize :: !Integer
 --     , asgDesiredCapacity :: !Integer
 --     , asgDefaultCooldown :: !Integer
 --     , asgAvailabilityZones :: !AvailabilityZones
---     , asgLoadBalancerNames :: !(Maybe LoadBalancerNames)
+--     , asgLoadBalancerNames :: Maybe LoadBalancerNames
 --     , asgHealthCheckType :: !ByteString
---     , asgHealthCheckGracePeriod :: !(Maybe Integer)
---     , asgInstances :: !(Maybe Instances)
+--     , asgHealthCheckGracePeriod :: Maybe Integer
+--     , asgInstances :: Maybe Instances
 --     , asgCreatedTime :: !UTCTime
 --     , asgSuspendedProcesses :: !SuspendedProcesses
---     , asgPlacementGroup :: !(Maybe ByteString)
---     , asgVPCZoneIdentifier :: !(Maybe ByteString)
---     , asgEnabledMetrics :: !(Maybe EnabledMetrics)
---     , asgStatus :: !(Maybe ByteString)
---     , asgTags :: !(Maybe TagDescriptionList)
+--     , asgPlacementGroup :: Maybe ByteString
+--     , asgVPCZoneIdentifier :: Maybe ByteString
+--     , asgEnabledMetrics :: Maybe EnabledMetrics
+--     , asgStatus :: Maybe ByteString
+--     , asgTags :: Maybe TagDescriptionList
 --     , asgTerminationPolicies :: !TerminationPolicies
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML AutoScalingGroup
 
 -- data MetricCollectionType = MetricCollectionType
---     { mctMetric :: !(Maybe ByteString)
+--     { mctMetric :: Maybe ByteString
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML MetricCollectionType
@@ -366,14 +366,14 @@ instance IsQuery InstanceMonitoring
 -- data Activity = Activity
 --     { aActivityId :: !ByteString
 --     , aAutoScalingGroupName :: !ByteString
---     , aDescription :: !(Maybe ByteString)
+--     , aDescription :: Maybe ByteString
 --     , aCause :: !ByteString
 --     , aStartTime :: !UTCTime
---     , aEndTime :: !(Maybe UTCTime)
+--     , aEndTime :: Maybe UTCTime
 --     , aStatusCode :: !ScalingActivityStatusCode
---     , aStatusMessage :: !(Maybe ByteString)
---     , aProgress :: !(Maybe Integer)
---     , aDetails :: !(Maybe ByteString)
+--     , aStatusMessage :: Maybe ByteString
+--     , aProgress :: Maybe Integer
+--     , aDetails :: Maybe ByteString
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML Activity
@@ -389,8 +389,8 @@ instance IsQuery InstanceMonitoring
 -- -- $(deriveQS' (++ ".member") ''ActivityIds)
 
 -- data Alarm = Alarm
---     { aAlarmName :: !(Maybe ByteString)
---     , aAlarmARN :: !(Maybe ResourceName)
+--     { aAlarmName :: Maybe ByteString
+--     , aAlarmARN :: Maybe ResourceName
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML Alarm
@@ -401,14 +401,14 @@ instance IsQuery InstanceMonitoring
 -- instance IsXML Alarms
 
 -- data ScalingPolicy = ScalingPolicy
---     { spAutoScalingGroupName :: !(Maybe ByteString)
---     , spPolicyName :: !(Maybe ByteString)
---     , spScalingAdjustment :: !(Maybe Integer)
---     , spAdjustmentType :: !(Maybe ByteString)
---     , spCooldown :: !(Maybe Integer)
---     , spPolicyARN :: !(Maybe ResourceName)
---     , spAlarms :: ![Alarms]
---     , spMinAdjustmentStep :: !(Maybe Integer)
+--     { spAutoScalingGroupName :: Maybe ByteString
+--     , spPolicyName :: Maybe ByteString
+--     , spScalingAdjustment :: Maybe Integer
+--     , spAdjustmentType :: Maybe ByteString
+--     , spCooldown :: Maybe Integer
+--     , spPolicyARN :: Maybe ResourceName
+--     , spAlarms :: [Alarms]
+--     , spMinAdjustmentStep :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML ScalingPolicy
@@ -424,8 +424,8 @@ instance IsQuery InstanceMonitoring
 -- -- $(deriveQS' (++ ".member") ''Values)
 
 -- data Filter = Filter
---     { fName :: !(Maybe ByteString)
---     , fValues :: !(Maybe Values)
+--     { fName :: Maybe ByteString
+--     , fValues :: Maybe Values
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery Filter

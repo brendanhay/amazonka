@@ -1,3 +1,7 @@
 GET /2012-12-12/hostedzone
-{{#lhzMarker}}marker={{lhzMarker}}{{/lhzMarker}}
-{{#lhzMaxItems}}maxitems={{lhzMaxItems}}{{/lhzMaxItems}}
+{{#lhzMarker}}
+marker={{lhzMarker}}
+{{/lhzMarker}}
+{{#lhzMaxItems}}
+maxitems={{lhzMaxItems}}
+{{/lhzMaxItems}}

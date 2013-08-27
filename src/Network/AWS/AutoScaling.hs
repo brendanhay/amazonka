@@ -68,14 +68,14 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , casgLaunchConfigurationName :: !ResourceName
     , casgMinSize                 :: !Integer
     , casgMaxSize                 :: !Integer
-    , casgDesiredCapacity         :: !(Maybe Integer)
-    , casgDefaultCooldown         :: !(Maybe Integer)
+    , casgDesiredCapacity         :: Maybe Integer
+    , casgDefaultCooldown         :: Maybe Integer
     , casgAvailabilityZones       :: !(Member ByteString)
     , casgLoadBalancerNames       :: !(Member ByteString)
-    , casgHealthCheckType         :: !(Maybe ByteString)
-    , casgHealthCheckGracePeriod  :: !(Maybe Integer)
-    , casgPlacementGroup          :: !(Maybe ByteString)
-    , casgVPCZoneIdentifier       :: !(Maybe ByteString)
+    , casgHealthCheckType         :: Maybe ByteString
+    , casgHealthCheckGracePeriod  :: Maybe Integer
+    , casgPlacementGroup          :: Maybe ByteString
+    , casgVPCZoneIdentifier       :: Maybe ByteString
     , casgTerminationPolicies     :: !(Member ByteString)
     , casgTags                    :: !(Member Tag)
     } deriving (Eq, Show, Generic)
@@ -97,17 +97,17 @@ instance IsXML CreateAutoScalingGroupResponse
 data CreateLaunchConfiguration = CreateLaunchConfiguration
     { clcLaunchConfigurationName :: !ByteString
     , clcImageId                 :: !ByteString
-    , clcKeyName                 :: !(Maybe ByteString)
+    , clcKeyName                 :: Maybe ByteString
     , clcSecurityGroups          :: !(Member ByteString)
-    , clcUserData                :: !(Maybe ByteString)
+    , clcUserData                :: Maybe ByteString
     , clcInstanceType            :: !ByteString
-    , clcKernelId                :: !(Maybe ByteString)
-    , clcRamdiskId               :: !(Maybe ByteString)
+    , clcKernelId                :: Maybe ByteString
+    , clcRamdiskId               :: Maybe ByteString
     , clcBlockDeviceMappings     :: !(Member BlockDeviceMapping)
     , clcInstanceMonitoring      :: !InstanceMonitoring
-    , clcSpotPrice               :: !(Maybe ByteString)
-    , clcIamInstanceProfile      :: !(Maybe ByteString)
-    , clcEbsOptimized            :: !(Maybe Bool)
+    , clcSpotPrice               :: Maybe ByteString
+    , clcIamInstanceProfile      :: Maybe ByteString
+    , clcEbsOptimized            :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateLaunchConfiguration
@@ -143,7 +143,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
 -- data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 --     { dasgAutoScalingGroupName :: !ResourceName
---     , dasgForceDelete :: !(Maybe Bool)
+--     , dasgForceDelete :: Maybe Bool
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeleteAutoScalingGroup
@@ -180,7 +180,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html>
 -- data DeletePolicy = DeletePolicy
---     { dpAutoScalingGroupName :: !(Maybe ResourceName)
+--     { dpAutoScalingGroupName :: Maybe ResourceName
 --     , dpPolicyName :: !ResourceName
 --     } deriving (Eq, Show, Generic)
 
@@ -193,7 +193,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html>
 -- data DeleteScheduledAction = DeleteScheduledAction
---     { dsaAutoScalingGroupName :: !(Maybe ResourceName)
+--     { dsaAutoScalingGroupName :: Maybe ResourceName
 --     , dsaScheduledActionName :: !ResourceName
 --     } deriving (Eq, Show, Generic)
 
@@ -228,9 +228,9 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html>
 -- data DescribeAutoScalingGroups = DescribeAutoScalingGroups
---     { dasgAutoScalingGroupNames :: !(Maybe AutoScalingGroupNames)
---     , dasgNextToken :: !(Maybe ByteString)
---     , dasgMaxRecords :: !(Maybe Integer)
+--     { dasgAutoScalingGroupNames :: Maybe AutoScalingGroupNames
+--     , dasgNextToken :: Maybe ByteString
+--     , dasgMaxRecords :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeAutoScalingGroups
@@ -242,9 +242,9 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html>
 -- data DescribeAutoScalingInstances = DescribeAutoScalingInstances
---     { dasiInstanceIds :: !(Maybe InstanceIds)
---     , dasiMaxRecords :: !(Maybe Integer)
---     , dasiNextToken :: !(Maybe ByteString)
+--     { dasiInstanceIds :: Maybe InstanceIds
+--     , dasiMaxRecords :: Maybe Integer
+--     , dasiNextToken :: Maybe ByteString
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeAutoScalingInstances
@@ -256,9 +256,9 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html>
 -- data DescribeLaunchConfigurations = DescribeLaunchConfigurations
---     { dlcLaunchConfigurationNames :: !(Maybe LaunchConfigurationNames)
---     , dlcNextToken :: !(Maybe ByteString)
---     , dlcMaxRecords :: !(Maybe Integer)
+--     { dlcLaunchConfigurationNames :: Maybe LaunchConfigurationNames
+--     , dlcNextToken :: Maybe ByteString
+--     , dlcMaxRecords :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeLaunchConfigurations
@@ -281,9 +281,9 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html>
 -- data DescribeNotificationConfigurations = DescribeNotificationConfigurations
---     { dncAutoScalingGroupNames :: !(Maybe AutoScalingGroupNames)
---     , dncNextToken :: !(Maybe ByteString)
---     , dncMaxRecords :: !(Maybe Integer)
+--     { dncAutoScalingGroupNames :: Maybe AutoScalingGroupNames
+--     , dncNextToken :: Maybe ByteString
+--     , dncMaxRecords :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeNotificationConfigurations
@@ -295,10 +295,10 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html>
 -- data DescribePolicies = DescribePolicies
---     { dpsAutoScalingGroupName :: !(Maybe ResourceName)
---     , dpsPolicyNames :: !(Maybe PolicyNames)
---     , dpsNextToken :: !(Maybe ByteString)
---     , dpsMaxRecords :: !(Maybe Integer)
+--     { dpsAutoScalingGroupName :: Maybe ResourceName
+--     , dpsPolicyNames :: Maybe PolicyNames
+--     , dpsNextToken :: Maybe ByteString
+--     , dpsMaxRecords :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribePolicies
@@ -321,10 +321,10 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html>
 -- data DescribeScalingActivities = DescribeScalingActivities
---     { dsasActivityIds :: !(Maybe ActivityIds)
---     , dsasAutoScalingGroupName :: !(Maybe ResourceName)
---     , dsasMaxRecords :: !(Maybe Integer)
---     , dsasNextToken :: !(Maybe ByteString)
+--     { dsasActivityIds :: Maybe ActivityIds
+--     , dsasAutoScalingGroupName :: Maybe ResourceName
+--     , dsasMaxRecords :: Maybe Integer
+--     , dsasNextToken :: Maybe ByteString
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeScalingActivities
@@ -336,12 +336,12 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html>
 -- data DescribeScheduledActions = DescribeScheduledActions
---     { dsacAutoScalingGroupName :: !(Maybe ResourceName)
---     , dsacScheduledActionNames :: !(Maybe ScheduledActionNames)
---     , dsacStartTime :: !(Maybe UTCTime)
---     , dsacEndTime :: !(Maybe UTCTime)
---     , dsacNextToken :: !(Maybe ByteString)
---     , dsacMaxRecords :: !(Maybe Integer)
+--     { dsacAutoScalingGroupName :: Maybe ResourceName
+--     , dsacScheduledActionNames :: Maybe ScheduledActionNames
+--     , dsacStartTime :: Maybe UTCTime
+--     , dsacEndTime :: Maybe UTCTime
+--     , dsacNextToken :: Maybe ByteString
+--     , dsacMaxRecords :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeScheduledActions
@@ -353,9 +353,9 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html>
 -- data DescribeTags = DescribeTags
---     { dtFilters :: !(Maybe Filters)
---     , dtNextToken :: !(Maybe ByteString)
---     , dtMaxRecords :: !(Maybe Integer)
+--     { dtFilters :: Maybe Filters
+--     , dtNextToken :: Maybe ByteString
+--     , dtMaxRecords :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeTags
@@ -379,7 +379,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DisableMetricsCollection.html>
 -- data DisableMetricsCollection = DisableMetricsCollection
 --     { dmcAutoScalingGroupName :: !ResourceName
---     , dmcMetrics :: !(Maybe Metrics)
+--     , dmcMetrics :: Maybe Metrics
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DisableMetricsCollection
@@ -392,7 +392,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html>
 -- data EnableMetricsCollection = EnableMetricsCollection
 --     { emcAutoScalingGroupName :: !ResourceName
---     , emcMetrics :: !(Maybe Metrics)
+--     , emcMetrics :: Maybe Metrics
 --     , emcGranularity :: !ByteString
 --     } deriving (Eq, Show, Generic)
 
@@ -405,9 +405,9 @@ instance IsXML CreateOrUpdateTagsResponse
 -- --
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExecutePolicy.html>
 -- data ExecutePolicy = ExecutePolicy
---     { epAutoScalingGroupName :: !(Maybe ResourceName)
+--     { epAutoScalingGroupName :: Maybe ResourceName
 --     , epPolicyName :: !ResourceName
---     , epHonorCooldown :: !(Maybe Bool)
+--     , epHonorCooldown :: Maybe Bool
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery ExecutePolicy
@@ -437,8 +437,8 @@ instance IsXML CreateOrUpdateTagsResponse
 --     , pspPolicyName :: !ByteString
 --     , pspScalingAdjustment :: !Integer
 --     , pspAdjustmentType :: !ByteString
---     , pspCooldown :: !(Maybe Integer)
---     , pspMinAdjustmentStep :: !(Maybe Integer)
+--     , pspCooldown :: Maybe Integer
+--     , pspMinAdjustmentStep :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery PutScalingPolicy
@@ -452,13 +452,13 @@ instance IsXML CreateOrUpdateTagsResponse
 -- data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
 --     { psugaAutoScalingGroupName :: !ResourceName
 --     , psugaScheduledActionName :: !ByteString
---     , psugaTime :: !(Maybe UTCTime)
---     , psugaStartTime :: !(Maybe UTCTime)
---     , psugaEndTime :: !(Maybe UTCTime)
---     , psugaRecurrence :: !(Maybe ByteString)
---     , psugaMinSize :: !(Maybe Integer)
---     , psugaMaxSize :: !(Maybe Integer)
---     , psugaDesiredCapacity :: !(Maybe Integer)
+--     , psugaTime :: Maybe UTCTime
+--     , psugaStartTime :: Maybe UTCTime
+--     , psugaEndTime :: Maybe UTCTime
+--     , psugaRecurrence :: Maybe ByteString
+--     , psugaMinSize :: Maybe Integer
+--     , psugaMaxSize :: Maybe Integer
+--     , psugaDesiredCapacity :: Maybe Integer
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery PutScheduledUpdateGroupAction
@@ -471,7 +471,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html>
 -- data ResumeProcesses = ResumeProcesses
 --     { rpAutoScalingGroupName :: !ResourceName
---     , rpScalingProcesses :: !(Maybe ProcessNames)
+--     , rpScalingProcesses :: Maybe ProcessNames
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery ResumeProcesses
@@ -485,7 +485,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- data SetDesiredCapacity = SetDesiredCapacity
 --     { sdcAutoScalingGroupName :: !ResourceName
 --     , sdcDesiredCapacity :: !Integer
---     , sdcHonorCooldown :: !(Maybe Bool)
+--     , sdcHonorCooldown :: Maybe Bool
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery SetDesiredCapacity
@@ -499,7 +499,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- data SetInstanceHealth = SetInstanceHealth
 --     { sihInstanceId :: !ByteString
 --     , sihHealthStatus :: !ByteString
---     , sihShouldRespectGracePeriod :: !(Maybe Bool)
+--     , sihShouldRespectGracePeriod :: Maybe Bool
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery SetInstanceHealth
@@ -512,7 +512,7 @@ instance IsXML CreateOrUpdateTagsResponse
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SuspendProcesses.html>
 -- data SuspendProcesses = SuspendProcesses
 --     { spAutoScalingGroupName :: !ResourceName
---     , spScalingProcesses :: !(Maybe ProcessNames)
+--     , spScalingProcesses :: Maybe ProcessNames
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery SuspendProcesses
@@ -538,16 +538,16 @@ instance IsXML CreateOrUpdateTagsResponse
 -- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html>
 -- data UpdateAutoScalingGroup = UpdateAutoScalingGroup
 --     { uasgAutoScalingGroupName :: !ResourceName
---     , uasgLaunchConfigurationName :: !(Maybe ResourceName)
---     , uasgMinSize :: !(Maybe Integer)
---     , uasgMaxSize :: !(Maybe Integer)
---     , uasgDesiredCapacity :: !(Maybe Integer)
---     , uasgDefaultCooldown :: !(Maybe Integer)
---     , uasgAvailabilityZones :: !(Maybe AvailabilityZones)
---     , uasgHealthCheckType :: !(Maybe ByteString)
---     , uasgHealthCheckGracePeriod :: !(Maybe Integer)
---     , uasgPlacementGroup :: !(Maybe ByteString)
---     , uasgVPCZoneIdentifier :: !(Maybe ByteString)
+--     , uasgLaunchConfigurationName :: Maybe ResourceName
+--     , uasgMinSize :: Maybe Integer
+--     , uasgMaxSize :: Maybe Integer
+--     , uasgDesiredCapacity :: Maybe Integer
+--     , uasgDefaultCooldown :: Maybe Integer
+--     , uasgAvailabilityZones :: Maybe AvailabilityZones
+--     , uasgHealthCheckType :: Maybe ByteString
+--     , uasgHealthCheckGracePeriod :: Maybe Integer
+--     , uasgPlacementGroup :: Maybe ByteString
+--     , uasgVPCZoneIdentifier :: Maybe ByteString
 --     , uasgTerminationPolicies :: !(Param Member ByteString)
 --     } deriving (Eq, Show, Generic)
 

@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.Types
@@ -13,11 +14,21 @@
 
 module Network.AWS.Route53.Types where
 
+import Data.Monoid
 import Control.Applicative  ((<$>))
 import Data.ByteString      (ByteString)
 import Data.Time
 import Network.AWS.Internal
 import Text.Read
+
+route53Version :: ByteString
+route53Version = "2012-12-12"
+
+route53NS :: ByteString
+route53NS = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
+
+route53Elem :: ByteString -> NName ByteString
+route53Elem = mkNName route53NS
 
 newtype CallerReference = CallerReference { unCallerReference :: ByteString }
     deriving (Eq, Ord, Show, Generic)
@@ -46,7 +57,8 @@ data Config = Config
     { cComment :: !ByteString
     } deriving (Eq, Show, Generic)
 
-instance IsXML Config
+instance IsXML Config where
+    xmlPickler = withNS route53NS
 
 data HostedZone = HostedZone
     { hzId                     :: !ByteString
@@ -56,14 +68,16 @@ data HostedZone = HostedZone
     , hzResourceRecordSetCount :: !Integer
     } deriving (Eq, Show, Generic)
 
-instance IsXML HostedZone
+instance IsXML HostedZone where
+    xmlPickler = withNS route53NS
 
 newtype DelegationSet = DelegationSet { dsNameServers :: [ByteString] }
     deriving (Eq, Show, Generic)
 
 instance IsXML DelegationSet where
     xmlPickler = xpWrap (DelegationSet, dsNameServers)
-        (xpElem "NameServers" $ xpElemList "NameServer" xmlPickler)
+        (xpElem (route53Elem "NameServers")
+            $ xpElemList (route53Elem "NameServer") xmlPickler)
 
 data ChangeStatus = PENDING | INSYNC
     deriving (Eq, Read, Show, Generic)
@@ -77,7 +91,8 @@ data ChangeInfo = ChangeInfo
     , ciSubmittedAt :: !UTCTime
     } deriving (Eq, Show, Generic)
 
-instance IsXML ChangeInfo
+instance IsXML ChangeInfo where
+    xmlPickler = withNS route53NS
 
 data ChangeAction = CreateAction | DeleteAction
     deriving (Eq)
@@ -100,21 +115,24 @@ data Change = Change
     , cResourceRecordSet :: !ResourceRecordSet
     } deriving (Eq, Show, Generic)
 
-instance IsXML Change
+instance IsXML Change where
+    xmlPickler = withNS route53NS
 
 data ChangeBatch = ChangeBatch
     { cbComment :: Maybe ByteString
     , cbChanges :: [Change]
     } deriving (Eq, Show, Generic)
 
-instance IsXML ChangeBatch
+instance IsXML ChangeBatch where
+    xmlPickler = withNS route53NS
 
 newtype ResourceRecords = ResourceRecords { rrValues :: [ByteString] }
     deriving (Eq, Show, Generic)
 
 instance IsXML ResourceRecords where
     xmlPickler = xpWrap (ResourceRecords, rrValues)
-        (xpElemList "ResourceRecord" $ xpElem "Value" xmlPickler)
+        (xpElemList (route53Elem "ResourceRecord")
+            $ xpElem (route53Elem "Value") xmlPickler)
 
 data AliasTarget = AliasTarget
     { atHostedZoneId         :: !ByteString
@@ -122,7 +140,8 @@ data AliasTarget = AliasTarget
     , atEvaluateTargetHealth :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
-instance IsXML AliasTarget
+instance IsXML AliasTarget where
+    xmlPickler = withNS route53NS
 
 data Failover = PRIMARY | SECONDARY
     deriving (Eq, Read, Show, Generic)
@@ -206,8 +225,8 @@ data ResourceRecordSet
     deriving (Eq, Show, Generic)
 
 instance IsXML ResourceRecordSet where
-    xmlPickler = genericXMLPickler $ defaultXMLOptions
-        { xmlCtorModifier = const "ResourceRecordSet"
+    xmlPickler = genericXMLPickler $ (namespaced route53NS)
+        { xmlCtorModifier = const $ route53Elem "ResourceRecordSet"
         }
 
 data HealthCheckConfig = HealthCheckConfig
@@ -218,7 +237,8 @@ data HealthCheckConfig = HealthCheckConfig
     , hccFullyQualifiedDomainName :: !ByteString
     } deriving (Eq, Show, Generic)
 
-instance IsXML HealthCheckConfig
+instance IsXML HealthCheckConfig where
+    xmlPickler = withNS route53NS
 
 data HealthCheck = HealthCheck
     { hcId                :: !ByteString
@@ -226,4 +246,5 @@ data HealthCheck = HealthCheck
     , hcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Eq, Show, Generic)
 
-instance IsXML HealthCheck
+instance IsXML HealthCheck where
+    xmlPickler = withNS route53NS

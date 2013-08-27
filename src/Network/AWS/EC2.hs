@@ -50,8 +50,10 @@ req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
     }
 
 res :: XMLGeneric a
-res = withNS' ("https://ec2.amazonaws.com/doc/" <> ec2Version <> "/")
-    (defaultXMLOptions { xmlFieldModifier = BS.pack . lowerFirst . dropLower })
+res = withNS' ("https://ec2.amazonaws.com/doc/" <> ec2Version <> "/") $
+    defaultXMLOptions
+        { xmlFieldModifier = mkAnNName . BS.pack . lowerFirst . dropLower
+        }
 
 --
 -- Actions

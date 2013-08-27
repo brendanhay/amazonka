@@ -1,6 +1,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE Rank2Types        #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Network.AWS.Internal
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,34 +31,40 @@ module Network.AWS.Internal
     , withNS'
     , withRootNS
     , withRootNS'
-    , namespace
+    , namespaced
     ) where
 
-import Data.ByteString                 (ByteString)
-import Data.Monoid
-import GHC.Generics
-import Network.AWS.Internal.Instances
-import Network.AWS.Internal.Signing
-import Network.AWS.Internal.String
-import Network.AWS.Internal.Types
-import Network.HTTP.QueryString.Pickle
-import Text.XML.Expat.Pickle.Generic
+import           Data.ByteString                 (ByteString)
+import qualified Data.ByteString.Char8           as BS
+import           Data.Char
+import           GHC.Generics
+import           Network.AWS.Internal.Instances
+import           Network.AWS.Internal.Signing
+import           Network.AWS.Internal.String
+import           Network.AWS.Internal.Types
+import           Network.HTTP.QueryString.Pickle
+import           Text.XML.Expat.Pickle.Generic
 
 withNS :: ByteString -> XMLGeneric a
-withNS ns = withNS' ns defaultXMLOptions
+withNS ns = withNS' ns (namespaced ns)
 
 withNS' :: ByteString -> XMLOptions -> XMLGeneric a
-withNS' ns opts = pu { root = namespace ns `fmap` (root pu) }
+withNS' ns opts = pu { root = (mkNName ns . nnLocalPart) `fmap` (root pu) }
   where
     pu = genericXMLPickler opts
 
 withRootNS :: ByteString -> ByteString -> XMLGeneric a
-withRootNS ns name = withRootNS' ns name defaultXMLOptions
+withRootNS ns name = withRootNS' ns name (namespaced ns)
 
 withRootNS' :: ByteString -> ByteString -> XMLOptions -> XMLGeneric a
 withRootNS' ns name opts = (genericXMLPickler opts)
-   { root = Just $ namespace ns name
+   { root = Just $ mkNName ns name
    }
 
-namespace :: ByteString -> ByteString -> ByteString
-namespace ns name = name <> " xmlns=\"" <> ns <> "\""
+namespaced :: ByteString -> XMLOptions
+namespaced ns =
+    let XMLOptions{..} = defaultXMLOptions
+    in defaultXMLOptions
+           { xmlCtorModifier  = mkNName ns . BS.pack
+           , xmlFieldModifier = mkNName ns . BS.pack . dropWhile isLower
+           }

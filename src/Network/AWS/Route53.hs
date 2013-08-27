@@ -86,9 +86,6 @@ instance AWSService R53 where
     service _ = Service "route53" route53Version "route53.amazonaws.com"
         SigningVersion3 <$> currentRegion
 
-route53Version :: ByteString
-route53Version = "2012-12-12"
-
 req :: IsQuery a => Method -> ByteString -> a -> RawRequest R53 b
 req meth path qry = (emptyRequest meth FormEncoded (ver path) Nothing)
     { rqQuery = toQuery qry
@@ -100,9 +97,6 @@ body meth path = (emptyRequest meth XML $ ver path) . Just . toIndentedXML 2
 
 ver :: ByteString -> ByteString
 ver = mappend ("/" <> route53Version <> "/")
-
-ns :: ByteString
-ns = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
 
 --
 -- Hosted Zones
@@ -118,7 +112,7 @@ data CreateHostedZone = CreateHostedZone
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZone where
-    xmlPickler = withRootNS ns "CreateHostedZoneRequest"
+    xmlPickler = withRootNS route53NS "CreateHostedZoneRequest"
 
 instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
     request = body POST "hostedzone"
@@ -130,7 +124,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZoneResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 -- | Gets information about a specified hosted zone.
 --
@@ -147,7 +141,7 @@ data GetHostedZoneResponse = GetHostedZoneResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetHostedZoneResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 -- | Gets a list of the hosted zones that are associated with the
 -- current AWS account.
@@ -173,7 +167,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListHostedZonesResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 -- | Deletes a hosted zone.
 --
@@ -189,7 +183,7 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteHostedZoneResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 --
 -- Record Sets
@@ -206,8 +200,8 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
 instance IsXML ChangeResourceRecordSets where
     xmlPickler = (xpWrap
         (ChangeResourceRecordSets "", \(ChangeResourceRecordSets _ cs) -> cs)
-        (xpElem "ChangeBatch" $ genericXMLPickler defaultXMLOptions))
-            { root = Just $ namespace ns "ChangeResourceRecordSetsRequest"
+        (xpElem (route53Elem "ChangeBatch") $ genericXMLPickler defaultXMLOptions))
+            { root = Just $ mkNName route53NS "ChangeResourceRecordSetsRequest"
             }
 
 instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsResponse where
@@ -219,7 +213,7 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML ChangeResourceRecordSetsResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 -- | Lists details about all of the resource record sets in a hosted zone.
 --
@@ -249,7 +243,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListResourceRecordSetsResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 -- | Returns the current status of a change batch request that you
 -- submitted by using ChangeResourceRecordSets.
@@ -266,7 +260,7 @@ data GetChangeResponse = GetChangeResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetChangeResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 --
 -- Health Checks
@@ -281,7 +275,7 @@ data CreateHealthCheck = CreateHealthCheck
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHealthCheck where
-    xmlPickler = withRootNS ns "CreateHealthCheckRequest"
+    xmlPickler = withRootNS route53NS "CreateHealthCheckRequest"
 
 instance AWSRequest R53 CreateHealthCheck CreateHealthCheckResponse where
     request = body POST "healthcheck"
@@ -291,7 +285,7 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHealthCheckResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 -- | Gets information about a specified health check.
 --
@@ -307,7 +301,7 @@ data GetHealthCheckResponse = GetHealthCheckResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetHealthCheckResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 -- | Gets a list of the health checks that are associated
 -- with the current AWS account.
@@ -333,7 +327,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListHealthChecksResponse where
-    xmlPickler = withNS ns
+    xmlPickler = withNS route53NS
 
 -- | Deletes a health check.
 --

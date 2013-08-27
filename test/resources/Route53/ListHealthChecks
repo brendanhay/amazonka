@@ -1,6 +1,6 @@
 GET /2012-12-12/healthcheck
 {{#lhcMarker}}
-marker={{lhzMarker}}
+marker={{lhcMarker}}
 {{/lhcMarker}}
 {{#lhcMaxItems}}
 maxitems={{lhcMaxItems}}

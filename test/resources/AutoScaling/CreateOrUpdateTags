@@ -1,18 +1,23 @@
 GET /
 {{#coutTags}}
+{{#member}}
+{{#ordinals}}
+setup member ordinals
+{{/ordinals}}
 {{#tKey}}
-Tags.member.Key={{tKey}}
+Tags.member.{{#n}}{{/n}}.Key={{tKey}}
 {{/tKey}}
 {{#tPropagateAtLaunch}}
-Tags.member.PropagateAtLaunch={{tPropagateAtLaunch}}
+Tags.member.{{#n}}{{/n}}.PropagateAtLaunch={{tPropagateAtLaunch}}
 {{/tPropagateAtLaunch}}
 {{#tResourceId}}
-Tags.member.ResourceId={{tResourceId}}
+Tags.member.{{#n}}{{/n}}.ResourceId={{tResourceId}}
 {{/tResourceId}}
 {{#tResourceType}}
-Tags.member.ResourceType={{tResourceType}}
+Tags.member.{{#n}}{{/n}}.ResourceType={{tResourceType}}
 {{/tResourceType}}
 {{#tValue}}
-Tags.member.Value={{tValue}}
+Tags.member.{{#n}}{{/n}}.Value={{tValue}}
 {{/tValue}}
+{{/member}}
 {{/coutTags}}

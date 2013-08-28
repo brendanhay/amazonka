@@ -30,14 +30,16 @@ module Test.Common
     , module Common
     ) where
 
+import qualified Algorithms.NaturalSort               as Nat
 import           Control.Applicative
 import           Data.Aeson                           as Common (Value(..), ToJSON(..), FromJSON(..))
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import qualified Data.ByteString.Lazy.Char8           as LBS
-import           Data.List                            ((\\), sort)
+import           Data.List                            ((\\), sortBy)
 import           Data.Maybe
 import           Data.Monoid
+import           Data.Text.Encoding
 import           Network.AWS.Internal                 as Common hiding (Query)
 import           System.IO.Unsafe                     (unsafePerformIO)
 import           Test.Arbitrary                       ()
@@ -78,21 +80,22 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, AWSRequest s a b)
         rq <- arbitrary
         let raw  = request rq
             enc  = encode raw
-            tmpl = render rq raw
+            tmpl = render' rq raw
             diff = difference tmpl enc
         return $ Request rq raw enc tmpl diff (toJSON rq)
       where
         encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
             [ BS.pack (show rqMethod) <> " " <> fromMaybe "/" rqPath
-            , BS.intercalate "\n" . map (\(k, v) -> k <> "=" <> v) $ sort rqQuery
+            , BS.intercalate "\n" . map join $ sortBy sort rqQuery
             , maybe "" (const $ toBS rqContent) rqBody
             , fromMaybe "" rqBody
             ]
+          where
+            join (k, v) = k <> "=" <> v
+            sort x y    = Nat.compare (decodeUtf8 $ fst x) (decodeUtf8 $ fst y)
 
-        render x y = unsafePerformIO $
-            LBS.toStrict <$> hastacheStr defaultConfig
-                (readTemplate x)
-                (jsonContext $ concatJSON (toJSON x) (toJSON y))
+        render' x y = unsafePerformIO $
+            render (readTemplate x) (concatJSON (toJSON x) (toJSON y))
 
         concatJSON (Object x) (Object y) = Object $ x <> y
         concatJSON _          y          = y
@@ -133,14 +136,11 @@ instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
     arbitrary = do
         rsp <- arbitrary
         let xml  = toIndentedXML 2 rsp
-            tmpl = render rsp
+            tmpl = render' rsp
             diff = difference tmpl xml
         return $ Response rsp (fromXML tmpl) tmpl xml diff (toJSON rsp)
       where
-        render x = unsafePerformIO $
-            LBS.toStrict <$> hastacheStr defaultConfig
-                (readTemplate x)
-                (jsonContext $ toJSON x)
+        render' x = unsafePerformIO $ render (readTemplate x) (toJSON x)
 
 instance Show a => Show (Response a) where
     show Response{..} = unlines

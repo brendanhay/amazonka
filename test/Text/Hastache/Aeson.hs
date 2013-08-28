@@ -38,10 +38,12 @@ render tmpl val = LBS.toStrict <$> evalStateT run 0
     run :: StateT Integer IO LBS.ByteString
     run = hastacheStr defaultConfig tmpl (jsonContext val)
 
--- jsonContext :: Monad m => Value -> MuContext m
+jsonContext :: Value
+            -> ByteString
+            -> StateT Integer IO (MuType (StateT Integer IO))
 jsonContext = buildMapContext
     . Map.insert "ordinals" (MuLambdaM $ const ordinals)
-    . Map.insert "n" (MuLambdaM $ const n)
+    . Map.insert "n" (MuLambdaM $ const get)
     . buildMap "" Map.empty
   where
     ordinals :: MonadState Integer m => m String
@@ -51,21 +53,17 @@ jsonContext = buildMapContext
         put y
         return ""
 
-    n :: MonadState Integer m => m Integer
-    n = get
-
---buildMapContext :: Monad m => Map ByteString (MuType m) -> ByteString -> m (MuType m)
+buildMapContext :: Monad m => Map ByteString (MuType m) -> ByteString -> m (MuType m)
 buildMapContext m a = return $ ctx
   where
     ctx = fromMaybe
         (if a == "." then maybe MuNothing id $ Map.lookup BS.empty m else MuNothing)
         (Map.lookup a m)
 
--- buildMap :: Monad m
---          => String
---          -> Map ByteString (MuType m)
---          -> Value
---          -> Map ByteString (MuType m)
+buildMap :: String
+         -> Map ByteString (MuType (StateT Integer IO))
+         -> Value
+         -> Map ByteString (MuType (StateT Integer IO))
 buildMap name m (Object obj) = Map.insert (encodeStr name)
     (MuList [buildMapContext $ foldlWithKey' (foldObject "") Map.empty obj])
     (foldlWithKey' (foldObject name) m obj)
@@ -80,12 +78,11 @@ buildMap name m value = Map.insert (encodeStr name) muValue m
             Null             -> MuNothing
             t                -> MuVariable $ show t
 
--- foldObject :: Monad m
---            => String
---            -> Map ByteString (MuType m)
---            -> Text
---            -> Value
---            -> Map ByteString (MuType m)
+foldObject :: String
+           -> Map ByteString (MuType (StateT Integer IO))
+           -> Text
+           -> Value
+           -> Map ByteString (MuType (StateT Integer IO))
 foldObject name m k v = buildMap (buildName $ Text.unpack k) m v
   where
     buildName n

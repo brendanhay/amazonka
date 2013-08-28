@@ -89,7 +89,9 @@ test-suite aws-haskell-tests
       , containers
       , derive
       , directory
+      , hastache
       , hexpat-pickle-generic      >= 0.1.3
+      , mtl
       , natural-sort
       , old-locale
       , QuickCheck                 >= 2.5.1.1

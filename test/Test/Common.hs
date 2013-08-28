@@ -31,11 +31,9 @@ module Test.Common
     ) where
 
 import qualified Algorithms.NaturalSort               as Nat
-import           Control.Applicative
 import           Data.Aeson                           as Common (Value(..), ToJSON(..), FromJSON(..))
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Char8                as BS
-import qualified Data.ByteString.Lazy.Char8           as LBS
 import           Data.List                            ((\\), sortBy)
 import           Data.Maybe
 import           Data.Monoid
@@ -47,7 +45,6 @@ import           Test.Framework                       as Test
 import           Test.Framework.Providers.QuickCheck2 as Test
 import           Test.QuickCheck                      as Test
 import           Test.TH                              as Test
-import           Text.Hastache
 import           Text.Hastache.Aeson
 
 testVersion :: ByteString -> [Test] -> Test

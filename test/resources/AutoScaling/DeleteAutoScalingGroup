@@ -1,12 +1,6 @@
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
-&ForceDelete=true
-&Version=2011-01-01
-&Action=DeleteAutoScalingGroup
-&AUTHPARAMS 
-
-<DeleteAutoScalingGroupResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  <ResponseMetadata>
-    <RequestId>70a76d42-9665-11e2-9fdf-211deEXAMPLE</RequestId>
-  </ResponseMetadata>
-</DeleteAutoScalingGroupResponse> 
-
+GET /
+Action=DeleteAutoScalingGroup
+AutoScalingGroupName={{dasgAutoScalingGroupName}}
+{{#dasgForceDelete}}
+ForceDelete={{dasgForceDelete}}
+{{/dasgForceDelete}}

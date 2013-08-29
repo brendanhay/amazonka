@@ -1,0 +1,6 @@
+GET /
+Action=DeleteScheduledAction
+{{#dsaAutoScalingGroupName}}
+AutoScalingGroupName={{dsaAutoScalingGroupName}}
+{{/dsaAutoScalingGroupName}}
+ScheduledActionName={{dsaScheduledActionName}}

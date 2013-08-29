@@ -21,7 +21,6 @@ import           GHC.Generics
 import           Network.HTTP.QueryString.Pickle
 import           System.Locale                   (defaultTimeLocale)
 import           Text.XML.Expat.Pickle.Generic
-import Data.Time
 
 newtype Members a = Members { members :: [a] }
     deriving (Eq, Show, Generic)
@@ -34,10 +33,24 @@ instance IsQuery () where
     queryPickler = qpLift ()
 
 instance IsQuery Bool where
-    queryPickler = qpPrim
+    queryPickler = QueryPU p u
+      where
+        p True  = Value "true"
+        p False = Value "false"
+
+        u (Value "true")  = Right True
+        u (Value "false") = Right False
+        u err             = Left $ "unable to parse Bool from: " ++ show err
 
 instance IsXML Bool where
-    xmlPickler = xpContent xpPrim
+    xmlPickler = xpContent $ XMLPU p u Nothing
+      where
+        p True  = "true"
+        p False = "false"
+
+        u "true"  = Right True
+        u "false" = Right False
+        u err     = Left $ "unable to parse Bool from: " ++ show err
 
 instance IsXML UTCTime where
     xmlPickler = xpContent $ XMLPU

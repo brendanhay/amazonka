@@ -22,6 +22,7 @@ import           Data.Attoparsec.Number
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
+import           Data.Char                  (toLower)
 import           Data.HashMap.Strict        (foldlWithKey')
 import           Data.Map                   (Map)
 import qualified Data.Map                   as Map
@@ -65,7 +66,7 @@ buildMap name m value = Map.insert (encodeStr name) muValue m
             Number (D float) -> MuVariable $ toLByteString float
             Number (I int)   -> MuVariable $ toLByteString int
             String s         -> MuVariable s
-            Bool b           -> MuVariable $ show b
+            Bool b           -> MuVariable . map toLower $ show b
             Null             -> MuNothing
             t                -> MuVariable $ show t
 

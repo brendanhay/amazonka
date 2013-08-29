@@ -57,7 +57,9 @@ req meth action qry = (emptyRequest meth FormEncoded "" Nothing)
 -- Actions
 --
 
--- |
+-- | Creates a new Auto Scaling group with the specified name and other
+-- attributes. When the creation request is completed, the Auto Scaling group is
+-- ready to be used in other calls.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html>
 
@@ -90,7 +92,16 @@ data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 instance IsXML CreateAutoScalingGroupResponse where
     xmlPickler = withNS autoScalingNS
 
--- |
+
+-- | Creates a new launch configuration. The launch configuration name must be
+-- unique within the scope of the client's AWS account. The maximum limit of
+-- launch configurations, which by default is 100, must not yet have been met;
+-- otherwise, the call will fail. When created, the new launch configuration is
+-- available for immediate use.
+--
+-- You can create a launch configuration with Amazon EC2 security groups or with
+-- Amazon VPC security groups. However, you can't use Amazon EC2 security groups
+-- together with Amazon VPC security groups, or vice versa.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html>
 data CreateLaunchConfiguration = CreateLaunchConfiguration
@@ -121,7 +132,7 @@ data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 instance IsXML CreateLaunchConfigurationResponse where
     xmlPickler = withNS autoScalingNS
 
--- |
+-- | Creates new tags or updates existing tags for an Auto Scaling group.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
 newtype CreateOrUpdateTags = CreateOrUpdateTags { coutTags :: Members Tag }
@@ -139,80 +150,83 @@ data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 instance IsXML CreateOrUpdateTagsResponse where
     xmlPickler = withNS autoScalingNS
 
--- -- |
--- --
--- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
--- data DeleteAutoScalingGroup = DeleteAutoScalingGroup
---     { dasgAutoScalingGroupName :: !ResourceName
---     , dasgForceDelete :: Maybe Bool
---     } deriving (Eq, Show, Generic)
+-- | Deletes the specified Auto Scaling group if the group has no
+-- instances and no scaling activities in progress.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
+data DeleteAutoScalingGroup = DeleteAutoScalingGroup
+    { dasgAutoScalingGroupName :: !ResourceName
+    , dasgForceDelete :: Maybe Bool
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DeleteAutoScalingGroup
+instance IsQuery DeleteAutoScalingGroup
 
--- instance AWSRequest AutoScaling DeleteAutoScalingGroup MetadataResponse where
---     request = req GET "DeleteAutoScalingGroup"
+instance AWSRequest AutoScaling DeleteAutoScalingGroup MetadataResponse where
+    request = req GET "DeleteAutoScalingGroup"
 
--- -- |
--- --
--- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html>
--- data DeleteLaunchConfiguration = DeleteLaunchConfiguration
---     { dlcLaunchConfigurationName :: !ResourceName
---     } deriving (Eq, Show, Generic)
+-- | Deletes the specified 'LaunchConfiguration'.
+-- The specified launch configuration must not be attached to an Auto Scaling group.
+-- When this call completes, the launch configuration is no longer available for use.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html>
+data DeleteLaunchConfiguration = DeleteLaunchConfiguration
+    { dlcLaunchConfigurationName :: !ResourceName
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DeleteLaunchConfiguration
+instance IsQuery DeleteLaunchConfiguration
 
--- instance AWSRequest AutoScaling DeleteLaunchConfiguration MetadataResponse where
---     request = req GET "DeleteLaunchConfiguration"
+instance AWSRequest AutoScaling DeleteLaunchConfiguration MetadataResponse where
+    request = req GET "DeleteLaunchConfiguration"
 
--- -- |
--- --
--- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteNotificationConfiguration.html>
--- data DeleteNotificationConfiguration = DeleteNotificationConfiguration
---     { dncAutoScalingGroupName :: !ResourceName
---     , dncTopicARN :: !ResourceName
---     } deriving (Eq, Show, Generic)
+-- | Deletes notifications created by PutNotificationConfiguration
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteNotificationConfiguration.html>
+data DeleteNotificationConfiguration = DeleteNotificationConfiguration
+    { dncAutoScalingGroupName :: !ResourceName
+    , dncTopicARN :: !ResourceName
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DeleteNotificationConfiguration
+instance IsQuery DeleteNotificationConfiguration
 
--- instance AWSRequest AutoScaling DeleteNotificationConfiguration MetadataResponse where
---     request = req GET "DeleteNotificationConfiguration"
+instance AWSRequest AutoScaling DeleteNotificationConfiguration MetadataResponse where
+    request = req GET "DeleteNotificationConfiguration"
 
--- -- |
--- --
--- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html>
--- data DeletePolicy = DeletePolicy
---     { dpAutoScalingGroupName :: Maybe ResourceName
---     , dpPolicyName :: !ResourceName
---     } deriving (Eq, Show, Generic)
+-- | Deletes a policy created by PutScalingPolicy.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html>
+data DeletePolicy = DeletePolicy
+    { dpAutoScalingGroupName :: Maybe ResourceName
+    , dpPolicyName :: !ResourceName
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DeletePolicy
+instance IsQuery DeletePolicy
 
--- instance AWSRequest AutoScaling DeletePolicy MetadataResponse where
---     request = req GET "DeletePolicy"
+instance AWSRequest AutoScaling DeletePolicy MetadataResponse where
+    request = req GET "DeletePolicy"
 
--- -- |
--- --
--- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html>
--- data DeleteScheduledAction = DeleteScheduledAction
---     { dsaAutoScalingGroupName :: Maybe ResourceName
---     , dsaScheduledActionName :: !ResourceName
---     } deriving (Eq, Show, Generic)
+-- | Deletes a scheduled action previously created using the PutScheduledUpdateGroupAction.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html>
+data DeleteScheduledAction = DeleteScheduledAction
+    { dsaAutoScalingGroupName :: Maybe ResourceName
+    , dsaScheduledActionName :: !ResourceName
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DeleteScheduledAction
+instance IsQuery DeleteScheduledAction
 
--- instance AWSRequest AutoScaling DeleteScheduledAction MetadataResponse where
---     request = req GET "DeleteScheduledAction"
+instance AWSRequest AutoScaling DeleteScheduledAction MetadataResponse where
+    request = req GET "DeleteScheduledAction"
 
--- -- |
--- --
--- -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteTags.html>
--- data DeleteTags = DeleteTags [Tag]
---     deriving (Eq, Show, Generic)
+-- | Removes the specified tags or a set of tags from a set of resources.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteTags.html>
+data DeleteTags = DeleteTags [Tag]
+    deriving (Eq, Show, Generic)
 
--- instance IsQuery DeleteTags
+instance IsQuery DeleteTags
 
--- instance AWSRequest AutoScaling DeleteTags MetadataResponse where
---     request = req GET "DeleteTags"
+instance AWSRequest AutoScaling DeleteTags MetadataResponse where
+    request = req GET "DeleteTags"
 
 -- -- |
 -- --

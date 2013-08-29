@@ -191,10 +191,12 @@ instance IsQuery BlockDeviceMapping
 -- instance IsXML BlockDeviceMappings
 
 data InstanceMonitoring = InstanceMonitoring
-    { imEnabled :: Maybe Bool
+    { imEnabled :: Bool
     } deriving (Eq, Show, Generic)
 
 instance IsQuery InstanceMonitoring
+
+
 
 -- newtype LaunchConfigurationNames = LaunchConfigurationNames [ResourceName]
 --    deriving (Eq, Show, Generic)

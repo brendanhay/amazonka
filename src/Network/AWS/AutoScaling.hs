@@ -60,6 +60,7 @@ req meth action qry = (emptyRequest meth FormEncoded "" Nothing)
 -- |
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html>
+
 data CreateAutoScalingGroup = CreateAutoScalingGroup
     { casgAutoScalingGroupName    :: !ByteString
     , casgLaunchConfigurationName :: !ResourceName
@@ -67,14 +68,14 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , casgMaxSize                 :: !Integer
     , casgDesiredCapacity         :: Maybe Integer
     , casgDefaultCooldown         :: Maybe Integer
-    , casgAvailabilityZones       :: !(Member ByteString)
-    , casgLoadBalancerNames       :: !(Member ByteString)
+    , casgAvailabilityZones       :: !(Members ByteString)
+    , casgLoadBalancerNames       :: !(Members ByteString)
     , casgHealthCheckType         :: Maybe ByteString
     , casgHealthCheckGracePeriod  :: Maybe Integer
     , casgPlacementGroup          :: Maybe ByteString
     , casgVPCZoneIdentifier       :: Maybe ByteString
-    , casgTerminationPolicies     :: !(Member ByteString)
-    , casgTags                    :: !(Member Tag)
+    , casgTerminationPolicies     :: !(Members ByteString)
+    , casgTags                    :: !(Members Tag)
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateAutoScalingGroup
@@ -96,13 +97,13 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     { clcLaunchConfigurationName :: !ByteString
     , clcImageId                 :: !ByteString
     , clcKeyName                 :: Maybe ByteString
-    , clcSecurityGroups          :: !(Member ByteString)
+    , clcSecurityGroups          :: !(Members ByteString)
     , clcUserData                :: Maybe ByteString
-    , clcInstanceType            :: !ByteString
+    , clcInstanceType            :: !InstanceType
     , clcKernelId                :: Maybe ByteString
     , clcRamdiskId               :: Maybe ByteString
-    , clcBlockDeviceMappings     :: !(Member BlockDeviceMapping)
-    , clcInstanceMonitoring      :: !InstanceMonitoring
+    , clcBlockDeviceMappings     :: !(Members BlockDeviceMapping)
+    , clcInstanceMonitoring      :: Maybe InstanceMonitoring
     , clcSpotPrice               :: Maybe ByteString
     , clcIamInstanceProfile      :: Maybe ByteString
     , clcEbsOptimized            :: Maybe Bool
@@ -123,7 +124,7 @@ instance IsXML CreateLaunchConfigurationResponse where
 -- |
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
-newtype CreateOrUpdateTags = CreateOrUpdateTags { coutTags :: Member Tag }
+newtype CreateOrUpdateTags = CreateOrUpdateTags { coutTags :: Members Tag }
     deriving (Eq, Show, Generic)
 
 instance IsQuery CreateOrUpdateTags
@@ -548,7 +549,7 @@ instance IsXML CreateOrUpdateTagsResponse where
 --     , uasgHealthCheckGracePeriod :: Maybe Integer
 --     , uasgPlacementGroup :: Maybe ByteString
 --     , uasgVPCZoneIdentifier :: Maybe ByteString
---     , uasgTerminationPolicies :: !(Param Member ByteString)
+--     , uasgTerminationPolicies :: !(Members ByteString)
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery UpdateAutoScalingGroup

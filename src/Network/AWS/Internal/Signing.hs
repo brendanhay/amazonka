@@ -40,11 +40,10 @@ import           System.Locale                   (defaultTimeLocale, iso8601Date
 sign :: AWSService a => RawRequest a b -> AWS SignedRequest
 sign rq = do
     svc <- service rq
-    let signer =
-          case svcSigner svc of
-              SigningVersion2 -> version2
-              SigningVersion3 -> version3
-              SigningVersion4 -> version4
+    let signer = case svcSigner svc of
+            SigningVersion2 -> version2
+            SigningVersion3 -> version3
+            SigningVersion4 -> version4
     awsAuth <$> ask >>= liftIO . signer rq svc
 
 --

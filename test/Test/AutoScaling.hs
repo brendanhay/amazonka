@@ -95,7 +95,7 @@ tests = (:[]) $ testVersion autoScalingVersion
     ]
 
 $(deriveDependency
-    [ ''Member
+    [ ''Members
     , ''ResourceName
     , ''ResponseMetadata
     , ''ErrorType

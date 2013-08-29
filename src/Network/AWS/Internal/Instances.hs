@@ -22,11 +22,11 @@ import           Network.HTTP.QueryString.Pickle
 import           System.Locale                   (defaultTimeLocale)
 import           Text.XML.Expat.Pickle.Generic
 
-newtype Member a = Member { member :: [a] }
+newtype Members a = Members { members :: [a] }
     deriving (Eq, Show, Generic)
 
-instance IsQuery a => IsQuery (Member a) where
-    queryPickler = qpWrap (Member, member)
+instance IsQuery a => IsQuery (Members a) where
+    queryPickler = qpWrap (Members, members)
         (qpElem "member" $ qpOrdinalList queryPickler)
 
 instance IsQuery Bool where

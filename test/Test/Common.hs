@@ -43,13 +43,17 @@ import           System.IO.Unsafe                     (unsafePerformIO)
 import           Test.Arbitrary                       ()
 import           Test.Framework                       as Test
 import           Test.Framework.Providers.QuickCheck2 as Test
-import           Test.QuickCheck                      as Test
+import           Test.QuickCheck                      as Test hiding (within)
 import           Test.TH                              as Test
 import           Text.Hastache.Aeson
 
 testVersion :: ByteString -> [Test] -> Test
-testVersion ver = plusTestOptions
-    (mempty { topt_maximum_test_size = Just 50 }) . testGroup (BS.unpack ver)
+testVersion ver = plusTestOptions opts . testGroup (BS.unpack ver)
+  where
+    opts = mempty
+        { topt_maximum_generated_tests = Just 50
+        , topt_maximum_test_size       = Just 30
+        }
 
 class TestProperty a where
     prop :: a -> Bool
@@ -71,10 +75,11 @@ data Request a where
 instance (Eq a, Arbitrary a) => TestProperty (Request a) where
     prop = all null . trqDiff
 
-instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, AWSRequest s a b)
+instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a,
+          AWSService s, AWSRequest s a b)
          => Arbitrary (Request a) where
     arbitrary = do
-        rq <- arbitrary
+        rq  <- arbitrary
         let raw  = request rq
             enc  = encode raw
             tmpl = render' rq raw
@@ -83,13 +88,14 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, AWSRequest s a b)
       where
         encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
             [ BS.pack (show rqMethod) <> " " <> fromMaybe "/" rqPath
+            , maybe "" ("Action=" <>) rqAction
             , BS.intercalate "\n" . map join $ sortBy sort rqQuery
             , maybe "" (const $ toBS rqContent) rqBody
             , fromMaybe "" rqBody
             ]
-          where
-            join (k, v) = k <> "=" <> v
-            sort x y    = Nat.compare (decodeUtf8 $ fst x) (decodeUtf8 $ fst y)
+
+        join (k, v) = k <> "=" <> v
+        sort x y    = Nat.compare (decodeUtf8 $ fst x) (decodeUtf8 $ fst y)
 
         render' x y = unsafePerformIO $
             render (readTemplate x) (concatJSON (toJSON x) (toJSON y))
@@ -133,11 +139,10 @@ instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
     arbitrary = do
         rsp <- arbitrary
         let xml  = toIndentedXML 2 rsp
-            tmpl = render' rsp
+            json = toJSON rsp
+            tmpl = unsafePerformIO $ render (readTemplate rsp) json
             diff = difference tmpl xml
-        return $ Response rsp (fromXML tmpl) tmpl xml diff (toJSON rsp)
-      where
-        render' x = unsafePerformIO $ render (readTemplate x) (toJSON x)
+        return $ Response rsp (fromXML tmpl) tmpl xml diff json
 
 instance Show a => Show (Response a) where
     show Response{..} = unlines

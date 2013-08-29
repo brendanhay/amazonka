@@ -16,6 +16,7 @@ module Network.AWS
     (
     -- * AWS Monadic Context
       runAWS
+    , credentials
     , send
     , within
     ) where
@@ -35,14 +36,14 @@ import           OpenSSL                  (withOpenSSL)
 import           System.Environment
 import qualified System.IO.Streams        as Streams
 
-runAWS :: AWS a -> IO a
-runAWS aws = withOpenSSL $ credentials >>=
-    runReaderT (unWrap aws) . Env Nothing
+runAWS :: AWS a -> Auth -> IO a
+runAWS aws auth = withOpenSSL . runReaderT (unWrap aws) $ Env Nothing auth
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
 within :: Region -> AWS a -> AWS a
-within reg aws = awsAuth <$> ask >>=
-    liftIO . runReaderT (unWrap aws) . Env (Just reg)
+within reg aws = awsAuth <$> ask >>= liftIO
+    . runReaderT (unWrap aws)
+    . Env (Just reg)
 
 send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWS (Either String b)
 send payload = do

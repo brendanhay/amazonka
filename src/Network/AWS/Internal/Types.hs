@@ -1,6 +1,7 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FunctionalDependencies     #-}
 {-# LANGUAGE GADTs                      #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
@@ -21,22 +22,24 @@ module Network.AWS.Internal.Types where
 import           Control.Applicative
 import           Control.Monad
 import           Control.Monad.IO.Class
-import           Control.Monad.Reader          hiding (lift)
+import           Control.Monad.Reader            hiding (lift)
 import           Data.Aeson
-import           Data.ByteString               (ByteString)
-import qualified Data.ByteString.Char8         as BS
-import           Data.Map                      (Map)
-import qualified Data.Map                      as Map
+import           Data.ByteString                 (ByteString)
+import qualified Data.ByteString.Char8           as BS
+import           Data.Map                        (Map)
+import qualified Data.Map                        as Map
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text                     (Text)
-import qualified Data.Text                     as Text
+import           Data.Text                       (Text)
+import qualified Data.Text                       as Text
 import           Data.Text.Encoding
 import           Data.Time
-import           Network.Http.Client           hiding (ContentType, post, put)
-import           System.Locale                 (defaultTimeLocale)
-import           Text.ParserCombinators.ReadP  (string)
-import           Text.Read                     hiding (String)
+import           GHC.Generics
+import           Network.HTTP.QueryString.Pickle
+import           Network.Http.Client             hiding (ContentType, post, put)
+import           System.Locale                   (defaultTimeLocale)
+import           Text.ParserCombinators.ReadP    (string)
+import           Text.Read                       hiding (String)
 import           Text.XML.Expat.Pickle.Generic
 
 data Region
@@ -77,6 +80,73 @@ instance IsByteString Region where
     toBS = BS.pack . show
 
 instance IsXML Region where
+    xmlPickler = xpContent xpPrim
+
+data InstanceType
+    = T1_Micro
+    | M1_Small
+    | M1_Medium
+    | M1_Large
+    | M1_XLarge
+    | M3_XLarge
+    | M3_2XLarge
+    | C1_Medium
+    | C1_XLarge
+    | CC2_8XLarge
+    | M2_XLarge
+    | M2_2XLarge
+    | M2_4XLarge
+    | CR1_8XLarge
+    | HI1_4XLarge
+    | HS1_8XLarge
+    | CG1_4XLarge
+      deriving (Eq, Generic)
+
+instance Show InstanceType where
+    show typ = case typ of
+        T1_Micro    -> "t1.micro"
+        M1_Small    -> "m1.small"
+        M1_Medium   -> "m1.medium"
+        M1_Large    -> "m1.large"
+        M1_XLarge   -> "m1.xlarge"
+        M3_XLarge   -> "m3.xlarge"
+        M3_2XLarge  -> "m3.2xlarge"
+        C1_Medium   -> "c1.medium"
+        C1_XLarge   -> "c1.xlarge"
+        CC2_8XLarge -> "cc2.8xlarge"
+        M2_XLarge   -> "m2.xlarge"
+        M2_2XLarge  -> "m2.2xlarge"
+        M2_4XLarge  -> "m2.4xlarge"
+        CR1_8XLarge -> "cr1.8xlarge"
+        HI1_4XLarge -> "hi1.4xlarge"
+        HS1_8XLarge -> "hs1.8xlarge"
+        CG1_4XLarge -> "cg1.4xlarge"
+
+instance Read InstanceType where
+    readPrec = readAssocList
+        [ ("t1.micro", T1_Micro)
+        , ("m1.small", M1_Small)
+        , ("m1.medium", M1_Medium)
+        , ("m1.large", M1_Large)
+        , ("m1.xlarge", M1_XLarge)
+        , ("m3.xlarge", M3_XLarge)
+        , ("m3.2xlarge", M3_2XLarge)
+        , ("c1.medium", C1_Medium)
+        , ("c1.xlarge", C1_XLarge)
+        , ("cc2.8xlarge", CC2_8XLarge)
+        , ("m2.xlarge", M2_XLarge)
+        , ("m2.2xlarge", M2_2XLarge)
+        , ("m2.4xlarge", M2_4XLarge)
+        , ("cr1.8xlarge", CR1_8XLarge)
+        , ("hi1.4xlarge", HI1_4XLarge)
+        , ("hs1.8xlarge", HS1_8XLarge)
+        , ("cg1.4xlarge", CG1_4XLarge)
+        ]
+
+instance IsQuery InstanceType where
+    queryPickler = qpPrim
+
+instance IsXML InstanceType where
     xmlPickler = xpContent xpPrim
 
 readAssocList :: [(String, a)] -> ReadPrec a

@@ -1,23 +1,21 @@
 GET /
+Action=CreateOrUpdateTags
 {{#coutTags}}
-{{#member}}
-{{#ordinals}}
-setup member ordinals
-{{/ordinals}}
+{{#members}}
 {{#tKey}}
-Tags.member.{{#n}}{{/n}}.Key={{tKey}}
+Tags.member.{{n}}.Key={{tKey}}
 {{/tKey}}
 {{#tPropagateAtLaunch}}
-Tags.member.{{#n}}{{/n}}.PropagateAtLaunch={{tPropagateAtLaunch}}
+Tags.member.{{n}}.PropagateAtLaunch={{tPropagateAtLaunch}}
 {{/tPropagateAtLaunch}}
 {{#tResourceId}}
-Tags.member.{{#n}}{{/n}}.ResourceId={{tResourceId}}
+Tags.member.{{n}}.ResourceId={{tResourceId}}
 {{/tResourceId}}
 {{#tResourceType}}
-Tags.member.{{#n}}{{/n}}.ResourceType={{tResourceType}}
+Tags.member.{{n}}.ResourceType={{tResourceType}}
 {{/tResourceType}}
 {{#tValue}}
-Tags.member.{{#n}}{{/n}}.Value={{tValue}}
+Tags.member.{{n}}.Value={{tValue}}
 {{/tValue}}
-{{/member}}
+{{/members}}
 {{/coutTags}}

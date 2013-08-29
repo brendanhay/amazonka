@@ -16,12 +16,12 @@ module Test.Arbitrary where
 
 import           Control.Applicative
 import           Data.Aeson
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Char8      as BS
+import           Data.ByteString       (ByteString)
+import qualified Data.ByteString.Char8 as BS
 import           Data.DeriveTH
-import qualified Data.Text                  as Text
+import qualified Data.Text             as Text
 import           Data.Time
-import           Network.AWS.Internal.Types
+import           Network.AWS.Internal
 import           Test.QuickCheck
 
 instance Arbitrary ByteString where
@@ -48,7 +48,11 @@ instance Arbitrary DiffTime where
 instance ToJSON Region where
     toJSON = String . Text.pack . show
 
+instance ToJSON InstanceType where
+    toJSON = String . Text.pack . show
+
 $(derives [makeArbitrary]
     [ ''Region
+    , ''InstanceType
     ])
 

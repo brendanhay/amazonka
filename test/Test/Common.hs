@@ -51,8 +51,8 @@ testVersion :: ByteString -> [Test] -> Test
 testVersion ver = plusTestOptions opts . testGroup (BS.unpack ver)
   where
     opts = mempty
-        { topt_maximum_generated_tests = Just 50
-        , topt_maximum_test_size       = Just 30
+        { topt_maximum_generated_tests = Just 10
+        , topt_maximum_test_size       = Just 10
         }
 
 class TestProperty a where

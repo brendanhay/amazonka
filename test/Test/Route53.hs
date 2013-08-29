@@ -23,24 +23,24 @@ tests :: [Test]
 tests = (:[]) $ testVersion route53Version
     [ testGroup "Hosted Zones"
         [ testGroup "Requests"
-            [ testProperty "CreateHostedZone" (prop :: Rq CreateHostedZone)
-            , testProperty "GetHostedZone"    (prop :: Rq GetHostedZone)
-            , testProperty "ListHostedZones"  (prop :: Rq ListHostedZones)
-            , testProperty "DeleteHostedZone" (prop :: Rq DeleteHostedZone)
+            [ testProperty "CreateHostedZone"                 (prop :: Rq CreateHostedZone)
+            , testProperty "GetHostedZone"                    (prop :: Rq GetHostedZone)
+            , testProperty "ListHostedZones"                  (prop :: Rq ListHostedZones)
+            , testProperty "DeleteHostedZone"                 (prop :: Rq DeleteHostedZone)
             ]
         , testGroup "Responses"
-            [ testProperty "CreateHostedZoneResponse" (prop :: Rs CreateHostedZoneResponse)
-            , testProperty "GetHostedZoneResponse"    (prop :: Rs GetHostedZoneResponse)
-            , testProperty "ListHostedZonesResponse"  (prop :: Rs ListHostedZonesResponse)
-            , testProperty "DeleteHostedZoneResponse" (prop :: Rs DeleteHostedZoneResponse)
+            [ testProperty "CreateHostedZoneResponse"         (prop :: Rs CreateHostedZoneResponse)
+            , testProperty "GetHostedZoneResponse"            (prop :: Rs GetHostedZoneResponse)
+            , testProperty "ListHostedZonesResponse"          (prop :: Rs ListHostedZonesResponse)
+            , testProperty "DeleteHostedZoneResponse"         (prop :: Rs DeleteHostedZoneResponse)
             ]
         ]
 
     , testGroup "Record Sets"
         [ testGroup "Requests"
-            [ testProperty "ChangeResourceRecordSets" (prop :: Rq ChangeResourceRecordSets)
-            , testProperty "ListResourceRecordSets"   (prop :: Rq ListResourceRecordSets)
-            , testProperty "GetChange"                (prop :: Rq GetChange)
+            [ testProperty "ChangeResourceRecordSets"         (prop :: Rq ChangeResourceRecordSets)
+            , testProperty "ListResourceRecordSets"           (prop :: Rq ListResourceRecordSets)
+            , testProperty "GetChange"                        (prop :: Rq GetChange)
             ]
         , testGroup "Responses"
             [ testProperty "ChangeResourceRecordSetsResponse" (prop :: Rs ChangeResourceRecordSetsResponse)

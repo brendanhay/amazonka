@@ -92,8 +92,7 @@ req meth path qry = (emptyRequest meth FormEncoded (ver path) Nothing)
     }
 
 body :: IsXML a => Method -> ByteString -> a -> RawRequest R53 b
-body meth path = (emptyRequest meth XML $ ver path) . Just . toIndentedXML 2
-    -- ^ Indented for Debugging/Testing purposes
+body meth path = (emptyRequest meth XML $ ver path) . Just . toIndentedXML 2 -- Indented for Debugging/Testing purposes
 
 ver :: ByteString -> ByteString
 ver = mappend ("/" <> route53Version <> "/")

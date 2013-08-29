@@ -21,6 +21,7 @@ import qualified Data.ByteString.Char8 as BS
 import           Data.DeriveTH
 import qualified Data.Text             as Text
 import           Data.Time
+import qualified Data.Vector           as V
 import           Network.AWS.Internal
 import           Test.QuickCheck
 
@@ -51,8 +52,12 @@ instance ToJSON Region where
 instance ToJSON InstanceType where
     toJSON = String . Text.pack . show
 
+instance ToJSON a => ToJSON (Members a) where
+    toJSON = Array . V.fromList . fmap toJSON . members
+
 $(derives [makeArbitrary]
     [ ''Region
     , ''InstanceType
+    , ''Members
     ])
 

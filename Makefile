@@ -15,7 +15,7 @@ clean:
 	cabal-dev clean
 
 test:
-	cabal-dev configure --enable-tests && cabal-dev test
+	cabal-dev configure --enable-tests && cabal-dev build && cabal-dev test
 
 lint:
 	hlint src

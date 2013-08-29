@@ -42,18 +42,18 @@ tests = (:[]) $ testVersion autoScalingVersion
         -- , testProperty "DescribeScheduledActions"                     (prop :: Rq DescribeScheduledActions)
         -- , testProperty "DescribeTags"                                 (prop :: Rq DescribeTags)
         -- , testProperty "DescribeTerminationPolicyTypes"               (prop :: Rq DescribeTerminationPolicyTypes)
-        -- , testProperty "DisableMetricsCollection"                     (prop :: Rq DisableMetricsCollection)
-        -- , testProperty "EnableMetricsCollection"                      (prop :: Rq EnableMetricsCollection)
-        -- , testProperty "ExecutePolicy"                                (prop :: Rq ExecutePolicy)
-        -- , testProperty "PutNotificationConfiguration"                 (prop :: Rq PutNotificationConfiguration)
-        -- , testProperty "PutScalingPolicy"                             (prop :: Rq PutScalingPolicy)
-        -- , testProperty "PutScheduledUpdateGroupAction"                (prop :: Rq PutScheduledUpdateGroupAction)
-        -- , testProperty "ResumeProcesses"                              (prop :: Rq ResumeProcesses)
-        -- , testProperty "SetDesiredCapacity"                           (prop :: Rq SetDesiredCapacity)
-        -- , testProperty "SetInstanceHealth"                            (prop :: Rq SetInstanceHealth)
-        -- , testProperty "SuspendProcesses"                             (prop :: Rq SuspendProcesses)
-        -- , testProperty "TerminateInstanceInAutoScalingGroup"          (prop :: Rq TerminateInstanceInAutoScalingGroup)
-        -- , testProperty "UpdateAutoScalingGroup"                       (prop :: Rq UpdateAutoScalingGroup)
+        , testProperty "DisableMetricsCollection"                     (prop :: Rq DisableMetricsCollection)
+        , testProperty "EnableMetricsCollection"                      (prop :: Rq EnableMetricsCollection)
+        , testProperty "ExecutePolicy"                                (prop :: Rq ExecutePolicy)
+        , testProperty "PutNotificationConfiguration"                 (prop :: Rq PutNotificationConfiguration)
+        , testProperty "PutScalingPolicy"                             (prop :: Rq PutScalingPolicy)
+        , testProperty "PutScheduledUpdateGroupAction"                (prop :: Rq PutScheduledUpdateGroupAction)
+        , testProperty "ResumeProcesses"                              (prop :: Rq ResumeProcesses)
+        , testProperty "SetDesiredCapacity"                           (prop :: Rq SetDesiredCapacity)
+        , testProperty "SetInstanceHealth"                            (prop :: Rq SetInstanceHealth)
+        , testProperty "SuspendProcesses"                             (prop :: Rq SuspendProcesses)
+        , testProperty "TerminateInstanceInAutoScalingGroup"          (prop :: Rq TerminateInstanceInAutoScalingGroup)
+        , testProperty "UpdateAutoScalingGroup"                       (prop :: Rq UpdateAutoScalingGroup)
         ]
 
     , testGroup "Responses"
@@ -79,18 +79,18 @@ tests = (:[]) $ testVersion autoScalingVersion
         -- , testProperty "DescribeScheduledActionsResponse"             (prop :: Rs DescribeScheduledActionsResponse)
         -- , testProperty "DescribeTagsResponse"                         (prop :: Rs DescribeTagsResponse)
         -- , testProperty "DescribeTerminationPolicyTypesResponse"       (prop :: Rs DescribeTerminationPolicyTypesResponse)
-        -- , testProperty "DisableMetricsCollectionResponse"             (prop :: Rs DisableMetricsCollectionResponse)
-        -- , testProperty "EnableMetricsCollectionResponse"              (prop :: Rs EnableMetricsCollectionResponse)
-        -- , testProperty "ExecutePolicyResponse"                        (prop :: Rs ExecutePolicyResponse)
-        -- , testProperty "PutNotificationConfigurationResponse"         (prop :: Rs PutNotificationConfigurationResponse)
-        -- , testProperty "PutScalingPolicyResponse"                     (prop :: Rs PutScalingPolicyResponse)
-        -- , testProperty "PutScheduledUpdateGroupActionResponse"        (prop :: Rs PutScheduledUpdateGroupActionResponse)
-        -- , testProperty "ResumeProcessesResponse"                      (prop :: Rs ResumeProcessesResponse)
-        -- , testProperty "SetDesiredCapacityResponse"                   (prop :: Rs SetDesiredCapacityResponse)
-        -- , testProperty "SetInstanceHealthResponse"                    (prop :: Rs SetInstanceHealthResponse)
-        -- , testProperty "SuspendProcessesResponse"                     (prop :: Rs SuspendProcessesResponse)
-        -- , testProperty "TerminateInstanceInAutoScalingGroupResponse"  (prop :: Rs TerminateInstanceInAutoScalingGroupResponse)
-        -- , testProperty "UpdateAutoScalingGroupResponse"               (prop :: Rs UpdateAutoScalingGroupResponse)
+        , testProperty "DisableMetricsCollectionResponse"             (prop :: Rs DisableMetricsCollectionResponse)
+        , testProperty "EnableMetricsCollectionResponse"              (prop :: Rs EnableMetricsCollectionResponse)
+        , testProperty "ExecutePolicyResponse"                        (prop :: Rs ExecutePolicyResponse)
+        , testProperty "PutNotificationConfigurationResponse"         (prop :: Rs PutNotificationConfigurationResponse)
+        , testProperty "PutScalingPolicyResponse"                     (prop :: Rs PutScalingPolicyResponse)
+        , testProperty "PutScheduledUpdateGroupActionResponse"        (prop :: Rs PutScheduledUpdateGroupActionResponse)
+        , testProperty "ResumeProcessesResponse"                      (prop :: Rs ResumeProcessesResponse)
+        , testProperty "SetDesiredCapacityResponse"                   (prop :: Rs SetDesiredCapacityResponse)
+        , testProperty "SetInstanceHealthResponse"                    (prop :: Rs SetInstanceHealthResponse)
+        , testProperty "SuspendProcessesResponse"                     (prop :: Rs SuspendProcessesResponse)
+        , testProperty "TerminateInstanceInAutoScalingGroupResponse"  (prop :: Rs TerminateInstanceInAutoScalingGroupResponse)
+        , testProperty "UpdateAutoScalingGroupResponse"               (prop :: Rs UpdateAutoScalingGroupResponse)
         ]
     ]
 
@@ -179,28 +179,28 @@ $(deriveProperty "test/resources/AutoScaling"
     -- , ''DescribeTagsResponse
     -- , ''DescribeTerminationPolicyTypes
     -- , ''DescribeTerminationPolicyTypesResponse
-    -- , ''DisableMetricsCollection
-    -- , ''DisableMetricsCollectionResponse
-    -- , ''EnableMetricsCollection
-    -- , ''EnableMetricsCollectionResponse
-    -- , ''ExecutePolicy
-    -- , ''ExecutePolicyResponse
-    -- , ''PutNotificationConfiguration
-    -- , ''PutNotificationConfigurationResponse
-    -- , ''PutScalingPolicy
-    -- , ''PutScalingPolicyResponse
-    -- , ''PutScheduledUpdateGroupAction
-    -- , ''PutScheduledUpdateGroupActionResponse
-    -- , ''ResumeProcesses
-    -- , ''ResumeProcessesResponse
-    -- , ''SetDesiredCapacity
-    -- , ''SetDesiredCapacityResponse
-    -- , ''SetInstanceHealth
-    -- , ''SetInstanceHealthResponse
-    -- , ''SuspendProcesses
-    -- , ''SuspendProcessesResponse
-    -- , ''TerminateInstanceInAutoScalingGroup
-    -- , ''TerminateInstanceInAutoScalingGroupResponse
-    -- , ''UpdateAutoScalingGroup
-    -- , ''UpdateAutoScalingGroupResponse
+    , ''DisableMetricsCollection
+    , ''DisableMetricsCollectionResponse
+    , ''EnableMetricsCollection
+    , ''EnableMetricsCollectionResponse
+    , ''ExecutePolicy
+    , ''ExecutePolicyResponse
+    , ''PutNotificationConfiguration
+    , ''PutNotificationConfigurationResponse
+    , ''PutScalingPolicy
+    , ''PutScalingPolicyResponse
+    , ''PutScheduledUpdateGroupAction
+    , ''PutScheduledUpdateGroupActionResponse
+    , ''ResumeProcesses
+    , ''ResumeProcessesResponse
+    , ''SetDesiredCapacity
+    , ''SetDesiredCapacityResponse
+    , ''SetInstanceHealth
+    , ''SetInstanceHealthResponse
+    , ''SuspendProcesses
+    , ''SuspendProcessesResponse
+    , ''TerminateInstanceInAutoScalingGroup
+    , ''TerminateInstanceInAutoScalingGroupResponse
+    , ''UpdateAutoScalingGroup
+    , ''UpdateAutoScalingGroupResponse
     ])

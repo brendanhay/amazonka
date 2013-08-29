@@ -1,3 +1,4 @@
+
 https://autoscaling.amazonaws.com/?LaunchConfigurationNames.member.1=my-test-lc
 &MaxRecords=20
 &Version=2011-01-01

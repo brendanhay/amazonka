@@ -1,0 +1,147 @@
+https://ec2.amazonaws.com/?
+Action=DescribeInstanceStatus
+&Version=2013-07-15
+&AuthParams
+
+https://ec2.amazonaws.com/?
+Action=DescribeInstanceStatus
+&InstanceId.0=i-1a2b3c4d
+&InstanceId.1=i-2a2b3c4d
+&Version=2013-07-15
+&AuthParams
+
+https://ec2.amazonaws.com/?
+Action=DescribeInstanceStatus
+&Filter.0.Name=system-status.reachability
+&Filter.0.Value.failed
+&Version=2013-07-15
+&AuthParams
+
+<DescribeInstanceStatusResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+    <requestId>3be1508e-c444-4fef-89cc-0b1223c4f02fEXAMPLE</requestId>
+    <instanceStatusSet>
+        <item>
+            <instanceId>i-1a2b3c4d</instanceId>
+            <availabilityZone>us-east-1d</availabilityZone>
+            <instanceState>
+                <code>16</code>
+                <name>running</name>
+            </instanceState>
+            <systemStatus>
+                <status>impaired</status>
+                <details>
+                    <item>
+                        <name>reachability</name>
+                        <status>failed</status>
+                        <impairedSince>YYYY-MM-DDTHH:MM:SS.000Z</impairedSince>
+                    </item>
+                </details>
+            </systemStatus>
+            <instanceStatus>
+                <status>impaired</status>
+                <details>
+                    <item>
+                        <name>reachability</name>
+                        <status>failed</status>
+                        <impairedSince>YYYY-MM-DDTHH:MM:SS.000Z</impairedSince>
+                    </item>
+                </details>
+            </instanceStatus>
+            <eventsSet>
+                <code>instance-retirement</code>
+                <notBefore>YYYY-MM-DDTHH:MM:SS+0000</notBefore>
+                <notAfter>YYYY-MM-DDTHH:MM:SS+0000</notAfter>
+                <description>
+                    The instance is running on degraded hardware 
+                  </description>
+            </eventsSet>
+        </item>
+        <item>
+            <instanceId>i-2a2b3c4d</instanceId>
+            <availabilityZone>us-east-1d</availabilityZone>
+            <instanceState>
+                <code>16</code>
+                <name>running</name>
+            </instanceState>
+            <systemStatus>
+                <status>ok</status>
+                <details>
+                    <item>
+                        <name>reachability</name>
+                        <status>passed</status>
+                    </item>
+                </details>
+            </systemStatus>
+            <instanceStatus>
+                <status>ok</status>
+                <details>
+                    <item>
+                        <name>reachability</name>
+                        <status>passed</status>
+                    </item>
+                </details>
+            </instanceStatus>
+            <eventsSet>
+                <code>instance-reboot</code>
+                <notBefore>YYYY-MM-DDTHH:MM:SS+0000</notBefore>
+                <notAfter>YYYY-MM-DDTHH:MM:SS+0000</notAfter>
+                <description>
+                    The instance is scheduled for a reboot
+                </description>
+            </eventsSet>
+        </item>
+        <item>
+            <instanceId>i-3a2b3c4d</instanceId>
+            <availabilityZone>us-east-1c</availabilityZone>
+            <instanceState>
+                <code>16</code>
+                <name>running</name>
+            </instanceState>
+            <systemStatus>
+                <status>ok</status>
+                <details>
+                    <item>
+                        <name>reachability</name>
+                        <status>passed</status>
+                    </item>
+                </details>
+            </systemStatus>
+            <instanceStatus>
+                <status>ok</status>
+                <details>
+                    <item>
+                        <name>reachability</name>
+                        <status>passed</status>
+                    </item>
+                </details>
+            </instanceStatus>
+        </item>
+        <item>
+            <instanceId>i-4a2b3c4d</instanceId>
+            <availabilityZone>us-east-1c</availabilityZone>
+            <instanceState>
+                <code>16</code>
+                <name>running</name>
+            </instanceState>
+            <systemStatus>
+                <status>ok</status>
+                <details>
+                    <item>
+                        <name>reachability</name>
+                        <status>passed</status>
+                    </item>
+                </details>
+            </systemStatus>
+            <instanceStatus>
+                <status>insufficient-data</status>
+                <details>
+                    <item>
+                        <name>reachability</name>
+                        <status>insufficient-data</status>
+                    </item>
+                </details>
+            </instanceStatus>
+         </item>
+    </instanceStatusSet>
+</DescribeInstanceStatusResponse>
+

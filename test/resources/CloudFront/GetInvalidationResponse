@@ -1,0 +1,46 @@
+GET /2013-05-12/distribution/distribution ID/invalidation/invalidation ID HTTP/1.0
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+
+HTTP/1.0 200 OK
+Content-Type: text/xml
+
+<Invalidation xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Id>id that CloudFront assigned to the invalidation</Id>
+   <Status>InProgress | Completed</Status>
+   <CreateTime>date and time of request</CreateTime>
+   <InvalidationBatch>
+      <Paths>
+         <Quantity>number of objects to invalidate</Quantity>
+         <Items>
+            <Path>/path to object to invalidate</Path>
+         </Items>
+      </Paths>
+      <CallerReference>unique identifier for this invalidation batch</CallerReference>
+   </InvalidationBatch>
+</Invalidation>
+
+GET /2013-05-12/distribution/distribution ID/invalidation/invalidation ID HTTP/1.0
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+
+HTTP/1.0 200 OK
+Content-Type: text/xml
+
+<Invalidation xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Id>IDFDVBD632BHDS5</Id>
+   <Status>InProgress</Status>
+   <CreateTime>2009-11-19T19:37:58Z</CreateTime>   
+   <InvalidationBatch>
+      <Paths>
+         <Quantity>3</Quantity>
+         <Items>
+            <Path>/image1.jpg</Path>
+            <Path>/image2.jpg</Path>
+            <Path>/videos/movie.flv</Path>
+         </Items>
+      </Paths>
+      <CallerReference>20120301090001</CallerReference>
+   </InvalidationBatch>
+</Invalidation>
+

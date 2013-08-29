@@ -1,0 +1,31 @@
+
+                
+POST / HTTP/1.1
+Date: Sat, 12 May 2012 05:27:54 GMT
+Host: email.us-east-1.amazonaws.com
+Content-Type: application/x-www-form-urlencoded
+X-Amzn-Authorization: AWS3 AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
+ Signature=3+KQ4VHx991T7Kb41HmFcZJxuHz4/6mf2H5FxY+tuLc=,
+ Algorithm=HmacSHA256, SignedHeaders=Date;Host
+Content-Length: 203
+
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Action=SetIdentityNotificationTopic
+&Identity=user@example.com
+&SnsTopic=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3Aexample
+&NotificationType=Bounce
+&Timestamp=2012-05-12T05%3A27%3A54.000Z&Version=2010-12-01
+          
+            
+
+
+                
+<SetIdentityNotificationTopicResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+  <SetIdentityNotificationTopicResult/>
+  <ResponseMetadata>
+    <RequestId>299f4af4-b72a-11e1-901f-1fbd90e8104f</RequestId>
+  </ResponseMetadata>
+</SetIdentityNotificationTopicResponse>
+          
+            
+

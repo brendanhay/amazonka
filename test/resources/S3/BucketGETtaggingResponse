@@ -1,0 +1,28 @@
+GET /?tagging HTTP/1.1
+Host: BucketName.s3.amazonaws.com
+Date: date
+Authorization: signatureValue
+
+GET ?tagging HTTP/1.1
+Host: bucket.s3.amazonaws.com
+Date: Wed, 28 Oct 2009 22:32:00 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+
+HTTP/1.1 200 OK
+Date: Wed, 25 Nov 2009 12:00:00 GMT
+Connection: close
+Server: AmazonS3
+
+<Tagging>
+  <TagSet>
+     <Tag>
+       <Key>Project</Key>
+       <Value>Project One</Value>
+     </Tag>
+     <Tag>
+       <Key>User</Key>
+       <Value>jsmith</Value>
+     </Tag>
+  </TagSet>
+</Tagging> 
+

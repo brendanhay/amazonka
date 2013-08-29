@@ -1,7 +1,6 @@
 GET /
 Action=CreateOrUpdateTags
 {{#coutTags}}
-{{#members}}
 {{#tKey}}
 Tags.member.{{n}}.Key={{tKey}}
 {{/tKey}}
@@ -17,5 +16,4 @@ Tags.member.{{n}}.ResourceType={{tResourceType}}
 {{#tValue}}
 Tags.member.{{n}}.Value={{tValue}}
 {{/tValue}}
-{{/members}}
 {{/coutTags}}

@@ -1,0 +1,62 @@
+
+The following example puts data for a single metric containing one dimension:
+
+https://monitoring.&api-domain;/doc/2010-08-01/
+?Action=PutMetricData
+&Version=2010-08-01
+&Namespace=TestNamespace
+&MetricData.member.1.MetricName=buffers
+&MetricData.member.1.Unit=Bytes
+&MetricData.member.1.Value=231434333
+&MetricData.member.1.Dimensions.member.1.Name=InstanceType
+&MetricData.member.1.Dimensions.member.1.Value=m1.small
+&AUTHPARAMS
+
+
+The following example puts data for a single metric containing two dimensions:
+
+https://monitoring.&api-domain;/doc/2010-08-01/
+?Action=PutMetricData
+&Version=2010-08-01
+&Namespace=TestNamespace
+&MetricData.member.1.MetricName=buffers
+&MetricData.member.1.Unit=Bytes
+&MetricData.member.1.Value=231434333
+&MetricData.member.1.Dimensions.member.1.Name=InstanceID
+&MetricData.member.1.Dimensions.member.1.Value=i-aaba32d4
+&MetricData.member.1.Dimensions.member.2.Name=InstanceType
+&MetricData.member.1.Dimensions.member.2.Value=m1.small
+&AUTHPARAMS
+
+
+The following example puts data for two metrics, each with two dimensions:
+
+https://monitoring.&api-domain;/doc/2010-08-01/
+?Action=PutMetricData
+&Version=2010-08-01
+&Namespace=TestNamespace
+&MetricData.member.1.MetricName=buffers
+&MetricData.member.1.Unit=Bytes
+&MetricData.member.1.Value=231434333
+&MetricData.member.1.Dimensions.member.1.Name=InstanceID
+&MetricData.member.1.Dimensions.member.1.Value=i-aaba32d4
+&MetricData.member.1.Dimensions.member.2.Name=InstanceType
+&MetricData.member.1.Dimensions.member.2.Value=m1.small
+&MetricData.member.2.MetricName=latency
+&MetricData.member.2.Unit=Milliseconds
+&MetricData.member.2.Value=23
+&MetricData.member.2.Dimensions.member.1.Name=InstanceID
+&MetricData.member.2.Dimensions.member.1.Value=i-aaba32d4
+&MetricData.member.2.Dimensions.member.2.Name=InstanceType
+&MetricData.member.2.Dimensions.member.2.Value=m1.small
+&AUTHPARAMS
+			
+
+
+<PutMetricDataResponse xmlns="http://monitoring.&api-domain;/doc/2010-08-01/">
+  <ResponseMetadata>
+    <RequestId>e16fc4d3-9a04-11e0-9362-093a1cae5385</RequestId>
+  </ResponseMetadata>
+</PutMetricDataResponse>  
+			
+

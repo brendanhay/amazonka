@@ -1,0 +1,24 @@
+POST / HTTP/1.1
+Content-Type: application/x-amz-json-1.1
+X-Amz-Target: ElasticMapReduce.SetTerminationProtection
+Content-Length: 61
+User-Agent: aws-sdk-ruby/1.9.2 ruby/1.9.3 i386-mingw32
+Host: us-east-1.elasticmapreduce.amazonaws.com
+X-Amz-Date: 20130716T211420Z
+X-Amz-Content-Sha256: c362fadae0fce377aa63f04388aeb90c53cedb17a8bfbb8cffcb10c2378137f9
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20130716/us-east-1/elasticmapreduce/aws4_request, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=764b6aa1a38733cadff35a2e884887e9f1208a422266bc83ac77e8d0b80bd4cf
+Accept: */*
+
+{
+    "JobFlowIds": ["j-3TS0OIYO4NFN"],
+    "TerminationProtected": true
+}
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: af23b1db-ee5c-11e2-9787-192218ecb460
+Content-Type: application/x-amz-json-1.1
+Content-Length: 0
+Date: Tue, 16 Jul 2013 21:14:21 GMT
+
+         
+

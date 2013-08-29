@@ -1,0 +1,30 @@
+
+                    
+POST / HTTP/1.1
+Date: Fri, 29 Jun 2012 22:42:08 GMT
+Host: email.us-east-1.amazonaws.com
+Content-Type: application/x-www-form-urlencoded
+X-Amzn-Authorization: AWS3 AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
+ Signature=u/hDNhYm87AV7LAPzouTBz6HJxUEuE5k96sLzYHjR24=, 
+ Algorithm=HmacSHA256, SignedHeaders=Date;Host
+Content-Length: 168
+
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Action=SetIdentityDkimEnabled
+&DkimEnabled=true&Identity=user%40example.com
+&Timestamp=2012-06-29T22%3A42%3A08.000Z
+&Version=2010-12-01
+          
+                
+
+
+                
+<SetIdentityDkimEnabledResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+  <SetIdentityDkimEnabledResult/>
+  <ResponseMetadata>
+    <RequestId>7aa61362-c469-11e1-aee5-6bbb4608fbcc</RequestId>
+  </ResponseMetadata>
+</SetIdentityDkimEnabledResponse>
+          
+            
+

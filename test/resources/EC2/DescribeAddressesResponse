@@ -1,0 +1,46 @@
+https://ec2.amazonaws.com/?Action=DescribeAddresses
+&PublicIp.1=192.0.2.1
+&PublicIp.2=198.51.100.2
+&AUTHPARAMS
+
+<DescribeAddressesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
+   <addressesSet> 
+      <item>
+         <publicIp>192.0.2.1</publicIp>
+         <domain>standard</domain>
+         <instanceId>i-f15ebb98</instanceId>
+      </item>
+      <item>
+         <publicIp>198.51.100.2</publicIp>
+         <domain>standard</domain>
+         <instanceId/>
+      </item> 
+   </addressesSet> 
+</DescribeAddressesResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeAddresses
+&AllocationId.1= eipalloc-08229861
+&AUTHPARAMS
+
+<DescribeAddressesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>f7de5e98-491a-4c19-a92d-908d6EXAMPLE</requestId>
+   <addressesSet>
+     <item>
+       <publicIp>203.0.113.41</publicIp>
+       <allocationId>eipalloc-08229861</allocationId>
+       <domain>vpc</domain>
+       <instanceId>i-64600030</instanceId>
+       <associationId>eipassoc-f0229899</associationId>
+       <networkInterfaceId>eni-ef229886</networkInterfaceId>
+       <networkInterfaceOwnerId>053230519467</networkInterfaceOwnerId>
+       <privateIpAddress>10.0.0.228</privateIpAddress>
+     </item>
+   </addressesSet>
+</DescribeAddressesResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeAddresses
+&Filter.1.Name=domain
+&Filter.1.Value.1=vpc
+&AUTHPARAMS
+

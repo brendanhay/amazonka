@@ -1,0 +1,118 @@
+https://ec2.amazonaws.com/?Action=PurchaseReservedInstancesOffering
+&ReservedInstancesOfferingId=4b2293b4-5813-4cc8-9ce3-1957fEXAMPLE
+&LimitPrice.Amount=200
+&InstanceCount=2
+&AUTHPARAMS
+
+<PurchaseReservedInstancesOfferingResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
+  <reservedInstancesId>e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE</reservedInstancesId> 
+</PurchaseReservedInstancesOfferingResponse>
+
+https://ec2.amazonaws.com/?Action=PurchaseReservedInstancesOffering
+&ReservedInstancesOfferingId=4b2293b4-5813-4cc8-9ce3-1957fEXAMPLE
+&InstanceCount=2
+&AUTHPARAMS
+
+<PurchaseReservedInstancesOfferingResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
+  <reservedInstancesId>e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE</reservedInstancesId> 
+</PurchaseReservedInstancesOfferingResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeReservedInstancesOfferings
+&Filter.0.Name=marketplace
+&Filter.0.Value.1=true
+&IncludeMarketplace=true
+&OfferingType=Light+Utilization
+&ProductDescription=Linux%2FUNIX
+&Version=2013-07-15
+&AUTHPARAMS
+
+<DescribeReservedInstancesOfferingsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>2bc7dafa-dafd-4257-bdf9-c0814EXAMPLE</requestId>
+  <reservedInstancesOfferingsSet>
+    <item>
+      <reservedInstancesOfferingId>a6ce8269-7b8c-42cd-a7f5-0841cEXAMPLE</reservedInstancesOfferingId>
+      <instanceType>m1.large</instanceType>
+      <availabilityZone>us-east-1a</availabilityZone>
+      <duration>90720000</duration>
+      <fixedPrice>96.03</fixedPrice>
+      <usagePrice>0.027</usagePrice>
+      <productDescription>Linux/UNIX</productDescription>
+      <instanceTenancy>default</instanceTenancy>
+      <currencyCode>USD</currencyCode>
+      <offeringType>Light Utilization</offeringType>
+      <recurringCharges/>
+      <marketplace>true</marketplace>
+      <pricingDetailsSet>
+        <item>
+          <price>96.03</price>
+          <count>1</count>
+        </item>
+      </pricingDetailsSet>
+    </item>
+    <item>
+      <reservedInstancesOfferingId>2bc7dafa-dafd-4257-bdf9-c0814EXAMPLE</reservedInstancesOfferingId>
+      <instanceType>m1.xlarge</instanceType>
+      <availabilityZone>us-east-1b</availabilityZone>
+      <duration>28512000</duration>
+      <fixedPrice>61.0</fixedPrice>
+      <usagePrice>0.034</usagePrice>
+      <productDescription>Linux/UNIX</productDescription>
+      <instanceTenancy>default</instanceTenancy>
+      <currencyCode>USD</currencyCode>
+      <offeringType>Light Utilization</offeringType>
+      <recurringCharges>
+        <item>
+          <frequency>Hourly</frequency>
+          <amount>0.29</amount>
+        </item>
+      </recurringCharges>
+      <marketplace>true</marketplace>
+      <pricingDetailsSet>
+        <item>
+          <price>61.0</price>
+          <count>2</count>
+        </item>
+      </pricingDetailsSet>
+    </item>
+  </reservedInstancesOfferingsSet>
+</DescribeReservedInstancesOfferingsResponse>
+
+https://ec2.amazonaws.com/?Action=PurchaseReservedInstancesOffering
+&ReservedInstancesOfferingId=2bc7dafa-dafd-4257-bdf9-c0814EXAMPLE
+&InstanceCount=1
+&LimitPrice.Amount=200
+&AUTHPARAMS
+
+<PurchaseReservedInstancesOfferingResponse xmlns="http://ec2.amazonaws.com/doc/2012-08-15/">
+  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
+  <reservedInstancesId>e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE</reservedInstancesId> 
+</PurchaseReservedInstancesOfferingResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeReservedInstances
+&AUTHPARAMS
+
+<DescribeReservedInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
+   <reservedInstancesSet>
+   ...
+      <item>
+         <reservedInstancesId>e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE</reservedInstancesId>
+         <instanceType>m1.xlarge</instanceType>
+         <availabilityZone>us-east-1b</availabilityZone>
+         <duration>31536000</duration>
+         <fixedPrice>61.0</fixedPrice>
+         <usagePrice>0.034</usagePrice>
+         <instanceCount>3</instanceCount>
+         <productDescription>Linux/UNIX</productDescription>
+         <state>active</state> 
+         <instanceTenancy>default</instanceTenancy>
+         <currencyCode>USD</currencyCode>
+         <offeringType>Light Utilization</offeringType>
+         <recurringCharges/>
+      </item>
+   ...
+   </reservedInstancesSet> 
+</DescribeReservedInstancesResponse>
+

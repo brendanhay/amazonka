@@ -1,0 +1,17 @@
+DELETE /?cors HTTP/1.1
+Host: bucketname.s3.amazonaws.com
+Date: date
+Authorization: signatureValue
+
+DELETE /?cors HTTP/1.1
+Host: examplebucket.s3.amazonaws.com
+Date: Tue, 13 Dec 2011 19:14:42 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:xQE0diMbLRepdf3YB+FIEXAAAAA=
+
+HTTP/1.1 204 No Content
+x-amz-id-2: 0FmFIWsh/PpBuzZ0JFRC55ZGVmQW4SHJ7xVDqKwhEdJmf3q63RtrvH8ZuxW1Bol5
+x-amz-request-id: 0CF038E9BCF63097
+Date: Tue, 13 Dec 2011 19:14:42 GMT
+Server: AmazonS3
+Content-Length: 0
+

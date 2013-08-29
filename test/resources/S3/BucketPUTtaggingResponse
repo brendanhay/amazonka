@@ -1,0 +1,38 @@
+PUT /?tagging HTTP/1.1
+Host: BucketName.s3.amazonaws.com
+Date: date
+Authorization: signatureValue
+
+<Tagging>
+  <TagSet>
+     <Tag>
+       <Key>Tag Name</Key>
+       <Value>Tag Value</Value>
+     </Tag>
+  </TagSet>
+</Tagging>
+
+PUT ?tagging HTTP/1.1
+Host: examplebucket.s3.amazonaws.com
+Content-Length: 1660
+x-amz-date: Thu, 12 Apr 2012 20:04:21 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:xQE0diMbLRepdf3YB+FIEXAMPLE=
+
+<Tagging>
+  <TagSet>
+    <Tag>
+      <Key>Project</Key>
+      <Value>Project One</Value>
+    </Tag>
+    <Tag>
+      <Key>User</Key>
+      <Value>jsmith</Value>
+    </Tag>
+  </TagSet>
+</Tagging>
+
+HTTP/1.1 204 No Content
+x-amz-id-2: YgIPIfBiKa2bj0KMgUAdQkf3ShJTOOpXUueF6QKo
+x-amz-request-id: 236A8905248E5A01
+Date: Wed, 01 Oct  2012 12:00:00 GMT
+

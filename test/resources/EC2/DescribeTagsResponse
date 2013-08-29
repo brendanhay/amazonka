@@ -1,0 +1,157 @@
+https://ec2.amazonaws.com/?Action=DescribeTags
+&AUTHPARAMS
+
+<DescribeTagsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>
+   <tagSet>
+      <item>
+         <resourceId>ami-1a2b3c4d</resourceId>
+         <resourceType>image</resourceType>
+         <key>webserver</key>
+         <value/>
+      </item>
+       <item>
+         <resourceId>ami-1a2b3c4d</resourceId>
+         <resourceType>image</resourceType>
+         <key>stack</key>
+         <value>Production</value>
+      </item>
+      <item>
+         <resourceId>i-5f4e3d2a</resourceId>
+         <resourceType>instance</resourceType>
+         <key>webserver</key>
+         <value/>
+      </item>
+       <item>
+         <resourceId>i-5f4e3d2a</resourceId>
+         <resourceType>instance</resourceType>
+         <key>stack</key>
+         <value>Production</value>
+      </item>
+      <item>
+         <resourceId>i-12345678</resourceId>
+         <resourceType>instance</resourceType>
+         <key>database_server</key>
+         <value/>
+      </item>
+       <item> 
+         <resourceId>i-12345678</resourceId>
+         <resourceType>instance</resourceType>
+         <key>stack</key>
+         <value>Test</value>
+      </item>
+    </tagSet>
+</DescribeTagsResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeTags
+&Filter.1.Name=resource-id
+&Filter.1.Value.1=ami-1a2b3c4d
+&AUTHPARAMS
+
+<DescribeTagsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>
+   <tagSet>
+      <item>
+         <resourceId>ami-1a2b3c4d</resourceId>
+         <resourceType>image</resourceType>
+         <key>webserver</key>
+         <value/>
+      </item>
+      <item>
+         <resourceId>ami-1a2b3c4d</resourceId>
+         <resourceType>image</resourceType>
+         <key>stack</key>
+         <value>Production</value>
+      </item>
+    </tagSet>
+</DescribeTagsResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeTags
+&Filter.1.Name=resource-type
+&Filter.1.Value.1=instance
+&AUTHPARAMS
+
+<DescribeTagsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>
+   <tagSet>
+       <item>
+         <resourceId>i-5f4e3d2a</resourceId>
+         <resourceType>instance</resourceType>
+         <key>webserver</key>
+         <value/>
+      </item>
+       <item>
+         <resourceId>i-5f4e3d2a</resourceId>
+         <resourceType>instance</resourceType>
+         <key>stack</key>
+         <value>Production</value>
+      </item>
+      <item>
+         <resourceId>i-12345678</resourceId>
+         <resourceType>instance</resourceType>
+         <key>database_server</key>
+         <value/>
+      </item>
+       <item>
+         <resourceId>i-12345678</resourceId>
+         <resourceType>instance</resourceType>
+         <key>stack</key>
+         <value>Test</value>
+      </item>
+    </tagSet>
+</DescribeTagsResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeTags
+&Filter.1.Name=key
+&Filter.1.Value.1=webserver
+&AUTHPARAMS
+
+<DescribeTagsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>
+   <tagSet>
+       <item>
+         <resourceId>i-5f4e3d2a</resourceId>
+         <resourceType>instance</resourceType>
+         <key>webserver</key>
+         <value/>
+      </item>
+    </tagSet>
+</DescribeTagsResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeTags
+&Filter.1.Name=resource-type
+&Filter.1.Value.1=instance
+&Filter.2.Name=key
+&Filter.2.Value.1=stack
+&Filter.3.Name=value
+&Filter.3.Value.1=Test
+&Filter.3.Value.2=Production
+&AUTHPARAMS
+
+<DescribeTagsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>   
+   <tagSet>
+       <item>
+         <resourceId>i-5f4e3d2a</resourceId>
+         <resourceType>instance</resourceType>
+         <key>stack</key>
+         <value>Production</value>
+      </item>
+       <item>
+         <resourceId>i-12345678</resourceId>
+         <resourceType>instance</resourceType>
+         <key>stack</key>
+         <value>Test</value>
+      </item>
+    </tagSet>
+</DescribeTagsResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeTags
+&Filter.1.Name=resource-type
+&Filter.1.Value.1=instance
+&Filter.2.Name=key
+&Filter.2.Value.1=Purpose
+&Filter.3.Name=value
+&Filter.3.Value.1=
+&AUTHPARAMS
+

@@ -1,0 +1,141 @@
+
+{
+    "TableName": "string"
+}
+			
+
+
+{
+    "Table": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "string",
+                "AttributeType": "string"
+            }
+        ],
+        "CreationDateTime": "number",
+        "ItemCount": "number",
+        "KeySchema": [
+            {
+                "AttributeName": "string",
+                "KeyType": "string"
+            }
+        ],
+        "LocalSecondaryIndexes": [
+            {
+                "IndexName": "string",
+                "IndexSizeBytes": "number",
+                "ItemCount": "number",
+                "KeySchema": [
+                    {
+                        "AttributeName": "string",
+                        "KeyType": "string"
+                    }
+                ],
+                "Projection": {
+                    "NonKeyAttributes": [
+                        "string"
+                    ],
+                    "ProjectionType": "string"
+                }
+            }
+        ],
+        "ProvisionedThroughput": {
+            "LastDecreaseDateTime": "number",
+            "LastIncreaseDateTime": "number",
+            "NumberOfDecreasesToday": "number",
+            "ReadCapacityUnits": "number",
+            "WriteCapacityUnits": "number"
+        },
+        "TableName": "string",
+        "TableSizeBytes": "number",
+        "TableStatus": "string"
+    }
+}
+			
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive
+X-Amz-Target: DynamoDB_20120810.DescribeTable 
+
+{
+    "TableName":"Thread"
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+
+{
+    "Table": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "ForumName",
+                "AttributeType": "S"
+            },
+            {
+                "AttributeName": "LastPostDateTime",
+                "AttributeType": "S"
+            },
+            {
+                "AttributeName": "Subject",
+                "AttributeType": "S"
+            }
+        ],
+        "CreationDateTime": 1.363729002358E9,
+        "ItemCount": 0,
+        "KeySchema": [
+            {
+                "AttributeName": "ForumName",
+                "KeyType": "HASH"
+            },
+            {
+                "AttributeName": "Subject",
+                "KeyType": "RANGE"
+            }
+        ],
+        "LocalSecondaryIndexes": [
+            {
+                "IndexName": "LastPostIndex",
+                "IndexSizeBytes": 0,
+                "ItemCount": 0,
+                "KeySchema": [
+                    {
+                        "AttributeName": "ForumName",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "LastPostDateTime",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "Projection": {
+                    "ProjectionType": "KEYS_ONLY"
+                }
+            }
+        ],
+        "ProvisionedThroughput": {
+            "NumberOfDecreasesToday": 0,
+            "ReadCapacityUnits": 5,
+            "WriteCapacityUnits": 5
+        },
+        "TableName": "Thread",
+        "TableSizeBytes": 0,
+        "TableStatus": "ACTIVE"
+    }
+}
+        
+

@@ -1,0 +1,16 @@
+
+https://iam.amazonaws.com/
+?Action=DeleteGroupPolicy
+&GroupName=Admins
+&PolicyName=AdminRoot
+&AUTHPARAMS
+      
+
+
+<DeleteGroupPolicyResponse>
+   <ResponseMetadata>
+      <RequestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</RequestId>
+   </ResponseMetadata>
+</DeleteGroupPolicyResponse>
+      
+

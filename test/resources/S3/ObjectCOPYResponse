@@ -1,0 +1,69 @@
+PUT /destinationObject HTTP/1.1
+Host: destinationBucket.s3.amazonaws.com
+x-amz-copy-source: /source_bucket/sourceObject
+x-amz-metadata-directive: metadata_directive
+x-amz-copy-source-if-match: etag
+x-amz-copy-source-if-none-match: etag
+x-amz-copy-source-if-unmodified-since: time_stamp
+x-amz-copy-source-if-modified-since: time_stamp
+<request metadata>
+Authorization: signatureValue
+Date: date
+
+x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
+
+PUT /my-second-image.jpg HTTP/1.1
+Host: bucket.s3.amazonaws.com
+Date: Wed, 28 Oct 2009 22:32:00 GMT
+x-amz-copy-source: /bucket/my-image.jpg
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+
+HTTP/1.1 200 OK
+x-amz-id-2: eftixk72aD6Ap51TnqcoF8eFidJG9Z/2mkiDFu8yU9AS1ed4OpIszj7UDNEHGran
+x-amz-request-id: 318BC8BC148832E5
+x-amz-copy-source-version-id: 3/L4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo
+x-amz-version-id: QUpfdndhfd8438MNFDN93jdnJFkdmqnh893
+Date: Wed, 28 Oct 2009 22:32:00 GMT
+Connection: close
+Server: AmazonS3
+
+<CopyObjectResult>
+   <LastModified>2009-10-28T22:32:00</LastModified>
+   <ETag>"9b2cf535f27731c974343645a3985328"</ETag>
+ </CopyObjectResult>
+
+PUT /my-second-image.jpg HTTP/1.1
+Host: bucket.s3.amazonaws.com
+Date: Wed, 28 Oct 2009 22:32:00 GMT
+x-amz-copy-source: /bucket/my-image.jpg?versionId=3/L4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+
+HTTP/1.1 200 OK
+x-amz-id-2: eftixk72aD6Ap51TnqcoF8eFidJG9Z/2mkiDFu8yU9AS1ed4OpIszj7UDNEHGran
+x-amz-request-id: 318BC8BC148832E5
+x-amz-version-id: QUpfdndhfd8438MNFDN93jdnJFkdmqnh893
+ x-amz-copy-source-version-id: 09df8234529fjs0dfi0w52935029wefdj
+Date: Wed, 28 Oct 2009 22:32:00 GMT
+Connection: close
+Server: AmazonS3
+ 
+<?xml version="1.0" encoding="UTF-8"?>
+<CopyObjectResult>
+   <LastModified>2009-10-28T22:32:00</LastModified>
+   <ETag>"9b2cf535f27731c974343645a3985328"</ETag>
+</CopyObjectResult>
+
+HTTP/1.1 200 OK
+x-amz-id-2: eftixk72aD6Ap51TnqcoF8eFidJG9Z/2mkiDFu8yU9AS1ed4OpIszj7UDNEHGran
+x-amz-request-id: 318BC8BC148832E5
+x-amz-copy-source-version-id: 3/L4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo
+Date: Wed, 28 Oct 2009 22:32:00 GMT
+Connection: close
+Server: AmazonS3
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CopyObjectResult>
+  <LastModified>2009-10-28T22:32:00</LastModified>
+  <ETag>"9b2cf535f27731c974343645a3985328"</ETag>
+</CopyObjectResult>
+

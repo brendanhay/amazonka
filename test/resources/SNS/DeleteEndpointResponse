@@ -1,0 +1,27 @@
+
+        
+POST http://sns.us-west-2.amazonaws.com/ HTTP/1.1
+...
+Action=DeleteEndpoint
+&SignatureMethod=HmacSHA256
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&EndpointArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aendpoint%2FGCM%2Fgcmpushapp%2F5e3e9847-3183-3f18-a7e8-671c3a57d4b3
+&SignatureVersion=2
+&Version=2010-03-31
+&Signature=LIc6GI3JbNhmHBEDmSxzZp648XPe5CMeFny%2BTQFtomQ%3D
+&Timestamp=2013-07-01T23%3A00%3A12.456Z
+
+      
+
+
+        
+HTTP/1.1 200 OK
+...
+<DeleteEndpointResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <ResponseMetadata>
+    <RequestId>c1d2b191-353c-5a5f-8969-fbdd3900afa8</RequestId>
+  </ResponseMetadata>
+</DeleteEndpointResponse>
+
+      
+

@@ -1,0 +1,22 @@
+https://ec2.amazonaws.com/?Action=AuthorizeSecurityGroupEgress
+&GroupId=sg-1a2b3c4d
+&IpPermissions.1.IpProtocol=tcp
+&IpPermissions.1.FromPort=80
+&IpPermissions.1.ToPort=80
+&IpPermissions.1.IpRanges.1.CidrIp=192.0.2.0/24
+&IpPermissions.1.IpRanges.2.CidrIp=198.51.100.0/24
+&AUTHPARAMS
+
+https://ec2.amazonaws.com/?Action=AuthorizeSecurityGroupEgress
+&GroupId=sg-1a2b3c4d
+&IpPermissions.1.IpProtocol=tcp
+&IpPermissions.1.FromPort=1433
+&IpPermissions.1.ToPort=1433
+&IpPermissions.1.Groups.1.GroupId=sg-9a8d7f5c
+&AUTHPARAMS
+
+<AuthorizeSecurityGroupEgressResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId>
+   <return>true</return>
+</AuthorizeSecurityGroupEgressResponse>
+

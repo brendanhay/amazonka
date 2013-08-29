@@ -1,0 +1,15 @@
+GET /?location HTTP/1.1
+Host: BucketName.s3.amazonaws.com
+Date: date
+Authorization: signatureValue
+
+<LocationConstraint xmlns="http://s3.amazonaws.com/doc/2006-03-01/"/>
+
+GET /?location HTTP/1.1
+Host: myBucket.s3.amazonaws.com
+Date: Tue, 09 Oct 2007 20:26:04 +0000
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:JUtd9kkJFjbKbkP9f6T/tAxozYY=
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LocationConstraint xmlns="http://s3.amazonaws.com/doc/2006-03-01/">EU</LocationConstraint>
+

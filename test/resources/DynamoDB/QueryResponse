@@ -1,0 +1,250 @@
+
+{
+    "AttributesToGet": [
+        "string"
+    ],
+    "ConsistentRead": "boolean",
+    "ExclusiveStartKey": 
+        {
+            "string" :
+                {
+                    "B": "blob",
+                    "BS": [
+                        "blob"
+                    ],
+                    "N": "string",
+                    "NS": [
+                        "string"
+                    ],
+                    "S": "string",
+                    "SS": [
+                        "string"
+                    ]
+                }
+        },
+    "IndexName": "string",
+    "KeyConditions": 
+        {
+            "string" :
+                {
+                    "AttributeValueList": [
+                        {
+                            "B": "blob",
+                            "BS": [
+                                "blob"
+                            ],
+                            "N": "string",
+                            "NS": [
+                                "string"
+                            ],
+                            "S": "string",
+                            "SS": [
+                                "string"
+                            ]
+                        }
+                    ],
+                    "ComparisonOperator": "string"
+                }
+        },
+    "Limit": "number",
+    "ReturnConsumedCapacity": "string",
+    "ScanIndexForward": "boolean",
+    "Select": "string",
+    "TableName": "string"
+}
+			
+
+
+{
+    "ConsumedCapacity": {
+        "CapacityUnits": "number",
+        "TableName": "string"
+    },
+    "Count": "number",
+    "Items": [
+        
+            {
+                "string" :
+                    {
+                        "B": "blob",
+                        "BS": [
+                            "blob"
+                        ],
+                        "N": "string",
+                        "NS": [
+                            "string"
+                        ],
+                        "S": "string",
+                        "SS": [
+                            "string"
+                        ]
+                    }
+            }
+    ],
+    "LastEvaluatedKey": 
+        {
+            "string" :
+                {
+                    "B": "blob",
+                    "BS": [
+                        "blob"
+                    ],
+                    "N": "string",
+                    "NS": [
+                        "string"
+                    ],
+                    "S": "string",
+                    "SS": [
+                        "string"
+                    ]
+                }
+        }
+}
+			
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive
+X-Amz-Target: DynamoDB_20120810.Query 
+
+{
+    "TableName": "Thread",
+    "IndexName": "LastPostIndex",
+    "Select": "ALL_ATTRIBUTES",
+    "Limit":3,
+    "ConsistentRead": true,
+    "KeyConditions": {
+        "LastPostDateTime": {
+            "AttributeValueList": [
+                {
+                    "S": "20130101"
+                },
+                {
+                    "S": "20130115"
+                }
+            ],
+            "ComparisonOperator": "BETWEEN"
+        },
+        "ForumName": {
+            "AttributeValueList": [
+                {
+                    "S": "Amazon DynamoDB"
+                }
+            ],
+            "ComparisonOperator": "EQ"
+        }
+    },
+    "ReturnConsumedCapacity": "TOTAL"
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+
+{
+    "Count": 3,
+    "Items": [
+        {
+            "LastPostedBy": {
+                "S": "fred@example.com"
+            },
+            "ForumName": {
+                "S": "Amazon DynamoDB"
+            },
+            "LastPostDateTime": {
+                "S": "20130102054211"
+            },
+            "Tags": {
+                "SS": ["Problem","Question"]
+            }
+        },
+        {
+            "LastPostedBy": {
+                "S": "alice@example.com"
+            },
+            "ForumName": {
+                "S": "Amazon DynamoDB"
+            },
+            "LastPostDateTime": {
+                    "S": "20130105111307"
+            },
+            "Tags": {
+                "SS": ["Idea"]
+            }
+        },
+        {
+            "LastPostedBy": {
+                "S": "bob@example.com"
+            },
+            "ForumName": {
+                "S": "Amazon DynamoDB"
+            },
+            "LastPostDateTime": {
+                "S": "20130108094417"
+            },
+            "Tags": {
+                "SS": ["AppDesign", "HelpMe"]
+            }
+        }
+    ],
+    "ConsumedCapacity": {
+        "TableName": "Thread",
+        "CapacityUnits": 1
+    }
+}
+        
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive
+X-Amz-Target: DynamoDB_20120810.Query 
+
+{
+    "TableName": "Thread",
+    "Select": "COUNT",
+    "ConsistentRead": true,
+    "KeyConditions": {
+        "ForumName": {
+            "AttributeValueList": [
+                {
+                    "S": "Amazon DynamoDB"
+                }
+            ],
+            "ComparisonOperator": "EQ"
+        }
+    }
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+
+{
+    "Count":`17
+}
+        
+

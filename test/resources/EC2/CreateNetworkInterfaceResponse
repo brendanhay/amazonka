@@ -1,0 +1,135 @@
+https://ec2.amazonaws.com/?Action=CreateNetworkInterface
+&SubnetId=subnet-b2a249da
+&AUTHPARAMS
+
+<CreateNetworkInterfaceResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+ <requestId>8dbe591e-5a22-48cb-b948-dd0aadd55adf</requestId>
+    <networkInterface>
+        <networkInterfaceId>eni-cfca76a6</networkInterfaceId>
+        <subnetId>subnet-b2a249da</subnetId>
+        <vpcId>vpc-c31dafaa</vpcId>
+        <availabilityZone>ap-southeast-1b</availabilityZone>
+        <description/>
+        <ownerId>251839141158</ownerId>
+        <requesterManaged>false</requesterManaged>
+        <status>available</status>
+        <macAddress>02:74:b0:72:79:61</macAddress>
+        <privateIpAddress>10.0.2.157</privateIpAddress>
+        <sourceDestCheck>true</sourceDestCheck>
+        <groupSet>
+            <item>
+                <groupId>sg-1a2b3c4d</groupId>
+                <groupName>default</groupName>
+            </item>
+        </groupSet>
+        <tagSet/>
+        <privateIpAddressesSet>
+            <item>
+                <privateIpAddress>10.0.2.157</privateIpAddress>
+                <primary>true</primary>
+            </item>
+        </privateIpAddressesSet>
+    </networkInterface>
+</CreateNetworkInterfaceResponse>
+
+https://ec2.amazonaws.com/?Action=CreateNetworkInterface
+&PrivateIpAddresses.0.Primary=true
+&PrivateIpAddresses.0.PrivateIpAddress=10.0.2.140
+&SecondaryPrivateIpAddressCount=4
+&SubnetId=subnet-a61dafcf
+&AUTHPARAMS
+
+<CreateNetworkInterfaceResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+ <requestId>bd78c839-0895-4fac-a17f-98b559b6b630</requestId>
+    <networkInterface>
+        <networkInterfaceId>eni-1bcb7772</networkInterfaceId>
+        <subnetId>subnet-a61dafcf</subnetId>
+        <vpcId>vpc-c31dafaa</vpcId>
+        <availabilityZone>ap-southeast-1b</availabilityZone>
+        <description/>
+        <ownerId>251839141158</ownerId>
+        <requesterManaged>false</requesterManaged>
+        <status>pending</status>
+        <macAddress>02:74:b0:70:7f:1a</macAddress>
+        <privateIpAddress>10.0.2.140</privateIpAddress>
+        <sourceDestCheck>true</sourceDestCheck>
+        <groupSet>
+            <item>
+                <groupId>sg-1a2b3c4d</groupId>
+                <groupName>default</groupName>
+            </item>
+        </groupSet>
+        <tagSet/>
+        <privateIpAddressesSet>
+            <item>
+                <privateIpAddress>10.0.2.140</privateIpAddress>
+                <primary>true</primary>
+            </item>
+            <item>
+                <privateIpAddress>10.0.2.172</privateIpAddress>
+                <primary>false</primary>
+            </item>
+            <item>
+                <privateIpAddress>10.0.2.169</privateIpAddress>
+                <primary>false</primary>
+            </item>
+            <item>
+                <privateIpAddress>10.0.2.170</privateIpAddress>
+                <primary>false</primary>
+            </item>
+            <item>
+                <privateIpAddress>10.0.2.171</privateIpAddress>
+                <primary>false</primary>
+            </item>
+        </privateIpAddressesSet>
+    </networkInterface>
+</CreateNetworkInterfaceResponse>
+
+https://ec2.amazonaws.com/?Action=CreateNetworkInterface
+&PrivateIpAddresses.0.Primary=true
+&PrivateIpAddresses.0.PrivateIpAddress=10.0.2.130
+&PrivateIpAddresses.1.Primary=false
+&PrivateIpAddresses.1.PrivateIpAddress=10.0.2.132
+&PrivateIpAddresses.2.Primary=false
+&PrivateIpAddresses.2.PrivateIpAddress=10.0.2.133
+&SubnetId=subnet-a61dafcf
+&AUTHPARAMS
+
+<CreateNetworkInterfaceResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+<requestId>a9565f4c-f928-4113-859b-905886d11658</requestId>
+    <networkInterface>
+        <networkInterfaceId>eni-41c47828</networkInterfaceId>
+        <subnetId>subnet-a61dafcf</subnetId>
+        <vpcId>vpc-c31dafaa</vpcId>
+        <availabilityZone>ap-southeast-1b</availabilityZone>
+        <description/>
+        <ownerId>251839141158</ownerId>
+        <requesterManaged>false</requesterManaged>
+        <status>pending</status>
+        <macAddress>02:74:b0:78:bf:ab</macAddress>
+        <privateIpAddress>10.0.2.130</privateIpAddress>
+        <sourceDestCheck>true</sourceDestCheck>
+        <groupSet>
+            <item>
+                <groupId>sg-188d9f74</groupId>
+                <groupName>default</groupName>
+            </item>
+        </groupSet>
+        <tagSet/>
+        <privateIpAddressesSet>
+            <item>
+                <privateIpAddress>10.0.2.130</privateIpAddress>
+                <primary>true</primary>
+            </item>
+            <item>
+                <privateIpAddress>10.0.2.133</privateIpAddress>
+                <primary>false</primary>
+            </item>
+            <item>
+                <privateIpAddress>10.0.2.132</privateIpAddress>
+                <primary>false</primary>
+            </item>
+        </privateIpAddressesSet>
+    </networkInterface> 
+</CreateNetworkInterfaceResponse>
+

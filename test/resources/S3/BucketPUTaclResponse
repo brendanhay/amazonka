@@ -1,0 +1,105 @@
+PUT /?acl HTTP/1.1
+Host: BucketName.s3.amazonaws.com
+Date: date
+Authorization: signatureValue
+
+<AccessControlPolicy>
+  <Owner>
+    <ID>ID</ID>
+    <DisplayName>EmailAddress</DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+        <ID>ID</ID>
+        <DisplayName>EmailAddress</DisplayName>
+      </Grantee>
+      <Permission>Permission</Permission>
+    </Grant>
+    ...
+  </AccessControlList>
+</AccessControlPolicy> 
+
+x-amz-grant-write: uri="http://acs.amazonaws.com/groups/s3/LogDelivery", emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
+
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+  <ID>ID</ID>
+  <DisplayName>GranteesEmail</DisplayName>
+</Grantee>
+
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail">
+  <EmailAddress>Grantees@email.com</EmailAddress>
+</Grantee>
+
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+  <URI>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<URI>
+</Grantee>
+
+PUT ?acl HTTP/1.1
+Host: examplebucket.s3.amazonaws.com
+Content-Length: 1660
+x-amz-date: Thu, 12 Apr 2012 20:04:21 GMT
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:xQE0diMbLRepdf3YB+FIEXAMPLE=
+
+<AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Owner>
+    <ID>852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID</ID>
+    <DisplayName>OwnerDisplayName</DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+        <ID>852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID</ID>
+        <DisplayName>OwnerDisplayName</DisplayName>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+        <URI xmlns="">http://acs.amazonaws.com/groups/global/AllUsers</URI>
+      </Grantee>
+      <Permission xmlns="">READ</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+        <URI xmlns="">http://acs.amazonaws.com/groups/s3/LogDelivery</URI>
+      </Grantee>
+      <Permission xmlns="">WRITE</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail">
+        <EmailAddress xmlns="">xyz@amazon.com</EmailAddress>
+      </Grantee>
+      <Permission xmlns="">WRITE_ACP</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+        <ID xmlns="">f30716ab7115dcb44a5ef76e9d74b8e20567f63TestAccountCanonicalUserID</ID>
+      </Grantee>
+      <Permission xmlns="">READ_ACP</Permission>
+    </Grant>
+  </AccessControlList>
+</AccessControlPolicy>
+
+HTTP/1.1 200 OK
+x-amz-id-2: NxqO3PNiMHXXGwjgv15LLgUoAmPVmG0xtZw2sxePXLhpIvcyouXDrcQUaWWXcOK0
+x-amz-request-id: C651BC9B4E1BD401
+Date: Thu, 12 Apr 2012 20:04:28 GMT
+Content-Length: 0
+Server: AmazonS3
+
+PUT ?acl HTTP/1.1
+Host: examplebucket.s3.amazonaws.com
+x-amz-date: Sun, 29 Apr 2012 22:00:57 GMT
+x-amz-grant-write: uri="http://acs.amazonaws.com/groups/s3/LogDelivery", emailAddress="xyz@amazon.com"
+x-amz-grant-read: uri="http://acs.amazonaws.com/groups/global/AllUsers"
+Accept: */*
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:xQE0diMbLRepdf3YB+FIEXAMPLE=
+
+HTTP/1.1 200 OK
+x-amz-id-2: 0w9iImt23VF9s6QofOTDzelF7mrryz7d04Mw23FQCi4O205Zw28Zn+d340/RytoQ
+x-amz-request-id: A6A8F01A38EC7138
+Date: Sun, 29 Apr 2012 22:01:10 GMT
+Content-Length: 0
+Server: AmazonS3
+

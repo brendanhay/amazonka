@@ -1,0 +1,11 @@
+https://ec2.amazonaws.com/?Action=CreateImage
+&Description=Standard+Web+Server+v1.0
+&InstanceId=i-10a64379
+&Name=standard-web-server-v1.0
+&AUTHPARAMS
+
+<CreateImageResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId>
+   <imageId>ami-4fa54026</imageId>
+</CreateImageResponse>
+

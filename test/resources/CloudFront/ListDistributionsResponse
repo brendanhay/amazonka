@@ -1,0 +1,265 @@
+GET /2013-05-12/distribution?Marker=value&MaxItems=value HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: time stamp
+Other required headers
+
+200 OK
+x-amz-request-id: Request ID
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DistributionList xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Marker>value specified in request</Marker>
+   <NextMarker>value for Marker parameter in 
+      next request</NextMarker>
+   <MaxItems>value specified in request</MaxItems>
+   <IsTruncated>true | false</IsTruncated>
+   <Quantity>number of distributions created by 
+      current AWS account</Quantity>
+   <Items>
+      <DistributionSummary>
+         <Id>ID for the distribution</Id>
+         <Status>Deployed | InProgress</Status>
+         <LastModifiedTime>creation date and time in 
+            ISO 8601 format</LastModifiedTime>
+         <DomainName>CloudFront domain name assigned to the 
+            distribution</DomainName>
+         <Aliases>
+            <Quantity>number of CNAME aliases</Quantity>
+            <Items>
+               <CNAME>CNAME alias</CNAME>
+            </Items>
+         </Aliases>
+         <Origins>
+            <Quantity>number of origins</Quantity>
+            <Items>
+               <Origin>
+                  <Id>unique identifier for this origin</Id>
+                  <DomainName>domain name of origin</DomainName>
+                  <!-- The S3OriginConfig element is returned only if 
+                     you use an Amazon S3 origin for your distribution. -->
+                  <S3OriginConfig>
+                     <OriginAccessIdentity>origin-access-identity/
+                        cloudfront/ID</OriginAccessIdentity>
+                  </S3OriginConfig>
+                  <!-- The CustomOriginConfig element is returned only if
+                     you use a custom origin for your distribution. -->
+                  <CustomOriginConfig>
+                     <HTTPPort>HTTP port that the custom origin 
+                        listens on</HTTPPort>
+                     <HTTPSPort>HTTPS port that the custom origin 
+                        listens on</HTTPSPort>
+                     <OriginProtocolPolicy>http-only | 
+                        match-viewer</OriginProtocolPolicy>
+                  </CustomOriginConfig>
+               </Origin>
+            </Items>
+         </Origins>
+         <DefaultCacheBehavior>
+            <TargetOriginId>ID of the origin that the default cache behavior 
+               applies to</TargetOriginId>
+            <ForwardedValues>
+               <QueryString>true | false</QueryString>
+               <Cookies>
+                  <Forward>all | whitelist | none</Forward>
+                  <!-- Required when Forward = whitelist, 
+                     omitted otherwise. -->
+                  <WhitelistedNames>
+                     <Quantity>number of cookie names to 
+                        forward to origin</Quantity>
+                     <Items>
+                        <Name>name of a cookie to forward to 
+                           the origin</Name>
+                     </Items>
+                  </WhitelistedNames>
+               </Cookies>
+            </ForwardedValues>
+            <TrustedSigners>
+               <Enabled>true | false</Enabled>
+               <Quantity>number of trusted signers</Quantity>
+               <Items>
+                  <AwsAccountNumber>self | AWS account that can create 
+                     signed URLs</AwsAccountNumber>
+               </Items>
+            </TrustedSigners>
+            <ViewerProtocolPolicy>allow-all | 
+               https-only</ViewerProtocolPolicy>
+            <MinTTL>minimum TTL in seconds</MinTTL>
+         </DefaultCacheBehavior>
+         <CacheBehaviors>
+            <Quantity>number of cache behaviors</Quantity>
+            <Items>
+               <CacheBehavior>
+                  <PathPattern>pattern that specifies files that this 
+                     cache behavior applies to</PathPattern>
+                  <TargetOriginId>ID of the origin that this cache behavior 
+                     applies to</TargetOriginId>
+                  <ForwardedValues>
+                     <QueryString>true | false</QueryString>
+                     <Cookies>
+                        <Forward>all | whitelist | none</Forward>
+                        <!-- Required when Forward = whitelist, 
+                           omitted otherwise. -->
+                        <WhitelistedNames>
+                           <Quantity>number of cookie names to 
+                              forward to origin</Quantity>
+                           <Items>
+                              <Name>name of a cookie to forward to 
+                                 the origin</Name>
+                           </Items>
+                        </WhitelistedNames>
+                     </Cookies>
+                  </ForwardedValues>
+                  <TrustedSigners>
+                     <Enabled>true | false</Enabled>
+                     <Quantity>number of trusted signers</Quantity>
+                     <Items>
+                        <AwsAccountNumber>self | AWS account that can create 
+                           signed URLs</AwsAccountNumber>
+                     </Items>
+                  </TrustedSigners>
+                  <ViewerProtocolPolicy>allow-all | 
+                     https-only</ViewerProtocolPolicy>
+                  <MinTTL>minimum TTL in seconds for files 
+                     specified by PathPattern</MinTTL>
+               </CacheBehavior>
+            </Items>
+         </CacheBehaviors>
+         <Comment>comment about the distribution</Comment>
+         <Logging>
+            <Enabled>true | false</Enabled>
+            <IncludeCookies>true | false</IncludeCookies>
+            <Bucket>Amazon S3 bucket to save logs in</Bucket>
+            <Prefix>prefix for log filenames</Prefix>
+         </Logging>
+         <ViewerCertificate>
+            <IAMCertificateId>IAM certificate ID</IAMCertificateId> | <CloudFrontDefaultCertificate>true</CloudFrontDefaultCertificate>
+         </ViewerCertificate>
+         <PriceClass>maximum price class for the distribution</PriceClass>
+         <Enabled>true | false</Enabled>
+      </DistributionSummary>
+   </Items>
+</DistributionList>
+
+GET /2013-05-12/distribution?MaxItems=2 HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: Thu, 17 May 2012 19:37:58 GMT
+Other required headers
+
+200 OK
+x-amz-request-id: request_id
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DistributionList xmlns="http://cloudfront.amazonaws.com/doc/2013-05-12/">
+   <Marker>RMPARXS293KSTG7</Marker>
+   <NextMarker>EMLARXS9EXAMPLE</NextMarker>
+   <MaxItems>2</MaxItems>
+   <IsTruncated>true</IsTruncated>
+   <Quantity>1</Quantity>
+   <Items>
+      <DistributionSummary>
+         <Id>EDFDVBD6EXAMPLE</Id>
+         <Status>Deployed</Status>
+         <LastModifiedTime>2012-05-19T19:37:58Z</LastModifiedTime>
+         <DomainName>d111111abcdef8.cloudfront.net</DomainName>
+         <Aliases>
+            <Quantity>1</Quantity>
+            <Items>
+               <CNAME>www.example.com</CNAME>
+            </Items>
+         </Aliases>
+         <Origins>
+            <Quantity>2</Quantity>
+            <Items>
+               <Origin>
+                  <Id>example-Amazon S3-origin</Id>
+                  <DomainName>myawsbucket.s3.amazonaws.com</DomainName>
+                  <S3OriginConfig>
+                     <OriginAccessIdentity>origin-access-identity/cloudfront/E74FTE3AEXAMPLE</OriginAccessIdentity>
+                  </S3OriginConfig>
+               </Origin>
+               <Origin>
+                  <Id>example-custom-origin</Id>
+                  <DomainName>example.com</DomainName>
+                  <CustomOriginConfig>
+                     <HTTPPort>80</HTTPPort>
+                     <HTTPSPort>443</HTTPSPort>
+                     <OriginProtocolPolicy>match-viewer</OriginProtocolPolicy>
+                  </CustomOriginConfig>
+               </Origin>
+            </Items>
+         </Origins>
+         <DefaultCacheBehavior>
+            <TargetOriginId>example-Amazon S3-origin</TargetOriginId>
+            <ForwardedValues>
+               <QueryString>true</QueryString>
+               <Cookies>
+                  <Forward>whitelist</Forward>
+                  <WhitelistedNames>
+                     <Quantity>1</Quantity>
+                     <Items>
+                        <Name>example-cookie</Name>
+                     </Items>
+                  </WhitelistedNames>
+               </Cookies>
+            </ForwardedValues>
+            <TrustedSigners>
+               <Enabled>true</Enabled>
+               <Quantity>3</Quantity>
+               <Items>
+                  <AwsAccountNumber>self</AwsAccountNumber>
+                  <AwsAccountNumber>111122223333</AwsAccountNumber>
+                  <AwsAccountNumber>444455556666</AwsAccountNumber>
+               </Items>
+            </TrustedSigners>
+            <ViewerProtocolPolicy>https-only</ViewerProtocolPolicy>
+            <MinTTL>0</MinTTL>
+         </DefaultCacheBehavior>
+         <CacheBehaviors>
+            <Quantity>1</Quantity>
+            <Items>
+               <CacheBehavior>
+                  <PathPattern>*.jpg</PathPattern>
+                  <TargetOriginId>example-custom-origin</TargetOriginId>
+                  <ForwardedValues>
+                     <QueryString>false</QueryString>
+                     <Cookies>
+                        <Forward>all</Forward>
+                     </Cookies>
+                  </ForwardedValues>
+                  <TrustedSigners>
+                     <Enabled>true</Enabled>
+                     <Quantity>2</Quantity>
+                     <Items>
+                        <AwsAccountNumber>self</AwsAccountNumber>
+                        <AwsAccountNumber>111122223333</AwsAccountNumber>
+                     </Items>
+                  </TrustedSigners>
+                  <ViewerProtocolPolicy>allow-all</ViewerProtocolPolicy>
+                  <MinTTL>86400</MinTTL>
+               </CacheBehavior>
+            </Items>
+         </CacheBehaviors>
+         <Comment>example comment</Comment>
+         <Logging>
+            <Enabled>true</Enabled>
+            <IncludeCookies>true</IncludeCookies>
+            <Bucket>myawslogbucket.s3.amazonaws.com</Bucket>
+            <Prefix>example.com.</Prefix>
+         </Logging>
+         <ViewerCertificate>
+            <IAMCertificateId>AS1A2M3P4L5E67SIIXR3J</IAMCertificateId>
+         </ViewerCertificate>
+         <PriceClass>PriceClass_All</PriceClass>
+         <Enabled>true</Enabled>
+      </DistributionSummary>
+   </Items>
+</DistributionList>
+
+GET /2013-05-12/distribution?MaxItems=4?Marker=EMLARXS9EXAMPLE HTTP/1.1
+Host: cloudfront.amazonaws.com
+Authorization: AWS authentication string
+Date: Thu, 17 May 2012 19:39:00 GMT
+Other required headers
+

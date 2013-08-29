@@ -2,9 +2,7 @@ GET /
 Action=CreateAutoScalingGroup
 AutoScalingGroupName={{casgAutoScalingGroupName}}
 {{#casgAvailabilityZones}}
-{{#members}}
 AvailabilityZones.member.{{n}}={{.}}
-{{/members}}
 {{/casgAvailabilityZones}}
 {{#casgDefaultCooldown}}
 DefaultCooldown={{casgDefaultCooldown}}
@@ -20,9 +18,7 @@ HealthCheckType={{casgHealthCheckType}}
 {{/casgHealthCheckType}}
 LaunchConfigurationName={{casgLaunchConfigurationName}}
 {{#casgLoadBalancerNames}}
-{{#members}}
 LoadBalancerNames.member.{{n}}={{.}}
-{{/members}}
 {{/casgLoadBalancerNames}}
 MaxSize={{casgMaxSize}}
 MinSize={{casgMinSize}}
@@ -30,7 +26,6 @@ MinSize={{casgMinSize}}
 PlacementGroup={{casgPlacementGroup}}
 {{/casgPlacementGroup}}
 {{#casgTags}}
-{{#members}}
 {{#tKey}}
 Tags.member.{{n}}.Key={{tKey}}
 {{/tKey}}
@@ -46,12 +41,9 @@ Tags.member.{{n}}.ResourceType={{tResourceType}}
 {{#tValue}}
 Tags.member.{{n}}.Value={{tValue}}
 {{/tValue}}
-{{/members}}
 {{/casgTags}}
 {{#casgTerminationPolicies}}
-{{#members}}
 TerminationPolicies.member.{{n}}={{.}}
-{{/members}}
 {{/casgTerminationPolicies}}
 {{#casgVPCZoneIdentifier}}
 VPCZoneIdentifier={{casgVPCZoneIdentifier}}

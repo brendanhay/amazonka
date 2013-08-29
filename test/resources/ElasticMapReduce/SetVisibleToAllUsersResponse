@@ -1,0 +1,26 @@
+POST / HTTP/1.1
+Content-Type: application/x-amz-json-1.1
+X-Amz-Target: ElasticMapReduce.SetVisibleToAllUsers
+Content-Length: 58
+User-Agent: aws-sdk-ruby/1.9.2 ruby/1.9.3 i386-mingw32
+Host: us-east-1.elasticmapreduce.amazonaws.com
+X-Amz-Date: 20130715T221616Z
+X-Amz-Content-Sha256: 2ff32d11eab2383d764ffcb97571454e798689ecd09a7b1bb2327e22b0b930d4
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20130715/us-east-1/elasticmapreduce/aws4_request, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=e1a00b37787d9ccc43c9de32f1f0a73813b0bd6643d4db7762b62a7092d51997
+Accept: */*
+
+{
+    "JobFlowIds": ["j-ZKIY4CKQRX72"],
+    "VisibleToAllUsers": true
+}
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: 2be9cde9-ed9c-11e2-82b6-2351cde3f33f
+Content-Type: application/x-amz-json-1.1
+Content-Length: 0
+Date: Mon, 15 Jul 2013 22:16:18 GMT
+
+
+         
+

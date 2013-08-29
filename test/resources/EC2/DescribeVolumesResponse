@@ -1,0 +1,43 @@
+https://ec2.amazonaws.com/?Action=DescribeVolumes
+&AUTHPARAMS
+
+<DescribeVolumesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
+   <volumeSet>
+      <item>
+         <volumeId>vol-1a2b3c4d</volumeId>
+         <size>80</size>
+         <snapshotId/>
+         <availabilityZone>us-east-1a</availabilityZone>
+         <status>in-use</status>
+         <createTime>YYYY-MM-DDTHH:MM:SS.SSSZ</createTime>
+         <attachmentSet>
+            <item>
+               <volumeId>vol-1a2b3c4d</volumeId>
+               <instanceId>i-1a2b3c4d</instanceId>
+               <device>/dev/sdh</device>
+               <status>attached</status>
+               <attachTime>YYYY-MM-DDTHH:MM:SS.SSSZ</attachTime>
+               <deleteOnTermination>false</deleteOnTermination>
+            </item>
+         </attachmentSet>
+         <volumeType>standard</volumeType>				
+      </item>
+   </volumeSet>
+</DescribeVolumesResponse>
+
+https://ec2.amazonaws.com/?Action=DescribeVolumes
+&Filter.1.Name=attachment.instance-id
+&Filter.1.Value.1=i-1a2b3c4d
+&Filter.2.Name=attachment.delete-on-termination
+&Filter.2.Value.1=true
+&AUTHPARAMS
+
+https://ec2.amazonaws.com/?Action=DescribeVolumes
+&Filter.1.Name=tag:Owner
+&Filter.1.Value.1=TeamA
+&Filter.1.Value.2=TeamB
+&Filter.2.Name=tag:Purpose
+&Filter.2.Value.1=*Log*
+&AUTHPARAMS
+

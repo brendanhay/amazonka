@@ -1,0 +1,28 @@
+
+        
+POST http://sns.us-west-2.amazonaws.com/ HTTP/1.1
+...
+Attributes.entry.1.key=EventEndpointCreated&PlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp
+&Action=SetPlatformApplicationAttributes
+&SignatureMethod=HmacSHA256
+&Attributes.entry.1.value=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Atopicarn
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&SignatureVersion=2
+&Version=2010-03-31
+&Signature=06L2TsW3jiH%2FGKDYuT8w4NojSrTf4Ig2GKqGeJPhPT4%3D
+&Timestamp=2013-07-01T22%3A53%3A17.800Z
+
+      
+
+
+        
+HTTP/1.1 200 OK
+...
+<SetPlatformApplicationAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <ResponseMetadata>
+    <RequestId>cf577bcc-b3dc-5463-88f1-3180b9412395</RequestId>
+  </ResponseMetadata>
+</SetPlatformApplicationAttributesResponse>
+
+      
+

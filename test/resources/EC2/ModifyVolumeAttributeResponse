@@ -1,0 +1,10 @@
+https://ec2.amazonaws.com/?Action=ModifyVolumeAttribute
+&VolumeId=vol-12345678
+&AutoEnableIO.Value=true
+&AUTHPARAMS
+
+<ModifyVolumeAttributeResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>5jkdf074-37ed-4004-8671-a78ee82bf1cbEXAMPLE</requestId> 
+   <return>true</return>
+</ModifyVolumeAttributeResponse>
+

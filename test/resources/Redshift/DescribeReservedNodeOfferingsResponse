@@ -1,0 +1,45 @@
+https://redshift.us-east-1.amazonaws.com/
+   ?Action=DescribeReservedNodeOfferings
+   &Version=2012-12-01
+   &x-amz-algorithm=AWS4-HMAC-SHA256
+   &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20130117/us-east-1/redshift/aws4_request
+   &x-amz-date=20130117T232351Z
+   &x-amz-signedheaders=content-type;host;x-amz-date
+
+<DescribeReservedNodeOfferingsResponse xmlns="http://redshift.amazonaws.com/doc/2012-12-01/">
+  <DescribeReservedNodeOfferingsResult>
+    <ReservedNodeOfferings>
+      <ReservedNodeOffering>
+        <OfferingType>Heavy Utilization</OfferingType>
+        <Duration>94608000</Duration>
+        <RecurringCharges>
+          <RecurringCharge>
+            <RecurringChargeFrequency>Hourly</RecurringChargeFrequency>
+            <RecurringChargeAmount>0.21</RecurringChargeAmount>
+          </RecurringCharge>
+        </RecurringCharges>
+        <FixedPrice>12452.0</FixedPrice>
+        <ReservedNodeOfferingId>3a98bf7d-979a-49cc-b568-18f24315baf0</ReservedNodeOfferingId>
+        <UsagePrice>0.0</UsagePrice>
+        <NodeType>dw.hs1.8xlarge</NodeType>
+      </ReservedNodeOffering>
+      <ReservedNodeOffering>
+        <OfferingType>Heavy Utilization</OfferingType>
+        <Duration>31536000</Duration>
+        <RecurringCharges>
+          <RecurringCharge>
+            <RecurringChargeFrequency>Hourly</RecurringChargeFrequency>
+            <RecurringChargeAmount>0.09</RecurringChargeAmount>
+          </RecurringCharge>
+        </RecurringCharges>
+        <FixedPrice>1815.0</FixedPrice>
+        <ReservedNodeOfferingId>d586503b-289f-408b-955b-9c95005d6908</ReservedNodeOfferingId>
+        <UsagePrice>0.0</UsagePrice>
+        <NodeType>dw.hs1.xlarge</NodeType>
+      </ReservedNodeOffering>
+  </DescribeReservedNodeOfferingsResult>
+  <ResponseMetadata>
+    <RequestId>f4a07e06-60fc-11e2-95d9-658e9466d117</RequestId>
+  </ResponseMetadata>
+</DescribeReservedNodeOfferingsResponse>
+

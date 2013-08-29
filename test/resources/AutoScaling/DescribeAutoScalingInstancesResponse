@@ -1,0 +1,25 @@
+https://autoscaling.amazonaws.com/?MaxRecords=20
+&InstanceIds.member.1=i-78e0d40b
+&Version=2011-01-01
+&Action=DescribeAutoScalingInstances
+&AUTHPARAMS 
+
+<DescribeAutoScalingInstancesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  <DescribeAutoScalingInstancesResult>
+    <AutoScalingInstances>
+      <member>
+        <HealthStatus>HEALTHY</HealthStatus>
+        <AutoScalingGroupName>my-test-asg</AutoScalingGroupName>
+        <AvailabilityZone>us-east-1e</AvailabilityZone>
+        <InstanceId>i-78e0d40b</InstanceId>
+        <LaunchConfigurationName>my-test-lc</LaunchConfigurationName>
+        <LifecycleState>InService</LifecycleState>
+      </member>
+    </AutoScalingInstances>
+  </DescribeAutoScalingInstancesResult>
+  <ResponseMetadata>
+    <RequestId>df992dc3-b72f-11e2-81e1-750aa6EXAMPLE</RequestId>
+  </ResponseMetadata>
+</DescribeAutoScalingInstancesResponse>
+   
+

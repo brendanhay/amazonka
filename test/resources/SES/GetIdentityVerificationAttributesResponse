@@ -1,0 +1,47 @@
+
+                
+POST / HTTP/1.1
+Date: Sat, 12 May 2012 05:27:54 GMT
+Host: email.us-east-1.amazonaws.com
+Content-Type: application/x-www-form-urlencoded
+X-Amzn-Authorization: AWS3 AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
+ Signature=3+KQ4VHx991T7Kb41HmFcZJxuHz4/6mf2H5FxY+tuLc=,
+ Algorithm=HmacSHA256, SignedHeaders=Date;Host
+Content-Length: 203
+
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Action=GetIdentityVerificationAttributes
+&Identities.member.1=user%40domain.com
+&Identities.member.2=domain.com
+&Timestamp=2012-05-12T05%3A27%3A54.000Z
+&Version=2010-12-01
+          
+            
+
+
+                
+<GetIdentityVerificationAttributesResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+  <GetIdentityVerificationAttributesResult>
+    <VerificationAttributes>
+      <entry>
+        <key>domain.com</key>
+        <value>
+          <VerificationStatus>Pending</VerificationStatus>
+          <VerificationToken>QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0=</VerificationToken>
+        </value>
+      </entry>
+      <entry>
+        <key>user@domain.com</key>
+        <value>
+          <VerificationStatus>Pending</VerificationStatus>
+        </value>
+      </entry>
+    </VerificationAttributes>
+  </GetIdentityVerificationAttributesResult>
+  <ResponseMetadata>
+    <RequestId>1d0c29f1-9bf3-11e1-8ee7-c98a0037a2b6</RequestId>
+  </ResponseMetadata>
+</GetIdentityVerificationAttributesResponse>
+          
+            
+

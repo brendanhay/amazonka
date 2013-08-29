@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+https://ec2.amazonaws.com/?Action=AssociateDhcpOptions 
+&DhcpOptionsId=dopt-7a8b9c2d
+&VpcId=vpc-1a2b3c4d
+&AUTHPARAMS
+
 <AssociateDhcpOptionsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
    <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>
-   <return>true</return>
+   <return>true</return> 
 </AssociateDhcpOptionsResponse>
+
+https://ec2.amazonaws.com/?Action=AssociateDhcpOptions 
+&DhcpOptionsId=default
+&VpcId=vpc-1a2b3c4d
+&AUTHPARAMS
+
+<AssociateDhcpOptionsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>
+   <return>true</return> 
+</AssociateDhcpOptionsResponse>
+

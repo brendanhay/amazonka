@@ -1,0 +1,22 @@
+
+https://iam.amazonaws.com/
+?Action=GetRolePolicy
+&PolicyName=S3AccessPolicy
+&RoleName=S3Access
+&Version=2010-05-08
+&AUTHPARAMS
+      
+
+
+<GetRolePolicyResponse xmlns="https://iam.amazonaws.com/doc/2010-05-08/">
+  <GetRolePolicyResult>
+    <PolicyName>S3AccessPolicy</PolicyName>
+    <RoleName>S3Access</RoleName>
+    <PolicyDocument>{"Version":"2008-10-17","Statement":[{"Effect":"Allow","Action":["s3:*"],"Resource":["*"]}]}</PolicyDocument>
+  </GetRolePolicyResult>
+  <ResponseMetadata>
+    <RequestId>7e7cd8bc-99ef-11e1-a4c3-27EXAMPLE804</RequestId>
+  </ResponseMetadata>
+</GetRolePolicyResponse>
+      
+

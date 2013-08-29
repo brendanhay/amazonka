@@ -1,7 +1,6 @@
 GET /
 Action=CreateLaunchConfiguration
 {{#clcBlockDeviceMappings}}
-{{#members}}
 {{#bdmDeviceName}}
 BlockDeviceMappings.member.{{n}}.DeviceName={{bdmDeviceName}}
 {{/bdmDeviceName}}
@@ -16,7 +15,6 @@ BlockDeviceMappings.member.{{n}}.Ebs.VolumeSize={{eVolumeSize}}
 {{#bdmVirtualName}}
 BlockDeviceMappings.member.{{n}}.VirtualName={{bdmVirtualName}}
 {{/bdmVirtualName}}
-{{/members}}
 {{/clcBlockDeviceMappings}}
 {{#clcEbsOptimized}}
 EbsOptimized={{clcEbsOptimized}}
@@ -40,9 +38,7 @@ LaunchConfigurationName={{clcLaunchConfigurationName}}
 RamdiskId={{clcRamdiskId}}
 {{/clcRamdiskId}}
 {{#clcSecurityGroups}}
-{{#members}}
 SecurityGroups.member.{{n}}={{.}}
-{{/members}}
 {{/clcSecurityGroups}}
 {{#clcSpotPrice}}
 SpotPrice={{clcSpotPrice}}

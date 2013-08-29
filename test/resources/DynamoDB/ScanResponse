@@ -1,0 +1,274 @@
+
+{
+    "AttributesToGet": [
+        "string"
+    ],
+    "ExclusiveStartKey": 
+        {
+            "string" :
+                {
+                    "B": "blob",
+                    "BS": [
+                        "blob"
+                    ],
+                    "N": "string",
+                    "NS": [
+                        "string"
+                    ],
+                    "S": "string",
+                    "SS": [
+                        "string"
+                    ]
+                }
+        },
+    "Limit": "number",
+    "ReturnConsumedCapacity": "string",
+    "ScanFilter": 
+        {
+            "string" :
+                {
+                    "AttributeValueList": [
+                        {
+                            "B": "blob",
+                            "BS": [
+                                "blob"
+                            ],
+                            "N": "string",
+                            "NS": [
+                                "string"
+                            ],
+                            "S": "string",
+                            "SS": [
+                                "string"
+                            ]
+                        }
+                    ],
+                    "ComparisonOperator": "string"
+                }
+        },
+    "Segment": "number",
+    "Select": "string",
+    "TableName": "string",
+    "TotalSegments": "number"
+}
+			
+
+
+{
+    "ConsumedCapacity": {
+        "CapacityUnits": "number",
+        "TableName": "string"
+    },
+    "Count": "number",
+    "Items": [
+        
+            {
+                "string" :
+                    {
+                        "B": "blob",
+                        "BS": [
+                            "blob"
+                        ],
+                        "N": "string",
+                        "NS": [
+                            "string"
+                        ],
+                        "S": "string",
+                        "SS": [
+                            "string"
+                        ]
+                    }
+            }
+    ],
+    "LastEvaluatedKey": 
+        {
+            "string" :
+                {
+                    "B": "blob",
+                    "BS": [
+                        "blob"
+                    ],
+                    "N": "string",
+                    "NS": [
+                        "string"
+                    ],
+                    "S": "string",
+                    "SS": [
+                        "string"
+                    ]
+                }
+        },
+    "ScannedCount": "number"
+}
+			
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive
+X-Amz-Target: DynamoDB_20120810.Scan 
+
+{
+    "TableName": "Reply",
+    "ReturnConsumedCapacity": "TOTAL"
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+
+{
+    "ConsumedCapacity": {
+        "CapacityUnits": 0.5,
+        "TableName": "Reply"
+    },
+    "Count": 4,
+    "Items": [
+        {
+            "PostedBy": {
+                "S": "joe@example.com"
+            },
+            "ReplyDateTime": {
+                "S": "20130320115336"
+            },
+            "Id": {
+                "S": "Amazon DynamoDB#How do I update multiple items?"
+            },
+            "Message": {
+                "S": "Have you looked at the BatchWriteItem API?"
+            }
+        },
+        {
+            "PostedBy": {
+                "S": "fred@example.com"
+            },
+            "ReplyDateTime": {
+                "S": "20130320115342"
+            },
+            "Id": {
+                "S": "Amazon DynamoDB#How do I update multiple items?"
+            },
+            "Message": {
+                "S": "No, I didn't know about that.  Where can I find more information?"
+            }
+        },
+        {
+            "PostedBy": {
+                "S": "joe@example.com"
+            },
+            "ReplyDateTime": {
+                "S": "20130320115347"
+            },
+            "Id": {
+                "S": "Amazon DynamoDB#How do I update multiple items?"
+            },
+            "Message": {
+                "S": "BatchWriteItem is documented in the Amazon DynamoDB API Reference."
+            }
+        },
+        {
+            "PostedBy": {
+                "S": "fred@example.com"
+            },
+            "ReplyDateTime": {
+                "S": "20130320115352"
+            },
+            "Id": {
+                "S": "Amazon DynamoDB#How do I update multiple items?"
+            },
+            "Message": {
+                "S": "OK, I'll take a look at that.  Thanks!"
+            }
+        }
+    ],
+    "ScannedCount": 4
+}
+        
+
+
+POST / HTTP/1.1
+Host: dynamodb.<region>.<domain>;
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=<Signature>
+User-Agent: <UserAgentString>
+x-amz-content-sha256: <PayloadHash>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>     
+Connection: Keep-Alive
+X-Amz-Target: DynamoDB_20120810.Scan 
+
+{
+    "TableName": "Reply",
+    "ScanFilter": {
+        "PostedBy": {
+            "AttributeValueList": [
+                {
+                    "S": "joe@example.com"
+                }
+            ],
+            "ComparisonOperator": "EQ"
+        }
+    },
+    "ReturnConsumedCapacity": "TOTAL"
+}
+        
+
+
+HTTP/1.1 200 OK
+x-amzn-RequestId: <RequestId> 
+x-amz-crc32: <Checksum>
+Content-Type: application/x-amz-json-1.0
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+
+{
+    "ConsumedCapacity": {
+        "CapacityUnits": 0.5,
+        "TableName": "Reply"
+    },
+    "Count": 2,
+    "Items": [
+        {
+            "PostedBy": {
+                "S": "joe@example.com"
+            },
+            "ReplyDateTime": {
+                "S": "20130320115336"
+            },
+            "Id": {
+                "S": "Amazon DynamoDB#How do I update multiple items?"
+            },
+            "Message": {
+                "S": "Have you looked at the BatchWriteItem API?"
+            }
+        },
+        {
+            "PostedBy": {
+                "S": "joe@example.com"
+            },
+            "ReplyDateTime": {
+                "S": "20130320115347"
+            },
+            "Id": {
+                "S": "Amazon DynamoDB#How do I update multiple items?"
+            },
+            "Message": {
+                "S": "BatchWriteItem is documented in the Amazon DynamoDB API Reference."
+            }
+        }
+    ],
+    "ScannedCount": 4
+}
+        
+

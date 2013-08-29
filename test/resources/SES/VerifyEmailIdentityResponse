@@ -1,0 +1,30 @@
+
+                
+POST / HTTP/1.1
+Date: Sat, 12 May 2012 05:21:58 GMT
+Host: email.us-east-1.amazonaws.com
+Content-Type: application/x-www-form-urlencoded
+X-Amzn-Authorization: AWS3 AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
+ Signature=hQJj2pxypqJHQgU/BW1EZGUiNIYGhkQDf7tI6UgQ2qw=,
+ Algorithm=HmacSHA256, SignedHeaders=Date;Host
+Content-Length: 151
+
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Action=VerifyEmailIdentity
+&EmailAddress=user%40domain.com
+&Timestamp=2012-05-12T05%3A21%3A58.000Z
+&Version=2010-12-01
+          
+            
+
+
+                
+<VerifyEmailIdentityResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+  <VerifyEmailIdentityResult/>
+  <ResponseMetadata>
+    <RequestId>47e0ef1a-9bf2-11e1-9279-0100e8cf109a</RequestId>
+  </ResponseMetadata>
+</VerifyEmailIdentityResponse>
+          
+            
+

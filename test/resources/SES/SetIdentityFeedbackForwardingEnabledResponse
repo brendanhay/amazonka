@@ -1,0 +1,32 @@
+
+                
+POST / HTTP/1.1
+Date: Fri, 15 Jun 2012 20:31:21 GMT
+Host: email.us-east-1.amazonaws.com
+Content-Type: application/x-www-form-urlencoded
+X-Amzn-Authorization: AWS3 AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
+ Signature=juNpmD6UJaN+r7gcLa2ZNZpO3AmF1ZfOkD6PgxgNhRA=,
+ Algorithm=HmacSHA256, SignedHeaders=Date;Host
+Content-Length: 188
+
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Action=SetIdentityFeedbackForwardingEnabled
+&ForwardingEnabled=true
+&Identity=user%40example.com
+&Timestamp=2012-06-15T20%3A31%3A21.000Z
+&Version=2010-12-01
+
+          
+            
+
+
+                
+<SetIdentityFeedbackForwardingEnabledResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+  <SetIdentityFeedbackForwardingEnabledResult/>
+  <ResponseMetadata>
+    <RequestId>299f4af4-b72a-11e1-901f-1fbd90e8104f</RequestId>
+  </ResponseMetadata>
+</SetIdentityFeedbackForwardingEnabledResponse>
+          
+            
+

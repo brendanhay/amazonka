@@ -1,0 +1,30 @@
+https://ec2.amazonaws.com/?Action=CreateInstanceExportTask
+&Description=Example%20for%20docs
+&InstanceId=i-12345678
+&TargetEnvironment=VMWare
+&ExportToS3.DiskImageFormat=VMDK
+&ExportToS3.ContainerFormat=OVA
+&ExportToS3.S3bucket=my-bucket-for-exported-vm
+&ExportToS3.S3prefix=my-exports/
+&AUTHPARAMS
+
+<CreateInstanceExportTaskResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+<requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId>
+<exportTask>
+<exportTaskId>export-i-1234wxyz</exportTaskId>
+<description>Example for docs</description>
+<state>active</state>
+<statusMessage>Running</statusMessage>
+<instanceExport>
+<instanceId>i-12345678</instanceId >
+<targetEnvironment>VMWare</targetEnvironment >
+</instanceExport>
+<exportToS3>
+<diskImageFormat>VMDK</diskImageFormat >
+<containerFormat>OVA</containerFormat>
+<s3Bucket>my-bucket-for-exported-vm</s3Bucket>
+<s3Key>my-exports/ export-i-1234wxyz .ova</s3Key>
+</exportToS3>
+</exportTask>
+</CreateInstanceExportTaskResponse>
+

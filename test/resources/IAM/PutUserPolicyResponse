@@ -1,0 +1,17 @@
+
+https://iam.amazonaws.com/
+?Action=PutUserPolicy
+&UserName=Bob
+&PolicyName=AllAccessPolicy
+&PolicyDocument={"Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
+&AUTHPARAMS
+      
+
+
+<PutUserPolicyResponse>
+   <ResponseMetadata>
+      <RequestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</RequestId>
+   </ResponseMetadata>
+</PutUserPolicyResponse>
+      
+

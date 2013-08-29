@@ -38,8 +38,8 @@ tests = (:[]) $ testVersion route53Version
 
     , testGroup "Record Sets"
         [ testGroup "Requests"
-            [ testProperty "ChangeResourceRecordSets"         (prop :: Rq ChangeResourceRecordSets)
-            , testProperty "ListResourceRecordSets"           (prop :: Rq ListResourceRecordSets)
+            [ -- testProperty "ChangeResourceRecordSets"         (prop :: Rq ChangeResourceRecordSets)
+              testProperty "ListResourceRecordSets"           (prop :: Rq ListResourceRecordSets)
             , testProperty "GetChange"                        (prop :: Rq GetChange)
             ]
         , testGroup "Responses"

@@ -1,11 +1,9 @@
-https://autoscaling.amazonaws.com/?LaunchConfigurationName=my-test-lc
-&Version=2011-01-01
-&Action=DeleteLaunchConfiguration
-&AUTHPARAMS 
-
+<?xml version="1.0" encoding="UTF-8"?>
 <DeleteLaunchConfigurationResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dlcrResponseMetadata}}
   <ResponseMetadata>
-    <RequestId>7347261f-97df-11e2-8756-35eEXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-</DeleteLaunchConfigurationResponse> 
+  {{/dlcrResponseMetadata}}
+</DeleteLaunchConfigurationResponse>
 

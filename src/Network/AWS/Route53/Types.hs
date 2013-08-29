@@ -62,10 +62,22 @@ instance IsXML Config where
 
 data HostedZone = HostedZone
     { hzId                     :: !ByteString
+      -- ^ The ID of the hosted zone.
     , hzName                   :: !ByteString
+      -- ^ The name of the domain. For resource record types that include a
+      -- domain name, specify a fully qualified domain name, for example,
+      -- www.example.com. The trailing dot is optional; Route 53 assumes
+      -- that the domain name is fully qualified. This means that Route 53
+      -- treats www.example.com (without a trailing dot) and
+      -- www.example.com. (with a trailing dot) as identical.
     , hzCallerReference        :: !CallerReference
+      -- ^ A unique string that identifies the request to create the hosted
+      -- zone.
     , hzConfig                 :: !Config
+      -- ^ A complex type that contains an optional comment about your
+      -- hosted zone.
     , hzResourceRecordSetCount :: !Integer
+      -- ^ The number of resource record sets in the hosted zone.
     } deriving (Eq, Show, Generic)
 
 instance IsXML HostedZone where

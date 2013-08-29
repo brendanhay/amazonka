@@ -436,11 +436,10 @@ instance AWSRequest AutoScaling DeleteNotificationConfiguration DeleteNotificati
     request = req GET "DeleteNotificationConfiguration"
 
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
-    { dncrResponseMetadata :: !ResponseMetadata
-    } deriving (Eq, Show, Generic)
+    deriving (Eq, Read, Show, Generic)
 
 instance IsXML DeleteNotificationConfigurationResponse where
-    xmlPickler = withNS autoScalingNS
+    xmlPickler = xpEmpty $ Just autoScalingNS
 
 -- | Deletes a policy created by PutScalingPolicy.
 --
@@ -458,11 +457,10 @@ instance AWSRequest AutoScaling DeletePolicy DeletePolicyResponse where
     request = req GET "DeletePolicy"
 
 data DeletePolicyResponse = DeletePolicyResponse
-    { dprResponseMetadata :: !ResponseMetadata
-    } deriving (Eq, Show, Generic)
+    deriving (Eq, Read, Show, Generic)
 
 instance IsXML DeletePolicyResponse where
-    xmlPickler = withNS autoScalingNS
+    xmlPickler = xpEmpty $ Just autoScalingNS
 
 -- | Deletes a scheduled action previously created using the
 -- PutScheduledUpdateGroupAction.
@@ -481,11 +479,10 @@ instance AWSRequest AutoScaling DeleteScheduledAction DeleteScheduledActionRespo
     request = req GET "DeleteScheduledAction"
 
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
-    { dsarResponseMetadata :: !ResponseMetadata
-    } deriving (Eq, Show, Generic)
+    deriving (Eq, Read, Show, Generic)
 
 instance IsXML DeleteScheduledActionResponse where
-    xmlPickler = withNS autoScalingNS
+    xmlPickler = xpEmpty $ Just autoScalingNS
 
 -- | Removes the specified tags or a set of tags from a set of resources.
 --
@@ -504,11 +501,10 @@ instance AWSRequest AutoScaling DeleteTags DeleteTagsResponse where
     request = req GET "DeleteTags"
 
 data DeleteTagsResponse = DeleteTagsResponse
-    { dtrResponseMetadata :: !ResponseMetadata
-    } deriving (Eq, Show, Generic)
+    deriving (Eq, Read, Show, Generic)
 
 instance IsXML DeleteTagsResponse where
-    xmlPickler = withNS autoScalingNS
+    xmlPickler = xpEmpty $ Just autoScalingNS
 
 -- | Returns policy adjustment types for use in the PutScalingPolicy action.
 --

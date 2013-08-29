@@ -106,8 +106,19 @@ ver = mappend ("/" <> route53Version <> "/")
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html>
 data CreateHostedZone = CreateHostedZone
     { chzName             :: !ByteString
+      -- ^ The name of the domain. For resource record types that include a
+      -- domain name, specify a fully qualified domain name, for example,
+      -- www.example.com. The trailing dot is optional; Route 53 assumes
+      -- that the domain name is fully qualified. This means that Route 53
+      -- treats www.example.com (without a trailing dot) and
+      -- www.example.com. (with a trailing dot) as identical.
     , chzCallerReference  :: !CallerReference
+      -- ^ A unique string that identifies the request and that allows
+      -- failed CreateHostedZone requests to be retried without the risk
+      -- of executing the operation twice.
     , chzHostedZoneConfig :: Maybe Config
+      -- ^ A complex type that contains an optional comment about your
+      -- hosted zone.
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateHostedZone where
@@ -341,4 +352,4 @@ data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Read, Show, Generic)
 
 instance IsXML DeleteHealthCheckResponse where
-    xmlPickler = xpEmpty
+    xmlPickler = xpEmpty $ Just route53NS

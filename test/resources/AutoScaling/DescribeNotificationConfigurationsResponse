@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeNotificationConfigurationsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dncrDescribeNotificationConfigurationsResult}}
+  {{#dndrDescribeNotificationConfigurationsResult}}
   <DescribeNotificationConfigurationsResult>
-    {{dncrDescribeNotificationConfigurationsResult}}
+    {{#dncrNextToken}}
+    <NextToken>{{dncrNextToken}}</NextToken>
+    {{/dncrNextToken}}
+    <NotificationConfigurations>
+    {{#dncrNotificationConfigurations}}
+      <member>
+        {{#ncAutoScalingGroupName}}
+        <AutoScalingGroupName>{{ncAutoScalingGroupName}}</AutoScalingGroupName>
+        {{/ncAutoScalingGroupName}}
+        {{#ncNotificationType}}
+        <NotificationType>{{ncNotificationType}}</NotificationType>
+        {{/ncNotificationType}}
+        {{#ncTopicARN}}
+        <TopicARN>{{ncTopicARN}}</TopicARN>
+        {{/ncTopicARN}}
+      </member>
+    {{/dncrNotificationConfigurations}}
+    </NotificationConfigurations>
   </DescribeNotificationConfigurationsResult>
-  {{/dncrDescribeNotificationConfigurationsResult}}
-  {{#dncrResponseMetadata}}
+  {{/dndrDescribeNotificationConfigurationsResult}}
+  {{#dndrResponseMetadata}}
   <ResponseMetadata>
     <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-  {{/dncrResponseMetadata}}
+  {{/dndrResponseMetadata}}
 </DescribeNotificationConfigurationsResponse>

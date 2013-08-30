@@ -29,19 +29,19 @@ tests = (:[]) $ testVersion autoScalingVersion
         , testProperty "DeletePolicy"                                 (prop :: Rq DeletePolicy)
         , testProperty "DeleteScheduledAction"                        (prop :: Rq DeleteScheduledAction)
         , testProperty "DeleteTags"                                   (prop :: Rq DeleteTags)
-        -- , testProperty "DescribeAdjustmentTypes"                      (prop :: Rq DescribeAdjustmentTypes)
-        -- , testProperty "DescribeAutoScalingGroups"                    (prop :: Rq DescribeAutoScalingGroups)
-        -- , testProperty "DescribeAutoScalingInstances"                 (prop :: Rq DescribeAutoScalingInstances)
-        -- , testProperty "DescribeAutoScalingNotificationTypes"         (prop :: Rq DescribeAutoScalingNotificationTypes)
-        -- , testProperty "DescribeLaunchConfigurations"                 (prop :: Rq DescribeLaunchConfigurations)
-        -- , testProperty "DescribeMetricCollectionTypes"                (prop :: Rq DescribeMetricCollectionTypes)
-        -- , testProperty "DescribeNotificationConfigurations"           (prop :: Rq DescribeNotificationConfigurations)
-        -- , testProperty "DescribePolicies"                             (prop :: Rq DescribePolicies)
-        -- , testProperty "DescribeScalingActivities"                    (prop :: Rq DescribeScalingActivities)
-        -- , testProperty "DescribeScalingProcessTypes"                  (prop :: Rq DescribeScalingProcessTypes)
-        -- , testProperty "DescribeScheduledActions"                     (prop :: Rq DescribeScheduledActions)
-        -- , testProperty "DescribeTags"                                 (prop :: Rq DescribeTags)
-        -- , testProperty "DescribeTerminationPolicyTypes"               (prop :: Rq DescribeTerminationPolicyTypes)
+        , testProperty "DescribeAdjustmentTypes"                      (prop :: Rq DescribeAdjustmentTypes)
+        , testProperty "DescribeAutoScalingGroups"                    (prop :: Rq DescribeAutoScalingGroups)
+        , testProperty "DescribeAutoScalingInstances"                 (prop :: Rq DescribeAutoScalingInstances)
+        , testProperty "DescribeAutoScalingNotificationTypes"         (prop :: Rq DescribeAutoScalingNotificationTypes)
+        , testProperty "DescribeLaunchConfigurations"                 (prop :: Rq DescribeLaunchConfigurations)
+        , testProperty "DescribeMetricCollectionTypes"                (prop :: Rq DescribeMetricCollectionTypes)
+        , testProperty "DescribeNotificationConfigurations"           (prop :: Rq DescribeNotificationConfigurations)
+        , testProperty "DescribePolicies"                             (prop :: Rq DescribePolicies)
+        , testProperty "DescribeScalingActivities"                    (prop :: Rq DescribeScalingActivities)
+        , testProperty "DescribeScalingProcessTypes"                  (prop :: Rq DescribeScalingProcessTypes)
+        , testProperty "DescribeScheduledActions"                     (prop :: Rq DescribeScheduledActions)
+        , testProperty "DescribeTags"                                 (prop :: Rq DescribeTags)
+        , testProperty "DescribeTerminationPolicyTypes"               (prop :: Rq DescribeTerminationPolicyTypes)
         , testProperty "DisableMetricsCollection"                     (prop :: Rq DisableMetricsCollection)
         , testProperty "EnableMetricsCollection"                      (prop :: Rq EnableMetricsCollection)
         , testProperty "ExecutePolicy"                                (prop :: Rq ExecutePolicy)
@@ -66,19 +66,19 @@ tests = (:[]) $ testVersion autoScalingVersion
         , testProperty "DeletePolicyResponse"                         (prop :: Rs DeletePolicyResponse)
         , testProperty "DeleteScheduledActionResponse"                (prop :: Rs DeleteScheduledActionResponse)
         , testProperty "DeleteTagsResponse"                           (prop :: Rs DeleteTagsResponse)
-        -- , testProperty "DescribeAdjustmentTypesResponse"              (prop :: Rs DescribeAdjustmentTypesResponse)
-        -- , testProperty "DescribeAutoScalingGroupsResponse"            (prop :: Rs DescribeAutoScalingGroupsResponse)
-        -- , testProperty "DescribeAutoScalingInstancesResponse"         (prop :: Rs DescribeAutoScalingInstancesResponse)
-        -- , testProperty "DescribeAutoScalingNotificationTypesResponse" (prop :: Rs DescribeAutoScalingNotificationTypesResponse)
-        -- , testProperty "DescribeLaunchConfigurationsResponse"         (prop :: Rs DescribeLaunchConfigurationsResponse)
-        -- , testProperty "DescribeMetricCollectionTypesResponse"        (prop :: Rs DescribeMetricCollectionTypesResponse)
-        -- , testProperty "DescribeNotificationConfigurationsResponse"   (prop :: Rs DescribeNotificationConfigurationsResponse)
-        -- , testProperty "DescribePoliciesResponse"                     (prop :: Rs DescribePoliciesResponse)
-        -- , testProperty "DescribeScalingActivitiesResponse"            (prop :: Rs DescribeScalingActivitiesResponse)
-        -- , testProperty "DescribeScalingProcessTypesResponse"          (prop :: Rs DescribeScalingProcessTypesResponse)
-        -- , testProperty "DescribeScheduledActionsResponse"             (prop :: Rs DescribeScheduledActionsResponse)
-        -- , testProperty "DescribeTagsResponse"                         (prop :: Rs DescribeTagsResponse)
-        -- , testProperty "DescribeTerminationPolicyTypesResponse"       (prop :: Rs DescribeTerminationPolicyTypesResponse)
+        , testProperty "DescribeAdjustmentTypesResponse"              (prop :: Rs DescribeAdjustmentTypesResponse)
+        , testProperty "DescribeAutoScalingGroupsResponse"            (prop :: Rs DescribeAutoScalingGroupsResponse)
+        , testProperty "DescribeAutoScalingInstancesResponse"         (prop :: Rs DescribeAutoScalingInstancesResponse)
+        , testProperty "DescribeAutoScalingNotificationTypesResponse" (prop :: Rs DescribeAutoScalingNotificationTypesResponse)
+        , testProperty "DescribeLaunchConfigurationsResponse"         (prop :: Rs DescribeLaunchConfigurationsResponse)
+        , testProperty "DescribeMetricCollectionTypesResponse"        (prop :: Rs DescribeMetricCollectionTypesResponse)
+        , testProperty "DescribeNotificationConfigurationsResponse"   (prop :: Rs DescribeNotificationConfigurationsResponse)
+        , testProperty "DescribePoliciesResponse"                     (prop :: Rs DescribePoliciesResponse)
+        , testProperty "DescribeScalingActivitiesResponse"            (prop :: Rs DescribeScalingActivitiesResponse)
+        , testProperty "DescribeScalingProcessTypesResponse"          (prop :: Rs DescribeScalingProcessTypesResponse)
+        , testProperty "DescribeScheduledActionsResponse"             (prop :: Rs DescribeScheduledActionsResponse)
+        , testProperty "DescribeTagsResponse"                         (prop :: Rs DescribeTagsResponse)
+        , testProperty "DescribeTerminationPolicyTypesResponse"       (prop :: Rs DescribeTerminationPolicyTypesResponse)
         , testProperty "DisableMetricsCollectionResponse"             (prop :: Rs DisableMetricsCollectionResponse)
         , testProperty "EnableMetricsCollectionResponse"              (prop :: Rs EnableMetricsCollectionResponse)
         , testProperty "ExecutePolicyResponse"                        (prop :: Rs ExecutePolicyResponse)
@@ -129,7 +129,6 @@ $(deriveDependency
     , ''ScheduledUpdateGroupAction
     , ''SuspendedProcess
     , ''Tag
-    , ''TagDescription
     , ''TerminateInstanceInAutoScalingGroupResult
     , ''ResponseMetadata
     ])
@@ -153,32 +152,32 @@ $(deriveProperty "test/resources/AutoScaling"
     , ''DeleteScheduledActionResponse
     , ''DeleteTags
     , ''DeleteTagsResponse
-    -- , ''DescribeAdjustmentTypes
-    -- , ''DescribeAdjustmentTypesResponse
-    -- , ''DescribeAutoScalingGroups
-    -- , ''DescribeAutoScalingGroupsResponse
-    -- , ''DescribeAutoScalingInstances
-    -- , ''DescribeAutoScalingInstancesResponse
-    -- , ''DescribeAutoScalingNotificationTypes
-    -- , ''DescribeAutoScalingNotificationTypesResponse
-    -- , ''DescribeLaunchConfigurations
-    -- , ''DescribeLaunchConfigurationsResponse
-    -- , ''DescribeMetricCollectionTypes
-    -- , ''DescribeMetricCollectionTypesResponse
-    -- , ''DescribeNotificationConfigurations
-    -- , ''DescribeNotificationConfigurationsResponse
-    -- , ''DescribePolicies
-    -- , ''DescribePoliciesResponse
-    -- , ''DescribeScalingActivities
-    -- , ''DescribeScalingActivitiesResponse
-    -- , ''DescribeScalingProcessTypes
-    -- , ''DescribeScalingProcessTypesResponse
-    -- , ''DescribeScheduledActions
-    -- , ''DescribeScheduledActionsResponse
-    -- , ''DescribeTags
-    -- , ''DescribeTagsResponse
-    -- , ''DescribeTerminationPolicyTypes
-    -- , ''DescribeTerminationPolicyTypesResponse
+    , ''DescribeAdjustmentTypes
+    , ''DescribeAdjustmentTypesResponse
+    , ''DescribeAutoScalingGroups
+    , ''DescribeAutoScalingGroupsResponse
+    , ''DescribeAutoScalingInstances
+    , ''DescribeAutoScalingInstancesResponse
+    , ''DescribeAutoScalingNotificationTypes
+    , ''DescribeAutoScalingNotificationTypesResponse
+    , ''DescribeLaunchConfigurations
+    , ''DescribeLaunchConfigurationsResponse
+    , ''DescribeMetricCollectionTypes
+    , ''DescribeMetricCollectionTypesResponse
+    , ''DescribeNotificationConfigurations
+    , ''DescribeNotificationConfigurationsResponse
+    , ''DescribePolicies
+    , ''DescribePoliciesResponse
+    , ''DescribeScalingActivities
+    , ''DescribeScalingActivitiesResponse
+    , ''DescribeScalingProcessTypes
+    , ''DescribeScalingProcessTypesResponse
+    , ''DescribeScheduledActions
+    , ''DescribeScheduledActionsResponse
+    , ''DescribeTags
+    , ''DescribeTagsResponse
+    , ''DescribeTerminationPolicyTypes
+    , ''DescribeTerminationPolicyTypesResponse
     , ''DisableMetricsCollection
     , ''DisableMetricsCollectionResponse
     , ''EnableMetricsCollection

@@ -14,14 +14,10 @@
 
 -- | Auto Scaling is a web service designed to automatically launch or terminate
 -- Amazon Elastic Compute Cloud (Amazon EC2) instances based on user-defined
--- policies, schedules, and health checks. This service is used in conjunction
--- with Amazon CloudWatch and Elastic Load Balancing services. Auto Scaling
--- provides APIs that you can call by submitting a Query Request. Query
--- requests are HTTP or HTTPS requests that use the HTTP verbs GET or POST and
--- a Query parameter named Action or Operation that specifies the API you are
--- calling. Action is used throughout this documentation, although Operation
--- is also supported for backward compatibility with other Amazon Web Services
--- (AWS) Query APIs.
+-- policies, schedules, and health checks.
+--
+-- This service is used in conjunction with Amazon CloudWatch and
+-- Elastic Load Balancing services.
 module Network.AWS.AutoScaling
    (
    -- * AutoScaling API Version
@@ -520,7 +516,8 @@ instance AWSRequest AutoScaling DescribeAdjustmentTypes DescribeAdjustmentTypesR
     request = req GET "DescribeAdjustmentTypes"
 
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
-    { datrResponseMetadata :: !ResponseMetadata
+    { datrDescribeAdjustmentTypesResult :: !DescribeAdjustmentTypesResult
+    , datrResponseMetadata              :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeAdjustmentTypesResponse where
@@ -550,7 +547,8 @@ instance AWSRequest AutoScaling DescribeAutoScalingGroups DescribeAutoScalingGro
     request = req GET "DescribeAutoScalingGroups"
 
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
-    { dashrResponseMetadata :: !ResponseMetadata
+    { dashrDescribeAutoScalingGroupsResult :: !DescribeAutoScalingGroupsResult
+    , dashrResponseMetadata                :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeAutoScalingGroupsResponse where
@@ -584,7 +582,8 @@ instance AWSRequest AutoScaling DescribeAutoScalingInstances DescribeAutoScaling
     request = req GET "DescribeAutoScalingInstances"
 
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
-    { dasirResponseMetadata :: !ResponseMetadata
+    { dasirDescribeAutoScalingInstancesResult :: !DescribeAutoScalingInstancesResult
+    , dasirResponseMetadata                   :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeAutoScalingInstancesResponse where
@@ -606,7 +605,8 @@ instance AWSRequest AutoScaling DescribeAutoScalingNotificationTypes DescribeAut
     request = req GET "DescribeAutoScalingNotificationTypes"
 
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
-    { dasntrResponseMetadata :: !ResponseMetadata
+    { dasntrDescribeAutoScalingNotificationTypesResult :: !DescribeAutoScalingNotificationTypesResult
+    , dasntrResponseMetadata                           :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeAutoScalingNotificationTypesResponse where
@@ -633,7 +633,8 @@ instance AWSRequest AutoScaling DescribeLaunchConfigurations DescribeLaunchConfi
     request = req GET "DescribeLaunchConfigurations"
 
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
-    { dldrResponseMetadata :: !ResponseMetadata
+    { dldrDescribeLaunchConfigurationsResult :: !DescribeLaunchConfigurationsResult
+    , dldrResponseMetadata                   :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeLaunchConfigurationsResponse where
@@ -644,12 +645,7 @@ instance IsXML DescribeLaunchConfigurationsResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html>
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
-    { dmctGranularities :: !MetricGranularityType
-      -- ^ A list of granularities for the listed Metrics.
-    , dmctMetrics       :: !MetricCollectionType
-      -- ^ The list of Metrics collected.The following metrics are
-      -- supported:
-    } deriving (Eq, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeMetricCollectionTypes
 
@@ -657,7 +653,8 @@ instance AWSRequest AutoScaling DescribeMetricCollectionTypes DescribeMetricColl
     request = req GET "DescribeMetricCollectionTypes"
 
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
-    { dmctrResponseMetadata :: !ResponseMetadata
+    { dmctDescribeMetricCollectionTypesResult :: !DescribeMetricCollectionTypesResult
+    , dmctResponseMetadata                    :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeMetricCollectionTypesResponse where
@@ -683,7 +680,8 @@ instance AWSRequest AutoScaling DescribeNotificationConfigurations DescribeNotif
     request = req GET "DescribeNotificationConfigurations"
 
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
-    { dndrResponseMetadata :: !ResponseMetadata
+    { dndrDescribeNotificationConfigurationsResult :: !DescribeNotificationConfigurationsResult
+    , dndrResponseMetadata                         :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeNotificationConfigurationsResponse where
@@ -719,7 +717,8 @@ instance AWSRequest AutoScaling DescribePolicies DescribePoliciesResponse where
     request = req GET "DescribePolicies"
 
 data DescribePoliciesResponse = DescribePoliciesResponse
-    { dqrResponseMetadata :: !ResponseMetadata
+    { dqrDescribePoliciesResult :: !DescribePoliciesResult
+    , dqrResponseMetadata       :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribePoliciesResponse where
@@ -735,7 +734,7 @@ instance IsXML DescribePoliciesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html>
 data DescribeScalingActivities = DescribeScalingActivities
-    { dsaActivityIds          :: Members ByteString
+    { dsbActivityIds          :: Members ByteString
       -- ^ A list containing the activity IDs of the desired scaling
       -- activities. If this list is omitted, all activities are
       -- described. If an AutoScalingGroupName is provided, the results
@@ -757,7 +756,8 @@ instance AWSRequest AutoScaling DescribeScalingActivities DescribeScalingActivit
     request = req GET "DescribeScalingActivities"
 
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
-    { dsbrResponseMetadata :: !ResponseMetadata
+    { dsbrDescribeScalingActivitiesResult :: !DescribeScalingActivitiesResult
+    , dsbrResponseMetadata                :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeScalingActivitiesResponse where
@@ -778,7 +778,8 @@ instance AWSRequest AutoScaling DescribeScalingProcessTypes DescribeScalingProce
     request = req GET "DescribeScalingProcessTypes"
 
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
-    { dsptrResponseMetadata :: !ResponseMetadata
+    { dsptrDescribeScalingProcessTypesResult :: !DescribeScalingProcessTypesResult
+    , dsptrResponseMetadata                  :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeScalingProcessTypesResponse where
@@ -818,7 +819,8 @@ instance AWSRequest AutoScaling DescribeScheduledActions DescribeScheduledAction
     request = req GET "DescribeScheduledActions"
 
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
-    { dscrResponseMetadata :: !ResponseMetadata
+    { dscrDescribeScheduledActionsResult :: !DescribeScheduledActionsResult
+    , dscrResponseMetadata               :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeScheduledActionsResponse where
@@ -853,7 +855,8 @@ instance AWSRequest AutoScaling DescribeTags DescribeTagsResponse where
     request = req GET "DescribeTags"
 
 data DescribeTagsResponse = DescribeTagsResponse
-    { durResponseMetadata :: !ResponseMetadata
+    { dtrDescribeTagsResult :: !DescribeTagsResult
+    , dtrResponseMetadata   :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeTagsResponse where
@@ -875,7 +878,8 @@ instance AWSRequest AutoScaling DescribeTerminationPolicyTypes DescribeTerminati
     request = req GET "DescribeTerminationPolicyTypes"
 
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
-    { dtptrResponseMetadata :: !ResponseMetadata
+    { dtptrDescribeTerminationPolicyTypesResult :: !DescribeTerminationPolicyTypesResult
+    , dtptrResponseMetadata                     :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeTerminationPolicyTypesResponse where
@@ -1222,7 +1226,8 @@ instance AWSRequest AutoScaling TerminateInstanceInAutoScalingGroup TerminateIns
     request = req GET "TerminateInstanceInAutoScalingGroup"
 
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
-    { tiiasgrResponseMetadata :: !ResponseMetadata
+    { tiiasgrResponseMetadata                          :: !ResponseMetadata
+    , tiiasgrTerminateInstanceInAutoScalingGroupResult :: !TerminateInstanceInAutoScalingGroupResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML TerminateInstanceInAutoScalingGroupResponse where

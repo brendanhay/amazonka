@@ -237,7 +237,7 @@ data ResourceRecordSet
     deriving (Eq, Show, Generic)
 
 instance IsXML ResourceRecordSet where
-    xmlPickler = genericXMLPickler $ (namespaced route53NS)
+    xmlPickler = genericXMLPickler $ (namespacedXMLOptions route53NS)
         { xmlCtorModifier = const $ route53Elem "ResourceRecordSet"
         }
 

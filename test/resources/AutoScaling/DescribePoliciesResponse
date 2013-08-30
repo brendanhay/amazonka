@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribePoliciesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dprDescribePoliciesResult}}
+  {{#dqrDescribePoliciesResult}}
   <DescribePoliciesResult>
-    {{dprDescribePoliciesResult}}
+    {{#dprNextToken}}
+    <NextToken>{{dprNextToken}}</NextToken>
+    {{/dprNextToken}}
+    <ScalingPolicies>
+    {{#dprScalingPolicies}}
+      <member>
+        {{#spAdjustmentType}}
+        <AdjustmentType>{{spAdjustmentType}}</AdjustmentType>
+        {{/spAdjustmentType}}
+        <Alarms>
+        {{#spAlarms}}
+          <member>
+            {{#aAlarmARN}}
+            <AlarmARN>{{aAlarmARN}}</AlarmARN>
+            {{/aAlarmARN}}
+            {{#aAlarmName}}
+            <AlarmName>{{aAlarmName}}</AlarmName>
+            {{/aAlarmName}}
+          </member>
+        {{/spAlarms}}
+        </Alarms>
+        {{#sqAutoScalingGroupName}}
+        <AutoScalingGroupName>{{sqAutoScalingGroupName}}</AutoScalingGroupName>
+        {{/sqAutoScalingGroupName}}
+        {{#sqCooldown}}
+        <Cooldown>{{sqCooldown}}</Cooldown>
+        {{/sqCooldown}}
+        {{#sqMinAdjustmentStep}}
+        <MinAdjustmentStep>{{sqMinAdjustmentStep}}</MinAdjustmentStep>
+        {{/sqMinAdjustmentStep}}
+        {{#sqPolicyARN}}
+        <PolicyARN>{{sqPolicyARN}}</PolicyARN>
+        {{/sqPolicyARN}}
+        {{#sqPolicyName}}
+        <PolicyName>{{sqPolicyName}}</PolicyName>
+        {{/sqPolicyName}}
+        {{#sqScalingAdjustment}}
+        <ScalingAdjustment>{{sqScalingAdjustment}}</ScalingAdjustment>
+        {{/sqScalingAdjustment}}
+      </member>
+    {{/dprScalingPolicies}}
+    </ScalingPolicies>
   </DescribePoliciesResult>
-  {{/dprDescribePoliciesResult}}
-  {{#dprResponseMetadata}}
+  {{/dqrDescribePoliciesResult}}
+  {{#dqrResponseMetadata}}
   <ResponseMetadata>
     <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-  {{/dprResponseMetadata}}
+  {{/dqrResponseMetadata}}
 </DescribePoliciesResponse>

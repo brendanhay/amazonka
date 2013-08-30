@@ -1,0 +1,7 @@
+GET /
+Action=PutNotificationConfiguration
+AutoScalingGroupName={{pncAutoScalingGroupName}}
+{{#pncNotificationTypes}}
+NotificationTypes.member.{{n}}={{.}}
+{{/pncNotificationTypes}}
+TopicARN={{pncTopicARN}}

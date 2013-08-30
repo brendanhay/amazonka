@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeMetricCollectionTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dmctrDescribeMetricCollectionTypesResult}}
+  {{#dmctDescribeMetricCollectionTypesResult}}
   <DescribeMetricCollectionTypesResult>
-    {{dmctrDescribeMetricCollectionTypesResult}}
+    <Granularities>
+    {{#dmctrGranularities}}
+      <member>
+        <Granularity>{{mgtGranularity}}</Granularity>
+      </member>
+    {{/dmctrGranularities}}
+    </Granularities>
+    <Metrics>
+    {{#dmctrMetrics}}
+      <member>
+        <Metric>{{mctMetric}}</Metric>
+      </member>
+    {{/dmctrMetrics}}
+    </Metrics>
   </DescribeMetricCollectionTypesResult>
-  {{/dmctrDescribeMetricCollectionTypesResult}}
-  {{#dmctrResponseMetadata}}
+  {{/dmctDescribeMetricCollectionTypesResult}}
+  {{#dmctResponseMetadata}}
   <ResponseMetadata>
     <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-  {{/dmctrResponseMetadata}}
+  {{/dmctResponseMetadata}}
 </DescribeMetricCollectionTypesResponse>

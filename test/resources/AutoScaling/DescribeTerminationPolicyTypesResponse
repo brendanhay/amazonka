@@ -2,7 +2,11 @@
 <DescribeTerminationPolicyTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
   {{#dtptrDescribeTerminationPolicyTypesResult}}
   <DescribeTerminationPolicyTypesResult>
-    {{dtptrDescribeTerminationPolicyTypesResult}}
+    <TerminationPolicyTypes>
+      {{#dtptrTerminationPolicyTypes}}
+      <member>{{.}}</member>
+      {{/dtptrTerminationPolicyTypes}}
+    </TerminationPolicyTypes>
   </DescribeTerminationPolicyTypesResult>
   {{/dtptrDescribeTerminationPolicyTypesResult}}
   {{#dtptrResponseMetadata}}

@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeLaunchConfigurationsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dlcrDescribeLaunchConfigurationsResult}}
+  {{#dldrDescribeLaunchConfigurationsResult}}
   <DescribeLaunchConfigurationsResult>
-    {{dlcrDescribeLaunchConfigurationsResult}}
+    {{#dlcrNextToken}}
+    <NextToken>{{dlcrNextToken}}</NextToken>
+    {{/dlcrNextToken}}
+    <LaunchConfigurations>
+      {{#dlcrLaunchConfigurations}}
+      <member>
+        <BlockDeviceMappings>
+        {{#lcBlockDeviceMappings}}
+          <member>
+            <DeviceName>{{bdmDeviceName}}</DeviceName>
+            {{#bdmEbs}}
+            <Ebs>
+              {{#eSnapshotId}}
+              <SnapshotId>{{eSnapshotId}}</SnapshotId>
+              {{/eSnapshotId}}
+              {{#eVolumeSize}}
+              <VolumeSize>{{eVolumeSize}}</VolumeSize>
+              {{/eVolumeSize}}
+            </Ebs>
+            {{/bdmEbs}}
+            {{#bdmVirtualName}}
+            <VirtualName>{{bdmVirtualName}}</VirtualName>
+            {{/bdmVirtualName}}
+          </member>
+        {{/lcBlockDeviceMappings}}
+        </BlockDeviceMappings>
+        <CreatedTime>{{lcCreatedTime}}</CreatedTime>
+        {{#lcEbsOptimized}}
+        <EbsOptimized>{{lcEbsOptimized}}</EbsOptimized>
+        {{/lcEbsOptimized}}
+        {{#lcIamInstanceProfile}}
+        <IamInstanceProfile>{{lcIamInstanceProfile}}</IamInstanceProfile>
+        {{/lcIamInstanceProfile}}
+        <ImageId>{{lcImageId}}</ImageId>
+        {{#lcInstanceMonitoring}}
+        <InstanceMonitoring>
+          <Enabled>{{imEnabled}}</Enabled>
+        </InstanceMonitoring>
+        {{/lcInstanceMonitoring}}
+        <InstanceType>{{lcInstanceType}}</InstanceType>
+        {{#lcKernelId}}
+        <KernelId>{{lcKernelId}}</KernelId>
+        {{/lcKernelId}}
+        {{#lcKeyName}}
+        <KeyName>{{lcKeyName}}</KeyName>
+        {{/lcKeyName}}
+        {{#lcLaunchConfigurationARN}}
+        <LaunchConfigurationARN>{{lcLaunchConfigurationARN}}</LaunchConfigurationARN>
+        {{/lcLaunchConfigurationARN}}
+        <LaunchConfigurationName>{{lcLaunchConfigurationName}}</LaunchConfigurationName>
+        {{#lcRamdiskId}}
+        <RamdiskId>{{lcRamdiskId}}</RamdiskId>
+        {{/lcRamdiskId}}
+        {{#lcSecurityGroups}}
+        <SecurityGroups>{{lcSecurityGroups}}</SecurityGroups>
+        {{/lcSecurityGroups}}
+        {{#lcSpotPrice}}
+        <SpotPrice>{{lcSpotPrice}}</SpotPrice>
+        {{/lcSpotPrice}}
+        {{#lcUserData}}
+        <UserData>{{lcUserData}}</UserData>
+        {{/lcUserData}}
+      </member>
+      {{/dlcrLaunchConfigurations}}
+    </LaunchConfigurations>
   </DescribeLaunchConfigurationsResult>
-  {{/dlcrDescribeLaunchConfigurationsResult}}
-  {{#dlcrResponseMetadata}}
+  {{/dldrDescribeLaunchConfigurationsResult}}
+  {{#dldrResponseMetadata}}
   <ResponseMetadata>
     <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-  {{/dlcrResponseMetadata}}
+  {{/dldrResponseMetadata}}
 </DescribeLaunchConfigurationsResponse>

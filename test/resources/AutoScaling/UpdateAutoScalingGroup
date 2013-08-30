@@ -29,7 +29,7 @@ MinSize={{uasgMinSize}}
 PlacementGroup={{uasgPlacementGroup}}
 {{/uasgPlacementGroup}}
 {{#uasgTerminationPolicies}}
-TerminationPolicies={{uasgTerminationPolicies}}
+TerminationPolicies.member.{{n}}={{.}}
 {{/uasgTerminationPolicies}}
 {{#uasgVPCZoneIdentifier}}
 VPCZoneIdentifier={{uasgVPCZoneIdentifier}}

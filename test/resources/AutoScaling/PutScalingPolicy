@@ -1,19 +1,12 @@
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
-&ScalingAdjustment=30
-&AdjustmentType=PercentChangeInCapacity
-&PolicyName=my-scaleout-policy
-&Version=2011-01-01
-&Action=PutScalingPolicy
-&AUTHPARAMS 
-
-<PutScalingPolicyResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  <PutScalingPolicyResult>
-    <PolicyARN>arn:aws:autoscaling:us-east-1:803981987763:scalingPolicy:b0dcf5e8
--02e6-4e31-9719-0675d0dc31ae:autoScalingGroupName/my-test-asg:policyName/my-scal
-eout-policy</PolicyARN>
-  </PutScalingPolicyResult>
-  <ResponseMetadata>
-    <RequestId>3cfc6fef-c08b-11e2-a697-2922EXAMPLE</RequestId>
-  </ResponseMetadata>
-</PutScalingPolicyResponse> 
-
+GET /
+Action=PutScalingPolicy
+AdjustmentType={{pspAdjustmentType}}
+AutoScalingGroupName={{pspAutoScalingGroupName}}
+{{#pspCooldown}}
+Cooldown={{pspCooldown}}
+{{/pspCooldown}}
+{{#pspMinAdjustmentStep}}
+MinAdjustmentStep={{pspMinAdjustmentStep}}
+{{/pspMinAdjustmentStep}}
+PolicyName={{pspPolicyName}}
+ScalingAdjustment={{pspScalingAdjustment}}

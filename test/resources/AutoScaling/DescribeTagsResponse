@@ -2,7 +2,30 @@
 <DescribeTagsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
   {{#dtrDescribeTagsResult}}
   <DescribeTagsResult>
-    {{dtrDescribeTagsResult}}
+    {{#dtrNextToken}}
+    <NextToken>{{dtrNextToken}}</NextToken>
+    {{/dtrNextToken}}
+    <Tags>
+      {{#dtrTags}}
+      <member>
+        {{#tKey}}
+        <Key>{{tKey}}</Key>
+        {{/tKey}}
+        {{#tPropagateAtLaunch}}
+        <PropagateAtLaunch>{{tPropagateAtLaunch}}</PropagateAtLaunch>
+        {{/tPropagateAtLaunch}}
+        {{#tResourceId}}
+        <ResourceId>{{tResourceId}}</ResourceId>
+        {{/tResourceId}}
+        {{#tResourceType}}
+        <ResourceType>{{tResourceType}}</ResourceType>
+        {{/tResourceType}}
+        {{#tValue}}
+        <Value>{{tValue}}</Value>
+        {{/tValue}}
+      </member>
+    {{/dtrTags}}
+    </Tags>
   </DescribeTagsResult>
   {{/dtrDescribeTagsResult}}
   {{#dtrResponseMetadata}}

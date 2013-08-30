@@ -1,38 +1,5 @@
-https://autoscaling.amazonaws.com/?Version=2011-01-01
-&Action=DescribeScalingProcessTypes
-&AUTHPARAMS 
-
-<DescribeScalingProcessTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  <DescribeScalingProcessTypesResult>
-    <Processes>
-      <member>
-        <ProcessName>AZRebalance</ProcessName>
-      </member>
-      <member>
-        <ProcessName>AddToLoadBalancer</ProcessName>
-      </member>
-      <member>
-        <ProcessName>AlarmNotification</ProcessName>
-      </member>
-      <member>
-        <ProcessName>HealthCheck</ProcessName>
-      </member>
-      <member>
-        <ProcessName>Launch</ProcessName>
-      </member>
-      <member>
-        <ProcessName>ReplaceUnhealthy</ProcessName>
-      </member>
-      <member>
-        <ProcessName>ScheduledActions</ProcessName>
-      </member>
-      <member>
-        <ProcessName>Terminate</ProcessName>
-      </member>
-    </Processes>
-  </DescribeScalingProcessTypesResult>
-  <ResponseMetadata>
-    <RequestId>27f2eacc-b73f-11e2-ad99-c7aba3a9c963</RequestId>
-  </ResponseMetadata>
-</DescribeScalingProcessTypesResponse> 
-
+GET /
+Action=DescribeScalingProcessTypes
+{{#dsptProcesses}}
+Processes.ProcessName={{ptProcessName}}
+{{/dsptProcesses}}

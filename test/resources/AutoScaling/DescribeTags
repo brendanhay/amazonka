@@ -1,20 +1,16 @@
-https://autoscaling.amazonaws.com/?Version=2011-01-01&Action=DescribeTags
-&AUTHPARAMS 
-
-<DescribeTagsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  <DescribeTagsResult>
-    <Tags>      
-      <member>
-        <ResourceId>my-test-asg</ResourceId>
-        <PropagateAtLaunch>true</PropagateAtLaunch>
-        <Value>1.0</Value>
-        <Key>version</Key>
-        <ResourceType>auto-scaling-group</ResourceType>
-      </member>
-    </Tags>
-  </DescribeTagsResult>
-  <ResponseMetadata>
-    <RequestId>086265fd-bf3e-11e2-85fc-fbb1EXAMPLE</RequestId>
-  </ResponseMetadata>
-</DescribeTagsResponse> 
-
+GET /
+Action=DescribeTags
+{{#dtFilters}}
+{{#fName}}
+Filters.member.{{n}}.Name={{fName}}
+{{/fName}}
+{{#fValues}}
+Filters.member.{{n}}.Values={{fValues}}
+{{/fValues}}
+{{/dtFilters}}
+{{#dtMaxRecords}}
+MaxRecords={{dtMaxRecords}}
+{{/dtMaxRecords}}
+{{#dtNextToken}}
+NextToken={{dtNextToken}}
+{{/dtNextToken}}

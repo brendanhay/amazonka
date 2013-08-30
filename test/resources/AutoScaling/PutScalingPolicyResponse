@@ -2,7 +2,7 @@
 <PutScalingPolicyResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
   {{#psprPutScalingPolicyResult}}
   <PutScalingPolicyResult>
-    {{psprPutScalingPolicyResult}}
+    <PolicyARN>{{psprPolicyARN}}</PolicyARN>
   </PutScalingPolicyResult>
   {{/psprPutScalingPolicyResult}}
   {{#psprResponseMetadata}}

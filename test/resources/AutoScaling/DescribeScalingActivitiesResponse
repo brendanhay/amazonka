@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeScalingActivitiesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dsarDescribeScalingActivitiesResult}}
+  {{#dsbrDescribeScalingActivitiesResult}}
   <DescribeScalingActivitiesResult>
-    {{dsarDescribeScalingActivitiesResult}}
+    <Activities>
+    {{#dsarActivities}}
+      <member>
+        <ActivityId>{{aActivityId}}</ActivityId>
+        <AutoScalingGroupName>{{aAutoScalingGroupName}}</AutoScalingGroupName>
+        <Cause>{{aCause}}</Cause>
+        {{#aDescription}}
+        <Description>{{aDescription}}</Description>
+        {{/aDescription}}
+        {{#aDetails}}
+        <Details>{{aDetails}}</Details>
+        {{/aDetails}}
+        {{#aEndTime}}
+        <EndTime>{{aEndTime}}</EndTime>
+        {{/aEndTime}}
+        {{#aProgress}}
+        <Progress>{{aProgress}}</Progress>
+        {{/aProgress}}
+        <StartTime>{{aStartTime}}</StartTime>
+        <StatusCode>{{aStatusCode}}</StatusCode>
+        {{#aStatusMessage}}
+        <StatusMessage>{{aStatusMessage}}</StatusMessage>
+        {{/aStatusMessage}}
+      </member>
+    {{/dsarActivities}}
+    </Activities>
+    {{#dsarNextToken}}
+    <NextToken>{{dsarNextToken}}</NextToken>
+    {{/dsarNextToken}}
   </DescribeScalingActivitiesResult>
-  {{/dsarDescribeScalingActivitiesResult}}
-  {{#dsarResponseMetadata}}
+  {{/dsbrDescribeScalingActivitiesResult}}
+  {{#dsbrResponseMetadata}}
   <ResponseMetadata>
     <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-  {{/dsarResponseMetadata}}
+  {{/dsbrResponseMetadata}}
 </DescribeScalingActivitiesResponse>

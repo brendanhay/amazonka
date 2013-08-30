@@ -1,0 +1,7 @@
+GET /
+Action=SetInstanceHealth
+HealthStatus={{sihHealthStatus}}
+InstanceId={{sihInstanceId}}
+{{#sihShouldRespectGracePeriod}}
+ShouldRespectGracePeriod={{sihShouldRespectGracePeriod}}
+{{/sihShouldRespectGracePeriod}}

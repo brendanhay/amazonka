@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE OverloadedStrings          #-}
 
 -- Module      : Network.AWS.AutoScaling.Types
@@ -171,7 +172,7 @@ data AutoScalingGroup = AutoScalingGroup
       -- DeleteAutoScalingGroup action is in progress.
     , asgSuspendedProcesses      :: Maybe SuspendedProcess
       -- ^ Suspended processes associated with this Auto Scaling group.
-    , asgTags                    :: Maybe TagDescription
+    , asgTags                    :: Maybe Tag
       -- ^ A list of tags for the Auto Scaling group.
     , asgTerminationPolicies     :: Maybe ByteString
       -- ^ A standalone termination policy or a list of termination policies
@@ -235,11 +236,9 @@ instance IsXML BlockDeviceMapping where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypesResult.html>
 data DescribeAdjustmentTypesResult = DescribeAdjustmentTypesResult
-    { datrAdjustmentTypes :: Maybe AdjustmentType
+    { datrAdjustmentTypes :: Members AdjustmentType
       -- ^ A list of specific policy adjustment types.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeAdjustmentTypesResult
 
 instance IsXML DescribeAdjustmentTypesResult where
     xmlPickler = withNS autoScalingNS
@@ -248,14 +247,11 @@ instance IsXML DescribeAdjustmentTypesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroupsResult.html>
 data DescribeAutoScalingGroupsResult = DescribeAutoScalingGroupsResult
-    { dasgrAutoScalingGroups :: !AutoScalingGroup
+    { dasgrAutoScalingGroups :: Members AutoScalingGroup
       -- ^ A list of Auto Scaling groups.
     , dasgrNextToken         :: Maybe ByteString
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+      -- ^ A string that marks the start of the next batch of returned results.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeAutoScalingGroupsResult
 
 instance IsXML DescribeAutoScalingGroupsResult where
     xmlPickler = withNS autoScalingNS
@@ -264,14 +260,11 @@ instance IsXML DescribeAutoScalingGroupsResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstancesResult.html>
 data DescribeAutoScalingInstancesResult = DescribeAutoScalingInstancesResult
-    { dasirAutoScalingInstances :: Maybe AutoScalingInstanceDetails
+    { dasirAutoScalingInstances :: Members AutoScalingInstanceDetails
       -- ^ A list of Auto Scaling instances.
     , dasirNextToken            :: Maybe ByteString
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+      -- ^ A string that marks the start of the next batch of returned results.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeAutoScalingInstancesResult
 
 instance IsXML DescribeAutoScalingInstancesResult where
     xmlPickler = withNS autoScalingNS
@@ -280,12 +273,9 @@ instance IsXML DescribeAutoScalingInstancesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypesResult.html>
 data DescribeAutoScalingNotificationTypesResult = DescribeAutoScalingNotificationTypesResult
-    { dasntrAutoScalingNotificationTypes :: Maybe ByteString
-      -- ^ Returns a list of all notification types supported by Auto
-      -- Scaling. They are:
+    { dasntrAutoScalingNotificationTypes :: [ByteString]
+      -- ^ Returns a list of all notification types supported by Auto Scaling.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeAutoScalingNotificationTypesResult
 
 instance IsXML DescribeAutoScalingNotificationTypesResult where
     xmlPickler = withNS autoScalingNS
@@ -294,14 +284,11 @@ instance IsXML DescribeAutoScalingNotificationTypesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurationsResult.html>
 data DescribeLaunchConfigurationsResult = DescribeLaunchConfigurationsResult
-    { dlcrLaunchConfigurations :: !LaunchConfiguration
+    { dlcrLaunchConfigurations :: Members LaunchConfiguration
       -- ^ A list of launch configurations.
     , dlcrNextToken            :: Maybe ByteString
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+      -- ^ A string that marks the start of the next batch of returned results.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeLaunchConfigurationsResult
 
 instance IsXML DescribeLaunchConfigurationsResult where
     xmlPickler = withNS autoScalingNS
@@ -310,14 +297,11 @@ instance IsXML DescribeLaunchConfigurationsResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypesResult.html>
 data DescribeMetricCollectionTypesResult = DescribeMetricCollectionTypesResult
-    { dmctrGranularities :: Maybe MetricGranularityType
+    { dmctrGranularities :: Members MetricGranularityType
       -- ^ A list of granularities for the listed Metrics.
-    , dmctrMetrics       :: Maybe MetricCollectionType
-      -- ^ The list of Metrics collected.The following metrics are
-      -- supported:
+    , dmctrMetrics       :: Members MetricCollectionType
+      -- ^ The list of Metrics collected.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeMetricCollectionTypesResult
 
 instance IsXML DescribeMetricCollectionTypesResult where
     xmlPickler = withNS autoScalingNS
@@ -329,11 +313,9 @@ data DescribeNotificationConfigurationsResult = DescribeNotificationConfiguratio
     { dncrNextToken                  :: Maybe ByteString
       -- ^ A string that is used to mark the start of the next batch of
       -- returned results for pagination.
-    , dncrNotificationConfigurations :: !NotificationConfiguration
+    , dncrNotificationConfigurations :: Members NotificationConfiguration
       -- ^ The list of notification configurations.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeNotificationConfigurationsResult
 
 instance IsXML DescribeNotificationConfigurationsResult where
     xmlPickler = withNS autoScalingNS
@@ -343,13 +325,10 @@ instance IsXML DescribeNotificationConfigurationsResult where
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePoliciesResult.html>
 data DescribePoliciesResult = DescribePoliciesResult
     { dprNextToken       :: Maybe ByteString
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
-    , dprScalingPolicies :: Maybe ScalingPolicy
+      -- ^ A string that marks the start of the next batch of returned results.
+    , dprScalingPolicies :: Members ScalingPolicy
       -- ^ A list of scaling policies.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribePoliciesResult
 
 instance IsXML DescribePoliciesResult where
     xmlPickler = withNS autoScalingNS
@@ -358,7 +337,7 @@ instance IsXML DescribePoliciesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivitiesResult.html>
 data DescribeScalingActivitiesResult = DescribeScalingActivitiesResult
-    { dsarActivities :: !Activity
+    { dsarActivities :: Members Activity
       -- ^ A list of the requested scaling activities.
     , dsarNextToken  :: Maybe ByteString
       -- ^ Acts as a paging mechanism for large result sets. Set to a
@@ -367,8 +346,6 @@ data DescribeScalingActivitiesResult = DescribeScalingActivitiesResult
       -- results.
     } deriving (Eq, Show, Generic)
 
-instance IsQuery DescribeScalingActivitiesResult
-
 instance IsXML DescribeScalingActivitiesResult where
     xmlPickler = withNS autoScalingNS
 
@@ -376,11 +353,9 @@ instance IsXML DescribeScalingActivitiesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingProcessTypesResult.html>
 data DescribeScalingProcessTypesResult = DescribeScalingProcessTypesResult
-    { dsptrProcesses :: Maybe ProcessType
+    { dsptrProcesses :: Members ProcessType
       -- ^ A list of ProcessType names.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeScalingProcessTypesResult
 
 instance IsXML DescribeScalingProcessTypesResult where
     xmlPickler = withNS autoScalingNS
@@ -395,12 +370,10 @@ data DescribeScheduledActionsResult = DescribeScheduledActionsResult
     { dsasNextToken                   :: Maybe ByteString
       -- ^ A string that marks the start of the next batch of returned
       -- results.
-    , dsasScheduledUpdateGroupActions :: Maybe ScheduledUpdateGroupAction
+    , dsasScheduledUpdateGroupActions :: Members ScheduledUpdateGroupAction
       -- ^ A list of scheduled actions designed to update an Auto Scaling
       -- group.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeScheduledActionsResult
 
 instance IsXML DescribeScheduledActionsResult where
     xmlPickler = withNS autoScalingNS
@@ -410,13 +383,10 @@ instance IsXML DescribeScheduledActionsResult where
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTagsResult.html>
 data DescribeTagsResult = DescribeTagsResult
     { dtrNextToken :: Maybe ByteString
-      -- ^ A string used to mark the start of the next batch of returned
-      -- results.
-    , dtrTags      :: Maybe TagDescription
+      -- ^ A string used to mark the start of the next batch of returned results.
+    , dtrTags      :: Members Tag
       -- ^ The list of tags.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeTagsResult
 
 instance IsXML DescribeTagsResult where
     xmlPickler = withNS autoScalingNS
@@ -425,13 +395,11 @@ instance IsXML DescribeTagsResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypesResult.html>
 data DescribeTerminationPolicyTypesResult = DescribeTerminationPolicyTypesResult
-    { dtptrTerminationPolicyTypes :: Maybe ByteString
+    { dtptrTerminationPolicyTypes :: [ByteString]
       -- ^ Termination policies supported by Auto Scaling. They are:
       -- OldestInstance, OldestLaunchConfiguration, NewestInstance,
       -- ClosestToNextInstanceHour, Default
     } deriving (Eq, Show, Generic)
-
-instance IsQuery DescribeTerminationPolicyTypesResult
 
 instance IsXML DescribeTerminationPolicyTypesResult where
     xmlPickler = withNS autoScalingNS
@@ -520,7 +488,7 @@ instance IsXML InstanceMonitoring where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_LaunchConfiguration.html>
 data LaunchConfiguration = LaunchConfiguration
-    { lcBlockDeviceMappings     :: Maybe BlockDeviceMapping
+    { lcBlockDeviceMappings     :: Members BlockDeviceMapping
       -- ^ Specifies how block devices are exposed to the instance. Each
       -- mapping is made up of a virtualName and a deviceName.
     , lcCreatedTime             :: !UTCTime
@@ -569,7 +537,7 @@ instance IsXML LaunchConfiguration where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_MetricCollectionType.html>
 data MetricCollectionType = MetricCollectionType
-    { mctMetric :: Maybe ByteString
+    { mctMetric :: ByteString
       -- ^ Type: String
     } deriving (Eq, Show, Generic)
 
@@ -582,7 +550,7 @@ instance IsXML MetricCollectionType where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_MetricGranularityType.html>
 data MetricGranularityType = MetricGranularityType
-    { mgtGranularity :: Maybe ByteString
+    { mgtGranularity :: ByteString
       -- ^ The granularity of a Metric.
     } deriving (Eq, Show, Generic)
 
@@ -609,63 +577,12 @@ instance IsQuery NotificationConfiguration
 instance IsXML NotificationConfiguration where
     xmlPickler = withNS autoScalingNS
 
--- | There are two primary Auto Scaling process types--Launch and Terminate. The
+-- | There are two primary Auto Scaling process types: Launch and Terminate. The
 -- Launch process creates a new Amazon EC2 instance for an Auto Scaling group,
 -- and the Terminate process removes an existing Amazon EC2 instance. The
 -- remaining Auto Scaling process types relate to specific Auto Scaling
 -- features: Important If you suspend Launch or Terminate, all other process
--- types are affected to varying degrees. The following descriptions discuss
--- how each process type is affected by a suspension of Launch or Terminate.
--- The AddToLoadBalancer process type adds instances to the the load balancer
--- when the instances are launched. If you suspend this process, Auto Scaling
--- will launch the instances but will not add them to the load balancer. If
--- you resume the AddToLoadBalancer process, Auto Scaling will also resume
--- adding new instances to the load balancer when they are launched. However,
--- Auto Scaling will not add running instances that were launched while the
--- process was suspended; those instances must be added manually using the the
--- RegisterInstancesWithLoadBalancer call in the Elastic Load Balancing API
--- Reference. The AlarmNotification process type accepts notifications from
--- Amazon CloudWatch alarms that are associated with the Auto Scaling group.
--- If you suspend the AlarmNotification process type, Auto Scaling will not
--- automatically execute scaling policies that would be triggered by alarms.
--- Although the AlarmNotification process type is not directly affected by a
--- suspension of Launch or Terminate, alarm notifications are often used to
--- signal that a change in the size of the Auto Scaling group is warranted. If
--- you suspend Launch or Terminate, Auto Scaling might not be able to
--- implement the alarm's associated policy. The AZRebalance process type seeks
--- to maintain a balanced number of instances across Availability Zones within
--- a Region. If you remove an Availability Zone from your Auto Scaling group
--- or an Availability Zone otherwise becomes unhealthy or unavailable, Auto
--- Scaling launches new instances in an unaffected Availability Zone before
--- terminating the unhealthy or unavailable instances. When the unhealthy
--- Availability Zone returns to a healthy state, Auto Scaling automatically
--- redistributes the application instances evenly across all of the designated
--- Availability Zones. Important If you call SuspendProcesses on the launch
--- process type, the AZRebalance process will neither launch new instances nor
--- terminate existing instances. This is because the AZRebalance process
--- terminates existing instances only after launching the replacement
--- instances. If you call SuspendProcesses on the terminate process type, the
--- AZRebalance process can cause your Auto Scaling group to grow up to ten
--- percent larger than the maximum size. This is because Auto Scaling allows
--- groups to temporarily grow larger than the maximum size during rebalancing
--- activities. If Auto Scaling cannot terminate instances, your Auto Scaling
--- group could remain up to ten percent larger than the maximum size until you
--- resume the terminate process type. The HealthCheck process type checks the
--- health of the instances. Auto Scaling marks an instance as unhealthy if
--- Amazon EC2 or Elastic Load Balancing informs Auto Scaling that the instance
--- is unhealthy. The HealthCheck process can override the health status of an
--- instance that you set with SetInstanceHealth. The ReplaceUnhealthy process
--- type terminates instances that are marked as unhealthy and subsequently
--- creates new instances to replace them. This process calls both of the
--- primary process types--first Terminate and then Launch. Important The
--- HealthCheck process type works in conjunction with the ReplaceUnhealthly
--- process type to provide health check functionality. If you suspend either
--- Launch or Terminate, the ReplaceUnhealthy process type will not function
--- properly. The ScheduledActions process type performs scheduled actions that
--- you create with PutScheduledUpdateGroupAction. Scheduled actions often
--- involve launching new instances or terminating existing instances. If you
--- suspend either Launch or Terminate, your scheduled actions might not
--- function as expected.
+-- types are affected to varying degrees.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ProcessType.html>
 data ProcessType = ProcessType
@@ -686,8 +603,6 @@ data PutScalingPolicyResult = PutScalingPolicyResult
       -- ^ A policy's Amazon Resource Name (ARN).
     } deriving (Eq, Show, Generic)
 
-instance IsQuery PutScalingPolicyResult
-
 instance IsXML PutScalingPolicyResult where
     xmlPickler = withNS autoScalingNS
 
@@ -699,7 +614,7 @@ data ScalingPolicy = ScalingPolicy
       -- ^ Specifies whether the ScalingAdjustment is an absolute number or
       -- a percentage of the current capacity. Valid values are
       -- ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
-    , spAlarms               :: Maybe Alarm
+    , spAlarms               :: Members Alarm
       -- ^ A list of CloudWatch Alarms related to the policy.
     , sqAutoScalingGroupName :: Maybe ByteString
       -- ^ The name of the Auto Scaling group associated with this scaling
@@ -802,31 +717,6 @@ instance IsQuery Tag
 instance IsXML Tag where
     xmlPickler = withNS autoScalingNS
 
--- | The tag applied to an Auto Scaling group.
---
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TagDescription.html>
-data TagDescription = TagDescription
-    { tdKey               :: Maybe ByteString
-      -- ^ The key of the tag.
-    , tdPropagateAtLaunch :: Maybe Bool
-      -- ^ Specifies whether the new tag will be applied to instances
-      -- launched after the tag is created. The same behavior applies to
-      -- updates: If you change a tag, the changed tag will be applied to
-      -- all instances launched after you made the change.
-    , tdResourceId        :: Maybe ByteString
-      -- ^ The name of the Auto Scaling group.
-    , tdResourceType      :: Maybe ByteString
-      -- ^ The kind of resource to which the tag is applied. Currently, Auto
-      -- Scaling supports the auto-scaling-group resource type.
-    , tdValue             :: Maybe ByteString
-      -- ^ The value of the tag.
-    } deriving (Eq, Show, Generic)
-
-instance IsQuery TagDescription
-
-instance IsXML TagDescription where
-    xmlPickler = withNS autoScalingNS
-
 -- | The output for the TerminateInstanceInAutoScalingGroup action.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroupResult.html>
@@ -834,8 +724,6 @@ data TerminateInstanceInAutoScalingGroupResult = TerminateInstanceInAutoScalingG
     { tiiasgrActivity :: Maybe Activity
       -- ^ A scaling Activity.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery TerminateInstanceInAutoScalingGroupResult
 
 instance IsXML TerminateInstanceInAutoScalingGroupResult where
     xmlPickler = withNS autoScalingNS

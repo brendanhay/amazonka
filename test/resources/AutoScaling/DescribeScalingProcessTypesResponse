@@ -2,7 +2,13 @@
 <DescribeScalingProcessTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
   {{#dsptrDescribeScalingProcessTypesResult}}
   <DescribeScalingProcessTypesResult>
-    {{dsptrDescribeScalingProcessTypesResult}}
+    <Processes>
+    {{#dsptrProcesses}}
+      <member>
+        <ProcessName>{{ptProcessName}}</ProcessName>
+      </member>
+    {{/dsptrProcesses}}
+    </Processes>
   </DescribeScalingProcessTypesResult>
   {{/dsptrDescribeScalingProcessTypesResult}}
   {{#dsptrResponseMetadata}}

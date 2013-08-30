@@ -7,7 +7,30 @@
   {{/tiiasgrResponseMetadata}}
   {{#tiiasgrTerminateInstanceInAutoScalingGroupResult}}
   <TerminateInstanceInAutoScalingGroupResult>
-    {{tiiasgrTerminateInstanceInAutoScalingGroupResult}}
+    {{#tiiasgrActivity}}
+    <Activity>
+      <ActivityId>{{aActivityId}}</ActivityId>
+      <AutoScalingGroupName>{{aAutoScalingGroupName}}</AutoScalingGroupName>
+      <Cause>{{aCause}}</Cause>
+      {{#aDescription}}
+      <Description>{{aDescription}}</Description>
+      {{/aDescription}}
+      {{#aDetails}}
+      <Details>{{aDetails}}</Details>
+      {{/aDetails}}
+      {{#aEndTime}}
+      <EndTime>{{aEndTime}}</EndTime>
+      {{/aEndTime}}
+      {{#aProgress}}
+      <Progress>{{aProgress}}</Progress>
+      {{/aProgress}}
+      <StartTime>{{aStartTime}}</StartTime>
+      <StatusCode>{{aStatusCode}}</StatusCode>
+      {{#aStatusMessage}}
+      <StatusMessage>{{aStatusMessage}}</StatusMessage>
+      {{/aStatusMessage}}
+    </Activity>
+    {{/tiiasgrActivity}}
   </TerminateInstanceInAutoScalingGroupResult>
   {{/tiiasgrTerminateInstanceInAutoScalingGroupResult}}
 </TerminateInstanceInAutoScalingGroupResponse>

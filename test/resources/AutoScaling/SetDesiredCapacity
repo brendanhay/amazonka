@@ -1,13 +1,7 @@
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
-&HonorCooldown=false
-&DesiredCapacity=2
-&Version=2011-01-01
-&Action=SetDesiredCapacity
-&AUTHPARAMS 
-
-<SetDesiredCapacityResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  <ResponseMetadata>
-    <RequestId>9fb7e2db-6998-11e2-a985-57c82EXAMPLE</RequestId>
-  </ResponseMetadata>
-</SetDesiredCapacityResponse>
-
+GET /
+Action=SetDesiredCapacity
+AutoScalingGroupName={{sdcAutoScalingGroupName}}
+DesiredCapacity={{sdcDesiredCapacity}}
+{{#sdcHonorCooldown}}
+HonorCooldown={{sdcHonorCooldown}}
+{{/sdcHonorCooldown}}

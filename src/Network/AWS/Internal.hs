@@ -31,22 +31,19 @@ module Network.AWS.Internal
     , withNS'
     , withRootNS
     , withRootNS'
-    , namespaced
     ) where
 
-import           Data.ByteString                 (ByteString)
-import qualified Data.ByteString.Char8           as BS
-import           Data.Char
-import           GHC.Generics
-import           Network.AWS.Internal.Instances
-import           Network.AWS.Internal.Signing
-import           Network.AWS.Internal.String
-import           Network.AWS.Internal.Types
-import           Network.HTTP.QueryString.Pickle
-import           Text.XML.Expat.Pickle.Generic
+import Data.ByteString                 (ByteString)
+import GHC.Generics
+import Network.AWS.Internal.Instances
+import Network.AWS.Internal.Signing
+import Network.AWS.Internal.String
+import Network.AWS.Internal.Types
+import Network.HTTP.QueryString.Pickle
+import Text.XML.Expat.Pickle.Generic
 
 withNS :: ByteString -> XMLGeneric a
-withNS ns = withNS' ns (namespaced ns)
+withNS ns = withNS' ns $ xmlOptions ns
 
 withNS' :: ByteString -> XMLOptions -> XMLGeneric a
 withNS' ns opts = pu { root = (mkNName ns . nnLocalPart) `fmap` (root pu) }
@@ -54,17 +51,14 @@ withNS' ns opts = pu { root = (mkNName ns . nnLocalPart) `fmap` (root pu) }
     pu = genericXMLPickler opts
 
 withRootNS :: ByteString -> ByteString -> XMLGeneric a
-withRootNS ns name = withRootNS' ns name (namespaced ns)
+withRootNS ns name = withRootNS' ns name $ xmlOptions ns
 
 withRootNS' :: ByteString -> ByteString -> XMLOptions -> XMLGeneric a
 withRootNS' ns name opts = (genericXMLPickler opts)
    { root = Just $ mkNName ns name
    }
 
-namespaced :: ByteString -> XMLOptions
-namespaced ns =
-    let XMLOptions{..} = defaultXMLOptions
-    in defaultXMLOptions
-           { xmlCtorModifier  = mkNName ns . BS.pack
-           , xmlFieldModifier = mkNName ns . BS.pack . dropWhile isLower
-           }
+xmlOptions :: ByteString -> XMLOptions
+xmlOptions ns = (namespacedXMLOptions ns)
+    { xmlListElement = mkNName ns "member"
+    }

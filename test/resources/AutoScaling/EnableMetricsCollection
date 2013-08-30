@@ -1,0 +1,7 @@
+GET /
+Action=EnableMetricsCollection
+AutoScalingGroupName={{emcAutoScalingGroupName}}
+Granularity={{emcGranularity}}
+{{#emcMetrics}}
+Metrics.member.{{n}}={{.}}
+{{/emcMetrics}}

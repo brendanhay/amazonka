@@ -15,6 +15,7 @@
 
 module Network.AWS.Internal.Instances where
 
+import           Control.Monad
 import qualified Data.ByteString.Char8           as BS
 import           Data.Time
 import           GHC.Generics
@@ -28,6 +29,12 @@ newtype Members a = Members { members :: [a] }
 instance IsQuery a => IsQuery (Members a) where
     queryPickler = qpWrap (Members, members)
         (qpElem "member" $ qpOrdinalList queryPickler)
+
+instance IsXML a => IsXML (Members a) where
+    xmlPickler = xpWrap (Members, members) $ xpElemList (name "member") pu
+      where
+        name = maybe mkAnNName mkNName . join $ nnNamespace `fmap` root pu
+        pu   = xmlPickler
 
 instance IsQuery () where
     queryPickler = qpLift ()
@@ -52,6 +59,16 @@ instance IsXML Bool where
         u "false" = Right False
         u err     = Left $ "unable to parse Bool from: " ++ show err
 
+instance IsQuery UTCTime where
+    queryPickler = QueryPU p u
+      where
+        p d = Value . BS.pack $ take 23 (formatTime defaultTimeLocale "%FT%T%Q" d) ++ "Z"
+
+        u (Value t) = case parseTime defaultTimeLocale "%FT%T%QZ" (BS.unpack t) of
+            Just d -> Right d
+            _      -> Left "could not parse ISO-8601 date"
+        u _         = Left "could not parse ISO-8601 date"
+
 instance IsXML UTCTime where
     xmlPickler = xpContent $ XMLPU
         { pickleTree   = \d ->
@@ -62,7 +79,3 @@ instance IsXML UTCTime where
                   _      -> Left "could not parse ISO-8601 date"
         , root         = Nothing
         }
-
-instance IsQuery UTCTime where
-    queryPickler = qpPrim
-

@@ -1,0 +1,20 @@
+GET /
+Action=DescribeScheduledActions
+{{#dscAutoScalingGroupName}}
+AutoScalingGroupName={{dscAutoScalingGroupName}}
+{{/dscAutoScalingGroupName}}
+{{#dscEndTime}}
+EndTime={{dscEndTime}}
+{{/dscEndTime}}
+{{#dscMaxRecords}}
+MaxRecords={{dscMaxRecords}}
+{{/dscMaxRecords}}
+{{#dscNextToken}}
+NextToken={{dscNextToken}}
+{{/dscNextToken}}
+{{#dscScheduledActionNames}}
+ScheduledActionNames.member.{{n}}={{.}}
+{{/dscScheduledActionNames}}
+{{#dscStartTime}}
+StartTime={{dscStartTime}}
+{{/dscStartTime}}

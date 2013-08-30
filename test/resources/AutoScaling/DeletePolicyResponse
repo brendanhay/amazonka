@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DeletePolicyResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/" />
+<DeletePolicyResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dprResponseMetadata}}
+  <ResponseMetadata>
+    <RequestId>{{rmRequestId}}</RequestId>
+  </ResponseMetadata>
+  {{/dprResponseMetadata}}
+</DeletePolicyResponse>

@@ -1,20 +1,13 @@
-https://autoscaling.amazonaws.com/?Version=2011-01-01&Action=DescribeTags
-&AUTHPARAMS 
-
+<?xml version="1.0" encoding="UTF-8"?>
 <DescribeTagsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dtrDescribeTagsResult}}
   <DescribeTagsResult>
-    <Tags>      
-      <member>
-        <ResourceId>my-test-asg</ResourceId>
-        <PropagateAtLaunch>true</PropagateAtLaunch>
-        <Value>1.0</Value>
-        <Key>version</Key>
-        <ResourceType>auto-scaling-group</ResourceType>
-      </member>
-    </Tags>
+    {{dtrDescribeTagsResult}}
   </DescribeTagsResult>
+  {{/dtrDescribeTagsResult}}
+  {{#dtrResponseMetadata}}
   <ResponseMetadata>
-    <RequestId>086265fd-bf3e-11e2-85fc-fbb1EXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-</DescribeTagsResponse> 
-
+  {{/dtrResponseMetadata}}
+</DescribeTagsResponse>

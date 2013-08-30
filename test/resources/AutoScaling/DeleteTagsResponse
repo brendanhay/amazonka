@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DeleteTagsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/" />
+<DeleteTagsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dtrResponseMetadata}}
+  <ResponseMetadata>
+    <RequestId>{{rmRequestId}}</RequestId>
+  </ResponseMetadata>
+  {{/dtrResponseMetadata}}
+</DeleteTagsResponse>

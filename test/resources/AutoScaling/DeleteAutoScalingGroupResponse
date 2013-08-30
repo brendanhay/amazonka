@@ -6,4 +6,3 @@
   </ResponseMetadata>
   {{/dasgrResponseMetadata}}
 </DeleteAutoScalingGroupResponse>
-

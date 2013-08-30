@@ -682,7 +682,7 @@ instance IsXML ProcessType where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicyResult.html>
 data PutScalingPolicyResult = PutScalingPolicyResult
-    { psprPolicyARN :: Maybe ByteString
+    { psprPolicyARN :: ByteString
       -- ^ A policy's Amazon Resource Name (ARN).
     } deriving (Eq, Show, Generic)
 

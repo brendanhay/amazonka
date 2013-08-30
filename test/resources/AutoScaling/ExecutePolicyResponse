@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExecutePolicyResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#eprResponseMetadata}}
+  <ResponseMetadata>
+    <RequestId>{{rmRequestId}}</RequestId>
+  </ResponseMetadata>
+  {{/eprResponseMetadata}}
+</ExecutePolicyResponse>

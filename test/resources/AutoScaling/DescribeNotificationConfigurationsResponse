@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DescribeNotificationConfigurationsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dncrDescribeNotificationConfigurationsResult}}
+  <DescribeNotificationConfigurationsResult>
+    {{dncrDescribeNotificationConfigurationsResult}}
+  </DescribeNotificationConfigurationsResult>
+  {{/dncrDescribeNotificationConfigurationsResult}}
+  {{#dncrResponseMetadata}}
+  <ResponseMetadata>
+    <RequestId>{{rmRequestId}}</RequestId>
+  </ResponseMetadata>
+  {{/dncrResponseMetadata}}
+</DescribeNotificationConfigurationsResponse>

@@ -1,13 +1,8 @@
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
-&HonorCooldown=false
-&DesiredCapacity=2
-&Version=2011-01-01
-&Action=SetDesiredCapacity
-&AUTHPARAMS 
-
+<?xml version="1.0" encoding="UTF-8"?>
 <SetDesiredCapacityResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#sdcrResponseMetadata}}
   <ResponseMetadata>
-    <RequestId>9fb7e2db-6998-11e2-a985-57c82EXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
+  {{/sdcrResponseMetadata}}
 </SetDesiredCapacityResponse>
-

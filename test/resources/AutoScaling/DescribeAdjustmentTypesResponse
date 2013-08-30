@@ -1,23 +1,13 @@
-https://autoscaling.amazonaws.com/?Version=2011-01-01
-&Action=DescribeAdjustmentTypes
-&AUTHPARAMS 
-
-<DescribeAdjustmentTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/201-01-01/">
+<?xml version="1.0" encoding="UTF-8"?>
+<DescribeAdjustmentTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#datrDescribeAdjustmentTypesResult}}
   <DescribeAdjustmentTypesResult>
-    <AdjustmentTypes>
-      <member>
-        <AdjustmentType>ChangeInCapacity</AdjustmentType>
-      </member>
-      <member>
-        <AdjustmentType>ExactCapacity</AdjustmentType>
-      </member>
-      <member>
-        <AdjustmentType>PercentChangeInCapacity</AdjustmentType>
-      </member>
-    </AdjustmentTypes>
+    {{datrDescribeAdjustmentTypesResult}}
   </DescribeAdjustmentTypesResult>
+  {{/datrDescribeAdjustmentTypesResult}}
+  {{#datrResponseMetadata}}
   <ResponseMetadata>
-    <RequestId>cc5f0337-b694-11e2-afc0-6544dEXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-</DescribeAdjustmentTypesResponse> 
-
+  {{/datrResponseMetadata}}
+</DescribeAdjustmentTypesResponse>

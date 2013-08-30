@@ -1,45 +1,13 @@
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
-&MaxRecords=20
-&Version=2011-01-01
-&Action=DescribePolicies
-&AUTHPARAMS 
-
+<?xml version="1.0" encoding="UTF-8"?>
 <DescribePoliciesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dprDescribePoliciesResult}}
   <DescribePoliciesResult>
-    <ScalingPolicies>
-      <member>
-        <PolicyARN>arn:aws:autoscaling:us-east-1:803981987763:scalingPolicy:c322
-761b-3172-4d56-9a21-0ed9d6161d67:autoScalingGroupName/my-test-asg:policyName/MyScaleDownPolicy</PolicyARN>
-        <AdjustmentType>ChangeInCapacity</AdjustmentType>
-        <ScalingAdjustment>-1</ScalingAdjustment>
-        <PolicyName>MyScaleDownPolicy</PolicyName>
-        <AutoScalingGroupName>my-test-asg</AutoScalingGroupName>
-        <Cooldown>60</Cooldown>
-        <Alarms>
-          <member>
-            <AlarmName>TestQueue</AlarmName>
-            <AlarmARN>arn:aws:cloudwatch:us-east-1:803981987763:alarm:TestQueue</AlarmARN>
-          </member>
-        </Alarms>
-      </member>
-      <member>
-        <PolicyARN>arn:aws:autoscaling:us-east-1:803981987763:scalingPolicy:c55a5cdd-9be0-435b-b60b-a8dd313159f5:autoScalingGroupName/my-test-asg:policyName/MyScaleUpPolicy</PolicyARN>
-        <AdjustmentType>ChangeInCapacity</AdjustmentType>
-        <ScalingAdjustment>1</ScalingAdjustment>
-        <PolicyName>MyScaleUpPolicy</PolicyName>
-        <AutoScalingGroupName>my-test-asg</AutoScalingGroupName>
-        <Cooldown>60</Cooldown>
-        <Alarms>
-          <member>
-            <AlarmName>TestQueue</AlarmName>
-            <AlarmARN>arn:aws:cloudwatch:us-east-1:803981987763:alarm:TestQueue</AlarmARN>
-          </member>
-        </Alarms>
-      </member>
-    </ScalingPolicies>
+    {{dprDescribePoliciesResult}}
   </DescribePoliciesResult>
+  {{/dprDescribePoliciesResult}}
+  {{#dprResponseMetadata}}
   <ResponseMetadata>
-    <RequestId>ec3bffad-b739-11e2-b38d-15fbEXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-</DescribePoliciesResponse> 
-
+  {{/dprResponseMetadata}}
+</DescribePoliciesResponse>

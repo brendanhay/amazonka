@@ -1,34 +1,13 @@
-https://autoscaling.amazonaws.com/?LaunchConfigurationNames.member.1=my-test-lc
-&MaxRecords=20
-&Version=2011-01-01
-&Action=DescribeLaunchConfigurations
-&AUTHPARAMS 
-
+<?xml version="1.0" encoding="UTF-8"?>
 <DescribeLaunchConfigurationsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dlcrDescribeLaunchConfigurationsResult}}
   <DescribeLaunchConfigurationsResult>
-    <LaunchConfigurations>
-      <member>
-        <SecurityGroups/>
-        <CreatedTime>2013-01-21T23:04:42.200Z</CreatedTime>
-        <KernelId/>
-        <LaunchConfigurationName>my-test-lc</LaunchConfigurationName>
-        <UserData/>
-        <InstanceType>m1.small</InstanceType>
-        <LaunchConfigurationARN>arn:aws:autoscaling:us-east-1:803981987763:launchConfiguration:
-        9dbbbf87-6141-428a-a409-0752edbe6cad:launchConfigurationName/my-test-lc</LaunchConfigurationARN>
-        <BlockDeviceMappings/>
-        <ImageId>ami-514ac838</ImageId>
-        <KeyName/>
-        <RamdiskId/>
-        <InstanceMonitoring>
-          <Enabled>true</Enabled>
-        </InstanceMonitoring>
-        <EbsOptimized>false</EbsOptimized>
-      </member>
-    </LaunchConfigurations>
+    {{dlcrDescribeLaunchConfigurationsResult}}
   </DescribeLaunchConfigurationsResult>
+  {{/dlcrDescribeLaunchConfigurationsResult}}
+  {{#dlcrResponseMetadata}}
   <ResponseMetadata>
-    <RequestId>d05a22f8-b690-11e2-bf8e-2113fEXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-</DescribeLaunchConfigurationsResponse> 
-
+  {{/dlcrResponseMetadata}}
+</DescribeLaunchConfigurationsResponse>

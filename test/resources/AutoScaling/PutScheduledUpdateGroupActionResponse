@@ -1,28 +1,8 @@
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
-&ScheduledActionName=ScaleUp
-&StartTime=2013-05-25T08:00:00Z
-&DesiredCapacity=3
-&Version=2011-01-01
-&Action=PutScheduledUpdateGroupAction
-&AUTHPARAMS 
-
+<?xml version="1.0" encoding="UTF-8"?>
 <PutScheduledUpdateGroupActionResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#psugarResponseMetadata}}
   <ResponseMetadata>
-    <RequestId>3bc8c9bc-6a62-11e2-8a51-4b8a1EXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-  </PutScheduledUpdateGroupActionResponse>
-
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
-&ScheduledActionName=scaleup-schedule-year
-&Recurrence="30 0 1 1,6,12 *"
-&DesiredCapacity=3
-&Version=2011-01-01
-&Action=PutScheduledUpdateGroupAction
-&AUTHPARAMS 
-
-<PutScheduledUpdateGroupActionResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  <ResponseMetadata>
-    <RequestId>3bc8c9bc-6a62-11e2-8a51-4b8a1EXAMPLE</RequestId>
-  </ResponseMetadata>
-  </PutScheduledUpdateGroupActionResponse>
-
+  {{/psugarResponseMetadata}}
+</PutScheduledUpdateGroupActionResponse>

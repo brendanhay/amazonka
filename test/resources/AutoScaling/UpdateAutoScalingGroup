@@ -1,28 +1,37 @@
-https://autoscaling.amazonaws.com/?HealthCheckType=ELB
-&HealthCheckGracePeriod=300
-&AutoScalingGroupName=my-test-asg-lbs
-&Version=2011-01-01
-&Action=UpdateAutoScalingGroup
-&AUTHPARAMS 
-
-<UpdateAutoScalingGroupResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  <ResponseMetadata>
-    <RequestId>adafead0-ab8a-11e2-ba13-ab0ccEXAMPLE</RequestId>
-  </ResponseMetadata>
-</UpdateAutoScalingGroupResponse>
-
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg-lbs
-&AvailabilityZones.member.1=us-east-1a
-&AvailabilityZones.member.2=us-east-1b
-&AvailabilityZones.member.3=us-east-1c
-&MinSize=3
-&Version=2011-01-01
-&Action=UpdateAutoScalingGroup
-&AUTHPARAMS 
-
-<UpdateAutoScalingGroupResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  <ResponseMetadata>
-    <RequestId>adafead0-ab8a-11e2-ba13-ab0ccEXAMPLE</RequestId>
-  </ResponseMetadata>
-</UpdateAutoScalingGroupResponse>
+GET /
+Action=UpdateAutoScalingGroup
+AutoScalingGroupName={{uasgAutoScalingGroupName}}
+{{#uasgAvailabilityZones}}
+AvailabilityZones.member.{{n}}={{.}}
+{{/uasgAvailabilityZones}}
+{{#uasgDefaultCooldown}}
+DefaultCooldown={{uasgDefaultCooldown}}
+{{/uasgDefaultCooldown}}
+{{#uasgDesiredCapacity}}
+DesiredCapacity={{uasgDesiredCapacity}}
+{{/uasgDesiredCapacity}}
+{{#uasgHealthCheckGracePeriod}}
+HealthCheckGracePeriod={{uasgHealthCheckGracePeriod}}
+{{/uasgHealthCheckGracePeriod}}
+{{#uasgHealthCheckType}}
+HealthCheckType={{uasgHealthCheckType}}
+{{/uasgHealthCheckType}}
+{{#uasgLaunchConfigurationName}}
+LaunchConfigurationName={{uasgLaunchConfigurationName}}
+{{/uasgLaunchConfigurationName}}
+{{#uasgMaxSize}}
+MaxSize={{uasgMaxSize}}
+{{/uasgMaxSize}}
+{{#uasgMinSize}}
+MinSize={{uasgMinSize}}
+{{/uasgMinSize}}
+{{#uasgPlacementGroup}}
+PlacementGroup={{uasgPlacementGroup}}
+{{/uasgPlacementGroup}}
+{{#uasgTerminationPolicies}}
+TerminationPolicies={{uasgTerminationPolicies}}
+{{/uasgTerminationPolicies}}
+{{#uasgVPCZoneIdentifier}}
+VPCZoneIdentifier={{uasgVPCZoneIdentifier}}
+{{/uasgVPCZoneIdentifier}}
 

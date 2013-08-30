@@ -1,28 +1,13 @@
-https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
-&MaxRecords=20
-&Version=2011-01-01
-&Action=DescribeScalingActivities
-&AUTHPARAMS 
-
-<DescribeScalingActivitiesResponse xmlns="http://ec2.amazonaws.com/doc/2011-01-01/">
-<DescribeScalingActivitiesResult>
-<Activities>
-   <member>
-     <StatusCode>Failed</StatusCode>
-     <Progress>0</Progress>
-     <ActivityId>063308ae-aa22-4a9b-94f4-9faeEXAMPLE</ActivityId>
-     <StartTime>2012-04-12T17:32:07.882Z</StartTime>
-     <AutoScalingGroupName>my-test-asg</AutoScalingGroupName>
-     <Cause>At 2012-04-12T17:31:30Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 1.  At 2012-04-12T17:32:07Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.</Cause>
-     <Details>{}</Details>
-     <Description>Launching a new EC2 instance.  Status Reason: The image id 'ami-4edb0327' does not exist. Launching EC2 instance failed.</Description>
-     <EndTime>2012-04-12T17:32:08Z</EndTime>
-     <StatusMessage>The image id 'ami-4edb0327' does not exist. Launching EC2 instance failed.</StatusMessage>
-   </member>
-</Activities>
+<?xml version="1.0" encoding="UTF-8"?>
+<DescribeScalingActivitiesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dsarDescribeScalingActivitiesResult}}
+  <DescribeScalingActivitiesResult>
+    {{dsarDescribeScalingActivitiesResult}}
   </DescribeScalingActivitiesResult>
+  {{/dsarDescribeScalingActivitiesResult}}
+  {{#dsarResponseMetadata}}
   <ResponseMetadata>
-   <RequestId>7a641adc-84c5-11e1-a8a5-217ebEXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-</DescribeScalingActivitiesResponse> 
-
+  {{/dsarResponseMetadata}}
+</DescribeScalingActivitiesResponse>

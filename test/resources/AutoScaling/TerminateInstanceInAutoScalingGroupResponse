@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TerminateInstanceInAutoScalingGroupResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#tiiasgrResponseMetadata}}
+  <ResponseMetadata>
+    <RequestId>{{rmRequestId}}</RequestId>
+  </ResponseMetadata>
+  {{/tiiasgrResponseMetadata}}
+  {{#tiiasgrTerminateInstanceInAutoScalingGroupResult}}
+  <TerminateInstanceInAutoScalingGroupResult>
+    {{tiiasgrTerminateInstanceInAutoScalingGroupResult}}
+  </TerminateInstanceInAutoScalingGroupResult>
+  {{/tiiasgrTerminateInstanceInAutoScalingGroupResult}}
+</TerminateInstanceInAutoScalingGroupResponse>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DescribeAutoScalingNotificationTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dasntrDescribeAutoScalingNotificationTypesResult}}
+  <DescribeAutoScalingNotificationTypesResult>
+    {{dasntrDescribeAutoScalingNotificationTypesResult}}
+  </DescribeAutoScalingNotificationTypesResult>
+  {{/dasntrDescribeAutoScalingNotificationTypesResult}}
+  {{#dasntrResponseMetadata}}
+  <ResponseMetadata>
+    <RequestId>{{rmRequestId}}</RequestId>
+  </ResponseMetadata>
+  {{/dasntrResponseMetadata}}
+</DescribeAutoScalingNotificationTypesResponse>

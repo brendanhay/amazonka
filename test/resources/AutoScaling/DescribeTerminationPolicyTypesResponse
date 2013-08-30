@@ -1,19 +1,13 @@
-https://autoscaling.amazonaws.com/?Version=2011-01-01
-&Action=DescribeTerminationPolicyTypes
-&AUTHPARAMS 
-
+<?xml version="1.0" encoding="UTF-8"?>
 <DescribeTerminationPolicyTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
+  {{#dtptrDescribeTerminationPolicyTypesResult}}
   <DescribeTerminationPolicyTypesResult>
-    <TerminationPolicyTypes>
-      <member>ClosestToNextInstanceHour</member>
-      <member>Default</member>
-      <member>NewestInstance</member>
-      <member>OldestInstance</member>
-      <member>OldestLaunchConfiguration</member>
-    </TerminationPolicyTypes>
+    {{dtptrDescribeTerminationPolicyTypesResult}}
   </DescribeTerminationPolicyTypesResult>
+  {{/dtptrDescribeTerminationPolicyTypesResult}}
+  {{#dtptrResponseMetadata}}
   <ResponseMetadata>
-    <RequestId>d9a05827-b735-11e2-a40c-c79a5EXAMPLE</RequestId>
+    <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-</DescribeTerminationPolicyTypesResponse> 
-
+  {{/dtptrResponseMetadata}}
+</DescribeTerminationPolicyTypesResponse>

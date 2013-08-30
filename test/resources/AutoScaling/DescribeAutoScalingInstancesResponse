@@ -2,7 +2,18 @@
 <DescribeAutoScalingInstancesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
   {{#dasirDescribeAutoScalingInstancesResult}}
   <DescribeAutoScalingInstancesResult>
-    {{dasirDescribeAutoScalingInstancesResult}}
+    <AutoScalingInstances>
+      {{#dasirAutoScalingInstances}}
+      <member>
+        <AutoScalingGroupName>{{asidAutoScalingGroupName}}</AutoScalingGroupName>
+        <AvailabilityZone>{{asidAvailabilityZone}}</AvailabilityZone>
+        <HealthStatus>{{asidHealthStatus}}</HealthStatus>
+        <InstanceId>{{asidInstanceId}}</InstanceId>
+        <LaunchConfigurationName>{{asidLaunchConfigurationName}}</LaunchConfigurationName>
+        <LifecycleState>{{asidLifecycleState}}</LifecycleState>
+      </member>
+      {{/dasirAutoScalingInstances}}
+    </AutoScalingInstances>
   </DescribeAutoScalingInstancesResult>
   {{/dasirDescribeAutoScalingInstancesResult}}
   {{#dasirResponseMetadata}}

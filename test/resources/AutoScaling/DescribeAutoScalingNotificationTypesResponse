@@ -2,9 +2,11 @@
 <DescribeAutoScalingNotificationTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
   {{#dasntrDescribeAutoScalingNotificationTypesResult}}
   <DescribeAutoScalingNotificationTypesResult>
-    {{#dasntrAutoScalingNotificationTypes}}
-    <member>{{.}}</member>
-    {{/dasntrAutoScalingNotificationTypes}}
+    <AutoScalingNotificationTypes>
+      {{#dasntrAutoScalingNotificationTypes}}
+      <member>{{.}}</member>
+      {{/dasntrAutoScalingNotificationTypes}}
+    </AutoScalingNotificationTypes>
   </DescribeAutoScalingNotificationTypesResult>
   {{/dasntrDescribeAutoScalingNotificationTypesResult}}
   {{#dasntrResponseMetadata}}

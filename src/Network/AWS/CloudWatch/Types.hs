@@ -76,6 +76,8 @@ data Datapoint = Datapoint
       -- ^ The standard unit used for the datapoint.
     } deriving (Eq, Show, Generic)
 
+instance IsQuery Datapoint
+
 instance IsXML Datapoint where
     xmlPickler = withNS cloudWatchNS
 
@@ -90,6 +92,8 @@ data DescribeAlarmHistoryResult = DescribeAlarmHistoryResult
       -- results.
     } deriving (Eq, Show, Generic)
 
+instance IsQuery DescribeAlarmHistoryResult
+
 instance IsXML DescribeAlarmHistoryResult where
     xmlPickler = withNS cloudWatchNS
 
@@ -100,6 +104,8 @@ data DescribeAlarmsForMetricResult = DescribeAlarmsForMetricResult
     { dafmrMetricAlarms :: Maybe MetricAlarm
       -- ^ A list of information for each alarm with the specified metric.
     } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeAlarmsForMetricResult
 
 instance IsXML DescribeAlarmsForMetricResult where
     xmlPickler = withNS cloudWatchNS
@@ -114,6 +120,8 @@ data DescribeAlarmsResult = DescribeAlarmsResult
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeAlarmsResult
 
 instance IsXML DescribeAlarmsResult where
     xmlPickler = withNS cloudWatchNS
@@ -160,6 +168,8 @@ data GetMetricStatisticsResult = GetMetricStatisticsResult
       -- ^ A label describing the specified metric.
     } deriving (Eq, Show, Generic)
 
+instance IsQuery GetMetricStatisticsResult
+
 instance IsXML GetMetricStatisticsResult where
     xmlPickler = withNS cloudWatchNS
 
@@ -173,6 +183,8 @@ data ListMetricsResult = ListMetricsResult
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Eq, Show, Generic)
+
+instance IsQuery ListMetricsResult
 
 instance IsXML ListMetricsResult where
     xmlPickler = withNS cloudWatchNS
@@ -192,6 +204,8 @@ data Metric = Metric
     , mNamespace  :: Maybe ByteString
       -- ^ The namespace of the metric.
     } deriving (Eq, Show, Generic)
+
+instance IsQuery Metric
 
 instance IsXML Metric where
     xmlPickler = withNS cloudWatchNS
@@ -262,6 +276,8 @@ data MetricAlarm = MetricAlarm
     , maUnit                               :: Maybe ByteString
       -- ^ The unit of the alarm's associated metric.
     } deriving (Eq, Show, Generic)
+
+instance IsQuery MetricAlarm
 
 instance IsXML MetricAlarm where
     xmlPickler = withNS cloudWatchNS

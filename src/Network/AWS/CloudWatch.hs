@@ -12,7 +12,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | CloudWatch is a web service that enables you to publish, monitor, and
+-- | This is the Amazon CloudWatch API Reference. This guide provides detailed
+-- information about Amazon CloudWatch actions, data types, parameters, and
+-- errors. For detailed information about Amazon CloudWatch features and their
+-- associated API calls, go to the Amazon CloudWatch Developer Guide. Amazon
+-- CloudWatch is a web service that enables you to publish, monitor, and
 -- manage various metrics, as well as configure alarm actions based on data
 -- from metrics. For more information about this product go to
 -- http://aws.amazon.com/cloudwatch.
@@ -92,7 +96,8 @@ req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
 -- Actions
 --
 
--- | Deletes all specified alarms. In the event of an error, no alarms are deleted.
+-- | Deletes all specified alarms. In the event of an error, no alarms are
+-- deleted.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html>
 data DeleteAlarms = DeleteAlarms
@@ -141,6 +146,7 @@ instance AWSRequest CloudWatch DescribeAlarmHistory DescribeAlarmHistoryResponse
 
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { dahrResponseMetadata :: !ByteString
+    , dahrDescribeAlarmHistoryResult :: !DescribeAlarmHistoryResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeAlarmHistoryResponse where
@@ -174,7 +180,8 @@ instance AWSRequest CloudWatch DescribeAlarms DescribeAlarmsResponse where
     request = req GET "DescribeAlarms"
 
 data DescribeAlarmsResponse = DescribeAlarmsResponse
-    { dbrResponseMetadata :: !ByteString
+    { dasResponseMetadata :: !ByteString
+    , dasDescribeAlarmsResult :: !DescribeAlarmsResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeAlarmsResponse where
@@ -206,6 +213,7 @@ instance AWSRequest CloudWatch DescribeAlarmsForMetric DescribeAlarmsForMetricRe
 
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { dafmrResponseMetadata :: !ByteString
+    , dafmrDescribeAlarmsForMetricResult :: !DescribeAlarmsForMetricResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeAlarmsForMetricResponse where
@@ -260,7 +268,6 @@ instance IsXML EnableAlarmActionsResponse where
 -- returns an error. In such a case, you can alter the request by narrowing
 -- the specified time range or increasing the specified period. Alternatively,
 -- you can make multiple requests across adjacent time ranges.
---
 -- GetMetricStatistics does not return the data in chronological order. Amazon
 -- CloudWatch aggregates data points based on the length of the period that
 -- you specify. For example, if you request statistics with a one-minute
@@ -269,7 +276,11 @@ instance IsXML EnableAlarmActionsResponse where
 -- queried can greatly outnumber the data points returned. The following
 -- examples show various statistics allowed by the data point query maximum of
 -- 50,850 when you call GetMetricStatistics on Amazon EC2 instances with
--- detailed (one-minute) monitoring enabled.
+-- detailed (one-minute) monitoring enabled: For information about the
+-- namespace, metric names, and dimensions that other Amazon Web Services
+-- products use to send metrics to CloudWatch, go to Amazon CloudWatch
+-- Metrics, Namespaces, and Dimensions Reference in the Amazon CloudWatch
+-- Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html>
 data GetMetricStatistics = GetMetricStatistics
@@ -306,6 +317,7 @@ instance AWSRequest CloudWatch GetMetricStatistics GetMetricStatisticsResponse w
 
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     { gmsrResponseMetadata :: !ByteString
+    , gmsrGetMetricStatisticsResult :: !GetMetricStatisticsResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetMetricStatisticsResponse where
@@ -340,6 +352,7 @@ instance AWSRequest CloudWatch ListMetrics ListMetricsResponse where
 
 data ListMetricsResponse = ListMetricsResponse
     { lmrResponseMetadata :: !ByteString
+    , lmrListMetricsResult :: !ListMetricsResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListMetricsResponse where

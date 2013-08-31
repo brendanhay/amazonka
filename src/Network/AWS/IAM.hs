@@ -426,6 +426,7 @@ instance AWSRequest IAM CreateAccessKey CreateAccessKeyResponse where
 
 data CreateAccessKeyResponse = CreateAccessKeyResponse
     { cakrResponseMetadata :: !ByteString
+    , cakrCreateAccessKeyResult :: !CreateAccessKeyResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateAccessKeyResponse where
@@ -475,6 +476,7 @@ instance AWSRequest IAM CreateGroup CreateGroupResponse where
 
 data CreateGroupResponse = CreateGroupResponse
     { cgrResponseMetadata :: !ByteString
+    , cgrCreateGroupResult :: !CreateGroupResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateGroupResponse where
@@ -502,6 +504,7 @@ instance AWSRequest IAM CreateInstanceProfile CreateInstanceProfileResponse wher
 
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { ciprResponseMetadata :: !ByteString
+    , ciprCreateInstanceProfileResult :: !CreateInstanceProfileResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateInstanceProfileResponse where
@@ -526,6 +529,7 @@ instance AWSRequest IAM CreateLoginProfile CreateLoginProfileResponse where
 
 data CreateLoginProfileResponse = CreateLoginProfileResponse
     { clprResponseMetadata :: !ByteString
+    , clprCreateLoginProfileResult :: !CreateLoginProfileResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateLoginProfileResponse where
@@ -559,6 +563,7 @@ instance AWSRequest IAM CreateRole CreateRoleResponse where
 
 data CreateRoleResponse = CreateRoleResponse
     { crrResponseMetadata :: !ByteString
+    , crrCreateRoleResult :: !CreateRoleResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateRoleResponse where
@@ -585,6 +590,7 @@ instance AWSRequest IAM CreateUser CreateUserResponse where
 
 data CreateUserResponse = CreateUserResponse
     { curResponseMetadata :: !ByteString
+    , curCreateUserResult :: !CreateUserResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateUserResponse where
@@ -620,6 +626,7 @@ instance AWSRequest IAM CreateVirtualMFADevice CreateVirtualMFADeviceResponse wh
 
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { cvmfadrResponseMetadata :: !ByteString
+    , cvmfadrCreateVirtualMFADeviceResult :: !CreateVirtualMFADeviceResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateVirtualMFADeviceResponse where
@@ -908,7 +915,7 @@ instance AWSRequest IAM DeleteSigningCertificate DeleteSigningCertificateRespons
     request = req GET "DeleteSigningCertificate"
 
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
-    { dsdrResponseMetadata :: !ByteString
+    { dscsResponseMetadata :: !ByteString
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteSigningCertificateResponse where
@@ -1026,6 +1033,7 @@ instance AWSRequest IAM GetAccountPasswordPolicy GetAccountPasswordPolicyRespons
 
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { gapprResponseMetadata :: !ByteString
+    , gapprGetAccountPasswordPolicyResult :: !GetAccountPasswordPolicyResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetAccountPasswordPolicyResponse where
@@ -1048,6 +1056,7 @@ instance AWSRequest IAM GetAccountSummary GetAccountSummaryResponse where
 
 data GetAccountSummaryResponse = GetAccountSummaryResponse
     { gasrResponseMetadata :: !ByteString
+    , gasrGetAccountSummaryResult :: !GetAccountSummaryResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetAccountSummaryResponse where
@@ -1080,6 +1089,7 @@ instance AWSRequest IAM GetGroup GetGroupResponse where
 
 data GetGroupResponse = GetGroupResponse
     { ggrResponseMetadata :: !ByteString
+    , ggrGetGroupResult :: !GetGroupResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetGroupResponse where
@@ -1104,6 +1114,7 @@ instance AWSRequest IAM GetGroupPolicy GetGroupPolicyResponse where
 
 data GetGroupPolicyResponse = GetGroupPolicyResponse
     { ggprResponseMetadata :: !ByteString
+    , ggprGetGroupPolicyResult :: !GetGroupPolicyResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetGroupPolicyResponse where
@@ -1127,6 +1138,7 @@ instance AWSRequest IAM GetInstanceProfile GetInstanceProfileResponse where
 
 data GetInstanceProfileResponse = GetInstanceProfileResponse
     { giprResponseMetadata :: !ByteString
+    , giprGetInstanceProfileResult :: !GetInstanceProfileResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetInstanceProfileResponse where
@@ -1147,6 +1159,7 @@ instance AWSRequest IAM GetLoginProfile GetLoginProfileResponse where
 
 data GetLoginProfileResponse = GetLoginProfileResponse
     { glprResponseMetadata :: !ByteString
+    , glprGetLoginProfileResult :: !GetLoginProfileResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetLoginProfileResponse where
@@ -1172,6 +1185,7 @@ instance AWSRequest IAM GetRole GetRoleResponse where
 
 data GetRoleResponse = GetRoleResponse
     { grrResponseMetadata :: !ByteString
+    , grrGetRoleResult :: !GetRoleResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetRoleResponse where
@@ -1197,6 +1211,7 @@ instance AWSRequest IAM GetRolePolicy GetRolePolicyResponse where
 
 data GetRolePolicyResponse = GetRolePolicyResponse
     { grprResponseMetadata :: !ByteString
+    , grprGetRolePolicyResult :: !GetRolePolicyResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetRolePolicyResponse where
@@ -1218,6 +1233,7 @@ instance AWSRequest IAM GetServerCertificate GetServerCertificateResponse where
 
 data GetServerCertificateResponse = GetServerCertificateResponse
     { gscrResponseMetadata :: !ByteString
+    , gscrGetServerCertificateResult :: !GetServerCertificateResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetServerCertificateResponse where
@@ -1240,6 +1256,7 @@ instance AWSRequest IAM GetUser GetUserResponse where
 
 data GetUserResponse = GetUserResponse
     { gurResponseMetadata :: !ByteString
+    , gurGetUserResult :: !GetUserResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetUserResponse where
@@ -1264,6 +1281,7 @@ instance AWSRequest IAM GetUserPolicy GetUserPolicyResponse where
 
 data GetUserPolicyResponse = GetUserPolicyResponse
     { guprResponseMetadata :: !ByteString
+    , guprGetUserPolicyResult :: !GetUserPolicyResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML GetUserPolicyResponse where
@@ -1304,6 +1322,7 @@ instance AWSRequest IAM ListAccessKeys ListAccessKeysResponse where
 
 data ListAccessKeysResponse = ListAccessKeysResponse
     { lakrResponseMetadata :: !ByteString
+    , lakrListAccessKeysResult :: !ListAccessKeysResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListAccessKeysResponse where
@@ -1336,6 +1355,7 @@ instance AWSRequest IAM ListAccountAliases ListAccountAliasesResponse where
 
 data ListAccountAliasesResponse = ListAccountAliasesResponse
     { laarResponseMetadata :: !ByteString
+    , laarListAccountAliasesResult :: !ListAccountAliasesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListAccountAliasesResponse where
@@ -1369,6 +1389,7 @@ instance AWSRequest IAM ListGroupPolicies ListGroupPoliciesResponse where
 
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { lgprResponseMetadata :: !ByteString
+    , lgprListGroupPoliciesResult :: !ListGroupPoliciesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListGroupPoliciesResponse where
@@ -1403,6 +1424,7 @@ instance AWSRequest IAM ListGroups ListGroupsResponse where
 
 data ListGroupsResponse = ListGroupsResponse
     { lgrResponseMetadata :: !ByteString
+    , lgrListGroupsResult :: !ListGroupsResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListGroupsResponse where
@@ -1435,6 +1457,7 @@ instance AWSRequest IAM ListGroupsForUser ListGroupsForUserResponse where
 
 data ListGroupsForUserResponse = ListGroupsForUserResponse
     { lgfurResponseMetadata :: !ByteString
+    , lgfurListGroupsForUserResult :: !ListGroupsForUserResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListGroupsForUserResponse where
@@ -1471,6 +1494,7 @@ instance AWSRequest IAM ListInstanceProfiles ListInstanceProfilesResponse where
 
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { liprResponseMetadata :: !ByteString
+    , liprListInstanceProfilesResult :: !ListInstanceProfilesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListInstanceProfilesResponse where
@@ -1505,6 +1529,7 @@ instance AWSRequest IAM ListInstanceProfilesForRole ListInstanceProfilesForRoleR
 
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { lipfrrResponseMetadata :: !ByteString
+    , lipfrrListInstanceProfilesForRoleResult :: !ListInstanceProfilesForRoleResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListInstanceProfilesForRoleResponse where
@@ -1540,6 +1565,7 @@ instance AWSRequest IAM ListMFADevices ListMFADevicesResponse where
 
 data ListMFADevicesResponse = ListMFADevicesResponse
     { lmfadrResponseMetadata :: !ByteString
+    , lmfadrListMFADevicesResult :: !ListMFADevicesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListMFADevicesResponse where
@@ -1573,6 +1599,7 @@ instance AWSRequest IAM ListRolePolicies ListRolePoliciesResponse where
 
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { lrprResponseMetadata :: !ByteString
+    , lrprListRolePoliciesResult :: !ListRolePoliciesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListRolePoliciesResponse where
@@ -1611,6 +1638,7 @@ instance AWSRequest IAM ListRoles ListRolesResponse where
 
 data ListRolesResponse = ListRolesResponse
     { lrrResponseMetadata :: !ByteString
+    , lrrListRolesResult :: !ListRolesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListRolesResponse where
@@ -1647,6 +1675,7 @@ instance AWSRequest IAM ListServerCertificates ListServerCertificatesResponse wh
 
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { lscrResponseMetadata :: !ByteString
+    , lscrListServerCertificatesResult :: !ListServerCertificatesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListServerCertificatesResponse where
@@ -1685,7 +1714,8 @@ instance AWSRequest IAM ListSigningCertificates ListSigningCertificatesResponse 
     request = req GET "ListSigningCertificates"
 
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
-    { lsdrResponseMetadata :: !ByteString
+    { lscsResponseMetadata :: !ByteString
+    , lscsListSigningCertificatesResult :: !ListSigningCertificatesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListSigningCertificatesResponse where
@@ -1719,6 +1749,7 @@ instance AWSRequest IAM ListUserPolicies ListUserPoliciesResponse where
 
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { luprResponseMetadata :: !ByteString
+    , luprListUserPoliciesResult :: !ListUserPoliciesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListUserPoliciesResponse where
@@ -1754,6 +1785,7 @@ instance AWSRequest IAM ListUsers ListUsersResponse where
 
 data ListUsersResponse = ListUsersResponse
     { lurResponseMetadata :: !ByteString
+    , lurListUsersResult :: !ListUsersResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListUsersResponse where
@@ -1790,6 +1822,7 @@ instance AWSRequest IAM ListVirtualMFADevices ListVirtualMFADevicesResponse wher
 
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { lvmfadrResponseMetadata :: !ByteString
+    , lvmfadrListVirtualMFADevicesResult :: !ListVirtualMFADevicesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListVirtualMFADevicesResponse where
@@ -2177,7 +2210,7 @@ instance AWSRequest IAM UpdateSigningCertificate UpdateSigningCertificateRespons
     request = req GET "UpdateSigningCertificate"
 
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
-    { usdrResponseMetadata :: !ByteString
+    { uscsResponseMetadata :: !ByteString
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateSigningCertificateResponse where
@@ -2254,7 +2287,8 @@ instance AWSRequest IAM UploadServerCertificate UploadServerCertificateResponse 
     request = req GET "UploadServerCertificate"
 
 data UploadServerCertificateResponse = UploadServerCertificateResponse
-    { userResponseMetadata :: !ByteString
+    { usctResponseMetadata :: !ByteString
+    , usctUploadServerCertificateResult :: !UploadServerCertificateResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML UploadServerCertificateResponse where
@@ -2288,7 +2322,8 @@ instance AWSRequest IAM UploadSigningCertificate UploadSigningCertificateRespons
     request = req GET "UploadSigningCertificate"
 
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse
-    { usfrResponseMetadata :: !ByteString
+    { uscuResponseMetadata :: !ByteString
+    , uscuUploadSigningCertificateResult :: !UploadSigningCertificateResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML UploadSigningCertificateResponse where

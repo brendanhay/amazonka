@@ -1,4 +1,4 @@
-name:                  aws-haskell
+name:                  amazonka
 version:               0.1.0
 synopsis:              Interfaces to various Amazon Web Service APIs
 license:               OtherLicense
@@ -19,7 +19,7 @@ extra-source-files:
 
 source-repository head
     type:     git
-    location: git://github.com/brendanhay/aws-haskell.git
+    location: git://github.com/brendanhay/amazonka.git
 
 library
     default-language:  Haskell2010

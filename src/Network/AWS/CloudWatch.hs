@@ -12,14 +12,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This is the Amazon CloudWatch API Reference. This guide provides detailed
--- information about Amazon CloudWatch actions, data types, parameters, and
--- errors. For detailed information about Amazon CloudWatch features and their
--- associated API calls, go to the Amazon CloudWatch Developer Guide. Amazon
--- CloudWatch is a web service that enables you to publish, monitor, and
+-- | Amazon CloudWatch is a web service that enables you to publish, monitor, and
 -- manage various metrics, as well as configure alarm actions based on data
--- from metrics. For more information about this product go to
--- http://aws.amazon.com/cloudwatch.
+-- from metrics.
 module Network.AWS.CloudWatch
    (
    -- * CloudWatch API Version

@@ -12,15 +12,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This guide provides descriptions of the Identity and Access Management
--- (IAM) API as well as links to related content in the guide, Using IAM. IAM
--- is a web service that enables AWS customers to manage users and user
--- permissions under their AWS account. For more information about this
--- product go to AWS Identity and Access Management (IAM). For information
--- about setting up signatures and authorization through the API, go to
--- Signing AWS API Requests in the AWS General Reference. For general
--- information about using the Query API with IAM, go to Making Query Requests
--- in Using IAM.
+-- | IAM is a web service that enables AWS customers to manage users and user
+-- permissions under their AWS account.
 module Network.AWS.IAM
    (
    -- * IAM API Version

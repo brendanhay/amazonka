@@ -167,8 +167,8 @@ module Network.AWS.AutoScaling
 import Data.ByteString      (ByteString)
 import Data.Monoid
 import Data.Time
-import Network.AWS.Internal
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Internal
 import Network.Http.Client  (Method(..))
 
 data AutoScaling

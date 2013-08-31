@@ -33,6 +33,7 @@ library
       , Network.AWS.CloudWatch
       , Network.AWS.EC2
       , Network.AWS.EC2.Metadata
+      , Network.AWS.ELB
       , Network.AWS.IAM
       , Network.AWS.Route53
 
@@ -45,6 +46,7 @@ library
       , Network.AWS.AutoScaling.Types
       , Network.AWS.CloudWatch.Types
       , Network.AWS.EC2.Types
+      , Network.AWS.ELB.Types
       , Network.AWS.IAM.Types
       , Network.AWS.Route53.Types
 

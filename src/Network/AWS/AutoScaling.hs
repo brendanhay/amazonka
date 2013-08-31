@@ -506,9 +506,7 @@ instance IsXML DeleteTagsResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypes.html>
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
-    { datAdjustmentTypes :: !AdjustmentType
-      -- ^ A list of specific policy adjustment types.
-    } deriving (Eq, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeAdjustmentTypes
 

@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric        #-}
+{-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
@@ -16,6 +17,7 @@
 module Network.AWS.Internal.Instances where
 
 import           Control.Monad
+import           Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.Time
 import           GHC.Generics

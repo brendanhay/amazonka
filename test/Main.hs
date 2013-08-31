@@ -20,7 +20,10 @@ import qualified Test.Route53     as Route53
 main :: IO ()
 main = defaultMain
     [ testGroup "AutoScaling" AutoScaling.tests
---    , testGroup "EC2"         EC2.tests
     , testGroup "Route53"     Route53.tests
---    , testGroup "Signing"     Signing.tests
+    -- , testGroup "EC2"         EC2.tests
+    -- , testGroup "IAM"         IAM.tests
+    -- , testGroup "S3"          S3.tests
+    -- , testGroup "OpsWorks"    OpsWorks.tests
+    -- , testGroup "Signing"     Signing.tests
     ]

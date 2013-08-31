@@ -1,7 +1,2 @@
 GET /
 Action=DescribeAdjustmentTypes
-{{#datAdjustmentTypes}}
-{{#atAdjustmentType}}
-AdjustmentTypes.AdjustmentType={{atAdjustmentType}}
-{{/atAdjustmentType}}
-{{/datAdjustmentTypes}}

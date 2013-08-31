@@ -74,8 +74,7 @@ data Activity = Activity
     , aCause                :: !ByteString
       -- ^ Contains the reason the activity was begun.
     , aDescription          :: Maybe ByteString
-      -- ^ Contains a friendly, more verbose description of the scaling
-      -- activity.
+      -- ^ Contains a friendly, more verbose description of the scaling activity.
     , aDetails              :: Maybe ByteString
       -- ^ Contains details of the scaling activity.
     , aEndTime              :: Maybe UTCTime
@@ -88,8 +87,7 @@ data Activity = Activity
     , aStatusCode           :: !ByteString
       -- ^ Contains the current status of the activity.
     , aStatusMessage        :: Maybe ByteString
-      -- ^ Contains a friendly, more verbose description of the activity
-      -- status.
+      -- ^ Contains a friendly, more verbose description of the activity status.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery Activity
@@ -107,7 +105,8 @@ data AdjustmentType
     | PercentChangeInCapacity
       deriving (Eq, Read, Show, Generic)
 
-instance IsQuery AdjustmentType
+instance IsQuery AdjustmentType where
+    queryPickler = qpPrim
 
 instance IsXML AdjustmentType where
     xmlPickler = xpElem (autoScalingElem "AdjustmentType") $ xpContent xpPrim
@@ -164,9 +163,7 @@ data AutoScalingGroup = AutoScalingGroup
     , asgMinSize                 :: !Integer
       -- ^ Contains the minimum size of the Auto Scaling group.
     , asgPlacementGroup          :: Maybe ByteString
-      -- ^ The name of the cluster placement group, if applicable. For more
-      -- information, go to Using Cluster Instances in the Amazon EC2 User
-      -- Guide.
+      -- ^ The name of the cluster placement group, if applicable.
     , asgStatus                  :: Maybe ByteString
       -- ^ The current state of the Auto Scaling group when a
       -- DeleteAutoScalingGroup action is in progress.
@@ -178,9 +175,8 @@ data AutoScalingGroup = AutoScalingGroup
       -- ^ A standalone termination policy or a list of termination policies
       -- for this Auto Scaling group.
     , asgVPCZoneIdentifier       :: Maybe ByteString
-      -- ^ The subnet identifier for the Amazon VPC connection, if
-      -- applicable. You can specify several subnets in a comma-separated
-      -- list.
+      -- ^ The subnet identifier for the Amazon VPC connection, if applicable.
+      -- You can specify several subnets in a comma-separated list.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AutoScalingGroup

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeAutoScalingGroupsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dasgDescribeAutoScalingGroupsResult}}
+  {{#dashrDescribeAutoScalingGroupsResult}}
   <DescribeAutoScalingGroupsResult>
     <AutoScalingGroups>
       {{#dasgrAutoScalingGroups}}
       <member>
         {{#asgAutoScalingGroupARN}}
-        <AutoScalingGroupARN>asgAutoScalingGroupARN</AutoScalingGroupARN>
+        <AutoScalingGroupARN>{{asgAutoScalingGroupARN}}</AutoScalingGroupARN>
         {{/asgAutoScalingGroupARN}}
         {{#asgAutoScalingGroupName}}
         <AutoScalingGroupName>{{asgAutoScalingGroupName}}</AutoScalingGroupName>
         {{/asgAutoScalingGroupName}}
-        <AvailabilityZones>{{asgAvailabilityZones}}</AvailabilityZones>
+        <AvailabilityZones>
+          {{#asgAvailabilityZones}}
+          <member>{{.}}</member>
+          {{/asgAvailabilityZones}}
+        </AvailabilityZones>
         <CreatedTime>{{asgCreatedTime}}</CreatedTime>
         <DefaultCooldown>{{asgDefaultCooldown}}</DefaultCooldown>
         <DesiredCapacity>{{asgDesiredCapacity}}</DesiredCapacity>
@@ -37,7 +41,7 @@
           {{#asgInstances}}
           <member>
             <AvailabilityZone>{{iAvailabilityZone}}</AvailabilityZone>
-            <HealthStatus>{{HealthStatus}}</HealthStatus>
+            <HealthStatus>{{iHealthStatus}}</HealthStatus>
             <InstanceId>{{iInstanceId}}</InstanceId>
             <LaunchConfigurationName>{{iLaunchConfigurationName}}</LaunchConfigurationName>
             <LifecycleState>{{iLifecycleState}}</LifecycleState>
@@ -108,10 +112,10 @@
     <NextToken>{{dasgrNextToken}}</NextToken>
     {{/dasgrNextToken}}
   </DescribeAutoScalingGroupsResult>
-  {{/dasgDescribeAutoScalingGroupsResult}}
-  {{#dasgResponseMetadata}}
+  {{/dashrDescribeAutoScalingGroupsResult}}
+  {{#dashrResponseMetadata}}
   <ResponseMetadata>
     <RequestId>{{rmRequestId}}</RequestId>
   </ResponseMetadata>
-  {{/dasgResponseMetadata}}
+  {{/dashrResponseMetadata}}
 </DescribeAutoScalingGroupsResponse>

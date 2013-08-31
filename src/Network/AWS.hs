@@ -63,6 +63,7 @@ send payload = do
 
 -- FIXME: Should I try to be smart about choosing the IAM role name
 -- from the metadata, or require it to be specified?
+-- A: Don't try and be smart, Brendan.
 credentials :: MonadIO m => m Auth
 credentials = liftIO $ do
     me <- fromEnv

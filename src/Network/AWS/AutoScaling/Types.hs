@@ -101,16 +101,16 @@ instance IsXML Activity where
 -- absolute number or a percentage of the current capacity.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AdjustmentType.html>
-data AdjustmentType = AdjustmentType
-    { atAdjustmentType :: Maybe ByteString
-      -- ^ A policy adjustment type. Valid values are ChangeInCapacity,
-      -- ExactCapacity, and PercentChangeInCapacity.
-    } deriving (Eq, Show, Generic)
+data AdjustmentType
+    = ChangeInCapacity
+    | ExactCapacity
+    | PercentChangeInCapacity
+      deriving (Eq, Read, Show, Generic)
 
 instance IsQuery AdjustmentType
 
 instance IsXML AdjustmentType where
-    xmlPickler = withNS autoScalingNS
+    xmlPickler = xpElem (autoScalingElem "AdjustmentType") $ xpContent xpPrim
 
 -- | The Alarm data type.
 --
@@ -135,7 +135,7 @@ data AutoScalingGroup = AutoScalingGroup
       -- ^ The Amazon Resource Name (ARN) of the Auto Scaling group.
     , asgAutoScalingGroupName    :: !ByteString
       -- ^ Specifies the name of the group.
-    , asgAvailabilityZones       :: !ByteString
+    , asgAvailabilityZones       :: Members ByteString
       -- ^ Contains a list of Availability Zones for the group.
     , asgCreatedTime             :: !UTCTime
       -- ^ Specifies the date and time the Auto Scaling group was created.
@@ -144,7 +144,7 @@ data AutoScalingGroup = AutoScalingGroup
       -- any further scaling activities can start.
     , asgDesiredCapacity         :: !Integer
       -- ^ Specifies the desired capacity for the Auto Scaling group.
-    , asgEnabledMetrics          :: Maybe EnabledMetric
+    , asgEnabledMetrics          :: Members EnabledMetric
       -- ^ A list of metrics enabled for this Auto Scaling group.
     , asgHealthCheckGracePeriod  :: Maybe Integer
       -- ^ The length of time that Auto Scaling waits before checking an
@@ -153,11 +153,11 @@ data AutoScalingGroup = AutoScalingGroup
     , asgHealthCheckType         :: !ByteString
       -- ^ The service of interest for the health status check, either "EC2"
       -- for Amazon EC2 or "ELB" for Elastic Load Balancing.
-    , asgInstances               :: Maybe Instance
+    , asgInstances               :: Members Instance
       -- ^ Provides a summary list of Amazon EC2 instances.
     , asgLaunchConfigurationName :: !ByteString
       -- ^ Specifies the name of the associated LaunchConfiguration.
-    , asgLoadBalancerNames       :: Maybe ByteString
+    , asgLoadBalancerNames       :: Members ByteString
       -- ^ A list of load balancers associated with this Auto Scaling group.
     , asgMaxSize                 :: !Integer
       -- ^ Contains the maximum size of the Auto Scaling group.
@@ -170,11 +170,11 @@ data AutoScalingGroup = AutoScalingGroup
     , asgStatus                  :: Maybe ByteString
       -- ^ The current state of the Auto Scaling group when a
       -- DeleteAutoScalingGroup action is in progress.
-    , asgSuspendedProcesses      :: Maybe SuspendedProcess
+    , asgSuspendedProcesses      :: Members SuspendedProcess
       -- ^ Suspended processes associated with this Auto Scaling group.
-    , asgTags                    :: Maybe Tag
+    , asgTags                    :: Members Tag
       -- ^ A list of tags for the Auto Scaling group.
-    , asgTerminationPolicies     :: Maybe ByteString
+    , asgTerminationPolicies     :: Members ByteString
       -- ^ A standalone termination policy or a list of termination policies
       -- for this Auto Scaling group.
     , asgVPCZoneIdentifier       :: Maybe ByteString

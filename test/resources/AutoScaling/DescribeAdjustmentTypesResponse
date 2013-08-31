@@ -2,7 +2,13 @@
 <DescribeAdjustmentTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
   {{#datrDescribeAdjustmentTypesResult}}
   <DescribeAdjustmentTypesResult>
-    {{datrDescribeAdjustmentTypesResult}}
+    <AdjustmentTypes>
+      {{#datrAdjustmentTypes}}
+      <member>
+        <AdjustmentType>{{.}}</AdjustmentType>
+      </member>
+      {{/datrAdjustmentTypes}}
+    </AdjustmentTypes>
   </DescribeAdjustmentTypesResult>
   {{/datrDescribeAdjustmentTypesResult}}
   {{#datrResponseMetadata}}

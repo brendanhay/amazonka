@@ -27,21 +27,21 @@ library
 
     exposed-modules:
         Network.AWS
-
         Network.AWS.Internal
-      , Network.AWS.Internal.Instances
+      , Network.AWS.AutoScaling
+      , Network.AWS.CloudWatch
+      , Network.AWS.EC2
+      , Network.AWS.EC2.Metadata
+      , Network.AWS.Route53
+
+    other-modules:
+        Network.AWS.Internal.Instances
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
       , Network.AWS.Internal.Types
-
-      , Network.AWS.AutoScaling
       , Network.AWS.AutoScaling.Types
-
-      , Network.AWS.EC2
-      , Network.AWS.EC2.Metadata
+      , Network.AWS.CloudWatch.Types
       , Network.AWS.EC2.Types
-
-      , Network.AWS.Route53
       , Network.AWS.Route53.Types
 
     ghc-options:
@@ -90,7 +90,6 @@ test-suite aws-haskell-tests
       , derive
       , directory
       , hastache
---      , hexpat-pickle-generic
       , natural-sort
       , old-locale
       , QuickCheck                 >= 2.5.1.1

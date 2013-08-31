@@ -23,139 +23,140 @@ module Network.AWS.AutoScaling
    -- * AutoScaling API Version
      autoScalingVersion
 
-   -- * GET CreateAutoScalingGroup
+   -- * Actions
+   -- ** CreateAutoScalingGroup
    , CreateAutoScalingGroup                       (..)
    , CreateAutoScalingGroupResponse               (..)
 
-   -- * GET CreateLaunchConfiguration
+   -- ** CreateLaunchConfiguration
    , CreateLaunchConfiguration                    (..)
    , CreateLaunchConfigurationResponse            (..)
 
-   -- * GET CreateOrUpdateTags
+   -- ** CreateOrUpdateTags
    , CreateOrUpdateTags                           (..)
    , CreateOrUpdateTagsResponse                   (..)
 
-   -- * GET DeleteAutoScalingGroup
+   -- ** DeleteAutoScalingGroup
    , DeleteAutoScalingGroup                       (..)
    , DeleteAutoScalingGroupResponse               (..)
 
-   -- * GET DeleteLaunchConfiguration
+   -- ** DeleteLaunchConfiguration
    , DeleteLaunchConfiguration                    (..)
    , DeleteLaunchConfigurationResponse            (..)
 
-   -- * GET DeleteNotificationConfiguration
+   -- ** DeleteNotificationConfiguration
    , DeleteNotificationConfiguration              (..)
    , DeleteNotificationConfigurationResponse      (..)
 
-   -- * GET DeletePolicy
+   -- ** DeletePolicy
    , DeletePolicy                                 (..)
    , DeletePolicyResponse                         (..)
 
-   -- * GET DeleteScheduledAction
+   -- ** DeleteScheduledAction
    , DeleteScheduledAction                        (..)
    , DeleteScheduledActionResponse                (..)
 
-   -- * GET DeleteTags
+   -- ** DeleteTags
    , DeleteTags                                   (..)
    , DeleteTagsResponse                           (..)
 
-   -- * GET DescribeAdjustmentTypes
+   -- ** DescribeAdjustmentTypes
    , DescribeAdjustmentTypes                      (..)
    , DescribeAdjustmentTypesResponse              (..)
 
-   -- * GET DescribeAutoScalingGroups
+   -- ** DescribeAutoScalingGroups
    , DescribeAutoScalingGroups                    (..)
    , DescribeAutoScalingGroupsResponse            (..)
 
-   -- * GET DescribeAutoScalingInstances
+   -- ** DescribeAutoScalingInstances
    , DescribeAutoScalingInstances                 (..)
    , DescribeAutoScalingInstancesResponse         (..)
 
-   -- * GET DescribeAutoScalingNotificationTypes
+   -- ** DescribeAutoScalingNotificationTypes
    , DescribeAutoScalingNotificationTypes         (..)
    , DescribeAutoScalingNotificationTypesResponse (..)
 
-   -- * GET DescribeLaunchConfigurations
+   -- ** DescribeLaunchConfigurations
    , DescribeLaunchConfigurations                 (..)
    , DescribeLaunchConfigurationsResponse         (..)
 
-   -- * GET DescribeMetricCollectionTypes
+   -- ** DescribeMetricCollectionTypes
    , DescribeMetricCollectionTypes                (..)
    , DescribeMetricCollectionTypesResponse        (..)
 
-   -- * GET DescribeNotificationConfigurations
+   -- ** DescribeNotificationConfigurations
    , DescribeNotificationConfigurations           (..)
    , DescribeNotificationConfigurationsResponse   (..)
 
-   -- * GET DescribePolicies
+   -- ** DescribePolicies
    , DescribePolicies                             (..)
    , DescribePoliciesResponse                     (..)
 
-   -- * GET DescribeScalingActivities
+   -- ** DescribeScalingActivities
    , DescribeScalingActivities                    (..)
    , DescribeScalingActivitiesResponse            (..)
 
-   -- * GET DescribeScalingProcessTypes
+   -- ** DescribeScalingProcessTypes
    , DescribeScalingProcessTypes                  (..)
    , DescribeScalingProcessTypesResponse          (..)
 
-   -- * GET DescribeScheduledActions
+   -- ** DescribeScheduledActions
    , DescribeScheduledActions                     (..)
    , DescribeScheduledActionsResponse             (..)
 
-   -- * GET DescribeTags
+   -- ** DescribeTags
    , DescribeTags                                 (..)
    , DescribeTagsResponse                         (..)
 
-   -- * GET DescribeTerminationPolicyTypes
+   -- ** DescribeTerminationPolicyTypes
    , DescribeTerminationPolicyTypes               (..)
    , DescribeTerminationPolicyTypesResponse       (..)
 
-   -- * GET DisableMetricsCollection
+   -- ** DisableMetricsCollection
    , DisableMetricsCollection                     (..)
    , DisableMetricsCollectionResponse             (..)
 
-   -- * GET EnableMetricsCollection
+   -- ** EnableMetricsCollection
    , EnableMetricsCollection                      (..)
    , EnableMetricsCollectionResponse              (..)
 
-   -- * GET ExecutePolicy
+   -- ** ExecutePolicy
    , ExecutePolicy                                (..)
    , ExecutePolicyResponse                        (..)
 
-   -- * GET PutNotificationConfiguration
+   -- ** PutNotificationConfiguration
    , PutNotificationConfiguration                 (..)
    , PutNotificationConfigurationResponse         (..)
 
-   -- * GET PutScalingPolicy
+   -- ** PutScalingPolicy
    , PutScalingPolicy                             (..)
    , PutScalingPolicyResponse                     (..)
 
-   -- * GET PutScheduledUpdateGroupAction
+   -- ** PutScheduledUpdateGroupAction
    , PutScheduledUpdateGroupAction                (..)
    , PutScheduledUpdateGroupActionResponse        (..)
 
-   -- * GET ResumeProcesses
+   -- ** ResumeProcesses
    , ResumeProcesses                              (..)
    , ResumeProcessesResponse                      (..)
 
-   -- * GET SetDesiredCapacity
+   -- ** SetDesiredCapacity
    , SetDesiredCapacity                           (..)
    , SetDesiredCapacityResponse                   (..)
 
-   -- * GET SetInstanceHealth
+   -- ** SetInstanceHealth
    , SetInstanceHealth                            (..)
    , SetInstanceHealthResponse                    (..)
 
-   -- * GET SuspendProcesses
+   -- ** SuspendProcesses
    , SuspendProcesses                             (..)
    , SuspendProcessesResponse                     (..)
 
-   -- * GET TerminateInstanceInAutoScalingGroup
+   -- ** TerminateInstanceInAutoScalingGroup
    , TerminateInstanceInAutoScalingGroup          (..)
    , TerminateInstanceInAutoScalingGroupResponse  (..)
 
-   -- * GET UpdateAutoScalingGroup
+   -- ** UpdateAutoScalingGroup
    , UpdateAutoScalingGroup                       (..)
    , UpdateAutoScalingGroupResponse               (..)
 

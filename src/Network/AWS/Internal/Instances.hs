@@ -81,3 +81,6 @@ instance IsXML UTCTime where
                   _      -> Left "could not parse ISO-8601 date"
         , root         = Nothing
         }
+
+instance IsQuery Double where
+    queryPickler = qpPrim

@@ -1,11 +1,2 @@
-https://ec2.amazonaws.com/?Action=ConfirmProductInstance
-&ProductCode=774F4FF8
-&InstanceId=i-10a64379
-&AUTHPARAMS
-
-<ConfirmProductInstanceResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId>
-  <return>true</return>
-  <ownerId>111122223333</ownerId>
-</ConfirmProductInstanceResponse>
-
+GET /
+Action=ConfirmProductInstance

@@ -1,31 +1,3 @@
-https://ec2.amazonaws.com/?Action=DescribePlacementGroups
-&GroupName.1=XYZ-cluster
-&AUTHPARAMS
-
-<DescribePlacementGroupsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestID>d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE</requestID>
-   <placementGroupSet>
-      <item>
-         <groupName>XYZ-cluster</groupName>
-         <strategy>cluster</strategy>
-         <state>available</state>
-      </item>
-   </placementGroupSet>
+<?xml version="1.0" encoding="UTF-8"?>
+<DescribePlacementGroupsResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
 </DescribePlacementGroupsResponse>
-
-https://ec2.amazonaws.com/?Action=DescribePlacementGroups
-&Filter.1.Name=group-name
-&Filter.1.Value=*Project*
-&AUTHPARAMS
-
-<DescribePlacementGroupsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/>
-   <requestID>d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE</requestID>
-   <placementGroupSet>
-      <item>
-         <groupName>Project-cluster</groupName>
-         <strategy>cluster</strategy>
-         <state>available</state>
-      </item>
-   </placementGroupSet>
-</DescribePlacementGroupsResponse>
-

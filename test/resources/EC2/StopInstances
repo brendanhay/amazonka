@@ -1,20 +1,2 @@
-https://ec2.amazonaws.com/?Action=StopInstances
-&InstanceId.1=i-10a64379
-&AUTHPARAMS
-
-<StopInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-  <instancesSet>
-    <item>
-      <instanceId>i-10a64379</instanceId>
-      <currentState>
-          <code>64</code>
-          <name>stopping</name>
-      </currentState>
-      <previousState>
-          <code>16</code>
-          <name>running</name>
-      </previousState>
-  </instancesSet>
-</StopInstancesResponse>
-
+GET /
+Action=StopInstances

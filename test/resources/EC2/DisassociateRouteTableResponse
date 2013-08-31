@@ -1,9 +1,3 @@
-https://ec2.amazonaws.com/?Action=DisassociateRouteTable
-&AssociationId=rtbassoc-fdad4894
-&AUTHPARAMS
-
-<DisassociateRouteTableResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-   <return>true</return>
+<?xml version="1.0" encoding="UTF-8"?>
+<DisassociateRouteTableResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
 </DisassociateRouteTableResponse>
-

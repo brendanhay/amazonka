@@ -1,17 +1,2 @@
-https://ec2.amazonaws.com/?Action=CreateRoute
-&RouteTableId=rtb-e4ad488d
-&DestinationCidrBlock=0.0.0.0/0
-&GatewayId=igw-eaad4883
-&AUTHPARAMS
-
-https://ec2.amazonaws.com/?Action=CreateRoute
-&RouteTableId=rtb-g8ff4ea2
-&DestinationCidrBlock=0.0.0.0/0
-&InstanceId=i-1a2b3c4d
-&AUTHPARAMS
-
-<CreateRouteResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-   <return>true</return>
-</CreateRouteResponse>
-
+GET /
+Action=CreateRoute

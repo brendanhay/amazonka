@@ -1,10 +1,2 @@
-https://ec2.amazonaws.com/?Action=CreateVpnConnectionRoute
-&DestinationCidrBlock=11.12.0.0%2F16
-&VpnConnectionId=vpn-83ad48ea
-&AUTHPARAMS
-
-<CreateVpnConnectionRouteResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-    <requestId>4f35a1b2-c2c3-4093-b51f-abb9d7311990</requestId>
-    <return>true</return>
-</CreateVpnConnectionRouteResponse>
-
+GET /
+Action=CreateVpnConnectionRoute

@@ -1,10 +1,2 @@
-https://ec2.amazonaws.com/?Action=DeleteNetworkAclEntry
-&NetworkAclId=acl-2cb85d45
-&RuleNumber=100
-&AUTHPARAMS
-
-<DeleteNetworkAclEntryResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-   <return>true</return>
-</DeleteNetworkAclEntryResponse>
-
+GET /
+Action=DeleteNetworkAclEntry

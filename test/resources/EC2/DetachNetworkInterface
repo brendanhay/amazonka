@@ -1,9 +1,2 @@
-https://ec2.amazonaws.com/?Action=DetachNetworkInterface
-&AttachmentId=eni-attach-d94b09b0
-&AUTHPARAMS
-
-<DetachNetworkInterfaceResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-    <requestId>ce540707-0635-46bc-97da-33a8a362a0e8</requestId>
-    <return>true</return>
-</DetachNetworkInterfaceResponse>
-
+GET /
+Action=DetachNetworkInterface

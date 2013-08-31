@@ -1,4 +1,2 @@
-https://ec2.amazonaws.com/?Action=AllocateAddress
-{{#aaDomain}}
-Domain={{#aaDomain}}
-{{/aaDomain}}
+GET /
+Action=AllocateAddress

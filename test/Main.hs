@@ -23,7 +23,8 @@ main = defaultMain
     , testGroup "Route53"     Route53.tests
     -- , testGroup "EC2"         EC2.tests
     -- , testGroup "IAM"         IAM.tests
-    -- , testGroup "S3"          S3.tests
+    -- , testGroup "CloudWatch"  CloudWatch.tests
     -- , testGroup "OpsWorks"    OpsWorks.tests
+    -- , testGroup "S3"          S3.tests
     -- , testGroup "Signing"     Signing.tests
     ]

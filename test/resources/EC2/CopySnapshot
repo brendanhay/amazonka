@@ -1,16 +1,2 @@
-https://ec2.amazonaws.com/?Action=CopySnapshot
-&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
-&Description=My%20snapshot
-&Signature=VjpSFePIKxDc1IUy92W3SBApdLiap7nno4pEc9iEXAMPLE
-&SignatureMethod=HmacSHA256
-&SignatureVersion=2
-&SourceRegion=us-west-1
-&SourceSnapshotId=snap-1a2b3c4d
-&Timestamp=2012-12-11T02%3A03%3A35.713Z
-&Version=2012-12-01
-
-<CopySnapshotResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-<requestId>60bc441d-fa2c-494d-b155-5d6a3EXAMPLE</requestId>
-<snapshotId>snap-2a2b3c4d</snapshotId>
-</CopySnapshotResponse>
-
+GET /
+Action=CopySnapshot

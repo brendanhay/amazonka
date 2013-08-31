@@ -1,13 +1,3 @@
-https://ec2.amazonaws.com/?Action=RevokeSecurityGroupIngress
-&GroupName=websrv
-&IpProtocol=tcp
-&FromPort=80
-&ToPort=80
-&CidrIp=205.192.0.0/16
-&AUTHPARAMS
-
-<RevokeSecurityGroupIngressResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-  <return>true</return>
+<?xml version="1.0" encoding="UTF-8"?>
+<RevokeSecurityGroupIngressResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
 </RevokeSecurityGroupIngressResponse>
-

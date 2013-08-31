@@ -1,10 +1,2 @@
-https://ec2.amazonaws.com/?Action=AttachInternetGateway
-&InternetGatewayId=igw-eaad4883
-&VpcId=vpc-11ad4878
-&AUTHPARAMS
-
-<AttachInternetGatewayResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-   <return>true</return>
-</AttachInternetGatewayResponse>
-
+GET /
+Action=AttachInternetGateway

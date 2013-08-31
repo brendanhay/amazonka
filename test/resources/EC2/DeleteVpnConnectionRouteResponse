@@ -1,10 +1,3 @@
-https://ec2.amazonaws.com/?Action=DeleteVpnConnectionRoute
-&DestinationCidrBlock=11.12.0.0%2F16
-&VpnConnectionId=vpn-83ad48ea
-&AUTHPARAMS
-
-<DeleteVpnConnectionRouteResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-    <requestId>4f35a1b2-c2c3-4093-b51f-abb9d7311990</requestId>
-    <return>true</return>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeleteVpnConnectionRouteResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
 </DeleteVpnConnectionRouteResponse>
-

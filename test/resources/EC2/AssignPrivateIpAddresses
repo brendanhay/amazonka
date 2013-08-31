@@ -1,21 +1,2 @@
-https://ec2.amazonaws.com/?Action=AssignPrivateIpAddresses
-&NetworkInterfaceId=eni-d83388b1
-&PrivateIpAddress.0=10.0.2.1
-&PrivateIpAddress.1=10.0.2.11
-&AUTHPARAMS
-
-<AssignPrivateIpAddresses xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-   <return>true</return>
-</AssignPrivateIpAddresses>
-
-https://ec2.amazonaws.com/?Action=AssignPrivateIpAddresses
-&NetworkInterfaceId=eni-d83388b1
-&SecondaryPrivateIpAddressCount=2
-&AUTHPARAMS
-
-<AssignPrivateIpAddresses xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-   <return>true</return>
-</AssignPrivateIpAddresses>
-
+GET /
+Action=AssignPrivateIpAddresses

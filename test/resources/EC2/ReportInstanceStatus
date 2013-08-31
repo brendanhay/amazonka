@@ -1,22 +1,2 @@
-https://ec2.amazonaws.com/?Action=ReportInstanceStatus
-&Status=impaired
-&InstanceId.0=i-9440effb
-&InstanceId.1=i-0cf27c63
-&Version=2013-07-15
-&AuthParams
-
-https://ec2.amazonaws.com/?Action=ReportInstanceStatus
-&Description=Description+of+my+issue.
-&Status=impaired
-&InstanceId.0=i-9440effb
-&InstanceId.1=i-0cf27c63
-&ReasonCode.0=instance-performance-network
-&ReasonCode.1=instance-performance-disk
-&Version=2013-07-15
-&AuthParams
-
-<ReportInstanceStatusResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestId>b8131cff-dfbd-4277-bafe-be006fd0c4da</requestId>
-   <return>true</return>
-</ReportInstanceStatusResponse>
-
+GET /
+Action=ReportInstanceStatus

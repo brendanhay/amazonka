@@ -1,9 +1,3 @@
-https://ec2.amazonaws.com/?Action=AssociateRouteTable
-&RouteTableId=rtb-e4ad488d
-&SubnetId=subnet-15ad487c
-
-<AssociateRouteTableResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-   <associationId>rtbassoc-f8ad4891</associationId>
+<?xml version="1.0" encoding="UTF-8"?>
+<AssociateRouteTableResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
 </AssociateRouteTableResponse>
-

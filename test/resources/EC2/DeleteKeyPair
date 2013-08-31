@@ -1,9 +1,2 @@
-https://ec2.amazonaws.com/?Action=DeleteKeyPair
-&KeyName=my-key-pair
-&AUTHPARAMS
-
-<DeleteKeyPairResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-  <return>true</return>
-</DeleteKeyPairResponse>
-
+GET /
+Action=DeleteKeyPair

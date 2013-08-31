@@ -1,10 +1,2 @@
-https://ec2.amazonaws.com/?Action=ResetInstanceAttribute
-&InstanceId=i-1a2b3c4d
-&Attribute=sourceDestCheck
-&AUTHPARAMS
-
-<ResetInstanceAttributeResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-  <return>true</return>
-</ResetInstanceAttributeResponse>
-
+GET /
+Action=ResetInstanceAttribute

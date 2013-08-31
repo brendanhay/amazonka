@@ -1,10 +1,3 @@
-https://ec2.amazonaws.com/?Action=EnableVgwRoutePropagation
-&RouteTableID=rtb-c98a35a0
-&GatewayId= vgw-d8e09e8a
-&AUTHPARAMS
-
-<EnableVgwRoutePropagation xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">>
-    <requestId>4f35a1b2-c2c3-4093-b51f-abb9d7311990</requestId>
-    <return>true</return>
-</EnableVgwRoutePropagation>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<EnableVgwRoutePropagationResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
+</EnableVgwRoutePropagationResponse>

@@ -1,27 +1,2 @@
-https://ec2.amazonaws.com/?Action=BundleInstance
-&InstanceId=i-e468cd8d
-&Storage.S3.AWSAccessKeyId='AKIAIOSFODNN7EXAMPLE'
-&Storage.S3.Bucket=myawsbucket 
-&Storage.S3.Prefix=winami
-&Storage.S3.UploadPolicy=eyJleHBpcmF0aW9uIjogIjIwMDgtMDgtMzBUMDg6NDk6MDlaIiwiY29uZGl0aW9ucyI6IFt7ImJ1Y2tldCI6ICJteS1idWNrZXQifSxbInN0YXJ0cy13aXRoIiwgIiRrZXkiLCAibXktbmV3LWltYWdlIl0seyJhY2wiOiAiZWMyLWJ1bmRsZS1yZWFkIn1dfEXAMPLE
-&Storage.S3.UploadPolicySignature=fh5tyyyQD8W4COEthj3nlGNEXAMPLE 
-&AUTHPARAMS
-
-<BundleInstanceResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId>
-  <bundleInstanceTask>
-      <instanceId>i-12345678</instanceId>
-      <bundleId>bun-c1a540a8</bundleId>
-      <state>bundling</state>
-      <startTime>2008-10-07T11:41:50.000Z</startTime>
-      <updateTime>2008-10-07T11:51:50.000Z</updateTime>
-      <progress>70%</progress>
-      <storage>
-        <S3>
-          <bucket>myawsbucket</bucket>
-          <prefix>winami</prefix>
-        </S3>
-      </storage>
-  </bundleInstanceTask>
-</BundleInstanceResponse>
-
+GET /
+Action=BundleInstance

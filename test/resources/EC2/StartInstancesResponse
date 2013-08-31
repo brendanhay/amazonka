@@ -1,21 +1,3 @@
-https://ec2.amazonaws.com/?Action=StartInstances
-&InstanceId.1=i-10a64379
-&AUTHPARAMS
-
-<StartInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId>   
-  <instancesSet>
-    <item>
-      <instanceId>i-10a64379</instanceId>
-      <currentState>
-          <code>0</code>
-          <name>pending</name>
-      </currentState>
-      <previousState>
-          <code>80</code>
-          <name>stopped</name>
-      </previousState>
-    </item>
-  </instancesSet>
+<?xml version="1.0" encoding="UTF-8"?>
+<StartInstancesResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
 </StartInstancesResponse>
-

@@ -1,9 +1,2 @@
-https://ec2.amazonaws.com/?Action=DeleteVolume
-&VolumeId=vol-1a2b3c4d
-&AUTHPARAMS
-
-<DeleteVolumeResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId> 
-  <return>true</return>
-</DeleteVolumeResponse>
-
+GET /
+Action=DeleteVolume

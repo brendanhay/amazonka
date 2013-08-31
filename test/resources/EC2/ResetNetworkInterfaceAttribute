@@ -1,10 +1,2 @@
-https://ec2.amazonaws.com/?Action=ResetNetworkInterfaceAttribute
-&NetworkInterfaceId=eni-ffda3197
-&Attribute=sourceDestCheck
-&AUTHPARAMS
-
-<ResetNetworkInterfaceAttributeResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-    <requestId>5187642e-3f16-44a3-b05f-24c3848b5162</requestId>
-    <return>true</return>
-</ResetNetworkInterfaceAttributeResponse>
-
+GET /
+Action=ResetNetworkInterfaceAttribute

@@ -21,12 +21,15 @@ import Data.Time
 import Network.AWS.Internal
 import Text.Read
 
+-- | Currently supported version of the Route53 service.
 route53Version :: ByteString
 route53Version = "2012-12-12"
 
+-- | XML namespace to annotate Route53 elements with.
 route53NS :: ByteString
 route53NS = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
 
+-- | Helper to define Route53 namespaced XML elements.
 route53Elem :: ByteString -> NName ByteString
 route53Elem = mkNName route53NS
 

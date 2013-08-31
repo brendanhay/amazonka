@@ -2,16 +2,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Text.Hastache.Aeson
--- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               Berkeley Software Distribution License, v. 3.0.
---               You can obtain it at
---               http://http://opensource.org/licenses/BSD-3-Clause.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
-
 -- | Adjusts the Mustache spec to correct reflect Haskell's use of maybe
 -- for 'falsey' values and add {{n}} for getting the current list index.
 module Text.Hastache.Aeson (render) where

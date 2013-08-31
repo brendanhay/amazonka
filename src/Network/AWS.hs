@@ -40,30 +40,6 @@ import qualified System.IO.Streams        as Streams
 runAWS :: AWS a -> Auth -> IO a
 runAWS aws auth = withOpenSSL . runReaderT (unWrap aws) $ Env Nothing auth
 
--- | Run an 'AWS' operation inside a specific 'Region'.
-within :: Region -> AWS a -> AWS a
-within reg aws = awsAuth <$> ask >>= liftIO
-    . runReaderT (unWrap aws)
-    . Env (Just reg)
-
--- | Encode, and send an 'AWSRequest' type for its functionally dependent
--- 'AWSService' and response.
-send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWS (Either String b)
-send payload = do
-    SignedRequest{..} <- sign $ request payload
-    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
-        body <- maybe (return emptyBody)
-            (fmap inputStreamBody . Streams.fromByteString) rqPayload
-        sendRequest conn rqRequest body
-        print rqRequest
-        receiveResponse conn $ \_ inp -> do
-            xml <- Streams.read inp
-            return $ maybe (Left "Failed to read any data") fromXML xml
-
---
--- Internal
---
-
 -- FIXME: Should I try to be smart about choosing the IAM role name
 -- from the metadata, or require it to be specified?
 -- A: Don't try and be smart, Brendan.
@@ -85,3 +61,23 @@ credentials = liftIO $ do
         . LBS.fromStrict <$> metadata (SecurityCredentials "s3_ro")
 
     msg = "Failed to get auth information from environment or EC2 metadata"
+
+-- | Run an 'AWS' operation inside a specific 'Region'.
+within :: Region -> AWS a -> AWS a
+within reg aws = awsAuth <$> ask >>= liftIO
+    . runReaderT (unWrap aws)
+    . Env (Just reg)
+
+-- | Encode, and send an 'AWSRequest' type for its functionally dependent
+-- 'AWSService' and response.
+send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWS (Either String b)
+send payload = do
+    SignedRequest{..} <- sign $ request payload
+    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
+        body <- maybe (return emptyBody)
+            (fmap inputStreamBody . Streams.fromByteString) rqPayload
+        sendRequest conn rqRequest body
+        print rqRequest
+        receiveResponse conn $ \_ inp -> do
+            xml <- Streams.read inp
+            return $ maybe (Left "Failed to read any data") fromXML xml

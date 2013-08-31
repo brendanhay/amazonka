@@ -36,6 +36,7 @@ import           OpenSSL                  (withOpenSSL)
 import           System.Environment
 import qualified System.IO.Streams        as Streams
 
+-- | Run an 'AWS' monadic operation.
 runAWS :: AWS a -> Auth -> IO a
 runAWS aws auth = withOpenSSL . runReaderT (unWrap aws) $ Env Nothing auth
 
@@ -45,6 +46,8 @@ within reg aws = awsAuth <$> ask >>= liftIO
     . runReaderT (unWrap aws)
     . Env (Just reg)
 
+-- | Encode, and send an 'AWSRequest' type for its functionally dependent
+-- 'AWSService' and response.
 send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWS (Either String b)
 send payload = do
     SignedRequest{..} <- sign $ request payload

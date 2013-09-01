@@ -1,3525 +1,2484 @@
--- |
--- Module : Network.AWS.EC2.Types
--- Copyright : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
--- License : This Source Code Form is subject to the terms of
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.EC2.Types
+-- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability : experimental
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.EC2.Types where
 
+import Data.ByteString      (ByteString)
+import Data.Monoid
+import Data.Time
 import Network.AWS.Internal
-import Text.Read
-
-data Domain = Standard | VPC
-    deriving (Eq)
-
-instance Show Domain where
-    show Standard = "standard"
-    show VPC      = "vpc"
-
-instance Read Domain where
-    readPrec = readAssocList
-         [ ("standard", Standard)
-         , ("vpc",      VPC)
-         ]
-
-instance IsQuery Domain where
-    queryPickler = qpPrim
-
--- data CreateImage = CreateImage
---     { ciInstanceId :: !ByteString
---     , ciName :: !ByteString
---     , ciDescription :: Maybe ByteString
---     , ciNoReboot :: Maybe Boolean
---     , ciBlockDeviceMapping :: Maybe BlockDeviceMapping
---     } deriving (Show)
-
--- data CreateImageResponse = CreateImageResponse
---     { cirRequestId :: !ByteString
---     , cirImageId :: !ByteString
---     } deriving (Show)
-
--- data RegisterImage = RegisterImage
---     { riImageLocation :: Maybe ByteString
---     , riName :: !ByteString
---     , riDescription :: Maybe ByteString
---     , riArchitecture :: Maybe ByteString
---     , riKernelId :: Maybe ByteString
---     , riRamdiskId :: Maybe ByteString
---     , riRootDeviceName :: Maybe ByteString
---     , riBlockDeviceMapping :: Maybe BlockDeviceMapping
---     } deriving (Show)
-
--- data RegisterImageResponse = RegisterImageResponse
---     { rirRequestId :: !ByteString
---     , rirImageId :: !ByteString
---     } deriving (Show)
-
--- data DeregisterImage = DeregisterImage
---     { diImageId :: !ByteString
---     } deriving (Show)
-
--- data DeregisterImageResponse = DeregisterImageResponse
---     { dirRequestId :: !ByteString
---     , dirReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateKeyPair = CreateKeyPair
---     { ckpKeyName :: !ByteString
---     } deriving (Show)
-
--- data CreateKeyPairResponse = CreateKeyPairResponse
---     { ckprRequestId :: !ByteString
---     , ckprKeyName :: !ByteString
---     , ckprKeyFingerprint :: !ByteString
---     , ckprKeyMaterial :: !ByteString
---     } deriving (Show)
-
--- data ImportKeyPair = ImportKeyPair
---     { ikpKeyName :: !ByteString
---     , ikpPublicKeyMaterial :: !ByteString
---     } deriving (Show)
-
--- data ImportKeyPairResponse = ImportKeyPairResponse
---     { ikprRequestId :: !ByteString
---     , ikprKeyName :: !ByteString
---     , ikprKeyFingerprint :: !ByteString
---     } deriving (Show)
-
--- data DeleteKeyPair = DeleteKeyPair
---     { dkpKeyName :: !ByteString
---     } deriving (Show)
-
--- data DeleteKeyPairResponse = DeleteKeyPairResponse
---     { dkprRequestId :: !ByteString
---     , dkprReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeKeyPairs = DescribeKeyPairs
---     { dkpKeySet :: !DescribeKeyPairsInfo
---     , dkpFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeKeyPairsInfo = DescribeKeyPairsInfo
---     { dkpiItem :: [DescribeKeyPairsItem]
---     } deriving (Show)
-
--- data DescribeKeyPairsItem = DescribeKeyPairsItem
---     { dkpiKeyName :: !ByteString
---     } deriving (Show)
-
--- data DescribeKeyPairsResponse = DescribeKeyPairsResponse
---     { dkprRequestId :: !ByteString
---     , dkprKeySet :: !DescribeKeyPairsResponseInfo
---     } deriving (Show)
-
--- data DescribeKeyPairsResponseInfo = DescribeKeyPairsResponseInfo
---     { dkpriItem :: [DescribeKeyPairsResponseItem]
---     } deriving (Show)
-
--- data DescribeKeyPairsResponseItem = DescribeKeyPairsResponseItem
---     { dkpriKeyName :: !ByteString
---     , dkpriKeyFingerprint :: !ByteString
---     } deriving (Show)
-
--- data RunInstances = RunInstances
---     { riImageId :: !ByteString
---     , riMinCount :: !Int
---     , riMaxCount :: !Int
---     , riKeyName :: Maybe ByteString
---     , riGroupSet :: !GroupSet
---     , riUserData :: Maybe UserData
---     , riInstance :: !ByteString
---     , riPlacement :: Maybe PlacementRequest
---     , riKernelId :: Maybe ByteString
---     , riRamdiskId :: Maybe ByteString
---     , riBlockDeviceMapping :: Maybe BlockDeviceMapping
---     , riMonitoring :: Maybe MonitoringInstance
---     , riSubnetId :: Maybe ByteString
---     , riDisableApiTermination :: Maybe Boolean
---     , riInstanceInitiatedShutdownBehavior :: Maybe ByteString
---     , riLicense :: Maybe InstanceLicenseRequest
---     , riPrivateIpAddress :: Maybe ByteString
---     , riClientToken :: Maybe ByteString
---     , riNetworkInterfaceSet :: Maybe InstanceNetworkInterfaceSetRequest
---     , riIamInstanceProfile :: Maybe IamInstanceProfileRequest
---     , riEbsOptimized :: Maybe Boolean
---     } deriving (Show)
-
--- data IamInstanceProfileRequest = IamInstanceProfileRequest
---     { iiprArn :: Maybe ByteString
---     , iiprName :: Maybe ByteString
---     } deriving (Show)
-
--- data InstanceNetworkInterfaceSetRequest = InstanceNetworkInterfaceSetRequest
---     { inisrItem :: [InstanceNetworkInterfaceSetItemRequest]
---     } deriving (Show)
-
--- data InstanceNetworkInterfaceSetItemRequest = InstanceNetworkInterfaceSetItemRequest
---     { inisirNetworkInterfaceId :: Maybe ByteString
---     , inisirDeviceIndex :: !Int
---     , inisirSubnetId :: Maybe ByteString
---     , inisirDescription :: Maybe ByteString
---     , inisirPrivateIpAddress :: Maybe ByteString
---     , inisirGroupSet :: Maybe SecurityGroupIdSet
---     , inisirDeleteOnTermination :: Maybe Boolean
---     , inisirPrivateIpAddressesSet :: Maybe PrivateIpAddressesSetRequest
---     , inisirSecondaryPrivateIpAddressCount :: Maybe Int
---     } deriving (Show)
-
--- data PrivateIpAddressesSetRequest = PrivateIpAddressesSetRequest
---     { piasrItem :: [PrivateIpAddressesSetItemRequest]
---     } deriving (Show)
-
--- data PrivateIpAddressesSetItemRequest = PrivateIpAddressesSetItemRequest
---     { piasirPrivateIpAddress :: !ByteString
---     , piasirPrimary :: Maybe Boolean
---     } deriving (Show)
-
--- data ImportInstanceGroupSet = ImportInstanceGroupSet
---     { iigsItem :: [ImportInstanceGroupItem]
---     } deriving (Show)
-
--- data ImportInstanceGroupItem = ImportInstanceGroupItem
---     { iigiGroupId :: Maybe ByteString
---     , iigiGroupName :: Maybe ByteString
---     } deriving (Show)
-
--- data GroupSet = GroupSet
---     { gsItem :: [GroupItem]
---     } deriving (Show)
-
--- data GroupItem = GroupItem
---     { giGroupId :: Maybe ByteString
---     , giGroupName :: Maybe ByteString
---     } deriving (Show)
-
--- data UserData = UserData
---     { udData :: Maybe ByteString
---     , udVersion :: !ByteString
---     , udEncoding :: !ByteString
---     } deriving (Show)
-
--- data BlockDeviceMapping = BlockDeviceMapping
---     { bdmItem :: [BlockDeviceMappingItem]
---     } deriving (Show)
-
--- data BlockDeviceMappingItem = BlockDeviceMappingItem
---     { bdmiDeviceName :: !ByteString
---   -- <xs:choice>
---     , bdmiVirtualName :: Maybe ByteString
---     , bdmiEbs :: Maybe EbsBlockDevice
---     , bdmiNoDevice :: Maybe EmptyElement
---   -- </xs:choice>
---     } deriving (Show)
-
--- data EbsBlockDevice = EbsBlockDevice
---     { ebdSnapshotId :: Maybe ByteString
---     , ebdVolumeSize :: Maybe Int
---     , ebdDeleteOnTermination :: Maybe Boolean
---     , ebdVolume :: Maybe ByteString
---     , ebdIops :: Maybe Int
---     } deriving (Show)
-
--- data PlacementRequest = PlacementRequest
---     { prAvailabilityZone :: Maybe ByteString
---     , prGroupName :: Maybe ByteString
---     , prTenancy :: Maybe ByteString
---     } deriving (Show)
-
--- data SpotPlacementRequest = SpotPlacementRequest
---     { sprAvailabilityZone :: Maybe ByteString
---     , sprGroupName :: Maybe ByteString
---     } deriving (Show)
-
--- data InstancePlacement = InstancePlacement
---     { ipAvailabilityZone :: Maybe ByteString
---     , ipGroupName :: Maybe ByteString
---     } deriving (Show)
-
--- data MonitoringInstance = MonitoringInstance
---     { miEnabled :: Maybe Boolean
---     } deriving (Show)
-
--- data InstanceLicenseRequest = InstanceLicenseRequest
---     { ilrPool :: !ByteString
---     } deriving (Show)
-
--- data RunInstancesResponse = RunInstancesResponse
---     { rirRequestId :: !ByteString
---     , rirReservationId :: !ByteString
---     , rirOwnerId :: !ByteString
---     , rirGroupSet :: !GroupSet
---     , rirInstancesSet :: !RunningInstancesSet
---     , rirRequesterId :: Maybe ByteString
---     } deriving (Show)
-
--- data ReservationInfo = ReservationInfo
---     { riReservationId :: !ByteString
---     , riOwnerId :: !ByteString
---     , riGroupSet :: !GroupSet
---     , riInstancesSet :: !RunningInstancesSet
---     , riRequesterId :: Maybe ByteString
---     } deriving (Show)
-
--- data RunningInstancesSet = RunningInstancesSet
---     { risItem :: [RunningInstancesItem]
---     } deriving (Show)
-
--- data RunningInstancesItem = RunningInstancesItem
---     { riiInstanceId :: !ByteString
---     , riiImageId :: Maybe ByteString
---     , riiInstanceState :: !InstanceState
---     , riiPrivateDnsName :: !ByteString
---     , riiDnsName :: Maybe ByteString
---     , riiReason :: Maybe ByteString
---     , riiKeyName :: Maybe ByteString
---     , riiAmiLaunchIndex :: Maybe ByteString
---     , riiProductCodes :: Maybe ProductCodesSet
---     , riiInstance :: !ByteString
---     , riiLaunchTime :: !DateTime
---     , riiPlacement :: Maybe PlacementResponse
---     , riiKernelId :: Maybe ByteString
---     , riiRamdiskId :: Maybe ByteString
---     , riiPlatform :: Maybe ByteString
---     , riiMonitoring :: Maybe InstanceMonitoringState
---     , riiSubnetId :: Maybe ByteString
---     , riiVpcId :: Maybe ByteString
---     , riiPrivateIpAddress :: Maybe ByteString
---     , riiIpAddress :: Maybe ByteString
---     , riiSourceDestCheck :: Maybe Boolean
---     , riiGroupSet :: !GroupSet
---     , riiStateReason :: Maybe StateReason
---     , riiArchitecture :: Maybe ByteString
---     , riiRootDevice :: Maybe ByteString
---     , riiRootDeviceName :: Maybe ByteString
---     , riiBlockDeviceMapping :: Maybe InstanceBlockDeviceMappingResponse
---     , riiInstanceLifecycle :: Maybe ByteString
---     , riiSpotInstanceRequestId :: Maybe ByteString
---     , riiLicense :: Maybe InstanceLicenseResponse
---     , riiVirtualization :: Maybe ByteString
---     , riiClientToken :: Maybe ByteString
---     , riiTagSet :: Maybe ResourceTagSet
---     , riiHypervisor :: Maybe ByteString
---     , riiNetworkInterfaceSet :: Maybe InstanceNetworkInterfaceSet
---     , riiIamInstanceProfile :: Maybe IamInstanceProfileResponse
---     , riiEbsOptimized :: Maybe Boolean
---     } deriving (Show)
-
--- data IamInstanceProfileResponse = IamInstanceProfileResponse
---     { iiprArn :: !ByteString
---     , iiprId :: !ByteString
---     } deriving (Show)
-
--- data InstanceNetworkInterfaceSet = InstanceNetworkInterfaceSet
---     { inisItem :: [InstanceNetworkInterfaceSetItem]
---     } deriving (Show)
-
--- data InstanceNetworkInterfaceSetItem = InstanceNetworkInterfaceSetItem
---     { inisiNetworkInterfaceId :: !ByteString
---     , inisiSubnetId :: Maybe ByteString
---     , inisiVpcId :: Maybe ByteString
---     , inisiDescription :: Maybe ByteString
---     , inisiOwnerId :: !ByteString
---     , inisiStatus :: !ByteString
---     , inisiMacAddress :: Maybe ByteString
---     , inisiPrivateIpAddress :: Maybe ByteString
---     , inisiPrivateDnsName :: Maybe ByteString
---     , inisiSourceDestCheck :: Maybe Boolean
---     , inisiGroupSet :: Maybe GroupSet
---     , inisiAttachment :: !InstanceNetworkInterfaceAttachment
---     , inisiAssociation :: Maybe InstanceNetworkInterfaceAssociation
---     , inisiPrivateIpAddressesSet :: Maybe InstancePrivateIpAddressesSet
---     } deriving (Show)
-
--- data InstancePrivateIpAddressesSet = InstancePrivateIpAddressesSet
---     { ipiasItem :: [InstancePrivateIpAddressesSetItem]
---     } deriving (Show)
-
--- data InstancePrivateIpAddressesSetItem = InstancePrivateIpAddressesSetItem
---     { ipiasiPrivateIpAddress :: Maybe ByteString
---     , ipiasiPrivateDnsName :: Maybe ByteString
---     , ipiasiPrimary :: Maybe Boolean
---     , ipiasiAssociation :: Maybe InstanceNetworkInterfaceAssociation
---     } deriving (Show)
-
--- data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
---     { iniaAttachmentId :: !ByteString
---     , iniaDeviceIndex :: !Int
---     , iniaStatus :: !ByteString
---     , iniaAttachTime :: !DateTime
---     , iniaDeleteOnTermination :: !Boolean
---     } deriving (Show)
-
--- data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
---     { iniaPublicIp :: !ByteString
---     , iniaPublicDnsName :: Maybe ByteString
---     , iniaIpOwnerId :: Maybe ByteString
---     } deriving (Show)
-
--- data PlacementResponse = PlacementResponse
---     { prAvailabilityZone :: !ByteString
---     , prGroupName :: Maybe ByteString
---     , prTenancy :: Maybe ByteString
---     } deriving (Show)
-
--- data StateReason = StateReason
---     { srCode :: !ByteString
---     , srMessage :: !ByteString
---     } deriving (Show)
-
--- data InstanceBlockDeviceMappingResponse = InstanceBlockDeviceMappingResponse
---     { ibdmrItem :: [InstanceBlockDeviceMappingResponseItem]
---     } deriving (Show)
-
--- data InstanceBlockDeviceMappingResponseItem = InstanceBlockDeviceMappingResponseItem
---     { ibdmriDeviceName :: !ByteString
---   -- <xs:choice>
---     , ibdmriEbs :: !EbsInstanceBlockDeviceMappingResponse
---   -- </xs:choice>
---     } deriving (Show)
-
--- data EbsInstanceBlockDeviceMappingResponse = EbsInstanceBlockDeviceMappingResponse
---     { eibdmrVolumeId :: !ByteString
---     , eibdmrStatus :: !ByteString
---     , eibdmrAttachTime :: !DateTime
---     , eibdmrDeleteOnTermination :: Maybe Boolean
---     } deriving (Show)
-
--- data InstanceLicenseResponse = InstanceLicenseResponse
---     { ilrPool :: !ByteString
---     } deriving (Show)
-
--- data DescribeAccountAttributes = DescribeAccountAttributes
---     { daaAccountAttributeNameSet :: Maybe AccountAttributeNameSet
---     , daaFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
---     { daarRequestId :: !ByteString
---     , daarAccountAttributeSet :: Maybe AccountAttributeSet
---     } deriving (Show)
-
--- data AccountAttributeNameSet = AccountAttributeNameSet
---     { aansItem :: [AccountAttributeNameSetItem]
---     } deriving (Show)
-
--- data AccountAttributeNameSetItem = AccountAttributeNameSetItem
---     { aansiAttributeName :: !ByteString
---     } deriving (Show)
-
--- data AccountAttributeSet = AccountAttributeSet
---     { aasItem :: [AccountAttributeSetItem]
---     } deriving (Show)
-
--- data AccountAttributeSetItem = AccountAttributeSetItem
---     { aasiAttributeName :: !ByteString
---     , aasiAttributeValueSet :: !AccountAttributeValueSet
---     } deriving (Show)
-
--- data AccountAttributeValueSet = AccountAttributeValueSet
---     { aavsItem :: [AccountAttributeValueSetItem]
---     } deriving (Show)
-
--- data AccountAttributeValueSetItem = AccountAttributeValueSetItem
---     { aavsiAttributeValue :: !ByteString
---     } deriving (Show)
-
--- data DescribeVpcAttribute = DescribeVpcAttribute
---     { dvaVpcId :: !ByteString
---     , dvaDescribeVpcAttributesGroup :: !DescribeVpcAttributesGroup
---     } deriving (Show)
-
--- data DescribeVpcAttributesGroup = DescribeVpcAttributesGroup
---     { dvagEnableDnsSupport :: !EmptyElement
---     , dvagEnableDnsHostnames :: !EmptyElement
---     } deriving (Show)
--- data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
---     { dvarRequestId :: !ByteString
---     , dvarVpcId :: !ByteString
---   -- <xs:choice>
---     , dvarEnableDnsSupport :: Maybe AttributeBooleanValue
---     , dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ModifyVpcAttribute = ModifyVpcAttribute
---     { mvaVpcId :: !ByteString
---   -- <xs:choice>
---     , mvaEnableDnsSupport :: Maybe AttributeBooleanValue
---     , mvaEnableDnsHostnames :: Maybe AttributeBooleanValue
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
---     { mvarRequestId :: !ByteString
---     , mvarReturn :: !Boolean
---     } deriving (Show)
-
--- data GetConsoleOutput = GetConsoleOutput
---     { gcoInstanceId :: !ByteString
---     } deriving (Show)
-
--- data GetConsoleOutputResponse = GetConsoleOutputResponse
---     { gcorRequestId :: !ByteString
---     , gcorInstanceId :: !ByteString
---     , gcorTimestamp :: !DateTime
---     , gcorOutput :: !ByteString
---     } deriving (Show)
-
--- data GetPasswordData = GetPasswordData
---     { gpdInstanceId :: !ByteString
---     } deriving (Show)
-
--- data GetPasswordDataResponse = GetPasswordDataResponse
---     { gpdrRequestId :: !ByteString
---     , gpdrInstanceId :: !ByteString
---     , gpdrTimestamp :: !DateTime
---     , gpdrPasswordData :: !ByteString
---     } deriving (Show)
-
--- data InstanceId = InstanceId
---     { iiInstanceId :: !ByteString
---     } deriving (Show)
-
--- data InstanceIdSet = InstanceIdSet
---     { iisItem :: [InstanceId]
---     } deriving (Show)
-
--- data InstanceStateChange = InstanceStateChange
---     { iscInstanceId :: !ByteString
---     , iscCurrentState :: !InstanceState
---     , iscPreviousState :: !InstanceState
---     } deriving (Show)
-
--- data InstanceStateChangeSet = InstanceStateChangeSet
---     { iscsItem :: [InstanceStateChange]
---     } deriving (Show)
-
--- data TerminateInstances = TerminateInstances
---     { tiInstancesSet :: !InstanceIdSet
---     } deriving (Show)
-
--- data TerminateInstancesResponse = TerminateInstancesResponse
---     { tirRequestId :: !ByteString
---     , tirInstancesSet :: !InstanceStateChangeSet
---     } deriving (Show)
-
--- data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
---     { ibdmItem :: [InstanceBlockDeviceMappingItem]
---     } deriving (Show)
-
--- data InstanceBlockDeviceMappingItem = InstanceBlockDeviceMappingItem
---     { ibdmiDeviceName :: !ByteString
---   -- <xs:choice>
---     , ibdmiVirtualName :: Maybe ByteString
---     , ibdmiEbs :: Maybe InstanceEbsBlockDevice
---     , ibdmiNoDevice :: Maybe EmptyElement
---   -- </xs:choice>
---     } deriving (Show)
-
--- data InstanceEbsBlockDevice = InstanceEbsBlockDevice
---     { iebdVolumeId :: !ByteString
---     , iebdDeleteOnTermination :: Maybe Boolean
---     } deriving (Show)
-
--- data StopInstances = StopInstances
---     { siInstancesSet :: !InstanceIdSet
---     , siForce :: Maybe Boolean
---     } deriving (Show)
-
--- data StopInstancesResponse = StopInstancesResponse
---     { sirRequestId :: !ByteString
---     , sirInstancesSet :: !InstanceStateChangeSet
---     } deriving (Show)
-
--- data StartInstances = StartInstances
---     { siInstancesSet :: !InstanceIdSet
---     } deriving (Show)
-
--- data StartInstancesResponse = StartInstancesResponse
---     { sirRequestId :: !ByteString
---     , sirInstancesSet :: !InstanceStateChangeSet
---     } deriving (Show)
-
--- data RebootInstances = RebootInstances
---     { riInstancesSet :: !RebootInstancesInfo
---     } deriving (Show)
-
--- data RebootInstancesInfo = RebootInstancesInfo
---     { riiItem :: !(NonEmpty RebootInstancesItem)
---     } deriving (Show)
-
--- data RebootInstancesItem = RebootInstancesItem
---     { riiInstanceId :: !ByteString
---     } deriving (Show)
-
--- data RebootInstancesResponse = RebootInstancesResponse
---     { rirRequestId :: !ByteString
---     , rirReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeInstances = DescribeInstances
---     { diInstancesSet :: !DescribeInstancesInfo
---     , diFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeInstancesInfo = DescribeInstancesInfo
---     { diiItem :: [DescribeInstancesItem]
---     } deriving (Show)
-
--- data DescribeInstancesItem = DescribeInstancesItem
---     { diiInstanceId :: !ByteString
---     } deriving (Show)
-
--- data DescribeInstancesResponse = DescribeInstancesResponse
---     { dirRequestId :: !ByteString
---     , dirReservationSet :: !ReservationSet
---     } deriving (Show)
-
--- data ReservationSet = ReservationSet
---     { rsItem :: [ReservationInfo]
---     } deriving (Show)
-
--- data UnavailableResultSet = UnavailableResultSet
---     { ursItem :: [UnavailableResult]
---     } deriving (Show)
-
--- data UnavailableResult = UnavailableResult
---     { urAvailabilityZone :: !ByteString
---     } deriving (Show)
-
--- data DescribeImages = DescribeImages
---     { diExecutableBySet :: Maybe DescribeImagesExecutableBySet
---     , diImagesSet :: !DescribeImagesInfo
---     , diOwnersSet :: Maybe DescribeImagesOwners
---     , diFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeImagesInfo = DescribeImagesInfo
---     { diiItem :: [DescribeImagesItem]
---     } deriving (Show)
-
--- data DescribeImagesItem = DescribeImagesItem
---     { diiImageId :: !ByteString
---     } deriving (Show)
-
--- data DescribeImagesOwners = DescribeImagesOwners
---     { dioItem :: [DescribeImagesOwner]
---     } deriving (Show)
-
--- data DescribeImagesOwner = DescribeImagesOwner
---     { dioOwner :: !ByteString
---     } deriving (Show)
-
--- data DescribeImagesExecutableBySet = DescribeImagesExecutableBySet
---     { diebsItem :: [DescribeImagesExecutableBy]
---     } deriving (Show)
-
--- data DescribeImagesExecutableBy = DescribeImagesExecutableBy
---     { diebUser :: !ByteString
---     } deriving (Show)
-
--- data DescribeImagesResponse = DescribeImagesResponse
---     { dirRequestId :: !ByteString
---     , dirImagesSet :: !DescribeImagesResponseInfo
---     } deriving (Show)
-
--- data DescribeImagesResponseInfo = DescribeImagesResponseInfo
---     { diriItem :: [DescribeImagesResponseItem]
---     } deriving (Show)
-
--- data DescribeImagesResponseItem = DescribeImagesResponseItem
---     { diriImageId :: !ByteString
---     , diriImageLocation :: Maybe ByteString
---     , diriImageState :: !ByteString
---     , diriImageOwnerId :: !ByteString
---     , diriIsPublic :: !Boolean
---     , diriProductCodes :: Maybe ProductCodesSet
---     , diriArchitecture :: Maybe ByteString
---     , diriImage :: Maybe ByteString
---     , diriKernelId :: Maybe ByteString
---     , diriRamdiskId :: Maybe ByteString
---     , diriPlatform :: Maybe ByteString
---     , diriStateReason :: Maybe StateReason
---     , diriImageOwnerAlias :: Maybe ByteString
---     , diriName :: Maybe ByteString
---     , diriDescription :: Maybe ByteString
---     , diriRootDevice :: Maybe ByteString
---     , diriRootDeviceName :: Maybe ByteString
---     , diriBlockDeviceMapping :: Maybe BlockDeviceMapping
---     , diriVirtualization :: Maybe ByteString
---     , diriTagSet :: Maybe ResourceTagSet
---     , diriHypervisor :: Maybe ByteString
---     } deriving (Show)
-
--- data CreateSecurityGroup = CreateSecurityGroup
---     { csgGroupName :: !ByteString
---     , csgGroupDescription :: !ByteString
---     , csgVpcId :: Maybe ByteString
---     } deriving (Show)
-
--- data CreateSecurityGroupResponse = CreateSecurityGroupResponse
---     { csgrRequestId :: !ByteString
---     , csgrReturn :: !Boolean
---     , csgrGroupId :: !ByteString
---     } deriving (Show)
-
--- data DeleteSecurityGroup = DeleteSecurityGroup
---     {
--- -- <xs:choice>
---       dsgGroupId :: Maybe ByteString
---     , dsgGroupName :: Maybe ByteString
--- -- </xs:choice>
---     } deriving (Show)
-
--- data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
---     { dsgrRequestId :: !ByteString
---     , dsgrReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeSecurityGroups = DescribeSecurityGroups
---     { dsgSecurityGroupSet :: !DescribeSecurityGroupsSet
---     , dsgSecurityGroupIdSet :: Maybe DescribeSecurityGroupsIdSet
---     , dsgFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeSecurityGroupsSet = DescribeSecurityGroupsSet
---     { dsgsItem :: [DescribeSecurityGroupsSetItem]
---     } deriving (Show)
-
--- data DescribeSecurityGroupsSetItem = DescribeSecurityGroupsSetItem
---     { dsgsiGroupName :: !ByteString
---     } deriving (Show)
-
--- data DescribeSecurityGroupsIdSet = DescribeSecurityGroupsIdSet
---     { dsgisItem :: [DescribeSecurityGroupsIdSetItem]
---     } deriving (Show)
-
--- data DescribeSecurityGroupsIdSetItem = DescribeSecurityGroupsIdSetItem
---     { dsgisiGroupId :: !ByteString
---     } deriving (Show)
-
--- data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
---     { dsgrRequestId :: !ByteString
---     , dsgrSecurityGroupInfo :: !SecurityGroupSet
---     } deriving (Show)
-
--- data IpPermissionSet = IpPermissionSet
---     { ipsItem :: [IpPermission]
---     } deriving (Show)
-
--- data IpPermission = IpPermission
---     { ipIpProtocol :: !ByteString
---     , ipFromPort :: Maybe Int
---     , ipToPort :: Maybe Int
---     , ipGroups :: !UserIdGroupPairSet
---     , ipIpRanges :: !IpRangeSet
---     } deriving (Show)
-
--- data IpRangeSet = IpRangeSet
---     { irsItem :: [IpRangeItem]
---     } deriving (Show)
-
--- data IpRangeItem = IpRangeItem
---     { iriCidrIp :: !ByteString
---     } deriving (Show)
-
--- data UserIdGroupPairSet = UserIdGroupPairSet
---     { uigpsItem :: [UserIdGroupPair]
---     } deriving (Show)
-
--- data UserIdGroupPair = UserIdGroupPair
---     { uigpUserId :: Maybe ByteString
---     , uigpGroupId :: Maybe ByteString
---     , uigpGroupName :: Maybe ByteString
---     } deriving (Show)
-
--- data SecurityGroupSet = SecurityGroupSet
---     { sgsItem :: [SecurityGroupItem]
---     } deriving (Show)
-
--- data SecurityGroupItem = SecurityGroupItem
---     { sgiOwnerId :: !ByteString
---     , sgiGroupId :: !ByteString
---     , sgiGroupName :: !ByteString
---     , sgiGroupDescription :: !ByteString
---     , sgiVpcId :: Maybe ByteString
---     , sgiIpPermissions :: !IpPermissionSet
---     , sgiIpPermissionsEgress :: Maybe IpPermissionSet
---     , sgiTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
---     { asgiUserId :: Maybe ByteString
---   -- <xs:choice>
---     , asgiGroupId :: Maybe ByteString
---     , asgiGroupName :: Maybe ByteString
---   -- </xs:choice>
---     , asgiIpPermissions :: !IpPermissionSet
---     } deriving (Show)
-
--- data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
---     { asgirRequestId :: !ByteString
---     , asgirReturn :: !Boolean
---     } deriving (Show)
-
--- data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
---     { rsgiUserId :: Maybe ByteString
---   -- <xs:choice>
---     , rsgiGroupId :: Maybe ByteString
---     , rsgiGroupName :: Maybe ByteString
---   -- </xs:choice>
---     , rsgiIpPermissions :: !IpPermissionSet
---     } deriving (Show)
-
--- data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
---     { rsgirRequestId :: !ByteString
---     , rsgirReturn :: !Boolean
---     } deriving (Show)
-
--- data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
---     { asgeGroupId :: !ByteString
---     , asgeIpPermissions :: !IpPermissionSet
---     } deriving (Show)
-
--- data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
---     { asgerRequestId :: !ByteString
---     , asgerReturn :: !Boolean
---     } deriving (Show)
-
--- data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
---     { rsgeGroupId :: !ByteString
---     , rsgeIpPermissions :: !IpPermissionSet
---     } deriving (Show)
-
--- data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
---     { rsgerRequestId :: !ByteString
---     , rsgerReturn :: !Boolean
---     } deriving (Show)
-
--- data InstanceState = InstanceState
---     { isCode :: !Int
---     , isName :: !ByteString
---     } deriving (Show)
-
--- data ModifyInstanceAttribute = ModifyInstanceAttribute
---     { miaInstanceId :: !ByteString
---   -- <xs:choice>
---     , miaInstance :: Maybe AttributeValue
---     , miaKernel :: Maybe AttributeValue
---     , miaRamdisk :: Maybe AttributeValue
---     , miaUserData :: Maybe AttributeValue
---     , miaDisableApiTermination :: Maybe AttributeBooleanValue
---     , miaInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
---     , miaBlockDeviceMapping :: Maybe InstanceBlockDeviceMapping
---     , miaSourceDestCheck :: Maybe AttributeBooleanValue
---     , miaGroupSet :: Maybe SecurityGroupIdSet
---     , miaEbsOptimized :: Maybe AttributeBooleanValue
---   -- </xs:choice>
---     } deriving (Show)
-
--- data SecurityGroupIdSet = SecurityGroupIdSet
---     { sgisItem :: [SecurityGroupIdSetItem]
---     } deriving (Show)
-
--- data SecurityGroupIdSetItem = SecurityGroupIdSetItem
---     { sgisiGroupId :: !ByteString
---     } deriving (Show)
-
--- data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
---     { miarRequestId :: !ByteString
---     , miarReturn :: !Boolean
---     } deriving (Show)
-
--- data ResetInstanceAttribute = ResetInstanceAttribute
---     { riaInstanceId :: !ByteString
---     , riaResetInstanceAttributesGroup :: !ResetInstanceAttributesGroup
---     } deriving (Show)
-
--- data ResetInstanceAttributesGroup = ResetInstanceAttributesGroup
---     { riagKernel :: !EmptyElement
---     , riagRamdisk :: !EmptyElement
---     , riagSourceDestCheck :: !EmptyElement
---     } deriving (Show)
--- data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
---     { riarRequestId :: !ByteString
---     , riarReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeInstanceAttribute = DescribeInstanceAttribute
---     { diaInstanceId :: !ByteString
---     , diaDescribeInstanceAttributesGroup :: !DescribeInstanceAttributesGroup
---     } deriving (Show)
-
--- data DescribeInstanceAttributesGroup = DescribeInstanceAttributesGroup
---     { diagInstance :: !EmptyElement
---     , diagKernel :: !EmptyElement
---     , diagRamdisk :: !EmptyElement
---     , diagUserData :: !EmptyElement
---     , diagDisableApiTermination :: !EmptyElement
---     , diagInstanceInitiatedShutdownBehavior :: !EmptyElement
---     , diagRootDeviceName :: !EmptyElement
---     , diagBlockDeviceMapping :: !EmptyElement
---     , diagSourceDestCheck :: !EmptyElement
---     , diagGroupSet :: !EmptyElement
---     , diagProductCodes :: !EmptyElement
---     , diagEbsOptimized :: !EmptyElement
---     } deriving (Show)
--- data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
---     { diarRequestId :: !ByteString
---     , diarInstanceId :: !ByteString
---   -- <xs:choice>
---     , diarInstance :: Maybe NullableAttributeValue
---     , diarKernel :: Maybe NullableAttributeValue
---     , diarRamdisk :: Maybe NullableAttributeValue
---     , diarUserData :: Maybe NullableAttributeValue
---     , diarDisableApiTermination :: Maybe NullableAttributeBooleanValue
---     , diarInstanceInitiatedShutdownBehavior :: Maybe NullableAttributeValue
---     , diarRootDeviceName :: Maybe NullableAttributeValue
---     , diarBlockDeviceMapping :: Maybe InstanceBlockDeviceMappingResponse
---     , diarSourceDestCheck :: Maybe NullableAttributeBooleanValue
---     , diarGroupSet :: Maybe GroupSet
---     , diarProductCodes :: Maybe ProductCodesSet
---     , diarEbsOptimized :: Maybe NullableAttributeBooleanValue
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ModifyImageAttribute = ModifyImageAttribute
---     { miaImageId :: !ByteString
---   -- <xs:choice>
---     , miaLaunchPermission :: Maybe LaunchPermissionOperation
---     , miaProductCodes :: Maybe ProductCodeList
---     , miaDescription :: Maybe AttributeValue
---   -- </xs:choice>
---     } deriving (Show)
-
--- data LaunchPermissionOperation = LaunchPermissionOperation
---     { lpo 
--- -- <xs:choice>
---     , lpoAdd :: Maybe LaunchPermissionList
---     , lpoRemove :: Maybe LaunchPermissionList
--- -- </xs:choice>
---     } deriving (Show)
-
--- data LaunchPermissionList = LaunchPermissionList
---     { lplItem :: [LaunchPermissionItem]
---     } deriving (Show)
-
--- data LaunchPermissionItem = LaunchPermissionItem
---     { lpi 
--- -- <xs:choice>
---     , lpiUserId :: Maybe ByteString
---     , lpiGroup :: Maybe ByteString
--- -- </xs:choice>
---     } deriving (Show)
-
--- data ProductCodeList = ProductCodeList
---     { pclItem :: [ProductCodeItem]
---     } deriving (Show)
-
--- data ProductCodeItem = ProductCodeItem
---     { pciProductCode :: !ByteString
---     } deriving (Show)
-
--- data ModifyImageAttributeResponse = ModifyImageAttributeResponse
---     { miarRequestId :: !ByteString
---     , miarReturn :: !Boolean
---     } deriving (Show)
-
--- data ResetImageAttribute = ResetImageAttribute
---     { riaImageId :: !ByteString
---     , riaResetImageAttributesGroup :: !ResetImageAttributesGroup
---     } deriving (Show)
-
--- data ResetImageAttributesGroup = ResetImageAttributesGroup
---     { riagLaunchPermission :: !EmptyElement
---     } deriving (Show)
-
--- data EmptyElement = EmptyElement
-
--- data ResetImageAttributeResponse = ResetImageAttributeResponse
---     { riarRequestId :: !ByteString
---     , riarReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeImageAttribute = DescribeImageAttribute
---     { diaImageId :: !ByteString
---     , diaDescribeImageAttributesGroup :: !DescribeImageAttributesGroup
---     } deriving (Show)
-
--- data DescribeImageAttributesGroup = DescribeImageAttributesGroup
---     { diagLaunchPermission :: !EmptyElement
---     , diagProductCodes :: !EmptyElement
---     , diagKernel :: !EmptyElement
---     , diagRamdisk :: !EmptyElement
---     , diagBlockDeviceMapping :: !EmptyElement
---     , diagDescription :: !EmptyElement
---     , diagInstanceCategory :: !EmptyElement
---     } deriving (Show)
--- data DescribeImageAttributeResponse = DescribeImageAttributeResponse
---     { diarRequestId :: !ByteString
---     , diarImageId :: !ByteString
---   -- <xs:choice>
---     , diarLaunchPermission :: Maybe LaunchPermissionList
---     , diarProductCodes :: Maybe ProductCodesSet
---     , diarKernel :: Maybe NullableAttributeValue
---     , diarRamdisk :: Maybe NullableAttributeValue
---     , diarDescription :: Maybe NullableAttributeValue
---     , diarBlockDeviceMapping :: Maybe BlockDeviceMapping
---   -- </xs:choice>
---     } deriving (Show)
-
--- data NullableAttributeValue = NullableAttributeValue
---     { navValue :: Maybe ByteString
---     } deriving (Show)
-
--- data NullableAttributeBooleanValue = NullableAttributeBooleanValue
---     { nabvValue :: Maybe Boolean
---     } deriving (Show)
-
--- data AttributeValue = AttributeValue
---     { avValue :: !ByteString
---     } deriving (Show)
-
--- data AttributeBooleanValue = AttributeBooleanValue
---     { abvValue :: !Boolean
---     } deriving (Show)
-
--- data ConfirmProductInstance = ConfirmProductInstance
---     { cpiProductCode :: !ByteString
---     , cpiInstanceId :: !ByteString
---     } deriving (Show)
-
--- data ProductCodesSet = ProductCodesSet
---     { pcsItem :: [ProductCodesSetItem]
---     } deriving (Show)
-
--- data ProductCodesSetItem = ProductCodesSetItem
---     { pcsiProductCode :: !ByteString
---     , pcsiType :: !ByteString
---     } deriving (Show)
-
--- data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
---     { cpirRequestId :: !ByteString
---     , cpirReturn :: !Boolean
---     , cpirOwnerId :: Maybe ByteString
---     } deriving (Show)
-
--- data DescribeAvailabilityZones = DescribeAvailabilityZones
---     { dazAvailabilityZoneSet :: !DescribeAvailabilityZonesSet
---     , dazFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeAvailabilityZonesSet = DescribeAvailabilityZonesSet
---     { dazsItem :: [DescribeAvailabilityZonesSetItem]
---     } deriving (Show)
-
--- data DescribeAvailabilityZonesSetItem = DescribeAvailabilityZonesSetItem
---     { dazsiZoneName :: !ByteString
---     } deriving (Show)
-
--- data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
---     { dazrRequestId :: !ByteString
---     , dazrAvailabilityZoneInfo :: !AvailabilityZoneSet
---     } deriving (Show)
-
--- data AvailabilityZoneSet = AvailabilityZoneSet
---     { azsItem :: [AvailabilityZoneItem]
---     } deriving (Show)
-
--- data AvailabilityZoneMessage = AvailabilityZoneMessage
---     { azmMessage :: !ByteString
---     } deriving (Show)
-
--- data AvailabilityZoneMessageSet = AvailabilityZoneMessageSet
---     { azmsItem :: [AvailabilityZoneMessage]
---     } deriving (Show)
-
--- data AvailabilityZoneItem = AvailabilityZoneItem
---     { aziZoneName :: !ByteString
---     , aziZoneState :: !ByteString
---     , aziRegionName :: !ByteString
---     , aziMessageSet :: !AvailabilityZoneMessageSet
---     } deriving (Show)
-
--- data ReleaseAddress = ReleaseAddress
---     { ra 
---   -- <xs:choice>
---     , raPublicIp :: Maybe ByteString
---     , raAllocationId :: Maybe ByteString
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ReleaseAddressResponse = ReleaseAddressResponse
---     { rarRequestId :: !ByteString
---     , rarReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeAddresses = DescribeAddresses
---     { daPublicIpsSet :: !DescribeAddressesInfo
---     , daAllocationIdsSet :: !AllocationIdSet
---     , daFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data AllocationIdSet = AllocationIdSet
---     { aisItem :: [AllocationIdSetItem]
---     } deriving (Show)
-
--- data AllocationIdSetItem = AllocationIdSetItem
---     { aisiAllocationId :: !ByteString
---     } deriving (Show)
-
--- data DescribeAddressesInfo = DescribeAddressesInfo
---     { daiItem :: [DescribeAddressesItem]
---     } deriving (Show)
-
--- data DescribeAddressesItem = DescribeAddressesItem
---     { daiPublicIp :: !ByteString
---     } deriving (Show)
-
--- data DescribeAddressesResponse = DescribeAddressesResponse
---     { darRequestId :: !ByteString
---     , darAddressesSet :: !DescribeAddressesResponseInfo
---     } deriving (Show)
-
--- data DescribeAddressesResponseInfo = DescribeAddressesResponseInfo
---     { dariItem :: [DescribeAddressesResponseItem]
---     } deriving (Show)
-
--- data DescribeAddressesResponseItem = DescribeAddressesResponseItem
---     { dariPublicIp :: !ByteString
---     , dariAllocationId :: Maybe ByteString
---     , dariDomain :: !ByteString
---     , dariInstanceId :: Maybe ByteString
---     , dariAssociationId :: Maybe ByteString
---     , dariNetworkInterfaceId :: Maybe ByteString
---     , dariNetworkInterfaceOwnerId :: Maybe ByteString
---     , dariPrivateIpAddress :: Maybe ByteString
---     } deriving (Show)
-
--- data AssociateAddress = AssociateAddress
---     { aa 
---   -- <xs:choice>
---     , aaPublicIp :: Maybe ByteString
---     , aaAllocationId :: Maybe ByteString
---   -- </xs:choice>
---   -- <xs:choice>
---     , aaNetworkInterfaceId :: Maybe ByteString
---     , aaInstanceId :: Maybe ByteString
---   -- </xs:choice>
---     , aaPrivateIpAddress :: Maybe ByteString
---     , aaAllowReassociation :: Maybe Boolean
---     } deriving (Show)
-
--- data AssociateAddressResponse = AssociateAddressResponse
---     { aarRequestId :: !ByteString
---     , aarReturn :: !Boolean
---     , aarAssociationId :: Maybe ByteString
---     } deriving (Show)
-
--- data DisassociateAddress = DisassociateAddress
---     { da 
--- -- <xs:choice>
---     , daPublicIp :: Maybe ByteString
---     , daAssociationId :: Maybe ByteString
--- -- </xs:choice>
---      } deriving (Show)
-
--- data DisassociateAddressResponse = DisassociateAddressResponse
---     { darRequestId :: !ByteString
---     , darReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateVolume = CreateVolume
---     { cvSize :: Maybe ByteString
---     , cvSnapshotId :: Maybe ByteString
---     , cvAvailabilityZone :: !ByteString
---     , cvVolume :: Maybe ByteString
---     , cvIops :: Maybe Int
---     } deriving (Show)
-
--- data CreateVolumeResponse = CreateVolumeResponse
---     { cvrRequestId :: !ByteString
---     , cvrVolumeId :: !ByteString
---     , cvrSize :: !ByteString
---     , cvrSnapshotId :: !ByteString
---     , cvrAvailabilityZone :: !ByteString
---     , cvrStatus :: !ByteString
---     , cvrCreateTime :: !DateTime
---     , cvrVolume :: !ByteString
---     , cvrIops :: Maybe Int
---     } deriving (Show)
-
--- data DeleteVolume = DeleteVolume
---     { dvVolumeId :: !ByteString
---     } deriving (Show)
-
--- data DeleteVolumeResponse = DeleteVolumeResponse
---     { dvrRequestId :: !ByteString
---     , dvrReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeVolumes = DescribeVolumes
---     { dvVolumeSet :: !DescribeVolumesSet
---     , dvFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeVolumesSet = DescribeVolumesSet
---     { dvsItem :: [DescribeVolumesSetItem]
---     } deriving (Show)
-
--- data DescribeVolumesSetItem = DescribeVolumesSetItem
---     { dvsiVolumeId :: !ByteString
---     } deriving (Show)
-
--- data DescribeVolumesResponse = DescribeVolumesResponse
---     { dvrRequestId :: !ByteString
---     , dvrVolumeSet :: !DescribeVolumesSetResponse
---     } deriving (Show)
-
--- data DescribeVolumesSetResponse = DescribeVolumesSetResponse
---     { dvsrItem :: [DescribeVolumesSetItemResponse]
---     } deriving (Show)
-
--- data DescribeVolumesSetItemResponse = DescribeVolumesSetItemResponse
---     { dvsirVolumeId :: !ByteString
---     , dvsirSize :: !ByteString
---     , dvsirSnapshotId :: !ByteString
---     , dvsirAvailabilityZone :: !ByteString
---     , dvsirStatus :: !ByteString
---     , dvsirCreateTime :: !DateTime
---     , dvsirAttachmentSet :: !AttachmentSetResponse
---     , dvsirTagSet :: Maybe ResourceTagSet
---     , dvsirVolume :: !ByteString
---     , dvsirIops :: Maybe Int
---     } deriving (Show)
-
--- data AttachmentSetResponse = AttachmentSetResponse
---     { asrItem :: [AttachmentSetItemResponse]
---     } deriving (Show)
-
--- data AttachmentSetItemResponse = AttachmentSetItemResponse
---     { asirVolumeId :: !ByteString
---     , asirInstanceId :: !ByteString
---     , asirDevice :: !ByteString
---     , asirStatus :: !ByteString
---     , asirAttachTime :: !DateTime
---     , asirDeleteOnTermination :: !Boolean
---     } deriving (Show)
-
--- data AttachVolume = AttachVolume
---     { avVolumeId :: !ByteString
---     , avInstanceId :: !ByteString
---     , avDevice :: !ByteString
---     } deriving (Show)
-
--- data AttachVolumeResponse = AttachVolumeResponse
---     { avrRequestId :: !ByteString
---     , avrVolumeId :: !ByteString
---     , avrInstanceId :: !ByteString
---     , avrDevice :: !ByteString
---     , avrStatus :: !ByteString
---     , avrAttachTime :: !DateTime
---     } deriving (Show)
-
--- data DetachVolume = DetachVolume
---     { dvVolumeId :: !ByteString
---     , dvInstanceId :: Maybe ByteString
---     , dvDevice :: Maybe ByteString
---     , dvForce :: Maybe Boolean
---     } deriving (Show)
-
--- data DetachVolumeResponse = DetachVolumeResponse
---     { dvrRequestId :: !ByteString
---     , dvrVolumeId :: !ByteString
---     , dvrInstanceId :: !ByteString
---     , dvrDevice :: !ByteString
---     , dvrStatus :: !ByteString
---     , dvrAttachTime :: !DateTime
---     } deriving (Show)
-
--- data CreateSnapshot = CreateSnapshot
---     { csVolumeId :: !ByteString
---     , csDescription :: Maybe ByteString
---     } deriving (Show)
-
--- data CreateSnapshotResponse = CreateSnapshotResponse
---     { csrRequestId :: !ByteString
---     , csrSnapshotId :: !ByteString
---     , csrVolumeId :: !ByteString
---     , csrStatus :: !ByteString
---     , csrStartTime :: !DateTime
---     , csrProgress :: !ByteString
---     , csrOwnerId :: !ByteString
---     , csrVolumeSize :: !ByteString
---     , csrDescription :: Maybe ByteString
---     } deriving (Show)
-
--- data CopySnapshot = CopySnapshot
---     { csSourceRegion :: !ByteString
---     , csSourceSnapshotId :: !ByteString
---     , csDescription :: Maybe ByteString
---     } deriving (Show)
-
--- data CopySnapshotResponse = CopySnapshotResponse
---     { csrRequestId :: !ByteString
---     , csrSnapshotId :: !ByteString
---     } deriving (Show)
-
--- data DeleteSnapshot = DeleteSnapshot
---     { dsSnapshotId :: !ByteString
---     } deriving (Show)
-
--- data DeleteSnapshotResponse = DeleteSnapshotResponse
---     { dsrRequestId :: !ByteString
---     , dsrReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeSnapshots = DescribeSnapshots
---     { dsSnapshotSet :: !DescribeSnapshotsSet
---     , dsOwnersSet :: Maybe DescribeSnapshotsOwners
---     , dsRestorableBySet :: Maybe DescribeSnapshotsRestorableBySet
---     , dsFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeSnapshotsSet = DescribeSnapshotsSet
---     { dssItem :: [DescribeSnapshotsSetItem]
---     } deriving (Show)
-
--- data DescribeSnapshotsSetItem = DescribeSnapshotsSetItem
---     { dssiSnapshotId :: !ByteString
---     } deriving (Show)
-
--- data DescribeSnapshotsOwners = DescribeSnapshotsOwners
---     { dsoItem :: [DescribeSnapshotsOwner]
---     } deriving (Show)
-
--- data DescribeSnapshotsOwner = DescribeSnapshotsOwner
---     { dsoOwner :: !ByteString
---     } deriving (Show)
-
--- data DescribeSnapshotsRestorableBySet = DescribeSnapshotsRestorableBySet
---     { dsrbsItem :: [DescribeSnapshotsRestorableBy]
---     } deriving (Show)
-
--- data DescribeSnapshotsRestorableBy = DescribeSnapshotsRestorableBy
---     { dsrbUser :: !ByteString
---     } deriving (Show)
-
--- data DescribeSnapshotsResponse = DescribeSnapshotsResponse
---     { dsrRequestId :: !ByteString
---     , dsrSnapshotSet :: !DescribeSnapshotsSetResponse
---     } deriving (Show)
-
--- data DescribeSnapshotsSetResponse = DescribeSnapshotsSetResponse
---     { dssrItem :: [DescribeSnapshotsSetItemResponse]
---     } deriving (Show)
-
--- data DescribeSnapshotsSetItemResponse = DescribeSnapshotsSetItemResponse
---     { dssirSnapshotId :: !ByteString
---     , dssirVolumeId :: !ByteString
---     , dssirStatus :: !ByteString
---     , dssirStartTime :: !DateTime
---     , dssirProgress :: !ByteString
---     , dssirOwnerId :: !ByteString
---     , dssirVolumeSize :: !ByteString
---     , dssirDescription :: Maybe ByteString
---     , dssirOwnerAlias :: Maybe ByteString
---     , dssirTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data ModifySnapshotAttribute = ModifySnapshotAttribute
---     { msaSnapshotId :: !ByteString
---     , msaCreateVolumePermission :: !CreateVolumePermissionOperation
---     } deriving (Show)
-
--- data CreateVolumePermissionOperation = CreateVolumePermissionOperation
---     { cvpo 
--- -- <xs:choice>
---     , cvpoAdd :: Maybe CreateVolumePermissionList
---     , cvpoRemove :: Maybe CreateVolumePermissionList
--- -- </xs:choice>
---     } deriving (Show)
-
--- data CreateVolumePermissionList = CreateVolumePermissionList
---     { cvplItem :: [CreateVolumePermissionItem]
---     } deriving (Show)
-
--- data CreateVolumePermissionItem = CreateVolumePermissionItem
---     { cvpi 
--- -- <xs:choice>
---     , cvpiUserId :: Maybe ByteString
---     , cvpiGroup :: Maybe ByteString
--- -- </xs:choice>
---     } deriving (Show)
-
--- data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
---     { msarRequestId :: !ByteString
---     , msarReturn :: !Boolean
---     } deriving (Show)
-
--- data ResetSnapshotAttribute = ResetSnapshotAttribute
---     { rsaSnapshotId :: !ByteString
---     , rsaResetSnapshotAttributesGroup :: !ResetSnapshotAttributesGroup
---     } deriving (Show)
-
--- data ResetSnapshotAttributesGroup = ResetSnapshotAttributesGroup
---     { rsagCreateVolumePermission :: !EmptyElement
---     } deriving (Show)
--- data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
---     { rsarRequestId :: !ByteString
---     , rsarReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeSnapshotAttribute = DescribeSnapshotAttribute
---     { dsaSnapshotId :: !ByteString
---     , dsaDescribeSnapshotAttributesGroup :: !DescribeSnapshotAttributesGroup
---     } deriving (Show)
-
--- data DescribeSnapshotAttributesGroup = DescribeSnapshotAttributesGroup
---     { dsagCreateVolumePermission :: !EmptyElement
---     , dsagProductCodes :: !EmptyElement
---     } deriving (Show)
--- data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
---     { dsarRequestId :: !ByteString
---     , dsarSnapshotId :: !ByteString
---   -- <xs:choice>
---     , dsarCreateVolumePermission :: Maybe CreateVolumePermissionList
---     , dsarProductCodes :: Maybe ProductCodesSet
---   -- </xs:choice>
---     } deriving (Show)
-
--- data BundleInstance = BundleInstance
---     { biInstanceId :: !ByteString
---     , biStorage :: !BundleInstanceTaskStorage
---     } deriving (Show)
-
--- data BundleInstanceTaskStorage = BundleInstanceTaskStorage
---     { bitsS3 :: !BundleInstanceS3Storage
---     } deriving (Show)
-
--- data BundleInstanceS3Storage = BundleInstanceS3Storage
---     { bis3sBucket :: !ByteString
---     , bis3sPrefix :: !ByteString
---     , bis3sAwsAccessKeyId :: Maybe ByteString
---     , bis3sUploadPolicy :: Maybe ByteString
---     , bis3sUploadPolicySignature :: Maybe ByteString
---     } deriving (Show)
-
--- data BundleInstanceResponse = BundleInstanceResponse
---     { birRequestId :: !ByteString
---     , birBundleInstanceTask :: !BundleInstanceTask
---     } deriving (Show)
-
--- data BundleInstanceTask = BundleInstanceTask
---     { bitInstanceId :: !ByteString
---     , bitBundleId :: !ByteString
---     , bitState :: !ByteString
---     , bitStartTime :: !DateTime
---     , bitUpdateTime :: !DateTime
---     , bitStorage :: !BundleInstanceTaskStorage
---     , bitProgress :: Maybe ByteString
---     , bitError :: Maybe BundleInstanceTaskError
---     } deriving (Show)
-
--- data BundleInstanceTaskError = BundleInstanceTaskError
---     { biteCode :: !ByteString
---     , biteMessage :: !ByteString
---     } deriving (Show)
-
--- data DescribeBundleTasks = DescribeBundleTasks
---     { dbtBundlesSet :: !DescribeBundleTasksInfo
---     , dbtFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeBundleTasksInfo = DescribeBundleTasksInfo
---     { dbtiItem :: [DescribeBundleTasksItem]
---     } deriving (Show)
-
--- data DescribeBundleTasksItem = DescribeBundleTasksItem
---     { dbtiBundleId :: !ByteString
---     } deriving (Show)
-
--- data DescribeBundleTasksResponse = DescribeBundleTasksResponse
---     { dbtrRequestId :: !ByteString
---     , dbtrBundleInstanceTasksSet :: !BundleInstanceTasksSet
---     } deriving (Show)
-
--- data BundleInstanceTasksSet = BundleInstanceTasksSet
---     { bitsItem :: [BundleInstanceTask]
---     } deriving (Show)
-
--- data CancelBundleTask = CancelBundleTask
---     { cbtBundleId :: !ByteString
---     } deriving (Show)
-
--- data CancelBundleTaskResponse = CancelBundleTaskResponse
---     { cbtrRequestId :: !ByteString
---     , cbtrBundleInstanceTask :: !BundleInstanceTask
---     } deriving (Show)
-
--- data CopyImage = CopyImage
---     { ciSourceRegion :: !ByteString
---     , ciSourceImageId :: !ByteString
---     , ciName :: !ByteString
---     , ciDescription :: Maybe ByteString
---     , ciClientToken :: Maybe ByteString
---     } deriving (Show)
-
--- data CopyImageResponse = CopyImageResponse
---     { cirRequestId :: !ByteString
---     , cirImageId :: !ByteString
---     } deriving (Show)
-
--- data DescribeRegions = DescribeRegions
---     { drRegionSet :: !DescribeRegionsSet
---     , drFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeRegionsSet = DescribeRegionsSet
---     { drsItem :: [DescribeRegionsSetItem]
---     } deriving (Show)
-
--- data DescribeRegionsSetItem = DescribeRegionsSetItem
---     { drsiRegionName :: !ByteString
---     } deriving (Show)
-
--- data DescribeRegionsResponse = DescribeRegionsResponse
---     { drrRequestId :: !ByteString
---     , drrRegionInfo :: !RegionSet
---     } deriving (Show)
-
--- data RegionSet = RegionSet
---     { rsItem :: [RegionItem]
---     } deriving (Show)
-
--- data RegionItem = RegionItem
---     { riRegionName :: !ByteString
---     , riRegionEndpoint :: !ByteString
---     } deriving (Show)
-
--- data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
---     { drioReservedInstancesOfferingsSet :: Maybe DescribeReservedInstancesOfferingsSet
---     , drioInstance :: Maybe ByteString
---     , drioAvailabilityZone :: Maybe ByteString
---     , drioProductDescription :: Maybe ByteString
---     , drioFilterSet :: Maybe FilterSet
---     , drioInstanceTenancy :: Maybe ByteString
---     , drioOffering :: Maybe ByteString
---     , drioIncludeMarketplace :: Maybe Boolean
---     , drioMinDuration :: Maybe Long
---     , drioMaxDuration :: Maybe Long
---     , drioMaxInstanceCount :: Maybe Int
---     , drioNextToken :: Maybe ByteString
---     , drioMaxResults :: Maybe Int
---     } deriving (Show)
-
--- data DescribeReservedInstancesOfferingsSet = DescribeReservedInstancesOfferingsSet
---     { driosItem :: [DescribeReservedInstancesOfferingsSetItem]
---     } deriving (Show)
-
--- data DescribeReservedInstancesOfferingsSetItem = DescribeReservedInstancesOfferingsSetItem
---     { driosiReservedInstancesOfferingId :: !ByteString
---     } deriving (Show)
-
--- data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
---     { driorRequestId :: !ByteString
---     , driorReservedInstancesOfferingsSet :: !DescribeReservedInstancesOfferingsResponseSet
---     , driorNextToken :: Maybe ByteString
---     } deriving (Show)
-
--- data DescribeReservedInstancesOfferingsResponseSet = DescribeReservedInstancesOfferingsResponseSet
---     { driorsItem :: [DescribeReservedInstancesOfferingsResponseSetItem]
---     } deriving (Show)
-
--- data DescribeReservedInstancesOfferingsResponseSetItem = DescribeReservedInstancesOfferingsResponseSetItem
---     { driorsiReservedInstancesOfferingId :: !ByteString
---     , driorsiInstance :: !ByteString
---     , driorsiAvailabilityZone :: !ByteString
---     , driorsiDuration :: !Long
---     , driorsiFixedPrice :: !Double
---     , driorsiUsagePrice :: !Double
---     , driorsiProductDescription :: !ByteString
---     , driorsiInstanceTenancy :: !ByteString
---     , driorsiCurrencyCode :: !ByteString
---     , driorsiOffering :: !ByteString
---     , driorsiRecurringCharges :: !RecurringChargesSet
---     , driorsiMarketplace :: Maybe Boolean
---     , driorsiPricingDetailsSet :: Maybe PricingDetailsSet
---     } deriving (Show)
-
--- data RecurringChargesSet = RecurringChargesSet
---     { rcsItem :: [RecurringChargesSetItem]
---     } deriving (Show)
-
--- data RecurringChargesSetItem = RecurringChargesSetItem
---     { rcsiFrequency :: !ByteString
---     , rcsiAmount :: !Double
---     } deriving (Show)
-
--- data PricingDetailsSet = PricingDetailsSet
---     { pdsItem :: [PricingDetailsSetItem]
---     } deriving (Show)
-
--- data PricingDetailsSetItem = PricingDetailsSetItem
---     { pdsiPrice :: !Double
---     , pdsiCount :: !Int
---     } deriving (Show)
-
--- data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
---     { prioReservedInstancesOfferingId :: !ByteString
---     , prioInstanceCount :: !Int
---     , prioLimitPrice :: Maybe ReservedInstanceLimitPrice
---     } deriving (Show)
-
--- data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
---     { rilpAmount :: !Double
---     , rilpCurrencyCode :: Maybe ByteString
---     } deriving (Show)
-
--- data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
---     { priorRequestId :: !ByteString
---     , priorReservedInstancesId :: !ByteString
---     } deriving (Show)
-
--- data DescribeReservedInstances = DescribeReservedInstances
---     { driReservedInstancesSet :: Maybe DescribeReservedInstancesSet
---     , driFilterSet :: Maybe FilterSet
---     , driOffering :: Maybe ByteString
---     } deriving (Show)
-
--- data DescribeReservedInstancesSet = DescribeReservedInstancesSet
---     { drisItem :: [DescribeReservedInstancesSetItem]
---     } deriving (Show)
-
--- data DescribeReservedInstancesSetItem = DescribeReservedInstancesSetItem
---     { drisiReservedInstancesId :: !ByteString
---     } deriving (Show)
-
--- data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
---     { drirRequestId :: !ByteString
---     , drirReservedInstancesSet :: !DescribeReservedInstancesResponseSet
---     } deriving (Show)
-
--- data DescribeReservedInstancesResponseSet = DescribeReservedInstancesResponseSet
---     { drirsItem :: [DescribeReservedInstancesResponseSetItem]
---     } deriving (Show)
-
--- data DescribeReservedInstancesResponseSetItem = DescribeReservedInstancesResponseSetItem
---     { drirsiReservedInstancesId :: !ByteString
---     , drirsiInstance :: !ByteString
---     , drirsiAvailabilityZone :: !ByteString
---     , drirsiStart :: !DateTime
---     , drirsiDuration :: !Long
---     , drirsiFixedPrice :: !Double
---     , drirsiUsagePrice :: !Double
---     , drirsiInstanceCount :: !Integer
---     , drirsiProductDescription :: !ByteString
---     , drirsiState :: !ByteString
---     , drirsiTagSet :: Maybe ResourceTagSet
---     , drirsiInstanceTenancy :: !ByteString
---     , drirsiCurrencyCode :: !ByteString
---     , drirsiOffering :: !ByteString
---     , drirsiRecurringCharges :: Maybe RecurringChargesSet
---     } deriving (Show)
-
--- data CreateReservedInstancesListing = CreateReservedInstancesListing
---     { crilReservedInstancesId :: !ByteString
---     , crilInstanceCount :: Maybe Int
---     , crilPriceSchedules :: !PriceScheduleRequestSet
---     , crilClientToken :: !ByteString
---     } deriving (Show)
-
--- data PriceScheduleRequestSet = PriceScheduleRequestSet
---     { psrsItem :: [PriceScheduleRequestSetItem]
---     } deriving (Show)
-
--- data PriceScheduleRequestSetItem = PriceScheduleRequestSetItem
---     { psrsiTerm :: !Long
---     , psrsiPrice :: !Double
---     , psrsiCurrencyCode :: Maybe ByteString
---     } deriving (Show)
-
--- data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
---     { crilrRequestId :: !ByteString
---     , crilrReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
---     } deriving (Show)
-
--- data CancelReservedInstancesListing = CancelReservedInstancesListing
---     { crilReservedInstancesListingId :: !ByteString
---     } deriving (Show)
-
--- data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
---     { crilrRequestId :: !ByteString
---     , crilrReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
---     } deriving (Show)
-
--- data DescribeReservedInstancesListings = DescribeReservedInstancesListings
---     { drilReservedInstancesListingSet :: Maybe DescribeReservedInstancesListingSet
---     , drilReservedInstancesSet :: Maybe DescribeReservedInstancesSet
---     , drilFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeReservedInstancesListingSet = DescribeReservedInstancesListingSet
---     { drilsItem :: [DescribeReservedInstancesListingSetItem]
---     } deriving (Show)
-
--- data DescribeReservedInstancesListingSetItem = DescribeReservedInstancesListingSetItem
---     { drilsiReservedInstancesListingId :: !ByteString
---     } deriving (Show)
-
--- data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
---     { drilrRequestId :: !ByteString
---     , drilrReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSet
---     } deriving (Show)
-
--- data DescribeReservedInstancesListingsResponseSet = DescribeReservedInstancesListingsResponseSet
---     { drilrsItem :: [DescribeReservedInstancesListingsResponseSetItem]
---     } deriving (Show)
-
--- data DescribeReservedInstancesListingsResponseSetItem = DescribeReservedInstancesListingsResponseSetItem
---     { drilrsiReservedInstancesListingId :: !ByteString
---     , drilrsiReservedInstancesId :: !ByteString
---     , drilrsiCreateDate :: !DateTime
---     , drilrsiUpdateDate :: !DateTime
---     , drilrsiStatus :: !ByteString
---     , drilrsiStatusMessage :: !ByteString
---     , drilrsiInstanceCounts :: !InstanceCountsSet
---     , drilrsiPriceSchedules :: !PriceScheduleSet
---     , drilrsiTagSet :: Maybe ResourceTagSet
---     , drilrsiClientToken :: Maybe ByteString
---     } deriving (Show)
-
--- data InstanceCountsSet = InstanceCountsSet
---     { icsItem :: [InstanceCountsSetItem]
---     } deriving (Show)
-
--- data InstanceCountsSetItem = InstanceCountsSetItem
---     { icsiState :: !ByteString
---     , icsiInstanceCount :: !Int
---     } deriving (Show)
-
--- data PriceScheduleSet = PriceScheduleSet
---     { pssItem :: [PriceScheduleSetItem]
---     } deriving (Show)
-
--- data PriceScheduleSetItem = PriceScheduleSetItem
---     { pssiTerm :: !Long
---     , pssiPrice :: !Double
---     , pssiCurrencyCode :: Maybe ByteString
---     , pssiActive :: !Boolean
---     } deriving (Show)
-
--- data MonitorInstances = MonitorInstances
---     { miInstancesSet :: !MonitorInstancesSet
---     } deriving (Show)
-
--- data MonitorInstancesSet = MonitorInstancesSet
---     { misItem :: !(NonEmpty MonitorInstancesSetItem)
---     } deriving (Show)
-
--- data MonitorInstancesSetItem = MonitorInstancesSetItem
---     { misiInstanceId :: !ByteString
---     } deriving (Show)
-
--- data MonitorInstancesResponse = MonitorInstancesResponse
---     { mirRequestId :: !ByteString
---     , mirInstancesSet :: !MonitorInstancesResponseSet
---     } deriving (Show)
-
--- data MonitorInstancesResponseSet = MonitorInstancesResponseSet
---     { mirsItem :: !(NonEmpty MonitorInstancesResponseSetItem)
---     } deriving (Show)
-
--- data MonitorInstancesResponseSetItem = MonitorInstancesResponseSetItem
---     { mirsiInstanceId :: !ByteString
---     , mirsiMonitoring :: !InstanceMonitoringState
---     } deriving (Show)
-
--- data InstanceMonitoringState = InstanceMonitoringState
---     { imsState :: !ByteString
---     } deriving (Show)
-
--- data Attachment = Attachment
---     { aVpcId :: !ByteString
---     , aState :: !ByteString
---     } deriving (Show)
-
--- data AttachmentSet = AttachmentSet
---     { asItem :: [Attachment]
---     } deriving (Show)
-
--- data VpnGateway = VpnGateway
---     { vgVpnGatewayId :: !ByteString
---     , vgState :: !ByteString
---     , vgType :: !ByteString
---     , vgAvailabilityZone :: Maybe ByteString
---     , vgAttachments :: !AttachmentSet
---     , vgTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data CustomerGateway = CustomerGateway
---     { cgCustomerGatewayId :: !ByteString
---     , cgState :: !ByteString
---     , cgType :: !ByteString
---     , cgIpAddress :: !ByteString
---     , cgBgpAsn :: Maybe Int
---     , cgTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data VpnConnection = VpnConnection
---     { vcVpnConnectionId :: !ByteString
---     , vcState :: !ByteString
---     , vcCustomerGatewayConfiguration :: Maybe ByteString
---     , vcType :: Maybe ByteString
---     , vcCustomerGatewayId :: !ByteString
---     , vcVpnGatewayId :: !ByteString
---     , vcTagSet :: Maybe ResourceTagSet
---     , vcVgwTelemetry :: Maybe VgwTelemetry
---     , vcOptions :: Maybe VpnConnectionOptionsResponse
---     , vcRoutes :: Maybe VpnStaticRoutesSet
---     } deriving (Show)
-
--- data VpnConnectionOptionsResponse = VpnConnectionOptionsResponse
---     { vcorStaticRoutesOnly :: Maybe Boolean
---     } deriving (Show)
-
--- data VpnStaticRoutesSet = VpnStaticRoutesSet
---     { vsrsItem :: [VpnStaticRoute]
---     } deriving (Show)
-
--- data VpnStaticRoute = VpnStaticRoute
---     { vsrDestinationCidrBlock :: !ByteString
---     , vsrSource :: !ByteString
---     , vsrState :: !ByteString
---     } deriving (Show)
-
--- data VgwTelemetry = VgwTelemetry
---     { vtItem :: [VpnTunnelTelemetry]
---     } deriving (Show)
-
--- data VpnTunnelTelemetry = VpnTunnelTelemetry
---     { vttOutsideIpAddress :: !ByteString
---     , vttStatus :: !ByteString
---     , vttLastStatusChange :: !DateTime
---     , vttStatusMessage :: Maybe ByteString
---     , vttAcceptedRouteCount :: !Int
---     } deriving (Show)
-
--- data Vpc = Vpc
---     { vVpcId :: !ByteString
---     , vState :: Maybe ByteString
---     , vCidrBlock :: Maybe ByteString
---     , vDhcpOptionsId :: Maybe ByteString
---     , vTagSet :: Maybe ResourceTagSet
---     , vInstanceTenancy :: Maybe ByteString
---     , vIsDefault :: Maybe Boolean
---     } deriving (Show)
-
--- data Subnet = Subnet
---     { sSubnetId :: !ByteString
---     , sState :: Maybe ByteString
---     , sVpcId :: Maybe ByteString
---     , sCidrBlock :: Maybe ByteString
---     , sAvailableIpAddressCount :: Maybe Int
---     , sAvailabilityZone :: Maybe ByteString
---     , sDefaultForAz :: Maybe Boolean
---     , sMapPublicIpOnLaunch :: Maybe Boolean
---     , sTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data CustomerGatewaySet = CustomerGatewaySet
---     { cgsItem :: [CustomerGateway]
---     } deriving (Show)
-
--- data VpnGatewaySet = VpnGatewaySet
---     { vgsItem :: [VpnGateway]
---     } deriving (Show)
-
--- data VpnConnectionSet = VpnConnectionSet
---     { vcsItem :: [VpnConnection]
---     } deriving (Show)
-
--- data VpcSet = VpcSet
---     { vsItem :: [Vpc]
---     } deriving (Show)
-
--- data SubnetSet = SubnetSet
---     { ssItem :: [Subnet]
---     } deriving (Show)
-
--- data CustomerGatewayIdSetItem = CustomerGatewayIdSetItem
---     { cgisiCustomerGatewayId :: !ByteString
---     } deriving (Show)
-
--- data CustomerGatewayIdSet = CustomerGatewayIdSet
---     { cgisItem :: [CustomerGatewayIdSetItem]
---     } deriving (Show)
-
--- data VpnGatewayIdSetItem = VpnGatewayIdSetItem
---     { vgisiVpnGatewayId :: !ByteString
---     } deriving (Show)
-
--- data VpnGatewayIdSet = VpnGatewayIdSet
---     { vgisItem :: [VpnGatewayIdSetItem]
---     } deriving (Show)
-
--- data VpnConnectionIdSetItem = VpnConnectionIdSetItem
---     { vcisiVpnConnectionId :: !ByteString
---     } deriving (Show)
-
--- data VpnConnectionIdSet = VpnConnectionIdSet
---     { vcisItem :: [VpnConnectionIdSetItem]
---     } deriving (Show)
-
--- data VpcIdSetItem = VpcIdSetItem
---     { visiVpcId :: !ByteString
---     } deriving (Show)
-
--- data VpcIdSet = VpcIdSet
---     { visItem :: [VpcIdSetItem]
---     } deriving (Show)
-
--- data SubnetIdSetItem = SubnetIdSetItem
---     { sisiSubnetId :: !ByteString
---     } deriving (Show)
-
--- data SubnetIdSet = SubnetIdSet
---     { sisItem :: [SubnetIdSetItem]
---     } deriving (Show)
-
--- data DhcpOptionsIdSetItem = DhcpOptionsIdSetItem
---     { doisiDhcpOptionsId :: !ByteString
---     } deriving (Show)
-
--- data DhcpOptionsIdSet = DhcpOptionsIdSet
---     { doisItem :: [DhcpOptionsIdSetItem]
---     } deriving (Show)
-
--- data DhcpConfigurationItemSet = DhcpConfigurationItemSet
---     { dcisItem :: [DhcpConfigurationItem]
---     } deriving (Show)
-
--- data DhcpOptionsSet = DhcpOptionsSet
---     { dosItem :: [DhcpOptions]
---     } deriving (Show)
-
--- data DhcpConfigurationItem = DhcpConfigurationItem
---     { dciKey :: !ByteString
---     , dciValueSet :: !DhcpValueSet
---     } deriving (Show)
-
--- data DhcpOptions = DhcpOptions
---     { doDhcpOptionsId :: !ByteString
---     , doDhcpConfigurationSet :: !DhcpConfigurationItemSet
---     , doTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data DhcpValue = DhcpValue
---     { dvValue :: !ByteString
---     } deriving (Show)
-
--- data DhcpValueSet = DhcpValueSet
---     { dvsItem :: [DhcpValue]
---     } deriving (Show)
-
--- data Filter = Filter
---     { fName :: !ByteString
---     , fValueSet :: !ValueSet
---     } deriving (Show)
-
--- data FilterSet = FilterSet
---     { fsItem :: [Filter]
---     } deriving (Show)
-
--- data Value = Value
---     { vValue :: !ByteString
---     } deriving (Show)
-
--- data ValueSet = ValueSet
---     { vsItem :: [Value]
---     } deriving (Show)
-
--- data CreateCustomerGateway = CreateCustomerGateway
---     { ccgType :: !ByteString
---     , ccgIpAddress :: !ByteString
---     , ccgBgpAsn :: Maybe Int
---     } deriving (Show)
-
--- data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
---     { ccgrRequestId :: !ByteString
---     , ccgrCustomerGateway :: !CustomerGateway
---     } deriving (Show)
-
--- data DeleteCustomerGateway = DeleteCustomerGateway
---     { dcgCustomerGatewayId :: !ByteString
---     } deriving (Show)
-
--- data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
---     { dcgrRequestId :: !ByteString
---     , dcgrReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeCustomerGateways = DescribeCustomerGateways
---     { dcgCustomerGatewaySet :: Maybe CustomerGatewayIdSet
---     , dcgFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
---     { dcgrRequestId :: !ByteString
---     , dcgrCustomerGatewaySet :: !CustomerGatewaySet
---     } deriving (Show)
-
--- data CreateVpnGateway = CreateVpnGateway
---     { cvgType :: !ByteString
---     , cvgAvailabilityZone :: Maybe ByteString
---     } deriving (Show)
-
--- data CreateVpnGatewayResponse = CreateVpnGatewayResponse
---     { cvgrRequestId :: !ByteString
---     , cvgrVpnGateway :: !VpnGateway
---     } deriving (Show)
-
--- data DeleteVpnGateway = DeleteVpnGateway
---     { dvgVpnGatewayId :: !ByteString
---     } deriving (Show)
-
--- data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
---     { dvgrRequestId :: !ByteString
---     , dvgrReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeVpnGateways = DescribeVpnGateways
---     { dvgVpnGatewaySet :: Maybe VpnGatewayIdSet
---     , dvgFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
---     { dvgrRequestId :: !ByteString
---     , dvgrVpnGatewaySet :: !VpnGatewaySet
---     } deriving (Show)
-
--- data CreateVpnConnection = CreateVpnConnection
---     { cvcType :: !ByteString
---     , cvcCustomerGatewayId :: !ByteString
---     , cvcVpnGatewayId :: !ByteString
---     , cvcOptions :: Maybe VpnConnectionOptionsRequest
---     } deriving (Show)
-
--- data VpnConnectionOptionsRequest = VpnConnectionOptionsRequest
---     { vcorStaticRoutesOnly :: Maybe Boolean
---     } deriving (Show)
-
--- data CreateVpnConnectionResponse = CreateVpnConnectionResponse
---     { cvcrRequestId :: !ByteString
---     , cvcrVpnConnection :: !VpnConnection
---     } deriving (Show)
-
--- data CreateVpnConnectionRoute = CreateVpnConnectionRoute
---     { cvcrVpnConnectionId :: !ByteString
---     , cvcrDestinationCidrBlock :: !ByteString
---     } deriving (Show)
-
--- data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
---     { cvcrrRequestId :: !ByteString
---     , cvcrrReturn :: !Boolean
---     } deriving (Show)
-
--- data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
---     { dvcrVpnConnectionId :: !ByteString
---     , dvcrDestinationCidrBlock :: !ByteString
---     } deriving (Show)
-
--- data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
---     { dvcrrRequestId :: !ByteString
---     , dvcrrReturn :: !Boolean
---     } deriving (Show)
-
--- data DeleteVpnConnection = DeleteVpnConnection
---     { dvcVpnConnectionId :: !ByteString
---     } deriving (Show)
-
--- data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
---     { dvcrRequestId :: !ByteString
---     , dvcrReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeVpnConnections = DescribeVpnConnections
---     { dvcVpnConnectionSet :: Maybe VpnConnectionIdSet
---     , dvcFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
---     { dvcrRequestId :: !ByteString
---     , dvcrVpnConnectionSet :: !VpnConnectionSet
---     } deriving (Show)
-
--- data AttachVpnGateway = AttachVpnGateway
---     { avgVpnGatewayId :: !ByteString
---     , avgVpcId :: !ByteString
---     } deriving (Show)
-
--- data AttachVpnGatewayResponse = AttachVpnGatewayResponse
---     { avgrRequestId :: !ByteString
---     , avgrAttachment :: !Attachment
---     } deriving (Show)
-
--- data DetachVpnGateway = DetachVpnGateway
---     { dvgVpnGatewayId :: !ByteString
---     , dvgVpcId :: !ByteString
---     } deriving (Show)
-
--- data DetachVpnGatewayResponse = DetachVpnGatewayResponse
---     { dvgrRequestId :: !ByteString
---     , dvgrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateVpc = CreateVpc
---     { cvCidrBlock :: !ByteString
---     , cvInstanceTenancy :: Maybe ByteString
---     } deriving (Show)
-
--- data CreateVpcResponse = CreateVpcResponse
---     { cvrRequestId :: !ByteString
---     , cvrVpc :: !Vpc
---     } deriving (Show)
-
--- data DescribeVpcs = DescribeVpcs
---     { dvVpcSet :: Maybe VpcIdSet
---     , dvFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeVpcsResponse = DescribeVpcsResponse
---     { dvrRequestId :: !ByteString
---     , dvrVpcSet :: !VpcSet
---     } deriving (Show)
-
--- data DeleteVpc = DeleteVpc
---     { dvVpcId :: !ByteString
---     } deriving (Show)
-
--- data DeleteVpcResponse = DeleteVpcResponse
---     { dvrRequestId :: !ByteString
---     , dvrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateSubnet = CreateSubnet
---     { csVpcId :: !ByteString
---     , csCidrBlock :: !ByteString
---     , csAvailabilityZone :: Maybe ByteString
---     } deriving (Show)
-
--- data CreateSubnetResponse = CreateSubnetResponse
---     { csrRequestId :: !ByteString
---     , csrSubnet :: !Subnet
---     } deriving (Show)
-
--- data DescribeSubnets = DescribeSubnets
---     { dsSubnetSet :: Maybe SubnetIdSet
---     , dsFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeSubnetsResponse = DescribeSubnetsResponse
---     { dsrRequestId :: !ByteString
---     , dsrSubnetSet :: !SubnetSet
---     } deriving (Show)
-
--- data DeleteSubnet = DeleteSubnet
---     { dsSubnetId :: !ByteString
---     } deriving (Show)
-
--- data DeleteSubnetResponse = DeleteSubnetResponse
---     { dsrRequestId :: !ByteString
---     , dsrReturn :: !Boolean
---     } deriving (Show)
-
--- data DeleteDhcpOptions = DeleteDhcpOptions
---     { ddoDhcpOptionsId :: !ByteString
---     } deriving (Show)
-
--- data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
---     { ddorRequestId :: !ByteString
---     , ddorReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeDhcpOptions = DescribeDhcpOptions
---     { ddoDhcpOptionsSet :: Maybe DhcpOptionsIdSet
---     , ddoFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
---     { ddorRequestId :: !ByteString
---     , ddorDhcpOptionsSet :: !DhcpOptionsSet
---     } deriving (Show)
-
--- data CreateDhcpOptions = CreateDhcpOptions
---     { cdoDhcpConfigurationSet :: !DhcpConfigurationItemSet
---     } deriving (Show)
-
--- data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
---     { cdorRequestId :: !ByteString
---     , cdorDhcpOptions :: !DhcpOptions
---     } deriving (Show)
-
--- data AssociateDhcpOptions = AssociateDhcpOptions
---     { adoDhcpOptionsId :: !ByteString
---     , adoVpcId :: !ByteString
---     } deriving (Show)
-
--- data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
---     { adorRequestId :: !ByteString
---     , adorReturn :: !Boolean
---     } deriving (Show)
-
--- data RequestSpotInstances = RequestSpotInstances
---     { rsiSpotPrice :: !ByteString
---     , rsiInstanceCount :: Maybe Integer
---     , rsiType :: Maybe ByteString
---     , rsiValidFrom :: Maybe DateTime
---     , rsiValidUntil :: Maybe DateTime
---     , rsiLaunchGroup :: Maybe ByteString
---     , rsiAvailabilityZoneGroup :: Maybe ByteString
---     , rsiLaunchSpecification :: !LaunchSpecificationRequest
---     } deriving (Show)
-
--- data LaunchSpecificationRequest = LaunchSpecificationRequest
---     { lsrImageId :: !ByteString
---     , lsrKeyName :: Maybe ByteString
---     , lsrGroupSet :: !GroupSet
---     , lsrUserData :: Maybe UserData
---     , lsrAddressing :: Maybe ByteString
---     , lsrInstance :: !ByteString
---     , lsrPlacement :: Maybe SpotPlacementRequest
---     , lsrKernelId :: Maybe ByteString
---     , lsrRamdiskId :: Maybe ByteString
---     , lsrBlockDeviceMapping :: Maybe BlockDeviceMapping
---     , lsrMonitoring :: Maybe MonitoringInstance
---     , lsrSubnetId :: Maybe ByteString
---     , lsrNetworkInterfaceSet :: Maybe InstanceNetworkInterfaceSetRequest
---     , lsrIamInstanceProfile :: Maybe IamInstanceProfileRequest
---     , lsrEbsOptimized :: Maybe Boolean
---     } deriving (Show)
-
--- data LaunchSpecificationResponse = LaunchSpecificationResponse
---     { lsrImageId :: !ByteString
---     , lsrKeyName :: Maybe ByteString
---     , lsrGroupSet :: !GroupSet
---     , lsrAddressing :: Maybe ByteString
---     , lsrInstance :: !ByteString
---     , lsrPlacement :: Maybe SpotPlacementRequest
---     , lsrKernelId :: Maybe ByteString
---     , lsrRamdiskId :: Maybe ByteString
---     , lsrBlockDeviceMapping :: Maybe BlockDeviceMapping
---     , lsrMonitoring :: Maybe MonitoringInstance
---     , lsrSubnetId :: Maybe ByteString
---     , lsrNetworkInterfaceSet :: Maybe InstanceNetworkInterfaceSetRequest
---     , lsrIamInstanceProfile :: Maybe IamInstanceProfileRequest
---     , lsrEbsOptimized :: Maybe Boolean
---     } deriving (Show)
-
--- data SpotInstanceRequestSetItem = SpotInstanceRequestSetItem
---     { sirsiSpotInstanceRequestId :: !ByteString
---     , sirsiSpotPrice :: !ByteString
---     , sirsiType :: !ByteString
---     , sirsiState :: !ByteString
---     , sirsiFault :: Maybe SpotInstanceStateFault
---     , sirsiStatus :: Maybe SpotInstanceStatusMessage
---     , sirsiValidFrom :: Maybe DateTime
---     , sirsiValidUntil :: Maybe DateTime
---     , sirsiLaunchGroup :: Maybe ByteString
---     , sirsiAvailabilityZoneGroup :: Maybe ByteString
---     , sirsiLaunchSpecification :: Maybe LaunchSpecificationResponse
---     , sirsiInstanceId :: Maybe ByteString
---     , sirsiCreateTime :: Maybe DateTime
---     , sirsiProductDescription :: Maybe ByteString
---     , sirsiTagSet :: Maybe ResourceTagSet
---     , sirsiLaunchedAvailabilityZone :: Maybe ByteString
---     } deriving (Show)
-
--- data SpotInstanceStateFault = SpotInstanceStateFault
---     { sisfCode :: !ByteString
---     , sisfMessage :: !ByteString
---     } deriving (Show)
-
--- data SpotInstanceStatusMessage = SpotInstanceStatusMessage
---     { sismCode :: Maybe ByteString
---     , sismUpdateTime :: Maybe DateTime
---     , sismMessage :: Maybe ByteString
---     } deriving (Show)
-
--- data SpotInstanceRequestSet = SpotInstanceRequestSet
---     { sirsItem :: [SpotInstanceRequestSetItem]
---     } deriving (Show)
-
--- data RequestSpotInstancesResponse = RequestSpotInstancesResponse
---     { rsirRequestId :: !ByteString
---     , rsirSpotInstanceRequestSet :: !SpotInstanceRequestSet
---     } deriving (Show)
-
--- data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
---     { dsirSpotInstanceRequestIdSet :: !SpotInstanceRequestIdSet
---     , dsirFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data SpotInstanceRequestIdSet = SpotInstanceRequestIdSet
---     { sirisItem :: [SpotInstanceRequestIdSetItem]
---     } deriving (Show)
-
--- data SpotInstanceRequestIdSetItem = SpotInstanceRequestIdSetItem
---     { sirisiSpotInstanceRequestId :: !ByteString
---     } deriving (Show)
-
--- data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
---     { dsirrRequestId :: !ByteString
---     , dsirrSpotInstanceRequestSet :: !SpotInstanceRequestSet
---     } deriving (Show)
-
--- data CancelSpotInstanceRequests = CancelSpotInstanceRequests
---     { csirSpotInstanceRequestIdSet :: !SpotInstanceRequestIdSet
---     } deriving (Show)
-
--- data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
---     { csirrRequestId :: !ByteString
---     , csirrSpotInstanceRequestSet :: !CancelSpotInstanceRequestsResponseSet
---     } deriving (Show)
-
--- data CancelSpotInstanceRequestsResponseSet = CancelSpotInstanceRequestsResponseSet
---     { csirrsItem :: !(NonEmpty CancelSpotInstanceRequestsResponseSetItem)
---     } deriving (Show)
-
--- data CancelSpotInstanceRequestsResponseSetItem = CancelSpotInstanceRequestsResponseSetItem
---     { csirrsiSpotInstanceRequestId :: !ByteString
---     , csirrsiState :: !ByteString
---     } deriving (Show)
-
--- data DescribeSpotPriceHistory = DescribeSpotPriceHistory
---     { dsphStartTime :: Maybe DateTime
---     , dsphEndTime :: Maybe DateTime
---     , dsphInstanceSet :: Maybe InstanceSet
---     , dsphProductDescriptionSet :: Maybe ProductDescriptionSet
---     , dsphFilterSet :: Maybe FilterSet
---     , dsphAvailabilityZone :: Maybe ByteString
---     , dsphMaxResults :: Maybe Integer
---     , dsphNextToken :: Maybe ByteString
---     } deriving (Show)
-
--- data InstanceSet = InstanceSet
---     { isItem :: !(NonEmpty InstanceSetItem)
---     } deriving (Show)
-
--- data InstanceSetItem = InstanceSetItem
---     { isiInstance :: !ByteString
---     } deriving (Show)
-
--- data ProductDescriptionSet = ProductDescriptionSet
---     { pdsItem :: !(NonEmpty ProductDescriptionSetItem)
---     } deriving (Show)
-
--- data ProductDescriptionSetItem = ProductDescriptionSetItem
---     { pdsiProductDescription :: !ByteString
---     } deriving (Show)
-
--- data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
---     { dsphrRequestId :: !ByteString
---     , dsphrSpotPriceHistorySet :: !SpotPriceHistorySet
---     , dsphrNextToken :: Maybe ByteString
---     } deriving (Show)
-
--- data SpotPriceHistorySet = SpotPriceHistorySet
---     { sphsItem :: [SpotPriceHistorySetItem]
---     } deriving (Show)
-
--- data SpotPriceHistorySetItem = SpotPriceHistorySetItem
---     { sphsiInstance :: !ByteString
---     , sphsiProductDescription :: !ByteString
---     , sphsiSpotPrice :: !ByteString
---     , sphsiTimestamp :: !DateTime
---     , sphsiAvailabilityZone :: Maybe ByteString
---     } deriving (Show)
-
--- data SpotDatafeedSubscription = SpotDatafeedSubscription
---     { sdsOwnerId :: !ByteString
---     , sdsBucket :: !ByteString
---     , sdsPrefix :: !ByteString
---     , sdsState :: !ByteString
---     , sdsFault :: Maybe SpotInstanceStateFault
---     } deriving (Show)
-
--- data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
---     { csdsBucket :: !ByteString
---     , csdsPrefix :: !ByteString
---     } deriving (Show)
-
--- data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
---     { csdsrRequestId :: !ByteString
---     , csdsrSpotDatafeedSubscription :: !SpotDatafeedSubscription
---     } deriving (Show)
-
--- data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-
--- data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
---     { dsdsrRequestId :: !ByteString
---     , dsdsrSpotDatafeedSubscription :: !SpotDatafeedSubscription
---     } deriving (Show)
-
--- data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-
--- data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
---     { dsdsrRequestId :: !ByteString
---     , dsdsrReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeLicenses = DescribeLicenses
---     { dlLicenseIdSet :: Maybe LicenseIdSet
---     , dlFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data LicenseIdSet = LicenseIdSet
---     { lisItem :: [LicenseIdSetItem]
---     } deriving (Show)
-
--- data LicenseIdSetItem = LicenseIdSetItem
---     { lisiLicenseId :: !ByteString
---     } deriving (Show)
-
--- data DescribeLicensesResponse = DescribeLicensesResponse
---     { dlrRequestId :: !ByteString
---     , dlrLicenseSet :: !LicenseSet
---     } deriving (Show)
-
--- data LicenseSet = LicenseSet
---     { lsItem :: [LicenseSetItem]
---     } deriving (Show)
-
--- data LicenseSetItem = LicenseSetItem
---     { lsiLicenseId :: !ByteString
---     , lsiType :: !ByteString
---     , lsiPool :: !ByteString
---     , lsiCapacitySet :: !LicenseCapacitySet
---     , lsiTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data LicenseCapacitySet = LicenseCapacitySet
---     { lcsItem :: [LicenseCapacitySetItem]
---     } deriving (Show)
-
--- data LicenseCapacitySetItem = LicenseCapacitySetItem
---     { lcsiCapacity :: !Int
---     , lcsiInstanceCapacity :: !Int
---     , lcsiState :: !ByteString
---     , lcsiEarliestAllowedDeactivationTime :: Maybe DateTime
---     } deriving (Show)
-
--- data ActivateLicense = ActivateLicense
---     { alLicenseId :: !ByteString
---     , alCapacity :: !Int
---     } deriving (Show)
-
--- data ActivateLicenseResponse = ActivateLicenseResponse
---     { alrRequestId :: !ByteString
---     , alrReturn :: !Boolean
---     } deriving (Show)
-
--- data DeactivateLicense = DeactivateLicense
---     { dlLicenseId :: !ByteString
---     , dlCapacity :: !Int
---     } deriving (Show)
-
--- data DeactivateLicenseResponse = DeactivateLicenseResponse
---     { dlrRequestId :: !ByteString
---     , dlrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreatePlacementGroup = CreatePlacementGroup
---     { cpgGroupName :: !ByteString
---     , cpgStrategy :: !ByteString
---     } deriving (Show)
-
--- data CreatePlacementGroupResponse = CreatePlacementGroupResponse
---     { cpgrRequestId :: !ByteString
---     , cpgrReturn :: !Boolean
---     } deriving (Show)
-
--- data DeletePlacementGroup = DeletePlacementGroup
---     { dpgGroupName :: !ByteString
---     } deriving (Show)
-
--- data DeletePlacementGroupResponse = DeletePlacementGroupResponse
---     { dpgrRequestId :: !ByteString
---     , dpgrReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribePlacementGroupItem = DescribePlacementGroupItem
---     { dpgiGroupName :: !ByteString
---     } deriving (Show)
-
--- data DescribePlacementGroupsInfo = DescribePlacementGroupsInfo
---     { dpgiItem :: [DescribePlacementGroupItem]
---     } deriving (Show)
-
--- data DescribePlacementGroups = DescribePlacementGroups
---     { dpgPlacementGroupSet :: !DescribePlacementGroupsInfo
---     , dpgFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data PlacementGroupInfo = PlacementGroupInfo
---     { pgiGroupName :: !ByteString
---     , pgiStrategy :: !ByteString
---     , pgiState :: !ByteString
---     } deriving (Show)
-
--- data PlacementGroupSet = PlacementGroupSet
---     { pgsItem :: [PlacementGroupInfo]
---     } deriving (Show)
-
--- data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
---     { dpgrRequestId :: !ByteString
---     , dpgrPlacementGroupSet :: !PlacementGroupSet
---     } deriving (Show)
-
--- data ResourceIdSet = ResourceIdSet
---     { risItem :: [ResourceIdSetItem]
---     } deriving (Show)
-
--- data ResourceIdSetItem = ResourceIdSetItem
---     { risiResourceId :: !ByteString
---     } deriving (Show)
-
--- data ResourceTagSetItem = ResourceTagSetItem
---     { rtsiKey :: !ByteString
---     , rtsiValue :: !ByteString
---     } deriving (Show)
-
--- data ResourceTagSet = ResourceTagSet
---     { rtsItem :: [ResourceTagSetItem]
---     } deriving (Show)
-
--- data CreateTags = CreateTags
---     { ctResourcesSet :: !ResourceIdSet
---     , ctTagSet :: !ResourceTagSet
---     } deriving (Show)
-
--- data CreateTagsResponse = CreateTagsResponse
---     { ctrRequestId :: !ByteString
---     , ctrReturn :: !Boolean
---     } deriving (Show)
-
--- data TagSetItem = TagSetItem
---     { tsiResourceId :: Maybe ByteString
---     , tsiResource :: Maybe ByteString
---     , tsiKey :: Maybe ByteString
---     , tsiValue :: Maybe ByteString
---     } deriving (Show)
-
--- data TagSet = TagSet
---     { tsItem :: [TagSetItem]
---     } deriving (Show)
-
--- data DescribeTags = DescribeTags
---     { dtFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data DescribeTagsResponse = DescribeTagsResponse
---     { dtrRequestId :: !ByteString
---     , dtrTagSet :: !TagSet
---     } deriving (Show)
-
--- data DeleteTagsSetItem = DeleteTagsSetItem
---     { dtsiKey :: Maybe ByteString
---     , dtsiValue :: Maybe ByteString
---     } deriving (Show)
-
--- data DeleteTagsSet = DeleteTagsSet
---     { dtsItem :: [DeleteTagsSetItem]
---     } deriving (Show)
-
--- data DeleteTags = DeleteTags
---     { dtResourcesSet :: !ResourceIdSet
---     , dtTagSet :: !DeleteTagsSet
---     } deriving (Show)
-
--- data DeleteTagsResponse = DeleteTagsResponse
---     { dtrRequestId :: !ByteString
---     , dtrReturn :: !Boolean
---     } deriving (Show)
-
--- data ImportInstance = ImportInstance
---     { iiDescription :: Maybe ByteString
---     , iiLaunchSpecification :: !ImportInstanceLaunchSpecification
---     , iiDiskImageSet :: !DiskImageSet
---     , iiKeepPartialImports :: Maybe Boolean
---     , iiPlatform :: !ByteString
---     } deriving (Show)
-
--- data ImportInstanceResponse = ImportInstanceResponse
---     { iirRequestId :: !ByteString
---     , iirConversionTask :: !ConversionTask
---     } deriving (Show)
-
--- data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
---     { iilsArchitecture :: !ByteString
---     , iilsGroupSet :: Maybe ImportInstanceGroupSet
---     , iilsUserData :: Maybe UserData
---     , iilsInstance :: !ByteString
---     , iilsPlacement :: Maybe InstancePlacement
---     , iilsMonitoring :: Maybe MonitoringInstance
---     , iilsSubnetId :: Maybe ByteString
---     , iilsInstanceInitiatedShutdownBehavior :: Maybe ByteString
---     , iilsPrivateIpAddress :: Maybe ByteString
---     } deriving (Show)
-
--- data DiskImageSet = DiskImageSet
---     { disItem :: [DiskImage]
---     } deriving (Show)
-
--- data DiskImage = DiskImage
---     { diImage :: !DiskImageDetail
---     , diDescription :: Maybe ByteString
---     , diVolume :: !DiskImageVolume
---     } deriving (Show)
-
--- data DiskImageDetail = DiskImageDetail
---     { didFormat :: !ByteString
---     , didBytes :: !Long
---     , didImportManifestUrl :: !ByteString
---     } deriving (Show)
-
--- data DiskImageVolume = DiskImageVolume
---     { divSize :: !Integer
---     } deriving (Show)
-
--- data ConversionTask = ConversionTask
---     { ctConversionTaskId :: !ByteString
---     , ctExpirationTime :: Maybe ByteString
---   -- <xs:choice>
---     , ctImportVolume :: Maybe ImportVolumeTaskDetails
---     , ctImportInstance :: Maybe ImportInstanceTaskDetails
---   -- </xs:choice>
---     , ctState :: !ByteString
---     , ctStatusMessage :: Maybe ByteString
---     , ctTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data ImportInstanceTaskDetails = ImportInstanceTaskDetails
---     { iitdVolumes :: !ImportInstanceVolumeDetailSet
---     , iitdInstanceId :: Maybe ByteString
---     , iitdPlatform :: Maybe ByteString
---     , iitdDescription :: Maybe ByteString
---     } deriving (Show)
-
--- data ImportVolumeTaskDetails = ImportVolumeTaskDetails
---     { ivtdBytesConverted :: !Long
---     , ivtdAvailabilityZone :: !ByteString
---     , ivtdDescription :: Maybe ByteString
---     , ivtdImage :: !DiskImageDescription
---     , ivtdVolume :: !DiskImageVolumeDescription
---     } deriving (Show)
-
--- data ImportInstanceVolumeDetailSet = ImportInstanceVolumeDetailSet
---     { iivdsItem :: [ImportInstanceVolumeDetailItem]
---     } deriving (Show)
-
--- data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
---     { iivdiBytesConverted :: !Long
---     , iivdiAvailabilityZone :: !ByteString
---     , iivdiImage :: !DiskImageDescription
---     , iivdiDescription :: Maybe ByteString
---     , iivdiVolume :: !DiskImageVolumeDescription
---     , iivdiStatus :: !ByteString
---     , iivdiStatusMessage :: Maybe ByteString
---     } deriving (Show)
-
--- data DiskImageVolumeDescription = DiskImageVolumeDescription
---     { divdSize :: !Integer
---     , divdId :: !ByteString
---     } deriving (Show)
-
--- data DiskImageDescription = DiskImageDescription
---     { didFormat :: !ByteString
---     , didSize :: !Long
---     , didImportManifestUrl :: !ByteString
---     , didChecksum :: Maybe ByteString
---     } deriving (Show)
-
--- data ImportVolume = ImportVolume
---     { ivAvailabilityZone :: !ByteString
---     , ivImage :: !DiskImageDetail
---     , ivDescription :: Maybe ByteString
---     , ivVolume :: !DiskImageVolume
---     } deriving (Show)
-
--- data ImportVolumeResponse = ImportVolumeResponse
---     { ivrRequestId :: !ByteString
---     , ivrConversionTask :: !ConversionTask
---     } deriving (Show)
-
--- data DescribeConversionTasks = DescribeConversionTasks
---     { dctConversionTaskIdSet :: !ConversionTaskIdSet
---     } deriving (Show)
-
--- data DescribeConversionTasksResponse = DescribeConversionTasksResponse
---     { dctrRequestId :: !ByteString
---     , dctrConversionTasks :: !ConversionTaskSet
---     } deriving (Show)
-
--- data ConversionTaskIdSet = ConversionTaskIdSet
---     { ctisItem :: [ConversionTaskIdItem]
---     } deriving (Show)
-
--- data ConversionTaskIdItem = ConversionTaskIdItem
---     { ctiiConversionTaskId :: !ByteString
---     } deriving (Show)
-
--- data ConversionTaskSet = ConversionTaskSet
---     { ctsItem :: [ConversionTask]
---     } deriving (Show)
-
--- data CancelConversionTask = CancelConversionTask
---     { cctConversionTaskId :: !ByteString
---     } deriving (Show)
-
--- data CancelConversionTaskResponse = CancelConversionTaskResponse
---     { cctrRequestId :: !ByteString
---     , cctrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateInstanceExportTask = CreateInstanceExportTask
---     { cietDescription :: Maybe ByteString
---     , cietInstanceId :: !ByteString
---     , cietTargetEnvironment :: !ByteString
---   -- <xs:choice>
---     , cietExportToS3 :: Maybe ExportToS3Task
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ExportToS3Task = ExportToS3Task
---     { ets3tDiskImageFormat :: Maybe ByteString
---     , ets3tContainerFormat :: Maybe ByteString
---     , ets3tS3Bucket :: !ByteString
---     , ets3tS3Prefix :: !ByteString
---     } deriving (Show)
-
--- data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
---     { cietrRequestId :: !ByteString
---     , cietrExportTask :: !ExportTaskResponse
---     } deriving (Show)
-
--- data DescribeExportTasks = DescribeExportTasks
---     { detExportTaskIdSet :: !ExportTaskIdSet
---     } deriving (Show)
-
--- data ExportTaskIdSet = ExportTaskIdSet
---     { etisItem :: [ExportTaskId]
---     } deriving (Show)
-
--- data ExportTaskId = ExportTaskId
---     { etiExportTaskId :: !ByteString
---     } deriving (Show)
-
--- data DescribeExportTasksResponse = DescribeExportTasksResponse
---     { detrRequestId :: !ByteString
---     , detrExportTaskSet :: !ExportTaskSetResponse
---     } deriving (Show)
-
--- data ExportTaskSetResponse = ExportTaskSetResponse
---     { etsrItem :: [ExportTaskResponse]
---     } deriving (Show)
-
--- data ExportTaskResponse = ExportTaskResponse
---     { etrExportTaskId :: !ByteString
---     , etrDescription :: Maybe ByteString
---     , etrState :: !ByteString
---     , etrStatusMessage :: Maybe ByteString
---   -- <xs:choice>
---     , etrInstanceExport :: Maybe InstanceExportTaskResponse
---   -- </xs:choice>
---   -- <xs:choice>
---     , etrExportToS3 :: Maybe ExportToS3TaskResponse
---   -- </xs:choice>
---     } deriving (Show)
-
--- data InstanceExportTaskResponse = InstanceExportTaskResponse
---     { ietrInstanceId :: !ByteString
---     , ietrTargetEnvironment :: Maybe ByteString
---     } deriving (Show)
-
--- data ExportToS3TaskResponse = ExportToS3TaskResponse
---     { ets3trDiskImageFormat :: !ByteString
---     , ets3trContainerFormat :: Maybe ByteString
---     , ets3trS3Bucket :: !ByteString
---     , ets3trS3Key :: !ByteString
---     } deriving (Show)
-
--- data CancelExportTask = CancelExportTask
---     { cetExportTaskId :: !ByteString
---     } deriving (Show)
-
--- data CancelExportTaskResponse = CancelExportTaskResponse
---     { cetrRequestId :: !ByteString
---     , cetrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateInternetGateway = CreateInternetGateway
-
--- data InternetGatewayAttachmentSet = InternetGatewayAttachmentSet
---     { igasItem :: [InternetGatewayAttachment]
---     } deriving (Show)
-
--- data InternetGatewayAttachment = InternetGatewayAttachment
---     { igaVpcId :: !ByteString
---     , igaState :: !ByteString
---     } deriving (Show)
-
--- data InternetGateway = InternetGateway
---     { igInternetGatewayId :: !ByteString
---     , igAttachmentSet :: !InternetGatewayAttachmentSet
---     , igTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data CreateInternetGatewayResponse = CreateInternetGatewayResponse
---     { cigrRequestId :: !ByteString
---     , cigrInternetGateway :: !InternetGateway
---     } deriving (Show)
-
--- data InternetGatewayIdSet = InternetGatewayIdSet
---     { igisItem :: [InternetGatewayIdSetItem]
---     } deriving (Show)
-
--- data InternetGatewayIdSetItem = InternetGatewayIdSetItem
---     { igisiInternetGatewayId :: !ByteString
---     } deriving (Show)
-
--- data DescribeInternetGateways = DescribeInternetGateways
---     { digInternetGatewayIdSet :: !InternetGatewayIdSet
---     , digFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data InternetGatewaySet = InternetGatewaySet
---     { igsItem :: [InternetGateway]
---     } deriving (Show)
-
--- data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
---     { digrRequestId :: !ByteString
---     , digrInternetGatewaySet :: !InternetGatewaySet
---     } deriving (Show)
-
--- data DeleteInternetGateway = DeleteInternetGateway
---     { digInternetGatewayId :: !ByteString
---     } deriving (Show)
-
--- data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
---     { digrRequestId :: !ByteString
---     , digrReturn :: !Boolean
---     } deriving (Show)
-
--- data AttachInternetGateway = AttachInternetGateway
---     { aigInternetGatewayId :: !ByteString
---     , aigVpcId :: !ByteString
---     } deriving (Show)
-
--- data AttachInternetGatewayResponse = AttachInternetGatewayResponse
---     { aigrRequestId :: !ByteString
---     , aigrReturn :: !Boolean
---     } deriving (Show)
-
--- data DetachInternetGateway = DetachInternetGateway
---     { digInternetGatewayId :: !ByteString
---     , digVpcId :: !ByteString
---     } deriving (Show)
-
--- data DetachInternetGatewayResponse = DetachInternetGatewayResponse
---     { digrRequestId :: !ByteString
---     , digrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateRouteTable = CreateRouteTable
---     { crtVpcId :: !ByteString
---     } deriving (Show)
-
--- data RouteSet = RouteSet
---     { rsItem :: [Route]
---     } deriving (Show)
-
--- data Route = Route
---     { rDestinationCidrBlock :: !ByteString
---     , rGatewayId :: Maybe ByteString
---     , rInstanceId :: Maybe ByteString
---     , rInstanceOwnerId :: Maybe ByteString
---     , rNetworkInterfaceId :: Maybe ByteString
---     , rState :: !ByteString
---     , rOrigin :: !ByteString
---     } deriving (Show)
-
--- data RouteTableAssociationSet = RouteTableAssociationSet
---     { rtasItem :: [RouteTableAssociation]
---     } deriving (Show)
-
--- data RouteTableAssociation = RouteTableAssociation
---     { rtaRouteTableAssociationId :: !ByteString
---     , rtaRouteTableId :: !ByteString
---   -- <xs:choice>
---     , rtaSubnetId :: Maybe ByteString
---     , rtaMain :: Maybe Boolean
---   -- </xs:choice>
---     } deriving (Show)
-
--- data PropagatingVgwSet = PropagatingVgwSet
---     { pvsItem :: [PropagatingVgw]
---     } deriving (Show)
-
--- data PropagatingVgw = PropagatingVgw
---     { pvGatewayId :: !ByteString
---     } deriving (Show)
-
--- data RouteTable = RouteTable
---     { rtRouteTableId :: !ByteString
---     , rtVpcId :: !ByteString
---     , rtRouteSet :: !RouteSet
---     , rtAssociationSet :: !RouteTableAssociationSet
---     , rtPropagatingVgwSet :: !PropagatingVgwSet
---     , rtTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data CreateRouteTableResponse = CreateRouteTableResponse
---     { crtrRequestId :: !ByteString
---     , crtrRouteTable :: !RouteTable
---     } deriving (Show)
-
--- data RouteTableIdSet = RouteTableIdSet
---     { rtisItem :: [RouteTableIdSetItem]
---     } deriving (Show)
-
--- data RouteTableIdSetItem = RouteTableIdSetItem
---     { rtisiRouteTableId :: !ByteString
---     } deriving (Show)
-
--- data DescribeRouteTables = DescribeRouteTables
---     { drtRouteTableIdSet :: !RouteTableIdSet
---     , drtFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data RouteTableSet = RouteTableSet
---     { rtsItem :: [RouteTable]
---     } deriving (Show)
-
--- data DescribeRouteTablesResponse = DescribeRouteTablesResponse
---     { drtrRequestId :: !ByteString
---     , drtrRouteTableSet :: !RouteTableSet
---     } deriving (Show)
-
--- data EnableVgwRoutePropagationRequest = EnableVgwRoutePropagationRequest
---     { evrprRouteTableId :: !ByteString
---     , evrprGatewayId :: !ByteString
---     } deriving (Show)
-
--- data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
---     { evrprRequestId :: !ByteString
---     , evrprReturn :: !Boolean
---     } deriving (Show)
-
--- data DisableVgwRoutePropagationRequest = DisableVgwRoutePropagationRequest
---     { dvrprRouteTableId :: !ByteString
---     , dvrprGatewayId :: !ByteString
---     } deriving (Show)
-
--- data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
---     { dvrprRequestId :: !ByteString
---     , dvrprReturn :: !Boolean
---     } deriving (Show)
-
--- data DeleteRouteTable = DeleteRouteTable
---     { drtRouteTableId :: !ByteString
---     } deriving (Show)
-
--- data DeleteRouteTableResponse = DeleteRouteTableResponse
---     { drtrRequestId :: !ByteString
---     , drtrReturn :: !Boolean
---     } deriving (Show)
-
--- data AssociateRouteTable = AssociateRouteTable
---     { artRouteTableId :: !ByteString
---     , artSubnetId :: !ByteString
---     } deriving (Show)
-
--- data AssociateRouteTableResponse = AssociateRouteTableResponse
---     { artrRequestId :: !ByteString
---     , artrAssociationId :: !ByteString
---     } deriving (Show)
-
--- data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
---     { rrtaAssociationId :: !ByteString
---     , rrtaRouteTableId :: !ByteString
---     } deriving (Show)
-
--- data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
---     { rrtarRequestId :: !ByteString
---     , rrtarNewAssociationId :: !ByteString
---     } deriving (Show)
-
--- data DisassociateRouteTable = DisassociateRouteTable
---     { drtAssociationId :: !ByteString
---     } deriving (Show)
-
--- data DisassociateRouteTableResponse = DisassociateRouteTableResponse
---     { drtrRequestId :: !ByteString
---     , drtrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateRoute = CreateRoute
---     { crRouteTableId :: !ByteString
---     , crDestinationCidrBlock :: !ByteString
---   -- <xs:choice>
---     , crGatewayId :: Maybe ByteString
---     , crInstanceId :: Maybe ByteString
---     , crNetworkInterfaceId :: Maybe ByteString
---   -- </xs:choice>
---     } deriving (Show)
-
--- data CreateRouteResponse = CreateRouteResponse
---     { crrRequestId :: !ByteString
---     , crrReturn :: !Boolean
---     } deriving (Show)
-
--- data ReplaceRoute = ReplaceRoute
---     { rrRouteTableId :: !ByteString
---     , rrDestinationCidrBlock :: !ByteString
---   -- <xs:choice>
---     , rrGatewayId :: Maybe ByteString
---     , rrInstanceId :: Maybe ByteString
---     , rrNetworkInterfaceId :: Maybe ByteString
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ReplaceRouteResponse = ReplaceRouteResponse
---     { rrrRequestId :: !ByteString
---     , rrrReturn :: !Boolean
---     } deriving (Show)
-
--- data DeleteRoute = DeleteRoute
---     { drRouteTableId :: !ByteString
---     , drDestinationCidrBlock :: !ByteString
---     } deriving (Show)
-
--- data DeleteRouteResponse = DeleteRouteResponse
---     { drrRequestId :: !ByteString
---     , drrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateNetworkAcl = CreateNetworkAcl
---     { cnaVpcId :: !ByteString
---     } deriving (Show)
-
--- data NetworkAclEntrySet = NetworkAclEntrySet
---     { naesItem :: [NetworkAclEntry]
---     } deriving (Show)
-
--- data IcmpCode = IcmpCode
---     { icCode :: !Int
---     , icType :: !Int
---     } deriving (Show)
-
--- data PortRange = PortRange
---     { prFrom :: !Int
---     , prTo :: !Int
---     } deriving (Show)
-
--- data NetworkAclEntry = NetworkAclEntry
---     { naeRuleNumber :: !Int
---     , naeProtocol :: !ByteString
---     , naeRuleAction :: !ByteString
---     , naeEgress :: !Boolean
---     , naeCidrBlock :: !ByteString
---     , naeIcmpCode :: Maybe IcmpCode
---     , naePortRange :: Maybe PortRange
---     } deriving (Show)
-
--- data NetworkAclAssociationSet = NetworkAclAssociationSet
---     { naasItem :: [NetworkAclAssociation]
---     } deriving (Show)
-
--- data NetworkAclAssociation = NetworkAclAssociation
---     { naaNetworkAclAssociationId :: !ByteString
---     , naaNetworkAclId :: !ByteString
---     , naaSubnetId :: !ByteString
---     } deriving (Show)
-
--- data NetworkAcl = NetworkAcl
---     { naNetworkAclId :: !ByteString
---     , naVpcId :: !ByteString
---     , naDefault :: !Boolean
---     , naEntrySet :: !NetworkAclEntrySet
---     , naAssociationSet :: !NetworkAclAssociationSet
---     , naTagSet :: Maybe ResourceTagSet
---     } deriving (Show)
-
--- data CreateNetworkAclResponse = CreateNetworkAclResponse
---     { cnarRequestId :: !ByteString
---     , cnarNetworkAcl :: !NetworkAcl
---     } deriving (Show)
-
--- data NetworkAclIdSet = NetworkAclIdSet
---     { naisItem :: [NetworkAclIdSetItem]
---     } deriving (Show)
-
--- data NetworkAclIdSetItem = NetworkAclIdSetItem
---     { naisiNetworkAclId :: !ByteString
---     } deriving (Show)
-
--- data DescribeNetworkAcls = DescribeNetworkAcls
---     { dnaNetworkAclIdSet :: !NetworkAclIdSet
---     , dnaFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data NetworkAclSet = NetworkAclSet
---     { nasItem :: [NetworkAcl]
---     } deriving (Show)
-
--- data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
---     { dnarRequestId :: !ByteString
---     , dnarNetworkAclSet :: !NetworkAclSet
---     } deriving (Show)
-
--- data DeleteNetworkAcl = DeleteNetworkAcl
---     { dnaNetworkAclId :: !ByteString
---     } deriving (Show)
-
--- data DeleteNetworkAclResponse = DeleteNetworkAclResponse
---     { dnarRequestId :: !ByteString
---     , dnarReturn :: !Boolean
---     } deriving (Show)
-
--- data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
---     { rnaaAssociationId :: !ByteString
---     , rnaaNetworkAclId :: !ByteString
---     } deriving (Show)
-
--- data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
---     { rnaarRequestId :: !ByteString
---     , rnaarNewAssociationId :: !ByteString
---     } deriving (Show)
-
--- data CreateNetworkAclEntry = CreateNetworkAclEntry
---     { cnaeNetworkAclId :: !ByteString
---     , cnaeRuleNumber :: !Int
---     , cnaeProtocol :: !ByteString
---     , cnaeRuleAction :: !ByteString
---     , cnaeEgress :: !Boolean
---     , cnaeCidrBlock :: !ByteString
---     , cnaeIcmpCode :: Maybe IcmpCode
---     , cnaePortRange :: Maybe PortRange
---     } deriving (Show)
-
--- data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
---     { cnaerRequestId :: !ByteString
---     , cnaerReturn :: !Boolean
---     } deriving (Show)
-
--- data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
---     { rnaeNetworkAclId :: !ByteString
---     , rnaeRuleNumber :: !Int
---     , rnaeProtocol :: !ByteString
---     , rnaeRuleAction :: !ByteString
---     , rnaeEgress :: !Boolean
---     , rnaeCidrBlock :: !ByteString
---     , rnaeIcmpCode :: Maybe IcmpCode
---     , rnaePortRange :: Maybe PortRange
---     } deriving (Show)
-
--- data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
---     { rnaerRequestId :: !ByteString
---     , rnaerReturn :: !Boolean
---     } deriving (Show)
-
--- data DeleteNetworkAclEntry = DeleteNetworkAclEntry
---     { dnaeNetworkAclId :: !ByteString
---     , dnaeRuleNumber :: !Int
---     , dnaeEgress :: !Boolean
---     } deriving (Show)
-
--- data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
---     { dnaerRequestId :: !ByteString
---     , dnaerReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeInstanceStatus = DescribeInstanceStatus
---     { disInstancesSet :: !InstanceIdSet
---     , disFilterSet :: Maybe FilterSet
---     , disNextToken :: Maybe ByteString
---     , disMaxResults :: Maybe Int
---     , disIncludeAllInstances :: Maybe Boolean
---     } deriving (Show)
-
--- data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
---     { disrRequestId :: !ByteString
---     , disrInstanceStatusSet :: !InstanceStatusSet
---     , disrNextToken :: Maybe ByteString
---     } deriving (Show)
-
--- data InstanceStatusSet = InstanceStatusSet
---     { issItem :: [InstanceStatusItem]
---     } deriving (Show)
-
--- data InstanceStatus = InstanceStatus
---     { isStatus :: !ByteString
---     , isDetails :: Maybe InstanceStatusDetailsSet
---     } deriving (Show)
-
--- data InstanceStatusDetailsSet = InstanceStatusDetailsSet
---     { isdsItem :: [InstanceStatusDetailsSetItem]
---     } deriving (Show)
-
--- data InstanceStatusDetailsSetItem = InstanceStatusDetailsSetItem
---     { isdsiName :: !ByteString
---     , isdsiStatus :: !ByteString
---     , isdsiImpairedSince :: Maybe DateTime
---     } deriving (Show)
-
--- data InstanceStatusEvent = InstanceStatusEvent
---     { iseCode :: !ByteString
---     , iseDescription :: !ByteString
---     , iseNotBefore :: !DateTime
---     , iseNotAfter :: Maybe DateTime
---     } deriving (Show)
-
--- data InstanceStatusEventsSet = InstanceStatusEventsSet
---     { isesItem :: [InstanceStatusEvent]
---     } deriving (Show)
-
--- data InstanceStatusItem = InstanceStatusItem
---     { isiInstanceId :: !ByteString
---     , isiAvailabilityZone :: !ByteString
---     , isiEventsSet :: Maybe InstanceStatusEventsSet
---     , isiInstanceState :: !InstanceState
---     , isiSystemStatus :: !InstanceStatus
---     , isiInstanceStatus :: !InstanceStatus
---     } deriving (Show)
-
--- data ReportInstanceStatus = ReportInstanceStatus
---     { risInstancesSet :: !InstanceIdSet
---     , risStatus :: !ByteString
---     , risStartTime :: Maybe DateTime
---     , risEndTime :: Maybe DateTime
---     , risReasonCodesSet :: !ReportInstanceStatusReasonCodesSet
---     , risDescription :: Maybe ByteString
---     } deriving (Show)
-
--- data ReportInstanceStatusReasonCodesSet = ReportInstanceStatusReasonCodesSet
---     { risrcsItem :: !(NonEmpty ReportInstanceStatusReasonCodeSetItem)
---     } deriving (Show)
-
--- data ReportInstanceStatusReasonCodeSetItem = ReportInstanceStatusReasonCodeSetItem
---     { risrcsiReasonCode :: !ByteString
---     } deriving (Show)
-
--- data ReportInstanceStatusResponse = ReportInstanceStatusResponse
---     { risrRequestId :: !ByteString
---     , risrReturn :: !Boolean
---     } deriving (Show)
-
--- data CreateNetworkInterface = CreateNetworkInterface
---     { cniSubnetId :: !ByteString
---     , cniDescription :: Maybe ByteString
---     , cniPrivateIpAddress :: Maybe ByteString
---     , cniGroupSet :: Maybe SecurityGroupIdSet
---     , cniPrivateIpAddressesSet :: Maybe PrivateIpAddressesSetRequest
---     , cniSecondaryPrivateIpAddressCount :: Maybe Int
---     } deriving (Show)
-
--- data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
---     { cnirRequestId :: !ByteString
---     , cnirNetworkInterface :: !NetworkInterface
---     } deriving (Show)
-
--- data NetworkInterfaceIdSet = NetworkInterfaceIdSet
---     { niisItem :: [NetworkInterfaceIdSetItem]
---     } deriving (Show)
-
--- data NetworkInterfaceIdSetItem = NetworkInterfaceIdSetItem
---     { niisiNetworkInterfaceId :: !ByteString
---     } deriving (Show)
-
--- data DescribeNetworkInterfaces = DescribeNetworkInterfaces
---     { dniNetworkInterfaceIdSet :: Maybe NetworkInterfaceIdSet
---     , dniFilterSet :: Maybe FilterSet
---     } deriving (Show)
-
--- data NetworkInterface = NetworkInterface
---     { niNetworkInterfaceId :: !ByteString
---     , niSubnetId :: Maybe ByteString
---     , niVpcId :: Maybe ByteString
---     , niAvailabilityZone :: Maybe ByteString
---     , niDescription :: Maybe ByteString
---     , niOwnerId :: !ByteString
---     , niRequesterId :: Maybe ByteString
---     , niRequesterManaged :: Maybe Boolean
---     , niStatus :: !ByteString
---     , niMacAddress :: !ByteString
---     , niPrivateIpAddress :: !ByteString
---     , niPrivateDnsName :: Maybe ByteString
---     , niSourceDestCheck :: !Boolean
---     , niGroupSet :: !GroupSet
---     , niAttachment :: Maybe NetworkInterfaceAttachment
---     , niAssociation :: Maybe NetworkInterfaceAssociation
---     , niTagSet :: Maybe ResourceTagSet
---     , niPrivateIpAddressesSet :: Maybe NetworkInterfacePrivateIpAddressesSet
---     } deriving (Show)
-
--- data NetworkInterfacePrivateIpAddressesSet = NetworkInterfacePrivateIpAddressesSet
---     { nipiasItem :: [NetworkInterfacePrivateIpAddressesSetItem]
---     } deriving (Show)
-
--- data NetworkInterfacePrivateIpAddressesSetItem = NetworkInterfacePrivateIpAddressesSetItem
---     { nipiasiPrivateIpAddress :: !ByteString
---     , nipiasiPrivateDnsName :: Maybe ByteString
---     , nipiasiPrimary :: !Boolean
---     , nipiasiAssociation :: Maybe NetworkInterfaceAssociation
---     } deriving (Show)
-
--- data NetworkInterfaceAttachment = NetworkInterfaceAttachment
---     { niaAttachmentId :: !ByteString
---     , niaInstanceId :: Maybe ByteString
---     , niaInstanceOwnerId :: Maybe ByteString
---     , niaDeviceIndex :: !Int
---     , niaStatus :: !ByteString
---     , niaAttachTime :: !DateTime
---     , niaDeleteOnTermination :: !Boolean
---     } deriving (Show)
-
--- data NetworkInterfaceAssociation = NetworkInterfaceAssociation
---     { niaPublicIp :: !ByteString
---     , niaPublicDnsName :: Maybe ByteString
---     , niaIpOwnerId :: Maybe ByteString
---     , niaAllocationId :: Maybe ByteString
---     , niaAssociationId :: Maybe ByteString
---     } deriving (Show)
-
--- data NetworkInterfaceSet = NetworkInterfaceSet
---     { nisItem :: [NetworkInterface]
---     } deriving (Show)
-
--- data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
---     { dnirRequestId :: !ByteString
---     , dnirNetworkInterfaceSet :: !NetworkInterfaceSet
---     } deriving (Show)
-
--- data DeleteNetworkInterface = DeleteNetworkInterface
---     { dniNetworkInterfaceId :: !ByteString
---     } deriving (Show)
-
--- data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
---     { dnirRequestId :: !ByteString
---     , dnirReturn :: !Boolean
---     } deriving (Show)
-
--- data AttachNetworkInterface = AttachNetworkInterface
---     { aniNetworkInterfaceId :: !ByteString
---     , aniInstanceId :: !ByteString
---     , aniDeviceIndex :: !Int
---     } deriving (Show)
-
--- data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
---     { anirRequestId :: !ByteString
---     , anirAttachmentId :: !ByteString
---     } deriving (Show)
-
--- data DetachNetworkInterface = DetachNetworkInterface
---     { dniAttachmentId :: !ByteString
---     , dniForce :: Maybe Boolean
---     } deriving (Show)
-
--- data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
---     { dnirRequestId :: !ByteString
---     , dnirReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
---     { dniaNetworkInterfaceId :: !ByteString
---     , dniaDescribeNetworkInterfaceAttributesGroup :: !DescribeNetworkInterfaceAttributesGroup
---     } deriving (Show)
-
--- data DescribeNetworkInterfaceAttributesGroup = DescribeNetworkInterfaceAttributesGroup
---     { dniagDescription :: !EmptyElement
---     , dniagSourceDestCheck :: !EmptyElement
---     , dniagGroupSet :: !EmptyElement
---     , dniagAttachment :: !EmptyElement
---     } deriving (Show)
--- data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
---     { dniarRequestId :: !ByteString
---     , dniarNetworkInterfaceId :: !ByteString
---   -- <xs:choice>
---     , dniarDescription :: Maybe NullableAttributeValue
---     , dniarSourceDestCheck :: Maybe AttributeBooleanValue
---     , dniarGroupSet :: Maybe GroupSet
---     , dniarAttachment :: Maybe NetworkInterfaceAttachment
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
---     { mniaNetworkInterfaceId :: !ByteString
---   -- <xs:choice>
---     , mniaDescription :: Maybe NullableAttributeValue
---     , mniaSourceDestCheck :: Maybe AttributeBooleanValue
---     , mniaGroupSet :: Maybe SecurityGroupIdSet
---     , mniaAttachment :: Maybe ModifyNetworkInterfaceAttachment
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ModifyNetworkInterfaceAttachment = ModifyNetworkInterfaceAttachment
---     { mniaAttachmentId :: !ByteString
---     , mniaDeleteOnTermination :: !Boolean
---     } deriving (Show)
-
--- data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
---     { mniarRequestId :: !ByteString
---     , mniarReturn :: !Boolean
---     } deriving (Show)
-
--- data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
---     { rniaNetworkInterfaceId :: !ByteString
---     , rniaResetNetworkInterfaceAttributesGroup :: !ResetNetworkInterfaceAttributesGroup
---     } deriving (Show)
-
--- data ResetNetworkInterfaceAttributesGroup = ResetNetworkInterfaceAttributesGroup
---     { rniagSourceDestCheck :: !EmptyElement
---     } deriving (Show)
--- data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
---     { rniarRequestId :: !ByteString
---     , rniarReturn :: !Boolean
---     } deriving (Show)
-
--- data AssignPrivateIpAddresses = AssignPrivateIpAddresses
---     { apiaNetworkInterfaceId :: !ByteString
---     , apiaPrivateIpAddressesSet :: Maybe AssignPrivateIpAddressesSetRequest
---     , apiaSecondaryPrivateIpAddressCount :: Maybe Int
---     , apiaAllowReassignment :: Maybe Boolean
---     } deriving (Show)
-
--- data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
---     { apiarRequestId :: !ByteString
---     , apiarReturn :: !Boolean
---     } deriving (Show)
-
--- data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
---     { upiaNetworkInterfaceId :: !ByteString
---     , upiaPrivateIpAddressesSet :: !AssignPrivateIpAddressesSetRequest
---     } deriving (Show)
-
--- data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
---     { upiarRequestId :: !ByteString
---     , upiarReturn :: !Boolean
---     } deriving (Show)
-
--- data AssignPrivateIpAddressesSetRequest = AssignPrivateIpAddressesSetRequest
---     { apiasrItem :: !(NonEmpty AssignPrivateIpAddressesSetItemRequest)
---     } deriving (Show)
-
--- data AssignPrivateIpAddressesSetItemRequest = AssignPrivateIpAddressesSetItemRequest
---     { apiasirPrivateIpAddress :: !ByteString
---     } deriving (Show)
-
--- data DescribeVolumeStatus = DescribeVolumeStatus
---     { dvsVolumeSet :: !DescribeVolumesSet
---     , dvsFilterSet :: Maybe FilterSet
---     , dvsMaxResults :: Maybe Integer
---     , dvsNextToken :: Maybe ByteString
---     } deriving (Show)
-
--- data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
---     { dvsrRequestId :: !ByteString
---     , dvsrVolumeStatusSet :: !VolumeStatusSet
---     , dvsrNextToken :: Maybe ByteString
---     } deriving (Show)
-
--- data VolumeStatusSet = VolumeStatusSet
---     { vssItem :: [VolumeStatusItem]
---     } deriving (Show)
-
--- data VolumeStatusItem = VolumeStatusItem
---     { vsiVolumeId :: !ByteString
---     , vsiAvailabilityZone :: !ByteString
---     , vsiVolumeStatus :: !VolumeStatusInfo
---     , vsiEventsSet :: !VolumeStatusEventsSet
---     , vsiActionsSet :: !VolumeStatusActionsSet
---     } deriving (Show)
-
--- data VolumeStatusInfo = VolumeStatusInfo
---     { vsiStatus :: !ByteString
---     , vsiDetails :: !VolumeStatusDetailsSet
---     } deriving (Show)
-
--- data VolumeStatusDetailsSet = VolumeStatusDetailsSet
---     { vsdsItem :: [VolumeStatusDetailsItem]
---     } deriving (Show)
-
--- data VolumeStatusDetailsItem = VolumeStatusDetailsItem
---     { vsdiName :: !ByteString
---     , vsdiStatus :: !ByteString
---     } deriving (Show)
-
--- data VolumeStatusEventsSet = VolumeStatusEventsSet
---     { vsesItem :: [VolumeStatusEventItem]
---     } deriving (Show)
-
--- data VolumeStatusEventItem = VolumeStatusEventItem
---     { vseiDescription :: !ByteString
---     , vseiNotBefore :: !DateTime
---     , vseiNotAfter :: !DateTime
---     , vseiEventId :: !ByteString
---     , vseiEvent :: !ByteString
---     } deriving (Show)
-
--- data VolumeStatusActionsSet = VolumeStatusActionsSet
---     { vsasItem :: [VolumeStatusActionItem]
---     } deriving (Show)
-
--- data VolumeStatusActionItem = VolumeStatusActionItem
---     { vsaiDescription :: !ByteString
---     , vsaiCode :: !ByteString
---     , vsaiEventId :: !ByteString
---     , vsaiEvent :: !ByteString
---     } deriving (Show)
-
--- data EnableVolumeIO = EnableVolumeIO
---     { evioVolumeId :: !ByteString
---     } deriving (Show)
-
--- data EnableVolumeIOResponse = EnableVolumeIOResponse
---     { eviorRequestId :: !ByteString
---     , eviorReturn :: !Boolean
---     } deriving (Show)
-
--- data ModifyVolumeAttribute = ModifyVolumeAttribute
---     { mvaVolumeId :: !ByteString
---   -- <xs:choice>
---     , mvaAutoEnableIO :: !AttributeBooleanValue
---   -- </xs:choice>
---     } deriving (Show)
-
--- data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
---     { mvarRequestId :: !ByteString
---     , mvarReturn :: !Boolean
---     } deriving (Show)
-
--- data DescribeVolumeAttribute = DescribeVolumeAttribute
---     { dvaVolumeId :: !ByteString
---     , dvaDescribeVolumeAttributesGroup :: !DescribeVolumeAttributesGroup
---     } deriving (Show)
-
--- data DescribeVolumeAttributesGroup = DescribeVolumeAttributesGroup
---     { dvagAutoEnableIO :: !EmptyElement
---     , dvagProductCodes :: !EmptyElement
---     } deriving (Show)
-
--- data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
---     { dvarRequestId :: !ByteString
---     , dvarVolumeId :: !ByteString
---   -- <xs:choice>
---     , dvarAutoEnableIO :: Maybe NullableAttributeBooleanValue
---     , dvarProductCodes :: Maybe ProductCodesSet
---   -- </xs:choice>
---     } deriving (Show)
+
+-- | Currently supported version (2013-07-15) of the EC2 service.
+ec2Version :: ByteString
+ec2Version = "2013-07-15"
+
+-- | XML namespace to annotate EC2 elements with.
+ec2NS :: ByteString
+ec2NS = "https://ec2.amazonaws.com/doc/" <> ec2Version <> "/"
+
+-- | Helper to define EC2 namespaced XML elements.
+ec2Elem :: ByteString -> NName ByteString
+ec2Elem = mkNName ec2NS
+
+--
+
+data DhcpConfigurationType = DhcpConfigurationType deriving (Eq, Read, Show)
+instance IsXML DhcpConfigurationType where xmlPickler = undefined
+instance IsQuery DhcpConfigurationType where queryPickler = undefined
+
+data InstanceInitiatedShutdownBehaviorType = InstanceInitiatedShutdownBehaviorType deriving (Eq, Read, Show)
+instance IsXML InstanceInitiatedShutdownBehaviorType where xmlPickler = undefined
+instance IsQuery InstanceInitiatedShutdownBehaviorType where queryPickler = undefined
+
+data IamInstanceProfileType = IamInstanceProfileType deriving (Eq, Read, Show)
+instance IsXML IamInstanceProfileType where xmlPickler = undefined
+instance IsQuery IamInstanceProfileType where queryPickler = undefined
+
+data RamdiskType = RamdiskType deriving (Eq, Read, Show)
+instance IsXML RamdiskType where xmlPickler = undefined
+instance IsQuery RamdiskType where queryPickler = undefined
+
+data KernelType = KernelType deriving (Eq, Read, Show)
+instance IsXML KernelType where xmlPickler = undefined
+instance IsQuery KernelType where queryPickler = undefined
+
+data ImageType = ImageType deriving (Eq, Read, Show)
+instance IsXML ImageType where xmlPickler = undefined
+instance IsQuery ImageType where queryPickler = undefined
+
+data VolumeType = VolumeType deriving (Eq, Read, Show)
+instance IsXML VolumeType where xmlPickler = undefined
+instance IsQuery VolumeType where queryPickler = undefined
+
+data TagType = TagType deriving (Eq, Read, Show)
+instance IsXML TagType where xmlPickler = undefined
+instance IsQuery TagType where queryPickler = undefined
+
+data OptionsType = OptionsType deriving (Eq, Read, Show)
+instance IsXML OptionsType where xmlPickler = undefined
+instance IsQuery OptionsType where queryPickler = undefined
+
+data DisableApiTerminationType = DisableApiTerminationType deriving (Eq, Read, Show)
+instance IsXML DisableApiTerminationType where xmlPickler = undefined
+instance IsQuery DisableApiTerminationType where queryPickler = undefined
+
+data StorageType = StorageType deriving (Eq, Read, Show)
+instance IsXML StorageType where xmlPickler = undefined
+instance IsQuery StorageType where queryPickler = undefined
+
+data IcmpType = IcmpType deriving (Eq, Read, Show)
+instance IsXML IcmpType where xmlPickler = undefined
+instance IsQuery IcmpType where queryPickler = undefined
+
+data MonitoringType = MonitoringType deriving (Eq, Read, Show)
+instance IsXML MonitoringType where xmlPickler = undefined
+instance IsQuery MonitoringType where queryPickler = undefined
+
+data AutoEnableIOType = AutoEnableIOType deriving (Eq, Read, Show)
+instance IsXML AutoEnableIOType where xmlPickler = undefined
+instance IsQuery AutoEnableIOType where queryPickler = undefined
+
+data DescriptionType = DescriptionType deriving (Eq, Read, Show)
+instance IsXML DescriptionType where xmlPickler = undefined
+instance IsQuery DescriptionType where queryPickler = undefined
+
+data SourceDestCheckType = SourceDestCheckType deriving (Eq, Read, Show)
+instance IsXML SourceDestCheckType where xmlPickler = undefined
+instance IsQuery SourceDestCheckType where queryPickler = undefined
+
+data CreateVolumePermissionType = CreateVolumePermissionType deriving (Eq, Read, Show)
+instance IsXML CreateVolumePermissionType where xmlPickler = undefined
+instance IsQuery CreateVolumePermissionType where queryPickler = undefined
+
+data LaunchSpecificationType = LaunchSpecificationType deriving (Eq, Read, Show)
+instance IsXML LaunchSpecificationType where xmlPickler = undefined
+instance IsQuery LaunchSpecificationType where queryPickler = undefined
+
+data LaunchPermissionType = LaunchPermissionType deriving (Eq, Read, Show)
+instance IsXML LaunchPermissionType where xmlPickler = undefined
+instance IsQuery LaunchPermissionType where queryPickler = undefined
+
+data PlacementType = PlacementType deriving (Eq, Read, Show)
+instance IsXML PlacementType where xmlPickler = undefined
+instance IsQuery PlacementType where queryPickler = undefined
+
+data BlockDeviceMappingType = BlockDeviceMappingType deriving (Eq, Read, Show)
+instance IsXML BlockDeviceMappingType where xmlPickler = undefined
+instance IsQuery BlockDeviceMappingType where queryPickler = undefined
+
+data ExportToS3Type = ExportToS3Type deriving (Eq, Read, Show)
+instance IsXML ExportToS3Type where xmlPickler = undefined
+instance IsQuery ExportToS3Type where queryPickler = undefined
+
+data InstanceTypeType = InstanceTypeType deriving (Eq, Read, Show)
+instance IsXML InstanceTypeType where xmlPickler = undefined
+instance IsQuery InstanceTypeType where queryPickler = undefined
+
+data PrivateIpAddressesType = PrivateIpAddressesType deriving (Eq, Read, Show)
+instance IsXML PrivateIpAddressesType where xmlPickler = undefined
+instance IsQuery PrivateIpAddressesType where queryPickler = undefined
+
+data DiskImageType = DiskImageType deriving (Eq, Read, Show)
+instance IsXML DiskImageType where xmlPickler = undefined
+instance IsQuery DiskImageType where queryPickler = undefined
+
+--
+
+data AccountAttributeSetItemType = AccountAttributeSetItemType
+    { aasitAttributeName     :: !ByteString
+      -- ^ The name of the attribute.
+    , aasitAttributeValueSet :: !AccountAttributeValueSetItemType
+      -- ^ A list of the attribute values, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery AccountAttributeSetItemType
+
+instance IsXML AccountAttributeSetItemType where
+    xmlPickler = withNS ec2NS
+
+data AccountAttributeValueSetItemType = AccountAttributeValueSetItemType
+    { aavsitAttributeValue :: !ByteString
+      -- ^ The value of the attribute.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery AccountAttributeValueSetItemType
+
+instance IsXML AccountAttributeValueSetItemType where
+    xmlPickler = withNS ec2NS
+
+data AssignPrivateIpAddressesSetItemRequestType = AssignPrivateIpAddressesSetItemRequestType
+    { apiasirtPrivateIpAddress :: !ByteString
+      -- ^ The private IP address.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery AssignPrivateIpAddressesSetItemRequestType
+
+instance IsXML AssignPrivateIpAddressesSetItemRequestType where
+    xmlPickler = withNS ec2NS
+
+data AttachmentSetItemResponseType = AttachmentSetItemResponseType
+    { asirtVolumeId            :: !ByteString
+      -- ^ The ID of the volume.
+    , asirtInstanceId          :: !ByteString
+      -- ^ The ID of the instance.
+    , asirtDevice              :: !ByteString
+      -- ^ The device name exposed to the instance (for example, /dev/sdh).
+    , asirtStatus              :: !ByteString
+      -- ^ The attachment state.
+    , asirtAttachTime          :: !UTCTime
+      -- ^ The time stamp when the attachment initiated.
+    , asirtDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the volume is deleted on instance termination.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery AttachmentSetItemResponseType
+
+instance IsXML AttachmentSetItemResponseType where
+    xmlPickler = withNS ec2NS
+
+data AttachmentType = AttachmentType
+    { atVpcId :: !ByteString
+      -- ^ The ID of the VPC.
+    , atState :: !ByteString
+      -- ^ The current state of the attachment.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery AttachmentType
+
+instance IsXML AttachmentType where
+    xmlPickler = withNS ec2NS
+
+data AvailabilityZoneItemType = AvailabilityZoneItemType
+    { azitZoneName   :: !ByteString
+      -- ^ The name of the Availability Zone.
+    , azitZoneState  :: !ByteString
+      -- ^ The state of the Availability Zone.
+    , azitRegionName :: !ByteString
+      -- ^ The name of the region.
+    , azitMessageSet :: !AvailabilityZoneMessageType
+      -- ^ Any messages about the Availability Zone, each one wrapped in an
+      -- item element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery AvailabilityZoneItemType
+
+instance IsXML AvailabilityZoneItemType where
+    xmlPickler = withNS ec2NS
+
+data AvailabilityZoneMessageType = AvailabilityZoneMessageType
+    { azmtMessage :: !ByteString
+      -- ^ The message about the Availability Zone.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery AvailabilityZoneMessageType
+
+instance IsXML AvailabilityZoneMessageType where
+    xmlPickler = withNS ec2NS
+
+data BlockDeviceMappingItemType = BlockDeviceMappingItemType
+    { bdmitDeviceName  :: !ByteString
+      -- ^ The device name exposed to the instance (for example, /dev/sdh).
+    , bdmitVirtualName :: !ByteString
+      -- ^ The virtual device name.
+    , bdmitEbs         :: !EbsBlockDeviceType
+      -- ^ Parameters used to automatically set up Amazon EBS volumes when
+      -- the instance is launched.
+    , bdmitNoDevice    :: !ByteString
+      -- ^ Include this empty element to suppress the specified device
+      -- included in the block device mapping of the AMI.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery BlockDeviceMappingItemType
+
+instance IsXML BlockDeviceMappingItemType where
+    xmlPickler = withNS ec2NS
+
+data BundleInstanceS3StorageType = BundleInstanceS3StorageType
+    { bisstAwsAccessKeyId        :: !ByteString
+      -- ^ The access key ID of the owner of the bucket.
+    , bisstBucket                :: !ByteString
+      -- ^ The bucket in which to store the AMI. You can specify a bucket
+      -- that you already own or a new bucket that Amazon EC2 creates on
+      -- your behalf. If you specify a bucket that belongs to someone
+      -- else, Amazon EC2 returns an error.
+    , bisstPrefix                :: !ByteString
+      -- ^ The beginning of the file name of the AMI.
+    , bisstUploadPolicy          :: !ByteString
+      -- ^ A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
+      -- permission to upload items into Amazon S3 on the user's behalf.
+    , bisstUploadPolicySignature :: !ByteString
+      -- ^ The signature of the Base64 encoded JSON document.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery BundleInstanceS3StorageType
+
+instance IsXML BundleInstanceS3StorageType where
+    xmlPickler = withNS ec2NS
+
+data BundleInstanceTaskErrorType = BundleInstanceTaskErrorType
+    { bitetCode    :: !ByteString
+      -- ^ The error code.
+    , bitetMessage :: !ByteString
+      -- ^ The error message.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery BundleInstanceTaskErrorType
+
+instance IsXML BundleInstanceTaskErrorType where
+    xmlPickler = withNS ec2NS
+
+data BundleInstanceTaskStorageType = BundleInstanceTaskStorageType
+    { bitstS3 :: !BundleInstanceS3StorageType
+      -- ^ An Amazon S3 storage location.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery BundleInstanceTaskStorageType
+
+instance IsXML BundleInstanceTaskStorageType where
+    xmlPickler = withNS ec2NS
+
+data BundleInstanceTaskType = BundleInstanceTaskType
+    { bittInstanceId :: !ByteString
+      -- ^ The ID of the instance associated with this bundle task.
+    , bittBundleId   :: !ByteString
+      -- ^ The ID for this bundle task.
+    , bittState      :: !ByteString
+      -- ^ The state of the task.
+    , bittStartTime  :: !UTCTime
+      -- ^ The time this task started.
+    , bittUpdateTime :: !UTCTime
+      -- ^ The time of the most recent update for the task.
+    , bittStorage    :: !BundleInstanceTaskStorageType
+      -- ^ The Amazon S3 storage locations.
+    , bittProgress   :: !ByteString
+      -- ^ The level of task completion, as a percent (for example, 20%).
+    , bittError      :: !BundleInstanceTaskErrorType
+      -- ^ If the task fails, a description of the error.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery BundleInstanceTaskType
+
+instance IsXML BundleInstanceTaskType where
+    xmlPickler = withNS ec2NS
+
+data CancelSpotInstanceRequestsResponseSetItemType = CancelSpotInstanceRequestsResponseSetItemType
+    { csirrsitSpotInstanceRequestId :: !ByteString
+      -- ^ The ID of the Spot Instance request.
+    , csirrsitState                 :: !ByteString
+      -- ^ The state of the Spot Instance request.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery CancelSpotInstanceRequestsResponseSetItemType
+
+instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
+    xmlPickler = withNS ec2NS
+
+data ConversionTaskType = ConversionTaskType
+    { cttConversionTaskId :: !ByteString
+      -- ^ The ID of the conversion task
+    , cttExpirationTime   :: !ByteString
+      -- ^ The time when the task expires. If the upload isn't complete
+      -- before the expiration time, we automatically cancel the task.
+    , cttImportVolume     :: !ImportVolumeTaskDetailsType
+      -- ^ If the task is for importing a volume, this contains information
+      -- about the import volume task.
+    , cttImportInstance   :: !ImportInstanceTaskDetailsType
+      -- ^ If the task is for importing an instance, this contains
+      -- information about the import instance task.
+    , cttState            :: !ByteString
+      -- ^ The state of the conversion task.
+    , cttStatusMessage    :: !ByteString
+      -- ^ The status message related to the conversion task.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ConversionTaskType
+
+instance IsXML ConversionTaskType where
+    xmlPickler = withNS ec2NS
+
+data CreateVolumePermissionItemType = CreateVolumePermissionItemType
+    { cvpitUserId :: !ByteString
+      -- ^ The ID of an AWS account that can create volumes from the
+      -- snapshot.
+    , cvpitGroup  :: !ByteString
+      -- ^ The group that is allowed to create volumes from the snapshot.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery CreateVolumePermissionItemType
+
+instance IsXML CreateVolumePermissionItemType where
+    xmlPickler = withNS ec2NS
+
+data CustomerGatewayType = CustomerGatewayType
+    { cgtCustomerGatewayId :: !ByteString
+      -- ^ The ID of the customer gateway.
+    , cgtState             :: !ByteString
+      -- ^ The current state of the customer gateway.
+    , cgtType              :: !ByteString
+      -- ^ The type of VPN connection the customer gateway supports.
+    , cgtIpAddress         :: !ByteString
+      -- ^ The Internet-routable IP address of the customer gateway's
+      -- outside interface.
+    , cgtBgpAsn            :: !Integer
+      -- ^ The customer gateway's Border Gateway Protocol (BGP) Autonomous
+      -- System Number (ASN).
+    , cgtTagSet            :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery CustomerGatewayType
+
+instance IsXML CustomerGatewayType where
+    xmlPickler = withNS ec2NS
+
+data DescribeAddressesResponseItemType = DescribeAddressesResponseItemType
+    { daritPublicIp                :: !ByteString
+      -- ^ The public IP address.
+    , daritAllocationId            :: !ByteString
+      -- ^ The ID representing the allocation of the address for use with
+      -- EC2-VPC.
+    , daritDomain                  :: !ByteString
+      -- ^ Indicates whether this Elastic IP address is for instances in
+      -- EC2-Classic or EC2-VPC.
+    , daritInstanceId              :: !ByteString
+      -- ^ The ID of the instance the address is associated with (if any).
+    , daritAssociationId           :: !ByteString
+      -- ^ The ID representing the association of an Elastic IP address with
+      -- an instance in a VPC.
+    , daritNetworkInterfaceId      :: !ByteString
+      -- ^ The ID of the network interface.
+    , daritNetworkInterfaceOwnerId :: !ByteString
+      -- ^ The ID of the AWS account that owns the network interface.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeAddressesResponseItemType
+
+instance IsXML DescribeAddressesResponseItemType where
+    xmlPickler = withNS ec2NS
+
+data DescribeImagesResponseItemType = DescribeImagesResponseItemType
+    { diritImageId            :: !ByteString
+      -- ^ The ID of the AMI.
+    , diritImageLocation      :: !ByteString
+      -- ^ The location of the AMI.
+    , diritImageState         :: !ByteString
+      -- ^ Current state of the AMI. If the operation returns available, the
+      -- image is successfully registered and available for launching.
+    , diritImageOwnerId       :: !ByteString
+      -- ^ AWS account ID of the image owner.
+    , diritIsPublic           :: !Bool
+      -- ^ Indicates whether the image has public launch permissions. The
+      -- value is true if this image has public launch permissions or
+      -- false if it has only implicit and explicit launch permissions.
+    , diritProductCodes       :: !ProductCodesSetItemType
+      -- ^ Any product codes associated with the AMI, each one wrapped in an
+      -- item element.
+    , diritArchitecture       :: !ByteString
+      -- ^ The architecture of the image.
+    , diritImageType          :: !ByteString
+      -- ^ The type of image.
+    , diritKernelId           :: !ByteString
+      -- ^ The kernel associated with the image, if any. Only applicable for
+      -- machine images.
+    , diritRamdiskId          :: !ByteString
+      -- ^ The RAM disk associated with the image, if any. Only applicable
+      -- for machine images.
+    , diritPlatform           :: !ByteString
+      -- ^ The value is Windows for Windows AMIs; otherwise blank.
+    , diritStateReason        :: !StateReasonType
+      -- ^ The reason for the state change.
+    , diritImageOwnerAlias    :: !ByteString
+      -- ^ The AWS account alias (for example, amazon, self, etc.) or AWS
+      -- account ID that owns the AMI.
+    , diritName               :: !ByteString
+      -- ^ The name of the AMI that was provided during image creation.
+    , diritDescription        :: !ByteString
+      -- ^ The description of the AMI that was provided during image
+      -- creation.
+    , diritRootDeviceType     :: !ByteString
+      -- ^ The type of root device used by the AMI. The AMI can use an
+      -- Amazon EBS volume or an instance store volume.
+    , diritRootDeviceName     :: !ByteString
+      -- ^ The device name of the root device (for example, /dev/sda1 or
+      -- xvda).
+    , diritBlockDeviceMapping :: !BlockDeviceMappingItemType
+      -- ^ Any block device mapping entries, each one wrapped in an item
+      -- element.
+    , diritVirtualizationType :: !ByteString
+      -- ^ The type of virtualization of the AMI.
+    , diritTagSet             :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    , diritHypervisor         :: !ByteString
+      -- ^ The image's hypervisor type.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeImagesResponseItemType
+
+instance IsXML DescribeImagesResponseItemType where
+    xmlPickler = withNS ec2NS
+
+data DescribeKeyPairsResponseItemType = DescribeKeyPairsResponseItemType
+    { dkpritKeyName        :: !ByteString
+      -- ^ The name of the key pair.
+    , dkpritKeyFingerprint :: !ByteString
+      -- ^ If you used CreateKeyPair to create the key pair, this is the
+      -- SHA-1 digest of the DER encoded private key. If you used
+      -- ImportKeyPair to provide AWS the public key, this is the MD5
+      -- public key fingerprint as specified in section 4 of RFC4716.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeKeyPairsResponseItemType
+
+instance IsXML DescribeKeyPairsResponseItemType where
+    xmlPickler = withNS ec2NS
+
+data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInstancesListingsResponseSetItemType
+    { drilrsitReservedInstancesListingId :: !ByteString
+      -- ^ The ID of the Reserved Instance listing.
+    , drilrsitReservedInstancesId        :: !ByteString
+      -- ^ The ID of the Reserved Instance.
+    , drilrsitCreateDate                 :: !UTCTime
+      -- ^ The time the listing was created.
+    , drilrsitUpdateDate                 :: !UTCTime
+      -- ^ The last modified timestamp of the listing.
+    , drilrsitStatus                     :: !ByteString
+      -- ^ The status of the Reserved Instance listing.
+    , drilrsitStatusMessage              :: !ByteString
+      -- ^ The reason for the current status of the Reserved Instance
+      -- listing. The response can be blank.
+    , drilrsitInstanceCounts             :: !InstanceCountsSetType
+      -- ^ The number of instances in this state.
+    , drilrsitPriceSchedules             :: !PriceScheduleSetType
+      -- ^ The price of the Reserved Instance listing.
+    , drilrsitTagSet                     :: !ResourceTagSetItemType
+      -- ^ The tags assigned to the resource. Each tag's information is
+      -- wrapped in an item element.
+    , drilrsitClientToken                :: !ByteString
+      -- ^ The idempotency token you provided when you created the listing.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeReservedInstancesListingsResponseSetItemType
+
+instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
+    xmlPickler = withNS ec2NS
+
+data DescribeReservedInstancesListingSetItemType = DescribeReservedInstancesListingSetItemType
+    { drilsitReservedInstancesListingId :: !ByteString
+      -- ^ The ID of the Reserved Instance listing.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeReservedInstancesListingSetItemType
+
+instance IsXML DescribeReservedInstancesListingSetItemType where
+    xmlPickler = withNS ec2NS
+
+data DescribeReservedInstancesOfferingsResponseSetItemType = DescribeReservedInstancesOfferingsResponseSetItemType
+    { driorsitReservedInstancesOfferingId :: !ByteString
+      -- ^ The ID of the Reserved Instance offering.
+    , driorsitInstanceType                :: !ByteString
+      -- ^ The instance type on which the Reserved Instance can be used.
+    , driorsitAvailabilityZone            :: !ByteString
+      -- ^ The Availability Zone in which the Reserved Instance can be used.
+    , driorsitDuration                    :: !Integer
+      -- ^ The duration of the Reserved Instance, in seconds.
+    , driorsitFixedPrice                  :: !Double
+      -- ^ The purchase price of the Reserved Instance.
+    , driorsitUsagePrice                  :: !Double
+      -- ^ The usage price of the Reserved Instance, per hour.
+    , driorsitProductDescription          :: !ByteString
+      -- ^ The Reserved Instance description.
+    , driorsitInstanceTenancy             :: !ByteString
+      -- ^ The tenancy of the reserved instance.
+    , driorsitCurrencyCode                :: !ByteString
+      -- ^ The currency of the Reserved Instance offering you are
+      -- purchasing. It's specified using ISO 4217 standard currency
+      -- codes. At this time, the only supported currency is USD.
+    , driorsitOfferingType                :: !ByteString
+      -- ^ The Reserved Instance offering type.
+    , driorsitRecurringCharges            :: !RecurringChargesSetItemType
+      -- ^ The recurring charge tag assigned to the resource.
+    , driorsitMarketplace                 :: !Bool
+      -- ^ Indicates whether the offering is available through the Reserved
+      -- Instance Marketplace (resale) or AWS. Returns true if it is a
+      -- Marketplace offering.
+    , driorsitPricingDetailsSet           :: !PricingDetailsSetItemType
+      -- ^ The pricing details of the Reserved Instance offering wrapped in
+      -- an item element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeReservedInstancesOfferingsResponseSetItemType
+
+instance IsXML DescribeReservedInstancesOfferingsResponseSetItemType where
+    xmlPickler = withNS ec2NS
+
+data DescribeReservedInstancesOfferingsResponseType = DescribeReservedInstancesOfferingsResponseType
+    { driortRequestId                     :: !ByteString
+      -- ^ The ID of the Reserved Instance offering request.
+    , driortReservedInstancesOfferingsSet :: !DescribeReservedInstancesOfferingsResponseSetItemType
+      -- ^ The instance type on which the Reserved Instance can be used.
+    , driortNextToken                     :: !ByteString
+      -- ^ The next paginated set of results to return.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeReservedInstancesOfferingsResponseType
+
+instance IsXML DescribeReservedInstancesOfferingsResponseType where
+    xmlPickler = withNS ec2NS
+
+data DescribeReservedInstancesResponseSetItemType = DescribeReservedInstancesResponseSetItemType
+    { drirsitReservedInstancesId :: !ByteString
+      -- ^ The ID of the Reserved Instance.
+    , drirsitInstanceType        :: !ByteString
+      -- ^ The instance type on which the Reserved Instance can be used.
+    , drirsitAvailabilityZone    :: !ByteString
+      -- ^ The Availability Zone in which the Reserved Instance can be used.
+    , drirsitStart               :: !UTCTime
+      -- ^ The date and time the Reserved Instance started.
+    , drirsitDuration            :: !Integer
+      -- ^ The duration of the Reserved Instance, in seconds.
+    , drirsitFixedPrice          :: !Double
+      -- ^ The purchase price of the Reserved Instance.
+    , drirsitUsagePrice          :: !Double
+      -- ^ The usage price of the Reserved Instance, per hour.
+    , drirsitInstanceCount       :: !Integer
+      -- ^ The number of Reserved Instances purchased.
+    , drirsitProductDescription  :: !ByteString
+      -- ^ The Reserved Instance description.
+    , drirsitState               :: !ByteString
+      -- ^ The state of the Reserved Instance purchase.
+    , drirsitTagSet              :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    , drirsitInstanceTenancy     :: !ByteString
+      -- ^ The tenancy of the reserved instance.
+    , drirsitCurrencyCode        :: !ByteString
+      -- ^ The currency of the Reserved Instance. It's specified using ISO
+      -- 4217 standard currency codes. At this time, the only supported
+      -- currency is USD.
+    , drirsitOfferingType        :: !ByteString
+      -- ^ The Reserved Instance offering type.
+    , drirsitRecurringCharges    :: !RecurringChargesSetItemType
+      -- ^ The recurring charge tag assigned to the resource.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeReservedInstancesResponseSetItemType
+
+instance IsXML DescribeReservedInstancesResponseSetItemType where
+    xmlPickler = withNS ec2NS
+
+data DescribeReservedInstancesSetItemType = DescribeReservedInstancesSetItemType
+    { drisitReservedInstancesId :: !ByteString
+      -- ^ The ID of the Reserved Instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeReservedInstancesSetItemType
+
+instance IsXML DescribeReservedInstancesSetItemType where
+    xmlPickler = withNS ec2NS
+
+data DescribeSnapshotsSetItemResponseType = DescribeSnapshotsSetItemResponseType
+    { dssirtSnapshotId  :: !ByteString
+      -- ^ The ID of the snapshot.
+    , dssirtVolumeId    :: !ByteString
+      -- ^ The ID of the volume.
+    , dssirtStatus      :: !ByteString
+      -- ^ The snapshot state.
+    , dssirtStartTime   :: !UTCTime
+      -- ^ The time stamp when the snapshot was initiated.
+    , dssirtProgress    :: !ByteString
+      -- ^ The progress of the snapshot, as a percentage.
+    , dssirtOwnerId     :: !ByteString
+      -- ^ The ID of the AWS account that owns the snapshot.
+    , dssirtVolumeSize  :: !ByteString
+      -- ^ The size of the volume, in GiB.
+    , dssirtDescription :: !ByteString
+      -- ^ The description of the snapshot.
+    , dssirtOwnerAlias  :: !ByteString
+      -- ^ The AWS account alias (for example, amazon, self) or AWS account
+      -- ID that owns the AMI.
+    , dssirtTagSet      :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeSnapshotsSetItemResponseType
+
+instance IsXML DescribeSnapshotsSetItemResponseType where
+    xmlPickler = withNS ec2NS
+
+data DescribeVolumesSetItemResponseType = DescribeVolumesSetItemResponseType
+    { dvsirtVolumeId         :: !ByteString
+      -- ^ The ID of the volume.
+    , dvsirtSize             :: !ByteString
+      -- ^ The size of the volume, in GiBs.
+    , dvsirtSnapshotId       :: !ByteString
+      -- ^ The snapshot from which the volume was created (optional).
+    , dvsirtAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone in which the volume was created.
+    , dvsirtStatus           :: !ByteString
+      -- ^ The state of the volume.
+    , dvsirtCreateTime       :: !UTCTime
+      -- ^ The time stamp when volume creation was initiated.
+    , dvsirtAttachmentSet    :: !AttachmentSetItemResponseType
+      -- ^ Any volumes attached, each one wrapped in an item element.
+    , dvsirtTagSet           :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    , dvsirtVolumeType       :: !ByteString
+      -- ^ The volume type.
+    , dvsirtIops             :: !Integer
+      -- ^ The number of I/O operations per second (IOPS) that the volume
+      -- supports.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DescribeVolumesSetItemResponseType
+
+instance IsXML DescribeVolumesSetItemResponseType where
+    xmlPickler = withNS ec2NS
+
+data DhcpConfigurationItemType = DhcpConfigurationItemType
+    { dcitKey      :: !ByteString
+      -- ^ The name of a DHCP option.
+    , dcitValueSet :: !DhcpValueType
+      -- ^ Any values for a DHCP option, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DhcpConfigurationItemType
+
+instance IsXML DhcpConfigurationItemType where
+    xmlPickler = withNS ec2NS
+
+data DhcpOptionsType = DhcpOptionsType
+    { dotDhcpOptionsId        :: !ByteString
+      -- ^ The ID of the set of DHCP options.
+    , dotDhcpConfigurationSet :: !DhcpConfigurationItemType
+      -- ^ The DHCP options in the set. Each option's key and set of values
+      -- are wrapped in an item element.
+    , dotTagSet               :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DhcpOptionsType
+
+instance IsXML DhcpOptionsType where
+    xmlPickler = withNS ec2NS
+
+data DhcpValueType = DhcpValueType
+    { dvtValue :: !ByteString
+      -- ^ A value for the DHCP option.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DhcpValueType
+
+instance IsXML DhcpValueType where
+    xmlPickler = withNS ec2NS
+
+data DiskImageDescriptionType = DiskImageDescriptionType
+    { didtFormat            :: !ByteString
+      -- ^ The disk image format.
+    , didtSize              :: !Integer
+      -- ^ The size of the disk image.
+    , didtImportManifestUrl :: !ByteString
+      -- ^ A presigned URL for the import manifest stored in Amazon S3. For
+      -- information about creating a presigned URL for an Amazon S3
+      -- object, read the "Query String Request Authentication
+      -- Alternative" section of the Authenticating REST Requests topic in
+      -- the Amazon Simple Storage Service Developer Guide.
+    , didtChecksum          :: !ByteString
+      -- ^ The checksum computed for the disk image.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DiskImageDescriptionType
+
+instance IsXML DiskImageDescriptionType where
+    xmlPickler = withNS ec2NS
+
+data DiskImageVolumeDescriptionType = DiskImageVolumeDescriptionType
+    { divdtSize :: !Integer
+      -- ^ The size of the volume.
+    , divdtId   :: !ByteString
+      -- ^ The volume identifier.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery DiskImageVolumeDescriptionType
+
+instance IsXML DiskImageVolumeDescriptionType where
+    xmlPickler = withNS ec2NS
+
+data EbsBlockDeviceType = EbsBlockDeviceType
+    { ebdtSnapshotId          :: !ByteString
+      -- ^ The ID of the snapshot.
+    , ebdtVolumeSize          :: !Integer
+      -- ^ The size of the volume, in GiB.
+    , ebdtDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the Amazon EBS volume is deleted on instance
+      -- termination.
+    , ebdtVolumeType          :: !ByteString
+      -- ^ The volume type.
+    , ebdtIops                :: !Integer
+      -- ^ The number of I/O operations per second (IOPS) that the volume
+      -- supports.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery EbsBlockDeviceType
+
+instance IsXML EbsBlockDeviceType where
+    xmlPickler = withNS ec2NS
+
+data EbsInstanceBlockDeviceMappingResponseType = EbsInstanceBlockDeviceMappingResponseType
+    { eibdmrtVolumeId            :: !ByteString
+      -- ^ The ID of the Amazon EBS volume.
+    , eibdmrtStatus              :: !ByteString
+      -- ^ The attachment state.
+    , eibdmrtAttachTime          :: !UTCTime
+      -- ^ The time stamp when the attachment initiated.
+    , eibdmrtDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the volume is deleted on instance termination.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery EbsInstanceBlockDeviceMappingResponseType
+
+instance IsXML EbsInstanceBlockDeviceMappingResponseType where
+    xmlPickler = withNS ec2NS
+
+data ExportTaskResponseType = ExportTaskResponseType
+    { etrtExportTaskId   :: !ByteString
+      -- ^ The ID of the export task.
+    , etrtDescription    :: !ByteString
+      -- ^ A description of the resource being exported.
+    , etrtState          :: !ByteString
+      -- ^ The state of the conversion task.
+    , etrtStatusMessage  :: !ByteString
+      -- ^ The status message related to the export task.
+    , etrtInstanceExport :: !InstanceExportTaskResponseType
+      -- ^ The instance being exported.
+    , etrtExportToS3     :: !ExportToS3TaskResponseType
+      -- ^ The destination Amazon S3 bucket.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ExportTaskResponseType
+
+instance IsXML ExportTaskResponseType where
+    xmlPickler = withNS ec2NS
+
+data ExportToS3TaskResponseType = ExportToS3TaskResponseType
+    { etstrtDiskImageFormat :: !ByteString
+      -- ^ The format for the exported image.
+    , etstrtContainerFormat :: !ByteString
+      -- ^ The container format used to combine disk images with metadata
+      -- (such as OVF).
+    , etstrtS3Bucket        :: !ByteString
+      -- ^ The Amazon S3 bucket for the destination image.
+    , etstrtS3Key           :: !ByteString
+      -- ^ The image written to a single object in s3bucket at the S3 key
+      -- s3prefix + exportTaskId + '.' +diskImageFormat.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ExportToS3TaskResponseType
+
+instance IsXML ExportToS3TaskResponseType where
+    xmlPickler = withNS ec2NS
+
+data GroupItemType = GroupItemType
+    { gitGroupId   :: !ByteString
+      -- ^ The ID of the security group.
+    , gitGroupName :: !ByteString
+      -- ^ The name of the security group.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery GroupItemType
+
+instance IsXML GroupItemType where
+    xmlPickler = withNS ec2NS
+
+data IamInstanceProfileRequestType = IamInstanceProfileRequestType
+    { iiprtArn  :: !ByteString
+      -- ^ The Amazon Resource Name (ARN) of the instance profile.
+    , iiprtName :: !ByteString
+      -- ^ The name of the instance profile.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery IamInstanceProfileRequestType
+
+instance IsXML IamInstanceProfileRequestType where
+    xmlPickler = withNS ec2NS
+
+data IamInstanceProfileResponseType = IamInstanceProfileResponseType
+    { iipruArn :: !ByteString
+      -- ^ The Amazon Resource Name (ARN) of the instance profile.
+    , iipruId  :: !ByteString
+      -- ^ The ID of the instance profile.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery IamInstanceProfileResponseType
+
+instance IsXML IamInstanceProfileResponseType where
+    xmlPickler = withNS ec2NS
+
+data IcmpTypeCodeType = IcmpTypeCodeType
+    { itctCode :: !Integer
+      -- ^ The ICMP code. A value of -1 means all codes for the specified
+      -- ICMP type.
+    , itctType :: !Integer
+      -- ^ The ICMP type. A value of -1 means all types.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery IcmpTypeCodeType
+
+instance IsXML IcmpTypeCodeType where
+    xmlPickler = withNS ec2NS
+
+data ImportInstanceTaskDetailsType = ImportInstanceTaskDetailsType
+    { iitdtVolumes     :: !ImportInstanceVolumeDetailItemType
+      -- ^ Any instance volumes for import, each one wrapped in an item
+      -- element.
+    , iitdtInstanceId  :: !ByteString
+      -- ^ The ID of the instance.
+    , iitdtPlatform    :: !ByteString
+      -- ^ The value is Windows for Windows AMIs; otherwise blank.
+    , iitdtDescription :: !ByteString
+      -- ^ An optional description of the instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ImportInstanceTaskDetailsType
+
+instance IsXML ImportInstanceTaskDetailsType where
+    xmlPickler = withNS ec2NS
+
+data ImportInstanceVolumeDetailItemType = ImportInstanceVolumeDetailItemType
+    { iivditBytesConverted   :: !Integer
+      -- ^ The number of bytes converted so far.
+    , iivditAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone where the resulting instance will reside.
+    , iivditImage            :: !DiskImageDescriptionType
+      -- ^ The image.
+    , iivditDescription      :: !ByteString
+      -- ^ The description you provided when starting the import instance
+      -- task.
+    , iivditVolume           :: !DiskImageVolumeDescriptionType
+      -- ^ The volume.
+    , iivditStatus           :: !ByteString
+      -- ^ The status of the import of this particular disk image.
+    , iivditStatusMessage    :: !ByteString
+      -- ^ The status information or errors related to the disk image.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ImportInstanceVolumeDetailItemType
+
+instance IsXML ImportInstanceVolumeDetailItemType where
+    xmlPickler = withNS ec2NS
+
+data ImportVolumeTaskDetailsType = ImportVolumeTaskDetailsType
+    { ivtdtBytesConverted   :: !Integer
+      -- ^ The number of bytes converted so far.
+    , ivtdtAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone where the resulting volume will reside.
+    , ivtdtDescription      :: !ByteString
+      -- ^ The description you provided when starting the import volume
+      -- task.
+    , ivtdtImage            :: !DiskImageDescriptionType
+      -- ^ The image.
+    , ivtdtVolume           :: !DiskImageVolumeDescriptionType
+      -- ^ The volume.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ImportVolumeTaskDetailsType
+
+instance IsXML ImportVolumeTaskDetailsType where
+    xmlPickler = withNS ec2NS
+
+data InstanceBlockDeviceMappingItemType = InstanceBlockDeviceMappingItemType
+    { ibdmitDeviceName  :: !ByteString
+      -- ^ The device name exposed to the instance (for example, /dev/sdh or
+      -- xvdh).
+    , ibdmitVirtualName :: !ByteString
+      -- ^ The virtual device name.
+    , ibdmitEbs         :: !InstanceEbsBlockDeviceType
+      -- ^ Parameters used to automatically set up Amazon EBS volumes when
+      -- the instance is launched.
+    , ibdmitNoDevice    :: !ByteString
+      -- ^ Include this empty element to suppress the specified device
+      -- included in the block device mapping of the AMI.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceBlockDeviceMappingItemType
+
+instance IsXML InstanceBlockDeviceMappingItemType where
+    xmlPickler = withNS ec2NS
+
+data InstanceBlockDeviceMappingResponseItemType = InstanceBlockDeviceMappingResponseItemType
+    { ibdmritDeviceName :: !ByteString
+      -- ^ The device name exposed to the instance (for example, /dev/sdh,
+      -- or xvdh).
+    , ibdmritEbs        :: !EbsInstanceBlockDeviceMappingResponseType
+      -- ^ Parameters used to automatically set up Amazon EBS volumes when
+      -- the instance is launched.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceBlockDeviceMappingResponseItemType
+
+instance IsXML InstanceBlockDeviceMappingResponseItemType where
+    xmlPickler = withNS ec2NS
+
+data InstanceCountsSetItemType = InstanceCountsSetItemType
+    { icsitState         :: !ByteString
+      -- ^ The states of the listed Reserved Instances.
+    , icsitInstanceCount :: !Integer
+      -- ^ The number of listed Reserved Instances in the state specified by
+      -- the state.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceCountsSetItemType
+
+instance IsXML InstanceCountsSetItemType where
+    xmlPickler = withNS ec2NS
+
+data InstanceCountsSetType = InstanceCountsSetType
+    { icstItem :: !InstanceCountsSetItemType
+      -- ^ The Reserved Instance listing item.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceCountsSetType
+
+instance IsXML InstanceCountsSetType where
+    xmlPickler = withNS ec2NS
+
+data InstanceEbsBlockDeviceType = InstanceEbsBlockDeviceType
+    { iebdtDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the volume is deleted on instance termination.
+    , iebdtVolumeId            :: !ByteString
+      -- ^ The ID of the volume.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceEbsBlockDeviceType
+
+instance IsXML InstanceEbsBlockDeviceType where
+    xmlPickler = withNS ec2NS
+
+data InstanceExportTaskResponseType = InstanceExportTaskResponseType
+    { ietrtInstanceId        :: !ByteString
+      -- ^ The ID of the resource being exported.
+    , ietrtTargetEnvironment :: !ByteString
+      -- ^ The target virtualization environment.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceExportTaskResponseType
+
+instance IsXML InstanceExportTaskResponseType where
+    xmlPickler = withNS ec2NS
+
+data InstanceMonitoringStateType = InstanceMonitoringStateType
+    { imstState :: !ByteString
+      -- ^ The state of monitoring for the instance. The disabled state
+      -- means that Detailed Monitoring is disabled for the instance. The
+      -- enabled state means that Detailed Monitoring is enabled for the
+      -- instance. The pending state means that the instance is launching
+      -- or that you recently enabled Detailed Monitoring for the
+      -- instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceMonitoringStateType
+
+instance IsXML InstanceMonitoringStateType where
+    xmlPickler = withNS ec2NS
+
+data InstanceNetworkInterfaceAssociationType = InstanceNetworkInterfaceAssociationType
+    { iniatPublicIp      :: !ByteString
+      -- ^ The address of the Elastic IP address bound to the network
+      -- interface.
+    , iniatPublicDnsName :: !ByteString
+      -- ^ The public DNS name.
+    , iniatIpOwnerId     :: !ByteString
+      -- ^ The ID of the owner of the Elastic IP address.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceNetworkInterfaceAssociationType
+
+instance IsXML InstanceNetworkInterfaceAssociationType where
+    xmlPickler = withNS ec2NS
+
+data InstanceNetworkInterfaceAttachmentType = InstanceNetworkInterfaceAttachmentType
+    { iniatAttachmentID        :: !ByteString
+      -- ^ The ID of the network interface attachment.
+    , iniatDeviceIndex         :: !Integer
+      -- ^ The index of the device on the instance for the network interface
+      -- attachment.
+    , iniatStatus              :: !ByteString
+      -- ^ The attachment state.
+    , iniatAttachTime          :: !UTCTime
+      -- ^ The time stamp when the attachment initiated.
+    , iniatDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the network interface is deleted when the
+      -- instance is terminated.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceNetworkInterfaceAttachmentType
+
+instance IsXML InstanceNetworkInterfaceAttachmentType where
+    xmlPickler = withNS ec2NS
+
+data InstanceNetworkInterfaceSetItemRequestType = InstanceNetworkInterfaceSetItemRequestType
+    { inisirtNetworkInterfaceId             :: !ByteString
+      -- ^ The ID of the network interface.
+    , inisirtDeviceIndex                    :: !Integer
+      -- ^ Required. The index of the device on the instance for the network
+      -- interface attachment.
+    , inisirtSubnetId                       :: !ByteString
+      -- ^ The ID of the subnet associated with the network string.
+    , inisirtDescription                    :: !ByteString
+      -- ^ The description of the network interface.
+    , inisirtPrivateIpAddress               :: !ByteString
+      -- ^ The private IP address of the network interface.
+    , inisirtGroupSet                       :: !SecurityGroupIdSetItemType
+      -- ^ The IDs of the security groups for use by the network interface.
+    , inisirtDeleteOnTermination            :: !Bool
+      -- ^ If set to true, the interface is deleted when the instance is
+      -- terminated.
+    , inisirtPrivateIpAddressesSet          :: !PrivateIpAddressesSetItemRequestType
+      -- ^ The list of IP addresses to assign to the network interface.
+    , inisirtSecondaryPrivateIpAddressCount :: !Integer
+      -- ^ The number of secondary private IP addresses. You cannot specify
+      -- this option with privateIpAddressSet.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceNetworkInterfaceSetItemRequestType
+
+instance IsXML InstanceNetworkInterfaceSetItemRequestType where
+    xmlPickler = withNS ec2NS
+
+data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
+    { inisitNetworkInterfaceId    :: !ByteString
+      -- ^ The ID of the network interface.
+    , inisitSubnetId              :: !ByteString
+      -- ^ The ID of the subnet.
+    , inisitVpcId                 :: !ByteString
+      -- ^ The ID of the VPC.
+    , inisitDescription           :: !ByteString
+      -- ^ The description.
+    , inisitOwnerId               :: !ByteString
+      -- ^ The ID of the customer who created the network interface.
+    , inisitStatus                :: !ByteString
+      -- ^ The status of the network interface.
+    , inisitMacAddress            :: !ByteString
+      -- ^ The MAC address.
+    , inisitPrivateIpAddress      :: !ByteString
+      -- ^ The IP address of the network interface within the subnet.
+    , inisitPrivateDnsName        :: !ByteString
+      -- ^ The private DNS name.
+    , inisitSourceDestCheck       :: !Bool
+      -- ^ Indicates whether to validate network traffic to or from this
+      -- network interface.
+    , inisitGroupSet              :: Members GroupItemType
+      -- ^ A security group.
+    , inisitAttachment            :: !InstanceNetworkInterfaceAttachmentType
+      -- ^ The network interface attachment.
+    , inisitAssociation           :: !InstanceNetworkInterfaceAssociationType
+      -- ^ The association information for an Elastic IP associated with the
+      -- network interface.
+    , inisitPrivateIpAddressesSet :: !InstancePrivateIpAddressesSetItemType
+      -- ^ The private IP addresses associated with the network interface.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceNetworkInterfaceSetItemType
+
+instance IsXML InstanceNetworkInterfaceSetItemType where
+    xmlPickler = withNS ec2NS
+
+data InstancePrivateIpAddressesSetItemType = InstancePrivateIpAddressesSetItemType
+    { ipiasitPrivateIpAddress :: !ByteString
+      -- ^ The private IP address of the network interface
+    , ipiasitPrivateDnsName   :: !ByteString
+      -- ^ The private DNS name.
+    , ipiasitPrimary          :: !Bool
+      -- ^ Indicates whether this IP address is the primary private IP
+      -- address of the network interface.
+    , ipiasitAssociation      :: !InstanceNetworkInterfaceAssociationType
+      -- ^ The association information for an Elastic IP address associated
+      -- with the network interface.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstancePrivateIpAddressesSetItemType
+
+instance IsXML InstancePrivateIpAddressesSetItemType where
+    xmlPickler = withNS ec2NS
+
+data InstanceStateChangeType = InstanceStateChangeType
+    { isctInstanceId    :: !ByteString
+      -- ^ The instance ID.
+    , isctCurrentState  :: !InstanceStateType
+      -- ^ The current state of the instance.
+    , isctPreviousState :: !InstanceStateType
+      -- ^ The previous state of the instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceStateChangeType
+
+instance IsXML InstanceStateChangeType where
+    xmlPickler = withNS ec2NS
+
+data InstanceStateType = InstanceStateType
+    { istCode :: !Integer
+      -- ^ The low byte represents the state. The high byte is an opaque
+      -- internal value and should be ignored.
+    , istName :: !ByteString
+      -- ^ The current state of the instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceStateType
+
+instance IsXML InstanceStateType where
+    xmlPickler = withNS ec2NS
+
+data InstanceStatusDetailsSetType = InstanceStatusDetailsSetType
+    { isdstName          :: !ByteString
+      -- ^ The type of instance status detail.
+    , isdstStatus        :: !ByteString
+      -- ^ The status.
+    , isdstImpairedSince :: !UTCTime
+      -- ^ The time when a status check failed. For an instance that was
+      -- launched and impaired, this is the time when the instance was
+      -- launched.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceStatusDetailsSetType
+
+instance IsXML InstanceStatusDetailsSetType where
+    xmlPickler = withNS ec2NS
+
+data InstanceStatusEventsSetType = InstanceStatusEventsSetType
+    { isestItem :: !InstanceStatusEventType
+      -- ^ The scheduled events for the instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceStatusEventsSetType
+
+instance IsXML InstanceStatusEventsSetType where
+    xmlPickler = withNS ec2NS
+
+data InstanceStatusEventType = InstanceStatusEventType
+    { isetCode        :: !ByteString
+      -- ^ The associated code of the event.
+    , isetDescription :: !ByteString
+      -- ^ A description of the event.
+    , isetNotBefore   :: !UTCTime
+      -- ^ The earliest scheduled start time for the event.
+    , isetNotAfter    :: !UTCTime
+      -- ^ The latest scheduled end time for the event.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceStatusEventType
+
+instance IsXML InstanceStatusEventType where
+    xmlPickler = withNS ec2NS
+
+data InstanceStatusItemType = InstanceStatusItemType
+    { isitInstanceId       :: !ByteString
+      -- ^ The ID of the instance.
+    , isitAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone of the instance.
+    , isitEventsSet        :: !InstanceStatusEventsSetType
+      -- ^ Extra information regarding events associated with the instance.
+    , isitInstanceState    :: !InstanceStateType
+      -- ^ The intended state of the instance. Calls to
+      -- DescribeInstanceStatus require that an instance be in the running
+      -- state.
+    , isitSystemStatus     :: !InstanceStatusType
+      -- ^ Reports impaired functionality that stems from issues related to
+      -- the systems that support an instance, such as hardware failures
+      -- and network connectivity problems.
+    , isitInstanceStatus   :: !InstanceStatusType
+      -- ^ Reports impaired functionality that arises from problems internal
+      -- to the instance. The DescribeInstanceStatus response elements
+      -- report such problems as impaired reachability.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceStatusItemType
+
+instance IsXML InstanceStatusItemType where
+    xmlPickler = withNS ec2NS
+
+data InstanceStatusSetType = InstanceStatusSetType
+    { isstItem :: !InstanceStatusItemType
+      -- ^ The status of the instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceStatusSetType
+
+instance IsXML InstanceStatusSetType where
+    xmlPickler = withNS ec2NS
+
+data InstanceStatusType = InstanceStatusType
+    { istStatus  :: !ByteString
+      -- ^ The status.
+    , istDetails :: !InstanceStatusDetailsSetType
+      -- ^ The system instance health or application instance health.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InstanceStatusType
+
+instance IsXML InstanceStatusType where
+    xmlPickler = withNS ec2NS
+
+data InternetGatewayAttachmentType = InternetGatewayAttachmentType
+    { igatVpcId :: !ByteString
+      -- ^ The ID of the VPC.
+    , igatState :: !ByteString
+      -- ^ The current state of the attachment.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InternetGatewayAttachmentType
+
+instance IsXML InternetGatewayAttachmentType where
+    xmlPickler = withNS ec2NS
+
+data InternetGatewayType = InternetGatewayType
+    { igtInternetGatewayId :: !ByteString
+      -- ^ The ID of the Internet gateway.
+    , igtAttachmentSet     :: !InternetGatewayAttachmentType
+      -- ^ Any VPCs attached to the Internet gateway, each one wrapped in an
+      -- item element.
+    , igtTagSet            :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery InternetGatewayType
+
+instance IsXML InternetGatewayType where
+    xmlPickler = withNS ec2NS
+
+data IpPermissionType = IpPermissionType
+    { iptIpProtocol :: !ByteString
+      -- ^ The protocol.
+    , iptFromPort   :: !Integer
+      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
+      -- type number. A value of -1 indicates all ICMP types.
+    , iptToPort     :: !Integer
+      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
+      -- code. A value of -1 indicates all ICMP codes for the given ICMP
+      -- type.
+    , iptGroups     :: !UserIdGroupPairType
+      -- ^ A list of security group and AWS account ID pairs. Each pair is
+      -- wrapped in an item element.
+    , iptIpRanges   :: !IpRangeItemType
+      -- ^ A list of IP ranges. Each range is wrapped in an item element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery IpPermissionType
+
+instance IsXML IpPermissionType where
+    xmlPickler = withNS ec2NS
+
+data IpRangeItemType = IpRangeItemType
+    { iritCidrIp :: !ByteString
+      -- ^ The CIDR range. You can either specify a CIDR range or a source
+      -- security group, not both.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery IpRangeItemType
+
+instance IsXML IpRangeItemType where
+    xmlPickler = withNS ec2NS
+
+data LaunchPermissionItemType = LaunchPermissionItemType
+    { lpitGroup  :: !ByteString
+      -- ^ The name of the group.
+    , lpitUserId :: !ByteString
+      -- ^ The AWS account ID.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery LaunchPermissionItemType
+
+instance IsXML LaunchPermissionItemType where
+    xmlPickler = withNS ec2NS
+
+data LaunchSpecificationRequestType = LaunchSpecificationRequestType
+    { lsrtImageId             :: !ByteString
+      -- ^ The AMI ID.
+    , lsrtKeyName             :: !ByteString
+      -- ^ The name of the key pair.
+    , lsrtGroupSet            :: !GroupItemType
+      -- ^ A list of security groups. Each group is wrapped in an item
+      -- element.
+    , lsrtUserData            :: !UserDataType
+      -- ^ Base64-encoded MIME user data made available to the instance(s)
+      -- in the reservation.
+    , lsrtInstanceType        :: !ByteString
+      -- ^ The instance type.
+    , lsrtPlacement           :: !PlacementRequestType
+      -- ^ The placement information for the instance.
+    , lsrtKernelId            :: !ByteString
+      -- ^ The ID of the kernel to select.
+    , lsrtRamdiskId           :: !ByteString
+      -- ^ The ID of the RAM disk to select. Some kernels require additional
+      -- drivers at launch. Check the kernel requirements for information
+      -- on whether you need to specify a RAM disk and search for the
+      -- kernel ID.
+    , lsrtBlockDeviceMapping  :: !BlockDeviceMappingItemType
+      -- ^ Any block device mapping entries for the instance. Each entry is
+      -- wrapped in an item element.
+    , lsrtMonitoring          :: !MonitoringInstanceType
+      -- ^ The monitoring information for the instance.
+    , lsrtSubnetId            :: !ByteString
+      -- ^ The ID of the subnet.
+    , lsrtNetworkInterfaceSet :: !InstanceNetworkInterfaceSetItemRequestType
+      -- ^ The network interfaces associated with the instance.
+    , lsrtIamInstanceProfile  :: !IamInstanceProfileRequestType
+      -- ^ The IAM Instance Profile (IIP) associated with the instance.
+    , lsrtEbsOptimized        :: !Bool
+      -- ^ Indicates whether the instance is optimized for EBS I/O. This
+      -- optimization provides dedicated throughput to Amazon EBS and an
+      -- optimized configuration stack to provide optimal EBS I/O
+      -- performance. This optimization isn't available with all instance
+      -- types. Additional usage charges apply when using an EBS Optimized
+      -- instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery LaunchSpecificationRequestType
+
+instance IsXML LaunchSpecificationRequestType where
+    xmlPickler = withNS ec2NS
+
+data LaunchSpecificationResponseType = LaunchSpecificationResponseType
+    { lsruImageId             :: !ByteString
+      -- ^ The AMI ID.
+    , lsruKeyName             :: !ByteString
+      -- ^ The name of the key pair.
+    , lsruGroupSet            :: !GroupItemType
+      -- ^ A list of security groups. Each group is wrapped in an item
+      -- element.
+    , lsruInstanceType        :: !ByteString
+      -- ^ The instance type.
+    , lsruPlacement           :: !PlacementRequestType
+      -- ^ The placement information for the instance.
+    , lsruKernelId            :: !ByteString
+      -- ^ The ID of the kernel to select.
+    , lsruRamdiskId           :: !ByteString
+      -- ^ The ID of the RAM disk to select. Some kernels require additional
+      -- drivers at launch. Check the kernel requirements for information
+      -- on whether you need to specify a RAM disk and search for the
+      -- kernel ID.
+    , lsruBlockDeviceMapping  :: !BlockDeviceMappingItemType
+      -- ^ Any block device mapping entries for the instance. Each entry is
+      -- wrapped in an item element.
+    , lsruMonitoring          :: !MonitoringInstanceType
+      -- ^ The monitoring information for the instance.
+    , lsruSubnetId            :: !ByteString
+      -- ^ The ID of the subnet.
+    , lsruNetworkInterfaceSet :: !InstanceNetworkInterfaceSetItemRequestType
+      -- ^ The network interfaces for the instance.
+    , lsruIamInstanceProfile  :: !IamInstanceProfileRequestType
+      -- ^ The IAM Instance Profile (IIP) associated with the instance.
+    , lsruEbsOptimized        :: !Bool
+      -- ^ Indicates whether the instance is optimized for EBS I/O. This
+      -- optimization provides dedicated throughput to Amazon EBS and an
+      -- optimized configuration stack to provide optimal EBS I/O
+      -- performance. This optimization isn't available with all instance
+      -- types. Additional usage charges apply when using an EBS Optimized
+      -- instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery LaunchSpecificationResponseType
+
+instance IsXML LaunchSpecificationResponseType where
+    xmlPickler = withNS ec2NS
+
+data MonitoringInstanceType = MonitoringInstanceType
+    { mitEnabled :: !Bool
+      -- ^ Indicates whether monitoring is enabled for the instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery MonitoringInstanceType
+
+instance IsXML MonitoringInstanceType where
+    xmlPickler = withNS ec2NS
+
+data MonitorInstancesResponseSetItemType = MonitorInstancesResponseSetItemType
+    { mirsitInstanceId :: !ByteString
+      -- ^ The instance ID.
+    , mirsitMonitoring :: !InstanceMonitoringStateType
+      -- ^ The monitoring information.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery MonitorInstancesResponseSetItemType
+
+instance IsXML MonitorInstancesResponseSetItemType where
+    xmlPickler = withNS ec2NS
+
+data NetworkAclAssociationType = NetworkAclAssociationType
+    { naatNetworkAclAssociationId :: !ByteString
+      -- ^ An identifier representing the association between a network ACL
+      -- and a subnet.
+    , naatNetworkAclId            :: !ByteString
+      -- ^ The ID of the network ACL.
+    , naatSubnetId                :: !ByteString
+      -- ^ The ID of the subnet.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery NetworkAclAssociationType
+
+instance IsXML NetworkAclAssociationType where
+    xmlPickler = withNS ec2NS
+
+data NetworkAclEntryType = NetworkAclEntryType
+    { naetRuleNumber   :: !Integer
+      -- ^ The rule number for the entry. ACL entries are processed in
+      -- ascending order by rule number.
+    , naetProtocol     :: !Integer
+      -- ^ The protocol. A value of -1 means all protocols.
+    , naetRuleAction   :: !ByteString
+      -- ^ Indicates whether to allow or deny the traffic that matches the
+      -- rule.
+    , naetEgress       :: !Bool
+      -- ^ Indicates an egress rule (rule is applied to traffic leaving the
+      -- subnet). Value of true indicates egress.
+    , naetCidrBlock    :: !ByteString
+      -- ^ The network range to allow or deny, in CIDR notation.
+    , naetIcmpTypeCode :: !IcmpTypeCodeType
+      -- ^ ICMP protocol: The ICMP type and code.
+    , naetPortRange    :: !PortRangeType
+      -- ^ TCP or UDP protocols: The range of ports the rule applies to.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery NetworkAclEntryType
+
+instance IsXML NetworkAclEntryType where
+    xmlPickler = withNS ec2NS
+
+data NetworkAclType = NetworkAclType
+    { natNetworkAclId   :: !ByteString
+      -- ^ The ID of the network ACL.
+    , natVpcId          :: !ByteString
+      -- ^ The ID of the VPC for the network ACL.
+    , natDefault        :: !Bool
+      -- ^ Indicates whether this is the default network ACL for the VPC.
+    , natEntrySet       :: !NetworkAclEntryType
+      -- ^ A list of entries (rules) in the network ACL. Each entry is
+      -- wrapped in an item element.
+    , natAssociationSet :: !NetworkAclAssociationType
+      -- ^ A list of associations between the network ACL and one or more
+      -- subnets. Each association is wrapped in an item element.
+    , natTagSet         :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery NetworkAclType
+
+instance IsXML NetworkAclType where
+    xmlPickler = withNS ec2NS
+
+data NetworkInterfaceAssociationType = NetworkInterfaceAssociationType
+    { niatPublicIp      :: !ByteString
+      -- ^ The address of the Elastic IP address bound to the network
+      -- interface.
+    , niatPublicDnsName :: !ByteString
+      -- ^ The public DNS name.
+    , niatIpOwnerId     :: !ByteString
+      -- ^ The ID of the Elastic IP address owner.
+    , niatAllocationID  :: !ByteString
+      -- ^ The allocation ID.
+    , niatAssociationID :: !ByteString
+      -- ^ The association ID.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery NetworkInterfaceAssociationType
+
+instance IsXML NetworkInterfaceAssociationType where
+    xmlPickler = withNS ec2NS
+
+data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
+    { niatAttachmentID :: !ByteString
+      -- ^ The ID of the network interface attachment.
+    , niatInstanceID   :: !ByteString
+      -- ^ The ID of the instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery NetworkInterfaceAttachmentType
+
+instance IsXML NetworkInterfaceAttachmentType where
+    xmlPickler = withNS ec2NS
+
+data NetworkInterfacePrivateIpAddressesSetItemType = NetworkInterfacePrivateIpAddressesSetItemType
+    { nipiasitPrivateIpAddress :: !ByteString
+      -- ^ The private IP address of the network interface.
+    , nipiasitPrivateDnsName   :: !ByteString
+      -- ^ The private DNS name.
+    , nipiasitPrimary          :: !Bool
+      -- ^ Indicates whether this IP address is the primary private IP
+      -- address of the network interface.
+    , nipiasitAssociation      :: !NetworkInterfaceAssociationType
+      -- ^ The association information for an Elastic IP address associated
+      -- with the network interface.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery NetworkInterfacePrivateIpAddressesSetItemType
+
+instance IsXML NetworkInterfacePrivateIpAddressesSetItemType where
+    xmlPickler = withNS ec2NS
+
+data NetworkInterfaceType = NetworkInterfaceType
+    { nitNetworkInterfaceId    :: !ByteString
+      -- ^ The ID of the network interface.
+    , nitSubnetId              :: !ByteString
+      -- ^ The ID of the subnet.
+    , niuNetworkInterfaceId    :: !ByteString
+      -- ^ The ID of the network interface.
+    , niuSubnetId              :: !ByteString
+      -- ^ The ID of the subnet.
+    , niuVpcId                 :: !ByteString
+      -- ^ The ID of the VPC.
+    , niuAvailabilityZone      :: !ByteString
+      -- ^ The Availability Zone.
+    , niuDescription           :: !ByteString
+      -- ^ A description.
+    , niuOwnerId               :: !ByteString
+      -- ^ The ID of the customer who created the interface.
+    , niuRequesterId           :: !ByteString
+      -- ^ The ID of the entity that launched the instance on your behalf
+      -- (for example, AWS Management Console or Auto Scaling)
+    , niuRequesterManaged      :: !ByteString
+      -- ^ Indicates whether the network interface is being managed by AWS.
+    , niuStatus                :: !ByteString
+      -- ^ The status of the network interface.
+    , niuMacAddress            :: !ByteString
+      -- ^ The MAC address.
+    , niuPrivateIpAddress      :: !ByteString
+      -- ^ The IP address of the network interface within the subnet.
+    , niuPrivateDnsName        :: !ByteString
+      -- ^ The private DNS name.
+    , niuSourceDestCheck       :: !Bool
+      -- ^ Indicates whether traffic to or from the instance is validated.
+    , niuGroupSet              :: !GroupItemType
+      -- ^ The security group.
+    , niuAttachment            :: !NetworkInterfaceAttachmentType
+      -- ^ The network interface attachment.
+    , niuAssociation           :: !NetworkInterfaceAssociationType
+      -- ^ The association information for an Elastic IP associated with the
+      -- network interface.
+    , niuTagSet                :: !ResourceTagSetItemType
+      -- ^ The tags assigned to the resource.
+    , niuPrivateIpAddressesSet :: !NetworkInterfacePrivateIpAddressesSetItemType
+      -- ^ The private IP addresses associated with the network interface.
+      -- Items are returned in a set.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery NetworkInterfaceType
+
+instance IsXML NetworkInterfaceType where
+    xmlPickler = withNS ec2NS
+
+data PlacementGroupInfoType = PlacementGroupInfoType
+    { pgitGroupName :: !ByteString
+      -- ^ The name of the placement group.
+    , pgitStrategy  :: !ByteString
+      -- ^ The placement strategy.
+    , pgitState     :: !ByteString
+      -- ^ The status of the placement group.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PlacementGroupInfoType
+
+instance IsXML PlacementGroupInfoType where
+    xmlPickler = withNS ec2NS
+
+data PlacementRequestType = PlacementRequestType
+    { prtAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone for the instance.
+    , prtGroupName        :: !ByteString
+      -- ^ The name of a placement group for the instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PlacementRequestType
+
+instance IsXML PlacementRequestType where
+    xmlPickler = withNS ec2NS
+
+data PlacementResponseType = PlacementResponseType
+    { pruAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone of the instance.
+    , pruGroupName        :: !ByteString
+      -- ^ The name of the placement group the instance is in (for cluster
+      -- compute instances).
+    , pruTenancy          :: !ByteString
+      -- ^ The tenancy of the instance (if the instance is running within a
+      -- VPC). An instance with a tenancy of dedicated runs on
+      -- single-tenant hardware.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PlacementResponseType
+
+instance IsXML PlacementResponseType where
+    xmlPickler = withNS ec2NS
+
+data PortRangeType = PortRangeType
+    { prtFrom :: !Integer
+      -- ^ The first port in the range.
+    , prtTo   :: !Integer
+      -- ^ The last port in the range.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PortRangeType
+
+instance IsXML PortRangeType where
+    xmlPickler = withNS ec2NS
+
+data PriceScheduleRequestSetItemType = PriceScheduleRequestSetItemType
+    { psrsitTerm         :: !Integer
+      -- ^ The number of months remaining in the reservation. For example, 2
+      -- is the second to the last month before the capacity reservation
+      -- expires.
+    , psrsitPrice        :: !Double
+      -- ^ The fixed price for the term.
+    , psrsitCurrencyCode :: !ByteString
+      -- ^ The currency for transacting the Reserved Instance resale. At
+      -- this time, the only supported currency is USD.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PriceScheduleRequestSetItemType
+
+instance IsXML PriceScheduleRequestSetItemType where
+    xmlPickler = withNS ec2NS
+
+data PriceScheduleSetItemType = PriceScheduleSetItemType
+    { pssitTerm         :: !Integer
+      -- ^ The number of months remaining in the reservation. For example, 2
+      -- is the second to the last month before the capacity reservation
+      -- expires.
+    , pssitPrice        :: !Double
+      -- ^ The fixed price for the term.
+    , pssitCurrencyCode :: !ByteString
+      -- ^ The currency for transacting the Reserved Instance resale. At
+      -- this time, the only supported currency is USD.
+    , pssitActive       :: !Bool
+      -- ^ The current price schedule, as determined by the term remaining
+      -- for the Reserved Instance in the listing.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PriceScheduleSetItemType
+
+instance IsXML PriceScheduleSetItemType where
+    xmlPickler = withNS ec2NS
+
+data PriceScheduleSetType = PriceScheduleSetType
+    { psstItem :: !PriceScheduleSetItemType
+      -- ^ The Reserved Instance listing price schedule item.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PriceScheduleSetType
+
+instance IsXML PriceScheduleSetType where
+    xmlPickler = withNS ec2NS
+
+data PricingDetailsSetItemType = PricingDetailsSetItemType
+    { pdsitPrice :: !Integer
+      -- ^ The price per instance.
+    , pdsitCount :: !Integer
+      -- ^ The number of instances available for the price.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PricingDetailsSetItemType
+
+instance IsXML PricingDetailsSetItemType where
+    xmlPickler = withNS ec2NS
+
+data PrivateIpAddressesSetItemRequestType = PrivateIpAddressesSetItemRequestType
+    { piasirtPrivateIpAddressesSet :: !AssignPrivateIpAddressesSetItemRequestType
+      -- ^ The list of private IP addresses.
+    , piasirtPrimary               :: !Bool
+      -- ^ Indicates whether the private IP address is the primary private
+      -- IP address.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PrivateIpAddressesSetItemRequestType
+
+instance IsXML PrivateIpAddressesSetItemRequestType where
+    xmlPickler = withNS ec2NS
+
+data ProductCodeItemType = ProductCodeItemType
+    { pcitProductCode :: !ByteString
+      -- ^ The product code.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ProductCodeItemType
+
+instance IsXML ProductCodeItemType where
+    xmlPickler = withNS ec2NS
+
+data ProductCodesSetItemType = ProductCodesSetItemType
+    { pcsitProductCode :: !ByteString
+      -- ^ The product code.
+    , pcsitType        :: !ByteString
+      -- ^ The type of product code.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ProductCodesSetItemType
+
+instance IsXML ProductCodesSetItemType where
+    xmlPickler = withNS ec2NS
+
+data ProductDescriptionSetItemType = ProductDescriptionSetItemType
+    { pdsitProductDescription :: !ByteString
+      -- ^ The description of the AMI.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ProductDescriptionSetItemType
+
+instance IsXML ProductDescriptionSetItemType where
+    xmlPickler = withNS ec2NS
+
+data PropagatingVgwType = PropagatingVgwType
+    { pvtGatewayID :: !ByteString
+      -- ^ The ID of the virtual private gateway (VGW).
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery PropagatingVgwType
+
+instance IsXML PropagatingVgwType where
+    xmlPickler = withNS ec2NS
+
+data RecurringChargesSetItemType = RecurringChargesSetItemType
+    { rcsitFrequency :: !ByteString
+      -- ^ The frequency of the recurring charge.
+    , rcsitAmount    :: !Double
+      -- ^ The amount of the recurring charge.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery RecurringChargesSetItemType
+
+instance IsXML RecurringChargesSetItemType where
+    xmlPickler = withNS ec2NS
+
+data RegionItemType = RegionItemType
+    { ritRegionName     :: !ByteString
+      -- ^ The name of the region.
+    , ritRegionEndpoint :: !ByteString
+      -- ^ The region service endpoint.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery RegionItemType
+
+instance IsXML RegionItemType where
+    xmlPickler = withNS ec2NS
+
+data ReservationInfoType = ReservationInfoType
+    { ritReservationId :: !ByteString
+      -- ^ The ID of the reservation.
+    , ritOwnerId       :: !ByteString
+      -- ^ The ID of the AWS account that owns the reservation.
+    , ritGroupSet      :: !GroupItemType
+      -- ^ A list of security groups. Each group is wrapped in an item
+      -- element.
+    , ritInstancesSet  :: !RunningInstancesItemType
+      -- ^ A list of instances. Each instance is wrapped in an item element.
+    , ritRequesterId   :: !ByteString
+      -- ^ The ID of the requester that launched the instances on your
+      -- behalf (for example, AWS Management Console or Auto Scaling).
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ReservationInfoType
+
+instance IsXML ReservationInfoType where
+    xmlPickler = withNS ec2NS
+
+data ReservedInstanceLimitPriceType = ReservedInstanceLimitPriceType
+    { rilptAmount       :: !Double
+      -- ^ Used for Reserved Instance Marketplace offerings. Specifies the
+      -- limit price on the total order (instanceCount * price).
+    , rilptCurrencyCode :: !Double
+      -- ^ Currency in which the limitPrice amount is specified. At this
+      -- time, the only supported currency is USD.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ReservedInstanceLimitPriceType
+
+instance IsXML ReservedInstanceLimitPriceType where
+    xmlPickler = withNS ec2NS
+
+data ResourceTagSetItemType = ResourceTagSetItemType
+    { rtsitKey   :: !ByteString
+      -- ^ The tag key.
+    , rtsitValue :: !ByteString
+      -- ^ The tag value.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery ResourceTagSetItemType
+
+instance IsXML ResourceTagSetItemType where
+    xmlPickler = withNS ec2NS
+
+data RouteTableAssociationType = RouteTableAssociationType
+    { rtatRouteTableAssociationId :: !ByteString
+      -- ^ An identifier representing the association between a route table
+      -- and a subnet.
+    , rtatRouteTableId            :: !ByteString
+      -- ^ The ID of the route table.
+    , rtatSubnetId                :: !ByteString
+      -- ^ The ID of the subnet.
+    , rtatMain                    :: !Bool
+      -- ^ Indicates whether this is the main route table.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery RouteTableAssociationType
+
+instance IsXML RouteTableAssociationType where
+    xmlPickler = withNS ec2NS
+
+data RouteTableType = RouteTableType
+    { rttRouteTableId      :: !ByteString
+      -- ^ The route table's ID.
+    , rttVpcId             :: !ByteString
+      -- ^ The ID of the VPC for the route table.
+    , rttRouteSet          :: !RouteType
+      -- ^ A list of routes in the route table. Each route is wrapped in an
+      -- item element.
+    , rttAssociationSet    :: !RouteTableAssociationType
+      -- ^ A list of associations between the route table and one or more
+      -- subnets. Each association is wrapped in an item element.
+    , rttPropagatingVgwSet :: !PropagatingVgwType
+      -- ^ The IDs of any virtual private gateways (VGW) propagating routes,
+      -- each route wrapped in an item element.
+    , rttTagSet            :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery RouteTableType
+
+instance IsXML RouteTableType where
+    xmlPickler = withNS ec2NS
+
+data RouteType = RouteType
+    { rtDestinationCidrBlock :: !ByteString
+      -- ^ The CIDR address block used for the destination match.
+    , rtGatewayId            :: !ByteString
+      -- ^ The ID of a gateway attached to your VPC.
+    , rtInstanceId           :: !ByteString
+      -- ^ The ID of a NAT instance in your VPC.
+    , rtInstanceOwnerId      :: !ByteString
+      -- ^ The owner of the instance.
+    , rtNetworkInterfaceId   :: !ByteString
+      -- ^ The network interface ID.
+    , rtState                :: !ByteString
+      -- ^ The state of the route. The blackhole state indicates that the
+      -- route's target isn't available (for example, the specified
+      -- gateway isn't attached to the VPC, or the specified NAT instance
+      -- has been terminated).
+    , rtOrigin               :: !ByteString
+      -- ^ Describes how the route was created.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery RouteType
+
+instance IsXML RouteType where
+    xmlPickler = withNS ec2NS
+
+data RunningInstancesItemType = RunningInstancesItemType
+    { riitInstanceId            :: !ByteString
+      -- ^ The ID of the instance launched.
+    , riitImageId               :: !ByteString
+      -- ^ The ID of the AMI used to launch the instance.
+    , riitInstanceState         :: !InstanceStateType
+      -- ^ The current state of the instance.
+    , riitPrivateDnsName        :: !ByteString
+      -- ^ The private DNS name assigned to the instance. This DNS name can
+      -- only be used inside the Amazon EC2 network. This element remains
+      -- empty until the instance enters the running state.
+    , riitDnsName               :: !ByteString
+      -- ^ The public DNS name assigned to the instance. This element
+      -- remains empty until the instance enters the running state.
+    , riitReason                :: !ByteString
+      -- ^ The reason for the most recent state transition. This might be an
+      -- empty string.
+    , riitKeyName               :: !ByteString
+      -- ^ The key pair name, if this instance was launched with an
+      -- associated key pair.
+    , riitAmiLaunchIndex        :: !ByteString
+      -- ^ The AMI launch index, which can be used to find this instance in
+      -- the launch group.
+    , riitProductCodes          :: !ProductCodesSetItemType
+      -- ^ The product codes attached to this instance. Each product code is
+      -- wrapped in an item element.
+    , riitInstanceType          :: !ByteString
+      -- ^ The instance type.
+    , riitLaunchTime            :: !UTCTime
+      -- ^ The time the instance was launched.
+    , riitPlacement             :: !PlacementResponseType
+      -- ^ The location where the instance launched.
+    , riitKernelId              :: !ByteString
+      -- ^ The kernel associated with this instance.
+    , riitRamdiskId             :: !ByteString
+      -- ^ The RAM disk associated with this instance.
+    , riitPlatform              :: !ByteString
+      -- ^ The value is Windows for Windows AMIs; otherwise blank.
+    , riitMonitoring            :: !InstanceMonitoringStateType
+      -- ^ The monitoring information for the instance.
+    , riitSubnetId              :: !ByteString
+      -- ^ The ID of the subnet in which the instance is running.
+    , riitVpcId                 :: !ByteString
+      -- ^ The ID of the VPC in which the instance is running.
+    , riitPrivateIpAddress      :: !ByteString
+      -- ^ The private IP address assigned to the instance.
+    , riitIpAddress             :: !ByteString
+      -- ^ The IP address of the instance.
+    , riitSourceDestCheck       :: !Bool
+      -- ^ Specifies whether to enable an instance launched in a VPC to
+      -- perform NAT. This controls whether source/destination checking is
+      -- enabled on the instance. A value of true means checking is
+      -- enabled, and false means checking is disabled. The value must be
+      -- false for the instance to perform NAT. For more information, go
+      -- to NAT Instances in the Amazon Virtual Private Cloud User Guide.
+    , riitGroupSet              :: !GroupItemType
+      -- ^ A list of the security groups for the instance. Each group is
+      -- wrapped in an item element.
+    , riitStateReason           :: !StateReasonType
+      -- ^ The reason for the most recent state transition. See
+      -- StateReasonType for a listing of supported state change codes.
+    , riitArchitecture          :: !ByteString
+      -- ^ The architecture of the image.
+    , riitRootDeviceType        :: !ByteString
+      -- ^ The root device type used by the AMI. The AMI can use an Amazon
+      -- EBS or instance store root device.
+    , riitRootDeviceName        :: !ByteString
+      -- ^ The root device name (for example, /dev/sda1).
+    , riitBlockDeviceMapping    :: !InstanceBlockDeviceMappingResponseItemType
+      -- ^ Any block device mapping entries for the instance, each one
+      -- wrapped in an item element.
+    , riitInstanceLifecycle     :: !ByteString
+      -- ^ Indicates whether this is a Spot Instance.
+    , riitSpotInstanceRequestId :: !ByteString
+      -- ^ The ID of the Spot Instance request.
+    , riitVirtualizationType    :: !ByteString
+      -- ^ The instance's virtualization type.
+    , riitClientToken           :: !ByteString
+      -- ^ The idempotency token you provided when you launched the
+      -- instance.
+    , riitTagSet                :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    , riitHypervisor            :: !ByteString
+      -- ^ The instance's hypervisor type.
+    , riitNetworkInterfaceSet   :: !InstanceNetworkInterfaceSetItemType
+      -- ^ The network interfaces for the instance.
+    , riitIamInstanceProfile    :: !IamInstanceProfileResponseType
+      -- ^ The IAM Instance Profile (IIP) associated with the instance.
+    , riitEbsOptimized          :: !Bool
+      -- ^ Indicates whether the instance is optimized for EBS I/O. This
+      -- optimization provides dedicated throughput to Amazon EBS and an
+      -- optimized configuration stack to provide optimal I/O performance.
+      -- This optimization isn't available with all instance types.
+      -- Additional usage charges apply when using an EBS Optimized
+      -- instance.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery RunningInstancesItemType
+
+instance IsXML RunningInstancesItemType where
+    xmlPickler = withNS ec2NS
+
+data SecurityGroupIdSetItemType = SecurityGroupIdSetItemType
+    { sgisitGroupId :: !ByteString
+      -- ^ The ID of the security group associated with the network
+      -- interface.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery SecurityGroupIdSetItemType
+
+instance IsXML SecurityGroupIdSetItemType where
+    xmlPickler = withNS ec2NS
+
+data SecurityGroupItemType = SecurityGroupItemType
+    { sgitOwnerId             :: !ByteString
+      -- ^ The AWS account ID of the owner of the security group.
+    , sgitGroupId             :: !ByteString
+      -- ^ The ID of the security group.
+    , sgitGroupName           :: !ByteString
+      -- ^ The name of the security group.
+    , sgitGroupDescription    :: !ByteString
+      -- ^ A description of the security group.
+    , sgitVpcId               :: !ByteString
+      -- ^ [EC2-VPC] The ID of the VPC for the security group.
+    , sgitIpPermissions       :: !IpPermissionType
+      -- ^ A list of inbound rules associated with the security group. Each
+      -- permission is wrapped in an item element.
+    , sgitIpPermissionsEgress :: !IpPermissionType
+      -- ^ [EC2-VPC] A list of outbound rules associated with the security
+      -- group. Each permission is wrapped in an item element.
+    , sgitTagSet              :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery SecurityGroupItemType
+
+instance IsXML SecurityGroupItemType where
+    xmlPickler = withNS ec2NS
+
+data SpotDatafeedSubscriptionType = SpotDatafeedSubscriptionType
+    { sdstOwnerId :: !ByteString
+      -- ^ The AWS account ID of the account.
+    , sdstBucket  :: !ByteString
+      -- ^ The Amazon S3 bucket where the Spot Instance datafeed is located.
+    , sdstPrefix  :: !ByteString
+      -- ^ The prefix that is prepended to datafeed files.
+    , sdstState   :: !ByteString
+      -- ^ The state of the Spot Instance datafeed subscription.
+    , sdstFault   :: !SpotInstanceStateFaultType
+      -- ^ The fault codes for the Spot Instance request, if any.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery SpotDatafeedSubscriptionType
+
+instance IsXML SpotDatafeedSubscriptionType where
+    xmlPickler = withNS ec2NS
+
+data SpotInstanceRequestSetItemType = SpotInstanceRequestSetItemType
+    { sirsitSpotInstanceRequestId    :: !ByteString
+      -- ^ The ID of the Spot Instance request.
+    , sirsitSpotPrice                :: !ByteString
+      -- ^ The maximum hourly price for any Spot Instance launched to
+      -- fulfill the request.
+    , sirsitType                     :: !ByteString
+      -- ^ The Spot Instance request type.
+    , sirsitState                    :: !ByteString
+      -- ^ The state of the Spot Instance request. Spot bid status
+      -- information can help you track your Spot Instance requests. For
+      -- information, see Tracking Spot Requests with Bid Status Codes in
+      -- the Amazon Elastic Compute Cloud User Guide.
+    , sirsitFault                    :: !SpotInstanceStateFaultType
+      -- ^ The fault codes for the Spot Instance request, if any.
+    , sirsitStatus                   :: !SpotInstanceStatusMessageType
+      -- ^ The status code and status message describing the Spot Instance
+      -- request.
+    , sirsitValidFrom                :: !UTCTime
+      -- ^ The start date of the request. If this is a one-time request, the
+      -- request becomes active at this date and time and remains active
+      -- until all instances launch, the request expires, or the request
+      -- is canceled. If the request is persistent, the request becomes
+      -- active at this date and time and remains active until it expires
+      -- or is canceled.
+    , sirsitValidUntil               :: !UTCTime
+      -- ^ The end date of the request. If this is a one-time request, the
+      -- request remains active until all instances launch, the request is
+      -- canceled, or this date is reached. If the request is persistent,
+      -- it remains active until it is canceled or this date is reached.
+    , sirsitLaunchGroup              :: !ByteString
+      -- ^ The instance launch group. Launch groups are Spot Instances that
+      -- launch together and terminate together.
+    , sirsitAvailabilityZoneGroup    :: !ByteString
+      -- ^ The Availability Zone group. If you specify the same Availability
+      -- Zone group for all Spot Instance requests, all Spot Instances are
+      -- launched in the same Availability Zone.
+    , sirsitLaunchedAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone in which the bid is launched.
+    , sirsitLaunchSpecification      :: !LaunchSpecificationResponseType
+      -- ^ Additional information for launching instances.
+    , sirsitInstanceId               :: !ByteString
+      -- ^ The instance ID, if an instance has been launched to fulfill the
+      -- Spot Instance request.
+    , sirsitCreateTime               :: !UTCTime
+      -- ^ The time stamp when the Spot Instance request was created.
+    , sirsitProductDescription       :: !ByteString
+      -- ^ The product description associated with the Spot Instance.
+    , sirsitTagSet                   :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery SpotInstanceRequestSetItemType
+
+instance IsXML SpotInstanceRequestSetItemType where
+    xmlPickler = withNS ec2NS
+
+data SpotInstanceStateFaultType = SpotInstanceStateFaultType
+    { sisftCode    :: !ByteString
+      -- ^ The reason code for the Spot Instance state change.
+    , sisftMessage :: !ByteString
+      -- ^ The message for the Spot Instance state change.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery SpotInstanceStateFaultType
+
+instance IsXML SpotInstanceStateFaultType where
+    xmlPickler = withNS ec2NS
+
+data SpotInstanceStatusMessageType = SpotInstanceStatusMessageType
+    { sismtCode       :: !ByteString
+      -- ^ The status code of the request.
+    , sismtUpdateTime :: !UTCTime
+      -- ^ The time of the most recent status update.
+    , sismtMessage    :: !ByteString
+      -- ^ The description for the status code for the Spot request.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery SpotInstanceStatusMessageType
+
+instance IsXML SpotInstanceStatusMessageType where
+    xmlPickler = withNS ec2NS
+
+data SpotPriceHistorySetItemType = SpotPriceHistorySetItemType
+    { sphsitInstanceType       :: !ByteString
+      -- ^ The instance type.
+    , sphsitProductDescription :: !ByteString
+      -- ^ A general description of the AMI.
+    , sphsitSpotPrice          :: !ByteString
+      -- ^ The maximum price you will pay to launch one or more Spot
+      -- Instances.
+    , sphsitTimestamp          :: !UTCTime
+      -- ^ The date and time the request was created.
+    , sphsitAvailabilityZone   :: !ByteString
+      -- ^ The Availability Zone.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery SpotPriceHistorySetItemType
+
+instance IsXML SpotPriceHistorySetItemType where
+    xmlPickler = withNS ec2NS
+
+data StateReasonType = StateReasonType
+    { srtCode    :: !ByteString
+      -- ^ The reason code for the state change.
+    , srtMessage :: !ByteString
+      -- ^ The message for the state change.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery StateReasonType
+
+instance IsXML StateReasonType where
+    xmlPickler = withNS ec2NS
+
+data SubnetType = SubnetType
+    { stSubnetId                :: !ByteString
+      -- ^ The ID of the subnet.
+    , stState                   :: !ByteString
+      -- ^ The current state of the subnet.
+    , stVpcId                   :: !ByteString
+      -- ^ The ID of the VPC the subnet is in.
+    , stCidrBlock               :: !ByteString
+      -- ^ The CIDR block assigned to the subnet.
+    , stAvailableIpAddressCount :: !Integer
+      -- ^ The number of unused IP addresses in the subnet (the IP addresses
+      -- for any stopped instances are considered unavailable).
+    , stAvailabilityZone        :: !ByteString
+      -- ^ The Availability Zone of the subnet.
+    , stDefaultForAz            :: !Bool
+      -- ^ Indicates whether this is the default subnet for the Availability
+      -- Zone.
+    , stMapPublicIpOnLaunch     :: !Bool
+      -- ^ Indicates whether instances launched in this subnet receive a
+      -- public IP address.
+    , stTagSet                  :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery SubnetType
+
+instance IsXML SubnetType where
+    xmlPickler = withNS ec2NS
+
+data TagSetItemType = TagSetItemType
+    { tsitResourceId   :: !ByteString
+      -- ^ The ID of the resource. For example, ami-1a2b3c4d.
+    , tsitResourceType :: !ByteString
+      -- ^ The type of resource.
+    , tsitKey          :: !ByteString
+      -- ^ The key of the tag.
+    , tsitValue        :: !ByteString
+      -- ^ The value of the tag.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery TagSetItemType
+
+instance IsXML TagSetItemType where
+    xmlPickler = withNS ec2NS
+
+data UserDataType = UserDataType
+    { udtData :: !ByteString
+      -- ^ The Base64-encoded MIME user data made available to the
+      -- instance(s) in the reservation.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery UserDataType
+
+instance IsXML UserDataType where
+    xmlPickler = withNS ec2NS
+
+data UserIdGroupPairType = UserIdGroupPairType
+    { uigptUserId    :: !ByteString
+      -- ^ The ID of an AWS account. Cannot be used when specifying a CIDR
+      -- IP address range.
+    , uigptGroupId   :: !ByteString
+      -- ^ The ID of the security group in the specified AWS account. Cannot
+      -- be used when specifying a CIDR IP address range.
+    , uigptGroupName :: !ByteString
+      -- ^ The name of the security group in the specified AWS account.
+      -- Cannot be used when specifying a CIDR IP address range.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery UserIdGroupPairType
+
+instance IsXML UserIdGroupPairType where
+    xmlPickler = withNS ec2NS
+
+data VolumeStatusItemType = VolumeStatusItemType
+    { vsitVolumeId         :: !ByteString
+      -- ^ The volume ID.
+    , vsitAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone of the volume.
+    , vsitVolumeStatus     :: !VolumeStatusInfoType
+      -- ^ The volume status. The status of each volume is wrapped in an
+      -- item element.
+    , vsitEventSet         :: !VolumeStatusEventItemType
+      -- ^ A list of events associated with the volume. Each event is
+      -- wrapped in an item element.
+    , vsitActionSet        :: !VolumeStatusActionItemType
+      -- ^ The details of the action. Each action detail is wrapped in an
+      -- item element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VolumeStatusItemType
+
+instance IsXML VolumeStatusItemType where
+    xmlPickler = withNS ec2NS
+
+data VolumeStatusInfoType = VolumeStatusInfoType
+    { vsitStatus  :: !ByteString
+      -- ^ The status of the volume.
+    , vsitDetails :: !VolumeStatusDetailsItemType
+      -- ^ The details of the volume status. Each volume status detail is
+      -- wrapped in an item type.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VolumeStatusInfoType
+
+instance IsXML VolumeStatusInfoType where
+    xmlPickler = withNS ec2NS
+
+data VolumeStatusDetailsItemType = VolumeStatusDetailsItemType
+    { vsditName   :: !ByteString
+      -- ^ The name of the volume status.
+    , vsditStatus :: !ByteString
+      -- ^ The intended status of the volume status.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VolumeStatusDetailsItemType
+
+instance IsXML VolumeStatusDetailsItemType where
+    xmlPickler = withNS ec2NS
+
+data VolumeStatusEventItemType = VolumeStatusEventItemType
+    { vseitEventType   :: !ByteString
+      -- ^ The type of this event.
+    , vseitEventId     :: !ByteString
+      -- ^ The ID of this event.
+    , vseitDescription :: !ByteString
+      -- ^ A description of the event.
+    , vseitNotBefore   :: !UTCTime
+      -- ^ The earliest start time of the event.
+    , vseitNotAfter    :: !UTCTime
+      -- ^ The latest end time of the event.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VolumeStatusEventItemType
+
+instance IsXML VolumeStatusEventItemType where
+    xmlPickler = withNS ec2NS
+
+data VolumeStatusActionItemType = VolumeStatusActionItemType
+    { vsaitCode        :: !ByteString
+      -- ^ The code identifying the action, for example, enable-volume-io.
+    , vsaitEventType   :: !ByteString
+      -- ^ The event type associated with this action.
+    , vsaitEventId     :: !ByteString
+      -- ^ The ID of the event associated with this action.
+    , vsaitDescription :: !ByteString
+      -- ^ A description of the action.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VolumeStatusActionItemType
+
+instance IsXML VolumeStatusActionItemType where
+    xmlPickler = withNS ec2NS
+
+data VpcType = VpcType
+    { vtVpcId           :: !ByteString
+      -- ^ The ID of the VPC.
+    , vtState           :: !ByteString
+      -- ^ The current state of the VPC.
+    , vtCidrBlock       :: !ByteString
+      -- ^ The CIDR block for the VPC.
+    , vtDhcpOptionsId   :: !ByteString
+      -- ^ The ID of the set of DHCP options you've associated with the VPC
+      -- (or default if the default options are associated with the VPC).
+    , vtTagSet          :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    , vtInstanceTenancy :: !ByteString
+      -- ^ The allowed tenancy of instances launched into the VPC.
+    , vtIsDefault       :: !Bool
+      -- ^ Indicates whether the VPC is the default VPC.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VpcType
+
+instance IsXML VpcType where
+    xmlPickler = withNS ec2NS
+
+data VpnConnectionOptionsResponseType = VpnConnectionOptionsResponseType
+    { vcortStaticRoutesOnly :: !Bool
+      -- ^ Indicates whether the VPN connection uses static routes only.
+      -- Static routes must be used for devices that don't support BGP.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VpnConnectionOptionsResponseType
+
+instance IsXML VpnConnectionOptionsResponseType where
+    xmlPickler = withNS ec2NS
+
+data VpnConnectionType = VpnConnectionType
+    { vctVpnConnectionId              :: !ByteString
+      -- ^ The ID of the VPN connection.
+    , vctState                        :: !ByteString
+      -- ^ The current state of the VPN connection.
+    , vctCustomerGatewayConfiguration :: !ByteString
+      -- ^ The configuration information for the VPN connection's customer
+      -- gateway (in the native XML format). This element is always
+      -- present in the CreateVpnConnection response; however, it's
+      -- present in the DescribeVpnConnections response only if the VPN
+      -- connection is in the pending or available state.
+    , vctType                         :: !ByteString
+      -- ^ The type of VPN connection.
+    , vctCustomerGatewayId            :: !ByteString
+      -- ^ The ID of the customer gateway at your end of the VPN connection.
+    , vctVpnGatewayId                 :: !ByteString
+      -- ^ The ID of the virtual private gateway at the AWS side of the VPN
+      -- connection.
+    , vctTagSet                       :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    , vctVgwTelemetry                 :: !VpnTunnelTelemetryType
+      -- ^ The virtual private gateway. Each gateway is wrapped in an item
+      -- element.
+    , vctOptions                      :: !VpnConnectionOptionsResponseType
+      -- ^ The option set describing the VPN connection.
+    , vctRoutes                       :: !VpnStaticRouteType
+      -- ^ The set of static routes associated with a VPN connection.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VpnConnectionType
+
+instance IsXML VpnConnectionType where
+    xmlPickler = withNS ec2NS
+
+data VpnGatewayType = VpnGatewayType
+    { vgtVpnGatewayId     :: !ByteString
+      -- ^ The ID of the virtual private gateway.
+    , vgtState            :: !ByteString
+      -- ^ The current state of the virtual private gateway.
+    , vgtType             :: !ByteString
+      -- ^ The type of VPN connection the virtual private gateway supports.
+    , vgtAvailabilityZone :: !ByteString
+      -- ^ The Availability Zone where the virtual private gateway was
+      -- created.
+    , vgtAttachments      :: !AttachmentType
+      -- ^ Any VPCs attached to the virtual private gateway, each one
+      -- wrapped in an item element.
+    , vgtTagSet           :: !ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VpnGatewayType
+
+instance IsXML VpnGatewayType where
+    xmlPickler = withNS ec2NS
+
+data VpnStaticRouteType = VpnStaticRouteType
+    { vsrtDestinationCidrBlock :: !ByteString
+      -- ^ The CIDR block associated with the local subnet of the customer
+      -- data center.
+    , vsrtSource               :: !ByteString
+      -- ^ Indicates how the routes were provided.
+    , vsrtState                :: !ByteString
+      -- ^ The current state of the static route.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VpnStaticRouteType
+
+instance IsXML VpnStaticRouteType where
+    xmlPickler = withNS ec2NS
+
+data VpnTunnelTelemetryType = VpnTunnelTelemetryType
+    { vtttOutsideIpAddress   :: !ByteString
+      -- ^ The Internet-routable IP address of the virtual private gateway's
+      -- outside interface.
+    , vtttStatus             :: !ByteString
+      -- ^ The status of the VPN tunnel.
+    , vtttLastStatusChange   :: !UTCTime
+      -- ^ The date and time of the last change in status.
+    , vtttStatusMessage      :: !ByteString
+      -- ^ If an error occurs, a description of the error.
+    , vtttAcceptedRouteCount :: !Integer
+      -- ^ The number of accepted routes.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery VpnTunnelTelemetryType
+
+instance IsXML VpnTunnelTelemetryType where
+    xmlPickler = withNS ec2NS

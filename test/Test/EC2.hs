@@ -26,10 +26,10 @@ tests = (:[]) $ testVersion ec2Version
         , testProperty "AssociateAddress" (prop :: Rq AssociateAddress)
         , testProperty "AssociateDhcpOptions" (prop :: Rq AssociateDhcpOptions)
         , testProperty "AssociateRouteTable" (prop :: Rq AssociateRouteTable)
-        -- , testProperty "AttachInternetGateway" (prop :: Rq AttachInternetGateway)
-        -- , testProperty "AttachNetworkInterface" (prop :: Rq AttachNetworkInterface)
-        -- , testProperty "AttachVolume" (prop :: Rq AttachVolume)
-        -- , testProperty "AttachVpnGateway" (prop :: Rq AttachVpnGateway)
+        , testProperty "AttachInternetGateway" (prop :: Rq AttachInternetGateway)
+        , testProperty "AttachNetworkInterface" (prop :: Rq AttachNetworkInterface)
+        , testProperty "AttachVolume" (prop :: Rq AttachVolume)
+        , testProperty "AttachVpnGateway" (prop :: Rq AttachVpnGateway)
         -- , testProperty "AuthorizeSecurityGroupEgress" (prop :: Rq AuthorizeSecurityGroupEgress)
         -- , testProperty "AuthorizeSecurityGroupIngress" (prop :: Rq AuthorizeSecurityGroupIngress)
         -- , testProperty "BundleInstance" (prop :: Rq BundleInstance)
@@ -175,10 +175,10 @@ tests = (:[]) $ testVersion ec2Version
         , testProperty "AssociateAddressResponse" (prop :: Rs AssociateAddressResponse)
         , testProperty "AssociateDhcpOptionsResponse" (prop :: Rs AssociateDhcpOptionsResponse)
         , testProperty "AssociateRouteTableResponse" (prop :: Rs AssociateRouteTableResponse)
-        -- , testProperty "AttachInternetGatewayResponse" (prop :: Rs AttachInternetGatewayResponse)
-        -- , testProperty "AttachNetworkInterfaceResponse" (prop :: Rs AttachNetworkInterfaceResponse)
-        -- , testProperty "AttachVolumeResponse" (prop :: Rs AttachVolumeResponse)
-        -- , testProperty "AttachVpnGatewayResponse" (prop :: Rs AttachVpnGatewayResponse)
+        , testProperty "AttachInternetGatewayResponse" (prop :: Rs AttachInternetGatewayResponse)
+        , testProperty "AttachNetworkInterfaceResponse" (prop :: Rs AttachNetworkInterfaceResponse)
+        , testProperty "AttachVolumeResponse" (prop :: Rs AttachVolumeResponse)
+        , testProperty "AttachVpnGatewayResponse" (prop :: Rs AttachVpnGatewayResponse)
         -- , testProperty "AuthorizeSecurityGroupEgressResponse" (prop :: Rs AuthorizeSecurityGroupEgressResponse)
         -- , testProperty "AuthorizeSecurityGroupIngressResponse" (prop :: Rs AuthorizeSecurityGroupIngressResponse)
         -- , testProperty "BundleInstanceResponse" (prop :: Rs BundleInstanceResponse)
@@ -322,12 +322,16 @@ tests = (:[]) $ testVersion ec2Version
 instance ToJSON AddressDomain where
     toJSON = String . Text.pack . show
 
+instance ToJSON VolumeStatus where
+    toJSON = String . Text.pack . show
+
 $(deriveArbitrary
    [ ''AddressDomain
+   , ''VolumeStatus
    ])
 
 $(deriveDependency
-    [
+    [ ''Attachment
      --''AccountAttributeSetItemType
     -- , ''AccountAttributeValueSetItemType
     -- , ''AssignPrivateIpAddressesSetItemRequestType
@@ -465,14 +469,14 @@ $(deriveProperty "test/resources/EC2"
     , ''AssociateDhcpOptionsResponse
     , ''AssociateRouteTable
     , ''AssociateRouteTableResponse
-    -- , ''AttachInternetGateway
-    -- , ''AttachInternetGatewayResponse
-    -- , ''AttachNetworkInterface
-    -- , ''AttachNetworkInterfaceResponse
-    -- , ''AttachVolume
-    -- , ''AttachVolumeResponse
-    -- , ''AttachVpnGateway
-    -- , ''AttachVpnGatewayResponse
+    , ''AttachInternetGateway
+    , ''AttachInternetGatewayResponse
+    , ''AttachNetworkInterface
+    , ''AttachNetworkInterfaceResponse
+    , ''AttachVolume
+    , ''AttachVolumeResponse
+    , ''AttachVpnGateway
+    , ''AttachVpnGatewayResponse
     -- , ''AuthorizeSecurityGroupEgress
     -- , ''AuthorizeSecurityGroupEgressResponse
     -- , ''AuthorizeSecurityGroupIngress

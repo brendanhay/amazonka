@@ -58,6 +58,26 @@ instance IsQuery AddressDomain where
 instance IsXML AddressDomain where
     xmlPickler = xpContent xpPrim
 
+data VolumeStatus = Attaching | Attached | Detaching | Detached
+    deriving (Eq)
+
+instance Show VolumeStatus where
+    show Attaching = "attaching"
+    show Attached  = "attached"
+    show Detaching = "detaching"
+    show Detached  = "detached"
+
+instance Read VolumeStatus where
+    readPrec = readAssocList
+        [ ("attaching", Attaching)
+        , ("attached",  Attached)
+        , ("detaching", Detaching)
+        , ("detached",  Detached)
+        ]
+
+instance IsXML VolumeStatus where
+    xmlPickler = xpContent xpPrim
+
 -- data AccountAttributeSetItemType = AccountAttributeSetItemType
 --     { aasitAttributeName     :: !ByteString
 --       -- ^ The name of the attribute.
@@ -69,7 +89,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery AccountAttributeSetItemType
 
 -- instance IsXML AccountAttributeSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data AccountAttributeValueSetItemType = AccountAttributeValueSetItemType
 --     { aavsitAttributeValue :: !ByteString
@@ -79,7 +99,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery AccountAttributeValueSetItemType
 
 -- instance IsXML AccountAttributeValueSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PrivateIpAddress = PrivateIpAddress
 --     { piaPrivateIpAddress :: !ByteString
@@ -89,7 +109,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery AssignPrivateIpAddressesSetItemRequestType
 
 -- instance IsXML AssignPrivateIpAddressesSetItemRequestType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data AttachmentSetItemResponseType = AttachmentSetItemResponseType
 --     { asirtVolumeId            :: !ByteString
@@ -109,19 +129,17 @@ instance IsXML AddressDomain where
 -- instance IsQuery AttachmentSetItemResponseType
 
 -- instance IsXML AttachmentSetItemResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
--- data AttachmentType = AttachmentType
---     { atVpcId :: !ByteString
---       -- ^ The ID of the VPC.
---     , atState :: !ByteString
---       -- ^ The current state of the attachment.
---     } deriving (Eq, Show, Generic)
+data Attachment = Attachment
+    { atVpcId :: !ByteString
+      -- ^ The ID of the VPC.
+    , atState :: !ByteString
+      -- ^ The current state of the attachment.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AttachmentType
-
--- instance IsXML AttachmentType where
---     xmlPickler = withNS ec2NS
+instance IsXML Attachment where
+    xmlPickler = ec2XML
 
 -- data AvailabilityZoneItemType = AvailabilityZoneItemType
 --     { azitZoneName   :: !ByteString
@@ -138,7 +156,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery AvailabilityZoneItemType
 
 -- instance IsXML AvailabilityZoneItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data AvailabilityZoneMessageType = AvailabilityZoneMessageType
 --     { azmtMessage :: !ByteString
@@ -148,7 +166,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery AvailabilityZoneMessageType
 
 -- instance IsXML AvailabilityZoneMessageType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data BlockDeviceMappingItemType = BlockDeviceMappingItemType
 --     { bdmitDeviceName  :: !ByteString
@@ -166,7 +184,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery BlockDeviceMappingItemType
 
 -- instance IsXML BlockDeviceMappingItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data BundleInstanceS3StorageType = BundleInstanceS3StorageType
 --     { bisstAwsAccessKeyId        :: !ByteString
@@ -188,7 +206,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery BundleInstanceS3StorageType
 
 -- instance IsXML BundleInstanceS3StorageType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data BundleInstanceTaskStorageType = BundleInstanceTaskStorageType
 --     { bitstS3 :: !BundleInstanceS3StorageType
@@ -198,7 +216,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery BundleInstanceTaskStorageType
 
 -- instance IsXML BundleInstanceTaskStorageType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data BundleInstanceTaskErrorType = BundleInstanceTaskErrorType
 --     { bitetCode    :: !ByteString
@@ -210,7 +228,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery BundleInstanceTaskErrorType
 
 -- instance IsXML BundleInstanceTaskErrorType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data BundleInstanceTaskType = BundleInstanceTaskType
 --     { bittInstanceId :: !ByteString
@@ -234,7 +252,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery BundleInstanceTaskType
 
 -- instance IsXML BundleInstanceTaskType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data CancelSpotInstanceRequestsResponseSetItemType = CancelSpotInstanceRequestsResponseSetItemType
 --     { csirrsitSpotInstanceRequestId :: !ByteString
@@ -246,7 +264,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery CancelSpotInstanceRequestsResponseSetItemType
 
 -- instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ConversionTaskType = ConversionTaskType
 --     { cttConversionTaskId :: !ByteString
@@ -269,7 +287,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ConversionTaskType
 
 -- instance IsXML ConversionTaskType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data CreateVolumePermissionItemType = CreateVolumePermissionItemType
 --     { cvpitUserId :: !ByteString
@@ -282,7 +300,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery CreateVolumePermissionItemType
 
 -- instance IsXML CreateVolumePermissionItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data CustomerGatewayType = CustomerGatewayType
 --     { cgtCustomerGatewayId :: !ByteString
@@ -305,7 +323,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery CustomerGatewayType
 
 -- instance IsXML CustomerGatewayType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeAddressesResponseItemType = DescribeAddressesResponseItemType
 --     { daritPublicIp                :: !ByteString
@@ -330,7 +348,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeAddressesResponseItemType
 
 -- instance IsXML DescribeAddressesResponseItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeImagesResponseItemType = DescribeImagesResponseItemType
 --     { diritImageId            :: !ByteString
@@ -392,7 +410,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeImagesResponseItemType
 
 -- instance IsXML DescribeImagesResponseItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeKeyPairsResponseItemType = DescribeKeyPairsResponseItemType
 --     { dkpritKeyName        :: !ByteString
@@ -407,7 +425,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeKeyPairsResponseItemType
 
 -- instance IsXML DescribeKeyPairsResponseItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInstancesListingsResponseSetItemType
 --     { drilrsitReservedInstancesListingId :: !ByteString
@@ -437,7 +455,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeReservedInstancesListingsResponseSetItemType
 
 -- instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesListingSetItemType = DescribeReservedInstancesListingSetItemType
 --     { drilsitReservedInstancesListingId :: !ByteString
@@ -447,7 +465,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeReservedInstancesListingSetItemType
 
 -- instance IsXML DescribeReservedInstancesListingSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesOfferingsResponseSetItemType = DescribeReservedInstancesOfferingsResponseSetItemType
 --     { driorsitReservedInstancesOfferingId :: !ByteString
@@ -486,7 +504,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeReservedInstancesOfferingsResponseSetItemType
 
 -- instance IsXML DescribeReservedInstancesOfferingsResponseSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesOfferingsResponseType = DescribeReservedInstancesOfferingsResponseType
 --     { driortRequestId                     :: !ByteString
@@ -500,7 +518,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeReservedInstancesOfferingsResponseType
 
 -- instance IsXML DescribeReservedInstancesOfferingsResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesResponseSetItemType = DescribeReservedInstancesResponseSetItemType
 --     { drirsitReservedInstancesId :: !ByteString
@@ -541,7 +559,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeReservedInstancesResponseSetItemType
 
 -- instance IsXML DescribeReservedInstancesResponseSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesSetItemType = DescribeReservedInstancesSetItemType
 --     { drisitReservedInstancesId :: !ByteString
@@ -551,7 +569,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeReservedInstancesSetItemType
 
 -- instance IsXML DescribeReservedInstancesSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeSnapshotsSetItemResponseType = DescribeSnapshotsSetItemResponseType
 --     { dssirtSnapshotId  :: !ByteString
@@ -581,7 +599,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeSnapshotsSetItemResponseType
 
 -- instance IsXML DescribeSnapshotsSetItemResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DescribeVolumesSetItemResponseType = DescribeVolumesSetItemResponseType
 --     { dvsirtVolumeId         :: !ByteString
@@ -611,7 +629,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DescribeVolumesSetItemResponseType
 
 -- instance IsXML DescribeVolumesSetItemResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DhcpConfigurationItemType = DhcpConfigurationItemType
 --     { dcitKey      :: !ByteString
@@ -624,7 +642,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DhcpConfigurationItemType
 
 -- instance IsXML DhcpConfigurationItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DhcpOptionsType = DhcpOptionsType
 --     { dotDhcpOptionsId        :: !ByteString
@@ -640,7 +658,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DhcpOptionsType
 
 -- instance IsXML DhcpOptionsType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DhcpValueType = DhcpValueType
 --     { dvtValue :: !ByteString
@@ -650,7 +668,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DhcpValueType
 
 -- instance IsXML DhcpValueType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DiskImageDescriptionType = DiskImageDescriptionType
 --     { didtFormat            :: !ByteString
@@ -670,7 +688,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DiskImageDescriptionType
 
 -- instance IsXML DiskImageDescriptionType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data DiskImageVolumeDescriptionType = DiskImageVolumeDescriptionType
 --     { divdtSize :: !Integer
@@ -682,7 +700,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery DiskImageVolumeDescriptionType
 
 -- instance IsXML DiskImageVolumeDescriptionType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data EbsBlockDeviceType = EbsBlockDeviceType
 --     { ebdtSnapshotId          :: !ByteString
@@ -702,7 +720,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery EbsBlockDeviceType
 
 -- instance IsXML EbsBlockDeviceType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data EbsInstanceBlockDeviceMappingResponseType = EbsInstanceBlockDeviceMappingResponseType
 --     { eibdmrtVolumeId            :: !ByteString
@@ -718,7 +736,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery EbsInstanceBlockDeviceMappingResponseType
 
 -- instance IsXML EbsInstanceBlockDeviceMappingResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ExportToS3Task = ExportToS3Task
 --     { etstDiskImageFormat :: Maybe ByteString
@@ -730,7 +748,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ExportToS3Task
 
 -- instance IsXML ExportToS3Task where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ExportTaskResponseType = ExportTaskResponseType
 --     { etrtExportTaskId   :: !ByteString
@@ -750,7 +768,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ExportTaskResponseType
 
 -- instance IsXML ExportTaskResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ExportToS3TaskResponseType = ExportToS3TaskResponseType
 --     { etstrtDiskImageFormat :: !ByteString
@@ -768,7 +786,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ExportToS3TaskResponseType
 
 -- instance IsXML ExportToS3TaskResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data GroupItemType = GroupItemType
 --     { gitGroupId   :: !ByteString
@@ -780,7 +798,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery GroupItemType
 
 -- instance IsXML GroupItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data IamInstanceProfileRequestType = IamInstanceProfileRequestType
 --     { iiprtArn  :: !ByteString
@@ -792,7 +810,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery IamInstanceProfileRequestType
 
 -- instance IsXML IamInstanceProfileRequestType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data IamInstanceProfileResponseType = IamInstanceProfileResponseType
 --     { iipruArn :: !ByteString
@@ -804,7 +822,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery IamInstanceProfileResponseType
 
 -- instance IsXML IamInstanceProfileResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data IcmpType = IcmpType
 --     { itctCode :: !Integer
@@ -817,7 +835,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery IcmpTypeCodeType
 
 -- instance IsXML IcmpTypeCodeType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstancePlacement = InstancePlacement
 --     { ipAvailabilityZone :: !Maybe ByteString
@@ -827,7 +845,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstancePlacement
 
 -- instance IsXML InstancePlacement where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
 --     { iilsArchitecture                      :: !ByteString
@@ -856,7 +874,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ImportInstanceTaskDetailsType
 
 -- instance IsXML ImportInstanceTaskDetailsType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ImportInstanceVolumeDetailItemType = ImportInstanceVolumeDetailItemType
 --     { iivditBytesConverted   :: !Integer
@@ -879,7 +897,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ImportInstanceVolumeDetailItemType
 
 -- instance IsXML ImportInstanceVolumeDetailItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ImportVolumeTaskDetailsType = ImportVolumeTaskDetailsType
 --     { ivtdtBytesConverted   :: !Integer
@@ -898,7 +916,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ImportVolumeTaskDetailsType
 
 -- instance IsXML ImportVolumeTaskDetailsType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceBlockDeviceMappingItemType = InstanceBlockDeviceMappingItemType
 --     { ibdmitDeviceName  :: !ByteString
@@ -917,7 +935,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceBlockDeviceMappingItemType
 
 -- instance IsXML InstanceBlockDeviceMappingItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceBlockDeviceMappingResponseItemType = InstanceBlockDeviceMappingResponseItemType
 --     { ibdmritDeviceName :: !ByteString
@@ -931,7 +949,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceBlockDeviceMappingResponseItemType
 
 -- instance IsXML InstanceBlockDeviceMappingResponseItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceCountsSetItemType = InstanceCountsSetItemType
 --     { icsitState         :: !ByteString
@@ -944,7 +962,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceCountsSetItemType
 
 -- instance IsXML InstanceCountsSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceCountsSetType = InstanceCountsSetType
 --     { icstItem :: !InstanceCountsSetItemType
@@ -954,7 +972,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceCountsSetType
 
 -- instance IsXML InstanceCountsSetType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceEbsBlockDeviceType = InstanceEbsBlockDeviceType
 --     { iebdtDeleteOnTermination :: !Bool
@@ -966,7 +984,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceEbsBlockDeviceType
 
 -- instance IsXML InstanceEbsBlockDeviceType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceExportTaskResponseType = InstanceExportTaskResponseType
 --     { ietrtInstanceId        :: !ByteString
@@ -978,7 +996,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceExportTaskResponseType
 
 -- instance IsXML InstanceExportTaskResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceMonitoringStateType = InstanceMonitoringStateType
 --     { imstState :: !ByteString
@@ -993,7 +1011,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceMonitoringStateType
 
 -- instance IsXML InstanceMonitoringStateType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceNetworkInterfaceAssociationType = InstanceNetworkInterfaceAssociationType
 --     { iniatPublicIp      :: !ByteString
@@ -1008,7 +1026,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceNetworkInterfaceAssociationType
 
 -- instance IsXML InstanceNetworkInterfaceAssociationType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceNetworkInterfaceAttachmentType = InstanceNetworkInterfaceAttachmentType
 --     { iniatAttachmentID        :: !ByteString
@@ -1028,7 +1046,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceNetworkInterfaceAttachmentType
 
 -- instance IsXML InstanceNetworkInterfaceAttachmentType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceNetworkInterfaceSetItemRequestType = InstanceNetworkInterfaceSetItemRequestType
 --     { inisirtNetworkInterfaceId             :: !ByteString
@@ -1057,7 +1075,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceNetworkInterfaceSetItemRequestType
 
 -- instance IsXML InstanceNetworkInterfaceSetItemRequestType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
 --     { inisitNetworkInterfaceId    :: !ByteString
@@ -1095,7 +1113,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceNetworkInterfaceSetItemType
 
 -- instance IsXML InstanceNetworkInterfaceSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstancePrivateIpAddressesSetItemType = InstancePrivateIpAddressesSetItemType
 --     { ipiasitPrivateIpAddress :: !ByteString
@@ -1113,7 +1131,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstancePrivateIpAddressesSetItemType
 
 -- instance IsXML InstancePrivateIpAddressesSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceStateChangeType = InstanceStateChangeType
 --     { isctInstanceId    :: !ByteString
@@ -1127,7 +1145,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceStateChangeType
 
 -- instance IsXML InstanceStateChangeType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceStateType = InstanceStateType
 --     { istCode :: !Integer
@@ -1140,7 +1158,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceStateType
 
 -- instance IsXML InstanceStateType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceStatusDetailsSetType = InstanceStatusDetailsSetType
 --     { isdstName          :: !ByteString
@@ -1156,7 +1174,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceStatusDetailsSetType
 
 -- instance IsXML InstanceStatusDetailsSetType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceStatusEventsSetType = InstanceStatusEventsSetType
 --     { isestItem :: !InstanceStatusEventType
@@ -1166,7 +1184,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceStatusEventsSetType
 
 -- instance IsXML InstanceStatusEventsSetType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceStatusEventType = InstanceStatusEventType
 --     { isetCode        :: !ByteString
@@ -1182,7 +1200,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceStatusEventType
 
 -- instance IsXML InstanceStatusEventType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceStatusItemType = InstanceStatusItemType
 --     { isitInstanceId       :: !ByteString
@@ -1208,7 +1226,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceStatusItemType
 
 -- instance IsXML InstanceStatusItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceStatusSetType = InstanceStatusSetType
 --     { isstItem :: !InstanceStatusItemType
@@ -1218,7 +1236,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceStatusSetType
 
 -- instance IsXML InstanceStatusSetType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InstanceStatusType = InstanceStatusType
 --     { istStatus  :: !ByteString
@@ -1230,7 +1248,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InstanceStatusType
 
 -- instance IsXML InstanceStatusType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InternetGatewayAttachmentType = InternetGatewayAttachmentType
 --     { igatVpcId :: !ByteString
@@ -1242,7 +1260,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InternetGatewayAttachmentType
 
 -- instance IsXML InternetGatewayAttachmentType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data InternetGatewayType = InternetGatewayType
 --     { igtInternetGatewayId :: !ByteString
@@ -1258,7 +1276,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery InternetGatewayType
 
 -- instance IsXML InternetGatewayType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data IpPermissionType = IpPermissionType
 --     { iptIpProtocol :: !ByteString
@@ -1280,7 +1298,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery IpPermissionType
 
 -- instance IsXML IpPermissionType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data IpRangeItemType = IpRangeItemType
 --     { iritCidrIp :: !ByteString
@@ -1291,7 +1309,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery IpRangeItemType
 
 -- instance IsXML IpRangeItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data LaunchPermissionItemType = LaunchPermissionItemType
 --     { lpitGroup  :: !ByteString
@@ -1303,7 +1321,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery LaunchPermissionItemType
 
 -- instance IsXML LaunchPermissionItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data LaunchSpecificationRequestType = LaunchSpecificationRequestType
 --     { lsrtImageId             :: !ByteString
@@ -1350,7 +1368,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery LaunchSpecificationRequestType
 
 -- instance IsXML LaunchSpecificationRequestType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data LaunchSpecificationResponseType = LaunchSpecificationResponseType
 --     { lsruImageId             :: !ByteString
@@ -1394,7 +1412,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery LaunchSpecificationResponseType
 
 -- instance IsXML LaunchSpecificationResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data MonitoringInstanceType = MonitoringInstanceType
 --     { mitEnabled :: !Bool
@@ -1404,7 +1422,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery MonitoringInstanceType
 
 -- instance IsXML MonitoringInstanceType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data MonitorInstancesResponseSetItemType = MonitorInstancesResponseSetItemType
 --     { mirsitInstanceId :: !ByteString
@@ -1416,7 +1434,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery MonitorInstancesResponseSetItemType
 
 -- instance IsXML MonitorInstancesResponseSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data NetworkAclAssociationType = NetworkAclAssociationType
 --     { naatNetworkAclAssociationId :: !ByteString
@@ -1431,7 +1449,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery NetworkAclAssociationType
 
 -- instance IsXML NetworkAclAssociationType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data NetworkAclEntryType = NetworkAclEntryType
 --     { naetRuleNumber   :: !Integer
@@ -1456,7 +1474,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery NetworkAclEntryType
 
 -- instance IsXML NetworkAclEntryType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data NetworkAclType = NetworkAclType
 --     { natNetworkAclId   :: !ByteString
@@ -1479,7 +1497,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery NetworkAclType
 
 -- instance IsXML NetworkAclType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data NetworkInterfaceAssociationType = NetworkInterfaceAssociationType
 --     { niatPublicIp      :: !ByteString
@@ -1498,7 +1516,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery NetworkInterfaceAssociationType
 
 -- instance IsXML NetworkInterfaceAssociationType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
 --     { niatAttachmentID :: !ByteString
@@ -1510,7 +1528,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery NetworkInterfaceAttachmentType
 
 -- instance IsXML NetworkInterfaceAttachmentType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data NetworkInterfacePrivateIpAddressesSetItemType = NetworkInterfacePrivateIpAddressesSetItemType
 --     { nipiasitPrivateIpAddress :: !ByteString
@@ -1528,7 +1546,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery NetworkInterfacePrivateIpAddressesSetItemType
 
 -- instance IsXML NetworkInterfacePrivateIpAddressesSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data NetworkInterfaceType = NetworkInterfaceType
 --     { nitNetworkInterfaceId    :: !ByteString
@@ -1579,7 +1597,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery NetworkInterfaceType
 
 -- instance IsXML NetworkInterfaceType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PlacementGroupInfoType = PlacementGroupInfoType
 --     { pgitGroupName :: !ByteString
@@ -1593,7 +1611,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PlacementGroupInfoType
 
 -- instance IsXML PlacementGroupInfoType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PlacementRequestType = PlacementRequestType
 --     { prtAvailabilityZone :: !ByteString
@@ -1605,7 +1623,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PlacementRequestType
 
 -- instance IsXML PlacementRequestType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PlacementResponseType = PlacementResponseType
 --     { pruAvailabilityZone :: !ByteString
@@ -1622,7 +1640,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PlacementResponseType
 
 -- instance IsXML PlacementResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PortRangeType = PortRangeType
 --     { prtFrom :: !Integer
@@ -1634,7 +1652,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PortRangeType
 
 -- instance IsXML PortRangeType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PriceScheduleRequestSetItemType = PriceScheduleRequestSetItemType
 --     { psrsitTerm         :: !Integer
@@ -1651,7 +1669,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PriceScheduleRequestSetItemType
 
 -- instance IsXML PriceScheduleRequestSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PriceScheduleSetItemType = PriceScheduleSetItemType
 --     { pssitTerm         :: !Integer
@@ -1671,7 +1689,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PriceScheduleSetItemType
 
 -- instance IsXML PriceScheduleSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PriceScheduleSetType = PriceScheduleSetType
 --     { psstItem :: !PriceScheduleSetItemType
@@ -1681,7 +1699,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PriceScheduleSetType
 
 -- instance IsXML PriceScheduleSetType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PricingDetailsSetItemType = PricingDetailsSetItemType
 --     { pdsitPrice :: !Integer
@@ -1693,7 +1711,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PricingDetailsSetItemType
 
 -- instance IsXML PricingDetailsSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PrivateIpAddressesSetItemRequestType = PrivateIpAddressesSetItemRequestType
 --     { piasirtPrivateIpAddressesSet :: !AssignPrivateIpAddressesSetItemRequestType
@@ -1706,7 +1724,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PrivateIpAddressesSetItemRequestType
 
 -- instance IsXML PrivateIpAddressesSetItemRequestType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ProductCodeItemType = ProductCodeItemType
 --     { pcitProductCode :: !ByteString
@@ -1716,7 +1734,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ProductCodeItemType
 
 -- instance IsXML ProductCodeItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ProductCodesSetItemType = ProductCodesSetItemType
 --     { pcsitProductCode :: !ByteString
@@ -1728,7 +1746,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ProductCodesSetItemType
 
 -- instance IsXML ProductCodesSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ProductDescriptionSetItemType = ProductDescriptionSetItemType
 --     { pdsitProductDescription :: !ByteString
@@ -1738,7 +1756,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ProductDescriptionSetItemType
 
 -- instance IsXML ProductDescriptionSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data PropagatingVgwType = PropagatingVgwType
 --     { pvtGatewayID :: !ByteString
@@ -1748,7 +1766,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery PropagatingVgwType
 
 -- instance IsXML PropagatingVgwType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data RecurringChargesSetItemType = RecurringChargesSetItemType
 --     { rcsitFrequency :: !ByteString
@@ -1760,7 +1778,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery RecurringChargesSetItemType
 
 -- instance IsXML RecurringChargesSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data RegionItemType = RegionItemType
 --     { ritRegionName     :: !ByteString
@@ -1772,7 +1790,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery RegionItemType
 
 -- instance IsXML RegionItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ReservationInfoType = ReservationInfoType
 --     { ritReservationId :: !ByteString
@@ -1792,7 +1810,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ReservationInfoType
 
 -- instance IsXML ReservationInfoType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ReservedInstanceLimitPriceType = ReservedInstanceLimitPriceType
 --     { rilptAmount       :: !Double
@@ -1806,7 +1824,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ReservedInstanceLimitPriceType
 
 -- instance IsXML ReservedInstanceLimitPriceType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data ResourceTagSetItemType = ResourceTagSetItemType
 --     { rtsitKey   :: !ByteString
@@ -1818,7 +1836,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery ResourceTagSetItemType
 
 -- instance IsXML ResourceTagSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data RouteTableAssociationType = RouteTableAssociationType
 --     { rtatRouteTableAssociationId :: !ByteString
@@ -1835,7 +1853,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery RouteTableAssociationType
 
 -- instance IsXML RouteTableAssociationType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data RouteTableType = RouteTableType
 --     { rttRouteTableId      :: !ByteString
@@ -1859,7 +1877,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery RouteTableType
 
 -- instance IsXML RouteTableType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data RouteType = RouteType
 --     { rtDestinationCidrBlock :: !ByteString
@@ -1884,7 +1902,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery RouteType
 
 -- instance IsXML RouteType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data RunningInstancesItemType = RunningInstancesItemType
 --     { riitInstanceId            :: !ByteString
@@ -1987,7 +2005,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery RunningInstancesItemType
 
 -- instance IsXML RunningInstancesItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data SecurityGroupIdSetItemType = SecurityGroupIdSetItemType
 --     { sgisitGroupId :: !ByteString
@@ -1998,7 +2016,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery SecurityGroupIdSetItemType
 
 -- instance IsXML SecurityGroupIdSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data SecurityGroupItemType = SecurityGroupItemType
 --     { sgitOwnerId             :: !ByteString
@@ -2025,7 +2043,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery SecurityGroupItemType
 
 -- instance IsXML SecurityGroupItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data SpotDatafeedSubscriptionType = SpotDatafeedSubscriptionType
 --     { sdstOwnerId :: !ByteString
@@ -2043,7 +2061,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery SpotDatafeedSubscriptionType
 
 -- instance IsXML SpotDatafeedSubscriptionType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data SpotInstanceRequestSetItemType = SpotInstanceRequestSetItemType
 --     { sirsitSpotInstanceRequestId    :: !ByteString
@@ -2101,7 +2119,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery SpotInstanceRequestSetItemType
 
 -- instance IsXML SpotInstanceRequestSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data SpotInstanceStateFaultType = SpotInstanceStateFaultType
 --     { sisftCode    :: !ByteString
@@ -2113,7 +2131,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery SpotInstanceStateFaultType
 
 -- instance IsXML SpotInstanceStateFaultType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data SpotInstanceStatusMessageType = SpotInstanceStatusMessageType
 --     { sismtCode       :: !ByteString
@@ -2127,7 +2145,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery SpotInstanceStatusMessageType
 
 -- instance IsXML SpotInstanceStatusMessageType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data SpotPriceHistorySetItemType = SpotPriceHistorySetItemType
 --     { sphsitInstanceType       :: !ByteString
@@ -2146,7 +2164,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery SpotPriceHistorySetItemType
 
 -- instance IsXML SpotPriceHistorySetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data StateReasonType = StateReasonType
 --     { srtCode    :: !ByteString
@@ -2158,7 +2176,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery StateReasonType
 
 -- instance IsXML StateReasonType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data SubnetType = SubnetType
 --     { stSubnetId                :: !ByteString
@@ -2188,7 +2206,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery SubnetType
 
 -- instance IsXML SubnetType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data TagSetItemType = TagSetItemType
 --     { tsitResourceId   :: !ByteString
@@ -2204,7 +2222,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery TagSetItemType
 
 -- instance IsXML TagSetItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data UserDataType = UserDataType
 --     { udtData :: !ByteString
@@ -2215,7 +2233,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery UserDataType
 
 -- instance IsXML UserDataType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data UserIdGroupPairType = UserIdGroupPairType
 --     { uigptUserId    :: !ByteString
@@ -2232,7 +2250,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery UserIdGroupPairType
 
 -- instance IsXML UserIdGroupPairType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VolumeStatusItemType = VolumeStatusItemType
 --     { vsitVolumeId         :: !ByteString
@@ -2253,7 +2271,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VolumeStatusItemType
 
 -- instance IsXML VolumeStatusItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VolumeStatusInfoType = VolumeStatusInfoType
 --     { vsitStatus  :: !ByteString
@@ -2266,7 +2284,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VolumeStatusInfoType
 
 -- instance IsXML VolumeStatusInfoType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VolumeStatusDetailsItemType = VolumeStatusDetailsItemType
 --     { vsditName   :: !ByteString
@@ -2278,7 +2296,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VolumeStatusDetailsItemType
 
 -- instance IsXML VolumeStatusDetailsItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VolumeStatusEventItemType = VolumeStatusEventItemType
 --     { vseitEventType   :: !ByteString
@@ -2296,7 +2314,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VolumeStatusEventItemType
 
 -- instance IsXML VolumeStatusEventItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VolumeStatusActionItemType = VolumeStatusActionItemType
 --     { vsaitCode        :: !ByteString
@@ -2312,7 +2330,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VolumeStatusActionItemType
 
 -- instance IsXML VolumeStatusActionItemType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VpcType = VpcType
 --     { vtVpcId           :: !ByteString
@@ -2336,7 +2354,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VpcType
 
 -- instance IsXML VpcType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VpnConnectionOptions = VpnConnectionOptions
 --     { vcortStaticRoutesOnly :: !Bool
@@ -2347,7 +2365,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VpnConnectionOptionsResponseType
 
 -- instance IsXML VpnConnectionOptionsResponseType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VpnConnectionType = VpnConnectionType
 --     { vctVpnConnectionId              :: !ByteString
@@ -2382,7 +2400,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VpnConnectionType
 
 -- instance IsXML VpnConnectionType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VpnGatewayType = VpnGatewayType
 --     { vgtVpnGatewayId     :: !ByteString
@@ -2405,7 +2423,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VpnGatewayType
 
 -- instance IsXML VpnGatewayType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VpnStaticRouteType = VpnStaticRouteType
 --     { vsrtDestinationCidrBlock :: !ByteString
@@ -2420,7 +2438,7 @@ instance IsXML AddressDomain where
 -- instance IsQuery VpnStaticRouteType
 
 -- instance IsXML VpnStaticRouteType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML
 
 -- data VpnTunnelTelemetryType = VpnTunnelTelemetryType
 --     { vtttOutsideIpAddress   :: !ByteString
@@ -2439,4 +2457,4 @@ instance IsXML AddressDomain where
 -- instance IsQuery VpnTunnelTelemetryType
 
 -- instance IsXML VpnTunnelTelemetryType where
---     xmlPickler = withNS ec2NS
+--     xmlPickler = ec2XML

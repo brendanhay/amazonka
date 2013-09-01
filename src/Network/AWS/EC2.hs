@@ -19,15 +19,17 @@ module Network.AWS.EC2
    -- * EC2 API Version
      ec2Version
 
-   -- * Actions
+   -- * Allocate Actions
    -- ** AllocateAddress
    , AllocateAddress                            (..)
    , AllocateAddressResponse                    (..)
 
+   -- * Assign Actions
    -- ** AssignPrivateIpAddresses
    , AssignPrivateIpAddresses                   (..)
    , AssignPrivateIpAddressesResponse           (..)
 
+   -- * Associate Actions
    -- ** AssociateAddress
    , AssociateAddress                           (..)
    , AssociateAddressResponse                   (..)
@@ -40,22 +42,24 @@ module Network.AWS.EC2
    , AssociateRouteTable                        (..)
    , AssociateRouteTableResponse                (..)
 
-   -- -- ** AttachInternetGateway
-   -- , AttachInternetGateway                      (..)
-   -- , AttachInternetGatewayResponse              (..)
+   -- * Attach Actions
+   -- ** AttachInternetGateway
+   , AttachInternetGateway                      (..)
+   , AttachInternetGatewayResponse              (..)
 
-   -- -- ** AttachNetworkInterface
-   -- , AttachNetworkInterface                     (..)
-   -- , AttachNetworkInterfaceResponse             (..)
+   -- ** AttachNetworkInterface
+   , AttachNetworkInterface                     (..)
+   , AttachNetworkInterfaceResponse             (..)
 
-   -- -- ** AttachVolume
-   -- , AttachVolume                               (..)
-   -- , AttachVolumeResponse                       (..)
+   -- ** AttachVolume
+   , AttachVolume                               (..)
+   , AttachVolumeResponse                       (..)
 
-   -- -- ** AttachVpnGateway
-   -- , AttachVpnGateway                           (..)
-   -- , AttachVpnGatewayResponse                   (..)
+   -- ** AttachVpnGateway
+   , AttachVpnGateway                           (..)
+   , AttachVpnGatewayResponse                   (..)
 
+   -- -- * Authorize Actions
    -- -- ** AuthorizeSecurityGroupEgress
    -- , AuthorizeSecurityGroupEgress               (..)
    -- , AuthorizeSecurityGroupEgressResponse       (..)
@@ -835,146 +839,140 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse
 instance IsXML AssociateRouteTableResponse where
     xmlPickler = ec2XML
 
--- -- | Attaches an Internet gateway to a VPC, enabling connectivity between the
--- -- Internet and the VPC. For more information about your VPC and Internet
--- -- gateway, see the Amazon Virtual Private Cloud User Guide.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html>
+-- | Attaches an Internet gateway to a VPC, enabling connectivity between the
+-- Internet and the VPC.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html>
 
--- data AttachInternetGateway = AttachInternetGateway
---     { aigInternetGatewayId :: !ByteString
---       -- ^ The ID of the Internet gateway.
---     , aigVpcId             :: !ByteString
---       -- ^ The ID of the VPC.
---     } deriving (Eq, Show, Generic)
+data AttachInternetGateway = AttachInternetGateway
+    { aigInternetGatewayId :: !ByteString
+      -- ^ The ID of the Internet gateway.
+    , aigVpcId             :: !ByteString
+      -- ^ The ID of the VPC.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AttachInternetGateway
+instance IsQuery AttachInternetGateway
 
--- instance IsXML AttachInternetGateway where
---     xmlPickler = ec2XML
+instance IsXML AttachInternetGateway where
+    xmlPickler = ec2XML
 
--- instance AWSRequest EC2 AttachInternetGateway AttachInternetGatewayResponse where
---     request = req GET "AttachInternetGateway"
+instance AWSRequest EC2 AttachInternetGateway AttachInternetGatewayResponse where
+    request = req GET "AttachInternetGateway"
 
--- data AttachInternetGatewayResponse = AttachInternetGatewayResponse
---     { aigRequestId :: !ByteString
---       -- ^ The ID of the request.
---     , aigReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
+data AttachInternetGatewayResponse = AttachInternetGatewayResponse
+    { aigrRequestId :: !ByteString
+      -- ^ The ID of the request.
+    , aigrReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an error.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML AttachInternetGatewayResponse where
---     xmlPickler = ec2XML
+instance IsXML AttachInternetGatewayResponse where
+    xmlPickler = ec2XML
 
--- -- | Attaches a network interface to an instance.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html>
+-- | Attaches a network interface to an instance.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html>
 
--- data AttachNetworkInterface = AttachNetworkInterface
---     { aniNetworkInterfaceId :: !ByteString
---       -- ^ The ID of the network interface.
---     , aniInstanceId         :: !ByteString
---       -- ^ The ID of the instance.
---     , aniDeviceIndex        :: !Integer
---       -- ^ The index of the device for the network interface attachment.
---     } deriving (Eq, Show, Generic)
+data AttachNetworkInterface = AttachNetworkInterface
+    { aniNetworkInterfaceId :: !ByteString
+      -- ^ The ID of the network interface.
+    , aniInstanceId         :: !ByteString
+      -- ^ The ID of the instance.
+    , aniDeviceIndex        :: !Integer
+      -- ^ The index of the device for the network interface attachment.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AttachNetworkInterface
+instance IsQuery AttachNetworkInterface
 
--- instance IsXML AttachNetworkInterface where
---     xmlPickler = ec2XML
+instance IsXML AttachNetworkInterface where
+    xmlPickler = ec2XML
 
--- instance AWSRequest EC2 AttachNetworkInterface AttachNetworkInterfaceResponse where
---     request = req GET "AttachNetworkInterface"
+instance AWSRequest EC2 AttachNetworkInterface AttachNetworkInterfaceResponse where
+    request = req GET "AttachNetworkInterface"
 
--- data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
---     { aniRequestId    :: !ByteString
---       -- ^ The ID of the attachment request.
---     , aniAttachmentId :: !ByteString
---       -- ^ The ID of the network interface attachment.
---     } deriving (Eq, Show, Generic)
+data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
+    { anirRequestId    :: !ByteString
+      -- ^ The ID of the attachment request.
+    , anirAttachmentId :: !ByteString
+      -- ^ The ID of the network interface attachment.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML AttachNetworkInterfaceResponse where
---     xmlPickler = ec2XML
+instance IsXML AttachNetworkInterfaceResponse where
+    xmlPickler = ec2XML
 
--- -- | Attaches an Amazon EBS volume to a running or stopped instance and exposes
--- -- it to the instance with the specified device name.For a list of supported
--- -- device names, see Attaching the Volume to an Instance. Any device names
--- -- that aren't reserved for instance store volumes can be used for Amazon EBS
--- -- volumes.For an overview of the AWS Marketplace,
--- -- see https://aws.amazon.com/marketplace/help/200900000. For details on how
--- -- to use the AWS Marketplace, see AWS Marketplace.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html>
+-- | Attaches an Amazon EBS volume to a running or stopped instance and exposes
+-- it to the instance with the specified device name.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html>
 
--- data AttachVolume = AttachVolume
---     { avVolumeId   :: !ByteString
---       -- ^ The ID of the Amazon EBS volume. The volume and instance must be
---       -- within the same Availability Zone.
---     , avInstanceId :: !ByteString
---       -- ^ The ID of the instance.
---     , avDevice     :: !ByteString
---       -- ^ The device name to expose to the instance (for example, /dev/sdh
---       -- or xvdh).
---     } deriving (Eq, Show, Generic)
+data AttachVolume = AttachVolume
+    { avVolumeId   :: !ByteString
+      -- ^ The ID of the Amazon EBS volume. The volume and instance must be
+      -- within the same Availability Zone.
+    , avInstanceId :: !ByteString
+      -- ^ The ID of the instance.
+    , avDevice     :: !ByteString
+      -- ^ The device name to expose to the instance (for example, /dev/sdh
+      -- or xvdh).
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AttachVolume
+instance IsQuery AttachVolume
 
--- instance IsXML AttachVolume where
---     xmlPickler = ec2XML
+instance IsXML AttachVolume where
+    xmlPickler = ec2XML
 
--- instance AWSRequest EC2 AttachVolume AttachVolumeResponse where
---     request = req GET "AttachVolume"
+instance AWSRequest EC2 AttachVolume AttachVolumeResponse where
+    request = req GET "AttachVolume"
 
--- data AttachVolumeResponse = AttachVolumeResponse
---     { avRequestId  :: !ByteString
---       -- ^ The ID of the request.
---     , awVolumeId   :: !ByteString
---       -- ^ The ID of the volume.
---     , awInstanceId :: !ByteString
---       -- ^ The ID of the instance.
---     , awDevice     :: !ByteString
---       -- ^ The device name.
---     , awStatus     :: !ByteString
---       -- ^ The attachment state of the volume.
---     , awAttachTime :: !UTCTime
---       -- ^ The time stamp when the attachment initiated.
---     } deriving (Eq, Show, Generic)
+data AttachVolumeResponse = AttachVolumeResponse
+    { avrRequestId  :: !ByteString
+      -- ^ The ID of the request.
+    , avrVolumeId   :: !ByteString
+      -- ^ The ID of the volume.
+    , avrInstanceId :: !ByteString
+      -- ^ The ID of the instance.
+    , avrDevice     :: !ByteString
+      -- ^ The device name.
+    , avrStatus     :: !VolumeStatus
+      -- ^ The attachment state of the volume.
+    , avrAttachTime :: !UTCTime
+      -- ^ The time stamp when the attachment initiated.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML AttachVolumeResponse where
---     xmlPickler = ec2XML
+instance IsXML AttachVolumeResponse where
+    xmlPickler = ec2XML
 
--- -- | Attaches a virtual private gateway to a VPC.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVpnGateway.html>
+-- | Attaches a virtual private gateway to a VPC.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVpnGateway.html>
 
--- data AttachVpnGateway = AttachVpnGateway
---     { avgVpnGatewayId :: !ByteString
---       -- ^ The ID of the virtual private gateway.
---     , avgVpcId        :: !ByteString
---       -- ^ The ID of the VPC.
---     } deriving (Eq, Show, Generic)
+data AttachVpnGateway = AttachVpnGateway
+    { avgVpnGatewayId :: !ByteString
+      -- ^ The ID of the virtual private gateway.
+    , avgVpcId        :: !ByteString
+      -- ^ The ID of the VPC.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AttachVpnGateway
+instance IsQuery AttachVpnGateway
 
--- instance IsXML AttachVpnGateway where
---     xmlPickler = ec2XML
+instance IsXML AttachVpnGateway where
+    xmlPickler = ec2XML
 
--- instance AWSRequest EC2 AttachVpnGateway AttachVpnGatewayResponse where
---     request = req GET "AttachVpnGateway"
+instance AWSRequest EC2 AttachVpnGateway AttachVpnGatewayResponse where
+    request = req GET "AttachVpnGateway"
 
--- data AttachVpnGatewayResponse = AttachVpnGatewayResponse
---     { avgRequestId  :: !ByteString
---       -- ^ The ID of the request.
---     , avgAttachment :: !AttachmentType
---       -- ^ Information about the attachment.
---     } deriving (Eq, Show, Generic)
+data AttachVpnGatewayResponse = AttachVpnGatewayResponse
+    { avgrRequestId  :: !ByteString
+      -- ^ The ID of the request.
+    , avgrAttachment :: !Attachment
+      -- ^ Information about the attachment.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML AttachVpnGatewayResponse where
---     xmlPickler = ec2XML
+instance IsXML AttachVpnGatewayResponse where
+    xmlPickler = ec2XML
 
 -- -- | Adds one or more egress rules to a security group for use with a VPC.
+-- --
 -- -- Specifically, this action permits instances to send traffic to one or more
 -- -- destination CIDR IP address ranges, or to one or more destination security
 -- -- groups for the same VPC.A security group is for use with instances either

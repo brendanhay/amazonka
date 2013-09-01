@@ -1,0 +1,5 @@
+GET /
+Action=AttachNetworkInterface
+DeviceIndex={{aniDeviceIndex}}
+InstanceId={{aniInstanceId}}
+NetworkInterfaceId={{aniNetworkInterfaceId}}

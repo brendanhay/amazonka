@@ -1,2 +1,12 @@
 GET /
 Action=BundleInstance
+InstanceId={{biInstanceId}}
+{{#biStorage}}
+{{#bitsS3}}
+Storage.S3.AwsAccessKeyId={{bissAwsAccessKeyId}}
+Storage.S3.Bucket={{bissBucket}}
+Storage.S3.Prefix={{bissPrefix}}
+Storage.S3.UploadPolicy={{bissUploadPolicy}}
+Storage.S3.UploadPolicySignature={{bissUploadPolicySignature}}
+{{/bitsS3}}
+{{/biStorage}}

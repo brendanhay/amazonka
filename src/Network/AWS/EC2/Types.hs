@@ -228,12 +228,46 @@ data BundleInstanceTaskError = BundleInstanceTaskError
 instance IsXML BundleInstanceTaskError where
     xmlPickler = ec2XML
 
+data BundleInstanceState
+    = Pending
+    | WaitingForShutdown --waiting-for-shutdown
+    | Bundling
+    | Storing
+    | Cancelling
+    | Complete
+    | Failed
+      deriving (Eq)
+
+instance Show BundleInstanceState where
+    show st = case st of
+        Pending            -> "pending"
+        WaitingForShutdown -> "waiting-for-shutdown"
+        Bundling           -> "bundling"
+        Storing            -> "storing"
+        Cancelling         -> "cancelling"
+        Complete           -> "complete"
+        Failed             -> "failed"
+
+instance Read BundleInstanceState where
+    readPrec = readAssocList
+        [ ("pending",              Pending)
+        , ("waiting-for-shutdown", WaitingForShutdown)
+        , ("bundling",             Bundling)
+        , ("storing",              Storing)
+        , ("cancelling",           Cancelling)
+        , ("complete",             Complete)
+        , ("failed",               Failed)
+        ]
+
+instance IsXML BundleInstanceState where
+    xmlPickler = xpContent xpPrim
+
 data BundleInstanceTask = BundleInstanceTask
     { bitInstanceId :: !ByteString
       -- ^ The ID of the instance associated with this bundle task.
     , bitBundleId   :: !ByteString
       -- ^ The ID for this bundle task.
-    , bitState      :: !ByteString
+    , bitState      :: !BundleInstanceState
       -- ^ The state of the task.
     , bitStartTime  :: !UTCTime
       -- ^ The time this task started.
@@ -243,7 +277,7 @@ data BundleInstanceTask = BundleInstanceTask
       -- ^ The Amazon S3 storage locations.
     , bitProgress   :: !ByteString
       -- ^ The level of task completion, as a percent (for example, 20%).
-    , bitError      :: !BundleInstanceTaskError
+    , bitError      :: Maybe BundleInstanceTaskError
       -- ^ If the task fails, a description of the error.
     } deriving (Eq, Show, Generic)
 
@@ -1278,10 +1312,10 @@ data UserIdGroupPair = UserIdGroupPair
     { uigUserId    :: !ByteString
       -- ^ The ID of an AWS account. Cannot be used when specifying a CIDR
       -- IP address range.
-    , uigGroupId   :: !ByteString
+    , uigGroupId   :: Maybe ByteString
       -- ^ The ID of the security group in the specified AWS account.
       -- Cannot be used when specifying a CIDR IP address range.
-    , uigGroupName :: !ByteString
+    , uigGroupName :: Maybe ByteString
       -- ^ The name of the security group in the specified AWS account.
       -- Cannot be used when specifying a CIDR IP address range.
     } deriving (Eq, Show, Generic)

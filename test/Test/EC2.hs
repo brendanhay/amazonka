@@ -325,9 +325,13 @@ instance ToJSON AddressDomain where
 instance ToJSON VolumeStatus where
     toJSON = String . Text.pack . show
 
+instance ToJSON BundleInstanceState where
+    toJSON = String . Text.pack . show
+
 $(deriveArbitrary
    [ ''AddressDomain
    , ''VolumeStatus
+   , ''BundleInstanceState
    ])
 
 $(deriveDependency

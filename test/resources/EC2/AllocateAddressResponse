@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AllocateAddressResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
+<AllocateAddressResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>{{aarRequestId}}</requestId>
+  <publicIp>{{aarPublicIp}}</publicIp>
+  <domain>{{aarDomain}}</domain>
+  {{#aarAllocationId}}
+  <allocationId>{{aarAllocationId}}</allocationId>
+  {{/aarAllocationId}}
 </AllocateAddressResponse>

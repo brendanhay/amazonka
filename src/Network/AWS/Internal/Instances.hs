@@ -25,6 +25,9 @@ import           Network.HTTP.QueryString.Pickle
 import           System.Locale                   (defaultTimeLocale)
 import           Text.XML.Expat.Pickle.Generic
 
+instance IsQuery a => IsQuery [a] where
+    queryPickler = qpOrdinalList queryPickler
+
 newtype Members a = Members { members :: [a] }
     deriving (Eq, Show, Generic)
 

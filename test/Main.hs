@@ -12,16 +12,17 @@
 module Main (main) where
 
 import           Test.Framework
-import qualified Test.AutoScaling as AutoScaling
+-- import qualified Test.AutoScaling as AutoScaling
 import qualified Test.EC2         as EC2
-import qualified Test.Route53     as Route53
+-- import qualified Test.Route53     as Route53
 -- import qualified Test.Signing     as Signing
 
 main :: IO ()
 main = defaultMain
-    [ testGroup "AutoScaling" AutoScaling.tests
-    , testGroup "Route53"     Route53.tests
-    -- , testGroup "EC2"         EC2.tests
+    [
+    -- testGroup "AutoScaling" AutoScaling.tests
+    -- , testGroup "Route53"     Route53.tests
+    testGroup "EC2"         EC2.tests
     -- , testGroup "IAM"         IAM.tests
     -- , testGroup "CloudWatch"  CloudWatch.tests
     -- , testGroup "OpsWorks"    OpsWorks.tests

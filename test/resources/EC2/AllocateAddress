@@ -1,2 +1,5 @@
 GET /
 Action=AllocateAddress
+{{#aaDomain}}
+Domain={{aaDomain}}
+{{/aaDomain}}

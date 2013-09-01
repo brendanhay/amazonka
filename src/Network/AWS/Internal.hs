@@ -33,6 +33,7 @@ module Network.AWS.Internal
     , withNS'
     , withRootNS
     , withRootNS'
+    , xmlOptions
     ) where
 
 import Data.ByteString                 (ByteString)

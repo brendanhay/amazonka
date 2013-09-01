@@ -29,13 +29,13 @@ library
         Network.AWS
         Network.AWS.Internal
 
-      , Network.AWS.AutoScaling
-      , Network.AWS.CloudWatch
+--      , Network.AWS.AutoScaling
+--      , Network.AWS.CloudWatch
       , Network.AWS.EC2
       , Network.AWS.EC2.Metadata
-      , Network.AWS.ELB
-      , Network.AWS.IAM
-      , Network.AWS.Route53
+--      , Network.AWS.ELB
+--      , Network.AWS.IAM
+--      , Network.AWS.Route53
 
     other-modules:
         Network.AWS.Internal.Instances
@@ -43,12 +43,12 @@ library
       , Network.AWS.Internal.String
       , Network.AWS.Internal.Types
 
-      , Network.AWS.AutoScaling.Types
-      , Network.AWS.CloudWatch.Types
+      -- , Network.AWS.AutoScaling.Types
+      -- , Network.AWS.CloudWatch.Types
       , Network.AWS.EC2.Types
-      , Network.AWS.ELB.Types
-      , Network.AWS.IAM.Types
-      , Network.AWS.Route53.Types
+      -- , Network.AWS.ELB.Types
+      -- , Network.AWS.IAM.Types
+      -- , Network.AWS.Route53.Types
 
     ghc-options:
         -Wall
@@ -76,7 +76,7 @@ library
       , transformers
       , unordered-containers
 
-test-suite aws-haskell-tests
+test-suite amazonka-tests
     default-language:  Haskell2010
     type:              exitcode-stdio-1.0
     hs-source-dirs:    test

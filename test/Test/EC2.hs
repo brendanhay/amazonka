@@ -30,9 +30,9 @@ tests = (:[]) $ testVersion ec2Version
         , testProperty "AttachNetworkInterface" (prop :: Rq AttachNetworkInterface)
         , testProperty "AttachVolume" (prop :: Rq AttachVolume)
         , testProperty "AttachVpnGateway" (prop :: Rq AttachVpnGateway)
-        -- , testProperty "AuthorizeSecurityGroupEgress" (prop :: Rq AuthorizeSecurityGroupEgress)
-        -- , testProperty "AuthorizeSecurityGroupIngress" (prop :: Rq AuthorizeSecurityGroupIngress)
-        -- , testProperty "BundleInstance" (prop :: Rq BundleInstance)
+        , testProperty "AuthorizeSecurityGroupEgress" (prop :: Rq AuthorizeSecurityGroupEgress)
+        , testProperty "AuthorizeSecurityGroupIngress" (prop :: Rq AuthorizeSecurityGroupIngress)
+        , testProperty "BundleInstance" (prop :: Rq BundleInstance)
         -- , testProperty "CancelBundleTask" (prop :: Rq CancelBundleTask)
         -- , testProperty "CancelConversionTask" (prop :: Rq CancelConversionTask)
         -- , testProperty "CancelExportTask" (prop :: Rq CancelExportTask)
@@ -179,9 +179,9 @@ tests = (:[]) $ testVersion ec2Version
         , testProperty "AttachNetworkInterfaceResponse" (prop :: Rs AttachNetworkInterfaceResponse)
         , testProperty "AttachVolumeResponse" (prop :: Rs AttachVolumeResponse)
         , testProperty "AttachVpnGatewayResponse" (prop :: Rs AttachVpnGatewayResponse)
-        -- , testProperty "AuthorizeSecurityGroupEgressResponse" (prop :: Rs AuthorizeSecurityGroupEgressResponse)
-        -- , testProperty "AuthorizeSecurityGroupIngressResponse" (prop :: Rs AuthorizeSecurityGroupIngressResponse)
-        -- , testProperty "BundleInstanceResponse" (prop :: Rs BundleInstanceResponse)
+        , testProperty "AuthorizeSecurityGroupEgressResponse" (prop :: Rs AuthorizeSecurityGroupEgressResponse)
+        , testProperty "AuthorizeSecurityGroupIngressResponse" (prop :: Rs AuthorizeSecurityGroupIngressResponse)
+        , testProperty "BundleInstanceResponse" (prop :: Rs BundleInstanceResponse)
         -- , testProperty "CancelBundleTaskResponse" (prop :: Rs CancelBundleTaskResponse)
         -- , testProperty "CancelConversionTaskResponse" (prop :: Rs CancelConversionTaskResponse)
         -- , testProperty "CancelExportTaskResponse" (prop :: Rs CancelExportTaskResponse)
@@ -332,130 +332,13 @@ $(deriveArbitrary
 
 $(deriveDependency
     [ ''Attachment
-     --''AccountAttributeSetItemType
-    -- , ''AccountAttributeValueSetItemType
-    -- , ''AssignPrivateIpAddressesSetItemRequestType
-    -- , ''AttachmentSetItemResponseType
-    -- , ''AttachmentType
-    -- , ''AvailabilityZoneItemType
-    -- , ''AvailabilityZoneMessageType
-    -- , ''BlockDeviceMappingItemType
-    -- , ''BundleInstanceS3StorageType
-    -- , ''BundleInstanceTaskErrorType
-    -- , ''BundleInstanceTaskStorageType
-    -- , ''BundleInstanceTaskType
-    -- , ''CancelSpotInstanceRequestsResponseSetItemType
-    -- , ''ConversionTaskType
-    -- , ''CreateVolumePermissionItemType
-    -- , ''CustomerGatewayType
-    -- , ''DescribeAddressesResponseItemType
-    -- , ''DescribeImagesResponseItemType
-    -- , ''DescribeKeyPairsResponseItemType
-    -- , ''DescribeReservedInstancesListingsResponseSetItemType
-    -- , ''DescribeReservedInstancesListingSetItemType
-    -- , ''DescribeReservedInstancesOfferingsResponseSetItemType
-    -- , ''DescribeReservedInstancesOfferingsResponseType
-    -- , ''DescribeReservedInstancesResponseSetItemType
-    -- , ''DescribeReservedInstancesSetItemType
-    -- , ''DescribeSnapshotsSetItemResponseType
-    -- , ''DescribeVolumesSetItemResponseType
-    -- , ''DhcpConfigurationItemType
-    -- , ''DhcpOptionsType
-    -- , ''DhcpValueType
-    -- , ''DiskImageDescriptionType
-    -- , ''DiskImageVolumeDescriptionType
-    -- , ''EbsBlockDeviceType
-    -- , ''EbsInstanceBlockDeviceMappingResponseType
-    -- , ''ExportTaskResponseType
-    -- , ''ExportToS3TaskResponseType
-    -- , ''GroupItemType
-    -- , ''IamInstanceProfileRequestType
-    -- , ''IamInstanceProfileResponseType
-    -- , ''IcmpTypeCodeType
-    -- , ''ImportInstanceTaskDetailsType
-    -- , ''ImportInstanceVolumeDetailItemType
-    -- , ''ImportVolumeTaskDetailsType
-    -- , ''InstanceBlockDeviceMappingItemType
-    -- , ''InstanceBlockDeviceMappingResponseItemType
-    -- , ''InstanceCountsSetItemType
-    -- , ''InstanceCountsSetType
-    -- , ''InstanceEbsBlockDeviceType
-    -- , ''InstanceExportTaskResponseType
-    -- , ''InstanceMonitoringStateType
-    -- , ''InstanceNetworkInterfaceAssociationType
-    -- , ''InstanceNetworkInterfaceAttachmentType
-    -- , ''InstanceNetworkInterfaceSetItemRequestType
-    -- , ''InstanceNetworkInterfaceSetItemType
-    -- , ''InstancePrivateIpAddressesSetItemType
-    -- , ''InstanceStateChangeType
-    -- , ''InstanceStateType
-    -- , ''InstanceStatusDetailsSetType
-    -- , ''InstanceStatusEventsSetType
-    -- , ''InstanceStatusEventType
-    -- , ''InstanceStatusItemType
-    -- , ''InstanceStatusSetType
-    -- , ''InstanceStatusType
-    -- , ''InternetGatewayAttachmentType
-    -- , ''InternetGatewayType
-    -- , ''IpPermissionType
-    -- , ''IpRangeItemType
-    -- , ''LaunchPermissionItemType
-    -- , ''LaunchSpecificationRequestType
-    -- , ''LaunchSpecificationResponseType
-    -- , ''MonitoringInstanceType
-    -- , ''MonitorInstancesResponseSetItemType
-    -- , ''NetworkAclAssociationType
-    -- , ''NetworkAclEntryType
-    -- , ''NetworkAclType
-    -- , ''NetworkInterfaceAssociationType
-    -- , ''NetworkInterfaceAttachmentType
-    -- , ''NetworkInterfacePrivateIpAddressesSetItemType
-    -- , ''NetworkInterfaceType
-    -- , ''PlacementGroupInfoType
-    -- , ''PlacementRequestType
-    -- , ''PlacementResponseType
-    -- , ''PortRangeType
-    -- , ''PriceScheduleRequestSetItemType
-    -- , ''PriceScheduleSetItemType
-    -- , ''PriceScheduleSetType
-    -- , ''PricingDetailsSetItemType
-    -- , ''PrivateIpAddressesSetItemRequestType
-    -- , ''ProductCodeItemType
-    -- , ''ProductCodesSetItemType
-    -- , ''ProductDescriptionSetItemType
-    -- , ''PropagatingVgwType
-    -- , ''RecurringChargesSetItemType
-    -- , ''RegionItemType
-    -- , ''ReservationInfoType
-    -- , ''ReservedInstanceLimitPriceType
-    -- , ''ResourceTagSetItemType
-    -- , ''RouteTableAssociationType
-    -- , ''RouteTableType
-    -- , ''RouteType
-    -- , ''RunningInstancesItemType
-    -- , ''SecurityGroupIdSetItemType
-    -- , ''SecurityGroupItemType
-    -- , ''SpotDatafeedSubscriptionType
-    -- , ''SpotInstanceRequestSetItemType
-    -- , ''SpotInstanceStateFaultType
-    -- , ''SpotInstanceStatusMessageType
-    -- , ''SpotPriceHistorySetItemType
-    -- , ''StateReasonType
-    -- , ''SubnetType
-    -- , ''TagSetItemType
-    -- , ''UserDataType
-    -- , ''UserIdGroupPairType
-    -- , ''VolumeStatusItemType
-    -- , ''VolumeStatusInfoType
-    -- , ''VolumeStatusDetailsItemType
-    -- , ''VolumeStatusEventItemType
-    -- , ''VolumeStatusActionItemType
-    -- , ''VpcType
-    -- , ''VpnConnectionOptionsResponseType
-    -- , ''VpnConnectionType
-    -- , ''VpnGatewayType
-    -- , ''VpnStaticRouteType
-    -- , ''VpnTunnelTelemetryType
+    , ''IpPermission
+    , ''IpRange
+    , ''UserIdGroupPair
+    , ''BundleInstanceS3Storage
+    , ''BundleInstanceTaskStorage
+    , ''BundleInstanceTaskError
+    , ''BundleInstanceTask
     ])
 
 $(deriveProperty "test/resources/EC2"
@@ -477,12 +360,12 @@ $(deriveProperty "test/resources/EC2"
     , ''AttachVolumeResponse
     , ''AttachVpnGateway
     , ''AttachVpnGatewayResponse
-    -- , ''AuthorizeSecurityGroupEgress
-    -- , ''AuthorizeSecurityGroupEgressResponse
-    -- , ''AuthorizeSecurityGroupIngress
-    -- , ''AuthorizeSecurityGroupIngressResponse
-    -- , ''BundleInstance
-    -- , ''BundleInstanceResponse
+    , ''AuthorizeSecurityGroupEgress
+    , ''AuthorizeSecurityGroupEgressResponse
+    , ''AuthorizeSecurityGroupIngress
+    , ''AuthorizeSecurityGroupIngressResponse
+    , ''BundleInstance
+    , ''BundleInstanceResponse
     -- , ''CancelBundleTask
     -- , ''CancelBundleTaskResponse
     -- , ''CancelConversionTask

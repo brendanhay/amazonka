@@ -19,17 +19,15 @@ module Network.AWS.EC2
    -- * EC2 API Version
      ec2Version
 
-   -- * Allocate Actions
+   -- * Actions
    -- ** AllocateAddress
    , AllocateAddress                            (..)
    , AllocateAddressResponse                    (..)
 
-   -- * Assign Actions
    -- ** AssignPrivateIpAddresses
    , AssignPrivateIpAddresses                   (..)
    , AssignPrivateIpAddressesResponse           (..)
 
-   -- * Associate Actions
    -- ** AssociateAddress
    , AssociateAddress                           (..)
    , AssociateAddressResponse                   (..)
@@ -42,7 +40,6 @@ module Network.AWS.EC2
    , AssociateRouteTable                        (..)
    , AssociateRouteTableResponse                (..)
 
-   -- * Attach Actions
    -- ** AttachInternetGateway
    , AttachInternetGateway                      (..)
    , AttachInternetGatewayResponse              (..)
@@ -59,18 +56,17 @@ module Network.AWS.EC2
    , AttachVpnGateway                           (..)
    , AttachVpnGatewayResponse                   (..)
 
-   -- -- * Authorize Actions
-   -- -- ** AuthorizeSecurityGroupEgress
-   -- , AuthorizeSecurityGroupEgress               (..)
-   -- , AuthorizeSecurityGroupEgressResponse       (..)
+   -- ** AuthorizeSecurityGroupEgress
+   , AuthorizeSecurityGroupEgress               (..)
+   , AuthorizeSecurityGroupEgressResponse       (..)
 
-   -- -- ** AuthorizeSecurityGroupIngress
-   -- , AuthorizeSecurityGroupIngress              (..)
-   -- , AuthorizeSecurityGroupIngressResponse      (..)
+   -- ** AuthorizeSecurityGroupIngress
+   , AuthorizeSecurityGroupIngress              (..)
+   , AuthorizeSecurityGroupIngressResponse      (..)
 
-   -- -- ** BundleInstance
-   -- , BundleInstance                             (..)
-   -- , BundleInstanceResponse                     (..)
+   -- ** BundleInstance
+   , BundleInstance                             (..)
+   , BundleInstanceResponse                     (..)
 
    -- -- ** CancelBundleTask
    -- , CancelBundleTask                           (..)
@@ -638,7 +634,6 @@ req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
 -- the EC2-Classic platform or in a VPC.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html>
-
 data AllocateAddress = AllocateAddress
     { aaDomain :: Maybe AddressDomain
       -- ^ Set to vpc to allocate the address for use with instances in a
@@ -646,9 +641,6 @@ data AllocateAddress = AllocateAddress
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AllocateAddress
-
-instance IsXML AllocateAddress where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AllocateAddress AllocateAddressResponse where
     request = req GET "AllocateAddress"
@@ -680,7 +672,6 @@ instance IsXML AllocateAddressResponse where
 -- addresses that you can assign to an instance varies by instance type.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIpAddresses.html>
-
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     { apiaNetworkInterfaceId             :: !ByteString
       -- ^ The ID of the network interface.
@@ -697,9 +688,6 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AssignPrivateIpAddresses
-
-instance IsXML AssignPrivateIpAddresses where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AssignPrivateIpAddresses AssignPrivateIpAddressesResponse where
     request = req GET "AssignPrivateIpAddresses"
@@ -720,7 +708,6 @@ instance IsXML AssignPrivateIpAddressesResponse where
 -- | Associates an Elastic IP address with an instance or a network interface.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html>
-
 data AssociateAddress = AssociateAddress
     { abPublicIp           :: !ByteString
       -- ^ The Elastic IP address.
@@ -744,9 +731,6 @@ data AssociateAddress = AssociateAddress
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AssociateAddress
-
-instance IsXML AssociateAddress where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AssociateAddress AssociateAddressResponse where
     request = req GET "AssociateAddress"
@@ -775,7 +759,6 @@ instance IsXML AssociateAddressResponse where
 -- on the instance.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html>
-
 data AssociateDhcpOptions = AssociateDhcpOptions
     { adoDhcpOptionsId :: !ByteString
       -- ^ The ID of the DHCP options set, or default to associate no DHCP
@@ -785,9 +768,6 @@ data AssociateDhcpOptions = AssociateDhcpOptions
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AssociateDhcpOptions
-
-instance IsXML AssociateDhcpOptions where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AssociateDhcpOptions AssociateDhcpOptionsResponse where
     request = req GET "AssociateDhcpOptions"
@@ -813,7 +793,6 @@ instance IsXML AssociateDhcpOptionsResponse where
 -- multiple subnets.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html>
-
 data AssociateRouteTable = AssociateRouteTable
     { artRouteTableId :: !ByteString
       -- ^ The ID of the route table.
@@ -822,9 +801,6 @@ data AssociateRouteTable = AssociateRouteTable
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AssociateRouteTable
-
-instance IsXML AssociateRouteTable where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AssociateRouteTable AssociateRouteTableResponse where
     request = req GET "AssociateRouteTable"
@@ -843,7 +819,6 @@ instance IsXML AssociateRouteTableResponse where
 -- Internet and the VPC.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html>
-
 data AttachInternetGateway = AttachInternetGateway
     { aigInternetGatewayId :: !ByteString
       -- ^ The ID of the Internet gateway.
@@ -852,9 +827,6 @@ data AttachInternetGateway = AttachInternetGateway
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AttachInternetGateway
-
-instance IsXML AttachInternetGateway where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AttachInternetGateway AttachInternetGatewayResponse where
     request = req GET "AttachInternetGateway"
@@ -872,7 +844,6 @@ instance IsXML AttachInternetGatewayResponse where
 -- | Attaches a network interface to an instance.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html>
-
 data AttachNetworkInterface = AttachNetworkInterface
     { aniNetworkInterfaceId :: !ByteString
       -- ^ The ID of the network interface.
@@ -883,9 +854,6 @@ data AttachNetworkInterface = AttachNetworkInterface
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AttachNetworkInterface
-
-instance IsXML AttachNetworkInterface where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AttachNetworkInterface AttachNetworkInterfaceResponse where
     request = req GET "AttachNetworkInterface"
@@ -904,7 +872,6 @@ instance IsXML AttachNetworkInterfaceResponse where
 -- it to the instance with the specified device name.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html>
-
 data AttachVolume = AttachVolume
     { avVolumeId   :: !ByteString
       -- ^ The ID of the Amazon EBS volume. The volume and instance must be
@@ -917,9 +884,6 @@ data AttachVolume = AttachVolume
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AttachVolume
-
-instance IsXML AttachVolume where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AttachVolume AttachVolumeResponse where
     request = req GET "AttachVolume"
@@ -945,7 +909,6 @@ instance IsXML AttachVolumeResponse where
 -- | Attaches a virtual private gateway to a VPC.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVpnGateway.html>
-
 data AttachVpnGateway = AttachVpnGateway
     { avgVpnGatewayId :: !ByteString
       -- ^ The ID of the virtual private gateway.
@@ -954,9 +917,6 @@ data AttachVpnGateway = AttachVpnGateway
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AttachVpnGateway
-
-instance IsXML AttachVpnGateway where
-    xmlPickler = ec2XML
 
 instance AWSRequest EC2 AttachVpnGateway AttachVpnGatewayResponse where
     request = req GET "AttachVpnGateway"
@@ -971,128 +931,98 @@ data AttachVpnGatewayResponse = AttachVpnGatewayResponse
 instance IsXML AttachVpnGatewayResponse where
     xmlPickler = ec2XML
 
--- -- | Adds one or more egress rules to a security group for use with a VPC.
--- --
--- -- Specifically, this action permits instances to send traffic to one or more
--- -- destination CIDR IP address ranges, or to one or more destination security
--- -- groups for the same VPC.A security group is for use with instances either
--- -- in the EC2-Classic platform or in a specific VPC. This action doesn't apply
--- -- to security groups for use in EC2-Classic.Each rule consists of the protocol (for example, TCP), plus either a
--- -- CIDR range or a source group. For the TCP and UDP protocols, you must also
--- -- specify the destination port or port range. For the ICMP protocol, you must
--- -- also specify the ICMP type and code. You can use -1 for the type or code to
--- -- mean all types or all codes. Rule changes are propagated to affected
--- -- instances as quickly as possible. However, a small delay might occur.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html>
+-- | Adds one or more egress rules to a security group for use with a VPC.
+--
+-- Specifically, this action permits instances to send traffic to one or more
+-- destination CIDR IP address ranges, or to one or more destination security
+-- groups for the same VPC.
+--
+-- This action doesn't apply to security groups for use in EC2-Classic.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html>
+data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
+    { asgeGroupId       :: !ByteString
+      -- ^ The ID of the security group to modify.
+    , asgeIpPermissions :: [IpPermission]
+      -- ^ The IP protocol name or number (see Protocol Numbers).
+    } deriving (Eq, Show, Generic)
 
--- data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
---     { asgeGroupId       :: !ByteString
---       -- ^ The ID of the security group to modify.
---     , asgeIpPermissions :: Members IpPermissionType
---       -- ^ The IP protocol name or number (see Protocol Numbers).
---     } deriving (Eq, Show, Generic)
+instance IsQuery AuthorizeSecurityGroupEgress
 
--- instance IsQuery AuthorizeSecurityGroupEgress
+instance AWSRequest EC2 AuthorizeSecurityGroupEgress AuthorizeSecurityGroupEgressResponse where
+    request = req GET "AuthorizeSecurityGroupEgress"
 
--- instance IsXML AuthorizeSecurityGroupEgress where
---     xmlPickler = ec2XML
+data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
+    { asgerRequestId :: !ByteString
+      -- ^ The ID of the request.
+    , asgerReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an
+      -- error.
+    } deriving (Eq, Show, Generic)
 
--- instance AWSRequest EC2 AuthorizeSecurityGroupEgress AuthorizeSecurityGroupEgressResponse where
---     request = req GET "AuthorizeSecurityGroupEgress"
+instance IsXML AuthorizeSecurityGroupEgressResponse where
+    xmlPickler = ec2XML
 
--- data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
---     { asgeRequestId :: !ByteString
---       -- ^ The ID of the request.
---     , asgeReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
+-- | Adds one or more ingress rules to a security group.
+--
+-- Rule changes are propagated to instances within the security group as quickly as possible.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html>
+data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
+    { asgiGroupId       :: Maybe ByteString
+      -- ^ The ID of the security group to modify. The security group must
+      -- belong to your account.
+    , asgiGroupName     :: Maybe ByteString
+      -- ^ The name of the security group to modify.
+    , asgiIpPermissions :: [IpPermission]
+      -- ^ The IP protocol name or number (see Protocol Numbers). For
+      -- EC2-Classic, security groups can have rules only for TCP, UDP,
+      -- and ICMP. For EC2-VPC, security groups can have rules assigned to
+      -- any protocol number.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML AuthorizeSecurityGroupEgressResponse where
---     xmlPickler = ec2XML
+instance IsQuery AuthorizeSecurityGroupIngress
 
--- -- | Adds one or more ingress rules to a security group.Rule changes are
--- -- propagated to instances within the security group as quickly as possible.
--- -- However, a small delay might occur. A security group is for use with
--- -- instances either in the EC2-Classic platform or in a specific VPC. For more
--- -- information, see Amazon EC2 Security Groups in the Amazon Elastic Compute
--- -- Cloud User Guide and Security Groups for Your VPC in the Amazon Virtual
--- -- Private Cloud User Guide.[EC2-Classic] This action gives one or more CIDR
--- -- IP address ranges permission to access a security group in your account, or
--- -- gives one or more security groups (called the source groups) permission to
--- -- access a security group for your account. A source group can be for your
--- -- own AWS account, or another. [EC2-VPC] This action gives one or more CIDR
--- -- IP address ranges permission to access a security group in your VPC, or
--- -- gives one or more other security groups (called the source groups)
--- -- permission to access a security group for your VPC. The security groups
--- -- must all be for the same VPC.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html>
+instance AWSRequest EC2 AuthorizeSecurityGroupIngress AuthorizeSecurityGroupIngressResponse where
+    request = req GET "AuthorizeSecurityGroupIngress"
 
--- data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
---     { asgiUserId        :: Maybe ByteString
---       -- ^ Deprecated
---     , asgiGroupId       :: !ByteString
---       -- ^ The ID of the security group to modify. The security group must
---       -- belong to your account.
---     , asgiGroupName     :: !ByteString
---       -- ^ The name of the security group to modify.
---     , asgiIpPermissions :: Members IpPermissionType
---       -- ^ The IP protocol name or number (see Protocol Numbers). For
---       -- EC2-Classic, security groups can have rules only for TCP, UDP,
---       -- and ICMP. For EC2-VPC, security groups can have rules assigned to
---       -- any protocol number.
---     } deriving (Eq, Show, Generic)
+data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
+    { asgirRequestId :: !ByteString
+      -- ^ The ID of the request.
+    , asgirReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an
+      -- error.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AuthorizeSecurityGroupIngress
+instance IsXML AuthorizeSecurityGroupIngressResponse where
+    xmlPickler = ec2XML
 
--- instance IsXML AuthorizeSecurityGroupIngress where
---     xmlPickler = ec2XML
+-- | Bundles an Amazon instance store-backed Windows instance.During bundling,
+-- only the root device volume (C:\) is bundled. Data on other instance store
+-- volumes is not preserved.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html>
+data BundleInstance = BundleInstance
+    { biInstanceId :: !ByteString
+      -- ^ The ID of the instance to bundle.
+    , biStorage    :: !BundleInstanceTaskStorage
+      -- ^ Bundle storage instructions.
+    } deriving (Eq, Show, Generic)
 
--- instance AWSRequest EC2 AuthorizeSecurityGroupIngress AuthorizeSecurityGroupIngressResponse where
---     request = req GET "AuthorizeSecurityGroupIngress"
+instance IsQuery BundleInstance
 
--- data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
---     { asgiRequestId :: !ByteString
---       -- ^ The ID of the request.
---     , asgiReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
+instance AWSRequest EC2 BundleInstance BundleInstanceResponse where
+    request = req GET "BundleInstance"
 
--- instance IsXML AuthorizeSecurityGroupIngressResponse where
---     xmlPickler = ec2XML
+data BundleInstanceResponse = BundleInstanceResponse
+    { birRequestId          :: !ByteString
+      -- ^ The ID of the request.
+    , birBundleInstanceTask :: !BundleInstanceTask
+      -- ^ The bundle task.
+    } deriving (Eq, Show, Generic)
 
--- -- | Bundles an Amazon instance store-backed Windows instance.During bundling,
--- -- only the root device volume (C:\) is bundled. Data on other instance store
--- -- volumes is not preserved.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html>
-
--- data BundleInstance = BundleInstance
---     { biInstanceId :: !ByteString
---       -- ^ The ID of the instance to bundle.
---     , biStorage    :: !BundleInstanceTaskStorageType
---     } deriving (Eq, Show, Generic)
-
--- instance IsQuery BundleInstance
-
--- instance IsXML BundleInstance where
---     xmlPickler = ec2XML
-
--- instance AWSRequest EC2 BundleInstance BundleInstanceResponse where
---     request = req GET "BundleInstance"
-
--- data BundleInstanceResponse = BundleInstanceResponse
---     { biRequestId          :: !ByteString
---       -- ^ The ID of the request.
---     , biBundleInstanceTask :: !BundleInstanceTaskType
---       -- ^ The bundle task.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML BundleInstanceResponse where
---     xmlPickler = ec2XML
+instance IsXML BundleInstanceResponse where
+    xmlPickler = ec2XML
 
 -- -- | Cancels a bundling operation for an instance store-backed Windows instance.
 -- --

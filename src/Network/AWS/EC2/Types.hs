@@ -186,73 +186,69 @@ instance IsXML Attachment where
 -- instance IsXML BlockDeviceMappingItemType where
 --     xmlPickler = ec2XML
 
--- data BundleInstanceS3StorageType = BundleInstanceS3StorageType
---     { bisstAwsAccessKeyId        :: !ByteString
---       -- ^ The access key ID of the owner of the bucket.
---     , bisstBucket                :: !ByteString
---       -- ^ The bucket in which to store the AMI. You can specify a bucket
---       -- that you already own or a new bucket that Amazon EC2 creates on
---       -- your behalf. If you specify a bucket that belongs to someone
---       -- else, Amazon EC2 returns an error.
---     , bisstPrefix                :: !ByteString
---       -- ^ The beginning of the file name of the AMI.
---     , bisstUploadPolicy          :: !ByteString
---       -- ^ A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
---       -- permission to upload items into Amazon S3 on the user's behalf.
---     , bisstUploadPolicySignature :: !ByteString
---       -- ^ The signature of the Base64 encoded JSON document.
---     } deriving (Eq, Show, Generic)
+data BundleInstanceS3Storage = BundleInstanceS3Storage
+    { bissAwsAccessKeyId        :: !ByteString
+      -- ^ The access key ID of the owner of the bucket.
+    , bissBucket                :: !ByteString
+      -- ^ The bucket in which to store the AMI. You can specify a bucket
+      -- that you already own or a new bucket that Amazon EC2 creates on
+      -- your behalf. If you specify a bucket that belongs to someone
+      -- else, Amazon EC2 returns an error.
+    , bissPrefix                :: !ByteString
+      -- ^ The beginning of the file name of the AMI.
+    , bissUploadPolicy          :: !ByteString
+      -- ^ A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
+      -- permission to upload items into Amazon S3 on the user's behalf.
+    , bissUploadPolicySignature :: !ByteString
+      -- ^ The signature of the Base64 encoded JSON document.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery BundleInstanceS3StorageType
+instance IsQuery BundleInstanceS3Storage
 
--- instance IsXML BundleInstanceS3StorageType where
---     xmlPickler = ec2XML
+instance IsXML BundleInstanceS3Storage where
+    xmlPickler = ec2XML
 
--- data BundleInstanceTaskStorageType = BundleInstanceTaskStorageType
---     { bitstS3 :: !BundleInstanceS3StorageType
---       -- ^ An Amazon S3 storage location.
---     } deriving (Eq, Show, Generic)
+data BundleInstanceTaskStorage = BundleInstanceTaskStorage
+    { bitsS3 :: !BundleInstanceS3Storage
+      -- ^ An Amazon S3 storage location.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery BundleInstanceTaskStorageType
+instance IsQuery BundleInstanceTaskStorage
 
--- instance IsXML BundleInstanceTaskStorageType where
---     xmlPickler = ec2XML
+instance IsXML BundleInstanceTaskStorage where
+    xmlPickler = ec2XML
 
--- data BundleInstanceTaskErrorType = BundleInstanceTaskErrorType
---     { bitetCode    :: !ByteString
---       -- ^ The error code.
---     , bitetMessage :: !ByteString
---       -- ^ The error message.
---     } deriving (Eq, Show, Generic)
+data BundleInstanceTaskError = BundleInstanceTaskError
+    { biteCode    :: !ByteString
+      -- ^ The error code.
+    , biteMessage :: !ByteString
+      -- ^ The error message.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery BundleInstanceTaskErrorType
+instance IsXML BundleInstanceTaskError where
+    xmlPickler = ec2XML
 
--- instance IsXML BundleInstanceTaskErrorType where
---     xmlPickler = ec2XML
+data BundleInstanceTask = BundleInstanceTask
+    { bitInstanceId :: !ByteString
+      -- ^ The ID of the instance associated with this bundle task.
+    , bitBundleId   :: !ByteString
+      -- ^ The ID for this bundle task.
+    , bitState      :: !ByteString
+      -- ^ The state of the task.
+    , bitStartTime  :: !UTCTime
+      -- ^ The time this task started.
+    , bitUpdateTime :: !UTCTime
+      -- ^ The time of the most recent update for the task.
+    , bitStorage    :: !BundleInstanceTaskStorage
+      -- ^ The Amazon S3 storage locations.
+    , bitProgress   :: !ByteString
+      -- ^ The level of task completion, as a percent (for example, 20%).
+    , bitError      :: !BundleInstanceTaskError
+      -- ^ If the task fails, a description of the error.
+    } deriving (Eq, Show, Generic)
 
--- data BundleInstanceTaskType = BundleInstanceTaskType
---     { bittInstanceId :: !ByteString
---       -- ^ The ID of the instance associated with this bundle task.
---     , bittBundleId   :: !ByteString
---       -- ^ The ID for this bundle task.
---     , bittState      :: !ByteString
---       -- ^ The state of the task.
---     , bittStartTime  :: !UTCTime
---       -- ^ The time this task started.
---     , bittUpdateTime :: !UTCTime
---       -- ^ The time of the most recent update for the task.
---     , bittStorage    :: !BundleInstanceTaskStorageType
---       -- ^ The Amazon S3 storage locations.
---     , bittProgress   :: !ByteString
---       -- ^ The level of task completion, as a percent (for example, 20%).
---     , bittError      :: !BundleInstanceTaskErrorType
---       -- ^ If the task fails, a description of the error.
---     } deriving (Eq, Show, Generic)
-
--- instance IsQuery BundleInstanceTaskType
-
--- instance IsXML BundleInstanceTaskType where
---     xmlPickler = ec2XML
+instance IsXML BundleInstanceTask where
+    xmlPickler = ec2XML
 
 -- data CancelSpotInstanceRequestsResponseSetItemType = CancelSpotInstanceRequestsResponseSetItemType
 --     { csirrsitSpotInstanceRequestId :: !ByteString
@@ -1278,38 +1274,45 @@ instance IsXML Attachment where
 -- instance IsXML InternetGatewayType where
 --     xmlPickler = ec2XML
 
--- data IpPermissionType = IpPermissionType
---     { iptIpProtocol :: !ByteString
---       -- ^ The protocol.
---     , iptFromPort   :: !Integer
---       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
---       -- type number. A value of -1 indicates all ICMP types.
---     , iptToPort     :: !Integer
---       -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
---       -- code. A value of -1 indicates all ICMP codes for the given ICMP
---       -- type.
---     , iptGroups     :: !UserIdGroupPairType
---       -- ^ A list of security group and AWS account ID pairs. Each pair is
---       -- wrapped in an item element.
---     , iptIpRanges   :: !IpRangeItemType
---       -- ^ A list of IP ranges. Each range is wrapped in an item element.
---     } deriving (Eq, Show, Generic)
+data UserIdGroupPair = UserIdGroupPair
+    { uigUserId    :: !ByteString
+      -- ^ The ID of an AWS account. Cannot be used when specifying a CIDR
+      -- IP address range.
+    , uigGroupId   :: !ByteString
+      -- ^ The ID of the security group in the specified AWS account.
+      -- Cannot be used when specifying a CIDR IP address range.
+    , uigGroupName :: !ByteString
+      -- ^ The name of the security group in the specified AWS account.
+      -- Cannot be used when specifying a CIDR IP address range.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery IpPermissionType
+instance IsQuery UserIdGroupPair
 
--- instance IsXML IpPermissionType where
---     xmlPickler = ec2XML
+data IpPermission = IpPermission
+    { iptIpProtocol :: !ByteString
+      -- ^ The protocol.
+    , iptFromPort   :: !Integer
+      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
+      -- type number. A value of -1 indicates all ICMP types.
+    , iptToPort     :: !Integer
+      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
+      -- code. A value of -1 indicates all ICMP codes for the given ICMP
+      -- type.
+    , iptGroups     :: [UserIdGroupPair]
+      -- ^ A list of security group and AWS account ID pairs.
+    , iptIpRanges   :: [IpRange]
+      -- ^ A list of IP ranges.
+    } deriving (Eq, Show, Generic)
 
--- data IpRangeItemType = IpRangeItemType
---     { iritCidrIp :: !ByteString
---       -- ^ The CIDR range. You can either specify a CIDR range or a source
---       -- security group, not both.
---     } deriving (Eq, Show, Generic)
+instance IsQuery IpPermission
 
--- instance IsQuery IpRangeItemType
+data IpRange = IpRange
+    { irCidrIp :: !ByteString
+      -- ^ The CIDR range. You can either specify a CIDR range or a source
+      -- security group, not both.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML IpRangeItemType where
---     xmlPickler = ec2XML
+instance IsQuery IpRange
 
 -- data LaunchPermissionItemType = LaunchPermissionItemType
 --     { lpitGroup  :: !ByteString
@@ -2233,23 +2236,6 @@ instance IsXML Attachment where
 -- instance IsQuery UserDataType
 
 -- instance IsXML UserDataType where
---     xmlPickler = ec2XML
-
--- data UserIdGroupPairType = UserIdGroupPairType
---     { uigptUserId    :: !ByteString
---       -- ^ The ID of an AWS account. Cannot be used when specifying a CIDR
---       -- IP address range.
---     , uigptGroupId   :: !ByteString
---       -- ^ The ID of the security group in the specified AWS account. Cannot
---       -- be used when specifying a CIDR IP address range.
---     , uigptGroupName :: !ByteString
---       -- ^ The name of the security group in the specified AWS account.
---       -- Cannot be used when specifying a CIDR IP address range.
---     } deriving (Eq, Show, Generic)
-
--- instance IsQuery UserIdGroupPairType
-
--- instance IsXML UserIdGroupPairType where
 --     xmlPickler = ec2XML
 
 -- data VolumeStatusItemType = VolumeStatusItemType

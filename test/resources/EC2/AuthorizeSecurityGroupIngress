@@ -1,0 +1,14 @@
+GET /
+Action=AuthorizeSecurityGroupIngress
+{{#asgiGroupId}}
+GroupId={{asgiGroupId}}
+{{/asgiGroupId}}
+{{#asgiGroupName}}
+GroupName={{asgiGroupName}}
+{{/asgiGroupName}}
+{{#asgiIpPermissions}}
+IpPermissions.{{n}}.IpProtocol=tcp
+IpPermissions.{{n}}.FromPort=22
+IpPermissions.{{n}}.ToPort=22
+IpPermissions.{{n}}.IpRanges.1.CidrIp=your-local-system's-public-ip-address/32
+{{/asgiIpPermissions}}

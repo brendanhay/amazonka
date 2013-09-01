@@ -23,9 +23,9 @@ tests = (:[]) $ testVersion ec2Version
     [ testGroup "Requests"
         [ testProperty "AllocateAddress" (prop :: Rq AllocateAddress)
         , testProperty "AssignPrivateIpAddresses" (prop :: Rq AssignPrivateIpAddresses)
-        -- , testProperty "AssociateAddress" (prop :: Rq AssociateAddress)
-        -- , testProperty "AssociateDhcpOptions" (prop :: Rq AssociateDhcpOptions)
-        -- , testProperty "AssociateRouteTable" (prop :: Rq AssociateRouteTable)
+        , testProperty "AssociateAddress" (prop :: Rq AssociateAddress)
+        , testProperty "AssociateDhcpOptions" (prop :: Rq AssociateDhcpOptions)
+        , testProperty "AssociateRouteTable" (prop :: Rq AssociateRouteTable)
         -- , testProperty "AttachInternetGateway" (prop :: Rq AttachInternetGateway)
         -- , testProperty "AttachNetworkInterface" (prop :: Rq AttachNetworkInterface)
         -- , testProperty "AttachVolume" (prop :: Rq AttachVolume)
@@ -172,9 +172,9 @@ tests = (:[]) $ testVersion ec2Version
     , testGroup "Responses"
         [ testProperty "AllocateAddressResponse" (prop :: Rs AllocateAddressResponse)
         , testProperty "AssignPrivateIpAddressesResponse" (prop :: Rs AssignPrivateIpAddressesResponse)
-        -- , testProperty "AssociateAddressResponse" (prop :: Rs AssociateAddressResponse)
-        -- , testProperty "AssociateDhcpOptionsResponse" (prop :: Rs AssociateDhcpOptionsResponse)
-        -- , testProperty "AssociateRouteTableResponse" (prop :: Rs AssociateRouteTableResponse)
+        , testProperty "AssociateAddressResponse" (prop :: Rs AssociateAddressResponse)
+        , testProperty "AssociateDhcpOptionsResponse" (prop :: Rs AssociateDhcpOptionsResponse)
+        , testProperty "AssociateRouteTableResponse" (prop :: Rs AssociateRouteTableResponse)
         -- , testProperty "AttachInternetGatewayResponse" (prop :: Rs AttachInternetGatewayResponse)
         -- , testProperty "AttachNetworkInterfaceResponse" (prop :: Rs AttachNetworkInterfaceResponse)
         -- , testProperty "AttachVolumeResponse" (prop :: Rs AttachVolumeResponse)
@@ -459,12 +459,12 @@ $(deriveProperty "test/resources/EC2"
     , ''AllocateAddressResponse
     , ''AssignPrivateIpAddresses
     , ''AssignPrivateIpAddressesResponse
-    -- , ''AssociateAddress
-    -- , ''AssociateAddressResponse
-    -- , ''AssociateDhcpOptions
-    -- , ''AssociateDhcpOptionsResponse
-    -- , ''AssociateRouteTable
-    -- , ''AssociateRouteTableResponse
+    , ''AssociateAddress
+    , ''AssociateAddressResponse
+    , ''AssociateDhcpOptions
+    , ''AssociateDhcpOptionsResponse
+    , ''AssociateRouteTable
+    , ''AssociateRouteTableResponse
     -- , ''AttachInternetGateway
     -- , ''AttachInternetGatewayResponse
     -- , ''AttachNetworkInterface

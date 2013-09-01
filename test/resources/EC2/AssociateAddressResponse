@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssociateAddressResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>{{abrRequestId}}</requestId>
+  <return>{{abrReturn}}</return>
+  {{#abrAssociationId}}
+  <associationId>{{abrAssociationId}}</associationId>
+  {{/abrAssociationId}}
+</AssociateAddressResponse>

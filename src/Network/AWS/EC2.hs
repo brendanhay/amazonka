@@ -28,17 +28,17 @@ module Network.AWS.EC2
    , AssignPrivateIpAddresses                   (..)
    , AssignPrivateIpAddressesResponse           (..)
 
-   -- -- ** AssociateAddress
-   -- , AssociateAddress                           (..)
-   -- , AssociateAddressResponse                   (..)
+   -- ** AssociateAddress
+   , AssociateAddress                           (..)
+   , AssociateAddressResponse                   (..)
 
-   -- -- ** AssociateDhcpOptions
-   -- , AssociateDhcpOptions                       (..)
-   -- , AssociateDhcpOptionsResponse               (..)
+   -- ** AssociateDhcpOptions
+   , AssociateDhcpOptions                       (..)
+   , AssociateDhcpOptionsResponse               (..)
 
-   -- -- ** AssociateRouteTable
-   -- , AssociateRouteTable                        (..)
-   -- , AssociateRouteTableResponse                (..)
+   -- ** AssociateRouteTable
+   , AssociateRouteTable                        (..)
+   , AssociateRouteTableResponse                (..)
 
    -- -- ** AttachInternetGateway
    -- , AttachInternetGateway                      (..)
@@ -713,127 +713,127 @@ instance IsXML AssignPrivateIpAddressesResponse where
         { root = Just $ mkNName ec2NS "AssignPrivateIpAddresses"
         }
 
--- -- | Associates an Elastic IP address with an instance or a network interface.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html>
+-- | Associates an Elastic IP address with an instance or a network interface.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html>
 
--- data AssociateAddress = AssociateAddress
---     { abPublicIp           :: !ByteString
---       -- ^ The Elastic IP address.
---     , abInstanceId         :: !ByteString
---       -- ^ The ID of the instance. The operation fails if you specify an
---       -- instance ID unless exactly one network interface is attached.
---     , acAllocationId       :: !ByteString
---       -- ^ [EC2-VPC] The allocation ID.
---     , acNetworkInterfaceId :: !ByteString
---       -- ^ [EC2-VPC] The ID of the network interface.
---     , acPrivateIpAddress   :: Maybe ByteString
---       -- ^ [EC2-VPC] The primary or secondary private IP address to
---       -- associate with the Elastic IP address. If no private IP address
---       -- is specified, the Elastic IP address is associated with the
---       -- primary private IP address.
---     , acAllowReassociation :: Maybe Bool
---       -- ^ [EC2-VPC] Allows an Elastic IP address that is already associated
---       -- with an instance or network interface to be re-associated with
---       -- the specified instance or network interface. Otherwise, the
---       -- operation fails.
---     } deriving (Eq, Show, Generic)
+data AssociateAddress = AssociateAddress
+    { abPublicIp           :: !ByteString
+      -- ^ The Elastic IP address.
+    , abInstanceId         :: !ByteString
+      -- ^ The ID of the instance. The operation fails if you specify an
+      -- instance ID unless exactly one network interface is attached.
+    , abAllocationId       :: Maybe ByteString
+      -- ^ [EC2-VPC] The allocation ID.
+    , abNetworkInterfaceId :: Maybe ByteString
+      -- ^ [EC2-VPC] The ID of the network interface.
+    , abPrivateIpAddress   :: Maybe ByteString
+      -- ^ [EC2-VPC] The primary or secondary private IP address to
+      -- associate with the Elastic IP address. If no private IP address
+      -- is specified, the Elastic IP address is associated with the
+      -- primary private IP address.
+    , abAllowReassociation :: Maybe Bool
+      -- ^ [EC2-VPC] Allows an Elastic IP address that is already associated
+      -- with an instance or network interface to be re-associated with
+      -- the specified instance or network interface. Otherwise, the
+      -- operation fails.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AssociateAddress
+instance IsQuery AssociateAddress
 
--- instance IsXML AssociateAddress where
---     xmlPickler = ec2XML
+instance IsXML AssociateAddress where
+    xmlPickler = ec2XML
 
--- instance AWSRequest EC2 AssociateAddress AssociateAddressResponse where
---     request = req GET "AssociateAddress"
+instance AWSRequest EC2 AssociateAddress AssociateAddressResponse where
+    request = req GET "AssociateAddress"
 
--- data AssociateAddressResponse = AssociateAddressResponse
---     { acRequestId     :: !ByteString
---       -- ^ The ID of the request.
---     , acReturn        :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     , acAssociationId :: !ByteString
---       -- ^ [EC2-VPC] The ID that represents the association of the Elastic
---       -- IP address with an instance.
---     } deriving (Eq, Show, Generic)
+data AssociateAddressResponse = AssociateAddressResponse
+    { abrRequestId     :: !ByteString
+      -- ^ The ID of the request.
+    , abrReturn        :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an error.
+    , abrAssociationId :: Maybe ByteString
+      -- ^ [EC2-VPC] The ID that represents the association of the Elastic
+      -- IP address with an instance.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML AssociateAddressResponse where
---     xmlPickler = ec2XML
+instance IsXML AssociateAddressResponse where
+    xmlPickler = ec2XML
 
--- -- | Associates a set of DHCP options (that you've previously created) with the
--- -- specified VPC, or associates no DHCP options with the VPC. After you
--- -- associate the options with the VPC, any existing instances and all new
--- -- instances that you launch in that VPC use the options. You don't need to
--- -- restart or relaunch the instances. They automatically pick up the changes
--- -- within a few hours, depending on how frequently the instance renews its
--- -- DHCP lease. You can explicitly renew the lease using the operating system
--- -- on the instance.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html>
+-- | Associates a set of DHCP options (that you've previously created) with the
+-- specified VPC, or associates no DHCP options with the VPC.
+--
+-- After you associate the options with the VPC, any existing instances and all new
+-- instances that you launch in that VPC use the options. You don't need to
+-- restart or relaunch the instances. They automatically pick up the changes
+-- within a few hours, depending on how frequently the instance renews its
+-- DHCP lease. You can explicitly renew the lease using the operating system
+-- on the instance.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html>
 
--- data AssociateDhcpOptions = AssociateDhcpOptions
---     { adoDhcpOptionsId :: !ByteString
---       -- ^ The ID of the DHCP options set, or default to associate no DHCP
---       -- options with the VPC.
---     , adoVpcId         :: !ByteString
---       -- ^ The ID of the VPC.
---     } deriving (Eq, Show, Generic)
+data AssociateDhcpOptions = AssociateDhcpOptions
+    { adoDhcpOptionsId :: !ByteString
+      -- ^ The ID of the DHCP options set, or default to associate no DHCP
+      -- options with the VPC.
+    , adoVpcId         :: !ByteString
+      -- ^ The ID of the VPC.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AssociateDhcpOptions
+instance IsQuery AssociateDhcpOptions
 
--- instance IsXML AssociateDhcpOptions where
---     xmlPickler = ec2XML
+instance IsXML AssociateDhcpOptions where
+    xmlPickler = ec2XML
 
--- instance AWSRequest EC2 AssociateDhcpOptions AssociateDhcpOptionsResponse where
---     request = req GET "AssociateDhcpOptions"
+instance AWSRequest EC2 AssociateDhcpOptions AssociateDhcpOptionsResponse where
+    request = req GET "AssociateDhcpOptions"
 
--- data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
---     { adoRequestId :: !ByteString
---       -- ^ The ID of the request.
---     , adoReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
+data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
+    { adorRequestId :: !ByteString
+      -- ^ The ID of the request.
+    , adorReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an
+      -- error.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML AssociateDhcpOptionsResponse where
---     xmlPickler = ec2XML
+instance IsXML AssociateDhcpOptionsResponse where
+    xmlPickler = ec2XML
 
--- -- | Associates a subnet with a route table. The subnet and route table must be
--- -- in the same VPC. This association causes traffic originating from the
--- -- subnet to be routed according to the routes in the route table. The action
--- -- returns an association ID, which you need in order to disassociate the
--- -- route table from the subnet later. A route table can be associated with
--- -- multiple subnets.For more information about route tables, see Route Tables
--- -- in the Amazon Virtual Private Cloud User Guide.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html>
+-- | Associates a subnet with a route table.
+--
+-- The subnet and route table must be in the same VPC.
+-- This association causes traffic originating from the
+-- subnet to be routed according to the routes in the route table. The action
+-- returns an association ID, which you need in order to disassociate the
+-- route table from the subnet later. A route table can be associated with
+-- multiple subnets.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html>
 
--- data AssociateRouteTable = AssociateRouteTable
---     { artRouteTableId :: !ByteString
---       -- ^ The ID of the route table.
---     , artSubnetId     :: !ByteString
---       -- ^ The ID of the subnet.
---     } deriving (Eq, Show, Generic)
+data AssociateRouteTable = AssociateRouteTable
+    { artRouteTableId :: !ByteString
+      -- ^ The ID of the route table.
+    , artSubnetId     :: !ByteString
+      -- ^ The ID of the subnet.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery AssociateRouteTable
+instance IsQuery AssociateRouteTable
 
--- instance IsXML AssociateRouteTable where
---     xmlPickler = ec2XML
+instance IsXML AssociateRouteTable where
+    xmlPickler = ec2XML
 
--- instance AWSRequest EC2 AssociateRouteTable AssociateRouteTableResponse where
---     request = req GET "AssociateRouteTable"
+instance AWSRequest EC2 AssociateRouteTable AssociateRouteTableResponse where
+    request = req GET "AssociateRouteTable"
 
--- data AssociateRouteTableResponse = AssociateRouteTableResponse
---     { artRequestId     :: !ByteString
---       -- ^ The ID of the request.
---     , artAssociationId :: !ByteString
---       -- ^ The route table association ID (needed to disassociate the route
---       -- table).
---     } deriving (Eq, Show, Generic)
+data AssociateRouteTableResponse = AssociateRouteTableResponse
+    { artrRequestId     :: !ByteString
+      -- ^ The ID of the request.
+    , artrAssociationId :: !ByteString
+      -- ^ The route table association ID (needed to disassociate the route table).
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML AssociateRouteTableResponse where
---     xmlPickler = ec2XML
+instance IsXML AssociateRouteTableResponse where
+    xmlPickler = ec2XML
 
 -- -- | Attaches an Internet gateway to a VPC, enabling connectivity between the
 -- -- Internet and the VPC. For more information about your VPC and Internet

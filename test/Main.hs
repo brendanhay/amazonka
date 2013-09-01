@@ -13,7 +13,7 @@ module Main (main) where
 
 import           Test.Framework
 import qualified Test.AutoScaling as AutoScaling
--- import qualified Test.EC2         as EC2
+import qualified Test.EC2         as EC2
 import qualified Test.Route53     as Route53
 -- import qualified Test.Signing     as Signing
 

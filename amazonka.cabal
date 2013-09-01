@@ -88,8 +88,8 @@ test-suite aws-haskell-tests
 
     build-depends:
         aeson
+      , amazonka
       , attoparsec
-      , aws-haskell
       , base                       >= 4.6 && < 5
       , bytestring
       , containers

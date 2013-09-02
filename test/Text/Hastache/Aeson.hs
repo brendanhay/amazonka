@@ -24,15 +24,15 @@ import           Text.Hastache
 
 render :: ByteString -> Value -> IO ByteString
 render tmpl val = LBS.toStrict
-    <$> hastacheStr defaultConfig tmpl (valueContext val)
+    <$> hastacheStr defaultConfig tmpl (valueContext ['n'..] val)
 
-valueContext :: Monad m => Value -> MuContext m
-valueContext = mapContext . buildMap "" Map.empty
+valueContext :: Monad m => String -> Value -> MuContext m
+valueContext vs = mapContext . buildMap vs "" Map.empty
 
-arrayContext :: Monad m => (Integer, Value) -> MuContext m
-arrayContext (idx, val) = mapContext
-    . Map.insert "n" (MuVariable $ toLByteString idx)
-    $ buildMap "" Map.empty val
+arrayContext :: Monad m => String -> (Integer, Value) -> MuContext m
+arrayContext vs (idx, val) = mapContext
+    . Map.insert (BS.pack $ head vs : []) (MuVariable $ toLByteString idx)
+    $ buildMap (tail vs) "" Map.empty val
 
 mapContext :: Monad m => Map ByteString (MuType m) -> ByteString -> m (MuType m)
 mapContext m a = return $ ctx
@@ -43,16 +43,17 @@ mapContext m a = return $ ctx
 
 buildMap :: Monad m
          => String
+         -> String
          -> Map ByteString (MuType m)
          -> Value
          -> Map ByteString (MuType m)
-buildMap name m (Object obj) = Map.insert (encodeStr name)
-    (MuList [mapContext $ foldlWithKey' (foldObject "") Map.empty obj])
-    (foldlWithKey' (foldObject name) m obj)
-buildMap name m value = Map.insert (encodeStr name) muValue m
+buildMap vs name m (Object obj) = Map.insert (encodeStr name)
+    (MuList [mapContext $ foldlWithKey' (foldObject vs "") Map.empty obj])
+    (foldlWithKey' (foldObject vs name) m obj)
+buildMap vs name m value = Map.insert (encodeStr name) muValue m
     where
         muValue = case value of
-            Array arr        -> MuList . map arrayContext . zip [1..] $ V.toList arr
+            Array arr        -> MuList . map (arrayContext vs) . zip [1..] $ V.toList arr
             Number (D float) -> MuVariable $ toLByteString float
             Number (I int)   -> MuVariable $ toLByteString int
             String s         -> MuVariable s
@@ -62,11 +63,12 @@ buildMap name m value = Map.insert (encodeStr name) muValue m
 
 foldObject :: Monad m
            => String
+           -> String
            -> Map ByteString (MuType m)
            -> Text
            -> Value
            -> Map ByteString (MuType m)
-foldObject name m k v = buildMap (buildName $ Text.unpack k) m v
+foldObject vs name m k v = buildMap vs (buildName $ Text.unpack k) m v
   where
     buildName n
         | null name = n

@@ -1,5 +1,3 @@
-Add the monadic section incrementer back
-
 GET /
 Action=AuthorizeSecurityGroupIngress
 {{#asgiGroupId}}
@@ -11,17 +9,17 @@ GroupName={{asgiGroupName}}
 {{#asgiIpPermissions}}
 IpPermissions.{{n}}.FromPort={{iptFromPort}}
 {{#iptGroups}}
-IpPermissions.{{n}}.Users.{{m}}.UserId={{uigUserId}}
 {{#uigGroupId}}
-IpPermissions.{{n}}.Groups.{{m}}.GroupId={{uigGroupId}}
+IpPermissions.{{n}}.Groups.{{o}}.GroupId={{uigGroupId}}
 {{/uigGroupId}}
 {{#uigGroupName}}
-IpPermissions.{{n}}.Groups.{{m}}.GroupName={{uigGroupName}}
+IpPermissions.{{n}}.Groups.{{o}}.GroupName={{uigGroupName}}
 {{/uigGroupName}}
+IpPermissions.{{n}}.Groups.{{o}}.UserId={{uigUserId}}
 {{/iptGroups}}
-IpPermissions.{{n}}.ToPort={{iptToPort}}
 IpPermissions.{{n}}.IpProtocol={{iptIpProtocol}}
 {{#iptIpRanges}}
-IpPermissions.{{n}}.IpRanges.{{m}}.CidrIp={{.}}
+IpPermissions.{{n}}.IpRanges.{{o}}.CidrIp={{irCidrIp}}
 {{/iptIpRanges}}
+IpPermissions.{{n}}.ToPort={{iptToPort}}
 {{/asgiIpPermissions}}

@@ -55,9 +55,13 @@ instance ToJSON InstanceType where
 instance ToJSON a => ToJSON (Members a) where
     toJSON = Array . V.fromList . fmap toJSON . members
 
+instance ToJSON a => ToJSON (Items a) where
+    toJSON = Array . V.fromList . fmap toJSON . items
+
 $(derives [makeArbitrary]
     [ ''Region
     , ''InstanceType
     , ''Members
+    , ''Items
     ])
 

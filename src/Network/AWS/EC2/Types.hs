@@ -284,17 +284,15 @@ data BundleInstanceTask = BundleInstanceTask
 instance IsXML BundleInstanceTask where
     xmlPickler = ec2XML
 
--- data CancelSpotInstanceRequestsResponseSetItemType = CancelSpotInstanceRequestsResponseSetItemType
---     { csirrsitSpotInstanceRequestId :: !ByteString
---       -- ^ The ID of the Spot Instance request.
---     , csirrsitState                 :: !ByteString
---       -- ^ The state of the Spot Instance request.
---     } deriving (Eq, Show, Generic)
+data CancelSpotInstanceRequestsResponseSetItemType = CancelSpotInstanceRequestsResponseSetItemType
+    { csirrsitSpotInstanceRequestId :: !ByteString
+      -- ^ The ID of the Spot Instance request.
+    , csirrsitState                 :: !ByteString
+      -- ^ The state of the Spot Instance request.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery CancelSpotInstanceRequestsResponseSetItemType
-
--- instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
---     xmlPickler = ec2XML
+instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
+    xmlPickler = ec2XML
 
 -- data ConversionTaskType = ConversionTaskType
 --     { cttConversionTaskId :: !ByteString
@@ -457,35 +455,33 @@ instance IsXML BundleInstanceTask where
 -- instance IsXML DescribeKeyPairsResponseItemType where
 --     xmlPickler = ec2XML
 
--- data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInstancesListingsResponseSetItemType
---     { drilrsitReservedInstancesListingId :: !ByteString
---       -- ^ The ID of the Reserved Instance listing.
---     , drilrsitReservedInstancesId        :: !ByteString
---       -- ^ The ID of the Reserved Instance.
---     , drilrsitCreateDate                 :: !UTCTime
---       -- ^ The time the listing was created.
---     , drilrsitUpdateDate                 :: !UTCTime
---       -- ^ The last modified timestamp of the listing.
---     , drilrsitStatus                     :: !ByteString
---       -- ^ The status of the Reserved Instance listing.
---     , drilrsitStatusMessage              :: !ByteString
---       -- ^ The reason for the current status of the Reserved Instance
---       -- listing. The response can be blank.
---     , drilrsitInstanceCounts             :: !InstanceCountsSetType
---       -- ^ The number of instances in this state.
---     , drilrsitPriceSchedules             :: !PriceScheduleSetType
---       -- ^ The price of the Reserved Instance listing.
---     , drilrsitTagSet                     :: !ResourceTagSetItemType
---       -- ^ The tags assigned to the resource. Each tag's information is
---       -- wrapped in an item element.
---     , drilrsitClientToken                :: !ByteString
---       -- ^ The idempotency token you provided when you created the listing.
---     } deriving (Eq, Show, Generic)
+data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInstancesListingsResponseSetItemType
+    { drilrsitReservedInstancesListingId :: !ByteString
+      -- ^ The ID of the Reserved Instance listing.
+    , drilrsitReservedInstancesId        :: !ByteString
+      -- ^ The ID of the Reserved Instance.
+    , drilrsitCreateDate                 :: !UTCTime
+      -- ^ The time the listing was created.
+    , drilrsitUpdateDate                 :: !UTCTime
+      -- ^ The last modified timestamp of the listing.
+    , drilrsitStatus                     :: !ByteString
+      -- ^ The status of the Reserved Instance listing.
+    , drilrsitStatusMessage              :: !ByteString
+      -- ^ The reason for the current status of the Reserved Instance
+      -- listing. The response can be blank.
+    , drilrsitInstanceCounts             :: Items InstanceCountsSetItemType
+      -- ^ The number of instances in this state.
+    , drilrsitPriceSchedules             :: Items PriceScheduleSetItemType
+      -- ^ The price of the Reserved Instance listing.
+    , drilrsitTagSet                     :: Items ResourceTagSetItemType
+      -- ^ The tags assigned to the resource. Each tag's information is
+      -- wrapped in an item element.
+    , drilrsitClientToken                :: !ByteString
+      -- ^ The idempotency token you provided when you created the listing.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DescribeReservedInstancesListingsResponseSetItemType
-
--- instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
---     xmlPickler = ec2XML
+instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
+    xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesListingSetItemType = DescribeReservedInstancesListingSetItemType
 --     { drilsitReservedInstancesListingId :: !ByteString
@@ -981,28 +977,16 @@ instance IsXML BundleInstanceTask where
 -- instance IsXML InstanceBlockDeviceMappingResponseItemType where
 --     xmlPickler = ec2XML
 
--- data InstanceCountsSetItemType = InstanceCountsSetItemType
---     { icsitState         :: !ByteString
---       -- ^ The states of the listed Reserved Instances.
---     , icsitInstanceCount :: !Integer
---       -- ^ The number of listed Reserved Instances in the state specified by
---       -- the state.
---     } deriving (Eq, Show, Generic)
+data InstanceCountsSetItemType = InstanceCountsSetItemType
+    { icsitState         :: !ByteString
+      -- ^ The states of the listed Reserved Instances.
+    , icsitInstanceCount :: !Integer
+      -- ^ The number of listed Reserved Instances in the state specified by
+      -- the state.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InstanceCountsSetItemType
-
--- instance IsXML InstanceCountsSetItemType where
---     xmlPickler = ec2XML
-
--- data InstanceCountsSetType = InstanceCountsSetType
---     { icstItem :: !InstanceCountsSetItemType
---       -- ^ The Reserved Instance listing item.
---     } deriving (Eq, Show, Generic)
-
--- instance IsQuery InstanceCountsSetType
-
--- instance IsXML InstanceCountsSetType where
---     xmlPickler = ec2XML
+instance IsXML InstanceCountsSetItemType where
+    xmlPickler = ec2XML
 
 -- data InstanceEbsBlockDeviceType = InstanceEbsBlockDeviceType
 --     { iebdtDeleteOnTermination :: !Bool
@@ -1708,25 +1692,23 @@ instance IsQuery IpRange
 -- instance IsXML PriceScheduleRequestSetItemType where
 --     xmlPickler = ec2XML
 
--- data PriceScheduleSetItemType = PriceScheduleSetItemType
---     { pssitTerm         :: !Integer
---       -- ^ The number of months remaining in the reservation. For example, 2
---       -- is the second to the last month before the capacity reservation
---       -- expires.
---     , pssitPrice        :: !Double
---       -- ^ The fixed price for the term.
---     , pssitCurrencyCode :: !ByteString
---       -- ^ The currency for transacting the Reserved Instance resale. At
---       -- this time, the only supported currency is USD.
---     , pssitActive       :: !Bool
---       -- ^ The current price schedule, as determined by the term remaining
---       -- for the Reserved Instance in the listing.
---     } deriving (Eq, Show, Generic)
+data PriceScheduleSetItemType = PriceScheduleSetItemType
+    { pssitTerm         :: !Integer
+      -- ^ The number of months remaining in the reservation. For example, 2
+      -- is the second to the last month before the capacity reservation
+      -- expires.
+    , pssitPrice        :: !Double
+      -- ^ The fixed price for the term.
+    , pssitCurrencyCode :: !ByteString
+      -- ^ The currency for transacting the Reserved Instance resale. At
+      -- this time, the only supported currency is USD.
+    , pssitActive       :: !Bool
+      -- ^ The current price schedule, as determined by the term remaining
+      -- for the Reserved Instance in the listing.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery PriceScheduleSetItemType
-
--- instance IsXML PriceScheduleSetItemType where
---     xmlPickler = ec2XML
+instance IsXML PriceScheduleSetItemType where
+    xmlPickler = ec2XML
 
 -- data PriceScheduleSetType = PriceScheduleSetType
 --     { psstItem :: !PriceScheduleSetItemType
@@ -1863,17 +1845,15 @@ instance IsQuery IpRange
 -- instance IsXML ReservedInstanceLimitPriceType where
 --     xmlPickler = ec2XML
 
--- data ResourceTagSetItemType = ResourceTagSetItemType
---     { rtsitKey   :: !ByteString
---       -- ^ The tag key.
---     , rtsitValue :: !ByteString
---       -- ^ The tag value.
---     } deriving (Eq, Show, Generic)
+data ResourceTagSetItemType = ResourceTagSetItemType
+    { rtsitKey   :: !ByteString
+      -- ^ The tag key.
+    , rtsitValue :: !ByteString
+      -- ^ The tag value.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery ResourceTagSetItemType
-
--- instance IsXML ResourceTagSetItemType where
---     xmlPickler = ec2XML
+instance IsXML ResourceTagSetItemType where
+    xmlPickler = ec2XML
 
 -- data RouteTableAssociationType = RouteTableAssociationType
 --     { rtatRouteTableAssociationId :: !ByteString

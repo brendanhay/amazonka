@@ -68,25 +68,25 @@ module Network.AWS.EC2
    , BundleInstance                             (..)
    , BundleInstanceResponse                     (..)
 
-   -- -- ** CancelBundleTask
-   -- , CancelBundleTask                           (..)
-   -- , CancelBundleTaskResponse                   (..)
+   -- ** CancelBundleTask
+   , CancelBundleTask                           (..)
+   , CancelBundleTaskResponse                   (..)
 
-   -- -- ** CancelConversionTask
-   -- , CancelConversionTask                       (..)
-   -- , CancelConversionTaskResponse               (..)
+   -- ** CancelConversionTask
+   , CancelConversionTask                       (..)
+   , CancelConversionTaskResponse               (..)
 
-   -- -- ** CancelExportTask
-   -- , CancelExportTask                           (..)
-   -- , CancelExportTaskResponse                   (..)
+   -- ** CancelExportTask
+   , CancelExportTask                           (..)
+   , CancelExportTaskResponse                   (..)
 
-   -- -- ** CancelReservedInstancesListing
-   -- , CancelReservedInstancesListing             (..)
-   -- , CancelReservedInstancesListingResponse     (..)
+   -- ** CancelReservedInstancesListing
+   , CancelReservedInstancesListing             (..)
+   , CancelReservedInstancesListingResponse     (..)
 
-   -- -- ** CancelSpotInstanceRequests
-   -- , CancelSpotInstanceRequests                 (..)
-   -- , CancelSpotInstanceRequestsResponse         (..)
+   -- ** CancelSpotInstanceRequests
+   , CancelSpotInstanceRequests                 (..)
+   , CancelSpotInstanceRequestsResponse         (..)
 
    -- -- ** ConfirmProductInstance
    -- , ConfirmProductInstance                     (..)
@@ -1024,160 +1024,137 @@ data BundleInstanceResponse = BundleInstanceResponse
 instance IsXML BundleInstanceResponse where
     xmlPickler = ec2XML
 
--- -- | Cancels a bundling operation for an instance store-backed Windows instance.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html>
+-- | Cancels a bundling operation for an instance store-backed Windows instance.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html>
 
--- data CancelBundleTask = CancelBundleTask
---     { cbtBundleId :: !ByteString
---       -- ^ The ID of the bundle task.
---     } deriving (Eq, Show, Generic)
+data CancelBundleTask = CancelBundleTask
+    { cbtBundleId :: !ByteString
+      -- ^ The ID of the bundle task.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery CancelBundleTask
+instance IsQuery CancelBundleTask
 
--- instance IsXML CancelBundleTask where
---     xmlPickler = ec2XML
+instance AWSRequest EC2 CancelBundleTask CancelBundleTaskResponse where
+    request = req GET "CancelBundleTask"
 
--- instance AWSRequest EC2 CancelBundleTask CancelBundleTaskResponse where
---     request = req GET "CancelBundleTask"
+data CancelBundleTaskResponse = CancelBundleTaskResponse
+    { cbtRequestId          :: !ByteString
+      -- ^ The ID of the request.
+    , cbtBundleInstanceTask :: !BundleInstanceTask
+      -- ^ The bundle task.
+    } deriving (Eq, Show, Generic)
 
--- data CancelBundleTaskResponse = CancelBundleTaskResponse
---     { cbtRequestId          :: !ByteString
---       -- ^ The ID of the request.
---     , cbtBundleInstanceTask :: !BundleInstanceTaskType
---       -- ^ The bundle task.
---     } deriving (Eq, Show, Generic)
+instance IsXML CancelBundleTaskResponse where
+    xmlPickler = ec2XML
 
--- instance IsXML CancelBundleTaskResponse where
---     xmlPickler = ec2XML
+-- | Cancels an active conversion task.
+--
+-- The task can be the import of an
+-- instance or volume. The action removes all artifacts of the conversion,
+-- including a partially uploaded volume or instance. If the conversion is
+-- complete or is in the process of transferring the final disk image, the
+-- command fails and returns an exception.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html>
 
--- -- | Cancels an active conversion task. The task can be the import of an
--- -- instance or volume. The action removes all artifacts of the conversion,
--- -- including a partially uploaded volume or instance. If the conversion is
--- -- complete or is in the process of transferring the final disk image, the
--- -- command fails and returns an exception.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html>
+data CancelConversionTask = CancelConversionTask
+    { cctConversionTaskId :: !ByteString
+      -- ^ The ID of the conversion task.
+    } deriving (Eq, Show, Generic)
 
--- data CancelConversionTask = CancelConversionTask
---     { cctConversionTaskId :: !ByteString
---       -- ^ The ID of the conversion task.
---     } deriving (Eq, Show, Generic)
+instance IsQuery CancelConversionTask
 
--- instance IsQuery CancelConversionTask
+instance AWSRequest EC2 CancelConversionTask CancelConversionTaskResponse where
+    request = req GET "CancelConversionTask"
 
--- instance IsXML CancelConversionTask where
---     xmlPickler = ec2XML
+data CancelConversionTaskResponse = CancelConversionTaskResponse
+    { cctRequestId :: !ByteString
+      -- ^ The ID of the request.
+    , cctReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an
+      -- error.
+    } deriving (Eq, Show, Generic)
 
--- instance AWSRequest EC2 CancelConversionTask CancelConversionTaskResponse where
---     request = req GET "CancelConversionTask"
+instance IsXML CancelConversionTaskResponse where
+    xmlPickler = ec2XML
 
--- data CancelConversionTaskResponse = CancelConversionTaskResponse
---     { cctRequestId :: !ByteString
---       -- ^ The ID of the request.
---     , cctReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
+-- | Cancels an active export task. The request removes all artifacts of the
+-- export, including any partially created Amazon S3 objects. If the export
+-- task is complete or is in the process of transferring the final disk image,
+-- the command fails and returns an error.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html>
 
--- instance IsXML CancelConversionTaskResponse where
---     xmlPickler = ec2XML
+data CancelExportTask = CancelExportTask
+    { cetExportTaskId :: !ByteString
+      -- ^ The ID of the export task. This is the ID returned by
+      -- CreateInstanceExportTask.
+    } deriving (Eq, Show, Generic)
 
--- -- | Cancels an active export task. The request removes all artifacts of the
--- -- export, including any partially created Amazon S3 objects. If the export
--- -- task is complete or is in the process of transferring the final disk image,
--- -- the command fails and returns an error.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html>
+instance IsQuery CancelExportTask
 
--- data CancelExportTask = CancelExportTask
---     { cetExportTaskId :: !ByteString
---       -- ^ The ID of the export task. This is the ID returned by
---       -- CreateInstanceExportTask.
---     } deriving (Eq, Show, Generic)
+instance AWSRequest EC2 CancelExportTask CancelExportTaskResponse where
+    request = req GET "CancelExportTask"
 
--- instance IsQuery CancelExportTask
+data CancelExportTaskResponse = CancelExportTaskResponse
+    { cetRequestId :: !ByteString
+      -- ^ The ID of the request.
+    , cetReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an error.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML CancelExportTask where
---     xmlPickler = ec2XML
+instance IsXML CancelExportTaskResponse where
+    xmlPickler = ec2XML
 
--- instance AWSRequest EC2 CancelExportTask CancelExportTaskResponse where
---     request = req GET "CancelExportTask"
+-- | Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html>
 
--- data CancelExportTaskResponse = CancelExportTaskResponse
---     { cetRequestId :: !ByteString
---       -- ^ The ID of the request.
---     , cetReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
+data CancelReservedInstancesListing = CancelReservedInstancesListing
+    { crilReservedInstancesListingId :: !ByteString
+      -- ^ The ID of the Reserved Instance listing to be canceled.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML CancelExportTaskResponse where
---     xmlPickler = ec2XML
+instance IsQuery CancelReservedInstancesListing
 
--- -- | Cancels the specified Reserved Instance listing in the Reserved Instance
--- -- Marketplace.For more information about Reserved Instance Marketplace, see
--- -- Reserved Instance Marketplace in the Amazon Elastic Compute Cloud User
--- -- Guide.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html>
+instance AWSRequest EC2 CancelReservedInstancesListing CancelReservedInstancesListingResponse where
+    request = req GET "CancelReservedInstancesListing"
 
--- data CancelReservedInstancesListing = CancelReservedInstancesListing
---     { crilReservedInstancesListingId :: !ByteString
---       -- ^ The ID of the Reserved Instance listing to be canceled.
---     } deriving (Eq, Show, Generic)
+data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
+    { crilRequestId                    :: !ByteString
+      -- ^ The ID of the request.
+    , crilReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetItemType
+      -- ^ The Reserved Instance listing for cancellation.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery CancelReservedInstancesListing
+instance IsXML CancelReservedInstancesListingResponse where
+    xmlPickler = ec2XML
 
--- instance IsXML CancelReservedInstancesListing where
---     xmlPickler = ec2XML
+-- | Cancels one or more Spot Instance requests.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html>
 
--- instance AWSRequest EC2 CancelReservedInstancesListing CancelReservedInstancesListingResponse where
---     request = req GET "CancelReservedInstancesListing"
+data CancelSpotInstanceRequests = CancelSpotInstanceRequests
+    { csirSpotInstanceRequestId :: [ByteString]
+      -- ^ One or more Spot Instance request IDs.
+    } deriving (Eq, Show, Generic)
 
--- data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
---     { crilRequestId                    :: !ByteString
---       -- ^ The ID of the request.
---     , crilReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetItemType
---       -- ^ The Reserved Instance listing for cancellation. The listing
---       -- information is wrapped in an item element.
---     } deriving (Eq, Show, Generic)
+instance IsQuery CancelSpotInstanceRequests
 
--- instance IsXML CancelReservedInstancesListingResponse where
---     xmlPickler = ec2XML
+instance AWSRequest EC2 CancelSpotInstanceRequests CancelSpotInstanceRequestsResponse where
+    request = req GET "CancelSpotInstanceRequests"
 
--- -- | Cancels one or more Spot Instance requests. Spot Instances are instances
--- -- that Amazon EC2 starts on your behalf when the maximum price that you
--- -- specify exceeds the current Spot Price. Amazon EC2 periodically sets the
--- -- Spot Price based on available Spot Instance capacity and current Spot
--- -- Instance requests. For more information about Spot Instances, see Spot
--- -- Instances in the Amazon Elastic Compute Cloud User Guide.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html>
+data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
+    { csirRequestId              :: !ByteString
+      -- ^ The ID of the request.
+    , csirSpotInstanceRequestSet :: Items CancelSpotInstanceRequestsResponseSetItemType
+      -- ^ A list of Spot Instance requests. Each request is wrapped in an
+      -- item element.
+    } deriving (Eq, Show, Generic)
 
--- data CancelSpotInstanceRequests = CancelSpotInstanceRequests
---     { csirSpotInstanceRequestId :: Members ByteString
---       -- ^ One or more Spot Instance request IDs.
---     } deriving (Eq, Show, Generic)
-
--- instance IsQuery CancelSpotInstanceRequests
-
--- instance IsXML CancelSpotInstanceRequests where
---     xmlPickler = ec2XML
-
--- instance AWSRequest EC2 CancelSpotInstanceRequests CancelSpotInstanceRequestsResponse where
---     request = req GET "CancelSpotInstanceRequests"
-
--- data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
---     { csirRequestId              :: !ByteString
---       -- ^ The ID of the request.
---     , csirSpotInstanceRequestSet :: !CancelSpotInstanceRequestsResponseSetItemType
---       -- ^ A list of Spot Instance requests. Each request is wrapped in an
---       -- item element.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML CancelSpotInstanceRequestsResponse where
---     xmlPickler = ec2XML
+instance IsXML CancelSpotInstanceRequestsResponse where
+    xmlPickler = ec2XML
 
 -- -- | Determines whether a product code is associated with an instance. This
 -- -- action can only be used by the owner of the product code. It is useful when
@@ -1274,9 +1251,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CopySnapshot
 
--- instance IsXML CopySnapshot where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CopySnapshot CopySnapshotResponse where
 --     request = req GET "CopySnapshot"
 
@@ -1321,9 +1295,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreateCustomerGateway
 
--- instance IsXML CreateCustomerGateway where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreateCustomerGateway CreateCustomerGatewayResponse where
 --     request = req GET "CreateCustomerGateway"
 
@@ -1351,9 +1322,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery CreateDhcpOptions
-
--- instance IsXML CreateDhcpOptions where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateDhcpOptions CreateDhcpOptionsResponse where
 --     request = req GET "CreateDhcpOptions"
@@ -1431,9 +1399,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreateInstanceExportTask
 
--- instance IsXML CreateInstanceExportTask where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreateInstanceExportTask CreateInstanceExportTaskResponse where
 --     request = req GET "CreateInstanceExportTask"
 
@@ -1492,9 +1457,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreateKeyPair
 
--- instance IsXML CreateKeyPair where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreateKeyPair CreateKeyPairResponse where
 --     request = req GET "CreateKeyPair"
 
@@ -1525,9 +1487,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery CreateNetworkAcl
-
--- instance IsXML CreateNetworkAcl where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateNetworkAcl CreateNetworkAclResponse where
 --     request = req GET "CreateNetworkAcl"
@@ -1578,9 +1537,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery CreateNetworkAclEntry
-
--- instance IsXML CreateNetworkAclEntry where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateNetworkAclEntry CreateNetworkAclEntryResponse where
 --     request = req GET "CreateNetworkAclEntry"
@@ -1659,9 +1615,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreatePlacementGroup
 
--- instance IsXML CreatePlacementGroup where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreatePlacementGroup CreatePlacementGroupResponse where
 --     request = req GET "CreatePlacementGroup"
 
@@ -1711,9 +1664,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery CreateReservedInstancesListing
-
--- instance IsXML CreateReservedInstancesListing where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateReservedInstancesListing CreateReservedInstancesListingResponse where
 --     request = req GET "CreateReservedInstancesListing"
@@ -1834,9 +1784,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreateSecurityGroup
 
--- instance IsXML CreateSecurityGroup where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreateSecurityGroup CreateSecurityGroupResponse where
 --     request = req GET "CreateSecurityGroup"
 
@@ -1886,9 +1833,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreateSnapshot
 
--- instance IsXML CreateSnapshot where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreateSnapshot CreateSnapshotResponse where
 --     request = req GET "CreateSnapshot"
 
@@ -1932,9 +1876,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery CreateSpotDatafeedSubscription
-
--- instance IsXML CreateSpotDatafeedSubscription where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateSpotDatafeedSubscription CreateSpotDatafeedSubscriptionResponse where
 --     request = req GET "CreateSpotDatafeedSubscription"
@@ -1983,9 +1924,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreateSubnet
 
--- instance IsXML CreateSubnet where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreateSubnet CreateSubnetResponse where
 --     request = req GET "CreateSubnet"
 
@@ -2013,9 +1951,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery CreateTags
-
--- instance IsXML CreateTags where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateTags CreateTagsResponse where
 --     request = req GET "CreateTags"
@@ -2111,9 +2046,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreateVpc
 
--- instance IsXML CreateVpc where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreateVpc CreateVpcResponse where
 --     request = req GET "CreateVpc"
 
@@ -2157,9 +2089,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery CreateVpnConnection
-
--- instance IsXML CreateVpnConnection where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateVpnConnection CreateVpnConnectionResponse where
 --     request = req GET "CreateVpnConnection"
@@ -2225,9 +2154,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery CreateVpnGateway
 
--- instance IsXML CreateVpnGateway where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 CreateVpnGateway CreateVpnGatewayResponse where
 --     request = req GET "CreateVpnGateway"
 
@@ -2254,9 +2180,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeleteCustomerGateway
-
--- instance IsXML DeleteCustomerGateway where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteCustomerGateway DeleteCustomerGatewayResponse where
 --     request = req GET "DeleteCustomerGateway"
@@ -2287,9 +2210,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DeleteDhcpOptions
 
--- instance IsXML DeleteDhcpOptions where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DeleteDhcpOptions DeleteDhcpOptionsResponse where
 --     request = req GET "DeleteDhcpOptions"
 
@@ -2318,9 +2238,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DeleteInternetGateway
 
--- instance IsXML DeleteInternetGateway where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DeleteInternetGateway DeleteInternetGatewayResponse where
 --     request = req GET "DeleteInternetGateway"
 
@@ -2346,9 +2263,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeleteKeyPair
-
--- instance IsXML DeleteKeyPair where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteKeyPair DeleteKeyPairResponse where
 --     request = req GET "DeleteKeyPair"
@@ -2377,9 +2291,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeleteNetworkAcl
-
--- instance IsXML DeleteNetworkAcl where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteNetworkAcl DeleteNetworkAclResponse where
 --     request = req GET "DeleteNetworkAcl"
@@ -2412,9 +2323,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeleteNetworkAclEntry
-
--- instance IsXML DeleteNetworkAclEntry where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteNetworkAclEntry DeleteNetworkAclEntryResponse where
 --     request = req GET "DeleteNetworkAclEntry"
@@ -2472,9 +2380,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeletePlacementGroup
-
--- instance IsXML DeletePlacementGroup where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeletePlacementGroup DeletePlacementGroupResponse where
 --     request = req GET "DeletePlacementGroup"
@@ -2568,9 +2473,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DeleteSecurityGroup
 
--- instance IsXML DeleteSecurityGroup where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DeleteSecurityGroup DeleteSecurityGroupResponse where
 --     request = req GET "DeleteSecurityGroup"
 
@@ -2595,9 +2497,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeleteSnapshot
-
--- instance IsXML DeleteSnapshot where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteSnapshot DeleteSnapshotResponse where
 --     request = req GET "DeleteSnapshot"
@@ -2653,9 +2552,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DeleteSubnet
 
--- instance IsXML DeleteSubnet where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DeleteSubnet DeleteSubnetResponse where
 --     request = req GET "DeleteSubnet"
 
@@ -2686,9 +2582,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeleteTags
-
--- instance IsXML DeleteTags where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteTags DeleteTagsResponse where
 --     request = req GET "DeleteTags"
@@ -2751,9 +2644,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DeleteVpc
 
--- instance IsXML DeleteVpc where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DeleteVpc DeleteVpcResponse where
 --     request = req GET "DeleteVpc"
 
@@ -2789,9 +2679,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DeleteVpnConnection
-
--- instance IsXML DeleteVpnConnection where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteVpnConnection DeleteVpnConnectionResponse where
 --     request = req GET "DeleteVpnConnection"
@@ -2860,9 +2747,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DeleteVpnGateway
 
--- instance IsXML DeleteVpnGateway where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DeleteVpnGateway DeleteVpnGatewayResponse where
 --     request = req GET "DeleteVpnGateway"
 
@@ -2918,9 +2802,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeAccountAttributes
 
--- instance IsXML DescribeAccountAttributes where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeAccountAttributes DescribeAccountAttributesResponse where
 --     request = req GET "DescribeAccountAttributes"
 
@@ -2973,9 +2854,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeAddresses
 
--- instance IsXML DescribeAddresses where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeAddresses DescribeAddressesResponse where
 --     request = req GET "DescribeAddresses"
 
@@ -3014,9 +2892,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeAvailabilityZones
-
--- instance IsXML DescribeAvailabilityZones where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeAvailabilityZones DescribeAvailabilityZonesResponse where
 --     request = req GET "DescribeAvailabilityZones"
@@ -3070,9 +2945,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeBundleTasks
 
--- instance IsXML DescribeBundleTasks where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeBundleTasks DescribeBundleTasksResponse where
 --     request = req GET "DescribeBundleTasks"
 
@@ -3096,9 +2968,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeConversionTasks
-
--- instance IsXML DescribeConversionTasks where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeConversionTasks DescribeConversionTasksResponse where
 --     request = req GET "DescribeConversionTasks"
@@ -3156,9 +3025,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeCustomerGateways
 
--- instance IsXML DescribeCustomerGateways where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeCustomerGateways DescribeCustomerGatewaysResponse where
 --     request = req GET "DescribeCustomerGateways"
 
@@ -3210,9 +3076,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeDhcpOptions
 
--- instance IsXML DescribeDhcpOptions where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeDhcpOptions DescribeDhcpOptionsResponse where
 --     request = req GET "DescribeDhcpOptions"
 
@@ -3236,9 +3099,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeExportTasks
-
--- instance IsXML DescribeExportTasks where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeExportTasks DescribeExportTasksResponse where
 --     request = req GET "DescribeExportTasks"
@@ -3384,9 +3244,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeImages
-
--- instance IsXML DescribeImages where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeImages DescribeImagesResponse where
 --     request = req GET "DescribeImages"
@@ -3615,9 +3472,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeInstances
 
--- instance IsXML DescribeInstances where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeInstances DescribeInstancesResponse where
 --     request = req GET "DescribeInstances"
 
@@ -3676,9 +3530,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeInstanceStatus
 
--- instance IsXML DescribeInstanceStatus where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeInstanceStatus DescribeInstanceStatusResponse where
 --     request = req GET "DescribeInstanceStatus"
 
@@ -3730,9 +3581,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeInternetGateways
 
--- instance IsXML DescribeInternetGateways where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeInternetGateways DescribeInternetGatewaysResponse where
 --     request = req GET "DescribeInternetGateways"
 
@@ -3764,9 +3612,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeKeyPairs
-
--- instance IsXML DescribeKeyPairs where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeKeyPairs DescribeKeyPairsResponse where
 --     request = req GET "DescribeKeyPairs"
@@ -3822,9 +3667,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeNetworkAcls
-
--- instance IsXML DescribeNetworkAcls where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeNetworkAcls DescribeNetworkAclsResponse where
 --     request = req GET "DescribeNetworkAcls"
@@ -3955,9 +3797,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeNetworkInterfaces
 
--- instance IsXML DescribeNetworkInterfaces where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeNetworkInterfaces DescribeNetworkInterfacesResponse where
 --     request = req GET "DescribeNetworkInterfaces"
 
@@ -3996,9 +3835,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribePlacementGroups
 
--- instance IsXML DescribePlacementGroups where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribePlacementGroups DescribePlacementGroupsResponse where
 --     request = req GET "DescribePlacementGroups"
 
@@ -4032,9 +3868,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeRegions
-
--- instance IsXML DescribeRegions where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeRegions DescribeRegionsResponse where
 --     request = req GET "DescribeRegions"
@@ -4102,9 +3935,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeReservedInstances
 
--- instance IsXML DescribeReservedInstances where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeReservedInstances DescribeReservedInstancesResponse where
 --     request = req GET "DescribeReservedInstances"
 
@@ -4147,9 +3977,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeReservedInstancesListings
-
--- instance IsXML DescribeReservedInstancesListings where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeReservedInstancesListings DescribeReservedInstancesListingsResponse where
 --     request = req GET "DescribeReservedInstancesListings"
@@ -4230,9 +4057,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeReservedInstancesOfferings
 
--- instance IsXML DescribeReservedInstancesOfferings where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeReservedInstancesOfferings DescribeReservedInstancesOfferingsResponse where
 --     request = req GET "DescribeReservedInstancesOfferings"
 
@@ -4288,9 +4112,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeRouteTables
 
--- instance IsXML DescribeRouteTables where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeRouteTables DescribeRouteTablesResponse where
 --     request = req GET "DescribeRouteTables"
 
@@ -4338,9 +4159,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeSecurityGroups
-
--- instance IsXML DescribeSecurityGroups where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeSecurityGroups DescribeSecurityGroupsResponse where
 --     request = req GET "DescribeSecurityGroups"
@@ -4450,9 +4268,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeSnapshots
-
--- instance IsXML DescribeSnapshots where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeSnapshots DescribeSnapshotsResponse where
 --     request = req GET "DescribeSnapshots"
@@ -4570,9 +4385,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeSpotInstanceRequests
 
--- instance IsXML DescribeSpotInstanceRequests where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeSpotInstanceRequests DescribeSpotInstanceRequestsResponse where
 --     request = req GET "DescribeSpotInstanceRequests"
 
@@ -4628,9 +4440,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeSpotPriceHistory
-
--- instance IsXML DescribeSpotPriceHistory where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeSpotPriceHistory DescribeSpotPriceHistoryResponse where
 --     request = req GET "DescribeSpotPriceHistory"
@@ -4696,9 +4505,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeSubnets
 
--- instance IsXML DescribeSubnets where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeSubnets DescribeSubnetsResponse where
 --     request = req GET "DescribeSubnets"
 
@@ -4732,9 +4538,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeTags
-
--- instance IsXML DescribeTags where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeTags DescribeTagsResponse where
 --     request = req GET "DescribeTags"
@@ -4833,9 +4636,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeVolumes
 
--- instance IsXML DescribeVolumes where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeVolumes DescribeVolumesResponse where
 --     request = req GET "DescribeVolumes"
 
@@ -4879,9 +4679,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DescribeVolumeStatus
-
--- instance IsXML DescribeVolumeStatus where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeVolumeStatus DescribeVolumeStatusResponse where
 --     request = req GET "DescribeVolumeStatus"
@@ -4977,9 +4774,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeVpcs
 
--- instance IsXML DescribeVpcs where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeVpcs DescribeVpcsResponse where
 --     request = req GET "DescribeVpcs"
 
@@ -5048,9 +4842,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeVpnConnections
 
--- instance IsXML DescribeVpnConnections where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeVpnConnections DescribeVpnConnectionsResponse where
 --     request = req GET "DescribeVpnConnections"
 
@@ -5108,9 +4899,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DescribeVpnGateways
 
--- instance IsXML DescribeVpnGateways where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DescribeVpnGateways DescribeVpnGatewaysResponse where
 --     request = req GET "DescribeVpnGateways"
 
@@ -5139,9 +4927,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DetachInternetGateway
-
--- instance IsXML DetachInternetGateway where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DetachInternetGateway DetachInternetGatewayResponse where
 --     request = req GET "DetachInternetGateway"
@@ -5259,9 +5044,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery DetachVpnGateway
 
--- instance IsXML DetachVpnGateway where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 DetachVpnGateway DetachVpnGatewayResponse where
 --     request = req GET "DetachVpnGateway"
 
@@ -5289,9 +5071,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DisableVgwRoutePropagation
-
--- instance IsXML DisableVgwRoutePropagation where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DisableVgwRoutePropagation DisableVgwRoutePropagationResponse where
 --     request = req GET "DisableVgwRoutePropagation"
@@ -5321,9 +5100,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery DisassociateAddress
-
--- instance IsXML DisassociateAddress where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DisassociateAddress DisassociateAddressResponse where
 --     request = req GET "DisassociateAddress"
@@ -5385,9 +5161,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery EnableVgwRoutePropagation
 
--- instance IsXML EnableVgwRoutePropagation where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 EnableVgwRoutePropagation EnableVgwRoutePropagationResponse where
 --     request = req GET "EnableVgwRoutePropagation"
 
@@ -5413,9 +5186,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery EnableVolumeIO
-
--- instance IsXML EnableVolumeIO where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 EnableVolumeIO EnableVolumeIOResponse where
 --     request = req GET "EnableVolumeIO"
@@ -5454,9 +5224,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery GetConsoleOutput
 
--- instance IsXML GetConsoleOutput where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 GetConsoleOutput GetConsoleOutputResponse where
 --     request = req GET "GetConsoleOutput"
 
@@ -5491,9 +5258,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery GetPasswordData
-
--- instance IsXML GetPasswordData where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 GetPasswordData GetPasswordDataResponse where
 --     request = req GET "GetPasswordData"
@@ -5571,9 +5335,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery ImportKeyPair
-
--- instance IsXML ImportKeyPair where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ImportKeyPair ImportKeyPairResponse where
 --     request = req GET "ImportKeyPair"
@@ -5898,9 +5659,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery MonitorInstances
 
--- instance IsXML MonitorInstances where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 MonitorInstances MonitorInstancesResponse where
 --     request = req GET "MonitorInstances"
 
@@ -5972,9 +5730,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery PurchaseReservedInstancesOffering
 
--- instance IsXML PurchaseReservedInstancesOffering where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 PurchaseReservedInstancesOffering PurchaseReservedInstancesOfferingResponse where
 --     request = req GET "PurchaseReservedInstancesOffering"
 
@@ -6001,9 +5756,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery RebootInstances
-
--- instance IsXML RebootInstances where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 RebootInstances RebootInstancesResponse where
 --     request = req GET "RebootInstances"
@@ -6092,9 +5844,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery ReleaseAddress
 
--- instance IsXML ReleaseAddress where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 ReleaseAddress ReleaseAddressResponse where
 --     request = req GET "ReleaseAddress"
 
@@ -6125,9 +5874,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery ReplaceNetworkAclAssociation
-
--- instance IsXML ReplaceNetworkAclAssociation where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ReplaceNetworkAclAssociation ReplaceNetworkAclAssociationResponse where
 --     request = req GET "ReplaceNetworkAclAssociation"
@@ -6172,9 +5918,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery ReplaceNetworkAclEntry
-
--- instance IsXML ReplaceNetworkAclEntry where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ReplaceNetworkAclEntry ReplaceNetworkAclEntryResponse where
 --     request = req GET "ReplaceNetworkAclEntry"
@@ -6249,9 +5992,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery ReplaceRouteTableAssociation
 
--- instance IsXML ReplaceRouteTableAssociation where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 ReplaceRouteTableAssociation ReplaceRouteTableAssociationResponse where
 --     request = req GET "ReplaceRouteTableAssociation"
 
@@ -6296,9 +6036,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery ReportInstanceStatus
-
--- instance IsXML ReportInstanceStatus where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ReportInstanceStatus ReportInstanceStatusResponse where
 --     request = req GET "ReportInstanceStatus"
@@ -6354,9 +6091,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery RequestSpotInstances
-
--- instance IsXML RequestSpotInstances where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 RequestSpotInstances RequestSpotInstancesResponse where
 --     request = req GET "RequestSpotInstances"
@@ -6524,9 +6258,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery RevokeSecurityGroupEgress
 
--- instance IsXML RevokeSecurityGroupEgress where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 RevokeSecurityGroupEgress RevokeSecurityGroupEgressResponse where
 --     request = req GET "RevokeSecurityGroupEgress"
 
@@ -6570,9 +6301,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery RevokeSecurityGroupIngress
-
--- instance IsXML RevokeSecurityGroupIngress where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 RevokeSecurityGroupIngress RevokeSecurityGroupIngressResponse where
 --     request = req GET "RevokeSecurityGroupIngress"
@@ -6676,9 +6404,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery RunInstances
 
--- instance IsXML RunInstances where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 RunInstances RunInstancesResponse where
 --     request = req GET "RunInstances"
 
@@ -6725,9 +6450,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery StartInstances
-
--- instance IsXML StartInstances where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 StartInstances StartInstancesResponse where
 --     request = req GET "StartInstances"
@@ -6780,9 +6502,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery StopInstances
 
--- instance IsXML StopInstances where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 StopInstances StopInstancesResponse where
 --     request = req GET "StopInstances"
 
@@ -6818,9 +6537,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery TerminateInstances
 
--- instance IsXML TerminateInstances where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 TerminateInstances TerminateInstancesResponse where
 --     request = req GET "TerminateInstances"
 
@@ -6852,9 +6568,6 @@ instance IsXML BundleInstanceResponse where
 
 -- instance IsQuery UnassignPrivateIpAddresses
 
--- instance IsXML UnassignPrivateIpAddresses where
---     xmlPickler = ec2XML
-
 -- instance AWSRequest EC2 UnassignPrivateIpAddresses UnassignPrivateIpAddressesResponse where
 --     request = req GET "UnassignPrivateIpAddresses"
 
@@ -6881,9 +6594,6 @@ instance IsXML BundleInstanceResponse where
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery UnmonitorInstances
-
--- instance IsXML UnmonitorInstances where
---     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 UnmonitorInstances UnmonitorInstancesResponse where
 --     request = req GET "UnmonitorInstances"

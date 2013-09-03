@@ -1,3 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CancelBundleTaskResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
+<CancelBundleTaskResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>{{cbtrRequestId}}</requestId>
+  {{#cbtrBundleInstanceTask}}
+  <bundleInstanceTask>
+    <instanceId>{{bitInstanceId}}</instanceId>
+    <bundleId>{{bitBundleId}}</bundleId>
+    <state>{{bitState}}</state>
+    <startTime>{{bitStartTime}}</startTime>
+    <updateTime>{{bitUpdateTime}}</updateTime>
+    <progress>{{bitProgress}}</progress>
+    {{#bitStorage}}
+    <storage>
+      {{#bitsS3}}
+      <s3>
+        <awsAccessKeyId>{{bissAwsAccessKeyId}}</awsAccessKeyId>
+        <bucket>{{bissBucket}}</bucket>
+        <prefix>{{bissPrefix}}</prefix>
+        <uploadPolicy>{{bissUploadPolicy}}</uploadPolicy>
+        <uploadPolicySignature>{{bissUploadPolicySignature}}</uploadPolicySignature>
+      </s3>
+      {{/bitsS3}}
+    </storage>
+    {{/bitStorage}}
+    {{#bitError}}
+    <error>
+      <code>{{biteCode}}</code>
+      <message>{{biteMessage}}</message>
+    </error>
+    {{/bitError}}
+  </bundleInstanceTask>
+  {{/cbtrBundleInstanceTask}}
 </CancelBundleTaskResponse>
+

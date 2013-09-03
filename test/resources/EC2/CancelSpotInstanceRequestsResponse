@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CancelSpotInstanceRequestsResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
+<CancelSpotInstanceRequestsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>{{csirrRequestId}}</requestId>
+  <spotInstanceRequestSet>
+    {{#csirrSpotInstanceRequestSet}}
+    <item>
+      <spotInstanceRequestId>{{csirrsitSpotInstanceRequestId}}</spotInstanceRequestId>
+      <state>{{csirrsitState}}</state>
+    </item>
+    {{/csirrSpotInstanceRequestSet}}
+  </spotInstanceRequestSet>
 </CancelSpotInstanceRequestsResponse>

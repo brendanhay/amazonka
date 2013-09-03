@@ -31,13 +31,12 @@ library
 
 --      , Network.AWS.AutoScaling
 --      , Network.AWS.CloudWatch
-      , Network.AWS.EC2
+      -- , Network.AWS.EC2
       , Network.AWS.EC2.Metadata
 --      , Network.AWS.ELB
 --      , Network.AWS.IAM
---      , Network.AWS.Route53
+      , Network.AWS.Route53
 
-    other-modules:
         Network.AWS.Internal.Instances
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
@@ -45,10 +44,10 @@ library
 
       -- , Network.AWS.AutoScaling.Types
       -- , Network.AWS.CloudWatch.Types
-      , Network.AWS.EC2.Types
+      -- , Network.AWS.EC2.Types
       -- , Network.AWS.ELB.Types
       -- , Network.AWS.IAM.Types
-      -- , Network.AWS.Route53.Types
+      , Network.AWS.Route53.Types
 
     ghc-options:
         -Wall
@@ -62,6 +61,7 @@ library
       , base64-bytestring
       , bytestring
       , containers
+      , errors
       , hexpat-pickle-generic
       , HsOpenSSL
       , http-streams

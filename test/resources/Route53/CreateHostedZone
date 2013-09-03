@@ -5,8 +5,13 @@ application/xml
   <Name>{{chzName}}</Name>
   <CallerReference>{{chzCallerReference}}</CallerReference>
   {{#chzHostedZoneConfig}}
+  {{^cComment}}
+  <HostedZoneConfig/>
+  {{/cComment}}
+  {{#cComment}}
   <HostedZoneConfig>
     <Comment>{{cComment}}</Comment>
   </HostedZoneConfig>
+  {{/cComment}}
   {{/chzHostedZoneConfig}}
 </CreateHostedZoneRequest>

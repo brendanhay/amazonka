@@ -12,7 +12,7 @@
       {{/cComment}}
       {{#cComment}}
       <Config>
-        <Comment>{{.}}</Comment>
+        <Comment>{{cComment}}</Comment>
       </Config>
       {{/cComment}}
       {{/hzConfig}}

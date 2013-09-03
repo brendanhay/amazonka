@@ -38,7 +38,6 @@ import           Data.Aeson                 as Aeson
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
-import           Data.Monoid
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
 import           Network.AWS.Internal.Types
@@ -85,15 +84,18 @@ tryAWS = fmapLT AWSEx . syncIO
 -- 'AWSService' and response.
 send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> EitherT AWSError AWS b
 send payload = do
-    SignedRequest{..} <- lift . sign $ request payload
-    debug <- lift debugMode
-    res   <- tryAWS . bracket (establishConnection rqUrl) closeConnection $
-        \conn -> do
-            sendRequest conn rqRequest =<< body rqPayload
-            when debug $ print rqRequest
-            receiveResponse conn $ const Streams.read
+    dbg <- lift debugMode
+    sig <- lift . sign $ request payload
+    res <- receive dbg sig
     xml <- res ?? AWSMsg "Failed to receive any data"
-    when debug . liftIO $ BS.putStrLn xml >> BS.putStrLn ""
+    when dbg . liftIO $ BS.putStrLn xml
     hoistEither . fmapL AWSMsg $ fromXML xml
   where
-    body = maybe (return emptyBody) (fmap inputStreamBody . Streams.fromByteString)
+    receive dbg SignedRequest{..} = setup $ \conn -> do
+        sendRequest conn rqRequest =<< body rqPayload
+        when dbg $ print rqRequest
+        receiveResponse conn $ const Streams.read
+      where
+        setup = tryAWS . bracket (establishConnection rqUrl) closeConnection
+        body  = maybe (return emptyBody)
+            (fmap inputStreamBody . Streams.fromByteString)

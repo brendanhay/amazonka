@@ -6,13 +6,15 @@
       <Id>{{hzId}}</Id>
       <Name>{{hzName}}</Name>
       <CallerReference>{{hzCallerReference}}</CallerReference>
-      {{^hzConfig}}
-      <Config/>
-      {{/hzConfig}}
       {{#hzConfig}}
+      {{^cComment}}
+      <Config/>
+      {{/cComment}}
+      {{#cComment}}
       <Config>
-        <Comment>{{cComment}}</Comment>
+        <Comment>{{.}}</Comment>
       </Config>
+      {{/cComment}}
       {{/hzConfig}}
       <ResourceRecordSetCount>{{hzResourceRecordSetCount}}</ResourceRecordSetCount>
     </HostedZone>

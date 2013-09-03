@@ -57,7 +57,7 @@ instance IsXML RecordType where
 instance IsQuery RecordType
 
 data Config = Config
-    { cComment :: !ByteString
+    { cComment :: Maybe ByteString
     } deriving (Eq, Show, Generic)
 
 instance IsXML Config where

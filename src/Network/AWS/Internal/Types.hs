@@ -20,6 +20,8 @@
 module Network.AWS.Internal.Types where
 
 import           Control.Applicative
+import           Control.Error
+import           Control.Exception
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader            hiding (lift)
@@ -28,7 +30,6 @@ import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.Map                        (Map)
 import qualified Data.Map                        as Map
-import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                       (Text)
 import qualified Data.Text                       as Text
@@ -164,8 +165,9 @@ instance FromJSON Auth where
     parseJSON _ = mzero
 
 data Env = Env
-    { awsRegion :: !(Maybe Region)
+    { awsRegion :: Maybe Region
     , awsAuth   :: !Auth
+    , awsDebug  :: !Bool
     }
 
 data ContentType
@@ -179,11 +181,23 @@ instance IsByteString ContentType where
     toBS FormEncoded = "application/x-www-form-urlencoded"
     toBS XML         = "application/xml"
 
-newtype AWS a = AWS { unWrap :: ReaderT Env IO a }
+data AWSError
+    = AWSMsg String
+    | AWSEx SomeException
+      deriving (Show)
+
+instance Monoid AWSError where
+    -- mempty = AWSError mempty
+    -- mappend (AWSError a) (AWSError b) = AWSError $ a ++ ", " ++ b
+
+newtype AWS a = AWS { unWrap :: EitherT AWSError (ReaderT Env IO) a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
 
 currentRegion :: AWS Region
 currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
+
+debugMode :: AWS Bool
+debugMode = awsDebug <$> ask
 
 data RawRequest s b where
     RawRequest :: { rqMethod  :: !Method

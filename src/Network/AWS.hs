@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,70 +15,85 @@
 -- |
 module Network.AWS
     (
-    -- * AWS Monadic Context
-      runAWS
+    -- * Credentials
+      Credentials(..)
     , credentials
+
+    -- * AWS Monadic Context
+    , runAWS
     , send
     , within
+    , tryAWS
+
+    -- * Re-exported
+    , module Network.AWS.Internal.Types
     ) where
 
 import           Control.Applicative
+import           Control.Error
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.Aeson               as Aeson
-import qualified Data.ByteString.Char8    as BS
-import qualified Data.ByteString.Lazy     as LBS
-import           Data.Maybe
+import           Data.Aeson                 as Aeson
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Char8      as BS
+import qualified Data.ByteString.Lazy       as LBS
+import           Data.Monoid
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
+import           Network.AWS.Internal.Types
 import           Network.Http.Client
-import           OpenSSL                  (withOpenSSL)
+import           OpenSSL                    (withOpenSSL)
 import           System.Environment
-import qualified System.IO.Streams        as Streams
+import qualified System.IO.Streams          as Streams
+
+data Credentials
+    = Keys ByteString ByteString
+    | FromEnv ByteString ByteString
+    | FromRole ByteString
+
+credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT AWSError m Auth
+credentials cred = fmapLT AWSMsg $ case cred of
+    Keys acc sec -> right $ Auth acc sec
+    FromEnv (BS.unpack -> k1) (BS.unpack -> k2) -> do
+        acc <- pack k1
+        sec <- pack k2
+        (Auth <$> acc <*> sec) ??
+            ("Failed to read " ++ k1 ++ ", " ++ k2 ++ " from ENV")
+    FromRole role -> do
+        m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
+        hoistEither $ Aeson.eitherDecode m
+  where
+    pack = fmap (fmap BS.pack) . scriptIO . lookupEnv
 
 -- | Run an 'AWS' monadic operation.
-runAWS :: AWS a -> Auth -> IO a
-runAWS aws auth = withOpenSSL . runReaderT (unWrap aws) $ Env Nothing auth
+runAWS :: Auth -> Bool -> EitherT AWSError AWS a -> EitherT AWSError IO a
+runAWS auth debug aws = (fmap join . runAWS' auth debug) `mapEitherT` aws
 
--- FIXME: Should I try to be smart about choosing the IAM role name
--- from the metadata, or require it to be specified?
--- A: Don't try and be smart, Brendan.
-credentials :: MonadIO m => m Auth
-credentials = liftIO $ do
-    me <- fromEnv
-    case me of
-        Just x  -> return x
-        Nothing -> fromMaybe (error msg) <$> fromMetadata
-  where
-    fromEnv = do
-        acc <- pack "ACCESS_KEY_ID"
-        sec <- pack "SECRET_ACCESS_KEY"
-        return $ Auth <$> acc <*> sec
-
-    pack = fmap (fmap BS.pack) . lookupEnv
-
-    fromMetadata = Aeson.decode
-        . LBS.fromStrict <$> metadata (SecurityCredentials "s3_ro")
-
-    msg = "Failed to get auth information from environment or EC2 metadata"
+runAWS' :: Auth -> Bool -> AWS a -> IO (Either AWSError a)
+runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
+    Env Nothing auth debug
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
 within :: Region -> AWS a -> AWS a
-within reg aws = awsAuth <$> ask >>= liftIO
-    . runReaderT (unWrap aws)
-    . Env (Just reg)
+within reg = local (\e -> e { awsRegion = Just reg })
+
+tryAWS :: IO a -> EitherT AWSError AWS a
+tryAWS = fmapLT AWSEx . syncIO
 
 -- | Encode, and send an 'AWSRequest' type for its functionally dependent
 -- 'AWSService' and response.
-send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWS (Either String b)
+send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> EitherT AWSError AWS b
 send payload = do
-    SignedRequest{..} <- sign $ request payload
-    liftIO . bracket (establishConnection rqUrl) closeConnection $ \conn -> do
-        body <- maybe (return emptyBody)
-            (fmap inputStreamBody . Streams.fromByteString) rqPayload
-        sendRequest conn rqRequest body
-        print rqRequest
-        receiveResponse conn $ \_ inp -> do
-            xml <- Streams.read inp
-            return $ maybe (Left "Failed to read any data") fromXML xml
+    SignedRequest{..} <- lift . sign $ request payload
+    debug <- lift debugMode
+    res   <- tryAWS . bracket (establishConnection rqUrl) closeConnection $
+        \conn -> do
+            sendRequest conn rqRequest =<< body rqPayload
+            when debug $ print rqRequest
+            receiveResponse conn $ const Streams.read
+    xml <- res ?? AWSMsg "Failed to receive any data"
+    when debug . liftIO $ BS.putStrLn xml >> BS.putStrLn ""
+    hoistEither . fmapL AWSMsg $ fromXML xml
+  where
+    body = maybe (return emptyBody) (fmap inputStreamBody . Streams.fromByteString)

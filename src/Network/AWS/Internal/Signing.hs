@@ -17,6 +17,7 @@ module Network.AWS.Internal.Signing
     ) where
 
 import           Control.Applicative
+import           Control.Error
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Data.ByteString                 (ByteString)

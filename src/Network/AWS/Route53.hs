@@ -89,7 +89,7 @@ instance AWSService R53 where
         SigningVersion3 <$> currentRegion
 
 instance IsXML b => AWSResponse R53 b where
-    response bstr = tryXML (fromXML bstr :: XMLEither b ErrorResponse)
+    response bstr = eitherXML (fromXML bstr :: EitherXML b ErrorResponse)
 
 req :: IsQuery a => Method -> Text -> a -> RawRequest R53 b
 req meth path qry = (emptyRequest meth FormEncoded (ver path) Nothing)

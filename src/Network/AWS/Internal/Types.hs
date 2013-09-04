@@ -211,10 +211,10 @@ hoistError = hoistEither . fmapL Error
 tryAWS :: IO a -> AWSContext a
 tryAWS = fmapLT Ex . syncIO
 
-type XMLEither a b = Either String (Either a b)
+type EitherXML a b = Either String (Either a b)
 
-tryXML :: Show b => Either String (Either a b) -> Either Error a
-tryXML = g . f
+eitherXML :: Show b => Either String (Either a b) -> Either Error a
+eitherXML = g . f
   where
     f = fmap (h . fmapR (Error . show))
     g = join . fmapL Error

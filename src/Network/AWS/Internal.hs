@@ -34,9 +34,12 @@ module Network.AWS.Internal
     , withRootNS
     , withRootNS'
     , xmlOptions
+    , xpTextContent
     ) where
 
 import Data.ByteString                 (ByteString)
+import Data.Text                       (Text)
+import Data.Text.Encoding
 import GHC.Generics
 import Network.AWS.Internal.Instances
 import Network.AWS.Internal.Signing
@@ -65,3 +68,6 @@ xmlOptions :: ByteString -> XMLOptions
 xmlOptions ns = (namespacedXMLOptions ns)
     { xmlListElement = mkNName ns "member"
     }
+
+xpTextContent :: XMLPU [Node] Text
+xpTextContent = (decodeUtf8, encodeUtf8) `xpWrap` xpContent xpText

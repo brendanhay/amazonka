@@ -25,12 +25,13 @@ import           Control.Exception
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader            hiding (lift)
-import           Data.Aeson
+import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.Map                        (Map)
 import qualified Data.Map                        as Map
 import           Data.Monoid
+import           Data.String
 import           Data.Text                       (Text)
 import qualified Data.Text                       as Text
 import           Data.Text.Encoding
@@ -181,32 +182,43 @@ instance IsByteString ContentType where
     toBS FormEncoded = "application/x-www-form-urlencoded"
     toBS XML         = "application/xml"
 
-data AWSError
-    = AWSMsg String
-    | AWSEx SomeException
-      deriving (Show)
+type AWSContext = EitherT Error AWS
 
-instance Monoid AWSError where
-    -- mempty = AWSError mempty
-    -- mappend (AWSError a) (AWSError b) = AWSError $ a ++ ", " ++ b
+data Error = Error String | Ex SomeException
+    deriving (Show)
 
-newtype AWS a = AWS { unWrap :: EitherT AWSError (ReaderT Env IO) a }
-    deriving (Functor, Applicative, Monad, MonadIO, MonadPlus, MonadReader Env)
+instance IsString Error where
+    fromString = Error
+
+newtype AWS a = AWS { unWrap :: EitherT Error (ReaderT Env IO) a }
+    deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env)
 
 currentRegion :: AWS Region
 currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
 
-debugMode :: AWS Bool
-debugMode = awsDebug <$> ask
+whenDebug :: IO () -> AWSContext ()
+whenDebug io = fmap awsDebug ask >>= \p -> liftIO $ when p io
+
+throwError :: String -> AWSContext a
+throwError = throwT . Error
+
+fmapError :: Monad m => EitherT String m a -> EitherT Error m a
+fmapError = fmapLT Error
+
+hoistError :: Monad m => Either String a -> EitherT Error m a
+hoistError = hoistEither . fmapL Error
+
+tryAWS :: IO a -> AWSContext a
+tryAWS = fmapLT Ex . syncIO
 
 data RawRequest s b where
     RawRequest :: { rqMethod  :: !Method
                   , rqContent :: !ContentType
-                  , rqAction  :: !(Maybe ByteString)
-                  , rqPath    :: !(Maybe ByteString)
-                  , rqHeaders :: !(Map ByteString ByteString)
-                  , rqQuery   :: ![(ByteString, ByteString)]
-                  , rqBody    :: !(Maybe ByteString)
+                  , rqAction  :: Maybe ByteString
+                  , rqPath    :: Maybe ByteString
+                  , rqHeaders :: Map ByteString ByteString
+                  , rqQuery   :: [(ByteString, ByteString)]
+                  , rqBody    :: Maybe ByteString
                   }
                 -> RawRequest s b
 
@@ -233,10 +245,7 @@ emptyRequest meth content path body = RawRequest
     , rqHeaders = Map.empty
     , rqQuery   = []
     , rqBody    = body
-    , rqPath    = let p = toBS path
-                  in if BS.null p
-                         then Nothing
-                         else Just p
+    , rqPath    = if BS.null path then Nothing else Just path
     }
 
 data SignedRequest = SignedRequest
@@ -276,13 +285,18 @@ class Template a where
     readTemplate :: a -> ByteString
 
 class IsByteString a where
-    toBS   :: a -> ByteString
     toText :: a -> Text
+    toBS   :: a -> ByteString
 
     toText = decodeUtf8 . toBS
 
 instance IsByteString ByteString where
-    toBS = id
+    toBS   = id
+    toText = decodeUtf8
+
+instance IsByteString Text where
+    toBS   = encodeUtf8
+    toText = id
 
 instance IsByteString Int where
     toBS = BS.pack . show
@@ -292,3 +306,6 @@ instance IsByteString Integer where
 
 instance IsByteString UTCTime where
     toBS = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
+
+instance IsByteString Method where
+    toBS = BS.pack . show

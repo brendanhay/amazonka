@@ -23,7 +23,6 @@ module Network.AWS
     , runAWS
     , send
     , within
-    , tryAWS
 
     -- * Re-exported
     , module Network.AWS.Internal.Types
@@ -34,7 +33,7 @@ import           Control.Error
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Data.Aeson                 as Aeson
+import qualified Data.Aeson                 as Aeson
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
@@ -51,8 +50,8 @@ data Credentials
     | FromEnv ByteString ByteString
     | FromRole ByteString
 
-credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT AWSError m Auth
-credentials cred = fmapLT AWSMsg $ case cred of
+credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT Error m Auth
+credentials cred = fmapError $ case cred of
     Keys acc sec -> right $ Auth acc sec
     FromEnv (BS.unpack -> k1) (BS.unpack -> k2) -> do
         acc <- pack k1
@@ -66,10 +65,10 @@ credentials cred = fmapLT AWSMsg $ case cred of
     pack = fmap (fmap BS.pack) . scriptIO . lookupEnv
 
 -- | Run an 'AWS' monadic operation.
-runAWS :: Auth -> Bool -> EitherT AWSError AWS a -> EitherT AWSError IO a
+runAWS :: Auth -> Bool -> AWSContext a -> EitherT Error IO a
 runAWS auth debug aws = (fmap join . runAWS' auth debug) `mapEitherT` aws
 
-runAWS' :: Auth -> Bool -> AWS a -> IO (Either AWSError a)
+runAWS' :: Auth -> Bool -> AWS a -> IO (Either Error a)
 runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
     Env Nothing auth debug
 
@@ -77,25 +76,19 @@ runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
 within :: Region -> AWS a -> AWS a
 within reg = local (\e -> e { awsRegion = Just reg })
 
-tryAWS :: IO a -> EitherT AWSError AWS a
-tryAWS = fmapLT AWSEx . syncIO
-
--- | Encode, and send an 'AWSRequest' type for its functionally dependent
--- 'AWSService' and response.
-send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> EitherT AWSError AWS b
+-- | Encode, then send an 'AWSRequest' type to its functionally dependent 'AWSService'.
+send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWSContext b
 send payload = do
-    dbg <- lift debugMode
     sig <- lift . sign $ request payload
-    res <- receive dbg sig
-    xml <- res ?? AWSMsg "Failed to receive any data"
-    when dbg . liftIO $ BS.putStrLn xml
-    hoistEither . fmapL AWSMsg $ fromXML xml
+    whenDebug . print $ rqRequest sig
+    res <- receive sig
+    xml <- res ?? "Failed to receive any data"
+    whenDebug $ BS.putStrLn xml
+    hoistError $ fromXML xml
   where
-    receive dbg SignedRequest{..} = setup $ \conn -> do
-        sendRequest conn rqRequest =<< body rqPayload
-        when dbg $ print rqRequest
-        receiveResponse conn $ const Streams.read
-      where
-        setup = tryAWS . bracket (establishConnection rqUrl) closeConnection
-        body  = maybe (return emptyBody)
-            (fmap inputStreamBody . Streams.fromByteString)
+    receive SignedRequest{..} =
+        tryAWS . bracket (establishConnection rqUrl) closeConnection $ \c -> do
+        b <- maybe (return emptyBody)
+            (fmap inputStreamBody . Streams.fromByteString) rqPayload
+        sendRequest c rqRequest b
+        receiveResponse c $ const Streams.read

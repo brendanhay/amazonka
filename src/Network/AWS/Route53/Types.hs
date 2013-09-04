@@ -14,9 +14,10 @@
 
 module Network.AWS.Route53.Types where
 
-import Data.Monoid
 import Control.Applicative  ((<$>))
 import Data.ByteString      (ByteString)
+import Data.Monoid
+import Data.Text            (Text)
 import Data.Time
 import Network.AWS.Internal
 import Text.Read
@@ -33,14 +34,14 @@ route53NS = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
 route53Elem :: ByteString -> NName ByteString
 route53Elem = mkNName route53NS
 
-newtype CallerReference = CallerReference { unCallerReference :: ByteString }
+newtype CallerReference = CallerReference { unCallerReference :: Text }
     deriving (Eq, Ord, Show, Generic)
 
 instance IsXML CallerReference where
-    xmlPickler = (CallerReference, unCallerReference) `xpWrap` xpContent xpText
+    xmlPickler = (CallerReference, unCallerReference) `xpWrap` xpTextContent
 
 callerRef :: IO CallerReference
-callerRef = CallerReference . toBS <$> getCurrentTime
+callerRef = CallerReference . toText <$> getCurrentTime
 
 data Protocol = HTTP | TCP
     deriving (Eq, Read, Show, Generic)
@@ -57,16 +58,16 @@ instance IsXML RecordType where
 instance IsQuery RecordType
 
 data Config = Config
-    { cComment :: Maybe ByteString
+    { cComment :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML Config where
     xmlPickler = withNS route53NS
 
 data HostedZone = HostedZone
-    { hzId                     :: !ByteString
+    { hzId                     :: !Text
       -- ^ The ID of the hosted zone.
-    , hzName                   :: !ByteString
+    , hzName                   :: !Text
       -- ^ The name of the domain. For resource record types that include a
       -- domain name, specify a fully qualified domain name, for example,
       -- www.example.com. The trailing dot is optional; Route 53 assumes
@@ -86,7 +87,7 @@ data HostedZone = HostedZone
 instance IsXML HostedZone where
     xmlPickler = withNS route53NS
 
-newtype DelegationSet = DelegationSet { dsNameServers :: [ByteString] }
+newtype DelegationSet = DelegationSet { dsNameServers :: [Text] }
     deriving (Eq, Show, Generic)
 
 instance IsXML DelegationSet where
@@ -101,7 +102,7 @@ instance IsXML ChangeStatus where
     xmlPickler = xpContent xpPrim
 
 data ChangeInfo = ChangeInfo
-    { ciId          :: !ByteString
+    { ciId          :: !Text
     , ciStatus      :: !ChangeStatus
     , ciSubmittedAt :: !UTCTime
     } deriving (Eq, Show, Generic)
@@ -134,14 +135,14 @@ instance IsXML Change where
     xmlPickler = withNS route53NS
 
 data ChangeBatch = ChangeBatch
-    { cbComment :: Maybe ByteString
+    { cbComment :: Maybe Text
     , cbChanges :: [Change]
     } deriving (Eq, Show, Generic)
 
 instance IsXML ChangeBatch where
     xmlPickler = withNS route53NS
 
-newtype ResourceRecords = ResourceRecords { rrValues :: [ByteString] }
+newtype ResourceRecords = ResourceRecords { rrValues :: [Text] }
     deriving (Eq, Show, Generic)
 
 instance IsXML ResourceRecords where
@@ -150,8 +151,8 @@ instance IsXML ResourceRecords where
             $ xpElem (route53Elem "Value") xmlPickler)
 
 data AliasTarget = AliasTarget
-    { atHostedZoneId         :: !ByteString
-    , atDNSName              :: !ByteString
+    { atHostedZoneId         :: !Text
+    , atDNSName              :: !Text
     , atEvaluateTargetHealth :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
@@ -166,75 +167,75 @@ instance IsXML Failover where
 
 data ResourceRecordSet
     = FailoverRecordSet
-      { rrsName            :: !ByteString
+      { rrsName            :: !Text
       , rrsType            :: !RecordType
-      , rrsSetIdentifier   :: !ByteString
+      , rrsSetIdentifier   :: !Text
       , rrsFailover        :: !Failover
       , rrsTTL             :: !Integer
       , rrsResourceRecords :: !ResourceRecords
-      , rrsHealthCheckId   :: Maybe ByteString
+      , rrsHealthCheckId   :: Maybe Text
       }
 
     | FailoverAliasRecordSet
-      { rrsName          :: !ByteString
+      { rrsName          :: !Text
       , rrsType          :: !RecordType
-      , rrsSetIdentifier :: !ByteString
+      , rrsSetIdentifier :: !Text
       , rrsFailover      :: !Failover
       , rrsAliasTarget   :: !AliasTarget
-      , rrsHealthCheckId :: Maybe ByteString
+      , rrsHealthCheckId :: Maybe Text
       }
 
     | LatencyRecordSet
-      { rrsName            :: !ByteString
+      { rrsName            :: !Text
       , rrsType            :: !RecordType
-      , rrsSetIdentifier   :: !ByteString
+      , rrsSetIdentifier   :: !Text
       , rrsRegion          :: !Region
       , rrsTTL             :: !Integer
       , rrsResourceRecords :: !ResourceRecords
-      , rrsHealthCheckId   :: Maybe ByteString
+      , rrsHealthCheckId   :: Maybe Text
       }
 
     | LatencyAliasRecordSet
-      { rrsName          :: !ByteString
+      { rrsName          :: !Text
       , rrsType          :: !RecordType
-      , rrsSetIdentifier :: !ByteString
+      , rrsSetIdentifier :: !Text
       , rrsRegion        :: !Region
       , rrsAliasTarget   :: !AliasTarget
-      , rrsHealthCheckId :: Maybe ByteString
+      , rrsHealthCheckId :: Maybe Text
       }
 
     | WeightedRecordSet
-      { rrsName            :: !ByteString
+      { rrsName            :: !Text
       , rrsType            :: !RecordType
-      , rrsSetIdentifier   :: !ByteString
+      , rrsSetIdentifier   :: !Text
       , rrsWeight          :: !Integer
       , rrsTTL             :: !Integer
       , rrsResourceRecords :: !ResourceRecords
-      , rrsHealthCheckId   :: Maybe ByteString
+      , rrsHealthCheckId   :: Maybe Text
       }
 
     | WeightedAliasRecordSet
-      { rrsName          :: !ByteString
+      { rrsName          :: !Text
       , rrsType          :: !RecordType
-      , rrsSetIdentifier :: !ByteString
+      , rrsSetIdentifier :: !Text
       , rrsWeight        :: !Integer
       , rrsAliasTarget   :: !AliasTarget
-      , rrsHealthCheckId :: Maybe ByteString
+      , rrsHealthCheckId :: Maybe Text
       }
 
     | BasicRecordSet
-      { rrsName            :: !ByteString
+      { rrsName            :: !Text
       , rrsType            :: !RecordType
       , rrsTTL             :: !Integer
       , rrsResourceRecords :: !ResourceRecords
-      , rrsHealthCheckId   :: Maybe ByteString
+      , rrsHealthCheckId   :: Maybe Text
       }
 
     | AliasRecordSet
-      { rrsName          :: !ByteString
+      { rrsName          :: !Text
       , rrsType          :: !RecordType
       , rrsAliasTarget   :: !AliasTarget
-      , rrsHealthCheckId :: Maybe ByteString
+      , rrsHealthCheckId :: Maybe Text
       }
 
     deriving (Eq, Show, Generic)
@@ -245,18 +246,18 @@ instance IsXML ResourceRecordSet where
         }
 
 data HealthCheckConfig = HealthCheckConfig
-    { hccIPAddress                :: !ByteString
+    { hccIPAddress                :: !Text
     , hccPort                     :: !Int
     , hccType                     :: !Protocol
-    , hccResourcePath             :: !ByteString
-    , hccFullyQualifiedDomainName :: !ByteString
+    , hccResourcePath             :: !Text
+    , hccFullyQualifiedDomainName :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML HealthCheckConfig where
     xmlPickler = withNS route53NS
 
 data HealthCheck = HealthCheck
-    { hcId                :: !ByteString
+    { hcId                :: !Text
     , hcCallerReference   :: !CallerReference
     , hcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Eq, Show, Generic)

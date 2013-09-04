@@ -76,6 +76,7 @@ import Control.Applicative       ((<$>))
 import Data.ByteString           (ByteString)
 import Data.Monoid
 import Data.String
+import Data.Text                 (Text)
 import Network.AWS.Internal
 import Network.AWS.Route53.Types
 import Network.Http.Client       (Method(..))
@@ -86,16 +87,16 @@ instance AWSService R53 where
     service _ = Service "route53" route53Version "route53.amazonaws.com"
         SigningVersion3 <$> currentRegion
 
-req :: IsQuery a => Method -> ByteString -> a -> RawRequest R53 b
+req :: IsQuery a => Method -> Text -> a -> RawRequest R53 b
 req meth path qry = (emptyRequest meth FormEncoded (ver path) Nothing)
     { rqQuery = toQuery qry
     }
 
-body :: IsXML a => Method -> ByteString -> a -> RawRequest R53 b
+body :: IsXML a => Method -> Text -> a -> RawRequest R53 b
 body meth path = (emptyRequest meth XML $ ver path) . Just . toIndentedXML 2 -- Indented for Debugging/Testing purposes
 
-ver :: ByteString -> ByteString
-ver = mappend ("/" <> route53Version <> "/")
+ver :: Text -> ByteString
+ver = mappend ("/" <> route53Version <> "/") . toBS
 
 --
 -- Hosted Zones
@@ -105,7 +106,7 @@ ver = mappend ("/" <> route53Version <> "/")
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html>
 data CreateHostedZone = CreateHostedZone
-    { chzName             :: !ByteString
+    { chzName             :: !Text
       -- ^ The name of the domain.
     , chzCallerReference  :: !CallerReference
       -- ^ A unique string that identifies the request and that allows
@@ -137,12 +138,12 @@ instance IsXML CreateHostedZoneResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
 newtype GetHostedZone = GetHostedZone
-    { ghzId :: ByteString
+    { ghzId :: Text
       -- ^ Hosted Zone Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
-    request chk = req GET ("hostedzone/" <> toBS chk) ()
+    request chk = req GET ("hostedzone/" <> toText chk) ()
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostedZone    :: !HostedZone
@@ -159,7 +160,7 @@ instance IsXML GetHostedZoneResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html>
 data ListHostedZones = ListHostedZones
-    { lhzMarker   :: Maybe ByteString
+    { lhzMarker   :: Maybe Text
       -- ^ To get the next group of maxitems hosted zones, submit another request
       -- with the value of the NextMarker element that was returned in the
       -- previous response.
@@ -178,9 +179,9 @@ data ListHostedZonesResponse = ListHostedZonesResponse
       -- ^ A list of hosted zone descriptions.
     , lhzrIsTruncated :: !Bool
       -- ^ Whether the result list has been truncated.
-    , lhzrMarker      :: Maybe ByteString
+    , lhzrMarker      :: Maybe Text
       -- ^ Value of the marker in the previous request.
-    , lhzrNextMarker  :: Maybe ByteString
+    , lhzrNextMarker  :: Maybe Text
       -- ^ If IsTruncated is true, the hosted zone ID of the first hosted zone
       -- in the next group of maxitems hosted zones.
     , lhzrMaxItems    :: !Integer
@@ -194,12 +195,12 @@ instance IsXML ListHostedZonesResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
 newtype DeleteHostedZone = DeleteHostedZone
-    { dhzId :: ByteString
+    { dhzId :: Text
       -- ^ Hosted Zone Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
-    request chk = req DELETE ("hostedzone/" <> toBS chk) ()
+    request chk = req DELETE ("hostedzone/" <> toText chk) ()
 
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
@@ -217,7 +218,7 @@ instance IsXML DeleteHostedZoneResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { crrsZoneId      :: !ByteString
+    { crrsZoneId      :: !Text
       -- ^ Hosted Zone Id.
     , crrsChangeBatch :: !ChangeBatch
       -- ^ ChangeBatch describing the record set modifications you wish to perform.
@@ -245,15 +246,15 @@ instance IsXML ChangeResourceRecordSetsResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html>
 data ListResourceRecordSets = ListResourceRecordSets
-    { lrrsZoneId     :: !ByteString
+    { lrrsZoneId     :: !Text
       -- ^ The ID of the hosted zone containing the resource
       -- records sets to be retrieved.
-    , lrrsName       :: Maybe ByteString
+    , lrrsName       :: Maybe Text
       -- ^ The first name in the lexicographic ordering of domain names
       -- to be retrieved in the response to the ListResourceRecordSets request.
     , lrrsType       :: Maybe RecordType
       -- ^ The type of resource record set to begin the record listing from.
-    , lrrsIdentifier :: Maybe ByteString
+    , lrrsIdentifier :: Maybe Text
       -- ^ Weighted and latency resource record sets only: If results were
       -- truncated for a given DNS name and type, the value of SetIdentifier
       -- for the next resource record set that has the current DNS name and type.
@@ -280,13 +281,13 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
       -- ^ Whether the result list has been truncated.
     , lrrsrMaxItems             :: !Integer
       -- ^ Value of maxitems in the previous request.
-    , lrrsrNextRecordName       :: Maybe ByteString
+    , lrrsrNextRecordName       :: Maybe Text
       -- ^ If IsTruncated is true, the DNS domain name of the first resource
       -- record set in the next group of maxitems resource record sets.
     , lrrsrNextRecordType       :: Maybe RecordType
       -- ^ If IsTruncated is true, the DNS record type of the first resource
       -- record set in the next group of maxitems resource record sets.
-    , lrrsrNextRecordIdentifier :: Maybe ByteString
+    , lrrsrNextRecordIdentifier :: Maybe Text
       -- ^ If IsTruncated is true and results were truncated for a weighted,
       -- latency, or failover resource record set, the value of SetIdentifier
       -- for the first resource record set in the next group of maxitems resource
@@ -301,14 +302,14 @@ instance IsXML ListResourceRecordSetsResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html>
 newtype GetChange = GetChange
-    { gcId :: ByteString
+    { gcId :: Text
       -- ^ The ID of the change batch request. The value that you specify here
       -- is the value that POST ChangeResourceRecordSets returned in the Id
       -- element when you submitted the request.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetChange GetChangeResponse where
-    request chk = req GET ("change/" <> toBS chk) ()
+    request chk = req GET ("change/" <> toText chk) ()
 
 data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
@@ -353,14 +354,14 @@ instance IsXML CreateHealthCheckResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>
 newtype GetHealthCheck = GetHealthCheck
-    { ghcId :: ByteString
+    { ghcId :: Text
       -- ^ The ID for the health check for which you want detailed information.
       -- When you created the health check, CreateHealthCheck returned the ID
       -- in the response, in the HealthCheckId element.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
-    request chk = req GET ("healthcheck/" <> toBS chk) ()
+    request chk = req GET ("healthcheck/" <> toText chk) ()
 
 data GetHealthCheckResponse = GetHealthCheckResponse
     { ghcrHealthCheck :: !HealthCheck
@@ -375,7 +376,7 @@ instance IsXML GetHealthCheckResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html>
 data ListHealthChecks = ListHealthChecks
-    { lhcMarker   :: Maybe ByteString
+    { lhcMarker   :: Maybe Text
       -- ^ If the response to a ListHealthChecks is more than one page,
       --  marker is the health check ID for the first health check on the
       -- next page of results.
@@ -398,9 +399,9 @@ data ListHealthChecksResponse = ListHealthChecksResponse
       -- ^ A list of health check descriptions.
     , lhcrIsTruncated :: !Bool
       -- ^ Whether the result list has been truncated.
-    , lhcrMarker      :: Maybe ByteString
+    , lhcrMarker      :: Maybe Text
       -- ^ Value of the marker in the previous request.
-    , lhcrNextMarker  :: Maybe ByteString
+    , lhcrNextMarker  :: Maybe Text
       -- ^ If IsTruncated is true, the hosted zone ID of the first hosted zone
       -- in the next group of maxitems hosted zones.
     , lhcrMaxItems    :: !Integer
@@ -421,12 +422,12 @@ instance IsXML ListHealthChecksResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
 newtype DeleteHealthCheck = DeleteHealthCheck
-    { dhcId :: ByteString
+    { dhcId :: Text
       -- ^ Health Check Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHealthCheck DeleteHealthCheckResponse where
-    request chk = req DELETE ("healthcheck/" <> toBS chk) ()
+    request chk = req DELETE ("healthcheck/" <> toText chk) ()
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Read, Show, Generic)

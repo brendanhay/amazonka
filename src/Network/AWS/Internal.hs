@@ -24,6 +24,7 @@ module Network.AWS.Internal
     , module Network.AWS.Internal.Types
 
     -- * Convenience
+    , module Control.Error
     , module GHC.Generics
     , module Network.HTTP.QueryString.Pickle
     , module Text.XML.Expat.Pickle.Generic
@@ -37,6 +38,7 @@ module Network.AWS.Internal
     , xpTextContent
     ) where
 
+import Control.Error
 import Data.ByteString                 (ByteString)
 import Data.Text                       (Text)
 import Data.Text.Encoding

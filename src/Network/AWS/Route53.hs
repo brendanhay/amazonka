@@ -4,6 +4,7 @@
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
 
 -- Module      : Network.AWS.Route53
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,6 +87,9 @@ data R53
 instance AWSService R53 where
     service _ = Service "route53" route53Version "route53.amazonaws.com"
         SigningVersion3 <$> currentRegion
+
+instance IsXML b => AWSResponse R53 b where
+    response bstr = tryXML (fromXML bstr :: XMLEither b ErrorResponse)
 
 req :: IsQuery a => Method -> Text -> a -> RawRequest R53 b
 req meth path qry = (emptyRequest meth FormEncoded (ver path) Nothing)

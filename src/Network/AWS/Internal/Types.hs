@@ -211,6 +211,17 @@ hoistError = hoistEither . fmapL Error
 tryAWS :: IO a -> AWSContext a
 tryAWS = fmapLT Ex . syncIO
 
+type XMLEither a b = Either String (Either a b)
+
+tryXML :: Show b => Either String (Either a b) -> Either Error a
+tryXML = g . f
+  where
+    f = fmap (h . fmapR (Error . show))
+    g = join . fmapL Error
+
+    h (Left a)  = Right a
+    h (Right b) = Left b
+
 data RawRequest s b where
     RawRequest :: { rqMethod  :: !Method
                   , rqContent :: !ContentType
@@ -280,6 +291,9 @@ class AWSService s where
 
 class AWSRequest s a b | a -> s b where
     request :: a -> RawRequest s b
+
+class AWSResponse s b | b -> s where
+    response :: ByteString -> Either Error b
 
 class Template a where
     readTemplate :: a -> ByteString

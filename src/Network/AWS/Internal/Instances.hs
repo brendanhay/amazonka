@@ -17,7 +17,7 @@
 module Network.AWS.Internal.Instances where
 
 import           Control.Monad
-import           Data.ByteString (ByteString)
+import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.Time
 import           GHC.Generics
@@ -90,7 +90,7 @@ instance IsQuery UTCTime where
 instance IsXML UTCTime where
     xmlPickler = xpContent $ XMLPU
         { pickleTree   = \d ->
-              BS.pack (take 23 (formatTime defaultTimeLocale "%FT%T%Q" d) ++ "Z")
+             BS.pack (take 23 (formatTime defaultTimeLocale "%FT%T%Q" d) ++ "Z")
         , unpickleTree = \t ->
               case parseTime defaultTimeLocale "%FT%T%QZ" (BS.unpack t) of
                   Just d -> Right d

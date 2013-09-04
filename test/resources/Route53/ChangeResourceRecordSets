@@ -37,9 +37,7 @@ application/xml
           <AliasTarget>
             <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
             <DNSName>{{atDNSName}}</DNSName>
-            {{#atEvaluateTargetHealth}}
             <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
-            {{/atEvaluateTargetHealth}}
           </AliasTarget>
           {{/rrsAliasTarget}}
           {{#rrsHealthCheckId}}

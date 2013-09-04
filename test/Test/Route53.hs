@@ -15,7 +15,6 @@
 module Test.Route53 (tests) where
 
 import qualified Data.Text           as Text
-import           Data.Text.Encoding
 import           Network.AWS.Route53
 import           Test.Common
 
@@ -66,7 +65,7 @@ tests = (:[]) $ testVersion route53Version
     ]
 
 instance ToJSON CallerReference where
-    toJSON = String . decodeUtf8 . unCallerReference
+    toJSON = String . unCallerReference
 
 instance ToJSON Protocol where
     toJSON = String . Text.pack . show

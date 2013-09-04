@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.Types
@@ -33,6 +34,52 @@ route53NS = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
 -- | Helper to define Route53 namespaced XML elements.
 route53Elem :: ByteString -> NName ByteString
 route53Elem = mkNName route53NS
+
+data ErrorType = ErrorType
+    { etType    :: !Text
+    , etCode    :: !Text
+    , etMessage :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML ErrorType where
+    xmlPickler = withNS route53NS
+
+data ErrorResponse
+    = ErrorResponse
+      { erError     :: !ErrorType
+      , erRequestId :: !Text
+      }
+    | InvalidChangeBatch
+      { erMessages :: [Text]
+      }
+    deriving (Eq, Show, Generic)
+
+instance IsXML ErrorResponse where
+    xmlPickler = withNS route53NS
+
+-- instance IsXML ResourceRecordSet where
+--     xmlPickler = genericXMLPickler $ (namespacedXMLOptions route53NS)
+--         { xmlCtorModifier = const $ route53Elem "ResourceRecordSet"
+--         }
+
+-- <ErrorResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
+--     <Error>
+--         <Type>Sender</Type>
+--         <Code>InvalidChangeBatch</Code>
+--         <Message>
+--         Tried to create an alias that targets asd., type CNAME in zone ZORL6RE8A5Z9D, but the alias target name does not lie within the target zone</Message>
+--     </Error>
+--     <RequestId>8e36cb8f-1566-11e3-96d1-856ead110654</RequestId>
+-- </ErrorResponse>
+
+-- <InvalidChangeBatch xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
+--    <Messages>
+--       <Message>
+--       Tried to create resource record set duplicate.example.com. type A,
+--       but it already exists
+--       </Message>
+--    </Messages>
+-- </InvalidChangeBatch>
 
 newtype CallerReference = CallerReference { unCallerReference :: Text }
     deriving (Eq, Ord, Show, Generic)
@@ -153,7 +200,7 @@ instance IsXML ResourceRecords where
 data AliasTarget = AliasTarget
     { atHostedZoneId         :: !Text
     , atDNSName              :: !Text
-    , atEvaluateTargetHealth :: Maybe Bool
+    , atEvaluateTargetHealth :: !Bool
     } deriving (Eq, Show, Generic)
 
 instance IsXML AliasTarget where

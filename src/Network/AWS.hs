@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE ViewPatterns      #-}
@@ -77,18 +78,20 @@ within :: Region -> AWS a -> AWS a
 within reg = local (\e -> e { awsRegion = Just reg })
 
 -- | Encode, then send an 'AWSRequest' type to its functionally dependent 'AWSService'.
-send :: (AWSService s, AWSRequest s a b, IsXML b) => a -> AWSContext b
+send :: (AWSService s, AWSRequest s a b, AWSResponse s b) => a -> AWSContext b
 send payload = do
-    sig <- lift . sign $ request payload
+    sig  <- lift . sign $ request payload
     whenDebug . print $ rqRequest sig
-    res <- receive sig
-    xml <- res ?? "Failed to receive any data"
-    whenDebug $ BS.putStrLn xml
-    hoistError $ fromXML xml
+    mres <- receive sig
+    res  <- mres ?? "Failed to receive any data"
+    whenDebug $ BS.putStrLn res
+    hoistEither $ response res
   where
     receive SignedRequest{..} =
         tryAWS . bracket (establishConnection rqUrl) closeConnection $ \c -> do
         b <- maybe (return emptyBody)
             (fmap inputStreamBody . Streams.fromByteString) rqPayload
         sendRequest c rqRequest b
-        receiveResponse c $ const Streams.read
+        receiveResponse c $ \r i -> do
+            print $ getStatusCode r
+            Streams.read i

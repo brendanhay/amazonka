@@ -19,6 +19,7 @@ import           Data.Aeson
 import           Data.ByteString       (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import           Data.DeriveTH
+import           Data.Text             (Text)
 import qualified Data.Text             as Text
 import           Data.Time
 import qualified Data.Vector           as V
@@ -27,6 +28,13 @@ import           Test.QuickCheck
 
 instance Arbitrary ByteString where
     arbitrary = fmap BS.pack . listOf1 $ oneof
+        [ choose ('\48', '\57')
+        , choose ('\65', '\90')
+        , choose ('\97', '\122')
+        ]
+
+instance Arbitrary Text where
+    arbitrary = fmap Text.pack . listOf1 $ oneof
         [ choose ('\48', '\57')
         , choose ('\65', '\90')
         , choose ('\97', '\122')

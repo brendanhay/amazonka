@@ -28,7 +28,6 @@ import           Data.Char                       (toLower)
 import qualified Data.Digest.Pure.SHA            as SHA
 import           Data.List
 import qualified Data.Map                        as Map
-import           Data.Maybe
 import           Data.Monoid
 import           Data.Time                       (UTCTime, formatTime, getCurrentTime)
 import           Network.AWS.Internal.String

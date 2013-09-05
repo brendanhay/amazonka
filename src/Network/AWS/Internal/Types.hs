@@ -185,7 +185,10 @@ instance IsByteString ContentType where
 type AWSContext = EitherT Error AWS
 
 data Error = Error String | Ex SomeException
-    deriving (Show)
+
+instance Show Error where
+    show (Error s) = s
+    show (Ex ex)   = show ex
 
 instance IsString Error where
     fromString = Error

@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.Types
@@ -15,13 +16,16 @@
 
 module Network.AWS.Route53.Types where
 
-import Control.Applicative  ((<$>))
-import Data.ByteString      (ByteString)
-import Data.Monoid
-import Data.Text            (Text)
-import Data.Time
-import Network.AWS.Internal
-import Text.Read
+import           Control.Applicative  ((<$>))
+import           Data.ByteString      (ByteString)
+import           Data.Monoid
+import           Data.String
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
+import           Data.Text.Encoding
+import           Data.Time
+import           Network.AWS.Internal
+import           Text.Read
 
 -- | Currently supported version of the Route53 service.
 route53Version :: ByteString
@@ -111,8 +115,24 @@ data Config = Config
 instance IsXML Config where
     xmlPickler = withNS route53NS
 
+newtype HostedZoneId = HostedZoneId { unHostedZoneId :: Text }
+   deriving (Eq, IsString)
+
+instance Show HostedZoneId where
+    show = Text.unpack . toText
+
+instance IsByteString HostedZoneId where
+    toText = ensurePrefix "/hostedzone/" . unHostedZoneId
+    toBS   = encodeUtf8 . toText
+
+instance IsXML HostedZoneId where
+    xmlPickler = (HostedZoneId, unHostedZoneId) `xpWrap` xmlPickler
+
+instance IsQuery HostedZoneId where
+    queryPickler = (HostedZoneId, unHostedZoneId) `qpWrap` queryPickler
+
 data HostedZone = HostedZone
-    { hzId                     :: !Text
+    { hzId                     :: !HostedZoneId
       -- ^ The ID of the hosted zone.
     , hzName                   :: !Text
       -- ^ The name of the domain. For resource record types that include a
@@ -142,6 +162,19 @@ instance IsXML DelegationSet where
         (xpElem (route53Elem "NameServers")
             $ xpElemList (route53Elem "NameServer") xmlPickler)
 
+newtype ChangeId = ChangeId { unChangeId :: Text }
+    deriving (Eq, IsString)
+
+instance Show ChangeId where
+    show = Text.unpack . toText
+
+instance IsByteString ChangeId where
+    toText = ensurePrefix "/change/" . unChangeId
+    toBS   = encodeUtf8 . toText
+
+instance IsXML ChangeId where
+    xmlPickler = (ChangeId, unChangeId) `xpWrap` xmlPickler
+
 data ChangeStatus = PENDING | INSYNC
     deriving (Eq, Read, Show, Generic)
 
@@ -149,7 +182,7 @@ instance IsXML ChangeStatus where
     xmlPickler = xpContent xpPrim
 
 data ChangeInfo = ChangeInfo
-    { ciId          :: !Text
+    { ciId          :: !ChangeId
     , ciStatus      :: !ChangeStatus
     , ciSubmittedAt :: !UTCTime
     } deriving (Eq, Show, Generic)
@@ -198,7 +231,7 @@ instance IsXML ResourceRecords where
             $ xpElem (route53Elem "Value") xmlPickler)
 
 data AliasTarget = AliasTarget
-    { atHostedZoneId         :: !Text
+    { atHostedZoneId         :: !HostedZoneId
     , atDNSName              :: !Text
     , atEvaluateTargetHealth :: !Bool
     } deriving (Eq, Show, Generic)
@@ -220,7 +253,7 @@ data ResourceRecordSet
       , rrsFailover        :: !Failover
       , rrsTTL             :: !Integer
       , rrsResourceRecords :: !ResourceRecords
-      , rrsHealthCheckId   :: Maybe Text
+      , rrsHealthCheckId   :: Maybe HealthCheckId
       }
 
     | FailoverAliasRecordSet
@@ -229,7 +262,7 @@ data ResourceRecordSet
       , rrsSetIdentifier :: !Text
       , rrsFailover      :: !Failover
       , rrsAliasTarget   :: !AliasTarget
-      , rrsHealthCheckId :: Maybe Text
+      , rrsHealthCheckId :: Maybe HealthCheckId
       }
 
     | LatencyRecordSet
@@ -239,7 +272,7 @@ data ResourceRecordSet
       , rrsRegion          :: !Region
       , rrsTTL             :: !Integer
       , rrsResourceRecords :: !ResourceRecords
-      , rrsHealthCheckId   :: Maybe Text
+      , rrsHealthCheckId   :: Maybe HealthCheckId
       }
 
     | LatencyAliasRecordSet
@@ -248,7 +281,7 @@ data ResourceRecordSet
       , rrsSetIdentifier :: !Text
       , rrsRegion        :: !Region
       , rrsAliasTarget   :: !AliasTarget
-      , rrsHealthCheckId :: Maybe Text
+      , rrsHealthCheckId :: Maybe HealthCheckId
       }
 
     | WeightedRecordSet
@@ -258,7 +291,7 @@ data ResourceRecordSet
       , rrsWeight          :: !Integer
       , rrsTTL             :: !Integer
       , rrsResourceRecords :: !ResourceRecords
-      , rrsHealthCheckId   :: Maybe Text
+      , rrsHealthCheckId   :: Maybe HealthCheckId
       }
 
     | WeightedAliasRecordSet
@@ -267,7 +300,7 @@ data ResourceRecordSet
       , rrsSetIdentifier :: !Text
       , rrsWeight        :: !Integer
       , rrsAliasTarget   :: !AliasTarget
-      , rrsHealthCheckId :: Maybe Text
+      , rrsHealthCheckId :: Maybe HealthCheckId
       }
 
     | BasicRecordSet
@@ -275,14 +308,14 @@ data ResourceRecordSet
       , rrsType            :: !RecordType
       , rrsTTL             :: !Integer
       , rrsResourceRecords :: !ResourceRecords
-      , rrsHealthCheckId   :: Maybe Text
+      , rrsHealthCheckId   :: Maybe HealthCheckId
       }
 
     | AliasRecordSet
       { rrsName          :: !Text
       , rrsType          :: !RecordType
       , rrsAliasTarget   :: !AliasTarget
-      , rrsHealthCheckId :: Maybe Text
+      , rrsHealthCheckId :: Maybe HealthCheckId
       }
 
     deriving (Eq, Show, Generic)
@@ -303,8 +336,21 @@ data HealthCheckConfig = HealthCheckConfig
 instance IsXML HealthCheckConfig where
     xmlPickler = withNS route53NS
 
+newtype HealthCheckId = HealthCheckId { unHealthCheckId :: Text }
+    deriving (Eq, IsString)
+
+instance Show HealthCheckId where
+    show = Text.unpack . toText
+
+instance IsByteString HealthCheckId where
+    toText = ensurePrefix "/healthcheck/" . unHealthCheckId
+    toBS   = encodeUtf8 . toText
+
+instance IsXML HealthCheckId where
+    xmlPickler = (HealthCheckId, unHealthCheckId) `xpWrap` xmlPickler
+
 data HealthCheck = HealthCheck
-    { hcId                :: !Text
+    { hcId                :: !HealthCheckId
     , hcCallerReference   :: !CallerReference
     , hcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Eq, Show, Generic)

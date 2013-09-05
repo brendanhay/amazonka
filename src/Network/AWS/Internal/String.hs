@@ -18,6 +18,7 @@ module Network.AWS.Internal.String
     , dropLower
     , lowerFirst
     , strip
+    , ensurePrefix
     ) where
 
 import           Data.ByteString       (ByteString)
@@ -25,6 +26,9 @@ import qualified Data.ByteString.Char8 as BS
 import           Data.Char
 import           Data.List
 import           Data.Maybe
+import           Data.Monoid
+import           Data.Text             (Text)
+import qualified Data.Text             as Text
 
 dropPrefix :: String -> String -> String
 dropPrefix pre s = fromMaybe s $ pre `stripPrefix` s
@@ -46,3 +50,8 @@ strip c bstr
     | BS.null bstr        = bstr
     | BS.last bstr == c    = strip c $ BS.init bstr
     | otherwise           = BS.dropWhile (== c) bstr
+
+ensurePrefix :: Text -> Text -> Text
+ensurePrefix p t
+    | p `Text.isPrefixOf` t = t
+    | otherwise             = p <> t

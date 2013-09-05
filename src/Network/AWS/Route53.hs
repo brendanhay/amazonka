@@ -1,4 +1,4 @@
-{-# LANGUAGE DeriveGeneric              #-}
+ {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
@@ -97,9 +97,9 @@ req meth path qry = (emptyRequest meth FormEncoded (ver path) Nothing)
     }
 
 body :: IsXML a => Method -> Text -> a -> RawRequest R53 b
-body meth path = (emptyRequest meth XML $ ver path) . Just . toIndentedXML 2 -- Indented for Debugging/Testing purposes
+body meth path = (emptyRequest meth XML . ver $ toText path) . Just . toXML
 
-ver :: Text -> ByteString
+ver :: IsByteString a => a -> ByteString
 ver = mappend ("/" <> route53Version <> "/") . toBS
 
 --
@@ -142,12 +142,12 @@ instance IsXML CreateHostedZoneResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
 newtype GetHostedZone = GetHostedZone
-    { ghzId :: Text
+    { ghzId :: HostedZoneId
       -- ^ Hosted Zone Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
-    request chk = req GET ("hostedzone/" <> toText chk) ()
+    request chk = req GET (toText chk) ()
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostedZone    :: !HostedZone
@@ -199,12 +199,12 @@ instance IsXML ListHostedZonesResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
 newtype DeleteHostedZone = DeleteHostedZone
-    { dhzId :: Text
+    { dhzId :: HostedZoneId
       -- ^ Hosted Zone Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
-    request chk = req DELETE ("hostedzone/" <> toText chk) ()
+    request chk = req DELETE (toText chk) ()
 
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
@@ -222,7 +222,7 @@ instance IsXML DeleteHostedZoneResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { crrsZoneId      :: !Text
+    { crrsZoneId      :: !HostedZoneId
       -- ^ Hosted Zone Id.
     , crrsChangeBatch :: !ChangeBatch
       -- ^ ChangeBatch describing the record set modifications you wish to perform.
@@ -237,7 +237,7 @@ instance IsXML ChangeResourceRecordSets where
 
 instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsResponse where
     request rs@ChangeResourceRecordSets{..} =
-        body POST ("hostedzone/" <> crrsZoneId <> "/rrset") rs
+        body POST (toText crrsZoneId <> "/rrset") rs
 
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
@@ -250,7 +250,7 @@ instance IsXML ChangeResourceRecordSetsResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html>
 data ListResourceRecordSets = ListResourceRecordSets
-    { lrrsZoneId     :: !Text
+    { lrrsZoneId     :: !HostedZoneId
       -- ^ The ID of the hosted zone containing the resource
       -- records sets to be retrieved.
     , lrrsName       :: Maybe Text
@@ -276,7 +276,7 @@ instance IsQuery ListResourceRecordSets where
 
 instance AWSRequest R53 ListResourceRecordSets ListResourceRecordSetsResponse where
     request rs@ListResourceRecordSets{..} =
-        req GET ("hostedzone/" <> lrrsZoneId <> "/rrset") rs
+        req GET (toText lrrsZoneId <> "/rrset") rs
 
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { lrrsrResourceRecordSets   :: [ResourceRecordSet]
@@ -306,14 +306,14 @@ instance IsXML ListResourceRecordSetsResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html>
 newtype GetChange = GetChange
-    { gcId :: Text
+    { gcId :: ChangeId
       -- ^ The ID of the change batch request. The value that you specify here
       -- is the value that POST ChangeResourceRecordSets returned in the Id
       -- element when you submitted the request.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 GetChange GetChangeResponse where
-    request chk = req GET ("change/" <> toText chk) ()
+    request chk = req GET (toText chk) ()
 
 data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
@@ -358,7 +358,7 @@ instance IsXML CreateHealthCheckResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>
 newtype GetHealthCheck = GetHealthCheck
-    { ghcId :: Text
+    { ghcId :: HealthCheckId
       -- ^ The ID for the health check for which you want detailed information.
       -- When you created the health check, CreateHealthCheck returned the ID
       -- in the response, in the HealthCheckId element.
@@ -426,12 +426,12 @@ instance IsXML ListHealthChecksResponse where
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
 newtype DeleteHealthCheck = DeleteHealthCheck
-    { dhcId :: Text
+    { dhcId :: HealthCheckId
       -- ^ Health Check Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance AWSRequest R53 DeleteHealthCheck DeleteHealthCheckResponse where
-    request chk = req DELETE ("healthcheck/" <> toText chk) ()
+    request chk = req DELETE (toText chk) ()
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Read, Show, Generic)

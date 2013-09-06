@@ -51,8 +51,8 @@ data Credentials
     | FromEnv ByteString ByteString
     | FromRole ByteString
 
-credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT String m Auth
-credentials cred = case cred of
+credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT Error m Auth
+credentials cred = fmapError $ case cred of
     Keys acc sec -> right $ Auth acc sec
     FromEnv (BS.unpack -> k1) (BS.unpack -> k2) -> do
         acc <- pack k1

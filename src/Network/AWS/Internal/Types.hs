@@ -185,10 +185,7 @@ instance IsByteString ContentType where
 type AWSContext = EitherT Error AWS
 
 data Error = Error String | Ex SomeException
-
-instance Show Error where
-    show (Error s) = s
-    show (Ex ex)   = show ex
+    deriving (Show)
 
 instance IsString Error where
     fromString = Error
@@ -202,7 +199,7 @@ currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
 whenDebug :: IO () -> AWSContext ()
 whenDebug io = fmap awsDebug ask >>= \p -> liftIO $ when p io
 
-throwError :: String -> AWSContext a
+throwError :: Monad m => String -> EitherT Error m a
 throwError = throwT . Error
 
 fmapError :: Monad m => EitherT String m a -> EitherT Error m a

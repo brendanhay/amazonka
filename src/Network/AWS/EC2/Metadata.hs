@@ -22,7 +22,6 @@ import           Control.Exception
 import           Control.Monad.IO.Class
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Char8  as BS
-import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Internal
 import           Network.Http.Client    hiding (get)
@@ -70,18 +69,25 @@ instance IsByteString Metadata where
         SecurityCredentials r -> "iam/security-credentials/" <> r
         AvailabilityZone      -> "placement/availability-zone"
 
-metadata :: MonadIO m => Metadata -> EitherT Error m ByteString
+metadata :: (Applicative m, MonadIO m)
+         => Metadata
+         -> EitherT Error m ByteString
 metadata = metadataByKey . toBS
 
-metadataByKey :: MonadIO m => ByteString -> EitherT Error m ByteString
+metadataByKey :: (Applicative m, MonadIO m)
+              => ByteString
+              -> EitherT Error m ByteString
 metadataByKey key = get $ "http://169.254.169.254/latest/meta-data/" <> key
 
 --
 -- Internal
 --
 
-get :: MonadIO m => ByteString -> EitherT Error m ByteString
-get url = tryIO' . bracket (establishConnection url) closeConnection $ \c -> do
-    rq <- buildRequest $ http GET url
-    sendRequest c rq emptyBody
-    receiveResponse c $ \_ inp -> fromMaybe "" <$> Streams.read inp
+get :: (Applicative m, MonadIO m) => ByteString -> EitherT Error m ByteString
+get url = do
+    mres <- tryIO' . bracket (establishConnection url) closeConnection $ \c -> do
+        rq <- buildRequest $ http GET url
+        sendRequest c rq emptyBody
+        receiveResponse c $ const Streams.read
+    res  <- mres ?? "Failed to receive any data"
+    return $! strip '\n' res

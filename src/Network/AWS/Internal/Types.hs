@@ -208,8 +208,8 @@ fmapError = fmapLT Error
 hoistError :: Monad m => Either String a -> EitherT Error m a
 hoistError = hoistEither . fmapL Error
 
-tryAWS :: IO a -> AWSContext a
-tryAWS = fmapLT Ex . syncIO
+tryIO' :: MonadIO m => IO a -> EitherT Error m a
+tryIO' = fmapLT Ex . syncIO
 
 type EitherXML a b = Either String (Either a b)
 

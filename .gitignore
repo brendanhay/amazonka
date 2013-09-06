@@ -5,14 +5,14 @@
 *.chi
 *.chs.h
 *.imports
+cabal.sandbox.config
 
 # Dirs
-cabal-dev
+.cabal-sandbox
 bin
 dist
 tmp
 vendor
-.shelly
 
 # CTAGS
 TAGS

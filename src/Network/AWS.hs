@@ -52,18 +52,18 @@ data Credentials
     | FromRole ByteString
 
 credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT Error m Auth
-credentials cred = fmapError $ case cred of
+credentials cred = case cred of
     Keys acc sec -> right $ Auth acc sec
     FromEnv (BS.unpack -> k1) (BS.unpack -> k2) -> do
         acc <- pack k1
         sec <- pack k2
         (Auth <$> acc <*> sec) ??
-            ("Failed to read " ++ k1 ++ ", " ++ k2 ++ " from ENV")
+            (Error $ "Failed to read " ++ k1 ++ ", " ++ k2 ++ " from ENV")
     FromRole role -> do
         m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
-        hoistEither $ Aeson.eitherDecode m
+        hoistError $ Aeson.eitherDecode m
   where
-    pack = fmap (fmap BS.pack) . scriptIO . lookupEnv
+    pack = tryIO' . fmap (fmap BS.pack) . lookupEnv
 
 -- | Run an 'AWS' monadic operation.
 runAWS :: Auth -> Bool -> AWSContext a -> EitherT Error IO a
@@ -88,7 +88,7 @@ send payload = do
     hoistEither $ response res
   where
     receive SignedRequest{..} =
-        tryAWS . bracket (establishConnection rqUrl) closeConnection $ \c -> do
+        tryIO' . bracket (establishConnection rqUrl) closeConnection $ \c -> do
         b <- maybe (return emptyBody)
             (fmap inputStreamBody . Streams.fromByteString) rqPayload
         sendRequest c rqRequest b

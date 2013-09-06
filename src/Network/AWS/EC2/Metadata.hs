@@ -70,19 +70,18 @@ instance IsByteString Metadata where
         SecurityCredentials r -> "iam/security-credentials/" <> r
         AvailabilityZone      -> "placement/availability-zone"
 
-metadata :: MonadIO m => Metadata -> m ByteString
+metadata :: MonadIO m => Metadata -> EitherT Error m ByteString
 metadata = metadataByKey . toBS
 
-metadataByKey :: MonadIO m => ByteString -> m ByteString
+metadataByKey :: MonadIO m => ByteString -> EitherT Error m ByteString
 metadataByKey key = get $ "http://169.254.169.254/latest/meta-data" <> key
 
 --
 -- Internal
 --
 
-get :: MonadIO m => ByteString -> m ByteString
-get url = liftIO $
-    bracket (establishConnection url) closeConnection $ \conn -> do
-        rq <- buildRequest $ http GET url
-        sendRequest conn rq emptyBody
-        receiveResponse conn $ \_ inp -> fromMaybe "" <$> Streams.read inp
+get :: MonadIO m => ByteString -> EitherT Error m ByteString
+get url = tryIO' . bracket (establishConnection url) closeConnection $ \c -> do
+    rq <- buildRequest $ http GET url
+    sendRequest c rq emptyBody
+    receiveResponse c $ \_ inp -> fromMaybe "" <$> Streams.read inp

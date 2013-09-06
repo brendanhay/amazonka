@@ -74,7 +74,7 @@ metadata :: MonadIO m => Metadata -> EitherT Error m ByteString
 metadata = metadataByKey . toBS
 
 metadataByKey :: MonadIO m => ByteString -> EitherT Error m ByteString
-metadataByKey key = get $ "http://169.254.169.254/latest/meta-data" <> key
+metadataByKey key = get $ "http://169.254.169.254/latest/meta-data/" <> key
 
 --
 -- Internal

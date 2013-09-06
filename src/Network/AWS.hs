@@ -43,27 +43,18 @@ import           Network.AWS.Internal
 import           Network.AWS.Internal.Types
 import           Network.Http.Client
 import           OpenSSL                    (withOpenSSL)
-import           System.Environment
 import qualified System.IO.Streams          as Streams
 
 data Credentials
-    = Keys ByteString ByteString
-    | FromEnv ByteString ByteString
+    = FromKeys ByteString ByteString
     | FromRole ByteString
 
 credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT Error m Auth
 credentials cred = case cred of
-    Keys acc sec -> right $ Auth acc sec
-    FromEnv (BS.unpack -> k1) (BS.unpack -> k2) -> do
-        acc <- pack k1
-        sec <- pack k2
-        (Auth <$> acc <*> sec) ??
-            (Error $ "Failed to read " ++ k1 ++ ", " ++ k2 ++ " from ENV")
+    FromKeys acc sec  -> right $ Auth acc sec
     FromRole role -> do
         m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
         hoistError $ Aeson.eitherDecode m
-  where
-    pack = tryIO' . fmap (fmap BS.pack) . lookupEnv
 
 -- | Run an 'AWS' monadic operation.
 runAWS :: Auth -> Bool -> AWSContext a -> EitherT Error IO a

@@ -26,13 +26,17 @@ import           Data.Time
 import           Network.AWS.Internal
 import           Text.Read
 
+route53Service :: Service
+route53Service = Service "route53" route53Version SigningVersion3 $
+    const "route53.amazonaws.com"
+
 -- | Currently supported version of the Route53 service.
-route53Version :: ByteString
+route53Version :: ServiceVersion
 route53Version = "2012-12-12"
 
 -- | XML namespace to annotate Route53 elements with.
 route53NS :: ByteString
-route53NS = "https://route53.amazonaws.com/doc/" <> route53Version <> "/"
+route53NS = "https://route53.amazonaws.com/doc/" <> toBS route53Version <> "/"
 
 -- | Helper to define Route53 namespaced XML elements.
 route53Elem :: ByteString -> NName ByteString

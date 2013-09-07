@@ -611,35 +611,14 @@ module Network.AWS.EC2
    ) where
 
 import Data.ByteString       (ByteString)
-import Data.Monoid
 import Data.Text             (Text)
 import Data.Time
 import Network.AWS.EC2.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))
 
-svc :: Service
-svc = Service "ec2" ec2Version SigningVersion4 $
-    \r -> "ec2." <> toBS r <> ".amazonaws.com"
-
-ver :: ByteString
-ver = "/" <> ec2Version <> "/"
-
 qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth act v = (qryRq svc ver meth "/" v) { rqAction = Just act }
-
-data EC2ErrorResponse = EC2ErrorResponse { ec2Error :: !Text }
-    deriving (Eq, Show, Generic)
-
-instance ToError EC2ErrorResponse where
-    toError = Error . show
-
-instance IsXML EC2ErrorResponse where
-    xmlPickler = withNS ec2NS
-
---
--- Actions
---
+qry meth act = queryRequest ec2Service meth (Just act) "/"
 
 -- | Acquires an Elastic IP address.An Elastic IP address is for use either in
 -- the EC2-Classic platform or in a VPC.

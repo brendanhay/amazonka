@@ -1,9 +1,10 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DefaultSignatures          #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Internal.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -106,9 +107,21 @@ instance FromJSON Auth where
         <*> o .: "SecretAccessKey"
     parseJSON _ = mzero
 
+newtype ServiceVersion = ServiceVersion ByteString
+    deriving (Eq, Show, IsString, IsByteString)
+
+svcPath :: IsByteString a => Service -> a -> ByteString
+svcPath svc p = "/" <> toBS (svcVersion svc) <> "/" <> toBS p
+
+data SigningVersion
+    = SigningVersion2
+    | SigningVersion3
+    | SigningVersion4
+      deriving (Show)
+
 data Service = Service
     { svcName     :: !ByteString
-    , svcVersion  :: !ByteString
+    , svcVersion  :: !ServiceVersion
     , svcSigner   :: !SigningVersion
     , svcEndpoint :: Region -> ByteString
     }
@@ -117,7 +130,7 @@ instance Show Service where
     show Service{..} = intercalate " "
         [ "Service {"
         , "svcName = "    ++ BS.unpack svcName
-        , "svcVersion = " ++ BS.unpack svcVersion
+        , "svcVersion = " ++ show svcVersion
         , "svcSigner = "  ++ show svcSigner
         , "}"
         ]
@@ -153,23 +166,13 @@ instance ToJSON RawRequest where
         , "rqQuery"   .= rqQuery
         ]
 
-qryRq :: IsQuery a => Service -> ByteString -> Method -> Text -> a -> RawRequest
-qryRq svc ver meth path qry =
-    (serviceRq svc meth FormEncoded (ver <> toBS path) Nothing)
-        { rqQuery = toQuery qry
-        }
-
-xmlRq :: IsXML a => Service -> ByteString -> Method -> Text -> a -> RawRequest
-xmlRq svc ver meth path =
-     serviceRq svc meth XML (ver <> toBS path) . Just . toXML
-
-serviceRq :: Service
-          -> Method
-          -> ContentType
-          -> ByteString
-          -> Maybe ByteString
-          -> RawRequest
-serviceRq svc meth content path body = RawRequest
+emptyRequest :: Service
+             -> Method
+             -> ContentType
+             -> ByteString
+             -> Maybe ByteString
+             -> RawRequest
+emptyRequest svc meth content path body = RawRequest
     { rqService = svc
     , rqMethod  = meth
     , rqContent = content
@@ -180,17 +183,33 @@ serviceRq svc meth content path body = RawRequest
     , rqPath    = if BS.null path then Nothing else Just path
     }
 
+queryRequest :: IsQuery a
+             => Service
+             -> Method
+             -> Maybe ByteString
+             -> ByteString
+             -> a
+             -> RawRequest
+queryRequest svc meth act path qry =
+    (emptyRequest svc meth FormEncoded (svcPath svc path) Nothing)
+        { rqAction = act
+        , rqQuery  = toQuery qry
+        }
+
+xmlRequest :: IsXML a
+           => Service
+           -> Method
+           -> ByteString
+           -> a
+           -> RawRequest
+xmlRequest svc meth path =
+    emptyRequest svc meth XML (svcPath svc path) . Just . toXML
+
 data SignedRequest = SignedRequest
     { rqUrl     :: !ByteString
     , rqPayload :: !(Maybe ByteString)
     , rqRequest :: !Request
     } deriving (Show)
-
-data SigningVersion
-    = SigningVersion2
-    | SigningVersion3
-    | SigningVersion4
-      deriving (Show)
 
 data ContentType
     = FormEncoded

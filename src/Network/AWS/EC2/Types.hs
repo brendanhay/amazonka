@@ -23,13 +23,17 @@ import           Data.Time
 import           Network.AWS.Internal
 import           Text.Read
 
+ec2Service :: Service
+ec2Service = Service "ec2" ec2Version SigningVersion4 $
+    \r -> "ec2." <> toBS r <> ".amazonaws.com"
+
 -- | Currently supported version (2013-07-15) of the EC2 service.
-ec2Version :: ByteString
+ec2Version :: ServiceVersion
 ec2Version = "2013-07-15"
 
 -- | XML namespace to annotate EC2 elements with.
 ec2NS :: ByteString
-ec2NS = "http://ec2.amazonaws.com/doc/" <> ec2Version <> "/"
+ec2NS = "http://ec2.amazonaws.com/doc/" <> toBS ec2Version <> "/"
 
 -- | Helper to define EC2 namespaced XML elements.
 ec2Elem :: ByteString -> NName ByteString
@@ -40,6 +44,15 @@ ec2XML = withNS' ec2NS $ (xmlOptions ec2NS)
     { xmlFieldModifier = mkNName ec2NS . BS.pack . lowerFirst . dropLower
     , xmlListElement   = mkNName ec2NS "item"
     }
+
+data EC2ErrorResponse = EC2ErrorResponse { ec2Error :: !Text }
+    deriving (Eq, Show, Generic)
+
+instance ToError EC2ErrorResponse where
+    toError = Error . show
+
+instance IsXML EC2ErrorResponse where
+    xmlPickler = withNS ec2NS
 
 data AddressDomain = AddressStandard | AddressVPC
     deriving (Eq)

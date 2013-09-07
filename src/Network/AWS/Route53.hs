@@ -79,18 +79,11 @@ import Network.AWS.Internal
 import Network.AWS.Route53.Types
 import Network.Http.Client       (Method(..))
 
-svc :: Service
-svc = Service "route53" route53Version SigningVersion3 $
-    const "route53.amazonaws.com"
+qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
+qry meth = queryRequest route53Service meth Nothing
 
-ver :: ByteString
-ver = "/" <> route53Version <> "/"
-
-qry :: IsQuery a => Method -> Text -> a -> RawRequest
-qry = qryRq svc ver
-
-xml :: IsXML a => Method -> Text -> a -> RawRequest
-xml = xmlRq svc ver
+xml :: IsXML a => Method -> ByteString -> a -> RawRequest
+xml = xmlRequest route53Service
 
 --
 -- Hosted Zones
@@ -139,7 +132,7 @@ newtype GetHostedZone = GetHostedZone
 
 instance Rq GetHostedZone where
     type Rs GetHostedZone = Either ErrorResponse GetHostedZoneResponse
-    request chk = qry GET (toText chk) ()
+    request chk = qry GET (toBS chk) ()
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostedZone    :: !HostedZone
@@ -198,7 +191,7 @@ newtype DeleteHostedZone = DeleteHostedZone
 
 instance Rq DeleteHostedZone where
     type Rs DeleteHostedZone = Either ErrorResponse DeleteHostedZoneResponse
-    request chk = qry DELETE (toText chk) ()
+    request chk = qry DELETE (toBS chk) ()
 
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
@@ -232,7 +225,7 @@ instance IsXML ChangeResourceRecordSets where
 instance Rq ChangeResourceRecordSets where
     type Rs ChangeResourceRecordSets = Either ErrorResponse ChangeResourceRecordSetsResponse
     request rs@ChangeResourceRecordSets{..} =
-        xml POST (toText crrsZoneId <> "/rrset") rs
+        xml POST (toBS crrsZoneId <> "/rrset") rs
 
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
@@ -272,7 +265,7 @@ instance IsQuery ListResourceRecordSets where
 instance Rq ListResourceRecordSets where
     type Rs ListResourceRecordSets = Either ErrorResponse ListResourceRecordSetsResponse
     request rs@ListResourceRecordSets{..} =
-        qry GET (toText lrrsZoneId <> "/rrset") rs
+        qry GET (toBS lrrsZoneId <> "/rrset") rs
 
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { lrrsrResourceRecordSets   :: [ResourceRecordSet]
@@ -310,7 +303,7 @@ newtype GetChange = GetChange
 
 instance Rq GetChange where
     type Rs GetChange = Either ErrorResponse GetChangeResponse
-    request chk = qry GET (toText chk) ()
+    request chk = qry GET (toBS chk) ()
 
 data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
@@ -364,7 +357,7 @@ newtype GetHealthCheck = GetHealthCheck
 
 instance Rq GetHealthCheck where
     type Rs GetHealthCheck = Either ErrorResponse GetHealthCheckResponse
-    request chk = qry GET ("healthcheck/" <> toText chk) ()
+    request chk = qry GET ("healthcheck/" <> toBS chk) ()
 
 data GetHealthCheckResponse = GetHealthCheckResponse
     { ghcrHealthCheck :: !HealthCheck
@@ -432,7 +425,7 @@ newtype DeleteHealthCheck = DeleteHealthCheck
 
 instance Rq DeleteHealthCheck where
     type Rs DeleteHealthCheck = Either ErrorResponse DeleteHealthCheckResponse
-    request chk = qry DELETE (toText chk) ()
+    request chk = qry DELETE (toBS chk) ()
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Read, Show, Generic)

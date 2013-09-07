@@ -80,10 +80,12 @@ import Network.AWS.Route53.Types
 import Network.Http.Client       (Method(..))
 
 qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth = queryRequest route53Service meth Nothing
+qry meth path =
+    queryRequest route53Service meth Nothing (svcPath route53Service path)
 
 xml :: IsXML a => Method -> ByteString -> a -> RawRequest
-xml = xmlRequest route53Service
+xml meth path =
+    xmlRequest route53Service (svcPath route53Service path)
 
 --
 -- Hosted Zones

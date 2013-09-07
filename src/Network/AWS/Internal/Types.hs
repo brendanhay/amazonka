@@ -191,7 +191,7 @@ queryRequest :: IsQuery a
              -> a
              -> RawRequest
 queryRequest svc meth act path qry =
-    (emptyRequest svc meth FormEncoded (svcPath svc path) Nothing)
+    (emptyRequest svc meth FormEncoded path Nothing)
         { rqAction = act
         , rqQuery  = toQuery qry
         }
@@ -203,7 +203,7 @@ xmlRequest :: IsXML a
            -> a
            -> RawRequest
 xmlRequest svc meth path =
-    emptyRequest svc meth XML (svcPath svc path) . Just . toXML
+    emptyRequest svc meth XML path . Just . toXML
 
 data SignedRequest = SignedRequest
     { rqUrl     :: !ByteString

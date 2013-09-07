@@ -45,14 +45,13 @@ ec2XML = withNS' ec2NS $ (xmlOptions ec2NS)
     , xmlListElement   = mkNName ec2NS "item"
     }
 
-data EC2ErrorResponse = EC2ErrorResponse { ec2Error :: !Text }
+data EC2ErrorResponse = EC2ErrorResponse { ecError :: !Text }
     deriving (Eq, Show, Generic)
 
 instance ToError EC2ErrorResponse where
     toError = Error . show
 
-instance IsXML EC2ErrorResponse where
-    xmlPickler = withNS ec2NS
+instance IsXML EC2ErrorResponse
 
 data AddressDomain = AddressStandard | AddressVPC
     deriving (Eq)

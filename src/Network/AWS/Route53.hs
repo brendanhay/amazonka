@@ -85,7 +85,7 @@ qry meth path =
 
 xml :: IsXML a => Method -> ByteString -> a -> RawRequest
 xml meth path =
-    xmlRequest route53Service (svcPath route53Service path)
+    xmlRequest route53Service meth (svcPath route53Service path)
 
 --
 -- Hosted Zones

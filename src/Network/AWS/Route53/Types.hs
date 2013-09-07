@@ -1,8 +1,7 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
 -- Module      : Network.AWS.Route53.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,6 +56,9 @@ data ErrorResponse
       { erMessages :: [Text]
       }
     deriving (Eq, Show, Generic)
+
+instance ToError ErrorResponse where
+    toError = Error . show
 
 instance IsXML ErrorResponse where
     xmlPickler = withNS route53NS

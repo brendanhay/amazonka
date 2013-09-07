@@ -68,16 +68,16 @@ instance ToJSON CallerReference where
     toJSON = String . unCallerReference
 
 instance ToJSON Protocol where
-    toJSON = String . Text.pack . show
+    toJSON = stringify . show
 
 instance ToJSON ChangeStatus where
-    toJSON = String . Text.pack . show
+    toJSON = stringify . show
 
 instance ToJSON RecordType where
-    toJSON = String . Text.pack . show
+    toJSON = stringify . show
 
 instance ToJSON Failover where
-    toJSON = String . Text.pack . show
+    toJSON = stringify . show
 
 $(deriveArbitrary
     [ ''CallerReference
@@ -91,14 +91,17 @@ $(deriveDependency
     [ ''DelegationSet
     , ''ChangeInfo
     , ''Config
+    , ''HostedZoneId
     , ''HostedZone
     , ''ResourceRecords
     , ''ResourceRecordSet
+    , ''HealthCheckId
     , ''HealthCheck
     , ''HealthCheckConfig
     , ''AliasTarget
     , ''ChangeAction
     , ''ChangeBatch
+    , ''ChangeId
     , ''Change
     ])
 

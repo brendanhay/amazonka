@@ -25,11 +25,14 @@ import           Network.HTTP.QueryString.Pickle
 import           System.Locale                   (defaultTimeLocale)
 import           Text.XML.Expat.Pickle.Generic
 
-instance IsQuery a => IsQuery [a] where
-    queryPickler = qpOrdinalList queryPickler
-
 newtype Items a = Items { items :: [a] }
     deriving (Eq, Show, Generic)
+
+newtype Members a = Members { members :: [a] }
+    deriving (Eq, Show, Generic)
+
+instance IsQuery a => IsQuery [a] where
+    queryPickler = qpOrdinalList queryPickler
 
 instance IsQuery a => IsQuery (Items a) where
     queryPickler = qpWrap (Items, items)
@@ -40,9 +43,6 @@ instance IsXML a => IsXML (Items a) where
       where
         name = maybe mkAnNName mkNName . join $ nnNamespace `fmap` root pu
         pu   = xmlPickler
-
-newtype Members a = Members { members :: [a] }
-    deriving (Eq, Show, Generic)
 
 instance IsQuery a => IsQuery (Members a) where
     queryPickler = qpWrap (Members, members)

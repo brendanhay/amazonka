@@ -17,6 +17,7 @@ module Network.AWS.Internal.String
     , dropSuffix
     , dropLower
     , lowerFirst
+    , hyphenate
     , strip
     , ensurePrefix
     ) where
@@ -44,6 +45,12 @@ dropLower = dropWhile isLower
 lowerFirst :: String -> String
 lowerFirst (x:xs) = toLower x : xs
 lowerFirst []     = []
+
+hyphenate :: String -> String
+hyphenate = concatMap f
+  where
+    f c | isUpper c = ['-', toLower c]
+        | otherwise = [c]
 
 strip :: Char -> ByteString -> ByteString
 strip c bstr

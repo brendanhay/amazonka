@@ -1,4 +1,4 @@
-FLAGS := -j --disable-documentation --disable-library-coverage
+FLAGS := --disable-documentation --disable-library-coverage
 
 .PHONY: test lint doc
 
@@ -8,7 +8,7 @@ build: cabal.sandbox.config
 	cabal build
 
 install: $(DEPS) add-sources
-	cabal install $(FLAGS)
+	cabal install -j $(FLAGS)
 
 clean:
 	-rm -rf dist cabal.sandbox.config .cabal-sandbox

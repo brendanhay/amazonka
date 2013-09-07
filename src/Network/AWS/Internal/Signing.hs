@@ -30,6 +30,7 @@ import           Data.List
 import qualified Data.Map                        as Map
 import           Data.Monoid
 import           Data.Time                       (UTCTime, formatTime, getCurrentTime)
+import           Network.AWS.Internal.Monad
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Types
 import           Network.HTTP.QueryString.Pickle
@@ -37,27 +38,29 @@ import           Network.HTTP.Types              (urlEncode)
 import           Network.Http.Client
 import           System.Locale                   (defaultTimeLocale, iso8601DateFormat)
 
-sign :: AWSService a => RawRequest a b -> AWS SignedRequest
+sign :: RawRequest -> AWS SignedRequest
 sign rq = do
-    svc <- service rq
-    let signer = case svcSigner svc of
-            SigningVersion2 -> version2
-            SigningVersion3 -> version3
-            SigningVersion4 -> version4
-    awsAuth <$> ask >>= liftIO . signer rq svc
+    auth <- currentAuth
+    reg  <- currentRegion
+    liftIO $ signer rq auth reg
+  where
+    signer = case svcSigner $ rqService rq of
+        SigningVersion2 -> version2
+        SigningVersion3 -> version3
+        SigningVersion4 -> version4
 
 --
 -- Internal
 --
 
-version2 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
-version2 RawRequest{..} Service{..} Auth{..} = do
+version2 :: RawRequest -> Auth -> Region -> IO SignedRequest
+version2 RawRequest{..} Auth{..} reg = do
     time <- getCurrentTime
 
     let qry = query time $ fromMaybe (error "Handle missing action") rqAction
         sig = signature qry
         url = "https://"
-            <> svcEndpoint
+            <> svcEndpoint reg
             <> path
             <> "?"
             <> qry
@@ -68,42 +71,46 @@ version2 RawRequest{..} Service{..} Auth{..} = do
         http rqMethod url
         mapM_ (uncurry setHeader) $ Map.toList rqHeaders)
   where
+    Service{..} = rqService
+
     path = validPath rqPath
 
     query time action = encodeQuery (urlEncode True) $ rqQuery `union`
-        [ ("Action", action)
-        , ("Version", toBS svcVersion)
+        [ ("Action",           action)
+        , ("Version",          toBS svcVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
-        , ("Timestamp", awsTime time)
-        , ("AWSAccessKeyId", accessKey)
+        , ("Timestamp",        awsTime time)
+        , ("AWSAccessKeyId",   accessKey)
         ]
 
     signature qry = Base64.encode
         . hmac secretKey
         $ BS.intercalate "\n"
             [ packMethod rqMethod
-            , svcEndpoint
+            , svcEndpoint reg
             , path
             , qry
             ]
 
-version3 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
-version3 RawRequest{..} Service{..} Auth{..} = do
+version3 :: RawRequest -> Auth -> Region -> IO SignedRequest
+version3 RawRequest{..} Auth{..} reg = do
     time <- rfc822Time <$> getCurrentTime
 
     let url = "https://"
-            <> svcEndpoint
+            <> svcEndpoint reg
             <> validPath rqPath
             <> query
 
     SignedRequest url rqBody <$> buildRequest (do
         http rqMethod url
         mapM_ (uncurry setHeader) $ Map.toList rqHeaders ++
-            [ ("X-Amz-Date", time)
+            [ ("X-Amz-Date",           time)
             , ("X-Amzn-Authorization", authorization time)
             ])
   where
+    Service{..} = rqService
+
     query | null rqQuery = ""
           | otherwise    = "?" <> encodeQuery (urlEncode True) rqQuery
 
@@ -115,15 +122,15 @@ version3 RawRequest{..} Service{..} Auth{..} = do
 -- FIXME: need to investigate how to set the body/payload to x-url-formencoded
 -- or in the querystring
 
-version4 :: RawRequest a b -> Service -> Auth -> IO SignedRequest
-version4 RawRequest{..} Service{..} Auth{..} = do
+version4 :: RawRequest -> Auth -> Region -> IO SignedRequest
+version4 RawRequest{..} Auth{..} reg = do
     time <- getCurrentTime
 
     let hs  = headers time
         qry = query $ fromMaybe (error "Handle missing action") rqAction
         sig = signature time hs qry
         url = "https://"
-            <> svcEndpoint
+            <> svcEndpoint reg
             <> path
             <> "?"
             <> qry
@@ -133,6 +140,8 @@ version4 RawRequest{..} Service{..} Auth{..} = do
         mapM_ (uncurry setHeader) $
             ("Authorization", authorization time hs sig) : hs)
   where
+    Service{..} = rqService
+
     path = validPath rqPath
 
     authorization time hdrs sig = BS.intercalate ","
@@ -151,14 +160,14 @@ version4 RawRequest{..} Service{..} Auth{..} = do
         . map (\(k, v) -> BS.map toLower k <> ":" <> strip ' ' v)
 
     headers time = Map.toList rqHeaders `union`
-        [ ("Host", svcEndpoint)
-        , ("X-Amz-Date", awsTime time)
+        [ ("Host",         svcEndpoint reg)
+        , ("X-Amz-Date",   awsTime time)
         , ("Content-Type", toBS rqContent)
         ]
 
     credentialScope time = BS.intercalate "/"
         [ scopeTime time
-        , toBS svcRegion
+        , toBS reg
         , svcName
         , "aws4_request"
         ]
@@ -167,7 +176,7 @@ version4 RawRequest{..} Service{..} Auth{..} = do
       where
         signingKey = foldl' hmac ("AWS4" <> secretKey)
             [ awsTime time
-            , toBS svcRegion
+            , toBS reg
             , svcName
             , "aws4_request"
             ]

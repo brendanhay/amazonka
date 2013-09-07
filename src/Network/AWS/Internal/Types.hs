@@ -1,11 +1,9 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FunctionalDependencies     #-}
-{-# LANGUAGE GADTs                      #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE MultiParamTypeClasses      #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE StandaloneDeriving         #-}
+{-# LANGUAGE DefaultSignatures #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Internal.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,14 +18,12 @@
 module Network.AWS.Internal.Types where
 
 import           Control.Applicative
-import           Control.Error
 import           Control.Exception
 import           Control.Monad
-import           Control.Monad.IO.Class
-import           Control.Monad.Reader            hiding (lift)
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
+import           Data.List                       (intercalate)
 import           Data.Map                        (Map)
 import qualified Data.Map                        as Map
 import           Data.Monoid
@@ -43,6 +39,169 @@ import           System.Locale                   (defaultTimeLocale)
 import           Text.ParserCombinators.ReadP    (string)
 import           Text.Read                       hiding (String)
 import           Text.XML.Expat.Pickle.Generic
+
+class Rq a where
+    type Rs a
+
+    request  :: a -> RawRequest
+    response :: a -> ByteString -> Either Error (Rs a)
+
+    default response :: (IsXML e, IsXML b, Rs a ~ Either e b)
+                     => a
+                     -> ByteString
+                     -> Either Error (Rs a)
+    response _ bstr = either
+         (const . either (Left . Error) (Right . Left) $ fromXML bstr)
+         (Right . Right)
+         (fromXML bstr)
+
+class ToError a where
+    toError :: a -> Error
+
+instance ToError String where
+    toError = Error
+
+class Template a where
+    readTemplate :: a -> ByteString
+
+class IsByteString a where
+    toText :: a -> Text
+    toBS   :: a -> ByteString
+
+    toText = decodeUtf8 . toBS
+
+instance IsByteString ByteString where
+    toBS   = id
+    toText = decodeUtf8
+
+instance IsByteString Text where
+    toBS   = encodeUtf8
+    toText = id
+
+instance IsByteString Int where
+    toBS = BS.pack . show
+
+instance IsByteString Integer where
+    toBS = BS.pack . show
+
+instance IsByteString UTCTime where
+    toBS = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
+
+instance IsByteString Method where
+    toBS = BS.pack . show
+
+data Error = Error String | Ex SomeException
+
+instance IsString Error where
+    fromString = Error
+
+data Auth = Auth
+    { accessKey :: !ByteString
+    , secretKey :: !ByteString
+    } deriving (Show)
+
+instance FromJSON Auth where
+    parseJSON (Object o) = Auth
+        <$> o .: "AccessKeyId"
+        <*> o .: "SecretAccessKey"
+    parseJSON _ = mzero
+
+data Service = Service
+    { svcName     :: !ByteString
+    , svcVersion  :: !ByteString
+    , svcSigner   :: !SigningVersion
+    , svcEndpoint :: Region -> ByteString
+    }
+
+instance Show Service where
+    show Service{..} = intercalate " "
+        [ "Service {"
+        , "svcName = "    ++ BS.unpack svcName
+        , "svcVersion = " ++ BS.unpack svcVersion
+        , "svcSigner = "  ++ show svcSigner
+        , "}"
+        ]
+
+data RawRequest = RawRequest
+    { rqService :: !Service
+    , rqMethod  :: !Method
+    , rqContent :: !ContentType
+    , rqAction  :: Maybe ByteString
+    , rqPath    :: Maybe ByteString
+    , rqHeaders :: Map ByteString ByteString
+    , rqQuery   :: [(ByteString, ByteString)]
+    , rqBody    :: Maybe ByteString
+    }
+
+instance Show RawRequest where
+    show RawRequest{..} = unlines
+        [ "rqService = " ++ show rqService
+        , "rqMethod  = " ++ show rqMethod
+        , "rqContent = " ++ show rqContent
+        , "rqAction  = " ++ show rqAction
+        , "rqPath    = " ++ show rqPath
+        , "rqHeaders = " ++ show rqHeaders
+        , "rqQuery   = " ++ show rqQuery
+        ]
+
+instance ToJSON RawRequest where
+    toJSON RawRequest{..} = object
+        [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
+        , "rqContent" .= (String $ toText rqContent)
+        , "rqAction"  .= rqAction
+        , "rqPath"    .= rqPath
+        , "rqQuery"   .= rqQuery
+        ]
+
+qryRq :: IsQuery a => Service -> ByteString -> Method -> Text -> a -> RawRequest
+qryRq svc ver meth path qry =
+    (serviceRq svc meth FormEncoded (ver <> toBS path) Nothing)
+        { rqQuery = toQuery qry
+        }
+
+xmlRq :: IsXML a => Service -> ByteString -> Method -> Text -> a -> RawRequest
+xmlRq svc ver meth path =
+     serviceRq svc meth XML (ver <> toBS path) . Just . toXML
+
+serviceRq :: Service
+          -> Method
+          -> ContentType
+          -> ByteString
+          -> Maybe ByteString
+          -> RawRequest
+serviceRq svc meth content path body = RawRequest
+    { rqService = svc
+    , rqMethod  = meth
+    , rqContent = content
+    , rqAction  = Nothing
+    , rqHeaders = Map.empty
+    , rqQuery   = []
+    , rqBody    = body
+    , rqPath    = if BS.null path then Nothing else Just path
+    }
+
+data SignedRequest = SignedRequest
+    { rqUrl     :: !ByteString
+    , rqPayload :: !(Maybe ByteString)
+    , rqRequest :: !Request
+    } deriving (Show)
+
+data SigningVersion
+    = SigningVersion2
+    | SigningVersion3
+    | SigningVersion4
+      deriving (Show)
+
+data ContentType
+    = FormEncoded
+    | XML
+
+instance Show ContentType where
+    show = BS.unpack . toBS
+
+instance IsByteString ContentType where
+    toBS FormEncoded = "application/x-www-form-urlencoded"
+    toBS XML         = "application/xml"
 
 data Region
     = NorthVirgnia
@@ -126,19 +285,19 @@ instance Show InstanceType where
 
 instance Read InstanceType where
     readPrec = readAssocList
-        [ ("t1.micro", T1_Micro)
-        , ("m1.small", M1_Small)
-        , ("m1.medium", M1_Medium)
-        , ("m1.large", M1_Large)
-        , ("m1.xlarge", M1_XLarge)
-        , ("m3.xlarge", M3_XLarge)
-        , ("m3.2xlarge", M3_2XLarge)
-        , ("c1.medium", C1_Medium)
-        , ("c1.xlarge", C1_XLarge)
+        [ ("t1.micro",    T1_Micro)
+        , ("m1.small",    M1_Small)
+        , ("m1.medium",   M1_Medium)
+        , ("m1.large",    M1_Large)
+        , ("m1.xlarge",   M1_XLarge)
+        , ("m3.xlarge",   M3_XLarge)
+        , ("m3.2xlarge",  M3_2XLarge)
+        , ("c1.medium",   C1_Medium)
+        , ("c1.xlarge",   C1_XLarge)
         , ("cc2.8xlarge", CC2_8XLarge)
-        , ("m2.xlarge", M2_XLarge)
-        , ("m2.2xlarge", M2_2XLarge)
-        , ("m2.4xlarge", M2_4XLarge)
+        , ("m2.xlarge",   M2_XLarge)
+        , ("m2.2xlarge",  M2_2XLarge)
+        , ("m2.4xlarge",  M2_4XLarge)
         , ("cr1.8xlarge", CR1_8XLarge)
         , ("hi1.4xlarge", HI1_4XLarge)
         , ("hs1.8xlarge", HS1_8XLarge)
@@ -153,173 +312,3 @@ instance IsXML InstanceType where
 
 readAssocList :: [(String, a)] -> ReadPrec a
 readAssocList xs = choice $ map (\(x, y) -> lift $ string x >> return y) xs
-
-data Auth = Auth
-    { accessKey :: !ByteString
-    , secretKey :: !ByteString
-    } deriving (Show)
-
-instance FromJSON Auth where
-    parseJSON (Object o) = Auth
-        <$> o .: "AccessKeyId"
-        <*> o .: "SecretAccessKey"
-    parseJSON _ = mzero
-
-data Env = Env
-    { awsRegion :: Maybe Region
-    , awsAuth   :: !Auth
-    , awsDebug  :: !Bool
-    }
-
-data ContentType
-    = FormEncoded
-    | XML
-
-instance Show ContentType where
-    show = BS.unpack . toBS
-
-instance IsByteString ContentType where
-    toBS FormEncoded = "application/x-www-form-urlencoded"
-    toBS XML         = "application/xml"
-
-type AWSContext = EitherT Error AWS
-
-data Error = Error String | Ex SomeException
-    deriving (Show)
-
-instance IsString Error where
-    fromString = Error
-
-newtype AWS a = AWS { unWrap :: EitherT Error (ReaderT Env IO) a }
-    deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env)
-
-currentRegion :: AWS Region
-currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
-
-whenDebug :: IO () -> AWSContext ()
-whenDebug io = fmap awsDebug ask >>= \p -> liftIO $ when p io
-
-throwError :: Monad m => String -> EitherT Error m a
-throwError = throwT . Error
-
-fmapError :: Monad m => EitherT String m a -> EitherT Error m a
-fmapError = fmapLT Error
-
-hoistError :: Monad m => Either String a -> EitherT Error m a
-hoistError = hoistEither . fmapL Error
-
-tryIO' :: MonadIO m => IO a -> EitherT Error m a
-tryIO' = fmapLT Ex . syncIO
-
-type EitherXML a b = Either String (Either a b)
-
-eitherXML :: Show b => Either String (Either a b) -> Either Error a
-eitherXML = g . f
-  where
-    f = fmap (h . fmapR (Error . show))
-    g = join . fmapL Error
-
-    h (Left a)  = Right a
-    h (Right b) = Left b
-
-data RawRequest s b where
-    RawRequest :: { rqMethod  :: !Method
-                  , rqContent :: !ContentType
-                  , rqAction  :: Maybe ByteString
-                  , rqPath    :: Maybe ByteString
-                  , rqHeaders :: Map ByteString ByteString
-                  , rqQuery   :: [(ByteString, ByteString)]
-                  , rqBody    :: Maybe ByteString
-                  }
-                -> RawRequest s b
-
-deriving instance Show (RawRequest s b)
-
-instance ToJSON (RawRequest s b) where
-    toJSON RawRequest{..} = object
-        [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
-        , "rqContent" .= (String $ toText rqContent)
-        , "rqAction"  .= rqAction
-        , "rqPath"    .= rqPath
-        , "rqQuery"   .= rqQuery
-        ]
-
-emptyRequest :: Method
-             -> ContentType
-             -> ByteString
-             -> Maybe ByteString
-             -> RawRequest s b
-emptyRequest meth content path body = RawRequest
-    { rqMethod  = meth
-    , rqContent = content
-    , rqAction  = Nothing
-    , rqHeaders = Map.empty
-    , rqQuery   = []
-    , rqBody    = body
-    , rqPath    = if BS.null path then Nothing else Just path
-    }
-
-data SignedRequest = SignedRequest
-    { rqUrl     :: !ByteString
-    , rqPayload :: !(Maybe ByteString)
-    , rqRequest :: !Request
-    } deriving (Show)
-
-data SigningVersion
-    = SigningVersion2
-    | SigningVersion3
-    | SigningVersion4
-      deriving (Show)
-
-data Service = Service
-    { svcName     :: !ByteString
-    , svcVersion  :: !ByteString
-    , svcEndpoint :: !ByteString
-    , svcSigner   :: !SigningVersion
-    , svcRegion   :: !Region
-    }
-
-awsService :: ByteString -> ByteString -> SigningVersion -> AWS Service
-awsService name ver signer = do
-    reg <- currentRegion
-    return $! Service name ver (endpoint reg) signer reg
- where
-   endpoint reg = name <> "." <> toBS reg <> ".amazonaws.com"
-
-class AWSService s where
-    service :: RawRequest s b -> AWS Service
-
-class AWSRequest s a b | a -> s b where
-    request :: a -> RawRequest s b
-
-class AWSResponse s b | b -> s where
-    response :: ByteString -> Either Error b
-
-class Template a where
-    readTemplate :: a -> ByteString
-
-class IsByteString a where
-    toText :: a -> Text
-    toBS   :: a -> ByteString
-
-    toText = decodeUtf8 . toBS
-
-instance IsByteString ByteString where
-    toBS   = id
-    toText = decodeUtf8
-
-instance IsByteString Text where
-    toBS   = encodeUtf8
-    toText = id
-
-instance IsByteString Int where
-    toBS = BS.pack . show
-
-instance IsByteString Integer where
-    toBS = BS.pack . show
-
-instance IsByteString UTCTime where
-    toBS = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
-
-instance IsByteString Method where
-    toBS = BS.pack . show

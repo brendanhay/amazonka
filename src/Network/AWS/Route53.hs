@@ -1,10 +1,8 @@
- {-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE ScopedTypeVariables        #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Route53
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,7 +71,6 @@ module Network.AWS.Route53
     , module Network.AWS.Route53.Types
     ) where
 
-import Control.Applicative       ((<$>))
 import Data.ByteString           (ByteString)
 import Data.Monoid
 import Data.String
@@ -82,25 +79,18 @@ import Network.AWS.Internal
 import Network.AWS.Route53.Types
 import Network.Http.Client       (Method(..))
 
-data R53
+svc :: Service
+svc = Service "route53" route53Version SigningVersion3 $
+    const "route53.amazonaws.com"
 
-instance AWSService R53 where
-    service _ = Service "route53" route53Version "route53.amazonaws.com"
-        SigningVersion3 <$> currentRegion
+ver :: ByteString
+ver = "/" <> route53Version <> "/"
 
-instance IsXML b => AWSResponse R53 b where
-    response bstr = eitherXML (fromXML bstr :: EitherXML b ErrorResponse)
+qry :: IsQuery a => Method -> Text -> a -> RawRequest
+qry = qryRq svc ver
 
-req :: IsQuery a => Method -> Text -> a -> RawRequest R53 b
-req meth path qry = (emptyRequest meth FormEncoded (ver path) Nothing)
-    { rqQuery = toQuery qry
-    }
-
-body :: IsXML a => Method -> Text -> a -> RawRequest R53 b
-body meth path = (emptyRequest meth XML . ver $ toText path) . Just . toXML
-
-ver :: IsByteString a => a -> ByteString
-ver = mappend ("/" <> route53Version <> "/") . toBS
+xml :: IsXML a => Method -> Text -> a -> RawRequest
+xml = xmlRq svc ver
 
 --
 -- Hosted Zones
@@ -123,8 +113,9 @@ data CreateHostedZone = CreateHostedZone
 instance IsXML CreateHostedZone where
     xmlPickler = withRootNS route53NS "CreateHostedZoneRequest"
 
-instance AWSRequest R53 CreateHostedZone CreateHostedZoneResponse where
-    request = body POST "hostedzone"
+instance Rq CreateHostedZone where
+    type Rs CreateHostedZone = Either ErrorResponse CreateHostedZoneResponse
+    request = xml POST "hostedzone"
 
 data CreateHostedZoneResponse = CreateHostedZoneResponse
     { chzrHostedZone    :: !HostedZone
@@ -146,8 +137,9 @@ newtype GetHostedZone = GetHostedZone
       -- ^ Hosted Zone Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
-instance AWSRequest R53 GetHostedZone GetHostedZoneResponse where
-    request chk = req GET (toText chk) ()
+instance Rq GetHostedZone where
+    type Rs GetHostedZone = Either ErrorResponse GetHostedZoneResponse
+    request chk = qry GET (toText chk) ()
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostedZone    :: !HostedZone
@@ -175,8 +167,9 @@ data ListHostedZones = ListHostedZones
 instance IsQuery ListHostedZones where
     queryPickler = genericQueryPickler loweredQueryOptions
 
-instance AWSRequest R53 ListHostedZones ListHostedZonesResponse where
-    request = req GET "hostedzone"
+instance Rq ListHostedZones where
+    type Rs ListHostedZones = Either ErrorResponse ListHostedZonesResponse
+    request = qry GET "hostedzone"
 
 data ListHostedZonesResponse = ListHostedZonesResponse
     { lhzrHostedZones :: [HostedZone]
@@ -203,8 +196,9 @@ newtype DeleteHostedZone = DeleteHostedZone
       -- ^ Hosted Zone Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
-instance AWSRequest R53 DeleteHostedZone DeleteHostedZoneResponse where
-    request chk = req DELETE (toText chk) ()
+instance Rq DeleteHostedZone where
+    type Rs DeleteHostedZone = Either ErrorResponse DeleteHostedZoneResponse
+    request chk = qry DELETE (toText chk) ()
 
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
@@ -235,9 +229,10 @@ instance IsXML ChangeResourceRecordSets where
             { root = Just $ mkNName route53NS "ChangeResourceRecordSetsRequest"
             }
 
-instance AWSRequest R53 ChangeResourceRecordSets ChangeResourceRecordSetsResponse where
+instance Rq ChangeResourceRecordSets where
+    type Rs ChangeResourceRecordSets = Either ErrorResponse ChangeResourceRecordSetsResponse
     request rs@ChangeResourceRecordSets{..} =
-        body POST (toText crrsZoneId <> "/rrset") rs
+        xml POST (toText crrsZoneId <> "/rrset") rs
 
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
@@ -264,7 +259,7 @@ data ListResourceRecordSets = ListResourceRecordSets
       -- for the next resource record set that has the current DNS name and type.
     , lrrsMaxItems   :: Maybe Integer
       -- ^ The maximum number of resource records sets to include in the
-      -- response body for this request. If the response includes more than
+      -- response xml for this request. If the response includes more than
       -- maxitems resource record sets, the value of the IsTruncated element
       -- in the response is true, and the values of the NextRecordName and
       -- NextRecordType elements in the response identify the first resource
@@ -274,9 +269,10 @@ data ListResourceRecordSets = ListResourceRecordSets
 instance IsQuery ListResourceRecordSets where
     queryPickler = genericQueryPickler loweredQueryOptions
 
-instance AWSRequest R53 ListResourceRecordSets ListResourceRecordSetsResponse where
+instance Rq ListResourceRecordSets where
+    type Rs ListResourceRecordSets = Either ErrorResponse ListResourceRecordSetsResponse
     request rs@ListResourceRecordSets{..} =
-        req GET (toText lrrsZoneId <> "/rrset") rs
+        qry GET (toText lrrsZoneId <> "/rrset") rs
 
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { lrrsrResourceRecordSets   :: [ResourceRecordSet]
@@ -312,8 +308,9 @@ newtype GetChange = GetChange
       -- element when you submitted the request.
     } deriving (Eq, Show, IsString, IsByteString)
 
-instance AWSRequest R53 GetChange GetChangeResponse where
-    request chk = req GET (toText chk) ()
+instance Rq GetChange where
+    type Rs GetChange = Either ErrorResponse GetChangeResponse
+    request chk = qry GET (toText chk) ()
 
 data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
@@ -343,8 +340,9 @@ data CreateHealthCheck = CreateHealthCheck
 instance IsXML CreateHealthCheck where
     xmlPickler = withRootNS route53NS "CreateHealthCheckRequest"
 
-instance AWSRequest R53 CreateHealthCheck CreateHealthCheckResponse where
-    request = body POST "healthcheck"
+instance Rq CreateHealthCheck where
+    type Rs CreateHealthCheck = Either ErrorResponse CreateHealthCheckResponse
+    request = xml POST "healthcheck"
 
 data CreateHealthCheckResponse = CreateHealthCheckResponse
     { chcrHealthCheck :: !HealthCheck
@@ -364,8 +362,9 @@ newtype GetHealthCheck = GetHealthCheck
       -- in the response, in the HealthCheckId element.
     } deriving (Eq, Show, IsString, IsByteString)
 
-instance AWSRequest R53 GetHealthCheck GetHealthCheckResponse where
-    request chk = req GET ("healthcheck/" <> toText chk) ()
+instance Rq GetHealthCheck where
+    type Rs GetHealthCheck = Either ErrorResponse GetHealthCheckResponse
+    request chk = qry GET ("healthcheck/" <> toText chk) ()
 
 data GetHealthCheckResponse = GetHealthCheckResponse
     { ghcrHealthCheck :: !HealthCheck
@@ -395,8 +394,9 @@ data ListHealthChecks = ListHealthChecks
 instance IsQuery ListHealthChecks where
     queryPickler = genericQueryPickler loweredQueryOptions
 
-instance AWSRequest R53 ListHealthChecks ListHealthChecksResponse where
-    request = req GET "healthcheck"
+instance Rq ListHealthChecks where
+    type Rs ListHealthChecks = Either ErrorResponse ListHealthChecksResponse
+    request = qry GET "healthcheck"
 
 data ListHealthChecksResponse = ListHealthChecksResponse
     { lhcrHealthChecks :: [HealthCheck]
@@ -430,8 +430,9 @@ newtype DeleteHealthCheck = DeleteHealthCheck
       -- ^ Health Check Id.
     } deriving (Eq, Show, IsString, IsByteString)
 
-instance AWSRequest R53 DeleteHealthCheck DeleteHealthCheckResponse where
-    request chk = req DELETE (toText chk) ()
+instance Rq DeleteHealthCheck where
+    type Rs DeleteHealthCheck = Either ErrorResponse DeleteHealthCheckResponse
+    request chk = qry DELETE (toText chk) ()
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Read, Show, Generic)

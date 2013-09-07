@@ -96,7 +96,7 @@ tests = (:[]) $ testVersion autoScalingVersion
     ]
 
 instance ToJSON AdjustmentType where
-    toJSON = String . Text.pack . show
+    toJSON = stringify . show
 
 $(deriveArbitrary
     [ ''AdjustmentType

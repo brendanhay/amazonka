@@ -25,6 +25,9 @@ module Test.Common
     , Rs
     , prop
 
+    -- * Aeson
+    , stringify
+
     -- * Re-used Imports
     , module Test
     , module Common
@@ -37,6 +40,7 @@ import qualified Data.ByteString.Char8                as BS
 import           Data.List                            ((\\), sortBy)
 import           Data.Maybe
 import           Data.Monoid
+import qualified Data.Text                            as Text
 import           Data.Text.Encoding
 import           Network.AWS.Internal                 as Common hiding (Query)
 import           System.IO.Unsafe                     (unsafePerformIO)
@@ -184,3 +188,6 @@ difference x y = zipWithTail (normalise x) (normalise y)
     zipWithTail as     _      = as
 
     twoWay a b = (a \\ b) ++ (b \\ a)
+
+stringify :: String -> Value
+stringify = String . Text.pack

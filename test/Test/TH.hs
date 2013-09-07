@@ -46,7 +46,7 @@ deriveProperty dir names = liftM concat $ mapM ($ names)
      ]
 
 deriveJSON :: [Name] -> Q [Dec]
-deriveJSON = liftM concat . mapM (Aeson.deriveToJSON id)
+deriveJSON = liftM concat . mapM (Aeson.deriveToJSON Aeson.defaultOptions)
 
 deriveArbitrary :: [Name] -> Q [Dec]
 deriveArbitrary = Derive.derives [Derive.makeArbitrary]

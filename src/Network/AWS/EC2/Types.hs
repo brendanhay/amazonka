@@ -14,9 +14,11 @@
 
 module Network.AWS.EC2.Types where
 
-import           Data.ByteString      (ByteString)
+import           Data.ByteString       (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import           Data.Monoid
+import           Data.Text             (Text)
+import           Data.Text.Encoding
 import           Data.Time
 import           Network.AWS.Internal
 import           Text.Read
@@ -79,7 +81,7 @@ instance IsXML VolumeStatus where
     xmlPickler = xpContent xpPrim
 
 -- data AccountAttributeSetItemType = AccountAttributeSetItemType
---     { aasitAttributeName     :: !ByteString
+--     { aasitAttributeName     :: !Text
 --       -- ^ The name of the attribute.
 --     , aasitAttributeValueSet :: !AccountAttributeValueSetItemType
 --       -- ^ A list of the attribute values, each one wrapped in an item
@@ -92,7 +94,7 @@ instance IsXML VolumeStatus where
 --     xmlPickler = ec2XML
 
 -- data AccountAttributeValueSetItemType = AccountAttributeValueSetItemType
---     { aavsitAttributeValue :: !ByteString
+--     { aavsitAttributeValue :: !Text
 --       -- ^ The value of the attribute.
 --     } deriving (Eq, Show, Generic)
 
@@ -102,7 +104,7 @@ instance IsXML VolumeStatus where
 --     xmlPickler = ec2XML
 
 -- data PrivateIpAddress = PrivateIpAddress
---     { piaPrivateIpAddress :: !ByteString
+--     { piaPrivateIpAddress :: !Text
 --       -- ^ The private IP address.
 --     } deriving (Eq, Show, Generic)
 
@@ -112,13 +114,13 @@ instance IsXML VolumeStatus where
 --     xmlPickler = ec2XML
 
 -- data AttachmentSetItemResponseType = AttachmentSetItemResponseType
---     { asirtVolumeId            :: !ByteString
+--     { asirtVolumeId            :: !Text
 --       -- ^ The ID of the volume.
---     , asirtInstanceId          :: !ByteString
+--     , asirtInstanceId          :: !Text
 --       -- ^ The ID of the instance.
---     , asirtDevice              :: !ByteString
+--     , asirtDevice              :: !Text
 --       -- ^ The device name exposed to the instance (for example, /dev/sdh).
---     , asirtStatus              :: !ByteString
+--     , asirtStatus              :: !Text
 --       -- ^ The attachment state.
 --     , asirtAttachTime          :: !UTCTime
 --       -- ^ The time stamp when the attachment initiated.
@@ -132,9 +134,9 @@ instance IsXML VolumeStatus where
 --     xmlPickler = ec2XML
 
 data Attachment = Attachment
-    { atVpcId :: !ByteString
+    { atVpcId :: !Text
       -- ^ The ID of the VPC.
-    , atState :: !ByteString
+    , atState :: !Text
       -- ^ The current state of the attachment.
     } deriving (Eq, Show, Generic)
 
@@ -142,11 +144,11 @@ instance IsXML Attachment where
     xmlPickler = ec2XML
 
 -- data AvailabilityZoneItemType = AvailabilityZoneItemType
---     { azitZoneName   :: !ByteString
+--     { azitZoneName   :: !Text
 --       -- ^ The name of the Availability Zone.
---     , azitZoneState  :: !ByteString
+--     , azitZoneState  :: !Text
 --       -- ^ The state of the Availability Zone.
---     , azitRegionName :: !ByteString
+--     , azitRegionName :: !Text
 --       -- ^ The name of the region.
 --     , azitMessageSet :: !AvailabilityZoneMessageType
 --       -- ^ Any messages about the Availability Zone, each one wrapped in an
@@ -159,7 +161,7 @@ instance IsXML Attachment where
 --     xmlPickler = ec2XML
 
 -- data AvailabilityZoneMessageType = AvailabilityZoneMessageType
---     { azmtMessage :: !ByteString
+--     { azmtMessage :: !Text
 --       -- ^ The message about the Availability Zone.
 --     } deriving (Eq, Show, Generic)
 
@@ -169,14 +171,14 @@ instance IsXML Attachment where
 --     xmlPickler = ec2XML
 
 -- data BlockDeviceMappingItemType = BlockDeviceMappingItemType
---     { bdmitDeviceName  :: !ByteString
+--     { bdmitDeviceName  :: !Text
 --       -- ^ The device name exposed to the instance (for example, /dev/sdh).
---     , bdmitVirtualName :: !ByteString
+--     , bdmitVirtualName :: !Text
 --       -- ^ The virtual device name.
 --     , bdmitEbs         :: !EbsBlockDeviceType
 --       -- ^ Parameters used to automatically set up Amazon EBS volumes when
 --       -- the instance is launched.
---     , bdmitNoDevice    :: !ByteString
+--     , bdmitNoDevice    :: !Text
 --       -- ^ Include this empty element to suppress the specified device
 --       -- included in the block device mapping of the AMI.
 --     } deriving (Eq, Show, Generic)
@@ -187,19 +189,19 @@ instance IsXML Attachment where
 --     xmlPickler = ec2XML
 
 data BundleInstanceS3Storage = BundleInstanceS3Storage
-    { bissAwsAccessKeyId        :: !ByteString
+    { bissAwsAccessKeyId        :: !Text
       -- ^ The access key ID of the owner of the bucket.
-    , bissBucket                :: !ByteString
+    , bissBucket                :: !Text
       -- ^ The bucket in which to store the AMI. You can specify a bucket
       -- that you already own or a new bucket that Amazon EC2 creates on
       -- your behalf. If you specify a bucket that belongs to someone
       -- else, Amazon EC2 returns an error.
-    , bissPrefix                :: !ByteString
+    , bissPrefix                :: !Text
       -- ^ The beginning of the file name of the AMI.
-    , bissUploadPolicy          :: !ByteString
+    , bissUploadPolicy          :: !Text
       -- ^ A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
       -- permission to upload items into Amazon S3 on the user's behalf.
-    , bissUploadPolicySignature :: !ByteString
+    , bissUploadPolicySignature :: !Text
       -- ^ The signature of the Base64 encoded JSON document.
     } deriving (Eq, Show, Generic)
 
@@ -219,9 +221,9 @@ instance IsXML BundleInstanceTaskStorage where
     xmlPickler = ec2XML
 
 data BundleInstanceTaskError = BundleInstanceTaskError
-    { biteCode    :: !ByteString
+    { biteCode    :: !Text
       -- ^ The error code.
-    , biteMessage :: !ByteString
+    , biteMessage :: !Text
       -- ^ The error message.
     } deriving (Eq, Show, Generic)
 
@@ -263,9 +265,9 @@ instance IsXML BundleInstanceState where
     xmlPickler = xpContent xpPrim
 
 data BundleInstanceTask = BundleInstanceTask
-    { bitInstanceId :: !ByteString
+    { bitInstanceId :: !Text
       -- ^ The ID of the instance associated with this bundle task.
-    , bitBundleId   :: !ByteString
+    , bitBundleId   :: !Text
       -- ^ The ID for this bundle task.
     , bitState      :: !BundleInstanceState
       -- ^ The state of the task.
@@ -275,7 +277,7 @@ data BundleInstanceTask = BundleInstanceTask
       -- ^ The time of the most recent update for the task.
     , bitStorage    :: !BundleInstanceTaskStorage
       -- ^ The Amazon S3 storage locations.
-    , bitProgress   :: !ByteString
+    , bitProgress   :: !Text
       -- ^ The level of task completion, as a percent (for example, 20%).
     , bitError      :: Maybe BundleInstanceTaskError
       -- ^ If the task fails, a description of the error.
@@ -285,9 +287,9 @@ instance IsXML BundleInstanceTask where
     xmlPickler = ec2XML
 
 data CancelSpotInstanceRequestsResponseSetItemType = CancelSpotInstanceRequestsResponseSetItemType
-    { csirrsitSpotInstanceRequestId :: !ByteString
+    { csirrsitSpotInstanceRequestId :: !Text
       -- ^ The ID of the Spot Instance request.
-    , csirrsitState                 :: !ByteString
+    , csirrsitState                 :: !Text
       -- ^ The state of the Spot Instance request.
     } deriving (Eq, Show, Generic)
 
@@ -295,9 +297,9 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
     xmlPickler = ec2XML
 
 -- data ConversionTaskType = ConversionTaskType
---     { cttConversionTaskId :: !ByteString
+--     { cttConversionTaskId :: !Text
 --       -- ^ The ID of the conversion task
---     , cttExpirationTime   :: !ByteString
+--     , cttExpirationTime   :: !Text
 --       -- ^ The time when the task expires. If the upload isn't complete
 --       -- before the expiration time, we automatically cancel the task.
 --     , cttImportVolume     :: !ImportVolumeTaskDetailsType
@@ -306,9 +308,9 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     , cttImportInstance   :: !ImportInstanceTaskDetailsType
 --       -- ^ If the task is for importing an instance, this contains
 --       -- information about the import instance task.
---     , cttState            :: !ByteString
+--     , cttState            :: !Text
 --       -- ^ The state of the conversion task.
---     , cttStatusMessage    :: !ByteString
+--     , cttStatusMessage    :: !Text
 --       -- ^ The status message related to the conversion task.
 --     } deriving (Eq, Show, Generic)
 
@@ -318,10 +320,10 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data CreateVolumePermissionItemType = CreateVolumePermissionItemType
---     { cvpitUserId :: !ByteString
+--     { cvpitUserId :: !Text
 --       -- ^ The ID of an AWS account that can create volumes from the
 --       -- snapshot.
---     , cvpitGroup  :: !ByteString
+--     , cvpitGroup  :: !Text
 --       -- ^ The group that is allowed to create volumes from the snapshot.
 --     } deriving (Eq, Show, Generic)
 
@@ -331,13 +333,13 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data CustomerGatewayType = CustomerGatewayType
---     { cgtCustomerGatewayId :: !ByteString
+--     { cgtCustomerGatewayId :: !Text
 --       -- ^ The ID of the customer gateway.
---     , cgtState             :: !ByteString
+--     , cgtState             :: !Text
 --       -- ^ The current state of the customer gateway.
---     , cgtType              :: !ByteString
+--     , cgtType              :: !Text
 --       -- ^ The type of VPN connection the customer gateway supports.
---     , cgtIpAddress         :: !ByteString
+--     , cgtIpAddress         :: !Text
 --       -- ^ The Internet-routable IP address of the customer gateway's
 --       -- outside interface.
 --     , cgtBgpAsn            :: !Integer
@@ -354,22 +356,22 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeAddressesResponseItemType = DescribeAddressesResponseItemType
---     { daritPublicIp                :: !ByteString
+--     { daritPublicIp                :: !Text
 --       -- ^ The public IP address.
---     , daritAllocationId            :: !ByteString
+--     , daritAllocationId            :: !Text
 --       -- ^ The ID representing the allocation of the address for use with
 --       -- EC2-VPC.
---     , daritDomain                  :: !ByteString
+--     , daritDomain                  :: !Text
 --       -- ^ Indicates whether this Elastic IP address is for instances in
 --       -- EC2-Classic or EC2-VPC.
---     , daritInstanceId              :: !ByteString
+--     , daritInstanceId              :: !Text
 --       -- ^ The ID of the instance the address is associated with (if any).
---     , daritAssociationId           :: !ByteString
+--     , daritAssociationId           :: !Text
 --       -- ^ The ID representing the association of an Elastic IP address with
 --       -- an instance in a VPC.
---     , daritNetworkInterfaceId      :: !ByteString
+--     , daritNetworkInterfaceId      :: !Text
 --       -- ^ The ID of the network interface.
---     , daritNetworkInterfaceOwnerId :: !ByteString
+--     , daritNetworkInterfaceOwnerId :: !Text
 --       -- ^ The ID of the AWS account that owns the network interface.
 --     } deriving (Eq, Show, Generic)
 
@@ -379,14 +381,14 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeImagesResponseItemType = DescribeImagesResponseItemType
---     { diritImageId            :: !ByteString
+--     { diritImageId            :: !Text
 --       -- ^ The ID of the AMI.
---     , diritImageLocation      :: !ByteString
+--     , diritImageLocation      :: !Text
 --       -- ^ The location of the AMI.
---     , diritImageState         :: !ByteString
+--     , diritImageState         :: !Text
 --       -- ^ Current state of the AMI. If the operation returns available, the
 --       -- image is successfully registered and available for launching.
---     , diritImageOwnerId       :: !ByteString
+--     , diritImageOwnerId       :: !Text
 --       -- ^ AWS account ID of the image owner.
 --     , diritIsPublic           :: !Bool
 --       -- ^ Indicates whether the image has public launch permissions. The
@@ -395,43 +397,43 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     , diritProductCodes       :: !ProductCodesSetItemType
 --       -- ^ Any product codes associated with the AMI, each one wrapped in an
 --       -- item element.
---     , diritArchitecture       :: !ByteString
+--     , diritArchitecture       :: !Text
 --       -- ^ The architecture of the image.
---     , diritImageType          :: !ByteString
+--     , diritImageType          :: !Text
 --       -- ^ The type of image.
---     , diritKernelId           :: !ByteString
+--     , diritKernelId           :: !Text
 --       -- ^ The kernel associated with the image, if any. Only applicable for
 --       -- machine images.
---     , diritRamdiskId          :: !ByteString
+--     , diritRamdiskId          :: !Text
 --       -- ^ The RAM disk associated with the image, if any. Only applicable
 --       -- for machine images.
---     , diritPlatform           :: !ByteString
+--     , diritPlatform           :: !Text
 --       -- ^ The value is Windows for Windows AMIs; otherwise blank.
 --     , diritStateReason        :: !StateReasonType
 --       -- ^ The reason for the state change.
---     , diritImageOwnerAlias    :: !ByteString
+--     , diritImageOwnerAlias    :: !Text
 --       -- ^ The AWS account alias (for example, amazon, self, etc.) or AWS
 --       -- account ID that owns the AMI.
---     , diritName               :: !ByteString
+--     , diritName               :: !Text
 --       -- ^ The name of the AMI that was provided during image creation.
---     , diritDescription        :: !ByteString
+--     , diritDescription        :: !Text
 --       -- ^ The description of the AMI that was provided during image
 --       -- creation.
---     , diritRootDeviceType     :: !ByteString
+--     , diritRootDeviceType     :: !Text
 --       -- ^ The type of root device used by the AMI. The AMI can use an
 --       -- Amazon EBS volume or an instance store volume.
---     , diritRootDeviceName     :: !ByteString
+--     , diritRootDeviceName     :: !Text
 --       -- ^ The device name of the root device (for example, /dev/sda1 or
 --       -- xvda).
 --     , diritBlockDeviceMapping :: !BlockDeviceMappingItemType
 --       -- ^ Any block device mapping entries, each one wrapped in an item
 --       -- element.
---     , diritVirtualizationType :: !ByteString
+--     , diritVirtualizationType :: !Text
 --       -- ^ The type of virtualization of the AMI.
 --     , diritTagSet             :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     , diritHypervisor         :: !ByteString
+--     , diritHypervisor         :: !Text
 --       -- ^ The image's hypervisor type.
 --     } deriving (Eq, Show, Generic)
 
@@ -441,9 +443,9 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeKeyPairsResponseItemType = DescribeKeyPairsResponseItemType
---     { dkpritKeyName        :: !ByteString
+--     { dkpritKeyName        :: !Text
 --       -- ^ The name of the key pair.
---     , dkpritKeyFingerprint :: !ByteString
+--     , dkpritKeyFingerprint :: !Text
 --       -- ^ If you used CreateKeyPair to create the key pair, this is the
 --       -- SHA-1 digest of the DER encoded private key. If you used
 --       -- ImportKeyPair to provide AWS the public key, this is the MD5
@@ -456,17 +458,17 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInstancesListingsResponseSetItemType
-    { drilrsitReservedInstancesListingId :: !ByteString
+    { drilrsitReservedInstancesListingId :: !Text
       -- ^ The ID of the Reserved Instance listing.
-    , drilrsitReservedInstancesId        :: !ByteString
+    , drilrsitReservedInstancesId        :: !Text
       -- ^ The ID of the Reserved Instance.
     , drilrsitCreateDate                 :: !UTCTime
       -- ^ The time the listing was created.
     , drilrsitUpdateDate                 :: !UTCTime
       -- ^ The last modified timestamp of the listing.
-    , drilrsitStatus                     :: !ByteString
+    , drilrsitStatus                     :: !Text
       -- ^ The status of the Reserved Instance listing.
-    , drilrsitStatusMessage              :: !ByteString
+    , drilrsitStatusMessage              :: !Text
       -- ^ The reason for the current status of the Reserved Instance
       -- listing. The response can be blank.
     , drilrsitInstanceCounts             :: Items InstanceCountsSetItemType
@@ -476,7 +478,7 @@ data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInst
     , drilrsitTagSet                     :: Items ResourceTagSetItemType
       -- ^ The tags assigned to the resource. Each tag's information is
       -- wrapped in an item element.
-    , drilrsitClientToken                :: !ByteString
+    , drilrsitClientToken                :: !Text
       -- ^ The idempotency token you provided when you created the listing.
     } deriving (Eq, Show, Generic)
 
@@ -484,7 +486,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesListingSetItemType = DescribeReservedInstancesListingSetItemType
---     { drilsitReservedInstancesListingId :: !ByteString
+--     { drilsitReservedInstancesListingId :: !Text
 --       -- ^ The ID of the Reserved Instance listing.
 --     } deriving (Eq, Show, Generic)
 
@@ -494,11 +496,11 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesOfferingsResponseSetItemType = DescribeReservedInstancesOfferingsResponseSetItemType
---     { driorsitReservedInstancesOfferingId :: !ByteString
+--     { driorsitReservedInstancesOfferingId :: !Text
 --       -- ^ The ID of the Reserved Instance offering.
---     , driorsitInstanceType                :: !ByteString
+--     , driorsitInstanceType                :: !Text
 --       -- ^ The instance type on which the Reserved Instance can be used.
---     , driorsitAvailabilityZone            :: !ByteString
+--     , driorsitAvailabilityZone            :: !Text
 --       -- ^ The Availability Zone in which the Reserved Instance can be used.
 --     , driorsitDuration                    :: !Integer
 --       -- ^ The duration of the Reserved Instance, in seconds.
@@ -506,15 +508,15 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --       -- ^ The purchase price of the Reserved Instance.
 --     , driorsitUsagePrice                  :: !Double
 --       -- ^ The usage price of the Reserved Instance, per hour.
---     , driorsitProductDescription          :: !ByteString
+--     , driorsitProductDescription          :: !Text
 --       -- ^ The Reserved Instance description.
---     , driorsitInstanceTenancy             :: !ByteString
+--     , driorsitInstanceTenancy             :: !Text
 --       -- ^ The tenancy of the reserved instance.
---     , driorsitCurrencyCode                :: !ByteString
+--     , driorsitCurrencyCode                :: !Text
 --       -- ^ The currency of the Reserved Instance offering you are
 --       -- purchasing. It's specified using ISO 4217 standard currency
 --       -- codes. At this time, the only supported currency is USD.
---     , driorsitOfferingType                :: !ByteString
+--     , driorsitOfferingType                :: !Text
 --       -- ^ The Reserved Instance offering type.
 --     , driorsitRecurringCharges            :: !RecurringChargesSetItemType
 --       -- ^ The recurring charge tag assigned to the resource.
@@ -533,11 +535,11 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesOfferingsResponseType = DescribeReservedInstancesOfferingsResponseType
---     { driortRequestId                     :: !ByteString
+--     { driortRequestId                     :: !Text
 --       -- ^ The ID of the Reserved Instance offering request.
 --     , driortReservedInstancesOfferingsSet :: !DescribeReservedInstancesOfferingsResponseSetItemType
 --       -- ^ The instance type on which the Reserved Instance can be used.
---     , driortNextToken                     :: !ByteString
+--     , driortNextToken                     :: !Text
 --       -- ^ The next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
@@ -547,11 +549,11 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesResponseSetItemType = DescribeReservedInstancesResponseSetItemType
---     { drirsitReservedInstancesId :: !ByteString
+--     { drirsitReservedInstancesId :: !Text
 --       -- ^ The ID of the Reserved Instance.
---     , drirsitInstanceType        :: !ByteString
+--     , drirsitInstanceType        :: !Text
 --       -- ^ The instance type on which the Reserved Instance can be used.
---     , drirsitAvailabilityZone    :: !ByteString
+--     , drirsitAvailabilityZone    :: !Text
 --       -- ^ The Availability Zone in which the Reserved Instance can be used.
 --     , drirsitStart               :: !UTCTime
 --       -- ^ The date and time the Reserved Instance started.
@@ -563,20 +565,20 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --       -- ^ The usage price of the Reserved Instance, per hour.
 --     , drirsitInstanceCount       :: !Integer
 --       -- ^ The number of Reserved Instances purchased.
---     , drirsitProductDescription  :: !ByteString
+--     , drirsitProductDescription  :: !Text
 --       -- ^ The Reserved Instance description.
---     , drirsitState               :: !ByteString
+--     , drirsitState               :: !Text
 --       -- ^ The state of the Reserved Instance purchase.
 --     , drirsitTagSet              :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     , drirsitInstanceTenancy     :: !ByteString
+--     , drirsitInstanceTenancy     :: !Text
 --       -- ^ The tenancy of the reserved instance.
---     , drirsitCurrencyCode        :: !ByteString
+--     , drirsitCurrencyCode        :: !Text
 --       -- ^ The currency of the Reserved Instance. It's specified using ISO
 --       -- 4217 standard currency codes. At this time, the only supported
 --       -- currency is USD.
---     , drirsitOfferingType        :: !ByteString
+--     , drirsitOfferingType        :: !Text
 --       -- ^ The Reserved Instance offering type.
 --     , drirsitRecurringCharges    :: !RecurringChargesSetItemType
 --       -- ^ The recurring charge tag assigned to the resource.
@@ -588,7 +590,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeReservedInstancesSetItemType = DescribeReservedInstancesSetItemType
---     { drisitReservedInstancesId :: !ByteString
+--     { drisitReservedInstancesId :: !Text
 --       -- ^ The ID of the Reserved Instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -598,23 +600,23 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeSnapshotsSetItemResponseType = DescribeSnapshotsSetItemResponseType
---     { dssirtSnapshotId  :: !ByteString
+--     { dssirtSnapshotId  :: !Text
 --       -- ^ The ID of the snapshot.
---     , dssirtVolumeId    :: !ByteString
+--     , dssirtVolumeId    :: !Text
 --       -- ^ The ID of the volume.
---     , dssirtStatus      :: !ByteString
+--     , dssirtStatus      :: !Text
 --       -- ^ The snapshot state.
 --     , dssirtStartTime   :: !UTCTime
 --       -- ^ The time stamp when the snapshot was initiated.
---     , dssirtProgress    :: !ByteString
+--     , dssirtProgress    :: !Text
 --       -- ^ The progress of the snapshot, as a percentage.
---     , dssirtOwnerId     :: !ByteString
+--     , dssirtOwnerId     :: !Text
 --       -- ^ The ID of the AWS account that owns the snapshot.
---     , dssirtVolumeSize  :: !ByteString
+--     , dssirtVolumeSize  :: !Text
 --       -- ^ The size of the volume, in GiB.
---     , dssirtDescription :: !ByteString
+--     , dssirtDescription :: !Text
 --       -- ^ The description of the snapshot.
---     , dssirtOwnerAlias  :: !ByteString
+--     , dssirtOwnerAlias  :: !Text
 --       -- ^ The AWS account alias (for example, amazon, self) or AWS account
 --       -- ID that owns the AMI.
 --     , dssirtTagSet      :: !ResourceTagSetItemType
@@ -628,15 +630,15 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DescribeVolumesSetItemResponseType = DescribeVolumesSetItemResponseType
---     { dvsirtVolumeId         :: !ByteString
+--     { dvsirtVolumeId         :: !Text
 --       -- ^ The ID of the volume.
---     , dvsirtSize             :: !ByteString
+--     , dvsirtSize             :: !Text
 --       -- ^ The size of the volume, in GiBs.
---     , dvsirtSnapshotId       :: !ByteString
+--     , dvsirtSnapshotId       :: !Text
 --       -- ^ The snapshot from which the volume was created (optional).
---     , dvsirtAvailabilityZone :: !ByteString
+--     , dvsirtAvailabilityZone :: !Text
 --       -- ^ The Availability Zone in which the volume was created.
---     , dvsirtStatus           :: !ByteString
+--     , dvsirtStatus           :: !Text
 --       -- ^ The state of the volume.
 --     , dvsirtCreateTime       :: !UTCTime
 --       -- ^ The time stamp when volume creation was initiated.
@@ -645,7 +647,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     , dvsirtTagSet           :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     , dvsirtVolumeType       :: !ByteString
+--     , dvsirtVolumeType       :: !Text
 --       -- ^ The volume type.
 --     , dvsirtIops             :: !Integer
 --       -- ^ The number of I/O operations per second (IOPS) that the volume
@@ -658,7 +660,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DhcpConfigurationItemType = DhcpConfigurationItemType
---     { dcitKey      :: !ByteString
+--     { dcitKey      :: !Text
 --       -- ^ The name of a DHCP option.
 --     , dcitValueSet :: !DhcpValueType
 --       -- ^ Any values for a DHCP option, each one wrapped in an item
@@ -671,7 +673,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DhcpOptionsType = DhcpOptionsType
---     { dotDhcpOptionsId        :: !ByteString
+--     { dotDhcpOptionsId        :: !Text
 --       -- ^ The ID of the set of DHCP options.
 --     , dotDhcpConfigurationSet :: !DhcpConfigurationItemType
 --       -- ^ The DHCP options in the set. Each option's key and set of values
@@ -687,7 +689,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DhcpValueType = DhcpValueType
---     { dvtValue :: !ByteString
+--     { dvtValue :: !Text
 --       -- ^ A value for the DHCP option.
 --     } deriving (Eq, Show, Generic)
 
@@ -697,17 +699,17 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data DiskImageDescriptionType = DiskImageDescriptionType
---     { didtFormat            :: !ByteString
+--     { didtFormat            :: !Text
 --       -- ^ The disk image format.
 --     , didtSize              :: !Integer
 --       -- ^ The size of the disk image.
---     , didtImportManifestUrl :: !ByteString
+--     , didtImportManifestUrl :: !Text
 --       -- ^ A presigned URL for the import manifest stored in Amazon S3. For
 --       -- information about creating a presigned URL for an Amazon S3
 --       -- object, read the "Query String Request Authentication
 --       -- Alternative" section of the Authenticating REST Requests topic in
 --       -- the Amazon Simple Storage Service Developer Guide.
---     , didtChecksum          :: !ByteString
+--     , didtChecksum          :: !Text
 --       -- ^ The checksum computed for the disk image.
 --     } deriving (Eq, Show, Generic)
 
@@ -719,7 +721,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- data DiskImageVolumeDescriptionType = DiskImageVolumeDescriptionType
 --     { divdtSize :: !Integer
 --       -- ^ The size of the volume.
---     , divdtId   :: !ByteString
+--     , divdtId   :: !Text
 --       -- ^ The volume identifier.
 --     } deriving (Eq, Show, Generic)
 
@@ -729,14 +731,14 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data EbsBlockDeviceType = EbsBlockDeviceType
---     { ebdtSnapshotId          :: !ByteString
+--     { ebdtSnapshotId          :: !Text
 --       -- ^ The ID of the snapshot.
 --     , ebdtVolumeSize          :: !Integer
 --       -- ^ The size of the volume, in GiB.
 --     , ebdtDeleteOnTermination :: !Bool
 --       -- ^ Indicates whether the Amazon EBS volume is deleted on instance
 --       -- termination.
---     , ebdtVolumeType          :: !ByteString
+--     , ebdtVolumeType          :: !Text
 --       -- ^ The volume type.
 --     , ebdtIops                :: !Integer
 --       -- ^ The number of I/O operations per second (IOPS) that the volume
@@ -748,27 +750,25 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- instance IsXML EbsBlockDeviceType where
 --     xmlPickler = ec2XML
 
--- data EbsInstanceBlockDeviceMappingResponseType = EbsInstanceBlockDeviceMappingResponseType
---     { eibdmrtVolumeId            :: !ByteString
---       -- ^ The ID of the Amazon EBS volume.
---     , eibdmrtStatus              :: !ByteString
---       -- ^ The attachment state.
---     , eibdmrtAttachTime          :: !UTCTime
---       -- ^ The time stamp when the attachment initiated.
---     , eibdmrtDeleteOnTermination :: !Bool
---       -- ^ Indicates whether the volume is deleted on instance termination.
---     } deriving (Eq, Show, Generic)
+data EbsInstanceBlockDeviceMappingResponseType = EbsInstanceBlockDeviceMappingResponseType
+    { eibdmrtVolumeId            :: !Text
+      -- ^ The ID of the Amazon EBS volume.
+    , eibdmrtStatus              :: !Text
+      -- ^ The attachment state.
+    , eibdmrtAttachTime          :: !UTCTime
+      -- ^ The time stamp when the attachment initiated.
+    , eibdmrtDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the volume is deleted on instance termination.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery EbsInstanceBlockDeviceMappingResponseType
-
--- instance IsXML EbsInstanceBlockDeviceMappingResponseType where
---     xmlPickler = ec2XML
+instance IsXML EbsInstanceBlockDeviceMappingResponseType where
+    xmlPickler = ec2XML
 
 -- data ExportToS3Task = ExportToS3Task
---     { etstDiskImageFormat :: Maybe ByteString
---     , etstContainerFormat :: Maybe ByteString
---     , etstS3Bucket        :: !ByteString
---     , etstS3Prefix        :: !ByteString
+--     { etstDiskImageFormat :: Maybe Text
+--     , etstContainerFormat :: Maybe Text
+--     , etstS3Bucket        :: !Text
+--     , etstS3Prefix        :: !Text
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery ExportToS3Task
@@ -777,13 +777,13 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data ExportTaskResponseType = ExportTaskResponseType
---     { etrtExportTaskId   :: !ByteString
+--     { etrtExportTaskId   :: !Text
 --       -- ^ The ID of the export task.
---     , etrtDescription    :: !ByteString
+--     , etrtDescription    :: !Text
 --       -- ^ A description of the resource being exported.
---     , etrtState          :: !ByteString
+--     , etrtState          :: !Text
 --       -- ^ The state of the conversion task.
---     , etrtStatusMessage  :: !ByteString
+--     , etrtStatusMessage  :: !Text
 --       -- ^ The status message related to the export task.
 --     , etrtInstanceExport :: !InstanceExportTaskResponseType
 --       -- ^ The instance being exported.
@@ -797,14 +797,14 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data ExportToS3TaskResponseType = ExportToS3TaskResponseType
---     { etstrtDiskImageFormat :: !ByteString
+--     { etstrtDiskImageFormat :: !Text
 --       -- ^ The format for the exported image.
---     , etstrtContainerFormat :: !ByteString
+--     , etstrtContainerFormat :: !Text
 --       -- ^ The container format used to combine disk images with metadata
 --       -- (such as OVF).
---     , etstrtS3Bucket        :: !ByteString
+--     , etstrtS3Bucket        :: !Text
 --       -- ^ The Amazon S3 bucket for the destination image.
---     , etstrtS3Key           :: !ByteString
+--     , etstrtS3Key           :: !Text
 --       -- ^ The image written to a single object in s3bucket at the S3 key
 --       -- s3prefix + exportTaskId + '.' +diskImageFormat.
 --     } deriving (Eq, Show, Generic)
@@ -814,22 +814,20 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- instance IsXML ExportToS3TaskResponseType where
 --     xmlPickler = ec2XML
 
--- data GroupItemType = GroupItemType
---     { gitGroupId   :: !ByteString
---       -- ^ The ID of the security group.
---     , gitGroupName :: !ByteString
---       -- ^ The name of the security group.
---     } deriving (Eq, Show, Generic)
+data GroupItemType = GroupItemType
+    { gitGroupId   :: !Text
+      -- ^ The ID of the security group.
+    , gitGroupName :: !Text
+      -- ^ The name of the security group.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery GroupItemType
-
--- instance IsXML GroupItemType where
---     xmlPickler = ec2XML
+instance IsXML GroupItemType where
+    xmlPickler = ec2XML
 
 -- data IamInstanceProfileRequestType = IamInstanceProfileRequestType
---     { iiprtArn  :: !ByteString
+--     { iiprtArn  :: !Text
 --       -- ^ The Amazon Resource Name (ARN) of the instance profile.
---     , iiprtName :: !ByteString
+--     , iiprtName :: !Text
 --       -- ^ The name of the instance profile.
 --     } deriving (Eq, Show, Generic)
 
@@ -838,17 +836,15 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- instance IsXML IamInstanceProfileRequestType where
 --     xmlPickler = ec2XML
 
--- data IamInstanceProfileResponseType = IamInstanceProfileResponseType
---     { iipruArn :: !ByteString
---       -- ^ The Amazon Resource Name (ARN) of the instance profile.
---     , iipruId  :: !ByteString
---       -- ^ The ID of the instance profile.
---     } deriving (Eq, Show, Generic)
+data IamInstanceProfileResponseType = IamInstanceProfileResponseType
+    { iipruArn :: !Text
+      -- ^ The Amazon Resource Name (ARN) of the instance profile.
+    , iipruId  :: !Text
+      -- ^ The ID of the instance profile.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery IamInstanceProfileResponseType
-
--- instance IsXML IamInstanceProfileResponseType where
---     xmlPickler = ec2XML
+instance IsXML IamInstanceProfileResponseType where
+    xmlPickler = ec2XML
 
 -- data IcmpType = IcmpType
 --     { itctCode :: !Integer
@@ -864,8 +860,8 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data InstancePlacement = InstancePlacement
---     { ipAvailabilityZone :: !Maybe ByteString
---     , ipGroupName        :: !Maybe ByteString
+--     { ipAvailabilityZone :: !Maybe Text
+--     , ipGroupName        :: !Maybe Text
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery InstancePlacement
@@ -874,26 +870,26 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
---     { iilsArchitecture                      :: !ByteString
+--     { iilsArchitecture                      :: !Text
 --     , iilsGroupSet                          :: Members GroupItemType
 --     , iilsUserData                          :: Maybe UserDataType
---     , iilsInstance                          :: !ByteString
+--     , iilsInstance                          :: !Text
 --     , iilsPlacement                         :: Maybe InstancePlacementType
 --     , iilsMonitoring                        :: Maybe MonitoringInstanceType
---     , iilsSubnetId                          :: Maybe ByteString
---     , iilsInstanceInitiatedShutdownBehavior :: Maybe ByteString
---     , iilsPrivateIpAddress                  :: Maybe ByteString
+--     , iilsSubnetId                          :: Maybe Text
+--     , iilsInstanceInitiatedShutdownBehavior :: Maybe Text
+--     , iilsPrivateIpAddress                  :: Maybe Text
 --     } deriving (Show)
 
 -- data ImportInstanceTaskDetailsType = ImportInstanceTaskDetailsType
 --     { iitdtVolumes     :: !ImportInstanceVolumeDetailItemType
 --       -- ^ Any instance volumes for import, each one wrapped in an item
 --       -- element.
---     , iitdtInstanceId  :: !ByteString
+--     , iitdtInstanceId  :: !Text
 --       -- ^ The ID of the instance.
---     , iitdtPlatform    :: !ByteString
+--     , iitdtPlatform    :: !Text
 --       -- ^ The value is Windows for Windows AMIs; otherwise blank.
---     , iitdtDescription :: !ByteString
+--     , iitdtDescription :: !Text
 --       -- ^ An optional description of the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -905,18 +901,18 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- data ImportInstanceVolumeDetailItemType = ImportInstanceVolumeDetailItemType
 --     { iivditBytesConverted   :: !Integer
 --       -- ^ The number of bytes converted so far.
---     , iivditAvailabilityZone :: !ByteString
+--     , iivditAvailabilityZone :: !Text
 --       -- ^ The Availability Zone where the resulting instance will reside.
 --     , iivditImage            :: !DiskImageDescriptionType
 --       -- ^ The image.
---     , iivditDescription      :: !ByteString
+--     , iivditDescription      :: !Text
 --       -- ^ The description you provided when starting the import instance
 --       -- task.
 --     , iivditVolume           :: !DiskImageVolumeDescriptionType
 --       -- ^ The volume.
---     , iivditStatus           :: !ByteString
+--     , iivditStatus           :: !Text
 --       -- ^ The status of the import of this particular disk image.
---     , iivditStatusMessage    :: !ByteString
+--     , iivditStatusMessage    :: !Text
 --       -- ^ The status information or errors related to the disk image.
 --     } deriving (Eq, Show, Generic)
 
@@ -928,9 +924,9 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- data ImportVolumeTaskDetailsType = ImportVolumeTaskDetailsType
 --     { ivtdtBytesConverted   :: !Integer
 --       -- ^ The number of bytes converted so far.
---     , ivtdtAvailabilityZone :: !ByteString
+--     , ivtdtAvailabilityZone :: !Text
 --       -- ^ The Availability Zone where the resulting volume will reside.
---     , ivtdtDescription      :: !ByteString
+--     , ivtdtDescription      :: !Text
 --       -- ^ The description you provided when starting the import volume
 --       -- task.
 --     , ivtdtImage            :: !DiskImageDescriptionType
@@ -945,15 +941,15 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 -- data InstanceBlockDeviceMappingItemType = InstanceBlockDeviceMappingItemType
---     { ibdmitDeviceName  :: !ByteString
+--     { ibdmitDeviceName  :: !Text
 --       -- ^ The device name exposed to the instance (for example, /dev/sdh or
 --       -- xvdh).
---     , ibdmitVirtualName :: !ByteString
+--     , ibdmitVirtualName :: !Text
 --       -- ^ The virtual device name.
 --     , ibdmitEbs         :: !InstanceEbsBlockDeviceType
 --       -- ^ Parameters used to automatically set up Amazon EBS volumes when
 --       -- the instance is launched.
---     , ibdmitNoDevice    :: !ByteString
+--     , ibdmitNoDevice    :: !Text
 --       -- ^ Include this empty element to suppress the specified device
 --       -- included in the block device mapping of the AMI.
 --     } deriving (Eq, Show, Generic)
@@ -963,22 +959,19 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- instance IsXML InstanceBlockDeviceMappingItemType where
 --     xmlPickler = ec2XML
 
--- data InstanceBlockDeviceMappingResponseItemType = InstanceBlockDeviceMappingResponseItemType
---     { ibdmritDeviceName :: !ByteString
---       -- ^ The device name exposed to the instance (for example, /dev/sdh,
---       -- or xvdh).
---     , ibdmritEbs        :: !EbsInstanceBlockDeviceMappingResponseType
---       -- ^ Parameters used to automatically set up Amazon EBS volumes when
---       -- the instance is launched.
---     } deriving (Eq, Show, Generic)
+data InstanceBlockDeviceMappingResponseItemType = InstanceBlockDeviceMappingResponseItemType
+    { ibdmritDeviceName :: !Text
+      -- ^ The device name exposed to the instance (for example, /dev/sdh, or xvdh).
+    , ibdmritEbs        :: !EbsInstanceBlockDeviceMappingResponseType
+      -- ^ Parameters used to automatically set up Amazon EBS volumes when
+      -- the instance is launched.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InstanceBlockDeviceMappingResponseItemType
-
--- instance IsXML InstanceBlockDeviceMappingResponseItemType where
---     xmlPickler = ec2XML
+instance IsXML InstanceBlockDeviceMappingResponseItemType where
+    xmlPickler = ec2XML
 
 data InstanceCountsSetItemType = InstanceCountsSetItemType
-    { icsitState         :: !ByteString
+    { icsitState         :: !Text
       -- ^ The states of the listed Reserved Instances.
     , icsitInstanceCount :: !Integer
       -- ^ The number of listed Reserved Instances in the state specified by
@@ -991,7 +984,7 @@ instance IsXML InstanceCountsSetItemType where
 -- data InstanceEbsBlockDeviceType = InstanceEbsBlockDeviceType
 --     { iebdtDeleteOnTermination :: !Bool
 --       -- ^ Indicates whether the volume is deleted on instance termination.
---     , iebdtVolumeId            :: !ByteString
+--     , iebdtVolumeId            :: !Text
 --       -- ^ The ID of the volume.
 --     } deriving (Eq, Show, Generic)
 
@@ -1001,9 +994,9 @@ instance IsXML InstanceCountsSetItemType where
 --     xmlPickler = ec2XML
 
 -- data InstanceExportTaskResponseType = InstanceExportTaskResponseType
---     { ietrtInstanceId        :: !ByteString
+--     { ietrtInstanceId        :: !Text
 --       -- ^ The ID of the resource being exported.
---     , ietrtTargetEnvironment :: !ByteString
+--     , ietrtTargetEnvironment :: !Text
 --       -- ^ The target virtualization environment.
 --     } deriving (Eq, Show, Generic)
 
@@ -1012,67 +1005,55 @@ instance IsXML InstanceCountsSetItemType where
 -- instance IsXML InstanceExportTaskResponseType where
 --     xmlPickler = ec2XML
 
--- data InstanceMonitoringStateType = InstanceMonitoringStateType
---     { imstState :: !ByteString
---       -- ^ The state of monitoring for the instance. The disabled state
---       -- means that Detailed Monitoring is disabled for the instance. The
---       -- enabled state means that Detailed Monitoring is enabled for the
---       -- instance. The pending state means that the instance is launching
---       -- or that you recently enabled Detailed Monitoring for the
---       -- instance.
---     } deriving (Eq, Show, Generic)
+data InstanceMonitoringStateType = InstanceMonitoringStateType
+    { imstState :: !Text
+      -- ^ The state of monitoring for the instance.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InstanceMonitoringStateType
+instance IsXML InstanceMonitoringStateType where
+    xmlPickler = ec2XML
 
--- instance IsXML InstanceMonitoringStateType where
---     xmlPickler = ec2XML
+data InstanceNetworkInterfaceAssociationType = InstanceNetworkInterfaceAssociationType
+    { iniatPublicIp      :: !Text
+      -- ^ The address of the Elastic IP address bound to the network
+      -- interface.
+    , iniatPublicDnsName :: !Text
+      -- ^ The public DNS name.
+    , iniatIpOwnerId     :: !Text
+      -- ^ The ID of the owner of the Elastic IP address.
+    } deriving (Eq, Show, Generic)
 
--- data InstanceNetworkInterfaceAssociationType = InstanceNetworkInterfaceAssociationType
---     { iniatPublicIp      :: !ByteString
---       -- ^ The address of the Elastic IP address bound to the network
---       -- interface.
---     , iniatPublicDnsName :: !ByteString
---       -- ^ The public DNS name.
---     , iniatIpOwnerId     :: !ByteString
---       -- ^ The ID of the owner of the Elastic IP address.
---     } deriving (Eq, Show, Generic)
+instance IsXML InstanceNetworkInterfaceAssociationType where
+    xmlPickler = ec2XML
 
--- instance IsQuery InstanceNetworkInterfaceAssociationType
+data InstanceNetworkInterfaceAttachmentType = InstanceNetworkInterfaceAttachmentType
+    { iniatAttachmentID        :: !Text
+    -- ^ The ID of the network interface attachment.
+    , iniatDeviceIndex         :: !Integer
+      -- ^ The index of the device on the instance for the network interface attachment.
+    , iniatStatus              :: !Text
+      -- ^ The attachment state.
+    , iniatAttachTime          :: !UTCTime
+      -- ^ The time stamp when the attachment initiated.
+    , iniatDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the network interface is deleted when the
+      -- instance is terminated.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML InstanceNetworkInterfaceAssociationType where
---     xmlPickler = ec2XML
-
--- data InstanceNetworkInterfaceAttachmentType = InstanceNetworkInterfaceAttachmentType
---     { iniatAttachmentID        :: !ByteString
---       -- ^ The ID of the network interface attachment.
---     , iniatDeviceIndex         :: !Integer
---       -- ^ The index of the device on the instance for the network interface
---       -- attachment.
---     , iniatStatus              :: !ByteString
---       -- ^ The attachment state.
---     , iniatAttachTime          :: !UTCTime
---       -- ^ The time stamp when the attachment initiated.
---     , iniatDeleteOnTermination :: !Bool
---       -- ^ Indicates whether the network interface is deleted when the
---       -- instance is terminated.
---     } deriving (Eq, Show, Generic)
-
--- instance IsQuery InstanceNetworkInterfaceAttachmentType
-
--- instance IsXML InstanceNetworkInterfaceAttachmentType where
---     xmlPickler = ec2XML
+instance IsXML InstanceNetworkInterfaceAttachmentType where
+    xmlPickler = ec2XML
 
 -- data InstanceNetworkInterfaceSetItemRequestType = InstanceNetworkInterfaceSetItemRequestType
---     { inisirtNetworkInterfaceId             :: !ByteString
+--     { inisirtNetworkInterfaceId             :: !Text
 --       -- ^ The ID of the network interface.
 --     , inisirtDeviceIndex                    :: !Integer
 --       -- ^ Required. The index of the device on the instance for the network
 --       -- interface attachment.
---     , inisirtSubnetId                       :: !ByteString
+--     , inisirtSubnetId                       :: !Text
 --       -- ^ The ID of the subnet associated with the network string.
---     , inisirtDescription                    :: !ByteString
+--     , inisirtDescription                    :: !Text
 --       -- ^ The description of the network interface.
---     , inisirtPrivateIpAddress               :: !ByteString
+--     , inisirtPrivateIpAddress               :: !Text
 --       -- ^ The private IP address of the network interface.
 --     , inisirtGroupSet                       :: !SecurityGroupIdSetItemType
 --       -- ^ The IDs of the security groups for use by the network interface.
@@ -1091,64 +1072,60 @@ instance IsXML InstanceCountsSetItemType where
 -- instance IsXML InstanceNetworkInterfaceSetItemRequestType where
 --     xmlPickler = ec2XML
 
--- data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
---     { inisitNetworkInterfaceId    :: !ByteString
---       -- ^ The ID of the network interface.
---     , inisitSubnetId              :: !ByteString
---       -- ^ The ID of the subnet.
---     , inisitVpcId                 :: !ByteString
---       -- ^ The ID of the VPC.
---     , inisitDescription           :: !ByteString
---       -- ^ The description.
---     , inisitOwnerId               :: !ByteString
---       -- ^ The ID of the customer who created the network interface.
---     , inisitStatus                :: !ByteString
---       -- ^ The status of the network interface.
---     , inisitMacAddress            :: !ByteString
---       -- ^ The MAC address.
---     , inisitPrivateIpAddress      :: !ByteString
---       -- ^ The IP address of the network interface within the subnet.
---     , inisitPrivateDnsName        :: !ByteString
---       -- ^ The private DNS name.
---     , inisitSourceDestCheck       :: !Bool
---       -- ^ Indicates whether to validate network traffic to or from this
---       -- network interface.
---     , inisitGroupSet              :: Members GroupItemType
---       -- ^ A security group.
---     , inisitAttachment            :: !InstanceNetworkInterfaceAttachmentType
---       -- ^ The network interface attachment.
---     , inisitAssociation           :: !InstanceNetworkInterfaceAssociationType
---       -- ^ The association information for an Elastic IP associated with the
---       -- network interface.
---     , inisitPrivateIpAddressesSet :: !InstancePrivateIpAddressesSetItemType
---       -- ^ The private IP addresses associated with the network interface.
---     } deriving (Eq, Show, Generic)
+data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
+    { inisitNetworkInterfaceId    :: !Text
+      -- ^ The ID of the network interface.
+    , inisitSubnetId              :: !Text
+      -- ^ The ID of the subnet.
+    , inisitVpcId                 :: !Text
+      -- ^ The ID of the VPC.
+    , inisitDescription           :: !Text
+      -- ^ The description.
+    , inisitOwnerId               :: !Text
+      -- ^ The ID of the customer who created the network interface.
+    , inisitStatus                :: !Text
+      -- ^ The status of the network interface.
+    , inisitMacAddress            :: !Text
+      -- ^ The MAC address.
+    , inisitPrivateIpAddress      :: !Text
+      -- ^ The IP address of the network interface within the subnet.
+    , inisitPrivateDnsName        :: !Text
+      -- ^ The private DNS name.
+    , inisitSourceDestCheck       :: !Bool
+      -- ^ Indicates whether to validate network traffic to or from this
+      -- network interface.
+    , inisitGroupSet              :: Members GroupItemType
+      -- ^ A security group.
+    , inisitAttachment            :: !InstanceNetworkInterfaceAttachmentType
+      -- ^ The network interface attachment.
+    , inisitAssociation           :: !InstanceNetworkInterfaceAssociationType
+      -- ^ The association information for an Elastic IP associated with the
+      -- network interface.
+    , inisitPrivateIpAddressesSet :: Items InstancePrivateIpAddressesSetItemType
+      -- ^ The private IP addresses associated with the network interface.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InstanceNetworkInterfaceSetItemType
+instance IsXML InstanceNetworkInterfaceSetItemType where
+    xmlPickler = ec2XML
 
--- instance IsXML InstanceNetworkInterfaceSetItemType where
---     xmlPickler = ec2XML
+data InstancePrivateIpAddressesSetItemType = InstancePrivateIpAddressesSetItemType
+    { ipiasitPrivateIpAddress :: !Text
+      -- ^ The private IP address of the network interface
+    , ipiasitPrivateDnsName   :: !Text
+      -- ^ The private DNS name.
+    , ipiasitPrimary          :: !Bool
+      -- ^ Indicates whether this IP address is the primary private IP
+      -- address of the network interface.
+    , ipiasitAssociation      :: !InstanceNetworkInterfaceAssociationType
+      -- ^ The association information for an Elastic IP address associated
+      -- with the network interface.
+    } deriving (Eq, Show, Generic)
 
--- data InstancePrivateIpAddressesSetItemType = InstancePrivateIpAddressesSetItemType
---     { ipiasitPrivateIpAddress :: !ByteString
---       -- ^ The private IP address of the network interface
---     , ipiasitPrivateDnsName   :: !ByteString
---       -- ^ The private DNS name.
---     , ipiasitPrimary          :: !Bool
---       -- ^ Indicates whether this IP address is the primary private IP
---       -- address of the network interface.
---     , ipiasitAssociation      :: !InstanceNetworkInterfaceAssociationType
---       -- ^ The association information for an Elastic IP address associated
---       -- with the network interface.
---     } deriving (Eq, Show, Generic)
-
--- instance IsQuery InstancePrivateIpAddressesSetItemType
-
--- instance IsXML InstancePrivateIpAddressesSetItemType where
---     xmlPickler = ec2XML
+instance IsXML InstancePrivateIpAddressesSetItemType where
+    xmlPickler = ec2XML
 
 -- data InstanceStateChangeType = InstanceStateChangeType
---     { isctInstanceId    :: !ByteString
+--     { isctInstanceId    :: !Text
 --       -- ^ The instance ID.
 --     , isctCurrentState  :: !InstanceStateType
 --       -- ^ The current state of the instance.
@@ -1161,23 +1138,21 @@ instance IsXML InstanceCountsSetItemType where
 -- instance IsXML InstanceStateChangeType where
 --     xmlPickler = ec2XML
 
--- data InstanceStateType = InstanceStateType
---     { istCode :: !Integer
---       -- ^ The low byte represents the state. The high byte is an opaque
---       -- internal value and should be ignored.
---     , istName :: !ByteString
---       -- ^ The current state of the instance.
---     } deriving (Eq, Show, Generic)
+data InstanceStateType = InstanceStateType
+    { istCode :: !Integer
+      -- ^ The low byte represents the state. The high byte is an opaque
+      -- internal value and should be ignored.
+    , istName :: !Text
+      -- ^ The current state of the instance.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InstanceStateType
-
--- instance IsXML InstanceStateType where
---     xmlPickler = ec2XML
+instance IsXML InstanceStateType where
+    xmlPickler = ec2XML
 
 -- data InstanceStatusDetailsSetType = InstanceStatusDetailsSetType
---     { isdstName          :: !ByteString
+--     { isdstName          :: !Text
 --       -- ^ The type of instance status detail.
---     , isdstStatus        :: !ByteString
+--     , isdstStatus        :: !Text
 --       -- ^ The status.
 --     , isdstImpairedSince :: !UTCTime
 --       -- ^ The time when a status check failed. For an instance that was
@@ -1201,9 +1176,9 @@ instance IsXML InstanceCountsSetItemType where
 --     xmlPickler = ec2XML
 
 -- data InstanceStatusEventType = InstanceStatusEventType
---     { isetCode        :: !ByteString
+--     { isetCode        :: !Text
 --       -- ^ The associated code of the event.
---     , isetDescription :: !ByteString
+--     , isetDescription :: !Text
 --       -- ^ A description of the event.
 --     , isetNotBefore   :: !UTCTime
 --       -- ^ The earliest scheduled start time for the event.
@@ -1217,9 +1192,9 @@ instance IsXML InstanceCountsSetItemType where
 --     xmlPickler = ec2XML
 
 -- data InstanceStatusItemType = InstanceStatusItemType
---     { isitInstanceId       :: !ByteString
+--     { isitInstanceId       :: !Text
 --       -- ^ The ID of the instance.
---     , isitAvailabilityZone :: !ByteString
+--     , isitAvailabilityZone :: !Text
 --       -- ^ The Availability Zone of the instance.
 --     , isitEventsSet        :: !InstanceStatusEventsSetType
 --       -- ^ Extra information regarding events associated with the instance.
@@ -1253,7 +1228,7 @@ instance IsXML InstanceCountsSetItemType where
 --     xmlPickler = ec2XML
 
 -- data InstanceStatusType = InstanceStatusType
---     { istStatus  :: !ByteString
+--     { istStatus  :: !Text
 --       -- ^ The status.
 --     , istDetails :: !InstanceStatusDetailsSetType
 --       -- ^ The system instance health or application instance health.
@@ -1265,9 +1240,9 @@ instance IsXML InstanceCountsSetItemType where
 --     xmlPickler = ec2XML
 
 -- data InternetGatewayAttachmentType = InternetGatewayAttachmentType
---     { igatVpcId :: !ByteString
+--     { igatVpcId :: !Text
 --       -- ^ The ID of the VPC.
---     , igatState :: !ByteString
+--     , igatState :: !Text
 --       -- ^ The current state of the attachment.
 --     } deriving (Eq, Show, Generic)
 
@@ -1277,7 +1252,7 @@ instance IsXML InstanceCountsSetItemType where
 --     xmlPickler = ec2XML
 
 -- data InternetGatewayType = InternetGatewayType
---     { igtInternetGatewayId :: !ByteString
+--     { igtInternetGatewayId :: !Text
 --       -- ^ The ID of the Internet gateway.
 --     , igtAttachmentSet     :: !InternetGatewayAttachmentType
 --       -- ^ Any VPCs attached to the Internet gateway, each one wrapped in an
@@ -1293,13 +1268,13 @@ instance IsXML InstanceCountsSetItemType where
 --     xmlPickler = ec2XML
 
 data UserIdGroupPair = UserIdGroupPair
-    { uigUserId    :: !ByteString
+    { uigUserId    :: !Text
       -- ^ The ID of an AWS account. Cannot be used when specifying a CIDR
       -- IP address range.
-    , uigGroupId   :: Maybe ByteString
+    , uigGroupId   :: Maybe Text
       -- ^ The ID of the security group in the specified AWS account.
       -- Cannot be used when specifying a CIDR IP address range.
-    , uigGroupName :: Maybe ByteString
+    , uigGroupName :: Maybe Text
       -- ^ The name of the security group in the specified AWS account.
       -- Cannot be used when specifying a CIDR IP address range.
     } deriving (Eq, Show, Generic)
@@ -1307,7 +1282,7 @@ data UserIdGroupPair = UserIdGroupPair
 instance IsQuery UserIdGroupPair
 
 data IpPermission = IpPermission
-    { iptIpProtocol :: !ByteString
+    { iptIpProtocol :: !Text
       -- ^ The protocol.
     , iptFromPort   :: !Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
@@ -1325,7 +1300,7 @@ data IpPermission = IpPermission
 instance IsQuery IpPermission
 
 data IpRange = IpRange
-    { irCidrIp :: !ByteString
+    { irCidrIp :: !Text
       -- ^ The CIDR range. You can either specify a CIDR range or a source
       -- security group, not both.
     } deriving (Eq, Show, Generic)
@@ -1333,9 +1308,9 @@ data IpRange = IpRange
 instance IsQuery IpRange
 
 -- data LaunchPermissionItemType = LaunchPermissionItemType
---     { lpitGroup  :: !ByteString
+--     { lpitGroup  :: !Text
 --       -- ^ The name of the group.
---     , lpitUserId :: !ByteString
+--     , lpitUserId :: !Text
 --       -- ^ The AWS account ID.
 --     } deriving (Eq, Show, Generic)
 
@@ -1345,9 +1320,9 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data LaunchSpecificationRequestType = LaunchSpecificationRequestType
---     { lsrtImageId             :: !ByteString
+--     { lsrtImageId             :: !Text
 --       -- ^ The AMI ID.
---     , lsrtKeyName             :: !ByteString
+--     , lsrtKeyName             :: !Text
 --       -- ^ The name of the key pair.
 --     , lsrtGroupSet            :: !GroupItemType
 --       -- ^ A list of security groups. Each group is wrapped in an item
@@ -1355,13 +1330,13 @@ instance IsQuery IpRange
 --     , lsrtUserData            :: !UserDataType
 --       -- ^ Base64-encoded MIME user data made available to the instance(s)
 --       -- in the reservation.
---     , lsrtInstanceType        :: !ByteString
+--     , lsrtInstanceType        :: !Text
 --       -- ^ The instance type.
 --     , lsrtPlacement           :: !PlacementRequestType
 --       -- ^ The placement information for the instance.
---     , lsrtKernelId            :: !ByteString
+--     , lsrtKernelId            :: !Text
 --       -- ^ The ID of the kernel to select.
---     , lsrtRamdiskId           :: !ByteString
+--     , lsrtRamdiskId           :: !Text
 --       -- ^ The ID of the RAM disk to select. Some kernels require additional
 --       -- drivers at launch. Check the kernel requirements for information
 --       -- on whether you need to specify a RAM disk and search for the
@@ -1371,7 +1346,7 @@ instance IsQuery IpRange
 --       -- wrapped in an item element.
 --     , lsrtMonitoring          :: !MonitoringInstanceType
 --       -- ^ The monitoring information for the instance.
---     , lsrtSubnetId            :: !ByteString
+--     , lsrtSubnetId            :: !Text
 --       -- ^ The ID of the subnet.
 --     , lsrtNetworkInterfaceSet :: !InstanceNetworkInterfaceSetItemRequestType
 --       -- ^ The network interfaces associated with the instance.
@@ -1392,20 +1367,20 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data LaunchSpecificationResponseType = LaunchSpecificationResponseType
---     { lsruImageId             :: !ByteString
+--     { lsruImageId             :: !Text
 --       -- ^ The AMI ID.
---     , lsruKeyName             :: !ByteString
+--     , lsruKeyName             :: !Text
 --       -- ^ The name of the key pair.
 --     , lsruGroupSet            :: !GroupItemType
 --       -- ^ A list of security groups. Each group is wrapped in an item
 --       -- element.
---     , lsruInstanceType        :: !ByteString
+--     , lsruInstanceType        :: !Text
 --       -- ^ The instance type.
 --     , lsruPlacement           :: !PlacementRequestType
 --       -- ^ The placement information for the instance.
---     , lsruKernelId            :: !ByteString
+--     , lsruKernelId            :: !Text
 --       -- ^ The ID of the kernel to select.
---     , lsruRamdiskId           :: !ByteString
+--     , lsruRamdiskId           :: !Text
 --       -- ^ The ID of the RAM disk to select. Some kernels require additional
 --       -- drivers at launch. Check the kernel requirements for information
 --       -- on whether you need to specify a RAM disk and search for the
@@ -1415,7 +1390,7 @@ instance IsQuery IpRange
 --       -- wrapped in an item element.
 --     , lsruMonitoring          :: !MonitoringInstanceType
 --       -- ^ The monitoring information for the instance.
---     , lsruSubnetId            :: !ByteString
+--     , lsruSubnetId            :: !Text
 --       -- ^ The ID of the subnet.
 --     , lsruNetworkInterfaceSet :: !InstanceNetworkInterfaceSetItemRequestType
 --       -- ^ The network interfaces for the instance.
@@ -1446,7 +1421,7 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data MonitorInstancesResponseSetItemType = MonitorInstancesResponseSetItemType
---     { mirsitInstanceId :: !ByteString
+--     { mirsitInstanceId :: !Text
 --       -- ^ The instance ID.
 --     , mirsitMonitoring :: !InstanceMonitoringStateType
 --       -- ^ The monitoring information.
@@ -1458,12 +1433,12 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data NetworkAclAssociationType = NetworkAclAssociationType
---     { naatNetworkAclAssociationId :: !ByteString
+--     { naatNetworkAclAssociationId :: !Text
 --       -- ^ An identifier representing the association between a network ACL
 --       -- and a subnet.
---     , naatNetworkAclId            :: !ByteString
+--     , naatNetworkAclId            :: !Text
 --       -- ^ The ID of the network ACL.
---     , naatSubnetId                :: !ByteString
+--     , naatSubnetId                :: !Text
 --       -- ^ The ID of the subnet.
 --     } deriving (Eq, Show, Generic)
 
@@ -1478,13 +1453,13 @@ instance IsQuery IpRange
 --       -- ascending order by rule number.
 --     , naetProtocol     :: !Integer
 --       -- ^ The protocol. A value of -1 means all protocols.
---     , naetRuleAction   :: !ByteString
+--     , naetRuleAction   :: !Text
 --       -- ^ Indicates whether to allow or deny the traffic that matches the
 --       -- rule.
 --     , naetEgress       :: !Bool
 --       -- ^ Indicates an egress rule (rule is applied to traffic leaving the
 --       -- subnet). Value of true indicates egress.
---     , naetCidrBlock    :: !ByteString
+--     , naetCidrBlock    :: !Text
 --       -- ^ The network range to allow or deny, in CIDR notation.
 --     , naetIcmpTypeCode :: !IcmpTypeCodeType
 --       -- ^ ICMP protocol: The ICMP type and code.
@@ -1498,9 +1473,9 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data NetworkAclType = NetworkAclType
---     { natNetworkAclId   :: !ByteString
+--     { natNetworkAclId   :: !Text
 --       -- ^ The ID of the network ACL.
---     , natVpcId          :: !ByteString
+--     , natVpcId          :: !Text
 --       -- ^ The ID of the VPC for the network ACL.
 --     , natDefault        :: !Bool
 --       -- ^ Indicates whether this is the default network ACL for the VPC.
@@ -1521,16 +1496,16 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data NetworkInterfaceAssociationType = NetworkInterfaceAssociationType
---     { niatPublicIp      :: !ByteString
+--     { niatPublicIp      :: !Text
 --       -- ^ The address of the Elastic IP address bound to the network
 --       -- interface.
---     , niatPublicDnsName :: !ByteString
+--     , niatPublicDnsName :: !Text
 --       -- ^ The public DNS name.
---     , niatIpOwnerId     :: !ByteString
+--     , niatIpOwnerId     :: !Text
 --       -- ^ The ID of the Elastic IP address owner.
---     , niatAllocationID  :: !ByteString
+--     , niatAllocationID  :: !Text
 --       -- ^ The allocation ID.
---     , niatAssociationID :: !ByteString
+--     , niatAssociationID :: !Text
 --       -- ^ The association ID.
 --     } deriving (Eq, Show, Generic)
 
@@ -1540,9 +1515,9 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
---     { niatAttachmentID :: !ByteString
+--     { niatAttachmentID :: !Text
 --       -- ^ The ID of the network interface attachment.
---     , niatInstanceID   :: !ByteString
+--     , niatInstanceID   :: !Text
 --       -- ^ The ID of the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -1552,9 +1527,9 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data NetworkInterfacePrivateIpAddressesSetItemType = NetworkInterfacePrivateIpAddressesSetItemType
---     { nipiasitPrivateIpAddress :: !ByteString
+--     { nipiasitPrivateIpAddress :: !Text
 --       -- ^ The private IP address of the network interface.
---     , nipiasitPrivateDnsName   :: !ByteString
+--     , nipiasitPrivateDnsName   :: !Text
 --       -- ^ The private DNS name.
 --     , nipiasitPrimary          :: !Bool
 --       -- ^ Indicates whether this IP address is the primary private IP
@@ -1570,34 +1545,34 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data NetworkInterfaceType = NetworkInterfaceType
---     { nitNetworkInterfaceId    :: !ByteString
+--     { nitNetworkInterfaceId    :: !Text
 --       -- ^ The ID of the network interface.
---     , nitSubnetId              :: !ByteString
+--     , nitSubnetId              :: !Text
 --       -- ^ The ID of the subnet.
---     , niuNetworkInterfaceId    :: !ByteString
+--     , niuNetworkInterfaceId    :: !Text
 --       -- ^ The ID of the network interface.
---     , niuSubnetId              :: !ByteString
+--     , niuSubnetId              :: !Text
 --       -- ^ The ID of the subnet.
---     , niuVpcId                 :: !ByteString
+--     , niuVpcId                 :: !Text
 --       -- ^ The ID of the VPC.
---     , niuAvailabilityZone      :: !ByteString
+--     , niuAvailabilityZone      :: !Text
 --       -- ^ The Availability Zone.
---     , niuDescription           :: !ByteString
+--     , niuDescription           :: !Text
 --       -- ^ A description.
---     , niuOwnerId               :: !ByteString
+--     , niuOwnerId               :: !Text
 --       -- ^ The ID of the customer who created the interface.
---     , niuRequesterId           :: !ByteString
+--     , niuRequesterId           :: !Text
 --       -- ^ The ID of the entity that launched the instance on your behalf
 --       -- (for example, AWS Management Console or Auto Scaling)
---     , niuRequesterManaged      :: !ByteString
+--     , niuRequesterManaged      :: !Text
 --       -- ^ Indicates whether the network interface is being managed by AWS.
---     , niuStatus                :: !ByteString
+--     , niuStatus                :: !Text
 --       -- ^ The status of the network interface.
---     , niuMacAddress            :: !ByteString
+--     , niuMacAddress            :: !Text
 --       -- ^ The MAC address.
---     , niuPrivateIpAddress      :: !ByteString
+--     , niuPrivateIpAddress      :: !Text
 --       -- ^ The IP address of the network interface within the subnet.
---     , niuPrivateDnsName        :: !ByteString
+--     , niuPrivateDnsName        :: !Text
 --       -- ^ The private DNS name.
 --     , niuSourceDestCheck       :: !Bool
 --       -- ^ Indicates whether traffic to or from the instance is validated.
@@ -1621,11 +1596,11 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data PlacementGroupInfoType = PlacementGroupInfoType
---     { pgitGroupName :: !ByteString
+--     { pgitGroupName :: !Text
 --       -- ^ The name of the placement group.
---     , pgitStrategy  :: !ByteString
+--     , pgitStrategy  :: !Text
 --       -- ^ The placement strategy.
---     , pgitState     :: !ByteString
+--     , pgitState     :: !Text
 --       -- ^ The status of the placement group.
 --     } deriving (Eq, Show, Generic)
 
@@ -1635,9 +1610,9 @@ instance IsQuery IpRange
 --     xmlPickler = ec2XML
 
 -- data PlacementRequestType = PlacementRequestType
---     { prtAvailabilityZone :: !ByteString
+--     { prtAvailabilityZone :: !Text
 --       -- ^ The Availability Zone for the instance.
---     , prtGroupName        :: !ByteString
+--     , prtGroupName        :: !Text
 --       -- ^ The name of a placement group for the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -1646,22 +1621,18 @@ instance IsQuery IpRange
 -- instance IsXML PlacementRequestType where
 --     xmlPickler = ec2XML
 
--- data PlacementResponseType = PlacementResponseType
---     { pruAvailabilityZone :: !ByteString
---       -- ^ The Availability Zone of the instance.
---     , pruGroupName        :: !ByteString
---       -- ^ The name of the placement group the instance is in (for cluster
---       -- compute instances).
---     , pruTenancy          :: !ByteString
---       -- ^ The tenancy of the instance (if the instance is running within a
---       -- VPC). An instance with a tenancy of dedicated runs on
---       -- single-tenant hardware.
---     } deriving (Eq, Show, Generic)
+data PlacementResponseType = PlacementResponseType
+    { pruAvailabilityZone :: !Text
+      -- ^ The Availability Zone of the instance.
+    , pruGroupName        :: !Text
+      -- ^ The name of the placement group the instance is in
+      -- (for cluster compute instances).
+    , pruTenancy          :: !Text
+      -- ^ The tenancy of the instance (if the instance is running within a -- VPC).
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery PlacementResponseType
-
--- instance IsXML PlacementResponseType where
---     xmlPickler = ec2XML
+instance IsXML PlacementResponseType where
+    xmlPickler = ec2XML
 
 -- data PortRangeType = PortRangeType
 --     { prtFrom :: !Integer
@@ -1682,7 +1653,7 @@ instance IsQuery IpRange
 --       -- expires.
 --     , psrsitPrice        :: !Double
 --       -- ^ The fixed price for the term.
---     , psrsitCurrencyCode :: !ByteString
+--     , psrsitCurrencyCode :: !Text
 --       -- ^ The currency for transacting the Reserved Instance resale. At
 --       -- this time, the only supported currency is USD.
 --     } deriving (Eq, Show, Generic)
@@ -1699,7 +1670,7 @@ data PriceScheduleSetItemType = PriceScheduleSetItemType
       -- expires.
     , pssitPrice        :: !Double
       -- ^ The fixed price for the term.
-    , pssitCurrencyCode :: !ByteString
+    , pssitCurrencyCode :: !Text
       -- ^ The currency for transacting the Reserved Instance resale. At
       -- this time, the only supported currency is USD.
     , pssitActive       :: !Bool
@@ -1746,7 +1717,7 @@ instance IsXML PriceScheduleSetItemType where
 --     xmlPickler = ec2XML
 
 -- data ProductCodeItemType = ProductCodeItemType
---     { pcitProductCode :: !ByteString
+--     { pcitProductCode :: !Text
 --       -- ^ The product code.
 --     } deriving (Eq, Show, Generic)
 
@@ -1755,20 +1726,18 @@ instance IsXML PriceScheduleSetItemType where
 -- instance IsXML ProductCodeItemType where
 --     xmlPickler = ec2XML
 
--- data ProductCodesSetItemType = ProductCodesSetItemType
---     { pcsitProductCode :: !ByteString
---       -- ^ The product code.
---     , pcsitType        :: !ByteString
---       -- ^ The type of product code.
---     } deriving (Eq, Show, Generic)
+data ProductCodesSetItemType = ProductCodesSetItemType
+    { pcsitProductCode :: !Text
+      -- ^ The product code.
+    , pcsitType        :: !Text
+      -- ^ The type of product code.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery ProductCodesSetItemType
-
--- instance IsXML ProductCodesSetItemType where
---     xmlPickler = ec2XML
+instance IsXML ProductCodesSetItemType where
+    xmlPickler = ec2XML
 
 -- data ProductDescriptionSetItemType = ProductDescriptionSetItemType
---     { pdsitProductDescription :: !ByteString
+--     { pdsitProductDescription :: !Text
 --       -- ^ The description of the AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -1778,7 +1747,7 @@ instance IsXML PriceScheduleSetItemType where
 --     xmlPickler = ec2XML
 
 -- data PropagatingVgwType = PropagatingVgwType
---     { pvtGatewayID :: !ByteString
+--     { pvtGatewayID :: !Text
 --       -- ^ The ID of the virtual private gateway (VGW).
 --     } deriving (Eq, Show, Generic)
 
@@ -1788,7 +1757,7 @@ instance IsXML PriceScheduleSetItemType where
 --     xmlPickler = ec2XML
 
 -- data RecurringChargesSetItemType = RecurringChargesSetItemType
---     { rcsitFrequency :: !ByteString
+--     { rcsitFrequency :: !Text
 --       -- ^ The frequency of the recurring charge.
 --     , rcsitAmount    :: !Double
 --       -- ^ The amount of the recurring charge.
@@ -1800,9 +1769,9 @@ instance IsXML PriceScheduleSetItemType where
 --     xmlPickler = ec2XML
 
 -- data RegionItemType = RegionItemType
---     { ritRegionName     :: !ByteString
+--     { ritRegionName     :: !Text
 --       -- ^ The name of the region.
---     , ritRegionEndpoint :: !ByteString
+--     , ritRegionEndpoint :: !Text
 --       -- ^ The region service endpoint.
 --     } deriving (Eq, Show, Generic)
 
@@ -1811,25 +1780,22 @@ instance IsXML PriceScheduleSetItemType where
 -- instance IsXML RegionItemType where
 --     xmlPickler = ec2XML
 
--- data ReservationInfoType = ReservationInfoType
---     { ritReservationId :: !ByteString
---       -- ^ The ID of the reservation.
---     , ritOwnerId       :: !ByteString
---       -- ^ The ID of the AWS account that owns the reservation.
---     , ritGroupSet      :: !GroupItemType
---       -- ^ A list of security groups. Each group is wrapped in an item
---       -- element.
---     , ritInstancesSet  :: !RunningInstancesItemType
---       -- ^ A list of instances. Each instance is wrapped in an item element.
---     , ritRequesterId   :: !ByteString
---       -- ^ The ID of the requester that launched the instances on your
---       -- behalf (for example, AWS Management Console or Auto Scaling).
---     } deriving (Eq, Show, Generic)
+data ReservationInfoType = ReservationInfoType
+    { ritReservationId :: !Text
+      -- ^ The ID of the reservation.
+    , ritOwnerId       :: !Text
+      -- ^ The ID of the AWS account that owns the reservation.
+    , ritGroupSet      :: Items GroupItemType
+      -- ^ A list of security groups.
+    , ritInstancesSet  :: Items RunningInstancesItemType
+      -- ^ A list of instances.
+    , ritRequesterId   :: !Text
+      -- ^ The ID of the requester that launched the instances on your
+      -- behalf (for example, AWS Management Console or Auto Scaling).
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery ReservationInfoType
-
--- instance IsXML ReservationInfoType where
---     xmlPickler = ec2XML
+instance IsXML ReservationInfoType where
+    xmlPickler = ec2XML
 
 -- data ReservedInstanceLimitPriceType = ReservedInstanceLimitPriceType
 --     { rilptAmount       :: !Double
@@ -1846,9 +1812,9 @@ instance IsXML PriceScheduleSetItemType where
 --     xmlPickler = ec2XML
 
 data ResourceTagSetItemType = ResourceTagSetItemType
-    { rtsitKey   :: !ByteString
+    { rtsitKey   :: !Text
       -- ^ The tag key.
-    , rtsitValue :: !ByteString
+    , rtsitValue :: !Text
       -- ^ The tag value.
     } deriving (Eq, Show, Generic)
 
@@ -1856,12 +1822,12 @@ instance IsXML ResourceTagSetItemType where
     xmlPickler = ec2XML
 
 -- data RouteTableAssociationType = RouteTableAssociationType
---     { rtatRouteTableAssociationId :: !ByteString
+--     { rtatRouteTableAssociationId :: !Text
 --       -- ^ An identifier representing the association between a route table
 --       -- and a subnet.
---     , rtatRouteTableId            :: !ByteString
+--     , rtatRouteTableId            :: !Text
 --       -- ^ The ID of the route table.
---     , rtatSubnetId                :: !ByteString
+--     , rtatSubnetId                :: !Text
 --       -- ^ The ID of the subnet.
 --     , rtatMain                    :: !Bool
 --       -- ^ Indicates whether this is the main route table.
@@ -1873,9 +1839,9 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data RouteTableType = RouteTableType
---     { rttRouteTableId      :: !ByteString
+--     { rttRouteTableId      :: !Text
 --       -- ^ The route table's ID.
---     , rttVpcId             :: !ByteString
+--     , rttVpcId             :: !Text
 --       -- ^ The ID of the VPC for the route table.
 --     , rttRouteSet          :: !RouteType
 --       -- ^ A list of routes in the route table. Each route is wrapped in an
@@ -1897,22 +1863,22 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data RouteType = RouteType
---     { rtDestinationCidrBlock :: !ByteString
+--     { rtDestinationCidrBlock :: !Text
 --       -- ^ The CIDR address block used for the destination match.
---     , rtGatewayId            :: !ByteString
+--     , rtGatewayId            :: !Text
 --       -- ^ The ID of a gateway attached to your VPC.
---     , rtInstanceId           :: !ByteString
+--     , rtInstanceId           :: !Text
 --       -- ^ The ID of a NAT instance in your VPC.
---     , rtInstanceOwnerId      :: !ByteString
+--     , rtInstanceOwnerId      :: !Text
 --       -- ^ The owner of the instance.
---     , rtNetworkInterfaceId   :: !ByteString
+--     , rtNetworkInterfaceId   :: !Text
 --       -- ^ The network interface ID.
---     , rtState                :: !ByteString
+--     , rtState                :: !Text
 --       -- ^ The state of the route. The blackhole state indicates that the
 --       -- route's target isn't available (for example, the specified
 --       -- gateway isn't attached to the VPC, or the specified NAT instance
 --       -- has been terminated).
---     , rtOrigin               :: !ByteString
+--     , rtOrigin               :: !Text
 --       -- ^ Describes how the route was created.
 --     } deriving (Eq, Show, Generic)
 
@@ -1921,111 +1887,101 @@ instance IsXML ResourceTagSetItemType where
 -- instance IsXML RouteType where
 --     xmlPickler = ec2XML
 
--- data RunningInstancesItemType = RunningInstancesItemType
---     { riitInstanceId            :: !ByteString
---       -- ^ The ID of the instance launched.
---     , riitImageId               :: !ByteString
---       -- ^ The ID of the AMI used to launch the instance.
---     , riitInstanceState         :: !InstanceStateType
---       -- ^ The current state of the instance.
---     , riitPrivateDnsName        :: !ByteString
---       -- ^ The private DNS name assigned to the instance. This DNS name can
---       -- only be used inside the Amazon EC2 network. This element remains
---       -- empty until the instance enters the running state.
---     , riitDnsName               :: !ByteString
---       -- ^ The public DNS name assigned to the instance. This element
---       -- remains empty until the instance enters the running state.
---     , riitReason                :: !ByteString
---       -- ^ The reason for the most recent state transition. This might be an
---       -- empty string.
---     , riitKeyName               :: !ByteString
---       -- ^ The key pair name, if this instance was launched with an
---       -- associated key pair.
---     , riitAmiLaunchIndex        :: !ByteString
---       -- ^ The AMI launch index, which can be used to find this instance in
---       -- the launch group.
---     , riitProductCodes          :: !ProductCodesSetItemType
---       -- ^ The product codes attached to this instance. Each product code is
---       -- wrapped in an item element.
---     , riitInstanceType          :: !ByteString
---       -- ^ The instance type.
---     , riitLaunchTime            :: !UTCTime
---       -- ^ The time the instance was launched.
---     , riitPlacement             :: !PlacementResponseType
---       -- ^ The location where the instance launched.
---     , riitKernelId              :: !ByteString
---       -- ^ The kernel associated with this instance.
---     , riitRamdiskId             :: !ByteString
---       -- ^ The RAM disk associated with this instance.
---     , riitPlatform              :: !ByteString
---       -- ^ The value is Windows for Windows AMIs; otherwise blank.
---     , riitMonitoring            :: !InstanceMonitoringStateType
---       -- ^ The monitoring information for the instance.
---     , riitSubnetId              :: !ByteString
---       -- ^ The ID of the subnet in which the instance is running.
---     , riitVpcId                 :: !ByteString
---       -- ^ The ID of the VPC in which the instance is running.
---     , riitPrivateIpAddress      :: !ByteString
---       -- ^ The private IP address assigned to the instance.
---     , riitIpAddress             :: !ByteString
---       -- ^ The IP address of the instance.
---     , riitSourceDestCheck       :: !Bool
---       -- ^ Specifies whether to enable an instance launched in a VPC to
---       -- perform NAT. This controls whether source/destination checking is
---       -- enabled on the instance. A value of true means checking is
---       -- enabled, and false means checking is disabled. The value must be
---       -- false for the instance to perform NAT. For more information, go
---       -- to NAT Instances in the Amazon Virtual Private Cloud User Guide.
---     , riitGroupSet              :: !GroupItemType
---       -- ^ A list of the security groups for the instance. Each group is
---       -- wrapped in an item element.
---     , riitStateReason           :: !StateReasonType
---       -- ^ The reason for the most recent state transition. See
---       -- StateReasonType for a listing of supported state change codes.
---     , riitArchitecture          :: !ByteString
---       -- ^ The architecture of the image.
---     , riitRootDeviceType        :: !ByteString
---       -- ^ The root device type used by the AMI. The AMI can use an Amazon
---       -- EBS or instance store root device.
---     , riitRootDeviceName        :: !ByteString
---       -- ^ The root device name (for example, /dev/sda1).
---     , riitBlockDeviceMapping    :: !InstanceBlockDeviceMappingResponseItemType
---       -- ^ Any block device mapping entries for the instance, each one
---       -- wrapped in an item element.
---     , riitInstanceLifecycle     :: !ByteString
---       -- ^ Indicates whether this is a Spot Instance.
---     , riitSpotInstanceRequestId :: !ByteString
---       -- ^ The ID of the Spot Instance request.
---     , riitVirtualizationType    :: !ByteString
---       -- ^ The instance's virtualization type.
---     , riitClientToken           :: !ByteString
---       -- ^ The idempotency token you provided when you launched the
---       -- instance.
---     , riitTagSet                :: !ResourceTagSetItemType
---       -- ^ Any tags assigned to the resource, each one wrapped in an item
---       -- element.
---     , riitHypervisor            :: !ByteString
---       -- ^ The instance's hypervisor type.
---     , riitNetworkInterfaceSet   :: !InstanceNetworkInterfaceSetItemType
---       -- ^ The network interfaces for the instance.
---     , riitIamInstanceProfile    :: !IamInstanceProfileResponseType
---       -- ^ The IAM Instance Profile (IIP) associated with the instance.
---     , riitEbsOptimized          :: !Bool
---       -- ^ Indicates whether the instance is optimized for EBS I/O. This
---       -- optimization provides dedicated throughput to Amazon EBS and an
---       -- optimized configuration stack to provide optimal I/O performance.
---       -- This optimization isn't available with all instance types.
---       -- Additional usage charges apply when using an EBS Optimized
---       -- instance.
---     } deriving (Eq, Show, Generic)
+data RunningInstancesItemType = RunningInstancesItemType
+    { riitInstanceId            :: !Text
+      -- ^ The ID of the instance launched.
+    , riitImageId               :: !Text
+      -- ^ The ID of the AMI used to launch the instance.
+    , riitInstanceState         :: !InstanceStateType
+      -- ^ The current state of the instance.
+    , riitPrivateDnsName        :: !Text
+      -- ^ The private DNS name assigned to the instance. This DNS name can
+      -- only be used inside the Amazon EC2 network. This element remains
+      -- empty until the instance enters the running state.
+    , riitDnsName               :: !Text
+      -- ^ The public DNS name assigned to the instance. This element
+      -- remains empty until the instance enters the running state.
+    , riitReason                :: !Text
+      -- ^ The reason for the most recent state transition. This might be an
+      -- empty string.
+    , riitKeyName               :: !Text
+      -- ^ The key pair name, if this instance was launched with an
+      -- associated key pair.
+    , riitAmiLaunchIndex        :: !Text
+      -- ^ The AMI launch index, which can be used to find this instance in
+      -- the launch group.
+    , riitProductCodes          :: Items ProductCodesSetItemType
+      -- ^ The product codes attached to this instance.
+    , riitInstanceType          :: !Text
+      -- ^ The instance type.
+    , riitLaunchTime            :: !UTCTime
+      -- ^ The time the instance was launched.
+    , riitPlacement             :: !PlacementResponseType
+      -- ^ The location where the instance launched.
+    , riitKernelId              :: !Text
+      -- ^ The kernel associated with this instance.
+    , riitRamdiskId             :: !Text
+      -- ^ The RAM disk associated with this instance.
+    , riitPlatform              :: !Text
+      -- ^ The value is Windows for Windows AMIs; otherwise blank.
+    , riitMonitoring            :: !InstanceMonitoringStateType
+      -- ^ The monitoring information for the instance.
+    , riitSubnetId              :: !Text
+      -- ^ The ID of the subnet in which the instance is running.
+    , riitVpcId                 :: !Text
+      -- ^ The ID of the VPC in which the instance is running.
+    , riitPrivateIpAddress      :: !Text
+      -- ^ The private IP address assigned to the instance.
+    , riitIpAddress             :: !Text
+      -- ^ The IP address of the instance.
+    , riitSourceDestCheck       :: !Bool
+      -- ^ Specifies whether to enable an instance launched in a VPC to
+      -- perform NAT. This controls whether source/destination checking is
+      -- enabled on the instance. A value of true means checking is
+      -- enabled, and false means checking is disabled. The value must be
+      -- false for the instance to perform NAT. For more information, go
+      -- to NAT Instances in the Amazon Virtual Private Cloud User Guide.
+    , riitGroupSet              :: !GroupItemType
+      -- ^ A list of the security groups for the instance. Each group is
+      -- wrapped in an item element.
+    , riitStateReason           :: !StateReasonType
+      -- ^ The reason for the most recent state transition. See
+      -- StateReasonType for a listing of supported state change codes.
+    , riitArchitecture          :: !Text
+      -- ^ The architecture of the image.
+    , riitRootDeviceType        :: !Text
+      -- ^ The root device type used by the AMI. The AMI can use an Amazon
+      -- EBS or instance store root device.
+    , riitRootDeviceName        :: !Text
+      -- ^ The root device name (for example, /dev/sda1).
+    , riitBlockDeviceMapping    :: Items InstanceBlockDeviceMappingResponseItemType
+      -- ^ Any block device mapping entries for the instance.
+    , riitInstanceLifecycle     :: !Text
+      -- ^ Indicates whether this is a Spot Instance.
+    , riitSpotInstanceRequestId :: !Text
+      -- ^ The ID of the Spot Instance request.
+    , riitVirtualizationType    :: !Text
+      -- ^ The instance's virtualization type.
+    , riitClientToken           :: !Text
+      -- ^ The idempotency token you provided when you launched the instance.
+    , riitTagSet                :: Items ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource, each one wrapped in an item
+      -- element.
+    , riitHypervisor            :: !Text
+      -- ^ The instance's hypervisor type.
+    , riitNetworkInterfaceSet   :: Items InstanceNetworkInterfaceSetItemType
+      -- ^ The network interfaces for the instance.
+    , riitIamInstanceProfile    :: !IamInstanceProfileResponseType
+      -- ^ The IAM Instance Profile (IIP) associated with the instance.
+    , riitEbsOptimized          :: !Bool
+      -- ^ Indicates whether the instance is optimized for EBS I/O.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery RunningInstancesItemType
-
--- instance IsXML RunningInstancesItemType where
---     xmlPickler = ec2XML
+instance IsXML RunningInstancesItemType where
+    xmlPickler = ec2XML
 
 -- data SecurityGroupIdSetItemType = SecurityGroupIdSetItemType
---     { sgisitGroupId :: !ByteString
+--     { sgisitGroupId :: !Text
 --       -- ^ The ID of the security group associated with the network
 --       -- interface.
 --     } deriving (Eq, Show, Generic)
@@ -2036,15 +1992,15 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data SecurityGroupItemType = SecurityGroupItemType
---     { sgitOwnerId             :: !ByteString
+--     { sgitOwnerId             :: !Text
 --       -- ^ The AWS account ID of the owner of the security group.
---     , sgitGroupId             :: !ByteString
+--     , sgitGroupId             :: !Text
 --       -- ^ The ID of the security group.
---     , sgitGroupName           :: !ByteString
+--     , sgitGroupName           :: !Text
 --       -- ^ The name of the security group.
---     , sgitGroupDescription    :: !ByteString
+--     , sgitGroupDescription    :: !Text
 --       -- ^ A description of the security group.
---     , sgitVpcId               :: !ByteString
+--     , sgitVpcId               :: !Text
 --       -- ^ [EC2-VPC] The ID of the VPC for the security group.
 --     , sgitIpPermissions       :: !IpPermissionType
 --       -- ^ A list of inbound rules associated with the security group. Each
@@ -2063,13 +2019,13 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data SpotDatafeedSubscriptionType = SpotDatafeedSubscriptionType
---     { sdstOwnerId :: !ByteString
+--     { sdstOwnerId :: !Text
 --       -- ^ The AWS account ID of the account.
---     , sdstBucket  :: !ByteString
+--     , sdstBucket  :: !Text
 --       -- ^ The Amazon S3 bucket where the Spot Instance datafeed is located.
---     , sdstPrefix  :: !ByteString
+--     , sdstPrefix  :: !Text
 --       -- ^ The prefix that is prepended to datafeed files.
---     , sdstState   :: !ByteString
+--     , sdstState   :: !Text
 --       -- ^ The state of the Spot Instance datafeed subscription.
 --     , sdstFault   :: !SpotInstanceStateFaultType
 --       -- ^ The fault codes for the Spot Instance request, if any.
@@ -2081,14 +2037,14 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data SpotInstanceRequestSetItemType = SpotInstanceRequestSetItemType
---     { sirsitSpotInstanceRequestId    :: !ByteString
+--     { sirsitSpotInstanceRequestId    :: !Text
 --       -- ^ The ID of the Spot Instance request.
---     , sirsitSpotPrice                :: !ByteString
+--     , sirsitSpotPrice                :: !Text
 --       -- ^ The maximum hourly price for any Spot Instance launched to
 --       -- fulfill the request.
---     , sirsitType                     :: !ByteString
+--     , sirsitType                     :: !Text
 --       -- ^ The Spot Instance request type.
---     , sirsitState                    :: !ByteString
+--     , sirsitState                    :: !Text
 --       -- ^ The state of the Spot Instance request. Spot bid status
 --       -- information can help you track your Spot Instance requests. For
 --       -- information, see Tracking Spot Requests with Bid Status Codes in
@@ -2110,23 +2066,23 @@ instance IsXML ResourceTagSetItemType where
 --       -- request remains active until all instances launch, the request is
 --       -- canceled, or this date is reached. If the request is persistent,
 --       -- it remains active until it is canceled or this date is reached.
---     , sirsitLaunchGroup              :: !ByteString
+--     , sirsitLaunchGroup              :: !Text
 --       -- ^ The instance launch group. Launch groups are Spot Instances that
 --       -- launch together and terminate together.
---     , sirsitAvailabilityZoneGroup    :: !ByteString
+--     , sirsitAvailabilityZoneGroup    :: !Text
 --       -- ^ The Availability Zone group. If you specify the same Availability
 --       -- Zone group for all Spot Instance requests, all Spot Instances are
 --       -- launched in the same Availability Zone.
---     , sirsitLaunchedAvailabilityZone :: !ByteString
+--     , sirsitLaunchedAvailabilityZone :: !Text
 --       -- ^ The Availability Zone in which the bid is launched.
 --     , sirsitLaunchSpecification      :: !LaunchSpecificationResponseType
 --       -- ^ Additional information for launching instances.
---     , sirsitInstanceId               :: !ByteString
+--     , sirsitInstanceId               :: !Text
 --       -- ^ The instance ID, if an instance has been launched to fulfill the
 --       -- Spot Instance request.
 --     , sirsitCreateTime               :: !UTCTime
 --       -- ^ The time stamp when the Spot Instance request was created.
---     , sirsitProductDescription       :: !ByteString
+--     , sirsitProductDescription       :: !Text
 --       -- ^ The product description associated with the Spot Instance.
 --     , sirsitTagSet                   :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
@@ -2139,9 +2095,9 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data SpotInstanceStateFaultType = SpotInstanceStateFaultType
---     { sisftCode    :: !ByteString
+--     { sisftCode    :: !Text
 --       -- ^ The reason code for the Spot Instance state change.
---     , sisftMessage :: !ByteString
+--     , sisftMessage :: !Text
 --       -- ^ The message for the Spot Instance state change.
 --     } deriving (Eq, Show, Generic)
 
@@ -2151,11 +2107,11 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data SpotInstanceStatusMessageType = SpotInstanceStatusMessageType
---     { sismtCode       :: !ByteString
+--     { sismtCode       :: !Text
 --       -- ^ The status code of the request.
 --     , sismtUpdateTime :: !UTCTime
 --       -- ^ The time of the most recent status update.
---     , sismtMessage    :: !ByteString
+--     , sismtMessage    :: !Text
 --       -- ^ The description for the status code for the Spot request.
 --     } deriving (Eq, Show, Generic)
 
@@ -2165,16 +2121,16 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data SpotPriceHistorySetItemType = SpotPriceHistorySetItemType
---     { sphsitInstanceType       :: !ByteString
+--     { sphsitInstanceType       :: !Text
 --       -- ^ The instance type.
---     , sphsitProductDescription :: !ByteString
+--     , sphsitProductDescription :: !Text
 --       -- ^ A general description of the AMI.
---     , sphsitSpotPrice          :: !ByteString
+--     , sphsitSpotPrice          :: !Text
 --       -- ^ The maximum price you will pay to launch one or more Spot
 --       -- Instances.
 --     , sphsitTimestamp          :: !UTCTime
 --       -- ^ The date and time the request was created.
---     , sphsitAvailabilityZone   :: !ByteString
+--     , sphsitAvailabilityZone   :: !Text
 --       -- ^ The Availability Zone.
 --     } deriving (Eq, Show, Generic)
 
@@ -2183,31 +2139,29 @@ instance IsXML ResourceTagSetItemType where
 -- instance IsXML SpotPriceHistorySetItemType where
 --     xmlPickler = ec2XML
 
--- data StateReasonType = StateReasonType
---     { srtCode    :: !ByteString
---       -- ^ The reason code for the state change.
---     , srtMessage :: !ByteString
---       -- ^ The message for the state change.
---     } deriving (Eq, Show, Generic)
+data StateReasonType = StateReasonType
+    { srtCode    :: !Text
+      -- ^ The reason code for the state change.
+    , srtMessage :: !Text
+      -- ^ The message for the state change.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery StateReasonType
-
--- instance IsXML StateReasonType where
---     xmlPickler = ec2XML
+instance IsXML StateReasonType where
+    xmlPickler = ec2XML
 
 -- data SubnetType = SubnetType
---     { stSubnetId                :: !ByteString
+--     { stSubnetId                :: !Text
 --       -- ^ The ID of the subnet.
---     , stState                   :: !ByteString
+--     , stState                   :: !Text
 --       -- ^ The current state of the subnet.
---     , stVpcId                   :: !ByteString
+--     , stVpcId                   :: !Text
 --       -- ^ The ID of the VPC the subnet is in.
---     , stCidrBlock               :: !ByteString
+--     , stCidrBlock               :: !Text
 --       -- ^ The CIDR block assigned to the subnet.
 --     , stAvailableIpAddressCount :: !Integer
 --       -- ^ The number of unused IP addresses in the subnet (the IP addresses
 --       -- for any stopped instances are considered unavailable).
---     , stAvailabilityZone        :: !ByteString
+--     , stAvailabilityZone        :: !Text
 --       -- ^ The Availability Zone of the subnet.
 --     , stDefaultForAz            :: !Bool
 --       -- ^ Indicates whether this is the default subnet for the Availability
@@ -2225,24 +2179,22 @@ instance IsXML ResourceTagSetItemType where
 -- instance IsXML SubnetType where
 --     xmlPickler = ec2XML
 
--- data TagSetItemType = TagSetItemType
---     { tsitResourceId   :: !ByteString
---       -- ^ The ID of the resource. For example, ami-1a2b3c4d.
---     , tsitResourceType :: !ByteString
---       -- ^ The type of resource.
---     , tsitKey          :: !ByteString
---       -- ^ The key of the tag.
---     , tsitValue        :: !ByteString
---       -- ^ The value of the tag.
---     } deriving (Eq, Show, Generic)
+data TagSetItemType = TagSetItemType
+    { tsitResourceId   :: !Text
+      -- ^ The ID of the resource. For example, ami-1a2b3c4d.
+    , tsitResourceType :: !Text
+      -- ^ The type of resource.
+    , tsitKey          :: !Text
+      -- ^ The key of the tag.
+    , tsitValue        :: !Text
+      -- ^ The value of the tag.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery TagSetItemType
-
--- instance IsXML TagSetItemType where
---     xmlPickler = ec2XML
+instance IsXML TagSetItemType where
+    xmlPickler = ec2XML
 
 -- data UserDataType = UserDataType
---     { udtData :: !ByteString
+--     { udtData :: !Text
 --       -- ^ The Base64-encoded MIME user data made available to the
 --       -- instance(s) in the reservation.
 --     } deriving (Eq, Show, Generic)
@@ -2253,9 +2205,9 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VolumeStatusItemType = VolumeStatusItemType
---     { vsitVolumeId         :: !ByteString
+--     { vsitVolumeId         :: !Text
 --       -- ^ The volume ID.
---     , vsitAvailabilityZone :: !ByteString
+--     , vsitAvailabilityZone :: !Text
 --       -- ^ The Availability Zone of the volume.
 --     , vsitVolumeStatus     :: !VolumeStatusInfoType
 --       -- ^ The volume status. The status of each volume is wrapped in an
@@ -2274,7 +2226,7 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VolumeStatusInfoType = VolumeStatusInfoType
---     { vsitStatus  :: !ByteString
+--     { vsitStatus  :: !Text
 --       -- ^ The status of the volume.
 --     , vsitDetails :: !VolumeStatusDetailsItemType
 --       -- ^ The details of the volume status. Each volume status detail is
@@ -2287,9 +2239,9 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VolumeStatusDetailsItemType = VolumeStatusDetailsItemType
---     { vsditName   :: !ByteString
+--     { vsditName   :: !Text
 --       -- ^ The name of the volume status.
---     , vsditStatus :: !ByteString
+--     , vsditStatus :: !Text
 --       -- ^ The intended status of the volume status.
 --     } deriving (Eq, Show, Generic)
 
@@ -2299,11 +2251,11 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VolumeStatusEventItemType = VolumeStatusEventItemType
---     { vseitEventType   :: !ByteString
+--     { vseitEventType   :: !Text
 --       -- ^ The type of this event.
---     , vseitEventId     :: !ByteString
+--     , vseitEventId     :: !Text
 --       -- ^ The ID of this event.
---     , vseitDescription :: !ByteString
+--     , vseitDescription :: !Text
 --       -- ^ A description of the event.
 --     , vseitNotBefore   :: !UTCTime
 --       -- ^ The earliest start time of the event.
@@ -2317,13 +2269,13 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VolumeStatusActionItemType = VolumeStatusActionItemType
---     { vsaitCode        :: !ByteString
+--     { vsaitCode        :: !Text
 --       -- ^ The code identifying the action, for example, enable-volume-io.
---     , vsaitEventType   :: !ByteString
+--     , vsaitEventType   :: !Text
 --       -- ^ The event type associated with this action.
---     , vsaitEventId     :: !ByteString
+--     , vsaitEventId     :: !Text
 --       -- ^ The ID of the event associated with this action.
---     , vsaitDescription :: !ByteString
+--     , vsaitDescription :: !Text
 --       -- ^ A description of the action.
 --     } deriving (Eq, Show, Generic)
 
@@ -2333,19 +2285,19 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VpcType = VpcType
---     { vtVpcId           :: !ByteString
+--     { vtVpcId           :: !Text
 --       -- ^ The ID of the VPC.
---     , vtState           :: !ByteString
+--     , vtState           :: !Text
 --       -- ^ The current state of the VPC.
---     , vtCidrBlock       :: !ByteString
+--     , vtCidrBlock       :: !Text
 --       -- ^ The CIDR block for the VPC.
---     , vtDhcpOptionsId   :: !ByteString
+--     , vtDhcpOptionsId   :: !Text
 --       -- ^ The ID of the set of DHCP options you've associated with the VPC
 --       -- (or default if the default options are associated with the VPC).
 --     , vtTagSet          :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     , vtInstanceTenancy :: !ByteString
+--     , vtInstanceTenancy :: !Text
 --       -- ^ The allowed tenancy of instances launched into the VPC.
 --     , vtIsDefault       :: !Bool
 --       -- ^ Indicates whether the VPC is the default VPC.
@@ -2368,21 +2320,21 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VpnConnectionType = VpnConnectionType
---     { vctVpnConnectionId              :: !ByteString
+--     { vctVpnConnectionId              :: !Text
 --       -- ^ The ID of the VPN connection.
---     , vctState                        :: !ByteString
+--     , vctState                        :: !Text
 --       -- ^ The current state of the VPN connection.
---     , vctCustomerGatewayConfiguration :: !ByteString
+--     , vctCustomerGatewayConfiguration :: !Text
 --       -- ^ The configuration information for the VPN connection's customer
 --       -- gateway (in the native XML format). This element is always
 --       -- present in the CreateVpnConnection response; however, it's
 --       -- present in the DescribeVpnConnections response only if the VPN
 --       -- connection is in the pending or available state.
---     , vctType                         :: !ByteString
+--     , vctType                         :: !Text
 --       -- ^ The type of VPN connection.
---     , vctCustomerGatewayId            :: !ByteString
+--     , vctCustomerGatewayId            :: !Text
 --       -- ^ The ID of the customer gateway at your end of the VPN connection.
---     , vctVpnGatewayId                 :: !ByteString
+--     , vctVpnGatewayId                 :: !Text
 --       -- ^ The ID of the virtual private gateway at the AWS side of the VPN
 --       -- connection.
 --     , vctTagSet                       :: !ResourceTagSetItemType
@@ -2403,13 +2355,13 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VpnGatewayType = VpnGatewayType
---     { vgtVpnGatewayId     :: !ByteString
+--     { vgtVpnGatewayId     :: !Text
 --       -- ^ The ID of the virtual private gateway.
---     , vgtState            :: !ByteString
+--     , vgtState            :: !Text
 --       -- ^ The current state of the virtual private gateway.
---     , vgtType             :: !ByteString
+--     , vgtType             :: !Text
 --       -- ^ The type of VPN connection the virtual private gateway supports.
---     , vgtAvailabilityZone :: !ByteString
+--     , vgtAvailabilityZone :: !Text
 --       -- ^ The Availability Zone where the virtual private gateway was
 --       -- created.
 --     , vgtAttachments      :: !AttachmentType
@@ -2426,12 +2378,12 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VpnStaticRouteType = VpnStaticRouteType
---     { vsrtDestinationCidrBlock :: !ByteString
+--     { vsrtDestinationCidrBlock :: !Text
 --       -- ^ The CIDR block associated with the local subnet of the customer
 --       -- data center.
---     , vsrtSource               :: !ByteString
+--     , vsrtSource               :: !Text
 --       -- ^ Indicates how the routes were provided.
---     , vsrtState                :: !ByteString
+--     , vsrtState                :: !Text
 --       -- ^ The current state of the static route.
 --     } deriving (Eq, Show, Generic)
 
@@ -2441,14 +2393,14 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 -- data VpnTunnelTelemetryType = VpnTunnelTelemetryType
---     { vtttOutsideIpAddress   :: !ByteString
+--     { vtttOutsideIpAddress   :: !Text
 --       -- ^ The Internet-routable IP address of the virtual private gateway's
 --       -- outside interface.
---     , vtttStatus             :: !ByteString
+--     , vtttStatus             :: !Text
 --       -- ^ The status of the VPN tunnel.
 --     , vtttLastStatusChange   :: !UTCTime
 --       -- ^ The date and time of the last change in status.
---     , vtttStatusMessage      :: !ByteString
+--     , vtttStatusMessage      :: !Text
 --       -- ^ If an error occurs, a description of the error.
 --     , vtttAcceptedRouteCount :: !Integer
 --       -- ^ The number of accepted routes.
@@ -2458,3 +2410,106 @@ instance IsXML ResourceTagSetItemType where
 
 -- instance IsXML VpnTunnelTelemetryType where
 --     xmlPickler = ec2XML
+
+data Filter = Filter
+    { filterName  :: !Text
+    , filterValue :: [Text]
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery Filter
+
+newtype Filters a = Filters { unFilters :: [a] }
+    deriving (Eq, Show, Generic)
+
+instance IsQuery a => IsQuery (Filters a)
+
+-- instance IsQuery Filter where
+--     queryPickler = qpWrap (Filters, unFilters) . qpOrdinalList $ QueryPU
+--         { pickle = \(k, v) -> List [Pair "Name"]
+
+
+
+data TagResourceType
+    = CustomerGateway
+    | DhcpOptions
+    | Image
+    | Instance
+    | InternetGateway
+    | NetworkAcl
+    | NetworkInterface
+    | ReservedInstances
+    | RouteTable
+    | SecurityGroup
+    | Snapshot
+    | SpotInstancesRequest
+    | Subnet
+    | Volume
+    | Vpc
+    | VpnConnection
+    | VpnGateway
+      deriving (Eq, Read, Generic)
+
+instance Show TagResourceType where
+    show t = case t of
+        CustomerGateway      -> "customer-gateway"
+        DhcpOptions          -> "dhcp-options"
+        Image                -> "image"
+        Instance             -> "instance"
+        InternetGateway      -> "internet-gateway"
+        NetworkAcl           -> "network-acl"
+        NetworkInterface     -> "network-interface"
+        ReservedInstances    -> "reserved-instances"
+        RouteTable           -> "route-table"
+        SecurityGroup        -> "security-group"
+        Snapshot             -> "snapshot"
+        SpotInstancesRequest -> "spot-instances-request"
+        Subnet               -> "subnet"
+        Volume               -> "volume"
+        Vpc                  -> "vpc"
+        VpnConnection        -> "vpn-connection"
+        VpnGateway           -> "vpn-gateway"
+
+instance IsQuery TagResourceType where
+    queryPickler = qpPrim
+
+    -- = customer-gateway
+    -- | dhcp-options
+    -- | image
+    -- | instance
+    -- | internet-gateway
+    -- | network-acl
+    -- | network-interface
+    -- | reserved-instances
+    -- | route-table
+    -- | security-group
+    -- | snapshot
+    -- | spot-instances-request
+    -- | subnet
+    -- | volume
+    -- | vpc
+    -- | vpn-connection
+    -- | vpn-gateway
+
+data TagFilter
+    = TagKey [Text]
+      -- ^ The tag key.
+    | TagResourceId [Text]
+      -- ^ The resource ID.
+    | TagResourceType [TagResourceType]
+      -- ^ The resource type.
+    | TagValue [Text]
+      -- ^ The tag value.
+      deriving (Eq, Show, Generic)
+
+instance IsQuery TagFilter where
+    queryPickler = QueryPU p u
+      where
+        p (TagKey ks)          = List $ Pair "Name" (Value "key") : map enc ks
+        p (TagResourceId is)   = List $ Pair "Name" (Value "resource-id") : map enc is
+        p (TagResourceType ts) = List $ Pair "Name" (Value "resource-type") : map enc' ts
+        p (TagValue vs)        = List $ Pair "Name" (Value "value") : map enc vs
+
+        u = undefined
+
+        enc  = Pair "Value" . Value . encodeUtf8
+        enc' = Pair "Value" . Value . BS.pack . show

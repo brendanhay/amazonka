@@ -1,6 +1,8 @@
-{-# LANGUAGE DeriveGeneric         #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.EC2
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -320,9 +322,9 @@ module Network.AWS.EC2
    -- , DescribeInstanceAttribute                  (..)
    -- , DescribeInstanceAttributeResponse          (..)
 
-   -- -- ** DescribeInstances
-   -- , DescribeInstances                          (..)
-   -- , DescribeInstancesResponse                  (..)
+   -- ** DescribeInstances
+   , DescribeInstances                          (..)
+   , DescribeInstancesResponse                  (..)
 
    -- -- ** DescribeInstanceStatus
    -- , DescribeInstanceStatus                     (..)
@@ -400,9 +402,9 @@ module Network.AWS.EC2
    -- , DescribeSubnets                            (..)
    -- , DescribeSubnetsResponse                    (..)
 
-   -- -- ** DescribeTags
-   -- , DescribeTags                               (..)
-   -- , DescribeTagsResponse                       (..)
+   -- ** DescribeTags
+   , DescribeTags                               (..)
+   , DescribeTagsResponse                       (..)
 
    -- -- ** DescribeVolumeAttribute
    -- , DescribeVolumeAttribute                    (..)
@@ -608,23 +610,32 @@ module Network.AWS.EC2
    , module Network.AWS.EC2.Types
    ) where
 
-import Data.ByteString (ByteString)
+import Data.ByteString       (ByteString)
 import Data.Monoid
+import Data.Text             (Text)
 import Data.Time
-import Network.AWS.Internal
 import Network.AWS.EC2.Types
-import Network.Http.Client (Method(..))
+import Network.AWS.Internal
+import Network.Http.Client   (Method(..))
 
-data EC2
+svc :: Service
+svc = Service "ec2" ec2Version SigningVersion4 $
+    \r -> "ec2." <> toBS r <> ".amazonaws.com"
 
-instance AWSService EC2 where
-    service _ = awsService "ec2" ec2Version SigningVersion4
+ver :: ByteString
+ver = "/" <> ec2Version <> "/"
 
-req :: IsQuery a => Method -> ByteString -> a -> RawRequest EC2 b
-req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
-    { rqAction = Just act
-    , rqQuery  = toQuery qry
-    }
+qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
+qry meth act v = (qryRq svc ver meth "/" v) { rqAction = Just act }
+
+data EC2ErrorResponse = EC2ErrorResponse { ec2Error :: !Text }
+    deriving (Eq, Show, Generic)
+
+instance ToError EC2ErrorResponse where
+    toError = Error . show
+
+instance IsXML EC2ErrorResponse where
+    xmlPickler = withNS ec2NS
 
 --
 -- Actions
@@ -642,18 +653,19 @@ data AllocateAddress = AllocateAddress
 
 instance IsQuery AllocateAddress
 
-instance AWSRequest EC2 AllocateAddress AllocateAddressResponse where
-    request = req GET "AllocateAddress"
+instance Rq AllocateAddress where
+    type Rs AllocateAddress = Either EC2ErrorResponse AllocateAddressResponse
+    request = qry GET "AllocateAddress"
 
 data AllocateAddressResponse = AllocateAddressResponse
-    { aarRequestId    :: !ByteString
+    { aarRequestId    :: !Text
       -- ^ The ID of the request.
-    , aarPublicIp     :: !ByteString
+    , aarPublicIp     :: !Text
       -- ^ The Elastic IP address.
     , aarDomain       :: !AddressDomain
       -- ^ Indicates whether this Elastic IP address is for use with
       -- instances in EC2-Classic (standaard) or instances in a VPC (vpc).
-    , aarAllocationId :: Maybe ByteString
+    , aarAllocationId :: Maybe Text
       -- ^ [EC2-VPC] The ID that AWS assigns to represent the allocation of
       -- the Elastic IP address for use with a VPC.
     } deriving (Eq, Show, Generic)
@@ -673,9 +685,9 @@ instance IsXML AllocateAddressResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIpAddresses.html>
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
-    { apiaNetworkInterfaceId             :: !ByteString
+    { apiaNetworkInterfaceId             :: !Text
       -- ^ The ID of the network interface.
-    , apiaPrivateIpAddress               :: [ByteString]
+    , apiaPrivateIpAddress               :: [Text]
       -- ^ The IP addresses to be assigned as a secondary private IP address
       -- to the network interface.
     , apiaSecondaryPrivateIpAddressCount :: Maybe Integer
@@ -689,11 +701,12 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 
 instance IsQuery AssignPrivateIpAddresses
 
-instance AWSRequest EC2 AssignPrivateIpAddresses AssignPrivateIpAddressesResponse where
-    request = req GET "AssignPrivateIpAddresses"
+instance Rq AssignPrivateIpAddresses where
+    type Rs AssignPrivateIpAddresses = Either EC2ErrorResponse AssignPrivateIpAddressesResponse
+    request = qry GET "AssignPrivateIpAddresses"
 
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
-    { apiaRequestId :: !ByteString
+    { apiaRequestId :: !Text
       -- ^ The ID of the request.
     , apiaReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -709,16 +722,16 @@ instance IsXML AssignPrivateIpAddressesResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html>
 data AssociateAddress = AssociateAddress
-    { abPublicIp           :: !ByteString
+    { abPublicIp           :: !Text
       -- ^ The Elastic IP address.
-    , abInstanceId         :: !ByteString
+    , abInstanceId         :: !Text
       -- ^ The ID of the instance. The operation fails if you specify an
       -- instance ID unless exactly one network interface is attached.
-    , abAllocationId       :: Maybe ByteString
+    , abAllocationId       :: Maybe Text
       -- ^ [EC2-VPC] The allocation ID.
-    , abNetworkInterfaceId :: Maybe ByteString
+    , abNetworkInterfaceId :: Maybe Text
       -- ^ [EC2-VPC] The ID of the network interface.
-    , abPrivateIpAddress   :: Maybe ByteString
+    , abPrivateIpAddress   :: Maybe Text
       -- ^ [EC2-VPC] The primary or secondary private IP address to
       -- associate with the Elastic IP address. If no private IP address
       -- is specified, the Elastic IP address is associated with the
@@ -732,15 +745,16 @@ data AssociateAddress = AssociateAddress
 
 instance IsQuery AssociateAddress
 
-instance AWSRequest EC2 AssociateAddress AssociateAddressResponse where
-    request = req GET "AssociateAddress"
+instance Rq AssociateAddress where
+    type Rs AssociateAddress = Either EC2ErrorResponse AssociateAddressResponse
+    request = qry GET "AssociateAddress"
 
 data AssociateAddressResponse = AssociateAddressResponse
-    { abrRequestId     :: !ByteString
+    { abrRequestId     :: !Text
       -- ^ The ID of the request.
     , abrReturn        :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an error.
-    , abrAssociationId :: Maybe ByteString
+    , abrAssociationId :: Maybe Text
       -- ^ [EC2-VPC] The ID that represents the association of the Elastic
       -- IP address with an instance.
     } deriving (Eq, Show, Generic)
@@ -760,20 +774,21 @@ instance IsXML AssociateAddressResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html>
 data AssociateDhcpOptions = AssociateDhcpOptions
-    { adoDhcpOptionsId :: !ByteString
+    { adoDhcpOptionsId :: !Text
       -- ^ The ID of the DHCP options set, or default to associate no DHCP
       -- options with the VPC.
-    , adoVpcId         :: !ByteString
+    , adoVpcId         :: !Text
       -- ^ The ID of the VPC.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AssociateDhcpOptions
 
-instance AWSRequest EC2 AssociateDhcpOptions AssociateDhcpOptionsResponse where
-    request = req GET "AssociateDhcpOptions"
+instance Rq AssociateDhcpOptions where
+    type Rs AssociateDhcpOptions = Either EC2ErrorResponse AssociateDhcpOptionsResponse
+    request = qry GET "AssociateDhcpOptions"
 
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
-    { adorRequestId :: !ByteString
+    { adorRequestId :: !Text
       -- ^ The ID of the request.
     , adorReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -794,21 +809,22 @@ instance IsXML AssociateDhcpOptionsResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html>
 data AssociateRouteTable = AssociateRouteTable
-    { artRouteTableId :: !ByteString
+    { artRouteTableId :: !Text
       -- ^ The ID of the route table.
-    , artSubnetId     :: !ByteString
+    , artSubnetId     :: !Text
       -- ^ The ID of the subnet.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AssociateRouteTable
 
-instance AWSRequest EC2 AssociateRouteTable AssociateRouteTableResponse where
-    request = req GET "AssociateRouteTable"
+instance Rq AssociateRouteTable where
+    type Rs AssociateRouteTable = Either EC2ErrorResponse AssociateRouteTableResponse
+    request = qry GET "AssociateRouteTable"
 
 data AssociateRouteTableResponse = AssociateRouteTableResponse
-    { artrRequestId     :: !ByteString
+    { artrRequestId     :: !Text
       -- ^ The ID of the request.
-    , artrAssociationId :: !ByteString
+    , artrAssociationId :: !Text
       -- ^ The route table association ID (needed to disassociate the route table).
     } deriving (Eq, Show, Generic)
 
@@ -820,19 +836,20 @@ instance IsXML AssociateRouteTableResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html>
 data AttachInternetGateway = AttachInternetGateway
-    { aigInternetGatewayId :: !ByteString
+    { aigInternetGatewayId :: !Text
       -- ^ The ID of the Internet gateway.
-    , aigVpcId             :: !ByteString
+    , aigVpcId             :: !Text
       -- ^ The ID of the VPC.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AttachInternetGateway
 
-instance AWSRequest EC2 AttachInternetGateway AttachInternetGatewayResponse where
-    request = req GET "AttachInternetGateway"
+instance Rq AttachInternetGateway where
+    type Rs AttachInternetGateway = Either EC2ErrorResponse AttachInternetGatewayResponse
+    request = qry GET "AttachInternetGateway"
 
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
-    { aigrRequestId :: !ByteString
+    { aigrRequestId :: !Text
       -- ^ The ID of the request.
     , aigrReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an error.
@@ -845,9 +862,9 @@ instance IsXML AttachInternetGatewayResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html>
 data AttachNetworkInterface = AttachNetworkInterface
-    { aniNetworkInterfaceId :: !ByteString
+    { aniNetworkInterfaceId :: !Text
       -- ^ The ID of the network interface.
-    , aniInstanceId         :: !ByteString
+    , aniInstanceId         :: !Text
       -- ^ The ID of the instance.
     , aniDeviceIndex        :: !Integer
       -- ^ The index of the device for the network interface attachment.
@@ -855,13 +872,14 @@ data AttachNetworkInterface = AttachNetworkInterface
 
 instance IsQuery AttachNetworkInterface
 
-instance AWSRequest EC2 AttachNetworkInterface AttachNetworkInterfaceResponse where
-    request = req GET "AttachNetworkInterface"
+instance Rq AttachNetworkInterface where
+    type Rs AttachNetworkInterface = Either EC2ErrorResponse AttachNetworkInterfaceResponse
+    request = qry GET "AttachNetworkInterface"
 
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
-    { anirRequestId    :: !ByteString
+    { anirRequestId    :: !Text
       -- ^ The ID of the attachment request.
-    , anirAttachmentId :: !ByteString
+    , anirAttachmentId :: !Text
       -- ^ The ID of the network interface attachment.
     } deriving (Eq, Show, Generic)
 
@@ -873,29 +891,30 @@ instance IsXML AttachNetworkInterfaceResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html>
 data AttachVolume = AttachVolume
-    { avVolumeId   :: !ByteString
+    { avVolumeId   :: !Text
       -- ^ The ID of the Amazon EBS volume. The volume and instance must be
       -- within the same Availability Zone.
-    , avInstanceId :: !ByteString
+    , avInstanceId :: !Text
       -- ^ The ID of the instance.
-    , avDevice     :: !ByteString
+    , avDevice     :: !Text
       -- ^ The device name to expose to the instance (for example, /dev/sdh
       -- or xvdh).
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AttachVolume
 
-instance AWSRequest EC2 AttachVolume AttachVolumeResponse where
-    request = req GET "AttachVolume"
+instance Rq AttachVolume where
+    type Rs AttachVolume = Either EC2ErrorResponse AttachVolumeResponse
+    request = qry GET "AttachVolume"
 
 data AttachVolumeResponse = AttachVolumeResponse
-    { avrRequestId  :: !ByteString
+    { avrRequestId  :: !Text
       -- ^ The ID of the request.
-    , avrVolumeId   :: !ByteString
+    , avrVolumeId   :: !Text
       -- ^ The ID of the volume.
-    , avrInstanceId :: !ByteString
+    , avrInstanceId :: !Text
       -- ^ The ID of the instance.
-    , avrDevice     :: !ByteString
+    , avrDevice     :: !Text
       -- ^ The device name.
     , avrStatus     :: !VolumeStatus
       -- ^ The attachment state of the volume.
@@ -910,19 +929,20 @@ instance IsXML AttachVolumeResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVpnGateway.html>
 data AttachVpnGateway = AttachVpnGateway
-    { avgVpnGatewayId :: !ByteString
+    { avgVpnGatewayId :: !Text
       -- ^ The ID of the virtual private gateway.
-    , avgVpcId        :: !ByteString
+    , avgVpcId        :: !Text
       -- ^ The ID of the VPC.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AttachVpnGateway
 
-instance AWSRequest EC2 AttachVpnGateway AttachVpnGatewayResponse where
-    request = req GET "AttachVpnGateway"
+instance Rq AttachVpnGateway where
+    type Rs AttachVpnGateway = Either EC2ErrorResponse AttachVpnGatewayResponse
+    request = qry GET "AttachVpnGateway"
 
 data AttachVpnGatewayResponse = AttachVpnGatewayResponse
-    { avgrRequestId  :: !ByteString
+    { avgrRequestId  :: !Text
       -- ^ The ID of the request.
     , avgrAttachment :: !Attachment
       -- ^ Information about the attachment.
@@ -941,7 +961,7 @@ instance IsXML AttachVpnGatewayResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html>
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
-    { asgeGroupId       :: !ByteString
+    { asgeGroupId       :: !Text
       -- ^ The ID of the security group to modify.
     , asgeIpPermissions :: [IpPermission]
       -- ^ The IP protocol name or number (see Protocol Numbers).
@@ -949,11 +969,12 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
 
 instance IsQuery AuthorizeSecurityGroupEgress
 
-instance AWSRequest EC2 AuthorizeSecurityGroupEgress AuthorizeSecurityGroupEgressResponse where
-    request = req GET "AuthorizeSecurityGroupEgress"
+instance Rq AuthorizeSecurityGroupEgress where
+    type Rs AuthorizeSecurityGroupEgress = Either EC2ErrorResponse AuthorizeSecurityGroupEgressResponse
+    request = qry GET "AuthorizeSecurityGroupEgress"
 
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
-    { asgerRequestId :: !ByteString
+    { asgerRequestId :: !Text
       -- ^ The ID of the request.
     , asgerReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -969,10 +990,10 @@ instance IsXML AuthorizeSecurityGroupEgressResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html>
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
-    { asgiGroupId       :: Maybe ByteString
+    { asgiGroupId       :: Maybe Text
       -- ^ The ID of the security group to modify. The security group must
       -- belong to your account.
-    , asgiGroupName     :: Maybe ByteString
+    , asgiGroupName     :: Maybe Text
       -- ^ The name of the security group to modify.
     , asgiIpPermissions :: [IpPermission]
       -- ^ The IP protocol name or number (see Protocol Numbers). For
@@ -983,11 +1004,12 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 
 instance IsQuery AuthorizeSecurityGroupIngress
 
-instance AWSRequest EC2 AuthorizeSecurityGroupIngress AuthorizeSecurityGroupIngressResponse where
-    request = req GET "AuthorizeSecurityGroupIngress"
+instance Rq AuthorizeSecurityGroupIngress where
+    type Rs AuthorizeSecurityGroupIngress = Either EC2ErrorResponse AuthorizeSecurityGroupIngressResponse
+    request = qry GET "AuthorizeSecurityGroupIngress"
 
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
-    { asgirRequestId :: !ByteString
+    { asgirRequestId :: !Text
       -- ^ The ID of the request.
     , asgirReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -1003,7 +1025,7 @@ instance IsXML AuthorizeSecurityGroupIngressResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html>
 data BundleInstance = BundleInstance
-    { biInstanceId :: !ByteString
+    { biInstanceId :: !Text
       -- ^ The ID of the instance to bundle.
     , biStorage    :: !BundleInstanceTaskStorage
       -- ^ Bundle storage instructions.
@@ -1011,11 +1033,12 @@ data BundleInstance = BundleInstance
 
 instance IsQuery BundleInstance
 
-instance AWSRequest EC2 BundleInstance BundleInstanceResponse where
-    request = req GET "BundleInstance"
+instance Rq BundleInstance where
+    type Rs BundleInstance = Either EC2ErrorResponse BundleInstanceResponse
+    request = qry GET "BundleInstance"
 
 data BundleInstanceResponse = BundleInstanceResponse
-    { birRequestId          :: !ByteString
+    { birRequestId          :: !Text
       -- ^ The ID of the request.
     , birBundleInstanceTask :: !BundleInstanceTask
       -- ^ The bundle task.
@@ -1029,17 +1052,18 @@ instance IsXML BundleInstanceResponse where
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html>
 
 data CancelBundleTask = CancelBundleTask
-    { cbtBundleId :: !ByteString
+    { cbtBundleId :: !Text
       -- ^ The ID of the bundle task.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CancelBundleTask
 
-instance AWSRequest EC2 CancelBundleTask CancelBundleTaskResponse where
-    request = req GET "CancelBundleTask"
+instance Rq CancelBundleTask where
+    type Rs CancelBundleTask = Either EC2ErrorResponse CancelBundleTaskResponse
+    request = qry GET "CancelBundleTask"
 
 data CancelBundleTaskResponse = CancelBundleTaskResponse
-    { cbtRequestId          :: !ByteString
+    { cbtRequestId          :: !Text
       -- ^ The ID of the request.
     , cbtBundleInstanceTask :: !BundleInstanceTask
       -- ^ The bundle task.
@@ -1059,17 +1083,18 @@ instance IsXML CancelBundleTaskResponse where
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html>
 
 data CancelConversionTask = CancelConversionTask
-    { cctConversionTaskId :: !ByteString
+    { cctConversionTaskId :: !Text
       -- ^ The ID of the conversion task.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CancelConversionTask
 
-instance AWSRequest EC2 CancelConversionTask CancelConversionTaskResponse where
-    request = req GET "CancelConversionTask"
+instance Rq CancelConversionTask where
+    type Rs CancelConversionTask = Either EC2ErrorResponse CancelConversionTaskResponse
+    request = qry GET "CancelConversionTask"
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse
-    { cctRequestId :: !ByteString
+    { cctRequestId :: !Text
       -- ^ The ID of the request.
     , cctReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -1087,18 +1112,19 @@ instance IsXML CancelConversionTaskResponse where
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html>
 
 data CancelExportTask = CancelExportTask
-    { cetExportTaskId :: !ByteString
+    { cetExportTaskId :: !Text
       -- ^ The ID of the export task. This is the ID returned by
       -- CreateInstanceExportTask.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CancelExportTask
 
-instance AWSRequest EC2 CancelExportTask CancelExportTaskResponse where
-    request = req GET "CancelExportTask"
+instance Rq CancelExportTask where
+    type Rs CancelExportTask = Either EC2ErrorResponse CancelExportTaskResponse
+    request = qry GET "CancelExportTask"
 
 data CancelExportTaskResponse = CancelExportTaskResponse
-    { cetRequestId :: !ByteString
+    { cetRequestId :: !Text
       -- ^ The ID of the request.
     , cetReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an error.
@@ -1112,17 +1138,18 @@ instance IsXML CancelExportTaskResponse where
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html>
 
 data CancelReservedInstancesListing = CancelReservedInstancesListing
-    { crilReservedInstancesListingId :: !ByteString
+    { crilReservedInstancesListingId :: !Text
       -- ^ The ID of the Reserved Instance listing to be canceled.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CancelReservedInstancesListing
 
-instance AWSRequest EC2 CancelReservedInstancesListing CancelReservedInstancesListingResponse where
-    request = req GET "CancelReservedInstancesListing"
+instance Rq CancelReservedInstancesListing where
+    type Rs CancelReservedInstancesListing = Either EC2ErrorResponse CancelReservedInstancesListingResponse
+    request = qry GET "CancelReservedInstancesListing"
 
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
-    { crilRequestId                    :: !ByteString
+    { crilRequestId                    :: !Text
       -- ^ The ID of the request.
     , crilReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetItemType
       -- ^ The Reserved Instance listing for cancellation.
@@ -1136,17 +1163,18 @@ instance IsXML CancelReservedInstancesListingResponse where
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html>
 
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
-    { csirSpotInstanceRequestId :: [ByteString]
+    { csirSpotInstanceRequestId :: [Text]
       -- ^ One or more Spot Instance request IDs.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CancelSpotInstanceRequests
 
-instance AWSRequest EC2 CancelSpotInstanceRequests CancelSpotInstanceRequestsResponse where
-    request = req GET "CancelSpotInstanceRequests"
+instance Rq CancelSpotInstanceRequests where
+    type Rs CancelSpotInstanceRequests = Either EC2ErrorResponse CancelSpotInstanceRequestsResponse
+    request = qry GET "CancelSpotInstanceRequests"
 
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
-    { csirRequestId              :: !ByteString
+    { csirRequestId              :: !Text
       -- ^ The ID of the request.
     , csirSpotInstanceRequestSet :: Items CancelSpotInstanceRequestsResponseSetItemType
       -- ^ A list of Spot Instance requests. Each request is wrapped in an
@@ -1164,10 +1192,10 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ConfirmProductInstance.html>
 
 -- data ConfirmProductInstance = ConfirmProductInstance
---     { cpiProductCode :: !ByteString
+--     { cpiProductCode :: !Text
 --       -- ^ The product code. This must be an Amazon DevPay product code that
 --       -- you own.
---     , cpiInstanceId  :: !ByteString
+--     , cpiInstanceId  :: !Text
 --       -- ^ The instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -1180,12 +1208,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ConfirmProductInstance"
 
 -- data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
---     { cpiRequestId :: !ByteString
+--     { cpiRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , cpiReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
 --       -- error.
---     , cpiOwnerId   :: !ByteString
+--     , cpiOwnerId   :: !Text
 --       -- ^ The instance owner's account ID. Only present if the product code
 --       -- is attached to the instance.
 --     } deriving (Eq, Show, Generic)
@@ -1199,16 +1227,16 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopyImage.html>
 
 -- data CopyImage = CopyImage
---     { ciSourceRegion  :: !ByteString
+--     { ciSourceRegion  :: !Text
 --       -- ^ The name of the region that contains the AMI to be copied
 --       -- (source).
---     , ciSourceImageId :: !ByteString
+--     , ciSourceImageId :: !Text
 --       -- ^ The ID of the AMI to copy.
---     , ciName          :: Maybe ByteString
+--     , ciName          :: Maybe Text
 --       -- ^ The name of the new AMI in the destination region.
---     , ciDescription   :: Maybe ByteString
+--     , ciDescription   :: Maybe Text
 --       -- ^ A description for the new AMI in the destination region.
---     , ciClientToken   :: Maybe ByteString
+--     , ciClientToken   :: Maybe Text
 --       -- ^ Unique, case-sensitive identifier you provide to ensure
 --       -- idempotency of the request.
 --     } deriving (Eq, Show, Generic)
@@ -1222,9 +1250,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CopyImage"
 
 -- data CopyImageResponse = CopyImageResponse
---     { ciRequestId :: !ByteString
+--     { ciRequestId :: !Text
 --       -- ^ The ID of the request.
---     , ciImageId   :: !ByteString
+--     , ciImageId   :: !Text
 --       -- ^ The ID of the new AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -1241,11 +1269,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopySnapshot.html>
 
 -- data CopySnapshot = CopySnapshot
---     { csSourceRegion     :: !ByteString
+--     { csSourceRegion     :: !Text
 --       -- ^ The ID of the region that contains the snapshot to be copied.
---     , csSourceSnapshotId :: !ByteString
+--     , csSourceSnapshotId :: !Text
 --       -- ^ The ID of the Amazon EBS snapshot to copy.
---     , csDescription      :: Maybe ByteString
+--     , csDescription      :: Maybe Text
 --       -- ^ A description for the new Amazon EBS snapshot.
 --     } deriving (Eq, Show, Generic)
 
@@ -1255,9 +1283,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CopySnapshot"
 
 -- data CopySnapshotResponse = CopySnapshotResponse
---     { csRequestId  :: !ByteString
+--     { csRequestId  :: !Text
 --       -- ^ The ID of the request.
---     , csSnapshotId :: !ByteString
+--     , csSnapshotId :: !Text
 --       -- ^ The ID of the new snapshot.
 --     } deriving (Eq, Show, Generic)
 
@@ -1283,9 +1311,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html>
 
 -- data CreateCustomerGateway = CreateCustomerGateway
---     { ccgType      :: !ByteString
+--     { ccgType      :: !Text
 --       -- ^ The type of VPN connection this customer gateway supports.
---     , ccgIpAddress :: !ByteString
+--     , ccgIpAddress :: !Text
 --       -- ^ The Internet-routable IP address for the customer gateway's
 --       -- outside interface. The address must be static.
 --     , ccgBgpAsn    :: Maybe Integer
@@ -1299,7 +1327,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateCustomerGateway"
 
 -- data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
---     { ccgRequestId       :: !ByteString
+--     { ccgRequestId       :: !Text
 --       -- ^ The ID of the request.
 --     , ccgCustomerGateway :: !CustomerGatewayType
 --       -- ^ Information about the customer gateway.
@@ -1327,7 +1355,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateDhcpOptions"
 
 -- data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
---     { cdoRequestId   :: !ByteString
+--     { cdoRequestId   :: !Text
 --       -- ^ The ID of the request.
 --     , cdoDhcpOptions :: !DhcpOptionsType
 --       -- ^ A set of DHCP options.
@@ -1342,11 +1370,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html>
 
 -- data CreateImage = CreateImage
---     { ciInstanceId         :: !ByteString
+--     { ciInstanceId         :: !Text
 --       -- ^ The ID of the instance.
---     , cjName               :: !ByteString
+--     , cjName               :: !Text
 --       -- ^ A name for the new image.
---     , cjDescription        :: Maybe ByteString
+--     , cjDescription        :: Maybe Text
 --       -- ^ A description for the new image.
 --     , cjNoReboot           :: Maybe Bool
 --       -- ^ By default this parameter is set to false, which means Amazon EC2
@@ -1369,9 +1397,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateImage"
 
 -- data CreateImageResponse = CreateImageResponse
---     { cjRequestId :: !ByteString
+--     { cjRequestId :: !Text
 --       -- ^ The ID of the request.
---     , cjImageId   :: !ByteString
+--     , cjImageId   :: !Text
 --       -- ^ The ID of the new AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -1386,12 +1414,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html>
 
 -- data CreateInstanceExportTask = CreateInstanceExportTask
---     { cietDescription       :: Maybe ByteString
+--     { cietDescription       :: Maybe Text
 --       -- ^ A description for the conversion task or the resource being
 --       -- exported. The maximum length is 255 bytes.
---     , cietInstanceId        :: !ByteString
+--     , cietInstanceId        :: !Text
 --       -- ^ The ID of the instance.
---     , cietTargetEnvironment :: !ByteString
+--     , cietTargetEnvironment :: !Text
 --       -- ^ The target virtualization environment.
 --     , cietExportToS3        :: Maybe ExportToS3Task
 --       -- ^ The format for the exported image.
@@ -1403,7 +1431,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateInstanceExportTask"
 
 -- data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
---     { cietRequestId  :: !ByteString
+--     { cietRequestId  :: !Text
 --       -- ^ The ID of the request.
 --     , cietExportTask :: !ExportTaskResponseType
 --       -- ^ The details of the created ExportVM task.
@@ -1431,7 +1459,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateInternetGateway"
 
 -- data CreateInternetGatewayResponse = CreateInternetGatewayResponse
---     { cigRequestId       :: !ByteString
+--     { cigRequestId       :: !Text
 --       -- ^ The ID of the request.
 --     , cigInternetGateway :: !InternetGatewayType
 --       -- ^ Information about the Internet gateway
@@ -1451,7 +1479,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html>
 
 -- data CreateKeyPair = CreateKeyPair
---     { ckpKeyName :: !ByteString
+--     { ckpKeyName :: !Text
 --       -- ^ A unique name for the key pair.
 --     } deriving (Eq, Show, Generic)
 
@@ -1461,13 +1489,13 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateKeyPair"
 
 -- data CreateKeyPairResponse = CreateKeyPairResponse
---     { ckpRequestId      :: !ByteString
+--     { ckpRequestId      :: !Text
 --       -- ^ The ID of the request.
---     , ckqKeyName        :: !ByteString
+--     , ckqKeyName        :: !Text
 --       -- ^ The name of the key pair name.
---     , ckqKeyFingerprint :: !ByteString
+--     , ckqKeyFingerprint :: !Text
 --       -- ^ A SHA-1 digest of the DER encoded private key.
---     , ckqKeyMaterial    :: !ByteString
+--     , ckqKeyMaterial    :: !Text
 --       -- ^ An unencrypted PEM encoded RSA private key.
 --     } deriving (Eq, Show, Generic)
 
@@ -1482,7 +1510,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkAcl.html>
 
 -- data CreateNetworkAcl = CreateNetworkAcl
---     { cnaVpcId :: !ByteString
+--     { cnaVpcId :: !Text
 --       -- ^ The ID of the VPC.
 --     } deriving (Eq, Show, Generic)
 
@@ -1492,7 +1520,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateNetworkAcl"
 
 -- data CreateNetworkAclResponse = CreateNetworkAclResponse
---     { cnaRequestId  :: !ByteString
+--     { cnaRequestId  :: !Text
 --       -- ^ The ID of the request.
 --     , cnaNetworkAcl :: !NetworkAclType
 --       -- ^ Information about the new network ACL.
@@ -1514,7 +1542,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkAclEntry.html>
 
 -- data CreateNetworkAclEntry = CreateNetworkAclEntry
---     { cnaeNetworkAclId :: !ByteString
+--     { cnaeNetworkAclId :: !Text
 --       -- ^ The ID of the ACL.
 --     , cnaeRuleNumber   :: !Integer
 --       -- ^ The rule number to assign to the entry (for example, 100). ACL
@@ -1522,12 +1550,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     , cnaeProtocol     :: !Integer
 --       -- ^ The IP protocol the rule applies to. You can use -1 to mean all
 --       -- protocols.
---     , cnaeRuleAction   :: !ByteString
+--     , cnaeRuleAction   :: !Text
 --       -- ^ Indicates whether to allow or deny traffic that matches the rule.
 --     , cnaeEgress       :: Maybe Bool
 --       -- ^ Indicates whether this rule applies to egress traffic from the
 --       -- subnet (true) or ingress traffic to the subnet (false).
---     , cnaeCidrBlock    :: !ByteString
+--     , cnaeCidrBlock    :: !Text
 --       -- ^ The CIDR range to allow or deny, in CIDR notation (for example,
 --       -- 172.16.0.0/24).
 --     , cnaeIcmp         :: Maybe IcmpType
@@ -1542,7 +1570,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateNetworkAclEntry"
 
 -- data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
---     { cnaeRequestId :: !ByteString
+--     { cnaeRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , cnaeReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -1559,9 +1587,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkInterface.html>
 
 -- data CreateNetworkInterface = CreateNetworkInterface
---     { cniSubnetId                       :: !ByteString
+--     { cniSubnetId                       :: !Text
 --       -- ^ The ID of the subnet to associate with the network interface.
---     , cniPrivateIpAddress               :: Maybe ByteString
+--     , cniPrivateIpAddress               :: Maybe Text
 --       -- ^ The primary private IP address of the network interface. If you
 --       -- don't specify an IP address, Amazon EC2 will select one for you
 --       -- from the subnet range.
@@ -1575,7 +1603,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- network interface. When you specify a number of secondary IP
 --       -- addresses, Amazon EC2 selects these IP addresses within the
 --       -- subnet range.
---     , cniDescription                    :: Maybe ByteString
+--     , cniDescription                    :: Maybe Text
 --       -- ^ A description for the network interface.
 --     , cniSecurityGroupId                :: Members SecurityGroupIdSetItemType
 --       -- ^ The list of security group IDs for the network interface.
@@ -1590,7 +1618,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateNetworkInterface"
 
 -- data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
---     { cniRequestId        :: !ByteString
+--     { cniRequestId        :: !Text
 --       -- ^ The ID of the request.
 --     , cniNetworkInterface :: !NetworkInterfaceType
 --       -- ^ The network interface that was created.
@@ -1607,9 +1635,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreatePlacementGroup.html>
 
 -- data CreatePlacementGroup = CreatePlacementGroup
---     { cpgGroupName :: !ByteString
+--     { cpgGroupName :: !Text
 --       -- ^ A name for the placement group.
---     , cpgStrategy  :: !ByteString
+--     , cpgStrategy  :: !Text
 --       -- ^ The placement strategy.
 --     } deriving (Eq, Show, Generic)
 
@@ -1619,7 +1647,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreatePlacementGroup"
 
 -- data CreatePlacementGroupResponse = CreatePlacementGroupResponse
---     { cpgRequestId :: !ByteString
+--     { cpgRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , cpgReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -1647,7 +1675,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateReservedInstancesListing.html>
 
 -- data CreateReservedInstancesListing = CreateReservedInstancesListing
---     { crilReservedInstancesId :: !ByteString
+--     { crilReservedInstancesId :: !Text
 --       -- ^ The ID of the active Reserved Instance.
 --     , crilInstanceCount       :: !Integer
 --       -- ^ The number of instances that are a part of a Reserved Instance
@@ -1657,7 +1685,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     , crilPriceSchedules      :: !PriceScheduleRequestSetItemType
 --       -- ^ A list specifying the price of the Reserved Instance for each
 --       -- month remaining in the Reserved Instance term.
---     , crilClientToken         :: !ByteString
+--     , crilClientToken         :: !Text
 --       -- ^ Unique, case-sensitive identifier you provide to ensure
 --       -- idempotency of your listings. This helps avoid duplicate
 --       -- listings.
@@ -1669,7 +1697,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateReservedInstancesListing"
 
 -- data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
---     { crimRequestId                   :: !ByteString
+--     { crimRequestId                   :: !Text
 --       -- ^ The ID of the request.
 --     , crimReservedInstancesListingSet :: !DescribeReservedInstancesListingsResponseSetItemType
 --       -- ^ The Reserved Instances listing that was created. The listing
@@ -1693,18 +1721,18 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html>
 
 -- data CreateRoute = CreateRoute
---     { crRouteTableId         :: !ByteString
+--     { crRouteTableId         :: !Text
 --       -- ^ The ID of the route table for the route.
---     , crDestinationCidrBlock :: !ByteString
+--     , crDestinationCidrBlock :: !Text
 --       -- ^ The CIDR address block used for the destination match. Routing
 --       -- decisions are based on the most specific match.
---     , crGatewayId            :: !ByteString
+--     , crGatewayId            :: !Text
 --       -- ^ The ID of an Internet gateway attached to your VPC.
---     , crInstanceId           :: !ByteString
+--     , crInstanceId           :: !Text
 --       -- ^ The ID of a NAT instance in your VPC. The operation fails if you
 --       -- specify an instance ID unless exactly one network interface is
 --       -- attached.
---     , crNetworkInterfaceId   :: !ByteString
+--     , crNetworkInterfaceId   :: !Text
 --       -- ^ The ID of a network interface.
 --     } deriving (Eq, Show, Generic)
 
@@ -1717,7 +1745,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateRoute"
 
 -- data CreateRouteResponse = CreateRouteResponse
---     { crRequestId :: !ByteString
+--     { crRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , crReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -1735,7 +1763,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html>
 
 -- data CreateRouteTable = CreateRouteTable
---     { crtVpcId :: !ByteString
+--     { crtVpcId :: !Text
 --       -- ^ The ID of the VPC.
 --     } deriving (Eq, Show, Generic)
 
@@ -1748,7 +1776,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateRouteTable"
 
 -- data CreateRouteTableResponse = CreateRouteTableResponse
---     { crtRequestId  :: !ByteString
+--     { crtRequestId  :: !Text
 --       -- ^ The ID of the request.
 --     , crtRouteTable :: !RouteTableType
 --       -- ^ Information about the newly created route table.
@@ -1774,11 +1802,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html>
 
 -- data CreateSecurityGroup = CreateSecurityGroup
---     { csgGroupName        :: !ByteString
+--     { csgGroupName        :: !Text
 --       -- ^ The name of the security group.
---     , csgGroupDescription :: !ByteString
+--     , csgGroupDescription :: !Text
 --       -- ^ A description for the security group. This is informational only.
---     , csgVpcId            :: !ByteString
+--     , csgVpcId            :: !Text
 --       -- ^ [EC2-VPC] The ID of the VPC.
 --     } deriving (Eq, Show, Generic)
 
@@ -1788,12 +1816,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateSecurityGroup"
 
 -- data CreateSecurityGroupResponse = CreateSecurityGroupResponse
---     { csgRequestId :: !ByteString
+--     { csgRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , csgReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
 --       -- error.
---     , csgGroupId   :: !ByteString
+--     , csgGroupId   :: !Text
 --       -- ^ The ID of the new security group.
 --     } deriving (Eq, Show, Generic)
 
@@ -1825,9 +1853,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html>
 
 -- data CreateSnapshot = CreateSnapshot
---     { csVolumeId    :: !ByteString
+--     { csVolumeId    :: !Text
 --       -- ^ The ID of the Amazon EBS volume.
---     , ctDescription :: Maybe ByteString
+--     , ctDescription :: Maybe Text
 --       -- ^ A description for the snapshot.
 --     } deriving (Eq, Show, Generic)
 
@@ -1837,23 +1865,23 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateSnapshot"
 
 -- data CreateSnapshotResponse = CreateSnapshotResponse
---     { ctRequestId   :: !ByteString
+--     { ctRequestId   :: !Text
 --       -- ^ The ID of the request.
---     , ctSnapshotId  :: !ByteString
+--     , ctSnapshotId  :: !Text
 --       -- ^ The ID of the snapshot.
---     , ctVolumeId    :: !ByteString
+--     , ctVolumeId    :: !Text
 --       -- ^ The ID of the volume.
---     , ctStatus      :: !ByteString
+--     , ctStatus      :: !Text
 --       -- ^ The snapshot state.
 --     , ctStartTime   :: !UTCTime
 --       -- ^ The time stamp when the snapshot was initiated.
---     , ctProgress    :: !ByteString
+--     , ctProgress    :: !Text
 --       -- ^ The progress of the snapshot, as a percentage.
---     , ctOwnerId     :: !ByteString
+--     , ctOwnerId     :: !Text
 --       -- ^ The AWS account ID of the Amazon EBS snapshot owner.
---     , ctVolumeSize  :: !ByteString
+--     , ctVolumeSize  :: !Text
 --       -- ^ The size of the volume, in GiB.
---     , cuDescription :: !ByteString
+--     , cuDescription :: !Text
 --       -- ^ The description for the snapshot.
 --     } deriving (Eq, Show, Generic)
 
@@ -1868,10 +1896,10 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSpotDatafeedSubscription.html>
 
 -- data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
---     { csdsBucket :: !ByteString
+--     { csdsBucket :: !Text
 --       -- ^ The Amazon S3 bucket in which to store the Spot Instance
 --       -- datafeed.
---     , csdsPrefix :: Maybe ByteString
+--     , csdsPrefix :: Maybe Text
 --       -- ^ A prefix for the datafeed file names.
 --     } deriving (Eq, Show, Generic)
 
@@ -1881,7 +1909,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateSpotDatafeedSubscription"
 
 -- data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
---     { csdsRequestId                :: !ByteString
+--     { csdsRequestId                :: !Text
 --       -- ^ The ID of the request.
 --     , csdsSpotDatafeedSubscription :: !SpotDatafeedSubscriptionType
 --       -- ^ Type: SpotDatafeedSubscriptionType
@@ -1914,11 +1942,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSubnet.html>
 
 -- data CreateSubnet = CreateSubnet
---     { csVpcId            :: !ByteString
+--     { csVpcId            :: !Text
 --       -- ^ The ID of the VPC.
---     , csCidrBlock        :: !ByteString
+--     , csCidrBlock        :: !Text
 --       -- ^ The CIDR block for the subnet. For example, 10.0.0.0/24.
---     , csAvailabilityZone :: Maybe ByteString
+--     , csAvailabilityZone :: Maybe Text
 --       -- ^ The Availability Zone for the subnet.
 --     } deriving (Eq, Show, Generic)
 
@@ -1928,7 +1956,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateSubnet"
 
 -- data CreateSubnetResponse = CreateSubnetResponse
---     { cuRequestId :: !ByteString
+--     { cuRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , cuSubnet    :: !SubnetType
 --       -- ^ Information about the subnet.
@@ -1944,7 +1972,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html>
 
 -- data CreateTags = CreateTags
---     { ctResourceId :: Members ByteString
+--     { ctResourceId :: Members Text
 --       -- ^ The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
 --     , ctTag        :: Members ResourceTagSetItemType
 --       -- ^ The key for a tag.
@@ -1956,7 +1984,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateTags"
 
 -- data CreateTagsResponse = CreateTagsResponse
---     { cvRequestId :: !ByteString
+--     { cvRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , cvReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -1973,15 +2001,15 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html>
 
 -- data CreateVolume = CreateVolume
---     { cvSize             :: Maybe ByteString
+--     { cvSize             :: Maybe Text
 --       -- ^ The size of the volume, in GiBs.
---     , cvSnapshotId       :: !ByteString
+--     , cvSnapshotId       :: !Text
 --       -- ^ The snapshot from which to create the volume.
---     , cvAvailabilityZone :: !ByteString
+--     , cvAvailabilityZone :: !Text
 --       -- ^ The Availability Zone in which to create the volume. Use
 --       -- DescribeAvailabilityZones to list the Availability Zones that are
 --       -- currently available to you.
---     , cvVolumeType       :: Maybe ByteString
+--     , cvVolumeType       :: Maybe Text
 --       -- ^ The volume type.
 --     , cvIops             :: !Integer
 --       -- ^ The number of I/O operations per second (IOPS) that the volume
@@ -1997,21 +2025,21 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateVolume"
 
 -- data CreateVolumeResponse = CreateVolumeResponse
---     { cwRequestId        :: !ByteString
+--     { cwRequestId        :: !Text
 --       -- ^ The ID of the request.
---     , cwVolumeId         :: !ByteString
+--     , cwVolumeId         :: !Text
 --       -- ^ The ID of the volume.
---     , cwSize             :: !ByteString
+--     , cwSize             :: !Text
 --       -- ^ The size of the volume, in GiBs.
---     , cwSnapshotId       :: !ByteString
+--     , cwSnapshotId       :: !Text
 --       -- ^ The snapshot from which the volume was created, if applicable.
---     , cwAvailabilityZone :: !ByteString
+--     , cwAvailabilityZone :: !Text
 --       -- ^ The Availability Zone for the volume.
---     , cwStatus           :: !ByteString
+--     , cwStatus           :: !Text
 --       -- ^ The volume state.
 --     , cwCreateTime       :: !UTCTime
 --       -- ^ The time stamp when volume creation was initiated.
---     , cwVolumeType       :: !ByteString
+--     , cwVolumeType       :: !Text
 --       -- ^ The volume type.
 --     , cwIops             :: !Integer
 --       -- ^ The number of I/O operations per second (IOPS) that the volume
@@ -2033,9 +2061,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpc.html>
 
 -- data CreateVpc = CreateVpc
---     { cvCidrBlock       :: !ByteString
+--     { cvCidrBlock       :: !Text
 --       -- ^ The CIDR block for the VPC (for example, 10.0.0.0/16).
---     , cvInstanceTenancy :: Maybe ByteString
+--     , cvInstanceTenancy :: Maybe Text
 --       -- ^ The supported tenancy options for instances launched into the
 --       -- VPC. A value of default means that instances can be launched with
 --       -- any tenancy; a value of dedicated means all instances launched
@@ -2050,7 +2078,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateVpc"
 
 -- data CreateVpcResponse = CreateVpcResponse
---     { cxRequestId :: !ByteString
+--     { cxRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , cxVpc       :: !VpcType
 --       -- ^ Information about the VPC.
@@ -2076,11 +2104,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnConnection.html>
 
 -- data CreateVpnConnection = CreateVpnConnection
---     { cvcType              :: !ByteString
+--     { cvcType              :: !Text
 --       -- ^ The type of VPN connection.
---     , cvcCustomerGatewayId :: !ByteString
+--     , cvcCustomerGatewayId :: !Text
 --       -- ^ The ID of the customer gateway.
---     , cvcVpnGatewayId      :: !ByteString
+--     , cvcVpnGatewayId      :: !Text
 --       -- ^ The ID of the virtual private gateway.
 --     , cvcOptions           :: Maybe VpnConnectionOptions
 --       -- ^ Indicates whether the VPN connection requires static routes. If
@@ -2094,7 +2122,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateVpnConnection"
 
 -- data CreateVpnConnectionResponse = CreateVpnConnectionResponse
---     { cvcRequestId     :: !ByteString
+--     { cvcRequestId     :: !Text
 --       -- ^ The ID of the request.
 --     , cvcVpnConnection :: !VpnConnectionType
 --       -- ^ Information about the VPN connection.
@@ -2113,10 +2141,10 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnConnectionRoute.html>
 
 -- data CreateVpnConnectionRoute = CreateVpnConnectionRoute
---     { cvcrDestinationCidrBlock :: !ByteString
+--     { cvcrDestinationCidrBlock :: !Text
 --       -- ^ The CIDR block associated with the local subnet of the customer
 --       -- network.
---     , cvcrVpnConnectionId      :: !ByteString
+--     , cvcrVpnConnectionId      :: !Text
 --       -- ^ The ID of the VPN connection.
 --     } deriving (Eq, Show, Generic)
 
@@ -2129,7 +2157,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateVpnConnectionRoute"
 
 -- data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
---     { cvcrRequestId :: !ByteString
+--     { cvcrRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , cvcrReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2148,7 +2176,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html>
 
 -- data CreateVpnGateway = CreateVpnGateway
---     { cvgType :: !ByteString
+--     { cvgType :: !Text
 --       -- ^ The type of VPN connection this virtual private gateway supports.
 --     } deriving (Eq, Show, Generic)
 
@@ -2158,7 +2186,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "CreateVpnGateway"
 
 -- data CreateVpnGatewayResponse = CreateVpnGatewayResponse
---     { cvgRequestId  :: !ByteString
+--     { cvgRequestId  :: !Text
 --       -- ^ The ID of the request.
 --     , cvgVpnGateway :: !VpnGatewayType
 --       -- ^ Information about the virtual private gateway.
@@ -2175,7 +2203,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteCustomerGateway.html>
 
 -- data DeleteCustomerGateway = DeleteCustomerGateway
---     { dcgCustomerGatewayId :: !ByteString
+--     { dcgCustomerGatewayId :: !Text
 --       -- ^ The ID of the customer gateway.
 --     } deriving (Eq, Show, Generic)
 
@@ -2185,7 +2213,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteCustomerGateway"
 
 -- data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
---     { dcgRequestId :: !ByteString
+--     { dcgRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dcgReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2204,7 +2232,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteDhcpOptions.html>
 
 -- data DeleteDhcpOptions = DeleteDhcpOptions
---     { ddoDhcpOptionsId :: !ByteString
+--     { ddoDhcpOptionsId :: !Text
 --       -- ^ The ID of the DHCP options set.
 --     } deriving (Eq, Show, Generic)
 
@@ -2214,7 +2242,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteDhcpOptions"
 
 -- data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
---     { ddoRequestId :: !ByteString
+--     { ddoRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , ddoReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2232,7 +2260,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteInternetGateway.html>
 
 -- data DeleteInternetGateway = DeleteInternetGateway
---     { digInternetGatewayId :: !ByteString
+--     { digInternetGatewayId :: !Text
 --       -- ^ The ID of the Internet gateway.
 --     } deriving (Eq, Show, Generic)
 
@@ -2242,7 +2270,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteInternetGateway"
 
 -- data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
---     { digRequestId :: !ByteString
+--     { digRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , digReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2258,7 +2286,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteKeyPair.html>
 
 -- data DeleteKeyPair = DeleteKeyPair
---     { dkpKeyName :: !ByteString
+--     { dkpKeyName :: !Text
 --       -- ^ The name of the key pair.
 --     } deriving (Eq, Show, Generic)
 
@@ -2268,7 +2296,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteKeyPair"
 
 -- data DeleteKeyPairResponse = DeleteKeyPairResponse
---     { dkpRequestId :: !ByteString
+--     { dkpRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dkpReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2286,7 +2314,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkAcl.html>
 
 -- data DeleteNetworkAcl = DeleteNetworkAcl
---     { dnaNetworkAclId :: !ByteString
+--     { dnaNetworkAclId :: !Text
 --       -- ^ The ID of the network ACL.
 --     } deriving (Eq, Show, Generic)
 
@@ -2296,7 +2324,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteNetworkAcl"
 
 -- data DeleteNetworkAclResponse = DeleteNetworkAclResponse
---     { dnaRequestId :: !ByteString
+--     { dnaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dnaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2313,7 +2341,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkAclEntry.html>
 
 -- data DeleteNetworkAclEntry = DeleteNetworkAclEntry
---     { dnaeNetworkAclId :: !ByteString
+--     { dnaeNetworkAclId :: !Text
 --       -- ^ The ID of the network ACL.
 --     , dnaeRuleNumber   :: !Integer
 --       -- ^ The rule number for the entry to delete.
@@ -2328,7 +2356,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteNetworkAclEntry"
 
 -- data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
---     { dnaeRequestId :: !ByteString
+--     { dnaeRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dnaeReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2344,7 +2372,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkInterface.html>
 
 -- data DeleteNetworkInterface = DeleteNetworkInterface
---     { dniNetworkInterfaceId :: !ByteString
+--     { dniNetworkInterfaceId :: !Text
 --       -- ^ The ID of the network interface.
 --     } deriving (Eq, Show, Generic)
 
@@ -2357,7 +2385,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteNetworkInterface"
 
 -- data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
---     { dniRequestId :: !ByteString
+--     { dniRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dniReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2375,7 +2403,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeletePlacementGroup.html>
 
 -- data DeletePlacementGroup = DeletePlacementGroup
---     { dpgGroupName :: !ByteString
+--     { dpgGroupName :: !Text
 --       -- ^ The name of the placement group.
 --     } deriving (Eq, Show, Generic)
 
@@ -2385,7 +2413,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeletePlacementGroup"
 
 -- data DeletePlacementGroupResponse = DeletePlacementGroupResponse
---     { dpgRequestId :: !ByteString
+--     { dpgRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dpgReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2402,9 +2430,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRoute.html>
 
 -- data DeleteRoute = DeleteRoute
---     { drRouteTableId         :: !ByteString
+--     { drRouteTableId         :: !Text
 --       -- ^ The ID of the route table.
---     , drDestinationCidrBlock :: !ByteString
+--     , drDestinationCidrBlock :: !Text
 --       -- ^ The CIDR range for the route. The value you specify must match
 --       -- the CIDR for the route exactly.
 --     } deriving (Eq, Show, Generic)
@@ -2418,7 +2446,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteRoute"
 
 -- data DeleteRouteResponse = DeleteRouteResponse
---     { drRequestId :: !ByteString
+--     { drRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , drReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2436,7 +2464,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html>
 
 -- data DeleteRouteTable = DeleteRouteTable
---     { drtRouteTableId :: !ByteString
+--     { drtRouteTableId :: !Text
 --       -- ^ The ID of the route table.
 --     } deriving (Eq, Show, Generic)
 
@@ -2449,7 +2477,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteRouteTable"
 
 -- data DeleteRouteTableResponse = DeleteRouteTableResponse
---     { drtRequestId :: !ByteString
+--     { drtRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , drtReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2465,9 +2493,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html>
 
 -- data DeleteSecurityGroup = DeleteSecurityGroup
---     { dsgGroupName :: !ByteString
+--     { dsgGroupName :: !Text
 --       -- ^ The name of the security group.
---     , dsgGroupId   :: !ByteString
+--     , dsgGroupId   :: !Text
 --       -- ^ The ID of the security group.
 --     } deriving (Eq, Show, Generic)
 
@@ -2477,7 +2505,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteSecurityGroup"
 
 -- data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
---     { dsgRequestId :: !ByteString
+--     { dsgRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dsgReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2492,7 +2520,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSnapshot.html>
 
 -- data DeleteSnapshot = DeleteSnapshot
---     { dsSnapshotId :: !ByteString
+--     { dsSnapshotId :: !Text
 --       -- ^ The ID of the Amazon EBS snapshot.
 --     } deriving (Eq, Show, Generic)
 
@@ -2502,7 +2530,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteSnapshot"
 
 -- data DeleteSnapshotResponse = DeleteSnapshotResponse
---     { dsRequestId :: !ByteString
+--     { dsRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dsReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2530,7 +2558,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteSpotDatafeedSubscription"
 
 -- data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
---     { dsdsRequestId :: !ByteString
+--     { dsdsRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dsdsReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2546,7 +2574,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSubnet.html>
 
 -- data DeleteSubnet = DeleteSubnet
---     { dsSubnetId :: !ByteString
+--     { dsSubnetId :: !Text
 --       -- ^ The ID of the subnet.
 --     } deriving (Eq, Show, Generic)
 
@@ -2556,7 +2584,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteSubnet"
 
 -- data DeleteSubnetResponse = DeleteSubnetResponse
---     { dtRequestId :: !ByteString
+--     { dtRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dtReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2574,7 +2602,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteTags.html>
 
 -- data DeleteTags = DeleteTags
---     { dtResourceId :: Members ByteString
+--     { dtResourceId :: Members Text
 --       -- ^ The ID of the resource. For example, ami-1a2b3c4d. You can
 --       -- specify more than one resource ID.
 --     , dtTag        :: Members TagType
@@ -2587,7 +2615,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteTags"
 
 -- data DeleteTagsResponse = DeleteTagsResponse
---     { duRequestId :: !ByteString
+--     { duRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , duReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2605,7 +2633,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html>
 
 -- data DeleteVolume = DeleteVolume
---     { dvVolumeId :: !ByteString
+--     { dvVolumeId :: !Text
 --       -- ^ The ID of the volume.
 --     } deriving (Eq, Show, Generic)
 
@@ -2618,7 +2646,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteVolume"
 
 -- data DeleteVolumeResponse = DeleteVolumeResponse
---     { dvRequestId :: !ByteString
+--     { dvRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dvReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2638,7 +2666,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpc.html>
 
 -- data DeleteVpc = DeleteVpc
---     { dvVpcId :: !ByteString
+--     { dvVpcId :: !Text
 --       -- ^ The ID of the VPC.
 --     } deriving (Eq, Show, Generic)
 
@@ -2648,7 +2676,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteVpc"
 
 -- data DeleteVpcResponse = DeleteVpcResponse
---     { dwRequestId :: !ByteString
+--     { dwRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dwReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2674,7 +2702,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpnConnection.html>
 
 -- data DeleteVpnConnection = DeleteVpnConnection
---     { dvcVpnConnectionId :: !ByteString
+--     { dvcVpnConnectionId :: !Text
 --       -- ^ The ID of the VPN connection.
 --     } deriving (Eq, Show, Generic)
 
@@ -2684,7 +2712,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteVpnConnection"
 
 -- data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
---     { dvcRequestId :: !ByteString
+--     { dvcRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dvcReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2704,10 +2732,10 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpnConnectionRoute.html>
 
 -- data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
---     { dvcrDestinationCidrBlock :: !ByteString
+--     { dvcrDestinationCidrBlock :: !Text
 --       -- ^ The CIDR block associated with the local subnet of the customer
 --       -- network.
---     , dvcrVpnConnectionId      :: !ByteString
+--     , dvcrVpnConnectionId      :: !Text
 --       -- ^ The ID of the VPN connection.
 --     } deriving (Eq, Show, Generic)
 
@@ -2720,7 +2748,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteVpnConnectionRoute"
 
 -- data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
---     { dvcrRequestId :: !ByteString
+--     { dvcrRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dvcrReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2741,7 +2769,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpnGateway.html>
 
 -- data DeleteVpnGateway = DeleteVpnGateway
---     { dvgVpnGatewayId :: !ByteString
+--     { dvgVpnGatewayId :: !Text
 --       -- ^ The ID of the virtual private gateway.
 --     } deriving (Eq, Show, Generic)
 
@@ -2751,7 +2779,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeleteVpnGateway"
 
 -- data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
---     { dvgRequestId :: !ByteString
+--     { dvgRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dvgReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2767,7 +2795,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeregisterImage.html>
 
 -- data DeregisterImage = DeregisterImage
---     { diImageId :: !ByteString
+--     { diImageId :: !Text
 --       -- ^ The ID of the AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -2780,7 +2808,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DeregisterImage"
 
 -- data DeregisterImageResponse = DeregisterImageResponse
---     { diRequestId :: !ByteString
+--     { diRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , diReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -2796,7 +2824,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAccountAttributes.html>
 
 -- data DescribeAccountAttributes = DescribeAccountAttributes
---     { daaAttributeName :: Members ByteString
+--     { daaAttributeName :: Members Text
 --       -- ^ One or more account attribute names.
 --     } deriving (Eq, Show, Generic)
 
@@ -2806,7 +2834,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeAccountAttributes"
 
 -- data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
---     { daaRequestId           :: !ByteString
+--     { daaRequestId           :: !Text
 --       -- ^ The ID of the request.
 --     , daaAccountAttributeSet :: !AccountAttributeSetItemType
 --       -- ^ A list of the names and values of the requested attributes, each
@@ -2824,31 +2852,31 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html>
 
 -- -- data AddressFilter =
--- --     , daDomain                     :: !ByteString
+-- --     , daDomain                     :: !Text
 -- --       -- ^ Indicates whether the address is for use in a VPC.
--- --     , daInstance-id                :: !ByteString
+-- --     , daInstance-id                :: !Text
 -- --       -- ^ The instance the address is associated with (if any).
--- --     , daPublic-ip                  :: !ByteString
+-- --     , daPublic-ip                  :: !Text
 -- --       -- ^ The Elastic IP address.
--- --     , daAllocation-id              :: !ByteString
+-- --     , daAllocation-id              :: !Text
 -- --       -- ^ The allocation ID for the address (VPC only).
--- --     , daAssociation-id             :: !ByteString
+-- --     , daAssociation-id             :: !Text
 -- --       -- ^ The association ID for the address (VPC only).
--- --     , daNetwork-interface-id       :: !ByteString
+-- --     , daNetwork-interface-id       :: !Text
 -- --       -- ^ The network interface (if any) that the address is associated
 -- --       -- with (VPC only).
--- --     , daNetwork-interface-owner-id :: !ByteString
+-- --     , daNetwork-interface-owner-id :: !Text
 -- --       -- ^ The owner IID.
--- --     , daPrivate-ip-address         :: !ByteString
+-- --     , daPrivate-ip-address         :: !Text
 -- --       -- ^ The private IP address associated with the Elastic IP address
 -- --       -- (VPC only).
 
 -- data DescribeAddresses = DescribeAddresses
---     { daPublicIp                   :: Members ByteString
+--     { daPublicIp                   :: Members Text
 --       -- ^ [EC2-Classic] One or more Elastic IP addresses.
---     , daAllocationId               :: Members ByteString
+--     , daAllocationId               :: Members Text
 --       -- ^ [EC2-VPC] One or more allocation IDs.
---     , daFilter                     :: Members ByteString
+--     , daFilter                     :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -2858,7 +2886,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeAddresses"
 
 -- data DescribeAddressesResponse = DescribeAddressesResponse
---     { daRequestId    :: !ByteString
+--     { daRequestId    :: !Text
 --       -- ^ The ID of the request.
 --     , daAddressesSet :: !DescribeAddressesResponseItemType
 --       -- ^ A list of Elastic IP addresses, each one wrapped in an item
@@ -2874,20 +2902,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html>
 
 -- -- data AvailabilityZoneFilter
--- --     , dazMessage     :: !ByteString
+-- --     , dazMessage     :: !Text
 -- --       -- ^ Information about the Availability Zone.
--- --     , dazRegion-name :: !ByteString
+-- --     , dazRegion-name :: !Text
 -- --       -- ^ The region for the Availability Zone (for example, us-east-1).
--- --     , dazState       :: !ByteString
+-- --     , dazState       :: !Text
 -- --       -- ^ The state of the Availability Zone
--- --     , dazZone-name   :: !ByteString
+-- --     , dazZone-name   :: !Text
 -- --       -- ^ The name of the zone.
 
 
 -- data DescribeAvailabilityZones = DescribeAvailabilityZones
---     { dazZoneName    :: Members ByteString
+--     { dazZoneName    :: Members Text
 --       -- ^ One or more Availability Zone names.
---     , dazFilter      :: Members ByteString
+--     , dazFilter      :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -2897,7 +2925,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeAvailabilityZones"
 
 -- data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
---     { dazRequestId            :: !ByteString
+--     { dazRequestId            :: !Text
 --       -- ^ The ID of the request.
 --     , dazAvailabilityZoneInfo :: !AvailabilityZoneItemType
 --       -- ^ A list of Availability Zones, each one wrapped in an item
@@ -2912,24 +2940,24 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeBundleTasks.html>
 
 -- -- data BundleFilter
--- --     , dbtBundle-id     :: !ByteString
+-- --     , dbtBundle-id     :: !Text
 -- --       -- ^ The ID of the bundle task.
--- --     , dbtError-code    :: !ByteString
+-- --     , dbtError-code    :: !Text
 -- --       -- ^ If the task failed, the error code returned.
--- --     , dbtError-message :: !ByteString
+-- --     , dbtError-message :: !Text
 -- --       -- ^ If the task failed, the error message returned.
--- --     , dbtInstance-id   :: !ByteString
+-- --     , dbtInstance-id   :: !Text
 -- --       -- ^ The ID of the instance that was bundled.
--- --     , dbtProgress      :: !ByteString
+-- --     , dbtProgress      :: !Text
 -- --       -- ^ The level of task completion, as a percentage (for example, 20%).
--- --     , dbtS3-bucket     :: !ByteString
+-- --     , dbtS3-bucket     :: !Text
 -- --       -- ^ The Amazon S3 bucket to store the AMI.
--- --     , dbtS3-prefix     :: !ByteString
+-- --     , dbtS3-prefix     :: !Text
 -- --       -- ^ The beginning of the AMI name.
 -- --     , dbtStart-time    :: !UTCTime
 -- --       -- ^ The time the task started (for example,
 -- --       -- 2008-09-15T17:15:20.000Z).
--- --     , dbtState         :: !ByteString
+-- --     , dbtState         :: !Text
 -- --       -- ^ The state of the task.
 -- --     , dbtUpdate-time   :: !UTCTime
 -- --       -- ^ The time of the most recent update for the task (for example,
@@ -2937,9 +2965,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 
 
 -- data DescribeBundleTasks = DescribeBundleTasks
---     { dbtBundleId      :: Members ByteString
+--     { dbtBundleId      :: Members Text
 --       -- ^ One or more bundle task IDs.
---     , dbtFilter        :: Members ByteString
+--     , dbtFilter        :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -2949,7 +2977,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeBundleTasks"
 
 -- data DescribeBundleTasksResponse = DescribeBundleTasksResponse
---     { dbtRequestId              :: !ByteString
+--     { dbtRequestId              :: !Text
 --       -- ^ The ID of the request.
 --     , dbtBundleInstanceTasksSet :: !BundleInstanceTaskType
 --       -- ^ A list of bundle tasks, each one wrapped in an item element.
@@ -2963,7 +2991,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeConversionTasks.html>
 
 -- data DescribeConversionTasks = DescribeConversionTasks
---     { dctConversionTaskId :: Members ByteString
+--     { dctConversionTaskId :: Members Text
 --       -- ^ One or more conversion task IDs.
 --     } deriving (Eq, Show, Generic)
 
@@ -2987,20 +3015,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeCustomerGateways.html>
 
 -- -- data GatewayFilter
--- --     , dchBgp-asn             :: !ByteString
+-- --     , dchBgp-asn             :: !Text
 -- --       -- ^ The customer gateway's Border Gateway Protocol (BGP) Autonomous
 -- --       -- System Number (ASN).
--- --     , dchCustomer-gateway-id :: !ByteString
+-- --     , dchCustomer-gateway-id :: !Text
 -- --       -- ^ The ID of the customer gateway.
--- --     , dchIp-address          :: !ByteString
+-- --     , dchIp-address          :: !Text
 -- --       -- ^ The IP address of the customer gateway's Internet-routable
 -- --       -- external interface (for example, 12.1.2.3).
--- --     , dchState               :: !ByteString
+-- --     , dchState               :: !Text
 -- --       -- ^ The state of the customer gateway.
--- --     , dchType                :: !ByteString
+-- --     , dchType                :: !Text
 -- --       -- ^ The type of customer gateway. Currently the only supported type
 -- --       -- is ipsec.1.
--- --     , dchTag-key             :: !ByteString
+-- --     , dchTag-key             :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -3008,18 +3036,18 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , dchTag-value           :: !ByteString
+-- --     , dchTag-value           :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , dchTag:                :: !ByteString
+-- --     , dchTag:                :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , dchKey                 :: !ByteString
--- --       -- ^ 
+-- --     , dchKey                 :: !Text
+-- --       -- ^
 
 -- data DescribeCustomerGateways = DescribeCustomerGateways
---     { dchCustomerGatewayId   :: Members ByteString
+--     { dchCustomerGatewayId   :: Members Text
 --       -- ^ One or more customer gateway IDs.
---     , dchFilter              :: Members ByteString
+--     , dchFilter              :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3029,7 +3057,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeCustomerGateways"
 
 -- data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
---     { dchRequestId          :: !ByteString
+--     { dchRequestId          :: !Text
 --       -- ^ The ID of the request.
 --     , dchCustomerGatewaySet :: !CustomerGatewayType
 --       -- ^ A list of customer gateways, each one wrapped in an item element.
@@ -3045,13 +3073,13 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeDhcpOptions.html>
 
 -- -- data DhcpFilter
--- --     , ddpDhcp-options-id :: !ByteString
+-- --     , ddpDhcp-options-id :: !Text
 -- --       -- ^ The ID of a set of DHCP options.
--- --     , ddpKey             :: !ByteString
+-- --     , ddpKey             :: !Text
 -- --       -- ^ The key for one of the options (for example, domain-name).
--- --     , ddpValue           :: !ByteString
+-- --     , ddpValue           :: !Text
 -- --       -- ^ The value for one of the options.
--- --     , ddpTag-key         :: !ByteString
+-- --     , ddpTag-key         :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -3059,18 +3087,18 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , ddpTag-value       :: !ByteString
+-- --     , ddpTag-value       :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , ddpTag:            :: !ByteString
+-- --     , ddpTag:            :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , ddqKey             :: !ByteString
--- --       -- ^ 
+-- --     , ddqKey             :: !Text
+-- --       -- ^
 
 -- data DescribeDhcpOptions = DescribeDhcpOptions
---     { ddpDhcpOptionsId   :: Members ByteString
+--     { ddpDhcpOptionsId   :: Members Text
 --       -- ^ The IDs of one or more DHCP options sets.
---     , ddpFilter          :: Members ByteString
+--     , ddpFilter          :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3080,7 +3108,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeDhcpOptions"
 
 -- data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
---     { ddqRequestId      :: !ByteString
+--     { ddqRequestId      :: !Text
 --       -- ^ The ID of the request.
 --     , ddqDhcpOptionsSet :: !DhcpOptionsType
 --       -- ^ A list of DHCP options sets, each one wrapped in an item element.
@@ -3094,7 +3122,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeExportTasks.html>
 
 -- data DescribeExportTasks = DescribeExportTasks
---     { detExportTaskId :: Members ByteString
+--     { detExportTaskId :: Members Text
 --       -- ^ One or more export task IDs.
 --     } deriving (Eq, Show, Generic)
 
@@ -3104,7 +3132,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeExportTasks"
 
 -- data DescribeExportTasksResponse = DescribeExportTasksResponse
---     { detRequestId     :: !ByteString
+--     { detRequestId     :: !Text
 --       -- ^ The ID of the request.
 --     , detExportTaskSet :: !ExportTaskResponseType
 --       -- ^ A list of export tasks, each one wrapped in an item element.
@@ -3119,9 +3147,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImageAttribute.html>
 
 -- data DescribeImageAttribute = DescribeImageAttribute
---     { diaImageId   :: !ByteString
+--     { diaImageId   :: !Text
 --       -- ^ The ID of the AMI.
---     , diaAttribute :: !ByteString
+--     , diaAttribute :: !Text
 --       -- ^ The AMI attribute.
 --     } deriving (Eq, Show, Generic)
 
@@ -3134,9 +3162,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeImageAttribute"
 
 -- data DescribeImageAttributeResponse = DescribeImageAttributeResponse
---     { diaRequestId          :: !ByteString
+--     { diaRequestId          :: !Text
 --       -- ^ The ID of the request.
---     , dibImageId            :: !ByteString
+--     , dibImageId            :: !Text
 --       -- ^ The ID of the AMI.
 --     , dibLaunchPermission   :: !LaunchPermissionItemType
 --       -- ^ A list of launch permissions, each one wrapped in an item
@@ -3144,11 +3172,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     , dibProductCodes       :: !ProductCodeItemType
 --       -- ^ A list of product codes, each one wrapped in an item element that
 --       -- contains a product code and a product code type.
---     , dibKernel             :: !ByteString
+--     , dibKernel             :: !Text
 --       -- ^ The kernel ID, wrapped in a value element.
---     , dibRamdisk            :: !ByteString
+--     , dibRamdisk            :: !Text
 --       -- ^ The RAM disk ID, wrapped in a value element.
---     , dibDescription        :: !ByteString
+--     , dibDescription        :: !Text
 --       -- ^ A user-created description for the AMI, wrapped in a value
 --       -- element.
 --     , dibBlockDeviceMapping :: !BlockDeviceMappingItemType
@@ -3167,46 +3195,46 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html>
 
 -- -- data ImageFilter
--- --     , djArchitecture         :: !ByteString
+-- --     , djArchitecture         :: !Text
 -- --       -- ^ The image architecture.
 -- --     , djBlock-device-mapping :: Members block-device-mappingType
 -- --       -- ^ Whether the Amazon EBS volume is deleted on instance termination.
--- --     , djDescription          :: !ByteString
+-- --     , djDescription          :: !Text
 -- --       -- ^ The description of the image (provided during image creation).
--- --     , djImage-id             :: !ByteString
+-- --     , djImage-id             :: !Text
 -- --       -- ^ The ID of the image.
--- --     , djImage-type           :: !ByteString
+-- --     , djImage-type           :: !Text
 -- --       -- ^ The image type.
 -- --     , djIs-public            :: !Bool
 -- --       -- ^ Whether the image is public.
--- --     , djKernel-id            :: !ByteString
+-- --     , djKernel-id            :: !Text
 -- --       -- ^ The kernel ID.
--- --     , djManifest-location    :: !ByteString
+-- --     , djManifest-location    :: !Text
 -- --       -- ^ The location of the image manifest.
--- --     , djName                 :: !ByteString
+-- --     , djName                 :: !Text
 -- --       -- ^ The name of the AMI (provided during image creation).
--- --     , djOwner-alias          :: !ByteString
+-- --     , djOwner-alias          :: !Text
 -- --       -- ^ The AWS account alias (for example, amazon).
--- --     , djOwner-id             :: !ByteString
+-- --     , djOwner-id             :: !Text
 -- --       -- ^ The AWS account ID of the image owner.
--- --     , djPlatform             :: !ByteString
+-- --     , djPlatform             :: !Text
 -- --       -- ^ The platform. To only list Windows-based AMIs, use windows.
 -- --       -- Otherwise, leave blank.
--- --     , djProduct-code         :: !ByteString
+-- --     , djProduct-code         :: !Text
 -- --       -- ^ The product code.
--- --     , djRamdisk-id           :: !ByteString
+-- --     , djRamdisk-id           :: !Text
 -- --       -- ^ The RAM disk ID.
--- --     , djRoot-device-name     :: !ByteString
+-- --     , djRoot-device-name     :: !Text
 -- --       -- ^ The name of the root device volume (for example, /dev/sda1).
--- --     , djRoot-device-type     :: !ByteString
+-- --     , djRoot-device-type     :: !Text
 -- --       -- ^ The type of the root device volume.
--- --     , djState                :: !ByteString
+-- --     , djState                :: !Text
 -- --       -- ^ The state of the image.
--- --     , djState-reason-code    :: !ByteString
+-- --     , djState-reason-code    :: !Text
 -- --       -- ^ The reason code for the state change.
--- --     , djState-reason-message :: !ByteString
+-- --     , djState-reason-message :: !Text
 -- --       -- ^ The message for the state change.
--- --     , djTag-key              :: !ByteString
+-- --     , djTag-key              :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -3214,32 +3242,32 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , djTag-value            :: !ByteString
+-- --     , djTag-value            :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , djTag:                 :: !ByteString
+-- --     , djTag:                 :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , djKey                  :: !ByteString
+-- --     , djKey                  :: !Text
 -- --       -- ^ The virtualization type.
--- --     , djVirtualization-type  :: !ByteString
+-- --     , djVirtualization-type  :: !Text
 -- --       -- ^ The hypervisor type.
--- --     , djHypervisor           :: !ByteString
--- --       -- ^ 
+-- --     , djHypervisor           :: !Text
+-- --       -- ^
 
 -- data DescribeImages = DescribeImages
---     { diExecutableBy         :: Members ByteString
+--     { diExecutableBy         :: Members Text
 --       -- ^ Describes the images for which the specified user has explicit
 --       -- launch permissions. The user ID can be an AWS account ID, self to
 --       -- return images for which the sender of the request has explicit
 --       -- launch permissions, or all to return AMIs with public launch
 --       -- permissions.
---     , djImageId              :: Members ByteString
+--     , djImageId              :: Members Text
 --       -- ^ One or more image IDs.
---     , djOwner                :: Members ByteString
+--     , djOwner                :: Members Text
 --       -- ^ Describes images owned by the specified owners. Use the IDs
 --       -- amazon, aws-marketplace, and self to describe images owned by
 --       -- Amazon, AWS Marketplace, or you, respectively.
---     , djFilter               :: Members ByteString
+--     , djFilter               :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3249,7 +3277,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeImages"
 
 -- data DescribeImagesResponse = DescribeImagesResponse
---     { djRequestId :: !ByteString
+--     { djRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , djImagesSet :: !DescribeImagesResponseItemType
 --       -- ^ A list of images, each one wrapped in an item element.
@@ -3264,9 +3292,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html>
 
 -- data DescribeInstanceAttribute = DescribeInstanceAttribute
---     { diaInstanceId :: !ByteString
+--     { diaInstanceId :: !Text
 --       -- ^ The ID of the instance.
---     , dibAttribute  :: !ByteString
+--     , dibAttribute  :: !Text
 --       -- ^ The instance attribute.
 --     } deriving (Eq, Show, Generic)
 
@@ -3279,9 +3307,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeInstanceAttribute"
 
 -- data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
---     { dibRequestId                         :: !ByteString
+--     { dibRequestId                         :: !Text
 --       -- ^ The ID of the request.
---     , dibInstanceId                        :: !ByteString
+--     , dibInstanceId                        :: !Text
 --       -- ^ The ID of the instance.
 --     , dicBlockDeviceMapping                :: !InstanceBlockDeviceMappingResponseItemType
 --       -- ^ The block device mapping of the instance.
@@ -3292,198 +3320,205 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Indicates whether the instance is optimized for EBS I/O.
 --     , dicGroupSet                          :: !GroupItemType
 --       -- ^ The security groups associated with the instance.
---     , dicInstanceInitiatedShutdownBehavior :: !ByteString
+--     , dicInstanceInitiatedShutdownBehavior :: !Text
 --       -- ^ Indicates whether an instance stops or terminates when you
 --       -- initiate shutdown from the instance (using the operating system
 --       -- command for system shutdown).
---     , dicInstanceType                      :: !ByteString
+--     , dicInstanceType                      :: !Text
 --       -- ^ The instance type.
---     , dicKernel                            :: !ByteString
+--     , dicKernel                            :: !Text
 --       -- ^ The kernel ID.
 --     , dicProductCodes                      :: !ProductCodesSetItemType
 --       -- ^ A list of product codes.
---     , dicRamdisk                           :: !ByteString
+--     , dicRamdisk                           :: !Text
 --       -- ^ The RAM disk ID.
---     , dicRootDeviceName                    :: !ByteString
+--     , dicRootDeviceName                    :: !Text
 --       -- ^ The name of the root device (for example, /dev/sda1).
 --     , dicSourceDestCheck                   :: !Bool
 --       -- ^ Indicates whether source/destination checking is enabled. A value
 --       -- of true means checking is enabled, and false means checking is
 --       -- disabled. This value must be false for a NAT instance to perform
 --       -- NAT.
---     , dicUserData                          :: !ByteString
+--     , dicUserData                          :: !Text
 --       -- ^ The Base64-encoded MIME user data.
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsXML DescribeInstanceAttributeResponse where
 --     xmlPickler = ec2XML
 
--- -- | Describes one or more of your instances.If you specify one or more instance
--- -- IDs, Amazon EC2 returns information for those instances. If you do not
--- -- specify instance IDs, Amazon EC2 returns information for all relevant
--- -- instances. If you specify an invalid instance ID, an error is returned. If
--- -- you specify an instance that you do not own, it is not included in the
--- -- returned results.Recently terminated instances might appear in the returned
--- -- results. This interval is usually less than one hour.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html>
+-- | Describes one or more of your instances.
+--
+--   * If you specify one or more instance IDs, Amazon EC2 returns information
+--   for those instances.
+--
+--   * If you do not specify instance IDs, Amazon EC2 returns information for all
+--   relevant instances.
+--
+--   * If you specify an invalid instance ID, an error is returned.
+--
+--   * If you specify an instance that you do not own, it is not included in the
+--   returned results.Recently terminated instances might appear in the returned
+--   results. This interval is usually less than one hour.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html>
 
--- -- data InstanceFilter
--- --     , diArchitecture                       :: !ByteString
--- --       -- ^ The instance architecture.
--- --     , diAvailability-zone                  :: !ByteString
--- --       -- ^ The Availability Zone of the instance.
--- --     , diBlock-device-mapping               :: Members block-device-mappingType
--- --       -- ^ The attach time for an Amazon EBS volume mapped to the instance
--- --       -- (for example, 2010-09-15T17:15:20.000Z)
--- --     , diClient-token                       :: !ByteString
--- --       -- ^ The idempotency token you provided when you launched the
--- --       -- instance.
--- --     , diDns-name                           :: !ByteString
--- --       -- ^ The public DNS name of the instance.
--- --     , diGroup-id                           :: !ByteString
--- --       -- ^ The ID of the security group for the instance. If the instance is
--- --       -- in EC2-Classic or a default VPC, you can use group-name instead.
--- --     , diGroup-name                         :: !ByteString
--- --       -- ^ The name of the security group for the instance. If the instance
--- --       -- is in a nondefault VPC, you must use group-id instead.
--- --     , diImage-id                           :: !ByteString
--- --       -- ^ The ID of the image used to launch the instance.
--- --     , diInstance-id                        :: !ByteString
--- --       -- ^ The ID of the instance.
--- --     , diInstance-lifecycle                 :: !ByteString
--- --       -- ^ Indicates whether this is a Spot Instance.
--- --     , diInstance-state-code                :: !Integer
--- --       -- ^ The state of the instance. The high byte is an opaque internal
--- --       -- value and should be ignored. The low byte is set based on the
--- --       -- state represented.
--- --     , diInstance-state-name                :: !ByteString
--- --       -- ^ The state of the instance.
--- --     , diInstance-type                      :: !ByteString
--- --       -- ^ The type of instance (for example, m1.small).
--- --     , diInstance                           :: Members instanceType
--- --       -- ^ The ID of the security group for the instance. If the instance is
--- --       -- in EC2-Classic or a default VPC, you can use instance.group-name
--- --       -- instead.
--- --     , diIp-address                         :: !ByteString
--- --       -- ^ The public IP address of the instance.
--- --     , diKernel-id                          :: !ByteString
--- --       -- ^ The kernel ID.
--- --     , diKey-name                           :: !ByteString
--- --       -- ^ The name of the key pair used when the instance was launched.
--- --     , diLaunch-index                       :: !ByteString
--- --       -- ^ When launching multiple instances, this is the index for the
--- --       -- instance in the launch group (for example, 0, 1, 2, and so on).
--- --     , diLaunch-time                        :: !UTCTime
--- --       -- ^ The time the instance was launched (for example,
--- --       -- 2010-08-07T11:54:42.000Z).
--- --     , diMonitoring-state                   :: !ByteString
--- --       -- ^ Indicates whether monitoring is enabled for the instance.
--- --     , diOwner-id                           :: !ByteString
--- --       -- ^ The AWS account ID of the instance owner.
--- --     , diPlacement-group-name               :: !ByteString
--- --       -- ^ The name of the placement group for the instance.
--- --     , diPlatform                           :: !ByteString
--- --       -- ^ The platform. Use windows if you have Windows based instances;
--- --       -- otherwise, leave blank.
--- --     , diPrivate-dns-name                   :: !ByteString
--- --       -- ^ The private DNS name of the instance.
--- --     , diPrivate-ip-address                 :: !ByteString
--- --       -- ^ The private IP address of the instance.
--- --     , diProduct-code                       :: !ByteString
--- --       -- ^ The product code associated with the AMI used to launch the
--- --       -- instance.
--- --     , diRamdisk-id                         :: !ByteString
--- --       -- ^ The RAM disk ID.
--- --     , diReason                             :: !ByteString
--- --       -- ^ The reason for the current state of the instance (for example,
--- --       -- shows "User Initiated [date]" when you stop or terminate the
--- --       -- instance). Similar to the state-reason-code filter.
--- --     , diRequester-id                       :: !ByteString
--- --       -- ^ The ID of the entity that launched the instance on your behalf
--- --       -- (for example, AWS Management Console, Auto Scaling, and so on)
--- --     , diReservation-id                     :: !ByteString
--- --       -- ^ The ID of the instance's reservation. A reservation ID is created
--- --       -- any time you launch an instance. A reservation ID has a
--- --       -- one-to-one relationship with an instance launch request, but can
--- --       -- be associated with more than one instance if you launch multiple
--- --       -- instances using the same launch request. For example, if you
--- --       -- launch one instance, you'll get one reservation ID. If you launch
--- --       -- ten instances using the same launch request, you'll also get one
--- --       -- reservation ID.
--- --     , diRoot-device-name                   :: !ByteString
--- --       -- ^ The name of the root device for the instance (for example,
--- --       -- /dev/sda1).
--- --     , diRoot-device-type                   :: !ByteString
--- --       -- ^ The type of root device the instance uses.
--- --     , diSource-dest-check                  :: !Bool
--- --       -- ^ Indicates whether the instance performs source/destination
--- --       -- checking. A value of true means that checking is enabled, and
--- --       -- false means checking is disabled. The value must be false for the
--- --       -- instance to perform network address translation (NAT) in your
--- --       -- VPC.
--- --     , diSpot-instance-request-id           :: !ByteString
--- --       -- ^ The ID of the Spot Instance request.
--- --     , diState-reason-code                  :: !ByteString
--- --       -- ^ The reason code for the state change.
--- --     , diState-reason-message               :: !ByteString
--- --       -- ^ A message that describes the state change.
--- --     , diSubnet-id                          :: !ByteString
--- --       -- ^ The ID of the subnet for the instance.
--- --     , diTag-key                            :: !ByteString
--- --       -- ^ The key of a tag assigned to the resource. This filter is
--- --       -- independent of the tag-value filter. For example, if you use both
--- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
--- --       -- get any resources assigned both the tag key Purpose (regardless
--- --       -- of what the tag's value is), and the tag value X (regardless of
--- --       -- what the tag's key is). If you want to list only resources where
--- --       -- Purpose is X, see the tag:key filter.
--- --     , diTag-value                          :: !ByteString
--- --       -- ^ The value of a tag assigned to the resource. This filter is
--- --       -- independent of the tag-key filter.
--- --     , diTag:                               :: !ByteString
--- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , diKey                                :: !ByteString
--- --       -- ^ The virtualization type of the instance.
--- --     , diVirtualization-type                :: !ByteString
--- --       -- ^ The ID of the VPC the instance is running in.
--- --     , diVpc-id                             :: !ByteString
--- --       -- ^ The hypervisor type of the instance.
--- --     , diHypervisor                         :: !ByteString
--- --       -- ^ The description of the network interface.
--- --     , diNetwork-interface                  :: Members network-interfaceType
--- --       -- ^ The ID of the subnet for the network interface.
--- --     , diNetwork-interface-private-dns-name :: !Bool
--- --       -- ^ Whether the network interface performs source/destination
--- --       -- checking. A value of true means checking is enabled, and false
--- --       -- means checking is disabled. The value must be false for the
--- --       -- network interface to perform network address translation (NAT) in
--- --       -- your VPC.
--- --     , diAssociation                        :: Members associationType
--- --       -- ^ The owner of the Elastic IP address associated with the network
--- --       -- interface.
+-- data InstanceFilter
+--     , diArchitecture                       :: !Text
+--       -- ^ The instance architecture.
+--     , diAvailability-zone                  :: !Text
+--       -- ^ The Availability Zone of the instance.
+--     , diBlock-device-mapping               :: Members block-device-mappingType
+--       -- ^ The attach time for an Amazon EBS volume mapped to the instance
+--       -- (for example, 2010-09-15T17:15:20.000Z)
+--     , diClient-token                       :: !Text
+--       -- ^ The idempotency token you provided when you launched the
+--       -- instance.
+--     , diDns-name                           :: !Text
+--       -- ^ The public DNS name of the instance.
+--     , diGroup-id                           :: !Text
+--       -- ^ The ID of the security group for the instance. If the instance is
+--       -- in EC2-Classic or a default VPC, you can use group-name instead.
+--     , diGroup-name                         :: !Text
+--       -- ^ The name of the security group for the instance. If the instance
+--       -- is in a nondefault VPC, you must use group-id instead.
+--     , diImage-id                           :: !Text
+--       -- ^ The ID of the image used to launch the instance.
+--     , diInstance-id                        :: !Text
+--       -- ^ The ID of the instance.
+--     , diInstance-lifecycle                 :: !Text
+--       -- ^ Indicates whether this is a Spot Instance.
+--     , diInstance-state-code                :: !Integer
+--       -- ^ The state of the instance. The high byte is an opaque internal
+--       -- value and should be ignored. The low byte is set based on the
+--       -- state represented.
+--     , diInstance-state-name                :: !Text
+--       -- ^ The state of the instance.
+--     , diInstance-type                      :: !Text
+--       -- ^ The type of instance (for example, m1.small).
+--     , diInstance                           :: Members instanceType
+--       -- ^ The ID of the security group for the instance. If the instance is
+--       -- in EC2-Classic or a default VPC, you can use instance.group-name
+--       -- instead.
+--     , diIp-address                         :: !Text
+--       -- ^ The public IP address of the instance.
+--     , diKernel-id                          :: !Text
+--       -- ^ The kernel ID.
+--     , diKey-name                           :: !Text
+--       -- ^ The name of the key pair used when the instance was launched.
+--     , diLaunch-index                       :: !Text
+--       -- ^ When launching multiple instances, this is the index for the
+--       -- instance in the launch group (for example, 0, 1, 2, and so on).
+--     , diLaunch-time                        :: !UTCTime
+--       -- ^ The time the instance was launched (for example,
+--       -- 2010-08-07T11:54:42.000Z).
+--     , diMonitoring-state                   :: !Text
+--       -- ^ Indicates whether monitoring is enabled for the instance.
+--     , diOwner-id                           :: !Text
+--       -- ^ The AWS account ID of the instance owner.
+--     , diPlacement-group-name               :: !Text
+--       -- ^ The name of the placement group for the instance.
+--     , diPlatform                           :: !Text
+--       -- ^ The platform. Use windows if you have Windows based instances;
+--       -- otherwise, leave blank.
+--     , diPrivate-dns-name                   :: !Text
+--       -- ^ The private DNS name of the instance.
+--     , diPrivate-ip-address                 :: !Text
+--       -- ^ The private IP address of the instance.
+--     , diProduct-code                       :: !Text
+--       -- ^ The product code associated with the AMI used to launch the
+--       -- instance.
+--     , diRamdisk-id                         :: !Text
+--       -- ^ The RAM disk ID.
+--     , diReason                             :: !Text
+--       -- ^ The reason for the current state of the instance (for example,
+--       -- shows "User Initiated [date]" when you stop or terminate the
+--       -- instance). Similar to the state-reason-code filter.
+--     , diRequester-id                       :: !Text
+--       -- ^ The ID of the entity that launched the instance on your behalf
+--       -- (for example, AWS Management Console, Auto Scaling, and so on)
+--     , diReservation-id                     :: !Text
+--       -- ^ The ID of the instance's reservation. A reservation ID is created
+--       -- any time you launch an instance. A reservation ID has a
+--       -- one-to-one relationship with an instance launch request, but can
+--       -- be associated with more than one instance if you launch multiple
+--       -- instances using the same launch request. For example, if you
+--       -- launch one instance, you'll get one reservation ID. If you launch
+--       -- ten instances using the same launch request, you'll also get one
+--       -- reservation ID.
+--     , diRoot-device-name                   :: !Text
+--       -- ^ The name of the root device for the instance (for example,
+--       -- /dev/sda1).
+--     , diRoot-device-type                   :: !Text
+--       -- ^ The type of root device the instance uses.
+--     , diSource-dest-check                  :: !Bool
+--       -- ^ Indicates whether the instance performs source/destination
+--       -- checking. A value of true means that checking is enabled, and
+--       -- false means checking is disabled. The value must be false for the
+--       -- instance to perform network address translation (NAT) in your
+--       -- VPC.
+--     , diSpot-instance-request-id           :: !Text
+--       -- ^ The ID of the Spot Instance request.
+--     , diState-reason-code                  :: !Text
+--       -- ^ The reason code for the state change.
+--     , diState-reason-message               :: !Text
+--       -- ^ A message that describes the state change.
+--     , diSubnet-id                          :: !Text
+--       -- ^ The ID of the subnet for the instance.
+--     , diTag-key                            :: !Text
+--       -- ^ The key of a tag assigned to the resource. This filter is
+--       -- independent of the tag-value filter. For example, if you use both
+--       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
+--       -- get any resources assigned both the tag key Purpose (regardless
+--       -- of what the tag's value is), and the tag value X (regardless of
+--       -- what the tag's key is). If you want to list only resources where
+--       -- Purpose is X, see the tag:key filter.
+--     , diTag-value                          :: !Text
+--       -- ^ The value of a tag assigned to the resource. This filter is
+--       -- independent of the tag-key filter.
+--     , diTag:                               :: !Text
+--       -- ^ Filters the response based on a specific tag/value combination.
+--     , diKey                                :: !Text
+--       -- ^ The virtualization type of the instance.
+--     , diVirtualization-type                :: !Text
+--       -- ^ The ID of the VPC the instance is running in.
+--     , diVpc-id                             :: !Text
+--       -- ^ The hypervisor type of the instance.
+--     , diHypervisor                         :: !Text
+--       -- ^ The description of the network interface.
+--     , diNetwork-interface                  :: Members network-interfaceType
+--       -- ^ The ID of the subnet for the network interface.
+--     , diNetwork-interface-private-dns-name :: !Bool
+--       -- ^ Whether the network interface performs source/destination
+--       -- checking. A value of true means checking is enabled, and false
+--       -- means checking is disabled. The value must be false for the
+--       -- network interface to perform network address translation (NAT) in
+--       -- your VPC.
+--     , diAssociation                        :: Members associationType
+--       -- ^ The owner of the Elastic IP address associated with the network
+--       -- interface.
 
--- data DescribeInstances = DescribeInstances
---     { diInstanceId :: Members ByteString
---       -- ^ One or more instance IDs.
---     , diFilter     :: Members ByteString
---       -- ^ The name of a filter.
---     } deriving (Eq, Show, Generic)
+data DescribeInstances = DescribeInstances
+    { diInstanceId :: [Text]
+      -- ^ One or more instance IDs.
+    , diFilter     :: [Filter]
+      -- ^ The name of a filter.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DescribeInstances
+instance IsQuery DescribeInstances
 
--- instance AWSRequest EC2 DescribeInstances DescribeInstancesResponse where
---     request = req GET "DescribeInstances"
+instance Rq DescribeInstances where
+    type Rs DescribeInstances = Either EC2ErrorResponse DescribeInstancesResponse
+    request = qry GET "DescribeInstances"
 
--- data DescribeInstancesResponse = DescribeInstancesResponse
---     { dkRequestId      :: !ByteString
---       -- ^ The ID of the request.
---     , dkReservationSet :: !ReservationInfoType
---       -- ^ A list of reservations, each one wrapped in an item element.
---     } deriving (Eq, Show, Generic)
+data DescribeInstancesResponse = DescribeInstancesResponse
+    { dkRequestId      :: !Text
+      -- ^ The ID of the request.
+    , dkReservationSet :: Items ReservationInfoType
+      -- ^ A list of reservations, each one wrapped in an item element.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeInstancesResponse where
---     xmlPickler = ec2XML
+instance IsXML DescribeInstancesResponse where
+    xmlPickler = ec2XML
 
 -- -- | Describes the status of one or more instances, including any scheduled
 -- -- events.Instance status has two main components: Instance status provides
@@ -3499,11 +3534,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html>
 
 -- -- data InstanceStatusFilter
--- --     , disAvailability-zone   :: !ByteString
+-- --     , disAvailability-zone   :: !Text
 -- --       -- ^ The Availability Zone of the instance.
 -- --     , disEvent               :: Members eventType
 -- --       -- ^ The code identifying the type of event.
--- --     , disInstance-state-name :: !ByteString
+-- --     , disInstance-state-name :: !Text
 -- --       -- ^ The state of the instance.
 -- --     , disInstance-state-code :: !Integer
 -- --       -- ^ A code representing the state of the instance. The high byte is
@@ -3515,16 +3550,16 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- ^ The status of the instance.
 
 -- data DescribeInstanceStatus = DescribeInstanceStatus
---     { disInstanceId          :: Maybe ByteString
+--     { disInstanceId          :: Maybe Text
 --       -- ^ One or more instance IDs.
 --     , disIncludeAllInstances :: Maybe Bool
 --       -- ^ When true, includes the health status for all instances. When
 --       -- false, includes the health status for running instances only.
 --     , disMaxResults          :: Maybe Integer
 --       -- ^ The maximum number of paginated instance items per response.
---     , disNextToken           :: Maybe ByteString
+--     , disNextToken           :: Maybe Text
 --       -- ^ The next paginated set of results to return.
---     , disFilter              :: Members ByteString
+--     , disFilter              :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3534,12 +3569,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeInstanceStatus"
 
 -- data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
---     { disRequestId         :: !ByteString
+--     { disRequestId         :: !Text
 --       -- ^ The ID of the request.
 --     , disInstanceStatusSet :: !InstanceStatusItemType
 --       -- ^ A list of instances status descriptions, each one wrapped in an
 --       -- item element.
---     , ditNextToken         :: !ByteString
+--     , ditNextToken         :: !Text
 --       -- ^ The next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
@@ -3554,9 +3589,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --     , dihAttachment          :: Members attachmentType
 -- --       -- ^ The current state of the attachment between the gateway and the
 -- --       -- VPC. Returned only if a VPC is attached.
--- --     , dihInternet-gateway-id :: !ByteString
+-- --     , dihInternet-gateway-id :: !Text
 -- --       -- ^ The ID of the Internet gateway.
--- --     , dihTag-key             :: !ByteString
+-- --     , dihTag-key             :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -3564,18 +3599,18 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , dihTag-value           :: !ByteString
+-- --     , dihTag-value           :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , dihTag:                :: !ByteString
+-- --     , dihTag:                :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , dihKey                 :: !ByteString
--- --       -- ^ 
+-- --     , dihKey                 :: !Text
+-- --       -- ^
 
 -- data DescribeInternetGateways = DescribeInternetGateways
---     { dihInternetGatewayId   :: Members ByteString
+--     { dihInternetGatewayId   :: Members Text
 --       -- ^ One or more Internet gateway IDs.
---     , dihFilter              :: Members ByteString
+--     , dihFilter              :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3585,7 +3620,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeInternetGateways"
 
 -- data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
---     { dihRequestId          :: !ByteString
+--     { dihRequestId          :: !Text
 --       -- ^ The ID of the request.
 --     , dihInternetGatewaySet :: !InternetGatewayType
 --       -- ^ A list of Internet gateways, each one wrapped in an item element.
@@ -3599,15 +3634,15 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html>
 
 -- -- data KeyPairFilter
--- --     , dkqFingerprint :: !ByteString
+-- --     , dkqFingerprint :: !Text
 -- --       -- ^ The fingerprint of the key pair.
--- --     , dkqKey-name    :: !ByteString
+-- --     , dkqKey-name    :: !Text
 -- --       -- ^ The name of the key pair.
 
 -- data DescribeKeyPairs = DescribeKeyPairs
---     { dkqKeyName :: Members ByteString
+--     { dkqKeyName :: Members Text
 --       -- ^ One or more key pair names.
---     , dkqFilter  :: Members ByteString
+--     , dkqFilter  :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3617,7 +3652,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeKeyPairs"
 
 -- data DescribeKeyPairsResponse = DescribeKeyPairsResponse
---     { dkqRequestId :: !ByteString
+--     { dkqRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dkqKeySet    :: !DescribeKeyPairsResponseItemType
 --       -- ^ A list of key pairs, each one wrapped in an item element.
@@ -3639,9 +3674,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- ^ Indicates whether the ACL is the default network ACL for the VPC.
 -- --     , dnbEntry          :: Members entryType
 -- --       -- ^ The CIDR range specified in the entry.
--- --     , dnbNetwork-acl-id :: !ByteString
+-- --     , dnbNetwork-acl-id :: !Text
 -- --       -- ^ The ID of the network ACL.
--- --     , dnbTag-key        :: !ByteString
+-- --     , dnbTag-key        :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -3649,20 +3684,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , dnbTag-value      :: !ByteString
+-- --     , dnbTag-value      :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , dnbTag:           :: !ByteString
+-- --     , dnbTag:           :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , dnbKey            :: !ByteString
+-- --     , dnbKey            :: !Text
 -- --       -- ^ The ID of the VPC for the network ACL.
--- --     , dnbVpc-id         :: !ByteString
--- --       -- ^ 
+-- --     , dnbVpc-id         :: !Text
+-- --       -- ^
 
 -- data DescribeNetworkAcls = DescribeNetworkAcls
---     { dnbNetworkAclId   :: Members ByteString
+--     { dnbNetworkAclId   :: Members Text
 --       -- ^ One or more network ACL IDs.
---     , dnbFilter         :: Members ByteString
+--     , dnbFilter         :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3672,7 +3707,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeNetworkAcls"
 
 -- data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
---     { dnbRequestId     :: !ByteString
+--     { dnbRequestId     :: !Text
 --       -- ^ The ID of the request.
 --     , dnbNetworkAclSet :: !NetworkAclType
 --       -- ^ A list of network ACLs, each one wrapped in an item element.
@@ -3687,9 +3722,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaceAttribute.html>
 
 -- data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
---     { dniaNetworkInterfaceId :: !ByteString
+--     { dniaNetworkInterfaceId :: !Text
 --       -- ^ The ID of the network interface.
---     , dniaAttribute          :: !ByteString
+--     , dniaAttribute          :: !Text
 --       -- ^ The attribute of the network interface.
 --     } deriving (Eq, Show, Generic)
 
@@ -3702,11 +3737,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeNetworkInterfaceAttribute"
 
 -- data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
---     { dniaRequestId          :: !ByteString
+--     { dniaRequestId          :: !Text
 --       -- ^ The ID of the request.
---     , dnibNetworkInterfaceId :: !ByteString
+--     , dnibNetworkInterfaceId :: !Text
 --       -- ^ The ID of the network interface.
---     , dnibDescription        :: !ByteString
+--     , dnibDescription        :: !Text
 --       -- ^ The description of the network interface.
 --     , dnibSourceDestCheck    :: !Bool
 --       -- ^ Indicates whether source/destination checking is enabled.
@@ -3731,26 +3766,26 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     --   -- associated with an IP address.
 --     -- , dnjAttachment           :: Members attachmentType
 --     --   -- ^ The ID of the interface attachment.
---     -- , dnjAvailability-zone    :: !ByteString
+--     -- , dnjAvailability-zone    :: !Text
 --     --   -- ^ The Availability Zone of the network interface.
---     -- , dnjDescription          :: !ByteString
+--     -- , dnjDescription          :: !Text
 --     --   -- ^ The description of the network interface.
---     -- , dnjGroup-id             :: !ByteString
+--     -- , dnjGroup-id             :: !Text
 --     --   -- ^ The ID of a security group associated with the network interface.
---     -- , dnjGroup-name           :: !ByteString
+--     -- , dnjGroup-name           :: !Text
 --     --   -- ^ The name of a security group associated with the network
 --     --   -- interface.
---     -- , dnjMac-address          :: !ByteString
+--     -- , dnjMac-address          :: !Text
 --     --   -- ^ The MAC address of the network interface.
---     -- , dnjNetwork-interface-id :: !ByteString
+--     -- , dnjNetwork-interface-id :: !Text
 --     --   -- ^ The ID of the network interface.
---     -- , dnjOwner-id             :: !ByteString
+--     -- , dnjOwner-id             :: !Text
 --     --   -- ^ The AWS account ID of the network interface owner.
---     -- , dnjPrivate-ip-address   :: !ByteString
+--     -- , dnjPrivate-ip-address   :: !Text
 --     --   -- ^ The private IP address or addresses of the network interface.
---     -- , dnjPrivate-dns-name     :: !ByteString
+--     -- , dnjPrivate-dns-name     :: !Text
 --     --   -- ^ The private DNS name of the network interface.
---     -- , dnjRequester-id         :: !ByteString
+--     -- , dnjRequester-id         :: !Text
 --     --   -- ^ The ID of the entity that launched the instance on your behalf
 --     --   -- (for example, AWS Management Console, Auto Scaling, and so on).
 --     -- , dnjRequester-managed    :: !Bool
@@ -3763,14 +3798,14 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     --   -- enabled, and false means checking is disabled. The value must be
 --     --   -- false for the network interface to perform Network Address
 --     --   -- Translation (NAT) in your VPC.
---     -- , dnjStatus               :: !ByteString
+--     -- , dnjStatus               :: !Text
 --     --   -- ^ The status of the network interface. If the network interface is
 --     --   -- not attached to an instance, the status shows available; if a
 --     --   -- network interface is attached to an instance the status shows
 --     --   -- in-use.
---     -- , dnjSubnet-id            :: !ByteString
+--     -- , dnjSubnet-id            :: !Text
 --     --   -- ^ The ID of the subnet for the network interface.
---     -- , dnjTag-key              :: !ByteString
+--     -- , dnjTag-key              :: !Text
 --     --   -- ^ The key of a tag assigned to the resource. This filter is
 --     --   -- independent of the tag-value filter. For example, if you use both
 --     --   -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -3778,20 +3813,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     --   -- of what the tag's value is), and the tag value X (regardless of
 --     --   -- what the tag's key is). If you want to list only resources where
 --     --   -- Purpose is X, see the tag:key filter.
---     -- , dnjTag-value            :: !ByteString
+--     -- , dnjTag-value            :: !Text
 --     --   -- ^ The value of a tag assigned to the resource. This filter is
 --     --   -- independent of the tag-key filter.
---     -- , dnjTag:                 :: !ByteString
+--     -- , dnjTag:                 :: !Text
 --     --   -- ^ Filters the response based on a specific tag/value combination.
---     -- , dnjKey                  :: !ByteString
+--     -- , dnjKey                  :: !Text
 --     --   -- ^ The ID of the VPC for the network interface.
---     -- , dnjVpc-id               :: !ByteString
---     --   -- ^ 
+--     -- , dnjVpc-id               :: !Text
+--     --   -- ^
 
 -- data DescribeNetworkInterfaces = DescribeNetworkInterfaces
---     { dnjNetworkInterfaceId   :: Members ByteString
+--     { dnjNetworkInterfaceId   :: Members Text
 --       -- ^ One or more network interface IDs.
---     , dnjFilter               :: Members ByteString
+--     , dnjFilter               :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3801,7 +3836,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeNetworkInterfaces"
 
 -- data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
---     { dnjRequestId           :: !ByteString
+--     { dnjRequestId           :: !Text
 --       -- ^ The ID of the request.
 --     , dnjNetworkInterfaceSet :: !NetworkInterfaceType
 --       -- ^ Information about the network interfaces, each one wrapped in an
@@ -3818,18 +3853,18 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html>
 
 -- -- data PlacementGroupFilter
--- --     , dphGroup-name :: !ByteString
+-- --     , dphGroup-name :: !Text
 -- --       -- ^ The name of the placement group.
--- --     , dphState      :: !ByteString
+-- --     , dphState      :: !Text
 -- --       -- ^ The state of the placement group.
--- --     , dphStrategy   :: !ByteString
+-- --     , dphStrategy   :: !Text
 -- --       -- ^ The strategy of the placement group.
 
 
 -- data DescribePlacementGroups = DescribePlacementGroups
---     { dphGroupName  :: Members ByteString
+--     { dphGroupName  :: Members Text
 --       -- ^ One or more placement group names.
---     , dphFilter     :: Members ByteString
+--     , dphFilter     :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3839,7 +3874,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribePlacementGroups"
 
 -- data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
---     { dphRequestId         :: !ByteString
+--     { dphRequestId         :: !Text
 --       -- ^ The ID of the request.
 --     , dphPlacementGroupSet :: !PlacementGroupInfoType
 --       -- ^ A list of placement groups, each one wrapped in an item element.
@@ -3854,16 +3889,16 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html>
 
 -- -- data RegionFilter
--- --     , drEndpoint    :: !ByteString
+-- --     , drEndpoint    :: !Text
 -- --       -- ^ The endpoint of the region (for example,
 -- --       -- ec2.us-east-1.amazonaws.com).
--- --     , drRegion-name :: !ByteString
+-- --     , drRegion-name :: !Text
 -- --       -- ^ The name of the region.
 
 -- data DescribeRegions = DescribeRegions
---     { drRegionName  :: Members ByteString
+--     { drRegionName  :: Members Text
 --       -- ^ One or more region names.
---     , drFilter      :: Members ByteString
+--     , drFilter      :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3873,7 +3908,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeRegions"
 
 -- data DescribeRegionsResponse = DescribeRegionsResponse
---     { dxRequestId  :: !ByteString
+--     { dxRequestId  :: !Text
 --       -- ^ The ID of the request.
 --     , dxRegionInfo :: !RegionItemType
 --       -- ^ A list of regions, each one wrapped in an item element.
@@ -3887,25 +3922,25 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstances.html>
 
 -- -- data ReservedInstanceFilter
--- --     , driAvailability-zone     :: !ByteString
+-- --     , driAvailability-zone     :: !Text
 -- --       -- ^ The Availability Zone where the Reserved Instance can be used.
 -- --     , driDuration              :: !Integer
 -- --       -- ^ The duration of the Reserved Instance (one year or three years),
 -- --       -- in seconds.
 -- --     , driFixed-price           :: !Double
 -- --       -- ^ The purchase price of the Reserved Instance (for example, 9800.0)
--- --     , driInstance-type         :: !ByteString
+-- --     , driInstance-type         :: !Text
 -- --       -- ^ The instance type on which the Reserved Instance can be used.
--- --     , driProduct-description   :: !ByteString
+-- --     , driProduct-description   :: !Text
 -- --       -- ^ The product description of the Reserved Instance.
--- --     , driReserved-instances-id :: !ByteString
+-- --     , driReserved-instances-id :: !Text
 -- --       -- ^ The ID of the Reserved Instance.
 -- --     , driStart                 :: !UTCTime
 -- --       -- ^ The time at which the Reserved Instance purchase request was
 -- --       -- placed (for example, 2010-08-07T11:54:42.000Z).
--- --     , driState                 :: !ByteString
+-- --     , driState                 :: !Text
 -- --       -- ^ The state of the Reserved Instance.
--- --     , driTag-key               :: !ByteString
+-- --     , driTag-key               :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -3913,23 +3948,23 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , driTag-value             :: !ByteString
+-- --     , driTag-value             :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , driTag:                  :: !ByteString
+-- --     , driTag:                  :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
 -- --     , driKey                   :: !Double
 -- --       -- ^ The usage price of the Reserved Instance, per hour (for example,
 -- --       -- 0.84)
--- --     , driUsage-price           :: !ByteString
--- --       -- ^ 
+-- --     , driUsage-price           :: !Text
+-- --       -- ^
 
 -- data DescribeReservedInstances = DescribeReservedInstances
---     { driReservedInstancesId   :: Members ByteString
+--     { driReservedInstancesId   :: Members Text
 --       -- ^ One or more Reserved Instance IDs.
---     , driOfferingType          :: Maybe ByteString
+--     , driOfferingType          :: Maybe Text
 --       -- ^ The Reserved Instance offering type.
---     , driFilter                :: Members ByteString
+--     , driFilter                :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3939,7 +3974,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeReservedInstances"
 
 -- data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
---     { driRequestId            :: !ByteString
+--     { driRequestId            :: !Text
 --       -- ^ The ID of the request.
 --     , driReservedInstancesSet :: !DescribeReservedInstancesResponseSetItemType
 --       -- ^ A list of Reserved Instances, each one wrapped in an item
@@ -3956,13 +3991,13 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesListings.html>
 
 -- -- data ReservedInstanceFilter
--- --     , drilStatus                        :: !ByteString
+-- --     , drilStatus                        :: !Text
 -- --       -- ^ Status of the Reserved Instance listing.
--- --     , drilStatus-message                :: !ByteString
+-- --     , drilStatus-message                :: !Text
 -- --       -- ^ Reason for the status.
--- --     , drilReserved-instances-listing-id :: !ByteString
+-- --     , drilReserved-instances-listing-id :: !Text
 -- --       -- ^ The ID of the Reserved Instances listing.
--- --     , drilReserved-instances-id         :: !ByteString
+-- --     , drilReserved-instances-id         :: !Text
 -- --       -- ^ The ID of the Reserved Instances.
 
 -- data DescribeReservedInstancesListings = DescribeReservedInstancesListings
@@ -3972,7 +4007,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     , drilReservedInstancesId        :: Members DescribeReservedInstancesSetItemType
 --       -- ^ The set of Reserved Instances IDs which are used to see
 --       -- associated listings.
---     , drilFilter                     :: Members ByteString
+--     , drilFilter                     :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -3982,7 +4017,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeReservedInstancesListings"
 
 -- data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
---     { drilRequestId                    :: !ByteString
+--     { drilRequestId                    :: !Text
 --       -- ^ The ID of the request.
 --     , drilReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetItemType
 --       -- ^ The Reserved Instance listing information wrapped in an item
@@ -3997,11 +4032,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html>
 
 -- data ReservedInstancesOfferingFilter
---     -- , drioInstanceTenancy                :: Maybe ByteString
+--     -- , drioInstanceTenancy                :: Maybe Text
 --     --   -- ^ The tenancy of the Reserved Instance offering. A Reserved
 --     --   -- Instance with tenancy of dedicated will run on single-tenant
 --     --   -- hardware and can only be launched within a VPC.
---     -- , drioOfferingType                   :: Maybe ByteString
+--     -- , drioOfferingType                   :: Maybe Text
 --     --   -- ^ The Reserved Instance offering type.
 --     -- , drioIncludeMarketplace             :: Maybe Bool
 --     --   -- ^ Include Marketplace offerings in the response.
@@ -4014,44 +4049,44 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     -- , drioMaxInstanceCount               :: Maybe Integer
 --     --   -- ^ Maximum number of instances to filter when searching for
 --     --   -- offerings.
---     -- , drioNextToken                      :: Maybe ByteString
+--     -- , drioNextToken                      :: Maybe Text
 --     --   -- ^ Token to use when requesting the next paginated set of offerings.
 --     -- , drioMaxResults                     :: Maybe Integer
 --     --   -- ^ Maximum number of offerings to return.
---     -- , drioAvailability-zone              :: !ByteString
+--     -- , drioAvailability-zone              :: !Text
 --     --   -- ^ The Availability Zone where the Reserved Instance can be used.
 --     -- , drioDuration                       :: !Integer
 --     --   -- ^ The duration of the Reserved Instance (for example, one year or
 --     --   -- three years), in seconds.
 --     -- , drioFixed-price                    :: !Double
 --     --   -- ^ The purchase price of the Reserved Instance (for example, 9800.0)
---     -- , drioInstance-type                  :: !ByteString
+--     -- , drioInstance-type                  :: !Text
 --     --   -- ^ The Amazon EC2 instance type on which the Reserved Instance can
 --     --   -- be used.
 --     -- , drioMarketplace                    :: !Bool
 --     --   -- ^ Set to true to show only Reserved Instance Marketplace offerings.
 --     --   -- When this filter is not used, which is the default behavior, all
 --     --   -- offerings from AWS and Reserved Instance Marketplace are listed.
---     -- , drioProduct-description            :: !ByteString
+--     -- , drioProduct-description            :: !Text
 --     --   -- ^ The description of the Reserved Instance.
---     -- , drioReserved-instances-offering-id :: !ByteString
+--     -- , drioReserved-instances-offering-id :: !Text
 --     --   -- ^ The Reserved Instances offering ID.
 --     -- , drioUsage-price                    :: !Double
 --     --   -- ^ The usage price of the Reserved Instance, per hour (for example,
 --     --   -- 0.84)
 
 -- data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
---     { drioReservedInstancesOfferingId    :: Members ByteString
+--     { drioReservedInstancesOfferingId    :: Members Text
 --       -- ^ One or more Reserved Instances offering IDs.
---     , drioInstanceType                   :: Maybe ByteString
+--     , drioInstanceType                   :: Maybe Text
 --       -- ^ The Amazon EC2 instance type on which the Reserved Instance can
 --       -- be used. See Available Instance Types for more information.
---     , drioAvailabilityZone               :: Maybe ByteString
+--     , drioAvailabilityZone               :: Maybe Text
 --       -- ^ The Availability Zone in which the Reserved Instance can be used.
---     , drioProductDescription             :: Maybe ByteString
+--     , drioProductDescription             :: Maybe Text
 --       -- ^ The Reserved Instance description. Instances that include (Amazon
 --       -- VPC) in the description are for use with Amazon VPC.
---     , drioFilter                         :: Members ByteString
+--     , drioFilter                         :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4061,12 +4096,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeReservedInstancesOfferings"
 
 -- data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
---     { drioRequestId                     :: !ByteString
+--     { drioRequestId                     :: !Text
 --       -- ^ The ID of the request.
 --     , drioReservedInstancesOfferingsSet :: !DescribeReservedInstancesOfferingsResponseSetItemType
 --       -- ^ A list of Reserved Instances offerings. Each offering's
 --       -- information is wrapped in an item element.
---     , dripNextToken                     :: !ByteString
+--     , dripNextToken                     :: !Text
 --       -- ^ The next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
@@ -4081,11 +4116,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- data RouteTableFilter
 -- --     , druAssociation    :: Members associationType
 -- --       -- ^ The ID of an association ID for the route table.
--- --     , druRoute-table-id :: !ByteString
+-- --     , druRoute-table-id :: !Text
 -- --       -- ^ The ID of the route table.
 -- --     , druRoute          :: Members routeType
 -- --       -- ^ The CIDR range specified in a route in the table.
--- --     , druTag-key        :: !ByteString
+-- --     , druTag-key        :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -4093,20 +4128,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , druTag-value      :: !ByteString
+-- --     , druTag-value      :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , druTag:           :: !ByteString
+-- --     , druTag:           :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , druKey            :: !ByteString
+-- --     , druKey            :: !Text
 -- --       -- ^ The ID of the VPC for the route table.
--- --     , druVpc-id         :: !ByteString
--- --       -- ^ 
+-- --     , druVpc-id         :: !Text
+-- --       -- ^
 
 -- data DescribeRouteTables = DescribeRouteTables
---     { druRouteTableId :: Members ByteString
+--     { druRouteTableId :: Members Text
 --       -- ^ One or more route table IDs.
---     , druFilter       :: Members ByteString
+--     , druFilter       :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4116,7 +4151,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeRouteTables"
 
 -- data DescribeRouteTablesResponse = DescribeRouteTablesResponse
---     { druRequestId     :: !ByteString
+--     { druRequestId     :: !Text
 --       -- ^ The ID of the request.
 --     , druRouteTableSet :: !RouteTableType
 --       -- ^ A list of route tables, each one wrapped in an item element.
@@ -4131,30 +4166,30 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html>
 
 -- -- data SecurityGroupFilter
--- --     , dshDescription   :: !ByteString
+-- --     , dshDescription   :: !Text
 -- --       -- ^ The description of the security group.
--- --     , dshGroup-id      :: !ByteString
+-- --     , dshGroup-id      :: !Text
 -- --       -- ^ The ID of the security group.
--- --     , dshGroup-name    :: !ByteString
+-- --     , dshGroup-name    :: !Text
 -- --       -- ^ The name of the security group.
 -- --     , dshIp-permission :: Members ip-permissionType
 -- --       -- ^ The CIDR range that has been granted the permission.
--- --     , dshOwner-id      :: !ByteString
+-- --     , dshOwner-id      :: !Text
 -- --       -- ^ The AWS account ID of the owner of the security group.
--- --     , dshTag-key       :: !ByteString
+-- --     , dshTag-key       :: !Text
 -- --       -- ^ The key of a tag assigned to the security group.
--- --     , dshTag-value     :: !ByteString
+-- --     , dshTag-value     :: !Text
 -- --       -- ^ The value of a tag assigned to the security group.
--- --     , dshVpc-id        :: !ByteString
+-- --     , dshVpc-id        :: !Text
 -- --       -- ^ Only return the security groups that belong to the specified
 -- --       -- EC2-VPC ID.
 
 -- data DescribeSecurityGroups = DescribeSecurityGroups
---     { dshGroupName     :: Members ByteString
+--     { dshGroupName     :: Members Text
 --       -- ^ One or more security group names.
---     , dshGroupId       :: Members ByteString
+--     , dshGroupId       :: Members Text
 --       -- ^ One or more security group IDs.
---     , dshFilter        :: Members ByteString
+--     , dshFilter        :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4164,7 +4199,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeSecurityGroups"
 
 -- data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
---     { dshRequestId         :: !ByteString
+--     { dshRequestId         :: !Text
 --       -- ^ The ID of the request.
 --     , dshSecurityGroupInfo :: !SecurityGroupItemType
 --       -- ^ A list of security groups, each one wrapped in an item element.
@@ -4179,9 +4214,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshotAttribute.html>
 
 -- data DescribeSnapshotAttribute = DescribeSnapshotAttribute
---     { dsaSnapshotId :: !ByteString
+--     { dsaSnapshotId :: !Text
 --       -- ^ The ID of the Amazon EBS snapshot.
---     , dsaAttribute  :: !ByteString
+--     , dsaAttribute  :: !Text
 --       -- ^ The snapshot attribute.
 --     } deriving (Eq, Show, Generic)
 
@@ -4194,9 +4229,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeSnapshotAttribute"
 
 -- data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
---     { dsaRequestId              :: !ByteString
+--     { dsaRequestId              :: !Text
 --       -- ^ The ID of the request.
---     , dsbSnapshotId             :: !ByteString
+--     , dsbSnapshotId             :: !Text
 --       -- ^ The ID of the Amazon EBS snapshot.
 --     , dsbCreateVolumePermission :: !CreateVolumePermissionItemType
 --       -- ^ A list of permissions for creating volumes from the snapshot.
@@ -4218,20 +4253,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>
 
 -- -- data SnapshotFilter
--- --     , dtOwner-alias  :: !ByteString
+-- --     , dtOwner-alias  :: !Text
 -- --       -- ^ The AWS account alias (for example, amazon) that owns the
 -- --       -- snapshot.
--- --     , dtOwner-id     :: !ByteString
+-- --     , dtOwner-id     :: !Text
 -- --       -- ^ The ID of the AWS account that owns the snapshot.
--- --     , dtProgress     :: !ByteString
+-- --     , dtProgress     :: !Text
 -- --       -- ^ The progress of the snapshot, as a percentage (for example, 80%).
--- --     , dtSnapshot-id  :: !ByteString
+-- --     , dtSnapshot-id  :: !Text
 -- --       -- ^ The snapshot ID.
 -- --     , dtStart-time   :: !UTCTime
 -- --       -- ^ The time stamp when the snapshot was initiated.
--- --     , dtStatus       :: !ByteString
+-- --     , dtStatus       :: !Text
 -- --       -- ^ The status of the snapshot.
--- --     , dtTag-key      :: !ByteString
+-- --     , dtTag-key      :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -4239,31 +4274,31 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , dtTag-value    :: !ByteString
+-- --     , dtTag-value    :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , dtTag:         :: !ByteString
+-- --     , dtTag:         :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , dtKey          :: !ByteString
+-- --     , dtKey          :: !Text
 -- --       -- ^ The ID of the volume the snapshot is for.
--- --     , dtVolume-id    :: !ByteString
+-- --     , dtVolume-id    :: !Text
 -- --       -- ^ The size of the volume, in GiB (for example, 20).
--- --     , dtVolume-size  :: !ByteString
--- --       -- ^ 
+-- --     , dtVolume-size  :: !Text
+-- --       -- ^
 
 
 -- data DescribeSnapshots = DescribeSnapshots
---     { dtSnapshotId   :: Members ByteString
+--     { dtSnapshotId   :: Members Text
 --       -- ^ One or more snapshot IDs.
---     , dtOwner        :: Members ByteString
+--     , dtOwner        :: Members Text
 --       -- ^ Returns the snapshots owned by the specified owner. Multiple
 --       -- owners can be specified.
---     , dtRestorableBy :: Members ByteString
+--     , dtRestorableBy :: Members Text
 --       -- ^ One or more AWS accounts IDs that can create volumes from the
 --       -- snapshot.
---     , dtFilter       :: Members ByteString
+--     , dtFilter       :: Members Text
 --       -- ^ The name of a filter.
---     , dtDescription  :: !ByteString
+--     , dtDescription  :: !Text
 --       -- ^ A description of the snapshot.
 --     } deriving (Eq, Show, Generic)
 
@@ -4273,7 +4308,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeSnapshots"
 
 -- data DescribeSnapshotsResponse = DescribeSnapshotsResponse
---     { dyRequestId   :: !ByteString
+--     { dyRequestId   :: !Text
 --       -- ^ The ID of the request.
 --     , dySnapshotSet :: !DescribeSnapshotsSetItemResponseType
 --       -- ^ A list of snapshots. Each snapshot is wrapped in an item element.
@@ -4300,7 +4335,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeSpotDatafeedSubscription"
 
 -- data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
---     { dsdtRequestId                :: !ByteString
+--     { dsdtRequestId                :: !Text
 --       -- ^ The ID of the request.
 --     , dsdtSpotDatafeedSubscription :: !SpotDatafeedSubscriptionType
 --       -- ^ The Spot Instance datafeed subscription.
@@ -4318,41 +4353,41 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotInstanceRequests.html>
 
 -- -- data SpotInstanceFilter
--- --     , dsirAvailability-zone-group    :: !ByteString
+-- --     , dsirAvailability-zone-group    :: !Text
 -- --       -- ^ The Availability Zone group. If you specify the same Availability
 -- --       -- Zone group for all Spot Instance requests, all Spot Instances are
 -- --       -- launched in the same Availability Zone.
--- --     , dsirCreate-time                :: !ByteString
+-- --     , dsirCreate-time                :: !Text
 -- --       -- ^ The time stamp when the Spot Instance request was created.
--- --     , dsirFault-code                 :: !ByteString
+-- --     , dsirFault-code                 :: !Text
 -- --       -- ^ The fault code related to the request.
--- --     , dsirFault-message              :: !ByteString
+-- --     , dsirFault-message              :: !Text
 -- --       -- ^ The fault message related to the request.
--- --     , dsirInstance-id                :: !ByteString
+-- --     , dsirInstance-id                :: !Text
 -- --       -- ^ The ID of the instance that fulfilled the request.
--- --     , dsirLaunch-group               :: !ByteString
+-- --     , dsirLaunch-group               :: !Text
 -- --       -- ^ The Spot Instance launch group. Launch groups are Spot Instances
 -- --       -- that launch together and terminate together.
 -- --     , dsirLaunch                     :: Members launchType
 -- --       -- ^ Whether the Amazon EBS volume is deleted on instance termination.
--- --     , dsirProduct-description        :: !ByteString
+-- --     , dsirProduct-description        :: !Text
 -- --       -- ^ The product description associated with the instance.
--- --     , dsirSpot-instance-request-id   :: !ByteString
+-- --     , dsirSpot-instance-request-id   :: !Text
 -- --       -- ^ The Spot Instance request ID.
--- --     , dsirSpot-price                 :: !ByteString
+-- --     , dsirSpot-price                 :: !Text
 -- --       -- ^ The maximum hourly price for any Spot Instance launched to
 -- --       -- fulfill the request.
--- --     , dsirState                      :: !ByteString
+-- --     , dsirState                      :: !Text
 -- --       -- ^ The state of the Spot Instance request. Spot bid status
 -- --       -- information can help you track your Amazon EC2 Spot Instance
 -- --       -- requests. For information, see Tracking Spot Requests with Bid
 -- --       -- Status Codes in the Amazon Elastic Compute Cloud User Guide.
--- --     , dsirStatus-code                :: !ByteString
+-- --     , dsirStatus-code                :: !Text
 -- --       -- ^ The short code describing the most recent evaluation of your Spot
 -- --       -- Instance request.
--- --     , dsirStatus-message             :: !ByteString
+-- --     , dsirStatus-message             :: !Text
 -- --       -- ^ The message explaining the status of the Spot Instance request.
--- --     , dsirTag-key                    :: !ByteString
+-- --     , dsirTag-key                    :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -4360,26 +4395,26 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , dsirTag-value                  :: !ByteString
+-- --     , dsirTag-value                  :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , dsirTag:                       :: !ByteString
+-- --     , dsirTag:                       :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , dsirKey                        :: !ByteString
+-- --     , dsirKey                        :: !Text
 -- --       -- ^ The type of Spot Instance request.
--- --     , dsirType                       :: !ByteString
+-- --     , dsirType                       :: !Text
 -- --       -- ^ The Availability Zone in which the bid is launched.
 -- --     , dsirLaunched-availability-zone :: !UTCTime
 -- --       -- ^ The start date of the request.
 -- --     , dsirValid-from                 :: !UTCTime
 -- --       -- ^ The end date of the request.
--- --     , dsirValid-until                :: !ByteString
--- --       -- ^ 
+-- --     , dsirValid-until                :: !Text
+-- --       -- ^
 
 -- data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
---     { dsirSpotInstanceRequestId      :: Members ByteString
+--     { dsirSpotInstanceRequestId      :: Members Text
 --       -- ^ One or more Spot Instance request IDs.
---     , dsirFilter                     :: Members ByteString
+--     , dsirFilter                     :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4389,7 +4424,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeSpotInstanceRequests"
 
 -- data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
---     { dsirRequestId              :: !ByteString
+--     { dsirRequestId              :: !Text
 --       -- ^ The ID of the request.
 --     , dsirSpotInstanceRequestSet :: !SpotInstanceRequestSetItemType
 --       -- ^ A list of Spot Instance requests. Each request is wrapped in an
@@ -4406,14 +4441,14 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html>
 
 -- -- data SpotPriceFilter
--- --     , dsphInstance-type       :: !ByteString
+-- --     , dsphInstance-type       :: !Text
 -- --       -- ^ The type of instance (for example, m1.small).
--- --     , dsphProduct-description :: !ByteString
+-- --     , dsphProduct-description :: !Text
 -- --       -- ^ The product description for the Spot Price.
--- --     , dsphSpot-price          :: !ByteString
+-- --     , dsphSpot-price          :: !Text
 -- --       -- ^ The Spot Price. The value must match exactly (or use wildcards;
 -- --       -- greater than or less than comparison is not supported).
---     -- , dsphAvailability-zone   :: !ByteString
+--     -- , dsphAvailability-zone   :: !Text
 --     --   -- ^ The Availability Zone for which prices should be returned.
 --     -- , dsphTimestamp           :: !UTCTime
 --     --   -- ^ The timestamp of the Spot Price history (for example,
@@ -4425,17 +4460,17 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The start date and time of the Spot Instance price history data.
 --     , dsphEndTime             :: Maybe UTCTime
 --       -- ^ The end date and time of the Spot Instance price history data.
---     , dsphInstanceType        :: Members ByteString
+--     , dsphInstanceType        :: Members Text
 --       -- ^ The instance type to return.
---     , dsphProductDescription  :: Members ByteString
+--     , dsphProductDescription  :: Members Text
 --       -- ^ Filters the results by basic product description.
---     , dsphFilter              :: Members ByteString
+--     , dsphFilter              :: Members Text
 --       -- ^ The name of a filter.
---     , dsphAvailabilityZone    :: Maybe ByteString
+--     , dsphAvailabilityZone    :: Maybe Text
 --       -- ^ Filters the results by availability zone.
 --     , dsphMaxResults          :: Maybe Integer
 --       -- ^ The number of rows to return.
---     , dsphNextToken           :: Maybe ByteString
+--     , dsphNextToken           :: Maybe Text
 --       -- ^ The next set of rows to return.
 --     } deriving (Eq, Show, Generic)
 
@@ -4445,12 +4480,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeSpotPriceHistory"
 
 -- data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
---     { dsphRequestId           :: !ByteString
+--     { dsphRequestId           :: !Text
 --       -- ^ The ID of the request.
 --     , dsphSpotPriceHistorySet :: !SpotPriceHistorySetItemType
 --       -- ^ A list of historical Spot Prices. Each price is wrapped in an
 --       -- item element.
---     , dspiNextToken           :: !ByteString
+--     , dspiNextToken           :: !Text
 --       -- ^ The string marking the next set of results returned. Displays
 --       -- empty if there are no more results to be returned.
 --     } deriving (Eq, Show, Generic)
@@ -4463,22 +4498,22 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSubnets.html>
 
 -- -- data SubnetFilter
--- --     , duAvailability-zone          :: !ByteString
+-- --     , duAvailability-zone          :: !Text
 -- --       -- ^ The Availability Zone for the subnet.
--- --     , duAvailable-ip-address-count :: !ByteString
+-- --     , duAvailable-ip-address-count :: !Text
 -- --       -- ^ The number of IP addresses in the subnet that are available.
--- --     , duCidr                       :: !ByteString
+-- --     , duCidr                       :: !Text
 -- --       -- ^ The CIDR block of the subnet. The CIDR block you specify must
 -- --       -- exactly match the subnet's CIDR block for information to be
 -- --       -- returned for the subnet.
 -- --     , duDefaultForAz               :: !Bool
 -- --       -- ^ Indicates whether this is the default subnet for the Availability
 -- --       -- Zone.
--- --     , duState                      :: !ByteString
+-- --     , duState                      :: !Text
 -- --       -- ^ The state of the subnet.
--- --     , duSubnet-id                  :: !ByteString
+-- --     , duSubnet-id                  :: !Text
 -- --       -- ^ The ID of the subnet.
--- --     , duTag-key                    :: !ByteString
+-- --     , duTag-key                    :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -4486,20 +4521,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , duTag-value                  :: !ByteString
+-- --     , duTag-value                  :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , duTag:                       :: !ByteString
+-- --     , duTag:                       :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , duKey                        :: !ByteString
+-- --     , duKey                        :: !Text
 -- --       -- ^ The ID of the VPC for the subnet.
--- --     , duVpc-id                     :: !ByteString
--- --       -- ^ 
+-- --     , duVpc-id                     :: !Text
+-- --       -- ^
 
 -- data DescribeSubnets = DescribeSubnets
---     { dtSubnetId                   :: Members ByteString
+--     { dtSubnetId                   :: Members Text
 --       -- ^ One or more subnet IDs.
---     , duFilter                     :: Members ByteString
+--     , duFilter                     :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4509,7 +4544,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeSubnets"
 
 -- data DescribeSubnetsResponse = DescribeSubnetsResponse
---     { dzRequestId :: !ByteString
+--     { dzRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dzSubnetSet :: !SubnetType
 --       -- ^ A list of subnets. Each subnet is wrapped in an item element.
@@ -4518,39 +4553,30 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- instance IsXML DescribeSubnetsResponse where
 --     xmlPickler = ec2XML
 
--- -- | Describes one or more of the tags for your EC2 resources.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html>
+-- | Describes one or more of the tags for your EC2 resources.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html>
 
--- data TagFilter
---     --   -- ^ The tag key.
---     -- , dvResource-id   :: !ByteString
---     --   -- ^ The resource ID.
---     -- , dvResource-type :: !ByteString
---     --   -- ^ The resource type.
---     -- , dvValue         :: !ByteString
---     --   -- ^ The tag value.
+data DescribeTags = DescribeTags
+    { dvFilter :: [TagFilter]
+      -- ^ The name of a filter.
+    } deriving (Eq, Show, Generic)
 
--- data DescribeTags = DescribeTags
---     { dvFilter        :: Members ByteString
---       -- ^ The name of a filter.
---     , dvKey           :: !ByteString
---     } deriving (Eq, Show, Generic)
+instance IsQuery DescribeTags
 
--- instance IsQuery DescribeTags
+instance Rq DescribeTags where
+    type Rs DescribeTags = Either EC2ErrorResponse DescribeTagsResponse
+    request = qry GET "DescribeTags"
 
--- instance AWSRequest EC2 DescribeTags DescribeTagsResponse where
---     request = req GET "DescribeTags"
+data DescribeTagsResponse = DescribeTagsResponse
+    { eaRequestId :: !Text
+      -- ^ The ID of the request.
+    , eaTagSet    :: Items TagSetItemType
+      -- ^ A list of tags.
+    } deriving (Eq, Show, Generic)
 
--- data DescribeTagsResponse = DescribeTagsResponse
---     { eaRequestId :: !ByteString
---       -- ^ The ID of the request.
---     , eaTagSet    :: !TagSetItemType
---       -- ^ A list of tags. Each tag is wrapped in an item element.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML DescribeTagsResponse where
---     xmlPickler = ec2XML
+instance IsXML DescribeTagsResponse where
+    xmlPickler = ec2XML
 
 -- -- | Describes the specified attribute of the specified volume. You can specify
 -- -- only one attribute at a time.
@@ -4558,9 +4584,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeAttribute.html>
 
 -- data DescribeVolumeAttribute = DescribeVolumeAttribute
---     { dvaVolumeId  :: !ByteString
+--     { dvaVolumeId  :: !Text
 --       -- ^ The ID of the volume.
---     , dvaAttribute :: !ByteString
+--     , dvaAttribute :: !Text
 --       -- ^ The instance attribute.
 --     } deriving (Eq, Show, Generic)
 
@@ -4573,9 +4599,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeVolumeAttribute"
 
 -- data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
---     { dvaRequestId    :: !ByteString
+--     { dvaRequestId    :: !Text
 --       -- ^ The ID of the request.
---     , dvbVolumeId     :: !ByteString
+--     , dvbVolumeId     :: !Text
 --       -- ^ The ID of the volume.
 --     , dvbAutoEnableIO :: Maybe Bool
 --       -- ^ The state of autoEnableIO attribute.
@@ -4596,17 +4622,17 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- data VolumeFilter
 --     -- , dwAttachment        :: Members AttachmentType
 --     --   -- ^ The time stamp when the attachment initiated.
---     -- , dwAvailability-zone :: !ByteString
+--     -- , dwAvailability-zone :: !Text
 --     --   -- ^ The Availability Zone in which the volume was created.
 --     -- , dwCreate-time       :: !UTCTime
 --     --   -- ^ The time stamp when the volume was created.
---     -- , dwSize              :: !ByteString
+--     -- , dwSize              :: !Text
 --     --   -- ^ The size of the volume, in GiB (for example, 20).
---     -- , dwSnapshot-id       :: !ByteString
+--     -- , dwSnapshot-id       :: !Text
 --     --   -- ^ The snapshot from which the volume was created.
---     -- , dwStatus            :: !ByteString
+--     -- , dwStatus            :: !Text
 --     --   -- ^ The status of the volume.
---     -- , dwTag-key           :: !ByteString
+--     -- , dwTag-key           :: !Text
 --     --   -- ^ The key of a tag assigned to the resource. This filter is
 --     --   -- independent of the tag-value filter. For example, if you use both
 --     --   -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -4614,23 +4640,23 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     --   -- of what the tag's value is), and the tag value X (regardless of
 --     --   -- what the tag's key is). If you want to list only resources where
 --     --   -- Purpose is X, see the tag:key filter.
---     -- , dwTag-value         :: !ByteString
+--     -- , dwTag-value         :: !Text
 --     --   -- ^ The value of a tag assigned to the resource. This filter is
 --     --   -- independent of the tag-key filter.
---     -- , dwTag:              :: !ByteString
+--     -- , dwTag:              :: !Text
 --     --   -- ^ Filters the response based on a specific tag/value combination.
---     -- , dwKey               :: !ByteString
+--     -- , dwKey               :: !Text
 --     --   -- ^ The volume ID.
---     -- , dwVolume-id         :: !ByteString
+--     -- , dwVolume-id         :: !Text
 --     --   -- ^ The Amazon EBS volume type. If the volume is an io1 volume, the
 --     --   -- response includes the IOPS as well.
---     -- , dwVolume-type       :: !ByteString
---     --   -- ^ 
+--     -- , dwVolume-type       :: !Text
+--     --   -- ^
 
 -- data DescribeVolumes = DescribeVolumes
---     { dwVolumeId :: Members ByteString
+--     { dwVolumeId :: Members Text
 --       -- ^ One or more volume IDs.
---     , dwFilter   :: Members ByteString
+--     , dwFilter   :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4640,7 +4666,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeVolumes"
 
 -- data DescribeVolumesResponse = DescribeVolumesResponse
---     { ebRequestId :: !ByteString
+--     { ebRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , ebVolumeSet :: !DescribeVolumesSetItemResponseType
 --       -- ^ A list of volumes. Each volume is wrapped in an item element.
@@ -4656,7 +4682,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeStatus.html>
 
 -- -- data VolumeFilter
--- --     , dvsAvailability-zone :: !ByteString
+-- --     , dvsAvailability-zone :: !Text
 -- --       -- ^ The Availability Zone of the instance.
 -- --     , dvsVolume-status     :: Members volume-statusType
 -- --       -- ^ The status of the volume.
@@ -4665,13 +4691,13 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --     , dvsAction            :: Members actionType
 
 -- data DescribeVolumeStatus = DescribeVolumeStatus
---     { dvsVolumeId   :: Members ByteString
+--     { dvsVolumeId   :: Members Text
 --       -- ^ One or more volume IDs.
---     , dvsFilter     :: Members ByteString
+--     , dvsFilter     :: Members Text
 --       -- ^ The name of a filter.
 --     , dvsMaxResults :: Maybe Integer
 --       -- ^ The maximum number of paginated volume items per response.
---     , dvsNextToken  :: Maybe ByteString
+--     , dvsNextToken  :: Maybe Text
 --       -- ^ A string specifying the next paginated set of results to return
 --       -- using the pagination token returned by a previous call to this
 --       -- API.
@@ -4684,11 +4710,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeVolumeStatus"
 
 -- data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
---     { dvsRequestId       :: !ByteString
+--     { dvsRequestId       :: !Text
 --       -- ^ The ID of the request.
 --     , dvsVolumeStatusSet :: !VolumeStatusItemType
 --       -- ^ A list of volumes. Each volume is wrapped in an item element.
---     , dvtNextToken       :: !ByteString
+--     , dvtNextToken       :: !Text
 --       -- ^ A string specifying the next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
@@ -4701,9 +4727,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcAttribute.html>
 
 -- data DescribeVpcAttribute = DescribeVpcAttribute
---     { dvaVpcId     :: !ByteString
+--     { dvaVpcId     :: !Text
 --       -- ^ The ID of the VPC.
---     , dvbAttribute :: !ByteString
+--     , dvbAttribute :: !Text
 --       -- ^ The VPC attribute.
 --     } deriving (Eq, Show, Generic)
 
@@ -4716,7 +4742,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeVpcAttribute"
 
 -- data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
---     { dvbRequestId          :: !ByteString
+--     { dvbRequestId          :: !Text
 --       -- ^ The ID of the request.
 --     , dvbEnableDnsSupport   :: !Bool
 --       -- ^ Indicates whether DNS resolution is enabled for the VPC. If this
@@ -4737,17 +4763,17 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcs.html>
 
 -- -- data VpcFilter
--- --     , dxCidr            :: !ByteString
+-- --     , dxCidr            :: !Text
 -- --       -- ^ The CIDR block of the VPC. The CIDR block you specify must
 -- --       -- exactly match the VPC's CIDR block for information to be returned
 -- --       -- for the VPC.
--- --     , dxDhcp-options-id :: !ByteString
+-- --     , dxDhcp-options-id :: !Text
 -- --       -- ^ The ID of a set of DHCP options.
 -- --     , dxIsDefault       :: !Bool
 -- --       -- ^ Indicates whether the VPC is the default VPC.
--- --     , dxState           :: !ByteString
+-- --     , dxState           :: !Text
 -- --       -- ^ The state of the VPC.
--- --     , dxTag-key         :: !ByteString
+-- --     , dxTag-key         :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -4755,20 +4781,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , dxTag-value       :: !ByteString
+-- --     , dxTag-value       :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , dxTag:            :: !ByteString
+-- --     , dxTag:            :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , dxKey             :: !ByteString
+-- --     , dxKey             :: !Text
 -- --       -- ^ The ID of the VPC.
--- --     , dxVpc-id          :: !ByteString
--- --       -- ^ 
+-- --     , dxVpc-id          :: !Text
+-- --       -- ^
 
 -- data DescribeVpcs = DescribeVpcs
---     { dwVpcId  :: Members ByteString
+--     { dwVpcId  :: Members Text
 --       -- ^ One or more VPC IDs.
---     , dxFilter :: Members ByteString
+--     , dxFilter :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4778,7 +4804,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeVpcs"
 
 -- data DescribeVpcsResponse = DescribeVpcsResponse
---     { ecRequestId :: !ByteString
+--     { ecRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , ecVpcSet    :: !VpcType
 --       -- ^ A list of VPCs. Each VPC is wrapped in an item element.
@@ -4794,11 +4820,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpnConnections.html>
 
 -- -- data VpcConnectionFilter
---     -- , dvdCustomer-gateway-configuration :: !ByteString
+--     -- , dvdCustomer-gateway-configuration :: !Text
 --     --   -- ^ The configuration information for the customer gateway.
---     -- , dvdCustomer-gateway-id            :: !ByteString
+--     -- , dvdCustomer-gateway-id            :: !Text
 --     --   -- ^ The ID of a customer gateway associated with the VPN connection.
---     -- , dvdState                          :: !ByteString
+--     -- , dvdState                          :: !Text
 --     --   -- ^ The state of the VPN connection.
 --     -- , dvdOption                         :: Members optionType
 --     --   -- ^ Indicates whether the connection has static routes only. Used for
@@ -4809,7 +4835,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     -- , dvdBgp-asn                        :: !Integer
 --     --   -- ^ The BGP Autonomous System Number (ASN) associated with a BGP
 --     --   -- device.
---     -- , dvdTag-key                        :: !ByteString
+--     -- , dvdTag-key                        :: !Text
 --     --   -- ^ The key of a tag assigned to the resource. This filter is
 --     --   -- independent of the tag-value filter. For example, if you use both
 --     --   -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -4817,26 +4843,26 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     --   -- of what the tag's value is), and the tag value X (regardless of
 --     --   -- what the tag's key is). If you want to list only resources where
 --     --   -- Purpose is X, see the tag:key filter.
---     -- , dvdTag-value                      :: !ByteString
+--     -- , dvdTag-value                      :: !Text
 --     --   -- ^ The value of a tag assigned to the resource. This filter is
 --     --   -- independent of the tag-key filter.
---     -- , dvdTag:                           :: !ByteString
+--     -- , dvdTag:                           :: !Text
 --     --   -- ^ Filters the response based on a specific tag/value combination.
---     -- , dvdKey                            :: !ByteString
+--     -- , dvdKey                            :: !Text
 --     --   -- ^ The type of VPN connection. Currently the only supported type is
 --     --   -- ipsec.1.
---     -- , dvdType                           :: !ByteString
+--     -- , dvdType                           :: !Text
 --     --   -- ^ The ID of the VPN connection.
---     -- , dvdVpn-connection-id              :: !ByteString
+--     -- , dvdVpn-connection-id              :: !Text
 --     --   -- ^ The ID of a virtual private gateway associated with the VPN
 --     --   -- connection.
---     -- , dvdVpn-gateway-id                 :: !ByteString
---     --   -- ^ 
+--     -- , dvdVpn-gateway-id                 :: !Text
+--     --   -- ^
 
 -- data DescribeVpnConnections = DescribeVpnConnections
---     { dvdVpnConnectionId :: Members ByteString
+--     { dvdVpnConnectionId :: Members Text
 --       -- ^ One or more VPN connection IDs.
---     , dvdFilter          :: Members ByteString
+--     , dvdFilter          :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4846,7 +4872,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeVpnConnections"
 
 -- data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
---     { dvdRequestId        :: !ByteString
+--     { dvdRequestId        :: !Text
 --       -- ^ The ID of the request.
 --     , dvdVpnConnectionSet :: !VpnConnectionType
 --       -- ^ A list of VPN connections. Each VPN connection is wrapped in an
@@ -4865,11 +4891,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- data VpnGatewayFilter
 -- --     , dvhAttachment        :: Members AttachmentType
 -- --       -- ^ The current state of the attachment between the gateway and the VPC.
--- --     , dvhAvailability-zone :: !ByteString
+-- --     , dvhAvailability-zone :: !Text
 -- --       -- ^ The Availability Zone for the virtual private gateway.
--- --     , dvhState             :: !ByteString
+-- --     , dvhState             :: !Text
 -- --       -- ^ The state of the virtual private gateway.
--- --     , dvhTag-key           :: !ByteString
+-- --     , dvhTag-key           :: !Text
 -- --       -- ^ The key of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-value filter. For example, if you use both
 -- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
@@ -4877,23 +4903,23 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- --       -- of what the tag's value is), and the tag value X (regardless of
 -- --       -- what the tag's key is). If you want to list only resources where
 -- --       -- Purpose is X, see the tag:key filter.
--- --     , dvhTag-value         :: !ByteString
+-- --     , dvhTag-value         :: !Text
 -- --       -- ^ The value of a tag assigned to the resource. This filter is
 -- --       -- independent of the tag-key filter.
--- --     , dvhTag:              :: !ByteString
+-- --     , dvhTag:              :: !Text
 -- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , dvhKey               :: !ByteString
+-- --     , dvhKey               :: !Text
 -- --       -- ^ The type of virtual private gateway. Currently the only supported
 -- --       -- type is ipsec.1.
--- --     , dvhType              :: !ByteString
+-- --     , dvhType              :: !Text
 -- --       -- ^ The ID of the virtual private gateway.
--- --     , dvhVpn-gateway-id    :: !ByteString
--- --       -- ^ 
+-- --     , dvhVpn-gateway-id    :: !Text
+-- --       -- ^
 
 -- data DescribeVpnGateways = DescribeVpnGateways
---     { dvhVpnGatewayId :: Members ByteString
+--     { dvhVpnGatewayId :: Members Text
 --       -- ^ One or more virtual private gateway IDs.
---     , dvhFilter       :: Members ByteString
+--     , dvhFilter       :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
 
@@ -4903,7 +4929,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DescribeVpnGateways"
 
 -- data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
---     { dvhRequestId     :: !ByteString
+--     { dvhRequestId     :: !Text
 --       -- ^ The ID of the request.
 --     , dvhVpnGatewaySet :: !VpnGatewayType
 --       -- ^ A list of virtual private gateways. Each virtual private gateway
@@ -4920,9 +4946,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachInternetGateway.html>
 
 -- data DetachInternetGateway = DetachInternetGateway
---     { diiInternetGatewayId :: !ByteString
+--     { diiInternetGatewayId :: !Text
 --       -- ^ The ID of the Internet gateway.
---     , diiVpcId             :: !ByteString
+--     , diiVpcId             :: !Text
 --       -- ^ The ID of the VPC.
 --     } deriving (Eq, Show, Generic)
 
@@ -4932,7 +4958,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DetachInternetGateway"
 
 -- data DetachInternetGatewayResponse = DetachInternetGatewayResponse
---     { diiRequestId :: !ByteString
+--     { diiRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , diiReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -4947,7 +4973,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachNetworkInterface.html>
 
 -- data DetachNetworkInterface = DetachNetworkInterface
---     { dniAttachmentId :: !ByteString
+--     { dniAttachmentId :: !Text
 --       -- ^ The ID of the attachment.
 --     , dniForce        :: Maybe Bool
 --       -- ^ Set to true to force a detachment.
@@ -4962,7 +4988,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DetachNetworkInterface"
 
 -- data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
---     { dnkRequestId :: !ByteString
+--     { dnkRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dnkReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -4981,11 +5007,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html>
 
 -- data DetachVolume = DetachVolume
---     { dxVolumeId   :: !ByteString
+--     { dxVolumeId   :: !Text
 --       -- ^ The ID of the volume.
---     , dxInstanceId :: Maybe ByteString
+--     , dxInstanceId :: Maybe Text
 --       -- ^ The ID of the instance.
---     , dxDevice     :: Maybe ByteString
+--     , dxDevice     :: Maybe Text
 --       -- ^ The device name.
 --     , dxForce      :: Maybe Bool
 --       -- ^ Forces detachment if the previous detachment attempt did not
@@ -5007,15 +5033,15 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DetachVolume"
 
 -- data DetachVolumeResponse = DetachVolumeResponse
---     { edRequestId  :: !ByteString
+--     { edRequestId  :: !Text
 --       -- ^ The ID of the request.
---     , edVolumeId   :: !ByteString
+--     , edVolumeId   :: !Text
 --       -- ^ The ID of the volume.
---     , edInstanceId :: !ByteString
+--     , edInstanceId :: !Text
 --       -- ^ The ID of the instance.
---     , edDevice     :: !ByteString
+--     , edDevice     :: !Text
 --       -- ^ The device name exposed to the instance.
---     , edStatus     :: !ByteString
+--     , edStatus     :: !Text
 --       -- ^ The attachment state.
 --     , edAttachTime :: !UTCTime
 --       -- ^ The time stamp when the attachment initiated.
@@ -5036,9 +5062,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVpnGateway.html>
 
 -- data DetachVpnGateway = DetachVpnGateway
---     { dviVpnGatewayId :: !ByteString
+--     { dviVpnGatewayId :: !Text
 --       -- ^ The ID of the virtual private gateway.
---     , dviVpcId        :: !ByteString
+--     , dviVpcId        :: !Text
 --       -- ^ The ID of the VPC.
 --     } deriving (Eq, Show, Generic)
 
@@ -5048,7 +5074,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DetachVpnGateway"
 
 -- data DetachVpnGatewayResponse = DetachVpnGatewayResponse
---     { dviRequestId :: !ByteString
+--     { dviRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dviReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5064,9 +5090,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVgwRoutePropagation.html>
 
 -- data DisableVgwRoutePropagation = DisableVgwRoutePropagation
---     { dvrpRouteTableId :: !ByteString
+--     { dvrpRouteTableId :: !Text
 --       -- ^ The ID of the routing table.
---     , dvrpGatewayId    :: !ByteString
+--     , dvrpGatewayId    :: !Text
 --       -- ^ The ID of the virtual private gateway.
 --     } deriving (Eq, Show, Generic)
 
@@ -5076,7 +5102,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DisableVgwRoutePropagation"
 
 -- data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
---     { dvrpRequestId :: !ByteString
+--     { dvrpRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dvrpReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5093,9 +5119,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateAddress.html>
 
 -- data DisassociateAddress = DisassociateAddress
---     { dbPublicIp      :: !ByteString
+--     { dbPublicIp      :: !Text
 --       -- ^ [EC2-Classic] The Elastic IP address.
---     , dbAssociationId :: !ByteString
+--     , dbAssociationId :: !Text
 --       -- ^ [EC2-VPC] The association ID.
 --     } deriving (Eq, Show, Generic)
 
@@ -5105,7 +5131,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DisassociateAddress"
 
 -- data DisassociateAddressResponse = DisassociateAddressResponse
---     { dbRequestId :: !ByteString
+--     { dbRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , dbReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5123,7 +5149,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateRouteTable.html>
 
 -- data DisassociateRouteTable = DisassociateRouteTable
---     { drtAssociationId :: !ByteString
+--     { drtAssociationId :: !Text
 --       -- ^ The association ID representing the current association between
 --       -- the route table and subnet.
 --     } deriving (Eq, Show, Generic)
@@ -5137,7 +5163,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "DisassociateRouteTable"
 
 -- data DisassociateRouteTableResponse = DisassociateRouteTableResponse
---     { drvRequestId :: !ByteString
+--     { drvRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , drvReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5153,9 +5179,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVgwRoutePropagation.html>
 
 -- data EnableVgwRoutePropagation = EnableVgwRoutePropagation
---     { evrpRouteTableId :: !ByteString
+--     { evrpRouteTableId :: !Text
 --       -- ^ The ID of the routing table.
---     , evrpGatewayId    :: !ByteString
+--     , evrpGatewayId    :: !Text
 --       -- ^ The ID of the virtual private gateway.
 --     } deriving (Eq, Show, Generic)
 
@@ -5165,7 +5191,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "EnableVgwRoutePropagation"
 
 -- data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
---     { evrpRequestId :: !ByteString
+--     { evrpRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , evrpReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5181,7 +5207,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVolumeIO.html>
 
 -- data EnableVolumeIO = EnableVolumeIO
---     { evioVolumeId :: !ByteString
+--     { evioVolumeId :: !Text
 --       -- ^ The ID of the volume.
 --     } deriving (Eq, Show, Generic)
 
@@ -5191,7 +5217,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "EnableVolumeIO"
 
 -- data EnableVolumeIOResponse = EnableVolumeIOResponse
---     { evioRequestId :: !ByteString
+--     { evioRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , evioReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5218,7 +5244,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html>
 
 -- data GetConsoleOutput = GetConsoleOutput
---     { gcoInstanceId :: !ByteString
+--     { gcoInstanceId :: !Text
 --       -- ^ The ID of the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -5228,13 +5254,13 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "GetConsoleOutput"
 
 -- data GetConsoleOutputResponse = GetConsoleOutputResponse
---     { gcoRequestId  :: !ByteString
+--     { gcoRequestId  :: !Text
 --       -- ^ The ID of the request.
---     , gcpInstanceId :: !ByteString
+--     , gcpInstanceId :: !Text
 --       -- ^ The ID of the instance.
 --     , gcpTimestamp  :: !UTCTime
 --       -- ^ The time the output was last updated.
---     , gcpOutput     :: !ByteString
+--     , gcpOutput     :: !Text
 --       -- ^ The console output, Base64 encoded.
 --     } deriving (Eq, Show, Generic)
 
@@ -5253,7 +5279,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html>
 
 -- data GetPasswordData = GetPasswordData
---     { gpdInstanceId :: !ByteString
+--     { gpdInstanceId :: !Text
 --       -- ^ The ID of a Windows instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -5263,13 +5289,13 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "GetPasswordData"
 
 -- data GetPasswordDataResponse = GetPasswordDataResponse
---     { gpdRequestId    :: !ByteString
+--     { gpdRequestId    :: !Text
 --       -- ^ The ID of the request.
---     , gpeInstanceId   :: !ByteString
+--     , gpeInstanceId   :: !Text
 --       -- ^ The ID of the instance.
 --     , gpeTimestamp    :: !UTCTime
 --       -- ^ The time the data was last updated.
---     , gpePasswordData :: !ByteString
+--     , gpePasswordData :: !Text
 --       -- ^ The password of the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -5285,13 +5311,13 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html>
 
 -- data ImportInstance = ImportInstance
---     { iiDescription         :: Maybe ByteString
+--     { iiDescription         :: Maybe Text
 --       -- ^ A description for the instance being imported.
 --     , iiLaunchSpecification :: Members LaunchSpecificationType
 --       -- ^ The architecture of the instance.
 --     , iiDiskImage           :: Members DiskImageType
 --       -- ^ The file format of the disk image.
---     , iiPlatform            :: Maybe ByteString
+--     , iiPlatform            :: Maybe Text
 --       -- ^ The instance operating system.
 --     } deriving (Eq, Show, Generic)
 
@@ -5327,9 +5353,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html>
 
 -- data ImportKeyPair = ImportKeyPair
---     { ikpKeyName           :: !ByteString
+--     { ikpKeyName           :: !Text
 --       -- ^ A unique name for the key pair.
---     , ikpPublicKeyMaterial :: !ByteString
+--     , ikpPublicKeyMaterial :: !Text
 --       -- ^ The public key. You must base64 encode the public key material
 --       -- before sending it to AWS.
 --     } deriving (Eq, Show, Generic)
@@ -5340,11 +5366,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ImportKeyPair"
 
 -- data ImportKeyPairResponse = ImportKeyPairResponse
---     { ikpRequestId      :: !ByteString
+--     { ikpRequestId      :: !Text
 --       -- ^ The ID of the request.
---     , ikqKeyName        :: !ByteString
+--     , ikqKeyName        :: !Text
 --       -- ^ The key pair name you provided.
---     , ikqKeyFingerprint :: !ByteString
+--     , ikqKeyFingerprint :: !Text
 --       -- ^ The MD5 public key fingerprint as specified in section 4 of
 --       -- RFC4716.
 --     } deriving (Eq, Show, Generic)
@@ -5361,11 +5387,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html>
 
 -- data ImportVolume = ImportVolume
---     { ivAvailabilityZone :: !ByteString
+--     { ivAvailabilityZone :: !Text
 --       -- ^ The Availability Zone for the resulting Amazon EBS volume.
 --     , ivImage            :: Members ImageType
 --       -- ^ The file format of the disk image.
---     , ivDescription      :: Maybe ByteString
+--     , ivDescription      :: Maybe Text
 --       -- ^ An optional description for the volume being imported.
 --     , ivVolume           :: Members VolumeType
 --       -- ^ The size, in GB (2^30 bytes), of an Amazon EBS volume to hold the
@@ -5394,12 +5420,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyImageAttribute.html>
 
 -- data ModifyImageAttribute = ModifyImageAttribute
---     { miaImageId          :: !ByteString
+--     { miaImageId          :: !Text
 --       -- ^ The ID of the AMI.
 --     , miaLaunchPermission :: Members LaunchPermissionType
 --       -- ^ Adds the specified AWS account ID to the AMI's list of launch
 --       -- permissions.
---     , miaProductCode      :: Members ByteString
+--     , miaProductCode      :: Members Text
 --       -- ^ Adds the specified product code to the specified instance
 --       -- store-backed AMI. After you add a product code to an AMI, it
 --       -- can't be removed.
@@ -5416,7 +5442,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ModifyImageAttribute"
 
 -- data ModifyImageAttributeResponse = ModifyImageAttributeResponse
---     { miaRequestId :: !ByteString
+--     { miaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , miaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5432,23 +5458,23 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html>
 
 -- data ModifyInstanceAttribute = ModifyInstanceAttribute
---     { miaInstanceId                        :: !ByteString
+--     { miaInstanceId                        :: !Text
 --       -- ^ The ID of the instance.
 --     , miaInstanceType                      :: Maybe InstanceType
 --       -- ^ Changes the instance type to the specified value. See Available
 --       -- Instance Types for more information. An
 --       -- InvalidInstanceAttributeValue error will be returned if the
 --       -- instance type is not valid.
---     , miaKernel                            :: Maybe ByteString
+--     , miaKernel                            :: Maybe Text
 --       -- ^ Changes the instance's kernel to the specified value.
---     , miaRamdisk                           :: Maybe ByteString
+--     , miaRamdisk                           :: Maybe Text
 --       -- ^ Changes the instance's RAM disk to the specified value.
---     , miaUserData                          :: Maybe ByteString
+--     , miaUserData                          :: Maybe Text
 --       -- ^ Changes the instance's user data to the specified value.
 --     , miaDisableApiTermination             :: Maybe Bool
 --       -- ^ If the value is true, you can't terminate the instance using the
 --       -- Amazon EC2 console, CLI, or API; otherwise you can.
---     , miaInstanceInitiatedShutdownBehavior :: Maybe ByteString
+--     , miaInstanceInitiatedShutdownBehavior :: Maybe Text
 --       -- ^ Indicates whether an instance stops or terminates when you
 --       -- initiate shutdown from the instance (using the operating system
 --       -- command for system shutdown).
@@ -5462,7 +5488,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- of true means checking is enabled, and false means checking is
 --       -- disabled. This value must be false for a NAT instance to perform
 --       -- NAT.
---     , miaGroupId                           :: Members ByteString
+--     , miaGroupId                           :: Members Text
 --       -- ^ [EC2-VPC] Changes the instance's security group. You must specify
 --       -- at least one security group, even if it's just the default
 --       -- security group for the VPC. You must specify the security group
@@ -5485,7 +5511,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ModifyInstanceAttribute"
 
 -- data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
---     { mibRequestId :: !ByteString
+--     { mibRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , mibReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5501,11 +5527,11 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyNetworkInterfaceAttribute.html>
 
 -- data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
---     { mniaNetworkInterfaceId :: !ByteString
+--     { mniaNetworkInterfaceId :: !Text
 --       -- ^ The ID of the network interface.
 --     , mniaDescription        :: Members DescriptionType
 --       -- ^ A description for the network interface.
---     , mniaSecurityGroupId    :: Members ByteString
+--     , mniaSecurityGroupId    :: Members Text
 --       -- ^ Changes the security groups that a network interface is in. The
 --       -- new set of groups you specify replaces the current set. You must
 --       -- specify at least one group, even if it's just the default
@@ -5529,7 +5555,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ModifyNetworkInterfaceAttribute"
 
 -- data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
---     { mniaRequestId :: !ByteString
+--     { mniaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , mniaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5544,7 +5570,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySnapshotAttribute.html>
 
 -- data ModifySnapshotAttribute = ModifySnapshotAttribute
---     { msaSnapshotId             :: !ByteString
+--     { msaSnapshotId             :: !Text
 --       -- ^ The ID of the snapshot.
 --     , msaCreateVolumePermission :: Members CreateVolumePermissionType
 --       -- ^ Adds the specified AWS account ID to the volume's list of create
@@ -5560,7 +5586,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ModifySnapshotAttribute"
 
 -- data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
---     { msaRequestId :: !ByteString
+--     { msaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , msaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5583,7 +5609,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVolumeAttribute.html>
 
 -- data ModifyVolumeAttribute = ModifyVolumeAttribute
---     { mvaVolumeId     :: !ByteString
+--     { mvaVolumeId     :: !Text
 --       -- ^ The ID of the volume.
 --     , mvaAutoEnableIO :: Members AutoEnableIOType
 --       -- ^ Specifies whether the volume should be auto-enabled for I/O
@@ -5599,7 +5625,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ModifyVolumeAttribute"
 
 -- data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
---     { mvaRequestId :: !ByteString
+--     { mvaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , mvaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5614,7 +5640,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVpcAttribute.html>
 
 -- data ModifyVpcAttribute = ModifyVpcAttribute
---     { mvaVpcId              :: !ByteString
+--     { mvaVpcId              :: !Text
 --       -- ^ The ID of the VPC.
 --     , mvaEnableDnsSupport   :: Maybe Bool
 --       -- ^ Specifies whether DNS resolution is supported for the VPC. If
@@ -5636,7 +5662,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ModifyVpcAttribute"
 
 -- data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
---     { mvbRequestId :: !ByteString
+--     { mvbRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , mvbReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5653,7 +5679,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html>
 
 -- data MonitorInstances = MonitorInstances
---     { miInstanceId :: Members ByteString
+--     { miInstanceId :: Members Text
 --       -- ^ One or more instance IDs.
 --     } deriving (Eq, Show, Generic)
 
@@ -5663,7 +5689,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "MonitorInstances"
 
 -- data MonitorInstancesResponse = MonitorInstancesResponse
---     { miRequestId    :: !ByteString
+--     { miRequestId    :: !Text
 --       -- ^ The ID of the request.
 --     , miInstancesSet :: !MonitorInstancesResponseSetItemType
 --       -- ^ A list of instances. Each instance is wrapped in an item element.
@@ -5718,7 +5744,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseReservedInstancesOffering.html>
 
 -- data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
---     { prioReservedInstancesOfferingId :: !ByteString
+--     { prioReservedInstancesOfferingId :: !Text
 --       -- ^ The ID of the Reserved Instance offering you want to purchase.
 --     , prioInstanceCount               :: !Integer
 --       -- ^ The number of Reserved Instances to purchase.
@@ -5734,9 +5760,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "PurchaseReservedInstancesOffering"
 
 -- data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
---     { prioRequestId           :: !ByteString
+--     { prioRequestId           :: !Text
 --       -- ^ The ID of the request.
---     , prioReservedInstancesId :: !ByteString
+--     , prioReservedInstancesId :: !Text
 --       -- ^ The IDs of the purchased Reserved Instances.
 --     } deriving (Eq, Show, Generic)
 
@@ -5751,7 +5777,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RebootInstances.html>
 
 -- data RebootInstances = RebootInstances
---     { riInstanceId :: Members ByteString
+--     { riInstanceId :: Members Text
 --       -- ^ One or more instance IDs.
 --     } deriving (Eq, Show, Generic)
 
@@ -5761,7 +5787,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "RebootInstances"
 
 -- data RebootInstancesResponse = RebootInstancesResponse
---     { riRequestId :: !ByteString
+--     { riRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , riReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5785,21 +5811,21 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html>
 
 -- data RegisterImage = RegisterImage
---     { riImageLocation      :: !ByteString
+--     { riImageLocation      :: !Text
 --       -- ^ The full path to your AMI manifest in Amazon S3 storage.
---     , riName               :: !ByteString
+--     , riName               :: !Text
 --       -- ^ A name for your AMI.
---     , riDescription        :: Maybe ByteString
+--     , riDescription        :: Maybe Text
 --       -- ^ A description for your AMI.
---     , riArchitecture       :: Maybe ByteString
+--     , riArchitecture       :: Maybe Text
 --       -- ^ The architecture of the image.
---     , riKernelId           :: Maybe ByteString
+--     , riKernelId           :: Maybe Text
 --       -- ^ The ID of the kernel.
---     , riRamdiskId          :: Maybe ByteString
+--     , riRamdiskId          :: Maybe Text
 --       -- ^ The ID of the RAM disk.
---     , riVirtualizationType :: Maybe ByteString
+--     , riVirtualizationType :: Maybe Text
 --       -- ^ The type of virtualization.
---     , riRootDeviceName     :: !ByteString
+--     , riRootDeviceName     :: !Text
 --       -- ^ The name of the root device (for example, /dev/sda1, or xvda).
 --     , riBlockDeviceMapping :: Members BlockDeviceMappingType
 --       -- ^ The device name exposed to the instance (for example, /dev/sdh or
@@ -5815,9 +5841,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "RegisterImage"
 
 -- data RegisterImageResponse = RegisterImageResponse
---     { rjRequestId :: !ByteString
+--     { rjRequestId :: !Text
 --       -- ^ The ID of the request.
---     , rjImageId   :: !ByteString
+--     , rjImageId   :: !Text
 --       -- ^ The ID of the newly registered AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -5836,9 +5862,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html>
 
 -- data ReleaseAddress = ReleaseAddress
---     { raPublicIp     :: !ByteString
+--     { raPublicIp     :: !Text
 --       -- ^ [EC2-Classic] The Elastic IP address.
---     , raAllocationId :: !ByteString
+--     , raAllocationId :: !Text
 --       -- ^ [EC2-VPC] The allocation ID.
 --     } deriving (Eq, Show, Generic)
 
@@ -5848,7 +5874,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ReleaseAddress"
 
 -- data ReleaseAddressResponse = ReleaseAddressResponse
---     { raRequestId :: !ByteString
+--     { raRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , raReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5866,10 +5892,10 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclAssociation.html>
 
 -- data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
---     { rnaaAssociationId :: !ByteString
+--     { rnaaAssociationId :: !Text
 --       -- ^ The ID representing the current association between the original
 --       -- network ACL and the subnet.
---     , rnaaNetworkAclId  :: !ByteString
+--     , rnaaNetworkAclId  :: !Text
 --       -- ^ The ID of the new ACL to associate with the subnet.
 --     } deriving (Eq, Show, Generic)
 
@@ -5879,9 +5905,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ReplaceNetworkAclAssociation"
 
 -- data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
---     { rnaaRequestId        :: !ByteString
+--     { rnaaRequestId        :: !Text
 --       -- ^ The ID of the request.
---     , rnaaNewAssociationId :: !ByteString
+--     , rnaaNewAssociationId :: !Text
 --       -- ^ The ID of the new association.
 --     } deriving (Eq, Show, Generic)
 
@@ -5895,19 +5921,19 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclEntry.html>
 
 -- data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
---     { rnaeNetworkAclId :: !ByteString
+--     { rnaeNetworkAclId :: !Text
 --       -- ^ The ID of the ACL.
 --     , rnaeRuleNumber   :: !Integer
 --       -- ^ The rule number of the entry to replace.
 --     , rnaeProtocol     :: !Integer
 --       -- ^ The IP protocol the rule applies to. You can use -1 to mean all
 --       -- protocols.
---     , rnaeRuleAction   :: !ByteString
+--     , rnaeRuleAction   :: !Text
 --       -- ^ Indicates whether to allow or deny traffic that matches the rule.
 --     , rnaeEgress       :: Maybe Bool
 --       -- ^ Indicates whether this rule applies to egress traffic from the
 --       -- subnet (true) or ingress traffic to the subnet (false).
---     , rnaeCidrBlock    :: !ByteString
+--     , rnaeCidrBlock    :: !Text
 --       -- ^ The CIDR range to allow or deny, in CIDR notation (for example,
 --       -- 172.16.0.0/24).
 --     , rnaeIcmp         :: Members IcmpType
@@ -5923,7 +5949,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ReplaceNetworkAclEntry"
 
 -- data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
---     { rnaeRequestId :: !ByteString
+--     { rnaeRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , rnaeReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5940,17 +5966,17 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html>
 
 -- data ReplaceRoute = ReplaceRoute
---     { rrRouteTableId         :: !ByteString
+--     { rrRouteTableId         :: !Text
 --       -- ^ The ID of the route table.
---     , rrDestinationCidrBlock :: !ByteString
+--     , rrDestinationCidrBlock :: !Text
 --       -- ^ The CIDR address block used for the destination match. The value
 --       -- you provide must match the CIDR of an existing route in the
 --       -- table.
---     , rrGatewayId            :: !ByteString
+--     , rrGatewayId            :: !Text
 --       -- ^ The ID of a gateway attached to your VPC.
---     , rrInstanceId           :: !ByteString
+--     , rrInstanceId           :: !Text
 --       -- ^ The ID of a NAT instance in your VPC.
---     , rrNetworkInterfaceId   :: !ByteString
+--     , rrNetworkInterfaceId   :: !Text
 --       -- ^ Allows routing to network interface attachments.
 --     } deriving (Eq, Show, Generic)
 
@@ -5963,7 +5989,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ReplaceRoute"
 
 -- data ReplaceRouteResponse = ReplaceRouteResponse
---     { rrRequestId :: !ByteString
+--     { rrRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , rrReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -5984,9 +6010,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html>
 
 -- data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
---     { rrtaAssociationId :: !ByteString
+--     { rrtaAssociationId :: !Text
 --       -- ^ The association ID.
---     , rrtaRouteTableId  :: !ByteString
+--     , rrtaRouteTableId  :: !Text
 --       -- ^ The ID of the new route table to associate with the subnet.
 --     } deriving (Eq, Show, Generic)
 
@@ -5996,9 +6022,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ReplaceRouteTableAssociation"
 
 -- data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
---     { rrtaRequestId        :: !ByteString
+--     { rrtaRequestId        :: !Text
 --       -- ^ The ID of the request.
---     , rrtaNewAssociationId :: !ByteString
+--     , rrtaNewAssociationId :: !Text
 --       -- ^ The ID of the new association.
 --     } deriving (Eq, Show, Generic)
 
@@ -6018,20 +6044,20 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReportInstanceStatus.html>
 
 -- data ReportInstanceStatus = ReportInstanceStatus
---     { risInstanceId  :: Members ByteString
+--     { risInstanceId  :: Members Text
 --       -- ^ One or more instance IDs.
---     , risStatus      :: !ByteString
+--     , risStatus      :: !Text
 --       -- ^ The status of all instances listed in the InstanceId.n parameter.
 --     , risStartTime   :: Maybe UTCTime
 --       -- ^ The time at which the reported instance health state began.
 --     , risEndTime     :: Maybe UTCTime
 --       -- ^ The time at which the reported instance health state ended.
---     , risReasonCode  :: Members ByteString
+--     , risReasonCode  :: Members Text
 --       -- ^ A reason code that describes a specific instance's health state.
 --       -- Each code you supply corresponds to an instance ID that you
 --       -- supply with the InstanceId.n parameter. See the Description
 --       -- section for descriptions of each reason code.
---     , risDescription :: Maybe ByteString
+--     , risDescription :: Maybe Text
 --       -- ^ Descriptive text about the instance health state.
 --     } deriving (Eq, Show, Generic)
 
@@ -6041,7 +6067,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ReportInstanceStatus"
 
 -- data ReportInstanceStatusResponse = ReportInstanceStatusResponse
---     { risRequestId :: !ByteString
+--     { risRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , risReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -6061,12 +6087,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html>
 
 -- data RequestSpotInstances = RequestSpotInstances
---     { rsiSpotPrice             :: !ByteString
+--     { rsiSpotPrice             :: !Text
 --       -- ^ The maximum hourly price for any Spot Instance launched to
 --       -- fulfill the request.
 --     , rsiInstanceCount         :: Maybe Integer
 --       -- ^ The maximum number of Spot Instances to launch.
---     , rsiType                  :: Maybe ByteString
+--     , rsiType                  :: Maybe Text
 --       -- ^ The Spot Instance request type.
 --     , rsiValidFrom             :: Maybe UTCTime
 --       -- ^ The start date of the request. If this is a one-time request, the
@@ -6081,10 +6107,10 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- canceled, or this date is reached. If the request is persistent,
 --       -- it remains active until it is canceled or this date and time is
 --       -- reached.
---     , rsiLaunchGroup           :: Maybe ByteString
+--     , rsiLaunchGroup           :: Maybe Text
 --       -- ^ The instance launch group. Launch groups are Spot Instances that
 --       -- launch together and terminate together.
---     , rsiAvailabilityZoneGroup :: Maybe ByteString
+--     , rsiAvailabilityZoneGroup :: Maybe Text
 --       -- ^ The user-specified name for a logical grouping of bids.
 --     , rsiLaunchSpecification   :: Members LaunchSpecificationType
 --       -- ^ The ID of the AMI.
@@ -6096,7 +6122,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "RequestSpotInstances"
 
 -- data RequestSpotInstancesResponse = RequestSpotInstancesResponse
---     { rsiRequestId              :: !ByteString
+--     { rsiRequestId              :: !Text
 --       -- ^ The ID of the request.
 --     , rsiSpotInstanceRequestSet :: !SpotInstanceRequestSetItemType
 --       -- ^ Information about the Spot Instance request, wrapped in an item
@@ -6111,9 +6137,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html>
 
 -- data ResetImageAttribute = ResetImageAttribute
---     { riaImageId   :: !ByteString
+--     { riaImageId   :: !Text
 --       -- ^ The ID of the AMI.
---     , riaAttribute :: !ByteString
+--     , riaAttribute :: !Text
 --       -- ^ The attribute to reset (currently you can only reset the launch
 --       -- permission attribute).
 --     } deriving (Eq, Show, Generic)
@@ -6127,7 +6153,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ResetImageAttribute"
 
 -- data ResetImageAttributeResponse = ResetImageAttributeResponse
---     { riaRequestId :: !ByteString
+--     { riaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , riaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -6149,9 +6175,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html>
 
 -- data ResetInstanceAttribute = ResetInstanceAttribute
---     { riaInstanceId :: !ByteString
+--     { riaInstanceId :: !Text
 --       -- ^ The ID of the instance.
---     , ribAttribute  :: !ByteString
+--     , ribAttribute  :: !Text
 --       -- ^ The attribute to reset.
 --     } deriving (Eq, Show, Generic)
 
@@ -6164,7 +6190,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ResetInstanceAttribute"
 
 -- data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
---     { ribRequestId :: !ByteString
+--     { ribRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , ribReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -6180,9 +6206,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetNetworkInterfaceAttribute.html>
 
 -- data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
---     { rniaNetworkInterfaceId :: !ByteString
+--     { rniaNetworkInterfaceId :: !Text
 --       -- ^ The ID of the network interface.
---     , rniaAttribute          :: !ByteString
+--     , rniaAttribute          :: !Text
 --       -- ^ The name of the attribute to reset.
 --     } deriving (Eq, Show, Generic)
 
@@ -6195,7 +6221,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ResetNetworkInterfaceAttribute"
 
 -- data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
---     { rniaRequestId :: !ByteString
+--     { rniaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , rniaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -6210,9 +6236,9 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html>
 
 -- data ResetSnapshotAttribute = ResetSnapshotAttribute
---     { rsaSnapshotId :: !ByteString
+--     { rsaSnapshotId :: !Text
 --       -- ^ The ID of the snapshot.
---     , rsaAttribute  :: !ByteString
+--     , rsaAttribute  :: !Text
 --       -- ^ The attribute to reset (currently only the attribute for
 --       -- permission to create volumes can be reset)
 --     } deriving (Eq, Show, Generic)
@@ -6226,7 +6252,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "ResetSnapshotAttribute"
 
 -- data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
---     { rsaRequestId :: !ByteString
+--     { rsaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , rsaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -6250,7 +6276,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupEgress.html>
 
 -- data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
---     { rsgeGroupId       :: !ByteString
+--     { rsgeGroupId       :: !Text
 --       -- ^ The ID of the security group to modify.
 --     , rsgeIpPermissions :: Members IpPermissionType
 --       -- ^ The IP protocol name or number (see Protocol Numbers).
@@ -6262,7 +6288,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "RevokeSecurityGroupEgress"
 
 -- data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
---     { rsgeRequestId :: !ByteString
+--     { rsgeRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , rsgeReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -6286,12 +6312,12 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupIngress.html>
 
 -- data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
---     { rsgiUserId        :: Maybe ByteString
+--     { rsgiUserId        :: Maybe Text
 --       -- ^ Deprecated
---     , rsgiGroupId       :: !ByteString
+--     , rsgiGroupId       :: !Text
 --       -- ^ The ID of the security group to modify. The security group must
 --       -- belong to your account.
---     , rsgiGroupName     :: !ByteString
+--     , rsgiGroupName     :: !Text
 --       -- ^ The name of the security group to modify.
 --     , rsgiIpPermissions :: Members IpPermissionType
 --       -- ^ The IP protocol name or number (see Protocol Numbers). For
@@ -6306,7 +6332,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "RevokeSecurityGroupIngress"
 
 -- data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
---     { rsgiRequestId :: !ByteString
+--     { rsgiRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , rsgiReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -6330,7 +6356,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html>
 
 -- data RunInstances = RunInstances
---     { riImageId                           :: !ByteString
+--     { riImageId                           :: !Text
 --       -- ^ The ID of the AMI, which you can get by calling DescribeImages.
 --     , riMinCount                          :: !Integer
 --       -- ^ The minimum number of instances to launch. If you specify a
@@ -6341,32 +6367,32 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- instances than Amazon EC2 can launch in the target Availability
 --       -- Zone, Amazon EC2 launches the largest possible number of
 --       -- instances above MinCount.
---     , riKeyName                           :: Maybe ByteString
+--     , riKeyName                           :: Maybe Text
 --       -- ^ The name of the key pair. You can create a key pair using
 --       -- CreateKeyPair or ImportKeyPair.
---     , riSecurityGroupId                   :: Members ByteString
+--     , riSecurityGroupId                   :: Members Text
 --       -- ^ One or more security group IDs. You can create a security group
 --       -- using CreateSecurityGroup.
---     , riSecurityGroup                     :: Members ByteString
+--     , riSecurityGroup                     :: Members Text
 --       -- ^ [EC2-Classic, default VPC] One or more security group names. For
 --       -- a nondefault VPC, you must use SecurityGroupId.n.
---     , riUserData                          :: Maybe ByteString
+--     , riUserData                          :: Maybe Text
 --       -- ^ The Base64-encoded MIME user data for the instances.
---     , riInstanceType                      :: Maybe ByteString
+--     , riInstanceType                      :: Maybe Text
 --       -- ^ The instance type. See Available Instance Types for more
 --       -- information.
 --     , riPlacement                         :: Members PlacementType
 --       -- ^ The Availability Zone for the instance.
---     , rjKernelId                          :: Maybe ByteString
+--     , rjKernelId                          :: Maybe Text
 --       -- ^ The ID of the kernel.
---     , rjRamdiskId                         :: Maybe ByteString
+--     , rjRamdiskId                         :: Maybe Text
 --       -- ^ The ID of the RAM disk.
 --     , rjBlockDeviceMapping                :: Members BlockDeviceMappingType
 --       -- ^ The device name exposed to the instance (for example, /dev/sdh or
 --       -- xvdh).
 --     , rjMonitoring                        :: Members MonitoringType
 --       -- ^ Enables monitoring for the instance.
---     , rjSubnetId                          :: Maybe ByteString
+--     , rjSubnetId                          :: Maybe Text
 --       -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
 --     , rjDisableApiTermination             :: Maybe Bool
 --       -- ^ If you set this parameter to true, you can't terminate the
@@ -6377,14 +6403,14 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ModifyInstanceAttribute. Alternatively, if you set
 --       -- InstanceInitiatedShutdownBehavior to terminate, you can terminate
 --       -- the instance by running the shutdown command from the instance.
---     , rjInstanceInitiatedShutdownBehavior :: Maybe ByteString
+--     , rjInstanceInitiatedShutdownBehavior :: Maybe Text
 --       -- ^ Indicates whether an instance stops or terminates when you
 --       -- initiate shutdown from the instance (using the operating system
 --       -- command for system shutdown).
---     , rjPrivateIpAddress                  :: Maybe ByteString
+--     , rjPrivateIpAddress                  :: Maybe Text
 --       -- ^ [EC2-VPC] The primary IP address. You must specify a value from
 --       -- the IP address range of the subnet.
---     , rjClientToken                       :: Maybe ByteString
+--     , rjClientToken                       :: Maybe Text
 --       -- ^ Unique, case-sensitive identifier you provide to ensure
 --       -- idempotency of the request.
 --     , rjNetworkInterface                  :: Members NetworkInterfaceType
@@ -6408,18 +6434,18 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "RunInstances"
 
 -- data RunInstancesResponse = RunInstancesResponse
---     { rkRequestId     :: !ByteString
+--     { rkRequestId     :: !Text
 --       -- ^ The ID of the request.
---     , rkReservationId :: !ByteString
+--     , rkReservationId :: !Text
 --       -- ^ The ID of the reservation.
---     , rkOwnerId       :: !ByteString
+--     , rkOwnerId       :: !Text
 --       -- ^ The ID of the AWS account that owns the reservation.
 --     , rkGroupSet      :: !GroupItemType
 --       -- ^ A list of security groups the instance belongs to. Each group is
 --       -- wrapped in an item element.
 --     , rkInstancesSet  :: !RunningInstancesItemType
 --       -- ^ A list of instances. Each instance is wrapped in an item element.
---     , rkRequesterId   :: !ByteString
+--     , rkRequesterId   :: !Text
 --       -- ^ The ID of the requester that launched the instances on your
 --       -- behalf (for example, AWS Management Console, Auto Scaling).
 --     } deriving (Eq, Show, Generic)
@@ -6445,7 +6471,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html>
 
 -- data StartInstances = StartInstances
---     { siInstanceId :: Members ByteString
+--     { siInstanceId :: Members Text
 --       -- ^ One or more instance IDs.
 --     } deriving (Eq, Show, Generic)
 
@@ -6455,7 +6481,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "StartInstances"
 
 -- data StartInstancesResponse = StartInstancesResponse
---     { siRequestId    :: !ByteString
+--     { siRequestId    :: !Text
 --       -- ^ The ID of the request.
 --     , siInstancesSet :: !InstanceStateChangeType
 --       -- ^ A list of instance state changes. Each change is wrapped in an
@@ -6490,7 +6516,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StopInstances.html>
 
 -- data StopInstances = StopInstances
---     { sjInstanceId :: Members ByteString
+--     { sjInstanceId :: Members Text
 --       -- ^ One or more instance IDs.
 --     , sjForce      :: Maybe Bool
 --       -- ^ Forces the instances to stop. The instances will not have an
@@ -6506,7 +6532,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "StopInstances"
 
 -- data StopInstancesResponse = StopInstancesResponse
---     { sjRequestId    :: !ByteString
+--     { sjRequestId    :: !Text
 --       -- ^ The ID of the request.
 --     , sjInstancesSet :: !InstanceStateChangeType
 --       -- ^ A list of instance state changes. Each change is wrapped in an
@@ -6531,7 +6557,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-TerminateInstances.html>
 
 -- data TerminateInstances = TerminateInstances
---     { tiInstanceId :: Members ByteString
+--     { tiInstanceId :: Members Text
 --       -- ^ One or more instance IDs.
 --     } deriving (Eq, Show, Generic)
 
@@ -6541,7 +6567,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "TerminateInstances"
 
 -- data TerminateInstancesResponse = TerminateInstancesResponse
---     { tiRequestId    :: !ByteString
+--     { tiRequestId    :: !Text
 --       -- ^ The ID of the request.
 --     , tiInstancesSet :: !InstanceStateChangeType
 --       -- ^ A list of instance state changes. Each change is wrapped in an
@@ -6557,7 +6583,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnassignPrivateIpAddresses.html>
 
 -- data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
---     { upiaNetworkInterfaceId :: !ByteString
+--     { upiaNetworkInterfaceId :: !Text
 --       -- ^ The network interface from which the secondary private IP address
 --       -- will be unassigned.
 --     , upiaPrivateIpAddress   :: Members AssignPrivateIpAddressesSetItemRequestType
@@ -6572,7 +6598,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "UnassignPrivateIpAddresses"
 
 -- data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
---     { upiaRequestId :: !ByteString
+--     { upiaRequestId :: !Text
 --       -- ^ The ID of the request.
 --     , upiaReturn    :: !Bool
 --       -- ^ Returns true if the request succeeds. Otherwise, returns an
@@ -6589,7 +6615,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnmonitorInstances.html>
 
 -- data UnmonitorInstances = UnmonitorInstances
---     { uiInstanceId :: Members ByteString
+--     { uiInstanceId :: Members Text
 --       -- ^ One or more instance IDs.
 --     } deriving (Eq, Show, Generic)
 
@@ -6599,7 +6625,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     request = req GET "UnmonitorInstances"
 
 -- data UnmonitorInstancesResponse = UnmonitorInstancesResponse
---     { uiRequestId    :: !ByteString
+--     { uiRequestId    :: !Text
 --       -- ^ The ID of the request.
 --     , uiInstancesSet :: !MonitorInstancesResponseSetItemType
 --       -- ^ A list of monitoring information for one or more instances. Each

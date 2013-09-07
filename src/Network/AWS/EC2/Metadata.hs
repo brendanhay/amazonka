@@ -69,6 +69,7 @@ instance IsByteString Metadata where
         SecurityCredentials r -> "iam/security-credentials/" <> r
         AvailabilityZone      -> "placement/availability-zone"
 
+
 metadata :: (Applicative m, MonadIO m)
          => Metadata
          -> EitherT Error m ByteString

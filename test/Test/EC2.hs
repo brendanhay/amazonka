@@ -96,7 +96,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DescribeImageAttribute"             (prop :: Rq DescribeImageAttribute)
         -- , testProperty "DescribeImages"                     (prop :: Rq DescribeImages)
         -- , testProperty "DescribeInstanceAttribute"          (prop :: Rq DescribeInstanceAttribute)
-        -- , testProperty "DescribeInstances"                  (prop :: Rq DescribeInstances)
+        , testProperty "DescribeInstances"                  (prop :: Rq DescribeInstances)
         -- , testProperty "DescribeInstanceStatus"             (prop :: Rq DescribeInstanceStatus)
         -- , testProperty "DescribeInternetGateways"           (prop :: Rq DescribeInternetGateways)
         -- , testProperty "DescribeKeyPairs"                   (prop :: Rq DescribeKeyPairs)
@@ -116,7 +116,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DescribeSpotInstanceRequests"       (prop :: Rq DescribeSpotInstanceRequests)
         -- , testProperty "DescribeSpotPriceHistory"           (prop :: Rq DescribeSpotPriceHistory)
         -- , testProperty "DescribeSubnets"                    (prop :: Rq DescribeSubnets)
-        -- , testProperty "DescribeTags"                       (prop :: Rq DescribeTags)
+        , testProperty "DescribeTags"                       (prop :: Rq DescribeTags)
         -- , testProperty "DescribeVolumeAttribute"            (prop :: Rq DescribeVolumeAttribute)
         -- , testProperty "DescribeVolumes"                    (prop :: Rq DescribeVolumes)
         -- , testProperty "DescribeVolumeStatus"               (prop :: Rq DescribeVolumeStatus)
@@ -245,7 +245,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DescribeImageAttributeResponse"             (prop :: Rs DescribeImageAttributeResponse)
         -- , testProperty "DescribeImagesResponse"                     (prop :: Rs DescribeImagesResponse)
         -- , testProperty "DescribeInstanceAttributeResponse"          (prop :: Rs DescribeInstanceAttributeResponse)
-        -- , testProperty "DescribeInstancesResponse"                  (prop :: Rs DescribeInstancesResponse)
+        , testProperty "DescribeInstancesResponse"                  (prop :: Rs DescribeInstancesResponse)
         -- , testProperty "DescribeInstanceStatusResponse"             (prop :: Rs DescribeInstanceStatusResponse)
         -- , testProperty "DescribeInternetGatewaysResponse"           (prop :: Rs DescribeInternetGatewaysResponse)
         -- , testProperty "DescribeKeyPairsResponse"                   (prop :: Rs DescribeKeyPairsResponse)
@@ -265,7 +265,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DescribeSpotInstanceRequestsResponse"       (prop :: Rs DescribeSpotInstanceRequestsResponse)
         -- , testProperty "DescribeSpotPriceHistoryResponse"           (prop :: Rs DescribeSpotPriceHistoryResponse)
         -- , testProperty "DescribeSubnetsResponse"                    (prop :: Rs DescribeSubnetsResponse)
-        -- , testProperty "DescribeTagsResponse"                       (prop :: Rs DescribeTagsResponse)
+        , testProperty "DescribeTagsResponse"                       (prop :: Rs DescribeTagsResponse)
         -- , testProperty "DescribeVolumeAttributeResponse"            (prop :: Rs DescribeVolumeAttributeResponse)
         -- , testProperty "DescribeVolumesResponse"                    (prop :: Rs DescribeVolumesResponse)
         -- , testProperty "DescribeVolumeStatusResponse"               (prop :: Rs DescribeVolumeStatusResponse)
@@ -320,34 +320,57 @@ tests = (:[]) $ testVersion ec2Version
     ]
 
 instance ToJSON AddressDomain where
-    toJSON = String . Text.pack . show
+    toJSON = stringify . show
 
 instance ToJSON VolumeStatus where
-    toJSON = String . Text.pack . show
+    toJSON = stringify . show
 
 instance ToJSON BundleInstanceState where
-    toJSON = String . Text.pack . show
+    toJSON = stringify . show
+
+instance ToJSON TagResourceType where
+    toJSON = stringify . show
 
 $(deriveArbitrary
    [ ''AddressDomain
-   , ''VolumeStatus
    , ''BundleInstanceState
+   , ''TagResourceType
+   , ''VolumeStatus
    ])
 
 $(deriveDependency
     [ ''Attachment
+    , ''BundleInstanceS3Storage
+    , ''BundleInstanceTask
+    , ''BundleInstanceTaskError
+    , ''BundleInstanceTaskStorage
+    , ''CancelSpotInstanceRequestsResponseSetItemType
+    , ''DescribeReservedInstancesListingsResponseSetItemType
+    , ''EbsInstanceBlockDeviceMappingResponseType
+    , ''Filter
+    , ''Filters
+    , ''GroupItemType
+    , ''IamInstanceProfileResponseType
+    , ''InstanceBlockDeviceMappingResponseItemType
+    , ''InstanceCountsSetItemType
+    , ''InstanceMonitoringStateType
+    , ''InstanceNetworkInterfaceAssociationType
+    , ''InstanceNetworkInterfaceAttachmentType
+    , ''InstanceNetworkInterfaceSetItemType
+    , ''InstancePrivateIpAddressesSetItemType
+    , ''InstanceStateType
     , ''IpPermission
     , ''IpRange
-    , ''UserIdGroupPair
-    , ''BundleInstanceS3Storage
-    , ''BundleInstanceTaskStorage
-    , ''BundleInstanceTaskError
-    , ''BundleInstanceTask
-    , ''DescribeReservedInstancesListingsResponseSetItemType
-    , ''CancelSpotInstanceRequestsResponseSetItemType
-    , ''ResourceTagSetItemType
+    , ''PlacementResponseType
     , ''PriceScheduleSetItemType
-    , ''InstanceCountsSetItemType
+    , ''ProductCodesSetItemType
+    , ''ReservationInfoType
+    , ''ResourceTagSetItemType
+    , ''RunningInstancesItemType
+    , ''StateReasonType
+    , ''TagFilter
+    , ''TagSetItemType
+    , ''UserIdGroupPair
     ])
 
 $(deriveProperty "test/resources/EC2"
@@ -501,8 +524,8 @@ $(deriveProperty "test/resources/EC2"
     -- , ''DescribeImagesResponse
     -- , ''DescribeInstanceAttribute
     -- , ''DescribeInstanceAttributeResponse
-    -- , ''DescribeInstances
-    -- , ''DescribeInstancesResponse
+    , ''DescribeInstances
+    , ''DescribeInstancesResponse
     -- , ''DescribeInstanceStatus
     -- , ''DescribeInstanceStatusResponse
     -- , ''DescribeInternetGateways
@@ -541,8 +564,8 @@ $(deriveProperty "test/resources/EC2"
     -- , ''DescribeSpotPriceHistoryResponse
     -- , ''DescribeSubnets
     -- , ''DescribeSubnetsResponse
-    -- , ''DescribeTags
-    -- , ''DescribeTagsResponse
+    , ''DescribeTags
+    , ''DescribeTagsResponse
     -- , ''DescribeVolumeAttribute
     -- , ''DescribeVolumeAttributeResponse
     -- , ''DescribeVolumes

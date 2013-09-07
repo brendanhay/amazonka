@@ -1,7 +1,6 @@
-{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE ViewPatterns      #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,10 +21,12 @@ module Network.AWS
 
     -- * AWS Monadic Context
     , runAWS
-    , send
     , within
+    , send
+    , send'
 
     -- * Re-exported
+    , module Network.AWS.Internal.Monad
     , module Network.AWS.Internal.Types
     ) where
 
@@ -40,6 +41,7 @@ import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
+import           Network.AWS.Internal.Monad
 import           Network.AWS.Internal.Types
 import           Network.Http.Client
 import           OpenSSL                    (withOpenSSL)
@@ -68,15 +70,17 @@ runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
 within :: Region -> AWS a -> AWS a
 within reg = local (\e -> e { awsRegion = Just reg })
 
--- | Encode, then send an 'AWSRequest' type to its functionally dependent 'AWSService'.
-send :: (AWSService s, AWSRequest s a b, AWSResponse s b) => a -> AWSContext b
-send payload = do
-    sig  <- lift . sign $ request payload
+send :: (ToError e, Rq a, Rs a ~ Either e b) => a -> EitherT Error AWS b
+send rq = hoistEither . fmapL toError =<< send' rq
+
+send' :: Rq a => a -> EitherT Error AWS (Rs a)
+send' rq = do
+    sig  <- lift . sign $ request rq
     whenDebug . print $ rqRequest sig
     mres <- receive sig
     res  <- mres ?? "Failed to receive any data"
     whenDebug $ BS.putStrLn res
-    hoistEither $ response res
+    hoistEither $ response rq res
   where
     receive SignedRequest{..} =
         tryIO' . bracket (establishConnection rqUrl) closeConnection $ \c -> do

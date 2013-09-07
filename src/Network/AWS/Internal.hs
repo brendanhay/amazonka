@@ -19,6 +19,7 @@ module Network.AWS.Internal
     (
     -- * Internal Modules
       module Network.AWS.Internal.Instances
+    , module Network.AWS.Internal.Monad
     , module Network.AWS.Internal.Signing
     , module Network.AWS.Internal.String
     , module Network.AWS.Internal.Types
@@ -44,6 +45,7 @@ import Data.Text                       (Text)
 import Data.Text.Encoding
 import GHC.Generics
 import Network.AWS.Internal.Instances
+import Network.AWS.Internal.Monad
 import Network.AWS.Internal.Signing
 import Network.AWS.Internal.String
 import Network.AWS.Internal.Types

@@ -28,6 +28,11 @@ library
     exposed-modules:
         Network.AWS
         Network.AWS.Internal
+      , Network.AWS.Internal.Instances
+      , Network.AWS.Internal.Monad
+      , Network.AWS.Internal.Signing
+      , Network.AWS.Internal.String
+      , Network.AWS.Internal.Types
 
 --      , Network.AWS.AutoScaling
 --      , Network.AWS.CloudWatch
@@ -42,11 +47,8 @@ library
       , Network.AWS.Route53
       , Network.AWS.Route53.Types
 
-        Network.AWS.Internal.Instances
-      , Network.AWS.Internal.Monad
-      , Network.AWS.Internal.Signing
-      , Network.AWS.Internal.String
-      , Network.AWS.Internal.Types
+      , Network.AWS.S3
+      , Network.AWS.S3.Types
 
       -- , Network.AWS.AutoScaling.Types
       -- , Network.AWS.CloudWatch.Types

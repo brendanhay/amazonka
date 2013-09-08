@@ -16,7 +16,7 @@ import Control.Applicative
 import Control.Error
 import Control.Monad
 import Control.Monad.IO.Class
-import Control.Monad.Reader            hiding (lift)
+import Control.Monad.Reader
 import Network.AWS.Internal.Types
 
 data Env = Env
@@ -36,8 +36,11 @@ currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
 currentAuth :: AWS Auth
 currentAuth = awsAuth <$> ask
 
+debugEnabled :: AWS Bool
+debugEnabled = awsDebug <$> ask
+
 whenDebug :: IO () -> AWSContext ()
-whenDebug io = fmap awsDebug ask >>= \p -> liftIO $ when p io
+whenDebug io = lift debugEnabled >>= \p -> liftIO $ when p io
 
 throwError :: Monad m => String -> EitherT Error m a
 throwError = throwT . Error

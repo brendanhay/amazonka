@@ -16,20 +16,17 @@
 
 module Network.AWS.Internal.Signing
     (
-    -- * Metadata about the Version 4 signing process
-      SigningMetadata (..)
-
     -- * Signing raw requests
-    , sign
+      sign
 
     -- * Exposed for testing purposes
-    , version2
-    , version3
+    , SigningMetadata (..)
     , version4
     ) where
 
 import           Control.Arrow                   (first)
 import           Control.Error
+import           Control.Monad
 import           Control.Monad.IO.Class
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Base64          as Base64
@@ -49,37 +46,28 @@ import           Network.HTTP.Types              (urlEncode)
 import           Network.Http.Client
 import           System.Locale
 
-data SigningMetadata = SigningMetadata
-    { smdCReq  :: !ByteString
-    , smdSTS   :: !ByteString
-    , smdAuthz :: !ByteString
-    , smdSReq  :: !ByteString
-    } deriving (Eq)
-
-instance Show SigningMetadata where
-    show SigningMetadata{..} = BS.unpack . BS.unlines
-        $ BS.lines smdCReq
-       ++ BS.lines smdSTS
-       ++ BS.lines smdAuthz
-       ++ BS.lines smdSReq
-
 sign :: RawRequest -> AWS SignedRequest
 sign r = do
     auth <- currentAuth
     reg  <- currentRegion
     time <- liftIO Time.getCurrentTime
+    dbg  <- debugEnabled
 
-    let hdrs = [("Date", rfc822Time time), ("Host", svcEndpoint reg)]
-        rq   = r { rqHeaders = rqHeaders r ++ hdrs }
+    let hs = [("Date", rfc822Time time), ("Host", svcEndpoint reg)]
+        rq = r { rqHeaders = rqHeaders r ++ hs }
 
-    liftIO $ signer rq auth reg time
+    liftIO $ signer dbg rq auth reg time
   where
     Service{..} = rqService r
 
-    signer = case svcSigner of
+    signer dbg = case svcSigner of
         SigningVersion2 -> version2
         SigningVersion3 -> version3
-        SigningVersion4 -> \a b c d -> fmap fst $ version4 a b c d
+        SigningVersion4 -> \a b c d -> fmap fst $ version4 a b c d dbg
+
+--
+-- Internal
+--
 
 version2 :: RawRequest
          -> Auth
@@ -137,23 +125,39 @@ version3 RawRequest{..} Auth{..} reg time = do
         <> ", Algorithm=HmacSHA256, Signature="
         <> Base64.encode (hmac secretKey $ rfc822Time time)
 
+data SigningMetadata = SigningMetadata
+    { smdCReq  :: !ByteString
+    , smdSTS   :: !ByteString
+    , smdAuthz :: !ByteString
+    , smdSReq  :: !ByteString
+    } deriving (Eq)
+
+instance Show SigningMetadata where
+    show SigningMetadata{..} = BS.unpack . BS.unlines
+        $ BS.lines smdCReq
+       ++ BS.lines smdSTS
+       ++ BS.lines smdAuthz
+       ++ BS.lines smdSReq
+
 version4 :: RawRequest
          -> Auth
          -> Region
          -> UTCTime
+         -> Bool
          -> IO (SignedRequest, SigningMetadata)
-version4 RawRequest{..} Auth{..} reg time = do
+version4 RawRequest{..} Auth{..} reg time dbg = do
     let url = "https://" <> svcEndpoint reg <> path
-        -- FIXME: Temporary, for testing purposes
-        conc = \(k,v) -> k <> ":" <> v
-        sreq = BS.unlines $
-            [ BS.intercalate " " [toBS rqMethod, path, "http/1.1"]
-            ] ++ (map conc (rqHeaders ++ [("Authorization", " " <> authorization time)]))
-              ++ [""]
-        meta = SigningMetadata
-            canonicalRequest (stringToSign time) (authorization time) sreq
 
-    fmap (, meta) . fmap (SignedRequest url rqBody) . buildRequest $ do
+        -- FIXME: Temporary, for testing purposes
+    let a  = [("Authorization", " " <> authorization time)]
+        hs = map (\(k,v) -> k <> ":" <> v) $ rqHeaders ++ a
+        r  = BS.intercalate " " [toBS rqMethod, path, "http/1.1"]
+        m  = SigningMetadata canonicalRequest (stringToSign time)
+                 (authorization time) (BS.unlines $ [r] ++ hs)
+
+    when dbg $ print m
+
+    fmap (, m) . fmap (SignedRequest url rqBody) . buildRequest $ do
         http rqMethod path
         setHeaders $ ("Authorization", authorization time) : rqHeaders
   where

@@ -24,7 +24,7 @@ import           Control.Monad
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
-import           Data.List                       (intercalate)
+import           Data.List                       (intercalate, union)
 import           Data.Map                        (Map)
 import qualified Data.Map                        as Map
 import           Data.Monoid
@@ -113,11 +113,8 @@ newtype ServiceVersion = ServiceVersion ByteString
 svcPath :: IsByteString a => Service -> a -> ByteString
 svcPath svc p = "/" <> toBS (svcVersion svc) <> "/" <> toBS p
 
-data SigningVersion
-    = SigningVersion2
-    | SigningVersion3
-    | SigningVersion4
-      deriving (Show)
+data SigningVersion = SigningVersion3 | SigningVersion4
+    deriving (Show)
 
 data Service = Service
     { svcName     :: !ByteString
@@ -139,8 +136,7 @@ data RawRequest = RawRequest
     { rqService :: !Service
     , rqMethod  :: !Method
     , rqContent :: !ContentType
-    , rqAction  :: Maybe ByteString
-    , rqPath    :: Maybe ByteString
+    , rqPath    :: ByteString
     , rqHeaders :: Map ByteString ByteString
     , rqQuery   :: [(ByteString, ByteString)]
     , rqBody    :: Maybe ByteString
@@ -151,7 +147,6 @@ instance Show RawRequest where
         [ "rqService = " ++ show rqService
         , "rqMethod  = " ++ show rqMethod
         , "rqContent = " ++ show rqContent
-        , "rqAction  = " ++ show rqAction
         , "rqPath    = " ++ show rqPath
         , "rqHeaders = " ++ show rqHeaders
         , "rqQuery   = " ++ show rqQuery
@@ -161,7 +156,7 @@ instance ToJSON RawRequest where
     toJSON RawRequest{..} = object
         [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
         , "rqContent" .= (String $ toText rqContent)
-        , "rqAction"  .= rqAction
+        , "rqAction"  .= ("Action" `lookup` rqQuery)
         , "rqPath"    .= rqPath
         , "rqQuery"   .= rqQuery
         ]
@@ -176,11 +171,10 @@ emptyRequest svc meth content path body = RawRequest
     { rqService = svc
     , rqMethod  = meth
     , rqContent = content
-    , rqAction  = Nothing
+    , rqPath    = path
     , rqHeaders = Map.empty
     , rqQuery   = []
     , rqBody    = body
-    , rqPath    = if BS.null path then Nothing else Just path
     }
 
 queryRequest :: IsQuery a
@@ -192,8 +186,7 @@ queryRequest :: IsQuery a
              -> RawRequest
 queryRequest svc meth act path qry =
     (emptyRequest svc meth FormEncoded path Nothing)
-        { rqAction = act
-        , rqQuery  = toQuery qry
+        { rqQuery = toQuery qry `union` maybe [] (\a -> [("Action", a)]) act
         }
 
 xmlRequest :: IsXML a
@@ -206,9 +199,9 @@ xmlRequest svc meth path =
     emptyRequest svc meth XML path . Just . toXML
 
 data SignedRequest = SignedRequest
-    { rqUrl     :: !ByteString
-    , rqPayload :: !(Maybe ByteString)
-    , rqRequest :: !Request
+    { srqUrl     :: !ByteString
+    , srqRequest :: !Request
+    , srqPayload :: (Maybe ByteString)
     } deriving (Show)
 
 data ContentType

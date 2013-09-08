@@ -23,9 +23,10 @@ lint:
 doc:
 	cabal haddock
 
-add-sources: cabal.sandbox.config
+add-sources: cabal.sandbox.config vendor/http-streams
 	cabal sandbox add-source ../hexpat-pickle-generic
 	cabal sandbox add-source ../querystring-pickle
+	cabal sandbox add-source vendor/http-streams
 
 cabal.sandbox.config:
 	cabal sandbox init

@@ -17,23 +17,37 @@ module Network.AWS.AutoScaling.Types where
 
 import Data.ByteString      (ByteString)
 import Data.Monoid
+import Data.Text            (Text)
 import Data.Time
 import Network.AWS.Internal
 
+autoScalingService :: Service
+autoScalingService = Service "autoscaling" autoScalingVersion SigningVersion4 $
+    \r -> "autoscaling." <> toBS r <> ".amazonaws.com"
+
 -- | Currently supported version of the AutoScaling service.
-autoScalingVersion :: ByteString
+autoScalingVersion :: ServiceVersion
 autoScalingVersion = "2011-01-01"
 
 -- | XML namespace to annotate AutoScaling elements with.
 autoScalingNS :: ByteString
-autoScalingNS = "http://autoscaling.amazonaws.com/doc/" <> autoScalingVersion <> "/"
+autoScalingNS =
+    "http://autoscaling.amazonaws.com/doc/" <> toBS autoScalingVersion <> "/"
 
 -- | Helper to define AutoScaling namespaced XML elements.
 autoScalingElem :: ByteString -> NName ByteString
 autoScalingElem = mkNName autoScalingNS
 
+data AutoScalingError = AutoScalingError { ecError :: !Text }
+    deriving (Eq, Show, Generic)
+
+instance ToError AutoScalingError where
+    toError = Error . show
+
+instance IsXML AutoScalingError
+
 data ResponseMetadata = ResponseMetadata
-    { rmRequestId :: !ByteString
+    { rmRequestId :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML ResponseMetadata where
@@ -45,17 +59,17 @@ data ErrorType = Receiver | Sender
 instance IsXML ErrorType where
     xmlPickler = xpContent xpPrim
 
-data Error = Error
-    { eType    :: !ErrorType
-    , eCode    :: !ByteString
-    , eMessage :: !ByteString
-    , eDetail  :: !ByteString
-    } deriving (Eq, Show, Generic)
+-- data Error = Error
+--     { eType    :: !ErrorType
+--     , eCode    :: !Text
+--     , eMessage :: !Text
+--     , eDetail  :: !Text
+--     } deriving (Eq, Show, Generic)
 
-instance IsXML Error where
-    xmlPickler = withNS autoScalingNS
+-- instance IsXML Error where
+--     xmlPickler = withNS autoScalingNS
 
-newtype ResourceName = ResourceName ByteString
+newtype ResourceName = ResourceName Text
     deriving (Eq, Show, Generic, IsByteString)
 
 instance IsQuery ResourceName
@@ -67,15 +81,15 @@ instance IsQuery ResourceName
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Activity.html>
 data Activity = Activity
-    { aActivityId           :: !ByteString
+    { aActivityId           :: !Text
       -- ^ Specifies the ID of the activity.
-    , aAutoScalingGroupName :: !ByteString
+    , aAutoScalingGroupName :: !Text
       -- ^ The name of the Auto Scaling group.
-    , aCause                :: !ByteString
+    , aCause                :: !Text
       -- ^ Contains the reason the activity was begun.
-    , aDescription          :: Maybe ByteString
+    , aDescription          :: Maybe Text
       -- ^ Contains a friendly, more verbose description of the scaling activity.
-    , aDetails              :: Maybe ByteString
+    , aDetails              :: Maybe Text
       -- ^ Contains details of the scaling activity.
     , aEndTime              :: Maybe UTCTime
       -- ^ Provides the end time of this activity.
@@ -84,9 +98,9 @@ data Activity = Activity
       -- of the activity.
     , aStartTime            :: !UTCTime
       -- ^ Provides the start time of this activity.
-    , aStatusCode           :: !ByteString
+    , aStatusCode           :: !Text
       -- ^ Contains the current status of the activity.
-    , aStatusMessage        :: Maybe ByteString
+    , aStatusMessage        :: Maybe Text
       -- ^ Contains a friendly, more verbose description of the activity status.
     } deriving (Eq, Show, Generic)
 
@@ -115,9 +129,9 @@ instance IsXML AdjustmentType where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Alarm.html>
 data Alarm = Alarm
-    { aAlarmARN  :: Maybe ByteString
+    { aAlarmARN  :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the alarm.
-    , aAlarmName :: Maybe ByteString
+    , aAlarmName :: Maybe Text
       -- ^ The name of the alarm.
     } deriving (Eq, Show, Generic)
 
@@ -130,11 +144,11 @@ instance IsXML Alarm where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AutoScalingGroup.html>
 data AutoScalingGroup = AutoScalingGroup
-    { asgAutoScalingGroupARN     :: Maybe ByteString
+    { asgAutoScalingGroupARN     :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the Auto Scaling group.
-    , asgAutoScalingGroupName    :: !ByteString
+    , asgAutoScalingGroupName    :: !Text
       -- ^ Specifies the name of the group.
-    , asgAvailabilityZones       :: Members ByteString
+    , asgAvailabilityZones       :: Members Text
       -- ^ Contains a list of Availability Zones for the group.
     , asgCreatedTime             :: !UTCTime
       -- ^ Specifies the date and time the Auto Scaling group was created.
@@ -149,32 +163,32 @@ data AutoScalingGroup = AutoScalingGroup
       -- ^ The length of time that Auto Scaling waits before checking an
       -- instance's health status. The grace period begins when an
       -- instance comes into service.
-    , asgHealthCheckType         :: !ByteString
+    , asgHealthCheckType         :: !Text
       -- ^ The service of interest for the health status check, either "EC2"
       -- for Amazon EC2 or "ELB" for Elastic Load Balancing.
     , asgInstances               :: Members Instance
       -- ^ Provides a summary list of Amazon EC2 instances.
-    , asgLaunchConfigurationName :: !ByteString
+    , asgLaunchConfigurationName :: !Text
       -- ^ Specifies the name of the associated LaunchConfiguration.
-    , asgLoadBalancerNames       :: Members ByteString
+    , asgLoadBalancerNames       :: Members Text
       -- ^ A list of load balancers associated with this Auto Scaling group.
     , asgMaxSize                 :: !Integer
       -- ^ Contains the maximum size of the Auto Scaling group.
     , asgMinSize                 :: !Integer
       -- ^ Contains the minimum size of the Auto Scaling group.
-    , asgPlacementGroup          :: Maybe ByteString
+    , asgPlacementGroup          :: Maybe Text
       -- ^ The name of the cluster placement group, if applicable.
-    , asgStatus                  :: Maybe ByteString
+    , asgStatus                  :: Maybe Text
       -- ^ The current state of the Auto Scaling group when a
       -- DeleteAutoScalingGroup action is in progress.
     , asgSuspendedProcesses      :: Members SuspendedProcess
       -- ^ Suspended processes associated with this Auto Scaling group.
     , asgTags                    :: Members Tag
       -- ^ A list of tags for the Auto Scaling group.
-    , asgTerminationPolicies     :: Members ByteString
+    , asgTerminationPolicies     :: Members Text
       -- ^ A standalone termination policy or a list of termination policies
       -- for this Auto Scaling group.
-    , asgVPCZoneIdentifier       :: Maybe ByteString
+    , asgVPCZoneIdentifier       :: Maybe Text
       -- ^ The subnet identifier for the Amazon VPC connection, if applicable.
       -- You can specify several subnets in a comma-separated list.
     } deriving (Eq, Show, Generic)
@@ -188,20 +202,20 @@ instance IsXML AutoScalingGroup where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AutoScalingInstanceDetails.html>
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
-    { asidAutoScalingGroupName    :: !ByteString
+    { asidAutoScalingGroupName    :: !Text
       -- ^ The name of the Auto Scaling group associated with this instance.
-    , asidAvailabilityZone        :: !ByteString
+    , asidAvailabilityZone        :: !Text
       -- ^ The Availability Zone in which this instance resides.
-    , asidHealthStatus            :: !ByteString
+    , asidHealthStatus            :: !Text
       -- ^ The health status of this instance. "Healthy" means that the
       -- instance is healthy and should remain in service. "Unhealthy"
       -- means that the instance is unhealthy. Auto Scaling should
       -- terminate and replace it.
-    , asidInstanceId              :: !ByteString
+    , asidInstanceId              :: !Text
       -- ^ The instance ID of the Amazon EC2 instance.
-    , asidLaunchConfigurationName :: !ByteString
+    , asidLaunchConfigurationName :: !Text
       -- ^ The launch configuration associated with this instance.
-    , asidLifecycleState          :: !ByteString
+    , asidLifecycleState          :: !Text
       -- ^ The life cycle state of this instance. for more information, see
       -- Instance Lifecycle State in the Auto Scaling Developer Guide.
     } deriving (Eq, Show, Generic)
@@ -215,11 +229,11 @@ instance IsXML AutoScalingInstanceDetails where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_BlockDeviceMapping.html>
 data BlockDeviceMapping = BlockDeviceMapping
-    { bdmDeviceName  :: !ByteString
+    { bdmDeviceName  :: !Text
       -- ^ The name of the device within Amazon EC2.
     , bdmEbs         :: Maybe Ebs
       -- ^ The Elastic Block Storage volume information.
-    , bdmVirtualName :: Maybe ByteString
+    , bdmVirtualName :: Maybe Text
       -- ^ The virtual name associated with the device.
     } deriving (Eq, Show, Generic)
 
@@ -245,7 +259,7 @@ instance IsXML DescribeAdjustmentTypesResult where
 data DescribeAutoScalingGroupsResult = DescribeAutoScalingGroupsResult
     { dasgrAutoScalingGroups :: Members AutoScalingGroup
       -- ^ A list of Auto Scaling groups.
-    , dasgrNextToken         :: Maybe ByteString
+    , dasgrNextToken         :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned results.
     } deriving (Eq, Show, Generic)
 
@@ -258,7 +272,7 @@ instance IsXML DescribeAutoScalingGroupsResult where
 data DescribeAutoScalingInstancesResult = DescribeAutoScalingInstancesResult
     { dasirAutoScalingInstances :: Members AutoScalingInstanceDetails
       -- ^ A list of Auto Scaling instances.
-    , dasirNextToken            :: Maybe ByteString
+    , dasirNextToken            :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned results.
     } deriving (Eq, Show, Generic)
 
@@ -269,7 +283,7 @@ instance IsXML DescribeAutoScalingInstancesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypesResult.html>
 data DescribeAutoScalingNotificationTypesResult = DescribeAutoScalingNotificationTypesResult
-    { dasntrAutoScalingNotificationTypes :: [ByteString]
+    { dasntrAutoScalingNotificationTypes :: [Text]
       -- ^ Returns a list of all notification types supported by Auto Scaling.
     } deriving (Eq, Show, Generic)
 
@@ -282,7 +296,7 @@ instance IsXML DescribeAutoScalingNotificationTypesResult where
 data DescribeLaunchConfigurationsResult = DescribeLaunchConfigurationsResult
     { dlcrLaunchConfigurations :: Members LaunchConfiguration
       -- ^ A list of launch configurations.
-    , dlcrNextToken            :: Maybe ByteString
+    , dlcrNextToken            :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned results.
     } deriving (Eq, Show, Generic)
 
@@ -306,7 +320,7 @@ instance IsXML DescribeMetricCollectionTypesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurationsResult.html>
 data DescribeNotificationConfigurationsResult = DescribeNotificationConfigurationsResult
-    { dncrNextToken                  :: Maybe ByteString
+    { dncrNextToken                  :: Maybe Text
       -- ^ A string that is used to mark the start of the next batch of
       -- returned results for pagination.
     , dncrNotificationConfigurations :: Members NotificationConfiguration
@@ -320,7 +334,7 @@ instance IsXML DescribeNotificationConfigurationsResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePoliciesResult.html>
 data DescribePoliciesResult = DescribePoliciesResult
-    { dprNextToken       :: Maybe ByteString
+    { dprNextToken       :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned results.
     , dprScalingPolicies :: Members ScalingPolicy
       -- ^ A list of scaling policies.
@@ -335,7 +349,7 @@ instance IsXML DescribePoliciesResult where
 data DescribeScalingActivitiesResult = DescribeScalingActivitiesResult
     { dsarActivities :: Members Activity
       -- ^ A list of the requested scaling activities.
-    , dsarNextToken  :: Maybe ByteString
+    , dsarNextToken  :: Maybe Text
       -- ^ Acts as a paging mechanism for large result sets. Set to a
       -- non-empty string if there are additional results waiting to be
       -- returned. Pass this in to subsequent calls to return additional
@@ -363,7 +377,7 @@ instance IsXML DescribeScalingProcessTypesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActionsResult.html>
 data DescribeScheduledActionsResult = DescribeScheduledActionsResult
-    { dsasNextToken                   :: Maybe ByteString
+    { dsasNextToken                   :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     , dsasScheduledUpdateGroupActions :: Members ScheduledUpdateGroupAction
@@ -378,7 +392,7 @@ instance IsXML DescribeScheduledActionsResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTagsResult.html>
 data DescribeTagsResult = DescribeTagsResult
-    { dtrNextToken :: Maybe ByteString
+    { dtrNextToken :: Maybe Text
       -- ^ A string used to mark the start of the next batch of returned results.
     , dtrTags      :: Members Tag
       -- ^ The list of tags.
@@ -391,7 +405,7 @@ instance IsXML DescribeTagsResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypesResult.html>
 data DescribeTerminationPolicyTypesResult = DescribeTerminationPolicyTypesResult
-    { dtptrTerminationPolicyTypes :: [ByteString]
+    { dtptrTerminationPolicyTypes :: [Text]
       -- ^ Termination policies supported by Auto Scaling. They are:
       -- OldestInstance, OldestLaunchConfiguration, NewestInstance,
       -- ClosestToNextInstanceHour, Default
@@ -404,7 +418,7 @@ instance IsXML DescribeTerminationPolicyTypesResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Ebs.html>
 data Ebs = Ebs
-    { eSnapshotId :: Maybe ByteString
+    { eSnapshotId :: Maybe Text
       -- ^ The snapshot ID.
     , eVolumeSize :: Maybe Integer
       -- ^ The volume size, in gigabytes.
@@ -419,9 +433,9 @@ instance IsXML Ebs where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnabledMetric.html>
 data EnabledMetric = EnabledMetric
-    { emGranularity :: Maybe ByteString
+    { emGranularity :: Maybe Text
       -- ^ The granularity of the enabled metric.
-    , emMetric      :: Maybe ByteString
+    , emMetric      :: Maybe Text
       -- ^ The name of the enabled metric.
     } deriving (Eq, Show, Generic)
 
@@ -434,10 +448,10 @@ instance IsXML EnabledMetric where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html>
 data Filter = Filter
-    { fName   :: Maybe ByteString
+    { fName   :: Maybe Text
       -- ^ The name of the filter. Valid Name values are:
       -- "auto-scaling-group", "key", "value", and "propagate-at-launch".
-    , fValues :: Maybe ByteString
+    , fValues :: Maybe Text
       -- ^ The value of the filter.
     } deriving (Eq, Show, Generic)
 
@@ -450,15 +464,15 @@ instance IsXML Filter where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Instance.html>
 data Instance = Instance
-    { iAvailabilityZone        :: !ByteString
+    { iAvailabilityZone        :: !Text
       -- ^ Availability Zones associated with this instance.
-    , iHealthStatus            :: !ByteString
+    , iHealthStatus            :: !Text
       -- ^ The instance's health status.
-    , iInstanceId              :: !ByteString
+    , iInstanceId              :: !Text
       -- ^ Specifies the ID of the Amazon EC2 instance.
-    , iLaunchConfigurationName :: !ByteString
+    , iLaunchConfigurationName :: !Text
       -- ^ The launch configuration associated with this instance.
-    , iLifecycleState          :: !ByteString
+    , iLifecycleState          :: !Text
       -- ^ Contains a description of the current lifecycle state.
     } deriving (Eq, Show, Generic)
 
@@ -493,34 +507,34 @@ data LaunchConfiguration = LaunchConfiguration
     , lcEbsOptimized            :: Maybe Bool
       -- ^ Specifies whether the instance is optimized for EBS I/O (true) or
       -- not (false).
-    , lcIamInstanceProfile      :: Maybe ByteString
+    , lcIamInstanceProfile      :: Maybe Text
       -- ^ Provides the name or the Amazon Resource Name (ARN) of the
       -- instance profile associated with the IAM role for the instance.
       -- The instance profile contains the IAM role.
-    , lcImageId                 :: !ByteString
+    , lcImageId                 :: !Text
       -- ^ Provides the unique ID of the Amazon Machine Image (AMI) that was
       -- assigned during registration.
     , lcInstanceMonitoring      :: Maybe InstanceMonitoring
       -- ^ Controls whether instances in this group are launched with
       -- detailed monitoring or not.
-    , lcInstanceType            :: !ByteString
+    , lcInstanceType            :: !Text
       -- ^ Specifies the instance type of the Amazon EC2 instance.
-    , lcKernelId                :: Maybe ByteString
+    , lcKernelId                :: Maybe Text
       -- ^ Provides the ID of the kernel associated with the Amazon EC2 AMI.
-    , lcKeyName                 :: Maybe ByteString
+    , lcKeyName                 :: Maybe Text
       -- ^ Provides the name of the Amazon EC2 key pair.
-    , lcLaunchConfigurationARN  :: Maybe ByteString
+    , lcLaunchConfigurationARN  :: Maybe Text
       -- ^ The launch configuration's Amazon Resource Name (ARN).
-    , lcLaunchConfigurationName :: !ByteString
+    , lcLaunchConfigurationName :: !Text
       -- ^ Specifies the name of the launch configuration.
-    , lcRamdiskId               :: Maybe ByteString
+    , lcRamdiskId               :: Maybe Text
       -- ^ Provides ID of the RAM disk associated with the Amazon EC2 AMI.
-    , lcSecurityGroups          :: Maybe ByteString
+    , lcSecurityGroups          :: Maybe Text
       -- ^ A description of the security groups to associate with the Amazon
       -- EC2 instances.
-    , lcSpotPrice               :: Maybe ByteString
+    , lcSpotPrice               :: Maybe Text
       -- ^ Specifies the price to bid when launching Spot Instances.
-    , lcUserData                :: Maybe ByteString
+    , lcUserData                :: Maybe Text
       -- ^ The user data available to the launched Amazon EC2 instances.
     } deriving (Eq, Show, Generic)
 
@@ -533,7 +547,7 @@ instance IsXML LaunchConfiguration where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_MetricCollectionType.html>
 data MetricCollectionType = MetricCollectionType
-    { mctMetric :: ByteString
+    { mctMetric :: Text
       -- ^ Type: String
     } deriving (Eq, Show, Generic)
 
@@ -546,7 +560,7 @@ instance IsXML MetricCollectionType where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_MetricGranularityType.html>
 data MetricGranularityType = MetricGranularityType
-    { mgtGranularity :: ByteString
+    { mgtGranularity :: Text
       -- ^ The granularity of a Metric.
     } deriving (Eq, Show, Generic)
 
@@ -559,11 +573,11 @@ instance IsXML MetricGranularityType where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html>
 data NotificationConfiguration = NotificationConfiguration
-    { ncAutoScalingGroupName :: Maybe ByteString
+    { ncAutoScalingGroupName :: Maybe Text
       -- ^ Specifies the Auto Scaling group name.
-    , ncNotificationType     :: Maybe ByteString
+    , ncNotificationType     :: Maybe Text
       -- ^ The types of events for an action to start.
-    , ncTopicARN             :: Maybe ByteString
+    , ncTopicARN             :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
       -- Service (SNS) topic.
     } deriving (Eq, Show, Generic)
@@ -582,7 +596,7 @@ instance IsXML NotificationConfiguration where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ProcessType.html>
 data ProcessType = ProcessType
-    { ptProcessName :: !ByteString
+    { ptProcessName :: !Text
       -- ^ The name of a process.
     } deriving (Eq, Show, Generic)
 
@@ -595,7 +609,7 @@ instance IsXML ProcessType where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicyResult.html>
 data PutScalingPolicyResult = PutScalingPolicyResult
-    { psprPolicyARN :: ByteString
+    { psprPolicyARN :: Text
       -- ^ A policy's Amazon Resource Name (ARN).
     } deriving (Eq, Show, Generic)
 
@@ -606,13 +620,13 @@ instance IsXML PutScalingPolicyResult where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ScalingPolicy.html>
 data ScalingPolicy = ScalingPolicy
-    { spAdjustmentType       :: Maybe ByteString
+    { spAdjustmentType       :: Maybe Text
       -- ^ Specifies whether the ScalingAdjustment is an absolute number or
       -- a percentage of the current capacity. Valid values are
       -- ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
     , spAlarms               :: Members Alarm
       -- ^ A list of CloudWatch Alarms related to the policy.
-    , sqAutoScalingGroupName :: Maybe ByteString
+    , sqAutoScalingGroupName :: Maybe Text
       -- ^ The name of the Auto Scaling group associated with this scaling
       -- policy.
     , sqCooldown             :: Maybe Integer
@@ -622,9 +636,9 @@ data ScalingPolicy = ScalingPolicy
     , sqMinAdjustmentStep    :: Maybe Integer
       -- ^ Changes the DesiredCapacity of the Auto Scaling group by at least
       -- the specified number of instances.
-    , sqPolicyARN            :: Maybe ByteString
+    , sqPolicyARN            :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the policy.
-    , sqPolicyName           :: Maybe ByteString
+    , sqPolicyName           :: Maybe Text
       -- ^ The name of the scaling policy.
     , sqScalingAdjustment    :: Maybe Integer
       -- ^ The number associated with the specified adjustment type. A
@@ -642,7 +656,7 @@ instance IsXML ScalingPolicy where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ScheduledUpdateGroupAction.html>
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
-    { sugaAutoScalingGroupName :: Maybe ByteString
+    { sugaAutoScalingGroupName :: Maybe Text
       -- ^ The name of the Auto Scaling group to be updated.
     , sugaDesiredCapacity      :: Maybe Integer
       -- ^ The number of instances you prefer to maintain in your Auto
@@ -654,11 +668,11 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
       -- ^ The maximum size of the Auto Scaling group.
     , sugaMinSize              :: Maybe Integer
       -- ^ The minimum size of the Auto Scaling group.
-    , sugaRecurrence           :: Maybe ByteString
+    , sugaRecurrence           :: Maybe Text
       -- ^ The regular schedule that an action occurs.
-    , sugaScheduledActionARN   :: Maybe ByteString
+    , sugaScheduledActionARN   :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of this scheduled action.
-    , sugaScheduledActionName  :: Maybe ByteString
+    , sugaScheduledActionName  :: Maybe Text
       -- ^ The name of this scheduled action.
     , sugaStartTime            :: Maybe UTCTime
       -- ^ The time that the action is scheduled to begin. This value can be
@@ -677,9 +691,9 @@ instance IsXML ScheduledUpdateGroupAction where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SuspendedProcess.html>
 data SuspendedProcess = SuspendedProcess
-    { spProcessName      :: Maybe ByteString
+    { spProcessName      :: Maybe Text
       -- ^ The name of the suspended process.
-    , spSuspensionReason :: Maybe ByteString
+    , spSuspensionReason :: Maybe Text
       -- ^ The reason that the process was suspended.
     } deriving (Eq, Show, Generic)
 
@@ -692,19 +706,19 @@ instance IsXML SuspendedProcess where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Tag.html>
 data Tag = Tag
-    { tKey               :: !ByteString
+    { tKey               :: !Text
       -- ^ The key of the tag.
     , tPropagateAtLaunch :: Maybe Bool
       -- ^ Specifies whether the new tag will be applied to instances
       -- launched after the tag is created. The same behavior applies to
       -- updates: If you change a tag, the changed tag will be applied to
       -- all instances launched after you made the change.
-    , tResourceId        :: Maybe ByteString
+    , tResourceId        :: Maybe Text
       -- ^ The name of the Auto Scaling group.
-    , tResourceType      :: Maybe ByteString
+    , tResourceType      :: Maybe Text
       -- ^ The kind of resource to which the tag is applied. Currently, Auto
       -- Scaling supports the auto-scaling-group resource type.
-    , tValue             :: Maybe ByteString
+    , tValue             :: Maybe Text
       -- ^ The value of the tag.
     } deriving (Eq, Show, Generic)
 

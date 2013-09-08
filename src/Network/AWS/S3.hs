@@ -25,6 +25,8 @@ module Network.AWS.S3
 
     -- * Operations on the Service
     -- ** GET Service
+    , GetService                    (..)
+    , GetServiceResult              (..)
 
     -- * Operations on Buckets
     -- **
@@ -171,7 +173,7 @@ data GetObjectResult = GetObjectResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML GetObjectResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Removes the null version (if there is one) of an object and inserts a
 -- delete marker, which becomes the latest version of the object.
@@ -192,7 +194,7 @@ data DeleteObjectResult = DeleteObjectResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML DeleteObjectResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Delete multiple objects from a bucket using a single HTTP request.
 --
@@ -214,7 +216,7 @@ data DeleteMultipleObjectsResult = DeleteMultipleObjectsResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML DeleteMultipleObjectsResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Uses the ACL subresource to return the access control list (ACL) of an object.
 --
@@ -237,7 +239,7 @@ data GetObjectACLResult = GetObjectACLResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML GetObjectACLResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Use the torrent subresource to return torrent files from a bucket.
 --
@@ -257,7 +259,7 @@ data GetObjectTorrentResult = GetObjectTorrentResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML GetObjectTorrentResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Retrieves metadata from an object without returning the object itself.
 --
@@ -279,7 +281,7 @@ data HeadObjectResult = HeadObjectResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML HeadObjectResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Preflight request to determine if an actual request can be sent with the
 -- specific origin, HTTP method, and headers.
@@ -306,7 +308,7 @@ data OptionsObjectResult = OptionsObjectResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML OptionsObjectResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Adds an object to a specified bucket using HTML forms.
 --
@@ -327,7 +329,7 @@ data PostObjectResult = PostObjectResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML PostObjectResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Restores a temporary copy of an archived object.
 --
@@ -354,7 +356,7 @@ data PostObjectRestoreResult = PostObjectRestoreResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML PostObjectRestoreResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Add an object to a bucket.
 --
@@ -390,7 +392,7 @@ data PutObjectResult = PutObjectResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML PutObjectResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Set the access control list (ACL) permissions for an object that already
 -- exists in a bucket.
@@ -421,7 +423,7 @@ data PutObjectACLResult = PutObjectACLResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML PutObjectACLResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Create a copy of an object that is already stored in Amazon S3.
 --
@@ -459,7 +461,7 @@ data PutObjectCopyResult = PutObjectCopyResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML PutObjectCopyResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Initiate a multipart upload and return an upload ID.
 --
@@ -484,7 +486,7 @@ data InitiateMultipartUploadResult = InitiateMultipartUploadResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML InitiateMultipartUploadResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Upload a part in a multipart upload.
 --
@@ -525,7 +527,7 @@ data UploadPartResult = UploadPartResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML UploadPartResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Uploads a part by copying data from an existing object as data source.
 --
@@ -550,7 +552,7 @@ data UploadPartCopyResult = UploadPartCopyResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML UploadPartCopyResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Completes a multipart upload by assembling previously uploaded parts.
 --
@@ -594,7 +596,7 @@ data CompleteMultipartUploadResult = CompleteMultipartUploadResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML CompleteMultipartUploadResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | Aborts a multipart upload.
 --
@@ -622,7 +624,7 @@ data AbortMultipartUploadResult = AbortMultipartUploadResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML AbortMultipartUploadResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined
 
 -- | List the parts that have been uploaded for a specific multipart upload.
 --
@@ -657,4 +659,4 @@ data ListPartsResult = ListPartsResult
     {} deriving (Eq, Show, Generic)
 
 instance IsXML ListPartsResult where
-    xmlPickler = withNS s3NS
+    xmlPickler = undefined

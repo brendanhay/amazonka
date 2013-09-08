@@ -1,6 +1,6 @@
-{-# LANGUAGE DeriveGeneric         #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.AutoScaling
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -164,23 +164,18 @@ module Network.AWS.AutoScaling
    , module Network.AWS.AutoScaling.Types
    ) where
 
-import Data.ByteString      (ByteString)
+import Data.ByteString               (ByteString)
 import Data.Monoid
+import Data.Text                     (Text)
 import Data.Time
 import Network.AWS.AutoScaling.Types
 import Network.AWS.Internal
-import Network.Http.Client  (Method(..))
+import Network.Http.Client           (Method(..))
 
-data AutoScaling
-
-instance AWSService AutoScaling where
-    service _ = awsService "autoscaling" autoScalingVersion SigningVersion4
-
-req :: IsQuery a => Method -> ByteString -> a -> RawRequest AutoScaling b
-req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
-    { rqAction = Just act
-    , rqQuery  = toQuery qry
-    }
+qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
+qry meth act q = queryAppend (queryRequest autoScalingService meth "/" q)
+    [ ("Action", act)
+    ]
 
 --
 -- Actions
@@ -193,9 +188,9 @@ req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html>
 data CreateAutoScalingGroup = CreateAutoScalingGroup
-    { casgAutoScalingGroupName    :: !ByteString
+    { casgAutoScalingGroupName    :: !Text
       -- ^ The name of the Auto Scaling group.
-    , casgAvailabilityZones       :: Members ByteString
+    , casgAvailabilityZones       :: Members Text
       -- ^ A list of Availability Zones for the Auto Scaling group. This is
       -- required unless you have specified subnets.
     , casgDefaultCooldown         :: Maybe Integer
@@ -211,20 +206,20 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
       -- into service that Auto Scaling starts checking its health. During
       -- this time any health check failure for the that instance is
       -- ignored.
-    , casgHealthCheckType         :: Maybe ByteString
+    , casgHealthCheckType         :: Maybe Text
       -- ^ The service you want the health checks from, Amazon EC2 or
       -- Elastic Load Balancer. Valid values are EC2 or ELB.
-    , casgLaunchConfigurationName :: !ByteString
+    , casgLaunchConfigurationName :: !Text
       -- ^ The name of an existing launch configuration to use to launch new
       -- instances.
-    , casgLoadBalancerNames       :: Members ByteString
+    , casgLoadBalancerNames       :: Members Text
       -- ^ A list of existing Elastic Load Balancing load balancers to use.
       -- The load balancers must be associated with the AWS account.
     , casgMaxSize                 :: !Integer
       -- ^ The maximum size of the Auto Scaling group.
     , casgMinSize                 :: !Integer
       -- ^ The minimum size of the Auto Scaling group.
-    , casgPlacementGroup          :: Maybe ByteString
+    , casgPlacementGroup          :: Maybe Text
       -- ^ Physical location of an existing cluster placement group into
       -- which you want to launch your instances. For information about
       -- cluster placement group, see Using Cluster Instances
@@ -233,19 +228,20 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
       -- its resource type, resource ID, key, value, and a propagate flag.
       -- Valid values: key=value, value=value, propagate=true or false.
       -- Value and propagate are optional parameters.
-    , casgTerminationPolicies     :: Members ByteString
+    , casgTerminationPolicies     :: Members Text
       -- ^ A standalone termination policy or a list of termination policies
       -- used to select the instance to terminate. The policies are
       -- executed in the order that they are listed.
-    , casgVPCZoneIdentifier       :: Maybe ByteString
+    , casgVPCZoneIdentifier       :: Maybe Text
       -- ^ A comma-separated list of subnet identifiers of Amazon Virtual
       -- Private Clouds (Amazon VPCs).
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateAutoScalingGroup
 
-instance AWSRequest AutoScaling CreateAutoScalingGroup CreateAutoScalingGroupResponse where
-    request = req GET "CreateAutoScalingGroup"
+instance Rq CreateAutoScalingGroup where
+    type Rs CreateAutoScalingGroup = Either AutoScalingError CreateAutoScalingGroupResponse
+    request = qry GET "CreateAutoScalingGroup"
 
 data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
     { casgrResponseMetadata :: !ResponseMetadata
@@ -282,10 +278,10 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
       -- default the instance is not optimized for EBS I/O. For
       -- information about EBS-optimized instances, go to EBS-Optimized
       -- Instances in the Amazon Elastic Compute Cloud User Guide.
-    , clcIamInstanceProfile      :: Maybe ByteString
+    , clcIamInstanceProfile      :: Maybe Text
       -- ^ The name or the Amazon Resource Name (ARN) of the instance
       -- profile associated with the IAM role for the instance.
-    , clcImageId                 :: !ByteString
+    , clcImageId                 :: !Text
       -- ^ Unique ID of the Amazon Machine Image (AMI) you want to use to
       -- launch your EC2 instances. For information about finding Amazon
       -- EC2 AMIs, see Finding a Suitable AMI in the Amazon Elastic
@@ -293,31 +289,31 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     , clcInstanceMonitoring      :: Maybe InstanceMonitoring
       -- ^ Enables detailed monitoring if it is disabled. Detailed
       -- monitoring is enabled by default.
-    , clcInstanceType            :: !ByteString
+    , clcInstanceType            :: !Text
       -- ^ The instance type of the Amazon EC2 instance. For information
       -- about available Amazon EC2 instance types, see Available Instance
       -- Types in the Amazon Elastic Cloud Compute User Guide.
-    , clcKernelId                :: Maybe ByteString
+    , clcKernelId                :: Maybe Text
       -- ^ The ID of the kernel associated with the Amazon EC2 AMI.
-    , clcKeyName                 :: Maybe ByteString
+    , clcKeyName                 :: Maybe Text
       -- ^ The name of the Amazon EC2 key pair. For more information, see
       -- Getting a Key Pair in the Amazon Elastic Compute Cloud User
       -- Guide.
-    , clcLaunchConfigurationName :: !ByteString
+    , clcLaunchConfigurationName :: !Text
       -- ^ The name of the launch configuration to create.
-    , clcRamdiskId               :: Maybe ByteString
+    , clcRamdiskId               :: Maybe Text
       -- ^ The ID of the RAM disk associated with the Amazon EC2 AMI.
-    , clcSecurityGroups          :: Members ByteString
+    , clcSecurityGroups          :: Members Text
       -- ^ The security groups with which to associate Amazon EC2 or Amazon
       -- VPC instances.
-    , clcSpotPrice               :: Maybe ByteString
+    , clcSpotPrice               :: Maybe Text
       -- ^ The maximum hourly price to be paid for any Spot Instance
       -- launched to fulfill the request. Spot Instances are launched when
       -- the price you specify exceeds the current Spot market price. For
       -- more information on launching Spot Instances, see Using Auto
       -- Scaling to Launch Spot Instances in the Auto Scaling Developer
       -- Guide.
-    , clcUserData                :: Maybe ByteString
+    , clcUserData                :: Maybe Text
       -- ^ The user data to make available to the launched Amazon EC2
       -- instances. For more information about Amazon EC2 user data, see
       -- User Data Retrieval in the Amazon Elastic Compute Cloud User
@@ -326,8 +322,9 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 
 instance IsQuery CreateLaunchConfiguration
 
-instance AWSRequest AutoScaling CreateLaunchConfiguration CreateLaunchConfigurationResponse where
-    request = req GET "CreateLaunchConfiguration"
+instance Rq CreateLaunchConfiguration where
+    type Rs CreateLaunchConfiguration = Either AutoScalingError CreateLaunchConfigurationResponse
+    request = qry GET "CreateLaunchConfiguration"
 
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
     { clcrResponseMetadata :: !ResponseMetadata
@@ -356,8 +353,9 @@ data CreateOrUpdateTags = CreateOrUpdateTags
 
 instance IsQuery CreateOrUpdateTags
 
-instance AWSRequest AutoScaling CreateOrUpdateTags CreateOrUpdateTagsResponse where
-    request = req GET "CreateOrUpdateTags"
+instance Rq CreateOrUpdateTags where
+    type Rs CreateOrUpdateTags = Either AutoScalingError CreateOrUpdateTagsResponse
+    request = qry GET "CreateOrUpdateTags"
 
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
     { coutrResponseMetadata :: !ResponseMetadata
@@ -373,7 +371,7 @@ instance IsXML CreateOrUpdateTagsResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup
-    { dasgAutoScalingGroupName :: !ByteString
+    { dasgAutoScalingGroupName :: !Text
       -- ^ The name of the Auto Scaling group to delete.
     , dasgForceDelete          :: Maybe Bool
       -- ^ Starting with API version 2011-01-01, specifies that the Auto
@@ -384,8 +382,9 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 
 instance IsQuery DeleteAutoScalingGroup
 
-instance AWSRequest AutoScaling DeleteAutoScalingGroup DeleteAutoScalingGroupResponse where
-    request = req GET "DeleteAutoScalingGroup"
+instance Rq DeleteAutoScalingGroup where
+    type Rs DeleteAutoScalingGroup = Either AutoScalingError DeleteAutoScalingGroupResponse
+    request = qry GET "DeleteAutoScalingGroup"
 
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
     { dasgrResponseMetadata :: !ResponseMetadata
@@ -400,14 +399,15 @@ instance IsXML DeleteAutoScalingGroupResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html>
 data DeleteLaunchConfiguration = DeleteLaunchConfiguration
-    { dlcLaunchConfigurationName :: !ByteString
+    { dlcLaunchConfigurationName :: !Text
       -- ^ The name of the launch configuration.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteLaunchConfiguration
 
-instance AWSRequest AutoScaling DeleteLaunchConfiguration DeleteLaunchConfigurationResponse where
-    request = req GET "DeleteLaunchConfiguration"
+instance Rq DeleteLaunchConfiguration where
+    type Rs DeleteLaunchConfiguration = Either AutoScalingError DeleteLaunchConfigurationResponse
+    request = qry GET "DeleteLaunchConfiguration"
 
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
     { dlcrResponseMetadata :: !ResponseMetadata
@@ -420,17 +420,18 @@ instance IsXML DeleteLaunchConfigurationResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteNotificationConfiguration.html>
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
-    { dncAutoScalingGroupName :: !ByteString
+    { dncAutoScalingGroupName :: !Text
       -- ^ The name of the Auto Scaling group.
-    , dncTopicARN             :: !ByteString
+    , dncTopicARN             :: !Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
       -- Service (SNS) topic.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteNotificationConfiguration
 
-instance AWSRequest AutoScaling DeleteNotificationConfiguration DeleteNotificationConfigurationResponse where
-    request = req GET "DeleteNotificationConfiguration"
+instance Rq DeleteNotificationConfiguration where
+    type Rs DeleteNotificationConfiguration = Either AutoScalingError DeleteNotificationConfigurationResponse
+    request = qry GET "DeleteNotificationConfiguration"
 
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
     deriving (Eq, Read, Show, Generic)
@@ -442,16 +443,17 @@ instance IsXML DeleteNotificationConfigurationResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html>
 data DeletePolicy = DeletePolicy
-    { dpAutoScalingGroupName :: Maybe ByteString
+    { dpAutoScalingGroupName :: Maybe Text
       -- ^ The name of the Auto Scaling group.
-    , dpPolicyName           :: !ByteString
+    , dpPolicyName           :: !Text
       -- ^ The name or PolicyARN of the policy you want to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeletePolicy
 
-instance AWSRequest AutoScaling DeletePolicy DeletePolicyResponse where
-    request = req GET "DeletePolicy"
+instance Rq DeletePolicy where
+    type Rs DeletePolicy = Either AutoScalingError DeletePolicyResponse
+    request = qry GET "DeletePolicy"
 
 data DeletePolicyResponse = DeletePolicyResponse
     deriving (Eq, Read, Show, Generic)
@@ -464,16 +466,17 @@ instance IsXML DeletePolicyResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html>
 data DeleteScheduledAction = DeleteScheduledAction
-    { dsaAutoScalingGroupName :: Maybe ByteString
+    { dsaAutoScalingGroupName :: Maybe Text
       -- ^ The name of the Auto Scaling group.
-    , dsaScheduledActionName  :: !ByteString
+    , dsaScheduledActionName  :: !Text
       -- ^ The name of the action you want to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteScheduledAction
 
-instance AWSRequest AutoScaling DeleteScheduledAction DeleteScheduledActionResponse where
-    request = req GET "DeleteScheduledAction"
+instance Rq DeleteScheduledAction where
+    type Rs DeleteScheduledAction = Either AutoScalingError DeleteScheduledActionResponse
+    request = qry GET "DeleteScheduledAction"
 
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
     deriving (Eq, Read, Show, Generic)
@@ -494,8 +497,9 @@ data DeleteTags = DeleteTags
 
 instance IsQuery DeleteTags
 
-instance AWSRequest AutoScaling DeleteTags DeleteTagsResponse where
-    request = req GET "DeleteTags"
+instance Rq DeleteTags where
+    type Rs DeleteTags = Either AutoScalingError DeleteTagsResponse
+    request = qry GET "DeleteTags"
 
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Read, Show, Generic)
@@ -511,8 +515,9 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes
 
 instance IsQuery DescribeAdjustmentTypes
 
-instance AWSRequest AutoScaling DescribeAdjustmentTypes DescribeAdjustmentTypesResponse where
-    request = req GET "DescribeAdjustmentTypes"
+instance Rq DescribeAdjustmentTypes where
+    type Rs DescribeAdjustmentTypes = Either AutoScalingError DescribeAdjustmentTypesResponse
+    request = qry GET "DescribeAdjustmentTypes"
 
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { datrDescribeAdjustmentTypesResult :: !DescribeAdjustmentTypesResult
@@ -531,19 +536,20 @@ instance IsXML DescribeAdjustmentTypesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html>
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups
-    { dasgAutoScalingGroupNames :: Members ByteString
+    { dasgAutoScalingGroupNames :: Members Text
       -- ^ A list of Auto Scaling group names.
     , dasgMaxRecords            :: Maybe Integer
       -- ^ The maximum number of records to return.
-    , dasgNextToken             :: Maybe ByteString
+    , dasgNextToken             :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeAutoScalingGroups
 
-instance AWSRequest AutoScaling DescribeAutoScalingGroups DescribeAutoScalingGroupsResponse where
-    request = req GET "DescribeAutoScalingGroups"
+instance Rq DescribeAutoScalingGroups where
+    type Rs DescribeAutoScalingGroups = Either AutoScalingError DescribeAutoScalingGroupsResponse
+    request = qry GET "DescribeAutoScalingGroups"
 
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     { dashrDescribeAutoScalingGroupsResult :: !DescribeAutoScalingGroupsResult
@@ -562,7 +568,7 @@ instance IsXML DescribeAutoScalingGroupsResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html>
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
-    { dasiInstanceIds :: Members ByteString
+    { dasiInstanceIds :: Members Text
       -- ^ The list of Auto Scaling instances to describe. If this list is
       -- omitted, all auto scaling instances are described. The list of
       -- requested instances cannot contain more than 50 items. If unknown
@@ -570,15 +576,16 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     , dasiMaxRecords  :: Maybe Integer
       -- ^ The maximum number of Auto Scaling instances to be described with
       -- each call.
-    , dasiNextToken   :: Maybe ByteString
+    , dasiNextToken   :: Maybe Text
       -- ^ The token returned by a previous call to indicate that there is
       -- more data available.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeAutoScalingInstances
 
-instance AWSRequest AutoScaling DescribeAutoScalingInstances DescribeAutoScalingInstancesResponse where
-    request = req GET "DescribeAutoScalingInstances"
+instance Rq DescribeAutoScalingInstances where
+    type Rs DescribeAutoScalingInstances = Either AutoScalingError DescribeAutoScalingInstancesResponse
+    request = qry GET "DescribeAutoScalingInstances"
 
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { dasirDescribeAutoScalingInstancesResult :: !DescribeAutoScalingInstancesResult
@@ -593,15 +600,16 @@ instance IsXML DescribeAutoScalingInstancesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypes.html>
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
-    { dasntAutoScalingNotificationTypes :: !ByteString
+    { dasntAutoScalingNotificationTypes :: !Text
       -- ^ Returns a list of all notification types supported by Auto
       -- Scaling. They are:
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeAutoScalingNotificationTypes
 
-instance AWSRequest AutoScaling DescribeAutoScalingNotificationTypes DescribeAutoScalingNotificationTypesResponse where
-    request = req GET "DescribeAutoScalingNotificationTypes"
+instance Rq DescribeAutoScalingNotificationTypes where
+    type Rs DescribeAutoScalingNotificationTypes = Either AutoScalingError DescribeAutoScalingNotificationTypesResponse
+    request = qry GET "DescribeAutoScalingNotificationTypes"
 
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
     { dasntrDescribeAutoScalingNotificationTypesResult :: !DescribeAutoScalingNotificationTypesResult
@@ -617,19 +625,20 @@ instance IsXML DescribeAutoScalingNotificationTypesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html>
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations
-    { dlcLaunchConfigurationNames :: Members ByteString
+    { dlcLaunchConfigurationNames :: Members Text
       -- ^ A list of launch configuration names.
     , dlcMaxRecords               :: Maybe Integer
       -- ^ The maximum number of launch configurations. The default is 100.
-    , dlcNextToken                :: Maybe ByteString
+    , dlcNextToken                :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeLaunchConfigurations
 
-instance AWSRequest AutoScaling DescribeLaunchConfigurations DescribeLaunchConfigurationsResponse where
-    request = req GET "DescribeLaunchConfigurations"
+instance Rq DescribeLaunchConfigurations where
+    type Rs DescribeLaunchConfigurations = Either AutoScalingError DescribeLaunchConfigurationsResponse
+    request = qry GET "DescribeLaunchConfigurations"
 
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { dldrDescribeLaunchConfigurationsResult :: !DescribeLaunchConfigurationsResult
@@ -648,8 +657,9 @@ data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
 
 instance IsQuery DescribeMetricCollectionTypes
 
-instance AWSRequest AutoScaling DescribeMetricCollectionTypes DescribeMetricCollectionTypesResponse where
-    request = req GET "DescribeMetricCollectionTypes"
+instance Rq DescribeMetricCollectionTypes where
+    type Rs DescribeMetricCollectionTypes = Either AutoScalingError DescribeMetricCollectionTypesResponse
+    request = qry GET "DescribeMetricCollectionTypes"
 
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     { dmctDescribeMetricCollectionTypesResult :: !DescribeMetricCollectionTypesResult
@@ -664,19 +674,20 @@ instance IsXML DescribeMetricCollectionTypesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html>
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
-    { dncAutoScalingGroupNames :: Members ByteString
+    { dncAutoScalingGroupNames :: Members Text
       -- ^ The name of the Auto Scaling group.
     , dncMaxRecords            :: Maybe Integer
       -- ^ Maximum number of records to be returned.
-    , dncNextToken             :: Maybe ByteString
+    , dncNextToken             :: Maybe Text
       -- ^ A string that is used to mark the start of the next batch of
       -- returned results for pagination.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeNotificationConfigurations
 
-instance AWSRequest AutoScaling DescribeNotificationConfigurations DescribeNotificationConfigurationsResponse where
-    request = req GET "DescribeNotificationConfigurations"
+instance Rq DescribeNotificationConfigurations where
+    type Rs DescribeNotificationConfigurations = Either AutoScalingError DescribeNotificationConfigurationsResponse
+    request = qry GET "DescribeNotificationConfigurations"
 
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
     { dndrDescribeNotificationConfigurationsResult :: !DescribeNotificationConfigurationsResult
@@ -693,15 +704,15 @@ instance IsXML DescribeNotificationConfigurationsResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html>
 data DescribePolicies = DescribePolicies
-    { dqAutoScalingGroupName :: Maybe ByteString
+    { dqAutoScalingGroupName :: Maybe Text
       -- ^ The name of the Auto Scaling group.
     , dqMaxRecords           :: Maybe Integer
       -- ^ The maximum number of policies that will be described with each
       -- call.
-    , dqNextToken            :: Maybe ByteString
+    , dqNextToken            :: Maybe Text
       -- ^ A string that is used to mark the start of the next batch of
       -- returned results for pagination.
-    , dqPolicyNames          :: Members ByteString
+    , dqPolicyNames          :: Members Text
       -- ^ A list of policy names or policy ARNs to be described. If this
       -- list is omitted, all policy names are described. If an auto
       -- scaling group name is provided, the results are limited to that
@@ -712,8 +723,9 @@ data DescribePolicies = DescribePolicies
 
 instance IsQuery DescribePolicies
 
-instance AWSRequest AutoScaling DescribePolicies DescribePoliciesResponse where
-    request = req GET "DescribePolicies"
+instance Rq DescribePolicies where
+    type Rs DescribePolicies = Either AutoScalingError DescribePoliciesResponse
+    request = qry GET "DescribePolicies"
 
 data DescribePoliciesResponse = DescribePoliciesResponse
     { dqrDescribePoliciesResult :: !DescribePoliciesResult
@@ -733,26 +745,27 @@ instance IsXML DescribePoliciesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html>
 data DescribeScalingActivities = DescribeScalingActivities
-    { dsbActivityIds          :: Members ByteString
+    { dsbActivityIds          :: Members Text
       -- ^ A list containing the activity IDs of the desired scaling
       -- activities. If this list is omitted, all activities are
       -- described. If an AutoScalingGroupName is provided, the results
       -- are limited to that group. The list of requested activities
       -- cannot contain more than 50 items. If unknown activities are
       -- requested, they are ignored with no error.
-    , dsbAutoScalingGroupName :: Maybe ByteString
+    , dsbAutoScalingGroupName :: Maybe Text
       -- ^ The name of the AutoScalingGroup.
     , dsbMaxRecords           :: Maybe Integer
       -- ^ The maximum number of scaling activities to return.
-    , dsbNextToken            :: Maybe ByteString
+    , dsbNextToken            :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results for pagination.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeScalingActivities
 
-instance AWSRequest AutoScaling DescribeScalingActivities DescribeScalingActivitiesResponse where
-    request = req GET "DescribeScalingActivities"
+instance Rq DescribeScalingActivities where
+    type Rs DescribeScalingActivities = Either AutoScalingError DescribeScalingActivitiesResponse
+    request = qry GET "DescribeScalingActivities"
 
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     { dsbrDescribeScalingActivitiesResult :: !DescribeScalingActivitiesResult
@@ -773,8 +786,9 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 
 instance IsQuery DescribeScalingProcessTypes
 
-instance AWSRequest AutoScaling DescribeScalingProcessTypes DescribeScalingProcessTypesResponse where
-    request = req GET "DescribeScalingProcessTypes"
+instance Rq DescribeScalingProcessTypes where
+    type Rs DescribeScalingProcessTypes = Either AutoScalingError DescribeScalingProcessTypesResponse
+    request = qry GET "DescribeScalingProcessTypes"
 
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { dsptrDescribeScalingProcessTypesResult :: !DescribeScalingProcessTypesResult
@@ -790,17 +804,17 @@ instance IsXML DescribeScalingProcessTypesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html>
 data DescribeScheduledActions = DescribeScheduledActions
-    { dscAutoScalingGroupName :: Maybe ByteString
+    { dscAutoScalingGroupName :: Maybe Text
       -- ^ The name of the Auto Scaling group.
     , dscEndTime              :: Maybe UTCTime
       -- ^ The latest scheduled start time to return. If scheduled action
       -- names are provided, this field is ignored.
     , dscMaxRecords           :: Maybe Integer
       -- ^ The maximum number of scheduled actions to return.
-    , dscNextToken            :: Maybe ByteString
+    , dscNextToken            :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
-    , dscScheduledActionNames :: Members ByteString
+    , dscScheduledActionNames :: Members Text
       -- ^ A list of scheduled actions to be described. If this list is
       -- omitted, all scheduled actions are described. The list of
       -- requested scheduled actions cannot contain more than 50 items. If
@@ -814,8 +828,9 @@ data DescribeScheduledActions = DescribeScheduledActions
 
 instance IsQuery DescribeScheduledActions
 
-instance AWSRequest AutoScaling DescribeScheduledActions DescribeScheduledActionsResponse where
-    request = req GET "DescribeScheduledActions"
+instance Rq DescribeScheduledActions where
+    type Rs DescribeScheduledActions = Either AutoScalingError DescribeScheduledActionsResponse
+    request = qry GET "DescribeScheduledActions"
 
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { dscrDescribeScheduledActionsResult :: !DescribeScheduledActionsResult
@@ -843,15 +858,16 @@ data DescribeTags = DescribeTags
       -- is created (PropagateAtLaunch).
     , dtMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to return.
-    , dtNextToken  :: Maybe ByteString
+    , dtNextToken  :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DescribeTags
 
-instance AWSRequest AutoScaling DescribeTags DescribeTagsResponse where
-    request = req GET "DescribeTags"
+instance Rq DescribeTags where
+    type Rs DescribeTags = Either AutoScalingError DescribeTagsResponse
+    request = qry GET "DescribeTags"
 
 data DescribeTagsResponse = DescribeTagsResponse
     { dtrDescribeTagsResult :: !DescribeTagsResult
@@ -865,7 +881,7 @@ instance IsXML DescribeTagsResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html>
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
-    { dtptTerminationPolicyTypes :: !ByteString
+    { dtptTerminationPolicyTypes :: !Text
       -- ^ Termination policies supported by Auto Scaling. They are:
       -- OldestInstance, OldestLaunchConfiguration, NewestInstance,
       -- ClosestToNextInstanceHour, Default
@@ -873,8 +889,9 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 
 instance IsQuery DescribeTerminationPolicyTypes
 
-instance AWSRequest AutoScaling DescribeTerminationPolicyTypes DescribeTerminationPolicyTypesResponse where
-    request = req GET "DescribeTerminationPolicyTypes"
+instance Rq DescribeTerminationPolicyTypes where
+    type Rs DescribeTerminationPolicyTypes = Either AutoScalingError DescribeTerminationPolicyTypesResponse
+    request = qry GET "DescribeTerminationPolicyTypes"
 
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { dtptrDescribeTerminationPolicyTypesResult :: !DescribeTerminationPolicyTypesResult
@@ -890,17 +907,18 @@ instance IsXML DescribeTerminationPolicyTypesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DisableMetricsCollection.html>
 data DisableMetricsCollection = DisableMetricsCollection
-    { dmcAutoScalingGroupName :: !ByteString
+    { dmcAutoScalingGroupName :: !Text
       -- ^ The name or ARN of the Auto Scaling Group.
-    , dmcMetrics              :: Members ByteString
+    , dmcMetrics              :: Members Text
       -- ^ The list of metrics to disable. If no metrics are specified, all
       -- metrics are disabled. The following metrics are supported:
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DisableMetricsCollection
 
-instance AWSRequest AutoScaling DisableMetricsCollection DisableMetricsCollectionResponse where
-    request = req GET "DisableMetricsCollection"
+instance Rq DisableMetricsCollection where
+    type Rs DisableMetricsCollection = Either AutoScalingError DisableMetricsCollectionResponse
+    request = qry GET "DisableMetricsCollection"
 
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
     { dmcrResponseMetadata :: !ResponseMetadata
@@ -917,20 +935,21 @@ instance IsXML DisableMetricsCollectionResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html>
 data EnableMetricsCollection = EnableMetricsCollection
-    { emcAutoScalingGroupName :: !ByteString
+    { emcAutoScalingGroupName :: !Text
       -- ^ The name or ARN of the Auto Scaling group.
-    , emcGranularity          :: !ByteString
+    , emcGranularity          :: !Text
       -- ^ The granularity to associate with the metrics to collect.
       -- Currently, the only legal granularity is "1Minute".
-    , emcMetrics              :: Members ByteString
+    , emcMetrics              :: Members Text
       -- ^ The list of metrics to collect. If no metrics are specified, all
       -- metrics are enabled. The following metrics are supported:
     } deriving (Eq, Show, Generic)
 
 instance IsQuery EnableMetricsCollection
 
-instance AWSRequest AutoScaling EnableMetricsCollection EnableMetricsCollectionResponse where
-    request = req GET "EnableMetricsCollection"
+instance Rq EnableMetricsCollection where
+    type Rs EnableMetricsCollection = Either AutoScalingError EnableMetricsCollectionResponse
+    request = qry GET "EnableMetricsCollection"
 
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
     { emcrResponseMetadata :: !ResponseMetadata
@@ -943,21 +962,22 @@ instance IsXML EnableMetricsCollectionResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExecutePolicy.html>
 data ExecutePolicy = ExecutePolicy
-    { epAutoScalingGroupName :: Maybe ByteString
+    { epAutoScalingGroupName :: Maybe Text
       -- ^ The name or the Amazon Resource Name (ARN) of the Auto Scaling
       -- group.
     , epHonorCooldown        :: Maybe Bool
       -- ^ Set to True if you want Auto Scaling to wait for the cooldown
       -- period associated with the Auto Scaling group to complete before
       -- executing the policy.
-    , epPolicyName           :: !ByteString
+    , epPolicyName           :: !Text
       -- ^ The name or ARN of the policy you want to run.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ExecutePolicy
 
-instance AWSRequest AutoScaling ExecutePolicy ExecutePolicyResponse where
-    request = req GET "ExecutePolicy"
+instance Rq ExecutePolicy where
+    type Rs ExecutePolicy = Either AutoScalingError ExecutePolicyResponse
+    request = qry GET "ExecutePolicy"
 
 data ExecutePolicyResponse = ExecutePolicyResponse
     { eprResponseMetadata :: !ResponseMetadata
@@ -975,21 +995,22 @@ instance IsXML ExecutePolicyResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html>
 data PutNotificationConfiguration = PutNotificationConfiguration
-    { pncAutoScalingGroupName :: !ByteString
+    { pncAutoScalingGroupName :: !Text
       -- ^ The name of the Auto Scaling group.
-    , pncNotificationTypes    :: Members ByteString
+    , pncNotificationTypes    :: Members Text
       -- ^ The type of event that will cause the notification to be sent.
       -- For details about notification types supported by Auto Scaling,
       -- see DescribeAutoScalingNotificationTypes.
-    , pncTopicARN             :: !ByteString
+    , pncTopicARN             :: !Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
       -- Service (SNS) topic.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery PutNotificationConfiguration
 
-instance AWSRequest AutoScaling PutNotificationConfiguration PutNotificationConfigurationResponse where
-    request = req GET "PutNotificationConfiguration"
+instance Rq PutNotificationConfiguration where
+    type Rs PutNotificationConfiguration = Either AutoScalingError PutNotificationConfigurationResponse
+    request = qry GET "PutNotificationConfiguration"
 
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
     { pncrResponseMetadata :: !ResponseMetadata
@@ -1005,11 +1026,11 @@ instance IsXML PutNotificationConfigurationResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicy.html>
 data PutScalingPolicy = PutScalingPolicy
-    { pspAdjustmentType       :: !ByteString
+    { pspAdjustmentType       :: !Text
       -- ^ Specifies whether the ScalingAdjustment is an absolute number or
       -- a percentage of the current capacity. Valid values are
       -- ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
-    , pspAutoScalingGroupName :: !ByteString
+    , pspAutoScalingGroupName :: !Text
       -- ^ The name or ARN of the Auto Scaling group.
     , pspCooldown             :: Maybe Integer
       -- ^ The amount of time, in seconds, after a scaling activity
@@ -1019,7 +1040,7 @@ data PutScalingPolicy = PutScalingPolicy
       -- the scaling policy changes the DesiredCapacity of the Auto
       -- Scaling group by at least the number of instances specified in
       -- the value.
-    , pspPolicyName           :: !ByteString
+    , pspPolicyName           :: !Text
       -- ^ The name of the policy you want to create or update.
     , pspScalingAdjustment    :: !Integer
       -- ^ The number of instances by which to scale. AdjustmentType
@@ -1031,8 +1052,9 @@ data PutScalingPolicy = PutScalingPolicy
 
 instance IsQuery PutScalingPolicy
 
-instance AWSRequest AutoScaling PutScalingPolicy PutScalingPolicyResponse where
-    request = req GET "PutScalingPolicy"
+instance Rq PutScalingPolicy where
+    type Rs PutScalingPolicy = Either AutoScalingError PutScalingPolicyResponse
+    request = qry GET "PutScalingPolicy"
 
 data PutScalingPolicyResponse = PutScalingPolicyResponse
     { psprPutScalingPolicyResult :: !PutScalingPolicyResult
@@ -1052,7 +1074,7 @@ instance IsXML PutScalingPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html>
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
-    { psugaAutoScalingGroupName :: !ByteString
+    { psugaAutoScalingGroupName :: !Text
       -- ^ The name or ARN of the Auto Scaling group.
     , psugaDesiredCapacity      :: Maybe Integer
       -- ^ The number of Amazon EC2 instances that should be running in the
@@ -1063,12 +1085,12 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
       -- ^ The maximum size for the Auto Scaling group.
     , psugaMinSize              :: Maybe Integer
       -- ^ The minimum size for the new Auto Scaling group.
-    , psugaRecurrence           :: Maybe ByteString
+    , psugaRecurrence           :: Maybe Text
       -- ^ The time when recurring future actions will start. Start time is
       -- specified by the user following the Unix cron syntax format. For
       -- information about cron syntax, go to Wikipedia, The Free
       -- Encyclopedia.
-    , psugaScheduledActionName  :: !ByteString
+    , psugaScheduledActionName  :: !Text
       -- ^ The name of this scaling action.
     , psugaStartTime            :: Maybe UTCTime
       -- ^ The time for this action to start, as in --start-time
@@ -1079,8 +1101,9 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
 
 instance IsQuery PutScheduledUpdateGroupAction
 
-instance AWSRequest AutoScaling PutScheduledUpdateGroupAction PutScheduledUpdateGroupActionResponse where
-    request = req GET "PutScheduledUpdateGroupAction"
+instance Rq PutScheduledUpdateGroupAction where
+    type Rs PutScheduledUpdateGroupAction = Either AutoScalingError PutScheduledUpdateGroupActionResponse
+    request = qry GET "PutScheduledUpdateGroupAction"
 
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
     { psugarResponseMetadata :: !ResponseMetadata
@@ -1095,17 +1118,18 @@ instance IsXML PutScheduledUpdateGroupActionResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html>
 data ResumeProcesses = ResumeProcesses
-    { rpAutoScalingGroupName :: !ByteString
+    { rpAutoScalingGroupName :: !Text
       -- ^ The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-    , rpScalingProcesses     :: Members ByteString
+    , rpScalingProcesses     :: Members Text
       -- ^ The processes that you want to suspend or resume, which can
       -- include one or more of the following:
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ResumeProcesses
 
-instance AWSRequest AutoScaling ResumeProcesses ResumeProcessesResponse where
-    request = req GET "ResumeProcesses"
+instance Rq ResumeProcesses where
+    type Rs ResumeProcesses = Either AutoScalingError ResumeProcessesResponse
+    request = qry GET "ResumeProcesses"
 
 data ResumeProcessesResponse = ResumeProcessesResponse
     { rprResponseMetadata :: !ResponseMetadata
@@ -1118,7 +1142,7 @@ instance IsXML ResumeProcessesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetDesiredCapacity.html>
 data SetDesiredCapacity = SetDesiredCapacity
-    { sdcAutoScalingGroupName :: !ByteString
+    { sdcAutoScalingGroupName :: !Text
       -- ^ The name of the Auto Scaling group.
     , sdcDesiredCapacity      :: !Integer
       -- ^ The new capacity setting for the Auto Scaling group.
@@ -1133,8 +1157,9 @@ data SetDesiredCapacity = SetDesiredCapacity
 
 instance IsQuery SetDesiredCapacity
 
-instance AWSRequest AutoScaling SetDesiredCapacity SetDesiredCapacityResponse where
-    request = req GET "SetDesiredCapacity"
+instance Rq SetDesiredCapacity where
+    type Rs SetDesiredCapacity = Either AutoScalingError SetDesiredCapacityResponse
+    request = qry GET "SetDesiredCapacity"
 
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse
     { sdcrResponseMetadata :: !ResponseMetadata
@@ -1149,12 +1174,12 @@ instance IsXML SetDesiredCapacityResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceHealth.html>
 data SetInstanceHealth = SetInstanceHealth
-    { sihHealthStatus             :: !ByteString
+    { sihHealthStatus             :: !Text
       -- ^ The health status of the instance. Set to Healthy if you want the
       -- instance to remain in service. Set to Unhealthy if you want the
       -- instance to be out of service. Auto Scaling will terminate and
       -- replace the unhealthy instance.
-    , sihInstanceId               :: !ByteString
+    , sihInstanceId               :: !Text
       -- ^ The identifier of the Amazon EC2 instance.
     , sihShouldRespectGracePeriod :: Maybe Bool
       -- ^ If the Auto Scaling group of the specified instance has a
@@ -1166,8 +1191,9 @@ data SetInstanceHealth = SetInstanceHealth
 
 instance IsQuery SetInstanceHealth
 
-instance AWSRequest AutoScaling SetInstanceHealth SetInstanceHealthResponse where
-    request = req GET "SetInstanceHealth"
+instance Rq SetInstanceHealth where
+    type Rs SetInstanceHealth = Either AutoScalingError SetInstanceHealthResponse
+    request = qry GET "SetInstanceHealth"
 
 data SetInstanceHealthResponse = SetInstanceHealthResponse
     { sihrResponseMetadata :: !ResponseMetadata
@@ -1187,17 +1213,18 @@ instance IsXML SetInstanceHealthResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SuspendProcesses.html>
 data SuspendProcesses = SuspendProcesses
-    { spAutoScalingGroupName :: !ByteString
+    { spAutoScalingGroupName :: !Text
       -- ^ The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-    , spScalingProcesses     :: Members ByteString
+    , spScalingProcesses     :: Members Text
       -- ^ The processes that you want to suspend or resume, which can
       -- include one or more of the following:
     } deriving (Eq, Show, Generic)
 
 instance IsQuery SuspendProcesses
 
-instance AWSRequest AutoScaling SuspendProcesses SuspendProcessesResponse where
-    request = req GET "SuspendProcesses"
+instance Rq SuspendProcesses where
+    type Rs SuspendProcesses = Either AutoScalingError SuspendProcessesResponse
+    request = qry GET "SuspendProcesses"
 
 data SuspendProcessesResponse = SuspendProcessesResponse
     { sprResponseMetadata :: !ResponseMetadata
@@ -1212,7 +1239,7 @@ instance IsXML SuspendProcessesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html>
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
-    { tiiasgInstanceId                     :: !ByteString
+    { tiiasgInstanceId                     :: !Text
       -- ^ The ID of the Amazon EC2 instance to be terminated.
     , tiiasgShouldDecrementDesiredCapacity :: !Bool
       -- ^ Specifies whether (true) or not (false) terminating this instance
@@ -1221,8 +1248,9 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
 
 instance IsQuery TerminateInstanceInAutoScalingGroup
 
-instance AWSRequest AutoScaling TerminateInstanceInAutoScalingGroup TerminateInstanceInAutoScalingGroupResponse where
-    request = req GET "TerminateInstanceInAutoScalingGroup"
+instance Rq TerminateInstanceInAutoScalingGroup where
+    type Rs TerminateInstanceInAutoScalingGroup = Either AutoScalingError TerminateInstanceInAutoScalingGroupResponse
+    request = qry GET "TerminateInstanceInAutoScalingGroup"
 
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { tiiasgrResponseMetadata                          :: !ResponseMetadata
@@ -1245,9 +1273,9 @@ instance IsXML TerminateInstanceInAutoScalingGroupResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html>
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup
-    { uasgAutoScalingGroupName    :: !ByteString
+    { uasgAutoScalingGroupName    :: !Text
       -- ^ The name of the Auto Scaling group.
-    , uasgAvailabilityZones       :: Members ByteString
+    , uasgAvailabilityZones       :: Members Text
       -- ^ Availability Zones for the group.
     , uasgDefaultCooldown         :: Maybe Integer
       -- ^ The amount of time, in seconds, after a scaling activity
@@ -1259,25 +1287,25 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
       -- ^ The length of time that Auto Scaling waits before checking an
       -- instance's health status. The grace period begins when an
       -- instance comes into service.
-    , uasgHealthCheckType         :: Maybe ByteString
+    , uasgHealthCheckType         :: Maybe Text
       -- ^ The type of health check for the instances in the Auto Scaling
       -- group. The health check type can either be EC2 for Amazon EC2 or
       -- ELB for Elastic Load Balancing.
-    , uasgLaunchConfigurationName :: Maybe ByteString
+    , uasgLaunchConfigurationName :: Maybe Text
       -- ^ The name of the launch configuration.
     , uasgMaxSize                 :: Maybe Integer
       -- ^ The maximum size of the Auto Scaling group.
     , uasgMinSize                 :: Maybe Integer
       -- ^ The minimum size of the Auto Scaling group.
-    , uasgPlacementGroup          :: Maybe ByteString
+    , uasgPlacementGroup          :: Maybe Text
       -- ^ The name of the cluster placement group, if applicable. For more
       -- information, go to Using Cluster Instances in the Amazon EC2 User
       -- Guide.
-    , uasgTerminationPolicies     :: Members ByteString
+    , uasgTerminationPolicies     :: Members Text
       -- ^ A standalone termination policy or a list of termination policies
       -- used to select the instance to terminate. The policies are
       -- executed in the order that they are listed.
-    , uasgVPCZoneIdentifier       :: Maybe ByteString
+    , uasgVPCZoneIdentifier       :: Maybe Text
       -- ^ The subnet identifier for the Amazon VPC connection, if
       -- applicable. You can specify several subnets in a comma-separated
       -- list.
@@ -1285,8 +1313,9 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
 
 instance IsQuery UpdateAutoScalingGroup
 
-instance AWSRequest AutoScaling UpdateAutoScalingGroup UpdateAutoScalingGroupResponse where
-    request = req GET "UpdateAutoScalingGroup"
+instance Rq UpdateAutoScalingGroup where
+    type Rs UpdateAutoScalingGroup = Either AutoScalingError UpdateAutoScalingGroupResponse
+    request = qry GET "UpdateAutoScalingGroup"
 
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
     { uasgrResponseMetadata :: !ResponseMetadata

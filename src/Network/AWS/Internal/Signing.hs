@@ -238,7 +238,7 @@ setHeaders hs = do
     deleteHeader "Accept-Encoding"
     mapM_ (uncurry setHeader) $ filter ((/= "Host") . fst) hs
   where
-    host = fromMaybe "unknown" $ "Host" `lookup` hs -- ^ FIXME
+    host = fromMaybe "unknown" $ "Host" `lookup` hs -- FIXME
 
 rfc822Time, iso8601Time, awsTime, basicTime :: UTCTime -> ByteString
 rfc822Time  = formatTime "%a, %d %b %Y %H:%M:%S GMT"

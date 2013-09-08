@@ -1,6 +1,8 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TupleSections              #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 -- Module      : Network.AWS.Internal.Signing
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -15,14 +17,13 @@
 module Network.AWS.Internal.Signing
     (
     -- * Metadata about the signing process
-      SigningMetadata
+      SigningMetadata (..)
 
     -- * Signing raw requests
     , sign
     , sign'
     ) where
 
-import           Control.Applicative
 import           Control.Error
 import           Control.Monad.IO.Class
 import           Data.ByteString                 (ByteString)
@@ -32,7 +33,6 @@ import qualified Data.ByteString.Lazy            as LBS
 import           Data.Char                       (intToDigit, toLower, ord)
 import qualified Data.Digest.Pure.SHA            as SHA
 import           Data.List
-import qualified Data.Map                        as Map
 import           Data.Monoid
 import           Data.Time                       (UTCTime, formatTime, getCurrentTime)
 import           Network.AWS.Internal.Monad
@@ -41,107 +41,121 @@ import           Network.AWS.Internal.Types
 import           Network.HTTP.QueryString.Pickle
 import           Network.HTTP.Types              (urlEncode)
 import           Network.Http.Client
-import           System.Locale                   (defaultTimeLocale, iso8601DateFormat)
+import           System.Locale                   (defaultTimeLocale,)
 
 data SigningMetadata = SigningMetadata
-    { smdReq   :: !ByteString
-    , smdCReq  :: !ByteString
+    { smdCReq  :: !ByteString
     , smdSReq  :: !ByteString
     , smdSTS   :: !ByteString
     , smdAuthz :: !ByteString
-    } deriving (Show)
+    } deriving (Eq)
+
+instance Show SigningMetadata where
+    show SigningMetadata{..} = BS.unpack . BS.unlines $
+          ("Canonical Request:" : BS.lines smdCReq)
+       ++ ("Signed Request:"    : BS.lines smdSReq)
+       ++ ("String To Sign:"    : BS.lines smdSTS)
+       ++ ("Auth Header:"       : BS.lines smdAuthz)
 
 sign :: RawRequest -> AWS SignedRequest
-sign = fmap fst . sign'
-
-sign' :: RawRequest -> AWS (SignedRequest, SigningMetadata)
-sign' rq = do
+sign rq = do
     auth <- currentAuth
     reg  <- currentRegion
-    liftIO $ signer rq auth reg
+    time <- liftIO getCurrentTime
+    liftIO . fmap fst $ sign' rq auth reg time
+
+sign' :: RawRequest -> Auth -> Region -> UTCTime -> IO (SignedRequest, SigningMetadata)
+sign' rq = signer rq
   where
     signer = case svcSigner $ rqService rq of
         SigningVersion3 -> version3
         SigningVersion4 -> version4
 
---
--- Internal
---
-
-version3 :: RawRequest -> Auth -> Region -> IO (SignedRequest, SigningMetadata)
-version3 RawRequest{..} Auth{..} reg = do
-    time <- rfc822Time <$> getCurrentTime
-
+version3 :: RawRequest
+         -> Auth
+         -> Region
+         -> UTCTime
+         -> IO (SignedRequest, SigningMetadata)
+version3 RawRequest{..} Auth{..} reg (rfc822Time -> time) = do
     let url = "https://"
             <> svcEndpoint reg
             <> validPath rqPath
             <> query
 
-    SignedRequest url rqBody <$> buildRequest (do
+    build meta (SignedRequest url rqBody) $ do
         http rqMethod url
-        mapM_ (uncurry setHeader) $ Map.toList rqHeaders ++
+        mapM_ (uncurry setHeader) $ rqHeaders ++
             [ ("X-Amz-Date",           time)
-            , ("X-Amzn-Authorization", authorization time)
-            ])
+            , ("X-Amzn-Authorization", authorization)
+            ]
   where
     Service{..} = rqService
 
     query | null rqQuery = ""
           | otherwise    = "?" <> encodeQuery (urlEncode True) rqQuery
 
-    authorization time = "AWS3-HTTPS AWSAccessKeyId="
+    authorization = "AWS3-HTTPS AWSAccessKeyId="
         <> accessKey
         <> ",Algorithm=HmacSHA256,Signature="
         <> Base64.encode (hmac secretKey time)
 
-version4 :: RawRequest -> Auth -> Region -> IO SignedRequest
-version4 RawRequest{..} Auth{..} reg = do
-    time <- getCurrentTime :: IO UTCTime
+    meta = SigningMetadata "" "" "" ""
 
+version4 :: RawRequest
+         -> Auth
+         -> Region
+         -> UTCTime
+         -> IO (SignedRequest, SigningMetadata)
+version4 RawRequest{..} Auth{..} reg time = do
     let host = svcEndpoint reg
         url  = "https://" <> host <> path <> "?" <> query
+        meta = SigningMetadata
+            (canonicalRequest time)
+            (signature time)
+            (stringToSign time)
+            (authorization time)
 
-    SignedRequest url rqBody <$> buildRequest (do
+    build meta (SignedRequest url rqBody) $ do
         http rqMethod $ path <> "?" <> query
         deleteHeader "Host"
         deleteHeader "User-Agent"
-        setHeader "Authorization" $ authorizationHeader time
+        setHeader "Authorization" $ authorization time
         setContentType $ toBS rqContent
         setHeader "Accept-Encoding" "gzip"
         deleteHeader "Host"
         setHeader "Host" host
-        setHeader "Date" $ rfc822Time time)
+        setHeader "Date" $ rfc822Time time
   where
     Service{..} = rqService
 
-    authorizationHeader time = mconcat
+    authorization ts = mconcat
         [ algorithm
         , " Credential="
-        , credentialScope time
+        , credentialScope ts
         , ", SignedHeaders="
-        , signedHeaders time
+        , signedHeaders ts
         , ", Signature="
-        , signature time
+        , signature ts
         ]
 
-    signature time = hex $ hmac (signingKey time) (stringToSign time)
+    signature ts = hex $ hmac (signingKey ts) (stringToSign ts)
 
-    signingKey time =
+    signingKey ts =
           hmac "aws4_request"
         $ hmac svcName
         $ hmac (toBS reg)
-        $ hmac ("AWS4" <> secretKey) (basicTime time)
+        $ hmac ("AWS4" <> secretKey) (basicTime ts)
 
-    stringToSign time = BS.intercalate "\n"
+    stringToSign ts = BS.intercalate "\n"
         [ algorithm
-        , awsTime time
-        , credentialScope time
-        , sha256 $ canonicalRequest time
+        , awsTime ts
+        , credentialScope ts
+        , sha256 $ canonicalRequest ts
         ]
 
-    credentialScope time = BS.intercalate "/"
+    credentialScope ts = BS.intercalate "/"
        [ accessKey
-       , basicTime time
+       , basicTime ts
        , toBS reg
        , svcName
        , "aws4_request"
@@ -149,12 +163,12 @@ version4 RawRequest{..} Auth{..} reg = do
 
     algorithm = "AWS4-HMAC-SHA256"
 
-    canonicalRequest time = BS.intercalate "/" $
+    canonicalRequest ts = BS.intercalate "/" $
         [ toBS rqMethod
         , path
         , query
-        , canonicalHeaders time
-        , signedHeaders time
+        , canonicalHeaders ts
+        , signedHeaders ts
         , sha256 $ fromMaybe "" rqBody
         ]
 
@@ -171,18 +185,21 @@ version4 RawRequest{..} Auth{..} reg = do
 
     signedHeaders = BS.intercalate ";" . map fst . headers
 
-    headers time = map f
+    headers ts = map f
         . groupBy (\x y -> fst x == fst y)
         . sort
-        $ union (Map.toList rqHeaders)
+        $ union rqHeaders
             [ ("Content-Type", toBS rqContent)
             , ("Host", svcEndpoint reg)
-            , ("Date", rfc822Time time)
+            , ("Date", rfc822Time ts)
             , ("Accept-Encoding", "gzip")
             ]
       where
         f (h:hs) = (BS.map toLower $ fst h, BS.intercalate "," . map snd $ h:hs)
         f []     = ("", "")
+
+build :: a -> (Request -> b) -> RequestBuilder () -> IO (b, a)
+build meta rq = fmap (, meta) . fmap rq . buildRequest
 
 rfc822Time :: UTCTime -> ByteString
 rfc822Time = BS.pack . formatTime defaultTimeLocale "%a, %0d %b %Y %H:%M:%S GMT"
@@ -190,14 +207,11 @@ rfc822Time = BS.pack . formatTime defaultTimeLocale "%a, %0d %b %Y %H:%M:%S GMT"
 awsTime :: UTCTime -> ByteString
 awsTime = BS.pack . formatTime defaultTimeLocale "%Y%m%dT%H%M%SZ"
 
-iso8601Time :: UTCTime -> ByteString
-iso8601Time = BS.pack . formatTime defaultTimeLocale (iso8601DateFormat $ Just "%XZ")
-
 basicTime :: UTCTime -> ByteString
 basicTime = BS.pack . formatTime defaultTimeLocale "%Y%m%d"
 
-validPath :: Maybe ByteString -> ByteString
-validPath = maybe "/" (mappend "/" . strip '/')
+validPath :: ByteString -> ByteString
+validPath = mappend "/" . strip '/'
 
 sha256 :: ByteString -> ByteString
 sha256 = LBS.toStrict

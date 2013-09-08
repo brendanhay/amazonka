@@ -100,9 +100,12 @@ test-suite amazonka-tests
       , derive
       , directory
       , hastache
+      , http-types
+      , HUnit
       , natural-sort
       , old-locale
       , QuickCheck                 >= 2.5.1.1
+      , querystring-pickle
       , template-haskell
       , test-framework             >= 0.8
       , test-framework-hunit       >= 0.3

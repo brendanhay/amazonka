@@ -25,8 +25,6 @@ import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.List                       (intercalate, union)
-import           Data.Map                        (Map)
-import qualified Data.Map                        as Map
 import           Data.Monoid
 import           Data.String
 import           Data.Text                       (Text)
@@ -137,7 +135,7 @@ data RawRequest = RawRequest
     , rqMethod  :: !Method
     , rqContent :: !ContentType
     , rqPath    :: ByteString
-    , rqHeaders :: Map ByteString ByteString
+    , rqHeaders :: [(ByteString, ByteString)]
     , rqQuery   :: [(ByteString, ByteString)]
     , rqBody    :: Maybe ByteString
     }
@@ -172,7 +170,7 @@ emptyRequest svc meth content path body = RawRequest
     , rqMethod  = meth
     , rqContent = content
     , rqPath    = path
-    , rqHeaders = Map.empty
+    , rqHeaders = []
     , rqQuery   = []
     , rqBody    = body
     }
@@ -200,8 +198,8 @@ xmlRequest svc meth path =
 
 data SignedRequest = SignedRequest
     { srqUrl     :: !ByteString
-    , srqRequest :: !Request
     , srqPayload :: (Maybe ByteString)
+    , srqRequest :: !Request
     } deriving (Show)
 
 data ContentType

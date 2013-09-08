@@ -62,13 +62,13 @@ testVersion ver = plusTestOptions opts . testGroup (BS.unpack ver)
 class TestProperty a where
     prop :: a -> Bool
 
-type Rq a = Request  a -> Bool
-type Rs a = Response a -> Bool
+type TRq a = Request  a -> Bool
+type TRs a = Response a -> Bool
 
 data Request a where
     Request :: AWSRequest s a b
             => { trqRequest  :: a
-               , trqRaw      :: RawRequest s b
+               , trqRaw      :: RawRequest
                , trqEncoded  :: ByteString
                , trqTemplate :: ByteString
                , trqDiff     :: [String]

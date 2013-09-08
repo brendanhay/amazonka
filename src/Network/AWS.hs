@@ -76,15 +76,15 @@ send rq = hoistEither . fmapL toError =<< send' rq
 send' :: Rq a => a -> EitherT Error AWS (Rs a)
 send' rq = do
     sig  <- lift . sign $ request rq
-    whenDebug . print $ rqRequest sig
+    whenDebug . print $ srqRequest sig
     mres <- receive sig
     res  <- mres ?? "Failed to receive any data"
     whenDebug $ BS.putStrLn res
     hoistEither $ response rq res
   where
     receive SignedRequest{..} =
-        tryIO' . bracket (establishConnection rqUrl) closeConnection $ \c -> do
+        tryIO' . bracket (establishConnection srqUrl) closeConnection $ \c -> do
         b <- maybe (return emptyBody)
-            (fmap inputStreamBody . Streams.fromByteString) rqPayload
-        sendRequest c rqRequest b
+            (fmap inputStreamBody . Streams.fromByteString) srqPayload
+        sendRequest c srqRequest b
         receiveResponse c $ const Streams.read

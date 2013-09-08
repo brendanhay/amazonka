@@ -22,44 +22,44 @@ tests :: [Test]
 tests = (:[]) $ testVersion route53Version
     [ testGroup "Hosted Zones"
         [ testGroup "Requests"
-            [ testProperty "CreateHostedZone"                 (prop :: Rq CreateHostedZone)
-            , testProperty "GetHostedZone"                    (prop :: Rq GetHostedZone)
-            , testProperty "ListHostedZones"                  (prop :: Rq ListHostedZones)
-            , testProperty "DeleteHostedZone"                 (prop :: Rq DeleteHostedZone)
+            [ testProperty "CreateHostedZone"                 (prop :: TRq CreateHostedZone)
+            , testProperty "GetHostedZone"                    (prop :: TRq GetHostedZone)
+            , testProperty "ListHostedZones"                  (prop :: TRq ListHostedZones)
+            , testProperty "DeleteHostedZone"                 (prop :: TRq DeleteHostedZone)
             ]
         , testGroup "Responses"
-            [ testProperty "CreateHostedZoneResponse"         (prop :: Rs CreateHostedZoneResponse)
-            , testProperty "GetHostedZoneResponse"            (prop :: Rs GetHostedZoneResponse)
-            , testProperty "ListHostedZonesResponse"          (prop :: Rs ListHostedZonesResponse)
-            , testProperty "DeleteHostedZoneResponse"         (prop :: Rs DeleteHostedZoneResponse)
+            [ testProperty "CreateHostedZoneResponse"         (prop :: TRs CreateHostedZoneResponse)
+            , testProperty "GetHostedZoneResponse"            (prop :: TRs GetHostedZoneResponse)
+            , testProperty "ListHostedZonesResponse"          (prop :: TRs ListHostedZonesResponse)
+            , testProperty "DeleteHostedZoneResponse"         (prop :: TRs DeleteHostedZoneResponse)
             ]
         ]
 
     , testGroup "Record Sets"
         [ testGroup "Requests"
-            [ -- testProperty "ChangeResourceRecordSets"         (prop :: Rq ChangeResourceRecordSets)
-              testProperty "ListResourceRecordSets"           (prop :: Rq ListResourceRecordSets)
-            , testProperty "GetChange"                        (prop :: Rq GetChange)
+            [ -- testProperty "ChangeResourceRecordSets"         (prop :: TRq ChangeResourceRecordSets)
+              testProperty "ListResourceRecordSets"           (prop :: TRq ListResourceRecordSets)
+            , testProperty "GetChange"                        (prop :: TRq GetChange)
             ]
         , testGroup "Responses"
-            [ testProperty "ChangeResourceRecordSetsResponse" (prop :: Rs ChangeResourceRecordSetsResponse)
-            , testProperty "ListResourceRecordSetsResponse"   (prop :: Rs ListResourceRecordSetsResponse)
-            , testProperty "GetChangeResponse"                (prop :: Rs GetChangeResponse)
+            [ testProperty "ChangeResourceRecordSetsResponse" (prop :: TRs ChangeResourceRecordSetsResponse)
+            , testProperty "ListResourceRecordSetsResponse"   (prop :: TRs ListResourceRecordSetsResponse)
+            , testProperty "GetChangeResponse"                (prop :: TRs GetChangeResponse)
             ]
         ]
 
     , testGroup "Health Checks"
         [ testGroup "Requests"
-            [ testProperty "CreateHealthCheck" (prop :: Rq CreateHealthCheck)
-            , testProperty "GetHealthCheck"    (prop :: Rq GetHealthCheck)
-            , testProperty "ListHealthChecks"  (prop :: Rq ListHealthChecks)
-            , testProperty "DeleteHealthCheck" (prop :: Rq DeleteHealthCheck)
+            [ testProperty "CreateHealthCheck" (prop :: TRq CreateHealthCheck)
+            , testProperty "GetHealthCheck"    (prop :: TRq GetHealthCheck)
+            , testProperty "ListHealthChecks"  (prop :: TRq ListHealthChecks)
+            , testProperty "DeleteHealthCheck" (prop :: TRq DeleteHealthCheck)
             ]
         , testGroup "Responses"
-            [ testProperty "CreateHealthCheckResponse" (prop :: Rs CreateHealthCheckResponse)
-            , testProperty "GetHealthCheckResponse"    (prop :: Rs GetHealthCheckResponse)
-            , testProperty "ListHealthChecksResponse"  (prop :: Rs ListHealthChecksResponse)
-            , testProperty "DeleteHealthCheckResponse" (prop :: Rs DeleteHealthCheckResponse)
+            [ testProperty "CreateHealthCheckResponse" (prop :: TRs CreateHealthCheckResponse)
+            , testProperty "GetHealthCheckResponse"    (prop :: TRs GetHealthCheckResponse)
+            , testProperty "ListHealthChecksResponse"  (prop :: TRs ListHealthChecksResponse)
+            , testProperty "DeleteHealthCheckResponse" (prop :: TRs DeleteHealthCheckResponse)
             ]
         ]
     ]

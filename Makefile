@@ -4,11 +4,8 @@ FLAGS := --disable-documentation --disable-library-coverage
 
 all: build
 
-build: cabal.sandbox.config
+build: cabal.sandbox.config .cabal-sandbox
 	cabal build
-
-install: $(DEPS) add-sources
-	cabal install -j $(FLAGS)
 
 clean:
 	-rm -rf dist cabal.sandbox.config .cabal-sandbox
@@ -23,13 +20,16 @@ lint:
 doc:
 	cabal haddock
 
+cabal.sandbox.config:
+	cabal sandbox init
+
+.cabal-sandbox: $(DEPS) add-sources
+	cabal install -j $(FLAGS)
+
 add-sources: cabal.sandbox.config vendor/http-streams
 	cabal sandbox add-source ../hexpat-pickle-generic
 	cabal sandbox add-source ../querystring-pickle
 	cabal sandbox add-source vendor/http-streams
-
-cabal.sandbox.config:
-	cabal sandbox init
 
 vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@

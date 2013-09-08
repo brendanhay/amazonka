@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings    #-}
 {-# LANGUAGE TemplateHaskell      #-}
+{-# LANGUAGE ViewPatterns         #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
@@ -16,11 +17,13 @@
 module Test.Signing (tests) where
 
 import           Control.Applicative
+import           Control.Monad
 import           Data.Attoparsec                as P
 import           Data.Attoparsec.Char8          (char8, endOfLine, isDigit_w8)
 import qualified Data.Attoparsec.Char8          as P8
 import           Data.ByteString                (ByteString)
 import qualified Data.ByteString.Char8          as BS
+import           Data.List                      ((\\))
 import           Data.Time
 import           Network.AWS.Internal
 import           Network.HTTP.Types             (urlDecode)
@@ -34,6 +37,35 @@ tests :: [Test]
 tests =
     [ testGroup "Version4"
         [ testSigner "get-header-key-duplicate"
+        -- , testSigner "get-header-value-order"
+        -- , testSigner "get-header-value-trim"
+        -- , testSigner "get-relative-relative"
+        -- , testSigner "get-relative"
+        -- , testSigner "get-slash-dot-slash"
+        -- , testSigner "get-slash-pointless-dot"
+        -- , testSigner "get-slash"
+        -- , testSigner "get-slashes"
+        -- , testSigner "get-space"
+        -- , testSigner "get-unreserved"
+        -- , testSigner "get-utf8"
+        , testSigner "get-vanilla-empty-query-key"
+        , testSigner "get-vanilla-query-order-key-case"
+        , testSigner "get-vanilla-query-order-key"
+        , testSigner "get-vanilla-query-order-value"
+        , testSigner "get-vanilla-query-unreserved"
+        , testSigner "get-vanilla-query"
+        -- , testSigner "get-vanilla-ut8-query"
+        , testSigner "get-vanilla"
+        -- , testSigner "post-header-key-case"
+        -- , testSigner "post-header-key-sort"
+        -- , testSigner "post-header-value-case"
+        -- , testSigner "post-vanilla-empty-query-value"
+        -- , testSigner "post-vanilla-query-nonunreserved"
+        -- , testSigner "post-vanilla-query-space"
+        -- , testSigner "post-vanilla-query"
+        -- , testSigner "post-vanilla"
+        -- , testSigner "post-x-www-form-urlencoded-parameters"
+        -- , testSigner "post-x-www-form-urlencoded"
         ]
     ]
 
@@ -42,37 +74,30 @@ testSigner name = testCase name $ do
     (rq, expect) <- loadMetadata SigningVersion4 name
 
     let hdr  = BS.unpack . fromMaybe "" $ "Date" `lookup` rqHeaders rq
-        time = readTime defaultTimeLocale "%a, %0d %b %Y %H:%M:%S GMT" hdr
+        time = readTime defaultTimeLocale "%a, %d %b %Y %H:%M:%S GMT" hdr
 
     (_ , actual) <- sign' rq auth NorthVirgnia time
 
-    -- when (actual /= expect) . putStrLn $ unlines
-    --     [ show rq
-    --     , ""
-    --     , show actual
-    --     , ""
-    --     , show expect
-    --     , ""
-    --     ]
+    when (actual /= expect) $ do
+        let f = \(BS.unpack -> x) (BS.unpack -> y) -> (x \\ y) ++ (y \\ x)
 
-    assertEqual "Signing result does not match:" expect actual
+        print $ f (smdCReq expect) (smdCReq actual)
+        print $ f (smdSTS expect) (smdSTS actual)
+        print $ f (smdAuthz expect) (smdAuthz actual)
+        print $ f (smdSReq expect) (smdSReq actual)
+
+    assertEqual "Signing results do not match." expect actual
   where
     auth = Auth "AKIDEXAMPLE" "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY"
-
-    -- AKIDEXAMPLE/20110909/us-east-1/host/aws4_request
-    -- wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY
-
-    -- read DATE or Date headers format
-    -- Mon, 09 Sep 2011 23:36:00 GMT
 
 loadMetadata :: SigningVersion -> String -> IO (RawRequest, SigningMetadata)
 loadMetadata ver name = do
     (,) <$> (parseRequest <$> load ".req")
         <*> (SigningMetadata
                 <$> load ".creq"
-                <*> load ".sreq"
                 <*> load ".sts"
-                <*> load ".authz")
+                <*> load ".authz"
+                <*> load ".sreq")
   where
     load ext = BS.readFile =<< path ext `fmap` getCurrentDirectory
     path ext = (++ ("/test/resources/" ++ show ver ++ "/" ++ name ++ ext))
@@ -99,34 +124,3 @@ parseRequest = either error id . parseOnly parser
     token w = w <= 127 && notInClass "\0-\31()<>@,;:\\\"/[]?={} \t" w
 
     service = Service "host" "2011-09-09" SigningVersion4 (const "host.foo.com")
-
--- "get-header-key-duplicate"
--- "get-header-value-order"
--- "get-header-value-trim"
--- "get-relative-relative"
--- "get-relative"
--- "get-slash-dot-slash"
--- "get-slash-pointless-dot"
--- "get-slash"
--- "get-slashes"
--- "get-space"
--- "get-unreserved"
--- "get-utf8"
--- "get-vanilla-empty-query-key"
--- "get-vanilla-query-order-key-case"
--- "get-vanilla-query-order-key"
--- "get-vanilla-query-order-value"
--- "get-vanilla-query-unreserved"
--- "get-vanilla-query"
--- "get-vanilla-ut8-query"
--- "get-vanilla"
--- "post-header-key-case"
--- "post-header-key-sort"
--- "post-header-value-case"
--- "post-vanilla-empty-query-value"
--- "post-vanilla-query-nonunreserved"
--- "post-vanilla-query-space"
--- "post-vanilla-query"
--- "post-vanilla"
--- "post-x-www-form-urlencoded-parameters"
--- "post-x-www-form-urlencoded"

@@ -618,7 +618,9 @@ import Network.AWS.Internal
 import Network.Http.Client   (Method(..))
 
 qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth act = queryRequest ec2Service meth (Just act) "/"
+qry meth act q = queryAppend (queryRequest ec2Service meth "/" q)
+    [ ("Action", act)
+    ]
 
 -- | Acquires an Elastic IP address.An Elastic IP address is for use either in
 -- the EC2-Classic platform or in a VPC.

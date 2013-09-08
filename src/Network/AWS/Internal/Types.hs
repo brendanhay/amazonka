@@ -24,7 +24,7 @@ import           Control.Monad
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
-import           Data.List                       (intercalate, union)
+import           Data.List                       (intercalate)
 import           Data.Monoid
 import           Data.String
 import           Data.Text                       (Text)
@@ -111,8 +111,11 @@ newtype ServiceVersion = ServiceVersion ByteString
 svcPath :: IsByteString a => Service -> a -> ByteString
 svcPath svc p = "/" <> toBS (svcVersion svc) <> "/" <> toBS p
 
-data SigningVersion = SigningVersion3 | SigningVersion4
-    deriving (Show)
+data SigningVersion
+    = SigningVersion2
+    | SigningVersion3
+    | SigningVersion4
+      deriving (Show)
 
 data Service = Service
     { svcName     :: !ByteString
@@ -159,33 +162,17 @@ instance ToJSON RawRequest where
         , "rqQuery"   .= rqQuery
         ]
 
-emptyRequest :: Service
-             -> Method
-             -> ContentType
-             -> ByteString
-             -> Maybe ByteString
-             -> RawRequest
-emptyRequest svc meth content path body = RawRequest
-    { rqService = svc
-    , rqMethod  = meth
-    , rqContent = content
-    , rqPath    = path
-    , rqHeaders = []
-    , rqQuery   = []
-    , rqBody    = body
-    }
+queryAppend :: RawRequest -> [(ByteString, ByteString)] -> RawRequest
+queryAppend rq qry = rq { rqQuery = rqQuery rq ++ qry }
 
 queryRequest :: IsQuery a
              => Service
              -> Method
-             -> Maybe ByteString
              -> ByteString
              -> a
              -> RawRequest
-queryRequest svc meth act path qry =
-    (emptyRequest svc meth FormEncoded path Nothing)
-        { rqQuery = toQuery qry `union` maybe [] (\a -> [("Action", a)]) act
-        }
+queryRequest svc meth path q =
+    RawRequest svc meth FormEncoded path [] (toQuery q) Nothing
 
 xmlRequest :: IsXML a
            => Service
@@ -194,7 +181,7 @@ xmlRequest :: IsXML a
            -> a
            -> RawRequest
 xmlRequest svc meth path =
-    emptyRequest svc meth XML path . Just . toXML
+    RawRequest svc meth XML path [] [] . Just . toXML
 
 data SignedRequest = SignedRequest
     { srqUrl     :: !ByteString

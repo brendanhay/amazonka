@@ -67,13 +67,13 @@ runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
     Env Nothing auth debug
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
-within :: Region -> AWS a -> AWS a
+within :: Region -> AWSContext a -> AWSContext a
 within reg = local (\e -> e { awsRegion = Just reg })
 
-send :: (ToError e, Rq a, Rs a ~ Either e b) => a -> EitherT Error AWS b
+send :: (ToError e, Rq a, Rs a ~ Either e b) => a -> AWSContext b
 send rq = hoistEither . fmapL toError =<< send' rq
 
-send' :: Rq a => a -> EitherT Error AWS (Rs a)
+send' :: Rq a => a -> AWSContext (Rs a)
 send' rq = do
     sig  <- lift . sign $ request rq
     whenDebug . print $ srqRequest sig

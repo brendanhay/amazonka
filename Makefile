@@ -1,15 +1,16 @@
+SHELL := /usr/bin/env bash
+FLAGS := -j --disable-documentation --disable-library-coverage
 DEPS  := vendor/http-streams
-FLAGS := --disable-documentation --disable-library-coverage
 
 .PHONY: test lint doc
 
 all: build
 
-build: cabal.sandbox.config .cabal-sandbox
-	cabal build
+build: cabal.sandbox.config
+	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
 install: $(DEPS) add-sources
-	cabal install -j $(FLAGS)
+	cabal install $(FLAGS)
 
 clean:
 	-rm -rf dist cabal.sandbox.config .cabal-sandbox
@@ -27,7 +28,7 @@ doc:
 cabal.sandbox.config:
 	cabal sandbox init
 
-add-sources: cabal.sandbox.config vendor/http-streams
+add-sources: cabal.sandbox.config
 	cabal sandbox add-source ../hexpat-pickle-generic
 	cabal sandbox add-source ../querystring-pickle
 	cabal sandbox add-source vendor/http-streams

@@ -1,5 +1,6 @@
 {-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -39,20 +40,23 @@ import           Text.ParserCombinators.ReadP    (string)
 import           Text.Read                       hiding (String)
 import           Text.XML.Expat.Pickle.Generic
 
+type family Er a
+data family Rs a
+
 class Rq a where
-    type Rs a
-
     request  :: a -> RawRequest
-    response :: a -> ByteString -> Either Error (Rs a)
+    response :: ByteString -> Either Error (Either (Er a) (Rs a))
+    paginate :: Rs a -> Maybe a
 
-    default response :: (IsXML e, IsXML b, Rs a ~ Either e b)
-                     => a
-                     -> ByteString
-                     -> Either Error (Rs a)
-    response _ bstr = either
-         (const . either (Left . Error) (Right . Left) $ fromXML bstr)
-         (Right . Right)
-         (fromXML bstr)
+    default response :: (IsXML (Er a), IsXML (Rs a))
+                     => ByteString
+                     -> Either Error (Either (Er a) (Rs a))
+    response bstr = either failure success $ fromXML bstr
+      where
+        failure = const . either (Left . Error) (Right . Left) $ fromXML bstr
+        success = Right . Right
+
+    paginate = const Nothing
 
 class ToError a where
     toError :: a -> Error

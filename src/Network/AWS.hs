@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
@@ -21,7 +22,9 @@ module Network.AWS
 
     -- * AWS Monadic Context
     , runAWS
+    , runAWS'
     , within
+    , next
     , send
     , send'
 
@@ -58,7 +61,7 @@ credentials cred = case cred of
         m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
         hoistError $ Aeson.eitherDecode m
 
--- | Run an 'AWS' monadic operation.
+-- | Run an 'AWS' operation.
 runAWS :: Auth -> Bool -> AWSContext a -> EitherT Error IO a
 runAWS auth debug aws = (fmap join . runAWS' auth debug) `mapEitherT` aws
 
@@ -70,21 +73,25 @@ runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
 within :: Region -> AWSContext a -> AWSContext a
 within reg = local (\e -> e { awsRegion = Just reg })
 
-send :: (ToError e, Rq a, Rs a ~ Either e b) => a -> AWSContext b
-send rq = hoistEither . fmapL toError =<< send' rq
+next :: (Rq a, ToError (Er a)) => Rs a -> AWSContext (Maybe (Rs a))
+next = maybe (right Nothing) (fmap Just . send) . paginate
 
-send' :: Rq a => a -> AWSContext (Rs a)
+send :: (Rq a, ToError (Er a)) => a -> AWSContext (Rs a)
+send = (hoistEither . fmapL toError =<<) . send'
+
+send' :: Rq a => a -> AWSContext (Either (Er a) (Rs a))
 send' rq = do
-    sig  <- lift . sign $ request rq
+    sig <- lift . sign $ request rq
     whenDebug . print $ srqRequest sig
-    mres <- receive sig
-    res  <- mres ?? "Failed to receive any data"
+    res <- fromMaybe "" <$> req sig
     whenDebug $ BS.putStrLn res
-    hoistEither $ response rq res
+    hoistEither $ response res
   where
-    receive SignedRequest{..} =
-        tryIO' . bracket (establishConnection srqUrl) closeConnection $ \c -> do
-        b <- maybe (return emptyBody)
-            (fmap inputStreamBody . Streams.fromByteString) srqPayload
-        sendRequest c srqRequest b
-        receiveResponse c $ const Streams.read
+    req SignedRequest{..} = tryIO'
+        . bracket (establishConnection srqUrl) closeConnection
+        $ \conn -> do
+            sendRequest conn srqRequest =<< body srqPayload
+            receiveResponse conn $ const Streams.read
+
+    body = maybe (return emptyBody)
+        (fmap inputStreamBody . Streams.fromByteString)

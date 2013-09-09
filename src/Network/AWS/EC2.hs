@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TypeFamilies               #-}
@@ -17,596 +18,448 @@
 -- capacity in the Amazon Web Services cloud.
 module Network.AWS.EC2
    (
-   -- * EC2 API Version
-     ec2Version
-
    -- * Actions
    -- ** AllocateAddress
-   , AllocateAddress                            (..)
-   , AllocateAddressResponse                    (..)
+     AllocateAddress                       (..)
 
    -- ** AssignPrivateIpAddresses
-   , AssignPrivateIpAddresses                   (..)
-   , AssignPrivateIpAddressesResponse           (..)
+   , AssignPrivateIpAddresses              (..)
 
    -- ** AssociateAddress
-   , AssociateAddress                           (..)
-   , AssociateAddressResponse                   (..)
+   , AssociateAddress                      (..)
 
    -- ** AssociateDhcpOptions
-   , AssociateDhcpOptions                       (..)
-   , AssociateDhcpOptionsResponse               (..)
+   , AssociateDhcpOptions                  (..)
 
    -- ** AssociateRouteTable
-   , AssociateRouteTable                        (..)
-   , AssociateRouteTableResponse                (..)
+   , AssociateRouteTable                   (..)
 
    -- ** AttachInternetGateway
-   , AttachInternetGateway                      (..)
-   , AttachInternetGatewayResponse              (..)
+   , AttachInternetGateway                 (..)
 
    -- ** AttachNetworkInterface
-   , AttachNetworkInterface                     (..)
-   , AttachNetworkInterfaceResponse             (..)
+   , AttachNetworkInterface                (..)
 
    -- ** AttachVolume
-   , AttachVolume                               (..)
-   , AttachVolumeResponse                       (..)
+   , AttachVolume                          (..)
 
    -- ** AttachVpnGateway
-   , AttachVpnGateway                           (..)
-   , AttachVpnGatewayResponse                   (..)
+   , AttachVpnGateway                      (..)
 
    -- ** AuthorizeSecurityGroupEgress
-   , AuthorizeSecurityGroupEgress               (..)
-   , AuthorizeSecurityGroupEgressResponse       (..)
+   , AuthorizeSecurityGroupEgress          (..)
 
    -- ** AuthorizeSecurityGroupIngress
-   , AuthorizeSecurityGroupIngress              (..)
-   , AuthorizeSecurityGroupIngressResponse      (..)
+   , AuthorizeSecurityGroupIngress         (..)
 
    -- ** BundleInstance
-   , BundleInstance                             (..)
-   , BundleInstanceResponse                     (..)
+   , BundleInstance                        (..)
 
    -- ** CancelBundleTask
-   , CancelBundleTask                           (..)
-   , CancelBundleTaskResponse                   (..)
+   , CancelBundleTask                      (..)
 
    -- ** CancelConversionTask
-   , CancelConversionTask                       (..)
-   , CancelConversionTaskResponse               (..)
+   , CancelConversionTask                  (..)
 
    -- ** CancelExportTask
-   , CancelExportTask                           (..)
-   , CancelExportTaskResponse                   (..)
+   , CancelExportTask                      (..)
 
    -- ** CancelReservedInstancesListing
-   , CancelReservedInstancesListing             (..)
-   , CancelReservedInstancesListingResponse     (..)
+   , CancelReservedInstancesListing        (..)
 
    -- ** CancelSpotInstanceRequests
-   , CancelSpotInstanceRequests                 (..)
-   , CancelSpotInstanceRequestsResponse         (..)
+   , CancelSpotInstanceRequests            (..)
 
    -- -- ** ConfirmProductInstance
-   -- , ConfirmProductInstance                     (..)
-   -- , ConfirmProductInstanceResponse             (..)
-
+   -- , ConfirmProductInstance             (..)
+   --
    -- -- ** CopyImage
-   -- , CopyImage                                  (..)
-   -- , CopyImageResponse                          (..)
-
+   -- , CopyImage                          (..)
+   --
    -- -- ** CopySnapshot
-   -- , CopySnapshot                               (..)
-   -- , CopySnapshotResponse                       (..)
-
+   -- , CopySnapshot                       (..)
+   --
    -- -- ** CreateCustomerGateway
-   -- , CreateCustomerGateway                      (..)
-   -- , CreateCustomerGatewayResponse              (..)
-
+   -- , CreateCustomerGateway              (..)
+   --
    -- -- ** CreateDhcpOptions
-   -- , CreateDhcpOptions                          (..)
-   -- , CreateDhcpOptionsResponse                  (..)
-
+   -- , CreateDhcpOptions                  (..)
+   --
    -- -- ** CreateImage
-   -- , CreateImage                                (..)
-   -- , CreateImageResponse                        (..)
-
+   -- , CreateImage                        (..)
+   --
    -- -- ** CreateInstanceExportTask
-   -- , CreateInstanceExportTask                   (..)
-   -- , CreateInstanceExportTaskResponse           (..)
-
+   -- , CreateInstanceExportTask           (..)
+   --
    -- -- ** CreateInternetGateway
-   -- , CreateInternetGateway                      (..)
-   -- , CreateInternetGatewayResponse              (..)
-
+   -- , CreateInternetGateway              (..)
+   --
    -- -- ** CreateKeyPair
-   -- , CreateKeyPair                              (..)
-   -- , CreateKeyPairResponse                      (..)
-
+   -- , CreateKeyPair                      (..)
+   --
    -- -- ** CreateNetworkAcl
-   -- , CreateNetworkAcl                           (..)
-   -- , CreateNetworkAclResponse                   (..)
-
+   -- , CreateNetworkAcl                   (..)
+   --
    -- -- ** CreateNetworkAclEntry
-   -- , CreateNetworkAclEntry                      (..)
-   -- , CreateNetworkAclEntryResponse              (..)
-
+   -- , CreateNetworkAclEntry              (..)
+   --
    -- -- ** CreateNetworkInterface
-   -- , CreateNetworkInterface                     (..)
-   -- , CreateNetworkInterfaceResponse             (..)
-
+   -- , CreateNetworkInterface             (..)
+   --
    -- -- ** CreatePlacementGroup
-   -- , CreatePlacementGroup                       (..)
-   -- , CreatePlacementGroupResponse               (..)
-
+   -- , CreatePlacementGroup               (..)
+   --
    -- -- ** CreateReservedInstancesListing
-   -- , CreateReservedInstancesListing             (..)
-   -- , CreateReservedInstancesListingResponse     (..)
-
+   -- , CreateReservedInstancesListing     (..)
+   --
    -- -- ** CreateRoute
-   -- , CreateRoute                                (..)
-   -- , CreateRouteResponse                        (..)
-
+   -- , CreateRoute                        (..)
+   --
    -- -- ** CreateRouteTable
-   -- , CreateRouteTable                           (..)
-   -- , CreateRouteTableResponse                   (..)
-
+   -- , CreateRouteTable                   (..)
+   --
    -- -- ** CreateSecurityGroup
-   -- , CreateSecurityGroup                        (..)
-   -- , CreateSecurityGroupResponse                (..)
-
+   -- , CreateSecurityGroup                (..)
+   --
    -- -- ** CreateSnapshot
-   -- , CreateSnapshot                             (..)
-   -- , CreateSnapshotResponse                     (..)
-
+   -- , CreateSnapshot                     (..)
+   --
    -- -- ** CreateSpotDatafeedSubscription
-   -- , CreateSpotDatafeedSubscription             (..)
-   -- , CreateSpotDatafeedSubscriptionResponse     (..)
-
+   -- , CreateSpotDatafeedSubscription     (..)
+   --
    -- -- ** CreateSubnet
-   -- , CreateSubnet                               (..)
-   -- , CreateSubnetResponse                       (..)
-
+   -- , CreateSubnet                       (..)
+   --
    -- -- ** CreateTags
-   -- , CreateTags                                 (..)
-   -- , CreateTagsResponse                         (..)
-
+   -- , CreateTags                         (..)
+   --
    -- -- ** CreateVolume
-   -- , CreateVolume                               (..)
-   -- , CreateVolumeResponse                       (..)
-
+   -- , CreateVolume                       (..)
+   --
    -- -- ** CreateVpc
-   -- , CreateVpc                                  (..)
-   -- , CreateVpcResponse                          (..)
-
+   -- , CreateVpc                          (..)
+   --
    -- -- ** CreateVpnConnection
-   -- , CreateVpnConnection                        (..)
-   -- , CreateVpnConnectionResponse                (..)
-
+   -- , CreateVpnConnection                (..)
+   --
    -- -- ** CreateVpnConnectionRoute
-   -- , CreateVpnConnectionRoute                   (..)
-   -- , CreateVpnConnectionRouteResponse           (..)
-
+   -- , CreateVpnConnectionRoute           (..)
+   --
    -- -- ** CreateVpnGateway
-   -- , CreateVpnGateway                           (..)
-   -- , CreateVpnGatewayResponse                   (..)
-
+   -- , CreateVpnGateway                   (..)
+   --
    -- -- ** DeleteCustomerGateway
-   -- , DeleteCustomerGateway                      (..)
-   -- , DeleteCustomerGatewayResponse              (..)
-
+   -- , DeleteCustomerGateway              (..)
+   --
    -- -- ** DeleteDhcpOptions
-   -- , DeleteDhcpOptions                          (..)
-   -- , DeleteDhcpOptionsResponse                  (..)
-
+   -- , DeleteDhcpOptions                  (..)
+   --
    -- -- ** DeleteInternetGateway
-   -- , DeleteInternetGateway                      (..)
-   -- , DeleteInternetGatewayResponse              (..)
-
+   -- , DeleteInternetGateway              (..)
+   --
    -- -- ** DeleteKeyPair
-   -- , DeleteKeyPair                              (..)
-   -- , DeleteKeyPairResponse                      (..)
-
+   -- , DeleteKeyPair                      (..)
+   --
    -- -- ** DeleteNetworkAcl
-   -- , DeleteNetworkAcl                           (..)
-   -- , DeleteNetworkAclResponse                   (..)
-
+   -- , DeleteNetworkAcl                   (..)
+   --
    -- -- ** DeleteNetworkAclEntry
-   -- , DeleteNetworkAclEntry                      (..)
-   -- , DeleteNetworkAclEntryResponse              (..)
-
+   -- , DeleteNetworkAclEntry              (..)
+   --
    -- -- ** DeleteNetworkInterface
-   -- , DeleteNetworkInterface                     (..)
-   -- , DeleteNetworkInterfaceResponse             (..)
-
+   -- , DeleteNetworkInterface             (..)
+   --
    -- -- ** DeletePlacementGroup
-   -- , DeletePlacementGroup                       (..)
-   -- , DeletePlacementGroupResponse               (..)
-
+   -- , DeletePlacementGroup               (..)
+   --
    -- -- ** DeleteRoute
-   -- , DeleteRoute                                (..)
-   -- , DeleteRouteResponse                        (..)
-
+   -- , DeleteRoute                        (..)
+   --
    -- -- ** DeleteRouteTable
-   -- , DeleteRouteTable                           (..)
-   -- , DeleteRouteTableResponse                   (..)
-
+   -- , DeleteRouteTable                   (..)
+   --
    -- -- ** DeleteSecurityGroup
-   -- , DeleteSecurityGroup                        (..)
-   -- , DeleteSecurityGroupResponse                (..)
-
+   -- , DeleteSecurityGroup                (..)
+   --
    -- -- ** DeleteSnapshot
-   -- , DeleteSnapshot                             (..)
-   -- , DeleteSnapshotResponse                     (..)
-
+   -- , DeleteSnapshot                     (..)
+   --
    -- -- ** DeleteSpotDatafeedSubscription
-   -- , DeleteSpotDatafeedSubscription             (..)
-   -- , DeleteSpotDatafeedSubscriptionResponse     (..)
-
+   -- , DeleteSpotDatafeedSubscription     (..)
+   --
    -- -- ** DeleteSubnet
-   -- , DeleteSubnet                               (..)
-   -- , DeleteSubnetResponse                       (..)
-
+   -- , DeleteSubnet                       (..)
+   --
    -- -- ** DeleteTags
-   -- , DeleteTags                                 (..)
-   -- , DeleteTagsResponse                         (..)
-
+   -- , DeleteTags                         (..)
+   --
    -- -- ** DeleteVolume
-   -- , DeleteVolume                               (..)
-   -- , DeleteVolumeResponse                       (..)
-
+   -- , DeleteVolume                       (..)
+   --
    -- -- ** DeleteVpc
-   -- , DeleteVpc                                  (..)
-   -- , DeleteVpcResponse                          (..)
-
+   -- , DeleteVpc                          (..)
+   --
    -- -- ** DeleteVpnConnection
-   -- , DeleteVpnConnection                        (..)
-   -- , DeleteVpnConnectionResponse                (..)
-
+   -- , DeleteVpnConnection                (..)
+   --
    -- -- ** DeleteVpnConnectionRoute
-   -- , DeleteVpnConnectionRoute                   (..)
-   -- , DeleteVpnConnectionRouteResponse           (..)
-
+   -- , DeleteVpnConnectionRoute           (..)
+   --
    -- -- ** DeleteVpnGateway
-   -- , DeleteVpnGateway                           (..)
-   -- , DeleteVpnGatewayResponse                   (..)
-
+   -- , DeleteVpnGateway                   (..)
+   --
    -- -- ** DeregisterImage
-   -- , DeregisterImage                            (..)
-   -- , DeregisterImageResponse                    (..)
-
+   -- , DeregisterImage                    (..)
+   --
    -- -- ** DescribeAccountAttributes
-   -- , DescribeAccountAttributes                  (..)
-   -- , DescribeAccountAttributesResponse          (..)
-
+   -- , DescribeAccountAttributes          (..)
+   --
    -- -- ** DescribeAddresses
-   -- , DescribeAddresses                          (..)
-   -- , DescribeAddressesResponse                  (..)
-
+   -- , DescribeAddresses                  (..)
+   --
    -- -- ** DescribeAvailabilityZones
-   -- , DescribeAvailabilityZones                  (..)
-   -- , DescribeAvailabilityZonesResponse          (..)
-
+   -- , DescribeAvailabilityZones          (..)
+   --
    -- -- ** DescribeBundleTasks
-   -- , DescribeBundleTasks                        (..)
-   -- , DescribeBundleTasksResponse                (..)
-
+   -- , DescribeBundleTasks                (..)
+   --
    -- -- ** DescribeConversionTasks
-   -- , DescribeConversionTasks                    (..)
-   -- , DescribeConversionTasksResponse            (..)
-
+   -- , DescribeConversionTasks            (..)
+   --
    -- -- ** DescribeCustomerGateways
-   -- , DescribeCustomerGateways                   (..)
-   -- , DescribeCustomerGatewaysResponse           (..)
-
+   -- , DescribeCustomerGateways           (..)
+   --
    -- -- ** DescribeDhcpOptions
-   -- , DescribeDhcpOptions                        (..)
-   -- , DescribeDhcpOptionsResponse                (..)
-
+   -- , DescribeDhcpOptions                (..)
+   --
    -- -- ** DescribeExportTasks
-   -- , DescribeExportTasks                        (..)
-   -- , DescribeExportTasksResponse                (..)
-
+   -- , DescribeExportTasks                (..)
+   --
    -- -- ** DescribeImageAttribute
-   -- , DescribeImageAttribute                     (..)
-   -- , DescribeImageAttributeResponse             (..)
-
+   -- , DescribeImageAttribute             (..)
+   --
    -- -- ** DescribeImages
-   -- , DescribeImages                             (..)
-   -- , DescribeImagesResponse                     (..)
-
+   -- , DescribeImages                     (..)
+   --
    -- -- ** DescribeInstanceAttribute
-   -- , DescribeInstanceAttribute                  (..)
-   -- , DescribeInstanceAttributeResponse          (..)
-
+   -- , DescribeInstanceAttribute          (..)
+   --
    -- ** DescribeInstances
-   , DescribeInstances                          (..)
-   , DescribeInstancesResponse                  (..)
+   , DescribeInstances                     (..)
 
    -- -- ** DescribeInstanceStatus
-   -- , DescribeInstanceStatus                     (..)
-   -- , DescribeInstanceStatusResponse             (..)
-
+   -- , DescribeInstanceStatus             (..)
+   --
    -- -- ** DescribeInternetGateways
-   -- , DescribeInternetGateways                   (..)
-   -- , DescribeInternetGatewaysResponse           (..)
-
+   -- , DescribeInternetGateways           (..)
+   --
    -- -- ** DescribeKeyPairs
-   -- , DescribeKeyPairs                           (..)
-   -- , DescribeKeyPairsResponse                   (..)
-
+   -- , DescribeKeyPairs                   (..)
+   --
    -- -- ** DescribeNetworkAcls
-   -- , DescribeNetworkAcls                        (..)
-   -- , DescribeNetworkAclsResponse                (..)
-
+   -- , DescribeNetworkAcls                (..)
+   --
    -- -- ** DescribeNetworkInterfaceAttribute
-   -- , DescribeNetworkInterfaceAttribute          (..)
-   -- , DescribeNetworkInterfaceAttributeResponse  (..)
-
+   -- , DescribeNetworkInterfaceAttribute  (..)
+   --
    -- -- ** DescribeNetworkInterfaces
-   -- , DescribeNetworkInterfaces                  (..)
-   -- , DescribeNetworkInterfacesResponse          (..)
-
+   -- , DescribeNetworkInterfaces          (..)
+   --
    -- -- ** DescribePlacementGroups
-   -- , DescribePlacementGroups                    (..)
-   -- , DescribePlacementGroupsResponse            (..)
-
+   -- , DescribePlacementGroups            (..)
+   --
    -- -- ** DescribeRegions
-   -- , DescribeRegions                            (..)
-   -- , DescribeRegionsResponse                    (..)
-
+   -- , DescribeRegions                    (..)
+   --
    -- -- ** DescribeReservedInstances
-   -- , DescribeReservedInstances                  (..)
-   -- , DescribeReservedInstancesResponse          (..)
-
+   -- , DescribeReservedInstances          (..)
+   --
    -- -- ** DescribeReservedInstancesListings
-   -- , DescribeReservedInstancesListings          (..)
-   -- , DescribeReservedInstancesListingsResponse  (..)
-
+   -- , DescribeReservedInstancesListings  (..)
+   --
    -- -- ** DescribeReservedInstancesOfferings
-   -- , DescribeReservedInstancesOfferings         (..)
-   -- , DescribeReservedInstancesOfferingsResponse (..)
-
+   -- , DescribeReservedInstancesOfferings (..)
+   --
    -- -- ** DescribeRouteTables
-   -- , DescribeRouteTables                        (..)
-   -- , DescribeRouteTablesResponse                (..)
-
+   -- , DescribeRouteTables                (..)
+   --
    -- -- ** DescribeSecurityGroups
-   -- , DescribeSecurityGroups                     (..)
-   -- , DescribeSecurityGroupsResponse             (..)
-
+   -- , DescribeSecurityGroups             (..)
+   --
    -- -- ** DescribeSnapshotAttribute
-   -- , DescribeSnapshotAttribute                  (..)
-   -- , DescribeSnapshotAttributeResponse          (..)
-
+   -- , DescribeSnapshotAttribute          (..)
+   --
    -- -- ** DescribeSnapshots
-   -- , DescribeSnapshots                          (..)
-   -- , DescribeSnapshotsResponse                  (..)
-
+   -- , DescribeSnapshots                  (..)
+   --
    -- -- ** DescribeSpotDatafeedSubscription
-   -- , DescribeSpotDatafeedSubscription           (..)
-   -- , DescribeSpotDatafeedSubscriptionResponse   (..)
-
+   -- , DescribeSpotDatafeedSubscription   (..)
+   --
    -- -- ** DescribeSpotInstanceRequests
-   -- , DescribeSpotInstanceRequests               (..)
-   -- , DescribeSpotInstanceRequestsResponse       (..)
-
+   -- , DescribeSpotInstanceRequests       (..)
+   --
    -- -- ** DescribeSpotPriceHistory
-   -- , DescribeSpotPriceHistory                   (..)
-   -- , DescribeSpotPriceHistoryResponse           (..)
-
+   -- , DescribeSpotPriceHistory           (..)
+   --
    -- -- ** DescribeSubnets
-   -- , DescribeSubnets                            (..)
-   -- , DescribeSubnetsResponse                    (..)
-
+   -- , DescribeSubnets                    (..)
+   --
    -- ** DescribeTags
-   , DescribeTags                               (..)
-   , DescribeTagsResponse                       (..)
+   , DescribeTags                          (..)
 
    -- -- ** DescribeVolumeAttribute
-   -- , DescribeVolumeAttribute                    (..)
-   -- , DescribeVolumeAttributeResponse            (..)
-
+   -- , DescribeVolumeAttribute            (..)
+   --
    -- -- ** DescribeVolumes
-   -- , DescribeVolumes                            (..)
-   -- , DescribeVolumesResponse                    (..)
-
+   -- , DescribeVolumes                    (..)
+   --
    -- -- ** DescribeVolumeStatus
-   -- , DescribeVolumeStatus                       (..)
-   -- , DescribeVolumeStatusResponse               (..)
-
+   -- , DescribeVolumeStatus               (..)
+   --
    -- -- ** DescribeVpcAttribute
-   -- , DescribeVpcAttribute                       (..)
-   -- , DescribeVpcAttributeResponse               (..)
-
+   -- , DescribeVpcAttribute               (..)
+   --
    -- -- ** DescribeVpcs
-   -- , DescribeVpcs                               (..)
-   -- , DescribeVpcsResponse                       (..)
-
+   -- , DescribeVpcs                       (..)
+   --
    -- -- ** DescribeVpnConnections
-   -- , DescribeVpnConnections                     (..)
-   -- , DescribeVpnConnectionsResponse             (..)
-
+   -- , DescribeVpnConnections             (..)
+   --
    -- -- ** DescribeVpnGateways
-   -- , DescribeVpnGateways                        (..)
-   -- , DescribeVpnGatewaysResponse                (..)
-
+   -- , DescribeVpnGateways                (..)
+   --
    -- -- ** DetachInternetGateway
-   -- , DetachInternetGateway                      (..)
-   -- , DetachInternetGatewayResponse              (..)
-
+   -- , DetachInternetGateway              (..)
+   --
    -- -- ** DetachNetworkInterface
-   -- , DetachNetworkInterface                     (..)
-   -- , DetachNetworkInterfaceResponse             (..)
-
+   -- , DetachNetworkInterface             (..)
+   --
    -- -- ** DetachVolume
-   -- , DetachVolume                               (..)
-   -- , DetachVolumeResponse                       (..)
-
+   -- , DetachVolume                       (..)
+   --
    -- -- ** DetachVpnGateway
-   -- , DetachVpnGateway                           (..)
-   -- , DetachVpnGatewayResponse                   (..)
-
+   -- , DetachVpnGateway                   (..)
+   --
    -- -- ** DisableVgwRoutePropagation
-   -- , DisableVgwRoutePropagation                 (..)
-   -- , DisableVgwRoutePropagationResponse         (..)
-
+   -- , DisableVgwRoutePropagation         (..)
+   --
    -- -- ** DisassociateAddress
-   -- , DisassociateAddress                        (..)
-   -- , DisassociateAddressResponse                (..)
-
+   -- , DisassociateAddress                (..)
+   --
    -- -- ** DisassociateRouteTable
-   -- , DisassociateRouteTable                     (..)
-   -- , DisassociateRouteTableResponse             (..)
-
+   -- , DisassociateRouteTable             (..)
+   --
    -- -- ** EnableVgwRoutePropagation
-   -- , EnableVgwRoutePropagation                  (..)
-   -- , EnableVgwRoutePropagationResponse          (..)
-
+   -- , EnableVgwRoutePropagation          (..)
+   --
    -- -- ** EnableVolumeIO
-   -- , EnableVolumeIO                             (..)
-   -- , EnableVolumeIOResponse                     (..)
-
+   -- , EnableVolumeIO                     (..)
+   --
    -- -- ** GetConsoleOutput
-   -- , GetConsoleOutput                           (..)
-   -- , GetConsoleOutputResponse                   (..)
-
+   -- , GetConsoleOutput                   (..)
+   --
    -- -- ** GetPasswordData
-   -- , GetPasswordData                            (..)
-   -- , GetPasswordDataResponse                    (..)
-
+   -- , GetPasswordData                    (..)
+   --
    -- -- ** ImportInstance
-   -- , ImportInstance                             (..)
-   -- , ImportInstanceResponse                     (..)
-
+   -- , ImportInstance                     (..)
+   --
    -- -- ** ImportKeyPair
-   -- , ImportKeyPair                              (..)
-   -- , ImportKeyPairResponse                      (..)
-
+   -- , ImportKeyPair                      (..)
+   --
    -- -- ** ImportVolume
-   -- , ImportVolume                               (..)
-   -- , ImportVolumeResponse                       (..)
-
+   -- , ImportVolume                       (..)
+   --
    -- -- ** ModifyImageAttribute
-   -- , ModifyImageAttribute                       (..)
-   -- , ModifyImageAttributeResponse               (..)
-
+   -- , ModifyImageAttribute               (..)
+   --
    -- -- ** ModifyInstanceAttribute
-   -- , ModifyInstanceAttribute                    (..)
-   -- , ModifyInstanceAttributeResponse            (..)
-
+   -- , ModifyInstanceAttribute            (..)
+   --
    -- -- ** ModifyNetworkInterfaceAttribute
-   -- , ModifyNetworkInterfaceAttribute            (..)
-   -- , ModifyNetworkInterfaceAttributeResponse    (..)
-
+   -- , ModifyNetworkInterfaceAttribute    (..)
+   --
    -- -- ** ModifySnapshotAttribute
-   -- , ModifySnapshotAttribute                    (..)
-   -- , ModifySnapshotAttributeResponse            (..)
-
+   -- , ModifySnapshotAttribute            (..)
+   --
    -- -- ** ModifyVolumeAttribute
-   -- , ModifyVolumeAttribute                      (..)
-   -- , ModifyVolumeAttributeResponse              (..)
-
+   -- , ModifyVolumeAttribute              (..)
+   --
    -- -- ** ModifyVpcAttribute
-   -- , ModifyVpcAttribute                         (..)
-   -- , ModifyVpcAttributeResponse                 (..)
-
+   -- , ModifyVpcAttribute                 (..)
+   --
    -- -- ** MonitorInstances
-   -- , MonitorInstances                           (..)
-   -- , MonitorInstancesResponse                   (..)
-
+   -- , MonitorInstances                   (..)
+   --
    -- -- ** PurchaseReservedInstancesOffering
-   -- , PurchaseReservedInstancesOffering          (..)
-   -- , PurchaseReservedInstancesOfferingResponse  (..)
-
+   -- , PurchaseReservedInstancesOffering  (..)
+   --
    -- -- ** RebootInstances
-   -- , RebootInstances                            (..)
-   -- , RebootInstancesResponse                    (..)
-
+   -- , RebootInstances                    (..)
+   --
    -- -- ** RegisterImage
-   -- , RegisterImage                              (..)
-   -- , RegisterImageResponse                      (..)
-
+   -- , RegisterImage                      (..)
+   --
    -- -- ** ReleaseAddress
-   -- , ReleaseAddress                             (..)
-   -- , ReleaseAddressResponse                     (..)
-
+   -- , ReleaseAddress                     (..)
+   --
    -- -- ** ReplaceNetworkAclAssociation
-   -- , ReplaceNetworkAclAssociation               (..)
-   -- , ReplaceNetworkAclAssociationResponse       (..)
-
+   -- , ReplaceNetworkAclAssociation       (..)
+   --
    -- -- ** ReplaceNetworkAclEntry
-   -- , ReplaceNetworkAclEntry                     (..)
-   -- , ReplaceNetworkAclEntryResponse             (..)
-
+   -- , ReplaceNetworkAclEntry             (..)
+   --
    -- -- ** ReplaceRoute
-   -- , ReplaceRoute                               (..)
-   -- , ReplaceRouteResponse                       (..)
-
+   -- , ReplaceRoute                       (..)
+   --
    -- -- ** ReplaceRouteTableAssociation
-   -- , ReplaceRouteTableAssociation               (..)
-   -- , ReplaceRouteTableAssociationResponse       (..)
-
+   -- , ReplaceRouteTableAssociation       (..)
+   --
    -- -- ** ReportInstanceStatus
-   -- , ReportInstanceStatus                       (..)
-   -- , ReportInstanceStatusResponse               (..)
-
+   -- , ReportInstanceStatus               (..)
+   --
    -- -- ** RequestSpotInstances
-   -- , RequestSpotInstances                       (..)
-   -- , RequestSpotInstancesResponse               (..)
-
+   -- , RequestSpotInstances               (..)
+   --
    -- -- ** ResetImageAttribute
-   -- , ResetImageAttribute                        (..)
-   -- , ResetImageAttributeResponse                (..)
-
+   -- , ResetImageAttribute                (..)
+   --
    -- -- ** ResetInstanceAttribute
-   -- , ResetInstanceAttribute                     (..)
-   -- , ResetInstanceAttributeResponse             (..)
-
+   -- , ResetInstanceAttribute             (..)
+   --
    -- -- ** ResetNetworkInterfaceAttribute
-   -- , ResetNetworkInterfaceAttribute             (..)
-   -- , ResetNetworkInterfaceAttributeResponse     (..)
-
+   -- , ResetNetworkInterfaceAttribute     (..)
+   --
    -- -- ** ResetSnapshotAttribute
-   -- , ResetSnapshotAttribute                     (..)
-   -- , ResetSnapshotAttributeResponse             (..)
-
+   -- , ResetSnapshotAttribute             (..)
+   --
    -- -- ** RevokeSecurityGroupEgress
-   -- , RevokeSecurityGroupEgress                  (..)
-   -- , RevokeSecurityGroupEgressResponse          (..)
-
+   -- , RevokeSecurityGroupEgress          (..)
+   --
    -- -- ** RevokeSecurityGroupIngress
-   -- , RevokeSecurityGroupIngress                 (..)
-   -- , RevokeSecurityGroupIngressResponse         (..)
-
+   -- , RevokeSecurityGroupIngress         (..)
+   --
    -- -- ** RunInstances
-   -- , RunInstances                               (..)
-   -- , RunInstancesResponse                       (..)
-
+   -- , RunInstances                       (..)
+   --
    -- -- ** StartInstances
-   -- , StartInstances                             (..)
-   -- , StartInstancesResponse                     (..)
-
+   -- , StartInstances                     (..)
+   --
    -- -- ** StopInstances
-   -- , StopInstances                              (..)
-   -- , StopInstancesResponse                      (..)
-
+   -- , StopInstances                      (..)
+   --
    -- -- ** TerminateInstances
-   -- , TerminateInstances                         (..)
-   -- , TerminateInstancesResponse                 (..)
-
+   -- , TerminateInstances                 (..)
+   --
    -- -- ** UnassignPrivateIpAddresses
-   -- , UnassignPrivateIpAddresses                 (..)
-   -- , UnassignPrivateIpAddressesResponse         (..)
-
+   -- , UnassignPrivateIpAddresses         (..)
+   --
    -- -- ** UnmonitorInstances
-   -- , UnmonitorInstances                         (..)
-   -- , UnmonitorInstancesResponse                 (..)
-
+   -- , UnmonitorInstances                 (..)
+   --
    -- * Data Types
    , module Network.AWS.EC2.Types
+   , Rs                                    (..)
    ) where
 
 import Data.ByteString       (ByteString)
@@ -634,10 +487,10 @@ data AllocateAddress = AllocateAddress
 instance IsQuery AllocateAddress
 
 instance Rq AllocateAddress where
-    type Rs AllocateAddress = Either EC2ErrorResponse AllocateAddressResponse
     request = qry GET "AllocateAddress"
 
-data AllocateAddressResponse = AllocateAddressResponse
+type instance Er AllocateAddress = EC2ErrorResponse
+data instance Rs AllocateAddress = AllocateAddressResponse
     { aarRequestId    :: !Text
       -- ^ The ID of the request.
     , aarPublicIp     :: !Text
@@ -650,7 +503,7 @@ data AllocateAddressResponse = AllocateAddressResponse
       -- the Elastic IP address for use with a VPC.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AllocateAddressResponse where
+instance IsXML (Rs AllocateAddress) where
     xmlPickler = ec2XML
 
 -- | Assigns one or more secondary private IP addresses to the specified network
@@ -682,10 +535,10 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 instance IsQuery AssignPrivateIpAddresses
 
 instance Rq AssignPrivateIpAddresses where
-    type Rs AssignPrivateIpAddresses = Either EC2ErrorResponse AssignPrivateIpAddressesResponse
     request = qry GET "AssignPrivateIpAddresses"
 
-data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
+type instance Er AssignPrivateIpAddresses = EC2ErrorResponse
+data instance Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
     { apiaRequestId :: !Text
       -- ^ The ID of the request.
     , apiaReturn    :: !Bool
@@ -693,7 +546,7 @@ data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AssignPrivateIpAddressesResponse where
+instance IsXML (Rs AssignPrivateIpAddresses) where
     xmlPickler = ec2XML
         { root = Just $ mkNName ec2NS "AssignPrivateIpAddresses"
         }
@@ -726,10 +579,10 @@ data AssociateAddress = AssociateAddress
 instance IsQuery AssociateAddress
 
 instance Rq AssociateAddress where
-    type Rs AssociateAddress = Either EC2ErrorResponse AssociateAddressResponse
     request = qry GET "AssociateAddress"
 
-data AssociateAddressResponse = AssociateAddressResponse
+type instance Er AssociateAddress = EC2ErrorResponse
+data instance Rs AssociateAddress = AssociateAddressResponse
     { abrRequestId     :: !Text
       -- ^ The ID of the request.
     , abrReturn        :: !Bool
@@ -739,7 +592,7 @@ data AssociateAddressResponse = AssociateAddressResponse
       -- IP address with an instance.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AssociateAddressResponse where
+instance IsXML (Rs AssociateAddress) where
     xmlPickler = ec2XML
 
 -- | Associates a set of DHCP options (that you've previously created) with the
@@ -764,10 +617,10 @@ data AssociateDhcpOptions = AssociateDhcpOptions
 instance IsQuery AssociateDhcpOptions
 
 instance Rq AssociateDhcpOptions where
-    type Rs AssociateDhcpOptions = Either EC2ErrorResponse AssociateDhcpOptionsResponse
     request = qry GET "AssociateDhcpOptions"
 
-data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
+type instance Er AssociateDhcpOptions = EC2ErrorResponse
+data instance Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
     { adorRequestId :: !Text
       -- ^ The ID of the request.
     , adorReturn    :: !Bool
@@ -775,7 +628,7 @@ data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AssociateDhcpOptionsResponse where
+instance IsXML (Rs AssociateDhcpOptions) where
     xmlPickler = ec2XML
 
 -- | Associates a subnet with a route table.
@@ -798,17 +651,17 @@ data AssociateRouteTable = AssociateRouteTable
 instance IsQuery AssociateRouteTable
 
 instance Rq AssociateRouteTable where
-    type Rs AssociateRouteTable = Either EC2ErrorResponse AssociateRouteTableResponse
     request = qry GET "AssociateRouteTable"
 
-data AssociateRouteTableResponse = AssociateRouteTableResponse
+type instance Er AssociateRouteTable = EC2ErrorResponse
+data instance Rs AssociateRouteTable = AssociateRouteTableResponse
     { artrRequestId     :: !Text
       -- ^ The ID of the request.
     , artrAssociationId :: !Text
       -- ^ The route table association ID (needed to disassociate the route table).
     } deriving (Eq, Show, Generic)
 
-instance IsXML AssociateRouteTableResponse where
+instance IsXML (Rs AssociateRouteTable) where
     xmlPickler = ec2XML
 
 -- | Attaches an Internet gateway to a VPC, enabling connectivity between the
@@ -825,17 +678,17 @@ data AttachInternetGateway = AttachInternetGateway
 instance IsQuery AttachInternetGateway
 
 instance Rq AttachInternetGateway where
-    type Rs AttachInternetGateway = Either EC2ErrorResponse AttachInternetGatewayResponse
     request = qry GET "AttachInternetGateway"
 
-data AttachInternetGatewayResponse = AttachInternetGatewayResponse
+type instance Er AttachInternetGateway = EC2ErrorResponse
+data instance Rs AttachInternetGateway = AttachInternetGatewayResponse
     { aigrRequestId :: !Text
       -- ^ The ID of the request.
     , aigrReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AttachInternetGatewayResponse where
+instance IsXML (Rs AttachInternetGateway) where
     xmlPickler = ec2XML
 
 -- | Attaches a network interface to an instance.
@@ -853,17 +706,17 @@ data AttachNetworkInterface = AttachNetworkInterface
 instance IsQuery AttachNetworkInterface
 
 instance Rq AttachNetworkInterface where
-    type Rs AttachNetworkInterface = Either EC2ErrorResponse AttachNetworkInterfaceResponse
     request = qry GET "AttachNetworkInterface"
 
-data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
+type instance Er AttachNetworkInterface = EC2ErrorResponse
+data instance Rs AttachNetworkInterface = AttachNetworkInterfaceResponse
     { anirRequestId    :: !Text
       -- ^ The ID of the attachment request.
     , anirAttachmentId :: !Text
       -- ^ The ID of the network interface attachment.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AttachNetworkInterfaceResponse where
+instance IsXML (Rs AttachNetworkInterface) where
     xmlPickler = ec2XML
 
 -- | Attaches an Amazon EBS volume to a running or stopped instance and exposes
@@ -884,10 +737,10 @@ data AttachVolume = AttachVolume
 instance IsQuery AttachVolume
 
 instance Rq AttachVolume where
-    type Rs AttachVolume = Either EC2ErrorResponse AttachVolumeResponse
     request = qry GET "AttachVolume"
 
-data AttachVolumeResponse = AttachVolumeResponse
+type instance Er AttachVolume = EC2ErrorResponse
+data instance Rs AttachVolume = AttachVolumeResponse
     { avrRequestId  :: !Text
       -- ^ The ID of the request.
     , avrVolumeId   :: !Text
@@ -902,7 +755,7 @@ data AttachVolumeResponse = AttachVolumeResponse
       -- ^ The time stamp when the attachment initiated.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AttachVolumeResponse where
+instance IsXML (Rs AttachVolume) where
     xmlPickler = ec2XML
 
 -- | Attaches a virtual private gateway to a VPC.
@@ -918,17 +771,17 @@ data AttachVpnGateway = AttachVpnGateway
 instance IsQuery AttachVpnGateway
 
 instance Rq AttachVpnGateway where
-    type Rs AttachVpnGateway = Either EC2ErrorResponse AttachVpnGatewayResponse
     request = qry GET "AttachVpnGateway"
 
-data AttachVpnGatewayResponse = AttachVpnGatewayResponse
+type instance Er AttachVpnGateway = EC2ErrorResponse
+data instance Rs AttachVpnGateway = AttachVpnGatewayResponse
     { avgrRequestId  :: !Text
       -- ^ The ID of the request.
     , avgrAttachment :: !Attachment
       -- ^ Information about the attachment.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AttachVpnGatewayResponse where
+instance IsXML (Rs AttachVpnGateway) where
     xmlPickler = ec2XML
 
 -- | Adds one or more egress rules to a security group for use with a VPC.
@@ -950,10 +803,10 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
 instance IsQuery AuthorizeSecurityGroupEgress
 
 instance Rq AuthorizeSecurityGroupEgress where
-    type Rs AuthorizeSecurityGroupEgress = Either EC2ErrorResponse AuthorizeSecurityGroupEgressResponse
     request = qry GET "AuthorizeSecurityGroupEgress"
 
-data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
+type instance Er AuthorizeSecurityGroupEgress = EC2ErrorResponse
+data instance Rs AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressResponse
     { asgerRequestId :: !Text
       -- ^ The ID of the request.
     , asgerReturn    :: !Bool
@@ -961,7 +814,7 @@ data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AuthorizeSecurityGroupEgressResponse where
+instance IsXML (Rs AuthorizeSecurityGroupEgress) where
     xmlPickler = ec2XML
 
 -- | Adds one or more ingress rules to a security group.
@@ -985,10 +838,10 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 instance IsQuery AuthorizeSecurityGroupIngress
 
 instance Rq AuthorizeSecurityGroupIngress where
-    type Rs AuthorizeSecurityGroupIngress = Either EC2ErrorResponse AuthorizeSecurityGroupIngressResponse
     request = qry GET "AuthorizeSecurityGroupIngress"
 
-data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
+type instance Er AuthorizeSecurityGroupIngress = EC2ErrorResponse
+data instance Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
     { asgirRequestId :: !Text
       -- ^ The ID of the request.
     , asgirReturn    :: !Bool
@@ -996,7 +849,7 @@ data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressRespon
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML AuthorizeSecurityGroupIngressResponse where
+instance IsXML (Rs AuthorizeSecurityGroupIngress) where
     xmlPickler = ec2XML
 
 -- | Bundles an Amazon instance store-backed Windows instance.During bundling,
@@ -1014,17 +867,17 @@ data BundleInstance = BundleInstance
 instance IsQuery BundleInstance
 
 instance Rq BundleInstance where
-    type Rs BundleInstance = Either EC2ErrorResponse BundleInstanceResponse
     request = qry GET "BundleInstance"
 
-data BundleInstanceResponse = BundleInstanceResponse
+type instance Er BundleInstance = EC2ErrorResponse
+data instance Rs BundleInstance = BundleInstanceResponse
     { birRequestId          :: !Text
       -- ^ The ID of the request.
     , birBundleInstanceTask :: !BundleInstanceTask
       -- ^ The bundle task.
     } deriving (Eq, Show, Generic)
 
-instance IsXML BundleInstanceResponse where
+instance IsXML (Rs BundleInstance) where
     xmlPickler = ec2XML
 
 -- | Cancels a bundling operation for an instance store-backed Windows instance.
@@ -1039,17 +892,17 @@ data CancelBundleTask = CancelBundleTask
 instance IsQuery CancelBundleTask
 
 instance Rq CancelBundleTask where
-    type Rs CancelBundleTask = Either EC2ErrorResponse CancelBundleTaskResponse
     request = qry GET "CancelBundleTask"
 
-data CancelBundleTaskResponse = CancelBundleTaskResponse
+type instance Er CancelBundleTask = EC2ErrorResponse
+data instance Rs CancelBundleTask = CancelBundleTaskResponse
     { cbtRequestId          :: !Text
       -- ^ The ID of the request.
     , cbtBundleInstanceTask :: !BundleInstanceTask
       -- ^ The bundle task.
     } deriving (Eq, Show, Generic)
 
-instance IsXML CancelBundleTaskResponse where
+instance IsXML (Rs CancelBundleTask) where
     xmlPickler = ec2XML
 
 -- | Cancels an active conversion task.
@@ -1070,10 +923,10 @@ data CancelConversionTask = CancelConversionTask
 instance IsQuery CancelConversionTask
 
 instance Rq CancelConversionTask where
-    type Rs CancelConversionTask = Either EC2ErrorResponse CancelConversionTaskResponse
     request = qry GET "CancelConversionTask"
 
-data CancelConversionTaskResponse = CancelConversionTaskResponse
+type instance Er CancelConversionTask = EC2ErrorResponse
+data instance Rs CancelConversionTask = CancelConversionTaskResponse
     { cctRequestId :: !Text
       -- ^ The ID of the request.
     , cctReturn    :: !Bool
@@ -1081,7 +934,7 @@ data CancelConversionTaskResponse = CancelConversionTaskResponse
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML CancelConversionTaskResponse where
+instance IsXML (Rs CancelConversionTask) where
     xmlPickler = ec2XML
 
 -- | Cancels an active export task. The request removes all artifacts of the
@@ -1100,17 +953,17 @@ data CancelExportTask = CancelExportTask
 instance IsQuery CancelExportTask
 
 instance Rq CancelExportTask where
-    type Rs CancelExportTask = Either EC2ErrorResponse CancelExportTaskResponse
     request = qry GET "CancelExportTask"
 
-data CancelExportTaskResponse = CancelExportTaskResponse
+type instance Er CancelExportTask = EC2ErrorResponse
+data instance Rs CancelExportTask = CancelExportTaskResponse
     { cetRequestId :: !Text
       -- ^ The ID of the request.
     , cetReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML CancelExportTaskResponse where
+instance IsXML (Rs CancelExportTask) where
     xmlPickler = ec2XML
 
 -- | Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.
@@ -1125,17 +978,17 @@ data CancelReservedInstancesListing = CancelReservedInstancesListing
 instance IsQuery CancelReservedInstancesListing
 
 instance Rq CancelReservedInstancesListing where
-    type Rs CancelReservedInstancesListing = Either EC2ErrorResponse CancelReservedInstancesListingResponse
     request = qry GET "CancelReservedInstancesListing"
 
-data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
+type instance Er CancelReservedInstancesListing = EC2ErrorResponse
+data instance Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse
     { crilRequestId                    :: !Text
       -- ^ The ID of the request.
     , crilReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetItemType
       -- ^ The Reserved Instance listing for cancellation.
     } deriving (Eq, Show, Generic)
 
-instance IsXML CancelReservedInstancesListingResponse where
+instance IsXML (Rs CancelReservedInstancesListing) where
     xmlPickler = ec2XML
 
 -- | Cancels one or more Spot Instance requests.
@@ -1150,10 +1003,10 @@ data CancelSpotInstanceRequests = CancelSpotInstanceRequests
 instance IsQuery CancelSpotInstanceRequests
 
 instance Rq CancelSpotInstanceRequests where
-    type Rs CancelSpotInstanceRequests = Either EC2ErrorResponse CancelSpotInstanceRequestsResponse
     request = qry GET "CancelSpotInstanceRequests"
 
-data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
+type instance Er CancelSpotInstanceRequests = EC2ErrorResponse
+data instance Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse
     { csirRequestId              :: !Text
       -- ^ The ID of the request.
     , csirSpotInstanceRequestSet :: Items CancelSpotInstanceRequestsResponseSetItemType
@@ -1161,7 +1014,7 @@ data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
       -- item element.
     } deriving (Eq, Show, Generic)
 
-instance IsXML CancelSpotInstanceRequestsResponse where
+instance IsXML (Rs CancelSpotInstanceRequests) where
     xmlPickler = ec2XML
 
 -- -- | Determines whether a product code is associated with an instance. This
@@ -1198,7 +1051,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- is attached to the instance.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ConfirmProductInstanceResponse where
+-- instance IsXML (Rs ConfirmProductInstance) where
 --     xmlPickler = ec2XML
 
 -- -- | Initiates the copy of an AMI from the specified source region to the region
@@ -1236,7 +1089,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The ID of the new AMI.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CopyImageResponse where
+-- instance IsXML (Rs CopyImage) where
 --     xmlPickler = ec2XML
 
 -- -- | Copies a point-in-time snapshot of an Amazon Elastic Block Store (Amazon
@@ -1269,7 +1122,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The ID of the new snapshot.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CopySnapshotResponse where
+-- instance IsXML (Rs CopySnapshot) where
 --     xmlPickler = ec2XML
 
 -- -- | Provides information to AWS about your VPN customer gateway device. The
@@ -1313,7 +1166,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Information about the customer gateway.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateCustomerGatewayResponse where
+-- instance IsXML (Rs CreateCustomerGateway) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a set of DHCP options for your VPC. After creating the set, you
@@ -1341,7 +1194,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ A set of DHCP options.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateDhcpOptionsResponse where
+-- instance IsXML (Rs CreateDhcpOptions) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
@@ -1383,7 +1236,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The ID of the new AMI.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateImageResponse where
+-- instance IsXML (Rs CreateImage) where
 --     xmlPickler = ec2XML
 
 -- -- | Exports a running or stopped instance to an Amazon S3 bucket.For
@@ -1417,7 +1270,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The details of the created ExportVM task.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateInstanceExportTaskResponse where
+-- instance IsXML (Rs CreateInstanceExportTask) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an Internet gateway for use with a VPC. After creating the Internet
@@ -1445,7 +1298,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Information about the Internet gateway
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateInternetGatewayResponse where
+-- instance IsXML (Rs CreateInternetGateway) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores
@@ -1479,7 +1332,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ An unencrypted PEM encoded RSA private key.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateKeyPairResponse where
+-- instance IsXML (Rs CreateKeyPair) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a network ACL in a VPC. Network ACLs provide an optional layer of
@@ -1506,7 +1359,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Information about the new network ACL.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateNetworkAclResponse where
+-- instance IsXML (Rs CreateNetworkAcl) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an entry (a rule) in a network ACL with the specified rule number.
@@ -1557,7 +1410,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateNetworkAclEntryResponse where
+-- instance IsXML (Rs CreateNetworkAclEntry) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a network interface in the specified subnet.For more information
@@ -1604,7 +1457,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The network interface that was created.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateNetworkInterfaceResponse where
+-- instance IsXML (Rs CreateNetworkInterface) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a placement group that you launch cluster instances into. You must
@@ -1634,7 +1487,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreatePlacementGroupResponse where
+-- instance IsXML (Rs CreatePlacementGroup) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a listing for Amazon EC2 Reserved Instances that will be sold in
@@ -1684,7 +1537,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- information is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateReservedInstancesListingResponse where
+-- instance IsXML (Rs CreateReservedInstancesListing) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a route in a route table within a VPC. The route's target can be
@@ -1732,7 +1585,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateRouteResponse where
+-- instance IsXML (Rs CreateRoute) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a route table for the specified VPC. After you create a route
@@ -1762,7 +1615,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Information about the newly created route table.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateRouteTableResponse where
+-- instance IsXML (Rs CreateRouteTable) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a security group.A security group is for use with instances either
@@ -1805,7 +1658,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The ID of the new security group.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateSecurityGroupResponse where
+-- instance IsXML (Rs CreateSecurityGroup) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You
@@ -1865,7 +1718,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The description for the snapshot.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateSnapshotResponse where
+-- instance IsXML (Rs CreateSnapshot) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates the datafeed for Spot Instances, enabling you to view Spot Instance
@@ -1895,7 +1748,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Type: SpotDatafeedSubscriptionType
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateSpotDatafeedSubscriptionResponse where
+-- instance IsXML (Rs CreateSpotDatafeedSubscription) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a subnet in an existing VPC.When you create each subnet, you
@@ -1942,7 +1795,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Information about the subnet.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateSubnetResponse where
+-- instance IsXML (Rs CreateSubnet) where
 --     xmlPickler = ec2XML
 
 -- -- | Adds or overwrites one or more tags for the specified EC2 resource or
@@ -1971,7 +1824,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateTagsResponse where
+-- instance IsXML (Rs CreateTags) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an Amazon EBS volume that can be attached to any instance in the
@@ -2026,7 +1879,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- supports.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateVolumeResponse where
+-- instance IsXML (Rs CreateVolume) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a VPC with the specified CIDR block.The smallest VPC you can create
@@ -2064,7 +1917,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Information about the VPC.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateVpcResponse where
+-- instance IsXML (Rs CreateVpc) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a VPN connection between an existing virtual private gateway and a
@@ -2108,7 +1961,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Information about the VPN connection.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateVpnConnectionResponse where
+-- instance IsXML (Rs CreateVpnConnection) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a static route associated with a VPN connection between an existing
@@ -2144,7 +1997,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateVpnConnectionRouteResponse where
+-- instance IsXML (Rs CreateVpnConnectionRoute) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a virtual private gateway. A virtual private gateway is the
@@ -2172,7 +2025,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ Information about the virtual private gateway.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML CreateVpnGatewayResponse where
+-- instance IsXML (Rs CreateVpnGateway) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified VPN customer gateway. You must delete the VPN
@@ -2200,7 +2053,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteCustomerGatewayResponse where
+-- instance IsXML (Rs DeleteCustomerGateway) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified set of DHCP options. You must disassociate the set of
@@ -2229,7 +2082,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteDhcpOptionsResponse where
+-- instance IsXML (Rs DeleteDhcpOptions) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified Internet gateway. You must detach the Internet
@@ -2257,7 +2110,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteInternetGatewayResponse where
+-- instance IsXML (Rs DeleteInternetGateway) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified key pair, by removing the public key from Amazon EC2.
@@ -2283,7 +2136,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteKeyPairResponse where
+-- instance IsXML (Rs DeleteKeyPair) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified network ACL. You can't delete the ACL if it's
@@ -2311,7 +2164,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteNetworkAclResponse where
+-- instance IsXML (Rs DeleteNetworkAcl) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified ingress or egress entry (rule) from the specified
@@ -2343,7 +2196,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteNetworkAclEntryResponse where
+-- instance IsXML (Rs DeleteNetworkAclEntry) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified network interface. You must detach the network
@@ -2372,7 +2225,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteNetworkInterfaceResponse where
+-- instance IsXML (Rs DeleteNetworkInterface) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified placement group. You must terminate all instances in
@@ -2400,7 +2253,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeletePlacementGroupResponse where
+-- instance IsXML (Rs DeletePlacementGroup) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified route from the specified route table. For more
@@ -2433,7 +2286,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteRouteResponse where
+-- instance IsXML (Rs DeleteRoute) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified route table. You must disassociate the route table
@@ -2464,7 +2317,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteRouteTableResponse where
+-- instance IsXML (Rs DeleteRouteTable) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes a security group.A security group is for use with instances either
@@ -2492,7 +2345,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteSecurityGroupResponse where
+-- instance IsXML (Rs DeleteSecurityGroup) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified snapshot.
@@ -2517,7 +2370,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteSnapshotResponse where
+-- instance IsXML (Rs DeleteSnapshot) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the datafeed for Spot Instances. For more information about Spot
@@ -2545,7 +2398,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteSpotDatafeedSubscriptionResponse where
+-- instance IsXML (Rs DeleteSpotDatafeedSubscription) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified subnet. You must terminate all running instances in
@@ -2571,7 +2424,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteSubnetResponse where
+-- instance IsXML (Rs DeleteSubnet) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified set of tags from the specified set of resources. This
@@ -2602,7 +2455,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteTagsResponse where
+-- instance IsXML (Rs DeleteTags) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified Amazon EBS volume. The volume must be in the
@@ -2633,7 +2486,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteVolumeResponse where
+-- instance IsXML (Rs DeleteVolume) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified VPC. You must detach or delete all gateways and
@@ -2663,7 +2516,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteVpcResponse where
+-- instance IsXML (Rs DeleteVpc) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified VPN connection.If you're deleting the VPC and its
@@ -2699,7 +2552,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteVpnConnectionResponse where
+-- instance IsXML (Rs DeleteVpnConnection) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified static route associated with a VPN connection between
@@ -2735,7 +2588,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteVpnConnectionRouteResponse where
+-- instance IsXML (Rs DeleteVpnConnectionRoute) where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified virtual private gateway. We recommend that before you
@@ -2766,7 +2619,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeleteVpnGatewayResponse where
+-- instance IsXML (Rs DeleteVpnGateway) where
 --     xmlPickler = ec2XML
 
 -- -- | Deregisters the specified AMI. After you deregister an AMI, it can't be
@@ -2795,7 +2648,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DeregisterImageResponse where
+-- instance IsXML (Rs DeregisterImage) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the specified attribute of your AWS account.The following are the
@@ -2821,7 +2674,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAccountAttributesResponse where
+-- instance IsXML (Rs DescribeAccountAttributes) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your Elastic IP addresses.An Elastic IP address is
@@ -2873,7 +2726,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAddressesResponse where
+-- instance IsXML (Rs DescribeAddresses) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of the Availability Zones that are available to you.
@@ -2912,7 +2765,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAvailabilityZonesResponse where
+-- instance IsXML (Rs DescribeAvailabilityZones) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your bundling tasks.
@@ -2963,7 +2816,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ A list of bundle tasks, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeBundleTasksResponse where
+-- instance IsXML (Rs DescribeBundleTasks) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your conversion tasks.
@@ -2985,7 +2838,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ A list of conversion tasks, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeConversionTasksResponse where
+-- instance IsXML (Rs DescribeConversionTasks) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your VPN customer gateways.For more information
@@ -3043,7 +2896,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ A list of customer gateways, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeCustomerGatewaysResponse where
+-- instance IsXML (Rs DescribeCustomerGateways) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your DHCP options sets.For more information about
@@ -3094,7 +2947,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ A list of DHCP options sets, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeDhcpOptionsResponse where
+-- instance IsXML (Rs DescribeDhcpOptions) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your export tasks.
@@ -3118,7 +2971,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ A list of export tasks, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeExportTasksResponse where
+-- instance IsXML (Rs DescribeExportTasks) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes an attributes of an AMI. You can specify only one attribute at a
@@ -3164,7 +3017,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeImageAttributeResponse where
+-- instance IsXML (Rs DescribeImageAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of the images (AMIs, AKIs, and ARIs) available to
@@ -3263,7 +3116,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ A list of images, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeImagesResponse where
+-- instance IsXML (Rs DescribeImages) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes an attribute of the specified instance. You can specify only one
@@ -3323,7 +3176,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --       -- ^ The Base64-encoded MIME user data.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeInstanceAttributeResponse where
+-- instance IsXML (Rs DescribeInstanceAttribute) where
 --     xmlPickler = ec2XML
 
 -- | Describes one or more of your instances.
@@ -3487,17 +3340,17 @@ data DescribeInstances = DescribeInstances
 instance IsQuery DescribeInstances
 
 instance Rq DescribeInstances where
-    type Rs DescribeInstances = Either EC2ErrorResponse DescribeInstancesResponse
     request = qry GET "DescribeInstances"
 
-data DescribeInstancesResponse = DescribeInstancesResponse
+type instance Er DescribeInstances = EC2ErrorResponse
+data instance Rs DescribeInstances = DescribeInstancesResponse
     { dkRequestId      :: !Text
       -- ^ The ID of the request.
     , dkReservationSet :: Items ReservationInfoType
       -- ^ A list of reservations, each one wrapped in an item element.
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeInstancesResponse where
+instance IsXML (Rs DescribeInstances) where
     xmlPickler = ec2XML
 
 -- -- | Describes the status of one or more instances, including any scheduled
@@ -3558,7 +3411,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ The next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeInstanceStatusResponse where
+-- instance IsXML (Rs DescribeInstanceStatus) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your Internet gateways.
@@ -3606,7 +3459,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of Internet gateways, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeInternetGatewaysResponse where
+-- instance IsXML (Rs DescribeInternetGateways) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your key pairs.
@@ -3638,7 +3491,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of key pairs, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeKeyPairsResponse where
+-- instance IsXML (Rs DescribeKeyPairs) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your network ACLs.For more information about
@@ -3693,7 +3546,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of network ACLs, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeNetworkAclsResponse where
+-- instance IsXML (Rs DescribeNetworkAcls) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes a network interface attribute. You can specify only one attribute
@@ -3731,7 +3584,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ The attachment (if any) of the network interface.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeNetworkInterfaceAttributeResponse where
+-- instance IsXML (Rs DescribeNetworkInterfaceAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your network interfaces.
@@ -3823,7 +3676,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeNetworkInterfacesResponse where
+-- instance IsXML (Rs DescribeNetworkInterfaces) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your placement groups. For more information about
@@ -3860,7 +3713,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of placement groups, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribePlacementGroupsResponse where
+-- instance IsXML (Rs DescribePlacementGroups) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more regions that are currently available to you.For a
@@ -3894,7 +3747,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of regions, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeRegionsResponse where
+-- instance IsXML (Rs DescribeRegions) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of the Reserved Instances that you purchased.
@@ -3961,7 +3814,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeReservedInstancesResponse where
+-- instance IsXML (Rs DescribeReservedInstances) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes your account's Reserved Instance listings in the Reserved
@@ -4004,7 +3857,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeReservedInstancesListingsResponse where
+-- instance IsXML (Rs DescribeReservedInstancesListings) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes Reserved Instance offerings that are available for purchase.
@@ -4085,7 +3938,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ The next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeReservedInstancesOfferingsResponse where
+-- instance IsXML (Rs DescribeReservedInstancesOfferings) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your route tables.For more information about route
@@ -4137,7 +3990,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of route tables, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeRouteTablesResponse where
+-- instance IsXML (Rs DescribeRouteTables) where
 --     xmlPickler = ec2XML
 
 -- -- | A security group is for use with instances either in the EC2-Classic
@@ -4185,7 +4038,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of security groups, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeSecurityGroupsResponse where
+-- instance IsXML (Rs DescribeSecurityGroups) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes an attribute of the specified snapshot. You can specify only one
@@ -4221,7 +4074,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- element type that contains a product code and a type.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeSnapshotAttributeResponse where
+-- instance IsXML (Rs DescribeSnapshotAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of the Amazon EBS snapshots available to you.
@@ -4294,7 +4147,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of snapshots. Each snapshot is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeSnapshotsResponse where
+-- instance IsXML (Rs DescribeSnapshots) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the datafeed for Spot Instances. For more information about Spot
@@ -4321,7 +4174,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ The Spot Instance datafeed subscription.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeSpotDatafeedSubscriptionResponse where
+-- instance IsXML (Rs DescribeSpotDatafeedSubscription) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the Spot Instance requests that belong to your account. Spot
@@ -4413,7 +4266,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ Information about the network interface.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeSpotInstanceRequestsResponse where
+-- instance IsXML (Rs DescribeSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the Spot Price history.
@@ -4470,7 +4323,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- empty if there are no more results to be returned.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeSpotPriceHistoryResponse where
+-- instance IsXML (Rs DescribeSpotPriceHistory) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your subnets.
@@ -4530,7 +4383,7 @@ instance IsXML DescribeInstancesResponse where
 --       -- ^ A list of subnets. Each subnet is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeSubnetsResponse where
+-- instance IsXML (Rs DescribeSubnets) where
 --     xmlPickler = ec2XML
 
 -- | Describes one or more of the tags for your EC2 resources.
@@ -4545,17 +4398,17 @@ data DescribeTags = DescribeTags
 instance IsQuery DescribeTags
 
 instance Rq DescribeTags where
-    type Rs DescribeTags = Either EC2ErrorResponse DescribeTagsResponse
     request = qry GET "DescribeTags"
 
-data DescribeTagsResponse = DescribeTagsResponse
+type instance Er DescribeTags = EC2ErrorResponse
+data instance Rs DescribeTags = DescribeTagsResponse
     { eaRequestId :: !Text
       -- ^ The ID of the request.
     , eaTagSet    :: Items TagSetItemType
       -- ^ A list of tags.
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeTagsResponse where
+instance IsXML (Rs DescribeTags) where
     xmlPickler = ec2XML
 
 -- -- | Describes the specified attribute of the specified volume. You can specify
@@ -4590,7 +4443,7 @@ instance IsXML DescribeTagsResponse where
 --       -- element that contains a product code and a type.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeVolumeAttributeResponse where
+-- instance IsXML (Rs DescribeVolumeAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the specified Amazon EBS volumes.For more information about
@@ -4652,7 +4505,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ A list of volumes. Each volume is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeVolumesResponse where
+-- instance IsXML (Rs DescribeVolumes) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the status of the specified volumes. Volume status provides the
@@ -4698,7 +4551,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ A string specifying the next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeVolumeStatusResponse where
+-- instance IsXML (Rs DescribeVolumeStatus) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the specified attribute of the specified VPC. You can specify
@@ -4735,7 +4588,7 @@ instance IsXML DescribeTagsResponse where
 --       -- DNS hostnames; otherwise, they do not.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeVpcAttributeResponse where
+-- instance IsXML (Rs DescribeVpcAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your VPCs.
@@ -4790,7 +4643,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ A list of VPCs. Each VPC is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeVpcsResponse where
+-- instance IsXML (Rs DescribeVpcs) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your VPN connections.For more information about
@@ -4859,7 +4712,7 @@ instance IsXML DescribeTagsResponse where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeVpnConnectionsResponse where
+-- instance IsXML (Rs DescribeVpnConnections) where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your virtual private gateways. For more
@@ -4916,7 +4769,7 @@ instance IsXML DescribeTagsResponse where
 --       -- is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeVpnGatewaysResponse where
+-- instance IsXML (Rs DescribeVpnGateways) where
 --     xmlPickler = ec2XML
 
 -- -- | Detaches an Internet gateway from a VPC, disabling connectivity between the
@@ -4945,7 +4798,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DetachInternetGatewayResponse where
+-- instance IsXML (Rs DetachInternetGateway) where
 --     xmlPickler = ec2XML
 
 -- -- | Detaches a network interface from an instance.
@@ -4975,7 +4828,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DetachNetworkInterfaceResponse where
+-- instance IsXML (Rs DetachNetworkInterface) where
 --     xmlPickler = ec2XML
 
 -- -- | Detaches an Amazon EBS volume from an instance. Make sure to unmount any
@@ -5027,7 +4880,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ The time stamp when the attachment initiated.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DetachVolumeResponse where
+-- instance IsXML (Rs DetachVolume) where
 --     xmlPickler = ec2XML
 
 -- -- | Detaches a virtual private gateway from a VPC. You do this if you're
@@ -5061,7 +4914,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DetachVpnGatewayResponse where
+-- instance IsXML (Rs DetachVpnGateway) where
 --     xmlPickler = ec2XML
 
 -- -- | Disables a virtual private gateway (VGW) from propagating routes to the
@@ -5089,7 +4942,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DisableVgwRoutePropagationResponse where
+-- instance IsXML (Rs DisableVgwRoutePropagation) where
 --     xmlPickler = ec2XML
 
 -- -- | Disassociates an Elastic IP address from the instance or network interface
@@ -5118,7 +4971,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DisassociateAddressResponse where
+-- instance IsXML (Rs DisassociateAddress) where
 --     xmlPickler = ec2XML
 
 -- -- | Disassociates a subnet from a route table.After you perform this action,
@@ -5150,7 +5003,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML DisassociateRouteTableResponse where
+-- instance IsXML (Rs DisassociateRouteTable) where
 --     xmlPickler = ec2XML
 
 -- -- | Enables a virtual private gateway (VGW) to propagate routes to the routing
@@ -5178,7 +5031,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML EnableVgwRoutePropagationResponse where
+-- instance IsXML (Rs EnableVgwRoutePropagation) where
 --     xmlPickler = ec2XML
 
 -- -- | Enables I/O operations for a volume that had I/O operations disabled
@@ -5204,7 +5057,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML EnableVolumeIOResponse where
+-- instance IsXML (Rs EnableVolumeIO) where
 --     xmlPickler = ec2XML
 
 -- -- | Gets the console output for the specified instance. Instances do not have a
@@ -5244,7 +5097,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ The console output, Base64 encoded.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML GetConsoleOutputResponse where
+-- instance IsXML (Rs GetConsoleOutput) where
 --     xmlPickler = ec2XML
 
 -- -- | Retrieves the encrypted administrator password for an instance running
@@ -5279,7 +5132,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ The password of the instance.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML GetPasswordDataResponse where
+-- instance IsXML (Rs GetPasswordData) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an import instance task using metadata from the specified disk
@@ -5314,7 +5167,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ Information about the import instance task.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ImportInstanceResponse where
+-- instance IsXML (Rs ImportInstance) where
 --     xmlPickler = ec2XML
 
 -- -- | Imports the public key from an RSA key pair that you created with a
@@ -5355,7 +5208,7 @@ instance IsXML DescribeTagsResponse where
 --       -- RFC4716.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ImportKeyPairResponse where
+-- instance IsXML (Rs ImportKeyPair) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an import volume task using metadata from the specified disk image.
@@ -5391,7 +5244,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ Information about the import volume task.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ImportVolumeResponse where
+-- instance IsXML (Rs ImportVolume) where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies the specified attribute of the specified AMI. You can specify only
@@ -5429,7 +5282,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ModifyImageAttributeResponse where
+-- instance IsXML (Rs ModifyImageAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies the specified attribute of the specified instance. You can specify
@@ -5498,7 +5351,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ModifyInstanceAttributeResponse where
+-- instance IsXML (Rs ModifyInstanceAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies the specified network interface attribute. You can specify only
@@ -5542,7 +5395,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ModifyNetworkInterfaceAttributeResponse where
+-- instance IsXML (Rs ModifyNetworkInterfaceAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Adds or remove permission settings for the specified snapshot.
@@ -5573,7 +5426,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ModifySnapshotAttributeResponse where
+-- instance IsXML (Rs ModifySnapshotAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies a volume attribute.By default, all I/O operations for the volume
@@ -5612,7 +5465,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ModifyVolumeAttributeResponse where
+-- instance IsXML (Rs ModifyVolumeAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies the specified attribute of the specified VPC.
@@ -5649,7 +5502,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ModifyVpcAttributeResponse where
+-- instance IsXML (Rs ModifyVpcAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Enables monitoring for a running instance. For more information about
@@ -5675,7 +5528,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ A list of instances. Each instance is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML MonitorInstancesResponse where
+-- instance IsXML (Rs MonitorInstances) where
 --     xmlPickler = ec2XML
 
 -- -- | Purchases a Reserved Instance for use with your account. With Amazon EC2
@@ -5746,7 +5599,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ The IDs of the purchased Reserved Instances.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML PurchaseReservedInstancesOfferingResponse where
+-- instance IsXML (Rs PurchaseReservedInstancesOffering) where
 --     xmlPickler = ec2XML
 
 -- -- | Requests a reboot of one or more instances. This operation is asynchronous;
@@ -5774,7 +5627,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML RebootInstancesResponse where
+-- instance IsXML (Rs RebootInstances) where
 --     xmlPickler = ec2XML
 
 -- -- | Registers an AMI. When you're creating an AMI, this is the final step you
@@ -5827,7 +5680,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ The ID of the newly registered AMI.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML RegisterImageResponse where
+-- instance IsXML (Rs RegisterImage) where
 --     xmlPickler = ec2XML
 
 -- -- | Releases the specified Elastic IP address. An Elastic IP address is for use
@@ -5861,7 +5714,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ReleaseAddressResponse where
+-- instance IsXML (Rs ReleaseAddress) where
 --     xmlPickler = ec2XML
 
 -- -- | Changes which network ACL a subnet is associated with. By default when you
@@ -5891,7 +5744,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ The ID of the new association.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ReplaceNetworkAclAssociationResponse where
+-- instance IsXML (Rs ReplaceNetworkAclAssociation) where
 --     xmlPickler = ec2XML
 
 -- -- | Replaces an entry (rule) in a network ACL. For more information about
@@ -5936,7 +5789,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ReplaceNetworkAclEntryResponse where
+-- instance IsXML (Rs ReplaceNetworkAclEntry) where
 --     xmlPickler = ec2XML
 
 -- -- | Replaces an existing route within a route table in a VPC. For more
@@ -5976,7 +5829,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ReplaceRouteResponse where
+-- instance IsXML (Rs ReplaceRoute) where
 --     xmlPickler = ec2XML
 
 -- -- | Changes the route table associated with a given subnet in a VPC. After you
@@ -6008,7 +5861,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ The ID of the new association.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ReplaceRouteTableAssociationResponse where
+-- instance IsXML (Rs ReplaceRouteTableAssociation) where
 --     xmlPickler = ec2XML
 
 -- -- | Use this action to submit feedback about an instance's status. This action
@@ -6054,7 +5907,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ReportInstanceStatusResponse where
+-- instance IsXML (Rs ReportInstanceStatus) where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a Spot Instance request. Spot Instances are instances that Amazon
@@ -6109,7 +5962,7 @@ instance IsXML DescribeTagsResponse where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML RequestSpotInstancesResponse where
+-- instance IsXML (Rs RequestSpotInstances) where
 --     xmlPickler = ec2XML
 
 -- -- | Resets an attribute of an AMI to its default value.
@@ -6140,7 +5993,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ResetImageAttributeResponse where
+-- instance IsXML (Rs ResetImageAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Resets an attribute of an instance to its default value. To reset the
@@ -6177,7 +6030,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ResetInstanceAttributeResponse where
+-- instance IsXML (Rs ResetInstanceAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Resets a network interface attribute. You can specify only one attribute at
@@ -6208,7 +6061,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ResetNetworkInterfaceAttributeResponse where
+-- instance IsXML (Rs ResetNetworkInterfaceAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Resets permission settings for the specified snapshot.
@@ -6239,7 +6092,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML ResetSnapshotAttributeResponse where
+-- instance IsXML (Rs ResetSnapshotAttribute) where
 --     xmlPickler = ec2XML
 
 -- -- | Removes one or more egress rules from a security group for EC2-VPC. The
@@ -6275,7 +6128,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML RevokeSecurityGroupEgressResponse where
+-- instance IsXML (Rs RevokeSecurityGroupEgress) where
 --     xmlPickler = ec2XML
 
 -- -- | Removes one or more ingress rules from a security group. The values that
@@ -6319,7 +6172,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML RevokeSecurityGroupIngressResponse where
+-- instance IsXML (Rs RevokeSecurityGroupIngress) where
 --     xmlPickler = ec2XML
 
 -- -- | Launches the specified number of instances of an AMI for which you have
@@ -6430,7 +6283,7 @@ instance IsXML DescribeTagsResponse where
 --       -- behalf (for example, AWS Management Console, Auto Scaling).
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML RunInstancesResponse where
+-- instance IsXML (Rs RunInstances) where
 --     xmlPickler = ec2XML
 
 -- -- | Starts an Amazon EBS-backed AMI that you've previously stopped. Instances
@@ -6468,7 +6321,7 @@ instance IsXML DescribeTagsResponse where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML StartInstancesResponse where
+-- instance IsXML (Rs StartInstances) where
 --     xmlPickler = ec2XML
 
 -- -- | Stops an Amazon EBS-backed instance. Each time you transition an instance
@@ -6519,7 +6372,7 @@ instance IsXML DescribeTagsResponse where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML StopInstancesResponse where
+-- instance IsXML (Rs StopInstances) where
 --     xmlPickler = ec2XML
 
 -- -- | Shuts down one or more instances. This operation is idempotent; if you
@@ -6554,7 +6407,7 @@ instance IsXML DescribeTagsResponse where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML TerminateInstancesResponse where
+-- instance IsXML (Rs TerminateInstances) where
 --     xmlPickler = ec2XML
 
 -- -- | Unassigns one or more secondary private IP addresses from a network
@@ -6585,7 +6438,7 @@ instance IsXML DescribeTagsResponse where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML UnassignPrivateIpAddressesResponse where
+-- instance IsXML (Rs UnassignPrivateIpAddresses) where
 --     xmlPickler = ec2XML
 
 -- -- | Disables monitoring for a running instance. For more information about
@@ -6612,5 +6465,5 @@ instance IsXML DescribeTagsResponse where
 --       -- set of information is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML UnmonitorInstancesResponse where
+-- instance IsXML (Rs UnmonitorInstances) where
 --     xmlPickler = ec2XML

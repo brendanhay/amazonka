@@ -20,92 +20,71 @@
 -- such as Amazon Elastic Compute Cloud (Amazon EC2).
 module Network.AWS.S3
     (
-    -- * S3 API Version
-      s3Version
-
     -- * Operations on the Service
     -- ** GET Service
-    , GetService                    (..)
-    , GetServiceResult              (..)
+      GetService              (..)
 
     -- * Operations on Buckets
     -- **
 
     -- * Operations on Objects
     -- ** DELETE Object
-    , DeleteObject                  (..)
-    , DeleteObjectResult            (..)
+    , DeleteObject            (..)
 
     -- ** POST Delete Multiple Objects
-    , DeleteMultipleObjects         (..)
-    , DeleteMultipleObjectsResult   (..)
+    , DeleteMultipleObjects   (..)
 
     -- ** GET Object
-    , GetObject                     (..)
-    , GetObjectResult               (..)
+    , GetObject               (..)
 
     -- ** GET Object ACL
-    , GetObjectACL                  (..)
-    , GetObjectACLResult            (..)
+    , GetObjectACL            (..)
 
     -- ** GET Object Torrent
-    , GetObjectTorrent              (..)
-    , GetObjectTorrentResult        (..)
+    , GetObjectTorrent        (..)
 
     -- ** HEAD Object
-    , HeadObject                    (..)
-    , HeadObjectResult              (..)
+    , HeadObject              (..)
 
     -- ** OPTIONS Object
-    , OptionsObject                 (..)
-    , OptionsObjectResult           (..)
+    , OptionsObject           (..)
 
     -- ** POST Object
-    , PostObject                    (..)
-    , PostObjectResult              (..)
+    , PostObject              (..)
 
     -- ** POST Object Restore
-    , PostObjectRestore             (..)
-    , PostObjectRestoreResult       (..)
+    , PostObjectRestore       (..)
 
     -- ** PUT Object
-    , PutObject                     (..)
-    , PutObjectResult               (..)
+    , PutObject               (..)
 
     -- ** PUT Object ACL
-    , PutObjectACL                  (..)
-    , PutObjectACLResult            (..)
+    , PutObjectACL            (..)
 
     -- ** PUT Object Copy
-    , PutObjectCopy                 (..)
-    , PutObjectCopyResult           (..)
+    , PutObjectCopy           (..)
 
     -- ** POST Initiate Multipart Upload
-    , InitiateMultipartUpload       (..)
-    , InitiateMultipartUploadResult (..)
+    , InitiateMultipartUpload (..)
 
     -- ** PUT Upload Part
-    , UploadPart                    (..)
-    , UploadPartResult              (..)
+    , UploadPart              (..)
 
     -- ** PUT Upload Part Copy
-    , UploadPartCopy                (..)
-    , UploadPartCopyResult          (..)
+    , UploadPartCopy          (..)
 
     -- ** POST Complete Multipart Upload
-    , CompleteMultipartUpload       (..)
-    , CompleteMultipartUploadResult (..)
+    , CompleteMultipartUpload (..)
 
     -- ** DELETE Abort Multipart Upload
-    , AbortMultipartUpload          (..)
-    , AbortMultipartUploadResult    (..)
+    , AbortMultipartUpload    (..)
 
     -- ** GET List Parts
-    , ListParts                     (..)
-    , ListPartsResult               (..)
+    , ListParts               (..)
 
     -- * Data Types
     , module Network.AWS.S3.Types
+    , Rs                      (..)
     ) where
 
 import Data.ByteString      (ByteString)
@@ -131,17 +110,17 @@ data GetService = GetService deriving (Eq, Show, Generic)
 instance IsQuery GetService
 
 instance Rq GetService where
-    type Rs GetService = Either S3ErrorResponse GetServiceResult
     request = qry GET undefined
 
-data GetServiceResult = GetServiceResult
+type instance Er GetService = S3ErrorResponse
+data instance Rs GetService = GetServiceResult
     { gsrOwner   :: !Owner
       -- ^ Information about the bucket owner.
     , gsrBuckets :: [Bucket]
       -- ^ A list of buckets for the service.
     } deriving (Eq, Show, Generic)
 
-instance IsXML GetServiceResult where
+instance IsXML (Rs GetService) where
     xmlPickler = withNS s3NS
 
 --
@@ -166,13 +145,13 @@ data GetObject  = GetObject
 instance IsQuery GetObject
 
 instance Rq GetObject where
-    type Rs GetObject = Either S3ErrorResponse GetObjectResult
     request = qry GET undefined
 
-data GetObjectResult = GetObjectResult
+type instance Er GetObject = S3ErrorResponse
+data instance Rs GetObject = GetObjectResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML GetObjectResult where
+instance IsXML (Rs GetObject) where
     xmlPickler = undefined
 
 -- | Removes the null version (if there is one) of an object and inserts a
@@ -187,13 +166,13 @@ data DeleteObject  = DeleteObject
 instance IsQuery DeleteObject
 
 instance Rq DeleteObject where
-    type Rs DeleteObject = Either S3ErrorResponse DeleteObjectResult
     request = qry GET undefined
 
-data DeleteObjectResult = DeleteObjectResult
+type instance Er DeleteObject = S3ErrorResponse
+data instance Rs DeleteObject = DeleteObjectResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML DeleteObjectResult where
+instance IsXML (Rs DeleteObject) where
     xmlPickler = undefined
 
 -- | Delete multiple objects from a bucket using a single HTTP request.
@@ -209,13 +188,13 @@ data DeleteMultipleObjects  = DeleteMultipleObjects
 instance IsQuery DeleteMultipleObjects
 
 instance Rq DeleteMultipleObjects where
-    type Rs DeleteMultipleObjects = Either S3ErrorResponse DeleteMultipleObjectsResult
     request = qry GET undefined
 
-data DeleteMultipleObjectsResult = DeleteMultipleObjectsResult
+type instance Er DeleteMultipleObjects = S3ErrorResponse
+data instance Rs DeleteMultipleObjects = DeleteMultipleObjectsResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML DeleteMultipleObjectsResult where
+instance IsXML (Rs DeleteMultipleObjects) where
     xmlPickler = undefined
 
 -- | Uses the ACL subresource to return the access control list (ACL) of an object.
@@ -232,13 +211,13 @@ data GetObjectACL  = GetObjectACL
 instance IsQuery GetObjectACL
 
 instance Rq GetObjectACL where
-    type Rs GetObjectACL = Either S3ErrorResponse GetObjectACLResult
     request = qry GET undefined
 
-data GetObjectACLResult = GetObjectACLResult
+type instance Er GetObjectACL = S3ErrorResponse
+data instance Rs GetObjectACL = GetObjectACLResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML GetObjectACLResult where
+instance IsXML (Rs GetObjectACL) where
     xmlPickler = undefined
 
 -- | Use the torrent subresource to return torrent files from a bucket.
@@ -252,13 +231,13 @@ data GetObjectTorrent  = GetObjectTorrent
 instance IsQuery GetObjectTorrent
 
 instance Rq GetObjectTorrent where
-    type Rs GetObjectTorrent = Either S3ErrorResponse GetObjectTorrentResult
     request = qry GET undefined
 
-data GetObjectTorrentResult = GetObjectTorrentResult
+type instance Er GetObjectTorrent = S3ErrorResponse
+data instance Rs GetObjectTorrent = GetObjectTorrentResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML GetObjectTorrentResult where
+instance IsXML (Rs GetObjectTorrent) where
     xmlPickler = undefined
 
 -- | Retrieves metadata from an object without returning the object itself.
@@ -274,13 +253,13 @@ data HeadObject  = HeadObject
 instance IsQuery HeadObject
 
 instance Rq HeadObject where
-    type Rs HeadObject = Either S3ErrorResponse HeadObjectResult
     request = qry GET undefined
 
-data HeadObjectResult = HeadObjectResult
+type instance Er HeadObject = S3ErrorResponse
+data instance Rs HeadObject = HeadObjectResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML HeadObjectResult where
+instance IsXML (Rs HeadObject) where
     xmlPickler = undefined
 
 -- | Preflight request to determine if an actual request can be sent with the
@@ -301,13 +280,13 @@ data OptionsObject  = OptionsObject
 instance IsQuery OptionsObject
 
 instance Rq OptionsObject where
-    type Rs OptionsObject = Either S3ErrorResponse OptionsObjectResult
     request = qry GET undefined
 
-data OptionsObjectResult = OptionsObjectResult
+type instance Er OptionsObject = S3ErrorResponse
+data instance Rs OptionsObject = OptionsObjectResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML OptionsObjectResult where
+instance IsXML (Rs OptionsObject) where
     xmlPickler = undefined
 
 -- | Adds an object to a specified bucket using HTML forms.
@@ -322,13 +301,13 @@ data PostObject  = PostObject
 instance IsQuery PostObject
 
 instance Rq PostObject where
-    type Rs PostObject = Either S3ErrorResponse PostObjectResult
     request = qry GET undefined
 
-data PostObjectResult = PostObjectResult
+type instance Er PostObject = S3ErrorResponse
+data instance Rs PostObject = PostObjectResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML PostObjectResult where
+instance IsXML (Rs PostObject) where
     xmlPickler = undefined
 
 -- | Restores a temporary copy of an archived object.
@@ -349,13 +328,13 @@ data PostObjectRestore  = PostObjectRestore
 instance IsQuery PostObjectRestore
 
 instance Rq PostObjectRestore where
-    type Rs PostObjectRestore = Either S3ErrorResponse PostObjectRestoreResult
     request = qry GET undefined
 
-data PostObjectRestoreResult = PostObjectRestoreResult
+type instance Er PostObjectRestore = S3ErrorResponse
+data instance Rs PostObjectRestore = PostObjectRestoreResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML PostObjectRestoreResult where
+instance IsXML (Rs PostObjectRestore) where
     xmlPickler = undefined
 
 -- | Add an object to a bucket.
@@ -385,13 +364,13 @@ data PutObject  = PutObject
 instance IsQuery PutObject
 
 instance Rq PutObject where
-    type Rs PutObject = Either S3ErrorResponse PutObjectResult
     request = qry GET undefined
 
-data PutObjectResult = PutObjectResult
+type instance Er PutObject = S3ErrorResponse
+data instance Rs PutObject = PutObjectResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML PutObjectResult where
+instance IsXML (Rs PutObject) where
     xmlPickler = undefined
 
 -- | Set the access control list (ACL) permissions for an object that already
@@ -416,13 +395,13 @@ data PutObjectACL  = PutObjectACL
 instance IsQuery PutObjectACL
 
 instance Rq PutObjectACL where
-    type Rs PutObjectACL = Either S3ErrorResponse PutObjectACLResult
     request = qry GET undefined
 
-data PutObjectACLResult = PutObjectACLResult
+type instance Er PutObjectACL = S3ErrorResponse
+data instance Rs PutObjectACL = PutObjectACLResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML PutObjectACLResult where
+instance IsXML (Rs PutObjectACL) where
     xmlPickler = undefined
 
 -- | Create a copy of an object that is already stored in Amazon S3.
@@ -454,13 +433,13 @@ data PutObjectCopy  = PutObjectCopy
 instance IsQuery PutObjectCopy
 
 instance Rq PutObjectCopy where
-    type Rs PutObjectCopy = Either S3ErrorResponse PutObjectCopyResult
     request = qry GET undefined
 
-data PutObjectCopyResult = PutObjectCopyResult
+type instance Er PutObjectCopy = S3ErrorResponse
+data instance Rs PutObjectCopy = PutObjectCopyResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML PutObjectCopyResult where
+instance IsXML (Rs PutObjectCopy) where
     xmlPickler = undefined
 
 -- | Initiate a multipart upload and return an upload ID.
@@ -479,13 +458,13 @@ data InitiateMultipartUpload  = InitiateMultipartUpload
 instance IsQuery InitiateMultipartUpload
 
 instance Rq InitiateMultipartUpload where
-    type Rs InitiateMultipartUpload = Either S3ErrorResponse InitiateMultipartUploadResult
     request = qry GET undefined
 
-data InitiateMultipartUploadResult = InitiateMultipartUploadResult
+type instance Er InitiateMultipartUpload = S3ErrorResponse
+data instance Rs InitiateMultipartUpload = InitiateMultipartUploadResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML InitiateMultipartUploadResult where
+instance IsXML (Rs InitiateMultipartUpload) where
     xmlPickler = undefined
 
 -- | Upload a part in a multipart upload.
@@ -520,13 +499,13 @@ data UploadPart  = UploadPart
 instance IsQuery UploadPart
 
 instance Rq UploadPart where
-    type Rs UploadPart = Either S3ErrorResponse UploadPartResult
     request = qry GET undefined
 
-data UploadPartResult = UploadPartResult
+type instance Er UploadPart = S3ErrorResponse
+data instance Rs UploadPart = UploadPartResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML UploadPartResult where
+instance IsXML (Rs UploadPart) where
     xmlPickler = undefined
 
 -- | Uploads a part by copying data from an existing object as data source.
@@ -545,13 +524,13 @@ data UploadPartCopy  = UploadPartCopy
 instance IsQuery UploadPartCopy
 
 instance Rq UploadPartCopy where
-    type Rs UploadPartCopy = Either S3ErrorResponse UploadPartCopyResult
     request = qry GET undefined
 
-data UploadPartCopyResult = UploadPartCopyResult
+type instance Er UploadPartCopy = S3ErrorResponse
+data instance Rs UploadPartCopy = UploadPartCopyResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML UploadPartCopyResult where
+instance IsXML (Rs UploadPartCopy) where
     xmlPickler = undefined
 
 -- | Completes a multipart upload by assembling previously uploaded parts.
@@ -589,13 +568,13 @@ data CompleteMultipartUpload  = CompleteMultipartUpload
 instance IsQuery CompleteMultipartUpload
 
 instance Rq CompleteMultipartUpload where
-    type Rs CompleteMultipartUpload = Either S3ErrorResponse CompleteMultipartUploadResult
     request = qry GET undefined
 
-data CompleteMultipartUploadResult = CompleteMultipartUploadResult
+type instance Er CompleteMultipartUpload = S3ErrorResponse
+data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML CompleteMultipartUploadResult where
+instance IsXML (Rs CompleteMultipartUpload) where
     xmlPickler = undefined
 
 -- | Aborts a multipart upload.
@@ -617,13 +596,13 @@ data AbortMultipartUpload  = AbortMultipartUpload
 instance IsQuery AbortMultipartUpload
 
 instance Rq AbortMultipartUpload where
-    type Rs AbortMultipartUpload = Either S3ErrorResponse AbortMultipartUploadResult
     request = qry GET undefined
 
-data AbortMultipartUploadResult = AbortMultipartUploadResult
+type instance Er AbortMultipartUpload = S3ErrorResponse
+data instance Rs AbortMultipartUpload = AbortMultipartUploadResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML AbortMultipartUploadResult where
+instance IsXML (Rs AbortMultipartUpload) where
     xmlPickler = undefined
 
 -- | List the parts that have been uploaded for a specific multipart upload.
@@ -652,11 +631,11 @@ data ListParts  = ListParts
 instance IsQuery ListParts
 
 instance Rq ListParts where
-    type Rs ListParts = Either S3ErrorResponse ListPartsResult
     request = qry GET undefined
 
-data ListPartsResult = ListPartsResult
+type instance Er ListParts = S3ErrorResponse
+data instance Rs ListParts = ListPartsResult
     {} deriving (Eq, Show, Generic)
 
-instance IsXML ListPartsResult where
+instance IsXML (Rs ListParts) where
     xmlPickler = undefined

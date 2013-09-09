@@ -20,148 +20,112 @@
 -- Elastic Load Balancing services.
 module Network.AWS.AutoScaling
    (
-   -- * AutoScaling API Version
-     autoScalingVersion
-
    -- * Actions
    -- ** CreateAutoScalingGroup
-   , CreateAutoScalingGroup                       (..)
-   , CreateAutoScalingGroupResponse               (..)
+     CreateAutoScalingGroup               (..)
 
    -- ** CreateLaunchConfiguration
-   , CreateLaunchConfiguration                    (..)
-   , CreateLaunchConfigurationResponse            (..)
+   , CreateLaunchConfiguration            (..)
 
    -- ** CreateOrUpdateTags
-   , CreateOrUpdateTags                           (..)
-   , CreateOrUpdateTagsResponse                   (..)
+   , CreateOrUpdateTags                   (..)
 
    -- ** DeleteAutoScalingGroup
-   , DeleteAutoScalingGroup                       (..)
-   , DeleteAutoScalingGroupResponse               (..)
+   , DeleteAutoScalingGroup               (..)
 
    -- ** DeleteLaunchConfiguration
-   , DeleteLaunchConfiguration                    (..)
-   , DeleteLaunchConfigurationResponse            (..)
+   , DeleteLaunchConfiguration            (..)
 
    -- ** DeleteNotificationConfiguration
-   , DeleteNotificationConfiguration              (..)
-   , DeleteNotificationConfigurationResponse      (..)
+   , DeleteNotificationConfiguration      (..)
 
    -- ** DeletePolicy
-   , DeletePolicy                                 (..)
-   , DeletePolicyResponse                         (..)
+   , DeletePolicy                         (..)
 
    -- ** DeleteScheduledAction
-   , DeleteScheduledAction                        (..)
-   , DeleteScheduledActionResponse                (..)
+   , DeleteScheduledAction                (..)
 
    -- ** DeleteTags
-   , DeleteTags                                   (..)
-   , DeleteTagsResponse                           (..)
+   , DeleteTags                           (..)
 
    -- ** DescribeAdjustmentTypes
-   , DescribeAdjustmentTypes                      (..)
-   , DescribeAdjustmentTypesResponse              (..)
+   , DescribeAdjustmentTypes              (..)
 
    -- ** DescribeAutoScalingGroups
-   , DescribeAutoScalingGroups                    (..)
-   , DescribeAutoScalingGroupsResponse            (..)
+   , DescribeAutoScalingGroups            (..)
 
    -- ** DescribeAutoScalingInstances
-   , DescribeAutoScalingInstances                 (..)
-   , DescribeAutoScalingInstancesResponse         (..)
+   , DescribeAutoScalingInstances         (..)
 
    -- ** DescribeAutoScalingNotificationTypes
-   , DescribeAutoScalingNotificationTypes         (..)
-   , DescribeAutoScalingNotificationTypesResponse (..)
+   , DescribeAutoScalingNotificationTypes (..)
 
    -- ** DescribeLaunchConfigurations
-   , DescribeLaunchConfigurations                 (..)
-   , DescribeLaunchConfigurationsResponse         (..)
+   , DescribeLaunchConfigurations         (..)
 
    -- ** DescribeMetricCollectionTypes
-   , DescribeMetricCollectionTypes                (..)
-   , DescribeMetricCollectionTypesResponse        (..)
+   , DescribeMetricCollectionTypes        (..)
 
    -- ** DescribeNotificationConfigurations
-   , DescribeNotificationConfigurations           (..)
-   , DescribeNotificationConfigurationsResponse   (..)
+   , DescribeNotificationConfigurations   (..)
 
    -- ** DescribePolicies
-   , DescribePolicies                             (..)
-   , DescribePoliciesResponse                     (..)
+   , DescribePolicies                     (..)
 
    -- ** DescribeScalingActivities
-   , DescribeScalingActivities                    (..)
-   , DescribeScalingActivitiesResponse            (..)
+   , DescribeScalingActivities            (..)
 
    -- ** DescribeScalingProcessTypes
-   , DescribeScalingProcessTypes                  (..)
-   , DescribeScalingProcessTypesResponse          (..)
+   , DescribeScalingProcessTypes          (..)
 
    -- ** DescribeScheduledActions
-   , DescribeScheduledActions                     (..)
-   , DescribeScheduledActionsResponse             (..)
+   , DescribeScheduledActions             (..)
 
    -- ** DescribeTags
-   , DescribeTags                                 (..)
-   , DescribeTagsResponse                         (..)
+   , DescribeTags                         (..)
 
    -- ** DescribeTerminationPolicyTypes
-   , DescribeTerminationPolicyTypes               (..)
-   , DescribeTerminationPolicyTypesResponse       (..)
+   , DescribeTerminationPolicyTypes       (..)
 
    -- ** DisableMetricsCollection
-   , DisableMetricsCollection                     (..)
-   , DisableMetricsCollectionResponse             (..)
+   , DisableMetricsCollection             (..)
 
    -- ** EnableMetricsCollection
-   , EnableMetricsCollection                      (..)
-   , EnableMetricsCollectionResponse              (..)
+   , EnableMetricsCollection              (..)
 
    -- ** ExecutePolicy
-   , ExecutePolicy                                (..)
-   , ExecutePolicyResponse                        (..)
+   , ExecutePolicy                        (..)
 
    -- ** PutNotificationConfiguration
-   , PutNotificationConfiguration                 (..)
-   , PutNotificationConfigurationResponse         (..)
+   , PutNotificationConfiguration         (..)
 
    -- ** PutScalingPolicy
-   , PutScalingPolicy                             (..)
-   , PutScalingPolicyResponse                     (..)
+   , PutScalingPolicy                     (..)
 
    -- ** PutScheduledUpdateGroupAction
-   , PutScheduledUpdateGroupAction                (..)
-   , PutScheduledUpdateGroupActionResponse        (..)
+   , PutScheduledUpdateGroupAction        (..)
 
    -- ** ResumeProcesses
-   , ResumeProcesses                              (..)
-   , ResumeProcessesResponse                      (..)
+   , ResumeProcesses                      (..)
 
    -- ** SetDesiredCapacity
-   , SetDesiredCapacity                           (..)
-   , SetDesiredCapacityResponse                   (..)
+   , SetDesiredCapacity                   (..)
 
    -- ** SetInstanceHealth
-   , SetInstanceHealth                            (..)
-   , SetInstanceHealthResponse                    (..)
+   , SetInstanceHealth                    (..)
 
    -- ** SuspendProcesses
-   , SuspendProcesses                             (..)
-   , SuspendProcessesResponse                     (..)
+   , SuspendProcesses                     (..)
 
    -- ** TerminateInstanceInAutoScalingGroup
-   , TerminateInstanceInAutoScalingGroup          (..)
-   , TerminateInstanceInAutoScalingGroupResponse  (..)
+   , TerminateInstanceInAutoScalingGroup  (..)
 
    -- ** UpdateAutoScalingGroup
-   , UpdateAutoScalingGroup                       (..)
-   , UpdateAutoScalingGroupResponse               (..)
+   , UpdateAutoScalingGroup               (..)
 
    -- * Data Types
    , module Network.AWS.AutoScaling.Types
+   , Rs                                   (..)
    ) where
 
 import Data.ByteString               (ByteString)
@@ -240,14 +204,14 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
 instance IsQuery CreateAutoScalingGroup
 
 instance Rq CreateAutoScalingGroup where
-    type Rs CreateAutoScalingGroup = Either AutoScalingError CreateAutoScalingGroupResponse
     request = qry GET "CreateAutoScalingGroup"
 
-data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
+type instance Er CreateAutoScalingGroup = AutoScalingError
+data instance Rs CreateAutoScalingGroup = CreateAutoScalingGroupResponse
     { casgrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateAutoScalingGroupResponse where
+instance IsXML (Rs CreateAutoScalingGroup) where
     xmlPickler = withNS autoScalingNS
 
 -- | Creates a new launch configuration. The launch configuration name must be
@@ -323,14 +287,14 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 instance IsQuery CreateLaunchConfiguration
 
 instance Rq CreateLaunchConfiguration where
-    type Rs CreateLaunchConfiguration = Either AutoScalingError CreateLaunchConfigurationResponse
     request = qry GET "CreateLaunchConfiguration"
 
-data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
+type instance Er CreateLaunchConfiguration = AutoScalingError
+data instance Rs CreateLaunchConfiguration = CreateLaunchConfigurationResponse
     { clcrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateLaunchConfigurationResponse where
+instance IsXML (Rs CreateLaunchConfiguration) where
     xmlPickler = withNS autoScalingNS
 
 -- | Creates new tags or updates existing tags for an Auto Scaling group. Note A
@@ -354,14 +318,14 @@ data CreateOrUpdateTags = CreateOrUpdateTags
 instance IsQuery CreateOrUpdateTags
 
 instance Rq CreateOrUpdateTags where
-    type Rs CreateOrUpdateTags = Either AutoScalingError CreateOrUpdateTagsResponse
     request = qry GET "CreateOrUpdateTags"
 
-data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
+type instance Er CreateOrUpdateTags = AutoScalingError
+data instance Rs CreateOrUpdateTags = CreateOrUpdateTagsResponse
     { coutrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML CreateOrUpdateTagsResponse where
+instance IsXML (Rs CreateOrUpdateTags) where
     xmlPickler = withNS autoScalingNS
 
 -- | Deletes the specified Auto Scaling group if the group has no instances and
@@ -383,14 +347,14 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 instance IsQuery DeleteAutoScalingGroup
 
 instance Rq DeleteAutoScalingGroup where
-    type Rs DeleteAutoScalingGroup = Either AutoScalingError DeleteAutoScalingGroupResponse
     request = qry GET "DeleteAutoScalingGroup"
 
-data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
+type instance Er DeleteAutoScalingGroup = AutoScalingError
+data instance Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse
     { dasgrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DeleteAutoScalingGroupResponse where
+instance IsXML (Rs DeleteAutoScalingGroup) where
     xmlPickler = withNS autoScalingNS
 
 -- | Deletes the specified LaunchConfiguration. The specified launch
@@ -406,14 +370,14 @@ data DeleteLaunchConfiguration = DeleteLaunchConfiguration
 instance IsQuery DeleteLaunchConfiguration
 
 instance Rq DeleteLaunchConfiguration where
-    type Rs DeleteLaunchConfiguration = Either AutoScalingError DeleteLaunchConfigurationResponse
     request = qry GET "DeleteLaunchConfiguration"
 
-data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
+type instance Er DeleteLaunchConfiguration = AutoScalingError
+data instance Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse
     { dlcrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DeleteLaunchConfigurationResponse where
+instance IsXML (Rs DeleteLaunchConfiguration) where
     xmlPickler = withNS autoScalingNS
 
 -- | Deletes notifications created by PutNotificationConfiguration.
@@ -430,13 +394,13 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration
 instance IsQuery DeleteNotificationConfiguration
 
 instance Rq DeleteNotificationConfiguration where
-    type Rs DeleteNotificationConfiguration = Either AutoScalingError DeleteNotificationConfigurationResponse
     request = qry GET "DeleteNotificationConfiguration"
 
-data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
+type instance Er DeleteNotificationConfiguration = AutoScalingError
+data instance Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse
     deriving (Eq, Read, Show, Generic)
 
-instance IsXML DeleteNotificationConfigurationResponse where
+instance IsXML (Rs DeleteNotificationConfiguration) where
     xmlPickler = xpEmpty $ Just autoScalingNS
 
 -- | Deletes a policy created by PutScalingPolicy.
@@ -452,13 +416,13 @@ data DeletePolicy = DeletePolicy
 instance IsQuery DeletePolicy
 
 instance Rq DeletePolicy where
-    type Rs DeletePolicy = Either AutoScalingError DeletePolicyResponse
     request = qry GET "DeletePolicy"
 
-data DeletePolicyResponse = DeletePolicyResponse
+type instance Er DeletePolicy = AutoScalingError
+data instance Rs DeletePolicy = DeletePolicyResponse
     deriving (Eq, Read, Show, Generic)
 
-instance IsXML DeletePolicyResponse where
+instance IsXML (Rs DeletePolicy) where
     xmlPickler = xpEmpty $ Just autoScalingNS
 
 -- | Deletes a scheduled action previously created using the
@@ -475,13 +439,13 @@ data DeleteScheduledAction = DeleteScheduledAction
 instance IsQuery DeleteScheduledAction
 
 instance Rq DeleteScheduledAction where
-    type Rs DeleteScheduledAction = Either AutoScalingError DeleteScheduledActionResponse
     request = qry GET "DeleteScheduledAction"
 
-data DeleteScheduledActionResponse = DeleteScheduledActionResponse
+type instance Er DeleteScheduledAction = AutoScalingError
+data instance Rs DeleteScheduledAction = DeleteScheduledActionResponse
     deriving (Eq, Read, Show, Generic)
 
-instance IsXML DeleteScheduledActionResponse where
+instance IsXML (Rs DeleteScheduledAction) where
     xmlPickler = xpEmpty $ Just autoScalingNS
 
 -- | Removes the specified tags or a set of tags from a set of resources.
@@ -498,13 +462,13 @@ data DeleteTags = DeleteTags
 instance IsQuery DeleteTags
 
 instance Rq DeleteTags where
-    type Rs DeleteTags = Either AutoScalingError DeleteTagsResponse
     request = qry GET "DeleteTags"
 
-data DeleteTagsResponse = DeleteTagsResponse
+type instance Er DeleteTags = AutoScalingError
+data instance Rs DeleteTags = DeleteTagsResponse
     deriving (Eq, Read, Show, Generic)
 
-instance IsXML DeleteTagsResponse where
+instance IsXML (Rs DeleteTags) where
     xmlPickler = xpEmpty $ Just autoScalingNS
 
 -- | Returns policy adjustment types for use in the PutScalingPolicy action.
@@ -516,15 +480,14 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes
 instance IsQuery DescribeAdjustmentTypes
 
 instance Rq DescribeAdjustmentTypes where
-    type Rs DescribeAdjustmentTypes = Either AutoScalingError DescribeAdjustmentTypesResponse
     request = qry GET "DescribeAdjustmentTypes"
 
-data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
+type instance Er DescribeAdjustmentTypes = AutoScalingError
+data instance Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
     { datrDescribeAdjustmentTypesResult :: !DescribeAdjustmentTypesResult
-    , datrResponseMetadata              :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeAdjustmentTypesResponse where
+instance IsXML (Rs DescribeAdjustmentTypes) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns a full description of each Auto Scaling group in the given list.
@@ -548,15 +511,14 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups
 instance IsQuery DescribeAutoScalingGroups
 
 instance Rq DescribeAutoScalingGroups where
-    type Rs DescribeAutoScalingGroups = Either AutoScalingError DescribeAutoScalingGroupsResponse
     request = qry GET "DescribeAutoScalingGroups"
 
-data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
+type instance Er DescribeAutoScalingGroups = AutoScalingError
+data instance Rs DescribeAutoScalingGroups = DescribeAutoScalingGroupsResponse
     { dashrDescribeAutoScalingGroupsResult :: !DescribeAutoScalingGroupsResult
-    , dashrResponseMetadata                :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeAutoScalingGroupsResponse where
+instance IsXML (Rs DescribeAutoScalingGroups) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns a description of each Auto Scaling instance in the InstanceIds
@@ -584,15 +546,14 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
 instance IsQuery DescribeAutoScalingInstances
 
 instance Rq DescribeAutoScalingInstances where
-    type Rs DescribeAutoScalingInstances = Either AutoScalingError DescribeAutoScalingInstancesResponse
     request = qry GET "DescribeAutoScalingInstances"
 
-data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
+type instance Er DescribeAutoScalingInstances = AutoScalingError
+data instance Rs DescribeAutoScalingInstances = DescribeAutoScalingInstancesResponse
     { dasirDescribeAutoScalingInstancesResult :: !DescribeAutoScalingInstancesResult
-    , dasirResponseMetadata                   :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeAutoScalingInstancesResponse where
+instance IsXML (Rs DescribeAutoScalingInstances) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns a list of all notification types that are supported by Auto
@@ -608,15 +569,14 @@ data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 instance IsQuery DescribeAutoScalingNotificationTypes
 
 instance Rq DescribeAutoScalingNotificationTypes where
-    type Rs DescribeAutoScalingNotificationTypes = Either AutoScalingError DescribeAutoScalingNotificationTypesResponse
     request = qry GET "DescribeAutoScalingNotificationTypes"
 
-data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
+type instance Er DescribeAutoScalingNotificationTypes = AutoScalingError
+data instance Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesResponse
     { dasntrDescribeAutoScalingNotificationTypesResult :: !DescribeAutoScalingNotificationTypesResult
-    , dasntrResponseMetadata                           :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeAutoScalingNotificationTypesResponse where
+instance IsXML (Rs DescribeAutoScalingNotificationTypes) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns a full description of the launch configurations, or the specified
@@ -637,15 +597,14 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations
 instance IsQuery DescribeLaunchConfigurations
 
 instance Rq DescribeLaunchConfigurations where
-    type Rs DescribeLaunchConfigurations = Either AutoScalingError DescribeLaunchConfigurationsResponse
     request = qry GET "DescribeLaunchConfigurations"
 
-data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
+type instance Er DescribeLaunchConfigurations = AutoScalingError
+data instance Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse
     { dldrDescribeLaunchConfigurationsResult :: !DescribeLaunchConfigurationsResult
-    , dldrResponseMetadata                   :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeLaunchConfigurationsResponse where
+instance IsXML (Rs DescribeLaunchConfigurations) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns a list of metrics and a corresponding list of granularities for
@@ -658,15 +617,14 @@ data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
 instance IsQuery DescribeMetricCollectionTypes
 
 instance Rq DescribeMetricCollectionTypes where
-    type Rs DescribeMetricCollectionTypes = Either AutoScalingError DescribeMetricCollectionTypesResponse
     request = qry GET "DescribeMetricCollectionTypes"
 
-data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
+type instance Er DescribeMetricCollectionTypes = AutoScalingError
+data instance Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesResponse
     { dmctDescribeMetricCollectionTypesResult :: !DescribeMetricCollectionTypesResult
-    , dmctResponseMetadata                    :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeMetricCollectionTypesResponse where
+instance IsXML (Rs DescribeMetricCollectionTypes) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns a list of notification actions associated with Auto Scaling groups
@@ -686,15 +644,14 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations
 instance IsQuery DescribeNotificationConfigurations
 
 instance Rq DescribeNotificationConfigurations where
-    type Rs DescribeNotificationConfigurations = Either AutoScalingError DescribeNotificationConfigurationsResponse
     request = qry GET "DescribeNotificationConfigurations"
 
-data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
+type instance Er DescribeNotificationConfigurations = AutoScalingError
+data instance Rs DescribeNotificationConfigurations = DescribeNotificationConfigurationsResponse
     { dndrDescribeNotificationConfigurationsResult :: !DescribeNotificationConfigurationsResult
-    , dndrResponseMetadata                         :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeNotificationConfigurationsResponse where
+instance IsXML (Rs DescribeNotificationConfigurations) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns descriptions of what each policy does. This action supports
@@ -724,15 +681,14 @@ data DescribePolicies = DescribePolicies
 instance IsQuery DescribePolicies
 
 instance Rq DescribePolicies where
-    type Rs DescribePolicies = Either AutoScalingError DescribePoliciesResponse
     request = qry GET "DescribePolicies"
 
-data DescribePoliciesResponse = DescribePoliciesResponse
+type instance Er DescribePolicies = AutoScalingError
+data instance Rs DescribePolicies = DescribePoliciesResponse
     { dqrDescribePoliciesResult :: !DescribePoliciesResult
-    , dqrResponseMetadata       :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribePoliciesResponse where
+instance IsXML (Rs DescribePolicies) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns the scaling activities for the specified Auto Scaling group. If the
@@ -764,15 +720,14 @@ data DescribeScalingActivities = DescribeScalingActivities
 instance IsQuery DescribeScalingActivities
 
 instance Rq DescribeScalingActivities where
-    type Rs DescribeScalingActivities = Either AutoScalingError DescribeScalingActivitiesResponse
     request = qry GET "DescribeScalingActivities"
 
-data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
+type instance Er DescribeScalingActivities = AutoScalingError
+data instance Rs DescribeScalingActivities = DescribeScalingActivitiesResponse
     { dsbrDescribeScalingActivitiesResult :: !DescribeScalingActivitiesResult
-    , dsbrResponseMetadata                :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeScalingActivitiesResponse where
+instance IsXML (Rs DescribeScalingActivities) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns scaling process types for use in the ResumeProcesses and
@@ -787,15 +742,14 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 instance IsQuery DescribeScalingProcessTypes
 
 instance Rq DescribeScalingProcessTypes where
-    type Rs DescribeScalingProcessTypes = Either AutoScalingError DescribeScalingProcessTypesResponse
     request = qry GET "DescribeScalingProcessTypes"
 
-data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
+type instance Er DescribeScalingProcessTypes = AutoScalingError
+data instance Rs DescribeScalingProcessTypes = DescribeScalingProcessTypesResponse
     { dsptrDescribeScalingProcessTypesResult :: !DescribeScalingProcessTypesResult
-    , dsptrResponseMetadata                  :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeScalingProcessTypesResponse where
+instance IsXML (Rs DescribeScalingProcessTypes) where
     xmlPickler = withNS autoScalingNS
 
 -- | Lists all the actions scheduled for your Auto Scaling group that haven't
@@ -829,15 +783,14 @@ data DescribeScheduledActions = DescribeScheduledActions
 instance IsQuery DescribeScheduledActions
 
 instance Rq DescribeScheduledActions where
-    type Rs DescribeScheduledActions = Either AutoScalingError DescribeScheduledActionsResponse
     request = qry GET "DescribeScheduledActions"
 
-data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
+type instance Er DescribeScheduledActions = AutoScalingError
+data instance Rs DescribeScheduledActions = DescribeScheduledActionsResponse
     { dscrDescribeScheduledActionsResult :: !DescribeScheduledActionsResult
-    , dscrResponseMetadata               :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeScheduledActionsResponse where
+instance IsXML (Rs DescribeScheduledActions) where
     xmlPickler = withNS autoScalingNS
 
 -- | Lists the Auto Scaling group tags. You can use filters to limit results
@@ -866,15 +819,14 @@ data DescribeTags = DescribeTags
 instance IsQuery DescribeTags
 
 instance Rq DescribeTags where
-    type Rs DescribeTags = Either AutoScalingError DescribeTagsResponse
     request = qry GET "DescribeTags"
 
-data DescribeTagsResponse = DescribeTagsResponse
+type instance Er DescribeTags = AutoScalingError
+data instance Rs DescribeTags = DescribeTagsResponse
     { dtrDescribeTagsResult :: !DescribeTagsResult
-    , dtrResponseMetadata   :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeTagsResponse where
+instance IsXML (Rs DescribeTags) where
     xmlPickler = withNS autoScalingNS
 
 -- | Returns a list of all termination policies supported by Auto Scaling.
@@ -890,15 +842,14 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 instance IsQuery DescribeTerminationPolicyTypes
 
 instance Rq DescribeTerminationPolicyTypes where
-    type Rs DescribeTerminationPolicyTypes = Either AutoScalingError DescribeTerminationPolicyTypesResponse
     request = qry GET "DescribeTerminationPolicyTypes"
 
-data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
+type instance Er DescribeTerminationPolicyTypes = AutoScalingError
+data instance Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesResponse
     { dtptrDescribeTerminationPolicyTypesResult :: !DescribeTerminationPolicyTypesResult
-    , dtptrResponseMetadata                     :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DescribeTerminationPolicyTypesResponse where
+instance IsXML (Rs DescribeTerminationPolicyTypes) where
     xmlPickler = withNS autoScalingNS
 
 -- | Disables monitoring of group metrics for the Auto Scaling group specified
@@ -917,14 +868,14 @@ data DisableMetricsCollection = DisableMetricsCollection
 instance IsQuery DisableMetricsCollection
 
 instance Rq DisableMetricsCollection where
-    type Rs DisableMetricsCollection = Either AutoScalingError DisableMetricsCollectionResponse
     request = qry GET "DisableMetricsCollection"
 
-data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
+type instance Er DisableMetricsCollection = AutoScalingError
+data instance Rs DisableMetricsCollection = DisableMetricsCollectionResponse
     { dmcrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML DisableMetricsCollectionResponse where
+instance IsXML (Rs DisableMetricsCollection) where
     xmlPickler = withNS autoScalingNS
 
 -- | Enables monitoring of group metrics for the Auto Scaling group specified in
@@ -948,14 +899,14 @@ data EnableMetricsCollection = EnableMetricsCollection
 instance IsQuery EnableMetricsCollection
 
 instance Rq EnableMetricsCollection where
-    type Rs EnableMetricsCollection = Either AutoScalingError EnableMetricsCollectionResponse
     request = qry GET "EnableMetricsCollection"
 
-data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
+type instance Er EnableMetricsCollection = AutoScalingError
+data instance Rs EnableMetricsCollection = EnableMetricsCollectionResponse
     { emcrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML EnableMetricsCollectionResponse where
+instance IsXML (Rs EnableMetricsCollection) where
     xmlPickler = withNS autoScalingNS
 
 -- | Executes the specified policy.
@@ -976,14 +927,14 @@ data ExecutePolicy = ExecutePolicy
 instance IsQuery ExecutePolicy
 
 instance Rq ExecutePolicy where
-    type Rs ExecutePolicy = Either AutoScalingError ExecutePolicyResponse
     request = qry GET "ExecutePolicy"
 
-data ExecutePolicyResponse = ExecutePolicyResponse
+type instance Er ExecutePolicy = AutoScalingError
+data instance Rs ExecutePolicy = ExecutePolicyResponse
     { eprResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML ExecutePolicyResponse where
+instance IsXML (Rs ExecutePolicy) where
     xmlPickler = withNS autoScalingNS
 
 -- | Configures an Auto Scaling group to send notifications when specified
@@ -1009,14 +960,14 @@ data PutNotificationConfiguration = PutNotificationConfiguration
 instance IsQuery PutNotificationConfiguration
 
 instance Rq PutNotificationConfiguration where
-    type Rs PutNotificationConfiguration = Either AutoScalingError PutNotificationConfigurationResponse
     request = qry GET "PutNotificationConfiguration"
 
-data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
+type instance Er PutNotificationConfiguration = AutoScalingError
+data instance Rs PutNotificationConfiguration = PutNotificationConfigurationResponse
     { pncrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML PutNotificationConfigurationResponse where
+instance IsXML (Rs PutNotificationConfiguration) where
     xmlPickler = withNS autoScalingNS
 
 -- | Creates or updates a policy for an Auto Scaling group. To update an
@@ -1053,15 +1004,14 @@ data PutScalingPolicy = PutScalingPolicy
 instance IsQuery PutScalingPolicy
 
 instance Rq PutScalingPolicy where
-    type Rs PutScalingPolicy = Either AutoScalingError PutScalingPolicyResponse
     request = qry GET "PutScalingPolicy"
 
-data PutScalingPolicyResponse = PutScalingPolicyResponse
+type instance Er PutScalingPolicy = AutoScalingError
+data instance Rs PutScalingPolicy = PutScalingPolicyResponse
     { psprPutScalingPolicyResult :: !PutScalingPolicyResult
-    , psprResponseMetadata       :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML PutScalingPolicyResponse where
+instance IsXML (Rs PutScalingPolicy) where
     xmlPickler = withNS autoScalingNS
 
 -- | Creates or updates a scheduled scaling action for an Auto Scaling group.
@@ -1102,14 +1052,14 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
 instance IsQuery PutScheduledUpdateGroupAction
 
 instance Rq PutScheduledUpdateGroupAction where
-    type Rs PutScheduledUpdateGroupAction = Either AutoScalingError PutScheduledUpdateGroupActionResponse
     request = qry GET "PutScheduledUpdateGroupAction"
 
-data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
+type instance Er PutScheduledUpdateGroupAction = AutoScalingError
+data instance Rs PutScheduledUpdateGroupAction = PutScheduledUpdateGroupActionResponse
     { psugarResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML PutScheduledUpdateGroupActionResponse where
+instance IsXML (Rs PutScheduledUpdateGroupAction) where
     xmlPickler = withNS autoScalingNS
 
 -- | Resumes all suspended Auto Scaling processes for an Auto Scaling group. For
@@ -1128,14 +1078,14 @@ data ResumeProcesses = ResumeProcesses
 instance IsQuery ResumeProcesses
 
 instance Rq ResumeProcesses where
-    type Rs ResumeProcesses = Either AutoScalingError ResumeProcessesResponse
     request = qry GET "ResumeProcesses"
 
-data ResumeProcessesResponse = ResumeProcessesResponse
+type instance Er ResumeProcesses = AutoScalingError
+data instance Rs ResumeProcesses = ResumeProcessesResponse
     { rprResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML ResumeProcessesResponse where
+instance IsXML (Rs ResumeProcesses) where
     xmlPickler = withNS autoScalingNS
 
 -- | Sets the desired size of the specified AutoScalingGroup.
@@ -1158,14 +1108,14 @@ data SetDesiredCapacity = SetDesiredCapacity
 instance IsQuery SetDesiredCapacity
 
 instance Rq SetDesiredCapacity where
-    type Rs SetDesiredCapacity = Either AutoScalingError SetDesiredCapacityResponse
     request = qry GET "SetDesiredCapacity"
 
-data SetDesiredCapacityResponse = SetDesiredCapacityResponse
+type instance Er SetDesiredCapacity = AutoScalingError
+data instance Rs SetDesiredCapacity = SetDesiredCapacityResponse
     { sdcrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML SetDesiredCapacityResponse where
+instance IsXML (Rs SetDesiredCapacity) where
     xmlPickler = withNS autoScalingNS
 
 -- | Sets the health status of a specified instance that belongs to any of your
@@ -1192,14 +1142,14 @@ data SetInstanceHealth = SetInstanceHealth
 instance IsQuery SetInstanceHealth
 
 instance Rq SetInstanceHealth where
-    type Rs SetInstanceHealth = Either AutoScalingError SetInstanceHealthResponse
     request = qry GET "SetInstanceHealth"
 
-data SetInstanceHealthResponse = SetInstanceHealthResponse
+type instance Er SetInstanceHealth = AutoScalingError
+data instance Rs SetInstanceHealth = SetInstanceHealthResponse
     { sihrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML SetInstanceHealthResponse where
+instance IsXML (Rs SetInstanceHealth) where
     xmlPickler = withNS autoScalingNS
 
 -- | Suspends Auto Scaling processes for an Auto Scaling group. To suspend
@@ -1223,14 +1173,14 @@ data SuspendProcesses = SuspendProcesses
 instance IsQuery SuspendProcesses
 
 instance Rq SuspendProcesses where
-    type Rs SuspendProcesses = Either AutoScalingError SuspendProcessesResponse
     request = qry GET "SuspendProcesses"
 
-data SuspendProcessesResponse = SuspendProcessesResponse
+type instance Er SuspendProcesses = AutoScalingError
+data instance Rs SuspendProcesses = SuspendProcessesResponse
     { sprResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML SuspendProcessesResponse where
+instance IsXML (Rs SuspendProcesses) where
     xmlPickler = withNS autoScalingNS
 
 -- | Terminates the specified instance. Optionally, the desired group size can
@@ -1249,15 +1199,15 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
 instance IsQuery TerminateInstanceInAutoScalingGroup
 
 instance Rq TerminateInstanceInAutoScalingGroup where
-    type Rs TerminateInstanceInAutoScalingGroup = Either AutoScalingError TerminateInstanceInAutoScalingGroupResponse
     request = qry GET "TerminateInstanceInAutoScalingGroup"
 
-data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
+type instance Er TerminateInstanceInAutoScalingGroup = AutoScalingError
+data instance Rs TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroupResponse
     { tiiasgrResponseMetadata                          :: !ResponseMetadata
     , tiiasgrTerminateInstanceInAutoScalingGroupResult :: !TerminateInstanceInAutoScalingGroupResult
     } deriving (Eq, Show, Generic)
 
-instance IsXML TerminateInstanceInAutoScalingGroupResponse where
+instance IsXML (Rs TerminateInstanceInAutoScalingGroup) where
     xmlPickler = withNS autoScalingNS
 
 -- | Updates the configuration for the specified AutoScalingGroup.
@@ -1314,12 +1264,12 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
 instance IsQuery UpdateAutoScalingGroup
 
 instance Rq UpdateAutoScalingGroup where
-    type Rs UpdateAutoScalingGroup = Either AutoScalingError UpdateAutoScalingGroupResponse
     request = qry GET "UpdateAutoScalingGroup"
 
-data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
+type instance Er UpdateAutoScalingGroup = AutoScalingError
+data instance Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
     { uasgrResponseMetadata :: !ResponseMetadata
     } deriving (Eq, Show, Generic)
 
-instance IsXML UpdateAutoScalingGroupResponse where
+instance IsXML (Rs UpdateAutoScalingGroup) where
     xmlPickler = withNS autoScalingNS

@@ -1,6 +1,8 @@
-{-# LANGUAGE DeriveGeneric         #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.CloudWatch
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,64 +19,51 @@
 -- from metrics.
 module Network.AWS.CloudWatch
    (
-   -- * CloudWatch API Version
-     cloudWatchVersion
-
    -- * Actions
    -- ** DeleteAlarms
-   , DeleteAlarms                    (..)
-   , DeleteAlarmsResponse            (..)
+     DeleteAlarms            (..)
 
    -- ** DescribeAlarmHistory
-   , DescribeAlarmHistory            (..)
-   , DescribeAlarmHistoryResponse    (..)
+   , DescribeAlarmHistory    (..)
 
    -- ** DescribeAlarms
-   , DescribeAlarms                  (..)
-   , DescribeAlarmsResponse          (..)
+   , DescribeAlarms          (..)
 
    -- ** DescribeAlarmsForMetric
-   , DescribeAlarmsForMetric         (..)
-   , DescribeAlarmsForMetricResponse (..)
+   , DescribeAlarmsForMetric (..)
 
    -- ** DisableAlarmActions
-   , DisableAlarmActions             (..)
-   , DisableAlarmActionsResponse     (..)
+   , DisableAlarmActions     (..)
 
    -- ** EnableAlarmActions
-   , EnableAlarmActions              (..)
-   , EnableAlarmActionsResponse      (..)
+   , EnableAlarmActions      (..)
 
    -- ** GetMetricStatistics
-   , GetMetricStatistics             (..)
-   , GetMetricStatisticsResponse     (..)
+   , GetMetricStatistics     (..)
 
    -- ** ListMetrics
-   , ListMetrics                     (..)
-   , ListMetricsResponse             (..)
+   , ListMetrics             (..)
 
    -- ** PutMetricAlarm
-   , PutMetricAlarm                  (..)
-   , PutMetricAlarmResponse          (..)
+   , PutMetricAlarm          (..)
 
    -- ** PutMetricData
-   , PutMetricData                   (..)
-   , PutMetricDataResponse           (..)
+   , PutMetricData           (..)
 
    -- ** SetAlarmState
-   , SetAlarmState                   (..)
-   , SetAlarmStateResponse           (..)
+   , SetAlarmState           (..)
 
    -- * Data Types
    , module Network.AWS.CloudWatch.Types
+   , Rs                      (..)
    ) where
 
-import Data.ByteString      (ByteString)
+import Data.ByteString              (ByteString)
 import Data.Monoid
 import Data.Time
-import Network.AWS.Internal
 import Network.AWS.CloudWatch.Types
-import Network.Http.Client  (Method(..))
+import Network.AWS.Internal
+import Network.Http.Client          (Method(..))
 
 data CloudWatch
 

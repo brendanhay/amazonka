@@ -1,6 +1,8 @@
-{-# LANGUAGE DeriveGeneric         #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.ELB
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,112 +18,87 @@
 -- of your application running on Amazon Elastic Cloud Compute (Amazon EC2).
 module Network.AWS.ELB
    (
-   -- * ELB API Version
-     elbVersion
-
    -- * Actions
    -- ** ApplySecurityGroupsToLoadBalancer
-   , ApplySecurityGroupsToLoadBalancer               (..)
-   , ApplySecurityGroupsToLoadBalancerResponse       (..)
+     ApplySecurityGroupsToLoadBalancer       (..)
 
    -- ** AttachLoadBalancerToSubnets
-   , AttachLoadBalancerToSubnets                     (..)
-   , AttachLoadBalancerToSubnetsResponse             (..)
+   , AttachLoadBalancerToSubnets             (..)
 
    -- ** ConfigureHealthCheck
-   , ConfigureHealthCheck                            (..)
-   , ConfigureHealthCheckResponse                    (..)
+   , ConfigureHealthCheck                    (..)
 
    -- ** CreateAppCookieStickinessPolicy
-   , CreateAppCookieStickinessPolicy                 (..)
-   , CreateAppCookieStickinessPolicyResponse         (..)
+   , CreateAppCookieStickinessPolicy         (..)
 
    -- ** CreatelbCookieStickinessPolicy
-   , CreatelbCookieStickinessPolicy                  (..)
-   , CreatelbCookieStickinessPolicyResponse          (..)
+   , CreatelbCookieStickinessPolicy          (..)
 
    -- ** CreateLoadBalancer
-   , CreateLoadBalancer                              (..)
-   , CreateLoadBalancerResponse                      (..)
+   , CreateLoadBalancer                      (..)
 
    -- ** CreateLoadBalancerListeners
-   , CreateLoadBalancerListeners                     (..)
-   , CreateLoadBalancerListenersResponse             (..)
+   , CreateLoadBalancerListeners             (..)
 
    -- ** CreateLoadBalancerPolicy
-   , CreateLoadBalancerPolicy                        (..)
-   , CreateLoadBalancerPolicyResponse                (..)
+   , CreateLoadBalancerPolicy                (..)
 
    -- ** DeleteLoadBalancer
-   , DeleteLoadBalancer                              (..)
-   , DeleteLoadBalancerResponse                      (..)
+   , DeleteLoadBalancer                      (..)
 
    -- ** DeleteLoadBalancerListeners
-   , DeleteLoadBalancerListeners                     (..)
-   , DeleteLoadBalancerListenersResponse             (..)
+   , DeleteLoadBalancerListeners             (..)
 
    -- ** DeleteLoadBalancerPolicy
-   , DeleteLoadBalancerPolicy                        (..)
-   , DeleteLoadBalancerPolicyResponse                (..)
+   , DeleteLoadBalancerPolicy                (..)
 
    -- ** DeregisterInstancesFromLoadBalancer
-   , DeregisterInstancesFromLoadBalancer             (..)
-   , DeregisterInstancesFromLoadBalancerResponse     (..)
+   , DeregisterInstancesFromLoadBalancer     (..)
 
    -- ** DescribeInstanceHealth
-   , DescribeInstanceHealth                          (..)
-   , DescribeInstanceHealthResponse                  (..)
+   , DescribeInstanceHealth                  (..)
 
    -- ** DescribeLoadBalancerPolicies
-   , DescribeLoadBalancerPolicies                    (..)
-   , DescribeLoadBalancerPoliciesResponse            (..)
+   , DescribeLoadBalancerPolicies            (..)
 
    -- ** DescribeLoadBalancerPolicyTypes
-   , DescribeLoadBalancerPolicyTypes                 (..)
-   , DescribeLoadBalancerPolicyTypesResponse         (..)
+   , DescribeLoadBalancerPolicyTypes         (..)
 
    -- ** DescribeLoadBalancers
-   , DescribeLoadBalancers                           (..)
-   , DescribeLoadBalancersResponse                   (..)
+   , DescribeLoadBalancers                   (..)
 
    -- ** DetachLoadBalancerFromSubnets
-   , DetachLoadBalancerFromSubnets                   (..)
-   , DetachLoadBalancerFromSubnetsResponse           (..)
+   , DetachLoadBalancerFromSubnets           (..)
 
    -- ** DisableAvailabilityZonesForLoadBalancer
-   , DisableAvailabilityZonesForLoadBalancer         (..)
-   , DisableAvailabilityZonesForLoadBalancerResponse (..)
+   , DisableAvailabilityZonesForLoadBalancer (..)
 
    -- ** EnableAvailabilityZonesForLoadBalancer
-   , EnableAvailabilityZonesForLoadBalancer          (..)
-   , EnableAvailabilityZonesForLoadBalancerResponse  (..)
+   , EnableAvailabilityZonesForLoadBalancer  (..)
 
    -- ** RegisterInstancesWithLoadBalancer
-   , RegisterInstancesWithLoadBalancer               (..)
-   , RegisterInstancesWithLoadBalancerResponse       (..)
+   , RegisterInstancesWithLoadBalancer       (..)
 
    -- ** SetLoadBalancerListenerSSLCertificate
-   , SetLoadBalancerListenerSSLCertificate           (..)
-   , SetLoadBalancerListenerSSLCertificateResponse   (..)
+   , SetLoadBalancerListenerSSLCertificate   (..)
 
    -- ** SetLoadBalancerPoliciesForBackendServer
-   , SetLoadBalancerPoliciesForBackendServer         (..)
-   , SetLoadBalancerPoliciesForBackendServerResponse (..)
+   , SetLoadBalancerPoliciesForBackendServer (..)
 
    -- ** SetLoadBalancerPoliciesOfListener
-   , SetLoadBalancerPoliciesOfListener               (..)
-   , SetLoadBalancerPoliciesOfListenerResponse       (..)
+   , SetLoadBalancerPoliciesOfListener       (..)
 
    -- * Data Types
    , module Network.AWS.ELB.Types
+   , Rs                                      (..)
    ) where
 
-import Data.ByteString      (ByteString)
+import Data.ByteString       (ByteString)
 import Data.Monoid
 import Data.Time
-import Network.AWS.Internal
 import Network.AWS.ELB.Types
-import Network.Http.Client  (Method(..))
+import Network.AWS.Internal
+import Network.Http.Client   (Method(..))
 
 data ELB
 

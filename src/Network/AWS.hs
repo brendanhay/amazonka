@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE Rank2Types        #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
 
@@ -24,7 +25,7 @@ module Network.AWS
     , runAWS
     , runAWS'
     , within
-    , next
+    , paginate
     , send
     , send'
 
@@ -48,6 +49,7 @@ import           Network.AWS.Internal.Monad
 import           Network.AWS.Internal.Types
 import           Network.Http.Client
 import           OpenSSL                    (withOpenSSL)
+import           Pipes                      hiding (next)
 import qualified System.IO.Streams          as Streams
 
 data Credentials
@@ -73,8 +75,14 @@ runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
 within :: Region -> AWSContext a -> AWSContext a
 within reg = local (\e -> e { awsRegion = Just reg })
 
-next :: (Rq a, ToError (Er a)) => Rs a -> AWSContext (Maybe (Rs a))
-next = maybe (right Nothing) (fmap Just . send) . paginate
+paginate :: (Rq a, Pg a, ToError (Er a)) => a -> Producer' (Rs a) AWSContext ()
+paginate = go . Just
+  where
+    go Nothing   = return ()
+    go (Just rq) = do
+        rs <- lift $ send rq
+        yield rs
+        go $ next rq rs
 
 send :: (Rq a, ToError (Er a)) => a -> AWSContext (Rs a)
 send = (hoistEither . fmapL toError =<<) . send'

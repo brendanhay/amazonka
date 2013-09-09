@@ -46,7 +46,6 @@ data family Rs a
 class Rq a where
     request  :: a -> RawRequest
     response :: ByteString -> Either Error (Either (Er a) (Rs a))
-    paginate :: Rs a -> Maybe a
 
     default response :: (IsXML (Er a), IsXML (Rs a))
                      => ByteString
@@ -56,7 +55,8 @@ class Rq a where
         failure = const . either (Left . Error) (Right . Left) $ fromXML bstr
         success = Right . Right
 
-    paginate = const Nothing
+class Pg a where
+    next :: a -> Rs a -> Maybe a
 
 class ToError a where
     toError :: a -> Error

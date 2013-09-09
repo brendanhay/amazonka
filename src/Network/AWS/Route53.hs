@@ -2,6 +2,7 @@
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Route53
@@ -250,6 +251,16 @@ instance IsQuery ListResourceRecordSets where
 
 instance Rq ListResourceRecordSets where
     request rq = qry GET (toBS (lrrsZoneId rq) <> "/rrset") rq
+
+instance Pg ListResourceRecordSets where
+    next rq ListResourceRecordSetsResponse{..}
+        | not lrrsrIsTruncated = Nothing
+        | otherwise = Just $ ListResourceRecordSets
+            (lrrsZoneId rq)
+            lrrsrNextRecordName
+            lrrsrNextRecordType
+            lrrsrNextRecordIdentifier
+            (Just lrrsrMaxItems)
 
 type instance Er ListResourceRecordSets = ErrorResponse
 data instance Rs ListResourceRecordSets = ListResourceRecordSetsResponse

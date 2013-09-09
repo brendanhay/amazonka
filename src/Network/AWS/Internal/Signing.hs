@@ -113,7 +113,7 @@ version3 RawRequest{..} Auth{..} reg time = do
 
     fmap (SignedRequest url rqBody) . buildRequest $ do
         http rqMethod path
-        setHeaders $ ("Authorization", authorization) : rqHeaders
+        setHeaders $ ("X-Amzn-Authorization", authorization) : rqHeaders
   where
     Service{..} = rqService
 

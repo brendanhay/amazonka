@@ -76,6 +76,7 @@ library
       , io-streams
       , mtl
       , old-locale
+      , pipes                 >= 4.0
       , querystring-pickle
       , SHA
       , text

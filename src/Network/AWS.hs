@@ -26,6 +26,7 @@ module Network.AWS
     , runAWS'
     , within
     , paginate
+    , paginate'
     , send
     , send'
 
@@ -75,14 +76,21 @@ runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
 within :: Region -> AWSContext a -> AWSContext a
 within reg = local (\e -> e { awsRegion = Just reg })
 
-paginate :: (Rq a, Pg a, ToError (Er a)) => a -> Producer' (Rs a) AWSContext ()
-paginate = go . Just
+paginate :: (Rq a, Pg a, ToError (Er a))
+         => a
+         -> Producer' (Rs a) AWSContext ()
+paginate = paginate' ~> either (lift . left . toError) yield
+
+paginate' :: (Rq a, Pg a, ToError (Er a))
+          => a
+          -> Producer' (Either (Er a) (Rs a)) AWSContext ()
+paginate' = go . Just
   where
     go Nothing   = return ()
     go (Just rq) = do
-        rs <- lift $ send rq
+        rs <- lift $ send' rq
         yield rs
-        go $ next rq rs
+        either (const $ return ()) (go . next rq) rs
 
 send :: (Rq a, ToError (Er a)) => a -> AWSContext (Rs a)
 send = (hoistEither . fmapL toError =<<) . send'

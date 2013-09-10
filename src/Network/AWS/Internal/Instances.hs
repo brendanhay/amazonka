@@ -87,7 +87,7 @@ instance IsQuery UTCTime where
         u _         = Left "could not parse ISO-8601 date"
 
 instance IsXML UTCTime where
-    xmlPickler = xpContent $ XMLPU
+    xmlPickler = xpContent XMLPU
         { pickleTree   = \d ->
              BS.pack (take 23 (formatTime defaultTimeLocale "%FT%T%Q" d) ++ "Z")
         , unpickleTree = \t ->

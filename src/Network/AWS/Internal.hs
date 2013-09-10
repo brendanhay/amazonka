@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE Rank2Types        #-}
-{-# LANGUAGE RecordWildCards   #-}
 
 {-# OPTIONS_HADDOCK hide       #-}
 
@@ -18,17 +17,7 @@
 module Network.AWS.Internal
     (
     -- * Internal Modules
-      module Network.AWS.Internal.Instances
-    , module Network.AWS.Internal.Monad
-    , module Network.AWS.Internal.Signing
-    , module Network.AWS.Internal.String
-    , module Network.AWS.Internal.Types
-
-    -- * Convenience
-    , module Control.Error
-    , module GHC.Generics
-    , module Network.HTTP.QueryString.Pickle
-    , module Text.XML.Expat.Pickle.Generic
+      module Internal
 
     -- * XML Helpers
     , withNS
@@ -39,24 +28,24 @@ module Network.AWS.Internal
     , xpTextContent
     ) where
 
-import Control.Error
+import Control.Error                   as Internal
 import Data.ByteString                 (ByteString)
 import Data.Text                       (Text)
 import Data.Text.Encoding
-import GHC.Generics
-import Network.AWS.Internal.Instances
-import Network.AWS.Internal.Monad
-import Network.AWS.Internal.Signing
-import Network.AWS.Internal.String
-import Network.AWS.Internal.Types
-import Network.HTTP.QueryString.Pickle
-import Text.XML.Expat.Pickle.Generic
+import GHC.Generics                    as Internal
+import Network.AWS.Internal.Instances  as Internal
+import Network.AWS.Internal.Monad      as Internal
+import Network.AWS.Internal.Signing    as Internal
+import Network.AWS.Internal.String     as Internal
+import Network.AWS.Internal.Types      as Internal
+import Network.HTTP.QueryString.Pickle as Internal
+import Text.XML.Expat.Pickle.Generic   as Internal
 
 withNS :: ByteString -> XMLGeneric a
 withNS ns = withNS' ns $ xmlOptions ns
 
 withNS' :: ByteString -> XMLOptions -> XMLGeneric a
-withNS' ns opts = pu { root = (mkNName ns . nnLocalPart) `fmap` (root pu) }
+withNS' ns opts = pu { root = (mkNName ns . nnLocalPart) `fmap` root pu }
   where
     pu = genericXMLPickler opts
 

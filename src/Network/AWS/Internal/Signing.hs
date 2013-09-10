@@ -2,7 +2,6 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TupleSections              #-}
-{-# LANGUAGE ViewPatterns               #-}
 
 -- Module      : Network.AWS.Internal.Signing
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,6 +33,7 @@ import qualified Data.ByteString.Char8           as BS
 import qualified Data.ByteString.Lazy            as LBS
 import           Data.Char                       (intToDigit, toLower, ord)
 import qualified Data.Digest.Pure.SHA            as SHA
+import           Data.Function                   (on)
 import           Data.List
 import           Data.Monoid
 import           Data.Time                       (UTCTime)
@@ -153,7 +153,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
         hs = map (\(k,v) -> k <> ":" <> v) $ rqHeaders ++ a
         r  = BS.intercalate " " [toBS rqMethod, path, "http/1.1"]
         m  = SigningMetadata canonicalRequest (stringToSign time)
-                 (authorization time) (BS.unlines $ [r] ++ hs)
+                 (authorization time) (BS.unlines $ r : hs)
 
     when dbg $ print m
 
@@ -204,7 +204,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
 
     algorithm = "AWS4-HMAC-SHA256"
 
-    canonicalRequest = BS.intercalate "\n" $
+    canonicalRequest = BS.intercalate "\n"
         [ toBS rqMethod
         , validPath rqPath
         , query
@@ -219,13 +219,13 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
 
     canonicalHeaders = mconcat $ map f headers
       where
-        f (k, v) = mconcat $ [BS.map toLower k, ":", strip ' ' v, "\n"]
+        f (k, v) = mconcat [BS.map toLower k, ":", strip ' ' v, "\n"]
 
     signedHeaders = BS.intercalate ";" . nub $ map fst headers
 
     headers = sort
         . map f
-        . groupBy (\x y -> fst x == fst y)
+        . groupBy ((==) `on` fst)
         $ map (first (BS.map toLower)) rqHeaders
       where
         f (h:hs) = (BS.map toLower $ fst h, BS.intercalate "," . sort . map snd $ h:hs)

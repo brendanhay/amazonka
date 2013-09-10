@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateSecurityGroupResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+   <requestId>{{csgrRequestId}}</requestId>
+   <return>{{csgrReturn}}</return>
+   <groupId>{{csgrGroupId}}</groupId>
+</CreateSecurityGroupResponse>

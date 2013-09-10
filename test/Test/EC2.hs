@@ -14,9 +14,8 @@
 
 module Test.EC2 (tests) where
 
-import qualified Data.Text       as Text
-import           Network.AWS.EC2
-import           Test.Common
+import Network.AWS.EC2
+import Test.Common
 
 tests :: [Test]
 tests = (:[]) $ testVersion ec2Version
@@ -159,8 +158,8 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "ResetInstanceAttribute"             (prop :: TRq ResetInstanceAttribute)
         -- , testProperty "ResetNetworkInterfaceAttribute"     (prop :: TRq ResetNetworkInterfaceAttribute)
         -- , testProperty "ResetSnapshotAttribute"             (prop :: TRq ResetSnapshotAttribute)
-        -- , testProperty "RevokeSecurityGroupEgress"          (prop :: TRq RevokeSecurityGroupEgress)
-        -- , testProperty "RevokeSecurityGroupIngress"         (prop :: TRq RevokeSecurityGroupIngress)
+        , testProperty "RevokeSecurityGroupEgress"          (prop :: TRq RevokeSecurityGroupEgress)
+        , testProperty "RevokeSecurityGroupIngress"         (prop :: TRq RevokeSecurityGroupIngress)
         -- , testProperty "RunInstances"                       (prop :: TRq RunInstances)
         -- , testProperty "StartInstances"                     (prop :: TRq StartInstances)
         -- , testProperty "StopInstances"                      (prop :: TRq StopInstances)
@@ -308,8 +307,8 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "ResetInstanceAttributeResponse"             (prop :: TRs ResetInstanceAttributeResponse)
         -- , testProperty "ResetNetworkInterfaceAttributeResponse"     (prop :: TRs ResetNetworkInterfaceAttributeResponse)
         -- , testProperty "ResetSnapshotAttributeResponse"             (prop :: TRs ResetSnapshotAttributeResponse)
-        -- , testProperty "RevokeSecurityGroupEgressResponse"          (prop :: TRs RevokeSecurityGroupEgressResponse)
-        -- , testProperty "RevokeSecurityGroupIngressResponse"         (prop :: TRs RevokeSecurityGroupIngressResponse)
+        , testProperty "RevokeSecurityGroupEgressResponse"          (prop :: TRs RevokeSecurityGroupEgressResponse)
+        , testProperty "RevokeSecurityGroupIngressResponse"         (prop :: TRs RevokeSecurityGroupIngressResponse)
         -- , testProperty "RunInstancesResponse"                       (prop :: TRs RunInstancesResponse)
         -- , testProperty "StartInstancesResponse"                     (prop :: TRs StartInstancesResponse)
         -- , testProperty "StopInstancesResponse"                      (prop :: TRs StopInstancesResponse)
@@ -320,16 +319,16 @@ tests = (:[]) $ testVersion ec2Version
     ]
 
 instance ToJSON AddressDomain where
-    toJSON = stringify . show
+    toJSON = stringify
 
 instance ToJSON VolumeStatus where
-    toJSON = stringify . show
+    toJSON = stringify
 
 instance ToJSON BundleInstanceState where
-    toJSON = stringify . show
+    toJSON = stringify
 
 instance ToJSON TagResourceType where
-    toJSON = stringify . show
+    toJSON = stringify
 
 $(deriveArbitrary
    [ ''AddressDomain
@@ -371,6 +370,7 @@ $(deriveDependency
     , ''TagFilter
     , ''TagSetItemType
     , ''UserIdGroupPair
+    , ''SecurityGroupItemType
     ])
 
 $(deriveProperty "test/resources/EC2"
@@ -650,10 +650,10 @@ $(deriveProperty "test/resources/EC2"
     -- , ''ResetNetworkInterfaceAttributeResponse
     -- , ''ResetSnapshotAttribute
     -- , ''ResetSnapshotAttributeResponse
-    -- , ''RevokeSecurityGroupEgress
-    -- , ''RevokeSecurityGroupEgressResponse
-    -- , ''RevokeSecurityGroupIngress
-    -- , ''RevokeSecurityGroupIngressResponse
+    , ''RevokeSecurityGroupEgress
+    , ''RevokeSecurityGroupEgressResponse
+    , ''RevokeSecurityGroupIngress
+    , ''RevokeSecurityGroupIngressResponse
     -- , ''RunInstances
     -- , ''RunInstancesResponse
     -- , ''StartInstances

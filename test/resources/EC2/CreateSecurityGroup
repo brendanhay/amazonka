@@ -1,0 +1,7 @@
+GET /
+Action=CreateSecurityGroup
+GroupDescription={{csgGroupDescription}}
+GroupName={{csgGroupName}}
+{{#csgVpcId}}
+VpcId={{csgVpcId}}
+{{/csgVpcId}}

@@ -1,0 +1,14 @@
+GET /
+Action=DescribeSecurityGroups
+{{#dshGroupName}}
+GroupName.{{n}}={{.}}
+{{/dshGroupName}}
+{{#dshGroupId}}
+GroupId.{{n}}={{.}}
+{{/dshGroupId}}
+{{#dshFilter}}
+Filter.{{n}}.Name={{filterName}}
+{{#filterValue}}
+Filter.{{n}}.Value.{{o}}={{.}}
+{{/filterValue}}
+{{/dshFilter}}

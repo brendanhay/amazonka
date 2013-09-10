@@ -34,8 +34,7 @@ instance IsQuery a => IsQuery [a] where
     queryPickler = qpOrdinalList queryPickler
 
 instance IsQuery a => IsQuery (Items a) where
-    queryPickler = qpWrap (Items, items)
-        (qpElem "item" $ qpOrdinalList queryPickler)
+    queryPickler = (Items, items) `qpWrap` qpOrdinalList queryPickler
 
 instance IsXML a => IsXML (Items a) where
     xmlPickler = xpWrap (Items, items) $ xpElemList (name "item") pu

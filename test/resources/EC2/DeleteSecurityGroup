@@ -1,0 +1,8 @@
+GET /
+Action=DeleteSecurityGroup
+{{#dsgGroupId}}
+GroupId={{dsgGroupId}}
+{{/dsgGroupId}}
+{{#dsgGroupName}}
+GroupName={{dsgGroupName}}
+{{/dsgGroupName}}

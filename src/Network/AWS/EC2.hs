@@ -455,11 +455,13 @@ module Network.AWS.EC2
    -- -- ** ResetSnapshotAttribute
    -- , ResetSnapshotAttribute              (..)
 
-   -- -- ** RevokeSecurityGroupEgress
-   -- , RevokeSecurityGroupEgress           (..)
+   -- ** RevokeSecurityGroupEgress
+   , RevokeSecurityGroupEgress           (..)
+   , RevokeSecurityGroupEgressResponse   (..)
 
-   -- -- ** RevokeSecurityGroupIngress
-   -- , RevokeSecurityGroupIngress          (..)
+   -- ** RevokeSecurityGroupIngress
+   , RevokeSecurityGroupIngress          (..)
+   , RevokeSecurityGroupIngressResponse  (..)
 
    -- -- ** RunInstances
    -- , RunInstances                        (..)
@@ -1656,19 +1658,16 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- instance IsXML CreateRouteTableResponse where
 --     xmlPickler = ec2XML
 
--- | Creates a security group.A security group is for use with instances either
--- in the EC2-Classic platform or in a specific VPC.When you create a security group, you specify a friendly name of your
+-- | Creates a security group.
+--
+-- A security group is for use with instances either in the EC2-Classic platform
+-- or in a specific VPC.
+--
+-- When you create a security group, you specify a friendly name of your
 -- choice. You can have a security group for use in EC2-Classic with the same
 -- name as a security group for use in a VPC. However, you can't have two
 -- security groups for use in EC2-Classic with the same name or two security
--- groups for use in a VPC with the same name. You have a default security
--- group for use in EC2-Classic and a default security group for use in your
--- VPC. If you don't specify a security group when you launch an instance, the
--- instance is launched into the appropriate default security group. A default
--- security group includes a default rule that grants instances unrestricted
--- network access to each other.You can add or remove rules from your security
--- groups using AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress,
--- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
+-- groups for use in a VPC with the same name.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html>
 data CreateSecurityGroup = CreateSecurityGroup
@@ -1688,12 +1687,11 @@ instance Rq CreateSecurityGroup where
     request = qry GET "CreateSecurityGroup"
 
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse
-    { csgRequestId :: !Text
+    { csgrRequestId :: !Text
       -- ^ The ID of the request.
-    , csgReturn    :: !Bool
-      -- ^ Returns true if the request succeeds. Otherwise, returns an
-      -- error.
-    , csgGroupId   :: !Text
+    , csgrReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an error.
+    , csgrGroupId   :: !Text
       -- ^ The ID of the new security group.
     } deriving (Eq, Show, Generic)
 
@@ -2364,9 +2362,9 @@ instance IsXML CreateSecurityGroupResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html>
 data DeleteSecurityGroup = DeleteSecurityGroup
-    { dsgGroupName :: !Text
+    { dsgGroupName :: Maybe Text
       -- ^ The name of the security group.
-    , dsgGroupId   :: !Text
+    , dsgGroupId   :: Maybe Text
       -- ^ The ID of the security group.
     } deriving (Eq, Show, Generic)
 
@@ -2378,9 +2376,9 @@ instance Rq DeleteSecurityGroup where
     request = qry GET "DeleteSecurityGroup"
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
-    { dsgRequestId :: !Text
+    { dsgrRequestId :: !Text
       -- ^ The ID of the request.
-    , dsgReturn    :: !Bool
+    , dsgrReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an
       -- error.
     } deriving (Eq, Show, Generic)
@@ -4055,9 +4053,9 @@ instance Rq DescribeSecurityGroups where
     request = qry GET "DescribeSecurityGroups"
 
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
-    { dshRequestId         :: !Text
+    { dshrRequestId         :: !Text
       -- ^ The ID of the request.
-    , dshSecurityGroupInfo :: Items SecurityGroupItemType
+    , dshrSecurityGroupInfo :: Items SecurityGroupItemType
       -- ^ A list of security groups.
     } deriving (Eq, Show, Generic)
 
@@ -6119,85 +6117,71 @@ instance IsXML DescribeTagsResponse where
 -- instance IsXML ResetSnapshotAttributeResponse where
 --     xmlPickler = ec2XML
 
--- -- | Removes one or more egress rules from a security group for EC2-VPC. The
--- -- values that you specify in the revoke request (for example, ports) must
--- -- match the existing rule's values for the rule to be revoked.Each rule
--- -- consists of the protocol and the CIDR range or destination security group.
--- -- For the TCP and UDP protocols, you must also specify the destination port
--- -- or range of ports. For the ICMP protocol, you must also specify the ICMP
--- -- type and code. Rule changes are propagated to instances within the security
--- -- group as quickly as possible. However, a small delay might occur. For more
--- -- information, see Security Groups in the Amazon Virtual Private Cloud User
--- -- Guide.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupEgress.html>
+-- | Removes one or more egress rules from a security group for EC2-VPC.
+--
+-- The values that you specify in the revoke request (for example, ports) must
+-- match the existing rule's values for the rule to be revoked.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupEgress.html>
+data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
+    { rsgeGroupId       :: !Text
+      -- ^ The ID of the security group to modify.
+    , rsgeIpPermissions :: [IpPermission]
+      -- ^ The IP protocol name or number (see Protocol Numbers).
+    } deriving (Eq, Show, Generic)
 
--- data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
---     { rsgeGroupId       :: !Text
---       -- ^ The ID of the security group to modify.
---     , rsgeIpPermissions :: Members IpPermissionType
---       -- ^ The IP protocol name or number (see Protocol Numbers).
---     } deriving (Eq, Show, Generic)
+instance IsQuery RevokeSecurityGroupEgress
 
--- instance IsQuery RevokeSecurityGroupEgress
+instance Rq RevokeSecurityGroupEgress where
+    type Er RevokeSecurityGroupEgress = EC2ErrorResponse
+    type Rs RevokeSecurityGroupEgress = RevokeSecurityGroupEgressResponse
+    request = qry GET "RevokeSecurityGroupEgress"
 
--- instance AWSRequest EC2 RevokeSecurityGroupEgress RevokeSecurityGroupEgressResponse where
---     request = qry GET "RevokeSecurityGroupEgress"
+data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
+    { rsgerRequestId :: !Text
+      -- ^ The ID of the request.
+    , rsgerReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an error.
+    } deriving (Eq, Show, Generic)
 
--- data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
---     { rsgeRequestId :: !Text
---       -- ^ The ID of the request.
---     , rsgeReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
+instance IsXML RevokeSecurityGroupEgressResponse where
+    xmlPickler = ec2XML
 
--- instance IsXML RevokeSecurityGroupEgressResponse where
---     xmlPickler = ec2XML
+-- | Removes one or more ingress rules from a security group.
+--
+-- The values that you specify in the revoke request (for example, ports) must
+-- match the existing rule's values for the rule to be removed.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupIngress.html>
+data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
+    { rsgiGroupId       :: !Text
+      -- ^ The ID of the security group to modify. The security group must
+      -- belong to your account.
+    , rsgiGroupName     :: !Text
+      -- ^ The name of the security group to modify.
+    , rsgiIpPermissions :: [IpPermission]
+      -- ^ The IP protocol name or number (see Protocol Numbers). For
+      -- EC2-Classic, security groups can have rules only for TCP, UDP,
+      -- and ICMP. For EC2-VPC, security groups can have rules assigned to
+      -- any protocol number.
+    } deriving (Eq, Show, Generic)
 
--- -- | Removes one or more ingress rules from a security group. The values that
--- -- you specify in the revoke request (for example, ports) must match the
--- -- existing rule's values for the rule to be removed.A security group is for
--- -- use with instances either in the EC2-Classic platform or in a specific VPC.
--- --Each rule consists of the protocol and the
--- -- CIDR range or source security group. For the TCP and UDP protocols, you
--- -- must also specify the destination port or range of ports. For the ICMP
--- -- protocol, you must also specify the ICMP type and code. Rule changes are
--- -- propagated to instances within the security group as quickly as possible.
--- -- However, depending on the number of instances, a small delay might occur.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupIngress.html>
+instance IsQuery RevokeSecurityGroupIngress
 
--- data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
---     { rsgiUserId        :: Maybe Text
---       -- ^ Deprecated
---     , rsgiGroupId       :: !Text
---       -- ^ The ID of the security group to modify. The security group must
---       -- belong to your account.
---     , rsgiGroupName     :: !Text
---       -- ^ The name of the security group to modify.
---     , rsgiIpPermissions :: Members IpPermissionType
---       -- ^ The IP protocol name or number (see Protocol Numbers). For
---       -- EC2-Classic, security groups can have rules only for TCP, UDP,
---       -- and ICMP. For EC2-VPC, security groups can have rules assigned to
---       -- any protocol number.
---     } deriving (Eq, Show, Generic)
+instance Rq RevokeSecurityGroupIngress where
+    type Er RevokeSecurityGroupIngress = EC2ErrorResponse
+    type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse
+    request = qry GET "RevokeSecurityGroupIngress"
 
--- instance IsQuery RevokeSecurityGroupIngress
+data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
+    { rsgirRequestId :: !Text
+      -- ^ The ID of the request.
+    , rsgirReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an error.
+    } deriving (Eq, Show, Generic)
 
--- instance AWSRequest EC2 RevokeSecurityGroupIngress RevokeSecurityGroupIngressResponse where
---     request = qry GET "RevokeSecurityGroupIngress"
-
--- data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
---     { rsgiRequestId :: !Text
---       -- ^ The ID of the request.
---     , rsgiReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML RevokeSecurityGroupIngressResponse where
---     xmlPickler = ec2XML
+instance IsXML RevokeSecurityGroupIngressResponse where
+    xmlPickler = ec2XML
 
 -- -- | Launches the specified number of instances of an AMI for which you have
 -- -- permissions.When you launch an instance, it enters the pending state. After

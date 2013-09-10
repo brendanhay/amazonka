@@ -20,43 +20,53 @@ module Network.AWS.Route53
     (
     -- * Actions on Hosted Zones
     -- ** POST CreateHostedZone
-      CreateHostedZone         (..)
+      CreateHostedZone                 (..)
+    , CreateHostedZoneResponse         (..)
 
     -- ** GET GetHostedZone
-    , GetHostedZone            (..)
+    , GetHostedZone                    (..)
+    , GetHostedZoneResponse            (..)
 
     -- ** GET ListHostedZones
-    , ListHostedZones          (..)
+    , ListHostedZones                  (..)
+    , ListHostedZonesResponse          (..)
 
     -- ** DELETE DeleteHostedZone
-    , DeleteHostedZone         (..)
+    , DeleteHostedZone                 (..)
+    , DeleteHostedZoneResponse         (..)
 
     -- * Actions on Record Sets
     -- ** POST ChangeResourceRecordSets
-    , ChangeResourceRecordSets (..)
+    , ChangeResourceRecordSets         (..)
+    , ChangeResourceRecordSetsResponse (..)
 
     -- ** GET ListResourceRecordSets
-    , ListResourceRecordSets   (..)
+    , ListResourceRecordSets           (..)
+    , ListResourceRecordSetsResponse   (..)
 
     -- ** GET GetChange
-    , GetChange                (..)
+    , GetChange                        (..)
+    , GetChangeResponse                (..)
 
     -- * Actions on Health Checks
     -- ** POST CreateHealthCheck
-    , CreateHealthCheck        (..)
+    , CreateHealthCheck                (..)
+    , CreateHealthCheckResponse        (..)
 
     -- ** GET GetHealthCheck
-    , GetHealthCheck           (..)
+    , GetHealthCheck                   (..)
+    , GetHealthCheckResponse           (..)
 
      -- ** GET ListHealthChecks
-    , ListHealthChecks         (..)
+    , ListHealthChecks                 (..)
+    , ListHealthChecksResponse         (..)
 
     -- ** DELETE DeleteHealthCheck
-    , DeleteHealthCheck        (..)
+    , DeleteHealthCheck                (..)
+    , DeleteHealthCheckResponse        (..)
 
     -- * Data Types
     , module Network.AWS.Route53.Types
-    , Rs                       (..)
     ) where
 
 import Data.ByteString           (ByteString)
@@ -95,10 +105,11 @@ instance IsXML CreateHostedZone where
     xmlPickler = withRootNS route53NS "CreateHostedZoneRequest"
 
 instance Rq CreateHostedZone where
+    type Er CreateHostedZone = ErrorResponse
+    type Rs CreateHostedZone = CreateHostedZoneResponse
     request = xml POST "hostedzone"
 
-type instance Er CreateHostedZone = ErrorResponse
-data instance Rs CreateHostedZone = CreateHostedZoneResponse
+data CreateHostedZoneResponse = CreateHostedZoneResponse
     { chzrHostedZone    :: !HostedZone
       -- ^ Information about the hosted zone.
     , chzrChangeInfo    :: !ChangeInfo
@@ -107,7 +118,7 @@ data instance Rs CreateHostedZone = CreateHostedZoneResponse
       -- ^ The name servers for this hosted zone.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs CreateHostedZone) where
+instance IsXML CreateHostedZoneResponse where
     xmlPickler = withNS route53NS
 
 -- | Gets information about a specified hosted zone.
@@ -119,17 +130,18 @@ newtype GetHostedZone = GetHostedZone
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance Rq GetHostedZone where
+    type Er GetHostedZone = ErrorResponse
+    type Rs GetHostedZone = GetHostedZoneResponse
     request chk = qry GET (toBS chk) ()
 
-type instance Er GetHostedZone = ErrorResponse
-data instance Rs GetHostedZone = GetHostedZoneResponse
+data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostedZone    :: !HostedZone
       -- ^ Information about the hosted zone.
     , ghzrDelegationSet :: !DelegationSet
       -- ^ The name servers for this hosted zone.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs GetHostedZone) where
+instance IsXML GetHostedZoneResponse where
     xmlPickler = withNS route53NS
 
 -- | Gets a list of the hosted zones that are associated with the
@@ -149,10 +161,16 @@ instance IsQuery ListHostedZones where
     queryPickler = genericQueryPickler loweredQueryOptions
 
 instance Rq ListHostedZones where
+    type Er ListHostedZones = ErrorResponse
+    type Rs ListHostedZones = ListHostedZonesResponse
     request = qry GET "hostedzone"
 
-type instance Er ListHostedZones = ErrorResponse
-data instance Rs ListHostedZones = ListHostedZonesResponse
+instance Pg ListHostedZones where
+    next _ ListHostedZonesResponse{..}
+        | not lhzrIsTruncated = Nothing
+        | otherwise = Just $ ListHostedZones lhzrNextMarker (Just lhzrMaxItems)
+
+data ListHostedZonesResponse = ListHostedZonesResponse
     { lhzrHostedZones :: [HostedZone]
       -- ^ A list of hosted zone descriptions.
     , lhzrIsTruncated :: !Bool
@@ -166,7 +184,7 @@ data instance Rs ListHostedZones = ListHostedZonesResponse
       -- ^ Value of maxitems in the previous request.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs ListHostedZones) where
+instance IsXML ListHostedZonesResponse where
     xmlPickler = withNS route53NS
 
 -- | Deletes a hosted zone.
@@ -178,15 +196,16 @@ newtype DeleteHostedZone = DeleteHostedZone
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance Rq DeleteHostedZone where
+    type Er DeleteHostedZone = ErrorResponse
+    type Rs DeleteHostedZone = DeleteHostedZoneResponse
     request chk = qry DELETE (toBS chk) ()
 
-type instance Er DeleteHostedZone = ErrorResponse
-data instance Rs DeleteHostedZone = DeleteHostedZoneResponse
+data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
       -- ^ Information about the changes being made to the hosted zone.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs DeleteHostedZone) where
+instance IsXML DeleteHostedZoneResponse where
     xmlPickler = withNS route53NS
 
 --
@@ -211,14 +230,15 @@ instance IsXML ChangeResourceRecordSets where
             }
 
 instance Rq ChangeResourceRecordSets where
+    type Er ChangeResourceRecordSets = ErrorResponse
+    type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
     request rq = xml POST (toBS (crrsZoneId rq) <> "/rrset") rq
 
-type instance Er ChangeResourceRecordSets = ErrorResponse
-data instance Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
+data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs ChangeResourceRecordSets) where
+instance IsXML ChangeResourceRecordSetsResponse where
     xmlPickler = withNS route53NS
 
 -- | Lists details about all of the resource record sets in a hosted zone.
@@ -250,6 +270,8 @@ instance IsQuery ListResourceRecordSets where
     queryPickler = genericQueryPickler loweredQueryOptions
 
 instance Rq ListResourceRecordSets where
+    type Er ListResourceRecordSets = ErrorResponse
+    type Rs ListResourceRecordSets = ListResourceRecordSetsResponse
     request rq = qry GET (toBS (lrrsZoneId rq) <> "/rrset") rq
 
 instance Pg ListResourceRecordSets where
@@ -262,8 +284,7 @@ instance Pg ListResourceRecordSets where
             lrrsrNextRecordIdentifier
             (Just lrrsrMaxItems)
 
-type instance Er ListResourceRecordSets = ErrorResponse
-data instance Rs ListResourceRecordSets = ListResourceRecordSetsResponse
+data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { lrrsrResourceRecordSets   :: [ResourceRecordSet]
       -- ^ A list of resource record sets.
     , lrrsrIsTruncated          :: !Bool
@@ -283,7 +304,7 @@ data instance Rs ListResourceRecordSets = ListResourceRecordSetsResponse
       -- record sets.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs ListResourceRecordSets) where
+instance IsXML ListResourceRecordSetsResponse where
     xmlPickler = withNS route53NS
 
 -- | Returns the current status of a change batch request that you
@@ -298,15 +319,16 @@ newtype GetChange = GetChange
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance Rq GetChange where
+    type Er GetChange = ErrorResponse
+    type Rs GetChange = GetChangeResponse
     request chk = qry GET (toBS chk) ()
 
-type instance Er GetChange = ErrorResponse
-data instance Rs GetChange = GetChangeResponse
+data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
       -- ^ A description of the changes being made to the hosted zone.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs GetChange) where
+instance IsXML GetChangeResponse where
     xmlPickler = withNS route53NS
 
 --
@@ -330,15 +352,16 @@ instance IsXML CreateHealthCheck where
     xmlPickler = withRootNS route53NS "CreateHealthCheckRequest"
 
 instance Rq CreateHealthCheck where
+    type Er CreateHealthCheck = ErrorResponse
+    type Rs CreateHealthCheck = CreateHealthCheckResponse
     request = xml POST "healthcheck"
 
-type instance Er CreateHealthCheck = ErrorResponse
-data instance Rs CreateHealthCheck = CreateHealthCheckResponse
+data CreateHealthCheckResponse = CreateHealthCheckResponse
     { chcrHealthCheck :: !HealthCheck
       -- ^ Information about the created health check.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs CreateHealthCheck) where
+instance IsXML CreateHealthCheckResponse where
     xmlPickler = withNS route53NS
 
 -- | Gets information about a specified health check.
@@ -352,15 +375,16 @@ newtype GetHealthCheck = GetHealthCheck
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance Rq GetHealthCheck where
-    request chk = qry GET ("healthcheck/" <> toBS chk) ()
+    type Er GetHealthCheck = ErrorResponse
+    type Rs GetHealthCheck = GetHealthCheckResponse
+    request chk = qry GET (toBS chk) ()
 
-type instance Er GetHealthCheck = ErrorResponse
-data instance Rs GetHealthCheck = GetHealthCheckResponse
+data GetHealthCheckResponse = GetHealthCheckResponse
     { ghcrHealthCheck :: !HealthCheck
       -- ^ Information about a health check.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs GetHealthCheck) where
+instance IsXML GetHealthCheckResponse where
     xmlPickler = withNS route53NS
 
 -- | Gets a list of the health checks that are associated
@@ -384,10 +408,11 @@ instance IsQuery ListHealthChecks where
     queryPickler = genericQueryPickler loweredQueryOptions
 
 instance Rq ListHealthChecks where
+    type Er ListHealthChecks = ErrorResponse
+    type Rs ListHealthChecks = ListHealthChecksResponse
     request = qry GET "healthcheck"
 
-type instance Er ListHealthChecks = ErrorResponse
-data instance Rs ListHealthChecks = ListHealthChecksResponse
+data ListHealthChecksResponse = ListHealthChecksResponse
     { lhcrHealthChecks :: [HealthCheck]
       -- ^ A list of health check descriptions.
     , lhcrIsTruncated :: !Bool
@@ -401,7 +426,7 @@ data instance Rs ListHealthChecks = ListHealthChecksResponse
       -- ^ Value of maxitems in the previous request.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs ListHealthChecks) where
+instance IsXML ListHealthChecksResponse where
     xmlPickler = withNS route53NS
 
 -- | Deletes a health check.
@@ -420,11 +445,12 @@ newtype DeleteHealthCheck = DeleteHealthCheck
     } deriving (Eq, Show, IsString, IsByteString)
 
 instance Rq DeleteHealthCheck where
+    type Er DeleteHealthCheck = ErrorResponse
+    type Rs DeleteHealthCheck = DeleteHealthCheckResponse
     request chk = qry DELETE (toBS chk) ()
 
-type instance Er DeleteHealthCheck = ErrorResponse
-data instance Rs DeleteHealthCheck = DeleteHealthCheckResponse
+data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Read, Show, Generic)
 
-instance IsXML (Rs DeleteHealthCheck) where
-    xmlPickler = xpEmpty $ Just route53NS
+instance IsXML DeleteHealthCheckResponse where
+    xmlPickler = xpConst route53NS DeleteHealthCheckResponse

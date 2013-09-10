@@ -14,8 +14,11 @@
 
 module Test.TH
     (
+    -- * Locating Test Templats
+      Template (..)
+
     -- * Specific Derivations
-      deriveDependency
+    , deriveDependency
     , deriveProperty
 
     -- * Individual Derivations
@@ -25,12 +28,14 @@ module Test.TH
     ) where
 
 import           Control.Monad
-import qualified Data.Aeson.TH         as Aeson
-import qualified Data.ByteString.Char8 as BS
-import qualified Data.DeriveTH         as Derive
+import qualified Data.Aeson.TH        as Aeson
+import qualified Data.DeriveTH        as Derive
 import           Language.Haskell.TH
 import           Network.AWS.Internal
 import           System.Directory
+
+class Template a where
+    template :: a -> FilePath
 
 deriveDependency :: [Name] -> Q [Dec]
 deriveDependency names = liftM concat $ mapM ($ names)
@@ -55,13 +60,9 @@ deriveTemplate :: FilePath -> [Name] -> Q [Dec]
 deriveTemplate dir = liftM concat . mapM derive
   where
     derive name =
-        [d|instance Template $(conT name) where
-              readTemplate _ = $(template >>= embed)|]
+        [d|instance Template $(conT name) where template _ = $(path)|]
       where
-        template = runIO $ fullPath `fmap` getCurrentDirectory >>= BS.readFile
-
-        fullPath = (++ concat ["/", dropPrefix "/" dir, "/", nameBase name])
-
-        embed bstr = do
-            pack <- [| BS.pack |]
-            return $! AppE pack $! LitE $! StringL $! BS.unpack bstr
+        path = runIO $ do
+            d <- getCurrentDirectory
+            return $! LitE $! StringL $!
+               d ++ "/" ++ dropPrefix "/" dir ++ "/" ++ nameBase name

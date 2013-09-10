@@ -20,446 +20,467 @@ module Network.AWS.EC2
    (
    -- * Actions
    -- ** AllocateAddress
-     AllocateAddress                       (..)
+     AllocateAddress                        (..)
+   , AllocateAddressResponse                (..)
 
    -- ** AssignPrivateIpAddresses
-   , AssignPrivateIpAddresses              (..)
+   , AssignPrivateIpAddresses               (..)
+   , AssignPrivateIpAddressesResponse       (..)
 
    -- ** AssociateAddress
-   , AssociateAddress                      (..)
+   , AssociateAddress                       (..)
+   , AssociateAddressResponse               (..)
 
    -- ** AssociateDhcpOptions
-   , AssociateDhcpOptions                  (..)
+   , AssociateDhcpOptions                   (..)
+   , AssociateDhcpOptionsResponse           (..)
 
    -- ** AssociateRouteTable
-   , AssociateRouteTable                   (..)
+   , AssociateRouteTable                    (..)
+   , AssociateRouteTableResponse            (..)
 
    -- ** AttachInternetGateway
-   , AttachInternetGateway                 (..)
+   , AttachInternetGateway                  (..)
+   , AttachInternetGatewayResponse          (..)
 
    -- ** AttachNetworkInterface
-   , AttachNetworkInterface                (..)
+   , AttachNetworkInterface                 (..)
+   , AttachNetworkInterfaceResponse         (..)
 
    -- ** AttachVolume
-   , AttachVolume                          (..)
+   , AttachVolume                           (..)
+   , AttachVolumeResponse                   (..)
 
    -- ** AttachVpnGateway
-   , AttachVpnGateway                      (..)
+   , AttachVpnGateway                       (..)
+   , AttachVpnGatewayResponse               (..)
 
    -- ** AuthorizeSecurityGroupEgress
-   , AuthorizeSecurityGroupEgress          (..)
+   , AuthorizeSecurityGroupEgress           (..)
+   , AuthorizeSecurityGroupEgressResponse   (..)
 
    -- ** AuthorizeSecurityGroupIngress
-   , AuthorizeSecurityGroupIngress         (..)
+   , AuthorizeSecurityGroupIngress          (..)
+   , AuthorizeSecurityGroupIngressResponse  (..)
 
    -- ** BundleInstance
-   , BundleInstance                        (..)
+   , BundleInstance                         (..)
+   , BundleInstanceResponse                 (..)
 
    -- ** CancelBundleTask
-   , CancelBundleTask                      (..)
+   , CancelBundleTask                       (..)
+   , CancelBundleTaskResponse               (..)
 
    -- ** CancelConversionTask
-   , CancelConversionTask                  (..)
+   , CancelConversionTask                   (..)
+   , CancelConversionTaskResponse           (..)
 
    -- ** CancelExportTask
-   , CancelExportTask                      (..)
+   , CancelExportTask                       (..)
+   , CancelExportTaskResponse               (..)
 
    -- ** CancelReservedInstancesListing
-   , CancelReservedInstancesListing        (..)
+   , CancelReservedInstancesListing         (..)
+   , CancelReservedInstancesListingResponse (..)
 
    -- ** CancelSpotInstanceRequests
-   , CancelSpotInstanceRequests            (..)
+   , CancelSpotInstanceRequests             (..)
+   , CancelSpotInstanceRequestsResponse     (..)
 
    -- -- ** ConfirmProductInstance
-   -- , ConfirmProductInstance             (..)
-   --
+   -- , ConfirmProductInstance              (..)
+
    -- -- ** CopyImage
-   -- , CopyImage                          (..)
-   --
+   -- , CopyImage                           (..)
+
    -- -- ** CopySnapshot
-   -- , CopySnapshot                       (..)
-   --
+   -- , CopySnapshot                        (..)
+
    -- -- ** CreateCustomerGateway
-   -- , CreateCustomerGateway              (..)
-   --
+   -- , CreateCustomerGateway               (..)
+
    -- -- ** CreateDhcpOptions
-   -- , CreateDhcpOptions                  (..)
-   --
+   -- , CreateDhcpOptions                   (..)
+
    -- -- ** CreateImage
-   -- , CreateImage                        (..)
-   --
+   -- , CreateImage                         (..)
+
    -- -- ** CreateInstanceExportTask
-   -- , CreateInstanceExportTask           (..)
-   --
+   -- , CreateInstanceExportTask            (..)
+
    -- -- ** CreateInternetGateway
-   -- , CreateInternetGateway              (..)
-   --
+   -- , CreateInternetGateway               (..)
+
    -- -- ** CreateKeyPair
-   -- , CreateKeyPair                      (..)
-   --
+   -- , CreateKeyPair                       (..)
+
    -- -- ** CreateNetworkAcl
-   -- , CreateNetworkAcl                   (..)
-   --
+   -- , CreateNetworkAcl                    (..)
+
    -- -- ** CreateNetworkAclEntry
-   -- , CreateNetworkAclEntry              (..)
-   --
+   -- , CreateNetworkAclEntry               (..)
+
    -- -- ** CreateNetworkInterface
-   -- , CreateNetworkInterface             (..)
-   --
+   -- , CreateNetworkInterface              (..)
+
    -- -- ** CreatePlacementGroup
-   -- , CreatePlacementGroup               (..)
-   --
+   -- , CreatePlacementGroup                (..)
+
    -- -- ** CreateReservedInstancesListing
-   -- , CreateReservedInstancesListing     (..)
-   --
+   -- , CreateReservedInstancesListing      (..)
+
    -- -- ** CreateRoute
-   -- , CreateRoute                        (..)
-   --
+   -- , CreateRoute                         (..)
+
    -- -- ** CreateRouteTable
-   -- , CreateRouteTable                   (..)
-   --
-   -- -- ** CreateSecurityGroup
-   -- , CreateSecurityGroup                (..)
-   --
+   -- , CreateRouteTable                    (..)
+
+   -- ** CreateSecurityGroup
+   , CreateSecurityGroup                    (..)
+   , CreateSecurityGroupResponse            (..)
+
    -- -- ** CreateSnapshot
-   -- , CreateSnapshot                     (..)
-   --
+   -- , CreateSnapshot                      (..)
+
    -- -- ** CreateSpotDatafeedSubscription
-   -- , CreateSpotDatafeedSubscription     (..)
-   --
+   -- , CreateSpotDatafeedSubscription      (..)
+
    -- -- ** CreateSubnet
-   -- , CreateSubnet                       (..)
-   --
+   -- , CreateSubnet                        (..)
+
    -- -- ** CreateTags
-   -- , CreateTags                         (..)
-   --
+   -- , CreateTags                          (..)
+
    -- -- ** CreateVolume
-   -- , CreateVolume                       (..)
-   --
+   -- , CreateVolume                        (..)
+
    -- -- ** CreateVpc
-   -- , CreateVpc                          (..)
-   --
+   -- , CreateVpc                           (..)
+
    -- -- ** CreateVpnConnection
-   -- , CreateVpnConnection                (..)
-   --
+   -- , CreateVpnConnection                 (..)
+
    -- -- ** CreateVpnConnectionRoute
-   -- , CreateVpnConnectionRoute           (..)
-   --
+   -- , CreateVpnConnectionRoute            (..)
+
    -- -- ** CreateVpnGateway
-   -- , CreateVpnGateway                   (..)
-   --
+   -- , CreateVpnGateway                    (..)
+
    -- -- ** DeleteCustomerGateway
-   -- , DeleteCustomerGateway              (..)
-   --
+   -- , DeleteCustomerGateway               (..)
+
    -- -- ** DeleteDhcpOptions
-   -- , DeleteDhcpOptions                  (..)
-   --
+   -- , DeleteDhcpOptions                   (..)
+
    -- -- ** DeleteInternetGateway
-   -- , DeleteInternetGateway              (..)
-   --
+   -- , DeleteInternetGateway               (..)
+
    -- -- ** DeleteKeyPair
-   -- , DeleteKeyPair                      (..)
-   --
+   -- , DeleteKeyPair                       (..)
+
    -- -- ** DeleteNetworkAcl
-   -- , DeleteNetworkAcl                   (..)
-   --
+   -- , DeleteNetworkAcl                    (..)
+
    -- -- ** DeleteNetworkAclEntry
-   -- , DeleteNetworkAclEntry              (..)
-   --
+   -- , DeleteNetworkAclEntry               (..)
+
    -- -- ** DeleteNetworkInterface
-   -- , DeleteNetworkInterface             (..)
-   --
+   -- , DeleteNetworkInterface              (..)
+
    -- -- ** DeletePlacementGroup
-   -- , DeletePlacementGroup               (..)
-   --
+   -- , DeletePlacementGroup                (..)
+
    -- -- ** DeleteRoute
-   -- , DeleteRoute                        (..)
-   --
+   -- , DeleteRoute                         (..)
+
    -- -- ** DeleteRouteTable
-   -- , DeleteRouteTable                   (..)
-   --
-   -- -- ** DeleteSecurityGroup
-   -- , DeleteSecurityGroup                (..)
-   --
+   -- , DeleteRouteTable                    (..)
+
+   -- ** DeleteSecurityGroup
+   , DeleteSecurityGroup                    (..)
+   , DeleteSecurityGroupResponse            (..)
+
    -- -- ** DeleteSnapshot
-   -- , DeleteSnapshot                     (..)
-   --
+   -- , DeleteSnapshot                      (..)
+
    -- -- ** DeleteSpotDatafeedSubscription
-   -- , DeleteSpotDatafeedSubscription     (..)
-   --
+   -- , DeleteSpotDatafeedSubscription      (..)
+
    -- -- ** DeleteSubnet
-   -- , DeleteSubnet                       (..)
-   --
+   -- , DeleteSubnet                        (..)
+
    -- -- ** DeleteTags
-   -- , DeleteTags                         (..)
-   --
+   -- , DeleteTags                          (..)
+
    -- -- ** DeleteVolume
-   -- , DeleteVolume                       (..)
-   --
+   -- , DeleteVolume                        (..)
+
    -- -- ** DeleteVpc
-   -- , DeleteVpc                          (..)
-   --
+   -- , DeleteVpc                           (..)
+
    -- -- ** DeleteVpnConnection
-   -- , DeleteVpnConnection                (..)
-   --
+   -- , DeleteVpnConnection                 (..)
+
    -- -- ** DeleteVpnConnectionRoute
-   -- , DeleteVpnConnectionRoute           (..)
-   --
+   -- , DeleteVpnConnectionRoute            (..)
+
    -- -- ** DeleteVpnGateway
-   -- , DeleteVpnGateway                   (..)
-   --
+   -- , DeleteVpnGateway                    (..)
+
    -- -- ** DeregisterImage
-   -- , DeregisterImage                    (..)
-   --
+   -- , DeregisterImage                     (..)
+
    -- -- ** DescribeAccountAttributes
-   -- , DescribeAccountAttributes          (..)
-   --
+   -- , DescribeAccountAttributes           (..)
+
    -- -- ** DescribeAddresses
-   -- , DescribeAddresses                  (..)
-   --
+   -- , DescribeAddresses                   (..)
+
    -- -- ** DescribeAvailabilityZones
-   -- , DescribeAvailabilityZones          (..)
-   --
+   -- , DescribeAvailabilityZones           (..)
+
    -- -- ** DescribeBundleTasks
-   -- , DescribeBundleTasks                (..)
-   --
+   -- , DescribeBundleTasks                 (..)
+
    -- -- ** DescribeConversionTasks
-   -- , DescribeConversionTasks            (..)
-   --
+   -- , DescribeConversionTasks             (..)
+
    -- -- ** DescribeCustomerGateways
-   -- , DescribeCustomerGateways           (..)
-   --
+   -- , DescribeCustomerGateways            (..)
+
    -- -- ** DescribeDhcpOptions
-   -- , DescribeDhcpOptions                (..)
-   --
+   -- , DescribeDhcpOptions                 (..)
+
    -- -- ** DescribeExportTasks
-   -- , DescribeExportTasks                (..)
-   --
+   -- , DescribeExportTasks                 (..)
+
    -- -- ** DescribeImageAttribute
-   -- , DescribeImageAttribute             (..)
-   --
+   -- , DescribeImageAttribute              (..)
+
    -- -- ** DescribeImages
-   -- , DescribeImages                     (..)
-   --
+   -- , DescribeImages                      (..)
+
    -- -- ** DescribeInstanceAttribute
-   -- , DescribeInstanceAttribute          (..)
-   --
+   -- , DescribeInstanceAttribute           (..)
+
    -- ** DescribeInstances
-   , DescribeInstances                     (..)
+   , DescribeInstances                      (..)
+   , DescribeInstancesResponse              (..)
 
    -- -- ** DescribeInstanceStatus
-   -- , DescribeInstanceStatus             (..)
-   --
+   -- , DescribeInstanceStatus              (..)
+
    -- -- ** DescribeInternetGateways
-   -- , DescribeInternetGateways           (..)
-   --
+   -- , DescribeInternetGateways            (..)
+
    -- -- ** DescribeKeyPairs
-   -- , DescribeKeyPairs                   (..)
-   --
+   -- , DescribeKeyPairs                    (..)
+
    -- -- ** DescribeNetworkAcls
-   -- , DescribeNetworkAcls                (..)
-   --
+   -- , DescribeNetworkAcls                 (..)
+
    -- -- ** DescribeNetworkInterfaceAttribute
-   -- , DescribeNetworkInterfaceAttribute  (..)
-   --
+   -- , DescribeNetworkInterfaceAttribute   (..)
+
    -- -- ** DescribeNetworkInterfaces
-   -- , DescribeNetworkInterfaces          (..)
-   --
+   -- , DescribeNetworkInterfaces           (..)
+
    -- -- ** DescribePlacementGroups
-   -- , DescribePlacementGroups            (..)
-   --
+   -- , DescribePlacementGroups             (..)
+
    -- -- ** DescribeRegions
-   -- , DescribeRegions                    (..)
-   --
+   -- , DescribeRegions                     (..)
+
    -- -- ** DescribeReservedInstances
-   -- , DescribeReservedInstances          (..)
-   --
+   -- , DescribeReservedInstances           (..)
+
    -- -- ** DescribeReservedInstancesListings
-   -- , DescribeReservedInstancesListings  (..)
-   --
+   -- , DescribeReservedInstancesListings   (..)
+
    -- -- ** DescribeReservedInstancesOfferings
-   -- , DescribeReservedInstancesOfferings (..)
-   --
+   -- , DescribeReservedInstancesOfferings  (..)
+
    -- -- ** DescribeRouteTables
-   -- , DescribeRouteTables                (..)
-   --
-   -- -- ** DescribeSecurityGroups
-   -- , DescribeSecurityGroups             (..)
-   --
+   -- , DescribeRouteTables                 (..)
+
+   -- ** DescribeSecurityGroups
+   , DescribeSecurityGroups                 (..)
+   , DescribeSecurityGroupsResponse         (..)
+
    -- -- ** DescribeSnapshotAttribute
-   -- , DescribeSnapshotAttribute          (..)
-   --
+   -- , DescribeSnapshotAttribute           (..)
+
    -- -- ** DescribeSnapshots
-   -- , DescribeSnapshots                  (..)
-   --
+   -- , DescribeSnapshots                   (..)
+
    -- -- ** DescribeSpotDatafeedSubscription
-   -- , DescribeSpotDatafeedSubscription   (..)
-   --
+   -- , DescribeSpotDatafeedSubscription    (..)
+
    -- -- ** DescribeSpotInstanceRequests
-   -- , DescribeSpotInstanceRequests       (..)
-   --
+   -- , DescribeSpotInstanceRequests        (..)
+
    -- -- ** DescribeSpotPriceHistory
-   -- , DescribeSpotPriceHistory           (..)
-   --
+   -- , DescribeSpotPriceHistory            (..)
+
    -- -- ** DescribeSubnets
-   -- , DescribeSubnets                    (..)
-   --
+   -- , DescribeSubnets                     (..)
+
    -- ** DescribeTags
-   , DescribeTags                          (..)
+   , DescribeTags                           (..)
+   , DescribeTagsResponse                   (..)
 
    -- -- ** DescribeVolumeAttribute
-   -- , DescribeVolumeAttribute            (..)
-   --
+   -- , DescribeVolumeAttribute             (..)
+
    -- -- ** DescribeVolumes
-   -- , DescribeVolumes                    (..)
-   --
+   -- , DescribeVolumes                     (..)
+
    -- -- ** DescribeVolumeStatus
-   -- , DescribeVolumeStatus               (..)
-   --
+   -- , DescribeVolumeStatus                (..)
+
    -- -- ** DescribeVpcAttribute
-   -- , DescribeVpcAttribute               (..)
-   --
+   -- , DescribeVpcAttribute                (..)
+
    -- -- ** DescribeVpcs
-   -- , DescribeVpcs                       (..)
-   --
+   -- , DescribeVpcs                        (..)
+
    -- -- ** DescribeVpnConnections
-   -- , DescribeVpnConnections             (..)
-   --
+   -- , DescribeVpnConnections              (..)
+
    -- -- ** DescribeVpnGateways
-   -- , DescribeVpnGateways                (..)
-   --
+   -- , DescribeVpnGateways                 (..)
+
    -- -- ** DetachInternetGateway
-   -- , DetachInternetGateway              (..)
-   --
+   -- , DetachInternetGateway               (..)
+
    -- -- ** DetachNetworkInterface
-   -- , DetachNetworkInterface             (..)
-   --
+   -- , DetachNetworkInterface              (..)
+
    -- -- ** DetachVolume
-   -- , DetachVolume                       (..)
-   --
+   -- , DetachVolume                        (..)
+
    -- -- ** DetachVpnGateway
-   -- , DetachVpnGateway                   (..)
-   --
+   -- , DetachVpnGateway                    (..)
+
    -- -- ** DisableVgwRoutePropagation
-   -- , DisableVgwRoutePropagation         (..)
-   --
+   -- , DisableVgwRoutePropagation          (..)
+
    -- -- ** DisassociateAddress
-   -- , DisassociateAddress                (..)
-   --
+   -- , DisassociateAddress                 (..)
+
    -- -- ** DisassociateRouteTable
-   -- , DisassociateRouteTable             (..)
-   --
+   -- , DisassociateRouteTable              (..)
+
    -- -- ** EnableVgwRoutePropagation
-   -- , EnableVgwRoutePropagation          (..)
-   --
+   -- , EnableVgwRoutePropagation           (..)
+
    -- -- ** EnableVolumeIO
-   -- , EnableVolumeIO                     (..)
-   --
+   -- , EnableVolumeIO                      (..)
+
    -- -- ** GetConsoleOutput
-   -- , GetConsoleOutput                   (..)
-   --
+   -- , GetConsoleOutput                    (..)
+
    -- -- ** GetPasswordData
-   -- , GetPasswordData                    (..)
-   --
+   -- , GetPasswordData                     (..)
+
    -- -- ** ImportInstance
-   -- , ImportInstance                     (..)
-   --
+   -- , ImportInstance                      (..)
+
    -- -- ** ImportKeyPair
-   -- , ImportKeyPair                      (..)
-   --
+   -- , ImportKeyPair                       (..)
+
    -- -- ** ImportVolume
-   -- , ImportVolume                       (..)
-   --
+   -- , ImportVolume                        (..)
+
    -- -- ** ModifyImageAttribute
-   -- , ModifyImageAttribute               (..)
-   --
+   -- , ModifyImageAttribute                (..)
+
    -- -- ** ModifyInstanceAttribute
-   -- , ModifyInstanceAttribute            (..)
-   --
+   -- , ModifyInstanceAttribute             (..)
+
    -- -- ** ModifyNetworkInterfaceAttribute
-   -- , ModifyNetworkInterfaceAttribute    (..)
-   --
+   -- , ModifyNetworkInterfaceAttribute     (..)
+
    -- -- ** ModifySnapshotAttribute
-   -- , ModifySnapshotAttribute            (..)
-   --
+   -- , ModifySnapshotAttribute             (..)
+
    -- -- ** ModifyVolumeAttribute
-   -- , ModifyVolumeAttribute              (..)
-   --
+   -- , ModifyVolumeAttribute               (..)
+
    -- -- ** ModifyVpcAttribute
-   -- , ModifyVpcAttribute                 (..)
-   --
+   -- , ModifyVpcAttribute                  (..)
+
    -- -- ** MonitorInstances
-   -- , MonitorInstances                   (..)
-   --
+   -- , MonitorInstances                    (..)
+
    -- -- ** PurchaseReservedInstancesOffering
-   -- , PurchaseReservedInstancesOffering  (..)
-   --
+   -- , PurchaseReservedInstancesOffering   (..)
+
    -- -- ** RebootInstances
-   -- , RebootInstances                    (..)
-   --
+   -- , RebootInstances                     (..)
+
    -- -- ** RegisterImage
-   -- , RegisterImage                      (..)
-   --
+   -- , RegisterImage                       (..)
+
    -- -- ** ReleaseAddress
-   -- , ReleaseAddress                     (..)
-   --
+   -- , ReleaseAddress                      (..)
+
    -- -- ** ReplaceNetworkAclAssociation
-   -- , ReplaceNetworkAclAssociation       (..)
-   --
+   -- , ReplaceNetworkAclAssociation        (..)
+
    -- -- ** ReplaceNetworkAclEntry
-   -- , ReplaceNetworkAclEntry             (..)
-   --
+   -- , ReplaceNetworkAclEntry              (..)
+
    -- -- ** ReplaceRoute
-   -- , ReplaceRoute                       (..)
-   --
+   -- , ReplaceRoute                        (..)
+
    -- -- ** ReplaceRouteTableAssociation
-   -- , ReplaceRouteTableAssociation       (..)
-   --
+   -- , ReplaceRouteTableAssociation        (..)
+
    -- -- ** ReportInstanceStatus
-   -- , ReportInstanceStatus               (..)
-   --
+   -- , ReportInstanceStatus                (..)
+
    -- -- ** RequestSpotInstances
-   -- , RequestSpotInstances               (..)
-   --
+   -- , RequestSpotInstances                (..)
+
    -- -- ** ResetImageAttribute
-   -- , ResetImageAttribute                (..)
-   --
+   -- , ResetImageAttribute                 (..)
+
    -- -- ** ResetInstanceAttribute
-   -- , ResetInstanceAttribute             (..)
-   --
+   -- , ResetInstanceAttribute              (..)
+
    -- -- ** ResetNetworkInterfaceAttribute
-   -- , ResetNetworkInterfaceAttribute     (..)
-   --
+   -- , ResetNetworkInterfaceAttribute      (..)
+
    -- -- ** ResetSnapshotAttribute
-   -- , ResetSnapshotAttribute             (..)
-   --
+   -- , ResetSnapshotAttribute              (..)
+
    -- -- ** RevokeSecurityGroupEgress
-   -- , RevokeSecurityGroupEgress          (..)
-   --
+   -- , RevokeSecurityGroupEgress           (..)
+
    -- -- ** RevokeSecurityGroupIngress
-   -- , RevokeSecurityGroupIngress         (..)
-   --
+   -- , RevokeSecurityGroupIngress          (..)
+
    -- -- ** RunInstances
-   -- , RunInstances                       (..)
-   --
+   -- , RunInstances                        (..)
+
    -- -- ** StartInstances
-   -- , StartInstances                     (..)
-   --
+   -- , StartInstances                      (..)
+
    -- -- ** StopInstances
-   -- , StopInstances                      (..)
-   --
+   -- , StopInstances                       (..)
+
    -- -- ** TerminateInstances
-   -- , TerminateInstances                 (..)
-   --
+   -- , TerminateInstances                  (..)
+
    -- -- ** UnassignPrivateIpAddresses
-   -- , UnassignPrivateIpAddresses         (..)
-   --
+   -- , UnassignPrivateIpAddresses          (..)
+
    -- -- ** UnmonitorInstances
-   -- , UnmonitorInstances                 (..)
-   --
+   -- , UnmonitorInstances                  (..)
+
    -- * Data Types
    , module Network.AWS.EC2.Types
-   , Rs                                    (..)
    ) where
 
 import Data.ByteString       (ByteString)
@@ -487,10 +508,11 @@ data AllocateAddress = AllocateAddress
 instance IsQuery AllocateAddress
 
 instance Rq AllocateAddress where
+    type Er AllocateAddress = EC2ErrorResponse
+    type Rs AllocateAddress = AllocateAddressResponse
     request = qry GET "AllocateAddress"
 
-type instance Er AllocateAddress = EC2ErrorResponse
-data instance Rs AllocateAddress = AllocateAddressResponse
+data AllocateAddressResponse = AllocateAddressResponse
     { aarRequestId    :: !Text
       -- ^ The ID of the request.
     , aarPublicIp     :: !Text
@@ -503,7 +525,7 @@ data instance Rs AllocateAddress = AllocateAddressResponse
       -- the Elastic IP address for use with a VPC.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AllocateAddress) where
+instance IsXML AllocateAddressResponse where
     xmlPickler = ec2XML
 
 -- | Assigns one or more secondary private IP addresses to the specified network
@@ -535,10 +557,11 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 instance IsQuery AssignPrivateIpAddresses
 
 instance Rq AssignPrivateIpAddresses where
+    type Er AssignPrivateIpAddresses = EC2ErrorResponse
+    type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
     request = qry GET "AssignPrivateIpAddresses"
 
-type instance Er AssignPrivateIpAddresses = EC2ErrorResponse
-data instance Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
+data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
     { apiaRequestId :: !Text
       -- ^ The ID of the request.
     , apiaReturn    :: !Bool
@@ -546,7 +569,7 @@ data instance Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AssignPrivateIpAddresses) where
+instance IsXML AssignPrivateIpAddressesResponse where
     xmlPickler = ec2XML
         { root = Just $ mkNName ec2NS "AssignPrivateIpAddresses"
         }
@@ -579,10 +602,11 @@ data AssociateAddress = AssociateAddress
 instance IsQuery AssociateAddress
 
 instance Rq AssociateAddress where
+    type Er AssociateAddress = EC2ErrorResponse
+    type Rs AssociateAddress = AssociateAddressResponse
     request = qry GET "AssociateAddress"
 
-type instance Er AssociateAddress = EC2ErrorResponse
-data instance Rs AssociateAddress = AssociateAddressResponse
+data AssociateAddressResponse = AssociateAddressResponse
     { abrRequestId     :: !Text
       -- ^ The ID of the request.
     , abrReturn        :: !Bool
@@ -592,7 +616,7 @@ data instance Rs AssociateAddress = AssociateAddressResponse
       -- IP address with an instance.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AssociateAddress) where
+instance IsXML AssociateAddressResponse where
     xmlPickler = ec2XML
 
 -- | Associates a set of DHCP options (that you've previously created) with the
@@ -617,10 +641,11 @@ data AssociateDhcpOptions = AssociateDhcpOptions
 instance IsQuery AssociateDhcpOptions
 
 instance Rq AssociateDhcpOptions where
+    type Er AssociateDhcpOptions = EC2ErrorResponse
+    type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
     request = qry GET "AssociateDhcpOptions"
 
-type instance Er AssociateDhcpOptions = EC2ErrorResponse
-data instance Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
+data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
     { adorRequestId :: !Text
       -- ^ The ID of the request.
     , adorReturn    :: !Bool
@@ -628,7 +653,7 @@ data instance Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AssociateDhcpOptions) where
+instance IsXML AssociateDhcpOptionsResponse where
     xmlPickler = ec2XML
 
 -- | Associates a subnet with a route table.
@@ -651,17 +676,18 @@ data AssociateRouteTable = AssociateRouteTable
 instance IsQuery AssociateRouteTable
 
 instance Rq AssociateRouteTable where
+    type Er AssociateRouteTable = EC2ErrorResponse
+    type Rs AssociateRouteTable = AssociateRouteTableResponse
     request = qry GET "AssociateRouteTable"
 
-type instance Er AssociateRouteTable = EC2ErrorResponse
-data instance Rs AssociateRouteTable = AssociateRouteTableResponse
+data AssociateRouteTableResponse = AssociateRouteTableResponse
     { artrRequestId     :: !Text
       -- ^ The ID of the request.
     , artrAssociationId :: !Text
       -- ^ The route table association ID (needed to disassociate the route table).
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AssociateRouteTable) where
+instance IsXML AssociateRouteTableResponse where
     xmlPickler = ec2XML
 
 -- | Attaches an Internet gateway to a VPC, enabling connectivity between the
@@ -678,17 +704,18 @@ data AttachInternetGateway = AttachInternetGateway
 instance IsQuery AttachInternetGateway
 
 instance Rq AttachInternetGateway where
+    type Er AttachInternetGateway = EC2ErrorResponse
+    type Rs AttachInternetGateway = AttachInternetGatewayResponse
     request = qry GET "AttachInternetGateway"
 
-type instance Er AttachInternetGateway = EC2ErrorResponse
-data instance Rs AttachInternetGateway = AttachInternetGatewayResponse
+data AttachInternetGatewayResponse = AttachInternetGatewayResponse
     { aigrRequestId :: !Text
       -- ^ The ID of the request.
     , aigrReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AttachInternetGateway) where
+instance IsXML AttachInternetGatewayResponse where
     xmlPickler = ec2XML
 
 -- | Attaches a network interface to an instance.
@@ -706,17 +733,18 @@ data AttachNetworkInterface = AttachNetworkInterface
 instance IsQuery AttachNetworkInterface
 
 instance Rq AttachNetworkInterface where
+    type Er AttachNetworkInterface = EC2ErrorResponse
+    type Rs AttachNetworkInterface = AttachNetworkInterfaceResponse
     request = qry GET "AttachNetworkInterface"
 
-type instance Er AttachNetworkInterface = EC2ErrorResponse
-data instance Rs AttachNetworkInterface = AttachNetworkInterfaceResponse
+data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { anirRequestId    :: !Text
       -- ^ The ID of the attachment request.
     , anirAttachmentId :: !Text
       -- ^ The ID of the network interface attachment.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AttachNetworkInterface) where
+instance IsXML AttachNetworkInterfaceResponse where
     xmlPickler = ec2XML
 
 -- | Attaches an Amazon EBS volume to a running or stopped instance and exposes
@@ -737,10 +765,11 @@ data AttachVolume = AttachVolume
 instance IsQuery AttachVolume
 
 instance Rq AttachVolume where
+    type Er AttachVolume = EC2ErrorResponse
+    type Rs AttachVolume = AttachVolumeResponse
     request = qry GET "AttachVolume"
 
-type instance Er AttachVolume = EC2ErrorResponse
-data instance Rs AttachVolume = AttachVolumeResponse
+data AttachVolumeResponse = AttachVolumeResponse
     { avrRequestId  :: !Text
       -- ^ The ID of the request.
     , avrVolumeId   :: !Text
@@ -755,7 +784,7 @@ data instance Rs AttachVolume = AttachVolumeResponse
       -- ^ The time stamp when the attachment initiated.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AttachVolume) where
+instance IsXML AttachVolumeResponse where
     xmlPickler = ec2XML
 
 -- | Attaches a virtual private gateway to a VPC.
@@ -771,17 +800,18 @@ data AttachVpnGateway = AttachVpnGateway
 instance IsQuery AttachVpnGateway
 
 instance Rq AttachVpnGateway where
+    type Er AttachVpnGateway = EC2ErrorResponse
+    type Rs AttachVpnGateway = AttachVpnGatewayResponse
     request = qry GET "AttachVpnGateway"
 
-type instance Er AttachVpnGateway = EC2ErrorResponse
-data instance Rs AttachVpnGateway = AttachVpnGatewayResponse
+data AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { avgrRequestId  :: !Text
       -- ^ The ID of the request.
     , avgrAttachment :: !Attachment
       -- ^ Information about the attachment.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AttachVpnGateway) where
+instance IsXML AttachVpnGatewayResponse where
     xmlPickler = ec2XML
 
 -- | Adds one or more egress rules to a security group for use with a VPC.
@@ -803,10 +833,11 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
 instance IsQuery AuthorizeSecurityGroupEgress
 
 instance Rq AuthorizeSecurityGroupEgress where
+    type Er AuthorizeSecurityGroupEgress = EC2ErrorResponse
+    type Rs AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressResponse
     request = qry GET "AuthorizeSecurityGroupEgress"
 
-type instance Er AuthorizeSecurityGroupEgress = EC2ErrorResponse
-data instance Rs AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressResponse
+data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
     { asgerRequestId :: !Text
       -- ^ The ID of the request.
     , asgerReturn    :: !Bool
@@ -814,7 +845,7 @@ data instance Rs AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressResp
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AuthorizeSecurityGroupEgress) where
+instance IsXML AuthorizeSecurityGroupEgressResponse where
     xmlPickler = ec2XML
 
 -- | Adds one or more ingress rules to a security group.
@@ -838,10 +869,11 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 instance IsQuery AuthorizeSecurityGroupIngress
 
 instance Rq AuthorizeSecurityGroupIngress where
+    type Er AuthorizeSecurityGroupIngress = EC2ErrorResponse
+    type Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
     request = qry GET "AuthorizeSecurityGroupIngress"
 
-type instance Er AuthorizeSecurityGroupIngress = EC2ErrorResponse
-data instance Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
+data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
     { asgirRequestId :: !Text
       -- ^ The ID of the request.
     , asgirReturn    :: !Bool
@@ -849,7 +881,7 @@ data instance Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressRe
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs AuthorizeSecurityGroupIngress) where
+instance IsXML AuthorizeSecurityGroupIngressResponse where
     xmlPickler = ec2XML
 
 -- | Bundles an Amazon instance store-backed Windows instance.During bundling,
@@ -867,17 +899,18 @@ data BundleInstance = BundleInstance
 instance IsQuery BundleInstance
 
 instance Rq BundleInstance where
+    type Er BundleInstance = EC2ErrorResponse
+    type Rs BundleInstance = BundleInstanceResponse
     request = qry GET "BundleInstance"
 
-type instance Er BundleInstance = EC2ErrorResponse
-data instance Rs BundleInstance = BundleInstanceResponse
+data BundleInstanceResponse = BundleInstanceResponse
     { birRequestId          :: !Text
       -- ^ The ID of the request.
     , birBundleInstanceTask :: !BundleInstanceTask
       -- ^ The bundle task.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs BundleInstance) where
+instance IsXML BundleInstanceResponse where
     xmlPickler = ec2XML
 
 -- | Cancels a bundling operation for an instance store-backed Windows instance.
@@ -892,17 +925,18 @@ data CancelBundleTask = CancelBundleTask
 instance IsQuery CancelBundleTask
 
 instance Rq CancelBundleTask where
+    type Er CancelBundleTask = EC2ErrorResponse
+    type Rs CancelBundleTask = CancelBundleTaskResponse
     request = qry GET "CancelBundleTask"
 
-type instance Er CancelBundleTask = EC2ErrorResponse
-data instance Rs CancelBundleTask = CancelBundleTaskResponse
+data CancelBundleTaskResponse = CancelBundleTaskResponse
     { cbtRequestId          :: !Text
       -- ^ The ID of the request.
     , cbtBundleInstanceTask :: !BundleInstanceTask
       -- ^ The bundle task.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs CancelBundleTask) where
+instance IsXML CancelBundleTaskResponse where
     xmlPickler = ec2XML
 
 -- | Cancels an active conversion task.
@@ -923,10 +957,11 @@ data CancelConversionTask = CancelConversionTask
 instance IsQuery CancelConversionTask
 
 instance Rq CancelConversionTask where
+    type Er CancelConversionTask = EC2ErrorResponse
+    type Rs CancelConversionTask = CancelConversionTaskResponse
     request = qry GET "CancelConversionTask"
 
-type instance Er CancelConversionTask = EC2ErrorResponse
-data instance Rs CancelConversionTask = CancelConversionTaskResponse
+data CancelConversionTaskResponse = CancelConversionTaskResponse
     { cctRequestId :: !Text
       -- ^ The ID of the request.
     , cctReturn    :: !Bool
@@ -934,7 +969,7 @@ data instance Rs CancelConversionTask = CancelConversionTaskResponse
       -- error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs CancelConversionTask) where
+instance IsXML CancelConversionTaskResponse where
     xmlPickler = ec2XML
 
 -- | Cancels an active export task. The request removes all artifacts of the
@@ -953,17 +988,18 @@ data CancelExportTask = CancelExportTask
 instance IsQuery CancelExportTask
 
 instance Rq CancelExportTask where
+    type Er CancelExportTask = EC2ErrorResponse
+    type Rs CancelExportTask = CancelExportTaskResponse
     request = qry GET "CancelExportTask"
 
-type instance Er CancelExportTask = EC2ErrorResponse
-data instance Rs CancelExportTask = CancelExportTaskResponse
+data CancelExportTaskResponse = CancelExportTaskResponse
     { cetRequestId :: !Text
       -- ^ The ID of the request.
     , cetReturn    :: !Bool
       -- ^ Returns true if the request succeeds. Otherwise, returns an error.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs CancelExportTask) where
+instance IsXML CancelExportTaskResponse where
     xmlPickler = ec2XML
 
 -- | Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.
@@ -978,17 +1014,18 @@ data CancelReservedInstancesListing = CancelReservedInstancesListing
 instance IsQuery CancelReservedInstancesListing
 
 instance Rq CancelReservedInstancesListing where
+    type Er CancelReservedInstancesListing = EC2ErrorResponse
+    type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse
     request = qry GET "CancelReservedInstancesListing"
 
-type instance Er CancelReservedInstancesListing = EC2ErrorResponse
-data instance Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse
+data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { crilRequestId                    :: !Text
       -- ^ The ID of the request.
     , crilReservedInstancesListingsSet :: !DescribeReservedInstancesListingsResponseSetItemType
       -- ^ The Reserved Instance listing for cancellation.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs CancelReservedInstancesListing) where
+instance IsXML CancelReservedInstancesListingResponse where
     xmlPickler = ec2XML
 
 -- | Cancels one or more Spot Instance requests.
@@ -1003,10 +1040,11 @@ data CancelSpotInstanceRequests = CancelSpotInstanceRequests
 instance IsQuery CancelSpotInstanceRequests
 
 instance Rq CancelSpotInstanceRequests where
+    type Er CancelSpotInstanceRequests = EC2ErrorResponse
+    type Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse
     request = qry GET "CancelSpotInstanceRequests"
 
-type instance Er CancelSpotInstanceRequests = EC2ErrorResponse
-data instance Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse
+data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { csirRequestId              :: !Text
       -- ^ The ID of the request.
     , csirSpotInstanceRequestSet :: Items CancelSpotInstanceRequestsResponseSetItemType
@@ -1014,7 +1052,7 @@ data instance Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse
       -- item element.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs CancelSpotInstanceRequests) where
+instance IsXML CancelSpotInstanceRequestsResponse where
     xmlPickler = ec2XML
 
 -- -- | Determines whether a product code is associated with an instance. This
@@ -1038,7 +1076,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ConfirmProductInstance ConfirmProductInstanceResponse where
---     request = req GET "ConfirmProductInstance"
+--     request = qry GET "ConfirmProductInstance"
 
 -- data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 --     { cpiRequestId :: !Text
@@ -1051,7 +1089,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- is attached to the instance.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ConfirmProductInstance) where
+-- instance IsXML ConfirmProductInstanceResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Initiates the copy of an AMI from the specified source region to the region
@@ -1080,7 +1118,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CopyImage CopyImageResponse where
---     request = req GET "CopyImage"
+--     request = qry GET "CopyImage"
 
 -- data CopyImageResponse = CopyImageResponse
 --     { ciRequestId :: !Text
@@ -1089,7 +1127,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ The ID of the new AMI.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CopyImage) where
+-- instance IsXML CopyImageResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Copies a point-in-time snapshot of an Amazon Elastic Block Store (Amazon
@@ -1113,7 +1151,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CopySnapshot
 
 -- instance AWSRequest EC2 CopySnapshot CopySnapshotResponse where
---     request = req GET "CopySnapshot"
+--     request = qry GET "CopySnapshot"
 
 -- data CopySnapshotResponse = CopySnapshotResponse
 --     { csRequestId  :: !Text
@@ -1122,7 +1160,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ The ID of the new snapshot.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CopySnapshot) where
+-- instance IsXML CopySnapshotResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Provides information to AWS about your VPN customer gateway device. The
@@ -1157,7 +1195,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateCustomerGateway
 
 -- instance AWSRequest EC2 CreateCustomerGateway CreateCustomerGatewayResponse where
---     request = req GET "CreateCustomerGateway"
+--     request = qry GET "CreateCustomerGateway"
 
 -- data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
 --     { ccgRequestId       :: !Text
@@ -1166,7 +1204,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Information about the customer gateway.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateCustomerGateway) where
+-- instance IsXML CreateCustomerGatewayResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a set of DHCP options for your VPC. After creating the set, you
@@ -1185,7 +1223,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateDhcpOptions
 
 -- instance AWSRequest EC2 CreateDhcpOptions CreateDhcpOptionsResponse where
---     request = req GET "CreateDhcpOptions"
+--     request = qry GET "CreateDhcpOptions"
 
 -- data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
 --     { cdoRequestId   :: !Text
@@ -1194,7 +1232,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ A set of DHCP options.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateDhcpOptions) where
+-- instance IsXML CreateDhcpOptionsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
@@ -1227,7 +1265,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateImage CreateImageResponse where
---     request = req GET "CreateImage"
+--     request = qry GET "CreateImage"
 
 -- data CreateImageResponse = CreateImageResponse
 --     { cjRequestId :: !Text
@@ -1236,7 +1274,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ The ID of the new AMI.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateImage) where
+-- instance IsXML CreateImageResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Exports a running or stopped instance to an Amazon S3 bucket.For
@@ -1261,7 +1299,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateInstanceExportTask
 
 -- instance AWSRequest EC2 CreateInstanceExportTask CreateInstanceExportTaskResponse where
---     request = req GET "CreateInstanceExportTask"
+--     request = qry GET "CreateInstanceExportTask"
 
 -- data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
 --     { cietRequestId  :: !Text
@@ -1270,7 +1308,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ The details of the created ExportVM task.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateInstanceExportTask) where
+-- instance IsXML CreateInstanceExportTaskResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an Internet gateway for use with a VPC. After creating the Internet
@@ -1289,7 +1327,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = xpEmpty $ Just ec2NS
 
 -- instance AWSRequest EC2 CreateInternetGateway CreateInternetGatewayResponse where
---     request = req GET "CreateInternetGateway"
+--     request = qry GET "CreateInternetGateway"
 
 -- data CreateInternetGatewayResponse = CreateInternetGatewayResponse
 --     { cigRequestId       :: !Text
@@ -1298,7 +1336,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Information about the Internet gateway
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateInternetGateway) where
+-- instance IsXML CreateInternetGatewayResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores
@@ -1319,7 +1357,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateKeyPair
 
 -- instance AWSRequest EC2 CreateKeyPair CreateKeyPairResponse where
---     request = req GET "CreateKeyPair"
+--     request = qry GET "CreateKeyPair"
 
 -- data CreateKeyPairResponse = CreateKeyPairResponse
 --     { ckpRequestId      :: !Text
@@ -1332,7 +1370,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ An unencrypted PEM encoded RSA private key.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateKeyPair) where
+-- instance IsXML CreateKeyPairResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a network ACL in a VPC. Network ACLs provide an optional layer of
@@ -1350,7 +1388,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateNetworkAcl
 
 -- instance AWSRequest EC2 CreateNetworkAcl CreateNetworkAclResponse where
---     request = req GET "CreateNetworkAcl"
+--     request = qry GET "CreateNetworkAcl"
 
 -- data CreateNetworkAclResponse = CreateNetworkAclResponse
 --     { cnaRequestId  :: !Text
@@ -1359,7 +1397,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Information about the new network ACL.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateNetworkAcl) where
+-- instance IsXML CreateNetworkAclResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an entry (a rule) in a network ACL with the specified rule number.
@@ -1400,7 +1438,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateNetworkAclEntry
 
 -- instance AWSRequest EC2 CreateNetworkAclEntry CreateNetworkAclEntryResponse where
---     request = req GET "CreateNetworkAclEntry"
+--     request = qry GET "CreateNetworkAclEntry"
 
 -- data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 --     { cnaeRequestId :: !Text
@@ -1410,7 +1448,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateNetworkAclEntry) where
+-- instance IsXML CreateNetworkAclEntryResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a network interface in the specified subnet.For more information
@@ -1448,7 +1486,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateNetworkInterface CreateNetworkInterfaceResponse where
---     request = req GET "CreateNetworkInterface"
+--     request = qry GET "CreateNetworkInterface"
 
 -- data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
 --     { cniRequestId        :: !Text
@@ -1457,7 +1495,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ The network interface that was created.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateNetworkInterface) where
+-- instance IsXML CreateNetworkInterfaceResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a placement group that you launch cluster instances into. You must
@@ -1477,7 +1515,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreatePlacementGroup
 
 -- instance AWSRequest EC2 CreatePlacementGroup CreatePlacementGroupResponse where
---     request = req GET "CreatePlacementGroup"
+--     request = qry GET "CreatePlacementGroup"
 
 -- data CreatePlacementGroupResponse = CreatePlacementGroupResponse
 --     { cpgRequestId :: !Text
@@ -1487,7 +1525,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreatePlacementGroup) where
+-- instance IsXML CreatePlacementGroupResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a listing for Amazon EC2 Reserved Instances that will be sold in
@@ -1527,7 +1565,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateReservedInstancesListing
 
 -- instance AWSRequest EC2 CreateReservedInstancesListing CreateReservedInstancesListingResponse where
---     request = req GET "CreateReservedInstancesListing"
+--     request = qry GET "CreateReservedInstancesListing"
 
 -- data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
 --     { crimRequestId                   :: !Text
@@ -1537,7 +1575,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- information is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateReservedInstancesListing) where
+-- instance IsXML CreateReservedInstancesListingResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a route in a route table within a VPC. The route's target can be
@@ -1575,7 +1613,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateRoute CreateRouteResponse where
---     request = req GET "CreateRoute"
+--     request = qry GET "CreateRoute"
 
 -- data CreateRouteResponse = CreateRouteResponse
 --     { crRequestId :: !Text
@@ -1585,7 +1623,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateRoute) where
+-- instance IsXML CreateRouteResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a route table for the specified VPC. After you create a route
@@ -1606,7 +1644,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateRouteTable CreateRouteTableResponse where
---     request = req GET "CreateRouteTable"
+--     request = qry GET "CreateRouteTable"
 
 -- data CreateRouteTableResponse = CreateRouteTableResponse
 --     { crtRequestId  :: !Text
@@ -1615,51 +1653,52 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Information about the newly created route table.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateRouteTable) where
+-- instance IsXML CreateRouteTableResponse where
 --     xmlPickler = ec2XML
 
--- -- | Creates a security group.A security group is for use with instances either
--- -- in the EC2-Classic platform or in a specific VPC.When you create a security group, you specify a friendly name of your
--- -- choice. You can have a security group for use in EC2-Classic with the same
--- -- name as a security group for use in a VPC. However, you can't have two
--- -- security groups for use in EC2-Classic with the same name or two security
--- -- groups for use in a VPC with the same name. You have a default security
--- -- group for use in EC2-Classic and a default security group for use in your
--- -- VPC. If you don't specify a security group when you launch an instance, the
--- -- instance is launched into the appropriate default security group. A default
--- -- security group includes a default rule that grants instances unrestricted
--- -- network access to each other.You can add or remove rules from your security
--- -- groups using AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress,
--- -- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html>
+-- | Creates a security group.A security group is for use with instances either
+-- in the EC2-Classic platform or in a specific VPC.When you create a security group, you specify a friendly name of your
+-- choice. You can have a security group for use in EC2-Classic with the same
+-- name as a security group for use in a VPC. However, you can't have two
+-- security groups for use in EC2-Classic with the same name or two security
+-- groups for use in a VPC with the same name. You have a default security
+-- group for use in EC2-Classic and a default security group for use in your
+-- VPC. If you don't specify a security group when you launch an instance, the
+-- instance is launched into the appropriate default security group. A default
+-- security group includes a default rule that grants instances unrestricted
+-- network access to each other.You can add or remove rules from your security
+-- groups using AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress,
+-- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html>
+data CreateSecurityGroup = CreateSecurityGroup
+    { csgGroupName        :: !Text
+      -- ^ The name of the security group.
+    , csgGroupDescription :: !Text
+      -- ^ A description for the security group. This is informational only.
+    , csgVpcId            :: !Text
+      -- ^ [EC2-VPC] The ID of the VPC.
+    } deriving (Eq, Show, Generic)
 
--- data CreateSecurityGroup = CreateSecurityGroup
---     { csgGroupName        :: !Text
---       -- ^ The name of the security group.
---     , csgGroupDescription :: !Text
---       -- ^ A description for the security group. This is informational only.
---     , csgVpcId            :: !Text
---       -- ^ [EC2-VPC] The ID of the VPC.
---     } deriving (Eq, Show, Generic)
+instance IsQuery CreateSecurityGroup
 
--- instance IsQuery CreateSecurityGroup
+instance Rq CreateSecurityGroup where
+    type Er CreateSecurityGroup = EC2ErrorResponse
+    type Rs CreateSecurityGroup = CreateSecurityGroupResponse
+    request = qry GET "CreateSecurityGroup"
 
--- instance AWSRequest EC2 CreateSecurityGroup CreateSecurityGroupResponse where
---     request = req GET "CreateSecurityGroup"
+data CreateSecurityGroupResponse = CreateSecurityGroupResponse
+    { csgRequestId :: !Text
+      -- ^ The ID of the request.
+    , csgReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an
+      -- error.
+    , csgGroupId   :: !Text
+      -- ^ The ID of the new security group.
+    } deriving (Eq, Show, Generic)
 
--- data CreateSecurityGroupResponse = CreateSecurityGroupResponse
---     { csgRequestId :: !Text
---       -- ^ The ID of the request.
---     , csgReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     , csgGroupId   :: !Text
---       -- ^ The ID of the new security group.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML (Rs CreateSecurityGroup) where
---     xmlPickler = ec2XML
+instance IsXML CreateSecurityGroupResponse where
+    xmlPickler = ec2XML
 
 -- -- | Creates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You
 -- -- can use snapshots for backups, to make copies of instance store volumes,
@@ -1695,7 +1734,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateSnapshot
 
 -- instance AWSRequest EC2 CreateSnapshot CreateSnapshotResponse where
---     request = req GET "CreateSnapshot"
+--     request = qry GET "CreateSnapshot"
 
 -- data CreateSnapshotResponse = CreateSnapshotResponse
 --     { ctRequestId   :: !Text
@@ -1718,7 +1757,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ The description for the snapshot.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateSnapshot) where
+-- instance IsXML CreateSnapshotResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates the datafeed for Spot Instances, enabling you to view Spot Instance
@@ -1739,7 +1778,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateSpotDatafeedSubscription
 
 -- instance AWSRequest EC2 CreateSpotDatafeedSubscription CreateSpotDatafeedSubscriptionResponse where
---     request = req GET "CreateSpotDatafeedSubscription"
+--     request = qry GET "CreateSpotDatafeedSubscription"
 
 -- data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
 --     { csdsRequestId                :: !Text
@@ -1748,7 +1787,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Type: SpotDatafeedSubscriptionType
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateSpotDatafeedSubscription) where
+-- instance IsXML CreateSpotDatafeedSubscriptionResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a subnet in an existing VPC.When you create each subnet, you
@@ -1786,7 +1825,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateSubnet
 
 -- instance AWSRequest EC2 CreateSubnet CreateSubnetResponse where
---     request = req GET "CreateSubnet"
+--     request = qry GET "CreateSubnet"
 
 -- data CreateSubnetResponse = CreateSubnetResponse
 --     { cuRequestId :: !Text
@@ -1795,7 +1834,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Information about the subnet.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateSubnet) where
+-- instance IsXML CreateSubnetResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Adds or overwrites one or more tags for the specified EC2 resource or
@@ -1814,7 +1853,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateTags
 
 -- instance AWSRequest EC2 CreateTags CreateTagsResponse where
---     request = req GET "CreateTags"
+--     request = qry GET "CreateTags"
 
 -- data CreateTagsResponse = CreateTagsResponse
 --     { cvRequestId :: !Text
@@ -1824,7 +1863,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateTags) where
+-- instance IsXML CreateTagsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an Amazon EBS volume that can be attached to any instance in the
@@ -1855,7 +1894,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateVolume CreateVolumeResponse where
---     request = req GET "CreateVolume"
+--     request = qry GET "CreateVolume"
 
 -- data CreateVolumeResponse = CreateVolumeResponse
 --     { cwRequestId        :: !Text
@@ -1879,7 +1918,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- supports.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateVolume) where
+-- instance IsXML CreateVolumeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a VPC with the specified CIDR block.The smallest VPC you can create
@@ -1908,7 +1947,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateVpc
 
 -- instance AWSRequest EC2 CreateVpc CreateVpcResponse where
---     request = req GET "CreateVpc"
+--     request = qry GET "CreateVpc"
 
 -- data CreateVpcResponse = CreateVpcResponse
 --     { cxRequestId :: !Text
@@ -1917,7 +1956,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Information about the VPC.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateVpc) where
+-- instance IsXML CreateVpcResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a VPN connection between an existing virtual private gateway and a
@@ -1952,7 +1991,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateVpnConnection
 
 -- instance AWSRequest EC2 CreateVpnConnection CreateVpnConnectionResponse where
---     request = req GET "CreateVpnConnection"
+--     request = qry GET "CreateVpnConnection"
 
 -- data CreateVpnConnectionResponse = CreateVpnConnectionResponse
 --     { cvcRequestId     :: !Text
@@ -1961,7 +2000,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Information about the VPN connection.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateVpnConnection) where
+-- instance IsXML CreateVpnConnectionResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a static route associated with a VPN connection between an existing
@@ -1987,7 +2026,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateVpnConnectionRoute CreateVpnConnectionRouteResponse where
---     request = req GET "CreateVpnConnectionRoute"
+--     request = qry GET "CreateVpnConnectionRoute"
 
 -- data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 --     { cvcrRequestId :: !Text
@@ -1997,7 +2036,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateVpnConnectionRoute) where
+-- instance IsXML CreateVpnConnectionRouteResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a virtual private gateway. A virtual private gateway is the
@@ -2016,7 +2055,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery CreateVpnGateway
 
 -- instance AWSRequest EC2 CreateVpnGateway CreateVpnGatewayResponse where
---     request = req GET "CreateVpnGateway"
+--     request = qry GET "CreateVpnGateway"
 
 -- data CreateVpnGatewayResponse = CreateVpnGatewayResponse
 --     { cvgRequestId  :: !Text
@@ -2025,7 +2064,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ Information about the virtual private gateway.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs CreateVpnGateway) where
+-- instance IsXML CreateVpnGatewayResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified VPN customer gateway. You must delete the VPN
@@ -2043,7 +2082,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteCustomerGateway
 
 -- instance AWSRequest EC2 DeleteCustomerGateway DeleteCustomerGatewayResponse where
---     request = req GET "DeleteCustomerGateway"
+--     request = qry GET "DeleteCustomerGateway"
 
 -- data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 --     { dcgRequestId :: !Text
@@ -2053,7 +2092,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteCustomerGateway) where
+-- instance IsXML DeleteCustomerGatewayResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified set of DHCP options. You must disassociate the set of
@@ -2072,7 +2111,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteDhcpOptions
 
 -- instance AWSRequest EC2 DeleteDhcpOptions DeleteDhcpOptionsResponse where
---     request = req GET "DeleteDhcpOptions"
+--     request = qry GET "DeleteDhcpOptions"
 
 -- data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 --     { ddoRequestId :: !Text
@@ -2082,7 +2121,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteDhcpOptions) where
+-- instance IsXML DeleteDhcpOptionsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified Internet gateway. You must detach the Internet
@@ -2100,7 +2139,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteInternetGateway
 
 -- instance AWSRequest EC2 DeleteInternetGateway DeleteInternetGatewayResponse where
---     request = req GET "DeleteInternetGateway"
+--     request = qry GET "DeleteInternetGateway"
 
 -- data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
 --     { digRequestId :: !Text
@@ -2110,7 +2149,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteInternetGateway) where
+-- instance IsXML DeleteInternetGatewayResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified key pair, by removing the public key from Amazon EC2.
@@ -2126,7 +2165,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteKeyPair
 
 -- instance AWSRequest EC2 DeleteKeyPair DeleteKeyPairResponse where
---     request = req GET "DeleteKeyPair"
+--     request = qry GET "DeleteKeyPair"
 
 -- data DeleteKeyPairResponse = DeleteKeyPairResponse
 --     { dkpRequestId :: !Text
@@ -2136,7 +2175,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteKeyPair) where
+-- instance IsXML DeleteKeyPairResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified network ACL. You can't delete the ACL if it's
@@ -2154,7 +2193,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteNetworkAcl
 
 -- instance AWSRequest EC2 DeleteNetworkAcl DeleteNetworkAclResponse where
---     request = req GET "DeleteNetworkAcl"
+--     request = qry GET "DeleteNetworkAcl"
 
 -- data DeleteNetworkAclResponse = DeleteNetworkAclResponse
 --     { dnaRequestId :: !Text
@@ -2164,7 +2203,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteNetworkAcl) where
+-- instance IsXML DeleteNetworkAclResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified ingress or egress entry (rule) from the specified
@@ -2186,7 +2225,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteNetworkAclEntry
 
 -- instance AWSRequest EC2 DeleteNetworkAclEntry DeleteNetworkAclEntryResponse where
---     request = req GET "DeleteNetworkAclEntry"
+--     request = qry GET "DeleteNetworkAclEntry"
 
 -- data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 --     { dnaeRequestId :: !Text
@@ -2196,7 +2235,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteNetworkAclEntry) where
+-- instance IsXML DeleteNetworkAclEntryResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified network interface. You must detach the network
@@ -2215,7 +2254,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteNetworkInterface DeleteNetworkInterfaceResponse where
---     request = req GET "DeleteNetworkInterface"
+--     request = qry GET "DeleteNetworkInterface"
 
 -- data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 --     { dniRequestId :: !Text
@@ -2225,7 +2264,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteNetworkInterface) where
+-- instance IsXML DeleteNetworkInterfaceResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified placement group. You must terminate all instances in
@@ -2243,7 +2282,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeletePlacementGroup
 
 -- instance AWSRequest EC2 DeletePlacementGroup DeletePlacementGroupResponse where
---     request = req GET "DeletePlacementGroup"
+--     request = qry GET "DeletePlacementGroup"
 
 -- data DeletePlacementGroupResponse = DeletePlacementGroupResponse
 --     { dpgRequestId :: !Text
@@ -2253,7 +2292,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeletePlacementGroup) where
+-- instance IsXML DeletePlacementGroupResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified route from the specified route table. For more
@@ -2276,7 +2315,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteRoute DeleteRouteResponse where
---     request = req GET "DeleteRoute"
+--     request = qry GET "DeleteRoute"
 
 -- data DeleteRouteResponse = DeleteRouteResponse
 --     { drRequestId :: !Text
@@ -2286,7 +2325,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteRoute) where
+-- instance IsXML DeleteRouteResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified route table. You must disassociate the route table
@@ -2307,7 +2346,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteRouteTable DeleteRouteTableResponse where
---     request = req GET "DeleteRouteTable"
+--     request = qry GET "DeleteRouteTable"
 
 -- data DeleteRouteTableResponse = DeleteRouteTableResponse
 --     { drtRequestId :: !Text
@@ -2317,36 +2356,37 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteRouteTable) where
+-- instance IsXML DeleteRouteTableResponse where
 --     xmlPickler = ec2XML
 
--- -- | Deletes a security group.A security group is for use with instances either
--- -- in the EC2-Classic platform or in a specific VPC.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html>
+-- | Deletes a security group.A security group is for use with instances either
+-- in the EC2-Classic platform or in a specific VPC.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html>
+data DeleteSecurityGroup = DeleteSecurityGroup
+    { dsgGroupName :: !Text
+      -- ^ The name of the security group.
+    , dsgGroupId   :: !Text
+      -- ^ The ID of the security group.
+    } deriving (Eq, Show, Generic)
 
--- data DeleteSecurityGroup = DeleteSecurityGroup
---     { dsgGroupName :: !Text
---       -- ^ The name of the security group.
---     , dsgGroupId   :: !Text
---       -- ^ The ID of the security group.
---     } deriving (Eq, Show, Generic)
+instance IsQuery DeleteSecurityGroup
 
--- instance IsQuery DeleteSecurityGroup
+instance Rq DeleteSecurityGroup where
+    type Er DeleteSecurityGroup = EC2ErrorResponse
+    type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
+    request = qry GET "DeleteSecurityGroup"
 
--- instance AWSRequest EC2 DeleteSecurityGroup DeleteSecurityGroupResponse where
---     request = req GET "DeleteSecurityGroup"
+data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
+    { dsgRequestId :: !Text
+      -- ^ The ID of the request.
+    , dsgReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an
+      -- error.
+    } deriving (Eq, Show, Generic)
 
--- data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
---     { dsgRequestId :: !Text
---       -- ^ The ID of the request.
---     , dsgReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML (Rs DeleteSecurityGroup) where
---     xmlPickler = ec2XML
+instance IsXML DeleteSecurityGroupResponse where
+    xmlPickler = ec2XML
 
 -- -- | Deletes the specified snapshot.
 -- --
@@ -2360,7 +2400,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteSnapshot
 
 -- instance AWSRequest EC2 DeleteSnapshot DeleteSnapshotResponse where
---     request = req GET "DeleteSnapshot"
+--     request = qry GET "DeleteSnapshot"
 
 -- data DeleteSnapshotResponse = DeleteSnapshotResponse
 --     { dsRequestId :: !Text
@@ -2370,7 +2410,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteSnapshot) where
+-- instance IsXML DeleteSnapshotResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the datafeed for Spot Instances. For more information about Spot
@@ -2388,7 +2428,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = xpEmpty $ Just ec2NS
 
 -- instance AWSRequest EC2 DeleteSpotDatafeedSubscription DeleteSpotDatafeedSubscriptionResponse where
---     request = req GET "DeleteSpotDatafeedSubscription"
+--     request = qry GET "DeleteSpotDatafeedSubscription"
 
 -- data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
 --     { dsdsRequestId :: !Text
@@ -2398,7 +2438,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteSpotDatafeedSubscription) where
+-- instance IsXML DeleteSpotDatafeedSubscriptionResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified subnet. You must terminate all running instances in
@@ -2414,7 +2454,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteSubnet
 
 -- instance AWSRequest EC2 DeleteSubnet DeleteSubnetResponse where
---     request = req GET "DeleteSubnet"
+--     request = qry GET "DeleteSubnet"
 
 -- data DeleteSubnetResponse = DeleteSubnetResponse
 --     { dtRequestId :: !Text
@@ -2424,7 +2464,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteSubnet) where
+-- instance IsXML DeleteSubnetResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified set of tags from the specified set of resources. This
@@ -2445,7 +2485,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteTags
 
 -- instance AWSRequest EC2 DeleteTags DeleteTagsResponse where
---     request = req GET "DeleteTags"
+--     request = qry GET "DeleteTags"
 
 -- data DeleteTagsResponse = DeleteTagsResponse
 --     { duRequestId :: !Text
@@ -2455,7 +2495,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteTags) where
+-- instance IsXML DeleteTagsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified Amazon EBS volume. The volume must be in the
@@ -2476,7 +2516,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteVolume DeleteVolumeResponse where
---     request = req GET "DeleteVolume"
+--     request = qry GET "DeleteVolume"
 
 -- data DeleteVolumeResponse = DeleteVolumeResponse
 --     { dvRequestId :: !Text
@@ -2486,7 +2526,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteVolume) where
+-- instance IsXML DeleteVolumeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified VPC. You must detach or delete all gateways and
@@ -2506,7 +2546,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteVpc
 
 -- instance AWSRequest EC2 DeleteVpc DeleteVpcResponse where
---     request = req GET "DeleteVpc"
+--     request = qry GET "DeleteVpc"
 
 -- data DeleteVpcResponse = DeleteVpcResponse
 --     { dwRequestId :: !Text
@@ -2516,7 +2556,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteVpc) where
+-- instance IsXML DeleteVpcResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified VPN connection.If you're deleting the VPC and its
@@ -2542,7 +2582,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteVpnConnection
 
 -- instance AWSRequest EC2 DeleteVpnConnection DeleteVpnConnectionResponse where
---     request = req GET "DeleteVpnConnection"
+--     request = qry GET "DeleteVpnConnection"
 
 -- data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
 --     { dvcRequestId :: !Text
@@ -2552,7 +2592,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteVpnConnection) where
+-- instance IsXML DeleteVpnConnectionResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified static route associated with a VPN connection between
@@ -2578,7 +2618,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteVpnConnectionRoute DeleteVpnConnectionRouteResponse where
---     request = req GET "DeleteVpnConnectionRoute"
+--     request = qry GET "DeleteVpnConnectionRoute"
 
 -- data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 --     { dvcrRequestId :: !Text
@@ -2588,7 +2628,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteVpnConnectionRoute) where
+-- instance IsXML DeleteVpnConnectionRouteResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deletes the specified virtual private gateway. We recommend that before you
@@ -2609,7 +2649,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DeleteVpnGateway
 
 -- instance AWSRequest EC2 DeleteVpnGateway DeleteVpnGatewayResponse where
---     request = req GET "DeleteVpnGateway"
+--     request = qry GET "DeleteVpnGateway"
 
 -- data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
 --     { dvgRequestId :: !Text
@@ -2619,7 +2659,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteVpnGateway) where
+-- instance IsXML DeleteVpnGatewayResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Deregisters the specified AMI. After you deregister an AMI, it can't be
@@ -2638,7 +2678,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeregisterImage DeregisterImageResponse where
---     request = req GET "DeregisterImage"
+--     request = qry GET "DeregisterImage"
 
 -- data DeregisterImageResponse = DeregisterImageResponse
 --     { diRequestId :: !Text
@@ -2648,7 +2688,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeregisterImage) where
+-- instance IsXML DeregisterImageResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the specified attribute of your AWS account.The following are the
@@ -2664,7 +2704,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeAccountAttributes
 
 -- instance AWSRequest EC2 DescribeAccountAttributes DescribeAccountAttributesResponse where
---     request = req GET "DescribeAccountAttributes"
+--     request = qry GET "DescribeAccountAttributes"
 
 -- data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
 --     { daaRequestId           :: !Text
@@ -2674,7 +2714,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeAccountAttributes) where
+-- instance IsXML DescribeAccountAttributesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your Elastic IP addresses.An Elastic IP address is
@@ -2716,7 +2756,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeAddresses
 
 -- instance AWSRequest EC2 DescribeAddresses DescribeAddressesResponse where
---     request = req GET "DescribeAddresses"
+--     request = qry GET "DescribeAddresses"
 
 -- data DescribeAddressesResponse = DescribeAddressesResponse
 --     { daRequestId    :: !Text
@@ -2726,7 +2766,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeAddresses) where
+-- instance IsXML DescribeAddressesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of the Availability Zones that are available to you.
@@ -2755,7 +2795,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeAvailabilityZones
 
 -- instance AWSRequest EC2 DescribeAvailabilityZones DescribeAvailabilityZonesResponse where
---     request = req GET "DescribeAvailabilityZones"
+--     request = qry GET "DescribeAvailabilityZones"
 
 -- data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
 --     { dazRequestId            :: !Text
@@ -2765,7 +2805,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeAvailabilityZones) where
+-- instance IsXML DescribeAvailabilityZonesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your bundling tasks.
@@ -2807,7 +2847,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeBundleTasks
 
 -- instance AWSRequest EC2 DescribeBundleTasks DescribeBundleTasksResponse where
---     request = req GET "DescribeBundleTasks"
+--     request = qry GET "DescribeBundleTasks"
 
 -- data DescribeBundleTasksResponse = DescribeBundleTasksResponse
 --     { dbtRequestId              :: !Text
@@ -2816,7 +2856,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ A list of bundle tasks, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeBundleTasks) where
+-- instance IsXML DescribeBundleTasksResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your conversion tasks.
@@ -2831,14 +2871,14 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeConversionTasks
 
 -- instance AWSRequest EC2 DescribeConversionTasks DescribeConversionTasksResponse where
---     request = req GET "DescribeConversionTasks"
+--     request = qry GET "DescribeConversionTasks"
 
 -- data DescribeConversionTasksResponse = DescribeConversionTasksResponse
 --     { dctConversionTasks :: !ConversionTaskType
 --       -- ^ A list of conversion tasks, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeConversionTasks) where
+-- instance IsXML DescribeConversionTasksResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your VPN customer gateways.For more information
@@ -2887,7 +2927,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeCustomerGateways
 
 -- instance AWSRequest EC2 DescribeCustomerGateways DescribeCustomerGatewaysResponse where
---     request = req GET "DescribeCustomerGateways"
+--     request = qry GET "DescribeCustomerGateways"
 
 -- data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
 --     { dchRequestId          :: !Text
@@ -2896,7 +2936,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ A list of customer gateways, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeCustomerGateways) where
+-- instance IsXML DescribeCustomerGatewaysResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your DHCP options sets.For more information about
@@ -2938,7 +2978,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeDhcpOptions
 
 -- instance AWSRequest EC2 DescribeDhcpOptions DescribeDhcpOptionsResponse where
---     request = req GET "DescribeDhcpOptions"
+--     request = qry GET "DescribeDhcpOptions"
 
 -- data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 --     { ddqRequestId      :: !Text
@@ -2947,7 +2987,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ A list of DHCP options sets, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeDhcpOptions) where
+-- instance IsXML DescribeDhcpOptionsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your export tasks.
@@ -2962,7 +3002,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeExportTasks
 
 -- instance AWSRequest EC2 DescribeExportTasks DescribeExportTasksResponse where
---     request = req GET "DescribeExportTasks"
+--     request = qry GET "DescribeExportTasks"
 
 -- data DescribeExportTasksResponse = DescribeExportTasksResponse
 --     { detRequestId     :: !Text
@@ -2971,7 +3011,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ A list of export tasks, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeExportTasks) where
+-- instance IsXML DescribeExportTasksResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes an attributes of an AMI. You can specify only one attribute at a
@@ -2992,7 +3032,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeImageAttribute DescribeImageAttributeResponse where
---     request = req GET "DescribeImageAttribute"
+--     request = qry GET "DescribeImageAttribute"
 
 -- data DescribeImageAttributeResponse = DescribeImageAttributeResponse
 --     { diaRequestId          :: !Text
@@ -3017,7 +3057,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeImageAttribute) where
+-- instance IsXML DescribeImageAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of the images (AMIs, AKIs, and ARIs) available to
@@ -3107,7 +3147,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 -- instance IsQuery DescribeImages
 
 -- instance AWSRequest EC2 DescribeImages DescribeImagesResponse where
---     request = req GET "DescribeImages"
+--     request = qry GET "DescribeImages"
 
 -- data DescribeImagesResponse = DescribeImagesResponse
 --     { djRequestId :: !Text
@@ -3116,7 +3156,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ A list of images, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeImages) where
+-- instance IsXML DescribeImagesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes an attribute of the specified instance. You can specify only one
@@ -3137,7 +3177,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeInstanceAttribute DescribeInstanceAttributeResponse where
---     request = req GET "DescribeInstanceAttribute"
+--     request = qry GET "DescribeInstanceAttribute"
 
 -- data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 --     { dibRequestId                         :: !Text
@@ -3176,7 +3216,7 @@ instance IsXML (Rs CancelSpotInstanceRequests) where
 --       -- ^ The Base64-encoded MIME user data.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeInstanceAttribute) where
+-- instance IsXML DescribeInstanceAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- | Describes one or more of your instances.
@@ -3340,17 +3380,18 @@ data DescribeInstances = DescribeInstances
 instance IsQuery DescribeInstances
 
 instance Rq DescribeInstances where
+    type Er DescribeInstances = EC2ErrorResponse
+    type Rs DescribeInstances = DescribeInstancesResponse
     request = qry GET "DescribeInstances"
 
-type instance Er DescribeInstances = EC2ErrorResponse
-data instance Rs DescribeInstances = DescribeInstancesResponse
+data DescribeInstancesResponse = DescribeInstancesResponse
     { dkRequestId      :: !Text
       -- ^ The ID of the request.
     , dkReservationSet :: Items ReservationInfoType
       -- ^ A list of reservations, each one wrapped in an item element.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs DescribeInstances) where
+instance IsXML DescribeInstancesResponse where
     xmlPickler = ec2XML
 
 -- -- | Describes the status of one or more instances, including any scheduled
@@ -3399,7 +3440,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeInstanceStatus
 
 -- instance AWSRequest EC2 DescribeInstanceStatus DescribeInstanceStatusResponse where
---     request = req GET "DescribeInstanceStatus"
+--     request = qry GET "DescribeInstanceStatus"
 
 -- data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
 --     { disRequestId         :: !Text
@@ -3411,7 +3452,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ The next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeInstanceStatus) where
+-- instance IsXML DescribeInstanceStatusResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your Internet gateways.
@@ -3450,7 +3491,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeInternetGateways
 
 -- instance AWSRequest EC2 DescribeInternetGateways DescribeInternetGatewaysResponse where
---     request = req GET "DescribeInternetGateways"
+--     request = qry GET "DescribeInternetGateways"
 
 -- data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
 --     { dihRequestId          :: !Text
@@ -3459,7 +3500,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ A list of Internet gateways, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeInternetGateways) where
+-- instance IsXML DescribeInternetGatewaysResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your key pairs.
@@ -3482,7 +3523,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeKeyPairs
 
 -- instance AWSRequest EC2 DescribeKeyPairs DescribeKeyPairsResponse where
---     request = req GET "DescribeKeyPairs"
+--     request = qry GET "DescribeKeyPairs"
 
 -- data DescribeKeyPairsResponse = DescribeKeyPairsResponse
 --     { dkqRequestId :: !Text
@@ -3491,7 +3532,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ A list of key pairs, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeKeyPairs) where
+-- instance IsXML DescribeKeyPairsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your network ACLs.For more information about
@@ -3537,7 +3578,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeNetworkAcls
 
 -- instance AWSRequest EC2 DescribeNetworkAcls DescribeNetworkAclsResponse where
---     request = req GET "DescribeNetworkAcls"
+--     request = qry GET "DescribeNetworkAcls"
 
 -- data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
 --     { dnbRequestId     :: !Text
@@ -3546,7 +3587,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ A list of network ACLs, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeNetworkAcls) where
+-- instance IsXML DescribeNetworkAclsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes a network interface attribute. You can specify only one attribute
@@ -3567,7 +3608,7 @@ instance IsXML (Rs DescribeInstances) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeNetworkInterfaceAttribute DescribeNetworkInterfaceAttributeResponse where
---     request = req GET "DescribeNetworkInterfaceAttribute"
+--     request = qry GET "DescribeNetworkInterfaceAttribute"
 
 -- data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
 --     { dniaRequestId          :: !Text
@@ -3584,7 +3625,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ The attachment (if any) of the network interface.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeNetworkInterfaceAttribute) where
+-- instance IsXML DescribeNetworkInterfaceAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your network interfaces.
@@ -3666,7 +3707,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeNetworkInterfaces
 
 -- instance AWSRequest EC2 DescribeNetworkInterfaces DescribeNetworkInterfacesResponse where
---     request = req GET "DescribeNetworkInterfaces"
+--     request = qry GET "DescribeNetworkInterfaces"
 
 -- data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
 --     { dnjRequestId           :: !Text
@@ -3676,7 +3717,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeNetworkInterfaces) where
+-- instance IsXML DescribeNetworkInterfacesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your placement groups. For more information about
@@ -3704,7 +3745,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribePlacementGroups
 
 -- instance AWSRequest EC2 DescribePlacementGroups DescribePlacementGroupsResponse where
---     request = req GET "DescribePlacementGroups"
+--     request = qry GET "DescribePlacementGroups"
 
 -- data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
 --     { dphRequestId         :: !Text
@@ -3713,7 +3754,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ A list of placement groups, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribePlacementGroups) where
+-- instance IsXML DescribePlacementGroupsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more regions that are currently available to you.For a
@@ -3738,7 +3779,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeRegions
 
 -- instance AWSRequest EC2 DescribeRegions DescribeRegionsResponse where
---     request = req GET "DescribeRegions"
+--     request = qry GET "DescribeRegions"
 
 -- data DescribeRegionsResponse = DescribeRegionsResponse
 --     { dxRequestId  :: !Text
@@ -3747,7 +3788,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ A list of regions, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeRegions) where
+-- instance IsXML DescribeRegionsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of the Reserved Instances that you purchased.
@@ -3804,7 +3845,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeReservedInstances
 
 -- instance AWSRequest EC2 DescribeReservedInstances DescribeReservedInstancesResponse where
---     request = req GET "DescribeReservedInstances"
+--     request = qry GET "DescribeReservedInstances"
 
 -- data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
 --     { driRequestId            :: !Text
@@ -3814,7 +3855,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeReservedInstances) where
+-- instance IsXML DescribeReservedInstancesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes your account's Reserved Instance listings in the Reserved
@@ -3847,7 +3888,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeReservedInstancesListings
 
 -- instance AWSRequest EC2 DescribeReservedInstancesListings DescribeReservedInstancesListingsResponse where
---     request = req GET "DescribeReservedInstancesListings"
+--     request = qry GET "DescribeReservedInstancesListings"
 
 -- data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
 --     { drilRequestId                    :: !Text
@@ -3857,7 +3898,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeReservedInstancesListings) where
+-- instance IsXML DescribeReservedInstancesListingsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes Reserved Instance offerings that are available for purchase.
@@ -3926,7 +3967,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeReservedInstancesOfferings
 
 -- instance AWSRequest EC2 DescribeReservedInstancesOfferings DescribeReservedInstancesOfferingsResponse where
---     request = req GET "DescribeReservedInstancesOfferings"
+--     request = qry GET "DescribeReservedInstancesOfferings"
 
 -- data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
 --     { drioRequestId                     :: !Text
@@ -3938,7 +3979,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ The next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeReservedInstancesOfferings) where
+-- instance IsXML DescribeReservedInstancesOfferingsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your route tables.For more information about route
@@ -3981,7 +4022,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeRouteTables
 
 -- instance AWSRequest EC2 DescribeRouteTables DescribeRouteTablesResponse where
---     request = req GET "DescribeRouteTables"
+--     request = qry GET "DescribeRouteTables"
 
 -- data DescribeRouteTablesResponse = DescribeRouteTablesResponse
 --     { druRequestId     :: !Text
@@ -3990,56 +4031,38 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ A list of route tables, each one wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeRouteTables) where
+-- instance IsXML DescribeRouteTablesResponse where
 --     xmlPickler = ec2XML
 
--- -- | A security group is for use with instances either in the EC2-Classic
--- -- platform or in a specific VPC.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html>
+-- | A security group is for use with instances either in the EC2-Classic
+-- platform or in a specific VPC.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html>
+data DescribeSecurityGroups = DescribeSecurityGroups
+    { dshGroupName :: [Text]
+      -- ^ A list of group names.
+    , dshGroupId   :: [Text]
+      -- ^ A list of group ids.
+    , dshFilter    :: [Filter]
+      -- ^ The name of a filter.
+    } deriving (Eq, Show, Generic)
 
--- -- data SecurityGroupFilter
--- --     , dshDescription   :: !Text
--- --       -- ^ The description of the security group.
--- --     , dshGroup-id      :: !Text
--- --       -- ^ The ID of the security group.
--- --     , dshGroup-name    :: !Text
--- --       -- ^ The name of the security group.
--- --     , dshIp-permission :: Members ip-permissionType
--- --       -- ^ The CIDR range that has been granted the permission.
--- --     , dshOwner-id      :: !Text
--- --       -- ^ The AWS account ID of the owner of the security group.
--- --     , dshTag-key       :: !Text
--- --       -- ^ The key of a tag assigned to the security group.
--- --     , dshTag-value     :: !Text
--- --       -- ^ The value of a tag assigned to the security group.
--- --     , dshVpc-id        :: !Text
--- --       -- ^ Only return the security groups that belong to the specified
--- --       -- EC2-VPC ID.
+instance IsQuery DescribeSecurityGroups
 
--- data DescribeSecurityGroups = DescribeSecurityGroups
---     { dshGroupName     :: Members Text
---       -- ^ One or more security group names.
---     , dshGroupId       :: Members Text
---       -- ^ One or more security group IDs.
---     , dshFilter        :: Members Text
---       -- ^ The name of a filter.
---     } deriving (Eq, Show, Generic)
+instance Rq DescribeSecurityGroups where
+    type Er DescribeSecurityGroups = EC2ErrorResponse
+    type Rs DescribeSecurityGroups = DescribeSecurityGroupsResponse
+    request = qry GET "DescribeSecurityGroups"
 
--- instance IsQuery DescribeSecurityGroups
+data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
+    { dshRequestId         :: !Text
+      -- ^ The ID of the request.
+    , dshSecurityGroupInfo :: Items SecurityGroupItemType
+      -- ^ A list of security groups.
+    } deriving (Eq, Show, Generic)
 
--- instance AWSRequest EC2 DescribeSecurityGroups DescribeSecurityGroupsResponse where
---     request = req GET "DescribeSecurityGroups"
-
--- data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
---     { dshRequestId         :: !Text
---       -- ^ The ID of the request.
---     , dshSecurityGroupInfo :: !SecurityGroupItemType
---       -- ^ A list of security groups, each one wrapped in an item element.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML (Rs DescribeSecurityGroups) where
---     xmlPickler = ec2XML
+instance IsXML DescribeSecurityGroupsResponse where
+    xmlPickler = ec2XML
 
 -- -- | Describes an attribute of the specified snapshot. You can specify only one
 -- -- attribute at a time.
@@ -4059,7 +4082,7 @@ instance IsXML (Rs DescribeInstances) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeSnapshotAttribute DescribeSnapshotAttributeResponse where
---     request = req GET "DescribeSnapshotAttribute"
+--     request = qry GET "DescribeSnapshotAttribute"
 
 -- data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
 --     { dsaRequestId              :: !Text
@@ -4074,7 +4097,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- element type that contains a product code and a type.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeSnapshotAttribute) where
+-- instance IsXML DescribeSnapshotAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of the Amazon EBS snapshots available to you.
@@ -4138,7 +4161,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeSnapshots
 
 -- instance AWSRequest EC2 DescribeSnapshots DescribeSnapshotsResponse where
---     request = req GET "DescribeSnapshots"
+--     request = qry GET "DescribeSnapshots"
 
 -- data DescribeSnapshotsResponse = DescribeSnapshotsResponse
 --     { dyRequestId   :: !Text
@@ -4147,7 +4170,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ A list of snapshots. Each snapshot is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeSnapshots) where
+-- instance IsXML DescribeSnapshotsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the datafeed for Spot Instances. For more information about Spot
@@ -4165,7 +4188,7 @@ instance IsXML (Rs DescribeInstances) where
 --     xmlPickler = xpEmpty $ Just ec2NS
 
 -- instance AWSRequest EC2 DescribeSpotDatafeedSubscription DescribeSpotDatafeedSubscriptionResponse where
---     request = req GET "DescribeSpotDatafeedSubscription"
+--     request = qry GET "DescribeSpotDatafeedSubscription"
 
 -- data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
 --     { dsdtRequestId                :: !Text
@@ -4174,7 +4197,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ The Spot Instance datafeed subscription.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeSpotDatafeedSubscription) where
+-- instance IsXML DescribeSpotDatafeedSubscriptionResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the Spot Instance requests that belong to your account. Spot
@@ -4254,7 +4277,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeSpotInstanceRequests
 
 -- instance AWSRequest EC2 DescribeSpotInstanceRequests DescribeSpotInstanceRequestsResponse where
---     request = req GET "DescribeSpotInstanceRequests"
+--     request = qry GET "DescribeSpotInstanceRequests"
 
 -- data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
 --     { dsirRequestId              :: !Text
@@ -4266,7 +4289,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ Information about the network interface.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeSpotInstanceRequests) where
+-- instance IsXML DescribeSpotInstanceRequestsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the Spot Price history.
@@ -4310,7 +4333,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeSpotPriceHistory
 
 -- instance AWSRequest EC2 DescribeSpotPriceHistory DescribeSpotPriceHistoryResponse where
---     request = req GET "DescribeSpotPriceHistory"
+--     request = qry GET "DescribeSpotPriceHistory"
 
 -- data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 --     { dsphRequestId           :: !Text
@@ -4323,7 +4346,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- empty if there are no more results to be returned.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeSpotPriceHistory) where
+-- instance IsXML DescribeSpotPriceHistoryResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your subnets.
@@ -4374,7 +4397,7 @@ instance IsXML (Rs DescribeInstances) where
 -- instance IsQuery DescribeSubnets
 
 -- instance AWSRequest EC2 DescribeSubnets DescribeSubnetsResponse where
---     request = req GET "DescribeSubnets"
+--     request = qry GET "DescribeSubnets"
 
 -- data DescribeSubnetsResponse = DescribeSubnetsResponse
 --     { dzRequestId :: !Text
@@ -4383,7 +4406,7 @@ instance IsXML (Rs DescribeInstances) where
 --       -- ^ A list of subnets. Each subnet is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeSubnets) where
+-- instance IsXML DescribeSubnetsResponse where
 --     xmlPickler = ec2XML
 
 -- | Describes one or more of the tags for your EC2 resources.
@@ -4398,17 +4421,18 @@ data DescribeTags = DescribeTags
 instance IsQuery DescribeTags
 
 instance Rq DescribeTags where
+    type Er DescribeTags = EC2ErrorResponse
+    type Rs DescribeTags = DescribeTagsResponse
     request = qry GET "DescribeTags"
 
-type instance Er DescribeTags = EC2ErrorResponse
-data instance Rs DescribeTags = DescribeTagsResponse
+data DescribeTagsResponse = DescribeTagsResponse
     { eaRequestId :: !Text
       -- ^ The ID of the request.
     , eaTagSet    :: Items TagSetItemType
       -- ^ A list of tags.
     } deriving (Eq, Show, Generic)
 
-instance IsXML (Rs DescribeTags) where
+instance IsXML DescribeTagsResponse where
     xmlPickler = ec2XML
 
 -- -- | Describes the specified attribute of the specified volume. You can specify
@@ -4429,7 +4453,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeVolumeAttribute DescribeVolumeAttributeResponse where
---     request = req GET "DescribeVolumeAttribute"
+--     request = qry GET "DescribeVolumeAttribute"
 
 -- data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
 --     { dvaRequestId    :: !Text
@@ -4443,7 +4467,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- element that contains a product code and a type.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeVolumeAttribute) where
+-- instance IsXML DescribeVolumeAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the specified Amazon EBS volumes.For more information about
@@ -4496,7 +4520,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DescribeVolumes
 
 -- instance AWSRequest EC2 DescribeVolumes DescribeVolumesResponse where
---     request = req GET "DescribeVolumes"
+--     request = qry GET "DescribeVolumes"
 
 -- data DescribeVolumesResponse = DescribeVolumesResponse
 --     { ebRequestId :: !Text
@@ -4505,7 +4529,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ A list of volumes. Each volume is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeVolumes) where
+-- instance IsXML DescribeVolumesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the status of the specified volumes. Volume status provides the
@@ -4540,7 +4564,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DescribeVolumeStatus
 
 -- instance AWSRequest EC2 DescribeVolumeStatus DescribeVolumeStatusResponse where
---     request = req GET "DescribeVolumeStatus"
+--     request = qry GET "DescribeVolumeStatus"
 
 -- data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
 --     { dvsRequestId       :: !Text
@@ -4551,7 +4575,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ A string specifying the next paginated set of results to return.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeVolumeStatus) where
+-- instance IsXML DescribeVolumeStatusResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes the specified attribute of the specified VPC. You can specify
@@ -4572,7 +4596,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeVpcAttribute DescribeVpcAttributeResponse where
---     request = req GET "DescribeVpcAttribute"
+--     request = qry GET "DescribeVpcAttribute"
 
 -- data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
 --     { dvbRequestId          :: !Text
@@ -4588,7 +4612,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- DNS hostnames; otherwise, they do not.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeVpcAttribute) where
+-- instance IsXML DescribeVpcAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your VPCs.
@@ -4634,7 +4658,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DescribeVpcs
 
 -- instance AWSRequest EC2 DescribeVpcs DescribeVpcsResponse where
---     request = req GET "DescribeVpcs"
+--     request = qry GET "DescribeVpcs"
 
 -- data DescribeVpcsResponse = DescribeVpcsResponse
 --     { ecRequestId :: !Text
@@ -4643,7 +4667,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ A list of VPCs. Each VPC is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeVpcs) where
+-- instance IsXML DescribeVpcsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your VPN connections.For more information about
@@ -4702,7 +4726,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DescribeVpnConnections
 
 -- instance AWSRequest EC2 DescribeVpnConnections DescribeVpnConnectionsResponse where
---     request = req GET "DescribeVpnConnections"
+--     request = qry GET "DescribeVpnConnections"
 
 -- data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
 --     { dvdRequestId        :: !Text
@@ -4712,7 +4736,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeVpnConnections) where
+-- instance IsXML DescribeVpnConnectionsResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Describes one or more of your virtual private gateways. For more
@@ -4759,7 +4783,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DescribeVpnGateways
 
 -- instance AWSRequest EC2 DescribeVpnGateways DescribeVpnGatewaysResponse where
---     request = req GET "DescribeVpnGateways"
+--     request = qry GET "DescribeVpnGateways"
 
 -- data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
 --     { dvhRequestId     :: !Text
@@ -4769,7 +4793,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DescribeVpnGateways) where
+-- instance IsXML DescribeVpnGatewaysResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Detaches an Internet gateway from a VPC, disabling connectivity between the
@@ -4788,7 +4812,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DetachInternetGateway
 
 -- instance AWSRequest EC2 DetachInternetGateway DetachInternetGatewayResponse where
---     request = req GET "DetachInternetGateway"
+--     request = qry GET "DetachInternetGateway"
 
 -- data DetachInternetGatewayResponse = DetachInternetGatewayResponse
 --     { diiRequestId :: !Text
@@ -4798,7 +4822,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DetachInternetGateway) where
+-- instance IsXML DetachInternetGatewayResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Detaches a network interface from an instance.
@@ -4818,7 +4842,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DetachNetworkInterface DetachNetworkInterfaceResponse where
---     request = req GET "DetachNetworkInterface"
+--     request = qry GET "DetachNetworkInterface"
 
 -- data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 --     { dnkRequestId :: !Text
@@ -4828,7 +4852,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DetachNetworkInterface) where
+-- instance IsXML DetachNetworkInterfaceResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Detaches an Amazon EBS volume from an instance. Make sure to unmount any
@@ -4863,7 +4887,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DetachVolume DetachVolumeResponse where
---     request = req GET "DetachVolume"
+--     request = qry GET "DetachVolume"
 
 -- data DetachVolumeResponse = DetachVolumeResponse
 --     { edRequestId  :: !Text
@@ -4880,7 +4904,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ The time stamp when the attachment initiated.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DetachVolume) where
+-- instance IsXML DetachVolumeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Detaches a virtual private gateway from a VPC. You do this if you're
@@ -4904,7 +4928,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DetachVpnGateway
 
 -- instance AWSRequest EC2 DetachVpnGateway DetachVpnGatewayResponse where
---     request = req GET "DetachVpnGateway"
+--     request = qry GET "DetachVpnGateway"
 
 -- data DetachVpnGatewayResponse = DetachVpnGatewayResponse
 --     { dviRequestId :: !Text
@@ -4914,7 +4938,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DetachVpnGateway) where
+-- instance IsXML DetachVpnGatewayResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Disables a virtual private gateway (VGW) from propagating routes to the
@@ -4932,7 +4956,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DisableVgwRoutePropagation
 
 -- instance AWSRequest EC2 DisableVgwRoutePropagation DisableVgwRoutePropagationResponse where
---     request = req GET "DisableVgwRoutePropagation"
+--     request = qry GET "DisableVgwRoutePropagation"
 
 -- data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 --     { dvrpRequestId :: !Text
@@ -4942,7 +4966,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DisableVgwRoutePropagation) where
+-- instance IsXML DisableVgwRoutePropagationResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Disassociates an Elastic IP address from the instance or network interface
@@ -4961,7 +4985,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery DisassociateAddress
 
 -- instance AWSRequest EC2 DisassociateAddress DisassociateAddressResponse where
---     request = req GET "DisassociateAddress"
+--     request = qry GET "DisassociateAddress"
 
 -- data DisassociateAddressResponse = DisassociateAddressResponse
 --     { dbRequestId :: !Text
@@ -4971,7 +4995,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DisassociateAddress) where
+-- instance IsXML DisassociateAddressResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Disassociates a subnet from a route table.After you perform this action,
@@ -4993,7 +5017,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DisassociateRouteTable DisassociateRouteTableResponse where
---     request = req GET "DisassociateRouteTable"
+--     request = qry GET "DisassociateRouteTable"
 
 -- data DisassociateRouteTableResponse = DisassociateRouteTableResponse
 --     { drvRequestId :: !Text
@@ -5003,7 +5027,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DisassociateRouteTable) where
+-- instance IsXML DisassociateRouteTableResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Enables a virtual private gateway (VGW) to propagate routes to the routing
@@ -5021,7 +5045,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery EnableVgwRoutePropagation
 
 -- instance AWSRequest EC2 EnableVgwRoutePropagation EnableVgwRoutePropagationResponse where
---     request = req GET "EnableVgwRoutePropagation"
+--     request = qry GET "EnableVgwRoutePropagation"
 
 -- data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 --     { evrpRequestId :: !Text
@@ -5031,7 +5055,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs EnableVgwRoutePropagation) where
+-- instance IsXML EnableVgwRoutePropagationResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Enables I/O operations for a volume that had I/O operations disabled
@@ -5047,7 +5071,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery EnableVolumeIO
 
 -- instance AWSRequest EC2 EnableVolumeIO EnableVolumeIOResponse where
---     request = req GET "EnableVolumeIO"
+--     request = qry GET "EnableVolumeIO"
 
 -- data EnableVolumeIOResponse = EnableVolumeIOResponse
 --     { evioRequestId :: !Text
@@ -5057,7 +5081,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs EnableVolumeIO) where
+-- instance IsXML EnableVolumeIOResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Gets the console output for the specified instance. Instances do not have a
@@ -5084,7 +5108,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery GetConsoleOutput
 
 -- instance AWSRequest EC2 GetConsoleOutput GetConsoleOutputResponse where
---     request = req GET "GetConsoleOutput"
+--     request = qry GET "GetConsoleOutput"
 
 -- data GetConsoleOutputResponse = GetConsoleOutputResponse
 --     { gcoRequestId  :: !Text
@@ -5097,7 +5121,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ The console output, Base64 encoded.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs GetConsoleOutput) where
+-- instance IsXML GetConsoleOutputResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Retrieves the encrypted administrator password for an instance running
@@ -5119,7 +5143,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery GetPasswordData
 
 -- instance AWSRequest EC2 GetPasswordData GetPasswordDataResponse where
---     request = req GET "GetPasswordData"
+--     request = qry GET "GetPasswordData"
 
 -- data GetPasswordDataResponse = GetPasswordDataResponse
 --     { gpdRequestId    :: !Text
@@ -5132,7 +5156,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ The password of the instance.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs GetPasswordData) where
+-- instance IsXML GetPasswordDataResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an import instance task using metadata from the specified disk
@@ -5160,14 +5184,14 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ImportInstance ImportInstanceResponse where
---     request = req GET "ImportInstance"
+--     request = qry GET "ImportInstance"
 
 -- data ImportInstanceResponse = ImportInstanceResponse
 --     { iiConversionTask :: !ConversionTaskType
 --       -- ^ Information about the import instance task.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ImportInstance) where
+-- instance IsXML ImportInstanceResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Imports the public key from an RSA key pair that you created with a
@@ -5196,7 +5220,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery ImportKeyPair
 
 -- instance AWSRequest EC2 ImportKeyPair ImportKeyPairResponse where
---     request = req GET "ImportKeyPair"
+--     request = qry GET "ImportKeyPair"
 
 -- data ImportKeyPairResponse = ImportKeyPairResponse
 --     { ikpRequestId      :: !Text
@@ -5208,7 +5232,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- RFC4716.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ImportKeyPair) where
+-- instance IsXML ImportKeyPairResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates an import volume task using metadata from the specified disk image.
@@ -5237,14 +5261,14 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ImportVolume ImportVolumeResponse where
---     request = req GET "ImportVolume"
+--     request = qry GET "ImportVolume"
 
 -- data ImportVolumeResponse = ImportVolumeResponse
 --     { ivConversionTask :: !ConversionTaskType
 --       -- ^ Information about the import volume task.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ImportVolume) where
+-- instance IsXML ImportVolumeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies the specified attribute of the specified AMI. You can specify only
@@ -5272,7 +5296,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyImageAttribute ModifyImageAttributeResponse where
---     request = req GET "ModifyImageAttribute"
+--     request = qry GET "ModifyImageAttribute"
 
 -- data ModifyImageAttributeResponse = ModifyImageAttributeResponse
 --     { miaRequestId :: !Text
@@ -5282,7 +5306,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ModifyImageAttribute) where
+-- instance IsXML ModifyImageAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies the specified attribute of the specified instance. You can specify
@@ -5341,7 +5365,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyInstanceAttribute ModifyInstanceAttributeResponse where
---     request = req GET "ModifyInstanceAttribute"
+--     request = qry GET "ModifyInstanceAttribute"
 
 -- data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 --     { mibRequestId :: !Text
@@ -5351,7 +5375,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ModifyInstanceAttribute) where
+-- instance IsXML ModifyInstanceAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies the specified network interface attribute. You can specify only
@@ -5385,7 +5409,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyNetworkInterfaceAttribute ModifyNetworkInterfaceAttributeResponse where
---     request = req GET "ModifyNetworkInterfaceAttribute"
+--     request = qry GET "ModifyNetworkInterfaceAttribute"
 
 -- data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
 --     { mniaRequestId :: !Text
@@ -5395,7 +5419,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ModifyNetworkInterfaceAttribute) where
+-- instance IsXML ModifyNetworkInterfaceAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Adds or remove permission settings for the specified snapshot.
@@ -5416,7 +5440,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifySnapshotAttribute ModifySnapshotAttributeResponse where
---     request = req GET "ModifySnapshotAttribute"
+--     request = qry GET "ModifySnapshotAttribute"
 
 -- data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 --     { msaRequestId :: !Text
@@ -5426,7 +5450,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ModifySnapshotAttribute) where
+-- instance IsXML ModifySnapshotAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies a volume attribute.By default, all I/O operations for the volume
@@ -5455,7 +5479,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyVolumeAttribute ModifyVolumeAttributeResponse where
---     request = req GET "ModifyVolumeAttribute"
+--     request = qry GET "ModifyVolumeAttribute"
 
 -- data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 --     { mvaRequestId :: !Text
@@ -5465,7 +5489,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ModifyVolumeAttribute) where
+-- instance IsXML ModifyVolumeAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Modifies the specified attribute of the specified VPC.
@@ -5492,7 +5516,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyVpcAttribute ModifyVpcAttributeResponse where
---     request = req GET "ModifyVpcAttribute"
+--     request = qry GET "ModifyVpcAttribute"
 
 -- data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
 --     { mvbRequestId :: !Text
@@ -5502,7 +5526,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ModifyVpcAttribute) where
+-- instance IsXML ModifyVpcAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Enables monitoring for a running instance. For more information about
@@ -5519,7 +5543,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery MonitorInstances
 
 -- instance AWSRequest EC2 MonitorInstances MonitorInstancesResponse where
---     request = req GET "MonitorInstances"
+--     request = qry GET "MonitorInstances"
 
 -- data MonitorInstancesResponse = MonitorInstancesResponse
 --     { miRequestId    :: !Text
@@ -5528,7 +5552,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ A list of instances. Each instance is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs MonitorInstances) where
+-- instance IsXML MonitorInstancesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Purchases a Reserved Instance for use with your account. With Amazon EC2
@@ -5590,7 +5614,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery PurchaseReservedInstancesOffering
 
 -- instance AWSRequest EC2 PurchaseReservedInstancesOffering PurchaseReservedInstancesOfferingResponse where
---     request = req GET "PurchaseReservedInstancesOffering"
+--     request = qry GET "PurchaseReservedInstancesOffering"
 
 -- data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
 --     { prioRequestId           :: !Text
@@ -5599,7 +5623,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ The IDs of the purchased Reserved Instances.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs PurchaseReservedInstancesOffering) where
+-- instance IsXML PurchaseReservedInstancesOfferingResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Requests a reboot of one or more instances. This operation is asynchronous;
@@ -5617,7 +5641,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery RebootInstances
 
 -- instance AWSRequest EC2 RebootInstances RebootInstancesResponse where
---     request = req GET "RebootInstances"
+--     request = qry GET "RebootInstances"
 
 -- data RebootInstancesResponse = RebootInstancesResponse
 --     { riRequestId :: !Text
@@ -5627,7 +5651,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs RebootInstances) where
+-- instance IsXML RebootInstancesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Registers an AMI. When you're creating an AMI, this is the final step you
@@ -5671,7 +5695,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 RegisterImage RegisterImageResponse where
---     request = req GET "RegisterImage"
+--     request = qry GET "RegisterImage"
 
 -- data RegisterImageResponse = RegisterImageResponse
 --     { rjRequestId :: !Text
@@ -5680,7 +5704,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ The ID of the newly registered AMI.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs RegisterImage) where
+-- instance IsXML RegisterImageResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Releases the specified Elastic IP address. An Elastic IP address is for use
@@ -5704,7 +5728,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery ReleaseAddress
 
 -- instance AWSRequest EC2 ReleaseAddress ReleaseAddressResponse where
---     request = req GET "ReleaseAddress"
+--     request = qry GET "ReleaseAddress"
 
 -- data ReleaseAddressResponse = ReleaseAddressResponse
 --     { raRequestId :: !Text
@@ -5714,7 +5738,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ReleaseAddress) where
+-- instance IsXML ReleaseAddressResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Changes which network ACL a subnet is associated with. By default when you
@@ -5735,7 +5759,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery ReplaceNetworkAclAssociation
 
 -- instance AWSRequest EC2 ReplaceNetworkAclAssociation ReplaceNetworkAclAssociationResponse where
---     request = req GET "ReplaceNetworkAclAssociation"
+--     request = qry GET "ReplaceNetworkAclAssociation"
 
 -- data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
 --     { rnaaRequestId        :: !Text
@@ -5744,7 +5768,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ The ID of the new association.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ReplaceNetworkAclAssociation) where
+-- instance IsXML ReplaceNetworkAclAssociationResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Replaces an entry (rule) in a network ACL. For more information about
@@ -5779,7 +5803,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery ReplaceNetworkAclEntry
 
 -- instance AWSRequest EC2 ReplaceNetworkAclEntry ReplaceNetworkAclEntryResponse where
---     request = req GET "ReplaceNetworkAclEntry"
+--     request = qry GET "ReplaceNetworkAclEntry"
 
 -- data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 --     { rnaeRequestId :: !Text
@@ -5789,7 +5813,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ReplaceNetworkAclEntry) where
+-- instance IsXML ReplaceNetworkAclEntryResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Replaces an existing route within a route table in a VPC. For more
@@ -5819,7 +5843,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ReplaceRoute ReplaceRouteResponse where
---     request = req GET "ReplaceRoute"
+--     request = qry GET "ReplaceRoute"
 
 -- data ReplaceRouteResponse = ReplaceRouteResponse
 --     { rrRequestId :: !Text
@@ -5829,7 +5853,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ReplaceRoute) where
+-- instance IsXML ReplaceRouteResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Changes the route table associated with a given subnet in a VPC. After you
@@ -5852,7 +5876,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery ReplaceRouteTableAssociation
 
 -- instance AWSRequest EC2 ReplaceRouteTableAssociation ReplaceRouteTableAssociationResponse where
---     request = req GET "ReplaceRouteTableAssociation"
+--     request = qry GET "ReplaceRouteTableAssociation"
 
 -- data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
 --     { rrtaRequestId        :: !Text
@@ -5861,7 +5885,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- ^ The ID of the new association.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ReplaceRouteTableAssociation) where
+-- instance IsXML ReplaceRouteTableAssociationResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Use this action to submit feedback about an instance's status. This action
@@ -5897,7 +5921,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery ReportInstanceStatus
 
 -- instance AWSRequest EC2 ReportInstanceStatus ReportInstanceStatusResponse where
---     request = req GET "ReportInstanceStatus"
+--     request = qry GET "ReportInstanceStatus"
 
 -- data ReportInstanceStatusResponse = ReportInstanceStatusResponse
 --     { risRequestId :: !Text
@@ -5907,7 +5931,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ReportInstanceStatus) where
+-- instance IsXML ReportInstanceStatusResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Creates a Spot Instance request. Spot Instances are instances that Amazon
@@ -5952,7 +5976,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery RequestSpotInstances
 
 -- instance AWSRequest EC2 RequestSpotInstances RequestSpotInstancesResponse where
---     request = req GET "RequestSpotInstances"
+--     request = qry GET "RequestSpotInstances"
 
 -- data RequestSpotInstancesResponse = RequestSpotInstancesResponse
 --     { rsiRequestId              :: !Text
@@ -5962,7 +5986,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs RequestSpotInstances) where
+-- instance IsXML RequestSpotInstancesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Resets an attribute of an AMI to its default value.
@@ -5983,7 +6007,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ResetImageAttribute ResetImageAttributeResponse where
---     request = req GET "ResetImageAttribute"
+--     request = qry GET "ResetImageAttribute"
 
 -- data ResetImageAttributeResponse = ResetImageAttributeResponse
 --     { riaRequestId :: !Text
@@ -5993,7 +6017,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ResetImageAttribute) where
+-- instance IsXML ResetImageAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Resets an attribute of an instance to its default value. To reset the
@@ -6020,7 +6044,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ResetInstanceAttribute ResetInstanceAttributeResponse where
---     request = req GET "ResetInstanceAttribute"
+--     request = qry GET "ResetInstanceAttribute"
 
 -- data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
 --     { ribRequestId :: !Text
@@ -6030,7 +6054,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ResetInstanceAttribute) where
+-- instance IsXML ResetInstanceAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Resets a network interface attribute. You can specify only one attribute at
@@ -6051,7 +6075,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ResetNetworkInterfaceAttribute ResetNetworkInterfaceAttributeResponse where
---     request = req GET "ResetNetworkInterfaceAttribute"
+--     request = qry GET "ResetNetworkInterfaceAttribute"
 
 -- data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
 --     { rniaRequestId :: !Text
@@ -6061,7 +6085,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ResetNetworkInterfaceAttribute) where
+-- instance IsXML ResetNetworkInterfaceAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Resets permission settings for the specified snapshot.
@@ -6082,7 +6106,7 @@ instance IsXML (Rs DescribeTags) where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ResetSnapshotAttribute ResetSnapshotAttributeResponse where
---     request = req GET "ResetSnapshotAttribute"
+--     request = qry GET "ResetSnapshotAttribute"
 
 -- data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 --     { rsaRequestId :: !Text
@@ -6092,7 +6116,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs ResetSnapshotAttribute) where
+-- instance IsXML ResetSnapshotAttributeResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Removes one or more egress rules from a security group for EC2-VPC. The
@@ -6118,7 +6142,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery RevokeSecurityGroupEgress
 
 -- instance AWSRequest EC2 RevokeSecurityGroupEgress RevokeSecurityGroupEgressResponse where
---     request = req GET "RevokeSecurityGroupEgress"
+--     request = qry GET "RevokeSecurityGroupEgress"
 
 -- data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
 --     { rsgeRequestId :: !Text
@@ -6128,7 +6152,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs RevokeSecurityGroupEgress) where
+-- instance IsXML RevokeSecurityGroupEgressResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Removes one or more ingress rules from a security group. The values that
@@ -6162,7 +6186,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery RevokeSecurityGroupIngress
 
 -- instance AWSRequest EC2 RevokeSecurityGroupIngress RevokeSecurityGroupIngressResponse where
---     request = req GET "RevokeSecurityGroupIngress"
+--     request = qry GET "RevokeSecurityGroupIngress"
 
 -- data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
 --     { rsgiRequestId :: !Text
@@ -6172,7 +6196,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs RevokeSecurityGroupIngress) where
+-- instance IsXML RevokeSecurityGroupIngressResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Launches the specified number of instances of an AMI for which you have
@@ -6264,7 +6288,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery RunInstances
 
 -- instance AWSRequest EC2 RunInstances RunInstancesResponse where
---     request = req GET "RunInstances"
+--     request = qry GET "RunInstances"
 
 -- data RunInstancesResponse = RunInstancesResponse
 --     { rkRequestId     :: !Text
@@ -6283,7 +6307,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- behalf (for example, AWS Management Console, Auto Scaling).
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs RunInstances) where
+-- instance IsXML RunInstancesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Starts an Amazon EBS-backed AMI that you've previously stopped. Instances
@@ -6311,7 +6335,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery StartInstances
 
 -- instance AWSRequest EC2 StartInstances StartInstancesResponse where
---     request = req GET "StartInstances"
+--     request = qry GET "StartInstances"
 
 -- data StartInstancesResponse = StartInstancesResponse
 --     { siRequestId    :: !Text
@@ -6321,7 +6345,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs StartInstances) where
+-- instance IsXML StartInstancesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Stops an Amazon EBS-backed instance. Each time you transition an instance
@@ -6362,7 +6386,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery StopInstances
 
 -- instance AWSRequest EC2 StopInstances StopInstancesResponse where
---     request = req GET "StopInstances"
+--     request = qry GET "StopInstances"
 
 -- data StopInstancesResponse = StopInstancesResponse
 --     { sjRequestId    :: !Text
@@ -6372,7 +6396,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs StopInstances) where
+-- instance IsXML StopInstancesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Shuts down one or more instances. This operation is idempotent; if you
@@ -6397,7 +6421,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery TerminateInstances
 
 -- instance AWSRequest EC2 TerminateInstances TerminateInstancesResponse where
---     request = req GET "TerminateInstances"
+--     request = qry GET "TerminateInstances"
 
 -- data TerminateInstancesResponse = TerminateInstancesResponse
 --     { tiRequestId    :: !Text
@@ -6407,7 +6431,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs TerminateInstances) where
+-- instance IsXML TerminateInstancesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Unassigns one or more secondary private IP addresses from a network
@@ -6428,7 +6452,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery UnassignPrivateIpAddresses
 
 -- instance AWSRequest EC2 UnassignPrivateIpAddresses UnassignPrivateIpAddressesResponse where
---     request = req GET "UnassignPrivateIpAddresses"
+--     request = qry GET "UnassignPrivateIpAddresses"
 
 -- data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 --     { upiaRequestId :: !Text
@@ -6438,7 +6462,7 @@ instance IsXML (Rs DescribeTags) where
 --       -- error.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs UnassignPrivateIpAddresses) where
+-- instance IsXML UnassignPrivateIpAddressesResponse where
 --     xmlPickler = ec2XML
 
 -- -- | Disables monitoring for a running instance. For more information about
@@ -6455,7 +6479,7 @@ instance IsXML (Rs DescribeTags) where
 -- instance IsQuery UnmonitorInstances
 
 -- instance AWSRequest EC2 UnmonitorInstances UnmonitorInstancesResponse where
---     request = req GET "UnmonitorInstances"
+--     request = qry GET "UnmonitorInstances"
 
 -- data UnmonitorInstancesResponse = UnmonitorInstancesResponse
 --     { uiRequestId    :: !Text
@@ -6465,5 +6489,5 @@ instance IsXML (Rs DescribeTags) where
 --       -- set of information is wrapped in an item element.
 --     } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs UnmonitorInstances) where
+-- instance IsXML UnmonitorInstancesResponse where
 --     xmlPickler = ec2XML

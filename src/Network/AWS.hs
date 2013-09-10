@@ -76,6 +76,8 @@ runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
 within :: Region -> AWSContext a -> AWSContext a
 within reg = local (\e -> e { awsRegion = Just reg })
 
+-- | Create a pipes 'Producer' which yields the initial and subsequent repsonses
+-- for requests that supported pagination.
 paginate :: (Rq a, Pg a, ToError (Er a))
          => a
          -> Producer' (Rs a) AWSContext ()
@@ -92,6 +94,7 @@ paginate' = go . Just
         yield rs
         either (const $ return ()) (go . next rq) rs
 
+-- | Send a request and return the associated response type.
 send :: (Rq a, ToError (Er a)) => a -> AWSContext (Rs a)
 send = (hoistEither . fmapL toError =<<) . send'
 
@@ -101,7 +104,7 @@ send' rq = do
     whenDebug . print $ srqRequest sig
     res <- fromMaybe "" <$> req sig
     whenDebug $ BS.putStrLn res
-    hoistEither $ response res
+    hoistEither $ response rq res
   where
     req SignedRequest{..} = tryIO'
         . bracket (establishConnection srqUrl) closeConnection

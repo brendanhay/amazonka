@@ -6,18 +6,18 @@ DEPS  := vendor/http-streams
 
 all: build
 
-build: cabal.sandbox.config
+build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
-install: $(DEPS) add-sources
+install: $(DEPS) cabal.sandbox.config add-sources
 	cabal install $(FLAGS)
 
 clean:
-	-rm -rf dist cabal.sandbox.config .cabal-sandbox
+	-rm -rf dist cabal.sandbox.config .cabal-sandbox vendor
 	cabal clean
 
 test:
-	cabal install --enable-tests $(FLAGS)
+	cabal install --enable-tests
 
 lint:
 	hlint src
@@ -26,13 +26,12 @@ doc:
 	cabal haddock
 
 cabal.sandbox.config:
-	cabal sandbox init
+	cabal sandbox init && cabal configure
 
 add-sources: cabal.sandbox.config
 	cabal sandbox add-source ../hexpat-pickle-generic
 	cabal sandbox add-source ../querystring-pickle
 	cabal sandbox add-source vendor/http-streams
 
-
-vendor/%:
-	git clone git@github.com:brendanhay/$*.git $@
+vendor/http-streams:
+	git clone git@github.com:afcowie/http-streams.git $@

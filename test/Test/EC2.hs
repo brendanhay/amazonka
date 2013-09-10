@@ -54,7 +54,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "CreateReservedInstancesListing"     (prop :: TRq CreateReservedInstancesListing)
         -- , testProperty "CreateRoute"                        (prop :: TRq CreateRoute)
         -- , testProperty "CreateRouteTable"                   (prop :: TRq CreateRouteTable)
-        -- , testProperty "CreateSecurityGroup"                (prop :: TRq CreateSecurityGroup)
+        , testProperty "CreateSecurityGroup"                (prop :: TRq CreateSecurityGroup)
         -- , testProperty "CreateSnapshot"                     (prop :: TRq CreateSnapshot)
         -- , testProperty "CreateSpotDatafeedSubscription"     (prop :: TRq CreateSpotDatafeedSubscription)
         -- , testProperty "CreateSubnet"                       (prop :: TRq CreateSubnet)
@@ -74,7 +74,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DeletePlacementGroup"               (prop :: TRq DeletePlacementGroup)
         -- , testProperty "DeleteRoute"                        (prop :: TRq DeleteRoute)
         -- , testProperty "DeleteRouteTable"                   (prop :: TRq DeleteRouteTable)
-        -- , testProperty "DeleteSecurityGroup"                (prop :: TRq DeleteSecurityGroup)
+        , testProperty "DeleteSecurityGroup"                (prop :: TRq DeleteSecurityGroup)
         -- , testProperty "DeleteSnapshot"                     (prop :: TRq DeleteSnapshot)
         -- , testProperty "DeleteSpotDatafeedSubscription"     (prop :: TRq DeleteSpotDatafeedSubscription)
         -- , testProperty "DeleteSubnet"                       (prop :: TRq DeleteSubnet)
@@ -109,7 +109,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DescribeReservedInstancesListings"  (prop :: TRq DescribeReservedInstancesListings)
         -- , testProperty "DescribeReservedInstancesOfferings" (prop :: TRq DescribeReservedInstancesOfferings)
         -- , testProperty "DescribeRouteTables"                (prop :: TRq DescribeRouteTables)
-        -- , testProperty "DescribeSecurityGroups"             (prop :: TRq DescribeSecurityGroups)
+        , testProperty "DescribeSecurityGroups"             (prop :: TRq DescribeSecurityGroups)
         -- , testProperty "DescribeSnapshotAttribute"          (prop :: TRq DescribeSnapshotAttribute)
         -- , testProperty "DescribeSnapshots"                  (prop :: TRq DescribeSnapshots)
         -- , testProperty "DescribeSpotDatafeedSubscription"   (prop :: TRq DescribeSpotDatafeedSubscription)
@@ -203,7 +203,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "CreateReservedInstancesListingResponse"     (prop :: TRs CreateReservedInstancesListingResponse)
         -- , testProperty "CreateRouteResponse"                        (prop :: TRs CreateRouteResponse)
         -- , testProperty "CreateRouteTableResponse"                   (prop :: TRs CreateRouteTableResponse)
-        -- , testProperty "CreateSecurityGroupResponse"                (prop :: TRs CreateSecurityGroupResponse)
+        , testProperty "CreateSecurityGroupResponse"                (prop :: TRs CreateSecurityGroupResponse)
         -- , testProperty "CreateSnapshotResponse"                     (prop :: TRs CreateSnapshotResponse)
         -- , testProperty "CreateSpotDatafeedSubscriptionResponse"     (prop :: TRs CreateSpotDatafeedSubscriptionResponse)
         -- , testProperty "CreateSubnetResponse"                       (prop :: TRs CreateSubnetResponse)
@@ -223,7 +223,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DeletePlacementGroupResponse"               (prop :: TRs DeletePlacementGroupResponse)
         -- , testProperty "DeleteRouteResponse"                        (prop :: TRs DeleteRouteResponse)
         -- , testProperty "DeleteRouteTableResponse"                   (prop :: TRs DeleteRouteTableResponse)
-        -- , testProperty "DeleteSecurityGroupResponse"                (prop :: TRs DeleteSecurityGroupResponse)
+        , testProperty "DeleteSecurityGroupResponse"                (prop :: TRs DeleteSecurityGroupResponse)
         -- , testProperty "DeleteSnapshotResponse"                     (prop :: TRs DeleteSnapshotResponse)
         -- , testProperty "DeleteSpotDatafeedSubscriptionResponse"     (prop :: TRs DeleteSpotDatafeedSubscriptionResponse)
         -- , testProperty "DeleteSubnetResponse"                       (prop :: TRs DeleteSubnetResponse)
@@ -258,7 +258,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DescribeReservedInstancesListingsResponse"  (prop :: TRs DescribeReservedInstancesListingsResponse)
         -- , testProperty "DescribeReservedInstancesOfferingsResponse" (prop :: TRs DescribeReservedInstancesOfferingsResponse)
         -- , testProperty "DescribeRouteTablesResponse"                (prop :: TRs DescribeRouteTablesResponse)
-        -- , testProperty "DescribeSecurityGroupsResponse"             (prop :: TRs DescribeSecurityGroupsResponse)
+        , testProperty "DescribeSecurityGroupsResponse"             (prop :: TRs DescribeSecurityGroupsResponse)
         -- , testProperty "DescribeSnapshotAttributeResponse"          (prop :: TRs DescribeSnapshotAttributeResponse)
         -- , testProperty "DescribeSnapshotsResponse"                  (prop :: TRs DescribeSnapshotsResponse)
         -- , testProperty "DescribeSpotDatafeedSubscriptionResponse"   (prop :: TRs DescribeSpotDatafeedSubscriptionResponse)
@@ -440,8 +440,8 @@ $(deriveProperty "test/resources/EC2"
     -- , ''CreateRouteResponse
     -- , ''CreateRouteTable
     -- , ''CreateRouteTableResponse
-    -- , ''CreateSecurityGroup
-    -- , ''CreateSecurityGroupResponse
+    , ''CreateSecurityGroup
+    , ''CreateSecurityGroupResponse
     -- , ''CreateSnapshot
     -- , ''CreateSnapshotResponse
     -- , ''CreateSpotDatafeedSubscription
@@ -480,8 +480,8 @@ $(deriveProperty "test/resources/EC2"
     -- , ''DeleteRouteResponse
     -- , ''DeleteRouteTable
     -- , ''DeleteRouteTableResponse
-    -- , ''DeleteSecurityGroup
-    -- , ''DeleteSecurityGroupResponse
+    , ''DeleteSecurityGroup
+    , ''DeleteSecurityGroupResponse
     -- , ''DeleteSnapshot
     -- , ''DeleteSnapshotResponse
     -- , ''DeleteSpotDatafeedSubscription
@@ -550,8 +550,8 @@ $(deriveProperty "test/resources/EC2"
     -- , ''DescribeReservedInstancesOfferingsResponse
     -- , ''DescribeRouteTables
     -- , ''DescribeRouteTablesResponse
-    -- , ''DescribeSecurityGroups
-    -- , ''DescribeSecurityGroupsResponse
+    , ''DescribeSecurityGroups
+    , ''DescribeSecurityGroupsResponse
     -- , ''DescribeSnapshotAttribute
     -- , ''DescribeSnapshotAttributeResponse
     -- , ''DescribeSnapshots

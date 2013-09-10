@@ -22,9 +22,10 @@ import qualified Data.Text                  as Text
 import qualified Data.Vector                as V
 import           Text.Hastache
 
-render :: ByteString -> Value -> IO ByteString
-render tmpl val = LBS.toStrict
-    <$> hastacheStr defaultConfig tmpl (valueContext ['n'..] val)
+render :: FilePath -> Value -> IO ByteString
+render path val = do
+    tmpl <- BS.readFile path
+    LBS.toStrict <$> hastacheStr defaultConfig tmpl (valueContext ['n'..] val)
 
 valueContext :: Monad m => String -> Value -> MuContext m
 valueContext vs = mapContext . buildMap vs "" Map.empty

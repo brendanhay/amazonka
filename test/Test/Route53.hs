@@ -14,9 +14,8 @@
 
 module Test.Route53 (tests) where
 
-import qualified Data.Text           as Text
-import           Network.AWS.Route53
-import           Test.Common
+import Network.AWS.Route53
+import Test.Common
 
 tests :: [Test]
 tests = (:[]) $ testVersion route53Version
@@ -68,16 +67,25 @@ instance ToJSON CallerReference where
     toJSON = String . unCallerReference
 
 instance ToJSON Protocol where
-    toJSON = stringify . show
+    toJSON = stringify
 
 instance ToJSON ChangeStatus where
-    toJSON = stringify . show
+    toJSON = stringify
 
 instance ToJSON RecordType where
-    toJSON = stringify . show
+    toJSON = stringify
 
 instance ToJSON Failover where
-    toJSON = stringify . show
+    toJSON = stringify
+
+instance ToJSON ChangeId where
+    toJSON = String . unChangeId
+
+instance ToJSON HostedZoneId where
+    toJSON = String . unHostedZoneId
+
+instance ToJSON HealthCheckId where
+    toJSON = String . unHealthCheckId
 
 $(deriveArbitrary
     [ ''CallerReference
@@ -85,23 +93,23 @@ $(deriveArbitrary
     , ''ChangeStatus
     , ''RecordType
     , ''Failover
+    , ''ChangeId
+    , ''HostedZoneId
+    , ''HealthCheckId
     ])
 
 $(deriveDependency
     [ ''DelegationSet
     , ''ChangeInfo
     , ''Config
-    , ''HostedZoneId
     , ''HostedZone
     , ''ResourceRecords
     , ''ResourceRecordSet
-    , ''HealthCheckId
     , ''HealthCheck
     , ''HealthCheckConfig
     , ''AliasTarget
     , ''ChangeAction
     , ''ChangeBatch
-    , ''ChangeId
     , ''Change
     ])
 

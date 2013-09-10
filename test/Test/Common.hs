@@ -21,8 +21,8 @@ module Test.Common
       testVersion
 
     -- * Properties
-    , Rq
-    , Rs
+    , TRq
+    , TRs
     , prop
 
     -- * Aeson
@@ -51,8 +51,8 @@ import           Test.QuickCheck                      as Test hiding (within)
 import           Test.TH                              as Test
 import           Text.Hastache.Aeson
 
-testVersion :: ByteString -> [Test] -> Test
-testVersion ver = plusTestOptions opts . testGroup (BS.unpack ver)
+testVersion :: IsByteString a => a -> [Test] -> Test
+testVersion ver = plusTestOptions opts . testGroup (BS.unpack $ toBS ver)
   where
     opts = mempty
         { topt_maximum_generated_tests = Just 10
@@ -65,25 +65,22 @@ class TestProperty a where
 type TRq a = Request  a -> Bool
 type TRs a = Response a -> Bool
 
-data Request a where
-    Request :: AWSRequest s a b
-            => { trqRequest  :: a
-               , trqRaw      :: RawRequest
-               , trqEncoded  :: ByteString
-               , trqTemplate :: ByteString
-               , trqDiff     :: [String]
-               , trqJSON     :: Value
-               }
-            -> Request a
+data Request a = Request
+    { trqRequest  :: a
+    , trqRaw      :: RawRequest
+    , trqEncoded  :: ByteString
+    , trqTemplate :: ByteString
+    , trqDiff     :: [String]
+    , trqJSON     :: Value
+    }
 
 instance (Eq a, Arbitrary a) => TestProperty (Request a) where
     prop = all null . trqDiff
 
-instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a,
-          AWSService s, AWSRequest s a b)
+instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, Rq a)
          => Arbitrary (Request a) where
     arbitrary = do
-        rq  <- arbitrary
+        rq <- arbitrary
         let raw  = request rq
             enc  = encode raw
             tmpl = render' rq raw
@@ -91,8 +88,7 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a,
         return $ Request rq raw enc tmpl diff (toJSON rq)
       where
         encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
-            [ BS.pack (show rqMethod) <> " " <> fromMaybe "/" rqPath
-            , maybe "" ("Action=" <>) rqAction
+            [ BS.pack (show rqMethod) <> " " <> rqPath
             , BS.intercalate "\n" . map join $ sortBy sort rqQuery
             , maybe "" (const $ toBS rqContent) rqBody
             , fromMaybe "" rqBody
@@ -102,7 +98,7 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a,
         sort x y    = Nat.compare (decodeUtf8 $ fst x) (decodeUtf8 $ fst y)
 
         render' x y = unsafePerformIO $
-            render (readTemplate x) (concatJSON (toJSON x) (toJSON y))
+            render (template x) (concatJSON (toJSON x) (toJSON y))
 
         concatJSON (Object x) (Object y) = Object $ x <> y
         concatJSON _          y          = y
@@ -144,7 +140,7 @@ instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
         rsp <- arbitrary
         let xml  = toIndentedXML 2 rsp
             json = toJSON rsp
-            tmpl = unsafePerformIO $ render (readTemplate rsp) json
+            tmpl = unsafePerformIO $ render (template rsp) json
             diff = difference tmpl xml
         return $ Response rsp (fromXML tmpl) tmpl xml diff json
 
@@ -189,5 +185,5 @@ difference x y = zipWithTail (normalise x) (normalise y)
 
     twoWay a b = (a \\ b) ++ (b \\ a)
 
-stringify :: String -> Value
-stringify = String . Text.pack
+stringify :: Show a => a -> Value
+stringify = String . Text.pack . show

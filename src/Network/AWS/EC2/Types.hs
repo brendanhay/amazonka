@@ -1178,7 +1178,7 @@ instance IsXML InstanceStateType where
 --     xmlPickler = ec2XML
 
 -- data InstanceStatusEventsSetType = InstanceStatusEventsSetType
---     { isestItem :: !InstanceStatusEventType
+--     { isestItems :: !InstanceStatusEventType
 --       -- ^ The scheduled events for the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -1230,7 +1230,7 @@ instance IsXML InstanceStateType where
 --     xmlPickler = ec2XML
 
 -- data InstanceStatusSetType = InstanceStatusSetType
---     { isstItem :: !InstanceStatusItemType
+--     { isstItems :: !InstanceStatusItemType
 --       -- ^ The status of the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -1293,6 +1293,9 @@ data UserIdGroupPair = UserIdGroupPair
 
 instance IsQuery UserIdGroupPair
 
+instance IsXML UserIdGroupPair where
+    xmlPickler = ec2XML
+
 data IpPermission = IpPermission
     { iptIpProtocol :: !Text
       -- ^ The protocol.
@@ -1303,13 +1306,16 @@ data IpPermission = IpPermission
       -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
       -- code. A value of -1 indicates all ICMP codes for the given ICMP
       -- type.
-    , iptGroups     :: [UserIdGroupPair]
+    , iptGroups     :: Items UserIdGroupPair
       -- ^ A list of security group and AWS account ID pairs.
-    , iptIpRanges   :: [IpRange]
+    , iptIpRanges   :: Items IpRange
       -- ^ A list of IP ranges.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery IpPermission
+
+instance IsXML IpPermission where
+    xmlPickler = ec2XML
 
 data IpRange = IpRange
     { irCidrIp :: !Text
@@ -1318,6 +1324,9 @@ data IpRange = IpRange
     } deriving (Eq, Show, Generic)
 
 instance IsQuery IpRange
+
+instance IsXML IpRange where
+    xmlPickler = ec2XML
 
 -- data LaunchPermissionItemType = LaunchPermissionItemType
 --     { lpitGroup  :: !Text
@@ -1694,7 +1703,7 @@ instance IsXML PriceScheduleSetItemType where
     xmlPickler = ec2XML
 
 -- data PriceScheduleSetType = PriceScheduleSetType
---     { psstItem :: !PriceScheduleSetItemType
+--     { psstItems :: !PriceScheduleSetItemType
 --       -- ^ The Reserved Instance listing price schedule item.
 --     } deriving (Eq, Show, Generic)
 
@@ -2003,32 +2012,27 @@ instance IsXML RunningInstancesItemType where
 -- instance IsXML SecurityGroupIdSetItemType where
 --     xmlPickler = ec2XML
 
--- data SecurityGroupItemType = SecurityGroupItemType
---     { sgitOwnerId             :: !Text
---       -- ^ The AWS account ID of the owner of the security group.
---     , sgitGroupId             :: !Text
---       -- ^ The ID of the security group.
---     , sgitGroupName           :: !Text
---       -- ^ The name of the security group.
---     , sgitGroupDescription    :: !Text
---       -- ^ A description of the security group.
---     , sgitVpcId               :: !Text
---       -- ^ [EC2-VPC] The ID of the VPC for the security group.
---     , sgitIpPermissions       :: !IpPermissionType
---       -- ^ A list of inbound rules associated with the security group. Each
---       -- permission is wrapped in an item element.
---     , sgitIpPermissionsEgress :: !IpPermissionType
---       -- ^ [EC2-VPC] A list of outbound rules associated with the security
---       -- group. Each permission is wrapped in an item element.
---     , sgitTagSet              :: !ResourceTagSetItemType
---       -- ^ Any tags assigned to the resource, each one wrapped in an item
---       -- element.
---     } deriving (Eq, Show, Generic)
+data SecurityGroupItemType = SecurityGroupItemType
+    { sgitOwnerId             :: !Text
+      -- ^ The AWS account ID of the owner of the security group.
+    , sgitGroupId             :: !Text
+      -- ^ The ID of the security group.
+    , sgitGroupName           :: !Text
+      -- ^ The name of the security group.
+    , sgitGroupDescription    :: !Text
+      -- ^ A description of the security group.
+    , sgitVpcId               :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the VPC for the security group.
+    , sgitIpPermissions       :: Items IpPermission
+      -- ^ A list of inbound rules associated with the security group.
+    , sgitIpPermissionsEgress :: Items IpPermission
+      -- ^ [EC2-VPC] A list of outbound rules associated with the security group.
+    -- , sgitTagSet              :: Items ResourceTagSetItemType
+    --   -- ^ Any tags assigned to the resource, each one wrapped in an item element.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery SecurityGroupItemType
-
--- instance IsXML SecurityGroupItemType where
---     xmlPickler = ec2XML
+instance IsXML SecurityGroupItemType where
+    xmlPickler = ec2XML
 
 -- data SpotDatafeedSubscriptionType = SpotDatafeedSubscriptionType
 --     { sdstOwnerId :: !Text
@@ -2434,12 +2438,6 @@ newtype Filters a = Filters { unFilters :: [a] }
     deriving (Eq, Show, Generic)
 
 instance IsQuery a => IsQuery (Filters a)
-
--- instance IsQuery Filter where
---     queryPickler = qpWrap (Filters, unFilters) . qpOrdinalList $ QueryPU
---         { pickle = \(k, v) -> List [Pair "Name"]
-
-
 
 data TagResourceType
     = CustomerGateway

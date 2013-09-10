@@ -33,6 +33,7 @@ import qualified Data.Text                       as Text
 import           Data.Text.Encoding
 import           Data.Time
 import           GHC.Generics
+import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
 import           Network.Http.Client             hiding (ContentType, post, put)
 import           System.Locale                   (defaultTimeLocale)
@@ -40,20 +41,21 @@ import           Text.ParserCombinators.ReadP    (string)
 import           Text.Read                       hiding (String)
 import           Text.XML.Expat.Pickle.Generic
 
-type family Er a
-data family Rs a
-
 class Rq a where
+    type Er a
+    type Rs a
+
     request  :: a -> RawRequest
-    response :: ByteString -> Either Error (Either (Er a) (Rs a))
+    response :: a -> ByteString -> Either Error (Either (Er a) (Rs a))
 
     default response :: (IsXML (Er a), IsXML (Rs a))
-                     => ByteString
+                     => a
+                     -> ByteString
                      -> Either Error (Either (Er a) (Rs a))
-    response bstr = either failure success $ fromXML bstr
+    response _ bstr = either failure success $ fromXML bstr
       where
-        failure = const . either (Left . Error) (Right . Left) $ fromXML bstr
-        success = Right . Right
+        failure e = either (\s -> Left . Error $ s ++ ", " ++ e) (Right . Left) $ fromXML bstr
+        success   = Right . Right
 
 class Pg a where
     next :: a -> Rs a -> Maybe a
@@ -63,9 +65,6 @@ class ToError a where
 
 instance ToError String where
     toError = Error
-
-class Template a where
-    readTemplate :: a -> ByteString
 
 class IsByteString a where
     toText :: a -> Text
@@ -113,7 +112,7 @@ newtype ServiceVersion = ServiceVersion ByteString
     deriving (Eq, Show, IsString, IsByteString)
 
 svcPath :: IsByteString a => Service -> a -> ByteString
-svcPath svc p = "/" <> toBS (svcVersion svc) <> "/" <> toBS p
+svcPath svc p = "/" <> toBS (svcVersion svc) <> "/" <> strip '/' (toBS p)
 
 data SigningVersion
     = SigningVersion2

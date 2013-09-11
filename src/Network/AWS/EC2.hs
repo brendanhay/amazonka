@@ -1675,7 +1675,7 @@ data CreateSecurityGroup = CreateSecurityGroup
       -- ^ The name of the security group.
     , csgGroupDescription :: !Text
       -- ^ A description for the security group. This is informational only.
-    , csgVpcId            :: !Text
+    , csgVpcId            :: Maybe Text
       -- ^ [EC2-VPC] The ID of the VPC.
     } deriving (Eq, Show, Generic)
 
@@ -4412,7 +4412,7 @@ instance IsXML DescribeSecurityGroupsResponse where
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html>
 
 data DescribeTags = DescribeTags
-    { dvFilter :: [TagFilter]
+    { dtagsFilter :: [TagFilter]
       -- ^ The name of a filter.
     } deriving (Eq, Show, Generic)
 
@@ -4424,9 +4424,9 @@ instance Rq DescribeTags where
     request = qry GET "DescribeTags"
 
 data DescribeTagsResponse = DescribeTagsResponse
-    { eaRequestId :: !Text
+    { dtagsrRequestId :: !Text
       -- ^ The ID of the request.
-    , eaTagSet    :: Items TagSetItemType
+    , dtagsrTagSet    :: Items TagSetItemType
       -- ^ A list of tags.
     } deriving (Eq, Show, Generic)
 

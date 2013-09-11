@@ -51,8 +51,8 @@ import           Test.QuickCheck                      as Test hiding (within)
 import           Test.TH                              as Test
 import           Text.Hastache.Aeson
 
-testVersion :: IsByteString a => a -> [Test] -> Test
-testVersion ver = plusTestOptions opts . testGroup (BS.unpack $ toBS ver)
+testVersion :: ServiceVersion -> [Test] -> Test
+testVersion ver = plusTestOptions opts . testGroup (sPack ver)
   where
     opts = mempty
         { topt_maximum_generated_tests = Just 10
@@ -90,7 +90,7 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, Rq a)
         encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
             [ BS.pack (show rqMethod) <> " " <> rqPath
             , BS.intercalate "\n" . map join $ sortBy sort rqQuery
-            , maybe "" (const $ toBS rqContent) rqBody
+            , maybe "" (const . BS.pack $ show rqContent) rqBody
             , fromMaybe "" rqBody
             ]
 

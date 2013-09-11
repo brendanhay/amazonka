@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DescribeTagsResponse xmlns="http://s3.amazonaws.com/ec2-downloads/">
+<DescribeTagsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
+  <requestId>{{dtagsrRequestId}}</requestId>
+  <tagSet>
+    {{#dtagsrTagSet}}
+    <item>
+      <resourceId>{{tsitResourceId}}</resourceId>
+      <resourceType>{{tsitResourceType}}</resourceType>
+      <key>{{tsitKey}}</key>
+      <value>{{tsitValue}}</value>
+    </item>
+    {{/dtagsrTagSet}}
+  </tagSet>
 </DescribeTagsResponse>

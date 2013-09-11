@@ -1,3 +1,8 @@
 GET /
 Action=DescribeTags
-
+{{#dvFilter}}
+Filter.{{n}}.Name={{filterName}}
+{{#filterValue}}
+Filter.{{n}}.Value.{{o}}={{.}}
+{{/filterValue}}
+{{/dvFilter}}

@@ -1,8 +1,9 @@
-{-# LANGUAGE DeriveGeneric        #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
-{-# OPTIONS_GHC -fno-warn-orphans #-}
+{-# OPTIONS_GHC -fno-warn-orphans       #-}
 
 -- Module      : Network.AWS.Internal.Instances
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@ module Network.AWS.Internal.Instances where
 
 import           Control.Monad
 import qualified Data.ByteString.Char8           as BS
+import           Data.Foldable                   (Foldable)
 import           Data.Time
 import           GHC.Generics
 import           Network.HTTP.QueryString.Pickle
@@ -25,10 +27,10 @@ import           System.Locale                   (defaultTimeLocale)
 import           Text.XML.Expat.Pickle.Generic
 
 newtype Items a = Items { items :: [a] }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Show, Generic, Foldable)
 
 newtype Members a = Members { members :: [a] }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Show, Generic, Foldable)
 
 instance IsQuery a => IsQuery [a] where
     queryPickler = qpOrdinalList queryPickler

@@ -32,6 +32,7 @@ library
       , Network.AWS.Internal.Monad
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
+      , Network.AWS.Internal.Time
       , Network.AWS.Internal.Types
 
       -- , Network.AWS.AutoScaling

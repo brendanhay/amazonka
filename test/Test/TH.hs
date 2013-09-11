@@ -65,4 +65,4 @@ deriveTemplate dir = liftM concat . mapM derive
         path = runIO $ do
             d <- getCurrentDirectory
             return $! LitE $! StringL $!
-               d ++ "/" ++ dropPrefix "/" dir ++ "/" ++ nameBase name
+               d ++ "/" ++ sStripPrefix "/" dir ++ "/" ++ nameBase name

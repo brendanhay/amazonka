@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Module      : Network.AWS.Internal.String
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -11,16 +9,6 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.String where
-    -- (
-    -- -- * String Convenience Functions
-    --   dropPrefix
-    -- , dropSuffix
-    -- , dropLower
-    -- , lowerFirst
-    -- , hyphenate
-    -- , strip
-    -- , ensurePrefix
-    -- ) where
 
 import Data.Char
 import Data.Strings
@@ -30,22 +18,22 @@ sPack = sFromString . sToString
 
 sStripPrefix :: Strings a => a -> a -> a
 sStripPrefix pre s
-    | pre `sStartsWith` s = sDrop (sLen pre) s
+    | s `sStartsWith` pre = sDrop (sLen pre) s
     | otherwise           = s
 
 sEnsurePrefix :: Strings a => a -> a -> a
 sEnsurePrefix pre s
-    | pre `sStartsWith` s = s
+    | s `sStartsWith` pre = s
     | otherwise           = sConcat [pre, s]
 
 sStripSuffix :: Strings a => a -> a -> a
 sStripSuffix suf s
-    | suf `sEndsWith` s = sTake (sLen s - sLen suf) s
+    | s `sEndsWith` suf = sTake (sLen s - sLen suf) s
     | otherwise         = s
 
 sEnsureSuffix :: Strings a => a -> a -> a
 sEnsureSuffix suf s
-    | suf `sEndsWith` s = s
+    | s `sEndsWith` suf = s
     | otherwise         = sConcat [s, suf]
 
 sWrap :: Strings a => a -> a -> a
@@ -66,39 +54,4 @@ sLowerFirst s
     | otherwise         = s
 
 sJoin :: Strings a => a -> [a] -> a
-sJoin delim = sConcat . map (sStripSuffix delim . sEnsurePrefix delim)
-
--- sHyphenate :: Strings a => a -> a
--- sHyphenate = 
-
--- dropPrefix :: String -> String -> String
--- dropPrefix pre s = fromMaybe s $ pre `stripPrefix` s
-
--- dropSuffix :: String -> String -> String
--- dropSuffix suf s
---     | suf `isSuffixOf` s = take (length s - length suf) s
---     | otherwise          = s
-
--- dropLower :: String -> String
--- dropLower = dropWhile isLower
-
--- lowerFirst :: String -> String
--- lowerFirst (x:xs) = toLower x : xs
--- lowerFirst []     = []
-
--- hyphenate :: String -> String
--- hyphenate = concatMap f
---   where
---     f c | isUpper c = ['-', toLower c]
---         | otherwise = [c]
-
--- strip :: Char -> ByteString -> ByteString
--- strip c bstr
---     | BS.null bstr        = bstr
---     | BS.last bstr == c    = strip c $ BS.init bstr
---     | otherwise           = BS.dropWhile (== c) bstr
-
--- ensurePrefix :: Text -> Text -> Text
--- ensurePrefix p t
---     | p `Text.isPrefixOf` t = t
---     | otherwise             = p <> t
+sJoin delim = sConcat . map (sEnsureSuffix delim . sStripPrefix delim)

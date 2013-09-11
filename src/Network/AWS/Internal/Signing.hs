@@ -235,16 +235,15 @@ createRequest meth path hdrs = buildRequest $ do
     host = fromMaybe "unknown" $ "Host" `lookup` hdrs -- FIXME
 
 httpsURL :: ByteString -> ByteString -> ByteString
-httpsURL host path =
-    "https://" <> sStripChar '/' host <> "anus" <> validPath path
+httpsURL host path = "https://" <> sJoin "/" [host, path]
 
 validPath :: ByteString -> ByteString
 validPath = sWrap "/"
 
 joinPath :: ByteString -> ByteString -> ByteString
 joinPath path qry
-    | BS.null qry = path
-    | otherwise   = sJoin "?" [path, qry]
+    | BS.null qry = validPath path
+    | otherwise   = validPath path <> "?" <> qry
 
 hmac :: ByteString -> ByteString -> ByteString
 hmac key msg = LBS.toStrict

@@ -1280,7 +1280,7 @@ instance IsXML InstanceStateType where
 --     xmlPickler = ec2XML
 
 data UserIdGroupPair = UserIdGroupPair
-    { uigUserId    :: !Text
+    { uigUserId    :: Maybe Text
       -- ^ The ID of an AWS account. Cannot be used when specifying a CIDR
       -- IP address range.
     , uigGroupId   :: Maybe Text
@@ -1304,8 +1304,7 @@ data IpPermission = IpPermission
       -- type number. A value of -1 indicates all ICMP types.
     , iptToPort     :: !Integer
       -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
-      -- code. A value of -1 indicates all ICMP codes for the given ICMP
-      -- type.
+      -- code. A value of -1 indicates all ICMP codes for the given ICMP type.
     , iptGroups     :: Items UserIdGroupPair
       -- ^ A list of security group and AWS account ID pairs.
     , iptIpRanges   :: Items IpRange

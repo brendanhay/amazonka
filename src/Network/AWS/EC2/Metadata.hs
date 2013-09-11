@@ -21,7 +21,6 @@ import           Control.Applicative
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Char8  as BS
 import           Data.Monoid
 import           Network.AWS.Internal
 import           Network.Http.Client    hiding (get)
@@ -46,34 +45,10 @@ data Metadata
     | SecurityCredentials ByteString
     | AvailabilityZone
 
-instance Show Metadata where
-    show = BS.unpack . toBS
-
-instance IsByteString Metadata where
-    toBS meta = case meta of
-        AmiId                 -> "ami-id"
-        AmiLaunchIndex        -> "ami-launch-index"
-        AmiManifestPath       -> "ami-manifest-path"
-        Hostname              -> "hostname"
-        InstanceAction        -> "instance-action"
-        InstanceId            -> "instance-id"
-        InstanceType          -> "instance-type"
-        KernelId              -> "kernel-id"
-        LocalHostname         -> "local-hostname"
-        LocalIPV4             -> "local-ipv4"
-        Mac                   -> "mac"
-        Profile               -> "profile"
-        PublicHostname        -> "public-hostname"
-        PublicIPV4            -> "public-ipv4"
-        ReservationId         -> "reservation-id"
-        SecurityCredentials r -> "iam/security-credentials/" <> r
-        AvailabilityZone      -> "placement/availability-zone"
-
-
 metadata :: (Applicative m, MonadIO m)
          => Metadata
          -> EitherT Error m ByteString
-metadata = metadataByKey . toBS
+metadata = metadataByKey . toPath
 
 metadataByKey :: (Applicative m, MonadIO m)
               => ByteString
@@ -91,4 +66,24 @@ get url = do
         sendRequest c rq emptyBody
         receiveResponse c $ const Streams.read
     res  <- mres ?? "Failed to receive any data"
-    return $! strip '\n' res
+    return $! sStripChar '\n' res
+
+toPath :: Metadata -> ByteString
+toPath meta = case meta of
+    AmiId                 -> "ami-id"
+    AmiLaunchIndex        -> "ami-launch-index"
+    AmiManifestPath       -> "ami-manifest-path"
+    Hostname              -> "hostname"
+    InstanceAction        -> "instance-action"
+    InstanceId            -> "instance-id"
+    InstanceType          -> "instance-type"
+    KernelId              -> "kernel-id"
+    LocalHostname         -> "local-hostname"
+    LocalIPV4             -> "local-ipv4"
+    Mac                   -> "mac"
+    Profile               -> "profile"
+    PublicHostname        -> "public-hostname"
+    PublicIPV4            -> "public-ipv4"
+    ReservationId         -> "reservation-id"
+    SecurityCredentials r -> "iam/security-credentials/" <> r
+    AvailabilityZone      -> "placement/availability-zone"

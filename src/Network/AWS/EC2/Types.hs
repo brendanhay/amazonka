@@ -25,7 +25,7 @@ import           Text.Read
 
 ec2Service :: Service
 ec2Service = Service "ec2" ec2Version SigningVersion2 $
-    \r -> "ec2." <> toBS r <> ".amazonaws.com"
+    \r -> "ec2." <> BS.pack (show r) <> ".amazonaws.com"
 
 -- | Currently supported version (2013-07-15) of the EC2 service.
 ec2Version :: ServiceVersion
@@ -33,7 +33,7 @@ ec2Version = "2013-07-15"
 
 -- | XML namespace to annotate EC2 elements with.
 ec2NS :: ByteString
-ec2NS = "http://ec2.amazonaws.com/doc/" <> toBS ec2Version <> "/"
+ec2NS = "http://ec2.amazonaws.com/doc/" <> sPack ec2Version <> "/"
 
 -- | Helper to define EC2 namespaced XML elements.
 ec2Elem :: ByteString -> NName ByteString
@@ -41,7 +41,7 @@ ec2Elem = mkNName ec2NS
 
 ec2XML :: XMLGeneric a
 ec2XML = withNS' ec2NS $ (xmlOptions ec2NS)
-    { xmlFieldModifier = mkNName ec2NS . BS.pack . lowerFirst . dropLower
+    { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
     , xmlListElement   = mkNName ec2NS "item"
     }
 
@@ -2027,6 +2027,7 @@ data SecurityGroupItemType = SecurityGroupItemType
       -- ^ A list of inbound rules associated with the security group.
     , sgitIpPermissionsEgress :: Items IpPermission
       -- ^ [EC2-VPC] A list of outbound rules associated with the security group.
+
     -- , sgitTagSet              :: Items ResourceTagSetItemType
     --   -- ^ Any tags assigned to the resource, each one wrapped in an item element.
     } deriving (Eq, Show, Generic)

@@ -36,21 +36,20 @@ import qualified Data.Digest.Pure.SHA            as SHA
 import           Data.Function                   (on)
 import           Data.List
 import           Data.Monoid
-import           Data.Time                       (UTCTime)
-import qualified Data.Time                       as Time
+import           Data.Time                       (UTCTime, getCurrentTime)
 import           Network.AWS.Internal.Monad
 import           Network.AWS.Internal.String
+import           Network.AWS.Internal.Time
 import           Network.AWS.Internal.Types
 import           Network.HTTP.QueryString.Pickle
 import           Network.HTTP.Types              (urlEncode)
 import           Network.Http.Client
-import           System.Locale
 
 sign :: RawRequest -> AWS SignedRequest
 sign r = do
     auth <- currentAuth
     reg  <- currentRegion
-    time <- liftIO Time.getCurrentTime
+    time <- liftIO getCurrentTime
     dbg  <- debugEnabled
 
     let hs = [("Date", rfc822Time time), ("Host", svcEndpoint reg <> ":443")]
@@ -75,16 +74,16 @@ version2 :: RawRequest
          -> UTCTime
          -> IO SignedRequest
 version2 RawRequest{..} Auth{..} reg time = do
-    let url = httpsUrl (svcEndpoint reg) path
+    let url = httpsURL (svcEndpoint reg) path
     fmap (SignedRequest url rqBody) $ createRequest rqMethod path rqHeaders
   where
     Service{..} = rqService
 
     host = svcEndpoint reg
-    path = rqPath <> "?" <> query <> "&Signature=" <> urlEncode True signature
+    path = joinPath rqPath $ query <> "&Signature=" <> urlEncode True signature
 
     query = encodeQuery (urlEncode True) . sort $ rqQuery ++
-        [ ("Version",          toBS svcVersion)
+        [ ("Version",          sPack svcVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
         , ("Timestamp",        iso8601Time time)
@@ -94,7 +93,7 @@ version2 RawRequest{..} Auth{..} reg time = do
     signature = Base64.encode
         . hmac secretKey
         $ BS.intercalate "\n"
-            [ toBS rqMethod
+            [ BS.pack $ show rqMethod
             , host <> ":443"
             , validPath rqPath
             , query
@@ -106,14 +105,13 @@ version3 :: RawRequest
          -> UTCTime
          -> IO SignedRequest
 version3 RawRequest{..} Auth{..} reg time = do
-    let url = "https://" <> svcEndpoint reg <> path
+    let url = httpsURL (svcEndpoint reg) path
     fmap (SignedRequest url rqBody) . createRequest rqMethod path $
         ("X-Amzn-Authorization", authorization) : rqHeaders
   where
     Service{..} = rqService
 
-    path | null rqQuery = rqPath
-         | otherwise    = rqPath <> "?" <> encodeQuery (urlEncode True) rqQuery
+    path = joinPath rqPath $ encodeQuery (urlEncode True) rqQuery
 
     authorization = "AWS3-HTTPS AWSAccessKeyId="
         <> accessKey
@@ -141,7 +139,7 @@ version4 :: RawRequest
          -> Bool
          -> IO (SignedRequest, SigningMetadata)
 version4 RawRequest{..} Auth{..} reg time dbg = do
-    let url = httpsUrl (svcEndpoint reg) path
+    let url = httpsURL (svcEndpoint reg) path
         req = createRequest rqMethod path
 
     raw <- req rqHeaders
@@ -150,7 +148,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
         auth = ("Authorization", " " <> authorization hs time)
         hdrs = auth : hs
         flat = map (\(k, v) -> k <> ":" <> v) hdrs
-        info = BS.intercalate " " [toBS rqMethod, path, "http/1.1"]
+        info = BS.intercalate " " [method, path, "http/1.1"]
         meta = SigningMetadata (canonicalRequest hs) (stringToSign hs time)
                  (authorization hs time) (BS.unlines $ info : flat)
 
@@ -160,8 +158,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
   where
     Service{..} = rqService
 
-    path | BS.null query = rqPath
-         | otherwise     = rqPath <> "?" <> query
+    path = joinPath rqPath query
 
     authorization hdrs ts = mconcat
         [ algorithm
@@ -180,7 +177,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
         signingKey = foldl1 hmac
             [ "AWS4" <> secretKey
             , basicTime ts
-            , toBS reg
+            , region
             , svcName
             , "aws4_request"
             ]
@@ -194,7 +191,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
 
     credentialScope ts = BS.intercalate "/"
        [ basicTime ts
-       , toBS reg
+       , region
        , svcName
        , "aws4_request"
        ]
@@ -202,7 +199,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
     algorithm = "AWS4-HMAC-SHA256"
 
     canonicalRequest hdrs = BS.intercalate "\n"
-        [ toBS rqMethod
+        [ method
         , validPath rqPath
         , query
         , canonicalHeaders hdrs
@@ -210,11 +207,14 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
         , sha256 $ fromMaybe "" rqBody
         ]
 
+    method = BS.pack $ show rqMethod
+    region = BS.pack $ show reg
+
     query = encodeQuery (urlEncode True) $ sort rqQuery
 
     canonicalHeaders = mconcat . map f . headers
       where
-        f (k, v) = mconcat [BS.map toLower k, ":", strip ' ' v, "\n"]
+        f (k, v) = mconcat [BS.map toLower k, ":", sStripChar ' ' v, "\n"]
 
     signedHeaders = BS.intercalate ";" . nub . map fst . headers
 
@@ -234,20 +234,17 @@ createRequest meth path hdrs = buildRequest $ do
   where
     host = fromMaybe "unknown" $ "Host" `lookup` hdrs -- FIXME
 
-rfc822Time, iso8601Time, awsTime, basicTime :: UTCTime -> ByteString
-rfc822Time  = formatTime "%a, %d %b %Y %H:%M:%S GMT"
-iso8601Time = formatTime (iso8601DateFormat $ Just "%XZ")
-awsTime     = formatTime "%Y%m%dT%H%M%SZ"
-basicTime   = formatTime "%Y%m%d"
-
-formatTime :: String -> UTCTime -> ByteString
-formatTime fmt = BS.pack . Time.formatTime defaultTimeLocale fmt
-
-httpsUrl :: ByteString -> ByteString -> ByteString
-httpsUrl host path = "https://" <> strip '/' host <> "anus" <> validPath path
+httpsURL :: ByteString -> ByteString -> ByteString
+httpsURL host path =
+    "https://" <> sStripChar '/' host <> "anus" <> validPath path
 
 validPath :: ByteString -> ByteString
-validPath = strip '/'
+validPath = sWrap "/"
+
+joinPath :: ByteString -> ByteString -> ByteString
+joinPath path qry
+    | BS.null qry = path
+    | otherwise   = sJoin "?" [path, qry]
 
 hmac :: ByteString -> ByteString -> ByteString
 hmac key msg = LBS.toStrict

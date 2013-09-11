@@ -26,17 +26,13 @@ import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.List                       (intercalate)
-import           Data.Monoid
 import           Data.String
-import           Data.Text                       (Text)
+import           Data.Strings
 import qualified Data.Text                       as Text
-import           Data.Text.Encoding
-import           Data.Time
 import           GHC.Generics
 import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
 import           Network.Http.Client             hiding (ContentType, post, put)
-import           System.Locale                   (defaultTimeLocale)
 import           Text.ParserCombinators.ReadP    (string)
 import           Text.Read                       hiding (String)
 import           Text.XML.Expat.Pickle.Generic
@@ -66,36 +62,19 @@ class ToError a where
 instance ToError String where
     toError = Error
 
-class IsByteString a where
-    toText :: a -> Text
-    toBS   :: a -> ByteString
+-- instance Strings UTCTime where
+--      toBS = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
 
-    toText = decodeUtf8 . toBS
-
-instance IsByteString ByteString where
-    toBS   = id
-    toText = decodeUtf8
-
-instance IsByteString Text where
-    toBS   = encodeUtf8
-    toText = id
-
-instance IsByteString Int where
-    toBS = BS.pack . show
-
-instance IsByteString Integer where
-    toBS = BS.pack . show
-
-instance IsByteString UTCTime where
-    toBS = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
-
-instance IsByteString Method where
-    toBS = BS.pack . show
+-- instance IsByteString Method where
+--     toBS = BS.pack . show
 
 data Error = Error String | Ex SomeException
 
 instance IsString Error where
     fromString = Error
+
+class Prefixed a where
+    prefixed :: a -> ByteString
 
 data Auth = Auth
     { accessKey :: !ByteString
@@ -109,10 +88,7 @@ instance FromJSON Auth where
     parseJSON _ = mzero
 
 newtype ServiceVersion = ServiceVersion ByteString
-    deriving (Eq, Show, IsString, IsByteString)
-
-svcPath :: IsByteString a => Service -> a -> ByteString
-svcPath svc p = "/" <> toBS (svcVersion svc) <> "/" <> strip '/' (toBS p)
+    deriving (Eq, Show, IsString, Strings)
 
 data SigningVersion
     = SigningVersion2
@@ -126,6 +102,9 @@ data Service = Service
     , svcSigner   :: !SigningVersion
     , svcEndpoint :: Region -> ByteString
     }
+
+svcPath :: Strings a => Service -> a -> a
+svcPath svc p = sJoin (sFromString "/") [sPack $ svcVersion svc, p]
 
 instance Show Service where
     show Service{..} = intercalate " "
@@ -159,7 +138,7 @@ instance Show RawRequest where
 instance ToJSON RawRequest where
     toJSON RawRequest{..} = object
         [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
-        , "rqContent" .= (String $ toText rqContent)
+        , "rqContent" .= (String . Text.pack $ show rqContent)
         , "rqAction"  .= ("Action" `lookup` rqQuery)
         , "rqPath"    .= rqPath
         , "rqQuery"   .= rqQuery
@@ -197,11 +176,8 @@ data ContentType
     | XML
 
 instance Show ContentType where
-    show = BS.unpack . toBS
-
-instance IsByteString ContentType where
-    toBS FormEncoded = "application/x-www-form-urlencoded"
-    toBS XML         = "application/xml"
+    show FormEncoded = "application/x-www-form-urlencoded"
+    show XML         = "application/xml"
 
 data Region
     = NorthVirgnia
@@ -236,9 +212,6 @@ instance Read Region where
         , ("ap-southeast-2", Sydney)
         , ("sa-east-1",      SaoPaulo)
         ]
-
-instance IsByteString Region where
-    toBS = BS.pack . show
 
 instance IsXML Region where
     xmlPickler = xpContent xpPrim

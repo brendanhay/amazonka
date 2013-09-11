@@ -127,12 +127,12 @@ instance IsXML CreateHostedZoneResponse where
 newtype GetHostedZone = GetHostedZone
     { ghzId :: HostedZoneId
       -- ^ Hosted Zone Id.
-    } deriving (Eq, Show, IsString, IsByteString)
+    } deriving (Eq, Show, IsString)
 
 instance Rq GetHostedZone where
     type Er GetHostedZone = ErrorResponse
     type Rs GetHostedZone = GetHostedZoneResponse
-    request chk = qry GET (toBS chk) ()
+    request chk = qry GET (prefixed $ ghzId chk) ()
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostedZone    :: !HostedZone
@@ -193,12 +193,12 @@ instance IsXML ListHostedZonesResponse where
 newtype DeleteHostedZone = DeleteHostedZone
     { dhzId :: HostedZoneId
       -- ^ Hosted Zone Id.
-    } deriving (Eq, Show, IsString, IsByteString)
+    } deriving (Eq, Show, IsString)
 
 instance Rq DeleteHostedZone where
     type Er DeleteHostedZone = ErrorResponse
     type Rs DeleteHostedZone = DeleteHostedZoneResponse
-    request chk = qry DELETE (toBS chk) ()
+    request chk = qry DELETE (prefixed $ dhzId chk) ()
 
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
@@ -232,7 +232,7 @@ instance IsXML ChangeResourceRecordSets where
 instance Rq ChangeResourceRecordSets where
     type Er ChangeResourceRecordSets = ErrorResponse
     type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
-    request rq = xml POST (toBS (crrsZoneId rq) <> "/rrset") rq
+    request rq = xml POST (prefixed (crrsZoneId rq) <> "/rrset") rq
 
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { crrsrChangeInfo :: !ChangeInfo
@@ -272,7 +272,7 @@ instance IsQuery ListResourceRecordSets where
 instance Rq ListResourceRecordSets where
     type Er ListResourceRecordSets = ErrorResponse
     type Rs ListResourceRecordSets = ListResourceRecordSetsResponse
-    request rq = qry GET (toBS (lrrsZoneId rq) <> "/rrset") rq
+    request rq = qry GET (prefixed (lrrsZoneId rq) <> "/rrset") rq
 
 instance Pg ListResourceRecordSets where
     next rq ListResourceRecordSetsResponse{..}
@@ -316,12 +316,12 @@ newtype GetChange = GetChange
       -- ^ The ID of the change batch request. The value that you specify here
       -- is the value that POST ChangeResourceRecordSets returned in the Id
       -- element when you submitted the request.
-    } deriving (Eq, Show, IsString, IsByteString)
+    } deriving (Eq, Show, IsString)
 
 instance Rq GetChange where
     type Er GetChange = ErrorResponse
     type Rs GetChange = GetChangeResponse
-    request chk = qry GET (toBS chk) ()
+    request chk = qry GET (prefixed $ gcId chk) ()
 
 data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
@@ -372,12 +372,12 @@ newtype GetHealthCheck = GetHealthCheck
       -- ^ The ID for the health check for which you want detailed information.
       -- When you created the health check, CreateHealthCheck returned the ID
       -- in the response, in the HealthCheckId element.
-    } deriving (Eq, Show, IsString, IsByteString)
+    } deriving (Eq, Show, IsString)
 
 instance Rq GetHealthCheck where
     type Er GetHealthCheck = ErrorResponse
     type Rs GetHealthCheck = GetHealthCheckResponse
-    request chk = qry GET (toBS chk) ()
+    request chk = qry GET (prefixed $ ghcId chk) ()
 
 data GetHealthCheckResponse = GetHealthCheckResponse
     { ghcrHealthCheck :: !HealthCheck
@@ -442,12 +442,12 @@ instance IsXML ListHealthChecksResponse where
 newtype DeleteHealthCheck = DeleteHealthCheck
     { dhcId :: HealthCheckId
       -- ^ Health Check Id.
-    } deriving (Eq, Show, IsString, IsByteString)
+    } deriving (Eq, Show, IsString)
 
 instance Rq DeleteHealthCheck where
     type Er DeleteHealthCheck = ErrorResponse
     type Rs DeleteHealthCheck = DeleteHealthCheckResponse
-    request chk = qry DELETE (toBS chk) ()
+    request chk = qry DELETE (prefixed $ dhcId chk) ()
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Read, Show, Generic)

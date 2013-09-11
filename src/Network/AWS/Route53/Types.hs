@@ -15,12 +15,13 @@
 
 module Network.AWS.Route53.Types where
 
-import           Control.Applicative  ((<$>))
-import           Data.ByteString      (ByteString)
+import           Control.Applicative   ((<$>))
+import           Data.ByteString       (ByteString)
+import qualified Data.ByteString.Char8 as BS
 import           Data.Monoid
 import           Data.String
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
+import           Data.Text             (Text)
+import qualified Data.Text             as Text
 import           Data.Text.Encoding
 import           Data.Time
 import           Network.AWS.Internal
@@ -36,7 +37,7 @@ route53Version = "2012-12-12"
 
 -- | XML namespace to annotate Route53 elements with.
 route53NS :: ByteString
-route53NS = "https://route53.amazonaws.com/doc/" <> toBS route53Version <> "/"
+route53NS = "https://route53.amazonaws.com/doc/" <> sPack route53Version <> "/"
 
 -- | Helper to define Route53 namespaced XML elements.
 route53Elem :: ByteString -> NName ByteString
@@ -98,7 +99,7 @@ instance IsXML CallerReference where
     xmlPickler = (CallerReference, unCallerReference) `xpWrap` xpTextContent
 
 callerRef :: IO CallerReference
-callerRef = CallerReference . toText <$> getCurrentTime
+callerRef = CallerReference . decodeUtf8 . awsTime <$> getCurrentTime
 
 data Protocol = HTTP | TCP
     deriving (Eq, Read, Show, Generic)
@@ -125,11 +126,10 @@ newtype HostedZoneId = HostedZoneId { unHostedZoneId :: Text }
    deriving (Eq, IsString)
 
 instance Show HostedZoneId where
-    show = Text.unpack . toText
+    show = BS.unpack . prefixed
 
-instance IsByteString HostedZoneId where
-    toText = ensurePrefix "/hostedzone/" . unHostedZoneId
-    toBS   = encodeUtf8 . toText
+instance Prefixed HostedZoneId where
+    prefixed = sEnsurePrefix "/hostedzone/" . encodeUtf8 . unHostedZoneId
 
 instance IsXML HostedZoneId where
     xmlPickler = (HostedZoneId, unHostedZoneId) `xpWrap` xmlPickler
@@ -172,11 +172,10 @@ newtype ChangeId = ChangeId { unChangeId :: Text }
     deriving (Eq, IsString)
 
 instance Show ChangeId where
-    show = Text.unpack . toText
+    show = BS.unpack . prefixed
 
-instance IsByteString ChangeId where
-    toText = ensurePrefix "/change/" . unChangeId
-    toBS   = encodeUtf8 . toText
+instance Prefixed ChangeId where
+    prefixed = sEnsurePrefix "/change/" . encodeUtf8 . unChangeId
 
 instance IsXML ChangeId where
     xmlPickler = (ChangeId, unChangeId) `xpWrap` xmlPickler
@@ -346,11 +345,10 @@ newtype HealthCheckId = HealthCheckId { unHealthCheckId :: Text }
     deriving (Eq, IsString)
 
 instance Show HealthCheckId where
-    show = Text.unpack . toText
+    show = BS.unpack . prefixed
 
-instance IsByteString HealthCheckId where
-    toText = ensurePrefix "/healthcheck/" . unHealthCheckId
-    toBS   = encodeUtf8 . toText
+instance Prefixed HealthCheckId where
+    prefixed = sEnsurePrefix "/healthcheck/" . encodeUtf8 . unHealthCheckId
 
 instance IsXML HealthCheckId where
     xmlPickler = (HealthCheckId, unHealthCheckId) `xpWrap` xmlPickler

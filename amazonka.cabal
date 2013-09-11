@@ -79,6 +79,7 @@ library
       , pipes                 >= 4.0
       , querystring-pickle
       , SHA
+      , strings
       , text
       , time
       , transformers

@@ -10,55 +10,95 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.String
-    (
-    -- * String Convenience Functions
-      dropPrefix
-    , dropSuffix
-    , dropLower
-    , lowerFirst
-    , hyphenate
-    , strip
-    , ensurePrefix
-    ) where
+module Network.AWS.Internal.String where
+    -- (
+    -- -- * String Convenience Functions
+    --   dropPrefix
+    -- , dropSuffix
+    -- , dropLower
+    -- , lowerFirst
+    -- , hyphenate
+    -- , strip
+    -- , ensurePrefix
+    -- ) where
 
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import           Data.Char
-import           Data.List
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Text             (Text)
-import qualified Data.Text             as Text
+import Data.Char
+import Data.Strings
 
-dropPrefix :: String -> String -> String
-dropPrefix pre s = fromMaybe s $ pre `stripPrefix` s
+sPack :: (Strings a, Strings b) => a -> b
+sPack = sFromString . sToString
 
-dropSuffix :: String -> String -> String
-dropSuffix suf s
-    | suf `isSuffixOf` s = take (length s - length suf) s
-    | otherwise          = s
+sStripPrefix :: Strings a => a -> a -> a
+sStripPrefix pre s
+    | pre `sStartsWith` s = sDrop (sLen pre) s
+    | otherwise           = s
 
-dropLower :: String -> String
-dropLower = dropWhile isLower
+sEnsurePrefix :: Strings a => a -> a -> a
+sEnsurePrefix pre s
+    | pre `sStartsWith` s = s
+    | otherwise           = sConcat [pre, s]
 
-lowerFirst :: String -> String
-lowerFirst (x:xs) = toLower x : xs
-lowerFirst []     = []
+sStripSuffix :: Strings a => a -> a -> a
+sStripSuffix suf s
+    | suf `sEndsWith` s = sTake (sLen s - sLen suf) s
+    | otherwise         = s
 
-hyphenate :: String -> String
-hyphenate = concatMap f
-  where
-    f c | isUpper c = ['-', toLower c]
-        | otherwise = [c]
+sEnsureSuffix :: Strings a => a -> a -> a
+sEnsureSuffix suf s
+    | suf `sEndsWith` s = s
+    | otherwise         = sConcat [s, suf]
 
-strip :: Char -> ByteString -> ByteString
-strip c bstr
-    | BS.null bstr        = bstr
-    | BS.last bstr == c    = strip c $ BS.init bstr
-    | otherwise           = BS.dropWhile (== c) bstr
+sWrap :: Strings a => a -> a -> a
+sWrap delim = sEnsureSuffix delim . sEnsurePrefix delim
 
-ensurePrefix :: Text -> Text -> Text
-ensurePrefix p t
-    | p `Text.isPrefixOf` t = t
-    | otherwise             = p <> t
+sStripChar :: Strings a => Char -> a -> a
+sStripChar c s
+    | sHead s == c = c `sStripChar` sTail s
+    | sLast s == c = c `sStripChar` sInit s
+    | otherwise    = s
+
+sStripLower :: Strings a => a -> a
+sStripLower = sDropWhile isLower
+
+sLowerFirst :: Strings a => a -> a
+sLowerFirst s
+    | isUpper $ sHead s = toLower (sHead s) `sCons` sTail s
+    | otherwise         = s
+
+sJoin :: Strings a => a -> [a] -> a
+sJoin delim = sConcat . map (sStripSuffix delim . sEnsurePrefix delim)
+
+-- sHyphenate :: Strings a => a -> a
+-- sHyphenate = 
+
+-- dropPrefix :: String -> String -> String
+-- dropPrefix pre s = fromMaybe s $ pre `stripPrefix` s
+
+-- dropSuffix :: String -> String -> String
+-- dropSuffix suf s
+--     | suf `isSuffixOf` s = take (length s - length suf) s
+--     | otherwise          = s
+
+-- dropLower :: String -> String
+-- dropLower = dropWhile isLower
+
+-- lowerFirst :: String -> String
+-- lowerFirst (x:xs) = toLower x : xs
+-- lowerFirst []     = []
+
+-- hyphenate :: String -> String
+-- hyphenate = concatMap f
+--   where
+--     f c | isUpper c = ['-', toLower c]
+--         | otherwise = [c]
+
+-- strip :: Char -> ByteString -> ByteString
+-- strip c bstr
+--     | BS.null bstr        = bstr
+--     | BS.last bstr == c    = strip c $ BS.init bstr
+--     | otherwise           = BS.dropWhile (== c) bstr
+
+-- ensurePrefix :: Text -> Text -> Text
+-- ensurePrefix p t
+--     | p `Text.isPrefixOf` t = t
+--     | otherwise             = p <> t

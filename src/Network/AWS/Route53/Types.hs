@@ -21,7 +21,6 @@ import qualified Data.ByteString.Char8 as BS
 import           Data.Monoid
 import           Data.String
 import           Data.Text             (Text)
-import qualified Data.Text             as Text
 import           Data.Text.Encoding
 import           Data.Time
 import           Network.AWS.Internal

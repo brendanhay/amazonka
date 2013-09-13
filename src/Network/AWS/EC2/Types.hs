@@ -69,6 +69,27 @@ instance ToError EC2ErrorResponse where
 
 instance IsXML EC2ErrorResponse
 
+data Protocol = TCP | UDP | ICMP
+    deriving (Eq, Generic)
+
+instance Show Protocol where
+    show TCP  = "tcp"
+    show UDP  = "udp"
+    show ICMP = "icmp"
+
+instance Read Protocol where
+    readPrec = readAssocList
+        [ ("tcp",  TCP)
+        , ("udp",  UDP)
+        , ("icmp", ICMP)
+        ]
+
+instance IsQuery Protocol where
+    queryPickler = qpPrim
+
+instance IsXML Protocol where
+    xmlPickler = xpContent xpPrim
+
 data AddressDomain = AddressStandard | AddressVPC
     deriving (Eq)
 
@@ -1312,13 +1333,13 @@ instance IsXML UserIdGroupPair where
     xmlPickler = ec2XML
 
 data IpPermission = IpPermission
-    { iptIpProtocol :: !Text
+    { iptIpProtocol :: !Protocol
       -- ^ The protocol.
     , iptFromPort   :: !Integer
-      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
+      -- ^ The start of port range for the ICMP and UDP protocols, or an ICMP
       -- type number. A value of -1 indicates all ICMP types.
     , iptToPort     :: !Integer
-      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
+      -- ^ The end of port range for the ICMP and UDP protocols, or an ICMP
       -- code. A value of -1 indicates all ICMP codes for the given ICMP type.
     , iptGroups     :: Items UserIdGroupPair
       -- ^ A list of security group and AWS account ID pairs.
@@ -1499,7 +1520,7 @@ instance IsXML IpRange where
 --     , naetIcmpTypeCode :: !IcmpTypeCodeType
 --       -- ^ ICMP protocol: The ICMP type and code.
 --     , naetPortRange    :: !PortRangeType
---       -- ^ TCP or UDP protocols: The range of ports the rule applies to.
+--       -- ^ ICMP or UDP protocols: The range of ports the rule applies to.
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery NetworkAclEntryType

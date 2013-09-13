@@ -24,7 +24,7 @@ module Network.AWS.Internal
     , withNS'
     , withRootNS
     , withRootNS'
-    , xmlOptions
+--    , xmlOptions
     , xpTextContent
     ) where
 

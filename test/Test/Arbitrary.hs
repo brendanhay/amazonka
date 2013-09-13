@@ -51,7 +51,7 @@ instance Arbitrary Day where
     shrink    = (ModifiedJulianDay <$>) . shrink . toModifiedJulianDay
 
 instance Arbitrary DiffTime where
-    arbitrary = arbitrarySizedFractional
+    arbitrary = fromRational . toRational <$> choose (0 :: Double, 86400)
     shrink    = shrinkRealFrac
 
 instance ToJSON Region where

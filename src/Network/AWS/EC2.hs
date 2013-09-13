@@ -2379,8 +2379,7 @@ data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     { dsgrRequestId :: !Text
       -- ^ The ID of the request.
     , dsgrReturn    :: !Bool
-      -- ^ Returns true if the request succeeds. Otherwise, returns an
-      -- error.
+      -- ^ Returns true if the request succeeds. Otherwise, returns an error.
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteSecurityGroupResponse where
@@ -3232,142 +3231,6 @@ instance IsXML DeleteSecurityGroupResponse where
 --   results. This interval is usually less than one hour.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html>
-
--- data InstanceFilter
---     , diArchitecture                       :: !Text
---       -- ^ The instance architecture.
---     , diAvailability-zone                  :: !Text
---       -- ^ The Availability Zone of the instance.
---     , diBlock-device-mapping               :: Members block-device-mappingType
---       -- ^ The attach time for an Amazon EBS volume mapped to the instance
---       -- (for example, 2010-09-15T17:15:20.000Z)
---     , diClient-token                       :: !Text
---       -- ^ The idempotency token you provided when you launched the
---       -- instance.
---     , diDns-name                           :: !Text
---       -- ^ The public DNS name of the instance.
---     , diGroup-id                           :: !Text
---       -- ^ The ID of the security group for the instance. If the instance is
---       -- in EC2-Classic or a default VPC, you can use group-name instead.
---     , diGroup-name                         :: !Text
---       -- ^ The name of the security group for the instance. If the instance
---       -- is in a nondefault VPC, you must use group-id instead.
---     , diImage-id                           :: !Text
---       -- ^ The ID of the image used to launch the instance.
---     , diInstance-id                        :: !Text
---       -- ^ The ID of the instance.
---     , diInstance-lifecycle                 :: !Text
---       -- ^ Indicates whether this is a Spot Instance.
---     , diInstance-state-code                :: !Integer
---       -- ^ The state of the instance. The high byte is an opaque internal
---       -- value and should be ignored. The low byte is set based on the
---       -- state represented.
---     , diInstance-state-name                :: !Text
---       -- ^ The state of the instance.
---     , diInstance-type                      :: !Text
---       -- ^ The type of instance (for example, m1.small).
---     , diInstance                           :: Members instanceType
---       -- ^ The ID of the security group for the instance. If the instance is
---       -- in EC2-Classic or a default VPC, you can use instance.group-name
---       -- instead.
---     , diIp-address                         :: !Text
---       -- ^ The public IP address of the instance.
---     , diKernel-id                          :: !Text
---       -- ^ The kernel ID.
---     , diKey-name                           :: !Text
---       -- ^ The name of the key pair used when the instance was launched.
---     , diLaunch-index                       :: !Text
---       -- ^ When launching multiple instances, this is the index for the
---       -- instance in the launch group (for example, 0, 1, 2, and so on).
---     , diLaunch-time                        :: !UTCTime
---       -- ^ The time the instance was launched (for example,
---       -- 2010-08-07T11:54:42.000Z).
---     , diMonitoring-state                   :: !Text
---       -- ^ Indicates whether monitoring is enabled for the instance.
---     , diOwner-id                           :: !Text
---       -- ^ The AWS account ID of the instance owner.
---     , diPlacement-group-name               :: !Text
---       -- ^ The name of the placement group for the instance.
---     , diPlatform                           :: !Text
---       -- ^ The platform. Use windows if you have Windows based instances;
---       -- otherwise, leave blank.
---     , diPrivate-dns-name                   :: !Text
---       -- ^ The private DNS name of the instance.
---     , diPrivate-ip-address                 :: !Text
---       -- ^ The private IP address of the instance.
---     , diProduct-code                       :: !Text
---       -- ^ The product code associated with the AMI used to launch the
---       -- instance.
---     , diRamdisk-id                         :: !Text
---       -- ^ The RAM disk ID.
---     , diReason                             :: !Text
---       -- ^ The reason for the current state of the instance (for example,
---       -- shows "User Initiated [date]" when you stop or terminate the
---       -- instance). Similar to the state-reason-code filter.
---     , diRequester-id                       :: !Text
---       -- ^ The ID of the entity that launched the instance on your behalf
---       -- (for example, AWS Management Console, Auto Scaling, and so on)
---     , diReservation-id                     :: !Text
---       -- ^ The ID of the instance's reservation. A reservation ID is created
---       -- any time you launch an instance. A reservation ID has a
---       -- one-to-one relationship with an instance launch request, but can
---       -- be associated with more than one instance if you launch multiple
---       -- instances using the same launch request. For example, if you
---       -- launch one instance, you'll get one reservation ID. If you launch
---       -- ten instances using the same launch request, you'll also get one
---       -- reservation ID.
---     , diRoot-device-name                   :: !Text
---       -- ^ The name of the root device for the instance (for example,
---       -- /dev/sda1).
---     , diRoot-device-type                   :: !Text
---       -- ^ The type of root device the instance uses.
---     , diSource-dest-check                  :: !Bool
---       -- ^ Indicates whether the instance performs source/destination
---       -- checking. A value of true means that checking is enabled, and
---       -- false means checking is disabled. The value must be false for the
---       -- instance to perform network address translation (NAT) in your
---       -- VPC.
---     , diSpot-instance-request-id           :: !Text
---       -- ^ The ID of the Spot Instance request.
---     , diState-reason-code                  :: !Text
---       -- ^ The reason code for the state change.
---     , diState-reason-message               :: !Text
---       -- ^ A message that describes the state change.
---     , diSubnet-id                          :: !Text
---       -- ^ The ID of the subnet for the instance.
---     , diTag-key                            :: !Text
---       -- ^ The key of a tag assigned to the resource. This filter is
---       -- independent of the tag-value filter. For example, if you use both
---       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
---       -- get any resources assigned both the tag key Purpose (regardless
---       -- of what the tag's value is), and the tag value X (regardless of
---       -- what the tag's key is). If you want to list only resources where
---       -- Purpose is X, see the tag:key filter.
---     , diTag-value                          :: !Text
---       -- ^ The value of a tag assigned to the resource. This filter is
---       -- independent of the tag-key filter.
---     , diTag:                               :: !Text
---       -- ^ Filters the response based on a specific tag/value combination.
---     , diKey                                :: !Text
---       -- ^ The virtualization type of the instance.
---     , diVirtualization-type                :: !Text
---       -- ^ The ID of the VPC the instance is running in.
---     , diVpc-id                             :: !Text
---       -- ^ The hypervisor type of the instance.
---     , diHypervisor                         :: !Text
---       -- ^ The description of the network interface.
---     , diNetwork-interface                  :: Members network-interfaceType
---       -- ^ The ID of the subnet for the network interface.
---     , diNetwork-interface-private-dns-name :: !Bool
---       -- ^ Whether the network interface performs source/destination
---       -- checking. A value of true means checking is enabled, and false
---       -- means checking is disabled. The value must be false for the
---       -- network interface to perform network address translation (NAT) in
---       -- your VPC.
---     , diAssociation                        :: Members associationType
---       -- ^ The owner of the Elastic IP address associated with the network
---       -- interface.
-
 data DescribeInstances = DescribeInstances
     { diInstanceId :: [Text]
       -- ^ One or more instance IDs.
@@ -3383,9 +3246,9 @@ instance Rq DescribeInstances where
     request = qry GET "DescribeInstances"
 
 data DescribeInstancesResponse = DescribeInstancesResponse
-    { dkRequestId      :: !Text
+    { dirRequestId      :: !Text
       -- ^ The ID of the request.
-    , dkReservationSet :: Items ReservationInfoType
+    , dirReservationSet :: Items ReservationInfoType
       -- ^ A list of reservations, each one wrapped in an item element.
     } deriving (Eq, Show, Generic)
 

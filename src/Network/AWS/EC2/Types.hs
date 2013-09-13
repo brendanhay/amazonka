@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.Types
@@ -40,13 +41,28 @@ ec2Elem :: ByteString -> NName ByteString
 ec2Elem = mkNName ec2NS
 
 ec2XML :: XMLGeneric a
-ec2XML = withNS' ec2NS $ (xmlOptions ec2NS)
+ec2XML = withNS' ec2NS $ (namespacedXMLOptions ec2NS)
     { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
     , xmlListElement   = mkNName ec2NS "item"
     }
 
-data EC2ErrorResponse = EC2ErrorResponse { ecError :: !Text }
-    deriving (Eq, Show, Generic)
+data EC2Error = EC2Error
+    { ecCode    :: !Text
+    , ecMessage :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML EC2Error where
+    xmlPickler = genericXMLPickler $ defaultXMLOptions
+       { xmlCtorModifier = mkAnNName . sStripPrefix "EC2" . BS.pack
+       }
+
+instance IsXML [EC2Error] where
+    xmlPickler = xpElemList (mkAnNName "Error") xmlPickler
+
+data EC2ErrorResponse = EC2ErrorResponse
+    { eerErrors    :: [EC2Error]
+    , eerRequestID :: !Text
+    } deriving (Eq, Show, Generic)
 
 instance ToError EC2ErrorResponse where
     toError = Error . show
@@ -1027,8 +1043,7 @@ instance IsXML InstanceMonitoringStateType where
 
 data InstanceNetworkInterfaceAssociationType = InstanceNetworkInterfaceAssociationType
     { iniatPublicIp      :: !Text
-      -- ^ The address of the Elastic IP address bound to the network
-      -- interface.
+      -- ^ The address of the Elastic IP address bound to the network interface.
     , iniatPublicDnsName :: !Text
       -- ^ The public DNS name.
     , iniatIpOwnerId     :: !Text
@@ -1106,7 +1121,7 @@ data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
     , inisitSourceDestCheck       :: !Bool
       -- ^ Indicates whether to validate network traffic to or from this
       -- network interface.
-    , inisitGroupSet              :: Members GroupItemType
+    , inisitGroupSet              :: Items GroupItemType
       -- ^ A security group.
     , inisitAttachment            :: !InstanceNetworkInterfaceAttachmentType
       -- ^ The network interface attachment.
@@ -1914,16 +1929,16 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The ID of the AMI used to launch the instance.
     , riitInstanceState         :: !InstanceStateType
       -- ^ The current state of the instance.
-    , riitPrivateDnsName        :: !Text
+    , riitPrivateDnsName        :: Maybe Text
       -- ^ The private DNS name assigned to the instance. This DNS name can
       -- only be used inside the Amazon EC2 network. This element remains
       -- empty until the instance enters the running state.
-    , riitDnsName               :: !Text
+    , riitDnsName               :: Maybe Text
       -- ^ The public DNS name assigned to the instance. This element
       -- remains empty until the instance enters the running state.
-    , riitReason                :: !Text
-      -- ^ The reason for the most recent state transition. This might be an
-      -- empty string.
+    , riitReason                :: Maybe Text
+      -- ^ The reason for the most recent state transition.
+      -- This might be an empty string.
     , riitKeyName               :: !Text
       -- ^ The key pair name, if this instance was launched with an
       -- associated key pair.
@@ -1932,7 +1947,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- the launch group.
     , riitProductCodes          :: Items ProductCodesSetItemType
       -- ^ The product codes attached to this instance.
-    , riitInstanceType          :: !Text
+    , riitInstanceType          :: InstanceType
       -- ^ The instance type.
     , riitLaunchTime            :: !UTCTime
       -- ^ The time the instance was launched.
@@ -1942,7 +1957,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The kernel associated with this instance.
     , riitRamdiskId             :: !Text
       -- ^ The RAM disk associated with this instance.
-    , riitPlatform              :: !Text
+    , riitPlatform              :: Maybe Text
       -- ^ The value is Windows for Windows AMIs; otherwise blank.
     , riitMonitoring            :: !InstanceMonitoringStateType
       -- ^ The monitoring information for the instance.
@@ -1961,7 +1976,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- enabled, and false means checking is disabled. The value must be
       -- false for the instance to perform NAT. For more information, go
       -- to NAT Instances in the Amazon Virtual Private Cloud User Guide.
-    , riitGroupSet              :: !GroupItemType
+    , riitGroupSet              :: Items GroupItemType
       -- ^ A list of the security groups for the instance. Each group is
       -- wrapped in an item element.
     , riitStateReason           :: !StateReasonType
@@ -1976,9 +1991,9 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The root device name (for example, /dev/sda1).
     , riitBlockDeviceMapping    :: Items InstanceBlockDeviceMappingResponseItemType
       -- ^ Any block device mapping entries for the instance.
-    , riitInstanceLifecycle     :: !Text
+    , riitInstanceLifecycle     :: Maybe Text
       -- ^ Indicates whether this is a Spot Instance.
-    , riitSpotInstanceRequestId :: !Text
+    , riitSpotInstanceRequestId :: Maybe Text
       -- ^ The ID of the Spot Instance request.
     , riitVirtualizationType    :: !Text
       -- ^ The instance's virtualization type.

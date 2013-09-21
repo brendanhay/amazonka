@@ -6017,10 +6017,10 @@ instance IsXML RevokeSecurityGroupEgressResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupIngress.html>
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { rsgiGroupId       :: !Text
+    { rsgiGroupId       :: Maybe Text
       -- ^ The ID of the security group to modify. The security group must
       -- belong to your account.
-    , rsgiGroupName     :: !Text
+    , rsgiGroupName     :: Maybe Text
       -- ^ The name of the security group to modify.
     , rsgiIpPermissions :: [IpPermission]
       -- ^ The IP protocol name or number (see Protocol Numbers). For

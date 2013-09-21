@@ -330,11 +330,15 @@ instance ToJSON BundleInstanceState where
 instance ToJSON TagResourceType where
     toJSON = stringify
 
+instance ToJSON Protocol where
+    toJSON = stringify
+
 $(deriveArbitrary
    [ ''AddressDomain
    , ''BundleInstanceState
    , ''TagResourceType
    , ''VolumeStatus
+   , ''Protocol
    ])
 
 $(deriveDependency

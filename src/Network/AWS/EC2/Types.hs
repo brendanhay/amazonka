@@ -219,23 +219,23 @@ instance IsXML Attachment where
 -- instance IsXML AvailabilityZoneMessageType where
 --     xmlPickler = ec2XML
 
--- data BlockDeviceMappingItemType = BlockDeviceMappingItemType
---     { bdmitDeviceName  :: !Text
---       -- ^ The device name exposed to the instance (for example, /dev/sdh).
---     , bdmitVirtualName :: !Text
---       -- ^ The virtual device name.
---     , bdmitEbs         :: !EbsBlockDeviceType
---       -- ^ Parameters used to automatically set up Amazon EBS volumes when
---       -- the instance is launched.
---     , bdmitNoDevice    :: !Text
---       -- ^ Include this empty element to suppress the specified device
---       -- included in the block device mapping of the AMI.
---     } deriving (Eq, Show, Generic)
+data BlockDeviceMappingItemType = BlockDeviceMappingItemType
+    { bdmitDeviceName  :: !Text
+      -- ^ The device name exposed to the instance (for example, /dev/sdh).
+    , bdmitVirtualName :: Maybe Text
+      -- ^ The virtual device name.
+    , bdmitEbs         :: !EbsBlockDeviceType
+      -- ^ Parameters used to automatically set up Amazon EBS volumes when
+      -- the instance is launched.
+    , bdmitNoDevice    :: Maybe Text
+      -- ^ Include this empty element to suppress the specified device
+      -- included in the block device mapping of the AMI.
+    } deriving (Eq, Show, Generic)
 
 -- instance IsQuery BlockDeviceMappingItemType
 
--- instance IsXML BlockDeviceMappingItemType where
---     xmlPickler = ec2XML
+instance IsXML BlockDeviceMappingItemType where
+    xmlPickler = ec2XML
 
 data BundleInstanceS3Storage = BundleInstanceS3Storage
     { bissAwsAccessKeyId        :: !Text
@@ -429,67 +429,62 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 -- instance IsXML DescribeAddressesResponseItemType where
 --     xmlPickler = ec2XML
 
--- data DescribeImagesResponseItemType = DescribeImagesResponseItemType
---     { diritImageId            :: !Text
---       -- ^ The ID of the AMI.
---     , diritImageLocation      :: !Text
---       -- ^ The location of the AMI.
---     , diritImageState         :: !Text
---       -- ^ Current state of the AMI. If the operation returns available, the
---       -- image is successfully registered and available for launching.
---     , diritImageOwnerId       :: !Text
---       -- ^ AWS account ID of the image owner.
---     , diritIsPublic           :: !Bool
---       -- ^ Indicates whether the image has public launch permissions. The
---       -- value is true if this image has public launch permissions or
---       -- false if it has only implicit and explicit launch permissions.
---     , diritProductCodes       :: !ProductCodesSetItemType
---       -- ^ Any product codes associated with the AMI, each one wrapped in an
---       -- item element.
---     , diritArchitecture       :: !Text
---       -- ^ The architecture of the image.
---     , diritImageType          :: !Text
---       -- ^ The type of image.
---     , diritKernelId           :: !Text
---       -- ^ The kernel associated with the image, if any. Only applicable for
---       -- machine images.
---     , diritRamdiskId          :: !Text
---       -- ^ The RAM disk associated with the image, if any. Only applicable
---       -- for machine images.
---     , diritPlatform           :: !Text
---       -- ^ The value is Windows for Windows AMIs; otherwise blank.
---     , diritStateReason        :: !StateReasonType
---       -- ^ The reason for the state change.
---     , diritImageOwnerAlias    :: !Text
---       -- ^ The AWS account alias (for example, amazon, self, etc.) or AWS
---       -- account ID that owns the AMI.
---     , diritName               :: !Text
---       -- ^ The name of the AMI that was provided during image creation.
---     , diritDescription        :: !Text
---       -- ^ The description of the AMI that was provided during image
---       -- creation.
---     , diritRootDeviceType     :: !Text
---       -- ^ The type of root device used by the AMI. The AMI can use an
---       -- Amazon EBS volume or an instance store volume.
---     , diritRootDeviceName     :: !Text
---       -- ^ The device name of the root device (for example, /dev/sda1 or
---       -- xvda).
---     , diritBlockDeviceMapping :: !BlockDeviceMappingItemType
---       -- ^ Any block device mapping entries, each one wrapped in an item
---       -- element.
---     , diritVirtualizationType :: !Text
---       -- ^ The type of virtualization of the AMI.
---     , diritTagSet             :: !ResourceTagSetItemType
---       -- ^ Any tags assigned to the resource, each one wrapped in an item
---       -- element.
---     , diritHypervisor         :: !Text
---       -- ^ The image's hypervisor type.
---     } deriving (Eq, Show, Generic)
+data DescribeImagesResponseItemType = DescribeImagesResponseItemType
+    { diritImageId            :: !Text
+      -- ^ The ID of the AMI.
+    , diritImageLocation      :: !Text
+      -- ^ The location of the AMI.
+    , diritImageState         :: !Text
+      -- ^ Current state of the AMI. If the operation returns available, the
+      -- image is successfully registered and available for launching.
+    , diritImageOwnerId       :: !Text
+      -- ^ AWS account ID of the image owner.
+    , diritIsPublic           :: !Bool
+      -- ^ Indicates whether the image has public launch permissions. The
+      -- value is true if this image has public launch permissions or
+      -- false if it has only implicit and explicit launch permissions.
+    , diritProductCodes       :: Items ProductCodesSetItemType
+      -- ^ Any product codes associated with the AMI.
+    , diritArchitecture       :: !Text
+      -- ^ The architecture of the image.
+    , diritImageType          :: !Text
+      -- ^ The type of image.
+    , diritKernelId           :: !Text
+      -- ^ The kernel associated with the image, if any. Only applicable for
+      -- machine images.
+    , diritRamdiskId          :: !Text
+      -- ^ The RAM disk associated with the image, if any. Only applicable
+      -- for machine images.
+    , diritPlatform           :: Maybe Text
+      -- ^ The value is Windows for Windows AMIs; otherwise blank.
+    , diritStateReason        :: Maybe StateReasonType
+      -- ^ The reason for the state change.
+    , diritImageOwnerAlias    :: !Text
+      -- ^ The AWS account alias (for example, amazon, self, etc.) or AWS
+      -- account ID that owns the AMI.
+    , diritName               :: !Text
+      -- ^ The name of the AMI that was provided during image creation.
+    , diritDescription        :: !Text
+      -- ^ The description of the AMI that was provided during image
+      -- creation.
+    , diritRootDeviceType     :: !Text
+      -- ^ The type of root device used by the AMI. The AMI can use an
+      -- Amazon EBS volume or an instance store volume.
+    , diritRootDeviceName     :: !Text
+      -- ^ The device name of the root device (for example, /dev/sda1 or
+      -- xvda).
+    , diritBlockDeviceMapping :: Items BlockDeviceMappingItemType
+      -- ^ Any block device mapping entries.
+    , diritVirtualizationType :: !Text
+      -- ^ The type of virtualization of the AMI.
+    , diritTagSet             :: Items ResourceTagSetItemType
+      -- ^ Any tags assigned to the resource.
+    , diritHypervisor         :: !Text
+      -- ^ The image's hypervisor type.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DescribeImagesResponseItemType
-
--- instance IsXML DescribeImagesResponseItemType where
---     xmlPickler = ec2XML
+instance IsXML DescribeImagesResponseItemType where
+    xmlPickler = ec2XML
 
 -- data DescribeKeyPairsResponseItemType = DescribeKeyPairsResponseItemType
 --     { dkpritKeyName        :: !Text
@@ -779,25 +774,24 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- instance IsXML DiskImageVolumeDescriptionType where
 --     xmlPickler = ec2XML
 
--- data EbsBlockDeviceType = EbsBlockDeviceType
---     { ebdtSnapshotId          :: !Text
---       -- ^ The ID of the snapshot.
---     , ebdtVolumeSize          :: !Integer
---       -- ^ The size of the volume, in GiB.
---     , ebdtDeleteOnTermination :: !Bool
---       -- ^ Indicates whether the Amazon EBS volume is deleted on instance
---       -- termination.
---     , ebdtVolumeType          :: !Text
---       -- ^ The volume type.
---     , ebdtIops                :: !Integer
---       -- ^ The number of I/O operations per second (IOPS) that the volume
---       -- supports.
---     } deriving (Eq, Show, Generic)
+data EbsBlockDeviceType = EbsBlockDeviceType
+    { ebdtSnapshotId          :: !Text
+      -- ^ The ID of the snapshot.
+    , ebdtVolumeSize          :: !Integer
+      -- ^ The size of the volume, in GiB.
+    , ebdtDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the Amazon EBS volume is deleted on instance termination.
+    , ebdtVolumeType          :: !Text
+      -- ^ The volume type.
+    , ebdtIops                :: Maybe Integer
+      -- ^ The number of I/O operations per second (IOPS) that the volume
+      -- supports.
+    } deriving (Eq, Show, Generic)
 
 -- instance IsQuery EbsBlockDeviceType
 
--- instance IsXML EbsBlockDeviceType where
---     xmlPickler = ec2XML
+instance IsXML EbsBlockDeviceType where
+    xmlPickler = ec2XML
 
 data EbsInstanceBlockDeviceMappingResponseType = EbsInstanceBlockDeviceMappingResponseType
     { eibdmrtVolumeId            :: !Text

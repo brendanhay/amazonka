@@ -56,7 +56,7 @@ testVersion ver = plusTestOptions opts . testGroup (sPack ver)
   where
     opts = mempty
         { topt_maximum_generated_tests = Just 10
-        , topt_maximum_test_size       = Just 10
+        , topt_maximum_test_size       = Just 2
         }
 
 class TestProperty a where

@@ -23,6 +23,7 @@ module Network.AWS.AutoScaling
    -- * Actions
    -- ** CreateAutoScalingGroup
      CreateAutoScalingGroup                       (..)
+   , CreateAutoScalingGroupResponse               (..)
 
    -- ** CreateLaunchConfiguration
    , CreateLaunchConfiguration                    (..)

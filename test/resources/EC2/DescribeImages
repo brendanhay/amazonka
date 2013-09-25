@@ -1,0 +1,18 @@
+GET /
+Action=DescribeImages
+{{#djExecutableBy}}
+ExecutableBy.{{n}}={{.}}
+{{/djExecutableBy}}
+{{#djFilter}}
+Filter.{{n}}.Name={{filterName}}
+{{#filterValue}}
+Filter.{{n}}.Value.{{o}}={{.}}
+{{/filterValue}}
+{{/djFilter}}
+{{#djImageId}}
+ImageId.{{n}}={{.}}
+{{/djImageId}}
+{{#djOwner}}
+Owner.{{n}}={{.}}
+{{/djOwner}}
+

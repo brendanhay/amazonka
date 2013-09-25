@@ -255,8 +255,9 @@ module Network.AWS.EC2
    -- -- ** DescribeImageAttribute
    -- , DescribeImageAttribute              (..)
 
-   -- -- ** DescribeImages
-   -- , DescribeImages                      (..)
+   -- ** DescribeImages
+   , DescribeImages                         (..)
+   , DescribeImagesResponse                 (..)
 
    -- -- ** DescribeInstanceAttribute
    -- , DescribeInstanceAttribute           (..)
@@ -3055,104 +3056,44 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsXML DescribeImageAttributeResponse where
 --     xmlPickler = ec2XML
 
--- -- | Describes one or more of the images (AMIs, AKIs, and ARIs) available to
--- -- you. Images available to you include public images, private images that you
--- -- own, and private images owned by other AWS accounts but for which you have
--- -- explicit launch permissions.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html>
+-- | Describes one or more of the images (AMIs, AKIs, and ARIs) available to
+-- you. Images available to you include public images, private images that you
+-- own, and private images owned by other AWS accounts but for which you have
+-- explicit launch permissions.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html>
+data DescribeImages = DescribeImages
+    { djExecutableBy         :: [Text]
+      -- ^ Describes the images for which the specified user has explicit
+      -- launch permissions. The user ID can be an AWS account ID, self to
+      -- return images for which the sender of the request has explicit
+      -- launch permissions, or all to return AMIs with public launch permissions.
+    , djImageId              :: [Text]
+      -- ^ One or more image IDs.
+    , djOwner                :: [Text]
+      -- ^ Describes images owned by the specified owners. Use the IDs
+      -- amazon, aws-marketplace, and self to describe images owned by
+      -- Amazon, AWS Marketplace, or you, respectively.
+    , djFilter               :: [Filter]
+      -- ^ The name of a filter.
+    } deriving (Eq, Show, Generic)
 
--- -- data ImageFilter
--- --     , djArchitecture         :: !Text
--- --       -- ^ The image architecture.
--- --     , djBlock-device-mapping :: Members block-device-mappingType
--- --       -- ^ Whether the Amazon EBS volume is deleted on instance termination.
--- --     , djDescription          :: !Text
--- --       -- ^ The description of the image (provided during image creation).
--- --     , djImage-id             :: !Text
--- --       -- ^ The ID of the image.
--- --     , djImage-type           :: !Text
--- --       -- ^ The image type.
--- --     , djIs-public            :: !Bool
--- --       -- ^ Whether the image is public.
--- --     , djKernel-id            :: !Text
--- --       -- ^ The kernel ID.
--- --     , djManifest-location    :: !Text
--- --       -- ^ The location of the image manifest.
--- --     , djName                 :: !Text
--- --       -- ^ The name of the AMI (provided during image creation).
--- --     , djOwner-alias          :: !Text
--- --       -- ^ The AWS account alias (for example, amazon).
--- --     , djOwner-id             :: !Text
--- --       -- ^ The AWS account ID of the image owner.
--- --     , djPlatform             :: !Text
--- --       -- ^ The platform. To only list Windows-based AMIs, use windows.
--- --       -- Otherwise, leave blank.
--- --     , djProduct-code         :: !Text
--- --       -- ^ The product code.
--- --     , djRamdisk-id           :: !Text
--- --       -- ^ The RAM disk ID.
--- --     , djRoot-device-name     :: !Text
--- --       -- ^ The name of the root device volume (for example, /dev/sda1).
--- --     , djRoot-device-type     :: !Text
--- --       -- ^ The type of the root device volume.
--- --     , djState                :: !Text
--- --       -- ^ The state of the image.
--- --     , djState-reason-code    :: !Text
--- --       -- ^ The reason code for the state change.
--- --     , djState-reason-message :: !Text
--- --       -- ^ The message for the state change.
--- --     , djTag-key              :: !Text
--- --       -- ^ The key of a tag assigned to the resource. This filter is
--- --       -- independent of the tag-value filter. For example, if you use both
--- --       -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
--- --       -- get any resources assigned both the tag key Purpose (regardless
--- --       -- of what the tag's value is), and the tag value X (regardless of
--- --       -- what the tag's key is). If you want to list only resources where
--- --       -- Purpose is X, see the tag:key filter.
--- --     , djTag-value            :: !Text
--- --       -- ^ The value of a tag assigned to the resource. This filter is
--- --       -- independent of the tag-key filter.
--- --     , djTag:                 :: !Text
--- --       -- ^ Filters the response based on a specific tag/value combination.
--- --     , djKey                  :: !Text
--- --       -- ^ The virtualization type.
--- --     , djVirtualization-type  :: !Text
--- --       -- ^ The hypervisor type.
--- --     , djHypervisor           :: !Text
--- --       -- ^
+instance IsQuery DescribeImages
 
--- data DescribeImages = DescribeImages
---     { diExecutableBy         :: Members Text
---       -- ^ Describes the images for which the specified user has explicit
---       -- launch permissions. The user ID can be an AWS account ID, self to
---       -- return images for which the sender of the request has explicit
---       -- launch permissions, or all to return AMIs with public launch
---       -- permissions.
---     , djImageId              :: Members Text
---       -- ^ One or more image IDs.
---     , djOwner                :: Members Text
---       -- ^ Describes images owned by the specified owners. Use the IDs
---       -- amazon, aws-marketplace, and self to describe images owned by
---       -- Amazon, AWS Marketplace, or you, respectively.
---     , djFilter               :: Members Text
---       -- ^ The name of a filter.
---     } deriving (Eq, Show, Generic)
+instance Rq DescribeImages where
+    type Er DescribeImages = EC2ErrorResponse
+    type Rs DescribeImages = DescribeImagesResponse
+    request = qry GET "DescribeImages"
 
--- instance IsQuery DescribeImages
+data DescribeImagesResponse = DescribeImagesResponse
+    { djRequestId :: !Text
+      -- ^ The ID of the request.
+    , djImagesSet :: Items DescribeImagesResponseItemType
+      -- ^ A list of images.
+    } deriving (Eq, Show, Generic)
 
--- instance AWSRequest EC2 DescribeImages DescribeImagesResponse where
---     request = qry GET "DescribeImages"
-
--- data DescribeImagesResponse = DescribeImagesResponse
---     { djRequestId :: !Text
---       -- ^ The ID of the request.
---     , djImagesSet :: !DescribeImagesResponseItemType
---       -- ^ A list of images, each one wrapped in an item element.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML DescribeImagesResponse where
---     xmlPickler = ec2XML
+instance IsXML DescribeImagesResponse where
+    xmlPickler = ec2XML
 
 -- -- | Describes an attribute of the specified instance. You can specify only one
 -- -- attribute at a time.

@@ -34,3 +34,4 @@ tags
 *.awk
 script/
 generated/
+model*

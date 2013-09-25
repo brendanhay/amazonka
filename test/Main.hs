@@ -21,8 +21,8 @@ main :: IO ()
 main = defaultMain
     [
     -- testGroup "AutoScaling" AutoScaling.tests
-      testGroup "Route53"     Route53.tests
-    , testGroup "EC2"         EC2.tests
+--      testGroup "Route53"     Route53.tests
+     testGroup "EC2"         EC2.tests
     -- , testGroup "IAM"         IAM.tests
     -- , testGroup "CloudWatch"  CloudWatch.tests
     -- , testGroup "OpsWorks"    OpsWorks.tests

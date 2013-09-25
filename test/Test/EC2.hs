@@ -93,7 +93,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DescribeDhcpOptions"                (prop :: TRq DescribeDhcpOptions)
         -- , testProperty "DescribeExportTasks"                (prop :: TRq DescribeExportTasks)
         -- , testProperty "DescribeImageAttribute"             (prop :: TRq DescribeImageAttribute)
-        -- , testProperty "DescribeImages"                     (prop :: TRq DescribeImages)
+        , testProperty "DescribeImages"                     (prop :: TRq DescribeImages)
         -- , testProperty "DescribeInstanceAttribute"          (prop :: TRq DescribeInstanceAttribute)
         , testProperty "DescribeInstances"                  (prop :: TRq DescribeInstances)
         -- , testProperty "DescribeInstanceStatus"             (prop :: TRq DescribeInstanceStatus)
@@ -242,7 +242,7 @@ tests = (:[]) $ testVersion ec2Version
         -- , testProperty "DescribeDhcpOptionsResponse"                (prop :: TRs DescribeDhcpOptionsResponse)
         -- , testProperty "DescribeExportTasksResponse"                (prop :: TRs DescribeExportTasksResponse)
         -- , testProperty "DescribeImageAttributeResponse"             (prop :: TRs DescribeImageAttributeResponse)
-        -- , testProperty "DescribeImagesResponse"                     (prop :: TRs DescribeImagesResponse)
+        , testProperty "DescribeImagesResponse"                     (prop :: TRs DescribeImagesResponse)
         -- , testProperty "DescribeInstanceAttributeResponse"          (prop :: TRs DescribeInstanceAttributeResponse)
         , testProperty "DescribeInstancesResponse"                  (prop :: TRs DescribeInstancesResponse)
         -- , testProperty "DescribeInstanceStatusResponse"             (prop :: TRs DescribeInstanceStatusResponse)
@@ -343,12 +343,15 @@ $(deriveArbitrary
 
 $(deriveDependency
     [ ''Attachment
+    , ''BlockDeviceMappingItemType
     , ''BundleInstanceS3Storage
     , ''BundleInstanceTask
     , ''BundleInstanceTaskError
     , ''BundleInstanceTaskStorage
     , ''CancelSpotInstanceRequestsResponseSetItemType
+    , ''DescribeImagesResponseItemType
     , ''DescribeReservedInstancesListingsResponseSetItemType
+    , ''EbsBlockDeviceType
     , ''EbsInstanceBlockDeviceMappingResponseType
     , ''Filter
     , ''Filters
@@ -370,11 +373,11 @@ $(deriveDependency
     , ''ReservationInfoType
     , ''ResourceTagSetItemType
     , ''RunningInstancesItemType
+    , ''SecurityGroupItemType
     , ''StateReasonType
     , ''TagFilter
     , ''TagSetItemType
     , ''UserIdGroupPair
-    , ''SecurityGroupItemType
     ])
 
 $(deriveProperty "test/resources/EC2"
@@ -524,8 +527,8 @@ $(deriveProperty "test/resources/EC2"
     -- , ''DescribeExportTasksResponse
     -- , ''DescribeImageAttribute
     -- , ''DescribeImageAttributeResponse
-    -- , ''DescribeImages
-    -- , ''DescribeImagesResponse
+    , ''DescribeImages
+    , ''DescribeImagesResponse
     -- , ''DescribeInstanceAttribute
     -- , ''DescribeInstanceAttributeResponse
     , ''DescribeInstances

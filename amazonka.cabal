@@ -42,6 +42,9 @@ library
       , Network.AWS.EC2.Metadata
       , Network.AWS.EC2.Types
 
+      , Network.AWS.IAM
+      , Network.AWS.IAM.Types
+
       , Network.AWS.Route53
       , Network.AWS.Route53.Types
 
@@ -53,9 +56,6 @@ library
 
       -- , Network.AWS.ELB
       -- , Network.AWS.ELB.Types
-
-      -- , Network.AWS.IAM
-      -- , Network.AWS.IAM.Types
 
     ghc-options:
         -Wall

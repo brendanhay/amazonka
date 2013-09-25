@@ -15,20 +15,46 @@ module Network.AWS.IAM.Types where
 
 import Data.ByteString      (ByteString)
 import Data.Monoid
+import Data.Text            (Text)
 import Data.Time
 import Network.AWS.Internal
 
+iamService :: Service
+iamService = Service "iam" iamVersion SigningVersion4 $
+    const "iam.amazonaws.com"
+
 -- | Currently supported version of the IAM service.
-iamVersion :: ByteString
+iamVersion :: ServiceVersion
 iamVersion = "2010-05-08"
 
 -- | XML namespace to annotate IAM elements with.
 iamNS :: ByteString
-iamNS = "https://iam.amazonaws.com/doc/" <> iamVersion <> "/"
+iamNS = "https://iam.amazonaws.com/doc/" <> sPack iamVersion <> "/"
 
 -- | Helper to define IAM namespaced XML elements.
 iamElem :: ByteString -> NName ByteString
 iamElem = mkNName iamNS
+
+data ErrorType = ErrorType
+    { etType    :: !Text
+    , etCode    :: !Text
+    , etMessage :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML ErrorType where
+    xmlPickler = withNS iamNS
+
+data IAMError = IAMError
+    { erError     :: !ErrorType
+    , erRequestId :: !Text
+    }
+    deriving (Eq, Show, Generic)
+
+instance ToError IAMError where
+    toError = Error . show
+
+instance IsXML IAMError where
+    xmlPickler = withNS iamNS
 
 -- | The AccessKey data type contains information about an AWS access key. This
 -- data type is used as a response element in the actions CreateAccessKey and
@@ -36,16 +62,16 @@ iamElem = mkNName iamNS
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AccessKey.html>
 data AccessKey = AccessKey
-    { akAccessKeyId     :: !ByteString
+    { akAccessKeyId     :: !Text
       -- ^ The ID for this access key.
     , akCreateDate      :: Maybe UTCTime
       -- ^ The date when the access key was created.
-    , akSecretAccessKey :: !ByteString
+    , akSecretAccessKey :: !Text
       -- ^ The secret key used to sign requests.
-    , akStatus          :: !ByteString
+    , akStatus          :: !Text
       -- ^ The status of the access key. Active means the key is valid for
       -- API calls, while Inactive means it is not.
-    , akUserName        :: !ByteString
+    , akUserName        :: !Text
       -- ^ Name of the user the key is associated with.
     } deriving (Eq, Show, Generic)
 
@@ -60,14 +86,14 @@ instance IsXML AccessKey where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AccessKeyMetadata.html>
 data AccessKeyMetadata = AccessKeyMetadata
-    { akmAccessKeyId :: Maybe ByteString
+    { akmAccessKeyId :: Maybe Text
       -- ^ The ID for this access key.
     , akmCreateDate  :: Maybe UTCTime
       -- ^ The date when the access key was created.
-    , akmStatus      :: Maybe ByteString
+    , akmStatus      :: Maybe Text
       -- ^ The status of the access key. Active means the key is valid for
       -- API calls, while Inactive means it is not.
-    , akmUserName    :: Maybe ByteString
+    , akmUserName    :: Maybe Text
       -- ^ Name of the user the key is associated with.
     } deriving (Eq, Show, Generic)
 
@@ -191,7 +217,7 @@ instance IsXML GetAccountPasswordPolicyResult where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummaryResult.html>
 data GetAccountSummaryResult = GetAccountSummaryResult
-    { gasrSummaryMap :: Maybe ByteString
+    { gasrSummaryMap :: Maybe Text
       -- ^ A set of key value pairs containing account-level information.
     } deriving (Eq, Show, Generic)
 
@@ -205,11 +231,11 @@ instance IsXML GetAccountSummaryResult where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicyResult.html>
 data GetGroupPolicyResult = GetGroupPolicyResult
-    { ggprGroupName      :: !ByteString
+    { ggprGroupName      :: !Text
       -- ^ The group the policy is associated with.
-    , ggprPolicyDocument :: !ByteString
+    , ggprPolicyDocument :: !Text
       -- ^ The policy document.
-    , ggprPolicyName     :: !ByteString
+    , ggprPolicyName     :: !Text
       -- ^ The name of the policy.
     } deriving (Eq, Show, Generic)
 
@@ -229,7 +255,7 @@ data GetGroupResult = GetGroupResult
       -- If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more user names in the list.
-    , ggrMarker      :: Maybe ByteString
+    , ggrMarker      :: Maybe Text
       -- ^ If IsTruncated is true, then this element is present and contains
       -- the value to use for the Marker parameter in a subsequent
       -- pagination request.
@@ -274,11 +300,11 @@ instance IsXML GetLoginProfileResult where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicyResult.html>
 data GetRolePolicyResult = GetRolePolicyResult
-    { grprPolicyDocument :: !ByteString
+    { grprPolicyDocument :: !Text
       -- ^ The policy document.
-    , grprPolicyName     :: !ByteString
+    , grprPolicyName     :: !Text
       -- ^ The name of the policy.
-    , grprRoleName       :: !ByteString
+    , grprRoleName       :: !Text
       -- ^ The role the policy is associated with.
     } deriving (Eq, Show, Generic)
 
@@ -318,11 +344,11 @@ instance IsXML GetServerCertificateResult where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicyResult.html>
 data GetUserPolicyResult = GetUserPolicyResult
-    { guprPolicyDocument :: !ByteString
+    { guprPolicyDocument :: !Text
       -- ^ The policy document.
-    , guprPolicyName     :: !ByteString
+    , guprPolicyName     :: !Text
       -- ^ The name of the policy.
-    , guprUserName       :: !ByteString
+    , guprUserName       :: !Text
       -- ^ The user the policy is associated with.
     } deriving (Eq, Show, Generic)
 
@@ -349,20 +375,20 @@ instance IsXML GetUserResult where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_Group.html>
 data Group = Group
-    { gArn        :: !ByteString
+    { gArn        :: !Text
       -- ^ The Amazon Resource Name (ARN) specifying the group. For more
       -- information about ARNs and how to use them in policies, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
     , gCreateDate :: !UTCTime
       -- ^ The date when the group was created.
-    , gGroupId    :: !ByteString
+    , gGroupId    :: !Text
       -- ^ The stable and unique string identifying the group. For more
       -- information about IDs, see Identifiers for IAM Entities in Using
       -- AWS Identity and Access Management.
-    , gGroupName  :: !ByteString
+    , gGroupName  :: !Text
       -- ^ The name that identifies the group.
-    , gPath       :: !ByteString
+    , gPath       :: !Text
       -- ^ Path to the group. For more information about paths, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
@@ -380,20 +406,20 @@ instance IsXML Group where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_InstanceProfile.html>
 data InstanceProfile = InstanceProfile
-    { ipArn                 :: !ByteString
+    { ipArn                 :: !Text
       -- ^ The Amazon Resource Name (ARN) specifying the instance profile.
       -- For more information about ARNs and how to use them in policies,
       -- see Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
     , ipCreateDate          :: !UTCTime
       -- ^ The date when the instance profile was created.
-    , ipInstanceProfileId   :: !ByteString
+    , ipInstanceProfileId   :: !Text
       -- ^ The stable and unique string identifying the instance profile.
       -- For more information about IDs, see Identifiers for IAM Entities
       -- in Using AWS Identity and Access Management.
-    , ipInstanceProfileName :: !ByteString
+    , ipInstanceProfileName :: !Text
       -- ^ The name identifying the instance profile.
-    , ipPath                :: !ByteString
+    , ipPath                :: !Text
       -- ^ Path to the instance profile. For more information about paths,
       -- see Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
@@ -418,7 +444,7 @@ data ListAccessKeysResult = ListAccessKeysResult
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more keys
       -- in the list.
-    , lakrMarker            :: Maybe ByteString
+    , lakrMarker            :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -434,14 +460,14 @@ instance IsXML ListAccessKeysResult where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliasesResult.html>
 data ListAccountAliasesResult = ListAccountAliasesResult
-    { laarAccountAliases :: !ByteString
+    { laarAccountAliases :: !Text
       -- ^ A list of aliases associated with the account.
     , laarIsTruncated    :: Maybe Bool
       -- ^ A flag that indicates whether there are more account aliases to
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more account aliases in the list.
-    , laarMarker         :: Maybe ByteString
+    , laarMarker         :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -463,11 +489,11 @@ data ListGroupPoliciesResult = ListGroupPoliciesResult
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more policy names in the list.
-    , lgprMarker      :: Maybe ByteString
+    , lgprMarker      :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
-    , lgprPolicyNames :: !ByteString
+    , lgprPolicyNames :: !Text
       -- ^ A list of policy names.
     } deriving (Eq, Show, Generic)
 
@@ -488,7 +514,7 @@ data ListGroupsForUserResult = ListGroupsForUserResult
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more
       -- groups in the list.
-    , lgfurMarker      :: Maybe ByteString
+    , lgfurMarker      :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -510,7 +536,7 @@ data ListGroupsResult = ListGroupsResult
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more
       -- groups in the list.
-    , lgrMarker      :: Maybe ByteString
+    , lgrMarker      :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -533,7 +559,7 @@ data ListInstanceProfilesForRoleResult = ListInstanceProfilesForRoleResult
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more instance profiles in the list.
-    , lipfrrMarker           :: Maybe ByteString
+    , lipfrrMarker           :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -556,7 +582,7 @@ data ListInstanceProfilesResult = ListInstanceProfilesResult
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more instance profiles in the list.
-    , liprMarker           :: Maybe ByteString
+    , liprMarker           :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -579,7 +605,7 @@ data ListMFADevicesResult = ListMFADevicesResult
       -- more MFA devices in the list.
     , lmfadrMFADevices  :: !MFADevice
       -- ^ A list of MFA devices.
-    , lmfadrMarker      :: Maybe ByteString
+    , lmfadrMarker      :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -600,11 +626,11 @@ data ListRolePoliciesResult = ListRolePoliciesResult
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more policy names in the list.
-    , lrprMarker      :: Maybe ByteString
+    , lrprMarker      :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
-    , lrprPolicyNames :: !ByteString
+    , lrprPolicyNames :: !Text
       -- ^ A list of policy names.
     } deriving (Eq, Show, Generic)
 
@@ -622,7 +648,7 @@ data ListRolesResult = ListRolesResult
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more roles
       -- in the list.
-    , lrrMarker      :: Maybe ByteString
+    , lrrMarker      :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -645,7 +671,7 @@ data ListServerCertificatesResult = ListServerCertificatesResult
       -- to list. If your results were truncated, you can make a
       -- subsequent pagination request using the Marker request parameter
       -- to retrieve more server certificates in the list.
-    , lscrMarker                        :: Maybe ByteString
+    , lscrMarker                        :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -670,7 +696,7 @@ data ListSigningCertificatesResult = ListSigningCertificatesResult
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more certificates in the list.
-    , lscsMarker       :: Maybe ByteString
+    , lscsMarker       :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -691,11 +717,11 @@ data ListUserPoliciesResult = ListUserPoliciesResult
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more policy names in the list.
-    , luprMarker      :: Maybe ByteString
+    , luprMarker      :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
-    , luprPolicyNames :: !ByteString
+    , luprPolicyNames :: !Text
       -- ^ A list of policy names.
     } deriving (Eq, Show, Generic)
 
@@ -713,7 +739,7 @@ data ListUsersResult = ListUsersResult
       -- If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more users in the list.
-    , lurMarker      :: Maybe ByteString
+    , lurMarker      :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -736,7 +762,7 @@ data ListVirtualMFADevicesResult = ListVirtualMFADevicesResult
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more items
       -- the list.
-    , lvmfadrMarker            :: Maybe ByteString
+    , lvmfadrMarker            :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
@@ -757,7 +783,7 @@ instance IsXML ListVirtualMFADevicesResult where
 data LoginProfile = LoginProfile
     { lpCreateDate :: !UTCTime
       -- ^ The date when the password for the user was created.
-    , lpUserName   :: !ByteString
+    , lpUserName   :: !Text
       -- ^ The name of the user, which can be used for signing into the AWS
       -- Management Console.
     } deriving (Eq, Show, Generic)
@@ -774,10 +800,10 @@ instance IsXML LoginProfile where
 data MFADevice = MFADevice
     { mfadEnableDate   :: !UTCTime
       -- ^ The date when the MFA device was enabled for the user.
-    , mfadSerialNumber :: !ByteString
+    , mfadSerialNumber :: !Text
       -- ^ The serial number that uniquely identifies the MFA device. For
       -- virtual MFA devices, the serial number is the device ARN.
-    , mfadUserName     :: !ByteString
+    , mfadUserName     :: !Text
       -- ^ The user with whom the MFA device is associated.
     } deriving (Eq, Show, Generic)
 
@@ -820,24 +846,24 @@ instance IsXML PasswordPolicy where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_Role.html>
 data Role = Role
-    { rArn                      :: !ByteString
+    { rArn                      :: !Text
       -- ^ The Amazon Resource Name (ARN) specifying the role. For more
       -- information about ARNs and how to use them in policies, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
-    , rAssumeRolePolicyDocument :: Maybe ByteString
+    , rAssumeRolePolicyDocument :: Maybe Text
       -- ^ The policy that grants an entity permission to assume the role.
     , rCreateDate               :: !UTCTime
       -- ^ The date when the role was created.
-    , rPath                     :: !ByteString
+    , rPath                     :: !Text
       -- ^ Path to the role. For more information about paths, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
-    , rRoleId                   :: !ByteString
+    , rRoleId                   :: !Text
       -- ^ The stable and unique string identifying the role. For more
       -- information about IDs, see Identifiers for IAM Entities in Using
       -- AWS Identity and Access Management.
-    , rRoleName                 :: !ByteString
+    , rRoleName                 :: !Text
       -- ^ The name identifying the role.
     } deriving (Eq, Show, Generic)
 
@@ -852,9 +878,9 @@ instance IsXML Role where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ServerCertificate.html>
 data ServerCertificate = ServerCertificate
-    { scCertificateBody           :: !ByteString
+    { scCertificateBody           :: !Text
       -- ^ The contents of the public key certificate.
-    , scCertificateChain          :: Maybe ByteString
+    , scCertificateChain          :: Maybe Text
       -- ^ The contents of the public key certificate chain.
     , scServerCertificateMetadata :: !ServerCertificateMetadata
       -- ^ The meta information of the server certificate, such as its name,
@@ -873,20 +899,20 @@ instance IsXML ServerCertificate where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ServerCertificateMetadata.html>
 data ServerCertificateMetadata = ServerCertificateMetadata
-    { scmArn                   :: !ByteString
+    { scmArn                   :: !Text
       -- ^ The Amazon Resource Name (ARN) specifying the server certificate.
       -- For more information about ARNs and how to use them in policies,
       -- see Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
-    , scmPath                  :: !ByteString
+    , scmPath                  :: !Text
       -- ^ Path to the server certificate. For more information about paths,
       -- see Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
-    , scmServerCertificateId   :: !ByteString
+    , scmServerCertificateId   :: !Text
       -- ^ The stable and unique string identifying the server certificate.
       -- For more information about IDs, see Identifiers for IAM Entities
       -- in Using AWS Identity and Access Management.
-    , scmServerCertificateName :: !ByteString
+    , scmServerCertificateName :: !Text
       -- ^ The name that identifies the server certificate.
     , scmUploadDate            :: Maybe UTCTime
       -- ^ The date when the server certificate was uploaded.
@@ -903,16 +929,16 @@ instance IsXML ServerCertificateMetadata where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_SigningCertificate.html>
 data SigningCertificate = SigningCertificate
-    { sdCertificateBody :: !ByteString
+    { sdCertificateBody :: !Text
       -- ^ The contents of the signing certificate.
-    , sdCertificateId   :: !ByteString
+    , sdCertificateId   :: !Text
       -- ^ The ID for the signing certificate.
-    , sdStatus          :: !ByteString
+    , sdStatus          :: !Text
       -- ^ The status of the signing certificate. Active means the key is
       -- valid for API calls, while Inactive means it is not.
     , sdUploadDate      :: Maybe UTCTime
       -- ^ The date when the signing certificate was uploaded.
-    , sdUserName        :: !ByteString
+    , sdUserName        :: !Text
       -- ^ Name of the user the signing certificate is associated with.
     } deriving (Eq, Show, Generic)
 
@@ -956,22 +982,22 @@ instance IsXML UploadSigningCertificateResult where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_User.html>
 data User = User
-    { uArn        :: !ByteString
+    { uArn        :: !Text
       -- ^ The Amazon Resource Name (ARN) specifying the user. For more
       -- information about ARNs and how to use them in policies, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
     , uCreateDate :: !UTCTime
       -- ^ The date when the user was created.
-    , uPath       :: !ByteString
+    , uPath       :: !Text
       -- ^ Path to the user. For more information about paths, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
-    , uUserId     :: !ByteString
+    , uUserId     :: !Text
       -- ^ The stable and unique string identifying the user. For more
       -- information about IDs, see Identifiers for IAM Entities in Using
       -- AWS Identity and Access Management.
-    , uUserName   :: !ByteString
+    , uUserName   :: !Text
       -- ^ The name identifying the user.
     } deriving (Eq, Show, Generic)
 
@@ -985,19 +1011,19 @@ instance IsXML User where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_VirtualMFADevice.html>
 data VirtualMFADevice = VirtualMFADevice
-    { vmfadBase32StringSeed :: Maybe ByteString
+    { vmfadBase32StringSeed :: Maybe Text
       -- ^ The Base32 seed defined as specified in RFC3548. The
       -- Base32StringSeed is Base64-encoded.
     , vmfadEnableDate       :: Maybe UTCTime
       -- ^ Type: DateTime
-    , vmfadQRCodePNG        :: Maybe ByteString
+    , vmfadQRCodePNG        :: Maybe Text
       -- ^ A QR code PNG image that encodes
       -- otpauth://totp/$virtualMFADeviceName@$AccountName?
       -- secret=$Base32String where $virtualMFADeviceName is one of the
       -- create call arguments, AccountName is the user name if set
       -- (accountId otherwise), and Base32String is the seed in Base32
       -- format. The Base32String is Base64-encoded.
-    , vmfadSerialNumber     :: !ByteString
+    , vmfadSerialNumber     :: !Text
       -- ^ The serial number associated with VirtualMFADevice.
     , vmfadUser             :: Maybe User
       -- ^ The User data type contains information about a user.

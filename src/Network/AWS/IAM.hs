@@ -1,6 +1,4 @@
 {-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TypeFamilies               #-}
 
@@ -20,234 +18,296 @@ module Network.AWS.IAM
    (
    -- * Actions
    -- ** AddRoleToInstanceProfile
-     AddRoleToInstanceProfile      (..)
+     AddRoleToInstanceProfile              (..)
+   , AddRoleToInstanceProfileResponse      (..)
 
    -- ** AddUserToGroup
-   , AddUserToGroup                (..)
+   , AddUserToGroup                        (..)
+   , AddUserToGroupResponse                (..)
 
    -- ** ChangePassword
-   , ChangePassword                (..)
+   , ChangePassword                        (..)
+   , ChangePasswordResponse                (..)
 
    -- ** CreateAccessKey
-   , CreateAccessKey               (..)
+   , CreateAccessKey                       (..)
+   , CreateAccessKeyResponse               (..)
 
    -- ** CreateAccountAlias
-   , CreateAccountAlias            (..)
+   , CreateAccountAlias                    (..)
+   , CreateAccountAliasResponse            (..)
 
    -- ** CreateGroup
-   , CreateGroup                   (..)
+   , CreateGroup                           (..)
+   , CreateGroupResponse                   (..)
 
    -- ** CreateInstanceProfile
-   , CreateInstanceProfile         (..)
+   , CreateInstanceProfile                 (..)
+   , CreateInstanceProfileResponse         (..)
 
    -- ** CreateLoginProfile
-   , CreateLoginProfile            (..)
+   , CreateLoginProfile                    (..)
+   , CreateLoginProfileResponse            (..)
 
    -- ** CreateRole
-   , CreateRole                    (..)
+   , CreateRole                            (..)
+   , CreateRoleResponse                    (..)
 
    -- ** CreateUser
-   , CreateUser                    (..)
+   , CreateUser                            (..)
+   , CreateUserResponse                    (..)
 
    -- ** CreateVirtualMFADevice
-   , CreateVirtualMFADevice        (..)
+   , CreateVirtualMFADevice                (..)
+   , CreateVirtualMFADeviceResponse        (..)
 
    -- ** DeactivateMFADevice
-   , DeactivateMFADevice           (..)
+   , DeactivateMFADevice                   (..)
+   , DeactivateMFADeviceResponse           (..)
 
    -- ** DeleteAccessKey
-   , DeleteAccessKey               (..)
+   , DeleteAccessKey                       (..)
+   , DeleteAccessKeyResponse               (..)
 
    -- ** DeleteAccountAlias
-   , DeleteAccountAlias            (..)
+   , DeleteAccountAlias                    (..)
+   , DeleteAccountAliasResponse            (..)
 
    -- ** DeleteAccountPasswordPolicy
-   , DeleteAccountPasswordPolicy   (..)
+   , DeleteAccountPasswordPolicy           (..)
+   , DeleteAccountPasswordPolicyResponse   (..)
 
    -- ** DeleteGroup
-   , DeleteGroup                   (..)
+   , DeleteGroup                           (..)
+   , DeleteGroupResponse                   (..)
 
    -- ** DeleteGroupPolicy
-   , DeleteGroupPolicy             (..)
+   , DeleteGroupPolicy                     (..)
+   , DeleteGroupPolicyResponse             (..)
 
    -- ** DeleteInstanceProfile
-   , DeleteInstanceProfile         (..)
+   , DeleteInstanceProfile                 (..)
+   , DeleteInstanceProfileResponse         (..)
 
    -- ** DeleteLoginProfile
-   , DeleteLoginProfile            (..)
+   , DeleteLoginProfile                    (..)
+   , DeleteLoginProfileResponse            (..)
 
    -- ** DeleteRole
-   , DeleteRole                    (..)
+   , DeleteRole                            (..)
+   , DeleteRoleResponse                    (..)
 
    -- ** DeleteRolePolicy
-   , DeleteRolePolicy              (..)
+   , DeleteRolePolicy                      (..)
+   , DeleteRolePolicyResponse              (..)
 
    -- ** DeleteServerCertificate
-   , DeleteServerCertificate       (..)
+   , DeleteServerCertificate               (..)
+   , DeleteServerCertificateResponse       (..)
 
    -- ** DeleteSigningCertificate
-   , DeleteSigningCertificate      (..)
+   , DeleteSigningCertificate              (..)
+   , DeleteSigningCertificateResponse      (..)
 
    -- ** DeleteUser
-   , DeleteUser                    (..)
+   , DeleteUser                            (..)
+   , DeleteUserResponse                    (..)
 
    -- ** DeleteUserPolicy
-   , DeleteUserPolicy              (..)
+   , DeleteUserPolicy                      (..)
+   , DeleteUserPolicyResponse              (..)
 
    -- ** DeleteVirtualMFADevice
-   , DeleteVirtualMFADevice        (..)
+   , DeleteVirtualMFADevice                (..)
+   , DeleteVirtualMFADeviceResponse        (..)
 
    -- ** EnableMFADevice
-   , EnableMFADevice               (..)
+   , EnableMFADevice                       (..)
+   , EnableMFADeviceResponse               (..)
 
    -- ** GetAccountPasswordPolicy
-   , GetAccountPasswordPolicy      (..)
+   , GetAccountPasswordPolicy              (..)
+   , GetAccountPasswordPolicyResponse      (..)
 
    -- ** GetAccountSummary
-   , GetAccountSummary             (..)
+   , GetAccountSummary                     (..)
+   , GetAccountSummaryResponse             (..)
 
    -- ** GetGroup
-   , GetGroup                      (..)
+   , GetGroup                              (..)
+   , GetGroupResponse                      (..)
 
    -- ** GetGroupPolicy
-   , GetGroupPolicy                (..)
+   , GetGroupPolicy                        (..)
+   , GetGroupPolicyResponse                (..)
 
    -- ** GetInstanceProfile
-   , GetInstanceProfile            (..)
+   , GetInstanceProfile                    (..)
+   , GetInstanceProfileResponse            (..)
 
    -- ** GetLoginProfile
-   , GetLoginProfile               (..)
+   , GetLoginProfile                       (..)
+   , GetLoginProfileResponse               (..)
 
    -- ** GetRole
-   , GetRole                       (..)
+   , GetRole                               (..)
+   , GetRoleResponse                       (..)
 
    -- ** GetRolePolicy
-   , GetRolePolicy                 (..)
+   , GetRolePolicy                         (..)
+   , GetRolePolicyResponse                 (..)
 
    -- ** GetServerCertificate
-   , GetServerCertificate          (..)
+   , GetServerCertificate                  (..)
+   , GetServerCertificateResponse          (..)
 
    -- ** GetUser
-   , GetUser                       (..)
+   , GetUser                               (..)
+   , GetUserResponse                       (..)
 
    -- ** GetUserPolicy
-   , GetUserPolicy                 (..)
+   , GetUserPolicy                         (..)
+   , GetUserPolicyResponse                 (..)
 
    -- ** ListAccessKeys
-   , ListAccessKeys                (..)
+   , ListAccessKeys                        (..)
+   , ListAccessKeysResponse                (..)
 
    -- ** ListAccountAliases
-   , ListAccountAliases            (..)
+   , ListAccountAliases                    (..)
+   , ListAccountAliasesResponse            (..)
 
    -- ** ListGroupPolicies
-   , ListGroupPolicies             (..)
+   , ListGroupPolicies                     (..)
+   , ListGroupPoliciesResponse             (..)
 
    -- ** ListGroups
-   , ListGroups                    (..)
+   , ListGroups                            (..)
+   , ListGroupsResponse                    (..)
 
    -- ** ListGroupsForUser
-   , ListGroupsForUser             (..)
+   , ListGroupsForUser                     (..)
+   , ListGroupsForUserResponse             (..)
 
    -- ** ListInstanceProfiles
-   , ListInstanceProfiles          (..)
+   , ListInstanceProfiles                  (..)
+   , ListInstanceProfilesResponse          (..)
 
    -- ** ListInstanceProfilesForRole
-   , ListInstanceProfilesForRole   (..)
+   , ListInstanceProfilesForRole           (..)
+   , ListInstanceProfilesForRoleResponse   (..)
 
    -- ** ListMFADevices
-   , ListMFADevices                (..)
+   , ListMFADevices                        (..)
+   , ListMFADevicesResponse                (..)
 
    -- ** ListRolePolicies
-   , ListRolePolicies              (..)
+   , ListRolePolicies                      (..)
+   , ListRolePoliciesResponse              (..)
 
    -- ** ListRoles
-   , ListRoles                     (..)
+   , ListRoles                             (..)
+   , ListRolesResponse                     (..)
 
    -- ** ListServerCertificates
-   , ListServerCertificates        (..)
+   , ListServerCertificates                (..)
+   , ListServerCertificatesResponse        (..)
 
    -- ** ListSigningCertificates
-   , ListSigningCertificates       (..)
+   , ListSigningCertificates               (..)
+   , ListSigningCertificatesResponse       (..)
 
    -- ** ListUserPolicies
-   , ListUserPolicies              (..)
+   , ListUserPolicies                      (..)
+   , ListUserPoliciesResponse              (..)
 
    -- ** ListUsers
-   , ListUsers                     (..)
+   , ListUsers                             (..)
+   , ListUsersResponse                     (..)
 
    -- ** ListVirtualMFADevices
-   , ListVirtualMFADevices         (..)
+   , ListVirtualMFADevices                 (..)
+   , ListVirtualMFADevicesResponse         (..)
 
    -- ** PutGroupPolicy
-   , PutGroupPolicy                (..)
+   , PutGroupPolicy                        (..)
+   , PutGroupPolicyResponse                (..)
 
    -- ** PutRolePolicy
-   , PutRolePolicy                 (..)
+   , PutRolePolicy                         (..)
+   , PutRolePolicyResponse                 (..)
 
    -- ** PutUserPolicy
-   , PutUserPolicy                 (..)
+   , PutUserPolicy                         (..)
+   , PutUserPolicyResponse                 (..)
 
    -- ** RemoveRoleFromInstanceProfile
-   , RemoveRoleFromInstanceProfile (..)
+   , RemoveRoleFromInstanceProfile         (..)
+   , RemoveRoleFromInstanceProfileResponse (..)
 
    -- ** RemoveUserFromGroup
-   , RemoveUserFromGroup           (..)
+   , RemoveUserFromGroup                   (..)
+   , RemoveUserFromGroupResponse           (..)
 
    -- ** ResyncMFADevice
-   , ResyncMFADevice               (..)
+   , ResyncMFADevice                       (..)
+   , ResyncMFADeviceResponse               (..)
 
    -- ** UpdateAccessKey
-   , UpdateAccessKey               (..)
+   , UpdateAccessKey                       (..)
+   , UpdateAccessKeyResponse               (..)
 
    -- ** UpdateAccountPasswordPolicy
-   , UpdateAccountPasswordPolicy   (..)
+   , UpdateAccountPasswordPolicy           (..)
+   , UpdateAccountPasswordPolicyResponse   (..)
 
    -- ** UpdateAssumeRolePolicy
-   , UpdateAssumeRolePolicy        (..)
+   , UpdateAssumeRolePolicy                (..)
+   , UpdateAssumeRolePolicyResponse        (..)
 
    -- ** UpdateGroup
-   , UpdateGroup                   (..)
+   , UpdateGroup                           (..)
+   , UpdateGroupResponse                   (..)
 
    -- ** UpdateLoginProfile
-   , UpdateLoginProfile            (..)
+   , UpdateLoginProfile                    (..)
+   , UpdateLoginProfileResponse            (..)
 
    -- ** UpdateServerCertificate
-   , UpdateServerCertificate       (..)
+   , UpdateServerCertificate               (..)
+   , UpdateServerCertificateResponse       (..)
 
    -- ** UpdateSigningCertificate
-   , UpdateSigningCertificate      (..)
+   , UpdateSigningCertificate              (..)
+   , UpdateSigningCertificateResponse      (..)
 
    -- ** UpdateUser
-   , UpdateUser                    (..)
+   , UpdateUser                            (..)
+   , UpdateUserResponse                    (..)
 
    -- ** UploadServerCertificate
-   , UploadServerCertificate       (..)
+   , UploadServerCertificate               (..)
+   , UploadServerCertificateResponse       (..)
 
    -- ** UploadSigningCertificate
-   , UploadSigningCertificate      (..)
+   , UploadSigningCertificate              (..)
+   , UploadSigningCertificateResponse      (..)
 
    -- * Data Types
    , module Network.AWS.IAM.Types
-   , Rs                            (..)
    ) where
 
 import Data.ByteString       (ByteString)
-import Data.Monoid
-import Data.Time
+import Data.Text             (Text)
 import Network.AWS.IAM.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))
 
-data IAM
-
-instance AWSService IAM where
-    service _ = awsService "iam" iamVersion SigningVersion4
-
-req :: IsQuery a => Method -> ByteString -> a -> RawRequest IAM b
-req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
-    { rqAction = Just act
-    , rqQuery  = toQuery qry
-    }
+qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
+qry meth act q = queryAppend (queryRequest iamService meth "/" q)
+    [ ("Action",  act)
+    , ("Version", sPack iamVersion)
+    ]
 
 --
 -- Actions
@@ -259,19 +319,21 @@ req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddRoleToInstanceProfile.html>
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
-    { artipInstanceProfileName :: !ByteString
+    { artipInstanceProfileName :: !Text
       -- ^ Name of the instance profile to update.
-    , artipRoleName            :: !ByteString
+    , artipRoleName            :: !Text
       -- ^ Name of the role to add.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AddRoleToInstanceProfile
 
-instance AWSRequest IAM AddRoleToInstanceProfile AddRoleToInstanceProfileResponse where
-    request = req GET "AddRoleToInstanceProfile"
+instance Rq AddRoleToInstanceProfile where
+    type Er AddRoleToInstanceProfile = IAMError
+    type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
+    request = qry GET "AddRoleToInstanceProfile"
 
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
-    { artiprResponseMetadata :: !ByteString
+    { artiprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML AddRoleToInstanceProfileResponse where
@@ -281,19 +343,21 @@ instance IsXML AddRoleToInstanceProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html>
 data AddUserToGroup = AddUserToGroup
-    { autgGroupName :: !ByteString
+    { autgGroupName :: !Text
       -- ^ Name of the group to update.
-    , autgUserName  :: !ByteString
+    , autgUserName  :: !Text
       -- ^ Name of the user to add.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery AddUserToGroup
 
-instance AWSRequest IAM AddUserToGroup AddUserToGroupResponse where
-    request = req GET "AddUserToGroup"
+instance Rq AddUserToGroup where
+    type Er AddUserToGroup = IAMError
+    type Rs AddUserToGroup = AddUserToGroupResponse
+    request = qry GET "AddUserToGroup"
 
 data AddUserToGroupResponse = AddUserToGroupResponse
-    { autgrResponseMetadata :: !ByteString
+    { autgrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML AddUserToGroupResponse where
@@ -305,19 +369,21 @@ instance IsXML AddUserToGroupResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html>
 data ChangePassword = ChangePassword
-    { cpNewPassword :: !ByteString
+    { cpNewPassword :: !Text
       -- ^ Type: String
-    , cpOldPassword :: !ByteString
+    , cpOldPassword :: !Text
       -- ^ Type: String
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ChangePassword
 
-instance AWSRequest IAM ChangePassword ChangePasswordResponse where
-    request = req GET "ChangePassword"
+instance Rq ChangePassword where
+    type Er ChangePassword = IAMError
+    type Rs ChangePassword = ChangePasswordResponse
+    request = qry GET "ChangePassword"
 
 data ChangePasswordResponse = ChangePasswordResponse
-    { cprResponseMetadata :: !ByteString
+    { cprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML ChangePasswordResponse where
@@ -339,17 +405,19 @@ instance IsXML ChangePasswordResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html>
 data CreateAccessKey = CreateAccessKey
-    { cakUserName :: Maybe ByteString
+    { cakUserName :: Maybe Text
       -- ^ The user name that the new key will belong to.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateAccessKey
 
-instance AWSRequest IAM CreateAccessKey CreateAccessKeyResponse where
-    request = req GET "CreateAccessKey"
+instance Rq CreateAccessKey where
+    type Er CreateAccessKey = IAMError
+    type Rs CreateAccessKey = CreateAccessKeyResponse
+    request = qry GET "CreateAccessKey"
 
 data CreateAccessKeyResponse = CreateAccessKeyResponse
-    { cakrResponseMetadata :: !ByteString
+    { cakrResponseMetadata :: !Text
     , cakrCreateAccessKeyResult :: !CreateAccessKeyResult
     } deriving (Eq, Show, Generic)
 
@@ -362,17 +430,19 @@ instance IsXML CreateAccessKeyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccountAlias.html>
 data CreateAccountAlias = CreateAccountAlias
-    { caaAccountAlias :: !ByteString
+    { caaAccountAlias :: !Text
       -- ^ Name of the account alias to create.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateAccountAlias
 
-instance AWSRequest IAM CreateAccountAlias CreateAccountAliasResponse where
-    request = req GET "CreateAccountAlias"
+instance Rq CreateAccountAlias where
+    type Er CreateAccountAlias = IAMError
+    type Rs CreateAccountAlias = CreateAccountAliasResponse
+    request = qry GET "CreateAccountAlias"
 
 data CreateAccountAliasResponse = CreateAccountAliasResponse
-    { caarResponseMetadata :: !ByteString
+    { caarResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateAccountAliasResponse where
@@ -384,10 +454,10 @@ instance IsXML CreateAccountAliasResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html>
 data CreateGroup = CreateGroup
-    { cgGroupName :: !ByteString
+    { cgGroupName :: !Text
       -- ^ Name of the group to create. Do not include the path in this
       -- value.
-    , cgPath      :: Maybe ByteString
+    , cgPath      :: Maybe Text
       -- ^ The path to the group. For more information about paths, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
@@ -395,11 +465,13 @@ data CreateGroup = CreateGroup
 
 instance IsQuery CreateGroup
 
-instance AWSRequest IAM CreateGroup CreateGroupResponse where
-    request = req GET "CreateGroup"
+instance Rq CreateGroup where
+    type Er CreateGroup = IAMError
+    type Rs CreateGroup = CreateGroupResponse
+    request = qry GET "CreateGroup"
 
 data CreateGroupResponse = CreateGroupResponse
-    { cgrResponseMetadata :: !ByteString
+    { cgrResponseMetadata :: !Text
     , cgrCreateGroupResult :: !CreateGroupResult
     } deriving (Eq, Show, Generic)
 
@@ -413,9 +485,9 @@ instance IsXML CreateGroupResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html>
 data CreateInstanceProfile = CreateInstanceProfile
-    { cipInstanceProfileName :: !ByteString
+    { cipInstanceProfileName :: !Text
       -- ^ Name of the instance profile to create.
-    , cipPath                :: Maybe ByteString
+    , cipPath                :: Maybe Text
       -- ^ The path to the instance profile. For more information about
       -- paths, see Identifiers for IAM Entities in Using AWS Identity and
       -- Access Management.
@@ -423,11 +495,13 @@ data CreateInstanceProfile = CreateInstanceProfile
 
 instance IsQuery CreateInstanceProfile
 
-instance AWSRequest IAM CreateInstanceProfile CreateInstanceProfileResponse where
-    request = req GET "CreateInstanceProfile"
+instance Rq CreateInstanceProfile where
+    type Er CreateInstanceProfile = IAMError
+    type Rs CreateInstanceProfile = CreateInstanceProfileResponse
+    request = qry GET "CreateInstanceProfile"
 
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse
-    { ciprResponseMetadata :: !ByteString
+    { ciprResponseMetadata :: !Text
     , ciprCreateInstanceProfileResult :: !CreateInstanceProfileResult
     } deriving (Eq, Show, Generic)
 
@@ -440,19 +514,21 @@ instance IsXML CreateInstanceProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html>
 data CreateLoginProfile = CreateLoginProfile
-    { clpPassword :: !ByteString
+    { clpPassword :: !Text
       -- ^ The new password for the user name.
-    , clpUserName :: !ByteString
+    , clpUserName :: !Text
       -- ^ Name of the user to create a password for.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateLoginProfile
 
-instance AWSRequest IAM CreateLoginProfile CreateLoginProfileResponse where
-    request = req GET "CreateLoginProfile"
+instance Rq CreateLoginProfile where
+    type Er CreateLoginProfile = IAMError
+    type Rs CreateLoginProfile = CreateLoginProfileResponse
+    request = qry GET "CreateLoginProfile"
 
 data CreateLoginProfileResponse = CreateLoginProfileResponse
-    { clprResponseMetadata :: !ByteString
+    { clprResponseMetadata :: !Text
     , clprCreateLoginProfileResult :: !CreateLoginProfileResult
     } deriving (Eq, Show, Generic)
 
@@ -470,23 +546,25 @@ instance IsXML CreateLoginProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html>
 data CreateRole = CreateRole
-    { crAssumeRolePolicyDocument :: !ByteString
+    { crAssumeRolePolicyDocument :: !Text
       -- ^ The policy that grants an entity permission to assume the role.
-    , crPath                     :: Maybe ByteString
+    , crPath                     :: Maybe Text
       -- ^ The path to the role. For more information about paths, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
-    , crRoleName                 :: !ByteString
+    , crRoleName                 :: !Text
       -- ^ Name of the role to create.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateRole
 
-instance AWSRequest IAM CreateRole CreateRoleResponse where
-    request = req GET "CreateRole"
+instance Rq CreateRole where
+    type Er CreateRole = IAMError
+    type Rs CreateRole = CreateRoleResponse
+    request = qry GET "CreateRole"
 
 data CreateRoleResponse = CreateRoleResponse
-    { crrResponseMetadata :: !ByteString
+    { crrResponseMetadata :: !Text
     , crrCreateRoleResult :: !CreateRoleResult
     } deriving (Eq, Show, Generic)
 
@@ -499,21 +577,23 @@ instance IsXML CreateRoleResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html>
 data CreateUser = CreateUser
-    { cuPath     :: Maybe ByteString
+    { cuPath     :: Maybe Text
       -- ^ The path for the user name. For more information about paths, see
       -- Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
-    , cuUserName :: !ByteString
+    , cuUserName :: !Text
       -- ^ Name of the user to create.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateUser
 
-instance AWSRequest IAM CreateUser CreateUserResponse where
-    request = req GET "CreateUser"
+instance Rq CreateUser where
+    type Er CreateUser = IAMError
+    type Rs CreateUser = CreateUserResponse
+    request = qry GET "CreateUser"
 
 data CreateUserResponse = CreateUserResponse
-    { curResponseMetadata :: !ByteString
+    { curResponseMetadata :: !Text
     , curCreateUserResult :: !CreateUserResult
     } deriving (Eq, Show, Generic)
 
@@ -534,22 +614,24 @@ instance IsXML CreateUserResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html>
 data CreateVirtualMFADevice = CreateVirtualMFADevice
-    { cvmfadPath                 :: Maybe ByteString
+    { cvmfadPath                 :: Maybe Text
       -- ^ The path for the virtual MFA device. For more information about
       -- paths, see Identifiers for IAM Entities in Using AWS Identity and
       -- Access Management.
-    , cvmfadVirtualMFADeviceName :: !ByteString
+    , cvmfadVirtualMFADeviceName :: !Text
       -- ^ The name of the virtual MFA device. Use with path to uniquely
       -- identify a virtual MFA device.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery CreateVirtualMFADevice
 
-instance AWSRequest IAM CreateVirtualMFADevice CreateVirtualMFADeviceResponse where
-    request = req GET "CreateVirtualMFADevice"
+instance Rq CreateVirtualMFADevice where
+    type Er CreateVirtualMFADevice = IAMError
+    type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
+    request = qry GET "CreateVirtualMFADevice"
 
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
-    { cvmfadrResponseMetadata :: !ByteString
+    { cvmfadrResponseMetadata :: !Text
     , cvmfadrCreateVirtualMFADeviceResult :: !CreateVirtualMFADeviceResult
     } deriving (Eq, Show, Generic)
 
@@ -561,20 +643,22 @@ instance IsXML CreateVirtualMFADeviceResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html>
 data DeactivateMFADevice = DeactivateMFADevice
-    { dmfadSerialNumber :: !ByteString
+    { dmfadSerialNumber :: !Text
       -- ^ The serial number that uniquely identifies the MFA device. For
       -- virtual MFA devices, the serial number is the device ARN.
-    , dmfadUserName     :: !ByteString
+    , dmfadUserName     :: !Text
       -- ^ Name of the user whose MFA device you want to deactivate.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeactivateMFADevice
 
-instance AWSRequest IAM DeactivateMFADevice DeactivateMFADeviceResponse where
-    request = req GET "DeactivateMFADevice"
+instance Rq DeactivateMFADevice where
+    type Er DeactivateMFADevice = IAMError
+    type Rs DeactivateMFADevice = DeactivateMFADeviceResponse
+    request = qry GET "DeactivateMFADevice"
 
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
-    { dmfadrResponseMetadata :: !ByteString
+    { dmfadrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeactivateMFADeviceResponse where
@@ -588,20 +672,22 @@ instance IsXML DeactivateMFADeviceResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html>
 data DeleteAccessKey = DeleteAccessKey
-    { dakAccessKeyId :: !ByteString
+    { dakAccessKeyId :: !Text
       -- ^ The Access Key ID for the Access Key ID and Secret Access Key you
       -- want to delete.
-    , dakUserName    :: Maybe ByteString
+    , dakUserName    :: Maybe Text
       -- ^ Name of the user whose key you want to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteAccessKey
 
-instance AWSRequest IAM DeleteAccessKey DeleteAccessKeyResponse where
-    request = req GET "DeleteAccessKey"
+instance Rq DeleteAccessKey where
+    type Er DeleteAccessKey = IAMError
+    type Rs DeleteAccessKey = DeleteAccessKeyResponse
+    request = qry GET "DeleteAccessKey"
 
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
-    { dakrResponseMetadata :: !ByteString
+    { dakrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteAccessKeyResponse where
@@ -613,17 +699,19 @@ instance IsXML DeleteAccessKeyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html>
 data DeleteAccountAlias = DeleteAccountAlias
-    { daaAccountAlias :: !ByteString
+    { daaAccountAlias :: !Text
       -- ^ Name of the account alias to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteAccountAlias
 
-instance AWSRequest IAM DeleteAccountAlias DeleteAccountAliasResponse where
-    request = req GET "DeleteAccountAlias"
+instance Rq DeleteAccountAlias where
+    type Er DeleteAccountAlias = IAMError
+    type Rs DeleteAccountAlias = DeleteAccountAliasResponse
+    request = qry GET "DeleteAccountAlias"
 
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
-    { daarResponseMetadata :: !ByteString
+    { daarResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteAccountAliasResponse where
@@ -633,18 +721,20 @@ instance IsXML DeleteAccountAliasResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html>
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
-    { dappNoSuchEntity :: !ByteString
+    { dappNoSuchEntity :: !Text
       -- ^ The request was rejected because it referenced an entity that
       -- does not exist. The error message describes the entity.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteAccountPasswordPolicy
 
-instance AWSRequest IAM DeleteAccountPasswordPolicy DeleteAccountPasswordPolicyResponse where
-    request = req GET "DeleteAccountPasswordPolicy"
+instance Rq DeleteAccountPasswordPolicy where
+    type Er DeleteAccountPasswordPolicy = IAMError
+    type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
+    request = qry GET "DeleteAccountPasswordPolicy"
 
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
-    { dapprResponseMetadata :: !ByteString
+    { dapprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteAccountPasswordPolicyResponse where
@@ -655,17 +745,19 @@ instance IsXML DeleteAccountPasswordPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html>
 data DeleteGroup = DeleteGroup
-    { dgGroupName :: !ByteString
+    { dgGroupName :: !Text
       -- ^ Name of the group to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteGroup
 
-instance AWSRequest IAM DeleteGroup DeleteGroupResponse where
-    request = req GET "DeleteGroup"
+instance Rq DeleteGroup where
+    type Er DeleteGroup = IAMError
+    type Rs DeleteGroup = DeleteGroupResponse
+    request = qry GET "DeleteGroup"
 
 data DeleteGroupResponse = DeleteGroupResponse
-    { dgrResponseMetadata :: !ByteString
+    { dgrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteGroupResponse where
@@ -675,19 +767,21 @@ instance IsXML DeleteGroupResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroupPolicy.html>
 data DeleteGroupPolicy = DeleteGroupPolicy
-    { dgpGroupName  :: !ByteString
+    { dgpGroupName  :: !Text
       -- ^ Name of the group the policy is associated with.
-    , dgpPolicyName :: !ByteString
+    , dgpPolicyName :: !Text
       -- ^ Name of the policy document to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteGroupPolicy
 
-instance AWSRequest IAM DeleteGroupPolicy DeleteGroupPolicyResponse where
-    request = req GET "DeleteGroupPolicy"
+instance Rq DeleteGroupPolicy where
+    type Er DeleteGroupPolicy = IAMError
+    type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
+    request = qry GET "DeleteGroupPolicy"
 
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
-    { dgprResponseMetadata :: !ByteString
+    { dgprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteGroupPolicyResponse where
@@ -702,17 +796,19 @@ instance IsXML DeleteGroupPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html>
 data DeleteInstanceProfile = DeleteInstanceProfile
-    { dipInstanceProfileName :: !ByteString
+    { dipInstanceProfileName :: !Text
       -- ^ Name of the instance profile to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteInstanceProfile
 
-instance AWSRequest IAM DeleteInstanceProfile DeleteInstanceProfileResponse where
-    request = req GET "DeleteInstanceProfile"
+instance Rq DeleteInstanceProfile where
+    type Er DeleteInstanceProfile = IAMError
+    type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
+    request = qry GET "DeleteInstanceProfile"
 
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
-    { diprResponseMetadata :: !ByteString
+    { diprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteInstanceProfileResponse where
@@ -728,17 +824,19 @@ instance IsXML DeleteInstanceProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html>
 data DeleteLoginProfile = DeleteLoginProfile
-    { dlpUserName :: !ByteString
+    { dlpUserName :: !Text
       -- ^ Name of the user whose password you want to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteLoginProfile
 
-instance AWSRequest IAM DeleteLoginProfile DeleteLoginProfileResponse where
-    request = req GET "DeleteLoginProfile"
+instance Rq DeleteLoginProfile where
+    type Er DeleteLoginProfile = IAMError
+    type Rs DeleteLoginProfile = DeleteLoginProfileResponse
+    request = qry GET "DeleteLoginProfile"
 
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
-    { dlprResponseMetadata :: !ByteString
+    { dlprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteLoginProfileResponse where
@@ -753,17 +851,19 @@ instance IsXML DeleteLoginProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRole.html>
 data DeleteRole = DeleteRole
-    { drRoleName :: !ByteString
+    { drRoleName :: !Text
       -- ^ Name of the role to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteRole
 
-instance AWSRequest IAM DeleteRole DeleteRoleResponse where
-    request = req GET "DeleteRole"
+instance Rq DeleteRole where
+    type Er DeleteRole = IAMError
+    type Rs DeleteRole = DeleteRoleResponse
+    request = qry GET "DeleteRole"
 
 data DeleteRoleResponse = DeleteRoleResponse
-    { drrResponseMetadata :: !ByteString
+    { drrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteRoleResponse where
@@ -773,19 +873,21 @@ instance IsXML DeleteRoleResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html>
 data DeleteRolePolicy = DeleteRolePolicy
-    { drpPolicyName :: !ByteString
+    { drpPolicyName :: !Text
       -- ^ Name of the policy document to delete.
-    , drpRoleName   :: !ByteString
+    , drpRoleName   :: !Text
       -- ^ Name of the role the associated with the policy.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteRolePolicy
 
-instance AWSRequest IAM DeleteRolePolicy DeleteRolePolicyResponse where
-    request = req GET "DeleteRolePolicy"
+instance Rq DeleteRolePolicy where
+    type Er DeleteRolePolicy = IAMError
+    type Rs DeleteRolePolicy = DeleteRolePolicyResponse
+    request = qry GET "DeleteRolePolicy"
 
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
-    { drprResponseMetadata :: !ByteString
+    { drprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteRolePolicyResponse where
@@ -803,17 +905,19 @@ instance IsXML DeleteRolePolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html>
 data DeleteServerCertificate = DeleteServerCertificate
-    { dscServerCertificateName :: !ByteString
+    { dscServerCertificateName :: !Text
       -- ^ The name of the server certificate you want to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteServerCertificate
 
-instance AWSRequest IAM DeleteServerCertificate DeleteServerCertificateResponse where
-    request = req GET "DeleteServerCertificate"
+instance Rq DeleteServerCertificate where
+    type Er DeleteServerCertificate = IAMError
+    type Rs DeleteServerCertificate = DeleteServerCertificateResponse
+    request = qry GET "DeleteServerCertificate"
 
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse
-    { dscrResponseMetadata :: !ByteString
+    { dscrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteServerCertificateResponse where
@@ -827,19 +931,21 @@ instance IsXML DeleteServerCertificateResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html>
 data DeleteSigningCertificate = DeleteSigningCertificate
-    { dscCertificateId :: !ByteString
+    { dscCertificateId :: !Text
       -- ^ ID of the signing certificate to delete.
-    , dscUserName      :: Maybe ByteString
+    , dscUserName      :: Maybe Text
       -- ^ Name of the user the signing certificate belongs to.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteSigningCertificate
 
-instance AWSRequest IAM DeleteSigningCertificate DeleteSigningCertificateResponse where
-    request = req GET "DeleteSigningCertificate"
+instance Rq DeleteSigningCertificate where
+    type Er DeleteSigningCertificate = IAMError
+    type Rs DeleteSigningCertificate = DeleteSigningCertificateResponse
+    request = qry GET "DeleteSigningCertificate"
 
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
-    { dscsResponseMetadata :: !ByteString
+    { dscsResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteSigningCertificateResponse where
@@ -850,17 +956,19 @@ instance IsXML DeleteSigningCertificateResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html>
 data DeleteUser = DeleteUser
-    { duUserName :: !ByteString
+    { duUserName :: !Text
       -- ^ Name of the user to delete.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteUser
 
-instance AWSRequest IAM DeleteUser DeleteUserResponse where
-    request = req GET "DeleteUser"
+instance Rq DeleteUser where
+    type Er DeleteUser = IAMError
+    type Rs DeleteUser = DeleteUserResponse
+    request = qry GET "DeleteUser"
 
 data DeleteUserResponse = DeleteUserResponse
-    { durResponseMetadata :: !ByteString
+    { durResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteUserResponse where
@@ -870,19 +978,21 @@ instance IsXML DeleteUserResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html>
 data DeleteUserPolicy = DeleteUserPolicy
-    { dupPolicyName :: !ByteString
+    { dupPolicyName :: !Text
       -- ^ Name of the policy document to delete.
-    , dupUserName   :: !ByteString
+    , dupUserName   :: !Text
       -- ^ Name of the user the policy is associated with.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteUserPolicy
 
-instance AWSRequest IAM DeleteUserPolicy DeleteUserPolicyResponse where
-    request = req GET "DeleteUserPolicy"
+instance Rq DeleteUserPolicy where
+    type Er DeleteUserPolicy = IAMError
+    type Rs DeleteUserPolicy = DeleteUserPolicyResponse
+    request = qry GET "DeleteUserPolicy"
 
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
-    { duprResponseMetadata :: !ByteString
+    { duprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteUserPolicyResponse where
@@ -894,18 +1004,20 @@ instance IsXML DeleteUserPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html>
 data DeleteVirtualMFADevice = DeleteVirtualMFADevice
-    { dvmfadSerialNumber :: !ByteString
+    { dvmfadSerialNumber :: !Text
       -- ^ The serial number that uniquely identifies the MFA device. For
       -- virtual MFA devices, the serial number is the same as the ARN.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery DeleteVirtualMFADevice
 
-instance AWSRequest IAM DeleteVirtualMFADevice DeleteVirtualMFADeviceResponse where
-    request = req GET "DeleteVirtualMFADevice"
+instance Rq DeleteVirtualMFADevice where
+    type Er DeleteVirtualMFADevice = IAMError
+    type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
+    request = qry GET "DeleteVirtualMFADevice"
 
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
-    { dvmfadrResponseMetadata :: !ByteString
+    { dvmfadrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteVirtualMFADeviceResponse where
@@ -917,24 +1029,26 @@ instance IsXML DeleteVirtualMFADeviceResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html>
 data EnableMFADevice = EnableMFADevice
-    { emfadAuthenticationCode1 :: !ByteString
+    { emfadAuthenticationCode1 :: !Text
       -- ^ An authentication code emitted by the device.
-    , emfadAuthenticationCode2 :: !ByteString
+    , emfadAuthenticationCode2 :: !Text
       -- ^ A subsequent authentication code emitted by the device.
-    , emfadSerialNumber        :: !ByteString
+    , emfadSerialNumber        :: !Text
       -- ^ The serial number that uniquely identifies the MFA device. For
       -- virtual MFA devices, the serial number is the device ARN.
-    , emfadUserName            :: !ByteString
+    , emfadUserName            :: !Text
       -- ^ Name of the user for whom you want to enable the MFA device.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery EnableMFADevice
 
-instance AWSRequest IAM EnableMFADevice EnableMFADeviceResponse where
-    request = req GET "EnableMFADevice"
+instance Rq EnableMFADevice where
+    type Er EnableMFADevice = IAMError
+    type Rs EnableMFADevice = EnableMFADeviceResponse
+    request = qry GET "EnableMFADevice"
 
 data EnableMFADeviceResponse = EnableMFADeviceResponse
-    { emfadrResponseMetadata :: !ByteString
+    { emfadrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML EnableMFADeviceResponse where
@@ -952,11 +1066,13 @@ data GetAccountPasswordPolicy = GetAccountPasswordPolicy
 
 instance IsQuery GetAccountPasswordPolicy
 
-instance AWSRequest IAM GetAccountPasswordPolicy GetAccountPasswordPolicyResponse where
-    request = req GET "GetAccountPasswordPolicy"
+instance Rq GetAccountPasswordPolicy where
+    type Er GetAccountPasswordPolicy = IAMError
+    type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse
+    request = qry GET "GetAccountPasswordPolicy"
 
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
-    { gapprResponseMetadata :: !ByteString
+    { gapprResponseMetadata :: !Text
     , gapprGetAccountPasswordPolicyResult :: !GetAccountPasswordPolicyResult
     } deriving (Eq, Show, Generic)
 
@@ -969,17 +1085,19 @@ instance IsXML GetAccountPasswordPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html>
 data GetAccountSummary = GetAccountSummary
-    { gasSummaryMap :: !ByteString
+    { gasSummaryMap :: !Text
       -- ^ A set of key value pairs containing account-level information.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetAccountSummary
 
-instance AWSRequest IAM GetAccountSummary GetAccountSummaryResponse where
-    request = req GET "GetAccountSummary"
+instance Rq GetAccountSummary where
+    type Er GetAccountSummary = IAMError
+    type Rs GetAccountSummary = GetAccountSummaryResponse
+    request = qry GET "GetAccountSummary"
 
 data GetAccountSummaryResponse = GetAccountSummaryResponse
-    { gasrResponseMetadata :: !ByteString
+    { gasrResponseMetadata :: !Text
     , gasrGetAccountSummaryResult :: !GetAccountSummaryResult
     } deriving (Eq, Show, Generic)
 
@@ -991,9 +1109,9 @@ instance IsXML GetAccountSummaryResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html>
 data GetGroup = GetGroup
-    { ggGroupName :: !ByteString
+    { ggGroupName :: !Text
       -- ^ Name of the group.
-    , ggMarker    :: Maybe ByteString
+    , ggMarker    :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1008,11 +1126,13 @@ data GetGroup = GetGroup
 
 instance IsQuery GetGroup
 
-instance AWSRequest IAM GetGroup GetGroupResponse where
-    request = req GET "GetGroup"
+instance Rq GetGroup where
+    type Er GetGroup = IAMError
+    type Rs GetGroup = GetGroupResponse
+    request = qry GET "GetGroup"
 
 data GetGroupResponse = GetGroupResponse
-    { ggrResponseMetadata :: !ByteString
+    { ggrResponseMetadata :: !Text
     , ggrGetGroupResult :: !GetGroupResult
     } deriving (Eq, Show, Generic)
 
@@ -1025,19 +1145,21 @@ instance IsXML GetGroupResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html>
 data GetGroupPolicy = GetGroupPolicy
-    { ggpGroupName  :: !ByteString
+    { ggpGroupName  :: !Text
       -- ^ Name of the group the policy is associated with.
-    , ggpPolicyName :: !ByteString
+    , ggpPolicyName :: !Text
       -- ^ Name of the policy document to get.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetGroupPolicy
 
-instance AWSRequest IAM GetGroupPolicy GetGroupPolicyResponse where
-    request = req GET "GetGroupPolicy"
+instance Rq GetGroupPolicy where
+    type Er GetGroupPolicy = IAMError
+    type Rs GetGroupPolicy = GetGroupPolicyResponse
+    request = qry GET "GetGroupPolicy"
 
 data GetGroupPolicyResponse = GetGroupPolicyResponse
-    { ggprResponseMetadata :: !ByteString
+    { ggprResponseMetadata :: !Text
     , ggprGetGroupPolicyResult :: !GetGroupPolicyResult
     } deriving (Eq, Show, Generic)
 
@@ -1051,17 +1173,19 @@ instance IsXML GetGroupPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html>
 data GetInstanceProfile = GetInstanceProfile
-    { gipInstanceProfileName :: !ByteString
+    { gipInstanceProfileName :: !Text
       -- ^ Name of the instance profile to get information about.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetInstanceProfile
 
-instance AWSRequest IAM GetInstanceProfile GetInstanceProfileResponse where
-    request = req GET "GetInstanceProfile"
+instance Rq GetInstanceProfile where
+    type Er GetInstanceProfile = IAMError
+    type Rs GetInstanceProfile = GetInstanceProfileResponse
+    request = qry GET "GetInstanceProfile"
 
 data GetInstanceProfileResponse = GetInstanceProfileResponse
-    { giprResponseMetadata :: !ByteString
+    { giprResponseMetadata :: !Text
     , giprGetInstanceProfileResult :: !GetInstanceProfileResult
     } deriving (Eq, Show, Generic)
 
@@ -1072,17 +1196,19 @@ instance IsXML GetInstanceProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html>
 data GetLoginProfile = GetLoginProfile
-    { glpUserName :: !ByteString
+    { glpUserName :: !Text
       -- ^ Name of the user whose login profile you want to retrieve.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetLoginProfile
 
-instance AWSRequest IAM GetLoginProfile GetLoginProfileResponse where
-    request = req GET "GetLoginProfile"
+instance Rq GetLoginProfile where
+    type Er GetLoginProfile = IAMError
+    type Rs GetLoginProfile = GetLoginProfileResponse
+    request = qry GET "GetLoginProfile"
 
 data GetLoginProfileResponse = GetLoginProfileResponse
-    { glprResponseMetadata :: !ByteString
+    { glprResponseMetadata :: !Text
     , glprGetLoginProfileResult :: !GetLoginProfileResult
     } deriving (Eq, Show, Generic)
 
@@ -1098,17 +1224,19 @@ instance IsXML GetLoginProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html>
 data GetRole = GetRole
-    { grRoleName :: !ByteString
+    { grRoleName :: !Text
       -- ^ Name of the role to get information about.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetRole
 
-instance AWSRequest IAM GetRole GetRoleResponse where
-    request = req GET "GetRole"
+instance Rq GetRole where
+    type Er GetRole = IAMError
+    type Rs GetRole = GetRoleResponse
+    request = qry GET "GetRole"
 
 data GetRoleResponse = GetRoleResponse
-    { grrResponseMetadata :: !ByteString
+    { grrResponseMetadata :: !Text
     , grrGetRoleResult :: !GetRoleResult
     } deriving (Eq, Show, Generic)
 
@@ -1122,19 +1250,21 @@ instance IsXML GetRoleResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html>
 data GetRolePolicy = GetRolePolicy
-    { grpPolicyName :: !ByteString
+    { grpPolicyName :: !Text
       -- ^ Name of the policy document to get.
-    , grpRoleName   :: !ByteString
+    , grpRoleName   :: !Text
       -- ^ Name of the role associated with the policy.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetRolePolicy
 
-instance AWSRequest IAM GetRolePolicy GetRolePolicyResponse where
-    request = req GET "GetRolePolicy"
+instance Rq GetRolePolicy where
+    type Er GetRolePolicy = IAMError
+    type Rs GetRolePolicy = GetRolePolicyResponse
+    request = qry GET "GetRolePolicy"
 
 data GetRolePolicyResponse = GetRolePolicyResponse
-    { grprResponseMetadata :: !ByteString
+    { grprResponseMetadata :: !Text
     , grprGetRolePolicyResult :: !GetRolePolicyResult
     } deriving (Eq, Show, Generic)
 
@@ -1145,18 +1275,20 @@ instance IsXML GetRolePolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html>
 data GetServerCertificate = GetServerCertificate
-    { gscServerCertificateName :: !ByteString
+    { gscServerCertificateName :: !Text
       -- ^ The name of the server certificate you want to retrieve
       -- information about.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetServerCertificate
 
-instance AWSRequest IAM GetServerCertificate GetServerCertificateResponse where
-    request = req GET "GetServerCertificate"
+instance Rq GetServerCertificate where
+    type Er GetServerCertificate = IAMError
+    type Rs GetServerCertificate = GetServerCertificateResponse
+    request = qry GET "GetServerCertificate"
 
 data GetServerCertificateResponse = GetServerCertificateResponse
-    { gscrResponseMetadata :: !ByteString
+    { gscrResponseMetadata :: !Text
     , gscrGetServerCertificateResult :: !GetServerCertificateResult
     } deriving (Eq, Show, Generic)
 
@@ -1169,17 +1301,19 @@ instance IsXML GetServerCertificateResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html>
 data GetUser = GetUser
-    { guUserName :: Maybe ByteString
+    { guUserName :: Maybe Text
       -- ^ Name of the user to get information about.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetUser
 
-instance AWSRequest IAM GetUser GetUserResponse where
-    request = req GET "GetUser"
+instance Rq GetUser where
+    type Er GetUser = IAMError
+    type Rs GetUser = GetUserResponse
+    request = qry GET "GetUser"
 
 data GetUserResponse = GetUserResponse
-    { gurResponseMetadata :: !ByteString
+    { gurResponseMetadata :: !Text
     , gurGetUserResult :: !GetUserResult
     } deriving (Eq, Show, Generic)
 
@@ -1192,19 +1326,21 @@ instance IsXML GetUserResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html>
 data GetUserPolicy = GetUserPolicy
-    { gupPolicyName :: !ByteString
+    { gupPolicyName :: !Text
       -- ^ Name of the policy document to get.
-    , gupUserName   :: !ByteString
+    , gupUserName   :: !Text
       -- ^ Name of the user who the policy is associated with.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery GetUserPolicy
 
-instance AWSRequest IAM GetUserPolicy GetUserPolicyResponse where
-    request = req GET "GetUserPolicy"
+instance Rq GetUserPolicy where
+    type Er GetUserPolicy = IAMError
+    type Rs GetUserPolicy = GetUserPolicyResponse
+    request = qry GET "GetUserPolicy"
 
 data GetUserPolicyResponse = GetUserPolicyResponse
-    { guprResponseMetadata :: !ByteString
+    { guprResponseMetadata :: !Text
     , guprGetUserPolicyResult :: !GetUserPolicyResult
     } deriving (Eq, Show, Generic)
 
@@ -1224,7 +1360,7 @@ instance IsXML GetUserPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html>
 data ListAccessKeys = ListAccessKeys
-    { lakMarker   :: Maybe ByteString
+    { lakMarker   :: Maybe Text
       -- ^ Use this parameter only when paginating results, and only in a
       -- subsequent request after you've received a response where the
       -- results are truncated. Set it to the value of the Marker element
@@ -1235,17 +1371,19 @@ data ListAccessKeys = ListAccessKeys
       -- additional keys beyond the maximum you specify, the IsTruncated
       -- response element is true. This parameter is optional. If you do
       -- not include it, it defaults to 100.
-    , lakUserName :: Maybe ByteString
+    , lakUserName :: Maybe Text
       -- ^ Name of the user.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListAccessKeys
 
-instance AWSRequest IAM ListAccessKeys ListAccessKeysResponse where
-    request = req GET "ListAccessKeys"
+instance Rq ListAccessKeys where
+    type Er ListAccessKeys = IAMError
+    type Rs ListAccessKeys = ListAccessKeysResponse
+    request = qry GET "ListAccessKeys"
 
 data ListAccessKeysResponse = ListAccessKeysResponse
-    { lakrResponseMetadata :: !ByteString
+    { lakrResponseMetadata :: !Text
     , lakrListAccessKeysResult :: !ListAccessKeysResult
     } deriving (Eq, Show, Generic)
 
@@ -1259,7 +1397,7 @@ instance IsXML ListAccessKeysResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html>
 data ListAccountAliases = ListAccountAliases
-    { laaMarker   :: Maybe ByteString
+    { laaMarker   :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1274,11 +1412,13 @@ data ListAccountAliases = ListAccountAliases
 
 instance IsQuery ListAccountAliases
 
-instance AWSRequest IAM ListAccountAliases ListAccountAliasesResponse where
-    request = req GET "ListAccountAliases"
+instance Rq ListAccountAliases where
+    type Er ListAccountAliases = IAMError
+    type Rs ListAccountAliases = ListAccountAliasesResponse
+    request = qry GET "ListAccountAliases"
 
 data ListAccountAliasesResponse = ListAccountAliasesResponse
-    { laarResponseMetadata :: !ByteString
+    { laarResponseMetadata :: !Text
     , laarListAccountAliasesResult :: !ListAccountAliasesResult
     } deriving (Eq, Show, Generic)
 
@@ -1291,9 +1431,9 @@ instance IsXML ListAccountAliasesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html>
 data ListGroupPolicies = ListGroupPolicies
-    { lgpGroupName :: !ByteString
+    { lgpGroupName :: !Text
       -- ^ The name of the group to list policies for.
-    , lgpMarker    :: Maybe ByteString
+    , lgpMarker    :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1308,11 +1448,13 @@ data ListGroupPolicies = ListGroupPolicies
 
 instance IsQuery ListGroupPolicies
 
-instance AWSRequest IAM ListGroupPolicies ListGroupPoliciesResponse where
-    request = req GET "ListGroupPolicies"
+instance Rq ListGroupPolicies where
+    type Er ListGroupPolicies = IAMError
+    type Rs ListGroupPolicies = ListGroupPoliciesResponse
+    request = qry GET "ListGroupPolicies"
 
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
-    { lgprResponseMetadata :: !ByteString
+    { lgprResponseMetadata :: !Text
     , lgprListGroupPoliciesResult :: !ListGroupPoliciesResult
     } deriving (Eq, Show, Generic)
 
@@ -1324,7 +1466,7 @@ instance IsXML ListGroupPoliciesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html>
 data ListGroups = ListGroups
-    { lgMarker     :: Maybe ByteString
+    { lgMarker     :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1335,7 +1477,7 @@ data ListGroups = ListGroups
       -- additional groups beyond the maximum you specify, the IsTruncated
       -- response element is true. This parameter is optional. If you do
       -- not include it, it defaults to 100.
-    , lgPathPrefix :: Maybe ByteString
+    , lgPathPrefix :: Maybe Text
       -- ^ The path prefix for filtering the results. For example:
       -- /division_abc/subdivision_xyz/, which would get all groups whose
       -- path starts with /division_abc/subdivision_xyz/.
@@ -1343,11 +1485,13 @@ data ListGroups = ListGroups
 
 instance IsQuery ListGroups
 
-instance AWSRequest IAM ListGroups ListGroupsResponse where
-    request = req GET "ListGroups"
+instance Rq ListGroups where
+    type Er ListGroups = IAMError
+    type Rs ListGroups = ListGroupsResponse
+    request = qry GET "ListGroups"
 
 data ListGroupsResponse = ListGroupsResponse
-    { lgrResponseMetadata :: !ByteString
+    { lgrResponseMetadata :: !Text
     , lgrListGroupsResult :: !ListGroupsResult
     } deriving (Eq, Show, Generic)
 
@@ -1359,7 +1503,7 @@ instance IsXML ListGroupsResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html>
 data ListGroupsForUser = ListGroupsForUser
-    { lgfuMarker   :: Maybe ByteString
+    { lgfuMarker   :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1370,17 +1514,19 @@ data ListGroupsForUser = ListGroupsForUser
       -- additional groups beyond the maximum you specify, the IsTruncated
       -- response element is true. This parameter is optional. If you do
       -- not include it, it defaults to 100.
-    , lgfuUserName :: !ByteString
+    , lgfuUserName :: !Text
       -- ^ The name of the user to list groups for.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListGroupsForUser
 
-instance AWSRequest IAM ListGroupsForUser ListGroupsForUserResponse where
-    request = req GET "ListGroupsForUser"
+instance Rq ListGroupsForUser where
+    type Er ListGroupsForUser = IAMError
+    type Rs ListGroupsForUser = ListGroupsForUserResponse
+    request = qry GET "ListGroupsForUser"
 
 data ListGroupsForUserResponse = ListGroupsForUserResponse
-    { lgfurResponseMetadata :: !ByteString
+    { lgfurResponseMetadata :: !Text
     , lgfurListGroupsForUserResult :: !ListGroupsForUserResult
     } deriving (Eq, Show, Generic)
 
@@ -1394,7 +1540,7 @@ instance IsXML ListGroupsForUserResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html>
 data ListInstanceProfiles = ListInstanceProfiles
-    { lipMarker     :: Maybe ByteString
+    { lipMarker     :: Maybe Text
       -- ^ Use this parameter only when paginating results, and only in a
       -- subsequent request after you've received a response where the
       -- results are truncated. Set it to the value of the Marker element
@@ -1405,7 +1551,7 @@ data ListInstanceProfiles = ListInstanceProfiles
       -- are additional user names beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , lipPathPrefix :: Maybe ByteString
+    , lipPathPrefix :: Maybe Text
       -- ^ The path prefix for filtering the results. For example:
       -- /application_abc/component_xyz/, which would get all instance
       -- profiles whose path starts with /application_abc/component_xyz/.
@@ -1413,11 +1559,13 @@ data ListInstanceProfiles = ListInstanceProfiles
 
 instance IsQuery ListInstanceProfiles
 
-instance AWSRequest IAM ListInstanceProfiles ListInstanceProfilesResponse where
-    request = req GET "ListInstanceProfiles"
+instance Rq ListInstanceProfiles where
+    type Er ListInstanceProfiles = IAMError
+    type Rs ListInstanceProfiles = ListInstanceProfilesResponse
+    request = qry GET "ListInstanceProfiles"
 
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
-    { liprResponseMetadata :: !ByteString
+    { liprResponseMetadata :: !Text
     , liprListInstanceProfilesResult :: !ListInstanceProfilesResult
     } deriving (Eq, Show, Generic)
 
@@ -1431,7 +1579,7 @@ instance IsXML ListInstanceProfilesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html>
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole
-    { lipfrMarker   :: Maybe ByteString
+    { lipfrMarker   :: Maybe Text
       -- ^ Use this parameter only when paginating results, and only in a
       -- subsequent request after you've received a response where the
       -- results are truncated. Set it to the value of the Marker element
@@ -1442,17 +1590,19 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
       -- are additional user names beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , lipfrRoleName :: !ByteString
+    , lipfrRoleName :: !Text
       -- ^ The name of the role to list instance profiles for.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListInstanceProfilesForRole
 
-instance AWSRequest IAM ListInstanceProfilesForRole ListInstanceProfilesForRoleResponse where
-    request = req GET "ListInstanceProfilesForRole"
+instance Rq ListInstanceProfilesForRole where
+    type Er ListInstanceProfilesForRole = IAMError
+    type Rs ListInstanceProfilesForRole = ListInstanceProfilesForRoleResponse
+    request = qry GET "ListInstanceProfilesForRole"
 
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
-    { lipfrrResponseMetadata :: !ByteString
+    { lipfrrResponseMetadata :: !Text
     , lipfrrListInstanceProfilesForRoleResult :: !ListInstanceProfilesForRoleResult
     } deriving (Eq, Show, Generic)
 
@@ -1467,7 +1617,7 @@ instance IsXML ListInstanceProfilesForRoleResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html>
 data ListMFADevices = ListMFADevices
-    { lmfadMarker   :: Maybe ByteString
+    { lmfadMarker   :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1478,17 +1628,19 @@ data ListMFADevices = ListMFADevices
       -- additional MFA devices beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , lmfadUserName :: Maybe ByteString
+    , lmfadUserName :: Maybe Text
       -- ^ Name of the user whose MFA devices you want to list.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListMFADevices
 
-instance AWSRequest IAM ListMFADevices ListMFADevicesResponse where
-    request = req GET "ListMFADevices"
+instance Rq ListMFADevices where
+    type Er ListMFADevices = IAMError
+    type Rs ListMFADevices = ListMFADevicesResponse
+    request = qry GET "ListMFADevices"
 
 data ListMFADevicesResponse = ListMFADevicesResponse
-    { lmfadrResponseMetadata :: !ByteString
+    { lmfadrResponseMetadata :: !Text
     , lmfadrListMFADevicesResult :: !ListMFADevicesResult
     } deriving (Eq, Show, Generic)
 
@@ -1501,7 +1653,7 @@ instance IsXML ListMFADevicesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html>
 data ListRolePolicies = ListRolePolicies
-    { lrpMarker   :: Maybe ByteString
+    { lrpMarker   :: Maybe Text
       -- ^ Use this parameter only when paginating results, and only in a
       -- subsequent request after you've received a response where the
       -- results are truncated. Set it to the value of the Marker element
@@ -1512,17 +1664,19 @@ data ListRolePolicies = ListRolePolicies
       -- are additional user names beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , lrpRoleName :: !ByteString
+    , lrpRoleName :: !Text
       -- ^ The name of the role to list policies for.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListRolePolicies
 
-instance AWSRequest IAM ListRolePolicies ListRolePoliciesResponse where
-    request = req GET "ListRolePolicies"
+instance Rq ListRolePolicies where
+    type Er ListRolePolicies = IAMError
+    type Rs ListRolePolicies = ListRolePoliciesResponse
+    request = qry GET "ListRolePolicies"
 
 data ListRolePoliciesResponse = ListRolePoliciesResponse
-    { lrprResponseMetadata :: !ByteString
+    { lrprResponseMetadata :: !Text
     , lrprListRolePoliciesResult :: !ListRolePoliciesResult
     } deriving (Eq, Show, Generic)
 
@@ -1538,7 +1692,7 @@ instance IsXML ListRolePoliciesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html>
 data ListRoles = ListRoles
-    { lrMarker     :: Maybe ByteString
+    { lrMarker     :: Maybe Text
       -- ^ Use this parameter only when paginating results, and only in a
       -- subsequent request after you've received a response where the
       -- results are truncated. Set it to the value of the Marker element
@@ -1549,7 +1703,7 @@ data ListRoles = ListRoles
       -- are additional user names beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , lrPathPrefix :: Maybe ByteString
+    , lrPathPrefix :: Maybe Text
       -- ^ The path prefix for filtering the results. For example:
       -- /application_abc/component_xyz/, which would get all roles whose
       -- path starts with /application_abc/component_xyz/.
@@ -1557,11 +1711,13 @@ data ListRoles = ListRoles
 
 instance IsQuery ListRoles
 
-instance AWSRequest IAM ListRoles ListRolesResponse where
-    request = req GET "ListRoles"
+instance Rq ListRoles where
+    type Er ListRoles = IAMError
+    type Rs ListRoles = ListRolesResponse
+    request = qry GET "ListRoles"
 
 data ListRolesResponse = ListRolesResponse
-    { lrrResponseMetadata :: !ByteString
+    { lrrResponseMetadata :: !Text
     , lrrListRolesResult :: !ListRolesResult
     } deriving (Eq, Show, Generic)
 
@@ -1574,7 +1730,7 @@ instance IsXML ListRolesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html>
 data ListServerCertificates = ListServerCertificates
-    { lscMarker     :: Maybe ByteString
+    { lscMarker     :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1586,7 +1742,7 @@ data ListServerCertificates = ListServerCertificates
       -- specify, the IsTruncated response element will be set to true.
       -- This parameter is optional. If you do not include it, it defaults
       -- to 100.
-    , lscPathPrefix :: Maybe ByteString
+    , lscPathPrefix :: Maybe Text
       -- ^ The path prefix for filtering the results. For example:
       -- /company/servercerts would get all server certificates for which
       -- the path starts with /company/servercerts.
@@ -1594,11 +1750,13 @@ data ListServerCertificates = ListServerCertificates
 
 instance IsQuery ListServerCertificates
 
-instance AWSRequest IAM ListServerCertificates ListServerCertificatesResponse where
-    request = req GET "ListServerCertificates"
+instance Rq ListServerCertificates where
+    type Er ListServerCertificates = IAMError
+    type Rs ListServerCertificates = ListServerCertificatesResponse
+    request = qry GET "ListServerCertificates"
 
 data ListServerCertificatesResponse = ListServerCertificatesResponse
-    { lscrResponseMetadata :: !ByteString
+    { lscrResponseMetadata :: !Text
     , lscrListServerCertificatesResult :: !ListServerCertificatesResult
     } deriving (Eq, Show, Generic)
 
@@ -1617,7 +1775,7 @@ instance IsXML ListServerCertificatesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html>
 data ListSigningCertificates = ListSigningCertificates
-    { lsdMarker   :: Maybe ByteString
+    { lsdMarker   :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1628,17 +1786,19 @@ data ListSigningCertificates = ListSigningCertificates
       -- additional certificate IDs beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , lsdUserName :: Maybe ByteString
+    , lsdUserName :: Maybe Text
       -- ^ The name of the user.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListSigningCertificates
 
-instance AWSRequest IAM ListSigningCertificates ListSigningCertificatesResponse where
-    request = req GET "ListSigningCertificates"
+instance Rq ListSigningCertificates where
+    type Er ListSigningCertificates = IAMError
+    type Rs ListSigningCertificates = ListSigningCertificatesResponse
+    request = qry GET "ListSigningCertificates"
 
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
-    { lscsResponseMetadata :: !ByteString
+    { lscsResponseMetadata :: !Text
     , lscsListSigningCertificatesResult :: !ListSigningCertificatesResult
     } deriving (Eq, Show, Generic)
 
@@ -1651,7 +1811,7 @@ instance IsXML ListSigningCertificatesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html>
 data ListUserPolicies = ListUserPolicies
-    { lupMarker   :: Maybe ByteString
+    { lupMarker   :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -1662,17 +1822,19 @@ data ListUserPolicies = ListUserPolicies
       -- additional policy names beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , lupUserName :: !ByteString
+    , lupUserName :: !Text
       -- ^ The name of the user to list policies for.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ListUserPolicies
 
-instance AWSRequest IAM ListUserPolicies ListUserPoliciesResponse where
-    request = req GET "ListUserPolicies"
+instance Rq ListUserPolicies where
+    type Er ListUserPolicies = IAMError
+    type Rs ListUserPolicies = ListUserPoliciesResponse
+    request = qry GET "ListUserPolicies"
 
 data ListUserPoliciesResponse = ListUserPoliciesResponse
-    { luprResponseMetadata :: !ByteString
+    { luprResponseMetadata :: !Text
     , luprListUserPoliciesResult :: !ListUserPoliciesResult
     } deriving (Eq, Show, Generic)
 
@@ -1685,7 +1847,7 @@ instance IsXML ListUserPoliciesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html>
 data ListUsers = ListUsers
-    { luMarker     :: Maybe ByteString
+    { luMarker     :: Maybe Text
       -- ^ Use this parameter only when paginating results, and only in a
       -- subsequent request after you've received a response where the
       -- results are truncated. Set it to the value of the Marker element
@@ -1696,7 +1858,7 @@ data ListUsers = ListUsers
       -- are additional user names beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , luPathPrefix :: Maybe ByteString
+    , luPathPrefix :: Maybe Text
       -- ^ The path prefix for filtering the results. For example:
       -- /division_abc/subdivision_xyz/, which would get all user names
       -- whose path starts with /division_abc/subdivision_xyz/.
@@ -1704,11 +1866,13 @@ data ListUsers = ListUsers
 
 instance IsQuery ListUsers
 
-instance AWSRequest IAM ListUsers ListUsersResponse where
-    request = req GET "ListUsers"
+instance Rq ListUsers where
+    type Er ListUsers = IAMError
+    type Rs ListUsers = ListUsersResponse
+    request = qry GET "ListUsers"
 
 data ListUsersResponse = ListUsersResponse
-    { lurResponseMetadata :: !ByteString
+    { lurResponseMetadata :: !Text
     , lurListUsersResult :: !ListUsersResult
     } deriving (Eq, Show, Generic)
 
@@ -1722,11 +1886,11 @@ instance IsXML ListUsersResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html>
 data ListVirtualMFADevices = ListVirtualMFADevices
-    { lvmfadAssignmentStatus :: Maybe ByteString
+    { lvmfadAssignmentStatus :: Maybe Text
       -- ^ The status (unassigned or assigned) of the devices to list. If
       -- you do not specify an AssignmentStatus, the action defaults to
       -- Any which lists both assigned and unassigned virtual MFA devices.
-    , lvmfadMarker           :: Maybe ByteString
+    , lvmfadMarker           :: Maybe Text
       -- ^ Use this parameter only when paginating results, and only in a
       -- subsequent request after you've received a response where the
       -- results are truncated. Set it to the value of the Marker element
@@ -1741,11 +1905,13 @@ data ListVirtualMFADevices = ListVirtualMFADevices
 
 instance IsQuery ListVirtualMFADevices
 
-instance AWSRequest IAM ListVirtualMFADevices ListVirtualMFADevicesResponse where
-    request = req GET "ListVirtualMFADevices"
+instance Rq ListVirtualMFADevices where
+    type Er ListVirtualMFADevices = IAMError
+    type Rs ListVirtualMFADevices = ListVirtualMFADevicesResponse
+    request = qry GET "ListVirtualMFADevices"
 
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
-    { lvmfadrResponseMetadata :: !ByteString
+    { lvmfadrResponseMetadata :: !Text
     , lvmfadrListVirtualMFADevicesResult :: !ListVirtualMFADevicesResult
     } deriving (Eq, Show, Generic)
 
@@ -1765,21 +1931,23 @@ instance IsXML ListVirtualMFADevicesResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html>
 data PutGroupPolicy = PutGroupPolicy
-    { pgpGroupName      :: !ByteString
+    { pgpGroupName      :: !Text
       -- ^ Name of the group to associate the policy with.
-    , pgpPolicyDocument :: !ByteString
+    , pgpPolicyDocument :: !Text
       -- ^ The policy document.
-    , pgpPolicyName     :: !ByteString
+    , pgpPolicyName     :: !Text
       -- ^ Name of the policy document.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery PutGroupPolicy
 
-instance AWSRequest IAM PutGroupPolicy PutGroupPolicyResponse where
-    request = req GET "PutGroupPolicy"
+instance Rq PutGroupPolicy where
+    type Er PutGroupPolicy = IAMError
+    type Rs PutGroupPolicy = PutGroupPolicyResponse
+    request = qry GET "PutGroupPolicy"
 
 data PutGroupPolicyResponse = PutGroupPolicyResponse
-    { pgprResponseMetadata :: !ByteString
+    { pgprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML PutGroupPolicyResponse where
@@ -1798,21 +1966,23 @@ instance IsXML PutGroupPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html>
 data PutRolePolicy = PutRolePolicy
-    { prpPolicyDocument :: !ByteString
+    { prpPolicyDocument :: !Text
       -- ^ The policy document.
-    , prpPolicyName     :: !ByteString
+    , prpPolicyName     :: !Text
       -- ^ Name of the policy document.
-    , prpRoleName       :: !ByteString
+    , prpRoleName       :: !Text
       -- ^ Name of the role to associate the policy with.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery PutRolePolicy
 
-instance AWSRequest IAM PutRolePolicy PutRolePolicyResponse where
-    request = req GET "PutRolePolicy"
+instance Rq PutRolePolicy where
+    type Er PutRolePolicy = IAMError
+    type Rs PutRolePolicy = PutRolePolicyResponse
+    request = qry GET "PutRolePolicy"
 
 data PutRolePolicyResponse = PutRolePolicyResponse
-    { prprResponseMetadata :: !ByteString
+    { prprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML PutRolePolicyResponse where
@@ -1831,21 +2001,23 @@ instance IsXML PutRolePolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html>
 data PutUserPolicy = PutUserPolicy
-    { pupPolicyDocument :: !ByteString
+    { pupPolicyDocument :: !Text
       -- ^ The policy document.
-    , pupPolicyName     :: !ByteString
+    , pupPolicyName     :: !Text
       -- ^ Name of the policy document.
-    , pupUserName       :: !ByteString
+    , pupUserName       :: !Text
       -- ^ Name of the user to associate the policy with.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery PutUserPolicy
 
-instance AWSRequest IAM PutUserPolicy PutUserPolicyResponse where
-    request = req GET "PutUserPolicy"
+instance Rq PutUserPolicy where
+    type Er PutUserPolicy = IAMError
+    type Rs PutUserPolicy = PutUserPolicyResponse
+    request = qry GET "PutUserPolicy"
 
 data PutUserPolicyResponse = PutUserPolicyResponse
-    { puprResponseMetadata :: !ByteString
+    { puprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML PutUserPolicyResponse where
@@ -1861,19 +2033,21 @@ instance IsXML PutUserPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html>
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
-    { rrfipInstanceProfileName :: !ByteString
+    { rrfipInstanceProfileName :: !Text
       -- ^ Name of the instance profile to update.
-    , rrfipRoleName            :: !ByteString
+    , rrfipRoleName            :: !Text
       -- ^ Name of the role to remove.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery RemoveRoleFromInstanceProfile
 
-instance AWSRequest IAM RemoveRoleFromInstanceProfile RemoveRoleFromInstanceProfileResponse where
-    request = req GET "RemoveRoleFromInstanceProfile"
+instance Rq RemoveRoleFromInstanceProfile where
+    type Er RemoveRoleFromInstanceProfile = IAMError
+    type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
+    request = qry GET "RemoveRoleFromInstanceProfile"
 
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
-    { rrfiprResponseMetadata :: !ByteString
+    { rrfiprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML RemoveRoleFromInstanceProfileResponse where
@@ -1883,19 +2057,21 @@ instance IsXML RemoveRoleFromInstanceProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html>
 data RemoveUserFromGroup = RemoveUserFromGroup
-    { rufgGroupName :: !ByteString
+    { rufgGroupName :: !Text
       -- ^ Name of the group to update.
-    , rufgUserName  :: !ByteString
+    , rufgUserName  :: !Text
       -- ^ Name of the user to remove.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery RemoveUserFromGroup
 
-instance AWSRequest IAM RemoveUserFromGroup RemoveUserFromGroupResponse where
-    request = req GET "RemoveUserFromGroup"
+instance Rq RemoveUserFromGroup where
+    type Er RemoveUserFromGroup = IAMError
+    type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
+    request = qry GET "RemoveUserFromGroup"
 
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
-    { rufgrResponseMetadata :: !ByteString
+    { rufgrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML RemoveUserFromGroupResponse where
@@ -1905,23 +2081,25 @@ instance IsXML RemoveUserFromGroupResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ResyncMFADevice.html>
 data ResyncMFADevice = ResyncMFADevice
-    { rmfadAuthenticationCode1 :: !ByteString
+    { rmfadAuthenticationCode1 :: !Text
       -- ^ An authentication code emitted by the device.
-    , rmfadAuthenticationCode2 :: !ByteString
+    , rmfadAuthenticationCode2 :: !Text
       -- ^ A subsequent authentication code emitted by the device.
-    , rmfadSerialNumber        :: !ByteString
+    , rmfadSerialNumber        :: !Text
       -- ^ Serial number that uniquely identifies the MFA device.
-    , rmfadUserName            :: !ByteString
+    , rmfadUserName            :: !Text
       -- ^ Name of the user whose MFA device you want to resynchronize.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery ResyncMFADevice
 
-instance AWSRequest IAM ResyncMFADevice ResyncMFADeviceResponse where
-    request = req GET "ResyncMFADevice"
+instance Rq ResyncMFADevice where
+    type Er ResyncMFADevice = IAMError
+    type Rs ResyncMFADevice = ResyncMFADeviceResponse
+    request = qry GET "ResyncMFADevice"
 
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
-    { rmfadrResponseMetadata :: !ByteString
+    { rmfadrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML ResyncMFADeviceResponse where
@@ -1938,23 +2116,25 @@ instance IsXML ResyncMFADeviceResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html>
 data UpdateAccessKey = UpdateAccessKey
-    { uakAccessKeyId :: !ByteString
+    { uakAccessKeyId :: !Text
       -- ^ The Access Key ID of the Secret Access Key you want to update.
-    , uakStatus      :: !ByteString
+    , uakStatus      :: !Text
       -- ^ The status you want to assign to the Secret Access Key. Active
       -- means the key can be used for API calls to AWS, while Inactive
       -- means the key cannot be used.
-    , uakUserName    :: Maybe ByteString
+    , uakUserName    :: Maybe Text
       -- ^ Name of the user whose key you want to update.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UpdateAccessKey
 
-instance AWSRequest IAM UpdateAccessKey UpdateAccessKeyResponse where
-    request = req GET "UpdateAccessKey"
+instance Rq UpdateAccessKey where
+    type Er UpdateAccessKey = IAMError
+    type Rs UpdateAccessKey = UpdateAccessKeyResponse
+    request = qry GET "UpdateAccessKey"
 
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
-    { uakrResponseMetadata :: !ByteString
+    { uakrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateAccessKeyResponse where
@@ -1981,11 +2161,13 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
 
 instance IsQuery UpdateAccountPasswordPolicy
 
-instance AWSRequest IAM UpdateAccountPasswordPolicy UpdateAccountPasswordPolicyResponse where
-    request = req GET "UpdateAccountPasswordPolicy"
+instance Rq UpdateAccountPasswordPolicy where
+    type Er UpdateAccountPasswordPolicy = IAMError
+    type Rs UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicyResponse
+    request = qry GET "UpdateAccountPasswordPolicy"
 
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
-    { uapprResponseMetadata :: !ByteString
+    { uapprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateAccountPasswordPolicyResponse where
@@ -1997,19 +2179,21 @@ instance IsXML UpdateAccountPasswordPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html>
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
-    { uarpPolicyDocument :: !ByteString
+    { uarpPolicyDocument :: !Text
       -- ^ The policy that grants an entity permission to assume the role.
-    , uarpRoleName       :: !ByteString
+    , uarpRoleName       :: !Text
       -- ^ Name of the role to update.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UpdateAssumeRolePolicy
 
-instance AWSRequest IAM UpdateAssumeRolePolicy UpdateAssumeRolePolicyResponse where
-    request = req GET "UpdateAssumeRolePolicy"
+instance Rq UpdateAssumeRolePolicy where
+    type Er UpdateAssumeRolePolicy = IAMError
+    type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
+    request = qry GET "UpdateAssumeRolePolicy"
 
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
-    { uarprResponseMetadata :: !ByteString
+    { uarprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateAssumeRolePolicyResponse where
@@ -2026,24 +2210,26 @@ instance IsXML UpdateAssumeRolePolicyResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html>
 data UpdateGroup = UpdateGroup
-    { ugGroupName    :: !ByteString
+    { ugGroupName    :: !Text
       -- ^ Name of the group to update. If you're changing the name of the
       -- group, this is the original name.
-    , ugNewGroupName :: Maybe ByteString
+    , ugNewGroupName :: Maybe Text
       -- ^ New name for the group. Only include this if changing the group's
       -- name.
-    , ugNewPath      :: Maybe ByteString
+    , ugNewPath      :: Maybe Text
       -- ^ New path for the group. Only include this if changing the group's
       -- path.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UpdateGroup
 
-instance AWSRequest IAM UpdateGroup UpdateGroupResponse where
-    request = req GET "UpdateGroup"
+instance Rq UpdateGroup where
+    type Er UpdateGroup = IAMError
+    type Rs UpdateGroup = UpdateGroupResponse
+    request = qry GET "UpdateGroup"
 
 data UpdateGroupResponse = UpdateGroupResponse
-    { ugrResponseMetadata :: !ByteString
+    { ugrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateGroupResponse where
@@ -2053,19 +2239,21 @@ instance IsXML UpdateGroupResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html>
 data UpdateLoginProfile = UpdateLoginProfile
-    { ulpPassword :: !ByteString
+    { ulpPassword :: !Text
       -- ^ The new password for the user name.
-    , ulpUserName :: !ByteString
+    , ulpUserName :: !Text
       -- ^ Name of the user whose password you want to update.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UpdateLoginProfile
 
-instance AWSRequest IAM UpdateLoginProfile UpdateLoginProfileResponse where
-    request = req GET "UpdateLoginProfile"
+instance Rq UpdateLoginProfile where
+    type Er UpdateLoginProfile = IAMError
+    type Rs UpdateLoginProfile = UpdateLoginProfileResponse
+    request = qry GET "UpdateLoginProfile"
 
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
-    { ulprResponseMetadata :: !ByteString
+    { ulprResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateLoginProfileResponse where
@@ -2084,23 +2272,25 @@ instance IsXML UpdateLoginProfileResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html>
 data UpdateServerCertificate = UpdateServerCertificate
-    { uscNewPath                  :: Maybe ByteString
+    { uscNewPath                  :: Maybe Text
       -- ^ The new path for the server certificate. Include this only if you
       -- are updating the server certificate's path.
-    , uscNewServerCertificateName :: Maybe ByteString
+    , uscNewServerCertificateName :: Maybe Text
       -- ^ The new name for the server certificate. Include this only if you
       -- are updating the server certificate's name.
-    , uscServerCertificateName    :: !ByteString
+    , uscServerCertificateName    :: !Text
       -- ^ The name of the server certificate that you want to update.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UpdateServerCertificate
 
-instance AWSRequest IAM UpdateServerCertificate UpdateServerCertificateResponse where
-    request = req GET "UpdateServerCertificate"
+instance Rq UpdateServerCertificate where
+    type Er UpdateServerCertificate = IAMError
+    type Rs UpdateServerCertificate = UpdateServerCertificateResponse
+    request = qry GET "UpdateServerCertificate"
 
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse
-    { uscrResponseMetadata :: !ByteString
+    { uscrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateServerCertificateResponse where
@@ -2118,23 +2308,25 @@ instance IsXML UpdateServerCertificateResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html>
 data UpdateSigningCertificate = UpdateSigningCertificate
-    { uscCertificateId :: !ByteString
+    { uscCertificateId :: !Text
       -- ^ The ID of the signing certificate you want to update.
-    , uscStatus        :: !ByteString
+    , uscStatus        :: !Text
       -- ^ The status you want to assign to the certificate. Active means
       -- the certificate can be used for API calls to AWS, while Inactive
       -- means the certificate cannot be used.
-    , uscUserName      :: Maybe ByteString
+    , uscUserName      :: Maybe Text
       -- ^ Name of the user the signing certificate belongs to.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UpdateSigningCertificate
 
-instance AWSRequest IAM UpdateSigningCertificate UpdateSigningCertificateResponse where
-    request = req GET "UpdateSigningCertificate"
+instance Rq UpdateSigningCertificate where
+    type Er UpdateSigningCertificate = IAMError
+    type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
+    request = qry GET "UpdateSigningCertificate"
 
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
-    { uscsResponseMetadata :: !ByteString
+    { uscsResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateSigningCertificateResponse where
@@ -2151,24 +2343,26 @@ instance IsXML UpdateSigningCertificateResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html>
 data UpdateUser = UpdateUser
-    { uuNewPath     :: Maybe ByteString
+    { uuNewPath     :: Maybe Text
       -- ^ New path for the user. Include this parameter only if you're
       -- changing the user's path.
-    , uuNewUserName :: Maybe ByteString
+    , uuNewUserName :: Maybe Text
       -- ^ New name for the user. Include this parameter only if you're
       -- changing the user's name.
-    , uuUserName    :: !ByteString
+    , uuUserName    :: !Text
       -- ^ Name of the user to update. If you're changing the name of the
       -- user, this is the original user name.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UpdateUser
 
-instance AWSRequest IAM UpdateUser UpdateUserResponse where
-    request = req GET "UpdateUser"
+instance Rq UpdateUser where
+    type Er UpdateUser = IAMError
+    type Rs UpdateUser = UpdateUserResponse
+    request = qry GET "UpdateUser"
 
 data UpdateUserResponse = UpdateUserResponse
-    { uurResponseMetadata :: !ByteString
+    { uurResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML UpdateUserResponse where
@@ -2188,30 +2382,32 @@ instance IsXML UpdateUserResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html>
 data UploadServerCertificate = UploadServerCertificate
-    { uscCertificateBody       :: !ByteString
+    { uscCertificateBody       :: !Text
       -- ^ The contents of the public key certificate in PEM-encoded format.
-    , uscCertificateChain      :: Maybe ByteString
+    , uscCertificateChain      :: Maybe Text
       -- ^ The contents of the certificate chain. This is typically a
       -- concatenation of the PEM-encoded public key certificates of the
       -- chain.
-    , uscPath                  :: Maybe ByteString
+    , uscPath                  :: Maybe Text
       -- ^ The path for the server certificate. For more information about
       -- paths, see Identifiers for IAM Entities in Using AWS Identity and
       -- Access Management.
-    , uscPrivateKey            :: !ByteString
+    , uscPrivateKey            :: !Text
       -- ^ The contents of the private key in PEM-encoded format.
-    , usdServerCertificateName :: !ByteString
+    , usdServerCertificateName :: !Text
       -- ^ The name for the server certificate. Do not include the path in
       -- this value.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UploadServerCertificate
 
-instance AWSRequest IAM UploadServerCertificate UploadServerCertificateResponse where
-    request = req GET "UploadServerCertificate"
+instance Rq UploadServerCertificate where
+    type Er UploadServerCertificate = IAMError
+    type Rs UploadServerCertificate = UploadServerCertificateResponse
+    request = qry GET "UploadServerCertificate"
 
 data UploadServerCertificateResponse = UploadServerCertificateResponse
-    { usctResponseMetadata :: !ByteString
+    { usctResponseMetadata :: !Text
     , usctUploadServerCertificateResult :: !UploadServerCertificateResult
     } deriving (Eq, Show, Generic)
 
@@ -2234,19 +2430,21 @@ instance IsXML UploadServerCertificateResponse where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html>
 data UploadSigningCertificate = UploadSigningCertificate
-    { usdCertificateBody :: !ByteString
+    { usdCertificateBody :: !Text
       -- ^ The contents of the signing certificate.
-    , usdUserName        :: Maybe ByteString
+    , usdUserName        :: Maybe Text
       -- ^ Name of the user the signing certificate is for.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery UploadSigningCertificate
 
-instance AWSRequest IAM UploadSigningCertificate UploadSigningCertificateResponse where
-    request = req GET "UploadSigningCertificate"
+instance Rq UploadSigningCertificate where
+    type Er UploadSigningCertificate = IAMError
+    type Rs UploadSigningCertificate = UploadSigningCertificateResponse
+    request = qry GET "UploadSigningCertificate"
 
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse
-    { uscuResponseMetadata :: !ByteString
+    { uscuResponseMetadata :: !Text
     , uscuUploadSigningCertificateResult :: !UploadSigningCertificateResult
     } deriving (Eq, Show, Generic)
 

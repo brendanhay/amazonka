@@ -493,7 +493,7 @@ import Network.Http.Client   (Method(..))
 
 qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
 qry meth act q = queryAppend (queryRequest ec2Service meth "/" q)
-    [ ("Action", act)
+    [ ("Action",  act)
     ]
 
 -- | Acquires an Elastic IP address.An Elastic IP address is for use either in
@@ -827,7 +827,7 @@ instance IsXML AttachVpnGatewayResponse where
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     { asgeGroupId       :: !Text
       -- ^ The ID of the security group to modify.
-    , asgeIpPermissions :: [IpPermission]
+    , asgeIpPermissions :: [IpPermissionType]
       -- ^ The IP protocol name or number (see Protocol Numbers).
     } deriving (Eq, Show, Generic)
 
@@ -860,7 +860,7 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
       -- belong to your account.
     , asgiGroupName     :: Maybe Text
       -- ^ The name of the security group to modify.
-    , asgiIpPermissions :: [IpPermission]
+    , asgiIpPermissions :: [IpPermissionType]
       -- ^ The IP protocol name or number (see Protocol Numbers). For
       -- EC2-Classic, security groups can have rules only for TCP, UDP,
       -- and ICMP. For EC2-VPC, security groups can have rules assigned to
@@ -1048,7 +1048,7 @@ instance Rq CancelSpotInstanceRequests where
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { csirRequestId              :: !Text
       -- ^ The ID of the request.
-    , csirSpotInstanceRequestSet :: Items CancelSpotInstanceRequestsResponseSetItemType
+    , csirSpotInstanceRequestSet :: [CancelSpotInstanceRequestsResponseSetItemType]
       -- ^ A list of Spot Instance requests. Each request is wrapped in an
       -- item element.
     } deriving (Eq, Show, Generic)
@@ -3187,7 +3187,7 @@ instance Rq DescribeInstances where
 data DescribeInstancesResponse = DescribeInstancesResponse
     { dirRequestId      :: !Text
       -- ^ The ID of the request.
-    , dirReservationSet :: Items ReservationInfoType
+    , dirReservationSet :: [ReservationInfoType]
       -- ^ A list of reservations, each one wrapped in an item element.
     } deriving (Eq, Show, Generic)
 
@@ -3857,7 +3857,7 @@ instance Rq DescribeSecurityGroups where
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { dshrRequestId         :: !Text
       -- ^ The ID of the request.
-    , dshrSecurityGroupInfo :: Items SecurityGroupItemType
+    , dshrSecurityGroupInfo :: [SecurityGroupItemType]
       -- ^ A list of security groups.
     } deriving (Eq, Show, Generic)
 
@@ -4228,7 +4228,7 @@ instance Rq DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse
     { dtagsrRequestId :: !Text
       -- ^ The ID of the request.
-    , dtagsrTagSet    :: Items TagSetItemType
+    , dtagsrTagSet    :: [TagSetItemType]
       -- ^ A list of tags.
     } deriving (Eq, Show, Generic)
 
@@ -5928,7 +5928,7 @@ instance IsXML DescribeTagsResponse where
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     { rsgeGroupId       :: !Text
       -- ^ The ID of the security group to modify.
-    , rsgeIpPermissions :: [IpPermission]
+    , rsgeIpPermissions :: [IpPermissionType]
       -- ^ The IP protocol name or number (see Protocol Numbers).
     } deriving (Eq, Show, Generic)
 
@@ -5961,7 +5961,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
       -- belong to your account.
     , rsgiGroupName     :: Maybe Text
       -- ^ The name of the security group to modify.
-    , rsgiIpPermissions :: [IpPermission]
+    , rsgiIpPermissions :: [IpPermissionType]
       -- ^ The IP protocol name or number (see Protocol Numbers). For
       -- EC2-Classic, security groups can have rules only for TCP, UDP,
       -- and ICMP. For EC2-VPC, security groups can have rules assigned to

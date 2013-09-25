@@ -520,11 +520,11 @@ data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInst
     , drilrsitStatusMessage              :: !Text
       -- ^ The reason for the current status of the Reserved Instance
       -- listing. The response can be blank.
-    , drilrsitInstanceCounts             :: Items InstanceCountsSetItemType
+    , drilrsitInstanceCounts             :: [InstanceCountsSetItemType]
       -- ^ The number of instances in this state.
-    , drilrsitPriceSchedules             :: Items PriceScheduleSetItemType
+    , drilrsitPriceSchedules             :: [PriceScheduleSetItemType]
       -- ^ The price of the Reserved Instance listing.
-    , drilrsitTagSet                     :: Items ResourceTagSetItemType
+    , drilrsitTagSet                     :: [ResourceTagSetItemType]
       -- ^ The tags assigned to the resource. Each tag's information is
       -- wrapped in an item element.
     , drilrsitClientToken                :: !Text
@@ -1141,14 +1141,14 @@ data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
     , inisitSourceDestCheck       :: !Bool
       -- ^ Indicates whether to validate network traffic to or from this
       -- network interface.
-    , inisitGroupSet              :: Items GroupItemType
+    , inisitGroupSet              :: [GroupItemType]
       -- ^ A security group.
     , inisitAttachment            :: !InstanceNetworkInterfaceAttachmentType
       -- ^ The network interface attachment.
     , inisitAssociation           :: !InstanceNetworkInterfaceAssociationType
       -- ^ The association information for an Elastic IP associated with the
       -- network interface.
-    , inisitPrivateIpAddressesSet :: Items InstancePrivateIpAddressesSetItemType
+    , inisitPrivateIpAddressesSet :: [InstancePrivateIpAddressesSetItemType]
       -- ^ The private IP addresses associated with the network interface.
     } deriving (Eq, Show, Generic)
 
@@ -1213,7 +1213,7 @@ instance IsXML InstanceStateType where
 --     xmlPickler = ec2XML
 
 -- data InstanceStatusEventsSetType = InstanceStatusEventsSetType
---     { isestItems :: !InstanceStatusEventType
+--     { isest[:: !InstanceStatusEventType]
 --       -- ^ The scheduled events for the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -1265,7 +1265,7 @@ instance IsXML InstanceStateType where
 --     xmlPickler = ec2XML
 
 -- data InstanceStatusSetType = InstanceStatusSetType
---     { isstItems :: !InstanceStatusItemType
+--     { isst[:: !InstanceStatusItemType]
 --       -- ^ The status of the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -1331,7 +1331,7 @@ instance IsQuery UserIdGroupPair
 instance IsXML UserIdGroupPair where
     xmlPickler = ec2XML
 
-data IpPermission = IpPermission
+data IpPermissionType = IpPermissionType
     { iptIpProtocol :: !Protocol
       -- ^ The protocol.
     , iptFromPort   :: !Integer
@@ -1340,15 +1340,15 @@ data IpPermission = IpPermission
     , iptToPort     :: !Integer
       -- ^ The end of port range for the ICMP and UDP protocols, or an ICMP
       -- code. A value of -1 indicates all ICMP codes for the given ICMP type.
-    , iptGroups     :: Items UserIdGroupPair
+    , iptGroups     :: [UserIdGroupPair]
       -- ^ A list of security group and AWS account ID pairs.
-    , iptIpRanges   :: Items IpRange
+    , iptIpRanges   :: [IpRange]
       -- ^ A list of IP ranges.
     } deriving (Eq, Show, Generic)
 
-instance IsQuery IpPermission
+instance IsQuery IpPermissionType
 
-instance IsXML IpPermission where
+instance IsXML IpPermissionType where
     xmlPickler = ec2XML
 
 data IpRange = IpRange
@@ -1642,7 +1642,7 @@ instance IsXML IpRange where
 --       -- ^ The tags assigned to the resource.
 --     , niuPrivateIpAddressesSet :: !NetworkInterfacePrivateIpAddressesSetItemType
 --       -- ^ The private IP addresses associated with the network interface.
---       -- Items are returned in a set.
+--       -- [are returned in a set.]
 --     } deriving (Eq, Show, Generic)
 
 -- instance IsQuery NetworkInterfaceType
@@ -1737,7 +1737,7 @@ instance IsXML PriceScheduleSetItemType where
     xmlPickler = ec2XML
 
 -- data PriceScheduleSetType = PriceScheduleSetType
---     { psstItems :: !PriceScheduleSetItemType
+--     { psst[:: !PriceScheduleSetItemType]
 --       -- ^ The Reserved Instance listing price schedule item.
 --     } deriving (Eq, Show, Generic)
 
@@ -1840,9 +1840,9 @@ data ReservationInfoType = ReservationInfoType
       -- ^ The ID of the reservation.
     , ritOwnerId       :: !Text
       -- ^ The ID of the AWS account that owns the reservation.
-    , ritGroupSet      :: Items GroupItemType
+    , ritGroupSet      :: [GroupItemType]
       -- ^ A list of security groups.
-    , ritInstancesSet  :: Items RunningInstancesItemType
+    , ritInstancesSet  :: [RunningInstancesItemType]
       -- ^ A list of instances.
     , ritRequesterId   :: !Text
       -- ^ The ID of the requester that launched the instances on your
@@ -1965,7 +1965,7 @@ data RunningInstancesItemType = RunningInstancesItemType
     , riitAmiLaunchIndex        :: !Text
       -- ^ The AMI launch index, which can be used to find this instance in
       -- the launch group.
-    , riitProductCodes          :: Items ProductCodesSetItemType
+    , riitProductCodes          :: [ProductCodesSetItemType]
       -- ^ The product codes attached to this instance.
     , riitInstanceType          :: InstanceType
       -- ^ The instance type.
@@ -1996,7 +1996,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- enabled, and false means checking is disabled. The value must be
       -- false for the instance to perform NAT. For more information, go
       -- to NAT Instances in the Amazon Virtual Private Cloud User Guide.
-    , riitGroupSet              :: Items GroupItemType
+    , riitGroupSet              :: [GroupItemType]
       -- ^ A list of the security groups for the instance.
     , riitStateReason           :: !StateReasonType
       -- ^ The reason for the most recent state transition. See
@@ -2008,7 +2008,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- EBS or instance store root device.
     , riitRootDeviceName        :: !Text
       -- ^ The root device name (for example, /dev/sda1).
-    , riitBlockDeviceMapping    :: Items InstanceBlockDeviceMappingResponseItemType
+    , riitBlockDeviceMapping    :: [InstanceBlockDeviceMappingResponseItemType]
       -- ^ Any block device mapping entries for the instance.
     , riitInstanceLifecycle     :: Maybe Text
       -- ^ Indicates whether this is a Spot Instance.
@@ -2018,11 +2018,11 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The instance's virtualization type.
     , riitClientToken           :: !Text
       -- ^ The idempotency token you provided when you launched the instance.
-    , riitTagSet                :: Items ResourceTagSetItemType
+    , riitTagSet                :: [ResourceTagSetItemType]
       -- ^ Any tags assigned to the resource.
     , riitHypervisor            :: !Text
       -- ^ The instance's hypervisor type.
-    , riitNetworkInterfaceSet   :: Items InstanceNetworkInterfaceSetItemType
+    , riitNetworkInterfaceSet   :: [InstanceNetworkInterfaceSetItemType]
       -- ^ The network interfaces for the instance.
     , riitIamInstanceProfile    :: !IamInstanceProfileResponseType
       -- ^ The IAM Instance Profile (IIP) associated with the instance.
@@ -2055,12 +2055,11 @@ data SecurityGroupItemType = SecurityGroupItemType
       -- ^ A description of the security group.
     , sgitVpcId               :: Maybe Text
       -- ^ [EC2-VPC] The ID of the VPC for the security group.
-    , sgitIpPermissions       :: Items IpPermission
+    , sgitIpPermissions       :: [IpPermissionType]
       -- ^ A list of inbound rules associated with the security group.
-    , sgitIpPermissionsEgress :: Items IpPermission
+    , sgitIpPermissionsEgress :: [IpPermissionType]
       -- ^ [EC2-VPC] A list of outbound rules associated with the security group.
-
-    -- , sgitTagSet              :: Items ResourceTagSetItemType
+    -- , sgitTagSet              :: [ResourceTagSetItemType]
     --   -- ^ Any tags assigned to the resource, each one wrapped in an item element.
     } deriving (Eq, Show, Generic)
 

@@ -15,15 +15,17 @@
 
 module Network.AWS.AutoScaling.Types where
 
-import Data.ByteString      (ByteString)
-import Data.Monoid
-import Data.Text            (Text)
-import Data.Time
-import Network.AWS.Internal
+import           Data.ByteString       (ByteString)
+import qualified Data.ByteString.Char8 as BS
+import           Data.Monoid
+import           Data.Strings
+import           Data.Text             (Text)
+import           Data.Time
+import           Network.AWS.Internal
 
 autoScalingService :: Service
 autoScalingService = Service "autoscaling" autoScalingVersion SigningVersion4 $
-    \r -> "autoscaling." <> toBS r <> ".amazonaws.com"
+    \r -> "autoscaling." <> BS.pack (show r) <> ".amazonaws.com"
 
 -- | Currently supported version of the AutoScaling service.
 autoScalingVersion :: ServiceVersion
@@ -32,7 +34,7 @@ autoScalingVersion = "2011-01-01"
 -- | XML namespace to annotate AutoScaling elements with.
 autoScalingNS :: ByteString
 autoScalingNS =
-    "http://autoscaling.amazonaws.com/doc/" <> toBS autoScalingVersion <> "/"
+    "http://autoscaling.amazonaws.com/doc/" <> sPack autoScalingVersion <> "/"
 
 -- | Helper to define AutoScaling namespaced XML elements.
 autoScalingElem :: ByteString -> NName ByteString
@@ -70,7 +72,7 @@ instance IsXML ErrorType where
 --     xmlPickler = withNS autoScalingNS
 
 newtype ResourceName = ResourceName Text
-    deriving (Eq, Show, Generic, IsByteString)
+    deriving (Eq, Show, Generic, Strings)
 
 instance IsQuery ResourceName
 

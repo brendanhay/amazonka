@@ -62,12 +62,6 @@ class ToError a where
 instance ToError String where
     toError = Error
 
--- instance Strings UTCTime where
---      toBS = BS.pack . formatTime defaultTimeLocale "%a, %_d %b %Y %H:%M:%S GMT"
-
--- instance IsByteString Method where
---     toBS = BS.pack . show
-
 data Error = Error String | Ex SomeException
 
 instance IsString Error where

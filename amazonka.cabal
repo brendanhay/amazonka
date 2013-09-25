@@ -35,8 +35,8 @@ library
       , Network.AWS.Internal.Time
       , Network.AWS.Internal.Types
 
-      -- , Network.AWS.AutoScaling
-      -- , Network.AWS.AutoScaling.Types
+      , Network.AWS.AutoScaling
+      , Network.AWS.AutoScaling.Types
 
       , Network.AWS.EC2
       , Network.AWS.EC2.Metadata

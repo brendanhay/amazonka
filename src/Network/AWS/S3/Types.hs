@@ -74,3 +74,66 @@ instance IsXML Bucket where
 --
 -- Objects
 --
+
+data CannedACL
+    = ACLPrivate
+    | ACLPublicRead
+    | ACLPublicReadWrite
+    | ACLAuthenticatedRead
+    | ACLBucketOwnerRead
+    | ACLBucketOwnerFullControl
+    | ACLLogDeliveryWrite
+    deriving (Show)
+
+writeCannedACL :: CannedACL -> T.Text
+writeCannedACL ACLPrivate                = "private"
+writeCannedACL ACLPublicRead             = "public-read"
+writeCannedACL ACLPublicReadWrite        = "public-read-write"
+writeCannedACL ACLAuthenticatedRead      = "authenticated-read"
+writeCannedACL ACLBucketOwnerRead        = "bucket-owner-read"
+writeCannedACL ACLBucketOwnerFullControl = "bucket-owner-full-control"
+writeCannedACL ACLLogDeliveryWrite       = "log-delivery-write"
+
+data StorageClass
+    = Standard
+    | ReducedRedundancy
+    deriving (Show)
+
+parseStorageClass :: F.Failure XmlException m => T.Text -> m StorageClass
+parseStorageClass "STANDARD"           = return Standard
+parseStorageClass "REDUCED_REDUNDANCY" = return ReducedRedundancy
+parseStorageClass s = F.failure . XmlException $ "Invalid Storage Class: " ++ T.unpack s
+
+writeStorageClass :: StorageClass -> T.Text
+writeStorageClass Standard          = "STANDARD"
+writeStorageClass ReducedRedundancy = "REDUCED_REDUNDANCY"
+
+type Bucket = T.Text
+
+data BucketInfo
+    = BucketInfo {
+        bucketName         :: Bucket
+      , bucketCreationDate :: UTCTime
+      }
+    deriving (Show)
+
+type Object = T.Text
+
+data ObjectId
+    = ObjectId {
+        oidBucket :: Bucket
+      , oidObject :: Object
+      , oidVersion :: Maybe T.Text
+      }
+    deriving (Show)
+
+data ObjectInfo
+    = ObjectInfo {
+        objectKey          :: T.Text
+      , objectLastModified :: UTCTime
+      , objectETag         :: T.Text
+      , objectSize         :: Integer
+      , objectStorageClass :: StorageClass
+      , objectOwner        :: UserInfo
+      }
+    deriving (Show)

@@ -358,7 +358,143 @@ instance IsXML (Rs PostObjectRestore) where
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html>
 data PutObject  = PutObject
-    {} deriving (Eq, Show, Generic)
+    {
+
+
+Cache-Control
+Can be used to specify caching behavior along the request/reply chain.
+Default: None
+Constraints: None
+No
+
+Content-Disposition
+Specifies presentational information for the object. For more information, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1.
+Type: String
+Default: None
+Constraints: None
+No
+
+Content-Encoding
+Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11.
+Type: String
+Default: None
+Constraints: None
+No
+
+Content-Length
+The size of the object, in bytes. For more information, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13.
+Type: String
+Default: None
+Constraints: None
+Yes
+
+Content-MD5
+The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, go to REST Authentication in the Amazon Simple Storage Service Developer Guide
+Type: String
+Default: None
+Constraints: None
+No
+
+Content-Type
+A standard MIME type describing the format of the contents. For more information, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17.
+Type: String
+Default: binary/octet-stream
+Valid Values: MIME types
+Constraints: None
+No
+
+Expect
+When your application uses 100-continue, it does not send the request body until it receives an acknowledgment. If the message is rejected based on the headers, the body of the message is not sent.
+Type: String
+Default: None
+Valid Values: 100-continue
+Constraints: None
+No
+
+Expires
+The date and time at which the object is no longer cacheable. For more information, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21.
+Type: String
+Default: None
+Constraints: None
+No
+
+x-amz-meta-*
+Any header starting with this prefix is considered user metadata. It will be stored with the object and returned when you retrieve the object. The PUT request header is limited to 8 KB in size. Within the PUT request header, the user-defined metadata is limited to 2 KB in size. User-defined metadata is a set of key-value pairs. The size of user-defined metadata is measured by taking the sum of the number of bytes in the UTF-8 encoding of each key and value.
+Type: String
+Default: None
+Constraints: None
+No
+
+x-amz-server-side​-encryption
+Specifies a server-side encryption algorithm to use when Amazon S3 creates an object.
+Type: String
+Valid Value: AES256
+No
+
+x-amz-storage-class
+RRS enables customers to reduce their costs by storing non-critical, reproducible data at lower levels of redundancy than Amazon S3's standard storage.
+Type: Enum
+Default: STANDARD
+Valid Values: STANDARD | REDUCED_REDUNDANCY
+Constraints: You cannot specify GLACIER as the storage class. To transition objects to the GLACIER storage class you can use lifecycle configuration.
+No
+
+x-amz-website-redirect-location
+If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, go to Object Key and Metadata.
+
+    } deriving (Eq, Show, Generic)
+
+data PutObject = PutObject {
+  poObjectName :: !Text,
+  poBucketName :: !Text,
+  poContentType :: Maybe B.ByteString,
+  poCacheControl :: Maybe T.Text,
+  poContentDisposition :: Maybe T.Text,
+  poContentEncoding :: Maybe T.Text,
+  poContentMD5 :: Maybe MD5,
+  poExpires :: Maybe Int,
+  poAcl :: Maybe CannedAcl,
+  poStorageClass :: Maybe StorageClass,
+  poWebsiteRedirectLocation :: Maybe T.Text,
+  poRequestBody  :: HTTP.RequestBody (C.ResourceT IO),
+  poMetadata :: [(T.Text,T.Text)]
+}
+
+-- Additional Headers:
+
+-- Range        
+-- Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
+-- Type: String
+-- Default: None
+-- Constraints: None
+-- No
+
+-- If-Modified-Since    
+-- Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
+-- Type: String
+-- Default: None
+-- Constraints: None
+-- No
+
+-- If-Unmodified-Since  
+-- Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
+-- Type: String
+-- Default: None
+-- Constraints: None
+-- No
+
+-- If-Match     
+-- Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
+-- Type: String
+-- Default: None
+-- Constraints: None
+-- No
+
+-- If-None-Match
+-- Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+-- Type: String
+-- Default: None
+-- Constraints: None
 
 instance IsQuery PutObject
 

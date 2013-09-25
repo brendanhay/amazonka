@@ -30,7 +30,7 @@ ec2Service = Service "ec2" ec2Version SigningVersion2 $
 
 -- | Currently supported version (2013-07-15) of the EC2 service.
 ec2Version :: ServiceVersion
-ec2Version = "2013-07-15"
+ec2Version = "2013-08-15"
 
 -- | XML namespace to annotate EC2 elements with.
 ec2NS :: ByteString
@@ -42,6 +42,12 @@ ec2Elem = mkNName ec2NS
 
 ec2XML :: XMLGeneric a
 ec2XML = withNS' ec2NS $ (namespacedXMLOptions ec2NS)
+    { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
+    , xmlListElement   = mkNName ec2NS "item"
+    }
+
+ec2ItemXML :: XMLGeneric a
+ec2ItemXML = withRootNS' ec2NS "item" $ (namespacedXMLOptions ec2NS)
     { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
     , xmlListElement   = mkNName ec2NS "item"
     }
@@ -224,7 +230,7 @@ data BlockDeviceMappingItemType = BlockDeviceMappingItemType
       -- ^ The device name exposed to the instance (for example, /dev/sdh).
     , bdmitVirtualName :: Maybe Text
       -- ^ The virtual device name.
-    , bdmitEbs         :: !EbsBlockDeviceType
+    , bdmitEbs         :: Maybe EbsBlockDeviceType
       -- ^ Parameters used to automatically set up Amazon EBS volumes when
       -- the instance is launched.
     , bdmitNoDevice    :: Maybe Text
@@ -235,7 +241,7 @@ data BlockDeviceMappingItemType = BlockDeviceMappingItemType
 -- instance IsQuery BlockDeviceMappingItemType
 
 instance IsXML BlockDeviceMappingItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 data BundleInstanceS3Storage = BundleInstanceS3Storage
     { bissAwsAccessKeyId        :: !Text
@@ -443,48 +449,47 @@ data DescribeImagesResponseItemType = DescribeImagesResponseItemType
       -- ^ Indicates whether the image has public launch permissions. The
       -- value is true if this image has public launch permissions or
       -- false if it has only implicit and explicit launch permissions.
-    , diritProductCodes       :: Items ProductCodesSetItemType
+    , diritProductCodes       :: [ProductCodesSetItemType]
       -- ^ Any product codes associated with the AMI.
     , diritArchitecture       :: !Text
       -- ^ The architecture of the image.
     , diritImageType          :: !Text
       -- ^ The type of image.
-    , diritKernelId           :: !Text
-      -- ^ The kernel associated with the image, if any. Only applicable for
-      -- machine images.
-    , diritRamdiskId          :: !Text
-      -- ^ The RAM disk associated with the image, if any. Only applicable
-      -- for machine images.
+    , diritKernelId           :: Maybe Text
+      -- ^ The kernel associated with the image, if any.
+      -- Only applicable for machine images.
+    , diritRamdiskId          :: Maybe Text
+      -- ^ The RAM disk associated with the image, if any.
+      -- Only applicable for machine images.
     , diritPlatform           :: Maybe Text
       -- ^ The value is Windows for Windows AMIs; otherwise blank.
     , diritStateReason        :: Maybe StateReasonType
       -- ^ The reason for the state change.
-    , diritImageOwnerAlias    :: !Text
+    , diritImageOwnerAlias    :: Maybe Text
       -- ^ The AWS account alias (for example, amazon, self, etc.) or AWS
       -- account ID that owns the AMI.
     , diritName               :: !Text
       -- ^ The name of the AMI that was provided during image creation.
-    , diritDescription        :: !Text
-      -- ^ The description of the AMI that was provided during image
-      -- creation.
+    , diritDescription        :: Maybe Text
+      -- ^ The description of the AMI that was provided during image creation.
     , diritRootDeviceType     :: !Text
       -- ^ The type of root device used by the AMI. The AMI can use an
       -- Amazon EBS volume or an instance store volume.
     , diritRootDeviceName     :: !Text
       -- ^ The device name of the root device (for example, /dev/sda1 or
       -- xvda).
-    , diritBlockDeviceMapping :: Items BlockDeviceMappingItemType
+    , diritBlockDeviceMapping :: [BlockDeviceMappingItemType]
       -- ^ Any block device mapping entries.
     , diritVirtualizationType :: !Text
       -- ^ The type of virtualization of the AMI.
-    , diritTagSet             :: Items ResourceTagSetItemType
+    , diritTagSet             :: [ResourceTagSetItemType]
       -- ^ Any tags assigned to the resource.
     , diritHypervisor         :: !Text
       -- ^ The image's hypervisor type.
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeImagesResponseItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data DescribeKeyPairsResponseItemType = DescribeKeyPairsResponseItemType
 --     { dkpritKeyName        :: !Text
@@ -527,7 +532,7 @@ data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInst
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data DescribeReservedInstancesListingSetItemType = DescribeReservedInstancesListingSetItemType
 --     { drilsitReservedInstancesListingId :: !Text
@@ -1784,7 +1789,7 @@ data ProductCodesSetItemType = ProductCodesSetItemType
     } deriving (Eq, Show, Generic)
 
 instance IsXML ProductCodesSetItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data ProductDescriptionSetItemType = ProductDescriptionSetItemType
 --     { pdsitProductDescription :: !Text
@@ -1869,7 +1874,7 @@ data ResourceTagSetItemType = ResourceTagSetItemType
     } deriving (Eq, Show, Generic)
 
 instance IsXML ResourceTagSetItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data RouteTableAssociationType = RouteTableAssociationType
 --     { rtatRouteTableAssociationId :: !Text
@@ -1992,8 +1997,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- false for the instance to perform NAT. For more information, go
       -- to NAT Instances in the Amazon Virtual Private Cloud User Guide.
     , riitGroupSet              :: Items GroupItemType
-      -- ^ A list of the security groups for the instance. Each group is
-      -- wrapped in an item element.
+      -- ^ A list of the security groups for the instance.
     , riitStateReason           :: !StateReasonType
       -- ^ The reason for the most recent state transition. See
       -- StateReasonType for a listing of supported state change codes.
@@ -2015,8 +2019,7 @@ data RunningInstancesItemType = RunningInstancesItemType
     , riitClientToken           :: !Text
       -- ^ The idempotency token you provided when you launched the instance.
     , riitTagSet                :: Items ResourceTagSetItemType
-      -- ^ Any tags assigned to the resource, each one wrapped in an item
-      -- element.
+      -- ^ Any tags assigned to the resource.
     , riitHypervisor            :: !Text
       -- ^ The instance's hypervisor type.
     , riitNetworkInterfaceSet   :: Items InstanceNetworkInterfaceSetItemType

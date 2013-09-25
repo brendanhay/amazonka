@@ -3088,7 +3088,7 @@ instance Rq DescribeImages where
 data DescribeImagesResponse = DescribeImagesResponse
     { djRequestId :: !Text
       -- ^ The ID of the request.
-    , djImagesSet :: Items DescribeImagesResponseItemType
+    , djImagesSet :: [DescribeImagesResponseItemType]
       -- ^ A list of images.
     } deriving (Eq, Show, Generic)
 

@@ -170,7 +170,8 @@ import Network.Http.Client           (Method(..))
 
 qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
 qry meth act q = queryAppend (queryRequest autoScalingService meth "/" q)
-    [ ("Action", act)
+    [ ("Action",  act)
+    , ("Version", sPack autoScalingVersion)
     ]
 
 --
@@ -283,7 +284,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     , clcInstanceMonitoring      :: Maybe InstanceMonitoring
       -- ^ Enables detailed monitoring if it is disabled. Detailed
       -- monitoring is enabled by default.
-    , clcInstanceType            :: !Text
+    , clcInstanceType            :: !InstanceType
       -- ^ The instance type of the Amazon EC2 instance. For information
       -- about available Amazon EC2 instance types, see Available Instance
       -- Types in the Amazon Elastic Cloud Compute User Guide.

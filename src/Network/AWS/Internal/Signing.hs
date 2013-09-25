@@ -52,7 +52,7 @@ sign r = do
     time <- liftIO getCurrentTime
     dbg  <- debugEnabled
 
-    let hs = [("Date", rfc822Time time), ("Host", svcEndpoint reg <> ":443")]
+    let hs = [("Date", iso8601Time time), ("Host", svcEndpoint reg <> ":443")]
         rq = r { rqHeaders = rqHeaders r ++ hs }
 
     liftIO $ signer dbg rq auth reg time

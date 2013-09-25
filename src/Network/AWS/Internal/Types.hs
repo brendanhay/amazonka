@@ -174,7 +174,7 @@ instance Show ContentType where
     show XML         = "application/xml"
 
 data Region
-    = NorthVirgnia
+    = NorthVirginia
     | NorthCalifornia
     | Oregon
     | Ireland
@@ -186,7 +186,7 @@ data Region
 
 instance Show Region where
     show reg = case reg of
-        NorthVirgnia    -> "us-east-1"
+        NorthVirginia   -> "us-east-1"
         NorthCalifornia -> "us-west-1"
         Oregon          -> "us-west-2"
         Ireland         -> "eu-west-1"
@@ -197,7 +197,7 @@ instance Show Region where
 
 instance Read Region where
     readPrec = readAssocList
-        [ ("us-east-1",      NorthVirgnia)
+        [ ("us-east-1",      NorthVirginia)
         , ("us-west-1",      NorthCalifornia)
         , ("us-west-2",      Oregon)
         , ("eu-west-1",      Ireland)

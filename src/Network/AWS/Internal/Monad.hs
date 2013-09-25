@@ -31,7 +31,7 @@ newtype AWS a = AWS { unWrap :: EitherT Error (ReaderT Env IO) a }
 type AWSContext = EitherT Error AWS
 
 currentRegion :: AWS Region
-currentRegion = fromMaybe NorthVirgnia <$> fmap awsRegion ask
+currentRegion = fromMaybe NorthVirginia <$> fmap awsRegion ask
 
 currentAuth :: AWS Auth
 currentAuth = awsAuth <$> ask

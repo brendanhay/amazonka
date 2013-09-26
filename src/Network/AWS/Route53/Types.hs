@@ -28,7 +28,7 @@ import           Text.Read
 
 route53Service :: Service
 route53Service = Service "route53" route53Version SigningVersion3 $
-    const "route53.amazonaws.com"
+    Global "route53.amazonaws.com"
 
 -- | Currently supported version of the Route53 service.
 route53Version :: ServiceVersion

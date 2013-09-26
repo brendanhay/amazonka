@@ -48,16 +48,19 @@ import           Network.Http.Client
 sign :: RawRequest -> AWS SignedRequest
 sign r = do
     auth <- currentAuth
-    reg  <- currentRegion
+    reg  <- currentRegion svc
     time <- liftIO getCurrentTime
     dbg  <- debugEnabled
 
-    let hs = [("Date", iso8601Time time), ("Host", svcEndpoint reg <> ":443")]
-        rq = r { rqHeaders = rqHeaders r ++ hs }
+    let tok = maybe [] (\t -> [("SecurityToken", t)]) $ securityToken auth
+        hs  = [ ("Date", iso8601Time time)
+              , ("Host", endpoint svc reg <> ":443")
+              ] ++ tok
+        rq  = r { rqHeaders = rqHeaders r ++ hs }
 
     liftIO $ signer dbg rq auth reg time
   where
-    Service{..} = rqService r
+    svc@Service{..} = rqService r
 
     signer dbg = case svcSigner of
         SigningVersion2 -> version2
@@ -74,12 +77,12 @@ version2 :: RawRequest
          -> UTCTime
          -> IO SignedRequest
 version2 RawRequest{..} Auth{..} reg time = do
-    let url = httpsURL (svcEndpoint reg) path
+    let url = httpsURL host path
     fmap (SignedRequest url rqBody) $ createRequest rqMethod path rqHeaders
   where
     Service{..} = rqService
 
-    host = svcEndpoint reg
+    host = endpoint rqService reg
     path = joinPath rqPath $ query <> "&Signature=" <> urlEncode True signature
 
     query = encodeQuery (urlEncode True) . sort $ rqQuery ++
@@ -87,11 +90,11 @@ version2 RawRequest{..} Auth{..} reg time = do
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
         , ("Timestamp",        iso8601Time time)
-        , ("AWSAccessKeyId",   accessKey)
+        , ("AWSAccessKeyId",   accessKeyId)
         ]
 
     signature = Base64.encode
-        . hmac secretKey
+        . hmac secretAccessKey
         $ BS.intercalate "\n"
             [ BS.pack $ show rqMethod
             , host <> ":443"
@@ -105,18 +108,19 @@ version3 :: RawRequest
          -> UTCTime
          -> IO SignedRequest
 version3 RawRequest{..} Auth{..} reg time = do
-    let url = httpsURL (svcEndpoint reg) path
+    let url = httpsURL host path
     fmap (SignedRequest url rqBody) . createRequest rqMethod path $
         ("X-Amzn-Authorization", authorization) : rqHeaders
   where
     Service{..} = rqService
 
+    host = endpoint rqService reg
     path = joinPath rqPath $ encodeQuery (urlEncode True) rqQuery
 
     authorization = "AWS3-HTTPS AWSAccessKeyId="
-        <> accessKey
+        <> accessKeyId
         <> ", Algorithm=HmacSHA256, Signature="
-        <> Base64.encode (hmac secretKey $ rfc822Time time)
+        <> Base64.encode (hmac secretAccessKey $ rfc822Time time)
 
 data SigningMetadata = SigningMetadata
     { smdCReq  :: !ByteString
@@ -139,7 +143,7 @@ version4 :: RawRequest
          -> Bool
          -> IO (SignedRequest, SigningMetadata)
 version4 RawRequest{..} Auth{..} reg time dbg = do
-    let url = httpsURL (svcEndpoint reg) path
+    let url = httpsURL (endpoint rqService reg) path
         req = createRequest rqMethod path
 
     raw <- req rqHeaders
@@ -163,7 +167,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
     authorization hdrs ts = mconcat
         [ algorithm
         , " Credential="
-        , accessKey
+        , accessKeyId
         , "/"
         , credentialScope ts
         , ", SignedHeaders="
@@ -175,7 +179,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
     signature hdrs ts = hex . hmac signingKey $ stringToSign hdrs ts
       where
         signingKey = foldl1 hmac
-            [ "AWS4" <> secretKey
+            [ "AWS4" <> secretAccessKey
             , basicTime ts
             , region
             , svcName

@@ -21,7 +21,7 @@ import Network.AWS.Internal
 
 iamService :: Service
 iamService = Service "iam" iamVersion SigningVersion4 $
-    const "iam.amazonaws.com"
+    Global "iam.amazonaws.com"
 
 -- | Currently supported version of the IAM service.
 iamVersion :: ServiceVersion

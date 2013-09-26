@@ -25,8 +25,8 @@ import           Network.AWS.Internal
 import           Text.Read
 
 ec2Service :: Service
-ec2Service = Service "ec2" ec2Version SigningVersion2 $
-    \r -> "ec2." <> BS.pack (show r) <> ".amazonaws.com"
+ec2Service = Service "ec2" ec2Version SigningVersion2 .
+    Regional $ \r -> "ec2." <> BS.pack (show r) <> ".amazonaws.com"
 
 -- | Currently supported version (2013-07-15) of the EC2 service.
 ec2Version :: ServiceVersion

@@ -24,8 +24,8 @@ import           Data.Time
 import           Network.AWS.Internal
 
 autoScalingService :: Service
-autoScalingService = Service "autoscaling" autoScalingVersion SigningVersion4 $
-    \r -> "autoscaling." <> BS.pack (show r) <> ".amazonaws.com"
+autoScalingService = Service "autoscaling" autoScalingVersion SigningVersion4 .
+    Regional $ \r -> "autoscaling." <> BS.pack (show r) <> ".amazonaws.com"
 
 -- | Currently supported version of the AutoScaling service.
 autoScalingVersion :: ServiceVersion

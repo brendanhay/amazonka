@@ -71,14 +71,16 @@ class Prefixed a where
     prefixed :: a -> ByteString
 
 data Auth = Auth
-    { accessKey :: !ByteString
-    , secretKey :: !ByteString
+    { accessKeyId     :: !ByteString
+    , secretAccessKey :: !ByteString
+    , securityToken   :: Maybe ByteString
     } deriving (Show)
 
 instance FromJSON Auth where
     parseJSON (Object o) = Auth
         <$> o .: "AccessKeyId"
         <*> o .: "SecretAccessKey"
+        <*> o .: "Token"
     parseJSON _ = mzero
 
 newtype ServiceVersion = ServiceVersion ByteString
@@ -90,15 +92,29 @@ data SigningVersion
     | SigningVersion4
       deriving (Show)
 
+data Endpoint
+    = Global !ByteString
+    | Regional (Region -> ByteString)
+
 data Service = Service
     { svcName     :: !ByteString
     , svcVersion  :: !ServiceVersion
     , svcSigner   :: !SigningVersion
-    , svcEndpoint :: Region -> ByteString
+    , svcEndpoint :: !Endpoint
     }
 
 svcPath :: Strings a => Service -> a -> a
 svcPath svc p = sJoin (sFromString "/") [sPack $ svcVersion svc, p]
+
+svcGlobal :: Service -> Bool
+svcGlobal Service{svcEndpoint=(Global _)} = True
+svcGlobal _                               = False
+
+endpoint :: Service -> Region -> ByteString
+endpoint svc =
+    case svcEndpoint svc of
+        Global end -> const end
+        Regional f -> f
 
 instance Show Service where
     show Service{..} = intercalate " "

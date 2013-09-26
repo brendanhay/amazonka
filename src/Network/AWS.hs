@@ -59,8 +59,8 @@ data Credentials
 
 credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT Error m Auth
 credentials cred = case cred of
-    FromKeys acc sec  -> right $ Auth acc sec
-    FromRole role -> do
+    FromKeys acc sec -> right $ Auth acc sec Nothing
+    FromRole role    -> do
         m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
         hoistError $ Aeson.eitherDecode m
 

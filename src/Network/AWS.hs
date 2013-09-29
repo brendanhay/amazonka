@@ -21,32 +21,45 @@ module Network.AWS
       Credentials(..)
     , credentials
 
-    -- * AWS Monadic Context
+    -- * AWS Context
     , runAWS
-    , runAWS'
+
+    -- * Regions
     , within
+
+    -- * Pagination
     , paginate
-    , paginate'
+    , paginateCatch
+
+    -- * Synchronous
     , send
-    , send'
+    , send_
+    , sendCatch
+
+    -- * Asynchronous
+    , sendAsync
+    , waitAsync
+    , async
+    , wait
+    , wait_
 
     -- * Re-exported
-    , module Network.AWS.Internal.Monad
     , module Network.AWS.Internal.Types
     ) where
 
 import           Control.Applicative
+import qualified Control.Concurrent.Async   as A
 import           Control.Error
 import           Control.Exception
+import           Control.Monad
 import           Control.Monad.IO.Class
-import           Control.Monad.Reader
+import           Control.Monad.Trans.Reader
 import qualified Data.Aeson                 as Aeson
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
-import           Network.AWS.Internal.Monad
 import           Network.AWS.Internal.Types
 import           Network.Http.Client
 import           OpenSSL                    (withOpenSSL)
@@ -62,55 +75,74 @@ credentials cred = case cred of
     FromKeys acc sec -> right $ Auth acc sec Nothing
     FromRole role    -> do
         m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
-        hoistError $ Aeson.eitherDecode m
+        hoistEither . fmapL Error $ Aeson.eitherDecode m
 
--- | Run an 'AWS' operation.
-runAWS :: Auth -> Bool -> AWSContext a -> EitherT Error IO a
-runAWS auth debug aws = (fmap join . runAWS' auth debug) `mapEitherT` aws
-
-runAWS' :: Auth -> Bool -> AWS a -> IO (Either Error a)
-runAWS' auth debug aws = withOpenSSL . runReaderT (runEitherT $ unWrap aws) $
-    Env Nothing auth debug
+runAWS :: Env -> AWS a -> IO (Either Error a)
+runAWS env aws = withOpenSSL . runEitherT $ runReaderT (unwrap aws) env
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
-within :: Region -> AWSContext a -> AWSContext a
-within reg = local (\e -> e { awsRegion = Just reg })
+within :: Region -> AWS a -> AWS a
+within reg = AWS . local (\e -> e { awsRegion = Just reg }) . unwrap
 
 -- | Create a pipes 'Producer' which yields the initial and subsequent repsonses
 -- for requests that supported pagination.
 paginate :: (Rq a, Pg a, ToError (Er a))
          => a
-         -> Producer' (Rs a) AWSContext ()
-paginate = paginate' ~> either (lift . left . toError) yield
+         -> Producer' (Rs a) AWS ()
+paginate = paginateCatch ~> either (lift . liftEitherT . left . toError) yield
 
-paginate' :: (Rq a, Pg a, ToError (Er a))
-          => a
-          -> Producer' (Either (Er a) (Rs a)) AWSContext ()
-paginate' = go . Just
+paginateCatch :: (Rq a, Pg a, ToError (Er a))
+              => a
+              -> Producer' (Either (Er a) (Rs a)) AWS ()
+paginateCatch = go . Just
   where
     go Nothing   = return ()
     go (Just rq) = do
-        rs <- lift $ send' rq
+        rs <- lift $ sendCatch rq
         yield rs
         either (const $ return ()) (go . next rq) rs
 
 -- | Send a request and return the associated response type.
-send :: (Rq a, ToError (Er a)) => a -> AWSContext (Rs a)
-send = (hoistEither . fmapL toError =<<) . send'
+send :: (Rq a, ToError (Er a)) => a -> AWS (Rs a)
+send = (hoistError . fmapL toError =<<) . sendCatch
 
-send' :: Rq a => a -> AWSContext (Either (Er a) (Rs a))
-send' rq = do
-    sig <- lift . sign $ request rq
+-- | Send a request ignoring the succesful response but propagating errors.
+send_ :: (Rq a, ToError (Er a)) => a -> AWS ()
+send_ = void . send
+
+sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
+sendCatch rq = do
+    sig <- sign $ request rq
     whenDebug . print $ srqRequest sig
-    res <- fromMaybe "" <$> req sig
+    res <- liftEitherT $ fromMaybe "" <$> sync sig
     whenDebug $ BS.putStrLn res
-    hoistEither $ response rq res
+    hoistError $ response rq res
   where
-    req SignedRequest{..} = tryIO'
-        . bracket (establishConnection srqUrl) closeConnection
-        $ \conn -> do
-            sendRequest conn srqRequest =<< body srqPayload
-            receiveResponse conn $ const Streams.read
+    sync = fmapLT Ex . syncIO . req
+
+    req SignedRequest{..} =
+        bracket (establishConnection srqUrl) closeConnection $ \c -> do
+            sendRequest c srqRequest =<< body srqPayload
+            receiveResponse c $ const Streams.read
 
     body = maybe (return emptyBody)
         (fmap inputStreamBody . Streams.fromByteString)
+
+sendAsync :: (Rq a, ToError (Er a))
+          => a
+          -> AWS (A.Async (Either Error (Either (Er a) (Rs a))))
+sendAsync = async . sendCatch
+
+waitAsync :: (Rq a, ToError (Er a))
+          => A.Async (Either Error (Either (Er a) (Rs a)))
+          -> AWS (Rs a)
+waitAsync a = wait a >>= hoistError . fmapL toError
+
+async :: AWS a -> AWS (A.Async (Either Error a))
+async aws = currentEnv >>= liftIO . A.async . flip runAWS aws
+
+wait :: A.Async (Either Error a) -> AWS a
+wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
+
+wait_ :: A.Async (Either Error a) -> AWS ()
+wait_ a = wait a >> return ()

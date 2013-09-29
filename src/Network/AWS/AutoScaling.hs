@@ -236,7 +236,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
 instance IsQuery CreateAutoScalingGroup
 
 instance Rq CreateAutoScalingGroup where
-    type Er CreateAutoScalingGroup = AutoScalingError
+    type Er CreateAutoScalingGroup = AutoScalingErrorResponse
     type Rs CreateAutoScalingGroup = CreateAutoScalingGroupResponse
     request = qry GET "CreateAutoScalingGroup"
 
@@ -317,7 +317,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 instance IsQuery CreateLaunchConfiguration
 
 instance Rq CreateLaunchConfiguration where
-    type Er CreateLaunchConfiguration = AutoScalingError
+    type Er CreateLaunchConfiguration = AutoScalingErrorResponse
     type Rs CreateLaunchConfiguration = CreateLaunchConfigurationResponse
     request = qry GET "CreateLaunchConfiguration"
 
@@ -349,7 +349,7 @@ data CreateOrUpdateTags = CreateOrUpdateTags
 instance IsQuery CreateOrUpdateTags
 
 instance Rq CreateOrUpdateTags where
-    type Er CreateOrUpdateTags = AutoScalingError
+    type Er CreateOrUpdateTags = AutoScalingErrorResponse
     type Rs CreateOrUpdateTags = CreateOrUpdateTagsResponse
     request = qry GET "CreateOrUpdateTags"
 
@@ -379,7 +379,7 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 instance IsQuery DeleteAutoScalingGroup
 
 instance Rq DeleteAutoScalingGroup where
-    type Er DeleteAutoScalingGroup = AutoScalingError
+    type Er DeleteAutoScalingGroup = AutoScalingErrorResponse
     type Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse
     request = qry GET "DeleteAutoScalingGroup"
 
@@ -403,7 +403,7 @@ data DeleteLaunchConfiguration = DeleteLaunchConfiguration
 instance IsQuery DeleteLaunchConfiguration
 
 instance Rq DeleteLaunchConfiguration where
-    type Er DeleteLaunchConfiguration = AutoScalingError
+    type Er DeleteLaunchConfiguration = AutoScalingErrorResponse
     type Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse
     request = qry GET "DeleteLaunchConfiguration"
 
@@ -428,7 +428,7 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration
 instance IsQuery DeleteNotificationConfiguration
 
 instance Rq DeleteNotificationConfiguration where
-    type Er DeleteNotificationConfiguration = AutoScalingError
+    type Er DeleteNotificationConfiguration = AutoScalingErrorResponse
     type Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse
     request = qry GET "DeleteNotificationConfiguration"
 
@@ -451,7 +451,7 @@ data DeletePolicy = DeletePolicy
 instance IsQuery DeletePolicy
 
 instance Rq DeletePolicy where
-    type Er DeletePolicy = AutoScalingError
+    type Er DeletePolicy = AutoScalingErrorResponse
     type Rs DeletePolicy = DeletePolicyResponse
     request = qry GET "DeletePolicy"
 
@@ -475,7 +475,7 @@ data DeleteScheduledAction = DeleteScheduledAction
 instance IsQuery DeleteScheduledAction
 
 instance Rq DeleteScheduledAction where
-    type Er DeleteScheduledAction = AutoScalingError
+    type Er DeleteScheduledAction = AutoScalingErrorResponse
     type Rs DeleteScheduledAction = DeleteScheduledActionResponse
     request = qry GET "DeleteScheduledAction"
 
@@ -499,7 +499,7 @@ data DeleteTags = DeleteTags
 instance IsQuery DeleteTags
 
 instance Rq DeleteTags where
-    type Er DeleteTags = AutoScalingError
+    type Er DeleteTags = AutoScalingErrorResponse
     type Rs DeleteTags = DeleteTagsResponse
     request = qry GET "DeleteTags"
 
@@ -518,7 +518,7 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes
 instance IsQuery DescribeAdjustmentTypes
 
 instance Rq DescribeAdjustmentTypes where
-    type Er DescribeAdjustmentTypes = AutoScalingError
+    type Er DescribeAdjustmentTypes = AutoScalingErrorResponse
     type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
     request = qry GET "DescribeAdjustmentTypes"
 
@@ -550,7 +550,7 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups
 instance IsQuery DescribeAutoScalingGroups
 
 instance Rq DescribeAutoScalingGroups where
-    type Er DescribeAutoScalingGroups = AutoScalingError
+    type Er DescribeAutoScalingGroups = AutoScalingErrorResponse
     type Rs DescribeAutoScalingGroups = DescribeAutoScalingGroupsResponse
     request = qry GET "DescribeAutoScalingGroups"
 
@@ -586,7 +586,7 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
 instance IsQuery DescribeAutoScalingInstances
 
 instance Rq DescribeAutoScalingInstances where
-    type Er DescribeAutoScalingInstances = AutoScalingError
+    type Er DescribeAutoScalingInstances = AutoScalingErrorResponse
     type Rs DescribeAutoScalingInstances = DescribeAutoScalingInstancesResponse
     request = qry GET "DescribeAutoScalingInstances"
 
@@ -610,7 +610,7 @@ data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 instance IsQuery DescribeAutoScalingNotificationTypes
 
 instance Rq DescribeAutoScalingNotificationTypes where
-    type Er DescribeAutoScalingNotificationTypes = AutoScalingError
+    type Er DescribeAutoScalingNotificationTypes = AutoScalingErrorResponse
     type Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesResponse
     request = qry GET "DescribeAutoScalingNotificationTypes"
 
@@ -639,7 +639,7 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations
 instance IsQuery DescribeLaunchConfigurations
 
 instance Rq DescribeLaunchConfigurations where
-    type Er DescribeLaunchConfigurations = AutoScalingError
+    type Er DescribeLaunchConfigurations = AutoScalingErrorResponse
     type Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse
     request = qry GET "DescribeLaunchConfigurations"
 
@@ -660,7 +660,7 @@ data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
 instance IsQuery DescribeMetricCollectionTypes
 
 instance Rq DescribeMetricCollectionTypes where
-    type Er DescribeMetricCollectionTypes = AutoScalingError
+    type Er DescribeMetricCollectionTypes = AutoScalingErrorResponse
     type Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesResponse
     request = qry GET "DescribeMetricCollectionTypes"
 
@@ -688,7 +688,7 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations
 instance IsQuery DescribeNotificationConfigurations
 
 instance Rq DescribeNotificationConfigurations where
-    type Er DescribeNotificationConfigurations = AutoScalingError
+    type Er DescribeNotificationConfigurations = AutoScalingErrorResponse
     type Rs DescribeNotificationConfigurations = DescribeNotificationConfigurationsResponse
     request = qry GET "DescribeNotificationConfigurations"
 
@@ -726,7 +726,7 @@ data DescribePolicies = DescribePolicies
 instance IsQuery DescribePolicies
 
 instance Rq DescribePolicies where
-    type Er DescribePolicies = AutoScalingError
+    type Er DescribePolicies = AutoScalingErrorResponse
     type Rs DescribePolicies = DescribePoliciesResponse
     request = qry GET "DescribePolicies"
 
@@ -766,7 +766,7 @@ data DescribeScalingActivities = DescribeScalingActivities
 instance IsQuery DescribeScalingActivities
 
 instance Rq DescribeScalingActivities where
-    type Er DescribeScalingActivities = AutoScalingError
+    type Er DescribeScalingActivities = AutoScalingErrorResponse
     type Rs DescribeScalingActivities = DescribeScalingActivitiesResponse
     request = qry GET "DescribeScalingActivities"
 
@@ -789,7 +789,7 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 instance IsQuery DescribeScalingProcessTypes
 
 instance Rq DescribeScalingProcessTypes where
-    type Er DescribeScalingProcessTypes = AutoScalingError
+    type Er DescribeScalingProcessTypes = AutoScalingErrorResponse
     type Rs DescribeScalingProcessTypes = DescribeScalingProcessTypesResponse
     request = qry GET "DescribeScalingProcessTypes"
 
@@ -831,7 +831,7 @@ data DescribeScheduledActions = DescribeScheduledActions
 instance IsQuery DescribeScheduledActions
 
 instance Rq DescribeScheduledActions where
-    type Er DescribeScheduledActions = AutoScalingError
+    type Er DescribeScheduledActions = AutoScalingErrorResponse
     type Rs DescribeScheduledActions = DescribeScheduledActionsResponse
     request = qry GET "DescribeScheduledActions"
 
@@ -868,7 +868,7 @@ data DescribeTags = DescribeTags
 instance IsQuery DescribeTags
 
 instance Rq DescribeTags where
-    type Er DescribeTags = AutoScalingError
+    type Er DescribeTags = AutoScalingErrorResponse
     type Rs DescribeTags = DescribeTagsResponse
     request = qry GET "DescribeTags"
 
@@ -892,7 +892,7 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 instance IsQuery DescribeTerminationPolicyTypes
 
 instance Rq DescribeTerminationPolicyTypes where
-    type Er DescribeTerminationPolicyTypes = AutoScalingError
+    type Er DescribeTerminationPolicyTypes = AutoScalingErrorResponse
     type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesResponse
     request = qry GET "DescribeTerminationPolicyTypes"
 
@@ -919,7 +919,7 @@ data DisableMetricsCollection = DisableMetricsCollection
 instance IsQuery DisableMetricsCollection
 
 instance Rq DisableMetricsCollection where
-    type Er DisableMetricsCollection = AutoScalingError
+    type Er DisableMetricsCollection = AutoScalingErrorResponse
     type Rs DisableMetricsCollection = DisableMetricsCollectionResponse
     request = qry GET "DisableMetricsCollection"
 
@@ -951,7 +951,7 @@ data EnableMetricsCollection = EnableMetricsCollection
 instance IsQuery EnableMetricsCollection
 
 instance Rq EnableMetricsCollection where
-    type Er EnableMetricsCollection = AutoScalingError
+    type Er EnableMetricsCollection = AutoScalingErrorResponse
     type Rs EnableMetricsCollection = EnableMetricsCollectionResponse
     request = qry GET "EnableMetricsCollection"
 
@@ -980,7 +980,7 @@ data ExecutePolicy = ExecutePolicy
 instance IsQuery ExecutePolicy
 
 instance Rq ExecutePolicy where
-    type Er ExecutePolicy = AutoScalingError
+    type Er ExecutePolicy = AutoScalingErrorResponse
     type Rs ExecutePolicy = ExecutePolicyResponse
     request = qry GET "ExecutePolicy"
 
@@ -1014,7 +1014,7 @@ data PutNotificationConfiguration = PutNotificationConfiguration
 instance IsQuery PutNotificationConfiguration
 
 instance Rq PutNotificationConfiguration where
-    type Er PutNotificationConfiguration = AutoScalingError
+    type Er PutNotificationConfiguration = AutoScalingErrorResponse
     type Rs PutNotificationConfiguration = PutNotificationConfigurationResponse
     request = qry GET "PutNotificationConfiguration"
 
@@ -1059,7 +1059,7 @@ data PutScalingPolicy = PutScalingPolicy
 instance IsQuery PutScalingPolicy
 
 instance Rq PutScalingPolicy where
-    type Er PutScalingPolicy = AutoScalingError
+    type Er PutScalingPolicy = AutoScalingErrorResponse
     type Rs PutScalingPolicy = PutScalingPolicyResponse
     request = qry GET "PutScalingPolicy"
 
@@ -1108,7 +1108,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
 instance IsQuery PutScheduledUpdateGroupAction
 
 instance Rq PutScheduledUpdateGroupAction where
-    type Er PutScheduledUpdateGroupAction = AutoScalingError
+    type Er PutScheduledUpdateGroupAction = AutoScalingErrorResponse
     type Rs PutScheduledUpdateGroupAction = PutScheduledUpdateGroupActionResponse
     request = qry GET "PutScheduledUpdateGroupAction"
 
@@ -1135,7 +1135,7 @@ data ResumeProcesses = ResumeProcesses
 instance IsQuery ResumeProcesses
 
 instance Rq ResumeProcesses where
-    type Er ResumeProcesses = AutoScalingError
+    type Er ResumeProcesses = AutoScalingErrorResponse
     type Rs ResumeProcesses = ResumeProcessesResponse
     request = qry GET "ResumeProcesses"
 
@@ -1166,7 +1166,7 @@ data SetDesiredCapacity = SetDesiredCapacity
 instance IsQuery SetDesiredCapacity
 
 instance Rq SetDesiredCapacity where
-    type Er SetDesiredCapacity = AutoScalingError
+    type Er SetDesiredCapacity = AutoScalingErrorResponse
     type Rs SetDesiredCapacity = SetDesiredCapacityResponse
     request = qry GET "SetDesiredCapacity"
 
@@ -1201,7 +1201,7 @@ data SetInstanceHealth = SetInstanceHealth
 instance IsQuery SetInstanceHealth
 
 instance Rq SetInstanceHealth where
-    type Er SetInstanceHealth = AutoScalingError
+    type Er SetInstanceHealth = AutoScalingErrorResponse
     type Rs SetInstanceHealth = SetInstanceHealthResponse
     request = qry GET "SetInstanceHealth"
 
@@ -1233,7 +1233,7 @@ data SuspendProcesses = SuspendProcesses
 instance IsQuery SuspendProcesses
 
 instance Rq SuspendProcesses where
-    type Er SuspendProcesses = AutoScalingError
+    type Er SuspendProcesses = AutoScalingErrorResponse
     type Rs SuspendProcesses = SuspendProcessesResponse
     request = qry GET "SuspendProcesses"
 
@@ -1260,7 +1260,7 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
 instance IsQuery TerminateInstanceInAutoScalingGroup
 
 instance Rq TerminateInstanceInAutoScalingGroup where
-    type Er TerminateInstanceInAutoScalingGroup = AutoScalingError
+    type Er TerminateInstanceInAutoScalingGroup = AutoScalingErrorResponse
     type Rs TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroupResponse
     request = qry GET "TerminateInstanceInAutoScalingGroup"
 
@@ -1326,7 +1326,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
 instance IsQuery UpdateAutoScalingGroup
 
 instance Rq UpdateAutoScalingGroup where
-    type Er UpdateAutoScalingGroup = AutoScalingError
+    type Er UpdateAutoScalingGroup = AutoScalingErrorResponse
     type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
     request = qry GET "UpdateAutoScalingGroup"
 

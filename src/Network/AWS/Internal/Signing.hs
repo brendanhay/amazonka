@@ -37,7 +37,6 @@ import           Data.Function                   (on)
 import           Data.List
 import           Data.Monoid
 import           Data.Time                       (UTCTime, getCurrentTime)
-import           Network.AWS.Internal.Monad
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Time
 import           Network.AWS.Internal.Types

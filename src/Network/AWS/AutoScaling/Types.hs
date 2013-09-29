@@ -40,13 +40,31 @@ autoScalingNS =
 autoScalingElem :: ByteString -> NName ByteString
 autoScalingElem = mkNName autoScalingNS
 
-data AutoScalingError = AutoScalingError { ecError :: !Text }
-    deriving (Eq, Show, Generic)
+data ErrorType = Receiver | Sender
+    deriving (Eq, Show, Read, Generic)
 
-instance ToError AutoScalingError where
+instance IsXML ErrorType where
+    xmlPickler = xpContent xpPrim
+
+data AutoScalingError = AutoScalingError
+    { aseType    :: !ErrorType
+    , aseCode    :: !Text
+    , aseMessage :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML AutoScalingError where
+    xmlPickler = withNS autoScalingNS
+
+data AutoScalingErrorResponse = AutoScalingErrorResponse
+    { aserError     :: !AutoScalingError
+    , aserRequestId :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance ToError AutoScalingErrorResponse where
     toError = Error . show
 
-instance IsXML AutoScalingError
+instance IsXML AutoScalingErrorResponse where
+    xmlPickler = withNS autoScalingNS
 
 data ResponseMetadata = ResponseMetadata
     { rmRequestId :: !Text
@@ -55,11 +73,6 @@ data ResponseMetadata = ResponseMetadata
 instance IsXML ResponseMetadata where
     xmlPickler = withNS autoScalingNS
 
-data ErrorType = Receiver | Sender
-    deriving (Eq, Show, Read, Generic)
-
-instance IsXML ErrorType where
-    xmlPickler = xpContent xpPrim
 
 -- data Error = Error
 --     { eType    :: !ErrorType

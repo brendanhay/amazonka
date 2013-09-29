@@ -272,8 +272,9 @@ module Network.AWS.EC2
    -- -- ** DescribeInternetGateways
    -- , DescribeInternetGateways            (..)
 
-   -- -- ** DescribeKeyPairs
-   -- , DescribeKeyPairs                    (..)
+   -- ** DescribeKeyPairs
+   , DescribeKeyPairs                       (..)
+   , DescribeKeyPairsResponse               (..)
 
    -- -- ** DescribeNetworkAcls
    -- , DescribeNetworkAcls                 (..)
@@ -3303,37 +3304,38 @@ instance IsXML DescribeInstancesResponse where
 -- instance IsXML DescribeInternetGatewaysResponse where
 --     xmlPickler = ec2XML
 
--- -- | Describes one or more of your key pairs.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html>
-
 -- -- data KeyPairFilter
 -- --     , dkqFingerprint :: !Text
 -- --       -- ^ The fingerprint of the key pair.
 -- --     , dkqKey-name    :: !Text
 -- --       -- ^ The name of the key pair.
 
--- data DescribeKeyPairs = DescribeKeyPairs
---     { dkqKeyName :: Members Text
---       -- ^ One or more key pair names.
---     , dkqFilter  :: Members Text
---       -- ^ The name of a filter.
---     } deriving (Eq, Show, Generic)
+-- | Describes one or more of your key pairs.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html>
+data DescribeKeyPairs = DescribeKeyPairs
+    { dkqKeyName :: [Text]
+      -- ^ One or more key pair names.
+    , dkqFilter  :: [Filter]
+      -- ^ The name of a filter.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DescribeKeyPairs
+instance IsQuery DescribeKeyPairs
 
--- instance AWSRequest EC2 DescribeKeyPairs DescribeKeyPairsResponse where
---     request = qry GET "DescribeKeyPairs"
+instance Rq DescribeKeyPairs where
+    type Er DescribeKeyPairs = EC2ErrorResponse
+    type Rs DescribeKeyPairs = DescribeKeyPairsResponse
+    request = qry GET "DescribeKeyPairs"
 
--- data DescribeKeyPairsResponse = DescribeKeyPairsResponse
---     { dkqRequestId :: !Text
---       -- ^ The ID of the request.
---     , dkqKeySet    :: !DescribeKeyPairsResponseItemType
---       -- ^ A list of key pairs, each one wrapped in an item element.
---     } deriving (Eq, Show, Generic)
+data DescribeKeyPairsResponse = DescribeKeyPairsResponse
+    { dkqRequestId :: !Text
+      -- ^ The ID of the request.
+    , dkqKeySet    :: [DescribeKeyPairsResponseItemType]
+      -- ^ A list of key pairs.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeKeyPairsResponse where
---     xmlPickler = ec2XML
+instance IsXML DescribeKeyPairsResponse where
+    xmlPickler = ec2XML
 
 -- -- | Describes one or more of your network ACLs.For more information about
 -- -- network ACLs, see Network ACLs in the Amazon Virtual Private Cloud User

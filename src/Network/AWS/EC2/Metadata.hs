@@ -18,6 +18,7 @@ module Network.AWS.EC2.Metadata
     ) where
 
 import           Control.Applicative
+import           Control.Error
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Data.ByteString        (ByteString)
@@ -53,20 +54,23 @@ metadata = metadataByKey . toPath
 metadataByKey :: (Applicative m, MonadIO m)
               => ByteString
               -> EitherT Error m ByteString
-metadataByKey key = get $ "http://169.254.169.254/latest/meta-data/" <> key
+metadataByKey = get . mappend "http://169.254.169.254/latest/meta-data/"
 
 --
 -- Internal
 --
 
-get :: (Applicative m, MonadIO m) => ByteString -> EitherT Error m ByteString
+get :: (Applicative m, MonadIO m)
+    => ByteString
+    -> EitherT Error m ByteString
 get url = do
-    mres <- tryIO' . bracket (establishConnection url) closeConnection $ \c -> do
+    rs <- fmapLT Ex $ syncIO req
+    sStripChar '\n' <$> rs ?? "Failed to receive any data"
+  where
+    req = bracket (establishConnection url) closeConnection $ \c -> do
         rq <- buildRequest $ http GET url
         sendRequest c rq emptyBody
         receiveResponse c $ const Streams.read
-    res  <- mres ?? "Failed to receive any data"
-    return $! sStripChar '\n' res
 
 toPath :: Metadata -> ByteString
 toPath meta = case meta of

@@ -20,8 +20,12 @@
 module Network.AWS.Internal.Types where
 
 import           Control.Applicative
+import           Control.Error
 import           Control.Exception
 import           Control.Monad
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Class
+import           Control.Monad.Trans.Reader
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
@@ -34,7 +38,7 @@ import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
 import           Network.Http.Client             hiding (ContentType, post, put)
 import           Text.ParserCombinators.ReadP    (string)
-import           Text.Read                       hiding (String)
+import qualified Text.Read                       as Read
 import           Text.XML.Expat.Pickle.Generic
 
 class Rq a where
@@ -62,6 +66,9 @@ class ToError a where
 instance ToError String where
     toError = Error
 
+instance ToError SomeException where
+    toError = Ex
+
 data Error = Error String | Ex SomeException
 
 instance IsString Error where
@@ -82,6 +89,40 @@ instance FromJSON Auth where
         <*> o .: "SecretAccessKey"
         <*> o .: "Token"
     parseJSON _ = mzero
+
+data Env = Env
+    { awsRegion :: Maybe Region
+    , awsAuth   :: !Auth
+    , awsDebug  :: !Bool
+    }
+
+newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT Error IO) a }
+    deriving (Functor, Applicative, Monad, MonadIO)
+
+currentEnv :: AWS Env
+currentEnv = AWS ask
+
+currentRegion :: Service -> AWS Region
+currentRegion svc
+    | svcGlobal svc = return def
+    | otherwise     = fromMaybe def <$> (awsRegion <$> currentEnv)
+  where
+    def = NorthVirginia
+
+currentAuth :: AWS Auth
+currentAuth = awsAuth <$> currentEnv
+
+debugEnabled :: AWS Bool
+debugEnabled = awsDebug <$> currentEnv
+
+liftEitherT :: EitherT Error IO a -> AWS a
+liftEitherT = AWS . lift
+
+hoistError :: Either Error a -> AWS a
+hoistError = liftEitherT . hoistEither
+
+whenDebug :: IO () -> AWS ()
+whenDebug action = debugEnabled >>= \p -> liftIO $ when p action
 
 newtype ServiceVersion = ServiceVersion ByteString
     deriving (Eq, Show, IsString, Strings)
@@ -293,5 +334,6 @@ instance IsQuery InstanceType where
 instance IsXML InstanceType where
     xmlPickler = xpContent xpPrim
 
-readAssocList :: [(String, a)] -> ReadPrec a
-readAssocList xs = choice $ map (\(x, y) -> lift $ string x >> return y) xs
+readAssocList :: [(String, a)] -> Read.ReadPrec a
+readAssocList xs = Read.choice $
+    map (\(x, y) -> Read.lift $ string x >> return y) xs

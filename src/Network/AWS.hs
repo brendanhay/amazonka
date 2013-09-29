@@ -48,7 +48,7 @@ module Network.AWS
     ) where
 
 import           Control.Applicative
-import qualified Control.Conget.Async   as A
+import qualified Control.Concurrent.Async   as A
 import           Control.Error
 import           Control.Exception
 import           Control.Monad

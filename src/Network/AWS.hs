@@ -70,7 +70,9 @@ data Credentials
     = FromKeys ByteString ByteString
     | FromRole ByteString
 
-credentials :: (Applicative m, MonadIO m) => Credentials -> EitherT Error m Auth
+credentials :: (Applicative m, MonadIO m)
+            => Credentials
+            -> EitherT Error m Auth
 credentials cred = case cred of
     FromKeys acc sec -> right $ Auth acc sec Nothing
     FromRole role    -> do

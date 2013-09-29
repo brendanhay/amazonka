@@ -46,8 +46,8 @@ import           Network.Http.Client
 
 sign :: RawRequest -> AWS SignedRequest
 sign r = do
-    auth <- currentAuth
-    reg  <- currentRegion svc
+    auth <- getAuth
+    reg  <- getRegion svc
     time <- liftIO getCurrentTime
     dbg  <- debugEnabled
 

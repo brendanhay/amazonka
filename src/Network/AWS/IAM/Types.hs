@@ -50,8 +50,8 @@ data IAMError = IAMError
     }
     deriving (Eq, Show, Generic)
 
--- instance ToError IAMError where
---     toError = Error . show
+instance ToError IAMError where
+    toError = Error . show
 
 instance IsXML IAMError where
     xmlPickler = withNS iamNS

@@ -92,28 +92,31 @@ instance FromJSON Auth where
 
 data Env = Env
     { awsRegion :: Maybe Region
-    , awsAuth   :: !Auth
     , awsDebug  :: !Bool
+    , awsAuth   :: !Auth
     }
 
 newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT Error IO) a }
     deriving (Functor, Applicative, Monad, MonadIO)
 
-currentEnv :: AWS Env
-currentEnv = AWS ask
+getEnv :: AWS Env
+getEnv = AWS ask
 
-currentRegion :: Service -> AWS Region
-currentRegion svc
+getRegion :: Service -> AWS Region
+getRegion svc
     | svcGlobal svc = return def
-    | otherwise     = fromMaybe def <$> (awsRegion <$> currentEnv)
+    | otherwise     = fromMaybe def <$> (awsRegion <$> getEnv)
   where
     def = NorthVirginia
 
-currentAuth :: AWS Auth
-currentAuth = awsAuth <$> currentEnv
+getAuth :: AWS Auth
+getAuth = awsAuth <$> getEnv
 
 debugEnabled :: AWS Bool
-debugEnabled = awsDebug <$> currentEnv
+debugEnabled = awsDebug <$> getEnv
+
+whenDebug :: IO () -> AWS ()
+whenDebug action = debugEnabled >>= \p -> liftIO $ when p action
 
 liftEitherT :: EitherT Error IO a -> AWS a
 liftEitherT = AWS . lift
@@ -121,8 +124,8 @@ liftEitherT = AWS . lift
 hoistError :: Either Error a -> AWS a
 hoistError = liftEitherT . hoistEither
 
-whenDebug :: IO () -> AWS ()
-whenDebug action = debugEnabled >>= \p -> liftIO $ when p action
+noteError :: Error -> Maybe a -> AWS a
+noteError e = hoistError . note e
 
 newtype ServiceVersion = ServiceVersion ByteString
     deriving (Eq, Show, IsString, Strings)

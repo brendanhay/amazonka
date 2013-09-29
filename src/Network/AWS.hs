@@ -48,7 +48,7 @@ module Network.AWS
     ) where
 
 import           Control.Applicative
-import qualified Control.Concurrent.Async   as A
+import qualified Control.Conget.Async   as A
 import           Control.Error
 import           Control.Exception
 import           Control.Monad
@@ -141,7 +141,7 @@ waitAsync :: (Rq a, ToError (Er a))
 waitAsync a = wait a >>= hoistError . fmapL toError
 
 async :: AWS a -> AWS (A.Async (Either Error a))
-async aws = currentEnv >>= liftIO . A.async . flip runAWS aws
+async aws = getEnv >>= liftIO . A.async . flip runAWS aws
 
 wait :: A.Async (Either Error a) -> AWS a
 wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError

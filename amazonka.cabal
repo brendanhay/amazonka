@@ -29,7 +29,6 @@ library
         Network.AWS
         Network.AWS.Internal
       , Network.AWS.Internal.Instances
-      , Network.AWS.Internal.Monad
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
       , Network.AWS.Internal.Time
@@ -65,6 +64,7 @@ library
 
     build-depends:
         aeson
+      , async
       , base                  >= 4.6 && < 5
       , base64-bytestring
       , bytestring

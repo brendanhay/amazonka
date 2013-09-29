@@ -47,8 +47,7 @@ instance IsXML ErrorType where
 data IAMError = IAMError
     { erError     :: !ErrorType
     , erRequestId :: !Text
-    }
-    deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 instance ToError IAMError where
     toError = Error . show

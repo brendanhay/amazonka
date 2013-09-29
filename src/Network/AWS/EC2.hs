@@ -109,8 +109,9 @@ module Network.AWS.EC2
    -- -- ** CreateInternetGateway
    -- , CreateInternetGateway               (..)
 
-   -- -- ** CreateKeyPair
-   -- , CreateKeyPair                       (..)
+   -- ** CreateKeyPair
+   , CreateKeyPair                          (..)
+   , CreateKeyPairResponse                  (..)
 
    -- -- ** CreateNetworkAcl
    -- , CreateNetworkAcl                    (..)
@@ -1341,39 +1342,40 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- instance IsXML CreateInternetGatewayResponse where
 --     xmlPickler = ec2XML
 
--- -- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores
--- -- the public key and displays the private key for you to save to a file. The
--- -- private key is returned as an unencrypted PEM encoded PKCS#8 private key.
--- -- If a key with the specified name already exists, Amazon EC2 returns an
--- -- error. You can have up to five thousand key pairs per region.For more
--- -- information about key pairs, see Key Pairs in the Amazon Elastic Compute
--- -- Cloud User Guide.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html>
+-- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores
+-- the public key and displays the private key for you to save to a file. The
+-- private key is returned as an unencrypted PEM encoded PKCS#8 private key.
+-- If a key with the specified name already exists, Amazon EC2 returns an
+-- error. You can have up to five thousand key pairs per region.For more
+-- information about key pairs, see Key Pairs in the Amazon Elastic Compute
+-- Cloud User Guide.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html>
+data CreateKeyPair = CreateKeyPair
+    { ckpKeyName :: !Text
+      -- ^ A unique name for the key pair.
+    } deriving (Eq, Show, Generic)
 
--- data CreateKeyPair = CreateKeyPair
---     { ckpKeyName :: !Text
---       -- ^ A unique name for the key pair.
---     } deriving (Eq, Show, Generic)
+instance IsQuery CreateKeyPair
 
--- instance IsQuery CreateKeyPair
+instance Rq CreateKeyPair where
+    type Er CreateKeyPair = EC2ErrorResponse
+    type Rs CreateKeyPair = CreateKeyPairResponse
+    request = qry GET "CreateKeyPair"
 
--- instance AWSRequest EC2 CreateKeyPair CreateKeyPairResponse where
---     request = qry GET "CreateKeyPair"
+data CreateKeyPairResponse = CreateKeyPairResponse
+    { ckpRequestId      :: !Text
+      -- ^ The ID of the request.
+    , ckqKeyName        :: !Text
+      -- ^ The name of the key pair name.
+    , ckqKeyFingerprint :: !Text
+      -- ^ A SHA-1 digest of the DER encoded private key.
+    , ckqKeyMaterial    :: !Text
+      -- ^ An unencrypted PEM encoded RSA private key.
+    } deriving (Eq, Show, Generic)
 
--- data CreateKeyPairResponse = CreateKeyPairResponse
---     { ckpRequestId      :: !Text
---       -- ^ The ID of the request.
---     , ckqKeyName        :: !Text
---       -- ^ The name of the key pair name.
---     , ckqKeyFingerprint :: !Text
---       -- ^ A SHA-1 digest of the DER encoded private key.
---     , ckqKeyMaterial    :: !Text
---       -- ^ An unencrypted PEM encoded RSA private key.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML CreateKeyPairResponse where
---     xmlPickler = ec2XML
+instance IsXML CreateKeyPairResponse where
+    xmlPickler = ec2XML
 
 -- -- | Creates a network ACL in a VPC. Network ACLs provide an optional layer of
 -- -- security (on top of security groups) for the instances in your VPC.For more

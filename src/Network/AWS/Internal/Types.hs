@@ -124,8 +124,14 @@ liftEitherT = AWS . lift
 hoistError :: Either Error a -> AWS a
 hoistError = liftEitherT . hoistEither
 
-noteError :: Error -> Maybe a -> AWS a
-noteError e = hoistError . note e
+noteError :: String -> Maybe a -> AWS a
+noteError e = hoistError . note (Error e)
+
+checkError :: ToError e => (e -> Bool) -> Either e a -> AWS ()
+checkError f (Left e)
+    | f e       = return ()
+    | otherwise = hoistError . Left $ toError e
+checkError _ _  = return ()
 
 newtype ServiceVersion = ServiceVersion ByteString
     deriving (Eq, Show, IsString, Strings)

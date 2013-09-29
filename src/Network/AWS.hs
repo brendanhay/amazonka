@@ -37,11 +37,11 @@ module Network.AWS
     , sendCatch
 
     -- * Asynchronous
-    , sendAsync
-    , waitAsync
     , async
+    , sendAsync
     , wait
-    , wait_
+    , waitAsync
+    , waitAsync_
 
     -- * Re-exported
     , module Network.AWS.Internal.Types
@@ -130,21 +130,17 @@ sendCatch rq = do
     body = maybe (return emptyBody)
         (fmap inputStreamBody . Streams.fromByteString)
 
-sendAsync :: (Rq a, ToError (Er a))
-          => a
-          -> AWS (A.Async (Either Error (Either (Er a) (Rs a))))
-sendAsync = async . sendCatch
-
-waitAsync :: (Rq a, ToError (Er a))
-          => A.Async (Either Error (Either (Er a) (Rs a)))
-          -> AWS (Rs a)
-waitAsync a = wait a >>= hoistError . fmapL toError
-
 async :: AWS a -> AWS (A.Async (Either Error a))
 async aws = getEnv >>= liftIO . A.async . flip runAWS aws
+
+sendAsync :: Rq a => a -> AWS (A.Async (Either Error (Either (Er a) (Rs a))))
+sendAsync = async . sendCatch
 
 wait :: A.Async (Either Error a) -> AWS a
 wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
 
-wait_ :: A.Async (Either Error a) -> AWS ()
-wait_ a = wait a >> return ()
+waitAsync :: ToError e => A.Async (Either Error (Either e a)) -> AWS a
+waitAsync a = wait a >>= hoistError . fmapL toError
+
+waitAsync_ :: ToError e => A.Async (Either Error (Either e a)) -> AWS ()
+waitAsync_ = void . waitAsync

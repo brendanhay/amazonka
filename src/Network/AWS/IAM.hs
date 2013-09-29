@@ -549,9 +549,7 @@ data CreateRole = CreateRole
     { crAssumeRolePolicyDocument :: !Text
       -- ^ The policy that grants an entity permission to assume the role.
     , crPath                     :: Maybe Text
-      -- ^ The path to the role. For more information about paths, see
-      -- Identifiers for IAM Entities in Using AWS Identity and Access
-      -- Management.
+      -- ^ The path to the role.
     , crRoleName                 :: !Text
       -- ^ Name of the role to create.
     } deriving (Eq, Show, Generic)

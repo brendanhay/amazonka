@@ -502,7 +502,7 @@ data DescribeKeyPairsResponseItemType = DescribeKeyPairsResponseItemType
     } deriving (Eq, Show, Generic)
 
 instance IsXML DescribeKeyPairsResponseItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInstancesListingsResponseSetItemType
     { drilrsitReservedInstancesListingId :: !Text

@@ -73,7 +73,6 @@ data ResponseMetadata = ResponseMetadata
 instance IsXML ResponseMetadata where
     xmlPickler = withNS autoScalingNS
 
-
 -- data Error = Error
 --     { eType    :: !ErrorType
 --     , eCode    :: !Text
@@ -163,7 +162,7 @@ data AutoScalingGroup = AutoScalingGroup
       -- ^ The Amazon Resource Name (ARN) of the Auto Scaling group.
     , asgAutoScalingGroupName    :: !Text
       -- ^ Specifies the name of the group.
-    , asgAvailabilityZones       :: Members Text
+    , asgAvailabilityZones       :: [Text]
       -- ^ Contains a list of Availability Zones for the group.
     , asgCreatedTime             :: !UTCTime
       -- ^ Specifies the date and time the Auto Scaling group was created.
@@ -185,7 +184,7 @@ data AutoScalingGroup = AutoScalingGroup
       -- ^ Provides a summary list of Amazon EC2 instances.
     , asgLaunchConfigurationName :: !Text
       -- ^ Specifies the name of the associated LaunchConfiguration.
-    , asgLoadBalancerNames       :: Members Text
+    , asgLoadBalancerNames       :: [Text]
       -- ^ A list of load balancers associated with this Auto Scaling group.
     , asgMaxSize                 :: !Integer
       -- ^ Contains the maximum size of the Auto Scaling group.
@@ -200,15 +199,13 @@ data AutoScalingGroup = AutoScalingGroup
       -- ^ Suspended processes associated with this Auto Scaling group.
     , asgTags                    :: Members Tag
       -- ^ A list of tags for the Auto Scaling group.
-    , asgTerminationPolicies     :: Members Text
+    , asgTerminationPolicies     :: [Text]
       -- ^ A standalone termination policy or a list of termination policies
       -- for this Auto Scaling group.
     , asgVPCZoneIdentifier       :: Maybe Text
       -- ^ The subnet identifier for the Amazon VPC connection, if applicable.
       -- You can specify several subnets in a comma-separated list.
     } deriving (Eq, Show, Generic)
-
-instance IsQuery AutoScalingGroup
 
 instance IsXML AutoScalingGroup where
     xmlPickler = withNS autoScalingNS

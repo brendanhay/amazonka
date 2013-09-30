@@ -77,6 +77,7 @@ instance IsString Error where
 class Prefixed a where
     prefixed :: a -> ByteString
 
+
 data Auth = Auth
     { accessKeyId     :: !ByteString
     , secretAccessKey :: !ByteString
@@ -126,6 +127,9 @@ hoistError = liftEitherT . hoistEither
 
 noteError :: String -> Maybe a -> AWS a
 noteError e = hoistError . note (Error e)
+
+throwError :: String -> AWS a
+throwError = hoistError . Left . Error
 
 checkError :: ToError e => (e -> Bool) -> Either e a -> AWS ()
 checkError f (Left e)

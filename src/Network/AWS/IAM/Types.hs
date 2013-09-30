@@ -422,8 +422,8 @@ data InstanceProfile = InstanceProfile
       -- ^ Path to the instance profile. For more information about paths,
       -- see Identifiers for IAM Entities in Using AWS Identity and Access
       -- Management.
-    , ipRoles               :: !Role
-      -- ^ The role associated with the instance profile.
+    , ipRoles               :: [Role]
+      -- ^ The roles associated with the instance profile.
     } deriving (Eq, Show, Generic)
 
 instance IsQuery InstanceProfile

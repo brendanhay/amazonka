@@ -162,7 +162,7 @@ data AutoScalingGroup = AutoScalingGroup
       -- ^ The Amazon Resource Name (ARN) of the Auto Scaling group.
     , asgAutoScalingGroupName    :: !Text
       -- ^ Specifies the name of the group.
-    , asgAvailabilityZones       :: [Text]
+    , asgAvailabilityZones       :: [AvailabilityZone]
       -- ^ Contains a list of Availability Zones for the group.
     , asgCreatedTime             :: !UTCTime
       -- ^ Specifies the date and time the Auto Scaling group was created.
@@ -182,7 +182,7 @@ data AutoScalingGroup = AutoScalingGroup
       -- for Amazon EC2 or "ELB" for Elastic Load Balancing.
     , asgInstances               :: Members Instance
       -- ^ Provides a summary list of Amazon EC2 instances.
-    , asgLaunchConfigurationName :: !Text
+    , asgLaunchConfigurationName :: Maybe Text
       -- ^ Specifies the name of the associated LaunchConfiguration.
     , asgLoadBalancerNames       :: [Text]
       -- ^ A list of load balancers associated with this Auto Scaling group.
@@ -216,7 +216,7 @@ instance IsXML AutoScalingGroup where
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     { asidAutoScalingGroupName    :: !Text
       -- ^ The name of the Auto Scaling group associated with this instance.
-    , asidAvailabilityZone        :: !Text
+    , asidAvailabilityZone        :: !AvailabilityZone
       -- ^ The Availability Zone in which this instance resides.
     , asidHealthStatus            :: !Text
       -- ^ The health status of this instance. "Healthy" means that the
@@ -476,7 +476,7 @@ instance IsXML Filter where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Instance.html>
 data Instance = Instance
-    { iAvailabilityZone        :: !Text
+    { iAvailabilityZone        :: !AvailabilityZone
       -- ^ Availability Zones associated with this instance.
     , iHealthStatus            :: !Text
       -- ^ The instance's health status.

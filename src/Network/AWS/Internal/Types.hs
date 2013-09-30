@@ -103,21 +103,25 @@ newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT Error IO) a }
 getEnv :: AWS Env
 getEnv = AWS ask
 
-getRegion :: Service -> AWS Region
-getRegion svc
-    | svcGlobal svc = return def
-    | otherwise     = fromMaybe def <$> (awsRegion <$> getEnv)
-  where
-    def = NorthVirginia
-
 getAuth :: AWS Auth
 getAuth = awsAuth <$> getEnv
+
+serviceRegion :: Service -> AWS Region
+serviceRegion svc
+    | svcGlobal svc = return defaultRegion
+    | otherwise     = currentRegion
+
+currentRegion :: AWS Region
+currentRegion = fromMaybe NorthVirginia <$> awsRegion <$> getEnv
+
+defaultRegion :: Region
+defaultRegion = NorthVirginia
 
 debugEnabled :: AWS Bool
 debugEnabled = awsDebug <$> getEnv
 
-whenDebug :: IO () -> AWS ()
-whenDebug action = debugEnabled >>= \p -> liftIO $ when p action
+whenDebug :: AWS () -> AWS ()
+whenDebug action = debugEnabled >>= \p -> when p action
 
 liftEitherT :: EitherT Error IO a -> AWS a
 liftEitherT = AWS . lift
@@ -278,6 +282,24 @@ instance Read Region where
         ]
 
 instance IsXML Region where
+    xmlPickler = xpContent xpPrim
+
+data AvailabilityZone = AZ
+    { azRegion :: !Region
+    , azZone   :: !Char
+    } deriving (Eq)
+
+instance Show AvailabilityZone where
+    show (AZ r z) = show r ++ [z]
+
+instance Read AvailabilityZone where
+    readsPrec _ [] = []
+    readsPrec _ s  = [(AZ (read $ init s) (last s), "")]
+
+instance IsQuery AvailabilityZone where
+    queryPickler = qpPrim
+
+instance IsXML AvailabilityZone where
     xmlPickler = xpContent xpPrim
 
 data InstanceType

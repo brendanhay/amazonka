@@ -1675,7 +1675,7 @@ instance IsXML IpRange where
 --     xmlPickler = ec2XML
 
 data PlacementResponseType = PlacementResponseType
-    { pruAvailabilityZone :: !Text
+    { pruAvailabilityZone :: !AvailabilityZone
       -- ^ The Availability Zone of the instance.
     , pruGroupName        :: !Text
       -- ^ The name of the placement group the instance is in

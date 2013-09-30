@@ -187,7 +187,7 @@ qry meth act q = queryAppend (queryRequest autoScalingService meth "/" q)
 data CreateAutoScalingGroup = CreateAutoScalingGroup
     { casgAutoScalingGroupName    :: !Text
       -- ^ The name of the Auto Scaling group.
-    , casgAvailabilityZones       :: Members Text
+    , casgAvailabilityZones       :: Members AvailabilityZone
       -- ^ A list of Availability Zones for the Auto Scaling group. This is
       -- required unless you have specified subnets.
     , casgDefaultCooldown         :: Maybe Integer
@@ -1287,7 +1287,7 @@ instance IsXML TerminateInstanceInAutoScalingGroupResponse where
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     { uasgAutoScalingGroupName    :: !Text
       -- ^ The name of the Auto Scaling group.
-    , uasgAvailabilityZones       :: Members Text
+    , uasgAvailabilityZones       :: Members AvailabilityZone
       -- ^ Availability Zones for the group.
     , uasgDefaultCooldown         :: Maybe Integer
       -- ^ The amount of time, in seconds, after a scaling activity

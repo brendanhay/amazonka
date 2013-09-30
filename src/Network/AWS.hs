@@ -115,9 +115,9 @@ send_ = void . send
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
     sig <- sign $ request rq
-    whenDebug . print $ srqRequest sig
+    whenDebug . liftIO . print $ srqRequest sig
     res <- liftEitherT $ fromMaybe "" <$> sync sig
-    whenDebug $ BS.putStrLn res
+    whenDebug . liftIO $ BS.putStrLn res
     hoistError $ response rq res
   where
     sync = fmapLT Ex . syncIO . req

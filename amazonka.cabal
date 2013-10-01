@@ -35,21 +35,14 @@ library
       , Network.AWS.Internal.Types
 
       , Network.AWS.AutoScaling
-      , Network.AWS.AutoScaling.Types
       , Network.AWS.CloudWatch
-      , Network.AWS.CloudWatch.Types
       , Network.AWS.EC2
       , Network.AWS.EC2.Metadata
-      , Network.AWS.EC2.Types
       , Network.AWS.ELB
-      , Network.AWS.ELB.Types
       , Network.AWS.IAM
-      , Network.AWS.IAM.Types
       , Network.AWS.Route53
-      , Network.AWS.Route53.Types
 
       -- , Network.AWS.S3
-      -- , Network.AWS.S3.Types
 
     ghc-options:
         -Wall

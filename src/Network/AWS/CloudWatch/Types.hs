@@ -55,13 +55,13 @@ instance ToError CloudWatchError where
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AlarmHistoryItem.html>
 data AlarmHistoryItem = AlarmHistoryItem
-    { ahiAlarmName       :: Maybe ByteString
+    { ahiAlarmName       :: Maybe Text
       -- ^ The descriptive name for the alarm.
-    , ahiHistoryData     :: Maybe ByteString
+    , ahiHistoryData     :: Maybe Text
       -- ^ Machine-readable data about the alarm in JSON format.
-    , ahiHistoryItemType :: Maybe ByteString
+    , ahiHistoryItemType :: Maybe Text
       -- ^ The type of alarm history item.
-    , ahiHistorySummary  :: Maybe ByteString
+    , ahiHistorySummary  :: Maybe Text
       -- ^ A human-readable summary of the alarm history.
     , ahiTimestamp       :: Maybe UTCTime
       -- ^ The time stamp for the alarm history item.
@@ -90,7 +90,7 @@ data Datapoint = Datapoint
       -- ^ The sum of metric values used for the datapoint.
     , dTimestamp   :: Maybe UTCTime
       -- ^ The time stamp used for the datapoint.
-    , dUnit        :: Maybe ByteString
+    , dUnit        :: Maybe Text
       -- ^ The standard unit used for the datapoint.
     } deriving (Eq, Show, Generic)
 
@@ -105,7 +105,7 @@ instance IsXML Datapoint where
 data DescribeAlarmHistoryResult = DescribeAlarmHistoryResult
     { dahrAlarmHistoryItems :: Maybe AlarmHistoryItem
       -- ^ A list of alarm histories in JSON format.
-    , dahrNextToken         :: Maybe ByteString
+    , dahrNextToken         :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Eq, Show, Generic)
@@ -134,7 +134,7 @@ instance IsXML DescribeAlarmsForMetricResult where
 data DescribeAlarmsResult = DescribeAlarmsResult
     { darMetricAlarms :: Maybe MetricAlarm
       -- ^ A list of information for the specified alarms.
-    , darNextToken    :: Maybe ByteString
+    , darNextToken    :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Eq, Show, Generic)
@@ -150,9 +150,9 @@ instance IsXML DescribeAlarmsResult where
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Dimension.html>
 data Dimension = Dimension
-    { dName  :: !ByteString
+    { dName  :: !Text
       -- ^ The name of the dimension.
-    , dValue :: !ByteString
+    , dValue :: !Text
       -- ^ The value representing the dimension measurement
     } deriving (Eq, Show, Generic)
 
@@ -165,9 +165,9 @@ instance IsXML Dimension where
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DimensionFilter.html>
 data DimensionFilter = DimensionFilter
-    { dfName  :: !ByteString
+    { dfName  :: !Text
       -- ^ The dimension name to be matched.
-    , dfValue :: Maybe ByteString
+    , dfValue :: Maybe Text
       -- ^ The value of the dimension to be matched.
     } deriving (Eq, Show, Generic)
 
@@ -182,7 +182,7 @@ instance IsXML DimensionFilter where
 data GetMetricStatisticsResult = GetMetricStatisticsResult
     { gmsrDatapoints :: Maybe Datapoint
       -- ^ The datapoints for the specified metric.
-    , gmsrLabel      :: Maybe ByteString
+    , gmsrLabel      :: Maybe Text
       -- ^ A label describing the specified metric.
     } deriving (Eq, Show, Generic)
 
@@ -197,7 +197,7 @@ instance IsXML GetMetricStatisticsResult where
 data ListMetricsResult = ListMetricsResult
     { lmrMetrics   :: Maybe Metric
       -- ^ A list of metrics used to generate statistics for an AWS account.
-    , lmrNextToken :: Maybe ByteString
+    , lmrNextToken :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Eq, Show, Generic)
@@ -217,9 +217,9 @@ instance IsXML ListMetricsResult where
 data Metric = Metric
     { mDimensions :: Maybe Dimension
       -- ^ A list of dimensions associated with the metric.
-    , mMetricName :: Maybe ByteString
+    , mMetricName :: Maybe Text
       -- ^ The name of the metric.
-    , mNamespace  :: Maybe ByteString
+    , mNamespace  :: Maybe Text
       -- ^ The namespace of the metric.
     } deriving (Eq, Show, Generic)
 
@@ -236,21 +236,21 @@ data MetricAlarm = MetricAlarm
     { maActionsEnabled                     :: Maybe Bool
       -- ^ Indicates whether actions should be executed during any changes
       -- to the alarm's state.
-    , maAlarmActions                       :: Maybe ByteString
+    , maAlarmActions                       :: Maybe Text
       -- ^ The list of actions to execute when this alarm transitions into
       -- an ALARM state from any other state. Each action is specified as
       -- an Amazon Resource Number (ARN). Currently the only actions
       -- supported are publishing to an Amazon SNS topic and triggering an
       -- Auto Scaling policy.
-    , maAlarmArn                           :: Maybe ByteString
+    , maAlarmArn                           :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the alarm.
     , maAlarmConfigurationUpdatedTimestamp :: Maybe UTCTime
       -- ^ The time stamp of the last update to the alarm configuration.
-    , maAlarmDescription                   :: Maybe ByteString
+    , maAlarmDescription                   :: Maybe Text
       -- ^ The description for the alarm.
-    , maAlarmName                          :: Maybe ByteString
+    , maAlarmName                          :: Maybe Text
       -- ^ The name of the alarm.
-    , maComparisonOperator                 :: Maybe ByteString
+    , maComparisonOperator                 :: Maybe Text
       -- ^ The arithmetic operation to use when comparing the specified
       -- Statistic and Threshold. The specified Statistic value is used as
       -- the first operand.
@@ -260,17 +260,17 @@ data MetricAlarm = MetricAlarm
     , maEvaluationPeriods                  :: Maybe Integer
       -- ^ The number of periods over which data is compared to the
       -- specified threshold.
-    , maInsufficientDataActions            :: Maybe ByteString
+    , maInsufficientDataActions            :: Maybe Text
       -- ^ The list of actions to execute when this alarm transitions into
       -- an INSUFFICIENT_DATA state from any other state. Each action is
       -- specified as an Amazon Resource Number (ARN). Currently the only
       -- actions supported are publishing to an Amazon SNS topic or
       -- triggering an Auto Scaling policy.
-    , maMetricName                         :: Maybe ByteString
+    , maMetricName                         :: Maybe Text
       -- ^ The name of the alarm's metric.
-    , maNamespace                          :: Maybe ByteString
+    , maNamespace                          :: Maybe Text
       -- ^ The namespace of alarm's associated metric.
-    , maOKActions                          :: Maybe ByteString
+    , maOKActions                          :: Maybe Text
       -- ^ The list of actions to execute when this alarm transitions into
       -- an OK state from any other state. Each action is specified as an
       -- Amazon Resource Number (ARN). Currently the only actions
@@ -278,20 +278,20 @@ data MetricAlarm = MetricAlarm
       -- Auto Scaling policy.
     , maPeriod                             :: Maybe Integer
       -- ^ The period in seconds over which the statistic is applied.
-    , maStateReason                        :: Maybe ByteString
+    , maStateReason                        :: Maybe Text
       -- ^ A human-readable explanation for the alarm's state.
-    , maStateReasonData                    :: Maybe ByteString
+    , maStateReasonData                    :: Maybe Text
       -- ^ An explanation for the alarm's state in machine-readable JSON
       -- format
     , maStateUpdatedTimestamp              :: Maybe UTCTime
       -- ^ The time stamp of the last update to the alarm's state.
-    , maStateValue                         :: Maybe ByteString
+    , maStateValue                         :: Maybe Text
       -- ^ The state value for the alarm.
-    , maStatistic                          :: Maybe ByteString
+    , maStatistic                          :: Maybe Text
       -- ^ The statistic to apply to the alarm's associated metric.
     , maThreshold                          :: Maybe Double
       -- ^ The value against which the specified statistic is compared.
-    , maUnit                               :: Maybe ByteString
+    , maUnit                               :: Maybe Text
       -- ^ The unit of the alarm's associated metric.
     } deriving (Eq, Show, Generic)
 
@@ -310,7 +310,7 @@ data MetricDatum = MetricDatum
       -- ^ A list of dimensions associated with the metric. Note, when using
       -- the Dimensions value in a query, you need to append .member.N to
       -- it (e.g., Dimensions.member.N).
-    , mdMetricName      :: !ByteString
+    , mdMetricName      :: !Text
       -- ^ The name of the metric.
     , mdStatisticValues :: Maybe StatisticSet
       -- ^ A set of statistical values describing the metric.
@@ -318,7 +318,7 @@ data MetricDatum = MetricDatum
       -- ^ The time stamp used for the metric in ISO 8601 Universal
       -- Coordinated Time (UTC) format. If not specified, the default
       -- value is set to the time the metric data was received.
-    , mdUnit            :: Maybe ByteString
+    , mdUnit            :: Maybe Text
       -- ^ The unit of the metric.
     , mdValue           :: Maybe Double
       -- ^ The value for the metric.

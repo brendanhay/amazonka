@@ -67,6 +67,7 @@ module Network.AWS.CloudWatch
     ) where
 
 import Data.ByteString              (ByteString)
+import Data.Text                    (Text)
 import Data.Time
 import Network.AWS.CloudWatch.Types
 import Network.AWS.Internal
@@ -87,7 +88,7 @@ qry meth act q = queryAppend (queryRequest cloudWatchService meth "/" q)
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html>
 data DeleteAlarms = DeleteAlarms
-    { daAlarmNames :: Members ByteString
+    { daAlarmNames :: Members Text
       -- ^ A list of alarms to be deleted.
     } deriving (Eq, Show, Generic)
 
@@ -99,7 +100,7 @@ instance Rq DeleteAlarms where
     request = qry GET "DeleteAlarms"
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
-    { darResponseMetadata :: !ByteString
+    { darResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteAlarmsResponse where
@@ -112,15 +113,15 @@ instance IsXML DeleteAlarmsResponse where
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html>
 data DescribeAlarmHistory = DescribeAlarmHistory
-    { dahAlarmName       :: Maybe ByteString
+    { dahAlarmName       :: Maybe Text
       -- ^ The name of the alarm.
     , dahEndDate         :: Maybe UTCTime
       -- ^ The ending date to retrieve alarm history.
-    , dahHistoryItemType :: Maybe ByteString
+    , dahHistoryItemType :: Maybe Text
       -- ^ The type of alarm histories to retrieve.
     , dahMaxRecords      :: Maybe Integer
       -- ^ The maximum number of alarm history records to retrieve.
-    , dahNextToken       :: Maybe ByteString
+    , dahNextToken       :: Maybe Text
       -- ^ The token returned by a previous call to indicate that there is
       -- more data available.
     , dahStartDate       :: Maybe UTCTime
@@ -135,7 +136,7 @@ instance Rq DescribeAlarmHistory where
     request = qry GET "DescribeAlarmHistory"
 
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
-    { dahrResponseMetadata :: !ByteString
+    { dahrResponseMetadata :: !Text
     , dahrDescribeAlarmHistoryResult :: !DescribeAlarmHistoryResult
     } deriving (Eq, Show, Generic)
 
@@ -148,19 +149,19 @@ instance IsXML DescribeAlarmHistoryResponse where
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html>
 data DescribeAlarms = DescribeAlarms
-    { daActionPrefix    :: Maybe ByteString
+    { daActionPrefix    :: Maybe Text
       -- ^ The action name prefix.
-    , daAlarmNamePrefix :: Maybe ByteString
+    , daAlarmNamePrefix :: Maybe Text
       -- ^ The alarm name prefix. AlarmNames cannot be specified if this
       -- parameter is specified.
-    , dbAlarmNames      :: Members ByteString
+    , dbAlarmNames      :: Members Text
       -- ^ A list of alarm names to retrieve information for.
     , dbMaxRecords      :: Maybe Integer
       -- ^ The maximum number of alarm descriptions to retrieve.
-    , dbNextToken       :: Maybe ByteString
+    , dbNextToken       :: Maybe Text
       -- ^ The token returned by a previous call to indicate that there is
       -- more data available.
-    , dbStateValue      :: Maybe ByteString
+    , dbStateValue      :: Maybe Text
       -- ^ The state value to be used in matching alarms.
     } deriving (Eq, Show, Generic)
 
@@ -172,7 +173,7 @@ instance Rq DescribeAlarms where
     request = qry GET "DescribeAlarms"
 
 data DescribeAlarmsResponse = DescribeAlarmsResponse
-    { dasResponseMetadata :: !ByteString
+    { dasResponseMetadata :: !Text
     , dasDescribeAlarmsResult :: !DescribeAlarmsResult
     } deriving (Eq, Show, Generic)
 
@@ -186,15 +187,15 @@ instance IsXML DescribeAlarmsResponse where
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     { dafmDimensions :: Members Dimension
       -- ^ The list of dimensions associated with the metric.
-    , dafmMetricName :: !ByteString
+    , dafmMetricName :: !Text
       -- ^ The name of the metric.
-    , dafmNamespace  :: !ByteString
+    , dafmNamespace  :: !Text
       -- ^ The namespace of the metric.
     , dafmPeriod     :: Maybe Integer
       -- ^ The period in seconds over which the statistic is applied.
-    , dafmStatistic  :: Maybe ByteString
+    , dafmStatistic  :: Maybe Text
       -- ^ The statistic for the metric.
-    , dafmUnit       :: Maybe ByteString
+    , dafmUnit       :: Maybe Text
       -- ^ The unit for the metric.
     } deriving (Eq, Show, Generic)
 
@@ -206,7 +207,7 @@ instance Rq DescribeAlarmsForMetric where
     request = qry GET "DescribeAlarmsForMetric"
 
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
-    { dafmrResponseMetadata :: !ByteString
+    { dafmrResponseMetadata :: !Text
     , dafmrDescribeAlarmsForMetricResult :: !DescribeAlarmsForMetricResult
     } deriving (Eq, Show, Generic)
 
@@ -219,7 +220,7 @@ instance IsXML DescribeAlarmsForMetricResponse where
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.html>
 data DisableAlarmActions = DisableAlarmActions
-    { daaAlarmNames :: Members ByteString
+    { daaAlarmNames :: Members Text
       -- ^ The names of the alarms to disable actions for.
     } deriving (Eq, Show, Generic)
 
@@ -231,7 +232,7 @@ instance Rq DisableAlarmActions where
     request = qry GET "DisableAlarmActions"
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
-    { daarResponseMetadata :: !ByteString
+    { daarResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DisableAlarmActionsResponse where
@@ -241,7 +242,7 @@ instance IsXML DisableAlarmActionsResponse where
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.html>
 data EnableAlarmActions = EnableAlarmActions
-    { eaaAlarmNames :: Members ByteString
+    { eaaAlarmNames :: Members Text
       -- ^ The names of the alarms to enable actions for.
     } deriving (Eq, Show, Generic)
 
@@ -253,7 +254,7 @@ instance Rq EnableAlarmActions where
     request = qry GET "EnableAlarmActions"
 
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
-    { eaarResponseMetadata :: !ByteString
+    { eaarResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML EnableAlarmActionsResponse where
@@ -288,9 +289,9 @@ data GetMetricStatistics = GetMetricStatistics
       -- ^ The time stamp to use for determining the last datapoint to
       -- return. The value specified is exclusive; results will include
       -- datapoints up to the time stamp specified.
-    , gmsMetricName :: !ByteString
+    , gmsMetricName :: !Text
       -- ^ The name of the metric, with or without spaces.
-    , gmsNamespace  :: !ByteString
+    , gmsNamespace  :: !Text
       -- ^ The namespace of the metric, with or without spaces.
     , gmsPeriod     :: !Integer
       -- ^ The granularity, in seconds, of the returned datapoints. Period
@@ -300,11 +301,11 @@ data GetMetricStatistics = GetMetricStatistics
       -- ^ The time stamp to use for determining the first datapoint to
       -- return. The value specified is inclusive; results include
       -- datapoints with the time stamp specified.
-    , gmsStatistics :: Members ByteString
+    , gmsStatistics :: Members Text
       -- ^ The metric statistics to return. For information about specific
       -- statistics returned by GetMetricStatistics, go to Statistics in
       -- the Amazon CloudWatch Developer Guide.
-    , gmsUnit       :: Maybe ByteString
+    , gmsUnit       :: Maybe Text
       -- ^ The unit for the metric.
     } deriving (Eq, Show, Generic)
 
@@ -316,7 +317,7 @@ instance Rq GetMetricStatistics where
     request = qry GET "GetMetricStatistics"
 
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
-    { gmsrResponseMetadata :: !ByteString
+    { gmsrResponseMetadata :: !Text
     , gmsrGetMetricStatisticsResult :: !GetMetricStatisticsResult
     } deriving (Eq, Show, Generic)
 
@@ -336,11 +337,11 @@ instance IsXML GetMetricStatisticsResponse where
 data ListMetrics = ListMetrics
     { lmDimensions :: Members DimensionFilter
       -- ^ A list of dimensions to filter against.
-    , lmMetricName :: Maybe ByteString
+    , lmMetricName :: Maybe Text
       -- ^ The name of the metric to filter against.
-    , lmNamespace  :: Maybe ByteString
+    , lmNamespace  :: Maybe Text
       -- ^ The namespace to filter against.
-    , lmNextToken  :: Maybe ByteString
+    , lmNextToken  :: Maybe Text
       -- ^ The token returned by a previous call to indicate that there is
       -- more data available.
     } deriving (Eq, Show, Generic)
@@ -353,7 +354,7 @@ instance Rq ListMetrics where
     request = qry GET "ListMetrics"
 
 data ListMetricsResponse = ListMetricsResponse
-    { lmrResponseMetadata :: !ByteString
+    { lmrResponseMetadata :: !Text
     , lmrListMetricsResult :: !ListMetricsResult
     } deriving (Eq, Show, Generic)
 
@@ -373,18 +374,18 @@ data PutMetricAlarm = PutMetricAlarm
     { pmaActionsEnabled          :: Maybe Bool
       -- ^ Indicates whether or not actions should be executed during any
       -- changes to the alarm's state.
-    , pmaAlarmActions            :: Members ByteString
+    , pmaAlarmActions            :: Members Text
       -- ^ The list of actions to execute when this alarm transitions into
       -- an ALARM state from any other state. Each action is specified as
       -- an Amazon Resource Number (ARN). Currently the only action
       -- supported is publishing to an Amazon SNS topic or an Amazon Auto
       -- Scaling policy.
-    , pmaAlarmDescription        :: Maybe ByteString
+    , pmaAlarmDescription        :: Maybe Text
       -- ^ The description for the alarm.
-    , pmaAlarmName               :: !ByteString
+    , pmaAlarmName               :: !Text
       -- ^ The descriptive name for the alarm. This name must be unique
       -- within the user's AWS account
-    , pmaComparisonOperator      :: !ByteString
+    , pmaComparisonOperator      :: !Text
       -- ^ The arithmetic operation to use when comparing the specified
       -- Statistic and Threshold. The specified Statistic value is used as
       -- the first operand.
@@ -393,17 +394,17 @@ data PutMetricAlarm = PutMetricAlarm
     , pmaEvaluationPeriods       :: !Integer
       -- ^ The number of periods over which data is compared to the
       -- specified threshold.
-    , pmaInsufficientDataActions :: Members ByteString
+    , pmaInsufficientDataActions :: Members Text
       -- ^ The list of actions to execute when this alarm transitions into
       -- an INSUFFICIENT_DATA state from any other state. Each action is
       -- specified as an Amazon Resource Number (ARN). Currently the only
       -- action supported is publishing to an Amazon SNS topic or an
       -- Amazon Auto Scaling policy.
-    , pmaMetricName              :: !ByteString
+    , pmaMetricName              :: !Text
       -- ^ The name for the alarm's associated metric.
-    , pmaNamespace               :: !ByteString
+    , pmaNamespace               :: !Text
       -- ^ The namespace for the alarm's associated metric.
-    , pmaOKActions               :: Members ByteString
+    , pmaOKActions               :: Members Text
       -- ^ The list of actions to execute when this alarm transitions into
       -- an OK state from any other state. Each action is specified as an
       -- Amazon Resource Number (ARN). Currently the only action supported
@@ -412,11 +413,11 @@ data PutMetricAlarm = PutMetricAlarm
     , pmaPeriod                  :: !Integer
       -- ^ The period in seconds over which the specified statistic is
       -- applied.
-    , pmaStatistic               :: !ByteString
+    , pmaStatistic               :: !Text
       -- ^ The statistic to apply to the alarm's associated metric.
     , pmaThreshold               :: !Double
       -- ^ The value against which the specified statistic is compared.
-    , pmaUnit                    :: Maybe ByteString
+    , pmaUnit                    :: Maybe Text
       -- ^ The unit for the alarm's associated metric.
     } deriving (Eq, Show, Generic)
 
@@ -428,7 +429,7 @@ instance Rq PutMetricAlarm where
     request = qry GET "PutMetricAlarm"
 
 data PutMetricAlarmResponse = PutMetricAlarmResponse
-    { pmarResponseMetadata :: !ByteString
+    { pmarResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML PutMetricAlarmResponse where
@@ -453,7 +454,7 @@ instance IsXML PutMetricAlarmResponse where
 data PutMetricData = PutMetricData
     { pmdMetricData :: Members MetricDatum
       -- ^ A list of data describing the metric.
-    , pmdNamespace  :: !ByteString
+    , pmdNamespace  :: !Text
       -- ^ The namespace for the metric data.
     } deriving (Eq, Show, Generic)
 
@@ -465,7 +466,7 @@ instance Rq PutMetricData where
     request = qry GET "PutMetricData"
 
 data PutMetricDataResponse = PutMetricDataResponse
-    { pmdrResponseMetadata :: !ByteString
+    { pmdrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML PutMetricDataResponse where
@@ -478,17 +479,17 @@ instance IsXML PutMetricDataResponse where
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html>
 data SetAlarmState = SetAlarmState
-    { sasAlarmName       :: !ByteString
+    { sasAlarmName       :: !Text
       -- ^ The descriptive name for the alarm. This name must be unique
       -- within the user's AWS account. The maximum length is 255
       -- characters.
-    , sasStateReason     :: !ByteString
+    , sasStateReason     :: !Text
       -- ^ The reason that this alarm is set to this specific state (in
       -- human-readable text format)
-    , sasStateReasonData :: Maybe ByteString
+    , sasStateReasonData :: Maybe Text
       -- ^ The reason that this alarm is set to this specific state (in
       -- machine-readable JSON format)
-    , sasStateValue      :: !ByteString
+    , sasStateValue      :: !Text
       -- ^ The value of the state.
     } deriving (Eq, Show, Generic)
 
@@ -500,7 +501,7 @@ instance Rq SetAlarmState where
     request = qry GET "SetAlarmState"
 
 data SetAlarmStateResponse = SetAlarmStateResponse
-    { sasrResponseMetadata :: !ByteString
+    { sasrResponseMetadata :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML SetAlarmStateResponse where

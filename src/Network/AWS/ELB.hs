@@ -1,8 +1,6 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.ELB
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,96 +18,112 @@ module Network.AWS.ELB
    (
    -- * Actions
    -- ** ApplySecurityGroupsToLoadBalancer
-     ApplySecurityGroupsToLoadBalancer       (..)
+     ApplySecurityGroupsToLoadBalancer               (..)
+   , ApplySecurityGroupsToLoadBalancerResponse       (..)
 
    -- ** AttachLoadBalancerToSubnets
-   , AttachLoadBalancerToSubnets             (..)
+   , AttachLoadBalancerToSubnets                     (..)
+   , AttachLoadBalancerToSubnetsResponse             (..)
 
    -- ** ConfigureHealthCheck
-   , ConfigureHealthCheck                    (..)
+   , ConfigureHealthCheck                            (..)
+   , ConfigureHealthCheckResponse                    (..)
 
    -- ** CreateAppCookieStickinessPolicy
-   , CreateAppCookieStickinessPolicy         (..)
+   , CreateAppCookieStickinessPolicy                 (..)
+   , CreateAppCookieStickinessPolicyResponse         (..)
 
    -- ** CreatelbCookieStickinessPolicy
-   , CreatelbCookieStickinessPolicy          (..)
+   , CreatelbCookieStickinessPolicy                  (..)
+   , CreatelbCookieStickinessPolicyResponse          (..)
 
    -- ** CreateLoadBalancer
-   , CreateLoadBalancer                      (..)
+   , CreateLoadBalancer                              (..)
+   , CreateLoadBalancerResponse                      (..)
 
    -- ** CreateLoadBalancerListeners
-   , CreateLoadBalancerListeners             (..)
+   , CreateLoadBalancerListeners                     (..)
+   , CreateLoadBalancerListenersResponse             (..)
 
    -- ** CreateLoadBalancerPolicy
-   , CreateLoadBalancerPolicy                (..)
+   , CreateLoadBalancerPolicy                        (..)
+   , CreateLoadBalancerPolicyResponse                (..)
 
    -- ** DeleteLoadBalancer
-   , DeleteLoadBalancer                      (..)
+   , DeleteLoadBalancer                              (..)
+   , DeleteLoadBalancerResponse                      (..)
 
    -- ** DeleteLoadBalancerListeners
-   , DeleteLoadBalancerListeners             (..)
+   , DeleteLoadBalancerListeners                     (..)
+   , DeleteLoadBalancerListenersResponse             (..)
 
    -- ** DeleteLoadBalancerPolicy
-   , DeleteLoadBalancerPolicy                (..)
+   , DeleteLoadBalancerPolicy                        (..)
+   , DeleteLoadBalancerPolicyResponse                (..)
 
    -- ** DeregisterInstancesFromLoadBalancer
-   , DeregisterInstancesFromLoadBalancer     (..)
+   , DeregisterInstancesFromLoadBalancer             (..)
+   , DeregisterInstancesFromLoadBalancerResponse     (..)
 
    -- ** DescribeInstanceHealth
-   , DescribeInstanceHealth                  (..)
+   , DescribeInstanceHealth                          (..)
+   , DescribeInstanceHealthResponse                  (..)
 
    -- ** DescribeLoadBalancerPolicies
-   , DescribeLoadBalancerPolicies            (..)
+   , DescribeLoadBalancerPolicies                    (..)
+   , DescribeLoadBalancerPoliciesResponse            (..)
 
    -- ** DescribeLoadBalancerPolicyTypes
-   , DescribeLoadBalancerPolicyTypes         (..)
+   , DescribeLoadBalancerPolicyTypes                 (..)
+   , DescribeLoadBalancerPolicyTypesResponse         (..)
 
    -- ** DescribeLoadBalancers
-   , DescribeLoadBalancers                   (..)
+   , DescribeLoadBalancers                           (..)
+   , DescribeLoadBalancersResponse                   (..)
 
    -- ** DetachLoadBalancerFromSubnets
-   , DetachLoadBalancerFromSubnets           (..)
+   , DetachLoadBalancerFromSubnets                   (..)
+   , DetachLoadBalancerFromSubnetsResponse           (..)
 
    -- ** DisableAvailabilityZonesForLoadBalancer
-   , DisableAvailabilityZonesForLoadBalancer (..)
+   , DisableAvailabilityZonesForLoadBalancer         (..)
+   , DisableAvailabilityZonesForLoadBalancerResponse (..)
 
    -- ** EnableAvailabilityZonesForLoadBalancer
-   , EnableAvailabilityZonesForLoadBalancer  (..)
+   , EnableAvailabilityZonesForLoadBalancer          (..)
+   , EnableAvailabilityZonesForLoadBalancerResponse  (..)
 
    -- ** RegisterInstancesWithLoadBalancer
-   , RegisterInstancesWithLoadBalancer       (..)
+   , RegisterInstancesWithLoadBalancer               (..)
+   , RegisterInstancesWithLoadBalancerResponse       (..)
 
    -- ** SetLoadBalancerListenerSSLCertificate
-   , SetLoadBalancerListenerSSLCertificate   (..)
+   , SetLoadBalancerListenerSSLCertificate           (..)
+   , SetLoadBalancerListenerSSLCertificateResponse   (..)
 
    -- ** SetLoadBalancerPoliciesForBackendServer
-   , SetLoadBalancerPoliciesForBackendServer (..)
+   , SetLoadBalancerPoliciesForBackendServer         (..)
+   , SetLoadBalancerPoliciesForBackendServerResponse (..)
 
    -- ** SetLoadBalancerPoliciesOfListener
-   , SetLoadBalancerPoliciesOfListener       (..)
+   , SetLoadBalancerPoliciesOfListener               (..)
+   , SetLoadBalancerPoliciesOfListenerResponse       (..)
 
    -- * Data Types
    , module Network.AWS.ELB.Types
-   , Rs                                      (..)
    ) where
 
 import Data.ByteString       (ByteString)
-import Data.Monoid
-import Data.Time
+import Data.Text             (Text)
 import Network.AWS.ELB.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))
 
-data ELB
-
-instance AWSService ELB where
-    service _ = awsService "elb" elbVersion SigningVersion4
-
-req :: IsQuery a => Method -> ByteString -> a -> RawRequest ELB b
-req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
-    { rqAction = Just act
-    , rqQuery  = toQuery qry
-    }
+qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
+qry meth act q = queryAppend (queryRequest elbService meth "/" q)
+    [ ("Action",  act)
+    , ("Version", sPack elbVersion)
+    ]
 
 --
 -- Actions
@@ -121,10 +135,10 @@ req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html>
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
-    { asgtlbLoadBalancerName :: !ByteString
+    { asgtlbLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
-    , asgtlbSecurityGroups   :: Members ByteString
+    , asgtlbSecurityGroups   :: Members Text
       -- ^ A list of security group IDs to associate with your load balancer
       -- in VPC. The security group IDs must be provided as the ID and not
       -- the security group name (For example, sg-1234).
@@ -135,11 +149,13 @@ instance IsXML ApplySecurityGroupsToLoadBalancer where
 
 instance IsQuery ApplySecurityGroupsToLoadBalancer
 
-instance AWSRequest ELB ApplySecurityGroupsToLoadBalancer ApplySecurityGroupsToLoadBalancerResponse where
-    request = req GET "ApplySecurityGroupsToLoadBalancer"
+instance Rq ApplySecurityGroupsToLoadBalancer where
+    type Er ApplySecurityGroupsToLoadBalancer = ELBError
+    type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
+    request = qry GET "ApplySecurityGroupsToLoadBalancer"
 
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
-    { asgtlbrResponseMetadata :: !ByteString
+    { asgtlbrResponseMetadata :: !Text
     , asgtlbrApplySecurityGroupsToLoadBalancerResult :: !ApplySecurityGroupsToLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
@@ -152,10 +168,10 @@ instance IsXML ApplySecurityGroupsToLoadBalancerResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnets.html>
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
-    { albtsLoadBalancerName :: !ByteString
+    { albtsLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
-    , albtsSubnets          :: Members ByteString
+    , albtsSubnets          :: Members Text
       -- ^ A list of subnet IDs to add for the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -164,11 +180,13 @@ instance IsXML AttachLoadBalancerToSubnets where
 
 instance IsQuery AttachLoadBalancerToSubnets
 
-instance AWSRequest ELB AttachLoadBalancerToSubnets AttachLoadBalancerToSubnetsResponse where
-    request = req GET "AttachLoadBalancerToSubnets"
+instance Rq AttachLoadBalancerToSubnets where
+    type Er AttachLoadBalancerToSubnets = ELBError
+    type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse
+    request = qry GET "AttachLoadBalancerToSubnets"
 
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
-    { albtsrResponseMetadata :: !ByteString
+    { albtsrResponseMetadata :: !Text
     , albtsrAttachLoadBalancerToSubnetsResult :: !AttachLoadBalancerToSubnetsResult
     } deriving (Eq, Show, Generic)
 
@@ -182,7 +200,7 @@ data ConfigureHealthCheck = ConfigureHealthCheck
     { chcHealthCheck      :: !HealthCheck
       -- ^ A structure containing the configuration information for the new
       -- healthcheck.
-    , chcLoadBalancerName :: !ByteString
+    , chcLoadBalancerName :: !Text
       -- ^ The mnemonic name associated with the load balancer. This name
       -- must be unique within the client AWS account.
     } deriving (Eq, Show, Generic)
@@ -192,11 +210,13 @@ instance IsXML ConfigureHealthCheck where
 
 instance IsQuery ConfigureHealthCheck
 
-instance AWSRequest ELB ConfigureHealthCheck ConfigureHealthCheckResponse where
-    request = req GET "ConfigureHealthCheck"
+instance Rq ConfigureHealthCheck where
+    type Er ConfigureHealthCheck = ELBError
+    type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
+    request = qry GET "ConfigureHealthCheck"
 
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
-    { chcrResponseMetadata :: !ByteString
+    { chcrResponseMetadata :: !Text
     , chcrConfigureHealthCheckResult :: !ConfigureHealthCheckResult
     } deriving (Eq, Show, Generic)
 
@@ -222,12 +242,12 @@ instance IsXML ConfigureHealthCheckResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateAppCookieStickinessPolicy.html>
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
-    { cacspCookieName       :: !ByteString
+    { cacspCookieName       :: !Text
       -- ^ Name of the application cookie used for stickiness.
-    , cacspLoadBalancerName :: !ByteString
+    , cacspLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
-    , cacspPolicyName       :: !ByteString
+    , cacspPolicyName       :: !Text
       -- ^ The name of the policy being created. The name must be unique
       -- within the set of policies for this load balancer.
     } deriving (Eq, Show, Generic)
@@ -237,11 +257,13 @@ instance IsXML CreateAppCookieStickinessPolicy where
 
 instance IsQuery CreateAppCookieStickinessPolicy
 
-instance AWSRequest ELB CreateAppCookieStickinessPolicy CreateAppCookieStickinessPolicyResponse where
-    request = req GET "CreateAppCookieStickinessPolicy"
+instance Rq CreateAppCookieStickinessPolicy where
+    type Er CreateAppCookieStickinessPolicy = ELBError
+    type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse
+    request = qry GET "CreateAppCookieStickinessPolicy"
 
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
-    { cacsprResponseMetadata :: !ByteString
+    { cacsprResponseMetadata :: !Text
     , cacsprCreateAppCookieStickinessPolicyResult :: !CreateAppCookieStickinessPolicyResult
     } deriving (Eq, Show, Generic)
 
@@ -271,10 +293,10 @@ data CreatelbCookieStickinessPolicy = CreatelbCookieStickinessPolicy
       -- considered stale. Not specifying this parameter indicates that
       -- the sticky session will last for the duration of the browser
       -- session.
-    , clbcspLoadBalancerName       :: !ByteString
+    , clbcspLoadBalancerName       :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
-    , clbcspPolicyName             :: !ByteString
+    , clbcspPolicyName             :: !Text
       -- ^ The name of the policy being created. The name must be unique
       -- within the set of policies for this load balancer.
     } deriving (Eq, Show, Generic)
@@ -284,11 +306,13 @@ instance IsXML CreatelbCookieStickinessPolicy where
 
 instance IsQuery CreatelbCookieStickinessPolicy
 
-instance AWSRequest ELB CreatelbCookieStickinessPolicy CreatelbCookieStickinessPolicyResponse where
-    request = req GET "CreatelbCookieStickinessPolicy"
+instance Rq CreatelbCookieStickinessPolicy where
+    type Er CreatelbCookieStickinessPolicy = ELBError
+    type Rs CreatelbCookieStickinessPolicy = CreatelbCookieStickinessPolicyResponse
+    request = qry GET "CreatelbCookieStickinessPolicy"
 
 data CreatelbCookieStickinessPolicyResponse = CreatelbCookieStickinessPolicyResponse
-    { clbcsprResponseMetadata :: !ByteString
+    { clbcsprResponseMetadata :: !Text
     , clbcsprCreatelbCookieStickinessPolicyResult :: !CreatelbCookieStickinessPolicyResult
     } deriving (Eq, Show, Generic)
 
@@ -315,20 +339,20 @@ instance IsXML CreatelbCookieStickinessPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html>
 data CreateLoadBalancer = CreateLoadBalancer
-    { clbAvailabilityZones :: Members ByteString
+    { clbAvailabilityZones :: Members Text
       -- ^ A list of Availability Zones.
     , clbListeners         :: Members Listener
       -- ^ A list of the following tuples: LoadBalancerPort, InstancePort,
       -- and Protocol.
-    , clbLoadBalancerName  :: !ByteString
+    , clbLoadBalancerName  :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within your set of load balancers.
-    , clbScheme            :: Maybe ByteString
+    , clbScheme            :: Maybe Text
       -- ^ The type of a load balancer.
-    , clbSecurityGroups    :: Members ByteString
+    , clbSecurityGroups    :: Members Text
       -- ^ The security groups assigned to your load balancer within your
       -- VPC.
-    , clbSubnets           :: Members ByteString
+    , clbSubnets           :: Members Text
       -- ^ A list of subnet IDs in your VPC to attach to your load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -337,11 +361,13 @@ instance IsXML CreateLoadBalancer where
 
 instance IsQuery CreateLoadBalancer
 
-instance AWSRequest ELB CreateLoadBalancer CreateLoadBalancerResponse where
-    request = req GET "CreateLoadBalancer"
+instance Rq CreateLoadBalancer where
+    type Er CreateLoadBalancer = ELBError
+    type Rs CreateLoadBalancer = CreateLoadBalancerResponse
+    request = qry GET "CreateLoadBalancer"
 
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse
-    { clbrResponseMetadata :: !ByteString
+    { clbrResponseMetadata :: !Text
     , clbrCreateLoadBalancerResult :: !CreateLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
@@ -358,7 +384,7 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners
     { clblListeners        :: Members Listener
       -- ^ A list of LoadBalancerPort, InstancePort, Protocol, and
       -- SSLCertificateId items.
-    , clblLoadBalancerName :: !ByteString
+    , clblLoadBalancerName :: !Text
       -- ^ The name of the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -367,11 +393,13 @@ instance IsXML CreateLoadBalancerListeners where
 
 instance IsQuery CreateLoadBalancerListeners
 
-instance AWSRequest ELB CreateLoadBalancerListeners CreateLoadBalancerListenersResponse where
-    request = req GET "CreateLoadBalancerListeners"
+instance Rq CreateLoadBalancerListeners where
+    type Er CreateLoadBalancerListeners = ELBError
+    type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse
+    request = qry GET "CreateLoadBalancerListeners"
 
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
-    { clblrResponseMetadata :: !ByteString
+    { clblrResponseMetadata :: !Text
     , clblrCreateLoadBalancerListenersResult :: !CreateLoadBalancerListenersResult
     } deriving (Eq, Show, Generic)
 
@@ -385,16 +413,16 @@ instance IsXML CreateLoadBalancerListenersResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerPolicy.html>
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
-    { clbpLoadBalancerName :: !ByteString
+    { clbpLoadBalancerName :: !Text
       -- ^ The name associated with the LoadBalancer for which the policy is
       -- being created. This name must be unique within the client AWS
       -- account.
     , clbpPolicyAttributes :: Members PolicyAttribute
       -- ^ A list of attributes associated with the policy being created.
-    , clbpPolicyName       :: !ByteString
+    , clbpPolicyName       :: !Text
       -- ^ The name of the load balancer policy being created. The name must
       -- be unique within the set of policies for this load balancer.
-    , clbpPolicyTypeName   :: !ByteString
+    , clbpPolicyTypeName   :: !Text
       -- ^ The name of the base policy type being used to create this
       -- policy. To get the list of policy types, use the
       -- DescribeLoadBalancerPolicyTypes action.
@@ -405,11 +433,13 @@ instance IsXML CreateLoadBalancerPolicy where
 
 instance IsQuery CreateLoadBalancerPolicy
 
-instance AWSRequest ELB CreateLoadBalancerPolicy CreateLoadBalancerPolicyResponse where
-    request = req GET "CreateLoadBalancerPolicy"
+instance Rq CreateLoadBalancerPolicy where
+    type Er CreateLoadBalancerPolicy = ELBError
+    type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
+    request = qry GET "CreateLoadBalancerPolicy"
 
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
-    { clbprResponseMetadata :: !ByteString
+    { clbprResponseMetadata :: !Text
     , clbprCreateLoadBalancerPolicyResult :: !CreateLoadBalancerPolicyResult
     } deriving (Eq, Show, Generic)
 
@@ -430,7 +460,7 @@ instance IsXML CreateLoadBalancerPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html>
 data DeleteLoadBalancer = DeleteLoadBalancer
-    { dlbLoadBalancerName :: !ByteString
+    { dlbLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
     } deriving (Eq, Show, Generic)
@@ -440,11 +470,13 @@ instance IsXML DeleteLoadBalancer where
 
 instance IsQuery DeleteLoadBalancer
 
-instance AWSRequest ELB DeleteLoadBalancer DeleteLoadBalancerResponse where
-    request = req GET "DeleteLoadBalancer"
+instance Rq DeleteLoadBalancer where
+    type Er DeleteLoadBalancer = ELBError
+    type Rs DeleteLoadBalancer = DeleteLoadBalancerResponse
+    request = qry GET "DeleteLoadBalancer"
 
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
-    { dlbrResponseMetadata :: !ByteString
+    { dlbrResponseMetadata :: !Text
     , dlbrDeleteLoadBalancerResult :: !DeleteLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
@@ -455,7 +487,7 @@ instance IsXML DeleteLoadBalancerResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
-    { dlblLoadBalancerName  :: !ByteString
+    { dlblLoadBalancerName  :: !Text
       -- ^ The mnemonic name associated with the load balancer.
     , dlblLoadBalancerPorts :: Members Integer
       -- ^ The client port number(s) of the load balancer listener(s) to be
@@ -467,11 +499,13 @@ instance IsXML DeleteLoadBalancerListeners where
 
 instance IsQuery DeleteLoadBalancerListeners
 
-instance AWSRequest ELB DeleteLoadBalancerListeners DeleteLoadBalancerListenersResponse where
-    request = req GET "DeleteLoadBalancerListeners"
+instance Rq DeleteLoadBalancerListeners where
+    type Er DeleteLoadBalancerListeners = ELBError
+    type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
+    request = qry GET "DeleteLoadBalancerListeners"
 
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
-    { dlblrResponseMetadata :: !ByteString
+    { dlblrResponseMetadata :: !Text
     , dlblrDeleteLoadBalancerListenersResult :: !DeleteLoadBalancerListenersResult
     } deriving (Eq, Show, Generic)
 
@@ -483,10 +517,10 @@ instance IsXML DeleteLoadBalancerListenersResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicy.html>
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
-    { dlbpLoadBalancerName :: !ByteString
+    { dlbpLoadBalancerName :: !Text
       -- ^ The mnemonic name associated with the load balancer. The name
       -- must be unique within your AWS account.
-    , dlbpPolicyName       :: !ByteString
+    , dlbpPolicyName       :: !Text
       -- ^ The mnemonic name for the policy being deleted.
     } deriving (Eq, Show, Generic)
 
@@ -495,11 +529,13 @@ instance IsXML DeleteLoadBalancerPolicy where
 
 instance IsQuery DeleteLoadBalancerPolicy
 
-instance AWSRequest ELB DeleteLoadBalancerPolicy DeleteLoadBalancerPolicyResponse where
-    request = req GET "DeleteLoadBalancerPolicy"
+instance Rq DeleteLoadBalancerPolicy where
+    type Er DeleteLoadBalancerPolicy = ELBError
+    type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
+    request = qry GET "DeleteLoadBalancerPolicy"
 
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
-    { dlbprResponseMetadata :: !ByteString
+    { dlbprResponseMetadata :: !Text
     , dlbprDeleteLoadBalancerPolicyResult :: !DeleteLoadBalancerPolicyResult
     } deriving (Eq, Show, Generic)
 
@@ -516,7 +552,7 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
     { diflbInstances        :: Members Instance
       -- ^ A list of EC2 instance IDs consisting of all instances to be
       -- deregistered.
-    , diflbLoadBalancerName :: !ByteString
+    , diflbLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
     } deriving (Eq, Show, Generic)
@@ -526,11 +562,13 @@ instance IsXML DeregisterInstancesFromLoadBalancer where
 
 instance IsQuery DeregisterInstancesFromLoadBalancer
 
-instance AWSRequest ELB DeregisterInstancesFromLoadBalancer DeregisterInstancesFromLoadBalancerResponse where
-    request = req GET "DeregisterInstancesFromLoadBalancer"
+instance Rq DeregisterInstancesFromLoadBalancer where
+    type Er DeregisterInstancesFromLoadBalancer = ELBError
+    type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse
+    request = qry GET "DeregisterInstancesFromLoadBalancer"
 
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
-    { diflbrResponseMetadata :: !ByteString
+    { diflbrResponseMetadata :: !Text
     , diflbrDeregisterInstancesFromLoadBalancerResult :: !DeregisterInstancesFromLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
@@ -548,7 +586,7 @@ instance IsXML DeregisterInstancesFromLoadBalancerResponse where
 data DescribeInstanceHealth = DescribeInstanceHealth
     { dihInstances        :: Members Instance
       -- ^ A list of instance IDs whose states are being queried.
-    , dihLoadBalancerName :: !ByteString
+    , dihLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
     } deriving (Eq, Show, Generic)
@@ -558,11 +596,13 @@ instance IsXML DescribeInstanceHealth where
 
 instance IsQuery DescribeInstanceHealth
 
-instance AWSRequest ELB DescribeInstanceHealth DescribeInstanceHealthResponse where
-    request = req GET "DescribeInstanceHealth"
+instance Rq DescribeInstanceHealth where
+    type Er DescribeInstanceHealth = ELBError
+    type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
+    request = qry GET "DescribeInstanceHealth"
 
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
-    { dihrResponseMetadata :: !ByteString
+    { dihrResponseMetadata :: !Text
     , dihrDescribeInstanceHealthResult :: !DescribeInstanceHealthResult
     } deriving (Eq, Show, Generic)
 
@@ -579,12 +619,12 @@ instance IsXML DescribeInstanceHealthResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicies.html>
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
-    { dlbqLoadBalancerName :: Maybe ByteString
+    { dlbqLoadBalancerName :: Maybe Text
       -- ^ The mnemonic name associated with the load balancer. If no name
       -- is specified, the operation returns the attributes of either all
       -- the sample policies pre-defined by Elastic Load Balancing or the
       -- specified sample polices.
-    , dlbqPolicyNames      :: Members ByteString
+    , dlbqPolicyNames      :: Members Text
       -- ^ The names of LoadBalancer policies you've created or Elastic Load
       -- Balancing sample policy names.
     } deriving (Eq, Show, Generic)
@@ -594,11 +634,13 @@ instance IsXML DescribeLoadBalancerPolicies where
 
 instance IsQuery DescribeLoadBalancerPolicies
 
-instance AWSRequest ELB DescribeLoadBalancerPolicies DescribeLoadBalancerPoliciesResponse where
-    request = req GET "DescribeLoadBalancerPolicies"
+instance Rq DescribeLoadBalancerPolicies where
+    type Er DescribeLoadBalancerPolicies = ELBError
+    type Rs DescribeLoadBalancerPolicies = DescribeLoadBalancerPoliciesResponse
+    request = qry GET "DescribeLoadBalancerPolicies"
 
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
-    { dlbpsResponseMetadata :: !ByteString
+    { dlbpsResponseMetadata :: !Text
     , dlbpsDescribeLoadBalancerPoliciesResult :: !DescribeLoadBalancerPoliciesResult
     } deriving (Eq, Show, Generic)
 
@@ -612,7 +654,7 @@ instance IsXML DescribeLoadBalancerPoliciesResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html>
 data DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
-    { dlbptPolicyTypeNames :: Members ByteString
+    { dlbptPolicyTypeNames :: Members Text
       -- ^ Specifies the name of the policy types. If no names are
       -- specified, returns the description of all the policy types
       -- defined by Elastic Load Balancing service.
@@ -623,11 +665,13 @@ instance IsXML DescribeLoadBalancerPolicyTypes where
 
 instance IsQuery DescribeLoadBalancerPolicyTypes
 
-instance AWSRequest ELB DescribeLoadBalancerPolicyTypes DescribeLoadBalancerPolicyTypesResponse where
-    request = req GET "DescribeLoadBalancerPolicyTypes"
+instance Rq DescribeLoadBalancerPolicyTypes where
+    type Er DescribeLoadBalancerPolicyTypes = ELBError
+    type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
+    request = qry GET "DescribeLoadBalancerPolicyTypes"
 
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
-    { dlbptrResponseMetadata :: !ByteString
+    { dlbptrResponseMetadata :: !Text
     , dlbptrDescribeLoadBalancerPolicyTypesResult :: !DescribeLoadBalancerPolicyTypesResult
     } deriving (Eq, Show, Generic)
 
@@ -643,10 +687,10 @@ instance IsXML DescribeLoadBalancerPolicyTypesResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html>
 data DescribeLoadBalancers = DescribeLoadBalancers
-    { dlbLoadBalancerNames :: Members ByteString
+    { dlbLoadBalancerNames :: Members Text
       -- ^ A list of names associated with the load balancers at creation
       -- time.
-    , dlbMarker            :: Maybe ByteString
+    , dlbMarker            :: Maybe Text
       -- ^ An optional parameter reserved for future use.
     } deriving (Eq, Show, Generic)
 
@@ -655,11 +699,13 @@ instance IsXML DescribeLoadBalancers where
 
 instance IsQuery DescribeLoadBalancers
 
-instance AWSRequest ELB DescribeLoadBalancers DescribeLoadBalancersResponse where
-    request = req GET "DescribeLoadBalancers"
+instance Rq DescribeLoadBalancers where
+    type Er DescribeLoadBalancers = ELBError
+    type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
+    request = qry GET "DescribeLoadBalancers"
 
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
-    { dlbsResponseMetadata :: !ByteString
+    { dlbsResponseMetadata :: !Text
     , dlbsDescribeLoadBalancersResult :: !DescribeLoadBalancersResult
     } deriving (Eq, Show, Generic)
 
@@ -675,10 +721,10 @@ instance IsXML DescribeLoadBalancersResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DetachLoadBalancerFromSubnets.html>
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
-    { dlbfsLoadBalancerName :: !ByteString
+    { dlbfsLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer to be detached. The
       -- name must be unique within the client AWS account.
-    , dlbfsSubnets          :: Members ByteString
+    , dlbfsSubnets          :: Members Text
       -- ^ A list of subnet IDs to remove from the set of configured subnets
       -- for the load balancer.
     } deriving (Eq, Show, Generic)
@@ -688,11 +734,13 @@ instance IsXML DetachLoadBalancerFromSubnets where
 
 instance IsQuery DetachLoadBalancerFromSubnets
 
-instance AWSRequest ELB DetachLoadBalancerFromSubnets DetachLoadBalancerFromSubnetsResponse where
-    request = req GET "DetachLoadBalancerFromSubnets"
+instance Rq DetachLoadBalancerFromSubnets where
+    type Er DetachLoadBalancerFromSubnets = ELBError
+    type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse
+    request = qry GET "DetachLoadBalancerFromSubnets"
 
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
-    { dlbfsrResponseMetadata :: !ByteString
+    { dlbfsrResponseMetadata :: !Text
     , dlbfsrDetachLoadBalancerFromSubnetsResult :: !DetachLoadBalancerFromSubnetsResult
     } deriving (Eq, Show, Generic)
 
@@ -715,10 +763,10 @@ instance IsXML DetachLoadBalancerFromSubnetsResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancer.html>
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
-    { dazflbAvailabilityZones :: Members ByteString
+    { dazflbAvailabilityZones :: Members Text
       -- ^ A list of Availability Zones to be removed from the load
       -- balancer.
-    , dazflbLoadBalancerName  :: !ByteString
+    , dazflbLoadBalancerName  :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
     } deriving (Eq, Show, Generic)
@@ -728,11 +776,13 @@ instance IsXML DisableAvailabilityZonesForLoadBalancer where
 
 instance IsQuery DisableAvailabilityZonesForLoadBalancer
 
-instance AWSRequest ELB DisableAvailabilityZonesForLoadBalancer DisableAvailabilityZonesForLoadBalancerResponse where
-    request = req GET "DisableAvailabilityZonesForLoadBalancer"
+instance Rq DisableAvailabilityZonesForLoadBalancer where
+    type Er DisableAvailabilityZonesForLoadBalancer = ELBError
+    type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse
+    request = qry GET "DisableAvailabilityZonesForLoadBalancer"
 
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
-    { dazflbrResponseMetadata :: !ByteString
+    { dazflbrResponseMetadata :: !Text
     , dazflbrDisableAvailabilityZonesForLoadBalancerResult :: !DisableAvailabilityZonesForLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
@@ -749,11 +799,11 @@ instance IsXML DisableAvailabilityZonesForLoadBalancerResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html>
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
-    { eazflbAvailabilityZones :: Members ByteString
+    { eazflbAvailabilityZones :: Members Text
       -- ^ A list of new Availability Zones for the load balancer. Each
       -- Availability Zone must be in the same Region as the load
       -- balancer.
-    , eazflbLoadBalancerName  :: !ByteString
+    , eazflbLoadBalancerName  :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
     } deriving (Eq, Show, Generic)
@@ -763,11 +813,13 @@ instance IsXML EnableAvailabilityZonesForLoadBalancer where
 
 instance IsQuery EnableAvailabilityZonesForLoadBalancer
 
-instance AWSRequest ELB EnableAvailabilityZonesForLoadBalancer EnableAvailabilityZonesForLoadBalancerResponse where
-    request = req GET "EnableAvailabilityZonesForLoadBalancer"
+instance Rq EnableAvailabilityZonesForLoadBalancer where
+    type Er EnableAvailabilityZonesForLoadBalancer = ELBError
+    type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse
+    request = qry GET "EnableAvailabilityZonesForLoadBalancer"
 
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
-    { eazflbrResponseMetadata :: !ByteString
+    { eazflbrResponseMetadata :: !Text
     , eazflbrEnableAvailabilityZonesForLoadBalancerResult :: !EnableAvailabilityZonesForLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
@@ -790,7 +842,7 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
     { riwlbInstances        :: Members Instance
       -- ^ A list of instance IDs that should be registered with the load
       -- balancer.
-    , riwlbLoadBalancerName :: !ByteString
+    , riwlbLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
     } deriving (Eq, Show, Generic)
@@ -800,11 +852,13 @@ instance IsXML RegisterInstancesWithLoadBalancer where
 
 instance IsQuery RegisterInstancesWithLoadBalancer
 
-instance AWSRequest ELB RegisterInstancesWithLoadBalancer RegisterInstancesWithLoadBalancerResponse where
-    request = req GET "RegisterInstancesWithLoadBalancer"
+instance Rq RegisterInstancesWithLoadBalancer where
+    type Er RegisterInstancesWithLoadBalancer = ELBError
+    type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse
+    request = qry GET "RegisterInstancesWithLoadBalancer"
 
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
-    { riwlbrResponseMetadata :: !ByteString
+    { riwlbrResponseMetadata :: !Text
     , riwlbrRegisterInstancesWithLoadBalancerResult :: !RegisterInstancesWithLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
@@ -820,11 +874,11 @@ instance IsXML RegisterInstancesWithLoadBalancerResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificate.html>
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate
-    { slblsslcLoadBalancerName :: !ByteString
+    { slblsslcLoadBalancerName :: !Text
       -- ^ The name of the the load balancer.
     , slblsslcLoadBalancerPort :: !Integer
       -- ^ The port that uses the specified SSL certificate.
-    , slblsslcSSLCertificateId :: !ByteString
+    , slblsslcSSLCertificateId :: !Text
       -- ^ The ID of the SSL certificate chain to use. For more information
       -- on SSL certificates, see Managing Server Certificates in the AWS
       -- Identity and Access Management documentation.
@@ -835,11 +889,13 @@ instance IsXML SetLoadBalancerListenerSSLCertificate where
 
 instance IsQuery SetLoadBalancerListenerSSLCertificate
 
-instance AWSRequest ELB SetLoadBalancerListenerSSLCertificate SetLoadBalancerListenerSSLCertificateResponse where
-    request = req GET "SetLoadBalancerListenerSSLCertificate"
+instance Rq SetLoadBalancerListenerSSLCertificate where
+    type Er SetLoadBalancerListenerSSLCertificate = ELBError
+    type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
+    request = qry GET "SetLoadBalancerListenerSSLCertificate"
 
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
-    { slblsslcrResponseMetadata :: !ByteString
+    { slblsslcrResponseMetadata :: !Text
     , slblsslcrSetLoadBalancerListenerSSLCertificateResult :: !SetLoadBalancerListenerSSLCertificateResult
     } deriving (Eq, Show, Generic)
 
@@ -857,10 +913,10 @@ instance IsXML SetLoadBalancerListenerSSLCertificateResponse where
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
     { slbpfbsInstancePort     :: !Integer
       -- ^ The port number associated with the back-end server.
-    , slbpfbsLoadBalancerName :: !ByteString
+    , slbpfbsLoadBalancerName :: !Text
       -- ^ The mnemonic name associated with the load balancer. This name
       -- must be unique within the client AWS account.
-    , slbpfbsPolicyNames      :: Members ByteString
+    , slbpfbsPolicyNames      :: Members Text
       -- ^ List of policy names to be set. If the list is empty, then all
       -- current polices are removed from the back-end server.
     } deriving (Eq, Show, Generic)
@@ -870,11 +926,13 @@ instance IsXML SetLoadBalancerPoliciesForBackendServer where
 
 instance IsQuery SetLoadBalancerPoliciesForBackendServer
 
-instance AWSRequest ELB SetLoadBalancerPoliciesForBackendServer SetLoadBalancerPoliciesForBackendServerResponse where
-    request = req GET "SetLoadBalancerPoliciesForBackendServer"
+instance Rq SetLoadBalancerPoliciesForBackendServer where
+    type Er SetLoadBalancerPoliciesForBackendServer = ELBError
+    type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
+    request = qry GET "SetLoadBalancerPoliciesForBackendServer"
 
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
-    { slbpfbsrResponseMetadata :: !ByteString
+    { slbpfbsrResponseMetadata :: !Text
     , slbpfbsrSetLoadBalancerPoliciesForBackendServerResult :: !SetLoadBalancerPoliciesForBackendServerResult
     } deriving (Eq, Show, Generic)
 
@@ -886,13 +944,13 @@ instance IsXML SetLoadBalancerPoliciesForBackendServerResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesOfListener.html>
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
-    { slbpolLoadBalancerName :: !ByteString
+    { slbpolLoadBalancerName :: !Text
       -- ^ The name associated with the load balancer. The name must be
       -- unique within the client AWS account.
     , slbpolLoadBalancerPort :: !Integer
       -- ^ The external port of the load balancer with which this policy
       -- applies to.
-    , slbpolPolicyNames      :: Members ByteString
+    , slbpolPolicyNames      :: Members Text
       -- ^ List of policies to be associated with the listener. Currently
       -- this list can have at most one policy. If the list is empty, the
       -- current policy is removed from the listener.
@@ -903,11 +961,13 @@ instance IsXML SetLoadBalancerPoliciesOfListener where
 
 instance IsQuery SetLoadBalancerPoliciesOfListener
 
-instance AWSRequest ELB SetLoadBalancerPoliciesOfListener SetLoadBalancerPoliciesOfListenerResponse where
-    request = req GET "SetLoadBalancerPoliciesOfListener"
+instance Rq SetLoadBalancerPoliciesOfListener where
+    type Er SetLoadBalancerPoliciesOfListener = ELBError
+    type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
+    request = qry GET "SetLoadBalancerPoliciesOfListener"
 
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
-    { slbpolrResponseMetadata :: !ByteString
+    { slbpolrResponseMetadata :: !Text
     , slbpolrSetLoadBalancerPoliciesOfListenerResult :: !SetLoadBalancerPoliciesOfListenerResult
     } deriving (Eq, Show, Generic)
 

@@ -13,30 +13,47 @@
 
 module Network.AWS.ELB.Types where
 
-import Data.ByteString      (ByteString)
-import Data.Monoid
-import Data.Time
-import Network.AWS.Internal
+import           Data.ByteString       (ByteString)
+import qualified Data.ByteString.Char8 as BS
+import           Data.Monoid
+import           Data.Text             (Text)
+import           Data.Time
+import           Network.AWS.Internal
+
+elbService :: Service
+elbService = Service "elasticloadbalancing" elbVersion SigningVersion4 .
+    Regional $ \r -> "elasticloadbalancing." <> BS.pack (show r) <> ".amazonaws.com"
 
 -- | Currently supported version of the ELB service.
-elbVersion :: ByteString
+elbVersion :: ServiceVersion
 elbVersion = "2012-06-01"
 
 -- | XML namespace to annotate ELB elements with.
 elbNS :: ByteString
-elbNS = "https://elb.amazonaws.com/doc/" <> elbVersion <> "/"
+elbNS = "https://elasticloadbalancing.amazonaws.com/doc/" <> sPack elbVersion <> "/"
 
 -- | Helper to define ELB namespaced XML elements.
 elbElem :: ByteString -> NName ByteString
 elbElem = mkNName elbNS
 
+data ELBError = ELBError
+    { cweCode    :: !Text
+    , cweMessage :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML ELBError where
+    xmlPickler = withNS elbNS
+
+instance ToError ELBError where
+    toError = Error . show
+
 -- | The AppCookieStickinessPolicy data type.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AppCookieStickinessPolicy.html>
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy
-    { acspCookieName :: Maybe ByteString
+    { acspCookieName :: Maybe Text
       -- ^ The name of the application cookie used for stickiness.
-    , acspPolicyName :: Maybe ByteString
+    , acspPolicyName :: Maybe Text
       -- ^ The mnemonic name for the policy being created. The name must be
       -- unique within a set of policies for this load balancer.
     } deriving (Eq, Show, Generic)
@@ -50,7 +67,7 @@ instance IsQuery AppCookieStickinessPolicy
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancerResult.html>
 data ApplySecurityGroupsToLoadBalancerResult = ApplySecurityGroupsToLoadBalancerResult
-    { asgtlbrSecurityGroups :: Maybe ByteString
+    { asgtlbrSecurityGroups :: Maybe Text
       -- ^ A list of security group IDs associated with your load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -63,7 +80,7 @@ instance IsQuery ApplySecurityGroupsToLoadBalancerResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnetsResult.html>
 data AttachLoadBalancerToSubnetsResult = AttachLoadBalancerToSubnetsResult
-    { albtsrSubnets :: Maybe ByteString
+    { albtsrSubnets :: Maybe Text
       -- ^ A list of subnet IDs added for the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -79,7 +96,7 @@ instance IsQuery AttachLoadBalancerToSubnetsResult
 data BackendServerDescription = BackendServerDescription
     { bsdInstancePort :: Maybe Integer
       -- ^ Provides the port on which the back-end server is listening.
-    , bsdPolicyNames  :: Maybe ByteString
+    , bsdPolicyNames  :: Maybe Text
       -- ^ Provides a list of policy names enabled for the back-end server.
     } deriving (Eq, Show, Generic)
 
@@ -149,7 +166,7 @@ instance IsQuery CreateLoadBalancerPolicyResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerResult.html>
 data CreateLoadBalancerResult = CreateLoadBalancerResult
-    { clbrDNSName :: Maybe ByteString
+    { clbrDNSName :: Maybe Text
       -- ^ The DNS name for the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -253,7 +270,7 @@ instance IsQuery DescribeLoadBalancerPolicyTypesResult
 data DescribeLoadBalancersResult = DescribeLoadBalancersResult
     { dlbrLoadBalancerDescriptions :: Maybe LoadBalancerDescription
       -- ^ A list of load balancer description structures.
-    , dlbrNextMarker               :: Maybe ByteString
+    , dlbrNextMarker               :: Maybe Text
       -- ^ An optional parameter reserved for future use.
     } deriving (Eq, Show, Generic)
 
@@ -266,7 +283,7 @@ instance IsQuery DescribeLoadBalancersResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DetachLoadBalancerFromSubnetsResult.html>
 data DetachLoadBalancerFromSubnetsResult = DetachLoadBalancerFromSubnetsResult
-    { dlbfsrSubnets :: Maybe ByteString
+    { dlbfsrSubnets :: Maybe Text
       -- ^ A list of subnet IDs removed from the configured set of subnets
       -- for the load balancer.
     } deriving (Eq, Show, Generic)
@@ -280,7 +297,7 @@ instance IsQuery DetachLoadBalancerFromSubnetsResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancerResult.html>
 data DisableAvailabilityZonesForLoadBalancerResult = DisableAvailabilityZonesForLoadBalancerResult
-    { dazflbrAvailabilityZones :: Maybe ByteString
+    { dazflbrAvailabilityZones :: Maybe Text
       -- ^ A list of updated Availability Zones for the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -293,7 +310,7 @@ instance IsQuery DisableAvailabilityZonesForLoadBalancerResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancerResult.html>
 data EnableAvailabilityZonesForLoadBalancerResult = EnableAvailabilityZonesForLoadBalancerResult
-    { eazflbrAvailabilityZones :: Maybe ByteString
+    { eazflbrAvailabilityZones :: Maybe Text
       -- ^ An updated list of Availability Zones for the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -312,7 +329,7 @@ data HealthCheck = HealthCheck
     , hcInterval           :: !Integer
       -- ^ Specifies the approximate interval, in seconds, between health
       -- checks of an individual instance.
-    , hcTarget             :: !ByteString
+    , hcTarget             :: !Text
       -- ^ Specifies the instance being checked. The protocol is either TCP,
       -- HTTP, HTTPS, or SSL. The range of valid ports is one (1) through
       -- 65535.
@@ -333,7 +350,7 @@ instance IsQuery HealthCheck
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_Instance.html>
 data Instance = Instance
-    { iInstanceId :: Maybe ByteString
+    { iInstanceId :: Maybe Text
       -- ^ Provides an EC2 instance ID.
     } deriving (Eq, Show, Generic)
 
@@ -346,15 +363,15 @@ instance IsQuery Instance
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_InstanceState.html>
 data InstanceState = InstanceState
-    { isDescription :: Maybe ByteString
+    { isDescription :: Maybe Text
       -- ^ Provides a description of the instance state.
-    , isInstanceId  :: Maybe ByteString
+    , isInstanceId  :: Maybe Text
       -- ^ Provides an EC2 instance ID.
-    , isReasonCode  :: Maybe ByteString
+    , isReasonCode  :: Maybe Text
       -- ^ Provides information about the cause of OutOfService instances.
       -- Specifically, it indicates whether the cause is Elastic Load
       -- Balancing or the instance behind the load balancer.
-    , isState       :: Maybe ByteString
+    , isState       :: Maybe Text
       -- ^ Specifies the current state of the instance. Valid value:
       -- InService|OutOfService
     } deriving (Eq, Show, Generic)
@@ -373,7 +390,7 @@ data LBCookieStickinessPolicy = LBCookieStickinessPolicy
       -- considered stale. Not specifying this parameter indicates that
       -- the stickiness session will last for the duration of the browser
       -- session.
-    , lbcspPolicyName             :: Maybe ByteString
+    , lbcspPolicyName             :: Maybe Text
       -- ^ The name for the policy being created. The name must be unique
       -- within the set of policies for this load balancer.
     } deriving (Eq, Show, Generic)
@@ -391,18 +408,18 @@ data Listener = Listener
       -- ^ Specifies the TCP port on which the instance server is listening.
       -- This property cannot be modified for the life of the load
       -- balancer.
-    , lInstanceProtocol :: Maybe ByteString
+    , lInstanceProtocol :: Maybe Text
       -- ^ Specifies the protocol to use for routing traffic to back-end
       -- instances - HTTP, HTTPS, TCP, or SSL. This property cannot be
       -- modified for the life of the load balancer.
     , lLoadBalancerPort :: !Integer
       -- ^ Specifies the external load balancer port number. This property
       -- cannot be modified for the life of the load balancer.
-    , lProtocol         :: !ByteString
+    , lProtocol         :: !Text
       -- ^ Specifies the load balancer transport protocol to use for routing
       -- - HTTP, HTTPS, TCP or SSL. This property cannot be modified for
       -- the life of the load balancer.
-    , lSSLCertificateId :: Maybe ByteString
+    , lSSLCertificateId :: Maybe Text
       -- ^ The ARN string of the server certificate. To get the ARN of the
       -- server certificate, call the AWS Identity and Access Management
       -- UploadServerCertificate API.
@@ -419,7 +436,7 @@ instance IsQuery Listener
 data ListenerDescription = ListenerDescription
     { ldListener    :: Maybe Listener
       -- ^ The Listener data type.
-    , ldPolicyNames :: Maybe ByteString
+    , ldPolicyNames :: Maybe Text
       -- ^ A list of policies enabled for this listener. An empty list
       -- indicates that no policies are enabled.
     } deriving (Eq, Show, Generic)
@@ -433,17 +450,17 @@ instance IsQuery ListenerDescription
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_LoadBalancerDescription.html>
 data LoadBalancerDescription = LoadBalancerDescription
-    { lbdAvailabilityZones         :: Maybe ByteString
+    { lbdAvailabilityZones         :: Maybe Text
       -- ^ Specifies a list of Availability Zones.
     , lbdBackendServerDescriptions :: Maybe BackendServerDescription
       -- ^ Contains a list of back-end server descriptions.
-    , lbdCanonicalHostedZoneName   :: Maybe ByteString
+    , lbdCanonicalHostedZoneName   :: Maybe Text
       -- ^ Provides the name of the Amazon Route 53 hosted zone that is
       -- associated with the load balancer. For information on how to
       -- associate your load balancer with a hosted zone, go to Using
       -- Domain Names With Elastic Load Balancing in the Elastic Load
       -- Balancing Developer Guide.
-    , lbdCanonicalHostedZoneNameID :: Maybe ByteString
+    , lbdCanonicalHostedZoneNameID :: Maybe Text
       -- ^ Provides the ID of the Amazon Route 53 hosted zone name that is
       -- associated with the load balancer. For information on how to
       -- associate or disassociate your load balancer with a hosted zone,
@@ -451,7 +468,7 @@ data LoadBalancerDescription = LoadBalancerDescription
       -- Elastic Load Balancing Developer Guide.
     , lbdCreatedTime               :: Maybe UTCTime
       -- ^ Provides the date and time the load balancer was created.
-    , lbdDNSName                   :: Maybe ByteString
+    , lbdDNSName                   :: Maybe Text
       -- ^ Specifies the external DNS name associated with the load
       -- balancer.
     , lbdHealthCheck               :: Maybe HealthCheck
@@ -463,13 +480,13 @@ data LoadBalancerDescription = LoadBalancerDescription
       -- ^ LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
       -- PolicyNames are returned in a list of tuples in the
       -- ListenerDescriptions element.
-    , lbdLoadBalancerName          :: Maybe ByteString
+    , lbdLoadBalancerName          :: Maybe Text
       -- ^ Specifies the name associated with the load balancer.
     , lbdPolicies                  :: Maybe Policies
       -- ^ Provides a list of policies defined for the load balancer.
-    , lbdScheme                    :: Maybe ByteString
+    , lbdScheme                    :: Maybe Text
       -- ^ Specifies the type of load balancer.
-    , lbdSecurityGroups            :: Maybe ByteString
+    , lbdSecurityGroups            :: Maybe Text
       -- ^ The security groups the load balancer is a member of (VPC only).
     , lbdSourceSecurityGroup       :: Maybe SourceSecurityGroup
       -- ^ The security group that you can use as part of your inbound rules
@@ -477,9 +494,9 @@ data LoadBalancerDescription = LoadBalancerDescription
       -- instances. To only allow traffic from load balancers, add a
       -- security group rule to your back end instance that specifies this
       -- source security group as the inbound source.
-    , lbdSubnets                   :: Maybe ByteString
+    , lbdSubnets                   :: Maybe Text
       -- ^ Provides a list of VPC subnet IDs for the load balancer.
-    , lbdVPCId                     :: Maybe ByteString
+    , lbdVPCId                     :: Maybe Text
       -- ^ Provides the ID of the VPC attached to the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -498,7 +515,7 @@ data Policies = Policies
     , pLBCookieStickinessPolicies  :: Maybe LBCookieStickinessPolicy
       -- ^ A list of LBCookieStickinessPolicy objects created with
       -- CreateAppCookieStickinessPolicy.
-    , pOtherPolicies               :: Maybe ByteString
+    , pOtherPolicies               :: Maybe Text
       -- ^ A list of policy names other than the stickiness policies.
     } deriving (Eq, Show, Generic)
 
@@ -512,9 +529,9 @@ instance IsQuery Policies
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_PolicyAttribute.html>
 data PolicyAttribute = PolicyAttribute
-    { paAttributeName  :: Maybe ByteString
+    { paAttributeName  :: Maybe Text
       -- ^ The name of the attribute associated with the policy.
-    , paAttributeValue :: Maybe ByteString
+    , paAttributeValue :: Maybe Text
       -- ^ The value of the attribute associated with the policy.
     } deriving (Eq, Show, Generic)
 
@@ -528,9 +545,9 @@ instance IsQuery PolicyAttribute
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_PolicyAttributeDescription.html>
 data PolicyAttributeDescription = PolicyAttributeDescription
-    { padAttributeName  :: Maybe ByteString
+    { padAttributeName  :: Maybe Text
       -- ^ The name of the attribute associated with the policy.
-    , padAttributeValue :: Maybe ByteString
+    , padAttributeValue :: Maybe Text
       -- ^ The value of the attribute associated with the policy.
     } deriving (Eq, Show, Generic)
 
@@ -544,15 +561,15 @@ instance IsQuery PolicyAttributeDescription
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_PolicyAttributeTypeDescription.html>
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
-    { patdAttributeName :: Maybe ByteString
+    { patdAttributeName :: Maybe Text
       -- ^ The name of the attribute associated with the policy type.
-    , patdAttributeType :: Maybe ByteString
+    , patdAttributeType :: Maybe Text
       -- ^ The type of attribute. For example, Boolean, Integer, etc.
-    , patdCardinality   :: Maybe ByteString
+    , patdCardinality   :: Maybe Text
       -- ^ The cardinality of the attribute. Valid Values:
-    , patdDefaultValue  :: Maybe ByteString
+    , patdDefaultValue  :: Maybe Text
       -- ^ The default value of the attribute, if applicable.
-    , patdDescription   :: Maybe ByteString
+    , patdDescription   :: Maybe Text
       -- ^ A human-readable description of the attribute.
     } deriving (Eq, Show, Generic)
 
@@ -567,9 +584,9 @@ instance IsQuery PolicyAttributeTypeDescription
 data PolicyDescription = PolicyDescription
     { pdPolicyAttributeDescriptions :: Maybe PolicyAttributeDescription
       -- ^ A list of policy attribute description structures.
-    , pdPolicyName                  :: Maybe ByteString
+    , pdPolicyName                  :: Maybe Text
       -- ^ The name of the policy associated with the load balancer.
-    , pdPolicyTypeName              :: Maybe ByteString
+    , pdPolicyTypeName              :: Maybe Text
       -- ^ The name of the policy type associated with the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -582,12 +599,12 @@ instance IsQuery PolicyDescription
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_PolicyTypeDescription.html>
 data PolicyTypeDescription = PolicyTypeDescription
-    { ptdDescription                     :: Maybe ByteString
+    { ptdDescription                     :: Maybe Text
       -- ^ A human-readable description of the policy type.
     , ptdPolicyAttributeTypeDescriptions :: Maybe PolicyAttributeTypeDescription
       -- ^ The description of the policy attributes associated with the load
       -- balancer policies defined by the Elastic Load Balancing service.
-    , ptdPolicyTypeName                  :: Maybe ByteString
+    , ptdPolicyTypeName                  :: Maybe Text
       -- ^ The name of the policy type.
     } deriving (Eq, Show, Generic)
 
@@ -649,11 +666,11 @@ instance IsQuery SetLoadBalancerPoliciesOfListenerResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SourceSecurityGroup.html>
 data SourceSecurityGroup = SourceSecurityGroup
-    { ssgGroupName  :: Maybe ByteString
+    { ssgGroupName  :: Maybe Text
       -- ^ Name of the source security group. Use this value for the
       -- --source-group parameter of the ec2-authorize command in the
       -- Amazon EC2 command line tool.
-    , ssgOwnerAlias :: Maybe ByteString
+    , ssgOwnerAlias :: Maybe Text
       -- ^ Owner of the source security group. Use this value for the
       -- --source-group-user parameter of the ec2-authorize command in the
       -- Amazon EC2 command line tool.

@@ -1,8 +1,6 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudWatch
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,63 +16,67 @@
 -- manage various metrics, as well as configure alarm actions based on data
 -- from metrics.
 module Network.AWS.CloudWatch
-   (
-   -- * Actions
-   -- ** DeleteAlarms
-     DeleteAlarms            (..)
+    (
+    -- * Actions
+    -- ** DeleteAlarms
+      DeleteAlarms                    (..)
+    , DeleteAlarmsResponse            (..)
 
-   -- ** DescribeAlarmHistory
-   , DescribeAlarmHistory    (..)
+    -- ** DescribeAlarmHistory
+    , DescribeAlarmHistory            (..)
+    , DescribeAlarmHistoryResponse    (..)
 
-   -- ** DescribeAlarms
-   , DescribeAlarms          (..)
+    -- ** DescribeAlarms
+    , DescribeAlarms                  (..)
+    , DescribeAlarmsResponse          (..)
 
-   -- ** DescribeAlarmsForMetric
-   , DescribeAlarmsForMetric (..)
+    -- ** DescribeAlarmsForMetric
+    , DescribeAlarmsForMetric         (..)
+    , DescribeAlarmsForMetricResponse (..)
 
-   -- ** DisableAlarmActions
-   , DisableAlarmActions     (..)
+    -- ** DisableAlarmActions
+    , DisableAlarmActions             (..)
+    , DisableAlarmActionsResponse     (..)
 
-   -- ** EnableAlarmActions
-   , EnableAlarmActions      (..)
+    -- ** EnableAlarmActions
+    , EnableAlarmActions              (..)
+    , EnableAlarmActionsResponse      (..)
 
-   -- ** GetMetricStatistics
-   , GetMetricStatistics     (..)
+    -- ** GetMetricStatistics
+    , GetMetricStatistics             (..)
+    , GetMetricStatisticsResponse     (..)
 
-   -- ** ListMetrics
-   , ListMetrics             (..)
+    -- ** ListMetrics
+    , ListMetrics                     (..)
+    , ListMetricsResponse             (..)
 
-   -- ** PutMetricAlarm
-   , PutMetricAlarm          (..)
+    -- ** PutMetricAlarm
+    , PutMetricAlarm                  (..)
+    , PutMetricAlarmResponse          (..)
 
-   -- ** PutMetricData
-   , PutMetricData           (..)
+    -- ** PutMetricData
+    , PutMetricData                   (..)
+    , PutMetricDataResponse           (..)
 
-   -- ** SetAlarmState
-   , SetAlarmState           (..)
+    -- ** SetAlarmState
+    , SetAlarmState                   (..)
+    , SetAlarmStateResponse           (..)
 
-   -- * Data Types
-   , module Network.AWS.CloudWatch.Types
-   , Rs                      (..)
-   ) where
+    -- * Data Types
+    , module Network.AWS.CloudWatch.Types
+    ) where
 
 import Data.ByteString              (ByteString)
-import Data.Monoid
 import Data.Time
 import Network.AWS.CloudWatch.Types
 import Network.AWS.Internal
 import Network.Http.Client          (Method(..))
 
-data CloudWatch
-
-instance AWSService CloudWatch where
-    service _ = awsService "cloudwatch" cloudWatchVersion SigningVersion4
-
-req :: IsQuery a => Method -> ByteString -> a -> RawRequest CloudWatch b
-req meth act qry = (emptyRequest meth FormEncoded "/" Nothing)
-    { rqAction = Just act
-    , rqQuery  = toQuery qry
-    }
+qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
+qry meth act q = queryAppend (queryRequest cloudWatchService meth "/" q)
+    [ ("Action",  act)
+    , ("Version", sPack cloudWatchVersion)
+    ]
 
 --
 -- Actions
@@ -91,8 +93,10 @@ data DeleteAlarms = DeleteAlarms
 
 instance IsQuery DeleteAlarms
 
-instance AWSRequest CloudWatch DeleteAlarms DeleteAlarmsResponse where
-    request = req GET "DeleteAlarms"
+instance Rq DeleteAlarms where
+    type Er DeleteAlarms = CloudWatchError
+    type Rs DeleteAlarms = DeleteAlarmsResponse
+    request = qry GET "DeleteAlarms"
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
     { darResponseMetadata :: !ByteString
@@ -125,8 +129,10 @@ data DescribeAlarmHistory = DescribeAlarmHistory
 
 instance IsQuery DescribeAlarmHistory
 
-instance AWSRequest CloudWatch DescribeAlarmHistory DescribeAlarmHistoryResponse where
-    request = req GET "DescribeAlarmHistory"
+instance Rq DescribeAlarmHistory where
+    type Er DescribeAlarmHistory = CloudWatchError
+    type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
+    request = qry GET "DescribeAlarmHistory"
 
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { dahrResponseMetadata :: !ByteString
@@ -160,8 +166,10 @@ data DescribeAlarms = DescribeAlarms
 
 instance IsQuery DescribeAlarms
 
-instance AWSRequest CloudWatch DescribeAlarms DescribeAlarmsResponse where
-    request = req GET "DescribeAlarms"
+instance Rq DescribeAlarms where
+    type Er DescribeAlarms = CloudWatchError
+    type Rs DescribeAlarms = DescribeAlarmsResponse
+    request = qry GET "DescribeAlarms"
 
 data DescribeAlarmsResponse = DescribeAlarmsResponse
     { dasResponseMetadata :: !ByteString
@@ -192,8 +200,10 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
 
 instance IsQuery DescribeAlarmsForMetric
 
-instance AWSRequest CloudWatch DescribeAlarmsForMetric DescribeAlarmsForMetricResponse where
-    request = req GET "DescribeAlarmsForMetric"
+instance Rq DescribeAlarmsForMetric where
+    type Er DescribeAlarmsForMetric = CloudWatchError
+    type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse
+    request = qry GET "DescribeAlarmsForMetric"
 
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { dafmrResponseMetadata :: !ByteString
@@ -215,8 +225,10 @@ data DisableAlarmActions = DisableAlarmActions
 
 instance IsQuery DisableAlarmActions
 
-instance AWSRequest CloudWatch DisableAlarmActions DisableAlarmActionsResponse where
-    request = req GET "DisableAlarmActions"
+instance Rq DisableAlarmActions where
+    type Er DisableAlarmActions = CloudWatchError
+    type Rs DisableAlarmActions = DisableAlarmActionsResponse
+    request = qry GET "DisableAlarmActions"
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
     { daarResponseMetadata :: !ByteString
@@ -235,8 +247,10 @@ data EnableAlarmActions = EnableAlarmActions
 
 instance IsQuery EnableAlarmActions
 
-instance AWSRequest CloudWatch EnableAlarmActions EnableAlarmActionsResponse where
-    request = req GET "EnableAlarmActions"
+instance Rq EnableAlarmActions where
+    type Er EnableAlarmActions = CloudWatchError
+    type Rs EnableAlarmActions = EnableAlarmActionsResponse
+    request = qry GET "EnableAlarmActions"
 
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
     { eaarResponseMetadata :: !ByteString
@@ -296,8 +310,10 @@ data GetMetricStatistics = GetMetricStatistics
 
 instance IsQuery GetMetricStatistics
 
-instance AWSRequest CloudWatch GetMetricStatistics GetMetricStatisticsResponse where
-    request = req GET "GetMetricStatistics"
+instance Rq GetMetricStatistics where
+    type Er GetMetricStatistics = CloudWatchError
+    type Rs GetMetricStatistics = GetMetricStatisticsResponse
+    request = qry GET "GetMetricStatistics"
 
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     { gmsrResponseMetadata :: !ByteString
@@ -331,8 +347,10 @@ data ListMetrics = ListMetrics
 
 instance IsQuery ListMetrics
 
-instance AWSRequest CloudWatch ListMetrics ListMetricsResponse where
-    request = req GET "ListMetrics"
+instance Rq ListMetrics where
+    type Er ListMetrics = CloudWatchError
+    type Rs ListMetrics = ListMetricsResponse
+    request = qry GET "ListMetrics"
 
 data ListMetricsResponse = ListMetricsResponse
     { lmrResponseMetadata :: !ByteString
@@ -404,8 +422,10 @@ data PutMetricAlarm = PutMetricAlarm
 
 instance IsQuery PutMetricAlarm
 
-instance AWSRequest CloudWatch PutMetricAlarm PutMetricAlarmResponse where
-    request = req GET "PutMetricAlarm"
+instance Rq PutMetricAlarm where
+    type Er PutMetricAlarm = CloudWatchError
+    type Rs PutMetricAlarm = PutMetricAlarmResponse
+    request = qry GET "PutMetricAlarm"
 
 data PutMetricAlarmResponse = PutMetricAlarmResponse
     { pmarResponseMetadata :: !ByteString
@@ -439,8 +459,10 @@ data PutMetricData = PutMetricData
 
 instance IsQuery PutMetricData
 
-instance AWSRequest CloudWatch PutMetricData PutMetricDataResponse where
-    request = req GET "PutMetricData"
+instance Rq PutMetricData where
+    type Er PutMetricData = CloudWatchError
+    type Rs PutMetricData = PutMetricDataResponse
+    request = qry GET "PutMetricData"
 
 data PutMetricDataResponse = PutMetricDataResponse
     { pmdrResponseMetadata :: !ByteString
@@ -472,8 +494,10 @@ data SetAlarmState = SetAlarmState
 
 instance IsQuery SetAlarmState
 
-instance AWSRequest CloudWatch SetAlarmState SetAlarmStateResponse where
-    request = req GET "SetAlarmState"
+instance Rq SetAlarmState where
+    type Er SetAlarmState = CloudWatchError
+    type Rs SetAlarmState = SetAlarmStateResponse
+    request = qry GET "SetAlarmState"
 
 data SetAlarmStateResponse = SetAlarmStateResponse
     { sasrResponseMetadata :: !ByteString

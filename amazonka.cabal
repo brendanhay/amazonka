@@ -50,8 +50,8 @@ library
       -- , Network.AWS.S3
       -- , Network.AWS.S3.Types
 
-      -- , Network.AWS.CloudWatch
-      -- , Network.AWS.CloudWatch.Types
+      , Network.AWS.CloudWatch
+      , Network.AWS.CloudWatch.Types
 
       -- , Network.AWS.ELB
       -- , Network.AWS.ELB.Types

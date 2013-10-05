@@ -29,9 +29,9 @@ import           Network.Http.Client    hiding (get)
 import qualified System.IO.Streams      as Streams
 
 data Metadata
-    = AmiId
-    | AmiLaunchIndex
-    | AmiManifestPath
+    = AMIId
+    | AMILaunchIndex
+    | AMIManifestPath
     | Hostname
     | InstanceAction
     | InstanceId
@@ -87,9 +87,9 @@ get url = do
 
 toPath :: Metadata -> ByteString
 toPath meta = case meta of
-    AmiId                 -> "ami-id"
-    AmiLaunchIndex        -> "ami-launch-index"
-    AmiManifestPath       -> "ami-manifest-path"
+    AMIId                 -> "ami-id"
+    AMILaunchIndex        -> "ami-launch-index"
+    AMIManifestPath       -> "ami-manifest-path"
     Hostname              -> "hostname"
     InstanceAction        -> "instance-action"
     InstanceId            -> "instance-id"

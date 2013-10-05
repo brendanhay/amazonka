@@ -71,7 +71,7 @@ metadataByKey = get . mappend "/latest/meta-data/"
 --
 
 localhost :: ByteString
-localhost = "169.254.169.254"
+localhost = "http://169.254.169.254"
 
 get :: (Applicative m, MonadIO m)
     => ByteString

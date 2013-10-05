@@ -77,7 +77,6 @@ instance IsString Error where
 class Prefixed a where
     prefixed :: a -> ByteString
 
-
 data Auth = Auth
     { accessKeyId     :: !ByteString
     , secretAccessKey :: !ByteString

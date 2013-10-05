@@ -464,17 +464,21 @@ module Network.AWS.EC2
    , RevokeSecurityGroupIngress          (..)
    , RevokeSecurityGroupIngressResponse  (..)
 
-   -- -- ** RunInstances
-   -- , RunInstances                        (..)
+   -- ** RunInstances
+   , RunInstances                        (..)
+   , RunInstancesResponse                (..)
 
    -- -- ** StartInstances
    -- , StartInstances                      (..)
+   -- , StartInstancesResponse              (..)
 
    -- -- ** StopInstances
    -- , StopInstances                       (..)
+   -- , StopInstancesResponse               (..)
 
    -- -- ** TerminateInstances
    -- , TerminateInstances                  (..)
+   -- , TerminateInstancesResponse          (..)
 
    -- -- ** UnassignPrivateIpAddresses
    -- , UnassignPrivateIpAddresses          (..)
@@ -5989,116 +5993,116 @@ data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
 instance IsXML RevokeSecurityGroupIngressResponse where
     xmlPickler = ec2XML
 
--- -- | Launches the specified number of instances of an AMI for which you have
--- -- permissions.When you launch an instance, it enters the pending state. After
--- -- the instance is ready for you, it enters the running state. To check the
--- -- state of your instance, call DescribeInstances.If you don't specify a
--- -- security group when launching an instance, Amazon EC2 uses the default
--- -- security group.Linux instances have access to the public
--- -- key of the key pair at boot. You can use this key to provide secure access
--- -- to the instance. Amazon EC2 public images use this feature to provide
--- -- secure access without passwords.You can provide optional user data
--- -- when launching an instance.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html>
+-- | Launches the specified number of instances of an AMI for which you have
+-- permissions.When you launch an instance, it enters the pending state. After
+-- the instance is ready for you, it enters the running state. To check the
+-- state of your instance, call DescribeInstances.If you don't specify a
+-- security group when launching an instance, Amazon EC2 uses the default
+-- security group.Linux instances have access to the public
+-- key of the key pair at boot. You can use this key to provide secure access
+-- to the instance. Amazon EC2 public images use this feature to provide
+-- secure access without passwords.You can provide optional user data
+-- when launching an instance.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html>
+data RunInstances = RunInstances
+    { riImageId                           :: !Text
+      -- ^ The ID of the AMI, which you can get by calling DescribeImages.
+    , riMinCount                          :: !Integer
+      -- ^ The minimum number of instances to launch. If you specify a
+      -- minimum that is more instances than Amazon EC2 can launch in the
+      -- target Availability Zone, Amazon EC2 launches no instances.
+    , riMaxCount                          :: !Integer
+      -- ^ The maximum number of instances to launch. If you specify more
+      -- instances than Amazon EC2 can launch in the target Availability
+      -- Zone, Amazon EC2 launches the largest possible number of
+      -- instances above MinCount.
+    , riKeyName                           :: Maybe Text
+      -- ^ The name of the key pair. You can create a key pair using
+      -- CreateKeyPair or ImportKeyPair.
+    , riSecurityGroupId                   :: [Text]
+      -- ^ One or more security group IDs. You can create a security group
+      -- using CreateSecurityGroup.
+    , riSecurityGroup                     :: [Text]
+      -- ^ [EC2-Classic, default VPC] One or more security group names. For
+      -- a nondefault VPC, you must use SecurityGroupId.
+    , riUserData                          :: Maybe Text
+      -- ^ The Base64-encoded MIME user data for the instances.
+    , riInstanceType                      :: Maybe Text
+      -- ^ The instance type. See Available Instance Types for more
+      -- information.
+    , riPlacement                         :: Maybe PlacementResponseType
+      -- ^ The Availability Zone for the instance.
+    , rjKernelId                          :: Maybe Text
+      -- ^ The ID of the kernel.
+    , rjRamdiskId                         :: Maybe Text
+      -- ^ The ID of the RAM disk.
+    , rjBlockDeviceMapping                :: [InstanceBlockDeviceMappingItemType]
+      -- ^ The device name exposed to the instance (for example, /dev/sdh or xvdh).
+    , rjMonitoring                        :: Maybe MonitoringInstanceType
+      -- ^ Enables monitoring for the instance.
+    , rjSubnetId                          :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
+    , rjDisableApiTermination             :: Maybe Bool
+      -- ^ If you set this parameter to true, you can't terminate the
+      -- instance using the Amazon EC2 console, CLI, or API; otherwise,
+      -- you can. If you set this parameter to true and then later want to
+      -- be able to terminate the instance, you must first change the
+      -- value of the disableApiTermination attribute to false using
+      -- ModifyInstanceAttribute. Alternatively, if you set
+      -- InstanceInitiatedShutdownBehavior to terminate, you can terminate
+      -- the instance by running the shutdown command from the instance.
+    , rjInstanceInitiatedShutdownBehavior :: Maybe Text
+      -- ^ Indicates whether an instance stops or terminates when you
+      -- initiate shutdown from the instance (using the operating system
+      -- command for system shutdown).
+    , rjPrivateIpAddress                  :: Maybe Text
+      -- ^ [EC2-VPC] The primary IP address. You must specify a value from
+      -- the IP address range of the subnet.
+    , rjClientToken                       :: Maybe Text
+      -- ^ Unique, case-sensitive identifier you provide to ensure
+      -- idempotency of the request.
+    , rjNetworkInterface                  :: [NetworkInterfaceType]
+      -- ^ An existing interface to attach to a single instance. Requires
+      -- n=1 instances.
+    , rjIamInstanceProfile                :: [IamInstanceProfileRequestType]
+      -- ^ The Amazon Resource Name (ARN) of the IAM instance profile to
+      -- associate with the instances.
+    , rjEbsOptimized                      :: Maybe Bool
+      -- ^ Indicates whether the instance is optimized for EBS I/O. This
+      -- optimization provides dedicated throughput to Amazon EBS and an
+      -- optimized configuration stack to provide optimal Amazon EBS I/O
+      -- performance. This optimization isn't available with all instance
+      -- types. Additional usage charges apply when using an EBS-optimized
+      -- instance.
+    } deriving (Eq, Show, Generic)
 
--- data RunInstances = RunInstances
---     { riImageId                           :: !Text
---       -- ^ The ID of the AMI, which you can get by calling DescribeImages.
---     , riMinCount                          :: !Integer
---       -- ^ The minimum number of instances to launch. If you specify a
---       -- minimum that is more instances than Amazon EC2 can launch in the
---       -- target Availability Zone, Amazon EC2 launches no instances.
---     , riMaxCount                          :: !Integer
---       -- ^ The maximum number of instances to launch. If you specify more
---       -- instances than Amazon EC2 can launch in the target Availability
---       -- Zone, Amazon EC2 launches the largest possible number of
---       -- instances above MinCount.
---     , riKeyName                           :: Maybe Text
---       -- ^ The name of the key pair. You can create a key pair using
---       -- CreateKeyPair or ImportKeyPair.
---     , riSecurityGroupId                   :: Members Text
---       -- ^ One or more security group IDs. You can create a security group
---       -- using CreateSecurityGroup.
---     , riSecurityGroup                     :: Members Text
---       -- ^ [EC2-Classic, default VPC] One or more security group names. For
---       -- a nondefault VPC, you must use SecurityGroupId.n.
---     , riUserData                          :: Maybe Text
---       -- ^ The Base64-encoded MIME user data for the instances.
---     , riInstanceType                      :: Maybe Text
---       -- ^ The instance type. See Available Instance Types for more
---       -- information.
---     , riPlacement                         :: Members PlacementType
---       -- ^ The Availability Zone for the instance.
---     , rjKernelId                          :: Maybe Text
---       -- ^ The ID of the kernel.
---     , rjRamdiskId                         :: Maybe Text
---       -- ^ The ID of the RAM disk.
---     , rjBlockDeviceMapping                :: Members BlockDeviceMappingType
---       -- ^ The device name exposed to the instance (for example, /dev/sdh or
---       -- xvdh).
---     , rjMonitoring                        :: Members MonitoringType
---       -- ^ Enables monitoring for the instance.
---     , rjSubnetId                          :: Maybe Text
---       -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
---     , rjDisableApiTermination             :: Maybe Bool
---       -- ^ If you set this parameter to true, you can't terminate the
---       -- instance using the Amazon EC2 console, CLI, or API; otherwise,
---       -- you can. If you set this parameter to true and then later want to
---       -- be able to terminate the instance, you must first change the
---       -- value of the disableApiTermination attribute to false using
---       -- ModifyInstanceAttribute. Alternatively, if you set
---       -- InstanceInitiatedShutdownBehavior to terminate, you can terminate
---       -- the instance by running the shutdown command from the instance.
---     , rjInstanceInitiatedShutdownBehavior :: Maybe Text
---       -- ^ Indicates whether an instance stops or terminates when you
---       -- initiate shutdown from the instance (using the operating system
---       -- command for system shutdown).
---     , rjPrivateIpAddress                  :: Maybe Text
---       -- ^ [EC2-VPC] The primary IP address. You must specify a value from
---       -- the IP address range of the subnet.
---     , rjClientToken                       :: Maybe Text
---       -- ^ Unique, case-sensitive identifier you provide to ensure
---       -- idempotency of the request.
---     , rjNetworkInterface                  :: Members NetworkInterfaceType
---       -- ^ An existing interface to attach to a single instance. Requires
---       -- n=1 instances.
---     , rjIamInstanceProfile                :: Members IamInstanceProfileType
---       -- ^ The Amazon Resource Name (ARN) of the IAM instance profile to
---       -- associate with the instances.
---     , rjEbsOptimized                      :: Maybe Bool
---       -- ^ Indicates whether the instance is optimized for EBS I/O. This
---       -- optimization provides dedicated throughput to Amazon EBS and an
---       -- optimized configuration stack to provide optimal Amazon EBS I/O
---       -- performance. This optimization isn't available with all instance
---       -- types. Additional usage charges apply when using an EBS-optimized
---       -- instance.
---     } deriving (Eq, Show, Generic)
+instance IsQuery RunInstances
 
--- instance IsQuery RunInstances
+instance Rq RunInstances where
+    type Er RunInstances = EC2ErrorResponse
+    type Rs RunInstances = RunInstancesResponse
+    request = qry GET "RunInstances"
 
--- instance AWSRequest EC2 RunInstances RunInstancesResponse where
---     request = qry GET "RunInstances"
+data RunInstancesResponse = RunInstancesResponse
+    { rirRequestId     :: !Text
+      -- ^ The ID of the request.
+    , rirReservationId :: !Text
+      -- ^ The ID of the reservation.
+    , rirOwnerId       :: !Text
+      -- ^ The ID of the AWS account that owns the reservation.
+    , rirGroupSet      :: !GroupItemType
+      -- ^ A list of security groups the instance belongs to. Each group is
+      -- wrapped in an item element.
+    , rirInstancesSet  :: !RunningInstancesItemType
+      -- ^ A list of instances. Each instance is wrapped in an item element.
+    , rirRequesterId   :: !Text
+      -- ^ The ID of the requester that launched the instances on your
+      -- behalf (for example, AWS Management Console, Auto Scaling).
+    } deriving (Eq, Show, Generic)
 
--- data RunInstancesResponse = RunInstancesResponse
---     { rkRequestId     :: !Text
---       -- ^ The ID of the request.
---     , rkReservationId :: !Text
---       -- ^ The ID of the reservation.
---     , rkOwnerId       :: !Text
---       -- ^ The ID of the AWS account that owns the reservation.
---     , rkGroupSet      :: !GroupItemType
---       -- ^ A list of security groups the instance belongs to. Each group is
---       -- wrapped in an item element.
---     , rkInstancesSet  :: !RunningInstancesItemType
---       -- ^ A list of instances. Each instance is wrapped in an item element.
---     , rkRequesterId   :: !Text
---       -- ^ The ID of the requester that launched the instances on your
---       -- behalf (for example, AWS Management Console, Auto Scaling).
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML RunInstancesResponse where
---     xmlPickler = ec2XML
+instance IsXML RunInstancesResponse where
+    xmlPickler = ec2XML
 
 -- -- | Starts an Amazon EBS-backed AMI that you've previously stopped. Instances
 -- -- that use Amazon EBS volumes as their root devices can be quickly stopped

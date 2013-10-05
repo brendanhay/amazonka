@@ -867,17 +867,20 @@ data GroupItemType = GroupItemType
       -- ^ The name of the security group.
     } deriving (Eq, Show, Generic)
 
+
+instance IsQuery GroupItemType
+
 instance IsXML GroupItemType where
     xmlPickler = ec2XML
 
--- data IamInstanceProfileRequestType = IamInstanceProfileRequestType
---     { iiprtArn  :: !Text
---       -- ^ The Amazon Resource Name (ARN) of the instance profile.
---     , iiprtName :: !Text
---       -- ^ The name of the instance profile.
---     } deriving (Eq, Show, Generic)
+data IamInstanceProfileRequestType = IamInstanceProfileRequestType
+    { iiprtArn  :: !Text
+      -- ^ The Amazon Resource Name (ARN) of the instance profile.
+    , iiprtName :: !Text
+      -- ^ The name of the instance profile.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery IamInstanceProfileRequestType
+instance IsQuery IamInstanceProfileRequestType
 
 -- instance IsXML IamInstanceProfileRequestType where
 --     xmlPickler = ec2XML
@@ -986,21 +989,21 @@ instance IsXML IamInstanceProfileResponseType where
 -- instance IsXML ImportVolumeTaskDetailsType where
 --     xmlPickler = ec2XML
 
--- data InstanceBlockDeviceMappingItemType = InstanceBlockDeviceMappingItemType
---     { ibdmitDeviceName  :: !Text
---       -- ^ The device name exposed to the instance (for example, /dev/sdh or
---       -- xvdh).
---     , ibdmitVirtualName :: !Text
---       -- ^ The virtual device name.
---     , ibdmitEbs         :: !InstanceEbsBlockDeviceType
---       -- ^ Parameters used to automatically set up Amazon EBS volumes when
---       -- the instance is launched.
---     , ibdmitNoDevice    :: !Text
---       -- ^ Include this empty element to suppress the specified device
---       -- included in the block device mapping of the AMI.
---     } deriving (Eq, Show, Generic)
+data InstanceBlockDeviceMappingItemType = InstanceBlockDeviceMappingItemType
+    { ibdmitDeviceName  :: !Text
+      -- ^ The device name exposed to the instance (for example, /dev/sdh or
+      -- xvdh).
+    , ibdmitVirtualName :: !Text
+      -- ^ The virtual device name.
+    , ibdmitEbs         :: !InstanceEbsBlockDeviceType
+      -- ^ Parameters used to automatically set up Amazon EBS volumes when
+      -- the instance is launched.
+    , ibdmitNoDevice    :: !Text
+      -- ^ Include this empty element to suppress the specified device
+      -- included in the block device mapping of the AMI.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InstanceBlockDeviceMappingItemType
+instance IsQuery InstanceBlockDeviceMappingItemType
 
 -- instance IsXML InstanceBlockDeviceMappingItemType where
 --     xmlPickler = ec2XML
@@ -1027,14 +1030,14 @@ data InstanceCountsSetItemType = InstanceCountsSetItemType
 instance IsXML InstanceCountsSetItemType where
     xmlPickler = ec2XML
 
--- data InstanceEbsBlockDeviceType = InstanceEbsBlockDeviceType
---     { iebdtDeleteOnTermination :: !Bool
---       -- ^ Indicates whether the volume is deleted on instance termination.
---     , iebdtVolumeId            :: !Text
---       -- ^ The ID of the volume.
---     } deriving (Eq, Show, Generic)
+data InstanceEbsBlockDeviceType = InstanceEbsBlockDeviceType
+    { iebdtDeleteOnTermination :: !Bool
+      -- ^ Indicates whether the volume is deleted on instance termination.
+    , iebdtVolumeId            :: !Text
+      -- ^ The ID of the volume.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InstanceEbsBlockDeviceType
+instance IsQuery InstanceEbsBlockDeviceType
 
 -- instance IsXML InstanceEbsBlockDeviceType where
 --     xmlPickler = ec2XML
@@ -1463,12 +1466,12 @@ instance IsXML IpRange where
 -- instance IsXML LaunchSpecificationResponseType where
 --     xmlPickler = ec2XML
 
--- data MonitoringInstanceType = MonitoringInstanceType
---     { mitEnabled :: !Bool
---       -- ^ Indicates whether monitoring is enabled for the instance.
---     } deriving (Eq, Show, Generic)
+data MonitoringInstanceType = MonitoringInstanceType
+    { mitEnabled :: !Bool
+      -- ^ Indicates whether monitoring is enabled for the instance.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery MonitoringInstanceType
+instance IsQuery MonitoringInstanceType
 
 -- instance IsXML MonitoringInstanceType where
 --     xmlPickler = ec2XML
@@ -1548,102 +1551,102 @@ instance IsXML IpRange where
 -- instance IsXML NetworkAclType where
 --     xmlPickler = ec2XML
 
--- data NetworkInterfaceAssociationType = NetworkInterfaceAssociationType
---     { niatPublicIp      :: !Text
---       -- ^ The address of the Elastic IP address bound to the network
---       -- interface.
---     , niatPublicDnsName :: !Text
---       -- ^ The public DNS name.
---     , niatIpOwnerId     :: !Text
---       -- ^ The ID of the Elastic IP address owner.
---     , niatAllocationID  :: !Text
---       -- ^ The allocation ID.
---     , niatAssociationID :: !Text
---       -- ^ The association ID.
---     } deriving (Eq, Show, Generic)
+data NetworkInterfaceAssociationType = NetworkInterfaceAssociationType
+    { niatPublicIp      :: !Text
+      -- ^ The address of the Elastic IP address bound to the network
+      -- interface.
+    , niatPublicDnsName :: !Text
+      -- ^ The public DNS name.
+    , niatIpOwnerId     :: !Text
+      -- ^ The ID of the Elastic IP address owner.
+    , niatAllocationID  :: !Text
+      -- ^ The allocation ID.
+    , niatAssociationID :: !Text
+      -- ^ The association ID.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery NetworkInterfaceAssociationType
+instance IsQuery NetworkInterfaceAssociationType
 
 -- instance IsXML NetworkInterfaceAssociationType where
 --     xmlPickler = ec2XML
 
--- data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
---     { niatAttachmentID :: !Text
---       -- ^ The ID of the network interface attachment.
---     , niatInstanceID   :: !Text
---       -- ^ The ID of the instance.
---     } deriving (Eq, Show, Generic)
+data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
+    { niatAttachmentID :: !Text
+      -- ^ The ID of the network interface attachment.
+    , niatInstanceID   :: !Text
+      -- ^ The ID of the instance.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery NetworkInterfaceAttachmentType
+instance IsQuery NetworkInterfaceAttachmentType
 
 -- instance IsXML NetworkInterfaceAttachmentType where
 --     xmlPickler = ec2XML
 
--- data NetworkInterfacePrivateIpAddressesSetItemType = NetworkInterfacePrivateIpAddressesSetItemType
---     { nipiasitPrivateIpAddress :: !Text
---       -- ^ The private IP address of the network interface.
---     , nipiasitPrivateDnsName   :: !Text
---       -- ^ The private DNS name.
---     , nipiasitPrimary          :: !Bool
---       -- ^ Indicates whether this IP address is the primary private IP
---       -- address of the network interface.
---     , nipiasitAssociation      :: !NetworkInterfaceAssociationType
---       -- ^ The association information for an Elastic IP address associated
---       -- with the network interface.
---     } deriving (Eq, Show, Generic)
+data NetworkInterfacePrivateIpAddressesSetItemType = NetworkInterfacePrivateIpAddressesSetItemType
+    { nipiasitPrivateIpAddress :: !Text
+      -- ^ The private IP address of the network interface.
+    , nipiasitPrivateDnsName   :: !Text
+      -- ^ The private DNS name.
+    , nipiasitPrimary          :: !Bool
+      -- ^ Indicates whether this IP address is the primary private IP
+      -- address of the network interface.
+    , nipiasitAssociation      :: !NetworkInterfaceAssociationType
+      -- ^ The association information for an Elastic IP address associated
+      -- with the network interface.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery NetworkInterfacePrivateIpAddressesSetItemType
+instance IsQuery NetworkInterfacePrivateIpAddressesSetItemType
 
 -- instance IsXML NetworkInterfacePrivateIpAddressesSetItemType where
 --     xmlPickler = ec2XML
 
--- data NetworkInterfaceType = NetworkInterfaceType
---     { nitNetworkInterfaceId    :: !Text
---       -- ^ The ID of the network interface.
---     , nitSubnetId              :: !Text
---       -- ^ The ID of the subnet.
---     , niuNetworkInterfaceId    :: !Text
---       -- ^ The ID of the network interface.
---     , niuSubnetId              :: !Text
---       -- ^ The ID of the subnet.
---     , niuVpcId                 :: !Text
---       -- ^ The ID of the VPC.
---     , niuAvailabilityZone      :: !Text
---       -- ^ The Availability Zone.
---     , niuDescription           :: !Text
---       -- ^ A description.
---     , niuOwnerId               :: !Text
---       -- ^ The ID of the customer who created the interface.
---     , niuRequesterId           :: !Text
---       -- ^ The ID of the entity that launched the instance on your behalf
---       -- (for example, AWS Management Console or Auto Scaling)
---     , niuRequesterManaged      :: !Text
---       -- ^ Indicates whether the network interface is being managed by AWS.
---     , niuStatus                :: !Text
---       -- ^ The status of the network interface.
---     , niuMacAddress            :: !Text
---       -- ^ The MAC address.
---     , niuPrivateIpAddress      :: !Text
---       -- ^ The IP address of the network interface within the subnet.
---     , niuPrivateDnsName        :: !Text
---       -- ^ The private DNS name.
---     , niuSourceDestCheck       :: !Bool
---       -- ^ Indicates whether traffic to or from the instance is validated.
---     , niuGroupSet              :: !GroupItemType
---       -- ^ The security group.
---     , niuAttachment            :: !NetworkInterfaceAttachmentType
---       -- ^ The network interface attachment.
---     , niuAssociation           :: !NetworkInterfaceAssociationType
---       -- ^ The association information for an Elastic IP associated with the
---       -- network interface.
---     , niuTagSet                :: !ResourceTagSetItemType
---       -- ^ The tags assigned to the resource.
---     , niuPrivateIpAddressesSet :: !NetworkInterfacePrivateIpAddressesSetItemType
---       -- ^ The private IP addresses associated with the network interface.
---       -- [are returned in a set.]
---     } deriving (Eq, Show, Generic)
+data NetworkInterfaceType = NetworkInterfaceType
+    { nitNetworkInterfaceId    :: !Text
+      -- ^ The ID of the network interface.
+    , nitSubnetId              :: !Text
+      -- ^ The ID of the subnet.
+    , niuNetworkInterfaceId    :: !Text
+      -- ^ The ID of the network interface.
+    , niuSubnetId              :: !Text
+      -- ^ The ID of the subnet.
+    , niuVpcId                 :: !Text
+      -- ^ The ID of the VPC.
+    , niuAvailabilityZone      :: !Text
+      -- ^ The Availability Zone.
+    , niuDescription           :: !Text
+      -- ^ A description.
+    , niuOwnerId               :: !Text
+      -- ^ The ID of the customer who created the interface.
+    , niuRequesterId           :: !Text
+      -- ^ The ID of the entity that launched the instance on your behalf
+      -- (for example, AWS Management Console or Auto Scaling)
+    , niuRequesterManaged      :: !Text
+      -- ^ Indicates whether the network interface is being managed by AWS.
+    , niuStatus                :: !Text
+      -- ^ The status of the network interface.
+    , niuMacAddress            :: !Text
+      -- ^ The MAC address.
+    , niuPrivateIpAddress      :: !Text
+      -- ^ The IP address of the network interface within the subnet.
+    , niuPrivateDnsName        :: !Text
+      -- ^ The private DNS name.
+    , niuSourceDestCheck       :: !Bool
+      -- ^ Indicates whether traffic to or from the instance is validated.
+    , niuGroupSet              :: !GroupItemType
+      -- ^ The security group.
+    , niuAttachment            :: !NetworkInterfaceAttachmentType
+      -- ^ The network interface attachment.
+    , niuAssociation           :: !NetworkInterfaceAssociationType
+      -- ^ The association information for an Elastic IP associated with the
+      -- network interface.
+    , niuTagSet                :: !ResourceTagSetItemType
+      -- ^ The tags assigned to the resource.
+    , niuPrivateIpAddressesSet :: !NetworkInterfacePrivateIpAddressesSetItemType
+      -- ^ The private IP addresses associated with the network interface.
+      -- [are returned in a set.]
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery NetworkInterfaceType
+instance IsQuery NetworkInterfaceType
 
 -- instance IsXML NetworkInterfaceType where
 --     xmlPickler = ec2XML
@@ -1674,6 +1677,7 @@ instance IsXML IpRange where
 -- instance IsXML PlacementRequestType where
 --     xmlPickler = ec2XML
 
+-- FIXME: is the corresponding request type now irrelavant?
 data PlacementResponseType = PlacementResponseType
     { pruAvailabilityZone :: !AvailabilityZone
       -- ^ The Availability Zone of the instance.
@@ -1682,7 +1686,10 @@ data PlacementResponseType = PlacementResponseType
       -- (for cluster compute instances).
     , pruTenancy          :: !Text
       -- ^ The tenancy of the instance (if the instance is running within a -- VPC).
+      -- FIXME: switch to enum default | dedicated
     } deriving (Eq, Show, Generic)
+
+instance IsQuery PlacementResponseType
 
 instance IsXML PlacementResponseType where
     xmlPickler = ec2XML
@@ -1870,6 +1877,8 @@ data ResourceTagSetItemType = ResourceTagSetItemType
     , rtsitValue :: !Text
       -- ^ The tag value.
     } deriving (Eq, Show, Generic)
+
+instance IsQuery ResourceTagSetItemType
 
 instance IsXML ResourceTagSetItemType where
     xmlPickler = ec2ItemXML

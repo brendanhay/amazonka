@@ -13,6 +13,7 @@
 -- | Retrieve an EC2 instance's local metadata.
 module Network.AWS.EC2.Metadata
     ( Metadata(..)
+    , doesMetadataExist
     , metadata
     , metadataByKey
     ) where
@@ -46,6 +47,15 @@ data Metadata
     | SecurityCredentials ByteString
     | AvailabilityZone
 
+doesMetadataExist :: MonadIO m => m Bool
+doesMetadataExist = eitherT failure return . syncIO $ bracket
+     (establishConnection localhost)
+     closeConnection
+     success
+   where
+     success = return . const True
+     failure = return . const False
+
 metadata :: (Applicative m, MonadIO m)
          => Metadata
          -> EitherT Error m ByteString
@@ -54,11 +64,14 @@ metadata = metadataByKey . toPath
 metadataByKey :: (Applicative m, MonadIO m)
               => ByteString
               -> EitherT Error m ByteString
-metadataByKey = get . mappend "http://169.254.169.254/latest/meta-data/"
+metadataByKey = get . mappend "/latest/meta-data/"
 
 --
 -- Internal
 --
+
+localhost :: ByteString
+localhost = "169.254.169.254"
 
 get :: (Applicative m, MonadIO m)
     => ByteString
@@ -67,7 +80,7 @@ get url = do
     rs <- fmapLT Ex $ syncIO req
     sStripChar '\n' <$> rs ?? "Failed to receive any data"
   where
-    req = bracket (establishConnection url) closeConnection $ \c -> do
+    req = bracket (establishConnection localhost) closeConnection $ \c -> do
         rq <- buildRequest $ http GET url
         sendRequest c rq emptyBody
         receiveResponse c $ const Streams.read

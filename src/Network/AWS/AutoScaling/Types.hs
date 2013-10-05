@@ -482,7 +482,7 @@ data Instance = Instance
       -- ^ The instance's health status.
     , iInstanceId              :: !Text
       -- ^ Specifies the ID of the Amazon EC2 instance.
-    , iLaunchConfigurationName :: !Text
+    , iLaunchConfigurationName :: Maybe Text
       -- ^ The launch configuration associated with this instance.
     , iLifecycleState          :: !Text
       -- ^ Contains a description of the current lifecycle state.

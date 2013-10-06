@@ -13,7 +13,6 @@
 -- | Retrieve an EC2 instance's local metadata.
 module Network.AWS.EC2.Metadata
     ( Metadata(..)
-    , doesMetadataExist
     , metadata
     , metadataByKey
     ) where
@@ -46,15 +45,6 @@ data Metadata
     | ReservationId
     | SecurityCredentials ByteString
     | AvailabilityZone
-
-doesMetadataExist :: MonadIO m => m Bool
-doesMetadataExist = eitherT failure return . syncIO $ bracket
-     (establishConnection localhost)
-     closeConnection
-     success
-   where
-     success = return . const True
-     failure = return . const False
 
 metadata :: (Applicative m, MonadIO m)
          => Metadata

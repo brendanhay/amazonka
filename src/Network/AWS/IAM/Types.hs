@@ -629,7 +629,7 @@ data ListRolePoliciesResult = ListRolePoliciesResult
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
-    , lrprPolicyNames :: !Text
+    , lrprPolicyNames :: Members Text
       -- ^ A list of policy names.
     } deriving (Eq, Show, Generic)
 
@@ -642,7 +642,7 @@ instance IsXML ListRolePoliciesResult where
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolesResult.html>
 data ListRolesResult = ListRolesResult
-    { lrrIsTruncated :: Maybe Bool
+    { lrrIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more roles to list. If
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more roles
@@ -651,7 +651,7 @@ data ListRolesResult = ListRolesResult
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
-    , lrrRoles       :: !Role
+    , lrrRoles       :: Members Role
       -- ^ A list of roles.
     } deriving (Eq, Show, Generic)
 

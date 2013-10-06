@@ -1,6 +1,8 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.IAM
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -1714,9 +1716,14 @@ instance Rq ListRoles where
     type Rs ListRoles = ListRolesResponse
     request = qry GET "ListRoles"
 
+instance Pg ListRoles where
+    next ListRoles{..} (lrrListRolesResult -> ListRolesResult{..})
+        | not lrrIsTruncated = Nothing
+        | otherwise = Just $ ListRoles lrrMarker lrMaxItems lrPathPrefix
+
 data ListRolesResponse = ListRolesResponse
     { lrrResponseMetadata :: !Text
-    , lrrListRolesResult :: !ListRolesResult
+    , lrrListRolesResult  :: !ListRolesResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML ListRolesResponse where

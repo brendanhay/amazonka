@@ -867,16 +867,15 @@ data GroupItemType = GroupItemType
       -- ^ The name of the security group.
     } deriving (Eq, Show, Generic)
 
-
 instance IsQuery GroupItemType
 
 instance IsXML GroupItemType where
     xmlPickler = ec2XML
 
 data IamInstanceProfileRequestType = IamInstanceProfileRequestType
-    { iiprtArn  :: !Text
+    { iiprtArn  :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the instance profile.
-    , iiprtName :: !Text
+    , iiprtName :: Maybe Text
       -- ^ The name of the instance profile.
     } deriving (Eq, Show, Generic)
 

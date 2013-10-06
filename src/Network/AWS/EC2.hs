@@ -6028,9 +6028,8 @@ data RunInstances = RunInstances
       -- a nondefault VPC, you must use SecurityGroupId.
     , riUserData                          :: Maybe Text
       -- ^ The Base64-encoded MIME user data for the instances.
-    , riInstanceType                      :: Maybe Text
-      -- ^ The instance type. See Available Instance Types for more
-      -- information.
+    , riInstanceType                      :: Maybe InstanceType
+      -- ^ The instance type. Defaults to m1.small if absent.
     , riPlacement                         :: Maybe PlacementResponseType
       -- ^ The Availability Zone for the instance.
     , rjKernelId                          :: Maybe Text
@@ -6052,7 +6051,7 @@ data RunInstances = RunInstances
       -- ModifyInstanceAttribute. Alternatively, if you set
       -- InstanceInitiatedShutdownBehavior to terminate, you can terminate
       -- the instance by running the shutdown command from the instance.
-    , rjInstanceInitiatedShutdownBehavior :: Maybe Text
+    , rjInstanceInitiatedShutdownBehavior :: Maybe Text -- FIXME: Should be stop | terminate
       -- ^ Indicates whether an instance stops or terminates when you
       -- initiate shutdown from the instance (using the operating system
       -- command for system shutdown).

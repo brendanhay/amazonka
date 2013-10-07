@@ -6090,12 +6090,12 @@ data RunInstancesResponse = RunInstancesResponse
       -- ^ The ID of the reservation.
     , rirOwnerId       :: !Text
       -- ^ The ID of the AWS account that owns the reservation.
-    , rirGroupSet      :: !GroupItemType
+    , rirGroupSet      :: [GroupItemType]
       -- ^ A list of security groups the instance belongs to. Each group is
       -- wrapped in an item element.
-    , rirInstancesSet  :: !RunningInstancesItemType
+    , rirInstancesSet  :: [RunningInstancesItemType]
       -- ^ A list of instances. Each instance is wrapped in an item element.
-    , rirRequesterId   :: !Text
+    , rirRequesterId   :: Maybe Text
       -- ^ The ID of the requester that launched the instances on your
       -- behalf (for example, AWS Management Console, Auto Scaling).
     } deriving (Eq, Show, Generic)

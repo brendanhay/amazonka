@@ -870,7 +870,7 @@ data GroupItemType = GroupItemType
 instance IsQuery GroupItemType
 
 instance IsXML GroupItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 data IamInstanceProfileRequestType = IamInstanceProfileRequestType
     { iiprtArn  :: Maybe Text
@@ -1349,7 +1349,7 @@ data IpPermissionType = IpPermissionType
 instance IsQuery IpPermissionType
 
 instance IsXML IpPermissionType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 data IpRange = IpRange
     { irCidrIp :: !Text
@@ -1360,7 +1360,7 @@ data IpRange = IpRange
 instance IsQuery IpRange
 
 instance IsXML IpRange where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data LaunchPermissionItemType = LaunchPermissionItemType
 --     { lpitGroup  :: !Text
@@ -1680,7 +1680,7 @@ instance IsQuery NetworkInterfaceType
 data PlacementResponseType = PlacementResponseType
     { pruAvailabilityZone :: !AvailabilityZone
       -- ^ The Availability Zone of the instance.
-    , pruGroupName        :: !Text
+    , pruGroupName        :: Maybe Text
       -- ^ The name of the placement group the instance is in
       -- (for cluster compute instances).
     , pruTenancy          :: !Text
@@ -1979,23 +1979,23 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The time the instance was launched.
     , riitPlacement             :: !PlacementResponseType
       -- ^ The location where the instance launched.
-    , riitKernelId              :: !Text
+    , riitKernelId              :: Maybe Text
       -- ^ The kernel associated with this instance.
-    , riitRamdiskId             :: !Text
+    , riitRamdiskId             :: Maybe Text
       -- ^ The RAM disk associated with this instance.
     , riitPlatform              :: Maybe Text
       -- ^ The value is Windows for Windows AMIs; otherwise blank.
     , riitMonitoring            :: !InstanceMonitoringStateType
       -- ^ The monitoring information for the instance.
-    , riitSubnetId              :: !Text
+    , riitSubnetId              :: Maybe Text
       -- ^ The ID of the subnet in which the instance is running.
-    , riitVpcId                 :: !Text
+    , riitVpcId                 :: Maybe Text
       -- ^ The ID of the VPC in which the instance is running.
-    , riitPrivateIpAddress      :: !Text
+    , riitPrivateIpAddress      :: Maybe Text
       -- ^ The private IP address assigned to the instance.
-    , riitIpAddress             :: !Text
+    , riitIpAddress             :: Maybe Text
       -- ^ The IP address of the instance.
-    , riitSourceDestCheck       :: !Bool
+    , riitSourceDestCheck       :: Maybe Bool
       -- ^ Specifies whether to enable an instance launched in a VPC to
       -- perform NAT. This controls whether source/destination checking is
       -- enabled on the instance. A value of true means checking is
@@ -2012,7 +2012,7 @@ data RunningInstancesItemType = RunningInstancesItemType
     , riitRootDeviceType        :: !Text
       -- ^ The root device type used by the AMI. The AMI can use an Amazon
       -- EBS or instance store root device.
-    , riitRootDeviceName        :: !Text
+    , riitRootDeviceName        :: Maybe Text
       -- ^ The root device name (for example, /dev/sda1).
     , riitBlockDeviceMapping    :: [InstanceBlockDeviceMappingResponseItemType]
       -- ^ Any block device mapping entries for the instance.
@@ -2022,7 +2022,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The ID of the Spot Instance request.
     , riitVirtualizationType    :: !Text
       -- ^ The instance's virtualization type.
-    , riitClientToken           :: !Text
+    , riitClientToken           :: Maybe Text
       -- ^ The idempotency token you provided when you launched the instance.
     , riitTagSet                :: [ResourceTagSetItemType]
       -- ^ Any tags assigned to the resource.
@@ -2030,14 +2030,14 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The instance's hypervisor type.
     , riitNetworkInterfaceSet   :: [InstanceNetworkInterfaceSetItemType]
       -- ^ The network interfaces for the instance.
-    , riitIamInstanceProfile    :: !IamInstanceProfileResponseType
+    , riitIamInstanceProfile    :: Maybe IamInstanceProfileResponseType
       -- ^ The IAM Instance Profile (IIP) associated with the instance.
     , riitEbsOptimized          :: !Bool
       -- ^ Indicates whether the instance is optimized for EBS I/O.
     } deriving (Eq, Show, Generic)
 
 instance IsXML RunningInstancesItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data SecurityGroupIdSetItemType = SecurityGroupIdSetItemType
 --     { sgisitGroupId :: !Text
@@ -2070,7 +2070,7 @@ data SecurityGroupItemType = SecurityGroupItemType
     } deriving (Eq, Show, Generic)
 
 instance IsXML SecurityGroupItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data SpotDatafeedSubscriptionType = SpotDatafeedSubscriptionType
 --     { sdstOwnerId :: !Text

@@ -1848,13 +1848,13 @@ data ReservationInfoType = ReservationInfoType
       -- ^ A list of security groups.
     , ritInstancesSet  :: [RunningInstancesItemType]
       -- ^ A list of instances.
-    , ritRequesterId   :: !Text
+    , ritRequesterId   :: Maybe Text
       -- ^ The ID of the requester that launched the instances on your
       -- behalf (for example, AWS Management Console or Auto Scaling).
     } deriving (Eq, Show, Generic)
 
 instance IsXML ReservationInfoType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data ReservedInstanceLimitPriceType = ReservedInstanceLimitPriceType
 --     { rilptAmount       :: !Double
@@ -2004,7 +2004,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- to NAT Instances in the Amazon Virtual Private Cloud User Guide.
     , riitGroupSet              :: [GroupItemType]
       -- ^ A list of the security groups for the instance.
-    , riitStateReason           :: !StateReasonType
+    , riitStateReason           :: Maybe StateReasonType
       -- ^ The reason for the most recent state transition. See
       -- StateReasonType for a listing of supported state change codes.
     , riitArchitecture          :: !Text

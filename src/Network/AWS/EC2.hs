@@ -147,8 +147,9 @@ module Network.AWS.EC2
    -- -- ** CreateSubnet
    -- , CreateSubnet                        (..)
 
-   -- -- ** CreateTags
-   -- , CreateTags                          (..)
+   -- ** CreateTags
+   , CreateTags                             (..)
+   , CreateTagsResponse                     (..)
 
    -- -- ** CreateVolume
    -- , CreateVolume                        (..)
@@ -1841,34 +1842,34 @@ instance IsXML CreateSecurityGroupResponse where
 -- instance IsXML CreateSubnetResponse where
 --     xmlPickler = ec2XML
 
--- -- | Adds or overwrites one or more tags for the specified EC2 resource or
--- -- resources. Each resource can have a maximum of 10 tags. Each tag consists
--- -- of a key and optional value. Tag keys must be unique per resource.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html>
+-- | Adds or overwrites one or more tags for the specified EC2 resource or
+-- resources. Each resource can have a maximum of 10 tags. Each tag consists
+-- of a key and optional value. Tag keys must be unique per resource.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html>
+data CreateTags = CreateTags
+    { ctResourceId :: [Text]
+      -- ^ The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
+    , ctTag        :: [ResourceTagSetItemType]
+      -- ^ The key for a tag.
+    } deriving (Eq, Show, Generic)
 
--- data CreateTags = CreateTags
---     { ctResourceId :: Members Text
---       -- ^ The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
---     , ctTag        :: Members ResourceTagSetItemType
---       -- ^ The key for a tag.
---     } deriving (Eq, Show, Generic)
+instance IsQuery CreateTags
 
--- instance IsQuery CreateTags
+instance Rq CreateTags where
+    type Er CreateTags = EC2ErrorResponse
+    type Rs CreateTags = CreateTagsResponse
+    request = qry GET "CreateTags"
 
--- instance AWSRequest EC2 CreateTags CreateTagsResponse where
---     request = qry GET "CreateTags"
+data CreateTagsResponse = CreateTagsResponse
+    { cvRequestId :: !Text
+      -- ^ The ID of the request.
+    , cvReturn    :: !Bool
+      -- ^ Returns true if the request succeeds. Otherwise, returns an error.
+    } deriving (Eq, Show, Generic)
 
--- data CreateTagsResponse = CreateTagsResponse
---     { cvRequestId :: !Text
---       -- ^ The ID of the request.
---     , cvReturn    :: !Bool
---       -- ^ Returns true if the request succeeds. Otherwise, returns an
---       -- error.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML CreateTagsResponse where
---     xmlPickler = ec2XML
+instance IsXML CreateTagsResponse where
+    xmlPickler = ec2XML
 
 -- -- | Creates an Amazon EBS volume that can be attached to any instance in the
 -- -- same Availability Zone.Any AWS Marketplace product codes from the snapshot
@@ -3173,7 +3174,9 @@ instance IsXML DescribeImagesResponse where
 --   * If you specify an invalid instance ID, an error is returned.
 --
 --   * If you specify an instance that you do not own, it is not included in the
---   returned results.Recently terminated instances might appear in the returned
+--   returned results.
+--
+--   * Recently terminated instances might appear in the returned
 --   results. This interval is usually less than one hour.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html>

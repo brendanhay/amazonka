@@ -6033,7 +6033,7 @@ data RunInstances = RunInstances
       -- ^ The Base64-encoded MIME user data for the instances.
     , riInstanceType                      :: Maybe InstanceType
       -- ^ The instance type. Defaults to m1.small if absent.
-    , riPlacement                         :: Maybe PlacementResponseType
+    , riPlacement                         :: Maybe PlacementType
       -- ^ The Availability Zone for the instance.
     , rjKernelId                          :: Maybe Text
       -- ^ The ID of the kernel.

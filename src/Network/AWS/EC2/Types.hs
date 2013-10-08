@@ -1677,20 +1677,20 @@ instance IsQuery NetworkInterfaceType
 --     xmlPickler = ec2XML
 
 -- FIXME: is the corresponding request type now irrelavant?
-data PlacementResponseType = PlacementResponseType
-    { pruAvailabilityZone :: !AvailabilityZone
+data PlacementType = PlacementType
+    { pruAvailabilityZone :: Maybe AvailabilityZone
       -- ^ The Availability Zone of the instance.
     , pruGroupName        :: Maybe Text
       -- ^ The name of the placement group the instance is in
       -- (for cluster compute instances).
-    , pruTenancy          :: !Text
+    , pruTenancy          :: Maybe Text
       -- ^ The tenancy of the instance (if the instance is running within a -- VPC).
       -- FIXME: switch to enum default | dedicated
     } deriving (Eq, Show, Generic)
 
-instance IsQuery PlacementResponseType
+instance IsQuery PlacementType
 
-instance IsXML PlacementResponseType where
+instance IsXML PlacementType where
     xmlPickler = ec2XML
 
 -- data PortRangeType = PortRangeType
@@ -1977,7 +1977,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The instance type.
     , riitLaunchTime            :: !UTCTime
       -- ^ The time the instance was launched.
-    , riitPlacement             :: !PlacementResponseType
+    , riitPlacement             :: !PlacementType
       -- ^ The location where the instance launched.
     , riitKernelId              :: Maybe Text
       -- ^ The kernel associated with this instance.

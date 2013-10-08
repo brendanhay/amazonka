@@ -45,6 +45,7 @@ data Metadata
     | ReservationId
     | SecurityCredentials ByteString
     | AvailabilityZone
+    | UserData
 
 metadata :: (Applicative m, MonadIO m)
          => Metadata
@@ -94,3 +95,4 @@ toPath meta = case meta of
     ReservationId         -> "reservation-id"
     SecurityCredentials r -> "iam/security-credentials/" <> r
     AvailabilityZone      -> "placement/availability-zone"
+    UserData              -> "user-data"

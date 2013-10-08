@@ -40,6 +40,7 @@ module Network.AWS
     , async
     , sendAsync
     , wait
+    , wait_
     , waitAsync
     , waitAsync_
 
@@ -138,6 +139,9 @@ sendAsync = async . sendCatch
 
 wait :: A.Async (Either Error a) -> AWS a
 wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
+
+wait_ :: A.Async (Either Error a) -> AWS ()
+wait_ = void . wait
 
 waitAsync :: ToError e => A.Async (Either Error (Either e a)) -> AWS a
 waitAsync a = wait a >>= hoistError . fmapL toError

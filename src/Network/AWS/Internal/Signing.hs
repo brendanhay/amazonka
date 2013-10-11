@@ -23,6 +23,7 @@ module Network.AWS.Internal.Signing
     , version4
     ) where
 
+import           Control.Applicative
 import           Control.Arrow                   (first)
 import           Control.Error
 import           Control.Monad
@@ -52,8 +53,7 @@ sign r = do
     dbg  <- debugEnabled
 
     let tok = maybe [] (\t -> [("SecurityToken", t)]) $ securityToken auth
-        hs  = [ ("Date", iso8601Time time)
-              , ("Host", endpoint svc reg <> ":443")
+        hs  = [ ("Host", endpoint svc reg <> ":443")
               ] ++ tok
         rq  = r { rqHeaders = rqHeaders r ++ hs }
 
@@ -64,7 +64,7 @@ sign r = do
     signer dbg = case svcSigner of
         SigningVersion2 -> version2
         SigningVersion3 -> version3
-        SigningVersion4 -> \a b c d -> fmap fst $ version4 a b c d dbg
+        SigningVersion4 -> \a b c d -> fst <$> version4 a b c d dbg
 
 --
 -- Internal
@@ -77,7 +77,8 @@ version2 :: RawRequest
          -> IO SignedRequest
 version2 RawRequest{..} Auth{..} reg time = do
     let url = httpsURL host path
-    fmap (SignedRequest url rqBody) $ createRequest rqMethod path rqHeaders
+        hs  = ("Date", iso8601Time time) : rqHeaders
+    SignedRequest url rqBody <$> createRequest rqMethod path hs
   where
     Service{..} = rqService
 
@@ -108,8 +109,9 @@ version3 :: RawRequest
          -> IO SignedRequest
 version3 RawRequest{..} Auth{..} reg time = do
     let url = httpsURL host path
-    fmap (SignedRequest url rqBody) . createRequest rqMethod path $
-        ("X-Amzn-Authorization", authorization) : rqHeaders
+        hs  = ("Date", rfc822Time time) :
+              ("X-Amzn-Authorization", authorization) : rqHeaders
+    SignedRequest url rqBody <$> createRequest rqMethod path hs
   where
     Service{..} = rqService
 
@@ -145,7 +147,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
     let url = httpsURL (endpoint rqService reg) path
         req = createRequest rqMethod path
 
-    raw <- req rqHeaders
+    raw <- req $ ("Date", iso8601Time time) : rqHeaders
 
     let hs   = getRequestHeaders (error "Unable to get connection here") raw
         auth = ("Authorization", " " <> authorization hs time)
@@ -266,3 +268,4 @@ hex = BS.pack . foldr f "" . BS.unpack
     f c t = intToDigit (n `div` 16) : intToDigit (n `mod` 16) : t
       where
         n = ord c
+

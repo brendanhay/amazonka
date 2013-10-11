@@ -808,7 +808,7 @@ data EbsInstanceBlockDeviceMappingResponseType = EbsInstanceBlockDeviceMappingRe
     } deriving (Eq, Show, Generic)
 
 instance IsXML EbsInstanceBlockDeviceMappingResponseType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data ExportToS3Task = ExportToS3Task
 --     { etstDiskImageFormat :: Maybe Text
@@ -1016,7 +1016,7 @@ data InstanceBlockDeviceMappingResponseItemType = InstanceBlockDeviceMappingResp
     } deriving (Eq, Show, Generic)
 
 instance IsXML InstanceBlockDeviceMappingResponseItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 data InstanceCountsSetItemType = InstanceCountsSetItemType
     { icsitState         :: !Text
@@ -2245,7 +2245,7 @@ data TagSetItemType = TagSetItemType
     } deriving (Eq, Show, Generic)
 
 instance IsXML TagSetItemType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 -- data UserDataType = UserDataType
 --     { udtData :: !Text

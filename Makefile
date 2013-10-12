@@ -26,12 +26,15 @@ doc:
 	cabal haddock
 
 cabal.sandbox.config:
-	cabal sandbox init && cabal configure
+	cabal sandbox init
 
 add-sources: cabal.sandbox.config
-	cabal sandbox add-source ../hexpat-pickle-generic
-	cabal sandbox add-source ../querystring-pickle
+	cabal sandbox add-source vendor/hexpat-pickle-generic
+	cabal sandbox add-source vendor/querystring-pickle
 	cabal sandbox add-source vendor/http-streams
 
 vendor/http-streams:
 	git clone git@github.com:afcowie/http-streams.git $@
+
+vendor/%:
+	git clone git@github.com:brendanhay/$*.git $@

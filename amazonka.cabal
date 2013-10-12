@@ -107,7 +107,7 @@ test-suite amazonka-tests
       , natural-sort
       , old-locale
       , QuickCheck                 >= 2.5.1.1
-      , querystring-pickle
+      , querystring-pickle         >= 0.1.7
       , template-haskell
       , test-framework             >= 0.8
       , test-framework-hunit       >= 0.3

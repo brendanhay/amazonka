@@ -236,8 +236,9 @@ module Network.AWS.EC2
    -- -- ** DescribeAddresses
    -- , DescribeAddresses                   (..)
 
-   -- -- ** DescribeAvailabilityZones
-   -- , DescribeAvailabilityZones           (..)
+   -- ** DescribeAvailabilityZones
+   -- , DescribeAvailabilityZones              (..)
+   -- , DescribeAvailabilityZonesResponse      (..)
 
    -- -- ** DescribeBundleTasks
    -- , DescribeBundleTasks                 (..)
@@ -290,8 +291,9 @@ module Network.AWS.EC2
    -- -- ** DescribePlacementGroups
    -- , DescribePlacementGroups             (..)
 
-   -- -- ** DescribeRegions
-   -- , DescribeRegions                     (..)
+   -- ** DescribeRegions
+   , DescribeRegions                        (..)
+   , DescribeRegionsResponse                (..)
 
    -- -- ** DescribeReservedInstances
    -- , DescribeReservedInstances           (..)
@@ -2777,24 +2779,22 @@ instance IsXML DeleteSecurityGroupResponse where
 -- -- The results include zones only for the region you're currently using.
 -- --
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html>
-
--- -- data AvailabilityZoneFilter
--- --     , dazMessage     :: !Text
--- --       -- ^ Information about the Availability Zone.
--- --     , dazRegion-name :: !Text
--- --       -- ^ The region for the Availability Zone (for example, us-east-1).
--- --     , dazState       :: !Text
--- --       -- ^ The state of the Availability Zone
--- --     , dazZone-name   :: !Text
--- --       -- ^ The name of the zone.
-
-
 -- data DescribeAvailabilityZones = DescribeAvailabilityZones
 --     { dazZoneName    :: Members Text
 --       -- ^ One or more Availability Zone names.
 --     , dazFilter      :: Members Text
 --       -- ^ The name of a filter.
 --     } deriving (Eq, Show, Generic)
+
+-- data AvailabilityZoneFilter
+--     , dazMessage     :: !Text
+--       -- ^ Information about the Availability Zone.
+--     , dazRegion-name :: !Text
+--       -- ^ The region for the Availability Zone (for example, us-east-1).
+--     , dazState       :: !Text
+--       -- ^ The state of the Availability Zone
+--     , dazZone-name   :: !Text
+--       -- ^ The name of the zone.
 
 -- instance IsQuery DescribeAvailabilityZones
 
@@ -3568,11 +3568,6 @@ instance IsXML DescribeKeyPairsResponse where
 -- instance IsXML DescribePlacementGroupsResponse where
 --     xmlPickler = ec2XML
 
--- -- | Describes one or more regions that are currently available to you.For a
--- -- list of the regions supported by Amazon EC2, see Regions and Endpoints.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html>
-
 -- -- data RegionFilter
 -- --     , drEndpoint    :: !Text
 -- --       -- ^ The endpoint of the region (for example,
@@ -3580,27 +3575,33 @@ instance IsXML DescribeKeyPairsResponse where
 -- --     , drRegion-name :: !Text
 -- --       -- ^ The name of the region.
 
--- data DescribeRegions = DescribeRegions
---     { drRegionName  :: Members Text
---       -- ^ One or more region names.
---     , drFilter      :: Members Text
---       -- ^ The name of a filter.
---     } deriving (Eq, Show, Generic)
+-- | Describes one or more regions that are currently available to you.For a
+-- list of the regions supported by Amazon EC2, see Regions and Endpoints.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html>
+data DescribeRegions = DescribeRegions
+    { drRegionName  :: [Text]
+      -- ^ One or more region names.
+    , drFilter      :: [Filter]
+      -- ^ The name of a filter.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery DescribeRegions
+instance IsQuery DescribeRegions
 
--- instance AWSRequest EC2 DescribeRegions DescribeRegionsResponse where
---     request = qry GET "DescribeRegions"
+instance Rq DescribeRegions where
+    type Er DescribeRegions = EC2ErrorResponse
+    type Rs DescribeRegions = DescribeRegionsResponse
+    request = qry GET "DescribeRegions"
 
--- data DescribeRegionsResponse = DescribeRegionsResponse
---     { dxRequestId  :: !Text
---       -- ^ The ID of the request.
---     , dxRegionInfo :: !RegionItemType
---       -- ^ A list of regions, each one wrapped in an item element.
---     } deriving (Eq, Show, Generic)
+data DescribeRegionsResponse = DescribeRegionsResponse
+    { drrRequestId  :: !Text
+      -- ^ The ID of the request.
+    , drrRegionInfo :: [RegionItemType]
+      -- ^ A list of regions, each one wrapped in an item element.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeRegionsResponse where
---     xmlPickler = ec2XML
+instance IsXML DescribeRegionsResponse where
+    xmlPickler = ec2XML
 
 -- -- | Describes one or more of the Reserved Instances that you purchased.
 -- --

@@ -1827,17 +1827,15 @@ instance IsXML ProductCodesSetItemType where
 -- instance IsXML RecurringChargesSetItemType where
 --     xmlPickler = ec2XML
 
--- data RegionItemType = RegionItemType
---     { ritRegionName     :: !Text
---       -- ^ The name of the region.
---     , ritRegionEndpoint :: !Text
---       -- ^ The region service endpoint.
---     } deriving (Eq, Show, Generic)
+data RegionItemType = RegionItemType
+    { ritRegionName     :: !Text
+      -- ^ The name of the region.
+    , ritRegionEndpoint :: !Text
+      -- ^ The region service endpoint.
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery RegionItemType
-
--- instance IsXML RegionItemType where
---     xmlPickler = ec2XML
+instance IsXML RegionItemType where
+    xmlPickler = ec2ItemXML
 
 data ReservationInfoType = ReservationInfoType
     { ritReservationId :: !Text

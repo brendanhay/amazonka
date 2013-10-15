@@ -2804,9 +2804,9 @@ instance Rq DescribeAvailabilityZones where
     request = qry GET "DescribeAvailabilityZones"
 
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
-    { dazRequestId            :: !Text
+    { dazrRequestId            :: !Text
       -- ^ The ID of the request.
-    , dazAvailabilityZoneInfo :: [AvailabilityZoneItemType]
+    , dazrAvailabilityZoneInfo :: [AvailabilityZoneItemType]
       -- ^ A list of Availability Zones.
     } deriving (Eq, Show, Generic)
 

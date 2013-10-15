@@ -280,12 +280,15 @@ instance Read Region where
         , ("sa-east-1",      SaoPaulo)
         ]
 
+instance IsQuery Region where
+    queryPickler = qpPrim
+
 instance IsXML Region where
     xmlPickler = xpContent xpPrim
 
 data AvailabilityZone = AZ
     { azRegion :: !Region
-    , azZone   :: !Char
+    , azSuffix :: !Char
     } deriving (Eq)
 
 instance Show AvailabilityZone where

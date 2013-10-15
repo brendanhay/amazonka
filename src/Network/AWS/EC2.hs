@@ -2799,8 +2799,8 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
 instance IsQuery DescribeAvailabilityZones
 
 instance Rq DescribeAvailabilityZones where
-    type Er = EC2ErrorResponse
-    type Rs = DescribeAvailabilityZonesResponse
+    type Er DescribeAvailabilityZones = EC2ErrorResponse
+    type Rs DescribeAvailabilityZones = DescribeAvailabilityZonesResponse
     request = qry GET "DescribeAvailabilityZones"
 
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse

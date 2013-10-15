@@ -1329,7 +1329,7 @@ data UserIdGroupPair = UserIdGroupPair
 instance IsQuery UserIdGroupPair
 
 instance IsXML UserIdGroupPair where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 data IpPermissionType = IpPermissionType
     { iptIpProtocol :: !Protocol

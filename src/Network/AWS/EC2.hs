@@ -237,8 +237,8 @@ module Network.AWS.EC2
    -- , DescribeAddresses                   (..)
 
    -- ** DescribeAvailabilityZones
-   -- , DescribeAvailabilityZones              (..)
-   -- , DescribeAvailabilityZonesResponse      (..)
+   , DescribeAvailabilityZones              (..)
+   , DescribeAvailabilityZonesResponse      (..)
 
    -- -- ** DescribeBundleTasks
    -- , DescribeBundleTasks                 (..)
@@ -2775,16 +2775,16 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsXML DescribeAddressesResponse where
 --     xmlPickler = ec2XML
 
--- -- | Describes one or more of the Availability Zones that are available to you.
--- -- The results include zones only for the region you're currently using.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html>
--- data DescribeAvailabilityZones = DescribeAvailabilityZones
---     { dazZoneName    :: Members Text
---       -- ^ One or more Availability Zone names.
---     , dazFilter      :: Members Text
---       -- ^ The name of a filter.
---     } deriving (Eq, Show, Generic)
+-- | Describes one or more of the Availability Zones that are available to you.
+-- The results include zones only for the region you're currently using.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html>
+data DescribeAvailabilityZones = DescribeAvailabilityZones
+    { dazZoneName    :: [Text]
+      -- ^ One or more Availability Zone names.
+    , dazFilter      :: [Filter]
+      -- ^ The name of a filter.
+    } deriving (Eq, Show, Generic)
 
 -- data AvailabilityZoneFilter
 --     , dazMessage     :: !Text
@@ -2796,21 +2796,22 @@ instance IsXML DeleteSecurityGroupResponse where
 --     , dazZone-name   :: !Text
 --       -- ^ The name of the zone.
 
--- instance IsQuery DescribeAvailabilityZones
+instance IsQuery DescribeAvailabilityZones
 
--- instance AWSRequest EC2 DescribeAvailabilityZones DescribeAvailabilityZonesResponse where
---     request = qry GET "DescribeAvailabilityZones"
+instance Rq DescribeAvailabilityZones where
+    type Er = EC2ErrorResponse
+    type Rs = DescribeAvailabilityZonesResponse
+    request = qry GET "DescribeAvailabilityZones"
 
--- data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
---     { dazRequestId            :: !Text
---       -- ^ The ID of the request.
---     , dazAvailabilityZoneInfo :: !AvailabilityZoneItemType
---       -- ^ A list of Availability Zones, each one wrapped in an item
---       -- element.
---     } deriving (Eq, Show, Generic)
+data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
+    { dazRequestId            :: !Text
+      -- ^ The ID of the request.
+    , dazAvailabilityZoneInfo :: [AvailabilityZoneItemType]
+      -- ^ A list of Availability Zones.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML DescribeAvailabilityZonesResponse where
---     xmlPickler = ec2XML
+instance IsXML DescribeAvailabilityZonesResponse where
+    xmlPickler = ec2XML
 
 -- -- | Describes one or more of your bundling tasks.
 -- --
@@ -3580,7 +3581,7 @@ instance IsXML DescribeKeyPairsResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html>
 data DescribeRegions = DescribeRegions
-    { drRegionName  :: [Text]
+    { drRegionName  :: [Region]
       -- ^ One or more region names.
     , drFilter      :: [Filter]
       -- ^ The name of a filter.

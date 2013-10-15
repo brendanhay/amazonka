@@ -198,32 +198,32 @@ data Attachment = Attachment
 instance IsXML Attachment where
     xmlPickler = ec2XML
 
--- data AvailabilityZoneItemType = AvailabilityZoneItemType
---     { azitZoneName   :: !Text
---       -- ^ The name of the Availability Zone.
---     , azitZoneState  :: !Text
---       -- ^ The state of the Availability Zone.
---     , azitRegionName :: !Text
---       -- ^ The name of the region.
---     , azitMessageSet :: !AvailabilityZoneMessageType
---       -- ^ Any messages about the Availability Zone, each one wrapped in an
---       -- item element.
---     } deriving (Eq, Show, Generic)
+data AvailabilityZoneItemType = AvailabilityZoneItemType
+    { azitZoneName   :: !AvailabilityZone
+      -- ^ The name of the Availability Zone.
+    , azitZoneState  :: !Text
+      -- ^ The state of the Availability Zone.
+      -- FIXME: Should be - available | impaired | unavailable
+    , azitRegionName :: !Region
+      -- ^ The name of the region.
+    , azitMessageSet :: [AvailabilityZoneMessageType]
+      -- ^ Any messages about the Availability Zone.
+    } deriving (Eq, Show, Generic)
 
 -- instance IsQuery AvailabilityZoneItemType
 
--- instance IsXML AvailabilityZoneItemType where
---     xmlPickler = ec2XML
+instance IsXML AvailabilityZoneItemType where
+    xmlPickler = ec2ItemXML
 
--- data AvailabilityZoneMessageType = AvailabilityZoneMessageType
---     { azmtMessage :: !Text
---       -- ^ The message about the Availability Zone.
---     } deriving (Eq, Show, Generic)
+data AvailabilityZoneMessageType = AvailabilityZoneMessageType
+    { azmtMessage :: !Text
+      -- ^ The message about the Availability Zone.
+    } deriving (Eq, Show, Generic)
 
 -- instance IsQuery AvailabilityZoneMessageType
 
--- instance IsXML AvailabilityZoneMessageType where
---     xmlPickler = ec2XML
+instance IsXML AvailabilityZoneMessageType where
+    xmlPickler = ec2ItemXML
 
 data BlockDeviceMappingItemType = BlockDeviceMappingItemType
     { bdmitDeviceName  :: !Text

@@ -71,6 +71,9 @@ instance ToError SomeException where
 
 data Error = Error String | Ex SomeException
 
+instance ToError Error where
+    toError = id
+
 instance IsString Error where
     fromString = Error
 
@@ -122,23 +125,23 @@ debugEnabled = awsDebug <$> getEnv
 whenDebug :: AWS () -> AWS ()
 whenDebug action = debugEnabled >>= \p -> when p action
 
-liftEitherT :: EitherT Error IO a -> AWS a
-liftEitherT = AWS . lift
-
-hoistError :: Either Error a -> AWS a
-hoistError = liftEitherT . hoistEither
-
 noteError :: String -> Maybe a -> AWS a
 noteError e = hoistError . note (Error e)
 
 throwError :: String -> AWS a
 throwError = hoistError . Left . Error
 
-checkError :: ToError e => (e -> Bool) -> Either e a -> AWS ()
-checkError f (Left e)
+assertError :: ToError e => (e -> Bool) -> Either e a -> AWS ()
+assertError f (Left e)
     | f e       = return ()
     | otherwise = hoistError . Left $ toError e
-checkError _ _  = return ()
+assertError _ _  = return ()
+
+hoistError :: Either Error a -> AWS a
+hoistError = AWS . lift . hoistEither
+
+liftEitherT :: ToError e => EitherT e IO a -> AWS a
+liftEitherT = AWS . lift . fmapLT toError
 
 newtype ServiceVersion = ServiceVersion ByteString
     deriving (Eq, Show, IsString, Strings)

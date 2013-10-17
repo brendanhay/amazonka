@@ -73,6 +73,12 @@ instance IsString AWSError where
 class ToError a where
     toError :: a -> AWSError
 
+instance ToError AWSError where
+    toError = id
+
+instance ToError String where
+    toError = Err
+
 instance ToError SomeException where
     toError = Ex
 
@@ -124,14 +130,8 @@ whenDebug action = debugEnabled >>= \p -> when p action
 hoistError :: (MonadError e m, Error e) => Either e a -> m a
 hoistError = either throwError return
 
--- assertError :: Error e => (e -> Bool) -> Either e a -> AWS ()
--- assertError f (Left e)
---     | f e       = return ()
---     | otherwise = throwError e
--- assertError _ _  = return ()
-
-liftEitherT :: EitherT AWSError IO a -> AWS a
-liftEitherT = AWS . lift
+liftEitherT :: ToError e => EitherT e IO a -> AWS a
+liftEitherT = AWS . lift . fmapLT toError
 
 newtype ServiceVersion = ServiceVersion ByteString
     deriving (Eq, Show, IsString, Strings)

@@ -71,7 +71,7 @@ data EC2ErrorResponse = EC2ErrorResponse
     } deriving (Eq, Show, Generic)
 
 instance ToError EC2ErrorResponse where
-    toError = Error . show
+    toError = Err . show
 
 instance IsXML EC2ErrorResponse
 

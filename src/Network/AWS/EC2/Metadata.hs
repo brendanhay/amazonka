@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.Metadata
@@ -20,11 +21,12 @@ module Network.AWS.EC2.Metadata
 import           Control.Applicative
 import           Control.Error
 import           Control.Exception
+import           Control.Monad.Error    (throwError)
 import           Control.Monad.IO.Class
 import           Data.ByteString        (ByteString)
 import           Data.Monoid
-import           Network.AWS.Internal
-import           Network.Http.Client    hiding (get)
+import           Network.AWS.Internal   hiding (request)
+import           Network.Http.Client
 import qualified System.IO.Streams      as Streams
 
 data Metadata
@@ -49,13 +51,13 @@ data Metadata
 
 metadata :: (Applicative m, MonadIO m)
          => Metadata
-         -> EitherT Error m ByteString
+         -> EitherT AWSError m ByteString
 metadata = metadataByKey . toPath
 
 metadataByKey :: (Applicative m, MonadIO m)
               => ByteString
-              -> EitherT Error m ByteString
-metadataByKey = get . mappend "/latest/meta-data/"
+              -> EitherT AWSError m ByteString
+metadataByKey = request . mappend "/latest/meta-data/"
 
 --
 -- Internal
@@ -64,12 +66,12 @@ metadataByKey = get . mappend "/latest/meta-data/"
 localhost :: ByteString
 localhost = "http://169.254.169.254"
 
-get :: (Applicative m, MonadIO m)
-    => ByteString
-    -> EitherT Error m ByteString
-get url = do
-    rs <- fmapLT Ex $ syncIO req
-    sStripChar '\n' <$> rs ?? "Failed to receive any data"
+request :: (Applicative m, MonadIO m)
+        => ByteString
+        -> EitherT AWSError m ByteString
+request url = do
+    rs <- fmap (sStripChar '\n') <$> fmapLT Ex (syncIO req)
+    maybe (throwError "Failed to receive any data") return rs
   where
     req = bracket (establishConnection localhost) closeConnection $ \c -> do
         rq <- buildRequest $ http GET url

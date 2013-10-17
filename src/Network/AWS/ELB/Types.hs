@@ -45,7 +45,7 @@ instance IsXML ELBError where
     xmlPickler = withNS elbNS
 
 instance ToError ELBError where
-    toError = Error . show
+    toError = Err . show
 
 -- | The AppCookieStickinessPolicy data type.
 --

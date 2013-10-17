@@ -65,6 +65,7 @@ library
       , base64-bytestring
       , bytestring
       , containers
+      , either                >= 3.4.2
       , errors
       , hexpat-pickle-generic
       , HsOpenSSL

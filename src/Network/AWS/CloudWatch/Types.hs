@@ -46,7 +46,7 @@ instance IsXML CloudWatchError where
     xmlPickler = withNS cloudWatchNS
 
 instance ToError CloudWatchError where
-    toError = Error . show
+    toError = Err . show
 
 -- | The AlarmHistoryItem data type contains descriptive information about the
 -- history of a specific alarm. If you call DescribeAlarmHistory, Amazon

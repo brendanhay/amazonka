@@ -61,7 +61,7 @@ data AutoScalingErrorResponse = AutoScalingErrorResponse
     } deriving (Eq, Show, Generic)
 
 instance ToError AutoScalingErrorResponse where
-    toError = Error . show
+    toError = Err . show
 
 instance IsXML AutoScalingErrorResponse where
     xmlPickler = withNS autoScalingNS

@@ -23,9 +23,8 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Exception
 import           Control.Monad
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Class
-import           Control.Monad.Trans.Reader
+import           Control.Monad.Error
+import           Control.Monad.Reader
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
@@ -46,36 +45,36 @@ class Rq a where
     type Rs a
 
     request  :: a -> RawRequest
-    response :: a -> ByteString -> Either Error (Either (Er a) (Rs a))
+    response :: a -> ByteString -> Either AWSError (Either (Er a) (Rs a))
 
     default response :: (IsXML (Er a), IsXML (Rs a))
                      => a
                      -> ByteString
-                     -> Either Error (Either (Er a) (Rs a))
+                     -> Either AWSError (Either (Er a) (Rs a))
     response _ bstr = either failure success $ fromXML bstr
       where
-        failure e = either (\s -> Left . Error $ s ++ ", " ++ e) (Right . Left) $ fromXML bstr
+        failure e = either (\s -> Left . Err $ s ++ ", " ++ e)
+            (Right . Left) $ fromXML bstr
+
         success   = Right . Right
 
 class Pg a where
     next :: a -> Rs a -> Maybe a
 
-class ToError a where
-    toError :: a -> Error
+data AWSError = Err String | Ex SomeException
+    deriving (Show)
 
-instance ToError String where
-    toError = Error
+instance Error AWSError where
+    strMsg = Err
+
+instance IsString AWSError where
+    fromString = Err
+
+class ToError a where
+    toError :: a -> AWSError
 
 instance ToError SomeException where
     toError = Ex
-
-data Error = Error String | Ex SomeException
-
-instance ToError Error where
-    toError = id
-
-instance IsString Error where
-    fromString = Error
 
 class Prefixed a where
     prefixed :: a -> ByteString
@@ -99,14 +98,11 @@ data Env = Env
     , awsAuth   :: !Auth
     }
 
-newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT Error IO) a }
-    deriving (Functor, Applicative, Monad, MonadIO)
-
-getEnv :: AWS Env
-getEnv = AWS ask
+newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT AWSError IO) a }
+    deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env, MonadError AWSError)
 
 getAuth :: AWS Auth
-getAuth = awsAuth <$> getEnv
+getAuth = awsAuth <$> ask
 
 serviceRegion :: Service -> AWS Region
 serviceRegion svc
@@ -114,34 +110,28 @@ serviceRegion svc
     | otherwise     = currentRegion
 
 currentRegion :: AWS Region
-currentRegion = fromMaybe NorthVirginia <$> awsRegion <$> getEnv
+currentRegion = fromMaybe NorthVirginia <$> awsRegion <$> ask
 
 defaultRegion :: Region
 defaultRegion = NorthVirginia
 
 debugEnabled :: AWS Bool
-debugEnabled = awsDebug <$> getEnv
+debugEnabled = awsDebug <$> ask
 
 whenDebug :: AWS () -> AWS ()
 whenDebug action = debugEnabled >>= \p -> when p action
 
-noteError :: String -> Maybe a -> AWS a
-noteError e = hoistError . note (Error e)
+hoistError :: (MonadError e m, Error e) => Either e a -> m a
+hoistError = either throwError return
 
-throwError :: String -> AWS a
-throwError = hoistError . Left . Error
+-- assertError :: Error e => (e -> Bool) -> Either e a -> AWS ()
+-- assertError f (Left e)
+--     | f e       = return ()
+--     | otherwise = throwError e
+-- assertError _ _  = return ()
 
-assertError :: ToError e => (e -> Bool) -> Either e a -> AWS ()
-assertError f (Left e)
-    | f e       = return ()
-    | otherwise = hoistError . Left $ toError e
-assertError _ _  = return ()
-
-hoistError :: Either Error a -> AWS a
-hoistError = AWS . lift . hoistEither
-
-liftEitherT :: ToError e => EitherT e IO a -> AWS a
-liftEitherT = AWS . lift . fmapLT toError
+liftEitherT :: EitherT AWSError IO a -> AWS a
+liftEitherT = AWS . lift
 
 newtype ServiceVersion = ServiceVersion ByteString
     deriving (Eq, Show, IsString, Strings)

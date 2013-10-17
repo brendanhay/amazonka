@@ -62,7 +62,7 @@ data ErrorResponse
     deriving (Eq, Show, Generic)
 
 instance ToError ErrorResponse where
-    toError = Error . show
+    toError = Err . show
 
 instance IsXML ErrorResponse where
     xmlPickler = withNS route53NS

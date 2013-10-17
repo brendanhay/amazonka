@@ -39,7 +39,7 @@ data S3ErrorResponse = S3ErrorResponse { sssError :: !Text }
     deriving (Eq, Show, Generic)
 
 instance ToError S3ErrorResponse where
-    toError = Error . show
+    toError = Err . show
 
 instance IsXML S3ErrorResponse
 

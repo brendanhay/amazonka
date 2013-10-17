@@ -73,14 +73,14 @@ data Credentials
 
 credentials :: (Applicative m, MonadIO m)
             => Credentials
-            -> EitherT Error m Auth
+            -> EitherT AWSError m Auth
 credentials cred = case cred of
     FromKeys acc sec -> right $ Auth acc sec Nothing
     FromRole role    -> do
         m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
-        hoistEither . fmapL Error $ Aeson.eitherDecode m
+        hoistEither . fmapL Err $ Aeson.eitherDecode m
 
-runAWS :: Env -> AWS a -> IO (Either Error a)
+runAWS :: Env -> AWS a -> IO (Either AWSError a)
 runAWS env aws = withOpenSSL . runEitherT $ runReaderT (unwrap aws) env
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
@@ -131,20 +131,20 @@ sendCatch rq = do
     body = maybe (return emptyBody)
         (fmap inputStreamBody . Streams.fromByteString)
 
-async :: AWS a -> AWS (A.Async (Either Error a))
-async aws = getEnv >>= liftIO . A.async . flip runAWS aws
+async :: AWS a -> AWS (A.Async (Either AWSError a))
+async aws = AWS ask >>= liftIO . A.async . flip runAWS aws
 
-sendAsync :: Rq a => a -> AWS (A.Async (Either Error (Either (Er a) (Rs a))))
+sendAsync :: Rq a => a -> AWS (A.Async (Either AWSError (Either (Er a) (Rs a))))
 sendAsync = async . sendCatch
 
-wait :: A.Async (Either Error a) -> AWS a
+wait :: A.Async (Either AWSError a) -> AWS a
 wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
 
-wait_ :: A.Async (Either Error a) -> AWS ()
+wait_ :: A.Async (Either AWSError a) -> AWS ()
 wait_ = void . wait
 
-waitAsync :: ToError e => A.Async (Either Error (Either e a)) -> AWS a
+waitAsync :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS a
 waitAsync a = wait a >>= hoistError . fmapL toError
 
-waitAsync_ :: ToError e => A.Async (Either Error (Either e a)) -> AWS ()
+waitAsync_ :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS ()
 waitAsync_ = void . waitAsync

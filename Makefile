@@ -29,8 +29,6 @@ cabal.sandbox.config:
 	cabal sandbox init
 
 add-sources: cabal.sandbox.config
-	cabal sandbox add-source vendor/hexpat-pickle-generic
-	cabal sandbox add-source vendor/querystring-pickle
 	cabal sandbox add-source vendor/http-streams
 
 vendor/http-streams:

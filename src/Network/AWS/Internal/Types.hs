@@ -36,6 +36,8 @@ import           GHC.Generics
 import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
 import           Network.Http.Client             hiding (ContentType, post, put)
+import           System.IO.Streams               (InputStream)
+import qualified System.IO.Streams               as Stream
 import           Text.ParserCombinators.ReadP    (string)
 import qualified Text.Read                       as Read
 import           Text.XML.Expat.Pickle.Generic
@@ -44,19 +46,27 @@ class Rq a where
     type Er a
     type Rs a
 
-    request  :: a -> RawRequest
-    response :: a -> ByteString -> Either AWSError (Either (Er a) (Rs a))
+    request  :: MonadIO m => a -> m RawRequest
+    response :: MonadIO m
+             => a
+             -> InputStream ByteString
+             -> m (Either AWSError (Either (Er a) (Rs a)))
 
-    default response :: (IsXML (Er a), IsXML (Rs a))
+    -- FIXME: Convert fromXML to use streaming input
+    default response :: (MonadIO m, IsXML (Er a), IsXML (Rs a))
                      => a
-                     -> ByteString
-                     -> Either AWSError (Either (Er a) (Rs a))
-    response _ bstr = either failure success $ fromXML bstr
+                     -> InputStream ByteString
+                     -> m (Either AWSError (Either (Er a) (Rs a)))
+    response _ str = liftIO $ do
+        bs <- BS.concat <$> Stream.toList str
+        return . either (failure bs) success $ fromXML bs
       where
-        failure e = either (\s -> Left . Err $ s ++ ", " ++ e)
-            (Right . Left) $ fromXML bstr
+        failure bs e = either
+            (\s -> Left . Err $ concat [s, ", ", e])
+            (Right . Left)
+            (fromXML bs)
 
-        success   = Right . Right
+        success = Right . Right
 
 class Pg a where
     next :: a -> Rs a -> Maybe a
@@ -175,25 +185,25 @@ instance Show Service where
         , "}"
         ]
 
+data Body
+    = Strict ByteString
+    | Streaming (InputStream ByteString)
+    | Empty
+
+instance Show Body where
+    show (Strict _)    = "Strict <ByteString>"
+    show (Streaming _) = "Streaming <InputStream>"
+    show Empty         = "Empty"
+
 data RawRequest = RawRequest
     { rqService :: !Service
     , rqMethod  :: !Method
     , rqContent :: !ContentType
-    , rqPath    :: ByteString
+    , rqPath    :: !ByteString
     , rqHeaders :: [(ByteString, ByteString)]
     , rqQuery   :: [(ByteString, ByteString)]
-    , rqBody    :: Maybe ByteString
-    }
-
-instance Show RawRequest where
-    show RawRequest{..} = unlines
-        [ "rqService = " ++ show rqService
-        , "rqMethod  = " ++ show rqMethod
-        , "rqContent = " ++ show rqContent
-        , "rqPath    = " ++ show rqPath
-        , "rqHeaders = " ++ show rqHeaders
-        , "rqQuery   = " ++ show rqQuery
-        ]
+    , rqBody    :: !Body
+    } deriving (Show)
 
 instance ToJSON RawRequest where
     toJSON RawRequest{..} = object
@@ -214,7 +224,7 @@ queryRequest :: IsQuery a
              -> a
              -> RawRequest
 queryRequest svc meth path q =
-    RawRequest svc meth FormEncoded path [] (toQuery q) Nothing
+    RawRequest svc meth FormEncoded path [] (toQuery q) Empty
 
 xmlRequest :: IsXML a
            => Service
@@ -223,11 +233,11 @@ xmlRequest :: IsXML a
            -> a
            -> RawRequest
 xmlRequest svc meth path =
-    RawRequest svc meth XML path [] [] . Just . toXML
+    RawRequest svc meth XML path [] [] . Strict . toXML
 
 data SignedRequest = SignedRequest
     { srqUrl     :: !ByteString
-    , srqPayload :: (Maybe ByteString)
+    , srqBody    :: !Body
     , srqRequest :: !Request
     } deriving (Show)
 

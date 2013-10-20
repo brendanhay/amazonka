@@ -123,13 +123,14 @@ sendCatch rq = do
   where
     sync = fmapLT Ex . syncIO . req
 
-    req SignedRequest{..} =
-        bracket (establishConnection srqUrl) closeConnection $ \c -> do
-            sendRequest c srqRequest =<< body srqPayload
+    req SignedRequest{..} = bracket (establishConnection srqUrl) closeConnection $
+        \c -> do
+            body <- case srqBody of
+                Strict bs   -> Streams.fromByteString bs
+                Streaming s -> return s
+                Empty       -> return emptyBody
+            sendRequest c srqRequest body
             receiveResponse c $ const Streams.read
-
-    body = maybe (return emptyBody)
-        (fmap inputStreamBody . Streams.fromByteString)
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
 async aws = AWS ask >>= liftIO . A.async . flip runAWS aws

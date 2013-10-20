@@ -209,11 +209,16 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
         , query
         , canonicalHeaders hdrs
         , signedHeaders hdrs
-        , sha256 $ fromMaybe "" rqBody
+        , bodySHA256
         ]
 
     method = BS.pack $ show rqMethod
     region = BS.pack $ show reg
+
+    bodySHA256 = sha256 $
+        case rqBody of
+            (Strict bs) -> bs
+            _           -> ""
 
     query = encodeQuery (urlEncode True) $ sort rqQuery
 

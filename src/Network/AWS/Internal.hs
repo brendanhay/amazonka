@@ -33,6 +33,7 @@ import Data.ByteString                 (ByteString)
 import Data.Text                       (Text)
 import Data.Text.Encoding
 import GHC.Generics                    as Internal
+import Network.AWS.Internal.HTTP       as Internal
 import Network.AWS.Internal.Instances  as Internal
 import Network.AWS.Internal.Signing    as Internal
 import Network.AWS.Internal.String     as Internal

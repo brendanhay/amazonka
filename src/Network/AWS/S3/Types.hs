@@ -15,17 +15,15 @@
 
 module Network.AWS.S3.Types where
 
-import           Network.AWS.S3.Headers
-import           Control.Applicative    ((<$>))
-import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Char8  as BS
+import           Control.Applicative   ((<$>))
+import           Data.ByteString       (ByteString)
+import qualified Data.ByteString.Char8 as BS
 import           Data.Monoid
 import           Data.String
-import           Data.Text              (Text)
+import           Data.Text             (Text)
 import           Data.Text.Encoding
 import           Data.Time
 import           Network.AWS.Internal
-
 
 s3Service :: Service
 s3Service = Service "s3" s3Version SigningVersion2 $
@@ -51,31 +49,29 @@ instance ToError S3ErrorResponse where
 
 instance IsXML S3ErrorResponse
 
+newtype Key = Key Text deriving (Eq, Show)
 
+newtype Bucket = Bucket Text deriving (Eq, Show)
 
---
--- Service
---
+-- data Owner = Owner
+--     { oDisplayName :: !Text
+--       -- ^ Bucket owner's display name.
+--     , oID          :: !Text
+--       -- ^ Bucket owner's user ID.
+--     } deriving (Eq, Show, Generic)
 
-data Owner = Owner
-    { oDisplayName :: !Text
-      -- ^ Bucket owner's display name.
-    , oID          :: !Text
-      -- ^ Bucket owner's user ID.
-    } deriving (Eq, Show, Generic)
+-- instance IsXML Owner where
+--     xmlPickler = withNS s3NS
 
-instance IsXML Owner where
-    xmlPickler = withNS s3NS
+-- data Bucket = Bucket
+--     { bName         :: !Text
+--       -- ^ Bucket's name.
+--     , bCreationDate :: !UTCTime
+--       -- ^ Date the bucket was created.
+--     } deriving (Eq, Show, Generic)
 
-data Bucket = Bucket
-    { bName         :: !Text
-      -- ^ Bucket's name.
-    , bCreationDate :: !UTCTime
-      -- ^ Date the bucket was created.
-    } deriving (Eq, Show, Generic)
-
-instance IsXML Bucket where
-    xmlPickler = withNS s3NS
+-- instance IsXML Bucket where
+--     xmlPickler = withNS s3NS
 
 -- type Bucket = T.Text
 
@@ -107,22 +103,10 @@ instance IsXML Bucket where
 --       }
 --     deriving (Show)
 
---
--- Buckets
---
-
---
--- Objects
---
-
---
--- Primitives
---
-
 data AES256 = AES256 deriving (Show)
 
-instance ToHeader AES256 where
-    header = header . show
+instance IsHeader AES256 where
+    encodeHeader = encodeHeader . show
 
 data CannedACL
     = Private
@@ -143,8 +127,8 @@ instance Show CannedACL where
         BucketOwnerFullControl -> "bucket-owner-full-control"
         LogDeliveryWrite       -> "log-delivery-write"
 
-instance ToHeader CannedACL where
-    header = header . show
+instance IsHeader CannedACL where
+    encodeHeader = encodeHeader . show
 
 data StorageClass
     = Standard
@@ -154,33 +138,16 @@ instance Show StorageClass where
     show Standard          = "STANDARD"
     show ReducedRedundancy = "REDUCED_REDUNDANCY"
 
-instance ToHeader StorageClass where
-    header = header . show
+instance IsHeader StorageClass where
+    encodeHeader = encodeHeader . show
 
---
--- Headers
---
-
-type ContentLength      = Hdr "Content-Length" Integer
-type CacheControl       = Hdr "Cache-Control" Text
-type ContentDisposition = Hdr "Content-Disposition" Text
-type ContentEncoding    = Hdr "Content-Encoding" Text
-type ContentMD5         = Hdr "Content-MD5" Text
-type ContentType        = Hdr "Content-Type" Text
-type Expect             = Hdr "Expect" Text
-type Expires            = Hdr "Expires" Text
-type Range              = Hdr "Range" Text
-type IfModifiedSince    = Hdr "If-Modified-Since" Text
-type IfUnmodifiedSince  = Hdr "If-Unmodified-Since" Text
-type IfMatch            = Hdr "If-Match" Text
-type IfNoneMatch        = Hdr "If-None-Match" Text
-type Storage            = Hdr "x-amz-storage-class" StorageClass
-type RedirectLocation   = Hdr "x-amz-website-redirect-location" Text
-type Encryption         = Hdr "x-amz-server-side-encryption" AES256
-type ACL                = Hdr "x-amz-acl" CannedACL
-type GrantRead          = Hdr "x-amz-grant-read" Text
-type GrantWrite         = Hdr "x-amz-grant-write" Text
-type GrantReadACP       = Hdr "x-amz-grant-read-acp" Text
-type GrantWriteACP      = Hdr "x-amz-grant-write-acp" Text
-type GrantFullControl   = Hdr "x-amz-grant-full-control" Text
-type Metadata           = Hdr "x-amz-meta-" (Text, Text)
+type Storage            = Header "X-AMZ-Storage-Class" StorageClass
+type RedirectLocation   = Header "X-AMZ-Website-Redirect-Location" Text
+type Encryption         = Header "X-AMZ-Server-Side-Encryption" AES256
+type ACL                = Header "X-AMZ-ACL" CannedACL
+type GrantRead          = Header "X-AMZ-Grant-Read" Text
+type GrantWrite         = Header "X-AMZ-Grant-Write" Text
+type GrantReadACP       = Header "X-AMZ-Grant-Read-ACP" Text
+type GrantWriteACP      = Header "X-AMZ-Grant-Write-ACP" Text
+type GrantFullControl   = Header "X-AMZ-Grant-Full-Control" Text
+type Metadata           = Header "X-AMZ-Meta-" (Text, Text)

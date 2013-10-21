@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
@@ -24,7 +25,7 @@ module Network.AWS.Internal.Signing
     ) where
 
 import           Control.Applicative
-import           Control.Arrow                   (first)
+import           Control.Arrow                   ((***), first)
 import           Control.Error
 import           Control.Monad
 import           Control.Monad.IO.Class
@@ -37,13 +38,16 @@ import qualified Data.Digest.Pure.SHA            as SHA
 import           Data.Function                   (on)
 import           Data.List
 import           Data.Monoid
+import qualified Data.Text.Encoding              as Text
 import           Data.Time                       (UTCTime, getCurrentTime)
+import           Network.AWS.Internal.HTTP
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Time
 import           Network.AWS.Internal.Types
 import           Network.HTTP.QueryString.Pickle
 import           Network.HTTP.Types              (urlEncode)
 import           Network.Http.Client
+import           Network.Http.Internal           (retrieveHeaders)
 
 sign :: RawRequest -> AWS SignedRequest
 sign r = do
@@ -52,10 +56,9 @@ sign r = do
     time <- liftIO getCurrentTime
     dbg  <- debugEnabled
 
-    let tok = maybe [] (\t -> [("SecurityToken", t)]) $ securityToken auth
-        hs  = [ ("Host", endpoint svc reg <> ":443")
-              ] ++ tok
-        rq  = r { rqHeaders = rqHeaders r ++ hs }
+    let tok  = maybe [] ((:[]) . hdr) $ tokenHeader auth
+        host = [hdr $ hostHeader svc reg]
+        rq   = r { rqHeaders = concat [rqHeaders r, tok, host] }
 
     liftIO $ signer dbg rq auth reg time
   where
@@ -77,7 +80,7 @@ version2 :: RawRequest
          -> IO SignedRequest
 version2 RawRequest{..} Auth{..} reg time = do
     let url = httpsURL host path
-        hs  = ("Date", iso8601Time time) : rqHeaders
+        hs  = hdr (dateHeader $ iso8601Time time) : rqHeaders
     SignedRequest url rqBody <$> createRequest rqMethod path hs
   where
     Service{..} = rqService
@@ -109,8 +112,8 @@ version3 :: RawRequest
          -> IO SignedRequest
 version3 RawRequest{..} Auth{..} reg time = do
     let url = httpsURL host path
-        hs  = ("Date", rfc822Time time) :
-              ("X-Amzn-Authorization", authorization) : rqHeaders
+        hs  = hdr (dateHeader $ rfc822Time time) :
+              hdr (authHeader authorization) : rqHeaders
     SignedRequest url rqBody <$> createRequest rqMethod path hs
   where
     Service{..} = rqService
@@ -147,9 +150,9 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
     let url = httpsURL (endpoint rqService reg) path
         req = createRequest rqMethod path
 
-    raw <- req $ ("Date", iso8601Time time) : rqHeaders
+    raw <- req $ hdr (dateHeader $ iso8601Time time) : rqHeaders
 
-    let hs   = getRequestHeaders (error "Unable to get connection here") raw
+    let hs   = retrieveHeaders $ getHeadersFull (error "Unable to get connection here") raw
         auth = ("Authorization", " " <> authorization hs time)
         hdrs = auth : hs
         flat = map (\(k, v) -> k <> ":" <> v) hdrs
@@ -159,7 +162,7 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
 
     when dbg $ print meta
 
-    fmap (, meta) . fmap (SignedRequest url rqBody) $ req hdrs
+    fmap (, meta) . fmap (SignedRequest url rqBody) . req $ map hdr hdrs
   where
     Service{..} = rqService
 
@@ -236,13 +239,15 @@ version4 RawRequest{..} Auth{..} reg time dbg = do
         f (h:hs) = (BS.map toLower $ fst h, BS.intercalate "," . sort . map snd $ h:hs)
         f []     = ("", "")
 
-createRequest :: Method -> ByteString -> [(ByteString, Hostname)] -> IO Request
-createRequest meth path hdrs = buildRequest $ do
+createRequest :: Method -> ByteString -> [AnyHeader] -> IO Request
+createRequest meth path hs = buildRequest $ do
     http meth path
     setHostname (BS.takeWhile (/= ':') host) 443
     mapM_ (uncurry setHeader) $ filter ((/= "Host") . fst) hdrs
   where
-    host = fromMaybe "unknown" $ "Host" `lookup` hdrs -- FIXME
+    -- FIXME:
+    host = fromMaybe "unknown" $ "Host" `lookup` hdrs
+    hdrs = map (join (***) Text.encodeUtf8 . (`encodeHeader` "")) hs
 
 httpsURL :: ByteString -> ByteString -> ByteString
 httpsURL host path = "https://" <> sJoin "/" [host, path]
@@ -274,3 +279,16 @@ hex = BS.pack . foldr f "" . BS.unpack
       where
         n = ord c
 
+type HostHeader = Header "Host" ByteString
+
+tokenHeader :: Auth -> Maybe (Header "SecurityToken" ByteString)
+tokenHeader = fmap (\t -> Header t) . securityToken
+
+hostHeader :: Service -> Region -> HostHeader
+hostHeader svc reg = Header $ endpoint svc reg <> ":443"
+
+dateHeader :: ByteString -> Header "Date" ByteString
+dateHeader = Header
+
+authHeader :: ByteString -> Header "Authorization" ByteString
+authHeader = Header

@@ -63,6 +63,7 @@ import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
 import           Network.AWS.Internal.Types
 import           Network.Http.Client
+import           Network.Http.Internal      (retrieveHeaders)
 import           OpenSSL                    (withOpenSSL)
 import           Pipes                      hiding (next)
 import qualified System.IO.Streams          as Streams
@@ -117,20 +118,18 @@ sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
     sig <- sign $ request rq
     whenDebug . liftIO . print $ srqRequest sig
-    res <- liftEitherT $ fromMaybe "" <$> sync sig
-    whenDebug . liftIO $ BS.putStrLn res
-    hoistError $ response rq res
+    res <- liftEitherT . fmapLT Ex . syncIO $ req sig
+    hoistError res
   where
-    sync = fmapLT Ex . syncIO . req
-
     req SignedRequest{..} = bracket (establishConnection srqUrl) closeConnection $
         \c -> do
             body <- case srqBody of
-                Strict bs   -> Streams.fromByteString bs
-                Streaming s -> return s
-                Empty       -> return emptyBody
+                Strict bs      -> inputStreamBody <$> Streams.fromByteString bs
+                Streaming strm -> return $ inputStreamBody strm
+                Empty          -> return emptyBody
             sendRequest c srqRequest body
-            receiveResponse c $ const Streams.read
+            receiveResponse c $ \rs ->
+                response rq (retrieveHeaders $ getHeaders rs)
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
 async aws = AWS ask >>= liftIO . A.async . flip runAWS aws

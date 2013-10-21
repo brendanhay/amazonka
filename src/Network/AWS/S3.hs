@@ -1,6 +1,7 @@
 {-# LANGUAGE GADTs             #-}
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.S3
@@ -84,24 +85,52 @@ module Network.AWS.S3
 
     -- * Data Types
     , module Network.AWS.S3.Types
-    , Rs                      (..)
     ) where
 
-import Data.ByteString      (ByteString)
-import Data.Monoid
-import Data.String
-import Data.Text            (Text)
-import Network.AWS.Internal
-import Network.AWS.S3.Types
-import Network.Http.Client  (Method(..))
+import           Data.ByteString      (ByteString)
+import           Data.Monoid
+import           Data.String
+import           Data.Text            (Text)
+import qualified Data.Text.Encoding   as Text
+import           Network.AWS.Internal
+import           Network.AWS.S3.Types
+import           Network.Http.Client  (Method(..))
+import           System.IO.Streams    (InputStream)
 
-qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth path = queryRequest s3Service meth (svcPath s3Service path)
+-- qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
+-- qry meth path = queryRequest s3Service meth (svcPath s3Service path)
 
-xml :: IsXML a => Method -> ByteString -> a -> RawRequest
-xml meth path = xmlRequest s3Service meth (svcPath s3Service path)
+-- xml :: IsXML a => Method -> ByteString -> a -> RawRequest
+-- xml meth path = xmlRequest s3Service meth (svcPath s3Service path)
 
--- hdr :: Method -> 
+newtype S3HeadersResponse = S3HeadersResponse [(ByteString, ByteString)]
+    deriving (Eq, Show)
+
+body :: ToHeaders a
+     => Method
+     -> Bucket
+     -> Key
+     -> a
+     -> InputStream ByteString
+     -> RawRequest
+body meth (Bucket b) (Key k) hs =
+    RawRequest svc meth path (toHeaders hs) [] . Streaming
+  where
+    path   = svcPath svc $ Text.encodeUtf8 k
+    svc    = s3Service { svcEndpoint = Global bucket }
+    bucket = Text.encodeUtf8 b <> ".s3.amazonaws.com"
+
+-- PUT /ObjectName HTTP/1.1
+-- Host: BucketName.s3.amazonaws.com
+-- Date: date
+-- Authorization: signatureValue
+
+hdrs :: (Monad m, Rs a ~ S3HeadersResponse)
+     => a
+     -> [(ByteString, ByteString)]
+     -> b
+     -> m (Either e (Either (Er a) (Rs a)))
+hdrs _ hs _ = return . Right . Right $ S3HeadersResponse hs
 
 --
 -- Service
@@ -365,21 +394,23 @@ xml meth path = xmlRequest s3Service meth (svcPath s3Service path)
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html>
 data PutObject = PutObject
-    { poKey           :: !Key
-    , poBucket        :: !Bucket
-    , poContentLength :: ContentLength
-    , poHeaders       :: [Header]
-    , poBody          :: InputStream ByteString
-    } deriving (Eq, Show)
+    { poBucket  :: !Bucket
+    , poKey     :: !Key
+    , poHeaders :: [AnyHeader]
+    , poBody    :: InputStream ByteString
+    } deriving (Generic)
+
+instance ToHeaders PutObject
 
 instance Rq PutObject where
     type Er PutObject = S3ErrorResponse
-    type Rs PutObject = PutObjectResult
-    request = undefined
+    type Rs PutObject = S3HeadersResponse
+    request p@PutObject{..} = body PUT poBucket poKey p poBody
+    response = hdrs
 
--- type instance Er PutObject = S3ErrorResponse
--- data instance Rs PutObject = PutObjectResult
---     {} deriving (Eq, Show, Generic)
+
+-- newtype PutObjectResult = PutObjectResult [(ByteString, ByteString)]
+--     deriving (Eq, Show)
 
   -- "Expiration": {
   --                       "type": "timestamp",
@@ -408,9 +439,6 @@ instance Rq PutObject where
   --                       "location_name": "x-amz-version-id",
   --                       "documentation": "Version of the object."
   --                   }
-
-instance IsXML (Rs PutObject) where
-    xmlPickler = undefined
 
 -- -- | Set the access control list (ACL) permissions for an object that already
 -- -- exists in a bucket.

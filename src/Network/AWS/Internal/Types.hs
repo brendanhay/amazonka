@@ -29,10 +29,13 @@ import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.List                       (intercalate)
+import           Data.Monoid
 import           Data.String
 import           Data.Strings
+import           Data.Text                       (Text)
 import qualified Data.Text                       as Text
 import           GHC.Generics
+import           Network.AWS.Internal.HTTP
 import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
 import           Network.Http.Client             hiding (ContentType, post, put)
@@ -46,19 +49,21 @@ class Rq a where
     type Er a
     type Rs a
 
-    request  :: MonadIO m => a -> m RawRequest
+    request  :: a -> RawRequest
     response :: MonadIO m
              => a
+             -> [(ByteString, ByteString)]
              -> InputStream ByteString
              -> m (Either AWSError (Either (Er a) (Rs a)))
 
     -- FIXME: Convert fromXML to use streaming input
     default response :: (MonadIO m, IsXML (Er a), IsXML (Rs a))
                      => a
+                     -> [(ByteString, ByteString)]
                      -> InputStream ByteString
                      -> m (Either AWSError (Either (Er a) (Rs a)))
-    response _ str = liftIO $ do
-        bs <- BS.concat <$> Stream.toList str
+    response _ _ strm = liftIO $ do
+        bs <- BS.concat <$> Stream.toList strm
         return . either (failure bs) success $ fromXML bs
       where
         failure bs e = either
@@ -198,9 +203,8 @@ instance Show Body where
 data RawRequest = RawRequest
     { rqService :: !Service
     , rqMethod  :: !Method
-    , rqContent :: !ContentType
     , rqPath    :: !ByteString
-    , rqHeaders :: [(ByteString, ByteString)]
+    , rqHeaders :: [AnyHeader]
     , rqQuery   :: [(ByteString, ByteString)]
     , rqBody    :: !Body
     } deriving (Show)
@@ -208,7 +212,7 @@ data RawRequest = RawRequest
 instance ToJSON RawRequest where
     toJSON RawRequest{..} = object
         [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
-        , "rqContent" .= (String . Text.pack $ show rqContent)
+        , "rqContent" .= ("Content-Type" `lookup` rqQuery)
         , "rqAction"  .= ("Action" `lookup` rqQuery)
         , "rqPath"    .= rqPath
         , "rqQuery"   .= rqQuery
@@ -224,7 +228,7 @@ queryRequest :: IsQuery a
              -> a
              -> RawRequest
 queryRequest svc meth path q =
-    RawRequest svc meth FormEncoded path [] (toQuery q) Empty
+    RawRequest svc meth path [hdr (Content :: FormURLEncoded)] (toQuery q) Empty
 
 xmlRequest :: IsXML a
            => Service
@@ -233,21 +237,13 @@ xmlRequest :: IsXML a
            -> a
            -> RawRequest
 xmlRequest svc meth path =
-    RawRequest svc meth XML path [] [] . Strict . toXML
+    RawRequest svc meth path [hdr (Content :: XML)] [] . Strict . toXML
 
 data SignedRequest = SignedRequest
     { srqUrl     :: !ByteString
     , srqBody    :: !Body
     , srqRequest :: !Request
     } deriving (Show)
-
-data ContentType
-    = FormEncoded
-    | XML
-
-instance Show ContentType where
-    show FormEncoded = "application/x-www-form-urlencoded"
-    show XML         = "application/xml"
 
 data Region
     = NorthVirginia

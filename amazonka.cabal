@@ -5,8 +5,8 @@ homepage:              http://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
+copyright:             Copyright (c) 2013 Brendan Hay, Toralf Wittner
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013 Brendan Hay
 stability:             Experimental
 category:              AWS, Cloud, Network
 build-type:            Simple
@@ -50,7 +50,6 @@ library
       -- , Network.AWS.Route53.Types
 
       , Network.AWS.S3
-      , Network.AWS.S3.Headers
       , Network.AWS.S3.Types
 
     ghc-options:
@@ -66,11 +65,13 @@ library
       , base64-bytestring
       , bytestring
       , containers
+      , cryptohash
       , either                >= 3.4.2
       , errors
       , hexpat-pickle-generic
       , HsOpenSSL
-      , http-streams
+      , http-common
+      , http-streams          >= 0.7.0.2
       , http-types
       , io-streams
       , mtl

@@ -42,6 +42,9 @@ route53NS = "https://route53.amazonaws.com/doc/" <> sPack route53Version <> "/"
 route53Elem :: ByteString -> NName ByteString
 route53Elem = mkNName route53NS
 
+class Prefixed a where
+    prefixed :: a -> Text
+
 data ErrorType = ErrorType
     { etType    :: !Text
     , etCode    :: !Text

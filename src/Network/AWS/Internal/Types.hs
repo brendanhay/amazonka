@@ -29,7 +29,6 @@ import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.List                       (intercalate)
-import           Data.Monoid
 import           Data.String
 import           Data.Strings
 import           Data.Text                       (Text)
@@ -97,13 +96,10 @@ instance ToError String where
 instance ToError SomeException where
     toError = Ex
 
-class Prefixed a where
-    prefixed :: a -> ByteString
-
 data Auth = Auth
-    { accessKeyId     :: !Text
-    , secretAccessKey :: !Text
-    , securityToken   :: Maybe Text
+    { accessKeyId     :: !ByteString
+    , secretAccessKey :: !ByteString
+    , securityToken   :: Maybe ByteString
     } deriving (Show)
 
 instance FromJSON Auth where
@@ -158,11 +154,11 @@ data SigningVersion
       deriving (Show)
 
 data Endpoint
-    = Global !Text
-    | Regional (Region -> Text)
+    = Global !ByteString
+    | Regional (Region -> ByteString)
 
 data Service = Service
-    { svcName     :: !Text
+    { svcName     :: !ByteString
     , svcVersion  :: !ServiceVersion
     , svcSigner   :: !SigningVersion
     , svcEndpoint :: !Endpoint
@@ -172,10 +168,12 @@ svcPath :: Strings a => Service -> a -> a
 svcPath svc p = sJoin (sFromString "/") [sPack $ svcVersion svc, p]
 
 svcGlobal :: Service -> Bool
-svcGlobal Service{svcEndpoint=(Global _)} = True
-svcGlobal _                               = False
+svcGlobal svc =
+    case svcEndpoint svc of
+        (Global _) -> True
+        _          -> False
 
-endpoint :: Service -> Region -> Text
+endpoint :: Service -> Region -> ByteString
 endpoint svc =
     case svcEndpoint svc of
         Global end -> const end
@@ -184,7 +182,7 @@ endpoint svc =
 instance Show Service where
     show Service{..} = intercalate " "
         [ "Service {"
-        , "svcName = "    ++ Text.unpack svcName
+        , "svcName = "    ++ BS.unpack svcName
         , "svcVersion = " ++ show svcVersion
         , "svcSigner = "  ++ show svcSigner
         , "}"

@@ -114,7 +114,7 @@ instance FromJSON Auth where
     parseJSON _ = mzero
 
 data Env = Env
-    { awsRegion :: Maybe Region
+    { awsRegion :: !Region
     , awsDebug  :: !Bool
     , awsAuth   :: !Auth
     }

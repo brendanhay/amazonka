@@ -30,10 +30,18 @@ import           Network.AWS.Internal.Types
 import           OpenSSL                    (withOpenSSL)
 import           Pipes                      hiding (next)
 
-createAuth :: (Applicative m, MonadIO m)
-           => Credentials
-          -> EitherT AWSError m Auth
-createAuth cred = case cred of
+runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
+runAWS cred dbg aws =
+    eitherT (return . Left) (runEnv aws . Env defaultRegion dbg) $
+        credentials cred
+
+runEnv :: AWS a -> Env -> IO (Either AWSError a)
+runEnv aws = withOpenSSL . runEitherT . runReaderT (unwrap aws)
+
+credentials :: (Applicative m, MonadIO m)
+            => Credentials
+            -> EitherT AWSError m Auth
+credentials cred = case cred of
     FromKeys acc sec -> right $ Auth acc sec Nothing
     FromRole role    -> do
         m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
@@ -42,18 +50,15 @@ createAuth cred = case cred of
 getAuth :: AWS Auth
 getAuth = AWS $ awsAuth <$> ask
 
-runAWS :: Env -> AWS a -> IO (Either AWSError a)
-runAWS env aws = withOpenSSL . runEitherT $ runReaderT (unwrap aws) env
-
 -- | Run an 'AWS' operation inside a specific 'Region'.
 within :: Region -> AWS a -> AWS a
-within reg = AWS . local (\e -> e { awsRegion = Just reg }) . unwrap
+within reg = AWS . local (\e -> e { awsRegion = reg }) . unwrap
 
 defaultRegion :: Region
 defaultRegion = NorthVirginia
 
 getRegion :: AWS Region
-getRegion = AWS $ fromMaybe defaultRegion <$> awsRegion <$> ask
+getRegion = AWS $ awsRegion <$> ask
 
 serviceRegion :: Service -> AWS Region
 serviceRegion svc

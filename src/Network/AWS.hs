@@ -17,33 +17,21 @@
 -- |
 module Network.AWS
     (
-    -- * Types
-      AWS
-    , Credentials (..)
-    , Auth        (..)
-    , Region      (..)
-    , AWSError    (..)
-
     -- * AWS Context
+      AWS
     , runAWS
-    , getAuth
-    , getRegion
-    , getDebug
 
-    -- * Auth
-    , createAuth
+    -- * Credentials
+    , Credentials (..)
 
     -- * Regions
+    , Region      (..)
     , within
-    , defaultRegion
-    , serviceRegion
+    , getRegion
 
     -- * Debugging
+    , getDebug
     , whenDebug
-
-    -- * Lifting
-    , hoistError
-    , liftEitherT
 
     -- * Pagination
     , paginate
@@ -61,6 +49,11 @@ module Network.AWS
     , wait_
     , waitAsync
     , waitAsync_
+
+    -- * Error Lifting
+    , AWSError    (..)
+    , hoistError
+    , liftEitherT
     ) where
 
 import           Control.Applicative
@@ -122,7 +115,7 @@ sendCatch rq = do
                 response rq (retrieveHeaders $ getHeaders rs)
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
-async aws = AWS ask >>= liftIO . A.async . flip runAWS aws
+async aws = AWS ask >>= liftIO . A.async . runEnv aws
 
 sendAsync :: Rq a => a -> AWS (A.Async (Either AWSError (Either (Er a) (Rs a))))
 sendAsync = async . sendCatch

@@ -85,13 +85,16 @@ module Network.AWS.S3
 
     -- * Data Types
     , module Network.AWS.S3.Types
+
+    -- * Convenience
+    , module Network.AWS
     ) where
 
 import           Data.ByteString      (ByteString)
 import           Data.Monoid
-import           Data.String
-import           Data.Text            (Text)
 import qualified Data.Text.Encoding   as Text
+import           Network.AWS
+import           Network.AWS.Headers
 import           Network.AWS.Internal
 import           Network.AWS.S3.Types
 import           Network.Http.Client  (Method(..))

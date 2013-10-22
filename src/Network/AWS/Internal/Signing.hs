@@ -40,7 +40,8 @@ import           Data.List
 import           Data.Monoid
 import qualified Data.Text.Encoding              as Text
 import           Data.Time                       (UTCTime, getCurrentTime)
-import           Network.AWS.Internal.HTTP
+import           Network.AWS.Headers
+import           Network.AWS.Internal.Monadic
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Time
 import           Network.AWS.Internal.Types
@@ -54,7 +55,7 @@ sign r = do
     auth <- getAuth
     reg  <- serviceRegion svc
     time <- liftIO getCurrentTime
-    dbg  <- debugEnabled
+    dbg  <- getDebug
 
     let tok  = maybe [] ((:[]) . hdr) $ tokenHeader auth
         host = [hdr $ hostHeader svc reg]

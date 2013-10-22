@@ -64,11 +64,15 @@ module Network.AWS.CloudWatch
 
     -- * Data Types
     , module Network.AWS.CloudWatch.Types
+
+    -- * Convenience
+    , module Network.AWS
     ) where
 
 import Data.ByteString              (ByteString)
 import Data.Text                    (Text)
 import Data.Time
+import Network.AWS
 import Network.AWS.CloudWatch.Types
 import Network.AWS.Internal
 import Network.Http.Client          (Method(..))

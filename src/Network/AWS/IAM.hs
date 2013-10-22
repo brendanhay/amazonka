@@ -17,290 +17,294 @@
 -- | IAM is a web service that enables AWS customers to manage users and user
 -- permissions under their AWS account.
 module Network.AWS.IAM
-   (
-   -- * Actions
-   -- ** AddRoleToInstanceProfile
-     AddRoleToInstanceProfile              (..)
-   , AddRoleToInstanceProfileResponse      (..)
-
-   -- ** AddUserToGroup
-   , AddUserToGroup                        (..)
-   , AddUserToGroupResponse                (..)
-
-   -- ** ChangePassword
-   , ChangePassword                        (..)
-   , ChangePasswordResponse                (..)
-
-   -- ** CreateAccessKey
-   , CreateAccessKey                       (..)
-   , CreateAccessKeyResponse               (..)
-
-   -- ** CreateAccountAlias
-   , CreateAccountAlias                    (..)
-   , CreateAccountAliasResponse            (..)
-
-   -- ** CreateGroup
-   , CreateGroup                           (..)
-   , CreateGroupResponse                   (..)
-
-   -- ** CreateInstanceProfile
-   , CreateInstanceProfile                 (..)
-   , CreateInstanceProfileResponse         (..)
-
-   -- ** CreateLoginProfile
-   , CreateLoginProfile                    (..)
-   , CreateLoginProfileResponse            (..)
-
-   -- ** CreateRole
-   , CreateRole                            (..)
-   , CreateRoleResponse                    (..)
-
-   -- ** CreateUser
-   , CreateUser                            (..)
-   , CreateUserResponse                    (..)
-
-   -- ** CreateVirtualMFADevice
-   , CreateVirtualMFADevice                (..)
-   , CreateVirtualMFADeviceResponse        (..)
-
-   -- ** DeactivateMFADevice
-   , DeactivateMFADevice                   (..)
-   , DeactivateMFADeviceResponse           (..)
-
-   -- ** DeleteAccessKey
-   , DeleteAccessKey                       (..)
-   , DeleteAccessKeyResponse               (..)
-
-   -- ** DeleteAccountAlias
-   , DeleteAccountAlias                    (..)
-   , DeleteAccountAliasResponse            (..)
-
-   -- ** DeleteAccountPasswordPolicy
-   , DeleteAccountPasswordPolicy           (..)
-   , DeleteAccountPasswordPolicyResponse   (..)
-
-   -- ** DeleteGroup
-   , DeleteGroup                           (..)
-   , DeleteGroupResponse                   (..)
-
-   -- ** DeleteGroupPolicy
-   , DeleteGroupPolicy                     (..)
-   , DeleteGroupPolicyResponse             (..)
-
-   -- ** DeleteInstanceProfile
-   , DeleteInstanceProfile                 (..)
-   , DeleteInstanceProfileResponse         (..)
-
-   -- ** DeleteLoginProfile
-   , DeleteLoginProfile                    (..)
-   , DeleteLoginProfileResponse            (..)
-
-   -- ** DeleteRole
-   , DeleteRole                            (..)
-   , DeleteRoleResponse                    (..)
-
-   -- ** DeleteRolePolicy
-   , DeleteRolePolicy                      (..)
-   , DeleteRolePolicyResponse              (..)
-
-   -- ** DeleteServerCertificate
-   , DeleteServerCertificate               (..)
-   , DeleteServerCertificateResponse       (..)
-
-   -- ** DeleteSigningCertificate
-   , DeleteSigningCertificate              (..)
-   , DeleteSigningCertificateResponse      (..)
-
-   -- ** DeleteUser
-   , DeleteUser                            (..)
-   , DeleteUserResponse                    (..)
-
-   -- ** DeleteUserPolicy
-   , DeleteUserPolicy                      (..)
-   , DeleteUserPolicyResponse              (..)
-
-   -- ** DeleteVirtualMFADevice
-   , DeleteVirtualMFADevice                (..)
-   , DeleteVirtualMFADeviceResponse        (..)
-
-   -- ** EnableMFADevice
-   , EnableMFADevice                       (..)
-   , EnableMFADeviceResponse               (..)
-
-   -- ** GetAccountPasswordPolicy
-   , GetAccountPasswordPolicy              (..)
-   , GetAccountPasswordPolicyResponse      (..)
-
-   -- ** GetAccountSummary
-   , GetAccountSummary                     (..)
-   , GetAccountSummaryResponse             (..)
-
-   -- ** GetGroup
-   , GetGroup                              (..)
-   , GetGroupResponse                      (..)
-
-   -- ** GetGroupPolicy
-   , GetGroupPolicy                        (..)
-   , GetGroupPolicyResponse                (..)
-
-   -- ** GetInstanceProfile
-   , GetInstanceProfile                    (..)
-   , GetInstanceProfileResponse            (..)
-
-   -- ** GetLoginProfile
-   , GetLoginProfile                       (..)
-   , GetLoginProfileResponse               (..)
-
-   -- ** GetRole
-   , GetRole                               (..)
-   , GetRoleResponse                       (..)
-
-   -- ** GetRolePolicy
-   , GetRolePolicy                         (..)
-   , GetRolePolicyResponse                 (..)
-
-   -- ** GetServerCertificate
-   , GetServerCertificate                  (..)
-   , GetServerCertificateResponse          (..)
-
-   -- ** GetUser
-   , GetUser                               (..)
-   , GetUserResponse                       (..)
-
-   -- ** GetUserPolicy
-   , GetUserPolicy                         (..)
-   , GetUserPolicyResponse                 (..)
-
-   -- ** ListAccessKeys
-   , ListAccessKeys                        (..)
-   , ListAccessKeysResponse                (..)
-
-   -- ** ListAccountAliases
-   , ListAccountAliases                    (..)
-   , ListAccountAliasesResponse            (..)
-
-   -- ** ListGroupPolicies
-   , ListGroupPolicies                     (..)
-   , ListGroupPoliciesResponse             (..)
-
-   -- ** ListGroups
-   , ListGroups                            (..)
-   , ListGroupsResponse                    (..)
-
-   -- ** ListGroupsForUser
-   , ListGroupsForUser                     (..)
-   , ListGroupsForUserResponse             (..)
-
-   -- ** ListInstanceProfiles
-   , ListInstanceProfiles                  (..)
-   , ListInstanceProfilesResponse          (..)
-
-   -- ** ListInstanceProfilesForRole
-   , ListInstanceProfilesForRole           (..)
-   , ListInstanceProfilesForRoleResponse   (..)
-
-   -- ** ListMFADevices
-   , ListMFADevices                        (..)
-   , ListMFADevicesResponse                (..)
-
-   -- ** ListRolePolicies
-   , ListRolePolicies                      (..)
-   , ListRolePoliciesResponse              (..)
-
-   -- ** ListRoles
-   , ListRoles                             (..)
-   , ListRolesResponse                     (..)
-
-   -- ** ListServerCertificates
-   , ListServerCertificates                (..)
-   , ListServerCertificatesResponse        (..)
-
-   -- ** ListSigningCertificates
-   , ListSigningCertificates               (..)
-   , ListSigningCertificatesResponse       (..)
-
-   -- ** ListUserPolicies
-   , ListUserPolicies                      (..)
-   , ListUserPoliciesResponse              (..)
-
-   -- ** ListUsers
-   , ListUsers                             (..)
-   , ListUsersResponse                     (..)
-
-   -- ** ListVirtualMFADevices
-   , ListVirtualMFADevices                 (..)
-   , ListVirtualMFADevicesResponse         (..)
-
-   -- ** PutGroupPolicy
-   , PutGroupPolicy                        (..)
-   , PutGroupPolicyResponse                (..)
-
-   -- ** PutRolePolicy
-   , PutRolePolicy                         (..)
-   , PutRolePolicyResponse                 (..)
-
-   -- ** PutUserPolicy
-   , PutUserPolicy                         (..)
-   , PutUserPolicyResponse                 (..)
-
-   -- ** RemoveRoleFromInstanceProfile
-   , RemoveRoleFromInstanceProfile         (..)
-   , RemoveRoleFromInstanceProfileResponse (..)
-
-   -- ** RemoveUserFromGroup
-   , RemoveUserFromGroup                   (..)
-   , RemoveUserFromGroupResponse           (..)
-
-   -- ** ResyncMFADevice
-   , ResyncMFADevice                       (..)
-   , ResyncMFADeviceResponse               (..)
-
-   -- ** UpdateAccessKey
-   , UpdateAccessKey                       (..)
-   , UpdateAccessKeyResponse               (..)
-
-   -- ** UpdateAccountPasswordPolicy
-   , UpdateAccountPasswordPolicy           (..)
-   , UpdateAccountPasswordPolicyResponse   (..)
-
-   -- ** UpdateAssumeRolePolicy
-   , UpdateAssumeRolePolicy                (..)
-   , UpdateAssumeRolePolicyResponse        (..)
-
-   -- ** UpdateGroup
-   , UpdateGroup                           (..)
-   , UpdateGroupResponse                   (..)
-
-   -- ** UpdateLoginProfile
-   , UpdateLoginProfile                    (..)
-   , UpdateLoginProfileResponse            (..)
-
-   -- ** UpdateServerCertificate
-   , UpdateServerCertificate               (..)
-   , UpdateServerCertificateResponse       (..)
-
-   -- ** UpdateSigningCertificate
-   , UpdateSigningCertificate              (..)
-   , UpdateSigningCertificateResponse      (..)
-
-   -- ** UpdateUser
-   , UpdateUser                            (..)
-   , UpdateUserResponse                    (..)
-
-   -- ** UploadServerCertificate
-   , UploadServerCertificate               (..)
-   , UploadServerCertificateResponse       (..)
-
-   -- ** UploadSigningCertificate
-   , UploadSigningCertificate              (..)
-   , UploadSigningCertificateResponse      (..)
-
-   -- * Data Types
-   , module Network.AWS.IAM.Types
-   ) where
+    (
+    -- * Actions
+    -- ** AddRoleToInstanceProfile
+      AddRoleToInstanceProfile              (..)
+    , AddRoleToInstanceProfileResponse      (..)
+
+    -- ** AddUserToGroup
+    , AddUserToGroup                        (..)
+    , AddUserToGroupResponse                (..)
+
+    -- ** ChangePassword
+    , ChangePassword                        (..)
+    , ChangePasswordResponse                (..)
+
+    -- ** CreateAccessKey
+    , CreateAccessKey                       (..)
+    , CreateAccessKeyResponse               (..)
+
+    -- ** CreateAccountAlias
+    , CreateAccountAlias                    (..)
+    , CreateAccountAliasResponse            (..)
+
+    -- ** CreateGroup
+    , CreateGroup                           (..)
+    , CreateGroupResponse                   (..)
+
+    -- ** CreateInstanceProfile
+    , CreateInstanceProfile                 (..)
+    , CreateInstanceProfileResponse         (..)
+
+    -- ** CreateLoginProfile
+    , CreateLoginProfile                    (..)
+    , CreateLoginProfileResponse            (..)
+
+    -- ** CreateRole
+    , CreateRole                            (..)
+    , CreateRoleResponse                    (..)
+
+    -- ** CreateUser
+    , CreateUser                            (..)
+    , CreateUserResponse                    (..)
+
+    -- ** CreateVirtualMFADevice
+    , CreateVirtualMFADevice                (..)
+    , CreateVirtualMFADeviceResponse        (..)
+
+    -- ** DeactivateMFADevice
+    , DeactivateMFADevice                   (..)
+    , DeactivateMFADeviceResponse           (..)
+
+    -- ** DeleteAccessKey
+    , DeleteAccessKey                       (..)
+    , DeleteAccessKeyResponse               (..)
+
+    -- ** DeleteAccountAlias
+    , DeleteAccountAlias                    (..)
+    , DeleteAccountAliasResponse            (..)
+
+    -- ** DeleteAccountPasswordPolicy
+    , DeleteAccountPasswordPolicy           (..)
+    , DeleteAccountPasswordPolicyResponse   (..)
+
+    -- ** DeleteGroup
+    , DeleteGroup                           (..)
+    , DeleteGroupResponse                   (..)
+
+    -- ** DeleteGroupPolicy
+    , DeleteGroupPolicy                     (..)
+    , DeleteGroupPolicyResponse             (..)
+
+    -- ** DeleteInstanceProfile
+    , DeleteInstanceProfile                 (..)
+    , DeleteInstanceProfileResponse         (..)
+
+    -- ** DeleteLoginProfile
+    , DeleteLoginProfile                    (..)
+    , DeleteLoginProfileResponse            (..)
+
+    -- ** DeleteRole
+    , DeleteRole                            (..)
+    , DeleteRoleResponse                    (..)
+
+    -- ** DeleteRolePolicy
+    , DeleteRolePolicy                      (..)
+    , DeleteRolePolicyResponse              (..)
+
+    -- ** DeleteServerCertificate
+    , DeleteServerCertificate               (..)
+    , DeleteServerCertificateResponse       (..)
+
+    -- ** DeleteSigningCertificate
+    , DeleteSigningCertificate              (..)
+    , DeleteSigningCertificateResponse      (..)
+
+    -- ** DeleteUser
+    , DeleteUser                            (..)
+    , DeleteUserResponse                    (..)
+
+    -- ** DeleteUserPolicy
+    , DeleteUserPolicy                      (..)
+    , DeleteUserPolicyResponse              (..)
+
+    -- ** DeleteVirtualMFADevice
+    , DeleteVirtualMFADevice                (..)
+    , DeleteVirtualMFADeviceResponse        (..)
+
+    -- ** EnableMFADevice
+    , EnableMFADevice                       (..)
+    , EnableMFADeviceResponse               (..)
+
+    -- ** GetAccountPasswordPolicy
+    , GetAccountPasswordPolicy              (..)
+    , GetAccountPasswordPolicyResponse      (..)
+
+    -- ** GetAccountSummary
+    , GetAccountSummary                     (..)
+    , GetAccountSummaryResponse             (..)
+
+    -- ** GetGroup
+    , GetGroup                              (..)
+    , GetGroupResponse                      (..)
+
+    -- ** GetGroupPolicy
+    , GetGroupPolicy                        (..)
+    , GetGroupPolicyResponse                (..)
+
+    -- ** GetInstanceProfile
+    , GetInstanceProfile                    (..)
+    , GetInstanceProfileResponse            (..)
+
+    -- ** GetLoginProfile
+    , GetLoginProfile                       (..)
+    , GetLoginProfileResponse               (..)
+
+    -- ** GetRole
+    , GetRole                               (..)
+    , GetRoleResponse                       (..)
+
+    -- ** GetRolePolicy
+    , GetRolePolicy                         (..)
+    , GetRolePolicyResponse                 (..)
+
+    -- ** GetServerCertificate
+    , GetServerCertificate                  (..)
+    , GetServerCertificateResponse          (..)
+
+    -- ** GetUser
+    , GetUser                               (..)
+    , GetUserResponse                       (..)
+
+    -- ** GetUserPolicy
+    , GetUserPolicy                         (..)
+    , GetUserPolicyResponse                 (..)
+
+    -- ** ListAccessKeys
+    , ListAccessKeys                        (..)
+    , ListAccessKeysResponse                (..)
+
+    -- ** ListAccountAliases
+    , ListAccountAliases                    (..)
+    , ListAccountAliasesResponse            (..)
+
+    -- ** ListGroupPolicies
+    , ListGroupPolicies                     (..)
+    , ListGroupPoliciesResponse             (..)
+
+    -- ** ListGroups
+    , ListGroups                            (..)
+    , ListGroupsResponse                    (..)
+
+    -- ** ListGroupsForUser
+    , ListGroupsForUser                     (..)
+    , ListGroupsForUserResponse             (..)
+
+    -- ** ListInstanceProfiles
+    , ListInstanceProfiles                  (..)
+    , ListInstanceProfilesResponse          (..)
+
+    -- ** ListInstanceProfilesForRole
+    , ListInstanceProfilesForRole           (..)
+    , ListInstanceProfilesForRoleResponse   (..)
+
+    -- ** ListMFADevices
+    , ListMFADevices                        (..)
+    , ListMFADevicesResponse                (..)
+
+    -- ** ListRolePolicies
+    , ListRolePolicies                      (..)
+    , ListRolePoliciesResponse              (..)
+
+    -- ** ListRoles
+    , ListRoles                             (..)
+    , ListRolesResponse                     (..)
+
+    -- ** ListServerCertificates
+    , ListServerCertificates                (..)
+    , ListServerCertificatesResponse        (..)
+
+    -- ** ListSigningCertificates
+    , ListSigningCertificates               (..)
+    , ListSigningCertificatesResponse       (..)
+
+    -- ** ListUserPolicies
+    , ListUserPolicies                      (..)
+    , ListUserPoliciesResponse              (..)
+
+    -- ** ListUsers
+    , ListUsers                             (..)
+    , ListUsersResponse                     (..)
+
+    -- ** ListVirtualMFADevices
+    , ListVirtualMFADevices                 (..)
+    , ListVirtualMFADevicesResponse         (..)
+
+    -- ** PutGroupPolicy
+    , PutGroupPolicy                        (..)
+    , PutGroupPolicyResponse                (..)
+
+    -- ** PutRolePolicy
+    , PutRolePolicy                         (..)
+    , PutRolePolicyResponse                 (..)
+
+    -- ** PutUserPolicy
+    , PutUserPolicy                         (..)
+    , PutUserPolicyResponse                 (..)
+
+    -- ** RemoveRoleFromInstanceProfile
+    , RemoveRoleFromInstanceProfile         (..)
+    , RemoveRoleFromInstanceProfileResponse (..)
+
+    -- ** RemoveUserFromGroup
+    , RemoveUserFromGroup                   (..)
+    , RemoveUserFromGroupResponse           (..)
+
+    -- ** ResyncMFADevice
+    , ResyncMFADevice                       (..)
+    , ResyncMFADeviceResponse               (..)
+
+    -- ** UpdateAccessKey
+    , UpdateAccessKey                       (..)
+    , UpdateAccessKeyResponse               (..)
+
+    -- ** UpdateAccountPasswordPolicy
+    , UpdateAccountPasswordPolicy           (..)
+    , UpdateAccountPasswordPolicyResponse   (..)
+
+    -- ** UpdateAssumeRolePolicy
+    , UpdateAssumeRolePolicy                (..)
+    , UpdateAssumeRolePolicyResponse        (..)
+
+    -- ** UpdateGroup
+    , UpdateGroup                           (..)
+    , UpdateGroupResponse                   (..)
+
+    -- ** UpdateLoginProfile
+    , UpdateLoginProfile                    (..)
+    , UpdateLoginProfileResponse            (..)
+
+    -- ** UpdateServerCertificate
+    , UpdateServerCertificate               (..)
+    , UpdateServerCertificateResponse       (..)
+
+    -- ** UpdateSigningCertificate
+    , UpdateSigningCertificate              (..)
+    , UpdateSigningCertificateResponse      (..)
+
+    -- ** UpdateUser
+    , UpdateUser                            (..)
+    , UpdateUserResponse                    (..)
+
+    -- ** UploadServerCertificate
+    , UploadServerCertificate               (..)
+    , UploadServerCertificateResponse       (..)
+
+    -- ** UploadSigningCertificate
+    , UploadSigningCertificate              (..)
+    , UploadSigningCertificateResponse      (..)
+
+    -- * Data Types
+    , module Network.AWS.IAM.Types
+
+    -- * Convenience
+    , module Network.AWS
+    ) where
 
 import Data.ByteString       (ByteString)
 import Data.Text             (Text)
+import Network.AWS
 import Network.AWS.IAM.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))

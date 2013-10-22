@@ -21,13 +21,14 @@ module Network.AWS.EC2.Metadata
 import           Control.Applicative
 import           Control.Error
 import           Control.Exception
-import           Control.Monad.Error    (throwError)
+import           Control.Monad.Error         (throwError)
 import           Control.Monad.IO.Class
-import           Data.ByteString        (ByteString)
+import           Data.ByteString             (ByteString)
 import           Data.Monoid
-import           Network.AWS.Internal   hiding (request)
+import           Network.AWS.Internal.String
+import           Network.AWS.Internal.Types  hiding (request)
 import           Network.Http.Client
-import qualified System.IO.Streams      as Streams
+import qualified System.IO.Streams           as Streams
 
 data Metadata
     = AMIId

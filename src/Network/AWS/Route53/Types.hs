@@ -43,7 +43,7 @@ route53Elem :: ByteString -> NName ByteString
 route53Elem = mkNName route53NS
 
 class Prefixed a where
-    prefixed :: a -> Text
+    prefixed :: a -> ByteString
 
 data ErrorType = ErrorType
     { etType    :: !Text

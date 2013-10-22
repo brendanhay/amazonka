@@ -67,12 +67,16 @@ module Network.AWS.Route53
 
     -- * Data Types
     , module Network.AWS.Route53.Types
+
+    -- * Convenience
+    , module Network.AWS
     ) where
 
 import Data.ByteString           (ByteString)
 import Data.Monoid
 import Data.String
 import Data.Text                 (Text)
+import Network.AWS
 import Network.AWS.Internal
 import Network.AWS.Route53.Types
 import Network.Http.Client       (Method(..))

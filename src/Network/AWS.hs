@@ -17,76 +17,66 @@
 -- |
 module Network.AWS
     (
-    -- * Credentials
-      Credentials(..)
-    , credentials
+    -- * Types
+      AWS
+    , Credentials (..)
+    , Auth        (..)
+    , Region      (..)
+    , AWSError    (..)
 
     -- * AWS Context
     , runAWS
+    , getAuth
+    , getRegion
+    , getDebug
+
+    -- * Auth
+    , createAuth
 
     -- * Regions
     , within
+    , defaultRegion
+    , serviceRegion
+
+    -- * Debugging
+    , whenDebug
+
+    -- * Lifting
+    , hoistError
+    , liftEitherT
 
     -- * Pagination
     , paginate
     , paginateCatch
 
-    -- * Synchronous
+    -- * Synchronous Requests
     , send
     , send_
     , sendCatch
 
-    -- * Asynchronous
+    -- * Asynchronous Futures
     , async
     , sendAsync
     , wait
     , wait_
     , waitAsync
     , waitAsync_
-
-    -- * Re-exported
-    , module Network.AWS.Internal.Types
     ) where
 
 import           Control.Applicative
-import qualified Control.Concurrent.Async   as A
+import qualified Control.Concurrent.Async     as A
 import           Control.Error
 import           Control.Exception
 import           Control.Monad
-import           Control.Monad.IO.Class
+import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
-import qualified Data.Aeson                 as Aeson
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Char8      as BS
-import qualified Data.ByteString.Lazy       as LBS
-import           Network.AWS.EC2.Metadata
-import           Network.AWS.Internal
+import           Network.AWS.Internal.Monadic
+import           Network.AWS.Internal.Signing
 import           Network.AWS.Internal.Types
 import           Network.Http.Client
-import           Network.Http.Internal      (retrieveHeaders)
-import           OpenSSL                    (withOpenSSL)
-import           Pipes                      hiding (next)
-import qualified System.IO.Streams          as Streams
-
-data Credentials
-    = FromKeys ByteString ByteString
-    | FromRole ByteString
-
-credentials :: (Applicative m, MonadIO m)
-            => Credentials
-            -> EitherT AWSError m Auth
-credentials cred = case cred of
-    FromKeys acc sec -> right $ Auth acc sec Nothing
-    FromRole role    -> do
-        m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
-        hoistEither . fmapL Err $ Aeson.eitherDecode m
-
-runAWS :: Env -> AWS a -> IO (Either AWSError a)
-runAWS env aws = withOpenSSL . runEitherT $ runReaderT (unwrap aws) env
-
--- | Run an 'AWS' operation inside a specific 'Region'.
-within :: Region -> AWS a -> AWS a
-within reg = AWS . local (\e -> e { awsRegion = Just reg }) . unwrap
+import           Network.Http.Internal        (retrieveHeaders)
+import           Pipes                        hiding (next)
+import qualified System.IO.Streams            as Streams
 
 -- | Create a pipes 'Producer' which yields the initial and subsequent repsonses
 -- for requests that supported pagination.

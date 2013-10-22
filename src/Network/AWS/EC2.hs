@@ -15,487 +15,491 @@
 -- | Amazon Elastic Compute Cloud provides resizable computing
 -- capacity in the Amazon Web Services cloud.
 module Network.AWS.EC2
-   (
-   -- * Actions
-   -- ** AllocateAddress
-     AllocateAddress                        (..)
-   , AllocateAddressResponse                (..)
+    (
+    -- * Actions
+    -- ** AllocateAddress
+      AllocateAddress                        (..)
+    , AllocateAddressResponse                (..)
 
-   -- ** AssignPrivateIpAddresses
-   , AssignPrivateIpAddresses               (..)
-   , AssignPrivateIpAddressesResponse       (..)
+    -- ** AssignPrivateIpAddresses
+    , AssignPrivateIpAddresses               (..)
+    , AssignPrivateIpAddressesResponse       (..)
 
-   -- ** AssociateAddress
-   , AssociateAddress                       (..)
-   , AssociateAddressResponse               (..)
+    -- ** AssociateAddress
+    , AssociateAddress                       (..)
+    , AssociateAddressResponse               (..)
 
-   -- ** AssociateDhcpOptions
-   , AssociateDhcpOptions                   (..)
-   , AssociateDhcpOptionsResponse           (..)
+    -- ** AssociateDhcpOptions
+    , AssociateDhcpOptions                   (..)
+    , AssociateDhcpOptionsResponse           (..)
 
-   -- ** AssociateRouteTable
-   , AssociateRouteTable                    (..)
-   , AssociateRouteTableResponse            (..)
+    -- ** AssociateRouteTable
+    , AssociateRouteTable                    (..)
+    , AssociateRouteTableResponse            (..)
 
-   -- ** AttachInternetGateway
-   , AttachInternetGateway                  (..)
-   , AttachInternetGatewayResponse          (..)
+    -- ** AttachInternetGateway
+    , AttachInternetGateway                  (..)
+    , AttachInternetGatewayResponse          (..)
 
-   -- ** AttachNetworkInterface
-   , AttachNetworkInterface                 (..)
-   , AttachNetworkInterfaceResponse         (..)
+    -- ** AttachNetworkInterface
+    , AttachNetworkInterface                 (..)
+    , AttachNetworkInterfaceResponse         (..)
 
-   -- ** AttachVolume
-   , AttachVolume                           (..)
-   , AttachVolumeResponse                   (..)
+    -- ** AttachVolume
+    , AttachVolume                           (..)
+    , AttachVolumeResponse                   (..)
 
-   -- ** AttachVpnGateway
-   , AttachVpnGateway                       (..)
-   , AttachVpnGatewayResponse               (..)
+    -- ** AttachVpnGateway
+    , AttachVpnGateway                       (..)
+    , AttachVpnGatewayResponse               (..)
 
-   -- ** AuthorizeSecurityGroupEgress
-   , AuthorizeSecurityGroupEgress           (..)
-   , AuthorizeSecurityGroupEgressResponse   (..)
+    -- ** AuthorizeSecurityGroupEgress
+    , AuthorizeSecurityGroupEgress           (..)
+    , AuthorizeSecurityGroupEgressResponse   (..)
 
-   -- ** AuthorizeSecurityGroupIngress
-   , AuthorizeSecurityGroupIngress          (..)
-   , AuthorizeSecurityGroupIngressResponse  (..)
+    -- ** AuthorizeSecurityGroupIngress
+    , AuthorizeSecurityGroupIngress          (..)
+    , AuthorizeSecurityGroupIngressResponse  (..)
 
-   -- ** BundleInstance
-   , BundleInstance                         (..)
-   , BundleInstanceResponse                 (..)
+    -- ** BundleInstance
+    , BundleInstance                         (..)
+    , BundleInstanceResponse                 (..)
 
-   -- ** CancelBundleTask
-   , CancelBundleTask                       (..)
-   , CancelBundleTaskResponse               (..)
+    -- ** CancelBundleTask
+    , CancelBundleTask                       (..)
+    , CancelBundleTaskResponse               (..)
 
-   -- ** CancelConversionTask
-   , CancelConversionTask                   (..)
-   , CancelConversionTaskResponse           (..)
+    -- ** CancelConversionTask
+    , CancelConversionTask                   (..)
+    , CancelConversionTaskResponse           (..)
 
-   -- ** CancelExportTask
-   , CancelExportTask                       (..)
-   , CancelExportTaskResponse               (..)
+    -- ** CancelExportTask
+    , CancelExportTask                       (..)
+    , CancelExportTaskResponse               (..)
 
-   -- ** CancelReservedInstancesListing
-   , CancelReservedInstancesListing         (..)
-   , CancelReservedInstancesListingResponse (..)
+    -- ** CancelReservedInstancesListing
+    , CancelReservedInstancesListing         (..)
+    , CancelReservedInstancesListingResponse (..)
 
-   -- ** CancelSpotInstanceRequests
-   , CancelSpotInstanceRequests             (..)
-   , CancelSpotInstanceRequestsResponse     (..)
+    -- ** CancelSpotInstanceRequests
+    , CancelSpotInstanceRequests             (..)
+    , CancelSpotInstanceRequestsResponse     (..)
 
-   -- -- ** ConfirmProductInstance
-   -- , ConfirmProductInstance              (..)
+    -- -- ** ConfirmProductInstance
+    -- , ConfirmProductInstance              (..)
 
-   -- -- ** CopyImage
-   -- , CopyImage                           (..)
+    -- -- ** CopyImage
+    -- , CopyImage                           (..)
 
-   -- -- ** CopySnapshot
-   -- , CopySnapshot                        (..)
+    -- -- ** CopySnapshot
+    -- , CopySnapshot                        (..)
 
-   -- -- ** CreateCustomerGateway
-   -- , CreateCustomerGateway               (..)
+    -- -- ** CreateCustomerGateway
+    -- , CreateCustomerGateway               (..)
 
-   -- -- ** CreateDhcpOptions
-   -- , CreateDhcpOptions                   (..)
+    -- -- ** CreateDhcpOptions
+    -- , CreateDhcpOptions                   (..)
 
-   -- -- ** CreateImage
-   -- , CreateImage                         (..)
+    -- -- ** CreateImage
+    -- , CreateImage                         (..)
 
-   -- -- ** CreateInstanceExportTask
-   -- , CreateInstanceExportTask            (..)
+    -- -- ** CreateInstanceExportTask
+    -- , CreateInstanceExportTask            (..)
 
-   -- -- ** CreateInternetGateway
-   -- , CreateInternetGateway               (..)
+    -- -- ** CreateInternetGateway
+    -- , CreateInternetGateway               (..)
 
-   -- ** CreateKeyPair
-   , CreateKeyPair                          (..)
-   , CreateKeyPairResponse                  (..)
+    -- ** CreateKeyPair
+    , CreateKeyPair                          (..)
+    , CreateKeyPairResponse                  (..)
 
-   -- -- ** CreateNetworkAcl
-   -- , CreateNetworkAcl                    (..)
+    -- -- ** CreateNetworkAcl
+    -- , CreateNetworkAcl                    (..)
 
-   -- -- ** CreateNetworkAclEntry
-   -- , CreateNetworkAclEntry               (..)
+    -- -- ** CreateNetworkAclEntry
+    -- , CreateNetworkAclEntry               (..)
 
-   -- -- ** CreateNetworkInterface
-   -- , CreateNetworkInterface              (..)
+    -- -- ** CreateNetworkInterface
+    -- , CreateNetworkInterface              (..)
 
-   -- -- ** CreatePlacementGroup
-   -- , CreatePlacementGroup                (..)
+    -- -- ** CreatePlacementGroup
+    -- , CreatePlacementGroup                (..)
 
-   -- -- ** CreateReservedInstancesListing
-   -- , CreateReservedInstancesListing      (..)
+    -- -- ** CreateReservedInstancesListing
+    -- , CreateReservedInstancesListing      (..)
 
-   -- -- ** CreateRoute
-   -- , CreateRoute                         (..)
+    -- -- ** CreateRoute
+    -- , CreateRoute                         (..)
 
-   -- -- ** CreateRouteTable
-   -- , CreateRouteTable                    (..)
+    -- -- ** CreateRouteTable
+    -- , CreateRouteTable                    (..)
 
-   -- ** CreateSecurityGroup
-   , CreateSecurityGroup                    (..)
-   , CreateSecurityGroupResponse            (..)
+    -- ** CreateSecurityGroup
+    , CreateSecurityGroup                    (..)
+    , CreateSecurityGroupResponse            (..)
 
-   -- -- ** CreateSnapshot
-   -- , CreateSnapshot                      (..)
+    -- -- ** CreateSnapshot
+    -- , CreateSnapshot                      (..)
 
-   -- -- ** CreateSpotDatafeedSubscription
-   -- , CreateSpotDatafeedSubscription      (..)
+    -- -- ** CreateSpotDatafeedSubscription
+    -- , CreateSpotDatafeedSubscription      (..)
 
-   -- -- ** CreateSubnet
-   -- , CreateSubnet                        (..)
+    -- -- ** CreateSubnet
+    -- , CreateSubnet                        (..)
 
-   -- ** CreateTags
-   , CreateTags                             (..)
-   , CreateTagsResponse                     (..)
+    -- ** CreateTags
+    , CreateTags                             (..)
+    , CreateTagsResponse                     (..)
 
-   -- -- ** CreateVolume
-   -- , CreateVolume                        (..)
+    -- -- ** CreateVolume
+    -- , CreateVolume                        (..)
 
-   -- -- ** CreateVpc
-   -- , CreateVpc                           (..)
+    -- -- ** CreateVpc
+    -- , CreateVpc                           (..)
 
-   -- -- ** CreateVpnConnection
-   -- , CreateVpnConnection                 (..)
+    -- -- ** CreateVpnConnection
+    -- , CreateVpnConnection                 (..)
 
-   -- -- ** CreateVpnConnectionRoute
-   -- , CreateVpnConnectionRoute            (..)
+    -- -- ** CreateVpnConnectionRoute
+    -- , CreateVpnConnectionRoute            (..)
 
-   -- -- ** CreateVpnGateway
-   -- , CreateVpnGateway                    (..)
+    -- -- ** CreateVpnGateway
+    -- , CreateVpnGateway                    (..)
 
-   -- -- ** DeleteCustomerGateway
-   -- , DeleteCustomerGateway               (..)
+    -- -- ** DeleteCustomerGateway
+    -- , DeleteCustomerGateway               (..)
 
-   -- -- ** DeleteDhcpOptions
-   -- , DeleteDhcpOptions                   (..)
+    -- -- ** DeleteDhcpOptions
+    -- , DeleteDhcpOptions                   (..)
 
-   -- -- ** DeleteInternetGateway
-   -- , DeleteInternetGateway               (..)
+    -- -- ** DeleteInternetGateway
+    -- , DeleteInternetGateway               (..)
 
-   -- -- ** DeleteKeyPair
-   -- , DeleteKeyPair                       (..)
+    -- -- ** DeleteKeyPair
+    -- , DeleteKeyPair                       (..)
 
-   -- -- ** DeleteNetworkAcl
-   -- , DeleteNetworkAcl                    (..)
+    -- -- ** DeleteNetworkAcl
+    -- , DeleteNetworkAcl                    (..)
 
-   -- -- ** DeleteNetworkAclEntry
-   -- , DeleteNetworkAclEntry               (..)
+    -- -- ** DeleteNetworkAclEntry
+    -- , DeleteNetworkAclEntry               (..)
 
-   -- -- ** DeleteNetworkInterface
-   -- , DeleteNetworkInterface              (..)
+    -- -- ** DeleteNetworkInterface
+    -- , DeleteNetworkInterface              (..)
 
-   -- -- ** DeletePlacementGroup
-   -- , DeletePlacementGroup                (..)
+    -- -- ** DeletePlacementGroup
+    -- , DeletePlacementGroup                (..)
 
-   -- -- ** DeleteRoute
-   -- , DeleteRoute                         (..)
+    -- -- ** DeleteRoute
+    -- , DeleteRoute                         (..)
 
-   -- -- ** DeleteRouteTable
-   -- , DeleteRouteTable                    (..)
+    -- -- ** DeleteRouteTable
+    -- , DeleteRouteTable                    (..)
 
-   -- ** DeleteSecurityGroup
-   , DeleteSecurityGroup                    (..)
-   , DeleteSecurityGroupResponse            (..)
+    -- ** DeleteSecurityGroup
+    , DeleteSecurityGroup                    (..)
+    , DeleteSecurityGroupResponse            (..)
 
-   -- -- ** DeleteSnapshot
-   -- , DeleteSnapshot                      (..)
+    -- -- ** DeleteSnapshot
+    -- , DeleteSnapshot                      (..)
 
-   -- -- ** DeleteSpotDatafeedSubscription
-   -- , DeleteSpotDatafeedSubscription      (..)
+    -- -- ** DeleteSpotDatafeedSubscription
+    -- , DeleteSpotDatafeedSubscription      (..)
 
-   -- -- ** DeleteSubnet
-   -- , DeleteSubnet                        (..)
+    -- -- ** DeleteSubnet
+    -- , DeleteSubnet                        (..)
 
-   -- -- ** DeleteTags
-   -- , DeleteTags                          (..)
+    -- -- ** DeleteTags
+    -- , DeleteTags                          (..)
 
-   -- -- ** DeleteVolume
-   -- , DeleteVolume                        (..)
+    -- -- ** DeleteVolume
+    -- , DeleteVolume                        (..)
 
-   -- -- ** DeleteVpc
-   -- , DeleteVpc                           (..)
+    -- -- ** DeleteVpc
+    -- , DeleteVpc                           (..)
 
-   -- -- ** DeleteVpnConnection
-   -- , DeleteVpnConnection                 (..)
+    -- -- ** DeleteVpnConnection
+    -- , DeleteVpnConnection                 (..)
 
-   -- -- ** DeleteVpnConnectionRoute
-   -- , DeleteVpnConnectionRoute            (..)
+    -- -- ** DeleteVpnConnectionRoute
+    -- , DeleteVpnConnectionRoute            (..)
 
-   -- -- ** DeleteVpnGateway
-   -- , DeleteVpnGateway                    (..)
+    -- -- ** DeleteVpnGateway
+    -- , DeleteVpnGateway                    (..)
 
-   -- -- ** DeregisterImage
-   -- , DeregisterImage                     (..)
+    -- -- ** DeregisterImage
+    -- , DeregisterImage                     (..)
 
-   -- -- ** DescribeAccountAttributes
-   -- , DescribeAccountAttributes           (..)
+    -- -- ** DescribeAccountAttributes
+    -- , DescribeAccountAttributes           (..)
 
-   -- -- ** DescribeAddresses
-   -- , DescribeAddresses                   (..)
+    -- -- ** DescribeAddresses
+    -- , DescribeAddresses                   (..)
 
-   -- ** DescribeAvailabilityZones
-   , DescribeAvailabilityZones              (..)
-   , DescribeAvailabilityZonesResponse      (..)
+    -- ** DescribeAvailabilityZones
+    , DescribeAvailabilityZones              (..)
+    , DescribeAvailabilityZonesResponse      (..)
 
-   -- -- ** DescribeBundleTasks
-   -- , DescribeBundleTasks                 (..)
+    -- -- ** DescribeBundleTasks
+    -- , DescribeBundleTasks                 (..)
 
-   -- -- ** DescribeConversionTasks
-   -- , DescribeConversionTasks             (..)
+    -- -- ** DescribeConversionTasks
+    -- , DescribeConversionTasks             (..)
 
-   -- -- ** DescribeCustomerGateways
-   -- , DescribeCustomerGateways            (..)
+    -- -- ** DescribeCustomerGateways
+    -- , DescribeCustomerGateways            (..)
 
-   -- -- ** DescribeDhcpOptions
-   -- , DescribeDhcpOptions                 (..)
+    -- -- ** DescribeDhcpOptions
+    -- , DescribeDhcpOptions                 (..)
 
-   -- -- ** DescribeExportTasks
-   -- , DescribeExportTasks                 (..)
+    -- -- ** DescribeExportTasks
+    -- , DescribeExportTasks                 (..)
 
-   -- -- ** DescribeImageAttribute
-   -- , DescribeImageAttribute              (..)
+    -- -- ** DescribeImageAttribute
+    -- , DescribeImageAttribute              (..)
 
-   -- ** DescribeImages
-   , DescribeImages                         (..)
-   , DescribeImagesResponse                 (..)
+    -- ** DescribeImages
+    , DescribeImages                         (..)
+    , DescribeImagesResponse                 (..)
 
-   -- -- ** DescribeInstanceAttribute
-   -- , DescribeInstanceAttribute           (..)
+    -- -- ** DescribeInstanceAttribute
+    -- , DescribeInstanceAttribute           (..)
 
-   -- ** DescribeInstances
-   , DescribeInstances                      (..)
-   , DescribeInstancesResponse              (..)
+    -- ** DescribeInstances
+    , DescribeInstances                      (..)
+    , DescribeInstancesResponse              (..)
 
-   -- -- ** DescribeInstanceStatus
-   -- , DescribeInstanceStatus              (..)
+    -- -- ** DescribeInstanceStatus
+    -- , DescribeInstanceStatus              (..)
 
-   -- -- ** DescribeInternetGateways
-   -- , DescribeInternetGateways            (..)
+    -- -- ** DescribeInternetGateways
+    -- , DescribeInternetGateways            (..)
 
-   -- ** DescribeKeyPairs
-   , DescribeKeyPairs                       (..)
-   , DescribeKeyPairsResponse               (..)
+    -- ** DescribeKeyPairs
+    , DescribeKeyPairs                       (..)
+    , DescribeKeyPairsResponse               (..)
 
-   -- -- ** DescribeNetworkAcls
-   -- , DescribeNetworkAcls                 (..)
+    -- -- ** DescribeNetworkAcls
+    -- , DescribeNetworkAcls                 (..)
 
-   -- -- ** DescribeNetworkInterfaceAttribute
-   -- , DescribeNetworkInterfaceAttribute   (..)
+    -- -- ** DescribeNetworkInterfaceAttribute
+    -- , DescribeNetworkInterfaceAttribute   (..)
 
-   -- -- ** DescribeNetworkInterfaces
-   -- , DescribeNetworkInterfaces           (..)
+    -- -- ** DescribeNetworkInterfaces
+    -- , DescribeNetworkInterfaces           (..)
 
-   -- -- ** DescribePlacementGroups
-   -- , DescribePlacementGroups             (..)
+    -- -- ** DescribePlacementGroups
+    -- , DescribePlacementGroups             (..)
 
-   -- ** DescribeRegions
-   , DescribeRegions                        (..)
-   , DescribeRegionsResponse                (..)
+    -- ** DescribeRegions
+    , DescribeRegions                        (..)
+    , DescribeRegionsResponse                (..)
 
-   -- -- ** DescribeReservedInstances
-   -- , DescribeReservedInstances           (..)
+    -- -- ** DescribeReservedInstances
+    -- , DescribeReservedInstances           (..)
 
-   -- -- ** DescribeReservedInstancesListings
-   -- , DescribeReservedInstancesListings   (..)
+    -- -- ** DescribeReservedInstancesListings
+    -- , DescribeReservedInstancesListings   (..)
 
-   -- -- ** DescribeReservedInstancesOfferings
-   -- , DescribeReservedInstancesOfferings  (..)
+    -- -- ** DescribeReservedInstancesOfferings
+    -- , DescribeReservedInstancesOfferings  (..)
 
-   -- -- ** DescribeRouteTables
-   -- , DescribeRouteTables                 (..)
+    -- -- ** DescribeRouteTables
+    -- , DescribeRouteTables                 (..)
 
-   -- ** DescribeSecurityGroups
-   , DescribeSecurityGroups                 (..)
-   , DescribeSecurityGroupsResponse         (..)
+    -- ** DescribeSecurityGroups
+    , DescribeSecurityGroups                 (..)
+    , DescribeSecurityGroupsResponse         (..)
 
-   -- -- ** DescribeSnapshotAttribute
-   -- , DescribeSnapshotAttribute           (..)
+    -- -- ** DescribeSnapshotAttribute
+    -- , DescribeSnapshotAttribute           (..)
 
-   -- -- ** DescribeSnapshots
-   -- , DescribeSnapshots                   (..)
+    -- -- ** DescribeSnapshots
+    -- , DescribeSnapshots                   (..)
 
-   -- -- ** DescribeSpotDatafeedSubscription
-   -- , DescribeSpotDatafeedSubscription    (..)
+    -- -- ** DescribeSpotDatafeedSubscription
+    -- , DescribeSpotDatafeedSubscription    (..)
 
-   -- -- ** DescribeSpotInstanceRequests
-   -- , DescribeSpotInstanceRequests        (..)
+    -- -- ** DescribeSpotInstanceRequests
+    -- , DescribeSpotInstanceRequests        (..)
 
-   -- -- ** DescribeSpotPriceHistory
-   -- , DescribeSpotPriceHistory            (..)
+    -- -- ** DescribeSpotPriceHistory
+    -- , DescribeSpotPriceHistory            (..)
 
-   -- -- ** DescribeSubnets
-   -- , DescribeSubnets                     (..)
+    -- -- ** DescribeSubnets
+    -- , DescribeSubnets                     (..)
 
-   -- ** DescribeTags
-   , DescribeTags                           (..)
-   , DescribeTagsResponse                   (..)
+    -- ** DescribeTags
+    , DescribeTags                           (..)
+    , DescribeTagsResponse                   (..)
 
-   -- -- ** DescribeVolumeAttribute
-   -- , DescribeVolumeAttribute             (..)
+    -- -- ** DescribeVolumeAttribute
+    -- , DescribeVolumeAttribute             (..)
 
-   -- -- ** DescribeVolumes
-   -- , DescribeVolumes                     (..)
+    -- -- ** DescribeVolumes
+    -- , DescribeVolumes                     (..)
 
-   -- -- ** DescribeVolumeStatus
-   -- , DescribeVolumeStatus                (..)
+    -- -- ** DescribeVolumeStatus
+    -- , DescribeVolumeStatus                (..)
 
-   -- -- ** DescribeVpcAttribute
-   -- , DescribeVpcAttribute                (..)
+    -- -- ** DescribeVpcAttribute
+    -- , DescribeVpcAttribute                (..)
 
-   -- -- ** DescribeVpcs
-   -- , DescribeVpcs                        (..)
+    -- -- ** DescribeVpcs
+    -- , DescribeVpcs                        (..)
 
-   -- -- ** DescribeVpnConnections
-   -- , DescribeVpnConnections              (..)
+    -- -- ** DescribeVpnConnections
+    -- , DescribeVpnConnections              (..)
 
-   -- -- ** DescribeVpnGateways
-   -- , DescribeVpnGateways                 (..)
+    -- -- ** DescribeVpnGateways
+    -- , DescribeVpnGateways                 (..)
 
-   -- -- ** DetachInternetGateway
-   -- , DetachInternetGateway               (..)
+    -- -- ** DetachInternetGateway
+    -- , DetachInternetGateway               (..)
 
-   -- -- ** DetachNetworkInterface
-   -- , DetachNetworkInterface              (..)
+    -- -- ** DetachNetworkInterface
+    -- , DetachNetworkInterface              (..)
 
-   -- -- ** DetachVolume
-   -- , DetachVolume                        (..)
+    -- -- ** DetachVolume
+    -- , DetachVolume                        (..)
 
-   -- -- ** DetachVpnGateway
-   -- , DetachVpnGateway                    (..)
+    -- -- ** DetachVpnGateway
+    -- , DetachVpnGateway                    (..)
 
-   -- -- ** DisableVgwRoutePropagation
-   -- , DisableVgwRoutePropagation          (..)
+    -- -- ** DisableVgwRoutePropagation
+    -- , DisableVgwRoutePropagation          (..)
 
-   -- -- ** DisassociateAddress
-   -- , DisassociateAddress                 (..)
+    -- -- ** DisassociateAddress
+    -- , DisassociateAddress                 (..)
 
-   -- -- ** DisassociateRouteTable
-   -- , DisassociateRouteTable              (..)
+    -- -- ** DisassociateRouteTable
+    -- , DisassociateRouteTable              (..)
 
-   -- -- ** EnableVgwRoutePropagation
-   -- , EnableVgwRoutePropagation           (..)
+    -- -- ** EnableVgwRoutePropagation
+    -- , EnableVgwRoutePropagation           (..)
 
-   -- -- ** EnableVolumeIO
-   -- , EnableVolumeIO                      (..)
+    -- -- ** EnableVolumeIO
+    -- , EnableVolumeIO                      (..)
 
-   -- -- ** GetConsoleOutput
-   -- , GetConsoleOutput                    (..)
+    -- -- ** GetConsoleOutput
+    -- , GetConsoleOutput                    (..)
 
-   -- -- ** GetPasswordData
-   -- , GetPasswordData                     (..)
+    -- -- ** GetPasswordData
+    -- , GetPasswordData                     (..)
 
-   -- -- ** ImportInstance
-   -- , ImportInstance                      (..)
+    -- -- ** ImportInstance
+    -- , ImportInstance                      (..)
 
-   -- -- ** ImportKeyPair
-   -- , ImportKeyPair                       (..)
+    -- -- ** ImportKeyPair
+    -- , ImportKeyPair                       (..)
 
-   -- -- ** ImportVolume
-   -- , ImportVolume                        (..)
+    -- -- ** ImportVolume
+    -- , ImportVolume                        (..)
 
-   -- -- ** ModifyImageAttribute
-   -- , ModifyImageAttribute                (..)
+    -- -- ** ModifyImageAttribute
+    -- , ModifyImageAttribute                (..)
 
-   -- -- ** ModifyInstanceAttribute
-   -- , ModifyInstanceAttribute             (..)
+    -- -- ** ModifyInstanceAttribute
+    -- , ModifyInstanceAttribute             (..)
 
-   -- -- ** ModifyNetworkInterfaceAttribute
-   -- , ModifyNetworkInterfaceAttribute     (..)
+    -- -- ** ModifyNetworkInterfaceAttribute
+    -- , ModifyNetworkInterfaceAttribute     (..)
 
-   -- -- ** ModifySnapshotAttribute
-   -- , ModifySnapshotAttribute             (..)
+    -- -- ** ModifySnapshotAttribute
+    -- , ModifySnapshotAttribute             (..)
 
-   -- -- ** ModifyVolumeAttribute
-   -- , ModifyVolumeAttribute               (..)
+    -- -- ** ModifyVolumeAttribute
+    -- , ModifyVolumeAttribute               (..)
 
-   -- -- ** ModifyVpcAttribute
-   -- , ModifyVpcAttribute                  (..)
+    -- -- ** ModifyVpcAttribute
+    -- , ModifyVpcAttribute                  (..)
 
-   -- -- ** MonitorInstances
-   -- , MonitorInstances                    (..)
+    -- -- ** MonitorInstances
+    -- , MonitorInstances                    (..)
 
-   -- -- ** PurchaseReservedInstancesOffering
-   -- , PurchaseReservedInstancesOffering   (..)
+    -- -- ** PurchaseReservedInstancesOffering
+    -- , PurchaseReservedInstancesOffering   (..)
 
-   -- -- ** RebootInstances
-   -- , RebootInstances                     (..)
+    -- -- ** RebootInstances
+    -- , RebootInstances                     (..)
 
-   -- -- ** RegisterImage
-   -- , RegisterImage                       (..)
+    -- -- ** RegisterImage
+    -- , RegisterImage                       (..)
 
-   -- -- ** ReleaseAddress
-   -- , ReleaseAddress                      (..)
+    -- -- ** ReleaseAddress
+    -- , ReleaseAddress                      (..)
 
-   -- -- ** ReplaceNetworkAclAssociation
-   -- , ReplaceNetworkAclAssociation        (..)
+    -- -- ** ReplaceNetworkAclAssociation
+    -- , ReplaceNetworkAclAssociation        (..)
 
-   -- -- ** ReplaceNetworkAclEntry
-   -- , ReplaceNetworkAclEntry              (..)
+    -- -- ** ReplaceNetworkAclEntry
+    -- , ReplaceNetworkAclEntry              (..)
 
-   -- -- ** ReplaceRoute
-   -- , ReplaceRoute                        (..)
+    -- -- ** ReplaceRoute
+    -- , ReplaceRoute                        (..)
 
-   -- -- ** ReplaceRouteTableAssociation
-   -- , ReplaceRouteTableAssociation        (..)
+    -- -- ** ReplaceRouteTableAssociation
+    -- , ReplaceRouteTableAssociation        (..)
 
-   -- -- ** ReportInstanceStatus
-   -- , ReportInstanceStatus                (..)
+    -- -- ** ReportInstanceStatus
+    -- , ReportInstanceStatus                (..)
 
-   -- -- ** RequestSpotInstances
-   -- , RequestSpotInstances                (..)
+    -- -- ** RequestSpotInstances
+    -- , RequestSpotInstances                (..)
 
-   -- -- ** ResetImageAttribute
-   -- , ResetImageAttribute                 (..)
+    -- -- ** ResetImageAttribute
+    -- , ResetImageAttribute                 (..)
 
-   -- -- ** ResetInstanceAttribute
-   -- , ResetInstanceAttribute              (..)
+    -- -- ** ResetInstanceAttribute
+    -- , ResetInstanceAttribute              (..)
 
-   -- -- ** ResetNetworkInterfaceAttribute
-   -- , ResetNetworkInterfaceAttribute      (..)
+    -- -- ** ResetNetworkInterfaceAttribute
+    -- , ResetNetworkInterfaceAttribute      (..)
 
-   -- -- ** ResetSnapshotAttribute
-   -- , ResetSnapshotAttribute              (..)
+    -- -- ** ResetSnapshotAttribute
+    -- , ResetSnapshotAttribute              (..)
 
-   -- ** RevokeSecurityGroupEgress
-   , RevokeSecurityGroupEgress           (..)
-   , RevokeSecurityGroupEgressResponse   (..)
+    -- ** RevokeSecurityGroupEgress
+    , RevokeSecurityGroupEgress           (..)
+    , RevokeSecurityGroupEgressResponse   (..)
 
-   -- ** RevokeSecurityGroupIngress
-   , RevokeSecurityGroupIngress          (..)
-   , RevokeSecurityGroupIngressResponse  (..)
+    -- ** RevokeSecurityGroupIngress
+    , RevokeSecurityGroupIngress          (..)
+    , RevokeSecurityGroupIngressResponse  (..)
 
-   -- ** RunInstances
-   , RunInstances                        (..)
-   , RunInstancesResponse                (..)
+    -- ** RunInstances
+    , RunInstances                        (..)
+    , RunInstancesResponse                (..)
 
-   -- -- ** StartInstances
-   -- , StartInstances                      (..)
-   -- , StartInstancesResponse              (..)
+    -- -- ** StartInstances
+    -- , StartInstances                      (..)
+    -- , StartInstancesResponse              (..)
 
-   -- -- ** StopInstances
-   -- , StopInstances                       (..)
-   -- , StopInstancesResponse               (..)
+    -- -- ** StopInstances
+    -- , StopInstances                       (..)
+    -- , StopInstancesResponse               (..)
 
-   -- -- ** TerminateInstances
-   -- , TerminateInstances                  (..)
-   -- , TerminateInstancesResponse          (..)
+    -- -- ** TerminateInstances
+    -- , TerminateInstances                  (..)
+    -- , TerminateInstancesResponse          (..)
 
-   -- -- ** UnassignPrivateIpAddresses
-   -- , UnassignPrivateIpAddresses          (..)
+    -- -- ** UnassignPrivateIpAddresses
+    -- , UnassignPrivateIpAddresses          (..)
 
-   -- -- ** UnmonitorInstances
-   -- , UnmonitorInstances                  (..)
+    -- -- ** UnmonitorInstances
+    -- , UnmonitorInstances                  (..)
 
-   -- * Data Types
-   , module Network.AWS.EC2.Types
-   ) where
+    -- * Data Types
+    , module Network.AWS.EC2.Types
+
+    -- * Convenience
+    , module Network.AWS
+    ) where
 
 import Data.ByteString       (ByteString)
 import Data.Text             (Text)
 import Data.Time
+import Network.AWS
 import Network.AWS.EC2.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))

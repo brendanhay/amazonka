@@ -15,106 +15,110 @@
 -- | Elastic Load Balancing helps you improve the availability and scalability
 -- of your application running on Amazon Elastic Cloud Compute (Amazon EC2).
 module Network.AWS.ELB
-   (
-   -- * Actions
-   -- ** ApplySecurityGroupsToLoadBalancer
-     ApplySecurityGroupsToLoadBalancer               (..)
-   , ApplySecurityGroupsToLoadBalancerResponse       (..)
+    (
+    -- * Actions
+    -- ** ApplySecurityGroupsToLoadBalancer
+      ApplySecurityGroupsToLoadBalancer               (..)
+    , ApplySecurityGroupsToLoadBalancerResponse       (..)
 
-   -- ** AttachLoadBalancerToSubnets
-   , AttachLoadBalancerToSubnets                     (..)
-   , AttachLoadBalancerToSubnetsResponse             (..)
+    -- ** AttachLoadBalancerToSubnets
+    , AttachLoadBalancerToSubnets                     (..)
+    , AttachLoadBalancerToSubnetsResponse             (..)
 
-   -- ** ConfigureHealthCheck
-   , ConfigureHealthCheck                            (..)
-   , ConfigureHealthCheckResponse                    (..)
+    -- ** ConfigureHealthCheck
+    , ConfigureHealthCheck                            (..)
+    , ConfigureHealthCheckResponse                    (..)
 
-   -- ** CreateAppCookieStickinessPolicy
-   , CreateAppCookieStickinessPolicy                 (..)
-   , CreateAppCookieStickinessPolicyResponse         (..)
+    -- ** CreateAppCookieStickinessPolicy
+    , CreateAppCookieStickinessPolicy                 (..)
+    , CreateAppCookieStickinessPolicyResponse         (..)
 
-   -- ** CreatelbCookieStickinessPolicy
-   , CreatelbCookieStickinessPolicy                  (..)
-   , CreatelbCookieStickinessPolicyResponse          (..)
+    -- ** CreatelbCookieStickinessPolicy
+    , CreatelbCookieStickinessPolicy                  (..)
+    , CreatelbCookieStickinessPolicyResponse          (..)
 
-   -- ** CreateLoadBalancer
-   , CreateLoadBalancer                              (..)
-   , CreateLoadBalancerResponse                      (..)
+    -- ** CreateLoadBalancer
+    , CreateLoadBalancer                              (..)
+    , CreateLoadBalancerResponse                      (..)
 
-   -- ** CreateLoadBalancerListeners
-   , CreateLoadBalancerListeners                     (..)
-   , CreateLoadBalancerListenersResponse             (..)
+    -- ** CreateLoadBalancerListeners
+    , CreateLoadBalancerListeners                     (..)
+    , CreateLoadBalancerListenersResponse             (..)
 
-   -- ** CreateLoadBalancerPolicy
-   , CreateLoadBalancerPolicy                        (..)
-   , CreateLoadBalancerPolicyResponse                (..)
+    -- ** CreateLoadBalancerPolicy
+    , CreateLoadBalancerPolicy                        (..)
+    , CreateLoadBalancerPolicyResponse                (..)
 
-   -- ** DeleteLoadBalancer
-   , DeleteLoadBalancer                              (..)
-   , DeleteLoadBalancerResponse                      (..)
+    -- ** DeleteLoadBalancer
+    , DeleteLoadBalancer                              (..)
+    , DeleteLoadBalancerResponse                      (..)
 
-   -- ** DeleteLoadBalancerListeners
-   , DeleteLoadBalancerListeners                     (..)
-   , DeleteLoadBalancerListenersResponse             (..)
+    -- ** DeleteLoadBalancerListeners
+    , DeleteLoadBalancerListeners                     (..)
+    , DeleteLoadBalancerListenersResponse             (..)
 
-   -- ** DeleteLoadBalancerPolicy
-   , DeleteLoadBalancerPolicy                        (..)
-   , DeleteLoadBalancerPolicyResponse                (..)
+    -- ** DeleteLoadBalancerPolicy
+    , DeleteLoadBalancerPolicy                        (..)
+    , DeleteLoadBalancerPolicyResponse                (..)
 
-   -- ** DeregisterInstancesFromLoadBalancer
-   , DeregisterInstancesFromLoadBalancer             (..)
-   , DeregisterInstancesFromLoadBalancerResponse     (..)
+    -- ** DeregisterInstancesFromLoadBalancer
+    , DeregisterInstancesFromLoadBalancer             (..)
+    , DeregisterInstancesFromLoadBalancerResponse     (..)
 
-   -- ** DescribeInstanceHealth
-   , DescribeInstanceHealth                          (..)
-   , DescribeInstanceHealthResponse                  (..)
+    -- ** DescribeInstanceHealth
+    , DescribeInstanceHealth                          (..)
+    , DescribeInstanceHealthResponse                  (..)
 
-   -- ** DescribeLoadBalancerPolicies
-   , DescribeLoadBalancerPolicies                    (..)
-   , DescribeLoadBalancerPoliciesResponse            (..)
+    -- ** DescribeLoadBalancerPolicies
+    , DescribeLoadBalancerPolicies                    (..)
+    , DescribeLoadBalancerPoliciesResponse            (..)
 
-   -- ** DescribeLoadBalancerPolicyTypes
-   , DescribeLoadBalancerPolicyTypes                 (..)
-   , DescribeLoadBalancerPolicyTypesResponse         (..)
+    -- ** DescribeLoadBalancerPolicyTypes
+    , DescribeLoadBalancerPolicyTypes                 (..)
+    , DescribeLoadBalancerPolicyTypesResponse         (..)
 
-   -- ** DescribeLoadBalancers
-   , DescribeLoadBalancers                           (..)
-   , DescribeLoadBalancersResponse                   (..)
+    -- ** DescribeLoadBalancers
+    , DescribeLoadBalancers                           (..)
+    , DescribeLoadBalancersResponse                   (..)
 
-   -- ** DetachLoadBalancerFromSubnets
-   , DetachLoadBalancerFromSubnets                   (..)
-   , DetachLoadBalancerFromSubnetsResponse           (..)
+    -- ** DetachLoadBalancerFromSubnets
+    , DetachLoadBalancerFromSubnets                   (..)
+    , DetachLoadBalancerFromSubnetsResponse           (..)
 
-   -- ** DisableAvailabilityZonesForLoadBalancer
-   , DisableAvailabilityZonesForLoadBalancer         (..)
-   , DisableAvailabilityZonesForLoadBalancerResponse (..)
+    -- ** DisableAvailabilityZonesForLoadBalancer
+    , DisableAvailabilityZonesForLoadBalancer         (..)
+    , DisableAvailabilityZonesForLoadBalancerResponse (..)
 
-   -- ** EnableAvailabilityZonesForLoadBalancer
-   , EnableAvailabilityZonesForLoadBalancer          (..)
-   , EnableAvailabilityZonesForLoadBalancerResponse  (..)
+    -- ** EnableAvailabilityZonesForLoadBalancer
+    , EnableAvailabilityZonesForLoadBalancer          (..)
+    , EnableAvailabilityZonesForLoadBalancerResponse  (..)
 
-   -- ** RegisterInstancesWithLoadBalancer
-   , RegisterInstancesWithLoadBalancer               (..)
-   , RegisterInstancesWithLoadBalancerResponse       (..)
+    -- ** RegisterInstancesWithLoadBalancer
+    , RegisterInstancesWithLoadBalancer               (..)
+    , RegisterInstancesWithLoadBalancerResponse       (..)
 
-   -- ** SetLoadBalancerListenerSSLCertificate
-   , SetLoadBalancerListenerSSLCertificate           (..)
-   , SetLoadBalancerListenerSSLCertificateResponse   (..)
+    -- ** SetLoadBalancerListenerSSLCertificate
+    , SetLoadBalancerListenerSSLCertificate           (..)
+    , SetLoadBalancerListenerSSLCertificateResponse   (..)
 
-   -- ** SetLoadBalancerPoliciesForBackendServer
-   , SetLoadBalancerPoliciesForBackendServer         (..)
-   , SetLoadBalancerPoliciesForBackendServerResponse (..)
+    -- ** SetLoadBalancerPoliciesForBackendServer
+    , SetLoadBalancerPoliciesForBackendServer         (..)
+    , SetLoadBalancerPoliciesForBackendServerResponse (..)
 
-   -- ** SetLoadBalancerPoliciesOfListener
-   , SetLoadBalancerPoliciesOfListener               (..)
-   , SetLoadBalancerPoliciesOfListenerResponse       (..)
+    -- ** SetLoadBalancerPoliciesOfListener
+    , SetLoadBalancerPoliciesOfListener               (..)
+    , SetLoadBalancerPoliciesOfListenerResponse       (..)
 
-   -- * Data Types
-   , module Network.AWS.ELB.Types
-   ) where
+    -- * Data Types
+    , module Network.AWS.ELB.Types
+
+    -- * Convenience
+    , module Network.AWS
+    ) where
 
 import Data.ByteString       (ByteString)
 import Data.Text             (Text)
+import Network.AWS
 import Network.AWS.ELB.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))

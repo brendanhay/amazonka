@@ -34,7 +34,7 @@ import           Data.Strings
 import           Data.Text                       (Text)
 import qualified Data.Text                       as Text
 import           GHC.Generics
-import           Network.AWS.Internal.HTTP
+import           Network.AWS.Headers
 import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
 import           Network.Http.Client             hiding (ContentType, post, put)
@@ -96,6 +96,10 @@ instance ToError String where
 instance ToError SomeException where
     toError = Ex
 
+data Credentials
+    = FromKeys ByteString ByteString
+    | FromRole ByteString
+
 data Auth = Auth
     { accessKeyId     :: !ByteString
     , secretAccessKey :: !ByteString
@@ -117,32 +121,6 @@ data Env = Env
 
 newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT AWSError IO) a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env, MonadError AWSError)
-
-getAuth :: AWS Auth
-getAuth = awsAuth <$> ask
-
-serviceRegion :: Service -> AWS Region
-serviceRegion svc
-    | svcGlobal svc = return defaultRegion
-    | otherwise     = currentRegion
-
-currentRegion :: AWS Region
-currentRegion = fromMaybe NorthVirginia <$> awsRegion <$> ask
-
-defaultRegion :: Region
-defaultRegion = NorthVirginia
-
-debugEnabled :: AWS Bool
-debugEnabled = awsDebug <$> ask
-
-whenDebug :: AWS () -> AWS ()
-whenDebug action = debugEnabled >>= \p -> when p action
-
-hoistError :: (MonadError e m, Error e) => Either e a -> m a
-hoistError = either throwError return
-
-liftEitherT :: ToError e => EitherT e IO a -> AWS a
-liftEitherT = AWS . lift . fmapLT toError
 
 newtype ServiceVersion = ServiceVersion Text
     deriving (Eq, Show, IsString, Strings)

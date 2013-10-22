@@ -10,7 +10,7 @@
 {-# LANGUAGE TupleSections        #-}
 {-# LANGUAGE TypeOperators        #-}
 
--- Module      : Network.AWS.Internal.HTTP
+-- Module      : Network.AWS.Headers
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -20,15 +20,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.HTTP where
+module Network.AWS.Headers where
 
 import           Crypto.Hash.MD5
-import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Base64 as Base64
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Base64     as Base64
 import           Data.Monoid
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
-import qualified Data.Text.Encoding     as Text
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import qualified Data.Text.Encoding         as Text
 import           Data.Time
 import           GHC.Generics
 import           GHC.TypeLits

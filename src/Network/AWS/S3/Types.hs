@@ -15,15 +15,11 @@
 
 module Network.AWS.S3.Types where
 
-import           Control.Applicative   ((<$>))
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import           Data.Monoid
-import           Data.String
-import           Data.Text             (Text)
-import           Data.Text.Encoding
-import           Data.Time
-import           Network.AWS.Internal
+import Data.ByteString      (ByteString)
+import Data.Monoid
+import Data.Text            (Text)
+import Network.AWS.Headers
+import Network.AWS.Internal
 
 s3Service :: Service
 s3Service = Service "s3" s3Version SigningVersion2 $

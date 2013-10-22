@@ -101,9 +101,9 @@ class Prefixed a where
     prefixed :: a -> ByteString
 
 data Auth = Auth
-    { accessKeyId     :: !ByteString
-    , secretAccessKey :: !ByteString
-    , securityToken   :: Maybe ByteString
+    { accessKeyId     :: !Text
+    , secretAccessKey :: !Text
+    , securityToken   :: Maybe Text
     } deriving (Show)
 
 instance FromJSON Auth where
@@ -148,7 +148,7 @@ hoistError = either throwError return
 liftEitherT :: ToError e => EitherT e IO a -> AWS a
 liftEitherT = AWS . lift . fmapLT toError
 
-newtype ServiceVersion = ServiceVersion ByteString
+newtype ServiceVersion = ServiceVersion Text
     deriving (Eq, Show, IsString, Strings)
 
 data SigningVersion
@@ -158,11 +158,11 @@ data SigningVersion
       deriving (Show)
 
 data Endpoint
-    = Global !ByteString
-    | Regional (Region -> ByteString)
+    = Global !Text
+    | Regional (Region -> Text)
 
 data Service = Service
-    { svcName     :: !ByteString
+    { svcName     :: !Text
     , svcVersion  :: !ServiceVersion
     , svcSigner   :: !SigningVersion
     , svcEndpoint :: !Endpoint
@@ -175,7 +175,7 @@ svcGlobal :: Service -> Bool
 svcGlobal Service{svcEndpoint=(Global _)} = True
 svcGlobal _                               = False
 
-endpoint :: Service -> Region -> ByteString
+endpoint :: Service -> Region -> Text
 endpoint svc =
     case svcEndpoint svc of
         Global end -> const end
@@ -184,7 +184,7 @@ endpoint svc =
 instance Show Service where
     show Service{..} = intercalate " "
         [ "Service {"
-        , "svcName = "    ++ BS.unpack svcName
+        , "svcName = "    ++ Text.unpack svcName
         , "svcVersion = " ++ show svcVersion
         , "svcSigner = "  ++ show svcSigner
         , "}"

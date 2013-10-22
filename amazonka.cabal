@@ -77,6 +77,7 @@ library
       , mtl
       , old-locale
       , pipes                 >= 4.0
+      , prelude-prime
       , querystring-pickle
       , SHA
       , strings

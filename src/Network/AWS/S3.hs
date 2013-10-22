@@ -165,6 +165,12 @@ hdrs _ hs _ = return . Right . Right $ S3HeadersResponse hs
 -- Objects
 --
 
+-- GET /ObjectName HTTP/1.1
+-- Host: BucketName.s3.amazonaws.com
+-- Date: date
+-- Authorization: signatureValue
+-- Range:bytes=byte_range
+
 -- -- | Retrieves an object from Amazon S3.
 -- --
 -- -- You must have READ access to the object.
@@ -370,7 +376,6 @@ hdrs _ hs _ = return . Right . Right $ S3HeadersResponse hs
 
 -- instance IsXML (Rs PostObjectRestore) where
 --     xmlPickler = undefined
-
 
 -- | Add an object to a bucket.
 --

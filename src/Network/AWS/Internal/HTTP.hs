@@ -81,6 +81,7 @@ hdr :: IsHeader a => a -> AnyHeader
 hdr = AnyHeader
 
 type ContentLength     = Header "Content-Length" Integer
+type ContentLanguage   = Header "Content-Language" Text
 type Expect            = Header "Expect" Text
 type Expires           = Header "Expires" Text
 type Range             = Header "Range" Text

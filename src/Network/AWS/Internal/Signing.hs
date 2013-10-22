@@ -249,7 +249,7 @@ createRequest meth path hs = buildRequest $ do
     host = fromMaybe "unknown" $ "Host" `lookup` hdrs
     hdrs = map (join (***) Text.encodeUtf8 . (`encodeHeader` "")) hs
 
-httpsURL :: ByteString -> ByteString -> ByteString
+httpsURL :: Text -> Text -> ByteString
 httpsURL host path = "https://" <> sJoin "/" [host, path]
 
 validPath :: ByteString -> ByteString

@@ -51,26 +51,24 @@ class Rq a where
     request  :: a -> RawRequest
     response :: MonadIO m
              => a
-             -> [(ByteString, ByteString)]
-             -> InputStream ByteString
+             -> RawResponse
              -> m (Either AWSError (Either (Er a) (Rs a)))
 
-    -- FIXME: Convert fromXML to use streaming input
     default response :: (MonadIO m, IsXML (Er a), IsXML (Rs a))
                      => a
-                     -> [(ByteString, ByteString)]
-                     -> InputStream ByteString
+                     -> RawResponse
                      -> m (Either AWSError (Either (Er a) (Rs a)))
-    response _ _ strm = liftIO $ do
-        bs <- BS.concat <$> Stream.toList strm
-        return . either (failure bs) success $ fromXML bs
-      where
-        failure bs e = either
-            (\s -> Left . Err $ concat [s, ", ", e])
-            (Right . Left)
-            (fromXML bs)
+    response _ = defaultResponse
 
-        success = Right . Right
+defaultResponse :: (IsXML e, IsXML a, MonadIO m)
+              => RawResponse
+              -> m (Either AWSError (Either e a))
+defaultResponse RawResponse{..} = liftIO $ do
+    bs <- BS.concat <$> Stream.toList rsBody
+    return . either (failure bs) (Right . Right) $ fromXML bs
+  where
+    failure bs e = either (\s -> Left . Err $ concat [s, ", ", e])
+        (Right . Left) (fromXML bs)
 
 class Pg a where
     next :: a -> Rs a -> Maybe a
@@ -165,6 +163,13 @@ instance Show Service where
         , "svcSigner = "  ++ show svcSigner
         , "}"
         ]
+
+data RawResponse = RawResponse
+    { rsCode    :: !Int
+    , rsMessage :: !ByteString
+    , rsHeaders :: [(ByteString, ByteString)]
+    , rsBody    :: InputStream ByteString
+    }
 
 data Body
     = Strict ByteString

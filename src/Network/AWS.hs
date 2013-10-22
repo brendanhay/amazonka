@@ -63,6 +63,7 @@ import           Control.Exception
 import           Control.Monad
 import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
+import qualified Data.ByteString.Char8        as BS
 import           Network.AWS.Internal.Monadic
 import           Network.AWS.Internal.Signing
 import           Network.AWS.Internal.Types
@@ -101,18 +102,27 @@ sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
     sig <- sign $ request rq
     whenDebug . liftIO . print $ srqRequest sig
-    res <- liftEitherT . fmapLT Ex . syncIO $ req sig
-    hoistError res
+    dbg <- getDebug
+    rs  <- liftEitherT . fmapLT Ex . syncIO $ perform sig dbg
+    rs' <- raise rs >>= response rq
+    hoistError rs'
   where
-    req SignedRequest{..} = bracket (establishConnection srqUrl) closeConnection $
-        \c -> do
+    perform SignedRequest{..} dbg =
+        bracket (establishConnection srqUrl) closeConnection $ \c -> do
             body <- case srqBody of
                 Strict bs      -> inputStreamBody <$> Streams.fromByteString bs
                 Streaming strm -> return $ inputStreamBody strm
                 Empty          -> return emptyBody
             sendRequest c srqRequest body
-            receiveResponse c $ \rs ->
-                response rq (retrieveHeaders $ getHeaders rs)
+            receiveResponse c $ \rs i -> do
+                strm <- Streams.mapM (\x -> print "x!" >> print x >> return x) i
+                return $ RawResponse (getStatusCode rs) (getStatusMessage rs)
+                    (retrieveHeaders $ getHeaders rs) strm
+
+    raise rs@RawResponse{..}
+        | rsCode < 400 = return rs
+        | otherwise    = throwError . Err $
+            concat [show rsCode, ":", BS.unpack rsMessage]
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
 async aws = AWS ask >>= liftIO . A.async . runEnv aws

@@ -109,15 +109,8 @@ import           System.IO.Streams    (InputStream)
 newtype S3HeadersResponse = S3HeadersResponse [(ByteString, ByteString)]
     deriving (Eq, Show)
 
-body :: ToHeaders a
-     => Method
-     -> Bucket
-     -> Key
-     -> a
-     -> InputStream ByteString
-     -> RawRequest
-body meth (Bucket b) (Key k) hs =
-    RawRequest svc meth path (toHeaders hs) [] . Streaming
+body :: ToHeaders a => Method -> Bucket -> Key -> a -> Body -> RawRequest
+body meth (Bucket b) (Key k) hs = RawRequest svc meth path (toHeaders hs) []
   where
     path   = svcPath svc $ Text.encodeUtf8 k
     svc    = s3Service { svcEndpoint = Global bucket }
@@ -131,9 +124,11 @@ body meth (Bucket b) (Key k) hs =
 hdrs :: (Monad m, Rs a ~ S3HeadersResponse)
      => a
      -> [(ByteString, ByteString)]
-     -> b
+     -> InputStream ByteString
      -> m (Either e (Either (Er a) (Rs a)))
-hdrs _ hs _ = return . Right . Right $ S3HeadersResponse hs
+hdrs _ hs strm = do
+    
+ . Right . Right $ S3HeadersResponse hs
 
 --
 -- Service
@@ -405,8 +400,8 @@ data PutObject = PutObject
     { poBucket  :: !Bucket
     , poKey     :: !Key
     , poHeaders :: [AnyHeader]
-    , poBody    :: InputStream ByteString
-    } deriving (Generic)
+    , poBody    :: Body
+    } deriving (Show, Generic)
 
 instance ToHeaders PutObject
 
@@ -415,7 +410,6 @@ instance Rq PutObject where
     type Rs PutObject = S3HeadersResponse
     request p@PutObject{..} = body PUT poBucket poKey p poBody
     response = hdrs
-
 
 -- newtype PutObjectResult = PutObjectResult [(ByteString, ByteString)]
 --     deriving (Eq, Show)

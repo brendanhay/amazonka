@@ -279,12 +279,10 @@ hex = BS.pack . foldr f "" . BS.unpack
       where
         n = ord c
 
-type HostHeader = Header "Host" ByteString
-
 tokenHeader :: Auth -> Maybe (Header "SecurityToken" ByteString)
 tokenHeader = fmap (\t -> Header t) . securityToken
 
-hostHeader :: Service -> Region -> HostHeader
+hostHeader :: Service -> Region -> Header "Host" ByteString
 hostHeader svc reg = Header $ endpoint svc reg <> ":443"
 
 dateHeader :: ByteString -> Header "Date" ByteString

@@ -492,7 +492,7 @@ module Network.AWS.EC2
     -- * Data Types
     , module Network.AWS.EC2.Types
 
-    -- * Convenience
+    -- * Common
     , module Network.AWS
     ) where
 

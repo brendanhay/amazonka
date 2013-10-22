@@ -39,13 +39,15 @@ library
       , Network.AWS.S3
 
     other-modules:
-        Network.AWS.Internal
+        Network.AWS
+      , Network.AWS.Internal
       , Network.AWS.Internal.Instances
       , Network.AWS.Internal.Monadic
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
       , Network.AWS.Internal.Time
       , Network.AWS.Internal.Types
+      , Network.AWS.Internal.XML
 
       , Network.AWS.AutoScaling.Types
       , Network.AWS.CloudWatch.Types

@@ -298,7 +298,7 @@ module Network.AWS.IAM
     -- * Data Types
     , module Network.AWS.IAM.Types
 
-    -- * Convenience
+    -- * Common
     , module Network.AWS
     ) where
 

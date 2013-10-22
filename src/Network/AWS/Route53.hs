@@ -68,7 +68,7 @@ module Network.AWS.Route53
     -- * Data Types
     , module Network.AWS.Route53.Types
 
-    -- * Convenience
+    -- * Common
     , module Network.AWS
     ) where
 

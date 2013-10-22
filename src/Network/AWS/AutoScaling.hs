@@ -160,7 +160,7 @@ module Network.AWS.AutoScaling
    -- * Data Types
    , module Network.AWS.AutoScaling.Types
 
-    -- * Convenience
+    -- * Common
     , module Network.AWS
    ) where
 

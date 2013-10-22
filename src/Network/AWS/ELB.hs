@@ -112,7 +112,7 @@ module Network.AWS.ELB
     -- * Data Types
     , module Network.AWS.ELB.Types
 
-    -- * Convenience
+    -- * Common
     , module Network.AWS
     ) where
 

@@ -86,7 +86,7 @@ module Network.AWS.S3
     -- * Data Types
     , module Network.AWS.S3.Types
 
-    -- * Convenience
+    -- * Common
     , module Network.AWS
     ) where
 

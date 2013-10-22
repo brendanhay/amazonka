@@ -65,7 +65,7 @@ module Network.AWS.CloudWatch
     -- * Data Types
     , module Network.AWS.CloudWatch.Types
 
-    -- * Convenience
+    -- * Common
     , module Network.AWS
     ) where
 

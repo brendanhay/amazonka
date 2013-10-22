@@ -18,24 +18,17 @@
 module Network.AWS.Internal.Monadic where
 
 import           Control.Applicative
-import qualified Control.Concurrent.Async   as A
 import           Control.Error
-import           Control.Exception
 import           Control.Monad
 import           Control.Monad.Error        (MonadError, Error, throwError)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Reader
 import qualified Data.Aeson                 as Aeson
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal.Types
-import           Network.Http.Client
-import           Network.Http.Internal      (retrieveHeaders)
 import           OpenSSL                    (withOpenSSL)
 import           Pipes                      hiding (next)
-import qualified System.IO.Streams          as Streams
 
 createAuth :: (Applicative m, MonadIO m)
            => Credentials

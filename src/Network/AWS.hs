@@ -37,12 +37,12 @@ module Network.AWS
     , paginate
     , paginateCatch
 
-    -- * Synchronous Requests
+    -- * Requests
     , send
     , send_
     , sendCatch
 
-    -- * Asynchronous Futures
+    -- * Futures
     , async
     , sendAsync
     , wait
@@ -104,20 +104,25 @@ sendCatch rq = do
     whenDebug . liftIO . print $ srqRequest sig
     dbg <- getDebug
     rs  <- liftEitherT . fmapLT Ex . syncIO $ perform sig dbg
-    rs' <- raise rs >>= response rq
-    hoistError rs'
+    raise rs >>= response rq >>= hoistError
   where
     perform SignedRequest{..} dbg =
         bracket (establishConnection srqUrl) closeConnection $ \c -> do
-            body <- case srqBody of
-                Strict bs      -> inputStreamBody <$> Streams.fromByteString bs
-                Streaming strm -> return $ inputStreamBody strm
-                Empty          -> return emptyBody
-            sendRequest c srqRequest body
-            receiveResponse c $ \rs i -> do
-                strm <- Streams.mapM (\x -> print "x!" >> print x >> return x) i
-                return $ RawResponse (getStatusCode rs) (getStatusMessage rs)
-                    (retrieveHeaders $ getHeaders rs) strm
+            sendRequest c srqRequest =<< body
+            receiveResponse c receive
+      where
+        body = case srqBody of
+            Strict bs   -> inputStreamBody <$> Streams.fromByteString bs
+            Streaming s -> return $ inputStreamBody s
+            Empty       -> return emptyBody
+
+        receive rs s =
+            let c  = getStatusCode rs
+                m  = getStatusMessage rs
+                hs = retrieveHeaders $ getHeaders rs
+            in RawResponse c m hs <$> if dbg
+                then Streams.mapM (\x -> print x >> return x) s
+                else return s
 
     raise rs@RawResponse{..}
         | rsCode < 400 = return rs

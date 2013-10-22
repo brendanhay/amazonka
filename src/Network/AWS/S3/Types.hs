@@ -22,7 +22,7 @@ import Network.AWS.Headers
 import Network.AWS.Internal
 
 s3Service :: Service
-s3Service = Service "s3" s3Version SigningVersionS3 $
+s3Service = Service "s3" s3Version SigningVersion2 $
     Global "s3.amazonaws.com"
 
 -- | Currently supported version (2006-03-01) of the S3 service.

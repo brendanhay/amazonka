@@ -123,12 +123,9 @@ body meth (Bucket b) (Key k) hs = RawRequest svc meth path (toHeaders hs) []
 
 hdrs :: (Monad m, Rs a ~ S3HeadersResponse)
      => a
-     -> [(ByteString, ByteString)]
-     -> InputStream ByteString
+     -> RawResponse
      -> m (Either e (Either (Er a) (Rs a)))
-hdrs _ hs strm = do
-    
- . Right . Right $ S3HeadersResponse hs
+hdrs _ RawResponse{..} = return . Right . Right $ S3HeadersResponse rsHeaders
 
 --
 -- Service

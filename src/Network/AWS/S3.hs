@@ -100,32 +100,21 @@ import           Network.AWS.S3.Types
 import           Network.Http.Client  (Method(..))
 import           System.IO.Streams    (InputStream)
 
--- qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
--- qry meth path = queryRequest s3Service meth (svcPath s3Service path)
-
--- xml :: IsXML a => Method -> ByteString -> a -> RawRequest
--- xml meth path = xmlRequest s3Service meth (svcPath s3Service path)
-
-newtype S3HeadersResponse = S3HeadersResponse [(ByteString, ByteString)]
-    deriving (Eq, Show)
-
-body :: ToHeaders a => Method -> Bucket -> Key -> a -> Body -> RawRequest
-body meth (Bucket b) (Key k) hs = RawRequest svc meth path (toHeaders hs) []
-  where
-    path   = svcPath svc $ Text.encodeUtf8 k
-    svc    = s3Service { svcEndpoint = Global bucket }
-    bucket = Text.encodeUtf8 b <> ".s3.amazonaws.com"
-
 -- PUT /ObjectName HTTP/1.1
 -- Host: BucketName.s3.amazonaws.com
 -- Date: date
 -- Authorization: signatureValue
+obj :: Method -> Bucket -> Key -> [AnyHeader] -> Body -> AWS Request
+obj meth (Bucket b) (Key k) hs = signer versionS3 svc meth path hs []
+  where
+    path = Text.encodeUtf8 k
+    svc  = s3 { svcEndpoint = Global $ Text.encodeUtf8 b <> ".s3.amazonaws.com" }
 
 hdrs :: (Monad m, Rs a ~ S3HeadersResponse)
      => a
-     -> RawResponse
+     -> Response
      -> m (Either e (Either (Er a) (Rs a)))
-hdrs _ RawResponse{..} = return . Right . Right $ S3HeadersResponse rsHeaders
+hdrs _ Response{..} = return . Right . Right $ S3HeadersResponse rsHeaders
 
 --
 -- Service
@@ -405,7 +394,7 @@ instance ToHeaders PutObject
 instance Rq PutObject where
     type Er PutObject = S3ErrorResponse
     type Rs PutObject = S3HeadersResponse
-    request p@PutObject{..} = body PUT poBucket poKey p poBody
+    request p@PutObject{..} = obj PUT poBucket poKey (toHeaders p) poBody
     response = hdrs
 
 -- newtype PutObjectResult = PutObjectResult [(ByteString, ByteString)]

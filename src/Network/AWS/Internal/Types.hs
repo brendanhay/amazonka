@@ -1,3 +1,5 @@
+{-# LANGUAGE ConstraintKinds            #-}
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
@@ -34,10 +36,12 @@ import           Data.Strings
 import           Data.Text                       (Text)
 import qualified Data.Text                       as Text
 import           GHC.Generics
+import           GHC.TypeLits
 import           Network.AWS.Headers
 import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
-import           Network.Http.Client             hiding (ContentType, post, put)
+import qualified Network.Http.Client             as HTTP
+import           Network.Http.Client             (Method, Hostname)
 import           System.IO.Streams               (InputStream)
 import qualified System.IO.Streams               as Stream
 import           Text.ParserCombinators.ReadP    (string)
@@ -48,22 +52,22 @@ class Rq a where
     type Er a
     type Rs a
 
-    request  :: a -> RawRequest
+    request  :: a -> AWS Request
     response :: MonadIO m
              => a
-             -> RawResponse
+             -> Response
              -> m (Either AWSError (Either (Er a) (Rs a)))
 
     default response :: (MonadIO m, IsXML (Er a), IsXML (Rs a))
                      => a
-                     -> RawResponse
+                     -> Response
                      -> m (Either AWSError (Either (Er a) (Rs a)))
     response _ = defaultResponse
 
 defaultResponse :: (IsXML e, IsXML a, MonadIO m)
-              => RawResponse
-              -> m (Either AWSError (Either e a))
-defaultResponse RawResponse{..} = liftIO $ do
+                => Response
+                -> m (Either AWSError (Either e a))
+defaultResponse Response{..} = liftIO $ do
     bs <- BS.concat <$> Stream.toList rsBody
     return . either (failure bs) (Right . Right) $ fromXML bs
   where
@@ -120,51 +124,64 @@ data Env = Env
 newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT AWSError IO) a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env, MonadError AWSError)
 
-newtype ServiceVersion = ServiceVersion Text
-    deriving (Eq, Show, IsString, Strings)
-
-data SigningVersion
-    = SigningVersion2
-    | SigningVersion3
-    | SigningVersion4
-      deriving (Show)
-
 data Endpoint
     = Global !ByteString
     | Regional (Region -> ByteString)
 
 data Service = Service
     { svcName     :: !ByteString
-    , svcVersion  :: !ServiceVersion
-    , svcSigner   :: !SigningVersion
+    , svcVersion  :: !ByteString
     , svcEndpoint :: !Endpoint
     }
 
-svcPath :: Strings a => Service -> a -> a
-svcPath svc p = sJoin (sFromString "/") [sPack $ svcVersion svc, p]
-
-svcGlobal :: Service -> Bool
-svcGlobal svc =
-    case svcEndpoint svc of
-        (Global _) -> True
-        _          -> False
-
 endpoint :: Service -> Region -> ByteString
-endpoint svc =
-    case svcEndpoint svc of
-        Global end -> const end
-        Regional f -> f
+endpoint Service{..} = case svcEndpoint of
+    Global  bs -> const bs
+    Regional f -> f
 
-instance Show Service where
-    show Service{..} = intercalate " "
-        [ "Service {"
-        , "svcName = "    ++ BS.unpack svcName
-        , "svcVersion = " ++ show svcVersion
-        , "svcSigner = "  ++ show svcSigner
-        , "}"
-        ]
+-- svcPath :: Strings a => Service t -> a -> a
+-- svcPath svc p = sJoin (sFromString "/") [sPack $ svcVersion svc, p]
 
-data RawResponse = RawResponse
+data Request = Request
+    { rqMethod  :: !Method
+    , rqHost    :: !Hostname
+    , rqPath    :: !ByteString
+    , rqHeaders :: [AnyHeader]
+    , rqQuery   :: [(ByteString, ByteString)]
+    , rqBody    :: !Body
+    }
+
+-- instance ToJSON Request where
+--     toJSON Request{..} = object
+--         [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
+--         , "rqContent" .= ("Content-Type" `lookup` rqQuery)
+--         , "rqAction"  .= ("Action" `lookup` rqQuery)
+--         , "rqPath"    .= rqPath
+--         , "rqQuery"   .= rqQuery
+--         ]
+
+-- queryAppend :: Request -> [(ByteString, ByteString)] -> Request
+-- queryAppend rq qry = rq { rqQuery = rqQuery rq ++ qry }
+
+-- queryRequest :: IsQuery a
+--              => Service
+--              -> Method
+--              -> ByteString
+--              -> a
+--              -> Request
+-- queryRequest svc meth path q =
+--     Request svc meth path [hdr (Content :: FormURLEncoded)] (toQuery q) Empty
+
+-- xmlRequest :: IsXML a
+--            => Service
+--            -> Method
+--            -> ByteString
+--            -> a
+--            -> Request
+-- xmlRequest svc meth path =
+--     Request svc meth path [hdr (Content :: XML)] [] . Strict . toXML
+
+data Response = Response
     { rsCode    :: !Int
     , rsMessage :: !ByteString
     , rsHeaders :: [(ByteString, ByteString)]
@@ -180,51 +197,6 @@ instance Show Body where
     show (Strict _)    = "Strict <ByteString>"
     show (Streaming _) = "Streaming <InputStream>"
     show Empty         = "Empty"
-
-data RawRequest = RawRequest
-    { rqService :: !Service
-    , rqMethod  :: !Method
-    , rqPath    :: !ByteString
-    , rqHeaders :: [AnyHeader]
-    , rqQuery   :: [(ByteString, ByteString)]
-    , rqBody    :: !Body
-    } deriving (Show)
-
-instance ToJSON RawRequest where
-    toJSON RawRequest{..} = object
-        [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
-        , "rqContent" .= ("Content-Type" `lookup` rqQuery)
-        , "rqAction"  .= ("Action" `lookup` rqQuery)
-        , "rqPath"    .= rqPath
-        , "rqQuery"   .= rqQuery
-        ]
-
-queryAppend :: RawRequest -> [(ByteString, ByteString)] -> RawRequest
-queryAppend rq qry = rq { rqQuery = rqQuery rq ++ qry }
-
-queryRequest :: IsQuery a
-             => Service
-             -> Method
-             -> ByteString
-             -> a
-             -> RawRequest
-queryRequest svc meth path q =
-    RawRequest svc meth path [hdr (Content :: FormURLEncoded)] (toQuery q) Empty
-
-xmlRequest :: IsXML a
-           => Service
-           -> Method
-           -> ByteString
-           -> a
-           -> RawRequest
-xmlRequest svc meth path =
-    RawRequest svc meth path [hdr (Content :: XML)] [] . Strict . toXML
-
-data SignedRequest = SignedRequest
-    { srqUrl     :: !ByteString
-    , srqBody    :: !Body
-    , srqRequest :: !Request
-    } deriving (Show)
 
 data Region
     = NorthVirginia

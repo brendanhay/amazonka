@@ -3,6 +3,7 @@
 {-# LANGUAGE Rank2Types        #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Internal.Monadic
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,10 +61,9 @@ defaultRegion = NorthVirginia
 getRegion :: AWS Region
 getRegion = AWS $ awsRegion <$> ask
 
-serviceRegion :: Service -> AWS Region
-serviceRegion svc
-    | svcGlobal svc = return defaultRegion
-    | otherwise     = getRegion
+svcRegion :: Service -> AWS Region
+svcRegion (svcEndpoint -> Global _) = return defaultRegion
+svcRegion _                         = getRegion
 
 getDebug :: AWS Bool
 getDebug = AWS $ awsDebug <$> ask

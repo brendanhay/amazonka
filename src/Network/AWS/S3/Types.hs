@@ -1,6 +1,7 @@
 {-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.Types
@@ -21,21 +22,8 @@ import Data.Text            (Text)
 import Network.AWS.Headers
 import Network.AWS.Internal
 
-s3Service :: Service
-s3Service = Service "s3" s3Version SigningVersion2 $
-    Global "s3.amazonaws.com"
-
--- | Currently supported version (2006-03-01) of the S3 service.
-s3Version :: ServiceVersion
-s3Version = "2006-03-01"
-
--- | XML namespace to annotate S3 elements with.
-s3NS :: ByteString
-s3NS = "http://s3.amazonaws.com/doc/" <> sPack s3Version <> "/"
-
--- | Helper to define S3 namespaced XML elements.
-s3Elem :: ByteString -> NName ByteString
-s3Elem = mkNName s3NS
+s3 :: Service
+s3 = Service "s3" "2006-03-01" (Global "s3.amazonaws.com")
 
 data S3ErrorResponse = S3ErrorResponse { sssError :: !Text }
     deriving (Eq, Show, Generic)
@@ -48,6 +36,9 @@ instance IsXML S3ErrorResponse
 newtype Key = Key Text deriving (Eq, Show)
 
 newtype Bucket = Bucket Text deriving (Eq, Show)
+
+newtype S3HeadersResponse = S3HeadersResponse [(ByteString, ByteString)]
+    deriving (Eq, Show)
 
 -- data Owner = Owner
 --     { oDisplayName :: !Text
@@ -137,13 +128,21 @@ instance Show StorageClass where
 instance IsHeader StorageClass where
     encodeHeader = encodeHeader . show
 
-type Storage            = Header "X-AMZ-Storage-Class" StorageClass
-type RedirectLocation   = Header "X-AMZ-Website-Redirect-Location" Text
-type Encryption         = Header "X-AMZ-Server-Side-Encryption" AES256
-type ACL                = Header "X-AMZ-ACL" CannedACL
-type GrantRead          = Header "X-AMZ-Grant-Read" Text
-type GrantWrite         = Header "X-AMZ-Grant-Write" Text
-type GrantReadACP       = Header "X-AMZ-Grant-Read-ACP" Text
-type GrantWriteACP      = Header "X-AMZ-Grant-Write-ACP" Text
-type GrantFullControl   = Header "X-AMZ-Grant-Full-Control" Text
-type Metadata           = Header "X-AMZ-Meta-" (Text, Text)
+type Storage            = Header "x-amz-storage-class" StorageClass
+type RedirectLocation   = Header "x-amz-website-redirect-location" Text
+type Encryption         = Header "x-amz-server-side-encryption" AES256
+type ACL                = Header "x-amz-acl" CannedACL
+type GrantRead          = Header "x-amz-grant-read" Text
+type GrantWrite         = Header "x-amz-grant-write" Text
+type GrantReadACP       = Header "x-amz-grant-read-acp" Text
+type GrantWriteACP      = Header "x-amz-grant-write-acp" Text
+type GrantFullControl   = Header "x-amz-grant-full-control" Text
+type Metadata           = Header "x-amz-meta-" (Text, Text)
+
+-- | XML namespace to annotate S3 elements with.
+s3NS :: ByteString
+s3NS = "http://s3.amazonaws.com/doc/" <> svcVersion s3 <> "/"
+
+-- | Helper to define S3 namespaced XML elements.
+s3Elem :: ByteString -> NName ByteString
+s3Elem = mkNName s3NS

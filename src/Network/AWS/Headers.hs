@@ -1,14 +1,17 @@
-{-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE DefaultSignatures    #-}
-{-# LANGUAGE FlexibleContexts     #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE GADTs                #-}
-{-# LANGUAGE KindSignatures       #-}
-{-# LANGUAGE OverlappingInstances #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE ScopedTypeVariables  #-}
-{-# LANGUAGE TupleSections        #-}
-{-# LANGUAGE TypeOperators        #-}
+{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DefaultSignatures          #-}
+{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GADTs                      #-}
+{-# LANGUAGE KindSignatures             #-}
+{-# LANGUAGE OverlappingInstances       #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
+{-# LANGUAGE TupleSections              #-}
+{-# LANGUAGE TypeOperators              #-}
+{-# LANGUAGE ViewPatterns               #-}
+
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
 -- Module      : Network.AWS.Headers
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,34 +25,44 @@
 
 module Network.AWS.Headers where
 
+import           Control.Arrow          (first)
 import           Crypto.Hash.MD5
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Base64     as Base64
+import           Data.ByteString        (ByteString)
+import qualified Data.ByteString.Base64 as Base64
+import qualified Data.ByteString.Char8  as BS
+import           Data.Char              (toLower)
 import           Data.Monoid
-import           Data.Text                  (Text)
-import qualified Data.Text                  as Text
-import qualified Data.Text.Encoding         as Text
+import           Data.Text              (Text)
+import qualified Data.Text.Encoding     as Text
 import           Data.Time
 import           GHC.Generics
 import           GHC.TypeLits
 
-class IsHeader a where
-    encodeHeader :: a -> Text -> (Text, Text)
+default (ByteString)
 
-instance IsHeader v => IsHeader (Text, v) where
-    encodeHeader (k, v) = encodeHeader v . (`mappend` k)
+flattenHeaders :: [AnyHeader] -> [(ByteString, ByteString)]
+flattenHeaders = map (first (BS.map toLower) . (`encodeHeader` ""))
+
+lookupHeader :: ByteString -> [AnyHeader] -> Maybe ByteString
+lookupHeader (BS.map toLower -> key) = lookup key . flattenHeaders
+
+class IsHeader a where
+    encodeHeader :: a -> ByteString -> (ByteString, ByteString)
 
 instance IsHeader v => IsHeader (ByteString, v) where
-    encodeHeader (k, v) = encodeHeader (Text.decodeUtf8 k, v)
+    encodeHeader (k, v) = encodeHeader v . (`mappend` k)
 
-instance IsHeader Text where
-    encodeHeader s = (, s)
+instance IsHeader v => IsHeader (Text, v) where
+    encodeHeader (k, v) = encodeHeader (Text.encodeUtf8 k, v)
 
 instance IsHeader ByteString where
-    encodeHeader s = (, Text.decodeUtf8 s)
+    encodeHeader s = (, s)
+
+instance IsHeader Text where
+    encodeHeader s = (, Text.encodeUtf8 s)
 
 instance IsHeader String where
-    encodeHeader s = (, Text.pack s)
+    encodeHeader s = (, BS.pack s)
 
 instance IsHeader Integer where
     encodeHeader n = encodeHeader (show n)
@@ -62,8 +75,8 @@ instance Functor (Header k) where
 instance (SingI k, IsHeader v) => IsHeader (Header k v) where
     encodeHeader h@(Header v) = encodeHeader v . mappend (withSing $ f h)
       where
-        f :: Header k v -> Sing k -> Text
-        f _ = Text.pack . fromSing
+        f :: Header k v -> Sing k -> ByteString
+        f _ = BS.pack . fromSing
 
 instance (SingI k, IsHeader v) => Show (Header k v) where
     show = show . (`encodeHeader` mempty)
@@ -81,49 +94,49 @@ hdr :: IsHeader a => a -> AnyHeader
 hdr = AnyHeader
 
 type ContentLength     = Header "Content-Length" Integer
-type ContentLanguage   = Header "Content-Language" Text
-type Expect            = Header "Expect" Text
-type Expires           = Header "Expires" Text
-type Range             = Header "Range" Text
-type IfModifiedSince   = Header "If-Modified-Since" Text
-type IfUnmodifiedSince = Header "If-Unmodified-Since" Text
-type IfMatch           = Header "If-Match" Text
-type IfNoneMatch       = Header "If-None-Match" Text
+type ContentLanguage   = Header "Content-Language" ByteString
+type Expect            = Header "Expect" ByteString
+type Expires           = Header "Expires" ByteString
+type Range             = Header "Range" ByteString
+type IfModifiedSince   = Header "If-Modified-Since" ByteString
+type IfUnmodifiedSince = Header "If-Unmodified-Since" ByteString
+type IfMatch           = Header "If-Match" ByteString
+type IfNoneMatch       = Header "If-None-Match" ByteString
 
 data Content (t :: Symbol) (s :: Symbol) = Content
 
 instance (SingI t, SingI s) => IsHeader (Content t s) where
-    encodeHeader c = encodeHeader ("Content-Type" :: Text, val)
+    encodeHeader c = encodeHeader (BS.pack "content-type", val)
       where
-        val = Text.concat [contentType c, "/", contentSubType c]
+        val = BS.concat [contentType c, "/", contentSubType c]
 
-contentType :: SingI t => Content t s -> Text
+contentType :: SingI t => Content t s -> ByteString
 contentType = withSing . f
   where
-    f :: Content t s -> Sing t -> Text
-    f _ = Text.pack . fromSing
+    f :: Content t s -> Sing t -> ByteString
+    f _ = BS.pack . fromSing
 
-contentSubType :: SingI s => Content t s -> Text
+contentSubType :: SingI s => Content t s -> ByteString
 contentSubType = withSing . f
   where
-    f :: Content t s -> Sing s -> Text
-    f _ = Text.pack . fromSing
+    f :: Content t s -> Sing s -> ByteString
+    f _ = BS.pack . fromSing
 
 type JSON           = Content "application" "json"
 type XML            = Content "application" "xml"
 type FormURLEncoded = Content "application" "x-www-form-urlencoded"
 
 class CacheValue a where
-    cacheValue :: Text -> a -> Text
+    cacheValue :: ByteString -> a -> ByteString
 
 newtype Cache (k :: Symbol) v = Cache v
 
 instance (SingI k, CacheValue v) => IsHeader (Cache k v) where
     encodeHeader c@(Cache v) =
-        encodeHeader ("Cache-Control" :: Text, cacheValue (withSing $ f c) v)
+        encodeHeader (BS.pack "cache-control", cacheValue (withSing $ f c) v)
       where
-        f :: Cache k v -> Sing k -> Text
-        f _ = Text.pack . fromSing
+        f :: Cache k v -> Sing k -> ByteString
+        f _ = BS.pack . fromSing
 
 type Public          = Cache "public" ()
 type Private         = Cache "private" (Maybe Text)
@@ -141,10 +154,10 @@ type OnlyIfCache     = Cache "only-if-cached" ()
 data Encoding (t :: Symbol) = Encoding
 
 instance SingI t => IsHeader (Encoding t) where
-    encodeHeader e = encodeHeader ("Encoding" :: Text, withSing $ f e)
+    encodeHeader e = encodeHeader (BS.pack "encoding", withSing $ f e)
       where
-        f :: Encoding t -> Sing t -> Text
-        f _ = Text.pack . fromSing
+        f :: Encoding t -> Sing t -> ByteString
+        f _ = BS.pack . fromSing
 
 type GZip    = Encoding "gzip"
 type Deflate = Encoding "deflate"
@@ -152,16 +165,16 @@ type Deflate = Encoding "deflate"
 newtype Param (k :: Symbol) v = Param v
 
 class ParamValue a where
-    paramValue :: a -> Text
+    paramValue :: a -> ByteString
 
-instance ParamValue Text where
+instance ParamValue ByteString where
     paramValue = id
 
 instance (SingI k, ParamValue v) => ParamValue (Param k v) where
-    paramValue p@(Param v) = Text.concat [withSing $ f p, "=", paramValue v]
+    paramValue p@(Param v) = BS.concat [withSing $ f p, "=", paramValue v]
       where
-        f :: Param k v -> Sing k -> Text
-        f _ = Text.pack . fromSing
+        f :: Param k v -> Sing k -> ByteString
+        f _ = BS.pack . fromSing
 
 data AnyParam where
     AnyParam :: ParamValue a => a -> AnyParam
@@ -176,12 +189,12 @@ newtype Disposition (t :: Symbol) = Disposition [AnyParam]
 
 instance SingI t => IsHeader (Disposition t) where
     encodeHeader d@(Disposition ps) =
-        encodeHeader ("Content-Disposition" :: Text, val)
+        encodeHeader (BS.pack "content-disposition", val)
       where
-        val = Text.intercalate ";" $ withSing (f d) : map paramValue ps
+        val = BS.intercalate ";" $ withSing (f d) : map paramValue ps
 
-        f :: Disposition t -> Sing t -> Text
-        f _ = Text.pack . fromSing
+        f :: Disposition t -> Sing t -> ByteString
+        f _ = BS.pack . fromSing
 
 -- | Displayed automatically [RFC2183]
 type Inline = Disposition "inline"
@@ -236,7 +249,7 @@ type ByReference = Disposition "by-reference"
 type InfoPackage = Disposition "info-package"
 
 -- | Name to be used when creating file [RFC2183]
-type FileName = Param "filename" Text
+type FileName = Param "filename" ByteString
 
 -- | When content was created [RFC2183]
 type CreationDate = Param "creation-date" UTCTime
@@ -251,7 +264,7 @@ type ReadDate = Param "read-date" UTCTime
 type Size = Param "size" Integer
 
 -- | Original field name in form [RFC2388]
-type Name = Param "name" Text
+type Name = Param "name" ByteString
 
 -- | Whether or not processing is required [RFC3204]
 type Handling = Param "handling" HandlingType
@@ -290,8 +303,7 @@ md5 :: ByteString -> MD5
 md5 = MD5 . Base64.encode . hash
 
 instance IsHeader MD5 where
-    encodeHeader (MD5 bs) =
-        encodeHeader ("Content-MD5" :: Text, Text.decodeUtf8 bs)
+    encodeHeader (MD5 bs) = encodeHeader (BS.pack "content-md5", bs)
 
 --
 -- Generics

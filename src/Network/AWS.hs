@@ -32,22 +32,22 @@ module Network.AWS
     , getDebug
     , whenDebug
 
-    -- * Pagination
-    , paginate
-    , paginateCatch
-
     -- * Synchronous Requests
     , send
     , send_
     , sendCatch
 
-    -- * Asynchronous Requests/Responses
+    -- * Asynchronous Requests
     , async
     , sendAsync
     , wait
     , wait_
     , waitAsync
     , waitAsync_
+
+    -- * Paginated Requests
+    , paginate
+    , paginateCatch
 
     -- * Errors
     , AWSError         (..)
@@ -74,24 +74,6 @@ import           Network.Http.Client
 import           Network.Http.Internal      (retrieveHeaders)
 import           Pipes                      hiding (next)
 import qualified System.IO.Streams          as Streams
-
--- | Create a pipes 'Producer' which yields the initial and subsequent repsonses
--- for requests that supported pagination.
-paginate :: (Rq a, Pg a, ToError (Er a))
-         => a
-         -> Producer' (Rs a) AWS ()
-paginate = paginateCatch ~> either (lift . liftEitherT . left . toError) yield
-
-paginateCatch :: (Rq a, Pg a, ToError (Er a))
-              => a
-              -> Producer' (Either (Er a) (Rs a)) AWS ()
-paginateCatch = go . Just
-  where
-    go Nothing   = return ()
-    go (Just rq) = do
-        rs <- lift $ sendCatch rq
-        yield rs
-        either (const $ return ()) (go . next rq) rs
 
 -- | Send a request and return the associated response type.
 send :: (Rq a, ToError (Er a)) => a -> AWS (Rs a)
@@ -149,3 +131,21 @@ waitAsync a = wait a >>= hoistError . fmapL toError
 
 waitAsync_ :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS ()
 waitAsync_ = void . waitAsync
+
+-- | Create a pipes 'Producer' which yields the initial and subsequent repsonses
+-- for requests that supported pagination.
+paginate :: (Rq a, Pg a, ToError (Er a))
+         => a
+         -> Producer' (Rs a) AWS ()
+paginate = paginateCatch ~> either (lift . liftEitherT . left . toError) yield
+
+paginateCatch :: (Rq a, Pg a, ToError (Er a))
+              => a
+              -> Producer' (Either (Er a) (Rs a)) AWS ()
+paginateCatch = go . Just
+  where
+    go Nothing   = return ()
+    go (Just rq) = do
+        rs <- lift $ sendCatch rq
+        yield rs
+        either (const $ return ()) (go . next rq) rs

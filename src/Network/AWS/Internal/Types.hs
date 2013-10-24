@@ -37,7 +37,7 @@ import           Network.Http.Client             (Method)
 import qualified Network.Http.Client             as Client
 import           System.IO.Streams               (InputStream)
 import qualified System.IO.Streams               as Stream
-import           Text.ParserCombinators.ReadP    (string)
+import qualified Text.ParserCombinators.ReadP    as ReadP
 import qualified Text.Read                       as Read
 import           Text.XML.Expat.Pickle.Generic
 
@@ -323,4 +323,4 @@ instance IsXML InstanceType where
 
 readAssocList :: [(String, a)] -> Read.ReadPrec a
 readAssocList xs = Read.choice $
-    map (\(x, y) -> Read.lift $ string x >> return y) xs
+    map (\(x, y) -> Read.lift $ ReadP.string x >> return y) xs

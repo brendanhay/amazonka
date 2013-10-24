@@ -87,9 +87,11 @@ send_ = void . send
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
     sig <- request rq
-    getDebug >>= sync sig >>= hoistError
+    dbg <- getDebug
+    rs  <- sync $ perform sig dbg
+    hoistError rs
   where
-    sync raw = liftEitherT . fmapLT Ex . syncIO . perform raw
+    sync = liftEitherT . fmapLT Ex . syncIO
 
     perform Signed{..} dbg =
         bracket (establishConnection sURL) closeConnection $ \c -> do

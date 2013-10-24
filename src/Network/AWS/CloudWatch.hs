@@ -77,11 +77,8 @@ import Network.AWS.CloudWatch.Types
 import Network.AWS.Internal
 import Network.Http.Client          (Method(..))
 
-qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth act q = queryAppend (queryRequest cloudWatchService meth "/" q)
-    [ ("Action",  act)
-    , ("Version", sPack cloudWatchVersion)
-    ]
+query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
+query = version4Query cloudWatch
 
 --
 -- Actions
@@ -101,7 +98,7 @@ instance IsQuery DeleteAlarms
 instance Rq DeleteAlarms where
     type Er DeleteAlarms = CloudWatchError
     type Rs DeleteAlarms = DeleteAlarmsResponse
-    request = qry GET "DeleteAlarms"
+    request = query GET "DeleteAlarms"
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
     { darResponseMetadata :: !Text
@@ -137,7 +134,7 @@ instance IsQuery DescribeAlarmHistory
 instance Rq DescribeAlarmHistory where
     type Er DescribeAlarmHistory = CloudWatchError
     type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
-    request = qry GET "DescribeAlarmHistory"
+    request = query GET "DescribeAlarmHistory"
 
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { dahrResponseMetadata :: !Text
@@ -174,7 +171,7 @@ instance IsQuery DescribeAlarms
 instance Rq DescribeAlarms where
     type Er DescribeAlarms = CloudWatchError
     type Rs DescribeAlarms = DescribeAlarmsResponse
-    request = qry GET "DescribeAlarms"
+    request = query GET "DescribeAlarms"
 
 data DescribeAlarmsResponse = DescribeAlarmsResponse
     { dasResponseMetadata :: !Text
@@ -208,7 +205,7 @@ instance IsQuery DescribeAlarmsForMetric
 instance Rq DescribeAlarmsForMetric where
     type Er DescribeAlarmsForMetric = CloudWatchError
     type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse
-    request = qry GET "DescribeAlarmsForMetric"
+    request = query GET "DescribeAlarmsForMetric"
 
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { dafmrResponseMetadata :: !Text
@@ -233,7 +230,7 @@ instance IsQuery DisableAlarmActions
 instance Rq DisableAlarmActions where
     type Er DisableAlarmActions = CloudWatchError
     type Rs DisableAlarmActions = DisableAlarmActionsResponse
-    request = qry GET "DisableAlarmActions"
+    request = query GET "DisableAlarmActions"
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
     { daarResponseMetadata :: !Text
@@ -255,7 +252,7 @@ instance IsQuery EnableAlarmActions
 instance Rq EnableAlarmActions where
     type Er EnableAlarmActions = CloudWatchError
     type Rs EnableAlarmActions = EnableAlarmActionsResponse
-    request = qry GET "EnableAlarmActions"
+    request = query GET "EnableAlarmActions"
 
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
     { eaarResponseMetadata :: !Text
@@ -318,7 +315,7 @@ instance IsQuery GetMetricStatistics
 instance Rq GetMetricStatistics where
     type Er GetMetricStatistics = CloudWatchError
     type Rs GetMetricStatistics = GetMetricStatisticsResponse
-    request = qry GET "GetMetricStatistics"
+    request = query GET "GetMetricStatistics"
 
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     { gmsrResponseMetadata :: !Text
@@ -355,7 +352,7 @@ instance IsQuery ListMetrics
 instance Rq ListMetrics where
     type Er ListMetrics = CloudWatchError
     type Rs ListMetrics = ListMetricsResponse
-    request = qry GET "ListMetrics"
+    request = query GET "ListMetrics"
 
 data ListMetricsResponse = ListMetricsResponse
     { lmrResponseMetadata :: !Text
@@ -430,7 +427,7 @@ instance IsQuery PutMetricAlarm
 instance Rq PutMetricAlarm where
     type Er PutMetricAlarm = CloudWatchError
     type Rs PutMetricAlarm = PutMetricAlarmResponse
-    request = qry GET "PutMetricAlarm"
+    request = query GET "PutMetricAlarm"
 
 data PutMetricAlarmResponse = PutMetricAlarmResponse
     { pmarResponseMetadata :: !Text
@@ -467,7 +464,7 @@ instance IsQuery PutMetricData
 instance Rq PutMetricData where
     type Er PutMetricData = CloudWatchError
     type Rs PutMetricData = PutMetricDataResponse
-    request = qry GET "PutMetricData"
+    request = query GET "PutMetricData"
 
 data PutMetricDataResponse = PutMetricDataResponse
     { pmdrResponseMetadata :: !Text
@@ -502,7 +499,7 @@ instance IsQuery SetAlarmState
 instance Rq SetAlarmState where
     type Er SetAlarmState = CloudWatchError
     type Rs SetAlarmState = SetAlarmStateResponse
-    request = qry GET "SetAlarmState"
+    request = query GET "SetAlarmState"
 
 data SetAlarmStateResponse = SetAlarmStateResponse
     { sasrResponseMetadata :: !Text

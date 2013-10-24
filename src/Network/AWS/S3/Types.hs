@@ -24,7 +24,7 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the S3 service.
 s3 :: Service
-s3 = Service "s3" "2006-03-01" (Global "s3.amazonaws.com")
+s3 = Global "s3" "2006-03-01"
 
 data S3ErrorResponse = S3ErrorResponse { sssError :: !Text }
     deriving (Eq, Show, Generic)

@@ -81,11 +81,11 @@ import Network.AWS.Internal
 import Network.AWS.Route53.Types
 import Network.Http.Client       (Method(..))
 
-qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth path = queryRequest route53Service meth (svcPath route53Service path)
+query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
+query meth path = sign version3 . requestQuery route53 meth (route53Path path)
 
-xml :: IsXML a => Method -> ByteString -> a -> RawRequest
-xml meth path = xmlRequest route53Service meth (svcPath route53Service path)
+xml :: IsXML a => Method -> ByteString -> a -> AWS Signed
+xml meth path = sign version3 . requestXML route53 meth (route53Path path)
 
 --
 -- Hosted Zones
@@ -136,7 +136,7 @@ newtype GetHostedZone = GetHostedZone
 instance Rq GetHostedZone where
     type Er GetHostedZone = ErrorResponse
     type Rs GetHostedZone = GetHostedZoneResponse
-    request chk = qry GET (prefixed $ ghzId chk) ()
+    request chk = query GET (prefixed $ ghzId chk) ()
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { ghzrHostedZone    :: !HostedZone
@@ -167,7 +167,7 @@ instance IsQuery ListHostedZones where
 instance Rq ListHostedZones where
     type Er ListHostedZones = ErrorResponse
     type Rs ListHostedZones = ListHostedZonesResponse
-    request = qry GET "hostedzone"
+    request = query GET "hostedzone"
 
 instance Pg ListHostedZones where
     next _ ListHostedZonesResponse{..}
@@ -202,7 +202,7 @@ newtype DeleteHostedZone = DeleteHostedZone
 instance Rq DeleteHostedZone where
     type Er DeleteHostedZone = ErrorResponse
     type Rs DeleteHostedZone = DeleteHostedZoneResponse
-    request chk = qry DELETE (prefixed $ dhzId chk) ()
+    request chk = query DELETE (prefixed $ dhzId chk) ()
 
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { dhzrChangeInfo :: !ChangeInfo
@@ -276,7 +276,7 @@ instance IsQuery ListResourceRecordSets where
 instance Rq ListResourceRecordSets where
     type Er ListResourceRecordSets = ErrorResponse
     type Rs ListResourceRecordSets = ListResourceRecordSetsResponse
-    request rq = qry GET (prefixed (lrrsZoneId rq) <> "/rrset") rq
+    request rq = query GET (prefixed (lrrsZoneId rq) <> "/rrset") rq
 
 instance Pg ListResourceRecordSets where
     next rq ListResourceRecordSetsResponse{..}
@@ -325,7 +325,7 @@ newtype GetChange = GetChange
 instance Rq GetChange where
     type Er GetChange = ErrorResponse
     type Rs GetChange = GetChangeResponse
-    request chk = qry GET (prefixed $ gcId chk) ()
+    request chk = query GET (prefixed $ gcId chk) ()
 
 data GetChangeResponse = GetChangeResponse
     { gcrChangeInfo :: !ChangeInfo
@@ -381,7 +381,7 @@ newtype GetHealthCheck = GetHealthCheck
 instance Rq GetHealthCheck where
     type Er GetHealthCheck = ErrorResponse
     type Rs GetHealthCheck = GetHealthCheckResponse
-    request chk = qry GET (prefixed $ ghcId chk) ()
+    request chk = query GET (prefixed $ ghcId chk) ()
 
 data GetHealthCheckResponse = GetHealthCheckResponse
     { ghcrHealthCheck :: !HealthCheck
@@ -414,7 +414,7 @@ instance IsQuery ListHealthChecks where
 instance Rq ListHealthChecks where
     type Er ListHealthChecks = ErrorResponse
     type Rs ListHealthChecks = ListHealthChecksResponse
-    request = qry GET "healthcheck"
+    request = query GET "healthcheck"
 
 data ListHealthChecksResponse = ListHealthChecksResponse
     { lhcrHealthChecks :: [HealthCheck]
@@ -451,7 +451,7 @@ newtype DeleteHealthCheck = DeleteHealthCheck
 instance Rq DeleteHealthCheck where
     type Er DeleteHealthCheck = ErrorResponse
     type Rs DeleteHealthCheck = DeleteHealthCheckResponse
-    request chk = qry DELETE (prefixed $ dhcId chk) ()
+    request chk = query DELETE (prefixed $ dhcId chk) ()
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Read, Show, Generic)

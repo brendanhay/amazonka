@@ -21,7 +21,7 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the CloudWatch service.
 cloudWatch :: Service
-cloudWatch = Regional "cloudwatch" "2010-08-01"
+cloudWatch = Service Regional "cloudwatch" "2010-08-01"
 
 data CloudWatchError = CloudWatchError
     { cweCode    :: !Text

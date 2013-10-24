@@ -24,7 +24,7 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the AutoScaling service.
 autoScaling :: Service
-autoScaling = Regional "autoscaling" "2011-01-01"
+autoScaling = Service Regional "autoscaling" "2011-01-01"
 
 data ErrorType = Receiver | Sender
     deriving (Eq, Show, Read, Generic)

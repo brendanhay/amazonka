@@ -309,11 +309,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))
 
-qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth act q = queryAppend (queryRequest iamService meth "/" q)
-    [ ("Action",  act)
-    , ("Version", sPack iamVersion)
-    ]
+query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
+query = version4Query iam
 
 --
 -- Actions
@@ -336,7 +333,7 @@ instance IsQuery AddRoleToInstanceProfile
 instance Rq AddRoleToInstanceProfile where
     type Er AddRoleToInstanceProfile = IAMError
     type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
-    request = qry GET "AddRoleToInstanceProfile"
+    request = query GET "AddRoleToInstanceProfile"
 
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
     { artiprResponseMetadata :: !Text
@@ -360,7 +357,7 @@ instance IsQuery AddUserToGroup
 instance Rq AddUserToGroup where
     type Er AddUserToGroup = IAMError
     type Rs AddUserToGroup = AddUserToGroupResponse
-    request = qry GET "AddUserToGroup"
+    request = query GET "AddUserToGroup"
 
 data AddUserToGroupResponse = AddUserToGroupResponse
     { autgrResponseMetadata :: !Text
@@ -386,7 +383,7 @@ instance IsQuery ChangePassword
 instance Rq ChangePassword where
     type Er ChangePassword = IAMError
     type Rs ChangePassword = ChangePasswordResponse
-    request = qry GET "ChangePassword"
+    request = query GET "ChangePassword"
 
 data ChangePasswordResponse = ChangePasswordResponse
     { cprResponseMetadata :: !Text
@@ -420,7 +417,7 @@ instance IsQuery CreateAccessKey
 instance Rq CreateAccessKey where
     type Er CreateAccessKey = IAMError
     type Rs CreateAccessKey = CreateAccessKeyResponse
-    request = qry GET "CreateAccessKey"
+    request = query GET "CreateAccessKey"
 
 data CreateAccessKeyResponse = CreateAccessKeyResponse
     { cakrResponseMetadata :: !Text
@@ -445,7 +442,7 @@ instance IsQuery CreateAccountAlias
 instance Rq CreateAccountAlias where
     type Er CreateAccountAlias = IAMError
     type Rs CreateAccountAlias = CreateAccountAliasResponse
-    request = qry GET "CreateAccountAlias"
+    request = query GET "CreateAccountAlias"
 
 data CreateAccountAliasResponse = CreateAccountAliasResponse
     { caarResponseMetadata :: !Text
@@ -474,7 +471,7 @@ instance IsQuery CreateGroup
 instance Rq CreateGroup where
     type Er CreateGroup = IAMError
     type Rs CreateGroup = CreateGroupResponse
-    request = qry GET "CreateGroup"
+    request = query GET "CreateGroup"
 
 data CreateGroupResponse = CreateGroupResponse
     { cgrResponseMetadata :: !Text
@@ -504,7 +501,7 @@ instance IsQuery CreateInstanceProfile
 instance Rq CreateInstanceProfile where
     type Er CreateInstanceProfile = IAMError
     type Rs CreateInstanceProfile = CreateInstanceProfileResponse
-    request = qry GET "CreateInstanceProfile"
+    request = query GET "CreateInstanceProfile"
 
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { ciprResponseMetadata :: !Text
@@ -531,7 +528,7 @@ instance IsQuery CreateLoginProfile
 instance Rq CreateLoginProfile where
     type Er CreateLoginProfile = IAMError
     type Rs CreateLoginProfile = CreateLoginProfileResponse
-    request = qry GET "CreateLoginProfile"
+    request = query GET "CreateLoginProfile"
 
 data CreateLoginProfileResponse = CreateLoginProfileResponse
     { clprResponseMetadata :: !Text
@@ -565,7 +562,7 @@ instance IsQuery CreateRole
 instance Rq CreateRole where
     type Er CreateRole = IAMError
     type Rs CreateRole = CreateRoleResponse
-    request = qry GET "CreateRole"
+    request = query GET "CreateRole"
 
 data CreateRoleResponse = CreateRoleResponse
     { crrResponseMetadata :: !Text
@@ -594,7 +591,7 @@ instance IsQuery CreateUser
 instance Rq CreateUser where
     type Er CreateUser = IAMError
     type Rs CreateUser = CreateUserResponse
-    request = qry GET "CreateUser"
+    request = query GET "CreateUser"
 
 data CreateUserResponse = CreateUserResponse
     { curResponseMetadata :: !Text
@@ -632,7 +629,7 @@ instance IsQuery CreateVirtualMFADevice
 instance Rq CreateVirtualMFADevice where
     type Er CreateVirtualMFADevice = IAMError
     type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
-    request = qry GET "CreateVirtualMFADevice"
+    request = query GET "CreateVirtualMFADevice"
 
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { cvmfadrResponseMetadata :: !Text
@@ -659,7 +656,7 @@ instance IsQuery DeactivateMFADevice
 instance Rq DeactivateMFADevice where
     type Er DeactivateMFADevice = IAMError
     type Rs DeactivateMFADevice = DeactivateMFADeviceResponse
-    request = qry GET "DeactivateMFADevice"
+    request = query GET "DeactivateMFADevice"
 
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
     { dmfadrResponseMetadata :: !Text
@@ -688,7 +685,7 @@ instance IsQuery DeleteAccessKey
 instance Rq DeleteAccessKey where
     type Er DeleteAccessKey = IAMError
     type Rs DeleteAccessKey = DeleteAccessKeyResponse
-    request = qry GET "DeleteAccessKey"
+    request = query GET "DeleteAccessKey"
 
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
     { dakrResponseMetadata :: !Text
@@ -712,7 +709,7 @@ instance IsQuery DeleteAccountAlias
 instance Rq DeleteAccountAlias where
     type Er DeleteAccountAlias = IAMError
     type Rs DeleteAccountAlias = DeleteAccountAliasResponse
-    request = qry GET "DeleteAccountAlias"
+    request = query GET "DeleteAccountAlias"
 
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
     { daarResponseMetadata :: !Text
@@ -735,7 +732,7 @@ instance IsQuery DeleteAccountPasswordPolicy
 instance Rq DeleteAccountPasswordPolicy where
     type Er DeleteAccountPasswordPolicy = IAMError
     type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
-    request = qry GET "DeleteAccountPasswordPolicy"
+    request = query GET "DeleteAccountPasswordPolicy"
 
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
     { dapprResponseMetadata :: !Text
@@ -758,7 +755,7 @@ instance IsQuery DeleteGroup
 instance Rq DeleteGroup where
     type Er DeleteGroup = IAMError
     type Rs DeleteGroup = DeleteGroupResponse
-    request = qry GET "DeleteGroup"
+    request = query GET "DeleteGroup"
 
 data DeleteGroupResponse = DeleteGroupResponse
     { dgrResponseMetadata :: !Text
@@ -782,7 +779,7 @@ instance IsQuery DeleteGroupPolicy
 instance Rq DeleteGroupPolicy where
     type Er DeleteGroupPolicy = IAMError
     type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
-    request = qry GET "DeleteGroupPolicy"
+    request = query GET "DeleteGroupPolicy"
 
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
     { dgprResponseMetadata :: !Text
@@ -809,7 +806,7 @@ instance IsQuery DeleteInstanceProfile
 instance Rq DeleteInstanceProfile where
     type Er DeleteInstanceProfile = IAMError
     type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
-    request = qry GET "DeleteInstanceProfile"
+    request = query GET "DeleteInstanceProfile"
 
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
     { diprResponseMetadata :: !Text
@@ -837,7 +834,7 @@ instance IsQuery DeleteLoginProfile
 instance Rq DeleteLoginProfile where
     type Er DeleteLoginProfile = IAMError
     type Rs DeleteLoginProfile = DeleteLoginProfileResponse
-    request = qry GET "DeleteLoginProfile"
+    request = query GET "DeleteLoginProfile"
 
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
     { dlprResponseMetadata :: !Text
@@ -864,7 +861,7 @@ instance IsQuery DeleteRole
 instance Rq DeleteRole where
     type Er DeleteRole = IAMError
     type Rs DeleteRole = DeleteRoleResponse
-    request = qry GET "DeleteRole"
+    request = query GET "DeleteRole"
 
 data DeleteRoleResponse = DeleteRoleResponse
     { drrResponseMetadata :: !Text
@@ -888,7 +885,7 @@ instance IsQuery DeleteRolePolicy
 instance Rq DeleteRolePolicy where
     type Er DeleteRolePolicy = IAMError
     type Rs DeleteRolePolicy = DeleteRolePolicyResponse
-    request = qry GET "DeleteRolePolicy"
+    request = query GET "DeleteRolePolicy"
 
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
     { drprResponseMetadata :: !Text
@@ -918,7 +915,7 @@ instance IsQuery DeleteServerCertificate
 instance Rq DeleteServerCertificate where
     type Er DeleteServerCertificate = IAMError
     type Rs DeleteServerCertificate = DeleteServerCertificateResponse
-    request = qry GET "DeleteServerCertificate"
+    request = query GET "DeleteServerCertificate"
 
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse
     { dscrResponseMetadata :: !Text
@@ -946,7 +943,7 @@ instance IsQuery DeleteSigningCertificate
 instance Rq DeleteSigningCertificate where
     type Er DeleteSigningCertificate = IAMError
     type Rs DeleteSigningCertificate = DeleteSigningCertificateResponse
-    request = qry GET "DeleteSigningCertificate"
+    request = query GET "DeleteSigningCertificate"
 
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
     { dscsResponseMetadata :: !Text
@@ -969,7 +966,7 @@ instance IsQuery DeleteUser
 instance Rq DeleteUser where
     type Er DeleteUser = IAMError
     type Rs DeleteUser = DeleteUserResponse
-    request = qry GET "DeleteUser"
+    request = query GET "DeleteUser"
 
 data DeleteUserResponse = DeleteUserResponse
     { durResponseMetadata :: !Text
@@ -993,7 +990,7 @@ instance IsQuery DeleteUserPolicy
 instance Rq DeleteUserPolicy where
     type Er DeleteUserPolicy = IAMError
     type Rs DeleteUserPolicy = DeleteUserPolicyResponse
-    request = qry GET "DeleteUserPolicy"
+    request = query GET "DeleteUserPolicy"
 
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
     { duprResponseMetadata :: !Text
@@ -1018,7 +1015,7 @@ instance IsQuery DeleteVirtualMFADevice
 instance Rq DeleteVirtualMFADevice where
     type Er DeleteVirtualMFADevice = IAMError
     type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
-    request = qry GET "DeleteVirtualMFADevice"
+    request = query GET "DeleteVirtualMFADevice"
 
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
     { dvmfadrResponseMetadata :: !Text
@@ -1049,7 +1046,7 @@ instance IsQuery EnableMFADevice
 instance Rq EnableMFADevice where
     type Er EnableMFADevice = IAMError
     type Rs EnableMFADevice = EnableMFADeviceResponse
-    request = qry GET "EnableMFADevice"
+    request = query GET "EnableMFADevice"
 
 data EnableMFADeviceResponse = EnableMFADeviceResponse
     { emfadrResponseMetadata :: !Text
@@ -1073,7 +1070,7 @@ instance IsQuery GetAccountPasswordPolicy
 instance Rq GetAccountPasswordPolicy where
     type Er GetAccountPasswordPolicy = IAMError
     type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse
-    request = qry GET "GetAccountPasswordPolicy"
+    request = query GET "GetAccountPasswordPolicy"
 
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { gapprResponseMetadata :: !Text
@@ -1098,7 +1095,7 @@ instance IsQuery GetAccountSummary
 instance Rq GetAccountSummary where
     type Er GetAccountSummary = IAMError
     type Rs GetAccountSummary = GetAccountSummaryResponse
-    request = qry GET "GetAccountSummary"
+    request = query GET "GetAccountSummary"
 
 data GetAccountSummaryResponse = GetAccountSummaryResponse
     { gasrResponseMetadata :: !Text
@@ -1133,7 +1130,7 @@ instance IsQuery GetGroup
 instance Rq GetGroup where
     type Er GetGroup = IAMError
     type Rs GetGroup = GetGroupResponse
-    request = qry GET "GetGroup"
+    request = query GET "GetGroup"
 
 data GetGroupResponse = GetGroupResponse
     { ggrResponseMetadata :: !Text
@@ -1160,7 +1157,7 @@ instance IsQuery GetGroupPolicy
 instance Rq GetGroupPolicy where
     type Er GetGroupPolicy = IAMError
     type Rs GetGroupPolicy = GetGroupPolicyResponse
-    request = qry GET "GetGroupPolicy"
+    request = query GET "GetGroupPolicy"
 
 data GetGroupPolicyResponse = GetGroupPolicyResponse
     { ggprResponseMetadata :: !Text
@@ -1186,7 +1183,7 @@ instance IsQuery GetInstanceProfile
 instance Rq GetInstanceProfile where
     type Er GetInstanceProfile = IAMError
     type Rs GetInstanceProfile = GetInstanceProfileResponse
-    request = qry GET "GetInstanceProfile"
+    request = query GET "GetInstanceProfile"
 
 data GetInstanceProfileResponse = GetInstanceProfileResponse
     { giprResponseMetadata :: !Text
@@ -1209,7 +1206,7 @@ instance IsQuery GetLoginProfile
 instance Rq GetLoginProfile where
     type Er GetLoginProfile = IAMError
     type Rs GetLoginProfile = GetLoginProfileResponse
-    request = qry GET "GetLoginProfile"
+    request = query GET "GetLoginProfile"
 
 data GetLoginProfileResponse = GetLoginProfileResponse
     { glprResponseMetadata :: !Text
@@ -1237,7 +1234,7 @@ instance IsQuery GetRole
 instance Rq GetRole where
     type Er GetRole = IAMError
     type Rs GetRole = GetRoleResponse
-    request = qry GET "GetRole"
+    request = query GET "GetRole"
 
 data GetRoleResponse = GetRoleResponse
     { grrResponseMetadata :: !Text
@@ -1265,7 +1262,7 @@ instance IsQuery GetRolePolicy
 instance Rq GetRolePolicy where
     type Er GetRolePolicy = IAMError
     type Rs GetRolePolicy = GetRolePolicyResponse
-    request = qry GET "GetRolePolicy"
+    request = query GET "GetRolePolicy"
 
 data GetRolePolicyResponse = GetRolePolicyResponse
     { grprResponseMetadata :: !Text
@@ -1289,7 +1286,7 @@ instance IsQuery GetServerCertificate
 instance Rq GetServerCertificate where
     type Er GetServerCertificate = IAMError
     type Rs GetServerCertificate = GetServerCertificateResponse
-    request = qry GET "GetServerCertificate"
+    request = query GET "GetServerCertificate"
 
 data GetServerCertificateResponse = GetServerCertificateResponse
     { gscrResponseMetadata :: !Text
@@ -1314,7 +1311,7 @@ instance IsQuery GetUser
 instance Rq GetUser where
     type Er GetUser = IAMError
     type Rs GetUser = GetUserResponse
-    request = qry GET "GetUser"
+    request = query GET "GetUser"
 
 data GetUserResponse = GetUserResponse
     { gurResponseMetadata :: !Text
@@ -1341,7 +1338,7 @@ instance IsQuery GetUserPolicy
 instance Rq GetUserPolicy where
     type Er GetUserPolicy = IAMError
     type Rs GetUserPolicy = GetUserPolicyResponse
-    request = qry GET "GetUserPolicy"
+    request = query GET "GetUserPolicy"
 
 data GetUserPolicyResponse = GetUserPolicyResponse
     { guprResponseMetadata :: !Text
@@ -1384,7 +1381,7 @@ instance IsQuery ListAccessKeys
 instance Rq ListAccessKeys where
     type Er ListAccessKeys = IAMError
     type Rs ListAccessKeys = ListAccessKeysResponse
-    request = qry GET "ListAccessKeys"
+    request = query GET "ListAccessKeys"
 
 data ListAccessKeysResponse = ListAccessKeysResponse
     { lakrResponseMetadata :: !Text
@@ -1419,7 +1416,7 @@ instance IsQuery ListAccountAliases
 instance Rq ListAccountAliases where
     type Er ListAccountAliases = IAMError
     type Rs ListAccountAliases = ListAccountAliasesResponse
-    request = qry GET "ListAccountAliases"
+    request = query GET "ListAccountAliases"
 
 data ListAccountAliasesResponse = ListAccountAliasesResponse
     { laarResponseMetadata :: !Text
@@ -1455,7 +1452,7 @@ instance IsQuery ListGroupPolicies
 instance Rq ListGroupPolicies where
     type Er ListGroupPolicies = IAMError
     type Rs ListGroupPolicies = ListGroupPoliciesResponse
-    request = qry GET "ListGroupPolicies"
+    request = query GET "ListGroupPolicies"
 
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { lgprResponseMetadata :: !Text
@@ -1492,7 +1489,7 @@ instance IsQuery ListGroups
 instance Rq ListGroups where
     type Er ListGroups = IAMError
     type Rs ListGroups = ListGroupsResponse
-    request = qry GET "ListGroups"
+    request = query GET "ListGroups"
 
 data ListGroupsResponse = ListGroupsResponse
     { lgrResponseMetadata :: !Text
@@ -1527,7 +1524,7 @@ instance IsQuery ListGroupsForUser
 instance Rq ListGroupsForUser where
     type Er ListGroupsForUser = IAMError
     type Rs ListGroupsForUser = ListGroupsForUserResponse
-    request = qry GET "ListGroupsForUser"
+    request = query GET "ListGroupsForUser"
 
 data ListGroupsForUserResponse = ListGroupsForUserResponse
     { lgfurResponseMetadata :: !Text
@@ -1566,7 +1563,7 @@ instance IsQuery ListInstanceProfiles
 instance Rq ListInstanceProfiles where
     type Er ListInstanceProfiles = IAMError
     type Rs ListInstanceProfiles = ListInstanceProfilesResponse
-    request = qry GET "ListInstanceProfiles"
+    request = query GET "ListInstanceProfiles"
 
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { liprResponseMetadata :: !Text
@@ -1603,7 +1600,7 @@ instance IsQuery ListInstanceProfilesForRole
 instance Rq ListInstanceProfilesForRole where
     type Er ListInstanceProfilesForRole = IAMError
     type Rs ListInstanceProfilesForRole = ListInstanceProfilesForRoleResponse
-    request = qry GET "ListInstanceProfilesForRole"
+    request = query GET "ListInstanceProfilesForRole"
 
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { lipfrrResponseMetadata :: !Text
@@ -1641,7 +1638,7 @@ instance IsQuery ListMFADevices
 instance Rq ListMFADevices where
     type Er ListMFADevices = IAMError
     type Rs ListMFADevices = ListMFADevicesResponse
-    request = qry GET "ListMFADevices"
+    request = query GET "ListMFADevices"
 
 data ListMFADevicesResponse = ListMFADevicesResponse
     { lmfadrResponseMetadata :: !Text
@@ -1677,7 +1674,7 @@ instance IsQuery ListRolePolicies
 instance Rq ListRolePolicies where
     type Er ListRolePolicies = IAMError
     type Rs ListRolePolicies = ListRolePoliciesResponse
-    request = qry GET "ListRolePolicies"
+    request = query GET "ListRolePolicies"
 
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { lrprResponseMetadata :: !Text
@@ -1718,7 +1715,7 @@ instance IsQuery ListRoles
 instance Rq ListRoles where
     type Er ListRoles = IAMError
     type Rs ListRoles = ListRolesResponse
-    request = qry GET "ListRoles"
+    request = query GET "ListRoles"
 
 instance Pg ListRoles where
     next ListRoles{..} (lrrListRolesResult -> ListRolesResult{..})
@@ -1762,7 +1759,7 @@ instance IsQuery ListServerCertificates
 instance Rq ListServerCertificates where
     type Er ListServerCertificates = IAMError
     type Rs ListServerCertificates = ListServerCertificatesResponse
-    request = qry GET "ListServerCertificates"
+    request = query GET "ListServerCertificates"
 
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { lscrResponseMetadata :: !Text
@@ -1804,7 +1801,7 @@ instance IsQuery ListSigningCertificates
 instance Rq ListSigningCertificates where
     type Er ListSigningCertificates = IAMError
     type Rs ListSigningCertificates = ListSigningCertificatesResponse
-    request = qry GET "ListSigningCertificates"
+    request = query GET "ListSigningCertificates"
 
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { lscsResponseMetadata :: !Text
@@ -1840,7 +1837,7 @@ instance IsQuery ListUserPolicies
 instance Rq ListUserPolicies where
     type Er ListUserPolicies = IAMError
     type Rs ListUserPolicies = ListUserPoliciesResponse
-    request = qry GET "ListUserPolicies"
+    request = query GET "ListUserPolicies"
 
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { luprResponseMetadata :: !Text
@@ -1878,7 +1875,7 @@ instance IsQuery ListUsers
 instance Rq ListUsers where
     type Er ListUsers = IAMError
     type Rs ListUsers = ListUsersResponse
-    request = qry GET "ListUsers"
+    request = query GET "ListUsers"
 
 data ListUsersResponse = ListUsersResponse
     { lurResponseMetadata :: !Text
@@ -1917,7 +1914,7 @@ instance IsQuery ListVirtualMFADevices
 instance Rq ListVirtualMFADevices where
     type Er ListVirtualMFADevices = IAMError
     type Rs ListVirtualMFADevices = ListVirtualMFADevicesResponse
-    request = qry GET "ListVirtualMFADevices"
+    request = query GET "ListVirtualMFADevices"
 
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { lvmfadrResponseMetadata :: !Text
@@ -1953,7 +1950,7 @@ instance IsQuery PutGroupPolicy
 instance Rq PutGroupPolicy where
     type Er PutGroupPolicy = IAMError
     type Rs PutGroupPolicy = PutGroupPolicyResponse
-    request = qry GET "PutGroupPolicy"
+    request = query GET "PutGroupPolicy"
 
 data PutGroupPolicyResponse = PutGroupPolicyResponse
     { pgprResponseMetadata :: !Text
@@ -1988,7 +1985,7 @@ instance IsQuery PutRolePolicy
 instance Rq PutRolePolicy where
     type Er PutRolePolicy = IAMError
     type Rs PutRolePolicy = PutRolePolicyResponse
-    request = qry GET "PutRolePolicy"
+    request = query GET "PutRolePolicy"
 
 data PutRolePolicyResponse = PutRolePolicyResponse
     { prprResponseMetadata :: !Text
@@ -2023,7 +2020,7 @@ instance IsQuery PutUserPolicy
 instance Rq PutUserPolicy where
     type Er PutUserPolicy = IAMError
     type Rs PutUserPolicy = PutUserPolicyResponse
-    request = qry GET "PutUserPolicy"
+    request = query GET "PutUserPolicy"
 
 data PutUserPolicyResponse = PutUserPolicyResponse
     { puprResponseMetadata :: !Text
@@ -2053,7 +2050,7 @@ instance IsQuery RemoveRoleFromInstanceProfile
 instance Rq RemoveRoleFromInstanceProfile where
     type Er RemoveRoleFromInstanceProfile = IAMError
     type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
-    request = qry GET "RemoveRoleFromInstanceProfile"
+    request = query GET "RemoveRoleFromInstanceProfile"
 
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
     { rrfiprResponseMetadata :: !Text
@@ -2077,7 +2074,7 @@ instance IsQuery RemoveUserFromGroup
 instance Rq RemoveUserFromGroup where
     type Er RemoveUserFromGroup = IAMError
     type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
-    request = qry GET "RemoveUserFromGroup"
+    request = query GET "RemoveUserFromGroup"
 
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
     { rufgrResponseMetadata :: !Text
@@ -2105,7 +2102,7 @@ instance IsQuery ResyncMFADevice
 instance Rq ResyncMFADevice where
     type Er ResyncMFADevice = IAMError
     type Rs ResyncMFADevice = ResyncMFADeviceResponse
-    request = qry GET "ResyncMFADevice"
+    request = query GET "ResyncMFADevice"
 
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
     { rmfadrResponseMetadata :: !Text
@@ -2140,7 +2137,7 @@ instance IsQuery UpdateAccessKey
 instance Rq UpdateAccessKey where
     type Er UpdateAccessKey = IAMError
     type Rs UpdateAccessKey = UpdateAccessKeyResponse
-    request = qry GET "UpdateAccessKey"
+    request = query GET "UpdateAccessKey"
 
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
     { uakrResponseMetadata :: !Text
@@ -2173,7 +2170,7 @@ instance IsQuery UpdateAccountPasswordPolicy
 instance Rq UpdateAccountPasswordPolicy where
     type Er UpdateAccountPasswordPolicy = IAMError
     type Rs UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicyResponse
-    request = qry GET "UpdateAccountPasswordPolicy"
+    request = query GET "UpdateAccountPasswordPolicy"
 
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
     { uapprResponseMetadata :: !Text
@@ -2199,7 +2196,7 @@ instance IsQuery UpdateAssumeRolePolicy
 instance Rq UpdateAssumeRolePolicy where
     type Er UpdateAssumeRolePolicy = IAMError
     type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
-    request = qry GET "UpdateAssumeRolePolicy"
+    request = query GET "UpdateAssumeRolePolicy"
 
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
     { uarprResponseMetadata :: !Text
@@ -2235,7 +2232,7 @@ instance IsQuery UpdateGroup
 instance Rq UpdateGroup where
     type Er UpdateGroup = IAMError
     type Rs UpdateGroup = UpdateGroupResponse
-    request = qry GET "UpdateGroup"
+    request = query GET "UpdateGroup"
 
 data UpdateGroupResponse = UpdateGroupResponse
     { ugrResponseMetadata :: !Text
@@ -2259,7 +2256,7 @@ instance IsQuery UpdateLoginProfile
 instance Rq UpdateLoginProfile where
     type Er UpdateLoginProfile = IAMError
     type Rs UpdateLoginProfile = UpdateLoginProfileResponse
-    request = qry GET "UpdateLoginProfile"
+    request = query GET "UpdateLoginProfile"
 
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
     { ulprResponseMetadata :: !Text
@@ -2296,7 +2293,7 @@ instance IsQuery UpdateServerCertificate
 instance Rq UpdateServerCertificate where
     type Er UpdateServerCertificate = IAMError
     type Rs UpdateServerCertificate = UpdateServerCertificateResponse
-    request = qry GET "UpdateServerCertificate"
+    request = query GET "UpdateServerCertificate"
 
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse
     { uscrResponseMetadata :: !Text
@@ -2332,7 +2329,7 @@ instance IsQuery UpdateSigningCertificate
 instance Rq UpdateSigningCertificate where
     type Er UpdateSigningCertificate = IAMError
     type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
-    request = qry GET "UpdateSigningCertificate"
+    request = query GET "UpdateSigningCertificate"
 
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
     { uscsResponseMetadata :: !Text
@@ -2368,7 +2365,7 @@ instance IsQuery UpdateUser
 instance Rq UpdateUser where
     type Er UpdateUser = IAMError
     type Rs UpdateUser = UpdateUserResponse
-    request = qry GET "UpdateUser"
+    request = query GET "UpdateUser"
 
 data UpdateUserResponse = UpdateUserResponse
     { uurResponseMetadata :: !Text
@@ -2413,7 +2410,7 @@ instance IsQuery UploadServerCertificate
 instance Rq UploadServerCertificate where
     type Er UploadServerCertificate = IAMError
     type Rs UploadServerCertificate = UploadServerCertificateResponse
-    request = qry GET "UploadServerCertificate"
+    request = query GET "UploadServerCertificate"
 
 data UploadServerCertificateResponse = UploadServerCertificateResponse
     { usctResponseMetadata :: !Text
@@ -2450,7 +2447,7 @@ instance IsQuery UploadSigningCertificate
 instance Rq UploadSigningCertificate where
     type Er UploadSigningCertificate = IAMError
     type Rs UploadSigningCertificate = UploadSigningCertificateResponse
-    request = qry GET "UploadSigningCertificate"
+    request = query GET "UploadSigningCertificate"
 
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { uscuResponseMetadata :: !Text

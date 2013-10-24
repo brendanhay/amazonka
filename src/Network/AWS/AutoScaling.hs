@@ -19,150 +19,150 @@
 -- This service is used in conjunction with Amazon CloudWatch and
 -- Elastic Load Balancing services.
 module Network.AWS.AutoScaling
-   (
-   -- * Actions
-   -- ** CreateAutoScalingGroup
-     CreateAutoScalingGroup                       (..)
-   , CreateAutoScalingGroupResponse               (..)
+    (
+    -- * Actions
+    -- ** CreateAutoScalingGroup
+      CreateAutoScalingGroup                       (..)
+    , CreateAutoScalingGroupResponse               (..)
 
-   -- ** CreateLaunchConfiguration
-   , CreateLaunchConfiguration                    (..)
-   , CreateLaunchConfigurationResponse            (..)
+    -- ** CreateLaunchConfiguration
+    , CreateLaunchConfiguration                    (..)
+    , CreateLaunchConfigurationResponse            (..)
 
-   -- ** CreateOrUpdateTags
-   , CreateOrUpdateTags                           (..)
-   , CreateOrUpdateTagsResponse                   (..)
+    -- ** CreateOrUpdateTags
+    , CreateOrUpdateTags                           (..)
+    , CreateOrUpdateTagsResponse                   (..)
 
-   -- ** DeleteAutoScalingGroup
-   , DeleteAutoScalingGroup                       (..)
-   , DeleteAutoScalingGroupResponse               (..)
+    -- ** DeleteAutoScalingGroup
+    , DeleteAutoScalingGroup                       (..)
+    , DeleteAutoScalingGroupResponse               (..)
 
-   -- ** DeleteLaunchConfiguration
-   , DeleteLaunchConfiguration                    (..)
-   , DeleteLaunchConfigurationResponse            (..)
+    -- ** DeleteLaunchConfiguration
+    , DeleteLaunchConfiguration                    (..)
+    , DeleteLaunchConfigurationResponse            (..)
 
-   -- ** DeleteNotificationConfiguration
-   , DeleteNotificationConfiguration              (..)
-   , DeleteNotificationConfigurationResponse      (..)
+    -- ** DeleteNotificationConfiguration
+    , DeleteNotificationConfiguration              (..)
+    , DeleteNotificationConfigurationResponse      (..)
 
-   -- ** DeletePolicy
-   , DeletePolicy                                 (..)
-   , DeletePolicyResponse                         (..)
+    -- ** DeletePolicy
+    , DeletePolicy                                 (..)
+    , DeletePolicyResponse                         (..)
 
-   -- ** DeleteScheduledAction
-   , DeleteScheduledAction                        (..)
-   , DeleteScheduledActionResponse                (..)
+    -- ** DeleteScheduledAction
+    , DeleteScheduledAction                        (..)
+    , DeleteScheduledActionResponse                (..)
 
-   -- ** DeleteTags
-   , DeleteTags                                   (..)
-   , DeleteTagsResponse                           (..)
+    -- ** DeleteTags
+    , DeleteTags                                   (..)
+    , DeleteTagsResponse                           (..)
 
-   -- ** DescribeAdjustmentTypes
-   , DescribeAdjustmentTypes                      (..)
-   , DescribeAdjustmentTypesResponse              (..)
+    -- ** DescribeAdjustmentTypes
+    , DescribeAdjustmentTypes                      (..)
+    , DescribeAdjustmentTypesResponse              (..)
 
-   -- ** DescribeAutoScalingGroups
-   , DescribeAutoScalingGroups                    (..)
-   , DescribeAutoScalingGroupsResponse            (..)
+    -- ** DescribeAutoScalingGroups
+    , DescribeAutoScalingGroups                    (..)
+    , DescribeAutoScalingGroupsResponse            (..)
 
-   -- ** DescribeAutoScalingInstances
-   , DescribeAutoScalingInstances                 (..)
-   , DescribeAutoScalingInstancesResponse         (..)
+    -- ** DescribeAutoScalingInstances
+    , DescribeAutoScalingInstances                 (..)
+    , DescribeAutoScalingInstancesResponse         (..)
 
-   -- ** DescribeAutoScalingNotificationTypes
-   , DescribeAutoScalingNotificationTypes         (..)
-   , DescribeAutoScalingNotificationTypesResponse (..)
+    -- ** DescribeAutoScalingNotificationTypes
+    , DescribeAutoScalingNotificationTypes         (..)
+    , DescribeAutoScalingNotificationTypesResponse (..)
 
-   -- ** DescribeLaunchConfigurations
-   , DescribeLaunchConfigurations                 (..)
-   , DescribeLaunchConfigurationsResponse         (..)
+    -- ** DescribeLaunchConfigurations
+    , DescribeLaunchConfigurations                 (..)
+    , DescribeLaunchConfigurationsResponse         (..)
 
-   -- ** DescribeMetricCollectionTypes
-   , DescribeMetricCollectionTypes                (..)
-   , DescribeMetricCollectionTypesResponse        (..)
+    -- ** DescribeMetricCollectionTypes
+    , DescribeMetricCollectionTypes                (..)
+    , DescribeMetricCollectionTypesResponse        (..)
 
-   -- ** DescribeNotificationConfigurations
-   , DescribeNotificationConfigurations           (..)
-   , DescribeNotificationConfigurationsResponse   (..)
+    -- ** DescribeNotificationConfigurations
+    , DescribeNotificationConfigurations           (..)
+    , DescribeNotificationConfigurationsResponse   (..)
 
-   -- ** DescribePolicies
-   , DescribePolicies                             (..)
-   , DescribePoliciesResponse                     (..)
+    -- ** DescribePolicies
+    , DescribePolicies                             (..)
+    , DescribePoliciesResponse                     (..)
 
-   -- ** DescribeScalingActivities
-   , DescribeScalingActivities                    (..)
-   , DescribeScalingActivitiesResponse            (..)
+    -- ** DescribeScalingActivities
+    , DescribeScalingActivities                    (..)
+    , DescribeScalingActivitiesResponse            (..)
 
-   -- ** DescribeScalingProcessTypes
-   , DescribeScalingProcessTypes                  (..)
-   , DescribeScalingProcessTypesResponse          (..)
+    -- ** DescribeScalingProcessTypes
+    , DescribeScalingProcessTypes                  (..)
+    , DescribeScalingProcessTypesResponse          (..)
 
-   -- ** DescribeScheduledActions
-   , DescribeScheduledActions                     (..)
-   , DescribeScheduledActionsResponse             (..)
+    -- ** DescribeScheduledActions
+    , DescribeScheduledActions                     (..)
+    , DescribeScheduledActionsResponse             (..)
 
-   -- ** DescribeTags
-   , DescribeTags                                 (..)
-   , DescribeTagsResponse                         (..)
+    -- ** DescribeTags
+    , DescribeTags                                 (..)
+    , DescribeTagsResponse                         (..)
 
-   -- ** DescribeTerminationPolicyTypes
-   , DescribeTerminationPolicyTypes               (..)
-   , DescribeTerminationPolicyTypesResponse       (..)
+    -- ** DescribeTerminationPolicyTypes
+    , DescribeTerminationPolicyTypes               (..)
+    , DescribeTerminationPolicyTypesResponse       (..)
 
-   -- ** DisableMetricsCollection
-   , DisableMetricsCollection                     (..)
-   , DisableMetricsCollectionResponse             (..)
+    -- ** DisableMetricsCollection
+    , DisableMetricsCollection                     (..)
+    , DisableMetricsCollectionResponse             (..)
 
-   -- ** EnableMetricsCollection
-   , EnableMetricsCollection                      (..)
-   , EnableMetricsCollectionResponse              (..)
+    -- ** EnableMetricsCollection
+    , EnableMetricsCollection                      (..)
+    , EnableMetricsCollectionResponse              (..)
 
-   -- ** ExecutePolicy
-   , ExecutePolicy                                (..)
-   , ExecutePolicyResponse                        (..)
+    -- ** ExecutePolicy
+    , ExecutePolicy                                (..)
+    , ExecutePolicyResponse                        (..)
 
-   -- ** PutNotificationConfiguration
-   , PutNotificationConfiguration                 (..)
-   , PutNotificationConfigurationResponse         (..)
+    -- ** PutNotificationConfiguration
+    , PutNotificationConfiguration                 (..)
+    , PutNotificationConfigurationResponse         (..)
 
-   -- ** PutScalingPolicy
-   , PutScalingPolicy                             (..)
-   , PutScalingPolicyResponse                     (..)
+    -- ** PutScalingPolicy
+    , PutScalingPolicy                             (..)
+    , PutScalingPolicyResponse                     (..)
 
-   -- ** PutScheduledUpdateGroupAction
-   , PutScheduledUpdateGroupAction                (..)
-   , PutScheduledUpdateGroupActionResponse        (..)
+    -- ** PutScheduledUpdateGroupAction
+    , PutScheduledUpdateGroupAction                (..)
+    , PutScheduledUpdateGroupActionResponse        (..)
 
-   -- ** ResumeProcesses
-   , ResumeProcesses                              (..)
-   , ResumeProcessesResponse                      (..)
+    -- ** ResumeProcesses
+    , ResumeProcesses                              (..)
+    , ResumeProcessesResponse                      (..)
 
-   -- ** SetDesiredCapacity
-   , SetDesiredCapacity                           (..)
-   , SetDesiredCapacityResponse                   (..)
+    -- ** SetDesiredCapacity
+    , SetDesiredCapacity                           (..)
+    , SetDesiredCapacityResponse                   (..)
 
-   -- ** SetInstanceHealth
-   , SetInstanceHealth                            (..)
-   , SetInstanceHealthResponse                    (..)
+    -- ** SetInstanceHealth
+    , SetInstanceHealth                            (..)
+    , SetInstanceHealthResponse                    (..)
 
-   -- ** SuspendProcesses
-   , SuspendProcesses                             (..)
-   , SuspendProcessesResponse                     (..)
+    -- ** SuspendProcesses
+    , SuspendProcesses                             (..)
+    , SuspendProcessesResponse                     (..)
 
-   -- ** TerminateInstanceInAutoScalingGroup
-   , TerminateInstanceInAutoScalingGroup          (..)
-   , TerminateInstanceInAutoScalingGroupResponse  (..)
+    -- ** TerminateInstanceInAutoScalingGroup
+    , TerminateInstanceInAutoScalingGroup          (..)
+    , TerminateInstanceInAutoScalingGroupResponse  (..)
 
-   -- ** UpdateAutoScalingGroup
-   , UpdateAutoScalingGroup                       (..)
-   , UpdateAutoScalingGroupResponse               (..)
+    -- ** UpdateAutoScalingGroup
+    , UpdateAutoScalingGroup                       (..)
+    , UpdateAutoScalingGroupResponse               (..)
 
-   -- * Data Types
-   , module Network.AWS.AutoScaling.Types
+    -- * Data Types
+    , module Network.AWS.AutoScaling.Types
 
     -- * Common
     , module Network.AWS
-   ) where
+    ) where
 
 import Data.ByteString               (ByteString)
 import Data.Text                     (Text)
@@ -172,11 +172,8 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Internal
 import Network.Http.Client           (Method(..))
 
-qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth act q = queryAppend (queryRequest autoScalingService meth "/" q)
-    [ ("Action",  act)
-    , ("Version", sPack autoScalingVersion)
-    ]
+query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
+query = version4Query autoScaling
 
 --
 -- Actions
@@ -242,7 +239,7 @@ instance IsQuery CreateAutoScalingGroup
 instance Rq CreateAutoScalingGroup where
     type Er CreateAutoScalingGroup = AutoScalingErrorResponse
     type Rs CreateAutoScalingGroup = CreateAutoScalingGroupResponse
-    request = qry GET "CreateAutoScalingGroup"
+    request = query GET "CreateAutoScalingGroup"
 
 data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
     { casgrResponseMetadata :: !ResponseMetadata
@@ -323,7 +320,7 @@ instance IsQuery CreateLaunchConfiguration
 instance Rq CreateLaunchConfiguration where
     type Er CreateLaunchConfiguration = AutoScalingErrorResponse
     type Rs CreateLaunchConfiguration = CreateLaunchConfigurationResponse
-    request = qry GET "CreateLaunchConfiguration"
+    request = query GET "CreateLaunchConfiguration"
 
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
     { clcrResponseMetadata :: !ResponseMetadata
@@ -355,7 +352,7 @@ instance IsQuery CreateOrUpdateTags
 instance Rq CreateOrUpdateTags where
     type Er CreateOrUpdateTags = AutoScalingErrorResponse
     type Rs CreateOrUpdateTags = CreateOrUpdateTagsResponse
-    request = qry GET "CreateOrUpdateTags"
+    request = query GET "CreateOrUpdateTags"
 
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
     { coutrResponseMetadata :: !ResponseMetadata
@@ -385,7 +382,7 @@ instance IsQuery DeleteAutoScalingGroup
 instance Rq DeleteAutoScalingGroup where
     type Er DeleteAutoScalingGroup = AutoScalingErrorResponse
     type Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse
-    request = qry GET "DeleteAutoScalingGroup"
+    request = query GET "DeleteAutoScalingGroup"
 
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
     { dasgrResponseMetadata :: !ResponseMetadata
@@ -409,7 +406,7 @@ instance IsQuery DeleteLaunchConfiguration
 instance Rq DeleteLaunchConfiguration where
     type Er DeleteLaunchConfiguration = AutoScalingErrorResponse
     type Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse
-    request = qry GET "DeleteLaunchConfiguration"
+    request = query GET "DeleteLaunchConfiguration"
 
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
     { dlcrResponseMetadata :: !ResponseMetadata
@@ -434,7 +431,7 @@ instance IsQuery DeleteNotificationConfiguration
 instance Rq DeleteNotificationConfiguration where
     type Er DeleteNotificationConfiguration = AutoScalingErrorResponse
     type Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse
-    request = qry GET "DeleteNotificationConfiguration"
+    request = query GET "DeleteNotificationConfiguration"
 
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
     deriving (Eq, Read, Show, Generic)
@@ -457,7 +454,7 @@ instance IsQuery DeletePolicy
 instance Rq DeletePolicy where
     type Er DeletePolicy = AutoScalingErrorResponse
     type Rs DeletePolicy = DeletePolicyResponse
-    request = qry GET "DeletePolicy"
+    request = query GET "DeletePolicy"
 
 data DeletePolicyResponse = DeletePolicyResponse
     deriving (Eq, Read, Show, Generic)
@@ -481,7 +478,7 @@ instance IsQuery DeleteScheduledAction
 instance Rq DeleteScheduledAction where
     type Er DeleteScheduledAction = AutoScalingErrorResponse
     type Rs DeleteScheduledAction = DeleteScheduledActionResponse
-    request = qry GET "DeleteScheduledAction"
+    request = query GET "DeleteScheduledAction"
 
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
     deriving (Eq, Read, Show, Generic)
@@ -505,7 +502,7 @@ instance IsQuery DeleteTags
 instance Rq DeleteTags where
     type Er DeleteTags = AutoScalingErrorResponse
     type Rs DeleteTags = DeleteTagsResponse
-    request = qry GET "DeleteTags"
+    request = query GET "DeleteTags"
 
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Read, Show, Generic)
@@ -524,7 +521,7 @@ instance IsQuery DescribeAdjustmentTypes
 instance Rq DescribeAdjustmentTypes where
     type Er DescribeAdjustmentTypes = AutoScalingErrorResponse
     type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
-    request = qry GET "DescribeAdjustmentTypes"
+    request = query GET "DescribeAdjustmentTypes"
 
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { datrDescribeAdjustmentTypesResult :: !DescribeAdjustmentTypesResult
@@ -556,7 +553,7 @@ instance IsQuery DescribeAutoScalingGroups
 instance Rq DescribeAutoScalingGroups where
     type Er DescribeAutoScalingGroups = AutoScalingErrorResponse
     type Rs DescribeAutoScalingGroups = DescribeAutoScalingGroupsResponse
-    request = qry GET "DescribeAutoScalingGroups"
+    request = query GET "DescribeAutoScalingGroups"
 
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     { dashrDescribeAutoScalingGroupsResult :: !DescribeAutoScalingGroupsResult
@@ -592,7 +589,7 @@ instance IsQuery DescribeAutoScalingInstances
 instance Rq DescribeAutoScalingInstances where
     type Er DescribeAutoScalingInstances = AutoScalingErrorResponse
     type Rs DescribeAutoScalingInstances = DescribeAutoScalingInstancesResponse
-    request = qry GET "DescribeAutoScalingInstances"
+    request = query GET "DescribeAutoScalingInstances"
 
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { dasirDescribeAutoScalingInstancesResult :: !DescribeAutoScalingInstancesResult
@@ -616,7 +613,7 @@ instance IsQuery DescribeAutoScalingNotificationTypes
 instance Rq DescribeAutoScalingNotificationTypes where
     type Er DescribeAutoScalingNotificationTypes = AutoScalingErrorResponse
     type Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesResponse
-    request = qry GET "DescribeAutoScalingNotificationTypes"
+    request = query GET "DescribeAutoScalingNotificationTypes"
 
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
     { dasntrDescribeAutoScalingNotificationTypesResult :: !DescribeAutoScalingNotificationTypesResult
@@ -645,7 +642,7 @@ instance IsQuery DescribeLaunchConfigurations
 instance Rq DescribeLaunchConfigurations where
     type Er DescribeLaunchConfigurations = AutoScalingErrorResponse
     type Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse
-    request = qry GET "DescribeLaunchConfigurations"
+    request = query GET "DescribeLaunchConfigurations"
 
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { dldrDescribeLaunchConfigurationsResult :: !DescribeLaunchConfigurationsResult
@@ -666,7 +663,7 @@ instance IsQuery DescribeMetricCollectionTypes
 instance Rq DescribeMetricCollectionTypes where
     type Er DescribeMetricCollectionTypes = AutoScalingErrorResponse
     type Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesResponse
-    request = qry GET "DescribeMetricCollectionTypes"
+    request = query GET "DescribeMetricCollectionTypes"
 
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     { dmctDescribeMetricCollectionTypesResult :: !DescribeMetricCollectionTypesResult
@@ -694,7 +691,7 @@ instance IsQuery DescribeNotificationConfigurations
 instance Rq DescribeNotificationConfigurations where
     type Er DescribeNotificationConfigurations = AutoScalingErrorResponse
     type Rs DescribeNotificationConfigurations = DescribeNotificationConfigurationsResponse
-    request = qry GET "DescribeNotificationConfigurations"
+    request = query GET "DescribeNotificationConfigurations"
 
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
     { dndrDescribeNotificationConfigurationsResult :: !DescribeNotificationConfigurationsResult
@@ -732,7 +729,7 @@ instance IsQuery DescribePolicies
 instance Rq DescribePolicies where
     type Er DescribePolicies = AutoScalingErrorResponse
     type Rs DescribePolicies = DescribePoliciesResponse
-    request = qry GET "DescribePolicies"
+    request = query GET "DescribePolicies"
 
 data DescribePoliciesResponse = DescribePoliciesResponse
     { dqrDescribePoliciesResult :: !DescribePoliciesResult
@@ -772,7 +769,7 @@ instance IsQuery DescribeScalingActivities
 instance Rq DescribeScalingActivities where
     type Er DescribeScalingActivities = AutoScalingErrorResponse
     type Rs DescribeScalingActivities = DescribeScalingActivitiesResponse
-    request = qry GET "DescribeScalingActivities"
+    request = query GET "DescribeScalingActivities"
 
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     { dsbrDescribeScalingActivitiesResult :: !DescribeScalingActivitiesResult
@@ -795,7 +792,7 @@ instance IsQuery DescribeScalingProcessTypes
 instance Rq DescribeScalingProcessTypes where
     type Er DescribeScalingProcessTypes = AutoScalingErrorResponse
     type Rs DescribeScalingProcessTypes = DescribeScalingProcessTypesResponse
-    request = qry GET "DescribeScalingProcessTypes"
+    request = query GET "DescribeScalingProcessTypes"
 
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { dsptrDescribeScalingProcessTypesResult :: !DescribeScalingProcessTypesResult
@@ -837,7 +834,7 @@ instance IsQuery DescribeScheduledActions
 instance Rq DescribeScheduledActions where
     type Er DescribeScheduledActions = AutoScalingErrorResponse
     type Rs DescribeScheduledActions = DescribeScheduledActionsResponse
-    request = qry GET "DescribeScheduledActions"
+    request = query GET "DescribeScheduledActions"
 
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { dscrDescribeScheduledActionsResult :: !DescribeScheduledActionsResult
@@ -874,7 +871,7 @@ instance IsQuery DescribeTags
 instance Rq DescribeTags where
     type Er DescribeTags = AutoScalingErrorResponse
     type Rs DescribeTags = DescribeTagsResponse
-    request = qry GET "DescribeTags"
+    request = query GET "DescribeTags"
 
 data DescribeTagsResponse = DescribeTagsResponse
     { dtrDescribeTagsResult :: !DescribeTagsResult
@@ -898,7 +895,7 @@ instance IsQuery DescribeTerminationPolicyTypes
 instance Rq DescribeTerminationPolicyTypes where
     type Er DescribeTerminationPolicyTypes = AutoScalingErrorResponse
     type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesResponse
-    request = qry GET "DescribeTerminationPolicyTypes"
+    request = query GET "DescribeTerminationPolicyTypes"
 
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { dtptrDescribeTerminationPolicyTypesResult :: !DescribeTerminationPolicyTypesResult
@@ -925,7 +922,7 @@ instance IsQuery DisableMetricsCollection
 instance Rq DisableMetricsCollection where
     type Er DisableMetricsCollection = AutoScalingErrorResponse
     type Rs DisableMetricsCollection = DisableMetricsCollectionResponse
-    request = qry GET "DisableMetricsCollection"
+    request = query GET "DisableMetricsCollection"
 
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
     { dmcrResponseMetadata :: !ResponseMetadata
@@ -957,7 +954,7 @@ instance IsQuery EnableMetricsCollection
 instance Rq EnableMetricsCollection where
     type Er EnableMetricsCollection = AutoScalingErrorResponse
     type Rs EnableMetricsCollection = EnableMetricsCollectionResponse
-    request = qry GET "EnableMetricsCollection"
+    request = query GET "EnableMetricsCollection"
 
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
     { emcrResponseMetadata :: !ResponseMetadata
@@ -986,7 +983,7 @@ instance IsQuery ExecutePolicy
 instance Rq ExecutePolicy where
     type Er ExecutePolicy = AutoScalingErrorResponse
     type Rs ExecutePolicy = ExecutePolicyResponse
-    request = qry GET "ExecutePolicy"
+    request = query GET "ExecutePolicy"
 
 data ExecutePolicyResponse = ExecutePolicyResponse
     { eprResponseMetadata :: !ResponseMetadata
@@ -1020,7 +1017,7 @@ instance IsQuery PutNotificationConfiguration
 instance Rq PutNotificationConfiguration where
     type Er PutNotificationConfiguration = AutoScalingErrorResponse
     type Rs PutNotificationConfiguration = PutNotificationConfigurationResponse
-    request = qry GET "PutNotificationConfiguration"
+    request = query GET "PutNotificationConfiguration"
 
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
     { pncrResponseMetadata :: !ResponseMetadata
@@ -1065,7 +1062,7 @@ instance IsQuery PutScalingPolicy
 instance Rq PutScalingPolicy where
     type Er PutScalingPolicy = AutoScalingErrorResponse
     type Rs PutScalingPolicy = PutScalingPolicyResponse
-    request = qry GET "PutScalingPolicy"
+    request = query GET "PutScalingPolicy"
 
 data PutScalingPolicyResponse = PutScalingPolicyResponse
     { psprPutScalingPolicyResult :: !PutScalingPolicyResult
@@ -1114,7 +1111,7 @@ instance IsQuery PutScheduledUpdateGroupAction
 instance Rq PutScheduledUpdateGroupAction where
     type Er PutScheduledUpdateGroupAction = AutoScalingErrorResponse
     type Rs PutScheduledUpdateGroupAction = PutScheduledUpdateGroupActionResponse
-    request = qry GET "PutScheduledUpdateGroupAction"
+    request = query GET "PutScheduledUpdateGroupAction"
 
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
     { psugarResponseMetadata :: !ResponseMetadata
@@ -1141,7 +1138,7 @@ instance IsQuery ResumeProcesses
 instance Rq ResumeProcesses where
     type Er ResumeProcesses = AutoScalingErrorResponse
     type Rs ResumeProcesses = ResumeProcessesResponse
-    request = qry GET "ResumeProcesses"
+    request = query GET "ResumeProcesses"
 
 data ResumeProcessesResponse = ResumeProcessesResponse
     { rprResponseMetadata :: !ResponseMetadata
@@ -1172,7 +1169,7 @@ instance IsQuery SetDesiredCapacity
 instance Rq SetDesiredCapacity where
     type Er SetDesiredCapacity = AutoScalingErrorResponse
     type Rs SetDesiredCapacity = SetDesiredCapacityResponse
-    request = qry GET "SetDesiredCapacity"
+    request = query GET "SetDesiredCapacity"
 
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse
     { sdcrResponseMetadata :: !ResponseMetadata
@@ -1207,7 +1204,7 @@ instance IsQuery SetInstanceHealth
 instance Rq SetInstanceHealth where
     type Er SetInstanceHealth = AutoScalingErrorResponse
     type Rs SetInstanceHealth = SetInstanceHealthResponse
-    request = qry GET "SetInstanceHealth"
+    request = query GET "SetInstanceHealth"
 
 data SetInstanceHealthResponse = SetInstanceHealthResponse
     { sihrResponseMetadata :: !ResponseMetadata
@@ -1239,7 +1236,7 @@ instance IsQuery SuspendProcesses
 instance Rq SuspendProcesses where
     type Er SuspendProcesses = AutoScalingErrorResponse
     type Rs SuspendProcesses = SuspendProcessesResponse
-    request = qry GET "SuspendProcesses"
+    request = query GET "SuspendProcesses"
 
 data SuspendProcessesResponse = SuspendProcessesResponse
     { sprResponseMetadata :: !ResponseMetadata
@@ -1266,7 +1263,7 @@ instance IsQuery TerminateInstanceInAutoScalingGroup
 instance Rq TerminateInstanceInAutoScalingGroup where
     type Er TerminateInstanceInAutoScalingGroup = AutoScalingErrorResponse
     type Rs TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroupResponse
-    request = qry GET "TerminateInstanceInAutoScalingGroup"
+    request = query GET "TerminateInstanceInAutoScalingGroup"
 
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { tiiasgrResponseMetadata                          :: !ResponseMetadata
@@ -1332,7 +1329,7 @@ instance IsQuery UpdateAutoScalingGroup
 instance Rq UpdateAutoScalingGroup where
     type Er UpdateAutoScalingGroup = AutoScalingErrorResponse
     type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
-    request = qry GET "UpdateAutoScalingGroup"
+    request = query GET "UpdateAutoScalingGroup"
 
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
     { uasgrResponseMetadata :: !ResponseMetadata

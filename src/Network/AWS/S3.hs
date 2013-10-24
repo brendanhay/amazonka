@@ -110,7 +110,7 @@ obj meth (Bucket b) (Key k) hs =
     sign (versionS3 $ Text.encodeUtf8 b) . Request svc meth path hs []
   where
     path = Text.encodeUtf8 k
-    svc  = s3 { svcEndpoint = Global $ Text.encodeUtf8 b <> ".s3.amazonaws.com" }
+    svc  = s3 { svcEndpoint = Custom $ Text.encodeUtf8 b <> ".s3.amazonaws.com" }
 
 hdrs :: (Monad m, Rs a ~ S3HeadersResponse)
      => a

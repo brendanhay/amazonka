@@ -504,10 +504,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))
 
-qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth act q = queryAppend (queryRequest ec2Service meth "/" q)
-    [ ("Action",  act)
-    ]
+query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
+query meth act q = sign version2 $
+    requestQuery ec2 meth "/" q .+. [("Action", act)]
 
 -- | Acquires an Elastic IP address.An Elastic IP address is for use either in
 -- the EC2-Classic platform or in a VPC.
@@ -524,7 +523,7 @@ instance IsQuery AllocateAddress
 instance Rq AllocateAddress where
     type Er AllocateAddress = EC2ErrorResponse
     type Rs AllocateAddress = AllocateAddressResponse
-    request = qry GET "AllocateAddress"
+    request = query GET "AllocateAddress"
 
 data AllocateAddressResponse = AllocateAddressResponse
     { aarRequestId    :: !Text
@@ -573,7 +572,7 @@ instance IsQuery AssignPrivateIpAddresses
 instance Rq AssignPrivateIpAddresses where
     type Er AssignPrivateIpAddresses = EC2ErrorResponse
     type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
-    request = qry GET "AssignPrivateIpAddresses"
+    request = query GET "AssignPrivateIpAddresses"
 
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
     { apiaRequestId :: !Text
@@ -618,7 +617,7 @@ instance IsQuery AssociateAddress
 instance Rq AssociateAddress where
     type Er AssociateAddress = EC2ErrorResponse
     type Rs AssociateAddress = AssociateAddressResponse
-    request = qry GET "AssociateAddress"
+    request = query GET "AssociateAddress"
 
 data AssociateAddressResponse = AssociateAddressResponse
     { abrRequestId     :: !Text
@@ -657,7 +656,7 @@ instance IsQuery AssociateDhcpOptions
 instance Rq AssociateDhcpOptions where
     type Er AssociateDhcpOptions = EC2ErrorResponse
     type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
-    request = qry GET "AssociateDhcpOptions"
+    request = query GET "AssociateDhcpOptions"
 
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
     { adorRequestId :: !Text
@@ -692,7 +691,7 @@ instance IsQuery AssociateRouteTable
 instance Rq AssociateRouteTable where
     type Er AssociateRouteTable = EC2ErrorResponse
     type Rs AssociateRouteTable = AssociateRouteTableResponse
-    request = qry GET "AssociateRouteTable"
+    request = query GET "AssociateRouteTable"
 
 data AssociateRouteTableResponse = AssociateRouteTableResponse
     { artrRequestId     :: !Text
@@ -720,7 +719,7 @@ instance IsQuery AttachInternetGateway
 instance Rq AttachInternetGateway where
     type Er AttachInternetGateway = EC2ErrorResponse
     type Rs AttachInternetGateway = AttachInternetGatewayResponse
-    request = qry GET "AttachInternetGateway"
+    request = query GET "AttachInternetGateway"
 
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
     { aigrRequestId :: !Text
@@ -749,7 +748,7 @@ instance IsQuery AttachNetworkInterface
 instance Rq AttachNetworkInterface where
     type Er AttachNetworkInterface = EC2ErrorResponse
     type Rs AttachNetworkInterface = AttachNetworkInterfaceResponse
-    request = qry GET "AttachNetworkInterface"
+    request = query GET "AttachNetworkInterface"
 
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { anirRequestId    :: !Text
@@ -781,7 +780,7 @@ instance IsQuery AttachVolume
 instance Rq AttachVolume where
     type Er AttachVolume = EC2ErrorResponse
     type Rs AttachVolume = AttachVolumeResponse
-    request = qry GET "AttachVolume"
+    request = query GET "AttachVolume"
 
 data AttachVolumeResponse = AttachVolumeResponse
     { avrRequestId  :: !Text
@@ -816,7 +815,7 @@ instance IsQuery AttachVpnGateway
 instance Rq AttachVpnGateway where
     type Er AttachVpnGateway = EC2ErrorResponse
     type Rs AttachVpnGateway = AttachVpnGatewayResponse
-    request = qry GET "AttachVpnGateway"
+    request = query GET "AttachVpnGateway"
 
 data AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { avgrRequestId  :: !Text
@@ -849,7 +848,7 @@ instance IsQuery AuthorizeSecurityGroupEgress
 instance Rq AuthorizeSecurityGroupEgress where
     type Er AuthorizeSecurityGroupEgress = EC2ErrorResponse
     type Rs AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressResponse
-    request = qry GET "AuthorizeSecurityGroupEgress"
+    request = query GET "AuthorizeSecurityGroupEgress"
 
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
     { asgerRequestId :: !Text
@@ -885,7 +884,7 @@ instance IsQuery AuthorizeSecurityGroupIngress
 instance Rq AuthorizeSecurityGroupIngress where
     type Er AuthorizeSecurityGroupIngress = EC2ErrorResponse
     type Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
-    request = qry GET "AuthorizeSecurityGroupIngress"
+    request = query GET "AuthorizeSecurityGroupIngress"
 
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
     { asgirRequestId :: !Text
@@ -915,7 +914,7 @@ instance IsQuery BundleInstance
 instance Rq BundleInstance where
     type Er BundleInstance = EC2ErrorResponse
     type Rs BundleInstance = BundleInstanceResponse
-    request = qry GET "BundleInstance"
+    request = query GET "BundleInstance"
 
 data BundleInstanceResponse = BundleInstanceResponse
     { birRequestId          :: !Text
@@ -941,7 +940,7 @@ instance IsQuery CancelBundleTask
 instance Rq CancelBundleTask where
     type Er CancelBundleTask = EC2ErrorResponse
     type Rs CancelBundleTask = CancelBundleTaskResponse
-    request = qry GET "CancelBundleTask"
+    request = query GET "CancelBundleTask"
 
 data CancelBundleTaskResponse = CancelBundleTaskResponse
     { cbtRequestId          :: !Text
@@ -973,7 +972,7 @@ instance IsQuery CancelConversionTask
 instance Rq CancelConversionTask where
     type Er CancelConversionTask = EC2ErrorResponse
     type Rs CancelConversionTask = CancelConversionTaskResponse
-    request = qry GET "CancelConversionTask"
+    request = query GET "CancelConversionTask"
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse
     { cctRequestId :: !Text
@@ -1004,7 +1003,7 @@ instance IsQuery CancelExportTask
 instance Rq CancelExportTask where
     type Er CancelExportTask = EC2ErrorResponse
     type Rs CancelExportTask = CancelExportTaskResponse
-    request = qry GET "CancelExportTask"
+    request = query GET "CancelExportTask"
 
 data CancelExportTaskResponse = CancelExportTaskResponse
     { cetRequestId :: !Text
@@ -1030,7 +1029,7 @@ instance IsQuery CancelReservedInstancesListing
 instance Rq CancelReservedInstancesListing where
     type Er CancelReservedInstancesListing = EC2ErrorResponse
     type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse
-    request = qry GET "CancelReservedInstancesListing"
+    request = query GET "CancelReservedInstancesListing"
 
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { crilRequestId                    :: !Text
@@ -1056,7 +1055,7 @@ instance IsQuery CancelSpotInstanceRequests
 instance Rq CancelSpotInstanceRequests where
     type Er CancelSpotInstanceRequests = EC2ErrorResponse
     type Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse
-    request = qry GET "CancelSpotInstanceRequests"
+    request = query GET "CancelSpotInstanceRequests"
 
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { csirRequestId              :: !Text
@@ -1090,7 +1089,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ConfirmProductInstance ConfirmProductInstanceResponse where
---     request = qry GET "ConfirmProductInstance"
+--     request = query GET "ConfirmProductInstance"
 
 -- data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 --     { cpiRequestId :: !Text
@@ -1132,7 +1131,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CopyImage CopyImageResponse where
---     request = qry GET "CopyImage"
+--     request = query GET "CopyImage"
 
 -- data CopyImageResponse = CopyImageResponse
 --     { ciRequestId :: !Text
@@ -1165,7 +1164,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- instance IsQuery CopySnapshot
 
 -- instance AWSRequest EC2 CopySnapshot CopySnapshotResponse where
---     request = qry GET "CopySnapshot"
+--     request = query GET "CopySnapshot"
 
 -- data CopySnapshotResponse = CopySnapshotResponse
 --     { csRequestId  :: !Text
@@ -1209,7 +1208,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- instance IsQuery CreateCustomerGateway
 
 -- instance AWSRequest EC2 CreateCustomerGateway CreateCustomerGatewayResponse where
---     request = qry GET "CreateCustomerGateway"
+--     request = query GET "CreateCustomerGateway"
 
 -- data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
 --     { ccgRequestId       :: !Text
@@ -1237,7 +1236,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- instance IsQuery CreateDhcpOptions
 
 -- instance AWSRequest EC2 CreateDhcpOptions CreateDhcpOptionsResponse where
---     request = qry GET "CreateDhcpOptions"
+--     request = query GET "CreateDhcpOptions"
 
 -- data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
 --     { cdoRequestId   :: !Text
@@ -1279,7 +1278,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateImage CreateImageResponse where
---     request = qry GET "CreateImage"
+--     request = query GET "CreateImage"
 
 -- data CreateImageResponse = CreateImageResponse
 --     { cjRequestId :: !Text
@@ -1313,7 +1312,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- instance IsQuery CreateInstanceExportTask
 
 -- instance AWSRequest EC2 CreateInstanceExportTask CreateInstanceExportTaskResponse where
---     request = qry GET "CreateInstanceExportTask"
+--     request = query GET "CreateInstanceExportTask"
 
 -- data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
 --     { cietRequestId  :: !Text
@@ -1341,7 +1340,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     xmlPickler = xpEmpty $ Just ec2NS
 
 -- instance AWSRequest EC2 CreateInternetGateway CreateInternetGatewayResponse where
---     request = qry GET "CreateInternetGateway"
+--     request = query GET "CreateInternetGateway"
 
 -- data CreateInternetGatewayResponse = CreateInternetGatewayResponse
 --     { cigRequestId       :: !Text
@@ -1372,7 +1371,7 @@ instance IsQuery CreateKeyPair
 instance Rq CreateKeyPair where
     type Er CreateKeyPair = EC2ErrorResponse
     type Rs CreateKeyPair = CreateKeyPairResponse
-    request = qry GET "CreateKeyPair"
+    request = query GET "CreateKeyPair"
 
 data CreateKeyPairResponse = CreateKeyPairResponse
     { ckpRequestId      :: !Text
@@ -1403,7 +1402,7 @@ instance IsXML CreateKeyPairResponse where
 -- instance IsQuery CreateNetworkAcl
 
 -- instance AWSRequest EC2 CreateNetworkAcl CreateNetworkAclResponse where
---     request = qry GET "CreateNetworkAcl"
+--     request = query GET "CreateNetworkAcl"
 
 -- data CreateNetworkAclResponse = CreateNetworkAclResponse
 --     { cnaRequestId  :: !Text
@@ -1453,7 +1452,7 @@ instance IsXML CreateKeyPairResponse where
 -- instance IsQuery CreateNetworkAclEntry
 
 -- instance AWSRequest EC2 CreateNetworkAclEntry CreateNetworkAclEntryResponse where
---     request = qry GET "CreateNetworkAclEntry"
+--     request = query GET "CreateNetworkAclEntry"
 
 -- data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 --     { cnaeRequestId :: !Text
@@ -1501,7 +1500,7 @@ instance IsXML CreateKeyPairResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateNetworkInterface CreateNetworkInterfaceResponse where
---     request = qry GET "CreateNetworkInterface"
+--     request = query GET "CreateNetworkInterface"
 
 -- data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
 --     { cniRequestId        :: !Text
@@ -1530,7 +1529,7 @@ instance IsXML CreateKeyPairResponse where
 -- instance IsQuery CreatePlacementGroup
 
 -- instance AWSRequest EC2 CreatePlacementGroup CreatePlacementGroupResponse where
---     request = qry GET "CreatePlacementGroup"
+--     request = query GET "CreatePlacementGroup"
 
 -- data CreatePlacementGroupResponse = CreatePlacementGroupResponse
 --     { cpgRequestId :: !Text
@@ -1580,7 +1579,7 @@ instance IsXML CreateKeyPairResponse where
 -- instance IsQuery CreateReservedInstancesListing
 
 -- instance AWSRequest EC2 CreateReservedInstancesListing CreateReservedInstancesListingResponse where
---     request = qry GET "CreateReservedInstancesListing"
+--     request = query GET "CreateReservedInstancesListing"
 
 -- data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
 --     { crimRequestId                   :: !Text
@@ -1628,7 +1627,7 @@ instance IsXML CreateKeyPairResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateRoute CreateRouteResponse where
---     request = qry GET "CreateRoute"
+--     request = query GET "CreateRoute"
 
 -- data CreateRouteResponse = CreateRouteResponse
 --     { crRequestId :: !Text
@@ -1659,7 +1658,7 @@ instance IsXML CreateKeyPairResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateRouteTable CreateRouteTableResponse where
---     request = qry GET "CreateRouteTable"
+--     request = query GET "CreateRouteTable"
 
 -- data CreateRouteTableResponse = CreateRouteTableResponse
 --     { crtRequestId  :: !Text
@@ -1697,7 +1696,7 @@ instance IsQuery CreateSecurityGroup
 instance Rq CreateSecurityGroup where
     type Er CreateSecurityGroup = EC2ErrorResponse
     type Rs CreateSecurityGroup = CreateSecurityGroupResponse
-    request = qry GET "CreateSecurityGroup"
+    request = query GET "CreateSecurityGroup"
 
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { csgrRequestId :: !Text
@@ -1745,7 +1744,7 @@ instance IsXML CreateSecurityGroupResponse where
 -- instance IsQuery CreateSnapshot
 
 -- instance AWSRequest EC2 CreateSnapshot CreateSnapshotResponse where
---     request = qry GET "CreateSnapshot"
+--     request = query GET "CreateSnapshot"
 
 -- data CreateSnapshotResponse = CreateSnapshotResponse
 --     { ctRequestId   :: !Text
@@ -1789,7 +1788,7 @@ instance IsXML CreateSecurityGroupResponse where
 -- instance IsQuery CreateSpotDatafeedSubscription
 
 -- instance AWSRequest EC2 CreateSpotDatafeedSubscription CreateSpotDatafeedSubscriptionResponse where
---     request = qry GET "CreateSpotDatafeedSubscription"
+--     request = query GET "CreateSpotDatafeedSubscription"
 
 -- data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
 --     { csdsRequestId                :: !Text
@@ -1836,7 +1835,7 @@ instance IsXML CreateSecurityGroupResponse where
 -- instance IsQuery CreateSubnet
 
 -- instance AWSRequest EC2 CreateSubnet CreateSubnetResponse where
---     request = qry GET "CreateSubnet"
+--     request = query GET "CreateSubnet"
 
 -- data CreateSubnetResponse = CreateSubnetResponse
 --     { cuRequestId :: !Text
@@ -1865,7 +1864,7 @@ instance IsQuery CreateTags
 instance Rq CreateTags where
     type Er CreateTags = EC2ErrorResponse
     type Rs CreateTags = CreateTagsResponse
-    request = qry GET "CreateTags"
+    request = query GET "CreateTags"
 
 data CreateTagsResponse = CreateTagsResponse
     { cvRequestId :: !Text
@@ -1905,7 +1904,7 @@ instance IsXML CreateTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateVolume CreateVolumeResponse where
---     request = qry GET "CreateVolume"
+--     request = query GET "CreateVolume"
 
 -- data CreateVolumeResponse = CreateVolumeResponse
 --     { cwRequestId        :: !Text
@@ -1958,7 +1957,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery CreateVpc
 
 -- instance AWSRequest EC2 CreateVpc CreateVpcResponse where
---     request = qry GET "CreateVpc"
+--     request = query GET "CreateVpc"
 
 -- data CreateVpcResponse = CreateVpcResponse
 --     { cxRequestId :: !Text
@@ -2002,7 +2001,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery CreateVpnConnection
 
 -- instance AWSRequest EC2 CreateVpnConnection CreateVpnConnectionResponse where
---     request = qry GET "CreateVpnConnection"
+--     request = query GET "CreateVpnConnection"
 
 -- data CreateVpnConnectionResponse = CreateVpnConnectionResponse
 --     { cvcRequestId     :: !Text
@@ -2037,7 +2036,7 @@ instance IsXML CreateTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 CreateVpnConnectionRoute CreateVpnConnectionRouteResponse where
---     request = qry GET "CreateVpnConnectionRoute"
+--     request = query GET "CreateVpnConnectionRoute"
 
 -- data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 --     { cvcrRequestId :: !Text
@@ -2066,7 +2065,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery CreateVpnGateway
 
 -- instance AWSRequest EC2 CreateVpnGateway CreateVpnGatewayResponse where
---     request = qry GET "CreateVpnGateway"
+--     request = query GET "CreateVpnGateway"
 
 -- data CreateVpnGatewayResponse = CreateVpnGatewayResponse
 --     { cvgRequestId  :: !Text
@@ -2093,7 +2092,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery DeleteCustomerGateway
 
 -- instance AWSRequest EC2 DeleteCustomerGateway DeleteCustomerGatewayResponse where
---     request = qry GET "DeleteCustomerGateway"
+--     request = query GET "DeleteCustomerGateway"
 
 -- data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 --     { dcgRequestId :: !Text
@@ -2122,7 +2121,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery DeleteDhcpOptions
 
 -- instance AWSRequest EC2 DeleteDhcpOptions DeleteDhcpOptionsResponse where
---     request = qry GET "DeleteDhcpOptions"
+--     request = query GET "DeleteDhcpOptions"
 
 -- data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 --     { ddoRequestId :: !Text
@@ -2150,7 +2149,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery DeleteInternetGateway
 
 -- instance AWSRequest EC2 DeleteInternetGateway DeleteInternetGatewayResponse where
---     request = qry GET "DeleteInternetGateway"
+--     request = query GET "DeleteInternetGateway"
 
 -- data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
 --     { digRequestId :: !Text
@@ -2176,7 +2175,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery DeleteKeyPair
 
 -- instance AWSRequest EC2 DeleteKeyPair DeleteKeyPairResponse where
---     request = qry GET "DeleteKeyPair"
+--     request = query GET "DeleteKeyPair"
 
 -- data DeleteKeyPairResponse = DeleteKeyPairResponse
 --     { dkpRequestId :: !Text
@@ -2204,7 +2203,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery DeleteNetworkAcl
 
 -- instance AWSRequest EC2 DeleteNetworkAcl DeleteNetworkAclResponse where
---     request = qry GET "DeleteNetworkAcl"
+--     request = query GET "DeleteNetworkAcl"
 
 -- data DeleteNetworkAclResponse = DeleteNetworkAclResponse
 --     { dnaRequestId :: !Text
@@ -2236,7 +2235,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery DeleteNetworkAclEntry
 
 -- instance AWSRequest EC2 DeleteNetworkAclEntry DeleteNetworkAclEntryResponse where
---     request = qry GET "DeleteNetworkAclEntry"
+--     request = query GET "DeleteNetworkAclEntry"
 
 -- data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 --     { dnaeRequestId :: !Text
@@ -2265,7 +2264,7 @@ instance IsXML CreateTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteNetworkInterface DeleteNetworkInterfaceResponse where
---     request = qry GET "DeleteNetworkInterface"
+--     request = query GET "DeleteNetworkInterface"
 
 -- data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 --     { dniRequestId :: !Text
@@ -2293,7 +2292,7 @@ instance IsXML CreateTagsResponse where
 -- instance IsQuery DeletePlacementGroup
 
 -- instance AWSRequest EC2 DeletePlacementGroup DeletePlacementGroupResponse where
---     request = qry GET "DeletePlacementGroup"
+--     request = query GET "DeletePlacementGroup"
 
 -- data DeletePlacementGroupResponse = DeletePlacementGroupResponse
 --     { dpgRequestId :: !Text
@@ -2326,7 +2325,7 @@ instance IsXML CreateTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteRoute DeleteRouteResponse where
---     request = qry GET "DeleteRoute"
+--     request = query GET "DeleteRoute"
 
 -- data DeleteRouteResponse = DeleteRouteResponse
 --     { drRequestId :: !Text
@@ -2357,7 +2356,7 @@ instance IsXML CreateTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteRouteTable DeleteRouteTableResponse where
---     request = qry GET "DeleteRouteTable"
+--     request = query GET "DeleteRouteTable"
 
 -- data DeleteRouteTableResponse = DeleteRouteTableResponse
 --     { drtRequestId :: !Text
@@ -2386,7 +2385,7 @@ instance IsQuery DeleteSecurityGroup
 instance Rq DeleteSecurityGroup where
     type Er DeleteSecurityGroup = EC2ErrorResponse
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
-    request = qry GET "DeleteSecurityGroup"
+    request = query GET "DeleteSecurityGroup"
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     { dsgrRequestId :: !Text
@@ -2410,7 +2409,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsQuery DeleteSnapshot
 
 -- instance AWSRequest EC2 DeleteSnapshot DeleteSnapshotResponse where
---     request = qry GET "DeleteSnapshot"
+--     request = query GET "DeleteSnapshot"
 
 -- data DeleteSnapshotResponse = DeleteSnapshotResponse
 --     { dsRequestId :: !Text
@@ -2438,7 +2437,7 @@ instance IsXML DeleteSecurityGroupResponse where
 --     xmlPickler = xpEmpty $ Just ec2NS
 
 -- instance AWSRequest EC2 DeleteSpotDatafeedSubscription DeleteSpotDatafeedSubscriptionResponse where
---     request = qry GET "DeleteSpotDatafeedSubscription"
+--     request = query GET "DeleteSpotDatafeedSubscription"
 
 -- data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
 --     { dsdsRequestId :: !Text
@@ -2464,7 +2463,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsQuery DeleteSubnet
 
 -- instance AWSRequest EC2 DeleteSubnet DeleteSubnetResponse where
---     request = qry GET "DeleteSubnet"
+--     request = query GET "DeleteSubnet"
 
 -- data DeleteSubnetResponse = DeleteSubnetResponse
 --     { dtRequestId :: !Text
@@ -2495,7 +2494,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsQuery DeleteTags
 
 -- instance AWSRequest EC2 DeleteTags DeleteTagsResponse where
---     request = qry GET "DeleteTags"
+--     request = query GET "DeleteTags"
 
 -- data DeleteTagsResponse = DeleteTagsResponse
 --     { duRequestId :: !Text
@@ -2526,7 +2525,7 @@ instance IsXML DeleteSecurityGroupResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteVolume DeleteVolumeResponse where
---     request = qry GET "DeleteVolume"
+--     request = query GET "DeleteVolume"
 
 -- data DeleteVolumeResponse = DeleteVolumeResponse
 --     { dvRequestId :: !Text
@@ -2556,7 +2555,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsQuery DeleteVpc
 
 -- instance AWSRequest EC2 DeleteVpc DeleteVpcResponse where
---     request = qry GET "DeleteVpc"
+--     request = query GET "DeleteVpc"
 
 -- data DeleteVpcResponse = DeleteVpcResponse
 --     { dwRequestId :: !Text
@@ -2592,7 +2591,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsQuery DeleteVpnConnection
 
 -- instance AWSRequest EC2 DeleteVpnConnection DeleteVpnConnectionResponse where
---     request = qry GET "DeleteVpnConnection"
+--     request = query GET "DeleteVpnConnection"
 
 -- data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
 --     { dvcRequestId :: !Text
@@ -2628,7 +2627,7 @@ instance IsXML DeleteSecurityGroupResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeleteVpnConnectionRoute DeleteVpnConnectionRouteResponse where
---     request = qry GET "DeleteVpnConnectionRoute"
+--     request = query GET "DeleteVpnConnectionRoute"
 
 -- data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 --     { dvcrRequestId :: !Text
@@ -2659,7 +2658,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsQuery DeleteVpnGateway
 
 -- instance AWSRequest EC2 DeleteVpnGateway DeleteVpnGatewayResponse where
---     request = qry GET "DeleteVpnGateway"
+--     request = query GET "DeleteVpnGateway"
 
 -- data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
 --     { dvgRequestId :: !Text
@@ -2688,7 +2687,7 @@ instance IsXML DeleteSecurityGroupResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DeregisterImage DeregisterImageResponse where
---     request = qry GET "DeregisterImage"
+--     request = query GET "DeregisterImage"
 
 -- data DeregisterImageResponse = DeregisterImageResponse
 --     { diRequestId :: !Text
@@ -2714,7 +2713,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsQuery DescribeAccountAttributes
 
 -- instance AWSRequest EC2 DescribeAccountAttributes DescribeAccountAttributesResponse where
---     request = qry GET "DescribeAccountAttributes"
+--     request = query GET "DescribeAccountAttributes"
 
 -- data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
 --     { daaRequestId           :: !Text
@@ -2766,7 +2765,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- instance IsQuery DescribeAddresses
 
 -- instance AWSRequest EC2 DescribeAddresses DescribeAddressesResponse where
---     request = qry GET "DescribeAddresses"
+--     request = query GET "DescribeAddresses"
 
 -- data DescribeAddressesResponse = DescribeAddressesResponse
 --     { daRequestId    :: !Text
@@ -2805,7 +2804,7 @@ instance IsQuery DescribeAvailabilityZones
 instance Rq DescribeAvailabilityZones where
     type Er DescribeAvailabilityZones = EC2ErrorResponse
     type Rs DescribeAvailabilityZones = DescribeAvailabilityZonesResponse
-    request = qry GET "DescribeAvailabilityZones"
+    request = query GET "DescribeAvailabilityZones"
 
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { dazrRequestId            :: !Text
@@ -2856,7 +2855,7 @@ instance IsXML DescribeAvailabilityZonesResponse where
 -- instance IsQuery DescribeBundleTasks
 
 -- instance AWSRequest EC2 DescribeBundleTasks DescribeBundleTasksResponse where
---     request = qry GET "DescribeBundleTasks"
+--     request = query GET "DescribeBundleTasks"
 
 -- data DescribeBundleTasksResponse = DescribeBundleTasksResponse
 --     { dbtRequestId              :: !Text
@@ -2880,7 +2879,7 @@ instance IsXML DescribeAvailabilityZonesResponse where
 -- instance IsQuery DescribeConversionTasks
 
 -- instance AWSRequest EC2 DescribeConversionTasks DescribeConversionTasksResponse where
---     request = qry GET "DescribeConversionTasks"
+--     request = query GET "DescribeConversionTasks"
 
 -- data DescribeConversionTasksResponse = DescribeConversionTasksResponse
 --     { dctConversionTasks :: !ConversionTaskType
@@ -2936,7 +2935,7 @@ instance IsXML DescribeAvailabilityZonesResponse where
 -- instance IsQuery DescribeCustomerGateways
 
 -- instance AWSRequest EC2 DescribeCustomerGateways DescribeCustomerGatewaysResponse where
---     request = qry GET "DescribeCustomerGateways"
+--     request = query GET "DescribeCustomerGateways"
 
 -- data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
 --     { dchRequestId          :: !Text
@@ -2987,7 +2986,7 @@ instance IsXML DescribeAvailabilityZonesResponse where
 -- instance IsQuery DescribeDhcpOptions
 
 -- instance AWSRequest EC2 DescribeDhcpOptions DescribeDhcpOptionsResponse where
---     request = qry GET "DescribeDhcpOptions"
+--     request = query GET "DescribeDhcpOptions"
 
 -- data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 --     { ddqRequestId      :: !Text
@@ -3011,7 +3010,7 @@ instance IsXML DescribeAvailabilityZonesResponse where
 -- instance IsQuery DescribeExportTasks
 
 -- instance AWSRequest EC2 DescribeExportTasks DescribeExportTasksResponse where
---     request = qry GET "DescribeExportTasks"
+--     request = query GET "DescribeExportTasks"
 
 -- data DescribeExportTasksResponse = DescribeExportTasksResponse
 --     { detRequestId     :: !Text
@@ -3041,7 +3040,7 @@ instance IsXML DescribeAvailabilityZonesResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeImageAttribute DescribeImageAttributeResponse where
---     request = qry GET "DescribeImageAttribute"
+--     request = query GET "DescribeImageAttribute"
 
 -- data DescribeImageAttributeResponse = DescribeImageAttributeResponse
 --     { diaRequestId          :: !Text
@@ -3096,7 +3095,7 @@ instance IsQuery DescribeImages
 instance Rq DescribeImages where
     type Er DescribeImages = EC2ErrorResponse
     type Rs DescribeImages = DescribeImagesResponse
-    request = qry GET "DescribeImages"
+    request = query GET "DescribeImages"
 
 data DescribeImagesResponse = DescribeImagesResponse
     { djRequestId :: !Text
@@ -3126,7 +3125,7 @@ instance IsXML DescribeImagesResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeInstanceAttribute DescribeInstanceAttributeResponse where
---     request = qry GET "DescribeInstanceAttribute"
+--     request = query GET "DescribeInstanceAttribute"
 
 -- data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 --     { dibRequestId                         :: !Text
@@ -3197,7 +3196,7 @@ instance IsQuery DescribeInstances
 instance Rq DescribeInstances where
     type Er DescribeInstances = EC2ErrorResponse
     type Rs DescribeInstances = DescribeInstancesResponse
-    request = qry GET "DescribeInstances"
+    request = query GET "DescribeInstances"
 
 data DescribeInstancesResponse = DescribeInstancesResponse
     { dirRequestId      :: !Text
@@ -3255,7 +3254,7 @@ instance IsXML DescribeInstancesResponse where
 -- instance IsQuery DescribeInstanceStatus
 
 -- instance AWSRequest EC2 DescribeInstanceStatus DescribeInstanceStatusResponse where
---     request = qry GET "DescribeInstanceStatus"
+--     request = query GET "DescribeInstanceStatus"
 
 -- data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
 --     { disRequestId         :: !Text
@@ -3306,7 +3305,7 @@ instance IsXML DescribeInstancesResponse where
 -- instance IsQuery DescribeInternetGateways
 
 -- instance AWSRequest EC2 DescribeInternetGateways DescribeInternetGatewaysResponse where
---     request = qry GET "DescribeInternetGateways"
+--     request = query GET "DescribeInternetGateways"
 
 -- data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
 --     { dihRequestId          :: !Text
@@ -3339,7 +3338,7 @@ instance IsQuery DescribeKeyPairs
 instance Rq DescribeKeyPairs where
     type Er DescribeKeyPairs = EC2ErrorResponse
     type Rs DescribeKeyPairs = DescribeKeyPairsResponse
-    request = qry GET "DescribeKeyPairs"
+    request = query GET "DescribeKeyPairs"
 
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { dkqRequestId :: !Text
@@ -3394,7 +3393,7 @@ instance IsXML DescribeKeyPairsResponse where
 -- instance IsQuery DescribeNetworkAcls
 
 -- instance AWSRequest EC2 DescribeNetworkAcls DescribeNetworkAclsResponse where
---     request = qry GET "DescribeNetworkAcls"
+--     request = query GET "DescribeNetworkAcls"
 
 -- data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
 --     { dnbRequestId     :: !Text
@@ -3424,7 +3423,7 @@ instance IsXML DescribeKeyPairsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeNetworkInterfaceAttribute DescribeNetworkInterfaceAttributeResponse where
---     request = qry GET "DescribeNetworkInterfaceAttribute"
+--     request = query GET "DescribeNetworkInterfaceAttribute"
 
 -- data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
 --     { dniaRequestId          :: !Text
@@ -3523,7 +3522,7 @@ instance IsXML DescribeKeyPairsResponse where
 -- instance IsQuery DescribeNetworkInterfaces
 
 -- instance AWSRequest EC2 DescribeNetworkInterfaces DescribeNetworkInterfacesResponse where
---     request = qry GET "DescribeNetworkInterfaces"
+--     request = query GET "DescribeNetworkInterfaces"
 
 -- data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
 --     { dnjRequestId           :: !Text
@@ -3561,7 +3560,7 @@ instance IsXML DescribeKeyPairsResponse where
 -- instance IsQuery DescribePlacementGroups
 
 -- instance AWSRequest EC2 DescribePlacementGroups DescribePlacementGroupsResponse where
---     request = qry GET "DescribePlacementGroups"
+--     request = query GET "DescribePlacementGroups"
 
 -- data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
 --     { dphRequestId         :: !Text
@@ -3596,7 +3595,7 @@ instance IsQuery DescribeRegions
 instance Rq DescribeRegions where
     type Er DescribeRegions = EC2ErrorResponse
     type Rs DescribeRegions = DescribeRegionsResponse
-    request = qry GET "DescribeRegions"
+    request = query GET "DescribeRegions"
 
 data DescribeRegionsResponse = DescribeRegionsResponse
     { drrRequestId  :: !Text
@@ -3662,7 +3661,7 @@ instance IsXML DescribeRegionsResponse where
 -- instance IsQuery DescribeReservedInstances
 
 -- instance AWSRequest EC2 DescribeReservedInstances DescribeReservedInstancesResponse where
---     request = qry GET "DescribeReservedInstances"
+--     request = query GET "DescribeReservedInstances"
 
 -- data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
 --     { driRequestId            :: !Text
@@ -3705,7 +3704,7 @@ instance IsXML DescribeRegionsResponse where
 -- instance IsQuery DescribeReservedInstancesListings
 
 -- instance AWSRequest EC2 DescribeReservedInstancesListings DescribeReservedInstancesListingsResponse where
---     request = qry GET "DescribeReservedInstancesListings"
+--     request = query GET "DescribeReservedInstancesListings"
 
 -- data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
 --     { drilRequestId                    :: !Text
@@ -3784,7 +3783,7 @@ instance IsXML DescribeRegionsResponse where
 -- instance IsQuery DescribeReservedInstancesOfferings
 
 -- instance AWSRequest EC2 DescribeReservedInstancesOfferings DescribeReservedInstancesOfferingsResponse where
---     request = qry GET "DescribeReservedInstancesOfferings"
+--     request = query GET "DescribeReservedInstancesOfferings"
 
 -- data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
 --     { drioRequestId                     :: !Text
@@ -3839,7 +3838,7 @@ instance IsXML DescribeRegionsResponse where
 -- instance IsQuery DescribeRouteTables
 
 -- instance AWSRequest EC2 DescribeRouteTables DescribeRouteTablesResponse where
---     request = qry GET "DescribeRouteTables"
+--     request = query GET "DescribeRouteTables"
 
 -- data DescribeRouteTablesResponse = DescribeRouteTablesResponse
 --     { druRequestId     :: !Text
@@ -3869,7 +3868,7 @@ instance IsQuery DescribeSecurityGroups
 instance Rq DescribeSecurityGroups where
     type Er DescribeSecurityGroups = EC2ErrorResponse
     type Rs DescribeSecurityGroups = DescribeSecurityGroupsResponse
-    request = qry GET "DescribeSecurityGroups"
+    request = query GET "DescribeSecurityGroups"
 
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { dshrRequestId         :: !Text
@@ -3899,7 +3898,7 @@ instance IsXML DescribeSecurityGroupsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeSnapshotAttribute DescribeSnapshotAttributeResponse where
---     request = qry GET "DescribeSnapshotAttribute"
+--     request = query GET "DescribeSnapshotAttribute"
 
 -- data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
 --     { dsaRequestId              :: !Text
@@ -3978,7 +3977,7 @@ instance IsXML DescribeSecurityGroupsResponse where
 -- instance IsQuery DescribeSnapshots
 
 -- instance AWSRequest EC2 DescribeSnapshots DescribeSnapshotsResponse where
---     request = qry GET "DescribeSnapshots"
+--     request = query GET "DescribeSnapshots"
 
 -- data DescribeSnapshotsResponse = DescribeSnapshotsResponse
 --     { dyRequestId   :: !Text
@@ -4005,7 +4004,7 @@ instance IsXML DescribeSecurityGroupsResponse where
 --     xmlPickler = xpEmpty $ Just ec2NS
 
 -- instance AWSRequest EC2 DescribeSpotDatafeedSubscription DescribeSpotDatafeedSubscriptionResponse where
---     request = qry GET "DescribeSpotDatafeedSubscription"
+--     request = query GET "DescribeSpotDatafeedSubscription"
 
 -- data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
 --     { dsdtRequestId                :: !Text
@@ -4094,7 +4093,7 @@ instance IsXML DescribeSecurityGroupsResponse where
 -- instance IsQuery DescribeSpotInstanceRequests
 
 -- instance AWSRequest EC2 DescribeSpotInstanceRequests DescribeSpotInstanceRequestsResponse where
---     request = qry GET "DescribeSpotInstanceRequests"
+--     request = query GET "DescribeSpotInstanceRequests"
 
 -- data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
 --     { dsirRequestId              :: !Text
@@ -4150,7 +4149,7 @@ instance IsXML DescribeSecurityGroupsResponse where
 -- instance IsQuery DescribeSpotPriceHistory
 
 -- instance AWSRequest EC2 DescribeSpotPriceHistory DescribeSpotPriceHistoryResponse where
---     request = qry GET "DescribeSpotPriceHistory"
+--     request = query GET "DescribeSpotPriceHistory"
 
 -- data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 --     { dsphRequestId           :: !Text
@@ -4214,7 +4213,7 @@ instance IsXML DescribeSecurityGroupsResponse where
 -- instance IsQuery DescribeSubnets
 
 -- instance AWSRequest EC2 DescribeSubnets DescribeSubnetsResponse where
---     request = qry GET "DescribeSubnets"
+--     request = query GET "DescribeSubnets"
 
 -- data DescribeSubnetsResponse = DescribeSubnetsResponse
 --     { dzRequestId :: !Text
@@ -4240,7 +4239,7 @@ instance IsQuery DescribeTags
 instance Rq DescribeTags where
     type Er DescribeTags = EC2ErrorResponse
     type Rs DescribeTags = DescribeTagsResponse
-    request = qry GET "DescribeTags"
+    request = query GET "DescribeTags"
 
 data DescribeTagsResponse = DescribeTagsResponse
     { dtagsrRequestId :: !Text
@@ -4270,7 +4269,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeVolumeAttribute DescribeVolumeAttributeResponse where
---     request = qry GET "DescribeVolumeAttribute"
+--     request = query GET "DescribeVolumeAttribute"
 
 -- data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
 --     { dvaRequestId    :: !Text
@@ -4337,7 +4336,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DescribeVolumes
 
 -- instance AWSRequest EC2 DescribeVolumes DescribeVolumesResponse where
---     request = qry GET "DescribeVolumes"
+--     request = query GET "DescribeVolumes"
 
 -- data DescribeVolumesResponse = DescribeVolumesResponse
 --     { ebRequestId :: !Text
@@ -4381,7 +4380,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DescribeVolumeStatus
 
 -- instance AWSRequest EC2 DescribeVolumeStatus DescribeVolumeStatusResponse where
---     request = qry GET "DescribeVolumeStatus"
+--     request = query GET "DescribeVolumeStatus"
 
 -- data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
 --     { dvsRequestId       :: !Text
@@ -4413,7 +4412,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DescribeVpcAttribute DescribeVpcAttributeResponse where
---     request = qry GET "DescribeVpcAttribute"
+--     request = query GET "DescribeVpcAttribute"
 
 -- data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
 --     { dvbRequestId          :: !Text
@@ -4475,7 +4474,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DescribeVpcs
 
 -- instance AWSRequest EC2 DescribeVpcs DescribeVpcsResponse where
---     request = qry GET "DescribeVpcs"
+--     request = query GET "DescribeVpcs"
 
 -- data DescribeVpcsResponse = DescribeVpcsResponse
 --     { ecRequestId :: !Text
@@ -4543,7 +4542,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DescribeVpnConnections
 
 -- instance AWSRequest EC2 DescribeVpnConnections DescribeVpnConnectionsResponse where
---     request = qry GET "DescribeVpnConnections"
+--     request = query GET "DescribeVpnConnections"
 
 -- data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
 --     { dvdRequestId        :: !Text
@@ -4600,7 +4599,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DescribeVpnGateways
 
 -- instance AWSRequest EC2 DescribeVpnGateways DescribeVpnGatewaysResponse where
---     request = qry GET "DescribeVpnGateways"
+--     request = query GET "DescribeVpnGateways"
 
 -- data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
 --     { dvhRequestId     :: !Text
@@ -4629,7 +4628,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DetachInternetGateway
 
 -- instance AWSRequest EC2 DetachInternetGateway DetachInternetGatewayResponse where
---     request = qry GET "DetachInternetGateway"
+--     request = query GET "DetachInternetGateway"
 
 -- data DetachInternetGatewayResponse = DetachInternetGatewayResponse
 --     { diiRequestId :: !Text
@@ -4659,7 +4658,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DetachNetworkInterface DetachNetworkInterfaceResponse where
---     request = qry GET "DetachNetworkInterface"
+--     request = query GET "DetachNetworkInterface"
 
 -- data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 --     { dnkRequestId :: !Text
@@ -4704,7 +4703,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DetachVolume DetachVolumeResponse where
---     request = qry GET "DetachVolume"
+--     request = query GET "DetachVolume"
 
 -- data DetachVolumeResponse = DetachVolumeResponse
 --     { edRequestId  :: !Text
@@ -4745,7 +4744,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DetachVpnGateway
 
 -- instance AWSRequest EC2 DetachVpnGateway DetachVpnGatewayResponse where
---     request = qry GET "DetachVpnGateway"
+--     request = query GET "DetachVpnGateway"
 
 -- data DetachVpnGatewayResponse = DetachVpnGatewayResponse
 --     { dviRequestId :: !Text
@@ -4773,7 +4772,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DisableVgwRoutePropagation
 
 -- instance AWSRequest EC2 DisableVgwRoutePropagation DisableVgwRoutePropagationResponse where
---     request = qry GET "DisableVgwRoutePropagation"
+--     request = query GET "DisableVgwRoutePropagation"
 
 -- data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 --     { dvrpRequestId :: !Text
@@ -4802,7 +4801,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery DisassociateAddress
 
 -- instance AWSRequest EC2 DisassociateAddress DisassociateAddressResponse where
---     request = qry GET "DisassociateAddress"
+--     request = query GET "DisassociateAddress"
 
 -- data DisassociateAddressResponse = DisassociateAddressResponse
 --     { dbRequestId :: !Text
@@ -4834,7 +4833,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 DisassociateRouteTable DisassociateRouteTableResponse where
---     request = qry GET "DisassociateRouteTable"
+--     request = query GET "DisassociateRouteTable"
 
 -- data DisassociateRouteTableResponse = DisassociateRouteTableResponse
 --     { drvRequestId :: !Text
@@ -4862,7 +4861,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery EnableVgwRoutePropagation
 
 -- instance AWSRequest EC2 EnableVgwRoutePropagation EnableVgwRoutePropagationResponse where
---     request = qry GET "EnableVgwRoutePropagation"
+--     request = query GET "EnableVgwRoutePropagation"
 
 -- data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 --     { evrpRequestId :: !Text
@@ -4888,7 +4887,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery EnableVolumeIO
 
 -- instance AWSRequest EC2 EnableVolumeIO EnableVolumeIOResponse where
---     request = qry GET "EnableVolumeIO"
+--     request = query GET "EnableVolumeIO"
 
 -- data EnableVolumeIOResponse = EnableVolumeIOResponse
 --     { evioRequestId :: !Text
@@ -4925,7 +4924,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery GetConsoleOutput
 
 -- instance AWSRequest EC2 GetConsoleOutput GetConsoleOutputResponse where
---     request = qry GET "GetConsoleOutput"
+--     request = query GET "GetConsoleOutput"
 
 -- data GetConsoleOutputResponse = GetConsoleOutputResponse
 --     { gcoRequestId  :: !Text
@@ -4960,7 +4959,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery GetPasswordData
 
 -- instance AWSRequest EC2 GetPasswordData GetPasswordDataResponse where
---     request = qry GET "GetPasswordData"
+--     request = query GET "GetPasswordData"
 
 -- data GetPasswordDataResponse = GetPasswordDataResponse
 --     { gpdRequestId    :: !Text
@@ -5001,7 +5000,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ImportInstance ImportInstanceResponse where
---     request = qry GET "ImportInstance"
+--     request = query GET "ImportInstance"
 
 -- data ImportInstanceResponse = ImportInstanceResponse
 --     { iiConversionTask :: !ConversionTaskType
@@ -5037,7 +5036,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery ImportKeyPair
 
 -- instance AWSRequest EC2 ImportKeyPair ImportKeyPairResponse where
---     request = qry GET "ImportKeyPair"
+--     request = query GET "ImportKeyPair"
 
 -- data ImportKeyPairResponse = ImportKeyPairResponse
 --     { ikpRequestId      :: !Text
@@ -5078,7 +5077,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ImportVolume ImportVolumeResponse where
---     request = qry GET "ImportVolume"
+--     request = query GET "ImportVolume"
 
 -- data ImportVolumeResponse = ImportVolumeResponse
 --     { ivConversionTask :: !ConversionTaskType
@@ -5113,7 +5112,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyImageAttribute ModifyImageAttributeResponse where
---     request = qry GET "ModifyImageAttribute"
+--     request = query GET "ModifyImageAttribute"
 
 -- data ModifyImageAttributeResponse = ModifyImageAttributeResponse
 --     { miaRequestId :: !Text
@@ -5182,7 +5181,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyInstanceAttribute ModifyInstanceAttributeResponse where
---     request = qry GET "ModifyInstanceAttribute"
+--     request = query GET "ModifyInstanceAttribute"
 
 -- data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 --     { mibRequestId :: !Text
@@ -5226,7 +5225,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyNetworkInterfaceAttribute ModifyNetworkInterfaceAttributeResponse where
---     request = qry GET "ModifyNetworkInterfaceAttribute"
+--     request = query GET "ModifyNetworkInterfaceAttribute"
 
 -- data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
 --     { mniaRequestId :: !Text
@@ -5257,7 +5256,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifySnapshotAttribute ModifySnapshotAttributeResponse where
---     request = qry GET "ModifySnapshotAttribute"
+--     request = query GET "ModifySnapshotAttribute"
 
 -- data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 --     { msaRequestId :: !Text
@@ -5296,7 +5295,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyVolumeAttribute ModifyVolumeAttributeResponse where
---     request = qry GET "ModifyVolumeAttribute"
+--     request = query GET "ModifyVolumeAttribute"
 
 -- data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 --     { mvaRequestId :: !Text
@@ -5333,7 +5332,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ModifyVpcAttribute ModifyVpcAttributeResponse where
---     request = qry GET "ModifyVpcAttribute"
+--     request = query GET "ModifyVpcAttribute"
 
 -- data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
 --     { mvbRequestId :: !Text
@@ -5360,7 +5359,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery MonitorInstances
 
 -- instance AWSRequest EC2 MonitorInstances MonitorInstancesResponse where
---     request = qry GET "MonitorInstances"
+--     request = query GET "MonitorInstances"
 
 -- data MonitorInstancesResponse = MonitorInstancesResponse
 --     { miRequestId    :: !Text
@@ -5431,7 +5430,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery PurchaseReservedInstancesOffering
 
 -- instance AWSRequest EC2 PurchaseReservedInstancesOffering PurchaseReservedInstancesOfferingResponse where
---     request = qry GET "PurchaseReservedInstancesOffering"
+--     request = query GET "PurchaseReservedInstancesOffering"
 
 -- data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
 --     { prioRequestId           :: !Text
@@ -5458,7 +5457,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery RebootInstances
 
 -- instance AWSRequest EC2 RebootInstances RebootInstancesResponse where
---     request = qry GET "RebootInstances"
+--     request = query GET "RebootInstances"
 
 -- data RebootInstancesResponse = RebootInstancesResponse
 --     { riRequestId :: !Text
@@ -5512,7 +5511,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 RegisterImage RegisterImageResponse where
---     request = qry GET "RegisterImage"
+--     request = query GET "RegisterImage"
 
 -- data RegisterImageResponse = RegisterImageResponse
 --     { rjRequestId :: !Text
@@ -5545,7 +5544,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery ReleaseAddress
 
 -- instance AWSRequest EC2 ReleaseAddress ReleaseAddressResponse where
---     request = qry GET "ReleaseAddress"
+--     request = query GET "ReleaseAddress"
 
 -- data ReleaseAddressResponse = ReleaseAddressResponse
 --     { raRequestId :: !Text
@@ -5576,7 +5575,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery ReplaceNetworkAclAssociation
 
 -- instance AWSRequest EC2 ReplaceNetworkAclAssociation ReplaceNetworkAclAssociationResponse where
---     request = qry GET "ReplaceNetworkAclAssociation"
+--     request = query GET "ReplaceNetworkAclAssociation"
 
 -- data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
 --     { rnaaRequestId        :: !Text
@@ -5620,7 +5619,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery ReplaceNetworkAclEntry
 
 -- instance AWSRequest EC2 ReplaceNetworkAclEntry ReplaceNetworkAclEntryResponse where
---     request = qry GET "ReplaceNetworkAclEntry"
+--     request = query GET "ReplaceNetworkAclEntry"
 
 -- data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 --     { rnaeRequestId :: !Text
@@ -5660,7 +5659,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ReplaceRoute ReplaceRouteResponse where
---     request = qry GET "ReplaceRoute"
+--     request = query GET "ReplaceRoute"
 
 -- data ReplaceRouteResponse = ReplaceRouteResponse
 --     { rrRequestId :: !Text
@@ -5693,7 +5692,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery ReplaceRouteTableAssociation
 
 -- instance AWSRequest EC2 ReplaceRouteTableAssociation ReplaceRouteTableAssociationResponse where
---     request = qry GET "ReplaceRouteTableAssociation"
+--     request = query GET "ReplaceRouteTableAssociation"
 
 -- data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
 --     { rrtaRequestId        :: !Text
@@ -5738,7 +5737,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery ReportInstanceStatus
 
 -- instance AWSRequest EC2 ReportInstanceStatus ReportInstanceStatusResponse where
---     request = qry GET "ReportInstanceStatus"
+--     request = query GET "ReportInstanceStatus"
 
 -- data ReportInstanceStatusResponse = ReportInstanceStatusResponse
 --     { risRequestId :: !Text
@@ -5793,7 +5792,7 @@ instance IsXML DescribeTagsResponse where
 -- instance IsQuery RequestSpotInstances
 
 -- instance AWSRequest EC2 RequestSpotInstances RequestSpotInstancesResponse where
---     request = qry GET "RequestSpotInstances"
+--     request = query GET "RequestSpotInstances"
 
 -- data RequestSpotInstancesResponse = RequestSpotInstancesResponse
 --     { rsiRequestId              :: !Text
@@ -5824,7 +5823,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ResetImageAttribute ResetImageAttributeResponse where
---     request = qry GET "ResetImageAttribute"
+--     request = query GET "ResetImageAttribute"
 
 -- data ResetImageAttributeResponse = ResetImageAttributeResponse
 --     { riaRequestId :: !Text
@@ -5861,7 +5860,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ResetInstanceAttribute ResetInstanceAttributeResponse where
---     request = qry GET "ResetInstanceAttribute"
+--     request = query GET "ResetInstanceAttribute"
 
 -- data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
 --     { ribRequestId :: !Text
@@ -5892,7 +5891,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ResetNetworkInterfaceAttribute ResetNetworkInterfaceAttributeResponse where
---     request = qry GET "ResetNetworkInterfaceAttribute"
+--     request = query GET "ResetNetworkInterfaceAttribute"
 
 -- data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
 --     { rniaRequestId :: !Text
@@ -5923,7 +5922,7 @@ instance IsXML DescribeTagsResponse where
 --     xmlPickler = ec2XML
 
 -- instance AWSRequest EC2 ResetSnapshotAttribute ResetSnapshotAttributeResponse where
---     request = qry GET "ResetSnapshotAttribute"
+--     request = query GET "ResetSnapshotAttribute"
 
 -- data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 --     { rsaRequestId :: !Text
@@ -5954,7 +5953,7 @@ instance IsQuery RevokeSecurityGroupEgress
 instance Rq RevokeSecurityGroupEgress where
     type Er RevokeSecurityGroupEgress = EC2ErrorResponse
     type Rs RevokeSecurityGroupEgress = RevokeSecurityGroupEgressResponse
-    request = qry GET "RevokeSecurityGroupEgress"
+    request = query GET "RevokeSecurityGroupEgress"
 
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
     { rsgerRequestId :: !Text
@@ -5990,7 +5989,7 @@ instance IsQuery RevokeSecurityGroupIngress
 instance Rq RevokeSecurityGroupIngress where
     type Er RevokeSecurityGroupIngress = EC2ErrorResponse
     type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse
-    request = qry GET "RevokeSecurityGroupIngress"
+    request = query GET "RevokeSecurityGroupIngress"
 
 data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
     { rsgirRequestId :: !Text
@@ -6090,7 +6089,7 @@ instance IsQuery RunInstances
 instance Rq RunInstances where
     type Er RunInstances = EC2ErrorResponse
     type Rs RunInstances = RunInstancesResponse
-    request = qry GET "RunInstances"
+    request = query GET "RunInstances"
 
 data RunInstancesResponse = RunInstancesResponse
     { rirRequestId     :: !Text
@@ -6137,7 +6136,7 @@ instance IsXML RunInstancesResponse where
 -- instance IsQuery StartInstances
 
 -- instance AWSRequest EC2 StartInstances StartInstancesResponse where
---     request = qry GET "StartInstances"
+--     request = query GET "StartInstances"
 
 -- data StartInstancesResponse = StartInstancesResponse
 --     { siRequestId    :: !Text
@@ -6188,7 +6187,7 @@ instance IsXML RunInstancesResponse where
 -- instance IsQuery StopInstances
 
 -- instance AWSRequest EC2 StopInstances StopInstancesResponse where
---     request = qry GET "StopInstances"
+--     request = query GET "StopInstances"
 
 -- data StopInstancesResponse = StopInstancesResponse
 --     { sjRequestId    :: !Text
@@ -6223,7 +6222,7 @@ instance IsXML RunInstancesResponse where
 -- instance IsQuery TerminateInstances
 
 -- instance AWSRequest EC2 TerminateInstances TerminateInstancesResponse where
---     request = qry GET "TerminateInstances"
+--     request = query GET "TerminateInstances"
 
 -- data TerminateInstancesResponse = TerminateInstancesResponse
 --     { tiRequestId    :: !Text
@@ -6254,7 +6253,7 @@ instance IsXML RunInstancesResponse where
 -- instance IsQuery UnassignPrivateIpAddresses
 
 -- instance AWSRequest EC2 UnassignPrivateIpAddresses UnassignPrivateIpAddressesResponse where
---     request = qry GET "UnassignPrivateIpAddresses"
+--     request = query GET "UnassignPrivateIpAddresses"
 
 -- data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 --     { upiaRequestId :: !Text
@@ -6281,7 +6280,7 @@ instance IsXML RunInstancesResponse where
 -- instance IsQuery UnmonitorInstances
 
 -- instance AWSRequest EC2 UnmonitorInstances UnmonitorInstancesResponse where
---     request = qry GET "UnmonitorInstances"
+--     request = query GET "UnmonitorInstances"
 
 -- data UnmonitorInstancesResponse = UnmonitorInstancesResponse
 --     { uiRequestId    :: !Text

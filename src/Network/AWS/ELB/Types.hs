@@ -13,16 +13,15 @@
 
 module Network.AWS.ELB.Types where
 
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import           Data.Monoid
-import           Data.Text             (Text)
-import           Data.Time
-import           Network.AWS.Internal
+import Data.ByteString      (ByteString)
+import Data.Monoid
+import Data.Text            (Text)
+import Data.Time
+import Network.AWS.Internal
 
 -- | Currently supported version of the ELB service.
 elb :: Service
-elb = Regional "elasticloadbalancing" "2012-06-01"
+elb = Service Regional "elasticloadbalancing" "2012-06-01"
 
 data ELBError = ELBError
     { cweCode    :: !Text

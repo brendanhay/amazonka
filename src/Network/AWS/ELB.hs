@@ -123,11 +123,8 @@ import Network.AWS.ELB.Types
 import Network.AWS.Internal
 import Network.Http.Client   (Method(..))
 
-qry :: IsQuery a => Method -> ByteString -> a -> RawRequest
-qry meth act q = queryAppend (queryRequest elbService meth "/" q)
-    [ ("Action",  act)
-    , ("Version", sPack elbVersion)
-    ]
+query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
+query = version4Query elb
 
 --
 -- Actions
@@ -156,7 +153,7 @@ instance IsQuery ApplySecurityGroupsToLoadBalancer
 instance Rq ApplySecurityGroupsToLoadBalancer where
     type Er ApplySecurityGroupsToLoadBalancer = ELBError
     type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
-    request = qry GET "ApplySecurityGroupsToLoadBalancer"
+    request = query GET "ApplySecurityGroupsToLoadBalancer"
 
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { asgtlbrResponseMetadata :: !Text
@@ -187,7 +184,7 @@ instance IsQuery AttachLoadBalancerToSubnets
 instance Rq AttachLoadBalancerToSubnets where
     type Er AttachLoadBalancerToSubnets = ELBError
     type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse
-    request = qry GET "AttachLoadBalancerToSubnets"
+    request = query GET "AttachLoadBalancerToSubnets"
 
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { albtsrResponseMetadata :: !Text
@@ -217,7 +214,7 @@ instance IsQuery ConfigureHealthCheck
 instance Rq ConfigureHealthCheck where
     type Er ConfigureHealthCheck = ELBError
     type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
-    request = qry GET "ConfigureHealthCheck"
+    request = query GET "ConfigureHealthCheck"
 
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { chcrResponseMetadata :: !Text
@@ -264,7 +261,7 @@ instance IsQuery CreateAppCookieStickinessPolicy
 instance Rq CreateAppCookieStickinessPolicy where
     type Er CreateAppCookieStickinessPolicy = ELBError
     type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse
-    request = qry GET "CreateAppCookieStickinessPolicy"
+    request = query GET "CreateAppCookieStickinessPolicy"
 
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
     { cacsprResponseMetadata :: !Text
@@ -313,7 +310,7 @@ instance IsQuery CreatelbCookieStickinessPolicy
 instance Rq CreatelbCookieStickinessPolicy where
     type Er CreatelbCookieStickinessPolicy = ELBError
     type Rs CreatelbCookieStickinessPolicy = CreatelbCookieStickinessPolicyResponse
-    request = qry GET "CreatelbCookieStickinessPolicy"
+    request = query GET "CreatelbCookieStickinessPolicy"
 
 data CreatelbCookieStickinessPolicyResponse = CreatelbCookieStickinessPolicyResponse
     { clbcsprResponseMetadata :: !Text
@@ -368,7 +365,7 @@ instance IsQuery CreateLoadBalancer
 instance Rq CreateLoadBalancer where
     type Er CreateLoadBalancer = ELBError
     type Rs CreateLoadBalancer = CreateLoadBalancerResponse
-    request = qry GET "CreateLoadBalancer"
+    request = query GET "CreateLoadBalancer"
 
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { clbrResponseMetadata :: !Text
@@ -400,7 +397,7 @@ instance IsQuery CreateLoadBalancerListeners
 instance Rq CreateLoadBalancerListeners where
     type Er CreateLoadBalancerListeners = ELBError
     type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse
-    request = qry GET "CreateLoadBalancerListeners"
+    request = query GET "CreateLoadBalancerListeners"
 
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
     { clblrResponseMetadata :: !Text
@@ -440,7 +437,7 @@ instance IsQuery CreateLoadBalancerPolicy
 instance Rq CreateLoadBalancerPolicy where
     type Er CreateLoadBalancerPolicy = ELBError
     type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
-    request = qry GET "CreateLoadBalancerPolicy"
+    request = query GET "CreateLoadBalancerPolicy"
 
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
     { clbprResponseMetadata :: !Text
@@ -477,7 +474,7 @@ instance IsQuery DeleteLoadBalancer
 instance Rq DeleteLoadBalancer where
     type Er DeleteLoadBalancer = ELBError
     type Rs DeleteLoadBalancer = DeleteLoadBalancerResponse
-    request = qry GET "DeleteLoadBalancer"
+    request = query GET "DeleteLoadBalancer"
 
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
     { dlbrResponseMetadata :: !Text
@@ -506,7 +503,7 @@ instance IsQuery DeleteLoadBalancerListeners
 instance Rq DeleteLoadBalancerListeners where
     type Er DeleteLoadBalancerListeners = ELBError
     type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
-    request = qry GET "DeleteLoadBalancerListeners"
+    request = query GET "DeleteLoadBalancerListeners"
 
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
     { dlblrResponseMetadata :: !Text
@@ -536,7 +533,7 @@ instance IsQuery DeleteLoadBalancerPolicy
 instance Rq DeleteLoadBalancerPolicy where
     type Er DeleteLoadBalancerPolicy = ELBError
     type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
-    request = qry GET "DeleteLoadBalancerPolicy"
+    request = query GET "DeleteLoadBalancerPolicy"
 
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
     { dlbprResponseMetadata :: !Text
@@ -569,7 +566,7 @@ instance IsQuery DeregisterInstancesFromLoadBalancer
 instance Rq DeregisterInstancesFromLoadBalancer where
     type Er DeregisterInstancesFromLoadBalancer = ELBError
     type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse
-    request = qry GET "DeregisterInstancesFromLoadBalancer"
+    request = query GET "DeregisterInstancesFromLoadBalancer"
 
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { diflbrResponseMetadata :: !Text
@@ -603,7 +600,7 @@ instance IsQuery DescribeInstanceHealth
 instance Rq DescribeInstanceHealth where
     type Er DescribeInstanceHealth = ELBError
     type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
-    request = qry GET "DescribeInstanceHealth"
+    request = query GET "DescribeInstanceHealth"
 
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { dihrResponseMetadata :: !Text
@@ -641,7 +638,7 @@ instance IsQuery DescribeLoadBalancerPolicies
 instance Rq DescribeLoadBalancerPolicies where
     type Er DescribeLoadBalancerPolicies = ELBError
     type Rs DescribeLoadBalancerPolicies = DescribeLoadBalancerPoliciesResponse
-    request = qry GET "DescribeLoadBalancerPolicies"
+    request = query GET "DescribeLoadBalancerPolicies"
 
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     { dlbpsResponseMetadata :: !Text
@@ -672,7 +669,7 @@ instance IsQuery DescribeLoadBalancerPolicyTypes
 instance Rq DescribeLoadBalancerPolicyTypes where
     type Er DescribeLoadBalancerPolicyTypes = ELBError
     type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
-    request = qry GET "DescribeLoadBalancerPolicyTypes"
+    request = query GET "DescribeLoadBalancerPolicyTypes"
 
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { dlbptrResponseMetadata :: !Text
@@ -706,7 +703,7 @@ instance IsQuery DescribeLoadBalancers
 instance Rq DescribeLoadBalancers where
     type Er DescribeLoadBalancers = ELBError
     type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
-    request = qry GET "DescribeLoadBalancers"
+    request = query GET "DescribeLoadBalancers"
 
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { dlbsResponseMetadata :: !Text
@@ -741,7 +738,7 @@ instance IsQuery DetachLoadBalancerFromSubnets
 instance Rq DetachLoadBalancerFromSubnets where
     type Er DetachLoadBalancerFromSubnets = ELBError
     type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse
-    request = qry GET "DetachLoadBalancerFromSubnets"
+    request = query GET "DetachLoadBalancerFromSubnets"
 
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     { dlbfsrResponseMetadata :: !Text
@@ -783,7 +780,7 @@ instance IsQuery DisableAvailabilityZonesForLoadBalancer
 instance Rq DisableAvailabilityZonesForLoadBalancer where
     type Er DisableAvailabilityZonesForLoadBalancer = ELBError
     type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse
-    request = qry GET "DisableAvailabilityZonesForLoadBalancer"
+    request = query GET "DisableAvailabilityZonesForLoadBalancer"
 
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
     { dazflbrResponseMetadata :: !Text
@@ -820,7 +817,7 @@ instance IsQuery EnableAvailabilityZonesForLoadBalancer
 instance Rq EnableAvailabilityZonesForLoadBalancer where
     type Er EnableAvailabilityZonesForLoadBalancer = ELBError
     type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse
-    request = qry GET "EnableAvailabilityZonesForLoadBalancer"
+    request = query GET "EnableAvailabilityZonesForLoadBalancer"
 
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
     { eazflbrResponseMetadata :: !Text
@@ -859,7 +856,7 @@ instance IsQuery RegisterInstancesWithLoadBalancer
 instance Rq RegisterInstancesWithLoadBalancer where
     type Er RegisterInstancesWithLoadBalancer = ELBError
     type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse
-    request = qry GET "RegisterInstancesWithLoadBalancer"
+    request = query GET "RegisterInstancesWithLoadBalancer"
 
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { riwlbrResponseMetadata :: !Text
@@ -896,7 +893,7 @@ instance IsQuery SetLoadBalancerListenerSSLCertificate
 instance Rq SetLoadBalancerListenerSSLCertificate where
     type Er SetLoadBalancerListenerSSLCertificate = ELBError
     type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
-    request = qry GET "SetLoadBalancerListenerSSLCertificate"
+    request = query GET "SetLoadBalancerListenerSSLCertificate"
 
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
     { slblsslcrResponseMetadata :: !Text
@@ -933,7 +930,7 @@ instance IsQuery SetLoadBalancerPoliciesForBackendServer
 instance Rq SetLoadBalancerPoliciesForBackendServer where
     type Er SetLoadBalancerPoliciesForBackendServer = ELBError
     type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
-    request = qry GET "SetLoadBalancerPoliciesForBackendServer"
+    request = query GET "SetLoadBalancerPoliciesForBackendServer"
 
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     { slbpfbsrResponseMetadata :: !Text
@@ -968,7 +965,7 @@ instance IsQuery SetLoadBalancerPoliciesOfListener
 instance Rq SetLoadBalancerPoliciesOfListener where
     type Er SetLoadBalancerPoliciesOfListener = ELBError
     type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
-    request = qry GET "SetLoadBalancerPoliciesOfListener"
+    request = query GET "SetLoadBalancerPoliciesOfListener"
 
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
     { slbpolrResponseMetadata :: !Text

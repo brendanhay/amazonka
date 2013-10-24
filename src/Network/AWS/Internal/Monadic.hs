@@ -56,8 +56,9 @@ within :: Region -> AWS a -> AWS a
 within reg = AWS . local (\e -> e { awsRegion = reg }) . unwrap
 
 region :: Service -> AWS Region
-region (Global _ _) = return defaultRegion
-region _            = getRegion
+region Service{..}
+    | svcEndpoint == Global = return defaultRegion
+    | otherwise             = getRegion
 
 defaultRegion :: Region
 defaultRegion = NorthVirginia

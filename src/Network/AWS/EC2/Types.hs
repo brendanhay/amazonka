@@ -26,7 +26,7 @@ import           Text.Read
 
 -- | Currently supported version (2013-07-15) of the EC2 service.
 ec2 :: Service
-ec2 = Regional "ec2" "2013-08-15"
+ec2 = Service Regional "ec2" "2013-08-15"
 
 data EC2Error = EC2Error
     { ecCode    :: !Text

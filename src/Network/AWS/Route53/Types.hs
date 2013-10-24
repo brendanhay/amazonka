@@ -28,7 +28,7 @@ import           Text.Read
 
 -- | Currently supported version of the Route53 service.
 route53 :: Service
-route53 = Global "route53" "2012-12-12"
+route53 = Service Global "route53" "2012-12-12"
 
 class Prefixed a where
     prefixed :: a -> ByteString
@@ -359,3 +359,6 @@ route53NS = "https://route53.amazonaws.com/doc/" <> svcVersion route53 <> "/"
 -- | Helper to define Route53 namespaced XML elements.
 route53Elem :: ByteString -> NName ByteString
 route53Elem = mkNName route53NS
+
+route53Path :: ByteString -> ByteString
+route53Path path = BS.concat [svcVersion route53, "/", path]

@@ -1,5 +1,3 @@
-{-# LANGUAGE ConstraintKinds            #-}
-{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
@@ -30,18 +28,12 @@ import           Control.Monad.Reader
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
-import           Data.List                       (intercalate)
 import           Data.Monoid
 import           Data.String
-import           Data.Strings
-import           Data.Text                       (Text)
-import qualified Data.Text                       as Text
 import           GHC.Generics
-import           GHC.TypeLits
 import           Network.AWS.Headers
-import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
-import           Network.Http.Client             (Method, Hostname)
+import           Network.Http.Client             (Method)
 import qualified Network.Http.Client             as Client
 import           System.IO.Streams               (InputStream)
 import qualified System.IO.Streams               as Stream
@@ -130,16 +122,21 @@ data Env = Env
 newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT AWSError IO) a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env, MonadError AWSError)
 
-data Service
-    = Global   { svcName :: !ByteString, svcVersion :: !ByteString }
-    | Regional { svcName :: !ByteString, svcVersion :: !ByteString }
-      deriving (Show)
+data Endpoint = Global | Regional | Custom !ByteString
+    deriving (Eq, Show)
+
+data Service = Service
+    { svcEndpoint :: !Endpoint
+    , svcName     :: !ByteString
+    , svcVersion  :: !ByteString
+    } deriving (Eq, Show)
 
 endpoint :: Service -> Region -> ByteString
-endpoint svc reg = BS.intercalate "." $
-    case svc of
-        (Global   n _) -> [n, "amazonaws.com"]
-        (Regional n _) -> [n, BS.pack $ show reg, "amazonaws.com"]
+endpoint Service{..} reg = BS.intercalate "." $
+    case svcEndpoint of
+        Global    -> [svcName, "amazonaws.com"]
+        Regional  -> [svcName, BS.pack $ show reg, "amazonaws.com"]
+        Custom bs -> [bs]
 
 data Body
     = Strict ByteString
@@ -169,8 +166,8 @@ data Signed = Signed
 instance Show Signed where
     show Signed{..} = unlines
         [ "Signed:"
-        , BS.unpack $ "sURL = " <> sURL
-        , show sBody
+        , "sURL  = " ++ BS.unpack sURL
+        , "sBody = " ++ show sBody
         , ""
         ] ++ show sRequest
 
@@ -182,27 +179,6 @@ instance Show Signed where
 --         , "rqPath"    .= rqPath
 --         , "rqQuery"   .= rqQuery
 --         ]
-
--- queryAppend :: Request -> [(ByteString, ByteString)] -> Request
--- queryAppend rq qry = rq { rqQuery = rqQuery rq ++ qry }
-
--- queryRequest :: IsQuery a
---              => Service
---              -> Method
---              -> ByteString
---              -> a
---              -> Request
--- queryRequest svc meth path q =
---     Request svc meth path [hdr (Content :: FormURLEncoded)] (toQuery q) Empty
-
--- xmlRequest :: IsXML a
---            => Service
---            -> Method
---            -> ByteString
---            -> a
---            -> Request
--- xmlRequest svc meth path =
---     Request svc meth path [hdr (Content :: XML)] [] . Strict . toXML
 
 data Response = Response
     { rsCode    :: !Int

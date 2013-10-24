@@ -27,7 +27,8 @@ library
     hs-source-dirs:    src
 
     exposed-modules:
-        Network.AWS.Headers
+        Network.AWS
+      , Network.AWS.Headers
 
       , Network.AWS.AutoScaling
       , Network.AWS.CloudWatch
@@ -39,8 +40,7 @@ library
       , Network.AWS.S3
 
     other-modules:
-        Network.AWS
-      , Network.AWS.Internal
+        Network.AWS.Internal
       , Network.AWS.Internal.Instances
       , Network.AWS.Internal.Monadic
       , Network.AWS.Internal.Request

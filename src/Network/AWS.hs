@@ -51,6 +51,7 @@ module Network.AWS
 
     -- * Error Lifting
     , AWSError    (..)
+    , toError
     , hoistError
     , liftEitherT
     ) where

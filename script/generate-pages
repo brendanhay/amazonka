@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -x
+set -o errexit
+
+cabal configure --disable-tests
+
+DOCDIR=`mktemp -d -t pages.XXXXXX`
+cabal haddock --haddock-option=-o$DOCDIR
+
+HEAD=`git rev-parse HEAD`
+
+git checkout gh-pages
+git rm -rf --ignore-unmatch .
+
+mv $DOCDIR/* .
+rm -rf dist/
+git add *.html *.js *.css *.gif *.png
+
+git commit -m "Generated documentation from $HEAD"

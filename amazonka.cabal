@@ -67,6 +67,7 @@ library
       , base                  >= 4.6 && < 5
       , base64-bytestring
       , bytestring
+      , case-insensitive
       , containers
       , cryptohash
       , errors

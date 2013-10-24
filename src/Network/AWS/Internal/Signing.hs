@@ -1,6 +1,7 @@
 {-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Internal.Signing
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,6 +27,8 @@ import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Base64          as Base64
 import qualified Data.ByteString.Char8           as BS
 import qualified Data.ByteString.Lazy            as LBS
+import qualified Data.CaseInsensitive            as Case
+import           Data.CaseInsensitive            (CI)
 import           Data.Char                       (intToDigit, ord)
 import qualified Data.Digest.Pure.SHA            as SHA
 import           Data.Function                   (on)
@@ -159,7 +162,11 @@ version4 rq@Request{..} Auth{..} reg time = do
         ]
 
     canonicalHeaders = mconcat . map flattenValues . groupHeaders
-    signedHeaders    = BS.intercalate ";" . nub . map fst . groupHeaders
+
+    signedHeaders = BS.intercalate ";"
+        . nub
+        . map (Case.original . fst)
+        . groupHeaders
 
     bodySHA256 = case rqBody of
         (Strict   bs) -> strictSHA256 bs
@@ -198,7 +205,7 @@ versionS3 bucket rq@Request{..} Auth{..} reg time =
 
     canonicalHeaders = BS.intercalate "\n"
         . map flattenValues
-        . filter (BS.isPrefixOf "x-amz" . fst)
+        . filter (BS.isPrefixOf "x-amz" . Case.foldedCase . fst)
         $ groupHeaders signingHeaders
 
     signingHeaders = hdr (dateHeader date) : rqHeaders
@@ -220,8 +227,8 @@ signed meth host path hs body = Signed ("https://" <> host) body <$> builder
     builder = Client.buildRequest $ do
         Client.http meth $ "/" `sEnsurePrefix` path
         Client.setHostname host 443
-        mapM_ (uncurry Client.setHeader)
-            . filter ((/= "Host") . fst)
+        mapM_ (\(k, v) -> Client.setHeader (Case.original k) v)
+            . filter ((/= Case.mk "host") . fst)
             $ flattenHeaders hs
 
 hmac :: ByteString -> ByteString -> ByteString
@@ -257,16 +264,23 @@ authHeader = Header
 acceptHeader :: Header "accept-encoding" ByteString
 acceptHeader = Header "gzip"
 
-groupHeaders :: [AnyHeader] -> [(ByteString, ByteString)]
+groupHeaders :: [AnyHeader] -> [(CI ByteString, ByteString)]
 groupHeaders = sort . map f . groupBy ((==) `on` fst) . flattenHeaders
   where
     f (h:hs) = (fst h, BS.intercalate "," . sort . map snd $ h : hs)
     f []     = ("", "")
 
-flattenValues :: (Monoid a, IsString a, Strings a) => (a, a) -> a
-flattenValues (k, v) = mconcat [k, ":", sStripChar ' ' v]
+flattenValues :: (Monoid a, IsString a, Strings a) => (CI a, a) -> a
+flattenValues (k, v) = mconcat [Case.original k, ":", sStripChar ' ' v]
+
+flattenHeaders :: [AnyHeader] -> [(CI ByteString, ByteString)]
+flattenHeaders = map (`encodeHeader` "")
+
+lookupHeader :: ByteString -> [AnyHeader] -> Maybe ByteString
+lookupHeader (Case.mk -> key) = lookup key . flattenHeaders
 
 joinPath :: ByteString -> ByteString -> ByteString
 joinPath path qry
     | BS.null qry = "/" `sEnsurePrefix` path
     | otherwise   = "/" `sWrap` path <> "?" <> qry
+

@@ -9,7 +9,6 @@
 {-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeOperators              #-}
-{-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
@@ -25,12 +24,12 @@
 
 module Network.AWS.Headers where
 
-import           Control.Arrow          (first)
 import           Crypto.Hash.MD5
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Base64 as Base64
 import qualified Data.ByteString.Char8  as BS
-import           Data.Char              (toLower)
+import           Data.CaseInsensitive   (CI)
+import qualified Data.CaseInsensitive   as Case
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text.Encoding     as Text
@@ -40,14 +39,8 @@ import           GHC.TypeLits
 
 default (ByteString)
 
-flattenHeaders :: [AnyHeader] -> [(ByteString, ByteString)]
-flattenHeaders = map (first (BS.map toLower) . (`encodeHeader` ""))
-
-lookupHeader :: ByteString -> [AnyHeader] -> Maybe ByteString
-lookupHeader (BS.map toLower -> key) = lookup key . flattenHeaders
-
 class IsHeader a where
-    encodeHeader :: a -> ByteString -> (ByteString, ByteString)
+    encodeHeader :: a -> ByteString -> (CI ByteString, ByteString)
 
 instance IsHeader v => IsHeader (ByteString, v) where
     encodeHeader (k, v) = encodeHeader v . (`mappend` k)
@@ -56,13 +49,13 @@ instance IsHeader v => IsHeader (Text, v) where
     encodeHeader (k, v) = encodeHeader (Text.encodeUtf8 k, v)
 
 instance IsHeader ByteString where
-    encodeHeader s = (, s)
+    encodeHeader s = (, s) . Case.mk
 
 instance IsHeader Text where
-    encodeHeader s = (, Text.encodeUtf8 s)
+    encodeHeader s = (, Text.encodeUtf8 s) . Case.mk
 
 instance IsHeader String where
-    encodeHeader s = (, BS.pack s)
+    encodeHeader s = (, BS.pack s) . Case.mk
 
 instance IsHeader Integer where
     encodeHeader n = encodeHeader (show n)

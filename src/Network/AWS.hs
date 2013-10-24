@@ -107,13 +107,13 @@ sendCatch rq = do
                 m  = getStatusMessage rs
                 hs = retrieveHeaders $ getHeaders rs
             in Response c m hs <$> if dbg
-                then Streams.mapM (\x -> print x >> return x) s
+                then print rs >> Streams.mapM (\x -> print x >> return x) s
                 else return s
 
     raise rs@Response{..}
         | rsCode < 400 = return rs
         | otherwise    = throwError . Err $
-            concat [show rsCode, ":", BS.unpack rsMessage]
+            concat [show rsCode, " ", BS.unpack rsMessage]
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
 async aws = AWS ask >>= liftIO . A.async . runEnv aws

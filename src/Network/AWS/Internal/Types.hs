@@ -122,21 +122,30 @@ data Env = Env
 newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT AWSError IO) a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env, MonadError AWSError)
 
-data Endpoint = Global | Regional | Custom !ByteString
+data Service
+    = Global
+      { svcName     :: !ByteString
+      , svcVersion  :: !ByteString
+      }
+    | Regional
+      { svcName     :: !ByteString
+      , svcVersion  :: !ByteString
+      }
+    | Specific
+      { svcName     :: !ByteString
+      , svcVersion  :: !ByteString
+      , svcEndpoint :: !ByteString
+      }
     deriving (Eq, Show)
 
-data Service = Service
-    { svcEndpoint :: !Endpoint
-    , svcName     :: !ByteString
-    , svcVersion  :: !ByteString
-    } deriving (Eq, Show)
-
 endpoint :: Service -> Region -> ByteString
-endpoint Service{..} reg = BS.intercalate "." $
-    case svcEndpoint of
-        Global    -> [svcName, "amazonaws.com"]
-        Regional  -> [svcName, BS.pack $ show reg, "amazonaws.com"]
-        Custom bs -> [bs]
+endpoint Global{..}   _ = svcName <> ".amazonaws.com"
+endpoint Regional{..} r = BS.intercalate "." $
+    [svcName, BS.pack $ show r, "amazonaws.com"]
+endpoint Specific{..} _ = svcEndpoint
+
+override :: ByteString -> Service -> Service
+override bs svc = Specific (svcName svc) (svcVersion svc) bs
 
 data Body
     = Strict ByteString

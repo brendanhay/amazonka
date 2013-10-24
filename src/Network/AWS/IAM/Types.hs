@@ -21,7 +21,7 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the IAM service.
 iam :: Service
-iam = Service Global "iam" "2010-05-08"
+iam = Global "iam" "2010-05-08"
 
 data ErrorType = ErrorType
     { etType    :: !Text

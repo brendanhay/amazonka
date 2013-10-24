@@ -21,7 +21,7 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the ELB service.
 elb :: Service
-elb = Service Regional "elasticloadbalancing" "2012-06-01"
+elb = Regional "elasticloadbalancing" "2012-06-01"
 
 data ELBError = ELBError
     { cweCode    :: !Text

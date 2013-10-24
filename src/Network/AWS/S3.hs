@@ -90,7 +90,6 @@ module Network.AWS.S3
     , module Network.AWS
     ) where
 
-import           Data.ByteString      (ByteString)
 import           Data.Monoid
 import qualified Data.Text.Encoding   as Text
 import           Network.AWS
@@ -98,25 +97,20 @@ import           Network.AWS.Headers
 import           Network.AWS.Internal
 import           Network.AWS.S3.Types
 import           Network.Http.Client  (Method(..))
-import           System.IO.Streams    (InputStream)
 
--- PUT /ObjectName HTTP/1.1
--- Host: BucketName.s3.amazonaws.com
--- Date: date
--- Authorization: signatureValue
-
-obj :: Method -> Bucket -> Key -> [AnyHeader] -> Body -> AWS Signed
-obj meth (Bucket b) (Key k) hs =
-    sign (versionS3 $ Text.encodeUtf8 b) . Request svc meth path hs []
+object :: Method -> Bucket -> Key -> [AnyHeader] -> Body -> AWS Signed
+object meth (Bucket b) (Key k) hs =
+    sign (versionS3 name) . Request svc meth path hs []
   where
+    svc  = override (name <> ".s3.amazonaws.com") s3
     path = Text.encodeUtf8 k
-    svc  = s3 { svcEndpoint = Custom $ Text.encodeUtf8 b <> ".s3.amazonaws.com" }
+    name = Text.encodeUtf8 b
 
-hdrs :: (Monad m, Rs a ~ S3HeadersResponse)
-     => a
-     -> Response
-     -> m (Either e (Either (Er a) (Rs a)))
-hdrs _ Response{..} = return . Right . Right $ S3HeadersResponse rsHeaders
+headers :: (Monad m, Rs a ~ S3HeadersResponse)
+        => a
+        -> Response
+        -> m (Either e (Either (Er a) (Rs a)))
+headers _ Response{..} = return . Right . Right $ S3HeadersResponse rsHeaders
 
 --
 -- Service
@@ -396,8 +390,8 @@ instance ToHeaders PutObject
 instance Rq PutObject where
     type Er PutObject = S3ErrorResponse
     type Rs PutObject = S3HeadersResponse
-    request p@PutObject{..} = obj PUT poBucket poKey (toHeaders p) poBody
-    response = hdrs
+    request p@PutObject{..} = object PUT poBucket poKey (toHeaders p) poBody
+    response = headers
 
 -- newtype PutObjectResult = PutObjectResult [(ByteString, ByteString)]
 --     deriving (Eq, Show)

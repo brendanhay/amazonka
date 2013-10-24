@@ -21,10 +21,10 @@ module Network.AWS
     , runAWS
 
     -- * Credentials
-    , Credentials (..)
+    , Credentials      (..)
 
     -- * Regions
-    , Region      (..)
+    , Region           (..)
     , within
     , getRegion
 
@@ -36,12 +36,12 @@ module Network.AWS
     , paginate
     , paginateCatch
 
-    -- * Requests
+    -- * Synchronous Requests
     , send
     , send_
     , sendCatch
 
-    -- * Futures
+    -- * Asynchronous Requests/Responses
     , async
     , sendAsync
     , wait
@@ -49,11 +49,16 @@ module Network.AWS
     , waitAsync
     , waitAsync_
 
-    -- * Error Lifting
-    , AWSError    (..)
+    -- * Errors
+    , AWSError         (..)
     , toError
     , hoistError
     , liftEitherT
+
+    -- * Types
+    , Body             (..)
+    , AvailabilityZone (..)
+    , InstanceType     (..)
     ) where
 
 import           Control.Applicative

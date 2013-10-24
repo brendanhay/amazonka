@@ -50,8 +50,8 @@ module Network.AWS
     , paginateCatch
 
     -- * Errors
+    , ToError          (..)
     , AWSError         (..)
-    , toError
     , hoistError
     , liftEitherT
 

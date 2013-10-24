@@ -63,7 +63,7 @@ sign f rq@Request{..} = do
 
     let tok  = maybe [] ((:[]) . hdr) $ tokenHeader auth
         host = hdr . hostHeader $ endpoint rqService reg
-        hs   = host : concat [rqHeaders, tok, [hdr acceptHeader, hdr transferHeader]]
+        hs   = host : hdr acceptHeader : concat [rqHeaders, tok] --, hdr transferHeader]]
 
     liftIO $! f (rq { rqHeaders = hs }) auth reg time
 
@@ -73,22 +73,21 @@ version2 rq@Request{..} Auth{..} reg time =
   where
     Common{..} = common rq reg
 
-    headers = hdr (dateHeader $ iso8601Time time) : rqHeaders
+    path = joinPath rqPath $ query <> "&Signature=" <> urlEncode True signature
 
-    path = joinPath rqPath . encodeQuery (urlEncode True) $
-        ("Signature", signature) : query
+    headers = hdr (dateHeader $ iso8601Time time) : rqHeaders
 
     signature = Base64.encode
         . hmac secretAccessKey
         $ BS.intercalate "\n"
             [ BS.pack $ show rqMethod
-            , host
+            , host <> ":443"
             , rqPath
-            , encodeQuery (urlEncode True) query
+            , query
             ]
 
-    query = sortedQuery ++
-        [ ("Version",          sPack version)
+    query = encodeQuery (urlEncode True) $ sortedQuery ++
+        [ ("Version",          sPack $ svcVersion rqService)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
         , ("Timestamp",        iso8601Time time)
@@ -209,7 +208,7 @@ common Request{..} reg = Common
     { service     = svcName rqService
     , version     = svcVersion rqService
     , host        = endpoint rqService reg
-    , fullPath    = joinPath rqPath $ encodeQuery (urlEncode True) qry
+    , fullPath    = rqPath <> "?" <> (encodeQuery (urlEncode True) qry)
     , sortedQuery = qry
     }
   where
@@ -222,7 +221,7 @@ signed meth host path hs body = Signed ("https://" <> host) body <$> builder
         Client.http meth $ "/" `sEnsurePrefix` path
         Client.setHostname host 443
         mapM_ (uncurry Client.setHeader)
-            . filter ((/= "host") . fst)
+            . filter ((/= "Host") . fst)
             $ flattenHeaders hs
 
 hmac :: ByteString -> ByteString -> ByteString
@@ -252,11 +251,8 @@ hostHeader host = Header $ host <> ":443"
 dateHeader :: ByteString -> Header "date" ByteString
 dateHeader = Header
 
-authHeader :: ByteString -> Header "authorization" ByteString
+authHeader :: ByteString -> Header "x-amzn-authorization" ByteString
 authHeader = Header
-
-transferHeader :: Header "transfer-encoding" ByteString
-transferHeader = Header "chunked"
 
 acceptHeader :: Header "accept-encoding" ByteString
 acceptHeader = Header "gzip"

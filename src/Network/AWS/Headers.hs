@@ -159,8 +159,8 @@ instance SingI t => IsHeader (Encoding t) where
         f :: Encoding t -> Sing t -> ByteString
         f _ = BS.pack . fromSing
 
-type GZip    = Encoding "gzip"
-type Deflate = Encoding "deflate"
+type GZipEncoding    = Encoding "gzip"
+type DeflateEncoding = Encoding "deflate"
 
 newtype Param (k :: Symbol) v = Param v
 

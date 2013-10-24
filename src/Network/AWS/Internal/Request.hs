@@ -40,7 +40,7 @@ requestQuery svc meth path q = Request
     { rqService = svc
     , rqMethod  = meth
     , rqPath    = path
-    , rqHeaders = [hdr (Content :: FormURLEncoded)]
+    , rqHeaders = [] -- [hdr (Content :: FormURLEncoded)]
     , rqQuery   = toQuery q
     , rqBody    = Empty
     }

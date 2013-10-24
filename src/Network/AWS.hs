@@ -87,33 +87,27 @@ send_ = void . send
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
     sig <- request rq
-    getDebug >>= sync sig >>= raise >>= response rq >>= hoistError
+    getDebug >>= sync sig >>= hoistError
   where
     sync raw = liftEitherT . fmapLT Ex . syncIO . perform raw
 
     perform Signed{..} dbg =
         bracket (establishConnection sURL) closeConnection $ \c -> do
             when dbg $ print sRequest
-            sendRequest c sRequest =<< body
-            receiveResponse c receive
-      where
-        body = case sBody of
-            Strict bs   -> inputStreamBody <$> Streams.fromByteString bs
-            Streaming s -> return $ inputStreamBody s
-            Empty       -> return emptyBody
+            body sBody >>= sendRequest c sRequest
+            receiveResponse c $ receive dbg
 
-        receive rs s =
-            let c  = getStatusCode rs
-                m  = getStatusMessage rs
-                hs = retrieveHeaders $ getHeaders rs
-            in Response c m hs <$> if dbg
-                then print rs >> Streams.mapM (\x -> print x >> return x) s
-                else return s
+    body (Strict   bs) = inputStreamBody <$> Streams.fromByteString bs
+    body (Streaming s) = return $ inputStreamBody s
+    body Empty         = return emptyBody
 
-    raise rs@Response{..}
-        | rsCode < 400 = return rs
-        | otherwise    = throwError . Err $
-            concat [show rsCode, " ", BS.unpack rsMessage]
+    receive dbg rs i = do
+        let c = getStatusCode rs
+            m = getStatusMessage rs
+        when dbg $ print rs
+        if c < 400
+            then response rq $ Response c m (retrieveHeaders $ getHeaders rs) i
+            else return . Left . Err $ concat [show c, " ", BS.unpack m]
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
 async aws = AWS ask >>= liftIO . A.async . runEnv aws

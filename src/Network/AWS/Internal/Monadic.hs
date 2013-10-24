@@ -55,15 +55,15 @@ getAuth = AWS $ awsAuth <$> ask
 within :: Region -> AWS a -> AWS a
 within reg = AWS . local (\e -> e { awsRegion = reg }) . unwrap
 
+region :: Service -> AWS Region
+region (Global _ _) = return defaultRegion
+region _            = getRegion
+
 defaultRegion :: Region
 defaultRegion = NorthVirginia
 
 getRegion :: AWS Region
 getRegion = AWS $ awsRegion <$> ask
-
-region :: Service -> AWS Region
-region (svcEndpoint -> Global _) = return defaultRegion
-region _                         = getRegion
 
 getDebug :: AWS Bool
 getDebug = AWS $ awsDebug <$> ask

@@ -13,11 +13,11 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.Signing
-    ( signer
-    , versionS3
+    ( sign
     , version2
     , version3
     , version4
+    , versionS3
     ) where
 
 import           Control.Applicative
@@ -47,29 +47,131 @@ import qualified Network.Http.Internal           as Client
 
 type Signer = Request -> Auth -> Region -> UTCTime -> IO Signed
 
-signer :: Signer -> Request -> AWS Signed
-signer f r@Request{..} = do
-    let svc@Service{..} = rqService
+data Common = Common
+    { service     :: !ByteString
+    , version     :: !ByteString
+    , host        :: !ByteString
+    , fullPath    :: !ByteString
+    , sortedQuery :: [(ByteString, ByteString)]
+    }
 
+sign :: Signer -> Request -> AWS Signed
+sign f rq@Request{..} = do
     auth <- getAuth
-    reg  <- region svc
+    reg  <- region rqService
     time <- liftIO getCurrentTime
 
     let tok  = maybe [] ((:[]) . hdr) $ tokenHeader auth
-        host = hdr . hostHeader $ endpoint svc reg
+        host = hdr . hostHeader $ endpoint rqService reg
         hs   = host : concat [rqHeaders, tok, [hdr acceptHeader, hdr transferHeader]]
-        rq   = r { rqHeaders = hs }
 
-    liftIO $! f rq auth reg time
+    liftIO $! f (rq { rqHeaders = hs }) auth reg time
+
+version2 :: Signer
+version2 rq@Request{..} Auth{..} reg time =
+    signed rqMethod host path headers rqBody
+  where
+    Common{..} = common rq reg
+
+    headers = hdr (dateHeader $ iso8601Time time) : rqHeaders
+
+    path = joinPath rqPath . encodeQuery (urlEncode True) $
+        ("Signature", signature) : query
+
+    signature = Base64.encode
+        . hmac secretAccessKey
+        $ BS.intercalate "\n"
+            [ BS.pack $ show rqMethod
+            , host
+            , rqPath
+            , encodeQuery (urlEncode True) query
+            ]
+
+    query = sortedQuery ++
+        [ ("Version",          sPack version)
+        , ("SignatureVersion", "2")
+        , ("SignatureMethod",  "HmacSHA256")
+        , ("Timestamp",        iso8601Time time)
+        , ("AWSAccessKeyId",   accessKeyId)
+        ]
+
+version3 :: Signer
+version3 rq@Request{..} Auth{..} reg time =
+    signed rqMethod host fullPath headers rqBody
+  where
+    Common{..} = common rq reg
+
+    headers = hdr (dateHeader $ rfc822Time time) :
+        hdr (authHeader authorisation) :
+        rqHeaders
+
+    authorisation = "AWS3-HTTPS AWSAccessKeyId="
+        <> accessKeyId
+        <> ", Algorithm=HmacSHA256, Signature="
+        <> Base64.encode (hmac secretAccessKey $ rfc822Time time)
+
+version4 :: Signer
+version4 rq@Request{..} Auth{..} reg time = do
+    Signed{..} <- signed rqMethod host fullPath (date : rqHeaders) rqBody
+
+    let hs   = map hdr . Client.retrieveHeaders $ Client.getHeaders sRequest
+        auth = hdr . authHeader $ authorisation hs
+
+    signed rqMethod host fullPath (auth : hs) rqBody
+  where
+    Common{..} = common rq reg
+
+    date = hdr (dateHeader $ iso8601Time time)
+
+    authorisation hs = mconcat
+        [ algorithm
+        , " Credential="
+        , accessKeyId
+        , "/"
+        , credentialScope
+        , ", SignedHeaders="
+        , signedHeaders hs
+        , ", Signature="
+        , signature hs
+        ]
+
+    signature  = hex . hmac signingKey . stringToSign
+    signingKey = foldl1 hmac $ ("AWS4" <> secretAccessKey) : scope
+
+    stringToSign hs = BS.intercalate "\n"
+        [ algorithm
+        , awsTime time
+        , credentialScope
+        , strictSHA256 $ canonicalRequest hs
+        ]
+
+    credentialScope = BS.intercalate "/" scope
+
+    algorithm = "AWS4-HMAC-SHA256"
+    scope     = [basicTime time, BS.pack $ show reg, service, "aws4_request"]
+
+    canonicalRequest hs = BS.intercalate "\n"
+        [ BS.pack $ show rqMethod
+        , rqPath
+        , encodeQuery (urlEncode True) sortedQuery
+        , canonicalHeaders hs
+        , signedHeaders hs
+        , bodySHA256
+        ]
+
+    canonicalHeaders = mconcat . map flattenValues . groupHeaders
+    signedHeaders    = BS.intercalate ";" . nub . map fst . groupHeaders
+
+    bodySHA256 = case rqBody of
+        (Strict   bs) -> strictSHA256 bs
+        (Streaming _) -> "" -- FIXME
+        Empty         -> ""
 
 versionS3 :: ByteString -> Signer
-versionS3 bucket Request{..} Auth{..} reg time =
-    sign rqMethod host path headers rqBody
+versionS3 bucket rq@Request{..} Auth{..} reg time =
+    signed rqMethod host fullPath headers rqBody
   where
-    svc@Service{..} = rqService
-
-    host = endpoint svc reg
-    path = joinPath rqPath $ encodeQuery (urlEncode True) rqQuery
+    Common{..} = common rq reg
 
     headers = hdr (authHeader authorisation) : signingHeaders
 
@@ -102,117 +204,19 @@ versionS3 bucket Request{..} Auth{..} reg time =
 
     signingHeaders = hdr (dateHeader date) : rqHeaders
 
-version2 :: Signer
-version2 Request{..} Auth{..} reg time = sign rqMethod host path headers rqBody
+common :: Request -> Region -> Common
+common Request{..} reg = Common
+    { service     = svcName rqService
+    , version     = svcVersion rqService
+    , host        = endpoint rqService reg
+    , fullPath    = joinPath rqPath $ encodeQuery (urlEncode True) qry
+    , sortedQuery = qry
+    }
   where
-    svc@Service{..} = rqService
+    qry = sort rqQuery
 
-    host = endpoint svc reg
-    path = joinPath rqPath $ encodeQuery (urlEncode True) query
-
-    headers = hdr (dateHeader $ iso8601Time time) : rqHeaders
-    query   = ("Signature", signature) : qry
-
-    signature = Base64.encode
-        . hmac secretAccessKey
-        $ BS.intercalate "\n"
-            [ BS.pack $ show rqMethod
-            , host
-            , rqPath
-            , encodeQuery (urlEncode True) qry
-            ]
-
-    qry = sort $ rqQuery ++
-        [ ("Version",          sPack svcVersion)
-        , ("SignatureVersion", "2")
-        , ("SignatureMethod",  "HmacSHA256")
-        , ("Timestamp",        iso8601Time time)
-        , ("AWSAccessKeyId",   accessKeyId)
-        ]
-
-version3 :: Signer
-version3 Request{..} Auth{..} reg time = sign rqMethod host path headers rqBody
-  where
-    svc@Service{..} = rqService
-
-    host = endpoint svc reg
-    path = joinPath rqPath $ encodeQuery (urlEncode True) rqQuery
-
-    headers = hdr (dateHeader $ rfc822Time time) :
-        hdr (authHeader authorisation) :
-        rqHeaders
-
-    authorisation = "AWS3-HTTPS AWSAccessKeyId="
-        <> accessKeyId
-        <> ", Algorithm=HmacSHA256, Signature="
-        <> Base64.encode (hmac secretAccessKey $ rfc822Time time)
-
-version4 :: Signer
-version4 Request{..} Auth{..} reg time = do
-    Signed{..} <- sign rqMethod host path (date : rqHeaders) rqBody
-
-    let hs   = map hdr . Client.retrieveHeaders $ Client.getHeaders sRequest
-        auth = hdr . authHeader $ authorisation hs
-
-    sign rqMethod host path (auth : hs) rqBody
-  where
-    svc@Service{..} = rqService
-
-    host = endpoint svc reg
-    path = joinPath rqPath query
-    date = hdr (dateHeader $ iso8601Time time)
-
-    authorisation hs = mconcat
-        [ algorithm
-        , " Credential="
-        , accessKeyId
-        , "/"
-        , credentialScope
-        , ", SignedHeaders="
-        , signedHeaders hs
-        , ", Signature="
-        , signature hs
-        ]
-
-    signature = hex . hmac signingKey . stringToSign
-
-    signingKey = foldl1 hmac $ ("AWS4" <> secretAccessKey) : scope
-
-    stringToSign hs = BS.intercalate "\n"
-        [ algorithm
-        , awsTime time
-        , credentialScope
-        , strictSHA256 $ canonicalRequest hs
-        ]
-
-    credentialScope = BS.intercalate "/" scope
-
-    scope = [basicTime time, BS.pack $ show reg, svcName, "aws4_request"]
-
-    algorithm = "AWS4-HMAC-SHA256"
-
-    canonicalRequest hs = BS.intercalate "\n"
-        [ BS.pack $ show rqMethod
-        , rqPath
-        , query
-        , canonicalHeaders hs
-        , signedHeaders hs
-        , bodySHA256
-        ]
-
-    bodySHA256 = case rqBody of
-        (Strict   bs) -> strictSHA256 bs
-        (Streaming _) -> "" -- FIXME
-        Empty         -> ""
-
-    query = encodeQuery (urlEncode True) $ sort rqQuery
-
-    signedHeaders = BS.intercalate ";" . nub . map fst . groupHeaders
-
-    canonicalHeaders = mconcat . map flattenValues . groupHeaders
-
-sign :: Method -> Hostname -> ByteString -> [AnyHeader] -> Body -> IO Signed
-sign meth host path hs body = Signed ("https://" <> host) body <$> builder
+signed :: Method -> Hostname -> ByteString -> [AnyHeader] -> Body -> IO Signed
+signed meth host path hs body = Signed ("https://" <> host) body <$> builder
   where
     builder = Client.buildRequest $ do
         Client.http meth $ "/" `sEnsurePrefix` path

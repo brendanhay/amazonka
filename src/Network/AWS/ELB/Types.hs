@@ -20,21 +20,9 @@ import           Data.Text             (Text)
 import           Data.Time
 import           Network.AWS.Internal
 
-elbService :: Service
-elbService = Service "elasticloadbalancing" elbVersion SigningVersion4 .
-    Regional $ \r -> "elasticloadbalancing." <> BS.pack (show r) <> ".amazonaws.com"
-
 -- | Currently supported version of the ELB service.
-elbVersion :: ServiceVersion
-elbVersion = "2012-06-01"
-
--- | XML namespace to annotate ELB elements with.
-elbNS :: ByteString
-elbNS = "https://elasticloadbalancing.amazonaws.com/doc/" <> sPack elbVersion <> "/"
-
--- | Helper to define ELB namespaced XML elements.
-elbElem :: ByteString -> NName ByteString
-elbElem = mkNName elbNS
+elb :: Service
+elb = Regional "elasticloadbalancing" "2012-06-01"
 
 data ELBError = ELBError
     { cweCode    :: !Text
@@ -680,3 +668,11 @@ instance IsXML SourceSecurityGroup where
     xmlPickler = withNS elbNS
 
 instance IsQuery SourceSecurityGroup
+
+-- | XML namespace to annotate ELB elements with.
+elbNS :: ByteString
+elbNS = "https://elasticloadbalancing.amazonaws.com/doc/" <> svcVersion elb <> "/"
+
+-- | Helper to define ELB namespaced XML elements.
+elbElem :: ByteString -> NName ByteString
+elbElem = mkNName elbNS

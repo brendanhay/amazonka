@@ -15,30 +15,16 @@
 
 module Network.AWS.AutoScaling.Types where
 
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import           Data.Monoid
-import           Data.Strings
-import           Data.Text             (Text)
-import           Data.Time
-import           Network.AWS.Internal
-
-autoScalingService :: Service
-autoScalingService = Service "autoscaling" autoScalingVersion SigningVersion4 .
-    Regional $ \r -> "autoscaling." <> BS.pack (show r) <> ".amazonaws.com"
+import Data.ByteString      (ByteString)
+import Data.Monoid
+import Data.Strings
+import Data.Text            (Text)
+import Data.Time
+import Network.AWS.Internal
 
 -- | Currently supported version of the AutoScaling service.
-autoScalingVersion :: ServiceVersion
-autoScalingVersion = "2011-01-01"
-
--- | XML namespace to annotate AutoScaling elements with.
-autoScalingNS :: ByteString
-autoScalingNS =
-    "http://autoscaling.amazonaws.com/doc/" <> sPack autoScalingVersion <> "/"
-
--- | Helper to define AutoScaling namespaced XML elements.
-autoScalingElem :: ByteString -> NName ByteString
-autoScalingElem = mkNName autoScalingNS
+autoScaling :: Service
+autoScaling = Regional "autoscaling" "2011-01-01"
 
 data ErrorType = Receiver | Sender
     deriving (Eq, Show, Read, Generic)
@@ -749,3 +735,11 @@ data TerminateInstanceInAutoScalingGroupResult = TerminateInstanceInAutoScalingG
 
 instance IsXML TerminateInstanceInAutoScalingGroupResult where
     xmlPickler = withNS autoScalingNS
+
+-- | XML namespace to annotate AutoScaling elements with.
+autoScalingNS :: ByteString
+autoScalingNS = "http://autoscaling.amazonaws.com/doc/" <> svcVersion autoScaling <> "/"
+
+-- | Helper to define AutoScaling namespaced XML elements.
+autoScalingElem :: ByteString -> NName ByteString
+autoScalingElem = mkNName autoScalingNS

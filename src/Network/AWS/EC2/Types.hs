@@ -24,33 +24,9 @@ import           Data.Time
 import           Network.AWS.Internal
 import           Text.Read
 
-ec2Service :: Service
-ec2Service = Service "ec2" ec2Version SigningVersion2 .
-    Regional $ \r -> "ec2." <> BS.pack (show r) <> ".amazonaws.com"
-
 -- | Currently supported version (2013-07-15) of the EC2 service.
-ec2Version :: ServiceVersion
-ec2Version = "2013-08-15"
-
--- | XML namespace to annotate EC2 elements with.
-ec2NS :: ByteString
-ec2NS = "http://ec2.amazonaws.com/doc/" <> sPack ec2Version <> "/"
-
--- | Helper to define EC2 namespaced XML elements.
-ec2Elem :: ByteString -> NName ByteString
-ec2Elem = mkNName ec2NS
-
-ec2XML :: XMLGeneric a
-ec2XML = withNS' ec2NS $ (namespacedXMLOptions ec2NS)
-    { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
-    , xmlListElement   = mkNName ec2NS "item"
-    }
-
-ec2ItemXML :: XMLGeneric a
-ec2ItemXML = withRootNS' ec2NS "item" $ (namespacedXMLOptions ec2NS)
-    { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
-    , xmlListElement   = mkNName ec2NS "item"
-    }
+ec2 :: Service
+ec2 = Regional "ec2" "2013-08-15"
 
 data EC2Error = EC2Error
     { ecCode    :: !Text
@@ -2559,3 +2535,23 @@ instance IsQuery TagFilter where
 
         enc  = Pair "Value" . Value . encodeUtf8
         enc' = Pair "Value" . Value . BS.pack . show
+
+-- | XML namespace to annotate EC2 elements with.
+ec2NS :: ByteString
+ec2NS = "http://ec2.amazonaws.com/doc/" <> svcVersion ec2 <> "/"
+
+-- | Helper to define EC2 namespaced XML elements.
+ec2Elem :: ByteString -> NName ByteString
+ec2Elem = mkNName ec2NS
+
+ec2XML :: XMLGeneric a
+ec2XML = withNS' ec2NS $ (namespacedXMLOptions ec2NS)
+    { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
+    , xmlListElement   = mkNName ec2NS "item"
+    }
+
+ec2ItemXML :: XMLGeneric a
+ec2ItemXML = withRootNS' ec2NS "item" $ (namespacedXMLOptions ec2NS)
+    { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
+    , xmlListElement   = mkNName ec2NS "item"
+    }

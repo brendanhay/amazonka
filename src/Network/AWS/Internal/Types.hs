@@ -102,6 +102,11 @@ instance ToError SomeException where
 data Credentials
     = FromKeys ByteString ByteString
     | FromRole ByteString
+      deriving (Eq)
+
+instance Show Credentials where
+    show (FromKeys acc _) = BS.unpack $ BS.concat ["FromKeys ", acc, "*****"]
+    show (FromRole role)  = BS.unpack $ "FromRole " <> role
 
 data Auth = Auth
     { accessKeyId     :: !ByteString
@@ -125,24 +130,16 @@ data Env = Env
 newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT AWSError IO) a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env, MonadError AWSError)
 
-data Endpoint
-    = Global !ByteString
-    | Regional (Region -> ByteString)
-
-instance Show Endpoint where
-    show (Global  bs) = BS.unpack $ "Global " <> bs
-    show (Regional _) = "Regional <Region -> ByteString>"
-
-data Service = Service
-    { svcName     :: !ByteString
-    , svcVersion  :: !ByteString
-    , svcEndpoint :: !Endpoint
-    } deriving (Show)
+data Service
+    = Global   { svcName :: !ByteString, svcVersion :: !ByteString }
+    | Regional { svcName :: !ByteString, svcVersion :: !ByteString }
+      deriving (Show)
 
 endpoint :: Service -> Region -> ByteString
-endpoint Service{..} = case svcEndpoint of
-    Global  bs -> const bs
-    Regional f -> f
+endpoint svc reg = BS.intercalate "." $
+    case svc of
+        (Global   n _) -> [n, "amazonaws.com"]
+        (Regional n _) -> [n, BS.pack $ show reg, "amazonaws.com"]
 
 data Body
     = Strict ByteString
@@ -150,7 +147,7 @@ data Body
     | Empty
 
 instance Show Body where
-    show (Strict _)    = "Strict <ByteString>"
+    show (Strict bs)    = BS.unpack $ BS.concat ["Strict ", bs]
     show (Streaming _) = "Streaming <InputStream>"
     show Empty         = "Empty"
 

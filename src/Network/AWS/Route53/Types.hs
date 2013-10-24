@@ -26,21 +26,9 @@ import           Data.Time
 import           Network.AWS.Internal
 import           Text.Read
 
-route53Service :: Service
-route53Service = Service "route53" route53Version SigningVersion3 $
-    Global "route53.amazonaws.com"
-
 -- | Currently supported version of the Route53 service.
-route53Version :: ServiceVersion
-route53Version = "2012-12-12"
-
--- | XML namespace to annotate Route53 elements with.
-route53NS :: ByteString
-route53NS = "https://route53.amazonaws.com/doc/" <> sPack route53Version <> "/"
-
--- | Helper to define Route53 namespaced XML elements.
-route53Elem :: ByteString -> NName ByteString
-route53Elem = mkNName route53NS
+route53 :: Service
+route53 = Global "route53" "2012-12-12"
 
 class Prefixed a where
     prefixed :: a -> ByteString
@@ -363,3 +351,11 @@ data HealthCheck = HealthCheck
 
 instance IsXML HealthCheck where
     xmlPickler = withNS route53NS
+
+-- | XML namespace to annotate Route53 elements with.
+route53NS :: ByteString
+route53NS = "https://route53.amazonaws.com/doc/" <> svcVersion route53 <> "/"
+
+-- | Helper to define Route53 namespaced XML elements.
+route53Elem :: ByteString -> NName ByteString
+route53Elem = mkNName route53NS

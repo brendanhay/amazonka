@@ -19,21 +19,9 @@ import Data.Text            (Text)
 import Data.Time
 import Network.AWS.Internal
 
-iamService :: Service
-iamService = Service "iam" iamVersion SigningVersion4 $
-    Global "iam.amazonaws.com"
-
 -- | Currently supported version of the IAM service.
-iamVersion :: ServiceVersion
-iamVersion = "2010-05-08"
-
--- | XML namespace to annotate IAM elements with.
-iamNS :: ByteString
-iamNS = "https://iam.amazonaws.com/doc/" <> sPack iamVersion <> "/"
-
--- | Helper to define IAM namespaced XML elements.
-iamElem :: ByteString -> NName ByteString
-iamElem = mkNName iamNS
+iam :: Service
+iam = Global "iam" "2010-05-08"
 
 data ErrorType = ErrorType
     { etType    :: !Text
@@ -1032,3 +1020,11 @@ instance IsQuery VirtualMFADevice
 
 instance IsXML VirtualMFADevice where
     xmlPickler = withNS iamNS
+
+-- | XML namespace to annotate IAM elements with.
+iamNS :: ByteString
+iamNS = "https://iam.amazonaws.com/doc/" <> svcVersion iam <> "/"
+
+-- | Helper to define IAM namespaced XML elements.
+iamElem :: ByteString -> NName ByteString
+iamElem = mkNName iamNS

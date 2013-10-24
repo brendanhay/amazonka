@@ -13,29 +13,15 @@
 
 module Network.AWS.CloudWatch.Types where
 
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import           Data.Monoid
-import           Data.Text             (Text)
-import           Data.Time
-import           Network.AWS.Internal
-
-cloudWatchService :: Service
-cloudWatchService = Service "cloudwatch" cloudWatchVersion SigningVersion4 .
-    Regional $ \r -> "cloudwatch." <> BS.pack (show r) <> ".amazonaws.com"
+import Data.ByteString      (ByteString)
+import Data.Monoid
+import Data.Text            (Text)
+import Data.Time
+import Network.AWS.Internal
 
 -- | Currently supported version of the CloudWatch service.
-cloudWatchVersion :: ServiceVersion
-cloudWatchVersion = "2010-08-01"
-
--- | XML namespace to annotate CloudWatch elements with.
-cloudWatchNS :: ByteString
-cloudWatchNS =
-    "https://cloudwatch.amazonaws.com/doc/" <> sPack cloudWatchVersion <> "/"
-
--- | Helper to define CloudWatch namespaced XML elements.
-cloudWatchElem :: ByteString -> NName ByteString
-cloudWatchElem = mkNName cloudWatchNS
+cloudWatch :: Service
+cloudWatch = Regional "cloudwatch" "2010-08-01"
 
 data CloudWatchError = CloudWatchError
     { cweCode    :: !Text
@@ -349,3 +335,12 @@ instance IsQuery StatisticSet
 
 instance IsXML StatisticSet where
     xmlPickler = withNS cloudWatchNS
+
+-- | XML namespace to annotate CloudWatch elements with.
+cloudWatchNS :: ByteString
+cloudWatchNS = "https://cloudwatch.amazonaws.com/doc/" <> svcVersion cloudWatch <> "/"
+
+-- | Helper to define CloudWatch namespaced XML elements.
+cloudWatchElem :: ByteString -> NName ByteString
+cloudWatchElem = mkNName cloudWatchNS
+

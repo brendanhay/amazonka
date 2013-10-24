@@ -13,8 +13,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.Signing
-    ( Signer (..)
-    , signer
+    ( signer
     , versionS3
     , version2
     , version3
@@ -43,55 +42,43 @@ import           Network.AWS.Internal.Types
 import           Network.HTTP.QueryString.Pickle
 import           Network.HTTP.Types              (urlEncode)
 import           Network.Http.Client             (Method, Hostname)
+import qualified Network.Http.Client             as Client
+import qualified Network.Http.Internal           as Client
 
-data Signer = Signer
-    { sgService :: !Service
-    , sgMethod  :: !Method
-    , sgHost    :: !Hostname
-    , sgPath    :: !ByteString
-    , sgHeaders :: [AnyHeader]
-    , sgQuery   :: [(ByteString, ByteString)]
-    , sgBody    :: !Body
-    , sgAuth    :: !Auth
-    , sgRegion  :: !Region
-    , sgTime    :: !UTCTime
-    }
+type Signer = Request -> Service -> Auth -> Region -> UTCTime -> IO Signed
 
-signer :: (Signer -> a)
-       -> Service
-       -> Method
-       -> ByteString
-       -> [AnyHeader]
-       -> [(ByteString, ByteString)]
-       -> Body
-       -> AWS a
-signer f svc@Service{..} meth path hs qry body = do
+signer :: Signer -> Request -> AWS Signed
+signer f r@Request{..} = do
+    let svc@Service{..} = rqService
+
     auth <- getAuth
     reg  <- svcRegion svc
+    time <- liftIO getCurrentTime
 
     let tok  = maybe [] ((:[]) . hdr) $ tokenHeader auth
-        host = endpoint svc reg
-        hs'  = hdr (hostHeader svc reg) : concat [hs, tok]
+        host = hdr $ hostHeader rqHost
+        hs   = host : concat [rqHeaders, tok, [hdr acceptHeader, hdr transferHeader]]
+        rq   = r { rqHeaders = hs }
 
-    f <$> Signer svc meth host (sWrap "/" path) hs' qry body auth reg
-        <$> liftIO getCurrentTime
+    liftIO $! f rq svc auth reg time
 
-versionS3 :: Signer -> ByteString -> Request
-versionS3 Signer{..} bucket =
-    Request sgMethod sgHost sgPath headers sgQuery sgBody
+versionS3 :: ByteString -> Signer
+versionS3 bucket Request{..} _ Auth{..} _ time =
+    sign rqMethod rqHost path headers rqBody
   where
-    Service{..} = sgService
-    Auth{..}    = sgAuth
+    Service{..} = rqService
+
+    path = joinPath rqPath $ encodeQuery (urlEncode True) rqQuery
 
     headers = hdr (authHeader authorisation) : signingHeaders
 
-    date = iso8601Time sgTime
+    date = iso8601Time time
 
     authorisation = BS.concat ["AWS ", accessKeyId, ":", signature]
     signature     = Base64.encode $ hmac secretAccessKey stringToSign
 
     stringToSign = BS.concat
-        [ BS.pack $ show sgMethod
+        [ BS.pack $ show rqMethod
         , "\n"
         , optionalHeader "content-md5"
         , optionalHeader "content-type"
@@ -104,116 +91,135 @@ versionS3 Signer{..} bucket =
 
     optionalHeader = maybe "" (<> "\n") . (`lookupHeader` signingHeaders)
 
-    canonicalResource = '/' `BS.cons` sJoin "/" [bucket, sgPath]
+    canonicalResource = "/" `sEnsurePrefix` BS.concat [bucket, "/", rqPath]
     -- [ subresource, if present. For example "?acl", "?location", "?logging", or "?torrent"]
 
     canonicalHeaders = BS.intercalate "\n"
         . map flattenValues
         $ groupHeaders signingHeaders
 
-    signingHeaders = hdr (dateHeader date) : sgHeaders
+    signingHeaders = hdr (dateHeader date) : rqHeaders
 
-version2 :: Signer -> Request
-version2 Signer{..} = Request sgMethod sgHost sgPath headers query sgBody
+version2 :: Signer
+version2 Request{..} _ Auth{..} _ time =
+    sign rqMethod rqHost path headers rqBody
   where
-    Service{..} = sgService
-    Auth{..}    = sgAuth
+    Service{..} = rqService
 
-    headers = hdr (dateHeader $ iso8601Time sgTime) : sgHeaders
+    path = joinPath rqPath $ encodeQuery (urlEncode True) query
+
+    headers = hdr (dateHeader $ iso8601Time time) : rqHeaders
     query   = ("Signature", signature) : qry
 
     signature = Base64.encode
         . hmac secretAccessKey
         $ BS.intercalate "\n"
-            [ BS.pack $ show sgMethod
-            , sgHost <> ":443"
-            , sgPath
+            [ BS.pack $ show rqMethod
+            , rqHost
+            , rqPath
             , encodeQuery (urlEncode True) qry
             ]
 
-    qry = sort $ sgQuery ++
+    qry = sort $ rqQuery ++
         [ ("Version",          sPack svcVersion)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
-        , ("Timestamp",        iso8601Time sgTime)
+        , ("Timestamp",        iso8601Time time)
         , ("AWSAccessKeyId",   accessKeyId)
         ]
 
-version3 :: Signer -> Request
-version3 Signer{..} = Request sgMethod sgHost sgPath headers sgQuery sgBody
+version3 :: Signer
+version3 Request{..} _ Auth{..} _ time =
+    sign rqMethod rqHost path headers rqBody
   where
-    Service{..} = sgService
-    Auth{..}    = sgAuth
+    Service{..} = rqService
 
-    headers = hdr (dateHeader $ rfc822Time sgTime) :
+    path = joinPath rqPath $ encodeQuery (urlEncode True) rqQuery
+
+    headers = hdr (dateHeader $ rfc822Time time) :
         hdr (authHeader authorisation) :
-        sgHeaders
+        rqHeaders
 
     authorisation = "AWS3-HTTPS AWSAccessKeyId="
         <> accessKeyId
         <> ", Algorithm=HmacSHA256, Signature="
-        <> Base64.encode (hmac secretAccessKey $ rfc822Time sgTime)
+        <> Base64.encode (hmac secretAccessKey $ rfc822Time time)
 
-version4 :: Signer -> Request
-version4 Signer{..} = Request sgMethod sgHost sgPath headers sgQuery sgBody
+version4 :: Signer
+version4 Request{..} _ Auth{..} reg time = do
+    Signed{..} <- sign rqMethod rqHost path (date : rqHeaders) rqBody
+
+    let hs   = map hdr . Client.retrieveHeaders $ Client.getHeaders sRequest
+        auth = hdr . authHeader $ authorisation hs
+
+    sign rqMethod rqHost path (auth : hs) rqBody
   where
-    Service{..} = sgService
-    Auth{..}    = sgAuth
+    Service{..} = rqService
 
-    headers = hdr (authHeader authorisation) : date : sgHeaders
-    date    = hdr (dateHeader $ iso8601Time sgTime)
+    path = joinPath rqPath query
+    date = hdr (dateHeader $ iso8601Time time)
 
-    method = BS.pack $ show sgMethod
-    region = BS.pack $ show sgRegion
+    method = BS.pack $ show rqMethod
+    region = BS.pack $ show reg
 
-    authorisation = mconcat
+    authorisation hs = mconcat
         [ algorithm
         , " Credential="
         , accessKeyId
         , "/"
         , credentialScope
         , ", SignedHeaders="
-        , signedHeaders
+        , signedHeaders hs
         , ", Signature="
-        , signature
+        , signature hs
         ]
 
-    signature = hex $ hmac signingKey stringToSign
+    signature = hex . hmac signingKey . stringToSign
 
     signingKey = foldl1 hmac $ ("AWS4" <> secretAccessKey) : scope
 
-    stringToSign = BS.intercalate "\n"
+    stringToSign hs = BS.intercalate "\n"
         [ algorithm
-        , awsTime sgTime
+        , awsTime time
         , credentialScope
-        , strictSHA256 canonicalRequest
+        , strictSHA256 $ canonicalRequest hs
         ]
 
     credentialScope = BS.intercalate "/" scope
 
-    scope = [basicTime sgTime, region, svcName, "aws4_request"]
+    scope = [basicTime time, region, svcName, "aws4_request"]
 
     algorithm = "AWS4-HMAC-SHA256"
 
-    canonicalRequest = BS.intercalate "\n"
+    canonicalRequest hs = BS.intercalate "\n"
         [ method
-        , sgPath
+        , rqPath
         , query
-        , canonicalHeaders
-        , signedHeaders
+        , canonicalHeaders hs
+        , signedHeaders hs
         , bodySHA256
         ]
 
-    bodySHA256 = case sgBody of
+    bodySHA256 = case rqBody of
         (Strict   bs) -> strictSHA256 bs
         (Streaming _) -> "" -- FIXME
         Empty         -> ""
 
-    query = encodeQuery (urlEncode True) $ sort sgQuery
+    query = encodeQuery (urlEncode True) $ sort rqQuery
 
-    signedHeaders    = BS.intercalate ";" . nub $ map fst groupedHeaders
-    canonicalHeaders = mconcat $ map flattenValues groupedHeaders
-    groupedHeaders   = groupHeaders $ date : sgHeaders
+    signedHeaders = BS.intercalate ";" . nub . map fst . groupHeaders
+
+    canonicalHeaders = mconcat . map flattenValues . groupHeaders
+
+sign :: Method -> Hostname -> ByteString -> [AnyHeader] -> Body -> IO Signed
+sign meth host path hs body = Signed ("https://" <> host) body <$> builder
+  where
+    builder = Client.buildRequest $ do
+        Client.http meth $ "/" `sEnsurePrefix` path
+        Client.setHostname host 443
+        mapM_ (uncurry Client.setHeader)
+            . filter ((/= "host") . fst)
+            $ flattenHeaders hs
 
 hmac :: ByteString -> ByteString -> ByteString
 hmac key msg = LBS.toStrict
@@ -221,7 +227,7 @@ hmac key msg = LBS.toStrict
     $ SHA.hmacSha256 (LBS.fromStrict key) (LBS.fromStrict msg)
 
 strictSHA256 :: ByteString -> ByteString
-strictSHA256 = LBS.toStrict . lazySHA256 . LBS.fromStrict
+strictSHA256 = hex . LBS.toStrict . lazySHA256 . LBS.fromStrict
 
 lazySHA256 :: LBS.ByteString -> LBS.ByteString
 lazySHA256 = SHA.bytestringDigest . SHA.sha256 -- Need to hex encode the result
@@ -236,14 +242,20 @@ hex = BS.pack . foldr f "" . BS.unpack
 tokenHeader :: Auth -> Maybe (Header "x-amz-security-token" ByteString)
 tokenHeader = fmap (\t -> Header t) . securityToken
 
-hostHeader :: Service -> Region -> Header "host" ByteString
-hostHeader svc reg = Header $ endpoint svc reg <> ":443"
+hostHeader :: Hostname -> Header "host" Hostname
+hostHeader host = Header $ host <> ":443"
 
 dateHeader :: ByteString -> Header "date" ByteString
 dateHeader = Header
 
 authHeader :: ByteString -> Header "authorization" ByteString
 authHeader = Header
+
+transferHeader :: Header "transfer-encoding" ByteString
+transferHeader = Header "chunked"
+
+acceptHeader :: Header "accept-encoding" ByteString
+acceptHeader = Header "gzip"
 
 groupHeaders :: [AnyHeader] -> [(ByteString, ByteString)]
 groupHeaders = sort . map f . groupBy ((==) `on` fst) . flattenHeaders
@@ -253,3 +265,8 @@ groupHeaders = sort . map f . groupBy ((==) `on` fst) . flattenHeaders
 
 flattenValues :: (Monoid a, IsString a, Strings a) => (a, a) -> a
 flattenValues (k, v) = mconcat [k, ":", sStripChar ' ' v]
+
+joinPath :: ByteString -> ByteString -> ByteString
+joinPath path qry
+    | BS.null qry = "/" `sEnsurePrefix` path
+    | otherwise   = "/" `sWrap` path <> "?" <> qry

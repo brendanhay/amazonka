@@ -63,9 +63,7 @@ import           Control.Monad
 import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
 import qualified Data.ByteString.Char8      as BS
-import           Network.AWS.Headers
 import           Network.AWS.Internal
-import           Network.HTTP.Types         (urlEncode)
 import           Network.Http.Client
 import           Network.Http.Internal      (retrieveHeaders)
 import           Pipes                      hiding (next)
@@ -99,32 +97,18 @@ send_ = void . send
 
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
-    raw <- request rq
-    getDebug >>= sync raw >>= raise >>= response rq >>= hoistError
+    sig <- request rq
+    getDebug >>= sync sig >>= raise >>= response rq >>= hoistError
   where
     sync raw = liftEitherT . fmapLT Ex . syncIO . perform raw
 
-    perform Request{..} dbg =
-        bracket (establishConnection url) closeConnection $ \c -> do
-            q <- buildRequest $ do
-                http rqMethod path
-                setHostname (BS.takeWhile (/= ':') rqHost) 443
-                mapM_ (uncurry setHeader) headers
-            when dbg $ print q
-            sendRequest c q =<< body
+    perform Signed{..} dbg =
+        bracket (establishConnection sURL) closeConnection $ \c -> do
+            when dbg $ print sRequest
+            sendRequest c sRequest =<< body
             receiveResponse c receive
       where
-        url  = BS.concat ["https://", rqHost]
-        path = BS.concat [rqPath, query]
-
-        headers = filter ((/= "Host") . fst) $ flattenHeaders rqHeaders
-
-        query = let qry = encodeQuery (urlEncode True) rqQuery
-                in if BS.null qry
-                       then qry
-                       else '?' `BS.cons` qry
-
-        body = case rqBody of
+        body = case sBody of
             Strict bs   -> inputStreamBody <$> Streams.fromByteString bs
             Streaming s -> return $ inputStreamBody s
             Empty       -> return emptyBody

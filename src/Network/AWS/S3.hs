@@ -104,8 +104,10 @@ import           System.IO.Streams    (InputStream)
 -- Host: BucketName.s3.amazonaws.com
 -- Date: date
 -- Authorization: signatureValue
+
 obj :: Method -> Bucket -> Key -> [AnyHeader] -> Body -> AWS Request
-obj meth (Bucket b) (Key k) hs = signer versionS3 svc meth path hs []
+obj meth (Bucket b) (Key k) hs =
+    signer (versionS3 $ Text.encodeUtf8 b) svc meth path hs []
   where
     path = Text.encodeUtf8 k
     svc  = s3 { svcEndpoint = Global $ Text.encodeUtf8 b <> ".s3.amazonaws.com" }

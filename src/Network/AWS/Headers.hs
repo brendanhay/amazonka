@@ -93,15 +93,15 @@ instance Show AnyHeader where
 hdr :: IsHeader a => a -> AnyHeader
 hdr = AnyHeader
 
-type ContentLength     = Header "Content-Length" Integer
-type ContentLanguage   = Header "Content-Language" ByteString
-type Expect            = Header "Expect" ByteString
-type Expires           = Header "Expires" ByteString
-type Range             = Header "Range" ByteString
-type IfModifiedSince   = Header "If-Modified-Since" ByteString
-type IfUnmodifiedSince = Header "If-Unmodified-Since" ByteString
-type IfMatch           = Header "If-Match" ByteString
-type IfNoneMatch       = Header "If-None-Match" ByteString
+type ContentLength     = Header "content-length" Integer
+type ContentLanguage   = Header "content-language" ByteString
+type Expect            = Header "expect" ByteString
+type Expires           = Header "expires" ByteString
+type Range             = Header "range" ByteString
+type IfModifiedSince   = Header "if-modified-since" ByteString
+type IfUnmodifiedSince = Header "if-unmodified-since" ByteString
+type IfMatch           = Header "if-match" ByteString
+type IfNoneMatch       = Header "if-none-match" ByteString
 
 data Content (t :: Symbol) (s :: Symbol) = Content
 

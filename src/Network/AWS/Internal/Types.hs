@@ -31,6 +31,7 @@ import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.List                       (intercalate)
+import           Data.Monoid
 import           Data.String
 import           Data.Strings
 import           Data.Text                       (Text)
@@ -40,8 +41,8 @@ import           GHC.TypeLits
 import           Network.AWS.Headers
 import           Network.AWS.Internal.String
 import           Network.HTTP.QueryString.Pickle
-import qualified Network.Http.Client             as HTTP
 import           Network.Http.Client             (Method, Hostname)
+import qualified Network.Http.Client             as Client
 import           System.IO.Streams               (InputStream)
 import qualified System.IO.Streams               as Stream
 import           Text.ParserCombinators.ReadP    (string)
@@ -52,7 +53,7 @@ class Rq a where
     type Er a
     type Rs a
 
-    request  :: a -> AWS Request
+    request  :: a -> AWS Signed
     response :: MonadIO m
              => a
              -> Response
@@ -128,28 +129,54 @@ data Endpoint
     = Global !ByteString
     | Regional (Region -> ByteString)
 
+instance Show Endpoint where
+    show (Global  bs) = BS.unpack $ "Global " <> bs
+    show (Regional _) = "Regional <Region -> ByteString>"
+
 data Service = Service
     { svcName     :: !ByteString
     , svcVersion  :: !ByteString
     , svcEndpoint :: !Endpoint
-    }
+    } deriving (Show)
 
 endpoint :: Service -> Region -> ByteString
 endpoint Service{..} = case svcEndpoint of
     Global  bs -> const bs
     Regional f -> f
 
--- svcPath :: Strings a => Service t -> a -> a
--- svcPath svc p = sJoin (sFromString "/") [sPack $ svcVersion svc, p]
+data Body
+    = Strict ByteString
+    | Streaming (InputStream ByteString)
+    | Empty
+
+instance Show Body where
+    show (Strict _)    = "Strict <ByteString>"
+    show (Streaming _) = "Streaming <InputStream>"
+    show Empty         = "Empty"
 
 data Request = Request
-    { rqMethod  :: !Method
+    { rqService :: !Service
+    , rqMethod  :: !Method
     , rqHost    :: !Hostname
     , rqPath    :: !ByteString
     , rqHeaders :: [AnyHeader]
     , rqQuery   :: [(ByteString, ByteString)]
     , rqBody    :: !Body
+    } deriving (Show)
+
+data Signed = Signed
+    { sURL     :: !ByteString
+    , sBody    :: !Body
+    , sRequest :: !Client.Request
     }
+
+instance Show Signed where
+    show Signed{..} = unlines
+        [ "Signed:"
+        , BS.unpack $ "sURL = " <> sURL
+        , show sBody
+        , ""
+        ] ++ show sRequest
 
 -- instance ToJSON Request where
 --     toJSON Request{..} = object
@@ -187,16 +214,6 @@ data Response = Response
     , rsHeaders :: [(ByteString, ByteString)]
     , rsBody    :: InputStream ByteString
     }
-
-data Body
-    = Strict ByteString
-    | Streaming (InputStream ByteString)
-    | Empty
-
-instance Show Body where
-    show (Strict _)    = "Strict <ByteString>"
-    show (Streaming _) = "Streaming <InputStream>"
-    show Empty         = "Empty"
 
 data Region
     = NorthVirginia

@@ -56,9 +56,10 @@ module Network.AWS
     , liftEitherT
 
     -- * Types
-    , Body             (..)
     , AvailabilityZone (..)
+    , Body             (..)
     , InstanceType     (..)
+    , Members          (..)
     ) where
 
 import           Control.Applicative

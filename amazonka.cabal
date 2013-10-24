@@ -43,6 +43,7 @@ library
       , Network.AWS.Internal
       , Network.AWS.Internal.Instances
       , Network.AWS.Internal.Monadic
+      , Network.AWS.Internal.Request
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
       , Network.AWS.Internal.Time

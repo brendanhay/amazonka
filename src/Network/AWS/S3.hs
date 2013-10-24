@@ -107,6 +107,7 @@ import           System.IO.Streams    (InputStream)
 
 obj :: Method -> Bucket -> Key -> [AnyHeader] -> Body -> AWS Request
 obj meth (Bucket b) (Key k) hs =
+    Request svc
     signer (versionS3 $ Text.encodeUtf8 b) svc meth path hs []
   where
     path = Text.encodeUtf8 k

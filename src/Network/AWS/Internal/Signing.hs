@@ -45,29 +45,30 @@ import           Network.Http.Client             (Method, Hostname)
 import qualified Network.Http.Client             as Client
 import qualified Network.Http.Internal           as Client
 
-type Signer = Request -> Service -> Auth -> Region -> UTCTime -> IO Signed
+type Signer = Request -> Auth -> Region -> UTCTime -> IO Signed
 
 signer :: Signer -> Request -> AWS Signed
 signer f r@Request{..} = do
     let svc@Service{..} = rqService
 
     auth <- getAuth
-    reg  <- svcRegion svc
+    reg  <- region svc
     time <- liftIO getCurrentTime
 
     let tok  = maybe [] ((:[]) . hdr) $ tokenHeader auth
-        host = hdr $ hostHeader rqHost
+        host = hdr . hostHeader $ endpoint svc reg
         hs   = host : concat [rqHeaders, tok, [hdr acceptHeader, hdr transferHeader]]
         rq   = r { rqHeaders = hs }
 
-    liftIO $! f rq svc auth reg time
+    liftIO $! f rq auth reg time
 
 versionS3 :: ByteString -> Signer
-versionS3 bucket Request{..} _ Auth{..} _ time =
-    sign rqMethod rqHost path headers rqBody
+versionS3 bucket Request{..} Auth{..} reg time =
+    sign rqMethod host path headers rqBody
   where
-    Service{..} = rqService
+    svc@Service{..} = rqService
 
+    host = endpoint svc reg
     path = joinPath rqPath $ encodeQuery (urlEncode True) rqQuery
 
     headers = hdr (authHeader authorisation) : signingHeaders
@@ -96,16 +97,17 @@ versionS3 bucket Request{..} _ Auth{..} _ time =
 
     canonicalHeaders = BS.intercalate "\n"
         . map flattenValues
+        . filter (BS.isPrefixOf "x-amz" . fst)
         $ groupHeaders signingHeaders
 
     signingHeaders = hdr (dateHeader date) : rqHeaders
 
 version2 :: Signer
-version2 Request{..} _ Auth{..} _ time =
-    sign rqMethod rqHost path headers rqBody
+version2 Request{..} Auth{..} reg time = sign rqMethod host path headers rqBody
   where
-    Service{..} = rqService
+    svc@Service{..} = rqService
 
+    host = endpoint svc reg
     path = joinPath rqPath $ encodeQuery (urlEncode True) query
 
     headers = hdr (dateHeader $ iso8601Time time) : rqHeaders
@@ -115,7 +117,7 @@ version2 Request{..} _ Auth{..} _ time =
         . hmac secretAccessKey
         $ BS.intercalate "\n"
             [ BS.pack $ show rqMethod
-            , rqHost
+            , host
             , rqPath
             , encodeQuery (urlEncode True) qry
             ]
@@ -129,11 +131,11 @@ version2 Request{..} _ Auth{..} _ time =
         ]
 
 version3 :: Signer
-version3 Request{..} _ Auth{..} _ time =
-    sign rqMethod rqHost path headers rqBody
+version3 Request{..} Auth{..} reg time = sign rqMethod host path headers rqBody
   where
-    Service{..} = rqService
+    svc@Service{..} = rqService
 
+    host = endpoint svc reg
     path = joinPath rqPath $ encodeQuery (urlEncode True) rqQuery
 
     headers = hdr (dateHeader $ rfc822Time time) :
@@ -146,21 +148,19 @@ version3 Request{..} _ Auth{..} _ time =
         <> Base64.encode (hmac secretAccessKey $ rfc822Time time)
 
 version4 :: Signer
-version4 Request{..} _ Auth{..} reg time = do
-    Signed{..} <- sign rqMethod rqHost path (date : rqHeaders) rqBody
+version4 Request{..} Auth{..} reg time = do
+    Signed{..} <- sign rqMethod host path (date : rqHeaders) rqBody
 
     let hs   = map hdr . Client.retrieveHeaders $ Client.getHeaders sRequest
         auth = hdr . authHeader $ authorisation hs
 
-    sign rqMethod rqHost path (auth : hs) rqBody
+    sign rqMethod host path (auth : hs) rqBody
   where
-    Service{..} = rqService
+    svc@Service{..} = rqService
 
+    host = endpoint svc reg
     path = joinPath rqPath query
     date = hdr (dateHeader $ iso8601Time time)
-
-    method = BS.pack $ show rqMethod
-    region = BS.pack $ show reg
 
     authorisation hs = mconcat
         [ algorithm
@@ -187,12 +187,12 @@ version4 Request{..} _ Auth{..} reg time = do
 
     credentialScope = BS.intercalate "/" scope
 
-    scope = [basicTime time, region, svcName, "aws4_request"]
+    scope = [basicTime time, BS.pack $ show reg, svcName, "aws4_request"]
 
     algorithm = "AWS4-HMAC-SHA256"
 
     canonicalRequest hs = BS.intercalate "\n"
-        [ method
+        [ BS.pack $ show rqMethod
         , rqPath
         , query
         , canonicalHeaders hs

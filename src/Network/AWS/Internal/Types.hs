@@ -157,7 +157,6 @@ instance Show Body where
 data Request = Request
     { rqService :: !Service
     , rqMethod  :: !Method
-    , rqHost    :: !Hostname
     , rqPath    :: !ByteString
     , rqHeaders :: [AnyHeader]
     , rqQuery   :: [(ByteString, ByteString)]

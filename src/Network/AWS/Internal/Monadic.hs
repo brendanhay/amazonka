@@ -61,9 +61,9 @@ defaultRegion = NorthVirginia
 getRegion :: AWS Region
 getRegion = AWS $ awsRegion <$> ask
 
-svcRegion :: Service -> AWS Region
-svcRegion (svcEndpoint -> Global _) = return defaultRegion
-svcRegion _                         = getRegion
+region :: Service -> AWS Region
+region (svcEndpoint -> Global _) = return defaultRegion
+region _                         = getRegion
 
 getDebug :: AWS Bool
 getDebug = AWS $ awsDebug <$> ask

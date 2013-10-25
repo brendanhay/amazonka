@@ -1,14 +1,10 @@
 {-# LANGUAGE DataKinds                  #-}
-{-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE KindSignatures             #-}
-{-# LANGUAGE OverlappingInstances       #-}
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE TupleSections              #-}
-{-# LANGUAGE TypeOperators              #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
@@ -34,7 +30,6 @@ import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text.Encoding     as Text
 import           Data.Time
-import           GHC.Generics
 import           GHC.TypeLits
 
 default (ByteString)
@@ -297,36 +292,3 @@ md5 = MD5 . Base64.encode . hash
 
 instance IsHeader MD5 where
     encodeHeader (MD5 bs) = encodeHeader (BS.pack "content-md5", bs)
-
---
--- Generics
---
-
--- | Supplementary class to extract any header types from a record,
--- ignoring everything else.
-class ToHeaders a where
-    toHeaders :: a -> [AnyHeader]
-
-    default toHeaders :: (Generic a, GHeaders (Rep a)) => a -> [AnyHeader]
-    toHeaders = genericHeaders
-
-genericHeaders :: (Generic a, GHeaders (Rep a)) => a -> [AnyHeader]
-genericHeaders f = gHeaders (from f)
-
-class GHeaders f where
-    gHeaders :: f a -> [AnyHeader]
-
-instance GHeaders (K1 i a) where
-    gHeaders _ = []
-
-instance GHeaders a => GHeaders (M1 i c a) where
-    gHeaders = gHeaders . unM1
-
-instance (Selector s, SingI k, IsHeader v) => GHeaders (S1 s (K1 i (Header k v))) where
-    gHeaders = (:[]) . hdr . unK1 . unM1
-
-instance Selector s => GHeaders (S1 s (K1 i [AnyHeader])) where
-    gHeaders = unK1 . unM1
-
-instance (GHeaders f, GHeaders g) => GHeaders (f :*: g) where
-    gHeaders (f :*: g) = gHeaders f <> gHeaders g

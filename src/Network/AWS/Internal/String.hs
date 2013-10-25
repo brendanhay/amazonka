@@ -46,9 +46,10 @@ instance IsByteString String where
 
 strip :: IsByteString a => Char -> a -> ByteString
 strip c (toBS -> bs)
-    | fst m     = c `strip` BS.tail bs
-    | snd m     = c `strip` BS.init bs
-    | otherwise = bs
+    | BS.null bs = bs
+    | fst m      = c `strip` BS.tail bs
+    | snd m      = c `strip` BS.init bs
+    | otherwise  = bs
   where
     m = c `match` bs
 
@@ -75,10 +76,13 @@ addPrefix (toBS -> x) (toBS -> y)
 
 lowerHead :: IsByteString a => a -> ByteString
 lowerHead (toBS -> bs)
-    | isUpper h = toLower h `BS.cons` BS.tail bs
-    | otherwise = bs
+    | BS.null bs = bs
+    | isUpper h  = toLower h `BS.cons` BS.tail bs
+    | otherwise  = bs
   where
     h = BS.head bs
 
 match :: Char -> ByteString -> (Bool, Bool)
-match c bs = (c == BS.head bs, c == BS.last bs)
+match c bs
+    | BS.null bs = (False, False)
+    | otherwise  = (c == BS.head bs, c == BS.last bs)

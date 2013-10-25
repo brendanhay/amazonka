@@ -1,8 +1,9 @@
-{-# LANGUAGE GADTs             #-}
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE GADTs              #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -381,16 +382,17 @@ headers _ Response{..} = return . Right . Right $ S3HeadersResponse rsHeaders
 data PutObject = PutObject
     { poBucket  :: !Bucket
     , poKey     :: !Key
+    , poLength  :: !ContentLength
     , poHeaders :: [AnyHeader]
     , poBody    :: Body
-    } deriving (Show, Generic)
+    }
 
-instance ToHeaders PutObject
+deriving instance Show PutObject
 
 instance Rq PutObject where
     type Er PutObject = S3ErrorResponse
     type Rs PutObject = S3HeadersResponse
-    request p@PutObject{..} = object PUT poBucket poKey (toHeaders p) poBody
+    request PutObject{..} = object PUT poBucket poKey (hdr poLength : poHeaders) poBody
     response = headers
 
 -- newtype PutObjectResult = PutObjectResult [(ByteString, ByteString)]

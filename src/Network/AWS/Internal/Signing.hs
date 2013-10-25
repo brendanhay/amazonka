@@ -23,6 +23,7 @@ module Network.AWS.Internal.Signing
 
 import           Control.Applicative
 import           Control.Monad.IO.Class
+import qualified Crypto.Hash.SHA1                as SHA1
 import qualified Crypto.Hash.SHA256              as SHA256
 import qualified Crypto.MAC.HMAC                 as HMAC
 import           Data.ByteString                 (ByteString)
@@ -32,8 +33,11 @@ import qualified Data.ByteString.Char8           as BS
 import           Data.CaseInsensitive            (CI)
 import qualified Data.CaseInsensitive            as Case
 import           Data.Function                   (on)
-import           Data.List
+import           Data.List                       (groupBy, nub, sort)
+import           Data.Maybe
 import           Data.Monoid
+import qualified Data.Text                       as Text
+import qualified Data.Text.Encoding              as Text
 import           Data.Time                       (UTCTime, getCurrentTime)
 import           Network.AWS.Headers
 import           Network.AWS.Internal.Monadic
@@ -173,51 +177,85 @@ version4 rq@Request{..} Auth{..} reg time = do
 
 versionS3 :: ByteString -> Signer
 versionS3 bucket rq@Request{..} Auth{..} reg time =
-    signed rqMethod host fullPath headers rqBody
+    signed rqMethod host fullPath (authorisation : headers) rqBody
   where
     Common{..} = common rq reg
 
-    headers = hdr (authHeader authorisation) : signingHeaders
+    date = formatRFC822 time
 
-    date = formatISO8601 time
+    authorisation = hdr $
+        ("Authorization" :: ByteString, BS.concat ["AWS ", accessKeyId, ":", signature])
 
-    authorisation = BS.concat ["AWS ", accessKeyId, ":", signature]
-    signature     = Base64.encode $ hmacSHA256 secretAccessKey stringToSign
+    signature = Base64.encode $ hmacSHA1 secretAccessKey stringToSign
 
     stringToSign = BS.concat
         [ BS.pack $ show rqMethod
         , "\n"
         , optionalHeader "content-md5"
+        , "\n"
         , optionalHeader "content-type"
+        , "\n"
         , date
         , "\n"
         , canonicalHeaders
-        , "\n"
         , canonicalResource
         ]
 
-    optionalHeader = maybe "" (<> "\n") . (`lookupHeader` signingHeaders)
-
-    canonicalResource = "/" `addPrefix` BS.concat [bucket, "/", rqPath]
-    -- [ subresource, if present. For example "?acl", "?location", "?logging", or "?torrent"]
+    optionalHeader = fromMaybe "" . (`lookupHeader` headers)
 
     canonicalHeaders = BS.intercalate "\n"
         . map flattenValues
-        . filter (BS.isPrefixOf "x-amz" . Case.foldedCase . fst)
-        $ groupHeaders signingHeaders
+        . filter (BS.isPrefixOf "x-amz-" . Case.foldedCase . fst)
+        $ groupHeaders headers
 
-    signingHeaders = hdr (dateHeader date) : rqHeaders
+    headers = hdr (dateHeader date) : rqHeaders
+
+    canonicalResource = '/' `wrap` bucket <> "/" `stripPrefix` rqPath
+
+    relevantQueryKeys =
+        [ "acl"
+        , "cors"
+        , "defaultObjectAcl"
+        , "location"
+        , "logging"
+        , "partNumber"
+        , "policy"
+        , "requestPayment"
+        , "torrent"
+        , "versioning"
+        , "versionId"
+        , "versions"
+        , "website"
+        , "uploads"
+        , "uploadId"
+        , "response-content-type"
+        , "response-content-language"
+        , "response-expires"
+        , "response-cache-control"
+        , "response-content-disposition"
+        , "response-content-encoding"
+        , "delete"
+        , "lifecycle"
+        , "tagging"
+        , "restore"
+        , "storageClass"
+        , "notification"
+        ]
 
 common :: Request -> Region -> Common
 common Request{..} reg = Common
     { service     = svcName rqService
     , version     = svcVersion rqService
     , host        = endpoint rqService reg
-    , fullPath    = rqPath <> "?" <> (encodeQuery (urlEncode True) qry)
-    , sortedQuery = qry
+    , fullPath    = path
+    , sortedQuery = query
     }
   where
-    qry = sort rqQuery
+    path = if null query
+        then rqPath
+        else BS.concat [rqPath,  "?", encodeQuery (urlEncode True) query]
+
+    query = sort rqQuery
 
 signed :: Method -> Hostname -> ByteString -> [AnyHeader] -> Body -> IO Signed
 signed meth host path hs body = Signed ("https://" <> host) body <$> builder
@@ -225,26 +263,37 @@ signed meth host path hs body = Signed ("https://" <> host) body <$> builder
     builder = Client.buildRequest $ do
         Client.http meth $ "/" `addPrefix` path
         Client.setHostname host 443
-        mapM_ (\(k, v) -> Client.setHeader (Case.original k) v)
-            . filter ((/= Case.mk "host") . fst)
-            $ flattenHeaders hs
+        maybe (return ()) Client.setContentLength contentLength
+        mapM_ header $ filter exclude headers
+
+    header (k, v) = Client.setHeader (Case.original k) v
+
+    exclude (Case.foldedCase -> k, _) = "host" /= k && "content-length" /= k
+
+    contentLength = read . BS.unpack . snd . (`encodeHeader` "") <$>
+        lookupHeader "content-length" hs
+
+    headers = flattenHeaders hs
+
+hmacSHA1 :: ByteString -> ByteString -> ByteString
+hmacSHA1 key msg = HMAC.hmac SHA1.hash 64 key msg
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 key msg = HMAC.hmac SHA256.hash 64 key msg
 
-tokenHeader :: Auth -> Maybe (Header "x-amz-security-token" ByteString)
+tokenHeader :: Auth -> Maybe (Header "X-Amz-Security-Token" ByteString)
 tokenHeader = fmap (\t -> Header t) . securityToken
 
-hostHeader :: Hostname -> Header "host" Hostname
+hostHeader :: Hostname -> Header "Host" Hostname
 hostHeader host = Header $ host <> ":443"
 
-dateHeader :: ByteString -> Header "date" ByteString
+dateHeader :: ByteString -> Header "Date" ByteString
 dateHeader = Header
 
-authHeader :: ByteString -> Header "x-amzn-authorization" ByteString
+authHeader :: ByteString -> Header "X-Amzn-Authorization" ByteString
 authHeader = Header
 
-acceptHeader :: Header "accept-encoding" ByteString
+acceptHeader :: Header "Accept-Encoding" ByteString
 acceptHeader = Header "gzip"
 
 groupHeaders :: [AnyHeader] -> [(CI ByteString, ByteString)]

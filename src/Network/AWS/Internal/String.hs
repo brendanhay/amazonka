@@ -82,28 +82,3 @@ lowerHead (toBS -> bs)
 
 match :: Char -> ByteString -> (Bool, Bool)
 match c bs = (c == BS.head bs, c == BS.last bs)
-
--- sLowerFirst :: Strings a => a -> a
--- sLowerFirst s
-
--- sStripSuffix :: Strings a => a -> a -> a
--- sStripSuffix suf s
---     | s `sEndsWith` suf = sTake (sLen s - sLen suf) s
---     | otherwise         = s
-
--- sEnsureSuffix :: Strings a => a -> a -> a
--- sEnsureSuffix suf s
---     | s `sEndsWith` suf = s
---     | otherwise         = sConcat [s, suf]
-
--- sWrap :: Strings a => a -> a -> a
--- sWrap delim = sEnsureSuffix delim . sEnsurePrefix delim
-
--- sStripChar :: Strings a => Char -> a -> a
--- sStripChar c s
---     | sHead s == c = c `sStripChar` sTail s
---     | sLast s == c = c `sStripChar` sInit s
---     | otherwise    = s
-
--- sJoin :: Strings a => a -> [a] -> a
--- sJoin delim = sConcat . map (sEnsureSuffix delim . sStripPrefix delim)

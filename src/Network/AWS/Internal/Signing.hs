@@ -66,7 +66,7 @@ sign f rq@Request{..} = do
     reg  <- region rqService
     time <- liftIO getCurrentTime
 
-    let tok  = maybe [] ((:[]) . hdr) $ tokenHeader auth
+    let tok  = maybe [] ((:[]) . hdr) $ amzTokenHeader auth
         host = hdr . hostHeader $ endpoint rqService reg
         hs   = host : hdr acceptHeader : concat [rqHeaders, tok] --, hdr transferHeader]]
 
@@ -106,7 +106,7 @@ version3 rq@Request{..} Auth{..} reg time =
     Common{..} = common rq reg
 
     headers = hdr (dateHeader $ formatRFC822 time) :
-        hdr (authHeader authorisation) :
+        hdr (amzAuthHeader authorisation) :
         rqHeaders
 
     authorisation = "AWS3-HTTPS AWSAccessKeyId="
@@ -119,7 +119,7 @@ version4 rq@Request{..} Auth{..} reg time = do
     Signed{..} <- signed rqMethod host fullPath (date : rqHeaders) rqBody
 
     let hs   = map hdr . Client.retrieveHeaders $ Client.getHeaders sRequest
-        auth = hdr . authHeader $ authorisation hs
+        auth = hdr . amzAuthHeader $ authorisation hs
 
     signed rqMethod host fullPath (auth : hs) rqBody
   where
@@ -181,10 +181,8 @@ versionS3 bucket rq@Request{..} Auth{..} reg time =
   where
     Common{..} = common rq reg
 
-    date = formatRFC822 time
-
-    authorisation = hdr $
-        ("Authorization" :: ByteString, BS.concat ["AWS ", accessKeyId, ":", signature])
+    authorisation = hdr . authHeader $
+        BS.concat ["AWS ", accessKeyId, ":", signature]
 
     signature = Base64.encode $ hmacSHA1 secretAccessKey stringToSign
 
@@ -209,6 +207,8 @@ versionS3 bucket rq@Request{..} Auth{..} reg time =
         $ groupHeaders headers
 
     headers = hdr (dateHeader date) : rqHeaders
+
+    date = formatRFC822 time
 
     canonicalResource = '/' `wrap` bucket <> "/" `stripPrefix` rqPath
 
@@ -281,17 +281,20 @@ hmacSHA1 key msg = HMAC.hmac SHA1.hash 64 key msg
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 key msg = HMAC.hmac SHA256.hash 64 key msg
 
-tokenHeader :: Auth -> Maybe (Header "X-Amz-Security-Token" ByteString)
-tokenHeader = fmap (\t -> Header t) . securityToken
-
 hostHeader :: Hostname -> Header "Host" Hostname
 hostHeader host = Header $ host <> ":443"
 
 dateHeader :: ByteString -> Header "Date" ByteString
 dateHeader = Header
 
-authHeader :: ByteString -> Header "X-Amzn-Authorization" ByteString
+authHeader :: ByteString -> Header "Authorization" ByteString
 authHeader = Header
+
+amzAuthHeader :: ByteString -> Header "X-Amzn-Authorization" ByteString
+amzAuthHeader = Header
+
+amzTokenHeader :: Auth -> Maybe (Header "X-Amz-Security-Token" ByteString)
+amzTokenHeader = fmap (\t -> Header t) . securityToken
 
 acceptHeader :: Header "Accept-Encoding" ByteString
 acceptHeader = Header "gzip"

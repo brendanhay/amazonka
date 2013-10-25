@@ -35,7 +35,7 @@ data EC2Error = EC2Error
 
 instance IsXML EC2Error where
     xmlPickler = genericXMLPickler $ defaultXMLOptions
-       { xmlCtorModifier = mkAnNName . sStripPrefix "EC2" . BS.pack
+       { xmlCtorModifier = mkAnNName . stripPrefix "EC2"
        }
 
 instance IsXML [EC2Error] where
@@ -2546,12 +2546,12 @@ ec2Elem = mkNName ec2NS
 
 ec2XML :: XMLGeneric a
 ec2XML = withNS' ec2NS $ (namespacedXMLOptions ec2NS)
-    { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
+    { xmlFieldModifier = mkNName ec2NS . lowerHead . stripLower
     , xmlListElement   = mkNName ec2NS "item"
     }
 
 ec2ItemXML :: XMLGeneric a
 ec2ItemXML = withRootNS' ec2NS "item" $ (namespacedXMLOptions ec2NS)
-    { xmlFieldModifier = mkNName ec2NS . BS.pack . sLowerFirst . sStripLower
+    { xmlFieldModifier = mkNName ec2NS . lowerHead . stripLower
     , xmlListElement   = mkNName ec2NS "item"
     }

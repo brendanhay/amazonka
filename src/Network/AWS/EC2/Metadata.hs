@@ -71,7 +71,7 @@ request :: (Applicative m, MonadIO m)
         => ByteString
         -> EitherT AWSError m ByteString
 request url = do
-    rs <- fmap (sStripChar '\n') <$> fmapLT Ex (syncIO req)
+    rs <- fmap (strip '\n') <$> fmapLT Ex (syncIO req)
     maybe (throwError "Failed to receive any data") return rs
   where
     req = bracket (establishConnection localhost) closeConnection $ \c -> do

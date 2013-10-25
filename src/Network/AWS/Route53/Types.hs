@@ -113,13 +113,13 @@ instance IsXML Config where
     xmlPickler = withNS route53NS
 
 newtype HostedZoneId = HostedZoneId { unHostedZoneId :: Text }
-   deriving (Eq, IsString)
+   deriving (Eq, IsString, IsByteString)
 
 instance Show HostedZoneId where
     show = BS.unpack . prefixed
 
 instance Prefixed HostedZoneId where
-    prefixed = sEnsurePrefix "/hostedzone/" . encodeUtf8 . unHostedZoneId
+    prefixed = addPrefix "/hostedzone/"
 
 instance IsXML HostedZoneId where
     xmlPickler = (HostedZoneId, unHostedZoneId) `xpWrap` xmlPickler
@@ -159,13 +159,13 @@ instance IsXML DelegationSet where
             $ xpElemList (route53Elem "NameServer") xmlPickler)
 
 newtype ChangeId = ChangeId { unChangeId :: Text }
-    deriving (Eq, IsString)
+    deriving (Eq, IsString, IsByteString)
 
 instance Show ChangeId where
     show = BS.unpack . prefixed
 
 instance Prefixed ChangeId where
-    prefixed = sEnsurePrefix "/change/" . encodeUtf8 . unChangeId
+    prefixed = addPrefix "/change/"
 
 instance IsXML ChangeId where
     xmlPickler = (ChangeId, unChangeId) `xpWrap` xmlPickler
@@ -332,13 +332,13 @@ instance IsXML HealthCheckConfig where
     xmlPickler = withNS route53NS
 
 newtype HealthCheckId = HealthCheckId { unHealthCheckId :: Text }
-    deriving (Eq, IsString)
+    deriving (Eq, IsString, IsByteString)
 
 instance Show HealthCheckId where
     show = BS.unpack . prefixed
 
 instance Prefixed HealthCheckId where
-    prefixed = sEnsurePrefix "/healthcheck/" . encodeUtf8 . unHealthCheckId
+    prefixed = addPrefix "/healthcheck/"
 
 instance IsXML HealthCheckId where
     xmlPickler = (HealthCheckId, unHealthCheckId) `xpWrap` xmlPickler

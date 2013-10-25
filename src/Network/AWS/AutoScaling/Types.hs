@@ -17,7 +17,6 @@ module Network.AWS.AutoScaling.Types where
 
 import Data.ByteString      (ByteString)
 import Data.Monoid
-import Data.Strings
 import Data.Text            (Text)
 import Data.Time
 import Network.AWS.Internal
@@ -70,7 +69,7 @@ instance IsXML ResponseMetadata where
 --     xmlPickler = withNS autoScalingNS
 
 newtype ResourceName = ResourceName Text
-    deriving (Eq, Show, Generic, Strings)
+    deriving (Eq, Show, Generic)
 
 instance IsQuery ResourceName
 

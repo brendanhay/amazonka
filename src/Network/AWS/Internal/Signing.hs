@@ -23,19 +23,17 @@ module Network.AWS.Internal.Signing
 
 import           Control.Applicative
 import           Control.Monad.IO.Class
+import qualified Crypto.Hash.SHA256              as SHA256
+import qualified Crypto.MAC.HMAC                 as HMAC
 import           Data.ByteString                 (ByteString)
+import qualified Data.ByteString.Base16          as Base16
 import qualified Data.ByteString.Base64          as Base64
 import qualified Data.ByteString.Char8           as BS
-import qualified Data.ByteString.Lazy            as LBS
-import qualified Data.CaseInsensitive            as Case
 import           Data.CaseInsensitive            (CI)
-import           Data.Char                       (intToDigit, ord)
-import qualified Data.Digest.Pure.SHA            as SHA
+import qualified Data.CaseInsensitive            as Case
 import           Data.Function                   (on)
 import           Data.List
 import           Data.Monoid
-import           Data.String
-import           Data.Strings
 import           Data.Time                       (UTCTime, getCurrentTime)
 import           Network.AWS.Headers
 import           Network.AWS.Internal.Monadic
@@ -81,7 +79,7 @@ version2 rq@Request{..} Auth{..} reg time =
     headers = hdr (dateHeader $ iso8601Time time) : rqHeaders
 
     signature = Base64.encode
-        . hmac secretAccessKey
+        . hmacSHA256 secretAccessKey
         $ BS.intercalate "\n"
             [ BS.pack $ show rqMethod
             , host <> ":443"
@@ -90,7 +88,7 @@ version2 rq@Request{..} Auth{..} reg time =
             ]
 
     query = encodeQuery (urlEncode True) $ sortedQuery ++
-        [ ("Version",          sPack $ svcVersion rqService)
+        [ ("Version",          svcVersion rqService)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
         , ("Timestamp",        iso8601Time time)
@@ -110,7 +108,7 @@ version3 rq@Request{..} Auth{..} reg time =
     authorisation = "AWS3-HTTPS AWSAccessKeyId="
         <> accessKeyId
         <> ", Algorithm=HmacSHA256, Signature="
-        <> Base64.encode (hmac secretAccessKey $ rfc822Time time)
+        <> Base64.encode (hmacSHA256 secretAccessKey $ rfc822Time time)
 
 version4 :: Signer
 version4 rq@Request{..} Auth{..} reg time = do
@@ -137,14 +135,14 @@ version4 rq@Request{..} Auth{..} reg time = do
         , signature hs
         ]
 
-    signature  = hex . hmac signingKey . stringToSign
-    signingKey = foldl1 hmac $ ("AWS4" <> secretAccessKey) : scope
+    signature  = Base16.encode . hmacSHA256 signingKey . stringToSign
+    signingKey = foldl1 hmacSHA256 $ ("AWS4" <> secretAccessKey) : scope
 
     stringToSign hs = BS.intercalate "\n"
         [ algorithm
         , awsTime time
         , credentialScope
-        , strictSHA256 $ canonicalRequest hs
+        , Base16.encode . SHA256.hash $ canonicalRequest hs
         ]
 
     credentialScope = BS.intercalate "/" scope
@@ -169,7 +167,7 @@ version4 rq@Request{..} Auth{..} reg time = do
         . groupHeaders
 
     bodySHA256 = case rqBody of
-        (Strict   bs) -> strictSHA256 bs
+        (Strict   bs) -> Base16.encode $ SHA256.hash bs
         (Streaming _) -> "" -- FIXME
         Empty         -> ""
 
@@ -184,7 +182,7 @@ versionS3 bucket rq@Request{..} Auth{..} reg time =
     date = iso8601Time time
 
     authorisation = BS.concat ["AWS ", accessKeyId, ":", signature]
-    signature     = Base64.encode $ hmac secretAccessKey stringToSign
+    signature     = Base64.encode $ hmacSHA256 secretAccessKey stringToSign
 
     stringToSign = BS.concat
         [ BS.pack $ show rqMethod
@@ -200,7 +198,7 @@ versionS3 bucket rq@Request{..} Auth{..} reg time =
 
     optionalHeader = maybe "" (<> "\n") . (`lookupHeader` signingHeaders)
 
-    canonicalResource = "/" `sEnsurePrefix` BS.concat [bucket, "/", rqPath]
+    canonicalResource = "/" `addPrefix` BS.concat [bucket, "/", rqPath]
     -- [ subresource, if present. For example "?acl", "?location", "?logging", or "?torrent"]
 
     canonicalHeaders = BS.intercalate "\n"
@@ -225,29 +223,14 @@ signed :: Method -> Hostname -> ByteString -> [AnyHeader] -> Body -> IO Signed
 signed meth host path hs body = Signed ("https://" <> host) body <$> builder
   where
     builder = Client.buildRequest $ do
-        Client.http meth $ "/" `sEnsurePrefix` path
+        Client.http meth $ "/" `addPrefix` path
         Client.setHostname host 443
         mapM_ (\(k, v) -> Client.setHeader (Case.original k) v)
             . filter ((/= Case.mk "host") . fst)
             $ flattenHeaders hs
 
-hmac :: ByteString -> ByteString -> ByteString
-hmac key msg = LBS.toStrict
-    . SHA.bytestringDigest
-    $ SHA.hmacSha256 (LBS.fromStrict key) (LBS.fromStrict msg)
-
-strictSHA256 :: ByteString -> ByteString
-strictSHA256 = hex . LBS.toStrict . lazySHA256 . LBS.fromStrict
-
-lazySHA256 :: LBS.ByteString -> LBS.ByteString
-lazySHA256 = SHA.bytestringDigest . SHA.sha256 -- Need to hex encode the result
-
-hex :: ByteString -> ByteString
-hex = BS.pack . foldr f "" . BS.unpack
-  where
-    f c t = intToDigit (n `div` 16) : intToDigit (n `mod` 16) : t
-      where
-        n = ord c
+hmacSHA256 :: ByteString -> ByteString -> ByteString
+hmacSHA256 key msg = HMAC.hmac SHA256.hash 64 key msg
 
 tokenHeader :: Auth -> Maybe (Header "x-amz-security-token" ByteString)
 tokenHeader = fmap (\t -> Header t) . securityToken
@@ -270,17 +253,16 @@ groupHeaders = sort . map f . groupBy ((==) `on` fst) . flattenHeaders
     f (h:hs) = (fst h, BS.intercalate "," . sort . map snd $ h : hs)
     f []     = ("", "")
 
-flattenValues :: (Monoid a, IsString a, Strings a) => (CI a, a) -> a
-flattenValues (k, v) = mconcat [Case.original k, ":", sStripChar ' ' v]
-
 flattenHeaders :: [AnyHeader] -> [(CI ByteString, ByteString)]
 flattenHeaders = map (`encodeHeader` "")
 
 lookupHeader :: ByteString -> [AnyHeader] -> Maybe ByteString
 lookupHeader (Case.mk -> key) = lookup key . flattenHeaders
 
+flattenValues :: IsByteString a => (CI ByteString, a) -> ByteString
+flattenValues (k, v) = mconcat [Case.original k, ":", strip ' ' v]
+
 joinPath :: ByteString -> ByteString -> ByteString
 joinPath path qry
-    | BS.null qry = "/" `sEnsurePrefix` path
-    | otherwise   = "/" `sWrap` path <> "?" <> qry
-
+    | BS.null qry = "/" `addPrefix` path
+    | otherwise   = '/' `wrap` path <> "?" <> qry

@@ -30,6 +30,7 @@ import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.Monoid
 import           Data.String
+import qualified Data.Text.Encoding              as Text
 import           GHC.Generics
 import           Network.AWS.Headers
 import           Network.HTTP.QueryString.Pickle

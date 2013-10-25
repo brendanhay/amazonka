@@ -8,19 +8,38 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Time where
+module Network.AWS.Internal.Time
+    (
+    -- * Formatters
+      formatRFC822
+    , formatISO8601
+    , formatAWS
+    , formatBasic
 
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import           Data.Time             (UTCTime)
-import qualified Data.Time             as Time
+    -- * Parsers
+    , parseISO8601
+    ) where
+
+import           Control.Error
+import           Data.ByteString             (ByteString)
+import qualified Data.ByteString.Char8       as BS
+import           Data.Time                   (UTCTime)
+import qualified Data.Time                   as Time
+import           Network.AWS.Internal.String
 import           System.Locale
 
-rfc822Time, iso8601Time, awsTime, basicTime :: UTCTime -> ByteString
-rfc822Time  = formatTime "%a, %d %b %Y %H:%M:%S GMT"
-iso8601Time = formatTime (iso8601DateFormat $ Just "%XZ")
-awsTime     = formatTime "%Y%m%dT%H%M%SZ"
-basicTime   = formatTime "%Y%m%d"
+formatRFC822, formatISO8601, formatAWS, formatBasic :: UTCTime -> ByteString
+formatRFC822  = formatTime "%a, %d %b %Y %H:%M:%S GMT"
+formatISO8601 = formatTime iso8601Format
+formatAWS     = formatTime "%Y%m%dT%H%M%SZ"
+formatBasic   = formatTime "%Y%m%d"
+
+parseISO8601 :: String -> Either String UTCTime
+parseISO8601 = note "unable to parse ISO8601 time"
+    . Time.parseTime defaultTimeLocale iso8601Format
 
 formatTime :: String -> UTCTime -> ByteString
 formatTime fmt = BS.pack . Time.formatTime defaultTimeLocale fmt
+
+iso8601Format :: String
+iso8601Format = iso8601DateFormat $ Just "%XZ"

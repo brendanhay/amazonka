@@ -89,7 +89,7 @@ instance IsXML CallerReference where
     xmlPickler = (CallerReference, unCallerReference) `xpWrap` xpTextContent
 
 callerRef :: IO CallerReference
-callerRef = CallerReference . decodeUtf8 . awsTime <$> getCurrentTime
+callerRef = CallerReference . decodeUtf8 . formatAWS <$> getCurrentTime
 
 data Protocol = HTTP | TCP
     deriving (Eq, Read, Show, Generic)

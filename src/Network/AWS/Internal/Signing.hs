@@ -76,7 +76,7 @@ version2 rq@Request{..} Auth{..} reg time =
 
     path = joinPath rqPath $ query <> "&Signature=" <> urlEncode True signature
 
-    headers = hdr (dateHeader $ iso8601Time time) : rqHeaders
+    headers = hdr (dateHeader $ formatISO8601 time) : rqHeaders
 
     signature = Base64.encode
         . hmacSHA256 secretAccessKey
@@ -91,7 +91,7 @@ version2 rq@Request{..} Auth{..} reg time =
         [ ("Version",          svcVersion rqService)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
-        , ("Timestamp",        iso8601Time time)
+        , ("Timestamp",        formatISO8601 time)
         , ("AWSAccessKeyId",   accessKeyId)
         ]
 
@@ -101,14 +101,14 @@ version3 rq@Request{..} Auth{..} reg time =
   where
     Common{..} = common rq reg
 
-    headers = hdr (dateHeader $ rfc822Time time) :
+    headers = hdr (dateHeader $ formatRFC822 time) :
         hdr (authHeader authorisation) :
         rqHeaders
 
     authorisation = "AWS3-HTTPS AWSAccessKeyId="
         <> accessKeyId
         <> ", Algorithm=HmacSHA256, Signature="
-        <> Base64.encode (hmacSHA256 secretAccessKey $ rfc822Time time)
+        <> Base64.encode (hmacSHA256 secretAccessKey $ formatRFC822 time)
 
 version4 :: Signer
 version4 rq@Request{..} Auth{..} reg time = do
@@ -121,7 +121,7 @@ version4 rq@Request{..} Auth{..} reg time = do
   where
     Common{..} = common rq reg
 
-    date = hdr (dateHeader $ iso8601Time time)
+    date = hdr (dateHeader $ formatISO8601 time)
 
     authorisation hs = mconcat
         [ algorithm
@@ -140,7 +140,7 @@ version4 rq@Request{..} Auth{..} reg time = do
 
     stringToSign hs = BS.intercalate "\n"
         [ algorithm
-        , awsTime time
+        , formatAWS time
         , credentialScope
         , Base16.encode . SHA256.hash $ canonicalRequest hs
         ]
@@ -148,7 +148,7 @@ version4 rq@Request{..} Auth{..} reg time = do
     credentialScope = BS.intercalate "/" scope
 
     algorithm = "AWS4-HMAC-SHA256"
-    scope     = [basicTime time, BS.pack $ show reg, service, "aws4_request"]
+    scope     = [formatBasic time, BS.pack $ show reg, service, "aws4_request"]
 
     canonicalRequest hs = BS.intercalate "\n"
         [ BS.pack $ show rqMethod
@@ -179,7 +179,7 @@ versionS3 bucket rq@Request{..} Auth{..} reg time =
 
     headers = hdr (authHeader authorisation) : signingHeaders
 
-    date = iso8601Time time
+    date = formatISO8601 time
 
     authorisation = BS.concat ["AWS ", accessKeyId, ":", signature]
     signature     = Base64.encode $ hmacSHA256 secretAccessKey stringToSign

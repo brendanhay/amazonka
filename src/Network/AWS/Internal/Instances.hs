@@ -18,12 +18,13 @@
 module Network.AWS.Internal.Instances where
 
 import           Control.Monad
+import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import           Data.Foldable                   (Foldable)
 import           Data.Time
 import           GHC.Generics
+import           Network.AWS.Internal.Time
 import           Network.HTTP.QueryString.Pickle
-import           System.Locale                   (defaultTimeLocale)
 import           Text.XML.Expat.Pickle.Generic
 
 newtype Items a = Items { items :: [a] }
@@ -58,45 +59,35 @@ instance IsQuery () where
     queryPickler = qpLift ()
 
 instance IsQuery Bool where
-    queryPickler = QueryPU p u
+    queryPickler = QueryPU (Value . lowerBool) u
       where
-        p True  = Value "true"
-        p False = Value "false"
-
-        u (Value "true")  = Right True
-        u (Value "false") = Right False
-        u err             = Left $ "unable to parse Bool from: " ++ show err
+        u (Value s) = parseBool s
+        u e         = Left $ "unable to encode Bool from: " ++ show e
 
 instance IsXML Bool where
-    xmlPickler = xpContent $ XMLPU p u Nothing
-      where
-        p True  = "true"
-        p False = "false"
-
-        u "true"  = Right True
-        u "false" = Right False
-        u err     = Left $ "unable to parse Bool from: " ++ show err
+    xmlPickler = xpContent $ XMLPU lowerBool parseBool Nothing
 
 instance IsQuery UTCTime where
-    queryPickler = QueryPU p u
+    queryPickler = QueryPU (Value . formatISO8601) u
       where
-        p d = Value . BS.pack $ take 23 (formatTime defaultTimeLocale "%FT%T%Q" d) ++ "Z"
-
-        u (Value t) = case parseTime defaultTimeLocale "%FT%T%QZ" (BS.unpack t) of
-            Just d -> Right d
-            _      -> Left "could not parse ISO-8601 date"
-        u _         = Left "could not parse ISO-8601 date"
+        u (Value s) = parseISO8601 $ BS.unpack s
+        u o         = Left $ "unable to parse ISO8601 time from: " ++ show o
 
 instance IsXML UTCTime where
     xmlPickler = xpContent XMLPU
-        { pickleTree   = \d ->
-             BS.pack (take 23 (formatTime defaultTimeLocale "%FT%T%Q" d) ++ "Z")
-        , unpickleTree = \t ->
-              case parseTime defaultTimeLocale "%FT%T%QZ" (BS.unpack t) of
-                  Just d -> Right d
-                  _      -> Left "could not parse ISO-8601 date"
+        { pickleTree   = formatISO8601
+        , unpickleTree = parseISO8601 . BS.unpack
         , root         = Nothing
         }
 
 instance IsQuery Double where
     queryPickler = qpPrim
+
+lowerBool :: Bool -> ByteString
+lowerBool True  = "true"
+lowerBool False = "false"
+
+parseBool :: ByteString -> Either String Bool
+parseBool "true"  = Right True
+parseBool "false" = Right False
+parseBool e       = Left $ "unable to parse Bool from: " ++ show e

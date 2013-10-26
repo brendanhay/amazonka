@@ -3,7 +3,6 @@
 {-# LANGUAGE Rank2Types        #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Internal.Monadic
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>

@@ -30,16 +30,13 @@ import           System.Locale
 
 formatRFC822, formatISO8601, formatAWS, formatBasic :: UTCTime -> ByteString
 formatRFC822  = formatTime "%a, %d %b %Y %H:%M:%S GMT"
-formatISO8601 = formatTime iso8601Format
+formatISO8601 = formatTime (iso8601DateFormat $ Just "%XZ")
 formatAWS     = formatTime "%Y%m%dT%H%M%SZ"
 formatBasic   = formatTime "%Y%m%d"
 
 parseISO8601 :: String -> Either String UTCTime
 parseISO8601 = note "unable to parse ISO8601 time"
-    . Time.parseTime defaultTimeLocale iso8601Format
+    . Time.parseTime defaultTimeLocale "%FT%T%QZ"
 
 formatTime :: String -> UTCTime -> ByteString
 formatTime fmt = BS.pack . Time.formatTime defaultTimeLocale fmt
-
-iso8601Format :: String
-iso8601Format = iso8601DateFormat $ Just "%XZ"

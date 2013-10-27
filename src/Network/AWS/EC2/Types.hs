@@ -451,7 +451,7 @@ data DescribeImagesResponseItemType = DescribeImagesResponseItemType
     , diritRootDeviceType     :: !Text
       -- ^ The type of root device used by the AMI. The AMI can use an
       -- Amazon EBS volume or an instance store volume.
-    , diritRootDeviceName     :: !Text
+    , diritRootDeviceName     :: Maybe Text
       -- ^ The device name of the root device (for example, /dev/sda1 or
       -- xvda).
     , diritBlockDeviceMapping :: [BlockDeviceMappingItemType]

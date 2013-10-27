@@ -57,6 +57,7 @@ class Rq a where
                      -> m (Either AWSError (Either (Er a) (Rs a)))
     response _ = defaultResponse
 
+-- FIXME: an erroneous http status code should indicate the Er parser to use
 defaultResponse :: (IsXML e, IsXML a, MonadIO m)
                 => Response
                 -> m (Either AWSError (Either e a))

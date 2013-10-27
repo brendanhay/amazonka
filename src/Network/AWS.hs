@@ -107,9 +107,12 @@ sendCatch rq = do
         let c = getStatusCode rs
             m = getStatusMessage rs
         when dbg $ print rs
-        if c < 400
-            then response rq $ Response c m (retrieveHeaders $ getHeaders rs) i
-            else return . Left . Err $ concat [show c, " ", BS.unpack m]
+        response rq $ Response c m (retrieveHeaders $ getHeaders rs) i
+
+            -- else do
+            --     bs <- BS.concat <$> Streams.toList i
+            --     return . Left . Err . BS.unpack $
+            --         BS.concat [BS.pack $ show c, " ", m, "\n", bs]
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
 async aws = AWS ask >>= liftIO . A.async . runEnv aws

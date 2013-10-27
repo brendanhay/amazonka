@@ -22,6 +22,7 @@ module Network.AWS.Internal.Signing
     ) where
 
 import           Control.Applicative
+import           Control.Monad
 import           Control.Monad.IO.Class
 import qualified Crypto.Hash.SHA1                as SHA1
 import qualified Crypto.Hash.SHA256              as SHA256
@@ -50,7 +51,7 @@ import           Network.Http.Client             (Method, Hostname)
 import qualified Network.Http.Client             as Client
 import qualified Network.Http.Internal           as Client
 
-type Signer = Request -> Auth -> Region -> UTCTime -> IO Signed
+type Signer = Request -> Auth -> Region -> UTCTime -> Bool -> IO Signed
 
 data Common = Common
     { service     :: !ByteString
@@ -62,6 +63,7 @@ data Common = Common
 
 sign :: Signer -> Request -> AWS Signed
 sign f rq@Request{..} = do
+    dbg  <- getDebug
     auth <- getAuth
     reg  <- region rqService
     time <- liftIO getCurrentTime
@@ -70,10 +72,10 @@ sign f rq@Request{..} = do
         host = hdr . hostHeader $ endpoint rqService reg
         hs   = host : hdr acceptHeader : concat [rqHeaders, tok] --, hdr transferHeader]]
 
-    liftIO $! f (rq { rqHeaders = hs }) auth reg time
+    liftIO $! f (rq { rqHeaders = hs }) auth reg time dbg
 
 version2 :: Signer
-version2 rq@Request{..} Auth{..} reg time =
+version2 rq@Request{..} Auth{..} reg time dbg =
     signed rqMethod host path headers rqBody
   where
     Common{..} = common rq reg
@@ -100,7 +102,7 @@ version2 rq@Request{..} Auth{..} reg time =
         ]
 
 version3 :: Signer
-version3 rq@Request{..} Auth{..} reg time =
+version3 rq@Request{..} Auth{..} reg time dbg =
     signed rqMethod host fullPath headers rqBody
   where
     Common{..} = common rq reg
@@ -115,17 +117,23 @@ version3 rq@Request{..} Auth{..} reg time =
         <> Base64.encode (hmacSHA256 secretAccessKey $ formatRFC822 time)
 
 version4 :: Signer
-version4 rq@Request{..} Auth{..} reg time = do
+version4 rq@Request{..} Auth{..} reg time dbg = do
     Signed{..} <- signed rqMethod host fullPath (date : rqHeaders) rqBody
 
     let hs   = map hdr . Client.retrieveHeaders $ Client.getHeaders sRequest
-        auth = hdr . amzAuthHeader $ authorisation hs
+        hs'  = hdr (hostHeader host) : hs
+        auth = hdr . authHeader $ authorisation hs'
 
-    signed rqMethod host fullPath (auth : hs) rqBody
+    when dbg $ do
+        print hs'
+        BS.putStrLn $ "Canonical String:\n" <> canonicalRequest hs'
+        BS.putStrLn $ "String-to-Sign:\n" <> stringToSign hs'
+
+    signed rqMethod host fullPath (auth : hs') rqBody
   where
     Common{..} = common rq reg
 
-    date = hdr (dateHeader $ formatISO8601 time)
+    date = hdr . amzDateHeader $ formatISO8601 time
 
     authorisation hs = mconcat
         [ algorithm
@@ -167,16 +175,16 @@ version4 rq@Request{..} Auth{..} reg time = do
 
     signedHeaders = BS.intercalate ";"
         . nub
-        . map (Case.original . fst)
+        . map (Case.foldedCase . fst)
         . groupHeaders
 
-    bodySHA256 = case rqBody of
-        (Strict   bs) -> Base16.encode $ SHA256.hash bs
+    bodySHA256 = Base16.encode . SHA256.hash $ case rqBody of
+        (Strict   bs) -> bs
         (Streaming _) -> "" -- FIXME
         Empty         -> ""
 
 versionS3 :: ByteString -> Signer
-versionS3 bucket rq@Request{..} Auth{..} reg time =
+versionS3 bucket rq@Request{..} Auth{..} reg time dbg =
     signed rqMethod host fullPath (authorisation : headers) rqBody
   where
     Common{..} = common rq reg
@@ -287,6 +295,9 @@ hostHeader host = Header $ host <> ":443"
 dateHeader :: ByteString -> Header "Date" ByteString
 dateHeader = Header
 
+amzDateHeader :: ByteString -> Header "X-Amz-Date" ByteString
+amzDateHeader = Header
+
 authHeader :: ByteString -> Header "Authorization" ByteString
 authHeader = Header
 
@@ -312,7 +323,7 @@ lookupHeader :: ByteString -> [AnyHeader] -> Maybe ByteString
 lookupHeader (Case.mk -> key) = lookup key . flattenHeaders
 
 flattenValues :: IsByteString a => (CI ByteString, a) -> ByteString
-flattenValues (k, v) = mconcat [Case.original k, ":", strip ' ' v]
+flattenValues (k, v) = mconcat [Case.foldedCase k, ":", strip ' ' v, "\n"]
 
 joinPath :: ByteString -> ByteString -> ByteString
 joinPath path qry

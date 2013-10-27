@@ -107,7 +107,7 @@ sendCatch rq = do
         let c = getStatusCode rs
             m = getStatusMessage rs
         when dbg $ print rs
-        response rq $ Response c m (retrieveHeaders $ getHeaders rs) i
+        response rq $ Response dbg c m (retrieveHeaders $ getHeaders rs) i
 
             -- else do
             --     bs <- BS.concat <$> Streams.toList i

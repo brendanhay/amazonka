@@ -63,6 +63,7 @@ defaultResponse :: (IsXML e, IsXML a, MonadIO m)
                 -> m (Either AWSError (Either e a))
 defaultResponse Response{..} = liftIO $ do
     bs <- BS.concat <$> Stream.toList rsBody
+    when rsDebug . liftIO $ print bs
     return . either (failure bs) (Right . Right) $ fromXML bs
   where
     failure bs e = either (\s -> Left . Err $ concat [s, ", ", e])
@@ -191,7 +192,8 @@ instance Show Signed where
 --         ]
 
 data Response = Response
-    { rsCode    :: !Int
+    { rsDebug   :: !Bool
+    , rsCode    :: !Int
     , rsMessage :: !ByteString
     , rsHeaders :: [(ByteString, ByteString)]
     , rsBody    :: InputStream ByteString

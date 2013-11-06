@@ -96,7 +96,7 @@ instance ToError SomeException where
 data Credentials
     = FromKeys ByteString ByteString
     | FromRole ByteString
-      deriving (Eq)
+      deriving (Eq, Ord)
 
 instance Show Credentials where
     show (FromKeys acc _) = BS.unpack $ BS.concat ["FromKeys ", acc, "*****"]
@@ -138,7 +138,7 @@ data Service
       , svcVersion  :: !ByteString
       , svcEndpoint :: !ByteString
       }
-    deriving (Eq, Show)
+    deriving (Show)
 
 endpoint :: Service -> Region -> ByteString
 endpoint Global{..}   _ = svcName <> ".amazonaws.com"
@@ -208,7 +208,7 @@ data Region
     | Tokyo
     | Sydney
     | SaoPaulo
-      deriving (Eq)
+      deriving (Eq, Ord)
 
 instance Show Region where
     show reg = case reg of
@@ -242,7 +242,7 @@ instance IsXML Region where
 data AvailabilityZone = AZ
     { azRegion :: !Region
     , azSuffix :: !Char
-    } deriving (Eq)
+    } deriving (Eq, Ord)
 
 instance Show AvailabilityZone where
     show (AZ r z) = show r ++ [z]
@@ -275,7 +275,7 @@ data InstanceType
     | HI1_4XLarge
     | HS1_8XLarge
     | CG1_4XLarge
-      deriving (Eq, Generic)
+      deriving (Eq, Ord, Generic)
 
 instance Show InstanceType where
     show typ = case typ of

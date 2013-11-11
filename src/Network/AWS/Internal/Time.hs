@@ -21,11 +21,10 @@ module Network.AWS.Internal.Time
     ) where
 
 import           Control.Error
-import           Data.ByteString             (ByteString)
-import qualified Data.ByteString.Char8       as BS
-import           Data.Time                   (UTCTime)
-import qualified Data.Time                   as Time
-import           Network.AWS.Internal.String
+import           Data.ByteString       (ByteString)
+import qualified Data.ByteString.Char8 as BS
+import           Data.Time             (UTCTime)
+import qualified Data.Time             as Time
 import           System.Locale
 
 formatRFC822, formatISO8601, formatAWS, formatBasic :: UTCTime -> ByteString

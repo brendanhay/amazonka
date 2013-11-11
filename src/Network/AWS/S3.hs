@@ -37,7 +37,7 @@ module Network.AWS.S3
     -- , DeleteMultipleObjects   (..)
 
     -- -- ** GET Object
-    -- , GetObject               (..)
+      GetObject               (..)
 
     -- -- ** GET Object ACL
     -- , GetObjectACL            (..)
@@ -58,7 +58,7 @@ module Network.AWS.S3
     -- , PostObjectRestore       (..)
 
     -- ** PUT Object
-     PutObject               (..)
+    , PutObject               (..)
 
     -- -- ** PUT Object ACL
     -- , PutObjectACL            (..)
@@ -146,24 +146,64 @@ headers _ Response{..} = return . Right . Right $ S3HeadersResponse rsHeaders
 -- Objects
 --
 
--- GET /ObjectName HTTP/1.1
--- Host: BucketName.s3.amazonaws.com
--- Date: date
--- Authorization: signatureValue
--- Range:bytes=byte_range
+-- | Retrieves an object from Amazon S3.
+--
+-- You must have READ access to the object.
+--
+-- If you grant READ access to the anonymous user, you can return the object
+-- without using an authorization header.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html>
+data GetObject  = GetObject
+    { goBucket  :: !Bucket
+    , goKey     :: !Key
+    , goHeaders :: [AnyHeader]
+    }
 
--- -- | Retrieves an object from Amazon S3.
--- --
--- -- You must have READ access to the object.
--- --
--- -- If you grant READ access to the anonymous user, you can return the object
--- -- without using an authorization header.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html>
--- data GetObject  = GetObject
---     {} deriving (Eq, Show, Generic)
+deriving instance Show GetObject
 
--- instance IsQuery GetObject
+-- response-content-type	
+-- Sets the Content-Type header of the response.
+
+-- Type: String
+
+-- Default: None
+-- No
+-- response-content-language	
+-- Sets the Content-Language header of the response.
+
+-- Type: String
+
+-- Default: None
+-- No
+-- response-expires	
+-- Sets the Expires header of the response.
+
+-- Type: String
+
+-- Default: None
+-- No
+-- response-cache-control	
+-- Sets the Cache-Control header of the response.
+
+-- Type: String
+
+-- Default: None
+-- No
+-- response-content-disposition	
+-- Sets the Content-Disposition header of the response.
+
+-- Type: String
+
+-- Default: None
+-- No
+-- response-content-encoding
+
+instance Rq GetObject where
+    type Er GetObject = S3ErrorResponse
+    type Rs GetObject = S3HeadersResponse
+    request GetObject{..} = object GET goBucket goKey goHeaders Empty
+    response = headers
 
 -- instance Rq GetObject where
 --     request = qry GET undefined

@@ -37,8 +37,6 @@ import           Data.Function                   (on)
 import           Data.List                       (groupBy, nub, sort)
 import           Data.Maybe
 import           Data.Monoid
-import qualified Data.Text                       as Text
-import qualified Data.Text.Encoding              as Text
 import           Data.Time                       (UTCTime, getCurrentTime)
 import           Network.AWS.Headers
 import           Network.AWS.Internal.Monadic
@@ -220,35 +218,35 @@ versionS3 bucket rq@Request{..} Auth{..} reg time dbg =
 
     canonicalResource = '/' `wrap` bucket <> "/" `stripPrefix` rqPath
 
-    relevantQueryKeys =
-        [ "acl"
-        , "cors"
-        , "defaultObjectAcl"
-        , "location"
-        , "logging"
-        , "partNumber"
-        , "policy"
-        , "requestPayment"
-        , "torrent"
-        , "versioning"
-        , "versionId"
-        , "versions"
-        , "website"
-        , "uploads"
-        , "uploadId"
-        , "response-content-type"
-        , "response-content-language"
-        , "response-expires"
-        , "response-cache-control"
-        , "response-content-disposition"
-        , "response-content-encoding"
-        , "delete"
-        , "lifecycle"
-        , "tagging"
-        , "restore"
-        , "storageClass"
-        , "notification"
-        ]
+    -- relevantQueryKeys =
+    --     [ "acl"
+    --     , "cors"
+    --     , "defaultObjectAcl"
+    --     , "location"
+    --     , "logging"
+    --     , "partNumber"
+    --     , "policy"
+    --     , "requestPayment"
+    --     , "torrent"
+    --     , "versioning"
+    --     , "versionId"
+    --     , "versions"
+    --     , "website"
+    --     , "uploads"
+    --     , "uploadId"
+    --     , "response-content-type"
+    --     , "response-content-language"
+    --     , "response-expires"
+    --     , "response-cache-control"
+    --     , "response-content-disposition"
+    --     , "response-content-encoding"
+    --     , "delete"
+    --     , "lifecycle"
+    --     , "tagging"
+    --     , "restore"
+    --     , "storageClass"
+    --     , "notification"
+    --     ]
 
 common :: Request -> Region -> Common
 common Request{..} reg = Common

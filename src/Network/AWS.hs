@@ -69,7 +69,6 @@ import           Control.Exception
 import           Control.Monad
 import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
-import qualified Data.ByteString.Char8      as BS
 import           Network.AWS.Internal
 import           Network.Http.Client
 import           Network.Http.Internal      (retrieveHeaders)

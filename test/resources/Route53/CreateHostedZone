@@ -2,16 +2,15 @@ POST /2012-12-12/hostedzone
 application/xml
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
-  <Name>{{chzName}}</Name>
-  <CallerReference>{{chzCallerReference}}</CallerReference>
-  {{#chzHostedZoneConfig}}
-  {{^cComment}}
-  <HostedZoneConfig/>
-  {{/cComment}}
-  {{#cComment}}
+  <Name>{{ chzName }}</Name>
+  <CallerReference>{{ chzCallerReference }}</CallerReference>
+  {% if chzHostedZoneConfig %}
+  {% if chzHostedZoneConfig.cComment %}
   <HostedZoneConfig>
-    <Comment>{{cComment}}</Comment>
+    <Comment>{{ chzHostedZoneConfig.cComment }}</Comment>
   </HostedZoneConfig>
-  {{/cComment}}
-  {{/chzHostedZoneConfig}}
+  {% else %}
+  <HostedZoneConfig/>
+  {% endif %}
+  {% endif %}
 </CreateHostedZoneRequest>

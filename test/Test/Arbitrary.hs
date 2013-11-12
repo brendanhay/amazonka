@@ -24,7 +24,7 @@ import qualified Data.Text             as Text
 import           Data.Time
 import qualified Data.Vector           as V
 import           Network.AWS.Internal
-import           Test.QuickCheck
+import           Test.Tasty.QuickCheck
 
 instance Arbitrary ByteString where
     arbitrary = fmap BS.pack . listOf1 $ oneof

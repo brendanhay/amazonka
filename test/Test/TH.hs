@@ -28,8 +28,9 @@ module Test.TH
     ) where
 
 import           Control.Monad
-import qualified Data.Aeson.TH        as Aeson
-import qualified Data.DeriveTH        as Derive
+import qualified Data.Aeson.TH         as Aeson
+import qualified Data.ByteString.Char8 as BS
+import qualified Data.DeriveTH         as Derive
 import           Language.Haskell.TH
 import           Network.AWS.Internal
 import           System.Directory
@@ -59,10 +60,14 @@ deriveArbitrary = Derive.derives [Derive.makeArbitrary]
 deriveTemplate :: FilePath -> [Name] -> Q [Dec]
 deriveTemplate dir = liftM concat . mapM derive
   where
-    derive name =
-        [d|instance Template $(conT name) where template _ = $(path)|]
+    derive name = [d|instance Template $(conT name) where template _ = $(path)|]
       where
         path = runIO $ do
             d <- getCurrentDirectory
-            return $! LitE $! StringL $!
-               d ++ "/" ++ sStripPrefix "/" dir ++ "/" ++ nameBase name
+            return $! LitE $! StringL $! concat
+                [ d
+                , "/"
+                , BS.unpack $ stripPrefix "/" dir
+                , "/"
+                , nameBase name
+                ]

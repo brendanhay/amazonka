@@ -22,7 +22,6 @@ module Network.AWS.Internal.Signing
     ) where
 
 import           Control.Applicative
-import           Control.Monad
 import           Control.Monad.IO.Class
 import qualified Crypto.Hash.SHA1                as SHA1
 import qualified Crypto.Hash.SHA256              as SHA256
@@ -73,8 +72,7 @@ sign f rq@Request{..} = do
     liftIO $! f (rq { rqHeaders = hs }) auth reg time dbg
 
 version2 :: Signer
-version2 rq@Request{..} Auth{..} reg time dbg =
-    signed rqMethod host path headers rqBody
+version2 rq@Request{..} Auth{..} reg time dbg = signed rq host path headers
   where
     Common{..} = common rq reg
 
@@ -100,8 +98,7 @@ version2 rq@Request{..} Auth{..} reg time dbg =
         ]
 
 version3 :: Signer
-version3 rq@Request{..} Auth{..} reg time dbg =
-    signed rqMethod host fullPath headers rqBody
+version3 rq@Request{..} Auth{..} reg time dbg = signed rq host fullPath headers
   where
     Common{..} = common rq reg
 
@@ -116,18 +113,13 @@ version3 rq@Request{..} Auth{..} reg time dbg =
 
 version4 :: Signer
 version4 rq@Request{..} Auth{..} reg time dbg = do
-    Signed{..} <- signed rqMethod host fullPath (date : rqHeaders) rqBody
+    Signed{..} <- signed rq host fullPath (date : rqHeaders)
 
     let hs   = map hdr . Client.retrieveHeaders $ Client.getHeaders sRequest
         hs'  = hdr (hostHeader host) : hs
         auth = hdr . authHeader $ authorisation hs'
 
-    when dbg $ do
-        print hs'
-        BS.putStrLn $ "Canonical String:\n" <> canonicalRequest hs'
-        BS.putStrLn $ "String-to-Sign:\n" <> stringToSign hs'
-
-    signed rqMethod host fullPath (auth : hs') rqBody
+    signed rq host fullPath (auth : hs')
   where
     Common{..} = common rq reg
 
@@ -183,7 +175,7 @@ version4 rq@Request{..} Auth{..} reg time dbg = do
 
 versionS3 :: ByteString -> Signer
 versionS3 bucket rq@Request{..} Auth{..} reg time dbg =
-    signed rqMethod host fullPath (authorisation : headers) rqBody
+    signed rq host fullPath (authorisation : headers)
   where
     Common{..} = common rq reg
 
@@ -257,17 +249,19 @@ common Request{..} reg = Common
     , sortedQuery = query
     }
   where
-    path = if null query
-        then rqPath
-        else BS.concat [rqPath,  "?", encodeQuery (urlEncode True) query]
+    path | null query = rqPath
+         | otherwise  = mappend rqPath
+             . addPrefix "?"
+             $ encodeQuery (urlEncode True) query
 
     query = sort rqQuery
 
-signed :: Method -> Hostname -> ByteString -> [AnyHeader] -> Body -> IO Signed
-signed meth host path hs body = Signed ("https://" <> host) body <$> builder
+signed :: Request -> Hostname -> ByteString -> [AnyHeader] -> IO Signed
+signed rq@Request{..} host path hs =
+    Signed rq ("https://" <> host) rqBody <$> builder
   where
     builder = Client.buildRequest $ do
-        Client.http meth $ "/" `addPrefix` path
+        Client.http rqMethod $ "/" `addPrefix` path
         Client.setHostname host 443
         maybe (return ()) Client.setContentLength contentLength
         mapM_ header $ filter exclude headers

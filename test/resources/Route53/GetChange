@@ -1,1 +1,1 @@
-GET /2012-12-12/change/{{gcId}}
+GET /2012-12-12/change/{{ gcId }}

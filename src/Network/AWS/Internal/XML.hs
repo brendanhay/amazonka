@@ -48,5 +48,5 @@ xmlOptions ns = (namespacedXMLOptions ns)
     { xmlListElement = mkNName ns "member"
     }
 
-xpTextContent :: XMLPU [Node] Text
+--xpTextContent :: XMLPU [Node] Text
 xpTextContent = (Text.decodeUtf8, Text.encodeUtf8) `xpWrap` xpContent xpText

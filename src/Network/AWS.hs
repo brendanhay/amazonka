@@ -59,6 +59,7 @@ module Network.AWS
     , AvailabilityZone (..)
     , Body             (..)
     , InstanceType     (..)
+    , Items            (..)
     , Members          (..)
     ) where
 
@@ -93,7 +94,7 @@ sendCatch rq = do
     sync = liftEitherT . fmapLT Ex . syncIO
 
     perform Signed{..} dbg =
-        bracket (establishConnection sURL) closeConnection $ \c -> do
+        bracket (establishConnection sHost) closeConnection $ \c -> do
             when dbg $ print sRequest
             body sBody >>= sendRequest c sRequest
             receiveResponse c $ receive dbg

@@ -15,6 +15,7 @@ module Network.AWS.Internal.Request where
 import Data.ByteString                 (ByteString)
 import Network.AWS.Headers
 import Network.AWS.Internal.Signing
+import Network.AWS.Internal.String
 import Network.AWS.Internal.Types
 import Network.HTTP.QueryString.Pickle
 import Network.Http.Client             (Method)
@@ -39,7 +40,7 @@ requestQuery :: IsQuery a
 requestQuery svc meth path q = Request
     { rqService = svc
     , rqMethod  = meth
-    , rqPath    = path
+    , rqPath    = addPrefix "/" path
     , rqHeaders = [] -- [hdr (Content :: FormURLEncoded)]
     , rqQuery   = toQuery q
     , rqBody    = Empty
@@ -54,7 +55,7 @@ requestXML :: IsXML a
 requestXML svc meth path x = Request
     { rqService = svc
     , rqMethod  = meth
-    , rqPath    = path
+    , rqPath    = addPrefix "/" path
     , rqHeaders = [hdr (Content :: XML)]
     , rqQuery   = []
     , rqBody    = Strict $ toXML x

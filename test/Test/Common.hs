@@ -1,9 +1,7 @@
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE GADTs                #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE RecordWildCards      #-}
-{-# LANGUAGE ScopedTypeVariables  #-}
-{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE GADTs             #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Test.Common
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,146 +20,169 @@ module Test.Common
 
     -- * Properties
     , TRq
-    , TRs
+--    , TRs
     , prop
+    , qc
 
     -- * Aeson
+    , ToJSON    (..)
+    , FromJSON  (..)
+    , Value     (..)
     , stringify
 
-    -- * Re-used Imports
-    , module Test
-    , module Common
+    -- * Re-exported Modules
+    , module Test.TH
+    , module Test.Tasty
+    , module Test.Tasty.QuickCheck
     ) where
 
-import qualified Algorithms.NaturalSort               as Nat
-import           Data.Aeson                           as Common (Value(..), ToJSON(..), FromJSON(..))
-import           Data.ByteString                      (ByteString)
-import qualified Data.ByteString.Char8                as BS
-import           Data.List                            ((\\), sortBy)
+import qualified Algorithms.NaturalSort  as Nat
+import           Data.Aeson              (ToJSON(..), FromJSON(..), Value(..))
+import           Data.ByteString         (ByteString)
+import qualified Data.ByteString.Char8   as BS
+import qualified Data.ByteString.Lazy    as LBS
+import           Data.List               ((\\), sortBy)
 import           Data.Maybe
 import           Data.Monoid
-import qualified Data.Text                            as Text
-import           Data.Text.Encoding
-import           Network.AWS.Internal                 as Common hiding (Query)
-import           System.IO.Unsafe                     (unsafePerformIO)
-import           Test.Arbitrary                       ()
-import           Test.Framework                       as Test
-import           Test.Framework.Providers.QuickCheck2 as Test
-import           Test.QuickCheck                      as Test hiding (within)
-import           Test.TH                              as Test
-import           Text.Hastache.Aeson
+import qualified Data.Text               as Text
+import qualified Data.Text.Encoding      as Text
+import qualified Data.Text.Lazy          as LText
+import qualified Data.Text.Lazy.Builder  as LText
+import qualified Data.Text.Lazy.Encoding as LText
+import           Network.AWS.Internal
+import qualified Network.Http.Internal   as Client
+import           System.IO.Unsafe        (unsafePerformIO)
+import           Test.Arbitrary         ()
+import           Test.TH
+import           Test.Tasty
+import           Test.Tasty.QuickCheck
+import qualified Text.EDE                as EDE
 
-testVersion :: ServiceVersion -> [Test] -> Test
-testVersion ver = plusTestOptions opts . testGroup (sPack ver)
-  where
-    opts = mempty
-        { topt_maximum_generated_tests = Just 10
-        , topt_maximum_test_size       = Just 2
-        }
+testVersion :: Service -> [TestTree] -> TestTree
+testVersion svc = testGroup .
+    BS.unpack $ mconcat [svcName svc, " ", svcVersion svc]
+
+qc :: Testable a => TestName -> a -> TestTree
+qc = testProperty
+
+--  where
+    -- opts = mempty
+    --     { topt_maximum_generated_tests = Just 10
+    --     , topt_maximum_test_size       = Just 2
+    --     }
 
 class TestProperty a where
     prop :: a -> Bool
 
-type TRq a = Request  a -> Bool
-type TRs a = Response a -> Bool
+type TRq a = TestRequest  a -> Bool
+--type TRs a = Response a -> Bool
 
-data Request a = Request
-    { trqRequest  :: a
-    , trqRaw      :: RawRequest
-    , trqEncoded  :: ByteString
-    , trqTemplate :: ByteString
+data TestRequest a = TestRequest
+    { trqRequest  :: !a
+    , trqSigned   :: !Signed
+    , trqEncoded  :: !ByteString
+    , trqTemplate :: Either String ByteString
     , trqDiff     :: [String]
-    , trqJSON     :: Value
+    , trqJSON     :: !Value
     }
 
-instance (Eq a, Arbitrary a) => TestProperty (Request a) where
+instance (Eq a, Arbitrary a) => TestProperty (TestRequest a) where
     prop = all null . trqDiff
 
 instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, Rq a)
-         => Arbitrary (Request a) where
+         => Arbitrary (TestRequest a) where
     arbitrary = do
         rq <- arbitrary
-        let raw  = request rq
+        let Right raw = unsafePerformIO . runAWS creds False $ request rq
             enc  = encode raw
-            tmpl = render' rq raw
+            tmpl = render rq
             diff = difference tmpl enc
-        return $ Request rq raw enc tmpl diff (toJSON rq)
+        return $ TestRequest rq raw enc tmpl diff (toJSON rq)
       where
-        encode RawRequest{..} = BS.unlines $ filter (not . BS.null)
+        encode Signed{..} = BS.unlines $ filter (not . BS.null)
             [ BS.pack (show rqMethod) <> " " <> rqPath
             , BS.intercalate "\n" . map join $ sortBy sort rqQuery
-            , maybe "" (const . BS.pack $ show rqContent) rqBody
-            , fromMaybe "" rqBody
+            , fromMaybe "" $ Client.lookupHeader (Client.qHeaders sRequest) "content-type"
+            , body
             ]
+          where
+            Request{..} = sMeta
+            body = case sBody of
+                Strict bs -> bs
+                _         -> ""
+
+        creds = FromKeys "access" "secret"
 
         join (k, v) = k <> "=" <> v
-        sort x y    = Nat.compare (decodeUtf8 $ fst x) (decodeUtf8 $ fst y)
+        sort x y    = Nat.compare (Text.decodeUtf8 $ fst x) (Text.decodeUtf8 $ fst y)
 
-        render' x y = unsafePerformIO $
-            render (template x) (concatJSON (toJSON x) (toJSON y))
+        render x = fmap (LBS.toStrict . LText.encodeUtf8 . LText.toLazyText)
+            . unsafePerformIO
+            . EDE.renderFile (template x)
+            . (\(Object o) -> o)
+            $ toJSON x
 
-        concatJSON (Object x) (Object y) = Object $ x <> y
-        concatJSON _          y          = y
+        -- concatJSON (Object x) (Object y) = x <> y
 
-instance Show a => Show (Request a) where
-    show Request{..} = unlines $
+instance Show a => Show (TestRequest a) where
+    show TestRequest{..} = unlines $
         [ "[Request]"
         , show trqRequest
         , ""
         , "[JSON]"
         , show trqJSON
         , ""
-        , "[Raw]"
-        , show trqRaw
+        , "[Signed]"
+        , show trqSigned
         , ""
         , "[Actual]"
         , formatBS trqEncoded
         , "[Expected]"
-        , formatBS trqTemplate
+        , formatBS $ either BS.pack id trqTemplate
         , "[Diff]"
         , if all null trqDiff then "<identical>" else formatLines trqDiff
         ]
 
-data Response a = Response
-    { trsResponse :: a
-    , trsParsed   :: Either String a
-    , trsTemplate :: ByteString
-    , trsXML      :: ByteString
-    , trsDiff     :: [String]
-    , trsJSON     :: Value
-    }
+-- data Response a = Response
+--     { trsResponse :: a
+--     , trsParsed   :: Either String a
+--     , trsTemplate :: ByteString
+--     , trsXML      :: ByteString
+--     , trsDiff     :: [String]
+--     , trsJSON     :: Value
+--     }
 
-instance (Eq a, Arbitrary a) => TestProperty (Response a) where
-    prop Response{..} = either (const False) (== trsResponse) trsParsed
+-- instance (Eq a, Arbitrary a) => TestProperty (Response a) where
+--     prop Response{..} = either (const False) (== trsResponse) trsParsed
 
-instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
-         => Arbitrary (Response a) where
-    arbitrary = do
-        rsp <- arbitrary
-        let xml  = toIndentedXML 2 rsp
-            json = toJSON rsp
-            tmpl = unsafePerformIO $ render (template rsp) json
-            diff = difference tmpl xml
-        return $ Response rsp (fromXML tmpl) tmpl xml diff json
+-- instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
+--          => Arbitrary (Response a) where
+--     arbitrary = do
+--         rsp <- arbitrary
+--         let xml  = toIndentedXML 2 rsp
+--             json = toJSON rsp
+--             tmpl = unsafePerformIO $ render (template rsp) json
+--             diff = difference tmpl xml
+--         return $ Response rsp (fromXML tmpl) tmpl xml diff json
 
-instance Show a => Show (Response a) where
-    show Response{..} = unlines
-        [ "[Response]"
-        , show trsResponse
-        , ""
-        , "[Parsed]"
-        , show trsParsed
-        , ""
-        , "[JSON]"
-        , show trsJSON
-        , ""
-        , "[Actual]"
-        , formatBS trsXML
-        , "[Expected]"
-        , formatBS trsTemplate
-        , "[Diff]"
-        , if all null trsDiff then "<identical>" else formatLines trsDiff
-        ]
+-- instance Show a => Show (Response a) where
+--     show Response{..} = unlines
+--         [ "[Response]"
+--         , show trsResponse
+--         , ""
+--         , "[Parsed]"
+--         , show trsParsed
+--         , ""
+--         , "[JSON]"
+--         , show trsJSON
+--         , ""
+--         , "[Actual]"
+--         , formatBS trsXML
+--         , "[Expected]"
+--         , formatBS trsTemplate
+--         , "[Diff]"
+--         , if all null trsDiff then "<identical>" else formatLines trsDiff
+--         ]
 
 formatBS :: ByteString -> String
 formatBS = formatLines . lines . BS.unpack
@@ -174,8 +195,8 @@ formatLines = concatMap fmt
   where
     fmt (n, s) = show n ++ ": " ++ s ++ "\n"
 
-difference :: ByteString -> ByteString -> [String]
-difference x y = zipWithTail (normalise x) (normalise y)
+difference :: Either String ByteString -> ByteString -> [String]
+difference x y = zipWithTail (normalise $ either (const "") id x) (normalise y)
   where
     normalise = map (BS.unpack . BS.unwords . BS.words) . BS.lines
 

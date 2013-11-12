@@ -361,4 +361,4 @@ route53Elem :: ByteString -> NName ByteString
 route53Elem = mkNName route53NS
 
 route53Path :: ByteString -> ByteString
-route53Path path = BS.concat [svcVersion route53, "/", path]
+route53Path = mappend (svcVersion route53) . addPrefix "/"

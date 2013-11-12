@@ -28,6 +28,7 @@ import           Control.Monad.Reader
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
+import           Data.Foldable                   (Foldable)
 import           Data.Monoid
 import           Data.String
 import           GHC.Generics
@@ -169,18 +170,19 @@ data Request = Request
     } deriving (Show)
 
 data Signed = Signed
-    { sURL     :: !ByteString
+    { sMeta    :: !Request
+    , sHost    :: !ByteString
     , sBody    :: !Body
     , sRequest :: !Client.Request
-    }
+    } deriving (Show)
 
-instance Show Signed where
-    show Signed{..} = unlines
-        [ "Signed:"
-        , "sURL  = " ++ BS.unpack sURL
-        , "sBody = " ++ show sBody
-        , ""
-        ] ++ show sRequest
+-- instance Show Signed where
+--     show Signed{..} = unlines
+--         [ "Signed:"
+--         , "sURL  = " ++ BS.unpack sURL
+--         , "sBody = " ++ show sBody
+--         , ""
+--         ] ++ show sRequest
 
 -- instance ToJSON Request where
 --     toJSON Request{..} = object
@@ -327,3 +329,9 @@ instance IsXML InstanceType where
 readAssocList :: [(String, a)] -> Read.ReadPrec a
 readAssocList xs = Read.choice $
     map (\(x, y) -> Read.lift $ ReadP.string x >> return y) xs
+
+newtype Items a = Items { items :: [a] }
+    deriving (Eq, Show, Generic, Foldable)
+
+newtype Members a = Members { members :: [a] }
+    deriving (Eq, Show, Generic, Foldable)

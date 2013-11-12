@@ -30,18 +30,19 @@ library
         Network.AWS
       , Network.AWS.Headers
 
-      , Network.AWS.AutoScaling
-      , Network.AWS.CloudWatch
-      , Network.AWS.EC2
+      -- , Network.AWS.AutoScaling
+      -- , Network.AWS.CloudWatch
+      -- , Network.AWS.EC2
       , Network.AWS.EC2.Metadata
-      , Network.AWS.ELB
-      , Network.AWS.IAM
+      -- , Network.AWS.ELB
+      -- , Network.AWS.IAM
       , Network.AWS.Route53
-      , Network.AWS.S3
+      -- , Network.AWS.S3
+
+      , Network.AWS.Internal
 
     other-modules:
-        Network.AWS.Internal
-      , Network.AWS.Internal.Instances
+        Network.AWS.Internal.Instances
       , Network.AWS.Internal.Monadic
       , Network.AWS.Internal.Request
       , Network.AWS.Internal.Signing
@@ -50,16 +51,15 @@ library
       , Network.AWS.Internal.Types
       , Network.AWS.Internal.XML
 
-      , Network.AWS.AutoScaling.Types
-      , Network.AWS.CloudWatch.Types
-      , Network.AWS.EC2.Types
-      , Network.AWS.ELB.Types
-      , Network.AWS.IAM.Types
+      -- , Network.AWS.AutoScaling.Types
+      -- , Network.AWS.CloudWatch.Types
+      -- , Network.AWS.EC2.Types
+      -- , Network.AWS.ELB.Types
+      -- , Network.AWS.IAM.Types
       , Network.AWS.Route53.Types
-      , Network.AWS.S3.Types
+      -- , Network.AWS.S3.Types
 
-    ghc-options:
-        -Wall -fwarn-tabs -funbox-strict-fields
+    ghc-options:       -Wall
 
     build-depends:
         aeson
@@ -71,8 +71,8 @@ library
       , case-insensitive
       , containers
       , cryptohash
-      , errors
-      , hexpat-pickle-generic
+      , errors                >= 1.4.3
+      , hexpat-pickle-generic >= 0.1.7
       , HsOpenSSL
       , http-common
       , http-streams          >= 0.7.0.2
@@ -81,7 +81,7 @@ library
       , mtl
       , old-locale
       , pipes                 >= 4.0
-      , querystring-pickle
+      , querystring-pickle    >= 0.1.7
       , text
       , time
       , transformers
@@ -93,31 +93,26 @@ test-suite amazonka-tests
     hs-source-dirs:    test
     main-is:           Main.hs
 
-    ghc-options:
-        -Wall -fwarn-tabs
+    ghc-options:       -Wall
 
     build-depends:
-        aeson
+        aeson              >= 0.6.2.1
       , amazonka
-      , attoparsec
-      , base                       >= 4.6 && < 5
+      , base               >= 4.6 && < 5
       , bytestring
       , containers
       , derive
       , directory
-      , hastache
+      , ed-e
       , http-types
-      , HUnit
+      , http-common
       , natural-sort
       , old-locale
-      , QuickCheck                 >= 2.5.1.1
-      , querystring-pickle         >= 0.1.7
+      , querystring-pickle >= 0.1.7
+      , tasty
+      , tasty-quickcheck
       , template-haskell
-      , test-framework             >= 0.8
-      , test-framework-hunit       >= 0.3
-      , test-framework-quickcheck2 >= 0.3
       , text
       , time
       , transformers
-      , unordered-containers
       , vector

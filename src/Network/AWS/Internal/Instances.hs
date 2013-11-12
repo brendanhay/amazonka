@@ -20,18 +20,11 @@ module Network.AWS.Internal.Instances where
 import           Control.Monad
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
-import           Data.Foldable                   (Foldable)
 import           Data.Time
-import           GHC.Generics
 import           Network.AWS.Internal.Time
+import           Network.AWS.Internal.Types
 import           Network.HTTP.QueryString.Pickle
 import           Text.XML.Expat.Pickle.Generic
-
-newtype Items a = Items { items :: [a] }
-    deriving (Eq, Show, Generic, Foldable)
-
-newtype Members a = Members { members :: [a] }
-    deriving (Eq, Show, Generic, Foldable)
 
 instance IsQuery a => IsQuery [a] where
     queryPickler = qpOrdinalList queryPickler

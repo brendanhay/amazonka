@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeNotificationConfigurationsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dndrDescribeNotificationConfigurationsResult}}
+  {% if dndrDescribeNotificationConfigurationsResult %}
   <DescribeNotificationConfigurationsResult>
-    {{#dncrNextToken}}
-    <NextToken>{{dncrNextToken}}</NextToken>
-    {{/dncrNextToken}}
+    {% if dncrNextToken %}
+    <NextToken>{{ dncrNextToken }}</NextToken>
+    {% endif %}
     <NotificationConfigurations>
-    {{#dncrNotificationConfigurations}}
+    {% if dncrNotificationConfigurations %}
       <member>
-        {{#ncAutoScalingGroupName}}
-        <AutoScalingGroupName>{{ncAutoScalingGroupName}}</AutoScalingGroupName>
-        {{/ncAutoScalingGroupName}}
-        {{#ncNotificationType}}
-        <NotificationType>{{ncNotificationType}}</NotificationType>
-        {{/ncNotificationType}}
-        {{#ncTopicARN}}
-        <TopicARN>{{ncTopicARN}}</TopicARN>
-        {{/ncTopicARN}}
+        {% if ncAutoScalingGroupName %}
+        <AutoScalingGroupName>{{ ncAutoScalingGroupName }}</AutoScalingGroupName>
+        {% endif %}
+        {% if ncNotificationType %}
+        <NotificationType>{{ ncNotificationType }}</NotificationType>
+        {% endif %}
+        {% if ncTopicARN %}
+        <TopicARN>{{ ncTopicARN }}</TopicARN>
+        {% endif %}
       </member>
-    {{/dncrNotificationConfigurations}}
+    {% endif %}
     </NotificationConfigurations>
   </DescribeNotificationConfigurationsResult>
-  {{/dndrDescribeNotificationConfigurationsResult}}
-  {{#dndrResponseMetadata}}
+  {% endif %}
+  {% if dndrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dndrResponseMetadata}}
+  {% endif %}
 </DescribeNotificationConfigurationsResponse>

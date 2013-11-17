@@ -1,5 +1,5 @@
 GET /
 Action=CancelSpotInstanceRequests
-{{#csirSpotInstanceRequestId}}
-SpotInstanceRequestId.{{n}}={{.}}
-{{/csirSpotInstanceRequestId}}
+{% if csirSpotInstanceRequestId %}
+SpotInstanceRequestId.{{ n }}={{.}}
+{% endif %}

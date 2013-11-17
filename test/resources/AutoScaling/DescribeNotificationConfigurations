@@ -1,11 +1,11 @@
 GET /
 Action=DescribeNotificationConfigurations
-{{#dncAutoScalingGroupNames}}
-AutoScalingGroupNames.member.{{n}}={{.}}
-{{/dncAutoScalingGroupNames}}
-{{#dncMaxRecords}}
-MaxRecords={{dncMaxRecords}}
-{{/dncMaxRecords}}
-{{#dncNextToken}}
-NextToken={{dncNextToken}}
-{{/dncNextToken}}
+{% if dncAutoScalingGroupNames %}
+AutoScalingGroupNames.member.{{ n }}={{.}}
+{% endif %}
+{% if dncMaxRecords %}
+MaxRecords={{ dncMaxRecords }}
+{% endif %}
+{% if dncNextToken %}
+NextToken={{ dncNextToken }}
+{% endif %}

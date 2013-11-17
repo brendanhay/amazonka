@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeScheduledActionsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dscrDescribeScheduledActionsResult}}
+  {% if dscrDescribeScheduledActionsResult %}
   <DescribeScheduledActionsResult>
-    {{#dsasNextToken}}
-    <NextToken>{{dsasNextToken}}</NextToken>
-    {{/dsasNextToken}}
+    {% if dsasNextToken %}
+    <NextToken>{{ dsasNextToken }}</NextToken>
+    {% endif %}
     <ScheduledUpdateGroupActions>
-      {{#dsasScheduledUpdateGroupActions}}
+      {% if dsasScheduledUpdateGroupActions %}
       <member>
-        {{#sugaAutoScalingGroupName}}
-        <AutoScalingGroupName>{{sugaAutoScalingGroupName}}</AutoScalingGroupName>
-        {{/sugaAutoScalingGroupName}}
-        {{#sugaDesiredCapacity}}
-        <DesiredCapacity>{{sugaDesiredCapacity}}</DesiredCapacity>
-        {{/sugaDesiredCapacity}}
-        {{#sugaEndTime}}
-        <EndTime>{{sugaEndTime}}</EndTime>
-        {{/sugaEndTime}}
-        {{#sugaMaxSize}}
-        <MaxSize>{{sugaMaxSize}}</MaxSize>
-        {{/sugaMaxSize}}
-        {{#sugaMinSize}}
-        <MinSize>{{sugaMinSize}}</MinSize>
-        {{/sugaMinSize}}
-        {{#sugaRecurrence}}
-        <Recurrence>{{sugaRecurrence}}</Recurrence>
-        {{/sugaRecurrence}}
-        {{#sugaScheduledActionARN}}
-        <ScheduledActionARN>{{sugaScheduledActionARN}}</ScheduledActionARN>
-        {{/sugaScheduledActionARN}}
-        {{#sugaScheduledActionName}}
-        <ScheduledActionName>{{sugaScheduledActionName}}</ScheduledActionName>
-        {{/sugaScheduledActionName}}
-        {{#sugaStartTime}}
-        <StartTime>{{sugaStartTime}}</StartTime>
-        {{/sugaStartTime}}
-        {{#sugaTime}}
-        <Time>{{sugaTime}}</Time>
-        {{/sugaTime}}
+        {% if sugaAutoScalingGroupName %}
+        <AutoScalingGroupName>{{ sugaAutoScalingGroupName }}</AutoScalingGroupName>
+        {% endif %}
+        {% if sugaDesiredCapacity %}
+        <DesiredCapacity>{{ sugaDesiredCapacity }}</DesiredCapacity>
+        {% endif %}
+        {% if sugaEndTime %}
+        <EndTime>{{ sugaEndTime }}</EndTime>
+        {% endif %}
+        {% if sugaMaxSize %}
+        <MaxSize>{{ sugaMaxSize }}</MaxSize>
+        {% endif %}
+        {% if sugaMinSize %}
+        <MinSize>{{ sugaMinSize }}</MinSize>
+        {% endif %}
+        {% if sugaRecurrence %}
+        <Recurrence>{{ sugaRecurrence }}</Recurrence>
+        {% endif %}
+        {% if sugaScheduledActionARN %}
+        <ScheduledActionARN>{{ sugaScheduledActionARN }}</ScheduledActionARN>
+        {% endif %}
+        {% if sugaScheduledActionName %}
+        <ScheduledActionName>{{ sugaScheduledActionName }}</ScheduledActionName>
+        {% endif %}
+        {% if sugaStartTime %}
+        <StartTime>{{ sugaStartTime }}</StartTime>
+        {% endif %}
+        {% if sugaTime %}
+        <Time>{{ sugaTime }}</Time>
+        {% endif %}
       </member>
-      {{/dsasScheduledUpdateGroupActions}}
+      {% endif %}
     </ScheduledUpdateGroupActions>
   </DescribeScheduledActionsResult>
-  {{/dscrDescribeScheduledActionsResult}}
-  {{#dscrResponseMetadata}}
+  {% endif %}
+  {% if dscrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dscrResponseMetadata}}
+  {% endif %}
 </DescribeScheduledActionsResponse>

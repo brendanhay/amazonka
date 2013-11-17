@@ -1,18 +1,18 @@
 GET /
 Action=DescribeImages
-{{#djExecutableBy}}
-ExecutableBy.{{n}}={{.}}
-{{/djExecutableBy}}
-{{#djFilter}}
-Filter.{{n}}.Name={{filterName}}
-{{#filterValue}}
-Filter.{{n}}.Value.{{o}}={{.}}
-{{/filterValue}}
-{{/djFilter}}
-{{#djImageId}}
-ImageId.{{n}}={{.}}
-{{/djImageId}}
-{{#djOwner}}
-Owner.{{n}}={{.}}
-{{/djOwner}}
+{% if djExecutableBy %}
+ExecutableBy.{{ n }}={{.}}
+{% endif %}
+{% if djFilter %}
+Filter.{{ n }}.Name={{ filterName }}
+{% if filterValue %}
+Filter.{{ n }}.Value.{{ o }}={{.}}
+{% endif %}
+{% endif %}
+{% if djImageId %}
+ImageId.{{ n }}={{.}}
+{% endif %}
+{% if djOwner %}
+Owner.{{ n }}={{.}}
+{% endif %}
 

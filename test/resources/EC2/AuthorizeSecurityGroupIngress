@@ -1,25 +1,25 @@
 GET /
 Action=AuthorizeSecurityGroupIngress
-{{#asgiGroupId}}
-GroupId={{asgiGroupId}}
-{{/asgiGroupId}}
-{{#asgiGroupName}}
-GroupName={{asgiGroupName}}
-{{/asgiGroupName}}
-{{#asgiIpPermissions}}
-IpPermissions.{{n}}.FromPort={{iptFromPort}}
-{{#iptGroups}}
-{{#uigGroupId}}
-IpPermissions.{{n}}.Groups.{{o}}.GroupId={{uigGroupId}}
-{{/uigGroupId}}
-{{#uigGroupName}}
-IpPermissions.{{n}}.Groups.{{o}}.GroupName={{uigGroupName}}
-{{/uigGroupName}}
-IpPermissions.{{n}}.Groups.{{o}}.UserId={{uigUserId}}
-{{/iptGroups}}
-IpPermissions.{{n}}.IpProtocol={{iptIpProtocol}}
-{{#iptIpRanges}}
-IpPermissions.{{n}}.IpRanges.{{o}}.CidrIp={{irCidrIp}}
-{{/iptIpRanges}}
-IpPermissions.{{n}}.ToPort={{iptToPort}}
-{{/asgiIpPermissions}}
+{% if asgiGroupId %}
+GroupId={{ asgiGroupId }}
+{% endif %}
+{% if asgiGroupName %}
+GroupName={{ asgiGroupName }}
+{% endif %}
+{% if asgiIpPermissions %}
+IpPermissions.{{ n }}.FromPort={{ iptFromPort }}
+{% if iptGroups %}
+{% if uigGroupId %}
+IpPermissions.{{ n }}.Groups.{{ o }}.GroupId={{ uigGroupId }}
+{% endif %}
+{% if uigGroupName %}
+IpPermissions.{{ n }}.Groups.{{ o }}.GroupName={{ uigGroupName }}
+{% endif %}
+IpPermissions.{{ n }}.Groups.{{ o }}.UserId={{ uigUserId }}
+{% endif %}
+IpPermissions.{{ n }}.IpProtocol={{ iptIpProtocol }}
+{% if iptIpRanges %}
+IpPermissions.{{ n }}.IpRanges.{{ o }}.CidrIp={{ irCidrIp }}
+{% endif %}
+IpPermissions.{{ n }}.ToPort={{ iptToPort }}
+{% endif %}

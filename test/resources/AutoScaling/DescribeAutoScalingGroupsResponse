@@ -1,121 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeAutoScalingGroupsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dashrDescribeAutoScalingGroupsResult}}
+  {% if dashrDescribeAutoScalingGroupsResult %}
   <DescribeAutoScalingGroupsResult>
     <AutoScalingGroups>
-      {{#dasgrAutoScalingGroups}}
+      {% if dasgrAutoScalingGroups %}
       <member>
-        {{#asgAutoScalingGroupARN}}
-        <AutoScalingGroupARN>{{asgAutoScalingGroupARN}}</AutoScalingGroupARN>
-        {{/asgAutoScalingGroupARN}}
-        {{#asgAutoScalingGroupName}}
-        <AutoScalingGroupName>{{asgAutoScalingGroupName}}</AutoScalingGroupName>
-        {{/asgAutoScalingGroupName}}
+        {% if asgAutoScalingGroupARN %}
+        <AutoScalingGroupARN>{{ asgAutoScalingGroupARN }}</AutoScalingGroupARN>
+        {% endif %}
+        {% if asgAutoScalingGroupName %}
+        <AutoScalingGroupName>{{ asgAutoScalingGroupName }}</AutoScalingGroupName>
+        {% endif %}
         <AvailabilityZones>
-          {{#asgAvailabilityZones}}
+          {% if asgAvailabilityZones %}
           <member>{{.}}</member>
-          {{/asgAvailabilityZones}}
+          {% endif %}
         </AvailabilityZones>
-        <CreatedTime>{{asgCreatedTime}}</CreatedTime>
-        <DefaultCooldown>{{asgDefaultCooldown}}</DefaultCooldown>
-        <DesiredCapacity>{{asgDesiredCapacity}}</DesiredCapacity>
+        <CreatedTime>{{ asgCreatedTime }}</CreatedTime>
+        <DefaultCooldown>{{ asgDefaultCooldown }}</DefaultCooldown>
+        <DesiredCapacity>{{ asgDesiredCapacity }}</DesiredCapacity>
         <EnabledMetrics>
-          {{#asgEnabledMetrics}}
+          {% if asgEnabledMetrics %}
           <member>
-            {{#emGranularity}}
-            <Granularity>{{emGranularity}}</Granularity>
-            {{/emGranularity}}
-            {{#emMetric}}
-            <Metric>{{emMetric}}</Metric>
-            {{/emMetric}}
+            {% if emGranularity %}
+            <Granularity>{{ emGranularity }}</Granularity>
+            {% endif %}
+            {% if emMetric %}
+            <Metric>{{ emMetric }}</Metric>
+            {% endif %}
           </member>
-          {{/asgEnabledMetrics}}
+          {% endif %}
         </EnabledMetrics>
-        {{#asgHealthCheckGracePeriod}}
-        <HealthCheckGracePeriod>{{asgHealthCheckGracePeriod}}</HealthCheckGracePeriod>
-        {{/asgHealthCheckGracePeriod}}
-        {{#asgHealthCheckType}}
-        <HealthCheckType>{{asgHealthCheckType}}</HealthCheckType>
-        {{/asgHealthCheckType}}
+        {% if asgHealthCheckGracePeriod %}
+        <HealthCheckGracePeriod>{{ asgHealthCheckGracePeriod }}</HealthCheckGracePeriod>
+        {% endif %}
+        {% if asgHealthCheckType %}
+        <HealthCheckType>{{ asgHealthCheckType }}</HealthCheckType>
+        {% endif %}
         <Instances>
-          {{#asgInstances}}
+          {% if asgInstances %}
           <member>
-            <AvailabilityZone>{{iAvailabilityZone}}</AvailabilityZone>
-            <HealthStatus>{{iHealthStatus}}</HealthStatus>
-            <InstanceId>{{iInstanceId}}</InstanceId>
-            <LaunchConfigurationName>{{iLaunchConfigurationName}}</LaunchConfigurationName>
-            <LifecycleState>{{iLifecycleState}}</LifecycleState>
+            <AvailabilityZone>{{ iAvailabilityZone }}</AvailabilityZone>
+            <HealthStatus>{{ iHealthStatus }}</HealthStatus>
+            <InstanceId>{{ iInstanceId }}</InstanceId>
+            <LaunchConfigurationName>{{ iLaunchConfigurationName }}</LaunchConfigurationName>
+            <LifecycleState>{{ iLifecycleState }}</LifecycleState>
           </member>
-          {{/asgInstances}}
+          {% endif %}
         </Instances>
-        {{#asgLaunchConfigurationName}}
-        <LaunchConfigurationName>{{asgLaunchConfigurationName}}</LaunchConfigurationName>
-        {{/asgLaunchConfigurationName}}
+        {% if asgLaunchConfigurationName %}
+        <LaunchConfigurationName>{{ asgLaunchConfigurationName }}</LaunchConfigurationName>
+        {% endif %}
         <LoadBalancerNames>
-          {{#asgLoadBalancerNames}}
+          {% if asgLoadBalancerNames %}
           <member>{{.}}</member>
-          {{/asgLoadBalancerNames}}
+          {% endif %}
         </LoadBalancerNames>
-        <MaxSize>{{asgMaxSize}}</MaxSize>
-        <MinSize>{{asgMinSize}}</MinSize>
-        {{#asgPlacementGroup}}
-        <PlacementGroup>{{asgPlacementGroup}}</PlacementGroup>
-        {{/asgPlacementGroup}}
-        {{#asgStatus}}
-        <Status>{{asgStatus}}</Status>
-        {{/asgStatus}}
+        <MaxSize>{{ asgMaxSize }}</MaxSize>
+        <MinSize>{{ asgMinSize }}</MinSize>
+        {% if asgPlacementGroup %}
+        <PlacementGroup>{{ asgPlacementGroup }}</PlacementGroup>
+        {% endif %}
+        {% if asgStatus %}
+        <Status>{{ asgStatus }}</Status>
+        {% endif %}
         <SuspendedProcesses>
-          {{#asgSuspendedProcesses}}
+          {% if asgSuspendedProcesses %}
           <member>
-            {{#spProcessName}}
-            <ProcessName>{{spProcessName}}</ProcessName>
-            {{/spProcessName}}
-            {{#spSuspensionReason}}
-            <SuspensionReason>{{spSuspensionReason}}</SuspensionReason>
-            {{/spSuspensionReason}}
+            {% if spProcessName %}
+            <ProcessName>{{ spProcessName }}</ProcessName>
+            {% endif %}
+            {% if spSuspensionReason %}
+            <SuspensionReason>{{ spSuspensionReason }}</SuspensionReason>
+            {% endif %}
           </member>
-          {{/asgSuspendedProcesses}}
+          {% endif %}
         </SuspendedProcesses>
         <Tags>
-          {{#asgTags}}
+          {% if asgTags %}
           <member>
-            {{#tKey}}
-            <Key>{{tKey}}</Key>
-            {{/tKey}}
-            {{#tPropagateAtLaunch}}
-            <PropagateAtLaunch>{{tPropagateAtLaunch}}</PropagateAtLaunch>
-            {{/tPropagateAtLaunch}}
-            {{#tResourceId}}
-            <ResourceId>{{tResourceId}}</ResourceId>
-            {{/tResourceId}}
-            {{#tResourceType}}
-            <ResourceType>{{tResourceType}}</ResourceType>
-            {{/tResourceType}}
-            {{#tValue}}
-            <Value>{{tValue}}</Value>
-            {{/tValue}}
+            {% if tKey %}
+            <Key>{{ tKey }}</Key>
+            {% endif %}
+            {% if tPropagateAtLaunch %}
+            <PropagateAtLaunch>{{ tPropagateAtLaunch }}</PropagateAtLaunch>
+            {% endif %}
+            {% if tResourceId %}
+            <ResourceId>{{ tResourceId }}</ResourceId>
+            {% endif %}
+            {% if tResourceType %}
+            <ResourceType>{{ tResourceType }}</ResourceType>
+            {% endif %}
+            {% if tValue %}
+            <Value>{{ tValue }}</Value>
+            {% endif %}
           </member>
-          {{/asgTags}}
+          {% endif %}
         </Tags>
         <TerminationPolicies>
-          {{#asgTerminationPolicies}}
+          {% if asgTerminationPolicies %}
           <member>{{.}}</member>
-          {{/asgTerminationPolicies}}
+          {% endif %}
         </TerminationPolicies>
-        {{#asgVPCZoneIdentifier}}
-        <VPCZoneIdentifier>{{asgVPCZoneIdentifier}}</VPCZoneIdentifier>
-        {{/asgVPCZoneIdentifier}}
+        {% if asgVPCZoneIdentifier %}
+        <VPCZoneIdentifier>{{ asgVPCZoneIdentifier }}</VPCZoneIdentifier>
+        {% endif %}
       </member>
-      {{/dasgrAutoScalingGroups}}
+      {% endif %}
     </AutoScalingGroups>
-    {{#dasgrNextToken}}
-    <NextToken>{{dasgrNextToken}}</NextToken>
-    {{/dasgrNextToken}}
+    {% if dasgrNextToken %}
+    <NextToken>{{ dasgrNextToken }}</NextToken>
+    {% endif %}
   </DescribeAutoScalingGroupsResult>
-  {{/dashrDescribeAutoScalingGroupsResult}}
-  {{#dashrResponseMetadata}}
+  {% endif %}
+  {% if dashrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dashrResponseMetadata}}
+  {% endif %}
 </DescribeAutoScalingGroupsResponse>

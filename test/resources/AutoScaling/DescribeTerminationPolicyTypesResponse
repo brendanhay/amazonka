@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeTerminationPolicyTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dtptrDescribeTerminationPolicyTypesResult}}
+  {% if dtptrDescribeTerminationPolicyTypesResult %}
   <DescribeTerminationPolicyTypesResult>
     <TerminationPolicyTypes>
-      {{#dtptrTerminationPolicyTypes}}
+      {% if dtptrTerminationPolicyTypes %}
       <member>{{.}}</member>
-      {{/dtptrTerminationPolicyTypes}}
+      {% endif %}
     </TerminationPolicyTypes>
   </DescribeTerminationPolicyTypesResult>
-  {{/dtptrDescribeTerminationPolicyTypesResult}}
-  {{#dtptrResponseMetadata}}
+  {% endif %}
+  {% if dtptrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dtptrResponseMetadata}}
+  {% endif %}
 </DescribeTerminationPolicyTypesResponse>

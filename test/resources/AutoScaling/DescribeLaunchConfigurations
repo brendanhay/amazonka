@@ -1,11 +1,11 @@
 GET /
 Action=DescribeLaunchConfigurations
-{{#dlcLaunchConfigurationNames}}
-LaunchConfigurationNames.member.{{n}}={{.}}
-{{/dlcLaunchConfigurationNames}}
-{{#dlcMaxRecords}}
-MaxRecords={{dlcMaxRecords}}
-{{/dlcMaxRecords}}
-{{#dlcNextToken}}
-NextToken={{dlcNextToken}}
-{{/dlcNextToken}}
+{% if dlcLaunchConfigurationNames %}
+LaunchConfigurationNames.member.{{ n }}={{.}}
+{% endif %}
+{% if dlcMaxRecords %}
+MaxRecords={{ dlcMaxRecords }}
+{% endif %}
+{% if dlcNextToken %}
+NextToken={{ dlcNextToken }}
+{% endif %}

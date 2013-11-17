@@ -1,48 +1,48 @@
 GET /
 Action=CreateLaunchConfiguration
-{{#clcBlockDeviceMappings}}
-{{#bdmDeviceName}}
-BlockDeviceMappings.member.{{n}}.DeviceName={{bdmDeviceName}}
-{{/bdmDeviceName}}
-{{#bdmEbs}}
-{{#eSnapshotId}}
-BlockDeviceMappings.member.{{n}}.Ebs.SnapshotId={{eSnapshotId}}
-{{/eSnapshotId}}
-{{#eVolumeSize}}
-BlockDeviceMappings.member.{{n}}.Ebs.VolumeSize={{eVolumeSize}}
-{{/eVolumeSize}}
-{{/bdmEbs}}
-{{#bdmVirtualName}}
-BlockDeviceMappings.member.{{n}}.VirtualName={{bdmVirtualName}}
-{{/bdmVirtualName}}
-{{/clcBlockDeviceMappings}}
-{{#clcEbsOptimized}}
-EbsOptimized={{clcEbsOptimized}}
-{{/clcEbsOptimized}}
-{{#clcIamInstanceProfile}}
-IamInstanceProfile={{clcIamInstanceProfile}}
-{{/clcIamInstanceProfile}}
-ImageId={{clcImageId}}
-{{#clcInstanceMonitoring}}
+{% if clcBlockDeviceMappings %}
+{% if bdmDeviceName %}
+BlockDeviceMappings.member.{{ n }}.DeviceName={{ bdmDeviceName }}
+{% endif %}
+{% if bdmEbs %}
+{% if eSnapshotId %}
+BlockDeviceMappings.member.{{ n }}.Ebs.SnapshotId={{ eSnapshotId }}
+{% endif %}
+{% if eVolumeSize %}
+BlockDeviceMappings.member.{{ n }}.Ebs.VolumeSize={{ eVolumeSize }}
+{% endif %}
+{% endif %}
+{% if bdmVirtualName %}
+BlockDeviceMappings.member.{{ n }}.VirtualName={{ bdmVirtualName }}
+{% endif %}
+{% endif %}
+{% if clcEbsOptimized %}
+EbsOptimized={{ clcEbsOptimized }}
+{% endif %}
+{% if clcIamInstanceProfile %}
+IamInstanceProfile={{ clcIamInstanceProfile }}
+{% endif %}
+ImageId={{ clcImageId }}
+{% if clcInstanceMonitoring %}
 InstanceMonitoring.Enabled={{clcInstanceMonitoring.imEnabled}}
-{{/clcInstanceMonitoring}}
-InstanceType={{clcInstanceType}}
-{{#clcKernelId}}
-KernelId={{clcKernelId}}
-{{/clcKernelId}}
-{{#clcKeyName}}
-KeyName={{clcKeyName}}
-{{/clcKeyName}}
-LaunchConfigurationName={{clcLaunchConfigurationName}}
-{{#clcRamdiskId}}
-RamdiskId={{clcRamdiskId}}
-{{/clcRamdiskId}}
-{{#clcSecurityGroups}}
-SecurityGroups.member.{{n}}={{.}}
-{{/clcSecurityGroups}}
-{{#clcSpotPrice}}
-SpotPrice={{clcSpotPrice}}
-{{/clcSpotPrice}}
-{{#clcUserData}}
-UserData={{clcUserData}}
-{{/clcUserData}}
+{% endif %}
+InstanceType={{ clcInstanceType }}
+{% if clcKernelId %}
+KernelId={{ clcKernelId }}
+{% endif %}
+{% if clcKeyName %}
+KeyName={{ clcKeyName }}
+{% endif %}
+LaunchConfigurationName={{ clcLaunchConfigurationName }}
+{% if clcRamdiskId %}
+RamdiskId={{ clcRamdiskId }}
+{% endif %}
+{% if clcSecurityGroups %}
+SecurityGroups.member.{{ n }}={{.}}
+{% endif %}
+{% if clcSpotPrice %}
+SpotPrice={{ clcSpotPrice }}
+{% endif %}
+{% if clcUserData %}
+UserData={{ clcUserData }}
+{% endif %}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <UpdateAutoScalingGroupResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#uasgrResponseMetadata}}
+  {% if uasgrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/uasgrResponseMetadata}}
+  {% endif %}
 </UpdateAutoScalingGroupResponse>

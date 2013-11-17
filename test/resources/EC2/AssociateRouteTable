@@ -1,4 +1,4 @@
 GET /
 Action=AssociateRouteTable
-RouteTableId={{artRouteTableId}}
-SubnetId={{artSubnetId}}
+RouteTableId={{ artRouteTableId }}
+SubnetId={{ artSubnetId }}

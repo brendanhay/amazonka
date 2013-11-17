@@ -1,20 +1,20 @@
 GET /
 Action=DescribeScheduledActions
-{{#dscAutoScalingGroupName}}
-AutoScalingGroupName={{dscAutoScalingGroupName}}
-{{/dscAutoScalingGroupName}}
-{{#dscEndTime}}
-EndTime={{dscEndTime}}
-{{/dscEndTime}}
-{{#dscMaxRecords}}
-MaxRecords={{dscMaxRecords}}
-{{/dscMaxRecords}}
-{{#dscNextToken}}
-NextToken={{dscNextToken}}
-{{/dscNextToken}}
-{{#dscScheduledActionNames}}
-ScheduledActionNames.member.{{n}}={{.}}
-{{/dscScheduledActionNames}}
-{{#dscStartTime}}
-StartTime={{dscStartTime}}
-{{/dscStartTime}}
+{% if dscAutoScalingGroupName %}
+AutoScalingGroupName={{ dscAutoScalingGroupName }}
+{% endif %}
+{% if dscEndTime %}
+EndTime={{ dscEndTime }}
+{% endif %}
+{% if dscMaxRecords %}
+MaxRecords={{ dscMaxRecords }}
+{% endif %}
+{% if dscNextToken %}
+NextToken={{ dscNextToken }}
+{% endif %}
+{% if dscScheduledActionNames %}
+ScheduledActionNames.member.{{ n }}={{.}}
+{% endif %}
+{% if dscStartTime %}
+StartTime={{ dscStartTime }}
+{% endif %}

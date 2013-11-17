@@ -1,25 +1,25 @@
 GET /
 Action=PutScheduledUpdateGroupAction
-AutoScalingGroupName={{psugaAutoScalingGroupName}}
-{{#psugaDesiredCapacity}}
-DesiredCapacity={{psugaDesiredCapacity}}
-{{/psugaDesiredCapacity}}
-{{#psugaEndTime}}
-EndTime={{psugaEndTime}}
-{{/psugaEndTime}}
-{{#psugaMaxSize}}
-MaxSize={{psugaMaxSize}}
-{{/psugaMaxSize}}
-{{#psugaMinSize}}
-MinSize={{psugaMinSize}}
-{{/psugaMinSize}}
-{{#psugaRecurrence}}
-Recurrence={{psugaRecurrence}}
-{{/psugaRecurrence}}
-ScheduledActionName={{psugaScheduledActionName}}
-{{#psugaStartTime}}
-StartTime={{psugaStartTime}}
-{{/psugaStartTime}}
-{{#psugaTime}}
-Time={{psugaTime}}
-{{/psugaTime}}
+AutoScalingGroupName={{ psugaAutoScalingGroupName }}
+{% if psugaDesiredCapacity %}
+DesiredCapacity={{ psugaDesiredCapacity }}
+{% endif %}
+{% if psugaEndTime %}
+EndTime={{ psugaEndTime }}
+{% endif %}
+{% if psugaMaxSize %}
+MaxSize={{ psugaMaxSize }}
+{% endif %}
+{% if psugaMinSize %}
+MinSize={{ psugaMinSize }}
+{% endif %}
+{% if psugaRecurrence %}
+Recurrence={{ psugaRecurrence }}
+{% endif %}
+ScheduledActionName={{ psugaScheduledActionName }}
+{% if psugaStartTime %}
+StartTime={{ psugaStartTime }}
+{% endif %}
+{% if psugaTime %}
+Time={{ psugaTime }}
+{% endif %}

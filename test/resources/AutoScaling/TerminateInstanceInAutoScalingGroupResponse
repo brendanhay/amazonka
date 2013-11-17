@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TerminateInstanceInAutoScalingGroupResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#tiiasgrResponseMetadata}}
+  {% if tiiasgrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/tiiasgrResponseMetadata}}
-  {{#tiiasgrTerminateInstanceInAutoScalingGroupResult}}
+  {% endif %}
+  {% if tiiasgrTerminateInstanceInAutoScalingGroupResult %}
   <TerminateInstanceInAutoScalingGroupResult>
-    {{#tiiasgrActivity}}
+    {% if tiiasgrActivity %}
     <Activity>
-      <ActivityId>{{aActivityId}}</ActivityId>
-      <AutoScalingGroupName>{{aAutoScalingGroupName}}</AutoScalingGroupName>
-      <Cause>{{aCause}}</Cause>
-      {{#aDescription}}
-      <Description>{{aDescription}}</Description>
-      {{/aDescription}}
-      {{#aDetails}}
-      <Details>{{aDetails}}</Details>
-      {{/aDetails}}
-      {{#aEndTime}}
-      <EndTime>{{aEndTime}}</EndTime>
-      {{/aEndTime}}
-      {{#aProgress}}
-      <Progress>{{aProgress}}</Progress>
-      {{/aProgress}}
-      <StartTime>{{aStartTime}}</StartTime>
-      <StatusCode>{{aStatusCode}}</StatusCode>
-      {{#aStatusMessage}}
-      <StatusMessage>{{aStatusMessage}}</StatusMessage>
-      {{/aStatusMessage}}
+      <ActivityId>{{ aActivityId }}</ActivityId>
+      <AutoScalingGroupName>{{ aAutoScalingGroupName }}</AutoScalingGroupName>
+      <Cause>{{ aCause }}</Cause>
+      {% if aDescription %}
+      <Description>{{ aDescription }}</Description>
+      {% endif %}
+      {% if aDetails %}
+      <Details>{{ aDetails }}</Details>
+      {% endif %}
+      {% if aEndTime %}
+      <EndTime>{{ aEndTime }}</EndTime>
+      {% endif %}
+      {% if aProgress %}
+      <Progress>{{ aProgress }}</Progress>
+      {% endif %}
+      <StartTime>{{ aStartTime }}</StartTime>
+      <StatusCode>{{ aStatusCode }}</StatusCode>
+      {% if aStatusMessage %}
+      <StatusMessage>{{ aStatusMessage }}</StatusMessage>
+      {% endif %}
     </Activity>
-    {{/tiiasgrActivity}}
+    {% endif %}
   </TerminateInstanceInAutoScalingGroupResult>
-  {{/tiiasgrTerminateInstanceInAutoScalingGroupResult}}
+  {% endif %}
 </TerminateInstanceInAutoScalingGroupResponse>

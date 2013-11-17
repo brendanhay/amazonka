@@ -1,4 +1,4 @@
 GET /
 Action=DeleteNotificationConfiguration
-AutoScalingGroupName={{dncAutoScalingGroupName}}
-TopicARN={{dncTopicARN}}
+AutoScalingGroupName={{ dncAutoScalingGroupName }}
+TopicARN={{ dncTopicARN }}

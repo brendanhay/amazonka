@@ -1,7 +1,7 @@
 GET /
 Action=CreateSecurityGroup
-GroupDescription={{csgGroupDescription}}
-GroupName={{csgGroupName}}
-{{#csgVpcId}}
-VpcId={{csgVpcId}}
-{{/csgVpcId}}
+GroupDescription={{ csgGroupDescription }}
+GroupName={{ csgGroupName }}
+{% if csgVpcId %}
+VpcId={{ csgVpcId }}
+{% endif %}

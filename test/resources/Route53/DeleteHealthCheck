@@ -1,1 +1,1 @@
-DELETE /2012-12-12/healthcheck/{{dhcId}}
+DELETE /2012-12-12/healthcheck/{{ dhcId }}

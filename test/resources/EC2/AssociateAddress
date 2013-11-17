@@ -1,16 +1,16 @@
 GET /
 Action=AssociateAddress
-{{#abAllocationId}}
-AllocationId={{abAllocationId}}
-{{/abAllocationId}}
-{{#abAllowReassociation}}
-AllowReassociation={{abAllowReassociation}}
-{{/abAllowReassociation}}
-InstanceId={{abInstanceId}}
-{{#abNetworkInterfaceId}}
-NetworkInterfaceId={{abNetworkInterfaceId}}
-{{/abNetworkInterfaceId}}
-{{#abPrivateIpAddress}}
-PrivateIpAddress={{abPrivateIpAddress}}
-{{/abPrivateIpAddress}}
-PublicIp={{abPublicIp}}
+{% if abAllocationId %}
+AllocationId={{ abAllocationId }}
+{% endif %}
+{% if abAllowReassociation %}
+AllowReassociation={{ abAllowReassociation }}
+{% endif %}
+InstanceId={{ abInstanceId }}
+{% if abNetworkInterfaceId %}
+NetworkInterfaceId={{ abNetworkInterfaceId }}
+{% endif %}
+{% if abPrivateIpAddress %}
+PrivateIpAddress={{ abPrivateIpAddress }}
+{% endif %}
+PublicIp={{ abPublicIp }}

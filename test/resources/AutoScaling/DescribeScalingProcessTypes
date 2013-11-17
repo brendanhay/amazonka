@@ -1,5 +1,5 @@
 GET /
 Action=DescribeScalingProcessTypes
-{{#dsptProcesses}}
-Processes.ProcessName={{ptProcessName}}
-{{/dsptProcesses}}
+{% if dsptProcesses %}
+Processes.ProcessName={{ ptProcessName }}
+{% endif %}

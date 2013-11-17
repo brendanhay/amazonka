@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SetInstanceHealthResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#sihrResponseMetadata}}
+  {% if sihrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/sihrResponseMetadata}}
+  {% endif %}
 </SetInstanceHealthResponse>

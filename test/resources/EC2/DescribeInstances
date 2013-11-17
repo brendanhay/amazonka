@@ -1,11 +1,11 @@
 GET /
 Action=DescribeInstances
-{{#diFilter}}
-Filter.{{n}}.Name={{filterName}}
-{{#filterValue}}
-Filter.{{n}}.Value.{{o}}={{.}}
-{{/filterValue}}
-{{/diFilter}}
-{{#diInstanceId}}
-InstanceId.{{n}}={{.}}
-{{/diInstanceId}}
+{% if diFilter %}
+Filter.{{ n }}.Name={{ filterName }}
+{% if filterValue %}
+Filter.{{ n }}.Value.{{ o }}={{.}}
+{% endif %}
+{% endif %}
+{% if diInstanceId %}
+InstanceId.{{ n }}={{.}}
+{% endif %}

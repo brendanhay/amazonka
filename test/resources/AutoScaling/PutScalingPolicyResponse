@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PutScalingPolicyResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#psprPutScalingPolicyResult}}
+  {% if psprPutScalingPolicyResult %}
   <PutScalingPolicyResult>
-    <PolicyARN>{{psprPolicyARN}}</PolicyARN>
+    <PolicyARN>{{ psprPolicyARN }}</PolicyARN>
   </PutScalingPolicyResult>
-  {{/psprPutScalingPolicyResult}}
-  {{#psprResponseMetadata}}
+  {% endif %}
+  {% if psprResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/psprResponseMetadata}}
+  {% endif %}
 </PutScalingPolicyResponse>

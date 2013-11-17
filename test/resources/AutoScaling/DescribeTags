@@ -1,16 +1,16 @@
 GET /
 Action=DescribeTags
-{{#dtFilters}}
-{{#fName}}
-Filters.member.{{n}}.Name={{fName}}
-{{/fName}}
-{{#fValues}}
-Filters.member.{{n}}.Values={{fValues}}
-{{/fValues}}
-{{/dtFilters}}
-{{#dtMaxRecords}}
-MaxRecords={{dtMaxRecords}}
-{{/dtMaxRecords}}
-{{#dtNextToken}}
-NextToken={{dtNextToken}}
-{{/dtNextToken}}
+{% if dtFilters %}
+{% if fName %}
+Filters.member.{{ n }}.Name={{ fName }}
+{% endif %}
+{% if fValues %}
+Filters.member.{{ n }}.Values={{ fValues }}
+{% endif %}
+{% endif %}
+{% if dtMaxRecords %}
+MaxRecords={{ dtMaxRecords }}
+{% endif %}
+{% if dtNextToken %}
+NextToken={{ dtNextToken }}
+{% endif %}

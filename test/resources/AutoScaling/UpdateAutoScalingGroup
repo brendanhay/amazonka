@@ -1,37 +1,37 @@
 GET /
 Action=UpdateAutoScalingGroup
-AutoScalingGroupName={{uasgAutoScalingGroupName}}
-{{#uasgAvailabilityZones}}
-AvailabilityZones.member.{{n}}={{.}}
-{{/uasgAvailabilityZones}}
-{{#uasgDefaultCooldown}}
-DefaultCooldown={{uasgDefaultCooldown}}
-{{/uasgDefaultCooldown}}
-{{#uasgDesiredCapacity}}
-DesiredCapacity={{uasgDesiredCapacity}}
-{{/uasgDesiredCapacity}}
-{{#uasgHealthCheckGracePeriod}}
-HealthCheckGracePeriod={{uasgHealthCheckGracePeriod}}
-{{/uasgHealthCheckGracePeriod}}
-{{#uasgHealthCheckType}}
-HealthCheckType={{uasgHealthCheckType}}
-{{/uasgHealthCheckType}}
-{{#uasgLaunchConfigurationName}}
-LaunchConfigurationName={{uasgLaunchConfigurationName}}
-{{/uasgLaunchConfigurationName}}
-{{#uasgMaxSize}}
-MaxSize={{uasgMaxSize}}
-{{/uasgMaxSize}}
-{{#uasgMinSize}}
-MinSize={{uasgMinSize}}
-{{/uasgMinSize}}
-{{#uasgPlacementGroup}}
-PlacementGroup={{uasgPlacementGroup}}
-{{/uasgPlacementGroup}}
-{{#uasgTerminationPolicies}}
-TerminationPolicies.member.{{n}}={{.}}
-{{/uasgTerminationPolicies}}
-{{#uasgVPCZoneIdentifier}}
-VPCZoneIdentifier={{uasgVPCZoneIdentifier}}
-{{/uasgVPCZoneIdentifier}}
+AutoScalingGroupName={{ uasgAutoScalingGroupName }}
+{% if uasgAvailabilityZones %}
+AvailabilityZones.member.{{ n }}={{.}}
+{% endif %}
+{% if uasgDefaultCooldown %}
+DefaultCooldown={{ uasgDefaultCooldown }}
+{% endif %}
+{% if uasgDesiredCapacity %}
+DesiredCapacity={{ uasgDesiredCapacity }}
+{% endif %}
+{% if uasgHealthCheckGracePeriod %}
+HealthCheckGracePeriod={{ uasgHealthCheckGracePeriod }}
+{% endif %}
+{% if uasgHealthCheckType %}
+HealthCheckType={{ uasgHealthCheckType }}
+{% endif %}
+{% if uasgLaunchConfigurationName %}
+LaunchConfigurationName={{ uasgLaunchConfigurationName }}
+{% endif %}
+{% if uasgMaxSize %}
+MaxSize={{ uasgMaxSize }}
+{% endif %}
+{% if uasgMinSize %}
+MinSize={{ uasgMinSize }}
+{% endif %}
+{% if uasgPlacementGroup %}
+PlacementGroup={{ uasgPlacementGroup }}
+{% endif %}
+{% if uasgTerminationPolicies %}
+TerminationPolicies.member.{{ n }}={{.}}
+{% endif %}
+{% if uasgVPCZoneIdentifier %}
+VPCZoneIdentifier={{ uasgVPCZoneIdentifier }}
+{% endif %}
 

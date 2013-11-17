@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BundleInstanceResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>{{birRequestId}}</requestId>
-  {{#birBundleInstanceTask}}
+  <requestId>{{ birRequestId }}</requestId>
+  {% if birBundleInstanceTask %}
   <bundleInstanceTask>
-    <instanceId>{{bitInstanceId}}</instanceId>
-    <bundleId>{{bitBundleId}}</bundleId>
-    <state>{{bitState}}</state>
-    <startTime>{{bitStartTime}}</startTime>
-    <updateTime>{{bitUpdateTime}}</updateTime>
-    <progress>{{bitProgress}}</progress>
-    {{#bitStorage}}
+    <instanceId>{{ bitInstanceId }}</instanceId>
+    <bundleId>{{ bitBundleId }}</bundleId>
+    <state>{{ bitState }}</state>
+    <startTime>{{ bitStartTime }}</startTime>
+    <updateTime>{{ bitUpdateTime }}</updateTime>
+    <progress>{{ bitProgress }}</progress>
+    {% if bitStorage %}
     <storage>
       {{#bitsS3}}
       <s3>
-        <awsAccessKeyId>{{bissAwsAccessKeyId}}</awsAccessKeyId>
-        <bucket>{{bissBucket}}</bucket>
-        <prefix>{{bissPrefix}}</prefix>
-        <uploadPolicy>{{bissUploadPolicy}}</uploadPolicy>
-        <uploadPolicySignature>{{bissUploadPolicySignature}}</uploadPolicySignature>
+        <awsAccessKeyId>{{ bissAwsAccessKeyId }}</awsAccessKeyId>
+        <bucket>{{ bissBucket }}</bucket>
+        <prefix>{{ bissPrefix }}</prefix>
+        <uploadPolicy>{{ bissUploadPolicy }}</uploadPolicy>
+        <uploadPolicySignature>{{ bissUploadPolicySignature }}</uploadPolicySignature>
       </s3>
       {{/bitsS3}}
     </storage>
-    {{/bitStorage}}
-    {{#bitError}}
+    {% endif %}
+    {% if bitError %}
     <error>
-      <code>{{biteCode}}</code>
-      <message>{{biteMessage}}</message>
+      <code>{{ biteCode }}</code>
+      <message>{{ biteMessage }}</message>
     </error>
-    {{/bitError}}
+    {% endif %}
   </bundleInstanceTask>
-  {{/birBundleInstanceTask}}
+  {% endif %}
 </BundleInstanceResponse>

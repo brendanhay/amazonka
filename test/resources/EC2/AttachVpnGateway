@@ -1,4 +1,4 @@
 GET /
 Action=AttachVpnGateway
-VpcId={{avgVpcId}}
-VpnGatewayId={{avgVpnGatewayId}}
+VpcId={{ avgVpcId }}
+VpnGatewayId={{ avgVpnGatewayId }}

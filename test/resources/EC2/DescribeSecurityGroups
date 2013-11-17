@@ -1,14 +1,14 @@
 GET /
 Action=DescribeSecurityGroups
-{{#dshGroupName}}
-GroupName.{{n}}={{.}}
-{{/dshGroupName}}
-{{#dshGroupId}}
-GroupId.{{n}}={{.}}
-{{/dshGroupId}}
-{{#dshFilter}}
-Filter.{{n}}.Name={{filterName}}
-{{#filterValue}}
-Filter.{{n}}.Value.{{o}}={{.}}
-{{/filterValue}}
-{{/dshFilter}}
+{% if dshGroupName %}
+GroupName.{{ n }}={{.}}
+{% endif %}
+{% if dshGroupId %}
+GroupId.{{ n }}={{.}}
+{% endif %}
+{% if dshFilter %}
+Filter.{{ n }}.Name={{ filterName }}
+{% if filterValue %}
+Filter.{{ n }}.Value.{{ o }}={{.}}
+{% endif %}
+{% endif %}

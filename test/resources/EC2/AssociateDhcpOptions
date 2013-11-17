@@ -1,4 +1,4 @@
 GET /
 Action=AssociateDhcpOptions
-DhcpOptionsId={{adoDhcpOptionsId}}
-VpcId={{adoVpcId}}
+DhcpOptionsId={{ adoDhcpOptionsId }}
+VpcId={{ adoVpcId }}

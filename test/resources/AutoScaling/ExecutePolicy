@@ -1,9 +1,9 @@
 GET /
 Action=ExecutePolicy
-{{#epAutoScalingGroupName}}
-AutoScalingGroupName={{epAutoScalingGroupName}}
-{{/epAutoScalingGroupName}}
-{{#epHonorCooldown}}
-HonorCooldown={{epHonorCooldown}}
-{{/epHonorCooldown}}
-PolicyName={{epPolicyName}}
+{% if epAutoScalingGroupName %}
+AutoScalingGroupName={{ epAutoScalingGroupName }}
+{% endif %}
+{% if epHonorCooldown %}
+HonorCooldown={{ epHonorCooldown }}
+{% endif %}
+PolicyName={{ epPolicyName }}

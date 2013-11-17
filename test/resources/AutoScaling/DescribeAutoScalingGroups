@@ -1,11 +1,11 @@
 GET /
 Action=DescribeAutoScalingGroups
-{{#dasgAutoScalingGroupNames}}
-AutoScalingGroupNames.member.{{n}}={{.}}
-{{/dasgAutoScalingGroupNames}}
-{{#dasgMaxRecords}}
-MaxRecords={{dasgMaxRecords}}
-{{/dasgMaxRecords}}
-{{#dasgNextToken}}
-NextToken={{dasgNextToken}}
-{{/dasgNextToken}}
+{% if dasgAutoScalingGroupNames %}
+AutoScalingGroupNames.member.{{ n }}={{.}}
+{% endif %}
+{% if dasgMaxRecords %}
+MaxRecords={{ dasgMaxRecords }}
+{% endif %}
+{% if dasgNextToken %}
+NextToken={{ dasgNextToken }}
+{% endif %}

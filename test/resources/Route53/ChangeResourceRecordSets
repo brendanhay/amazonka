@@ -1,165 +1,165 @@
-POST /2012-12-12/hostedzone/{{crrsZoneId}}/rrset
+POST /2012-12-12/hostedzone/{{ crrsZoneId }}/rrset
 application/xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
-  {{#crrsChangeBatch}}
+  {% if crrsChangeBatch %}
   <ChangeBatch>
-    {{#cbComment}}
-    <Comment>{{cbComment}}</Comment>
-    {{/cbComment}}
+    {% if cbComment %}
+    <Comment>{{ cbComment }}</Comment>
+    {% endif %}
     <Changes>
-      {{#cbChanges}}
+      {% if cbChanges %}
       <Change>
-        <Action>{{cAction}}</Action>
-        {{#cResourceRecordSet}}
+        <Action>{{ cAction }}</Action>
+        {% if cResourceRecordSet %}
         <ResourceRecordSet>
-          {{#BasicRecordSet}}
-          <Name>{{rrsName}}</Name>
-          <Type>{{rrsType}}</Type>
-          <TTL>{{rrsTTL}}</TTL>
-          {{#rrsResourceRecords}}
+          {% if BasicRecordSet %}
+          <Name>{{ rrsName }}</Name>
+          <Type>{{ rrsType }}</Type>
+          <TTL>{{ rrsTTL }}</TTL>
+          {% if rrsResourceRecords %}
           <ResourceRecords>
-            {{#rrValues}}
+            {% if rrValues %}
             <ResourceRecord>
               <Value>{{.}}</Value>
             </ResourceRecord>
-            {{/rrValues}}
+            {% endif %}
           </ResourceRecords>
-          {{/rrsResourceRecords}}
-          {{#rrsHealthCheckId}}
-          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-          {{/rrsHealthCheckId}}
-          {{/BasicRecordSet}}
-          {{#AliasRecordSet}}
-          <Name>{{rrsName}}</Name>
-          <Type>{{rrsType}}</Type>
-          {{#rrsAliasTarget}}
+          {% endif %}
+          {% if rrsHealthCheckId %}
+          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+          {% endif %}
+          {% endif %}
+          {% if AliasRecordSet %}
+          <Name>{{ rrsName }}</Name>
+          <Type>{{ rrsType }}</Type>
+          {% if rrsAliasTarget %}
           <AliasTarget>
-            <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
-            <DNSName>{{atDNSName}}</DNSName>
-            <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
+            <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
+            <DNSName>{{ atDNSName }}</DNSName>
+            <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
           </AliasTarget>
-          {{/rrsAliasTarget}}
-          {{#rrsHealthCheckId}}
-          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-          {{/rrsHealthCheckId}}
-          {{/AliasRecordSet}}
-          {{#WeightedRecordSet}}
-          <Name>{{rrsName}}</Name>
-          <Type>{{rrsType}}</Type>
-          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
-          <Weight>{{rrsWeight}}</Weight>
-          <TTL>{{rrsTTL}}</TTL>
-          {{#rrsResourceRecords}}
+          {% endif %}
+          {% if rrsHealthCheckId %}
+          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+          {% endif %}
+          {% endif %}
+          {% if WeightedRecordSet %}
+          <Name>{{ rrsName }}</Name>
+          <Type>{{ rrsType }}</Type>
+          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
+          <Weight>{{ rrsWeight }}</Weight>
+          <TTL>{{ rrsTTL }}</TTL>
+          {% if rrsResourceRecords %}
           <ResourceRecords>
-            {{#rrValues}}
+            {% if rrValues %}
             <ResourceRecord>
               <Value>{{.}}</Value>
             </ResourceRecord>
-            {{/rrValues}}
+            {% endif %}
           </ResourceRecords>
-          {{/rrsResourceRecords}}
-          {{#rrsHealthCheckId}}
-          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-          {{/rrsHealthCheckId}}
-          {{/WeightedRecordSet}}
-          {{#WeightedAliasRecordSet}}
-          <Name>{{rrsName}}</Name>
-          <Type>{{rrsType}}</Type>
-          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
-          <Weight>{{rrsWeight}}</Weight>
-          {{#rrsAliasTarget}}
+          {% endif %}
+          {% if rrsHealthCheckId %}
+          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+          {% endif %}
+          {% endif %}
+          {% if WeightedAliasRecordSet %}
+          <Name>{{ rrsName }}</Name>
+          <Type>{{ rrsType }}</Type>
+          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
+          <Weight>{{ rrsWeight }}</Weight>
+          {% if rrsAliasTarget %}
           <AliasTarget>
-            <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
-            <DNSName>{{atDNSName}}</DNSName>
-            {{#atEvaluateTargetHealth}}
-            <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
-            {{/atEvaluateTargetHealth}}
+            <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
+            <DNSName>{{ atDNSName }}</DNSName>
+            {% if atEvaluateTargetHealth %}
+            <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
+            {% endif %}
           </AliasTarget>
-          {{/rrsAliasTarget}}
-          {{#rrsHealthCheckId}}
-          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-          {{/rrsHealthCheckId}}
-          {{/WeightedAliasRecordSet}}
-          {{#LatencyRecordSet}}
-          <Name>{{rrsName}}</Name>
-          <Type>{{rrsType}}</Type>
-          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
-          <Region>{{rrsRegion}}</Region>
-          <TTL>{{rrsTTL}}</TTL>
-          {{#rrsResourceRecords}}
+          {% endif %}
+          {% if rrsHealthCheckId %}
+          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+          {% endif %}
+          {% endif %}
+          {% if LatencyRecordSet %}
+          <Name>{{ rrsName }}</Name>
+          <Type>{{ rrsType }}</Type>
+          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
+          <Region>{{ rrsRegion }}</Region>
+          <TTL>{{ rrsTTL }}</TTL>
+          {% if rrsResourceRecords %}
           <ResourceRecords>
-            {{#rrValues}}
+            {% if rrValues %}
             <ResourceRecord>
               <Value>{{.}}</Value>
             </ResourceRecord>
-            {{/rrValues}}
+            {% endif %}
           </ResourceRecords>
-          {{/rrsResourceRecords}}
-          {{#rrsHealthCheckId}}
-          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-          {{/rrsHealthCheckId}}
-          {{/LatencyRecordSet}}
-          {{#LatencyAliasRecordSet}}
-          <Name>{{rrsName}}</Name>
-          <Type>{{rrsType}}</Type>
-          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
-          <Region>{{rrsRegion}}</Region>
-          {{#rrsAliasTarget}}
+          {% endif %}
+          {% if rrsHealthCheckId %}
+          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+          {% endif %}
+          {% endif %}
+          {% if LatencyAliasRecordSet %}
+          <Name>{{ rrsName }}</Name>
+          <Type>{{ rrsType }}</Type>
+          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
+          <Region>{{ rrsRegion }}</Region>
+          {% if rrsAliasTarget %}
           <AliasTarget>
-            <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
-            <DNSName>{{atDNSName}}</DNSName>
-            {{#atEvaluateTargetHealth}}
-            <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
-            {{/atEvaluateTargetHealth}}
+            <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
+            <DNSName>{{ atDNSName }}</DNSName>
+            {% if atEvaluateTargetHealth %}
+            <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
+            {% endif %}
           </AliasTarget>
-          {{/rrsAliasTarget}}
-          {{#rrsHealthCheckId}}
-          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-          {{/rrsHealthCheckId}}
-          {{/LatencyAliasRecordSet}}
-          {{#FailoverRecordSet}}
-          <Name>{{rrsName}}</Name>
-          <Type>{{rrsType}}</Type>
-          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
-          <Failover>{{rrsFailover}}</Failover>
-          <TTL>{{rrsTTL}}</TTL>
-          {{#rrsResourceRecords}}
+          {% endif %}
+          {% if rrsHealthCheckId %}
+          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+          {% endif %}
+          {% endif %}
+          {% if FailoverRecordSet %}
+          <Name>{{ rrsName }}</Name>
+          <Type>{{ rrsType }}</Type>
+          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
+          <Failover>{{ rrsFailover }}</Failover>
+          <TTL>{{ rrsTTL }}</TTL>
+          {% if rrsResourceRecords %}
           <ResourceRecords>
-            {{#rrValues}}
+            {% if rrValues %}
             <ResourceRecord>
               <Value>{{.}}</Value>
             </ResourceRecord>
-            {{/rrValues}}
+            {% endif %}
           </ResourceRecords>
-          {{/rrsResourceRecords}}
-          {{#rrsHealthCheckId}}
-          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-          {{/rrsHealthCheckId}}
-          {{/FailoverRecordSet}}
-          {{#FailoverAliasRecordSet}}
-          <Name>{{rrsName}}</Name>
-          <Type>{{rrsType}}</Type>
-          <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
-          <Failover>{{rrsFailover}}</Failover>
-          {{#rrsAliasTarget}}
+          {% endif %}
+          {% if rrsHealthCheckId %}
+          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+          {% endif %}
+          {% endif %}
+          {% if FailoverAliasRecordSet %}
+          <Name>{{ rrsName }}</Name>
+          <Type>{{ rrsType }}</Type>
+          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
+          <Failover>{{ rrsFailover }}</Failover>
+          {% if rrsAliasTarget %}
           <AliasTarget>
-            <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
-            <DNSName>{{atDNSName}}</DNSName>
-            {{#atEvaluateTargetHealth}}
-            <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
-            {{/atEvaluateTargetHealth}}
+            <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
+            <DNSName>{{ atDNSName }}</DNSName>
+            {% if atEvaluateTargetHealth %}
+            <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
+            {% endif %}
           </AliasTarget>
-          {{/rrsAliasTarget}}
-          {{#rrsHealthCheckId}}
-          <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-          {{/rrsHealthCheckId}}
-          {{/FailoverAliasRecordSet}}
+          {% endif %}
+          {% if rrsHealthCheckId %}
+          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+          {% endif %}
+          {% endif %}
         </ResourceRecordSet>
-        {{/cResourceRecordSet}}
+        {% endif %}
       </Change>
-      {{/cbChanges}}
+      {% endif %}
     </Changes>
   </ChangeBatch>
-  {{/crrsChangeBatch}}
+  {% endif %}
 </ChangeResourceRecordSetsRequest>

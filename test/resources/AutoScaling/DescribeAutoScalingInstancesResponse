@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeAutoScalingInstancesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dasirDescribeAutoScalingInstancesResult}}
+  {% if dasirDescribeAutoScalingInstancesResult %}
   <DescribeAutoScalingInstancesResult>
     <AutoScalingInstances>
-      {{#dasirAutoScalingInstances}}
+      {% if dasirAutoScalingInstances %}
       <member>
-        <AutoScalingGroupName>{{asidAutoScalingGroupName}}</AutoScalingGroupName>
-        <AvailabilityZone>{{asidAvailabilityZone}}</AvailabilityZone>
-        <HealthStatus>{{asidHealthStatus}}</HealthStatus>
-        <InstanceId>{{asidInstanceId}}</InstanceId>
-        <LaunchConfigurationName>{{asidLaunchConfigurationName}}</LaunchConfigurationName>
-        <LifecycleState>{{asidLifecycleState}}</LifecycleState>
+        <AutoScalingGroupName>{{ asidAutoScalingGroupName }}</AutoScalingGroupName>
+        <AvailabilityZone>{{ asidAvailabilityZone }}</AvailabilityZone>
+        <HealthStatus>{{ asidHealthStatus }}</HealthStatus>
+        <InstanceId>{{ asidInstanceId }}</InstanceId>
+        <LaunchConfigurationName>{{ asidLaunchConfigurationName }}</LaunchConfigurationName>
+        <LifecycleState>{{ asidLifecycleState }}</LifecycleState>
       </member>
-      {{/dasirAutoScalingInstances}}
+      {% endif %}
     </AutoScalingInstances>
-    {{#dasirNextToken}}
-    <NextToken>{{dasirNextToken}}</NextToken>
-    {{/dasirNextToken}}
+    {% if dasirNextToken %}
+    <NextToken>{{ dasirNextToken }}</NextToken>
+    {% endif %}
   </DescribeAutoScalingInstancesResult>
-  {{/dasirDescribeAutoScalingInstancesResult}}
-  {{#dasirResponseMetadata}}
+  {% endif %}
+  {% if dasirResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dasirResponseMetadata}}
+  {% endif %}
 </DescribeAutoScalingInstancesResponse>

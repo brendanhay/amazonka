@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeImagesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>{{djRequestId}}</requestId>
+  <requestId>{{ djRequestId }}</requestId>
   <imagesSet>
-    {{#djImagesSet}}
+    {% if djImagesSet %}
     <item>
-      <imageId>{{diritImageId}}</imageId>
-      <imageLocation>{{diritImageLocation}}</imageLocation>
-      <imageState>{{diritImageState}}</imageState>
-      <imageOwnerId>{{diritImageOwnerId}}</imageOwnerId>
-      <isPublic>{{diritIsPublic}}</isPublic>
+      <imageId>{{ diritImageId }}</imageId>
+      <imageLocation>{{ diritImageLocation }}</imageLocation>
+      <imageState>{{ diritImageState }}</imageState>
+      <imageOwnerId>{{ diritImageOwnerId }}</imageOwnerId>
+      <isPublic>{{ diritIsPublic }}</isPublic>
       <productCodes>
-        {{#diritProductCodes}}
+        {% if diritProductCodes %}
         <item>
-          <productCode>{{pcsitProductCode}}</productCode>
-          <type>{{pcsitType}}</type>
+          <productCode>{{ pcsitProductCode }}</productCode>
+          <type>{{ pcsitType }}</type>
         </item>
-        {{/diritProductCodes}}
+        {% endif %}
       </productCodes>
-      <architecture>{{diritArchitecture}}</architecture>
-      <imageType>{{diritImageType}}</imageType>
-      <kernelId>{{diritKernelId}}</kernelId>
-      <ramdiskId>{{diritRamdiskId}}</ramdiskId>
-      {{#diritPlatform}}
-      <platform>{{diritPlatform}}</platform>
-      {{/diritPlatform}}
-      <imageOwnerAlias>{{diritImageOwnerAlias}}</imageOwnerAlias>
-      <name>{{diritName}}</name>
-      <description>{{diritDescription}}</description>
-      <rootDeviceType>{{diritRootDeviceType}}</rootDeviceType>
-      <rootDeviceName>{{diritRootDeviceName}}</rootDeviceName>
+      <architecture>{{ diritArchitecture }}</architecture>
+      <imageType>{{ diritImageType }}</imageType>
+      <kernelId>{{ diritKernelId }}</kernelId>
+      <ramdiskId>{{ diritRamdiskId }}</ramdiskId>
+      {% if diritPlatform %}
+      <platform>{{ diritPlatform }}</platform>
+      {% endif %}
+      <imageOwnerAlias>{{ diritImageOwnerAlias }}</imageOwnerAlias>
+      <name>{{ diritName }}</name>
+      <description>{{ diritDescription }}</description>
+      <rootDeviceType>{{ diritRootDeviceType }}</rootDeviceType>
+      <rootDeviceName>{{ diritRootDeviceName }}</rootDeviceName>
       <blockDeviceMapping>
-        {{#diritBlockDeviceMapping}}
+        {% if diritBlockDeviceMapping %}
         <item>
-          <deviceName>{{bdmitDeviceName}}</deviceName>
-          {{#bdmitEbs}}
+          <deviceName>{{ bdmitDeviceName }}</deviceName>
+          {% if bdmitEbs %}
           <ebs>
-            <snapshotId>{{ebdtSnapshotId}}</snapshotId>
-            <volumeSize>{{ebdtVolumeSize}}</volumeSize>
-            <deleteOnTermination>{{ebdtDeleteOnTermination}}</deleteOnTermination>
-            <volumeType>{{ebdtVolumeType}}</volumeType>
+            <snapshotId>{{ ebdtSnapshotId }}</snapshotId>
+            <volumeSize>{{ ebdtVolumeSize }}</volumeSize>
+            <deleteOnTermination>{{ ebdtDeleteOnTermination }}</deleteOnTermination>
+            <volumeType>{{ ebdtVolumeType }}</volumeType>
           </ebs>
-          {{/bdmitEbs}}
+          {% endif %}
         </item>
-        {{/diritBlockDeviceMapping}}
+        {% endif %}
       </blockDeviceMapping>
-      <virtualizationType>{{diritVirtualizationType}}</virtualizationType>
+      <virtualizationType>{{ diritVirtualizationType }}</virtualizationType>
       <tagSet>
-        {{#diritTagSet}}
+        {% if diritTagSet %}
         <item>
-          <key>{{rtsitKey}}</key>
-          <value>{{rtsitValue}}</value>
+          <key>{{ rtsitKey }}</key>
+          <value>{{ rtsitValue }}</value>
         </item>
-        {{/diritTagSet}}
+        {% endif %}
       </tagSet>
-      <hypervisor>{{diritHypervisor}}</hypervisor>
+      <hypervisor>{{ diritHypervisor }}</hypervisor>
     </item>
-    {{/djImagesSet}}
+    {% endif %}
   </imagesSet>
 </DescribeImagesResponse>

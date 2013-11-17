@@ -1,50 +1,50 @@
 GET /
 Action=CreateAutoScalingGroup
-AutoScalingGroupName={{casgAutoScalingGroupName}}
-{{#casgAvailabilityZones}}
-AvailabilityZones.member.{{n}}={{.}}
-{{/casgAvailabilityZones}}
-{{#casgDefaultCooldown}}
-DefaultCooldown={{casgDefaultCooldown}}
-{{/casgDefaultCooldown}}
-{{#casgDesiredCapacity}}
-DesiredCapacity={{casgDesiredCapacity}}
-{{/casgDesiredCapacity}}
-{{#casgHealthCheckGracePeriod}}
-HealthCheckGracePeriod={{casgHealthCheckGracePeriod}}
-{{/casgHealthCheckGracePeriod}}
-{{#casgHealthCheckType}}
-HealthCheckType={{casgHealthCheckType}}
-{{/casgHealthCheckType}}
-LaunchConfigurationName={{casgLaunchConfigurationName}}
-{{#casgLoadBalancerNames}}
-LoadBalancerNames.member.{{n}}={{.}}
-{{/casgLoadBalancerNames}}
-MaxSize={{casgMaxSize}}
-MinSize={{casgMinSize}}
-{{#casgPlacementGroup}}
-PlacementGroup={{casgPlacementGroup}}
-{{/casgPlacementGroup}}
-{{#casgTags}}
-{{#tKey}}
-Tags.member.{{n}}.Key={{tKey}}
-{{/tKey}}
-{{#tPropagateAtLaunch}}
-Tags.member.{{n}}.PropagateAtLaunch={{tPropagateAtLaunch}}
-{{/tPropagateAtLaunch}}
-{{#tResourceId}}
-Tags.member.{{n}}.ResourceId={{tResourceId}}
-{{/tResourceId}}
-{{#tResourceType}}
-Tags.member.{{n}}.ResourceType={{tResourceType}}
-{{/tResourceType}}
-{{#tValue}}
-Tags.member.{{n}}.Value={{tValue}}
-{{/tValue}}
-{{/casgTags}}
-{{#casgTerminationPolicies}}
-TerminationPolicies.member.{{n}}={{.}}
-{{/casgTerminationPolicies}}
-{{#casgVPCZoneIdentifier}}
-VPCZoneIdentifier={{casgVPCZoneIdentifier}}
-{{/casgVPCZoneIdentifier}}
+AutoScalingGroupName={{ casgAutoScalingGroupName }}
+{% if casgAvailabilityZones %}
+AvailabilityZones.member.{{ n }}={{.}}
+{% endif %}
+{% if casgDefaultCooldown %}
+DefaultCooldown={{ casgDefaultCooldown }}
+{% endif %}
+{% if casgDesiredCapacity %}
+DesiredCapacity={{ casgDesiredCapacity }}
+{% endif %}
+{% if casgHealthCheckGracePeriod %}
+HealthCheckGracePeriod={{ casgHealthCheckGracePeriod }}
+{% endif %}
+{% if casgHealthCheckType %}
+HealthCheckType={{ casgHealthCheckType }}
+{% endif %}
+LaunchConfigurationName={{ casgLaunchConfigurationName }}
+{% if casgLoadBalancerNames %}
+LoadBalancerNames.member.{{ n }}={{.}}
+{% endif %}
+MaxSize={{ casgMaxSize }}
+MinSize={{ casgMinSize }}
+{% if casgPlacementGroup %}
+PlacementGroup={{ casgPlacementGroup }}
+{% endif %}
+{% if casgTags %}
+{% if tKey %}
+Tags.member.{{ n }}.Key={{ tKey }}
+{% endif %}
+{% if tPropagateAtLaunch %}
+Tags.member.{{ n }}.PropagateAtLaunch={{ tPropagateAtLaunch }}
+{% endif %}
+{% if tResourceId %}
+Tags.member.{{ n }}.ResourceId={{ tResourceId }}
+{% endif %}
+{% if tResourceType %}
+Tags.member.{{ n }}.ResourceType={{ tResourceType }}
+{% endif %}
+{% if tValue %}
+Tags.member.{{ n }}.Value={{ tValue }}
+{% endif %}
+{% endif %}
+{% if casgTerminationPolicies %}
+TerminationPolicies.member.{{ n }}={{.}}
+{% endif %}
+{% if casgVPCZoneIdentifier %}
+VPCZoneIdentifier={{ casgVPCZoneIdentifier }}
+{% endif %}

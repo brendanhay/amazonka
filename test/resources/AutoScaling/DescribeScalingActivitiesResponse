@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeScalingActivitiesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dsbrDescribeScalingActivitiesResult}}
+  {% if dsbrDescribeScalingActivitiesResult %}
   <DescribeScalingActivitiesResult>
     <Activities>
-    {{#dsarActivities}}
+    {% if dsarActivities %}
       <member>
-        <ActivityId>{{aActivityId}}</ActivityId>
-        <AutoScalingGroupName>{{aAutoScalingGroupName}}</AutoScalingGroupName>
-        <Cause>{{aCause}}</Cause>
-        {{#aDescription}}
-        <Description>{{aDescription}}</Description>
-        {{/aDescription}}
-        {{#aDetails}}
-        <Details>{{aDetails}}</Details>
-        {{/aDetails}}
-        {{#aEndTime}}
-        <EndTime>{{aEndTime}}</EndTime>
-        {{/aEndTime}}
-        {{#aProgress}}
-        <Progress>{{aProgress}}</Progress>
-        {{/aProgress}}
-        <StartTime>{{aStartTime}}</StartTime>
-        <StatusCode>{{aStatusCode}}</StatusCode>
-        {{#aStatusMessage}}
-        <StatusMessage>{{aStatusMessage}}</StatusMessage>
-        {{/aStatusMessage}}
+        <ActivityId>{{ aActivityId }}</ActivityId>
+        <AutoScalingGroupName>{{ aAutoScalingGroupName }}</AutoScalingGroupName>
+        <Cause>{{ aCause }}</Cause>
+        {% if aDescription %}
+        <Description>{{ aDescription }}</Description>
+        {% endif %}
+        {% if aDetails %}
+        <Details>{{ aDetails }}</Details>
+        {% endif %}
+        {% if aEndTime %}
+        <EndTime>{{ aEndTime }}</EndTime>
+        {% endif %}
+        {% if aProgress %}
+        <Progress>{{ aProgress }}</Progress>
+        {% endif %}
+        <StartTime>{{ aStartTime }}</StartTime>
+        <StatusCode>{{ aStatusCode }}</StatusCode>
+        {% if aStatusMessage %}
+        <StatusMessage>{{ aStatusMessage }}</StatusMessage>
+        {% endif %}
       </member>
-    {{/dsarActivities}}
+    {% endif %}
     </Activities>
-    {{#dsarNextToken}}
-    <NextToken>{{dsarNextToken}}</NextToken>
-    {{/dsarNextToken}}
+    {% if dsarNextToken %}
+    <NextToken>{{ dsarNextToken }}</NextToken>
+    {% endif %}
   </DescribeScalingActivitiesResult>
-  {{/dsbrDescribeScalingActivitiesResult}}
-  {{#dsbrResponseMetadata}}
+  {% endif %}
+  {% if dsbrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dsbrResponseMetadata}}
+  {% endif %}
 </DescribeScalingActivitiesResponse>

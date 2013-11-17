@@ -1,19 +1,19 @@
 GET /
 Action=CreateOrUpdateTags
-{{#coutTags}}
-{{#tKey}}
-Tags.member.{{n}}.Key={{tKey}}
-{{/tKey}}
-{{#tPropagateAtLaunch}}
-Tags.member.{{n}}.PropagateAtLaunch={{tPropagateAtLaunch}}
-{{/tPropagateAtLaunch}}
-{{#tResourceId}}
-Tags.member.{{n}}.ResourceId={{tResourceId}}
-{{/tResourceId}}
-{{#tResourceType}}
-Tags.member.{{n}}.ResourceType={{tResourceType}}
-{{/tResourceType}}
-{{#tValue}}
-Tags.member.{{n}}.Value={{tValue}}
-{{/tValue}}
-{{/coutTags}}
+{% if coutTags %}
+{% if tKey %}
+Tags.member.{{ n }}.Key={{ tKey }}
+{% endif %}
+{% if tPropagateAtLaunch %}
+Tags.member.{{ n }}.PropagateAtLaunch={{ tPropagateAtLaunch }}
+{% endif %}
+{% if tResourceId %}
+Tags.member.{{ n }}.ResourceId={{ tResourceId }}
+{% endif %}
+{% if tResourceType %}
+Tags.member.{{ n }}.ResourceType={{ tResourceType }}
+{% endif %}
+{% if tValue %}
+Tags.member.{{ n }}.Value={{ tValue }}
+{% endif %}
+{% endif %}

@@ -1,192 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>{{dirRequestId}}</requestId>
+  <requestId>{{ dirRequestId }}</requestId>
   <reservationSet>
-    {{#dirReservationSet}}
+    {% if dirReservationSet %}
     <item>
-      <reservationId>{{ritReservationId}}</reservationId>
-      <ownerId>{{ritOwnerId}}</ownerId>
+      <reservationId>{{ ritReservationId }}</reservationId>
+      <ownerId>{{ ritOwnerId }}</ownerId>
       <groupSet>
-        {{#ritGroupSet}}
+        {% if ritGroupSet %}
         <item>
-          <groupId>{{gitGroupId}}</groupId>
-          <groupName>{{gitGroupName}}</groupName>
+          <groupId>{{ gitGroupId }}</groupId>
+          <groupName>{{ gitGroupName }}</groupName>
         </item>
-        {{/ritGroupSet}}
+        {% endif %}
       </groupSet>
       <instancesSet>
-        {{#ritInstancesSet}}
+        {% if ritInstancesSet %}
         <item>
-          <instanceId>{{riitInstanceId}}</instanceId>
-          <imageId>{{riitImageId}}</imageId>
+          <instanceId>{{ riitInstanceId }}</instanceId>
+          <imageId>{{ riitImageId }}</imageId>
           <instanceState>
-            {{#riitInstanceState}}
-            <code>{{istCode}}</code>
-            <name>{{istName}}</name>
-            {{/riitInstanceState}}
+            {% if riitInstanceState %}
+            <code>{{ istCode }}</code>
+            <name>{{ istName }}</name>
+            {% endif %}
           </instanceState>
-          {{#riitPrivateDnsName}}
-          <privateDnsName>{{riitPrivateDnsName}}</privateDnsName>
-          {{/riitPrivateDnsName}}
-          {{#riitDnsName}}
-          <dnsName>{{riitDnsName}}</dnsName>
-          {{/riitDnsName}}
-          {{#riitReason}}
-          <reason>{{riitReason}}</reason>
-          {{/riitReason}}
-          <keyName>{{riitKeyName}}</keyName>
-          <amiLaunchIndex>{{riitAmiLaunchIndex}}</amiLaunchIndex>
+          {% if riitPrivateDnsName %}
+          <privateDnsName>{{ riitPrivateDnsName }}</privateDnsName>
+          {% endif %}
+          {% if riitDnsName %}
+          <dnsName>{{ riitDnsName }}</dnsName>
+          {% endif %}
+          {% if riitReason %}
+          <reason>{{ riitReason }}</reason>
+          {% endif %}
+          <keyName>{{ riitKeyName }}</keyName>
+          <amiLaunchIndex>{{ riitAmiLaunchIndex }}</amiLaunchIndex>
           <productCodes>
-            {{#riitProductCodes}}
+            {% if riitProductCodes %}
             <item>
-              <productCode>{{pcsitProductCode}}</productCode>
-              <type>{{pcsitType}}</type>
+              <productCode>{{ pcsitProductCode }}</productCode>
+              <type>{{ pcsitType }}</type>
             </item>
-            {{/riitProductCodes}}
+            {% endif %}
           </productCodes>
-          <instanceType>{{riitInstanceType}}</instanceType>
-          <launchTime>{{riitLaunchTime}}</launchTime>
+          <instanceType>{{ riitInstanceType }}</instanceType>
+          <launchTime>{{ riitLaunchTime }}</launchTime>
           <placement>
-            {{#riitPlacement}}
-            <availabilityZone>{{pruAvailabilityZone}}</availabilityZone>
-            {{#pruGroupName}}
-            <groupName>{{pruGroupName}}</groupName>
-            {{/pruGroupName}}
-            <tenancy>{{pruTenancy}}</tenancy>
-            {{/riitPlacement}}
+            {% if riitPlacement %}
+            <availabilityZone>{{ pruAvailabilityZone }}</availabilityZone>
+            {% if pruGroupName %}
+            <groupName>{{ pruGroupName }}</groupName>
+            {% endif %}
+            <tenancy>{{ pruTenancy }}</tenancy>
+            {% endif %}
           </placement>
-          <kernelId>{{riitKernelId}}</kernelId>
-          <ramdiskId>{{riitRamdiskId}}</ramdiskId>
-          {{#riitPlatform}}
-          <platform>{{riitPlatform}}</platform>
-          {{/riitPlatform}}
-          {{#riitMonitoring}}
+          <kernelId>{{ riitKernelId }}</kernelId>
+          <ramdiskId>{{ riitRamdiskId }}</ramdiskId>
+          {% if riitPlatform %}
+          <platform>{{ riitPlatform }}</platform>
+          {% endif %}
+          {% if riitMonitoring %}
           <monitoring>
-            <state>{{imstState}}</state>
+            <state>{{ imstState }}</state>
           </monitoring>
-          {{/riitMonitoring}}
-          <subnetId>{{riitSubnetId}}</subnetId>
-          <vpcId>{{riitVpcId}}</vpcId>
-          <privateIpAddress>{{riitPrivateIpAddress}}</privateIpAddress>
-          <ipAddress>{{riitIpAddress}}</ipAddress>
-          <sourceDestCheck>{{riitSourceDestCheck}}</sourceDestCheck>
+          {% endif %}
+          <subnetId>{{ riitSubnetId }}</subnetId>
+          <vpcId>{{ riitVpcId }}</vpcId>
+          <privateIpAddress>{{ riitPrivateIpAddress }}</privateIpAddress>
+          <ipAddress>{{ riitIpAddress }}</ipAddress>
+          <sourceDestCheck>{{ riitSourceDestCheck }}</sourceDestCheck>
           <groupSet>
-            {{#riitGroupSet}}
+            {% if riitGroupSet %}
             <item>
-              <groupId>{{gitGroupId}}</groupId>
-              <groupName>{{gitGroupName}}</groupName>
+              <groupId>{{ gitGroupId }}</groupId>
+              <groupName>{{ gitGroupName }}</groupName>
             </item>
-            {{/riitGroupSet}}
+            {% endif %}
           </groupSet>
-          {{#riitStateReason}}
+          {% if riitStateReason %}
           <stateReason>
-            <code>{{srtCode}}</code>
-            <message>{{srtMessage}}</message>
+            <code>{{ srtCode }}</code>
+            <message>{{ srtMessage }}</message>
           </stateReason>
-          {{/riitStateReason}}
-          <architecture>{{riitArchitecture}}</architecture>
-          <rootDeviceType>{{riitRootDeviceType}}</rootDeviceType>
-          <rootDeviceName>{{riitRootDeviceName}}</rootDeviceName>
+          {% endif %}
+          <architecture>{{ riitArchitecture }}</architecture>
+          <rootDeviceType>{{ riitRootDeviceType }}</rootDeviceType>
+          <rootDeviceName>{{ riitRootDeviceName }}</rootDeviceName>
           <blockDeviceMapping>
-            {{#riitBlockDeviceMapping}}
+            {% if riitBlockDeviceMapping %}
             <item>
-              <deviceName>{{ibdmritDeviceName}}</deviceName>
-              {{#ibdmritEbs}}
+              <deviceName>{{ ibdmritDeviceName }}</deviceName>
+              {% if ibdmritEbs %}
               <ebs>
-                <volumeId>{{eibdmrtVolumeId}}</volumeId>
-                <status>{{eibdmrtStatus}}</status>
-                <attachTime>{{eibdmrtAttachTime}}</attachTime>
-                <deleteOnTermination>{{eibdmrtDeleteOnTermination}}</deleteOnTermination>
+                <volumeId>{{ eibdmrtVolumeId }}</volumeId>
+                <status>{{ eibdmrtStatus }}</status>
+                <attachTime>{{ eibdmrtAttachTime }}</attachTime>
+                <deleteOnTermination>{{ eibdmrtDeleteOnTermination }}</deleteOnTermination>
               </ebs>
-              {{/ibdmritEbs}}
+              {% endif %}
             </item>
-            {{/riitBlockDeviceMapping}}
+            {% endif %}
           </blockDeviceMapping>
-          {{#riitInstanceLifecycle}}
-          <instanceLifecycle>{{riitInstanceLifecycle}}</instanceLifecycle>
-          {{/riitInstanceLifecycle}}
-          {{#riitSpotInstanceRequestId}}
-          <spotInstanceRequestId>{{riitInstanceLifecycle}}</spotInstanceRequestId>
-          {{/riitSpotInstanceRequestId}}
-          <virtualizationType>{{riitVirtualizationType}}</virtualizationType>
-          <clientToken>{{riitClientToken}}</clientToken>
+          {% if riitInstanceLifecycle %}
+          <instanceLifecycle>{{ riitInstanceLifecycle }}</instanceLifecycle>
+          {% endif %}
+          {% if riitSpotInstanceRequestId %}
+          <spotInstanceRequestId>{{ riitInstanceLifecycle }}</spotInstanceRequestId>
+          {% endif %}
+          <virtualizationType>{{ riitVirtualizationType }}</virtualizationType>
+          <clientToken>{{ riitClientToken }}</clientToken>
           <tagSet>
-            {{#riitTagSet}}
+            {% if riitTagSet %}
             <item>
-              <key>{{rtsitKey}}</key>
-              <value>{{rtsitValue}}</value>
+              <key>{{ rtsitKey }}</key>
+              <value>{{ rtsitValue }}</value>
             </item>
-            {{/riitTagSet}}
+            {% endif %}
           </tagSet>
-          <hypervisor>{{riitHypervisor}}</hypervisor>
+          <hypervisor>{{ riitHypervisor }}</hypervisor>
           <networkInterfaceSet>
-            {{#riitNetworkInterfaceSet}}
+            {% if riitNetworkInterfaceSet %}
             <item>
-              <networkInterfaceId>{{inisitNetworkInterfaceId}}</networkInterfaceId>
-              <subnetId>{{inisitSubnetId}}</subnetId>
-              <vpcId>{{inisitVpcId}}</vpcId>
-              <description>{{inisitDescription}}</description>
-              <ownerId>{{inisitOwnerId}}</ownerId>
-              <status>{{inisitStatus}}</status>
-              <macAddress>{{inisitMacAddress}}</macAddress>
-              <privateIpAddress>{{inisitPrivateIpAddress}}</privateIpAddress>
-              <privateDnsName>{{inisitPrivateDnsName}}</privateDnsName>
-              <sourceDestCheck>{{inisitSourceDestCheck}}</sourceDestCheck>
+              <networkInterfaceId>{{ inisitNetworkInterfaceId }}</networkInterfaceId>
+              <subnetId>{{ inisitSubnetId }}</subnetId>
+              <vpcId>{{ inisitVpcId }}</vpcId>
+              <description>{{ inisitDescription }}</description>
+              <ownerId>{{ inisitOwnerId }}</ownerId>
+              <status>{{ inisitStatus }}</status>
+              <macAddress>{{ inisitMacAddress }}</macAddress>
+              <privateIpAddress>{{ inisitPrivateIpAddress }}</privateIpAddress>
+              <privateDnsName>{{ inisitPrivateDnsName }}</privateDnsName>
+              <sourceDestCheck>{{ inisitSourceDestCheck }}</sourceDestCheck>
               <groupSet>
-                {{#inisitGroupSet}}
+                {% if inisitGroupSet %}
                 <item>
-                  <groupId>{{gitGroupId}}</groupId>
-                  <groupName>{{gitGroupName}}</groupName>
+                  <groupId>{{ gitGroupId }}</groupId>
+                  <groupName>{{ gitGroupName }}</groupName>
                 </item>
-                {{/inisitGroupSet}}
+                {% endif %}
               </groupSet>
-              {{#inisitAttachment}}
+              {% if inisitAttachment %}
               <attachment>
-                <attachmentID>{{iniatAttachmentID}}</attachmentID>
-                <deviceIndex>{{iniatDeviceIndex}}</deviceIndex>
-                <status>{{iniatStatus}}</status>
-                <attachTime>{{iniatAttachTime}}</attachTime>
-                <deleteOnTermination>{{iniatDeleteOnTermination}}</deleteOnTermination>
+                <attachmentID>{{ iniatAttachmentID }}</attachmentID>
+                <deviceIndex>{{ iniatDeviceIndex }}</deviceIndex>
+                <status>{{ iniatStatus }}</status>
+                <attachTime>{{ iniatAttachTime }}</attachTime>
+                <deleteOnTermination>{{ iniatDeleteOnTermination }}</deleteOnTermination>
               </attachment>
-              {{/inisitAttachment}}
-              {{#inisitAssociation}}
+              {% endif %}
+              {% if inisitAssociation %}
               <association>
-                <publicIp>{{iniatPublicIp}}</publicIp>
-                <publicDnsName>{{iniatPublicDnsName}}</publicDnsName>
-                <ipOwnerId>{{iniatIpOwnerId}}</ipOwnerId>
+                <publicIp>{{ iniatPublicIp }}</publicIp>
+                <publicDnsName>{{ iniatPublicDnsName }}</publicDnsName>
+                <ipOwnerId>{{ iniatIpOwnerId }}</ipOwnerId>
               </association>
-              {{/inisitAssociation}}
+              {% endif %}
               <privateIpAddressesSet>
-                {{#inisitPrivateIpAddressesSet}}
+                {% if inisitPrivateIpAddressesSet %}
                 <item>
-                  <privateIpAddress>{{ipiasitPrivateIpAddress}}</privateIpAddress>
-                  <privateDnsName>{{ipiasitPrivateDnsName}}</privateDnsName>
-                  <primary>{{ipiasitPrimary}}</primary>
-                  {{#ipiasitAssociation}}
+                  <privateIpAddress>{{ ipiasitPrivateIpAddress }}</privateIpAddress>
+                  <privateDnsName>{{ ipiasitPrivateDnsName }}</privateDnsName>
+                  <primary>{{ ipiasitPrimary }}</primary>
+                  {% if ipiasitAssociation %}
                   <association>
-                    <publicIp>{{iniatPublicIp}}</publicIp>
-                    <publicDnsName>{{iniatPublicDnsName}}</publicDnsName>
-                    <ipOwnerId>{{iniatIpOwnerId}}</ipOwnerId>
+                    <publicIp>{{ iniatPublicIp }}</publicIp>
+                    <publicDnsName>{{ iniatPublicDnsName }}</publicDnsName>
+                    <ipOwnerId>{{ iniatIpOwnerId }}</ipOwnerId>
                   </association>
-                  {{/ipiasitAssociation}}
+                  {% endif %}
                 </item>
-                {{/inisitPrivateIpAddressesSet}}
+                {% endif %}
               </privateIpAddressesSet>
             </item>
-            {{/riitNetworkInterfaceSet}}
+            {% endif %}
           </networkInterfaceSet>
-          {{#riitIamInstanceProfile}}
+          {% if riitIamInstanceProfile %}
           <iamInstanceProfile>
-            <id>{{iipruId}}</id>
-            <arn>{{iipruArn}}</arn>
+            <id>{{ iipruId }}</id>
+            <arn>{{ iipruArn }}</arn>
           </iamInstanceProfile>
-          {{/riitIamInstanceProfile}}
-          <ebsOptimized>{{riitEbsOptimized}}</ebsOptimized>
+          {% endif %}
+          <ebsOptimized>{{ riitEbsOptimized }}</ebsOptimized>
         </item>
-        {{/ritInstancesSet}}
+        {% endif %}
       </instancesSet>
-      <requesterId>{{ritRequesterId}}</requesterId>
+      <requesterId>{{ ritRequesterId }}</requesterId>
     </item>
-    {{/dirReservationSet}}
+    {% endif %}
   </reservationSet>
 </DescribeInstancesResponse>

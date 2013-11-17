@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AttachVolumeResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>{{avrRequestId}}</requestId>
-  <volumeId>{{avrVolumeId}}</volumeId>
-  <instanceId>{{avrInstanceId}}</instanceId>
-  <device>{{avrDevice}}</device>
-  <status>{{avrStatus}}</status>
-  <attachTime>{{avrAttachTime}}</attachTime>
+  <requestId>{{ avrRequestId }}</requestId>
+  <volumeId>{{ avrVolumeId }}</volumeId>
+  <instanceId>{{ avrInstanceId }}</instanceId>
+  <device>{{ avrDevice }}</device>
+  <status>{{ avrStatus }}</status>
+  <attachTime>{{ avrAttachTime }}</attachTime>
 </AttachVolumeResponse>

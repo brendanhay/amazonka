@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateOrUpdateTagsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#coutrResponseMetadata}}
+  {% if coutrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/coutrResponseMetadata}}
+  {% endif %}
 </CreateOrUpdateTagsResponse>

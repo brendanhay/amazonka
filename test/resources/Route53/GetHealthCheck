@@ -1,2 +1,2 @@
-GET /2012-12-12/healthcheck/{{ghcId}}
+GET /2012-12-12/healthcheck/{{ ghcId }}
 

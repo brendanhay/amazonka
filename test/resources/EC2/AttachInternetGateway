@@ -1,4 +1,4 @@
 GET /
 Action=AttachInternetGateway
-InternetGatewayId={{aigInternetGatewayId}}
-VpcId={{aigVpcId}}
+InternetGatewayId={{ aigInternetGatewayId }}
+VpcId={{ aigVpcId }}

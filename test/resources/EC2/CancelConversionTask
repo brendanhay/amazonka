@@ -1,3 +1,3 @@
 GET /
 Action=CancelConversionTask
-ConversionTaskId={{cctConversionTaskId}}
+ConversionTaskId={{ cctConversionTaskId }}

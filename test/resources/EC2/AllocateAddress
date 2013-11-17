@@ -1,5 +1,5 @@
 GET /
 Action=AllocateAddress
-{{#aaDomain}}
-Domain={{aaDomain}}
-{{/aaDomain}}
+{% if aaDomain %}
+Domain={{ aaDomain }}
+{% endif %}

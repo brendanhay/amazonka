@@ -1,14 +1,14 @@
 GET /
 Action=DescribeScalingActivities
-{{#dsbActivityIds}}
-ActivityIds.member.{{n}}={{.}}
-{{/dsbActivityIds}}
-{{#dsbAutoScalingGroupName}}
-AutoScalingGroupName={{dsbAutoScalingGroupName}}
-{{/dsbAutoScalingGroupName}}
-{{#dsbMaxRecords}}
-MaxRecords={{dsbMaxRecords}}
-{{/dsbMaxRecords}}
-{{#dsbNextToken}}
-NextToken={{dsbNextToken}}
-{{/dsbNextToken}}
+{% if dsbActivityIds %}
+ActivityIds.member.{{ n }}={{.}}
+{% endif %}
+{% if dsbAutoScalingGroupName %}
+AutoScalingGroupName={{ dsbAutoScalingGroupName }}
+{% endif %}
+{% if dsbMaxRecords %}
+MaxRecords={{ dsbMaxRecords }}
+{% endif %}
+{% if dsbNextToken %}
+NextToken={{ dsbNextToken }}
+{% endif %}

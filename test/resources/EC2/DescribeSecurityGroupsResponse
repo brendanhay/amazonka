@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeSecurityGroupsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>{{dshrRequestId}}</requestId>
+  <requestId>{{ dshrRequestId }}</requestId>
   <securityGroupInfo>
-    {{#dshrSecurityGroupInfo}}
+    {% if dshrSecurityGroupInfo %}
     <item>
-      <ownerId>{{sgitOwnerId}}</ownerId>
-      <groupId>{{sgitGroupId}}</groupId>
-      <groupName>{{sgitGroupName}}</groupName>
-      <groupDescription>{{sgitGroupDescription}}</groupDescription>
-      {{#sgitVpcId}}
-      <vpcId>{{sgitVpcId}}</vpcId>
-      {{/sgitVpcId}}
+      <ownerId>{{ sgitOwnerId }}</ownerId>
+      <groupId>{{ sgitGroupId }}</groupId>
+      <groupName>{{ sgitGroupName }}</groupName>
+      <groupDescription>{{ sgitGroupDescription }}</groupDescription>
+      {% if sgitVpcId %}
+      <vpcId>{{ sgitVpcId }}</vpcId>
+      {% endif %}
       <ipPermissions>
-        {{#sgitIpPermissions}}
+        {% if sgitIpPermissions %}
         <item>
-          <ipProtocol>{{iptIpProtocol}}</ipProtocol>
-          <fromPort>{{iptFromPort}}</fromPort>
-          <toPort>{{iptToPort}}</toPort>
+          <ipProtocol>{{ iptIpProtocol }}</ipProtocol>
+          <fromPort>{{ iptFromPort }}</fromPort>
+          <toPort>{{ iptToPort }}</toPort>
           <groups>
-            {{#iptGroups}}
+            {% if iptGroups %}
             <item>
-              {{#uigUserId}}
-              <userId>{{uigUserId}}</userId>
-              {{/uigUserId}}
-              {{#uigGroupId}}
-              <groupId>{{uigGroupId}}</groupId>
-              {{/uigGroupId}}
-              {{#uigGroupName}}
-              <groupName>{{uigGroupName}}</groupName>
-              {{/uigGroupName}}
+              {% if uigUserId %}
+              <userId>{{ uigUserId }}</userId>
+              {% endif %}
+              {% if uigGroupId %}
+              <groupId>{{ uigGroupId }}</groupId>
+              {% endif %}
+              {% if uigGroupName %}
+              <groupName>{{ uigGroupName }}</groupName>
+              {% endif %}
             </item>
-            {{/iptGroups}}
+            {% endif %}
           </groups>
           <ipRanges>
-            {{#iptIpRanges}}
+            {% if iptIpRanges %}
             <item>
-              <cidrIp>{{irCidrIp}}</cidrIp>
+              <cidrIp>{{ irCidrIp }}</cidrIp>
             </item>
-            {{/iptIpRanges}}
+            {% endif %}
           </ipRanges>
         </item>
-        {{/sgitIpPermissions}}
+        {% endif %}
       </ipPermissions>
       <ipPermissionsEgress>
-        {{#sgitIpPermissionsEgress}}
+        {% if sgitIpPermissionsEgress %}
         <item>
-          <ipProtocol>{{iptIpProtocol}}</ipProtocol>
-          <fromPort>{{iptFromPort}}</fromPort>
-          <toPort>{{iptToPort}}</toPort>
+          <ipProtocol>{{ iptIpProtocol }}</ipProtocol>
+          <fromPort>{{ iptFromPort }}</fromPort>
+          <toPort>{{ iptToPort }}</toPort>
           <groups>
-            {{#iptGroups}}
+            {% if iptGroups %}
             <item>
-              {{#uigUserId}}
-              <userId>{{uigUserId}}</userId>
-              {{/uigUserId}}
-              {{#uigGroupId}}
-              <groupId>{{uigGroupId}}</groupId>
-              {{/uigGroupId}}
-              {{#uigGroupName}}
-              <groupName>{{uigGroupName}}</groupName>
-              {{/uigGroupName}}
+              {% if uigUserId %}
+              <userId>{{ uigUserId }}</userId>
+              {% endif %}
+              {% if uigGroupId %}
+              <groupId>{{ uigGroupId }}</groupId>
+              {% endif %}
+              {% if uigGroupName %}
+              <groupName>{{ uigGroupName }}</groupName>
+              {% endif %}
             </item>
-            {{/iptGroups}}
+            {% endif %}
           </groups>
           <ipRanges>
-            {{#iptIpRanges}}
+            {% if iptIpRanges %}
             <item>
-              <cidrIp>{{irCidrIp}}</cidrIp>
+              <cidrIp>{{ irCidrIp }}</cidrIp>
             </item>
-            {{/iptIpRanges}}
+            {% endif %}
           </ipRanges>
         </item>
-        {{/sgitIpPermissionsEgress}}
+        {% endif %}
       </ipPermissionsEgress>
     </item>
-    {{/dshrSecurityGroupInfo}}
+    {% endif %}
   </securityGroupInfo>
 </DescribeSecurityGroupsResponse>

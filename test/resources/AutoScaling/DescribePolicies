@@ -1,14 +1,14 @@
 GET /
 Action=DescribePolicies
-{{#dqAutoScalingGroupName}}
-AutoScalingGroupName={{dqAutoScalingGroupName}}
-{{/dqAutoScalingGroupName}}
-{{#dqMaxRecords}}
-MaxRecords={{dqMaxRecords}}
-{{/dqMaxRecords}}
-{{#dqNextToken}}
-NextToken={{dqNextToken}}
-{{/dqNextToken}}
-{{#dqPolicyNames}}
-PolicyNames.member.{{n}}={{.}}
-{{/dqPolicyNames}}
+{% if dqAutoScalingGroupName %}
+AutoScalingGroupName={{ dqAutoScalingGroupName }}
+{% endif %}
+{% if dqMaxRecords %}
+MaxRecords={{ dqMaxRecords }}
+{% endif %}
+{% if dqNextToken %}
+NextToken={{ dqNextToken }}
+{% endif %}
+{% if dqPolicyNames %}
+PolicyNames.member.{{ n }}={{.}}
+{% endif %}

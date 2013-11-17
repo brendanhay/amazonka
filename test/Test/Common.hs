@@ -20,7 +20,7 @@ module Test.Common
 
     -- * Properties
     , TRq
---    , TRs
+    , TRs
     , prop
     , qc
 
@@ -37,6 +37,7 @@ module Test.Common
     ) where
 
 import qualified Algorithms.NaturalSort  as Nat
+import           Control.Applicative
 import           Data.Aeson              (ToJSON(..), FromJSON(..), Value(..))
 import           Data.ByteString         (ByteString)
 import qualified Data.ByteString.Char8   as BS
@@ -46,7 +47,6 @@ import           Data.Maybe
 import           Data.Monoid
 import qualified Data.Text               as Text
 import qualified Data.Text.Encoding      as Text
-import qualified Data.Text.Lazy          as LText
 import qualified Data.Text.Lazy.Builder  as LText
 import qualified Data.Text.Lazy.Encoding as LText
 import           Network.AWS.Internal
@@ -65,17 +65,11 @@ testVersion svc = testGroup .
 qc :: Testable a => TestName -> a -> TestTree
 qc = testProperty
 
---  where
-    -- opts = mempty
-    --     { topt_maximum_generated_tests = Just 10
-    --     , topt_maximum_test_size       = Just 2
-    --     }
-
 class TestProperty a where
     prop :: a -> Bool
 
 type TRq a = TestRequest  a -> Bool
---type TRs a = Response a -> Bool
+type TRs a = TestResponse a -> Bool
 
 data TestRequest a = TestRequest
     { trqRequest  :: !a
@@ -95,7 +89,7 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, Rq a)
         rq <- arbitrary
         let Right raw = unsafePerformIO . runAWS creds False $ request rq
             enc  = encode raw
-            tmpl = render rq
+            tmpl = render (template rq) (toJSON rq)
             diff = difference tmpl enc
         return $ TestRequest rq raw enc tmpl diff (toJSON rq)
       where
@@ -116,14 +110,6 @@ instance (Eq a, Show a, Arbitrary a, Template a, ToJSON a, Rq a)
         join (k, v) = k <> "=" <> v
         sort x y    = Nat.compare (Text.decodeUtf8 $ fst x) (Text.decodeUtf8 $ fst y)
 
-        render x = fmap (LBS.toStrict . LText.encodeUtf8 . LText.toLazyText)
-            . unsafePerformIO
-            . EDE.renderFile (template x)
-            . (\(Object o) -> o)
-            $ toJSON x
-
-        -- concatJSON (Object x) (Object y) = x <> y
-
 instance Show a => Show (TestRequest a) where
     show TestRequest{..} = unlines $
         [ "[Request]"
@@ -143,46 +129,46 @@ instance Show a => Show (TestRequest a) where
         , if all null trqDiff then "<identical>" else formatLines trqDiff
         ]
 
--- data Response a = Response
---     { trsResponse :: a
---     , trsParsed   :: Either String a
---     , trsTemplate :: ByteString
---     , trsXML      :: ByteString
---     , trsDiff     :: [String]
---     , trsJSON     :: Value
---     }
+data TestResponse a = TestResponse
+    { trsResponse :: !a
+    , trsParsed   :: Either String a
+    , trsTemplate :: Either String ByteString
+    , trsXML      :: ByteString
+    , trsDiff     :: [String]
+    , trsJSON     :: !Value
+    }
 
--- instance (Eq a, Arbitrary a) => TestProperty (Response a) where
---     prop Response{..} = either (const False) (== trsResponse) trsParsed
+instance (Eq a, Arbitrary a) => TestProperty (TestResponse a) where
+    prop TestResponse{..} = either (const False) (== trsResponse) trsParsed
 
--- instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
---          => Arbitrary (Response a) where
---     arbitrary = do
---         rsp <- arbitrary
---         let xml  = toIndentedXML 2 rsp
---             json = toJSON rsp
---             tmpl = unsafePerformIO $ render (template rsp) json
---             diff = difference tmpl xml
---         return $ Response rsp (fromXML tmpl) tmpl xml diff json
+instance (Eq a, Show a, Arbitrary a, Template a, IsXML a, ToJSON a)
+         => Arbitrary (TestResponse a) where
+    arbitrary = do
+        rsp <- arbitrary
+        let xml  = toIndentedXML 2 rsp
+            json = toJSON rsp
+            tmpl = render (template rsp) json
+            diff = difference tmpl xml
+        return $ TestResponse rsp (tmpl >>= fromXML) tmpl xml diff json
 
--- instance Show a => Show (Response a) where
---     show Response{..} = unlines
---         [ "[Response]"
---         , show trsResponse
---         , ""
---         , "[Parsed]"
---         , show trsParsed
---         , ""
---         , "[JSON]"
---         , show trsJSON
---         , ""
---         , "[Actual]"
---         , formatBS trsXML
---         , "[Expected]"
---         , formatBS trsTemplate
---         , "[Diff]"
---         , if all null trsDiff then "<identical>" else formatLines trsDiff
---         ]
+instance Show a => Show (TestResponse a) where
+    show TestResponse{..} = unlines
+        [ "[Response]"
+        , show trsResponse
+        , ""
+        , "[Parsed]"
+        , show trsParsed
+        , ""
+        , "[JSON]"
+        , show trsJSON
+        , ""
+        , "[Actual]"
+        , formatBS trsXML
+        , "[Expected]"
+        , formatBS $ either BS.pack id trsTemplate
+        , "[Diff]"
+        , if all null trsDiff then "<identical>" else formatLines trsDiff
+        ]
 
 formatBS :: ByteString -> String
 formatBS = formatLines . lines . BS.unpack
@@ -208,3 +194,8 @@ difference x y = zipWithTail (normalise $ either (const "") id x) (normalise y)
 
 stringify :: Show a => a -> Value
 stringify = String . Text.pack . show
+
+render :: FilePath -> Value -> Either String ByteString
+render tmpl (Object o) = LBS.toStrict . LText.encodeUtf8 . LText.toLazyText <$>
+    unsafePerformIO (EDE.renderFile tmpl o)
+render _    _          = error "Attempted to render non-object value"

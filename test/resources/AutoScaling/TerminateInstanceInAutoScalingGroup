@@ -1,4 +1,4 @@
 GET /
 Action=TerminateInstanceInAutoScalingGroup
-InstanceId={{tiiasgInstanceId}}
-ShouldDecrementDesiredCapacity={{tiiasgShouldDecrementDesiredCapacity}}
+InstanceId={{ tiiasgInstanceId }}
+ShouldDecrementDesiredCapacity={{ tiiasgShouldDecrementDesiredCapacity }}

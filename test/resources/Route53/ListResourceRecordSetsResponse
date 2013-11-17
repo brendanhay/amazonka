@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListResourceRecordSetsResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
   <ResourceRecordSets>
-    {{#lrrsrResourceRecordSets}}
+    {% if lrrsrResourceRecordSets %}
     <ResourceRecordSet>
-      <Name>{{rrsName}}</Name>
-      <Type>{{rrsType}}</Type>
-      {{#rrsSetIdentifier}}
-      <SetIdentifier>{{rrsSetIdentifier}}</SetIdentifier>
-      {{/rrsSetIdentifier}}
-      {{#rrsFailover}}
-      <Failover>{{rrsFailover}}</Failover>
-      {{/rrsFailover}}
-      {{#rrsRegion}}
-      <Region>{{rrsRegion}}</Region>
-      {{/rrsRegion}}
-      {{#rrsWeight}}
-      <Weight>{{rrsWeight}}</Weight>
-      {{/rrsWeight}}
-      <TTL>{{rrsTTL}}</TTL>
-      {{#rrsResourceRecords}}
+      <Name>{{ rrsName }}</Name>
+      <Type>{{ rrsType }}</Type>
+      {% if rrsSetIdentifier %}
+      <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
+      {% endif %}
+      {% if rrsFailover %}
+      <Failover>{{ rrsFailover }}</Failover>
+      {% endif %}
+      {% if rrsRegion %}
+      <Region>{{ rrsRegion }}</Region>
+      {% endif %}
+      {% if rrsWeight %}
+      <Weight>{{ rrsWeight }}</Weight>
+      {% endif %}
+      <TTL>{{ rrsTTL }}</TTL>
+      {% if rrsResourceRecords %}
       <ResourceRecords>
-        {{#rrValues}}
+        {% if rrValues %}
         <ResourceRecord>
           <Value>{{.}}</Value>
         </ResourceRecord>
-        {{/rrValues}}
+        {% endif %}
       </ResourceRecords>
-      {{/rrsResourceRecords}}
-      {{#rrsAliasTarget}}
+      {% endif %}
+      {% if rrsAliasTarget %}
       <AliasTarget>
-        <HostedZoneId>{{atHostedZoneId}}</HostedZoneId>
-        <DNSName>{{atDNSName}}</DNSName>
-        {{#atEvaluateTargetHealth}}
-        <EvaluateTargetHealth>{{atEvaluateTargetHealth}}</EvaluateTargetHealth>
-        {{/atEvaluateTargetHealth}}
+        <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
+        <DNSName>{{ atDNSName }}</DNSName>
+        {% if atEvaluateTargetHealth %}
+        <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
+        {% endif %}
       </AliasTarget>
-      {{/rrsAliasTarget}}
-      {{#rrsHealthCheckId}}
-      <HealthCheckId>{{rrsHealthCheckId}}</HealthCheckId>
-      {{/rrsHealthCheckId}}
+      {% endif %}
+      {% if rrsHealthCheckId %}
+      <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+      {% endif %}
     </ResourceRecordSet>
-    {{/lrrsrResourceRecordSets}}
+    {% endif %}
   </ResourceRecordSets>
-  <IsTruncated>{{lrrsrIsTruncated}}</IsTruncated>
-  <MaxItems>{{lrrsrMaxItems}}</MaxItems>
-  {{#lrrsrNextRecordName}}
-  <NextRecordName>{{lrrsrNextRecordName}}</NextRecordName>
-  {{/lrrsrNextRecordName}}
-  {{#lrrsrNextRecordType}}
-  <NextRecordType>{{lrrsrNextRecordType}}</NextRecordType>
-  {{/lrrsrNextRecordType}}
-  {{#lrrsrNextRecordIdentifier}}
-  <NextRecordIdentifier>{{lrrsrNextRecordIdentifier}}</NextRecordIdentifier>
-  {{/lrrsrNextRecordIdentifier}}
+  <IsTruncated>{{ lrrsrIsTruncated }}</IsTruncated>
+  <MaxItems>{{ lrrsrMaxItems }}</MaxItems>
+  {% if lrrsrNextRecordName %}
+  <NextRecordName>{{ lrrsrNextRecordName }}</NextRecordName>
+  {% endif %}
+  {% if lrrsrNextRecordType %}
+  <NextRecordType>{{ lrrsrNextRecordType }}</NextRecordType>
+  {% endif %}
+  {% if lrrsrNextRecordIdentifier %}
+  <NextRecordIdentifier>{{ lrrsrNextRecordIdentifier }}</NextRecordIdentifier>
+  {% endif %}
 </ListResourceRecordSetsResponse>

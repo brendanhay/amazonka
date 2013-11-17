@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListHostedZonesResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
   <HostedZones>
-  {{#lhzrHostedZones}}
+  {% for zone in lhzrHostedZones %}
     <HostedZone>
-      <Id>{{hzId}}</Id>
-      <Name>{{hzName}}</Name>
-      <CallerReference>{{hzCallerReference}}</CallerReference>
-      {{#hzConfig}}
-      {{^cComment}}
-      <Config/>
-      {{/cComment}}
-      {{#cComment}}
+      <Id>{{ zone.hzId }}</Id>
+      <Name>{{ zone.hzName }}</Name>
+      <CallerReference>{{ zone.hzCallerReference }}</CallerReference>
+      {% if zone.hzConfig %}
+      {% if zone.hzConfig.cComment %}
       <Config>
-        <Comment>{{cComment}}</Comment>
+        <Comment>{{ zone.hzConfig.cComment }}</Comment>
       </Config>
-      {{/cComment}}
-      {{/hzConfig}}
-      <ResourceRecordSetCount>{{hzResourceRecordSetCount}}</ResourceRecordSetCount>
+      {% else %}
+      <Config/>
+      {% endif %}
+      {% endif %}
+      <ResourceRecordSetCount>{{ zone.hzResourceRecordSetCount }}</ResourceRecordSetCount>
     </HostedZone>
-  {{/lhzrHostedZones}}
+  {% endfor %}
   </HostedZones>
-  <IsTruncated>{{lhzrIsTruncated}}</IsTruncated>
-  {{#lhzrMarker}}
-  <Marker>{{lhzrMarker}}</Marker>
-  {{/lhzrMarker}}
-  {{#lhzrNextMarker}}
-  <NextMarker>{{lhzrNextMarker}}</NextMarker>
-  {{/lhzrNextMarker}}
-  <MaxItems>{{lhzrMaxItems}}</MaxItems>
+  <IsTruncated>{{ lhzrIsTruncated }}</IsTruncated>
+  {% if lhzrMarker %}
+  <Marker>{{ lhzrMarker }}</Marker>
+  {% endif %}
+  {% if lhzrNextMarker %}
+  <NextMarker>{{ lhzrNextMarker }}</NextMarker>
+  {% endif %}
+  <MaxItems>{{ lhzrMaxItems }}</MaxItems>
 </ListHostedZonesResponse>

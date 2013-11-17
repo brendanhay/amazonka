@@ -1,7 +1,7 @@
 GET /
 Action=SetDesiredCapacity
-AutoScalingGroupName={{sdcAutoScalingGroupName}}
-DesiredCapacity={{sdcDesiredCapacity}}
-{{#sdcHonorCooldown}}
-HonorCooldown={{sdcHonorCooldown}}
-{{/sdcHonorCooldown}}
+AutoScalingGroupName={{ sdcAutoScalingGroupName }}
+DesiredCapacity={{ sdcDesiredCapacity }}
+{% if sdcHonorCooldown %}
+HonorCooldown={{ sdcHonorCooldown }}
+{% endif %}

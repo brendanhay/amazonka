@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeAdjustmentTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#datrDescribeAdjustmentTypesResult}}
+  {% if datrDescribeAdjustmentTypesResult %}
   <DescribeAdjustmentTypesResult>
     <AdjustmentTypes>
-      {{#datrAdjustmentTypes}}
+      {% if datrAdjustmentTypes %}
       <member>
         <AdjustmentType>{{.}}</AdjustmentType>
       </member>
-      {{/datrAdjustmentTypes}}
+      {% endif %}
     </AdjustmentTypes>
   </DescribeAdjustmentTypesResult>
-  {{/datrDescribeAdjustmentTypesResult}}
-  {{#datrResponseMetadata}}
+  {% endif %}
+  {% if datrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/datrResponseMetadata}}
+  {% endif %}
 </DescribeAdjustmentTypesResponse>

@@ -1,12 +1,12 @@
 GET /
 Action=AssignPrivateIpAddresses
-{{#apiaAllowReassignment}}
-AllowReassignment={{apiaAllowReassignment}}
-{{/apiaAllowReassignment}}
-NetworkInterfaceId={{apiaNetworkInterfaceId}}
-{{#apiaPrivateIpAddress}}
-PrivateIpAddress.{{n}}={{.}}
-{{/apiaPrivateIpAddress}}
-{{#apiaSecondaryPrivateIpAddressCount}}
-SecondaryPrivateIpAddressCount={{apiaSecondaryPrivateIpAddressCount}}
-{{/apiaSecondaryPrivateIpAddressCount}}
+{% if apiaAllowReassignment %}
+AllowReassignment={{ apiaAllowReassignment }}
+{% endif %}
+NetworkInterfaceId={{ apiaNetworkInterfaceId }}
+{% if apiaPrivateIpAddress %}
+PrivateIpAddress.{{ n }}={{.}}
+{% endif %}
+{% if apiaSecondaryPrivateIpAddressCount %}
+SecondaryPrivateIpAddressCount={{ apiaSecondaryPrivateIpAddressCount }}
+{% endif %}

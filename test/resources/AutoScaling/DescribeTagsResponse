@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeTagsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dtrDescribeTagsResult}}
+  {% if dtrDescribeTagsResult %}
   <DescribeTagsResult>
-    {{#dtrNextToken}}
-    <NextToken>{{dtrNextToken}}</NextToken>
-    {{/dtrNextToken}}
+    {% if dtrNextToken %}
+    <NextToken>{{ dtrNextToken }}</NextToken>
+    {% endif %}
     <Tags>
-      {{#dtrTags}}
+      {% if dtrTags %}
       <member>
-        {{#tKey}}
-        <Key>{{tKey}}</Key>
-        {{/tKey}}
-        {{#tPropagateAtLaunch}}
-        <PropagateAtLaunch>{{tPropagateAtLaunch}}</PropagateAtLaunch>
-        {{/tPropagateAtLaunch}}
-        {{#tResourceId}}
-        <ResourceId>{{tResourceId}}</ResourceId>
-        {{/tResourceId}}
-        {{#tResourceType}}
-        <ResourceType>{{tResourceType}}</ResourceType>
-        {{/tResourceType}}
-        {{#tValue}}
-        <Value>{{tValue}}</Value>
-        {{/tValue}}
+        {% if tKey %}
+        <Key>{{ tKey }}</Key>
+        {% endif %}
+        {% if tPropagateAtLaunch %}
+        <PropagateAtLaunch>{{ tPropagateAtLaunch }}</PropagateAtLaunch>
+        {% endif %}
+        {% if tResourceId %}
+        <ResourceId>{{ tResourceId }}</ResourceId>
+        {% endif %}
+        {% if tResourceType %}
+        <ResourceType>{{ tResourceType }}</ResourceType>
+        {% endif %}
+        {% if tValue %}
+        <Value>{{ tValue }}</Value>
+        {% endif %}
       </member>
-    {{/dtrTags}}
+    {% endif %}
     </Tags>
   </DescribeTagsResult>
-  {{/dtrDescribeTagsResult}}
-  {{#dtrResponseMetadata}}
+  {% endif %}
+  {% if dtrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dtrResponseMetadata}}
+  {% endif %}
 </DescribeTagsResponse>

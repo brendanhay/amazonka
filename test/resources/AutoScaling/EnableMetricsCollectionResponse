@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnableMetricsCollectionResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#emcrResponseMetadata}}
+  {% if emcrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/emcrResponseMetadata}}
+  {% endif %}
 </EnableMetricsCollectionResponse>

@@ -1,11 +1,11 @@
 GET /
 Action=DescribeAutoScalingInstances
-{{#dasiInstanceIds}}
-InstanceIds.member.{{n}}={{.}}
-{{/dasiInstanceIds}}
-{{#dasiMaxRecords}}
-MaxRecords={{dasiMaxRecords}}
-{{/dasiMaxRecords}}
-{{#dasiNextToken}}
-NextToken={{dasiNextToken}}
-{{/dasiNextToken}}
+{% if dasiInstanceIds %}
+InstanceIds.member.{{ n }}={{.}}
+{% endif %}
+{% if dasiMaxRecords %}
+MaxRecords={{ dasiMaxRecords }}
+{% endif %}
+{% if dasiNextToken %}
+NextToken={{ dasiNextToken }}
+{% endif %}

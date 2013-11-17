@@ -1,6 +1,6 @@
 GET /
 Action=DeleteScheduledAction
-{{#dsaAutoScalingGroupName}}
-AutoScalingGroupName={{dsaAutoScalingGroupName}}
-{{/dsaAutoScalingGroupName}}
-ScheduledActionName={{dsaScheduledActionName}}
+{% if dsaAutoScalingGroupName %}
+AutoScalingGroupName={{ dsaAutoScalingGroupName }}
+{% endif %}
+ScheduledActionName={{ dsaScheduledActionName }}

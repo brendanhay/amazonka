@@ -26,12 +26,12 @@ tests = testVersion route53
             , qc "ListHostedZones"                  (prop :: TRq ListHostedZones)
             , qc "DeleteHostedZone"                 (prop :: TRq DeleteHostedZone)
             ]
-        -- , testGroup "Responses"
-        --     [ qc "CreateHostedZoneResponse"         (prop :: TRs CreateHostedZoneResponse)
-        --     , qc "GetHostedZoneResponse"            (prop :: TRs GetHostedZoneResponse)
-        --     , qc "ListHostedZonesResponse"          (prop :: TRs ListHostedZonesResponse)
-        --     , qc "DeleteHostedZoneResponse"         (prop :: TRs DeleteHostedZoneResponse)
-        --     ]
+        , testGroup "Responses"
+            [ qc "CreateHostedZoneResponse"         (prop :: TRs CreateHostedZoneResponse)
+            , qc "GetHostedZoneResponse"            (prop :: TRs GetHostedZoneResponse)
+            , qc "ListHostedZonesResponse"          (prop :: TRs ListHostedZonesResponse)
+            , qc "DeleteHostedZoneResponse"         (prop :: TRs DeleteHostedZoneResponse)
+            ]
         ]
 
     , testGroup "Record Sets"

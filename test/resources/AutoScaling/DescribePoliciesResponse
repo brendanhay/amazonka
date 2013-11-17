@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribePoliciesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dqrDescribePoliciesResult}}
+  {% if dqrDescribePoliciesResult %}
   <DescribePoliciesResult>
-    {{#dprNextToken}}
-    <NextToken>{{dprNextToken}}</NextToken>
-    {{/dprNextToken}}
+    {% if dprNextToken %}
+    <NextToken>{{ dprNextToken }}</NextToken>
+    {% endif %}
     <ScalingPolicies>
-    {{#dprScalingPolicies}}
+    {% if dprScalingPolicies %}
       <member>
-        {{#spAdjustmentType}}
-        <AdjustmentType>{{spAdjustmentType}}</AdjustmentType>
-        {{/spAdjustmentType}}
+        {% if spAdjustmentType %}
+        <AdjustmentType>{{ spAdjustmentType }}</AdjustmentType>
+        {% endif %}
         <Alarms>
-        {{#spAlarms}}
+        {% if spAlarms %}
           <member>
-            {{#aAlarmARN}}
-            <AlarmARN>{{aAlarmARN}}</AlarmARN>
-            {{/aAlarmARN}}
-            {{#aAlarmName}}
-            <AlarmName>{{aAlarmName}}</AlarmName>
-            {{/aAlarmName}}
+            {% if aAlarmARN %}
+            <AlarmARN>{{ aAlarmARN }}</AlarmARN>
+            {% endif %}
+            {% if aAlarmName %}
+            <AlarmName>{{ aAlarmName }}</AlarmName>
+            {% endif %}
           </member>
-        {{/spAlarms}}
+        {% endif %}
         </Alarms>
-        {{#sqAutoScalingGroupName}}
-        <AutoScalingGroupName>{{sqAutoScalingGroupName}}</AutoScalingGroupName>
-        {{/sqAutoScalingGroupName}}
-        {{#sqCooldown}}
-        <Cooldown>{{sqCooldown}}</Cooldown>
-        {{/sqCooldown}}
-        {{#sqMinAdjustmentStep}}
-        <MinAdjustmentStep>{{sqMinAdjustmentStep}}</MinAdjustmentStep>
-        {{/sqMinAdjustmentStep}}
-        {{#sqPolicyARN}}
-        <PolicyARN>{{sqPolicyARN}}</PolicyARN>
-        {{/sqPolicyARN}}
-        {{#sqPolicyName}}
-        <PolicyName>{{sqPolicyName}}</PolicyName>
-        {{/sqPolicyName}}
-        {{#sqScalingAdjustment}}
-        <ScalingAdjustment>{{sqScalingAdjustment}}</ScalingAdjustment>
-        {{/sqScalingAdjustment}}
+        {% if sqAutoScalingGroupName %}
+        <AutoScalingGroupName>{{ sqAutoScalingGroupName }}</AutoScalingGroupName>
+        {% endif %}
+        {% if sqCooldown %}
+        <Cooldown>{{ sqCooldown }}</Cooldown>
+        {% endif %}
+        {% if sqMinAdjustmentStep %}
+        <MinAdjustmentStep>{{ sqMinAdjustmentStep }}</MinAdjustmentStep>
+        {% endif %}
+        {% if sqPolicyARN %}
+        <PolicyARN>{{ sqPolicyARN }}</PolicyARN>
+        {% endif %}
+        {% if sqPolicyName %}
+        <PolicyName>{{ sqPolicyName }}</PolicyName>
+        {% endif %}
+        {% if sqScalingAdjustment %}
+        <ScalingAdjustment>{{ sqScalingAdjustment }}</ScalingAdjustment>
+        {% endif %}
       </member>
-    {{/dprScalingPolicies}}
+    {% endif %}
     </ScalingPolicies>
   </DescribePoliciesResult>
-  {{/dqrDescribePoliciesResult}}
-  {{#dqrResponseMetadata}}
+  {% endif %}
+  {% if dqrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dqrResponseMetadata}}
+  {% endif %}
 </DescribePoliciesResponse>

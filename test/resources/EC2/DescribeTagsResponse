@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeTagsResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>{{dtagsrRequestId}}</requestId>
+  <requestId>{{ dtagsrRequestId }}</requestId>
   <tagSet>
-    {{#dtagsrTagSet}}
+    {% if dtagsrTagSet %}
     <item>
-      <resourceId>{{tsitResourceId}}</resourceId>
-      <resourceType>{{tsitResourceType}}</resourceType>
-      <key>{{tsitKey}}</key>
-      <value>{{tsitValue}}</value>
+      <resourceId>{{ tsitResourceId }}</resourceId>
+      <resourceType>{{ tsitResourceType }}</resourceType>
+      <key>{{ tsitKey }}</key>
+      <value>{{ tsitValue }}</value>
     </item>
-    {{/dtagsrTagSet}}
+    {% endif %}
   </tagSet>
 </DescribeTagsResponse>

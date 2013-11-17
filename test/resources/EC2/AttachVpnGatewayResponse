@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AttachVpnGatewayResponse xmlns="http://ec2.amazonaws.com/doc/2013-07-15/">
-  <requestId>{{avgrRequestId}}</requestId>
-  {{#avgrAttachment}}
+  <requestId>{{ avgrRequestId }}</requestId>
+  {% if avgrAttachment %}
   <attachment>
-    <vpcId>{{atVpcId}}</vpcId>
-    <state>{{atState}}</state>
+    <vpcId>{{ atVpcId }}</vpcId>
+    <state>{{ atState }}</state>
   </attachment>
-  {{/avgrAttachment}}
+  {% endif %}
 </AttachVpnGatewayResponse>

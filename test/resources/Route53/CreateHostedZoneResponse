@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
-  {{#chzrHostedZone}}
+  {% if chzrHostedZone %}
   <HostedZone>
-    <Id>{{hzId}}</Id>
-    <Name>{{hzName}}</Name>
-    <CallerReference>{{hzCallerReference}}</CallerReference>
-    {{#hzConfig}}
+    <Id>{{ hzId }}</Id>
+    <Name>{{ hzName }}</Name>
+    <CallerReference>{{ hzCallerReference }}</CallerReference>
+    {% if hzConfig %}
     <Config>
-      <Comment>{{cComment}}</Comment>
+      <Comment>{{ cComment }}</Comment>
     </Config>
-    {{/hzConfig}}
-    <ResourceRecordSetCount>{{hzResourceRecordSetCount}}</ResourceRecordSetCount>
+    {% endif %}
+    <ResourceRecordSetCount>{{ hzResourceRecordSetCount }}</ResourceRecordSetCount>
   </HostedZone>
-  {{/chzrHostedZone}}
-  {{#chzrChangeInfo}}
+  {% endif %}
+  {% if chzrChangeInfo %}
   <ChangeInfo>
-    <Id>{{ciId}}</Id>
-    <Status>{{ciStatus}}</Status>
-    <SubmittedAt>{{ciSubmittedAt}}</SubmittedAt>
+    <Id>{{ ciId }}</Id>
+    <Status>{{ ciStatus }}</Status>
+    <SubmittedAt>{{ ciSubmittedAt }}</SubmittedAt>
   </ChangeInfo>
-  {{/chzrChangeInfo}}
-  {{#chzrDelegationSet}}
+  {% endif %}
+  {% if chzrDelegationSet %}
   <DelegationSet>
     <NameServers>
-    {{#dsNameServers}}
+    {% if dsNameServers %}
       <NameServer>{{.}}</NameServer>
-    {{/dsNameServers}}
+    {% endif %}
     </NameServers>
   </DelegationSet>
-  {{/chzrDelegationSet}}
+  {% endif %}
 </CreateHostedZoneResponse>

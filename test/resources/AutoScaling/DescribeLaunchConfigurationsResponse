@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeLaunchConfigurationsResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dldrDescribeLaunchConfigurationsResult}}
+  {% if dldrDescribeLaunchConfigurationsResult %}
   <DescribeLaunchConfigurationsResult>
-    {{#dlcrNextToken}}
-    <NextToken>{{dlcrNextToken}}</NextToken>
-    {{/dlcrNextToken}}
+    {% if dlcrNextToken %}
+    <NextToken>{{ dlcrNextToken }}</NextToken>
+    {% endif %}
     <LaunchConfigurations>
-      {{#dlcrLaunchConfigurations}}
+      {% if dlcrLaunchConfigurations %}
       <member>
         <BlockDeviceMappings>
-        {{#lcBlockDeviceMappings}}
+        {% if lcBlockDeviceMappings %}
           <member>
-            <DeviceName>{{bdmDeviceName}}</DeviceName>
-            {{#bdmEbs}}
+            <DeviceName>{{ bdmDeviceName }}</DeviceName>
+            {% if bdmEbs %}
             <Ebs>
-              {{#eSnapshotId}}
-              <SnapshotId>{{eSnapshotId}}</SnapshotId>
-              {{/eSnapshotId}}
-              {{#eVolumeSize}}
-              <VolumeSize>{{eVolumeSize}}</VolumeSize>
-              {{/eVolumeSize}}
+              {% if eSnapshotId %}
+              <SnapshotId>{{ eSnapshotId }}</SnapshotId>
+              {% endif %}
+              {% if eVolumeSize %}
+              <VolumeSize>{{ eVolumeSize }}</VolumeSize>
+              {% endif %}
             </Ebs>
-            {{/bdmEbs}}
-            {{#bdmVirtualName}}
-            <VirtualName>{{bdmVirtualName}}</VirtualName>
-            {{/bdmVirtualName}}
+            {% endif %}
+            {% if bdmVirtualName %}
+            <VirtualName>{{ bdmVirtualName }}</VirtualName>
+            {% endif %}
           </member>
-        {{/lcBlockDeviceMappings}}
+        {% endif %}
         </BlockDeviceMappings>
-        <CreatedTime>{{lcCreatedTime}}</CreatedTime>
-        {{#lcEbsOptimized}}
-        <EbsOptimized>{{lcEbsOptimized}}</EbsOptimized>
-        {{/lcEbsOptimized}}
-        {{#lcIamInstanceProfile}}
-        <IamInstanceProfile>{{lcIamInstanceProfile}}</IamInstanceProfile>
-        {{/lcIamInstanceProfile}}
-        <ImageId>{{lcImageId}}</ImageId>
-        {{#lcInstanceMonitoring}}
+        <CreatedTime>{{ lcCreatedTime }}</CreatedTime>
+        {% if lcEbsOptimized %}
+        <EbsOptimized>{{ lcEbsOptimized }}</EbsOptimized>
+        {% endif %}
+        {% if lcIamInstanceProfile %}
+        <IamInstanceProfile>{{ lcIamInstanceProfile }}</IamInstanceProfile>
+        {% endif %}
+        <ImageId>{{ lcImageId }}</ImageId>
+        {% if lcInstanceMonitoring %}
         <InstanceMonitoring>
-          <Enabled>{{imEnabled}}</Enabled>
+          <Enabled>{{ imEnabled }}</Enabled>
         </InstanceMonitoring>
-        {{/lcInstanceMonitoring}}
-        <InstanceType>{{lcInstanceType}}</InstanceType>
-        {{#lcKernelId}}
-        <KernelId>{{lcKernelId}}</KernelId>
-        {{/lcKernelId}}
-        {{#lcKeyName}}
-        <KeyName>{{lcKeyName}}</KeyName>
-        {{/lcKeyName}}
-        {{#lcLaunchConfigurationARN}}
-        <LaunchConfigurationARN>{{lcLaunchConfigurationARN}}</LaunchConfigurationARN>
-        {{/lcLaunchConfigurationARN}}
-        <LaunchConfigurationName>{{lcLaunchConfigurationName}}</LaunchConfigurationName>
-        {{#lcRamdiskId}}
-        <RamdiskId>{{lcRamdiskId}}</RamdiskId>
-        {{/lcRamdiskId}}
-        {{#lcSecurityGroups}}
-        <SecurityGroups>{{lcSecurityGroups}}</SecurityGroups>
-        {{/lcSecurityGroups}}
-        {{#lcSpotPrice}}
-        <SpotPrice>{{lcSpotPrice}}</SpotPrice>
-        {{/lcSpotPrice}}
-        {{#lcUserData}}
-        <UserData>{{lcUserData}}</UserData>
-        {{/lcUserData}}
+        {% endif %}
+        <InstanceType>{{ lcInstanceType }}</InstanceType>
+        {% if lcKernelId %}
+        <KernelId>{{ lcKernelId }}</KernelId>
+        {% endif %}
+        {% if lcKeyName %}
+        <KeyName>{{ lcKeyName }}</KeyName>
+        {% endif %}
+        {% if lcLaunchConfigurationARN %}
+        <LaunchConfigurationARN>{{ lcLaunchConfigurationARN }}</LaunchConfigurationARN>
+        {% endif %}
+        <LaunchConfigurationName>{{ lcLaunchConfigurationName }}</LaunchConfigurationName>
+        {% if lcRamdiskId %}
+        <RamdiskId>{{ lcRamdiskId }}</RamdiskId>
+        {% endif %}
+        {% if lcSecurityGroups %}
+        <SecurityGroups>{{ lcSecurityGroups }}</SecurityGroups>
+        {% endif %}
+        {% if lcSpotPrice %}
+        <SpotPrice>{{ lcSpotPrice }}</SpotPrice>
+        {% endif %}
+        {% if lcUserData %}
+        <UserData>{{ lcUserData }}</UserData>
+        {% endif %}
       </member>
-      {{/dlcrLaunchConfigurations}}
+      {% endif %}
     </LaunchConfigurations>
   </DescribeLaunchConfigurationsResult>
-  {{/dldrDescribeLaunchConfigurationsResult}}
-  {{#dldrResponseMetadata}}
+  {% endif %}
+  {% if dldrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dldrResponseMetadata}}
+  {% endif %}
 </DescribeLaunchConfigurationsResponse>

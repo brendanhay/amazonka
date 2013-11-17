@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DescribeScalingProcessTypesResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {{#dsptrDescribeScalingProcessTypesResult}}
+  {% if dsptrDescribeScalingProcessTypesResult %}
   <DescribeScalingProcessTypesResult>
     <Processes>
-    {{#dsptrProcesses}}
+    {% if dsptrProcesses %}
       <member>
-        <ProcessName>{{ptProcessName}}</ProcessName>
+        <ProcessName>{{ ptProcessName }}</ProcessName>
       </member>
-    {{/dsptrProcesses}}
+    {% endif %}
     </Processes>
   </DescribeScalingProcessTypesResult>
-  {{/dsptrDescribeScalingProcessTypesResult}}
-  {{#dsptrResponseMetadata}}
+  {% endif %}
+  {% if dsptrResponseMetadata %}
   <ResponseMetadata>
-    <RequestId>{{rmRequestId}}</RequestId>
+    <RequestId>{{ rmRequestId }}</RequestId>
   </ResponseMetadata>
-  {{/dsptrResponseMetadata}}
+  {% endif %}
 </DescribeScalingProcessTypesResponse>

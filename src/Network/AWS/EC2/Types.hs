@@ -31,7 +31,7 @@ ec2 = Regional "ec2" "2013-08-15"
 data EC2Error = EC2Error
     { ecCode    :: !Text
     , ecMessage :: !Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML EC2Error where
     xmlPickler = genericXMLPickler $ defaultXMLOptions
@@ -44,7 +44,7 @@ instance IsXML [EC2Error] where
 data EC2ErrorResponse = EC2ErrorResponse
     { eerErrors    :: [EC2Error]
     , eerRequestID :: !Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance ToError EC2ErrorResponse where
     toError = Err . show
@@ -52,7 +52,7 @@ instance ToError EC2ErrorResponse where
 instance IsXML EC2ErrorResponse
 
 data Protocol = TCP | UDP | ICMP
-    deriving (Eq, Generic)
+    deriving (Eq, Ord, Generic)
 
 instance Show Protocol where
     show TCP  = "tcp"
@@ -117,7 +117,7 @@ instance IsXML VolumeStatus where
 --     , aasitAttributeValueSet :: !AccountAttributeValueSetItemType
 --       -- ^ A list of the attribute values, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery AccountAttributeSetItemType
 
@@ -127,7 +127,7 @@ instance IsXML VolumeStatus where
 -- data AccountAttributeValueSetItemType = AccountAttributeValueSetItemType
 --     { aavsitAttributeValue :: !Text
 --       -- ^ The value of the attribute.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery AccountAttributeValueSetItemType
 
@@ -137,7 +137,7 @@ instance IsXML VolumeStatus where
 -- data PrivateIpAddress = PrivateIpAddress
 --     { piaPrivateIpAddress :: !Text
 --       -- ^ The private IP address.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery AssignPrivateIpAddressesSetItemRequestType
 
@@ -157,7 +157,7 @@ instance IsXML VolumeStatus where
 --       -- ^ The time stamp when the attachment initiated.
 --     , asirtDeleteOnTermination :: !Bool
 --       -- ^ Indicates whether the volume is deleted on instance termination.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery AttachmentSetItemResponseType
 
@@ -169,7 +169,7 @@ data Attachment = Attachment
       -- ^ The ID of the VPC.
     , atState :: !Text
       -- ^ The current state of the attachment.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML Attachment where
     xmlPickler = ec2XML
@@ -184,7 +184,7 @@ data AvailabilityZoneItemType = AvailabilityZoneItemType
       -- ^ The name of the region.
     , azitMessageSet :: [AvailabilityZoneMessageType]
       -- ^ Any messages about the Availability Zone.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery AvailabilityZoneItemType
 
@@ -194,7 +194,7 @@ instance IsXML AvailabilityZoneItemType where
 data AvailabilityZoneMessageType = AvailabilityZoneMessageType
     { azmtMessage :: !Text
       -- ^ The message about the Availability Zone.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery AvailabilityZoneMessageType
 
@@ -212,7 +212,7 @@ data BlockDeviceMappingItemType = BlockDeviceMappingItemType
     , bdmitNoDevice    :: Maybe Text
       -- ^ Include this empty element to suppress the specified device
       -- included in the block device mapping of the AMI.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery BlockDeviceMappingItemType
 
@@ -234,7 +234,7 @@ data BundleInstanceS3Storage = BundleInstanceS3Storage
       -- permission to upload items into Amazon S3 on the user's behalf.
     , bissUploadPolicySignature :: !Text
       -- ^ The signature of the Base64 encoded JSON document.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery BundleInstanceS3Storage
 
@@ -244,7 +244,7 @@ instance IsXML BundleInstanceS3Storage where
 data BundleInstanceTaskStorage = BundleInstanceTaskStorage
     { bitsS3 :: !BundleInstanceS3Storage
       -- ^ An Amazon S3 storage location.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery BundleInstanceTaskStorage
 
@@ -256,7 +256,7 @@ data BundleInstanceTaskError = BundleInstanceTaskError
       -- ^ The error code.
     , biteMessage :: !Text
       -- ^ The error message.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML BundleInstanceTaskError where
     xmlPickler = ec2XML
@@ -312,7 +312,7 @@ data BundleInstanceTask = BundleInstanceTask
       -- ^ The level of task completion, as a percent (for example, 20%).
     , bitError      :: Maybe BundleInstanceTaskError
       -- ^ If the task fails, a description of the error.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML BundleInstanceTask where
     xmlPickler = ec2XML
@@ -322,7 +322,7 @@ data CancelSpotInstanceRequestsResponseSetItemType = CancelSpotInstanceRequestsR
       -- ^ The ID of the Spot Instance request.
     , csirrsitState                 :: !Text
       -- ^ The state of the Spot Instance request.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
     xmlPickler = ec2XML
@@ -343,7 +343,7 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --       -- ^ The state of the conversion task.
 --     , cttStatusMessage    :: !Text
 --       -- ^ The status message related to the conversion task.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ConversionTaskType
 
@@ -356,7 +356,7 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --       -- snapshot.
 --     , cvpitGroup  :: !Text
 --       -- ^ The group that is allowed to create volumes from the snapshot.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery CreateVolumePermissionItemType
 
@@ -379,7 +379,7 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     , cgtTagSet            :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery CustomerGatewayType
 
@@ -404,7 +404,7 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --       -- ^ The ID of the network interface.
 --     , daritNetworkInterfaceOwnerId :: !Text
 --       -- ^ The ID of the AWS account that owns the network interface.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DescribeAddressesResponseItemType
 
@@ -462,7 +462,7 @@ data DescribeImagesResponseItemType = DescribeImagesResponseItemType
       -- ^ Any tags assigned to the resource.
     , diritHypervisor         :: !Text
       -- ^ The image's hypervisor type.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML DescribeImagesResponseItemType where
     xmlPickler = ec2ItemXML
@@ -475,7 +475,7 @@ data DescribeKeyPairsResponseItemType = DescribeKeyPairsResponseItemType
       -- SHA-1 digest of the DER encoded private key. If you used
       -- ImportKeyPair to provide AWS the public key, this is the MD5
       -- public key fingerprint as specified in section 4 of RFC4716.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML DescribeKeyPairsResponseItemType where
     xmlPickler = ec2ItemXML
@@ -503,7 +503,7 @@ data DescribeReservedInstancesListingsResponseSetItemType = DescribeReservedInst
       -- wrapped in an item element.
     , drilrsitClientToken                :: !Text
       -- ^ The idempotency token you provided when you created the listing.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
     xmlPickler = ec2ItemXML
@@ -511,7 +511,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- data DescribeReservedInstancesListingSetItemType = DescribeReservedInstancesListingSetItemType
 --     { drilsitReservedInstancesListingId :: !Text
 --       -- ^ The ID of the Reserved Instance listing.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DescribeReservedInstancesListingSetItemType
 
@@ -550,7 +550,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     , driorsitPricingDetailsSet           :: !PricingDetailsSetItemType
 --       -- ^ The pricing details of the Reserved Instance offering wrapped in
 --       -- an item element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DescribeReservedInstancesOfferingsResponseSetItemType
 
@@ -564,7 +564,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --       -- ^ The instance type on which the Reserved Instance can be used.
 --     , driortNextToken                     :: !Text
 --       -- ^ The next paginated set of results to return.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DescribeReservedInstancesOfferingsResponseType
 
@@ -605,7 +605,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --       -- ^ The Reserved Instance offering type.
 --     , drirsitRecurringCharges    :: !RecurringChargesSetItemType
 --       -- ^ The recurring charge tag assigned to the resource.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DescribeReservedInstancesResponseSetItemType
 
@@ -615,7 +615,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- data DescribeReservedInstancesSetItemType = DescribeReservedInstancesSetItemType
 --     { drisitReservedInstancesId :: !Text
 --       -- ^ The ID of the Reserved Instance.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DescribeReservedInstancesSetItemType
 
@@ -645,7 +645,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     , dssirtTagSet      :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DescribeSnapshotsSetItemResponseType
 
@@ -675,7 +675,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     , dvsirtIops             :: !Integer
 --       -- ^ The number of I/O operations per second (IOPS) that the volume
 --       -- supports.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DescribeVolumesSetItemResponseType
 
@@ -688,7 +688,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     , dcitValueSet :: !DhcpValueType
 --       -- ^ Any values for a DHCP option, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DhcpConfigurationItemType
 
@@ -704,7 +704,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --     , dotTagSet               :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DhcpOptionsType
 
@@ -714,7 +714,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 -- data DhcpValueType = DhcpValueType
 --     { dvtValue :: !Text
 --       -- ^ A value for the DHCP option.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DhcpValueType
 
@@ -734,7 +734,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --       -- the Amazon Simple Storage Service Developer Guide.
 --     , didtChecksum          :: !Text
 --       -- ^ The checksum computed for the disk image.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DiskImageDescriptionType
 
@@ -746,7 +746,7 @@ instance IsXML DescribeReservedInstancesListingsResponseSetItemType where
 --       -- ^ The size of the volume.
 --     , divdtId   :: !Text
 --       -- ^ The volume identifier.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery DiskImageVolumeDescriptionType
 
@@ -765,7 +765,7 @@ data EbsBlockDeviceType = EbsBlockDeviceType
     , ebdtIops                :: Maybe Integer
       -- ^ The number of I/O operations per second (IOPS) that the volume
       -- supports.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery EbsBlockDeviceType
 
@@ -781,7 +781,7 @@ data EbsInstanceBlockDeviceMappingResponseType = EbsInstanceBlockDeviceMappingRe
       -- ^ The time stamp when the attachment initiated.
     , eibdmrtDeleteOnTermination :: !Bool
       -- ^ Indicates whether the volume is deleted on instance termination.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML EbsInstanceBlockDeviceMappingResponseType where
     xmlPickler = ec2ItemXML
@@ -791,7 +791,7 @@ instance IsXML EbsInstanceBlockDeviceMappingResponseType where
 --     , etstContainerFormat :: Maybe Text
 --     , etstS3Bucket        :: !Text
 --     , etstS3Prefix        :: !Text
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ExportToS3Task
 
@@ -811,7 +811,7 @@ instance IsXML EbsInstanceBlockDeviceMappingResponseType where
 --       -- ^ The instance being exported.
 --     , etrtExportToS3     :: !ExportToS3TaskResponseType
 --       -- ^ The destination Amazon S3 bucket.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ExportTaskResponseType
 
@@ -829,7 +829,7 @@ instance IsXML EbsInstanceBlockDeviceMappingResponseType where
 --     , etstrtS3Key           :: !Text
 --       -- ^ The image written to a single object in s3bucket at the S3 key
 --       -- s3prefix + exportTaskId + '.' +diskImageFormat.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ExportToS3TaskResponseType
 
@@ -841,7 +841,7 @@ data GroupItemType = GroupItemType
       -- ^ The ID of the security group.
     , gitGroupName :: !Text
       -- ^ The name of the security group.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery GroupItemType
 
@@ -853,7 +853,7 @@ data IamInstanceProfileRequestType = IamInstanceProfileRequestType
       -- ^ The Amazon Resource Name (ARN) of the instance profile.
     , iiprtName :: Maybe Text
       -- ^ The name of the instance profile.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery IamInstanceProfileRequestType
 
@@ -865,7 +865,7 @@ data IamInstanceProfileResponseType = IamInstanceProfileResponseType
       -- ^ The Amazon Resource Name (ARN) of the instance profile.
     , iipruId  :: !Text
       -- ^ The ID of the instance profile.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML IamInstanceProfileResponseType where
     xmlPickler = ec2XML
@@ -876,7 +876,7 @@ instance IsXML IamInstanceProfileResponseType where
 --       -- ICMP type.
 --     , itctType :: !Integer
 --       -- ^ The ICMP type. A value of -1 means all types.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery IcmpTypeCodeType
 
@@ -886,7 +886,7 @@ instance IsXML IamInstanceProfileResponseType where
 -- data InstancePlacement = InstancePlacement
 --     { ipAvailabilityZone :: !Maybe Text
 --     , ipGroupName        :: !Maybe Text
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstancePlacement
 
@@ -915,7 +915,7 @@ instance IsXML IamInstanceProfileResponseType where
 --       -- ^ The value is Windows for Windows AMIs; otherwise blank.
 --     , iitdtDescription :: !Text
 --       -- ^ An optional description of the instance.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ImportInstanceTaskDetailsType
 
@@ -938,7 +938,7 @@ instance IsXML IamInstanceProfileResponseType where
 --       -- ^ The status of the import of this particular disk image.
 --     , iivditStatusMessage    :: !Text
 --       -- ^ The status information or errors related to the disk image.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ImportInstanceVolumeDetailItemType
 
@@ -957,7 +957,7 @@ instance IsXML IamInstanceProfileResponseType where
 --       -- ^ The image.
 --     , ivtdtVolume           :: !DiskImageVolumeDescriptionType
 --       -- ^ The volume.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ImportVolumeTaskDetailsType
 
@@ -976,7 +976,7 @@ data InstanceBlockDeviceMappingItemType = InstanceBlockDeviceMappingItemType
     , ibdmitNoDevice    :: !Text
       -- ^ Include this empty element to suppress the specified device
       -- included in the block device mapping of the AMI.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery InstanceBlockDeviceMappingItemType
 
@@ -989,7 +989,7 @@ data InstanceBlockDeviceMappingResponseItemType = InstanceBlockDeviceMappingResp
     , ibdmritEbs        :: !EbsInstanceBlockDeviceMappingResponseType
       -- ^ Parameters used to automatically set up Amazon EBS volumes when
       -- the instance is launched.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstanceBlockDeviceMappingResponseItemType where
     xmlPickler = ec2ItemXML
@@ -1000,7 +1000,7 @@ data InstanceCountsSetItemType = InstanceCountsSetItemType
     , icsitInstanceCount :: !Integer
       -- ^ The number of listed Reserved Instances in the state specified by
       -- the state.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstanceCountsSetItemType where
     xmlPickler = ec2XML
@@ -1010,7 +1010,7 @@ data InstanceEbsBlockDeviceType = InstanceEbsBlockDeviceType
       -- ^ Indicates whether the volume is deleted on instance termination.
     , iebdtVolumeId            :: !Text
       -- ^ The ID of the volume.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery InstanceEbsBlockDeviceType
 
@@ -1022,7 +1022,7 @@ instance IsQuery InstanceEbsBlockDeviceType
 --       -- ^ The ID of the resource being exported.
 --     , ietrtTargetEnvironment :: !Text
 --       -- ^ The target virtualization environment.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceExportTaskResponseType
 
@@ -1032,7 +1032,7 @@ instance IsQuery InstanceEbsBlockDeviceType
 data InstanceMonitoringStateType = InstanceMonitoringStateType
     { imstState :: !Text
       -- ^ The state of monitoring for the instance.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstanceMonitoringStateType where
     xmlPickler = ec2XML
@@ -1044,7 +1044,7 @@ data InstanceNetworkInterfaceAssociationType = InstanceNetworkInterfaceAssociati
       -- ^ The public DNS name.
     , iniatIpOwnerId     :: !Text
       -- ^ The ID of the owner of the Elastic IP address.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstanceNetworkInterfaceAssociationType where
     xmlPickler = ec2XML
@@ -1061,7 +1061,7 @@ data InstanceNetworkInterfaceAttachmentType = InstanceNetworkInterfaceAttachment
     , iniatDeleteOnTermination :: !Bool
       -- ^ Indicates whether the network interface is deleted when the
       -- instance is terminated.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstanceNetworkInterfaceAttachmentType where
     xmlPickler = ec2XML
@@ -1088,7 +1088,7 @@ instance IsXML InstanceNetworkInterfaceAttachmentType where
 --     , inisirtSecondaryPrivateIpAddressCount :: !Integer
 --       -- ^ The number of secondary private IP addresses. You cannot specify
 --       -- this option with privateIpAddressSet.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceNetworkInterfaceSetItemRequestType
 
@@ -1126,7 +1126,7 @@ data InstanceNetworkInterfaceSetItemType = InstanceNetworkInterfaceSetItemType
       -- network interface.
     , inisitPrivateIpAddressesSet :: [InstancePrivateIpAddressesSetItemType]
       -- ^ The private IP addresses associated with the network interface.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstanceNetworkInterfaceSetItemType where
     xmlPickler = ec2XML
@@ -1142,7 +1142,7 @@ data InstancePrivateIpAddressesSetItemType = InstancePrivateIpAddressesSetItemTy
     , ipiasitAssociation      :: !InstanceNetworkInterfaceAssociationType
       -- ^ The association information for an Elastic IP address associated
       -- with the network interface.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstancePrivateIpAddressesSetItemType where
     xmlPickler = ec2XML
@@ -1154,7 +1154,7 @@ instance IsXML InstancePrivateIpAddressesSetItemType where
 --       -- ^ The current state of the instance.
 --     , isctPreviousState :: !InstanceStateType
 --       -- ^ The previous state of the instance.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceStateChangeType
 
@@ -1167,7 +1167,7 @@ data InstanceStateType = InstanceStateType
       -- internal value and should be ignored.
     , istName :: !Text
       -- ^ The current state of the instance.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstanceStateType where
     xmlPickler = ec2XML
@@ -1181,7 +1181,7 @@ instance IsXML InstanceStateType where
 --       -- ^ The time when a status check failed. For an instance that was
 --       -- launched and impaired, this is the time when the instance was
 --       -- launched.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceStatusDetailsSetType
 
@@ -1191,7 +1191,7 @@ instance IsXML InstanceStateType where
 -- data InstanceStatusEventsSetType = InstanceStatusEventsSetType
 --     { isest[:: !InstanceStatusEventType]
 --       -- ^ The scheduled events for the instance.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceStatusEventsSetType
 
@@ -1207,7 +1207,7 @@ instance IsXML InstanceStateType where
 --       -- ^ The earliest scheduled start time for the event.
 --     , isetNotAfter    :: !UTCTime
 --       -- ^ The latest scheduled end time for the event.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceStatusEventType
 
@@ -1233,7 +1233,7 @@ instance IsXML InstanceStateType where
 --       -- ^ Reports impaired functionality that arises from problems internal
 --       -- to the instance. The DescribeInstanceStatus response elements
 --       -- report such problems as impaired reachability.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceStatusItemType
 
@@ -1243,7 +1243,7 @@ instance IsXML InstanceStateType where
 -- data InstanceStatusSetType = InstanceStatusSetType
 --     { isst[:: !InstanceStatusItemType]
 --       -- ^ The status of the instance.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceStatusSetType
 
@@ -1255,7 +1255,7 @@ instance IsXML InstanceStateType where
 --       -- ^ The status.
 --     , istDetails :: !InstanceStatusDetailsSetType
 --       -- ^ The system instance health or application instance health.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InstanceStatusType
 
@@ -1267,7 +1267,7 @@ instance IsXML InstanceStateType where
 --       -- ^ The ID of the VPC.
 --     , igatState :: !Text
 --       -- ^ The current state of the attachment.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InternetGatewayAttachmentType
 
@@ -1283,7 +1283,7 @@ instance IsXML InstanceStateType where
 --     , igtTagSet            :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery InternetGatewayType
 
@@ -1300,7 +1300,7 @@ data UserIdGroupPair = UserIdGroupPair
     , uigGroupName :: Maybe Text
       -- ^ The name of the security group in the specified AWS account.
       -- Cannot be used when specifying a CIDR IP address range.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery UserIdGroupPair
 
@@ -1320,7 +1320,7 @@ data IpPermissionType = IpPermissionType
       -- ^ A list of security group and AWS account ID pairs.
     , iptIpRanges   :: [IpRange]
       -- ^ A list of IP ranges.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery IpPermissionType
 
@@ -1331,7 +1331,7 @@ data IpRange = IpRange
     { irCidrIp :: !Text
       -- ^ The CIDR range. You can either specify a CIDR range or a source
       -- security group, not both.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery IpRange
 
@@ -1343,7 +1343,7 @@ instance IsXML IpRange where
 --       -- ^ The name of the group.
 --     , lpitUserId :: !Text
 --       -- ^ The AWS account ID.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery LaunchPermissionItemType
 
@@ -1390,7 +1390,7 @@ instance IsXML IpRange where
 --       -- performance. This optimization isn't available with all instance
 --       -- types. Additional usage charges apply when using an EBS Optimized
 --       -- instance.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery LaunchSpecificationRequestType
 
@@ -1434,7 +1434,7 @@ instance IsXML IpRange where
 --       -- performance. This optimization isn't available with all instance
 --       -- types. Additional usage charges apply when using an EBS Optimized
 --       -- instance.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery LaunchSpecificationResponseType
 
@@ -1444,7 +1444,7 @@ instance IsXML IpRange where
 data MonitoringInstanceType = MonitoringInstanceType
     { mitEnabled :: !Bool
       -- ^ Indicates whether monitoring is enabled for the instance.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery MonitoringInstanceType
 
@@ -1456,7 +1456,7 @@ instance IsQuery MonitoringInstanceType
 --       -- ^ The instance ID.
 --     , mirsitMonitoring :: !InstanceMonitoringStateType
 --       -- ^ The monitoring information.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery MonitorInstancesResponseSetItemType
 
@@ -1471,7 +1471,7 @@ instance IsQuery MonitoringInstanceType
 --       -- ^ The ID of the network ACL.
 --     , naatSubnetId                :: !Text
 --       -- ^ The ID of the subnet.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery NetworkAclAssociationType
 
@@ -1496,7 +1496,7 @@ instance IsQuery MonitoringInstanceType
 --       -- ^ ICMP protocol: The ICMP type and code.
 --     , naetPortRange    :: !PortRangeType
 --       -- ^ ICMP or UDP protocols: The range of ports the rule applies to.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery NetworkAclEntryType
 
@@ -1519,7 +1519,7 @@ instance IsQuery MonitoringInstanceType
 --     , natTagSet         :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery NetworkAclType
 
@@ -1538,7 +1538,7 @@ data NetworkInterfaceAssociationType = NetworkInterfaceAssociationType
       -- ^ The allocation ID.
     , niatAssociationID :: !Text
       -- ^ The association ID.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery NetworkInterfaceAssociationType
 
@@ -1550,7 +1550,7 @@ data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
       -- ^ The ID of the network interface attachment.
     , niatInstanceID   :: !Text
       -- ^ The ID of the instance.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery NetworkInterfaceAttachmentType
 
@@ -1568,7 +1568,7 @@ data NetworkInterfacePrivateIpAddressesSetItemType = NetworkInterfacePrivateIpAd
     , nipiasitAssociation      :: !NetworkInterfaceAssociationType
       -- ^ The association information for an Elastic IP address associated
       -- with the network interface.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery NetworkInterfacePrivateIpAddressesSetItemType
 
@@ -1619,7 +1619,7 @@ data NetworkInterfaceType = NetworkInterfaceType
     , niuPrivateIpAddressesSet :: !NetworkInterfacePrivateIpAddressesSetItemType
       -- ^ The private IP addresses associated with the network interface.
       -- [are returned in a set.]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery NetworkInterfaceType
 
@@ -1633,7 +1633,7 @@ instance IsQuery NetworkInterfaceType
 --       -- ^ The placement strategy.
 --     , pgitState     :: !Text
 --       -- ^ The status of the placement group.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery PlacementGroupInfoType
 
@@ -1645,7 +1645,7 @@ instance IsQuery NetworkInterfaceType
 --       -- ^ The Availability Zone for the instance.
 --     , prtGroupName        :: !Text
 --       -- ^ The name of a placement group for the instance.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery PlacementRequestType
 
@@ -1662,7 +1662,7 @@ data PlacementType = PlacementType
     , pruTenancy          :: Maybe Text
       -- ^ The tenancy of the instance (if the instance is running within a -- VPC).
       -- FIXME: switch to enum default | dedicated
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery PlacementType
 
@@ -1674,7 +1674,7 @@ instance IsXML PlacementType where
 --       -- ^ The first port in the range.
 --     , prtTo   :: !Integer
 --       -- ^ The last port in the range.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery PortRangeType
 
@@ -1691,7 +1691,7 @@ instance IsXML PlacementType where
 --     , psrsitCurrencyCode :: !Text
 --       -- ^ The currency for transacting the Reserved Instance resale. At
 --       -- this time, the only supported currency is USD.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery PriceScheduleRequestSetItemType
 
@@ -1711,7 +1711,7 @@ data PriceScheduleSetItemType = PriceScheduleSetItemType
     , pssitActive       :: !Bool
       -- ^ The current price schedule, as determined by the term remaining
       -- for the Reserved Instance in the listing.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML PriceScheduleSetItemType where
     xmlPickler = ec2XML
@@ -1719,7 +1719,7 @@ instance IsXML PriceScheduleSetItemType where
 -- data PriceScheduleSetType = PriceScheduleSetType
 --     { psst[:: !PriceScheduleSetItemType]
 --       -- ^ The Reserved Instance listing price schedule item.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery PriceScheduleSetType
 
@@ -1731,7 +1731,7 @@ instance IsXML PriceScheduleSetItemType where
 --       -- ^ The price per instance.
 --     , pdsitCount :: !Integer
 --       -- ^ The number of instances available for the price.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery PricingDetailsSetItemType
 
@@ -1744,7 +1744,7 @@ instance IsXML PriceScheduleSetItemType where
 --     , piasirtPrimary               :: !Bool
 --       -- ^ Indicates whether the private IP address is the primary private
 --       -- IP address.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery PrivateIpAddressesSetItemRequestType
 
@@ -1754,7 +1754,7 @@ instance IsXML PriceScheduleSetItemType where
 -- data ProductCodeItemType = ProductCodeItemType
 --     { pcitProductCode :: !Text
 --       -- ^ The product code.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ProductCodeItemType
 
@@ -1766,7 +1766,7 @@ data ProductCodesSetItemType = ProductCodesSetItemType
       -- ^ The product code.
     , pcsitType        :: !Text
       -- ^ The type of product code.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML ProductCodesSetItemType where
     xmlPickler = ec2ItemXML
@@ -1774,7 +1774,7 @@ instance IsXML ProductCodesSetItemType where
 -- data ProductDescriptionSetItemType = ProductDescriptionSetItemType
 --     { pdsitProductDescription :: !Text
 --       -- ^ The description of the AMI.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ProductDescriptionSetItemType
 
@@ -1784,7 +1784,7 @@ instance IsXML ProductCodesSetItemType where
 -- data PropagatingVgwType = PropagatingVgwType
 --     { pvtGatewayID :: !Text
 --       -- ^ The ID of the virtual private gateway (VGW).
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery PropagatingVgwType
 
@@ -1796,7 +1796,7 @@ instance IsXML ProductCodesSetItemType where
 --       -- ^ The frequency of the recurring charge.
 --     , rcsitAmount    :: !Double
 --       -- ^ The amount of the recurring charge.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery RecurringChargesSetItemType
 
@@ -1808,7 +1808,7 @@ data RegionItemType = RegionItemType
       -- ^ The name of the region.
     , ritRegionEndpoint :: !Text
       -- ^ The region service endpoint.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML RegionItemType where
     xmlPickler = ec2ItemXML
@@ -1825,7 +1825,7 @@ data ReservationInfoType = ReservationInfoType
     , ritRequesterId   :: Maybe Text
       -- ^ The ID of the requester that launched the instances on your
       -- behalf (for example, AWS Management Console or Auto Scaling).
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML ReservationInfoType where
     xmlPickler = ec2ItemXML
@@ -1837,7 +1837,7 @@ instance IsXML ReservationInfoType where
 --     , rilptCurrencyCode :: !Double
 --       -- ^ Currency in which the limitPrice amount is specified. At this
 --       -- time, the only supported currency is USD.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery ReservedInstanceLimitPriceType
 
@@ -1849,7 +1849,7 @@ data ResourceTagSetItemType = ResourceTagSetItemType
       -- ^ The tag key.
     , rtsitValue :: !Text
       -- ^ The tag value.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery ResourceTagSetItemType
 
@@ -1866,7 +1866,7 @@ instance IsXML ResourceTagSetItemType where
 --       -- ^ The ID of the subnet.
 --     , rtatMain                    :: !Bool
 --       -- ^ Indicates whether this is the main route table.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery RouteTableAssociationType
 
@@ -1890,7 +1890,7 @@ instance IsXML ResourceTagSetItemType where
 --     , rttTagSet            :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery RouteTableType
 
@@ -1915,7 +1915,7 @@ instance IsXML ResourceTagSetItemType where
 --       -- has been terminated).
 --     , rtOrigin               :: !Text
 --       -- ^ Describes how the route was created.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery RouteType
 
@@ -2008,7 +2008,7 @@ data RunningInstancesItemType = RunningInstancesItemType
       -- ^ The IAM Instance Profile (IIP) associated with the instance.
     , riitEbsOptimized          :: !Bool
       -- ^ Indicates whether the instance is optimized for EBS I/O.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML RunningInstancesItemType where
     xmlPickler = ec2ItemXML
@@ -2017,7 +2017,7 @@ instance IsXML RunningInstancesItemType where
 --     { sgisitGroupId :: !Text
 --       -- ^ The ID of the security group associated with the network
 --       -- interface.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery SecurityGroupIdSetItemType
 
@@ -2041,7 +2041,7 @@ data SecurityGroupItemType = SecurityGroupItemType
       -- ^ [EC2-VPC] A list of outbound rules associated with the security group.
     -- , sgitTagSet              :: [ResourceTagSetItemType]
     --   -- ^ Any tags assigned to the resource, each one wrapped in an item element.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML SecurityGroupItemType where
     xmlPickler = ec2ItemXML
@@ -2057,7 +2057,7 @@ instance IsXML SecurityGroupItemType where
 --       -- ^ The state of the Spot Instance datafeed subscription.
 --     , sdstFault   :: !SpotInstanceStateFaultType
 --       -- ^ The fault codes for the Spot Instance request, if any.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery SpotDatafeedSubscriptionType
 
@@ -2115,7 +2115,7 @@ instance IsXML SecurityGroupItemType where
 --     , sirsitTagSet                   :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery SpotInstanceRequestSetItemType
 
@@ -2127,7 +2127,7 @@ instance IsXML SecurityGroupItemType where
 --       -- ^ The reason code for the Spot Instance state change.
 --     , sisftMessage :: !Text
 --       -- ^ The message for the Spot Instance state change.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery SpotInstanceStateFaultType
 
@@ -2141,7 +2141,7 @@ instance IsXML SecurityGroupItemType where
 --       -- ^ The time of the most recent status update.
 --     , sismtMessage    :: !Text
 --       -- ^ The description for the status code for the Spot request.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery SpotInstanceStatusMessageType
 
@@ -2160,7 +2160,7 @@ instance IsXML SecurityGroupItemType where
 --       -- ^ The date and time the request was created.
 --     , sphsitAvailabilityZone   :: !Text
 --       -- ^ The Availability Zone.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery SpotPriceHistorySetItemType
 
@@ -2172,7 +2172,7 @@ data StateReasonType = StateReasonType
       -- ^ The reason code for the state change.
     , srtMessage :: !Text
       -- ^ The message for the state change.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML StateReasonType where
     xmlPickler = ec2XML
@@ -2200,7 +2200,7 @@ instance IsXML StateReasonType where
 --     , stTagSet                  :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery SubnetType
 
@@ -2216,7 +2216,7 @@ data TagSetItemType = TagSetItemType
       -- ^ The key of the tag.
     , tsitValue        :: !Text
       -- ^ The value of the tag.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML TagSetItemType where
     xmlPickler = ec2ItemXML
@@ -2225,7 +2225,7 @@ instance IsXML TagSetItemType where
 --     { udtData :: !Text
 --       -- ^ The Base64-encoded MIME user data made available to the
 --       -- instance(s) in the reservation.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery UserDataType
 
@@ -2246,7 +2246,7 @@ instance IsXML TagSetItemType where
 --     , vsitActionSet        :: !VolumeStatusActionItemType
 --       -- ^ The details of the action. Each action detail is wrapped in an
 --       -- item element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VolumeStatusItemType
 
@@ -2259,7 +2259,7 @@ instance IsXML TagSetItemType where
 --     , vsitDetails :: !VolumeStatusDetailsItemType
 --       -- ^ The details of the volume status. Each volume status detail is
 --       -- wrapped in an item type.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VolumeStatusInfoType
 
@@ -2271,7 +2271,7 @@ instance IsXML TagSetItemType where
 --       -- ^ The name of the volume status.
 --     , vsditStatus :: !Text
 --       -- ^ The intended status of the volume status.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VolumeStatusDetailsItemType
 
@@ -2289,7 +2289,7 @@ instance IsXML TagSetItemType where
 --       -- ^ The earliest start time of the event.
 --     , vseitNotAfter    :: !UTCTime
 --       -- ^ The latest end time of the event.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VolumeStatusEventItemType
 
@@ -2305,7 +2305,7 @@ instance IsXML TagSetItemType where
 --       -- ^ The ID of the event associated with this action.
 --     , vsaitDescription :: !Text
 --       -- ^ A description of the action.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VolumeStatusActionItemType
 
@@ -2329,7 +2329,7 @@ instance IsXML TagSetItemType where
 --       -- ^ The allowed tenancy of instances launched into the VPC.
 --     , vtIsDefault       :: !Bool
 --       -- ^ Indicates whether the VPC is the default VPC.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VpcType
 
@@ -2340,7 +2340,7 @@ instance IsXML TagSetItemType where
 --     { vcortStaticRoutesOnly :: !Bool
 --       -- ^ Indicates whether the VPN connection uses static routes only.
 --       -- Static routes must be used for devices that don't support BGP.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VpnConnectionOptionsResponseType
 
@@ -2375,7 +2375,7 @@ instance IsXML TagSetItemType where
 --       -- ^ The option set describing the VPN connection.
 --     , vctRoutes                       :: !VpnStaticRouteType
 --       -- ^ The set of static routes associated with a VPN connection.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VpnConnectionType
 
@@ -2398,7 +2398,7 @@ instance IsXML TagSetItemType where
 --     , vgtTagSet           :: !ResourceTagSetItemType
 --       -- ^ Any tags assigned to the resource, each one wrapped in an item
 --       -- element.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VpnGatewayType
 
@@ -2413,7 +2413,7 @@ instance IsXML TagSetItemType where
 --       -- ^ Indicates how the routes were provided.
 --     , vsrtState                :: !Text
 --       -- ^ The current state of the static route.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VpnStaticRouteType
 
@@ -2432,7 +2432,7 @@ instance IsXML TagSetItemType where
 --       -- ^ If an error occurs, a description of the error.
 --     , vtttAcceptedRouteCount :: !Integer
 --       -- ^ The number of accepted routes.
---     } deriving (Eq, Show, Generic)
+--     } deriving (Eq, Ord, Show, Generic)
 
 -- instance IsQuery VpnTunnelTelemetryType
 
@@ -2442,12 +2442,12 @@ instance IsXML TagSetItemType where
 data Filter = Filter
     { filterName  :: !Text
     , filterValue :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery Filter
 
 newtype Filters a = Filters { unFilters :: [a] }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery a => IsQuery (Filters a)
 
@@ -2469,7 +2469,7 @@ data TagResourceType
     | Vpc
     | VpnConnection
     | VpnGateway
-      deriving (Eq, Read, Generic)
+      deriving (Eq, Ord, Read, Generic)
 
 instance Show TagResourceType where
     show t = case t of
@@ -2521,7 +2521,7 @@ data TagFilter
       -- ^ The resource type.
     | TagValue [Text]
       -- ^ The tag value.
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance IsQuery TagFilter where
     queryPickler = QueryPU p u

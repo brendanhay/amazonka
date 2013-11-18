@@ -269,7 +269,7 @@ data BundleInstanceState
     | Cancelling
     | Complete
     | Failed
-      deriving (Eq)
+      deriving (Eq, Ord)
 
 instance Show BundleInstanceState where
     show st = case st of

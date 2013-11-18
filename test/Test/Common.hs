@@ -38,6 +38,7 @@ module Test.Common
 
 import qualified Algorithms.NaturalSort  as Nat
 import           Control.Applicative
+import           Control.Monad           ((<=<))
 import           Data.Aeson              (ToJSON(..), FromJSON(..), Value(..))
 import           Data.ByteString         (ByteString)
 import qualified Data.ByteString.Char8   as BS
@@ -49,6 +50,7 @@ import qualified Data.Text               as Text
 import qualified Data.Text.Encoding      as Text
 import qualified Data.Text.Lazy.Builder  as LText
 import qualified Data.Text.Lazy.Encoding as LText
+import qualified Data.Text.Lazy.IO       as LText
 import           Network.AWS.Internal
 import qualified Network.Http.Internal   as Client
 import           System.IO.Unsafe        (unsafePerformIO)
@@ -196,6 +198,8 @@ stringify :: Show a => a -> Value
 stringify = String . Text.pack . show
 
 render :: FilePath -> Value -> Either String ByteString
-render tmpl (Object o) = LBS.toStrict . LText.encodeUtf8 . LText.toLazyText <$>
-    unsafePerformIO (EDE.renderFile tmpl o)
+render tmpl (Object o) = f <$> unsafePerformIO g
+  where
+    f = LBS.toStrict . LText.encodeUtf8 . LText.toLazyText
+    g = (EDE.eitherRender o <=< EDE.eitherParse) <$> LText.readFile tmpl
 render _    _          = error "Attempted to render non-object value"

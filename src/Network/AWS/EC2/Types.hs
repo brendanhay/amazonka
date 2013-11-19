@@ -51,6 +51,18 @@ instance ToError EC2ErrorResponse where
 
 instance IsXML EC2ErrorResponse
 
+newtype ImageId = ImageId Text
+    deriving (Show, Eq, Ord, Generic)
+
+instance IsQuery ImageId
+instance IsXML ImageId
+
+newtype InstanceId = InstanceId Text
+    deriving (Show, Eq, Ord, Generic)
+
+instance IsQuery InstanceId
+instance IsXML InstanceId
+
 data Protocol = TCP | UDP | ICMP
     deriving (Eq, Ord, Generic)
 
@@ -147,7 +159,7 @@ instance IsXML VolumeStatus where
 -- data AttachmentSetItemResponseType = AttachmentSetItemResponseType
 --     { asirtVolumeId            :: !Text
 --       -- ^ The ID of the volume.
---     , asirtInstanceId          :: !Text
+--     , asirtInstanceId          :: !InstanceId
 --       -- ^ The ID of the instance.
 --     , asirtDevice              :: !Text
 --       -- ^ The device name exposed to the instance (for example, /dev/sdh).
@@ -296,7 +308,7 @@ instance IsXML BundleInstanceState where
     xmlPickler = xpContent xpPrim
 
 data BundleInstanceTask = BundleInstanceTask
-    { bitInstanceId :: !Text
+    { bitInstanceId :: !InstanceId
       -- ^ The ID of the instance associated with this bundle task.
     , bitBundleId   :: !Text
       -- ^ The ID for this bundle task.
@@ -395,7 +407,7 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     , daritDomain                  :: !Text
 --       -- ^ Indicates whether this Elastic IP address is for instances in
 --       -- EC2-Classic or EC2-VPC.
---     , daritInstanceId              :: !Text
+--     , daritInstanceId              :: !InstanceId
 --       -- ^ The ID of the instance the address is associated with (if any).
 --     , daritAssociationId           :: !Text
 --       -- ^ The ID representing the association of an Elastic IP address with
@@ -909,7 +921,7 @@ instance IsXML IamInstanceProfileResponseType where
 --     { iitdtVolumes     :: !ImportInstanceVolumeDetailItemType
 --       -- ^ Any instance volumes for import, each one wrapped in an item
 --       -- element.
---     , iitdtInstanceId  :: !Text
+--     , iitdtInstanceId  :: !InstanceId
 --       -- ^ The ID of the instance.
 --     , iitdtPlatform    :: !Text
 --       -- ^ The value is Windows for Windows AMIs; otherwise blank.
@@ -1018,7 +1030,7 @@ instance IsQuery InstanceEbsBlockDeviceType
 --     xmlPickler = ec2XML
 
 -- data InstanceExportTaskResponseType = InstanceExportTaskResponseType
---     { ietrtInstanceId        :: !Text
+--     { ietrtInstanceId        :: !InstanceId
 --       -- ^ The ID of the resource being exported.
 --     , ietrtTargetEnvironment :: !Text
 --       -- ^ The target virtualization environment.
@@ -1148,7 +1160,7 @@ instance IsXML InstancePrivateIpAddressesSetItemType where
     xmlPickler = ec2XML
 
 -- data InstanceStateChangeType = InstanceStateChangeType
---     { isctInstanceId    :: !Text
+--     { isctInstanceId    :: !InstanceId
 --       -- ^ The instance ID.
 --     , isctCurrentState  :: !InstanceStateType
 --       -- ^ The current state of the instance.
@@ -1215,7 +1227,7 @@ instance IsXML InstanceStateType where
 --     xmlPickler = ec2XML
 
 -- data InstanceStatusItemType = InstanceStatusItemType
---     { isitInstanceId       :: !Text
+--     { isitInstanceId       :: !InstanceId
 --       -- ^ The ID of the instance.
 --     , isitAvailabilityZone :: !Text
 --       -- ^ The Availability Zone of the instance.
@@ -1452,7 +1464,7 @@ instance IsQuery MonitoringInstanceType
 --     xmlPickler = ec2XML
 
 -- data MonitorInstancesResponseSetItemType = MonitorInstancesResponseSetItemType
---     { mirsitInstanceId :: !Text
+--     { mirsitInstanceId :: !InstanceId
 --       -- ^ The instance ID.
 --     , mirsitMonitoring :: !InstanceMonitoringStateType
 --       -- ^ The monitoring information.
@@ -1548,7 +1560,7 @@ instance IsQuery NetworkInterfaceAssociationType
 data NetworkInterfaceAttachmentType = NetworkInterfaceAttachmentType
     { niatAttachmentID :: !Text
       -- ^ The ID of the network interface attachment.
-    , niatInstanceID   :: !Text
+    , niatInstanceID   :: !InstanceId
       -- ^ The ID of the instance.
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1902,7 +1914,7 @@ instance IsXML ResourceTagSetItemType where
 --       -- ^ The CIDR address block used for the destination match.
 --     , rtGatewayId            :: !Text
 --       -- ^ The ID of a gateway attached to your VPC.
---     , rtInstanceId           :: !Text
+--     , rtInstanceId           :: !InstanceId
 --       -- ^ The ID of a NAT instance in your VPC.
 --     , rtInstanceOwnerId      :: !Text
 --       -- ^ The owner of the instance.
@@ -1923,7 +1935,7 @@ instance IsXML ResourceTagSetItemType where
 --     xmlPickler = ec2XML
 
 data RunningInstancesItemType = RunningInstancesItemType
-    { riitInstanceId            :: !Text
+    { riitInstanceId            :: !InstanceId
       -- ^ The ID of the instance launched.
     , riitImageId               :: !Text
       -- ^ The ID of the AMI used to launch the instance.
@@ -2105,7 +2117,7 @@ instance IsXML SecurityGroupItemType where
 --       -- ^ The Availability Zone in which the bid is launched.
 --     , sirsitLaunchSpecification      :: !LaunchSpecificationResponseType
 --       -- ^ Additional information for launching instances.
---     , sirsitInstanceId               :: !Text
+--     , sirsitInstanceId               :: !InstanceId
 --       -- ^ The instance ID, if an instance has been launched to fulfill the
 --       -- Spot Instance request.
 --     , sirsitCreateTime               :: !UTCTime

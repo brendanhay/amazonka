@@ -95,7 +95,9 @@ sendCatch rq = do
 
     perform Signed{..} dbg =
         bracket (establishConnection sHost) closeConnection $ \c -> do
-            when dbg $ print sRequest
+            when dbg $ do
+                print sRequest
+                print sBody
             body sBody >>= sendRequest c sRequest
             receiveResponse c $ receive dbg
 

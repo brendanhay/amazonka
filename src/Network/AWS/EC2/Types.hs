@@ -51,13 +51,13 @@ instance ToError EC2ErrorResponse where
 
 instance IsXML EC2ErrorResponse
 
-newtype ImageId = ImageId Text
+newtype ImageId = ImageId { unImageId :: Text }
     deriving (Show, Eq, Ord, Generic)
 
 instance IsQuery ImageId
 instance IsXML ImageId
 
-newtype InstanceId = InstanceId Text
+newtype InstanceId = InstanceId { unInstanceId :: Text }
     deriving (Show, Eq, Ord, Generic)
 
 instance IsQuery InstanceId
@@ -424,7 +424,7 @@ instance IsXML CancelSpotInstanceRequestsResponseSetItemType where
 --     xmlPickler = ec2XML
 
 data DescribeImagesResponseItemType = DescribeImagesResponseItemType
-    { diritImageId            :: !Text
+    { diritImageId            :: !ImageId
       -- ^ The ID of the AMI.
     , diritImageLocation      :: !Text
       -- ^ The location of the AMI.
@@ -1363,7 +1363,7 @@ instance IsXML IpRange where
 --     xmlPickler = ec2XML
 
 -- data LaunchSpecificationRequestType = LaunchSpecificationRequestType
---     { lsrtImageId             :: !Text
+--     { lsrtImageId             :: !ImageId
 --       -- ^ The AMI ID.
 --     , lsrtKeyName             :: !Text
 --       -- ^ The name of the key pair.
@@ -1410,7 +1410,7 @@ instance IsXML IpRange where
 --     xmlPickler = ec2XML
 
 -- data LaunchSpecificationResponseType = LaunchSpecificationResponseType
---     { lsruImageId             :: !Text
+--     { lsruImageId             :: !ImageId
 --       -- ^ The AMI ID.
 --     , lsruKeyName             :: !Text
 --       -- ^ The name of the key pair.
@@ -1937,7 +1937,7 @@ instance IsXML ResourceTagSetItemType where
 data RunningInstancesItemType = RunningInstancesItemType
     { riitInstanceId            :: !InstanceId
       -- ^ The ID of the instance launched.
-    , riitImageId               :: !Text
+    , riitImageId               :: !ImageId
       -- ^ The ID of the AMI used to launch the instance.
     , riitInstanceState         :: !InstanceStateType
       -- ^ The current state of the instance.

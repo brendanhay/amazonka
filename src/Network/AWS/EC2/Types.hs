@@ -51,18 +51,6 @@ instance ToError EC2ErrorResponse where
 
 instance IsXML EC2ErrorResponse
 
-newtype ImageId = ImageId { unImageId :: Text }
-    deriving (Show, Eq, Ord, Generic)
-
-instance IsQuery ImageId
-instance IsXML ImageId
-
-newtype InstanceId = InstanceId { unInstanceId :: Text }
-    deriving (Show, Eq, Ord, Generic)
-
-instance IsQuery InstanceId
-instance IsXML InstanceId
-
 data Protocol = TCP | UDP | ICMP
     deriving (Eq, Ord, Generic)
 

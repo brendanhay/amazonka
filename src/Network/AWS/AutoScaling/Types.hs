@@ -208,7 +208,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
       -- instance is healthy and should remain in service. "Unhealthy"
       -- means that the instance is unhealthy. Auto Scaling should
       -- terminate and replace it.
-    , asidInstanceId              :: !Text
+    , asidInstanceId              :: !InstanceId
       -- ^ The instance ID of the Amazon EC2 instance.
     , asidLaunchConfigurationName :: !Text
       -- ^ The launch configuration associated with this instance.
@@ -465,7 +465,7 @@ data Instance = Instance
       -- ^ Availability Zones associated with this instance.
     , iHealthStatus            :: !Text
       -- ^ The instance's health status.
-    , iInstanceId              :: !Text
+    , iInstanceId              :: !InstanceId
       -- ^ Specifies the ID of the Amazon EC2 instance.
     , iLaunchConfigurationName :: Maybe Text
       -- ^ The launch configuration associated with this instance.
@@ -508,7 +508,7 @@ data LaunchConfiguration = LaunchConfiguration
       -- ^ Provides the name or the Amazon Resource Name (ARN) of the
       -- instance profile associated with the IAM role for the instance.
       -- The instance profile contains the IAM role.
-    , lcImageId                 :: !Text
+    , lcImageId                 :: !ImageId
       -- ^ Provides the unique ID of the Amazon Machine Image (AMI) that was
       -- assigned during registration.
     , lcInstanceMonitoring      :: Maybe InstanceMonitoring

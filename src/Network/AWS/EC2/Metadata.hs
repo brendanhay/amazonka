@@ -26,7 +26,7 @@ import           Control.Monad.IO.Class
 import           Data.ByteString             (ByteString)
 import           Data.Monoid
 import           Network.AWS.Internal.String
-import           Network.AWS.Internal.Types  hiding (request)
+import           Network.AWS.Internal.Types  hiding (InstanceId, request)
 import           Network.Http.Client
 import qualified System.IO.Streams           as Streams
 

@@ -277,7 +277,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     , clcIamInstanceProfile      :: Maybe Text
       -- ^ The name or the Amazon Resource Name (ARN) of the instance
       -- profile associated with the IAM role for the instance.
-    , clcImageId                 :: !Text
+    , clcImageId                 :: !ImageId
       -- ^ Unique ID of the Amazon Machine Image (AMI) you want to use to
       -- launch your EC2 instances. For information about finding Amazon
       -- EC2 AMIs, see Finding a Suitable AMI in the Amazon Elastic
@@ -571,7 +571,7 @@ instance IsXML DescribeAutoScalingGroupsResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html>
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
-    { dasiInstanceIds :: Members Text
+    { dasiInstanceIds :: Members InstanceId
       -- ^ The list of Auto Scaling instances to describe. If this list is
       -- omitted, all auto scaling instances are described. The list of
       -- requested instances cannot contain more than 50 items. If unknown
@@ -1189,7 +1189,7 @@ data SetInstanceHealth = SetInstanceHealth
       -- instance to remain in service. Set to Unhealthy if you want the
       -- instance to be out of service. Auto Scaling will terminate and
       -- replace the unhealthy instance.
-    , sihInstanceId               :: !Text
+    , sihInstanceId               :: !InstanceId
       -- ^ The identifier of the Amazon EC2 instance.
     , sihShouldRespectGracePeriod :: Maybe Bool
       -- ^ If the Auto Scaling group of the specified instance has a
@@ -1251,7 +1251,7 @@ instance IsXML SuspendProcessesResponse where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html>
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
-    { tiiasgInstanceId                     :: !Text
+    { tiiasgInstanceId                     :: !InstanceId
       -- ^ The ID of the Amazon EC2 instance to be terminated.
     , tiiasgShouldDecrementDesiredCapacity :: !Bool
       -- ^ Specifies whether (true) or not (false) terminating this instance

@@ -31,6 +31,7 @@ import qualified Data.ByteString.Char8           as BS
 import           Data.Foldable                   (Foldable)
 import           Data.Monoid
 import           Data.String
+import           Data.Text                       (Text)
 import           GHC.Generics
 import           Network.AWS.Headers
 import           Network.HTTP.QueryString.Pickle
@@ -335,3 +336,15 @@ newtype Items a = Items { items :: [a] }
 
 newtype Members a = Members { members :: [a] }
     deriving (Eq, Show, Generic, Foldable)
+
+newtype ImageId = ImageId { unImageId :: Text }
+    deriving (Show, Eq, Ord, Generic)
+
+instance IsQuery ImageId
+instance IsXML ImageId
+
+newtype InstanceId = InstanceId { unInstanceId :: Text }
+    deriving (Show, Eq, Ord, Generic)
+
+instance IsQuery InstanceId
+instance IsXML InstanceId

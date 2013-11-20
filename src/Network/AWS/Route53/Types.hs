@@ -186,7 +186,7 @@ instance IsXML ChangeInfo where
     xmlPickler = withNS route53NS
 
 data ChangeAction = CreateAction | DeleteAction
-    deriving (Eq)
+    deriving (Eq, Ord)
 
 instance Show ChangeAction where
     show CreateAction = "CREATE"

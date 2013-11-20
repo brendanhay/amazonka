@@ -61,8 +61,6 @@ module Network.AWS
     , InstanceType     (..)
     , Items            (..)
     , Members          (..)
-    , ImageId          (..)
-    , InstanceId       (..)
     ) where
 
 import           Control.Applicative

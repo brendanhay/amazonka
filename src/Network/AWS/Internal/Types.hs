@@ -336,15 +336,3 @@ newtype Items a = Items { items :: [a] }
 
 newtype Members a = Members { members :: [a] }
     deriving (Eq, Show, Generic, Foldable)
-
-newtype ImageId = ImageId { unImageId :: Text }
-    deriving (Show, Eq, Ord, Generic)
-
-instance IsQuery ImageId
-instance IsXML ImageId
-
-newtype InstanceId = InstanceId { unInstanceId :: Text }
-    deriving (Show, Eq, Ord, Generic)
-
-instance IsQuery InstanceId
-instance IsXML InstanceId

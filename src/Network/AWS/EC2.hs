@@ -593,7 +593,7 @@ instance IsXML AssignPrivateIpAddressesResponse where
 data AssociateAddress = AssociateAddress
     { abPublicIp           :: !Text
       -- ^ The Elastic IP address.
-    , abInstanceId         :: !InstanceId
+    , abInstanceId         :: !Text
       -- ^ The ID of the instance. The operation fails if you specify an
       -- instance ID unless exactly one network interface is attached.
     , abAllocationId       :: Maybe Text
@@ -737,7 +737,7 @@ instance IsXML AttachInternetGatewayResponse where
 data AttachNetworkInterface = AttachNetworkInterface
     { aniNetworkInterfaceId :: !Text
       -- ^ The ID of the network interface.
-    , aniInstanceId         :: !InstanceId
+    , aniInstanceId         :: !Text
       -- ^ The ID of the instance.
     , aniDeviceIndex        :: !Integer
       -- ^ The index of the device for the network interface attachment.
@@ -768,7 +768,7 @@ data AttachVolume = AttachVolume
     { avVolumeId   :: !Text
       -- ^ The ID of the Amazon EBS volume. The volume and instance must be
       -- within the same Availability Zone.
-    , avInstanceId :: !InstanceId
+    , avInstanceId :: !Text
       -- ^ The ID of the instance.
     , avDevice     :: !Text
       -- ^ The device name to expose to the instance (for example, /dev/sdh
@@ -787,7 +787,7 @@ data AttachVolumeResponse = AttachVolumeResponse
       -- ^ The ID of the request.
     , avrVolumeId   :: !Text
       -- ^ The ID of the volume.
-    , avrInstanceId :: !InstanceId
+    , avrInstanceId :: !Text
       -- ^ The ID of the instance.
     , avrDevice     :: !Text
       -- ^ The device name.
@@ -903,7 +903,7 @@ instance IsXML AuthorizeSecurityGroupIngressResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html>
 data BundleInstance = BundleInstance
-    { biInstanceId :: !InstanceId
+    { biInstanceId :: !Text
       -- ^ The ID of the instance to bundle.
     , biStorage    :: !BundleInstanceTaskStorage
       -- ^ Bundle storage instructions.
@@ -1079,7 +1079,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     { cpiProductCode :: !Text
 --       -- ^ The product code. This must be an Amazon DevPay product code that
 --       -- you own.
---     , cpiInstanceId  :: !InstanceId
+--     , cpiInstanceId  :: !Text
 --       -- ^ The instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -1114,7 +1114,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     { ciSourceRegion  :: !Text
 --       -- ^ The name of the region that contains the AMI to be copied
 --       -- (source).
---     , ciSourceImageId :: !ImageId
+--     , ciSourceImageId :: !Text
 --       -- ^ The ID of the AMI to copy.
 --     , ciName          :: Maybe Text
 --       -- ^ The name of the new AMI in the destination region.
@@ -1136,7 +1136,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- data CopyImageResponse = CopyImageResponse
 --     { ciRequestId :: !Text
 --       -- ^ The ID of the request.
---     , ciImageId   :: !ImageId
+--     , ciImageId   :: !Text
 --       -- ^ The ID of the new AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -1254,7 +1254,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html>
 
 -- data CreateImage = CreateImage
---     { ciInstanceId         :: !InstanceId
+--     { ciInstanceId         :: !Text
 --       -- ^ The ID of the instance.
 --     , cjName               :: !Text
 --       -- ^ A name for the new image.
@@ -1283,7 +1283,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- data CreateImageResponse = CreateImageResponse
 --     { cjRequestId :: !Text
 --       -- ^ The ID of the request.
---     , cjImageId   :: !ImageId
+--     , cjImageId   :: !Text
 --       -- ^ The ID of the new AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -1301,7 +1301,7 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 --     { cietDescription       :: Maybe Text
 --       -- ^ A description for the conversion task or the resource being
 --       -- exported. The maximum length is 255 bytes.
---     , cietInstanceId        :: !InstanceId
+--     , cietInstanceId        :: !Text
 --       -- ^ The ID of the instance.
 --     , cietTargetEnvironment :: !Text
 --       -- ^ The target virtualization environment.
@@ -1613,7 +1613,7 @@ instance IsXML CreateKeyPairResponse where
 --       -- decisions are based on the most specific match.
 --     , crGatewayId            :: !Text
 --       -- ^ The ID of an Internet gateway attached to your VPC.
---     , crInstanceId           :: !InstanceId
+--     , crInstanceId           :: !Text
 --       -- ^ The ID of a NAT instance in your VPC. The operation fails if you
 --       -- specify an instance ID unless exactly one network interface is
 --       -- attached.
@@ -2677,7 +2677,7 @@ instance IsXML DeleteSecurityGroupResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeregisterImage.html>
 
 -- data DeregisterImage = DeregisterImage
---     { diImageId :: !ImageId
+--     { diImageId :: !Text
 --       -- ^ The ID of the AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -3028,7 +3028,7 @@ instance IsXML DescribeAvailabilityZonesResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImageAttribute.html>
 
 -- data DescribeImageAttribute = DescribeImageAttribute
---     { diaImageId   :: !ImageId
+--     { diaImageId   :: !Text
 --       -- ^ The ID of the AMI.
 --     , diaAttribute :: !Text
 --       -- ^ The AMI attribute.
@@ -3045,7 +3045,7 @@ instance IsXML DescribeAvailabilityZonesResponse where
 -- data DescribeImageAttributeResponse = DescribeImageAttributeResponse
 --     { diaRequestId          :: !Text
 --       -- ^ The ID of the request.
---     , dibImageId            :: !ImageId
+--     , dibImageId            :: !Text
 --       -- ^ The ID of the AMI.
 --     , dibLaunchPermission   :: !LaunchPermissionItemType
 --       -- ^ A list of launch permissions, each one wrapped in an item
@@ -3080,7 +3080,7 @@ data DescribeImages = DescribeImages
       -- launch permissions. The user ID can be an AWS account ID, self to
       -- return images for which the sender of the request has explicit
       -- launch permissions, or all to return AMIs with public launch permissions.
-    , djImageId              :: [ImageId]
+    , djImageId              :: [Text]
       -- ^ One or more image IDs.
     , djOwner                :: [Text]
       -- ^ Describes images owned by the specified owners. Use the IDs
@@ -3113,7 +3113,7 @@ instance IsXML DescribeImagesResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html>
 
 -- data DescribeInstanceAttribute = DescribeInstanceAttribute
---     { diaInstanceId :: !InstanceId
+--     { diaInstanceId :: !Text
 --       -- ^ The ID of the instance.
 --     , dibAttribute  :: !Text
 --       -- ^ The instance attribute.
@@ -3130,7 +3130,7 @@ instance IsXML DescribeImagesResponse where
 -- data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 --     { dibRequestId                         :: !Text
 --       -- ^ The ID of the request.
---     , dibInstanceId                        :: !InstanceId
+--     , dibInstanceId                        :: !Text
 --       -- ^ The ID of the instance.
 --     , dicBlockDeviceMapping                :: !InstanceBlockDeviceMappingResponseItemType
 --       -- ^ The block device mapping of the instance.
@@ -3185,7 +3185,7 @@ instance IsXML DescribeImagesResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html>
 data DescribeInstances = DescribeInstances
-    { diInstanceId :: [InstanceId]
+    { diInstanceId :: [Text]
       -- ^ One or more instance IDs.
     , diFilter     :: [Filter]
       -- ^ The name of a filter.
@@ -3238,7 +3238,7 @@ instance IsXML DescribeInstancesResponse where
 -- --       -- ^ The status of the instance.
 
 -- data DescribeInstanceStatus = DescribeInstanceStatus
---     { disInstanceId          :: Maybe InstanceId
+--     { disInstanceId          :: Maybe Text
 --       -- ^ One or more instance IDs.
 --     , disIncludeAllInstances :: Maybe Bool
 --       -- ^ When true, includes the health status for all instances. When
@@ -4682,7 +4682,7 @@ instance IsXML DescribeTagsResponse where
 -- data DetachVolume = DetachVolume
 --     { dxVolumeId   :: !Text
 --       -- ^ The ID of the volume.
---     , dxInstanceId :: Maybe InstanceId
+--     , dxInstanceId :: Maybe Text
 --       -- ^ The ID of the instance.
 --     , dxDevice     :: Maybe Text
 --       -- ^ The device name.
@@ -4710,7 +4710,7 @@ instance IsXML DescribeTagsResponse where
 --       -- ^ The ID of the request.
 --     , edVolumeId   :: !Text
 --       -- ^ The ID of the volume.
---     , edInstanceId :: !InstanceId
+--     , edInstanceId :: !Text
 --       -- ^ The ID of the instance.
 --     , edDevice     :: !Text
 --       -- ^ The device name exposed to the instance.
@@ -4917,7 +4917,7 @@ instance IsXML DescribeTagsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html>
 
 -- data GetConsoleOutput = GetConsoleOutput
---     { gcoInstanceId :: !InstanceId
+--     { gcoInstanceId :: !Text
 --       -- ^ The ID of the instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -4929,7 +4929,7 @@ instance IsXML DescribeTagsResponse where
 -- data GetConsoleOutputResponse = GetConsoleOutputResponse
 --     { gcoRequestId  :: !Text
 --       -- ^ The ID of the request.
---     , gcpInstanceId :: !InstanceId
+--     , gcpInstanceId :: !Text
 --       -- ^ The ID of the instance.
 --     , gcpTimestamp  :: !UTCTime
 --       -- ^ The time the output was last updated.
@@ -4952,7 +4952,7 @@ instance IsXML DescribeTagsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html>
 
 -- data GetPasswordData = GetPasswordData
---     { gpdInstanceId :: !InstanceId
+--     { gpdInstanceId :: !Text
 --       -- ^ The ID of a Windows instance.
 --     } deriving (Eq, Show, Generic)
 
@@ -4964,7 +4964,7 @@ instance IsXML DescribeTagsResponse where
 -- data GetPasswordDataResponse = GetPasswordDataResponse
 --     { gpdRequestId    :: !Text
 --       -- ^ The ID of the request.
---     , gpeInstanceId   :: !InstanceId
+--     , gpeInstanceId   :: !Text
 --       -- ^ The ID of the instance.
 --     , gpeTimestamp    :: !UTCTime
 --       -- ^ The time the data was last updated.
@@ -5093,7 +5093,7 @@ instance IsXML DescribeTagsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyImageAttribute.html>
 
 -- data ModifyImageAttribute = ModifyImageAttribute
---     { miaImageId          :: !ImageId
+--     { miaImageId          :: !Text
 --       -- ^ The ID of the AMI.
 --     , miaLaunchPermission :: Members LaunchPermissionType
 --       -- ^ Adds the specified AWS account ID to the AMI's list of launch
@@ -5131,7 +5131,7 @@ instance IsXML DescribeTagsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html>
 
 -- data ModifyInstanceAttribute = ModifyInstanceAttribute
---     { miaInstanceId                        :: !InstanceId
+--     { miaInstanceId                        :: !Text
 --       -- ^ The ID of the instance.
 --     , miaInstanceType                      :: Maybe InstanceType
 --       -- ^ Changes the instance type to the specified value. See Available
@@ -5516,7 +5516,7 @@ instance IsXML DescribeTagsResponse where
 -- data RegisterImageResponse = RegisterImageResponse
 --     { rjRequestId :: !Text
 --       -- ^ The ID of the request.
---     , rjImageId   :: !ImageId
+--     , rjImageId   :: !Text
 --       -- ^ The ID of the newly registered AMI.
 --     } deriving (Eq, Show, Generic)
 
@@ -5647,7 +5647,7 @@ instance IsXML DescribeTagsResponse where
 --       -- table.
 --     , rrGatewayId            :: !Text
 --       -- ^ The ID of a gateway attached to your VPC.
---     , rrInstanceId           :: !InstanceId
+--     , rrInstanceId           :: !Text
 --       -- ^ The ID of a NAT instance in your VPC.
 --     , rrNetworkInterfaceId   :: !Text
 --       -- ^ Allows routing to network interface attachments.
@@ -5810,7 +5810,7 @@ instance IsXML DescribeTagsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html>
 
 -- data ResetImageAttribute = ResetImageAttribute
---     { riaImageId   :: !ImageId
+--     { riaImageId   :: !Text
 --       -- ^ The ID of the AMI.
 --     , riaAttribute :: !Text
 --       -- ^ The attribute to reset (currently you can only reset the launch
@@ -5848,7 +5848,7 @@ instance IsXML DescribeTagsResponse where
 -- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html>
 
 -- data ResetInstanceAttribute = ResetInstanceAttribute
---     { riaInstanceId :: !InstanceId
+--     { riaInstanceId :: !Text
 --       -- ^ The ID of the instance.
 --     , ribAttribute  :: !Text
 --       -- ^ The attribute to reset.
@@ -6014,7 +6014,7 @@ instance IsXML RevokeSecurityGroupIngressResponse where
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html>
 data RunInstances = RunInstances
-    { riImageId                           :: !ImageId
+    { riImageId                           :: !Text
       -- ^ The ID of the AMI, which you can get by calling DescribeImages.
     , riMinCount                          :: !Integer
       -- ^ The minimum number of instances to launch. If you specify a

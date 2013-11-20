@@ -37,7 +37,7 @@ data ErrorType = ErrorType
     { etType    :: !Text
     , etCode    :: !Text
     , etMessage :: !Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML ErrorType where
     xmlPickler = withNS route53NS
@@ -50,7 +50,7 @@ data ErrorResponse
     | InvalidChangeBatch
       { erMessages :: [Text]
       }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 instance ToError ErrorResponse where
     toError = Err . show
@@ -83,7 +83,7 @@ instance IsXML ErrorResponse where
 -- </InvalidChangeBatch>
 
 newtype CallerReference = CallerReference { unCallerReference :: Text }
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Ord, Show, Generic)
 
 instance IsXML CallerReference where
     xmlPickler = (CallerReference, unCallerReference) `xpWrap` xpTextContent
@@ -92,13 +92,13 @@ callerRef :: IO CallerReference
 callerRef = CallerReference . decodeUtf8 . formatAWS <$> getCurrentTime
 
 data Protocol = HTTP | TCP
-    deriving (Eq, Read, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 instance IsXML Protocol where
     xmlPickler = xpContent xpPrim
 
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
-    deriving (Eq, Read, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 instance IsXML RecordType where
     xmlPickler = xpContent xpPrim
@@ -107,13 +107,13 @@ instance IsQuery RecordType
 
 data Config = Config
     { cComment :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML Config where
     xmlPickler = withNS route53NS
 
 newtype HostedZoneId = HostedZoneId { unHostedZoneId :: Text }
-   deriving (Eq, IsString, IsByteString)
+   deriving (Eq, Ord, IsString, IsByteString)
 
 instance Show HostedZoneId where
     show = BS.unpack . prefixed
@@ -145,13 +145,13 @@ data HostedZone = HostedZone
       -- hosted zone.
     , hzResourceRecordSetCount :: !Integer
       -- ^ The number of resource record sets in the hosted zone.
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML HostedZone where
     xmlPickler = withNS route53NS
 
 newtype DelegationSet = DelegationSet { dsNameServers :: [Text] }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 instance IsXML DelegationSet where
     xmlPickler = xpWrap (DelegationSet, dsNameServers)
@@ -159,7 +159,7 @@ instance IsXML DelegationSet where
             $ xpElemList (route53Elem "NameServer") xmlPickler)
 
 newtype ChangeId = ChangeId { unChangeId :: Text }
-    deriving (Eq, IsString, IsByteString)
+    deriving (Eq, Ord, IsString, IsByteString)
 
 instance Show ChangeId where
     show = BS.unpack . prefixed
@@ -171,7 +171,7 @@ instance IsXML ChangeId where
     xmlPickler = (ChangeId, unChangeId) `xpWrap` xmlPickler
 
 data ChangeStatus = PENDING | INSYNC
-    deriving (Eq, Read, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 instance IsXML ChangeStatus where
     xmlPickler = xpContent xpPrim
@@ -180,7 +180,7 @@ data ChangeInfo = ChangeInfo
     { ciId          :: !ChangeId
     , ciStatus      :: !ChangeStatus
     , ciSubmittedAt :: !UTCTime
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML ChangeInfo where
     xmlPickler = withNS route53NS
@@ -204,7 +204,7 @@ instance IsXML ChangeAction where
 data Change = Change
     { cAction            :: !ChangeAction
     , cResourceRecordSet :: !ResourceRecordSet
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML Change where
     xmlPickler = withNS route53NS
@@ -212,13 +212,13 @@ instance IsXML Change where
 data ChangeBatch = ChangeBatch
     { cbComment :: Maybe Text
     , cbChanges :: [Change]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML ChangeBatch where
     xmlPickler = withNS route53NS
 
 newtype ResourceRecords = ResourceRecords { rrValues :: [Text] }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 instance IsXML ResourceRecords where
     xmlPickler = xpWrap (ResourceRecords, rrValues)
@@ -229,13 +229,13 @@ data AliasTarget = AliasTarget
     { atHostedZoneId         :: !HostedZoneId
     , atDNSName              :: !Text
     , atEvaluateTargetHealth :: !Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML AliasTarget where
     xmlPickler = withNS route53NS
 
 data Failover = PRIMARY | SECONDARY
-    deriving (Eq, Read, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 instance IsXML Failover where
     xmlPickler = xpContent xpPrim
@@ -313,7 +313,7 @@ data ResourceRecordSet
       , rrsHealthCheckId :: Maybe HealthCheckId
       }
 
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 instance IsXML ResourceRecordSet where
     xmlPickler = genericXMLPickler $ (namespacedXMLOptions route53NS)
@@ -326,13 +326,13 @@ data HealthCheckConfig = HealthCheckConfig
     , hccType                     :: !Protocol
     , hccResourcePath             :: !Text
     , hccFullyQualifiedDomainName :: !Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML HealthCheckConfig where
     xmlPickler = withNS route53NS
 
 newtype HealthCheckId = HealthCheckId { unHealthCheckId :: Text }
-    deriving (Eq, IsString, IsByteString)
+    deriving (Eq, Ord, IsString, IsByteString)
 
 instance Show HealthCheckId where
     show = BS.unpack . prefixed
@@ -347,7 +347,7 @@ data HealthCheck = HealthCheck
     { hcId                :: !HealthCheckId
     , hcCallerReference   :: !CallerReference
     , hcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML HealthCheck where
     xmlPickler = withNS route53NS

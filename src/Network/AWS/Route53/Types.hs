@@ -83,7 +83,7 @@ instance IsXML ErrorResponse where
 -- </InvalidChangeBatch>
 
 newtype CallerReference = CallerReference { unCallerReference :: Text }
-    deriving (Eq, Ord, Ord, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 instance IsXML CallerReference where
     xmlPickler = (CallerReference, unCallerReference) `xpWrap` xpTextContent

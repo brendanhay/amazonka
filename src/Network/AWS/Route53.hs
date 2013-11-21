@@ -416,6 +416,11 @@ instance Rq ListHealthChecks where
     type Rs ListHealthChecks = ListHealthChecksResponse
     request = query GET "healthcheck"
 
+instance Pg ListHealthChecks where
+    next _ ListHealthChecksResponse{..}
+        | not lhcrIsTruncated = Nothing
+        | otherwise = Just $ ListHealthChecks lhcrNextMarker (Just lhcrMaxItems)
+
 data ListHealthChecksResponse = ListHealthChecksResponse
     { lhcrHealthChecks :: [HealthCheck]
       -- ^ A list of health check descriptions.

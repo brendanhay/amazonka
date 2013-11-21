@@ -268,6 +268,10 @@ data InstanceType
     | M1_XLarge
     | M3_XLarge
     | M3_2XLarge
+    | C3_XLarge
+    | C3_2XLarge
+    | C3_4XLarge
+    | C3_8XLarge
     | C1_Medium
     | C1_XLarge
     | CC2_8XLarge
@@ -289,6 +293,10 @@ instance Show InstanceType where
         M1_XLarge   -> "m1.xlarge"
         M3_XLarge   -> "m3.xlarge"
         M3_2XLarge  -> "m3.2xlarge"
+        C3_XLarge   -> "c3.xlarge"
+        C3_2XLarge  -> "c3.2xlarge"
+        C3_4XLarge  -> "c3.4xlarge"
+        C3_8XLarge  -> "c3.8xlarge"
         C1_Medium   -> "c1.medium"
         C1_XLarge   -> "c1.xlarge"
         CC2_8XLarge -> "cc2.8xlarge"
@@ -309,6 +317,10 @@ instance Read InstanceType where
         , ("m1.xlarge",   M1_XLarge)
         , ("m3.xlarge",   M3_XLarge)
         , ("m3.2xlarge",  M3_2XLarge)
+        , ("c3.xlarge",   C3_XLarge)
+        , ("c3.2xlarge",  C3_2XLarge)
+        , ("c3.4xlarge",  C3_4XLarge)
+        , ("c3.8xlarge",  C3_8XLarge)
         , ("c1.medium",   C1_Medium)
         , ("c1.xlarge",   C1_XLarge)
         , ("cc2.8xlarge", CC2_8XLarge)
@@ -320,6 +332,14 @@ instance Read InstanceType where
         , ("hs1.8xlarge", HS1_8XLarge)
         , ("cg1.4xlarge", CG1_4XLarge)
         ]
+
+
+Compute optimized	 c3.large	 64-bit	 2	 7	 3.75	 2 x 16 SSD	 -	 Moderate
+	 c3.xlarge	 64-bit	 4	 14	 7	 2 x 40 SSD	 Yes	 High
+Compute optimized	 c3.2xlarge	 64-bit	 8	 28	 15	 2 x 80 SSD	 Yes	 High
+Compute optimized	 c3.4xlarge	 64-bit	 16	 55	 30	 2 x 160 SSD	 Yes	 High
+Compute optimized	 c3.8xlarge
+
 
 instance IsQuery InstanceType where
     queryPickler = qpPrim

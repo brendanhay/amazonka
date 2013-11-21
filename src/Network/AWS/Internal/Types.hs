@@ -333,14 +333,6 @@ instance Read InstanceType where
         , ("cg1.4xlarge", CG1_4XLarge)
         ]
 
-
-Compute optimized	 c3.large	 64-bit	 2	 7	 3.75	 2 x 16 SSD	 -	 Moderate
-	 c3.xlarge	 64-bit	 4	 14	 7	 2 x 40 SSD	 Yes	 High
-Compute optimized	 c3.2xlarge	 64-bit	 8	 28	 15	 2 x 80 SSD	 Yes	 High
-Compute optimized	 c3.4xlarge	 64-bit	 16	 55	 30	 2 x 160 SSD	 Yes	 High
-Compute optimized	 c3.8xlarge
-
-
 instance IsQuery InstanceType where
     queryPickler = qpPrim
 

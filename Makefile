@@ -16,7 +16,7 @@ clean:
 	cabal clean
 
 test:
-	cabal install --enable-tests --flags="-f-colors"
+	cabal test --test-options="--num-threads=4 --quickcheck-tests=20 +RTS -N4 -RTS"
 
 lint:
 	hlint src

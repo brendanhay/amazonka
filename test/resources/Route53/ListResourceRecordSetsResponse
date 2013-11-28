@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListResourceRecordSetsResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
   <ResourceRecordSets>
-    {% if lrrsrResourceRecordSets %}
+    {% for rr in lrrsrResourceRecordSets %}
     <ResourceRecordSet>
-      <Name>{{ rrsName }}</Name>
-      <Type>{{ rrsType }}</Type>
-      {% if rrsSetIdentifier %}
-      <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
+      <Name>{{ rr.value.rrsName }}</Name>
+      <Type>{{ rr.value.rrsType }}</Type>
+      {% if rr.value.rrsSetIdentifier %}
+      <SetIdentifier>{{ rr.value.rrsSetIdentifier }}</SetIdentifier>
       {% endif %}
-      {% if rrsFailover %}
-      <Failover>{{ rrsFailover }}</Failover>
+      {% if rr.value.rrsFailover %}
+      <Failover>{{ rr.value.rrsFailover }}</Failover>
       {% endif %}
-      {% if rrsRegion %}
-      <Region>{{ rrsRegion }}</Region>
+      {% if rr.value.rrsRegion %}
+      <Region>{{ rr.value.rrsRegion }}</Region>
       {% endif %}
-      {% if rrsWeight %}
-      <Weight>{{ rrsWeight }}</Weight>
+      {% if rr.value.rrsWeight %}
+      <Weight>{{ rr.value.rrsWeight }}</Weight>
       {% endif %}
-      <TTL>{{ rrsTTL }}</TTL>
-      {% if rrsResourceRecords %}
+      {% if rr.value.rrsTTL %}
+      <TTL>{{ rr.value.rrsTTL }}</TTL>
+      {% endif %}
+      {% if rr.value.rrsResourceRecords %}
       <ResourceRecords>
-        {% if rrValues %}
+        {% for v in rr.value.rrsResourceRecords.rrValues %}
         <ResourceRecord>
-          <Value>{{.}}</Value>
+          <Value>{{ v.value }}</Value>
         </ResourceRecord>
-        {% endif %}
+        {% endfor %}
       </ResourceRecords>
       {% endif %}
-      {% if rrsAliasTarget %}
+      {% if rr.value.rrsAliasTarget %}
       <AliasTarget>
-        <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
-        <DNSName>{{ atDNSName }}</DNSName>
-        {% if atEvaluateTargetHealth %}
-        <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
-        {% endif %}
+        <HostedZoneId>{{ rr.value.rrsAliasTarget.atHostedZoneId }}</HostedZoneId>
+        <DNSName>{{ rr.value.rrsAliasTarget.atDNSName }}</DNSName>
+        <EvaluateTargetHealth>{{ rr.value.rrsAliasTarget.atEvaluateTargetHealth | show | lower }}</EvaluateTargetHealth>
       </AliasTarget>
       {% endif %}
-      {% if rrsHealthCheckId %}
-      <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
+      {% if rr.value.rrsHealthCheckId %}
+      <HealthCheckId>{{ rr.value.rrsHealthCheckId }}</HealthCheckId>
       {% endif %}
     </ResourceRecordSet>
-    {% endif %}
+    {% endfor %}
   </ResourceRecordSets>
-  <IsTruncated>{{ lrrsrIsTruncated }}</IsTruncated>
+  <IsTruncated>{{ lrrsrIsTruncated | show | lower }}</IsTruncated>
   <MaxItems>{{ lrrsrMaxItems }}</MaxItems>
   {% if lrrsrNextRecordName %}
   <NextRecordName>{{ lrrsrNextRecordName }}</NextRecordName>

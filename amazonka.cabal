@@ -92,7 +92,7 @@ test-suite amazonka-tests
     hs-source-dirs:    test
     main-is:           Main.hs
 
-    ghc-options:       -Wall
+    ghc-options:       -Wall -threaded
 
     build-depends:
         aeson              >= 0.6.2.1

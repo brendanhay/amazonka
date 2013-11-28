@@ -202,4 +202,4 @@ render tmpl (Object o) = f <$> unsafePerformIO g
   where
     f = LBS.toStrict . LText.encodeUtf8 . LText.toLazyText
     g = (EDE.eitherRender o <=< EDE.eitherParse) <$> LText.readFile tmpl
-render _    _          = error "Attempted to render non-object value"
+render tmpl _ = Right . unsafePerformIO $ BS.readFile tmpl

@@ -2,9 +2,11 @@
 <ChangeResourceRecordSetsResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
    {% if crrsrChangeInfo %}
    <ChangeInfo>
-      <Id>{{ ciId }}</Id>
-      <Status>{{ ciStatus }}</Status>
-      <SubmittedAt>{{ ciSubmittedAt }}</SubmittedAt>
+      <Id>{{ crrsrChangeInfo.ciId }}</Id>
+      <Status>{{ crrsrChangeInfo.ciStatus }}</Status>
+      <SubmittedAt>{{ crrsrChangeInfo.ciSubmittedAt }}</SubmittedAt>
    </ChangeInfo>
+   {% else %}
+   <ChangeInfo/>
    {% endif %}
 </ChangeResourceRecordSetsResponse>

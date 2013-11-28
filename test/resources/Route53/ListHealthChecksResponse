@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListHealthChecksResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
   <HealthChecks>
-    {% if lhcrHealthChecks %}
+    {% for check in lhcrHealthChecks %}
     <HealthCheck>
-      <Id>{{ hcId }}</Id>
-      <CallerReference>{{ hcCallerReference }}</CallerReference>
-      {% if hcHealthCheckConfig %}
+      <Id>{{ check.value.hcId }}</Id>
+      <CallerReference>{{ check.value.hcCallerReference }}</CallerReference>
+      {% if check.value.hcHealthCheckConfig %}
       <HealthCheckConfig>
-        <IPAddress>{{ hccIPAddress }}</IPAddress>
-        <Port>{{ hccPort }}</Port>
-        <Type>{{ hccType }}</Type>
-        <ResourcePath>{{ hccResourcePath }}</ResourcePath>
-        <FullyQualifiedDomainName>{{ hccFullyQualifiedDomainName }}</FullyQualifiedDomainName>
+        <IPAddress>{{ check.value.hcHealthCheckConfig.hccIPAddress }}</IPAddress>
+        <Port>{{ check.value.hcHealthCheckConfig.hccPort }}</Port>
+        <Type>{{ check.value.hcHealthCheckConfig.hccType }}</Type>
+        <ResourcePath>{{ check.value.hcHealthCheckConfig.hccResourcePath }}</ResourcePath>
+        <FullyQualifiedDomainName>{{ check.value.hcHealthCheckConfig.hccFullyQualifiedDomainName }}</FullyQualifiedDomainName>
       </HealthCheckConfig>
       {% endif %}
     </HealthCheck>
-    {% endif %}
+    {% endfor %}
   </HealthChecks>
-  <IsTruncated>{{ lhcrIsTruncated }}</IsTruncated>
+  <IsTruncated>{{ lhcrIsTruncated | show | lower }}</IsTruncated>
   {% if lhcrMarker %}
   <Marker>{{ lhcrMarker }}</Marker>
   {% endif %}

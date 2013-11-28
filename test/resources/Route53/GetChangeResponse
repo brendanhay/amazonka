@@ -2,9 +2,11 @@
 <GetChangeResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
    {% if gcrChangeInfo %}
    <ChangeInfo>
-      <Id>{{ ciId }}</Id>
-      <Status>{{ ciStatus }}</Status>
-      <SubmittedAt>{{ ciSubmittedAt }}</SubmittedAt>
+      <Id>{{ gcrChangeInfo.ciId }}</Id>
+      <Status>{{ gcrChangeInfo.ciStatus }}</Status>
+      <SubmittedAt>{{ gcrChangeInfo.ciSubmittedAt }}</SubmittedAt>
    </ChangeInfo>
+   {% else %}
+   <ChangeInfo/>
    {% endif %}
 </GetChangeResponse>

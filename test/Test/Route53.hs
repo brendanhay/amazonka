@@ -21,16 +21,16 @@ tests :: TestTree
 tests = testVersion route53
     [ testGroup "Hosted Zones"
         [ testGroup "Requests"
-            [ qc "CreateHostedZone"         (prop :: TRq CreateHostedZone)
-            , qc "GetHostedZone"            (prop :: TRq GetHostedZone)
-            , qc "ListHostedZones"          (prop :: TRq ListHostedZones)
-            , qc "DeleteHostedZone"         (prop :: TRq DeleteHostedZone)
+            [ qc "CreateHostedZone"                 (prop :: TRq CreateHostedZone)
+            , qc "GetHostedZone"                    (prop :: TRq GetHostedZone)
+            , qc "ListHostedZones"                  (prop :: TRq ListHostedZones)
+            , qc "DeleteHostedZone"                 (prop :: TRq DeleteHostedZone)
             ]
         , testGroup "Responses"
-            [ qc "CreateHostedZoneResponse" (prop :: TRs CreateHostedZoneResponse)
-            , qc "GetHostedZoneResponse"    (prop :: TRs GetHostedZoneResponse)
-            , qc "ListHostedZonesResponse"  (prop :: TRs ListHostedZonesResponse)
-            , qc "DeleteHostedZoneResponse" (prop :: TRs DeleteHostedZoneResponse)
+            [ qc "CreateHostedZoneResponse"         (prop :: TRs CreateHostedZoneResponse)
+            , qc "GetHostedZoneResponse"            (prop :: TRs GetHostedZoneResponse)
+            , qc "ListHostedZonesResponse"          (prop :: TRs ListHostedZonesResponse)
+            , qc "DeleteHostedZoneResponse"         (prop :: TRs DeleteHostedZoneResponse)
             ]
         ]
 
@@ -49,16 +49,16 @@ tests = testVersion route53
 
     , testGroup "Health Checks"
         [ testGroup "Requests"
-            [ qc "CreateHealthCheck"         (prop :: TRq CreateHealthCheck)
-            , qc "GetHealthCheck"            (prop :: TRq GetHealthCheck)
-            , qc "ListHealthChecks"          (prop :: TRq ListHealthChecks)
-            , qc "DeleteHealthCheck"         (prop :: TRq DeleteHealthCheck)
+            [ qc "CreateHealthCheck"                (prop :: TRq CreateHealthCheck)
+            , qc "GetHealthCheck"                   (prop :: TRq GetHealthCheck)
+            , qc "ListHealthChecks"                 (prop :: TRq ListHealthChecks)
+            , qc "DeleteHealthCheck"                (prop :: TRq DeleteHealthCheck)
             ]
         , testGroup "Responses"
-            [ qc "CreateHealthCheckResponse" (prop :: TRs CreateHealthCheckResponse)
-            , qc "GetHealthCheckResponse"    (prop :: TRs GetHealthCheckResponse)
-            , qc "ListHealthChecksResponse"  (prop :: TRs ListHealthChecksResponse)
-            , qc "DeleteHealthCheckResponse" (prop :: TRs DeleteHealthCheckResponse)
+            [ qc "CreateHealthCheckResponse"        (prop :: TRs CreateHealthCheckResponse)
+            , qc "GetHealthCheckResponse"           (prop :: TRs GetHealthCheckResponse)
+            , qc "ListHealthChecksResponse"         (prop :: TRs ListHealthChecksResponse)
+            , qc "DeleteHealthCheckResponse"        (prop :: TRs DeleteHealthCheckResponse)
             ]
         ]
     ]

@@ -20,9 +20,9 @@ import           Test.Tasty
 main :: IO ()
 main = defaultMain $ testGroup "Amazonka"
     [ Route53.tests
+--    , AutoScaling.tests
     ]
---     -- testGroup "AutoScaling" AutoScaling.tests
-     
+
 -- --     testGroup "EC2"         EC2.tests
 --     -- , testGroup "IAM"         IAM.tests
 --     -- , testGroup "CloudWatch"  CloudWatch.tests

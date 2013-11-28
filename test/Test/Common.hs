@@ -61,8 +61,8 @@ import           Test.Tasty.QuickCheck
 import qualified Text.EDE                as EDE
 
 testVersion :: Service -> [TestTree] -> TestTree
-testVersion svc = testGroup .
-    BS.unpack $ mconcat [svcName svc, " ", svcVersion svc]
+testVersion svc = testGroup . BS.unpack $ mconcat
+    ["***** [", svcName svc, "] [", svcVersion svc, "] *****"]
 
 qc :: Testable a => TestName -> a -> TestTree
 qc = testProperty

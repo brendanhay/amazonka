@@ -16,7 +16,7 @@ clean:
 	cabal clean
 
 test:
-	cabal install --enable-tests
+	cabal install --enable-tests --flags="-f-colors"
 
 lint:
 	hlint src

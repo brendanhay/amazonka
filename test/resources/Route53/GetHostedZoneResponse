@@ -2,23 +2,23 @@
 <GetHostedZoneResponse xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
   {% if ghzrHostedZone %}
   <HostedZone>
-    <Id>{{ hzId }}</Id>
-    <Name>{{ hzName }}</Name>
-    <CallerReference>{{ hzCallerReference }}</CallerReference>
-    {% if hzConfig %}
+    <Id>{{ ghzrHostedZone.hzId }}</Id>
+    <Name>{{ ghzrHostedZone.hzName }}</Name>
+    <CallerReference>{{ ghzrHostedZone.hzCallerReference }}</CallerReference>
+    {% if ghzrHostedZone.hzConfig %}
     <Config>
-      <Comment>{{ cComment }}</Comment>
+      <Comment>{{ ghzrHostedZone.hzConfig.cComment }}</Comment>
     </Config>
     {% endif %}
-    <ResourceRecordSetCount>{{ hzResourceRecordSetCount }}</ResourceRecordSetCount>
+    <ResourceRecordSetCount>{{ ghzrHostedZone.hzResourceRecordSetCount }}</ResourceRecordSetCount>
   </HostedZone>
   {% endif %}
   {% if ghzrDelegationSet %}
   <DelegationSet>
     <NameServers>
-    {% if dsNameServers %}
-      <NameServer>{{.}}</NameServer>
-    {% endif %}
+    {% for ns in ghzrDelegationSet.dsNameServers %}
+      <NameServer>{{ ns.value }}</NameServer>
+    {% endfor %}
     </NameServers>
   </DelegationSet>
   {% endif %}

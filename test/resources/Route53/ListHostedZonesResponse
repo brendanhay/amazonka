@@ -3,23 +3,23 @@
   <HostedZones>
   {% for zone in lhzrHostedZones %}
     <HostedZone>
-      <Id>{{ zone.hzId }}</Id>
-      <Name>{{ zone.hzName }}</Name>
-      <CallerReference>{{ zone.hzCallerReference }}</CallerReference>
-      {% if zone.hzConfig %}
-      {% if zone.hzConfig.cComment %}
+      <Id>{{ zone.value.hzId }}</Id>
+      <Name>{{ zone.value.hzName }}</Name>
+      <CallerReference>{{ zone.value.hzCallerReference }}</CallerReference>
+      {% if zone.value.hzConfig %}
+      {% if zone.value.hzConfig.cComment %}
       <Config>
-        <Comment>{{ zone.hzConfig.cComment }}</Comment>
+        <Comment>{{ zone.value.hzConfig.cComment }}</Comment>
       </Config>
       {% else %}
       <Config/>
       {% endif %}
       {% endif %}
-      <ResourceRecordSetCount>{{ zone.hzResourceRecordSetCount }}</ResourceRecordSetCount>
+      <ResourceRecordSetCount>{{ zone.value.hzResourceRecordSetCount }}</ResourceRecordSetCount>
     </HostedZone>
   {% endfor %}
   </HostedZones>
-  <IsTruncated>{{ lhzrIsTruncated }}</IsTruncated>
+  <IsTruncated>{{ lhzrIsTruncated | show | lower }}</IsTruncated>
   {% if lhzrMarker %}
   <Marker>{{ lhzrMarker }}</Marker>
   {% endif %}

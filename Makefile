@@ -16,7 +16,8 @@ clean:
 	cabal clean
 
 test:
-	cabal test --test-options="--num-threads=4 --quickcheck-tests=20 +RTS -N4 -RTS"
+	cabal test --test-options=\
+	"--num-threads=4 +RTS -N4 -RTS --quickcheck-tests=20 --quickcheck-max-size=50"
 
 lint:
 	hlint src

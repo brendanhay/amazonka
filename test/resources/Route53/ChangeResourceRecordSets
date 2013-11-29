@@ -4,162 +4,66 @@ application/xml
 <ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-12-12/">
   {% if crrsChangeBatch %}
   <ChangeBatch>
-    {% if cbComment %}
-    <Comment>{{ cbComment }}</Comment>
+    {% if crrsChangeBatch.cbComment %}
+    <Comment>{{ crrsChangeBatch.cbComment }}</Comment>
     {% endif %}
+    {% for c in crrsChangeBatch.cbChanges %}
+    {% if c.first %}
     <Changes>
-      {% if cbChanges %}
+    {% endif %}
       <Change>
-        <Action>{{ cAction }}</Action>
-        {% if cResourceRecordSet %}
+        <Action>{% case c.value.cAction %}{% when "CreateAction" %}CREATE{% when "DeleteAction" %}DELETE{% endcase %}</Action>
         <ResourceRecordSet>
-          {% if BasicRecordSet %}
-          <Name>{{ rrsName }}</Name>
-          <Type>{{ rrsType }}</Type>
-          <TTL>{{ rrsTTL }}</TTL>
-          {% if rrsResourceRecords %}
-          <ResourceRecords>
-            {% if rrValues %}
-            <ResourceRecord>
-              <Value>{{.}}</Value>
-            </ResourceRecord>
+          <Name>{{ c.value.cResourceRecordSet.rrsName }}</Name>
+          <Type>{{ c.value.cResourceRecordSet.rrsType }}</Type>
+          {% if c.value.cResourceRecordSet.rrsSetIdentifier %}
+          <SetIdentifier>{{ c.value.cResourceRecordSet.rrsSetIdentifier }}</SetIdentifier>
+          {% endif %}
+          {% if c.value.cResourceRecordSet.rrsRegion %}
+          <Region>{{ c.value.cResourceRecordSet.rrsRegion }}</Region>
+          {% endif %}
+          {% if c.value.cResourceRecordSet.rrsWeight %}
+          <Weight>{{ c.value.cResourceRecordSet.rrsWeight }}</Weight>
+          {% endif %}
+          {% if c.value.cResourceRecordSet.rrsFailover %}
+          <Failover>{{ c.value.cResourceRecordSet.rrsFailover }}</Failover>
+          {% endif %}
+          {% if c.value.cResourceRecordSet.rrsTTL %}
+          <TTL>{{ c.value.cResourceRecordSet.rrsTTL }}</TTL>
+          {% endif %}
+          {% if c.value.cResourceRecordSet.rrsResourceRecords %}
+            {% for v in c.value.cResourceRecordSet.rrsResourceRecords.rrValues %}
+            {% if v.first %}
+            <ResourceRecords>
             {% endif %}
-          </ResourceRecords>
+            <ResourceRecord>
+              <Value>{{ v.value }}</Value>
+            </ResourceRecord>
+            {% if v.last %}
+            </ResourceRecords>
+            {% endif %}
+            {% else %}
+            <ResourceRecords/>
+            {% endfor %}
           {% endif %}
-          {% if rrsHealthCheckId %}
-          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
-          {% endif %}
-          {% endif %}
-          {% if AliasRecordSet %}
-          <Name>{{ rrsName }}</Name>
-          <Type>{{ rrsType }}</Type>
-          {% if rrsAliasTarget %}
+          {% if c.value.cResourceRecordSet.rrsAliasTarget %}
           <AliasTarget>
-            <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
-            <DNSName>{{ atDNSName }}</DNSName>
-            <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
+            <HostedZoneId>{{ c.value.cResourceRecordSet.rrsAliasTarget.atHostedZoneId }}</HostedZoneId>
+            <DNSName>{{ c.value.cResourceRecordSet.rrsAliasTarget.atDNSName }}</DNSName>
+            <EvaluateTargetHealth>{{ c.value.cResourceRecordSet.rrsAliasTarget.atEvaluateTargetHealth | show | lower}}</EvaluateTargetHealth>
           </AliasTarget>
           {% endif %}
-          {% if rrsHealthCheckId %}
-          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
-          {% endif %}
-          {% endif %}
-          {% if WeightedRecordSet %}
-          <Name>{{ rrsName }}</Name>
-          <Type>{{ rrsType }}</Type>
-          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
-          <Weight>{{ rrsWeight }}</Weight>
-          <TTL>{{ rrsTTL }}</TTL>
-          {% if rrsResourceRecords %}
-          <ResourceRecords>
-            {% if rrValues %}
-            <ResourceRecord>
-              <Value>{{.}}</Value>
-            </ResourceRecord>
-            {% endif %}
-          </ResourceRecords>
-          {% endif %}
-          {% if rrsHealthCheckId %}
-          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
-          {% endif %}
-          {% endif %}
-          {% if WeightedAliasRecordSet %}
-          <Name>{{ rrsName }}</Name>
-          <Type>{{ rrsType }}</Type>
-          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
-          <Weight>{{ rrsWeight }}</Weight>
-          {% if rrsAliasTarget %}
-          <AliasTarget>
-            <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
-            <DNSName>{{ atDNSName }}</DNSName>
-            {% if atEvaluateTargetHealth %}
-            <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
-            {% endif %}
-          </AliasTarget>
-          {% endif %}
-          {% if rrsHealthCheckId %}
-          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
-          {% endif %}
-          {% endif %}
-          {% if LatencyRecordSet %}
-          <Name>{{ rrsName }}</Name>
-          <Type>{{ rrsType }}</Type>
-          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
-          <Region>{{ rrsRegion }}</Region>
-          <TTL>{{ rrsTTL }}</TTL>
-          {% if rrsResourceRecords %}
-          <ResourceRecords>
-            {% if rrValues %}
-            <ResourceRecord>
-              <Value>{{.}}</Value>
-            </ResourceRecord>
-            {% endif %}
-          </ResourceRecords>
-          {% endif %}
-          {% if rrsHealthCheckId %}
-          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
-          {% endif %}
-          {% endif %}
-          {% if LatencyAliasRecordSet %}
-          <Name>{{ rrsName }}</Name>
-          <Type>{{ rrsType }}</Type>
-          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
-          <Region>{{ rrsRegion }}</Region>
-          {% if rrsAliasTarget %}
-          <AliasTarget>
-            <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
-            <DNSName>{{ atDNSName }}</DNSName>
-            {% if atEvaluateTargetHealth %}
-            <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
-            {% endif %}
-          </AliasTarget>
-          {% endif %}
-          {% if rrsHealthCheckId %}
-          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
-          {% endif %}
-          {% endif %}
-          {% if FailoverRecordSet %}
-          <Name>{{ rrsName }}</Name>
-          <Type>{{ rrsType }}</Type>
-          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
-          <Failover>{{ rrsFailover }}</Failover>
-          <TTL>{{ rrsTTL }}</TTL>
-          {% if rrsResourceRecords %}
-          <ResourceRecords>
-            {% if rrValues %}
-            <ResourceRecord>
-              <Value>{{.}}</Value>
-            </ResourceRecord>
-            {% endif %}
-          </ResourceRecords>
-          {% endif %}
-          {% if rrsHealthCheckId %}
-          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
-          {% endif %}
-          {% endif %}
-          {% if FailoverAliasRecordSet %}
-          <Name>{{ rrsName }}</Name>
-          <Type>{{ rrsType }}</Type>
-          <SetIdentifier>{{ rrsSetIdentifier }}</SetIdentifier>
-          <Failover>{{ rrsFailover }}</Failover>
-          {% if rrsAliasTarget %}
-          <AliasTarget>
-            <HostedZoneId>{{ atHostedZoneId }}</HostedZoneId>
-            <DNSName>{{ atDNSName }}</DNSName>
-            {% if atEvaluateTargetHealth %}
-            <EvaluateTargetHealth>{{ atEvaluateTargetHealth }}</EvaluateTargetHealth>
-            {% endif %}
-          </AliasTarget>
-          {% endif %}
-          {% if rrsHealthCheckId %}
-          <HealthCheckId>{{ rrsHealthCheckId }}</HealthCheckId>
-          {% endif %}
+          {% if c.value.cResourceRecordSet.rrsHealthCheckId %}
+          <HealthCheckId>{{ c.value.cResourceRecordSet.rrsHealthCheckId }}</HealthCheckId>
           {% endif %}
         </ResourceRecordSet>
-        {% endif %}
       </Change>
+      {% if c.last %}
+      </Changes>
       {% endif %}
-    </Changes>
+    {% else %}
+    <Changes/>
+    {% endfor %}
   </ChangeBatch>
   {% endif %}
 </ChangeResourceRecordSetsRequest>

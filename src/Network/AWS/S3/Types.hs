@@ -19,6 +19,7 @@ module Network.AWS.S3.Types where
 import Data.ByteString      (ByteString)
 import Data.Monoid
 import Data.Text            (Text)
+import Data.Time
 import Network.AWS.Headers
 import Network.AWS.Internal
 
@@ -34,32 +35,28 @@ instance ToError S3ErrorResponse where
 
 instance IsXML S3ErrorResponse
 
-newtype Key = Key Text deriving (Eq, Show)
-
-newtype Bucket = Bucket Text deriving (Eq, Show)
-
 newtype S3HeadersResponse = S3HeadersResponse [(ByteString, ByteString)]
     deriving (Eq, Show)
 
--- data Owner = Owner
---     { oDisplayName :: !Text
---       -- ^ Bucket owner's display name.
---     , oID          :: !Text
---       -- ^ Bucket owner's user ID.
---     } deriving (Eq, Show, Generic)
+data Owner = Owner
+    { oID          :: !Text
+      -- ^ Bucket owner's user ID.
+    , oDisplayName :: !Text
+      -- ^ Bucket owner's display name.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML Owner where
---     xmlPickler = withNS s3NS
+instance IsXML Owner where
+    xmlPickler = withNS s3NS
 
--- data Bucket = Bucket
---     { bName         :: !Text
---       -- ^ Bucket's name.
---     , bCreationDate :: !UTCTime
---       -- ^ Date the bucket was created.
---     } deriving (Eq, Show, Generic)
+data Bucket = Bucket
+    { bName         :: !Text
+      -- ^ Bucket's name.
+    , bCreationDate :: !UTCTime
+      -- ^ Date the bucket was created.
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML Bucket where
---     xmlPickler = withNS s3NS
+instance IsXML Bucket where
+    xmlPickler = withNS s3NS
 
 -- type Bucket = T.Text
 
@@ -142,7 +139,7 @@ type Metadata           = Header "x-amz-meta-" (Text, Text)
 
 -- | XML namespace to annotate S3 elements with.
 s3NS :: ByteString
-s3NS = "http://s3.amazonaws.com/doc/" <> svcVersion s3 <> "/"
+s3NS = "http://doc.s3.amazonaws.com/" <> svcVersion s3
 
 -- | Helper to define S3 namespaced XML elements.
 s3Elem :: ByteString -> NName ByteString

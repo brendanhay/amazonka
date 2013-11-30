@@ -10,7 +10,8 @@
 
 module Main (main) where
 
-import qualified Test.Route53 as Route53
+import qualified Test.Route53 as R53
+import qualified Test.S3      as S3
 import           Test.Tasty
 
 -- -- import qualified Test.AutoScaling as AutoScaling
@@ -19,7 +20,8 @@ import           Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "Amazonka"
-    [ Route53.tests
+    [ R53.tests
+    , S3.tests
 --    , AutoScaling.tests
     ]
 

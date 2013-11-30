@@ -22,22 +22,24 @@
 -- such as Amazon Elastic Compute Cloud (Amazon EC2).
 module Network.AWS.S3
     (
-    -- -- * Operations on the Service
-    -- -- ** GET Service
-    --   GetService              (..)
+    -- * Operations on the Service
+    -- ** GET Service
+      GetService              (..)
+    , GetServiceResponse      (..)
+
 
     -- -- * Operations on Buckets
     -- -- **
 
-    -- -- * Operations on Objects
+    -- * Operations on Objects
     -- -- ** DELETE Object
     -- , DeleteObject            (..)
 
     -- -- ** POST Delete Multiple Objects
     -- , DeleteMultipleObjects   (..)
 
-    -- -- ** GET Object
-      GetObject               (..)
+    -- ** GET Object
+    , GetObject               (..)
 
     -- -- ** GET Object ACL
     -- , GetObjectACL            (..)
@@ -91,7 +93,9 @@ module Network.AWS.S3
     , module Network.AWS
     ) where
 
+import           Data.ByteString      (ByteString)
 import           Data.Monoid
+import           Data.Text            (Text)
 import qualified Data.Text.Encoding   as Text
 import           Network.AWS
 import           Network.AWS.Headers
@@ -99,13 +103,16 @@ import           Network.AWS.Internal
 import           Network.AWS.S3.Types
 import           Network.Http.Client  (Method(..))
 
-object :: Method -> Bucket -> Key -> [AnyHeader] -> Body -> AWS Signed
-object meth (Bucket b) (Key k) hs =
+object :: Method -> Text -> Text -> [AnyHeader] -> Body -> AWS Signed
+object meth b k hs =
     sign (versionS3 name) . Request svc meth path hs []
   where
     svc  = override (name <> ".s3.amazonaws.com") s3
     path = Text.encodeUtf8 k
     name = Text.encodeUtf8 b
+
+empty :: Method -> ByteString -> AWS Signed
+empty meth path = sign (versionS3 "fixme") $ Request s3 meth path [] [] Empty
 
 headers :: (Monad m, Rs a ~ S3HeadersResponse)
         => a
@@ -117,26 +124,25 @@ headers _ Response{..} = return . Right . Right $ S3HeadersResponse rsHeaders
 -- Service
 --
 
--- -- | Returns a list of all buckets owned by the requester.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html>
--- data GetService = GetService deriving (Eq, Show, Generic)
+-- | Returns a list of all buckets owned by the requester.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html>
+data GetService = GetService deriving (Eq, Show)
 
--- instance IsQuery GetService
+instance Rq GetService where
+    type Er GetService = S3ErrorResponse
+    type Rs GetService = GetServiceResponse
+    request _ = empty GET "/"
 
--- instance Rq GetService where
---     request = qry GET undefined
+data GetServiceResponse = GetServiceResponse
+    { gsrOwner   :: !Owner
+      -- ^ Information about the bucket owner.
+    , gsrBuckets :: [Bucket]
+      -- ^ A list of buckets for the service.
+    } deriving (Eq, Show, Generic)
 
--- type instance Er GetService = S3ErrorResponse
--- data instance Rs GetService = GetServiceResult
---     { gsrOwner   :: !Owner
---       -- ^ Information about the bucket owner.
---     , gsrBuckets :: [Bucket]
---       -- ^ A list of buckets for the service.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML (Rs GetService) where
---     xmlPickler = withNS s3NS
+instance IsXML GetServiceResponse where
+    xmlPickler = withRootNS s3NS "ListAllMyBucketsResult"
 
 --
 -- Buckets
@@ -155,8 +161,8 @@ headers _ Response{..} = return . Right . Right $ S3HeadersResponse rsHeaders
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html>
 data GetObject  = GetObject
-    { goBucket  :: !Bucket
-    , goKey     :: !Key
+    { goBucket  :: !Text
+    , goKey     :: !Text
     , goHeaders :: [AnyHeader]
     }
 
@@ -420,8 +426,8 @@ instance Rq GetObject where
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html>
 data PutObject = PutObject
-    { poBucket  :: !Bucket
-    , poKey     :: !Key
+    { poBucket  :: !Text
+    , poKey     :: !Text
     , poLength  :: !ContentLength
     , poHeaders :: [AnyHeader]
     , poBody    :: Body
@@ -432,7 +438,8 @@ deriving instance Show PutObject
 instance Rq PutObject where
     type Er PutObject = S3ErrorResponse
     type Rs PutObject = S3HeadersResponse
-    request PutObject{..} = object PUT poBucket poKey (hdr poLength : poHeaders) poBody
+    request PutObject{..} =
+        object PUT poBucket poKey (hdr poLength : poHeaders) poBody
     response = headers
 
 -- newtype PutObjectResult = PutObjectResult [(ByteString, ByteString)]

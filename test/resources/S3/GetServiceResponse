@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListAllMyBucketsResult xmlns="http://doc.s3.amazonaws.com/2006-03-01">
+  <Owner>
+    <ID>{{ gsrOwner.oID }}</ID>
+    <DisplayName>{{ gsrOwner.oDisplayName }}</DisplayName>
+  </Owner>
+  {% for b in gsrBuckets %}
+    {% if b.first %}
+  <Buckets>
+    {% endif %}
+    <Bucket>
+      <Name>{{ b.value.bName }}</Name>
+      <CreationDate>{{ b.value.bCreationDate }}</CreationDate>
+    </Bucket>
+    {% if b.last %}
+  </Buckets>
+    {% endif %}
+  {% else %}
+  <Buckets/>
+  {% endfor %}
+</ListAllMyBucketsResult>

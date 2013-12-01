@@ -23,6 +23,17 @@ tests = testVersion s3
         [ qc "GetService"         (prop :: TRq GetService)
         , qc "GetServiceResponse" (prop :: TRs GetServiceResponse)
         ]
+
+    , testGroup "Bucket"
+        [
+        ]
+
+    , testGroup "Object"
+        [
+        ]
+        -- [ qc "GetObject" (prop :: TRq GetObject)
+        -- , qc "PutObject" (prop :: TRq PutObject)
+        -- ]
     ]
 
 $(deriveDependency
@@ -33,4 +44,6 @@ $(deriveDependency
 $(deriveProperty "test/resources/S3"
     [ ''GetService
     , ''GetServiceResponse
+    -- , ''GetObject
+    -- , ''PutObject
     ])

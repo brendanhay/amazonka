@@ -55,6 +55,18 @@ instance IsHeader String where
 instance IsHeader Integer where
     encodeHeader n = encodeHeader (show n)
 
+data AnyHeader where
+    AnyHeader :: IsHeader a => a -> AnyHeader
+
+instance IsHeader AnyHeader where
+    encodeHeader (AnyHeader h) = encodeHeader h
+
+instance Show AnyHeader where
+    show (AnyHeader h) = show $ encodeHeader h mempty
+
+hdr :: IsHeader a => a -> AnyHeader
+hdr = AnyHeader
+
 data Header (k :: Symbol) v = Header v
 
 instance Functor (Header k) where
@@ -68,18 +80,6 @@ instance (SingI k, IsHeader v) => IsHeader (Header k v) where
 
 instance (SingI k, IsHeader v) => Show (Header k v) where
     show = show . (`encodeHeader` mempty)
-
-data AnyHeader where
-    AnyHeader :: IsHeader a => a -> AnyHeader
-
-instance IsHeader AnyHeader where
-    encodeHeader (AnyHeader h) = encodeHeader h
-
-instance Show AnyHeader where
-    show (AnyHeader h) = show $ encodeHeader h mempty
-
-hdr :: IsHeader a => a -> AnyHeader
-hdr = AnyHeader
 
 type ContentLength     = Header "content-length" Integer
 type ContentLanguage   = Header "content-language" ByteString

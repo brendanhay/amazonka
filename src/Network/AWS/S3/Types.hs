@@ -58,6 +58,53 @@ data Bucket = Bucket
 instance IsXML Bucket where
     xmlPickler = withNS s3NS
 
+--
+-- DeleteMultipleObjects
+--
+
+data DMObject = DMObject
+    { oKey     :: !Text
+    , oVersion :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML DMObject
+
+data DMObjects = DMObjects
+    { oQuiet   :: !Bool
+    , oObjects :: [DMObject]
+    } deriving (Eq, Show)
+
+instance IsXML DMObjects where
+    xmlPickler = pu { root = Just $ mkAnNName "Delete" }
+      where
+        pu = xpWrap (\(q, os) -> DMObjects q os, \(DMObjects q os) -> (q, os)) $
+             xpPair (xpElem (mkAnNName "Quiet") xmlPickler)
+                    (xpElemList (mkAnNName "Object") xmlPickler)
+
+--
+-- DeleteMultipleObjectsResponse
+--
+
+data DeletedObject = DeletedObject
+    { doKey                   :: !Text
+    , doVersionId             :: Maybe Text
+    , doDeleteMarker          :: Maybe Bool
+    , doDeleteMarkerVersionId :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML DeletedObject where
+    xmlPickler = withRootNS s3NS "Deleted"
+
+data DeleteError = DeleteError
+    { deKey       :: !Text
+    , deVersionId :: Maybe Text
+    , deCode      :: !Text
+    , deMessage   :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML DeleteError where
+    xmlPickler = withRootNS s3NS "Error"
+
 -- type Bucket = T.Text
 
 -- data BucketInfo
@@ -69,24 +116,14 @@ instance IsXML Bucket where
 
 -- type Object = T.Text
 
--- data ObjectId
---     = ObjectId {
---         oidBucket :: Bucket
---       , oidObject :: Object
---       , oidVersion :: Maybe T.Text
---       }
---     deriving (Show)
-
--- data ObjectInfo
---     = ObjectInfo {
---         objectKey          :: T.Text
---       , objectLastModified :: UTCTime
---       , objectETag         :: T.Text
---       , objectSize         :: Integer
---       , objectStorageClass :: StorageClass
---       , objectOwner        :: UserInfo
---       }
---     deriving (Show)
+-- data Object = Object
+--     { objectKey          :: T.Text
+--     , objectLastModified :: UTCTime
+--     , objectETag         :: T.Text
+--     , objectSize         :: Integer
+--     , objectStorageClass :: StorageClass
+--     , objectOwner        :: UserInfo
+--     } deriving (Eq, Show, Generic)
 
 data AES256 = AES256 deriving (Show)
 
@@ -126,16 +163,70 @@ instance Show StorageClass where
 instance IsHeader StorageClass where
     encodeHeader = encodeHeader . show
 
-type Storage            = Header "x-amz-storage-class" StorageClass
-type RedirectLocation   = Header "x-amz-website-redirect-location" Text
-type Encryption         = Header "x-amz-server-side-encryption" AES256
-type ACL                = Header "x-amz-acl" CannedACL
-type GrantRead          = Header "x-amz-grant-read" Text
-type GrantWrite         = Header "x-amz-grant-write" Text
-type GrantReadACP       = Header "x-amz-grant-read-acp" Text
-type GrantWriteACP      = Header "x-amz-grant-write-acp" Text
-type GrantFullControl   = Header "x-amz-grant-full-control" Text
-type Metadata           = Header "x-amz-meta-" (Text, Text)
+type Metadata = Header "x-amz-meta-" (Text, Text)
+
+type Storage = Header "x-amz-storage-class" StorageClass
+
+type ACL = Header "x-amz-acl" CannedACL
+
+type GrantRead        = Header "x-amz-grant-read" Text
+type GrantWrite       = Header "x-amz-grant-write" Text
+type GrantReadACP     = Header "x-amz-grant-read-acp" Text
+type GrantWriteACP    = Header "x-amz-grant-write-acp" Text
+type GrantFullControl = Header "x-amz-grant-full-control" Text
+
+-- | When a bucket is configured as a website, you can set this metadata on the
+-- object so the website endpoint will evaluate the request for the object as
+-- a 301 redirect to another object in the same bucket or an external URL.
+type RedirectLocation = Header "x-amz-website-redirect-location" Text
+
+-- | If the object is stored using server-side encryption, response includes
+-- this header with value of the encryption algorithm used.
+type Encryption = Header "x-amz-server-side-encryption" AES256
+
+-- | Sets the Content-Type header of the response.
+type ResponseContentType = Header "response-content-type" Text
+
+-- | Sets the Content-Language header of the response.
+type ResponseContentLanguage = Header "response-content-language" Text
+
+-- | Sets the Expires header of the response.
+type ResponseExpires = Header "response-expires" Text
+
+-- | Sets the Cache-Control header of the response.
+type ResponseCacheControl = Header "response-cache-control" Text
+
+-- | Sets the Content-Disposition header of the response.
+type ResponseContentDisposition = Header "response-content-disposition" Text
+
+-- | Sets the Content-Encoding header of the response.
+type ResponseContentEncoding = Header "response-content-encoding" Text
+
+-- | Specifies whether the object retrieved was (true) or was not (false)
+-- a Delete Marker.
+--
+-- If false, this response header does not appear in the response.
+type DeleteMarker = Header "x-amz-delete-marker" Bool
+
+-- | If the object expiration is configured (see PUT Bucket lifecycle), the
+-- response includes this header. It includes the expiry-date and rule-id key
+-- value pairs providing object expiration information.
+-- The value of the rule-id is URL encoded.
+type Expiration = Header "x-amz-expiration" UTCTime
+
+-- | Provides information about object restoration operation and expiration time
+-- of the restored object copy.
+type Restore = Header "x-amz-restore" Text
+
+-- | Returns the version ID of the retrieved object if it has a unique version ID.
+type VersionId = Header "x-amz-version-id" Text
+
+-- | The value is the concatenation of the authentication device's serial number,
+-- a space, and the value displayed on your authentication device.
+--
+-- Condition: Required to permanently delete a versioned object if versioning
+-- is configured with MFA Delete enabled.
+type MFA = Header "x-amz-mfa" Text
 
 -- | XML namespace to annotate S3 elements with.
 s3NS :: ByteString

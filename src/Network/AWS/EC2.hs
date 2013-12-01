@@ -583,9 +583,7 @@ data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML AssignPrivateIpAddressesResponse where
-    xmlPickler = ec2XML
-        { root = Just $ mkNName ec2NS "AssignPrivateIpAddresses"
-        }
+    xmlPickler = withRootNS ec2NS "AssignPrivateIpAddresses"
 
 -- | Associates an Elastic IP address with an instance or a network interface.
 --

@@ -24,22 +24,22 @@ module Network.AWS.S3
     (
     -- * Operations on the Service
     -- ** GET Service
-      GetService              (..)
-    , GetServiceResponse      (..)
-
+      GetService                    (..)
+    , GetServiceResponse            (..)
 
     -- -- * Operations on Buckets
     -- -- **
 
     -- * Operations on Objects
-    -- -- ** DELETE Object
-    -- , DeleteObject            (..)
+    -- ** DELETE Object
+    , DeleteObject                  (..)
 
-    -- -- ** POST Delete Multiple Objects
-    -- , DeleteMultipleObjects   (..)
+    -- ** POST Delete Multiple Objects
+    , DeleteMultipleObjects         (..)
+    , DeleteMultipleObjectsResponse (..)
 
     -- ** GET Object
-    , GetObject               (..)
+    , GetObject                     (..)
 
     -- -- ** GET Object ACL
     -- , GetObjectACL            (..)
@@ -168,101 +168,62 @@ data GetObject  = GetObject
 
 deriving instance Show GetObject
 
--- response-content-type	
--- Sets the Content-Type header of the response.
-
--- Type: String
-
--- Default: None
--- No
--- response-content-language	
--- Sets the Content-Language header of the response.
-
--- Type: String
-
--- Default: None
--- No
--- response-expires	
--- Sets the Expires header of the response.
-
--- Type: String
-
--- Default: None
--- No
--- response-cache-control	
--- Sets the Cache-Control header of the response.
-
--- Type: String
-
--- Default: None
--- No
--- response-content-disposition	
--- Sets the Content-Disposition header of the response.
-
--- Type: String
-
--- Default: None
--- No
--- response-content-encoding
-
 instance Rq GetObject where
     type Er GetObject = S3ErrorResponse
     type Rs GetObject = S3HeadersResponse
     request GetObject{..} = object GET goBucket goKey goHeaders Empty
     response = headers
 
--- instance Rq GetObject where
---     request = qry GET undefined
+-- | Removes the null version (if there is one) of an object and inserts a
+-- delete marker, which becomes the latest version of the object.
+--
+-- If there isn't a null version, Amazon S3 does not remove any objects.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html>
+data DeleteObject = DeleteObject
+    { doBucket  :: !Text
+    , doKey     :: !Text
+    , doHeaders :: [AnyHeader]
+    }
 
--- type instance Er GetObject = S3ErrorResponse
--- data instance Rs GetObject = GetObjectResult
---     {} deriving (Eq, Show, Generic)
+deriving instance Show DeleteObject
 
--- instance IsXML (Rs GetObject) where
---     xmlPickler = undefined
+instance Rq DeleteObject where
+    type Er DeleteObject = S3ErrorResponse
+    type Rs DeleteObject = S3HeadersResponse
+    request DeleteObject{..} = object DELETE doBucket doKey doHeaders Empty
+    response = headers
 
--- -- | Removes the null version (if there is one) of an object and inserts a
--- -- delete marker, which becomes the latest version of the object.
--- --
--- -- If there isn't a null version, Amazon S3 does not remove any objects.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html>
--- data DeleteObject  = DeleteObject
---     {} deriving (Eq, Show, Generic)
+-- | Delete multiple objects from a bucket using a single HTTP request.
+--
+-- If you know the object keys that you want to delete, then this operation
+-- provides a suitable alternative to sending individual delete requests
+-- (see 'DeleteObject'), reducing per-request overhead.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/multiobjectdeleteapi.html>
+data DeleteMultipleObjects = DeleteMultipleObjects
+    { dmoBucket  :: !Text
+    , dmoKey     :: !Text
+    , dmoMD5     :: !MD5
+--    , dmoLength  :: !ContentLength
+    , dmoHeaders :: [AnyHeader]
+    , dmoObjects :: !DMObjects
+    }
 
--- instance IsQuery DeleteObject
+deriving instance Show DeleteMultipleObjects
 
--- instance Rq DeleteObject where
---     request = qry GET undefined
+instance Rq DeleteMultipleObjects where
+    type Er DeleteMultipleObjects = S3ErrorResponse
+    type Rs DeleteMultipleObjects = DeleteMultipleObjectsResponse
+    request = undefined
 
--- type instance Er DeleteObject = S3ErrorResponse
--- data instance Rs DeleteObject = DeleteObjectResult
---     {} deriving (Eq, Show, Generic)
+data DeleteMultipleObjectsResponse = DeleteMultipleObjectsResponse
+    { dmorDeleted :: [DeletedObject]
+    , dmorError   :: [DeleteError]
+    } deriving (Eq, Show, Generic)
 
--- instance IsXML (Rs DeleteObject) where
---     xmlPickler = undefined
-
--- -- | Delete multiple objects from a bucket using a single HTTP request.
--- --
--- -- If you know the object keys that you want to delete, then this operation
--- -- provides a suitable alternative to sending individual delete requests
--- -- (see 'DeleteObject'), reducing per-request overhead.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/multiobjectdeleteapi.html>
--- data DeleteMultipleObjects  = DeleteMultipleObjects
---     {} deriving (Eq, Show, Generic)
-
--- instance IsQuery DeleteMultipleObjects
-
--- instance Rq DeleteMultipleObjects where
---     request = qry GET undefined
-
--- type instance Er DeleteMultipleObjects = S3ErrorResponse
--- data instance Rs DeleteMultipleObjects = DeleteMultipleObjectsResult
---     {} deriving (Eq, Show, Generic)
-
--- instance IsXML (Rs DeleteMultipleObjects) where
---     xmlPickler = undefined
+instance IsXML DeleteMultipleObjectsResponse where
+    xmlPickler = withRootNS s3NS "DeleteResult"
 
 -- -- | Uses the ACL subresource to return the access control list (ACL) of an object.
 -- --
@@ -428,7 +389,7 @@ instance Rq GetObject where
 data PutObject = PutObject
     { poBucket  :: !Text
     , poKey     :: !Text
-    , poLength  :: !ContentLength
+--    , poLength  :: !ContentLength
     , poHeaders :: [AnyHeader]
     , poBody    :: Body
     }
@@ -439,7 +400,8 @@ instance Rq PutObject where
     type Er PutObject = S3ErrorResponse
     type Rs PutObject = S3HeadersResponse
     request PutObject{..} =
-        object PUT poBucket poKey (hdr poLength : poHeaders) poBody
+--        object PUT poBucket poKey (hdr poLength : poHeaders) poBody
+        object PUT poBucket poKey poHeaders poBody
     response = headers
 
 -- newtype PutObjectResult = PutObjectResult [(ByteString, ByteString)]

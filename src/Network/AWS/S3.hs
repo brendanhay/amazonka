@@ -33,6 +33,7 @@ module Network.AWS.S3
     -- * Operations on Objects
     -- ** DELETE Object
     , DeleteObject                  (..)
+    , DeleteObjectResponse          (..)
 
     -- ** POST Delete Multiple Objects
     , DeleteMultipleObjects         (..)
@@ -40,28 +41,31 @@ module Network.AWS.S3
 
     -- ** GET Object
     , GetObject                     (..)
+    , GetObjectResponse
 
     -- ** GET Object ACL
     , GetObjectACL                  (..)
     , GetObjectACLResponse          (..)
 
-    -- -- ** GET Object Torrent
-    -- , GetObjectTorrent        (..)
+    -- ** GET Object Torrent
+    , GetObjectTorrent              (..)
+    , GetObjectTorrentResponse
 
-    -- -- ** HEAD Object
-    -- , HeadObject              (..)
+    -- ** HEAD Object
+    , HeadObject                    (..)
+    , HeadObjectResponse
 
-    -- -- ** OPTIONS Object
-    -- , OptionsObject           (..)
+    -- ** OPTIONS Object
+    , OptionsObject                 (..)
+    , OptionsObjectResponse
 
-    -- -- ** POST Object
-    -- , PostObject              (..)
-
-    -- -- ** POST Object Restore
-    -- , PostObjectRestore       (..)
+    -- ** POST Object Restore
+    , PostObjectRestore             (..)
+    , PostObjectRestoreResponse
 
     -- ** PUT Object
-    , PutObject               (..)
+    , PutObject                     (..)
+    , PutObjectResponse
 
     -- -- ** PUT Object ACL
     -- , PutObjectACL            (..)
@@ -94,7 +98,6 @@ module Network.AWS.S3
     , module Network.AWS
     ) where
 
-import           Control.Applicative  ((<$>))
 import           Data.ByteString      (ByteString)
 import           Data.Monoid
 import           Data.Text            (Text)
@@ -104,11 +107,13 @@ import           Network.AWS.Headers
 import           Network.AWS.Internal
 import           Network.AWS.S3.Types
 import           Network.Http.Client  (Method(..))
+import           System.IO.Streams    (InputStream)
+import qualified System.IO.Streams    as Stream
 
 xml :: IsXML a => Method -> ByteString -> Text -> [AnyHeader] -> a -> AWS Signed
 xml meth path b hs = sign (versionS3 name) . requestXML s3 meth path
   where
-    svc  = override (name <> ".s3.amazonaws.com") s3
+--    svc  = override (name <> ".s3.amazonaws.com") s3
     name = Text.encodeUtf8 b
 
 object :: Method -> Text -> Text -> [AnyHeader] -> Body -> AWS Signed
@@ -122,11 +127,21 @@ object meth b k hs =
 empty :: Method -> ByteString -> AWS Signed
 empty meth path = sign (versionS3 "fixme") $ Request s3 meth path [] [] Empty
 
-headers :: (Monad m, Rs a ~ S3HeadersResponse)
-        => a
-        -> Response
-        -> m (Either e (Either (Er a) (Rs a)))
-headers _ Response{..} = return . Right . Right $ S3HeadersResponse rsHeaders
+headerRs :: Monad m => a -> Response -> m (Either b (Either c S3HeaderResponse))
+headerRs _ Response{..} = rs $ S3HeaderResponse rsHeaders
+
+bodyRs :: Monad m => a -> Response -> m (Either b (Either c S3BodyResponse))
+bodyRs _ Response{..} = rs $ S3BodyResponse rsHeaders rsBody
+
+rs :: Monad m => a -> m (Either b (Either c a))
+rs = return . Right . Right
+
+newtype S3HeaderResponse = S3HeaderResponse [(ByteString, ByteString)]
+
+data S3BodyResponse = S3BodyResponse
+    { s3Headers :: [(ByteString, ByteString)]
+    , s3Body    :: InputStream ByteString
+    }
 
 --
 -- Service
@@ -178,9 +193,12 @@ deriving instance Show GetObject
 
 instance Rq GetObject where
     type Er GetObject = S3ErrorResponse
-    type Rs GetObject = S3HeadersResponse
+    type Rs GetObject = GetObjectResponse
     request GetObject{..} = object GET goBucket goKey goHeaders Empty
-    response = headers
+
+    response = bodyRs
+
+type GetObjectResponse = S3BodyResponse
 
 -- | Removes the null version (if there is one) of an object and inserts a
 -- delete marker, which becomes the latest version of the object.
@@ -198,9 +216,12 @@ deriving instance Show DeleteObject
 
 instance Rq DeleteObject where
     type Er DeleteObject = S3ErrorResponse
-    type Rs DeleteObject = S3HeadersResponse
+    type Rs DeleteObject = DeleteObjectResponse
     request DeleteObject{..} = object DELETE doBucket doKey doHeaders Empty
-    response = headers
+    response _ = rs . DeleteObjectResponse . rsHeaders
+
+newtype DeleteObjectResponse = DeleteObjectResponse [(ByteString, ByteString)]
+    deriving (Eq, Show)
 
 -- | Delete multiple objects from a bucket using a single HTTP request.
 --
@@ -255,9 +276,9 @@ instance Rq GetObjectACL where
     request GetObjectACL {..} =
         object GET goaclBucket goaclKey goaclHeaders Empty
 
-    response _ rs = fmap (fmap (fmap f)) $ defaultResponse rs
+    response _ rs' = fmap (fmap (fmap f)) $ defaultResponse rs'
       where
-        f x = x { goaclrHeaders = rsHeaders rs }
+        f x = x { goaclrHeaders = rsHeaders rs' }
 
 data GetObjectACLResponse = GetObjectACLResponse
     { goaclrHeaders :: [(ByteString, ByteString)]
@@ -271,129 +292,123 @@ instance IsXML GetObjectACLResponse where
         (GetObjectACLResponse [], \(GetObjectACLResponse _ p) -> p)
         (genericXMLPickler defaultXMLOptions)
 
--- x-amz-id-2: eftixk72aD6Ap51TnqcoF8eFidJG9Z/2mkiDFu8yU9AS1ed4OpIszj7UDNEHGran
--- x-amz-request-id: 318BC8BC148832E5
--- x-amz-version-id: 4HL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nrjfkd
--- Last-Modified: Sun, 1 Jan 2006 12:00:00 GMT
--- Content-Length: 124
--- Content-Type: text/plain
+-- | Use the torrent subresource to return torrent files from a bucket.
+--
+-- You can get torrent only for objects that are less than 5 GB in size.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGETtorrent.html>
+data GetObjectTorrent = GetObjectTorrent
+    { gotBucket :: !Text
+    , gotKey    :: !Text
+    , gotHeaders :: [AnyHeader]
+    }
 
--- -- | Use the torrent subresource to return torrent files from a bucket.
--- --
--- -- You can get torrent only for objects that are less than 5 GB in size.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGETtorrent.html>
--- data GetObjectTorrent  = GetObjectTorrent
---     {} deriving (Eq, Show, Generic)
+deriving instance Show GetObjectTorrent
 
--- instance IsQuery GetObjectTorrent
+instance Rq GetObjectTorrent where
+    type Er GetObjectTorrent = S3ErrorResponse
+    type Rs GetObjectTorrent = GetObjectTorrentResponse
+    request GetObjectTorrent{..} =
+        object GET gotBucket (gotKey <> "?torrent") gotHeaders Empty
 
--- instance Rq GetObjectTorrent where
---     request = qry GET undefined
+    response = bodyRs
 
--- type instance Er GetObjectTorrent = S3ErrorResponse
--- data instance Rs GetObjectTorrent = GetObjectTorrentResult
---     {} deriving (Eq, Show, Generic)
+type GetObjectTorrentResponse = S3BodyResponse
 
--- instance IsXML (Rs GetObjectTorrent) where
---     xmlPickler = undefined
+-- | Retrieves metadata from an object without returning the object itself.
+--
+-- You must have READ access to the object.
+--
+-- By default, the HEAD operation retrieves metadata from the latest version of an object. If the latest version is a delete marker, Amazon S3 behaves as if the object was deleted. To retrieve metadata from a different version, use the versionId subresource. 
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html>
+data HeadObject = HeadObject
+    { hoBucket  :: !Text
+    , hoKey     :: !Text
+    , hoHeaders :: [AnyHeader]
+    }
 
--- -- | Retrieves metadata from an object without returning the object itself.
--- --
--- -- You must have READ access to the object.
--- --
--- -- By default, the HEAD operation retrieves metadata from the latest version of an object. If the latest version is a delete marker, Amazon S3 behaves as if the object was deleted. To retrieve metadata from a different version, use the versionId subresource. 
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html>
--- data HeadObject  = HeadObject
---     {} deriving (Eq, Show, Generic)
+deriving instance Show HeadObject
 
--- instance IsQuery HeadObject
+instance Rq HeadObject where
+    type Er HeadObject = S3ErrorResponse
+    type Rs HeadObject = HeadObjectResponse
+    request HeadObject{..} = object HEAD hoBucket hoKey hoHeaders Empty
+    response = headerRs
 
--- instance Rq HeadObject where
---     request = qry GET undefined
+type HeadObjectResponse = S3HeaderResponse
 
--- type instance Er HeadObject = S3ErrorResponse
--- data instance Rs HeadObject = HeadObjectResult
---     {} deriving (Eq, Show, Generic)
+-- | Preflight request to determine if an actual request can be sent with the
+-- specific origin, HTTP method, and headers.
+--
+-- Amazon S3 supports cross-origin resource sharing (CORS) by enabling you to add
+-- a cors subresource on a bucket.
+--
+-- When a browser sends this preflight request, Amazon S3 responds by evaluating
+-- the rules that are defined in the cors configuration.
+--
+-- If cors is not enabled on the bucket, then Amazon S3 returns a 403 Forbidden response.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html>
+data OptionsObject  = OptionsObject
+    { ooBucket         :: !Text
+    , ooKey            :: !Text
+    , ooOrigin         :: !Origin
+    , ooRequestMethod  :: !AccessControlRequestMethod
+    , ooRequestHeaders :: !AccessControlRequestHeaders
+    , ooHeaders        :: [AnyHeader]
+    }
 
--- instance IsXML (Rs HeadObject) where
---     xmlPickler = undefined
+deriving instance Show OptionsObject
 
--- -- | Preflight request to determine if an actual request can be sent with the
--- -- specific origin, HTTP method, and headers.
--- --
--- -- Amazon S3 supports cross-origin resource sharing (CORS) by enabling you to add
--- -- a cors subresource on a bucket.
--- --
--- -- When a browser sends this preflight request, Amazon S3 responds by evaluating
--- -- the rules that are defined in the cors configuration.
--- --
--- -- If cors is not enabled on the bucket, then Amazon S3 returns a 403 Forbidden response.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html>
--- data OptionsObject  = OptionsObject
---     {} deriving (Eq, Show, Generic)
+instance Rq OptionsObject where
+    type Er OptionsObject = S3ErrorResponse
+    type Rs OptionsObject = OptionsObjectResponse
+    request OptionsObject{..} = object OPTIONS ooBucket ooKey hs Empty
+      where
+        hs = hdr ooOrigin
+           : hdr ooRequestMethod
+           : hdr ooRequestHeaders
+           : ooHeaders
 
--- instance IsQuery OptionsObject
+    response = headerRs
 
--- instance Rq OptionsObject where
---     request = qry GET undefined
+type OptionsObjectResponse = S3HeaderResponse
 
--- type instance Er OptionsObject = S3ErrorResponse
--- data instance Rs OptionsObject = OptionsObjectResult
---     {} deriving (Eq, Show, Generic)
+-- | Restores a temporary copy of an archived object.
+--
+-- In the request, you specify the number of days that you want the restored
+-- copy to exist. After the specified period, Amazon S3 deletes the temporary copy.
+--
+-- Note that the object remains archived; Amazon S3 deletes only the restored copy.
+--
+-- An object in the Glacier storage class is an archived object. To access the
+-- object, you must first initiate a restore request, which restores a copy of
+-- the archived object. Restore jobs typically complete in three to five hours.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html>
+data PostObjectRestore  = PostObjectRestore
+    { porBucket         :: !Text
+    , porKey            :: !Text
+    , porMD5            :: !MD5
+    , porRestoreRequest :: !RestoreRequest
+    }
 
--- instance IsXML (Rs OptionsObject) where
---     xmlPickler = undefined
+deriving instance Show PostObjectRestore
 
--- -- | Adds an object to a specified bucket using HTML forms.
--- --
--- -- An alternate form of 'PutObject' that enables browser-based uploads as a
--- -- way of putting objects in buckets.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html>
--- data PostObject  = PostObject
---     {} deriving (Eq, Show, Generic)
+instance Rq PostObjectRestore where
+    type Er PostObjectRestore = S3ErrorResponse
+    type Rs PostObjectRestore = PostObjectRestoreResponse
+    request PostObjectRestore{..} = sign (versionS3 name) $
+        Request svc POST path [hdr porMD5] [] (Strict $ toXML porRestoreRequest)
+      where
+        svc  = override (name <> ".s3.amazonaws.com") s3
+        name = Text.encodeUtf8 porBucket
+        path = addPrefix "/" porKey <> "?restore"
 
--- instance IsQuery PostObject
+    response = headerRs
 
--- instance Rq PostObject where
---     request = qry GET undefined
-
--- type instance Er PostObject = S3ErrorResponse
--- data instance Rs PostObject = PostObjectResult
---     {} deriving (Eq, Show, Generic)
-
--- instance IsXML (Rs PostObject) where
---     xmlPickler = undefined
-
--- -- | Restores a temporary copy of an archived object.
--- --
--- -- In the request, you specify the number of days that you want the restored
--- -- copy to exist. After the specified period, Amazon S3 deletes the temporary copy.
--- --
--- -- Note that the object remains archived; Amazon S3 deletes only the restored copy.
--- --
--- -- An object in the Glacier storage class is an archived object. To access the
--- -- object, you must first initiate a restore request, which restores a copy of
--- -- the archived object. Restore jobs typically complete in three to five hours.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html>
--- data PostObjectRestore  = PostObjectRestore
---     {} deriving (Eq, Show, Generic)
-
--- instance IsQuery PostObjectRestore
-
--- instance Rq PostObjectRestore where
---     request = qry GET undefined
-
--- type instance Er PostObjectRestore = S3ErrorResponse
--- data instance Rs PostObjectRestore = PostObjectRestoreResult
---     {} deriving (Eq, Show, Generic)
-
--- instance IsXML (Rs PostObjectRestore) where
---     xmlPickler = undefined
+type PostObjectRestoreResponse = S3HeaderResponse
 
 -- | Add an object to a bucket.
 --
@@ -428,42 +443,12 @@ deriving instance Show PutObject
 
 instance Rq PutObject where
     type Er PutObject = S3ErrorResponse
-    type Rs PutObject = S3HeadersResponse
-    request PutObject{..} =
+    type Rs PutObject = PutObjectResponse
+    request PutObject{..} = object PUT poBucket poKey poHeaders poBody
 --        object PUT poBucket poKey (hdr poLength : poHeaders) poBody
-        object PUT poBucket poKey poHeaders poBody
-    response = headers
+    response = headerRs
 
--- newtype PutObjectResult = PutObjectResult [(ByteString, ByteString)]
---     deriving (Eq, Show)
-
-  -- "Expiration": {
-  --                       "type": "timestamp",
-  --                       "location": "header",
-  --                       "location_name": "x-amz-expiration",
-  --                       "documentation": "If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded."
-  --                   },
-  --                   "ETag": {
-  --                       "type": "string",
-  --                       "location": "header",
-  --                       "location_name": "ETag",
-  --                       "documentation": "Entity tag for the uploaded object."
-  --                   },
-  --                   "ServerSideEncryption": {
-  --                       "type": "string",
-  --                       "location": "header",
-  --                       "location_name": "x-amz-server-side-encryption",
-  --                       "enum": [
-  --                           "AES256"
-  --                       ],
-  --                       "documentation": "The Server-side encryption algorithm used when storing this object in S3."
-  --                   },
-  --                   "VersionId": {
-  --                       "type": "string",
-  --                       "location": "header",
-  --                       "location_name": "x-amz-version-id",
-  --                       "documentation": "Version of the object."
-  --                   }
+type PutObjectResponse = S3HeaderResponse
 
 -- -- | Set the access control list (ACL) permissions for an object that already
 -- -- exists in a bucket.

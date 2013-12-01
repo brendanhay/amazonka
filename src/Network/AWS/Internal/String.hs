@@ -22,6 +22,7 @@ module Network.AWS.Internal.String
     , stripPrefix
     , wrap
     , addPrefix
+    , addSuffix
     , lowerHead
     ) where
 
@@ -73,6 +74,11 @@ addPrefix :: IsByteString a => a -> a -> ByteString
 addPrefix (toBS -> x) (toBS -> y)
     | x `BS.isPrefixOf` y = y
     | otherwise           = x <> y
+
+addSuffix :: IsByteString a => a -> a -> ByteString
+addSuffix (toBS -> x) (toBS -> y)
+    | x `BS.isSuffixOf` y = y
+    | otherwise           = y <> x
 
 lowerHead :: IsByteString a => a -> ByteString
 lowerHead (toBS -> bs)

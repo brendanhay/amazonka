@@ -22,6 +22,7 @@ import Data.Text            (Text)
 import Data.Time
 import Network.AWS.Headers
 import Network.AWS.Internal
+import Network.Http.Client  (Method)
 
 -- | Currently supported version of the S3 service.
 s3 :: Service
@@ -133,6 +134,17 @@ data AccessControlPolicy = AccessControlPolicy
     } deriving (Eq, Show, Generic)
 
 instance IsXML AccessControlPolicy
+
+--
+-- PostObjectRestore
+--
+
+data RestoreRequest = RestoreRequest
+    { rrDays :: !Int
+    } deriving (Eq, Show, Generic)
+
+instance IsXML RestoreRequest where
+    xmlPickler = withNS s3NS
 
 -- type Bucket = T.Text
 
@@ -256,6 +268,18 @@ type VersionId = Header "x-amz-version-id" Text
 -- Condition: Required to permanently delete a versioned object if versioning
 -- is configured with MFA Delete enabled.
 type MFA = Header "x-amz-mfa" Text
+
+-- | Identifies the origin of the cross-origin request to Amazon S3.
+--
+-- For example, http://www.example.com.
+type Origin = Header "origin" Text
+
+-- | Identifies what HTTP method will be used in the actual request.
+type AccessControlRequestMethod = Header "access-control-request-method" Method
+
+-- | A comma-delimited list of HTTP headers that will be sent in the
+-- actual request.
+type AccessControlRequestHeaders = Header "access-control-request-headers" [Text]
 
 -- | XML namespace to annotate S3 elements with.
 s3NS :: ByteString

@@ -28,9 +28,11 @@ import           Data.CaseInsensitive   (CI)
 import qualified Data.CaseInsensitive   as Case
 import           Data.Monoid
 import           Data.Text              (Text)
+import qualified Data.Text              as Text
 import qualified Data.Text.Encoding     as Text
 import           Data.Time
 import           GHC.TypeLits
+import           Network.Http.Client    (Method)
 
 default (ByteString)
 
@@ -49,11 +51,17 @@ instance IsHeader ByteString where
 instance IsHeader Text where
     encodeHeader s = (, Text.encodeUtf8 s) . Case.mk
 
+instance IsHeader [Text] where
+    encodeHeader xs = encodeHeader (Text.intercalate "," xs)
+
 instance IsHeader String where
     encodeHeader s = (, BS.pack s) . Case.mk
 
 instance IsHeader Integer where
     encodeHeader n = encodeHeader (show n)
+
+instance IsHeader Method where
+    encodeHeader m = encodeHeader (show m)
 
 data AnyHeader where
     AnyHeader :: IsHeader a => a -> AnyHeader

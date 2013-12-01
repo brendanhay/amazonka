@@ -67,29 +67,32 @@ module Network.AWS.S3
     , PutObject                     (..)
     , PutObjectResponse
 
-    -- -- ** PUT Object ACL
-    -- , PutObjectACL            (..)
+    -- ** PUT Object ACL
+    , PutObjectACL                  (..)
+    , PutObjectACLResponse
 
-    -- -- ** PUT Object Copy
-    -- , PutObjectCopy           (..)
+    -- ** PUT Object Copy
+    , PutObjectCopy                 (..)
+    , PutObjectCopyResponse
 
-    -- -- ** POST Initiate Multipart Upload
-    -- , InitiateMultipartUpload (..)
+    -- ** POST Initiate Multipart Upload
+    , InitiateMultipartUpload       (..)
+    , InitiateMultipartUploadResponse
 
-    -- -- ** PUT Upload Part
-    -- , UploadPart              (..)
+    -- ** PUT Upload Part
+    , UploadPart              (..)
 
-    -- -- ** PUT Upload Part Copy
-    -- , UploadPartCopy          (..)
+    -- ** PUT Upload Part Copy
+    , UploadPartCopy          (..)
 
-    -- -- ** POST Complete Multipart Upload
-    -- , CompleteMultipartUpload (..)
+    -- ** POST Complete Multipart Upload
+    , CompleteMultipartUpload (..)
 
-    -- -- ** DELETE Abort Multipart Upload
-    -- , AbortMultipartUpload    (..)
+    -- ** DELETE Abort Multipart Upload
+    , AbortMultipartUpload    (..)
 
-    -- -- ** GET List Parts
-    -- , ListParts               (..)
+    -- ** GET List Parts
+    , ListParts               (..)
 
     -- * Data Types
     , module Network.AWS.S3.Types
@@ -107,7 +110,6 @@ import           Network.AWS.Headers
 import           Network.AWS.Internal
 import           Network.AWS.S3.Types
 import           Network.Http.Client  (Method(..))
-import           System.IO.Streams    (InputStream)
 import qualified System.IO.Streams    as Stream
 
 xml :: IsXML a => Method -> ByteString -> Text -> [AnyHeader] -> a -> AWS Signed
@@ -135,13 +137,6 @@ bodyRs _ Response{..} = rs $ S3BodyResponse rsHeaders rsBody
 
 rs :: Monad m => a -> m (Either b (Either c a))
 rs = return . Right . Right
-
-newtype S3HeaderResponse = S3HeaderResponse [(ByteString, ByteString)]
-
-data S3BodyResponse = S3BodyResponse
-    { s3Headers :: [(ByteString, ByteString)]
-    , s3Body    :: InputStream ByteString
-    }
 
 --
 -- Service
@@ -450,278 +445,319 @@ instance Rq PutObject where
 
 type PutObjectResponse = S3HeaderResponse
 
--- -- | Set the access control list (ACL) permissions for an object that already
--- -- exists in a bucket.
--- --
--- -- You must have WRITE_ACP permission to set the ACL of an object.
--- --
--- -- You can use one of the following two ways to set an object's permissions:
--- --     * Specify the ACL in the request body, or
--- --     * Specify permissions using request headers
--- --
--- -- Depending on your application needs, you may choose to set the ACL on an
--- -- object using either the request body or the headers.
--- --
--- -- For example, if you have an existing application that updates an object ACL
--- -- using the request body, then you can continue to use that approach.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html>
--- data PutObjectACL  = PutObjectACL
---     {} deriving (Eq, Show, Generic)
+-- | Set the access control list (ACL) permissions for an object that already
+-- exists in a bucket.
+--
+-- You must have WRITE_ACP permission to set the ACL of an object.
+--
+-- You can use one of the following two ways to set an object's permissions:
+--     * Specify the ACL in the request body, or
+--     * Specify permissions using request headers
+--
+-- Depending on your application needs, you may choose to set the ACL on an
+-- object using either the request body or the headers.
+--
+-- For example, if you have an existing application that updates an object ACL
+-- using the request body, then you can continue to use that approach.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html>
+data PutObjectACL = PutObjectACL
+    { poaclBucket  :: !Text
+    , poaclKey     :: !Text
+    , poaclPolicy  :: Maybe AccessControlPolicy
+    , poaclHeaders :: [AnyHeader]
+    }
 
--- instance IsQuery PutObjectACL
+deriving instance Show PutObjectACL
 
--- instance Rq PutObjectACL where
---     request = qry GET undefined
+instance Rq PutObjectACL where
+    type Er PutObjectACL = S3ErrorResponse
+    type Rs PutObjectACL = PutObjectACLResponse
+    request PutObjectACL{..} =
+        object PUT poaclBucket (poaclKey <> "?acl") poaclHeaders Empty
+    response = headerRs
 
--- type instance Er PutObjectACL = S3ErrorResponse
--- data instance Rs PutObjectACL = PutObjectACLResult
---     {} deriving (Eq, Show, Generic)
+type PutObjectACLResponse = S3HeaderResponse
 
--- instance IsXML (Rs PutObjectACL) where
---     xmlPickler = undefined
+-- | Create a copy of an object that is already stored in Amazon S3.
+--
+-- A copy operation is the same as performing a GET and then a PUT.
+--
+-- Note You can store individual objects of up to 5 TB in Amazon S3.
+--
+-- You create a copy of your object up to 5 GB in size in a single atomic
+-- operation using this API. However, for copying an object greater than 5 GB,
+-- you must use the multipart upload API.
+--
+-- When copying an object, you can preserve most of the metadata (default) or
+-- specify new metadata. However, the ACL is not preserved and is set to private
+-- for the user making the request.
+--
+-- By default, x-amz-copy-source identifies the latest version of an object to
+-- copy. (If the latest version is a Delete Marker, Amazon S3 behaves as if the
+-- object was deleted.) To copy a different version, use the versionId subresource.
+--
+-- If you enable Versioning on the target bucket, Amazon S3 generates a unique
+-- version ID for the object being copied. This version ID is different from
+-- the version ID of the source object.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html>
+data PutObjectCopy = PutObjectCopy
+    { pocBucket  :: !Text
+    , pocKey     :: !Text
+    , pocSource  :: !CopySource
+    , pocHeaders :: [AnyHeader]
+    }
 
--- -- | Create a copy of an object that is already stored in Amazon S3.
--- --
--- -- A copy operation is the same as performing a GET and then a PUT.
--- --
--- -- Note You can store individual objects of up to 5 TB in Amazon S3.
--- --
--- -- You create a copy of your object up to 5 GB in size in a single atomic
--- -- operation using this API. However, for copying an object greater than 5 GB,
--- -- you must use the multipart upload API.
--- --
--- -- When copying an object, you can preserve most of the metadata (default) or
--- -- specify new metadata. However, the ACL is not preserved and is set to private
--- -- for the user making the request.
--- --
--- -- By default, x-amz-copy-source identifies the latest version of an object to
--- -- copy. (If the latest version is a Delete Marker, Amazon S3 behaves as if the
--- -- object was deleted.) To copy a different version, use the versionId subresource.
--- --
--- -- If you enable Versioning on the target bucket, Amazon S3 generates a unique
--- -- version ID for the object being copied. This version ID is different from
--- -- the version ID of the source object.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html>
--- data PutObjectCopy  = PutObjectCopy
---     {} deriving (Eq, Show, Generic)
+instance Rq PutObjectCopy where
+    type Er PutObjectCopy = S3ErrorResponse
+    type Rs PutObjectCopy = PutObjectCopyResponse
+    request PutObjectCopy{..} =
+        object PUT pocBucket pocKey (hdr pocSource : pocHeaders) Empty
+    response = headerRs
 
--- instance IsQuery PutObjectCopy
+type PutObjectCopyResponse = S3HeaderResponse
 
--- instance Rq PutObjectCopy where
---     request = qry GET undefined
+-- | Initiate a multipart upload and return an upload ID.
+--
+-- This upload ID is used to associate all the parts in the specific multipart
+-- upload. You specify this upload ID in each of your subsequent upload part
+-- requests (see 'UploadPart').
+--
+-- You also include this upload ID in the final request to either complete or
+-- abort the multipart upload request.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadInitiate.html>
+data InitiateMultipartUpload = InitiateMultipartUpload
+    { imuBucket  :: !Text
+    , imuKey     :: !Text
+    , imuHeaders :: [AnyHeader]
+    }
 
--- type instance Er PutObjectCopy = S3ErrorResponse
--- data instance Rs PutObjectCopy = PutObjectCopyResult
---     {} deriving (Eq, Show, Generic)
+deriving instance Show InitiateMultipartUpload
 
--- instance IsXML (Rs PutObjectCopy) where
---     xmlPickler = undefined
+instance Rq InitiateMultipartUpload where
+    type Er InitiateMultipartUpload = S3ErrorResponse
+    type Rs InitiateMultipartUpload = InitiateMultipartUploadResponse
+    request InitiateMultipartUpload{..} =
+        object POST imuBucket (imuKey <> "?uploads") imuHeaders Empty
 
--- -- | Initiate a multipart upload and return an upload ID.
--- --
--- -- This upload ID is used to associate all the parts in the specific multipart
--- -- upload. You specify this upload ID in each of your subsequent upload part
--- -- requests (see 'UploadPart').
--- --
--- -- You also include this upload ID in the final request to either complete or
--- -- abort the multipart upload request.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadInitiate.html>
--- data InitiateMultipartUpload  = InitiateMultipartUpload
---     {} deriving (Eq, Show, Generic)
+data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse
+    { imurBucket   :: !Text
+    , imurKey      :: !Text
+    , imurUploadId :: !Text
+    } deriving (Eq, Show, Generic)
 
--- instance IsQuery InitiateMultipartUpload
+instance IsXML InitiateMultipartUploadResponse where
+    xmlPickler = withRootNS s3NS "InitiateMultipartUploadResult"
 
--- instance Rq InitiateMultipartUpload where
---     request = qry GET undefined
+-- | Upload a part in a multipart upload.
+--
+-- Note In this operation you provide part data in your request. However, you
+-- have an option to specify your existing Amazon S3 object as data source for
+-- the part your are uploading.
+--
+-- To upload a part from an existing object you use the 'UploadPartCopy' operation.
+--
+-- You must initiate a multipart upload (see 'InitiateMultipartUpload') before
+-- you can upload any part.
+--
+-- In response to your initiate request. Amazon S3 returns an upload ID,
+-- a unique identifier, that you must include in your upload part request.
+--
+-- Part numbers can be any number from 1 to 10,000, inclusive. A part number
+-- uniquely identifies a part and also defines its position within the object
+-- being created.
+--
+-- If you upload a new part using the same part number that was used with a
+-- previous part, the previously uploaded part is overwritten.
+--
+-- Each part must be at least 5 MB in size, except the last part.
+--
+-- There is no size limit on the last part of your multipart upload.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPart.html>
+data UploadPart = UploadPart
+    { upBucket     :: !Text
+    , upKey        :: !Text
+    , upPartNumber :: !Text
+    , upUploadId   :: !Text
+    , upHeaders    :: [AnyHeader]
+    , upBody       :: !Body
+ -- Content Length ?
+    }
 
--- type instance Er InitiateMultipartUpload = S3ErrorResponse
--- data instance Rs InitiateMultipartUpload = InitiateMultipartUploadResult
---     {} deriving (Eq, Show, Generic)
+deriving instance Show UploadPart
 
--- instance IsXML (Rs InitiateMultipartUpload) where
---     xmlPickler = undefined
+instance Rq UploadPart where
+    type Er UploadPart = S3ErrorResponse
+    type Rs UploadPart = UploadPartResponse
+    request UploadPart{..} = object PUT upBucket path upHeaders upBody
+      where
+        path = Text.concat
+            [ upKey
+            , "?partNumber="
+            , upPartNumber
+            , "&uploadId="
+            , upUploadId
+            ]
 
--- -- | Upload a part in a multipart upload.
--- --
--- -- Note In this operation you provide part data in your request. However, you
--- -- have an option to specify your existing Amazon S3 object as data source for
--- -- the part your are uploading.
--- --
--- -- To upload a part from an existing object you use the 'UploadPartCopy' operation.
--- --
--- -- You must initiate a multipart upload (see 'InitiateMultipartUpload') before
--- -- you can upload any part.
--- --
--- -- In response to your initiate request. Amazon S3 returns an upload ID,
--- -- a unique identifier, that you must include in your upload part request.
--- --
--- -- Part numbers can be any number from 1 to 10,000, inclusive. A part number
--- -- uniquely identifies a part and also defines its position within the object
--- -- being created.
--- --
--- -- If you upload a new part using the same part number that was used with a
--- -- previous part, the previously uploaded part is overwritten.
--- --
--- -- Each part must be at least 5 MB in size, except the last part.
--- --
--- -- There is no size limit on the last part of your multipart upload.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPart.html>
--- data UploadPart  = UploadPart
---     {} deriving (Eq, Show, Generic)
+    response = headerRs
 
--- instance IsQuery UploadPart
+type UploadPartResponse = S3HeaderResponse
 
--- instance Rq UploadPart where
---     request = qry GET undefined
+-- | Uploads a part by copying data from an existing object as data source.
+--
+-- You specify the data source by adding the request header x-amz-copy-source
+-- in your request and a byte range by adding the request header x-amz-copy-source-range
+-- in your request.
+--
+-- Note Instead of using an existing object as part data, you might use the
+-- 'UploadPart' operation and provide data in your request. For more information, see Upload Part.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPartCopy.html>
+data UploadPartCopy  = UploadPartCopy
+    { upcBucket     :: !Text
+    , upcKey        :: !Text
+    , upcSource     :: !CopySource
+    , upcPartNumber :: !Text
+    , upcUpcloadId  :: !Text
+    , upcHeaders    :: [AnyHeader]
+    }
 
--- type instance Er UploadPart = S3ErrorResponse
--- data instance Rs UploadPart = UploadPartResult
---     {} deriving (Eq, Show, Generic)
+deriving instance Show UploadPartCopy
 
--- instance IsXML (Rs UploadPart) where
---     xmlPickler = undefined
+instance Rq UploadPartCopy where
+    type Er UploadPartCopy = S3ErrorResponse
+    type Rs UploadPartCopy = UploadPartCopyResponse
+    request UploadPartCopy{..} =
+        object PUT upcBucket path (hdr upcSource : upcHeaders) Empty
+      where
+        path = Text.concat
+            [ upcKey
+            , "?partNumber="
+            , upcPartNumber
+            , "&uploadId="
+            , upcUploadId
+            ]
 
--- -- | Uploads a part by copying data from an existing object as data source.
--- --
--- -- You specify the data source by adding the request header x-amz-copy-source
--- -- in your request and a byte range by adding the request header x-amz-copy-source-range
--- -- in your request.
--- --
--- -- Note Instead of using an existing object as part data, you might use the
--- -- 'UploadPart' operation and provide data in your request. For more information, see Upload Part.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPartCopy.html>
--- data UploadPartCopy  = UploadPartCopy
---     {} deriving (Eq, Show, Generic)
+    response = headerRs
 
--- instance IsQuery UploadPartCopy
+type UploadPartCopyResponse = S3HeaderResponse
 
--- instance Rq UploadPartCopy where
---     request = qry GET undefined
+-- | Completes a multipart upload by assembling previously uploaded parts.
+--
+-- You first initiate the multipart upload and then upload all parts using
+-- the 'UploadPart' operation.
+--
+-- After successfully uploading all relevant parts of an upload, you call this
+-- operation to complete the upload.
+--
+-- Upon receiving this request, Amazon S3 concatenates all the parts in
+-- ascending order by part number to create a new object.
+--
+-- In the 'CompleteMultipartUpload' request, you must provide the parts list.
+--
+-- You must ensure the parts list is complete, this operation concatenates the
+-- parts you provide in the list.
+--
+-- For each part in the list, you must provide the part number and the ETag
+-- header value, returned after that part was uploaded.
+--
+-- Processing of a Complete Multipart Upload request could take several minutes
+-- to complete. After Amazon S3 begins processing the request, it sends an HTTP
+-- response header that specifies a 200 OK response.
+--
+-- While processing is in progress, Amazon S3 periodically sends whitespace
+-- characters to keep the connection from timing out. Because a request could
+-- fail after the initial 200 OK response has been sent, it is important that
+-- you check the response body to determine whether the request succeeded.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadComplete.html>
+data CompleteMultipartUpload = CompleteMultipartUpload
+    { cmuBucket  :: !Text
+    , cmuKey     :: !Text
+--   Content Length?
+    , cmuHeaders :: [AnyHeader]
+    , cmuParts   :: [Part]
+    }
 
--- type instance Er UploadPartCopy = S3ErrorResponse
--- data instance Rs UploadPartCopy = UploadPartCopyResult
---     {} deriving (Eq, Show, Generic)
+deriving instance Show CompleteMultipartUpload
 
--- instance IsXML (Rs UploadPartCopy) where
---     xmlPickler = undefined
+instance Rq CompleteMultipartUpload where
+    type Er CompleteMultipartUpload = S3ErrorResponse
+    type Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
+    request CompleteMultipartUpload{..} =
+        object POST cmuBucket path cmuHeaders . Strict $ toXML
+      where
+        path = Text.concat [cmuKey, "&uploadId=", upUploadId]
 
--- -- | Completes a multipart upload by assembling previously uploaded parts.
--- --
--- -- You first initiate the multipart upload and then upload all parts using
--- -- the 'UploadPart' operation.
--- --
--- -- After successfully uploading all relevant parts of an upload, you call this
--- -- operation to complete the upload.
--- --
--- -- Upon receiving this request, Amazon S3 concatenates all the parts in
--- -- ascending order by part number to create a new object.
--- --
--- -- In the 'CompleteMultipartUpload' request, you must provide the parts list.
--- --
--- -- You must ensure the parts list is complete, this operation concatenates the
--- -- parts you provide in the list.
--- --
--- -- For each part in the list, you must provide the part number and the ETag
--- -- header value, returned after that part was uploaded.
--- --
--- -- Processing of a Complete Multipart Upload request could take several minutes
--- -- to complete. After Amazon S3 begins processing the request, it sends an HTTP
--- -- response header that specifies a 200 OK response.
--- --
--- -- While processing is in progress, Amazon S3 periodically sends whitespace
--- -- characters to keep the connection from timing out. Because a request could
--- -- fail after the initial 200 OK response has been sent, it is important that
--- -- you check the response body to determine whether the request succeeded.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadComplete.html>
--- data CompleteMultipartUpload  = CompleteMultipartUpload
---     {} deriving (Eq, Show, Generic)
+    response = undefined
 
--- instance IsQuery CompleteMultipartUpload
+-- | Aborts a multipart upload.
+--
+-- After a multipart upload is aborted, no additional parts can be uploaded
+-- using that upload ID.
+--
+-- The storage consumed by any previously uploaded parts will be freed.
+--
+-- However, if any part uploads are currently in progress, those part uploads
+-- might or might not succeed. As a result, it might be necessary to abort a
+-- given multipart upload multiple times in order to completely free all
+-- storage consumed by all parts.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadAbort.html>
+data AbortMultipartUpload = AbortMultipartUpload
+    { amuBucket   :: !Bucket
+    , amuKey      :: !Key
+    , amuUploadId :: !UploadId
+    } deriving (Eq, Show, Generic)
+--  "uri": "/{Bucket}/{Key}?uploadId={UploadId}"
 
--- instance Rq CompleteMultipartUpload where
---     type Er CompleteMultipartUpload = S3ErrorResponse
---     type Rs CompleteMultipartUpload = CompleteMultipartUploadResult
---     request = qry GET undefined
+instance Rq AbortMultipartUpload where
+    type Er AbortMultipartUpload = S3ErrorResponse
+    type Rs AbortMultipartUpload = AbortMultipartUploadResponse
+    request AbortMultipartUpload{..} = undefine
+    response = undefined
 
--- data CompleteMultipartUploadResponse = CompleteMultipartUploadResult
---     {} deriving (Eq, Show, Generic)
+-- NoSuchUpload = 404
+-- The specified multipart upload does not exist.
+-- The upload ID might be invalid, or the multipart upload might have been aborted or completed.
+-- empty response
 
--- instance IsXML CompleteMultipartUploadResult
+data AbortMultipartUploadResponse = AbortMultipartUploadResult
+    deriving (Eq, Show, Generic)
 
--- -- | Aborts a multipart upload.
--- --
--- -- After a multipart upload is aborted, no additional parts can be uploaded
--- -- using that upload ID.
--- --
--- -- The storage consumed by any previously uploaded parts will be freed.
--- --
--- -- However, if any part uploads are currently in progress, those part uploads
--- -- might or might not succeed. As a result, it might be necessary to abort a
--- -- given multipart upload multiple times in order to completely free all
--- -- storage consumed by all parts.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadAbort.html>
--- data AbortMultipartUpload  = AbortMultipartUpload
---     { amuBucket   :: !Bucket
---     , amuKey      :: !Key
---     , amuUploadId :: !UploadId
---     } deriving (Eq, Show, Generic)
+instance IsXML AbortMultipartUploadResult
 
--- instance IsQuery AbortMultipartUpload
+-- | List the parts that have been uploaded for a specific multipart upload.
+--
+-- This operation must include the upload ID, which you obtain by sending
+-- 'InitiateMultipartUpload'.
+--
+-- This returns a maximum of 1,000 uploaded parts and the default number of
+-- parts returned is 1,000 parts.
+--
+-- You can restrict the number of parts returned by specifying the 'maxParts'
+-- parameter.
+--
+-- If your multipart upload consists of more than 1,000 parts, the response
+-- returns an 'IsTruncated' field with the value of 'True', and a
+-- 'NextPartNumberMarker' element.
+--
+-- In subsequent List Parts requests you can include the part-number-marker
+-- query string parameter and set its value to the NextPartNumberMarker field
+-- value from the previous response.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadListParts.html>
+data ListParts = ListParts
+    {
+    }
 
--- instance Rq AbortMultipartUpload where
---     type Er AbortMultipartUpload = S3ErrorResponse
---     type Rs AbortMultipartUpload = AbortMultipartUploadResult
---     request = qry DELETE undefined
--- --  "uri": "/{Bucket}/{Key}?uploadId={UploadId}"
+deriving instance Show ListParts
 
--- -- NoSuchUpload = 404
--- -- The specified multipart upload does not exist.
--- -- The upload ID might be invalid, or the multipart upload might have been aborted or completed.
--- -- empty response
-
--- data AbortMultipartUploadResponse = AbortMultipartUploadResult
---     deriving (Eq, Show, Generic)
-
--- instance IsXML AbortMultipartUploadResult
-
--- -- | List the parts that have been uploaded for a specific multipart upload.
--- --
--- -- This operation must include the upload ID, which you obtain by sending
--- -- 'InitiateMultipartUpload'.
--- --
--- -- This returns a maximum of 1,000 uploaded parts and the default number of
--- -- parts returned is 1,000 parts.
--- --
--- -- You can restrict the number of parts returned by specifying the 'maxParts'
--- -- parameter.
--- --
--- -- If your multipart upload consists of more than 1,000 parts, the response
--- -- returns an 'IsTruncated' field with the value of 'True', and a
--- -- 'NextPartNumberMarker' element.
--- --
--- -- In subsequent List Parts requests you can include the part-number-marker
--- -- query string parameter and set its value to the NextPartNumberMarker field
--- -- value from the previous response.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadListParts.html>
--- data ListParts  = ListParts
---     {} deriving (Eq, Show, Generic)
-
--- instance IsQuery ListParts
-
--- instance Rq ListParts where
---     request = qry GET undefined
-
--- type instance Er ListParts = S3ErrorResponse
--- data instance Rs ListParts = ListPartsResult
---     {} deriving (Eq, Show, Generic)
-
--- instance IsXML (Rs ListParts) where
---     xmlPickler = undefined
+instance Rq ListParts where
+    type Er ListParts = S3ErrorResponse
+    type Rs ListParts = ListPartsResponse
+    request ListParts{..} = undefined
+    response = undefined

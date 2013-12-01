@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Network.AWS.S3.Types
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,17 +17,26 @@
 
 module Network.AWS.S3.Types where
 
-import Data.ByteString      (ByteString)
-import Data.Monoid
-import Data.Text            (Text)
-import Data.Time
-import Network.AWS.Headers
-import Network.AWS.Internal
-import Network.Http.Client  (Method)
+import           Data.ByteString      (ByteString)
+import           Data.Monoid
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
+import           Data.Time
+import           Network.AWS.Headers
+import           Network.AWS.Internal
+import           Network.Http.Client  (Method)
+import           System.IO.Streams    (InputStream)
 
 -- | Currently supported version of the S3 service.
 s3 :: Service
 s3 = Global "s3" "2006-03-01"
+
+newtype S3HeaderResponse = S3HeaderResponse [(ByteString, ByteString)]
+
+data S3BodyResponse = S3BodyResponse
+    { s3Headers :: [(ByteString, ByteString)]
+    , s3Body    :: InputStream ByteString
+    }
 
 data S3ErrorResponse = S3ErrorResponse { sssError :: !Text }
     deriving (Eq, Show, Generic)
@@ -115,6 +125,24 @@ data Grantee = Grantee
 
 instance IsXML Grantee
 
+-- FIXME: Grantee Values
+-- You can specify the person (grantee) to whom you're assigning access rights (using request elements) in the following ways:
+
+-- By the person's ID:
+
+-- <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"><ID>ID</ID><DisplayName>GranteesEmail</DisplayName>
+-- </Grantee>
+-- DisplayName is optional and ignored in the request.
+
+-- By Email address:
+
+-- <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress>Grantees@email.com</EmailAddress>lt;/Grantee>
+-- The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.
+
+-- By URI:
+
+-- <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"><URI>http://acs.amazonaws.com/groups/global/AuthenticatedUsers</URI></Grantee>
+
 data Grant = Grant
     { gGrantee    :: !Grantee
     , gPermission :: !Text -- FULL_CONTROL | WRITE | READ_ACP
@@ -122,8 +150,24 @@ data Grant = Grant
 
 instance IsXML Grant
 
+-- <AccessControlPolicy>
+--   <Owner>
+--     <ID>75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a</ID>
+--     <DisplayName>mtd@amazon.com</DisplayName>
+--   </Owner>
+--   <AccessControlList>
+--     <Grant>
+--       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+--         <ID>75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a</ID>
+--         <DisplayName>mtd@amazon.com</DisplayName>
+--       </Grantee>
+--       <Permission>FULL_CONTROL</Permission>
+--     </Grant>
+--   </AccessControlList>
+-- </AccessControlPolicy>
+
 data AccessControlList = AccessControlList
-    { aclGrant :: !Grant
+    { aclGrant :: [Grant]
     } deriving (Eq, Show, Generic)
 
 instance IsXML AccessControlList
@@ -145,6 +189,17 @@ data RestoreRequest = RestoreRequest
 
 instance IsXML RestoreRequest where
     xmlPickler = withNS s3NS
+
+--
+-- CompleteMultipartUpload
+--
+
+data Part = Part
+   { pPartNumber :: !Text
+   , pETag       :: !ETag
+   } deriving (Eq, Show, Generic)
+
+instance IsXML Part
 
 -- type Bucket = T.Text
 
@@ -204,17 +259,56 @@ instance Show StorageClass where
 instance IsHeader StorageClass where
     encodeHeader = encodeHeader . show
 
+data Directive
+    = Copy
+    | Replace
+
+data Source = Source
+    { srcBucket :: !Text
+    , srcKey    :: !Text
+    } deriving (Eq, Show)
+
+instance IsHeader Source where
+    encodeHeader Source{..} =
+        encodeHeader (Text.concat [srcBucket, "/", srcKey])
+
+instance Show Directive where
+    show Copy    = "COPY"
+    show Replace = "REPLACE"
+
+instance IsHeader Directive where
+    encodeHeader = encodeHeader . show
+
+newtype ETag = ETag { unETag :: Text }
+    deriving (Eq, Show)
+
+instance IsXML ETag where
+    xmlPickler = (ETag, unETag) `xpWrap` xmlPickler
+
+instance IsHeader ETag where
+    encodeHeader (ETag t) = encodeHeader t
+
 type Metadata = Header "x-amz-meta-" (Text, Text)
 
 type Storage = Header "x-amz-storage-class" StorageClass
 
 type ACL = Header "x-amz-acl" CannedACL
 
-type GrantRead        = Header "x-amz-grant-read" Text
-type GrantWrite       = Header "x-amz-grant-write" Text
-type GrantReadACP     = Header "x-amz-grant-read-acp" Text
-type GrantWriteACP    = Header "x-amz-grant-write-acp" Text
-type GrantFullControl = Header "x-amz-grant-full-control" Text
+-- type GrantRead        = Header "x-amz-grant-read" Text
+-- type GrantWrite       = Header "x-amz-grant-write" Text
+-- type GrantReadACP     = Header "x-amz-grant-read-acp" Text
+-- type GrantWriteACP    = Header "x-amz-grant-write-acp" Text
+-- type GrantFullControl = Header "x-amz-grant-full-control" Text
+
+-- FIXME:
+-- For each of these headers, the value is a comma-separated list of one or more grantees. You specify each grantee as a type=value pair, where the type can be one of the following:
+
+-- emailAddress — if value specified is the email address of an AWS account
+-- id — if value specified is the canonical user ID of an AWS account
+-- uri — if granting permission to a predefined group.
+
+-- For example, the following x-amz-grant-read header grants list objects permission to the two AWS accounts identified by their email addresses.
+-- x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
 
 -- | When a bucket is configured as a website, you can set this metadata on the
 -- object so the website endpoint will evaluate the request for the object as
@@ -280,6 +374,62 @@ type AccessControlRequestMethod = Header "access-control-request-method" Method
 -- | A comma-delimited list of HTTP headers that will be sent in the
 -- actual request.
 type AccessControlRequestHeaders = Header "access-control-request-headers" [Text]
+
+-- | The name of the source bucket and key name of the source object,
+-- separated by a slash (/).
+--
+-- This string must be URL-encoded. Additionally, the source bucket must be
+-- valid and you must have READ access to the valid source object.
+--
+-- If the source object is archived in Amazon Glacier (storage class of the
+-- object is GLACIER), you must first restore a temporary copy using the POST
+-- Object restore. Otherwise, Amazon S3 returns the 403 ObjectNotInActiveTierError
+-- error response.
+type CopySource = Header "x-amz-copy-source" Source
+
+-- | The range of bytes to copy from the source object.
+--
+-- The range value must use the form bytes=first-last, where the first and last
+-- are the zero-based byte offsets to copy.
+--
+-- For example, bytes=0-9 indicates that you want to copy the first ten bytes
+-- of the source.
+type CopySourceRange = Header "x-amz-copy-source-range" Text
+
+-- | Specifies whether the metadata is copied from the source object or replaced
+-- with metadata provided in the request.
+--
+-- If copied, the metadata, except for the version ID, remains unchanged.
+-- In addition, the server-side-encryption, storage-class, and
+-- website-redirect-location metadata from the source is not copied.
+-- If you specify this metadata explicitly in the copy request, Amazon S3
+-- adds this metadata to the resulting object. If you specify headers in the
+-- request specifying any user-defined metadata, Amazon S3 ignores these headers.
+--
+-- If replaced, all original metadata is replaced by the metadata you specify.
+type MetadataDirective = Header "x-amz-metadata-directive" Directive
+
+-- | Copies the object if its entity tag (ETag) matches the specified tag;
+-- otherwise, the request returns a 412 HTTP status code error.
+--
+-- Constraints: This header can be used with x-amz-copy-source-if-unmodified-since,
+-- but cannot be used with other conditional copy headers.
+type CopySourceIfMatch = Header "x-amz-copy-source-if-match" ETag
+
+-- | Copies the object if its entity tag (ETag) is different than the specified ETag;
+-- otherwise, the request returns a 412 HTTP status code error.
+--
+-- Constraints: This header can be used with x-amz-copy-source-if-modified-since,
+-- but cannot be used with other conditional copy headers.
+type CopySourceIfNoneMatch = Header "x-amz-copy-source-if-none-match" ETag
+
+-- | Copies the object if it hasn't been modified since the specified time;
+-- otherwise, the request returns a 412 HTTP status code error.
+type CopySourceIfUnmodifiedSince = Header "x-amz-copy-source-if-unmodified-since" UTCTime
+
+-- | Copies the object if it has been modified since the specified time;
+-- otherwise, the request returns a 412 HTTP status code error.
+type CopySourceIfModifiedSince = Header "x-amz-copy-source-if-modified-since" UTCTime
 
 -- | XML namespace to annotate S3 elements with.
 s3NS :: ByteString

@@ -41,8 +41,9 @@ module Network.AWS.S3
     -- ** GET Object
     , GetObject                     (..)
 
-    -- -- ** GET Object ACL
-    -- , GetObjectACL            (..)
+    -- ** GET Object ACL
+    , GetObjectACL                  (..)
+    , GetObjectACLResponse          (..)
 
     -- -- ** GET Object Torrent
     -- , GetObjectTorrent        (..)
@@ -93,6 +94,7 @@ module Network.AWS.S3
     , module Network.AWS
     ) where
 
+import           Control.Applicative  ((<$>))
 import           Data.ByteString      (ByteString)
 import           Data.Monoid
 import           Data.Text            (Text)
@@ -102,6 +104,12 @@ import           Network.AWS.Headers
 import           Network.AWS.Internal
 import           Network.AWS.S3.Types
 import           Network.Http.Client  (Method(..))
+
+xml :: IsXML a => Method -> ByteString -> Text -> [AnyHeader] -> a -> AWS Signed
+xml meth path b hs = sign (versionS3 name) . requestXML s3 meth path
+  where
+    svc  = override (name <> ".s3.amazonaws.com") s3
+    name = Text.encodeUtf8 b
 
 object :: Method -> Text -> Text -> [AnyHeader] -> Body -> AWS Signed
 object meth b k hs =
@@ -203,7 +211,6 @@ instance Rq DeleteObject where
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/multiobjectdeleteapi.html>
 data DeleteMultipleObjects = DeleteMultipleObjects
     { dmoBucket  :: !Text
-    , dmoKey     :: !Text
     , dmoMD5     :: !MD5
 --    , dmoLength  :: !ContentLength
     , dmoHeaders :: [AnyHeader]
@@ -215,7 +222,8 @@ deriving instance Show DeleteMultipleObjects
 instance Rq DeleteMultipleObjects where
     type Er DeleteMultipleObjects = S3ErrorResponse
     type Rs DeleteMultipleObjects = DeleteMultipleObjectsResponse
-    request = undefined
+    request DeleteMultipleObjects{..} =
+        xml POST "/?delete" dmoBucket (hdr dmoMD5 : dmoHeaders) dmoObjects
 
 data DeleteMultipleObjectsResponse = DeleteMultipleObjectsResponse
     { dmorDeleted :: [DeletedObject]
@@ -225,28 +233,50 @@ data DeleteMultipleObjectsResponse = DeleteMultipleObjectsResponse
 instance IsXML DeleteMultipleObjectsResponse where
     xmlPickler = withRootNS s3NS "DeleteResult"
 
--- -- | Uses the ACL subresource to return the access control list (ACL) of an object.
--- --
--- -- You must have READ_ACP access to the object.
--- --
--- -- By default, returns ACL information about the latest version of an object.
--- -- To return ACL information about a different version, use the versionId subresource.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGETacl.html>
--- data GetObjectACL  = GetObjectACL
---     {} deriving (Eq, Show, Generic)
+-- | Uses the ACL subresource to return the access control list (ACL) of an object.
+--
+-- You must have READ_ACP access to the object.
+--
+-- By default, returns ACL information about the latest version of an object.
+-- To return ACL information about a different version, use the versionId subresource.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGETacl.html>
+data GetObjectACL = GetObjectACL
+    { goaclBucket  :: !Text
+    , goaclKey     :: !Text
+    , goaclHeaders :: [AnyHeader]
+    }
 
--- instance IsQuery GetObjectACL
+deriving instance Show GetObjectACL
 
--- instance Rq GetObjectACL where
---     request = qry GET undefined
+instance Rq GetObjectACL where
+    type Er GetObjectACL = S3ErrorResponse
+    type Rs GetObjectACL = GetObjectACLResponse
+    request GetObjectACL {..} =
+        object GET goaclBucket goaclKey goaclHeaders Empty
 
--- type instance Er GetObjectACL = S3ErrorResponse
--- data instance Rs GetObjectACL = GetObjectACLResult
---     {} deriving (Eq, Show, Generic)
+    response _ rs = fmap (fmap (fmap f)) $ defaultResponse rs
+      where
+        f x = x { goaclrHeaders = rsHeaders rs }
 
--- instance IsXML (Rs GetObjectACL) where
---     xmlPickler = undefined
+data GetObjectACLResponse = GetObjectACLResponse
+    { goaclrHeaders :: [(ByteString, ByteString)]
+    , goaclrPolicy  :: !AccessControlPolicy
+    }
+
+deriving instance Show GetObjectACLResponse
+
+instance IsXML GetObjectACLResponse where
+    xmlPickler = xpWrap
+        (GetObjectACLResponse [], \(GetObjectACLResponse _ p) -> p)
+        (genericXMLPickler defaultXMLOptions)
+
+-- x-amz-id-2: eftixk72aD6Ap51TnqcoF8eFidJG9Z/2mkiDFu8yU9AS1ed4OpIszj7UDNEHGran
+-- x-amz-request-id: 318BC8BC148832E5
+-- x-amz-version-id: 4HL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nrjfkd
+-- Last-Modified: Sun, 1 Jan 2006 12:00:00 GMT
+-- Content-Length: 124
+-- Content-Type: text/plain
 
 -- -- | Use the torrent subresource to return torrent files from a bucket.
 -- --

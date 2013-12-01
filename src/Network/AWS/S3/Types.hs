@@ -38,16 +38,6 @@ instance IsXML S3ErrorResponse
 newtype S3HeadersResponse = S3HeadersResponse [(ByteString, ByteString)]
     deriving (Eq, Show)
 
-data Owner = Owner
-    { oID          :: !Text
-      -- ^ Bucket owner's user ID.
-    , oDisplayName :: !Text
-      -- ^ Bucket owner's display name.
-    } deriving (Eq, Show, Generic)
-
-instance IsXML Owner where
-    xmlPickler = withNS s3NS
-
 data Bucket = Bucket
     { bName         :: !Text
       -- ^ Bucket's name.
@@ -55,8 +45,7 @@ data Bucket = Bucket
       -- ^ Date the bucket was created.
     } deriving (Eq, Show, Generic)
 
-instance IsXML Bucket where
-    xmlPickler = withNS s3NS
+instance IsXML Bucket
 
 --
 -- DeleteMultipleObjects
@@ -86,10 +75,10 @@ instance IsXML DMObjects where
 --
 
 data DeletedObject = DeletedObject
-    { doKey                   :: !Text
-    , doVersionId             :: Maybe Text
-    , doDeleteMarker          :: Maybe Bool
-    , doDeleteMarkerVersionId :: Maybe Text
+    { dobjKey                   :: !Text
+    , dobjVersionId             :: Maybe Text
+    , dobjDeleteMarker          :: Maybe Bool
+    , dobjDeleteMarkerVersionId :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeletedObject where
@@ -104,6 +93,46 @@ data DeleteError = DeleteError
 
 instance IsXML DeleteError where
     xmlPickler = withRootNS s3NS "Error"
+
+--
+-- GetObjectACLResponse
+--
+
+data Owner = Owner
+    { oID          :: !Text
+      -- ^ Bucket owner's user ID.
+    , oDisplayName :: !Text
+      -- ^ Bucket owner's display name.
+    } deriving (Eq, Show, Generic)
+
+instance IsXML Owner
+
+data Grantee = Grantee
+    { gID          :: !Text
+    , gDisplayName :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance IsXML Grantee
+
+data Grant = Grant
+    { gGrantee    :: !Grantee
+    , gPermission :: !Text -- FULL_CONTROL | WRITE | READ_ACP
+    } deriving (Eq, Show, Generic)
+
+instance IsXML Grant
+
+data AccessControlList = AccessControlList
+    { aclGrant :: !Grant
+    } deriving (Eq, Show, Generic)
+
+instance IsXML AccessControlList
+
+data AccessControlPolicy = AccessControlPolicy
+    { acpOwner             :: !Owner
+    , acpAccessControlList :: !AccessControlList
+    } deriving (Eq, Show, Generic)
+
+instance IsXML AccessControlPolicy
 
 -- type Bucket = T.Text
 

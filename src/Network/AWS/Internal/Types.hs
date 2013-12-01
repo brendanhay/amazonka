@@ -31,7 +31,6 @@ import qualified Data.ByteString.Char8           as BS
 import           Data.Foldable                   (Foldable)
 import           Data.Monoid
 import           Data.String
-import           Data.Text                       (Text)
 import           GHC.Generics
 import           Network.AWS.Headers
 import           Network.HTTP.QueryString.Pickle
@@ -48,7 +47,7 @@ class Rq a where
     type Rs a
 
     request  :: a -> AWS Signed
-    response :: MonadIO m
+    response :: (Functor m, MonadIO m)
              => a
              -> Response
              -> m (Either AWSError (Either (Er a) (Rs a)))
@@ -59,7 +58,7 @@ class Rq a where
                      -> m (Either AWSError (Either (Er a) (Rs a)))
     response _ = defaultResponse
 
--- FIXME: an erroneous http status code should indicate the Er parser to use
+-- FIXME: an erroneous http status code should indicate the correct parser to use
 defaultResponse :: (IsXML e, IsXML a, MonadIO m)
                 => Response
                 -> m (Either AWSError (Either e a))

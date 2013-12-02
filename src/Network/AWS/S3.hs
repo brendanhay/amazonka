@@ -104,6 +104,7 @@ module Network.AWS.S3
 import           Data.ByteString      (ByteString)
 import           Data.Monoid
 import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import qualified Data.Text.Encoding   as Text
 import           Network.AWS
 import           Network.AWS.Headers
@@ -621,7 +622,7 @@ data UploadPartCopy  = UploadPartCopy
     , upcKey        :: !Text
     , upcSource     :: !CopySource
     , upcPartNumber :: !Text
-    , upcUpcloadId  :: !Text
+    , upcUploadId  :: !Text
     , upcHeaders    :: [AnyHeader]
     }
 
@@ -694,6 +695,8 @@ instance Rq CompleteMultipartUpload where
 
     response = undefined
 
+type CompleteMultipartUploadResponse = S3HeaderResponse
+
 -- | Aborts a multipart upload.
 --
 -- After a multipart upload is aborted, no additional parts can be uploaded
@@ -708,16 +711,16 @@ instance Rq CompleteMultipartUpload where
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadAbort.html>
 data AbortMultipartUpload = AbortMultipartUpload
-    { amuBucket   :: !Bucket
-    , amuKey      :: !Key
-    , amuUploadId :: !UploadId
+    { amuBucket   :: !Text
+    , amuKey      :: !Text
+    , amuUploadId :: !Text -- UploadId
     } deriving (Eq, Show, Generic)
 --  "uri": "/{Bucket}/{Key}?uploadId={UploadId}"
 
 instance Rq AbortMultipartUpload where
     type Er AbortMultipartUpload = S3ErrorResponse
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse
-    request AbortMultipartUpload{..} = undefine
+    request AbortMultipartUpload{..} = undefined
     response = undefined
 
 -- NoSuchUpload = 404
@@ -761,3 +764,5 @@ instance Rq ListParts where
     type Rs ListParts = ListPartsResponse
     request ListParts{..} = undefined
     response = undefined
+
+type ListPartsResponse = S3HeaderResponse

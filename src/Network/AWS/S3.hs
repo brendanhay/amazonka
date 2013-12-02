@@ -676,11 +676,12 @@ type UploadPartCopyResponse = S3HeaderResponse
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadComplete.html>
 data CompleteMultipartUpload = CompleteMultipartUpload
-    { cmuBucket  :: !Text
-    , cmuKey     :: !Text
+    { cmuBucket   :: !Text
+    , cmuKey      :: !Text
+    , cmuUploadId :: !Text
 --   Content Length?
-    , cmuHeaders :: [AnyHeader]
-    , cmuParts   :: [Part]
+    , cmuHeaders  :: [AnyHeader]
+    , cmuParts    :: [Part]
     }
 
 deriving instance Show CompleteMultipartUpload
@@ -688,10 +689,10 @@ deriving instance Show CompleteMultipartUpload
 instance Rq CompleteMultipartUpload where
     type Er CompleteMultipartUpload = S3ErrorResponse
     type Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
-    request CompleteMultipartUpload{..} =
-        object POST cmuBucket path cmuHeaders . Strict $ toXML
+    request CompleteMultipartUpload{..} = undefined
+--        object POST cmuBucket path cmuHeaders . Strict $ toXML ""
       where
-        path = Text.concat [cmuKey, "&uploadId=", upUploadId]
+        path = Text.concat [cmuKey, "&uploadId=", cmuUploadId]
 
     response = undefined
 
@@ -730,8 +731,6 @@ instance Rq AbortMultipartUpload where
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)
-
-instance IsXML AbortMultipartUploadResponse
 
 -- | List the parts that have been uploaded for a specific multipart upload.
 --

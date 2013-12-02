@@ -139,10 +139,6 @@ waitAsync_ = void . waitAsync
 paginate :: (Rq a, Pg a, ToError (Er a))
          => a
          -> Producer' (Rs a) AWS ()
-
-paginate :: (Rq a, Pg a, ToError (Er a))
-         => a
-         -> Producer' (Rs a) AWS ()
 paginate = paginateCatch ~> either (lift . liftEitherT . left . toError) yield
 
 paginateCatch :: (Rq a, Pg a, ToError (Er a))

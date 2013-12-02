@@ -725,10 +725,10 @@ instance Rq AbortMultipartUpload where
 -- The upload ID might be invalid, or the multipart upload might have been aborted or completed.
 -- empty response
 
-data AbortMultipartUploadResponse = AbortMultipartUploadResult
+data AbortMultipartUploadResponse = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)
 
-instance IsXML AbortMultipartUploadResult
+instance IsXML AbortMultipartUploadResponse
 
 -- | List the parts that have been uploaded for a specific multipart upload.
 --

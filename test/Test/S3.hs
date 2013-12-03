@@ -32,7 +32,7 @@ tests = testVersion s3
         [
         ]
         -- [ qc "GetObject" (prop :: TRq GetObject)
-        -- , qc "PutObject" (prop :: TRq PutObject)
+        -- -- , qc "PutObject" (prop :: TRq PutObject)
         -- ]
     ]
 

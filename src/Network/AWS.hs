@@ -135,7 +135,7 @@ waitAsync_ :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS ()
 waitAsync_ = void . waitAsync
 
 -- | Create a pipes 'Producer' which yields the initial and subsequent repsonses
--- for requests that supported pagination.
+-- for requests that support pagination.
 paginate :: (Rq a, Pg a, ToError (Er a))
          => a
          -> Producer' (Rs a) AWS ()

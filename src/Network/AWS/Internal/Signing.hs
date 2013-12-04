@@ -32,79 +32,74 @@ import qualified Data.ByteString.Base64          as Base64
 import qualified Data.ByteString.Char8           as BS
 import           Data.CaseInsensitive            (CI)
 import qualified Data.CaseInsensitive            as Case
+import           Data.Default
 import           Data.Function                   (on)
 import           Data.List                       (groupBy, nub, sort)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Time                       (UTCTime, getCurrentTime)
+import           Data.Time                       (getCurrentTime)
 import           Network.AWS.Headers
 import           Network.AWS.Internal.Monadic
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Time
 import           Network.AWS.Internal.Types
+import           Network.HTTP.Conduit
 import           Network.HTTP.QueryString.Pickle
-import           Network.HTTP.Types              (urlEncode)
-import           Network.Http.Client             (Method, Hostname)
-import qualified Network.Http.Client             as Client
-import qualified Network.Http.Internal           as Client
-
-type Signer = Request -> Auth -> Region -> UTCTime -> Bool -> IO Signed
+import           Network.HTTP.Types              (Header, StdMethod, urlEncode)
 
 data Common = Common
-    { service     :: !ByteString
-    , version     :: !ByteString
-    , host        :: !ByteString
-    , fullPath    :: !ByteString
-    , sortedQuery :: [(ByteString, ByteString)]
+    { _service :: !ByteString
+    , _version :: !ByteString
+    , _host    :: !ByteString
+    , _query   :: [(ByteString, ByteString)]
     }
 
-sign :: Signer -> Request -> AWS Signed
-sign f rq@Request{..} = do
-    dbg  <- getDebug
+sign :: Signer -> Raw -> AWS Request
+sign s raw@Raw{..} = do
     auth <- getAuth
     reg  <- region rqService
     time <- liftIO getCurrentTime
 
-    let tok  = maybe [] ((:[]) . hdr) $ amzTokenHeader auth
-        host = hdr . hostHeader $ endpoint rqService reg
-        hs   = host : hdr acceptHeader : concat [rqHeaders, tok] --, hdr transferHeader]]
+    let tok = maybeToList $ hAMZToken <$> securityToken auth
+        hs  = hHost (endpoint rqService reg) : concat [rqHeaders, tok]
 
-    liftIO $! f (rq { rqHeaders = hs }) auth reg time dbg
+    return $! s (raw { rqHeaders = hs }) auth reg time
 
 version2 :: Signer
-version2 rq@Request{..} Auth{..} reg time dbg = signed rq host path headers
+version2 raw@Raw{..} Auth{..} reg time =
+    signed rqMethod _host path query headers rqBody
   where
-    Common{..} = common rq reg
+    Common{..} = common raw reg
 
     path = joinPath rqPath $ query <> "&Signature=" <> urlEncode True signature
-
-    headers = hdr (dateHeader $ formatISO8601 time) : rqHeaders
 
     signature = Base64.encode
         . hmacSHA256 secretAccessKey
         $ BS.intercalate "\n"
             [ BS.pack $ show rqMethod
-            , host <> ":443"
+            , _host <> ":443"
             , rqPath
             , query
             ]
 
-    query = encodeQuery (urlEncode True) $ sortedQuery ++
-        [ ("Version",          svcVersion rqService)
+    query = encodeQuery (urlEncode True) $ _query ++
+        [ ("Version",          _version)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
         , ("Timestamp",        formatISO8601 time)
         , ("AWSAccessKeyId",   accessKeyId)
         ]
 
-version3 :: Signer
-version3 rq@Request{..} Auth{..} reg time dbg = signed rq host fullPath headers
-  where
-    Common{..} = common rq reg
+    headers = hDate (formatISO8601 time) : rqHeaders
 
-    headers = hdr (dateHeader $ formatRFC822 time) :
-        hdr (amzAuthHeader authorisation) :
-        rqHeaders
+version3 :: Signer
+version3 raw@Raw{..} Auth{..} reg time =
+    signed rqMethod _host rqPath query headers rqBody
+  where
+    Common{..} = common raw reg
+
+    query   = encodeQuery (urlEncode True) _query
+    headers = hDate (formatRFC822 time) : hAMZAuth authorisation : rqHeaders
 
     authorisation = "AWS3-HTTPS AWSAccessKeyId="
         <> accessKeyId
@@ -112,75 +107,75 @@ version3 rq@Request{..} Auth{..} reg time dbg = signed rq host fullPath headers
         <> Base64.encode (hmacSHA256 secretAccessKey $ formatRFC822 time)
 
 version4 :: Signer
-version4 rq@Request{..} Auth{..} reg time dbg = do
-    Signed{..} <- signed rq host fullPath (date : rqHeaders)
-
-    let hs   = map hdr . Client.retrieveHeaders $ Client.getHeaders sRequest
-        hs'  = hdr (hostHeader host) : hs
-        auth = hdr . authHeader $ authorisation hs'
-
-    signed rq host fullPath (auth : hs')
+version4 raw@Raw{..} Auth{..} reg time =
+    signed rqMethod _host rqPath query headers rqBody
   where
-    Common{..} = common rq reg
+    Common{..} = common raw reg
 
-    date = hdr . amzDateHeader $ formatISO8601 time
+    query   = encodeQuery (urlEncode True) _query
+    headers = hAMZDate time : hAuth authorisation : rqHeaders
 
-    authorisation hs = mconcat
+    authorisation = mconcat
         [ algorithm
         , " Credential="
         , accessKeyId
         , "/"
         , credentialScope
         , ", SignedHeaders="
-        , signedHeaders hs
+        , signedHeaders
         , ", Signature="
-        , signature hs
+        , signature
         ]
 
-    signature  = Base16.encode . hmacSHA256 signingKey . stringToSign
+    signature  = Base16.encode $ hmacSHA256 signingKey stringToSign
     signingKey = foldl1 hmacSHA256 $ ("AWS4" <> secretAccessKey) : scope
 
-    stringToSign hs = BS.intercalate "\n"
+    stringToSign = BS.intercalate "\n"
         [ algorithm
         , formatAWS time
         , credentialScope
-        , Base16.encode . SHA256.hash $ canonicalRequest hs
+        , Base16.encode $ SHA256.hash canonicalRequest
         ]
 
     credentialScope = BS.intercalate "/" scope
 
     algorithm = "AWS4-HMAC-SHA256"
-    scope     = [formatBasic time, BS.pack $ show reg, service, "aws4_request"]
+    scope     = [formatBasic time, BS.pack $ show reg, _service, "aws4_request"]
 
-    canonicalRequest hs = BS.intercalate "\n"
+    canonicalRequest = BS.intercalate "\n"
         [ BS.pack $ show rqMethod
         , rqPath
-        , encodeQuery (urlEncode True) sortedQuery
-        , canonicalHeaders hs
-        , signedHeaders hs
+        , encodeQuery (urlEncode True) _query
+        , canonicalHeaders
+        , signedHeaders
         , bodySHA256
         ]
 
-    canonicalHeaders = mconcat . map flattenValues . groupHeaders
+    canonicalHeaders = mconcat $ map flattenValues grouped
 
-    signedHeaders = BS.intercalate ";"
-        . nub
-        . map (Case.foldedCase . fst)
-        . groupHeaders
+    signedHeaders = BS.intercalate ";" . nub $
+        map (Case.foldedCase . fst) grouped
 
-    bodySHA256 = Base16.encode . SHA256.hash $ case rqBody of
-        (Strict   bs) -> bs
-        (Streaming _) -> "" -- FIXME
-        Empty         -> ""
+    grouped = groupHeaders rqHeaders
+
+    bodySHA256 = Base16.encode "" -- . SHA256.hash $ case rqBody of
+        -- (Strict   bs) -> bs
+        -- (Streaming _) -> "" -- FIXME
+        -- Empty         -> ""
+
+    -- main = do
+    --     hash <- runResourceT $ sourceFile "my-file" $$ sinkHash
+    --     print (hash :: SHA1)
 
 versionS3 :: ByteString -> Signer
-versionS3 bucket rq@Request{..} Auth{..} reg time dbg =
-    signed rq host fullPath (authorisation : headers)
+versionS3 bucket raw@Raw{..} Auth{..} reg time =
+    signed rqMethod _host rqPath query (authorisation : headers) rqBody
   where
-    Common{..} = common rq reg
+    Common{..} = common raw reg
 
-    authorisation = hdr . authHeader $
-        BS.concat ["AWS ", accessKeyId, ":", signature]
+    query = encodeQuery (urlEncode True) _query
+
+    authorisation = hAuth $ BS.concat ["AWS ", accessKeyId, ":", signature]
 
     signature = Base64.encode $ hmacSHA1 secretAccessKey stringToSign
 
@@ -204,7 +199,7 @@ versionS3 bucket rq@Request{..} Auth{..} reg time dbg =
         . filter (BS.isPrefixOf "x-amz-" . Case.foldedCase . fst)
         $ groupHeaders headers
 
-    headers = hdr (dateHeader date) : rqHeaders
+    headers = hDate date : rqHeaders
 
     date = formatRFC822 time
 
@@ -240,40 +235,32 @@ versionS3 bucket rq@Request{..} Auth{..} reg time dbg =
     --     , "notification"
     --     ]
 
-common :: Request -> Region -> Common
-common Request{..} reg = Common
-    { service     = svcName rqService
-    , version     = svcVersion rqService
-    , host        = endpoint rqService reg
-    , fullPath    = path
-    , sortedQuery = query
+common :: Raw -> Region -> Common
+common Raw{..} reg = Common
+    { _service = svcName rqService
+    , _version = svcVersion rqService
+    , _host    = endpoint rqService reg
+    , _query   = sort rqQuery
     }
-  where
-    path | null query = rqPath
-         | otherwise  = mappend rqPath
-             . addPrefix "?"
-             $ encodeQuery (urlEncode True) query
 
-    query = sort rqQuery
-
-signed :: Request -> Hostname -> ByteString -> [AnyHeader] -> IO Signed
-signed rq@Request{..} host path hs =
-    Signed rq ("https://" <> host) rqBody <$> builder
-  where
-    builder = Client.buildRequest $ do
-        Client.http rqMethod $ "/" `addPrefix` path
-        Client.setHostname host 443
-        maybe (return ()) Client.setContentLength contentLength
-        mapM_ header $ filter exclude headers
-
-    header (k, v) = Client.setHeader (Case.original k) v
-
-    exclude (Case.foldedCase -> k, _) = "host" /= k && "content-length" /= k
-
-    contentLength = read . BS.unpack . snd . (`encodeHeader` "") <$>
-        lookupHeader "content-length" hs
-
-    headers = flattenHeaders hs
+signed :: StdMethod
+       -> ByteString
+       -> ByteString
+       -> ByteString
+       -> [Header]
+       -> RequestBody
+       -> Request
+signed meth host path qs hs body = def
+    { secure         = True
+    , method         = BS.pack $ show meth
+    , host           = host
+    , port           = 443
+    , path           = path
+    , queryString    = qs
+    , requestHeaders = hs
+    , requestBody    = body
+--    , checkStatus = FIXME: 
+    }
 
 hmacSHA1 :: ByteString -> ByteString -> ByteString
 hmacSHA1 key msg = HMAC.hmac SHA1.hash 64 key msg
@@ -281,38 +268,14 @@ hmacSHA1 key msg = HMAC.hmac SHA1.hash 64 key msg
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 key msg = HMAC.hmac SHA256.hash 64 key msg
 
-hostHeader :: Hostname -> Header "Host" Hostname
-hostHeader host = Header $ host <> ":443"
-
-dateHeader :: ByteString -> Header "Date" ByteString
-dateHeader = Header
-
-amzDateHeader :: ByteString -> Header "X-Amz-Date" ByteString
-amzDateHeader = Header
-
-authHeader :: ByteString -> Header "Authorization" ByteString
-authHeader = Header
-
-amzAuthHeader :: ByteString -> Header "X-Amzn-Authorization" ByteString
-amzAuthHeader = Header
-
-amzTokenHeader :: Auth -> Maybe (Header "X-Amz-Security-Token" ByteString)
-amzTokenHeader = fmap (\t -> Header t) . securityToken
-
-acceptHeader :: Header "Accept-Encoding" ByteString
-acceptHeader = Header "gzip"
-
-groupHeaders :: [AnyHeader] -> [(CI ByteString, ByteString)]
-groupHeaders = sort . map f . groupBy ((==) `on` fst) . flattenHeaders
+groupHeaders :: [Header] -> [Header]
+groupHeaders = sort . map f . groupBy ((==) `on` fst)
   where
     f (h:hs) = (fst h, BS.intercalate "," . sort . map snd $ h : hs)
     f []     = ("", "")
 
-flattenHeaders :: [AnyHeader] -> [(CI ByteString, ByteString)]
-flattenHeaders = map (`encodeHeader` "")
-
-lookupHeader :: ByteString -> [AnyHeader] -> Maybe ByteString
-lookupHeader (Case.mk -> key) = lookup key . flattenHeaders
+lookupHeader :: ByteString -> [Header] -> Maybe ByteString
+lookupHeader (Case.mk -> key) = lookup key
 
 flattenValues :: IsByteString a => (CI ByteString, a) -> ByteString
 flattenValues (k, v) = mconcat [Case.foldedCase k, ":", strip ' ' v, "\n"]

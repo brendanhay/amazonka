@@ -27,8 +27,6 @@ import           Data.ByteString             (ByteString)
 import           Data.Monoid
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Types  hiding (InstanceId, request)
-import           Network.Http.Client
-import qualified System.IO.Streams           as Streams
 
 data Metadata
     = AMIId
@@ -70,14 +68,14 @@ localhost = "http://169.254.169.254"
 request :: (Applicative m, MonadIO m)
         => ByteString
         -> EitherT AWSError m ByteString
-request url = do
-    rs <- fmap (strip '\n') <$> fmapLT Ex (syncIO req)
-    maybe (throwError "Failed to receive any data") return rs
-  where
-    req = bracket (establishConnection localhost) closeConnection $ \c -> do
-        rq <- buildRequest $ http GET url
-        sendRequest c rq emptyBody
-        receiveResponse c $ const Streams.read
+request url = undefined -- do
+  --   rs <- fmap (strip '\n') <$> fmapLT Ex (syncIO req)
+  --   maybe (throwError "Failed to receive any data") return rs
+  -- where
+  --   req = bracket (establishConnection localhost) closeConnection $ \c -> do
+  --       rq <- buildRequest $ http GET url
+  --       sendRequest c rq emptyBody
+  --       receiveResponse c $ const Streams.read
 
 toPath :: Metadata -> ByteString
 toPath meta = case meta of

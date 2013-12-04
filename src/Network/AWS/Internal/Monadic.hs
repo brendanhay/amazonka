@@ -22,13 +22,12 @@ import           Control.Error
 import           Control.Monad
 import           Control.Monad.Error        (MonadError, Error, throwError)
 import           Control.Monad.IO.Class
+import           Control.Monad.Trans
 import           Control.Monad.Trans.Reader
 import qualified Data.Aeson                 as Aeson
 import qualified Data.ByteString.Lazy       as LBS
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal.Types
-import           OpenSSL                    (withOpenSSL)
-import           Pipes                      hiding (next)
 
 runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws =
@@ -36,7 +35,7 @@ runAWS cred dbg aws =
         credentials cred
 
 runEnv :: AWS a -> Env -> IO (Either AWSError a)
-runEnv aws = withOpenSSL . runEitherT . runReaderT (unwrap aws)
+runEnv aws = runEitherT . runReaderT (unwrap aws)
 
 credentials :: (Applicative m, MonadIO m)
             => Credentials
@@ -55,8 +54,10 @@ within :: Region -> AWS a -> AWS a
 within reg = AWS . local (\e -> e { awsRegion = reg }) . unwrap
 
 region :: Service -> AWS Region
-region Global{..} = return defaultRegion
-region _          = getRegion
+region Service{..} =
+    case svcEndpoint of
+        Global -> return defaultRegion
+        _      -> getRegion
 
 defaultRegion :: Region
 defaultRegion = NorthVirginia

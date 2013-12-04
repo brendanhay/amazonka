@@ -28,16 +28,16 @@ import           Control.Monad.Reader
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
+import           Data.Conduit
 import           Data.Foldable                   (Foldable)
 import           Data.Monoid
 import           Data.String
 import           GHC.Generics
-import           Network.AWS.Headers
+-- import           Network.AWS.Headers
+import           Data.Time
+import           Network.HTTP.Conduit
 import           Network.HTTP.QueryString.Pickle
-import           Network.Http.Client             (Method)
-import qualified Network.Http.Client             as Client
-import           System.IO.Streams               (InputStream)
-import qualified System.IO.Streams               as Stream
+import           Network.HTTP.Types
 import qualified Text.ParserCombinators.ReadP    as ReadP
 import qualified Text.Read                       as Read
 import           Text.XML.Expat.Pickle.Generic
@@ -46,29 +46,29 @@ class Rq a where
     type Er a
     type Rs a
 
-    request  :: a -> AWS Signed
+    request  :: a -> AWS Request
     response :: (Functor m, MonadIO m)
              => a
-             -> Response
+             -> Response (ResumableSource m ByteString)
              -> m (Either AWSError (Either (Er a) (Rs a)))
 
-    default response :: (MonadIO m, IsXML (Er a), IsXML (Rs a))
-                     => a
-                     -> Response
-                     -> m (Either AWSError (Either (Er a) (Rs a)))
-    response _ = defaultResponse
+    -- default response :: (MonadIO m, IsXML (Er a), IsXML (Rs a))
+    --                  => a
+    --                  -> Response (ResumableSource m ByteString)
+    --                  -> m (Either AWSError (Either (Er a) (Rs a)))
+    -- response _ = un
 
 -- FIXME: an erroneous http status code should indicate the correct parser to use
-defaultResponse :: (IsXML e, IsXML a, MonadIO m)
-                => Response
-                -> m (Either AWSError (Either e a))
-defaultResponse Response{..} = liftIO $ do
-    bs <- BS.concat <$> Stream.toList rsBody
-    when rsDebug . liftIO $ print bs
-    return . either (failure bs) (Right . Right) $ fromXML bs
-  where
-    failure bs e = either (\s -> Left . Err $ concat [s, ", ", e])
-        (Right . Left) (fromXML bs)
+-- defaultResponse :: (IsXML e, IsXML a, MonadIO m)
+--                 => Response
+--                 -> m (Either AWSError (Either e a))
+-- defaultResponse Response{..} = liftIO $ do
+--     bs <- BS.concat <$> Stream.toList rsBody
+--     when rsDebug . liftIO $ print bs
+--     return . either (failure bs) (Right . Right) $ fromXML bs
+--   where
+--     failure bs e = either (\s -> Left . Err $ concat [s, ", ", e])
+--         (Right . Left) (fromXML bs)
 
 class Pg a where
     next :: a -> Rs a -> Maybe a
@@ -125,81 +125,48 @@ data Env = Env
 newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT AWSError IO) a }
     deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env, MonadError AWSError)
 
-data Service
+type Signer = Raw -> Auth -> Region -> UTCTime -> Request
+
+data Endpoint
     = Global
-      { svcName     :: !ByteString
-      , svcVersion  :: !ByteString
-      }
     | Regional
-      { svcName     :: !ByteString
-      , svcVersion  :: !ByteString
-      }
-    | Specific
-      { svcName     :: !ByteString
-      , svcVersion  :: !ByteString
-      , svcEndpoint :: !ByteString
-      }
-    deriving (Show)
+    | Custom ByteString
+
+data Service = Service
+    { svcName     :: !ByteString
+    , svcVersion  :: !ByteString
+    , svcSigner   :: !Signer
+    , svcEndpoint :: !Endpoint
+    }
 
 endpoint :: Service -> Region -> ByteString
-endpoint Global{..}   _ = svcName <> ".amazonaws.com"
-endpoint Regional{..} r = BS.intercalate "." $
-    [svcName, BS.pack $ show r, "amazonaws.com"]
-endpoint Specific{..} _ = svcEndpoint
+endpoint Service{..} reg =
+    case svcEndpoint of
+        Custom bs -> bs
+        Global    -> svcName <> ".amazonaws.com"
+        Regional  -> BS.intercalate "." $
+            [svcName, BS.pack $ show reg, "amazonaws.com"]
 
-override :: ByteString -> Service -> Service
-override bs svc = Specific (svcName svc) (svcVersion svc) bs
+-- override :: ByteString -> Service -> Service
+-- override bs svc = Specific (svcName svc) (svcVersion svc) bs
 
-data Body
-    = Strict ByteString
-    | Streaming (InputStream ByteString)
-    | Empty
-
-instance Show Body where
-    show (Strict bs)    = BS.unpack $ BS.concat ["Strict ", bs]
-    show (Streaming _) = "Streaming <InputStream>"
-    show Empty         = "Empty"
-
-data Request = Request
+data Raw = Raw
     { rqService :: !Service
-    , rqMethod  :: !Method
+    , rqMethod  :: !StdMethod
     , rqPath    :: !ByteString
-    , rqHeaders :: [AnyHeader]
     , rqQuery   :: [(ByteString, ByteString)]
-    , rqBody    :: !Body
-    } deriving (Show)
-
-data Signed = Signed
-    { sMeta    :: !Request
-    , sHost    :: !ByteString
-    , sBody    :: !Body
-    , sRequest :: !Client.Request
-    } deriving (Show)
-
--- instance Show Signed where
---     show Signed{..} = unlines
---         [ "Signed:"
---         , "sURL  = " ++ BS.unpack sURL
---         , "sBody = " ++ show sBody
---         , ""
---         ] ++ show sRequest
-
--- instance ToJSON Request where
---     toJSON Request{..} = object
---         [ "rqMethod"  .= (String . Text.pack $ show rqMethod)
---         , "rqContent" .= ("Content-Type" `lookup` rqQuery)
---         , "rqAction"  .= ("Action" `lookup` rqQuery)
---         , "rqPath"    .= rqPath
---         , "rqQuery"   .= rqQuery
---         ]
-
-data Response = Response
-    { rsDebug   :: !Bool
-    , rsCode    :: !Int
-    , rsMessage :: !ByteString
-    , rsHeaders :: [(ByteString, ByteString)]
-    , rsBody    :: InputStream ByteString
+    , rqHeaders :: [Header]
+    , rqBody    :: !RequestBody
     }
+
+instance Show Raw where
+    show Raw{..} = unlines
+        [ "Raw:"
+        , "rqMethod  = " ++ show rqMethod
+        , "rqPath    = " ++ show rqPath
+        , "rqHeaders = " ++ show rqHeaders
+        , "rqQuery   = " ++ show rqQuery
+        ]
 
 data Region
     = NorthVirginia

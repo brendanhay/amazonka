@@ -32,12 +32,10 @@ import qualified Data.ByteString.Char8           as BS
 import qualified Data.ByteString.Lazy            as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary             as Conduit
-import qualified Data.Conduit.List               as Conduit
 import           Data.Foldable                   (Foldable)
 import           Data.Monoid
 import           Data.String
 import           GHC.Generics
--- import           Network.AWS.Headers
 import           Data.Time
 import           Network.HTTP.Conduit
 import           Network.HTTP.QueryString.Pickle

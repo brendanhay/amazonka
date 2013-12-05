@@ -21,7 +21,15 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the IAM service.
 iam :: Service
-iam = Global "iam" "2010-05-08"
+iam = Service Global version4 "iam" "2010-05-08"
+
+-- | XML namespace to annotate IAM elements with.
+iamNS :: ByteString
+iamNS = "https://iam.amazonaws.com/doc/" <> svcVersion iam <> "/"
+
+-- | Helper to define IAM namespaced XML elements.
+iamElem :: ByteString -> NName ByteString
+iamElem = mkNName iamNS
 
 data ErrorType = ErrorType
     { etType    :: !Text
@@ -1020,11 +1028,3 @@ instance IsQuery VirtualMFADevice
 
 instance IsXML VirtualMFADevice where
     xmlPickler = withNS iamNS
-
--- | XML namespace to annotate IAM elements with.
-iamNS :: ByteString
-iamNS = "https://iam.amazonaws.com/doc/" <> svcVersion iam <> "/"
-
--- | Helper to define IAM namespaced XML elements.
-iamElem :: ByteString -> NName ByteString
-iamElem = mkNName iamNS

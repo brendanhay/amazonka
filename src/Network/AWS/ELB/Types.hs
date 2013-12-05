@@ -21,7 +21,15 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the ELB service.
 elb :: Service
-elb = Regional "elasticloadbalancing" "2012-06-01"
+elb = Service Regional version4 "elasticloadbalancing" "2012-06-01"
+
+-- | XML namespace to annotate ELB elements with.
+elbNS :: ByteString
+elbNS = "https://elasticloadbalancing.amazonaws.com/doc/" <> svcVersion elb <> "/"
+
+-- | Helper to define ELB namespaced XML elements.
+elbElem :: ByteString -> NName ByteString
+elbElem = mkNName elbNS
 
 data ELBError = ELBError
     { cweCode    :: !Text
@@ -667,11 +675,3 @@ instance IsXML SourceSecurityGroup where
     xmlPickler = withNS elbNS
 
 instance IsQuery SourceSecurityGroup
-
--- | XML namespace to annotate ELB elements with.
-elbNS :: ByteString
-elbNS = "https://elasticloadbalancing.amazonaws.com/doc/" <> svcVersion elb <> "/"
-
--- | Helper to define ELB namespaced XML elements.
-elbElem :: ByteString -> NName ByteString
-elbElem = mkNName elbNS

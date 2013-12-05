@@ -23,7 +23,15 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the AutoScaling service.
 autoScaling :: Service
-autoScaling = Regional "autoscaling" "2011-01-01"
+autoScaling = Service Regional version4 "autoscaling" "2011-01-01"
+
+-- | XML namespace to annotate AutoScaling elements with.
+autoScalingNS :: ByteString
+autoScalingNS = "http://autoscaling.amazonaws.com/doc/" <> svcVersion autoScaling <> "/"
+
+-- | Helper to define AutoScaling namespaced XML elements.
+autoScalingElem :: ByteString -> NName ByteString
+autoScalingElem = mkNName autoScalingNS
 
 data ErrorType = Receiver | Sender
     deriving (Eq, Show, Read, Generic)
@@ -734,11 +742,3 @@ data TerminateInstanceInAutoScalingGroupResult = TerminateInstanceInAutoScalingG
 
 instance IsXML TerminateInstanceInAutoScalingGroupResult where
     xmlPickler = withNS autoScalingNS
-
--- | XML namespace to annotate AutoScaling elements with.
-autoScalingNS :: ByteString
-autoScalingNS = "http://autoscaling.amazonaws.com/doc/" <> svcVersion autoScaling <> "/"
-
--- | Helper to define AutoScaling namespaced XML elements.
-autoScalingElem :: ByteString -> NName ByteString
-autoScalingElem = mkNName autoScalingNS

@@ -23,36 +23,21 @@ import Network.HTTP.QueryString.Pickle
 import Network.HTTP.Types.Method
 import Text.XML.Expat.Pickle.Generic
 
-mkQuery :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
-mkQuery s@Service{..} m p x = Raw s m p (toQuery x) [] (RequestBodyBS "")
+query :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
+query s@Service{..} m p x = Raw s m p (toQuery x) [] (RequestBodyBS "")
 
-mkXML :: IsXML a => Service -> StdMethod -> ByteString -> a -> Raw
-mkXML s@Service{..} m p = Raw s m p [] [] . RequestBodyBS . toXML
+query4 :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
+query4 s m a q = query s m "/" q .?.
+    [ ("Action",  a)
+    , ("Version", svcVersion s)
+    ]
+
+xml :: IsXML a => Service -> StdMethod -> ByteString -> a -> Raw
+xml s@Service{..} m p = Raw s m p [] [] . RequestBodyBS . toXML
 --     , rqHeaders = [hdr (Content :: XML)]
-
--- requestXML :: IsXML a
---            => Service
---            -> Method
---            -> ByteString
---            -> a
---            -> Request
--- requestXML svc meth path x = Request
---     { rqService = svc
---     , rqMethod  = meth
---     , rqPath    = addPrefix "/" path
---     , rqQuery   = []
---     , rqBody    = Strict $ toXML x
---     }
 
 (.?.) :: Raw -> [(ByteString, ByteString)] -> Raw
 (.?.) r q = r { rqQuery = rqQuery r ++ q }
 
 -- (.:.) :: Request -> [AnyHeader] -> Request
 -- (.:.) rq hs = rq { rqHeaders = rqHeaders rq ++ hs }
-
--- version4Query :: IsQuery a => Service -> Method -> ByteString -> a -> AWS Signed
--- version4Query svc meth act q = sign version4 $
---     requestQuery svc meth "/" q .?.
---         [ ("Action",  act)
---         , ("Version", svcVersion svc)
---         ]

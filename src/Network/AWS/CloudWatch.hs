@@ -69,20 +69,12 @@ module Network.AWS.CloudWatch
     , module Network.AWS
     ) where
 
-import Data.ByteString              (ByteString)
 import Data.Text                    (Text)
 import Data.Time
 import Network.AWS
 import Network.AWS.CloudWatch.Types
 import Network.AWS.Internal
-import Network.Http.Client          (Method(..))
-
-query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
-query = version4Query cloudWatch
-
---
--- Actions
---
+import Network.HTTP.Types.Method
 
 -- | Deletes all specified alarms. In the event of an error, no alarms are
 -- deleted.
@@ -98,7 +90,7 @@ instance IsQuery DeleteAlarms
 instance Rq DeleteAlarms where
     type Er DeleteAlarms = CloudWatchError
     type Rs DeleteAlarms = DeleteAlarmsResponse
-    request = query GET "DeleteAlarms"
+    request = query4 cloudWatch GET "DeleteAlarms"
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
     { darResponseMetadata :: !Text
@@ -134,7 +126,7 @@ instance IsQuery DescribeAlarmHistory
 instance Rq DescribeAlarmHistory where
     type Er DescribeAlarmHistory = CloudWatchError
     type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
-    request = query GET "DescribeAlarmHistory"
+    request = query4 cloudWatch GET "DescribeAlarmHistory"
 
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { dahrResponseMetadata :: !Text
@@ -171,7 +163,7 @@ instance IsQuery DescribeAlarms
 instance Rq DescribeAlarms where
     type Er DescribeAlarms = CloudWatchError
     type Rs DescribeAlarms = DescribeAlarmsResponse
-    request = query GET "DescribeAlarms"
+    request = query4 cloudWatch GET "DescribeAlarms"
 
 data DescribeAlarmsResponse = DescribeAlarmsResponse
     { dasResponseMetadata :: !Text
@@ -205,7 +197,7 @@ instance IsQuery DescribeAlarmsForMetric
 instance Rq DescribeAlarmsForMetric where
     type Er DescribeAlarmsForMetric = CloudWatchError
     type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse
-    request = query GET "DescribeAlarmsForMetric"
+    request = query4 cloudWatch GET "DescribeAlarmsForMetric"
 
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { dafmrResponseMetadata :: !Text
@@ -230,7 +222,7 @@ instance IsQuery DisableAlarmActions
 instance Rq DisableAlarmActions where
     type Er DisableAlarmActions = CloudWatchError
     type Rs DisableAlarmActions = DisableAlarmActionsResponse
-    request = query GET "DisableAlarmActions"
+    request = query4 cloudWatch GET "DisableAlarmActions"
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
     { daarResponseMetadata :: !Text
@@ -252,7 +244,7 @@ instance IsQuery EnableAlarmActions
 instance Rq EnableAlarmActions where
     type Er EnableAlarmActions = CloudWatchError
     type Rs EnableAlarmActions = EnableAlarmActionsResponse
-    request = query GET "EnableAlarmActions"
+    request = query4 cloudWatch GET "EnableAlarmActions"
 
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
     { eaarResponseMetadata :: !Text
@@ -274,7 +266,7 @@ instance IsXML EnableAlarmActionsResponse where
 -- granularity, Amazon CloudWatch aggregates data points with time stamps that
 -- fall within the same one-minute period. In such a case, the data points
 -- queried can greatly outnumber the data points returned. The following
--- examples show various statistics allowed by the data point query maximum of
+-- examples show various statistics allowed by the data point query4 cloudWatch maximum of
 -- 50,850 when you call GetMetricStatistics on Amazon EC2 instances with
 -- detailed (one-minute) monitoring enabled: For information about the
 -- namespace, metric names, and dimensions that other Amazon Web Services
@@ -315,7 +307,7 @@ instance IsQuery GetMetricStatistics
 instance Rq GetMetricStatistics where
     type Er GetMetricStatistics = CloudWatchError
     type Rs GetMetricStatistics = GetMetricStatisticsResponse
-    request = query GET "GetMetricStatistics"
+    request = query4 cloudWatch GET "GetMetricStatistics"
 
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     { gmsrResponseMetadata :: !Text
@@ -352,7 +344,7 @@ instance IsQuery ListMetrics
 instance Rq ListMetrics where
     type Er ListMetrics = CloudWatchError
     type Rs ListMetrics = ListMetricsResponse
-    request = query GET "ListMetrics"
+    request = query4 cloudWatch GET "ListMetrics"
 
 data ListMetricsResponse = ListMetricsResponse
     { lmrResponseMetadata :: !Text
@@ -427,7 +419,7 @@ instance IsQuery PutMetricAlarm
 instance Rq PutMetricAlarm where
     type Er PutMetricAlarm = CloudWatchError
     type Rs PutMetricAlarm = PutMetricAlarmResponse
-    request = query GET "PutMetricAlarm"
+    request = query4 cloudWatch GET "PutMetricAlarm"
 
 data PutMetricAlarmResponse = PutMetricAlarmResponse
     { pmarResponseMetadata :: !Text
@@ -464,7 +456,7 @@ instance IsQuery PutMetricData
 instance Rq PutMetricData where
     type Er PutMetricData = CloudWatchError
     type Rs PutMetricData = PutMetricDataResponse
-    request = query GET "PutMetricData"
+    request = query4 cloudWatch GET "PutMetricData"
 
 data PutMetricDataResponse = PutMetricDataResponse
     { pmdrResponseMetadata :: !Text
@@ -499,7 +491,7 @@ instance IsQuery SetAlarmState
 instance Rq SetAlarmState where
     type Er SetAlarmState = CloudWatchError
     type Rs SetAlarmState = SetAlarmStateResponse
-    request = query GET "SetAlarmState"
+    request = query4 cloudWatch GET "SetAlarmState"
 
 data SetAlarmStateResponse = SetAlarmStateResponse
     { sasrResponseMetadata :: !Text

@@ -302,19 +302,11 @@ module Network.AWS.IAM
     , module Network.AWS
     ) where
 
-import Data.ByteString       (ByteString)
 import Data.Text             (Text)
 import Network.AWS
 import Network.AWS.IAM.Types
 import Network.AWS.Internal
-import Network.Http.Client   (Method(..))
-
-query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
-query = version4Query iam
-
---
--- Actions
---
+import Network.HTTP.Types.Method
 
 -- | Adds the specified role to the specified instance profile. For more
 -- information about roles, go to Working with Roles. For more information
@@ -333,7 +325,7 @@ instance IsQuery AddRoleToInstanceProfile
 instance Rq AddRoleToInstanceProfile where
     type Er AddRoleToInstanceProfile = IAMError
     type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
-    request = query GET "AddRoleToInstanceProfile"
+    request = query4 iam GET "AddRoleToInstanceProfile"
 
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
     { artiprResponseMetadata :: !Text
@@ -357,7 +349,7 @@ instance IsQuery AddUserToGroup
 instance Rq AddUserToGroup where
     type Er AddUserToGroup = IAMError
     type Rs AddUserToGroup = AddUserToGroupResponse
-    request = query GET "AddUserToGroup"
+    request = query4 iam GET "AddUserToGroup"
 
 data AddUserToGroupResponse = AddUserToGroupResponse
     { autgrResponseMetadata :: !Text
@@ -383,7 +375,7 @@ instance IsQuery ChangePassword
 instance Rq ChangePassword where
     type Er ChangePassword = IAMError
     type Rs ChangePassword = ChangePasswordResponse
-    request = query GET "ChangePassword"
+    request = query4 iam GET "ChangePassword"
 
 data ChangePasswordResponse = ChangePasswordResponse
     { cprResponseMetadata :: !Text
@@ -417,7 +409,7 @@ instance IsQuery CreateAccessKey
 instance Rq CreateAccessKey where
     type Er CreateAccessKey = IAMError
     type Rs CreateAccessKey = CreateAccessKeyResponse
-    request = query GET "CreateAccessKey"
+    request = query4 iam GET "CreateAccessKey"
 
 data CreateAccessKeyResponse = CreateAccessKeyResponse
     { cakrResponseMetadata :: !Text
@@ -442,7 +434,7 @@ instance IsQuery CreateAccountAlias
 instance Rq CreateAccountAlias where
     type Er CreateAccountAlias = IAMError
     type Rs CreateAccountAlias = CreateAccountAliasResponse
-    request = query GET "CreateAccountAlias"
+    request = query4 iam GET "CreateAccountAlias"
 
 data CreateAccountAliasResponse = CreateAccountAliasResponse
     { caarResponseMetadata :: !Text
@@ -471,7 +463,7 @@ instance IsQuery CreateGroup
 instance Rq CreateGroup where
     type Er CreateGroup = IAMError
     type Rs CreateGroup = CreateGroupResponse
-    request = query GET "CreateGroup"
+    request = query4 iam GET "CreateGroup"
 
 data CreateGroupResponse = CreateGroupResponse
     { cgrResponseMetadata :: !Text
@@ -501,7 +493,7 @@ instance IsQuery CreateInstanceProfile
 instance Rq CreateInstanceProfile where
     type Er CreateInstanceProfile = IAMError
     type Rs CreateInstanceProfile = CreateInstanceProfileResponse
-    request = query GET "CreateInstanceProfile"
+    request = query4 iam GET "CreateInstanceProfile"
 
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { ciprResponseMetadata :: !Text
@@ -528,7 +520,7 @@ instance IsQuery CreateLoginProfile
 instance Rq CreateLoginProfile where
     type Er CreateLoginProfile = IAMError
     type Rs CreateLoginProfile = CreateLoginProfileResponse
-    request = query GET "CreateLoginProfile"
+    request = query4 iam GET "CreateLoginProfile"
 
 data CreateLoginProfileResponse = CreateLoginProfileResponse
     { clprResponseMetadata :: !Text
@@ -562,7 +554,7 @@ instance IsQuery CreateRole
 instance Rq CreateRole where
     type Er CreateRole = IAMError
     type Rs CreateRole = CreateRoleResponse
-    request = query GET "CreateRole"
+    request = query4 iam GET "CreateRole"
 
 data CreateRoleResponse = CreateRoleResponse
     { crrResponseMetadata :: !Text
@@ -591,7 +583,7 @@ instance IsQuery CreateUser
 instance Rq CreateUser where
     type Er CreateUser = IAMError
     type Rs CreateUser = CreateUserResponse
-    request = query GET "CreateUser"
+    request = query4 iam GET "CreateUser"
 
 data CreateUserResponse = CreateUserResponse
     { curResponseMetadata :: !Text
@@ -629,7 +621,7 @@ instance IsQuery CreateVirtualMFADevice
 instance Rq CreateVirtualMFADevice where
     type Er CreateVirtualMFADevice = IAMError
     type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
-    request = query GET "CreateVirtualMFADevice"
+    request = query4 iam GET "CreateVirtualMFADevice"
 
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { cvmfadrResponseMetadata :: !Text
@@ -656,7 +648,7 @@ instance IsQuery DeactivateMFADevice
 instance Rq DeactivateMFADevice where
     type Er DeactivateMFADevice = IAMError
     type Rs DeactivateMFADevice = DeactivateMFADeviceResponse
-    request = query GET "DeactivateMFADevice"
+    request = query4 iam GET "DeactivateMFADevice"
 
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
     { dmfadrResponseMetadata :: !Text
@@ -685,7 +677,7 @@ instance IsQuery DeleteAccessKey
 instance Rq DeleteAccessKey where
     type Er DeleteAccessKey = IAMError
     type Rs DeleteAccessKey = DeleteAccessKeyResponse
-    request = query GET "DeleteAccessKey"
+    request = query4 iam GET "DeleteAccessKey"
 
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
     { dakrResponseMetadata :: !Text
@@ -709,7 +701,7 @@ instance IsQuery DeleteAccountAlias
 instance Rq DeleteAccountAlias where
     type Er DeleteAccountAlias = IAMError
     type Rs DeleteAccountAlias = DeleteAccountAliasResponse
-    request = query GET "DeleteAccountAlias"
+    request = query4 iam GET "DeleteAccountAlias"
 
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
     { daarResponseMetadata :: !Text
@@ -732,7 +724,7 @@ instance IsQuery DeleteAccountPasswordPolicy
 instance Rq DeleteAccountPasswordPolicy where
     type Er DeleteAccountPasswordPolicy = IAMError
     type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
-    request = query GET "DeleteAccountPasswordPolicy"
+    request = query4 iam GET "DeleteAccountPasswordPolicy"
 
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
     { dapprResponseMetadata :: !Text
@@ -755,7 +747,7 @@ instance IsQuery DeleteGroup
 instance Rq DeleteGroup where
     type Er DeleteGroup = IAMError
     type Rs DeleteGroup = DeleteGroupResponse
-    request = query GET "DeleteGroup"
+    request = query4 iam GET "DeleteGroup"
 
 data DeleteGroupResponse = DeleteGroupResponse
     { dgrResponseMetadata :: !Text
@@ -779,7 +771,7 @@ instance IsQuery DeleteGroupPolicy
 instance Rq DeleteGroupPolicy where
     type Er DeleteGroupPolicy = IAMError
     type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
-    request = query GET "DeleteGroupPolicy"
+    request = query4 iam GET "DeleteGroupPolicy"
 
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
     { dgprResponseMetadata :: !Text
@@ -806,7 +798,7 @@ instance IsQuery DeleteInstanceProfile
 instance Rq DeleteInstanceProfile where
     type Er DeleteInstanceProfile = IAMError
     type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
-    request = query GET "DeleteInstanceProfile"
+    request = query4 iam GET "DeleteInstanceProfile"
 
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
     { diprResponseMetadata :: !Text
@@ -834,7 +826,7 @@ instance IsQuery DeleteLoginProfile
 instance Rq DeleteLoginProfile where
     type Er DeleteLoginProfile = IAMError
     type Rs DeleteLoginProfile = DeleteLoginProfileResponse
-    request = query GET "DeleteLoginProfile"
+    request = query4 iam GET "DeleteLoginProfile"
 
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
     { dlprResponseMetadata :: !Text
@@ -861,7 +853,7 @@ instance IsQuery DeleteRole
 instance Rq DeleteRole where
     type Er DeleteRole = IAMError
     type Rs DeleteRole = DeleteRoleResponse
-    request = query GET "DeleteRole"
+    request = query4 iam GET "DeleteRole"
 
 data DeleteRoleResponse = DeleteRoleResponse
     { drrResponseMetadata :: !Text
@@ -885,7 +877,7 @@ instance IsQuery DeleteRolePolicy
 instance Rq DeleteRolePolicy where
     type Er DeleteRolePolicy = IAMError
     type Rs DeleteRolePolicy = DeleteRolePolicyResponse
-    request = query GET "DeleteRolePolicy"
+    request = query4 iam GET "DeleteRolePolicy"
 
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
     { drprResponseMetadata :: !Text
@@ -915,7 +907,7 @@ instance IsQuery DeleteServerCertificate
 instance Rq DeleteServerCertificate where
     type Er DeleteServerCertificate = IAMError
     type Rs DeleteServerCertificate = DeleteServerCertificateResponse
-    request = query GET "DeleteServerCertificate"
+    request = query4 iam GET "DeleteServerCertificate"
 
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse
     { dscrResponseMetadata :: !Text
@@ -943,7 +935,7 @@ instance IsQuery DeleteSigningCertificate
 instance Rq DeleteSigningCertificate where
     type Er DeleteSigningCertificate = IAMError
     type Rs DeleteSigningCertificate = DeleteSigningCertificateResponse
-    request = query GET "DeleteSigningCertificate"
+    request = query4 iam GET "DeleteSigningCertificate"
 
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
     { dscsResponseMetadata :: !Text
@@ -966,7 +958,7 @@ instance IsQuery DeleteUser
 instance Rq DeleteUser where
     type Er DeleteUser = IAMError
     type Rs DeleteUser = DeleteUserResponse
-    request = query GET "DeleteUser"
+    request = query4 iam GET "DeleteUser"
 
 data DeleteUserResponse = DeleteUserResponse
     { durResponseMetadata :: !Text
@@ -990,7 +982,7 @@ instance IsQuery DeleteUserPolicy
 instance Rq DeleteUserPolicy where
     type Er DeleteUserPolicy = IAMError
     type Rs DeleteUserPolicy = DeleteUserPolicyResponse
-    request = query GET "DeleteUserPolicy"
+    request = query4 iam GET "DeleteUserPolicy"
 
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
     { duprResponseMetadata :: !Text
@@ -1015,7 +1007,7 @@ instance IsQuery DeleteVirtualMFADevice
 instance Rq DeleteVirtualMFADevice where
     type Er DeleteVirtualMFADevice = IAMError
     type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
-    request = query GET "DeleteVirtualMFADevice"
+    request = query4 iam GET "DeleteVirtualMFADevice"
 
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
     { dvmfadrResponseMetadata :: !Text
@@ -1046,7 +1038,7 @@ instance IsQuery EnableMFADevice
 instance Rq EnableMFADevice where
     type Er EnableMFADevice = IAMError
     type Rs EnableMFADevice = EnableMFADeviceResponse
-    request = query GET "EnableMFADevice"
+    request = query4 iam GET "EnableMFADevice"
 
 data EnableMFADeviceResponse = EnableMFADeviceResponse
     { emfadrResponseMetadata :: !Text
@@ -1070,7 +1062,7 @@ instance IsQuery GetAccountPasswordPolicy
 instance Rq GetAccountPasswordPolicy where
     type Er GetAccountPasswordPolicy = IAMError
     type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse
-    request = query GET "GetAccountPasswordPolicy"
+    request = query4 iam GET "GetAccountPasswordPolicy"
 
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { gapprResponseMetadata :: !Text
@@ -1095,7 +1087,7 @@ instance IsQuery GetAccountSummary
 instance Rq GetAccountSummary where
     type Er GetAccountSummary = IAMError
     type Rs GetAccountSummary = GetAccountSummaryResponse
-    request = query GET "GetAccountSummary"
+    request = query4 iam GET "GetAccountSummary"
 
 data GetAccountSummaryResponse = GetAccountSummaryResponse
     { gasrResponseMetadata :: !Text
@@ -1130,7 +1122,7 @@ instance IsQuery GetGroup
 instance Rq GetGroup where
     type Er GetGroup = IAMError
     type Rs GetGroup = GetGroupResponse
-    request = query GET "GetGroup"
+    request = query4 iam GET "GetGroup"
 
 data GetGroupResponse = GetGroupResponse
     { ggrResponseMetadata :: !Text
@@ -1157,7 +1149,7 @@ instance IsQuery GetGroupPolicy
 instance Rq GetGroupPolicy where
     type Er GetGroupPolicy = IAMError
     type Rs GetGroupPolicy = GetGroupPolicyResponse
-    request = query GET "GetGroupPolicy"
+    request = query4 iam GET "GetGroupPolicy"
 
 data GetGroupPolicyResponse = GetGroupPolicyResponse
     { ggprResponseMetadata :: !Text
@@ -1183,7 +1175,7 @@ instance IsQuery GetInstanceProfile
 instance Rq GetInstanceProfile where
     type Er GetInstanceProfile = IAMError
     type Rs GetInstanceProfile = GetInstanceProfileResponse
-    request = query GET "GetInstanceProfile"
+    request = query4 iam GET "GetInstanceProfile"
 
 data GetInstanceProfileResponse = GetInstanceProfileResponse
     { giprResponseMetadata :: !Text
@@ -1206,7 +1198,7 @@ instance IsQuery GetLoginProfile
 instance Rq GetLoginProfile where
     type Er GetLoginProfile = IAMError
     type Rs GetLoginProfile = GetLoginProfileResponse
-    request = query GET "GetLoginProfile"
+    request = query4 iam GET "GetLoginProfile"
 
 data GetLoginProfileResponse = GetLoginProfileResponse
     { glprResponseMetadata :: !Text
@@ -1234,7 +1226,7 @@ instance IsQuery GetRole
 instance Rq GetRole where
     type Er GetRole = IAMError
     type Rs GetRole = GetRoleResponse
-    request = query GET "GetRole"
+    request = query4 iam GET "GetRole"
 
 data GetRoleResponse = GetRoleResponse
     { grrResponseMetadata :: !Text
@@ -1262,7 +1254,7 @@ instance IsQuery GetRolePolicy
 instance Rq GetRolePolicy where
     type Er GetRolePolicy = IAMError
     type Rs GetRolePolicy = GetRolePolicyResponse
-    request = query GET "GetRolePolicy"
+    request = query4 iam GET "GetRolePolicy"
 
 data GetRolePolicyResponse = GetRolePolicyResponse
     { grprResponseMetadata :: !Text
@@ -1286,7 +1278,7 @@ instance IsQuery GetServerCertificate
 instance Rq GetServerCertificate where
     type Er GetServerCertificate = IAMError
     type Rs GetServerCertificate = GetServerCertificateResponse
-    request = query GET "GetServerCertificate"
+    request = query4 iam GET "GetServerCertificate"
 
 data GetServerCertificateResponse = GetServerCertificateResponse
     { gscrResponseMetadata :: !Text
@@ -1311,7 +1303,7 @@ instance IsQuery GetUser
 instance Rq GetUser where
     type Er GetUser = IAMError
     type Rs GetUser = GetUserResponse
-    request = query GET "GetUser"
+    request = query4 iam GET "GetUser"
 
 data GetUserResponse = GetUserResponse
     { gurResponseMetadata :: !Text
@@ -1338,7 +1330,7 @@ instance IsQuery GetUserPolicy
 instance Rq GetUserPolicy where
     type Er GetUserPolicy = IAMError
     type Rs GetUserPolicy = GetUserPolicyResponse
-    request = query GET "GetUserPolicy"
+    request = query4 iam GET "GetUserPolicy"
 
 data GetUserPolicyResponse = GetUserPolicyResponse
     { guprResponseMetadata :: !Text
@@ -1381,7 +1373,7 @@ instance IsQuery ListAccessKeys
 instance Rq ListAccessKeys where
     type Er ListAccessKeys = IAMError
     type Rs ListAccessKeys = ListAccessKeysResponse
-    request = query GET "ListAccessKeys"
+    request = query4 iam GET "ListAccessKeys"
 
 data ListAccessKeysResponse = ListAccessKeysResponse
     { lakrResponseMetadata :: !Text
@@ -1416,7 +1408,7 @@ instance IsQuery ListAccountAliases
 instance Rq ListAccountAliases where
     type Er ListAccountAliases = IAMError
     type Rs ListAccountAliases = ListAccountAliasesResponse
-    request = query GET "ListAccountAliases"
+    request = query4 iam GET "ListAccountAliases"
 
 data ListAccountAliasesResponse = ListAccountAliasesResponse
     { laarResponseMetadata :: !Text
@@ -1452,7 +1444,7 @@ instance IsQuery ListGroupPolicies
 instance Rq ListGroupPolicies where
     type Er ListGroupPolicies = IAMError
     type Rs ListGroupPolicies = ListGroupPoliciesResponse
-    request = query GET "ListGroupPolicies"
+    request = query4 iam GET "ListGroupPolicies"
 
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { lgprResponseMetadata :: !Text
@@ -1489,7 +1481,7 @@ instance IsQuery ListGroups
 instance Rq ListGroups where
     type Er ListGroups = IAMError
     type Rs ListGroups = ListGroupsResponse
-    request = query GET "ListGroups"
+    request = query4 iam GET "ListGroups"
 
 data ListGroupsResponse = ListGroupsResponse
     { lgrResponseMetadata :: !Text
@@ -1524,7 +1516,7 @@ instance IsQuery ListGroupsForUser
 instance Rq ListGroupsForUser where
     type Er ListGroupsForUser = IAMError
     type Rs ListGroupsForUser = ListGroupsForUserResponse
-    request = query GET "ListGroupsForUser"
+    request = query4 iam GET "ListGroupsForUser"
 
 data ListGroupsForUserResponse = ListGroupsForUserResponse
     { lgfurResponseMetadata :: !Text
@@ -1563,7 +1555,7 @@ instance IsQuery ListInstanceProfiles
 instance Rq ListInstanceProfiles where
     type Er ListInstanceProfiles = IAMError
     type Rs ListInstanceProfiles = ListInstanceProfilesResponse
-    request = query GET "ListInstanceProfiles"
+    request = query4 iam GET "ListInstanceProfiles"
 
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { liprResponseMetadata :: !Text
@@ -1600,7 +1592,7 @@ instance IsQuery ListInstanceProfilesForRole
 instance Rq ListInstanceProfilesForRole where
     type Er ListInstanceProfilesForRole = IAMError
     type Rs ListInstanceProfilesForRole = ListInstanceProfilesForRoleResponse
-    request = query GET "ListInstanceProfilesForRole"
+    request = query4 iam GET "ListInstanceProfilesForRole"
 
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { lipfrrResponseMetadata :: !Text
@@ -1638,7 +1630,7 @@ instance IsQuery ListMFADevices
 instance Rq ListMFADevices where
     type Er ListMFADevices = IAMError
     type Rs ListMFADevices = ListMFADevicesResponse
-    request = query GET "ListMFADevices"
+    request = query4 iam GET "ListMFADevices"
 
 data ListMFADevicesResponse = ListMFADevicesResponse
     { lmfadrResponseMetadata :: !Text
@@ -1674,7 +1666,7 @@ instance IsQuery ListRolePolicies
 instance Rq ListRolePolicies where
     type Er ListRolePolicies = IAMError
     type Rs ListRolePolicies = ListRolePoliciesResponse
-    request = query GET "ListRolePolicies"
+    request = query4 iam GET "ListRolePolicies"
 
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { lrprResponseMetadata :: !Text
@@ -1715,7 +1707,7 @@ instance IsQuery ListRoles
 instance Rq ListRoles where
     type Er ListRoles = IAMError
     type Rs ListRoles = ListRolesResponse
-    request = query GET "ListRoles"
+    request = query4 iam GET "ListRoles"
 
 instance Pg ListRoles where
     next ListRoles{..} (lrrListRolesResult -> ListRolesResult{..})
@@ -1759,7 +1751,7 @@ instance IsQuery ListServerCertificates
 instance Rq ListServerCertificates where
     type Er ListServerCertificates = IAMError
     type Rs ListServerCertificates = ListServerCertificatesResponse
-    request = query GET "ListServerCertificates"
+    request = query4 iam GET "ListServerCertificates"
 
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { lscrResponseMetadata :: !Text
@@ -1801,7 +1793,7 @@ instance IsQuery ListSigningCertificates
 instance Rq ListSigningCertificates where
     type Er ListSigningCertificates = IAMError
     type Rs ListSigningCertificates = ListSigningCertificatesResponse
-    request = query GET "ListSigningCertificates"
+    request = query4 iam GET "ListSigningCertificates"
 
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { lscsResponseMetadata :: !Text
@@ -1837,7 +1829,7 @@ instance IsQuery ListUserPolicies
 instance Rq ListUserPolicies where
     type Er ListUserPolicies = IAMError
     type Rs ListUserPolicies = ListUserPoliciesResponse
-    request = query GET "ListUserPolicies"
+    request = query4 iam GET "ListUserPolicies"
 
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { luprResponseMetadata :: !Text
@@ -1875,7 +1867,7 @@ instance IsQuery ListUsers
 instance Rq ListUsers where
     type Er ListUsers = IAMError
     type Rs ListUsers = ListUsersResponse
-    request = query GET "ListUsers"
+    request = query4 iam GET "ListUsers"
 
 data ListUsersResponse = ListUsersResponse
     { lurResponseMetadata :: !Text
@@ -1914,7 +1906,7 @@ instance IsQuery ListVirtualMFADevices
 instance Rq ListVirtualMFADevices where
     type Er ListVirtualMFADevices = IAMError
     type Rs ListVirtualMFADevices = ListVirtualMFADevicesResponse
-    request = query GET "ListVirtualMFADevices"
+    request = query4 iam GET "ListVirtualMFADevices"
 
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { lvmfadrResponseMetadata :: !Text
@@ -1932,8 +1924,8 @@ instance IsXML ListVirtualMFADevicesResponse where
 -- can be large, you should use POST rather than GET when calling
 -- PutGroupPolicy. For information about setting up signatures and
 -- authorization through the API, go to Signing AWS API Requests in the AWS
--- General Reference. For general information about using the Query API with
--- IAM, go to Making Query Requests in Using IAM.
+-- General Reference. For general information about using the Query4 Iam API with
+-- IAM, go to Making Query4 Iam Requests in Using IAM.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html>
 data PutGroupPolicy = PutGroupPolicy
@@ -1950,7 +1942,7 @@ instance IsQuery PutGroupPolicy
 instance Rq PutGroupPolicy where
     type Er PutGroupPolicy = IAMError
     type Rs PutGroupPolicy = PutGroupPolicyResponse
-    request = query GET "PutGroupPolicy"
+    request = query4 iam GET "PutGroupPolicy"
 
 data PutGroupPolicyResponse = PutGroupPolicyResponse
     { pgprResponseMetadata :: !Text
@@ -1967,7 +1959,7 @@ instance IsXML PutGroupPolicyResponse where
 -- be large, you should use POST rather than GET when calling PutRolePolicy.
 -- For information about setting up signatures and authorization through the
 -- API, go to Signing AWS API Requests in the AWS General Reference. For
--- general information about using the Query API with IAM, go to Making Query
+-- general information about using the Query4 Iam API with IAM, go to Making Query
 -- Requests in Using IAM.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html>
@@ -1985,7 +1977,7 @@ instance IsQuery PutRolePolicy
 instance Rq PutRolePolicy where
     type Er PutRolePolicy = IAMError
     type Rs PutRolePolicy = PutRolePolicyResponse
-    request = query GET "PutRolePolicy"
+    request = query4 iam GET "PutRolePolicy"
 
 data PutRolePolicyResponse = PutRolePolicyResponse
     { prprResponseMetadata :: !Text
@@ -2002,8 +1994,8 @@ instance IsXML PutRolePolicyResponse where
 -- can be large, you should use POST rather than GET when calling
 -- PutUserPolicy. For information about setting up signatures and
 -- authorization through the API, go to Signing AWS API Requests in the AWS
--- General Reference. For general information about using the Query API with
--- IAM, go to Making Query Requests in Using IAM.
+-- General Reference. For general information about using the Query4 Iam API with
+-- IAM, go to Making Query4 Iam Requests in Using IAM.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html>
 data PutUserPolicy = PutUserPolicy
@@ -2020,7 +2012,7 @@ instance IsQuery PutUserPolicy
 instance Rq PutUserPolicy where
     type Er PutUserPolicy = IAMError
     type Rs PutUserPolicy = PutUserPolicyResponse
-    request = query GET "PutUserPolicy"
+    request = query4 iam GET "PutUserPolicy"
 
 data PutUserPolicyResponse = PutUserPolicyResponse
     { puprResponseMetadata :: !Text
@@ -2050,7 +2042,7 @@ instance IsQuery RemoveRoleFromInstanceProfile
 instance Rq RemoveRoleFromInstanceProfile where
     type Er RemoveRoleFromInstanceProfile = IAMError
     type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
-    request = query GET "RemoveRoleFromInstanceProfile"
+    request = query4 iam GET "RemoveRoleFromInstanceProfile"
 
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
     { rrfiprResponseMetadata :: !Text
@@ -2074,7 +2066,7 @@ instance IsQuery RemoveUserFromGroup
 instance Rq RemoveUserFromGroup where
     type Er RemoveUserFromGroup = IAMError
     type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
-    request = query GET "RemoveUserFromGroup"
+    request = query4 iam GET "RemoveUserFromGroup"
 
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
     { rufgrResponseMetadata :: !Text
@@ -2102,7 +2094,7 @@ instance IsQuery ResyncMFADevice
 instance Rq ResyncMFADevice where
     type Er ResyncMFADevice = IAMError
     type Rs ResyncMFADevice = ResyncMFADeviceResponse
-    request = query GET "ResyncMFADevice"
+    request = query4 iam GET "ResyncMFADevice"
 
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
     { rmfadrResponseMetadata :: !Text
@@ -2137,7 +2129,7 @@ instance IsQuery UpdateAccessKey
 instance Rq UpdateAccessKey where
     type Er UpdateAccessKey = IAMError
     type Rs UpdateAccessKey = UpdateAccessKeyResponse
-    request = query GET "UpdateAccessKey"
+    request = query4 iam GET "UpdateAccessKey"
 
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
     { uakrResponseMetadata :: !Text
@@ -2170,7 +2162,7 @@ instance IsQuery UpdateAccountPasswordPolicy
 instance Rq UpdateAccountPasswordPolicy where
     type Er UpdateAccountPasswordPolicy = IAMError
     type Rs UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicyResponse
-    request = query GET "UpdateAccountPasswordPolicy"
+    request = query4 iam GET "UpdateAccountPasswordPolicy"
 
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
     { uapprResponseMetadata :: !Text
@@ -2196,7 +2188,7 @@ instance IsQuery UpdateAssumeRolePolicy
 instance Rq UpdateAssumeRolePolicy where
     type Er UpdateAssumeRolePolicy = IAMError
     type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
-    request = query GET "UpdateAssumeRolePolicy"
+    request = query4 iam GET "UpdateAssumeRolePolicy"
 
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
     { uarprResponseMetadata :: !Text
@@ -2232,7 +2224,7 @@ instance IsQuery UpdateGroup
 instance Rq UpdateGroup where
     type Er UpdateGroup = IAMError
     type Rs UpdateGroup = UpdateGroupResponse
-    request = query GET "UpdateGroup"
+    request = query4 iam GET "UpdateGroup"
 
 data UpdateGroupResponse = UpdateGroupResponse
     { ugrResponseMetadata :: !Text
@@ -2256,7 +2248,7 @@ instance IsQuery UpdateLoginProfile
 instance Rq UpdateLoginProfile where
     type Er UpdateLoginProfile = IAMError
     type Rs UpdateLoginProfile = UpdateLoginProfileResponse
-    request = query GET "UpdateLoginProfile"
+    request = query4 iam GET "UpdateLoginProfile"
 
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
     { ulprResponseMetadata :: !Text
@@ -2293,7 +2285,7 @@ instance IsQuery UpdateServerCertificate
 instance Rq UpdateServerCertificate where
     type Er UpdateServerCertificate = IAMError
     type Rs UpdateServerCertificate = UpdateServerCertificateResponse
-    request = query GET "UpdateServerCertificate"
+    request = query4 iam GET "UpdateServerCertificate"
 
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse
     { uscrResponseMetadata :: !Text
@@ -2329,7 +2321,7 @@ instance IsQuery UpdateSigningCertificate
 instance Rq UpdateSigningCertificate where
     type Er UpdateSigningCertificate = IAMError
     type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
-    request = query GET "UpdateSigningCertificate"
+    request = query4 iam GET "UpdateSigningCertificate"
 
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
     { uscsResponseMetadata :: !Text
@@ -2365,7 +2357,7 @@ instance IsQuery UpdateUser
 instance Rq UpdateUser where
     type Er UpdateUser = IAMError
     type Rs UpdateUser = UpdateUserResponse
-    request = query GET "UpdateUser"
+    request = query4 iam GET "UpdateUser"
 
 data UpdateUserResponse = UpdateUserResponse
     { uurResponseMetadata :: !Text
@@ -2384,7 +2376,7 @@ instance IsXML UpdateUserResponse where
 -- calling UploadServerCertificate. For information about setting up
 -- signatures and authorization through the API, go to Signing AWS API
 -- Requests in the AWS General Reference. For general information about using
--- the Query API with IAM, go to Making Query Requests in Using IAM.
+-- the Query4 Iam API with IAM, go to Making Query4 Iam Requests in Using IAM.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html>
 data UploadServerCertificate = UploadServerCertificate
@@ -2410,7 +2402,7 @@ instance IsQuery UploadServerCertificate
 instance Rq UploadServerCertificate where
     type Er UploadServerCertificate = IAMError
     type Rs UploadServerCertificate = UploadServerCertificateResponse
-    request = query GET "UploadServerCertificate"
+    request = query4 iam GET "UploadServerCertificate"
 
 data UploadServerCertificateResponse = UploadServerCertificateResponse
     { usctResponseMetadata :: !Text
@@ -2432,7 +2424,7 @@ instance IsXML UploadServerCertificateResponse where
 -- calling UploadSigningCertificate. For information about setting up
 -- signatures and authorization through the API, go to Signing AWS API
 -- Requests in the AWS General Reference. For general information about using
--- the Query API with IAM, go to Making Query Requests in Using IAM.
+-- the Query4 Iam API with IAM, go to Making Query4 Iam Requests in Using IAM.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html>
 data UploadSigningCertificate = UploadSigningCertificate
@@ -2447,7 +2439,7 @@ instance IsQuery UploadSigningCertificate
 instance Rq UploadSigningCertificate where
     type Er UploadSigningCertificate = IAMError
     type Rs UploadSigningCertificate = UploadSigningCertificateResponse
-    request = query GET "UploadSigningCertificate"
+    request = query4 iam GET "UploadSigningCertificate"
 
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { uscuResponseMetadata :: !Text

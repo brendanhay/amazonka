@@ -21,7 +21,15 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the CloudWatch service.
 cloudWatch :: Service
-cloudWatch = Regional "cloudwatch" "2010-08-01"
+cloudWatch = Service Regional version4 "cloudwatch" "2010-08-01"
+
+-- | XML namespace to annotate CloudWatch elements with.
+cloudWatchNS :: ByteString
+cloudWatchNS = "https://cloudwatch.amazonaws.com/doc/" <> svcVersion cloudWatch <> "/"
+
+-- | Helper to define CloudWatch namespaced XML elements.
+cloudWatchElem :: ByteString -> NName ByteString
+cloudWatchElem = mkNName cloudWatchNS
 
 data CloudWatchError = CloudWatchError
     { cweCode    :: !Text
@@ -335,12 +343,3 @@ instance IsQuery StatisticSet
 
 instance IsXML StatisticSet where
     xmlPickler = withNS cloudWatchNS
-
--- | XML namespace to annotate CloudWatch elements with.
-cloudWatchNS :: ByteString
-cloudWatchNS = "https://cloudwatch.amazonaws.com/doc/" <> svcVersion cloudWatch <> "/"
-
--- | Helper to define CloudWatch namespaced XML elements.
-cloudWatchElem :: ByteString -> NName ByteString
-cloudWatchElem = mkNName cloudWatchNS
-

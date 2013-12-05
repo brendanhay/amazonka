@@ -116,19 +116,11 @@ module Network.AWS.ELB
     , module Network.AWS
     ) where
 
-import Data.ByteString       (ByteString)
-import Data.Text             (Text)
+import Data.Text                 (Text)
 import Network.AWS
 import Network.AWS.ELB.Types
 import Network.AWS.Internal
-import Network.Http.Client   (Method(..))
-
-query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
-query = version4Query elb
-
---
--- Actions
---
+import Network.HTTP.Types.Method
 
 -- | Associates one or more security groups with your load balancer in VPC. The
 -- provided security group IDs will override any currently applied security
@@ -153,7 +145,7 @@ instance IsQuery ApplySecurityGroupsToLoadBalancer
 instance Rq ApplySecurityGroupsToLoadBalancer where
     type Er ApplySecurityGroupsToLoadBalancer = ELBError
     type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
-    request = query GET "ApplySecurityGroupsToLoadBalancer"
+    request = query4 elb GET "ApplySecurityGroupsToLoadBalancer"
 
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { asgtlbrResponseMetadata :: !Text
@@ -184,7 +176,7 @@ instance IsQuery AttachLoadBalancerToSubnets
 instance Rq AttachLoadBalancerToSubnets where
     type Er AttachLoadBalancerToSubnets = ELBError
     type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse
-    request = query GET "AttachLoadBalancerToSubnets"
+    request = query4 elb GET "AttachLoadBalancerToSubnets"
 
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { albtsrResponseMetadata :: !Text
@@ -214,7 +206,7 @@ instance IsQuery ConfigureHealthCheck
 instance Rq ConfigureHealthCheck where
     type Er ConfigureHealthCheck = ELBError
     type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
-    request = query GET "ConfigureHealthCheck"
+    request = query4 elb GET "ConfigureHealthCheck"
 
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { chcrResponseMetadata :: !Text
@@ -237,7 +229,7 @@ instance IsXML ConfigureHealthCheckResponse where
 -- send two cookies: the application-generated cookie and the special Elastic
 -- Load Balancing cookie named AWSELB. This is the default behavior for many
 -- common web browsers. For information on using
--- CreateAppCookieStickinessPolicy, see Using the Query API in the Enabling
+-- CreateAppCookieStickinessPolicy, see Using the Query4 Elb API in the Enabling
 -- Application-Controlled Sesssion Stickiness section of the Elastic Load
 -- Balancing Developer Guide.
 --
@@ -261,7 +253,7 @@ instance IsQuery CreateAppCookieStickinessPolicy
 instance Rq CreateAppCookieStickinessPolicy where
     type Er CreateAppCookieStickinessPolicy = ELBError
     type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse
-    request = query GET "CreateAppCookieStickinessPolicy"
+    request = query4 elb GET "CreateAppCookieStickinessPolicy"
 
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
     { cacsprResponseMetadata :: !Text
@@ -310,7 +302,7 @@ instance IsQuery CreatelbCookieStickinessPolicy
 instance Rq CreatelbCookieStickinessPolicy where
     type Er CreatelbCookieStickinessPolicy = ELBError
     type Rs CreatelbCookieStickinessPolicy = CreatelbCookieStickinessPolicyResponse
-    request = query GET "CreatelbCookieStickinessPolicy"
+    request = query4 elb GET "CreatelbCookieStickinessPolicy"
 
 data CreatelbCookieStickinessPolicyResponse = CreatelbCookieStickinessPolicyResponse
     { clbcsprResponseMetadata :: !Text
@@ -331,10 +323,10 @@ instance IsXML CreatelbCookieStickinessPolicyResponse where
 -- in the United States, the DNS name ends with: For load balancers created in
 -- the EU (Ireland) Region, the DNS name ends with: For information on using
 -- CreateLoadBalancer to create a new load balancer in Amazon EC2, go to Using
--- Query API section in the Creating a Load Balancer With SSL Cipher Settings
+-- Query4 Elb API section in the Creating a Load Balancer With SSL Cipher Settings
 -- and Back-end Authentication topic of the Elastic Load Balancing Developer
 -- Guide. For information on using CreateLoadBalancer to create a new load
--- balancer in Amazon VPC, see Using the Query API in the Creating a Basic
+-- balancer in Amazon VPC, see Using the Query4 Elb API in the Creating a Basic
 -- Load Balancer in Amazon VPC section in the Elastic Load Balancing Developer
 -- Guide.
 --
@@ -365,7 +357,7 @@ instance IsQuery CreateLoadBalancer
 instance Rq CreateLoadBalancer where
     type Er CreateLoadBalancer = ELBError
     type Rs CreateLoadBalancer = CreateLoadBalancerResponse
-    request = query GET "CreateLoadBalancer"
+    request = query4 elb GET "CreateLoadBalancer"
 
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { clbrResponseMetadata :: !Text
@@ -397,7 +389,7 @@ instance IsQuery CreateLoadBalancerListeners
 instance Rq CreateLoadBalancerListeners where
     type Er CreateLoadBalancerListeners = ELBError
     type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse
-    request = query GET "CreateLoadBalancerListeners"
+    request = query4 elb GET "CreateLoadBalancerListeners"
 
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
     { clblrResponseMetadata :: !Text
@@ -437,7 +429,7 @@ instance IsQuery CreateLoadBalancerPolicy
 instance Rq CreateLoadBalancerPolicy where
     type Er CreateLoadBalancerPolicy = ELBError
     type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
-    request = query GET "CreateLoadBalancerPolicy"
+    request = query4 elb GET "CreateLoadBalancerPolicy"
 
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
     { clbprResponseMetadata :: !Text
@@ -474,7 +466,7 @@ instance IsQuery DeleteLoadBalancer
 instance Rq DeleteLoadBalancer where
     type Er DeleteLoadBalancer = ELBError
     type Rs DeleteLoadBalancer = DeleteLoadBalancerResponse
-    request = query GET "DeleteLoadBalancer"
+    request = query4 elb GET "DeleteLoadBalancer"
 
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
     { dlbrResponseMetadata :: !Text
@@ -503,7 +495,7 @@ instance IsQuery DeleteLoadBalancerListeners
 instance Rq DeleteLoadBalancerListeners where
     type Er DeleteLoadBalancerListeners = ELBError
     type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
-    request = query GET "DeleteLoadBalancerListeners"
+    request = query4 elb GET "DeleteLoadBalancerListeners"
 
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
     { dlblrResponseMetadata :: !Text
@@ -533,7 +525,7 @@ instance IsQuery DeleteLoadBalancerPolicy
 instance Rq DeleteLoadBalancerPolicy where
     type Er DeleteLoadBalancerPolicy = ELBError
     type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
-    request = query GET "DeleteLoadBalancerPolicy"
+    request = query4 elb GET "DeleteLoadBalancerPolicy"
 
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
     { dlbprResponseMetadata :: !Text
@@ -566,7 +558,7 @@ instance IsQuery DeregisterInstancesFromLoadBalancer
 instance Rq DeregisterInstancesFromLoadBalancer where
     type Er DeregisterInstancesFromLoadBalancer = ELBError
     type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse
-    request = query GET "DeregisterInstancesFromLoadBalancer"
+    request = query4 elb GET "DeregisterInstancesFromLoadBalancer"
 
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { diflbrResponseMetadata :: !Text
@@ -600,7 +592,7 @@ instance IsQuery DescribeInstanceHealth
 instance Rq DescribeInstanceHealth where
     type Er DescribeInstanceHealth = ELBError
     type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
-    request = query GET "DescribeInstanceHealth"
+    request = query4 elb GET "DescribeInstanceHealth"
 
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { dihrResponseMetadata :: !Text
@@ -638,7 +630,7 @@ instance IsQuery DescribeLoadBalancerPolicies
 instance Rq DescribeLoadBalancerPolicies where
     type Er DescribeLoadBalancerPolicies = ELBError
     type Rs DescribeLoadBalancerPolicies = DescribeLoadBalancerPoliciesResponse
-    request = query GET "DescribeLoadBalancerPolicies"
+    request = query4 elb GET "DescribeLoadBalancerPolicies"
 
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     { dlbpsResponseMetadata :: !Text
@@ -669,7 +661,7 @@ instance IsQuery DescribeLoadBalancerPolicyTypes
 instance Rq DescribeLoadBalancerPolicyTypes where
     type Er DescribeLoadBalancerPolicyTypes = ELBError
     type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
-    request = query GET "DescribeLoadBalancerPolicyTypes"
+    request = query4 elb GET "DescribeLoadBalancerPolicyTypes"
 
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { dlbptrResponseMetadata :: !Text
@@ -703,7 +695,7 @@ instance IsQuery DescribeLoadBalancers
 instance Rq DescribeLoadBalancers where
     type Er DescribeLoadBalancers = ELBError
     type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
-    request = query GET "DescribeLoadBalancers"
+    request = query4 elb GET "DescribeLoadBalancers"
 
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { dlbsResponseMetadata :: !Text
@@ -738,7 +730,7 @@ instance IsQuery DetachLoadBalancerFromSubnets
 instance Rq DetachLoadBalancerFromSubnets where
     type Er DetachLoadBalancerFromSubnets = ELBError
     type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse
-    request = query GET "DetachLoadBalancerFromSubnets"
+    request = query4 elb GET "DetachLoadBalancerFromSubnets"
 
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     { dlbfsrResponseMetadata :: !Text
@@ -780,7 +772,7 @@ instance IsQuery DisableAvailabilityZonesForLoadBalancer
 instance Rq DisableAvailabilityZonesForLoadBalancer where
     type Er DisableAvailabilityZonesForLoadBalancer = ELBError
     type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse
-    request = query GET "DisableAvailabilityZonesForLoadBalancer"
+    request = query4 elb GET "DisableAvailabilityZonesForLoadBalancer"
 
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
     { dazflbrResponseMetadata :: !Text
@@ -817,7 +809,7 @@ instance IsQuery EnableAvailabilityZonesForLoadBalancer
 instance Rq EnableAvailabilityZonesForLoadBalancer where
     type Er EnableAvailabilityZonesForLoadBalancer = ELBError
     type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse
-    request = query GET "EnableAvailabilityZonesForLoadBalancer"
+    request = query4 elb GET "EnableAvailabilityZonesForLoadBalancer"
 
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
     { eazflbrResponseMetadata :: !Text
@@ -856,7 +848,7 @@ instance IsQuery RegisterInstancesWithLoadBalancer
 instance Rq RegisterInstancesWithLoadBalancer where
     type Er RegisterInstancesWithLoadBalancer = ELBError
     type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse
-    request = query GET "RegisterInstancesWithLoadBalancer"
+    request = query4 elb GET "RegisterInstancesWithLoadBalancer"
 
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { riwlbrResponseMetadata :: !Text
@@ -869,7 +861,7 @@ instance IsXML RegisterInstancesWithLoadBalancerResponse where
 -- | Sets the certificate that terminates the specified listener's SSL
 -- connections. The specified certificate replaces any prior certificate that
 -- was used on the same load balancer and port. For information on using
--- SetLoadBalancerListenerSSLCertificate, see Using the Query API in the
+-- SetLoadBalancerListenerSSLCertificate, see Using the Query4 Elb API in the
 -- Updating an SSL Certificate for a Load Balancer section in of the Elastic
 -- Load Balancing Developer Guide.
 --
@@ -893,7 +885,7 @@ instance IsQuery SetLoadBalancerListenerSSLCertificate
 instance Rq SetLoadBalancerListenerSSLCertificate where
     type Er SetLoadBalancerListenerSSLCertificate = ELBError
     type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
-    request = query GET "SetLoadBalancerListenerSSLCertificate"
+    request = query4 elb GET "SetLoadBalancerListenerSSLCertificate"
 
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
     { slblsslcrResponseMetadata :: !Text
@@ -930,7 +922,7 @@ instance IsQuery SetLoadBalancerPoliciesForBackendServer
 instance Rq SetLoadBalancerPoliciesForBackendServer where
     type Er SetLoadBalancerPoliciesForBackendServer = ELBError
     type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
-    request = query GET "SetLoadBalancerPoliciesForBackendServer"
+    request = query4 elb GET "SetLoadBalancerPoliciesForBackendServer"
 
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     { slbpfbsrResponseMetadata :: !Text
@@ -965,7 +957,7 @@ instance IsQuery SetLoadBalancerPoliciesOfListener
 instance Rq SetLoadBalancerPoliciesOfListener where
     type Er SetLoadBalancerPoliciesOfListener = ELBError
     type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
-    request = query GET "SetLoadBalancerPoliciesOfListener"
+    request = query4 elb GET "SetLoadBalancerPoliciesOfListener"
 
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
     { slbpolrResponseMetadata :: !Text

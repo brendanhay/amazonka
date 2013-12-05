@@ -72,20 +72,21 @@ module Network.AWS.Route53
     , module Network.AWS
     ) where
 
-import Data.ByteString           (ByteString)
-import Data.Monoid
-import Data.String
-import Data.Text                 (Text)
-import Network.AWS
-import Network.AWS.Internal
-import Network.AWS.Route53.Types
-import Network.HTTP.Types.Method
+import           Data.ByteString              (ByteString)
+import           Data.Monoid
+import           Data.String
+import           Data.Text                    (Text)
+import           Network.AWS
+import           Network.AWS.Internal         hiding (query, xml)
+import qualified Network.AWS.Internal.Request as Rq
+import           Network.AWS.Route53.Types
+import           Network.HTTP.Types.Method
 
 query :: IsQuery a => StdMethod -> ByteString -> a -> Raw
-query m p = mkQuery route53 m (path p)
+query m p = Rq.query route53 m (path p)
 
 xml :: IsXML a => StdMethod -> ByteString -> a -> Raw
-xml m p = mkXML route53 m (path p)
+xml m p = Rq.xml route53 m (path p)
 
 path :: ByteString -> ByteString
 path = mappend (svcVersion route53) . addPrefix "/"

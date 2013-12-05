@@ -19,20 +19,26 @@ module Network.AWS.Internal.Monadic where
 
 import           Control.Applicative
 import           Control.Error
+import           Control.Exception
 import           Control.Monad
-import           Control.Monad.Error        (MonadError, Error, throwError)
+import           Control.Monad.Error          (MonadError, Error, throwError)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans
 import           Control.Monad.Trans.Reader
-import qualified Data.Aeson                 as Aeson
-import qualified Data.ByteString.Lazy       as LBS
+import           Control.Monad.Trans.Resource
+import qualified Data.Aeson                   as Aeson
+import qualified Data.ByteString.Lazy         as LBS
+import           Data.Conduit
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal.Types
+import           Network.HTTP.Conduit
 
 runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
-runAWS cred dbg aws =
-    eitherT (return . Left) (runEnv aws . Env defaultRegion dbg) $
-        credentials cred
+runAWS cred dbg aws = runResourceT . withInternalState $ \s -> do
+    m <- newManager conduitManagerSettings
+    eitherT (return . Left)
+            (runEnv aws . Env defaultRegion dbg s m)
+            (credentials cred)
 
 runEnv :: AWS a -> Env -> IO (Either AWSError a)
 runEnv aws = runEitherT . runReaderT (unwrap aws)
@@ -48,6 +54,9 @@ credentials cred = case cred of
 
 getAuth :: AWS Auth
 getAuth = AWS $ awsAuth <$> ask
+
+getManager :: AWS Manager
+getManager = AWS $ awsManager <$> ask
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
 within :: Region -> AWS a -> AWS a

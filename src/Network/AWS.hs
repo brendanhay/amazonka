@@ -67,27 +67,27 @@ import           Control.Monad
 import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
 import           Network.AWS.Internal
+import           Network.HTTP.Conduit
 
 -- | Send a request and return the associated response type.
 send :: (Rq a, ToError (Er a)) => a -> AWS (Rs a)
 send = (hoistError . fmapL toError =<<) . sendCatch
 
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
-sendCatch rq = undefined -- do
-  --   sig <- request rq
-  --   dbg <- getDebug
-  --   rs  <- sync $ perform sig dbg
-  --   hoistError rs
-  -- where
-  --   sync = liftEitherT . fmapLT Ex . syncIO
+sendCatch rq = do
+    rq' <- request rq
+    m   <- getManager
+    h   <- http rq' m
+    rs  <- response rq h
+    hoistError rs
 
-  --   perform Signed{..} dbg =
-  --       bracket (establishConnection sHost) closeConnection $ \c -> do
-  --           when dbg $ do
-  --               print sRequest
-  --               print sBody
-  --           b <- body sBody
-  --           sendRequest c sRequest b
+    -- perform Signed{..} dbg =
+    --     bracket (establishConnection sHost) closeConnection $ \c -> do
+    --         when dbg $ do
+    --             print sRequest
+    --             print sBody
+    --         b <- body sBody
+    --         sendRequest c sRequest b
 
 -- -- instead of calling receiveResponse here,
 -- -- pass the connection back, and for s3 like responses provide the same signature

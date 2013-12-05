@@ -25,10 +25,14 @@ import           Control.Exception
 import           Control.Monad
 import           Control.Monad.Error
 import           Control.Monad.Reader
+import           Control.Monad.Trans.Resource
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
+import qualified Data.ByteString.Lazy            as LBS
 import           Data.Conduit
+import qualified Data.Conduit.Binary             as Conduit
+import qualified Data.Conduit.List               as Conduit
 import           Data.Foldable                   (Foldable)
 import           Data.Monoid
 import           Data.String
@@ -47,28 +51,24 @@ class Rq a where
     type Rs a
 
     request  :: a -> AWS Request
-    response :: (Functor m, MonadIO m)
-             => a
-             -> Response (ResumableSource m ByteString)
-             -> m (Either AWSError (Either (Er a) (Rs a)))
+    response :: a
+             -> Response (ResumableSource AWS ByteString)
+             -> AWS (Either AWSError (Either (Er a) (Rs a)))
 
-    -- default response :: (MonadIO m, IsXML (Er a), IsXML (Rs a))
-    --                  => a
-    --                  -> Response (ResumableSource m ByteString)
-    --                  -> m (Either AWSError (Either (Er a) (Rs a)))
-    -- response _ = un
-
--- FIXME: an erroneous http status code should indicate the correct parser to use
--- defaultResponse :: (IsXML e, IsXML a, MonadIO m)
---                 => Response
---                 -> m (Either AWSError (Either e a))
--- defaultResponse Response{..} = liftIO $ do
---     bs <- BS.concat <$> Stream.toList rsBody
---     when rsDebug . liftIO $ print bs
---     return . either (failure bs) (Right . Right) $ fromXML bs
---   where
---     failure bs e = either (\s -> Left . Err $ concat [s, ", ", e])
---         (Right . Left) (fromXML bs)
+    default response :: (IsXML (Er a), IsXML (Rs a))
+                     => a
+                     -> Response (ResumableSource AWS ByteString)
+                     -> AWS (Either AWSError (Either (Er a) (Rs a)))
+    response _ rs = do
+        -- FIXME: use xml-conduit instead of hexpat to avoid need to conv to bs
+        lbs <- responseBody rs $$+- Conduit.sinkLbs
+        let bs = LBS.toStrict lbs
+        return . either (failure bs) (Right . Right) $ fromXML bs
+      where
+        failure bs e =
+            either (\s -> Left . Err $ concat [s, ", ", e])
+                   (Right . Left)
+                   (fromXML bs)
 
 class Pg a where
     next :: a -> Rs a -> Maybe a
@@ -117,13 +117,32 @@ instance FromJSON Auth where
     parseJSON _ = mzero
 
 data Env = Env
-    { awsRegion :: !Region
-    , awsDebug  :: !Bool
-    , awsAuth   :: !Auth
+    { awsRegion   :: !Region
+    , awsDebug    :: !Bool
+    , awsResource :: !InternalState
+    , awsManager  :: !Manager
+    , awsAuth     :: !Auth
     }
 
-newtype AWS a = AWS { unwrap :: ReaderT Env (EitherT AWSError IO) a }
-    deriving (Functor, Applicative, Monad, MonadIO, MonadReader Env, MonadError AWSError)
+newtype AWS a = AWS
+    { unwrap :: ReaderT Env (EitherT AWSError IO) a
+    } deriving
+        ( Functor
+        , Applicative
+        , Monad
+        , MonadIO
+        , MonadUnsafeIO
+        , MonadThrow
+        , MonadReader Env
+        , MonadError AWSError
+        )
+
+instance MonadResource AWS where
+    liftResourceT f = AWS $
+        fmap awsResource ask >>= liftIO . runInternalState f
+
+instance MonadThrow (EitherT AWSError IO) where
+    monadThrow = liftIO . throwIO
 
 type Signer = Raw -> Auth -> Region -> UTCTime -> Request
 

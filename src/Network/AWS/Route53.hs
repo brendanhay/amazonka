@@ -79,14 +79,16 @@ import Data.Text                 (Text)
 import Network.AWS
 import Network.AWS.Internal
 import Network.AWS.Route53.Types
-import Network.HTTP.Conduit
 import Network.HTTP.Types.Method
 
-query :: IsQuery a => StdMethod -> ByteString -> a -> AWS Request
-query m p = sign . mkQuery route53 m (route53Path p)
+query :: IsQuery a => StdMethod -> ByteString -> a -> Raw
+query m p = mkQuery route53 m (path p)
 
-xml :: IsXML a => StdMethod -> ByteString -> a -> AWS Request
-xml m p = sign . mkXML route53 m (route53Path p)
+xml :: IsXML a => StdMethod -> ByteString -> a -> Raw
+xml m p = mkXML route53 m (path p)
+
+path :: ByteString -> ByteString
+path = mappend (svcVersion route53) . addPrefix "/"
 
 --
 -- Hosted Zones

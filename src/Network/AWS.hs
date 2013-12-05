@@ -75,10 +75,10 @@ send = (hoistError . fmapL toError =<<) . sendCatch
 
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
-    rq' <- request rq
-    m   <- getManager
-    h   <- http rq' m
-    rs  <- response rq h
+    s  <- sign $ request rq
+    m  <- getManager
+    h  <- http s m
+    rs <- response rq h
     hoistError rs
 
     -- perform Signed{..} dbg =

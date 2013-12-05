@@ -44,8 +44,8 @@ mkXML s@Service{..} m p = Raw s m p [] [] . RequestBodyBS . toXML
 --     , rqBody    = Strict $ toXML x
 --     }
 
--- (.?.) :: Request -> [(ByteString, ByteString)] -> Request
--- (.?.) rq qry = rq { rqQuery = rqQuery rq ++ qry }
+(.?.) :: Raw -> [(ByteString, ByteString)] -> Raw
+(.?.) r q = r { rqQuery = rqQuery r ++ q }
 
 -- (.:.) :: Request -> [AnyHeader] -> Request
 -- (.:.) rq hs = rq { rqHeaders = rqHeaders rq ++ hs }

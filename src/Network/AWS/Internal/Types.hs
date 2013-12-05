@@ -48,7 +48,7 @@ class Rq a where
     type Er a
     type Rs a
 
-    request  :: a -> AWS Request
+    request  :: a -> Raw
     response :: a
              -> Response (ResumableSource AWS ByteString)
              -> AWS (Either AWSError (Either (Er a) (Rs a)))

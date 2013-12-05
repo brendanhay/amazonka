@@ -496,17 +496,16 @@ module Network.AWS.EC2
     , module Network.AWS
     ) where
 
-import Data.ByteString       (ByteString)
-import Data.Text             (Text)
+import Data.ByteString           (ByteString)
+import Data.Text                 (Text)
 import Data.Time
 import Network.AWS
 import Network.AWS.EC2.Types
 import Network.AWS.Internal
-import Network.Http.Client   (Method(..))
+import Network.HTTP.Types.Method
 
-query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
-query meth act q = sign version2 $
-    requestQuery ec2 meth "/" q .?. [("Action", act)]
+query :: IsQuery a => StdMethod -> ByteString -> a -> Raw
+query m a q = mkQuery ec2 m "/" q .?. [("Action", a)]
 
 -- | Acquires an Elastic IP address.An Elastic IP address is for use either in
 -- the EC2-Classic platform or in a VPC.

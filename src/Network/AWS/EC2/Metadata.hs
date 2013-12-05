@@ -20,13 +20,15 @@ module Network.AWS.EC2.Metadata
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Exception
 import           Control.Monad.Error         (throwError)
 import           Control.Monad.IO.Class
 import           Data.ByteString             (ByteString)
+import qualified Data.ByteString.Char8       as BS
+import qualified Data.ByteString.Lazy        as LBS
 import           Data.Monoid
 import           Network.AWS.Internal.String
-import           Network.AWS.Internal.Types  hiding (InstanceId, request)
+import           Network.AWS.Internal.Types
+import           Network.HTTP.Conduit
 
 data Metadata
     = AMIId
@@ -56,26 +58,13 @@ metadata = metadataByKey . toPath
 metadataByKey :: (Applicative m, MonadIO m)
               => ByteString
               -> EitherT AWSError m ByteString
-metadataByKey = request . mappend "/latest/meta-data/"
-
---
--- Internal
---
-
-localhost :: ByteString
-localhost = "http://169.254.169.254"
-
-request :: (Applicative m, MonadIO m)
-        => ByteString
-        -> EitherT AWSError m ByteString
-request url = undefined -- do
-  --   rs <- fmap (strip '\n') <$> fmapLT Ex (syncIO req)
-  --   maybe (throwError "Failed to receive any data") return rs
-  -- where
-  --   req = bracket (establishConnection localhost) closeConnection $ \c -> do
-  --       rq <- buildRequest $ http GET url
-  --       sendRequest c rq emptyBody
-  --       receiveResponse c $ const Streams.read
+metadataByKey p = do
+    rs <- fmapLT Ex . syncIO $ simpleHttp url
+    case strip '\n' $ LBS.toStrict rs of
+        "" -> throwError "Failed to receive any data"
+        bs -> return bs
+  where
+    url = BS.unpack $ "http://169.254.169.254/latest/meta-data/" <> p
 
 toPath :: Metadata -> ByteString
 toPath meta = case meta of

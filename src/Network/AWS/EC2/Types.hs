@@ -26,7 +26,27 @@ import           Text.Read
 
 -- | Currently supported version (2013-07-15) of the EC2 service.
 ec2 :: Service
-ec2 = Regional "ec2" "2013-08-15"
+ec2 = Service Regional version2 "ec2" "2013-08-15"
+
+-- | XML namespace to annotate EC2 elements with.
+ec2NS :: ByteString
+ec2NS = "http://ec2.amazonaws.com/doc/" <> svcVersion ec2 <> "/"
+
+-- | Helper to define EC2 namespaced XML elements.
+ec2Elem :: ByteString -> NName ByteString
+ec2Elem = mkNName ec2NS
+
+ec2XML :: XMLGeneric a
+ec2XML = withNS' ec2NS $ (namespacedXMLOptions ec2NS)
+    { xmlFieldModifier = mkNName ec2NS . lowerHead . stripLower
+    , xmlListElement   = mkNName ec2NS "item"
+    }
+
+ec2ItemXML :: XMLGeneric a
+ec2ItemXML = withRootNS' ec2NS "item" $ (namespacedXMLOptions ec2NS)
+    { xmlFieldModifier = mkNName ec2NS . lowerHead . stripLower
+    , xmlListElement   = mkNName ec2NS "item"
+    }
 
 data EC2Error = EC2Error
     { ecCode    :: !Text
@@ -2535,23 +2555,3 @@ instance IsQuery TagFilter where
 
         enc  = Pair "Value" . Value . encodeUtf8
         enc' = Pair "Value" . Value . BS.pack . show
-
--- | XML namespace to annotate EC2 elements with.
-ec2NS :: ByteString
-ec2NS = "http://ec2.amazonaws.com/doc/" <> svcVersion ec2 <> "/"
-
--- | Helper to define EC2 namespaced XML elements.
-ec2Elem :: ByteString -> NName ByteString
-ec2Elem = mkNName ec2NS
-
-ec2XML :: XMLGeneric a
-ec2XML = withNS' ec2NS $ (namespacedXMLOptions ec2NS)
-    { xmlFieldModifier = mkNName ec2NS . lowerHead . stripLower
-    , xmlListElement   = mkNName ec2NS "item"
-    }
-
-ec2ItemXML :: XMLGeneric a
-ec2ItemXML = withRootNS' ec2NS "item" $ (namespacedXMLOptions ec2NS)
-    { xmlFieldModifier = mkNName ec2NS . lowerHead . stripLower
-    , xmlListElement   = mkNName ec2NS "item"
-    }

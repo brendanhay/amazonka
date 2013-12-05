@@ -30,6 +30,14 @@ import           Text.Read
 route53 :: Service
 route53 = Service Global version3 "route53" "2012-12-12"
 
+-- | XML namespace to annotate Route53 elements with.
+route53NS :: ByteString
+route53NS = "https://route53.amazonaws.com/doc/" <> svcVersion route53 <> "/"
+
+-- | Helper to define Route53 namespaced XML elements.
+route53Elem :: ByteString -> NName ByteString
+route53Elem = mkNName route53NS
+
 class Prefixed a where
     prefixed :: a -> ByteString
 
@@ -351,14 +359,3 @@ data HealthCheck = HealthCheck
 
 instance IsXML HealthCheck where
     xmlPickler = withNS route53NS
-
--- | XML namespace to annotate Route53 elements with.
-route53NS :: ByteString
-route53NS = "https://route53.amazonaws.com/doc/" <> svcVersion route53 <> "/"
-
--- | Helper to define Route53 namespaced XML elements.
-route53Elem :: ByteString -> NName ByteString
-route53Elem = mkNName route53NS
-
-route53Path :: ByteString -> ByteString
-route53Path = mappend (svcVersion route53) . addPrefix "/"

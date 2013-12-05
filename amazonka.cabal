@@ -38,7 +38,7 @@ library
       -- , Network.AWS.EC2.Metadata
       -- , Network.AWS.ELB
       -- , Network.AWS.IAM
-      -- , Network.AWS.Route53
+      , Network.AWS.Route53
       -- , Network.AWS.S3
 
     other-modules:
@@ -56,7 +56,7 @@ library
       -- , Network.AWS.EC2.Types
       -- , Network.AWS.ELB.Types
       -- , Network.AWS.IAM.Types
-      -- , Network.AWS.Route53.Types
+      , Network.AWS.Route53.Types
       -- , Network.AWS.S3.Types
 
     build-depends:

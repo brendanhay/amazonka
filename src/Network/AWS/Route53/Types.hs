@@ -28,7 +28,7 @@ import           Text.Read
 
 -- | Currently supported version of the Route53 service.
 route53 :: Service
-route53 = Global "route53" "2012-12-12"
+route53 = Service Global version3 "route53" "2012-12-12"
 
 class Prefixed a where
     prefixed :: a -> ByteString

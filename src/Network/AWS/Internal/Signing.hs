@@ -54,16 +54,17 @@ data Common = Common
     , _query   :: [(ByteString, ByteString)]
     }
 
-sign :: Signer -> Raw -> AWS Request
-sign s raw@Raw{..} = do
+sign :: Raw -> AWS Request
+sign raw@Raw{..} = do
     auth <- getAuth
     reg  <- region rqService
     time <- liftIO getCurrentTime
 
-    let tok = maybeToList $ hAMZToken <$> securityToken auth
+    let sig = svcSigner rqService
+        tok = maybeToList $ hAMZToken <$> securityToken auth
         hs  = hHost (endpoint rqService reg) : concat [rqHeaders, tok]
 
-    return $! s (raw { rqHeaders = hs }) auth reg time
+    return $! sig (raw { rqHeaders = hs }) auth reg time
 
 version2 :: Signer
 version2 raw@Raw{..} Auth{..} reg time =

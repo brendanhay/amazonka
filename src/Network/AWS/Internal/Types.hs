@@ -150,10 +150,10 @@ data Endpoint
     | Custom ByteString
 
 data Service = Service
-    { svcName     :: !ByteString
-    , svcVersion  :: !ByteString
+    { svcEndpoint :: !Endpoint
     , svcSigner   :: !Signer
-    , svcEndpoint :: !Endpoint
+    , svcName     :: !ByteString
+    , svcVersion  :: !ByteString
     }
 
 endpoint :: Service -> Region -> ByteString

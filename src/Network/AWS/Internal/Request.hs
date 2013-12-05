@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Network.AWS.Internal.Request
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,8 +18,31 @@ import Network.AWS.Headers
 import Network.AWS.Internal.Signing
 import Network.AWS.Internal.String
 import Network.AWS.Internal.Types
+import Network.HTTP.Conduit
 import Network.HTTP.QueryString.Pickle
+import Network.HTTP.Types.Method
 import Text.XML.Expat.Pickle.Generic
+
+mkQuery :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
+mkQuery s@Service{..} m p x = Raw s m p (toQuery x) [] (RequestBodyBS "")
+
+mkXML :: IsXML a => Service -> StdMethod -> ByteString -> a -> Raw
+mkXML s@Service{..} m p = Raw s m p [] [] . RequestBodyBS . toXML
+--     , rqHeaders = [hdr (Content :: XML)]
+
+-- requestXML :: IsXML a
+--            => Service
+--            -> Method
+--            -> ByteString
+--            -> a
+--            -> Request
+-- requestXML svc meth path x = Request
+--     { rqService = svc
+--     , rqMethod  = meth
+--     , rqPath    = addPrefix "/" path
+--     , rqQuery   = []
+--     , rqBody    = Strict $ toXML x
+--     }
 
 -- (.?.) :: Request -> [(ByteString, ByteString)] -> Request
 -- (.?.) rq qry = rq { rqQuery = rqQuery rq ++ qry }
@@ -32,33 +56,3 @@ import Text.XML.Expat.Pickle.Generic
 --         [ ("Action",  act)
 --         , ("Version", svcVersion svc)
 --         ]
-
--- requestQuery :: IsQuery a
---              => Service
---              -> Method
---              -> ByteString
---              -> a
---              -> Request
--- requestQuery svc meth path q = Request
---     { rqService = svc
---     , rqMethod  = meth
---     , rqPath    = addPrefix "/" path
---     , rqHeaders = [] -- [hdr (Content :: FormURLEncoded)]
---     , rqQuery   = toQuery q
---     , rqBody    = Empty
---     }
-
--- requestXML :: IsXML a
---            => Service
---            -> Method
---            -> ByteString
---            -> a
---            -> Request
--- requestXML svc meth path x = Request
---     { rqService = svc
---     , rqMethod  = meth
---     , rqPath    = addPrefix "/" path
---     , rqHeaders = [hdr (Content :: XML)]
---     , rqQuery   = []
---     , rqBody    = Strict $ toXML x
---     }

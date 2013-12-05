@@ -79,13 +79,14 @@ import Data.Text                 (Text)
 import Network.AWS
 import Network.AWS.Internal
 import Network.AWS.Route53.Types
-import Network.Http.Client       (Method(..))
+import Network.HTTP.Conduit
+import Network.HTTP.Types.Method
 
-query :: IsQuery a => Method -> ByteString -> a -> AWS Signed
-query meth path = sign version3 . requestQuery route53 meth (route53Path path)
+query :: IsQuery a => StdMethod -> ByteString -> a -> AWS Request
+query m p = sign . mkQuery route53 m (route53Path p)
 
-xml :: IsXML a => Method -> ByteString -> a -> AWS Signed
-xml meth path = sign version3 . requestXML route53 meth (route53Path path)
+xml :: IsXML a => StdMethod -> ByteString -> a -> AWS Request
+xml m p = sign . mkXML route53 m (route53Path p)
 
 --
 -- Hosted Zones

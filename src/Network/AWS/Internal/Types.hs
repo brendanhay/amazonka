@@ -164,9 +164,6 @@ endpoint Service{..} reg =
         Regional  -> BS.intercalate "." $
             [svcName, BS.pack $ show reg, "amazonaws.com"]
 
--- override :: ByteString -> Service -> Service
--- override bs svc = Specific (svcName svc) (svcVersion svc) bs
-
 data Raw = Raw
     { rqService :: !Service
     , rqMethod  :: !StdMethod

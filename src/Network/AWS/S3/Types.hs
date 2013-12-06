@@ -17,26 +17,27 @@
 
 module Network.AWS.S3.Types where
 
-import           Data.ByteString      (ByteString)
+import           Data.ByteString           (ByteString)
 import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
+import           Data.Text                 (Text)
+import qualified Data.Text                 as Text
 import           Data.Time
 import           Network.AWS.Headers
 import           Network.AWS.Internal
-import           Network.Http.Client  (Method)
-import           System.IO.Streams    (InputStream)
+import           Network.HTTP.Conduit
+import           Network.HTTP.Types.Method
 
 -- | Currently supported version of the S3 service.
-s3 :: Service
-s3 = Global "s3" "2006-03-01"
+s3 :: ByteString -> Service
+s3 b = Service Global (versionS3 b) "s3" "2006-03-01"
 
-newtype S3HeaderResponse = S3HeaderResponse [(ByteString, ByteString)]
+-- | XML namespace to annotate S3 elements with.
+s3NS :: ByteString
+s3NS = "http://doc.s3.amazonaws.com/" <> svcVersion (s3 "")
 
-data S3BodyResponse = S3BodyResponse
-    { s3Headers :: [(ByteString, ByteString)]
-    , s3Body    :: InputStream ByteString
-    }
+-- | Helper to define S3 namespaced XML elements.
+s3Elem :: ByteString -> NName ByteString
+s3Elem = mkNName s3NS
 
 data S3ErrorResponse = S3ErrorResponse { sssError :: !Text }
     deriving (Eq, Show, Generic)
@@ -45,9 +46,6 @@ instance ToError S3ErrorResponse where
     toError = Err . show
 
 instance IsXML S3ErrorResponse
-
-newtype S3HeadersResponse = S3HeadersResponse [(ByteString, ByteString)]
-    deriving (Eq, Show)
 
 data Bucket = Bucket
     { bName         :: !Text
@@ -223,8 +221,8 @@ instance IsXML Part
 
 data AES256 = AES256 deriving (Show)
 
-instance IsHeader AES256 where
-    encodeHeader = encodeHeader . show
+-- instance IsHeader AES256 where
+--     encodeHeader = encodeHeader . show
 
 data CannedACL
     = Private
@@ -245,8 +243,8 @@ instance Show CannedACL where
         BucketOwnerFullControl -> "bucket-owner-full-control"
         LogDeliveryWrite       -> "log-delivery-write"
 
-instance IsHeader CannedACL where
-    encodeHeader = encodeHeader . show
+-- instance IsHeader CannedACL where
+--     encodeHeader = encodeHeader . show
 
 data StorageClass
     = Standard
@@ -256,8 +254,8 @@ instance Show StorageClass where
     show Standard          = "STANDARD"
     show ReducedRedundancy = "REDUCED_REDUNDANCY"
 
-instance IsHeader StorageClass where
-    encodeHeader = encodeHeader . show
+-- instance IsHeader StorageClass where
+--     encodeHeader = encodeHeader . show
 
 data Directive
     = Copy
@@ -268,16 +266,16 @@ data Source = Source
     , srcKey    :: !Text
     } deriving (Eq, Show)
 
-instance IsHeader Source where
-    encodeHeader Source{..} =
-        encodeHeader (Text.concat [srcBucket, "/", srcKey])
+-- instance IsHeader Source where
+--     encodeHeader Source{..} =
+--         encodeHeader (Text.concat [srcBucket, "/", srcKey])
 
 instance Show Directive where
     show Copy    = "COPY"
     show Replace = "REPLACE"
 
-instance IsHeader Directive where
-    encodeHeader = encodeHeader . show
+-- instance IsHeader Directive where
+--     encodeHeader = encodeHeader . show
 
 newtype ETag = ETag { unETag :: Text }
     deriving (Eq, Show)
@@ -285,156 +283,148 @@ newtype ETag = ETag { unETag :: Text }
 instance IsXML ETag where
     xmlPickler = (ETag, unETag) `xpWrap` xmlPickler
 
-instance IsHeader ETag where
-    encodeHeader (ETag t) = encodeHeader t
+-- instance IsHeader ETag where
+--     encodeHeader (ETag t) = encodeHeader t
 
-type Metadata = Header "x-amz-meta-" (Text, Text)
+-- type Metadata = Header "x-amz-meta-" (Text, Text)
 
-type Storage = Header "x-amz-storage-class" StorageClass
+-- type Storage = Header "x-amz-storage-class" StorageClass
 
-type ACL = Header "x-amz-acl" CannedACL
+-- type ACL = Header "x-amz-acl" CannedACL
 
--- type GrantRead        = Header "x-amz-grant-read" Text
--- type GrantWrite       = Header "x-amz-grant-write" Text
--- type GrantReadACP     = Header "x-amz-grant-read-acp" Text
--- type GrantWriteACP    = Header "x-amz-grant-write-acp" Text
--- type GrantFullControl = Header "x-amz-grant-full-control" Text
+-- -- type GrantRead        = Header "x-amz-grant-read" Text
+-- -- type GrantWrite       = Header "x-amz-grant-write" Text
+-- -- type GrantReadACP     = Header "x-amz-grant-read-acp" Text
+-- -- type GrantWriteACP    = Header "x-amz-grant-write-acp" Text
+-- -- type GrantFullControl = Header "x-amz-grant-full-control" Text
 
--- FIXME:
--- For each of these headers, the value is a comma-separated list of one or more grantees. You specify each grantee as a type=value pair, where the type can be one of the following:
+-- -- FIXME:
+-- -- For each of these headers, the value is a comma-separated list of one or more grantees. You specify each grantee as a type=value pair, where the type can be one of the following:
 
--- emailAddress — if value specified is the email address of an AWS account
--- id — if value specified is the canonical user ID of an AWS account
--- uri — if granting permission to a predefined group.
+-- -- emailAddress — if value specified is the email address of an AWS account
+-- -- id — if value specified is the canonical user ID of an AWS account
+-- -- uri — if granting permission to a predefined group.
 
--- For example, the following x-amz-grant-read header grants list objects permission to the two AWS accounts identified by their email addresses.
--- x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
+-- -- For example, the following x-amz-grant-read header grants list objects permission to the two AWS accounts identified by their email addresses.
+-- -- x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
 
--- | When a bucket is configured as a website, you can set this metadata on the
--- object so the website endpoint will evaluate the request for the object as
--- a 301 redirect to another object in the same bucket or an external URL.
-type RedirectLocation = Header "x-amz-website-redirect-location" Text
+-- -- | When a bucket is configured as a website, you can set this metadata on the
+-- -- object so the website endpoint will evaluate the request for the object as
+-- -- a 301 redirect to another object in the same bucket or an external URL.
+-- type RedirectLocation = Header "x-amz-website-redirect-location" Text
 
--- | If the object is stored using server-side encryption, response includes
--- this header with value of the encryption algorithm used.
-type Encryption = Header "x-amz-server-side-encryption" AES256
+-- -- | If the object is stored using server-side encryption, response includes
+-- -- this header with value of the encryption algorithm used.
+-- type Encryption = Header "x-amz-server-side-encryption" AES256
 
--- | Sets the Content-Type header of the response.
-type ResponseContentType = Header "response-content-type" Text
+-- -- | Sets the Content-Type header of the response.
+-- type ResponseContentType = Header "response-content-type" Text
 
--- | Sets the Content-Language header of the response.
-type ResponseContentLanguage = Header "response-content-language" Text
+-- -- | Sets the Content-Language header of the response.
+-- type ResponseContentLanguage = Header "response-content-language" Text
 
--- | Sets the Expires header of the response.
-type ResponseExpires = Header "response-expires" Text
+-- -- | Sets the Expires header of the response.
+-- type ResponseExpires = Header "response-expires" Text
 
--- | Sets the Cache-Control header of the response.
-type ResponseCacheControl = Header "response-cache-control" Text
+-- -- | Sets the Cache-Control header of the response.
+-- type ResponseCacheControl = Header "response-cache-control" Text
 
--- | Sets the Content-Disposition header of the response.
-type ResponseContentDisposition = Header "response-content-disposition" Text
+-- -- | Sets the Content-Disposition header of the response.
+-- type ResponseContentDisposition = Header "response-content-disposition" Text
 
--- | Sets the Content-Encoding header of the response.
-type ResponseContentEncoding = Header "response-content-encoding" Text
+-- -- | Sets the Content-Encoding header of the response.
+-- type ResponseContentEncoding = Header "response-content-encoding" Text
 
--- | Specifies whether the object retrieved was (true) or was not (false)
--- a Delete Marker.
---
--- If false, this response header does not appear in the response.
-type DeleteMarker = Header "x-amz-delete-marker" Bool
+-- -- | Specifies whether the object retrieved was (true) or was not (false)
+-- -- a Delete Marker.
+-- --
+-- -- If false, this response header does not appear in the response.
+-- type DeleteMarker = Header "x-amz-delete-marker" Bool
 
--- | If the object expiration is configured (see PUT Bucket lifecycle), the
--- response includes this header. It includes the expiry-date and rule-id key
--- value pairs providing object expiration information.
--- The value of the rule-id is URL encoded.
-type Expiration = Header "x-amz-expiration" UTCTime
+-- -- | If the object expiration is configured (see PUT Bucket lifecycle), the
+-- -- response includes this header. It includes the expiry-date and rule-id key
+-- -- value pairs providing object expiration information.
+-- -- The value of the rule-id is URL encoded.
+-- type Expiration = Header "x-amz-expiration" UTCTime
 
--- | Provides information about object restoration operation and expiration time
--- of the restored object copy.
-type Restore = Header "x-amz-restore" Text
+-- -- | Provides information about object restoration operation and expiration time
+-- -- of the restored object copy.
+-- type Restore = Header "x-amz-restore" Text
 
--- | Returns the version ID of the retrieved object if it has a unique version ID.
-type VersionId = Header "x-amz-version-id" Text
+-- -- | Returns the version ID of the retrieved object if it has a unique version ID.
+-- type VersionId = Header "x-amz-version-id" Text
 
--- | The value is the concatenation of the authentication device's serial number,
--- a space, and the value displayed on your authentication device.
---
--- Condition: Required to permanently delete a versioned object if versioning
--- is configured with MFA Delete enabled.
-type MFA = Header "x-amz-mfa" Text
+-- -- | The value is the concatenation of the authentication device's serial number,
+-- -- a space, and the value displayed on your authentication device.
+-- --
+-- -- Condition: Required to permanently delete a versioned object if versioning
+-- -- is configured with MFA Delete enabled.
+-- type MFA = Header "x-amz-mfa" Text
 
--- | Identifies the origin of the cross-origin request to Amazon S3.
---
--- For example, http://www.example.com.
-type Origin = Header "origin" Text
+-- -- | Identifies the origin of the cross-origin request to Amazon S3.
+-- --
+-- -- For example, http://www.example.com.
+-- type Origin = Header "origin" Text
 
--- | Identifies what HTTP method will be used in the actual request.
-type AccessControlRequestMethod = Header "access-control-request-method" Method
+-- -- | Identifies what HTTP method will be used in the actual request.
+-- type AccessControlRequestMethod = Header "access-control-request-method" Method
 
--- | A comma-delimited list of HTTP headers that will be sent in the
--- actual request.
-type AccessControlRequestHeaders = Header "access-control-request-headers" [Text]
+-- -- | A comma-delimited list of HTTP headers that will be sent in the
+-- -- actual request.
+-- type AccessControlRequestHeaders = Header "access-control-request-headers" [Text]
 
--- | The name of the source bucket and key name of the source object,
--- separated by a slash (/).
---
--- This string must be URL-encoded. Additionally, the source bucket must be
--- valid and you must have READ access to the valid source object.
---
--- If the source object is archived in Amazon Glacier (storage class of the
--- object is GLACIER), you must first restore a temporary copy using the POST
--- Object restore. Otherwise, Amazon S3 returns the 403 ObjectNotInActiveTierError
--- error response.
-type CopySource = Header "x-amz-copy-source" Source
+-- -- | The name of the source bucket and key name of the source object,
+-- -- separated by a slash (/).
+-- --
+-- -- This string must be URL-encoded. Additionally, the source bucket must be
+-- -- valid and you must have READ access to the valid source object.
+-- --
+-- -- If the source object is archived in Amazon Glacier (storage class of the
+-- -- object is GLACIER), you must first restore a temporary copy using the POST
+-- -- Object restore. Otherwise, Amazon S3 returns the 403 ObjectNotInActiveTierError
+-- -- error response.
+-- type CopySource = Header "x-amz-copy-source" Source
 
--- | The range of bytes to copy from the source object.
---
--- The range value must use the form bytes=first-last, where the first and last
--- are the zero-based byte offsets to copy.
---
--- For example, bytes=0-9 indicates that you want to copy the first ten bytes
--- of the source.
-type CopySourceRange = Header "x-amz-copy-source-range" Text
+-- -- | The range of bytes to copy from the source object.
+-- --
+-- -- The range value must use the form bytes=first-last, where the first and last
+-- -- are the zero-based byte offsets to copy.
+-- --
+-- -- For example, bytes=0-9 indicates that you want to copy the first ten bytes
+-- -- of the source.
+-- type CopySourceRange = Header "x-amz-copy-source-range" Text
 
--- | Specifies whether the metadata is copied from the source object or replaced
--- with metadata provided in the request.
---
--- If copied, the metadata, except for the version ID, remains unchanged.
--- In addition, the server-side-encryption, storage-class, and
--- website-redirect-location metadata from the source is not copied.
--- If you specify this metadata explicitly in the copy request, Amazon S3
--- adds this metadata to the resulting object. If you specify headers in the
--- request specifying any user-defined metadata, Amazon S3 ignores these headers.
---
--- If replaced, all original metadata is replaced by the metadata you specify.
-type MetadataDirective = Header "x-amz-metadata-directive" Directive
+-- -- | Specifies whether the metadata is copied from the source object or replaced
+-- -- with metadata provided in the request.
+-- --
+-- -- If copied, the metadata, except for the version ID, remains unchanged.
+-- -- In addition, the server-side-encryption, storage-class, and
+-- -- website-redirect-location metadata from the source is not copied.
+-- -- If you specify this metadata explicitly in the copy request, Amazon S3
+-- -- adds this metadata to the resulting object. If you specify headers in the
+-- -- request specifying any user-defined metadata, Amazon S3 ignores these headers.
+-- --
+-- -- If replaced, all original metadata is replaced by the metadata you specify.
+-- type MetadataDirective = Header "x-amz-metadata-directive" Directive
 
--- | Copies the object if its entity tag (ETag) matches the specified tag;
--- otherwise, the request returns a 412 HTTP status code error.
---
--- Constraints: This header can be used with x-amz-copy-source-if-unmodified-since,
--- but cannot be used with other conditional copy headers.
-type CopySourceIfMatch = Header "x-amz-copy-source-if-match" ETag
+-- -- | Copies the object if its entity tag (ETag) matches the specified tag;
+-- -- otherwise, the request returns a 412 HTTP status code error.
+-- --
+-- -- Constraints: This header can be used with x-amz-copy-source-if-unmodified-since,
+-- -- but cannot be used with other conditional copy headers.
+-- type CopySourceIfMatch = Header "x-amz-copy-source-if-match" ETag
 
--- | Copies the object if its entity tag (ETag) is different than the specified ETag;
--- otherwise, the request returns a 412 HTTP status code error.
---
--- Constraints: This header can be used with x-amz-copy-source-if-modified-since,
--- but cannot be used with other conditional copy headers.
-type CopySourceIfNoneMatch = Header "x-amz-copy-source-if-none-match" ETag
+-- -- | Copies the object if its entity tag (ETag) is different than the specified ETag;
+-- -- otherwise, the request returns a 412 HTTP status code error.
+-- --
+-- -- Constraints: This header can be used with x-amz-copy-source-if-modified-since,
+-- -- but cannot be used with other conditional copy headers.
+-- type CopySourceIfNoneMatch = Header "x-amz-copy-source-if-none-match" ETag
 
--- | Copies the object if it hasn't been modified since the specified time;
--- otherwise, the request returns a 412 HTTP status code error.
-type CopySourceIfUnmodifiedSince = Header "x-amz-copy-source-if-unmodified-since" UTCTime
+-- -- | Copies the object if it hasn't been modified since the specified time;
+-- -- otherwise, the request returns a 412 HTTP status code error.
+-- type CopySourceIfUnmodifiedSince = Header "x-amz-copy-source-if-unmodified-since" UTCTime
 
--- | Copies the object if it has been modified since the specified time;
--- otherwise, the request returns a 412 HTTP status code error.
-type CopySourceIfModifiedSince = Header "x-amz-copy-source-if-modified-since" UTCTime
-
--- | XML namespace to annotate S3 elements with.
-s3NS :: ByteString
-s3NS = "http://doc.s3.amazonaws.com/" <> svcVersion s3
-
--- | Helper to define S3 namespaced XML elements.
-s3Elem :: ByteString -> NName ByteString
-s3Elem = mkNName s3NS
+-- -- | Copies the object if it has been modified since the specified time;
+-- -- otherwise, the request returns a 412 HTTP status code error.
+-- type CopySourceIfModifiedSince = Header "x-amz-copy-source-if-modified-since" UTCTime

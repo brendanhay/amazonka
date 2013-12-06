@@ -36,36 +36,38 @@ module Network.AWS
     , send
     , sendCatch
 
-    -- -- * Asynchronous Requests
-    -- , async
-    -- , wait
-    -- , waitCatch
+    -- * Asynchronous Requests
+    , async
+    , wait
+    , waitCatch
 
-    -- -- * Paginated Requests
-    -- , paginate
-    -- , paginateCatch
+    -- * Paginated Requests
+    , paginate
+    , paginateCatch
 
-    -- -- * Errors
-    -- , ToError          (..)
-    -- , AWSError         (..)
-    -- , hoistError
-    -- , liftEitherT
+    -- * Errors
+    , ToError          (..)
+    , AWSError         (..)
+    , hoistError
+    , liftEitherT
 
-    -- -- * Types
-    -- , AvailabilityZone (..)
-    -- , Body             (..)
-    -- , InstanceType     (..)
-    -- , Items            (..)
-    -- , Members          (..)
+    -- * Types
+    , AvailabilityZone (..)
+--    , Body             (..)
+    , InstanceType     (..)
+    , Items            (..)
+    , Members          (..)
     ) where
 
-import           Control.Applicative
-import qualified Control.Concurrent.Async   as A
+import qualified Control.Concurrent.Async              as A
 import           Control.Error
 import           Control.Exception
-import           Control.Monad
+import qualified Control.Exception.Lifted              as L
 import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
+import           Control.Monad.Trans.Resource
+import           Control.Monad.Trans.Resource.Internal
+import           Data.Conduit
 import           Network.AWS.Internal
 import           Network.HTTP.Conduit
 
@@ -81,58 +83,45 @@ sendCatch rq = do
     rs <- response rq h
     hoistError rs
 
-    -- perform Signed{..} dbg =
-    --     bracket (establishConnection sHost) closeConnection $ \c -> do
-    --         when dbg $ do
-    --             print sRequest
-    --             print sBody
-    --         b <- body sBody
-    --         sendRequest c sRequest b
+async :: AWS a -> AWS (A.Async (Either AWSError a))
+async aws = AWS ask >>= resourceAsync . lift . runEnv aws
 
--- -- instead of calling receiveResponse here,
--- -- pass the connection back, and for s3 like responses provide the same signature
--- -- as the resulting body, think about finally/onException
+wait :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS a
+wait a = waitCatch a >>= hoistError . fmapL toError
 
---             response rq $ Response dbg code receiveResponse c receive
+waitCatch :: A.Async (Either AWSError a) -> AWS a
+waitCatch a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
 
---     body (Strict   bs) = inputStreamBody <$> Streams.fromByteString bs
---     body (Streaming s) = return $ inputStreamBody s
---     body Empty         = return emptyBody
+-- | Create a 'Source' which yields the initial and subsequent repsonses
+-- for requests that support pagination.
+paginate :: (Rq a, Pg a, ToError (Er a))
+         => a
+         -> Source AWS (Rs a)
+paginate = ($= go) . paginateCatch
+  where
+    go = do
+        x <- await
+        maybe (return ())
+              (either (lift . liftEitherT . left . toError) yield)
+              x
 
---     receive rs i = do
---         let code = getStatusCode rs
---             msg  = getStatusMessage rs
---         when dbg $ print rs
---         response rq $ Response dbg code msg (retrieveHeaders $ getHeaders rs) 
+paginateCatch :: (Rq a, Pg a, ToError (Er a))
+              => a
+              -> Source AWS (Either (Er a) (Rs a))
+paginateCatch = go . Just
+  where
+    go Nothing   = return ()
+    go (Just rq) = do
+        rs <- lift $ sendCatch rq
+        yield rs
+        either (const $ return ()) (go . next rq) rs
 
---             -- else do
---             --     bs <- BS.concat <$> Streams.toList i
---             --     return . Left . Err . BS.unpack $
---             --         BS.concat [BS.pack $ show c, " ", m, "\n", bs]
-
--- async :: AWS a -> AWS (A.Async (Either AWSError a))
--- async aws = AWS ask >>= liftIO . A.async . runEnv aws
-
--- wait :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS a
--- wait a = waitCatch a >>= hoistError . fmapL toError
-
--- waitCatch :: A.Async (Either AWSError a) -> AWS a
--- waitCatch a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
-
--- -- | Create a pipes 'Producer' which yields the initial and subsequent repsonses
--- -- for requests that support pagination.
--- paginate :: (Rq a, Pg a, ToError (Er a))
---          => a
---          -> Producer' (Rs a) AWS ()
--- paginate = paginateCatch ~> either (lift . liftEitherT . left . toError) yield
-
--- paginateCatch :: (Rq a, Pg a, ToError (Er a))
---               => a
---               -> Producer' (Either (Er a) (Rs a)) AWS ()
--- paginateCatch = go . Just
---   where
---     go Nothing   = return ()
---     go (Just rq) = do
---         rs <- lift $ sendCatch rq
---         yield rs
---         either (const $ return ()) (go . next rq) rs
+resourceAsync :: MonadResource m => ResourceT IO a -> m (A.Async a)
+resourceAsync (ResourceT f) = liftResourceT . ResourceT $ \g -> L.mask $ \h ->
+    bracket_
+        (stateAlloc g)
+        (return ())
+        (A.async $ bracket_
+            (return ())
+            (stateCleanup g)
+            (h $ f g))

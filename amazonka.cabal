@@ -39,7 +39,7 @@ library
       , Network.AWS.ELB
       , Network.AWS.IAM
       , Network.AWS.Route53
-      -- , Network.AWS.S3
+      , Network.AWS.S3
 
     other-modules:
         Network.AWS.Internal.Instances
@@ -57,7 +57,7 @@ library
       , Network.AWS.ELB.Types
       , Network.AWS.IAM.Types
       , Network.AWS.Route53.Types
-      -- , Network.AWS.S3.Types
+      , Network.AWS.S3.Types
 
     build-depends:
         aeson
@@ -75,6 +75,7 @@ library
       , hexpat-pickle-generic >= 0.1.7
       , http-conduit          >= 2
       , http-types
+      , lifted-base
       , mtl
       , old-locale
       , querystring-pickle    >= 0.1.7

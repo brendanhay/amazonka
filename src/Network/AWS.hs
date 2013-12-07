@@ -42,6 +42,7 @@ module Network.AWS
     , sendAsync
     , wait
     , wait_
+    , waitCatch
 
     -- * Paginated Requests
     , paginate
@@ -94,11 +95,14 @@ async aws = AWS ask >>= resourceAsync . lift . runEnv aws
 sendAsync :: Rq a => a -> AWS (A.Async (Either AWSError (Either (Er a) (Rs a))))
 sendAsync = async . sendCatch
 
-wait :: A.Async (Either AWSError a) -> AWS a
-wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
+wait :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS a
+wait a = waitCatch a >>= hoistError . fmapL toError
 
 wait_ :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS ()
 wait_ = void . wait
+
+waitCatch :: A.Async (Either AWSError a) -> AWS a
+waitCatch a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
 
 -- | Create a 'Source' which yields the initial and subsequent repsonses
 -- for requests that support pagination.

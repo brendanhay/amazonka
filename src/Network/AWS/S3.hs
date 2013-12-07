@@ -51,9 +51,9 @@ module Network.AWS.S3
     -- , GetObjectTorrent              (..)
     -- , GetObjectTorrentResponse
 
-    -- -- ** HEAD Object
-    -- , HeadObject                    (..)
-    -- , HeadObjectResponse
+    -- ** HEAD Object
+    , HeadObject                    (..)
+    , HeadObjectResponse
 
     -- -- ** OPTIONS Object
     -- , OptionsObject                 (..)
@@ -63,9 +63,9 @@ module Network.AWS.S3
     -- , PostObjectRestore             (..)
     -- , PostObjectRestoreResponse
 
-    -- -- ** PUT Object
-    -- , PutObject                     (..)
-    -- , PutObjectResponse
+    -- ** PUT Object
+    , PutObject                     (..)
+    , PutObjectResponse
 
     -- -- ** PUT Object ACL
     -- , PutObjectACL                  (..)
@@ -314,30 +314,30 @@ type GetObjectResponse = S3Response
 
 --     response = bodyRs
 
--- type GetObjectTorrentResponse = Response
+-- type GetObjectTorrentResponse = S3Response
 
--- -- | Retrieves metadata from an object without returning the object itself.
--- --
--- -- You must have READ access to the object.
--- --
--- -- By default, the HEAD operation retrieves metadata from the latest version of an object. If the latest version is a delete marker, Amazon S3 behaves as if the object was deleted. To retrieve metadata from a different version, use the versionId subresource. 
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html>
--- data HeadObject = HeadObject
---     { hoBucket  :: !Text
---     , hoKey     :: !Text
---     , hoHeaders :: [AnyHeader]
---     }
+-- | Retrieves metadata from an object without returning the object itself.
+--
+-- You must have READ access to the object.
+--
+-- By default, the HEAD operation retrieves metadata from the latest version of an object. If the latest version is a delete marker, Amazon S3 behaves as if the object was deleted. To retrieve metadata from a different version, use the versionId subresource. 
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html>
+data HeadObject = HeadObject
+    { hoBucket  :: !Text
+    , hoKey     :: !Text
+    , hoHeaders :: [Header]
+    }
 
--- deriving instance Show HeadObject
+deriving instance Show HeadObject
 
--- instance Rq HeadObject where
---     type Er HeadObject = S3ErrorResponse
---     type Rs HeadObject = HeadObjectResponse
---     request HeadObject{..} = object HEAD hoBucket hoKey hoHeaders Empty
---     response = headerRs
+instance Rq HeadObject where
+    type Er HeadObject = S3ErrorResponse
+    type Rs HeadObject = HeadObjectResponse
+    request HeadObject{..} = object HEAD hoBucket hoKey hoHeaders mempty
+    response = s3Response
 
--- type HeadObjectResponse = Response
+type HeadObjectResponse = S3Response
 
 -- -- | Preflight request to determine if an actual request can be sent with the
 -- -- specific origin, HTTP method, and headers.
@@ -374,7 +374,7 @@ type GetObjectResponse = S3Response
 
 --     response = headerRs
 
--- type OptionsObjectResponse = Response
+-- type OptionsObjectResponse = S3Response
 
 -- -- | Restores a temporary copy of an archived object.
 -- --
@@ -409,47 +409,45 @@ type GetObjectResponse = S3Response
 
 --     response = headerRs
 
--- type PostObjectRestoreResponse = Response
+-- type PostObjectRestoreResponse = S3Response
 
--- -- | Add an object to a bucket.
--- --
--- -- You must have WRITE permissions on a bucket to add an object to it.
--- --
--- -- Amazon S3 never adds partial objects; if you receive a success response,
--- -- Amazon S3 added the entire object to the bucket.
--- --
--- -- Amazon S3 is a distributed system. If it receives multiple write requests
--- -- for the same object simultaneously, it overwrites all but the last object written.
--- --
--- -- Amazon S3 does not provide object locking; if you need this, make sure to
--- -- build it into your application layer or use versioning instead.
--- --
--- -- If you enable versioning for a bucket, Amazon S3 automatically generates a
--- -- unique version ID for the object being stored. Amazon S3 returns this ID in
--- -- the response using the x-amz-version-id response header.
--- --
--- -- If versioning is suspended, Amazon S3 always uses null as the version ID for
--- -- the object stored.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html>
--- data PutObject = PutObject
---     { poBucket  :: !Text
---     , poKey     :: !Text
--- --    , poLength  :: !ContentLength
---     , poHeaders :: [AnyHeader]
---     , poBody    :: Body
---     }
+-- | Add an object to a bucket.
+--
+-- You must have WRITE permissions on a bucket to add an object to it.
+--
+-- Amazon S3 never adds partial objects; if you receive a success response,
+-- Amazon S3 added the entire object to the bucket.
+--
+-- Amazon S3 is a distributed system. If it receives multiple write requests
+-- for the same object simultaneously, it overwrites all but the last object written.
+--
+-- Amazon S3 does not provide object locking; if you need this, make sure to
+-- build it into your application layer or use versioning instead.
+--
+-- If you enable versioning for a bucket, Amazon S3 automatically generates a
+-- unique version ID for the object being stored. Amazon S3 returns this ID in
+-- the response using the x-amz-version-id response header.
+--
+-- If versioning is suspended, Amazon S3 always uses null as the version ID for
+-- the object stored.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html>
+data PutObject = PutObject
+    { poBucket  :: !Text
+    , poKey     :: !Text
+--    , poLength  :: !ContentLength
+    , poHeaders :: [Header]
+    , poBody    :: !RequestBody
+    }
 
--- deriving instance Show PutObject
+instance Rq PutObject where
+    type Er PutObject = S3ErrorResponse
+    type Rs PutObject = PutObjectResponse
+    request PutObject{..} = object PUT poBucket poKey poHeaders poBody
+--        object PUT poBucket poKey (hdr poLength : poHeaders) poBody
+    response = s3Response
 
--- instance Rq PutObject where
---     type Er PutObject = S3ErrorResponse
---     type Rs PutObject = PutObjectResponse
---     request PutObject{..} = object PUT poBucket poKey poHeaders poBody
--- --        object PUT poBucket poKey (hdr poLength : poHeaders) poBody
---     response = headerRs
-
--- type PutObjectResponse = Response
+type PutObjectResponse = S3Response
 
 -- -- | Set the access control list (ACL) permissions for an object that already
 -- -- exists in a bucket.
@@ -483,7 +481,7 @@ type GetObjectResponse = S3Response
 --         object PUT poaclBucket (poaclKey <> "?acl") poaclHeaders Empty
 --     response = headerRs
 
--- type PutObjectACLResponse = Response
+-- type PutObjectACLResponse = S3Response
 
 -- -- | Create a copy of an object that is already stored in Amazon S3.
 -- --
@@ -522,7 +520,7 @@ type GetObjectResponse = S3Response
 --         object PUT pocBucket pocKey (hdr pocSource : pocHeaders) Empty
 --     response = headerRs
 
--- type PutObjectCopyResponse = Response
+-- type PutObjectCopyResponse = S3Response
 
 -- -- | Initiate a multipart upload and return an upload ID.
 -- --
@@ -610,7 +608,7 @@ type GetObjectResponse = S3Response
 
 --     response = headerRs
 
--- type UploadPartResponse = Response
+-- type UploadPartResponse = S3Response
 
 -- -- | Uploads a part by copying data from an existing object as data source.
 -- --
@@ -649,7 +647,7 @@ type GetObjectResponse = S3Response
 
 --     response = headerRs
 
--- type UploadPartCopyResponse = Response
+-- type UploadPartCopyResponse = S3Response
 
 -- -- | Completes a multipart upload by assembling previously uploaded parts.
 -- --
@@ -701,7 +699,7 @@ type GetObjectResponse = S3Response
 
 --     response = undefined
 
--- type CompleteMultipartUploadResponse = Response
+-- type CompleteMultipartUploadResponse = S3Response
 
 -- -- | Aborts a multipart upload.
 -- --
@@ -769,4 +767,4 @@ type GetObjectResponse = S3Response
 --     request ListParts{..} = undefined
 --     response = undefined
 
--- type ListPartsResponse = Response
+-- type ListPartsResponse = S3Response

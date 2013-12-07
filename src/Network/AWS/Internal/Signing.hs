@@ -260,7 +260,7 @@ signed meth host path qs hs body = def
     , queryString    = qs
     , requestHeaders = hs
     , requestBody    = body
---    , checkStatus = FIXME: 
+    , checkStatus    = \_ _ _ -> Nothing
     }
 
 hmacSHA1 :: ByteString -> ByteString -> ByteString

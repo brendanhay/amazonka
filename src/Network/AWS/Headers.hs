@@ -49,7 +49,7 @@ hHost :: ByteString -> Header
 hHost = ("Host",)
 
 hAuth :: ByteString -> Header
-hAuth = ("Auth",)
+hAuth = ("Authorization",)
 
 hAMZAuth :: ByteString -> Header
 hAMZAuth = ("X-Amzn-Authorization",)

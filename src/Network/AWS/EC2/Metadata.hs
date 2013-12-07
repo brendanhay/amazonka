@@ -16,6 +16,7 @@ module Network.AWS.EC2.Metadata
     ( Metadata(..)
     , metadata
     , metadataByKey
+    , isEC2
     ) where
 
 import           Control.Applicative
@@ -65,6 +66,12 @@ metadataByKey p = do
         bs -> return bs
   where
     url = BS.unpack $ "http://169.254.169.254/latest/meta-data/" <> p
+
+isEC2 :: (Functor m, MonadIO m) => m Bool
+isEC2 = fmap isRight
+    . runEitherT
+    . syncIO
+    $ simpleHttp "http://instance-data/latest"
 
 toPath :: Metadata -> ByteString
 toPath meta = case meta of

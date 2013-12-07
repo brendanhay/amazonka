@@ -87,15 +87,10 @@ send_ = void . send
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
     s  <- sign $ request rq
-
-    liftIO $ print s
-
+    whenDebug . liftIO $ print s
     m  <- getManager
     h  <- http s m
     rs <- response rq h
-
---    liftIO $ print rs
-
     hoistError rs
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))

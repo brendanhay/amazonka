@@ -68,6 +68,9 @@ class Rq a where
                    (Right . Left)
                    (fromXML bs)
 
+instance Show (ResumableSource AWS ByteString) where
+    show _ = "ResumableSource AWS ByteString"
+
 class Pg a where
     next :: a -> Rs a -> Maybe a
 

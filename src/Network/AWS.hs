@@ -51,6 +51,9 @@ module Network.AWS
     , paginate
     , paginateCatch
 
+    -- * File Bodies
+    , requestBodyFile
+
     -- * Errors
     , ToError          (..)
     , AWSError         (..)
@@ -74,8 +77,10 @@ import           Control.Monad.Trans.Reader
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Trans.Resource.Internal
 import           Data.Conduit
+import qualified Data.Conduit.Binary                   as Conduit
 import           Network.AWS.Internal
 import           Network.HTTP.Conduit
+import           System.IO
 
 -- | Send a request and return the associated response type.
 send :: (Rq a, ToError (Er a)) => a -> AWS (Rs a)
@@ -90,6 +95,7 @@ sendCatch rq = do
     whenDebug . liftIO $ print s
     m  <- getManager
     h  <- http s m
+    whenDebug . liftIO $ print h
     rs <- response rq h
     hoistError rs
 
@@ -144,3 +150,13 @@ resourceAsync (ResourceT f) = liftResourceT . ResourceT $ \g -> L.mask $ \h ->
             (return ())
             (stateCleanup g)
             (h $ f g))
+
+requestBodyFile :: MonadIO m => FilePath -> m (Maybe RequestBody)
+requestBodyFile f = runMaybeT $ do
+    n <- join . hushT $ syncIO getFileSize
+    return . requestBodySource n $ Conduit.sourceFile f
+  where
+    getFileSize = fmap hoistMaybe $
+        bracket (openBinaryFile f ReadMode)
+                hClose
+                (fmap (Just . fromIntegral) . hFileSize)

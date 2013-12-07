@@ -34,11 +34,13 @@ module Network.AWS
 
     -- * Synchronous Requests
     , send
+    , send_
     , sendCatch
 
     -- * Asynchronous Requests
     , async
     , wait
+    , wait_
     , waitCatch
 
     -- * Paginated Requests
@@ -75,6 +77,9 @@ import           Network.HTTP.Conduit
 send :: (Rq a, ToError (Er a)) => a -> AWS (Rs a)
 send = (hoistError . fmapL toError =<<) . sendCatch
 
+send_ :: (Rq a, ToError (Er a)) => a -> AWS ()
+send_ = void . send
+
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
     s  <- sign $ request rq
@@ -88,6 +93,9 @@ async aws = AWS ask >>= resourceAsync . lift . runEnv aws
 
 wait :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS a
 wait a = waitCatch a >>= hoistError . fmapL toError
+
+wait_ :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS ()
+wait_ = void . wait
 
 waitCatch :: A.Async (Either AWSError a) -> AWS a
 waitCatch a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError

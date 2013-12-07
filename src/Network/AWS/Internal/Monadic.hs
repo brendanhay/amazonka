@@ -19,7 +19,6 @@ module Network.AWS.Internal.Monadic where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Exception
 import           Control.Monad
 import           Control.Monad.Error          (MonadError, Error, throwError)
 import           Control.Monad.IO.Class
@@ -28,7 +27,6 @@ import           Control.Monad.Trans.Reader
 import           Control.Monad.Trans.Resource
 import qualified Data.Aeson                   as Aeson
 import qualified Data.ByteString.Lazy         as LBS
-import           Data.Conduit
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal.Types
 import           Network.HTTP.Conduit

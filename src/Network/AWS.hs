@@ -39,10 +39,13 @@ module Network.AWS
 
     -- * Asynchronous Actions
     , async
-    , sendAsync
     , wait
     , wait_
-    , waitCatch
+
+    -- * Asynchronous Requests
+    , sendAsync
+    , waitAsync
+    , waitAsync_
 
     -- * Paginated Requests
     , paginate
@@ -92,17 +95,20 @@ sendCatch rq = do
 async :: AWS a -> AWS (A.Async (Either AWSError a))
 async aws = AWS ask >>= resourceAsync . lift . runEnv aws
 
+wait :: A.Async (Either AWSError a) -> AWS a
+wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
+
+wait_ :: A.Async (Either AWSError a) -> AWS ()
+wait_ = void . wait
+
 sendAsync :: Rq a => a -> AWS (A.Async (Either AWSError (Either (Er a) (Rs a))))
 sendAsync = async . sendCatch
 
-wait :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS a
-wait a = waitCatch a >>= hoistError . fmapL toError
+waitAsync :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS a
+waitAsync a = wait a >>= hoistError . fmapL toError
 
-wait_ :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS ()
-wait_ = void . wait
-
-waitCatch :: A.Async (Either AWSError a) -> AWS a
-waitCatch a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError
+waitAsync_ :: ToError e => A.Async (Either AWSError (Either e a)) -> AWS ()
+waitAsync_ = void . waitAsync
 
 -- | Create a 'Source' which yields the initial and subsequent repsonses
 -- for requests that support pagination.

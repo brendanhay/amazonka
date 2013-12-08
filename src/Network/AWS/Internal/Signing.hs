@@ -158,14 +158,8 @@ version4 raw@Raw{..} Auth{..} reg time =
 
     grouped = groupHeaders headers
 
-    bodySHA256 = Base16.encode $ SHA256.hash "" -- $ case rqBody of
-        -- (Strict   bs) -> bs
-        -- (Streaming _) -> "" -- FIXME
-        -- Empty         -> ""
-
-    -- main = do
-    --     hash <- runResourceT $ sourceFile "my-file" $$ sinkHash
-    --     print (hash :: SHA256)
+    bodySHA256 = Base16.encode $ SHA256.hash ""
+     -- sinkHash :: (Monad m, Hash ctx d) => Consumer ByteString m SHA256
 
 versionS3 :: ByteString -> Signer
 versionS3 bucket raw@Raw{..} Auth{..} reg time =

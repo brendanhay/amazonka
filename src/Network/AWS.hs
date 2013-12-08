@@ -62,25 +62,58 @@ module Network.AWS
 
     -- * Types
     , AvailabilityZone (..)
---    , Body             (..)
     , InstanceType     (..)
     , Items            (..)
     , Members          (..)
     ) where
 
+import           Control.Applicative
 import qualified Control.Concurrent.Async              as A
 import           Control.Error
 import           Control.Exception
-import qualified Control.Exception.Lifted              as L
+import qualified Control.Exception.Lifted              as Lifted
+import           Control.Monad
 import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Trans.Resource.Internal
+import qualified Data.Aeson                            as Aeson
+import qualified Data.ByteString.Lazy                  as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary                   as Conduit
+import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
 import           Network.HTTP.Conduit
 import           System.IO
+
+runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
+runAWS cred dbg aws = runResourceT . withInternalState $ \s -> do
+    m <- newManager conduitManagerSettings
+    eitherT (return . Left)
+            (runEnv aws . Env defaultRegion dbg s m)
+            (credentials cred)
+
+runEnv :: AWS a -> Env -> IO (Either AWSError a)
+runEnv aws = runEitherT . runReaderT (unwrap aws)
+
+credentials :: (Applicative m, MonadIO m)
+            => Credentials
+            -> EitherT AWSError m Auth
+credentials cred = case cred of
+    FromKeys acc sec -> right $ Auth acc sec Nothing
+    FromRole role    -> do
+        m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
+        hoistEither . fmapL Err $ Aeson.eitherDecode m
+
+-- | Run an 'AWS' operation inside a specific 'Region'.
+within :: Region -> AWS a -> AWS a
+within reg = AWS . local (\e -> e { awsRegion = reg }) . unwrap
+
+hoistError :: (MonadError e m, Error e) => Either e a -> m a
+hoistError = either throwError return
+
+liftEitherT :: ToError e => EitherT e IO a -> AWS a
+liftEitherT = AWS . lift . fmapLT toError
 
 -- | Send a request and return the associated response type.
 send :: (Rq a, ToError (Er a)) => a -> AWS (Rs a)
@@ -142,7 +175,7 @@ paginateCatch = go . Just
         either (const $ return ()) (go . next rq) rs
 
 resourceAsync :: MonadResource m => ResourceT IO a -> m (A.Async a)
-resourceAsync (ResourceT f) = liftResourceT . ResourceT $ \g -> L.mask $ \h ->
+resourceAsync (ResourceT f) = liftResourceT . ResourceT $ \g -> Lifted.mask $ \h ->
     bracket_
         (stateAlloc g)
         (return ())

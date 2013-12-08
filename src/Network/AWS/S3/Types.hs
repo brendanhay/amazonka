@@ -17,23 +17,26 @@
 
 module Network.AWS.S3.Types where
 
-import           Data.ByteString           (ByteString)
+import           Data.ByteString              (ByteString)
 import           Data.Monoid
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
+import           Data.Text                    (Text)
+import qualified Data.Text                    as Text
 import           Data.Time
 import           Network.AWS.Headers
 import           Network.AWS.Internal
 import           Network.HTTP.Conduit
 import           Network.HTTP.Types.Method
+import qualified Text.ParserCombinators.ReadP as ReadP
+import qualified Text.Read                    as Read
 
 -- | Currently supported version of the S3 service.
 s3 :: ByteString -> Service
 s3 b = Service Global (versionS3 b) "s3" "2006-03-01"
 
 -- | XML namespace to annotate S3 elements with.
+-- FIXME: Some S3 namespaces have the doc.* prefix?
 s3NS :: ByteString
-s3NS = "http://doc.s3.amazonaws.com/" <> svcVersion (s3 "")
+s3NS = "http://s3.amazonaws.com/doc/" <> svcVersion (s3 "") <> "/"
 
 -- | Helper to define S3 namespaced XML elements.
 s3Elem :: ByteString -> NName ByteString
@@ -56,6 +59,12 @@ data Bucket = Bucket
 
 instance IsXML Bucket
 
+newtype Delimiter = Delimiter { unDelimiter :: Char }
+    deriving (Eq, Show)
+
+instance IsQuery Delimiter where
+    queryPickler = (Delimiter, unDelimiter) `qpWrap` qpPrim
+
 --
 -- DeleteMultipleObjects
 --
@@ -75,7 +84,7 @@ data DMObjects = DMObjects
 instance IsXML DMObjects where
     xmlPickler = pu { root = Just $ mkAnNName "Delete" }
       where
-        pu = xpWrap (\(q, os) -> DMObjects q os, \(DMObjects q os) -> (q, os)) $
+        pu = xpWrap (uncurry DMObjects, \(DMObjects q os) -> (q, os)) $
              xpPair (xpElem (mkAnNName "Quiet") xmlPickler)
                     (xpElemList (mkAnNName "Object") xmlPickler)
 
@@ -243,19 +252,26 @@ instance Show CannedACL where
         BucketOwnerFullControl -> "bucket-owner-full-control"
         LogDeliveryWrite       -> "log-delivery-write"
 
--- instance IsHeader CannedACL where
---     encodeHeader = encodeHeader . show
-
 data StorageClass
     = Standard
     | ReducedRedundancy
+    | Glacier
+      deriving (Eq)
 
 instance Show StorageClass where
     show Standard          = "STANDARD"
     show ReducedRedundancy = "REDUCED_REDUNDANCY"
+    show Glacier           = "GLACIER"
 
--- instance IsHeader StorageClass where
---     encodeHeader = encodeHeader . show
+instance Read StorageClass where
+    readPrec = readAssocList
+        [ ("STANDARD",           Standard)
+        , ("REDUCED_REDUNDANCY", ReducedRedundancy)
+        , ("GLACIER",            Glacier)
+        ]
+
+instance IsXML StorageClass where
+    xmlPickler = xpContent xpPrim
 
 data Directive
     = Copy
@@ -266,16 +282,9 @@ data Source = Source
     , srcKey    :: !Text
     } deriving (Eq, Show)
 
--- instance IsHeader Source where
---     encodeHeader Source{..} =
---         encodeHeader (Text.concat [srcBucket, "/", srcKey])
-
 instance Show Directive where
     show Copy    = "COPY"
     show Replace = "REPLACE"
-
--- instance IsHeader Directive where
---     encodeHeader = encodeHeader . show
 
 newtype ETag = ETag { unETag :: Text }
     deriving (Eq, Show)

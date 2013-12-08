@@ -27,12 +27,14 @@ module Network.AWS.S3
     --   GetService                    (..)
     -- , GetServiceResponse            (..)
 
-    -- -- * Operations on Buckets
-    -- -- **
+    -- * Operations on Buckets
+    -- ** GET Bucket
+      GetBucket (..)
+    , GetBucketResponse (..)
 
     -- * Operations on Objects
     -- ** DELETE Object
-      DeleteObject                  (..)
+    , DeleteObject                  (..)
     , DeleteObjectResponse
 
     -- -- ** POST Delete Multiple Objects
@@ -102,11 +104,14 @@ module Network.AWS.S3
     ) where
 
 import           Data.ByteString              (ByteString)
+import           Data.Char
 import           Data.Conduit
+import qualified Data.List                    as List
 import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
+import           Data.Time
 import           Network.AWS
 import           Network.AWS.Headers
 import           Network.AWS.Internal         hiding (xml, query)
@@ -125,11 +130,13 @@ import           Network.HTTP.Types.Method
 type S3Response = Response (ResumableSource AWS ByteString)
 
 object :: StdMethod -> Text -> Text -> [Header] -> RequestBody -> Raw
-object m b k hs = Raw s m p [] hs
+object m b p hs = Raw s m (Text.encodeUtf8 p) [] hs
   where
     s = (s3 n) { svcEndpoint = Custom $ n <> ".s3.amazonaws.com" }
-    p = Text.encodeUtf8 k
     n = Text.encodeUtf8 b
+
+query :: IsQuery a => StdMethod -> Text -> Text -> a -> Raw
+query m b p x = object m b p [] mempty .?. toQuery x
 
 s3Response :: Monad m => a -> b -> m (Either e (Either e' b))
 s3Response _ = return . Right . Right
@@ -174,6 +181,95 @@ s3Response _ = return . Right . Right
 -- Buckets
 --
 
+-- | This implementation of the GET operation returns some or all (up to 1000) of
+-- the objects in a bucket. You can use the request parameters as selection
+-- criteria to return a subset of the objects in a bucket.
+--
+-- To use this implementation of the operation, you must have READ access
+-- to the bucket.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGET.html>
+data GetBucket = GetBucket
+    { gbBucket    :: !Text
+      -- ^ Target bucket.
+    , gbDelimiter :: !Delimiter
+      -- ^ A delimiter is a character you use to group keys.
+      -- All keys that contain the same string between the prefix,
+      -- if specified, and the first occurrence of the delimiter after
+      -- the prefix are grouped under a single result element, CommonPrefixes.
+    , gbPrefix    :: Maybe Text
+      -- ^ Limits the response to keys that begin with the specified prefix.
+      -- You can use prefixes to separate a bucket into different groupings of keys.
+      -- (You can think of using prefix to make groups in the same way you'd
+      -- use a folder in a file system.)
+    , gbMaxKeys   :: !Int
+      -- ^ Sets the maximum number of keys returned in the response body.
+      -- The response might contain fewer keys but will never contain more.
+      -- Use pagination to access additional matching keys.
+    , gbMarker    :: Maybe Text
+      -- ^ Specifies the key to start with when listing objects in a bucket.
+      -- Amazon S3 lists objects in alphabetical order.
+    } deriving (Eq, Show, Generic)
+
+instance IsQuery GetBucket where
+    queryPickler = genericQueryPickler $ defaultQueryOptions
+        { queryFieldModifier = hyphenate
+        }
+
+instance Rq GetBucket where
+    type Er GetBucket = S3ErrorResponse
+    type Rs GetBucket = GetBucketResponse
+    request gb@GetBucket{..} = query GET gbBucket "/" gb
+
+data Contents = Contents
+    { bcKey          :: !Text
+    , bcLastModified :: !UTCTime
+    , bcETag         :: !ETag
+    , bcSize         :: !Integer
+    , bcStorageClass :: !StorageClass
+--    , bcOwner        :: !Owner
+    } deriving (Eq, Show, Generic)
+
+-- <Key>Nelson</Key>
+--     <LastModified>2006-01-01T12:00:00.000Z</LastModified>
+--     <ETag>&quot;828ef3fdfa96f00ad9f27c383fc9ac7f&quot;</ETag>
+--     <Size>5</Size>
+--     <StorageClass>STANDARD</StorageClass>
+--     <Owner>
+--       <ID>bcaf161ca5fb16fd081034f</ID>
+--       <DisplayName>webfile</DisplayName>
+--      </Owner>
+--   </Contents>
+
+instance IsXML Contents where
+    xmlPickler = withRootNS s3NS "Contents"
+
+-- FIXME: consider the interaction between the nested list item pickler's root
+-- and the parent using xpElemList vs xpList via generics/default
+
+data GetBucketResponse = GetBucketResponse
+    { gbrName        :: !Text
+    , gbrPrefix      :: Maybe Text
+    , gbrMarker      :: Maybe Text
+    , gbrMaxKeys     :: !Int
+    , gbrIsTruncated :: !Bool
+    , gbrContents    :: [Contents]
+    } deriving (Eq, Show, Generic)
+
+instance IsXML GetBucketResponse where
+    xmlPickler = pu { root = Just $ mkNName s3NS "ListBucketResult" }
+      where
+        pu = xpWrap (\(n, p, m, k, t, c) -> GetBucketResponse n p m k t c,
+                     \GetBucketResponse{..} -> (gbrName, gbrPrefix, gbrMarker, gbrMaxKeys, gbrIsTruncated, gbrContents)) $
+                 xp6Tuple (e "Name")
+                          (e "Prefix")
+                          (e "Marker")
+                          (e "MaxKeys")
+                          (e "IsTruncated")
+                          (xpFindMatches $ xpElem (mkNName s3NS "Contents") xmlPickler)
+
+        e n = xpElem (mkNName s3NS n) xmlPickler
+
 --
 -- Objects
 --
@@ -188,9 +284,7 @@ data DeleteObject = DeleteObject
     { doBucket  :: !Text
     , doKey     :: !Text
     , doHeaders :: [Header]
-    }
-
-deriving instance Show DeleteObject
+    } deriving (Eq, Show)
 
 instance Rq DeleteObject where
     type Er DeleteObject = S3ErrorResponse
@@ -243,9 +337,7 @@ data GetObject  = GetObject
     { goBucket  :: !Text
     , goKey     :: !Text
     , goHeaders :: [Header]
-    }
-
-deriving instance Show GetObject
+    } deriving (Eq, Show)
 
 instance Rq GetObject where
     type Er GetObject = S3ErrorResponse
@@ -327,9 +419,7 @@ data HeadObject = HeadObject
     { hoBucket  :: !Text
     , hoKey     :: !Text
     , hoHeaders :: [Header]
-    }
-
-deriving instance Show HeadObject
+    } deriving (Eq, Show)
 
 instance Rq HeadObject where
     type Er HeadObject = S3ErrorResponse

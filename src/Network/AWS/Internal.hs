@@ -17,7 +17,6 @@ module Network.AWS.Internal
 import Control.Error                   as Internal
 import GHC.Generics                    as Internal
 import Network.AWS.Internal.Instances  as Internal
-import Network.AWS.Internal.Monadic    as Internal
 import Network.AWS.Internal.Request    as Internal
 import Network.AWS.Internal.Signing    as Internal
 import Network.AWS.Internal.String     as Internal

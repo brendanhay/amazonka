@@ -5,6 +5,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Internal.Types
@@ -29,14 +30,14 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson                      hiding (Error)
 import           Data.ByteString                 (ByteString)
 import qualified Data.ByteString.Char8           as BS
-import qualified Data.ByteString.Lazy            as LBS
+import qualified Data.ByteString.Lazy.Char8      as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary             as Conduit
 import           Data.Foldable                   (Foldable)
 import           Data.Monoid
 import           Data.String
-import           GHC.Generics
 import           Data.Time
+import           GHC.Generics
 import           Network.HTTP.Conduit
 import           Network.HTTP.QueryString.Pickle
 import           Network.HTTP.Types
@@ -61,12 +62,17 @@ class Rq a where
         -- FIXME: use xml-conduit instead of hexpat to avoid need to conv to bs
         lbs <- responseBody rs $$+- Conduit.sinkLbs
         let bs = LBS.toStrict lbs
-        return . either (failure bs) (Right . Right) $ fromXML bs
+        whenDebug . liftIO $ BS.putStrLn bs
+        return $
+            if statusIsSuccessful $ responseStatus rs
+                then either (Left . Err) (Right . Right) $ success bs
+                else either (Left . Err) (Right . Left) $ failure bs
       where
-        failure bs e =
-            either (\s -> Left . Err $ concat [s, ", ", e])
-                   (Right . Left)
-                   (fromXML bs)
+        success :: ByteString -> Either String (Rs a)
+        success = fromXML
+
+        failure :: ByteString -> Either String (Er a)
+        failure = fromXML
 
 instance Show (ResumableSource AWS ByteString) where
     show _ = "ResumableSource AWS ByteString"
@@ -144,6 +150,21 @@ instance MonadResource AWS where
 
 instance MonadThrow (EitherT AWSError IO) where
     monadThrow = liftIO . throwIO
+
+getAuth :: AWS Auth
+getAuth = AWS $ awsAuth <$> ask
+
+getManager :: AWS Manager
+getManager = AWS $ awsManager <$> ask
+
+getRegion :: AWS Region
+getRegion = AWS $ awsRegion <$> ask
+
+getDebug :: AWS Bool
+getDebug = AWS $ awsDebug <$> ask
+
+whenDebug :: AWS () -> AWS ()
+whenDebug f = getDebug >>= \p -> when p f
 
 type Signer = Raw -> Auth -> Region -> UTCTime -> Request
 
@@ -224,6 +245,15 @@ instance IsQuery Region where
 
 instance IsXML Region where
     xmlPickler = xpContent xpPrim
+
+defaultRegion :: Region
+defaultRegion = NorthVirginia
+
+region :: Service -> AWS Region
+region Service{..} =
+    case svcEndpoint of
+        Global -> return defaultRegion
+        _      -> getRegion
 
 data AvailabilityZone = AZ
     { azRegion :: !Region

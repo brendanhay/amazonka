@@ -39,7 +39,6 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Time                       (getCurrentTime)
 import           Network.AWS.Headers
-import           Network.AWS.Internal.Monadic
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Time
 import           Network.AWS.Internal.Types

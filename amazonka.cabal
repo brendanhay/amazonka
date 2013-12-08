@@ -43,7 +43,6 @@ library
 
     other-modules:
         Network.AWS.Internal.Instances
-      , Network.AWS.Internal.Monadic
       , Network.AWS.Internal.Request
       , Network.AWS.Internal.Signing
       , Network.AWS.Internal.String
@@ -59,6 +58,8 @@ library
       , Network.AWS.Route53.Types
       , Network.AWS.S3.Types
 
+      , Text.XML.Expat.Pickle.Generic
+
     build-depends:
         aeson
       , async
@@ -72,7 +73,7 @@ library
       , cryptohash
       , data-default
       , errors                >= 1.4.3
-      , hexpat-pickle-generic >= 0.1.7
+      , hexpat
       , http-conduit          >= 2
       , http-types
       , lifted-base

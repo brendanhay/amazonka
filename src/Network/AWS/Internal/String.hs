@@ -24,6 +24,7 @@ module Network.AWS.Internal.String
     , addPrefix
     , addSuffix
     , lowerHead
+    , hyphenate
     ) where
 
 import           Data.ByteString       (ByteString)
@@ -92,3 +93,9 @@ match :: Char -> ByteString -> (Bool, Bool)
 match c bs
     | BS.null bs = (False, False)
     | otherwise  = (c == BS.head bs, c == BS.last bs)
+
+hyphenate :: String -> String
+hyphenate = tail . snd . break (== '-') . concatMap f
+  where
+    f c | isUpper c = ['-', toLower c]
+        | otherwise = [c]

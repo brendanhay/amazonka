@@ -221,29 +221,6 @@ instance Rq GetBucket where
     type Rs GetBucket = GetBucketResponse
     request gb@GetBucket{..} = query GET gbBucket "/" gb
 
-data Contents = Contents
-    { bcKey          :: !Text
-    , bcLastModified :: !UTCTime
-    , bcETag         :: !ETag
-    , bcSize         :: !Integer
-    , bcStorageClass :: !StorageClass
---    , bcOwner        :: !Owner
-    } deriving (Eq, Show, Generic)
-
--- <Key>Nelson</Key>
---     <LastModified>2006-01-01T12:00:00.000Z</LastModified>
---     <ETag>&quot;828ef3fdfa96f00ad9f27c383fc9ac7f&quot;</ETag>
---     <Size>5</Size>
---     <StorageClass>STANDARD</StorageClass>
---     <Owner>
---       <ID>bcaf161ca5fb16fd081034f</ID>
---       <DisplayName>webfile</DisplayName>
---      </Owner>
---   </Contents>
-
-instance IsXML Contents where
-    xmlPickler = withRootNS s3NS "Contents"
-
 -- FIXME: consider the interaction between the nested list item pickler's root
 -- and the parent using xpElemList vs xpList via generics/default
 

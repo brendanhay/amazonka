@@ -108,12 +108,12 @@ version3 raw@Raw{..} Auth{..} reg time =
 
 version4 :: Signer
 version4 raw@Raw{..} Auth{..} reg time =
-    signed rqMethod _host rqPath query headers rqBody
+    signed rqMethod _host rqPath query (hAuth authorisation : headers) rqBody
   where
     Common{..} = common raw reg
 
     query   = encodeQuery (urlEncode True) _query
-    headers = hAMZDate time : hAuth authorisation : rqHeaders
+    headers = hAMZDate time : rqHeaders
 
     authorisation = mconcat
         [ algorithm
@@ -156,16 +156,16 @@ version4 raw@Raw{..} Auth{..} reg time =
     signedHeaders = BS.intercalate ";" . nub $
         map (Case.foldedCase . fst) grouped
 
-    grouped = groupHeaders rqHeaders
+    grouped = groupHeaders headers
 
-    bodySHA256 = Base16.encode "" -- . SHA256.hash $ case rqBody of
+    bodySHA256 = Base16.encode $ SHA256.hash "" -- $ case rqBody of
         -- (Strict   bs) -> bs
         -- (Streaming _) -> "" -- FIXME
         -- Empty         -> ""
 
     -- main = do
     --     hash <- runResourceT $ sourceFile "my-file" $$ sinkHash
-    --     print (hash :: SHA1)
+    --     print (hash :: SHA256)
 
 versionS3 :: ByteString -> Signer
 versionS3 bucket raw@Raw{..} Auth{..} reg time =

@@ -221,6 +221,11 @@ instance Rq GetBucket where
     type Rs GetBucket = GetBucketResponse
     request gb@GetBucket{..} = query GET gbBucket "/" gb
 
+instance Pg GetBucket where
+    next gb GetBucketResponse{..}
+        | not gbrIsTruncated = Nothing
+        | otherwise          = Just $ gb { gbMarker = gbrMarker }
+
 -- FIXME: consider the interaction between the nested list item pickler's root
 -- and the parent using xpElemList vs xpList via generics/default
 

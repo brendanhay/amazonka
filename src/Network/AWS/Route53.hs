@@ -174,9 +174,9 @@ instance Rq ListHostedZones where
     request = query GET "hostedzone"
 
 instance Pg ListHostedZones where
-    next _ ListHostedZonesResponse{..}
+    next lhz ListHostedZonesResponse{..}
         | not lhzrIsTruncated = Nothing
-        | otherwise = Just $ ListHostedZones lhzrNextMarker (Just lhzrMaxItems)
+        | otherwise           = Just $ lhz { lhzMarker = lhzrNextMarker }
 
 data ListHostedZonesResponse = ListHostedZonesResponse
     { lhzrHostedZones :: [HostedZone]

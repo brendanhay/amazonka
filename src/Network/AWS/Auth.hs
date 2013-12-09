@@ -31,10 +31,6 @@ import           Network.AWS.EC2.Metadata   hiding (Profile)
 import           Network.AWS.Internal       hiding (Env)
 import           System.Environment
 
-accessKey, secretKey :: String
-accessKey = "AWS_ACCESS_KEY"
-secretKey = "AWS_SECRET_KEY"
-
 data Credentials
     = CredBasic ByteString ByteString
       -- ^ Basic credentials containing an access key and a secret key.
@@ -48,8 +44,8 @@ data Credentials
       -- ^ Attempt to read the default access and secret keys from the environment,
       -- falling back to the first available IAM profile if they are not set.
       --
-      -- This attempts to resolve http://instance-data rather than directly
-      -- retrieving http://169.254.169.254 for IAM profile information to ensure
+      -- This attempts to resolve <http://instance-data> rather than directly
+      -- retrieving <http://169.254.169.254> for IAM profile information to ensure
       -- the request terminates promptly if not running on EC2.
       deriving (Eq, Ord)
 
@@ -59,6 +55,14 @@ instance Show Credentials where
     show (CredProfile n)     = BS.unpack $ "Profile " <> n
     show (CredEnv     a s)   = concat ["Env ", a, " ", s]
     show CredDiscover        = "Discover"
+
+-- | Default access key environment variable: 'AWS_ACCESS_KEY'
+accessKey :: String
+accessKey = "AWS_ACCESS_KEY"
+
+-- | Default secret key environment variable: 'AWS_SECRET_KEY'
+secretKey :: String
+secretKey = "AWS_SECRET_KEY"
 
 credentials :: (Applicative m, MonadIO m)
             => Credentials

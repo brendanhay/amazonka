@@ -103,9 +103,12 @@ module Network.AWS.S3
     , module Network.AWS
     ) where
 
+import           Control.Monad.IO.Class
 import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Lazy.Char8   as LBS
 import           Data.Char
 import           Data.Conduit
+import qualified Data.Conduit.Binary          as Conduit
 import qualified Data.List                    as List
 import           Data.Monoid
 import           Data.Text                    (Text)
@@ -120,12 +123,7 @@ import           Network.AWS.S3.Types
 import           Network.HTTP.Conduit
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
-
--- xml :: IsXML a => Method -> ByteString -> Text -> [Header] -> a -> Raw
--- xml m p b hs x = xml svc m p hs x { rqHeaders = hs }
---   where
---     svc  = s3 b { svcEndpoint = name <> ".s3.amazonaws.com" }
---     name = Text.encodeUtf8 b
+import           Network.HTTP.Types.Status
 
 type S3Response = Response (ResumableSource AWS ByteString)
 
@@ -138,20 +136,19 @@ object m b p hs = Raw s m (Text.encodeUtf8 p) [] hs
 query :: IsQuery a => StdMethod -> Text -> Text -> a -> Raw
 query m b p x = object m b p [] mempty .?. toQuery x
 
-s3Response :: Monad m => a -> b -> m (Either e (Either e' b))
-s3Response _ = return . Right . Right
-
--- empty :: Method -> ByteString -> AWS Signed
--- empty meth path = sign (versionS3 "fixme") $ Request s3 meth path [] [] Empty
-
--- headerRs :: Monad m => a -> Response -> m (Either b (Either c Response))
--- headerRs _ Response{..} = rs $ Response rsHeaders
-
--- bodyRs :: Monad m => a -> Response -> m (Either b (Either c Response))
--- bodyRs _ Response{..} = rs $ Response rsHeaders rsBody
-
--- rs :: Monad m => a -> m (Either b (Either c a))
--- rs = return . Right . Right
+s3Response :: a
+           -> S3Response
+           -> AWS (Either AWSError (Either S3ErrorResponse S3Response))
+s3Response _ rs = do
+    if statusIsSuccessful $ responseStatus rs
+        then return . Right $ Right rs
+        else do
+            lbs <- responseBody rs $$+- Conduit.sinkLbs
+            whenDebug . liftIO $ LBS.putStrLn lbs
+            return . either Left (Right . Left) . parse $ LBS.toStrict lbs
+  where
+    parse :: ByteString -> Either AWSError S3ErrorResponse
+    parse = fmapL toError . fromXML
 
 --
 -- Service

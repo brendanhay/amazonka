@@ -67,22 +67,22 @@ sign raw@Raw{..} = do
 
 version2 :: Signer
 version2 raw@Raw{..} Auth{..} reg time =
-    signed rqMethod _host path query headers rqBody
+    signed rqMethod _host rqPath query headers rqBody
   where
     Common{..} = common raw reg
 
-    path = joinPath rqPath $ query <> "&Signature=" <> urlEncode True signature
+    query = encoded <> "&Signature=" <> urlEncode True signature
 
     signature = Base64.encode
         . hmacSHA256 secretAccessKey
         $ BS.intercalate "\n"
             [ BS.pack $ show rqMethod
-            , _host <> ":443"
+            , _host
             , rqPath
-            , query
+            , encoded
             ]
 
-    query = encodeQuery (urlEncode True) $ _query ++
+    encoded = encodeQuery (urlEncode True) $ _query ++
         [ ("Version",          _version)
         , ("SignatureVersion", "2")
         , ("SignatureMethod",  "HmacSHA256")
@@ -112,7 +112,7 @@ version4 raw@Raw{..} Auth{..} reg time =
   where
     Common{..} = common raw reg
 
-    query   = encodeQuery (urlEncode True) _query
+    query   = encodeQuery (urlEncode True) . sort $ ("Version", _version) : _query
     headers = hAMZDate time : rqHeaders
 
     authorisation = mconcat
@@ -145,7 +145,7 @@ version4 raw@Raw{..} Auth{..} reg time =
     canonicalRequest = BS.intercalate "\n"
         [ BS.pack $ show rqMethod
         , rqPath
-        , encodeQuery (urlEncode True) _query
+        , query
         , canonicalHeaders
         , signedHeaders
         , bodySHA256

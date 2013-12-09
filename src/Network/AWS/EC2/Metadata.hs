@@ -47,7 +47,8 @@ data Metadata
     | PublicHostname
     | PublicIPV4
     | ReservationId
-    | SecurityCredentials ByteString
+    | SecurityCredentials
+    | SecurityCredential ByteString
     | AvailabilityZone
     | UserData
 
@@ -68,28 +69,27 @@ metadataByKey p = do
     url = BS.unpack $ "http://169.254.169.254/latest/meta-data/" <> p
 
 isEC2 :: (Functor m, MonadIO m) => m Bool
-isEC2 = fmap isRight
-    . runEitherT
-    . syncIO
-    $ simpleHttp "http://instance-data/latest"
+isEC2 = fmap isRight . runEitherT . syncIO $
+    simpleHttp "http://instance-data/latest"
 
 toPath :: Metadata -> ByteString
 toPath meta = case meta of
-    AMIId                 -> "ami-id"
-    AMILaunchIndex        -> "ami-launch-index"
-    AMIManifestPath       -> "ami-manifest-path"
-    Hostname              -> "hostname"
-    InstanceAction        -> "instance-action"
-    InstanceId            -> "instance-id"
-    InstanceType          -> "instance-type"
-    KernelId              -> "kernel-id"
-    LocalHostname         -> "local-hostname"
-    LocalIPV4             -> "local-ipv4"
-    Mac                   -> "mac"
-    Profile               -> "profile"
-    PublicHostname        -> "public-hostname"
-    PublicIPV4            -> "public-ipv4"
-    ReservationId         -> "reservation-id"
-    SecurityCredentials r -> "iam/security-credentials/" <> r
-    AvailabilityZone      -> "placement/availability-zone"
-    UserData              -> "user-data"
+    AMIId                -> "ami-id"
+    AMILaunchIndex       -> "ami-launch-index"
+    AMIManifestPath      -> "ami-manifest-path"
+    Hostname             -> "hostname"
+    InstanceAction       -> "instance-action"
+    InstanceId           -> "instance-id"
+    InstanceType         -> "instance-type"
+    KernelId             -> "kernel-id"
+    LocalHostname        -> "local-hostname"
+    LocalIPV4            -> "local-ipv4"
+    Mac                  -> "mac"
+    Profile              -> "profile"
+    PublicHostname       -> "public-hostname"
+    PublicIPV4           -> "public-ipv4"
+    ReservationId        -> "reservation-id"
+    SecurityCredentials  -> "iam/security-credentials/"
+    SecurityCredential r -> "iam/security-credentials/" <> r
+    AvailabilityZone     -> "placement/availability-zone"
+    UserData             -> "user-data"

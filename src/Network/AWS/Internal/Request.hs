@@ -27,10 +27,7 @@ query :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
 query s@Service{..} m p x = Raw s m p (toQuery x) [] (RequestBodyBS "")
 
 query4 :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
-query4 s m a q = query s m "/" q .?.
-    [ ("Action",  a)
-    , ("Version", svcVersion s)
-    ]
+query4 s m a q = query s m "/" q .?. [("Action",  a)]
 
 xml :: IsXML a => Service -> StdMethod -> ByteString -> a -> Raw
 xml s@Service{..} m p = Raw s m p [] [] . RequestBodyBS . toXML

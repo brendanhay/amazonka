@@ -34,6 +34,7 @@ import qualified Data.ByteString.Lazy.Char8      as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary             as Conduit
 import           Data.Foldable                   (Foldable)
+import           Data.IORef
 import           Data.Monoid
 import           Data.String
 import           Data.Time
@@ -80,8 +81,15 @@ instance Show (ResumableSource AWS ByteString) where
 class Pg a where
     next :: a -> Rs a -> Maybe a
 
-data AWSError = Err String | Ex SomeException
+data AWSError = Err String | Ex SomeException | Ers [AWSError]
     deriving (Show)
+
+instance Monoid AWSError where
+    mempty = Ers []
+    mappend (Ers a) (Ers b) = Ers $ a ++ b
+    mappend (Ers a) b       = Ers $ a ++ [b]
+    mappend a       (Ers b) = Ers $ a : b
+    mappend a       b       = Ers [a, b]
 
 instance Error AWSError where
     strMsg = Err
@@ -101,26 +109,19 @@ instance ToError String where
 instance ToError SomeException where
     toError = Ex
 
-data Credentials
-    = FromKeys ByteString ByteString
-    | FromRole ByteString
-      deriving (Eq, Ord)
-
-instance Show Credentials where
-    show (FromKeys acc _) = BS.unpack $ BS.concat ["FromKeys ", acc, "*****"]
-    show (FromRole role)  = BS.unpack $ "FromRole " <> role
-
 data Auth = Auth
     { accessKeyId     :: !ByteString
     , secretAccessKey :: !ByteString
     , securityToken   :: Maybe ByteString
-    } deriving (Show)
+    , expiration      :: Maybe UTCTime
+    }
 
 instance FromJSON Auth where
     parseJSON (Object o) = Auth
-        <$> o .: "AccessKeyId"
-        <*> o .: "SecretAccessKey"
-        <*> o .: "Token"
+        <$> o .:  "AccessKeyId"
+        <*> o .:  "SecretAccessKey"
+        <*> o .:? "Token"
+        <*> o .:? "Expiration"
     parseJSON _ = mzero
 
 data Env = Env
@@ -128,7 +129,7 @@ data Env = Env
     , awsDebug    :: !Bool
     , awsResource :: !InternalState
     , awsManager  :: !Manager
-    , awsAuth     :: !Auth
+    , awsAuth     :: !(IORef Auth)
     }
 
 newtype AWS a = AWS
@@ -152,7 +153,7 @@ instance MonadThrow (EitherT AWSError IO) where
     monadThrow = liftIO . throwIO
 
 getAuth :: AWS Auth
-getAuth = AWS $ awsAuth <$> ask
+getAuth = AWS $ fmap awsAuth ask >>= liftIO . readIORef
 
 getManager :: AWS Manager
 getManager = AWS $ awsManager <$> ask

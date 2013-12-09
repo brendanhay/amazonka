@@ -81,6 +81,7 @@ import qualified Data.Aeson                            as Aeson
 import qualified Data.ByteString.Lazy                  as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary                   as Conduit
+import           Network.AWS.Auth
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
 import           Network.HTTP.Conduit
@@ -89,21 +90,13 @@ import           System.IO
 runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws = runResourceT . withInternalState $ \s -> do
     m <- newManager conduitManagerSettings
-    eitherT (return . Left)
-            (runEnv aws . Env defaultRegion dbg s m)
-            (credentials cred)
+    a <- runEitherT $ credentials cred
+    either (return . Left)
+           (runEnv aws . Env defaultRegion dbg s m)
+           a
 
 runEnv :: AWS a -> Env -> IO (Either AWSError a)
 runEnv aws = runEitherT . runReaderT (unwrap aws)
-
-credentials :: (Applicative m, MonadIO m)
-            => Credentials
-            -> EitherT AWSError m Auth
-credentials cred = case cred of
-    FromKeys acc sec -> right $ Auth acc sec Nothing
-    FromRole role    -> do
-        m <- LBS.fromStrict <$> metadata (SecurityCredentials role)
-        hoistEither . fmapL Err $ Aeson.eitherDecode m
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
 within :: Region -> AWS a -> AWS a

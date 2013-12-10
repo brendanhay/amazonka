@@ -136,16 +136,22 @@ xml m b p = object m b p [] . RequestBodyBS . toXML
 s3Response :: a
            -> S3Response
            -> AWS (Either AWSError (Either S3ErrorResponse S3Response))
-s3Response _ rs = do
-    if statusIsSuccessful $ responseStatus rs
-        then return . Right $ Right rs
-        else do
-            lbs <- responseBody rs $$+- Conduit.sinkLbs
-            whenDebug . liftIO $ LBS.putStrLn lbs
-            return . either Left (Right . Left) . parse $ LBS.toStrict lbs
+s3Response _ rs
+    | statusIsSuccessful $ responseStatus rs = return . Right $ Right rs
+    | otherwise = do
+        lbs <- responseBody rs $$+- Conduit.sinkLbs
+        whenDebug . liftIO $ LBS.putStrLn lbs
+        return . either Left (Right . Left) . parse $ LBS.toStrict lbs
   where
     parse :: ByteString -> Either AWSError S3ErrorResponse
     parse = fmapL toError . fromXML
+
+plainResponse :: a
+              -> S3Response
+              -> AWS (Either e (Either S3Response S3Response))
+plainResponse _ rs
+    | statusIsSuccessful $ responseStatus rs = return . Right $ Right rs
+    | otherwise = return . Right $ Left rs
 
 --
 -- Service
@@ -427,10 +433,10 @@ data HeadObject = HeadObject
     } deriving (Eq, Show)
 
 instance Rq HeadObject where
-    type Er HeadObject = S3ErrorResponse
+    type Er HeadObject = S3Response
     type Rs HeadObject = HeadObjectResponse
     request HeadObject{..} = object HEAD hoBucket hoKey hoHeaders mempty
-    response = s3Response
+    response = plainResponse
 
 type HeadObjectResponse = S3Response
 

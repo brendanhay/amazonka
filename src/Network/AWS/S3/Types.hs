@@ -42,7 +42,7 @@ s3NS = "http://s3.amazonaws.com/doc/" <> svcVersion (s3 "") <> "/"
 s3Elem :: ByteString -> NName ByteString
 s3Elem = mkNName s3NS
 
-data S3ErrorResponse = S3ErrorResponse { sssMessage :: !Text }
+data S3ErrorResponse = S3ErrorResponse { serMessage :: !Text }
     deriving (Eq, Show, Generic)
 
 instance ToError S3ErrorResponse where

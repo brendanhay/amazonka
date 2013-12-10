@@ -67,7 +67,6 @@ module Network.AWS
     , Members          (..)
     ) where
 
-import           Control.Applicative
 import qualified Control.Concurrent.Async              as A
 import           Control.Error
 import           Control.Exception
@@ -77,12 +76,9 @@ import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Trans.Resource.Internal
-import qualified Data.Aeson                            as Aeson
-import qualified Data.ByteString.Lazy                  as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary                   as Conduit
 import           Network.AWS.Auth
-import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal
 import           Network.HTTP.Conduit
 import           System.IO

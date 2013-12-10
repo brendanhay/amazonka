@@ -104,21 +104,15 @@ module Network.AWS.S3
     ) where
 
 import           Control.Monad.IO.Class
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Lazy.Char8   as LBS
-import           Data.Char
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.Conduit
-import qualified Data.Conduit.Binary          as Conduit
-import qualified Data.List                    as List
+import qualified Data.Conduit.Binary        as Conduit
 import           Data.Monoid
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
-import qualified Data.Text.Encoding           as Text
-import           Data.Time
+import           Data.Text                  (Text)
+import qualified Data.Text.Encoding         as Text
 import           Network.AWS
-import           Network.AWS.Headers
-import           Network.AWS.Internal         hiding (xml, query)
-import qualified Network.AWS.Internal.Request as Rq
+import           Network.AWS.Internal       hiding (xml, query)
 import           Network.AWS.S3.Types
 import           Network.HTTP.Conduit
 import           Network.HTTP.Types.Header
@@ -135,6 +129,9 @@ object m b p hs = Raw s m (Text.encodeUtf8 p) [] hs
 
 query :: IsQuery a => StdMethod -> Text -> Text -> a -> Raw
 query m b p x = object m b p [] mempty .?. toQuery x
+
+xml :: IsXML a => StdMethod -> Text -> Text -> a -> Raw
+xml m b p = object m b p [] . RequestBodyBS . toXML
 
 s3Response :: a
            -> S3Response
@@ -248,6 +245,35 @@ instance IsXML GetBucketResponse where
                           (xpFindMatches $ xpElem (mkNName s3NS "Contents") xmlPickler)
 
         e n = xpElem (mkNName s3NS n) xmlPickler
+
+-- | This implementation of the PUT operation creates a new bucket.
+--
+-- By default, the bucket is created in the US Standard region. You can
+-- optionally specify a region in the request body.
+-- You might choose a Region to optimize latency, minimize costs, or address
+-- regulatory requirements.
+--
+-- For example, if you reside in Europe, you will probably find it advantageous
+-- to create buckets in the EU (Ireland) Region.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUT.html>
+data PutBucket = PutBucket
+    { pbName     :: !Text
+      -- ^ Target bucket.
+    , pbLocation :: !Region
+      -- ^ Specifies the region where the bucket will be created.
+    , pbHeaders  :: [Header]
+      -- ^ Common request headers.
+    } deriving (Eq, Show)
+
+instance Rq PutBucket where
+    type Er PutBucket = S3ErrorResponse
+    type Rs PutBucket = PutBucketResponse
+    request PutBucket{..} =
+        xml PUT pbName "/" (CreateBucketConfiguration pbLocation) .:. pbHeaders
+    response = s3Response
+
+type PutBucketResponse = S3Response
 
 --
 -- Objects

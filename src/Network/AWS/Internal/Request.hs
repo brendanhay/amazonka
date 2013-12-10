@@ -14,13 +14,10 @@
 module Network.AWS.Internal.Request where
 
 import Data.ByteString                 (ByteString)
-import Network.AWS.Headers
-import Network.AWS.Internal.Signing
-import Network.AWS.Internal.String
 import Network.AWS.Internal.Types
 import Network.HTTP.Conduit
 import Network.HTTP.QueryString.Pickle
-import Network.HTTP.Types.Method
+import Network.HTTP.Types              hiding (toQuery)
 import Text.XML.Expat.Pickle.Generic
 
 query :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
@@ -36,5 +33,5 @@ xml s@Service{..} m p = Raw s m p [] [] . RequestBodyBS . toXML
 (.?.) :: Raw -> [(ByteString, ByteString)] -> Raw
 (.?.) r q = r { rqQuery = rqQuery r ++ q }
 
--- (.:.) :: Request -> [AnyHeader] -> Request
--- (.:.) rq hs = rq { rqHeaders = rqHeaders rq ++ hs }
+(.:.) :: Raw -> [Header] -> Raw
+(.:.) r hs = r { rqHeaders = rqHeaders r ++ hs }

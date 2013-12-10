@@ -17,17 +17,12 @@
 
 module Network.AWS.S3.Types where
 
-import           Data.ByteString              (ByteString)
+import           Data.ByteString      (ByteString)
 import           Data.Monoid
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
+import           Data.Text            (Text)
 import           Data.Time
-import           Network.AWS.Headers
 import           Network.AWS.Internal
-import           Network.HTTP.Conduit
-import           Network.HTTP.Types.Method
-import qualified Text.ParserCombinators.ReadP as ReadP
-import qualified Text.Read                    as Read
+import qualified Text.Read            as Read
 
 -- | Currently supported version of the S3 service.
 s3 :: ByteString -> Service
@@ -81,19 +76,19 @@ data Contents = Contents
 --    , bcOwner        :: !Owner
     } deriving (Eq, Show, Generic)
 
--- <Key>Nelson</Key>
---     <LastModified>2006-01-01T12:00:00.000Z</LastModified>
---     <ETag>&quot;828ef3fdfa96f00ad9f27c383fc9ac7f&quot;</ETag>
---     <Size>5</Size>
---     <StorageClass>STANDARD</StorageClass>
---     <Owner>
---       <ID>bcaf161ca5fb16fd081034f</ID>
---       <DisplayName>webfile</DisplayName>
---      </Owner>
---   </Contents>
-
 instance IsXML Contents where
     xmlPickler = withRootNS s3NS "Contents"
+
+--
+-- PutBucket
+--
+
+data CreateBucketConfiguration = CreateBucketConfiguration
+    { gbcLocationConstraint :: !Region
+    } deriving (Eq, Show, Generic)
+
+instance IsXML CreateBucketConfiguration where
+    xmlPickler = withNS s3NS
 
 --
 -- DeleteMultipleObjects

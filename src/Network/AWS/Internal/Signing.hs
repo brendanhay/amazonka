@@ -273,8 +273,3 @@ lookupHeader (Case.mk -> key) = lookup key
 
 flattenValues :: IsByteString a => (CI ByteString, a) -> ByteString
 flattenValues (k, v) = mconcat [Case.foldedCase k, ":", strip ' ' v, "\n"]
-
-joinPath :: ByteString -> ByteString -> ByteString
-joinPath path qry
-    | BS.null qry = "/" `addPrefix` path
-    | otherwise   = '/' `wrap` path <> "?" <> qry

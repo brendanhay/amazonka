@@ -6221,7 +6221,7 @@ instance Rq TerminateInstances where
 data TerminateInstancesResponse = TerminateInstancesResponse
     { tiRequestId    :: !Text
       -- ^ The ID of the request.
-    , tiInstancesSet :: !InstanceStateChangeType
+    , tiInstancesSet :: [InstanceStateChangeType]
       -- ^ A list of instance state changes. Each change is wrapped in an
       -- item element.
     } deriving (Eq, Show, Generic)

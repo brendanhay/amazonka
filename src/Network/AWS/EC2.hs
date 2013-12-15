@@ -6227,7 +6227,7 @@ data TerminateInstancesResponse = TerminateInstancesResponse
     } deriving (Eq, Show, Generic)
 
 instance IsXML TerminateInstancesResponse where
-    xmlPickler = withNS ec2NS
+    xmlPickler = ec2XML
 
 -- instance IsXML TerminateInstancesResponse where
 --     xmlPickler = ec2XML

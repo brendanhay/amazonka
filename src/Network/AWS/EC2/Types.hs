@@ -1167,19 +1167,17 @@ data InstancePrivateIpAddressesSetItemType = InstancePrivateIpAddressesSetItemTy
 instance IsXML InstancePrivateIpAddressesSetItemType where
     xmlPickler = ec2XML
 
--- data InstanceStateChangeType = InstanceStateChangeType
---     { isctInstanceId    :: !Text
---       -- ^ The instance ID.
---     , isctCurrentState  :: !InstanceStateType
---       -- ^ The current state of the instance.
---     , isctPreviousState :: !InstanceStateType
---       -- ^ The previous state of the instance.
---     } deriving (Eq, Ord, Show, Generic)
+data InstanceStateChangeType = InstanceStateChangeType
+    { isctInstanceId    :: !Text
+      -- ^ The instance ID.
+    , isctCurrentState  :: !InstanceStateType
+      -- ^ The current state of the instance.
+    , isctPreviousState :: !InstanceStateType
+      -- ^ The previous state of the instance.
+    } deriving (Eq, Ord, Show, Generic)
 
--- instance IsQuery InstanceStateChangeType
-
--- instance IsXML InstanceStateChangeType where
---     xmlPickler = ec2XML
+instance IsXML InstanceStateChangeType where
+    xmlPickler = ec2XML
 
 data InstanceStateType = InstanceStateType
     { istCode :: !Integer

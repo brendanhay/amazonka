@@ -479,9 +479,9 @@ module Network.AWS.EC2
     -- , StopInstances                       (..)
     -- , StopInstancesResponse               (..)
 
-    -- -- ** TerminateInstances
-    -- , TerminateInstances                  (..)
-    -- , TerminateInstancesResponse          (..)
+    -- ** TerminateInstances
+    , TerminateInstances                  (..)
+    , TerminateInstancesResponse          (..)
 
     -- -- ** UnassignPrivateIpAddresses
     -- , UnassignPrivateIpAddresses          (..)
@@ -6193,37 +6193,41 @@ instance IsXML RunInstancesResponse where
 -- instance IsXML StopInstancesResponse where
 --     xmlPickler = ec2XML
 
--- -- | Shuts down one or more instances. This operation is idempotent; if you
--- -- terminate an instance more than once, each call will succeed. Terminated
--- -- instances will remain visible after termination (approximately one
--- -- hour).You can stop, start, and terminate EBS-backed instances. You can only
--- -- terminate S3-backed instances. What happens to an instance differs if you
--- -- stop it or terminate it. For example, when you stop an instance, the root
--- -- device and any other devices attached to the instance persist. When you
--- -- terminate an instance, the root device and any other devices attached
--- -- during the instance launch are automatically deleted. For more information
--- -- about the differences between stopping and terminating instances, see
--- -- Stopping Instances in the Amazon Elastic Compute Cloud User Guide
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-TerminateInstances.html>
+-- | Shuts down one or more instances. This operation is idempotent; if you
+-- terminate an instance more than once, each call will succeed. Terminated
+-- instances will remain visible after termination (approximately one
+-- hour).You can stop, start, and terminate EBS-backed instances. You can only
+-- terminate S3-backed instances. What happens to an instance differs if you
+-- stop it or terminate it. For example, when you stop an instance, the root
+-- device and any other devices attached to the instance persist. When you
+-- terminate an instance, the root device and any other devices attached
+-- during the instance launch are automatically deleted. For more information
+-- about the differences between stopping and terminating instances, see
+-- Stopping Instances in the Amazon Elastic Compute Cloud User Guide
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-TerminateInstances.html>
+data TerminateInstances = TerminateInstances
+    { tiInstanceId :: [Text]
+      -- ^ One or more instance IDs.
+    } deriving (Eq, Show, Generic)
 
--- data TerminateInstances = TerminateInstances
---     { tiInstanceId :: Members Text
---       -- ^ One or more instance IDs.
---     } deriving (Eq, Show, Generic)
+instance IsQuery TerminateInstances
 
--- instance IsQuery TerminateInstances
+instance Rq TerminateInstances where
+    type Er TerminateInstances = EC2ErrorResponse
+    type Rs TerminateInstances = TerminateInstancesResponse
+    request = query4 ec2 GET "TerminateInstances"
 
--- instance AWSRequest EC2 TerminateInstances TerminateInstancesResponse where
---     request = query4 ec2 GET "TerminateInstances"
+data TerminateInstancesResponse = TerminateInstancesResponse
+    { tiRequestId    :: !Text
+      -- ^ The ID of the request.
+    , tiInstancesSet :: !InstanceStateChangeType
+      -- ^ A list of instance state changes. Each change is wrapped in an
+      -- item element.
+    } deriving (Eq, Show, Generic)
 
--- data TerminateInstancesResponse = TerminateInstancesResponse
---     { tiRequestId    :: !Text
---       -- ^ The ID of the request.
---     , tiInstancesSet :: !InstanceStateChangeType
---       -- ^ A list of instance state changes. Each change is wrapped in an
---       -- item element.
---     } deriving (Eq, Show, Generic)
+instance IsXML TerminateInstancesResponse where
+    xmlPickler = withNS ec2NS
 
 -- instance IsXML TerminateInstancesResponse where
 --     xmlPickler = ec2XML

@@ -1177,7 +1177,7 @@ data InstanceStateChangeType = InstanceStateChangeType
     } deriving (Eq, Ord, Show, Generic)
 
 instance IsXML InstanceStateChangeType where
-    xmlPickler = ec2XML
+    xmlPickler = ec2ItemXML
 
 data InstanceStateType = InstanceStateType
     { istCode :: !Integer

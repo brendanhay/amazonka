@@ -100,8 +100,9 @@ module Network.AWS.EC2
     -- -- ** CreateDhcpOptions
     -- , CreateDhcpOptions                   (..)
 
-    -- -- ** CreateImage
-    -- , CreateImage                         (..)
+    -- ** CreateImage
+    , CreateImage                            (..)
+    , CreateImageResponse                    (..)
 
     -- -- ** CreateInstanceExportTask
     -- , CreateInstanceExportTask            (..)
@@ -1241,47 +1242,47 @@ instance IsXML CancelSpotInstanceRequestsResponse where
 -- instance IsXML CreateDhcpOptionsResponse where
 --     xmlPickler = ec2XML
 
--- -- | Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
--- -- either running or stopped.
--- --
--- -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html>
+-- | Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
+-- either running or stopped.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html>
+data CreateImage = CreateImage
+    { ciInstanceId         :: !Text
+      -- ^ The ID of the instance.
+    , cjName               :: !Text
+      -- ^ A name for the new image.
+    , cjDescription        :: Maybe Text
+      -- ^ A description for the new image.
+    , cjNoReboot           :: Maybe Bool
+      -- ^ By default this parameter is set to false, which means Amazon EC2
+      -- attempts to cleanly shut down the instance before image creation
+      -- and then reboots the instance. When the parameter is set to true,
+      -- Amazon EC2 doesn't shut down the instance before creating the
+      -- image. When this option is used, file system integrity on the
+      -- created image can't be guaranteed.
+    , cjBlockDeviceMapping :: [BlockDeviceMappingItemType]
+      -- ^ The device name exposed to the instance (for example, /dev/sdh or xvdh).
+    } deriving (Eq, Show, Generic)
 
--- data CreateImage = CreateImage
---     { ciInstanceId         :: !Text
---       -- ^ The ID of the instance.
---     , cjName               :: !Text
---       -- ^ A name for the new image.
---     , cjDescription        :: Maybe Text
---       -- ^ A description for the new image.
---     , cjNoReboot           :: Maybe Bool
---       -- ^ By default this parameter is set to false, which means Amazon EC2
---       -- attempts to cleanly shut down the instance before image creation
---       -- and then reboots the instance. When the parameter is set to true,
---       -- Amazon EC2 doesn't shut down the instance before creating the
---       -- image. When this option is used, file system integrity on the
---       -- created image can't be guaranteed.
---     , cjBlockDeviceMapping :: Members BlockDeviceMappingItemType
---       -- ^ The device name exposed to the instance (for example, /dev/sdh or
---       -- xvdh).
---     } deriving (Eq, Show, Generic)
+instance IsQuery CreateImage
 
--- instance IsQuery CreateImage
+instance IsXML CreateImage where
+    xmlPickler = ec2XML
 
--- instance IsXML CreateImage where
---     xmlPickler = ec2XML
+instance Rq CreateImage where
+    type Er CreateImage = EC2ErrorResponse
+    type Rs CreateImage = CreateImageResponse
+    request = query4 ec2 GET "CreateImage"
 
--- instance AWSRequest EC2 CreateImage CreateImageResponse where
---     request = query4 ec2 GET "CreateImage"
+data CreateImageResponse = CreateImageResponse
+    { cjRequestId :: !Text
+      -- ^ The ID of the request.
+    , cjImageId   :: !Text
+      -- ^ The ID of the new AMI.
+    } deriving (Eq, Show, Generic)
 
--- data CreateImageResponse = CreateImageResponse
---     { cjRequestId :: !Text
---       -- ^ The ID of the request.
---     , cjImageId   :: !Text
---       -- ^ The ID of the new AMI.
---     } deriving (Eq, Show, Generic)
-
--- instance IsXML CreateImageResponse where
---     xmlPickler = ec2XML
+instance IsXML CreateImageResponse where
+    xmlPickler = ec2XML
 
 -- -- | Exports a running or stopped instance to an Amazon S3 bucket.For
 -- -- information about the supported operating systems, image formats, and known

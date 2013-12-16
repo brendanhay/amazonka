@@ -234,7 +234,7 @@ data BlockDeviceMappingItemType = BlockDeviceMappingItemType
       -- included in the block device mapping of the AMI.
     } deriving (Eq, Ord, Show, Generic)
 
--- instance IsQuery BlockDeviceMappingItemType
+instance IsQuery BlockDeviceMappingItemType
 
 instance IsXML BlockDeviceMappingItemType where
     xmlPickler = ec2ItemXML
@@ -787,7 +787,7 @@ data EbsBlockDeviceType = EbsBlockDeviceType
       -- supports.
     } deriving (Eq, Ord, Show, Generic)
 
--- instance IsQuery EbsBlockDeviceType
+instance IsQuery EbsBlockDeviceType
 
 instance IsXML EbsBlockDeviceType where
     xmlPickler = ec2XML

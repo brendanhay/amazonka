@@ -29,4 +29,4 @@ cabal.sandbox.config:
 	cabal sandbox init
 
 add-sources: cabal.sandbox.config
-	cabal sandbox add-source ../ed-e
+	cabal sandbox add-source ../ede

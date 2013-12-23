@@ -102,7 +102,7 @@ library
 --       , containers
 --       , derive
 --       , directory
---       , ed-e
+--       , ede
 --       , http-types
 --       , http-common
 --       , natural-sort

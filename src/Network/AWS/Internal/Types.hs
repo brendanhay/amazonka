@@ -28,7 +28,7 @@ import           Control.Monad.Error
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                      hiding (Error)
-import           Data.ByteString                 (ByteString)
+import           Data.ByteString.Char8           (ByteString)
 import qualified Data.ByteString.Char8           as BS
 import qualified Data.ByteString.Lazy.Char8      as LBS
 import           Data.Conduit
@@ -37,6 +37,8 @@ import           Data.Foldable                   (Foldable)
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
+import           Data.Text                       (Text)
+import qualified Data.Text.Encoding              as Text
 import           Data.Time
 import           GHC.Generics
 import           Network.HTTP.Conduit
@@ -110,11 +112,20 @@ instance ToError SomeException where
     toError = Ex
 
 data Auth = Auth
-    { accessKeyId     :: !ByteString
-    , secretAccessKey :: !ByteString
-    , securityToken   :: Maybe ByteString
-    , expiration      :: Maybe UTCTime
+    { authAccessKeyId     :: !Text
+    , authSecretAccessKey :: !Text
+    , authSecurityToken   :: Maybe Text
+    , expiration          :: Maybe UTCTime
     }
+
+accessKeyId :: Auth -> ByteString
+accessKeyId = Text.encodeUtf8 . authAccessKeyId
+
+secretAccessKey :: Auth -> ByteString
+secretAccessKey = Text.encodeUtf8 . authSecretAccessKey
+
+securityToken :: Auth -> Maybe ByteString
+securityToken = fmap Text.encodeUtf8 . authSecurityToken
 
 instance FromJSON Auth where
     parseJSON (Object o) = Auth

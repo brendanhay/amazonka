@@ -74,7 +74,7 @@ library
       , cryptohash
       , data-default
       , errors                >= 1.4.4
-      , hexpat
+      , hexpat                >= 0.20
       , http-conduit          >= 2
       , http-types
       , lifted-base

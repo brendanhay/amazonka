@@ -65,7 +65,7 @@ sign raw@Raw{..} = do
     return $! sig (raw { rqHeaders = hs }) auth reg time
 
 version2 :: Signer
-version2 raw@Raw{..} Auth{..} reg time =
+version2 raw@Raw{..} auth reg time =
     signed rqMethod _host rqPath query headers rqBody
   where
     Common{..} = common raw reg
@@ -73,7 +73,7 @@ version2 raw@Raw{..} Auth{..} reg time =
     query = encoded <> "&Signature=" <> urlEncode True signature
 
     signature = Base64.encode
-        . hmacSHA256 secretAccessKey
+        . hmacSHA256 (secretAccessKey auth)
         $ BS.intercalate "\n"
             [ BS.pack $ show rqMethod
             , _host
@@ -87,14 +87,14 @@ version2 raw@Raw{..} Auth{..} reg time =
           , ("SignatureVersion", "2")
           , ("SignatureMethod",  "HmacSHA256")
           , ("Timestamp",        formatISO8601 time)
-          , ("AWSAccessKeyId",   accessKeyId)
+          , ("AWSAccessKeyId",   accessKeyId auth)
           ]
-       ++ maybeToList ((,) "SecurityToken" <$> securityToken)
+       ++ maybeToList ((,) "SecurityToken" <$> securityToken auth)
 
     headers = hDate (formatISO8601 time) : rqHeaders
 
 version3 :: Signer
-version3 raw@Raw{..} Auth{..} reg time =
+version3 raw@Raw{..} auth reg time =
     signed rqMethod _host rqPath query headers rqBody
   where
     Common{..} = common raw reg
@@ -102,29 +102,29 @@ version3 raw@Raw{..} Auth{..} reg time =
     query   = encodeQuery (urlEncode True) _query
     headers = hDate (formatRFC822 time)
         : hAMZAuth authorisation
-        : maybeToList (hAMZToken <$> securityToken)
+        : maybeToList (hAMZToken <$> securityToken auth)
        ++ rqHeaders
 
     authorisation = "AWS3-HTTPS AWSAccessKeyId="
-        <> accessKeyId
+        <> accessKeyId auth
         <> ", Algorithm=HmacSHA256, Signature="
-        <> Base64.encode (hmacSHA256 secretAccessKey $ formatRFC822 time)
+        <> Base64.encode (hmacSHA256 (secretAccessKey auth) $ formatRFC822 time)
 
 version4 :: Signer
-version4 raw@Raw{..} Auth{..} reg time =
+version4 raw@Raw{..} auth reg time =
     signed rqMethod _host rqPath query (hAuth authorisation : headers) rqBody
   where
     Common{..} = common raw reg
 
     query   = encodeQuery (urlEncode True) . sort $ ("Version", _version) : _query
     headers = hAMZDate time
-            : maybeToList (hAMZToken <$> securityToken)
+            : maybeToList (hAMZToken <$> securityToken auth)
            ++ rqHeaders
 
     authorisation = mconcat
         [ algorithm
         , " Credential="
-        , accessKeyId
+        , accessKeyId auth
         , "/"
         , credentialScope
         , ", SignedHeaders="
@@ -134,7 +134,7 @@ version4 raw@Raw{..} Auth{..} reg time =
         ]
 
     signature  = Base16.encode $ hmacSHA256 signingKey stringToSign
-    signingKey = foldl1 hmacSHA256 $ ("AWS4" <> secretAccessKey) : scope
+    signingKey = foldl1 hmacSHA256 $ ("AWS4" <> secretAccessKey auth) : scope
 
     stringToSign = BS.intercalate "\n"
         [ algorithm
@@ -168,16 +168,16 @@ version4 raw@Raw{..} Auth{..} reg time =
      -- sinkHash :: (Monad m, Hash ctx d) => Consumer ByteString m SHA256
 
 versionS3 :: ByteString -> Signer
-versionS3 bucket raw@Raw{..} Auth{..} reg time =
+versionS3 bucket raw@Raw{..} auth reg time =
     signed rqMethod _host rqPath query (authorisation : headers) rqBody
   where
     Common{..} = common raw reg
 
     query = encodeQuery (urlEncode True) _query
 
-    authorisation = hAuth $ BS.concat ["AWS ", accessKeyId, ":", signature]
+    authorisation = hAuth $ BS.concat ["AWS ", accessKeyId auth, ":", signature]
 
-    signature = Base64.encode $ hmacSHA1 secretAccessKey stringToSign
+    signature = Base64.encode $ hmacSHA1 (secretAccessKey auth) stringToSign
 
     stringToSign = BS.concat
         [ BS.pack $ show rqMethod
@@ -200,7 +200,7 @@ versionS3 bucket raw@Raw{..} Auth{..} reg time =
         $ groupHeaders headers
 
     headers = hDate date
-        : maybeToList (hAMZToken <$> securityToken)
+        : maybeToList (hAMZToken <$> securityToken auth)
        ++ rqHeaders
 
     date = formatRFC822 time

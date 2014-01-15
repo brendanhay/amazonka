@@ -75,14 +75,13 @@ module Text.XML.Expat.Pickle.Generic
 
 import           Data.ByteString                    (ByteString)
 import qualified Data.ByteString.Char8              as BS
-import           Data.Char                          (isLower, isSpace)
+import           Data.Char                          (isLower)
 import           Data.Either
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                          (Text)
 import           Data.Text.Encoding
 import           GHC.Generics
-import           System.IO.Unsafe
 import           Text.XML.Expat.Format
 import           Text.XML.Expat.Internal.Namespaced
 import           Text.XML.Expat.Internal.Qualified  hiding (fromQualified)

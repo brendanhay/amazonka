@@ -62,7 +62,7 @@ library
       , Text.XML.Expat.Pickle.Generic
 
     build-depends:
-        aeson
+        aeson                 >= 0.7
       , async
       , base                  >= 4.6 && < 5
       , base16-bytestring
@@ -82,7 +82,7 @@ library
       , old-locale
       , querystring-pickle    >= 0.1.7
       , resourcet
-      , text
+      , text                  >= 1.0
       , time
       , transformers
       , unordered-containers

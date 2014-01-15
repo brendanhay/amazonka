@@ -60,8 +60,7 @@ sign raw@Raw{..} = do
     time <- liftIO getCurrentTime
 
     let sig = svcSigner rqService
-        tok = maybeToList $ hAMZToken <$> securityToken auth
-        hs  = hHost (endpoint rqService reg) : concat [rqHeaders, tok]
+        hs  = hHost (endpoint rqService reg) : rqHeaders
 
     return $! sig (raw { rqHeaders = hs }) auth reg time
 
@@ -82,13 +81,15 @@ version2 raw@Raw{..} Auth{..} reg time =
             , encoded
             ]
 
-    encoded = encodeQuery (urlEncode True) $ _query ++
-        [ ("Version",          _version)
-        , ("SignatureVersion", "2")
-        , ("SignatureMethod",  "HmacSHA256")
-        , ("Timestamp",        formatISO8601 time)
-        , ("AWSAccessKeyId",   accessKeyId)
-        ]
+    encoded = encodeQuery (urlEncode True)
+        $ _query
+       ++ [ ("Version",          _version)
+          , ("SignatureVersion", "2")
+          , ("SignatureMethod",  "HmacSHA256")
+          , ("Timestamp",        formatISO8601 time)
+          , ("AWSAccessKeyId",   accessKeyId)
+          ]
+       ++ maybeToList ((,) "SecurityToken" <$> securityToken)
 
     headers = hDate (formatISO8601 time) : rqHeaders
 
@@ -99,7 +100,10 @@ version3 raw@Raw{..} Auth{..} reg time =
     Common{..} = common raw reg
 
     query   = encodeQuery (urlEncode True) _query
-    headers = hDate (formatRFC822 time) : hAMZAuth authorisation : rqHeaders
+    headers = hDate (formatRFC822 time)
+        : hAMZAuth authorisation
+        : maybeToList (hAMZToken <$> securityToken)
+       ++ rqHeaders
 
     authorisation = "AWS3-HTTPS AWSAccessKeyId="
         <> accessKeyId
@@ -113,7 +117,9 @@ version4 raw@Raw{..} Auth{..} reg time =
     Common{..} = common raw reg
 
     query   = encodeQuery (urlEncode True) . sort $ ("Version", _version) : _query
-    headers = hAMZDate time : rqHeaders
+    headers = hAMZDate time
+            : maybeToList (hAMZToken <$> securityToken)
+           ++ rqHeaders
 
     authorisation = mconcat
         [ algorithm
@@ -193,7 +199,9 @@ versionS3 bucket raw@Raw{..} Auth{..} reg time =
         . filter (BS.isPrefixOf "x-amz-" . Case.foldedCase . fst)
         $ groupHeaders headers
 
-    headers = hDate date : rqHeaders
+    headers = hDate date
+        : maybeToList (hAMZToken <$> securityToken)
+       ++ rqHeaders
 
     date = formatRFC822 time
 

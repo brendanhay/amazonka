@@ -291,8 +291,11 @@ data InstanceType
     | M1_Medium
     | M1_Large
     | M1_XLarge
+    | M3_Medium
+    | M3_Large
     | M3_XLarge
     | M3_2XLarge
+    | C3_Large
     | C3_XLarge
     | C3_2XLarge
     | C3_4XLarge
@@ -307,6 +310,11 @@ data InstanceType
     | HI1_4XLarge
     | HS1_8XLarge
     | CG1_4XLarge
+    | G2_2XLarge
+    | I2_XLarge
+    | I2_2XLarge
+    | I2_4XLarge
+    | I2_8XLarge
       deriving (Eq, Ord, Generic)
 
 instance Show InstanceType where
@@ -316,8 +324,11 @@ instance Show InstanceType where
         M1_Medium   -> "m1.medium"
         M1_Large    -> "m1.large"
         M1_XLarge   -> "m1.xlarge"
+        M3_Medium   -> "m3.medium"
+        M3_Large    -> "m3.large"
         M3_XLarge   -> "m3.xlarge"
         M3_2XLarge  -> "m3.2xlarge"
+        C3_Large    -> "c3.large"
         C3_XLarge   -> "c3.xlarge"
         C3_2XLarge  -> "c3.2xlarge"
         C3_4XLarge  -> "c3.4xlarge"
@@ -332,6 +343,11 @@ instance Show InstanceType where
         HI1_4XLarge -> "hi1.4xlarge"
         HS1_8XLarge -> "hs1.8xlarge"
         CG1_4XLarge -> "cg1.4xlarge"
+        G2_2XLarge  -> "g2.2xlarge"
+        I2_XLarge   -> "i2.xlarge"
+        I2_2XLarge  -> "i2.2xlarge"
+        I2_4XLarge  -> "i2.4xlarge"
+        I2_8XLarge  -> "i2.8xlarge"
 
 instance Read InstanceType where
     readPrec = readAssocList
@@ -340,8 +356,11 @@ instance Read InstanceType where
         , ("m1.medium",   M1_Medium)
         , ("m1.large",    M1_Large)
         , ("m1.xlarge",   M1_XLarge)
+        , ("m3.medium",   M3_Medium)
+        , ("m3.large",    M3_Large)
         , ("m3.xlarge",   M3_XLarge)
         , ("m3.2xlarge",  M3_2XLarge)
+        , ("c3.large",    C3_Large)
         , ("c3.xlarge",   C3_XLarge)
         , ("c3.2xlarge",  C3_2XLarge)
         , ("c3.4xlarge",  C3_4XLarge)
@@ -356,6 +375,11 @@ instance Read InstanceType where
         , ("hi1.4xlarge", HI1_4XLarge)
         , ("hs1.8xlarge", HS1_8XLarge)
         , ("cg1.4xlarge", CG1_4XLarge)
+        , ("g2.2xlarge",  G2_2XLarge)
+        , ("i2.xlarge",   I2_XLarge)
+        , ("i2.2xlarge",  I2_2XLarge)
+        , ("i2.4xlarge",  I2_4XLarge)
+        , ("i2.8xlarge",  I2_8XLarge)
         ]
 
 instance IsQuery InstanceType where

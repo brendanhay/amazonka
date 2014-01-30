@@ -87,7 +87,7 @@ runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws = runResourceT . withInternalState $ \s -> do
     m <- newManager conduitManagerSettings
     a <- runEitherT $ credentials cred
-    either (return . Left)
+    either (return . Left . Err)
            (runEnv aws . Env defaultRegion dbg s m)
            a
 

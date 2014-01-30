@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Auth
 -- Copyright   : (c) 2013 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,24 +26,25 @@ import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef
 import           Data.Monoid
+import           Data.String
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import           Data.Time
-import           Network.AWS.EC2.Metadata   hiding (Profile)
+import           Network.AWS.EC2.Metadata
 import           Network.AWS.Internal       hiding (Env)
 import           System.Environment
 
 data Credentials
-    = CredBasic !Text !Text
+    = AuthBasic Text Text
       -- ^ Basic credentials containing an access key and a secret key.
-    | CredSession !Text !Text !Text
+    | AuthSession Text Text Text
       -- ^ Session credentials containing access key, secret key, and a security token.
-    | CredProfile !Text
+    | AuthProfile Text
       -- ^ A specific IAM Profile name to query the local instance-data for credentials.
-    | CredEnv !String !String
+    | AuthEnv Text Text
       -- ^ Environment variable names to read for the access and secret keys.
-    | CredDiscover
+    | AuthDiscover
       -- ^ Attempt to read the default access and secret keys from the environment,
       -- falling back to the first available IAM profile if they are not set.
       --
@@ -52,46 +54,46 @@ data Credentials
       deriving (Eq, Ord)
 
 instance Show Credentials where
-    show (CredBasic   a _)   = Text.unpack $ Text.concat ["Basic ", a, " ****"]
-    show (CredSession a _ _) = Text.unpack $ Text.concat ["Session ", a, " **** ****"]
-    show (CredProfile n)     = Text.unpack $ "Profile " <> n
-    show (CredEnv     a s)   = concat ["Env ", a, " ", s]
-    show CredDiscover        = "Discover"
+    show (AuthBasic   a _)   = Text.unpack $ Text.concat ["Basic ", a, " ****"]
+    show (AuthSession a _ _) = Text.unpack $ Text.concat ["Session ", a, " **** ****"]
+    show (AuthProfile n)     = Text.unpack $ "Profile " <> n
+    show (AuthEnv     a s)   = Text.unpack $ Text.concat ["Env ", a, " ", s]
+    show AuthDiscover        = "Discover"
 
 -- | Default access key environment variable: 'AWS_ACCESS_KEY'
-accessKey :: String
+accessKey :: Text
 accessKey = "AWS_ACCESS_KEY"
 
 -- | Default secret key environment variable: 'AWS_SECRET_KEY'
-secretKey :: String
+secretKey :: Text
 secretKey = "AWS_SECRET_KEY"
 
 credentials :: (Applicative m, MonadIO m)
             => Credentials
-            -> EitherT AWSError m (IORef Auth)
+            -> EitherT String m (IORef Auth)
 credentials = mk
   where
-    mk (CredBasic   a s)   = ref $ Auth a s Nothing Nothing
-    mk (CredSession a s t) = ref $ Auth a s (Just t) Nothing
-    mk (CredProfile n)     = fromProfile n
-    mk (CredEnv     a s)   = fromKeys a s
-    mk CredDiscover        = fromKeys accessKey secretKey
+    mk (AuthBasic   a s)   = ref $ Auth a s Nothing Nothing
+    mk (AuthSession a s t) = ref $ Auth a s (Just t) Nothing
+    mk (AuthProfile n)     = fromProfile n
+    mk (AuthEnv     a s)   = fromKeys a s
+    mk AuthDiscover        = fromKeys accessKey secretKey
         <|> (defaultProfile >>= fromProfile)
 
     fromKeys a s = Auth <$> key a <*> key s <*> pure Nothing <*> pure Nothing
         >>= ref
 
-    key k = fmapLT toError (syncIO $ lookupEnv k)
-        >>= failWith (Err $ "Unable to read ENV variable: " ++ k)
+    key (Text.unpack -> k) = fmapLT (fromString . show) (syncIO $ lookupEnv k)
+        >>= failWith (fromString $ "Unable to read ENV variable: " ++ k)
         >>= return . Text.pack
 
     ref = liftIO . newIORef
 
-defaultProfile :: (Applicative m, MonadIO m) => EitherT AWSError m Text
+defaultProfile :: (Applicative m, MonadIO m) => EitherT String m Text
 defaultProfile = do
-    ls <- BS.lines <$> metadata SecurityCredentials
-    x  <- tryHead "Unable to get default IAM Profile from metadata" ls
-    return $ Text.decodeUtf8 x
+    ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
+    p  <- tryHead "Unable to get default IAM Profile from metadata" ls
+    return $ Text.decodeUtf8 p
 
 -- | The IORef wrapper + timer is designed so that multiple concurrenct
 -- accesses of 'Auth' from the 'AWS' environment are not required to calculate
@@ -101,24 +103,25 @@ defaultProfile = do
 -- temporary session credentials.
 fromProfile :: (Applicative m, MonadIO m)
             => Text
-            -> EitherT AWSError m (IORef Auth)
+            -> EitherT String m (IORef Auth)
 fromProfile name = do
     !a@Auth{..} <- auth
-    fmapLT toError . syncIO . liftIO $ do
+    fmapLT show . syncIO . liftIO $ do
         ref <- newIORef a
         start ref expiration
         return ref
   where
-    auth :: (Applicative m, MonadIO m) => EitherT AWSError m Auth
+    auth :: (Applicative m, MonadIO m) => EitherT String m Auth
     auth = do
-        m <- LBS.fromStrict <$> metadata (SecurityCredential $ Text.encodeUtf8 name)
-        hoistEither . fmapL Err $ Aeson.eitherDecode m
+        m <- LBS.fromStrict <$> meta (IAM . SecurityCredentials $ Just name)
+        hoistEither $ Aeson.eitherDecode m
 
     start ref = maybe (return ()) (timer ref <=< delay)
 
     delay n = truncate . diffUTCTime n <$> getCurrentTime
 
     -- FIXME: guard against a lower expiration than the -60
+    -- remove the error . show shenanigans
     timer ref n = void . forkIO $ do
         threadDelay $ (n - 60) * 1000000
         !a@Auth{..} <- eitherT (error . show) return auth

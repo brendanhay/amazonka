@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               0.1.2
+version:               0.1.3
 synopsis:              Interfaces to various Amazon Web Service APIs
 homepage:              http://github.com/brendanhay/amazonka
 license:               OtherLicense

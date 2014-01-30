@@ -148,7 +148,9 @@ newtype AWS a = AWS
     } deriving
         ( Functor
         , Applicative
+        , Alternative
         , Monad
+        , MonadPlus
         , MonadIO
         , MonadUnsafeIO
         , MonadThrow
@@ -159,9 +161,11 @@ newtype AWS a = AWS
 instance MonadResource AWS where
     liftResourceT f = AWS $
         fmap awsResource ask >>= liftIO . runInternalState f
+    {-# INLINE liftResourceT #-}
 
 instance MonadThrow (EitherT AWSError IO) where
     monadThrow = liftIO . throwIO
+    {-# INLINE monadThrow #-}
 
 getAuth :: AWS Auth
 getAuth = AWS $ fmap awsAuth ask >>= liftIO . readIORef

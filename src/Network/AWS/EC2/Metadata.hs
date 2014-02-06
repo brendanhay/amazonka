@@ -267,7 +267,7 @@ meta :: (Functor m, MonadIO m) => Meta -> EitherT String m ByteString
 meta = get "http://169.254.169.254/latest/meta-data/"
 
 dynamic :: (Functor m, MonadIO m) => Dynamic -> EitherT String m ByteString
-dynamic = get "http://169.254.169.254/latest/dynamic-data/"
+dynamic = get "http://169.254.169.254/latest/dynamic/"
 
 get :: (Functor m, MonadIO m, ToPath a)
     => Text

@@ -547,6 +547,13 @@ instance Rq DescribeAutoScalingGroups where
     type Rs DescribeAutoScalingGroups = DescribeAutoScalingGroupsResponse
     request = query4 autoScaling GET "DescribeAutoScalingGroups"
 
+instance Pg DescribeAutoScalingGroups where
+    next dasg dasgr
+        | Just x  <- tok = Just $ dasg { dasgNextToken = Just x }
+        | otherwise      = Nothing
+      where
+        tok = dasgrNextToken (dashrDescribeAutoScalingGroupsResult dasgr)
+
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     { dashrDescribeAutoScalingGroupsResult :: !DescribeAutoScalingGroupsResult
     } deriving (Eq, Show, Generic)

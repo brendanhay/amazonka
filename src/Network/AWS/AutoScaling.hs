@@ -872,6 +872,11 @@ instance Rq DescribeTags where
     type Rs DescribeTags = DescribeTagsResponse
     request = query4 autoScaling GET "DescribeTags"
 
+instance Pg DescribeTags where
+    next rq rs
+        | Just x <- dtrNextToken (dtrDescribeTagsResult rs) = Just $ rq { dtNextToken = Just x }
+        | otherwise = Nothing
+
 data DescribeTagsResponse = DescribeTagsResponse
     { dtrDescribeTagsResult :: !DescribeTagsResult
     } deriving (Eq, Show, Generic)

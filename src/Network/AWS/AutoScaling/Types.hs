@@ -453,10 +453,10 @@ instance IsXML EnabledMetric where
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html>
 data Filter = Filter
-    { fName   :: Maybe Text
+    { fName   :: Text
       -- ^ The name of the filter. Valid Name values are:
       -- "auto-scaling-group", "key", "value", and "propagate-at-launch".
-    , fValues :: Maybe Text
+    , fValues :: [Text]
       -- ^ The value of the filter.
     } deriving (Eq, Show, Generic)
 

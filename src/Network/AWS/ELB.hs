@@ -332,7 +332,7 @@ instance IsXML CreatelbCookieStickinessPolicyResponse where
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html>
 data CreateLoadBalancer = CreateLoadBalancer
-    { clbAvailabilityZones :: Members Text
+    { clbAvailabilityZones :: Members AvailabilityZone
       -- ^ A list of Availability Zones.
     , clbListeners         :: Members Listener
       -- ^ A list of the following tuples: LoadBalancerPort, InstancePort,

@@ -445,9 +445,9 @@ instance IsQuery ListenerDescription
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_LoadBalancerDescription.html>
 data LoadBalancerDescription = LoadBalancerDescription
-    { lbdAvailabilityZones         :: Maybe Text
+    { lbdAvailabilityZones         :: Members AvailabilityZone
       -- ^ Specifies a list of Availability Zones.
-    , lbdBackendServerDescriptions :: Maybe BackendServerDescription
+    , lbdBackendServerDescriptions :: Members BackendServerDescription
       -- ^ Contains a list of back-end server descriptions.
     , lbdCanonicalHostedZoneName   :: Maybe Text
       -- ^ Provides the name of the Amazon Route 53 hosted zone that is
@@ -469,9 +469,9 @@ data LoadBalancerDescription = LoadBalancerDescription
     , lbdHealthCheck               :: Maybe HealthCheck
       -- ^ Specifies information regarding the various health probes
       -- conducted on the load balancer.
-    , lbdInstances                 :: Maybe Instance
+    , lbdInstances                 :: Members Instance
       -- ^ Provides a list of EC2 instance IDs for the load balancer.
-    , lbdListenerDescriptions      :: Maybe ListenerDescription
+    , lbdListenerDescriptions      :: Members ListenerDescription
       -- ^ LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
       -- PolicyNames are returned in a list of tuples in the
       -- ListenerDescriptions element.
@@ -481,7 +481,7 @@ data LoadBalancerDescription = LoadBalancerDescription
       -- ^ Provides a list of policies defined for the load balancer.
     , lbdScheme                    :: Maybe Text
       -- ^ Specifies the type of load balancer.
-    , lbdSecurityGroups            :: Maybe Text
+    , lbdSecurityGroups            :: Members Text
       -- ^ The security groups the load balancer is a member of (VPC only).
     , lbdSourceSecurityGroup       :: Maybe SourceSecurityGroup
       -- ^ The security group that you can use as part of your inbound rules
@@ -489,7 +489,7 @@ data LoadBalancerDescription = LoadBalancerDescription
       -- instances. To only allow traffic from load balancers, add a
       -- security group rule to your back end instance that specifies this
       -- source security group as the inbound source.
-    , lbdSubnets                   :: Maybe Text
+    , lbdSubnets                   :: Members Text
       -- ^ Provides a list of VPC subnet IDs for the load balancer.
     , lbdVPCId                     :: Maybe Text
       -- ^ Provides the ID of the VPC attached to the load balancer.

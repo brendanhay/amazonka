@@ -397,7 +397,7 @@ readAssocList xs = Read.choice $
     map (\(x, y) -> Read.lift $ ReadP.string x >> return y) xs
 
 newtype Items a = Items { items :: [a] }
-    deriving (Eq, Show, Generic, Foldable)
+    deriving (Eq, Show, Generic, Foldable, Monoid)
 
 newtype Members a = Members { members :: [a] }
-    deriving (Eq, Show, Generic, Foldable)
+    deriving (Eq, Show, Generic, Foldable, Monoid)

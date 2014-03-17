@@ -697,6 +697,11 @@ instance Rq DescribeLoadBalancers where
     type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
     request = query4 elb GET "DescribeLoadBalancers"
 
+instance Pg DescribeLoadBalancers where
+    next rq rs
+        | Just x <- dlbrNextMarker (dlbsDescribeLoadBalancersResult rs) = Just $ rq { dlbMarker = Just x }
+        | otherwise = Nothing
+
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { dlbsResponseMetadata :: !Text
     , dlbsDescribeLoadBalancersResult :: !DescribeLoadBalancersResult

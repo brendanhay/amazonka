@@ -263,7 +263,7 @@ instance IsQuery DescribeLoadBalancerPolicyTypesResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancersResult.html>
 data DescribeLoadBalancersResult = DescribeLoadBalancersResult
-    { dlbrLoadBalancerDescriptions :: Maybe LoadBalancerDescription
+    { dlbrLoadBalancerDescriptions :: Members LoadBalancerDescription
       -- ^ A list of load balancer description structures.
     , dlbrNextMarker               :: Maybe Text
       -- ^ An optional parameter reserved for future use.

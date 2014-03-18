@@ -40,6 +40,7 @@ import           Data.String
 import           Data.Text                       (Text)
 import qualified Data.Text.Encoding              as Text
 import           Data.Time
+import           Data.Traversable
 import           GHC.Generics
 import           Network.HTTP.Conduit
 import           Network.HTTP.QueryString.Pickle
@@ -397,7 +398,7 @@ readAssocList xs = Read.choice $
     map (\(x, y) -> Read.lift $ ReadP.string x >> return y) xs
 
 newtype Items a = Items { items :: [a] }
-    deriving (Eq, Show, Generic, Foldable, Monoid)
+    deriving (Eq, Show, Generic, Applicative, Foldable, Traversable, Monoid)
 
 newtype Members a = Members { members :: [a] }
-    deriving (Eq, Show, Generic, Foldable, Monoid)
+    deriving (Eq, Show, Generic, Applicative, Foldable, Traversable, Monoid)

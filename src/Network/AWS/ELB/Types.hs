@@ -155,17 +155,6 @@ instance IsXML CreateLoadBalancerListenersResult where
 
 instance IsQuery CreateLoadBalancerListenersResult
 
--- | The output for the CreateLoadBalancerPolicy action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerPolicyResult.html>
-data CreateLoadBalancerPolicyResult = CreateLoadBalancerPolicyResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML CreateLoadBalancerPolicyResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery CreateLoadBalancerPolicyResult
-
 -- | The output for the CreateLoadBalancer action.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerResult.html>

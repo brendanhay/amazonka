@@ -290,7 +290,7 @@ instance IsQuery DetachLoadBalancerFromSubnetsResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancerResult.html>
 data DisableAvailabilityZonesForLoadBalancerResult = DisableAvailabilityZonesForLoadBalancerResult
-    { dazflbrAvailabilityZones :: Maybe Text
+    { dazflbrAvailabilityZones :: Members Text
       -- ^ A list of updated Availability Zones for the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -303,7 +303,7 @@ instance IsQuery DisableAvailabilityZonesForLoadBalancerResult
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancerResult.html>
 data EnableAvailabilityZonesForLoadBalancerResult = EnableAvailabilityZonesForLoadBalancerResult
-    { eazflbrAvailabilityZones :: Maybe Text
+    { eazflbrAvailabilityZones :: Members Text
       -- ^ An updated list of Availability Zones for the load balancer.
     } deriving (Eq, Show, Generic)
 
@@ -443,7 +443,7 @@ instance IsQuery ListenerDescription
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_LoadBalancerDescription.html>
 data LoadBalancerDescription = LoadBalancerDescription
-    { lbdAvailabilityZones         :: Members AvailabilityZone
+    { lbdAvailabilityZones         :: Members Text
       -- ^ Specifies a list of Availability Zones.
     , lbdBackendServerDescriptions :: Members BackendServerDescription
       -- ^ Contains a list of back-end server descriptions.
@@ -618,39 +618,6 @@ instance IsXML RegisterInstancesWithLoadBalancerResult where
     xmlPickler = withNS elbNS
 
 instance IsQuery RegisterInstancesWithLoadBalancerResult
-
--- | The output for the SetLoadBalancerListenerSSLCertificate action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificateResult.html>
-data SetLoadBalancerListenerSSLCertificateResult = SetLoadBalancerListenerSSLCertificateResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML SetLoadBalancerListenerSSLCertificateResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery SetLoadBalancerListenerSSLCertificateResult
-
--- | The output for the SetLoadBalancerPoliciesForBackendServer action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServerResult.html>
-data SetLoadBalancerPoliciesForBackendServerResult = SetLoadBalancerPoliciesForBackendServerResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML SetLoadBalancerPoliciesForBackendServerResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery SetLoadBalancerPoliciesForBackendServerResult
-
--- | The output for the SetLoadBalancerPoliciesOfListener action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesOfListenerResult.html>
-data SetLoadBalancerPoliciesOfListenerResult = SetLoadBalancerPoliciesOfListenerResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML SetLoadBalancerPoliciesOfListenerResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery SetLoadBalancerPoliciesOfListenerResult
 
 -- | This data type is used as a response element in the DescribeLoadBalancers
 -- action. For information about Elastic Load Balancing security groups, go to

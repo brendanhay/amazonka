@@ -893,7 +893,6 @@ instance Rq SetLoadBalancerListenerSSLCertificate where
 
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
     { slblsslcrResponseMetadata :: !Text
-    , slblsslcrSetLoadBalancerListenerSSLCertificateResult :: !SetLoadBalancerListenerSSLCertificateResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML SetLoadBalancerListenerSSLCertificateResponse where
@@ -930,7 +929,6 @@ instance Rq SetLoadBalancerPoliciesForBackendServer where
 
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     { slbpfbsrResponseMetadata :: !Text
-    , slbpfbsrSetLoadBalancerPoliciesForBackendServerResult :: !SetLoadBalancerPoliciesForBackendServerResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML SetLoadBalancerPoliciesForBackendServerResponse where
@@ -965,7 +963,6 @@ instance Rq SetLoadBalancerPoliciesOfListener where
 
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
     { slbpolrResponseMetadata :: !Text
-    , slbpolrSetLoadBalancerPoliciesOfListenerResult :: !SetLoadBalancerPoliciesOfListenerResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML SetLoadBalancerPoliciesOfListenerResponse where

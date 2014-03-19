@@ -443,7 +443,7 @@ instance IsQuery ListenerDescription
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_LoadBalancerDescription.html>
 data LoadBalancerDescription = LoadBalancerDescription
-    { lbdAvailabilityZones         :: Members Text
+    { lbdAvailabilityZones         :: [Text]
       -- ^ Specifies a list of Availability Zones.
     , lbdBackendServerDescriptions :: Members BackendServerDescription
       -- ^ Contains a list of back-end server descriptions.

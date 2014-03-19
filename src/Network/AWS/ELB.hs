@@ -143,7 +143,7 @@ instance IsXML ApplySecurityGroupsToLoadBalancer where
 instance IsQuery ApplySecurityGroupsToLoadBalancer
 
 instance Rq ApplySecurityGroupsToLoadBalancer where
-    type Er ApplySecurityGroupsToLoadBalancer = ELBErrorResponse
+    type Er ApplySecurityGroupsToLoadBalancer = ErrorResponse
     type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
     request = query4 elb GET "ApplySecurityGroupsToLoadBalancer"
 
@@ -174,7 +174,7 @@ instance IsXML AttachLoadBalancerToSubnets where
 instance IsQuery AttachLoadBalancerToSubnets
 
 instance Rq AttachLoadBalancerToSubnets where
-    type Er AttachLoadBalancerToSubnets = ELBErrorResponse
+    type Er AttachLoadBalancerToSubnets = ErrorResponse
     type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse
     request = query4 elb GET "AttachLoadBalancerToSubnets"
 
@@ -204,7 +204,7 @@ instance IsXML ConfigureHealthCheck where
 instance IsQuery ConfigureHealthCheck
 
 instance Rq ConfigureHealthCheck where
-    type Er ConfigureHealthCheck = ELBErrorResponse
+    type Er ConfigureHealthCheck = ErrorResponse
     type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
     request = query4 elb GET "ConfigureHealthCheck"
 
@@ -251,7 +251,7 @@ instance IsXML CreateAppCookieStickinessPolicy where
 instance IsQuery CreateAppCookieStickinessPolicy
 
 instance Rq CreateAppCookieStickinessPolicy where
-    type Er CreateAppCookieStickinessPolicy = ELBErrorResponse
+    type Er CreateAppCookieStickinessPolicy = ErrorResponse
     type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse
     request = query4 elb GET "CreateAppCookieStickinessPolicy"
 
@@ -300,7 +300,7 @@ instance IsXML CreatelbCookieStickinessPolicy where
 instance IsQuery CreatelbCookieStickinessPolicy
 
 instance Rq CreatelbCookieStickinessPolicy where
-    type Er CreatelbCookieStickinessPolicy = ELBErrorResponse
+    type Er CreatelbCookieStickinessPolicy = ErrorResponse
     type Rs CreatelbCookieStickinessPolicy = CreatelbCookieStickinessPolicyResponse
     request = query4 elb GET "CreatelbCookieStickinessPolicy"
 
@@ -355,7 +355,7 @@ instance IsXML CreateLoadBalancer where
 instance IsQuery CreateLoadBalancer
 
 instance Rq CreateLoadBalancer where
-    type Er CreateLoadBalancer = ELBErrorResponse
+    type Er CreateLoadBalancer = ErrorResponse
     type Rs CreateLoadBalancer = CreateLoadBalancerResponse
     request = query4 elb GET "CreateLoadBalancer"
 
@@ -387,7 +387,7 @@ instance IsXML CreateLoadBalancerListeners where
 instance IsQuery CreateLoadBalancerListeners
 
 instance Rq CreateLoadBalancerListeners where
-    type Er CreateLoadBalancerListeners = ELBErrorResponse
+    type Er CreateLoadBalancerListeners = ErrorResponse
     type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse
     request = query4 elb GET "CreateLoadBalancerListeners"
 
@@ -427,7 +427,7 @@ instance IsXML CreateLoadBalancerPolicy where
 instance IsQuery CreateLoadBalancerPolicy
 
 instance Rq CreateLoadBalancerPolicy where
-    type Er CreateLoadBalancerPolicy = ELBErrorResponse
+    type Er CreateLoadBalancerPolicy = ErrorResponse
     type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
     request = query4 elb GET "CreateLoadBalancerPolicy"
 
@@ -464,7 +464,7 @@ instance IsXML DeleteLoadBalancer where
 instance IsQuery DeleteLoadBalancer
 
 instance Rq DeleteLoadBalancer where
-    type Er DeleteLoadBalancer = ELBErrorResponse
+    type Er DeleteLoadBalancer = ErrorResponse
     type Rs DeleteLoadBalancer = DeleteLoadBalancerResponse
     request = query4 elb GET "DeleteLoadBalancer"
 
@@ -493,7 +493,7 @@ instance IsXML DeleteLoadBalancerListeners where
 instance IsQuery DeleteLoadBalancerListeners
 
 instance Rq DeleteLoadBalancerListeners where
-    type Er DeleteLoadBalancerListeners = ELBErrorResponse
+    type Er DeleteLoadBalancerListeners = ErrorResponse
     type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
     request = query4 elb GET "DeleteLoadBalancerListeners"
 
@@ -523,7 +523,7 @@ instance IsXML DeleteLoadBalancerPolicy where
 instance IsQuery DeleteLoadBalancerPolicy
 
 instance Rq DeleteLoadBalancerPolicy where
-    type Er DeleteLoadBalancerPolicy = ELBErrorResponse
+    type Er DeleteLoadBalancerPolicy = ErrorResponse
     type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
     request = query4 elb GET "DeleteLoadBalancerPolicy"
 
@@ -556,7 +556,7 @@ instance IsXML DeregisterInstancesFromLoadBalancer where
 instance IsQuery DeregisterInstancesFromLoadBalancer
 
 instance Rq DeregisterInstancesFromLoadBalancer where
-    type Er DeregisterInstancesFromLoadBalancer = ELBErrorResponse
+    type Er DeregisterInstancesFromLoadBalancer = ErrorResponse
     type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse
     request = query4 elb GET "DeregisterInstancesFromLoadBalancer"
 
@@ -590,7 +590,7 @@ instance IsXML DescribeInstanceHealth where
 instance IsQuery DescribeInstanceHealth
 
 instance Rq DescribeInstanceHealth where
-    type Er DescribeInstanceHealth = ELBErrorResponse
+    type Er DescribeInstanceHealth = ErrorResponse
     type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
     request = query4 elb GET "DescribeInstanceHealth"
 
@@ -628,7 +628,7 @@ instance IsXML DescribeLoadBalancerPolicies where
 instance IsQuery DescribeLoadBalancerPolicies
 
 instance Rq DescribeLoadBalancerPolicies where
-    type Er DescribeLoadBalancerPolicies = ELBErrorResponse
+    type Er DescribeLoadBalancerPolicies = ErrorResponse
     type Rs DescribeLoadBalancerPolicies = DescribeLoadBalancerPoliciesResponse
     request = query4 elb GET "DescribeLoadBalancerPolicies"
 
@@ -659,7 +659,7 @@ instance IsXML DescribeLoadBalancerPolicyTypes where
 instance IsQuery DescribeLoadBalancerPolicyTypes
 
 instance Rq DescribeLoadBalancerPolicyTypes where
-    type Er DescribeLoadBalancerPolicyTypes = ELBErrorResponse
+    type Er DescribeLoadBalancerPolicyTypes = ErrorResponse
     type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
     request = query4 elb GET "DescribeLoadBalancerPolicyTypes"
 
@@ -693,7 +693,7 @@ instance IsXML DescribeLoadBalancers where
 instance IsQuery DescribeLoadBalancers
 
 instance Rq DescribeLoadBalancers where
-    type Er DescribeLoadBalancers = ELBErrorResponse
+    type Er DescribeLoadBalancers = ErrorResponse
     type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
     request = query4 elb GET "DescribeLoadBalancers"
 
@@ -733,7 +733,7 @@ instance IsXML DetachLoadBalancerFromSubnets where
 instance IsQuery DetachLoadBalancerFromSubnets
 
 instance Rq DetachLoadBalancerFromSubnets where
-    type Er DetachLoadBalancerFromSubnets = ELBErrorResponse
+    type Er DetachLoadBalancerFromSubnets = ErrorResponse
     type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse
     request = query4 elb GET "DetachLoadBalancerFromSubnets"
 
@@ -775,7 +775,7 @@ instance IsXML DisableAvailabilityZonesForLoadBalancer where
 instance IsQuery DisableAvailabilityZonesForLoadBalancer
 
 instance Rq DisableAvailabilityZonesForLoadBalancer where
-    type Er DisableAvailabilityZonesForLoadBalancer = ELBErrorResponse
+    type Er DisableAvailabilityZonesForLoadBalancer = ErrorResponse
     type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse
     request = query4 elb GET "DisableAvailabilityZonesForLoadBalancer"
 
@@ -812,7 +812,7 @@ instance IsXML EnableAvailabilityZonesForLoadBalancer where
 instance IsQuery EnableAvailabilityZonesForLoadBalancer
 
 instance Rq EnableAvailabilityZonesForLoadBalancer where
-    type Er EnableAvailabilityZonesForLoadBalancer = ELBErrorResponse
+    type Er EnableAvailabilityZonesForLoadBalancer = ErrorResponse
     type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse
     request = query4 elb GET "EnableAvailabilityZonesForLoadBalancer"
 
@@ -851,7 +851,7 @@ instance IsXML RegisterInstancesWithLoadBalancer where
 instance IsQuery RegisterInstancesWithLoadBalancer
 
 instance Rq RegisterInstancesWithLoadBalancer where
-    type Er RegisterInstancesWithLoadBalancer = ELBErrorResponse
+    type Er RegisterInstancesWithLoadBalancer = ErrorResponse
     type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse
     request = query4 elb GET "RegisterInstancesWithLoadBalancer"
 
@@ -888,7 +888,7 @@ instance IsXML SetLoadBalancerListenerSSLCertificate where
 instance IsQuery SetLoadBalancerListenerSSLCertificate
 
 instance Rq SetLoadBalancerListenerSSLCertificate where
-    type Er SetLoadBalancerListenerSSLCertificate = ELBErrorResponse
+    type Er SetLoadBalancerListenerSSLCertificate = ErrorResponse
     type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
     request = query4 elb GET "SetLoadBalancerListenerSSLCertificate"
 
@@ -925,7 +925,7 @@ instance IsXML SetLoadBalancerPoliciesForBackendServer where
 instance IsQuery SetLoadBalancerPoliciesForBackendServer
 
 instance Rq SetLoadBalancerPoliciesForBackendServer where
-    type Er SetLoadBalancerPoliciesForBackendServer = ELBErrorResponse
+    type Er SetLoadBalancerPoliciesForBackendServer = ErrorResponse
     type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
     request = query4 elb GET "SetLoadBalancerPoliciesForBackendServer"
 
@@ -960,7 +960,7 @@ instance IsXML SetLoadBalancerPoliciesOfListener where
 instance IsQuery SetLoadBalancerPoliciesOfListener
 
 instance Rq SetLoadBalancerPoliciesOfListener where
-    type Er SetLoadBalancerPoliciesOfListener = ELBErrorResponse
+    type Er SetLoadBalancerPoliciesOfListener = ErrorResponse
     type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
     request = query4 elb GET "SetLoadBalancerPoliciesOfListener"
 

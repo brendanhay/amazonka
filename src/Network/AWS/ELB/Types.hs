@@ -25,22 +25,36 @@ elb = Service Regional version4 "elasticloadbalancing" "2012-06-01"
 
 -- | XML namespace to annotate ELB elements with.
 elbNS :: ByteString
-elbNS = "https://elasticloadbalancing.amazonaws.com/doc/" <> svcVersion elb <> "/"
+elbNS = "http://elasticloadbalancing.amazonaws.com/doc/" <> svcVersion elb <> "/"
+
+elbOptions :: XMLOptions
+elbOptions = defaultXMLOptions
+   { xmlCtorModifier = mkNName elbNS . stripPrefix "ELB"
+   }
 
 -- | Helper to define ELB namespaced XML elements.
 elbElem :: ByteString -> NName ByteString
 elbElem = mkNName elbNS
 
 data ELBError = ELBError
-    { cweCode    :: !Text
-    , cweMessage :: !Text
+    { elbeCode    :: !Text
+    , elbeMessage :: !Text
+    , elbeType    :: !Text
     } deriving (Eq, Show, Generic)
 
 instance IsXML ELBError where
-    xmlPickler = withNS elbNS
+    xmlPickler = withNS' elbNS elbOptions
 
-instance ToError ELBError where
+data ELBErrorResponse = ELBErrorResponse
+    { elberError     :: !ELBError
+    , elberRequestId :: !Text
+    } deriving (Eq, Show, Generic)
+
+instance ToError ELBErrorResponse where
     toError = Err . show
+
+instance IsXML ELBErrorResponse where
+    xmlPickler = withNS' elbNS elbOptions
 
 -- | The AppCookieStickinessPolicy data type.
 --

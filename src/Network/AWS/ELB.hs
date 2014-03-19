@@ -361,7 +361,7 @@ instance Rq CreateLoadBalancer where
 
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { clbrResponseMetadata :: !Text
-    , clbrCreateLoadBalancerResult :: !CreateLoadBalancerResult
+    , clbrCreateLoadBalancerResult :: Maybe CreateLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateLoadBalancerResponse where

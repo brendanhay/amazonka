@@ -1,5 +1,6 @@
 {-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}

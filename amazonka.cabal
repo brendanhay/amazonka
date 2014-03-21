@@ -1,11 +1,11 @@
 name:                  amazonka
-version:               0.2.3
+version:               0.2.4
 synopsis:              Interfaces to various Amazon Web Service APIs
 homepage:              http://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-copyright:             Copyright (c) 2013 Brendan Hay, Toralf Wittner
+copyright:             Copyright (c) 2013-2014 Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 stability:             Experimental
 category:              AWS, Cloud, Network

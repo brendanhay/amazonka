@@ -120,8 +120,14 @@ data Config = Config
 instance IsXML Config where
     xmlPickler = withNS route53NS
 
-newtype HostedZoneId = HostedZoneId { unHostedZoneId :: Text }
+newtype HostedZoneId = HostedZoneId ByteString
    deriving (Eq, Ord, IsString, IsByteString)
+
+hostedZoneId :: IsByteString a => a -> HostedZoneId
+hostedZoneId = HostedZoneId . stripPrefix "/hostedzone/" . toBS
+
+unHostedZoneId :: HostedZoneId -> Text
+unHostedZoneId (HostedZoneId bs) = decodeUtf8 $ stripPrefix "/hostedzone/" bs
 
 instance Show HostedZoneId where
     show = BS.unpack . prefixed
@@ -130,10 +136,10 @@ instance Prefixed HostedZoneId where
     prefixed = addPrefix "/hostedzone/"
 
 instance IsXML HostedZoneId where
-    xmlPickler = (HostedZoneId, unHostedZoneId) `xpWrap` xmlPickler
+    xmlPickler = (hostedZoneId, unHostedZoneId) `xpWrap` xmlPickler
 
 instance IsQuery HostedZoneId where
-    queryPickler = (HostedZoneId, unHostedZoneId) `qpWrap` queryPickler
+    queryPickler = (hostedZoneId, unHostedZoneId) `qpWrap` queryPickler
 
 data HostedZone = HostedZone
     { hzId                     :: !HostedZoneId

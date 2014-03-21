@@ -257,7 +257,6 @@ instance Rq CreateAppCookieStickinessPolicy where
 
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
     { cacsprResponseMetadata :: !Text
-    , cacsprCreateAppCookieStickinessPolicyResult :: !CreateAppCookieStickinessPolicyResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateAppCookieStickinessPolicyResponse where
@@ -306,7 +305,6 @@ instance Rq CreatelbCookieStickinessPolicy where
 
 data CreatelbCookieStickinessPolicyResponse = CreatelbCookieStickinessPolicyResponse
     { clbcsprResponseMetadata :: !Text
-    , clbcsprCreatelbCookieStickinessPolicyResult :: !CreatelbCookieStickinessPolicyResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreatelbCookieStickinessPolicyResponse where
@@ -393,7 +391,6 @@ instance Rq CreateLoadBalancerListeners where
 
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
     { clblrResponseMetadata :: !Text
-    , clblrCreateLoadBalancerListenersResult :: !CreateLoadBalancerListenersResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML CreateLoadBalancerListenersResponse where
@@ -469,7 +466,6 @@ instance Rq DeleteLoadBalancer where
 
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
     { dlbrResponseMetadata :: !Text
-    , dlbrDeleteLoadBalancerResult :: !DeleteLoadBalancerResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteLoadBalancerResponse where
@@ -498,7 +494,6 @@ instance Rq DeleteLoadBalancerListeners where
 
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
     { dlblrResponseMetadata :: !Text
-    , dlblrDeleteLoadBalancerListenersResult :: !DeleteLoadBalancerListenersResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteLoadBalancerListenersResponse where
@@ -528,7 +523,6 @@ instance Rq DeleteLoadBalancerPolicy where
 
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
     { dlbprResponseMetadata :: !Text
-    , dlbprDeleteLoadBalancerPolicyResult :: !DeleteLoadBalancerPolicyResult
     } deriving (Eq, Show, Generic)
 
 instance IsXML DeleteLoadBalancerPolicyResponse where

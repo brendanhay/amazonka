@@ -122,39 +122,6 @@ instance IsXML ConfigureHealthCheckResult where
 
 instance IsQuery ConfigureHealthCheckResult
 
--- | The output for the CreateAppCookieStickinessPolicy action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateAppCookieStickinessPolicyResult.html>
-data CreateAppCookieStickinessPolicyResult = CreateAppCookieStickinessPolicyResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML CreateAppCookieStickinessPolicyResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery CreateAppCookieStickinessPolicyResult
-
--- | The output for the CreatelbCookieStickinessPolicy action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreatelbCookieStickinessPolicyResult.html>
-data CreatelbCookieStickinessPolicyResult = CreatelbCookieStickinessPolicyResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML CreatelbCookieStickinessPolicyResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery CreatelbCookieStickinessPolicyResult
-
--- | The output for the CreateLoadBalancerListeners action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerListenersResult.html>
-data CreateLoadBalancerListenersResult = CreateLoadBalancerListenersResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML CreateLoadBalancerListenersResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery CreateLoadBalancerListenersResult
-
 -- | The output for the CreateLoadBalancer action.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerResult.html>
@@ -167,39 +134,6 @@ instance IsXML CreateLoadBalancerResult where
     xmlPickler = withNS elbNS
 
 instance IsQuery CreateLoadBalancerResult
-
--- | The output for the DeleteLoadBalancerListeners action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListenersResult.html>
-data DeleteLoadBalancerListenersResult = DeleteLoadBalancerListenersResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML DeleteLoadBalancerListenersResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery DeleteLoadBalancerListenersResult
-
--- | The output for the DeleteLoadBalancerPolicy action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicyResult.html>
-data DeleteLoadBalancerPolicyResult = DeleteLoadBalancerPolicyResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML DeleteLoadBalancerPolicyResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery DeleteLoadBalancerPolicyResult
-
--- | The output for the DeleteLoadBalancer action.
---
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerResult.html>
-data DeleteLoadBalancerResult = DeleteLoadBalancerResult
-    deriving (Eq, Read, Show, Generic)
-
-instance IsXML DeleteLoadBalancerResult where
-    xmlPickler = xpEmpty $ Just elbNS
-
-instance IsQuery DeleteLoadBalancerResult
 
 -- | The output for the DeregisterInstancesFromLoadBalancer action.
 --

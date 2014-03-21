@@ -14,6 +14,7 @@
 module Network.AWS.Internal.Request where
 
 import Data.ByteString                 (ByteString)
+import Network.AWS.Internal.String
 import Network.AWS.Internal.Types
 import Network.HTTP.Conduit
 import Network.HTTP.QueryString.Pickle
@@ -27,8 +28,7 @@ query4 :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
 query4 s m a q = query s m "/" q .?. [("Action",  a)]
 
 xml :: IsXML a => Service -> StdMethod -> ByteString -> a -> Raw
-xml s@Service{..} m p = Raw s m p [] [] . RequestBodyBS . toXML
---     , rqHeaders = [hdr (Content :: XML)]
+xml s@Service{..} m p = Raw s m ("/" `addPrefix` p) [] [] . RequestBodyBS . toXML
 
 (.?.) :: Raw -> [(ByteString, ByteString)] -> Raw
 (.?.) r q = r { rqQuery = rqQuery r ++ q }

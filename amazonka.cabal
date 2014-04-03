@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               0.2.4
+version:               0.2.5
 synopsis:              Interfaces to various Amazon Web Service APIs
 homepage:              http://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -69,7 +69,7 @@ library
       , base64-bytestring
       , bytestring
       , case-insensitive
-      , conduit
+      , conduit               >= 1.1
       , containers
       , cryptohash
       , data-default

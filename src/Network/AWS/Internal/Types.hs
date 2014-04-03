@@ -25,6 +25,7 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Exception
 import           Control.Monad
+import           Control.Monad.Base
 import           Control.Monad.Error
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Resource
@@ -154,7 +155,7 @@ newtype AWS a = AWS
         , Monad
         , MonadPlus
         , MonadIO
-        , MonadUnsafeIO
+        , MonadBase IO
         , MonadThrow
         , MonadReader Env
         , MonadError AWSError
@@ -166,8 +167,8 @@ instance MonadResource AWS where
     {-# INLINE liftResourceT #-}
 
 instance MonadThrow (EitherT AWSError IO) where
-    monadThrow = liftIO . throwIO
-    {-# INLINE monadThrow #-}
+    throwM = liftIO . throwIO
+    {-# INLINE throwM #-}
 
 getAuth :: AWS Auth
 getAuth = AWS $ fmap awsAuth ask >>= liftIO . readIORef

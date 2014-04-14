@@ -19,6 +19,8 @@ module Network.AWS
     -- * AWS Context
       AWS
     , runAWS
+
+    , AWSEnv
     , runEnv
     , loadEnv
 
@@ -87,13 +89,15 @@ import           Network.AWS.Internal
 import           Network.HTTP.Conduit
 import           System.IO
 
+type AWSEnv = InternalState -> Env
+
 runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws =
     runEitherT (loadEnv cred dbg) >>=
         either (return . Left . toError)
                (runEnv aws)
 
-runEnv :: AWS a -> (InternalState -> Env) -> IO (Either AWSError a)
+runEnv :: AWS a -> AWSEnv -> IO (Either AWSError a)
 runEnv aws f = runResourceT . withInternalState $ \s -> runEnv' aws (f s)
 
 runEnv' :: AWS a -> Env -> IO (Either AWSError a)
@@ -102,7 +106,7 @@ runEnv' aws = runEitherT . runReaderT (unwrap aws)
 loadEnv :: (Applicative m, MonadIO m)
         => Credentials
         -> Bool
-        -> EitherT String m (InternalState -> Env)
+        -> EitherT String m AWSEnv
 loadEnv cred dbg = Env defaultRegion dbg
     <$> liftIO (newManager conduitManagerSettings)
     <*> credentials cred

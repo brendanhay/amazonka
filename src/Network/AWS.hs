@@ -19,6 +19,8 @@ module Network.AWS
     -- * AWS Context
       AWS
     , runAWS
+    , runEnv
+    , loadEnv
 
     -- * Credentials
     , Credentials      (..)
@@ -67,6 +69,7 @@ module Network.AWS
     , Members          (..)
     ) where
 
+import           Control.Applicative
 import qualified Control.Concurrent.Async              as A
 import           Control.Error
 import           Control.Exception
@@ -85,15 +88,24 @@ import           Network.HTTP.Conduit
 import           System.IO
 
 runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
-runAWS cred dbg aws = runResourceT . withInternalState $ \s -> do
-    m <- newManager conduitManagerSettings
-    a <- runEitherT $ credentials cred
-    either (return . Left . Err)
-           (runEnv aws . Env defaultRegion dbg s m)
-           a
+runAWS cred dbg aws =
+    runEitherT (loadEnv cred dbg) >>=
+        either (return . Left . toError)
+               (runEnv aws)
 
-runEnv :: AWS a -> Env -> IO (Either AWSError a)
-runEnv aws = runEitherT . runReaderT (unwrap aws)
+runEnv :: AWS a -> (InternalState -> Env) -> IO (Either AWSError a)
+runEnv aws f = runResourceT . withInternalState $ \s -> runEnv' aws (f s)
+
+runEnv' :: AWS a -> Env -> IO (Either AWSError a)
+runEnv' aws = runEitherT . runReaderT (unwrap aws)
+
+loadEnv :: (Applicative m, MonadIO m)
+        => Credentials
+        -> Bool
+        -> EitherT String m (InternalState -> Env)
+loadEnv cred dbg = Env defaultRegion dbg
+    <$> liftIO (newManager conduitManagerSettings)
+    <*> credentials cred
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
 within :: Region -> AWS a -> AWS a
@@ -123,7 +135,7 @@ sendCatch rq = do
     hoistError rs
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
-async aws = AWS ask >>= resourceAsync . lift . runEnv aws
+async aws = AWS ask >>= resourceAsync . lift . runEnv' aws
 
 wait :: A.Async (Either AWSError a) -> AWS a
 wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError

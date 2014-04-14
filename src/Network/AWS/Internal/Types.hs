@@ -145,9 +145,9 @@ instance FromJSON Auth where
 data Env = Env
     { awsRegion   :: !Region
     , awsDebug    :: !Bool
-    , awsResource :: !InternalState
     , awsManager  :: !Manager
     , awsAuth     :: !(IORef Auth)
+    , awsResource :: !InternalState
     }
 
 newtype AWS a = AWS

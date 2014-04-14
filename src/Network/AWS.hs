@@ -95,10 +95,10 @@ runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws =
     runEitherT (loadEnv cred dbg) >>=
         either (return . Left . toError)
-               (runEnv aws)
+               (`runEnv` aws)
 
-runEnv :: AWS a -> AWSEnv -> IO (Either AWSError a)
-runEnv aws f = runResourceT . withInternalState $ \s -> runEnv' aws (f s)
+runEnv :: AWSEnv -> AWS a -> IO (Either AWSError a)
+runEnv f aws = runResourceT . withInternalState $ \s -> runEnv' aws (f s)
 
 runEnv' :: AWS a -> Env -> IO (Either AWSError a)
 runEnv' aws = runEitherT . runReaderT (unwrap aws)

@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               0.2.5
+version:               0.2.6
 synopsis:              Interfaces to various Amazon Web Service APIs
 homepage:              http://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -76,13 +76,13 @@ library
       , data-default
       , errors                >= 1.4.4
       , hexpat                >= 0.20
-      , http-conduit          >= 2
+      , http-conduit
       , http-types
       , lifted-base
       , mtl
       , old-locale
       , querystring-pickle    >= 0.1.7
-      , resourcet
+      , resourcet             >= 1.1.2
       , text                  >= 1.0
       , time
       , transformers

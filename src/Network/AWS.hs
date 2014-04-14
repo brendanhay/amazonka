@@ -76,6 +76,7 @@ import           Control.Monad.Error
 import           Control.Monad.Trans.Reader
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Trans.Resource.Internal
+import           Data.Acquire
 import           Data.Conduit
 import qualified Data.Conduit.Binary                   as Conduit
 import           Network.AWS.Auth
@@ -170,7 +171,7 @@ resourceAsync (ResourceT f) = liftResourceT . ResourceT $ \g -> Lifted.mask $ \h
         (return ())
         (A.async $ bracket_
             (return ())
-            (stateCleanup g)
+            (stateCleanup ReleaseNormal g)
             (h $ f g))
 
 requestBodyFile :: MonadIO m => FilePath -> m (Maybe RequestBody)

@@ -1,4 +1,5 @@
 {-# LANGUAGE DefaultSignatures          #-}
+{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE FlexibleContexts           #-}
@@ -43,6 +44,7 @@ import           Data.Text                       (Text)
 import qualified Data.Text.Encoding              as Text
 import           Data.Time
 import           Data.Traversable
+import           Data.Typeable
 import           GHC.Generics
 import           Network.HTTP.Conduit
 import           Network.HTTP.QueryString.Pickle
@@ -87,7 +89,9 @@ class Pg a where
     next :: a -> Rs a -> Maybe a
 
 data AWSError = Err String | Ex SomeException | Ers [AWSError]
-    deriving (Show)
+    deriving (Show, Typeable)
+
+instance Exception AWSError
 
 instance Monoid AWSError where
     mempty = Ers []

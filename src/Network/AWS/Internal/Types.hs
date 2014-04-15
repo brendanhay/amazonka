@@ -189,17 +189,20 @@ instance MonadCatch (EitherT AWSError IO) where
         uninterruptibleMask $ \u -> runEitherT (a $ mapEitherT u)
     {-# INLINE uninterruptibleMask #-}
 
+getEnv :: AWS Env
+getEnv = AWS ask
+
 getAuth :: AWS Auth
-getAuth = AWS $ fmap awsAuth ask >>= liftIO . readIORef
+getAuth = fmap awsAuth getEnv >>= liftIO . readIORef
 
 getManager :: AWS Manager
-getManager = AWS $ awsManager <$> ask
+getManager = awsManager <$> getEnv
 
 getRegion :: AWS Region
-getRegion = AWS $ awsRegion <$> ask
+getRegion = awsRegion <$> getEnv
 
 getDebug :: AWS Bool
-getDebug = AWS $ awsDebug <$> ask
+getDebug = awsDebug <$> getEnv
 
 whenDebug :: AWS () -> AWS ()
 whenDebug f = getDebug >>= \p -> when p f

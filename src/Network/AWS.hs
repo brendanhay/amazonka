@@ -20,9 +20,9 @@ module Network.AWS
       AWS
     , runAWS
 
-    , AWSEnv
+    , Env
     , runEnv
-    , loadEnv
+    , getEnv
 
     -- * Credentials
     , Credentials      (..)
@@ -89,24 +89,19 @@ import           Network.AWS.Internal
 import           Network.HTTP.Conduit
 import           System.IO
 
-type AWSEnv = InternalState -> Env
-
 runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws =
     runEitherT (loadEnv cred dbg) >>=
         either (return . Left . toError)
-               (\e -> runResourceT $ runEnv e aws)
+               (\f -> runResourceT . withInternalState $ runEnv aws . f)
 
-runEnv :: AWSEnv -> AWS a -> ResourceT IO (Either AWSError a)
-runEnv f aws = withInternalState $ \s -> runEnv' aws (f s)
-
-runEnv' :: AWS a -> Env -> IO (Either AWSError a)
-runEnv' aws = runEitherT . runReaderT (unwrap aws)
+runEnv :: AWS a -> Env -> IO (Either AWSError a)
+runEnv aws = runEitherT . runReaderT (unwrap aws)
 
 loadEnv :: (Applicative m, MonadIO m)
         => Credentials
         -> Bool
-        -> EitherT String m AWSEnv
+        -> EitherT String m (InternalState -> Env)
 loadEnv cred dbg = Env defaultRegion dbg
     <$> liftIO (newManager conduitManagerSettings)
     <*> credentials cred
@@ -139,7 +134,7 @@ sendCatch rq = do
     hoistError rs
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
-async aws = AWS ask >>= resourceAsync . lift . runEnv' aws
+async aws = getEnv >>= resourceAsync . lift . runEnv aws
 
 wait :: A.Async (Either AWSError a) -> AWS a
 wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError

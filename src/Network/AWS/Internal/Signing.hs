@@ -194,7 +194,7 @@ versionS3 bucket raw@Raw{..} auth reg time =
 
     optionalHeader = fromMaybe "" . (`lookupHeader` headers)
 
-    canonicalHeaders = BS.intercalate "\n"
+    canonicalHeaders = BS.concat
         . map flattenValues
         . filter (BS.isPrefixOf "x-amz-" . Case.foldedCase . fst)
         $ groupHeaders headers

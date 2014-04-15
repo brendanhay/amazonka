@@ -126,10 +126,10 @@ send_ = void . send
 sendCatch :: Rq a => a -> AWS (Either (Er a) (Rs a))
 sendCatch rq = do
     s  <- sign $ request rq
-    whenDebug . liftIO $ print s
+    whenDebug . liftIO $ putStrLn "[Signed]" >> print s
     m  <- getManager
     h  <- http s m
-    whenDebug . liftIO $ print h
+    whenDebug . liftIO $ putStrLn "[Response]" >> print h
     rs <- response rq h
     hoistError rs
 

@@ -161,6 +161,7 @@ newtype AWS a = AWS
         , MonadPlus
         , MonadIO
         , MonadBase IO
+        , MonadCatch
         , MonadThrow
         , MonadReader Env
         , MonadError AWSError

@@ -24,9 +24,10 @@ module Network.AWS.Internal.Types where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Exception
+import           Control.Exception               hiding (catch, mask, uninterruptibleMask)
 import           Control.Monad
 import           Control.Monad.Base
+import           Control.Monad.Catch
 import           Control.Monad.Error
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Resource
@@ -173,6 +174,19 @@ instance MonadResource AWS where
 instance MonadThrow (EitherT AWSError IO) where
     throwM = liftIO . throwIO
     {-# INLINE throwM #-}
+
+instance MonadCatch (EitherT AWSError IO) where
+    catch m f = EitherT $
+        runEitherT m `catch` \e -> runEitherT (f e)
+    {-# INLINE catch #-}
+
+    mask a = EitherT $
+        mask $ \u -> runEitherT (a $ mapEitherT u)
+    {-# INLINE mask #-}
+
+    uninterruptibleMask a = EitherT $
+        uninterruptibleMask $ \u -> runEitherT (a $ mapEitherT u)
+    {-# INLINE uninterruptibleMask #-}
 
 getAuth :: AWS Auth
 getAuth = AWS $ fmap awsAuth ask >>= liftIO . readIORef

@@ -73,9 +73,9 @@ module Network.AWS.S3
     -- , PutObjectACL                  (..)
     -- , PutObjectACLResponse
 
-    -- -- ** PUT Object Copy
-    -- , PutObjectCopy                 (..)
-    -- , PutObjectCopyResponse
+    -- ** PUT Object Copy
+    , PutObjectCopy                 (..)
+    , PutObjectCopyResponse
 
     -- -- ** POST Initiate Multipart Upload
     -- , InitiateMultipartUpload       (..)
@@ -105,6 +105,7 @@ module Network.AWS.S3
 
 import           Control.Monad.IO.Class
 import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary        as Conduit
@@ -536,7 +537,6 @@ type HeadObjectResponse = S3Response
 data PutObject = PutObject
     { poBucket  :: !Text
     , poKey     :: !Text
---    , poLength  :: !ContentLength
     , poHeaders :: [Header]
     , poBody    :: !RequestBody
     }
@@ -545,7 +545,6 @@ instance Rq PutObject where
     type Er PutObject = S3ErrorResponse
     type Rs PutObject = PutObjectResponse
     request PutObject{..} = object PUT poBucket poKey poHeaders poBody
---        object PUT poBucket poKey (hdr poLength : poHeaders) poBody
     response = s3Response
 
 type PutObjectResponse = S3Response
@@ -584,44 +583,57 @@ type PutObjectResponse = S3Response
 
 -- type PutObjectACLResponse = S3Response
 
--- -- | Create a copy of an object that is already stored in Amazon S3.
--- --
--- -- A copy operation is the same as performing a GET and then a PUT.
--- --
--- -- Note You can store individual objects of up to 5 TB in Amazon S3.
--- --
--- -- You create a copy of your object up to 5 GB in size in a single atomic
--- -- operation using this API. However, for copying an object greater than 5 GB,
--- -- you must use the multipart upload API.
--- --
--- -- When copying an object, you can preserve most of the metadata (default) or
--- -- specify new metadata. However, the ACL is not preserved and is set to private
--- -- for the user making the request.
--- --
--- -- By default, x-amz-copy-source identifies the latest version of an object to
--- -- copy. (If the latest version is a Delete Marker, Amazon S3 behaves as if the
--- -- object was deleted.) To copy a different version, use the versionId subresource.
--- --
--- -- If you enable Versioning on the target bucket, Amazon S3 generates a unique
--- -- version ID for the object being copied. This version ID is different from
--- -- the version ID of the source object.
--- --
--- -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html>
--- data PutObjectCopy = PutObjectCopy
---     { pocBucket  :: !Text
---     , pocKey     :: !Text
---     , pocSource  :: !CopySource
---     , pocHeaders :: [AnyHeader]
---     }
+-- | Create a copy of an object that is already stored in Amazon S3.
+--
+-- A copy operation is the same as performing a GET and then a PUT.
+--
+-- Note You can store individual objects of up to 5 TB in Amazon S3.
+--
+-- You create a copy of your object up to 5 GB in size in a single atomic
+-- operation using this API. However, for copying an object greater than 5 GB,
+-- you must use the multipart upload API.
+--
+-- When copying an object, you can preserve most of the metadata (default) or
+-- specify new metadata. However, the ACL is not preserved and is set to private
+-- for the user making the request.
+--
+-- By default, x-amz-copy-source identifies the latest version of an object to
+-- copy. (If the latest version is a Delete Marker, Amazon S3 behaves as if the
+-- object was deleted.) To copy a different version, use the versionId subresource.
+--
+-- If you enable Versioning on the target bucket, Amazon S3 generates a unique
+-- version ID for the object being copied. This version ID is different from
+-- the version ID of the source object.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html>
+data PutObjectCopy = PutObjectCopy
+    { pocBucket    :: !Text
+    , pocKey       :: !Text
+    , pocSource    :: !Text
+    , pocDirective :: !Directive
+    , pocHeaders   :: [Header]
+    }
 
--- instance Rq PutObjectCopy where
---     type Er PutObjectCopy = S3ErrorResponse
---     type Rs PutObjectCopy = PutObjectCopyResponse
---     request PutObjectCopy{..} =
---         object PUT pocBucket pocKey (hdr pocSource : pocHeaders) Empty
---     response = headerRs
+instance Rq PutObjectCopy where
+    type Er PutObjectCopy = S3ErrorResponse
+    type Rs PutObjectCopy = PutObjectCopyResponse
+    request PutObjectCopy{..} =
+        object PUT pocBucket pocKey hs (RequestBodyBS "")
+      where
+        hs = [ ("X-AMZ-Copy-Source",        Text.encodeUtf8 pocSource)
+             , ("X-AMZ-Metadata-Directive", BS.pack $ show pocDirective)
+             ] ++ pocHeaders
 
--- type PutObjectCopyResponse = S3Response
+    response = s3Response
+
+type PutObjectCopyResponse = S3Response
+
+-- x-amz-copy-source: /source_bucket/sourceObject
+-- x-amz-metadata-directive: metadata_directive
+-- x-amz-copy-source-if-match: etag
+-- x-amz-copy-source-if-none-match: etag
+-- x-amz-copy-source-if-unmodified-since: time_stamp
+-- x-amz-copy-source-if-modified-since: time_stamp
 
 -- -- | Initiate a multipart upload and return an upload ID.
 -- --

@@ -96,10 +96,10 @@ runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws =
     runEitherT (loadEnv cred dbg) >>=
         either (return . Left . toError)
-               (runResourceT . runEnv aws)
+               (`runEnv` aws)
 
-runEnv :: AWS a -> AWSEnv -> ResourceT IO (Either AWSError a)
-runEnv aws f = withInternalState $ \s ->
+runEnv :: AWSEnv -> AWS a -> IO (Either AWSError a)
+runEnv f aws = runResourceT . withInternalState $ \s ->
      runEitherT $ runReaderT (unwrap aws) (f s)
 
 loadEnv :: (Applicative m, MonadIO m)

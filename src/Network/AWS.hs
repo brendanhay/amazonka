@@ -21,6 +21,7 @@ module Network.AWS
     , runAWS
 
     , AWSEnv
+    , loadEnv
     , runEnv
     , getEnv
 

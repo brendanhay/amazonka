@@ -434,7 +434,7 @@ data HeadObject = HeadObject
     } deriving (Eq, Show)
 
 instance Rq HeadObject where
-    type Er HeadObject = S3Response
+    type Er HeadObject = S3ErrorResponse
     type Rs HeadObject = HeadObjectResponse
     request HeadObject{..} = object HEAD hoBucket hoKey hoHeaders mempty
     response = plainResponse

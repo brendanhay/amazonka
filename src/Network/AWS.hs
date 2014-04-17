@@ -89,21 +89,22 @@ import           Network.AWS.Internal
 import           Network.HTTP.Conduit
 import           System.IO
 
-type AWSEnv = Env
+type AWSEnv = InternalState -> Env
 
 runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws =
     runEitherT (loadEnv cred dbg) >>=
         either (return . Left . toError)
-               (\f -> runResourceT . withInternalState $ runEnv aws . f)
+               (runResourceT . runEnv aws)
 
-runEnv :: AWS a -> AWSEnv -> IO (Either AWSError a)
-runEnv aws = runEitherT . runReaderT (unwrap aws)
+runEnv :: AWS a -> AWSEnv -> ResourceT IO (Either AWSError a)
+runEnv aws f = withInternalState $ \s ->
+     runEitherT $ runReaderT (unwrap aws) (f s)
 
 loadEnv :: (Applicative m, MonadIO m)
         => Credentials
         -> Bool
-        -> EitherT String m (InternalState -> AWSEnv)
+        -> EitherT String m AWSEnv
 loadEnv cred dbg = Env defaultRegion dbg
     <$> liftIO (newManager conduitManagerSettings)
     <*> credentials cred
@@ -136,7 +137,8 @@ sendCatch rq = do
     hoistError rs
 
 async :: AWS a -> AWS (A.Async (Either AWSError a))
-async aws = getEnv >>= resourceAsync . lift . runEnv aws
+async aws = getEnv >>=
+    resourceAsync . lift . runEitherT . runReaderT (unwrap aws)
 
 wait :: A.Async (Either AWSError a) -> AWS a
 wait a = liftIO (A.waitCatch a) >>= hoistError . join . fmapL toError

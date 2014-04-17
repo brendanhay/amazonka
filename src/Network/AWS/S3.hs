@@ -147,13 +147,6 @@ s3Response _ rs
     parse :: ByteString -> Either AWSError S3ErrorResponse
     parse = fmapL toError . fromXML
 
-plainResponse :: a
-              -> S3Response
-              -> AWS (Either e (Either S3Response S3Response))
-plainResponse _ rs
-    | statusIsSuccessful $ responseStatus rs = return . Right $ Right rs
-    | otherwise = return . Right $ Left rs
-
 --
 -- Service
 --
@@ -437,7 +430,7 @@ instance Rq HeadObject where
     type Er HeadObject = S3ErrorResponse
     type Rs HeadObject = HeadObjectResponse
     request HeadObject{..} = object HEAD hoBucket hoKey hoHeaders mempty
-    response = plainResponse
+    response = s3Response
 
 type HeadObjectResponse = S3Response
 

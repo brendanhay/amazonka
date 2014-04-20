@@ -103,9 +103,6 @@ runAWS cred dbg aws =
 runAWSEnv :: AWSEnv -> AWS a -> IO (Either AWSError a)
 runAWSEnv f aws = runResourceT . withInternalState $ \s -> runEnv (f s) aws
 
-runEnv :: Env -> AWS a -> IO (Either AWSError a)
-runEnv env aws = runEitherT $ runReaderT (unwrap aws) env
-
 loadAWSEnv :: (Applicative m, MonadIO m)
            => Credentials
            -> Bool
@@ -113,6 +110,9 @@ loadAWSEnv :: (Applicative m, MonadIO m)
 loadAWSEnv cred dbg = Env defaultRegion dbg
     <$> liftIO (newManager conduitManagerSettings)
     <*> credentials cred
+
+runEnv :: Env -> AWS a -> IO (Either AWSError a)
+runEnv env aws = runEitherT $ runReaderT (unwrap aws) env
 
 -- | Run an 'AWS' operation inside a specific 'Region'.
 within :: Region -> AWS a -> AWS a

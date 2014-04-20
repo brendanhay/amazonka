@@ -96,9 +96,9 @@ type AWSEnv = InternalState -> Env
 
 runAWS :: Credentials -> Bool -> AWS a -> IO (Either AWSError a)
 runAWS cred dbg aws =
-    runEitherT (loadEnv cred dbg) >>=
+    runEitherT (loadAWSEnv cred dbg) >>=
         either (return . Left . toError)
-               (`runEnv` aws)
+               (`runAWSEnv` aws)
 
 runAWSEnv :: AWSEnv -> AWS a -> IO (Either AWSError a)
 runAWSEnv f aws = runResourceT . withInternalState $ \s -> runEnv (f s) aws

@@ -42,6 +42,7 @@ import           Data.IORef
 import           Data.Monoid
 import           Data.String
 import           Data.Text                       (Text)
+import qualified Data.Text                       as Text
 import qualified Data.Text.Encoding              as Text
 import           Data.Time
 import           Data.Traversable
@@ -115,6 +116,12 @@ instance ToError AWSError where
 
 instance ToError String where
     toError = Err
+
+instance ToError ByteString where
+    toError = Err . BS.unpack
+
+instance ToError Text where
+    toError = Err . Text.unpack
 
 instance ToError SomeException where
     toError = Ex

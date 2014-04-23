@@ -138,7 +138,8 @@ s3Response :: a
            -> S3Response
            -> AWS (Either AWSError (Either S3ErrorResponse S3Response))
 s3Response _ rs
-    | statusIsSuccessful $ responseStatus rs = return . Right $ Right rs
+    | code >= 200 && code < 300 = return (Right plain)
+    | code == 404               = return (Right notFound)
     | otherwise = do
         lbs <- responseBody rs $$+- Conduit.sinkLbs
         whenDebug . liftIO $ LBS.putStrLn lbs
@@ -146,6 +147,11 @@ s3Response _ rs
   where
     parse :: ByteString -> Either AWSError S3ErrorResponse
     parse = fmapL toError . fromXML
+
+    plain    = Right rs
+    notFound = Left (S3ErrorResponse "Not Found.")
+
+    code = statusCode (responseStatus rs)
 
 --
 -- Service

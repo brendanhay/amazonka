@@ -58,6 +58,7 @@ module Text.XML.Expat.Pickle.Generic
     , xp4Tuple
     , xp5Tuple
     , xp6Tuple
+    , xp7Tuple
     , xpUnit
     , xpLift
     , xpEmpty
@@ -393,6 +394,24 @@ xp6Tuple pa pb pc pd pe pf = XMLPU
               (_, _, _, Left e, _, _) -> Left $ "in 4th of 6-tuple, " ++ e
               (_, _, _, _, Left e, _) -> Left $ "in 5th of 6-tuple, " ++ e
               (_, _, _, _, _, Left e) -> Left $ "in 6th of 6-tuple, " ++ e
+    }
+
+xp7Tuple :: Show n => PU [n] a -> PU [n] b -> PU [n] c -> PU [n] d -> PU [n] e -> PU [n] f -> PU [n] g -> PU [n] (a, b, c, d, e, f, g)
+xp7Tuple pa pb pc pd pe pf pg = XMLPU
+    { root         = listToMaybe $ catMaybes [root pa, root pb, root pc, root pd, root pe, root pf, root pg]
+    , pickleTree   = \(a, b, c, d, e, f, g) ->
+           concat [pickleTree pa a, pickleTree pb b, pickleTree pc c, pickleTree pd d, pickleTree pe e, pickleTree pf f, pickleTree pg g]
+    , unpickleTree = \t ->
+          case (unpickleTree pa t, unpickleTree pb t, unpickleTree pc t,
+                unpickleTree pd t, unpickleTree pe t, unpickleTree pf t, unpickleTree pg t) of
+              (Right a, Right b, Right c, Right d, Right e', Right f, Right g) -> Right (a, b, c, d, e', f, g)
+              (Left e, _, _, _, _, _, _) -> Left $ "in 1st of 7-tuple, " ++ e
+              (_, Left e, _, _, _, _, _) -> Left $ "in 2nd of 7-tuple, " ++ e
+              (_, _, Left e, _, _, _, _) -> Left $ "in 3rd of 7-tuple, " ++ e
+              (_, _, _, Left e, _, _, _) -> Left $ "in 4th of 7-tuple, " ++ e
+              (_, _, _, _, Left e, _, _) -> Left $ "in 5th of 7-tuple, " ++ e
+              (_, _, _, _, _, Left e, _) -> Left $ "in 6th of 7-tuple, " ++ e
+              (_, _, _, _, _, _, Left e) -> Left $ "in 7th of 7-tuple, " ++ e
     }
 
 xpUnit :: PU [n] ()

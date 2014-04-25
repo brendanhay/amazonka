@@ -206,7 +206,7 @@ data GetBucket = GetBucket
       -- ^ Sets the maximum number of keys returned in the response body.
       -- The response might contain fewer keys but will never contain more.
       -- Use pagination to access additional matching keys.
-    , gbMarker    :: Maybe Text
+    , gbMarker     :: Maybe Text
       -- ^ Specifies the key to start with when listing objects in a bucket.
       -- Amazon S3 lists objects in alphabetical order.
     } deriving (Eq, Show, Generic)
@@ -222,17 +222,26 @@ instance Rq GetBucket where
     request gb@GetBucket{..} = query GET gbBucket "/" gb
 
 instance Pg GetBucket where
-    next gb GetBucketResponse{..}
-        | not gbrIsTruncated = Nothing
-        | otherwise          = Just $ gb { gbMarker = gbrMarker }
+    next gb@GetBucket{..} GetBucketResponse{..}
+        | not gbrIsTruncated   = Nothing
+        | isJust gbrNextMarker = Just $ gb { gbMarker = gbrNextMarker }
+        | null gbrContents     = Nothing
+        | otherwise            = Just $ gb { gbMarker = Just $ bcKey (last gbrContents) }
 
 -- FIXME: consider the interaction between the nested list item pickler's root
 -- and the parent using xpElemList vs xpList via generics/default
-
 data GetBucketResponse = GetBucketResponse
     { gbrName        :: !Text
     , gbrPrefix      :: Maybe Text
     , gbrMarker      :: Maybe Text
+    , gbrNextMarker  :: Maybe Text
+      -- ^ When response is truncated (the IsTruncated element value in the
+      -- response is true), you can use the key name in this field as marker in the
+      -- subsequent request to get next set of objects. Amazon S3 lists objects in
+      -- alphabetical order.  This element is returned only if you have delimiter
+      -- request parameter specified. If response does not include the NextMaker and it
+      -- is truncated, you can use the value of the last Key in the response as the
+      -- marker in the subsequent request to get the next set of object keys.
     , gbrMaxKeys     :: !Int
     , gbrIsTruncated :: !Bool
     , gbrContents    :: [Contents]
@@ -241,11 +250,12 @@ data GetBucketResponse = GetBucketResponse
 instance IsXML GetBucketResponse where
     xmlPickler = pu { root = Just $ mkNName s3NS "ListBucketResult" }
       where
-        pu = xpWrap (\(n, p, m, k, t, c) -> GetBucketResponse n p m k t c,
-                     \GetBucketResponse{..} -> (gbrName, gbrPrefix, gbrMarker, gbrMaxKeys, gbrIsTruncated, gbrContents)) $
-                 xp6Tuple (e "Name")
+        pu = xpWrap (\(n, p, m, nm, k, t, c) -> GetBucketResponse n p m nm k t c,
+                     \GetBucketResponse{..} -> (gbrName, gbrPrefix, gbrMarker, gbrNextMarker, gbrMaxKeys, gbrIsTruncated, gbrContents)) $
+                 xp7Tuple (e "Name")
                           (e "Prefix")
                           (e "Marker")
+                          (e "NextMarker")
                           (e "MaxKeys")
                           (e "IsTruncated")
                           (xpFindMatches $ xpElem (mkNName s3NS "Contents") xmlPickler)

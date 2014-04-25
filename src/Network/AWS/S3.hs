@@ -253,9 +253,9 @@ instance IsXML GetBucketResponse where
         pu = xpWrap (\(n, p, m, nm, k, t, c) -> GetBucketResponse n p m nm k t c,
                      \GetBucketResponse{..} -> (gbrName, gbrPrefix, gbrMarker, gbrNextMarker, gbrMaxKeys, gbrIsTruncated, gbrContents)) $
                  xp7Tuple (e "Name")
-                          (e "Prefix")
-                          (e "Marker")
-                          (e "NextMarker")
+                          (xpOption $ e "Prefix")
+                          (xpOption $ e "Marker")
+                          (xpOption $ e "NextMarker")
                           (e "MaxKeys")
                           (e "IsTruncated")
                           (xpFindMatches $ xpElem (mkNName s3NS "Contents") xmlPickler)

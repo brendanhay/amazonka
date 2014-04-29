@@ -164,13 +164,10 @@ waitAsync_ = void . waitAsync
 paginate :: (Rq a, Pg a, ToError (Er a))
          => a
          -> Source AWS (Rs a)
-paginate = ($= go) . paginateCatch
+paginate rq = paginateCatch rq $= awaitForever go
   where
-    go = do
-        x <- await
-        maybe (return ())
-              (either (lift . liftEitherT . left . toError) yield)
-              x
+    go (Left  e) = lift . liftEitherT . left $ toError e
+    go (Right x) = yield x
 
 paginateCatch :: (Rq a, Pg a, ToError (Er a))
               => a
@@ -181,7 +178,9 @@ paginateCatch = go . Just
     go (Just rq) = do
         rs <- lift $ sendCatch rq
         yield rs
-        either (const $ return ()) (go . next rq) rs
+        either (const $ return ())
+               (go . next rq)
+               rs
 
 resourceAsync :: MonadResource m => ResourceT IO a -> m (A.Async a)
 resourceAsync (ResourceT f) = liftResourceT . ResourceT $ \g -> Lifted.mask $ \h ->

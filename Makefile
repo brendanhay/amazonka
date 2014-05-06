@@ -1,5 +1,6 @@
 SHELL := /usr/bin/env bash
 FLAGS := -j --disable-documentation --disable-library-coverage
+DEPS  := vendor/ede
 
 .PHONY: test lint doc
 
@@ -28,5 +29,8 @@ doc:
 cabal.sandbox.config:
 	cabal sandbox init
 
-add-sources: cabal.sandbox.config
-	cabal sandbox add-source ../ede
+add-sources: cabal.sandbox.config $(DEPS)
+	$(foreach dir,$(DEPS),cabal sandbox add-source $(dir);)
+
+vendor/%:
+	git clone https://github.com/brendanhay/$*.git $@

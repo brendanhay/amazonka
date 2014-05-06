@@ -75,7 +75,7 @@ library
       , cryptohash
       , data-default
       , errors                >= 1.4.4
-      , exceptions
+      , exceptions            >= 0.4 && < 0.6
       , hexpat                >= 0.20
       , http-conduit
       , http-types

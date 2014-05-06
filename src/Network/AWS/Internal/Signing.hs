@@ -243,24 +243,23 @@ presignS3 :: StdMethod
           -> ByteString
           -> ByteString
           -> UTCTime
-          -> RequestBody
-          -> AWS Request
-presignS3 meth (strip '/' -> bucket) (strip '/' -> key) expires body = do
+          -> AWS ByteString
+presignS3 meth (strip '/' -> bucket) (strip '/' -> key) expires = do
     auth <- getAuth
 
     let access = accessKeyId auth
         secret = secretAccessKey auth
-        query  = mconcat
-            [ "AWSAccessKeyId=" <> access
-            , "&Expires="       <> expiry
-            , "&Signature="     <> signature secret
-            ]
 
-    return $! signed meth host path query [] body
+    return $! mconcat
+        [ "https://"
+        , bucket
+        , ".s3.amazonaws.com/"
+        , key
+        , "?AWSAccessKeyId=" <> access
+        , "&Expires="       <> expiry
+        , "&Signature="     <> signature secret
+        ]
   where
-    host = bucket <> ".s3.amazonaws.com"
-    path = "/" <> key
-
     signature = urlEncode True
         . Base64.encode
         . (`hmacSHA1` stringToSign)

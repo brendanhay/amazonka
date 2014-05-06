@@ -72,6 +72,9 @@ module Network.AWS
     , InstanceType     (..)
     , Items            (..)
     , Members          (..)
+
+    -- * S3 Presigning
+    , presignS3
     ) where
 
 import           Control.Applicative

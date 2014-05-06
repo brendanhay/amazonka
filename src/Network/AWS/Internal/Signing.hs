@@ -19,6 +19,7 @@ module Network.AWS.Internal.Signing
     , version3
     , version4
     , versionS3
+    , presignS3
     ) where
 
 import           Control.Applicative
@@ -37,7 +38,8 @@ import           Data.Function                   (on)
 import           Data.List                       (groupBy, nub, sort)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Time                       (getCurrentTime)
+import           Data.Time                       (UTCTime, getCurrentTime)
+import           Data.Time.Clock.POSIX
 import           Network.AWS.Headers
 import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Time
@@ -236,6 +238,42 @@ versionS3 bucket raw@Raw{..} auth reg time =
     --     , "storageClass"
     --     , "notification"
     --     ]
+
+presignS3 :: StdMethod
+          -> ByteString
+          -> ByteString
+          -> UTCTime
+          -> RequestBody
+          -> AWS Request
+presignS3 meth (strip '/' -> bucket) (strip '/' -> key) expires body = do
+    auth <- getAuth
+
+    let access = accessKeyId auth
+        secret = secretAccessKey auth
+        query  = mconcat
+            [ "AWSAccessKeyId=" <> access
+            , "&Expires="       <> expiry
+            , "&Signature="     <> signature secret
+            ]
+
+    return $! signed meth host path query [] body
+  where
+    host = bucket <> ".s3.amazonaws.com"
+    path = "/" <> key
+
+    signature = urlEncode True
+        . Base64.encode
+        . (`hmacSHA1` stringToSign)
+
+    stringToSign = BS.intercalate "\n"
+        [ BS.pack $ show meth
+        , ""
+        , ""
+        , expiry
+        , "/" <> bucket <> "/" <> key
+        ]
+
+    expiry = BS.pack . show . truncate $ utcTimeToPOSIXSeconds expires
 
 common :: Raw -> Region -> Common
 common Raw{..} reg = Common

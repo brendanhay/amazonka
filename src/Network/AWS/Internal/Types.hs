@@ -23,6 +23,7 @@
 module Network.AWS.Internal.Types where
 
 import           Control.Applicative
+import           Control.DeepSeq
 import           Control.Error
 import           Control.Exception               hiding (catch, mask, uninterruptibleMask)
 import           Control.Monad
@@ -107,6 +108,8 @@ instance Error AWSError where
 
 instance IsString AWSError where
     fromString = Err
+
+instance NFData AWSError
 
 class ToError a where
     toError :: a -> AWSError

@@ -13,6 +13,7 @@
 
 module Network.AWS.Internal.Request where
 
+import Control.Arrow
 import Data.ByteString                 (ByteString)
 import Network.AWS.Internal.String
 import Network.AWS.Internal.Types
@@ -22,15 +23,17 @@ import Network.HTTP.Types              hiding (toQuery)
 import Text.XML.Expat.Pickle.Generic
 
 query :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
-query s@Service{..} m p x = Raw s m p (toQuery x) [] (RequestBodyBS "")
+query s@Service{..} m p x = Raw s m p q [] (RequestBodyBS "")
+  where
+    q = map (second Just) (toQuery x)
 
 query4 :: IsQuery a => Service -> StdMethod -> ByteString -> a -> Raw
-query4 s m a q = query s m "/" q .?. [("Action",  a)]
+query4 s m a q = query s m "/" q .?. [("Action", Just a)]
 
 xml :: IsXML a => Service -> StdMethod -> ByteString -> a -> Raw
 xml s@Service{..} m p = Raw s m ("/" `addPrefix` p) [] [] . RequestBodyBS . toXML
 
-(.?.) :: Raw -> [(ByteString, ByteString)] -> Raw
+(.?.) :: Raw -> [(ByteString, Maybe ByteString)] -> Raw
 (.?.) r q = r { rqQuery = rqQuery r ++ q }
 
 (.:.) :: Raw -> [Header] -> Raw

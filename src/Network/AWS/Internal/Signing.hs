@@ -45,14 +45,13 @@ import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Time
 import           Network.AWS.Internal.Types
 import           Network.HTTP.Conduit
-import           Network.HTTP.QueryString.Pickle
-import           Network.HTTP.Types              (Header, StdMethod, urlEncode)
+import           Network.HTTP.Types              (Header, StdMethod, urlEncode, renderQuery)
 
 data Common = Common
     { _service :: !ByteString
     , _version :: !ByteString
     , _host    :: !ByteString
-    , _query   :: [(ByteString, ByteString)]
+    , _query   :: [(ByteString, Maybe ByteString)]
     }
 
 sign :: Raw -> AWS Request
@@ -83,15 +82,14 @@ version2 raw@Raw{..} auth reg time =
             , encoded
             ]
 
-    encoded = encodeQuery (urlEncode True)
-        $ _query
-       ++ [ ("Version",          _version)
-          , ("SignatureVersion", "2")
-          , ("SignatureMethod",  "HmacSHA256")
-          , ("Timestamp",        formatISO8601 time)
-          , ("AWSAccessKeyId",   accessKeyId auth)
+    encoded = renderQuery False $ _query
+       ++ [ ("Version",          Just _version)
+          , ("SignatureVersion", Just "2")
+          , ("SignatureMethod",  Just "HmacSHA256")
+          , ("Timestamp",        Just $ formatISO8601 time)
+          , ("AWSAccessKeyId",   Just $ accessKeyId auth)
           ]
-       ++ maybeToList ((,) "SecurityToken" <$> securityToken auth)
+       ++ maybeToList ((\x -> ("SecurityToken", Just x)) <$> securityToken auth)
 
     headers = hDate (formatISO8601 time) : rqHeaders
 
@@ -101,7 +99,7 @@ version3 raw@Raw{..} auth reg time =
   where
     Common{..} = common raw reg
 
-    query   = encodeQuery (urlEncode True) _query
+    query   = renderQuery False _query
     headers = hDate (formatRFC822 time)
         : hAMZAuth authorisation
         : maybeToList (hAMZToken <$> securityToken auth)
@@ -118,7 +116,7 @@ version4 raw@Raw{..} auth reg time =
   where
     Common{..} = common raw reg
 
-    query   = encodeQuery (urlEncode True) . sort $ ("Version", _version) : _query
+    query   = renderQuery False . sort $ ("Version", Just _version) : _query
     headers = hAMZDate time
             : maybeToList (hAMZToken <$> securityToken auth)
            ++ rqHeaders
@@ -175,7 +173,7 @@ versionS3 bucket raw@Raw{..} auth reg time =
   where
     Common{..} = common raw reg
 
-    query = encodeQuery (urlEncode True) _query
+    query = renderQuery False _query
 
     authorisation = hAuth $ BS.concat ["AWS ", accessKeyId auth, ":", signature]
 

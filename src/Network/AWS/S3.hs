@@ -104,6 +104,7 @@ module Network.AWS.S3
     , module Network.AWS
     ) where
 
+import           Control.Arrow
 import           Control.Monad.IO.Class
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
@@ -130,7 +131,7 @@ object m b p hs = Raw s m (Text.encodeUtf8 p) [] hs
     n = Text.encodeUtf8 b
 
 query :: IsQuery a => StdMethod -> Text -> Text -> a -> Raw
-query m b p x = object m b p [] mempty .?. toQuery x
+query m b p x = object m b p [] mempty .?. map (second Just) (toQuery x)
 
 xml :: IsXML a => StdMethod -> Text -> Text -> a -> Raw
 xml m b p = object m b p [] . RequestBodyBS . toXML
@@ -274,7 +275,7 @@ instance IsQuery GetVersions where
 instance Rq GetVersions where
     type Er GetVersions = S3ErrorResponse
     type Rs GetVersions = GetBucketResponse
-    request (GetVersions gb) = request gb .?. [("versions", "")]
+    request (GetVersions gb) = request gb .?. [("versions", Nothing)]
 
 -- | This implementation of the PUT operation creates a new bucket.
 --

@@ -243,7 +243,7 @@ data Raw = Raw
     { rqService :: !Service
     , rqMethod  :: !StdMethod
     , rqPath    :: !ByteString
-    , rqQuery   :: [(ByteString, ByteString)]
+    , rqQuery   :: [(ByteString, Maybe ByteString)]
     , rqHeaders :: [Header]
     , rqBody    :: !RequestBody
     }

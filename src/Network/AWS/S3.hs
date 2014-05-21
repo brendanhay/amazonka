@@ -274,7 +274,7 @@ instance IsQuery GetVersions where
 instance Rq GetVersions where
     type Er GetVersions = S3ErrorResponse
     type Rs GetVersions = GetBucketResponse
-    request (GetVersions gb) = request gb .?. "versions"
+    request (GetVersions gb) = request gb .?. [("versions", "")]
 
 -- | This implementation of the PUT operation creates a new bucket.
 --

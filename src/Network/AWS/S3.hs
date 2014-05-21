@@ -29,12 +29,13 @@ module Network.AWS.S3
 
     -- * Operations on Buckets
     -- ** GET Bucket
-      GetBucket (..)
-    , GetBucketResponse (..)
+      GetBucket                        (..)
+    , GetVersions                      (..)
+    , GetBucketResponse                (..)
 
     -- * Operations on Objects
     -- ** DELETE Object
-    , DeleteObject                  (..)
+    , DeleteObject                     (..)
     , DeleteObjectResponse
 
     -- -- ** POST Delete Multiple Objects
@@ -42,7 +43,7 @@ module Network.AWS.S3
     -- , DeleteMultipleObjectsResponse (..)
 
     -- ** GET Object
-    , GetObject                     (..)
+    , GetObject                        (..)
     , GetObjectResponse
 
     -- -- ** GET Object ACL
@@ -54,7 +55,7 @@ module Network.AWS.S3
     -- , GetObjectTorrentResponse
 
     -- ** HEAD Object
-    , HeadObject                    (..)
+    , HeadObject                       (..)
     , HeadObjectResponse
 
     -- -- ** OPTIONS Object
@@ -66,7 +67,7 @@ module Network.AWS.S3
     -- , PostObjectRestoreResponse
 
     -- ** PUT Object
-    , PutObject                     (..)
+    , PutObject                        (..)
     , PutObjectResponse
 
     -- -- ** PUT Object ACL
@@ -74,7 +75,7 @@ module Network.AWS.S3
     -- , PutObjectACLResponse
 
     -- ** PUT Object Copy
-    , PutObjectCopy                 (..)
+    , PutObjectCopy                    (..)
     , PutObjectCopyResponse
 
     -- -- ** POST Initiate Multipart Upload
@@ -82,13 +83,13 @@ module Network.AWS.S3
     -- , InitiateMultipartUploadResponse
 
     -- -- ** PUT Upload Part
-    -- , UploadPart              (..)
+    -- , UploadPart                    (..)
 
     -- -- ** PUT Upload Part Copy
-    -- , UploadPartCopy          (..)
+    -- , UploadPartCopy                (..)
 
     -- -- ** POST Complete Multipart Upload
-    -- , CompleteMultipartUpload (..)
+    -- , CompleteMultipartUpload       (..)
 
     -- -- ** DELETE Abort Multipart Upload
     -- , AbortMultipartUpload    (..)
@@ -263,6 +264,17 @@ instance IsXML GetBucketResponse where
                           (xpFindMatches $ xpElem (mkNName s3NS "Contents") xmlPickler)
 
         e n = xpElem (mkNName s3NS n) xmlPickler
+
+newtype GetVersions = GetVersions { unGetVersions :: GetBucket }
+    deriving (Eq, Show, Generic)
+
+instance IsQuery GetVersions where
+    queryPickler = (GetVersions, unGetVersions) `qpWrap` queryPickler
+
+instance Rq GetVersions where
+    type Er GetVersions = S3ErrorResponse
+    type Rs GetVersions = GetBucketResponse
+    request (GetVersions gb) = request gb .?. "versions"
 
 -- | This implementation of the PUT operation creates a new bucket.
 --

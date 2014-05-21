@@ -35,7 +35,7 @@ import           Data.CaseInsensitive            (CI)
 import qualified Data.CaseInsensitive            as Case
 import           Data.Default
 import           Data.Function                   (on)
-import           Data.List                       (groupBy, nub, sort)
+import           Data.List                       (groupBy, nub, sort, find)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Time                       (UTCTime, getCurrentTime)
@@ -206,36 +206,39 @@ versionS3 bucket raw@Raw{..} auth reg time =
     date = formatRFC822 time
 
     canonicalResource = '/' `wrap` bucket <> "/" `stripPrefix` rqPath
+       <> subResource
 
-    -- relevantQueryKeys =
-    --     [ "acl"
-    --     , "cors"
-    --     , "defaultObjectAcl"
-    --     , "location"
-    --     , "logging"
-    --     , "partNumber"
-    --     , "policy"
-    --     , "requestPayment"
-    --     , "torrent"
-    --     , "versioning"
-    --     , "versionId"
-    --     , "versions"
-    --     , "website"
-    --     , "uploads"
-    --     , "uploadId"
-    --     , "response-content-type"
-    --     , "response-content-language"
-    --     , "response-expires"
-    --     , "response-cache-control"
-    --     , "response-content-disposition"
-    --     , "response-content-encoding"
-    --     , "delete"
-    --     , "lifecycle"
-    --     , "tagging"
-    --     , "restore"
-    --     , "storageClass"
-    --     , "notification"
-    --     ]
+    subResource = maybe "" ("?" <>) $ find (`elem` keys) (map fst _query)
+
+    keys =
+        [ "acl"
+        , "cors"
+        , "defaultObjectAcl"
+        , "location"
+        , "logging"
+        , "partNumber"
+        , "policy"
+        , "requestPayment"
+        , "torrent"
+        , "versioning"
+        , "versionId"
+        , "versions"
+        , "website"
+        , "uploads"
+        , "uploadId"
+        , "response-content-type"
+        , "response-content-language"
+        , "response-expires"
+        , "response-cache-control"
+        , "response-content-disposition"
+        , "response-content-encoding"
+        , "delete"
+        , "lifecycle"
+        , "tagging"
+        , "restore"
+        , "storageClass"
+        , "notification"
+        ]
 
 presignS3 :: StdMethod
           -> ByteString

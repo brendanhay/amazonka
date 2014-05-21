@@ -272,7 +272,7 @@ presignS3 meth (strip '/' -> bucket) (strip '/' -> key) expires = do
         , "/" <> bucket <> "/" <> key
         ]
 
-    expiry = BS.pack . show . truncate $ utcTimeToPOSIXSeconds expires
+    expiry = BS.pack $ show (truncate $ utcTimeToPOSIXSeconds expires :: Integer)
 
 common :: Raw -> Region -> Common
 common Raw{..} reg = Common

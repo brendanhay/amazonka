@@ -321,6 +321,7 @@ lookupHeader (Case.mk -> key) = lookup key
 flattenValues :: IsByteString a => (CI ByteString, a) -> ByteString
 flattenValues (k, v) = mconcat [Case.foldedCase k, ":", strip ' ' v, "\n"]
 
+-- | Ensures the querystring is sorted - very important!
 renderQuery :: [(ByteString, Maybe ByteString)] -> ByteString
 renderQuery = BS.intercalate "&" . map f . sortBy (comparing fst)
   where

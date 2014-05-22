@@ -152,8 +152,8 @@ s3Response _ rs
     parse = fmapL toError . fromXML
 
     plain      = Right rs
-    badRequest = Left (S3ErrorResponse "Bad Request.")
-    notFound   = Left (S3ErrorResponse "Not Found.")
+    badRequest = Left $ S3ErrorResponse "Bad Request." (Just 400)
+    notFound   = Left $ S3ErrorResponse "Not Found."   (Just 404)
 
     code = statusCode (responseStatus rs)
 

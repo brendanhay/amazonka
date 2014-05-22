@@ -35,9 +35,10 @@ import           Data.CaseInsensitive            (CI)
 import qualified Data.CaseInsensitive            as Case
 import           Data.Default
 import           Data.Function                   (on)
-import           Data.List                       (groupBy, nub, sort, find)
+import           Data.List                       (groupBy, nub, sort, sortBy, find)
 import           Data.Maybe
 import           Data.Monoid
+import           Data.Ord
 import           Data.Time                       (UTCTime, getCurrentTime)
 import           Data.Time.Clock.POSIX
 import           Network.AWS.Headers
@@ -45,7 +46,7 @@ import           Network.AWS.Internal.String
 import           Network.AWS.Internal.Time
 import           Network.AWS.Internal.Types
 import           Network.HTTP.Conduit
-import           Network.HTTP.Types              (Header, StdMethod, urlEncode, renderQuery)
+import           Network.HTTP.Types              (Header, StdMethod, urlEncode)
 
 data Common = Common
     { _service :: !ByteString
@@ -82,7 +83,7 @@ version2 raw@Raw{..} auth reg time =
             , encoded
             ]
 
-    encoded = renderQuery False $ _query
+    encoded = renderQuery $ _query
        ++ [ ("Version",          Just _version)
           , ("SignatureVersion", Just "2")
           , ("SignatureMethod",  Just "HmacSHA256")
@@ -99,7 +100,7 @@ version3 raw@Raw{..} auth reg time =
   where
     Common{..} = common raw reg
 
-    query   = renderQuery False _query
+    query   = renderQuery _query
     headers = hDate (formatRFC822 time)
         : hAMZAuth authorisation
         : maybeToList (hAMZToken <$> securityToken auth)
@@ -116,7 +117,7 @@ version4 raw@Raw{..} auth reg time =
   where
     Common{..} = common raw reg
 
-    query   = renderQuery False . sort $ ("Version", Just _version) : _query
+    query   = renderQuery . sort $ ("Version", Just _version) : _query
     headers = hAMZDate time
             : maybeToList (hAMZToken <$> securityToken auth)
            ++ rqHeaders
@@ -173,7 +174,7 @@ versionS3 bucket raw@Raw{..} auth reg time =
   where
     Common{..} = common raw reg
 
-    query = renderQuery False _query
+    query = renderQuery _query
 
     authorisation = hAuth $ BS.concat ["AWS ", accessKeyId auth, ":", signature]
 
@@ -319,3 +320,9 @@ lookupHeader (Case.mk -> key) = lookup key
 
 flattenValues :: IsByteString a => (CI ByteString, a) -> ByteString
 flattenValues (k, v) = mconcat [Case.foldedCase k, ":", strip ' ' v, "\n"]
+
+renderQuery :: [(ByteString, Maybe ByteString)] -> ByteString
+renderQuery = BS.intercalate "&" . map f . sortBy (comparing fst)
+  where
+    f (k, Just v) = mconcat [k, "=", urlEncode True v]
+    f (k, _)      = k

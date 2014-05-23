@@ -83,6 +83,23 @@ instance IsXML Contents where
     xmlPickler = withRootNS s3NS "Contents"
 
 --
+-- GetVersions
+--
+
+data Version = Version
+    { vKey          :: !Text
+    , vVersionId    :: !Text
+    , vIsLatest     :: !Bool
+    , vLastModified :: !UTCTime
+    , vETag         :: !ETag
+    , vSize         :: !Integer
+    , vStorageClass :: !StorageClass
+    } deriving (Eq, Show, Generic)
+
+instance IsXML Version where
+    xmlPickler = withRootNS s3NS "Version"
+
+--
 -- PutBucket
 --
 

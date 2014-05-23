@@ -30,8 +30,11 @@ module Network.AWS.S3
     -- * Operations on Buckets
     -- ** GET Bucket
       GetBucket                        (..)
-    , GetVersions                      (..)
     , GetBucketResponse                (..)
+
+    -- ** GET Bucket?versions
+    , GetBucketVersions                (..)
+    , GetBucketVersionsResponse        (..)
 
     -- * Operations on Objects
     -- ** DELETE Object
@@ -267,13 +270,38 @@ instance IsXML GetBucketResponse where
 
         e n = xpElem (mkNName s3NS n) xmlPickler
 
-newtype GetVersions = GetVersions { unGetVersions :: GetBucket }
+newtype GetBucketVersions = GetBucketVersions GetBucket
     deriving (Eq, Show)
 
-instance Rq GetVersions where
-    type Er GetVersions = S3ErrorResponse
-    type Rs GetVersions = GetBucketResponse
-    request (GetVersions gb) = request gb .?. [("versions", Nothing)]
+instance Rq GetBucketVersions where
+    type Er GetBucketVersions = S3ErrorResponse
+    type Rs GetBucketVersions = GetBucketVersionsResponse
+    request (GetBucketVersions gb) = request gb .?. [("versions", Nothing)]
+
+data GetBucketVersionsResponse = GetBucketVersionsResponse
+    { gbvrName          :: !Text
+    , gbvrPrefix        :: Maybe Text
+    , gbvrKeyMarker     :: Maybe Text
+    , gbvrNextKeyMarker :: Maybe Text
+    , gbvrMaxKeys       :: !Int
+    , gbvrIsTruncated   :: !Bool
+    , gbvrVersions      :: [Version]
+    } deriving (Eq, Show, Generic)
+
+instance IsXML GetBucketVersionsResponse where
+    xmlPickler = pu { root = Just $ mkNName s3NS "ListVersionsResult" }
+      where
+        pu = xpWrap (\(n, p, m, nm, k, t, c) -> GetBucketVersionsResponse n p m nm k t c,
+                     \GetBucketVersionsResponse{..} -> (gbvrName, gbvrPrefix, gbvrKeyMarker, gbvrNextKeyMarker, gbvrMaxKeys, gbvrIsTruncated, gbvrVersions)) $
+                 xp7Tuple (e "Name")
+                          (xpOption $ e "Prefix")
+                          (xpOption $ e "KeyMarker")
+                          (xpOption $ e "NextKeyMarker")
+                          (e "MaxKeys")
+                          (e "IsTruncated")
+                          (xpFindMatches $ xpElem (mkNName s3NS "Version") xmlPickler)
+
+        e n = xpElem (mkNName s3NS n) xmlPickler
 
 -- | This implementation of the PUT operation creates a new bucket.
 --

@@ -75,6 +75,7 @@ data Contents = Contents
     , bcETag         :: !ETag
     , bcSize         :: !Integer
     , bcStorageClass :: !StorageClass
+    , bcVersionId    :: Maybe Text
 --    , bcOwner        :: !Owner
     } deriving (Eq, Show, Generic)
 

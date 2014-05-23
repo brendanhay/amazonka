@@ -292,10 +292,10 @@ signed :: StdMethod
        -> RequestBody
        -> Request
 signed meth host path qs hs body = def
-    { secure         = True
+    { secure         = False
     , method         = BS.pack $ show meth
     , host           = host
-    , port           = 443
+    , port           = 80
     , path           = path
     , queryString    = qs
     , requestHeaders = hs

@@ -44,6 +44,7 @@ module Network.AWS.S3
 
     -- ** GET Object
     , GetObject                        (..)
+    , GetVersion                       (..)
     , GetObjectResponse
 
     -- -- ** GET Object ACL
@@ -267,10 +268,7 @@ instance IsXML GetBucketResponse where
         e n = xpElem (mkNName s3NS n) xmlPickler
 
 newtype GetVersions = GetVersions { unGetVersions :: GetBucket }
-    deriving (Eq, Show, Generic)
-
-instance IsQuery GetVersions where
-    queryPickler = (GetVersions, unGetVersions) `qpWrap` queryPickler
+    deriving (Eq, Show)
 
 instance Rq GetVersions where
     type Er GetVersions = S3ErrorResponse
@@ -382,6 +380,16 @@ instance Rq GetObject where
     response = s3Response
 
 type GetObjectResponse = S3Response
+
+data GetVersion a = GetVersion !a !Text
+    deriving (Eq, Show)
+
+instance (Rq a, Rs a ~ S3Response) => Rq (GetVersion a) where
+    type Er (GetVersion a) = S3ErrorResponse
+    type Rs (GetVersion a) = Rs a
+    request (GetVersion rq v) =
+        request rq .?. [("versionId", Just $ Text.encodeUtf8 v)]
+    response = s3Response
 
 -- -- | Uses the ACL subresource to return the access control list (ACL) of an object.
 -- --

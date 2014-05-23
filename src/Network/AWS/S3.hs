@@ -146,6 +146,7 @@ s3Response :: a
 s3Response _ rs
     | code >= 200 && code < 300 = return (Right plain)
     | code == 400               = return (Right badRequest)
+    | code == 403               = return (Right forbidden)
     | code == 404               = return (Right notFound)
     | otherwise = do
         lbs <- responseBody rs $$+- Conduit.sinkLbs
@@ -157,6 +158,7 @@ s3Response _ rs
 
     plain      = Right rs
     badRequest = Left $ S3ErrorResponse "Bad Request." (Just 400)
+    forbidden  = Left $ S3ErrorResponse "Forbidden."   (Just 403)
     notFound   = Left $ S3ErrorResponse "Not Found."   (Just 404)
 
     code = statusCode (responseStatus rs)

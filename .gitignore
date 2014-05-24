@@ -1,0 +1,29 @@
+# Haskell
+.conf
+*.o
+*.hi
+*.chi
+*.chs.h
+*.imports
+cabal.sandbox.config
+
+# Dirs
+.cabal-sandbox
+dist
+vendor
+
+# CTAGS
+TAGS
+tags
+
+# Emacs/Vim
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+*.org
+
+# OSX
+.DS_Store

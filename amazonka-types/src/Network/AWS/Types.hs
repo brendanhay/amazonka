@@ -1,3 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -8,12 +11,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Types
-    (
-    ) where
+module Network.AWS.Types where
 
-import           Data.Text      (Text)
-import qualified Data.Text      as Text
+import           Control.Applicative
+import qualified Data.Attoparsec.Text as AText
+import           Data.Char            (isAlpha)
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Data.Text.From
 import           Data.Text.To
 import           Data.Time
@@ -46,7 +50,7 @@ instance Show Region where
     show = showText
 
 instance FromText Region where
-    parser = choice $ map (\(x, y) -> string x >> return y)
+    parser = AText.choice $ map (\(x, y) -> AText.string x >> return y)
         [ ("eu-west-1",          Ireland)
         , ("ap-northeast-1",     Tokyo)
         , ("ap-southeast-1",     Singapore)
@@ -61,27 +65,23 @@ instance FromText Region where
         ]
 
 instance ToText Region where
-    toText r =
-        case r of
-            Ireland         -> "eu-west-1"
-            Tokyo           -> "ap-northeast-1"
-            Singapore       -> "ap-southeast-1"
-            Sydney          -> "ap-southeast-2"
-            Beijing         -> "cn-north-1"
-            NorthVirginia   -> "us-east-1"
-            NorthCalifornia -> "us-west-1"
-            Oregon          -> "us-west-2"
-            GovCloud        -> "us-gov-west-1"
-            GovCloudFIPS    -> "fips-us-gov-west-1"
-            SaoPaulo        -> "sa-east-1"
-
-instance Default Region where
-    def = NorthVirginia
+    toText r = case r of
+        Ireland         -> "eu-west-1"
+        Tokyo           -> "ap-northeast-1"
+        Singapore       -> "ap-southeast-1"
+        Sydney          -> "ap-southeast-2"
+        Beijing         -> "cn-north-1"
+        NorthVirginia   -> "us-east-1"
+        NorthCalifornia -> "us-west-1"
+        Oregon          -> "us-west-2"
+        GovCloud        -> "us-gov-west-1"
+        GovCloudFIPS    -> "fips-us-gov-west-1"
+        SaoPaulo        -> "sa-east-1"
 
 data AZ = AZ
     { azRegion :: !Region
     , azSuffix :: !Char
-    } deriving (Eq, Ord, Generic)
+    } deriving (Eq, Ord)
 
 instance Read AZ where
     readsPrec = const readText
@@ -90,11 +90,7 @@ instance Show AZ where
     show = showText
 
 instance FromText AZ where
-    fromText txt
-        | Text.length txt < 2 =
-            fromTextFail $ "Unable to parse AZ: " <> txt
-        | otherwise =
-            (`AZ` Text.last txt) `fmap` fromText (Text.init txt)
+    parser = AZ <$> parser <*> AText.satisfy isAlpha <* AText.endOfInput
 
 instance ToText AZ where
     toText AZ{..} = toText azRegion `Text.snoc` azSuffix

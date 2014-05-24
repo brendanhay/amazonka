@@ -15,6 +15,7 @@ module Network.AWS.Types where
 
 import           Control.Applicative
 import qualified Data.Attoparsec.Text as AText
+import           Data.ByteString      (ByteString)
 import           Data.Char            (isAlpha)
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
@@ -22,12 +23,58 @@ import           Data.Text.From
 import           Data.Text.To
 import           Data.Time
 
+data family Er a :: *
+
+class AWSService a where
+    service :: Service a
+
+class AWSRequest a where
+    type Sv a :: *
+    type Rs a :: *
+
+    request   :: a -> Context (Sv a)
+    response  :: MonadResource m
+              => Response (ResumableSource m ByteString)
+              -> m (Either (Er (Sv a)) (Rs a))
+
+class AWSPager a where
+    next :: AWSRequest a => a -> Rs a -> Maybe a
+
 data Auth = Auth
-    { authAccess :: !Text
-    , authSecret :: !Text
-    , authToken  :: Maybe Text
+    { authAccess :: !ByteString
+    , authSecret :: !ByteString
+    , authToken  :: Maybe ByteString
     , authExpiry :: Maybe UTCTime
     }
+
+data Endpoint
+    = Global
+    | Regional
+    | Custom !ByteString
+
+data Service a = Service
+    { svcEndpoint :: !Endpoint
+    , svcName     :: !ByteString
+    , svcVersion  :: !ByteString
+    , svcTarget   :: Maybe ByteString
+    }
+
+data Context a = Context
+    { ctxMethod  :: !StdMethod
+    , ctxPath    :: !Text
+    , ctxQuery   :: [(Text, Maybe Text)]
+    , ctxHeaders :: [(CI Text, Text)]
+    , ctxBody    :: RequestBody
+    }
+
+instance Show (Context a) where
+    show Context{..} = unlines
+        [ "Context:"
+        , "ctxMethod  = " ++ show ctxMethod
+        , "ctxPath    = " ++ show ctxPath
+        , "ctxQuery   = " ++ show ctxQuery
+        , "ctxHeaders = " ++ show ctxHeaders
+        ]
 
 data Region
     = Ireland         -- ^ Europe: @eu-west-1@
@@ -42,6 +89,9 @@ data Region
     | GovCloudFIPS    -- ^ AWS GovCloud (FIPS 140-2) S3 Only: @fips-us-gov-west-1@
     | SaoPaulo        -- ^ South America: @sa-east-1@
       deriving (Eq, Ord)
+
+instance Default Region where
+    def = NorthVirginia
 
 instance Read Region where
     readsPrec = const readText

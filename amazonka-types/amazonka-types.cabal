@@ -19,17 +19,22 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Data.Text.From
+          Data.ByteString.To
+        , Data.Text.From
         , Data.Text.To
+        , Data.Time.Formatted
+
+        , Network.AWS.Signing
+        , Network.AWS.Signing.V4
 
         , Network.AWS.Types
---        , Network.AWS.Sign.Types
 
     other-modules:
 
     build-depends:
           attoparsec
-        , base       >= 4.7 && < 4.8
+        , base         >= 4.7 && < 4.8
         , bytestring
         , text
         , time
+        , transformers

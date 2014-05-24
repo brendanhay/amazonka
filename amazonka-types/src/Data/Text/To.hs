@@ -10,10 +10,10 @@
 
 module Data.Text.To
     (
-    -- * Text classes
+    -- * Class
       ToText (..)
 
-    -- * Class instance helpers
+    -- * Instance helpers
     , showText
     , integral
     , float

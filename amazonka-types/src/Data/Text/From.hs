@@ -12,11 +12,11 @@
 
 module Data.Text.From
     (
-    -- * Text classes
+    -- * Class
       FromText (..)
-    , fromText
 
-    -- * Class instance helpers
+    -- * Instance helpers
+    , fromText
     , readText
     ) where
 

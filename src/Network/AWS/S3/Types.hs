@@ -38,17 +38,18 @@ s3Elem :: ByteString -> NName ByteString
 s3Elem = mkNName s3NS
 
 data S3ErrorResponse = S3ErrorResponse
-    { serMessage :: !Text
-    , serStatus  :: Maybe Int
+    { serMessage  :: !Text
+    , serResource :: !Text
+    , serCode     :: !Text
     } deriving (Eq, Show, Generic)
-
-instance ToError S3ErrorResponse where
-    toError = Err . show
 
 instance IsXML S3ErrorResponse where
     xmlPickler = (genericXMLPickler defaultXMLOptions)
         { root = Just $ mkAnNName "Error"
         }
+
+instance ToError S3ErrorResponse where
+    toError = Err . show
 
 data Bucket = Bucket
     { bName         :: !Text

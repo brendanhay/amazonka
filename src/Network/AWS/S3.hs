@@ -117,6 +117,7 @@ import           Data.Conduit
 import qualified Data.Conduit.Binary        as Conduit
 import           Data.Monoid
 import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import           Network.AWS
 import           Network.AWS.Internal       hiding (xml, query)
@@ -144,22 +145,23 @@ s3Response :: a
            -> S3Response
            -> AWS (Either AWSError (Either S3ErrorResponse S3Response))
 s3Response _ rs
-    | code >= 200 && code < 300 = return (Right plain)
-    | code == 400               = return (Right badRequest)
-    | code == 403               = return (Right forbidden)
-    | code == 404               = return (Right notFound)
+    | code >= 200 && code < 300 = return . Right $ Right rs
     | otherwise = do
         lbs <- responseBody rs $$+- Conduit.sinkLbs
-        whenDebug . liftIO $ LBS.putStrLn lbs
-        return . either Left (Right . Left) . parse $ LBS.toStrict lbs
+        if LBS.null lbs
+            then return . Right . Left $
+                S3ErrorResponse (Text.pack $ show rs) "" "Empty Response"
+            else do
+                whenDebug . liftIO $ LBS.putStrLn $ "[ResponseBody]\n" <> lbs
+                return . either Left (Right . Left) . parse $ LBS.toStrict lbs
   where
     parse :: ByteString -> Either AWSError S3ErrorResponse
     parse = fmapL toError . fromXML
 
-    plain      = Right rs
-    badRequest = Left $ S3ErrorResponse "Bad Request." (Just 400)
-    forbidden  = Left $ S3ErrorResponse "Forbidden."   (Just 403)
-    notFound   = Left $ S3ErrorResponse "Not Found."   (Just 404)
+    -- plain      = Right rs
+    -- badRequest = Left $ S3ErrorResponse "Bad Request." (Just 400)
+    -- forbidden  = Left $ S3ErrorResponse "Forbidden."   (Just 403)
+    -- notFound   = Left $ S3ErrorResponse "Not Found."   (Just 404)
 
     code = statusCode (responseStatus rs)
 

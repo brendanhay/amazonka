@@ -23,6 +23,7 @@ import           Data.Char
 import           Data.Conduit
 import           Data.Default
 import           Data.IORef
+import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Data.Time
@@ -44,12 +45,10 @@ class AWSRequest a where
 class AWSPager a where
     next :: AWSRequest a => a -> Rs a -> Maybe a
 
-newtype Error = Error String
-
 data AuthEnv = AuthEnv
-    { authAccess :: !ByteString
-    , authSecret :: !ByteString
-    , authToken  :: Maybe ByteString
+    { authAccess :: !Text
+    , authSecret :: !Text
+    , authToken  :: Maybe Text
     , authExpiry :: Maybe UTCTime
     }
 
@@ -61,6 +60,7 @@ data Endpoint
     | Custom !ByteString
 
 data Signed a = Signed (Context ())
+
 type Signer a = Auth -> Region -> UTCTime -> Signed a
 
 data Service b a = Service

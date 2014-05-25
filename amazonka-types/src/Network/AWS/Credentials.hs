@@ -18,9 +18,9 @@ module Network.AWS.Credentials where
 
 import           Control.Applicative
 import           Control.Concurrent
+import           Data.IORef
 --import           Control.Error
 import           Control.Monad
-import           Control.Monad.Error.Class  (MonadError)
 import           Control.Monad.IO.Class
 --import qualified Data.Aeson                        as Aeson
 import qualified Data.ByteString.Char8      as BS
@@ -33,6 +33,7 @@ import qualified Data.Text.Encoding         as Text
 import           Data.Time
 import           Network.AWS.Data
 --import           Network.AWS.EC2.Metadata
+import           Network.AWS.Error
 import           Network.AWS.Types
 import           System.Environment
 
@@ -72,45 +73,47 @@ instance ToText Credentials where
 instance Show Credentials where
     show = showText
 
-credentials :: MonadError Error m => Credentials -> m Auth
-credentials = undefined
+credentials :: (Alternative m, MonadIO m, MonadError Error m)
+            => Credentials
+            -> m Auth
+credentials c = case c of
+    CredKeys    a s   -> ref $ AuthEnv a s Nothing Nothing
+    CredSession a s t -> ref $ AuthEnv a s (Just t) Nothing
+    CredProfile n     -> fromProfile n
+    CredEnv     a s   -> fromKeys a s >>= ref
+    CredDiscover      -> fromDiscover
+  where
+    fromDiscover = (fromKeys accessKey secretKey >>= ref)
+        <|> (defaultProfile >>= fromProfile)
 
--- credentials :: (Applicative m, MonadIO m)
---             => Credentials
---             -> EitherT String m Auth
--- credentials = mk
---   where
---     mk (CredKeys    a s)   = ref $ AuthEnv a s Nothing Nothing
---     mk (CredSession a s t) = ref $ AuthEnv a s (Just t) Nothing
---     mk (CredProfile n)     = fromProfile n
---     mk (CredEnv     a s)   = fromKeys a s
---     mk CredDiscover        = fromKeys accessKey secretKey
---         <|> (defaultProfile >>= fromProfile)
+    fromKeys a s = AuthEnv
+        <$> key a
+        <*> key s
+        <*> pure Nothing
+        <*> pure Nothing
 
---     fromKeys a s = AuthEnv <$> key a <*> key s <*> pure Nothing <*> pure Nothing
---         >>= ref
+    key (Text.unpack -> k) = do
+        v <- liftIO $ lookupEnv k
+        maybe (throwError . fromString $ "Unable to read ENV variable: " ++ k)
+              (return . Text.pack)
+              v
 
---     key (Text.unpack -> k) = fmapLT (fromString . show) (syncIO $ lookupEnv k)
---         >>= failWith (fromString $ "Unable to read ENV variable: " ++ k)
---         >>= return . Text.pack
+    ref = fmap Auth . liftIO . newIORef
 
---     ref = fmap Auth . liftIO . newIORef
+defaultProfile :: (MonadIO m, MonadError Error m) => m Text
+defaultProfile = undefined -- do
+    -- ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
+    -- p  <- tryHead "Unable to get default IAM Profile from metadata" ls
+    -- return $ Text.decodeUtf8 p
 
--- defaultProfile :: (Applicative m, MonadIO m) => EitherT String m Text
--- defaultProfile = do
---     ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
---     p  <- tryHead "Unable to get default IAM Profile from metadata" ls
---     return $ Text.decodeUtf8 p
-
--- -- | The IORef wrapper + timer is designed so that multiple concurrenct
--- -- accesses of 'Auth' from the 'AWS' environment are not required to calculate
--- -- expiry and sequentially queue to update it.
--- --
--- -- The forked timer ensures a singular owner and pre-emptive refresh of the
--- -- temporary session credentials.
--- fromProfile :: (Applicative m, MonadIO m)
---             => Text
---             -> EitherT String m Auth
+-- | The IORef wrapper + timer is designed so that multiple concurrenct
+-- accesses of 'Auth' from the 'AWS' environment are not required to calculate
+-- expiry and sequentially queue to update it.
+--
+-- The forked timer ensures a singular owner and pre-emptive refresh of the
+-- temporary session credentials.
+fromProfile :: (MonadIO m, MonadError Error m) => Text -> m Auth
+fromProfile name = undefined
 -- fromProfile name = do
 --     !a@Auth{..} <- auth
 --     fmapLT show . syncIO . liftIO $ do

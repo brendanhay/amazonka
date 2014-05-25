@@ -10,6 +10,8 @@
 
 module Network.AWS.Data.Path where
 
--- class ToPath a where
---     toPath :: a -> Text
+import Data.Text (Text)
+
+class ToPath a where
+    toPath :: a -> Text
 --     toPath = const Text.empty

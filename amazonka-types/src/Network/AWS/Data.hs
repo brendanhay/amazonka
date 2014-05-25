@@ -31,23 +31,24 @@ module Network.AWS.Data
     , Time.BasicTime   (..)
 
     -- * XML
-    -- , FromXML (..)
+    -- , FromXML       (..)
     -- , decodeXML
 
-    -- , ToXML (..)
+    -- , ToXML         (..)
     -- , encodeXML
 
     -- * HTTP
     -- ** Headers
 
     -- ** Paths
+    , Path.ToPath      (..)
 
     -- ** QueryStrings
     ) where
 
 import qualified Network.AWS.Data.ByteString as BS
 -- import qualified Network.AWS.Data.Header     as Header
--- import qualified Network.AWS.Data.Path       as Path
+import qualified Network.AWS.Data.Path       as Path
 -- import qualified Network.AWS.Data.Query      as Query
 import qualified Network.AWS.Data.Text       as Text
 import qualified Network.AWS.Data.Time       as Time

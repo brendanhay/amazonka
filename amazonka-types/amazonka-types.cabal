@@ -30,6 +30,7 @@ library
       , Network.AWS.Data.Time
       , Network.AWS.Data.XML
       , Network.AWS.EC2.Metadata
+      , Network.AWS.Error
       , Network.AWS.Monadic
       , Network.AWS.Request.JSON
       , Network.AWS.Request.Query

@@ -19,15 +19,33 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Data.ByteString.To
-        , Data.Text.From
-        , Data.Text.To
-        , Data.Time.Formatted
+        Data.ByteString.To
 
-        , Network.AWS.Signing
-        , Network.AWS.Signing.V4
+      , Data.Text.From
+      , Data.Text.To
 
-        , Network.AWS.Types
+      , Data.Time.Formatted
+
+      , Network.AWS
+      , Network.AWS.Credentials
+      , Network.AWS.EC2.Metadata
+      , Network.AWS.Monadic
+      , Network.AWS.Request.JSON
+      , Network.AWS.Request.Query
+      , Network.AWS.Request.RestXML
+      , Network.AWS.Request.RestS3
+      , Network.AWS.Response
+      , Network.AWS.Serialisation
+      , Network.AWS.Signing
+      , Network.AWS.Signing.V4
+      , Network.AWS.Types
+
+      , Network.HTTP.Types.Header.To
+      , Network.HTTP.Types.Path.To
+      , Network.HTTP.Types.Query.To
+
+      , Text.XML.From
+      , Text.XML.To
 
     other-modules:
 

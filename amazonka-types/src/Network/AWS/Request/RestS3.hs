@@ -1,4 +1,4 @@
--- Module      : Network.AWS.Signing
+-- Module      : Network.AWS.Request.RestS3
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,17 +8,5 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing
-    (
-    -- * Types
-      Signed           (..)
-    , SigningAlgorithm (..)
+module Network.AWS.Request.RestS3 where
 
-    -- * Algorithms
-    -- , V2
-    -- , V3
-    , V4
-    ) where
-
-import Network.AWS.Signing.Types
-import Network.AWS.Signing.V4    (V4)

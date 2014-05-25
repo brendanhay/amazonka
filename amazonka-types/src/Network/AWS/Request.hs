@@ -28,6 +28,12 @@ import Network.AWS.Internal.Types
 import Network.HTTP.Conduit               hiding (rawBody)
 import Network.HTTP.Types
 
+Split these into a module heirarchy, just use verbs as fn names
+
+Is toPath necessary - would just supplying the path as a param be better/worse?
+
+Can the need for empty (non-generic) class instaces be removed?
+
 getRestXML :: (ToPath a, ToQuery a, ToHeaders a, AWSRequest a)
            => Service
            -> a

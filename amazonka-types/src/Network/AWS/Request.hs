@@ -39,6 +39,8 @@ Should i bake in lens support for all requests, responses, and shit like this mo
 Define lenses by hand or? - use lens-family-core unchecked and roll them by hand
 for these request setters, use TH for the actual requests
 
+MonadError / EitherT
+
 
 getRestXML :: (ToPath a, ToQuery a, ToHeaders a, AWSRequest a)
            => Service

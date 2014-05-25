@@ -1,4 +1,5 @@
 {-# LANGUAGE BangPatterns      #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE ViewPatterns      #-}
@@ -17,21 +18,22 @@ module Network.AWS.Credentials where
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Control.Error
+--import           Control.Error
 import           Control.Monad
+import           Control.Monad.Error.Class  (MonadError)
 import           Control.Monad.IO.Class
-import qualified Data.Aeson                        as Aeson
-import qualified Data.ByteString.Char8             as BS
-import qualified Data.ByteString.Lazy.Char8        as LBS
+--import qualified Data.Aeson                        as Aeson
+import qualified Data.ByteString.Char8      as BS
+import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.Monoid
 import           Data.String
-import           Data.Text                         (Text)
-import qualified Data.Text                         as Text
-import qualified Data.Text.Encoding                as Text
-import           Data.Text.To
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import qualified Data.Text.Encoding         as Text
 import           Data.Time
-import           Network.AWS.EC2.Metadata
-import           Network.AWS.Internal.Types.Common
+import           Network.AWS.Data
+--import           Network.AWS.EC2.Metadata
+import           Network.AWS.Types
 import           System.Environment
 
 -- | Default access key environment variable: 'AWS_ACCESS_KEY'
@@ -70,63 +72,66 @@ instance ToText Credentials where
 instance Show Credentials where
     show = showText
 
-credentials :: (Applicative m, MonadIO m)
-            => Credentials
-            -> EitherT String m Auth
-credentials = mk
-  where
-    mk (CredKeys    a s)   = ref $ AuthEnv a s Nothing Nothing
-    mk (CredSession a s t) = ref $ AuthEnv a s (Just t) Nothing
-    mk (CredProfile n)     = fromProfile n
-    mk (CredEnv     a s)   = fromKeys a s
-    mk CredDiscover        = fromKeys accessKey secretKey
-        <|> (defaultProfile >>= fromProfile)
+credentials :: MonadError Error m => Credentials -> m Auth
+credentials = undefined
 
-    fromKeys a s = AuthEnv <$> key a <*> key s <*> pure Nothing <*> pure Nothing
-        >>= ref
+-- credentials :: (Applicative m, MonadIO m)
+--             => Credentials
+--             -> EitherT String m Auth
+-- credentials = mk
+--   where
+--     mk (CredKeys    a s)   = ref $ AuthEnv a s Nothing Nothing
+--     mk (CredSession a s t) = ref $ AuthEnv a s (Just t) Nothing
+--     mk (CredProfile n)     = fromProfile n
+--     mk (CredEnv     a s)   = fromKeys a s
+--     mk CredDiscover        = fromKeys accessKey secretKey
+--         <|> (defaultProfile >>= fromProfile)
 
-    key (Text.unpack -> k) = fmapLT (fromString . show) (syncIO $ lookupEnv k)
-        >>= failWith (fromString $ "Unable to read ENV variable: " ++ k)
-        >>= return . Text.pack
+--     fromKeys a s = AuthEnv <$> key a <*> key s <*> pure Nothing <*> pure Nothing
+--         >>= ref
 
-    ref = fmap Auth . liftIO . newIORef
+--     key (Text.unpack -> k) = fmapLT (fromString . show) (syncIO $ lookupEnv k)
+--         >>= failWith (fromString $ "Unable to read ENV variable: " ++ k)
+--         >>= return . Text.pack
 
-defaultProfile :: (Applicative m, MonadIO m) => EitherT String m Text
-defaultProfile = do
-    ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
-    p  <- tryHead "Unable to get default IAM Profile from metadata" ls
-    return $ Text.decodeUtf8 p
+--     ref = fmap Auth . liftIO . newIORef
 
--- | The IORef wrapper + timer is designed so that multiple concurrenct
--- accesses of 'Auth' from the 'AWS' environment are not required to calculate
--- expiry and sequentially queue to update it.
---
--- The forked timer ensures a singular owner and pre-emptive refresh of the
--- temporary session credentials.
-fromProfile :: (Applicative m, MonadIO m)
-            => Text
-            -> EitherT String m Auth
-fromProfile name = do
-    !a@Auth{..} <- auth
-    fmapLT show . syncIO . liftIO $ do
-        ref <- newIORef a
-        start ref authExpiration
-        return ref
-  where
-    auth :: (Applicative m, MonadIO m) => EitherT String m Auth
-    auth = do
-        m <- LBS.fromStrict <$> meta (IAM . SecurityCredentials $ Just name)
-        hoistEither $ Aeson.eitherDecode m
+-- defaultProfile :: (Applicative m, MonadIO m) => EitherT String m Text
+-- defaultProfile = do
+--     ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
+--     p  <- tryHead "Unable to get default IAM Profile from metadata" ls
+--     return $ Text.decodeUtf8 p
 
-    start ref = maybe (return ()) (timer ref <=< delay)
+-- -- | The IORef wrapper + timer is designed so that multiple concurrenct
+-- -- accesses of 'Auth' from the 'AWS' environment are not required to calculate
+-- -- expiry and sequentially queue to update it.
+-- --
+-- -- The forked timer ensures a singular owner and pre-emptive refresh of the
+-- -- temporary session credentials.
+-- fromProfile :: (Applicative m, MonadIO m)
+--             => Text
+--             -> EitherT String m Auth
+-- fromProfile name = do
+--     !a@Auth{..} <- auth
+--     fmapLT show . syncIO . liftIO $ do
+--         ref <- newIORef a
+--         start ref authExpiration
+--         return ref
+--   where
+--     auth :: (Applicative m, MonadIO m) => EitherT String m Auth
+--     auth = do
+--         m <- LBS.fromStrict <$> meta (IAM . SecurityCredentials $ Just name)
+--         hoistEither $ Aeson.eitherDecode m
 
-    delay n = truncate . diffUTCTime n <$> getCurrentTime
+--     start ref = maybe (return ()) (timer ref <=< delay)
 
-    -- FIXME:
-    --  guard against a lower expiration than the -60
-    --  remove the error . show shenanigans
-    timer ref n = void . forkIO $ do
-        threadDelay $ (n - 60) * 1000000
-        !a@AuthEnv{..} <- eitherT (error . show) return auth
-        atomicWriteIORef ref a
-        start ref authExpiration
+--     delay n = truncate . diffUTCTime n <$> getCurrentTime
+
+--     -- FIXME:
+--     --  guard against a lower expiration than the -60
+--     --  remove the error . show shenanigans
+--     timer ref n = void . forkIO $ do
+--         threadDelay $ (n - 60) * 1000000
+--         !a@AuthEnv{..} <- eitherT (error . show) return auth
+--         atomicWriteIORef ref a
+--         start ref authExpiration

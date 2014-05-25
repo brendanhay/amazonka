@@ -1,4 +1,3 @@
--- Module      : Data.ByteString.To
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +7,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Data.ByteString.To
+module Network.AWS.Data.ByteString
     (
     -- * Class
       ToByteString (..)
@@ -18,11 +17,12 @@ module Data.ByteString.To
     , fromBuilder
     ) where
 
-import           Data.ByteString           (ByteString)
-import qualified Data.ByteString.Builder   as LBS
-import qualified Data.ByteString.Char8     as BS
-import           Data.Text                 (Text)
-import qualified Data.Text.Encoding        as Text
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Builder    as LBS
+import qualified Data.ByteString.Char8      as BS
+import qualified Data.ByteString.Lazy.Char8 as LBS
+import           Data.Text                  (Text)
+import qualified Data.Text.Encoding         as Text
 import           Network.HTTP.Types.Method
 
 showByteString :: ToByteString a => a -> String
@@ -36,8 +36,8 @@ class ToByteString a where
 
 instance ToByteString ByteString where toByteString = id
 instance ToByteString Text       where toByteString = Text.encodeUtf8
-instance ToByteString Int        where toByteString = fromBuilder . intDec
-instance ToByteString Integer    where toByteString = fromBuilder . integerDec
-instance ToByteString Float      where toByteString = fromBuilder . floatDec
-instance ToByteString Double     where toByteString = fromBuilder . doubleDec
+instance ToByteString Int        where toByteString = fromBuilder . LBS.intDec
+instance ToByteString Integer    where toByteString = fromBuilder . LBS.integerDec
+instance ToByteString Float      where toByteString = fromBuilder . LBS.floatDec
+instance ToByteString Double     where toByteString = fromBuilder . LBS.doubleDec
 instance ToByteString StdMethod  where toByteString = renderStdMethod

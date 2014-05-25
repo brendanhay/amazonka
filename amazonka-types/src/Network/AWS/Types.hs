@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,15 +15,20 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
-import qualified Data.Attoparsec.Text as AText
-import           Data.ByteString      (ByteString)
-import           Data.Char            (isAlpha)
+import           Control.Monad.Trans.Resource
+import qualified Data.Attoparsec.Text         as AText
+import           Data.ByteString              (ByteString)
+import           Data.CaseInsensitive         (CI)
+import           Data.Char
+import           Data.Conduit
+import           Data.Default
 import           Data.IORef
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           Data.Text.From
-import           Data.Text.To
+import           Data.Text                    (Text)
+import qualified Data.Text                    as Text
 import           Data.Time
+import           Network.AWS.Data
+import           Network.HTTP.Client
+import           Network.HTTP.Types.Method
 
 data family Er a :: * -- Assume (Sv a) somehow?
 
@@ -37,6 +43,8 @@ class AWSRequest a where
 
 class AWSPager a where
     next :: AWSRequest a => a -> Rs a -> Maybe a
+
+newtype Error = Error String
 
 data AuthEnv = AuthEnv
     { authAccess :: !ByteString
@@ -53,15 +61,14 @@ data Endpoint
     | Custom !ByteString
 
 data Signed a = Signed (Context ())
+type Signer a = Auth -> Region -> UTCTime -> Signed a
 
-type Signer = Auth -> Region -> UTCTime -> Signed
-
-data Service a = Service
+data Service b a = Service
     { svcEndpoint :: !Endpoint
     , svcName     :: !ByteString
     , svcVersion  :: !ByteString
     , svcTarget   :: Maybe ByteString
-    , svcSigner   :: Context a -> Signer
+    , svcSigner   :: Context b -> Signer a
     }
 
 data Context a = Context

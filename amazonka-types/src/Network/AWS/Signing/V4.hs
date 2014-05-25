@@ -12,77 +12,80 @@
 
 module Network.AWS.Signing.V4 (V4) where
 
-import Data.ByteString.To
+import Network.AWS.Data
 import Network.AWS.Signing.Types
 import Network.AWS.Types
 
 data V4
 
-endpoint Service{..} reg =
-    case svcEndpoint of
-        Global   -> svcName <> ".amazonaws.com"
-        Regional -> BS.intercalate "." $ [svcName, reg, "amazonaws.com"]
-        Custom t -> t
+-- endpoint Service{..} reg =
+--     case svcEndpoint of
+--         Global   -> svcName <> ".amazonaws.com"
+--         Regional -> BS.intercalate "." $ [svcName, reg, "amazonaws.com"]
+--         Custom t -> t
 
-try and make it look the same as the documentation's flow?
+-- try and make it look the same as the documentation's flow?
 
 instance SigningAlgorithm V4 where
-    finalise s@Service{..} c@Context{..} Auth{..} r t =
-      where
-        host = endpoint s r
-        meth = toByteString ctxMethod
-        path = toByteString ctxPath
-        reg  = toByteString r
+    finalise = undefined
 
-        headers = hAMZDate t : maybeToList (hAMZToken <$> sigToken) ++ ctxHeaders
+--    finalise s@Service{..} c@Context{..} Auth{..} r t = undefined
 
-        algorithm = "AWS4-HMAC-SHA256"
+--       where
+--         host = endpoint s r
+--         meth = toByteString ctxMethod
+--         path = toByteString ctxPath
+--         reg  = toByteString r
 
-        authorisation = mconcat
-            [ algorithm
-            , " Credential="
-            , authAccess
-            , "/"
-            , credentialScope
-            , ", SignedHeaders="
-            , signedHeaders
-            , ", Signature="
-            , signature
-            ]
+--         headers = hAMZDate t : maybeToList (hAMZToken <$> sigToken) ++ ctxHeaders
 
-        signature = Base16.encode $ hmacSHA256 signingKey stringToSign
+--         algorithm = "AWS4-HMAC-SHA256"
 
-        signingKey = foldl1 hmacSHA256 $ ("AWS4" <> authSecret) : scope
+--         authorisation = mconcat
+--             [ algorithm
+--             , " Credential="
+--             , authAccess
+--             , "/"
+--             , credentialScope
+--             , ", SignedHeaders="
+--             , signedHeaders
+--             , ", Signature="
+--             , signature
+--             ]
 
-        stringToSign = BS.intercalate "\n"
-            [ algorithm
-            , toByteString (AWSTime t)
-            , credentialScope
-            , Base16.encode $ SHA256.hash canonicalRequest
-            ]
+--         signature = Base16.encode $ hmacSHA256 signingKey stringToSign
 
-        credentialScope = BS.intercalate "/" scope
+--         signingKey = foldl1 hmacSHA256 $ ("AWS4" <> authSecret) : scope
 
-        scope =
-            [ toByteString (BasicTime t)
-            , reg
-            , svcName
-            , "aws4sigRequest"
-            ]
+--         stringToSign = BS.intercalate "\n"
+--             [ algorithm
+--             , toByteString (AWSTime t)
+--             , credentialScope
+--             , Base16.encode $ SHA256.hash canonicalRequest
+--             ]
 
-        canonicalRequest = BS.intercalate "\n"
-            [ meth
-            , path
-            , query
-            , canonicalHeaders
-            , signedHeaders
-            , bodySHA256
-            ]
+--         credentialScope = BS.intercalate "/" scope
 
-        canonicalHeaders = mconcat $ map flattenValues grouped
+--         scope =
+--             [ toByteString (BasicTime t)
+--             , reg
+--             , svcName
+--             , "aws4sigRequest"
+--             ]
 
-        signedHeaders = BS.intercalate ";" . nub $ map (CI.foldedCase . fst) grouped
+--         canonicalRequest = BS.intercalate "\n"
+--             [ meth
+--             , path
+--             , query
+--             , canonicalHeaders
+--             , signedHeaders
+--             , bodySHA256
+--             ]
 
-        grouped = groupHeaders headers
+--         canonicalHeaders = mconcat $ map flattenValues grouped
 
-        bodySHA256 = Base16.encode $ SHA256.hash ""
+--         signedHeaders = BS.intercalate ";" . nub $ map (CI.foldedCase . fst) grouped
+
+--         grouped = groupHeaders headers
+
+--         bodySHA256 = Base16.encode $ SHA256.hash ""

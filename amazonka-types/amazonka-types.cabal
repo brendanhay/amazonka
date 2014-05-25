@@ -19,50 +19,49 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-        Data.ByteString.To
-
-      , Data.Text.From
-      , Data.Text.To
-
-      , Data.Time.Formatted
-
-      , Network.AWS
+        Network.AWS
       , Network.AWS.Credentials
+      , Network.AWS.Data
+      , Network.AWS.Data.ByteString
+      , Network.AWS.Data.Header
+      , Network.AWS.Data.Path
+      , Network.AWS.Data.Query
+      , Network.AWS.Data.Text
+      , Network.AWS.Data.Time
+      , Network.AWS.Data.XML
       , Network.AWS.EC2.Metadata
       , Network.AWS.Monadic
       , Network.AWS.Request.JSON
       , Network.AWS.Request.Query
-      , Network.AWS.Request.RestXML
       , Network.AWS.Request.RestS3
+      , Network.AWS.Request.RestXML
       , Network.AWS.Response
-      , Network.AWS.Serialisation
       , Network.AWS.Signing
       , Network.AWS.Signing.V4
       , Network.AWS.Types
 
-      , Network.HTTP.Types.Header.To
-      , Network.HTTP.Types.Path.To
-      , Network.HTTP.Types.Query.To
-
-      , Text.XML.From
-      , Text.XML.To
-
     other-modules:
 
     build-depends:
-          attoparsec
-        , base              >= 4.7 && < 4.8
+          aeson
+        , attoparsec
+        , base              == 4.7.*
         , base16-bytestring
         , base64-bytestring
         , bytestring
         , case-insensitive
-        , conduit
+        , conduit           == 1.1.*
         , cryptohash
         , data-default
+        , errors
         , http-client
         , http-conduit
         , http-types
+        , lens-family-core
+        , mtl
         , old-locale
+        , resourcet
+        , semigroups
         , tagged
         , text
         , time

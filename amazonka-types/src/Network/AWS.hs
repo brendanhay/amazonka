@@ -10,17 +10,17 @@
 
 module Network.AWS where
 
-paginate :: (MonadResource m, AWSRequest a, AWSPager a)
-         => Auth
-         -> a
-         -> Source m (Either (Er a) (Rs a))
-paginate = undefined
+-- paginate :: (MonadResource m, AWSRequest a, AWSPager a)
+--          => Auth
+--          -> a
+--          -> Source m (Either (Er a) (Rs a))
+-- paginate = undefined
 
-send :: (MonadResource m, AWSRequest a)
-     => Auth
-     -> a
-     -> m (Either (Er a) (Rs a))
-send = undefined
+-- send :: (MonadResource m, AWSRequest a)
+--      => Auth
+--      -> a
+--      -> m (Either (Er a) (Rs a))
+-- send = undefined
 
 -- async :: MonadBaseControl IO m => 
 -- async = undefined

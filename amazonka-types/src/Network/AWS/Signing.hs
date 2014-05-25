@@ -22,3 +22,4 @@ module Network.AWS.Signing
 
 import Network.AWS.Signing.Types
 import Network.AWS.Signing.V4    (V4)
+import Network.AWS.Types

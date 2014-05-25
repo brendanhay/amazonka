@@ -45,14 +45,14 @@ class AWSRequest a where
 class AWSPager a where
     next :: AWSRequest a => a -> Rs a -> Maybe a
 
-data AuthEnv = AuthEnv
+data Auth = Auth
     { authAccess :: !Text
     , authSecret :: !Text
     , authToken  :: Maybe Text
     , authExpiry :: Maybe UTCTime
     }
 
-newtype Auth = Auth (IORef AuthEnv)
+newtype AuthRef = AuthRef (IORef Auth)
 
 data Endpoint
     = Global

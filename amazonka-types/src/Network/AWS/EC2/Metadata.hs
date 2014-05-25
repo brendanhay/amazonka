@@ -261,8 +261,8 @@ ec2 = fmap isRight
     . syncIO
     $ simpleHttp "http://instance-data/latest"
 
-user :: (MonadIO m, MonadError Error m) => m (Maybe LBS.ByteString)
-user = propagate $ Ex.catch (Just <$> simpleHttp url) ex
+user :: MonadIO m => EitherT Error m (Maybe LBS.ByteString)
+user = syncError $ Ex.catch (Just <$> simpleHttp url) ex
   where
     url = "http://169.254.169.254/latest/user-data"
 
@@ -270,16 +270,16 @@ user = propagate $ Ex.catch (Just <$> simpleHttp url) ex
         | status404 == s = return Nothing
     ex e                 = Ex.throwIO e
 
-meta :: (MonadIO m, MonadError Error m) => Meta -> m ByteString
+meta :: MonadIO m => Meta -> EitherT Error m ByteString
 meta = get "http://169.254.169.254/latest/meta-data/"
 
-dynamic :: (MonadIO m, MonadError Error m) => Dynamic -> m ByteString
+dynamic :: MonadIO m => Dynamic -> EitherT Error m ByteString
 dynamic = get "http://169.254.169.254/latest/dynamic/"
 
-get :: (MonadIO m, MonadError Error m, ToPath a) => Text -> a -> m ByteString
+get :: (MonadIO m, ToPath a) => Text -> a -> EitherT Error m ByteString
 get base p = (strip . LBS.toStrict) `liftM` go
   where
-    go = propagate
+    go = syncError
         . simpleHttp
         . Text.unpack
         $ base <> toPath p

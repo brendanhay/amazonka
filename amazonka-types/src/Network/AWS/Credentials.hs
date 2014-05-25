@@ -18,10 +18,10 @@ module Network.AWS.Credentials where
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Data.IORef
---import           Control.Error
+import           Control.Error
 import           Control.Monad
 import           Control.Monad.IO.Class
+import           Data.IORef
 --import qualified Data.Aeson                        as Aeson
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
@@ -32,7 +32,7 @@ import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import           Data.Time
 import           Network.AWS.Data
---import           Network.AWS.EC2.Metadata
+import           Network.AWS.EC2.Metadata
 import           Network.AWS.Error
 import           Network.AWS.Types
 import           System.Environment
@@ -73,38 +73,38 @@ instance ToText Credentials where
 instance Show Credentials where
     show = showText
 
-credentials :: (Alternative m, MonadIO m, MonadError Error m)
+credentials :: (Alternative m, MonadIO m)
             => Credentials
-            -> m Auth
+            -> EitherT Error m AuthRef
 credentials c = case c of
-    CredKeys    a s   -> ref $ AuthEnv a s Nothing Nothing
-    CredSession a s t -> ref $ AuthEnv a s (Just t) Nothing
+    CredKeys    a s   -> ref $ Auth a s Nothing Nothing
+    CredSession a s t -> ref $ Auth a s (Just t) Nothing
     CredProfile n     -> fromProfile n
     CredEnv     a s   -> fromKeys a s >>= ref
     CredDiscover      -> fromDiscover
   where
     fromDiscover = (fromKeys accessKey secretKey >>= ref)
-        <|> (defaultProfile >>= fromProfile)
+        `catchT` const (defaultProfile >>= fromProfile)
 
-    fromKeys a s = AuthEnv
+    fromKeys a s = Auth
         <$> key a
         <*> key s
         <*> pure Nothing
         <*> pure Nothing
 
     key (Text.unpack -> k) = do
-        v <- liftIO $ lookupEnv k
-        maybe (throwError . fromString $ "Unable to read ENV variable: " ++ k)
+        m <- liftIO $ lookupEnv k
+        maybe (throwT . fromString $ "Unable to read ENV variable: " ++ k)
               (return . Text.pack)
-              v
+              m
 
-    ref = fmap Auth . liftIO . newIORef
+    ref = fmap AuthRef . liftIO . newIORef
 
-defaultProfile :: (MonadIO m, MonadError Error m) => m Text
-defaultProfile = undefined -- do
-    -- ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
-    -- p  <- tryHead "Unable to get default IAM Profile from metadata" ls
-    -- return $ Text.decodeUtf8 p
+defaultProfile :: MonadIO m => EitherT Error m Text
+defaultProfile = do
+    ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
+    p  <- tryHead "Unable to get default IAM Profile from metadata" ls
+    return $ Text.decodeUtf8 p
 
 -- | The IORef wrapper + timer is designed so that multiple concurrenct
 -- accesses of 'Auth' from the 'AWS' environment are not required to calculate
@@ -112,7 +112,7 @@ defaultProfile = undefined -- do
 --
 -- The forked timer ensures a singular owner and pre-emptive refresh of the
 -- temporary session credentials.
-fromProfile :: (MonadIO m, MonadError Error m) => Text -> m Auth
+fromProfile :: MonadIO m => Text -> EitherT Error m AuthRef
 fromProfile name = undefined
 -- fromProfile name = do
 --     !a@Auth{..} <- auth
@@ -135,6 +135,6 @@ fromProfile name = undefined
 --     --  remove the error . show shenanigans
 --     timer ref n = void . forkIO $ do
 --         threadDelay $ (n - 60) * 1000000
---         !a@AuthEnv{..} <- eitherT (error . show) return auth
+--         !a@Auth{..} <- eitherT (error . show) return auth
 --         atomicWriteIORef ref a
 --         start ref authExpiration

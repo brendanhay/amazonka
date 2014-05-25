@@ -15,15 +15,11 @@ module Network.AWS.Error
     -- * Types
       Error (..)
 
-    -- * Convenience
-    , MonadError (..)
-
     -- * IO Actions
-    , propagate
+    , syncError
     ) where
 
 import Control.Error
-import Control.Monad.Error    (MonadError(..))
 import Control.Monad.IO.Class
 import Data.String
 
@@ -32,9 +28,5 @@ newtype Error = Error String
 instance IsString Error where
     fromString = Error
 
-propagate :: (MonadIO m, MonadError Error m) => IO a -> m a
-propagate io = do
-    r <- runEitherT $ syncIO io
-    either (throwError . fromString . show)
-           return
-           r
+syncError :: MonadIO m => IO a -> EitherT Error m a
+syncError = fmapLT (fromString . show) . syncIO

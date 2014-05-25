@@ -34,6 +34,12 @@ Is toPath necessary - would just supplying the path as a param be better/worse?
 
 Can the need for empty (non-generic) class instaces be removed?
 
+Should i bake in lens support for all requests, responses, and shit like this module?
+
+Define lenses by hand or? - use lens-family-core unchecked and roll them by hand
+for these request setters, use TH for the actual requests
+
+
 getRestXML :: (ToPath a, ToQuery a, ToHeaders a, AWSRequest a)
            => Service
            -> a

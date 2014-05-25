@@ -17,16 +17,14 @@ import           Control.Applicative
 import qualified Data.Attoparsec.Text as AText
 import           Data.ByteString      (ByteString)
 import           Data.Char            (isAlpha)
+import           Data.IORef
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.From
 import           Data.Text.To
 import           Data.Time
 
-data family Er a :: *
-
-class AWSService a where
-    service :: Service a
+data family Er a :: * -- Assume (Sv a) somehow?
 
 class AWSRequest a where
     type Sv a :: *
@@ -35,28 +33,35 @@ class AWSRequest a where
     request   :: a -> Context (Sv a)
     response  :: MonadResource m
               => Response (ResumableSource m ByteString)
-              -> m (Either (Er (Sv a)) (Rs a))
+              -> m (Either (Er a) (Rs a))
 
 class AWSPager a where
     next :: AWSRequest a => a -> Rs a -> Maybe a
 
-data Auth = Auth
+data AuthEnv = AuthEnv
     { authAccess :: !ByteString
     , authSecret :: !ByteString
     , authToken  :: Maybe ByteString
     , authExpiry :: Maybe UTCTime
     }
 
+newtype Auth = Auth (IORef AuthEnv)
+
 data Endpoint
     = Global
     | Regional
     | Custom !ByteString
+
+data Signed a = Signed (Context ())
+
+type Signer = Auth -> Region -> UTCTime -> Signed
 
 data Service a = Service
     { svcEndpoint :: !Endpoint
     , svcName     :: !ByteString
     , svcVersion  :: !ByteString
     , svcTarget   :: Maybe ByteString
+    , svcSigner   :: Context a -> Signer
     }
 
 data Context a = Context

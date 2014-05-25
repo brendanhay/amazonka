@@ -13,10 +13,6 @@ module Network.AWS.Signing.Types where
 import Data.Time
 import Network.AWS.Types
 
-data Signed a = Signed (Context ())
-
-type Signer = Auth -> Region -> UTCTime -> Signed
-
 class SigningAlgorithm a where
     finalise :: Service s -> Context s -> Signer a
 

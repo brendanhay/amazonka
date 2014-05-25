@@ -23,7 +23,6 @@ import           Control.Monad.IO.Class
 import qualified Data.Aeson                        as Aeson
 import qualified Data.ByteString.Char8             as BS
 import qualified Data.ByteString.Lazy.Char8        as LBS
-import           Data.IORef
 import           Data.Monoid
 import           Data.String
 import           Data.Text                         (Text)
@@ -73,24 +72,24 @@ instance Show Credentials where
 
 credentials :: (Applicative m, MonadIO m)
             => Credentials
-            -> EitherT String m (IORef Auth)
+            -> EitherT String m Auth
 credentials = mk
   where
-    mk (CredKeys    a s)   = ref $ Auth a s Nothing Nothing
-    mk (CredSession a s t) = ref $ Auth a s (Just t) Nothing
+    mk (CredKeys    a s)   = ref $ AuthEnv a s Nothing Nothing
+    mk (CredSession a s t) = ref $ AuthEnv a s (Just t) Nothing
     mk (CredProfile n)     = fromProfile n
     mk (CredEnv     a s)   = fromKeys a s
     mk CredDiscover        = fromKeys accessKey secretKey
         <|> (defaultProfile >>= fromProfile)
 
-    fromKeys a s = Auth <$> key a <*> key s <*> pure Nothing <*> pure Nothing
+    fromKeys a s = AuthEnv <$> key a <*> key s <*> pure Nothing <*> pure Nothing
         >>= ref
 
     key (Text.unpack -> k) = fmapLT (fromString . show) (syncIO $ lookupEnv k)
         >>= failWith (fromString $ "Unable to read ENV variable: " ++ k)
         >>= return . Text.pack
 
-    ref = liftIO . newIORef
+    ref = fmap Auth . liftIO . newIORef
 
 defaultProfile :: (Applicative m, MonadIO m) => EitherT String m Text
 defaultProfile = do
@@ -106,7 +105,7 @@ defaultProfile = do
 -- temporary session credentials.
 fromProfile :: (Applicative m, MonadIO m)
             => Text
-            -> EitherT String m (IORef Auth)
+            -> EitherT String m Auth
 fromProfile name = do
     !a@Auth{..} <- auth
     fmapLT show . syncIO . liftIO $ do
@@ -128,6 +127,6 @@ fromProfile name = do
     --  remove the error . show shenanigans
     timer ref n = void . forkIO $ do
         threadDelay $ (n - 60) * 1000000
-        !a@Auth{..} <- eitherT (error . show) return auth
+        !a@AuthEnv{..} <- eitherT (error . show) return auth
         atomicWriteIORef ref a
         start ref authExpiration

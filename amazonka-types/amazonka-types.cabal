@@ -51,8 +51,20 @@ library
 
     build-depends:
           attoparsec
-        , base         >= 4.7 && < 4.8
+        , base              >= 4.7 && < 4.8
+        , base16-bytestring
+        , base64-bytestring
         , bytestring
+        , case-insensitive
+        , conduit
+        , cryptohash
+        , data-default
+        , http-client
+        , http-conduit
+        , http-types
+        , old-locale
+        , tagged
         , text
         , time
         , transformers
+        , xml-conduit

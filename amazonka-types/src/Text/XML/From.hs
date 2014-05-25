@@ -7,7 +7,7 @@
 {-# LANGUAGE ScopedTypeVariables  #-}
 {-# LANGUAGE TypeOperators        #-}
 
--- Module      : Text.XML.To
+-- Module      : Text.XML.From
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -17,7 +17,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Text.XML.To where
+module Text.XML.From where
 
 import           Control.Applicative
 import           Control.Error              (note)

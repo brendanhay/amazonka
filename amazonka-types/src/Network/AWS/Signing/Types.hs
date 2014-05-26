@@ -26,7 +26,7 @@ class SigningAlgorithm v where
 sign :: (AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
      => a
      -> Signer (Sg (Sv a))
-sign rq = finalise service (request rq)
+sign = finalise service . request
 
 -- sign :: Raw -> AWS Request
 -- sign raw@Raw{..} = do

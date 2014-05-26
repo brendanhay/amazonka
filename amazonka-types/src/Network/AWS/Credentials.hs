@@ -19,12 +19,13 @@ module Network.AWS.Credentials where
 import           Control.Applicative
 import           Control.Concurrent
 import           Control.Error
+import           Control.Exception          (throwIO)
 import           Control.Monad
 import           Control.Monad.IO.Class
-import           Data.IORef
---import qualified Data.Aeson                        as Aeson
+import qualified Data.Aeson                 as Aeson
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
+import           Data.IORef
 import           Data.Monoid
 import           Data.String
 import           Data.Text                  (Text)
@@ -77,13 +78,13 @@ credentials :: (Alternative m, MonadIO m)
             => Credentials
             -> EitherT Error m AuthRef
 credentials c = case c of
-    CredKeys    a s   -> ref $ Auth a s Nothing Nothing
-    CredSession a s t -> ref $ Auth a s (Just t) Nothing
+    CredKeys    a s   -> newRef $ Auth a s Nothing Nothing
+    CredSession a s t -> newRef $ Auth a s (Just t) Nothing
     CredProfile n     -> fromProfile n
-    CredEnv     a s   -> fromKeys a s >>= ref
+    CredEnv     a s   -> fromKeys a s >>= newRef
     CredDiscover      -> fromDiscover
   where
-    fromDiscover = (fromKeys accessKey secretKey >>= ref)
+    fromDiscover = (fromKeys accessKey secretKey >>= newRef)
         `catchT` const (defaultProfile >>= fromProfile)
 
     fromKeys a s = Auth
@@ -94,11 +95,9 @@ credentials c = case c of
 
     key (Text.unpack -> k) = do
         m <- liftIO $ lookupEnv k
-        maybe (throwT . fromString $ "Unable to read ENV variable: " ++ k)
+        maybe (throwT . Error $ "Unable to read ENV variable: " ++ k)
               (return . Text.pack)
               m
-
-    ref = fmap AuthRef . liftIO . newIORef
 
 defaultProfile :: MonadIO m => EitherT Error m Text
 defaultProfile = do
@@ -106,35 +105,39 @@ defaultProfile = do
     p  <- tryHead "Unable to get default IAM Profile from metadata" ls
     return $ Text.decodeUtf8 p
 
--- | The IORef wrapper + timer is designed so that multiple concurrenct
+-- | The IONewRef wrapper + timer is designed so that multiple concurrenct
 -- accesses of 'Auth' from the 'AWS' environment are not required to calculate
 -- expiry and sequentially queue to update it.
 --
 -- The forked timer ensures a singular owner and pre-emptive refresh of the
 -- temporary session credentials.
 fromProfile :: MonadIO m => Text -> EitherT Error m AuthRef
-fromProfile name = undefined
--- fromProfile name = do
---     !a@Auth{..} <- auth
---     fmapLT show . syncIO . liftIO $ do
---         ref <- newIORef a
---         start ref authExpiration
---         return ref
---   where
---     auth :: (Applicative m, MonadIO m) => EitherT String m Auth
---     auth = do
---         m <- LBS.fromStrict <$> meta (IAM . SecurityCredentials $ Just name)
---         hoistEither $ Aeson.eitherDecode m
+fromProfile name = do
+    !a@Auth{..} <- auth
+    runIO $ do
+        r <- newRef a
+        start r authExpiry
+        return r
+  where
+    auth :: MonadIO m => EitherT Error m Auth
+    auth = do
+        m <- LBS.fromStrict `liftM` meta iam
+        hoistEither . fmapL fromString $ Aeson.eitherDecode m
 
---     start ref = maybe (return ()) (timer ref <=< delay)
+    iam = IAM . SecurityCredentials $ Just name
 
---     delay n = truncate . diffUTCTime n <$> getCurrentTime
+    start r = maybe (return ()) (timer r <=< delay)
 
---     -- FIXME:
---     --  guard against a lower expiration than the -60
---     --  remove the error . show shenanigans
---     timer ref n = void . forkIO $ do
---         threadDelay $ (n - 60) * 1000000
---         !a@Auth{..} <- eitherT (error . show) return auth
---         atomicWriteIORef ref a
---         start ref authExpiration
+    delay n = truncate . diffUTCTime n <$> getCurrentTime
+
+    -- FIXME:
+    --  guard against a lower expiration than the -60
+    --  remove the error . show shenanigans
+    timer r n = void . forkIO $ do
+        threadDelay $ (n - 60) * 1000000
+        !a@Auth{..} <- eitherT throwIO return auth
+        atomicWriteIORef (authRef r) a
+        start r authExpiry
+
+newRef :: MonadIO m => Auth -> m AuthRef
+newRef = liftM AuthRef . liftIO . newIORef

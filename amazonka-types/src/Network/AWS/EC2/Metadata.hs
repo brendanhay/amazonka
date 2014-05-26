@@ -262,7 +262,7 @@ ec2 = fmap isRight
     $ simpleHttp "http://instance-data/latest"
 
 user :: MonadIO m => EitherT Error m (Maybe LBS.ByteString)
-user = syncError $ Ex.catch (Just <$> simpleHttp url) ex
+user = runIO $ Ex.catch (Just <$> simpleHttp url) ex
   where
     url = "http://169.254.169.254/latest/user-data"
 
@@ -279,7 +279,7 @@ dynamic = get "http://169.254.169.254/latest/dynamic/"
 get :: (MonadIO m, ToPath a) => Text -> a -> EitherT Error m ByteString
 get base p = (strip . LBS.toStrict) `liftM` go
   where
-    go = syncError
+    go = runIO
         . simpleHttp
         . Text.unpack
         $ base <> toPath p

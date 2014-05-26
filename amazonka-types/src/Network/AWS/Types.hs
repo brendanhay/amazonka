@@ -16,6 +16,7 @@ module Network.AWS.Types where
 
 import           Control.Applicative
 import           Control.Monad.Trans.Resource
+import           Data.Aeson
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
 import           Data.CaseInsensitive         (CI)
@@ -52,7 +53,14 @@ data Auth = Auth
     , authExpiry :: Maybe UTCTime
     }
 
-newtype AuthRef = AuthRef (IORef Auth)
+instance FromJSON Auth where
+    parseJSON = withObject "Auth" $ \o -> Auth
+        <$> o .:  "AccessKeyId"
+        <*> o .:  "SecretAccessKey"
+        <*> o .:? "Token"
+        <*> o .:? "Expiration"
+
+newtype AuthRef = AuthRef { authRef :: IORef Auth }
 
 data Endpoint
     = Global

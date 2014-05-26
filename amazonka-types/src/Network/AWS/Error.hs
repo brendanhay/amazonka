@@ -1,4 +1,5 @@
-{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE FlexibleContexts   #-}
 
 -- Module      : Network.AWS.Error
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,17 +17,22 @@ module Network.AWS.Error
       Error (..)
 
     -- * IO Actions
-    , syncError
+    , runIO
     ) where
 
 import Control.Error
+import Control.Exception
 import Control.Monad.IO.Class
 import Data.String
+import Data.Typeable
 
 newtype Error = Error String
+    deriving (Eq, Show, Typeable)
 
 instance IsString Error where
     fromString = Error
 
-syncError :: MonadIO m => IO a -> EitherT Error m a
-syncError = fmapLT (fromString . show) . syncIO
+instance Exception Error
+
+runIO :: MonadIO m => IO a -> EitherT Error m a
+runIO = fmapLT (fromString . show) . syncIO

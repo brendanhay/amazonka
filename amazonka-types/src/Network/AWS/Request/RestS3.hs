@@ -25,5 +25,3 @@ post :: (ToPath a, ToQuery a, ToHeaders a, ToBody b)
      -> b
      -> Context (Sg (Sv a))
 post x y = get x & meth .~ POST & bdy .~ y
-
-

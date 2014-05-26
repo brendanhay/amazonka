@@ -34,13 +34,13 @@ library
       , Network.AWS.Error
       , Network.AWS.Monadic
       , Network.AWS.Request.JSON
-      , Network.AWS.Request.Lens
+      , Network.AWS.Request.Internal.Lens
       , Network.AWS.Request.Query
       , Network.AWS.Request.RestS3
       , Network.AWS.Request.RestXML
       , Network.AWS.Response
-      , Network.AWS.Signing
       , Network.AWS.Signing.V4
+      , Network.AWS.Signing.Types
       , Network.AWS.Types
 
     other-modules:

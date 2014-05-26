@@ -56,15 +56,15 @@ secretKey :: Text
 secretKey = "AWS_SECRET_KEY"
 
 data Credentials
-    = CredKeys Text Text
+    = FromKeys Text Text
       -- ^ Explicit access and secret keys.
-    | CredSession Text Text Text
+    | FromSession Text Text Text
       -- ^ A session containing the access key, secret key, and a security token.
-    | CredProfile Text
+    | FromProfile Text
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
-    | CredEnv Text Text
+    | FromEnv Text Text
       -- ^ Environment variables to lookup for the access and secret keys.
-    | CredDiscover
+    | Discover
       -- ^ Attempt to read the default access and secret keys from the environment,
       -- falling back to the first available IAM profile if they are not set.
       --
@@ -74,26 +74,24 @@ data Credentials
       deriving (Eq, Ord)
 
 instance ToText Credentials where
-    toText (CredKeys    a _)   = Text.concat ["CredKeys ", a, " ****"]
-    toText (CredSession a _ _) = Text.concat ["CredSession ", a, " **** ****"]
-    toText (CredProfile n)     = "CredProfile " <> n
-    toText (CredEnv     a s)   = Text.concat ["CredEnv ", a, " ", s]
-    toText CredDiscover        = "CredDiscover"
+    toText (FromKeys    a _)   = Text.concat ["FromKeys ", a, " ****"]
+    toText (FromSession a _ _) = Text.concat ["FromSession ", a, " **** ****"]
+    toText (FromProfile n)     = "FromProfile " <> n
+    toText (FromEnv     a s)   = Text.concat ["FromEnv ", a, " ", s]
+    toText Discover            = "Discover"
 
 instance Show Credentials where
     show = showText
 
 credentials :: MonadIO m => Credentials -> EitherT Error m AuthRef
 credentials c = case c of
-    CredKeys    a s   -> newRef $ Auth a s Nothing Nothing
-    CredSession a s t -> newRef $ Auth a s (Just t) Nothing
-    CredProfile n     -> fromProfile n
-    CredEnv     a s   -> fromKeys a s >>= newRef
-    CredDiscover      -> fromDiscover
-  where
-    fromDiscover = (fromKeys accessKey secretKey >>= newRef)
+    FromKeys    a s   -> newRef $ Auth a s Nothing Nothing
+    FromSession a s t -> newRef $ Auth a s (Just t) Nothing
+    FromProfile n     -> fromProfile n
+    FromEnv     a s   -> fromKeys a s >>= newRef
+    Discover -> (fromKeys accessKey secretKey >>= newRef)
         `catchT` const (defaultProfile >>= fromProfile)
-
+ where
     fromKeys a s = Auth
         <$> key a
         <*> key s

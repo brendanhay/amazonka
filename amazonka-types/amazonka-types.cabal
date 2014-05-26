@@ -19,7 +19,7 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-        Network.AWS
+        Network.AWS            -- TODO
       , Network.AWS.Credentials
       , Network.AWS.Data
       , Network.AWS.Data.Body
@@ -32,14 +32,14 @@ library
       , Network.AWS.Data.XML
       , Network.AWS.EC2.Metadata
       , Network.AWS.Error
-      , Network.AWS.Monadic
+      , Network.AWS.Monadic    -- TODO
       , Network.AWS.Request.JSON
       , Network.AWS.Request.Lens
       , Network.AWS.Request.Query
       , Network.AWS.Request.RestS3
       , Network.AWS.Request.RestXML
-      , Network.AWS.Response
-      , Network.AWS.Signing.V4
+      , Network.AWS.Response   -- TODO
+      , Network.AWS.Signing.V4 -- TODO
       , Network.AWS.Signing.Types
       , Network.AWS.Types
 

@@ -19,27 +19,25 @@
 
 module Network.AWS.Data.XML where
 
--- import           Control.Applicative
--- import           Control.Error              (note)
--- import           Control.Monad
--- import qualified Data.Attoparsec.Text       as AText
--- import qualified Data.ByteString            as BS
--- import           Data.ByteString.Lazy.Char8 (ByteString)
--- import           Data.Default
--- import           Data.Foldable              (foldr', foldrM)
--- import           Data.HashMap.Strict        (HashMap)
--- import           Data.List.NonEmpty         (NonEmpty(..))
--- import qualified Data.List.NonEmpty         as NonEmpty
--- import           Data.Monoid
--- import           Data.Tagged
--- import           Data.Text                  (Text)
--- import qualified Data.Text                  as Text
--- import qualified Data.Text.Encoding         as Text
--- import           Data.Time
--- import           GHC.Generics
--- import           Network.AWS.Text
--- import           Network.AWS.Time
--- import           Text.XML
+import           Control.Applicative
+import           Control.Error              (note)
+import           Control.Monad
+import qualified Data.Attoparsec.Text       as AText
+import qualified Data.ByteString            as BS
+import           Data.ByteString.Lazy.Char8 (ByteString)
+import           Data.Default
+import           Data.Foldable              (foldr', foldrM)
+--import           Data.HashMap.Strict        (HashMap)
+import           Data.List.NonEmpty         (NonEmpty(..))
+import qualified Data.List.NonEmpty         as NonEmpty
+import           Data.Monoid
+import           Data.Tagged
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import qualified Data.Text.Encoding         as Text
+import           Data.Time
+import           GHC.Generics
+import           Text.XML
 
 -- decodeXML :: forall a. FromXML a => ByteString -> Either String a
 -- decodeXML = either failure success . parseLBS def
@@ -49,27 +47,27 @@ module Network.AWS.Data.XML where
 
 --     o = fromXMLOptions :: Tagged a XMLOptions
 
--- encodeXML :: forall a. ToXML a => a -> ByteString
--- encodeXML = renderLBS def . toXMLRoot o . toXML o
---   where
---     o = toXMLOptions :: Tagged a XMLOptions
+encodeXML :: forall a. ToXML a => a -> ByteString
+encodeXML = renderLBS def . toXMLRoot o . toXML o
+  where
+    o = toXMLOptions :: Tagged a XMLOptions
 
--- data XMLOptions = XMLOptions
---     { xmlInherit   :: !Bool
---     , xmlNamespace :: Maybe Text
---     , xmlListElem  :: Maybe Text
---     , xmlCtorMod   :: String -> Text
---     , xmlFieldMod  :: String -> Text
---     }
+data XMLOptions = XMLOptions
+    { xmlInherit   :: !Bool
+    , xmlNamespace :: Maybe Text
+    , xmlListElem  :: Maybe Text
+    , xmlCtorMod   :: String -> Text
+    , xmlFieldMod  :: String -> Text
+    }
 
--- instance Default XMLOptions where
---     def = XMLOptions
---         { xmlInherit   = True
---         , xmlNamespace = Nothing
---         , xmlListElem  = Just "Item"
---         , xmlCtorMod   = Text.pack
---         , xmlFieldMod  = Text.pack
---         }
+instance Default XMLOptions where
+    def = XMLOptions
+        { xmlInherit   = True
+        , xmlNamespace = Nothing
+        , xmlListElem  = Just "Item"
+        , xmlCtorMod   = Text.pack
+        , xmlFieldMod  = Text.pack
+        }
 
 -- fromNestedRoot :: NonEmpty Text
 --                -> Tagged a XMLOptions
@@ -244,10 +242,10 @@ module Network.AWS.Data.XML where
 --               -> Document
 -- genericToRoot o = toRoot (gRootName (untag o) $ from (undefined :: a)) o
 
--- class ToXML a where
---     toXMLOptions :: Tagged a XMLOptions
---     toXMLRoot    :: Tagged a XMLOptions -> [Node] -> Document
---     toXML        :: Tagged a XMLOptions -> a -> [Node]
+class ToXML a where
+    toXMLOptions :: Tagged a XMLOptions
+    toXMLRoot    :: Tagged a XMLOptions -> [Node] -> Document
+    toXML        :: Tagged a XMLOptions -> a -> [Node]
 
 --     toXMLOptions = Tagged def
 

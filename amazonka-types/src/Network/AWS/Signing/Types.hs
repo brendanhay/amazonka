@@ -1,3 +1,6 @@
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies     #-}
+
 -- Module      : Network.AWS.Signing.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -10,11 +13,20 @@
 
 module Network.AWS.Signing.Types where
 
--- import Data.Time
+import Data.Time
 import Network.AWS.Types
 
-class SigningAlgorithm a where
-    finalise :: Service b a -> Context b -> Signer a
+data Signed v = Signed (Context ())
+
+type Signer v = Auth -> Region -> UTCTime -> Signed v
+
+class SigningAlgorithm v where
+    finalise :: Service a v -> Context a -> Signer v
+
+sign :: (AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
+     => a
+     -> Signer (Sg (Sv a))
+sign rq = finalise service (request rq)
 
 -- sign :: Raw -> AWS Request
 -- sign raw@Raw{..} = do

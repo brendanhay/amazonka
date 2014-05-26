@@ -34,22 +34,30 @@ module Network.AWS.Data
     -- , FromXML       (..)
     -- , decodeXML
 
-    -- , ToXML         (..)
-    -- , encodeXML
+    , XML.ToXML        (..)
+    , XML.encodeXML
 
     -- * HTTP
     -- ** Headers
+    , Header.ToHeaders (..)
 
     -- ** Paths
     , Path.ToPath      (..)
 
     -- ** QueryStrings
+    , Query.ToQuery    (..)
+    , Query.Query
+    , Query.encodeQuery
+
+    -- ** Body
+    , Body.ToBody      (..)
     ) where
 
+import qualified Network.AWS.Data.Body       as Body
 import qualified Network.AWS.Data.ByteString as BS
--- import qualified Network.AWS.Data.Header     as Header
+import qualified Network.AWS.Data.Header     as Header
 import qualified Network.AWS.Data.Path       as Path
--- import qualified Network.AWS.Data.Query      as Query
+import qualified Network.AWS.Data.Query      as Query
 import qualified Network.AWS.Data.Text       as Text
 import qualified Network.AWS.Data.Time       as Time
--- import qualified Network.AWS.Data.XML        as XML
+import qualified Network.AWS.Data.XML        as XML

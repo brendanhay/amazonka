@@ -8,5 +8,22 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request.RestS3 where
+module Network.AWS.Request.RestS3
+    ( get
+    , head
+    , delete
+    , post
+    ) where
+
+import Network.AWS.Data
+import Network.AWS.Request.Lens
+import Network.AWS.Types
+import Network.HTTP.Types.Method
+
+post :: (ToPath a, ToQuery a, ToHeaders a, ToBody b)
+     => a
+     -> b
+     -> Context (Sg (Sv a))
+post x y = get x & meth .~ POST & bdy .~ y
+
 

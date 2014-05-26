@@ -1,4 +1,4 @@
--- Module      : Network.AWS.Request.RestXML
+-- Module      : Network.AWS.Data.Body
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,16 +8,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request.RestXML
-   ( get
-   , delete
-   , post
-   ) where
+module Network.AWS.Data.Body where
 
-import Network.AWS.Data
-import Network.AWS.Request.Lens
-import Network.AWS.Types
-import Network.HTTP.Types.Method
+import Data.Aeson
+import Data.ByteString.Lazy (ByteString)
+import Network.HTTP.Client
 
-post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Context (Sg (Sv a))
-post x = get x & meth .~ POST & bdy .~ encodeXML x
+class ToBody a where
+    toBody :: a -> RequestBody
+
+instance ToBody ByteString where
+    toBody = RequestBodyLBS
+
+instance ToBody Value where
+    toBody = RequestBodyLBS . encode

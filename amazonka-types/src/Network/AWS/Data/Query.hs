@@ -17,27 +17,27 @@
 
 module Network.AWS.Data.Query where
 
--- import           Control.Applicative
--- import           Control.Error              (note)
--- import           Control.Monad
--- import qualified Data.Attoparsec.Text       as AText
--- import           Data.Char
--- import           Data.Default
--- import           Data.Either
--- import           Data.Foldable              (foldl')
+import           Control.Applicative
+import           Control.Error              (note)
+import           Control.Monad
+import qualified Data.Attoparsec.Text       as AText
+import           Data.Char
+import           Data.Default
+import           Data.Either
+import           Data.Foldable              (foldl')
 -- import           Data.HashMap.Strict        (HashMap)
--- import           Data.List                  (sort)
--- import           Data.List.NonEmpty         (NonEmpty(..))
--- import qualified Data.List.NonEmpty         as NonEmpty
--- import           Data.Monoid
--- import           Data.String
--- import           Data.Text                  (Text)
--- import qualified Data.Text                  as Text
--- import qualified Data.Text.Lazy             as LText
--- import qualified Data.Text.Lazy.Builder     as LText
--- import qualified Data.Text.Lazy.Builder.Int as LText
--- import           Data.Time
--- import           GHC.Generics
+import           Data.List                  (sort)
+import           Data.List.NonEmpty         (NonEmpty(..))
+import qualified Data.List.NonEmpty         as NonEmpty
+import           Data.Monoid
+import           Data.String
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import qualified Data.Text.Lazy             as LText
+import qualified Data.Text.Lazy.Builder     as LText
+import qualified Data.Text.Lazy.Builder.Int as LText
+import           Data.Time
+import           GHC.Generics
 
 -- -- FIXME: Neither of these is the correct type
 -- -- And what about the breaking of query elements? not all pieces have =
@@ -55,30 +55,30 @@ module Network.AWS.Data.Query where
 --             f k' q = Pair k' q
 --         in  foldr f (Pair (last ks) $ Value v) $ init ks
 
--- encodeQuery :: ToQuery a => a -> [(Text, Maybe Text)]
--- encodeQuery = enc "" . toQuery
---   where
---     enc k (List qs) = concatMap (enc k) qs
---     enc k (Value v) = [(k, v)]
---     enc k (Pair k' q)
---         | Text.null k = enc k' q
---         | otherwise   = enc (k <> "." <> k') q
+encodeQuery :: ToQuery a => a -> [(Text, Maybe Text)]
+encodeQuery = enc "" . toQuery
+  where
+    enc k (List qs) = concatMap (enc k) qs
+    enc k (Value v) = [(k, v)]
+    enc k (Pair k' q)
+        | Text.null k = enc k' q
+        | otherwise   = enc (k <> "." <> k') q
 
 -- queryFromList :: [Query] -> Query
 -- queryFromList = List
 
--- data Query
---     = List  [Query]
---     | Value Text
---     | Pair  Text Query
---       deriving (Eq, Show)
+data Query
+    = List  [Query]
+    | Value (Maybe Text)
+    | Pair  Text Query
+      deriving (Eq, Show)
 
--- instance Monoid Query where
---     mempty                    = List []
---     mappend (List l) (List r) = List $ l ++ r
---     mappend (List l) r        = List $ r : l
---     mappend l        (List r) = List $ l : r
---     mappend l        r        = List [l, r]
+instance Monoid Query where
+    mempty                    = List []
+    mappend (List l) (List r) = List (l ++ r)
+    mappend (List l) r        = List (r : l)
+    mappend l        (List r) = List (l : r)
+    mappend l        r        = List [l, r]
 
 -- instance Ord Query where
 --     compare (List  ls)   (List  rs)   = ls `compare` rs
@@ -239,8 +239,11 @@ module Network.AWS.Data.Query where
 --                -> Query
 -- genericToQuery o = gToQuery o . from
 
--- class ToQuery a where
---     toQuery :: a -> Query
+class ToQuery a where
+    toQuery :: a -> Query
+
+instance ToQuery Query where
+    toQuery = id
 
 --     default toQuery :: (Generic a, GToQuery (Rep a))
 --                     => a
@@ -249,6 +252,12 @@ module Network.AWS.Data.Query where
 
 -- instance ToQuery Text where
 --     toQuery = Value
+
+instance ToQuery (Text, Text) where
+    toQuery (k, v) = Pair k . Value $ Just v
+
+instance ToQuery (Text, Maybe Text) where
+    toQuery (k, mv) = Pair k (Value mv)
 
 -- instance ToQuery Int where
 --     toQuery = valueFromIntegral

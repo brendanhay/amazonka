@@ -8,5 +8,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request.Query where
+module Network.AWS.Request.Query
+    ( post
+    ) where
 
+import Network.AWS.Data
+import Network.AWS.Request.Lens
+import Network.AWS.Types
+import Network.HTTP.Types.Method
+
+post :: ToQuery a => Action -> a -> Context (Sg (Sv a))
+post a x = ctx & meth .~ POST & qry .~ x & qry <>~ toQuery a

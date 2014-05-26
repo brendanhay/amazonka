@@ -14,9 +14,12 @@
 
 module Network.AWS.Data.Header where
 
--- class ToHeaders a where
---     toHeaders :: a -> [(HeaderName, Maybe ByteString)]
---     toHeaders = const []
+import Data.CaseInsensitive (CI)
+import Data.Text            (Text)
+
+class ToHeaders a where
+    toHeaders :: a -> [(CI Text, Text)]
+--    toHeaders = const []
 
 -- class ToHeader a where
 --     toHeader :: ByteString -> a -> (HeaderName, Maybe ByteString)

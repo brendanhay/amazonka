@@ -41,7 +41,6 @@ for these request setters, use TH for the actual requests
 
 MonadError / EitherT
 
-
 getRestXML :: (ToPath a, ToQuery a, ToHeaders a, AWSRequest a)
            => Service
            -> a

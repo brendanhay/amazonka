@@ -8,5 +8,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request.JSON where
+module Network.AWS.Request.JSON
+   ( post
+   ) where
 
+import Data.Aeson
+import Network.AWS.Request.Lens
+import Network.AWS.Types
+import Network.HTTP.Types.Method
+
+post :: ToJSON a => Action -> a -> Context (Sg (Sv a))
+post a x = ctx & meth .~ POST & qry .~ a & bdy .~ toJSON x

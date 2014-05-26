@@ -32,7 +32,12 @@ import           Network.AWS.Data
 import           Network.HTTP.Client
 import           Network.HTTP.Types.Method
 
-data family Er a :: * -- Assume (Sv a) somehow?
+data family Er a :: *
+
+type family Sg a :: *
+
+class AWSService a where
+    service :: Service a (Sg a)
 
 class AWSRequest a where
     type Sv a :: *
@@ -41,7 +46,7 @@ class AWSRequest a where
     request   :: a -> Context (Sv a)
     response  :: MonadResource m
               => Response (ResumableSource m ByteString)
-              -> m (Either (Er a) (Rs a))
+              -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSPager a where
     next :: AWSRequest a => a -> Rs a -> Maybe a
@@ -67,22 +72,17 @@ data Endpoint
     | Regional
     | Custom !ByteString
 
-data Signed a = Signed (Context ())
-
-type Signer a = Auth -> Region -> UTCTime -> Signed a
-
-data Service b a = Service
+data Service a s = Service
     { svcEndpoint :: !Endpoint
     , svcName     :: !ByteString
     , svcVersion  :: !ByteString
     , svcTarget   :: Maybe ByteString
-    , svcSigner   :: Context b -> Signer a
     }
 
 data Context a = Context
     { ctxMethod  :: !StdMethod
     , ctxPath    :: !Text
-    , ctxQuery   :: [(Text, Maybe Text)]
+    , ctxQuery   :: Query
     , ctxHeaders :: [(CI Text, Text)]
     , ctxBody    :: RequestBody
     }
@@ -164,3 +164,12 @@ instance FromText AZ where
 
 instance ToText AZ where
     toText AZ{..} = toText azRegion `Text.snoc` azSuffix
+
+newtype Action = Action Text
+    deriving (Eq, Show)
+
+instance IsString Action where
+    fromString = Action . Text.pack
+
+instance ToQuery Action where
+    toQuery (Action a) = toQuery ("Action" :: Text, a)

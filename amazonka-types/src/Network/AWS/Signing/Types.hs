@@ -84,10 +84,10 @@ encodeURI p = LBS.toStrict . build . BS.foldr' (mappend . enc) mempty
     enc  c               = char2hex c
 
     reserved c =
-            isAsciiUpper c
-         || isAsciiLower c
-         || isDigit c
-         || c `elem` "-_.~/"
+           isAsciiUpper c
+        || isAsciiLower c
+        || isDigit c
+        || c `elem` "-_.~/"
 
     char2hex c = let (a, b) = c2w c `divMod` 16
                   in word8 37 <> hex a <> hex b

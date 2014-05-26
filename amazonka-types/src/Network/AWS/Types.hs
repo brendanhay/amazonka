@@ -19,11 +19,13 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Char8        as BS
 import           Data.CaseInsensitive         (CI)
 import           Data.Char
 import           Data.Conduit
 import           Data.Default
 import           Data.IORef
+import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -77,6 +79,14 @@ data Service a s = Service
     , svcVersion  :: !ByteString
     , svcTarget   :: Maybe ByteString
     }
+
+endpoint :: Service a s -> Region -> ByteString
+endpoint Service{..} reg =
+    let suf = ".amazonaws.com"
+     in case svcEndpoint of
+            Global   -> svcName <> suf
+            Regional -> svcName <> "." <> toByteString reg <> suf
+            Custom x -> x
 
 data Request a = Request
     { rqMethod  :: !StdMethod
@@ -146,6 +156,9 @@ instance ToText Region where
         GovCloud        -> "us-gov-west-1"
         GovCloudFIPS    -> "fips-us-gov-west-1"
         SaoPaulo        -> "sa-east-1"
+
+instance ToByteString Region where
+    toByteString = toByteString . toText
 
 data AZ = AZ
     { azRegion :: !Region

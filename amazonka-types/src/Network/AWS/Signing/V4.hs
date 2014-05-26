@@ -18,12 +18,6 @@ import Network.AWS.Types
 
 data V4
 
--- endpoint Service{..} reg =
---     case svcEndpoint of
---         Global   -> svcName <> ".amazonaws.com"
---         Regional -> BS.intercalate "." $ [svcName, reg, "amazonaws.com"]
---         Custom t -> t
-
 -- try and make it look the same as the documentation's flow?
 
 

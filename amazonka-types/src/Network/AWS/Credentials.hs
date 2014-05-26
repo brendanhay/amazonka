@@ -14,7 +14,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Credentials where
+module Network.AWS.Credentials
+    (
+    -- * Loading credentials
+      Credentials (..)
+    , credentials
+
+    -- * Defaults
+    , accessKey
+    , secretKey
+    ) where
 
 import           Control.Applicative
 import           Control.Concurrent
@@ -48,13 +57,13 @@ secretKey = "AWS_SECRET_KEY"
 
 data Credentials
     = CredKeys Text Text
-      -- ^ Keys credentials containing an access key and a secret key.
+      -- ^ Explicit access and secret keys.
     | CredSession Text Text Text
-      -- ^ Session credentials containing access key, secret key, and a security token.
+      -- ^ A session containing the access key, secret key, and a security token.
     | CredProfile Text
-      -- ^ A specific IAM Profile name to query the local instance-data for credentials.
+      -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
     | CredEnv Text Text
-      -- ^ Environment variable names to read for the access and secret keys.
+      -- ^ Environment variables to lookup for the access and secret keys.
     | CredDiscover
       -- ^ Attempt to read the default access and secret keys from the environment,
       -- falling back to the first available IAM profile if they are not set.
@@ -74,9 +83,7 @@ instance ToText Credentials where
 instance Show Credentials where
     show = showText
 
-credentials :: (Alternative m, MonadIO m)
-            => Credentials
-            -> EitherT Error m AuthRef
+credentials :: MonadIO m => Credentials -> EitherT Error m AuthRef
 credentials c = case c of
     CredKeys    a s   -> newRef $ Auth a s Nothing Nothing
     CredSession a s t -> newRef $ Auth a s (Just t) Nothing
@@ -101,9 +108,9 @@ credentials c = case c of
 
 defaultProfile :: MonadIO m => EitherT Error m Text
 defaultProfile = do
-    ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
-    p  <- tryHead "Unable to get default IAM Profile from metadata" ls
-    return $ Text.decodeUtf8 p
+    !ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
+    !p  <- tryHead "Unable to get default IAM Profile from metadata" ls
+    return $! Text.decodeUtf8 p
 
 -- | The IONewRef wrapper + timer is designed so that multiple concurrenct
 -- accesses of 'Auth' from the 'AWS' environment are not required to calculate

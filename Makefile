@@ -15,5 +15,8 @@ clean:
 	-rm -rf dist cabal.sandbox.config .cabal-sandbox
 	$(call NESTED,$@)
 
+doc:
+	$(call NESTED,$@)
+
 cabal.sandbox.config:
 	cabal sandbox init

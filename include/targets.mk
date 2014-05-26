@@ -9,5 +9,8 @@ install: cabal.sandbox.config
 clean:
 	cabal clean
 
+doc:
+	cabal haddock
+
 cabal.sandbox.config:
 	ln -fs $(TOP)/cabal.sandbox.config

@@ -13,7 +13,7 @@
 module Network.AWS.Request.Lens
     (
     -- * Default
-      ctx
+      req
 
     -- * Requests
     , get
@@ -47,41 +47,41 @@ import Network.HTTP.Types.Method
 
 -- what about md5 for v4?
 
-get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Context (Sg (Sv a))
-get x = ctx & path .~ x & qry .~ x & hdrs .~ x
+get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request (Sg (Sv a))
+get x = req & path .~ x & qry .~ x & hdrs .~ x
 
-head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Context (Sg (Sv a))
+head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request (Sg (Sv a))
 head x = get x & meth .~ HEAD
 
-delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Context (Sg (Sv a))
+delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request (Sg (Sv a))
 delete x = get x & meth .~ DELETE
 
-ctx :: Context a
-ctx = Context GET "/" mempty mempty (RequestBodyBS "")
+req :: Request a
+req = Request GET "/" mempty mempty (RequestBodyBS "")
 
-meth :: Functor f => LensLike' f (Context a) StdMethod
-meth f x = (\y -> x { ctxMethod = y }) <$> f (ctxMethod x)
+meth :: Functor f => LensLike' f (Request a) StdMethod
+meth f x = (\y -> x { rqMethod = y }) <$> f (rqMethod x)
 
 path :: (ToPath b, Functor f)
      => (Text -> f b)
-     -> Context a
-     -> f (Context a)
-path f x = (\y -> x { ctxPath = toPath y }) <$> f (ctxPath x)
+     -> Request a
+     -> f (Request a)
+path f x = (\y -> x { rqPath = toPath y }) <$> f (rqPath x)
 
 qry :: (ToQuery b, Functor f)
     => (Query -> f b)
-    -> Context a
-    -> f (Context a)
-qry f x = (\y -> x { ctxQuery = toQuery y }) <$> f (ctxQuery x)
+    -> Request a
+    -> f (Request a)
+qry f x = (\y -> x { rqQuery = toQuery y }) <$> f (rqQuery x)
 
 hdrs :: (ToHeaders b, Functor f)
      => ([(CI Text, Text)] -> f b)
-     -> Context a
-     -> f (Context a)
-hdrs f x = (\y -> x { ctxHeaders = toHeaders y }) <$> f (ctxHeaders x)
+     -> Request a
+     -> f (Request a)
+hdrs f x = (\y -> x { rqHeaders = toHeaders y }) <$> f (rqHeaders x)
 
 bdy :: (ToBody b, Functor f)
     => (RequestBody -> f b)
-    -> Context a
-    -> f (Context a)
-bdy f x = (\y -> x { ctxBody = toBody y }) <$> f (ctxBody x)
+    -> Request a
+    -> f (Request a)
+bdy f x = (\y -> x { rqBody = toBody y }) <$> f (rqBody x)

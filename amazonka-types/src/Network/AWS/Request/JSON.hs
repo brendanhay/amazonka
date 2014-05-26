@@ -17,5 +17,5 @@ import Network.AWS.Request.Lens
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: ToJSON a => Action -> a -> Context (Sg (Sv a))
-post a x = ctx & meth .~ POST & qry .~ a & bdy .~ toJSON x
+post :: ToJSON a => Action -> a -> Request (Sg (Sv a))
+post a x = req & meth .~ POST & qry .~ a & bdy .~ toJSON x

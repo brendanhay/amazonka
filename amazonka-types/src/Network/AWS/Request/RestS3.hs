@@ -23,5 +23,5 @@ import Network.HTTP.Types.Method
 post :: (ToPath a, ToQuery a, ToHeaders a, ToBody b)
      => a
      -> b
-     -> Context (Sg (Sv a))
+     -> Request (Sg (Sv a))
 post x y = get x & meth .~ POST & bdy .~ y

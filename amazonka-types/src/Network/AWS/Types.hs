@@ -29,21 +29,20 @@ import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Data.Time
 import           Network.AWS.Data
-import           Network.HTTP.Client
+import           Network.HTTP.Client          (RequestBody, Response)
 import           Network.HTTP.Types.Method
 
-data family Er a :: *
-
-type family Sg a :: *
-
 class AWSService a where
-    service :: Service a (Sg a)
+    type Sg a :: *
+    data Er a :: *
+
+    service   :: Service a (Sg a)
 
 class AWSRequest a where
     type Sv a :: *
     type Rs a :: *
 
-    request   :: a -> Context (Sv a)
+    request   :: a -> Request (Sv a)
     response  :: MonadResource m
               => Response (ResumableSource m ByteString)
               -> m (Either (Er (Sv a)) (Rs a))
@@ -79,21 +78,21 @@ data Service a s = Service
     , svcTarget   :: Maybe ByteString
     }
 
-data Context a = Context
-    { ctxMethod  :: !StdMethod
-    , ctxPath    :: !Text
-    , ctxQuery   :: Query
-    , ctxHeaders :: [(CI Text, Text)]
-    , ctxBody    :: RequestBody
+data Request a = Request
+    { rqMethod  :: !StdMethod
+    , rqPath    :: !Text
+    , rqQuery   :: Query
+    , rqHeaders :: [(CI Text, Text)]
+    , rqBody    :: RequestBody
     }
 
-instance Show (Context a) where
-    show Context{..} = unlines
-        [ "Context:"
-        , "ctxMethod  = " ++ show ctxMethod
-        , "ctxPath    = " ++ show ctxPath
-        , "ctxQuery   = " ++ show ctxQuery
-        , "ctxHeaders = " ++ show ctxHeaders
+instance Show (Request a) where
+    show Request{..} = unlines
+        [ "Request:"
+        , "rqMethod  = " ++ show rqMethod
+        , "rqPath    = " ++ show rqPath
+        , "rqQuery   = " ++ show rqQuery
+        , "rqHeaders = " ++ show rqHeaders
         ]
 
 data Region

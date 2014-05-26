@@ -26,66 +26,156 @@ data V4
 
 -- try and make it look the same as the documentation's flow?
 
+
+-- v2 returns a modified querystring, and headers
+-- v3 returns modified headers
+-- v4 returns modified headers
+
+-- Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20130524/us-east-1/s3/aws4_request, 
+--   SignedHeaders=host;range;x-amz-date,
+--   Signature=fe5f80f77d5fa3beca038a248ff027d0445342fe2855ddc963176630326f1024
+
 instance SigningAlgorithm V4 where
     finalise = undefined
 
---    finalise s@Service{..} c@Context{..} Auth{..} r t = undefined
+-- canonicalRequest
+--   where
+--     httpVerb = + \n +
 
---       where
---         host = endpoint s r
---         meth = toByteString ctxMethod
---         path = toByteString ctxPath
---         reg  = toByteString r
+--     canonicalURI = + \n +
 
---         headers = hAMZDate t : maybeToList (hAMZToken <$> sigToken) ++ ctxHeaders
+--     canonicalQueryString = + \n +
 
---         algorithm = "AWS4-HMAC-SHA256"
+--     canonicalHeaders = + \n +
 
---         authorisation = mconcat
---             [ algorithm
---             , " Credential="
---             , authAccess
---             , "/"
---             , credentialScope
---             , ", SignedHeaders="
---             , signedHeaders
---             , ", Signature="
---             , signature
---             ]
+--     signedHeaders = + \n +
 
---         signature = Base16.encode $ hmacSHA256 signingKey stringToSign
+--     hashedPayload
 
---         signingKey = foldl1 hmacSHA256 $ ("AWS4" <> authSecret) : scope
+-- -- | CanonicalURI is the URI-encoded version of the absolute path component of the
+-- -- URI—everything starting with the "/" that follows the domain name and up to the
+-- -- end of the string or to the question mark character ('?') if you have query
+-- -- string parameters. For example, in the URI
+-- --
+-- -- http://s3.amazonaws.com/examplebucket/myphoto.jpg /examplebucket/myphoto.jpg is
+-- -- the absolute path. In the absolute path, you don't encode the "/".
+-- canonicalURI
+--   where
 
---         stringToSign = BS.intercalate "\n"
---             [ algorithm
---             , toByteString (AWSTime t)
---             , credentialScope
---             , Base16.encode $ SHA256.hash canonicalRequest
---             ]
+-- -- | CanonicalQueryString specifies the URI-encoded query string parameters.
+-- -- You URI-encode name and values individually.
+-- -- You must also sort the parameters in the canonical query string alphabetically
+-- -- by key name. The sorting occurs after encoding. For example, in the URI:
+-- -- http://s3.amazonaws.com/examplebucket?prefix=somePrefix&marker=someMarker&max-keys=20
+-- --
+-- -- the query string is prefix=somePrefix&marker=someMarker&max-keys=20. The
+-- -- canonical query string is as follows. Line breaks are added to this example for
+-- -- readability:
+-- --
+-- -- URI-encode("marker")+"="+URI-encode("someMarker")+"&"+
+-- -- URI-encode("max-keys")+"="+URI-encode("20") + "&" +
+-- -- URI-encode("prefix")+"="+URI-encode("somePrefix")
+-- -- When a request targets a subresource, the corresponding query parameter value
+-- -- will be an empty string (""). For example, the following URI identifies the ACL
+-- -- subresource on the examplebucket bucket:
+-- -- http://s3.amazonaws.com/examplebucket?acl
+-- --
+-- -- The CanonicalQueryString in this case is:
+-- -- URI-encode("acl") + "=" + ""
+-- -- If the URI does not include a '?', there is no query string in the request, and
+-- -- you set the canonical query string to an empty string (""). You will still need
+-- -- to include the "\n".
+-- canonicalQueryString
+--   where
 
---         credentialScope = BS.intercalate "/" scope
+-- canonicalHeaders
+--   where
 
---         scope =
---             [ toByteString (BasicTime t)
---             , reg
---             , svcName
---             , "aws4sigRequest"
---             ]
 
---         canonicalRequest = BS.intercalate "\n"
---             [ meth
---             , path
---             , query
---             , canonicalHeaders
---             , signedHeaders
---             , bodySHA256
---             ]
+-- stringToSign
+--   where
+--     algorithm = "AWS4-HMAC-SHA256" + \n +
 
---         canonicalHeaders = mconcat $ map flattenValues grouped
+--     timeStamp = + ISO8601Time \n +
 
---         signedHeaders = BS.intercalate ";" . nub $ map (CI.foldedCase . fst) grouped
+--     scope = BS.intercalate "/"
+--         [ BasicTime t,
+--         , r
+--         , service name
+--         ,
+--         ]
+--         + \n
 
---         grouped = groupHeaders headers
+--     hex(sha256hash(canonicalRequest))
 
---         bodySHA256 = Base16.encode $ SHA256.hash ""
+-- signature
+--   where
+--     dateKey
+--     dateRegionKey
+--     dateRegionServiceKey
+--     signingKey
+
+--     hmac-sha256(signingKey, stringToSign)
+
+
+
+-- --    finalise s@Service{..} c@Context{..} Auth{..} r t = undefined
+
+-- --       where
+-- --         host = endpoint s r
+-- --         meth = toByteString ctxMethod
+-- --         path = toByteString ctxPath
+-- --         reg  = toByteString r
+
+-- --         headers = hAMZDate t : maybeToList (hAMZToken <$> sigToken) ++ ctxHeaders
+
+-- --         algorithm = "AWS4-HMAC-SHA256"
+
+-- --         authorisation = mconcat
+-- --             [ algorithm
+-- --             , " Credential="
+-- --             , authAccess
+-- --             , "/"
+-- --             , credentialScope
+-- --             , ", SignedHeaders="
+-- --             , signedHeaders
+-- --             , ", Signature="
+-- --             , signature
+-- --             ]
+
+-- --         signature = Base16.encode $ hmacSHA256 signingKey stringToSign
+
+-- --         signingKey = foldl1 hmacSHA256 $ ("AWS4" <> authSecret) : scope
+
+-- --         stringToSign = BS.intercalate "\n"
+-- --             [ algorithm
+-- --             , toByteString (AWSTime t)
+-- --             , credentialScope
+-- --             , Base16.encode $ SHA256.hash canonicalRequest
+-- --             ]
+
+-- --         credentialScope = BS.intercalate "/" scope
+
+-- --         scope =
+-- --             [ toByteString (BasicTime t)
+-- --             , reg
+-- --             , svcName
+-- --             , "aws4sigRequest"
+-- --             ]
+
+-- --         canonicalRequest = BS.intercalate "\n"
+-- --             [ meth
+-- --             , path
+-- --             , query
+-- --             , canonicalHeaders
+-- --             , signedHeaders
+-- --             , bodySHA256
+-- --             ]
+
+-- --         canonicalHeaders = mconcat $ map flattenValues grouped
+
+-- --         signedHeaders = BS.intercalate ";" . nub $ map (CI.foldedCase . fst) grouped
+
+-- --         grouped = groupHeaders headers
+
+-- --         bodySHA256 = Base16.encode $ SHA256.hash ""

@@ -19,5 +19,5 @@ import Network.AWS.Request.Lens
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Context (Sg (Sv a))
+post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request (Sg (Sv a))
 post x = get x & meth .~ POST & bdy .~ encodeXML x

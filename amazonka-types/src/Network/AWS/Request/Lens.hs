@@ -17,7 +17,7 @@ module Network.AWS.Request.Lens
 
     -- * Requests
     , get
-    , head
+    , Network.AWS.Request.Lens.head
     , delete
 
     -- * Lenses
@@ -44,7 +44,6 @@ import Network.AWS.Data
 import Network.AWS.Types
 import Network.HTTP.Client       (RequestBody(..))
 import Network.HTTP.Types.Method
-import Prelude                   hiding (head)
 
 -- what about md5 for v4?
 

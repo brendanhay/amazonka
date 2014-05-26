@@ -10,7 +10,7 @@
 
 module Network.AWS.Request.RestS3
     ( get
-    , head
+    , Network.AWS.Request.Lens.head
     , delete
     , post
     ) where

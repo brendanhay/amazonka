@@ -287,4 +287,3 @@ get base p = (strip . LBS.toStrict) `liftM` go
     strip bs
         | BS.isSuffixOf "\n" bs = BS.init bs
         | otherwise             = bs
-

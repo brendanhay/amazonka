@@ -34,7 +34,7 @@ library
       , Network.AWS.Error
       , Network.AWS.Monadic
       , Network.AWS.Request.JSON
-      , Network.AWS.Request.Internal.Lens
+      , Network.AWS.Request.Lens
       , Network.AWS.Request.Query
       , Network.AWS.Request.RestS3
       , Network.AWS.Request.RestXML

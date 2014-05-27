@@ -19,7 +19,6 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Char8        as BS
 import           Data.CaseInsensitive         (CI)
 import           Data.Char
 import           Data.Conduit
@@ -71,21 +70,21 @@ newtype AuthRef = AuthRef { authRef :: IORef Auth }
 data Endpoint
     = Global
     | Regional
-    | Custom !ByteString
+    | Custom !Text
 
 data Service a s = Service
     { svcEndpoint :: !Endpoint
-    , svcName     :: !ByteString
-    , svcVersion  :: !ByteString
-    , svcTarget   :: Maybe ByteString
+    , svcName     :: !Text
+    , svcVersion  :: !Text
+    , svcTarget   :: Maybe Text
     }
 
-endpoint :: Service a s -> Region -> ByteString
+endpoint :: Service a s -> Region -> Text
 endpoint Service{..} reg =
     let suf = ".amazonaws.com"
      in case svcEndpoint of
             Global   -> svcName <> suf
-            Regional -> svcName <> "." <> toByteString reg <> suf
+            Regional -> svcName <> "." <> toText reg <> suf
             Custom x -> x
 
 data Request a = Request

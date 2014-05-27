@@ -8,7 +8,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Time where
+module Network.AWS.Data.Time
+    ( AWSTime     (..)
+    , RFC822Time  (..)
+    , ISO8601Time (..)
+    , BasicTime   (..)
+    ) where
 
 import           Data.ByteString             (ByteString)
 import qualified Data.ByteString.Char8       as BS

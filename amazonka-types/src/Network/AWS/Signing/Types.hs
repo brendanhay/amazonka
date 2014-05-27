@@ -14,17 +14,14 @@
 
 module Network.AWS.Signing.Types where
 
-import           Data.ByteString.Builder
-import           Data.ByteString.Builder.Extra
-import           Data.ByteString.Char8         (ByteString)
-import qualified Data.ByteString.Char8         as BS
-import           Data.ByteString.Internal      (c2w)
-import qualified Data.ByteString.Lazy          as LBS
 import           Data.Char
-import qualified Data.Foldable                 as Fold
 import           Data.Monoid
+import           Data.Text              (Text)
+import qualified Data.Text              as Text
+import qualified Data.Text.Lazy         as LText
+import           Data.Text.Lazy.Builder (Builder)
+import qualified Data.Text.Lazy.Builder as Build
 import           Data.Time
-import           Data.Word                     (Word8)
 import           Network.AWS.Types
 
 data Signed v = Signed (Request ())
@@ -73,14 +70,12 @@ sign = finalise service . request
 --   }
 --   return result.toString();
 -- }
-encodeURI :: Bool -> ByteString -> ByteString
-encodeURI p = LBS.toStrict . build . BS.foldr' (mappend . enc) mempty
+encodeURI :: Bool -> Text -> Text
+encodeURI p = build . Text.foldr (mappend . enc) mempty
   where
-    build = toLazyByteStringWith (untrimmedStrategy 128 smallChunkSize) mempty
-
     enc ' '              = "%20"
     enc '/' | p          = "%2F"
-    enc  c  | reserved c = char8 c
+    enc  c  | reserved c = Build.singleton c
     enc  c               = char2hex c
 
     reserved c =
@@ -89,11 +84,14 @@ encodeURI p = LBS.toStrict . build . BS.foldr' (mappend . enc) mempty
         || isDigit c
         || c `elem` "-_.~/"
 
-    char2hex c = let (a, b) = c2w c `divMod` 16
-                  in word8 37 <> hex a <> hex b
+    char2hex c = let (a, b) = fromEnum c `divMod` 16
+                  in Build.fromString ['%', hex a, hex b]
 
-    hex i | i < 10    = word8 (48 + i)
-          | otherwise = word8 (65 + i - 10)
+    hex i | i < 10    = toEnum (48 + i)
+          | otherwise = toEnum (65 + i - 10)
+
+build :: Builder -> Text
+build = LText.toStrict . Build.toLazyTextWith 128
 
 -- -- | Convert the string to lowercase.
 -- lowercase = undefined

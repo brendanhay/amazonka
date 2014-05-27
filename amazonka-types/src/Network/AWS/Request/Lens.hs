@@ -36,10 +36,10 @@ module Network.AWS.Request.Lens
     ) where
 
 import Control.Applicative
+import Control.Lens
 import Data.CaseInsensitive      (CI)
 import Data.Monoid
 import Data.Text                 (Text)
-import Lens.Family
 import Network.AWS.Data
 import Network.AWS.Types
 import Network.HTTP.Client       (RequestBody(..))

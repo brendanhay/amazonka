@@ -1,8 +1,10 @@
 {-# LANGUAGE DefaultSignatures   #-}
+{-# LANGUAGE DeriveDataTypeable  #-}
 {-# LANGUAGE FlexibleContexts    #-}
 {-# LANGUAGE FlexibleInstances   #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeFamilies        #-}
 {-# LANGUAGE TypeOperators       #-}
 
 -- Module      : Network.AWS.Data.Query
@@ -15,18 +17,40 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Query where
+module Network.AWS.Data.Query
+    (
+    -- * Types
+      Query
+
+    -- * Classes
+    , ToQuery (..)
+
+    -- * Serialisation
+    , renderQuery
+    , encodeQuery
+    ) where
 
 import           Control.Applicative
+import           Control.Arrow
 import           Control.Error              (note)
+import           Control.Lens
+import           Control.Lens.Plated
+import           Control.Lens.TH
 import           Control.Monad
 import qualified Data.Attoparsec.Text       as AText
+import           Data.ByteString.Char8      (ByteString)
+import qualified Data.ByteString.Char8      as BS
 import           Data.Char
+import           Data.Data
+import           Data.Data.Lens
 import           Data.Default
 import           Data.Either
 import           Data.Foldable              (foldl')
+import qualified Data.Foldable              as Fold
+import           Data.Maybe
+import           Data.Typeable
 -- import           Data.HashMap.Strict        (HashMap)
-import           Data.List                  (sort)
+import           Data.List                  (sort, intersperse)
 import           Data.List.NonEmpty         (NonEmpty(..))
 import qualified Data.List.NonEmpty         as NonEmpty
 import           Data.Monoid
@@ -39,8 +63,37 @@ import qualified Data.Text.Lazy.Builder.Int as LText
 import           Data.Time
 import           GHC.Generics
 
--- -- FIXME: Neither of these is the correct type
--- -- And what about the breaking of query elements? not all pieces have =
+data Query
+    = List  [Query]
+    | Pair  Text Query
+    | Value (Maybe Text)
+      deriving (Eq, Show, Data, Typeable)
+
+instance Ord Query where
+    compare (List  as) (List  bs) = as `compare` bs
+    compare (Pair a _) (Pair b _) = a  `compare` b
+    compare (Value  a) (Value  b) = a  `compare` b
+    compare (List   _) _          = GT
+    compare (Pair _ _) _          = GT
+    compare (Value  _) _          = LT
+
+instance Monoid Query where
+    mempty = List []
+
+    mappend (List l) (List r) = List (l ++ r)
+    mappend (List l) r        = List (r : l)
+    mappend l        (List r) = List (l : r)
+    mappend l        r        = List [l, r]
+
+instance Plated Query where
+    plate = uniplate
+
+instance IsString Query where
+    fromString [] = Value Nothing
+    fromString xs = Value . Just $ Text.pack xs
+
+-- FIXME: Neither of these is the correct type
+-- And what about the breaking of query elements? not all pieces have =
 
 -- decodeQuery :: FromQuery a => [(Text, Maybe Text)] -> Either String a
 -- decodeQuery = fromQuery . foldl' (\a b -> reify b <> a) mempty
@@ -55,44 +108,22 @@ import           GHC.Generics
 --             f k' q = Pair k' q
 --         in  foldr f (Pair (last ks) $ Value v) $ init ks
 
-encodeQuery :: ToQuery a => a -> [(Text, Maybe Text)]
-encodeQuery = enc "" . toQuery
+renderQuery :: (Eq m, Monoid m) => m -> m -> (Text -> m) -> Query -> m
+renderQuery ksep vsep f = enc mempty
   where
-    enc k (List qs) = concatMap (enc k) qs
-    enc k (Value v) = [(k, v)]
-    enc k (Pair k' q)
-        | Text.null k = enc k' q
-        | otherwise   = enc (k <> "." <> k') q
+    enc k (List xs)        = Fold.foldMap (enc k) (sort xs)
+    enc k (Pair k' x)
+        | mempty == k      = enc (f k') x
+        | otherwise        = enc (k <> ksep <> f k') x
+    enc k (Value (Just v)) = k <> vsep <> f v
+    enc k _                = k
 
--- queryFromList :: [Query] -> Query
--- queryFromList = List
-
-data Query
-    = List  [Query]
-    | Value (Maybe Text)
-    | Pair  Text Query
-      deriving (Eq, Show)
-
-instance Monoid Query where
-    mempty                    = List []
-    mappend (List l) (List r) = List (l ++ r)
-    mappend (List l) r        = List (r : l)
-    mappend l        (List r) = List (l : r)
-    mappend l        r        = List [l, r]
-
--- instance Ord Query where
---     compare (List  ls)   (List  rs)   = ls `compare` rs
---     compare (Pair  k1 _) (Pair  k2 _) = k1 `compare` k2
---     compare (Value v1)   (Value v2)   = v1 `compare` v2
-
---     compare (List _)   (Pair _ _) = GT
---     compare (List _)   (Value _)  = GT
---     compare (Pair _ _) (Value _)  = GT
-
---     compare _ _ = LT
-
--- instance IsString Query where
---     fromString = Value . Text.pack
+encodeQuery :: (Text -> Text) -> Query -> Query
+encodeQuery f = over plate g
+  where
+    g (Pair k x) = Pair (f k) x
+    g (Value  x) = Value (f <$> x)
+    g x          = x
 
 -- data QueryOptions = QueryOptions
 --     { queryCtorMod  :: String -> Text
@@ -257,7 +288,7 @@ instance ToQuery (Text, Text) where
     toQuery (k, v) = Pair k . Value $ Just v
 
 instance ToQuery (Text, Maybe Text) where
-    toQuery (k, mv) = Pair k (Value mv)
+    toQuery (k, v) = Pair k (Value v)
 
 -- instance ToQuery Int where
 --     toQuery = valueFromIntegral

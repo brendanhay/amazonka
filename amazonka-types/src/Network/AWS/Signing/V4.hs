@@ -64,40 +64,6 @@ instance SigningAlgorithm V4 where
 
         meta = Meta authorisation signedHeaders' canonicalRequest stringToSign
 
-        algorithm = "AWS4-HMAC-SHA256"
-
-        scope' = BS.intercalate "/" scope
-        scope  =
-            [ toBS (BasicTime t)
-            , toBS r
-            , toBS svcName
-            , "aws4_request"
-            ]
-
-        signingKey = Fold.foldl1 hmacSHA256 $
-            ("AWS4" <> authSecret) : scope
-
-        stringToSign = mconcat $ intersperse "\n"
-            [ algorithm
-            , toBS (ISO8601Time t)
-            , scope'
-            , Base16.encode (SHA256.hash canonicalRequest)
-            ]
-
-        signature = Base16.encode (hmacSHA256 signingKey stringToSign)
-
-        authorisation = BS.concat
-            [ algorithm
-            , " Credential="
-            , authAccess
-            , "/"
-            , scope'
-            , ", SignedHeaders="
-            , signedHeaders'
-            , ", Signature="
-            , signature
-            ]
-
         canonicalQuery = renderQuery "&" "=" build
             $ over valuesOf (maybe (Just "") Just) query
             -- ^ Set subresource key's value to an empty string.
@@ -131,3 +97,37 @@ instance SigningAlgorithm V4 where
            , signedHeaders
            , payloadHash
            ]
+
+        algorithm = "AWS4-HMAC-SHA256"
+
+        credentialScope' = BS.intercalate "/" credentialScope
+        credentialScope  =
+            [ toBS (BasicTime t)
+            , toBS r
+            , toBS svcName
+            , "aws4_request"
+            ]
+
+        signingKey = Fold.foldl1 hmacSHA256 $
+            ("AWS4" <> authSecret) : credentialScope
+
+        stringToSign = mconcat $ intersperse "\n"
+            [ algorithm
+            , toBS (ISO8601Time t)
+            , credentialScope'
+            , Base16.encode (SHA256.hash canonicalRequest)
+            ]
+
+        signature = Base16.encode (hmacSHA256 signingKey stringToSign)
+
+        authorisation = BS.concat
+            [ algorithm
+            , " Credential="
+            , authAccess
+            , "/"
+            , credentialScope'
+            , ", SignedHeaders="
+            , signedHeaders'
+            , ", Signature="
+            , signature
+            ]

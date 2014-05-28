@@ -23,8 +23,6 @@ import           Data.ByteString       (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import qualified Data.ByteString.Lazy  as LBS
 import           Data.Monoid
-import           Data.Text             (Text)
-import qualified Data.Text             as Text
 import           Network.AWS.Data
 import           Network.AWS.Error
 import           Network.HTTP.Conduit
@@ -99,7 +97,7 @@ data Meta
     -- ^ The instance's media access control (MAC) address. In cases where
     -- multiple network interfaces are present, this refers to the eth0 device
     -- (the device for which the device number is 0).
-    | Network !Text !Interface
+    | Network !ByteString !Interface
     -- ^ See: 'Interface'
     | AvailabilityZone
     -- ^ The Availability Zone in which the instance launched.
@@ -169,8 +167,8 @@ data Mapping
 instance ToPath Mapping where
     toPath x = case x of
         AMI         -> "ami"
-        EBS       n -> "ebs" <> toText n
-        Ephemeral n -> "ephemeral" <> toText n
+        EBS       n -> "ebs" <> toByteString n
+        Ephemeral n -> "ephemeral" <> toByteString n
         Root        -> "root"
         Swap        -> "root"
 
@@ -179,7 +177,7 @@ data Interface
     -- ^ The device number associated with that interface. Each interface must
     -- have a unique device number. The device number serves as a hint to device
     -- naming in the instance; for example, device-number is 2 for the eth2 device.
-    | IIPV4Associations !Text
+    | IIPV4Associations !ByteString
     -- ^ The private IPv4 addresses that are associated with each public-ip
     -- address and assigned to that interface.
     | ILocalHostname
@@ -243,7 +241,7 @@ data Info
     -- ^ Returns information about the last time the instance profile was updated,
     -- including the instance's LastUpdated date, InstanceProfileArn,
     -- and InstanceProfileId.
-    | SecurityCredentials (Maybe Text)
+    | SecurityCredentials (Maybe ByteString)
     -- ^ Where role-name is the name of the IAM role associated with the instance.
     -- Returns the temporary security credentials.
     --
@@ -276,13 +274,10 @@ meta = get "http://169.254.169.254/latest/meta-data/"
 dynamic :: MonadIO m => Dynamic -> EitherT Error m ByteString
 dynamic = get "http://169.254.169.254/latest/dynamic/"
 
-get :: (MonadIO m, ToPath a) => Text -> a -> EitherT Error m ByteString
+get :: (MonadIO m, ToPath a) => ByteString -> a -> EitherT Error m ByteString
 get base p = (strip . LBS.toStrict) `liftM` go
   where
-    go = runIO
-        . simpleHttp
-        . Text.unpack
-        $ base <> toPath p
+    go = runIO . simpleHttp . BS.unpack $ base <> toPath p
 
     strip bs
         | BS.isSuffixOf "\n" bs = BS.init bs

@@ -32,6 +32,7 @@ import           Control.Exception          (throwIO)
 import           Control.Monad
 import           Control.Monad.IO.Class
 import qualified Data.Aeson                 as Aeson
+import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef
@@ -74,14 +75,14 @@ data Credentials
       deriving (Eq, Ord)
 
 instance ToByteString Credentials where
-    toByteString (FromKeys    a _)   = "FromKeys "    <> a <> " ****"
-    toByteString (FromSession a _ _) = "FromSession " <> a <> " **** ****"
-    toByteString (FromProfile n)     = "FromProfile " <> n
-    toByteString (FromEnv     a s)   = "FromEnv "     <> a <> " " <> s
-    toByteString Discover            = "Discover"
+    toBS (FromKeys    a _)   = "FromKeys "    <> a <> " ****"
+    toBS (FromSession a _ _) = "FromSession " <> a <> " **** ****"
+    toBS (FromProfile n)     = "FromProfile " <> n
+    toBS (FromEnv     a s)   = "FromEnv "     <> a <> " " <> s
+    toBS Discover            = "Discover"
 
 instance Show Credentials where
-    show = showByteString
+    show = showBS
 
 credentials :: MonadIO m => Credentials -> EitherT Error m AuthRef
 credentials c = case c of

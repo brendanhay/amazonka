@@ -15,11 +15,14 @@ module Network.AWS.Data.ByteString
     -- * Classes
     -- ** ToByteString
       ToByteString (..)
-    , showByteString
+    , showBS
 
     -- ** ToBuilder
     , ToBuilder    (..)
-    , buildByteString
+    , buildBS
+
+    -- * Functions
+    , stripBS
     ) where
 
 import           Data.ByteString            (ByteString)
@@ -27,32 +30,34 @@ import           Data.ByteString.Builder    (Builder)
 import qualified Data.ByteString.Builder    as Build
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
+import           Data.Char
 import           Data.Int
 import           Data.Text                  (Text)
 import qualified Data.Text.Encoding         as Text
 import           Network.HTTP.Types.Method
 
-showByteString :: ToByteString a => a -> String
-showByteString = BS.unpack . toByteString
+showBS :: ToByteString a => a -> String
+showBS = BS.unpack . toBS
 
 class ToByteString a where
-    toByteString :: a -> ByteString
+    toBS :: a -> ByteString
 
-instance ToByteString ByteString where toByteString = id
-instance ToByteString Text       where toByteString = Text.encodeUtf8
-instance ToByteString Int        where toByteString = buildByteString
-instance ToByteString Integer    where toByteString = buildByteString
-instance ToByteString Double     where toByteString = buildByteString
-instance ToByteString StdMethod  where toByteString = renderStdMethod
+instance ToByteString Builder    where toBS = buildBS
+instance ToByteString ByteString where toBS = id
+instance ToByteString Text       where toBS = Text.encodeUtf8
+instance ToByteString Int        where toBS = buildBS
+instance ToByteString Integer    where toBS = buildBS
+instance ToByteString Double     where toBS = buildBS
+instance ToByteString StdMethod  where toBS = renderStdMethod
 
-buildByteString :: ToBuilder a => a -> ByteString
-buildByteString = LBS.toStrict . Build.toLazyByteString . build
+buildBS :: ToBuilder a => a -> ByteString
+buildBS = LBS.toStrict . Build.toLazyByteString . build
 
 class ToBuilder a where
     build :: a -> Builder
 
     default build :: ToByteString a => a -> Builder
-    build = build . toByteString
+    build = build . toBS
 
 instance ToBuilder Builder    where build = id
 instance ToBuilder ByteString where build = Build.byteString
@@ -62,3 +67,6 @@ instance ToBuilder Int        where build = Build.intDec
 instance ToBuilder Int64      where build = Build.int64Dec
 instance ToBuilder Integer    where build = Build.integerDec
 instance ToBuilder Double     where build = Build.doubleDec
+
+stripBS :: ByteString -> ByteString
+stripBS = BS.dropWhile isSpace . fst . BS.spanEnd isSpace

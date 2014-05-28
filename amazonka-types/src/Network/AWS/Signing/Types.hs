@@ -19,12 +19,9 @@ import qualified Crypto.Hash.SHA256      as SHA256
 import qualified Crypto.MAC.HMAC         as HMAC
 import           Data.ByteString         (ByteString)
 import           Data.ByteString.Builder (Builder)
-import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8   as BS
 import           Data.Char
 import           Data.Monoid
-import           Data.Text               (Text)
-import qualified Data.Text               as Text
 -- import           Data.Text.Lazy.Builder (Builder)
 import           Data.Time
 import           Network.AWS.Data

@@ -91,7 +91,7 @@ endpoint Service{..} reg =
     let suf = ".amazonaws.com"
      in Host $ case svcEndpoint of
             Global   -> svcName <> suf
-            Regional -> svcName <> "." <> toByteString reg <> suf
+            Regional -> svcName <> "." <> toBS reg <> suf
             Custom x -> x
 
 data Request a = Request
@@ -164,7 +164,7 @@ instance ToText Region where
         SaoPaulo        -> "sa-east-1"
 
 instance ToByteString Region where
-    toByteString = toByteString . toText
+    toBS = toBS . toText
 
 data AZ = AZ
     { azRegion :: !Region

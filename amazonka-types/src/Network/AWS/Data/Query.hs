@@ -39,49 +39,49 @@ module Network.AWS.Data.Query
 
 import           Control.Applicative
 import           Control.Arrow
-import           Control.Error              (note)
+import           Control.Error                (note)
 import           Control.Lens
 import           Control.Lens.Plated
 import           Control.Lens.TH
 import           Control.Monad
-import qualified Data.Attoparsec.Text       as AText
-import           Data.ByteString.Char8      (ByteString)
-import qualified Data.ByteString.Char8      as BS
+import qualified Data.Attoparsec.ByteString   as AByteString
+import           Data.ByteString.Char8        (ByteString)
+import qualified Data.ByteString.Char8        as BS
 import           Data.Char
 import           Data.Data
 import           Data.Data.Lens
 import           Data.Default
 import           Data.Either
-import           Data.Foldable              (foldl')
-import qualified Data.Foldable              as Fold
+import           Data.Foldable                (foldl')
+import qualified Data.Foldable                as Fold
 import           Data.Maybe
 import           Data.Typeable
+import           Network.AWS.Data.ByteString
 -- import           Data.HashMap.Strict        (HashMap)
-import           Data.List                  (sort, intersperse)
-import           Data.List.NonEmpty         (NonEmpty(..))
-import qualified Data.List.NonEmpty         as NonEmpty
+import           Data.List                    (sort, intersperse)
+import           Data.List.NonEmpty           (NonEmpty(..))
+import qualified Data.List.NonEmpty           as NonEmpty
 import           Data.Monoid
 import           Data.String
-import           Data.Text                  (Text)
-import qualified Data.Text                  as Text
-import qualified Data.Text.Lazy             as LText
-import qualified Data.Text.Lazy.Builder     as LText
-import qualified Data.Text.Lazy.Builder.Int as LText
+import           Data.ByteString              (ByteString)
+import qualified Data.ByteString              as ByteString
+import qualified Data.ByteString.Lazy         as Build
+import qualified Data.ByteString.Lazy.Builder as Build
 import           Data.Time
 import           GHC.Generics
 
 data Query
     = List  [Query]
-    | Pair  Text Query
-    | Value (Maybe Text)
+    | Pair  ByteString Query
+    | Value (Maybe ByteString)
       deriving (Eq, Show, Data, Typeable)
 
 makePrisms ''Query
 
-keysOf :: Traversal' Query Text
+keysOf :: Traversal' Query ByteString
 keysOf = deep (_Pair . _1)
 
-valuesOf :: Traversal' Query (Maybe Text)
+valuesOf :: Traversal' Query (Maybe ByteString)
 valuesOf = deep _Value
 
 instance Ord Query where
@@ -105,35 +105,35 @@ instance Plated Query where
 
 instance IsString Query where
     fromString [] = Value Nothing
-    fromString xs = Value . Just $ Text.pack xs
+    fromString xs = Value . Just $ BS.pack xs
 
 -- FIXME: Neither of these is the correct type
 -- And what about the breaking of query elements? not all pieces have =
 
--- decodeQuery :: FromQuery a => [(Text, Maybe Text)] -> Either String a
+-- decodeQuery :: FromQuery a => [(ByteString, Maybe ByteString)] -> Either String a
 -- decodeQuery = fromQuery . foldl' (\a b -> reify b <> a) mempty
 --   where
 --     reify (k, v)
---         | Text.null k         = Value v
---         | Text.any (== '.') k = fold k v
+--         | ByteString.null k         = Value v
+--         | ByteString.any (== '.') k = fold k v
 --         | otherwise           = Pair k $ Value v
 
 --     fold k v =
---         let ks     = Text.split (== '.') k
+--         let ks     = ByteString.split (== '.') k
 --             f k' q = Pair k' q
 --         in  foldr f (Pair (last ks) $ Value v) $ init ks
 
-renderQuery :: (Eq m, Monoid m) => m -> m -> (Text -> m) -> Query -> m
-renderQuery ksep vsep f = enc mempty
+renderQuery :: Monoid m => m -> m -> (ByteString -> m) -> Query -> m
+renderQuery ksep vsep f = enc Nothing
   where
     enc k (List xs)        = Fold.foldMap (enc k) (sort xs)
     enc k (Pair k' x)
-        | mempty == k      = enc (f k') x
-        | otherwise        = enc (k <> ksep <> f k') x
-    enc k (Value (Just v)) = k <> vsep <> f v
-    enc k _                = k
+        | Just n <- k      = enc (Just $ n <> ksep <> f k') x
+        | otherwise        = enc (Just $ f k') x
+    enc k (Value (Just v)) = fromMaybe mempty k <> vsep <> f v
+    enc k _                = fromMaybe mempty k
 
-encodeQuery :: (Text -> Text) -> Query -> Query
+encodeQuery :: (ByteString -> ByteString) -> Query -> Query
 encodeQuery f = over valuesOf (fmap f) . over keysOf f
 
 -- FIXME: Can be removed when lens 4.2 is released.
@@ -143,18 +143,18 @@ deep f = go
     go :: Traversal' s a
     go = cloneTraversal $ failing f (plate . go)
 
--- keysOf :: Traversal' Query Text
+-- keysOf :: Traversal' Query ByteString
 
--- valuesOf :: Traversal' Query (Maybe Text)
+-- valuesOf :: Traversal' Query (Maybe ByteString)
 
 -- data QueryOptions = QueryOptions
---     { queryCtorMod  :: String -> Text
---     , queryFieldMod :: String -> Text
+--     { queryCtorMod  :: String -> ByteString
+--     , queryFieldMod :: String -> ByteString
 --     }
 
 -- instance Default QueryOptions where
 --     def = QueryOptions
---         { queryCtorMod  = Text.pack
+--         { queryCtorMod  = ByteString.pack
 --         , queryFieldMod = safeDropLower
 --         }
 
@@ -162,16 +162,16 @@ deep f = go
 
 -- instance Default LoweredQueryOptions where
 --     def = LoweredQueryOptions $ def
---         { queryFieldMod = Text.toLower . safeDropLower
+--         { queryFieldMod = ByteString.toLower . safeDropLower
 --         }
 
--- safeDropLower :: String -> Text
--- safeDropLower [] = Text.empty
+-- safeDropLower :: String -> ByteString
+-- safeDropLower [] = ByteString.empty
 -- safeDropLower xs
 --     | all isLower xs = t
---     | otherwise      = Text.dropWhile isLower t
+--     | otherwise      = ByteString.dropWhile isLower t
 --   where
---     t = Text.pack xs
+--     t = ByteString.pack xs
 
 -- fromLoweredQuery :: (Generic a, GFromQuery (Rep a))
 --                  => Query
@@ -192,20 +192,20 @@ deep f = go
 --                       -> Either String a
 --     fromQuery = genericFromQuery def
 
--- instance FromQuery Text where
---     fromQuery = valueParser AText.takeText
+-- instance FromQuery ByteString where
+--     fromQuery = valueParser AByteString.takeByteString
 
 -- instance FromQuery Int where
---     fromQuery = valueParser AText.decimal
+--     fromQuery = valueParser AByteString.decimal
 
 -- instance FromQuery Integer where
---     fromQuery = valueParser AText.decimal
+--     fromQuery = valueParser AByteString.decimal
 
 -- instance FromQuery Double where
---     fromQuery = valueParser AText.rational
+--     fromQuery = valueParser AByteString.rational
 
 -- instance FromQuery Float where
---     fromQuery = valueParser AText.rational
+--     fromQuery = valueParser AByteString.rational
 
 -- instance FromQuery a => FromQuery [a] where
 --     fromQuery (List qs) = concatEithers $ map fromQuery [v | Pair _ v <- sort qs]
@@ -230,10 +230,10 @@ deep f = go
 -- instance FromQuery Bool where
 --     fromQuery = valueParser (p "true" True <|> p "false" False)
 --       where
---         p s b = AText.string s *> return b <* AText.endOfInput
+--         p s b = AByteString.string s *> return b <* AByteString.endOfInput
 
 -- instance FromQuery UTCTime where
---     fromQuery (Value v) = parseISO8601 $ Text.unpack v
+--     fromQuery (Value v) = parseISO8601 $ ByteString.unpack v
 --     fromQuery _         = Left "Unexpected non-value."
 
 -- instance FromQuery () where
@@ -243,8 +243,8 @@ deep f = go
 -- -- instance (FromQuery k, FromQuery v) => FromQuery (HashMap k v) where
 -- --     fromQuery = undefined
 
--- valueParser :: AText.Parser a -> Query -> Either String a
--- valueParser p (Value v) = AText.parseOnly p v
+-- valueParser :: AByteString.Parser a -> Query -> Either String a
+-- valueParser p (Value v) = AByteString.parseOnly p v
 -- valueParser _ _         = Left "Unexpected non-value."
 
 -- class GFromQuery f where
@@ -271,7 +271,7 @@ deep f = go
 -- instance (Selector c, GFromQuery f) => GFromQuery (S1 c f) where
 --     gFromQuery o =
 --         either Left (fmap M1 . gFromQuery o)
---             . note ("Unable to find: " ++ Text.unpack name)
+--             . note ("Unable to find: " ++ ByteString.unpack name)
 --             . findPair name
 --       where
 --         name = queryFieldMod o $ selName (undefined :: S1 c f p)
@@ -303,14 +303,14 @@ instance ToQuery Query where
 --                     -> Query
 --     toQuery = genericToQuery def
 
--- instance ToQuery Text where
+-- instance ToQuery ByteString where
 --     toQuery = Value
 
-instance ToQuery (Text, Text) where
-    toQuery (k, v) = Pair k . Value $ Just v
+instance (ToByteString k, ToByteString v) => ToQuery (k, v) where
+    toQuery (k, v) = Pair (toBS k) . Value $ Just (toBS v)
 
-instance ToQuery (Text, Maybe Text) where
-    toQuery (k, v) = Pair k (Value v)
+instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
+    toQuery (k, v) = Pair (toBS k) . Value $ toBS <$> v
 
 -- instance ToQuery Int where
 --     toQuery = valueFromIntegral
@@ -327,7 +327,7 @@ instance ToQuery (Text, Maybe Text) where
 -- instance ToQuery a => ToQuery [a] where
 --     toQuery = List . zipWith (\n v -> Pair (key n) (toQuery v)) idx
 --       where
---         key = LText.toStrict . LText.toLazyText . LText.decimal
+--         key = LByteString.toStrict . LByteString.toLazyByteString . LByteString.decimal
 --         idx = [1..] :: [Integer]
 
 -- instance ToQuery a => ToQuery (NonEmpty a) where
@@ -352,10 +352,10 @@ instance ToQuery (Text, Maybe Text) where
 -- --     toQuery = undefined
 
 -- valueFromIntegral :: Integral a => a -> Query
--- valueFromIntegral = Value . integralToText
+-- valueFromIntegral = Value . integralToByteString
 
 -- valueFromFloat :: RealFloat a => a -> Query
--- valueFromFloat = Value . floatToText
+-- valueFromFloat = Value . floatToByteString
 
 -- class GToQuery f where
 --     gToQuery :: QueryOptions -> f a -> Query

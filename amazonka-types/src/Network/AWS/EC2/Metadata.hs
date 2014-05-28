@@ -167,8 +167,8 @@ data Mapping
 instance ToPath Mapping where
     toPath x = case x of
         AMI         -> "ami"
-        EBS       n -> "ebs" <> toByteString n
-        Ephemeral n -> "ephemeral" <> toByteString n
+        EBS       n -> "ebs" <> toBS n
+        Ephemeral n -> "ephemeral" <> toBS n
         Root        -> "root"
         Swap        -> "root"
 

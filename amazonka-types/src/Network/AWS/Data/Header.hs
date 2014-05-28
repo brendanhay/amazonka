@@ -34,7 +34,7 @@ class ToHeaders a where
 --     toHeader k = (CI.mk k,) . Just
 
 -- instance ToByteString a => ToHeader a where
---     toHeader k = (CI.mk k,) . Just . ByteString.encodeUtf8 . toByteString
+--     toHeader k = (CI.mk k,) . Just . ByteString.encodeUtf8 . toBS
 
 -- instance ToHeader a => ToHeader (Maybe a) where
 --     toHeader k (Just x) = toHeader k x
@@ -49,7 +49,7 @@ class ToHeaders a where
 --     -> f (Maybe a)
 -- hdr k = pure
 --     . join
---     . fmap (hush . fromByteString . ByteString.decodeUtf8)
+--     . fmap (hush . fromBS . ByteString.decodeUtf8)
 --     . Map.lookup k
 
 -- hdrs :: Applicative f

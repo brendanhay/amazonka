@@ -27,16 +27,16 @@ newtype ISO8601Time = ISO8601Time UTCTime
 newtype BasicTime   = BasicTime   UTCTime
 
 instance ToByteString AWSTime where
-    toByteString (AWSTime t) = format "%Y%m%dT%H%M%SZ" t
+    toBS (AWSTime t) = format "%Y%m%dT%H%M%SZ" t
 
 instance ToByteString RFC822Time where
-    toByteString (RFC822Time t) = format "%a, %d %b %Y %H:%M:%S GMT" t
+    toBS (RFC822Time t) = format "%a, %d %b %Y %H:%M:%S GMT" t
 
 instance ToByteString ISO8601Time where
-    toByteString (ISO8601Time t) = format (iso8601DateFormat $ Just "%XZ") t
+    toBS (ISO8601Time t) = format (iso8601DateFormat $ Just "%XZ") t
 
 instance ToByteString BasicTime where
-    toByteString (BasicTime t) = format "%Y%m%d" t
+    toBS (BasicTime t) = format "%Y%m%d" t
 
 format :: String -> UTCTime -> ByteString
 format fmt = BS.pack . formatTime defaultTimeLocale fmt

@@ -14,14 +14,20 @@
 
 module Network.AWS.Signing.Types where
 
+import qualified Crypto.Hash.SHA1        as SHA1
+import qualified Crypto.Hash.SHA256      as SHA256
+import qualified Crypto.MAC.HMAC         as HMAC
+import           Data.ByteString         (ByteString)
+import           Data.ByteString.Builder (Builder)
+import qualified Data.ByteString.Builder as Build
+import qualified Data.ByteString.Char8   as BS
 import           Data.Char
 import           Data.Monoid
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
-import qualified Data.Text.Lazy         as LText
-import           Data.Text.Lazy.Builder (Builder)
-import qualified Data.Text.Lazy.Builder as Build
+import           Data.Text               (Text)
+import qualified Data.Text               as Text
+-- import           Data.Text.Lazy.Builder (Builder)
 import           Data.Time
+import           Network.AWS.Data
 import           Network.AWS.Types
 
 data Signed v = Signed (Request ())
@@ -70,12 +76,12 @@ sign = finalise service . request
 --   }
 --   return result.toString();
 -- }
-encodeURI :: Bool -> Text -> Text
-encodeURI p = build . Text.foldr (mappend . enc) mempty
+encodeURI :: Bool -> ByteString -> Builder
+encodeURI p = BS.foldr (mappend . enc) mempty
   where
     enc ' '              = "%20"
     enc '/' | p          = "%2F"
-    enc  c  | reserved c = Build.singleton c
+    enc  c  | reserved c = build c
     enc  c               = char2hex c
 
     reserved c =
@@ -84,26 +90,16 @@ encodeURI p = build . Text.foldr (mappend . enc) mempty
         || isDigit c
         || c `elem` "-_.~/"
 
-    char2hex c = let (a, b) = fromEnum c `divMod` 16
-                  in Build.fromString ['%', hex a, hex b]
+    char2hex c = let (a, b) = fromEnum c `divMod` 16 in build ['%', hex a, hex b]
 
     hex i | i < 10    = toEnum (48 + i)
           | otherwise = toEnum (65 + i - 10)
 
-build :: Builder -> Text
-build = LText.toStrict . Build.toLazyTextWith 128
+hmacSHA1 :: ByteString -> ByteString -> ByteString
+hmacSHA1 key msg = HMAC.hmac SHA1.hash 64 key msg
 
--- -- | Convert the string to lowercase.
--- lowercase = undefined
-
--- -- | Lowercase base 16 encoding.
--- hex = undefined
-
--- -- | Secure Hash Algorithm (SHA) cryptographic hash function.
--- hashSHA256 = undefined
-
--- -- | Calculate HMAC hash.
--- hmacSHA256 = undefined
+hmacSHA256 :: ByteString -> ByteString -> ByteString
+hmacSHA256 key msg = HMAC.hmac SHA256.hash 64 key msg
 
 -- -- | Remove any leading or trailing whitespace.
 -- trim = undefined

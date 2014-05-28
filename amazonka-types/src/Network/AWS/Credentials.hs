@@ -48,21 +48,21 @@ import           Network.AWS.Types
 import           System.Environment
 
 -- | Default access key environment variable: 'AWS_ACCESS_KEY'
-accessKey :: Text
+accessKey :: ByteString
 accessKey = "AWS_ACCESS_KEY"
 
 -- | Default secret key environment variable: 'AWS_SECRET_KEY'
-secretKey :: Text
+secretKey :: ByteString
 secretKey = "AWS_SECRET_KEY"
 
 data Credentials
-    = FromKeys Text Text
+    = FromKeys ByteString ByteString
       -- ^ Explicit access and secret keys.
-    | FromSession Text Text Text
+    | FromSession ByteString ByteString ByteString
       -- ^ A session containing the access key, secret key, and a security token.
-    | FromProfile Text
+    | FromProfile ByteString
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
-    | FromEnv Text Text
+    | FromEnv ByteString ByteString
       -- ^ Environment variables to lookup for the access and secret keys.
     | Discover
       -- ^ Attempt to read the default access and secret keys from the environment,
@@ -73,15 +73,15 @@ data Credentials
       -- the dns lookup terminates promptly if not running on EC2.
       deriving (Eq, Ord)
 
-instance ToText Credentials where
-    toText (FromKeys    a _)   = Text.concat ["FromKeys ", a, " ****"]
-    toText (FromSession a _ _) = Text.concat ["FromSession ", a, " **** ****"]
-    toText (FromProfile n)     = "FromProfile " <> n
-    toText (FromEnv     a s)   = Text.concat ["FromEnv ", a, " ", s]
-    toText Discover            = "Discover"
+instance ToByteString Credentials where
+    toByteString (FromKeys    a _)   = "FromKeys "    <> a <> " ****"
+    toByteString (FromSession a _ _) = "FromSession " <> a <> " **** ****"
+    toByteString (FromProfile n)     = "FromProfile " <> n
+    toByteString (FromEnv     a s)   = "FromEnv "     <> a <> " " <> s
+    toByteString Discover            = "Discover"
 
 instance Show Credentials where
-    show = showText
+    show = showByteString
 
 credentials :: MonadIO m => Credentials -> EitherT Error m AuthRef
 credentials c = case c of
@@ -101,14 +101,13 @@ credentials c = case c of
     key (Text.unpack -> k) = do
         m <- liftIO $ lookupEnv k
         maybe (throwT . Error $ "Unable to read ENV variable: " ++ k)
-              (return . Text.pack)
+              (return . BS.pack)
               m
 
-defaultProfile :: MonadIO m => EitherT Error m Text
+defaultProfile :: MonadIO m => EitherT Error m ByteString
 defaultProfile = do
     !ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
-    !p  <- tryHead "Unable to get default IAM Profile from metadata" ls
-    return $! Text.decodeUtf8 p
+    tryHead "Unable to get default IAM Profile from metadata" ls
 
 -- | The IONewRef wrapper + timer is designed so that multiple concurrenct
 -- accesses of 'Auth' from the 'AWS' environment are not required to calculate
@@ -116,7 +115,7 @@ defaultProfile = do
 --
 -- The forked timer ensures a singular owner and pre-emptive refresh of the
 -- temporary session credentials.
-fromProfile :: MonadIO m => Text -> EitherT Error m AuthRef
+fromProfile :: MonadIO m => ByteString -> EitherT Error m AuthRef
 fromProfile name = do
     !a@Auth{..} <- auth
     runIO $ do

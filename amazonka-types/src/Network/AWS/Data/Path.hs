@@ -10,8 +10,8 @@
 
 module Network.AWS.Data.Path where
 
-import Data.Text (Text)
+import Data.ByteString.Char8 (ByteString)
 
 class ToPath a where
-    toPath :: a -> Text
---     toPath = const Text.empty
+    toPath :: a -> ByteString
+--     toPath = const ByteString.empty

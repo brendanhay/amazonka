@@ -37,12 +37,13 @@ module Network.AWS.Request.Lens
 
 import Control.Applicative
 import Control.Lens
+import Data.ByteString.Char8     (ByteString)
 import Data.CaseInsensitive      (CI)
 import Data.Monoid
-import Data.Text                 (Text)
 import Network.AWS.Data
 import Network.AWS.Types
 import Network.HTTP.Client       (RequestBody(..))
+import Network.HTTP.Types.Header
 import Network.HTTP.Types.Method
 
 -- what about md5 for v4?
@@ -63,7 +64,7 @@ meth :: Functor f => LensLike' f (Request a) StdMethod
 meth f x = (\y -> x { rqMethod = y }) <$> f (rqMethod x)
 
 path :: (ToPath b, Functor f)
-     => (Text -> f b)
+     => (ByteString -> f b)
      -> Request a
      -> f (Request a)
 path f x = (\y -> x { rqPath = toPath y }) <$> f (rqPath x)
@@ -75,7 +76,7 @@ qry :: (ToQuery b, Functor f)
 qry f x = (\y -> x { rqQuery = toQuery y }) <$> f (rqQuery x)
 
 hdrs :: (ToHeaders b, Functor f)
-     => ([(CI Text, Text)] -> f b)
+     => ([Header] -> f b)
      -> Request a
      -> f (Request a)
 hdrs f x = (\y -> x { rqHeaders = toHeaders y }) <$> f (rqHeaders x)

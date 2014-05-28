@@ -1,6 +1,7 @@
-{-# LANGUAGE FlexibleContexts     #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE TupleSections        #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Network.AWS.Data.Header
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,11 +15,16 @@
 
 module Network.AWS.Data.Header where
 
-import Data.CaseInsensitive (CI)
-import Data.Text            (Text)
+import Network.HTTP.Types
+
+hAMZToken :: HeaderName
+hAMZToken = "X-AMZ-Security-Token"
+
+hMetaPrefix :: HeaderName
+hMetaPrefix = "X-AMZ-"
 
 class ToHeaders a where
-    toHeaders :: a -> [(CI Text, Text)]
+    toHeaders :: a -> [Header]
 --    toHeaders = const []
 
 -- class ToHeader a where
@@ -27,8 +33,8 @@ class ToHeaders a where
 -- instance ToHeader ByteString where
 --     toHeader k = (CI.mk k,) . Just
 
--- instance ToText a => ToHeader a where
---     toHeader k = (CI.mk k,) . Just . Text.encodeUtf8 . toText
+-- instance ToByteString a => ToHeader a where
+--     toHeader k = (CI.mk k,) . Just . ByteString.encodeUtf8 . toByteString
 
 -- instance ToHeader a => ToHeader (Maybe a) where
 --     toHeader k (Just x) = toHeader k x
@@ -37,21 +43,21 @@ class ToHeaders a where
 -- (=:) :: ToHeader a => ByteString -> a -> (HeaderName, Maybe ByteString)
 -- (=:) = toHeader
 
--- hdr :: (Applicative f, FromText a)
+-- hdr :: (Applicative f, FromByteString a)
 --     => HeaderName
 --     -> HashMap HeaderName ByteString
 --     -> f (Maybe a)
 -- hdr k = pure
 --     . join
---     . fmap (hush . fromText . Text.decodeUtf8)
+--     . fmap (hush . fromByteString . ByteString.decodeUtf8)
 --     . Map.lookup k
 
 -- hdrs :: Applicative f
 --      => ByteString
 --      -> HashMap HeaderName ByteString
---      -> f (HashMap Text Text)
+--      -> f (HashMap ByteString ByteString)
 -- hdrs pre hs = pure $
 --     Map.fromList [f (CI.original k, v) | (k, v) <- Map.toList hs, p k]
 --   where
---     f = join (***) Text.decodeUtf8
+--     f = join (***) ByteString.decodeUtf8
 --     p = BS.isPrefixOf pre . CI.foldedCase

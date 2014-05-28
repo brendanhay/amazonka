@@ -1,3 +1,5 @@
+{-# LANGUAGE DefaultSignatures #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Data.Text
@@ -13,30 +15,27 @@
 module Network.AWS.Data.Text
     (
     -- * Classes
-      FromText (..)
-    , ToText   (..)
-
-    -- * Instance helpers
     -- ** FromText
+      FromText  (..)
     , fromText
     , readText
 
     -- ** ToText
+    , ToText    (..)
     , showText
-    , integral
-    , float
-    , fromBuilder
     ) where
 
 import           Control.Applicative
 import           Data.Attoparsec.Text             (Parser)
 import qualified Data.Attoparsec.Text             as AText
+import           Data.Int
 import           Data.Text                        (Text)
 import qualified Data.Text                        as Text
 import qualified Data.Text.Lazy                   as LText
-import qualified Data.Text.Lazy.Builder           as LText
-import qualified Data.Text.Lazy.Builder.Int       as LText
-import qualified Data.Text.Lazy.Builder.RealFloat as LText
+import           Data.Text.Lazy.Builder           (Builder)
+import qualified Data.Text.Lazy.Builder           as Build
+import qualified Data.Text.Lazy.Builder.Int       as Build
+import qualified Data.Text.Lazy.Builder.RealFloat as Build
 
 fromText :: FromText a => Text -> Either String a
 fromText = AText.parseOnly parser
@@ -50,7 +49,6 @@ class FromText a where
 instance FromText Text    where parser = AText.takeText
 instance FromText Int     where parser = AText.decimal
 instance FromText Integer where parser = AText.decimal
-instance FromText Float   where parser = AText.rational
 instance FromText Double  where parser = AText.rational
 
 instance FromText Bool where
@@ -61,20 +59,32 @@ instance FromText Bool where
 showText :: ToText a => a -> String
 showText = Text.unpack . toText
 
-integral :: Integral a => a -> Text
-integral = fromBuilder . LText.decimal
-
-float :: RealFloat a => a -> Text
-float = fromBuilder . LText.realFloat
-
-fromBuilder :: LText.Builder -> Text
-fromBuilder = LText.toStrict . LText.toLazyText
-
 class ToText a where
     toText :: a -> Text
 
 instance ToText Text    where toText = id
-instance ToText Int     where toText = integral
-instance ToText Integer where toText = integral
-instance ToText Float   where toText = float
-instance ToText Double  where toText = float
+instance ToText Int     where toText = buildText
+instance ToText Int64   where toText = buildText
+instance ToText Integer where toText = buildText
+instance ToText Double  where toText = buildText
+
+buildText :: ToBuilder a => a -> Text
+buildText = LText.toStrict . Build.toLazyText . build
+
+buildShortText :: ToBuilder a => a -> Text
+buildShortText = LText.toStrict . Build.toLazyTextWith 128 . build
+
+class ToBuilder a where
+    build :: a -> Builder
+
+    default build :: ToText a => a -> Builder
+    build = build . toText
+
+instance ToBuilder Builder where build = id
+instance ToBuilder Text    where build = Build.fromText
+instance ToBuilder Char    where build = Build.singleton
+instance ToBuilder [Char]  where build = Build.fromString
+instance ToBuilder Int     where build = Build.decimal
+instance ToBuilder Int64   where build = Build.decimal
+instance ToBuilder Integer where build = Build.decimal
+instance ToBuilder Double  where build = Build.realFloat

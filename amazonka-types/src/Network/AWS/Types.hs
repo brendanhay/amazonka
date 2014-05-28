@@ -19,7 +19,6 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
-import           Data.CaseInsensitive         (CI)
 import           Data.Char
 import           Data.Conduit
 import           Data.Default
@@ -28,9 +27,11 @@ import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
+import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Network.AWS.Data
 import           Network.HTTP.Client          (RequestBody, Response)
+import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
 class AWSService a where
@@ -52,46 +53,52 @@ class AWSPager a where
     next :: AWSRequest a => a -> Rs a -> Maybe a
 
 data Auth = Auth
-    { authAccess :: !Text
-    , authSecret :: !Text
-    , authToken  :: Maybe Text
+    { authAccess :: !ByteString
+    , authSecret :: !ByteString
+    , authToken  :: Maybe ByteString
     , authExpiry :: Maybe UTCTime
     }
 
 instance FromJSON Auth where
     parseJSON = withObject "Auth" $ \o -> Auth
-        <$> o .:  "AccessKeyId"
-        <*> o .:  "SecretAccessKey"
-        <*> o .:? "Token"
+        <$> f (o .:  "AccessKeyId")
+        <*> f (o .:  "SecretAccessKey")
+        <*> fmap f (o .:? "Token")
         <*> o .:? "Expiration"
+      where
+        f :: Functor f => f Text -> f ByteString
+        f = fmap Text.encodeUtf8
 
 newtype AuthRef = AuthRef { authRef :: IORef Auth }
+
+data Service a s = Service
+    { svcEndpoint :: !Endpoint
+    , svcName     :: !ByteString
+    , svcVersion  :: !ByteString
+    , svcTarget   :: Maybe ByteString
+    }
 
 data Endpoint
     = Global
     | Regional
-    | Custom !Text
+    | Custom !ByteString
 
-data Service a s = Service
-    { svcEndpoint :: !Endpoint
-    , svcName     :: !Text
-    , svcVersion  :: !Text
-    , svcTarget   :: Maybe Text
-    }
+newtype Host = Host ByteString
+    deriving (Eq, Show)
 
-endpoint :: Service a s -> Region -> Text
+endpoint :: Service a s -> Region -> Host
 endpoint Service{..} reg =
     let suf = ".amazonaws.com"
-     in case svcEndpoint of
+     in Host $ case svcEndpoint of
             Global   -> svcName <> suf
-            Regional -> svcName <> "." <> toText reg <> suf
+            Regional -> svcName <> "." <> toByteString reg <> suf
             Custom x -> x
 
 data Request a = Request
     { rqMethod  :: !StdMethod
-    , rqPath    :: !Text
+    , rqPath    :: !ByteString
     , rqQuery   :: Query
-    , rqHeaders :: [(CI Text, Text)]
+    , rqHeaders :: [Header]
     , rqBody    :: RequestBody
     }
 

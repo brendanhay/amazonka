@@ -13,16 +13,10 @@
 module Network.AWS.Data
     (
     -- * ByteStrings
-      BS.ToByteString  (..)
-    , BS.showByteString
+      module BS
 
     -- * Text
-    , Text.FromText    (..)
-    , Text.fromText
-    , Text.readText
-
-    , Text.ToText      (..)
-    , Text.showText
+    , module Text
 
     -- * Time
     , module Time
@@ -31,8 +25,7 @@ module Network.AWS.Data
     -- , FromXML       (..)
     -- , decodeXML
 
-    , XML.ToXML        (..)
-    , XML.encodeXML
+    , module XML
 
     -- * HTTP
     , module Header
@@ -41,11 +34,11 @@ module Network.AWS.Data
     , module Body
     ) where
 
-import           Network.AWS.Data.Body       as Body
-import qualified Network.AWS.Data.ByteString as BS
-import           Network.AWS.Data.Header     as Header
-import           Network.AWS.Data.Path       as Path
-import           Network.AWS.Data.Query      as Query
-import qualified Network.AWS.Data.Text       as Text
-import           Network.AWS.Data.Time       as Time
-import qualified Network.AWS.Data.XML        as XML
+import Network.AWS.Data.Body       as Body
+import Network.AWS.Data.ByteString as BS
+import Network.AWS.Data.Header     as Header
+import Network.AWS.Data.Path       as Path
+import Network.AWS.Data.Query      as Query
+import Network.AWS.Data.Text       as Text
+import Network.AWS.Data.Time       as Time
+import Network.AWS.Data.XML        as XML

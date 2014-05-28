@@ -4,8 +4,11 @@
 {-# LANGUAGE FlexibleInstances   #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
 {-# LANGUAGE TypeFamilies        #-}
 {-# LANGUAGE TypeOperators       #-}
+
+{-# LANGUAGE RankNTypes #-} -- Required for 'deep'
 
 -- Module      : Network.AWS.Data.Query
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,6 +27,10 @@ module Network.AWS.Data.Query
 
     -- * Classes
     , ToQuery (..)
+
+    -- * Traversals
+    , keysOf
+    , valuesOf
 
     -- * Serialisation
     , renderQuery
@@ -68,6 +75,14 @@ data Query
     | Pair  Text Query
     | Value (Maybe Text)
       deriving (Eq, Show, Data, Typeable)
+
+makePrisms ''Query
+
+keysOf :: Traversal' Query Text
+keysOf = deep (_Pair . _1)
+
+valuesOf :: Traversal' Query (Maybe Text)
+valuesOf = deep _Value
 
 instance Ord Query where
     compare (List  as) (List  bs) = as `compare` bs
@@ -119,11 +134,18 @@ renderQuery ksep vsep f = enc mempty
     enc k _                = k
 
 encodeQuery :: (Text -> Text) -> Query -> Query
-encodeQuery f = over plate g
+encodeQuery f = over valuesOf (fmap f) . over keysOf f
+
+-- FIXME: Can be removed when lens 4.2 is released.
+deep :: forall s a. Plated s => Traversal' s a -> Traversal' s a
+deep f = go
   where
-    g (Pair k x) = Pair (f k) x
-    g (Value  x) = Value (f <$> x)
-    g x          = x
+    go :: Traversal' s a
+    go = cloneTraversal $ failing f (plate . go)
+
+-- keysOf :: Traversal' Query Text
+
+-- valuesOf :: Traversal' Query (Maybe Text)
 
 -- data QueryOptions = QueryOptions
 --     { queryCtorMod  :: String -> Text

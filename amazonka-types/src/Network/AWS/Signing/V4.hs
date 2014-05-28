@@ -42,7 +42,15 @@ data instance Meta V4 = Meta
     }
 
 instance SigningAlgorithm V4 where
-    finalise s@Service{..} Request{..} Auth{..} r t = Signed host rq meta
+    finalise s@Service{..} Request{..} Auth{..} r t = Signed host
+        (Request
+            { rqMethod  = rqMethod
+            , rqPath    = toBS path
+            , rqQuery   = query
+            , rqHeaders = (hAuthorization, authorisation) : headers
+            , rqBody    = rqBody
+            })
+        (Meta authorisation signedHeaders' canonicalRequest stringToSign)
       where
         host  = endpoint s r
         path  = encodeURI False rqPath
@@ -53,16 +61,6 @@ instance SigningAlgorithm V4 where
             : (rqHeaders ++ token)
 
         token = maybeToList $ (hAMZToken,) <$> authToken
-
-        rq = Request
-            { rqMethod  = rqMethod
-            , rqPath    = toBS path
-            , rqQuery   = query
-            , rqHeaders = (hAuthorization, authorisation) : headers
-            , rqBody    = rqBody
-            }
-
-        meta = Meta authorisation signedHeaders' canonicalRequest stringToSign
 
         canonicalQuery = renderQuery "&" "=" build
             $ over valuesOf (maybe (Just "") Just) query

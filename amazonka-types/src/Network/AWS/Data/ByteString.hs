@@ -67,6 +67,7 @@ instance ToBuilder Int        where build = Build.intDec
 instance ToBuilder Int64      where build = Build.int64Dec
 instance ToBuilder Integer    where build = Build.integerDec
 instance ToBuilder Double     where build = Build.doubleDec
+instance ToBuilder StdMethod
 
 stripBS :: ByteString -> ByteString
 stripBS = BS.dropWhile isSpace . fst . BS.spanEnd isSpace

@@ -15,3 +15,6 @@ import Data.ByteString.Char8 (ByteString)
 class ToPath a where
     toPath :: a -> ByteString
 --     toPath = const ByteString.empty
+
+instance ToPath ByteString where
+    toPath = id

@@ -86,6 +86,9 @@ data Endpoint
 newtype Host = Host ByteString
     deriving (Eq, Show)
 
+instance ToByteString Host where
+    toBS (Host h) = h
+
 endpoint :: Service a s -> Region -> Host
 endpoint Service{..} reg =
     let suf = ".amazonaws.com"
@@ -190,4 +193,4 @@ instance IsString Action where
     fromString = Action . Text.pack
 
 instance ToQuery Action where
-    toQuery (Action a) = toQuery ("Action" :: Text, a)
+    toQuery (Action a) = toQuery ("Action" :: ByteString, a)

@@ -38,9 +38,6 @@ import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
-import           Data.Text                  (Text)
-import qualified Data.Text                  as Text
-import qualified Data.Text.Encoding         as Text
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
@@ -99,7 +96,7 @@ credentials c = case c of
         <*> pure Nothing
         <*> pure Nothing
 
-    key (Text.unpack -> k) = do
+    key (BS.unpack -> k) = do
         m <- liftIO $ lookupEnv k
         maybe (throwT . Error $ "Unable to read ENV variable: " ++ k)
               (return . BS.pack)

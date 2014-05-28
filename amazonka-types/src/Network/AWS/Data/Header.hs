@@ -17,6 +17,9 @@ module Network.AWS.Data.Header where
 
 import Network.HTTP.Types
 
+hHost :: HeaderName
+hHost = "Host"
+
 hAMZToken :: HeaderName
 hAMZToken = "X-AMZ-Security-Token"
 

@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Test.AWS.Signing
@@ -14,74 +15,89 @@
 module Test.AWS.Signing (tests) where
 
 import           Control.Applicative
+import qualified Data.Attoparsec           as P
+import           Data.Attoparsec.Char8
+import           Data.ByteString.Char8     (ByteString)
+import qualified Data.ByteString.Char8     as BS
 import qualified Data.CaseInsensitive      as CI
 import qualified Data.Char                 as Char
 import           Data.List                 (isSuffixOf)
 import           Data.Maybe
-import           Prelude                   hiding (takeWhile)
-import           Data.ByteString.Char8     (ByteString)
-import qualified Data.Attoparsec           as P
-import           Data.Attoparsec.Char8
-import qualified Data.ByteString.Char8     as BS
 import           Data.Monoid
-import           System.Directory
-import           System.FilePath
-import           Test.Tasty
+import           Data.Time
+import           Network.AWS.Data
 import           Network.AWS.Signing.V4
 import           Network.AWS.Types
-import           Network.AWS.Data
 import           Network.HTTP.Types.Method
+import           Prelude                   hiding (takeWhile)
+import           System.Directory
+import           System.FilePath
 import           System.Locale
-import           Data.Time
+import           Test.Tasty
 import           Test.Tasty.HUnit
-
-tests :: FilePath -> IO TestTree
-tests dir = do
-    v4 <- getRequests (dir </> "test/resources/v4")
-    return $ testGroup "Signing"
-        [ testGroup "Version 4" (map version4 v4)
-        ]
-
-version4 :: (TestName, Request Test, Meta V4) -> TestTree
-version4 (name, rq, meta) = testGroup name
-    [ testCase "String To Sign" $ eq mSTS
-    , testCase "Authorisation"  $ eq mAuth
-    ]
-  where
-    eq f = f meta' @?= f meta
-
-    Signed _ rq' meta' = finalise dummy rq auth NorthVirginia time
-
-    auth   = Auth access secret Nothing Nothing
-    access = "AKIDEXAMPLE"
-    secret = "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY"
-
-    date = BS.unpack . fromMaybe "" $ "Date" `lookup` rqHeaders rq
-    time = readTime defaultTimeLocale "%a, %d %b %Y %H:%M:%S GMT" date
 
 data Test
 
-dummy :: Service Test V4
-dummy = Service "host" "host" "2011-08" Nothing
+data Ctx = Ctx
+    { name   :: TestName
+    , raw    :: Request Test
+    , signed :: Request ()
+    , meta   :: Meta V4
+    }
 
-getRequests :: FilePath -> IO [(TestName, Request Test, Meta V4)]
-getRequests dir = files <$> getDirectoryContents dir >>= mapM loadRequest
+newtype WeakEq a = Eq (Request a)
+    deriving (Show)
+
+instance Eq (WeakEq a) where
+    (==) (Eq a) (Eq b) = f rqMethod && f rqPath && f rqQuery && f rqHeaders
+      where
+        f g = g a == g b
+
+dummy :: Service Test V4
+dummy = Service "host.foo.com" "host" "2011-08" Nothing
+
+auth :: Auth
+auth = Auth access secret Nothing Nothing
+
+access, secret :: ByteString
+access = "AKIDEXAMPLE"
+secret = "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY"
+
+region :: Region
+region = NorthVirginia
+
+tests :: FilePath -> IO TestTree
+tests dir = do
+    v4rs <- getContexts (dir </> "test/resources/v4")
+    return $ testGroup "Signing" [testGroup "Version 4" (map v4 v4rs)]
+  where
+    v4 Ctx{..} =
+        let date = BS.unpack . fromMaybe "" $ "Date" `lookup` rqHeaders raw
+            time = readTime defaultTimeLocale "%a, %d %b %Y %H:%M:%S GMT" date
+            sg   = finalise dummy raw auth region time
+            eq f = f (sgMeta sg) @?= f meta
+
+         in testGroup (name ++ ".req")
+              [ testCase "creq"  $ eq mCanon
+              , testCase "sts"   $ eq mSTS
+              , testCase "authz" $ eq mAuth
+              , testCase "sreq"  $ Eq signed @?= Eq (sgRequest sg)
+              ]
+
+getContexts :: FilePath -> IO [Ctx]
+getContexts dir = files <$> getDirectoryContents dir >>= mapM loadContext
   where
     files = map (combine dir . dropExtension) . filter (isSuffixOf ".req")
 
-loadRequest :: FilePath -> IO (TestName, Request Test, Meta V4)
-loadRequest path = do
-    rq   <- parseRequest <$> load ".req"
-    meta <- Meta
-        <$> load ".creq"
-        <*> load ".sreq"
-        <*> load ".authz"
-        <*> load ".sts"
-    return (takeBaseName path, rq, meta)
+loadContext :: FilePath -> IO Ctx
+loadContext path = Ctx (takeBaseName path)
+    <$> (parseRequest <$> load ".req")
+    <*> (parseRequest <$> load ".sreq")
+    <*> (Meta <$> load ".creq" <*> load ".authz" <*> load ".sts")
   where
     load = BS.readFile . addExtension path
 
-parseRequest :: ByteString -> Request Test
+parseRequest :: ByteString -> Request a
 parseRequest = either error id . parseOnly req
   where
     req = do
@@ -91,7 +107,7 @@ parseRequest = either error id . parseOnly req
         hs <- many1 header
 
         let (path, q) = BS.span (/= '?') p
-            query     = mempty -- decodeQuery (urlDecode True) . maybe "" snd $ BS.uncons q
+            query     = decodeQuery . maybe "" snd $ BS.uncons q
 
         return $! Request
             { rqMethod  = m'

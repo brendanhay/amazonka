@@ -25,14 +25,16 @@ module Network.AWS.Data.Query
     -- * Types
       Query
 
-    -- * Classes
-    , ToQuery (..)
-
-    -- * Traversals
+    -- ** Traversals
     , keysOf
     , valuesOf
 
+    -- * Deserialisation
+    , FromQuery (..)
+    , decodeQuery
+
     -- * Serialisation
+    , ToQuery   (..)
     , renderQuery
     , encodeQuery
     ) where
@@ -44,7 +46,7 @@ import           Control.Lens
 import           Control.Lens.Plated
 import           Control.Lens.TH
 import           Control.Monad
-import qualified Data.Attoparsec.ByteString   as AByteString
+import qualified Data.Attoparsec.ByteString   as ABS
 import           Data.ByteString.Char8        (ByteString)
 import qualified Data.ByteString.Char8        as BS
 import           Data.Char
@@ -69,6 +71,7 @@ import qualified Data.ByteString.Lazy         as Build
 import qualified Data.ByteString.Lazy.Builder as Build
 import           Data.Time
 import           GHC.Generics
+import qualified Network.HTTP.Types.URI       as URI
 
 data Query
     = List  [Query]
@@ -110,18 +113,18 @@ instance IsString Query where
 -- FIXME: Neither of these is the correct type
 -- And what about the breaking of query elements? not all pieces have =
 
--- decodeQuery :: FromQuery a => [(ByteString, Maybe ByteString)] -> Either String a
--- decodeQuery = fromQuery . foldl' (\a b -> reify b <> a) mempty
---   where
---     reify (k, v)
---         | ByteString.null k         = Value v
---         | ByteString.any (== '.') k = fold k v
---         | otherwise           = Pair k $ Value v
+decodeQuery :: ByteString -> Query
+decodeQuery = Fold.foldr' (\a b -> b <> reify a) mempty . URI.parseQuery
+  where
+    reify (k, v)
+        | BS.null k         = Value v
+        | BS.any (== '.') k = fold k v
+        | otherwise         = Pair k $ Value v
 
---     fold k v =
---         let ks     = ByteString.split (== '.') k
---             f k' q = Pair k' q
---         in  foldr f (Pair (last ks) $ Value v) $ init ks
+    fold k v =
+        let ks     = BS.split '.' k
+            f k' q = Pair k' q
+         in foldr f (Pair (last ks) $ Value v) $ init ks
 
 renderQuery :: Monoid m => m -> m -> (ByteString -> m) -> Query -> m
 renderQuery ksep vsep f = enc Nothing
@@ -184,8 +187,8 @@ deep f = go
 --                  -> Either String a
 -- genericFromQuery o = fmap to . gFromQuery o
 
--- class FromQuery a where
---     fromQuery :: Query -> Either String a
+class FromQuery a where
+    fromQuery :: Query -> Either String a
 
 --     default fromQuery :: (Generic a, GFromQuery (Rep a))
 --                       => Query
@@ -193,19 +196,19 @@ deep f = go
 --     fromQuery = genericFromQuery def
 
 -- instance FromQuery ByteString where
---     fromQuery = valueParser AByteString.takeByteString
+--     fromQuery = valueParser ABS.takeByteString
 
 -- instance FromQuery Int where
---     fromQuery = valueParser AByteString.decimal
+--     fromQuery = valueParser ABS.decimal
 
 -- instance FromQuery Integer where
---     fromQuery = valueParser AByteString.decimal
+--     fromQuery = valueParser ABS.decimal
 
 -- instance FromQuery Double where
---     fromQuery = valueParser AByteString.rational
+--     fromQuery = valueParser ABS.rational
 
 -- instance FromQuery Float where
---     fromQuery = valueParser AByteString.rational
+--     fromQuery = valueParser ABS.rational
 
 -- instance FromQuery a => FromQuery [a] where
 --     fromQuery (List qs) = concatEithers $ map fromQuery [v | Pair _ v <- sort qs]
@@ -230,7 +233,7 @@ deep f = go
 -- instance FromQuery Bool where
 --     fromQuery = valueParser (p "true" True <|> p "false" False)
 --       where
---         p s b = AByteString.string s *> return b <* AByteString.endOfInput
+--         p s b = ABS.string s *> return b <* ABS.endOfInput
 
 -- instance FromQuery UTCTime where
 --     fromQuery (Value v) = parseISO8601 $ ByteString.unpack v
@@ -243,8 +246,8 @@ deep f = go
 -- -- instance (FromQuery k, FromQuery v) => FromQuery (HashMap k v) where
 -- --     fromQuery = undefined
 
--- valueParser :: AByteString.Parser a -> Query -> Either String a
--- valueParser p (Value v) = AByteString.parseOnly p v
+-- valueParser :: ABS.Parser a -> Query -> Either String a
+-- valueParser p (Value v) = ABS.parseOnly p v
 -- valueParser _ _         = Left "Unexpected non-value."
 
 -- class GFromQuery f where

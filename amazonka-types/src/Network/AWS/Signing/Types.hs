@@ -28,7 +28,11 @@ import           Network.AWS.Types
 
 data family Meta v :: *
 
-data Signed v = Signed Host (Request ()) (Meta v)
+data Signed v = Signed
+    { sgHost    :: Host
+    , sgRequest :: Request ()
+    , sgMeta    :: Meta v
+    }
 
 class SigningAlgorithm v where
     finalise :: Service a v

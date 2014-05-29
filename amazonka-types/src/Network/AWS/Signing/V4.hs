@@ -40,10 +40,9 @@ import           Network.HTTP.Types.Header
 data V4
 
 data instance Meta V4 = Meta
-    { mRequest :: ByteString -- ^ Canonical request.
-    , mHeaders :: ByteString -- ^ Signed headers.
-    , mAuth    :: ByteString -- ^ Authorisation header.
-    , mSTS     :: ByteString -- ^ String to sign.
+    { mCanon :: ByteString -- ^ Canonical request.
+    , mAuth  :: ByteString -- ^ Authorisation header.
+    , mSTS   :: ByteString -- ^ String to sign.
     }
 
 instance SigningAlgorithm V4 where
@@ -52,13 +51,12 @@ instance SigningAlgorithm V4 where
             { rqMethod  = rqMethod
             , rqPath    = toBS path
             , rqQuery   = query
-            , rqHeaders = (hAuthorization, authorisation) : headers
+            , rqHeaders = append hAuthorization authorisation headers
             , rqBody    = rqBody
             })
         (Meta
             { mAuth     = authorisation
-            , mHeaders  = signedHeaders'
-            , mRequest  = canonicalRequest
+            , mCanon    = canonicalRequest
             , mSTS      = stringToSign
             })
       where
@@ -66,9 +64,10 @@ instance SigningAlgorithm V4 where
         path    = encodeURI False rqPath
         query   = encodeQuery (toBS . encodeURI True) rqQuery
 
-        headers = (hHost, toBS host)
-            : (hDate, toBS $ RFC822Time t)
-            : (rqHeaders ++ token)
+        headers = sortBy (comparing fst)
+            . append hHost (toBS host)
+            . append hDate (toBS $ RFC822Time t)
+            $ (rqHeaders ++ token)
 
         token   = maybeToList $ (hAMZToken,) <$> authToken
 
@@ -76,7 +75,7 @@ instance SigningAlgorithm V4 where
             $ over valuesOf (maybe (Just "") Just) query
             -- ^ Set subresource key's value to an empty string.
 
-        canonicalHeaders = Fold.foldMap f sortedHeaders
+        canonicalHeaders = Fold.foldMap f filteredHeaders
           where
             f (k, v) = build (CI.foldedCase k)
                 <> ":"
@@ -86,9 +85,9 @@ instance SigningAlgorithm V4 where
         signedHeaders' = toBS signedHeaders
         signedHeaders  = mconcat
             . intersperse ";"
-            $ map (build . CI.foldedCase . fst) sortedHeaders
+            $ map (build . CI.foldedCase . fst) filteredHeaders
 
-        sortedHeaders = sortBy (comparing fst) $ filter f headers
+        filteredHeaders = filter f headers
           where
             f (x, _) = prefix `BS.isPrefixOf` CI.foldedCase x
                 || x == hContentType

@@ -15,6 +15,9 @@
 
 module Network.AWS.Data.Header where
 
+import Data.ByteString.Char8 (ByteString)
+import Data.Function         (on)
+import Data.List             (deleteBy)
 import Network.HTTP.Types
 
 hHost :: HeaderName
@@ -26,8 +29,12 @@ hAMZToken = "X-AMZ-Security-Token"
 hMetaPrefix :: HeaderName
 hMetaPrefix = "X-AMZ-"
 
+append :: HeaderName -> ByteString -> [Header] -> [Header]
+append k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
+
 class ToHeaders a where
     toHeaders :: a -> [Header]
+
 --    toHeaders = const []
 
 -- class ToHeader a where

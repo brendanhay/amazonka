@@ -89,9 +89,6 @@ data Service a s = Service
 newtype Host = Host ByteString
     deriving (Eq, Show)
 
--- instance IsString Host where
---     fromString = Host . fromString
-
 instance ToByteString Host where
     toBS (Host h) = h
 

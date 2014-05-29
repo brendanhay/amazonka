@@ -44,19 +44,25 @@ tests dir = do
 
 version4 :: (TestName, Request Test, Meta V4) -> TestTree
 version4 (name, rq, meta) = testGroup name
-    [ testCase "Canonical Request" $ mRequest meta @?= mRequest meta'
+    [ testCase "String To Sign" $ eq mSTS
+    , testCase "Authorisation"  $ eq mAuth
     ]
   where
+    eq f = f meta' @?= f meta
+
     Signed _ rq' meta' = finalise dummy rq auth NorthVirginia time
 
-    auth = Auth "AKIDEXAMPLE" "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY" Nothing Nothing
+    auth   = Auth access secret Nothing Nothing
+    access = "AKIDEXAMPLE"
+    secret = "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY"
+
     date = BS.unpack . fromMaybe "" $ "Date" `lookup` rqHeaders rq
     time = readTime defaultTimeLocale "%a, %d %b %Y %H:%M:%S GMT" date
 
 data Test
 
 dummy :: Service Test V4
-dummy = Service "host" "S3" "2011-08" Nothing
+dummy = Service "host" "host" "2011-08" Nothing
 
 getRequests :: FilePath -> IO [(TestName, Request Test, Meta V4)]
 getRequests dir = files <$> getDirectoryContents dir >>= mapM loadRequest
@@ -76,9 +82,9 @@ loadRequest path = do
     load = BS.readFile . addExtension path
 
 parseRequest :: ByteString -> Request Test
-parseRequest = either error id . parseOnly parser
+parseRequest = either error id . parseOnly req
   where
-    parser = do
+    req = do
         m  <- P.takeWhile1 token <* char8 ' '
         m' <- either (fail . BS.unpack) return (parseMethod m)
         p  <- takeWhile1 (not . Char.isSpace) <* http

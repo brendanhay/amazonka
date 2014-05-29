@@ -121,7 +121,7 @@ instance SigningAlgorithm V4 where
 
         stringToSign = mconcat $ intersperse "\n"
             [ algorithm
-            , toBS (ISO8601Time t)
+            , toBS (AWSTime t)
             , credentialScope'
             , Base16.encode (SHA256.hash canonicalRequest)
             ]

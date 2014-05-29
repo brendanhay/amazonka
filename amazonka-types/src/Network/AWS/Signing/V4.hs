@@ -42,15 +42,19 @@ data instance Meta V4 = Meta
     }
 
 instance SigningAlgorithm V4 where
-    finalise s@Service{..} Request{..} Auth{..} r t = Signed
-        (Meta authorisation signedHeaders' canonicalRequest stringToSign)
-        host
+    finalise s@Service{..} Request{..} Auth{..} r t = Signed host
         (Request
             { rqMethod  = rqMethod
             , rqPath    = toBS path
             , rqQuery   = query
             , rqHeaders = (hAuthorization, authorisation) : headers
             , rqBody    = rqBody
+            })
+        (Meta
+            { mAuth     = authorisation
+            , mHeaders  = signedHeaders'
+            , mRequest  = canonicalRequest
+            , mSTS      = stringToSign
             })
       where
         host  = endpoint s r

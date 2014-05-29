@@ -42,7 +42,9 @@ data instance Meta V4 = Meta
     }
 
 instance SigningAlgorithm V4 where
-    finalise s@Service{..} Request{..} Auth{..} r t = Signed host
+    finalise s@Service{..} Request{..} Auth{..} r t = Signed
+        (Meta authorisation signedHeaders' canonicalRequest stringToSign)
+        host
         (Request
             { rqMethod  = rqMethod
             , rqPath    = toBS path
@@ -50,7 +52,6 @@ instance SigningAlgorithm V4 where
             , rqHeaders = (hAuthorization, authorisation) : headers
             , rqBody    = rqBody
             })
-        (Meta authorisation signedHeaders' canonicalRequest stringToSign)
       where
         host  = endpoint s r
         path  = encodeURI False rqPath

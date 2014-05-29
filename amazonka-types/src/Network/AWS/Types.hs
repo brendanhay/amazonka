@@ -71,6 +71,14 @@ instance FromJSON Auth where
 
 newtype AuthRef = AuthRef { authRef :: IORef Auth }
 
+data Endpoint
+    = Global
+    | Regional
+    | Custom !ByteString
+
+instance IsString Endpoint where
+    fromString = Custom . fromString
+
 data Service a s = Service
     { svcEndpoint :: !Endpoint
     , svcName     :: !ByteString
@@ -78,13 +86,11 @@ data Service a s = Service
     , svcTarget   :: Maybe ByteString
     }
 
-data Endpoint
-    = Global
-    | Regional
-    | Custom !ByteString
-
 newtype Host = Host ByteString
     deriving (Eq, Show)
+
+-- instance IsString Host where
+--     fromString = Host . fromString
 
 instance ToByteString Host where
     toBS (Host h) = h

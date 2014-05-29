@@ -13,7 +13,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing.V4 (V4) where
+module Network.AWS.Signing.V4
+    ( SigningAlgorithm (..)
+    , Signed           (..)
+    , V4
+    , Meta             (..)
+    ) where
 
 import           Control.Applicative
 import           Control.Lens
@@ -35,9 +40,9 @@ import           Network.HTTP.Types.Header
 data V4
 
 data instance Meta V4 = Meta
-    { mAuth    :: ByteString -- ^ Authorisation header.
+    { mRequest :: ByteString -- ^ Canonical request.
     , mHeaders :: ByteString -- ^ Signed headers.
-    , mRequest :: ByteString -- ^ Canonical request.
+    , mAuth    :: ByteString -- ^ Authorisation header.
     , mSTS     :: ByteString -- ^ String to sign.
     }
 

@@ -57,15 +57,15 @@ instance SigningAlgorithm V4 where
             , mSTS      = stringToSign
             })
       where
-        host  = endpoint s r
-        path  = encodeURI False rqPath
-        query = encodeQuery (toBS . encodeURI True) rqQuery
+        host    = endpoint s r
+        path    = encodeURI False rqPath
+        query   = encodeQuery (toBS . encodeURI True) rqQuery
 
         headers = (hHost, toBS host)
             : (hDate, toBS $ RFC822Time t)
             : (rqHeaders ++ token)
 
-        token = maybeToList $ (hAMZToken,) <$> authToken
+        token   = maybeToList $ (hAMZToken,) <$> authToken
 
         canonicalQuery = renderQuery "&" "=" build
             $ over valuesOf (maybe (Just "") Just) query

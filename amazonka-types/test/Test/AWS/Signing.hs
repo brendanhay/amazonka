@@ -40,8 +40,8 @@ data Test
 
 data Ctx = Ctx
     { name   :: TestName
-    , raw    :: Request Test
-    , signed :: Request ()
+    , rq    :: Request Test
+    , srq :: Request ()
     , meta   :: Meta V4
     }
 
@@ -66,22 +66,26 @@ secret = "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY"
 region :: Region
 region = NorthVirginia
 
+-- | Required due to errorneous date in the aws4 test suite.
+locale :: TimeLocale
+locale = defaultTimeLocale { wDays = cycle [("Monday", "Mon")] }
+
 tests :: FilePath -> IO TestTree
 tests dir = do
     v4rs <- getContexts (dir </> "test/resources/v4")
     return $ testGroup "Signing" [testGroup "Version 4" (map v4 v4rs)]
   where
     v4 Ctx{..} =
-        let date = BS.unpack . fromMaybe "" $ "Date" `lookup` rqHeaders raw
-            time = readTime defaultTimeLocale "%a, %d %b %Y %H:%M:%S GMT" date
-            sg   = finalise dummy raw auth region time
+        let date = BS.unpack . fromMaybe "" $ "Date" `lookup` rqHeaders rq
+            time = readTime defaultTimeLocale rfc822DateFormat date
+            sg   = finalise dummy rq auth region locale time
             eq f = f (sgMeta sg) @?= f meta
 
          in testGroup (name ++ ".req")
               [ testCase "creq"  $ eq mCanon
               , testCase "sts"   $ eq mSTS
               , testCase "authz" $ eq mAuth
-              , testCase "sreq"  $ Eq signed @?= Eq (sgRequest sg)
+              , testCase "sreq"  $ Eq srq @?= Eq (sgRequest sg)
               ]
 
 getContexts :: FilePath -> IO [Ctx]

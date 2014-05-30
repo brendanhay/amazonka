@@ -37,16 +37,14 @@ module Network.AWS.Request.Lens
 
 import Control.Applicative
 import Control.Lens
+import Crypto.Hash
 import Data.ByteString.Char8     (ByteString)
-import Data.CaseInsensitive      (CI)
 import Data.Monoid
 import Network.AWS.Data
 import Network.AWS.Types
 import Network.HTTP.Client       (RequestBody(..))
 import Network.HTTP.Types.Header
 import Network.HTTP.Types.Method
-
--- what about md5 for v4?
 
 get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request (Sg (Sv a))
 get x = req & path .~ x & qry .~ x & hdrs .~ x
@@ -58,7 +56,7 @@ delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request (Sg (Sv a))
 delete x = get x & meth .~ DELETE
 
 req :: Request a
-req = Request GET "/" mempty mempty (RequestBodyBS "")
+req = Request GET "/" mempty mempty (RequestBodyBS "") (hash "")
 
 meth :: Functor f => LensLike' f (Request a) StdMethod
 meth f x = (\y -> x { rqMethod = y }) <$> f (rqMethod x)

@@ -22,13 +22,14 @@ module Network.AWS.Signing.V4
 
 import           Control.Applicative
 import           Control.Lens
-import qualified Crypto.Hash.SHA256        as SHA256
+import           Crypto.Hash
 import           Data.ByteString           (ByteString)
 import qualified Data.ByteString.Base16    as Base16
 import qualified Data.ByteString.Char8     as BS
 import qualified Data.CaseInsensitive      as CI
 import qualified Data.Foldable             as Fold
-import           Data.List                 (intersperse, sortBy)
+import           Data.Function
+import           Data.List                 (groupBy, intersperse, sortBy, sort)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
@@ -53,6 +54,7 @@ instance SigningAlgorithm V4 where
             , rqQuery   = query
             , rqHeaders = append hAuthorization authorisation headers
             , rqBody    = rqBody
+            , rqSHA256  = rqSHA256
             })
         (Meta
             { mAuth     = authorisation
@@ -63,19 +65,25 @@ instance SigningAlgorithm V4 where
         host    = endpoint s r
         path    = encodeURI False rqPath
         query   = encodeQuery (toBS . encodeURI True) rqQuery
+        token   = maybeToList $ (hAMZToken,) <$> authToken
 
         headers = sortBy (comparing fst)
             . append hHost (toBS host)
             . append hDate (toBS $ RFC822Time l t)
             $ (rqHeaders ++ token)
 
-        token   = maybeToList $ (hAMZToken,) <$> authToken
-
         canonicalQuery = renderQuery "&" "=" build
             $ over valuesOf (maybe (Just "") Just) query
             -- ^ Set subresource key's value to an empty string.
 
-        canonicalHeaders = Fold.foldMap f filteredHeaders
+        collapsedHeaders = map f $ groupBy ((==) `on` fst) headers
+          where
+            f []     = ("", "")
+            f (h:hs) = (fst h, g $ h : hs)
+
+            g = BS.intercalate "," . sort . map snd
+
+        canonicalHeaders = Fold.foldMap f collapsedHeaders
           where
             f (k, v) = build (CI.foldedCase k)
                 <> ":"
@@ -85,16 +93,7 @@ instance SigningAlgorithm V4 where
         signedHeaders' = toBS signedHeaders
         signedHeaders  = mconcat
             . intersperse ";"
-            $ map (build . CI.foldedCase . fst) filteredHeaders
-
-        filteredHeaders = filter f headers
-          where
-            f (x, _) = prefix `BS.isPrefixOf` CI.foldedCase x
-                || x == hContentType
-
-            prefix = CI.foldedCase hMetaPrefix
-
-        payloadHash = build . Base16.encode $ SHA256.hash ""
+            $ map (build . CI.foldedCase . fst) collapsedHeaders
 
         canonicalRequest = buildBS . mconcat $ intersperse "\n"
            [ build rqMethod
@@ -102,7 +101,7 @@ instance SigningAlgorithm V4 where
            , canonicalQuery
            , canonicalHeaders
            , signedHeaders
-           , payloadHash
+           , build rqSHA256
            ]
 
         algorithm = "AWS4-HMAC-SHA256"
@@ -122,7 +121,7 @@ instance SigningAlgorithm V4 where
             [ algorithm
             , toBS (AWSTime l t)
             , credentialScope'
-            , Base16.encode (SHA256.hash canonicalRequest)
+            , toBS (hash canonicalRequest :: Digest SHA256)
             ]
 
         signature = Base16.encode (hmacSHA256 signingKey stringToSign)

@@ -16,6 +16,7 @@ module Network.AWS.Types where
 
 import           Control.Applicative
 import           Control.Monad.Trans.Resource
+import           Crypto.Hash
 import           Data.Aeson
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
@@ -30,7 +31,7 @@ import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Network.AWS.Data
-import           Network.HTTP.Client          (RequestBody, Response)
+import           Network.HTTP.Client          (RequestBody(..), Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
@@ -106,6 +107,9 @@ data Request a = Request
     , rqQuery   :: Query
     , rqHeaders :: [Header]
     , rqBody    :: RequestBody
+    , rqSHA256  :: Digest SHA256
+      -- ^ REVISIT: exists due to problems with amazon's
+      -- supplied aws4 test suite.
     }
 
 instance Show (Request a) where
@@ -115,7 +119,11 @@ instance Show (Request a) where
         , "rqPath    = " ++ show rqPath
         , "rqQuery   = " ++ show rqQuery
         , "rqHeaders = " ++ show rqHeaders
+        , "rqSHA256  = " ++ show rqSHA256
         ]
+
+byteStringBody :: ByteString -> (RequestBody, Digest SHA256)
+byteStringBody bs = (RequestBodyBS bs, hash bs)
 
 data Region
     = Ireland         -- ^ Europe / eu-west-1

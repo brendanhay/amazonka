@@ -39,10 +39,10 @@ import           Test.Tasty.HUnit
 data Test
 
 data Ctx = Ctx
-    { name   :: TestName
-    , rq    :: Request Test
-    , srq :: Request ()
-    , meta   :: Meta V4
+    { name :: TestName
+    , rq   :: Request Test
+    , srq  :: Request ()
+    , meta :: Meta V4
     }
 
 newtype WeakEq a = Eq (Request a)
@@ -82,10 +82,10 @@ tests dir = do
             eq f = f (sgMeta sg) @?= f meta
 
          in testGroup (name ++ ".req")
-              [ testCase "creq"  $ eq mCanon
-              , testCase "sts"   $ eq mSTS
-              , testCase "authz" $ eq mAuth
-              , testCase "sreq"  $ Eq srq @?= Eq (sgRequest sg)
+              [ testCase "Canonical Request" $ eq mCanon
+              , testCase "String To Sign"    $ eq mSTS
+              , testCase "Authorisation"     $ eq mAuth
+              , testCase "Signed Request"    $ Eq (sgRequest sg) @?= Eq srq
               ]
 
 getContexts :: FilePath -> IO [Ctx]
@@ -109,16 +109,19 @@ parseRequest = either error id . parseOnly req
         m' <- either (fail . BS.unpack) return (parseMethod m)
         p  <- takeWhile1 (not . Char.isSpace) <* http
         hs <- many1 header
+        b  <- endOfLine *> takeByteString <* endOfInput
 
         let (path, q) = BS.span (/= '?') p
             query     = decodeQuery . maybe "" snd $ BS.uncons q
+            (bdy,  h) = byteStringBody b
 
         return $! Request
             { rqMethod  = m'
             , rqPath    = path
             , rqQuery   = query
             , rqHeaders = hs
-            , rqBody    = mempty
+            , rqBody    = bdy
+            , rqSHA256  = h
             }
 
     http = " http/" *> takeWhile (\c -> Char.isDigit c || c == '.') <* endOfLine

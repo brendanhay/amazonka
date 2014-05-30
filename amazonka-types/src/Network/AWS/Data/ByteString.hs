@@ -25,6 +25,7 @@ module Network.AWS.Data.ByteString
     , stripBS
     ) where
 
+import           Crypto.Hash
 import           Data.ByteString            (ByteString)
 import           Data.ByteString.Builder    (Builder)
 import qualified Data.ByteString.Builder    as Build
@@ -49,6 +50,7 @@ instance ToByteString Int        where toBS = buildBS
 instance ToByteString Integer    where toBS = buildBS
 instance ToByteString Double     where toBS = buildBS
 instance ToByteString StdMethod  where toBS = renderStdMethod
+instance ToByteString (Digest a) where toBS = digestToHexByteString
 
 buildBS :: ToBuilder a => a -> ByteString
 buildBS = LBS.toStrict . Build.toLazyByteString . build
@@ -68,6 +70,7 @@ instance ToBuilder Int64      where build = Build.int64Dec
 instance ToBuilder Integer    where build = Build.integerDec
 instance ToBuilder Double     where build = Build.doubleDec
 instance ToBuilder StdMethod
+instance ToBuilder (Digest a)
 
 stripBS :: ByteString -> ByteString
 stripBS = BS.dropWhile isSpace . fst . BS.spanEnd isSpace

@@ -52,6 +52,7 @@ library
         , base              == 4.7.*
         , base16-bytestring
         , base64-bytestring
+        , byteable
         , bytestring
         , case-insensitive
         , conduit           == 1.1.*

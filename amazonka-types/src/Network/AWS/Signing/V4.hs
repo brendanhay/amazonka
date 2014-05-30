@@ -46,7 +46,7 @@ data instance Meta V4 = Meta
     }
 
 instance SigningAlgorithm V4 where
-    finalise s@Service{..} Request{..} Auth{..} r t = Signed host
+    finalise s@Service{..} Request{..} Auth{..} r l t = Signed host
         (Request
             { rqMethod  = rqMethod
             , rqPath    = toBS path
@@ -66,7 +66,7 @@ instance SigningAlgorithm V4 where
 
         headers = sortBy (comparing fst)
             . append hHost (toBS host)
-            . append hDate (toBS $ RFC822Time t)
+            . append hDate (toBS $ RFC822Time l t)
             $ (rqHeaders ++ token)
 
         token   = maybeToList $ (hAMZToken,) <$> authToken
@@ -109,7 +109,7 @@ instance SigningAlgorithm V4 where
 
         credentialScope' = BS.intercalate "/" credentialScope
         credentialScope  =
-            [ toBS (BasicTime t)
+            [ toBS (BasicTime l t)
             , toBS r
             , toBS svcName
             , "aws4_request"
@@ -120,7 +120,7 @@ instance SigningAlgorithm V4 where
 
         stringToSign = mconcat $ intersperse "\n"
             [ algorithm
-            , toBS (AWSTime t)
+            , toBS (AWSTime l t)
             , credentialScope'
             , Base16.encode (SHA256.hash canonicalRequest)
             ]

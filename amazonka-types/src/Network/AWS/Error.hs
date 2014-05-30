@@ -26,6 +26,8 @@ import Control.Monad.IO.Class
 import Data.String
 import Data.Typeable
 
+-- FIXME: Richer, typed errors
+
 newtype Error = Error String
     deriving (Eq, Show, Typeable)
 

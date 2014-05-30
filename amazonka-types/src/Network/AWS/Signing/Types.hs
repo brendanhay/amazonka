@@ -25,6 +25,7 @@ import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.Types
+import           System.Locale
 
 data family Meta v :: *
 
@@ -39,6 +40,7 @@ class SigningAlgorithm v where
              -> Request a
              -> Auth
              -> Region
+             -> TimeLocale
              -> UTCTime
              -> Signed v
 
@@ -46,6 +48,7 @@ sign :: (AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
      => a
      -> Auth
      -> Region
+     -> TimeLocale
      -> UTCTime
      -> Signed (Sg (Sv a))
 sign = finalise service . request

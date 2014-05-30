@@ -21,22 +21,22 @@ import           Data.Time
 import           Network.AWS.Data.ByteString
 import           System.Locale
 
-newtype AWSTime     = AWSTime     UTCTime
-newtype RFC822Time  = RFC822Time  UTCTime
-newtype ISO8601Time = ISO8601Time UTCTime
-newtype BasicTime   = BasicTime   UTCTime
+data AWSTime     = AWSTime     TimeLocale UTCTime
+data RFC822Time  = RFC822Time  TimeLocale UTCTime
+data ISO8601Time = ISO8601Time TimeLocale UTCTime
+data BasicTime   = BasicTime   TimeLocale UTCTime
 
 instance ToByteString AWSTime where
-    toBS (AWSTime t) = format "%Y%m%dT%H%M%SZ" t
+    toBS (AWSTime l t) = format l "%Y%m%dT%H%M%SZ" t
 
 instance ToByteString RFC822Time where
-    toBS (RFC822Time t) = format "%a, %d %b %Y %H:%M:%S GMT" t
+    toBS (RFC822Time l t) = format l "%a, %d %b %Y %H:%M:%S GMT" t
 
 instance ToByteString ISO8601Time where
-    toBS (ISO8601Time t) = format (iso8601DateFormat $ Just "%XZ") t
+    toBS (ISO8601Time l t) = format l (iso8601DateFormat $ Just "%XZ") t
 
 instance ToByteString BasicTime where
-    toBS (BasicTime t) = format "%Y%m%d" t
+    toBS (BasicTime l t) = format l "%Y%m%d" t
 
-format :: String -> UTCTime -> ByteString
-format fmt = BS.pack . formatTime defaultTimeLocale fmt
+format :: TimeLocale -> String -> UTCTime -> ByteString
+format l f = BS.pack . formatTime l f

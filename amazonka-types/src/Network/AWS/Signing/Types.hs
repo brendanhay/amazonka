@@ -21,6 +21,7 @@ import           Data.ByteString         (ByteString)
 import           Data.ByteString.Builder (Builder)
 import qualified Data.ByteString.Char8   as BS
 import           Data.Char
+import qualified Data.Foldable           as Fold
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
@@ -59,8 +60,35 @@ hmacSHA1 key msg = HMAC.hmac SHA1.hash 64 key msg
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 key msg = HMAC.hmac SHA256.hash 64 key msg
 
-encodeURI :: Bool -> ByteString -> Builder
-encodeURI p = BS.foldr (mappend . enc) mempty
+collapseURI :: ByteString -> ByteString
+collapseURI bs
+    | BS.null path        = bs
+    | BS.head path == sep = path
+    | otherwise           = sep `BS.cons` path
+  where
+    path = BS.intercalate (BS.singleton sep)
+        . snd
+        . Fold.foldr' go (True, [])
+        $ BS.split sep bs
+
+    go c (True, acc)          = (False, c : acc)
+    go c (_, acc) | c == dot  = (False, acc)
+    go c (_, acc) | c == dots = remv c acc
+    go c (_, acc)             = (False, c : acc)
+
+    remv c []       = (False, [c])
+    remv c (x : xs)
+        | x == dot  = (False, c : xs)
+        | x == dots = (False, c : x : xs)
+        | otherwise = (False, xs)
+
+    dot  = "."
+    dots = ".."
+
+    sep  = '/'
+
+encodeURI :: Bool -> ByteString -> ByteString
+encodeURI p = toBS . BS.foldr (mappend . enc) mempty
   where
     enc ' '          = "%20"
     enc c@'/'

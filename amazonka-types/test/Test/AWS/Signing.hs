@@ -23,7 +23,6 @@ import qualified Data.CaseInsensitive      as CI
 import qualified Data.Char                 as Char
 import           Data.List                 (isSuffixOf)
 import           Data.Maybe
-import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.Signing.V4

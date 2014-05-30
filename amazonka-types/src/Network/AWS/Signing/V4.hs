@@ -50,7 +50,7 @@ instance SigningAlgorithm V4 where
     finalise s@Service{..} Request{..} Auth{..} r l t = Signed host
         (Request
             { rqMethod  = rqMethod
-            , rqPath    = toBS path
+            , rqPath    = collapseURI path
             , rqQuery   = query
             , rqHeaders = append hAuthorization authorisation headers
             , rqBody    = rqBody
@@ -76,14 +76,14 @@ instance SigningAlgorithm V4 where
             $ over valuesOf (maybe (Just "") Just) query
             -- ^ Set subresource key's value to an empty string.
 
-        collapsedHeaders = map f $ groupBy ((==) `on` fst) headers
+        joinedHeaders = map f $ groupBy ((==) `on` fst) headers
           where
             f []     = ("", "")
             f (h:hs) = (fst h, g $ h : hs)
 
             g = BS.intercalate "," . sort . map snd
 
-        canonicalHeaders = Fold.foldMap f collapsedHeaders
+        canonicalHeaders = Fold.foldMap f joinedHeaders
           where
             f (k, v) = build (CI.foldedCase k)
                 <> ":"
@@ -93,11 +93,11 @@ instance SigningAlgorithm V4 where
         signedHeaders' = toBS signedHeaders
         signedHeaders  = mconcat
             . intersperse ";"
-            $ map (build . CI.foldedCase . fst) collapsedHeaders
+            $ map (build . CI.foldedCase . fst) joinedHeaders
 
         canonicalRequest = buildBS . mconcat $ intersperse "\n"
            [ build rqMethod
-           , path
+           , build (collapseURI path)
            , canonicalQuery
            , canonicalHeaders
            , signedHeaders

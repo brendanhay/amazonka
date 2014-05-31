@@ -47,7 +47,8 @@ class AWSRequest a where
 
     request   :: a -> Request (Sv a)
     response  :: MonadResource m
-              => Response (ResumableSource m ByteString)
+              => a
+              -> Response (ResumableSource m ByteString)
               -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSPager a where

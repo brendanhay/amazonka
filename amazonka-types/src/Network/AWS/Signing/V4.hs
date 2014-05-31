@@ -50,21 +50,23 @@ data instance Meta V4 = Meta
     }
 
 instance SigningAlgorithm V4 where
-    finalise s@Service{..} Request{..} Auth{..} r l t = Signed host
-        (Request
+    finalise s@Service{..} Auth{..} r Request{..} l t = Signed host rq meta
+      where
+        rq = Request
             { rqMethod  = rqMethod
             , rqPath    = rqPath
             , rqQuery   = rqQuery
             , rqHeaders = append hAuthorization authorisation headers
             , rqBody    = rqBody
             , rqSHA256  = rqSHA256
-            })
-        (Meta
-            { mAuth     = authorisation
-            , mCanon    = canonicalRequest
-            , mSTS      = stringToSign
-            })
-      where
+            }
+
+        meta = Meta
+            { mAuth  = authorisation
+            , mCanon = canonicalRequest
+            , mSTS   = stringToSign
+            }
+
         host  = endpoint s r
         token = maybeToList $ (hAMZToken,) <$> authToken
 

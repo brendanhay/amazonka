@@ -28,18 +28,17 @@ data Signed v = Signed
 
 class SigningAlgorithm v where
     finalise :: Service a v
-             -> Request a
              -> Auth
              -> Region
+             -> Request a
              -> TimeLocale
              -> UTCTime
              -> Signed v
 
 sign :: (AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
-     => a
-     -> Auth
+     => Auth
      -> Region
-     -> TimeLocale
+     -> a
      -> UTCTime
      -> Signed (Sg (Sv a))
-sign = finalise service . request
+sign a r rq = finalise service a r (request rq) defaultTimeLocale

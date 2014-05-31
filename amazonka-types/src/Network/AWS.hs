@@ -1,3 +1,6 @@
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE RecordWildCards  #-}
+
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -10,17 +13,51 @@
 
 module Network.AWS where
 
+import Control.Applicative
+import Control.Monad.IO.Class
+import Control.Monad.Trans.Resource
+import Data.Default
+import Data.Time
+import Network.AWS.Data
+import Network.AWS.Signing.Types
+import Network.AWS.Types
+import Network.HTTP.Conduit
+
+-- send :: (MonadResource m, AWSService (Sv a), AWSRequest a)
+--      => Auth
+--      -> Region
+--      -> Manager
+--      -> a
+--      -> m (Either (Er (Sv a)) (Rs a))
+
+send :: (MonadResource m, AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
+     => Auth
+     -> Region
+     -> Manager
+     -> a
+     -> m (Either (Er (Sv a)) (Rs a))
+send a r m rq = do
+    sg <- sign a r rq <$> liftIO getCurrentTime
+    rs <- http (mk sg) m
+    response rq rs
+  where
+    mk Signed{..} = def
+        { secure         = True
+        , method         = toBS (rqMethod sgRequest)
+        , host           = toBS sgHost
+        , port           = 443
+        , path           = rqPath sgRequest
+        , queryString    = renderQuery (rqQuery sgRequest)
+        , requestHeaders = rqHeaders sgRequest
+        , requestBody    = rqBody sgRequest
+        , checkStatus    = \_ _ _ -> Nothing
+        }
+
 -- paginate :: (MonadResource m, AWSRequest a, AWSPager a)
 --          => Auth
 --          -> a
 --          -> Source m (Either (Er a) (Rs a))
 -- paginate = undefined
-
--- send :: (MonadResource m, AWSRequest a)
---      => Auth
---      -> a
---      -> m (Either (Er a) (Rs a))
--- send = undefined
 
 -- async :: MonadBaseControl IO m => 
 -- async = undefined

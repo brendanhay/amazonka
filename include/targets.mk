@@ -1,6 +1,6 @@
 .PHONY: test
 
-default:
+default: build
 
 build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))

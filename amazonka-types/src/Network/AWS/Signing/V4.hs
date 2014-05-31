@@ -14,15 +14,18 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Signing.V4
-    ( SigningAlgorithm (..)
-    , Signed           (..)
-    , V4
+    (
+    -- * Version 4 Signatures
+      V4
     , Meta             (..)
+
+    -- * Re-exports
+    , SigningAlgorithm (..)
+    , Signed           (..)
     ) where
 
 import           Control.Applicative
 import           Control.Lens
-import           Crypto.Hash
 import           Data.ByteString           (ByteString)
 import qualified Data.ByteString.Base16    as Base16
 import qualified Data.ByteString.Char8     as BS
@@ -119,7 +122,7 @@ instance SigningAlgorithm V4 where
             [ algorithm
             , toBS (AWSTime l t)
             , credentialScope'
-            , toBS (hash canonicalRequest :: Digest SHA256)
+            , sha256 canonicalRequest
             ]
 
         signature = Base16.encode (hmacSHA256 signingKey stringToSign)

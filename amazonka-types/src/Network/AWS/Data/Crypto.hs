@@ -9,17 +9,26 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Crypto
-    ( hmacSHA1
+    (
+    -- * HMAC
+      hmacSHA1
     , hmacSHA256
+
+    -- * SHA256
+    , sha256
     ) where
 
-import qualified Crypto.Hash.SHA1   as SHA1
-import qualified Crypto.Hash.SHA256 as SHA256
-import qualified Crypto.MAC.HMAC    as HMAC
-import           Data.ByteString    (ByteString)
+import qualified Crypto.Hash.SHA1            as SHA1
+import qualified Crypto.Hash.SHA256          as SHA256
+import qualified Crypto.MAC.HMAC             as HMAC
+import           Data.ByteString             (ByteString)
+import           Network.AWS.Data.ByteString
 
 hmacSHA1 :: ByteString -> ByteString -> ByteString
 hmacSHA1 = HMAC.hmac SHA1.hash 64
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64
+
+sha256 :: ByteString -> ByteString
+sha256 = toBS . SHA256.hash

@@ -42,6 +42,7 @@ class AWSService a where
     service   :: Service a (Sg a)
 
 class AWSRequest a where
+    type Sg a :: *
     type Sv a :: *
     type Rs a :: *
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE ConstraintKinds  #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE RecordWildCards  #-}
 
@@ -12,6 +13,10 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS where
+    -- (
+    -- -- * Synchronous
+    --   send
+    -- ) where
 
 import Control.Applicative
 import Control.Monad.IO.Class
@@ -23,6 +28,9 @@ import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
 
+type Failure a = Er (Sv a)
+type Success a = Rs a
+
 -- send :: (MonadResource m, AWSService (Sv a), AWSRequest a)
 --      => Auth
 --      -> Region
@@ -30,12 +38,12 @@ import Network.HTTP.Conduit
 --      -> a
 --      -> m (Either (Er (Sv a)) (Rs a))
 
-send :: (MonadResource m, AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
+send :: (MonadResource m, Signable a)
      => Auth
      -> Region
      -> Manager
      -> a
-     -> m (Either (Er (Sv a)) (Rs a))
+     -> m (Either (Failure a) (Success a))
 send a r m rq = do
     sg <- sign a r rq <$> liftIO getCurrentTime
     rs <- http (mk sg) m

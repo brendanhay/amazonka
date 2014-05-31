@@ -35,17 +35,20 @@ import           Network.HTTP.Client          (RequestBody(..), Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
-type Failure a = Er (Sv a)
-type Success a = Rs a
-
 class AWSService a where
+    -- | Signature version.
     type Sg a :: *
+
+    -- | Sum type of all service errors.
     data Er a :: *
 
     service   :: Service a (Sg a)
 
 class AWSRequest a where
+    -- | AWS Service the request is performed against.
     type Sv a :: *
+
+    -- | Successful response type.
     type Rs a :: *
 
     request   :: a -> Request (Sv a)
@@ -55,7 +58,7 @@ class AWSRequest a where
               -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSPager a where
-    next :: AWSRequest a => a -> Rs a -> Maybe a
+    next :: a -> Rs a -> Maybe a
 
 data Auth = Auth
     { authAccess :: !ByteString

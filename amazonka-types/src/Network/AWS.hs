@@ -33,7 +33,7 @@ send :: (MonadResource m, Signable a)
      -> Region
      -> a
      -> Manager
-     -> m (Either (Failure a) (Success a))
+     -> m (Either (Er (Sv a)) (Rs a))
 send a r rq m = do
     sg <- sign a r rq <$> liftIO getCurrentTime
     rs <- http (mk sg) m

@@ -15,8 +15,11 @@
 
 module Network.AWS.Signing.Types where
 
+import Data.Default
 import Data.Time
+import Network.AWS.Data
 import Network.AWS.Types
+import Network.HTTP.Client hiding (Request)
 import System.Locale
 
 type Signable a = (AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
@@ -45,3 +48,15 @@ sign :: Signable a
      -> UTCTime
      -> Signed (Sg (Sv a))
 sign rq a r = finalise service (request rq) a r defaultTimeLocale
+
+signed m h p q hs b = def
+    { secure         = True
+    , method         = toBS m
+    , host           = toBS h
+    , port           = 443
+    , path           = p
+    , queryString    = renderQuery q
+    , requestHeaders = hs
+    , requestBody    = b
+    , checkStatus    = \_ _ _ -> Nothing
+    }

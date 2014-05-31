@@ -52,17 +52,10 @@ data instance Meta V4 = Meta
 instance SigningAlgorithm V4 where
     finalise s@Service{..} Request{..} Auth{..} r l t = Signed host rq meta
       where
-        rq = Request
-            { rqMethod  = rqMethod
-            , rqPath    = rqPath
-            , rqQuery   = rqQuery
-            , rqHeaders = append hAuthorization authorisation headers
-            , rqBody    = rqBody
-            , rqSHA256  = rqSHA256
-            }
+        rq = signed rqMethod host rqPath rqQuery (append hAuthorization auth headers) rqBody
 
         meta = Meta
-            { mAuth  = authorisation
+            { mAuth  = auth
             , mCanon = canonicalRequest
             , mSTS   = stringToSign
             }
@@ -129,7 +122,7 @@ instance SigningAlgorithm V4 where
 
         signature = Base16.encode (hmacSHA256 signingKey stringToSign)
 
-        authorisation = BS.concat
+        auth = BS.concat
             [ algorithm
             , " Credential="
             , authAccess

@@ -122,25 +122,3 @@ encodeURI p = toBS . BS.foldr (mappend . enc) mempty
 
     hex i | i < 10    = toEnum (48 + i)
           | otherwise = toEnum (65 + i - 10)
-
--- decodeURI :: ByteString -> Either String Builder
--- --decodeURI = fmap (Fold.foldr (<>) mempty) . ABS.parseOnly p
--- decodeURI = ABS.parseOnly p
---   where
---     p = pack hex <* ABS.endOfInput
-
---     -- get = pack (ABS.takeWhile (/= '%'))
-
---     pack :: ToBuilder a => Parser a -> Parser Builder
---     pack = fmap build
-
---     hex = ABS.char '%' *> (dec <$> ABS.anyChar <*> ABS.anyChar)
-
---     dec :: Char -> Char -> Char
---     dec x y = toEnum (16 * digitToInt x + digitToInt y)
-
--- decodeURI :: String -> String
--- decodeURI ('%':a:b:rest) =
---     toEnum (16 * digitToInt a + digitToInt b) : decodeURI rest
--- decodeURI (x:xs) = x : decodeURI xs
--- decodeURI [] = []

@@ -15,12 +15,12 @@
 
 module Network.AWS.Signing.Types where
 
-import Data.Default
-import Data.Time
-import Network.AWS.Data
-import Network.AWS.Types
-import Network.HTTP.Client hiding (Request)
-import System.Locale
+import           Data.Default
+import           Data.Time
+import           Network.AWS.Types
+import qualified Network.HTTP.Client as HTTP
+import           Network.HTTP.Client hiding (Request)
+import           System.Locale
 
 type Signable a = (AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
 
@@ -28,7 +28,7 @@ data family Meta a :: *
 
 data Signed a = Signed
     { sgHost    :: Host
-    , sgRequest :: Request ()
+    , sgRequest :: HTTP.Request
     , sgMeta    :: Meta a
     }
 
@@ -49,14 +49,9 @@ sign :: Signable a
      -> Signed (Sg (Sv a))
 sign rq a r = finalise service (request rq) a r defaultTimeLocale
 
-signed m h p q hs b = def
-    { secure         = True
-    , method         = toBS m
-    , host           = toBS h
-    , port           = 443
-    , path           = p
-    , queryString    = renderQuery q
-    , requestHeaders = hs
-    , requestBody    = b
-    , checkStatus    = \_ _ _ -> Nothing
+signed :: HTTP.Request
+signed = def
+    { secure      = True
+    , port        = 443
+    , checkStatus = \_ _ _ -> Nothing
     }

@@ -39,6 +39,7 @@ import           Data.Ord
 import           Network.AWS.Data
 import           Network.AWS.Signing.Types
 import           Network.AWS.Types
+import           Network.HTTP.Conduit
 import           Network.HTTP.Types.Header
 
 data V4
@@ -52,7 +53,14 @@ data instance Meta V4 = Meta
 instance SigningAlgorithm V4 where
     finalise s@Service{..} Request{..} Auth{..} r l t = Signed host rq meta
       where
-        rq = signed rqMethod host rqPath rqQuery (append hAuthorization auth headers) rqBody
+        rq = signed
+            { method         = toBS rqMethod
+            , host           = toBS host
+            , path           = rqPath
+            , queryString    = renderQuery rqQuery
+            , requestHeaders = hdr hAuthorization auth headers
+            , requestBody    = rqBody
+            }
 
         meta = Meta
             { mAuth  = auth
@@ -64,8 +72,8 @@ instance SigningAlgorithm V4 where
         token = maybeToList $ (hAMZToken,) <$> authToken
 
         headers = sortBy (comparing fst)
-            . append hHost (toBS host)
-            . append hDate (toBS $ RFC822Time l t)
+            . hdr hHost (toBS host)
+            . hdr hDate (toBS $ RFC822Time l t)
             $ (rqHeaders ++ token)
 
         canonicalQuery = renderQuery

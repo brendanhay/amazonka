@@ -36,20 +36,8 @@ send :: (MonadResource m, Signable a)
      -> m (Either (Er (Sv a)) (Rs a))
 send a r rq m = do
     sg <- sign rq a r <$> liftIO getCurrentTime
-    rs <- http (mk sg) m
+    rs <- http (sgRequest sg) m
     response rq rs
-  where
-    mk Signed{..} = def
-        { secure         = True
-        , method         = toBS (rqMethod sgRequest)
-        , host           = toBS sgHost
-        , port           = 443
-        , path           = rqPath sgRequest
-        , queryString    = renderQuery (rqQuery sgRequest)
-        , requestHeaders = rqHeaders sgRequest
-        , requestBody    = rqBody sgRequest
-        , checkStatus    = \_ _ _ -> Nothing
-        }
 
 -- paginate :: (MonadResource m, AWSRequest a, AWSPager a)
 --          => Auth

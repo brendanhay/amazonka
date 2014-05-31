@@ -29,8 +29,8 @@ hAMZToken = "X-AMZ-Security-Token"
 hMetaPrefix :: HeaderName
 hMetaPrefix = "X-AMZ-"
 
-append :: HeaderName -> ByteString -> [Header] -> [Header]
-append k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
+hdr :: HeaderName -> ByteString -> [Header] -> [Header]
+hdr k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
 
 class ToHeaders a where
     toHeaders :: a -> [Header]

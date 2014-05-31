@@ -36,19 +36,13 @@ import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
 class AWSService a where
-    -- | Signature version.
     type Sg a :: *
-
-    -- | Sum type of all service errors.
     data Er a :: *
 
     service   :: Service a (Sg a)
 
 class AWSRequest a where
-    -- | AWS Service the request is performed against.
     type Sv a :: *
-
-    -- | Successful response type.
     type Rs a :: *
 
     request   :: a -> Request (Sv a)
@@ -87,7 +81,7 @@ data Endpoint
 instance IsString Endpoint where
     fromString = Custom . fromString
 
-data Service a s = Service
+data Service b a = Service
     { svcEndpoint :: !Endpoint
     , svcName     :: !ByteString
     , svcVersion  :: !ByteString
@@ -100,7 +94,7 @@ newtype Host = Host ByteString
 instance ToByteString Host where
     toBS (Host h) = h
 
-endpoint :: Service a s -> Region -> Host
+endpoint :: Service b a -> Region -> Host
 endpoint Service{..} reg =
     let suf = ".amazonaws.com"
      in Host $ case svcEndpoint of

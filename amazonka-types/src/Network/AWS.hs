@@ -35,7 +35,7 @@ send :: (MonadResource m, Signable a)
      -> Manager
      -> m (Either (Er (Sv a)) (Rs a))
 send a r rq m = do
-    sg <- sign a r rq <$> liftIO getCurrentTime
+    sg <- sign rq a r <$> liftIO getCurrentTime
     rs <- http (mk sg) m
     response rq rs
   where

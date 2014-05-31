@@ -19,28 +19,29 @@ import Data.Time
 import Network.AWS.Types
 import System.Locale
 
-type Signable a =
-    ( AWSRequest a
-    , AWSService (Sv a)
-    , SigningAlgorithm (Sg (Sv a))
-    )
+type Signable a = (AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
 
-data family Meta v :: *
+data family Meta a :: *
 
-data Signed v = Signed
+data Signed a = Signed
     { sgHost    :: Host
     , sgRequest :: Request ()
-    , sgMeta    :: Meta v
+    , sgMeta    :: Meta a
     }
 
-class SigningAlgorithm v where
-    finalise :: Service a v
+class SigningAlgorithm a where
+    finalise :: Service b a
+             -> Request b
              -> Auth
              -> Region
-             -> Request a
              -> TimeLocale
              -> UTCTime
-             -> Signed v
+             -> Signed a
 
-sign :: Signable a => Auth -> Region -> a -> UTCTime -> Signed (Sg (Sv a))
-sign a r rq = finalise service a r (request rq) defaultTimeLocale
+sign :: Signable a
+     => a
+     -> Auth
+     -> Region
+     -> UTCTime
+     -> Signed (Sg (Sv a))
+sign rq a r = finalise service (request rq) a r defaultTimeLocale

@@ -14,14 +14,17 @@
 
 module Network.AWS.Signing.Types where
 
-import qualified Crypto.Hash.SHA1        as SHA1
-import qualified Crypto.Hash.SHA256      as SHA256
-import qualified Crypto.MAC.HMAC         as HMAC
-import           Data.ByteString         (ByteString)
-import           Data.ByteString.Builder (Builder)
-import qualified Data.ByteString.Char8   as BS
+import           Control.Applicative
+import qualified Crypto.Hash.SHA1                 as SHA1
+import qualified Crypto.Hash.SHA256               as SHA256
+import qualified Crypto.MAC.HMAC                  as HMAC
+import           Data.Attoparsec                  (Parser)
+import qualified Data.Attoparsec.ByteString.Char8 as ABS
+import           Data.ByteString                  (ByteString)
+import           Data.ByteString.Builder          (Builder)
+import qualified Data.ByteString.Char8            as BS
 import           Data.Char
-import qualified Data.Foldable           as Fold
+import qualified Data.Foldable                    as Fold
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
@@ -62,28 +65,37 @@ hmacSHA256 key msg = HMAC.hmac SHA256.hash 64 key msg
 
 collapseURI :: ByteString -> ByteString
 collapseURI bs
-    | BS.null path        = bs
-    | BS.head path == sep = path
-    | otherwise           = sep `BS.cons` path
+    | BS.null bs   = slash
+    | BS.null path = slash
+    | otherwise    = tl (hd path)
   where
-    path = BS.intercalate (BS.singleton sep)
-        . snd
-        . Fold.foldr' go (True, [])
+    path = BS.intercalate slash
+        . reverse
+        . Fold.foldl' go []
+        . filter (/= mempty)
         $ BS.split sep bs
 
-    go c (True, acc)          = (False, c : acc)
-    go c (_, acc) | c == dot  = (False, acc)
-    go c (_, acc) | c == dots = remv c acc
-    go c (_, acc)             = (False, c : acc)
+    hd x | BS.head x  == sep = x
+         | otherwise         = sep `BS.cons` x
 
-    remv c []       = (False, [c])
-    remv c (x : xs)
-        | x == dot  = (False, c : xs)
-        | x == dots = (False, c : x : xs)
-        | otherwise = (False, xs)
+    tl x | BS.last x  == sep = x
+         | BS.last bs == sep = x `BS.snoc` sep
+         | otherwise         = x
+
+    go acc c | c == dot  = acc
+    go acc c | c == dots = remv acc c
+    go acc c             = c : acc
+
+    remv []       _ = []
+    remv (x : xs) c
+        | x == dot  = c : xs
+        | x == dots = c : x : xs
+        | otherwise = xs
 
     dot  = "."
     dots = ".."
+
+    slash = BS.singleton sep
 
     sep  = '/'
 
@@ -110,3 +122,25 @@ encodeURI p = toBS . BS.foldr (mappend . enc) mempty
 
     hex i | i < 10    = toEnum (48 + i)
           | otherwise = toEnum (65 + i - 10)
+
+-- decodeURI :: ByteString -> Either String Builder
+-- --decodeURI = fmap (Fold.foldr (<>) mempty) . ABS.parseOnly p
+-- decodeURI = ABS.parseOnly p
+--   where
+--     p = pack hex <* ABS.endOfInput
+
+--     -- get = pack (ABS.takeWhile (/= '%'))
+
+--     pack :: ToBuilder a => Parser a -> Parser Builder
+--     pack = fmap build
+
+--     hex = ABS.char '%' *> (dec <$> ABS.anyChar <*> ABS.anyChar)
+
+--     dec :: Char -> Char -> Char
+--     dec x y = toEnum (16 * digitToInt x + digitToInt y)
+
+-- decodeURI :: String -> String
+-- decodeURI ('%':a:b:rest) =
+--     toEnum (16 * digitToInt a + digitToInt b) : decodeURI rest
+-- decodeURI (x:xs) = x : decodeURI xs
+-- decodeURI [] = []

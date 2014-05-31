@@ -25,15 +25,17 @@ import           Data.List                 (isSuffixOf)
 import           Data.Maybe
 import           Data.Time
 import           Network.AWS.Data
+import           Network.AWS.Signing.Types
 import           Network.AWS.Signing.V4
 import           Network.AWS.Types
-import           Network.HTTP.Types.Method
+import           Network.HTTP.Types
 import           Prelude                   hiding (takeWhile)
 import           System.Directory
 import           System.FilePath
 import           System.Locale
 import           Test.Tasty
 import           Test.Tasty.HUnit
+
 
 data Test
 
@@ -116,7 +118,7 @@ parseRequest = either error id . parseOnly req
 
         return $! Request
             { rqMethod  = m'
-            , rqPath    = path
+            , rqPath    = urlDecode False path
             , rqQuery   = query
             , rqHeaders = hs
             , rqBody    = bdy

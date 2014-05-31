@@ -36,7 +36,6 @@ module Network.AWS.Data.Query
     -- * Serialisation
     , ToQuery   (..)
     , renderQuery
-    , encodeQuery
     ) where
 
 import           Control.Applicative
@@ -60,7 +59,7 @@ import           Data.Maybe
 import           Data.Typeable
 import           Network.AWS.Data.ByteString
 -- import           Data.HashMap.Strict        (HashMap)
-import           Data.List                    (sort, intersperse)
+import           Data.List                    (sort, sortBy, intersperse)
 import           Data.List.NonEmpty           (NonEmpty(..))
 import qualified Data.List.NonEmpty           as NonEmpty
 import           Data.Monoid
@@ -72,6 +71,7 @@ import qualified Data.ByteString.Lazy.Builder as Build
 import           Data.Time
 import           GHC.Generics
 import qualified Network.HTTP.Types.URI       as URI
+import           Data.Ord
 
 data Query
     = List  [Query]
@@ -87,13 +87,13 @@ keysOf = deep (_Pair . _1)
 valuesOf :: Traversal' Query (Maybe ByteString)
 valuesOf = deep _Value
 
-instance Ord Query where
-    compare (List  as) (List  bs) = as `compare` bs
-    compare (Pair a _) (Pair b _) = a  `compare` b
-    compare (Value  a) (Value  b) = a  `compare` b
-    compare (List   _) _          = GT
-    compare (Pair _ _) _          = GT
-    compare (Value  _) _          = LT
+-- instance Ord Query where
+--     compare (List  as) (List  bs) = as `compare` bs
+--     compare (Pair a _) (Pair b _) = a  `compare` b
+--     compare (Value  a) (Value  b) = a  `compare` b
+--     compare (List   _) _          = GT
+--     compare (Pair _ _) _          = GT
+--     compare (Value  _) _          = LT
 
 instance Monoid Query where
     mempty = List []
@@ -114,7 +114,7 @@ instance IsString Query where
 -- And what about the breaking of query elements? not all pieces have =
 
 decodeQuery :: ByteString -> Query
-decodeQuery = Fold.foldr' (\a b -> b <> reify a) mempty . URI.parseQuery
+decodeQuery = Fold.foldl' (\a b -> reify b <> a) mempty . URI.parseQuery
   where
     reify (k, v)
         | BS.null k         = Value v
@@ -126,18 +126,23 @@ decodeQuery = Fold.foldr' (\a b -> b <> reify a) mempty . URI.parseQuery
             f k' q = Pair k' q
          in foldr f (Pair (last ks) $ Value v) $ init ks
 
-renderQuery :: Monoid m => m -> m -> (ByteString -> m) -> Query -> m
-renderQuery ksep vsep f = enc Nothing
+renderQuery :: ByteString -> ByteString -> Query -> ByteString
+renderQuery ksep vsep = intercalate . sort . enc Nothing
   where
-    enc k (List xs)        = Fold.foldMap (enc k) (sort xs)
+    enc k (List xs)   = concatMap (enc k) xs
     enc k (Pair k' x)
-        | Just n <- k      = enc (Just $ n <> ksep <> f k') x
-        | otherwise        = enc (Just $ f k') x
-    enc k (Value (Just v)) = fromMaybe mempty k <> vsep <> f v
-    enc k _                = fromMaybe mempty k
+        | Just n <- k = enc (Just $ n <> "." <> k') x
+        | otherwise   = enc (Just $ k') x
+    enc k (Value (Just v))
+        | Just n <- k = [n <> vsep <> v]
+        | otherwise   = [v]
+    enc k _
+        | Just n <- k = [n]
+        | otherwise   = []
 
-encodeQuery :: (ByteString -> ByteString) -> Query -> Query
-encodeQuery f = over valuesOf (fmap f) . over keysOf f
+    intercalate []       = mempty
+    intercalate (x : []) = x
+    intercalate (x : xs) = x <> ksep <> intercalate xs
 
 -- FIXME: Can be removed when lens 4.2 is released.
 deep :: forall s a. Plated s => Traversal' s a -> Traversal' s a

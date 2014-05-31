@@ -8,9 +8,19 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Path where
+module Network.AWS.Data.Path
+    ( Path
+    , ToPath (..)
+    ) where
 
 import Data.ByteString.Char8 (ByteString)
+
+-- FIXME: A way to annotate whether a query or path is encoded or not?
+
+
+data Path
+    = Enc ByteString
+    | Raw ByteString
 
 class ToPath a where
     toPath :: a -> ByteString

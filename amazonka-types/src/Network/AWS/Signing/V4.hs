@@ -36,7 +36,7 @@ import           Data.Ord
 import           Network.AWS.Data
 import           Network.AWS.Signing.Types
 import           Network.AWS.Types
-import           Network.HTTP.Types.Header
+import           Network.HTTP.Types        hiding (renderQuery)
 
 data V4
 
@@ -50,8 +50,8 @@ instance SigningAlgorithm V4 where
     finalise s@Service{..} Request{..} Auth{..} r l t = Signed host
         (Request
             { rqMethod  = rqMethod
-            , rqPath    = collapseURI path
-            , rqQuery   = query
+            , rqPath    = rqPath
+            , rqQuery   = rqQuery
             , rqHeaders = append hAuthorization authorisation headers
             , rqBody    = rqBody
             , rqSHA256  = rqSHA256
@@ -62,19 +62,17 @@ instance SigningAlgorithm V4 where
             , mSTS      = stringToSign
             })
       where
-        host    = endpoint s r
-        path    = encodeURI False rqPath
-        query   = encodeQuery (toBS . encodeURI True) rqQuery
-        token   = maybeToList $ (hAMZToken,) <$> authToken
+        host  = endpoint s r
+        token = maybeToList $ (hAMZToken,) <$> authToken
 
         headers = sortBy (comparing fst)
             . append hHost (toBS host)
             . append hDate (toBS $ RFC822Time l t)
             $ (rqHeaders ++ token)
 
-        canonicalQuery = renderQuery "&" "=" build
-            $ over valuesOf (maybe (Just "") Just) query
-            -- ^ Set subresource key's value to an empty string.
+        canonicalQuery = renderQuery "&" "="
+            . over valuesOf (maybe (Just "") (Just . encodeURI False))
+            $ over keysOf (encodeURI False) rqQuery
 
         joinedHeaders = map f $ groupBy ((==) `on` fst) headers
           where
@@ -85,23 +83,23 @@ instance SigningAlgorithm V4 where
 
         canonicalHeaders = Fold.foldMap f joinedHeaders
           where
-            f (k, v) = build (CI.foldedCase k)
+            f (k, v) = CI.foldedCase k
                 <> ":"
-                <> build (stripBS v)
+                <> stripBS v
                 <> "\n"
 
         signedHeaders' = toBS signedHeaders
         signedHeaders  = mconcat
             . intersperse ";"
-            $ map (build . CI.foldedCase . fst) joinedHeaders
+            $ map (CI.foldedCase . fst) joinedHeaders
 
-        canonicalRequest = buildBS . mconcat $ intersperse "\n"
-           [ build rqMethod
-           , build (collapseURI path)
+        canonicalRequest = mconcat $ intersperse "\n"
+           [ toBS rqMethod
+           , collapseURI (encodeURI False rqPath)
            , canonicalQuery
            , canonicalHeaders
            , signedHeaders
-           , build rqSHA256
+           , toBS rqSHA256
            ]
 
         algorithm = "AWS4-HMAC-SHA256"

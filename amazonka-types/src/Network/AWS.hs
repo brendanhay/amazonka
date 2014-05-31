@@ -31,20 +31,13 @@ import Network.HTTP.Conduit
 type Failure a = Er (Sv a)
 type Success a = Rs a
 
--- send :: (MonadResource m, AWSService (Sv a), AWSRequest a)
---      => Auth
---      -> Region
---      -> Manager
---      -> a
---      -> m (Either (Er (Sv a)) (Rs a))
-
 send :: (MonadResource m, Signable a)
      => Auth
      -> Region
-     -> Manager
      -> a
+     -> Manager
      -> m (Either (Failure a) (Success a))
-send a r m rq = do
+send a r rq m = do
     sg <- sign a r rq <$> liftIO getCurrentTime
     rs <- http (mk sg) m
     response rq rs

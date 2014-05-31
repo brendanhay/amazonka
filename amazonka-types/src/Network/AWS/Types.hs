@@ -51,7 +51,7 @@ class AWSRequest a where
               -> Response (ResumableSource m ByteString)
               -> m (Either (Er (Sv a)) (Rs a))
 
-class AWSPager a where
+class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
 
 data Auth = Auth

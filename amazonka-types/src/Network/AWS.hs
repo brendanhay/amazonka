@@ -18,17 +18,17 @@ module Network.AWS where
     --   send
     -- ) where
 
+import Control.Monad.Trans
 import Control.Applicative
 import Control.Monad.IO.Class
 import Control.Monad.Trans.Resource
-import Data.Default
+import Data.Conduit
 import Data.Time
-import Network.AWS.Data
 import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
 
-send :: (MonadResource m, Signable a)
+send :: (MonadResource m, Signable a, AWSRequest a)
      => Auth
      -> Region
      -> a
@@ -39,11 +39,21 @@ send a r rq m = do
     rs <- http (sgRequest sg) m
     response rq rs
 
--- paginate :: (MonadResource m, AWSRequest a, AWSPager a)
---          => Auth
---          -> a
---          -> Source m (Either (Er a) (Rs a))
--- paginate = undefined
+paginate :: (MonadResource m, Signable a, AWSPager a)
+         => Auth
+         -> Region
+         -> a
+         -> Manager
+         -> Source m (Either (Er (Sv a)) (Rs a))
+paginate a r x m = go (Just x)
+  where
+    go Nothing   = return ()
+    go (Just rq) = do
+        rs <- lift (send a r rq m)
+        yield rs
+        either (const $ return ())
+               (go . next rq)
+               rs
 
 -- async :: MonadBaseControl IO m => 
 -- async = undefined

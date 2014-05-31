@@ -22,7 +22,7 @@ import qualified Network.HTTP.Client as HTTP
 import           Network.HTTP.Client hiding (Request)
 import           System.Locale
 
-type Signable a = (AWSRequest a, AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
+type Signable a = (AWSService (Sv a), SigningAlgorithm (Sg (Sv a)))
 
 data family Meta a :: *
 
@@ -41,7 +41,7 @@ class SigningAlgorithm a where
              -> UTCTime
              -> Signed a
 
-sign :: Signable a
+sign :: (AWSRequest a, Signable a)
      => a
      -> Auth
      -> Region

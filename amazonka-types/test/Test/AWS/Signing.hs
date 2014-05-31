@@ -108,7 +108,7 @@ parseRequest = either error id . parseOnly req
     req = do
         m  <- P.takeWhile1 token <* char8 ' '
         m' <- either (fail . BS.unpack) return (parseMethod m)
-        p  <- takeWhile1 (not . Char.isSpace) <* http
+        p  <- BS.pack <$> manyTill' anyChar http
         hs <- many1 header
         b  <- endOfLine *> takeByteString <* endOfInput
 

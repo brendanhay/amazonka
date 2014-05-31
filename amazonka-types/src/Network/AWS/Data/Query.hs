@@ -126,8 +126,8 @@ decodeQuery = Fold.foldl' (\a b -> reify b <> a) mempty . URI.parseQuery
             f k' q = Pair k' q
          in foldr f (Pair (last ks) $ Value v) $ init ks
 
-renderQuery :: ByteString -> ByteString -> Query -> ByteString
-renderQuery ksep vsep = intercalate . sort . enc Nothing
+renderQuery :: Query -> ByteString
+renderQuery = intercalate . sort . enc Nothing
   where
     enc k (List xs)   = concatMap (enc k) xs
     enc k (Pair k' x)
@@ -143,6 +143,9 @@ renderQuery ksep vsep = intercalate . sort . enc Nothing
     intercalate []       = mempty
     intercalate (x : []) = x
     intercalate (x : xs) = x <> ksep <> intercalate xs
+
+    ksep = "&"
+    vsep = "="
 
 -- FIXME: Can be removed when lens 4.2 is released.
 deep :: forall s a. Plated s => Traversal' s a -> Traversal' s a

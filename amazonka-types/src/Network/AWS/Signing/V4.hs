@@ -71,7 +71,7 @@ instance SigningAlgorithm V4 where
             $ (rqHeaders ++ token)
 
         canonicalQuery = renderQuery "&" "="
-            . over valuesOf (maybe (Just "") (Just . encodeURI False))
+            . over valuesOf (maybe (Just "") (Just . encodeURI True))
             $ over keysOf (encodeURI False) rqQuery
 
         joinedHeaders = map f $ groupBy ((==) `on` fst) headers

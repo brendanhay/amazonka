@@ -63,28 +63,10 @@ class ToText a where
     toText :: a -> Text
 
 instance ToText Text    where toText = id
-instance ToText Int     where toText = buildText
-instance ToText Int64   where toText = buildText
-instance ToText Integer where toText = buildText
-instance ToText Double  where toText = buildText
+instance ToText Int     where toText = shortText . Build.decimal
+instance ToText Int64   where toText = shortText . Build.decimal
+instance ToText Integer where toText = shortText . Build.decimal
+instance ToText Double  where toText = shortText . Build.realFloat
 
-buildText :: ToBuilder a => a -> Text
-buildText = LText.toStrict . Build.toLazyText . build
-
-buildShortText :: ToBuilder a => a -> Text
-buildShortText = LText.toStrict . Build.toLazyTextWith 128 . build
-
-class ToBuilder a where
-    build :: a -> Builder
-
-    default build :: ToText a => a -> Builder
-    build = build . toText
-
-instance ToBuilder Builder where build = id
-instance ToBuilder Text    where build = Build.fromText
-instance ToBuilder Char    where build = Build.singleton
-instance ToBuilder [Char]  where build = Build.fromString
-instance ToBuilder Int     where build = Build.decimal
-instance ToBuilder Int64   where build = Build.decimal
-instance ToBuilder Integer where build = Build.decimal
-instance ToBuilder Double  where build = Build.realFloat
+shortText :: Builder -> Text
+shortText = LText.toStrict . Build.toLazyTextWith 32

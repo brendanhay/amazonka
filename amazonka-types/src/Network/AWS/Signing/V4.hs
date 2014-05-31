@@ -36,7 +36,7 @@ import           Data.Ord
 import           Network.AWS.Data
 import           Network.AWS.Signing.Types
 import           Network.AWS.Types
-import           Network.HTTP.Types        hiding (renderQuery)
+import           Network.HTTP.Types.Header
 
 data V4
 
@@ -70,7 +70,7 @@ instance SigningAlgorithm V4 where
             . append hDate (toBS $ RFC822Time l t)
             $ (rqHeaders ++ token)
 
-        canonicalQuery = renderQuery "&" "="
+        canonicalQuery = renderQuery
             . over valuesOf (maybe (Just "") (Just . encodeURI True))
             $ over keysOf (encodeURI False) rqQuery
 

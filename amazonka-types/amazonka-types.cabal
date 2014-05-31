@@ -25,11 +25,13 @@ library
         , Network.AWS.Data
         , Network.AWS.Data.Body
         , Network.AWS.Data.ByteString
+        , Network.AWS.Data.Crypto
         , Network.AWS.Data.Header
         , Network.AWS.Data.Path
         , Network.AWS.Data.Query
         , Network.AWS.Data.Text
         , Network.AWS.Data.Time
+        , Network.AWS.Data.URI
         , Network.AWS.Data.XML
         , Network.AWS.EC2.Metadata
         , Network.AWS.Error

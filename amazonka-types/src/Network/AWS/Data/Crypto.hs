@@ -1,4 +1,4 @@
--- Module      : Network.AWS.Data.Path
+-- Module      : Network.AWS.Data.Crypto
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,20 +8,18 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Path
-    ( ToPath (..)
+module Network.AWS.Data.Crypto
+    ( hmacSHA1
+    , hmacSHA256
     ) where
 
-import Data.ByteString.Char8 (ByteString)
+import qualified Crypto.Hash.SHA1   as SHA1
+import qualified Crypto.Hash.SHA256 as SHA256
+import qualified Crypto.MAC.HMAC    as HMAC
+import           Data.ByteString    (ByteString)
 
--- FIXME: A way to annotate whether a query or path is encoded or not?
--- data Path
---     = Enc ByteString
---     | Raw ByteString
+hmacSHA1 :: ByteString -> ByteString -> ByteString
+hmacSHA1 = HMAC.hmac SHA1.hash 64
 
-class ToPath a where
-    toPath :: a -> ByteString
---     toPath = const ByteString.empty
-
-instance ToPath ByteString where
-    toPath = id
+hmacSHA256 :: ByteString -> ByteString -> ByteString
+hmacSHA256 = HMAC.hmac SHA256.hash 64

@@ -12,7 +12,7 @@
 --   formats used to communicate with AWS.
 module Network.AWS.Data
     (
-    -- * ByteStrings
+    -- * ByteString
       module BS
 
     -- * Text
@@ -22,23 +22,26 @@ module Network.AWS.Data
     , module Time
 
     -- * XML
-    -- , FromXML       (..)
-    -- , decodeXML
-
     , module XML
+
+    -- * Crypto
+    , module Crypto
 
     -- * HTTP
     , module Header
     , module Path
     , module Query
     , module Body
+    , module URI
     ) where
 
 import Network.AWS.Data.Body       as Body
 import Network.AWS.Data.ByteString as BS
+import Network.AWS.Data.Crypto     as Crypto
 import Network.AWS.Data.Header     as Header
 import Network.AWS.Data.Path       as Path
 import Network.AWS.Data.Query      as Query
 import Network.AWS.Data.Text       as Text
 import Network.AWS.Data.Time       as Time
+import Network.AWS.Data.URI        as URI
 import Network.AWS.Data.XML        as XML

@@ -35,6 +35,9 @@ import           Network.HTTP.Client          (RequestBody(..), Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
+type Failure a = Er (Sv a)
+type Success a = Rs a
+
 class AWSService a where
     type Sg a :: *
     data Er a :: *

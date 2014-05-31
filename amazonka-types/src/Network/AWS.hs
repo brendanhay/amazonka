@@ -28,9 +28,6 @@ import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
 
-type Failure a = Er (Sv a)
-type Success a = Rs a
-
 send :: (MonadResource m, Signable a)
      => Auth
      -> Region

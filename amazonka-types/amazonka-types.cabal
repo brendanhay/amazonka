@@ -21,7 +21,7 @@ library
 
     exposed-modules:
           Network.AWS
-        , Network.AWS.Credentials
+        , Network.AWS.Auth
         , Network.AWS.Data
         , Network.AWS.Data.Body
         , Network.AWS.Data.ByteString

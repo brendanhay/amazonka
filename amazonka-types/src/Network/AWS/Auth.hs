@@ -4,7 +4,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Network.AWS.Credentials
+-- Module      : Network.AWS.Auth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,11 +14,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Credentials
+module Network.AWS.Auth
     (
-    -- * Loading credentials
+    -- * Loading AWS credentials
       Credentials (..)
-    , credentials
+    , getAuth
 
     -- * Defaults
     , accessKey
@@ -81,8 +81,8 @@ instance ToByteString Credentials where
 instance Show Credentials where
     show = showBS
 
-credentials :: MonadIO m => Credentials -> EitherT Error m Auth
-credentials c = case c of
+getAuth :: MonadIO m => Credentials -> EitherT Error m Auth
+getAuth c = case c of
     FromKeys    a s   -> newAuth $ AuthState a s Nothing Nothing
     FromSession a s t -> newAuth $ AuthState a s (Just t) Nothing
     FromProfile n     -> fromProfile n

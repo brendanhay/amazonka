@@ -62,6 +62,7 @@ library
         , data-default
         , errors
         , http-client
+        , http-client-lens
         , http-conduit
         , http-types
         , lens

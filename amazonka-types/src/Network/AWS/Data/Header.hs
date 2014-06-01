@@ -35,6 +35,9 @@ hdr k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
 class ToHeaders a where
     toHeaders :: a -> [Header]
 
+instance ToHeaders [Header] where
+    toHeaders = id
+
 --    toHeaders = const []
 
 -- class ToHeader a where

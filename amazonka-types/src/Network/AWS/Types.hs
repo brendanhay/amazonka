@@ -28,6 +28,7 @@ import           Data.Conduit
 import           Data.Default
 import           Data.IORef
 import           Data.Monoid
+import           Data.Proxy
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -38,38 +39,38 @@ import           Network.HTTP.Client          (RequestBody(..), Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
-class AWSService a where
-    type Sg a :: *
-    data Er a :: *
+class AWSService s where
+    type Sg s :: *
+    data Er s :: *
 
-    service   :: Service a (Sg a)
+    service   :: Service s (Sg s)
 
 class AWSService (Sv a) => AWSRequest a where
     type Sv a :: *
     type Rs a :: *
 
-    request   :: a -> Request (Sv a)
+    request   :: a -> Request (Sv a) a
     response  :: MonadResource m
-              => a
+              => Proxy a
               -> Response (ResumableSource m ByteString)
               -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
 
-newtype Auth = Auth { authRef :: IORef AuthState }
+newtype Auth = Auth { _authRef :: IORef AuthState }
 
 newAuth :: MonadIO m => AuthState -> m Auth
 newAuth = liftM Auth . liftIO . newIORef
 
 getAuthState :: MonadIO m => Auth -> m AuthState
-getAuthState = liftIO . readIORef . authRef
+getAuthState = liftIO . readIORef . _authRef
 
 data AuthState = AuthState
-    { authAccess :: !ByteString
-    , authSecret :: !ByteString
-    , authToken  :: Maybe ByteString
-    , authExpiry :: Maybe UTCTime
+    { _authAccess :: !ByteString
+    , _authSecret :: !ByteString
+    , _authToken  :: Maybe ByteString
+    , _authExpiry :: Maybe UTCTime
     }
 
 instance FromJSON AuthState where
@@ -90,11 +91,11 @@ data Endpoint
 instance IsString Endpoint where
     fromString = Custom . fromString
 
-data Service b a = Service
-    { svcEndpoint :: !Endpoint
-    , svcName     :: !ByteString
-    , svcVersion  :: !ByteString
-    , svcTarget   :: Maybe ByteString
+data Service s v = Service
+    { _svcEndpoint :: !Endpoint
+    , _svcName     :: !ByteString
+    , _svcVersion  :: !ByteString
+    , _svcTarget   :: Maybe ByteString
     }
 
 newtype Host = Host ByteString
@@ -103,33 +104,33 @@ newtype Host = Host ByteString
 instance ToByteString Host where
     toBS (Host h) = h
 
-endpoint :: Service b a -> Region -> Host
+endpoint :: Service s v -> Region -> Host
 endpoint Service{..} reg =
     let suf = ".amazonaws.com"
-     in Host $ case svcEndpoint of
-            Global   -> svcName <> suf
-            Regional -> svcName <> "." <> toBS reg <> suf
+     in Host $ case _svcEndpoint of
+            Global   -> _svcName <> suf
+            Regional -> _svcName <> "." <> toBS reg <> suf
             Custom x -> x
 
-data Request a = Request
-    { rqMethod  :: !StdMethod
-    , rqPath    :: !ByteString
-    , rqQuery   :: Query
-    , rqHeaders :: [Header]
-    , rqBody    :: RequestBody
-    , rqSHA256  :: Digest SHA256
+data Request s a = Request
+    { _rqMethod  :: !StdMethod
+    , _rqPath    :: !ByteString
+    , _rqQuery   :: Query
+    , _rqHeaders :: [Header]
+    , _rqBody    :: RequestBody
+    , _rqPayload :: ByteString
       -- ^ REVISIT: exists due to problems with amazon's
       -- supplied aws4 test suite.
     }
 
-instance Show (Request a) where
+instance Show (Request s a) where
     show Request{..} = unlines
         [ "Request:"
-        , "rqMethod  = " ++ show rqMethod
-        , "rqPath    = " ++ show rqPath
-        , "rqQuery   = " ++ show rqQuery
-        , "rqHeaders = " ++ show rqHeaders
-        , "rqSHA256  = " ++ show rqSHA256
+        , "_rqMethod  = " ++ show _rqMethod
+        , "_rqPath    = " ++ show _rqPath
+        , "_rqQuery   = " ++ show _rqQuery
+        , "_rqHeaders = " ++ show _rqHeaders
+        , "_rqPayload = " ++ show _rqPayload
         ]
 
 byteStringBody :: ByteString -> (RequestBody, Digest SHA256)
@@ -191,8 +192,8 @@ instance ToByteString Region where
     toBS = toBS . toText
 
 data AZ = AZ
-    { azRegion :: !Region
-    , azSuffix :: !Char
+    { _azRegion :: !Region
+    , _azSuffix :: !Char
     } deriving (Eq, Ord)
 
 instance Read AZ where
@@ -205,7 +206,7 @@ instance FromText AZ where
     parser = AZ <$> parser <*> AText.satisfy isAlpha <* AText.endOfInput
 
 instance ToText AZ where
-    toText AZ{..} = toText azRegion `Text.snoc` azSuffix
+    toText AZ{..} = toText _azRegion `Text.snoc` _azSuffix
 
 newtype Action = Action Text
     deriving (Eq, Show)

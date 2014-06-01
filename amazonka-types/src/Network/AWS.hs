@@ -28,7 +28,15 @@ import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
 
-send :: (MonadResource m, Signable a, AWSRequest a)
+presign :: MonadIO m, AWSRequest a, Presignable a)
+     => Auth
+     -> Region
+     -> Int -- ^ Expiry time in seconds.
+     -> a
+     -> m (Signed (Sv a) b)
+presign = undefined
+
+send :: (MonadResource m, AWSRequest a, Signable a)
      => Auth
      -> Region
      -> a
@@ -39,7 +47,7 @@ send a r rq m = do
     rs <- http (sgRequest sg) m
     response rq rs
 
-paginate :: (MonadResource m, Signable a, AWSPager a)
+paginate :: (MonadResource m, AWSPager a, Signable a)
          => Auth
          -> Region
          -> a
@@ -54,8 +62,3 @@ paginate a r x m = go (Just x)
         either (const $ return ())
                (go . next rq)
                rs
-
--- async :: MonadBaseControl IO m => 
--- async = undefined
-
--- wait

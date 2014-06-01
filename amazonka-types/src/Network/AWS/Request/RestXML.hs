@@ -14,10 +14,17 @@ module Network.AWS.Request.RestXML
    , post
    ) where
 
+import Crypto.Hash.SHA256
 import Network.AWS.Data
 import Network.AWS.Request.Lens
 import Network.AWS.Types
+import Network.HTTP.Client       (RequestBody(..))
 import Network.HTTP.Types.Method
 
-post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request (Sg (Sv a))
-post x = get x & meth .~ POST & bdy .~ encodeXML x
+post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request s a
+post x = get x
+    & rqMethod  .~ POST
+    & rqBody    .~ RequestBodyLBS lbs
+    & rqPayload .~ hashlazy lbs
+  where
+    lbs = encodeXML x

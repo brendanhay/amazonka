@@ -118,7 +118,7 @@ fromProfile name = do
     !a@AuthState{..} <- auth
     runIO $ do
         r <- newAuth a
-        start r authExpiry
+        start r _authExpiry
         return r
   where
     auth :: MonadIO m => EitherT Error m AuthState
@@ -138,5 +138,5 @@ fromProfile name = do
     timer r n = void . forkIO $ do
         threadDelay $ (n - 60) * 1000000
         !a@AuthState{..} <- eitherT throwIO return auth
-        atomicWriteIORef (authRef r) a
-        start r authExpiry
+        atomicWriteIORef (_authRef r) a
+        start r _authExpiry

@@ -12,20 +12,19 @@
 
 module Network.AWS.Request.Lens
     (
-    -- * Default
-      req
-
     -- * Requests
+      blank
     , get
     , Network.AWS.Request.Lens.head
     , delete
 
     -- * Lenses
-    , meth
-    , path
-    , qry
-    , hdrs
-    , bdy
+    , rqMethod
+    , rqPath
+    , rqQuery
+    , rqHeaders
+    , rqBody
+    , rqPayload
 
     -- * Re-exports
     , (&)
@@ -37,8 +36,7 @@ module Network.AWS.Request.Lens
 
 import Control.Applicative
 import Control.Lens
-import Crypto.Hash
-import Data.ByteString.Char8     (ByteString)
+import Data.ByteString           (ByteString)
 import Data.Monoid
 import Network.AWS.Data
 import Network.AWS.Types
@@ -46,41 +44,35 @@ import Network.HTTP.Client       (RequestBody(..))
 import Network.HTTP.Types.Header
 import Network.HTTP.Types.Method
 
-get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request (Sg (Sv a))
-get x = req & path .~ x & qry .~ x & hdrs .~ x
+blank :: Request s a
+blank = Request GET "/" mempty mempty (RequestBodyBS "") ""
 
-head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request (Sg (Sv a))
-head x = get x & meth .~ HEAD
+get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request s a
+get x = blank
+    & rqPath    .~ toPath x
+    & rqQuery   .~ toQuery x
+    & rqHeaders .~ toHeaders x
 
-delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request (Sg (Sv a))
-delete x = get x & meth .~ DELETE
+head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request s a
+head x = get x & rqMethod .~ HEAD
 
-req :: Request a
-req = Request GET "/" mempty mempty (RequestBodyBS "") (hash "")
+delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request s a
+delete x = get x & rqMethod .~ DELETE
 
-meth :: Functor f => LensLike' f (Request a) StdMethod
-meth f x = (\y -> x { rqMethod = y }) <$> f (rqMethod x)
+rqMethod :: Functor f => LensLike' f (Request s a) StdMethod
+rqMethod f x = (\y -> x { _rqMethod = y }) <$> f (_rqMethod x)
 
-path :: (ToPath b, Functor f)
-     => (ByteString -> f b)
-     -> Request a
-     -> f (Request a)
-path f x = (\y -> x { rqPath = toPath y }) <$> f (rqPath x)
+rqPath :: Functor f => LensLike' f (Request s a) ByteString
+rqPath f x = (\y -> x { _rqPath = y }) <$> f (_rqPath x)
 
-qry :: (ToQuery b, Functor f)
-    => (Query -> f b)
-    -> Request a
-    -> f (Request a)
-qry f x = (\y -> x { rqQuery = toQuery y }) <$> f (rqQuery x)
+rqQuery :: Functor f => LensLike' f (Request s a) Query
+rqQuery f x = (\y -> x { _rqQuery = y }) <$> f (_rqQuery x)
 
-hdrs :: (ToHeaders b, Functor f)
-     => ([Header] -> f b)
-     -> Request a
-     -> f (Request a)
-hdrs f x = (\y -> x { rqHeaders = toHeaders y }) <$> f (rqHeaders x)
+rqHeaders :: Functor f => LensLike' f (Request s a) [Header]
+rqHeaders f x = (\y -> x { _rqHeaders = y }) <$> f (_rqHeaders x)
 
-bdy :: (ToBody b, Functor f)
-    => (RequestBody -> f b)
-    -> Request a
-    -> f (Request a)
-bdy f x = (\y -> x { rqBody = toBody y }) <$> f (rqBody x)
+rqBody :: Functor f => LensLike' f (Request s a) RequestBody
+rqBody f x = (\y -> x { _rqBody = y }) <$> f (_rqBody x)
+
+rqPayload :: Functor f => LensLike' f (Request s a) ByteString
+rqPayload f x = (\y -> x { _rqPayload = y }) <$> f (_rqPayload x)

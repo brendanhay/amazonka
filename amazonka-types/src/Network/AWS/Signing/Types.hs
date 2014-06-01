@@ -15,43 +15,91 @@
 
 module Network.AWS.Signing.Types where
 
+import           Control.Applicative
+import           Control.Lens
+import           Control.Lens.TH
+import           Control.Monad.Trans.Resource
+import           Data.ByteString              (ByteString)
+import           Data.Conduit
 import           Data.Default
 import           Data.Time
 import           Network.AWS.Types
-import qualified Network.HTTP.Client as HTTP
-import           Network.HTTP.Client hiding (Request)
+import qualified Network.HTTP.Client          as Client
+import           Network.HTTP.Types.Header
 import           System.Locale
 
-type Signable a = SigningAlgorithm (Sg (Sv a))
+-- type Presignable a = Presign (Sg (Sv a))
+-- type Signable    a = Sign (Sg (Sv a))
 
-data family Meta a :: *
+-- Presign can return the 'raw' Signed HTTP.Request
+-- This would mean Signed a v is required to connect the Request/Response
+-- Instance for AWSRequest/Signable for Signed a v which doesn't attempt to resign
 
-data Signed a = Signed
-    { sgHost    :: Host
-    , sgRequest :: HTTP.Request
-    , sgMeta    :: Meta a
+data Signed v a = Signed
+    { _sgMeta    :: Meta v
+    , _sgRequest :: Client.Request
     }
 
-class SigningAlgorithm a where
-    finalise :: Service b a
-             -> Request b
-             -> AuthState
-             -> Region
-             -> TimeLocale
-             -> UTCTime
-             -> Signed a
+sgMeta :: Functor f => LensLike' f (Signed v a) (Meta v)
+sgMeta f x = (\y -> x { _sgMeta = y }) <$> f (_sgMeta x)
 
-sign :: (AWSRequest a, Signable a)
-     => a
-     -> AuthState
-     -> Region
-     -> UTCTime
-     -> Signed (Sg (Sv a))
-sign rq a r = finalise service (request rq) a r defaultTimeLocale
+sgRequest :: Functor f => LensLike' f (Signed v a) Client.Request
+sgRequest f x = (\y -> x { _sgRequest = y }) <$> f (_sgRequest x)
 
-signed :: HTTP.Request
-signed = def
-    { secure      = True
-    , port        = 443
-    , checkStatus = \_ _ _ -> Nothing
+data family Meta v :: *
+
+class Signer v where
+    sign :: Service s v
+         -> Request s a
+         -> AuthState
+         -> Region
+         -> TimeLocale
+         -> UTCTime
+         -> Signed v a
+
+class Presigner v where
+    presign :: Service s v
+            -> Request s a
+            -> AuthState
+            -> Region
+            -> TimeLocale
+            -> UTCTime
+            -> Int
+            -> Signed v a
+
+-- class Presigner v where
+--     data PMeta v :: *
+
+--     expires :: Service s v
+--             -> Request s a
+--             -> AuthState
+--             -> Region
+--             -> TimeLocale
+--             -> UTCTime
+--             -> Int
+--             -> Signed v a (PMeta v)
+
+-- class SigningAlgorithm a => Presign a where
+--     expires :: Service b a
+--             -> Request b
+--             -> AuthState
+--             -> Region
+--             -> TimeLocale
+--             -> UTCTime
+--             -> Int
+--             -> Ctx a
+
+-- sign :: (AWSRequest a, Signable a)
+--      => a
+--      -> AuthState
+--      -> Region
+--      -> UTCTime
+--      -> Context (Sg (Sv a))
+-- sign rq a r = context service (request rq) a r defaultTimeLocale
+
+conv :: Client.Request
+conv = def
+    { Client.secure      = True
+    , Client.port        = 443
+    , Client.checkStatus = \_ _ _ -> Nothing
     }

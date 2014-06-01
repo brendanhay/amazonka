@@ -81,16 +81,16 @@ instance ToByteString Credentials where
 instance Show Credentials where
     show = showBS
 
-credentials :: MonadIO m => Credentials -> EitherT Error m AuthRef
+credentials :: MonadIO m => Credentials -> EitherT Error m Auth
 credentials c = case c of
-    FromKeys    a s   -> newRef $ Auth a s Nothing Nothing
-    FromSession a s t -> newRef $ Auth a s (Just t) Nothing
+    FromKeys    a s   -> newAuth $ AuthState a s Nothing Nothing
+    FromSession a s t -> newAuth $ AuthState a s (Just t) Nothing
     FromProfile n     -> fromProfile n
-    FromEnv     a s   -> fromKeys a s >>= newRef
-    Discover -> (fromKeys accessKey secretKey >>= newRef)
+    FromEnv     a s   -> fromKeys a s >>= newAuth
+    Discover -> (fromKeys accessKey secretKey >>= newAuth)
         `catchT` const (defaultProfile >>= fromProfile)
  where
-    fromKeys a s = Auth
+    fromKeys a s = AuthState
         <$> key a
         <*> key s
         <*> pure Nothing
@@ -113,15 +113,15 @@ defaultProfile = do
 --
 -- The forked timer ensures a singular owner and pre-emptive refresh of the
 -- temporary session credentials.
-fromProfile :: MonadIO m => ByteString -> EitherT Error m AuthRef
+fromProfile :: MonadIO m => ByteString -> EitherT Error m Auth
 fromProfile name = do
-    !a@Auth{..} <- auth
+    !a@AuthState{..} <- auth
     runIO $ do
-        r <- newRef a
+        r <- newAuth a
         start r authExpiry
         return r
   where
-    auth :: MonadIO m => EitherT Error m Auth
+    auth :: MonadIO m => EitherT Error m AuthState
     auth = do
         m <- LBS.fromStrict `liftM` meta iam
         hoistEither . fmapL fromString $ Aeson.eitherDecode m
@@ -137,9 +137,6 @@ fromProfile name = do
     --  remove the error . show shenanigans
     timer r n = void . forkIO $ do
         threadDelay $ (n - 60) * 1000000
-        !a@Auth{..} <- eitherT throwIO return auth
+        !a@AuthState{..} <- eitherT throwIO return auth
         atomicWriteIORef (authRef r) a
         start r authExpiry
-
-newRef :: MonadIO m => Auth -> m AuthRef
-newRef = liftM AuthRef . liftIO . newIORef

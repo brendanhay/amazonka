@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
 
@@ -15,6 +16,8 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
+import           Control.Monad
+import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Crypto.Hash
 import           Data.Aeson
@@ -41,7 +44,7 @@ class AWSService a where
 
     service   :: Service a (Sg a)
 
-class AWSRequest a where
+class AWSService (Sv a) => AWSRequest a where
     type Sv a :: *
     type Rs a :: *
 
@@ -54,15 +57,23 @@ class AWSRequest a where
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
 
-data Auth = Auth
+newtype Auth = Auth { authRef :: IORef AuthState }
+
+newAuth :: MonadIO m => AuthState -> m Auth
+newAuth = liftM Auth . liftIO . newIORef
+
+getAuthState :: MonadIO m => Auth -> m AuthState
+getAuthState = liftIO . readIORef . authRef
+
+data AuthState = AuthState
     { authAccess :: !ByteString
     , authSecret :: !ByteString
     , authToken  :: Maybe ByteString
     , authExpiry :: Maybe UTCTime
     }
 
-instance FromJSON Auth where
-    parseJSON = withObject "Auth" $ \o -> Auth
+instance FromJSON AuthState where
+    parseJSON = withObject "AuthState" $ \o -> AuthState
         <$> f (o .:  "AccessKeyId")
         <*> f (o .:  "SecretAccessKey")
         <*> fmap f (o .:? "Token")
@@ -70,8 +81,6 @@ instance FromJSON Auth where
       where
         f :: Functor f => f Text -> f ByteString
         f = fmap Text.encodeUtf8
-
-newtype AuthRef = AuthRef { authRef :: IORef Auth }
 
 data Endpoint
     = Global

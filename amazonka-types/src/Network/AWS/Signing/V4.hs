@@ -51,7 +51,7 @@ data instance Meta V4 = Meta
     }
 
 instance SigningAlgorithm V4 where
-    finalise s@Service{..} Request{..} Auth{..} r l t = Signed host rq meta
+    finalise s@Service{..} Request{..} AuthState{..} r l t = Signed host rq meta
       where
         rq = signed
             { method         = toBS rqMethod

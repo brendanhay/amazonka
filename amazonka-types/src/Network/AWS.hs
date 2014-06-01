@@ -18,9 +18,9 @@ module Network.AWS where
     --   send
     -- ) where
 
-import Control.Monad.Trans
 import Control.Applicative
 import Control.Monad.IO.Class
+import Control.Monad.Trans
 import Control.Monad.Trans.Resource
 import Data.Conduit
 import Data.Time
@@ -35,7 +35,7 @@ send :: (MonadResource m, Signable a, AWSRequest a)
      -> Manager
      -> m (Either (Er (Sv a)) (Rs a))
 send a r rq m = do
-    sg <- sign rq a r <$> liftIO getCurrentTime
+    sg <- sign rq <$> getAuthState a <*> pure r <*> liftIO getCurrentTime
     rs <- http (sgRequest sg) m
     response rq rs
 

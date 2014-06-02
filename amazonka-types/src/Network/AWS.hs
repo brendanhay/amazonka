@@ -46,10 +46,10 @@ send a r rq m = do
     response rq rs
 
 paginate :: (MonadResource m, AWSPager a, AWSSigner (Sg (Sv a)))
-         => Auth
-         -> Region
-         -> a
-         -> Manager
+         => Auth    -- ^ AWS authentication credentials.
+         -> Region  -- ^ AWS Region.
+         -> a       -- ^ Seed request to send.
+         -> Manager -- ^ HTTP Manager.
          -> Source m (Either (Er (Sv a)) (Rs a))
 paginate a r x m = go (Just x)
   where

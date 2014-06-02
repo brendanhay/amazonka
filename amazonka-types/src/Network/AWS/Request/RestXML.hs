@@ -21,7 +21,7 @@ import Network.AWS.Types
 import Network.HTTP.Client       (RequestBody(..))
 import Network.HTTP.Types.Method
 
-post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request s a
+post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request a
 post x = get x
     & rqMethod  .~ POST
     & rqBody    .~ RequestBodyLBS lbs

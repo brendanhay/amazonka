@@ -27,38 +27,40 @@ import Data.Time
 import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
+import System.Locale
 
-presign :: MonadIO m, AWSRequest a, Presignable a)
-     => Auth
-     -> Region
-     -> Int -- ^ Expiry time in seconds.
-     -> a
-     -> m (Signed (Sv a) b)
-presign = undefined
+-- presign :: MonadIO m, AWSRequest a, Presignable a)
+--      => Auth
+--      -> Region
+--      -> Int -- ^ Expiry time in seconds.
+--      -> a
+--      -> m (Signed (Sv a) b)
+-- presign = undefined
 
-send :: (MonadResource m, AWSRequest a, Signable a)
+send :: (MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
      => Auth
      -> Region
      -> a
      -> Manager
      -> m (Either (Er (Sv a)) (Rs a))
 send a r rq m = do
-    sg <- sign rq <$> getAuthState a <*> pure r <*> liftIO getCurrentTime
-    rs <- http (sgRequest sg) m
+    as <- getAuthState a
+    sg <- sign as r rq <$> liftIO getCurrentTime
+    rs <- http (_sgRequest sg) m
     response rq rs
 
-paginate :: (MonadResource m, AWSPager a, Signable a)
-         => Auth
-         -> Region
-         -> a
-         -> Manager
-         -> Source m (Either (Er (Sv a)) (Rs a))
-paginate a r x m = go (Just x)
-  where
-    go Nothing   = return ()
-    go (Just rq) = do
-        rs <- lift (send a r rq m)
-        yield rs
-        either (const $ return ())
-               (go . next rq)
-               rs
+-- paginate :: (MonadResource m, AWSPager a, Signable a)
+--          => Auth
+--          -> Region
+--          -> a
+--          -> Manager
+--          -> Source m (Either (Er (Sv a)) (Rs a))
+-- paginate a r x m = go (Just x)
+--   where
+--     go Nothing   = return ()
+--     go (Just rq) = do
+--         rs <- lift (send a r rq m)
+--         yield rs
+--         either (const $ return ())
+--                (go . next rq)
+--                rs

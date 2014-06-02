@@ -24,13 +24,11 @@ module Network.AWS.Signing.V4 where
     -- , Signed           (..)
 --    ) where
 
-import           Control.Applicative
 import           Control.Lens
 import           Data.ByteString           (ByteString)
 import qualified Data.ByteString.Base16    as Base16
 import qualified Data.ByteString.Char8     as BS
 import qualified Data.CaseInsensitive      as CI
-import           Data.Default
 import qualified Data.Foldable             as Fold
 import           Data.Function
 import           Data.List                 (groupBy, intersperse, sortBy, sort)
@@ -42,7 +40,6 @@ import           Network.AWS.Data
 import           Network.AWS.Request.Lens
 import           Network.AWS.Signing.Types
 import           Network.AWS.Types
-import qualified Network.HTTP.Client       as Client
 import           Network.HTTP.Client.Lens
 import           Network.HTTP.Types.Header
 import           System.Locale
@@ -58,8 +55,12 @@ data instance Meta V4 = Meta
     , _mSignature :: ByteString
     }
 
-instance Presigner V4 where
-    presign s@Service{..} Request{..} AuthState{..} r l t = undefined
+instance AWSPresigner V4 where
+    presigned s as r rq l t =
+
+      where
+        inp = rq 
+
         -- rq = undefined -- signed
         --     -- { method         = toBS rqMethod
         --     -- , host           = toBS host
@@ -75,20 +76,20 @@ instance Presigner V4 where
         --     , mSTS  = stringToSign
         --     }
 
-        -- query = [ ("X-AMZ-Algorithm", )
-        --         , ("X-AMZ-Credential", credentialScope)
-        --         , ("X-AMZ-Date", ISO8601Time t)
-        --         , ("X-AMZ-Expires", seconds)
-        --         , ("X-AMZ-SignedHeaders", )
-        --         , ("X-AMZ-Signature", )
-        --         ]
+        query = [ ("X-AMZ-Algorithm", )
+                , ("X-AMZ-Credential", credentialScope)
+                , ("X-AMZ-Date", ISO8601Time t)
+                , ("X-AMZ-Expires", seconds)
+                , ("X-AMZ-SignedHeaders", )
+                , ("X-AMZ-Signature", )
+                ]
 
-instance Signer V4 where
-    sign s rq a r l t = out & sgRequest %~ requestHeaders %~ auth (out ^. sgMeta)
+instance AWSSigner V4 where
+    signed s as r rq l t =
+        out & sgRequest %~ requestHeaders %~ auth (out ^. sgMeta)
       where
-        out = finalise (Just "AWS4") s inp a r l t
-
-        inp = rq & rqHeaders <>~ (maybeToList $ (hAMZToken,) <$> _authToken a)
+        out = finalise (Just "AWS4") s inp as r l t
+        inp = rq & rqHeaders %~ hdrs (maybeToList $ authTokenHeader as)
 
         auth Meta{..} = hdr hAuthorization $ BS.concat
             [ _mAlgorithm
@@ -100,17 +101,18 @@ instance Signer V4 where
             , _mSignature
             ]
 
-finalise :: Maybe ByteString -- ^ Secret Key Prefix.
-         -> Service s V4
-         -> Request s a
-         -> AuthState
-         -> Region
-         -> TimeLocale
-         -> UTCTime
-         -> Signed V4 a
-finalise p s@Service{..} Request{..} AuthState{..} r l t = Signed mt rq
+
+context :: Maybe ByteString
+        -> Service (Sv a)
+        -> Request a
+        -> AuthState
+        -> Region
+        -> TimeLocale
+        -> UTCTime
+        -> Signed a V4
+context p s@Service{..} Request{..} AuthState{..} r l t = Signed meta rq
   where
-    mt = Meta
+    meta = Meta
         { _mAlgorithm = algorithm
         , _mCReq      = canonicalRequest
         , _mScope     = _authAccess <> "/" <> credentialScope
@@ -119,7 +121,7 @@ finalise p s@Service{..} Request{..} AuthState{..} r l t = Signed mt rq
         , _mSignature = signature
         }
 
-    rq = conv
+    rq = clientRequest
         & method         .~ meth
         & host           .~ host'
         & path           .~ _rqPath
@@ -130,15 +132,14 @@ finalise p s@Service{..} Request{..} AuthState{..} r l t = Signed mt rq
     meth  = toBS _rqMethod
     host' = toBS (endpoint s r)
 
-    algorithm = "AWS4-HMAC-SHA256"
-
-    canonicalQuery = renderQuery
-        . over valuesOf (maybe (Just "") (Just . encodeURI True))
-        $ over keysOf (encodeURI False) _rqQuery
+    canonicalQuery = renderQuery $ _rqQuery
+        & valuesOf %~ (maybe (Just "") (Just . encodeURI True))
+        & keysOf   %~ (encodeURI False)
 
     headers = sortBy (comparing fst)
         . hdr hHost host'
-        $ hdr hDate (toBS $ RFC822Time l t) _rqHeaders
+        . hdr hDate (toBS $ RFC822Time l t)
+        $ _rqHeaders
 
     joinedHeaders = map f $ groupBy ((==) `on` fst) headers
       where
@@ -173,6 +174,8 @@ finalise p s@Service{..} Request{..} AuthState{..} r l t = Signed mt rq
         , toBS _svcName
         , "aws4_request"
         ]
+
+    algorithm = "AWS4-HMAC-SHA256"
 
     credentialScope = BS.intercalate "/" scope
 

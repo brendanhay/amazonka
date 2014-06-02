@@ -22,7 +22,7 @@ import Network.AWS.Types
 import Network.HTTP.Client       (RequestBody(..))
 import Network.HTTP.Types.Method
 
-post :: ToJSON a => Action -> a -> Request s a
+post :: ToJSON a => Action -> a -> Request a
 post a (encode . toJSON -> x) = blank
     & rqMethod  .~ POST
     & rqQuery  <>~ toQuery a

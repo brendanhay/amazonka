@@ -16,6 +16,7 @@
 module Network.AWS.Data.Header where
 
 import Data.ByteString.Char8 (ByteString)
+import Data.Foldable         as Fold
 import Data.Function         (on)
 import Data.List             (deleteBy)
 import Network.HTTP.Types
@@ -31,6 +32,9 @@ hMetaPrefix = "X-AMZ-"
 
 hdr :: HeaderName -> ByteString -> [Header] -> [Header]
 hdr k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
+
+hdrs :: [Header] -> [Header] -> [Header]
+hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
 
 class ToHeaders a where
     toHeaders :: a -> [Header]

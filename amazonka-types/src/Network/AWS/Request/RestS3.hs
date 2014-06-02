@@ -20,7 +20,7 @@ import Network.AWS.Request.Lens
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: (ToPath a, ToQuery a, ToHeaders a, ToBody b) => a -> b -> Request s a
+post :: (ToPath a, ToQuery a, ToHeaders a, ToBody b) => a -> b -> Request a
 post x y = get x
     & rqMethod .~ POST
     & rqBody   .~ toBody y

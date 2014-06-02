@@ -1,6 +1,8 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Types
@@ -28,7 +30,6 @@ import           Data.Conduit
 import           Data.Default
 import           Data.IORef
 import           Data.Monoid
-import           Data.Proxy
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -39,19 +40,19 @@ import           Network.HTTP.Client          (RequestBody(..), Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
-class AWSService s where
-    type Sg s :: *
-    data Er s :: *
+class AWSService a where
+    type Sg a :: *
+    data Er a :: *
 
-    service   :: Service s (Sg s)
+    service   :: Service a
 
 class AWSService (Sv a) => AWSRequest a where
     type Sv a :: *
     type Rs a :: *
 
-    request   :: a -> Request (Sv a) a
+    request   :: a -> Request a
     response  :: MonadResource m
-              => Proxy a
+              => a
               -> Response (ResumableSource m ByteString)
               -> m (Either (Er (Sv a)) (Rs a))
 
@@ -73,6 +74,9 @@ data AuthState = AuthState
     , _authExpiry :: Maybe UTCTime
     }
 
+authTokenHeader :: AuthState -> Maybe Header
+authTokenHeader = fmap (hAMZToken,) . _authToken
+
 instance FromJSON AuthState where
     parseJSON = withObject "AuthState" $ \o -> AuthState
         <$> f (o .:  "AccessKeyId")
@@ -91,7 +95,7 @@ data Endpoint
 instance IsString Endpoint where
     fromString = Custom . fromString
 
-data Service s v = Service
+data Service a = Service
     { _svcEndpoint :: !Endpoint
     , _svcName     :: !ByteString
     , _svcVersion  :: !ByteString
@@ -104,7 +108,7 @@ newtype Host = Host ByteString
 instance ToByteString Host where
     toBS (Host h) = h
 
-endpoint :: Service s v -> Region -> Host
+endpoint :: Service a -> Region -> Host
 endpoint Service{..} reg =
     let suf = ".amazonaws.com"
      in Host $ case _svcEndpoint of
@@ -112,7 +116,7 @@ endpoint Service{..} reg =
             Regional -> _svcName <> "." <> toBS reg <> suf
             Custom x -> x
 
-data Request s a = Request
+data Request a = Request
     { _rqMethod  :: !StdMethod
     , _rqPath    :: !ByteString
     , _rqQuery   :: Query
@@ -123,7 +127,7 @@ data Request s a = Request
       -- supplied aws4 test suite.
     }
 
-instance Show (Request s a) where
+instance Show (Request a) where
     show Request{..} = unlines
         [ "Request:"
         , "_rqMethod  = " ++ show _rqMethod

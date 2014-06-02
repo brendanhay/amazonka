@@ -44,35 +44,35 @@ import Network.HTTP.Client       (RequestBody(..))
 import Network.HTTP.Types.Header
 import Network.HTTP.Types.Method
 
-blank :: Request s a
+blank :: Request a
 blank = Request GET "/" mempty mempty (RequestBodyBS "") ""
 
-get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request s a
+get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 get x = blank
     & rqPath    .~ toPath x
     & rqQuery   .~ toQuery x
     & rqHeaders .~ toHeaders x
 
-head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request s a
+head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 head x = get x & rqMethod .~ HEAD
 
-delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request s a
+delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 delete x = get x & rqMethod .~ DELETE
 
-rqMethod :: Functor f => LensLike' f (Request s a) StdMethod
+rqMethod :: Functor f => LensLike' f (Request a) StdMethod
 rqMethod f x = (\y -> x { _rqMethod = y }) <$> f (_rqMethod x)
 
-rqPath :: Functor f => LensLike' f (Request s a) ByteString
+rqPath :: Functor f => LensLike' f (Request a) ByteString
 rqPath f x = (\y -> x { _rqPath = y }) <$> f (_rqPath x)
 
-rqQuery :: Functor f => LensLike' f (Request s a) Query
+rqQuery :: Functor f => LensLike' f (Request a) Query
 rqQuery f x = (\y -> x { _rqQuery = y }) <$> f (_rqQuery x)
 
-rqHeaders :: Functor f => LensLike' f (Request s a) [Header]
+rqHeaders :: Functor f => LensLike' f (Request a) [Header]
 rqHeaders f x = (\y -> x { _rqHeaders = y }) <$> f (_rqHeaders x)
 
-rqBody :: Functor f => LensLike' f (Request s a) RequestBody
+rqBody :: Functor f => LensLike' f (Request a) RequestBody
 rqBody f x = (\y -> x { _rqBody = y }) <$> f (_rqBody x)
 
-rqPayload :: Functor f => LensLike' f (Request s a) ByteString
+rqPayload :: Functor f => LensLike' f (Request a) ByteString
 rqPayload f x = (\y -> x { _rqPayload = y }) <$> f (_rqPayload x)

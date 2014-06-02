@@ -17,7 +17,7 @@ import Network.AWS.Request.Lens
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: ToQuery a => Action -> a -> Request s a
+post :: ToQuery a => Action -> a -> Request a
 post a x = blank
     & rqMethod .~ POST
     & rqQuery <>~ toQuery x

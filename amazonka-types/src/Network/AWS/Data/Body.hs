@@ -8,17 +8,52 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Body where
+module Network.AWS.Data.Body
+    (
+    -- * Types
+      Body
+    , clientBody
+    , payloadHash
 
-import Data.Aeson
-import Data.ByteString.Lazy (ByteString)
-import Network.HTTP.Client
+    -- * Classes
+    , ToBody (..)
+    ) where
+
+import qualified Crypto.Hash.SHA256         as SHA256
+import           Data.Aeson
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Lazy       as LBS
+import qualified Data.ByteString.Lazy.Char8 as LBS8
+import           Data.Int
+import           Data.String
+import           Network.HTTP.Client
+
+data Body
+    = BodyLBS    ByteString LBS.ByteString
+    | BodyStream ByteString !Int64 (GivesPopper ())
+      -- ^ REVISIT: exists due to problems with amazon's
+      -- supplied aws4 test suite.
+
+clientBody :: Body -> RequestBody
+clientBody (BodyLBS    _ lbs) = RequestBodyLBS lbs
+clientBody (BodyStream _ n p) = RequestBodyStream n p
+
+payloadHash :: Body -> ByteString
+payloadHash (BodyLBS    h _)   = h
+payloadHash (BodyStream h _ _) = h
+
+instance Show Body where
+    show (BodyLBS    h lbs) = "BodyLBS "    ++ show h ++ " " ++ show lbs
+    show (BodyStream h n _) = "BodyStream " ++ show h ++ " " ++ show n ++ " ..."
+
+instance IsString Body where
+    fromString = toBody . LBS8.pack
 
 class ToBody a where
-    toBody :: a -> RequestBody
+    toBody :: a -> Body
 
-instance ToBody ByteString where
-    toBody = RequestBodyLBS
+instance ToBody LBS.ByteString where
+    toBody bs = BodyLBS (SHA256.hashlazy bs) bs
 
 instance ToBody Value where
-    toBody = RequestBodyLBS . encode
+    toBody = toBody . encode

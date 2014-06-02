@@ -29,7 +29,6 @@ import           Data.Monoid
 import           Data.Ord
 import           Data.Time
 import           Network.AWS.Data
-import           Network.AWS.Request.Lens
 import           Network.AWS.Signing.Types
 import           Network.AWS.Types
 import           Network.HTTP.Client.Lens
@@ -88,7 +87,7 @@ algorithm = "AWS4-HMAC-SHA256"
 
 finalise :: Maybe ByteString
          -> (ByteString -> ByteString -> Query -> Query)
-         -> Service (Sv a)
+         -> Service (Service' a)
          -> Auth
          -> Region
          -> Request a
@@ -112,7 +111,7 @@ finalise p qry s@Service{..} Auth{..} r Request{..} l t = Signed meta rq
         & path           .~ _rqPath
         & queryString    .~ renderQuery query
         & requestHeaders .~ headers
-        & requestBody    .~ _rqBody
+        & requestBody    .~ clientBody _rqBody
 
     meth  = toBS _rqMethod
     host' = toBS (endpoint s r)
@@ -151,7 +150,7 @@ finalise p qry s@Service{..} Auth{..} r Request{..} l t = Signed meta rq
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders
-       , _rqPayload
+       , payloadHash _rqBody
        ]
 
     scope =

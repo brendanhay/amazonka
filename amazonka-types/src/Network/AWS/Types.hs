@@ -18,10 +18,10 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
+import           Control.Lens                 hiding (Action)
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
-import           Crypto.Hash
 import           Data.Aeson
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
@@ -36,28 +36,38 @@ import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Network.AWS.Data
-import           Network.HTTP.Client          (RequestBody(..), Response)
+import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
+type ClientRequest  = Client.Request
+type ClientResponse = Client.Response
+
+clientRequest :: ClientRequest
+clientRequest = def
+    { Client.secure      = True
+    , Client.port        = 443
+    , Client.checkStatus = \_ _ _ -> Nothing
+    }
+
 class AWSService a where
-    type Sg a :: *
-    data Er a :: *
+    type Signer' a :: *
+    data Error'  a :: *
 
-    service   :: Service a
+    service :: Service a
 
-class AWSService (Sv a) => AWSRequest a where
-    type Sv a :: *
-    type Rs a :: *
+class AWSService (Service' a) => AWSRequest a where
+    type Service'  a :: *
+    type Response' a :: *
 
-    request   :: a -> Request a
-    response  :: MonadResource m
-              => a
-              -> Response (ResumableSource m ByteString)
-              -> m (Either (Er (Sv a)) (Rs a))
+    request  :: a -> Request a
+    response :: MonadResource m
+             => a
+             -> ClientResponse (ResumableSource m ByteString)
+             -> m (Either (Error' (Service' a)) (Response' a))
 
 class AWSRequest a => AWSPager a where
-    next :: a -> Rs a -> Maybe a
+    next :: a -> Response' a -> Maybe a
 
 newtype AuthRef = AuthRef { _authRef :: IORef Auth }
 
@@ -118,11 +128,11 @@ data Request a = Request
     , _rqPath    :: !ByteString
     , _rqQuery   :: Query
     , _rqHeaders :: [Header]
-    , _rqBody    :: RequestBody
-    , _rqPayload :: ByteString
-      -- ^ REVISIT: exists due to problems with amazon's
-      -- supplied aws4 test suite.
+    , _rqBody    :: Body
     }
+
+instance Default (Request a) where
+    def = Request GET "/" mempty mempty ""
 
 instance Show (Request a) where
     show Request{..} = unlines
@@ -131,11 +141,23 @@ instance Show (Request a) where
         , "_rqPath    = " ++ show _rqPath
         , "_rqQuery   = " ++ show _rqQuery
         , "_rqHeaders = " ++ show _rqHeaders
-        , "_rqPayload = " ++ show _rqPayload
+        , "_rqBody    = " ++ show _rqBody
         ]
 
-byteStringBody :: ByteString -> (RequestBody, Digest SHA256)
-byteStringBody bs = (RequestBodyBS bs, hash bs)
+rqMethod :: Functor f => LensLike' f (Request a) StdMethod
+rqMethod f x = (\y -> x { _rqMethod = y }) <$> f (_rqMethod x)
+
+rqPath :: Functor f => LensLike' f (Request a) ByteString
+rqPath f x = (\y -> x { _rqPath = y }) <$> f (_rqPath x)
+
+rqQuery :: Functor f => LensLike' f (Request a) Query
+rqQuery f x = (\y -> x { _rqQuery = y }) <$> f (_rqQuery x)
+
+rqHeaders :: Functor f => LensLike' f (Request a) [Header]
+rqHeaders f x = (\y -> x { _rqHeaders = y }) <$> f (_rqHeaders x)
+
+rqBody :: Functor f => LensLike' f (Request a) Body
+rqBody f x = (\y -> x { _rqBody = y }) <$> f (_rqBody x)
 
 data Region
     = Ireland         -- ^ Europe / eu-west-1

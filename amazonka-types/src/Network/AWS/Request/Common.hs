@@ -1,4 +1,6 @@
--- Module      : Network.AWS.Request.RestS3
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.Request.Common
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,18 +10,28 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request.RestS3
-    ( get
+module Network.AWS.Request.Common
+    (
+    -- * Requests
+      get
     , Network.AWS.Request.Common.head
     , delete
-    , post
     ) where
 
 import Control.Lens
+import Data.Default
 import Network.AWS.Data
-import Network.AWS.Request.Common
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: (ToPath a, ToQuery a, ToHeaders a, ToBody b) => a -> b -> Request a
-post x y = get x & rqMethod .~ POST & rqBody .~ toBody y
+get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+get x = def
+    & rqPath    .~ toPath x
+    & rqQuery   .~ toQuery x
+    & rqHeaders .~ toHeaders x
+
+head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+head x = get x & rqMethod .~ HEAD
+
+delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+delete x = get x & rqMethod .~ DELETE

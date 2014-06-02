@@ -25,32 +25,32 @@ import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
 
-presign :: (AWSRequest a, AWSPresigner (Sg (Sv a)))
+presign :: (AWSRequest a, AWSPresigner (Signer' (Service' a)))
         => Auth    -- ^ AWS authentication credentials.
         -> Region  -- ^ AWS Region.
         -> a       -- ^ Request to presign.
         -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.
-        -> Signed a (Sg (Sv a))
+        -> Signed a (Signer' (Service' a))
 presign a r rq = Network.AWS.Signing.Types.presign a r rq
 
-send :: (MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
+send :: (MonadResource m, AWSRequest a, AWSSigner (Signer' (Service' a)))
      => Auth    -- ^ AWS authentication credentials.
      -> Region  -- ^ AWS Region.
      -> a       -- ^ Request to send.
      -> Manager -- ^ HTTP Manager.
-     -> m (Either (Er (Sv a)) (Rs a))
+     -> m (Either (Error' (Service' a)) (Response' a))
 send a r rq m = do
     sg <- sign a r rq <$> liftIO getCurrentTime
     rs <- http (_sgRequest sg) m
     response rq rs
 
-paginate :: (MonadResource m, AWSPager a, AWSSigner (Sg (Sv a)))
+paginate :: (MonadResource m, AWSPager a, AWSSigner (Signer' (Service' a)))
          => Auth    -- ^ AWS authentication credentials.
          -> Region  -- ^ AWS Region.
          -> a       -- ^ Seed request to send.
          -> Manager -- ^ HTTP Manager.
-         -> Source m (Either (Er (Sv a)) (Rs a))
+         -> Source m (Either (Error' (Service' a)) (Response' a))
 paginate a r x m = go (Just x)
   where
     go Nothing   = return ()

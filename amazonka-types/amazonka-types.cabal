@@ -36,14 +36,14 @@ library
         , Network.AWS.EC2.Metadata
         , Network.AWS.Error
         , Network.AWS.Monadic
+        , Network.AWS.Request.Common
         , Network.AWS.Request.JSON
-        , Network.AWS.Request.Lens
         , Network.AWS.Request.Query
         , Network.AWS.Request.RestS3
         , Network.AWS.Request.RestXML
         , Network.AWS.Response
-        , Network.AWS.Signing.V4
         , Network.AWS.Signing.Types
+        , Network.AWS.Signing.V4
         , Network.AWS.Types
 
     other-modules:

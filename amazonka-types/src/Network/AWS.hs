@@ -33,8 +33,8 @@ import System.Locale
 presign :: (AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Auth    -- ^ AWS authentication credentials.
         -> Region  -- ^ AWS Region.
-        -> Int     -- ^ Expiry time in seconds.
         -> a       -- ^ Request to presign.
+        -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.
         -> Signed a (Sg (Sv a))
 presign a r e rq t = Network.AWS.Signing.Types.presign a r rq t e

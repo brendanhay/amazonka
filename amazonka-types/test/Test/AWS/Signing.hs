@@ -54,12 +54,11 @@ newtype WeakEq a = Eq ClientRequest
 
 instance Eq (WeakEq a) where
     (==) (Eq a) (Eq b) =
-           a ^. method == b ^. method
-      --   && f path
-      --   && f queryString
-      --   && f requestHeaders
-      -- where
-      --   f g = view g a == view g b
+           view host           a == view host           b
+        && view method         a == view method         b
+        && view path           a == view path           b
+        && view queryString    a == view queryString    b
+        && view requestHeaders a == view requestHeaders b
 
 instance AWSService Test where
     type Signer' Test = V4
@@ -102,7 +101,7 @@ tests dir = do
          in testGroup (name ++ ".req")
               [ testCase "Canonical Request" $ eq _mCReq
               , testCase "String To Sign"    $ eq _mSTS
-              , testCase "Authorisation"     $ eq _mSignature
+              , testCase "Authorisation"     $ authorisation (_sgMeta sg) @?= _mSignature meta
               , testCase "Signed Request"    $ Eq (_sgRequest sg) @?= Eq srq
               ]
 
@@ -130,21 +129,22 @@ parseRequest = either error id . parseOnly req
         b  <- endOfLine *> takeByteString <* endOfInput
 
         let (path', q) = BS.span (/= '?') p
-            query      = decodeQuery . maybe "" snd $ BS.uncons q
+            p'         = urlDecode False path'
+            q'         = maybe "" snd $ BS.uncons q
 
         return
             ( def
                 & rqMethod  .~ m'
-                & rqPath    .~ urlDecode False path'
-                & rqQuery   .~ query
+                & rqPath    .~ p'
+                & rqQuery   .~ decodeQuery q'
                 & rqHeaders .~ hs
                 & rqBody    .~ toBody b
 
             , clientRequest
                 & method         .~ m
-                & host           .~ ""
-                & path           .~ path'
-                & queryString    .~ q
+                & host           .~ fromMaybe "" (hHost `lookup` hs)
+                & path           .~ p'
+                & queryString    .~ q'
                 & requestHeaders .~ hs
                 & requestBody    .~ mempty
             )

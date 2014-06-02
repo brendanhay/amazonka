@@ -18,6 +18,7 @@ module Network.AWS.Signing.V4
     -- * Types
       V4
     , Meta (..)
+    , authorisation
 
     -- * Re-exports
     , module Network.AWS.Signing.Types
@@ -73,7 +74,9 @@ instance AWSPresigner V4 where
 
 instance AWSSigner V4 where
     signed s a r rq l t =
-        out & sgRequest %~ requestHeaders %~ auth (out ^. sgMeta)
+        out & sgRequest
+            %~ requestHeaders
+            %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
         out = finalise (Just "AWS4") (\_ _ -> id) s a r inp l t
 
@@ -81,15 +84,16 @@ instance AWSSigner V4 where
 
         tok = (hAMZToken,) <$> _authToken a
 
-        auth Meta{..} = hdr hAuthorization $ BS.concat
-            [ _mAlgorithm
-            , " Credential="
-            , _mScope
-            , ", SignedHeaders="
-            , _mSigned
-            , ", Signature="
-            , _mSignature
-            ]
+authorisation :: Meta V4 -> ByteString
+authorisation Meta{..} = BS.concat
+    [ _mAlgorithm
+    , " Credential="
+    , _mScope
+    , ", SignedHeaders="
+    , _mSigned
+    , ", Signature="
+    , _mSignature
+    ]
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
@@ -178,7 +182,7 @@ finalise p qry s@Service{..} Auth{..} r Request{..} l t = Signed meta rq
         [ algorithm
         , toBS (AWSTime l t)
         , credentialScope
-        , SHA256.hash canonicalRequest
+        , Base16.encode (SHA256.hash canonicalRequest)
         ]
 
     signature = Base16.encode (hmacSHA256 signingKey stringToSign)

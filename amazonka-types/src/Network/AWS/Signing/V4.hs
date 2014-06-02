@@ -56,40 +56,30 @@ data instance Meta V4 = Meta
     }
 
 instance AWSPresigner V4 where
-    presigned s as r rq l t =
-
+    presigned s as r rq l t e =
+        out & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
-        inp = rq 
+        out = finalise Nothing qry s as r rq l t
 
-        -- rq = undefined -- signed
-        --     -- { method         = toBS rqMethod
-        --     -- , host           = toBS host
-        --     -- , path           = rqPath
-        --     -- , queryString    = renderQuery rqQuery
-        --     -- , requestHeaders = hdr hAuthorization _auth headers
-        --     -- , requestBody    = rqBody
-        --     -- }
+        -- FIXME: add security token query param
+        qry cs sh =
+              pair "X-AMZ-Algorithm" algorithm
+            . pair "X-AMZ-Credential" cs
+            . pair "X-AMZ-Date" (ISO8601Time l t)
+            . pair "X-AMZ-Expires" e
+            . pair "X-AMZ-SignedHeaders" sh
 
-        -- meta = Meta
-        --     { mCReq = canonicalRequest
-        --     , mAuth = _auth
-        --     , mSTS  = stringToSign
-        --     }
-
-        query = [ ("X-AMZ-Algorithm", )
-                , ("X-AMZ-Credential", credentialScope)
-                , ("X-AMZ-Date", ISO8601Time t)
-                , ("X-AMZ-Expires", seconds)
-                , ("X-AMZ-SignedHeaders", )
-                , ("X-AMZ-Signature", )
-                ]
+        auth = mappend "&X-AMZ-Signature=" . _mSignature
 
 instance AWSSigner V4 where
     signed s as r rq l t =
         out & sgRequest %~ requestHeaders %~ auth (out ^. sgMeta)
       where
-        out = finalise (Just "AWS4") s inp as r l t
-        inp = rq & rqHeaders %~ hdrs (maybeToList $ authTokenHeader as)
+        out = finalise (Just "AWS4") (\_ _ -> id) s as r inp l t
+
+        inp = rq & rqHeaders %~ hdrs (maybeToList tok)
+
+        tok = (hAMZToken,) <$> _authToken as
 
         auth Meta{..} = hdr hAuthorization $ BS.concat
             [ _mAlgorithm
@@ -101,16 +91,19 @@ instance AWSSigner V4 where
             , _mSignature
             ]
 
+algorithm :: ByteString
+algorithm = "AWS4-HMAC-SHA256"
 
-context :: Maybe ByteString
-        -> Service (Sv a)
-        -> Request a
-        -> AuthState
-        -> Region
-        -> TimeLocale
-        -> UTCTime
-        -> Signed a V4
-context p s@Service{..} Request{..} AuthState{..} r l t = Signed meta rq
+finalise :: Maybe ByteString
+         -> (ByteString -> ByteString -> Query -> Query)
+         -> Service (Sv a)
+         -> AuthState
+         -> Region
+         -> Request a
+         -> TimeLocale
+         -> UTCTime
+         -> Signed a V4
+finalise p qry s@Service{..} AuthState{..} r Request{..} l t = Signed meta rq
   where
     meta = Meta
         { _mAlgorithm = algorithm
@@ -125,14 +118,15 @@ context p s@Service{..} Request{..} AuthState{..} r l t = Signed meta rq
         & method         .~ meth
         & host           .~ host'
         & path           .~ _rqPath
-        & queryString    .~ renderQuery _rqQuery
+        & queryString    .~ renderQuery query
         & requestHeaders .~ headers
         & requestBody    .~ _rqBody
 
     meth  = toBS _rqMethod
     host' = toBS (endpoint s r)
+    query = qry credentialScope signedHeaders _rqQuery
 
-    canonicalQuery = renderQuery $ _rqQuery
+    canonicalQuery = renderQuery $ query
         & valuesOf %~ (maybe (Just "") (Just . encodeURI True))
         & keysOf   %~ (encodeURI False)
 
@@ -174,8 +168,6 @@ context p s@Service{..} Request{..} AuthState{..} r l t = Signed meta rq
         , toBS _svcName
         , "aws4_request"
         ]
-
-    algorithm = "AWS4-HMAC-SHA256"
 
     credentialScope = BS.intercalate "/" scope
 

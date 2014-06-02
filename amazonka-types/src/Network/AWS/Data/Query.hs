@@ -25,9 +25,12 @@ module Network.AWS.Data.Query
     -- * Types
       Query
 
-    -- ** Traversals
+    -- * Traversals
     , keysOf
     , valuesOf
+
+    -- * Pairs
+    , pair
 
     -- * Deserialisation
     , FromQuery (..)
@@ -58,6 +61,7 @@ import qualified Data.Foldable                as Fold
 import           Data.Maybe
 import           Data.Typeable
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Time
 -- import           Data.HashMap.Strict        (HashMap)
 import           Data.List                    (sort, sortBy, intersperse)
 import           Data.List.NonEmpty           (NonEmpty(..))
@@ -87,6 +91,9 @@ keysOf = deep (_Pair . _1)
 valuesOf :: Traversal' Query (Maybe ByteString)
 valuesOf = deep _Value
 
+pair :: ToQuery a => ByteString -> a -> Query -> Query
+pair k v = mappend (Pair k (toQuery v))
+
 -- instance Ord Query where
 --     compare (List  as) (List  bs) = as `compare` bs
 --     compare (Pair a _) (Pair b _) = a  `compare` b
@@ -107,8 +114,7 @@ instance Plated Query where
     plate = uniplate
 
 instance IsString Query where
-    fromString [] = Value Nothing
-    fromString xs = Value . Just $ BS.pack xs
+    fromString = toQuery . BS.pack
 
 -- FIXME: Neither of these is the correct type
 -- And what about the breaking of query elements? not all pieces have =
@@ -323,11 +329,14 @@ instance (ToByteString k, ToByteString v) => ToQuery (k, v) where
 instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
     toQuery (k, v) = Pair (toBS k) . Value $ toBS <$> v
 
--- instance ToQuery Int where
---     toQuery = valueFromIntegral
+instance ToQuery ByteString where
+    toQuery = Value . Just
 
--- instance ToQuery Integer where
---     toQuery = valueFromIntegral
+instance ToQuery Int where
+    toQuery = Value . Just . toBS
+
+instance ToQuery Integer where
+    toQuery = Value . Just . toBS
 
 -- instance ToQuery Double where
 --     toQuery = valueFromFloat
@@ -352,8 +361,8 @@ instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
 --     toQuery True  = Value "true"
 --     toQuery False = Value "false"
 
--- instance ToQuery UTCTime where
---     toQuery = Value . formatISO8601
+instance ToQuery ISO8601Time where
+    toQuery = Value . Just . toBS
 
 -- instance ToQuery () where
 --     toQuery () = mempty

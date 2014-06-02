@@ -74,9 +74,6 @@ data AuthState = AuthState
     , _authExpiry :: Maybe UTCTime
     }
 
-authTokenHeader :: AuthState -> Maybe Header
-authTokenHeader = fmap (hAMZToken,) . _authToken
-
 instance FromJSON AuthState where
     parseJSON = withObject "AuthState" $ \o -> AuthState
         <$> f (o .:  "AccessKeyId")

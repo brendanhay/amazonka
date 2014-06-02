@@ -43,10 +43,12 @@ import           Test.Tasty.HUnit
 data Test
 
 data Ctx = Ctx
-    { name :: TestName
-    , rq   :: Request Test
-    , srq  :: ClientRequest
-    , meta :: Meta V4
+    { name  :: TestName
+    , rq    :: Request Test
+    , srq   :: ClientRequest
+    , creq  :: ByteString
+    , sts   :: ByteString
+    , authz :: ByteString
     }
 
 newtype WeakEq a = Eq ClientRequest
@@ -96,12 +98,12 @@ tests dir = do
         let date = BS.unpack . fromMaybe "" $ "Date" `lookup` _rqHeaders rq
             time = readTime defaultTimeLocale rfc822DateFormat date
             sg   = signed service auth region rq locale time
-            eq f = f (_sgMeta sg) @?= f meta
+            meta = _sgMeta sg
 
          in testGroup (name ++ ".req")
-              [ testCase "Canonical Request" $ eq _mCReq
-              , testCase "String To Sign"    $ eq _mSTS
-              , testCase "Authorisation"     $ authorisation (_sgMeta sg) @?= _mSignature meta
+              [ testCase "Canonical Request" $ _mCReq meta @?= creq
+              , testCase "String To Sign"    $ _mSTS  meta @?= sts
+              , testCase "Authorisation"     $ authorisation meta @?= authz
               , testCase "Signed Request"    $ Eq (_sgRequest sg) @?= Eq srq
               ]
 
@@ -114,7 +116,9 @@ loadContext :: FilePath -> IO Ctx
 loadContext f = Ctx (takeBaseName f)
     <$> (fst . parseRequest <$> load ".req")
     <*> (snd . parseRequest <$> load ".sreq")
-    <*> (Meta "" "" "" <$> load ".creq" <*> load ".sts" <*> load ".authz")
+    <*> load ".creq"
+    <*> load ".sts"
+    <*> load ".authz"
   where
     load = BS.readFile . addExtension f
 

@@ -32,8 +32,6 @@ import           Network.HTTP.Client
 data Body
     = BodyLBS    ByteString LBS.ByteString
     | BodyStream ByteString !Int64 (GivesPopper ())
-      -- ^ REVISIT: exists due to problems with amazon's
-      -- supplied aws4 test suite.
 
 clientBody :: Body -> RequestBody
 clientBody (BodyLBS    _ lbs) = RequestBodyLBS lbs

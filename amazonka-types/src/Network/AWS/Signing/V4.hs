@@ -13,7 +13,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing.V4 where
+module Network.AWS.Signing.V4
+    (
+    -- * Types
+      V4
+    , Meta (..)
+
+    -- * Re-exports
+    , module Network.AWS.Signing.Types
+    ) where
 
 import           Control.Applicative
 import           Control.Lens

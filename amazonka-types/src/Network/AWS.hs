@@ -24,7 +24,6 @@ import Data.Time
 import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
-import System.Locale
 
 presign :: (AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Auth    -- ^ AWS authentication credentials.
@@ -46,18 +45,18 @@ send a r rq m = do
     rs <- http (_sgRequest sg) m
     response rq rs
 
--- paginate :: (MonadResource m, AWSPager a, Signable a)
---          => Auth
---          -> Region
---          -> a
---          -> Manager
---          -> Source m (Either (Er (Sv a)) (Rs a))
--- paginate a r x m = go (Just x)
---   where
---     go Nothing   = return ()
---     go (Just rq) = do
---         rs <- lift (send a r rq m)
---         yield rs
---         either (const $ return ())
---                (go . next rq)
---                rs
+paginate :: (MonadResource m, AWSPager a, AWSSigner (Sg (Sv a)))
+         => Auth
+         -> Region
+         -> a
+         -> Manager
+         -> Source m (Either (Er (Sv a)) (Rs a))
+paginate a r x m = go (Just x)
+  where
+    go Nothing   = return ()
+    go (Just rq) = do
+        rs <- lift (send a r rq m)
+        yield rs
+        either (const $ return ())
+               (go . next rq)
+               rs

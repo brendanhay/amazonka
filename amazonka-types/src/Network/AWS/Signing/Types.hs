@@ -39,7 +39,7 @@ sgRequest f x = (\y -> x { _sgRequest = y }) <$> f (_sgRequest x)
 class AWSSigner v where
     signed :: v ~ Sg (Sv a)
            => Service (Sv a)
-           -> AuthState
+           -> Auth
            -> Region
            -> Request a
            -> TimeLocale
@@ -49,7 +49,7 @@ class AWSSigner v where
 class AWSPresigner v where
     presigned :: v ~ Sg (Sv a)
               => Service (Sv a)
-              -> AuthState
+              -> Auth
               -> Region
               -> Request a
               -> TimeLocale
@@ -57,13 +57,22 @@ class AWSPresigner v where
               -> Int
               -> Signed a v
 
-sign :: (v ~ Sg (Sv a), AWSRequest a, AWSSigner v)
-     => AuthState
+sign :: (AWSRequest a, AWSSigner (Sg (Sv a)))
+     => Auth
      -> Region
      -> a
      -> UTCTime
-     -> Signed a v
-sign as r rq t = signed service as r (request rq) defaultTimeLocale t
+     -> Signed a (Sg (Sv a))
+sign a r rq = signed service a r (request rq) defaultTimeLocale
+
+presign :: (AWSRequest a, AWSPresigner (Sg (Sv a)))
+        => Auth
+        -> Region
+        -> a
+        -> UTCTime
+        -> Int
+        -> Signed a (Sg (Sv a))
+presign a r rq = presigned service a r (request rq) defaultTimeLocale
 
 clientRequest :: Client.Request
 clientRequest = def

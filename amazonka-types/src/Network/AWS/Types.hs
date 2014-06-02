@@ -59,25 +59,25 @@ class AWSService (Sv a) => AWSRequest a where
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
 
-newtype Auth = Auth { _authRef :: IORef AuthState }
+newtype AuthRef = AuthRef { _authRef :: IORef Auth }
 
-newAuth :: MonadIO m => AuthState -> m Auth
-newAuth = liftM Auth . liftIO . newIORef
+newAuthRef :: MonadIO m => Auth -> m AuthRef
+newAuthRef = liftM AuthRef . liftIO . newIORef
 
-getAuthState :: MonadIO m => Auth -> m AuthState
+getAuthState :: MonadIO m => AuthRef -> m Auth
 getAuthState = liftIO . readIORef . _authRef
 
-data AuthState = AuthState
+data Auth = Auth
     { _authAccess :: !ByteString
     , _authSecret :: !ByteString
     , _authToken  :: Maybe ByteString
     , _authExpiry :: Maybe UTCTime
     }
 
-instance FromJSON AuthState where
-    parseJSON = withObject "AuthState" $ \o -> AuthState
-        <$> f (o .:  "AccessKeyId")
-        <*> f (o .:  "SecretAccessKey")
+instance FromJSON Auth where
+    parseJSON = withObject "Auth" $ \o -> Auth
+        <$> f (o .: "AccessKeyId")
+        <*> f (o .: "SecretAccessKey")
         <*> fmap f (o .:? "Token")
         <*> o .:? "Expiration"
       where

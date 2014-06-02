@@ -26,19 +26,15 @@ module Network.AWS.Auth
     ) where
 
 import           Control.Applicative
-import           Control.Concurrent
 import           Control.Error
-import           Control.Exception          (throwIO)
 import           Control.Monad
 import           Control.Monad.IO.Class
 import qualified Data.Aeson                 as Aeson
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
-import           Data.IORef
 import           Data.Monoid
 import           Data.String
-import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Error
@@ -83,14 +79,14 @@ instance Show Credentials where
 
 getAuth :: MonadIO m => Credentials -> EitherT Error m Auth
 getAuth c = case c of
-    FromKeys    a s   -> newAuth $ AuthState a s Nothing Nothing
-    FromSession a s t -> newAuth $ AuthState a s (Just t) Nothing
+    FromKeys    a s   -> return $ Auth a s Nothing Nothing
+    FromSession a s t -> return $ Auth a s (Just t) Nothing
     FromProfile n     -> fromProfile n
-    FromEnv     a s   -> fromKeys a s >>= newAuth
-    Discover -> (fromKeys accessKey secretKey >>= newAuth)
-        `catchT` const (defaultProfile >>= fromProfile)
+    FromEnv     a s   -> fromKeys a s
+    Discover          -> fromKeys accessKey secretKey
+                             `catchT` const (defaultProfile >>= fromProfile)
  where
-    fromKeys a s = AuthState
+    fromKeys a s = Auth
         <$> key a
         <*> key s
         <*> pure Nothing
@@ -107,36 +103,7 @@ defaultProfile = do
     !ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
     tryHead "Unable to get default IAM Profile from metadata" ls
 
--- | The IONewRef wrapper + timer is designed so that multiple concurrenct
--- accesses of 'Auth' from the 'AWS' environment are not required to calculate
--- expiry and sequentially queue to update it.
---
--- The forked timer ensures a singular owner and pre-emptive refresh of the
--- temporary session credentials.
 fromProfile :: MonadIO m => ByteString -> EitherT Error m Auth
 fromProfile name = do
-    !a@AuthState{..} <- auth
-    runIO $ do
-        r <- newAuth a
-        start r _authExpiry
-        return r
-  where
-    auth :: MonadIO m => EitherT Error m AuthState
-    auth = do
-        m <- LBS.fromStrict `liftM` meta iam
-        hoistEither . fmapL fromString $ Aeson.eitherDecode m
-
-    iam = IAM . SecurityCredentials $ Just name
-
-    start r = maybe (return ()) (timer r <=< delay)
-
-    delay n = truncate . diffUTCTime n <$> getCurrentTime
-
-    -- FIXME:
-    --  guard against a lower expiration than the -60
-    --  remove the error . show shenanigans
-    timer r n = void . forkIO $ do
-        threadDelay $ (n - 60) * 1000000
-        !a@AuthState{..} <- eitherT throwIO return auth
-        atomicWriteIORef (_authRef r) a
-        start r _authExpiry
+    m <- LBS.fromStrict `liftM` meta (IAM . SecurityCredentials $ Just name)
+    hoistEither . fmapL fromString $ Aeson.eitherDecode m

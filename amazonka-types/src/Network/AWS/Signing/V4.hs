@@ -24,6 +24,7 @@ module Network.AWS.Signing.V4 where
     -- , Signed           (..)
 --    ) where
 
+import           Control.Applicative
 import           Control.Lens
 import           Data.ByteString           (ByteString)
 import qualified Data.ByteString.Base16    as Base16
@@ -56,10 +57,10 @@ data instance Meta V4 = Meta
     }
 
 instance AWSPresigner V4 where
-    presigned s as r rq l t e =
+    presigned s a r rq l t e =
         out & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
-        out = finalise Nothing qry s as r rq l t
+        out = finalise Nothing qry s a r rq l t
 
         -- FIXME: add security token query param
         qry cs sh =
@@ -72,14 +73,14 @@ instance AWSPresigner V4 where
         auth = mappend "&X-AMZ-Signature=" . _mSignature
 
 instance AWSSigner V4 where
-    signed s as r rq l t =
+    signed s a r rq l t =
         out & sgRequest %~ requestHeaders %~ auth (out ^. sgMeta)
       where
-        out = finalise (Just "AWS4") (\_ _ -> id) s as r inp l t
+        out = finalise (Just "AWS4") (\_ _ -> id) s a r inp l t
 
         inp = rq & rqHeaders %~ hdrs (maybeToList tok)
 
-        tok = (hAMZToken,) <$> _authToken as
+        tok = (hAMZToken,) <$> _authToken a
 
         auth Meta{..} = hdr hAuthorization $ BS.concat
             [ _mAlgorithm
@@ -97,13 +98,13 @@ algorithm = "AWS4-HMAC-SHA256"
 finalise :: Maybe ByteString
          -> (ByteString -> ByteString -> Query -> Query)
          -> Service (Sv a)
-         -> AuthState
+         -> Auth
          -> Region
          -> Request a
          -> TimeLocale
          -> UTCTime
          -> Signed a V4
-finalise p qry s@Service{..} AuthState{..} r Request{..} l t = Signed meta rq
+finalise p qry s@Service{..} Auth{..} r Request{..} l t = Signed meta rq
   where
     meta = Meta
         { _mAlgorithm = algorithm

@@ -1,6 +1,7 @@
 {-# LANGUAGE ConstraintKinds  #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE RecordWildCards  #-}
+{-# LANGUAGE TypeFamilies     #-}
 
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,23 +30,23 @@ import Network.AWS.Types
 import Network.HTTP.Conduit
 import System.Locale
 
--- presign :: MonadIO m, AWSRequest a, Presignable a)
---      => Auth
---      -> Region
---      -> Int -- ^ Expiry time in seconds.
---      -> a
---      -> m (Signed (Sv a) b)
--- presign = undefined
+presign :: (AWSRequest a, AWSPresigner (Sg (Sv a)))
+        => Auth    -- ^ AWS authentication credentials.
+        -> Region  -- ^ AWS Region.
+        -> Int     -- ^ Expiry time in seconds.
+        -> a       -- ^ Request to presign.
+        -> UTCTime -- ^ Signing time.
+        -> Signed a (Sg (Sv a))
+presign a r e rq t = Network.AWS.Signing.Types.presign a r rq t e
 
 send :: (MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
-     => Auth
-     -> Region
-     -> a
-     -> Manager
+     => Auth    -- ^ AWS authentication credentials.
+     -> Region  -- ^ AWS Region.
+     -> a       -- ^ Request to send.
+     -> Manager -- ^ HTTP Manager.
      -> m (Either (Er (Sv a)) (Rs a))
 send a r rq m = do
-    as <- getAuthState a
-    sg <- sign as r rq <$> liftIO getCurrentTime
+    sg <- sign a r rq <$> liftIO getCurrentTime
     rs <- http (_sgRequest sg) m
     response rq rs
 

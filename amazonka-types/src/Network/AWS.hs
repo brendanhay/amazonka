@@ -1,6 +1,5 @@
 {-# LANGUAGE ConstraintKinds  #-}
 {-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE RecordWildCards  #-}
 {-# LANGUAGE TypeFamilies     #-}
 
 -- Module      : Network.AWS
@@ -32,7 +31,7 @@ presign :: (AWSRequest a, AWSPresigner (Signer' (Service' a)))
         -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.
         -> Signed a (Signer' (Service' a))
-presign a r rq = Network.AWS.Signing.Types.presign a r rq
+presign = Network.AWS.Signing.Types.presign
 
 send :: (MonadResource m, AWSRequest a, AWSSigner (Signer' (Service' a)))
      => Auth    -- ^ AWS authentication credentials.

@@ -24,9 +24,6 @@ module Network.AWS.Data
     -- * XML
     , module XML
 
-    -- * Crypto
-    , module Crypto
-
     -- * HTTP
     , module Header
     , module Path
@@ -37,7 +34,6 @@ module Network.AWS.Data
 
 import Network.AWS.Data.Body       as Body
 import Network.AWS.Data.ByteString as BS
-import Network.AWS.Data.Crypto     as Crypto
 import Network.AWS.Data.Header     as Header
 import Network.AWS.Data.Path       as Path
 import Network.AWS.Data.Query      as Query

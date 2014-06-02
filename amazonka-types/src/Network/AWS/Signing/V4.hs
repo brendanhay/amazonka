@@ -25,6 +25,7 @@ module Network.AWS.Signing.V4
 
 import           Control.Applicative
 import           Control.Lens
+import qualified Crypto.Hash.SHA256        as SHA256
 import           Data.ByteString           (ByteString)
 import qualified Data.ByteString.Base16    as Base16
 import qualified Data.ByteString.Char8     as BS
@@ -126,8 +127,8 @@ finalise p qry s@Service{..} Auth{..} r Request{..} l t = Signed meta rq
     query = qry credentialScope signedHeaders _rqQuery
 
     canonicalQuery = renderQuery $ query
-        & valuesOf %~ (maybe (Just "") (Just . encodeURI True))
-        & keysOf   %~ (encodeURI False)
+        & valuesOf %~ Just . maybe "" (encodeURI True)
+        & keysOf   %~ encodeURI False
 
     headers = sortBy (comparing fst)
         . hdr hHost host'
@@ -177,7 +178,7 @@ finalise p qry s@Service{..} Auth{..} r Request{..} l t = Signed meta rq
         [ algorithm
         , toBS (AWSTime l t)
         , credentialScope
-        , sha256 canonicalRequest
+        , SHA256.hash canonicalRequest
         ]
 
     signature = Base16.encode (hmacSHA256 signingKey stringToSign)

@@ -15,11 +15,14 @@
 
 module Network.AWS.Signing.Types where
 
-import Control.Applicative
-import Control.Lens
-import Data.Time
-import Network.AWS.Types
-import System.Locale
+import           Control.Applicative
+import           Control.Lens
+import qualified Crypto.Hash.SHA256  as SHA256
+import qualified Crypto.MAC.HMAC     as HMAC
+import           Data.ByteString     (ByteString)
+import           Data.Time
+import           Network.AWS.Types
+import           System.Locale
 
 data family Meta v :: *
 
@@ -71,3 +74,6 @@ presign :: (AWSRequest a, AWSPresigner (Signer' (Service' a)))
         -> UTCTime
         -> Signed a (Signer' (Service' a))
 presign a r rq = presigned service a r (request rq) defaultTimeLocale
+
+hmacSHA256 :: ByteString -> ByteString -> ByteString
+hmacSHA256 = HMAC.hmac SHA256.hash 64

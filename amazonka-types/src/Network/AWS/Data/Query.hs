@@ -128,9 +128,8 @@ decodeQuery = Fold.foldl' (\a b -> reify b <> a) mempty . URI.parseQuery
         | otherwise         = Pair k $ Value v
 
     fold k v =
-        let ks     = BS.split '.' k
-            f k' q = Pair k' q
-         in foldr f (Pair (last ks) $ Value v) $ init ks
+        let ks = BS.split '.' k
+         in foldr Pair (Pair (last ks) $ Value v) $ init ks
 
 renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing
@@ -138,7 +137,7 @@ renderQuery = intercalate . sort . enc Nothing
     enc k (List xs)   = concatMap (enc k) xs
     enc k (Pair k' x)
         | Just n <- k = enc (Just $ n <> "." <> k') x
-        | otherwise   = enc (Just $ k') x
+        | otherwise   = enc (Just k') x
     enc k (Value (Just v))
         | Just n <- k = [n <> vsep <> v]
         | otherwise   = [v]

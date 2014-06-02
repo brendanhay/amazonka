@@ -14,15 +14,6 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Signing.V4 where
---    (
-    -- -- * Version 4 Signatures
-    --   V4
-    -- , Ctx              (..)
-
-    -- -- * Re-exports
-    -- , SigningAlgorithm (..)
-    -- , Signed           (..)
---    ) where
 
 import           Control.Applicative
 import           Control.Lens
@@ -57,7 +48,7 @@ data instance Meta V4 = Meta
     }
 
 instance AWSPresigner V4 where
-    presigned s a r rq l t e =
+    presigned s a r rq l e t =
         out & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
         out = finalise Nothing qry s a r rq l t

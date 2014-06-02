@@ -53,8 +53,8 @@ class AWSPresigner v where
               -> Region
               -> Request a
               -> TimeLocale
-              -> UTCTime
               -> Int
+              -> UTCTime
               -> Signed a v
 
 sign :: (AWSRequest a, AWSSigner (Sg (Sv a)))
@@ -69,8 +69,8 @@ presign :: (AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Auth
         -> Region
         -> a
-        -> UTCTime
         -> Int
+        -> UTCTime
         -> Signed a (Sg (Sv a))
 presign a r rq = presigned service a r (request rq) defaultTimeLocale
 

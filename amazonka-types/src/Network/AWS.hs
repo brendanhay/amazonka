@@ -14,10 +14,6 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS where
-    -- (
-    -- -- * Synchronous
-    --   send
-    -- ) where
 
 import Control.Applicative
 import Control.Monad.IO.Class
@@ -37,7 +33,7 @@ presign :: (AWSRequest a, AWSPresigner (Sg (Sv a)))
         -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.
         -> Signed a (Sg (Sv a))
-presign a r e rq t = Network.AWS.Signing.Types.presign a r rq t e
+presign a r rq = Network.AWS.Signing.Types.presign a r rq
 
 send :: (MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
      => Auth    -- ^ AWS authentication credentials.

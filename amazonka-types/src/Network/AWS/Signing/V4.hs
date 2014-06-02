@@ -48,9 +48,9 @@ data V4
 
 data instance Meta V4 = Meta
     { _mAlgorithm :: ByteString
-    , _mCReq      :: ByteString
     , _mScope     :: ByteString
     , _mSigned    :: ByteString
+    , _mCReq      :: ByteString
     , _mSTS       :: ByteString
     , _mSignature :: ByteString
     }

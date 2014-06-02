@@ -89,9 +89,12 @@ test-suite tests
         , base
         , bytestring
         , case-insensitive
+        , data-default
         , directory
         , filepath
+        , http-client-lens
         , http-types
+        , lens
         , old-locale
         , tasty
         , tasty-hunit

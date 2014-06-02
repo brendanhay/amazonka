@@ -22,6 +22,7 @@ module Network.AWS.Data.Body
 import qualified Crypto.Hash.SHA256         as SHA256
 import           Data.Aeson
 import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Base16     as Base16
 import qualified Data.ByteString.Lazy       as LBS
 import qualified Data.ByteString.Lazy.Char8 as LBS8
 import           Data.Int
@@ -53,7 +54,10 @@ class ToBody a where
     toBody :: a -> Body
 
 instance ToBody LBS.ByteString where
-    toBody bs = BodyLBS (SHA256.hashlazy bs) bs
+    toBody lbs = BodyLBS (Base16.encode $ SHA256.hashlazy lbs) lbs
+
+instance ToBody ByteString where
+    toBody = toBody . LBS.fromStrict
 
 instance ToBody Value where
     toBody = toBody . encode

@@ -51,7 +51,7 @@ clientRequest = def
 
 class AWSService a where
     type Signer' a :: *
-    data Error'  a :: *
+    type Error'  a :: *
 
     service :: Service a
 

@@ -70,6 +70,7 @@ library
         , http-conduit
         , http-types
         , lens
+        , mmorph
         , mtl
         , old-locale
         , resourcet         == 1.1.*

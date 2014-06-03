@@ -29,6 +29,7 @@ import           Control.Error
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
+import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans
 import           Control.Monad.Trans.Resource
@@ -70,6 +71,8 @@ newtype AWST m a = AWST { _unAWST :: ReaderT Env m a }
         , MonadCatch
         , MonadMask
         , MonadReader Env
+        , MFunctor
+        , MMonad
         )
 
 instance MonadTrans AWST where
@@ -99,35 +102,36 @@ runAWST (AWST rt) a r s = bracket open close $
             `finally` closeInternalState i
 
 send :: ( MonadResource m
-        , MonadReader Env m
         , AWSRequest a
         , AWSSigner (Signer' (Service' a))
         )
      => a
-     -> m (Either (Error' (Service' a)) (Response' a))
+     -> AWST m (Either (Error' (Service' a)) (Response' a))
 send rq = withEnv $ \Env{..} ->
     AWS.send _envAuth _envRegion rq _envMananger
 
 paginate :: ( MonadResource m
-            , MonadReader Env m
             , AWSPager a
             , AWSSigner (Signer' (Service' a))
             )
          => a
-         -> Source m (Either (Error' (Service' a)) (Response' a))
+         -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
 paginate rq = withEnv $ \Env{..} ->
     AWS.paginate _envAuth _envRegion rq _envMananger
 
-presign :: ( MonadReader Env m
+presign :: ( Monad m
            , AWSRequest a
            , AWSPresigner (Signer' (Service' a))
            )
         => a
         -> Int
         -> UTCTime
-        -> m (Signed a (Signer' (Service' a)))
+        -> AWST m (Signed a (Signer' (Service' a)))
 presign rq e t = withEnv $ \Env{..} -> return $
     AWS.presign _envAuth _envRegion rq e t
+
+-- async ?
+
 
     -- start r = maybe (return ()) (timer r <=< delay)
 

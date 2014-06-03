@@ -12,7 +12,23 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS where
+module Network.AWS
+   (
+   -- * Retrieving Authorisation
+     Credentials (..)
+   , getAuth
+   -- ** Environment Variables
+   , accessKey
+   , secretKey
+
+   -- * Sending Requests
+   -- ** Synchronous
+   , send
+   -- ** Pagination
+   , paginate
+   -- ** Signed URLs
+   , presign
+   ) where
 
 import Control.Applicative
 import Control.Monad.IO.Class
@@ -20,18 +36,10 @@ import Control.Monad.Trans
 import Control.Monad.Trans.Resource
 import Data.Conduit
 import Data.Time
+import Network.AWS.Auth
 import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
-
-presign :: (AWSRequest a, AWSPresigner (Signer' (Service' a)))
-        => Auth    -- ^ AWS authentication credentials.
-        -> Region  -- ^ AWS Region.
-        -> a       -- ^ Request to presign.
-        -> Int     -- ^ Expiry time in seconds.
-        -> UTCTime -- ^ Signing time.
-        -> Signed a (Signer' (Service' a))
-presign = Network.AWS.Signing.Types.presign
 
 send :: (MonadResource m, AWSRequest a, AWSSigner (Signer' (Service' a)))
      => Auth    -- ^ AWS authentication credentials.

@@ -1,8 +1,9 @@
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TupleSections              #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,22 +77,39 @@ newAuthRef = liftM AuthRef . liftIO . newIORef
 getAuthState :: MonadIO m => AuthRef -> m Auth
 getAuthState = liftIO . readIORef . _authRef
 
+newtype AccessKey = AccessKey ByteString
+    deriving (Eq, Show, IsString)
+
+instance ToByteString AccessKey where
+    toBS (AccessKey k) = k
+
+newtype SecretKey = SecretKey ByteString
+    deriving (Eq, Show, IsString)
+
+instance ToByteString SecretKey where
+    toBS (SecretKey k) = k
+
+newtype SecurityToken = SecurityToken ByteString
+    deriving (Eq, Show, IsString)
+
+instance ToByteString SecurityToken where
+    toBS (SecurityToken t) = t
+
 data Auth = Auth
-    { _authAccess :: !ByteString
-    , _authSecret :: !ByteString
-    , _authToken  :: Maybe ByteString
+    { _authAccess :: !AccessKey
+    , _authSecret :: !SecretKey
+    , _authToken  :: Maybe SecurityToken
     , _authExpiry :: Maybe UTCTime
     }
 
 instance FromJSON Auth where
     parseJSON = withObject "Auth" $ \o -> Auth
-        <$> f (o .: "AccessKeyId")
-        <*> f (o .: "SecretAccessKey")
-        <*> fmap f (o .:? "Token")
+        <$> f AccessKey (o .: "AccessKeyId")
+        <*> f SecretKey (o .: "SecretAccessKey")
+        <*> fmap (f SecurityToken) (o .:? "Token")
         <*> o .:? "Expiration"
       where
-        f :: Functor f => f Text -> f ByteString
-        f = fmap Text.encodeUtf8
+        f g = fmap (g . Text.encodeUtf8)
 
 data Endpoint
     = Global
@@ -231,10 +249,7 @@ instance ToText AZ where
     toText AZ{..} = toText _azRegion `Text.snoc` _azSuffix
 
 newtype Action = Action Text
-    deriving (Eq, Show)
-
-instance IsString Action where
-    fromString = Action . Text.pack
+    deriving (Eq, Show, IsString)
 
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)

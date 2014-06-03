@@ -41,19 +41,24 @@ import           Network.AWS.Error
 import           Network.AWS.Types
 import           System.Environment
 
--- | Default access key environment variable: 'AWS_ACCESS_KEY'
-accessKey :: ByteString
+-- | Default access key environment variable.
+accessKey :: ByteString -- ^ 'AWS_ACCESS_KEY'
 accessKey = "AWS_ACCESS_KEY"
 
--- | Default secret key environment variable: 'AWS_SECRET_KEY'
-secretKey :: ByteString
+-- | Default secret key environment variable.
+secretKey :: ByteString -- ^ 'AWS_SECRET_KEY'
 secretKey = "AWS_SECRET_KEY"
 
+-- | Determines how authentication information is specified or retrieved.
 data Credentials
-    = FromKeys ByteString ByteString
+    = FromKeys AccessKey SecretKey
       -- ^ Explicit access and secret keys.
-    | FromSession ByteString ByteString ByteString
+      --
+      -- Note: you can achieve the same result purely by using 'fromKeys'.
+    | FromSession AccessKey SecretKey SecurityToken
       -- ^ A session containing the access key, secret key, and a security token.
+      --
+      -- Note: you can achieve the same result purely by using 'fromSession'.
     | FromProfile ByteString
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
     | FromEnv ByteString ByteString
@@ -62,33 +67,43 @@ data Credentials
       -- ^ Attempt to read the default access and secret keys from the environment,
       -- falling back to the first available IAM profile if they are not set.
       --
-      -- This attempts to resolve <http://instance-data> rather than directly
+      -- Note: This attempts to resolve <http://instance-data> rather than directly
       -- retrieving <http://169.254.169.254> for IAM profile information to ensure
       -- the dns lookup terminates promptly if not running on EC2.
-      deriving (Eq, Ord)
+      deriving (Eq)
 
 instance ToByteString Credentials where
-    toBS (FromKeys    a _)   = "FromKeys "    <> a <> " ****"
-    toBS (FromSession a _ _) = "FromSession " <> a <> " **** ****"
+    toBS (FromKeys    a _)   = "FromKeys "    <> toBS a <> " ****"
+    toBS (FromSession a _ _) = "FromSession " <> toBS a <> " **** ****"
     toBS (FromProfile n)     = "FromProfile " <> n
-    toBS (FromEnv     a s)   = "FromEnv "     <> a <> " " <> s
-    toBS Discover            = "Discover"
+    toBS (FromEnv   a s)     = "FromEnv "     <> a <> " " <> s
+    toBS Discover            = "Credentials"
 
 instance Show Credentials where
     show = showBS
 
 getAuth :: MonadIO m => Credentials -> EitherT Error m Auth
 getAuth c = case c of
-    FromKeys    a s   -> return $ Auth a s Nothing Nothing
-    FromSession a s t -> return $ Auth a s (Just t) Nothing
+    FromKeys a s      -> return $ fromKeys a s
+    FromSession a s t -> return $ fromSession a s t
     FromProfile n     -> fromProfile n
-    FromEnv     a s   -> fromKeys a s
-    Discover          -> fromKeys accessKey secretKey
-                             `catchT` const (defaultProfile >>= fromProfile)
- where
-    fromKeys a s = Auth
-        <$> key a
-        <*> key s
+    FromEnv   a s     -> env a s
+    Discover          -> env accessKey secretKey `catchT` const defaultProfile
+  where
+    fromProfile name = do
+        !m  <- LBS.fromStrict `liftM` meta (creds $ Just name)
+        hoistEither . fmapL fromString $ Aeson.eitherDecode m
+
+    defaultProfile = do
+        !ls <- BS.lines <$> meta (creds Nothing)
+        !n  <- tryHead "Unable to get default IAM Profile from metadata" ls
+        fromProfile n
+
+    creds = IAM . SecurityCredentials
+
+    env a s = Auth
+        <$> (AccessKey <$> key a)
+        <*> (SecretKey <$> key s)
         <*> pure Nothing
         <*> pure Nothing
 
@@ -98,12 +113,8 @@ getAuth c = case c of
               (return . BS.pack)
               m
 
-defaultProfile :: MonadIO m => EitherT Error m ByteString
-defaultProfile = do
-    !ls <- BS.lines <$> meta (IAM $ SecurityCredentials Nothing)
-    tryHead "Unable to get default IAM Profile from metadata" ls
+fromKeys :: AccessKey -> SecretKey -> Auth
+fromKeys a s = Auth a s Nothing Nothing
 
-fromProfile :: MonadIO m => ByteString -> EitherT Error m Auth
-fromProfile name = do
-    m <- LBS.fromStrict `liftM` meta (IAM . SecurityCredentials $ Just name)
-    hoistEither . fmapL fromString $ Aeson.eitherDecode m
+fromSession :: AccessKey -> SecretKey -> SecurityToken -> Auth
+fromSession a s t = Auth a s (Just t) Nothing

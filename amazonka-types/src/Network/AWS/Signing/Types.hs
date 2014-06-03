@@ -59,19 +59,19 @@ class AWSPresigner v where
               -> Signed a v
 
 sign :: (AWSRequest a, AWSSigner (Signer' (Service' a)))
-     => Auth
-     -> Region
-     -> a
-     -> UTCTime
+     => Auth    -- ^ AWS authentication credentials.
+     -> Region  -- ^ AWS Region.
+     -> a       -- ^ Request to sign.
+     -> UTCTime -- ^ Signing time.
      -> Signed a (Signer' (Service' a))
 sign a r rq = signed service a r (request rq) defaultTimeLocale
 
 presign :: (AWSRequest a, AWSPresigner (Signer' (Service' a)))
-        => Auth
-        -> Region
-        -> a
-        -> Int
-        -> UTCTime
+        => Auth    -- ^ AWS authentication credentials.
+        -> Region  -- ^ AWS Region.
+        -> a       -- ^ Request to presign.
+        -> Int     -- ^ Expiry time in seconds.
+        -> UTCTime -- ^ Signing time.
         -> Signed a (Signer' (Service' a))
 presign a r rq = presigned service a r (request rq) defaultTimeLocale
 

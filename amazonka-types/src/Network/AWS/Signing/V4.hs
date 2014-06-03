@@ -82,7 +82,7 @@ instance AWSSigner V4 where
 
         inp = rq & rqHeaders %~ hdrs (maybeToList tok)
 
-        tok = (hAMZToken,) <$> _authToken a
+        tok = (hAMZToken,) . toBS <$> _authToken a
 
 authorisation :: Meta V4 -> ByteString
 authorisation Meta{..} = BS.concat
@@ -112,7 +112,7 @@ finalise p qry s@Service{..} Auth{..} r Request{..} l t = Signed meta rq
     meta = Meta
         { _mAlgorithm = algorithm
         , _mCReq      = canonicalRequest
-        , _mScope     = _authAccess <> "/" <> credentialScope
+        , _mScope     = toBS _authAccess <> "/" <> credentialScope
         , _mSigned    = signedHeaders
         , _mSTS       = stringToSign
         , _mSignature = signature
@@ -176,7 +176,7 @@ finalise p qry s@Service{..} Auth{..} r Request{..} l t = Signed meta rq
     credentialScope = BS.intercalate "/" scope
 
     signingKey = Fold.foldl1 hmacSHA256 $
-        maybe _authSecret (<> _authSecret) p : scope
+        maybe (toBS _authSecret) (<> toBS _authSecret) p : scope
 
     stringToSign = BS.intercalate "\n"
         [ algorithm

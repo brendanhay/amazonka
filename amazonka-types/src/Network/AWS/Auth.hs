@@ -46,11 +46,11 @@ import           Network.AWS.Error
 import           Network.AWS.Types
 import           System.Environment
 
--- | Default access key environment variable. See: 'fromEnv'
+-- | Default access key environment variable.
 accessKey :: ByteString -- ^ 'AWS_ACCESS_KEY'
 accessKey = "AWS_ACCESS_KEY"
 
--- | Default secret key environment variable. See: 'fromEnv'
+-- | Default secret key environment variable.
 secretKey :: ByteString -- ^ 'AWS_SECRET_KEY'
 secretKey = "AWS_SECRET_KEY"
 
@@ -62,9 +62,15 @@ fromKeys a s = Auth a s Nothing Nothing
 fromSession :: AccessKey -> SecretKey -> SecurityToken -> Auth
 fromSession a s t = Auth a s (Just t) Nothing
 
--- | Determines how impure authentication information is retrieved.
+-- | Determines how authentication information is retrieved.
 data Credentials
-    = FromProfile ByteString
+    = FromKeys AccessKey SecretKey
+      -- ^ Explicit access and secret keys.
+      -- Note: you can achieve the same result purely by using 'fromKeys'.
+    | FromSession AccessKey SecretKey SecurityToken
+      -- ^ A session containing the access key, secret key, and a security token.
+      -- Note: you can achieve the same result purely by using 'fromSession'.
+    | FromProfile ByteString
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
     | FromEnv ByteString ByteString
       -- ^ Environment variables to lookup for the access and secret keys.
@@ -78,9 +84,11 @@ data Credentials
       deriving (Eq)
 
 instance ToByteString Credentials where
-    toBS (FromProfile n) = "FromProfile " <> n
-    toBS (FromEnv   a s) = "FromEnv "     <> a <> " " <> s
-    toBS Discover        = "Credentials"
+    toBS (FromKeys    a _)   = "FromKeys "    <> toBS a <> " ****"
+    toBS (FromSession a _ _) = "FromSession " <> toBS a <> " **** ****"
+    toBS (FromProfile n)     = "FromProfile " <> n
+    toBS (FromEnv   a s)     = "FromEnv "     <> a <> " " <> s
+    toBS Discover            = "Credentials"
 
 instance Show Credentials where
     show = showBS
@@ -88,9 +96,11 @@ instance Show Credentials where
 -- | Retrieve authentication information from the environment or instance-data.
 getAuth :: MonadIO m => Credentials -> EitherT Error m Auth
 getAuth c = case c of
-    FromProfile n -> fromProfile' n
-    FromEnv   a s -> fromEnv' a s
-    Discover      -> fromEnv `catchT` const fromProfile
+    FromKeys a s      -> return $ fromKeys a s
+    FromSession a s t -> return $ fromSession a s t
+    FromProfile n     -> fromProfile' n
+    FromEnv   a s     -> fromEnv' a s
+    Discover          -> fromEnv `catchT` const fromProfile
 
 -- | Retrieve access and secret keys from the default environment variables.
 --

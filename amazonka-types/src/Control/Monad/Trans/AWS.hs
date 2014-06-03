@@ -101,19 +101,32 @@ runAWST (AWST rt) a r s = bracket open close $
         liftBase (closeManager m)
             `finally` closeInternalState i
 
-send :: (MonadResource m, AWSRequest a, AWSSigner (Signer' (Service' a)))
+send :: ( MonadIO m
+        , MonadBase IO m
+        , MonadThrow m
+        , AWSRequest a
+        , AWSSigner (Signer' (Service' a))
+        )
      => a -- ^ Request to send.
      -> AWST m (Either (Error' (Service' a)) (Response' a))
 send rq = withEnv $ \Env{..} ->
     AWS.send _envAuth _envRegion rq _envMananger
 
-paginate :: (MonadResource m, AWSPager a, AWSSigner (Signer' (Service' a)))
+paginate :: ( MonadIO m
+            , MonadBase IO m
+            , MonadThrow m
+            , AWSPager a
+            , AWSSigner (Signer' (Service' a))
+            )
          => a -- ^ Seed request to send.
          -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
 paginate rq = withEnv $ \Env{..} ->
     AWS.paginate _envAuth _envRegion rq _envMananger
 
-presign :: (Monad m, AWSRequest a, AWSPresigner (Signer' (Service' a)))
+presign :: ( Monad m
+           , AWSRequest a
+           , AWSPresigner (Signer' (Service' a))
+           )
         => a
         -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.

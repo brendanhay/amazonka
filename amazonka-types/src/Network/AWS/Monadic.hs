@@ -85,10 +85,10 @@ instance (MonadIO m, MonadBase IO m, MonadThrow m) => MonadResource (AWST m) whe
     liftResourceT f = AWST $ asks _envState >>= liftIO . runInternalState f
 
 runAWST :: (MonadBase IO m, MonadMask m)
-        => AWST m a
-        -> Auth
-        -> Region
-        -> ManagerSettings
+        => AWST m a        -- ^ Monadic action to run.
+        -> Auth            -- ^ AWS authentication credentials.
+        -> Region          -- ^ AWS Region.
+        -> ManagerSettings -- ^ HTTP Manager settings.
         -> m a
 runAWST (AWST rt) a r s = bracket open close $
     runReaderT rt . uncurry (Env a r)
@@ -101,31 +101,22 @@ runAWST (AWST rt) a r s = bracket open close $
         liftBase (closeManager m)
             `finally` closeInternalState i
 
-send :: ( MonadResource m
-        , AWSRequest a
-        , AWSSigner (Signer' (Service' a))
-        )
-     => a
+send :: (MonadResource m, AWSRequest a, AWSSigner (Signer' (Service' a)))
+     => a -- ^ Request to send.
      -> AWST m (Either (Error' (Service' a)) (Response' a))
 send rq = withEnv $ \Env{..} ->
     AWS.send _envAuth _envRegion rq _envMananger
 
-paginate :: ( MonadResource m
-            , AWSPager a
-            , AWSSigner (Signer' (Service' a))
-            )
-         => a
+paginate :: (MonadResource m, AWSPager a, AWSSigner (Signer' (Service' a)))
+         => a -- ^ Seed request to send.
          -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
 paginate rq = withEnv $ \Env{..} ->
     AWS.paginate _envAuth _envRegion rq _envMananger
 
-presign :: ( Monad m
-           , AWSRequest a
-           , AWSPresigner (Signer' (Service' a))
-           )
+presign :: (Monad m, AWSRequest a, AWSPresigner (Signer' (Service' a)))
         => a
-        -> Int
-        -> UTCTime
+        -> Int     -- ^ Expiry time in seconds.
+        -> UTCTime -- ^ Signing time.
         -> AWST m (Signed a (Signer' (Service' a)))
 presign rq e t = withEnv $ \Env{..} -> return $
     AWS.presign _envAuth _envRegion rq e t

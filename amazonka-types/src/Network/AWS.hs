@@ -51,12 +51,12 @@ paginate :: (MonadResource m, AWSPager a, AWSSigner (Signer' (Service' a)))
          -> a       -- ^ Seed request to send.
          -> Manager -- ^ HTTP Manager.
          -> Source m (Either (Error' (Service' a)) (Response' a))
-paginate a r x m = go (Just x)
+paginate a r rq m = go (Just rq)
   where
     go Nothing   = return ()
-    go (Just rq) = do
-        rs <- lift (send a r rq m)
+    go (Just rq') = do
+        rs <- lift (send a r rq' m)
         yield rs
         either (const $ return ())
-               (go . next rq)
+               (go . next rq')
                rs

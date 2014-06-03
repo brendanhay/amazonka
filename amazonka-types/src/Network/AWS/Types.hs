@@ -19,8 +19,6 @@ module Network.AWS.Types where
 
 import           Control.Applicative
 import           Control.Lens                 hiding (Action)
-import           Control.Monad
-import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import qualified Data.Attoparsec.Text         as AText
@@ -28,7 +26,6 @@ import           Data.ByteString              (ByteString)
 import           Data.Char
 import           Data.Conduit
 import           Data.Default
-import           Data.IORef
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
@@ -68,14 +65,6 @@ class AWSService (Service' a) => AWSRequest a where
 
 class AWSRequest a => AWSPager a where
     next :: a -> Response' a -> Maybe a
-
-newtype AuthRef = AuthRef { _authRef :: IORef Auth }
-
-newAuthRef :: MonadIO m => Auth -> m AuthRef
-newAuthRef = liftM AuthRef . liftIO . newIORef
-
-getAuthState :: MonadIO m => AuthRef -> m Auth
-getAuthState = liftIO . readIORef . _authRef
 
 newtype AccessKey = AccessKey ByteString
     deriving (Eq, Show, IsString)

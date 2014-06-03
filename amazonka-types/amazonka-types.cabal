@@ -45,6 +45,10 @@ library
         , Network.AWS.Signing.V4
         , Network.AWS.Types
 
+        -- , Data.AWS.*
+
+        -- , Control.Monad.Trans.AWS
+
     other-modules:
 
     build-depends:
@@ -60,6 +64,7 @@ library
         , cryptohash
         , data-default
         , errors
+        , exceptions        == 0.6.*
         , http-client
         , http-client-lens
         , http-conduit
@@ -67,12 +72,13 @@ library
         , lens
         , mtl
         , old-locale
-        , resourcet
+        , resourcet         == 1.1.*
         , semigroups
         , tagged
         , text
         , time
         , transformers
+        , transformers-base
         , xml-conduit
 
 test-suite tests

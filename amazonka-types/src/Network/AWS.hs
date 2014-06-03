@@ -14,16 +14,9 @@
 
 module Network.AWS
    (
-   -- * Retrieving Authorisation
-     Credentials (..)
-   , getAuth
-   -- ** Environment Variables
-   , accessKey
-   , secretKey
-
    -- * Sending Requests
    -- ** Synchronous
-   , send
+     send
    -- ** Pagination
    , paginate
    -- ** Signed URLs

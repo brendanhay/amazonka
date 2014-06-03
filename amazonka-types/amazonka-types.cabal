@@ -20,7 +20,9 @@ library
     ghc-options:       -Wall -ddump-splices
 
     exposed-modules:
-          Network.AWS
+          Control.Monad.Trans.AWS
+
+        , Network.AWS
         , Network.AWS.Auth
         , Network.AWS.Data
         , Network.AWS.Data.Body
@@ -34,7 +36,6 @@ library
         , Network.AWS.Data.XML
         , Network.AWS.EC2.Metadata
         , Network.AWS.Error
-        , Network.AWS.Monadic
         , Network.AWS.Request.Common
         , Network.AWS.Request.JSON
         , Network.AWS.Request.Query
@@ -46,8 +47,6 @@ library
         , Network.AWS.Types
 
         -- , Data.AWS.*
-
-        -- , Control.Monad.Trans.AWS
 
     other-modules:
 

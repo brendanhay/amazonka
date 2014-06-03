@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Loading your Amazon AWS credentials.
+-- | Specify or retrieve your Amazon AWS credentials.
 module Network.AWS.Auth
     (
     -- * Defaults

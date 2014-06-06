@@ -152,13 +152,6 @@ renderQuery = intercalate . sort . enc Nothing
     ksep = "&"
     vsep = "="
 
--- FIXME: Can be removed when lens 4.2 is released.
-deep :: forall s a. Plated s => Traversal' s a -> Traversal' s a
-deep f = go
-  where
-    go :: Traversal' s a
-    go = cloneTraversal $ failing f (plate . go)
-
 -- keysOf :: Traversal' Query ByteString
 
 -- valuesOf :: Traversal' Query (Maybe ByteString)

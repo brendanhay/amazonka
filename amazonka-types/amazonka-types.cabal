@@ -62,13 +62,14 @@ library
         , conduit           == 1.1.*
         , cryptohash
         , data-default
+        , either            == 4.3.*
         , errors
         , exceptions        == 0.6.*
         , http-client
         , http-client-lens
         , http-conduit
         , http-types
-        , lens
+        , lens              == 4.2.*
         , mmorph
         , mtl
         , old-locale

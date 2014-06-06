@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -18,9 +19,10 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
+import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (Action)
 import           Control.Monad.Trans.Resource
-import           Data.Aeson
+import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
 import           Data.Char
@@ -32,6 +34,7 @@ import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
+import           Data.Typeable
 import           Network.AWS.Data
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
@@ -47,13 +50,37 @@ clientRequest = def
     , Client.checkStatus = \_ _ _ -> Nothing
     }
 
+data Error
+    = Error  String
+    | Nested [Error]
+    deriving (Eq, Show, Typeable)
+
+instance IsString Error where
+    fromString = Error
+
+instance Exception Error
+
+-- FIXME: This has currently been defined only for purposes of
+-- an Applicative instance for the monad transformer. Do the monoid laws hold?
+
+instance Monoid Error where
+    mempty = Nested []
+
+    mappend (Nested a) (Nested b) = Nested (a ++ b)
+    mappend (Nested a) b          = Nested (a ++ [b])
+    mappend a          (Nested b) = Nested (a : b)
+    mappend a          b          = Nested [a, b]
+
+class AWSError e where
+    toError :: e -> Error
+
 class AWSService a where
     type Signer' a :: *
     type Error'  a :: *
 
     service :: Service a
 
-class AWSService (Service' a) => AWSRequest a where
+class (AWSService (Service' a), AWSError (Error' (Service' a))) => AWSRequest a where
     type Service'  a :: *
     type Response' a :: *
 

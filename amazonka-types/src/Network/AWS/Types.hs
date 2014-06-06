@@ -74,6 +74,9 @@ instance Monoid Error where
 class AWSError e where
     toError :: e -> Error
 
+instance AWSError Error where
+    toError = id
+
 class AWSService a where
     type Signer' a :: *
     type Error'  a :: *

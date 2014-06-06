@@ -52,7 +52,6 @@ library
 
     build-depends:
           aeson
-        , async
         , attoparsec
         , base              == 4.7.*
         , base16-bytestring
@@ -69,7 +68,7 @@ library
         , http-conduit
         , http-types
         , lens              == 4.2.*
-        , lifted-base
+        , lifted-async
         , mmorph
         , monad-control
         , mtl

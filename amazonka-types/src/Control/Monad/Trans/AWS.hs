@@ -28,8 +28,8 @@ module Control.Monad.Trans.AWS
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Control.Concurrent.Async              (Async)
-import qualified Control.Concurrent.Async              as Async
+import           Control.Concurrent.Async.Lifted              (Async)
+import qualified Control.Concurrent.Async.Lifted              as Async
 import           Control.Error
 --import qualified Control.Exception.Lifted              as Lifted
 import           Control.Monad.Base
@@ -110,52 +110,6 @@ runAWST (AWST m) a r s = control $ \run ->
         stateCleanup ReleaseNormal (_envState env)
         return rs
 
---resourceAsync ::  IO a -> m (A.Async a)
--- resourceAsync (AWST m) = do
---     s <- asks _envState
---     AWST $ Lifted.mask $ \restore ->
---         bracket_
---             (stateAlloc s)
---             (return ())
---             (liftBase A.async $ bracket_
---                 (return ())
---                 (stateCleanup ReleaseNormal s)
---                 (restore m))
-
----async :: (MonadReader Env m, MonadBaseControl IO m) => AWST m a -> m (Async (Either Error a))
-
--- resourceFork :: MonadBaseControl IO m => ResourceT m () -> ResourceT m ThreadId
--- resourceFork (ResourceT f) = ResourceT $ \r -> Lifted.mask $ \restore ->
-
-resourceFork :: (MonadMask m, MonadBaseControl IO m)
-             => AWST m ()
-             -> AWST m (Async ())
-resourceFork (AWST f) = do
-    e@Env{..} <- ask
-    lift $ mask $ \restore ->
-        bracket'
-            (stateAlloc _envState)
-            (return ())
-            (return ())
-            (liftBaseDiscard Async.async $ bracket'
-                (return ())
-                (stateCleanup ReleaseNormal _envState)
-                (stateCleanup ReleaseException _envState)
-                (restore . void $ runEitherT (runReaderT f e)))
-
-bracket' :: MonadBaseControl IO m
-         => IO () -- ^ allocate
-         -> IO () -- ^ normal cleanup
-         -> IO () -- ^ exceptional cleanup
-         -> m a
-         -> m a
-bracket' alloc cleanupNormal cleanupExc inside =
-    control $ \run -> mask $ \restore -> do
-        alloc
-        res <- restore (run inside) `onException` cleanupExc
-        cleanupNormal
-        return res
-
 mapAWST :: forall (m :: * -> *) (n :: * -> *) a b
          . (m (Either Error a) -> n (Either Error b)) -- ^ Transform the underlying monad and value.
         -> AWST m a                                   -- ^ Monadic action to transform.
@@ -201,19 +155,29 @@ presign :: ( Monad m
 presign rq e t = withEnv $ \Env{..} -> return $
     AWS.presign _envAuth _envRegion rq e t
 
+async :: (MonadMask m, MonadBaseControl IO m)
+      => AWST m a
+      -> AWST m (Async (StM m (Either Error a)))
+async (AWST m) = AWST . ReaderT $ \e -> EitherT $ mask $ \restore ->
+    bracket'
+        (stateAlloc (_envState e))
+        (return ())
+        (return ())
+        (fmap Right . Async.async $ bracket'
+            (return ())
+            (stateCleanup ReleaseNormal (_envState e))
+            (stateCleanup ReleaseException (_envState e))
+            (restore $ runEitherT (runReaderT m e)))
+  where
+    bracket' alloc free ex f =
+        control $ \run ->
+            mask $ \restore ->
+                alloc *> (restore (run f) `onException` ex) <* free
 
--- async f = 
-
--- wait :: ( Monad m
---         , MonadBase IO m
---         , AWSError e
---         )
---      => A.Async (Either e a)
---      -> AWST m a
--- wait = hoistError <=< liftBase . A.wait
-
--- -- -- async ?
-
+wait :: (Monad m, MonadBaseControl IO m)
+     => Async (StM m (Either Error a))
+     -> AWST m a
+wait a = lift (Async.wait a) >>= hoistError
 
 -- --     -- start r = maybe (return ()) (timer r <=< delay)
 

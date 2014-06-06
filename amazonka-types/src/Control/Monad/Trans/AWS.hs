@@ -1,8 +1,9 @@
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
+{-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE UndecidableInstances       #-}
 
@@ -43,6 +44,8 @@ import           Network.AWS.Signing.Types    hiding (presign)
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 
+-- FIXME: Does switching to ExceptT gain anything? (Besides a hoist from mmorph)
+
 data Env = Env
     { _envAuth     :: Auth
     , _envRegion   :: Region
@@ -69,9 +72,6 @@ newtype AWST m a = AWST { _unAWST :: ReaderT Env (EitherT Error m) a }
 instance MonadTrans AWST where
     lift = AWST . lift . lift
 
--- do x <- lift m  ==  lift $ do x <- m
---    lift (f x)                 f x
-
 instance MonadBase IO m => MonadBase IO (AWST m) where
     liftBase = liftBaseDefault
 
@@ -83,6 +83,9 @@ instance MonadCatch m => MonadCatch (AWST m) where
 
 instance (MonadIO m, MonadBase IO m, MonadThrow m) => MonadResource (AWST m) where
     liftResourceT f = AWST $ asks _envState >>= liftIO . runInternalState f
+
+instance MFunctor AWST where
+    hoist nat m = mapAWST nat m
 
 runAWST :: (MonadBase IO m, MonadMask m)
         => AWST m a        -- ^ Monadic action to run.
@@ -101,27 +104,13 @@ runAWST (AWST rt) a r s = bracket open close $
         liftBase (closeManager m)
             `finally` closeInternalState i
 
--- instance MFunctor AWST where ?
-
--- Does switching to ExceptT gain anything? (Besides a hoist from mmorph)
-
--- mapAWST :: (m a -> n b) -> AWST m a -> AWST n b
-
--- (m (m' a) -> n (n' b)) -> (m a -> m b)
-
--- (m (Maybe a) -> n (Maybe b)) -> (m a -> m b)
-
-(m a -> n a) . (a -> b) === (m a )
-
-
-
-instance MFunctor (EitherT e) where
-    hoist nat m = EitherT (nat (runEitherT m))
-
-
-
-mapAWST :: (m (Either Error a) -> n (Either Error b)) -> AWST m a -> AWST n b
-mapAWST f = AWST . mapReaderT (mapEitherT f) . _unAWST
+mapAWST :: forall (m :: * -> *) (n :: * -> *) a b
+         . (m (Either Error a) -> n (Either Error b))
+        -> AWST m a
+        -> AWST n b
+mapAWST f m = AWST . ReaderT $ \r -> EitherT (unwrap r)
+  where
+    unwrap = f . runEitherT . runReaderT (_unAWST m)
 
 hoistError :: (Monad m, AWSError e) => Either e a -> AWST m a
 hoistError = AWST . lift . hoistEither . fmapL toError

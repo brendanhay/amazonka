@@ -27,20 +27,29 @@ module Control.Monad.Trans.AWS
     where
 
 import           Control.Applicative
+import           Control.Concurrent
+import           Control.Concurrent.Async              (Async)
+import qualified Control.Concurrent.Async              as Async
 import           Control.Error
+--import qualified Control.Exception.Lifted              as Lifted
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans
+import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
+import           Control.Monad.Trans.Resource.Internal
+import           Data.Acquire
 import           Data.Conduit
+import           Data.IORef
 import           Data.Monoid
 import           Data.Time
-import qualified Network.AWS                  as AWS
+import           Data.Word
+import qualified Network.AWS                           as AWS
 import           Network.AWS.Auth
-import           Network.AWS.Signing.Types    hiding (presign)
+import           Network.AWS.Signing.Types             hiding (presign)
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 
@@ -87,26 +96,69 @@ instance (MonadIO m, MonadBase IO m, MonadThrow m) => MonadResource (AWST m) whe
 instance MFunctor AWST where
     hoist nat m = mapAWST nat m
 
-runAWST :: (MonadBase IO m, MonadMask m)
-        => AWST m a        -- ^ Monadic action to run.
-        -> Auth            -- ^ AWS authentication credentials.
-        -> Region          -- ^ AWS Region.
-        -> ManagerSettings -- ^ HTTP Manager settings.
+runAWST :: MonadBaseControl IO m
+        => AWST m a
+        -> Auth
+        -> Region
+        -> ManagerSettings
         -> m (Either Error a)
-runAWST (AWST rt) a r s = bracket open close $
-    runEitherT . runReaderT rt . uncurry (Env a r)
-  where
-    open = (,)
-        <$> liftBase (newManager s)
-        <*> createInternalState
+runAWST (AWST m) a r s = control $ \run ->
+    mask $ \restore -> do
+        env <- liftBase $ Env a r <$> newManager s <*> createInternalState
+        rs  <- restore (run (runEitherT (runReaderT m env)))
+            `onException` stateCleanup ReleaseException (_envState env)
+        stateCleanup ReleaseNormal (_envState env)
+        return rs
 
-    close (m, i) =
-        liftBase (closeManager m)
-            `finally` closeInternalState i
+--resourceAsync ::  IO a -> m (A.Async a)
+-- resourceAsync (AWST m) = do
+--     s <- asks _envState
+--     AWST $ Lifted.mask $ \restore ->
+--         bracket_
+--             (stateAlloc s)
+--             (return ())
+--             (liftBase A.async $ bracket_
+--                 (return ())
+--                 (stateCleanup ReleaseNormal s)
+--                 (restore m))
+
+---async :: (MonadReader Env m, MonadBaseControl IO m) => AWST m a -> m (Async (Either Error a))
+
+-- resourceFork :: MonadBaseControl IO m => ResourceT m () -> ResourceT m ThreadId
+-- resourceFork (ResourceT f) = ResourceT $ \r -> Lifted.mask $ \restore ->
+
+resourceFork :: (MonadMask m, MonadBaseControl IO m)
+             => AWST m ()
+             -> AWST m (Async ())
+resourceFork (AWST f) = do
+    e@Env{..} <- ask
+    lift $ mask $ \restore ->
+        bracket'
+            (stateAlloc _envState)
+            (return ())
+            (return ())
+            (liftBaseDiscard Async.async $ bracket'
+                (return ())
+                (stateCleanup ReleaseNormal _envState)
+                (stateCleanup ReleaseException _envState)
+                (restore . void $ runEitherT (runReaderT f e)))
+
+bracket' :: MonadBaseControl IO m
+         => IO () -- ^ allocate
+         -> IO () -- ^ normal cleanup
+         -> IO () -- ^ exceptional cleanup
+         -> m a
+         -> m a
+bracket' alloc cleanupNormal cleanupExc inside =
+    control $ \run -> mask $ \restore -> do
+        alloc
+        res <- restore (run inside) `onException` cleanupExc
+        cleanupNormal
+        return res
 
 mapAWST :: forall (m :: * -> *) (n :: * -> *) a b
          . (m (Either Error a) -> n (Either Error b)) -- ^ Transform the underlying monad and value.
-        -> AWST m a                                   -- ^ The monadic action to transform.
+        -> AWST m a                                   -- ^ Monadic action to transform.
         -> AWST n b
 mapAWST f m = AWST . ReaderT $ \r -> EitherT (unwrap r)
   where
@@ -127,27 +179,38 @@ send rq = withEnv $ \Env{..} ->
     AWS.send _envAuth _envRegion rq _envMananger
         >>= hoistError
 
--- -- paginate :: ( MonadIO m
--- --             , MonadBase IO m
--- --             , MonadThrow m
--- --             , AWSPager a
--- --             , AWSSigner (Signer' (Service' a))
--- --             )
--- --          => a -- ^ Seed request to send.
--- --          -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
--- -- paginate rq = withEnv $ \Env{..} ->
--- --     AWS.paginate _envAuth _envRegion rq _envMananger
+paginate :: ( MonadIO m
+            , MonadBase IO m
+            , MonadThrow m
+            , AWSPager a
+            , AWSSigner (Signer' (Service' a))
+            )
+         => a -- ^ Seed request to send.
+         -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
+paginate rq = withEnv $ \Env{..} ->
+    AWS.paginate _envAuth _envRegion rq _envMananger
 
--- -- presign :: ( Monad m
--- --            , AWSRequest a
--- --            , AWSPresigner (Signer' (Service' a))
--- --            )
--- --         => a
--- --         -> Int     -- ^ Expiry time in seconds.
--- --         -> UTCTime -- ^ Signing time.
--- --         -> AWST m (Signed a (Signer' (Service' a)))
--- -- presign rq e t = withEnv $ \Env{..} -> return $
--- --     AWS.presign _envAuth _envRegion rq e t
+presign :: ( Monad m
+           , AWSRequest a
+           , AWSPresigner (Signer' (Service' a))
+           )
+        => a
+        -> Int     -- ^ Expiry time in seconds.
+        -> UTCTime -- ^ Signing time.
+        -> AWST m (Signed a (Signer' (Service' a)))
+presign rq e t = withEnv $ \Env{..} -> return $
+    AWS.presign _envAuth _envRegion rq e t
+
+
+-- async f = 
+
+-- wait :: ( Monad m
+--         , MonadBase IO m
+--         , AWSError e
+--         )
+--      => A.Async (Either e a)
+--      -> AWST m a
+-- wait = hoistError <=< liftBase . A.wait
 
 -- -- -- async ?
 

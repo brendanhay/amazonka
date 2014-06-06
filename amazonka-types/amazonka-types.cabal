@@ -52,17 +52,16 @@ library
 
     build-depends:
           aeson
+        , async
         , attoparsec
         , base              == 4.7.*
         , base16-bytestring
         , base64-bytestring
-        , byteable
         , bytestring
         , case-insensitive
         , conduit           == 1.1.*
         , cryptohash
         , data-default
-        , either            == 4.3.*
         , errors
         , exceptions        == 0.6.*
         , http-client
@@ -70,7 +69,9 @@ library
         , http-conduit
         , http-types
         , lens              == 4.2.*
+        , lifted-base
         , mmorph
+        , monad-control
         , mtl
         , old-locale
         , resourcet         == 1.1.*

@@ -105,8 +105,8 @@ runAWST (AWST rt) a r s = bracket open close $
             `finally` closeInternalState i
 
 mapAWST :: forall (m :: * -> *) (n :: * -> *) a b
-         . (m (Either Error a) -> n (Either Error b))
-        -> AWST m a
+         . (m (Either Error a) -> n (Either Error b)) -- ^ Transform the underlying monad and value.
+        -> AWST m a                                   -- ^ The monadic action to transform.
         -> AWST n b
 mapAWST f m = AWST . ReaderT $ \r -> EitherT (unwrap r)
   where
@@ -115,17 +115,17 @@ mapAWST f m = AWST . ReaderT $ \r -> EitherT (unwrap r)
 hoistError :: (Monad m, AWSError e) => Either e a -> AWST m a
 hoistError = AWST . lift . hoistEither . fmapL toError
 
--- send :: ( MonadIO m
---         , MonadBase IO m
---         , MonadThrow m
---         , AWSRequest a
---         , AWSSigner (Signer' (Service' a))
---         )
---      => a -- ^ Request to send.
---      -> AWST m (Response' a)
--- send rq = withEnv $ \Env{..} ->
---     AWS.send _envAuth _envRegion rq _envMananger
---         >>= hoistError
+send :: ( MonadIO m
+        , MonadBase IO m
+        , MonadThrow m
+        , AWSRequest a
+        , AWSSigner (Signer' (Service' a))
+        )
+     => a -- ^ Request to send.
+     -> AWST m (Response' a)
+send rq = withEnv $ \Env{..} ->
+    AWS.send _envAuth _envRegion rq _envMananger
+        >>= hoistError
 
 -- -- paginate :: ( MonadIO m
 -- --             , MonadBase IO m

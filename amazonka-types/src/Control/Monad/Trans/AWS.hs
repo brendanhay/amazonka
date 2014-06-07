@@ -174,10 +174,8 @@ async (AWST m) = AWST $ ReaderT $ \r -> EitherT $ mask $ \restore ->
             mask $ \restore ->
                 alloc *> (restore (run g) `onException` ex) <* free
 
-wait :: (Monad m, MonadBaseControl IO m)
-     => Async (StM m (Either Error a))
-     -> AWST m a
-wait a = lift (Async.wait a) >>= hoistError
+wait :: MonadBaseControl IO m => Async (StM m (Either Error a)) -> AWST m a
+wait = hoistError <=< lift . Async.wait
 
 -- --     -- start r = maybe (return ()) (timer r <=< delay)
 

@@ -31,7 +31,7 @@ import           Control.Concurrent
 import           Control.Concurrent.Async.Lifted              (Async)
 import qualified Control.Concurrent.Async.Lifted              as Async
 import           Control.Error
---import qualified Control.Exception.Lifted              as Lifted
+--import qualified Control.Exception              as
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
@@ -158,21 +158,21 @@ presign rq e t = withEnv $ \Env{..} -> return $
 async :: (MonadMask m, MonadBaseControl IO m)
       => AWST m a
       -> AWST m (Async (StM m (Either Error a)))
-async (AWST m) = AWST . ReaderT $ \e -> EitherT $ mask $ \restore ->
+async (AWST m) = AWST $ ReaderT $ \r -> EitherT $ mask $ \restore ->
     bracket'
-        (stateAlloc (_envState e))
+        (stateAlloc (_envState r))
         (return ())
         (return ())
         (fmap Right . Async.async $ bracket'
             (return ())
-            (stateCleanup ReleaseNormal (_envState e))
-            (stateCleanup ReleaseException (_envState e))
-            (restore $ runEitherT (runReaderT m e)))
+            (stateCleanup ReleaseNormal (_envState r))
+            (stateCleanup ReleaseException (_envState r))
+            (restore $ runEitherT (runReaderT m r)))
   where
-    bracket' alloc free ex f =
+    bracket' alloc free ex g =
         control $ \run ->
             mask $ \restore ->
-                alloc *> (restore (run f) `onException` ex) <* free
+                alloc *> (restore (run g) `onException` ex) <* free
 
 wait :: (Monad m, MonadBaseControl IO m)
      => Async (StM m (Either Error a))

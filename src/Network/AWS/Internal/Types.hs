@@ -182,23 +182,6 @@ instance MonadResource AWS where
         fmap awsResource ask >>= liftIO . runInternalState f
     {-# INLINE liftResourceT #-}
 
-instance MonadThrow (EitherT AWSError IO) where
-    throwM = liftIO . throwIO
-    {-# INLINE throwM #-}
-
-instance MonadCatch (EitherT AWSError IO) where
-    catch m f = EitherT $
-        runEitherT m `catch` \e -> runEitherT (f e)
-    {-# INLINE catch #-}
-
-    mask a = EitherT $
-        mask $ \u -> runEitherT (a $ mapEitherT u)
-    {-# INLINE mask #-}
-
-    uninterruptibleMask a = EitherT $
-        uninterruptibleMask $ \u -> runEitherT (a $ mapEitherT u)
-    {-# INLINE uninterruptibleMask #-}
-
 getEnv :: AWS Env
 getEnv = AWS ask
 

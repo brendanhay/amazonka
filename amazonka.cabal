@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               0.4.5
+version:               0.4.6
 synopsis:              Interfaces to various Amazon Web Service APIs
 homepage:              http://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -75,6 +75,7 @@ library
       , cryptohash
       , data-default
       , deepseq
+      , either                == 4.3.*
       , errors                >= 1.4.4
       , exceptions            >= 0.4 && < 0.6
       , hexpat                >= 0.20

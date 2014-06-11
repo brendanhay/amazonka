@@ -172,6 +172,7 @@ newtype AWS a = AWS
         , MonadIO
         , MonadBase IO
         , MonadCatch
+        , MonadMask
         , MonadThrow
         , MonadReader Env
         , MonadError AWSError
@@ -181,6 +182,15 @@ instance MonadResource AWS where
     liftResourceT f = AWS $
         fmap awsResource ask >>= liftIO . runInternalState f
     {-# INLINE liftResourceT #-}
+
+instance MonadMask (EitherT AWSError IO) where
+    mask a = EitherT $
+        mask $ \u -> runEitherT (a $ mapEitherT u)
+    {-# INLINE mask #-}
+
+    uninterruptibleMask a = EitherT $
+        uninterruptibleMask $ \u -> runEitherT (a $ mapEitherT u)
+    {-# INLINE uninterruptibleMask #-}
 
 getEnv :: AWS Env
 getEnv = AWS ask

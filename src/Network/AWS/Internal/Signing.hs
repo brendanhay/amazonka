@@ -48,6 +48,8 @@ import           Network.AWS.Internal.Types
 import           Network.HTTP.Conduit
 import           Network.HTTP.Types              (Header, StdMethod, urlEncode)
 
+import System.IO.Unsafe
+
 data Common = Common
     { _service :: !ByteString
     , _version :: !ByteString
@@ -169,14 +171,22 @@ version4 raw@Raw{..} auth reg time =
      -- sinkHash :: (Monad m, Hash ctx d) => Consumer ByteString m SHA256
 
 versionS3 :: ByteString -> Signer
-versionS3 bucket raw@Raw{..} auth reg time =
-    signed rqMethod _host rqPath query (authorisation : headers) rqBody
+versionS3 bucket raw@Raw{..} auth reg time = unsafePerformIO $ do
+    let x = signed rqMethod _host rqPath query (authorisation : headers) rqBody
+
+    print authorisation
+    print signature
+    print stringToSign
+    print canonicalHeaders
+    print canonicalResource
+
+    return x
   where
     Common{..} = common raw reg
 
     query = renderQuery _query
 
-    authorisation = hAuth $ BS.concat ["AWS ", accessKeyId auth, ":", signature]
+    authorisation = hAuth $ "AWS " <> accessKeyId auth <> ":" <> signature
 
     signature = Base64.encode $ hmacSHA1 (secretAccessKey auth) stringToSign
 
@@ -206,10 +216,12 @@ versionS3 bucket raw@Raw{..} auth reg time =
 
     date = formatRFC822 time
 
-    canonicalResource = '/' `wrap` bucket <> "/" `stripPrefix` rqPath
-       <> subResource
+    canonicalResource = wrap '/' bucket <> stripPrefix "/" rqPath <> subResource
 
-    subResource = maybe "" ("?" <>) $ find (`elem` keys) (map fst _query)
+    subResource = maybe "" (mappend "?" . f) $ find ((`elem` keys) . fst) _query
+      where
+        f (k, Just v) = k <> "=" <> v
+        f (k, _)      = k
 
     keys =
         [ "acl"

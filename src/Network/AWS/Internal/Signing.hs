@@ -48,8 +48,6 @@ import           Network.AWS.Internal.Types
 import           Network.HTTP.Conduit
 import           Network.HTTP.Types              (Header, StdMethod, urlEncode)
 
-import System.IO.Unsafe
-
 data Common = Common
     { _service :: !ByteString
     , _version :: !ByteString
@@ -171,16 +169,8 @@ version4 raw@Raw{..} auth reg time =
      -- sinkHash :: (Monad m, Hash ctx d) => Consumer ByteString m SHA256
 
 versionS3 :: ByteString -> Signer
-versionS3 bucket raw@Raw{..} auth reg time = unsafePerformIO $ do
-    let x = signed rqMethod _host rqPath query (authorisation : headers) rqBody
-
-    print authorisation
-    print signature
-    print stringToSign
-    print canonicalHeaders
-    print canonicalResource
-
-    return x
+versionS3 bucket raw@Raw{..} auth reg time =
+    signed rqMethod _host rqPath query (authorisation : headers) rqBody
   where
     Common{..} = common raw reg
 

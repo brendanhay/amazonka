@@ -28,10 +28,10 @@ module Control.Monad.Trans.AWS
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Control.Concurrent.Async.Lifted              (Async)
-import qualified Control.Concurrent.Async.Lifted              as Async
+import           Control.Concurrent.Async.Lifted       (Async)
+import qualified Control.Concurrent.Async.Lifted       as Async
 import           Control.Error
---import qualified Control.Exception              as
+import           Control.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
@@ -43,6 +43,7 @@ import           Control.Monad.Trans.Resource
 import           Control.Monad.Trans.Resource.Internal
 import           Data.Acquire
 import           Data.Conduit
+import qualified Data.Conduit.List                     as Conduit
 import           Data.IORef
 import           Data.Monoid
 import           Data.Time
@@ -73,10 +74,15 @@ data Env = Env
     , _envState    :: InternalState
     }
 
+envRegion :: Functor f => LensLike' f Env Region
+envRegion f x = (\y -> x { _envRegion = y }) <$> f (_envRegion x)
+
 withEnv :: MonadReader Env m => (Env -> m a) -> m a
 withEnv f = ask >>= f
 
 type AWS = AWST IO
+
+-- type MonadAWS = (MonadIO m, MonadBase IO m, MonadThrow m)
 
 newtype AWST m a = AWST { _unAWST :: ReaderT Env (EitherT Error m) a }
     deriving
@@ -129,8 +135,15 @@ mapAWST f m = AWST . ReaderT $ \r -> EitherT (unwrap r)
   where
     unwrap = f . runEitherT . runReaderT (_unAWST m)
 
-hoistError :: (Monad m, AWSError e) => Either e a -> AWST m a
-hoistError = AWST . lift . hoistEither . fmapL toError
+liftAWST :: (Monad m, AWSError e) => EitherT e m a -> AWST m a
+liftAWST = AWST . lift . fmapLT toError
+
+hoistAWST :: (Monad m, AWSError e) => Either e a -> AWST m a
+hoistAWST = liftAWST . hoistEither
+
+-- | Scope an 'AWST' action inside a specific 'Region'.
+within :: MonadReader Env m => Region -> m a -> m a
+within r = local (envRegion .~ r)
 
 send :: ( MonadIO m
         , MonadBase IO m
@@ -140,9 +153,18 @@ send :: ( MonadIO m
         )
      => a -- ^ Request to send.
      -> AWST m (Response' a)
-send rq = withEnv $ \Env{..} ->
+send = hoistAWST <=< sendCatch
+
+sendCatch :: ( MonadIO m
+             , MonadBase IO m
+             , MonadThrow m
+             , AWSRequest a
+             , AWSSigner (Signer' (Service' a))
+             )
+          => a
+          -> AWST m (Either (Error' (Service' a)) (Response' a))
+sendCatch rq = withEnv $ \Env{..} ->
     AWS.send _envAuth _envRegion rq _envMananger
-        >>= hoistError
 
 paginate :: ( MonadIO m
             , MonadBase IO m
@@ -151,8 +173,18 @@ paginate :: ( MonadIO m
             , AWSSigner (Signer' (Service' a))
             )
          => a -- ^ Seed request to send.
-         -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
-paginate rq = withEnv $ \Env{..} ->
+         -> Source (AWST m) (Response' a)
+paginate = ($= Conduit.mapM hoistAWST) . paginateCatch
+
+paginateCatch :: ( MonadIO m
+                 , MonadBase IO m
+                 , MonadThrow m
+                 , AWSPager a
+                 , AWSSigner (Signer' (Service' a))
+                 )
+              => a -- ^ Seed request to send.
+              -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
+paginateCatch rq = withEnv $ \Env{..} ->
     AWS.paginate _envAuth _envRegion rq _envMananger
 
 presign :: ( MonadIO m
@@ -185,5 +217,12 @@ async (AWST m) = AWST $ ReaderT $ \r -> EitherT $ mask $ \restore ->
             mask $ \restore ->
                 alloc *> (restore (run g) `onException` ex) <* free
 
-wait :: MonadBaseControl IO m => Async (StM m (Either Error a)) -> AWST m a
-wait = hoistError <=< lift . Async.wait
+wait :: MonadBaseControl IO m
+     => Async (StM m (Either Error a))
+     -> AWST m a
+wait = hoistAWST <=< waitCatch
+
+waitCatch :: MonadBaseControl IO m
+          => Async (StM m (Either Error a))
+          -> AWST m (Either Error a)
+waitCatch = lift . Async.wait

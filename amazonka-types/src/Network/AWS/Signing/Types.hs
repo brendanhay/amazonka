@@ -66,7 +66,7 @@ sign :: (AWSRequest a, AWSSigner (Signer' (Service' a)))
      -> Signed a (Signer' (Service' a))
 sign a r rq = signed service a r (request rq) defaultTimeLocale
 
-presign :: (AWSRequest a, AWSPresigner (Signer' (Service' a)))
+presign :: (MonadIO m, AWSRequest a, AWSPresigner (Signer' (Service' a)))
         => Auth    -- ^ AWS authentication credentials.
         -> Region  -- ^ AWS Region.
         -> a       -- ^ Request to presign.

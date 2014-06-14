@@ -4,6 +4,10 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE ViewPatterns      #-}
 
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE GADTs      #-}
+
+
 -- Module      : Network.AWS.Auth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -31,6 +35,7 @@ module Network.AWS.Auth
     ) where
 
 import           Control.Applicative
+import           Control.Concurrent
 import           Control.Error
 import           Control.Monad
 import           Control.Monad.IO.Class
@@ -38,13 +43,19 @@ import qualified Data.Aeson                 as Aeson
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
+import           Data.IORef
 import           Data.Monoid
 import           Data.String
+import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Error
 import           Network.AWS.Types
 import           System.Environment
+
+data Auth
+    = Ref  (IORef AuthEnv)
+    | Auth AuthEnv
 
 -- | Default access key environment variable.
 accessKey :: ByteString -- ^ 'AWS_ACCESS_KEY'
@@ -56,11 +67,11 @@ secretKey = "AWS_SECRET_KEY"
 
 -- | Explicit access and secret keys.
 fromKeys :: AccessKey -> SecretKey -> Auth
-fromKeys a s = Auth a s Nothing Nothing
+fromKeys a s = Auth (AuthEnv a s Nothing Nothing)
 
 -- | A session containing the access key, secret key, and a security token.
 fromSession :: AccessKey -> SecretKey -> SecurityToken -> Auth
-fromSession a s t = Auth a s (Just t) Nothing
+fromSession a s t = Auth (AuthEnv a s (Just t) Nothing)
 
 -- | Determines how authentication information is retrieved.
 data Credentials
@@ -88,7 +99,7 @@ instance ToByteString Credentials where
     toBS (FromSession a _ _) = "FromSession " <> toBS a <> " **** ****"
     toBS (FromProfile n)     = "FromProfile " <> n
     toBS (FromEnv   a s)     = "FromEnv "     <> a <> " " <> s
-    toBS Discover            = "Credentials"
+    toBS Discover            = "Discover"
 
 instance Show Credentials where
     show = showBS
@@ -110,7 +121,7 @@ fromEnv = fromEnv' accessKey secretKey
 
 -- | Retrieve access and secret keys from specific environment variables.
 fromEnv' :: MonadIO m => ByteString -> ByteString -> EitherT Error m Auth
-fromEnv' a s = Auth
+fromEnv' a s = fmap Auth $ AuthEnv
     <$> (AccessKey <$> key a)
     <*> (SecretKey <$> key s)
     <*> pure Nothing
@@ -133,7 +144,39 @@ fromProfile = do
     fromProfile' n
 
 -- | Lookup a specific IAM Profile by name from the local EC2 instance-data.
+--
+-- The resulting IONewRef wrapper + timer is designed so that multiple concurrent
+-- accesses of 'AuthEnv' from the 'AWS' environment are not required to calculate
+-- expiry and sequentially queue to update it.
+--
+-- The forked timer ensures a singular owner and pre-emptive refresh of the
+-- temporary session credentials.
 fromProfile' :: MonadIO m => ByteString -> EitherT Error m Auth
-fromProfile' n = do
-    !m  <- LBS.fromStrict `liftM` meta (IAM . SecurityCredentials $ Just n)
-    hoistEither . fmapL fromString $ Aeson.eitherDecode m
+fromProfile' name = auth >>= runIO . start
+  where
+    auth :: MonadIO m => EitherT Error m AuthEnv
+    auth = do
+        !m <- LBS.fromStrict `liftM` meta (IAM . SecurityCredentials $ Just name)
+        hoistEither . fmapL fromString $ Aeson.eitherDecode m
+
+    start :: AuthEnv -> IO Auth
+    start !a = case _authExpiry a of
+        Nothing -> return (Auth a)
+        Just x  -> do
+            r <- newIORef a
+            t <- myThreadId
+            void . forkIO $ timer r t x
+            return (Ref r)
+
+    timer r t x = do
+        -- FIXME: guard against a lower expiration than the -60
+        n <- truncate . diffUTCTime x <$> getCurrentTime
+        threadDelay $ (n - 60) * 1000000
+        l <- runEitherT auth
+        case l of
+            Left   e -> throwTo t e
+            Right !a -> do
+                 atomicWriteIORef r a
+                 maybe (return ())
+                       (timer r t)
+                       (_authExpiry a)

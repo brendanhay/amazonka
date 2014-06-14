@@ -114,15 +114,15 @@ newtype SecurityToken = SecurityToken ByteString
 instance ToByteString SecurityToken where
     toBS (SecurityToken t) = t
 
-data Auth = Auth
+data AuthEnv = AuthEnv
     { _authAccess :: !AccessKey
     , _authSecret :: !SecretKey
     , _authToken  :: Maybe SecurityToken
     , _authExpiry :: Maybe UTCTime
     }
 
-instance FromJSON Auth where
-    parseJSON = withObject "Auth" $ \o -> Auth
+instance FromJSON AuthEnv where
+    parseJSON = withObject "AuthEnv" $ \o -> AuthEnv
         <$> f AccessKey (o .: "AccessKeyId")
         <*> f SecretKey (o .: "SecretAccessKey")
         <*> fmap (f SecurityToken) (o .:? "Token")

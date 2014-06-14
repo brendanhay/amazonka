@@ -43,9 +43,6 @@ module Control.Monad.Trans.AWS
     , send_
     , sendCatch
 
-    -- ** Asynchronous
-    , sendAsync
-
     -- ** Pagination
     , paginate
     , paginateCatch
@@ -205,16 +202,6 @@ sendCatch :: ( MonadIO m
           -> AWST m (Either (Er (Sv a)) (Rs a))
 sendCatch rq = withEnv $ \Env{..} ->
     AWS.send _envAuth _envRegion rq _envMananger
-
-sendAsync :: ( MonadIO m
-             , MonadBaseControl IO m
-             , MonadMask m
-             , AWSRequest a
-             , AWSSigner (Sg (Sv a))
-             )
-          => a
-          -> AWST m (Async (StM m (Either Error (Either (Er (Sv a)) (Rs a)))))
-sendAsync = async . sendCatch
 
 paginate :: ( MonadIO m
             , MonadBase IO m

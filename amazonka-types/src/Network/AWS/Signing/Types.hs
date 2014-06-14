@@ -39,8 +39,8 @@ sgRequest :: Functor f => LensLike' f (Signed a v) ClientRequest
 sgRequest f x = (\y -> x { _sgRequest = y }) <$> f (_sgRequest x)
 
 class AWSSigner v where
-    signed :: v ~ Signer' (Service' a)
-           => Service (Service' a)
+    signed :: v ~ Sg (Sv a)
+           => Service (Sv a)
            -> AuthEnv
            -> Region
            -> Request a
@@ -49,8 +49,8 @@ class AWSSigner v where
            -> Signed a v
 
 class AWSPresigner v where
-    presigned :: v ~ Signer' (Service' a)
-              => Service (Service' a)
+    presigned :: v ~ Sg (Sv a)
+              => Service (Sv a)
               -> AuthEnv
               -> Region
               -> Request a
@@ -59,22 +59,22 @@ class AWSPresigner v where
               -> UTCTime
               -> Signed a v
 
-sign :: (MonadIO m, AWSRequest a, AWSSigner (Signer' (Service' a)))
+sign :: (MonadIO m, AWSRequest a, AWSSigner (Sg (Sv a)))
      => Auth    -- ^ AWS authentication credentials.
      -> Region  -- ^ AWS Region.
      -> a       -- ^ Request to sign.
      -> UTCTime -- ^ Signing time.
-     -> m (Signed a (Signer' (Service' a)))
+     -> m (Signed a (Sg (Sv a)))
 sign a r rq t = withAuth a $ \e -> return $
     signed service e r (request rq) defaultTimeLocale t
 
-presign :: (MonadIO m, AWSRequest a, AWSPresigner (Signer' (Service' a)))
+presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Auth    -- ^ AWS authentication credentials.
         -> Region  -- ^ AWS Region.
         -> a       -- ^ Request to presign.
         -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.
-        -> m (Signed a (Signer' (Service' a)))
+        -> m (Signed a (Sg (Sv a)))
 presign a r rq x t = withAuth a $ \e -> return $
     presigned service e r (request rq) defaultTimeLocale x t
 

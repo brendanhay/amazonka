@@ -53,10 +53,6 @@ import           Network.AWS.Error
 import           Network.AWS.Types
 import           System.Environment
 
-data Auth
-    = Ref  (IORef AuthEnv)
-    | Auth AuthEnv
-
 -- | Default access key environment variable.
 accessKey :: ByteString -- ^ 'AWS_ACCESS_KEY'
 accessKey = "AWS_ACCESS_KEY"

@@ -21,6 +21,7 @@ module Network.AWS.Types where
 import           Control.Applicative
 import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (Action)
+import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
@@ -28,6 +29,7 @@ import           Data.ByteString              (ByteString)
 import           Data.Char
 import           Data.Conduit
 import           Data.Default
+import           Data.IORef
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
@@ -129,6 +131,14 @@ instance FromJSON AuthEnv where
         <*> o .:? "Expiration"
       where
         f g = fmap (g . Text.encodeUtf8)
+
+data Auth
+    = Ref  (IORef AuthEnv)
+    | Auth AuthEnv
+
+withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
+withAuth (Ref  r) f = liftIO (readIORef r) >>= f
+withAuth (Auth e) f = f e
 
 data Endpoint
     = Global

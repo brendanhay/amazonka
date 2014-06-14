@@ -17,9 +17,10 @@ module Network.AWS.Signing.Types where
 
 import           Control.Applicative
 import           Control.Lens
-import qualified Crypto.Hash.SHA256  as SHA256
-import qualified Crypto.MAC.HMAC     as HMAC
-import           Data.ByteString     (ByteString)
+import           Control.Monad.IO.Class
+import qualified Crypto.Hash.SHA256     as SHA256
+import qualified Crypto.MAC.HMAC        as HMAC
+import           Data.ByteString        (ByteString)
 import           Data.Time
 import           Network.AWS.Types
 import           System.Locale
@@ -40,7 +41,7 @@ sgRequest f x = (\y -> x { _sgRequest = y }) <$> f (_sgRequest x)
 class AWSSigner v where
     signed :: v ~ Signer' (Service' a)
            => Service (Service' a)
-           -> Auth
+           -> AuthEnv
            -> Region
            -> Request a
            -> TimeLocale
@@ -50,7 +51,7 @@ class AWSSigner v where
 class AWSPresigner v where
     presigned :: v ~ Signer' (Service' a)
               => Service (Service' a)
-              -> Auth
+              -> AuthEnv
               -> Region
               -> Request a
               -> TimeLocale
@@ -58,13 +59,14 @@ class AWSPresigner v where
               -> UTCTime
               -> Signed a v
 
-sign :: (AWSRequest a, AWSSigner (Signer' (Service' a)))
+sign :: (MonadIO m, AWSRequest a, AWSSigner (Signer' (Service' a)))
      => Auth    -- ^ AWS authentication credentials.
      -> Region  -- ^ AWS Region.
      -> a       -- ^ Request to sign.
      -> UTCTime -- ^ Signing time.
-     -> Signed a (Signer' (Service' a))
-sign a r rq = signed service a r (request rq) defaultTimeLocale
+     -> m (Signed a (Signer' (Service' a)))
+sign a r rq t = withAuth a $ \e -> return $
+    signed service e r (request rq) defaultTimeLocale t
 
 presign :: (MonadIO m, AWSRequest a, AWSPresigner (Signer' (Service' a)))
         => Auth    -- ^ AWS authentication credentials.
@@ -72,8 +74,9 @@ presign :: (MonadIO m, AWSRequest a, AWSPresigner (Signer' (Service' a)))
         -> a       -- ^ Request to presign.
         -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.
-        -> Signed a (Signer' (Service' a))
-presign a r rq = presigned service a r (request rq) defaultTimeLocale
+        -> m (Signed a (Signer' (Service' a)))
+presign a r rq x t = withAuth a $ \e -> return $
+    presigned service e r (request rq) defaultTimeLocale x t
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64

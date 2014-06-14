@@ -41,7 +41,7 @@ send :: (MonadResource m, AWSRequest a, AWSSigner (Signer' (Service' a)))
      -> Manager -- ^ HTTP Manager.
      -> m (Either (Error' (Service' a)) (Response' a))
 send a r rq m = do
-    sg <- sign a r rq <$> liftIO getCurrentTime
+    sg <- liftIO getCurrentTime >>= sign a r rq
     rs <- http (_sgRequest sg) m
     response rq rs
 

@@ -67,8 +67,8 @@ import           Network.HTTP.Conduit
 -- FIXME: Does switching to ExceptT gain anything? (Besides a hoist from mmorph)
 
 data Env = Env
-    { _envRegion   :: Region
-    , _envAuth     :: Auth
+    { _envAuth     :: Auth
+    , _envRegion   :: Region
     , _envMananger :: Manager
     , _envState    :: InternalState
     }
@@ -76,10 +76,7 @@ data Env = Env
 withEnv :: MonadReader Env m => (Env -> m a) -> m a
 withEnv f = ask >>= f
 
-withAuthEnv :: (MonadIO m, MonadReader Env m) => (Env -> Auth -> m a) -> m a
-withAuthEnv f = withEnv $ \e -> liftIO (readIORef $ _envAuth e) >>= f e
-
-type AWS a = AWST IO
+type AWS = AWST IO
 
 newtype AWST m a = AWST { _unAWST :: ReaderT Env (EitherT Error m) a }
     deriving
@@ -118,10 +115,7 @@ runAWST :: MonadBaseControl IO m
         -> m (Either Error a)
 runAWST (AWST m) a r s = control $ \run ->
     mask $ \restore -> do
-        env <- liftBase $ Env r
-            <$> newIORef a
-            <*> newManager s
-            <*> createInternalState
+        env <- liftBase $ Env a r <$> newManager s <*> createInternalState
         rs  <- restore (run (runEitherT (runReaderT m env)))
             `onException` stateCleanup ReleaseException (_envState env)
         stateCleanup ReleaseNormal (_envState env)
@@ -146,8 +140,8 @@ send :: ( MonadIO m
         )
      => a -- ^ Request to send.
      -> AWST m (Response' a)
-send rq = withAuthEnv $ \Env{..} a ->
-    AWS.send a _envRegion rq _envMananger
+send rq = withEnv $ \Env{..} ->
+    AWS.send _envAuth _envRegion rq _envMananger
         >>= hoistError
 
 paginate :: ( MonadIO m
@@ -158,8 +152,8 @@ paginate :: ( MonadIO m
             )
          => a -- ^ Seed request to send.
          -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
-paginate rq = withAuthEnv $ \Env{..} a ->
-    AWS.paginate a _envRegion rq _envMananger
+paginate rq = withEnv $ \Env{..} ->
+    AWS.paginate _envAuth _envRegion rq _envMananger
 
 presign :: ( MonadIO m
            , AWSRequest a
@@ -169,8 +163,8 @@ presign :: ( MonadIO m
         -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.
         -> AWST m (Signed a (Signer' (Service' a)))
-presign rq e t = withAuthEnv $ \Env{..} a -> return $
-    AWS.presign a _envRegion rq e t
+presign rq e t = withEnv $ \Env{..} ->
+    AWS.presign _envAuth _envRegion rq e t
 
 async :: (MonadMask m, MonadBaseControl IO m)
       => AWST m a

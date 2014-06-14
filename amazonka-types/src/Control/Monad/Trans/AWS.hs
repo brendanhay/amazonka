@@ -179,19 +179,6 @@ send :: ( MonadIO m
      -> AWST m (Rs a)
 send = hoistAWST <=< sendCatch
 
--- | A variant of 'send' that discards the result.
---
--- > send_ = void . send
-send_ :: ( MonadIO m
-         , MonadBase IO m
-         , MonadThrow m
-         , AWSRequest a
-         , AWSSigner (Sg (Sv a))
-         )
-      => a -- ^ Request to send.
-      -> AWST m ()
-send_ = void . send
-
 sendCatch :: ( MonadIO m
              , MonadBase IO m
              , MonadThrow m
@@ -258,14 +245,6 @@ wait :: MonadBaseControl IO m
      => Async (StM m (Either Error a))
      -> AWST m a
 wait = hoistAWST <=< waitCatch
-
--- | A variant of 'wait' that discards the result.
---
--- > wait_ = void . wait
-wait_ :: MonadBaseControl IO m
-      => Async (StM m (Either Error a))
-      -> AWST m ()
-wait_ = void . wait
 
 waitCatch :: MonadBaseControl IO m
           => Async (StM m (Either Error a))

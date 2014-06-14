@@ -23,13 +23,11 @@ module Network.AWS
    , presign
    ) where
 
-import Control.Applicative
 import Control.Monad.IO.Class
 import Control.Monad.Trans
 import Control.Monad.Trans.Resource
 import Data.Conduit
 import Data.Time
-import Network.AWS.Auth
 import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
@@ -39,7 +37,7 @@ send :: (MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
      -> Region  -- ^ AWS Region.
      -> a       -- ^ Request to send.
      -> Manager -- ^ HTTP Manager.
-     -> m (Either (Error' (Sv a)) (Rs a))
+     -> m (Either (Er (Sv a)) (Rs a))
 send a r rq m = do
     sg <- liftIO getCurrentTime >>= sign a r rq
     rs <- http (_sgRequest sg) m
@@ -50,7 +48,7 @@ paginate :: (MonadResource m, AWSPager a, AWSSigner (Sg (Sv a)))
          -> Region  -- ^ AWS Region.
          -> a       -- ^ Seed request to send.
          -> Manager -- ^ HTTP Manager.
-         -> Source m (Either (Error' (Sv a)) (Rs a))
+         -> Source m (Either (Er (Sv a)) (Rs a))
 paginate a r rq m = go (Just rq)
   where
     go Nothing   = return ()

@@ -100,7 +100,7 @@ algorithm = "AWS4-HMAC-SHA256"
 
 finalise :: Maybe ByteString
          -> (ByteString -> ByteString -> Query -> Query)
-         -> Service (Service' a)
+         -> Service (Sv a)
          -> AuthEnv
          -> Region
          -> Request a

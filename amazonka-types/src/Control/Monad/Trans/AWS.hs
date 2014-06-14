@@ -127,10 +127,10 @@ instance MFunctor AWST where
     hoist nat m = mapAWST nat m
 
 runAWST :: (MonadIO m, MonadBaseControl IO m)
-        => AWST m b
+        => AWST m a
         -> Credentials
         -> Region
-        -> m (Either Error b)
+        -> m (Either Error a)
 runAWST m c r = do
     e <- liftBase $ runEitherT (getAuth c)
     either (return . Left)

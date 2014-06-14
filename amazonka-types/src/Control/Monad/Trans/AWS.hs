@@ -166,7 +166,7 @@ hoistAWST :: (Monad m, AWSError e) => Either e a -> AWST m a
 hoistAWST = liftAWST . hoistEither
 
 -- | Scope an 'AWST' action inside a specific 'Region'.
-within :: MonadReader Env m => Region -> m a -> m a
+within :: Monad m => Region -> AWST m a -> AWST m a
 within r = local (envRegion .~ r)
 
 send :: ( MonadIO m

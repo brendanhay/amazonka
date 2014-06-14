@@ -40,7 +40,6 @@ module Control.Monad.Trans.AWS
     -- * Requests
     -- ** Synchronous
     , send
-    , send_
     , sendCatch
 
     -- ** Pagination
@@ -53,7 +52,6 @@ module Control.Monad.Trans.AWS
     -- * Asynchronous Actions
     , async
     , wait
-    , wait_
     , waitCatch
     ) where
 

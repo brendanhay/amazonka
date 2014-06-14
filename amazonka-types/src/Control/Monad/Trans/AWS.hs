@@ -34,7 +34,7 @@ module Control.Monad.Trans.AWS
     , liftAWST
     , hoistAWST
 
-    -- * Changing Regions
+    -- * Scoping Regions
     , within
 
     -- * Requests
@@ -176,10 +176,10 @@ send :: ( MonadIO m
         , MonadBase IO m
         , MonadThrow m
         , AWSRequest a
-        , AWSSigner (Signer' (Service' a))
+        , AWSSigner (Sg (Sv a))
         )
      => a -- ^ Request to send.
-     -> AWST m (Response' a)
+     -> AWST m (Rs a)
 send = hoistAWST <=< sendCatch
 
 -- | A variant of 'send' that discards the result.
@@ -189,7 +189,7 @@ send_ :: ( MonadIO m
          , MonadBase IO m
          , MonadThrow m
          , AWSRequest a
-         , AWSSigner (Signer' (Service' a))
+         , AWSSigner (Sg (Sv a))
          )
       => a -- ^ Request to send.
       -> AWST m ()
@@ -199,10 +199,10 @@ sendCatch :: ( MonadIO m
              , MonadBase IO m
              , MonadThrow m
              , AWSRequest a
-             , AWSSigner (Signer' (Service' a))
+             , AWSSigner (Sg (Sv a))
              )
           => a
-          -> AWST m (Either (Error' (Service' a)) (Response' a))
+          -> AWST m (Either (Er (Sv a)) (Rs a))
 sendCatch rq = withEnv $ \Env{..} ->
     AWS.send _envAuth _envRegion rq _envMananger
 
@@ -210,41 +210,41 @@ sendAsync :: ( MonadIO m
              , MonadBaseControl IO m
              , MonadMask m
              , AWSRequest a
-             , AWSSigner (Signer' (Service' a))
+             , AWSSigner (Sg (Sv a))
              )
           => a
-          -> AWST m (Async (StM m (Either Error (Either (Error' (Service' a)) (Response' a)))))
+          -> AWST m (Async (StM m (Either Error (Either (Er (Sv a)) (Rs a)))))
 sendAsync = async . sendCatch
 
 paginate :: ( MonadIO m
             , MonadBase IO m
             , MonadThrow m
             , AWSPager a
-            , AWSSigner (Signer' (Service' a))
+            , AWSSigner (Sg (Sv a))
             )
          => a -- ^ Seed request to send.
-         -> Source (AWST m) (Response' a)
+         -> Source (AWST m) (Rs a)
 paginate = ($= Conduit.mapM hoistAWST) . paginateCatch
 
 paginateCatch :: ( MonadIO m
                  , MonadBase IO m
                  , MonadThrow m
                  , AWSPager a
-                 , AWSSigner (Signer' (Service' a))
+                 , AWSSigner (Sg (Sv a))
                  )
               => a -- ^ Seed request to send.
-              -> Source (AWST m) (Either (Error' (Service' a)) (Response' a))
+              -> Source (AWST m) (Either (Er (Sv a)) (Rs a))
 paginateCatch rq = withEnv $ \Env{..} ->
     AWS.paginate _envAuth _envRegion rq _envMananger
 
 presign :: ( MonadIO m
            , AWSRequest a
-           , AWSPresigner (Signer' (Service' a))
+           , AWSPresigner (Sg (Sv a))
            )
         => a
         -> Int     -- ^ Expiry time in seconds.
         -> UTCTime -- ^ Signing time.
-        -> AWST m (Signed a (Signer' (Service' a)))
+        -> AWST m (Signed a (Sg (Sv a)))
 presign rq e t = withEnv $ \Env{..} ->
     AWS.presign _envAuth _envRegion rq e t
 

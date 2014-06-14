@@ -80,23 +80,23 @@ instance AWSError Error where
     toError = id
 
 class AWSService a where
-    type Signer' a :: *
-    type Error'  a :: *
+    type Sg a :: *
+    type Er a :: *
 
     service :: Service a
 
-class (AWSService (Service' a), AWSError (Error' (Service' a))) => AWSRequest a where
-    type Service'  a :: *
-    type Response' a :: *
+class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
+    type Sv a :: *
+    type Rs a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
              => a
              -> ClientResponse (ResumableSource m ByteString)
-             -> m (Either (Error' (Service' a)) (Response' a))
+             -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where
-    next :: a -> Response' a -> Maybe a
+    next :: a -> Rs a -> Maybe a
 
 newtype AccessKey = AccessKey ByteString
     deriving (Eq, Show, IsString)

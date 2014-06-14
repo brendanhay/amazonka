@@ -18,16 +18,46 @@
 -- Portability : non-portable (GHC extensions)
 
 module Control.Monad.Trans.AWS
-    -- ( AWST
-    -- , runAWST
+    (
+    -- * Data Types
+      AWS
+    , AWST
 
-    -- , send
-    -- , paginate
-    -- , presign
-    where
+    -- * Running
+    , runAWST
+    , runAWST'
+
+    -- * Monad transformation
+    , mapAWST
+
+    -- * Lifting errors via EitherT and Either
+    , liftAWST
+    , hoistAWST
+
+    -- * Changing Regions
+    , within
+
+    -- * Requests
+    -- ** Synchronous
+    , send
+    , send_
+    , sendCatch
+
+    -- ** Asynchronous
+    , async
+    , wait
+    , wait_
+    , waitCatch
+
+    -- ** Pagination
+    , paginate
+    , paginateCatch
+
+    -- ** Presigned URLs
+    , presign
+    ) where
 
 import           Control.Applicative
-import           Control.Concurrent
 import           Control.Concurrent.Async.Lifted       (Async)
 import qualified Control.Concurrent.Async.Lifted       as Async
 import           Control.Error
@@ -37,33 +67,18 @@ import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Morph
 import           Control.Monad.Reader
-import           Control.Monad.Trans
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Trans.Resource.Internal
 import           Data.Acquire
 import           Data.Conduit
 import qualified Data.Conduit.List                     as Conduit
-import           Data.IORef
-import           Data.Monoid
 import           Data.Time
-import           Data.Word
 import qualified Network.AWS                           as AWS
 import           Network.AWS.Auth
 import           Network.AWS.Signing.Types             hiding (presign)
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
-
--- Make the AuthRef and timer stuff a separate module/opaque type which can be used
--- in conjunction with the AWS module or the AWST transformer
-
--- newAuthRef :: Credentials -> IO AuthRef
--- newAuthRef' :: Auth -> IO AuthRef
-
--- readAuthRef :: AuthRef -> IO Auth
-
--- default for maintaining state inside the AWST?
-
 
 -- FIXME: Does switching to ExceptT gain anything? (Besides a hoist from mmorph)
 
@@ -81,8 +96,6 @@ withEnv :: MonadReader Env m => (Env -> m a) -> m a
 withEnv f = ask >>= f
 
 type AWS = AWST IO
-
--- type MonadAWS = (MonadIO m, MonadBase IO m, MonadThrow m)
 
 newtype AWST m a = AWST { _unAWST :: ReaderT Env (EitherT Error m) a }
     deriving
@@ -113,13 +126,24 @@ instance (MonadIO m, MonadBase IO m, MonadThrow m) => MonadResource (AWST m) whe
 instance MFunctor AWST where
     hoist nat m = mapAWST nat m
 
-runAWST :: MonadBaseControl IO m
-        => AWST m a
-        -> Auth
+runAWST :: (MonadIO m, MonadBaseControl IO m)
+        => AWST m b
+        -> Credentials
         -> Region
-        -> ManagerSettings
-        -> m (Either Error a)
-runAWST (AWST m) a r s = control $ \run ->
+        -> m (Either Error b)
+runAWST m c r = do
+    e <- liftBase $ runEitherT (getAuth c)
+    either (return . Left)
+           (\a -> runAWST' m a r conduitManagerSettings)
+           e
+
+runAWST' :: MonadBaseControl IO m
+         => AWST m a
+         -> Auth
+         -> Region
+         -> ManagerSettings
+         -> m (Either Error a)
+runAWST' (AWST m) a r s = control $ \run ->
     mask $ \restore -> do
         env <- liftBase $ Env a r <$> newManager s <*> createInternalState
         rs  <- restore (run (runEitherT (runReaderT m env)))
@@ -128,8 +152,8 @@ runAWST (AWST m) a r s = control $ \run ->
         return rs
 
 mapAWST :: forall (m :: * -> *) (n :: * -> *) a b
-         . (m (Either Error a) -> n (Either Error b)) -- ^ Transform the underlying monad and value.
-        -> AWST m a                                   -- ^ Monadic action to transform.
+         . (m (Either Error a) -> n (Either Error b))
+        -> AWST m a
         -> AWST n b
 mapAWST f m = AWST . ReaderT $ \r -> EitherT (unwrap r)
   where
@@ -155,6 +179,19 @@ send :: ( MonadIO m
      -> AWST m (Response' a)
 send = hoistAWST <=< sendCatch
 
+-- | A variant of 'send' that discards the result.
+--
+-- > send_ = void . send
+send_ :: ( MonadIO m
+         , MonadBase IO m
+         , MonadThrow m
+         , AWSRequest a
+         , AWSSigner (Signer' (Service' a))
+         )
+      => a -- ^ Request to send.
+      -> AWST m ()
+send_ = void . send
+
 sendCatch :: ( MonadIO m
              , MonadBase IO m
              , MonadThrow m
@@ -165,6 +202,43 @@ sendCatch :: ( MonadIO m
           -> AWST m (Either (Error' (Service' a)) (Response' a))
 sendCatch rq = withEnv $ \Env{..} ->
     AWS.send _envAuth _envRegion rq _envMananger
+
+async :: (MonadMask m, MonadBaseControl IO m)
+      => AWST m a
+      -> AWST m (Async (StM m (Either Error a)))
+async (AWST m) = AWST $ ReaderT $ \r -> EitherT $ mask $ \restore ->
+    bracket'
+        (stateAlloc (_envState r))
+        (return ())
+        (return ())
+        (fmap Right . Async.async $ bracket'
+            (return ())
+            (stateCleanup ReleaseNormal (_envState r))
+            (stateCleanup ReleaseException (_envState r))
+            (restore $ runEitherT (runReaderT m r)))
+  where
+    bracket' alloc free ex g =
+        control $ \run ->
+            mask $ \restore ->
+                alloc *> (restore (run g) `onException` ex) <* free
+
+wait :: MonadBaseControl IO m
+     => Async (StM m (Either Error a))
+     -> AWST m a
+wait = hoistAWST <=< waitCatch
+
+-- | A variant of 'wait' that discards the result.
+--
+-- > wait_ = void . wait
+wait_ :: MonadBaseControl IO m
+      => Async (StM m (Either Error a))
+      -> AWST m ()
+wait_ = void . wait
+
+waitCatch :: MonadBaseControl IO m
+          => Async (StM m (Either Error a))
+          -> AWST m (Either Error a)
+waitCatch = lift . Async.wait
 
 paginate :: ( MonadIO m
             , MonadBase IO m
@@ -197,32 +271,3 @@ presign :: ( MonadIO m
         -> AWST m (Signed a (Signer' (Service' a)))
 presign rq e t = withEnv $ \Env{..} ->
     AWS.presign _envAuth _envRegion rq e t
-
-async :: (MonadMask m, MonadBaseControl IO m)
-      => AWST m a
-      -> AWST m (Async (StM m (Either Error a)))
-async (AWST m) = AWST $ ReaderT $ \r -> EitherT $ mask $ \restore ->
-    bracket'
-        (stateAlloc (_envState r))
-        (return ())
-        (return ())
-        (fmap Right . Async.async $ bracket'
-            (return ())
-            (stateCleanup ReleaseNormal (_envState r))
-            (stateCleanup ReleaseException (_envState r))
-            (restore $ runEitherT (runReaderT m r)))
-  where
-    bracket' alloc free ex g =
-        control $ \run ->
-            mask $ \restore ->
-                alloc *> (restore (run g) `onException` ex) <* free
-
-wait :: MonadBaseControl IO m
-     => Async (StM m (Either Error a))
-     -> AWST m a
-wait = hoistAWST <=< waitCatch
-
-waitCatch :: MonadBaseControl IO m
-          => Async (StM m (Either Error a))
-          -> AWST m (Either Error a)
-waitCatch = lift . Async.wait

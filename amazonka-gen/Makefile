@@ -60,7 +60,7 @@ $(GEN)/src: $(GEN)
 	cd $(GEN) && ln -fs $(TOP)/amazonka-types/src src
 
 $(GEN)/lib: $(GEN) build
-	$(BIN) --dir=$@ $(addprefix --model=,$(MODELS))
+	$(BIN) --root=$(GEN) --src=lib $(addprefix --model=,$(MODELS))
 
 build: def-build
 

@@ -1,4 +1,4 @@
--- Module      : Data.String.Conversion
+-- Module      : Data.String.CaseConversion
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +8,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Data.String.Conversion
+module Data.String.CaseConversion
     (
       Case (..)
     , recase
@@ -39,6 +39,7 @@ lowered = map toLower
 
 camelise :: [String] -> String
 camelise (x : xs) = concat (x : map (\(y : ys) -> toUpper y : lowered ys) xs)
+camelise []       = []
 
 cased :: Char -> [String] -> String
 cased x xs = concat $ intersperse [x] (map lowered xs)

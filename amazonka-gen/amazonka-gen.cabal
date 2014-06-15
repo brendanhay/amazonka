@@ -27,5 +27,6 @@ executable amazonka-gen
         , directory
         , filepath
         , optparse-applicative == 0.8.*
+        , shakespeare
         , text
         , unordered-containers

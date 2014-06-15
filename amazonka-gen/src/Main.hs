@@ -17,7 +17,10 @@ import           Control.Applicative
 import           Control.Monad
 import           Data.List
 import           Data.Monoid
-import qualified Network.AWS.Generator.AST.Boto as Boto
+import qualified Data.Text.Lazy.IO            as LText
+import qualified Network.AWS.Generator.Stage1 as Stage1
+import qualified Network.AWS.Generator.Stage2 as Stage2
+import qualified Network.AWS.Generator.Stage3 as Stage3
 import           Network.AWS.Generator.Types
 import           Options.Applicative
 import           System.Directory
@@ -63,9 +66,10 @@ main = do
     ms <- models optModels
 
     forM_ ms $ \m -> do
-        r <- Boto.parse m
-        print r
-
+        r <- Stage1.parse m
+        either print
+               (LText.putStrLn . Stage3.render)
+               r
   where
     pPrefs = prefs showHelpOnError
     pInfo  = info (helper <*> options) fullDesc

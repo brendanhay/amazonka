@@ -1,4 +1,4 @@
-name:                  amazonka-types
+name:                  amazonka-gen
 version:               0.1.0.0
 synopsis:              Pending
 description:           Pending
@@ -21,4 +21,7 @@ executable amazonka-gen
     ghc-options:       -Wall -threaded
 
     build-depends:
-          base         == 4.7.*
+          base                 == 4.7.*
+        , directory
+        , filepath
+        , optparse-applicative == 0.8.*

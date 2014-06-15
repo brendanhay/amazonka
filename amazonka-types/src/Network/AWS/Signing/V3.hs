@@ -3,7 +3,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Signing.V4
+-- Module      : Network.AWS.Signing.V3
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,10 +13,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing.V4
+module Network.AWS.Signing.V3
     (
     -- * Types
-      V4
+      V3
     , Meta (..)
     , authorisation
 
@@ -45,58 +45,39 @@ import           Network.HTTP.Client.Lens
 import           Network.HTTP.Types.Header
 import           System.Locale
 
-data V4
+data V3
 
-data instance Meta V4 = Meta
+data instance Meta V3 = Meta
     { _mAlgorithm :: ByteString
-    , _mScope     :: ByteString
-    , _mSigned    :: ByteString
-    , _mCReq      :: ByteString
-    , _mSTS       :: ByteString
     , _mSignature :: ByteString
     }
 
-instance AWSPresigner V4 where
-    presigned s a r rq l e t =
-        out & sgRequest . queryString <>~ auth (out ^. sgMeta)
+instance AWSSigner V3 where
+    signed s a r rq l t = Signed (Meta sig) (rq & rqHeaders <>~ headers)
       where
-        out = finalise Nothing qry s a r rq l t
+        headers = hdr hDate rfc822 : hdr hAMZAuth authorisation : maybeToList token
 
-        -- FIXME: add security token query param
-        qry cs sh =
-              pair "X-AMZ-Algorithm" algorithm
-            . pair "X-AMZ-Credential" cs
-            . pair "X-AMZ-Date" (ISO8601Time l t)
-            . pair "X-AMZ-Expires" e
-            . pair "X-AMZ-SignedHeaders" sh
+        token = (hAMZToken,) . toBS <$> _authToken a
 
-        auth = mappend "&X-AMZ-Signature=" . _mSignature
+        authorisation = "AWS3-HTTPS AWSAccessKeyId="
+            <> _authAccess a
+            <> ", Algorithm=HmacSHA256, Signature="
+            <> Base64.encode (hmacSHA256 (_authSecret a) rfc822)
 
-instance AWSSigner V4 where
-    signed s a r rq l t =
-        out & sgRequest
-            %~ requestHeaders
-            %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
-      where
-        out = finalise (Just "AWS4") (\_ _ -> id) s a r inp l t
+        rfc822 = toBS (RFC822Time t)
 
-        inp = rq & rqHeaders %~ hdrs (maybeToList tok)
-
-        tok = (hAMZToken,) . toBS <$> _authToken a
-
-authorisation :: Meta V4 -> ByteString
-authorisation Meta{..} = BS.concat
-    [ _mAlgorithm
-    , " Credential="
-    , _mScope
-    , ", SignedHeaders="
-    , _mSigned
+authorisation :: AuthEnv -> Meta V3 -> ByteString
+authorisation AuthEnv{..} Meta{..} = BS.concat
+    [ " AWSAccessKeyId="
+    , _authAccess
+    , ", Algorithm="
+    , _mAlgorithm
     , ", Signature="
     , _mSignature
     ]
 
 algorithm :: ByteString
-algorithm = "AWS4-HMAC-SHA256"
+algorithm = "HmacSHA256"
 
 finalise :: Maybe ByteString
          -> (ByteString -> ByteString -> Query -> Query)
@@ -106,7 +87,7 @@ finalise :: Maybe ByteString
          -> Request a
          -> TimeLocale
          -> UTCTime
-         -> Signed a V4
+         -> Signed a V3
 finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
   where
     meta = Meta

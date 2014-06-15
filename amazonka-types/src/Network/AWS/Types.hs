@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -18,20 +19,24 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
+import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (Action)
+import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
-import           Data.Aeson
+import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
 import           Data.Char
 import           Data.Conduit
 import           Data.Default
+import           Data.IORef
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
+import           Data.Typeable
 import           Network.AWS.Data
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
@@ -47,24 +52,51 @@ clientRequest = def
     , Client.checkStatus = \_ _ _ -> Nothing
     }
 
+data Error
+    = Error  String
+    | Nested [Error]
+    deriving (Eq, Show, Typeable)
+
+instance IsString Error where
+    fromString = Error
+
+instance Exception Error
+
+-- FIXME: This has currently been defined only for purposes of
+-- an Applicative instance for the monad transformer. Do the monoid laws hold?
+
+instance Monoid Error where
+    mempty = Nested []
+
+    mappend (Nested a) (Nested b) = Nested (a ++ b)
+    mappend (Nested a) b          = Nested (a ++ [b])
+    mappend a          (Nested b) = Nested (a : b)
+    mappend a          b          = Nested [a, b]
+
+class AWSError e where
+    toError :: e -> Error
+
+instance AWSError Error where
+    toError = id
+
 class AWSService a where
-    type Signer' a :: *
-    type Error'  a :: *
+    type Sg a :: *
+    type Er a :: *
 
     service :: Service a
 
-class AWSService (Service' a) => AWSRequest a where
-    type Service'  a :: *
-    type Response' a :: *
+class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
+    type Sv a :: *
+    type Rs a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
              => a
              -> ClientResponse (ResumableSource m ByteString)
-             -> m (Either (Error' (Service' a)) (Response' a))
+             -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where
-    next :: a -> Response' a -> Maybe a
+    next :: a -> Rs a -> Maybe a
 
 newtype AccessKey = AccessKey ByteString
     deriving (Eq, Show, IsString)
@@ -84,21 +116,29 @@ newtype SecurityToken = SecurityToken ByteString
 instance ToByteString SecurityToken where
     toBS (SecurityToken t) = t
 
-data Auth = Auth
+data AuthEnv = AuthEnv
     { _authAccess :: !AccessKey
     , _authSecret :: !SecretKey
     , _authToken  :: Maybe SecurityToken
     , _authExpiry :: Maybe UTCTime
     }
 
-instance FromJSON Auth where
-    parseJSON = withObject "Auth" $ \o -> Auth
+instance FromJSON AuthEnv where
+    parseJSON = withObject "AuthEnv" $ \o -> AuthEnv
         <$> f AccessKey (o .: "AccessKeyId")
         <*> f SecretKey (o .: "SecretAccessKey")
         <*> fmap (f SecurityToken) (o .:? "Token")
         <*> o .:? "Expiration"
       where
         f g = fmap (g . Text.encodeUtf8)
+
+data Auth
+    = Ref  (IORef AuthEnv)
+    | Auth AuthEnv
+
+withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
+withAuth (Ref  r) f = liftIO (readIORef r) >>= f
+withAuth (Auth e) f = f e
 
 data Endpoint
     = Global

@@ -25,16 +25,17 @@ import Control.Exception
 import Control.Monad.IO.Class
 import Data.String
 import Data.Typeable
+import Network.AWS.Types
 
 -- FIXME: Richer, typed errors
 
-newtype Error = Error String
-    deriving (Eq, Show, Typeable)
+-- newtype Error = Error String
+--     deriving (Eq, Show, Typeable)
 
-instance IsString Error where
-    fromString = Error
+-- instance IsString Error where
+--     fromString = Error
 
-instance Exception Error
+-- instance Exception Error
 
 runIO :: MonadIO m => IO a -> EitherT Error m a
 runIO = fmapLT (fromString . show) . syncIO

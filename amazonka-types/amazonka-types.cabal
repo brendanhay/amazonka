@@ -56,7 +56,6 @@ library
         , base              == 4.7.*
         , base16-bytestring
         , base64-bytestring
-        , byteable
         , bytestring
         , case-insensitive
         , conduit           == 1.1.*
@@ -68,8 +67,10 @@ library
         , http-client-lens
         , http-conduit
         , http-types
-        , lens
+        , lens              == 4.2.*
+        , lifted-async
         , mmorph
+        , monad-control
         , mtl
         , old-locale
         , resourcet         == 1.1.*

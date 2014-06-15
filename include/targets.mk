@@ -1,19 +1,19 @@
-.PHONY: test
+.PHONY: def-test
 
 default: build
 
-build:
+def-build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
-install: cabal.sandbox.config
+def-install: cabal.sandbox.config
 	cabal install $(FLAGS) && \
 	 cabal install $(FLAGS) --only-dependencies --enable-tests
 
-test:
+def-test:
 	cabal configure --enable-tests && \
 	 cabal build
 
-clean:
+def-clean:
 	cabal clean
 
 doc:

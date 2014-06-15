@@ -32,9 +32,10 @@ modelFromPath d f = Model (d </> f) (fst $ break (== '.') f)
 data Type
     = RestXML
     | RestJSON
+    | RestS3
     | JSON
     | Query
-      deriving (Show)
+      deriving (Eq, Show)
 
 instance FromJSON Type where
     parseJSON (String "rest-xml")  = return RestXML
@@ -50,7 +51,7 @@ data Signature
     | V3HTTPS
     | V4
     | S3
-      deriving (Show, Generic)
+      deriving (Eq, Show, Generic)
 
 instance FromJSON Signature where
     parseJSON = ctor lowered
@@ -58,7 +59,7 @@ instance FromJSON Signature where
 data Time
     = RFC822
     | ISO8601
-      deriving (Show, Generic)
+      deriving (Eq, Show, Generic)
 
 instance FromJSON Time where
     parseJSON = ctor lowered
@@ -66,7 +67,7 @@ instance FromJSON Time where
 data Checksum
     = MD5
     | SHA256
-      deriving (Show, Generic)
+      deriving (Eq, Show, Generic)
 
 instance FromJSON Checksum where
     parseJSON = ctor lowered

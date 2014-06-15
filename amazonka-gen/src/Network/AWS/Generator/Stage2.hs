@@ -1,4 +1,7 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Generator.Stage2
@@ -13,13 +16,15 @@
 
 module Network.AWS.Generator.Stage2 where
 
+import qualified Data.HashMap.Strict          as Map
+import           Data.HashMap.Strict          (HashMap)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Data.Text.Lazy.Builder
 import qualified Network.AWS.Generator.Stage1 as Stage1
-import           Network.AWS.Generator.Stage1 hiding (Service)
+import           Network.AWS.Generator.Stage1 hiding (Service, Operation)
 import           Network.AWS.Generator.Types
 import           Text.Shakespeare.Text
 
@@ -31,28 +36,38 @@ class Transform a where
     trans :: Trans a -> a
 
 data Service = Service
-    { namespace :: Module
-    , abbrev    :: Abbrev
+    { type'      :: Type
+    , namespace  :: NS
+    , abbrev     :: Abbrev
+    , operations :: [Operation]
     }
 
 instance Transform Service where
     type Trans Service = Stage1.Service
     trans s = Service
-        { moduleName = trans s
+        { type'      = trans s
+        , namespace  = trans s
         , abbrev     = trans s
+        , operations = trans s
         }
 
-newtype Module = Module { unModule :: Text }
+instance Transform Type where
+    type Trans Type = Stage1.Service
+    trans Stage1.Service{..}
+        | sSignatureVersion == S3 = RestS3
+        | otherwise               = sType
 
-instance Transform Module where
-    type Trans Module = Stage1.Service
-    trans = Module
+newtype NS = NS { unNS :: Text }
+
+instance Transform NS where
+    type Trans NS = Stage1.Service
+    trans = NS
         . mappend "Network.AWS."
         . unAbbrev
         . trans
 
-instance ToText Module where
-    toText = fromText . unModule
+instance ToText NS where
+    toText = fromText . unNS
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
 
@@ -67,6 +82,16 @@ instance Transform Abbrev where
 
 instance ToText Abbrev where
     toText = fromText . unAbbrev
+
+data Operation = Operation
+
+instance Transform [Operation] where
+    type Trans [Operation] = Stage1.Service
+    trans s = map (trans . (s,)) (Map.elems (sOperations s))
+
+instance Transform Operation where
+    type Trans Operation = (Stage1.Service, Stage1.Operation)
+    trans (s, o) = Operation
 
 strip :: Text -> Text -> Text
 strip delim = f Text.stripSuffix . f Text.stripPrefix

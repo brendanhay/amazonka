@@ -13,17 +13,15 @@
 
 module Main (main) where
 
-import Control.Applicative
-import Control.Concurrent
-import Control.Monad
-import Data.List
-import Data.Monoid
-import Data.Traversable    (for)
-import Options.Applicative
-import System.Directory
-import System.Environment
-import System.Exit
-import System.FilePath
+import           Control.Applicative
+import           Control.Monad
+import           Data.List
+import           Data.Monoid
+import qualified Network.AWS.Generator.AST.Boto as Boto
+import           Network.AWS.Generator.Types
+import           Options.Applicative
+import           System.Directory
+import           System.Exit
 
 data Options = Options
     { optDir    :: FilePath
@@ -43,11 +41,6 @@ options = Options
         <> help "Path to a botocore JSON model directory. [required]"
          ))
 
-data Service = Service
-    { svcPath :: FilePath
-    , svcVers :: String
-    } deriving (Show)
-
 services :: [FilePath] -> IO [Service]
 services = fmap concat . mapM svc
   where
@@ -57,11 +50,9 @@ services = fmap concat . mapM svc
             putStrLn ("Directory: " ++ d ++ " does not exist.")
             exitFailure
         fs <- getDirectoryContents d
-        return $ map (mk d) (json fs)
+        return $ map (serviceFromPath d) (json fs)
 
     json = filter (isSuffixOf ".json")
-
-    mk d f = Service (d </> f) (fst $ break (== '.') f)
 
 main :: IO ()
 main = do
@@ -76,4 +67,3 @@ main = do
   where
     pPrefs = prefs showHelpOnError
     pInfo  = info (helper <*> options) fullDesc
-

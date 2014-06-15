@@ -21,7 +21,9 @@ executable amazonka-gen
     ghc-options:       -Wall -threaded
 
     build-depends:
-          base                 == 4.7.*
+          aeson
+        , base                 == 4.7.*
         , directory
         , filepath
         , optparse-applicative == 0.8.*
+        , text

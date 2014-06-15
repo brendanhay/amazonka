@@ -15,6 +15,9 @@ $(TARGETS):
 install: cabal.sandbox.config
 	$(call NESTED,$@)
 
+gen:
+	make -C amazonka-gen $@
+
 clean:
 	-rm -rf dist cabal.sandbox.config .cabal-sandbox
 	$(call NESTED,$@)

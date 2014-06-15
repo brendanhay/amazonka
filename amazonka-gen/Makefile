@@ -1,6 +1,6 @@
 TOP  := ..
 BIN  := dist/build/amazonka-gen/amazonka-gen
-DEPS := vendor/ede vendor/botocore
+DEPS := vendor/botocore
 BOTO := vendor/botocore/botocore/data/aws
 GEN  := $(TOP)/amazonka
 
@@ -43,7 +43,7 @@ MODELS := $(BOTO)/s3
 gen: $(GEN)/src $(GEN)/lib
 
 $(GEN):
-	mkdir -p $@
+	rm -rf $@; mkdir -p $@
 
 $(GEN)/src: $(GEN)
 	cd $(GEN) && ln -fs $(TOP)/amazonka-types/src
@@ -56,13 +56,8 @@ build: def-build
 install: add-sources def-install
 
 clean: def-clean
-	rm -rf $(DEPS) $(GEN)
 
 add-sources: cabal.sandbox.config $(DEPS)
-	cabal sandbox add-source vendor/ede
 
 vendor/botocore:
 	git clone git@github.com:boto/botocore $@
-
-vendor/%:
-	git clone git@github.com:brendanhay/$*.git $@

@@ -30,26 +30,26 @@ import           Text.Shakespeare             (RenderUrl)
 import           Text.Shakespeare.Text
 
 render :: Service -> [(FilePath, Text)]
-render s@Service{..} = service : map operation operations
+render s@Service{..} = service : map operation s2Operations
   where
-    service = (path s,) . layout s $
-        case type' of
+    service = (path s,) . layout s2Namespace $
+        case s2Type of
             RestXML  -> $(textFile "tmpl/service-rest-xml")
             RestJSON -> $(textFile "tmpl/service-rest-json")
             RestS3   -> $(textFile "tmpl/service-s3")
             JSON     -> $(textFile "tmpl/service-json")
             Query    -> $(textFile "tmpl/service-query")
 
-    operation o@Operation{..} = (path o,) . layout s $
-        case type' of
+    operation o@Operation{..} = (path o,) . layout o2Namespace $
+        case s2Type of
             RestXML  -> $(textFile "tmpl/operation-rest-xml")
             RestJSON -> $(textFile "tmpl/operation-rest-json")
             RestS3   -> $(textFile "tmpl/operation-s3")
             JSON     -> $(textFile "tmpl/operation-json")
             Query    -> $(textFile "tmpl/operation-query")
 
-layout :: Service -> (RenderUrl url -> Builder) -> Text
-layout Service{..} content = toLazyText $
+layout :: NS -> (RenderUrl url -> Builder) -> Text
+layout namespace content = toLazyText $
     $(textFileReload "tmpl/_include/layout") renderURL
 
 renderURL :: RenderUrl url
@@ -59,9 +59,10 @@ class ToPath a where
     path :: a -> FilePath
 
 instance ToPath NS where
-    path = Text.unpack
-         . Text.replace "." "/"
-         . unNS
+    path = (<.> "hs") . Text.unpack . Text.intercalate "/" . unNS
 
 instance ToPath Service where
-    path s = path (namespace s) </> "Service" <.> "hs"
+    path = path . s2Namespace
+
+instance ToPath Operation where
+    path = path . o2Namespace

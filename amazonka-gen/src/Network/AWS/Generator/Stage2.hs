@@ -16,10 +16,11 @@
 
 module Network.AWS.Generator.Stage2 where
 
-import qualified Data.HashMap.Strict          as Map
 import           Data.HashMap.Strict          (HashMap)
+import qualified Data.HashMap.Strict          as Map
 import           Data.Maybe
 import           Data.Monoid
+import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Data.Text.Lazy.Builder
@@ -36,38 +37,48 @@ class Transform a where
     trans :: Trans a -> a
 
 data Service = Service
-    { type'      :: Type
-    , namespace  :: NS
-    , abbrev     :: Abbrev
-    , operations :: [Operation]
+    { s2Type       :: Type
+    , s2Namespace  :: NS
+    , s2Abbrev     :: Abbrev
+    , s2Operations :: [Operation]
     }
 
 instance Transform Service where
     type Trans Service = Stage1.Service
-    trans s = Service
-        { type'      = trans s
-        , namespace  = trans s
-        , abbrev     = trans s
-        , operations = trans s
-        }
+    trans s = knot
+      where
+        knot = Service
+            { s2Type       = trans s
+            , s2Namespace  = trans s
+            , s2Abbrev     = trans s
+            , s2Operations = trans (knot, s1Operations s)
+            }
 
 instance Transform Type where
     type Trans Type = Stage1.Service
     trans Stage1.Service{..}
-        | sSignatureVersion == S3 = RestS3
-        | otherwise               = sType
+        | s1SignatureVersion == S3 = RestS3
+        | otherwise                = s1Type
 
-newtype NS = NS { unNS :: Text }
+newtype NS = NS { unNS :: [Text] }
+
+root :: NS -> NS
+root (NS []) = NS []
+root (NS xs) = NS (init xs)
+
+instance IsString NS where
+    fromString = NS . (:[]) . Text.pack
+
+instance Monoid NS where
+    mempty      = NS []
+    mappend a b = NS $ unNS a <> unNS b
 
 instance Transform NS where
     type Trans NS = Stage1.Service
-    trans = NS
-        . mappend "Network.AWS."
-        . unAbbrev
-        . trans
+    trans = NS . (\a -> ["Network", "AWS", unAbbrev a, "Types"]) . trans
 
 instance ToText NS where
-    toText = fromText . unNS
+    toText = fromText . Text.intercalate "." . unNS
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
 
@@ -78,20 +89,23 @@ instance Transform Abbrev where
         . Text.words
         . strip "AWS"
         . strip "Amazon"
-        . sServiceAbbreviation
+        . s1ServiceAbbreviation
 
 instance ToText Abbrev where
     toText = fromText . unAbbrev
 
 data Operation = Operation
+    { o2Name      :: Text
+    , o2Namespace :: NS
+    }
 
 instance Transform [Operation] where
-    type Trans [Operation] = Stage1.Service
-    trans s = map (trans . (s,)) (Map.elems (sOperations s))
+    type Trans [Operation] = (Service, HashMap Text Stage1.Operation)
+    trans (s, m) = map (trans . (s,)) (Map.elems m)
 
 instance Transform Operation where
-    type Trans Operation = (Stage1.Service, Stage1.Operation)
-    trans (s, o) = Operation
+    type Trans Operation = (Service, Stage1.Operation)
+    trans (s, o) = Operation (o1Name o) (root (s2Namespace s) <> NS [o1Name o])
 
 strip :: Text -> Text -> Text
 strip delim = f Text.stripSuffix . f Text.stripPrefix

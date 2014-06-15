@@ -8,4 +8,6 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+module #{namespace} where
+
 ^{content}

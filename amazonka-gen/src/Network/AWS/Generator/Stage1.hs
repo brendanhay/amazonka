@@ -27,9 +27,9 @@ parse :: Model -> IO (Either String Service)
 parse = fmap eitherDecode . LBS.readFile . mPath
 
 data Operation = Operation
-    { oName             :: Text
+    { o1Name             :: Text
 --    , oAlias            :: Maybe Text
-    , oDocumentation    :: Maybe Text
+    , o1Documentation    :: Maybe Text
     -- , oDocumentationUrl :: Maybe Text
     -- , oHttp             :: HTTP
     -- , oInput            :: Maybe Shape
@@ -39,25 +39,25 @@ data Operation = Operation
     } deriving (Show, Generic)
 
 instance FromJSON Operation where
-    parseJSON = field (recase Camel Under . drop 1)
+    parseJSON = field (recase Camel Under . drop 2)
 
 -- From S3:
 data Service = Service
-    { sApiVersion          :: Text
-    , sType                :: Type
-    , sSignatureVersion    :: Signature
-    , sTimestampFormat     :: Time
-    , sChecksumFormat      :: Checksum
-    , sServiceFullName     :: Text
-    , sServiceAbbreviation :: Text
-    , sGlobalEndpoint      :: Maybe Text
-    , sEndpointPrefix      :: Text
-    , sXmlnamespace        :: Text
-    , sDocumentation       :: Maybe Text
-    , sResultWrapped       :: Maybe Bool
-    , sTargetPrefix        :: Maybe Text
-    , sOperations          :: HashMap Text Operation
+    { s1ApiVersion          :: Text
+    , s1Type                :: Type
+    , s1SignatureVersion    :: Signature
+    , s1TimestampFormat     :: Time
+    , s1ChecksumFormat      :: Checksum
+    , s1ServiceFullName     :: Text
+    , s1ServiceAbbreviation :: Text
+    , s1GlobalEndpoint      :: Maybe Text
+    , s1EndpointPrefix      :: Text
+    , s1Xmlnamespace        :: Text
+    , s1Documentation       :: Maybe Text
+    , s1ResultWrapped       :: Maybe Bool
+    , s1TargetPrefix        :: Maybe Text
+    , s1Operations          :: HashMap Text Operation
     } deriving (Show, Generic)
 
 instance FromJSON Service where
-    parseJSON = field (recase Camel Under . drop 1)
+    parseJSON = field (recase Camel Under . drop 2)

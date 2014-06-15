@@ -38,6 +38,7 @@ class Transform a where
 
 data Service = Service
     { s2Type       :: Type
+    , s2Version    :: Text
     , s2Namespace  :: NS
     , s2Abbrev     :: Abbrev
     , s2Operations :: [Operation]
@@ -49,6 +50,7 @@ instance Transform Service where
       where
         knot = Service
             { s2Type       = trans s
+            , s2Version    = s1ApiVersion s
             , s2Namespace  = trans s
             , s2Abbrev     = trans s
             , s2Operations = trans (knot, s1Operations s)
@@ -60,11 +62,10 @@ instance Transform Type where
         | s1SignatureVersion == S3 = RestS3
         | otherwise                = s1Type
 
-newtype NS = NS { unNS :: [Text] }
+data NS = NS { unNS :: [Text] }
 
 root :: NS -> NS
-root (NS []) = NS []
-root (NS xs) = NS (init xs)
+root = NS . reverse . drop 1 . reverse . unNS
 
 instance IsString NS where
     fromString = NS . (:[]) . Text.pack
@@ -75,7 +76,15 @@ instance Monoid NS where
 
 instance Transform NS where
     type Trans NS = Stage1.Service
-    trans = NS . (\a -> ["Network", "AWS", unAbbrev a, "Types"]) . trans
+    trans s = NS . abbrev $ trans s
+      where
+        abbrev a =
+            [ "Network"
+            , "AWS"
+            , unAbbrev a
+            , Text.replace "-" "_" (s1ApiVersion s)
+            , "Types"
+            ]
 
 instance ToText NS where
     toText = fromText . Text.intercalate "." . unNS

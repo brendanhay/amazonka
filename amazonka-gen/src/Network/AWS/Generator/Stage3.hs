@@ -30,8 +30,10 @@ import           Text.Shakespeare             (RenderUrl)
 import           Text.Shakespeare.Text
 
 render :: Service -> [(FilePath, Text)]
-render s@Service{..} = service : map operation s2Operations
+render s@Service{..} = cabal : service : map operation s2Operations
   where
+    cabal = ("amazonka.cabal", toLazyText $ $(textFile "tmpl/cabal") renderURL)
+
     service = (path s,) . layout s2Namespace $
         case s2Type of
             RestXML  -> $(textFile "tmpl/service-rest-xml")
@@ -50,16 +52,19 @@ render s@Service{..} = service : map operation s2Operations
 
 layout :: NS -> (RenderUrl url -> Builder) -> Text
 layout namespace content = toLazyText $
-    $(textFileReload "tmpl/_include/layout") renderURL
+    $(textFile "tmpl/_include/layout") renderURL
 
 renderURL :: RenderUrl url
 renderURL _ _ = ""
+
+base :: FilePath
+base = "lib"
 
 class ToPath a where
     path :: a -> FilePath
 
 instance ToPath NS where
-    path = (<.> "hs") . Text.unpack . Text.intercalate "/" . unNS
+    path (NS xs) = base </> (Text.unpack $ Text.intercalate "/" xs) <.> "hs"
 
 instance ToPath Service where
     path = path . s2Namespace

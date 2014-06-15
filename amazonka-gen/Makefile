@@ -40,10 +40,17 @@ MODELS := $(BOTO)/s3
  # $(BOTO)/support \
  # $(BOTO)/swf
 
-gen: $(GEN)/src $(GEN)/lib
+.PHONY: gen-clean
+
+gen: gen-clean
+	make $(GEN)/src
+	make $(GEN)/lib
+
+gen-clean:
+	rm -rf $(GEN)
 
 $(GEN):
-	rm -rf $@; mkdir -p $@
+	mkdir -p $@
 
 $(GEN)/src: $(GEN)
 	cd $(GEN) && ln -fs $(TOP)/amazonka-types/src
@@ -55,7 +62,7 @@ build: def-build
 
 install: add-sources def-install
 
-clean: def-clean
+clean: def-clean gen-clean
 
 add-sources: cabal.sandbox.config $(DEPS)
 

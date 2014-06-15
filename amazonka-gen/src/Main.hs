@@ -73,7 +73,7 @@ main = do
             Right x -> do
                let xs = Stage3.render (Stage2.transform x)
                forM_ xs $ \(k, v) -> do
-                   let path = optDir </> "lib" </> k
+                   let path = optDir </> k
                    createDirectoryIfMissing True (dropFileName path)
                    LText.writeFile path v
   where

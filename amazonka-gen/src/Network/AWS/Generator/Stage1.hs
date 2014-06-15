@@ -19,7 +19,7 @@ import           Data.Aeson
 import qualified Data.ByteString.Lazy        as LBS
 import           Data.HashMap.Strict         (HashMap)
 import           Data.String.CaseConversion
-import           Data.Text.Lazy              (Text)
+import           Data.Text                   (Text)
 import           GHC.Generics
 import           Network.AWS.Generator.Types
 

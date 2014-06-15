@@ -21,13 +21,12 @@ import           Data.Text.Lazy               (Text)
 import qualified Data.Text.Lazy               as LText
 import           Data.Text.Lazy.Builder
 import qualified Data.Text.Lazy.Encoding      as LText
-import           Network.AWS.Generator.Stage1 as Stage1
-import qualified Network.AWS.Generator.Stage2 as Stage2
+import           Network.AWS.Generator.Stage2
 import           System.FilePath
 import           Text.Shakespeare             (RenderUrl)
 import           Text.Shakespeare.Text
 
---render :: Stage2.Service -> IO ()
+render :: Service -> Text
 render = layout $(textFile "tmpl/module.shakespeare")
 
 -- partial :: a -> Builder

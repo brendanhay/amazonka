@@ -68,7 +68,7 @@ main = do
     forM_ ms $ \m -> do
         r <- Stage1.parse m
         either print
-               (LText.putStrLn . Stage3.render)
+               (LText.putStrLn . Stage3.render . Stage2.transform)
                r
   where
     pPrefs = prefs showHelpOnError

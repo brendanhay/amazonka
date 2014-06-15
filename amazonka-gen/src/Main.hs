@@ -41,16 +41,16 @@ options = Options
         <> help "Path to a botocore JSON model directory. [required]"
          ))
 
-services :: [FilePath] -> IO [Service]
-services = fmap concat . mapM svc
+models :: [FilePath] -> IO [Model]
+models = fmap concat . mapM model
   where
-    svc d = do
+    model d = do
         p  <- doesDirectoryExist d
         unless p $ do
             putStrLn ("Directory: " ++ d ++ " does not exist.")
             exitFailure
         fs <- getDirectoryContents d
-        return $ map (serviceFromPath d) (json fs)
+        return $ map (modelFromPath d) (json fs)
 
     json = filter (isSuffixOf ".json")
 
@@ -60,9 +60,11 @@ main = do
 
     createDirectoryIfMissing True optDir
 
-    ss <- services optModels
+    ms <- models optModels
 
-    mapM_ print ss
+    forM_ ms $ \m -> do
+        r <- Boto.parse m
+        print r
 
   where
     pPrefs = prefs showHelpOnError

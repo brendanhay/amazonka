@@ -23,7 +23,9 @@ executable amazonka-gen
     build-depends:
           aeson
         , base                 == 4.7.*
+        , bytestring
         , directory
         , filepath
         , optparse-applicative == 0.8.*
         , text
+        , unordered-containers

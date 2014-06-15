@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Network.AWS.Generator.AST.Boto
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,15 +15,17 @@
 
 module Network.AWS.Generator.AST.Boto where
 
-import Control.Applicative
-import Control.Monad
-import Data.Aeson
-import Data.Aeson.Types
-import Data.Char
-import Data.String.Conversion
-import Data.Text                   (Text)
-import GHC.Generics
-import Network.AWS.Generator.Types
+import           Data.Aeson
+import           Data.Aeson.Types
+import qualified Data.ByteString.Lazy        as LBS
+import           Data.HashMap.Strict         (HashMap)
+import           Data.String.Conversion
+import           Data.Text                   (Text)
+import           GHC.Generics
+import           Network.AWS.Generator.Types
+
+parse :: Model -> IO (Either String Service)
+parse = fmap eitherDecode . LBS.readFile . mPath
 
 data Type
     = RestXML
@@ -37,7 +40,7 @@ instance FromJSON Type where
     parseJSON (String "json")      = return JSON
     parseJSON (String "query")     = return Query
 
-    parseJSON o = fail $ "Unable to generic Type from: " ++ show o
+    parseJSON o = fail $ "Unable to ctor Type from: " ++ show o
 
 data Signature
     = V2
@@ -48,42 +51,71 @@ data Signature
       deriving (Show, Generic)
 
 instance FromJSON Signature where
-    parseJSON = generic lowered
+    parseJSON = ctor lowered
 
 data Time
     = RFC822
+    | ISO8601
       deriving (Show, Generic)
 
 instance FromJSON Time where
-    parseJSON = generic lowered
+    parseJSON = ctor lowered
 
 data Checksum
     = MD5
+    | SHA256
       deriving (Show, Generic)
 
 instance FromJSON Checksum where
-    parseJSON = generic lowered
+    parseJSON = ctor lowered
 
--- From S3:
-data BotoService = BotoService
-    { _apiVersion          :: String
-    , _type                :: Type
-    , _signatureVersion    :: Signature
-    , _timestampFormat     :: Time
-    , _checksumFormat      :: Checksum
-    , _serviceFullName     :: Text
-    , _serviceAbbreviation :: Text
-    , _globalEndpoint      :: Text
-    , _endpointPrefix      :: Text
-    , _xmlnamespace        :: Text
-    , _documentation       :: Text
+data Operation = Operation
+    { oName             :: Text
+--    , oAlias            :: Maybe Text
+    , oDocumentation    :: Maybe Text
+    -- , oDocumentationUrl :: Maybe Text
+    -- , oHttp             :: HTTP
+    -- , oInput            :: Maybe Shape
+    -- , oOutput           :: Maybe Shape
+    -- , oErrors           :: [Shape]
+    -- , oPagination       :: Maybe Pagination
     } deriving (Show, Generic)
 
-instance FromJSON BotoService where
-    parseJSON = generic (recase Camel Under . drop 1)
+instance FromJSON Operation where
+    parseJSON = field (recase Camel Under . drop 1)
 
-generic :: (Generic a, GFromJSON (Rep a))
-        => (String -> String)
-        -> Value
-        -> Parser a
-generic f = genericParseJSON $ defaultOptions { constructorTagModifier = f }
+-- From S3:
+data Service = Service
+    { sApiVersion          :: String
+    , sType                :: Type
+    , sSignatureVersion    :: Signature
+    , sTimestampFormat     :: Time
+    , sChecksumFormat      :: Checksum
+    , sServiceFullName     :: Text
+    , sServiceAbbreviation :: Text
+    , sGlobalEndpoint      :: Maybe Text
+    , sEndpointPrefix      :: Text
+    , sXmlnamespace        :: Text
+    , sDocumentation       :: Maybe Text
+    , sResultWrapped       :: Maybe Bool
+    , sTargetPrefix        :: Maybe Text
+    , sOperations          :: HashMap Text Operation
+    } deriving (Show, Generic)
+
+instance FromJSON Service where
+    parseJSON = field (recase Camel Under . drop 1)
+
+field :: (Generic a, GFromJSON (Rep a))
+      => (String -> String)
+      -> Value
+      -> Parser a
+field f = genericParseJSON $ defaultOptions { fieldLabelModifier = f }
+
+ctor :: (Generic a, GFromJSON (Rep a))
+     => (String -> String)
+     -> Value
+     -> Parser a
+ctor f = genericParseJSON $ defaultOptions
+    { constructorTagModifier = f
+    , allNullaryToStringTag  = True
+    }

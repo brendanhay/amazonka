@@ -13,10 +13,10 @@ module Network.AWS.Generator.Types where
 import Data.List
 import System.FilePath
 
-data Service = Service
-    { svcPath :: FilePath
-    , svcVers :: String
+data Model = Model
+    { mPath :: FilePath
+    , mVers :: String
     } deriving (Show)
 
-serviceFromPath :: FilePath -> String -> Service
-serviceFromPath d f = Service (d </> f) (fst $ break (== '.') f)
+modelFromPath :: FilePath -> String -> Model
+modelFromPath d f = Model (d </> f) (fst $ break (== '.') f)

@@ -1,6 +1,6 @@
+{-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Network.AWS.Generator.Stage3
@@ -15,7 +15,10 @@
 
 module Network.AWS.Generator.Stage3 where
 
+import           Control.Applicative
+import           Control.Error
 import           Control.Monad
+import           Data.Aeson
 import           Data.String
 import           Data.String.CaseConversion
 import qualified Data.Text                    as Text
@@ -23,39 +26,67 @@ import           Data.Text.Lazy               (Text)
 import qualified Data.Text.Lazy               as LText
 import           Data.Text.Lazy.Builder
 import qualified Data.Text.Lazy.Encoding      as LText
+import qualified Data.Text.Lazy.IO            as LText
 import           Network.AWS.Generator.Stage2
 import           Network.AWS.Generator.Types
+import           System.Directory
 import           System.FilePath
-import           Text.Shakespeare             (RenderUrl)
-import           Text.Shakespeare.Text
+import           Text.EDE                     (Template)
+import qualified Text.EDE                     as EDE
 
-render :: Service -> [(FilePath, Text)]
-render s@Service{..} = cabal : service : map operation s2Operations
+data Templates = Templates
+    { tmplCabal   :: Template
+    , tmplService :: Type -> (Template, Template)
+    }
+
+templates :: Script Templates
+templates = do
+    !cbl  <- load "tmpl/cabal.ede"
+
+    !rxml <- (,)
+        <$> load "tmpl/service-rest-xml.ede"
+        <*> load "tmpl/operation-rest-xml.ede"
+
+    !rjs  <- (,)
+        <$> load "tmpl/service-rest-json.ede"
+        <*> load "tmpl/operation-rest-json.ede"
+
+    !s3   <- (,)
+        <$> load "tmpl/service-s3.ede"
+        <*> load "tmpl/operation-s3.ede"
+
+    !js   <- (,)
+        <$> load "tmpl/service-json.ede"
+        <*> load "tmpl/operation-json.ede"
+
+    !qry  <- (,)
+        <$> load "tmpl/service-query.ede"
+        <*> load "tmpl/operation-query.ede"
+
+    return $! Templates cbl $ \t ->
+        case t of
+            RestXML  -> rxml
+            RestJSON -> rjs
+            RestS3   -> s3
+            JSON     -> js
+            Query    -> qry
   where
-    cabal = ("amazonka.cabal", toLazyText $ $(textFile "tmpl/cabal") renderURL)
+    load p = scriptIO (EDE.eitherParseFile p) >>= hoistEither
 
-    service = (path s,) . layout s2Namespace $
-        case s2Type of
-            RestXML  -> $(textFile "tmpl/service-rest-xml")
-            RestJSON -> $(textFile "tmpl/service-rest-json")
-            RestS3   -> $(textFile "tmpl/service-s3")
-            JSON     -> $(textFile "tmpl/service-json")
-            Query    -> $(textFile "tmpl/service-query")
+render' :: FilePath -> Template -> Object -> Script ()
+render' p t o = do
+    hs <- hoistEither $ EDE.eitherRender t o
+    scriptIO $ createDirectoryIfMissing True (dropFileName p)
+        >> LText.writeFile p hs
 
-    operation o@Operation{..} = (path o,) . layout o2Namespace $
-        case s2Type of
-            RestXML  -> $(textFile "tmpl/operation-rest-xml")
-            RestJSON -> $(textFile "tmpl/operation-rest-json")
-            RestS3   -> $(textFile "tmpl/operation-s3")
-            JSON     -> $(textFile "tmpl/operation-json")
-            Query    -> $(textFile "tmpl/operation-query")
+render :: FilePath -> [Service] -> Templates -> Script ()
+render dir ss Templates{..} = do
+    -- render' (dir </> path s2Namespace) (fst tmplService)
 
-layout :: NS -> (RenderUrl url -> Builder) -> Text
-layout namespace content = toLazyText $
-    $(textFile "tmpl/_include/layout") renderURL
+    -- forM_ s2Operations $ \o ->
+    --     render' (dir </> path (o2Namespace o)) (snd tmplService)
 
-renderURL :: RenderUrl url
-renderURL _ _ = ""
+    render' (dir </> "amazonka.cabal") tmplCabal $ env (Cabal ss)
 
 base :: FilePath
 base = "lib"

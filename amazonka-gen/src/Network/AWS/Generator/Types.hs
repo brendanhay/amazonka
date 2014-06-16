@@ -35,7 +35,7 @@ data Type
     | RestS3
     | JSON
     | Query
-      deriving (Eq, Show)
+      deriving (Eq, Show, Generic)
 
 instance FromJSON Type where
     parseJSON (String "rest-xml")  = return RestXML
@@ -44,6 +44,9 @@ instance FromJSON Type where
     parseJSON (String "query")     = return Query
 
     parseJSON o = fail $ "Unable to ctor Type from: " ++ show o
+
+instance ToJSON Type where
+    toJSON = genericToJSON $ defaultOptions { fieldLabelModifier = lowered }
 
 data Signature
     = V2

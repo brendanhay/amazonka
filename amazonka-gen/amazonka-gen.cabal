@@ -25,8 +25,9 @@ executable amazonka-gen
         , base                 == 4.7.*
         , bytestring
         , directory
+        , ede
+        , errors
         , filepath
         , optparse-applicative == 0.8.*
-        , shakespeare
         , text
         , unordered-containers

@@ -1,6 +1,6 @@
 TOP  := ..
 BIN  := dist/build/amazonka-gen/amazonka-gen
-DEPS := vendor/botocore
+DEPS := vendor/botocore vendor/ede
 BOTO := vendor/botocore/botocore/data/aws
 GEN  := $(TOP)/amazonka
 
@@ -65,6 +65,10 @@ install: add-sources def-install
 clean: def-clean gen-clean
 
 add-sources: cabal.sandbox.config $(DEPS)
+	cabal sandbox add-source vendor/ede
 
 vendor/botocore:
 	git clone git@github.com:boto/botocore $@
+
+vendor/%:
+	git clone git@github.com:brendanhay/$*.git $@

@@ -14,6 +14,7 @@
 module Main (main) where
 
 import           Control.Applicative
+import           Control.Error
 import           Control.Monad
 import           Data.List
 import           Data.Monoid
@@ -66,16 +67,12 @@ main = do
 
     ms <- models optModels
 
-    forM_ ms $ \m -> do
-        r <- Stage1.parse m
-        case r of
-            Left e  -> print e
-            Right x -> do
-               let xs = Stage3.render (Stage2.transform x)
-               forM_ xs $ \(k, v) -> do
-                   let path = optDir </> k
-                   createDirectoryIfMissing True (dropFileName path)
-                   LText.writeFile path v
+    runScript $ do
+        ts <- Stage3.templates
+        ss <- mapM (Stage1.parse) ms
+
+        Stage3.render optDir (map Stage2.transform ss) ts
+
   where
     pPrefs = prefs showHelpOnError
     pInfo  = info (helper <*> options) fullDesc

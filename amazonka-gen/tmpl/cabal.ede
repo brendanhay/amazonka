@@ -27,7 +27,20 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+  {% for service in modules %}
+        -- * {{ service.value.abbrev }}
+        -- ** {{ service.value.version }}
+    {% for module in service.value.modules %}
+       {% if service.first && module.first %}
+         {{ module.value }}
+       {% else %}
+       , {{ module.value }}
+       {% endif %}
+       {% if module.last %}
 
+       {% endif %}
+    {% endfor %}
+  {% endfor %}
     other-modules:
 
     build-depends:

@@ -15,6 +15,7 @@
 
 module Network.AWS.Generator.Stage1 where
 
+import           Control.Error
 import           Data.Aeson
 import qualified Data.ByteString.Lazy        as LBS
 import           Data.HashMap.Strict         (HashMap)
@@ -23,8 +24,10 @@ import           Data.Text                   (Text)
 import           GHC.Generics
 import           Network.AWS.Generator.Types
 
-parse :: Model -> IO (Either String Service)
-parse = fmap eitherDecode . LBS.readFile . mPath
+parse :: Model -> Script Service
+parse m = do
+    r <- fmapLT show . syncIO . LBS.readFile $ mPath m
+    hoistEither (eitherDecode r)
 
 data Operation = Operation
     { o1Name             :: Text
@@ -46,8 +49,8 @@ data Service = Service
     { s1ApiVersion          :: Text
     , s1Type                :: Type
     , s1SignatureVersion    :: Signature
-    , s1TimestampFormat     :: Time
-    , s1ChecksumFormat      :: Checksum
+    , s1TimestampFormat     :: Maybe Time
+    , s1ChecksumFormat      :: Maybe Checksum
     , s1ServiceFullName     :: Text
     , s1ServiceAbbreviation :: Text
     , s1GlobalEndpoint      :: Maybe Text

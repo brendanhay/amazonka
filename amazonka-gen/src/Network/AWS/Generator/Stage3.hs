@@ -19,6 +19,10 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Monad
 import           Data.Aeson
+import qualified Data.Foldable                as Fold
+import           Data.HashMap.Strict          (HashMap)
+import qualified Data.HashMap.Strict          as Map
+import           Data.Monoid
 import           Data.String
 import           Data.String.CaseConversion
 import qualified Data.Text                    as Text
@@ -27,12 +31,14 @@ import qualified Data.Text.Lazy               as LText
 import           Data.Text.Lazy.Builder
 import qualified Data.Text.Lazy.Encoding      as LText
 import qualified Data.Text.Lazy.IO            as LText
+import           Data.Text.Util
 import           Network.AWS.Generator.Stage2
 import           Network.AWS.Generator.Types
 import           System.Directory
 import           System.FilePath
 import           Text.EDE                     (Template)
 import qualified Text.EDE                     as EDE
+import           Text.EDE.Filters
 
 data Templates = Templates
     { tmplCabal   :: Template
@@ -73,12 +79,6 @@ templates = do
   where
     load p = scriptIO (EDE.eitherParseFile p) >>= hoistEither
 
-render' :: FilePath -> Template -> Object -> Script ()
-render' p t o = do
-    hs <- hoistEither $ EDE.eitherRender t o
-    scriptIO $ createDirectoryIfMissing True (dropFileName p)
-        >> LText.writeFile p hs
-
 render :: FilePath -> [Service] -> Templates -> Script ()
 render dir ss Templates{..} = do
     forM_ ss $ \s@Service{..} -> do
@@ -90,6 +90,17 @@ render dir ss Templates{..} = do
             render' (dir </> path o2Namespace) oper (env o)
 
     render' (dir </> "amazonka.cabal") tmplCabal $ env (Cabal ss)
+
+render' :: FilePath -> Template -> Object -> Script ()
+render' p t o = do
+    hs <- hoistEither $ EDE.eitherRenderWith filters t o
+    scriptIO $ createDirectoryIfMissing True (dropFileName p)
+        >> LText.writeFile p hs
+
+filters = defaultFilters <> Map.fromList
+    (Fold.foldl' (flip padN) [] [1..20])
+  where
+    padN n = (("pad" <> Text.pack (show n), Fun TText TText (pad n)) :)
 
 base :: FilePath
 base = "lib"

@@ -57,7 +57,9 @@ data Signature
       deriving (Eq, Show, Generic)
 
 instance FromJSON Signature where
-    parseJSON = ctor lowered
+    parseJSON = fromCtor lowered
+
+instance ToJSON Signature
 
 data Time
     = RFC822
@@ -65,7 +67,7 @@ data Time
       deriving (Eq, Show, Generic)
 
 instance FromJSON Time where
-    parseJSON = ctor lowered
+    parseJSON = fromCtor lowered
 
 data Checksum
     = MD5
@@ -73,19 +75,25 @@ data Checksum
       deriving (Eq, Show, Generic)
 
 instance FromJSON Checksum where
-    parseJSON = ctor lowered
+    parseJSON = fromCtor lowered
 
-field :: (Generic a, GFromJSON (Rep a))
-      => (String -> String)
-      -> Value
-      -> Parser a
-field f = genericParseJSON $ defaultOptions { fieldLabelModifier = f }
+fromField :: (Generic a, GFromJSON (Rep a))
+          => (String -> String)
+          -> Value
+          -> Parser a
+fromField f = genericParseJSON $ defaultOptions { fieldLabelModifier = f }
 
-ctor :: (Generic a, GFromJSON (Rep a))
-     => (String -> String)
-     -> Value
-     -> Parser a
-ctor f = genericParseJSON $ defaultOptions
+fromCtor :: (Generic a, GFromJSON (Rep a))
+         => (String -> String)
+         -> Value
+         -> Parser a
+fromCtor f = genericParseJSON $ defaultOptions
     { constructorTagModifier = f
     , allNullaryToStringTag  = True
     }
+
+toField :: (Generic a, GToJSON (Rep a))
+        => (String -> String)
+        -> a
+        -> Value
+toField f = genericToJSON $ defaultOptions { fieldLabelModifier = f }

@@ -31,7 +31,7 @@ parse m = do
 
 data Operation = Operation
     { o1Name             :: Text
---    , oAlias            :: Maybe Text
+    , o1Alias            :: Maybe Text
     , o1Documentation    :: Maybe Text
     -- , oDocumentationUrl :: Maybe Text
     -- , oHttp             :: HTTP
@@ -42,7 +42,7 @@ data Operation = Operation
     } deriving (Show, Generic)
 
 instance FromJSON Operation where
-    parseJSON = field (recase Camel Under . drop 2)
+    parseJSON = fromField (recase Camel Under . drop 2)
 
 -- From S3:
 data Service = Service
@@ -63,4 +63,4 @@ data Service = Service
     } deriving (Show, Generic)
 
 instance FromJSON Service where
-    parseJSON = field (recase Camel Under . drop 2)
+    parseJSON = fromField (recase Camel Under . drop 2)

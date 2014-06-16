@@ -29,5 +29,6 @@ executable amazonka-gen
         , errors
         , filepath
         , optparse-applicative == 0.8.*
+        , semigroups
         , text
         , unordered-containers

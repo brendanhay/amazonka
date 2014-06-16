@@ -23,12 +23,15 @@ import           Data.Aeson.Types
 import           Data.HashMap.Strict          (HashMap)
 import qualified Data.HashMap.Strict          as Map
 import           Data.List
+import           Data.List.NonEmpty           (NonEmpty(..))
+import qualified Data.List.NonEmpty           as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
 import           Data.String
 import           Data.String.CaseConversion
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
+import           Data.Text.Util
 import           GHC.Generics
 import qualified Network.AWS.Generator.Stage1 as Stage1
 import           Network.AWS.Generator.Stage1 hiding (Service, Operation)
@@ -42,12 +45,40 @@ class Transform a where
     type T a :: *
     trans :: T a -> a
 
+instance Transform Type where
+    type T Type = Stage1.Service
+    trans Stage1.Service{..}
+        | s1SignatureVersion == S3 = RestS3
+        | otherwise                = s1Type
+
+instance Transform Signature where
+    type T Signature = Stage1.Service
+    trans Stage1.Service{..}
+        | s1SignatureVersion == S3 = V4
+        | otherwise                = s1SignatureVersion
+
+newtype Doc = Doc { unDoc :: NonEmpty Text }
+    deriving (Eq)
+
+wrapDoc :: Maybe Text -> Doc
+wrapDoc (Just x) = Doc (x :| [])
+wrapDoc Nothing  = Doc ("FIXME: Pending" :| [])
+
+instance ToJSON Doc where
+    toJSON (Doc (x :| xs)) = toJSON $
+        "-- | " <> f (normalise x) <> f (concatMap normalise xs)
+      where
+        f = Text.intercalate "\n-- "
+
 data Service = Service
-    { s2Type       :: Type
-    , s2Version    :: Text
-    , s2Namespace  :: NS
-    , s2Abbrev     :: Abbrev
-    , s2Operations :: [Operation]
+    { s2Type          :: Type
+    , s2Version       :: Text
+    , s2Error         :: Text
+    , s2Signature     :: Signature
+    , s2Namespace     :: NS
+    , s2Abbrev        :: Abbrev
+    , s2Documentation :: Doc
+    , s2Operations    :: [Operation]
     } deriving (Eq, Generic)
 
 instance Ord Service where
@@ -61,23 +92,18 @@ instance Transform Service where
     trans s = knot
       where
         knot = Service
-            { s2Type       = trans s
-            , s2Version    = s1ApiVersion s
-            , s2Namespace  = trans s
-            , s2Abbrev     = trans s
-            , s2Operations = trans (knot, s1Operations s)
+            { s2Type          = trans s
+            , s2Version       = s1ApiVersion s
+            , s2Error         = unAbbrev (s2Abbrev knot) <> "Error"
+            , s2Signature     = trans s
+            , s2Namespace     = trans s
+            , s2Abbrev        = trans s
+            , s2Documentation = wrapDoc (s1Documentation s)
+            , s2Operations    = trans (knot, s1Operations s)
             }
 
 instance ToJSON Service where
-    toJSON = genericToJSON $ defaultOptions
-        { fieldLabelModifier = recase Camel Under . drop 2
-        }
-
-instance Transform Type where
-    type T Type = Stage1.Service
-    trans Stage1.Service{..}
-        | s1SignatureVersion == S3 = RestS3
-        | otherwise                = s1Type
+    toJSON = toField (recase Camel Under . drop 2)
 
 data NS = NS { unNS :: [Text] }
     deriving (Eq, Ord)
@@ -123,9 +149,12 @@ instance ToJSON Abbrev where
     toJSON = toJSON . unAbbrev
 
 data Operation = Operation
-    { o2Name      :: Text
-    , o2Namespace :: NS
-    } deriving (Eq)
+    { o2Name          :: Text
+    , o2Alias        :: Maybe Text
+    , o2Namespace     :: NS
+    , o2Modules       :: [NS]
+    , o2Documentation :: Doc
+    } deriving (Eq, Generic)
 
 instance Transform [Operation] where
     type T [Operation] = (Service, HashMap Text Stage1.Operation)
@@ -134,12 +163,15 @@ instance Transform [Operation] where
 instance Transform Operation where
     type T Operation = (Service, Stage1.Operation)
     trans (s, o) = Operation
-        { o2Name      = o1Name o
-        , o2Namespace = root (s2Namespace s) <> NS [o1Name o]
+        { o2Name          = o1Name o
+        , o2Alias         = o1Alias o
+        , o2Namespace     = root (s2Namespace s) <> NS [o1Name o]
+        , o2Modules       = [s2Namespace s]
+        , o2Documentation = wrapDoc (o1Documentation o)
         }
 
 instance ToJSON Operation where
-    toJSON _ = Null
+    toJSON = toField (recase Camel Under . drop 2)
 
 newtype Cabal = Cabal [Service]
 
@@ -156,8 +188,3 @@ env :: ToJSON a => a -> Object
 env x = case toJSON x of
     Object o -> o
     e        -> error ("Failed to extract JSON Object from: " ++ show e)
-
-strip :: Text -> Text -> Text
-strip delim = f Text.stripSuffix . f Text.stripPrefix
-  where
-    f g x = fromMaybe x $ g delim x

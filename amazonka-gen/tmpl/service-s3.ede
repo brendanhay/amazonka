@@ -1,0 +1,19 @@
+{% include "_include/license.ede" with namespace %}
+
+{{ documentation }}
+module {{ namespace }} where
+
+import Network.AWS.Signing.{{ signature }}
+import Network.AWS.Types
+
+data {{ error }} = {{ error }}
+    deriving (Eq, Show)
+
+instance AWSError {{ error }} where
+    toError _ = Nested []
+
+data {{ abbrev }}
+
+instance AWSService {{ abbrev }} where
+    type Sg {{ abbrev }} = {{ signature }}
+    type Er {{ abbrev }} = {{ error }}

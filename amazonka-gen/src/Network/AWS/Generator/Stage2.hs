@@ -153,10 +153,9 @@ instance ToJSON Cabal where
             ]
 
 env :: ToJSON a => a -> Object
-env x =
-    case toJSON x of
-        Object o -> o
-        e        -> error ("Failed to extract JSON Object from: " ++ show e)
+env x = case toJSON x of
+    Object o -> o
+    e        -> error ("Failed to extract JSON Object from: " ++ show e)
 
 strip :: Text -> Text -> Text
 strip delim = f Text.stripSuffix . f Text.stripPrefix

@@ -81,10 +81,13 @@ render' p t o = do
 
 render :: FilePath -> [Service] -> Templates -> Script ()
 render dir ss Templates{..} = do
-    -- render' (dir </> path s2Namespace) (fst tmplService)
+    forM_ ss $ \s@Service{..} -> do
+        let (svc, oper) = tmplService s2Type
 
-    -- forM_ s2Operations $ \o ->
-    --     render' (dir </> path (o2Namespace o)) (snd tmplService)
+        render' (dir </> path s2Namespace) svc (env s)
+
+        forM_ s2Operations $ \o@Operation{..} ->
+            render' (dir </> path o2Namespace) oper (env o)
 
     render' (dir </> "amazonka.cabal") tmplCabal $ env (Cabal ss)
 

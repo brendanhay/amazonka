@@ -5,8 +5,8 @@
     , {{ field.value.name }} :: {{ field.value.type }}
   {% endif %}
   {% if field.last %}
-    } deriving (Generic)
+    } deriving (Show, Generic)
   {% endif %}
 {% else %}
-    deriving (Generic)
+    deriving (Show, Generic)
 {% endfor %}

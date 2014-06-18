@@ -236,7 +236,7 @@ data HTTP = HTTP
     } deriving (Eq, Show, Generic)
 
 instance FromJSON HTTP where
-    parseJSON (Object o) = do
+    parseJSON = withObject "HTTP" $ \o -> do
         u <- o .: "uri"
         m <- o .: "method"
         return $ HTTP (Text.toLower m) (uri u) (query u)
@@ -262,22 +262,18 @@ instance FromJSON HTTP where
                 brk | '=' <- Text.last l = (Text.init $ Text.tail l, m)
                     | otherwise          = (Text.tail l, "")
 
-    parseJSON _ =
-        fail "Unable to parse HTTP from Operation."
-
 instance ToJSON HTTP where
     toJSON = toField (recase Camel Under . drop 1)
 
 data Part
-    = T !Text
-    | I !Text
+    = T Text
+    | I Text
       deriving (Eq, Show)
 
 instance ToJSON Part where
-    toJSON p =
-        case p of
-            T t -> f "T" t
-            I i -> f "I" i
+    toJSON p = case p of
+        T t -> f "T" t
+        I i -> f "I" i
       where
         f k v = object
             [ "type"  .= (k :: Text)

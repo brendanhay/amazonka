@@ -1,0 +1,37 @@
+{% case scope.http.uri | listLength %}
+{% when 0 %}
+instance ToPath {{ scope.name }}
+{% when 1 %}
+instance ToPath {{ scope.name }} where
+  {% for part in scope.http.uri %}
+    {% case part.value.type %}
+    {% when "I" %}
+    toPath {{ scope.name }}{..} = {{ part.value.value }}
+    {% when "T" %}
+    toPath = const "{{ part.value.value }}"
+    {% endcase %}
+  {% endfor %}
+{% else %}
+instance ToPath {{ scope.name }} where
+    toPath {{ scope.name }}{..} = Text.concat
+  {% for part in scope.http.uri %}
+    {% if part.first %}
+      {% case part.value.type %}
+      {% when "I" %}
+        [ toText {{ part.value.value }}
+      {% when "T" %}
+        [ "{{ part.value.value }}"
+      {% endcase %}
+    {% else %}
+      {% case part.value.type %}
+      {% when "I" %}
+        , toText {{ part.value.value }}
+      {% when "T" %}
+        , "{{ part.value.value }}"
+          {% endcase %}
+    {% endif %}
+  {% endfor %}
+  {% if scope.http.uri | listLength > 0 %}
+        ]
+  {% endif %}
+{% endcase %}

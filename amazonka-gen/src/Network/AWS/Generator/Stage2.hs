@@ -18,6 +18,7 @@
 
 module Network.AWS.Generator.Stage2 where
 
+import           Control.Arrow
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.HashMap.Strict          (HashMap)
@@ -184,21 +185,29 @@ data Field = Field
     } deriving (Eq, Ord, Generic)
 
 instance Transform [Field] where
-    type T [Field] = Stage1.Shape
+    type T [Field] = (Text, Stage1.Shape)
 
-    trans s@SStruct{} = sort . map f . Map.toList $ sFields s
+    trans (p, s@SStruct{}) = sort . map f . Map.toList $ sFields s
       where
-        f (k, v) = Field (p k) (sRequired v) (trans v) (trans $ sDocumentation v)
-
-        p = mappend (prefix (sName s))
+        f (k, v) =
+            Field (p <> k) (sRequired v) (trans v) (trans $ sDocumentation v)
 
     trans _ = error "Unable to transform fields from non-structure."
 
 instance ToJSON Field where
     toJSON = toField (recase Camel Under . drop 2)
 
+instance Transform HTTP where
+    type T HTTP = (Text, HTTP)
+
+    trans (p, h) = h { hUri = map f (hUri h) }
+      where
+        f (I t) = I (p <> t)
+        f x     = x
+
 data Request = Request
     { rq2Name   :: Text
+    , rq2Http   :: HTTP
     , rq2Fields :: [Field]
     } deriving (Eq, Generic)
 
@@ -206,9 +215,11 @@ instance Transform Request where
     type T Request = Stage1.Operation
 
     trans o = case o1Input o of
-        Nothing -> Request name mempty
-        Just x  -> Request name (trans x)
+        Nothing -> Request name http mempty
+        Just x  -> Request name http (trans (pre, x))
       where
+        http = trans (pre , o1Http o)
+        pre  = prefix name <> "r"
         name = o1Name o
 
 instance ToJSON Request where
@@ -224,7 +235,9 @@ instance Transform Response where
 
     trans o = case o1Output o of
         Nothing -> Response (o1Name o <> "Response") mempty
-        Just x  -> Response (sName x) (trans x)
+        Just x  -> Response (sName x) (trans (pre, x))
+      where
+        pre = prefix (o1Name o) <> "rs"
 
 instance ToJSON Response where
     toJSON = toField (recase Camel Under . drop 3)
@@ -260,7 +273,8 @@ instance Transform Operation where
         }
       where
         modules = sort
-            [ "Network.AWS.Types"
+            [ "Network.AWS.Data"
+            , "Network.AWS.Types"
             , s2Namespace s
             , fromString $ "Network.AWS.Request." ++ show (s2Type s)
             ]

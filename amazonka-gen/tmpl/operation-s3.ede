@@ -10,7 +10,10 @@ import {{ import.value }}
 data {{ request.name }} = {{ request.name }}
 {% include "_include/record.ede" with request.fields %}
 
+{% include "_include/path.ede" with request %}
+
 data {{ response.name }} = {{ response.name }}
+{% include "_include/record.ede" with response.fields %}
 
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}

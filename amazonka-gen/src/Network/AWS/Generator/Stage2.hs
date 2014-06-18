@@ -250,11 +250,11 @@ instance Transform HTTP where
         g = second (fmap (p <>))
 
 data Request = Request
-    { rq2Name    :: Text
-    , rq2Http    :: HTTP
-    , rq2Fields  :: [Field]
-    , rq2Headers :: [Field]
-    , rq2Payload :: Maybe Field
+    { rq2Name     :: Text
+    , rq2Http     :: HTTP
+    , rq2Fields   :: [Field]
+    , rq2Headers  :: [Field]
+    , rq2Payload  :: Maybe Field
     } deriving (Eq, Generic)
 
 instance Transform Request where

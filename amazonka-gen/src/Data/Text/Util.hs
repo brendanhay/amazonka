@@ -12,10 +12,14 @@
 
 module Data.Text.Util where
 
+import           Data.Char
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text        (Text)
-import qualified Data.Text        as Text
+import           Data.Text   (Text)
+import qualified Data.Text   as Text
+
+prefix :: Text -> Text
+prefix = Text.toLower . Text.filter isUpper
 
 pad :: Int -> Text -> Text
 pad n = (<> Text.replicate n " ")

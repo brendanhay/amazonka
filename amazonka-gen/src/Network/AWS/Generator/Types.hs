@@ -29,7 +29,7 @@ data Model = Model
 modelFromPath :: FilePath -> String -> Model
 modelFromPath d f = Model (d </> f) (fst $ break (== '.') f)
 
-data Type
+data ServiceType
     = RestXML
     | RestJSON
     | RestS3
@@ -37,7 +37,7 @@ data Type
     | Query
       deriving (Eq, Show, Generic)
 
-instance FromJSON Type where
+instance FromJSON ServiceType where
     parseJSON (String "rest-xml")  = return RestXML
     parseJSON (String "rest-json") = return RestJSON
     parseJSON (String "json")      = return JSON
@@ -45,7 +45,7 @@ instance FromJSON Type where
 
     parseJSON o = fail $ "Unable to ctor Type from: " ++ show o
 
-instance ToJSON Type where
+instance ToJSON ServiceType where
     toJSON = genericToJSON $ defaultOptions { fieldLabelModifier = lowered }
 
 data Signature
@@ -97,3 +97,12 @@ toField :: (Generic a, GToJSON (Rep a))
         -> a
         -> Value
 toField f = genericToJSON $ defaultOptions { fieldLabelModifier = f }
+
+toCtor :: (Generic a, GToJSON (Rep a))
+       => (String -> String)
+       -> a
+       -> Value
+toCtor f = genericToJSON $ defaultOptions
+    { constructorTagModifier = f
+    , allNullaryToStringTag  = True
+    }

@@ -45,24 +45,28 @@ class Transform a where
     type T a :: *
     trans :: T a -> a
 
-instance Transform Type where
-    type T Type = Stage1.Service
+instance Transform ServiceType where
+    type T ServiceType = Stage1.Service
+
     trans Stage1.Service{..}
         | s1SignatureVersion == S3 = RestS3
         | otherwise                = s1Type
 
 instance Transform Signature where
     type T Signature = Stage1.Service
+
     trans Stage1.Service{..}
         | s1SignatureVersion == S3 = V4
         | otherwise                = s1SignatureVersion
 
 newtype Doc = Doc { unDoc :: NonEmpty Text }
-    deriving (Eq)
+    deriving (Eq, Ord)
 
-wrapDoc :: Maybe Text -> Doc
-wrapDoc (Just x) = Doc (x :| [])
-wrapDoc Nothing  = Doc ("FIXME: Pending" :| [])
+instance Transform Doc where
+    type T Doc = Maybe Text
+
+    trans (Just x) = Doc (x :| [])
+    trans Nothing  = Doc ("FIXME: Pending" :| [])
 
 instance ToJSON Doc where
     toJSON (Doc (x :| xs)) = toJSON $
@@ -71,7 +75,7 @@ instance ToJSON Doc where
         f = Text.intercalate "\n-- "
 
 data Service = Service
-    { s2Type          :: Type
+    { s2Type          :: ServiceType
     , s2Version       :: Text
     , s2Error         :: Text
     , s2Signature     :: Signature
@@ -89,6 +93,7 @@ instance Ord Service where
 
 instance Transform Service where
     type T Service = Stage1.Service
+
     trans s = knot
       where
         knot = Service
@@ -98,7 +103,7 @@ instance Transform Service where
             , s2Signature     = trans s
             , s2Namespace     = trans s
             , s2Abbrev        = trans s
-            , s2Documentation = wrapDoc (s1Documentation s)
+            , s2Documentation = trans (s1Documentation s)
             , s2Operations    = trans (knot, s1Operations s)
             }
 
@@ -120,6 +125,7 @@ instance Monoid NS where
 
 instance Transform NS where
     type T NS = Stage1.Service
+
     trans s = NS . abbrev $ trans s
       where
         abbrev a =
@@ -148,27 +154,116 @@ instance Transform Abbrev where
 instance ToJSON Abbrev where
     toJSON = toJSON . unAbbrev
 
+data Ann = Ann
+   { anRequired :: !Bool
+   , anMonoid   :: !Bool
+   , anType     :: Text
+   } deriving (Eq, Ord, Generic)
+
+instance Transform Ann where
+    type T Ann = Stage1.Shape
+
+    trans s@SList{} = Ann (sRequired s) True $
+        "[" <> sName s <> "]"
+
+    trans s@SMap{} = Ann (sRequired s) True $
+        "HashMap " <> sName (sKey s) <> " " <> sName (sValue s)
+
+    trans s = Ann (sRequired s) False (sName s)
+
+instance ToJSON Ann where
+    toJSON (Ann True _    t) = toJSON t
+    toJSON (Ann _   True  t) = toJSON t
+    toJSON (Ann _   False t) = toJSON ("Maybe " <> t)
+
+data Field = Field
+    { f2Name          :: Text
+    , f2Required      :: !Bool
+    , f2Type          :: Ann
+    , f2Documentation :: Doc
+    } deriving (Eq, Ord, Generic)
+
+instance Transform [Field] where
+    type T [Field] = Stage1.Shape
+
+    trans s@SStruct{} = sort . map f . Map.toList $ sFields s
+      where
+        f (k, v) = Field (p k) (sRequired v) (trans v) (trans $ sDocumentation v)
+
+        p = mappend (prefix (sName s))
+
+    trans _ = error "Unable to transform fields from non-structure."
+
+instance ToJSON Field where
+    toJSON = toField (recase Camel Under . drop 2)
+
+data Request = Request
+    { rq2Name   :: Text
+    , rq2Fields :: [Field]
+    } deriving (Eq, Generic)
+
+instance Transform Request where
+    type T Request = Stage1.Operation
+
+    trans o = case o1Input o of
+        Nothing -> Request name mempty
+        Just x  -> Request name (trans x)
+      where
+        name = o1Name o
+
+instance ToJSON Request where
+    toJSON = toField (recase Camel Under . drop 3)
+
+data Response = Response
+    { rs2Name   :: Text
+    , rs2Fields :: [Field]
+    } deriving (Eq, Generic)
+
+instance Transform Response where
+    type T Response = Stage1.Operation
+
+    trans o = case o1Output o of
+        Nothing -> Response (o1Name o <> "Response") mempty
+        Just x  -> Response (sName x) (trans x)
+
+instance ToJSON Response where
+    toJSON = toField (recase Camel Under . drop 3)
+
 data Operation = Operation
-    { o2Name          :: Text
-    , o2Alias        :: Maybe Text
+    { o2Service       :: Abbrev
+    , o2Name          :: Text
     , o2Namespace     :: NS
     , o2Modules       :: [NS]
     , o2Documentation :: Doc
+    , o2Http          :: HTTP
+    , o2Request       :: Request
+    , o2Response      :: Response
     } deriving (Eq, Generic)
 
 instance Transform [Operation] where
     type T [Operation] = (Service, HashMap Text Stage1.Operation)
+
     trans (s, m) = map (trans . (s,)) (Map.elems m)
 
 instance Transform Operation where
     type T Operation = (Service, Stage1.Operation)
+
     trans (s, o) = Operation
-        { o2Name          = o1Name o
-        , o2Alias         = o1Alias o
+        { o2Service       = s2Abbrev s
+        , o2Name          = o1Name o
         , o2Namespace     = root (s2Namespace s) <> NS [o1Name o]
-        , o2Modules       = [s2Namespace s]
-        , o2Documentation = wrapDoc (o1Documentation o)
+        , o2Modules       = modules
+        , o2Documentation = trans (o1Documentation o)
+        , o2Http          = o1Http o
+        , o2Request       = trans o
+        , o2Response      = trans o
         }
+      where
+        modules = sort
+            [ "Network.AWS.Types"
+            , s2Namespace s
+            , fromString $ "Network.AWS.Request." ++ show (s2Type s)
+            ]
 
 instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 2)

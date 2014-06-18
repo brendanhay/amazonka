@@ -25,7 +25,7 @@ executable amazonka-gen
         , base                 == 4.7.*
         , bytestring
         , directory
-        , ede
+        , ede                  >= 0.1.5
         , errors
         , filepath
         , optparse-applicative == 0.8.*

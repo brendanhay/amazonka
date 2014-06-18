@@ -3,12 +3,19 @@
 {{ documentation }}
 module {{ namespace }} where
 
-import Network.AWS.Types
 {% for import in modules %}
 import {{ import.value }}
 {% endfor %}
 
-{% if alias /= "" %}
-type {{ alias | pad8 }} = {{ name }}
-type {{ alias }}Response = {{ name }}Response
-{% endif %}
+data {{ request.name }} = {{ request.name }}
+{% include "_include/record.ede" with request.fields %}
+
+data {{ response.name }} = {{ response.name }}
+
+instance AWSRequest {{ request.name }} where
+    type Sv {{ request.name }} = {{ service }}
+    type Rs {{ request.name }} = {{ response.name }}
+
+    request = {{ http.method }}
+
+    response = undefined

@@ -1,0 +1,12 @@
+{% for field in scope %}
+  {% if field.first %}
+    { {{ field.value.name }} :: {{ field.value.type }}
+  {% else %}
+    , {{ field.value.name }} :: {{ field.value.type }}
+  {% endif %}
+  {% if field.last %}
+    } deriving (Generic)
+  {% endif %}
+{% else %}
+    deriving (Generic)
+{% endfor %}

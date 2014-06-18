@@ -1,0 +1,24 @@
+instance ToQuery {{ scope.name }} where
+{% if scope.http.query | mapLength > 0%}
+    toQuery {{ scope.name }}{..} =
+  {% for part in scope.http.query %}
+    {% if part.first %}
+      {% if part.value == "" %}
+        [ "{{ part.key }}"
+      {% else %}
+        [ "{{ part.key }}" =? {{ part.value }}
+      {% endif %}
+    {% else %}
+      {% if part.value == "" %}
+        , "{{ part.key }}"
+      {% else %}
+        , "{{ part.key }}" =? {{ part.value }}
+      {% endif %}
+    {% endif %}
+    {% if part.last %}
+        ]
+    {% endif %}
+  {% endfor %}
+{% else %}
+    toQuery = const mempty
+{% endif %}

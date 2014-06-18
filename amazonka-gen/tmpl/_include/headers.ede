@@ -1,0 +1,14 @@
+instance ToHeaders {{ scope.name }} where
+{% if scope.headers | listLength > 0 %}
+    toHeaders {{ scope.name }}{..} =
+  {% for hdr in scope.headers %}
+    {% if hdr.first %}
+        [ "{{ hdr.value.location_name }}" =: {{ hdr.value.name }}
+    {% else %}
+        , "{{ hdr.value.location_name }}" =: {{ hdr.value.name }}
+    {% endif %}
+  {% endfor %}
+        ]
+{% else %}
+    toHeaders = const mempty
+{% endif %}

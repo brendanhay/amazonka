@@ -79,6 +79,8 @@ data Shape
       , sName          :: Text
       , sRequired      :: !Bool
       , sDocumentation :: Maybe Text
+      , sPayload       :: !Bool
+      , sStreaming     :: !Bool
       }
 
     | SList
@@ -88,6 +90,8 @@ data Shape
       , sName          :: Text
       , sRequired      :: !Bool
       , sDocumentation :: Maybe Text
+      , sPayload       :: !Bool
+      , sStreaming     :: !Bool
       }
 
     | SMap
@@ -96,6 +100,8 @@ data Shape
       , sName          :: Text
       , sRequired      :: !Bool
       , sDocumentation :: Maybe Text
+      , sPayload       :: !Bool
+      , sStreaming     :: !Bool
       }
 
     | SPrim
@@ -108,13 +114,19 @@ data Shape
       , sName          :: Text
       , sRequired      :: !Bool
       , sDocumentation :: Maybe Text
+      , sPayload       :: !Bool
+      , sStreaming     :: !Bool
       }
 
     | SEnum
       { sEnum          :: HashMap Text Text
+      , sLocation      :: Maybe Text
+      , sLocationName  :: Maybe Text
       , sName          :: Text
       , sRequired      :: !Bool
       , sDocumentation :: Maybe Text
+      , sPayload       :: !Bool
+      , sStreaming     :: !Bool
       }
 
       deriving (Eq, Show, Generic)
@@ -126,6 +138,8 @@ instance FromJSON Shape where
             <*> name t o
             <*> o .:? "required" .!= False
             <*> o .:? "documentation"
+            <*> o .:? "payload" .!= False
+            <*> o .:? "streaming" .!= False
       where
         name t o
             | not (Map.member "enum" o)
@@ -166,7 +180,9 @@ instance FromJSON Shape where
                 enum = Map.fromList . map (first str . join (,)) <$> ms
 
             case enum of
-                Just x  -> return (SEnum x)
+                Just x  -> SEnum x
+                    <$> o .:? "location"
+                    <*> o .:? "location_name"
                 Nothing -> SPrim (fromType t)
                     <$> o .:? "location"
                     <*> o .:? "location_name"

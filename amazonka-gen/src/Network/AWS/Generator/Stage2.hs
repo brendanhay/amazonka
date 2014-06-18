@@ -164,13 +164,18 @@ data Ann = Ann
 instance Transform Ann where
     type T Ann = Stage1.Shape
 
-    trans s@SList{} = Ann (sRequired s) True $
+    trans s@SList{} = Ann (required s) True $
         "[" <> sName s <> "]"
 
-    trans s@SMap{} = Ann (sRequired s) True $
+    trans s@SMap{} = Ann (required s) True $
         "HashMap " <> sName (sKey s) <> " " <> sName (sValue s)
 
-    trans s = Ann (sRequired s) False (sName s)
+    trans s
+        | sStreaming s = Ann (required s) True  "RequestBody"
+        | otherwise    = Ann (required s) False (sName s)
+
+required :: Shape -> Bool
+required s = sPayload s || sRequired s
 
 instance ToJSON Ann where
     toJSON (Ann True _    t) = toJSON t
@@ -181,7 +186,11 @@ data Field = Field
     { f2Name          :: Text
     , f2Required      :: !Bool
     , f2Type          :: Ann
+    , f2Location      :: Maybe Text
+    , f2LocationName  :: Maybe Text
     , f2Documentation :: Doc
+    , f2Payload       :: !Bool
+    , f2Streaming     :: !Bool
     } deriving (Eq, Ord, Generic)
 
 instance Transform [Field] where
@@ -189,8 +198,38 @@ instance Transform [Field] where
 
     trans (p, s@SStruct{}) = sort . map f . Map.toList $ sFields s
       where
-        f (k, v) =
-            Field (p <> k) (sRequired v) (trans v) (trans $ sDocumentation v)
+        f (k, v@SPrim{}) = Field
+            { f2Name          = p <> k
+            , f2Required      = sRequired v
+            , f2Type          = trans v
+            , f2Location      = sLocation v
+            , f2LocationName  = sLocationName v
+            , f2Documentation = trans (sDocumentation v)
+            , f2Payload       = sPayload v
+            , f2Streaming     = sStreaming v
+            }
+
+        f (k, v@SEnum{}) = Field
+            { f2Name          = p <> k
+            , f2Required      = sRequired v
+            , f2Type          = trans v
+            , f2Location      = sLocation v
+            , f2LocationName  = sLocationName v
+            , f2Documentation = trans (sDocumentation v)
+            , f2Payload       = sPayload v
+            , f2Streaming     = sStreaming v
+            }
+
+        f (k, v) = Field
+            { f2Name          = p <> k
+            , f2Required      = sRequired v
+            , f2Type          = trans v
+            , f2Location      = Nothing
+            , f2LocationName  = Nothing
+            , f2Documentation = trans (sDocumentation v)
+            , f2Payload       = sPayload v
+            , f2Streaming     = sStreaming v
+            }
 
     trans _ = error "Unable to transform fields from non-structure."
 
@@ -200,23 +239,32 @@ instance ToJSON Field where
 instance Transform HTTP where
     type T HTTP = (Text, HTTP)
 
-    trans (p, h) = h { hUri = map f (hUri h) }
+    trans (p, h) = h
+        { hUri   = map f (hUri h)
+        , hQuery = Map.fromList . map (second (p <>)) $ Map.toList (hQuery h)
+        }
       where
         f (I t) = I (p <> t)
         f x     = x
 
 data Request = Request
-    { rq2Name   :: Text
-    , rq2Http   :: HTTP
-    , rq2Fields :: [Field]
+    { rq2Name    :: Text
+    , rq2Http    :: HTTP
+    , rq2Fields  :: [Field]
+    , rq2Headers :: [Field]
+    , rq2Payload :: Maybe Field
     } deriving (Eq, Generic)
 
 instance Transform Request where
     type T Request = Stage1.Operation
 
     trans o = case o1Input o of
-        Nothing -> Request name http mempty
-        Just x  -> Request name http (trans (pre, x))
+        Nothing -> Request name http mempty mempty Nothing
+        Just x  ->
+            let fs = trans (pre, x)
+                hs = filter (\f -> Just "header" == f2Location f) fs
+                p  = find f2Payload fs
+             in Request name http fs hs p
       where
         http = trans (pre , o1Http o)
         pre  = prefix name <> "r"

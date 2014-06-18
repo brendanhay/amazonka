@@ -12,6 +12,12 @@ data {{ request.name }} = {{ request.name }}
 
 {% include "_include/path.ede" with request %}
 
+{% include "_include/query.ede" with request %}
+
+{% include "_include/headers.ede" with request %}
+
+{% include "_include/body.ede" with request %}
+
 data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}
 

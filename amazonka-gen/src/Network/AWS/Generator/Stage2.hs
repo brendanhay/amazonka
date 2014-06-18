@@ -241,11 +241,13 @@ instance Transform HTTP where
 
     trans (p, h) = h
         { hUri   = map f (hUri h)
-        , hQuery = Map.fromList . map (second (p <>)) $ Map.toList (hQuery h)
+        , hQuery = Map.fromList . map g $ Map.toList (hQuery h)
         }
       where
         f (I t) = I (p <> t)
         f x     = x
+
+        g = second (fmap (p <>))
 
 data Request = Request
     { rq2Name    :: Text

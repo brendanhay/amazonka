@@ -223,9 +223,9 @@ data Prim
 instance Show Prim where
     show p = case p of
         PText       -> "Text"
-        PInteger    -> "!Integer"
-        PDouble     -> "!Double"
-        PBool       -> "!Bool"
+        PInteger    -> "Integer"
+        PDouble     -> "Double"
+        PBool       -> "Bool"
         PByteString -> "ByteString"
         PUTCTime    -> "UTCTime"
 
@@ -248,7 +248,7 @@ fromType t =
 data HTTP = HTTP
     { hMethod :: Text
     , hUri    :: [Part]
-    , hQuery  :: HashMap Text Text
+    , hQuery  :: HashMap Text (Maybe Text)
     } deriving (Eq, Show, Generic)
 
 instance FromJSON HTTP where
@@ -269,17 +269,21 @@ instance FromJSON HTTP where
           where
             go x | Text.null s
                  , Text.null l = []
-                 | Text.null s = [(Text.tail l, "")]
+                 | Text.null s = [(Text.tail l, Nothing)]
                  | otherwise   = brk : go (Text.unsafeTail t)
               where
                 (m, t) = Text.span (/= '}') $ Text.unsafeTail s
                 (l, s) = Text.span (/= '{') x
 
-                brk | '=' <- Text.last l = (Text.init $ Text.tail l, m)
-                    | otherwise          = (Text.tail l, "")
+                brk | '=' <- Text.last l = (Text.init $ Text.tail l, Just m)
+                    | otherwise          = (Text.tail l, Nothing)
 
 instance ToJSON HTTP where
-    toJSON = toField (recase Camel Under . drop 1)
+    toJSON HTTP{..} = object
+        [ "method" .= hMethod
+        , "uri"    .= hUri
+        , "query"  .= Map.filter isJust hQuery
+        ]
 
 data Part
     = T Text

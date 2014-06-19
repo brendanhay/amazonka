@@ -1,8 +1,10 @@
 {% for field in scope %}
   {% if field.first %}
     { {{ field.value.name }} :: {{ field.value.type }}
+{{ field.value.documentation | below66 | indent6 }}
   {% else %}
     , {{ field.value.name }} :: {{ field.value.type }}
+{{ field.value.documentation | below66 | indent6 }}
   {% endif %}
   {% if field.last %}
     } deriving (Show, Generic)

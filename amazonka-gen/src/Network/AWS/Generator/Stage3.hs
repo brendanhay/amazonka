@@ -36,7 +36,7 @@ import           Data.Text.Util
 import           Network.AWS.Generator.Stage2
 import           Network.AWS.Generator.Types
 import           System.Directory
-import           System.FilePath
+import           System.FilePath              hiding (normalise)
 import           Text.EDE                     (Resolver, Template)
 import qualified Text.EDE                     as EDE
 import           Text.EDE.Filters
@@ -105,9 +105,20 @@ render' p t o = do
 
 filters = defaultFilters <> Map.fromList fs
   where
-    fs = Fold.foldl' (flip padN) [] [1..20]
+    fs = funN "pad"    pad         [4, 8]
+      ++ funN "indent" indent      [4, 6, 8]
+      ++ funN "wrap"   (wrap "")   [66, 76, 80]
+      ++ funN "above"  (wrap "| ") [66, 76]
+      ++ funN "below"  (wrap "^ ") [66, 76]
 
-    padN n = (("pad" <> Text.pack (show n), Fun TText TText (pad n)) :)
+    wrap p n t =
+        case normalise n t of
+            []       -> ""
+            (x : xs) -> Text.intercalate "\n" . map ("-- " <>) $ p <> x : xs
+
+    funN k g = Fold.foldl' (f k g) []
+
+    f k g xs n = (k <> Text.pack (show n), Fun TText TText (g n)) : xs
 
 base :: FilePath
 base = "lib"

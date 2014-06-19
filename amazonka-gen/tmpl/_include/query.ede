@@ -3,17 +3,9 @@ instance ToQuery {{ scope.name }} where
     toQuery {{ scope.name }}{..} =
   {% for part in scope.http.query %}
     {% if part.first %}
-      {% if part.value %}
-        [ "{{ part.key }}"
-      {% else %}
         [ "{{ part.key }}" =? {{ part.value }}
-      {% endif %}
     {% else %}
-      {% if part.value %}
-        , "{{ part.key }}"
-      {% else %}
         , "{{ part.key }}" =? {{ part.value }}
-      {% endif %}
     {% endif %}
     {% if part.last %}
         ]

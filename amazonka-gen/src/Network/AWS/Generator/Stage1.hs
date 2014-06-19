@@ -81,6 +81,8 @@ data Shape
       , sDocumentation :: Maybe Text
       , sPayload       :: !Bool
       , sStreaming     :: !Bool
+      , sLocation      :: Maybe Text
+      , sLocationName  :: Maybe Text
       }
 
     | SList
@@ -92,6 +94,8 @@ data Shape
       , sDocumentation :: Maybe Text
       , sPayload       :: !Bool
       , sStreaming     :: !Bool
+      , sLocation      :: Maybe Text
+      , sLocationName  :: Maybe Text
       }
 
     | SMap
@@ -102,12 +106,12 @@ data Shape
       , sDocumentation :: Maybe Text
       , sPayload       :: !Bool
       , sStreaming     :: !Bool
+      , sLocation      :: Maybe Text
+      , sLocationName  :: Maybe Text
       }
 
     | SPrim
       { sPrim          :: !Prim
-      , sLocation      :: Maybe Text
-      , sLocationName  :: Maybe Text
       , sMinLength     :: Maybe Int
       , sMaxLength     :: Maybe Int
       , sPattern       :: Maybe Text
@@ -116,17 +120,19 @@ data Shape
       , sDocumentation :: Maybe Text
       , sPayload       :: !Bool
       , sStreaming     :: !Bool
+      , sLocation      :: Maybe Text
+      , sLocationName  :: Maybe Text
       }
 
     | SEnum
       { sEnum          :: HashMap Text Text
-      , sLocation      :: Maybe Text
-      , sLocationName  :: Maybe Text
       , sName          :: Text
       , sRequired      :: !Bool
       , sDocumentation :: Maybe Text
       , sPayload       :: !Bool
       , sStreaming     :: !Bool
+      , sLocation      :: Maybe Text
+      , sLocationName  :: Maybe Text
       }
 
       deriving (Eq, Show, Generic)
@@ -140,6 +146,8 @@ instance FromJSON Shape where
             <*> o .:? "documentation"
             <*> o .:? "payload" .!= False
             <*> o .:? "streaming" .!= False
+            <*> o .:? "location"
+            <*> o .:? "location_name"
       where
         name t o
             | not (Map.member "enum" o)
@@ -180,13 +188,9 @@ instance FromJSON Shape where
                 enum = Map.fromList . map (first str . join (,)) <$> ms
 
             case enum of
-                Just x  -> SEnum x
-                    <$> o .:? "location"
-                    <*> o .:? "location_name"
+                Just x  -> return (SEnum x)
                 Nothing -> SPrim (fromType t)
-                    <$> o .:? "location"
-                    <*> o .:? "location_name"
-                    <*> o .:? "min_length"
+                    <$> o .:? "min_length"
                     <*> o .:? "max_length"
                     <*> o .:? "pattern"
 

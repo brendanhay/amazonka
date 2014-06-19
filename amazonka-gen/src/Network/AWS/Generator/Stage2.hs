@@ -18,6 +18,7 @@
 
 module Network.AWS.Generator.Stage2 where
 
+import           Control.Applicative
 import           Control.Arrow
 import           Data.Aeson
 import           Data.Aeson.Types
@@ -28,6 +29,7 @@ import           Data.List.NonEmpty           (NonEmpty(..))
 import qualified Data.List.NonEmpty           as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
+import           Data.Ord
 import           Data.String
 import           Data.String.CaseConversion
 import           Data.Text                    (Text)
@@ -70,10 +72,7 @@ instance Transform Doc where
     trans Nothing  = Doc ("FIXME: Pending" :| [])
 
 instance ToJSON Doc where
-    toJSON (Doc (x :| xs)) = toJSON $
-        "-- | " <> f (normalise x) <> f (concatMap normalise xs)
-      where
-        f = Text.intercalate "\n-- "
+    toJSON (Doc (x :| xs)) = toJSON (x <> Text.unwords xs)
 
 data Service = Service
     { s2Type          :: ServiceType
@@ -161,6 +160,13 @@ data Ann = Ann
    , anType     :: Text
    } deriving (Eq, Ord, Generic)
 
+annotate :: Text -> Ann -> Ann
+annotate x a
+    | x `elem` xs = a { anType = x }
+    | otherwise   = a
+  where
+    xs = ["Bucket", "Key"]
+
 instance Transform Ann where
     type T Ann = Stage1.Shape
 
@@ -182,50 +188,54 @@ instance ToJSON Ann where
     toJSON (Ann _   True  t) = toJSON t
     toJSON (Ann _   False t) = toJSON ("Maybe " <> t)
 
+newtype Loc = Loc { unLoc :: Text }
+    deriving (Eq, Generic)
+
+instance Ord Loc where
+    compare a b =
+        case (unLoc a, unLoc b) of
+            (x, y) | x == y    -> EQ
+            ("uri",   _)       -> LT
+            (_,       "uri")   -> GT
+            ("query", _)       -> LT
+            (_,       "query") -> GT
+            _                  -> GT
+
+instance IsString Loc where
+    fromString = Loc . fromString
+
+instance ToJSON Loc where
+    toJSON = toJSON . unLoc
+
 data Field = Field
     { f2Name          :: Text
     , f2Required      :: !Bool
     , f2Type          :: Ann
-    , f2Location      :: Maybe Text
+    , f2Location      :: Maybe Loc
     , f2LocationName  :: Maybe Text
+    , f2Brief         :: Text
     , f2Documentation :: Doc
     , f2Payload       :: !Bool
     , f2Streaming     :: !Bool
-    } deriving (Eq, Ord, Generic)
+    } deriving (Eq, Generic)
+
+instance Ord Field where
+    compare a b
+        | f2Payload a = GT
+        | otherwise   = comparing f2Location a b <> comparing f2Name a b
 
 instance Transform [Field] where
-    type T [Field] = (Text, Stage1.Shape)
+    type T [Field] = (Text, Shape)
 
     trans (p, s@SStruct{}) = sort . map f . Map.toList $ sFields s
       where
-        f (k, v@SPrim{}) = Field
-            { f2Name          = p <> k
-            , f2Required      = sRequired v
-            , f2Type          = trans v
-            , f2Location      = sLocation v
-            , f2LocationName  = sLocationName v
-            , f2Documentation = trans (sDocumentation v)
-            , f2Payload       = sPayload v
-            , f2Streaming     = sStreaming v
-            }
-
-        f (k, v@SEnum{}) = Field
-            { f2Name          = p <> k
-            , f2Required      = sRequired v
-            , f2Type          = trans v
-            , f2Location      = sLocation v
-            , f2LocationName  = sLocationName v
-            , f2Documentation = trans (sDocumentation v)
-            , f2Payload       = sPayload v
-            , f2Streaming     = sStreaming v
-            }
-
         f (k, v) = Field
             { f2Name          = p <> k
-            , f2Required      = sRequired v
-            , f2Type          = trans v
-            , f2Location      = Nothing
-            , f2LocationName  = Nothing
+            , f2Required      = sRequired v || sPayload v
+            , f2Type          = annotate k (trans v)
+            , f2Location      = Loc <$> sLocation v
+            , f2LocationName  = sLocationName v
+            , f2Brief         = k
             , f2Documentation = trans (sDocumentation v)
             , f2Payload       = sPayload v
             , f2Streaming     = sStreaming v
@@ -253,6 +263,7 @@ data Request = Request
     { rq2Name     :: Text
     , rq2Http     :: HTTP
     , rq2Fields   :: [Field]
+    , rq2Required :: [Field]
     , rq2Headers  :: [Field]
     , rq2Payload  :: Maybe Field
     } deriving (Eq, Generic)
@@ -261,12 +272,13 @@ instance Transform Request where
     type T Request = Stage1.Operation
 
     trans o = case o1Input o of
-        Nothing -> Request name http mempty mempty Nothing
+        Nothing -> Request name http mempty mempty mempty Nothing
         Just x  ->
             let fs = trans (pre, x)
                 hs = filter (\f -> Just "header" == f2Location f) fs
+                rs = filter f2Required fs
                 p  = find f2Payload fs
-             in Request name http fs hs p
+             in Request name http fs rs hs p
       where
         http = trans (pre , o1Http o)
         pre  = prefix name <> "r"

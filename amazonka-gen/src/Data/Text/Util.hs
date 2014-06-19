@@ -21,6 +21,12 @@ import qualified Data.Text   as Text
 prefix :: Text -> Text
 prefix = Text.toLower . Text.filter isUpper
 
+indent :: Int -> Text -> Text
+indent n = Text.intercalate "\n"
+    . map (Text.replicate n " " <>)
+    . filter (not . Text.null)
+    . Text.lines
+
 pad :: Int -> Text -> Text
 pad n = (<> Text.replicate n " ")
 
@@ -29,8 +35,8 @@ strip delim = f Text.stripSuffix . f Text.stripPrefix
   where
     f g x = fromMaybe x $ g delim x
 
-normalise :: Text -> [Text]
-normalise = wrapLines 76
+normalise :: Int -> Text -> [Text]
+normalise n = wrapLines n
     . f
     . Text.strip
     . Text.unwords

@@ -1,12 +1,16 @@
 -- | Smart constructor utilising default fields to
 -- specify the minimum viable request.
 {{ scope.name | lowerFirst }}
-{% for field in scope.fields %}
+{% for field in scope.required %}
   {% if field.first %}
-    :: {{ field.value.type }}
+    :: {{ field.value.type }} -- ^ {{ field.value.brief }}
   {% else %}
-    -> {{ field.value.type }}
+    -> {{ field.value.type }} -- ^ {{ field.value.brief }}
   {% endif %}
 {% endfor %}
+{% if scope.required | listLength > 0 %}
     -> {{ scope.name }}
+{% else %}
+    :: {{ scope.name }}
+{% endif %}
 {{ scope.name | lowerFirst }} = {{ scope.name }}

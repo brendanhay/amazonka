@@ -89,7 +89,7 @@ instance Transform [Type] where
       where
         fields o =
             let f g = fromMaybe [] (flatten <$> g o)
-             in f o1Input ++ f o1Output
+             in nub (f o1Input ++ f o1Output)
 
         flatten x@SStruct {..} = x : concatMap flatten (Map.elems sFields)
         flatten   SList   {..} = flatten sItem
@@ -280,7 +280,7 @@ instance Transform [Field] where
             , f2Streaming     = sStreaming v
             }
 
-    trans _ = error "Unable to transform fields from non-structure."
+    trans _ = [] -- error "Unable to transform fields from non-structure."
 
 instance ToJSON Field where
     toJSON = toField (recase Camel Under . drop 2)

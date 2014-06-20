@@ -21,3 +21,7 @@ data {{ abbrev }}
 instance AWSService {{ abbrev }} where
     type Sg {{ abbrev }} = {{ signature }}
     type Er {{ abbrev }} = {{ error }}
+
+{% for data in types %}
+data {{ data.value.name }} = {{ data.value.name }}
+{% endfor %}

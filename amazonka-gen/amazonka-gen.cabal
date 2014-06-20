@@ -24,6 +24,7 @@ executable amazonka-gen
           aeson
         , base                 == 4.7.*
         , bytestring
+        , data-default
         , directory
         , ede                  >= 0.1.5
         , errors

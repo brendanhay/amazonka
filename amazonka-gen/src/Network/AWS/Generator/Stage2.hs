@@ -22,6 +22,7 @@ import           Control.Applicative
 import           Control.Arrow
 import           Data.Aeson
 import           Data.Aeson.Types
+import           Data.Default
 import           Data.HashMap.Strict          (HashMap)
 import qualified Data.HashMap.Strict          as Map
 import           Data.List
@@ -290,7 +291,7 @@ instance Transform Request where
                 p  = find f2Payload fs
              in Request name http fs rs hs p
       where
-        http = trans (pre , o1Http o)
+        http = fromMaybe def $ trans . (pre,) <$> o1Http o
         pre  = prefix name <> "r"
         name = o1Name o
 
@@ -339,7 +340,7 @@ instance Transform Operation where
         , o2Namespace     = s2VersionNamespace s <> NS [o1Name o]
         , o2Modules       = modules
         , o2Documentation = trans (o1Documentation o)
-        , o2Http          = o1Http o
+        , o2Http          = fromMaybe def (o1Http o)
         , o2Request       = trans o
         , o2Response      = trans o
         }
@@ -358,14 +359,19 @@ newtype Cabal = Cabal [Service]
 
 instance ToJSON Cabal where
     toJSON (Cabal ss) = object
-        [ "modules"  .= map (toJSON . s2Namespace) (sort (current ss))
+        [ "modules"  .= map service (sort (current ss))
         , "versions" .= map versioned (sort ss)
         ]
       where
+        service s = object
+            [ "current"  .= s2Namespace s
+            , "versions" .= map s2VersionNamespace (sort ss)
+            ]
+
         versioned Service{..} = object
             [ "abbrev"  .= s2Abbrev
             , "version" .= s2Version
-            , "modules" .= sort (s2VersionNamespace : s2TypesNamespace : map o2Namespace s2Operations)
+            , "modules" .= sort (s2TypesNamespace : map o2Namespace s2Operations)
             ]
 
 env :: ToJSON a => a -> Object

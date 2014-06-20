@@ -19,6 +19,7 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Monad
 import           Data.Aeson
+import           Data.Default
 import qualified Data.Foldable                as Fold
 import           Data.HashMap.Strict          (HashMap)
 import qualified Data.HashMap.Strict          as Map

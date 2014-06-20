@@ -27,24 +27,75 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          Control.Monad.Trans.AWS
+        , Network.AWS
+        , Network.AWS.Auth
+        , Network.AWS.EC2.Metadata
+        , Network.AWS.Error
+        , Network.AWS.Signing.Types
+        , Network.AWS.Types
+
   {% for service in modules %}
-    {% if service.first %}
-        {{ service.value }}
-    {% else %}
-      , {{ service.value }}
-    {% endif %}
-  {% endfor %}
-
-  {% for service in versions %}
-        -- * {{ service.value.abbrev }} Version {{ service.value.version }}
-    {% for module in service.value.modules %}
-      , {{ module.value }}
-       {% if module.last %}
-
-       {% endif %}
+        , {{ service.value.current }}
+    {% for module in service.value.versions %}
+        , {{ module.value }}
     {% endfor %}
+
   {% endfor %}
     other-modules:
+          Network.AWS.Data
+        , Network.AWS.Data.Body
+        , Network.AWS.Data.ByteString
+        , Network.AWS.Data.Header
+        , Network.AWS.Data.Path
+        , Network.AWS.Data.Query
+        , Network.AWS.Data.Text
+        , Network.AWS.Data.Time
+        , Network.AWS.Data.URI
+        , Network.AWS.Data.XML
+        , Network.AWS.Request.Common
+        , Network.AWS.Request.JSON
+        , Network.AWS.Request.Query
+        , Network.AWS.Request.RestS3
+        , Network.AWS.Request.RestXML
+        , Network.AWS.Response
+        , Network.AWS.Signing.V4
 
+  {% for service in versions %}
+          -- * {{ service.value.abbrev }} Version {{ service.value.version }}
+    {% for module in service.value.modules %}
+        , {{ module.value }}
+    {% endfor %}
+
+  {% endfor %}
     build-depends:
-          base == 4.7.*
+          aeson
+        , attoparsec
+        , base              == 4.7.*
+        , base16-bytestring
+        , base64-bytestring
+        , bytestring
+        , case-insensitive
+        , conduit           == 1.1.*
+        , cryptohash
+        , data-default
+        , errors
+        , exceptions        == 0.6.*
+        , http-client
+        , http-client-lens
+        , http-conduit
+        , http-types
+        , lens              == 4.2.*
+        , lifted-async
+        , mmorph
+        , monad-control
+        , mtl
+        , old-locale
+        , resourcet         == 1.1.*
+        , semigroups
+        , tagged
+        , text
+        , time
+        , transformers
+        , transformers-base
+        , xml-conduit

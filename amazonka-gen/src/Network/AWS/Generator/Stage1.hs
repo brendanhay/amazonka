@@ -21,6 +21,7 @@ import           Control.Error
 import           Control.Monad
 import           Data.Aeson
 import qualified Data.ByteString.Lazy        as LBS
+import           Data.Default
 import           Data.HashMap.Strict         (HashMap)
 import qualified Data.HashMap.Strict         as Map
 import           Data.Monoid
@@ -62,7 +63,7 @@ data Operation = Operation
     , o1Alias            :: Maybe Text
     , o1Documentation    :: Maybe Text
     -- , oDocumentationUrl :: Maybe Text
-    , o1Http             :: HTTP
+    , o1Http             :: Maybe HTTP
     , o1Input            :: Maybe Shape
     , o1Output           :: Maybe Shape
     -- , oErrors           :: [Shape]
@@ -254,6 +255,9 @@ data HTTP = HTTP
     , hUri    :: [Part]
     , hQuery  :: HashMap Text (Maybe Text)
     } deriving (Eq, Show, Generic)
+
+instance Default HTTP where
+    def = HTTP "POST" mempty mempty
 
 instance FromJSON HTTP where
     parseJSON = withObject "HTTP" $ \o -> do

@@ -1,0 +1,3 @@
+{% include "_include/license.ede" with namespace %}
+
+make a file name Network.AWS.SERVICE which imports/exports the most recent version

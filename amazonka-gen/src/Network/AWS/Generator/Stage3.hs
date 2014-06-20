@@ -22,6 +22,9 @@ import           Data.Aeson
 import qualified Data.Foldable                as Fold
 import           Data.HashMap.Strict          (HashMap)
 import qualified Data.HashMap.Strict          as Map
+import           Data.List
+import           Data.Maybe
+import           Data.Ord
 import           Data.Semigroup
 import           Data.String
 import           Data.String.CaseConversion
@@ -43,34 +46,39 @@ import           Text.EDE.Filters
 
 data Templates = Templates
     { tmplCabal   :: Template
+    , tmplVersion :: Template
+    , tmplCurrent :: Template
     , tmplService :: ServiceType -> (Template, Template)
     }
 
 templates :: Script Templates
 templates = do
-    !cbl  <- load "tmpl/cabal.ede"
+    ctor  <- Templates
+        <$> load "tmpl/cabal.ede"
+        <*> load "tmpl/version.ede"
+        <*> load "tmpl/current.ede"
 
     !rxml <- (,)
-        <$> load "tmpl/service-rest-xml.ede"
+        <$> load "tmpl/types-rest-xml.ede"
         <*> load "tmpl/operation-rest-xml.ede"
 
     !rjs  <- (,)
-        <$> load "tmpl/service-rest-json.ede"
+        <$> load "tmpl/types-rest-json.ede"
         <*> load "tmpl/operation-rest-json.ede"
 
     !s3   <- (,)
-        <$> load "tmpl/service-s3.ede"
+        <$> load "tmpl/types-s3.ede"
         <*> load "tmpl/operation-s3.ede"
 
     !js   <- (,)
-        <$> load "tmpl/service-json.ede"
+        <$> load "tmpl/types-json.ede"
         <*> load "tmpl/operation-json.ede"
 
     !qry  <- (,)
-        <$> load "tmpl/service-query.ede"
+        <$> load "tmpl/types-query.ede"
         <*> load "tmpl/operation-query.ede"
 
-    return $! Templates cbl $ \t ->
+    return $! ctor $ \t ->
         case t of
             RestXML  -> rxml
             RestJSON -> rjs
@@ -84,18 +92,31 @@ render :: FilePath -> [Service] -> Templates -> Script ()
 render dir ss Templates{..} = do
     forM_ ss $ \s@Service{..} -> do
         let (svc, oper) = tmplService s2Type
+            tpath       = dir </> path s2TypesNamespace
+            vpath       = dir </> path s2VersionNamespace
 
-        msg $ dir </> path s2Namespace
-        render' (dir </> path s2Namespace) svc (env s)
+        msg tpath *> render' tpath svc (env s)
+        msg vpath *> render' vpath tmplVersion (env s)
 
         forM_ s2Operations $ \o@Operation{..} -> do
-            msg $ dir </> path o2Namespace
-            render' (dir </> path o2Namespace) oper (env o)
+            let opath = dir </> path o2Namespace
+            msg opath *> render' opath oper (env o)
 
-    msg $ dir </> "amazonka.cabal"
-    render' (dir </> "amazonka.cabal") tmplCabal $ env (Cabal ss)
+    forM_ current $ \s -> do
+        let cpath = dir </> path (s2Abbrev s)
+        msg cpath *> render' cpath tmplCurrent (env s)
+
+    let cbl = dir </> "amazonka.cabal"
+    msg cbl *> render' cbl tmplCabal (env (Cabal ss))
   where
     msg = fmapLT show . syncIO . putStrLn
+
+    current = mapMaybe latest $ groupBy identical ss
+
+    identical x y = EQ == comparing s2Abbrev x y
+
+    latest [] = Nothing
+    latest xs = Just . head $ sortBy (comparing s2Version) xs
 
 render' :: FilePath -> Template -> Object -> Script ()
 render' p t o = do
@@ -126,11 +147,11 @@ base = "lib"
 class ToPath a where
     path :: a -> FilePath
 
+instance ToPath Abbrev where
+    path (Abbrev a) = "Network/AWS" </> Text.unpack a <.> "hs"
+
 instance ToPath NS where
     path (NS xs) = base </> (Text.unpack $ Text.intercalate "/" xs) <.> "hs"
-
-instance ToPath Service where
-    path = path . s2Namespace
 
 instance ToPath Operation where
     path = path . o2Namespace

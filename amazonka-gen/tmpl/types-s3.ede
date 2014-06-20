@@ -1,7 +1,9 @@
-{% include "_include/license.ede" with namespace %}
+{% include "_include/license.ede" with types_namespace %}
 
+{% if documentation %}
 {{ documentation }}
-module {{ namespace }} where
+{% endif %}
+module {{ types_namespace }} where
 
 import Network.AWS.Signing.{{ signature }}
 import Network.AWS.Types

@@ -1,0 +1,3 @@
+{% include "_include/license.ede" with version_namespace %}
+
+make a file name Network.AWS.VERSION which imports/exports the types + operations

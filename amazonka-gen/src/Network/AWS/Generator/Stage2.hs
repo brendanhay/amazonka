@@ -74,18 +74,20 @@ instance ToJSON Doc where
     toJSON (Doc x) = toJSON x
 
 data Service = Service
-    { s2Type          :: ServiceType
-    , s2Version       :: Text
-    , s2Error         :: Text
-    , s2Signature     :: Signature
-    , s2Namespace     :: NS
-    , s2Abbrev        :: Abbrev
-    , s2Documentation :: Maybe Doc
-    , s2Operations    :: [Operation]
+    { s2Type             :: ServiceType
+    , s2Version          :: Text
+    , s2Error            :: Text
+    , s2Signature        :: Signature
+    , s2Namespace        :: NS
+    , s2VersionNamespace :: NS
+    , s2TypesNamespace   :: NS
+    , s2Abbrev           :: Abbrev
+    , s2Documentation    :: Maybe Doc
+    , s2Operations       :: [Operation]
     } deriving (Eq, Generic)
 
 instance Ord Service where
-    compare a b = f s2Namespace <> f s2Version
+    compare a b = f s2VersionNamespace <> f s2Version
       where
         f :: Ord a => (Service -> a) -> Ordering
         f g = compare (g a) (g b)
@@ -96,14 +98,16 @@ instance Transform Service where
     trans s = knot
       where
         knot = Service
-            { s2Type          = trans s
-            , s2Version       = s1ApiVersion s
-            , s2Error         = unAbbrev (s2Abbrev knot) <> "Error"
-            , s2Signature     = trans s
-            , s2Namespace     = trans s
-            , s2Abbrev        = trans s
-            , s2Documentation = trans (s1Documentation s)
-            , s2Operations    = trans (knot, s1Operations s)
+            { s2Type             = trans s
+            , s2Version          = s1ApiVersion s
+            , s2Error            = unAbbrev (s2Abbrev knot) <> "Error"
+            , s2Signature        = trans s
+            , s2Namespace        = root (trans s)
+            , s2VersionNamespace = trans s
+            , s2TypesNamespace   = trans s <> "Types"
+            , s2Abbrev           = trans s
+            , s2Documentation    = trans (s1Documentation s)
+            , s2Operations       = trans (knot, s1Operations s)
             }
 
 instance ToJSON Service where
@@ -116,7 +120,7 @@ root :: NS -> NS
 root = NS . reverse . drop 1 . reverse . unNS
 
 instance IsString NS where
-    fromString = NS . (:[]) . Text.pack
+    fromString = NS . Text.splitOn "." . Text.pack
 
 instance Monoid NS where
     mempty      = NS []
@@ -132,14 +136,13 @@ instance Transform NS where
             , "AWS"
             , unAbbrev a
             , Text.replace "-" "_" (s1ApiVersion s)
-            , "Types"
             ]
 
 instance ToJSON NS where
     toJSON = toJSON . Text.intercalate "." . unNS
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
-    deriving (Eq)
+    deriving (Eq, Ord)
 
 instance Transform Abbrev where
     type T Abbrev = Stage1.Service
@@ -325,7 +328,7 @@ instance Transform Operation where
     trans (s, o) = Operation
         { o2Service       = s2Abbrev s
         , o2Name          = o1Name o
-        , o2Namespace     = root (s2Namespace s) <> NS [o1Name o]
+        , o2Namespace     = s2VersionNamespace s <> NS [o1Name o]
         , o2Modules       = modules
         , o2Documentation = trans (o1Documentation o)
         , o2Http          = o1Http o
@@ -336,7 +339,7 @@ instance Transform Operation where
         modules = sort
             [ "Network.AWS.Data"
             , "Network.AWS.Types"
-            , s2Namespace s
+            , s2TypesNamespace s
             , fromString $ "Network.AWS.Request." ++ show (s2Type s)
             ]
 
@@ -351,7 +354,7 @@ instance ToJSON Cabal where
         service Service{..} = object
             [ "abbrev"  .= s2Abbrev
             , "version" .= s2Version
-            , "modules" .= sort (s2Namespace : map o2Namespace s2Operations)
+            , "modules" .= sort (s2VersionNamespace : s2TypesNamespace : map o2Namespace s2Operations)
             ]
 
 env :: ToJSON a => a -> Object

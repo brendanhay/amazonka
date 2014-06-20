@@ -46,6 +46,7 @@ import           Text.EDE.Filters
 
 data Templates = Templates
     { tmplCabal   :: Template
+    , tmplMake    :: Template
     , tmplVersion :: Template
     , tmplCurrent :: Template
     , tmplService :: ServiceType -> (Template, Template)
@@ -55,6 +56,7 @@ templates :: Script Templates
 templates = do
     ctor  <- Templates
         <$> load "tmpl/cabal.ede"
+        <*> load "tmpl/makefile.ede"
         <*> load "tmpl/version.ede"
         <*> load "tmpl/current.ede"
 
@@ -91,26 +93,23 @@ templates = do
 render :: FilePath -> [Service] -> Templates -> Script ()
 render dir ss Templates{..} = do
     forM_ ss $ \s@Service{..} -> do
-        let (svc, oper) = tmplService s2Type
+        let (types, oper) = tmplService s2Type
 
-        forM_ s2Operations $ \o@Operation{..} -> do
-            let opath = dir </> path o2Namespace
-            msg opath *> render' opath oper (env o)
+        forM_ s2Operations $ \o@Operation{..} ->
+            write (path o2Namespace) oper o
 
-        let tpath = dir </> path s2TypesNamespace
-            vpath = dir </> path s2VersionNamespace
+        write (path s2TypesNamespace) types s
+        write (path s2VersionNamespace) tmplVersion s
 
-        msg tpath *> render' tpath svc (env s)
-        msg vpath *> render' vpath tmplVersion (env s)
+    forM_ (current ss) $ \s ->
+        write (path (s2Abbrev s)) tmplCurrent s
 
-    forM_ (current ss) $ \s -> do
-        let cpath = dir </> path (s2Abbrev s)
-        msg cpath *> render' cpath tmplCurrent (env s)
-
-    let cbl = dir </> "amazonka.cabal"
-    msg cbl *> render' cbl tmplCabal (env (Cabal ss))
+    write "amazonka.cabal" tmplCabal (Cabal ss)
+    write "Makefile" tmplMake (Cabal ss)
   where
-    msg = fmapLT show . syncIO . putStrLn
+    write f t e =
+        let path = dir </> f
+         in fmapLT show (syncIO $ putStrLn path) *> render' path t (env e)
 
 render' :: FilePath -> Template -> Object -> Script ()
 render' p t o = do
@@ -142,7 +141,7 @@ class ToPath a where
     path :: a -> FilePath
 
 instance ToPath Abbrev where
-    path (Abbrev a) = "Network/AWS" </> Text.unpack a <.> "hs"
+    path (Abbrev a) = base </> "Network/AWS" </> Text.unpack a <.> "hs"
 
 instance ToPath NS where
     path (NS xs) = base </> (Text.unpack $ Text.intercalate "/" xs) <.> "hs"

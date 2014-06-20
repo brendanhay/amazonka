@@ -62,17 +62,16 @@ instance Transform Signature where
         | s1SignatureVersion == S3 = V4
         | otherwise                = s1SignatureVersion
 
-newtype Doc = Doc { unDoc :: NonEmpty Text }
+newtype Doc = Doc { unDoc :: Text }
     deriving (Eq, Ord)
 
-instance Transform Doc where
-    type T Doc = Maybe Text
+instance Transform (Maybe Doc) where
+    type T (Maybe Doc) = Maybe Text
 
-    trans (Just x) = Doc (x :| [])
-    trans Nothing  = Doc ("FIXME: Pending" :| [])
+    trans = fmap Doc
 
 instance ToJSON Doc where
-    toJSON (Doc (x :| xs)) = toJSON (x <> Text.unwords xs)
+    toJSON (Doc x) = toJSON x
 
 data Service = Service
     { s2Type          :: ServiceType
@@ -81,7 +80,7 @@ data Service = Service
     , s2Signature     :: Signature
     , s2Namespace     :: NS
     , s2Abbrev        :: Abbrev
-    , s2Documentation :: Doc
+    , s2Documentation :: Maybe Doc
     , s2Operations    :: [Operation]
     } deriving (Eq, Generic)
 
@@ -214,7 +213,7 @@ data Field = Field
     , f2Location      :: Maybe Loc
     , f2LocationName  :: Maybe Text
     , f2Brief         :: Text
-    , f2Documentation :: Doc
+    , f2Documentation :: Maybe Doc
     , f2Payload       :: !Bool
     , f2Streaming     :: !Bool
     } deriving (Eq, Generic)
@@ -309,7 +308,7 @@ data Operation = Operation
     , o2Name          :: Text
     , o2Namespace     :: NS
     , o2Modules       :: [NS]
-    , o2Documentation :: Doc
+    , o2Documentation :: Maybe Doc
     , o2Http          :: HTTP
     , o2Request       :: Request
     , o2Response      :: Response

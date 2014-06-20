@@ -92,17 +92,18 @@ render :: FilePath -> [Service] -> Templates -> Script ()
 render dir ss Templates{..} = do
     forM_ ss $ \s@Service{..} -> do
         let (svc, oper) = tmplService s2Type
-            tpath       = dir </> path s2TypesNamespace
-            vpath       = dir </> path s2VersionNamespace
-
-        msg tpath *> render' tpath svc (env s)
-        msg vpath *> render' vpath tmplVersion (env s)
 
         forM_ s2Operations $ \o@Operation{..} -> do
             let opath = dir </> path o2Namespace
             msg opath *> render' opath oper (env o)
 
-    forM_ current $ \s -> do
+        let tpath = dir </> path s2TypesNamespace
+            vpath = dir </> path s2VersionNamespace
+
+        msg tpath *> render' tpath svc (env s)
+        msg vpath *> render' vpath tmplVersion (env s)
+
+    forM_ (current ss) $ \s -> do
         let cpath = dir </> path (s2Abbrev s)
         msg cpath *> render' cpath tmplCurrent (env s)
 
@@ -110,13 +111,6 @@ render dir ss Templates{..} = do
     msg cbl *> render' cbl tmplCabal (env (Cabal ss))
   where
     msg = fmapLT show . syncIO . putStrLn
-
-    current = mapMaybe latest $ groupBy identical ss
-
-    identical x y = EQ == comparing s2Abbrev x y
-
-    latest [] = Nothing
-    latest xs = Just . head $ sortBy (comparing s2Version) xs
 
 render' :: FilePath -> Template -> Object -> Script ()
 render' p t o = do

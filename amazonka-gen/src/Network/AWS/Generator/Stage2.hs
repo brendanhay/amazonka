@@ -113,6 +113,14 @@ instance Transform Service where
 instance ToJSON Service where
     toJSON = toField (recase Camel Under . drop 2)
 
+current :: [Service] -> [Service]
+current = mapMaybe latest . groupBy identical
+  where
+    identical x y = EQ == comparing s2Abbrev x y
+
+    latest [] = Nothing
+    latest xs = Just . head $ sortBy (comparing s2Version) xs
+
 data NS = NS { unNS :: [Text] }
     deriving (Eq, Ord)
 
@@ -135,7 +143,7 @@ instance Transform NS where
             [ "Network"
             , "AWS"
             , unAbbrev a
-            , Text.replace "-" "_" (s1ApiVersion s)
+            , "V" <> Text.replace "-" "_" (s1ApiVersion s)
             ]
 
 instance ToJSON NS where
@@ -349,9 +357,12 @@ instance ToJSON Operation where
 newtype Cabal = Cabal [Service]
 
 instance ToJSON Cabal where
-    toJSON (Cabal ss) = object ["modules" .= map service (sort ss)]
+    toJSON (Cabal ss) = object
+        [ "modules"  .= map (toJSON . s2Namespace) (sort (current ss))
+        , "versions" .= map versioned (sort ss)
+        ]
       where
-        service Service{..} = object
+        versioned Service{..} = object
             [ "abbrev"  .= s2Abbrev
             , "version" .= s2Version
             , "modules" .= sort (s2VersionNamespace : s2TypesNamespace : map o2Namespace s2Operations)

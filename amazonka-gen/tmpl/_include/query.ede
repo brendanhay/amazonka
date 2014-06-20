@@ -1,6 +1,6 @@
 instance ToQuery {{ scope.name }} where
-{% if scope.http.query | mapLength > 0%}
-    toQuery {{ scope.name }}{..} =
+{% if scope.http.query | mapLength > 0 %}
+    toQuery {{ scope.name }}{..} = mconcat
   {% for part in scope.http.query %}
     {% if part.first %}
         [ "{{ part.key }}" =? {{ part.value }}

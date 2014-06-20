@@ -36,6 +36,9 @@ hdr k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
 hdrs :: [Header] -> [Header] -> [Header]
 hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
 
+(=:) :: ToHeader a => ByteString -> a -> (HeaderName, Maybe ByteString)
+(=:) = toHeader
+
 class ToHeaders a where
     toHeaders :: a -> [Header]
 
@@ -44,8 +47,9 @@ instance ToHeaders [Header] where
 
 --    toHeaders = const []
 
--- class ToHeader a where
---     toHeader :: ByteString -> a -> (HeaderName, Maybe ByteString)
+class ToHeader a where
+    toHeader :: ByteString -> a -> (HeaderName, Maybe ByteString)
+
 
 -- instance ToHeader ByteString where
 --     toHeader k = (CI.mk k,) . Just

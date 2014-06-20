@@ -12,7 +12,9 @@ module Network.AWS.Data.Path
     ( ToPath (..)
     ) where
 
-import Data.ByteString.Char8 (ByteString)
+import           Data.ByteString.Char8 (ByteString)
+import           Data.Text             (Text)
+import qualified Data.Text.Encoding    as Text
 
 -- FIXME: A way to annotate whether a query or path is encoded or not?
 -- data Path
@@ -25,3 +27,6 @@ class ToPath a where
 
 instance ToPath ByteString where
     toPath = id
+
+instance ToPath Text where
+    toPath = Text.encodeUtf8

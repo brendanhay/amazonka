@@ -1,6 +1,7 @@
 {% case scope.http.uri | listLength %}
 {% when 0 %}
-instance ToPath {{ scope.name }}
+instance ToPath {{ scope.name }} where
+    toPath = const mempty
 {% when 1 %}
 instance ToPath {{ scope.name }} where
   {% for part in scope.http.uri %}
@@ -13,19 +14,19 @@ instance ToPath {{ scope.name }} where
   {% endfor %}
 {% else %}
 instance ToPath {{ scope.name }} where
-    toPath {{ scope.name }}{..} = Text.concat
+    toPath {{ scope.name }}{..} = mconcat
   {% for part in scope.http.uri %}
     {% if part.first %}
       {% case part.value.type %}
       {% when "I" %}
-        [ toText {{ part.value.value }}
+        [ toBS {{ part.value.value }}
       {% when "T" %}
         [ "{{ part.value.value }}"
       {% endcase %}
     {% else %}
       {% case part.value.type %}
       {% when "I" %}
-        , toText {{ part.value.value }}
+        , toBS {{ part.value.value }}
       {% when "T" %}
         , "{{ part.value.value }}"
           {% endcase %}

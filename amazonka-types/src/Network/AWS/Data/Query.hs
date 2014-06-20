@@ -31,6 +31,7 @@ module Network.AWS.Data.Query
 
     -- * Pairs
     , pair
+    , (=?)
 
     -- * Deserialisation
     , FromQuery (..)
@@ -59,6 +60,7 @@ import           Data.Either
 import           Data.Foldable                (foldl')
 import qualified Data.Foldable                as Fold
 import           Data.Maybe
+import           Data.Text                    (Text)
 import           Data.Typeable
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Time
@@ -93,6 +95,9 @@ valuesOf = deep _Value
 
 pair :: ToQuery a => ByteString -> a -> Query -> Query
 pair k v = mappend (Pair k (toQuery v))
+
+(=?) :: ToQuery a => ByteString -> a -> Query
+(=?) k v = Pair k (toQuery v)
 
 -- instance Ord Query where
 --     compare (List  as) (List  bs) = as `compare` bs
@@ -322,13 +327,17 @@ instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
     toQuery (k, v) = Pair (toBS k) . Value $ toBS <$> v
 
 instance ToQuery ByteString where
-    toQuery = Value . Just
+    toQuery "" = Value Nothing
+    toQuery bs = Value (Just bs)
+
+instance ToQuery Text where
+    toQuery = toQuery . toBS
 
 instance ToQuery Int where
-    toQuery = Value . Just . toBS
+    toQuery = toQuery . toBS
 
 instance ToQuery Integer where
-    toQuery = Value . Just . toBS
+    toQuery = toQuery . toBS
 
 -- instance ToQuery Double where
 --     toQuery = valueFromFloat
@@ -349,15 +358,15 @@ instance ToQuery Integer where
 --     toQuery (Just x) = toQuery x
 --     toQuery Nothing  = mempty
 
--- instance ToQuery Bool where
---     toQuery True  = Value "true"
---     toQuery False = Value "false"
+instance ToQuery Bool where
+    toQuery True  = toQuery ("true"  :: ByteString)
+    toQuery False = toQuery ("false" :: ByteString)
 
 instance ToQuery ISO8601Time where
     toQuery = Value . Just . toBS
 
--- instance ToQuery () where
---     toQuery () = mempty
+instance ToQuery () where
+    toQuery () = mempty
 
 -- -- FIXME: implement this shizzle
 -- -- instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where

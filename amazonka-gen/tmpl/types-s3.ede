@@ -1,3 +1,5 @@
+{-# LANGUAGE TypeFamilies #-}
+
 {% include "_include/license.ede" with types_namespace %}
 
 {% if documentation %}

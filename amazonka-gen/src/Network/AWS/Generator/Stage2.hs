@@ -338,16 +338,18 @@ instance Transform Operation where
         { o2Service       = s2Abbrev s
         , o2Name          = o1Name o
         , o2Namespace     = s2VersionNamespace s <> NS [o1Name o]
-        , o2Modules       = modules
+        , o2Modules       = imports
         , o2Documentation = trans (o1Documentation o)
         , o2Http          = fromMaybe def (o1Http o)
         , o2Request       = trans o
         , o2Response      = trans o
         }
       where
-        modules = sort
+        imports = sort
             [ "Network.AWS.Data"
             , "Network.AWS.Types"
+            , "Data.Monoid"
+            , "GHC.Generics"
             , s2TypesNamespace s
             , fromString $ "Network.AWS.Request." ++ show (s2Type s)
             ]

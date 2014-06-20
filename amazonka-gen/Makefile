@@ -42,7 +42,7 @@ MODELS := $(BOTO)/s3
 
 .PHONY: gen-clean
 
-gen: gen-clean
+gen:
 	make $(GEN)/src
 	make $(GEN)/lib
 

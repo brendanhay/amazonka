@@ -282,3 +282,15 @@ newtype Action = Action Text
 
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
+
+newtype Bucket = Bucket Text
+    deriving (Eq, Show, IsString)
+
+instance ToByteString Bucket where
+    toBS (Bucket b) = toBS b
+
+newtype Key = Key Text
+    deriving (Eq, Show, IsString)
+
+instance ToByteString Key where
+    toBS (Key k) = toBS k

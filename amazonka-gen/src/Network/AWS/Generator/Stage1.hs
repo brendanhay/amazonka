@@ -111,11 +111,8 @@ data Shape
       , sLocationName  :: Maybe Text
       }
 
-    | SPrim
-      { sPrim          :: !Prim
-      , sMinLength     :: Maybe Int
-      , sMaxLength     :: Maybe Int
-      , sPattern       :: Maybe Text
+    | SEnum
+      { sEnum          :: HashMap Text Text
       , sName          :: Text
       , sRequired      :: !Bool
       , sDocumentation :: Maybe Text
@@ -125,8 +122,11 @@ data Shape
       , sLocationName  :: Maybe Text
       }
 
-    | SEnum
-      { sEnum          :: HashMap Text Text
+    | SPrim
+      { sPrim          :: !Prim
+      , sMinLength     :: Maybe Int
+      , sMaxLength     :: Maybe Int
+      , sPattern       :: Maybe Text
       , sName          :: Text
       , sRequired      :: !Bool
       , sDocumentation :: Maybe Text
@@ -195,7 +195,7 @@ instance FromJSON Shape where
                     <*> o .:? "max_length"
                     <*> o .:? "pattern"
 
-data Type
+data ShapeType
     = Structure
     | List
     | Map
@@ -210,10 +210,10 @@ data Type
     | Enum
       deriving (Eq, Ord, Show, Generic)
 
-instance FromJSON Type where
+instance FromJSON ShapeType where
     parseJSON = fromCtor (recase Camel Under)
 
-primitive :: Type -> Bool
+primitive :: ShapeType -> Bool
 primitive = flip notElem [Structure, List, Map, Enum]
 
 data Prim
@@ -237,7 +237,7 @@ instance Show Prim where
 instance ToJSON Prim where
     toJSON = toCtor (drop 1)
 
-fromType :: Type -> Prim
+fromType :: ShapeType -> Prim
 fromType t =
     case t of
         Network.AWS.Generator.Stage1.String -> PText

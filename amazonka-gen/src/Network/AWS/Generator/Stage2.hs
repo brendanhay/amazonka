@@ -74,6 +74,32 @@ instance Transform (Maybe Doc) where
 instance ToJSON Doc where
     toJSON (Doc x) = toJSON x
 
+data Type = Type
+    { t2Name   :: Text
+    , t2Fields :: [Field]
+    } deriving (Eq, Generic)
+
+instance Transform [Type] where
+    type T [Type] = Stage1.Service
+
+    trans = map (\s -> Type (sName s) $ trans (sName s, s))
+        . concatMap fields
+        . Map.elems
+        . s1Operations
+      where
+        fields o =
+            let f g = fromMaybe [] (flatten <$> g o)
+             in f o1Input ++ f o1Output
+
+        flatten x@SStruct {..} = x : concatMap flatten (Map.elems sFields)
+        flatten   SList   {..} = flatten sItem
+        flatten   SMap    {..} = flatten sKey ++ flatten sValue
+        flatten x@SEnum   {}   = [x]
+        flatten _              = []
+
+instance ToJSON Type where
+    toJSON = toField (recase Camel Under . drop 2)
+
 data Service = Service
     { s2Type             :: ServiceType
     , s2Version          :: Text
@@ -85,6 +111,7 @@ data Service = Service
     , s2Abbrev           :: Abbrev
     , s2Documentation    :: Maybe Doc
     , s2Operations       :: [Operation]
+    , s2Types            :: [Type]
     } deriving (Eq, Generic)
 
 instance Ord Service where
@@ -109,6 +136,7 @@ instance Transform Service where
             , s2Abbrev           = trans s
             , s2Documentation    = trans (s1Documentation s)
             , s2Operations       = trans (knot, s1Operations s)
+            , s2Types            = trans s
             }
 
 instance ToJSON Service where
@@ -350,6 +378,7 @@ instance Transform Operation where
             , "Network.AWS.Types"
             , "Data.Monoid"
             , "GHC.Generics"
+            , "Data.Time"
             , s2TypesNamespace s
             , fromString $ "Network.AWS.Request." ++ show (s2Type s)
             ]

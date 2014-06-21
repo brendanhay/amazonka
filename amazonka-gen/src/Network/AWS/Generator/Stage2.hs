@@ -20,9 +20,11 @@ module Network.AWS.Generator.Stage2 where
 
 import           Control.Applicative
 import           Control.Arrow
+import           Control.Monad
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.Default
+import           Data.Function
 import           Data.HashMap.Strict          (HashMap)
 import qualified Data.HashMap.Strict          as Map
 import           Data.List
@@ -74,28 +76,76 @@ instance Transform (Maybe Doc) where
 instance ToJSON Doc where
     toJSON (Doc x) = toJSON x
 
+data TypeOf
+    = TEnum
+    | TNewtype
+    | TData
+    | TNullary
+      deriving (Eq, Show, Generic)
+
+instance ToJSON TypeOf where
+    toJSON = toJSON . Text.toLower . Text.pack . drop 1 . show
+
+typeof :: Stage1.Shape -> TypeOf
+typeof s =
+    case s of
+        SStruct{..}
+            | Map.size sFields == 1 -> TNewtype
+            | Map.null sFields      -> TNullary
+
+        SEnum{} -> TEnum
+
+        _ -> TData
+
 data Type = Type
-    { t2Name   :: Text
-    , t2Fields :: [Field]
-    } deriving (Eq, Generic)
+    { t2Name          :: Text
+    , t2Type          :: TypeOf
+    , t2Documentation :: Maybe Doc
+    , t2Fields        :: [Field]
+    } deriving (Generic)
+
+instance Eq Type where
+    (==) = (==) `on` t2Name
+
+instance Ord Type where
+    compare = compare `on` t2Name
+
+instance Transform Type where
+    type T Type = (Text, Stage1.Shape)
+
+    trans (p, s) = Type name (trans $ sDocumentation s) (trans (prefix name, s))
+      where
+
+        name = maybe n snd (n `find` reserved)
+
+        n = sName s
+
+        reserved =
+            [
+            ]
 
 instance Transform [Type] where
     type T [Type] = Stage1.Service
 
-    trans = map (\s -> Type (sName s) $ trans (sName s, s))
+    trans = sort
+        . nub
+        . map trans
         . concatMap fields
         . Map.elems
         . s1Operations
       where
         fields o =
-            let f g = fromMaybe [] (flatten <$> g o)
-             in nub (f o1Input ++ f o1Output)
+            let f g = fromMaybe [] (descend <$> g o)
+             in f o1Input ++ f o1Output
 
-        flatten x@SStruct {..} = x : concatMap flatten (Map.elems sFields)
-        flatten   SList   {..} = flatten sItem
-        flatten   SMap    {..} = flatten sKey ++ flatten sValue
-        flatten x@SEnum   {}   = [x]
-        flatten _              = []
+        descend SStruct {..} = concatMap (flat sName) (Map.elems sFields)
+        descend _            = []
+
+        flat p x@SStruct {..} = (p, x) : descend x
+        flat _   SList   {..} = flat sName sItem
+        flat _   SMap    {..} = flat sName sKey ++ flat sName sValue
+        flat p x@SEnum   {}   = [(p, x)]
+        flat _ _              = []
 
 instance ToJSON Type where
     toJSON = toField (recase Camel Under . drop 2)

@@ -10,18 +10,22 @@ module {{ types_namespace }} where
 import Network.AWS.Signing.{{ signature }}
 import Network.AWS.Types
 
-data {{ error }} = {{ error }}
-    deriving (Eq, Show)
-
-instance AWSError {{ error }} where
-    toError _ = Nested []
-
 data {{ abbrev }}
 
 instance AWSService {{ abbrev }} where
     type Sg {{ abbrev }} = {{ signature }}
     type Er {{ abbrev }} = {{ error }}
 
+data {{ error }} = {{ error }}
+    deriving (Eq, Show)
+
+instance AWSError {{ error }} where
+    toError _ = Nested []
+
 {% for data in types %}
 data {{ data.value.name }} = {{ data.value.name }}
+{% include "_include/record.ede" with data.value.fields %}
+  {% if !data.last %}
+
+  {% endif %}
 {% endfor %}

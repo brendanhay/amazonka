@@ -11,8 +11,8 @@
     {% endif %}
   {% endif %}
   {% if field.last %}
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
   {% endif %}
 {% else %}
-    deriving (Show, Generic)
+    deriving (Eq, Show, Generic)
 {% endfor %}

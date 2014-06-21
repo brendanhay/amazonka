@@ -18,11 +18,8 @@ import           Control.Error
 import           Control.Monad
 import           Data.List
 import           Data.Monoid
-import qualified Data.Text.Lazy.IO            as LText
-import qualified Network.AWS.Generator.Stage1 as Stage1
-import qualified Network.AWS.Generator.Stage2 as Stage2
-import qualified Network.AWS.Generator.Stage3 as Stage3
-import           Network.AWS.Generator.Types
+import qualified Data.Text.Lazy.IO   as LText
+import           Generator.Types
 import           Options.Applicative
 import           System.Directory
 import           System.Exit
@@ -67,11 +64,13 @@ main = do
 
     ms <- models optModels
 
-    runScript $ do
-        ts <- Stage3.templates
-        ss <- mapM (Stage1.parse) ms
+--     runScript $ do
+--         ts <- Stage3.templates
+--         ss <- mapM (Stage1.parse) ms
 
-        Stage3.render optDir (map Stage2.transform ss) ts
+--         Stage3.render optDir (map Stage2.transform ss) ts
+
+    return ()
 
   where
     pPrefs = prefs showHelpOnError

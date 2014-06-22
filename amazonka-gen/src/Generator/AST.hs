@@ -132,8 +132,10 @@ data Operation = Operation
     , opPagination    :: Maybe Pagination
     } deriving (Show)
 
-newtype Request = Request { unRequest :: Shape }
-    deriving (Eq, Show)
+data Request = Request
+    { rqShape :: Shape
+    , rqHttp  :: HTTP
+    } deriving (Show)
 
 newtype Response = Response { unResponse :: Shape }
     deriving (Eq, Show)

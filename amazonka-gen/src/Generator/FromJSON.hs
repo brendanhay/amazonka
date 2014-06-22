@@ -113,10 +113,13 @@ instance FromJSON Operation where
         <*> o .:? "pagination"
 
 instance FromJSON Request where
-    parseJSON = withObject "request" $ \o -> undefined
+    parseJSON = withObject "request" $ \o -> Request
+        <$> parseJSON (Object  o)
+        <*> o .: "input"
 
 instance FromJSON Response where
-    parseJSON = withObject "request" $ \o -> undefined
+    parseJSON = withObject "response" $ \o -> Response
+        <$> o .: "output"
 
 instance FromJSON Location where
     parseJSON = fromCtor (lowered . drop 1)

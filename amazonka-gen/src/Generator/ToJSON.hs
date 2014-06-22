@@ -1,5 +1,7 @@
 {-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Generator.ToJSON
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,7 +24,6 @@ import           Data.Aeson           hiding (String)
 import           Data.Aeson.Types     hiding (String)
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Char
-import           Data.Foldable        (any)
 import           Data.HashMap.Strict  (HashMap)
 import qualified Data.HashMap.Strict  as Map
 import           Data.Monoid
@@ -30,10 +31,7 @@ import           Data.Ord
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import qualified Data.Text.Unsafe     as Text
-import qualified Data.Vector          as Vector
-import           GHC.Generics         (Generic)
-import           Generator.Helpers
-import           Prelude              hiding (any)
+import           GHC.Generics
 import           Text.EDE.Filters
 
 toField :: (Generic a, GToJSON (Rep a))

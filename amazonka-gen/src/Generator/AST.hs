@@ -1,9 +1,8 @@
 {-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 
--- Module      : Generator.Types
+-- Module      : Generator.AST
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,23 +12,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Generator.Types where
+module Generator.AST where
 
-import Data.Aeson
-import Data.Aeson.Types
-import Data.HashMap.Strict        (HashMap)
-import Data.String.CaseConversion
-import Data.Text                  (Text)
+import Data.HashMap.Strict (HashMap)
+import Data.Text           (Text)
 import GHC.Generics
-import System.FilePath
-
-data Model = Model
-    { modPath    :: FilePath
-    , modVersion :: String
-    } deriving (Show)
-
-modelFromPath :: FilePath -> String -> Model
-modelFromPath d f = Model (d </> f) (fst $ break (== '.') f)
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Show, Generic)
@@ -155,7 +142,7 @@ data Shape
       , shpPattern   :: Text
       }
 
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Show)
 
 data Prim
     = PText
@@ -168,14 +155,19 @@ data Prim
 
 data HTTP = HTTP
     { hMethod :: Text
-    , hUri    :: [Part]
-    , hQuery  :: HashMap Text (Maybe Text)
-    } deriving (Eq, Show, Generic)
+    , hPath   :: [PathPart]
+    , hQuery  :: [QueryPart]
+    } deriving (Eq, Show)
 
-data Part
-    = T Text
-    | I Text
+data PathPart
+    = PConst Text
+    | PVar   Text
       deriving (Eq, Show)
+
+data QueryPart = QueryPart
+    { qpKey :: Text
+    , kpVal :: Maybe Text
+    } deriving (Eq, Show)
 
 data Pagination = Pagination
     { pgMoreKey     :: Maybe Text

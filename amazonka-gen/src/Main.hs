@@ -19,7 +19,11 @@ import           Control.Monad
 import           Data.List
 import           Data.Monoid
 import qualified Data.Text.Lazy.IO   as LText
-import           Generator.Types
+import           Generator.AST
+import           Generator.FromJSON
+import           Generator.Models
+import           Generator.Templates
+import           Generator.ToJSON
 import           Options.Applicative
 import           System.Directory
 import           System.Exit
@@ -43,29 +47,18 @@ options = Options
         <> help "Path to a botocore JSON model directory. [required]"
          ))
 
-models :: [FilePath] -> IO [Model]
-models = fmap concat . mapM model
-  where
-    model d = do
-        p  <- doesDirectoryExist d
-        unless p $ do
-            putStrLn ("Directory: " ++ d ++ " does not exist.")
-            exitFailure
-        fs <- getDirectoryContents d
-        return $ map (modelFromPath d) (json fs)
-
-    json = filter (isSuffixOf ".json")
-
 main :: IO ()
 main = do
     Options{..} <- customExecParser pPrefs pInfo
 
     createDirectoryIfMissing True optDir
 
-    ms <- models optModels
+    runScript $ do
+        ms <- models optModels
+        ts <- templates
 
---     runScript $ do
---         ts <- Stage3.templates
+        return ()
+
 --         ss <- mapM (Stage1.parse) ms
 
 --         Stage3.render optDir (map Stage2.transform ss) ts

@@ -17,32 +17,10 @@ module Generator.Templates where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Monad
-import           Data.Aeson
-import qualified Data.Foldable                as Fold
-import           Data.HashMap.Strict          (HashMap)
-import qualified Data.HashMap.Strict          as Map
-import           Data.List
-import           Data.Maybe
-import           Data.Ord
-import           Data.Semigroup
-import           Data.String
-import           Data.String.CaseConversion
-import qualified Data.Text                    as Text
-import qualified Data.Text.IO                 as Text
-import           Data.Text.Lazy               (Text)
-import qualified Data.Text.Lazy               as LText
-import           Data.Text.Lazy.Builder
-import qualified Data.Text.Lazy.Encoding      as LText
-import qualified Data.Text.Lazy.IO            as LText
-import           Data.Text.Util
-import           Network.AWS.Generator.Stage2
-import           Network.AWS.Generator.Types
-import           System.Directory
-import           System.FilePath              hiding (normalise)
-import           Text.EDE                     (Resolver, Template)
-import qualified Text.EDE                     as EDE
-import           Text.EDE.Filters
+import           Generator.AST
+import           System.FilePath            hiding (normalise)
+import           Text.EDE                   (Template)
+import qualified Text.EDE                   as EDE
 
 data Templates = Templates
     { tmplCabal   :: Template
@@ -75,7 +53,7 @@ templates = do
             Query    -> qry
 
 load :: FilePath -> Script Template
-load p = scriptIO (EDE.eitherParseFile ("tmpl" </> p <.> "ede") >>= hoistEither
+load p = scriptIO (EDE.eitherParseFile ("tmpl" </> p <.> "ede")) >>= hoistEither
 
 -- render :: FilePath -> [Service] -> Templates -> Script ()
 -- render dir ss Templates{..} = do

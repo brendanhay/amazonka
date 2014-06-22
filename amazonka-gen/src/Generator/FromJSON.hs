@@ -101,28 +101,52 @@ instance FromJSON [Operation] where
     parseJSON = withObject "operations" (mapM parseJSON . Map.elems)
 
 instance FromJSON Operation where
-    parseJSON = withObject "operation" $ \o ->
-        Operation <$> o .:  "name"
-                  <*> o .:? "alias"
-                  <*> pure def
-                  <*> o .:  "documentation"
-                  <*> o .:? "documentation_url"
-                  <*> parseJSON (Object o)
-                  <*> parseJSON (Object o)
-                  <*> pure []
-                  <*> o .:? "pagination"
+    parseJSON = withObject "operation" $ \o -> Operation
+        <$> o .:  "name"
+        <*> o .:? "alias"
+        <*> pure def
+        <*> o .:  "documentation"
+        <*> o .:? "documentation_url"
+        <*> parseJSON (Object o)
+        <*> parseJSON (Object o)
+        <*> pure []
+        <*> o .:? "pagination"
 
-instance FromJSON Request
+instance FromJSON Request where
+    parseJSON = withObject "request" $ \o -> undefined
 
-instance FromJSON Response
+instance FromJSON Response where
+    parseJSON = withObject "request" $ \o -> undefined
 
-instance FromJSON Pagination
+instance FromJSON Common where
+    parseJSON = withObject "common" $ \o -> do
+        n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name"
+        x <- o .:? "xmlname"  .!= n
+        l <- o .:? "location" .!= def
+        Common n x l
+            <$> o .:? "location_name" .!= n
+            <*> o .:? "required"      .!= if l == LBody then True else False
+            <*> o .:? "documentation" .!= def
+            <*> o .:? "streaming"     .!= False
+
+instance FromJSON Shape where
+    parseJSON = withObject "shape" $ \o -> undefined
+
+instance FromJSON Pagination where
+    parseJSON = withObject "pagination" $ \o ->
+        let f k = o .: k <|> (head <$> o .: k)
+         in Pagination
+                <$> o .:? "more_key"
+                <*> o .:? "limit_key"
+                <*> f "input_token"
+                <*> f "output_token"
+                <*> f "result_key"
 
 instance FromJSON HTTP where
-    parseJSON = withObject "http" $ \o ->
-        HTTP <$> o .: "method"
-             <*> o .: "uri"
-             <*> o .: "uri"
+    parseJSON = withObject "http" $ \o -> HTTP
+        <$> o .: "method"
+        <*> o .: "uri"
+        <*> o .: "uri"
 
 instance FromJSON [PathPart] where
     parseJSON = withText "uri" $ return . path

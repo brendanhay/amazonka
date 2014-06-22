@@ -146,6 +146,9 @@ data Location
       deriving (Eq, Show, Generic)
 --    , cPayload       :: Bool -- Mix payload into the location?
 
+instance Default Location where
+    def = LBody
+
 data Common = Common
     { cmnName          :: Text
     , cmnXmlName       :: Text

@@ -25,6 +25,7 @@ import           Data.Aeson           hiding (String)
 import           Data.Aeson.Types     hiding (String)
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Char
+import           Data.Default
 import           Data.HashMap.Strict  (HashMap)
 import qualified Data.HashMap.Strict  as Map
 import           Data.Monoid
@@ -36,8 +37,14 @@ import           GHC.Generics
 import           Generator.AST
 import           Text.EDE.Filters
 
+instance FromJSON HTTP where
+    parseJSON = withObject "http" $ \o ->
+        HTTP <$> o .: "method"
+             <*> o .: "uri"
+             <*> o .: "uri"
+
 instance FromJSON [PathPart] where
-    parseJSON = withObject "uri" $ \o -> path <$> o .: "uri"
+    parseJSON = withText "uri" $ return . path
        where
         path = filter (/= PConst "") . go . Text.takeWhile (/= '?')
 
@@ -48,7 +55,7 @@ instance FromJSON [PathPart] where
             (l, s) = Text.span (/= '{') x
 
 instance FromJSON [QueryPart] where
-    parseJSON = withObject "uri" $ \o -> query <$> o .: "uri"
+    parseJSON = withText "uri" $ return . query
       where
         query = map (uncurry QueryPart) . go . Text.dropWhile (/= '?')
 

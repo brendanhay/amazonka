@@ -1,8 +1,10 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE DeriveGeneric        #-}
+{-# LANGUAGE FlexibleContexts     #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE RecordWildCards      #-}
+
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- Module      : Generator.FromJSON
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,22 +22,80 @@ import           Control.Applicative
 import           Control.Arrow
 import           Control.Error
 import           Control.Monad
-import qualified Data.Aeson           as Aeson
-import           Data.Aeson           hiding (String)
-import           Data.Aeson.Types     hiding (String)
-import qualified Data.ByteString.Lazy as LBS
+import           Data.Aeson
+import qualified Data.Aeson                 as Aeson
+import           Data.Aeson.Types
+import qualified Data.ByteString.Lazy       as LBS
 import           Data.Char
 import           Data.Default
-import           Data.HashMap.Strict  (HashMap)
-import qualified Data.HashMap.Strict  as Map
+import           Data.HashMap.Strict        (HashMap)
+import qualified Data.HashMap.Strict        as Map
 import           Data.Monoid
 import           Data.Ord
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import qualified Data.Text.Unsafe     as Text
+import           Data.String.CaseConversion
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import qualified Data.Text.Unsafe           as Text
 import           GHC.Generics
 import           Generator.AST
+import           Generator.Models
 import           Text.EDE.Filters
+
+parseModel :: Model -> Script Service
+parseModel Model{..} = do
+    r <- scriptIO $ do
+        putStrLn $ "Parsing Service " ++ modPath
+        LBS.readFile modPath
+    hoistEither (eitherDecode r)
+
+instance FromJSON Abbrev where
+    parseJSON = withText "abbrev" (return . abbrev)
+
+instance FromJSON Version where
+    parseJSON = withText "version" (return . version)
+
+instance FromJSON Doc where
+    parseJSON = withText "documentation" (return . documentation)
+
+instance FromJSON Time
+
+instance FromJSON Checksum
+
+instance FromJSON ServiceType where
+    parseJSON = fromCtor (recase Camel Under)
+
+instance FromJSON Signature where
+    parseJSON = withText "signature" $ \t ->
+        return $ case t of
+            "v2"      -> V2
+            "v3"      -> V3
+            "v3https" -> V3
+            _         -> V4
+
+instance FromJSON JSONV where
+    parseJSON (String t) = return (JSONV t)
+    parseJSON (Number n) = return . JSONV . Text.pack $ show n
+    parseJSON e          = fail $ "Unrecognised JSONV field: " ++ show e
+
+instance FromJSON Service where
+    parseJSON = withObject "service" $ \o -> do
+        n <- o .: "service_full_name"
+        a <- o .: "service_abbreviation" .!= abbrev n
+        v <- o .: "api_version"
+
+        Service a n (namespace a v) v
+            <$> o .:? "type"             .!= def
+            <*> o .:? "result_wrapped"   .!= False
+            <*> o .:  "signature_version"
+            <*> o .:? "documentation"    .!= def
+            <*> o .:  "endpoint_prefix"
+            <*> o .:? "global_endpoint"
+            <*> o .:? "xmlnamespace"
+            <*> o .:? "timestamp_format" .!= def
+            <*> o .:? "checksum_format"  .!= def
+            <*> o .:? "json_version"     .!= def
+            <*> o .:? "target_prefix"
+            <*> pure []
 
 instance FromJSON HTTP where
     parseJSON = withObject "http" $ \o ->

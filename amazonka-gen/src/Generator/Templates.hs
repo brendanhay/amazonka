@@ -18,9 +18,10 @@ module Generator.Templates where
 import           Control.Applicative
 import           Control.Error
 import           Generator.AST
-import           System.FilePath            hiding (normalise)
-import           Text.EDE                   (Template)
-import qualified Text.EDE                   as EDE
+import           System.Directory
+import           System.FilePath     hiding (normalise)
+import           Text.EDE            (Template)
+import qualified Text.EDE            as EDE
 
 data Templates = Templates
     { tmplCabal   :: Template
@@ -32,6 +33,10 @@ data Templates = Templates
 
 templates :: Script Templates
 templates = do
+    dir  <- scriptIO getCurrentDirectory
+
+    let load f = loadTemplate (dir </> "tmpl" </> f <.> "ede")
+
     ctor <- Templates
         <$> load "cabal"
         <*> load "makefile"
@@ -46,14 +51,16 @@ templates = do
 
     return $! ctor $ \t ->
         case t of
-            RestXML  -> xml
-            RestJSON -> rjs
+            RestXml  -> xml
+            RestJson -> rjs
             RestS3   -> s3
-            JSON     -> js
+            Json     -> js
             Query    -> qry
 
-load :: FilePath -> Script Template
-load p = scriptIO (EDE.eitherParseFile ("tmpl" </> p <.> "ede")) >>= hoistEither
+loadTemplate :: FilePath -> Script Template
+loadTemplate f =
+    scriptIO (putStrLn ("Parsing EDE " ++ f) *> EDE.eitherParseFile f)
+        >>= hoistEither
 
 -- render :: FilePath -> [Service] -> Templates -> Script ()
 -- render dir ss Templates{..} = do

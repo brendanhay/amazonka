@@ -14,50 +14,90 @@
 
 module Generator.AST where
 
-import Data.HashMap.Strict (HashMap)
-import Data.Text           (Text)
-import GHC.Generics
+import           Data.Default
+import           Data.Function
+import           Data.HashMap.Strict (HashMap)
+import           Data.Monoid
+import           Data.Text           (Text)
+import qualified Data.Text           as Text
+import           Data.Text.Util
+import           GHC.Generics
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Show, Generic)
 
-newtype NS = NS { unNS :: Text }
+abbrev :: Text -> Abbrev
+abbrev = Abbrev . mconcat . Text.words . strip "AWS" . strip "Amazon"
+
+newtype NS = NS { unNS :: [Text] }
     deriving (Eq, Show, Generic)
+
+namespace :: Abbrev -> Version -> NS
+namespace a v = NS
+    [ "Network"
+    , "AWS"
+    , unAbbrev a
+    , unVersion v
+    ]
 
 newtype Version = Version { unVersion :: Text }
     deriving (Eq, Show, Generic)
 
+version :: Text -> Version
+version = Version . mappend "V" . Text.replace "-" "_"
+
 newtype Doc = Doc { unDoc :: Text }
     deriving (Eq, Show, Generic)
+
+documentation :: Text -> Doc
+documentation = Doc
+
+instance Default Doc where
+    def = Doc mempty
 
 data Time
     = RFC822
     | ISO8601
       deriving (Eq, Show, Generic)
 
+instance Default Time where
+    def = ISO8601
+
 data Checksum
     = MD5
     | SHA256
       deriving (Eq, Show, Generic)
 
+instance Default Checksum where
+    def = SHA256
+
 data ServiceType
-    = RestXML
-    | RestJSON
+    = RestXml
+    | RestJson
     | RestS3
-    | JSON
+    | Json
     | Query
-      deriving (Show, Generic)
+      deriving (Eq, Show, Generic)
+
+instance Default ServiceType where
+    def = Query
 
 data Signature
     = V2
     | V3
     | V4
-      deriving (Show, Generic)
+      deriving (Eq, Show, Generic)
+
+newtype JSONV = JSONV { unJSONV :: Text }
+    deriving (Eq, Show)
+
+instance Default JSONV where
+    def = JSONV "1.0"
 
 data Service = Service
     { svcName           :: Abbrev
-    , svcNamespace      :: NS
     , svcFullName       :: Text
+    , svcNamespace      :: NS
     , svcVersion        :: Version
     , svcType           :: ServiceType
     , svcWrapped        :: Bool
@@ -66,9 +106,9 @@ data Service = Service
     , svcEndpointPrefix :: Text
     , svcGlobalEndpoint :: Maybe Text
     , svcXmlNamespace   :: Maybe Text
-    , svcTimestamp      :: Maybe Time
-    , svcChecksum       :: Maybe Checksum
-    , svcJSONVersion    :: Text
+    , svcTimestamp      :: Time
+    , svcChecksum       :: Checksum
+    , svcJSONVersion    :: JSONV
     , svcTargetPrefix   :: Maybe Text
     , svcOperations     :: [Operation]
     } deriving (Show)

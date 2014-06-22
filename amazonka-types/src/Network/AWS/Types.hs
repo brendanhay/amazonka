@@ -143,15 +143,15 @@ withAuth (Auth e) f = f e
 data Endpoint
     = Global
     | Regional
-    | Custom !ByteString
+    | Custom ByteString
 
 instance IsString Endpoint where
     fromString = Custom . fromString
 
 data Service a = Service
     { _svcEndpoint :: !Endpoint
-    , _svcName     :: !ByteString
-    , _svcVersion  :: !ByteString
+    , _svcName     :: ByteString
+    , _svcVersion  :: ByteString
     , _svcTarget   :: Maybe ByteString
     }
 
@@ -171,7 +171,7 @@ endpoint Service{..} reg =
 
 data Request a = Request
     { _rqMethod  :: !StdMethod
-    , _rqPath    :: !ByteString
+    , _rqPath    :: ByteString
     , _rqQuery   :: Query
     , _rqHeaders :: [Header]
     , _rqBody    :: Body

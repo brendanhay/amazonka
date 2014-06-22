@@ -95,7 +95,28 @@ instance FromJSON Service where
             <*> o .:? "checksum_format"  .!= def
             <*> o .:? "json_version"     .!= def
             <*> o .:? "target_prefix"
-            <*> pure []
+            <*> o .:  "operations"
+
+instance FromJSON [Operation] where
+    parseJSON = withObject "operations" (mapM parseJSON . Map.elems)
+
+instance FromJSON Operation where
+    parseJSON = withObject "operation" $ \o ->
+        Operation <$> o .:  "name"
+                  <*> o .:? "alias"
+                  <*> pure def
+                  <*> o .:  "documentation"
+                  <*> o .:? "documentation_url"
+                  <*> parseJSON (Object o)
+                  <*> parseJSON (Object o)
+                  <*> pure []
+                  <*> o .:? "pagination"
+
+instance FromJSON Request
+
+instance FromJSON Response
+
+instance FromJSON Pagination
 
 instance FromJSON HTTP where
     parseJSON = withObject "http" $ \o ->

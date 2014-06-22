@@ -32,6 +32,13 @@ abbrev = Abbrev . mconcat . Text.words . strip "AWS" . strip "Amazon"
 newtype NS = NS { unNS :: [Text] }
     deriving (Eq, Show, Generic)
 
+instance Monoid NS where
+    mempty      = NS []
+    mappend a b = NS (on mappend unNS a b)
+
+instance Default NS where
+    def = mempty
+
 namespace :: Abbrev -> Version -> NS
 namespace a v = NS
     [ "Network"

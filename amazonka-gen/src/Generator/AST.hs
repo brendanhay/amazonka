@@ -161,35 +161,35 @@ data Common = Common
 
 data Shape
     = SStruct
-      { shpCommon    :: Common
-      , shpFields    :: HashMap Text Shape
-      , shpOrder     :: [Text]
+      { shpFields    :: [Shape]
+      , shpCommon    :: Common
       }
 
     | SList
-      { shpCommon    :: Common
-      , shpItem      :: Shape
+      { shpItem      :: Shape
       , shpFlattened :: Bool
-      , shpLength    :: Int
+      , shpMinLength :: Int
+      , shpMaxLength :: Int
+      , shpCommon    :: Common
       }
 
     | SMap
-      { shpCommon    :: Common
-      , shpKey       :: Shape
+      { shpKey       :: Shape
       , shpValue     :: Shape
+      , shpCommon    :: Common
       }
 
     | SEnum
-      { shpCommon    :: Common
-      , shpValues    :: HashMap Text Text
+      { shpValues    :: HashMap Text Text
+      , shpCommon    :: Common
       }
 
     | SPrim
-      { shpCommon    :: Common
-      , shpType      :: Prim
+      { shpType      :: Prim
       , shpMinLength :: Int
       , shpMaxLength :: Int
-      , shpPattern   :: Text
+      , shpPattern   :: Maybe Text
+      , shpCommon    :: Common
       }
 
       deriving (Eq, Show)

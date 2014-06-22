@@ -118,6 +118,9 @@ instance FromJSON Request where
 instance FromJSON Response where
     parseJSON = withObject "request" $ \o -> undefined
 
+instance FromJSON Location where
+    parseJSON = fromCtor (lowered . drop 1)
+
 instance FromJSON Common where
     parseJSON = withObject "common" $ \o -> do
         n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name"
@@ -125,12 +128,59 @@ instance FromJSON Common where
         l <- o .:? "location" .!= def
         Common n x l
             <$> o .:? "location_name" .!= n
-            <*> o .:? "required"      .!= if l == LBody then True else False
+            <*> o .:? "required"      .!= (if l == LBody then True else False)
             <*> o .:? "documentation" .!= def
             <*> o .:? "streaming"     .!= False
 
 instance FromJSON Shape where
-    parseJSON = withObject "shape" $ \o -> undefined
+    parseJSON o = do
+        f <-  parseJSON o :: Parser (Common -> Shape)
+        f <$> parseJSON o
+
+instance FromJSON (Common -> Shape) where
+    parseJSON = withObject "shape" $ \o -> o .: "type" >>= f o
+      where
+        f o "structure" = do
+            xs <- o .:? "members"      .!= mempty
+            ys <- o .:? "member_order" .!= Map.keys xs :: Parser [Text]
+            return . SStruct $ mapMaybe (\y -> Map.lookup y xs) ys
+
+        f o "list" = SList
+            <$> o .:  "members"
+            <*> o .:? "flattened"  .!=  False
+            <*> o .:? "min_length" .!= 0
+            <*> o .:? "max_length" .!= 0
+
+        f o "map" = SMap
+            <$> o .: "keys"
+            <*> o .: "members"
+
+        f o typ = do
+            ms <- o .:? "enum"
+
+            let str  = Text.pack . recase Under Camel . Text.unpack
+                enum = Map.fromList . map (first str . join (,)) <$> ms
+
+            case enum of
+                Just vs -> return (SEnum vs)
+                Nothing -> SPrim
+                    <$> parseJSON (String typ)
+                    <*> o .:? "min_length" .!= 0
+                    <*> o .:? "max_length" .!= 0
+                    <*> o .:? "pattern"
+
+instance FromJSON Prim where
+    parseJSON = withText "type" $ \t ->
+        case t of
+            "string"    -> return PText
+            "integer"   -> return PInteger
+            "long"      -> return PInteger
+            "double"    -> return PDouble
+            "float"     -> return PDouble
+            "boolean"   -> return PBool
+            "blob"      -> return PByteString
+            "timestamp" -> return PUTCTime
+            _           -> fail $ "Unable to parse Prim from: " ++ Text.unpack t
 
 instance FromJSON Pagination where
     parseJSON = withObject "pagination" $ \o ->

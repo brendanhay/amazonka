@@ -3,7 +3,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Generator.Templates
+-- Module      : Generator.Render
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,16 +13,27 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Generator.Templates where
+module Generator.Render where
 
 import           Control.Applicative
 import           Control.Error
+import           Data.Aeson
+import qualified Data.Foldable       as Fold
+import           Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as Map
+import           Data.Monoid
+import           Data.Text           (Text)
+import qualified Data.Text           as Text
+import qualified Data.Text.Lazy.IO   as LText
+import           Data.Text.Util
 import           Generator.AST
 import           Generator.Log
+import           Generator.ToJSON    ()
 import           System.Directory
 import           System.FilePath     hiding (normalise)
 import           Text.EDE            (Template)
 import qualified Text.EDE            as EDE
+import           Text.EDE.Filters
 
 data Templates = Templates
     { tmplCabal   :: Template
@@ -63,6 +74,27 @@ loadTemplate f =
     scriptIO (say "Parse Template" f *> EDE.eitherParseFile f)
         >>= hoistEither
 
+renderCabal :: FilePath -> Templates -> [Service] -> Script ()
+renderCabal dir ts ss =
+    render dir "amazonka.cabal" (tmplCabal ts) (Cabal ss)
+
+render :: ToJSON a => FilePath -> FilePath -> Template -> a -> Script ()
+render d f t e = scriptIO (say "Render" path) >> write path t (env e)
+  where
+    path = d </> f
+
+write :: FilePath -> Template -> Object -> Script ()
+write p t o = do
+    hs <- hoistEither $ EDE.eitherRenderWith filters t o
+    scriptIO $ createDirectoryIfMissing True (dropFileName p)
+        >> LText.writeFile p hs
+
+env :: ToJSON a => a -> Object
+env x =
+    case toJSON x of
+        Object o -> o
+        e        -> error ("Failed to extract JSON Object from: " ++ show e)
+
 -- render :: FilePath -> [Service] -> Templates -> Script ()
 -- render dir ss Templates{..} = do
 --     forM_ ss $ \s@Service{..} -> do
@@ -84,28 +116,23 @@ loadTemplate f =
 --         let path = dir </> f
 --          in fmapLT show (syncIO $ putStrLn path) *> render' path t (env e)
 
--- render' :: FilePath -> Template -> Object -> Script ()
--- render' p t o = do
---     hs <- hoistEither $ EDE.eitherRenderWith filters t o
---     scriptIO $ createDirectoryIfMissing True (dropFileName p)
---         >> LText.writeFile p hs
+filters :: HashMap Text Fun
+filters = EDE.defaultFilters <> Map.fromList fs
+  where
+    fs = funN "pad"    pad         [4, 8]
+      ++ funN "indent" indent      [4, 6, 8]
+      ++ funN "wrap"   (wrap "")   [66, 76, 80]
+      ++ funN "above"  (wrap "| ") [66, 76]
+      ++ funN "below"  (wrap "^ ") [66, 76]
 
--- filters = defaultFilters <> Map.fromList fs
---   where
---     fs = funN "pad"    pad         [4, 8]
---       ++ funN "indent" indent      [4, 6, 8]
---       ++ funN "wrap"   (wrap "")   [66, 76, 80]
---       ++ funN "above"  (wrap "| ") [66, 76]
---       ++ funN "below"  (wrap "^ ") [66, 76]
+    wrap p n t =
+        case normalise n t of
+            []       -> ""
+            (x : xs) -> Text.intercalate "\n" . map ("-- " <>) $ p <> x : xs
 
---     wrap p n t =
---         case normalise n t of
---             []       -> ""
---             (x : xs) -> Text.intercalate "\n" . map ("-- " <>) $ p <> x : xs
+    funN k g = Fold.foldl' (f k g) []
 
---     funN k g = Fold.foldl' (f k g) []
-
---     f k g xs n = (k <> Text.pack (show n), Fun TText TText (g n)) : xs
+    f k g xs n = (k <> Text.pack (show n), Fun TText TText (g n)) : xs
 
 -- base :: FilePath
 -- base = "lib"

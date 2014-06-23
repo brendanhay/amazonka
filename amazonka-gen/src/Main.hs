@@ -20,7 +20,7 @@ import Generator.AST
 import Generator.FromJSON
 import Generator.Log
 import Generator.Models
-import Generator.Templates
+import Generator.Render
 import Generator.ToJSON
 import Options.Applicative
 import System.Directory
@@ -51,10 +51,9 @@ main = do
 
     runScript $ do
         ts <- getTemplates
-        ms <- models optModels
-        ss <- mapM parseModel ms
+        ss <- models optModels >>= mapM parseModel
 
-        mapM_ (scriptIO . print . svcName) ss
+        renderCabal optDir ts ss
 
 --         Stage3.render optDir (map Stage2.transform ss) ts
 

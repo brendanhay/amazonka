@@ -446,7 +446,7 @@ instance ToJSON Cabal where
       where
         service s = object
             [ "current"  .= s2Namespace s
-            , "versions" .= map s2VersionNamespace (sort ss)
+=            , "versions" .= map s2VersionNamespace (sort ss)
             ]
 
         versioned Service{..} = object

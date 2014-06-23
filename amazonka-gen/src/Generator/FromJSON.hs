@@ -23,17 +23,12 @@ import           Control.Arrow
 import           Control.Error
 import           Control.Monad
 import           Data.Aeson
-import qualified Data.Aeson                 as Aeson
 import           Data.Aeson.Types
-import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
-import           Data.Char
 import           Data.Default
-import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.Monoid
-import           Data.Ord
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
@@ -44,7 +39,6 @@ import           Generator.AST
 import           Generator.Log
 import           Generator.Models
 import           Network.HTTP.Types.Method
-import           Text.EDE.Filters
 
 parseModel :: Model -> Script Service
 parseModel Model{..} = do
@@ -84,11 +78,15 @@ instance FromJSON JSONV where
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
-        n <- o .: "service_full_name"
-        a <- o .: "service_abbreviation" .!= abbrev n
-        v <- o .: "api_version"
+        n  <- o .: "service_full_name"
+        a  <- o .: "service_abbreviation" .!= abbrev n
+        v  <- o .: "api_version"
+        os <- o .: "operations"
 
-        Service a n (namespace a v) v
+        let ns     = namespace a v
+            reNS x = x { opNamespace = ns <> NS [opName x] }
+
+        Service a n ns v
             <$> o .:! "type"
             <*> o .:? "result_wrapped"   .!= False
             <*> o .:  "signature_version"
@@ -100,7 +98,7 @@ instance FromJSON Service where
             <*> o .:! "checksum_format"
             <*> o .:! "json_version"
             <*> o .:? "target_prefix"
-            <*> o .:  "operations"
+            <*> pure (map reNS os)
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" (mapM parseJSON . Map.elems)

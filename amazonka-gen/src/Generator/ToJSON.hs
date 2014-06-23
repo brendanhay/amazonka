@@ -26,13 +26,43 @@ import qualified Data.ByteString.Lazy as LBS
 import           Data.Char
 import           Data.HashMap.Strict  (HashMap)
 import qualified Data.HashMap.Strict  as Map
+import           Data.List
 import           Data.Monoid
 import           Data.Ord
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import qualified Data.Text.Unsafe     as Text
 import           GHC.Generics
+import           Generator.AST
 import           Text.EDE.Filters
+
+instance ToJSON Abbrev where
+    toJSON = toJSON . unAbbrev
+
+instance ToJSON NS where
+    toJSON = toJSON . Text.intercalate "." . unNS
+
+instance ToJSON Version where
+    toJSON = toJSON . unVersion
+
+instance ToJSON Cabal where
+    toJSON (Cabal ss) = object
+        [ "modules"  .= map service (sort (current ss))
+        , "versions" .= map versioned (sort ss)
+        ]
+      where
+        service s = object
+            [ "current"  .= rootNS (svcNamespace s)
+            , "versions" .= map svcNamespace (sort ss)
+            ]
+
+        versioned Service{..} = object
+            [ "name"    .= svcName
+            , "version" .= svcVersion
+            , "modules" .= modules
+            ]
+          where
+            modules = typeNS svcNamespace : sort (map opNamespace svcOperations)
 
 toField :: (Generic a, GToJSON (Rep a))
         => (String -> String)

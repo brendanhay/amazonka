@@ -17,7 +17,11 @@ module Generator.AST where
 import           Data.Default
 import           Data.Function
 import           Data.HashMap.Strict       (HashMap)
+import           Data.List
+import           Data.Maybe
 import           Data.Monoid
+import           Data.Ord
+import           Data.String
 import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
 import           Data.Text.Util
@@ -25,13 +29,13 @@ import           GHC.Generics
 import           Network.HTTP.Types.Method
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 abbrev :: Text -> Abbrev
 abbrev = Abbrev . mconcat . Text.words . strip "AWS" . strip "Amazon"
 
 newtype NS = NS { unNS :: [Text] }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 instance Monoid NS where
     mempty      = NS []
@@ -39,6 +43,9 @@ instance Monoid NS where
 
 instance Default NS where
     def = mempty
+
+instance IsString NS where
+    fromString = NS . filter (/= "") . Text.split (== '.') . Text.pack
 
 namespace :: Abbrev -> Version -> NS
 namespace a v = NS
@@ -48,8 +55,15 @@ namespace a v = NS
     , unVersion v
     ]
 
+rootNS :: NS -> NS
+rootNS (NS []) = NS []
+rootNS (NS xs) = NS (init xs)
+
+typeNS :: NS -> NS
+typeNS = (<> "Types")
+
 newtype Version = Version { unVersion :: Text }
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 version :: Text -> Version
 version = Version . mappend "V" . Text.replace "-" "_"
@@ -102,6 +116,9 @@ newtype JSONV = JSONV { unJSONV :: Text }
 instance Default JSONV where
     def = JSONV "1.0"
 
+newtype Cabal = Cabal [Service]
+    deriving (Show)
+
 data Service = Service
     { svcName           :: Abbrev
     , svcFullName       :: Text
@@ -119,7 +136,21 @@ data Service = Service
     , svcJSONVersion    :: JSONV
     , svcTargetPrefix   :: Maybe Text
     , svcOperations     :: [Operation]
-    } deriving (Show)
+    } deriving (Eq, Show)
+
+instance Ord Service where
+    compare a b = f svcNamespace <> f svcVersion
+      where
+        f :: Ord a => (Service -> a) -> Ordering
+        f g = compare (g a) (g b)
+
+current :: [Service] -> [Service]
+current = mapMaybe latest . groupBy identical
+  where
+    identical x y = EQ == comparing svcName x y
+
+    latest [] = Nothing
+    latest xs = Just . head $ sortBy (comparing svcVersion) xs
 
 data Operation = Operation
     { opName          :: Text
@@ -131,12 +162,12 @@ data Operation = Operation
     , opOutput        :: Response
     , opErrors        :: [Shape]
     , opPagination    :: Maybe Pagination
-    } deriving (Show)
+    } deriving (Eq, Show)
 
 data Request = Request
     { rqShape :: Shape
     , rqHttp  :: HTTP
-    } deriving (Show)
+    } deriving (Eq, Show)
 
 newtype Response = Response { unResponse :: Shape }
     deriving (Eq, Show)
@@ -237,4 +268,4 @@ data Pagination = Pagination
     , pgInputToken  :: Text
     , pgOutputToken :: Text
     , pgResultKeys  :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)

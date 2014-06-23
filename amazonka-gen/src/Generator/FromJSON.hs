@@ -106,6 +106,7 @@ instance FromJSON [Operation] where
 instance FromJSON Operation where
     parseJSON = withObject "operation" $ \o -> Operation
         <$> o .:  "name"
+        <*> pure def
         <*> o .:? "alias"
         <*> pure def
         <*> pure []
@@ -118,11 +119,11 @@ instance FromJSON Operation where
 
 instance FromJSON Request where
     parseJSON = withObject "request" $ \o -> do
-        i <- o .:! "input"
+        s <- o .:! "input"
 
-        let fs = fields i
+        let fs = fields s
 
-        Request "Request" (payload fs) (required fs) (headers fs) i
+        Request "Request" (payload fs) fs (required fs) (headers fs) s
             <$> o .:! "http"
       where
         required = filter (_cmnRequired . fldCommon)
@@ -130,8 +131,9 @@ instance FromJSON Request where
         payload  = listToMaybe . filter ((== LBody) . _cmnLocation . fldCommon)
 
 instance FromJSON Response where
-    parseJSON = withObject "response" $ \o -> Response "Response"
-        <$> o .:! "output"
+    parseJSON = withObject "response" $ \o -> do
+        s <- o .:! "output"
+        return $ Response "Response" (fields s) s
 
 instance FromJSON Location where
     parseJSON = fromCtor (lowered . drop 1)

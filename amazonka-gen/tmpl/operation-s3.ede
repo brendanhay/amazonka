@@ -14,10 +14,6 @@ import qualified Data.Text as Text
 import           {{ import.value }}
 {% endfor %}
 
-{{ request | show }}
-
-{% raw %}
-
 {% include "_include/method.ede" with request %}
 
 data {{ request.name }} = {{ request.name }}
@@ -38,8 +34,6 @@ instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}
 
-    request = {{ http.method }}
+    request = {{ request.method }}
 
     response = undefined
-
-{% endraw %}

@@ -36,6 +36,9 @@ newtype Abbrev = Abbrev { unAbbrev :: Text }
 instance IsString Abbrev where
     fromString = abbrev . Text.pack
 
+instance Default Abbrev where
+    def = Abbrev "AWS"
+
 abbrev :: Text -> Abbrev
 abbrev = Abbrev . mconcat . Text.words . strip "AWS" . strip "Amazon"
 
@@ -161,6 +164,7 @@ current = mapMaybe latest . groupBy identical
 
 data Operation = Operation
     { _opName          :: Text
+    , _opService       :: Abbrev
     , _opAlias         :: Maybe Text
     , _opNamespace     :: NS
     , _opImports       :: [NS]
@@ -175,16 +179,18 @@ data Operation = Operation
 data Request = Request
     { _rqName     :: Text
     , _rqPayload  :: Maybe Field
+    , _rqFields   :: [Field]
     , _rqRequired :: [Field]
     , _rqHeaders  :: [Field]
     , _rqShape    :: Shape
     , _rqHttp     :: HTTP
-    } deriving (Eq, Show)
+    } deriving (Eq, Show, Generic)
 
 data Response = Response
-    { _rsName  :: Text
-    , _rsShape :: Shape
-    } deriving (Eq, Show)
+    { _rsName   :: Text
+    , _rsFields :: [Field]
+    , _rsShape  :: Shape
+    } deriving (Eq, Show, Generic)
 
 data Location
     = LHeader

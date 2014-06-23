@@ -37,6 +37,7 @@ service s = s & svcOperations %~ map (operation s)
 
 operation :: Service -> Operation -> Operation
 operation s o = o
+    & opService   .~ s ^. svcName
     & opNamespace .~ s ^. svcVersionNamespace <> NS [_opName o]
     & opImports  <>~ imports
     & opRequest   %~ request o

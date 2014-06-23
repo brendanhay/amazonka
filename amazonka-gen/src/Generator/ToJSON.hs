@@ -90,17 +90,13 @@ instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Request where
-    toJSON Request{..} = Object (x <> y <> z)
+    toJSON rq = Object (x <> y)
       where
-        Object x = toJSON _rqShape
-        Object y = toJSON _rqHttp
-        Object z = object ["name" .= _rqName]
+        Object x = toJSON (_rqHttp rq)
+        Object y = toField (recase Camel Under . drop 3) rq
 
 instance ToJSON Response where
-    toJSON Response{..} = Object (x <> y)
-      where
-        Object x = toJSON _rsShape
-        Object y = object ["name" .= _rsName]
+    toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Location where
     toJSON = toCtor (lowered . drop 1)
@@ -116,6 +112,18 @@ instance ToJSON Shape where
 
 instance ToJSON Prim where
     toJSON = toCtor (drop 1)
+
+instance ToJSON Ann where
+    toJSON = toJSON . unAnn
+
+instance ToJSON Field where
+    toJSON f = Object (x <> y)
+      where
+        Object x = toJSON (fldCommon f)
+        Object y = object
+            [ "type"  .= fldType f
+            , "brief" .= fldBrief f
+            ]
 
 instance ToJSON StdMethod where
     toJSON = toJSON . Text.decodeUtf8 . renderStdMethod

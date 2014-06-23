@@ -164,7 +164,7 @@ data Operation = Operation
     , opOutput        :: Response
     , opErrors        :: [Shape]
     , opPagination    :: Maybe Pagination
-    } deriving (Eq, Show)
+    } deriving (Eq, Show, Generic)
 
 data Request = Request
     { rqShape :: Shape
@@ -193,7 +193,7 @@ data Common = Common
     , cmnRequired      :: Bool
     , cmnDocumentation :: Doc
     , cmnStreaming     :: Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Show, Generic)
 
 instance Default Common where
     def = Common Nothing Nothing def Nothing False def False
@@ -231,7 +231,7 @@ data Shape
       , shpCommon    :: Common
       }
 
-      deriving (Eq, Show)
+      deriving (Eq, Show, Generic)
 
 instance Default Shape where
     def = SPrim PText 0 0 Nothing def
@@ -249,7 +249,7 @@ data HTTP = HTTP
     { hMethod :: !StdMethod
     , hPath   :: [PathPart]
     , hQuery  :: [QueryPart]
-    } deriving (Eq, Show)
+    } deriving (Eq, Show, Generic)
 
 instance Default HTTP where
     def = HTTP GET [] []
@@ -261,8 +261,8 @@ data PathPart
 
 data QueryPart = QueryPart
     { qpKey :: Text
-    , kpVal :: Maybe Text
-    } deriving (Eq, Show)
+    , qpVal :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
 data Pagination = Pagination
     { pgMoreKey     :: Maybe Text

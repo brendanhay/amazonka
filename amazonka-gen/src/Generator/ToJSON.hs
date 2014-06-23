@@ -32,9 +32,11 @@ import           Data.Ord
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
+import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
 import           GHC.Generics
 import           Generator.AST
+import           Network.HTTP.Types.Method
 import           Text.EDE.Filters
 
 instance ToJSON Abbrev where
@@ -85,7 +87,45 @@ instance ToJSON Service where
     toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Operation where
-    toJSON _ = Null
+    toJSON = toField (recase Camel Under . drop 2)
+
+instance ToJSON Request where
+    toJSON Request{..} = Object (x <> y)
+      where
+        Object x = toJSON rqShape
+        Object y = toJSON rqHttp
+
+instance ToJSON Response where
+    toJSON = toJSON . unResponse
+
+instance ToJSON Location where
+    toJSON = toCtor (lowered . drop 1)
+
+instance ToJSON Common
+
+instance ToJSON Shape
+
+instance ToJSON Prim where
+    toJSON = toCtor (drop 1)
+
+instance ToJSON StdMethod where
+    toJSON = toJSON . Text.decodeUtf8 . renderStdMethod
+
+instance ToJSON HTTP where
+    toJSON = toField (recase Camel Under . drop 1)
+
+instance ToJSON PathPart where
+    toJSON p = case p of
+        PConst c -> f "const" c
+        PVar   v -> f "var" v
+      where
+        f k v = object ["type" .= (k :: Text), "value" .= v]
+
+instance ToJSON QueryPart where
+    toJSON = toField (recase Camel Under . drop 2)
+
+instance ToJSON Pagination where
+    toJSON = toField (recase Camel Under . drop 2)
 
 toField :: (Generic a, GToJSON (Rep a))
         => (String -> String)

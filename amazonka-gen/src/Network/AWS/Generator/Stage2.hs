@@ -351,7 +351,6 @@ instance Transform HTTP where
 data Request = Request
     { rq2Name     :: Text
     , rq2Http     :: HTTP
-    ,
     , rq2Fields   :: [Field]
     , rq2Required :: [Field]
     , rq2Headers  :: [Field]

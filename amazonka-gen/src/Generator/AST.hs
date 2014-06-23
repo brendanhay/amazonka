@@ -261,13 +261,22 @@ fields s = case s of
     f x = Field (typeof x) (prefixed s) (_shpCommon x)
 
 prefixed :: Shape -> Text
-prefixed s =
-    case _cmnName (_shpCommon s)  of
-        Nothing -> error $ "Shape has no name: " ++ (show s)
-        Just x  -> prefix x
+prefixed s = prefix (fromName s)
 
 typeof :: Shape -> Ann
-typeof _ = "Type!"
+typeof s =
+    case s of
+        SStruct {..} ->
+        SList   {..} -> Ann (required s) True ("[" <> name <> "]")
+        SMap    {..} -> Ann (required s) True ("HashMap " <> name sKey <> " " <> sValue)
+        SEnum   {..} ->
+        SPrim   {..} -> Ann . Text.pack . drop 1 $ show shpType
+  where
+    name = fromName s
+
+fromName s = case _cmnName (_shpCommon s) of
+    Nothing -> error $ "Shape has no name: " ++ (show s)
+    Just x  -> x
 
 data Prim
     = PText

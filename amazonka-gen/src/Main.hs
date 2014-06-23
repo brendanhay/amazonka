@@ -13,21 +13,17 @@
 
 module Main (main) where
 
-import           Control.Applicative
-import           Control.Error
-import           Control.Monad
-import           Data.List
-import           Data.Monoid
-import qualified Data.Text.Lazy.IO   as LText
-import           Generator.AST
-import           Generator.FromJSON
-import           Generator.Models
-import           Generator.Templates
-import           Generator.ToJSON
-import           Options.Applicative
-import           System.Directory
-import           System.Exit
-import           System.FilePath
+import Control.Applicative
+import Control.Error
+import Data.Monoid
+import Generator.AST
+import Generator.FromJSON
+import Generator.Log
+import Generator.Models
+import Generator.Templates
+import Generator.ToJSON
+import Options.Applicative
+import System.Directory
 
 data Options = Options
     { optDir    :: FilePath
@@ -54,16 +50,13 @@ main = do
     createDirectoryIfMissing True optDir
 
     runScript $ do
+        ts <- getTemplates
         ms <- models optModels
-        ts <- templates
+        ss <- mapM parseModel ms
 
-        return ()
-
---         ss <- mapM (Stage1.parse) ms
+        mapM_ (scriptIO . print . svcName) ss
 
 --         Stage3.render optDir (map Stage2.transform ss) ts
-
-    return ()
 
   where
     pPrefs = prefs showHelpOnError

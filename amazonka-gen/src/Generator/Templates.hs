@@ -18,6 +18,7 @@ module Generator.Templates where
 import           Control.Applicative
 import           Control.Error
 import           Generator.AST
+import           Generator.Log
 import           System.Directory
 import           System.FilePath     hiding (normalise)
 import           Text.EDE            (Template)
@@ -31,8 +32,8 @@ data Templates = Templates
     , tmplService :: ServiceType -> (Template, Template)
     }
 
-templates :: Script Templates
-templates = do
+getTemplates :: Script Templates
+getTemplates = do
     dir  <- scriptIO getCurrentDirectory
 
     let load f = loadTemplate (dir </> "tmpl" </> f <.> "ede")
@@ -59,7 +60,7 @@ templates = do
 
 loadTemplate :: FilePath -> Script Template
 loadTemplate f =
-    scriptIO (putStrLn ("Parsing EDE " ++ f) *> EDE.eitherParseFile f)
+    scriptIO (say "Parse Template" f *> EDE.eitherParseFile f)
         >>= hoistEither
 
 -- render :: FilePath -> [Service] -> Templates -> Script ()

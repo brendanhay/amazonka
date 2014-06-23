@@ -29,6 +29,7 @@ executable amazonka-gen
         , ede                  >= 0.1.5
         , errors
         , filepath
+        , http-types
         , optparse-applicative == 0.8.*
         , semigroups
         , text

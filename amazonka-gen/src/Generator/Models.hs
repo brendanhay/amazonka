@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 -- Module      : Generator.Models
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -14,6 +16,7 @@ import Control.Applicative
 import Control.Error
 import Control.Monad
 import Data.List
+import Generator.Log
 import System.Directory
 import System.FilePath
 
@@ -31,7 +34,8 @@ models = fmap concat . mapM model
     model d = sync $ do
         xs <- json <$> getDirectoryContents d
         forM xs $ \f ->
-            putStrLn ("Found Model " ++ d </> f) *> return (modelFromPath d f)
+            say "Locate Model" (d </> f)
+                >> return (modelFromPath d f)
 
     sync = fmapLT show . syncIO
     json = filter (isSuffixOf ".json")

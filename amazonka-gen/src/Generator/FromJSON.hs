@@ -25,6 +25,8 @@ import           Control.Monad
 import           Data.Aeson
 import qualified Data.Aeson                 as Aeson
 import           Data.Aeson.Types
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.Char
 import           Data.Default
@@ -35,17 +37,18 @@ import           Data.Ord
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
+import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
 import           GHC.Generics
 import           Generator.AST
+import           Generator.Log
 import           Generator.Models
+import           Network.HTTP.Types.Method
 import           Text.EDE.Filters
 
 parseModel :: Model -> Script Service
 parseModel Model{..} = do
-    r <- scriptIO $ do
-        putStrLn $ "Parsing Service " ++ modPath
-        LBS.readFile modPath
+    r <- scriptIO $ say "Parse Service" modPath >> LBS.readFile modPath
     hoistEither (eitherDecode r)
 
 instance FromJSON Abbrev where
@@ -57,12 +60,14 @@ instance FromJSON Version where
 instance FromJSON Doc where
     parseJSON = withText "documentation" (return . documentation)
 
-instance FromJSON Time
+instance FromJSON Time where
+    parseJSON = fromCtor lowered
 
-instance FromJSON Checksum
+instance FromJSON Checksum where
+    parseJSON = fromCtor lowered
 
 instance FromJSON ServiceType where
-    parseJSON = fromCtor (recase Camel Under)
+    parseJSON = fromCtor (recase Camel Hyphen)
 
 instance FromJSON Signature where
     parseJSON = withText "signature" $ \t ->
@@ -84,16 +89,16 @@ instance FromJSON Service where
         v <- o .: "api_version"
 
         Service a n (namespace a v) v
-            <$> o .:? "type"             .!= def
+            <$> o .:! "type"
             <*> o .:? "result_wrapped"   .!= False
             <*> o .:  "signature_version"
-            <*> o .:? "documentation"    .!= def
+            <*> o .:! "documentation"
             <*> o .:  "endpoint_prefix"
             <*> o .:? "global_endpoint"
             <*> o .:? "xmlnamespace"
-            <*> o .:? "timestamp_format" .!= def
-            <*> o .:? "checksum_format"  .!= def
-            <*> o .:? "json_version"     .!= def
+            <*> o .:! "timestamp_format"
+            <*> o .:! "checksum_format"
+            <*> o .:! "json_version"
             <*> o .:? "target_prefix"
             <*> o .:  "operations"
 
@@ -114,25 +119,25 @@ instance FromJSON Operation where
 
 instance FromJSON Request where
     parseJSON = withObject "request" $ \o -> Request
-        <$> parseJSON (Object  o)
-        <*> o .: "input"
+        <$> o .:! "input"
+        <*> o .:! "http"
 
 instance FromJSON Response where
     parseJSON = withObject "response" $ \o -> Response
-        <$> o .: "output"
+        <$> o .:! "output"
 
 instance FromJSON Location where
     parseJSON = fromCtor (lowered . drop 1)
 
 instance FromJSON Common where
     parseJSON = withObject "common" $ \o -> do
-        n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name"
-        x <- o .:? "xmlname"  .!= n
-        l <- o .:? "location" .!= def
+        n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name" <|> return Nothing
+        x <- o .:? "xmlname" .!= n
+        l <- o .:! "location"
         Common n x l
             <$> o .:? "location_name" .!= n
             <*> o .:? "required"      .!= (if l == LBody then True else False)
-            <*> o .:? "documentation" .!= def
+            <*> o .:! "documentation"
             <*> o .:? "streaming"     .!= False
 
 instance FromJSON Shape where
@@ -197,9 +202,13 @@ instance FromJSON Pagination where
 
 instance FromJSON HTTP where
     parseJSON = withObject "http" $ \o -> HTTP
-        <$> o .: "method"
+        <$> (o .: "method" >>= method)
         <*> o .: "uri"
         <*> o .: "uri"
+      where
+        method = either (fail . BS.unpack) return
+            . parseMethod
+            . Text.encodeUtf8
 
 instance FromJSON [PathPart] where
     parseJSON = withText "uri" $ return . path
@@ -227,6 +236,9 @@ instance FromJSON [QueryPart] where
 
             brk | '=' <- Text.last l = (Text.init $ Text.tail l, Just m)
                 | otherwise          = (Text.tail l, Nothing)
+
+(.:!) :: (Default a, FromJSON a) => Object -> Text -> Parser a
+(.:!) o k = o .:? k .!= def
 
 fromField :: (Generic a, GFromJSON (Rep a))
           => (String -> String)

@@ -16,12 +16,13 @@ module Generator.AST where
 
 import           Data.Default
 import           Data.Function
-import           Data.HashMap.Strict (HashMap)
+import           Data.HashMap.Strict       (HashMap)
 import           Data.Monoid
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
+import           Data.Text                 (Text)
+import qualified Data.Text                 as Text
 import           Data.Text.Util
 import           GHC.Generics
+import           Network.HTTP.Types.Method
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Show, Generic)
@@ -152,14 +153,17 @@ instance Default Location where
     def = LBody
 
 data Common = Common
-    { cmnName          :: Text
-    , cmnXmlName       :: Text
+    { cmnName          :: Maybe Text
+    , cmnXmlName       :: Maybe Text
     , cmnLocation      :: Location
-    , cmnLocationName  :: Text
+    , cmnLocationName  :: Maybe Text
     , cmnRequired      :: Bool
     , cmnDocumentation :: Doc
     , cmnStreaming     :: Bool
     } deriving (Eq, Show)
+
+instance Default Common where
+    def = Common Nothing Nothing def Nothing False def False
 
 data Shape
     = SStruct
@@ -196,6 +200,9 @@ data Shape
 
       deriving (Eq, Show)
 
+instance Default Shape where
+    def = SPrim PText 0 0 Nothing def
+
 data Prim
     = PText
     | PInteger
@@ -206,10 +213,13 @@ data Prim
       deriving (Eq, Show, Generic)
 
 data HTTP = HTTP
-    { hMethod :: Text
+    { hMethod :: !StdMethod
     , hPath   :: [PathPart]
     , hQuery  :: [QueryPart]
     } deriving (Eq, Show)
+
+instance Default HTTP where
+    def = HTTP GET [] []
 
 data PathPart
     = PConst Text

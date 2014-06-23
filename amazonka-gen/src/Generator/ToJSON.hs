@@ -73,21 +73,21 @@ instance ToJSON Cabal where
         ]
       where
         service s = object
-            [ "current"  .= svcNamespace s
-            , "versions" .= map svcVersionNamespace (sort ss)
+            [ "current"  .= _svcNamespace s
+            , "versions" .= map _svcVersionNamespace (sort ss)
             ]
 
         versioned Service{..} = object
-            [ "name"    .= svcName
-            , "version" .= svcVersion
-            , "modules" .= (svcTypesNamespace : sort (map opNamespace svcOperations))
+            [ "name"    .= _svcName
+            , "version" .= _svcVersion
+            , "modules" .= (_svcTypesNamespace : sort (map _opNamespace _svcOperations))
             ]
 
 instance ToJSON Service where
-    toJSON = toField (recase Camel Under . drop 3)
+    toJSON = toField (recase Camel Under . drop 4)
 
 instance ToJSON Operation where
-    toJSON = toField (recase Camel Under . drop 2)
+    toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Request where
     toJSON Request{..} = Object (x <> y)

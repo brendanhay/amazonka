@@ -30,6 +30,7 @@ executable amazonka-gen
         , errors
         , filepath
         , http-types
+        , lens
         , optparse-applicative == 0.8.*
         , semigroups
         , text

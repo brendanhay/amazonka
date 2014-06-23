@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Generator.AST
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,6 +15,7 @@
 
 module Generator.AST where
 
+import           Control.Lens
 import           Data.Default
 import           Data.Function
 import           Data.HashMap.Strict       (HashMap)
@@ -123,28 +125,28 @@ newtype Cabal = Cabal [Service]
     deriving (Show)
 
 data Service = Service
-    { svcName             :: Abbrev
-    , svcFullName         :: Text
-    , svcNamespace        :: NS
-    , svcTypesNamespace   :: NS
-    , svcVersionNamespace :: NS
-    , svcVersion          :: Version
-    , svcType             :: ServiceType
-    , svcWrapped          :: Bool
-    , svcSignature        :: Signature
-    , svcDocumentation    :: Doc
-    , svcEndpointPrefix   :: Text
-    , svcGlobalEndpoint   :: Maybe Text
-    , svcXmlNamespace     :: Maybe Text
-    , svcTimestamp        :: Time
-    , svcChecksum         :: Checksum
-    , svcJsonVersion      :: JSONV
-    , svcTargetPrefix     :: Maybe Text
-    , svcOperations       :: [Operation]
+    { _svcName             :: Abbrev
+    , _svcFullName         :: Text
+    , _svcNamespace        :: NS
+    , _svcTypesNamespace   :: NS
+    , _svcVersionNamespace :: NS
+    , _svcVersion          :: Version
+    , _svcType             :: ServiceType
+    , _svcWrapped          :: Bool
+    , _svcSignature        :: Signature
+    , _svcDocumentation    :: Doc
+    , _svcEndpointPrefix   :: Text
+    , _svcGlobalEndpoint   :: Maybe Text
+    , _svcXmlNamespace     :: Maybe Text
+    , _svcTimestamp        :: Time
+    , _svcChecksum         :: Checksum
+    , _svcJsonVersion      :: JSONV
+    , _svcTargetPrefix     :: Maybe Text
+    , _svcOperations       :: [Operation]
     } deriving (Eq, Show, Generic)
 
 instance Ord Service where
-    compare a b = f svcNamespace <> f svcVersion
+    compare a b = f _svcNamespace <> f _svcVersion
       where
         f :: Ord a => (Service -> a) -> Ordering
         f g = compare (g a) (g b)
@@ -152,21 +154,22 @@ instance Ord Service where
 current :: [Service] -> [Service]
 current = mapMaybe latest . groupBy identical
   where
-    identical x y = EQ == comparing svcName x y
+    identical x y = EQ == comparing _svcName x y
 
     latest [] = Nothing
-    latest xs = Just . head $ sortBy (comparing svcVersion) xs
+    latest xs = Just . head $ sortBy (comparing _svcVersion) xs
 
 data Operation = Operation
-    { opName          :: Text
-    , opAlias         :: Maybe Text
-    , opNamespace     :: NS
-    , opDocumentation :: Doc
-    , opUrl           :: Maybe Text
-    , opInput         :: Request
-    , opOutput        :: Response
-    , opErrors        :: [Shape]
-    , opPagination    :: Maybe Pagination
+    { _opName          :: Text
+    , _opAlias         :: Maybe Text
+    , _opNamespace     :: NS
+    , _opImports       :: [NS]
+    , _opDocumentation :: Doc
+    , _opUrl           :: Maybe Text
+    , _opInput         :: Request
+    , _opOutput        :: Response
+    , _opErrors        :: [Shape]
+    , _opPagination    :: Maybe Pagination
     } deriving (Eq, Show, Generic)
 
 data Request = Request
@@ -274,3 +277,6 @@ data Pagination = Pagination
     , pgOutputToken :: Text
     , pgResultKeys  :: Text
     } deriving (Eq, Show, Generic)
+
+makeLenses ''Service
+makeLenses ''Operation

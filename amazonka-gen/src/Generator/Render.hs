@@ -90,16 +90,16 @@ loadTemplate f =
 render :: FilePath -> Templates -> [Service] -> Script ()
 render dir Templates{..} ss = do
     forM_ ss $ \s@Service{..} -> do
-        let (types, oper) = tmplService svcType
+        let (types, oper) = tmplService _svcType
 
-        forM_ svcOperations $ \o@Operation{..} ->
-            write (path opNamespace) oper o
+        forM_ _svcOperations $ \o@Operation{..} ->
+            write (path _opNamespace) oper o
 
-        write (path svcTypesNamespace) types s
-        write (path svcVersionNamespace) tmplVersion s
+        write (path _svcTypesNamespace) types s
+        write (path _svcVersionNamespace) tmplVersion s
 
     forM_ (current ss) $ \s ->
-        write (path (svcName s)) tmplCurrent s
+        write (path (_svcName s)) tmplCurrent s
 
     write "amazonka.cabal" tmplCabal (Cabal ss)
     write "Makefile" tmplMake (Cabal ss)

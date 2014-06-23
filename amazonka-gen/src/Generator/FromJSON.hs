@@ -21,6 +21,7 @@ module Generator.FromJSON where
 import           Control.Applicative
 import           Control.Arrow
 import           Control.Error
+import           Control.Lens               hiding (enum)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Aeson.Types
@@ -82,12 +83,10 @@ instance FromJSON Service where
         a  <- o .:  "service_abbreviation" .!= abbrev n
         v  <- o .:  "api_version"
         t  <- o .:! "type"
-        os <- o .:  "operations"
 
-        let vNS    = namespace a v
-            opNS x = x { opNamespace = vNS <> NS [opName x] }
-            typ    | a == "S3" = RestS3
-                   | otherwise = t
+        let vNS = namespace a v
+            typ | a == "S3" = RestS3
+                | otherwise = t
 
         Service a n (rootNS vNS) vNS (typeNS vNS) v typ
             <$> o .:? "result_wrapped"   .!= False
@@ -100,7 +99,7 @@ instance FromJSON Service where
             <*> o .:! "checksum_format"
             <*> o .:! "json_version"
             <*> o .:? "target_prefix"
-            <*> pure (map opNS os)
+            <*> o .:  "operations"
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" (mapM parseJSON . Map.elems)
@@ -110,6 +109,7 @@ instance FromJSON Operation where
         <$> o .:  "name"
         <*> o .:? "alias"
         <*> pure def
+        <*> pure []
         <*> o .:  "documentation"
         <*> o .:? "documentation_url"
         <*> parseJSON (Object o)

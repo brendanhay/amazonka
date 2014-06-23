@@ -19,6 +19,7 @@ import Data.Monoid
 import Generator.FromJSON
 import Generator.Models
 import Generator.Render
+import Generator.Transform
 import Options.Applicative
 import System.Directory
 
@@ -53,4 +54,4 @@ main = do
         ts <- getTemplates
         ss <- mapM parseModel ms
 
-        render optDir ts ss
+        render optDir ts (transform ss)

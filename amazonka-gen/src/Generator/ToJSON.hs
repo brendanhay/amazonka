@@ -19,19 +19,20 @@ import           Control.Applicative
 import           Control.Arrow
 import           Control.Error
 import           Control.Monad
-import qualified Data.Aeson           as Aeson
-import           Data.Aeson           hiding (String)
-import           Data.Aeson.Types     hiding (String)
-import qualified Data.ByteString.Lazy as LBS
+import qualified Data.Aeson                 as Aeson
+import           Data.Aeson                 hiding (String)
+import           Data.Aeson.Types           hiding (String)
+import qualified Data.ByteString.Lazy       as LBS
 import           Data.Char
-import           Data.HashMap.Strict  (HashMap)
-import qualified Data.HashMap.Strict  as Map
+import           Data.HashMap.Strict        (HashMap)
+import qualified Data.HashMap.Strict        as Map
 import           Data.List
 import           Data.Monoid
 import           Data.Ord
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import qualified Data.Text.Unsafe     as Text
+import           Data.String.CaseConversion
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import qualified Data.Text.Unsafe           as Text
 import           GHC.Generics
 import           Generator.AST
 import           Text.EDE.Filters
@@ -44,6 +45,24 @@ instance ToJSON NS where
 
 instance ToJSON Version where
     toJSON = toJSON . unVersion
+
+instance ToJSON Doc where
+    toJSON = toJSON . unDoc
+
+instance ToJSON Time where
+    toJSON = toCtor lowered
+
+instance ToJSON Checksum where
+    toJSON = toCtor lowered
+
+instance ToJSON ServiceType where
+    toJSON = toCtor (recase Camel Under)
+
+instance ToJSON Signature where
+    toJSON = toCtor lowered
+
+instance ToJSON JSONV where
+    toJSON = toJSON . unJSONV
 
 instance ToJSON Cabal where
     toJSON (Cabal ss) = object
@@ -63,10 +82,7 @@ instance ToJSON Cabal where
             ]
 
 instance ToJSON Service where
-    toJSON Service{..} = object
-        [
-
-        ]
+    toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Operation where
     toJSON _ = Null

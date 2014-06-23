@@ -135,10 +135,10 @@ data Service = Service
     , svcXmlNamespace     :: Maybe Text
     , svcTimestamp        :: Time
     , svcChecksum         :: Checksum
-    , svcJSONVersion      :: JSONV
+    , svcJsonVersion      :: JSONV
     , svcTargetPrefix     :: Maybe Text
     , svcOperations       :: [Operation]
-    } deriving (Eq, Show)
+    } deriving (Eq, Show, Generic)
 
 instance Ord Service where
     compare a b = f svcNamespace <> f svcVersion

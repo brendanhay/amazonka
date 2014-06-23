@@ -120,22 +120,24 @@ newtype Cabal = Cabal [Service]
     deriving (Show)
 
 data Service = Service
-    { svcName           :: Abbrev
-    , svcFullName       :: Text
-    , svcNamespace      :: NS
-    , svcVersion        :: Version
-    , svcType           :: ServiceType
-    , svcWrapped        :: Bool
-    , svcSignature      :: Signature
-    , svcDocumentation  :: Doc
-    , svcEndpointPrefix :: Text
-    , svcGlobalEndpoint :: Maybe Text
-    , svcXmlNamespace   :: Maybe Text
-    , svcTimestamp      :: Time
-    , svcChecksum       :: Checksum
-    , svcJSONVersion    :: JSONV
-    , svcTargetPrefix   :: Maybe Text
-    , svcOperations     :: [Operation]
+    { svcName             :: Abbrev
+    , svcFullName         :: Text
+    , svcNamespace        :: NS
+    , svcTypesNamespace   :: NS
+    , svcVersionNamespace :: NS
+    , svcVersion          :: Version
+    , svcType             :: ServiceType
+    , svcWrapped          :: Bool
+    , svcSignature        :: Signature
+    , svcDocumentation    :: Doc
+    , svcEndpointPrefix   :: Text
+    , svcGlobalEndpoint   :: Maybe Text
+    , svcXmlNamespace     :: Maybe Text
+    , svcTimestamp        :: Time
+    , svcChecksum         :: Checksum
+    , svcJSONVersion      :: JSONV
+    , svcTargetPrefix     :: Maybe Text
+    , svcOperations       :: [Operation]
     } deriving (Eq, Show)
 
 instance Ord Service where

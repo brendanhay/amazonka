@@ -83,10 +83,10 @@ instance FromJSON Service where
         v  <- o .: "api_version"
         os <- o .: "operations"
 
-        let ns     = namespace a v
-            reNS x = x { opNamespace = ns <> NS [opName x] }
+        let vNS    = namespace a v
+            opNS x = x { opNamespace = vNS <> NS [opName x] }
 
-        Service a n ns v
+        Service a n (rootNS vNS) vNS (typeNS vNS) v
             <$> o .:! "type"
             <*> o .:? "result_wrapped"   .!= False
             <*> o .:  "signature_version"
@@ -98,7 +98,7 @@ instance FromJSON Service where
             <*> o .:! "checksum_format"
             <*> o .:! "json_version"
             <*> o .:? "target_prefix"
-            <*> pure (map reNS os)
+            <*> pure (map opNS os)
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" (mapM parseJSON . Map.elems)

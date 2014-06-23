@@ -19,7 +19,6 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Monad
 import           Data.Aeson
-import           Data.Default
 import qualified Data.Foldable                as Fold
 import           Data.HashMap.Strict          (HashMap)
 import qualified Data.HashMap.Strict          as Map
@@ -44,52 +43,6 @@ import           System.FilePath              hiding (normalise)
 import           Text.EDE                     (Resolver, Template)
 import qualified Text.EDE                     as EDE
 import           Text.EDE.Filters
-
-data Templates = Templates
-    { tmplCabal   :: Template
-    , tmplMake    :: Template
-    , tmplVersion :: Template
-    , tmplCurrent :: Template
-    , tmplService :: ServiceType -> (Template, Template)
-    }
-
-templates :: Script Templates
-templates = do
-    ctor  <- Templates
-        <$> load "tmpl/cabal.ede"
-        <*> load "tmpl/makefile.ede"
-        <*> load "tmpl/version.ede"
-        <*> load "tmpl/current.ede"
-
-    !rxml <- (,)
-        <$> load "tmpl/types-rest-xml.ede"
-        <*> load "tmpl/operation-rest-xml.ede"
-
-    !rjs  <- (,)
-        <$> load "tmpl/types-rest-json.ede"
-        <*> load "tmpl/operation-rest-json.ede"
-
-    !s3   <- (,)
-        <$> load "tmpl/types-s3.ede"
-        <*> load "tmpl/operation-s3.ede"
-
-    !js   <- (,)
-        <$> load "tmpl/types-json.ede"
-        <*> load "tmpl/operation-json.ede"
-
-    !qry  <- (,)
-        <$> load "tmpl/types-query.ede"
-        <*> load "tmpl/operation-query.ede"
-
-    return $! ctor $ \t ->
-        case t of
-            RestXML  -> rxml
-            RestJSON -> rjs
-            RestS3   -> s3
-            JSON     -> js
-            Query    -> qry
-  where
-    load p = scriptIO (EDE.eitherParseFile p) >>= hoistEither
 
 render :: FilePath -> [Service] -> Templates -> Script ()
 render dir ss Templates{..} = do

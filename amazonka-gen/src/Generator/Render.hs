@@ -17,6 +17,7 @@ module Generator.Render where
 
 import           Control.Applicative
 import           Control.Error
+import           Control.Monad
 import           Data.Aeson
 import qualified Data.Foldable       as Fold
 import           Data.HashMap.Strict (HashMap)
@@ -34,6 +35,18 @@ import           System.FilePath     hiding (normalise)
 import           Text.EDE            (Template)
 import qualified Text.EDE            as EDE
 import           Text.EDE.Filters
+
+base :: FilePath
+base = "lib"
+
+class ToPath a where
+    path :: a -> FilePath
+
+instance ToPath Abbrev where
+    path (Abbrev a) = base </> "Network/AWS" </> Text.unpack a <.> "hs"
+
+instance ToPath NS where
+    path (NS xs) = base </> (Text.unpack $ Text.intercalate "/" xs) <.> "hs"
 
 data Templates = Templates
     { tmplCabal   :: Template
@@ -74,47 +87,41 @@ loadTemplate f =
     scriptIO (say "Parse Template" f *> EDE.eitherParseFile f)
         >>= hoistEither
 
-renderCabal :: FilePath -> Templates -> [Service] -> Script ()
-renderCabal dir ts ss =
-    render dir "amazonka.cabal" (tmplCabal ts) (Cabal ss)
+render :: FilePath -> Templates -> [Service] -> Script ()
+render dir Templates{..} ss = do
+    forM_ ss $ \s@Service{..} -> do
+        let (types, oper) = tmplService svcType
 
-render :: ToJSON a => FilePath -> FilePath -> Template -> a -> Script ()
-render d f t e = scriptIO (say "Render" path) >> write path t (env e)
+        forM_ svcOperations $ \o@Operation{..} ->
+            write (path opNamespace) oper o
+
+        write (path svcTypesNamespace) types s
+        write (path svcVersionNamespace) tmplVersion s
+
+    forM_ (current ss) $ \s ->
+        write (path (svcName s)) tmplCurrent s
+
+    write "amazonka.cabal" tmplCabal (Cabal ss)
+    write "Makefile" tmplMake (Cabal ss)
   where
-    path = d </> f
+    write f t e = render' dir f t (env e)
 
-write :: FilePath -> Template -> Object -> Script ()
-write p t o = do
-    hs <- hoistEither $ EDE.eitherRenderWith filters t o
-    scriptIO $ createDirectoryIfMissing True (dropFileName p)
-        >> LText.writeFile p hs
+render' :: ToJSON a => FilePath -> FilePath -> Template -> a -> Script ()
+render' d f t e = scriptIO (say "Render" file) >> write
+  where
+    file = d </> f
+
+    write = do
+        hs <- hoistEither $ EDE.eitherRenderWith filters t (env e)
+        scriptIO $ do
+            createDirectoryIfMissing True (dropFileName file)
+            LText.writeFile file hs
 
 env :: ToJSON a => a -> Object
 env x =
     case toJSON x of
         Object o -> o
         e        -> error ("Failed to extract JSON Object from: " ++ show e)
-
--- render :: FilePath -> [Service] -> Templates -> Script ()
--- render dir ss Templates{..} = do
---     forM_ ss $ \s@Service{..} -> do
---         let (types, oper) = tmplService s2Type
-
---         forM_ s2Operations $ \o@Operation{..} ->
---             write (path o2Namespace) oper o
-
---         write (path s2TypesNamespace) types s
---         write (path s2VersionNamespace) tmplVersion s
-
---     forM_ (current ss) $ \s ->
---         write (path (s2Abbrev s)) tmplCurrent s
-
---     write "amazonka.cabal" tmplCabal (Cabal ss)
---     write "Makefile" tmplMake (Cabal ss)
---   where
---     write f t e =
---         let path = dir </> f
---          in fmapLT show (syncIO $ putStrLn path) *> render' path t (env e)
 
 filters :: HashMap Text Fun
 filters = EDE.defaultFilters <> Map.fromList fs
@@ -133,18 +140,3 @@ filters = EDE.defaultFilters <> Map.fromList fs
     funN k g = Fold.foldl' (f k g) []
 
     f k g xs n = (k <> Text.pack (show n), Fun TText TText (g n)) : xs
-
--- base :: FilePath
--- base = "lib"
-
--- class ToPath a where
---     path :: a -> FilePath
-
--- instance ToPath Abbrev where
---     path (Abbrev a) = base </> "Network/AWS" </> Text.unpack a <.> "hs"
-
--- instance ToPath NS where
---     path (NS xs) = base </> (Text.unpack $ Text.intercalate "/" xs) <.> "hs"
-
--- instance ToPath Operation where
---     path = path . o2Namespace

@@ -16,12 +16,9 @@ module Main (main) where
 import Control.Applicative
 import Control.Error
 import Data.Monoid
-import Generator.AST
 import Generator.FromJSON
-import Generator.Log
 import Generator.Models
 import Generator.Render
-import Generator.ToJSON
 import Options.Applicative
 import System.Directory
 
@@ -45,18 +42,15 @@ options = Options
 
 main :: IO ()
 main = do
-    Options{..} <- customExecParser pPrefs pInfo
+    Options{..} <- customExecParser
+        (prefs showHelpOnError)
+        (info (helper <*> options) fullDesc)
 
     createDirectoryIfMissing True optDir
 
     runScript $ do
+        ms <- models optModels
         ts <- getTemplates
-        ss <- models optModels >>= mapM parseModel
+        ss <- mapM parseModel ms
 
-        renderCabal optDir ts ss
-
---         Stage3.render optDir (map Stage2.transform ss) ts
-
-  where
-    pPrefs = prefs showHelpOnError
-    pInfo  = info (helper <*> options) fullDesc
+        render optDir ts ss

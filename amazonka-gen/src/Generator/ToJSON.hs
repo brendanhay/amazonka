@@ -52,17 +52,24 @@ instance ToJSON Cabal where
         ]
       where
         service s = object
-            [ "current"  .= rootNS (svcNamespace s)
-            , "versions" .= map svcNamespace (sort ss)
+            [ "current"  .= svcNamespace s
+            , "versions" .= map svcVersionNamespace (sort ss)
             ]
 
         versioned Service{..} = object
             [ "name"    .= svcName
             , "version" .= svcVersion
-            , "modules" .= modules
+            , "modules" .= (svcTypesNamespace : sort (map opNamespace svcOperations))
             ]
-          where
-            modules = typeNS svcNamespace : sort (map opNamespace svcOperations)
+
+instance ToJSON Service where
+    toJSON Service{..} = object
+        [
+
+        ]
+
+instance ToJSON Operation where
+    toJSON _ = Null
 
 toField :: (Generic a, GToJSON (Rep a))
         => (String -> String)

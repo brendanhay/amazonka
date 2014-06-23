@@ -10,11 +10,12 @@ module {{ types_namespace }} where
 import Network.AWS.Signing.{{ signature }}
 import Network.AWS.Types
 
-data {{ abbrev }}
+data {{ name }}
 
-instance AWSService {{ abbrev }} where
-    type Sg {{ abbrev }} = {{ signature }}
-    type Er {{ abbrev }} = {{ error }}
+instance AWSService {{ name }} where
+    type Sg {{ name }} = {{ signature }}
+{% raw %}
+    type Er {{ name }} = {{ error }}
 
 data {{ error }} = {{ error }}
     deriving (Eq, Show)
@@ -29,3 +30,5 @@ data {{ data.value.name }} = {{ data.value.name }}
 
   {% endif %}
 {% endfor %}
+
+{% endraw %}

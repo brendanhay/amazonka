@@ -90,20 +90,29 @@ instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Request where
-    toJSON Request{..} = Object (x <> y)
+    toJSON Request{..} = Object (x <> y <> z)
       where
-        Object x = toJSON rqShape
-        Object y = toJSON rqHttp
+        Object x = toJSON _rqShape
+        Object y = toJSON _rqHttp
+        Object z = object ["name" .= _rqName]
 
 instance ToJSON Response where
-    toJSON = toJSON . unResponse
+    toJSON Response{..} = Object (x <> y)
+      where
+        Object x = toJSON _rsShape
+        Object y = object ["name" .= _rsName]
 
 instance ToJSON Location where
     toJSON = toCtor (lowered . drop 1)
 
-instance ToJSON Common
+instance ToJSON Common where
+    toJSON = toField (recase Camel Under . drop 4)
 
-instance ToJSON Shape
+instance ToJSON Shape where
+    toJSON s = Object (x <> y)
+      where
+        Object x = toField (recase Camel Under . drop 4) s
+        Object y = toJSON (_shpCommon s)
 
 instance ToJSON Prim where
     toJSON = toCtor (drop 1)
@@ -140,4 +149,5 @@ toCtor :: (Generic a, GToJSON (Rep a))
 toCtor f = genericToJSON $ defaultOptions
     { constructorTagModifier = f
     , allNullaryToStringTag  = True
+    , sumEncoding            = defaultTaggedObject { tagFieldName = "type" }
     }

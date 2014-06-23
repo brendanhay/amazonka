@@ -93,29 +93,28 @@ render dir Templates{..} ss = do
         let (types, oper) = tmplService _svcType
 
         forM_ _svcOperations $ \o@Operation{..} ->
-            write (path _opNamespace) oper o
+            write "Render Operation" (path _opNamespace) oper o
 
-        write (path _svcTypesNamespace) types s
-        write (path _svcVersionNamespace) tmplVersion s
+        write "Render Types" (path _svcTypesNamespace) types s
+        write "Render Interface" (path _svcVersionNamespace) tmplVersion s
 
     forM_ (current ss) $ \s ->
-        write (path (_svcName s)) tmplCurrent s
+        write "Render Service" (path (_svcName s)) tmplCurrent s
 
-    write "amazonka.cabal" tmplCabal (Cabal ss)
-    write "Makefile" tmplMake (Cabal ss)
+    write "Render Cabal" "amazonka.cabal" tmplCabal (Cabal ss)
+    write "Render Make"  "Makefile" tmplMake (Cabal ss)
   where
-    write f t e = render' dir f t (env e)
+    write lbl f t e = render' lbl dir f t (env e)
 
-render' :: ToJSON a => FilePath -> FilePath -> Template -> a -> Script ()
-render' d f t e = scriptIO (say "Render" file) >> write
+render' :: ToJSON a => Text -> FilePath -> FilePath -> Template -> a -> Script ()
+render' lbl d f t e = do
+    scriptIO (say lbl file)
+    hs <- hoistEither $ EDE.eitherRenderWith filters t (env e)
+    scriptIO $ do
+        createDirectoryIfMissing True (dropFileName file)
+        LText.writeFile file hs
   where
     file = d </> f
-
-    write = do
-        hs <- hoistEither $ EDE.eitherRenderWith filters t (env e)
-        scriptIO $ do
-            createDirectoryIfMissing True (dropFileName file)
-            LText.writeFile file hs
 
 env :: ToJSON a => a -> Object
 env x =
@@ -140,3 +139,6 @@ filters = EDE.defaultFilters <> Map.fromList fs
     funN k g = Fold.foldl' (f k g) []
 
     f k g xs n = (k <> Text.pack (show n), Fun TText TText (g n)) : xs
+
+say' :: Text -> String -> Script ()
+say' lbl = scriptIO . say lbl

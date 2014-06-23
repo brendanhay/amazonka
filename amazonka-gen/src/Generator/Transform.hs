@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Generator.Transform
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,9 +36,11 @@ service :: Service -> Service
 service s = s & svcOperations %~ map (operation s)
 
 operation :: Service -> Operation -> Operation
-operation s o =
-    o & opNamespace .~ (s ^. svcVersionNamespace) <> NS [_opName o]
-      & opImports  <>~ imports
+operation s o = o
+    & opNamespace .~ s ^. svcVersionNamespace <> NS [_opName o]
+    & opImports  <>~ imports
+    & opRequest   %~ request o
+    & opResponse  %~ response o
   where
     imports = sort
         [ "Network.AWS.Data"
@@ -48,3 +51,9 @@ operation s o =
         , s ^. svcTypesNamespace
         , fromString $ "Network.AWS.Request." ++ show (s ^. svcType)
         ]
+
+request :: Operation -> Request -> Request
+request o = rqName .~ o ^. opName
+
+response :: Operation -> Response -> Response
+response o = rsName .~ o ^. opName

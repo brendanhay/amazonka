@@ -21,7 +21,6 @@ module Generator.FromJSON where
 import           Control.Applicative
 import           Control.Arrow
 import           Control.Error
-import           Control.Lens               hiding (enum)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Aeson.Types
@@ -118,12 +117,20 @@ instance FromJSON Operation where
         <*> o .:? "pagination"
 
 instance FromJSON Request where
-    parseJSON = withObject "request" $ \o -> Request
-        <$> o .:! "input"
-        <*> o .:! "http"
+    parseJSON = withObject "request" $ \o -> do
+        i <- o .:! "input"
+
+        let fs = fields i
+
+        Request "Request" (payload fs) (required fs) (headers fs) i
+            <$> o .:! "http"
+      where
+        required = filter (_cmnRequired . fldCommon)
+        headers  = filter ((== LHeader) . _cmnLocation . fldCommon)
+        payload  = listToMaybe . filter ((== LBody) . _cmnLocation . fldCommon)
 
 instance FromJSON Response where
-    parseJSON = withObject "response" $ \o -> Response
+    parseJSON = withObject "response" $ \o -> Response "Response"
         <$> o .:! "output"
 
 instance FromJSON Location where

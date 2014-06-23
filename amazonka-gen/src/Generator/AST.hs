@@ -166,19 +166,25 @@ data Operation = Operation
     , _opImports       :: [NS]
     , _opDocumentation :: Doc
     , _opUrl           :: Maybe Text
-    , _opInput         :: Request
-    , _opOutput        :: Response
+    , _opRequest       :: Request
+    , _opResponse      :: Response
     , _opErrors        :: [Shape]
     , _opPagination    :: Maybe Pagination
     } deriving (Eq, Show, Generic)
 
 data Request = Request
-    { rqShape :: Shape
-    , rqHttp  :: HTTP
+    { _rqName     :: Text
+    , _rqPayload  :: Maybe Field
+    , _rqRequired :: [Field]
+    , _rqHeaders  :: [Field]
+    , _rqShape    :: Shape
+    , _rqHttp     :: HTTP
     } deriving (Eq, Show)
 
-newtype Response = Response { unResponse :: Shape }
-    deriving (Eq, Show)
+data Response = Response
+    { _rsName  :: Text
+    , _rsShape :: Shape
+    } deriving (Eq, Show)
 
 data Location
     = LHeader
@@ -186,19 +192,18 @@ data Location
     | LQuery
     | LBody
       deriving (Eq, Show, Generic)
---    , cPayload       :: Bool -- Mix payload into the location?
 
 instance Default Location where
     def = LBody
 
 data Common = Common
-    { cmnName          :: Maybe Text
-    , cmnXmlName       :: Maybe Text
-    , cmnLocation      :: Location
-    , cmnLocationName  :: Maybe Text
-    , cmnRequired      :: Bool
-    , cmnDocumentation :: Doc
-    , cmnStreaming     :: Bool
+    { _cmnName          :: Maybe Text
+    , _cmnXmlName       :: Maybe Text
+    , _cmnLocation      :: Location
+    , _cmnLocationName  :: Maybe Text
+    , _cmnRequired      :: Bool
+    , _cmnDocumentation :: Doc
+    , _cmnStreaming     :: Bool
     } deriving (Eq, Show, Generic)
 
 instance Default Common where
@@ -207,7 +212,7 @@ instance Default Common where
 data Shape
     = SStruct
       { shpFields    :: [Shape]
-      , shpCommon    :: Common
+      , _shpCommon    :: Common
       }
 
     | SList
@@ -215,18 +220,18 @@ data Shape
       , shpFlattened :: Bool
       , shpMinLength :: Int
       , shpMaxLength :: Int
-      , shpCommon    :: Common
+      , _shpCommon    :: Common
       }
 
     | SMap
       { shpKey       :: Shape
       , shpValue     :: Shape
-      , shpCommon    :: Common
+      , _shpCommon    :: Common
       }
 
     | SEnum
       { shpValues    :: HashMap Text Text
-      , shpCommon    :: Common
+      , _shpCommon    :: Common
       }
 
     | SPrim
@@ -234,13 +239,29 @@ data Shape
       , shpMinLength :: Int
       , shpMaxLength :: Int
       , shpPattern   :: Maybe Text
-      , shpCommon    :: Common
+      , _shpCommon    :: Common
       }
 
       deriving (Eq, Show, Generic)
 
 instance Default Shape where
     def = SPrim PText 0 0 Nothing def
+
+fields :: Shape -> [Field]
+fields s = case s of
+    SStruct{..} -> map f shpFields
+    _           -> []
+  where
+    f x = Field (typeof x) (prefixed s) (_shpCommon x)
+
+prefixed :: Shape -> Text
+prefixed s =
+    case _cmnName (_shpCommon s)  of
+        Nothing -> error $ "Shape has no name: " ++ (show s)
+        Just x  -> prefix x
+
+typeof :: Shape -> Ann
+typeof _ = "Type!"
 
 data Prim
     = PText
@@ -250,6 +271,18 @@ data Prim
     | PByteString
     | PUTCTime
       deriving (Eq, Show, Generic)
+
+newtype Ann = Ann { unAnn :: Text }
+    deriving (Eq, Show)
+
+instance IsString Ann where
+    fromString = Ann . fromString
+
+data Field = Field
+    { fldType   :: Ann
+    , fldBrief  :: Text
+    , fldCommon :: Common
+    } deriving (Eq, Show)
 
 data HTTP = HTTP
     { hMethod :: !StdMethod
@@ -280,3 +313,7 @@ data Pagination = Pagination
 
 makeLenses ''Service
 makeLenses ''Operation
+makeLenses ''Request
+makeLenses ''Response
+makeLenses ''Common
+makeLenses ''Shape

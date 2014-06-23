@@ -351,6 +351,7 @@ instance Transform HTTP where
 data Request = Request
     { rq2Name     :: Text
     , rq2Http     :: HTTP
+    ,
     , rq2Fields   :: [Field]
     , rq2Required :: [Field]
     , rq2Headers  :: [Field]
@@ -446,7 +447,7 @@ instance ToJSON Cabal where
       where
         service s = object
             [ "current"  .= s2Namespace s
-=            , "versions" .= map s2VersionNamespace (sort ss)
+            , "versions" .= map s2VersionNamespace (sort ss)
             ]
 
         versioned Service{..} = object

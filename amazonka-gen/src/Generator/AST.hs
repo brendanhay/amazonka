@@ -31,6 +31,9 @@ import           Network.HTTP.Types.Method
 newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Ord, Show, Generic)
 
+instance IsString Abbrev where
+    fromString = abbrev . Text.pack
+
 abbrev :: Text -> Abbrev
 abbrev = Abbrev . mconcat . Text.words . strip "AWS" . strip "Amazon"
 

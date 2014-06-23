@@ -78,17 +78,19 @@ instance FromJSON JSONV where
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
-        n  <- o .: "service_full_name"
-        a  <- o .: "service_abbreviation" .!= abbrev n
-        v  <- o .: "api_version"
-        os <- o .: "operations"
+        n  <- o .:  "service_full_name"
+        a  <- o .:  "service_abbreviation" .!= abbrev n
+        v  <- o .:  "api_version"
+        t  <- o .:! "type"
+        os <- o .:  "operations"
 
         let vNS    = namespace a v
             opNS x = x { opNamespace = vNS <> NS [opName x] }
+            typ    | a == "S3" = RestS3
+                   | otherwise = t
 
-        Service a n (rootNS vNS) vNS (typeNS vNS) v
-            <$> o .:! "type"
-            <*> o .:? "result_wrapped"   .!= False
+        Service a n (rootNS vNS) vNS (typeNS vNS) v typ
+            <$> o .:? "result_wrapped"   .!= False
             <*> o .:  "signature_version"
             <*> o .:! "documentation"
             <*> o .:  "endpoint_prefix"

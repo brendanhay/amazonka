@@ -19,9 +19,6 @@ import           {{ import.value }}
 data {{ request.name }} = {{ request.name }}
 {% include "_include/record.ede" with request.fields %}
 
-data {{ response.name }} = {{ response.name }}
-{% include "_include/record.ede" with response.fields %}
-
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}
@@ -37,3 +34,6 @@ instance AWSRequest {{ request.name }} where
 {% include "_include/headers.ede" with request %}
 
 {% include "_include/body.ede" with request %}
+
+data {{ response.name }} = {{ response.name }}
+{% include "_include/record.ede" with response.fields %}

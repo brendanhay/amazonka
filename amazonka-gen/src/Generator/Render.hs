@@ -30,6 +30,7 @@ import           Data.Text.Util
 import           Generator.AST
 import           Generator.Log
 import           Generator.ToJSON    ()
+import           Generator.Transform
 import           System.Directory
 import           System.FilePath     hiding (normalise)
 import           Text.EDE            (Template)

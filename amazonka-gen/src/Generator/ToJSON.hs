@@ -27,6 +27,7 @@ import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import           GHC.Generics
 import           Generator.AST
+import           Generator.Transform
 import           Network.HTTP.Types.Method
 
 instance ToJSON Abbrev where

@@ -13,6 +13,7 @@
 
 module Generator.Transform where
 
+import           Control.Applicative
 import           Control.Lens
 import           Data.Default
 import           Data.Function
@@ -30,10 +31,15 @@ import           Generator.AST
 import           Network.HTTP.Types.Method
 
 transform :: [Service] -> [Service]
-transform = map service
+transform = map (\s -> s & svcOperations %~ map (operation s))
 
-service :: Service -> Service
-service s = s & svcOperations %~ map (operation s)
+current :: [Service] -> [Service]
+current = mapMaybe latest . groupBy identical
+  where
+    identical x y = EQ == comparing _svcName x y
+
+    latest [] = Nothing
+    latest xs = Just . head $ sortBy (comparing _svcVersion) xs
 
 operation :: Service -> Operation -> Operation
 operation s o = o
@@ -54,7 +60,59 @@ operation s o = o
         ]
 
 request :: Operation -> Request -> Request
-request o = rqName .~ o ^. opName
+request o rq = rq
+    & rqName .~ o ^. opName
 
 response :: Operation -> Response -> Response
-response o = rsName .~ o ^. opName
+response o = rsName .~ (o ^. opName) <> "Response"
+
+-- shape :: Shape -> Shape -> Shape
+-- shape p x = x
+--     & shpCommon %~ common (p ^. shpCommon)
+
+-- common :: Common -> Common -> Common
+-- common p x = x
+--     & cmnName %~ (<|> _cmnName p)
+
+shapeName :: Functor f => LensLike' f Shape (Maybe Text)
+shapeName = shpCommon . cmnName
+
+fields :: Shape -> [Field]
+fields s = case s of
+    SStruct{..} -> map f shpFields
+    _           -> []
+  where
+    f x = Field (typeof x) (prefixed s x) (_shpCommon x)
+
+prefixed :: Shape -> Shape -> Maybe Text
+prefixed p x = f (p ^. shapeName)
+  where
+    f (Just y) = (prefix y <>) <$> x ^. shapeName
+    f Nothing  = Nothing
+
+required :: Shape -> Bool
+required s =
+    let Common{..} = _shpCommon s
+     in _cmnRequired || _cmnLocation == LBody
+
+rename :: Text -> Shape -> Shape
+rename k = shpCommon . cmnName .~ Just k
+
+typeof :: Shape -> Ann
+typeof s = Ann (required s) $
+    case s of
+        SStruct {..} -> name
+        SList   {..} -> "[" <> ann shpItem <> "]"
+        SMap    {..} -> "HashMap " <> ann shpKey <> " " <> ann shpValue
+        SEnum   {..} -> name
+        SPrim   {..}
+            | name `elem` reserved -> name
+            | otherwise            -> Text.pack . drop 1 $ show shpType
+  where
+    name = fromMaybe "Untyped" (s ^. shapeName)
+    ann  = anType . typeof
+
+    reserved =
+        [ "Bucket"
+        , "Key"
+        ]

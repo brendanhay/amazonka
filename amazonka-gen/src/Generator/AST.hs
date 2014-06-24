@@ -19,8 +19,6 @@ import           Control.Lens
 import           Data.Default
 import           Data.Function
 import           Data.HashMap.Strict       (HashMap)
-import           Data.List
-import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
 import           Data.String
@@ -154,14 +152,6 @@ instance Ord Service where
         f :: Ord a => (Service -> a) -> Ordering
         f g = compare (g a) (g b)
 
-current :: [Service] -> [Service]
-current = mapMaybe latest . groupBy identical
-  where
-    identical x y = EQ == comparing _svcName x y
-
-    latest [] = Nothing
-    latest xs = Just . head $ sortBy (comparing _svcVersion) xs
-
 data Operation = Operation
     { _opName          :: Text
     , _opService       :: Abbrev
@@ -259,24 +249,6 @@ data Shape
 instance Default Shape where
     def = SPrim PText 0 0 Nothing def
 
-fields :: Shape -> [Field]
-fields s = case s of
-    SStruct{..} -> map f shpFields
-    _           -> []
-  where
-    f x = Field (typeof x) (prefixed s) (_shpCommon x)
-
-prefixed :: Shape -> Text
-prefixed s = let n = fromName "prefixed" s in prefix n <> n
-
-fromName :: String -> Shape -> Text
-fromName loc s = case _cmnName (_shpCommon s) of
-    Nothing -> error $ loc ++ " - Shape has no name: " ++ (show s)
-    Just x  -> x
-
-required :: Shape -> Bool
-required s = let Common{..} = _shpCommon s in _cmnRequired || _cmnLocation == LBody
-
 data Prim
     = PText
     | PInteger
@@ -291,21 +263,9 @@ data Ann = Ann
    , anType     :: Text
    } deriving (Eq, Show, Generic)
 
-typeof :: Shape -> Ann
-typeof s = Ann (required s) $
-    case s of
-        SStruct {..} -> name s
-        SList   {..} -> "[" <> ann shpItem <> "]"
-        SMap    {..} -> "HashMap " <> ann shpKey <> " " <> ann shpValue
-        SEnum   {..} -> name s
-        SPrim   {..} -> Text.pack . drop 1 $ show shpType
-  where
-    name = fromName "typeof"
-    ann  = anType . typeof
-
 data Field = Field
     { fldType     :: Ann
-    , fldPrefixed :: Text
+    , fldPrefixed :: Maybe Text
     , fldCommon   :: Common
     } deriving (Eq, Show)
 

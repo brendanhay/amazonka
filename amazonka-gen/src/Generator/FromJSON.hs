@@ -39,6 +39,7 @@ import           GHC.Generics
 import           Generator.AST
 import           Generator.Log
 import           Generator.Models
+import           Generator.Transform
 import           Network.HTTP.Types.Method
 
 parseModel :: Model -> Script Service
@@ -161,7 +162,7 @@ instance FromJSON (Common -> Shape) where
         f o "structure" = do
             xs <- o .:? "members"      .!= mempty
             ys <- o .:? "member_order" .!= Map.keys xs :: Parser [Text]
-            return . SStruct $ mapMaybe (\y -> Map.lookup y xs) ys
+            return . SStruct $ mapMaybe (\y -> rename y <$> Map.lookup y xs) ys
 
         f o "list" = SList
             <$> o .:  "members"

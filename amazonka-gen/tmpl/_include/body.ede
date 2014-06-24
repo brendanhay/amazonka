@@ -1,6 +1,6 @@
-instance ToBody {{ scope.name }} where
 {% if scope.payload %}
+instance ToBody {{ scope.name }} where
     toBody = toBody . {{ scope.payload.name }}
 {% else %}
-    toBody = const mempty
+instance ToBody {{ scope.name }}
 {% endif %}

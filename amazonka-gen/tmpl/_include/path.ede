@@ -1,7 +1,6 @@
 {% case scope.http.path | listLength %}
 {% when 0 %}
-instance ToPath {{ scope.name }} where
-    toPath = const mempty
+instance ToPath {{ scope.name }}
 {% when 1 %}
 instance ToPath {{ scope.name }} where
   {% for part in scope.http.path %}

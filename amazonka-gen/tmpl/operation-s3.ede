@@ -19,14 +19,6 @@ import           {{ import.value }}
 data {{ request.name }} = {{ request.name }}
 {% include "_include/record.ede" with request.fields %}
 
-{% include "_include/path.ede" with request %}
-
-{% include "_include/query.ede" with request %}
-
-{% include "_include/headers.ede" with request %}
-
-{% include "_include/body.ede" with request %}
-
 data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}
 
@@ -37,3 +29,11 @@ instance AWSRequest {{ request.name }} where
     request = {{ request.method }}
 
     response = undefined
+
+{% include "_include/path.ede" with request %}
+
+{% include "_include/query.ede" with request %}
+
+{% include "_include/headers.ede" with request %}
+
+{% include "_include/body.ede" with request %}

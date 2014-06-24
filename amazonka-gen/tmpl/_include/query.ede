@@ -1,5 +1,5 @@
-instance ToQuery {{ scope.name }} where
 {% if scope.http.query | mapLength > 0 %}
+instance ToQuery {{ scope.name }} where
     toQuery {{ scope.name }}{..} = mconcat
   {% for part in scope.http.query %}
     {% if part.first %}
@@ -12,5 +12,5 @@ instance ToQuery {{ scope.name }} where
     {% endif %}
   {% endfor %}
 {% else %}
-    toQuery = const mempty
+instance ToQuery {{ scope.name }}
 {% endif %}

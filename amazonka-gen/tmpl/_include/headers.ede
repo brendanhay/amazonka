@@ -1,5 +1,5 @@
-instance ToHeaders {{ scope.name }} where
 {% if scope.headers | listLength > 0 %}
+instance ToHeaders {{ scope.name }} where
     toHeaders {{ scope.name }}{..} =
   {% for hdr in scope.headers %}
     {% if hdr.first %}
@@ -10,5 +10,5 @@ instance ToHeaders {{ scope.name }} where
   {% endfor %}
         ]
 {% else %}
-    toHeaders = const mempty
+instance ToHeaders {{ scope.name }}
 {% endif %}

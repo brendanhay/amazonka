@@ -168,6 +168,7 @@ data Operation = Operation
 
 data Request = Request
     { _rqName     :: Text
+    , _rqDefault  :: Text
     , _rqPayload  :: Maybe Field
     , _rqFields   :: [Field]
     , _rqRequired :: [Field]

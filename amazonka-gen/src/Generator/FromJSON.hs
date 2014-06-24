@@ -125,7 +125,7 @@ instance FromJSON Request where
 
         let fs = sort (fields s)
 
-        Request "Request" (bdy fs) fs (req fs) (hs fs) s
+        Request "Request" "Request" (bdy fs) fs (req fs) (hs fs) s
             <$> o .:! "http"
       where
         bdy = listToMaybe . filter ((== LBody) . _cmnLocation . fldCommon)

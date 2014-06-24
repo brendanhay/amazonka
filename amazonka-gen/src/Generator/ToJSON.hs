@@ -81,10 +81,13 @@ instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Request where
-    toJSON rq = Object (x <> y)
+    toJSON rq = Object (x <> y <> z)
       where
         Object x = toJSON (_rqHttp rq)
         Object y = toField (recase Camel Under . drop 3) rq
+        Object z = object ["pad" .= pad]
+
+        pad = Text.replicate (Text.length $ _rqName rq) " "
 
 instance ToJSON Response where
     toJSON = toField (recase Camel Under . drop 3)

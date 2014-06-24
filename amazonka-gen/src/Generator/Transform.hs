@@ -15,20 +15,16 @@ module Generator.Transform where
 
 import           Control.Applicative
 import           Control.Lens
-import           Data.Default
-import           Data.Function
-import           Data.HashMap.Strict       (HashMap)
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
 import           Data.String
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
+import           Data.Text           (Text)
+import qualified Data.Text           as Text
 import           Data.Text.Util
-import           GHC.Generics
 import           Generator.AST
-import           Network.HTTP.Types.Method
+import           Text.EDE.Filters
 
 transform :: [Service] -> [Service]
 transform = map (\s -> s & svcOperations %~ map (operation s))
@@ -61,8 +57,9 @@ operation s o = o
 
 request :: Operation -> Request -> Request
 request o rq = rq
-    & rqName .~ o ^. opName
-    & rqHttp %~ http (rq ^. rqShape)
+    & rqName    .~ o ^. opName
+    & rqDefault .~ lowerFirst (o ^. opName)
+    & rqHttp    %~ http (rq ^. rqShape)
 
 http :: Shape -> HTTP -> HTTP
 http p = hPath %~ map f

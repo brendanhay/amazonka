@@ -62,6 +62,13 @@ operation s o = o
 request :: Operation -> Request -> Request
 request o rq = rq
     & rqName .~ o ^. opName
+    & rqHttp %~ http (rq ^. rqShape)
+
+http :: Shape -> HTTP -> HTTP
+http p = hPath %~ map f
+  where
+    f (PVar v) = PVar (fromJust $ prefixed p (Just v))
+    f c        = c
 
 response :: Operation -> Response -> Response
 response o = rsName .~ (o ^. opName) <> "Response"
@@ -82,12 +89,12 @@ fields s = case s of
     SStruct{..} -> map f shpFields
     _           -> []
   where
-    f x = Field (typeof x) (prefixed s x) (_shpCommon x)
+    f x = Field (typeof x) (prefixed s $ x ^. shapeName) (_shpCommon x)
 
-prefixed :: Shape -> Shape -> Maybe Text
+prefixed :: Shape -> Maybe Text -> Maybe Text
 prefixed p x = f (p ^. shapeName)
   where
-    f (Just y) = (prefix y <>) <$> x ^. shapeName
+    f (Just y) = (prefix y <>) <$> x
     f Nothing  = Nothing
 
 required :: Shape -> Bool
@@ -116,3 +123,4 @@ typeof s = Ann (required s) $
         [ "Bucket"
         , "Key"
         ]
+

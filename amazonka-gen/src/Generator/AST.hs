@@ -273,9 +273,9 @@ instance Ord Field where
     compare = compare `on` fldCommon
 
 data HTTP = HTTP
-    { hMethod :: !StdMethod
-    , hPath   :: [PathPart]
-    , hQuery  :: [QueryPart]
+    { _hMethod :: !StdMethod
+    , _hPath   :: [PathPart]
+    , _hQuery  :: [QueryPart]
     } deriving (Eq, Show, Generic)
 
 instance Default HTTP where
@@ -305,3 +305,4 @@ makeLenses ''Request
 makeLenses ''Response
 makeLenses ''Common
 makeLenses ''Shape
+makeLenses ''HTTP

@@ -3,9 +3,9 @@ instance ToHeaders {{ scope.name }} where
     toHeaders {{ scope.name }}{..} =
   {% for hdr in scope.headers %}
     {% if hdr.first %}
-        [ "{{ hdr.value.location_name }}" =: {{ hdr.value.name }}
+        [ "{{ hdr.value.location_name }}" =: {{ hdr.value.prefixed }}
     {% else %}
-        , "{{ hdr.value.location_name }}" =: {{ hdr.value.name }}
+        , "{{ hdr.value.location_name }}" =: {{ hdr.value.prefixed }}
     {% endif %}
   {% endfor %}
         ]

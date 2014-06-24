@@ -304,9 +304,9 @@ typeof s = Ann (required s) $
     ann  = anType . typeof
 
 data Field = Field
-    { fldType   :: Ann
-    , fldBrief  :: Text
-    , fldCommon :: Common
+    { fldType     :: Ann
+    , fldPrefixed :: Text
+    , fldCommon   :: Common
     } deriving (Eq, Show)
 
 instance Ord Field where

@@ -1,11 +1,11 @@
 {% for field in scope %}
   {% if field.first %}
-    { {{ field.value.name }} :: {{ field.value.type }}
+    { {{ field.value.prefixed }} :: {{ field.value.type }}
     {% if field.value.documentation %}
 {{ field.value.documentation | below66 | indent6 }}
     {% endif %}
   {% else %}
-    , {{ field.value.name }} :: {{ field.value.type }}
+    , {{ field.value.prefixed }} :: {{ field.value.type }}
     {% if field.value.documentation %}
 {{ field.value.documentation | below66 | indent6 }}
     {% endif %}

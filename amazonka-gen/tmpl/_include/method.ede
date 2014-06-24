@@ -3,9 +3,9 @@
 {{ scope.name | lowerFirst }}
 {% for field in scope.required %}
   {% if field.first %}
-    :: {{ field.value.type }} -- ^ {{ field.value.brief }}
+    :: {{ field.value.type }} -- ^ {{ field.value.prefixed }}
   {% else %}
-    -> {{ field.value.type }} -- ^ {{ field.value.brief }}
+    -> {{ field.value.type }} -- ^ {{ field.value.prefixed }}
   {% endif %}
 {% endfor %}
 {% if scope.required | listLength > 0 %}

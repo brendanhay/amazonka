@@ -112,8 +112,8 @@ instance ToJSON Field where
       where
         Object x = toJSON (fldCommon f)
         Object y = object
-            [ "type"  .= fldType f
-            , "brief" .= fldBrief f
+            [ "type"     .= fldType f
+            , "prefixed" .= fldPrefixed f
             ]
 
 instance ToJSON StdMethod where

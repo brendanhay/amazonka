@@ -121,7 +121,7 @@ instance ToJSON Field where
             ]
 
 instance ToJSON StdMethod where
-    toJSON = toJSON . Text.decodeUtf8 . renderStdMethod
+    toJSON = toJSON . Text.toLower . Text.decodeUtf8 . renderStdMethod
 
 instance ToJSON HTTP where
     toJSON = toField (recase Camel Under . drop 2)

@@ -131,8 +131,8 @@ data Service = Service
     { _svcName             :: Abbrev
     , _svcFullName         :: Text
     , _svcNamespace        :: NS
-    , _svcTypesNamespace   :: NS
     , _svcVersionNamespace :: NS
+    , _svcTypesNamespace   :: NS
     , _svcVersion          :: Version
     , _svcType             :: ServiceType
     , _svcWrapped          :: Bool
@@ -193,11 +193,11 @@ data Response = Response
     } deriving (Eq, Show, Generic)
 
 data Location
-    = LHeader
-    | LUri
+    = LUri
     | LQuery
+    | LHeader
     | LBody
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Default Location where
     def = LBody
@@ -211,6 +211,12 @@ data Common = Common
     , _cmnDocumentation :: Maybe Doc
     , _cmnStreaming     :: Bool
     } deriving (Eq, Show, Generic)
+
+instance Ord Common where
+    compare a b =
+        if _cmnLocation a == LBody
+            then GT
+            else comparing _cmnLocation a b <> comparing _cmnName a b
 
 instance Default Common where
     def = Common Nothing Nothing def Nothing False Nothing False
@@ -302,6 +308,9 @@ data Field = Field
     , fldBrief  :: Text
     , fldCommon :: Common
     } deriving (Eq, Show)
+
+instance Ord Field where
+    compare = compare `on` fldCommon
 
 data HTTP = HTTP
     { hMethod :: !StdMethod

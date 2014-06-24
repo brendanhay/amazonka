@@ -28,6 +28,7 @@ import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.Default
 import qualified Data.HashMap.Strict        as Map
+import           Data.List
 import           Data.Monoid
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -121,14 +122,14 @@ instance FromJSON Request where
     parseJSON = withObject "request" $ \o -> do
         s <- o .:! "input"
 
-        let fs = fields s
+        let fs = sort (fields s)
 
-        Request "Request" (payload fs) fs (required fs) (headers fs) s
+        Request "Request" (bdy fs) fs (req fs) (hs fs) s
             <$> o .:! "http"
       where
-        required = filter (_cmnRequired . fldCommon)
-        headers  = filter ((== LHeader) . _cmnLocation . fldCommon)
-        payload  = listToMaybe . filter ((== LBody) . _cmnLocation . fldCommon)
+        bdy = listToMaybe . filter ((== LBody) . _cmnLocation . fldCommon)
+        req = filter (_cmnRequired . fldCommon)
+        hs  = filter ((== LHeader) . _cmnLocation . fldCommon)
 
 instance FromJSON Response where
     parseJSON = withObject "response" $ \o -> do
@@ -146,7 +147,7 @@ instance FromJSON Common where
         Common n x l
             <$> o .:? "location_name" .!= n
             <*> o .:? "required"      .!= (if l == LBody then True else False)
-            <*> o .:! "documentation"
+            <*> o .:? "documentation"
             <*> o .:? "streaming"     .!= False
 
 instance FromJSON Shape where

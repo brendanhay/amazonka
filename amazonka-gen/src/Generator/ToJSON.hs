@@ -1,7 +1,9 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE DeriveGeneric        #-}
+{-# LANGUAGE FlexibleContexts     #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE RecordWildCards      #-}
+
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- Module      : Generator.ToJSON
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -15,29 +17,17 @@
 
 module Generator.ToJSON where
 
-import           Control.Applicative
-import           Control.Arrow
-import           Control.Error
-import           Control.Monad
-import qualified Data.Aeson                 as Aeson
-import           Data.Aeson                 hiding (String)
-import           Data.Aeson.Types           hiding (String)
-import qualified Data.ByteString.Lazy       as LBS
-import           Data.Char
-import           Data.HashMap.Strict        (HashMap)
-import qualified Data.HashMap.Strict        as Map
+import           Data.Aeson
+import           Data.Aeson.Types
 import           Data.List
 import           Data.Monoid
-import           Data.Ord
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
-import qualified Data.Text.Unsafe           as Text
 import           GHC.Generics
 import           Generator.AST
 import           Network.HTTP.Types.Method
-import           Text.EDE.Filters
 
 instance ToJSON Abbrev where
     toJSON = toJSON . unAbbrev
@@ -114,7 +104,8 @@ instance ToJSON Prim where
     toJSON = toCtor (drop 1)
 
 instance ToJSON Ann where
-    toJSON = toJSON . unAnn
+    toJSON (Ann True t) = toJSON t
+    toJSON (Ann _    t) = toJSON ("Maybe " <> t)
 
 instance ToJSON Field where
     toJSON f = Object (x <> y)

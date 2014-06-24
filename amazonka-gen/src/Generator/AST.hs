@@ -208,17 +208,17 @@ data Common = Common
     , _cmnLocation      :: Location
     , _cmnLocationName  :: Maybe Text
     , _cmnRequired      :: Bool
-    , _cmnDocumentation :: Doc
+    , _cmnDocumentation :: Maybe Doc
     , _cmnStreaming     :: Bool
     } deriving (Eq, Show, Generic)
 
 instance Default Common where
-    def = Common Nothing Nothing def Nothing False def False
+    def = Common Nothing Nothing def Nothing False Nothing False
 
 data Shape
     = SStruct
       { shpFields    :: [Shape]
-      , _shpCommon    :: Common
+      , _shpCommon   :: Common
       }
 
     | SList
@@ -226,18 +226,18 @@ data Shape
       , shpFlattened :: Bool
       , shpMinLength :: Int
       , shpMaxLength :: Int
-      , _shpCommon    :: Common
+      , _shpCommon   :: Common
       }
 
     | SMap
       { shpKey       :: Shape
       , shpValue     :: Shape
-      , _shpCommon    :: Common
+      , _shpCommon   :: Common
       }
 
     | SEnum
       { shpValues    :: HashMap Text Text
-      , _shpCommon    :: Common
+      , _shpCommon   :: Common
       }
 
     | SPrim
@@ -245,7 +245,7 @@ data Shape
       , shpMinLength :: Int
       , shpMaxLength :: Int
       , shpPattern   :: Maybe Text
-      , _shpCommon    :: Common
+      , _shpCommon   :: Common
       }
 
       deriving (Eq, Show, Generic)
@@ -261,22 +261,15 @@ fields s = case s of
     f x = Field (typeof x) (prefixed s) (_shpCommon x)
 
 prefixed :: Shape -> Text
-prefixed s = prefix (fromName s)
+prefixed s = prefix (fromName "prefixed" s)
 
-typeof :: Shape -> Ann
-typeof s =
-    case s of
-        SStruct {..} ->
-        SList   {..} -> Ann (required s) True ("[" <> name <> "]")
-        SMap    {..} -> Ann (required s) True ("HashMap " <> name sKey <> " " <> sValue)
-        SEnum   {..} ->
-        SPrim   {..} -> Ann . Text.pack . drop 1 $ show shpType
-  where
-    name = fromName s
-
-fromName s = case _cmnName (_shpCommon s) of
-    Nothing -> error $ "Shape has no name: " ++ (show s)
+fromName :: String -> Shape -> Text
+fromName loc s = case _cmnName (_shpCommon s) of
+    Nothing -> error $ loc ++ " - Shape has no name: " ++ (show s)
     Just x  -> x
+
+required :: Shape -> Bool
+required s = let Common{..} = _shpCommon s in _cmnRequired || _cmnLocation == LBody
 
 data Prim
     = PText
@@ -287,11 +280,22 @@ data Prim
     | PUTCTime
       deriving (Eq, Show, Generic)
 
-newtype Ann = Ann { unAnn :: Text }
-    deriving (Eq, Show)
+data Ann = Ann
+   { anRequired :: !Bool
+   , anType     :: Text
+   } deriving (Eq, Show, Generic)
 
-instance IsString Ann where
-    fromString = Ann . fromString
+typeof :: Shape -> Ann
+typeof s = Ann (required s) $
+    case s of
+        SStruct {..} -> name s
+        SList   {..} -> "[" <> ann shpItem <> "]"
+        SMap    {..} -> "HashMap " <> ann shpKey <> " " <> ann shpValue
+        SEnum   {..} -> name s
+        SPrim   {..} -> Text.pack . drop 1 $ show shpType
+  where
+    name = fromName "typeof"
+    ann  = anType . typeof
 
 data Field = Field
     { fldType   :: Ann

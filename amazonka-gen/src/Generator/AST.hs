@@ -267,7 +267,7 @@ fields s = case s of
     f x = Field (typeof x) (prefixed s) (_shpCommon x)
 
 prefixed :: Shape -> Text
-prefixed s = prefix (fromName "prefixed" s)
+prefixed s = let n = fromName "prefixed" s in prefix n <> n
 
 fromName :: String -> Shape -> Text
 fromName loc s = case _cmnName (_shpCommon s) of

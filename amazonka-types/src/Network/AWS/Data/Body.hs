@@ -47,8 +47,8 @@ data Body
 instance Monoid Body where
     mempty = BodyLBS (hash "") ""
 
-    mappend (BodyLBS ah a) (BodyLBS bh b) = let c = a <> b in BodyLBS (hash c) c
-    mappend _ b                           = b
+    mappend (BodyLBS _ a) (BodyLBS _ b) = let c = a <> b in BodyLBS (hash c) c
+    mappend _ b                         = b
 
 instance Show Body where
     show (BodyLBS    h lbs) = "BodyLBS "    ++ show h ++ " " ++ show lbs

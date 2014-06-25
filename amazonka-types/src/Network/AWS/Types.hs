@@ -81,19 +81,19 @@ instance AWSError Error where
 
 class AWSService a where
     type Sg a :: *
-    type Er a :: *
 
     service :: Service a
 
-class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
+data family Rs a :: *
+data family Er a :: *
+
+class (AWSService (Sv a), AWSError (Er a)) => AWSRequest a where
     type Sv a :: *
-    type Rs a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
-             => a
-             -> ClientResponse (ResumableSource m ByteString)
-             -> m (Either (Er (Sv a)) (Rs a))
+             => ClientResponse (ResumableSource m ByteString)
+             -> m (Either (Er a) (Rs a))
 
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a

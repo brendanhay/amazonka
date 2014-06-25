@@ -61,13 +61,6 @@ namespace a v = NS
     , unVersion v
     ]
 
-rootNS :: NS -> NS
-rootNS (NS []) = NS []
-rootNS (NS xs) = NS (init xs)
-
-typeNS :: NS -> NS
-typeNS = (<> "Types")
-
 newtype Version = Version { unVersion :: Text }
     deriving (Eq, Ord, Show, Generic)
 
@@ -133,6 +126,7 @@ data Service = Service
     , _svcTypesNamespace   :: NS
     , _svcVersion          :: Version
     , _svcType             :: ServiceType
+    , _svcError            :: Text
     , _svcWrapped          :: Bool
     , _svcSignature        :: Signature
     , _svcDocumentation    :: Doc
@@ -214,7 +208,7 @@ instance Default Common where
 
 data Shape
     = SStruct
-      { shpFields    :: [Shape]
+      { shpFields    :: HashMap Text Shape
       , _shpCommon   :: Common
       }
 
@@ -261,17 +255,38 @@ data Prim
 
 data Ann = Ann
    { anRequired :: !Bool
+   , anDefault  :: !Bool
    , anType     :: Text
    } deriving (Eq, Show, Generic)
 
 data Field = Field
     { fldType     :: Ann
-    , fldPrefixed :: Maybe Text
+    , fldPrefixed :: Text
     , fldCommon   :: Common
     } deriving (Eq, Show)
 
 instance Ord Field where
     compare = compare `on` fldCommon
+
+data Ctor
+    = CEnum
+    | CNewtype
+    | CData
+    | CNullary
+      deriving (Eq, Show, Generic)
+
+data Type = Type
+    { typShape  :: Shape
+    , typType   :: Ann
+    , typCtor   :: Ctor
+    , typFields :: [Field]
+    } deriving (Show, Generic)
+
+instance Eq Type where
+    (==) = (==) `on` (_cmnName . _shpCommon . typShape)
+
+instance Ord Type where
+    compare = compare `on` (_cmnName . _shpCommon . typShape)
 
 data HTTP = HTTP
     { _hMethod :: !StdMethod

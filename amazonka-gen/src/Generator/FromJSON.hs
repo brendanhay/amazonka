@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
 {-# LANGUAGE RecordWildCards      #-}
+{-# LANGUAGE TupleSections        #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
@@ -88,8 +89,9 @@ instance FromJSON Service where
         let vNS = namespace a v
             typ | a == "S3" = RestS3
                 | otherwise = t
+            sEr = unAbbrev a <> "Error"
 
-        Service a n (rootNS vNS) vNS (typeNS vNS) v typ
+        Service a n (rootNS vNS) vNS (typeNS vNS) v typ sEr
             <$> o .:? "result_wrapped"   .!= False
             <*> o .:  "signature_version"
             <*> o .:! "documentation"
@@ -162,7 +164,9 @@ instance FromJSON (Common -> Shape) where
         f o "structure" = do
             xs <- o .:? "members"      .!= mempty
             ys <- o .:? "member_order" .!= Map.keys xs :: Parser [Text]
-            return . SStruct $ mapMaybe (\y -> rename y <$> Map.lookup y xs) ys
+            return . SStruct
+                   . Map.fromList
+                   $ mapMaybe (\y -> (y,) <$> Map.lookup y xs) ys
 
         f o "list" = SList
             <$> o .:  "members"

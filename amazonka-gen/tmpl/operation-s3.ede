@@ -21,7 +21,6 @@ data {{ request.name }} = {{ request.name }}
 
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
-    type Rs {{ request.name }} = {{ response.name }}
 
     request = {{ request.method }}
 
@@ -35,5 +34,5 @@ instance AWSRequest {{ request.name }} where
 
 {% include "_include/body.ede" with request %}
 
-data {{ response.name }} = {{ response.name }}
+data instance {{ request.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}

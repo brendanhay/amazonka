@@ -14,7 +14,6 @@ data {{ name }}
 
 instance AWSService {{ name }} where
     type Sg {{ name }} = {{ signature }}
-{% raw %}
     type Er {{ name }} = {{ error }}
 
 data {{ error }} = {{ error }}
@@ -30,5 +29,3 @@ data {{ data.value.name }} = {{ data.value.name }}
 
   {% endif %}
 {% endfor %}
-
-{% endraw %}

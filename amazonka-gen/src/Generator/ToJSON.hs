@@ -75,7 +75,10 @@ instance ToJSON Cabal where
             ]
 
 instance ToJSON Service where
-    toJSON = toField (recase Camel Under . drop 4)
+    toJSON s = Object (x <> y)
+      where
+        Object x = toField (recase Camel Under . drop 4) s
+        Object y = object ["types" .= serviceTypes s]
 
 instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 3)
@@ -108,8 +111,18 @@ instance ToJSON Prim where
     toJSON = toCtor (drop 1)
 
 instance ToJSON Ann where
-    toJSON (Ann True t) = toJSON t
-    toJSON (Ann _    t) = toJSON ("Maybe " <> t)
+    toJSON (Ann True _    t) = toJSON t
+    toJSON (Ann _    True t) = toJSON t
+    toJSON (Ann _    _    t) = toJSON ("Maybe " <> t)
+
+instance ToJSON Ctor where
+    toJSON = toJSON . lowered . drop 1 . show
+
+instance ToJSON Type where
+    toJSON t = Object (x <> y)
+      where
+        Object x = toField (recase Camel Under . drop 3) t
+        Object y = toJSON (typShape t)
 
 instance ToJSON Field where
     toJSON f = Object (x <> y)

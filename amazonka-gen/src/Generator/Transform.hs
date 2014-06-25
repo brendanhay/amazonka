@@ -15,6 +15,7 @@ module Generator.Transform where
 
 import           Control.Applicative
 import           Control.Lens
+import qualified Data.HashMap.Strict as Map
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid
@@ -64,7 +65,7 @@ request o rq = rq
 http :: Shape -> HTTP -> HTTP
 http p = hPath %~ map f
   where
-    f (PVar v) = PVar (fromJust $ prefixed p (Just v))
+    f (PVar v) = PVar (prefixed p v)
     f c        = c
 
 response :: Operation -> Response -> Response
@@ -78,32 +79,34 @@ response o = rsName .~ (o ^. opName) <> "Response"
 -- common p x = x
 --     & cmnName %~ (<|> _cmnName p)
 
+rootNS :: NS -> NS
+rootNS (NS []) = NS []
+rootNS (NS xs) = NS (init xs)
+
+typeNS :: NS -> NS
+typeNS = (<> "Types")
+
 shapeName :: Functor f => LensLike' f Shape (Maybe Text)
 shapeName = shpCommon . cmnName
 
+shapeType :: Shape -> Type
+shapeType s = Type s (typeof s) (ctorof s) (fields s)
+
 fields :: Shape -> [Field]
 fields s = case s of
-    SStruct{..} -> map f shpFields
+    SStruct{..} -> map f (Map.toList shpFields)
     _           -> []
   where
-    f x = Field (typeof x) (prefixed s $ x ^. shapeName) (_shpCommon x)
+    f (k, v) = Field (typeof v) (prefixed s k) (_shpCommon v)
 
-prefixed :: Shape -> Maybe Text -> Maybe Text
+prefixed :: Shape -> Text -> Text
 prefixed p x = f (p ^. shapeName)
   where
-    f (Just y) = (prefix y <>) <$> x
-    f Nothing  = Nothing
-
-required :: Shape -> Bool
-required s =
-    let Common{..} = _shpCommon s
-     in _cmnRequired || _cmnLocation == LBody
-
-rename :: Text -> Shape -> Shape
-rename k = shpCommon . cmnName .~ Just k
+    f (Just y) = prefix y <> x
+    f Nothing  = "Prefixed"
 
 typeof :: Shape -> Ann
-typeof s = Ann (required s) $
+typeof s = Ann (required s) (defaults s) $
     case s of
         SStruct {..} -> name
         SList   {..} -> "[" <> ann shpItem <> "]"
@@ -117,7 +120,52 @@ typeof s = Ann (required s) $
     ann  = anType . typeof
 
     reserved =
-        [ "Bucket"
-        , "Key"
+        [ "BucketName"
+        , "ObjectKey"
+        , "ObjectVersionId"
+        , "ObjectCannedACL"
+        , "ETag"
         ]
 
+ctorof :: Shape -> Ctor
+ctorof s = case s of
+    SStruct{..}
+        | Map.size shpFields == 1 -> CNewtype
+        | Map.null shpFields      -> CNullary
+    SEnum{}                       -> CEnum
+    _                             -> CData
+
+defaults :: Shape -> Bool
+defaults s = case s of
+    SStruct {}   -> False
+    SList   {..} -> shpMinLength < 1
+    SMap    {}   -> True
+    SEnum   {}   -> False
+    SPrim   {}   -> False
+
+required :: Shape -> Bool
+required s =
+    let Common{..} = _shpCommon s
+     in _cmnRequired || _cmnLocation == LBody
+
+serviceTypes :: Service -> [Type]
+serviceTypes = sort
+    . nub
+    . map (shapeType . snd)
+    . concatMap opfields
+    . _svcOperations
+  where
+    opfields o =
+           descend (_rqShape $ _opRequest  o)
+        ++ descend (_rsShape $ _opResponse o)
+
+    descend SStruct {..} = concatMap (\s -> flat (name s) s) (Map.elems shpFields)
+    descend _            = []
+
+    flat p s@SStruct {..} = (p, s) : descend s
+    flat _ s@SList   {..} = flat (name s) shpItem
+    flat _ s@SMap    {..} = flat (name s) shpKey ++ flat (name s) shpValue
+    flat p s@SEnum   {}   = [(p, s)]
+    flat _ _              = []
+
+    name = fromMaybe "Untyped" . view shapeName

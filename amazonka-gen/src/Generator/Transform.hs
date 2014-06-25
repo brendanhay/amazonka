@@ -76,14 +76,6 @@ http p = hPath %~ map f
 response :: Operation -> Response -> Response
 response o = rsName .~ (o ^. opName) <> "Response"
 
--- shape :: Shape -> Shape -> Shape
--- shape p x = x
---     & shpCommon %~ common (p ^. shpCommon)
-
--- common :: Common -> Common -> Common
--- common p x = x
---     & cmnName %~ (<|> _cmnName p)
-
 rootNS :: NS -> NS
 rootNS (NS []) = NS []
 rootNS (NS xs) = NS (init xs)

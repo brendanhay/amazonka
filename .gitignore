@@ -11,7 +11,6 @@ cabal.sandbox.config
 .cabal-sandbox
 dist
 vendor
-/amazonka/gen
 
 # CTAGS
 TAGS
@@ -28,3 +27,7 @@ tags
 
 # OSX
 .DS_Store
+
+# Generated
+/amazonka/gen
+/amazonka/*.cabal

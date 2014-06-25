@@ -37,7 +37,7 @@ send :: (MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
      -> Region  -- ^ AWS Region.
      -> a       -- ^ Request to send.
      -> Manager -- ^ HTTP Manager.
-     -> m (Either (Er a) (Rs a))
+     -> m (Either (Er (Sv a)) (Rs a))
 send a r rq m =
         liftIO getCurrentTime
     >>= sign a r rq
@@ -49,7 +49,7 @@ paginate :: (MonadResource m, AWSPager a, AWSSigner (Sg (Sv a)))
          -> Region  -- ^ AWS Region.
          -> a       -- ^ Seed request to send.
          -> Manager -- ^ HTTP Manager.
-         -> Source m (Either (Er a) (Rs a))
+         -> Source m (Either (Er (Sv a)) (Rs a))
 paginate a r rq m = go (Just rq)
   where
     go Nothing   = return ()

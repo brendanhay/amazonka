@@ -79,21 +79,21 @@ class AWSError e where
 instance AWSError Error where
     toError = id
 
+data family Er a :: *
+data family Rs a :: *
+
 class AWSService a where
     type Sg a :: *
 
     service :: Service a
 
-data family Rs a :: *
-data family Er a :: *
-
-class (AWSService (Sv a), AWSError (Er a)) => AWSRequest a where
+class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
     type Sv a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
              => ClientResponse (ResumableSource m ByteString)
-             -> m (Either (Er a) (Rs a))
+             -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
@@ -150,7 +150,7 @@ instance IsString Endpoint where
 
 data Service a = Service
     { _svcEndpoint :: !Endpoint
-    , _svcName     :: ByteString
+    , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcTarget   :: Maybe ByteString
     }
@@ -165,8 +165,8 @@ endpoint :: Service a -> Region -> Host
 endpoint Service{..} reg =
     let suf = ".amazonaws.com"
      in Host $ case _svcEndpoint of
-            Global   -> _svcName <> suf
-            Regional -> _svcName <> "." <> toBS reg <> suf
+            Global   -> _svcPrefix <> suf
+            Regional -> _svcPrefix <> "." <> toBS reg <> suf
             Custom x -> x
 
 data Request a = Request

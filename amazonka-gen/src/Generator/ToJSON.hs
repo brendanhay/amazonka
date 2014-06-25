@@ -52,7 +52,7 @@ instance ToJSON ServiceType where
     toJSON = toCtor (recase Camel Under)
 
 instance ToJSON Signature where
-    toJSON = toCtor lowered
+    toJSON = toCtor id
 
 instance ToJSON JSONV where
     toJSON = toJSON . unJSONV
@@ -79,6 +79,9 @@ instance ToJSON Service where
       where
         Object x = toField (recase Camel Under . drop 4) s
         Object y = object ["types" .= serviceTypes s]
+
+instance ToJSON Error where
+    toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 3)

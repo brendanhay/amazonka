@@ -125,8 +125,9 @@ data Service = Service
     , _svcVersionNamespace :: NS
     , _svcTypesNamespace   :: NS
     , _svcVersion          :: Version
+    , _svcRawVersion       :: Text
     , _svcType             :: ServiceType
-    , _svcError            :: Text
+    , _svcError            :: Error
     , _svcWrapped          :: Bool
     , _svcSignature        :: Signature
     , _svcDocumentation    :: Doc
@@ -145,6 +146,12 @@ instance Ord Service where
       where
         f :: Ord a => (Service -> a) -> Ordering
         f g = compare (g a) (g b)
+
+data Error = Error
+    { _erName   :: Text
+    , _erShapes :: [Shape]
+    , _erCtors  :: HashMap Text Type
+    } deriving (Eq, Show, Generic)
 
 data Operation = Operation
     { _opName          :: Text
@@ -319,6 +326,7 @@ makeLenses ''Service
 makeLenses ''Operation
 makeLenses ''Request
 makeLenses ''Response
+makeLenses ''Error
 makeLenses ''Common
 makeLenses ''Shape
 makeLenses ''HTTP

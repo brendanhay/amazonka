@@ -10,17 +10,34 @@ module {{ types_namespace }} where
 import Network.AWS.Signing.{{ signature }}
 import Network.AWS.Types
 
+-- | Supported version (@{{ raw_version }}@) of the @{{ full_name }}@ service.
 data {{ name }}
 
 instance AWSService {{ name }} where
     type Sg {{ name }} = {{ signature }}
-    type Er {{ name }} = {{ error }}
 
-data {{ error }} = {{ error }}
-    deriving (Eq, Show)
+    service = Service
+        { _svcEndpoint = {% if global_endpoint -%} Global{% else -%} Regional{% endif -%}
+        , _svcPrefix   = "{{ endpoint_prefix }}"
+        , _svcVersion  = "{{ raw_version }}"
+        , _svcTarget   = {% if target_prefix -%} (Just "{{ target_prefix }}"){% else -%} Nothing {% endif -%}
+        }
 
-instance AWSError {{ error }} where
-    toError _ = Nested []
+{% if error.shapes | listLength == 0 %}
+data instance Er {{ name }} = {{ error.name }}
+    deriving (Eq, Show, Generic)
+{% else %}
+data instance Er {{ name }}
+  {% for ctor in error.ctors %}
+    {% if ctor.first %}
+    = {{ ctor.key }}
+    {% else %}
+    | {{ ctor.key }}
+    {% endif %}
+{% include "_include/error.ede" with ctor.value.fields %}
+  {% endfor %}
+      deriving (Eq, Show, Generic)
+{% endif %}
 
 {% for data in types %}
 data {{ data.value.name }} = {{ data.value.name }}

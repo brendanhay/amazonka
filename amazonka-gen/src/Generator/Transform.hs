@@ -169,3 +169,11 @@ serviceTypes = sort
     flat _ _              = []
 
     name = fromMaybe "Untyped" . view shapeName
+
+serviceError :: Abbrev -> [Operation] -> Error
+serviceError a os = Error (unAbbrev a <> "Error") ss ts
+  where
+    ts = Map.fromList $ map (\s -> (name s, shapeType s)) ss
+    ss = nub (concatMap _opErrors os)
+
+    name = fromMaybe "Untyped" . view shapeName

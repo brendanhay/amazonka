@@ -34,5 +34,5 @@ instance AWSRequest {{ request.name }} where
 
 {% include "_include/body.ede" with request %}
 
-data instance {{ request.name }} = {{ response.name }}
+data instance Rs {{ request.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}

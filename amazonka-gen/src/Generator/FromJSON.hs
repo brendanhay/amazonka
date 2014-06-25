@@ -22,9 +22,10 @@ module Generator.FromJSON where
 import           Control.Applicative
 import           Control.Arrow
 import           Control.Error
+import           Control.Lens
 import           Control.Monad
-import           Data.Aeson
-import           Data.Aeson.Types
+import           Data.Aeson                 hiding (Error)
+import           Data.Aeson.Types           hiding (Error)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.Default
@@ -50,9 +51,6 @@ parseModel Model{..} = do
 
 instance FromJSON Abbrev where
     parseJSON = withText "abbrev" (return . abbrev)
-
-instance FromJSON Version where
-    parseJSON = withText "version" (return . version)
 
 instance FromJSON Doc where
     parseJSON = withText "documentation" (return . documentation)
@@ -81,18 +79,20 @@ instance FromJSON JSONV where
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
-        n  <- o .:  "service_full_name"
-        a  <- o .:  "service_abbreviation" .!= abbrev n
-        v  <- o .:  "api_version"
-        t  <- o .:! "type"
+        n   <- o .:  "service_full_name"
+        a   <- o .:  "service_abbreviation" .!= abbrev n
+        rv  <- o .:  "api_version"
+        t   <- o .:! "type"
+        ops <- o .:  "operations"
 
-        let vNS = namespace a v
+        let ver = version rv
+            vNS = namespace a ver
             typ | a == "S3" = RestS3
                 | otherwise = t
-            sEr = unAbbrev a <> "Error"
+            sEr = serviceError a ops
 
-        Service a n (rootNS vNS) vNS (typeNS vNS) v typ sEr
-            <$> o .:? "result_wrapped"   .!= False
+        Service a n (rootNS vNS) vNS (typeNS vNS) ver rv typ sEr
+            <$> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
             <*> o .:! "documentation"
             <*> o .:  "endpoint_prefix"
@@ -102,24 +102,25 @@ instance FromJSON Service where
             <*> o .:! "checksum_format"
             <*> o .:! "json_version"
             <*> o .:? "target_prefix"
-            <*> o .:  "operations"
+            <*> pure ops
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" (mapM parseJSON . Map.elems)
 
 instance FromJSON Operation where
-    parseJSON = withObject "operation" $ \o -> Operation
-        <$> o .:  "name"
-        <*> pure def
-        <*> o .:? "alias"
-        <*> pure def
-        <*> pure []
-        <*> o .:  "documentation"
-        <*> o .:? "documentation_url"
-        <*> parseJSON (Object o)
-        <*> parseJSON (Object o)
-        <*> pure []
-        <*> o .:? "pagination"
+    parseJSON = withObject "operation" $ \o -> do
+        n <- o .:  "name"
+        Operation n
+            <$> pure def
+            <*> o .:? "alias"
+            <*> pure def
+            <*> pure []
+            <*> o .:  "documentation"
+            <*> o .:? "documentation_url"
+            <*> parseJSON (Object o)
+            <*> parseJSON (Object o)
+            <*> o .:  "errors"
+            <*> o .:? "pagination"
 
 instance FromJSON Request where
     parseJSON = withObject "request" $ \o -> do

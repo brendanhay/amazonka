@@ -11,7 +11,7 @@ cabal.sandbox.config
 .cabal-sandbox
 dist
 vendor
-/amazonka
+/amazonka/gen
 
 # CTAGS
 TAGS

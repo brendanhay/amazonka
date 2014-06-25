@@ -38,7 +38,7 @@ import qualified Text.EDE            as EDE
 import           Text.EDE.Filters
 
 base :: FilePath
-base = "lib"
+base = "gen"
 
 class ToPath a where
     path :: a -> FilePath
@@ -51,7 +51,6 @@ instance ToPath NS where
 
 data Templates = Templates
     { tmplCabal   :: Template
-    , tmplMake    :: Template
     , tmplVersion :: Template
     , tmplCurrent :: Template
     , tmplService :: ServiceType -> (Template, Template)
@@ -65,7 +64,6 @@ getTemplates = do
 
     ctor <- Templates
         <$> load "cabal"
-        <*> load "makefile"
         <*> load "version"
         <*> load "current"
 
@@ -103,7 +101,6 @@ render dir Templates{..} ss = do
         write "Render Service" (path (_svcName s)) tmplCurrent s
 
     write "Render Cabal" "amazonka.cabal" tmplCabal (Cabal ss)
-    write "Render Make"  "Makefile" tmplMake (Cabal ss)
   where
     write lbl f t e = render' lbl dir f t (env e)
 

@@ -1,25 +1,18 @@
 include include/common.mk
 
-DIRS    := $(wildcard amazonka-*)
+TARGETS := build clean doc
+DIRS    := amazonka-gen amazonka
 NESTED   = $(foreach dir,$(DIRS),make -C $(dir) $1;)
-TARGETS := build test doc
 
-.PHONY: $(DIRS)
-
-$(DIRS):
-	make -C $@ build
+deafult: build
 
 $(TARGETS):
-	$(call NESTED,$@)
-
-install: cabal.sandbox.config
 	$(call NESTED,$@)
 
 gen:
 	make -C amazonka-gen $@
 
-clean:
-	-rm -rf dist cabal.sandbox.config .cabal-sandbox
+install: cabal.sandbox.config
 	$(call NESTED,$@)
 
 cabal.sandbox.config:

@@ -5,7 +5,6 @@ BOTO := vendor/botocore/botocore/data/aws
 GEN  := $(TOP)/amazonka
 
 include $(TOP)/include/common.mk
-include $(TOP)/include/targets.mk
 
 MODELS := $(BOTO)/s3
  # $(BOTO)/autoscaling \
@@ -40,29 +39,23 @@ MODELS := $(BOTO)/s3
  # $(BOTO)/support \
  # $(BOTO)/swf
 
-.PHONY: gen-clean
+.PHONY: gen
 
-gen:
-	make $(GEN)/src
-	make $(GEN)/lib
+gen: $(GEN)/gen
 
-gen-clean:
-	rm -rf $(GEN)
-
-$(GEN):
-	mkdir -p $@
-
-$(GEN)/src: $(GEN)
-	cd $(GEN) && ln -fs $(TOP)/amazonka-types/src
-
-$(GEN)/lib: $(GEN) build
+$(GEN)/gen: build
 	$(BIN) --dir=$(realpath $(GEN)) $(addprefix --model=,$(realpath $(MODELS)))
 
-build: def-build
+build:
+	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
-install: add-sources def-install
+install: add-sources
+	cabal install $(FLAGS) && \
+	 cabal install $(FLAGS) --only-dependencies --enable-tests
 
-clean: def-clean gen-clean
+clean:
+	cabal clean
+	rm -rf $(GEN)/gen
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/ede

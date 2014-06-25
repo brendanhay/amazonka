@@ -4,10 +4,6 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE ViewPatterns      #-}
 
-{-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE GADTs      #-}
-
-
 -- Module      : Network.AWS.Auth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of

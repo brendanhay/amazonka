@@ -251,6 +251,14 @@ data Shape
 instance Default Shape where
     def = SPrim PText 0 0 Nothing def
 
+instance Ord Shape where
+    compare a b =
+        case (a, b) of
+            (SEnum{}, SEnum{}) -> on compare (_cmnName . _shpCommon) a b
+            (SEnum{}, _)       -> LT
+            (_,       SEnum{}) -> GT
+            _                  -> on compare (_cmnName . _shpCommon) a b
+
 data Prim
     = PText
     | PInteger
@@ -293,7 +301,7 @@ instance Eq Type where
     (==) = (==) `on` (_cmnName . _shpCommon . typShape)
 
 instance Ord Type where
-    compare = compare `on` (_cmnName . _shpCommon . typShape)
+    compare = compare `on` typShape
 
 data HTTP = HTTP
     { _hMethod :: !StdMethod

@@ -169,7 +169,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
     scope =
         [ toBS (BasicTime l t)
         , toBS r
-        , toBS _svcName
+        , toBS _svcPrefix
         , "aws4_request"
         ]
 

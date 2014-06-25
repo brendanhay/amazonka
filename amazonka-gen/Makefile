@@ -50,12 +50,10 @@ build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
 install: add-sources
-	cabal install $(FLAGS) && \
-	 cabal install $(FLAGS) --only-dependencies --enable-tests
+	cabal install $(FLAGS)
 
 clean:
 	cabal clean
-	rm -rf $(GEN)/gen
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/ede

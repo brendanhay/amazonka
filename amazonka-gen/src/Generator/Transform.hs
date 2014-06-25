@@ -13,10 +13,7 @@
 
 module Generator.Transform where
 
-import           Control.Applicative
-import           Control.Arrow
 import           Control.Lens
-import           Control.Monad
 import           Data.Char
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map

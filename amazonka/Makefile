@@ -1,12 +1,16 @@
 TOP := ..
 
 include $(TOP)/include/common.mk
-include $(TOP)/include/targets.mk
 
-build: def-build
+build:
+	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
-install: def-install
+install:
+	cabal install $(FLAGS) --only-dependencies
 
-test: def-test
+clean:
+	-cabal clean
+	rm -rf gen amazonka.cabal
 
-clean: def-clean
+doc:
+	cabal haddock

@@ -182,8 +182,7 @@ instance FromJSON (Common -> Shape) where
         f o typ = do
             ms <- o .:? "enum"
 
-            let str  = Text.pack . recase Under Camel . Text.unpack
-                enum = Map.fromList . map (first str . join (,)) <$> ms
+            let enum = shapeEnums <$> ms
 
             case enum of
                 Just vs -> return (SEnum vs)

@@ -14,15 +14,20 @@
 module Generator.Transform where
 
 import           Control.Applicative
+import           Control.Arrow
 import           Control.Lens
-import qualified Data.HashMap.Strict as Map
+import           Control.Monad
+import           Data.Char
+import           Data.HashMap.Strict        (HashMap)
+import qualified Data.HashMap.Strict        as Map
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
 import           Data.String
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
+import           Data.String.CaseConversion
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
 import           Data.Text.Util
 import           Generator.AST
 import           Text.EDE.Filters
@@ -92,6 +97,23 @@ shapeName = shpCommon . cmnName
 shapeType :: Shape -> Type
 shapeType s = Type s (typeof s) (ctorof s) (fields s)
 
+shapeEnums :: [Text] -> HashMap Text Text
+shapeEnums = Map.fromList . map trans . filter (not . Text.null)
+  where
+    trans x
+        | Text.null x           = (x, x)
+        | isUpper (Text.head x) = (x, x)
+        | otherwise             = (str x, x)
+
+    str = Text.pack
+        . upcase
+        . recase Under Camel
+        . Text.unpack
+        . Text.replace "-" "_"
+
+    upcase []       = []
+    upcase (x : xs) = toUpper x : xs
+
 fields :: Shape -> [Field]
 fields s = case s of
     SStruct{..} -> map f (Map.toList shpFields)
@@ -125,6 +147,8 @@ typeof s = Ann (required s) (defaults s) $
         , "ObjectVersionId"
         , "ObjectCannedACL"
         , "ETag"
+        , "Region"
+        , "AvailabilityZone"
         ]
 
 ctorof :: Shape -> Ctor

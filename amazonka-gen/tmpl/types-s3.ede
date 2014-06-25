@@ -40,8 +40,32 @@ data instance Er {{ name }}
 {% endif %}
 
 {% for data in types %}
+  {% case data.value.name %}
+  {% when "BucketLocationConstraint" %}
+newtype {{ data.value.name }} = {{ data.value.name }} Region
+    deriving (Eq, Show, Generic)
+  {% else %}
+    {% case data.value.ctor %}
+    {% when "enum" %}
+data {{ data.value.name }}
+      {% for branch in data.value.alues %}
+        {% if branch.first %}
+    = {{ branch.key }} -- ^ {{ branch.value }}
+        {% else %}
+    | {{ branch.key }} -- ^ {{ branch.value }}
+        {% endif %}
+      {% endfor %}
+      deriving (Eq, Show, Generic)
+    {% when "newtype" %}
+newtype {{ data.value.name }} = {{ data.value.name }}
+  {% include "_include/record.ede" with data.value.fields %}
+    {% when "data" %}
 data {{ data.value.name }} = {{ data.value.name }}
-{% include "_include/record.ede" with data.value.fields %}
+  {% include "_include/record.ede" with data.value.fields %}
+    {% when "nullary" %}
+data {{ data.value.name }} = {{ data.value.name }}
+    {% endcase %}
+  {% endcase %}
   {% if !data.last %}
 
   {% endif %}

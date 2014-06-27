@@ -248,3 +248,4 @@ waitCatch :: MonadBaseControl IO m
           => Async (StM m (Either Error a))
           -> AWST m (Either Error a)
 waitCatch = lift . Async.wait
+

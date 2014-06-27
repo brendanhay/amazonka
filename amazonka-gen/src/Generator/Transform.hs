@@ -106,6 +106,8 @@ shapeEnums = Map.fromList . map trans . filter (not . Text.null)
 
     blah-blah -> BlahBlah
 
+    prefix
+
     upcase []       = []
     upcase (x : xs) = toUpper x : xs
 

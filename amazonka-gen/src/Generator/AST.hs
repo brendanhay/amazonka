@@ -214,52 +214,60 @@ instance Default Common where
     def = Common Nothing Nothing def Nothing False Nothing False
 
 data Shape
-    = SStruct
-      { shpFields    :: HashMap Text Shape
-      , _shpCommon   :: Common
-      }
-
-    | SList
-      { shpItem      :: Shape
-      , shpFlattened :: Bool
-      , shpMinLength :: Int
-      , shpMaxLength :: Int
-      , _shpCommon   :: Common
-      }
-
-    | SMap
-      { shpKey       :: Shape
-      , shpValue     :: Shape
-      , _shpCommon   :: Common
-      }
-
-    | SEnum
-      { shpValues    :: HashMap Text Text
-      , _shpCommon   :: Common
-      }
-
-    | SPrim
-      { shpType      :: Prim
-      , shpMinLength :: Int
-      , shpMaxLength :: Int
-      , shpPattern   :: Maybe Text
-      , _shpCommon   :: Common
-      }
-
-      deriving (Eq, Show, Generic)
+    = SStruct Struct
+    | SList   List
+    | SMap    Map
+    | SEnum   Enum
+    | SPrim   Prim
+      deriving (Eq, Show)
 
 instance Default Shape where
-    def = SPrim PText 0 0 Nothing def
+    def = SPrim def
 
-instance Ord Shape where
-    compare a b =
-        case (a, b) of
-            (SEnum{}, SEnum{}) -> on compare (_cmnName . _shpCommon) a b
-            (SEnum{}, _)       -> LT
-            (_,       SEnum{}) -> GT
-            _                  -> on compare (_cmnName . _shpCommon) a b
+-- instance Ord Shape where
+--     compare a b =
+--         case (a, b) of
+--             (SEnum{}, SEnum{}) -> on compare (_cmnName . _shpCommon) a b
+--             (SEnum{}, _)       -> LT
+--             (_,       SEnum{}) -> GT
+--             _                  -> on compare (_cmnName . _shpCommon) a b
 
-data Prim
+data Struct = Struct
+    { shpFields    :: HashMap Text Shape
+    , _shpCommon   :: Common
+    } deriving (Eq, Show, Generic)
+
+data List = List
+    { shpItem      :: Shape
+    , shpFlattened :: Bool
+    , shpMinLength :: Int
+    , shpMaxLength :: Int
+    , _shpCommon   :: Common
+    } deriving (Eq, Show, Generic)
+
+data Map = Map
+    { shpKey       :: Shape
+    , shpValue     :: Shape
+    , _shpCommon   :: Common
+    } deriving (Eq, Show, Generic)
+
+data Enum = Enum
+    { shpValues    :: HashMap Text Text
+    , _shpCommon   :: Common
+    } deriving (Eq, Show, Generic)
+
+data Prim = Prim
+    { shpType      :: Primitive
+    , shpMinLength :: Int
+    , shpMaxLength :: Int
+    , shpPattern   :: Maybe Text
+    , _shpCommon   :: Common
+    } deriving (Eq, Show, Generic)
+
+instance Default Prim where
+    def = def 0 0 Nothing def
+
+data Primitive
     = PText
     | PInteger
     | PDouble
@@ -267,6 +275,9 @@ data Prim
     | PByteString
     | PUTCTime
       deriving (Eq, Show, Generic)
+
+instance Default Primitive where
+    def = PText
 
 data Ann = Ann
    { anRequired :: !Bool

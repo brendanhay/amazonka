@@ -13,7 +13,9 @@
 
 module Generator.Transform where
 
+import           Control.Arrow
 import           Control.Lens
+import           Control.Monad
 import           Data.Char
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
@@ -83,22 +85,26 @@ typeNS = (<> "Types")
 shapeName :: Functor f => LensLike' f Shape (Maybe Text)
 shapeName = shpCommon . cmnName
 
+fromName :: Shape -> Text
+fromName = fromMaybe "Untyped" . view shapeName
+
 shapeType :: Shape -> Type
 shapeType s = Type s (typeof s) (ctorof s) (fields s)
 
 shapeEnums :: [Text] -> HashMap Text Text
 shapeEnums = Map.fromList . map trans . filter (not . Text.null)
   where
-    trans x
-        | Text.null x           = (x, x)
-        | isUpper (Text.head x) = (x, x)
-        | otherwise             = (str x, x)
+    trans = first rules . join (,)
 
-    str = Text.pack
+    rules = Text.pack
         . upcase
         . recase Under Camel
         . Text.unpack
         . Text.replace "-" "_"
+
+    ABC_ABC -> AbcAbc
+
+    blah-blah -> BlahBlah
 
     upcase []       = []
     upcase (x : xs) = toUpper x : xs
@@ -119,16 +125,15 @@ prefixed p x = f (p ^. shapeName)
 typeof :: Shape -> Ann
 typeof s = Ann (required s) (defaults s) $
     case s of
-        SStruct {..} -> name
+        SStruct {..} -> n
         SList   {..} -> "[" <> ann shpItem <> "]"
         SMap    {..} -> "HashMap " <> ann shpKey <> " " <> ann shpValue
-        SEnum   {..} -> name
-        SPrim   {..}
-            | name `elem` reserved -> name
-            | otherwise            -> Text.pack . drop 1 $ show shpType
+        SEnum   {..} -> n
+        SPrim   {..} | n `elem` reserved -> n
+                     | otherwise         -> Text.pack . drop 1 $ show shpType
   where
-    name = fromMaybe "Untyped" (s ^. shapeName)
-    ann  = anType . typeof
+    n   = fromMaybe "Untyped" (s ^. shapeName)
+    ann = anType . typeof
 
     reserved =
         [ "BucketName"
@@ -172,21 +177,17 @@ serviceTypes = sort
            descend (_rqShape $ _opRequest  o)
         ++ descend (_rsShape $ _opResponse o)
 
-    descend SStruct {..} = concatMap (\s -> flat (name s) s) (Map.elems shpFields)
+    descend SStruct {..} = concatMap (\s -> flat (fromName s) s) (Map.elems shpFields)
     descend _            = []
 
     flat p s@SStruct {..} = (p, s) : descend s
-    flat _ s@SList   {..} = flat (name s) shpItem
-    flat _ s@SMap    {..} = flat (name s) shpKey ++ flat (name s) shpValue
+    flat _ s@SList   {..} = flat (fromName s) shpItem
+    flat _ s@SMap    {..} = flat (fromName s) shpKey ++ flat (fromName s) shpValue
     flat p s@SEnum   {}   = [(p, s)]
     flat _ _              = []
-
-    name = fromMaybe "Untyped" . view shapeName
 
 serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") ss ts
   where
-    ts = Map.fromList $ map (\s -> (name s, shapeType s)) ss
+    ts = Map.fromList $ map (\s -> (fromName s, shapeType s)) ss
     ss = nub (concatMap _opErrors os)
-
-    name = fromMaybe "Untyped" . view shapeName

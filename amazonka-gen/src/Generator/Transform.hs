@@ -21,7 +21,7 @@ import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.List
 import           Data.Maybe
-import           Data.Monoid
+import           Data.Monoid                hiding (Sum)
 import           Data.Ord
 import           Data.String
 import           Data.String.CaseConversion
@@ -82,11 +82,8 @@ rootNS (NS xs) = NS (init xs)
 typeNS :: NS -> NS
 typeNS = (<> "Types")
 
-shapeName :: Functor f => LensLike' f Shape (Maybe Text)
-shapeName = shpCommon . cmnName
-
 fromName :: Shape -> Text
-fromName = fromMaybe "Untyped" . view shapeName
+fromName = fromMaybe "Untyped" . view cmnName
 
 shapeType :: Shape -> Type
 shapeType s = Type s (typeof s) (ctorof s) (fields s)
@@ -103,9 +100,7 @@ shapeEnums = Map.fromList . map trans . filter (not . Text.null)
         . Text.replace "-" "_"
 
     -- ABC_ABC -> AbcAbc
-
     -- blah-blah -> BlahBlah
-
     -- prefix with type name
 
     upcase []       = []
@@ -113,13 +108,13 @@ shapeEnums = Map.fromList . map trans . filter (not . Text.null)
 
 fields :: Shape -> [Field]
 fields s = case s of
-    SStruct{..} -> map f (Map.toList shpFields)
-    _           -> []
+    SStruct Struct{..} -> map f (Map.toList _sctFields)
+    _                  -> []
   where
-    f (k, v) = Field (typeof v) (prefixed s k) (_shpCommon v)
+    f (k, v) = Field (typeof v) (prefixed s k) (v ^. common)
 
 prefixed :: Shape -> Text -> Text
-prefixed p x = f (p ^. shapeName)
+prefixed p x = f (p ^. cmnName)
   where
     f (Just y) = prefix y <> x
     f Nothing  = "Prefixed"
@@ -127,14 +122,15 @@ prefixed p x = f (p ^. shapeName)
 typeof :: Shape -> Ann
 typeof s = Ann (required s) (defaults s) $
     case s of
-        SStruct {..} -> n
-        SList   {..} -> "[" <> ann shpItem <> "]"
-        SMap    {..} -> "HashMap " <> ann shpKey <> " " <> ann shpValue
-        SEnum   {..} -> n
-        SPrim   {..} | n `elem` reserved -> n
-                     | otherwise         -> Text.pack . drop 1 $ show shpType
+        SStruct Struct {..} -> n
+        SList   List   {..} -> "[" <> ann _lstItem <> "]"
+        SMap    Map    {..} -> "HashMap " <> ann _mapKey <> " " <> ann _mapValue
+        SSum    Sum    {..} -> n
+        SPrim   Prim   {..}
+            | n `elem` reserved -> n
+            | otherwise         -> Text.pack . drop 1 $ show _prmType
   where
-    n   = fromMaybe "Untyped" (s ^. shapeName)
+    n   = fromMaybe "Untyped" (s ^. cmnName)
     ann = anType . typeof
 
     reserved =
@@ -149,23 +145,23 @@ typeof s = Ann (required s) (defaults s) $
 
 ctorof :: Shape -> Ctor
 ctorof s = case s of
-    SStruct{..}
-        | Map.size shpFields == 1 -> CNewtype
-        | Map.null shpFields      -> CNullary
-    SEnum{}                       -> CEnum
-    _                             -> CData
+    SStruct Struct{..}
+        | Map.size _sctFields == 1 -> CNewtype
+        | Map.null _sctFields      -> CNullary
+    SSum{}                         -> CSum
+    _                              -> CData
 
 defaults :: Shape -> Bool
 defaults s = case s of
-    SStruct {}   -> False
-    SList   {..} -> shpMinLength < 1
-    SMap    {}   -> True
-    SEnum   {}   -> False
-    SPrim   {}   -> False
+    SStruct {} -> False
+    SList   l  -> _lstMinLength l < 1
+    SMap    {} -> True
+    SSum    {} -> False
+    SPrim   {} -> False
 
 required :: Shape -> Bool
 required s =
-    let Common{..} = _shpCommon s
+    let Common{..} = s ^. common
      in _cmnRequired || _cmnLocation == LBody
 
 serviceTypes :: Service -> [Type]
@@ -179,14 +175,15 @@ serviceTypes = sort
            descend (_rqShape $ _opRequest  o)
         ++ descend (_rsShape $ _opResponse o)
 
-    descend SStruct {..} = concatMap (\s -> flat (fromName s) s) (Map.elems shpFields)
-    descend _            = []
+    descend (SStruct Struct{..}) =
+        concatMap (\s -> flat (fromName s) s) (Map.elems _sctFields)
+    descend _                   = []
 
-    flat p s@SStruct {..} = (p, s) : descend s
-    flat _ s@SList   {..} = flat (fromName s) shpItem
-    flat _ s@SMap    {..} = flat (fromName s) shpKey ++ flat (fromName s) shpValue
-    flat p s@SEnum   {}   = [(p, s)]
-    flat _ _              = []
+    flat p s@SStruct     {}    = (p, s) : descend s
+    flat _ s@(SList List {..}) = flat (fromName s) _lstItem
+    flat _ s@(SMap  Map  {..}) = flat (fromName s) _mapKey ++ flat (fromName s) _mapValue
+    flat p s@SSum        {}    = [(p, s)]
+    flat _ _                   = []
 
 serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") ss ts

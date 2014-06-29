@@ -244,7 +244,7 @@ instance Ord Field where
     compare = compare `on` fldCommon
 
 data Ctor
-    = CEnum
+    = CSum
     | CNewtype
     | CData
     | CNullary

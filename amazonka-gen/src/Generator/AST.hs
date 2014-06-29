@@ -15,11 +15,12 @@
 
 module Generator.AST where
 
+import           Control.Applicative
 import           Control.Lens
 import           Data.Default
 import           Data.Function
 import           Data.HashMap.Strict       (HashMap)
-import           Data.Monoid
+import           Data.Monoid               hiding (Sum)
 import           Data.Ord
 import           Data.String
 import           Data.Text                 (Text)
@@ -115,6 +116,240 @@ newtype JSONV = JSONV { unJSONV :: Text }
 instance Default JSONV where
     def = JSONV "1.0"
 
+data Location
+    = LUri
+    | LQuery
+    | LHeader
+    | LBody
+      deriving (Eq, Ord, Show, Generic)
+
+instance Default Location where
+    def = LBody
+
+data Common = Common
+    { _cmnName          :: Maybe Text
+    , _cmnXmlName       :: Maybe Text
+    , _cmnLocation      :: Location
+    , _cmnLocationName  :: Maybe Text
+    , _cmnRequired      :: Bool
+    , _cmnDocumentation :: Maybe Doc
+    , _cmnStreaming     :: Bool
+    } deriving (Eq, Show, Generic)
+
+instance Ord Common where
+    compare a b =
+        if _cmnLocation a == LBody
+            then GT
+            else comparing _cmnLocation a b <> comparing _cmnName a b
+
+instance Default Common where
+    def = Common Nothing Nothing def Nothing False Nothing False
+
+makeClassy ''Common
+
+data Struct = Struct
+    { _sctFields    :: HashMap Text Shape
+    , _sctCommon    :: Common
+    } deriving (Eq, Show, Generic)
+
+instance HasCommon Struct where
+    common f x = (\y -> x { _sctCommon = y }) <$> f (_sctCommon x)
+
+data List = List
+    { _lstItem      :: Shape
+    , _lstFlattened :: Bool
+    , _lstMinLength :: Int
+    , _lstMaxLength :: Int
+    , _lstCommon    :: Common
+    } deriving (Eq, Show, Generic)
+
+instance HasCommon List where
+    common f x = (\y -> x { _lstCommon = y }) <$> f (_lstCommon x)
+
+data Map = Map
+    { _mapKey       :: Shape
+    , _mapValue     :: Shape
+    , _mapCommon    :: Common
+    } deriving (Eq, Show, Generic)
+
+instance HasCommon Map where
+    common f x = (\y -> x { _mapCommon = y }) <$> f (_mapCommon x)
+
+data Sum = Sum
+    { _sumValues    :: HashMap Text Text
+    , _sumCommon    :: Common
+    } deriving (Eq, Show, Generic)
+
+instance HasCommon Sum where
+    common f x = (\y -> x { _sumCommon = y }) <$> f (_sumCommon x)
+
+data Prim = Prim
+    { _prmType      :: Primitive
+    , _prmMinLength :: Int
+    , _prmMaxLength :: Int
+    , _prmPattern   :: Maybe Text
+    , _prmCommon    :: Common
+    } deriving (Eq, Show, Generic)
+
+instance HasCommon Prim where
+    common f x = (\y -> x { _prmCommon = y }) <$> f (_prmCommon x)
+
+instance Default Prim where
+    def = Prim def 0 0 Nothing def
+
+data Primitive
+    = PText
+    | PInteger
+    | PDouble
+    | PBool
+    | PByteString
+    | PUTCTime
+      deriving (Eq, Show, Generic)
+
+instance Default Primitive where
+    def = PText
+
+data Shape
+    = SStruct Struct
+    | SList   List
+    | SMap    Map
+    | SSum    Sum
+    | SPrim   Prim
+      deriving (Eq, Show)
+
+instance Default Shape where
+    def = SPrim def
+
+instance HasCommon Shape where
+    common f x = case x of
+        SStruct y -> SStruct <$> common f y
+        SList   y -> SList   <$> common f y
+        SMap    y -> SMap    <$> common f y
+        SSum    y -> SSum    <$> common f y
+        SPrim   y -> SPrim   <$> common f y
+
+data Ann = Ann
+   { anRequired :: !Bool
+   , anDefault  :: !Bool
+   , anType     :: Text
+   } deriving (Eq, Show, Generic)
+
+data Field = Field
+    { fldType     :: Ann
+    , fldPrefixed :: Text
+    , fldCommon   :: Common
+    } deriving (Eq, Show)
+
+instance Ord Field where
+    compare = compare `on` fldCommon
+
+data Ctor
+    = CEnum
+    | CNewtype
+    | CData
+    | CNullary
+      deriving (Eq, Show, Generic)
+
+data Type = Type
+    { _typShape  :: Shape
+    , _typType   :: Ann
+    , _typCtor   :: Ctor
+    , _typFields :: [Field]
+    } deriving (Show, Generic)
+
+makeLenses ''Type
+
+instance HasCommon Type where
+    common = typShape . common
+
+instance Eq Type where
+    (==) = (==) `on` (view cmnName)
+
+instance Ord Type where
+    compare = compare `on` _typShape
+
+instance Ord Shape where
+    compare a b =
+        case (a, b) of
+            (SSum{}, SSum{}) -> on compare (view cmnName) a b
+            (SSum{}, _)      -> LT
+            (_,      SSum{}) -> GT
+            _                -> on compare (view cmnName) a b
+
+data Error = Error
+    { _erName   :: Text
+    , _erShapes :: [Shape]
+    , _erCtors  :: HashMap Text Type
+    } deriving (Eq, Show, Generic)
+
+makeLenses ''Error
+
+data PathPart
+    = PConst Text
+    | PVar   Text
+      deriving (Eq, Show)
+
+data QueryPart = QueryPart
+    { qpKey :: Text
+    , qpVal :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+data Pagination = Pagination
+    { pgMoreKey     :: Maybe Text
+    , pgLimitKey    :: Maybe Text
+    , pgInputToken  :: Text
+    , pgOutputToken :: Text
+    , pgResultKeys  :: Text
+    } deriving (Eq, Show, Generic)
+
+data HTTP = HTTP
+    { _hMethod :: !StdMethod
+    , _hPath   :: [PathPart]
+    , _hQuery  :: [QueryPart]
+    } deriving (Eq, Show, Generic)
+
+instance Default HTTP where
+    def = HTTP GET [] []
+
+makeLenses ''HTTP
+
+data Request = Request
+    { _rqName     :: Text
+    , _rqDefault  :: Text
+    , _rqPayload  :: Maybe Field
+    , _rqFields   :: [Field]
+    , _rqRequired :: [Field]
+    , _rqHeaders  :: [Field]
+    , _rqShape    :: Shape
+    , _rqHttp     :: HTTP
+    } deriving (Eq, Show, Generic)
+
+makeLenses ''Request
+
+data Response = Response
+    { _rsName   :: Text
+    , _rsFields :: [Field]
+    , _rsShape  :: Shape
+    } deriving (Eq, Show, Generic)
+
+makeLenses ''Response
+
+data Operation = Operation
+    { _opName          :: Text
+    , _opService       :: Abbrev
+    , _opAlias         :: Maybe Text
+    , _opNamespace     :: NS
+    , _opImports       :: [NS]
+    , _opDocumentation :: Doc
+    , _opUrl           :: Maybe Text
+    , _opRequest       :: Request
+    , _opResponse      :: Response
+    , _opErrors        :: [Shape]
+    , _opPagination    :: Maybe Pagination
+    } deriving (Eq, Show, Generic)
+
+makeLenses ''Operation
+
 newtype Cabal = Cabal [Service]
     deriving (Show)
 
@@ -147,205 +382,4 @@ instance Ord Service where
         f :: Ord a => (Service -> a) -> Ordering
         f g = compare (g a) (g b)
 
-data Error = Error
-    { _erName   :: Text
-    , _erShapes :: [Shape]
-    , _erCtors  :: HashMap Text Type
-    } deriving (Eq, Show, Generic)
-
-data Operation = Operation
-    { _opName          :: Text
-    , _opService       :: Abbrev
-    , _opAlias         :: Maybe Text
-    , _opNamespace     :: NS
-    , _opImports       :: [NS]
-    , _opDocumentation :: Doc
-    , _opUrl           :: Maybe Text
-    , _opRequest       :: Request
-    , _opResponse      :: Response
-    , _opErrors        :: [Shape]
-    , _opPagination    :: Maybe Pagination
-    } deriving (Eq, Show, Generic)
-
-data Request = Request
-    { _rqName     :: Text
-    , _rqDefault  :: Text
-    , _rqPayload  :: Maybe Field
-    , _rqFields   :: [Field]
-    , _rqRequired :: [Field]
-    , _rqHeaders  :: [Field]
-    , _rqShape    :: Shape
-    , _rqHttp     :: HTTP
-    } deriving (Eq, Show, Generic)
-
-data Response = Response
-    { _rsName   :: Text
-    , _rsFields :: [Field]
-    , _rsShape  :: Shape
-    } deriving (Eq, Show, Generic)
-
-data Location
-    = LUri
-    | LQuery
-    | LHeader
-    | LBody
-      deriving (Eq, Ord, Show, Generic)
-
-instance Default Location where
-    def = LBody
-
-data Common = Common
-    { _cmnName          :: Maybe Text
-    , _cmnXmlName       :: Maybe Text
-    , _cmnLocation      :: Location
-    , _cmnLocationName  :: Maybe Text
-    , _cmnRequired      :: Bool
-    , _cmnDocumentation :: Maybe Doc
-    , _cmnStreaming     :: Bool
-    } deriving (Eq, Show, Generic)
-
-instance Ord Common where
-    compare a b =
-        if _cmnLocation a == LBody
-            then GT
-            else comparing _cmnLocation a b <> comparing _cmnName a b
-
-instance Default Common where
-    def = Common Nothing Nothing def Nothing False Nothing False
-
-data Shape
-    = SStruct Struct
-    | SList   List
-    | SMap    Map
-    | SEnum   Enum
-    | SPrim   Prim
-      deriving (Eq, Show)
-
-instance Default Shape where
-    def = SPrim def
-
--- instance Ord Shape where
---     compare a b =
---         case (a, b) of
---             (SEnum{}, SEnum{}) -> on compare (_cmnName . _shpCommon) a b
---             (SEnum{}, _)       -> LT
---             (_,       SEnum{}) -> GT
---             _                  -> on compare (_cmnName . _shpCommon) a b
-
-data Struct = Struct
-    { shpFields    :: HashMap Text Shape
-    , _shpCommon   :: Common
-    } deriving (Eq, Show, Generic)
-
-data List = List
-    { shpItem      :: Shape
-    , shpFlattened :: Bool
-    , shpMinLength :: Int
-    , shpMaxLength :: Int
-    , _shpCommon   :: Common
-    } deriving (Eq, Show, Generic)
-
-data Map = Map
-    { shpKey       :: Shape
-    , shpValue     :: Shape
-    , _shpCommon   :: Common
-    } deriving (Eq, Show, Generic)
-
-data Enum = Enum
-    { shpValues    :: HashMap Text Text
-    , _shpCommon   :: Common
-    } deriving (Eq, Show, Generic)
-
-data Prim = Prim
-    { shpType      :: Primitive
-    , shpMinLength :: Int
-    , shpMaxLength :: Int
-    , shpPattern   :: Maybe Text
-    , _shpCommon   :: Common
-    } deriving (Eq, Show, Generic)
-
-instance Default Prim where
-    def = def 0 0 Nothing def
-
-data Primitive
-    = PText
-    | PInteger
-    | PDouble
-    | PBool
-    | PByteString
-    | PUTCTime
-      deriving (Eq, Show, Generic)
-
-instance Default Primitive where
-    def = PText
-
-data Ann = Ann
-   { anRequired :: !Bool
-   , anDefault  :: !Bool
-   , anType     :: Text
-   } deriving (Eq, Show, Generic)
-
-data Field = Field
-    { fldType     :: Ann
-    , fldPrefixed :: Text
-    , fldCommon   :: Common
-    } deriving (Eq, Show)
-
-instance Ord Field where
-    compare = compare `on` fldCommon
-
-data Ctor
-    = CEnum
-    | CNewtype
-    | CData
-    | CNullary
-      deriving (Eq, Show, Generic)
-
-data Type = Type
-    { typShape  :: Shape
-    , typType   :: Ann
-    , typCtor   :: Ctor
-    , typFields :: [Field]
-    } deriving (Show, Generic)
-
-instance Eq Type where
-    (==) = (==) `on` (_cmnName . _shpCommon . typShape)
-
-instance Ord Type where
-    compare = compare `on` typShape
-
-data HTTP = HTTP
-    { _hMethod :: !StdMethod
-    , _hPath   :: [PathPart]
-    , _hQuery  :: [QueryPart]
-    } deriving (Eq, Show, Generic)
-
-instance Default HTTP where
-    def = HTTP GET [] []
-
-data PathPart
-    = PConst Text
-    | PVar   Text
-      deriving (Eq, Show)
-
-data QueryPart = QueryPart
-    { qpKey :: Text
-    , qpVal :: Maybe Text
-    } deriving (Eq, Show, Generic)
-
-data Pagination = Pagination
-    { pgMoreKey     :: Maybe Text
-    , pgLimitKey    :: Maybe Text
-    , pgInputToken  :: Text
-    , pgOutputToken :: Text
-    , pgResultKeys  :: Text
-    } deriving (Eq, Show, Generic)
-
 makeLenses ''Service
-makeLenses ''Operation
-makeLenses ''Request
-makeLenses ''Response
-makeLenses ''Error
-makeLenses ''Common
-makeLenses ''Shape
-makeLenses ''HTTP

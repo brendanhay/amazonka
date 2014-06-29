@@ -102,11 +102,11 @@ shapeEnums = Map.fromList . map trans . filter (not . Text.null)
         . Text.unpack
         . Text.replace "-" "_"
 
-    ABC_ABC -> AbcAbc
+    -- ABC_ABC -> AbcAbc
 
-    blah-blah -> BlahBlah
+    -- blah-blah -> BlahBlah
 
-    prefix
+    -- prefix with type name
 
     upcase []       = []
     upcase (x : xs) = toUpper x : xs

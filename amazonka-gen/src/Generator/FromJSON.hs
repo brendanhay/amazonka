@@ -185,7 +185,7 @@ instance FromJSON (Common -> Shape) where
             let enum = shapeEnums <$> ms
 
             case enum of
-                Just vs -> return (SEnum vs)
+                Just vs -> return (SSum vs)
                 Nothing -> SPrim
                     <$> parseJSON (String typ)
                     <*> o .:? "min_length" .!= 0

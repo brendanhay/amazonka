@@ -215,7 +215,7 @@ data Shape
     | SMap    Map
     | SSum    Sum
     | SPrim   Prim
-      deriving (Eq, Show)
+      deriving (Eq, Show, Generic)
 
 instance Default Shape where
     def = SPrim def

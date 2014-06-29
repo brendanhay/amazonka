@@ -17,10 +17,11 @@
 
 module Generator.ToJSON where
 
+import           Control.Lens               ((^.))
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.List
-import           Data.Monoid
+import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
@@ -104,13 +105,19 @@ instance ToJSON Location where
 instance ToJSON Common where
     toJSON = toField (recase Camel Under . drop 4)
 
+instance ToJSON Struct
+instance ToJSON List
+instance ToJSON Map
+instance ToJSON Sum
+instance ToJSON Prim
+
 instance ToJSON Shape where
     toJSON s = Object (x <> y)
       where
         Object x = toField (recase Camel Under . drop 4) s
-        Object y = toJSON (_shpCommon s)
+        Object y = toJSON (s ^. common)
 
-instance ToJSON Prim where
+instance ToJSON Primitive where
     toJSON = toCtor (drop 1)
 
 instance ToJSON Ann where
@@ -125,7 +132,7 @@ instance ToJSON Type where
     toJSON t = Object (x <> y)
       where
         Object x = toField (recase Camel Under . drop 3) t
-        Object y = toJSON (typShape t)
+        Object y = toJSON (_typShape t)
 
 instance ToJSON Field where
     toJSON f = Object (x <> y)

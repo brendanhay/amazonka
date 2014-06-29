@@ -22,7 +22,7 @@ module Generator.FromJSON where
 import           Control.Applicative
 import           Control.Arrow
 import           Control.Error
-import           Control.Lens
+import           Control.Lens               hiding (enum)
 import           Control.Monad
 import           Data.Aeson                 hiding (Error)
 import           Data.Aeson.Types           hiding (Error)
@@ -31,7 +31,7 @@ import qualified Data.ByteString.Lazy       as LBS
 import           Data.Default
 import qualified Data.HashMap.Strict        as Map
 import           Data.List
-import           Data.Monoid
+import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
@@ -154,45 +154,51 @@ instance FromJSON Common where
             <*> o .:? "documentation"
             <*> o .:? "streaming"     .!= False
 
-instance FromJSON Shape where
-    parseJSON o = do
-        f <-  parseJSON o :: Parser (Common -> Shape)
-        f <$> parseJSON o
+-- instance FromJSON Shape where
+--     parseJSON o = do
+--         f <-  parseJSON o :: Parser (Common -> Shape)
+--         f <$> parseJSON o
 
-instance FromJSON (Common -> Shape) where
-    parseJSON = withObject "shape" $ \o -> o .: "type" >>= f o
+instance FromJSON Shape where
+    parseJSON = withObject "shape" $ \o -> do
+        c <- parseJSON (Object o)
+        o .: "type" >>= f c o
       where
-        f o "structure" = do
+        f c o "structure" = do
             xs <- o .:? "members"      .!= mempty
             ys <- o .:? "member_order" .!= Map.keys xs :: Parser [Text]
-            return . SStruct
-                   . Map.fromList
-                   $ mapMaybe (\y -> (y,) <$> Map.lookup y xs) ys
 
-        f o "list" = SList
+            let fs = Map.fromList $ mapMaybe (\y -> (y,) <$> Map.lookup y xs) ys
+
+            return . SStruct $ Struct fs c
+
+        f c o "list" = fmap SList $ List
             <$> o .:  "members"
             <*> o .:? "flattened"  .!=  False
             <*> o .:? "min_length" .!= 0
             <*> o .:? "max_length" .!= 0
+            <*> pure c
 
-        f o "map" = SMap
+        f c o "map" = fmap SMap $ Map
             <$> o .: "keys"
             <*> o .: "members"
+            <*> pure c
 
-        f o typ = do
+        f c o typ = do
             ms <- o .:? "enum"
 
             let enum = shapeEnums <$> ms
 
             case enum of
-                Just vs -> return (SSum vs)
-                Nothing -> SPrim
+                Just vs -> return . SSum $ Sum vs c
+                Nothing -> fmap SPrim $ Prim
                     <$> parseJSON (String typ)
                     <*> o .:? "min_length" .!= 0
                     <*> o .:? "max_length" .!= 0
                     <*> o .:? "pattern"
+                    <*> pure c
 
-instance FromJSON Prim where
+instance FromJSON Primitive where
     parseJSON = withText "type" $ \t ->
         case t of
             "string"    -> return PText

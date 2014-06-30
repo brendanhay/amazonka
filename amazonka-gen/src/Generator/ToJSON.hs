@@ -114,7 +114,15 @@ instance ToJSON Prim
 instance ToJSON Shape where
     toJSON s = Object (x <> y)
       where
-        Object x = toField (recase Camel Under . drop 4) s
+        Object x =
+            let f = recase Camel Under . drop 4
+             in case s of
+                SStruct s' -> toField f s'
+                SList   s' -> toField f s'
+                SMap    s' -> toField f s'
+                SSum    s' -> toField f s'
+                SPrim   s' -> toField f s'
+
         Object y = toJSON (s ^. common)
 
 instance ToJSON Primitive where
@@ -131,7 +139,7 @@ instance ToJSON Ctor where
 instance ToJSON Type where
     toJSON t = Object (x <> y)
       where
-        Object x = toField (recase Camel Under . drop 3) t
+        Object x = toField (recase Camel Under . drop 4) t
         Object y = toJSON (_typShape t)
 
 instance ToJSON Field where

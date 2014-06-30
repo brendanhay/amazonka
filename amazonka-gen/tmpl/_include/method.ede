@@ -2,9 +2,9 @@
 -- specify the minimum viable {{ scope.name }} request.
 {% for field in scope.required %}
   {% if field.first %}
-{{ scope.default }} :: {{ field.value.type }} -- ^ {{ field.value.prefixed }}
+{{ scope.default }} :: {{ field.value.type }} -- ^ '{{ field.value.prefixed }}'
   {% else %}
-{{ scope.pad }} -> {{ field.value.type }} -- ^ {{ field.value.prefixed }}
+{{ scope.pad }} -> {{ field.value.type }} -- ^ '{{ field.value.prefixed }}'
   {% endif %}
 {% endfor %}
 {% if scope.required | listLength > 0 %}

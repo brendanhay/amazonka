@@ -1,3 +1,4 @@
+{-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 
@@ -93,18 +94,17 @@ shapeEnums = Map.fromList . map trans . filter (not . Text.null)
   where
     trans = first rules . join (,)
 
-    rules = Text.pack
-        . upcase
-        . recase Under Camel
-        . Text.unpack
-        . Text.replace "-" "_"
+    rules x =
+        let y  = Text.replace ":" "" . Text.replace "_" " " $ Text.replace "-" " " x
+            zs = Text.words y
 
-    -- ABC_ABC -> AbcAbc
-    -- blah-blah -> BlahBlah
-    -- prefix with type name
+         in if | length zs > 1      -> Text.concat (map Text.toTitle zs)
+               | Text.all isUpper y -> Text.toTitle y
+               | otherwise          -> upcase y
 
-    upcase []       = []
-    upcase (x : xs) = toUpper x : xs
+    upcase x
+        | Text.null x = x
+        | otherwise   = toUpper (Text.head x) `Text.cons` Text.tail x
 
 fields :: Shape -> [Field]
 fields s = case s of

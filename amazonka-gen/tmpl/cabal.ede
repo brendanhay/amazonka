@@ -97,6 +97,7 @@ library
         , time
         , transformers
         , transformers-base
+        , unordered-containers
         , xml-conduit
 
 test-suite tests

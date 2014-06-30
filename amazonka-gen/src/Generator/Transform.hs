@@ -56,6 +56,9 @@ operation s o = o
         , "Data.Monoid"
         , "GHC.Generics"
         , "Data.Time"
+        , "Data.Text (Text)"
+        , "qualified Data.Text as Text"
+        , "Data.HashMap.Strict (HashMap)"
         , s ^. svcTypesNamespace
         , fromString $ "Network.AWS.Request." ++ show (s ^. svcType)
         ]
@@ -139,7 +142,6 @@ reserved =
     [ "BucketName"
     , "ObjectKey"
     , "ObjectVersionId"
---    , "ObjectCannedACL"
     , "ETag"
     , "Region"
     , "AvailabilityZone"

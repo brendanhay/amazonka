@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeFamilies      #-}
 
@@ -44,6 +45,9 @@ data instance Er {{ name }}
   {% endfor %}
       deriving (Eq, Show, Generic)
 {% endif %}
+
+instance AWSError (Er S3) where
+    toError = const "{{ error.name }}"
 
 {% for data in types %}
   {% if data.value.documentation %}

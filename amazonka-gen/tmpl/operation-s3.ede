@@ -8,10 +8,8 @@
 {{ documentation | above76 }}
 module {{ namespace }} where
 
-import           Data.Text (Text)
-import qualified Data.Text as Text
 {% for import in imports %}
-import           {{ import.value }}
+import {{ import.value }}
 {% endfor %}
 
 {% include "_include/method.ede" with request %}

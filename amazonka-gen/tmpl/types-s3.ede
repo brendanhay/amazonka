@@ -10,7 +10,8 @@ module {{ types_namespace }} where
 import Network.AWS.Signing.{{ signature }}
 import Network.AWS.Types
 
--- | Supported version (@{{ raw_version }}@) of the @{{ full_name }}@ service.
+-- | Supported version (@{{ raw_version }}@) of the
+-- @{{ full_name }}@ service.
 data {{ name }}
 
 instance AWSService {{ name }} where
@@ -40,6 +41,9 @@ data instance Er {{ name }}
 {% endif %}
 
 {% for data in types %}
+  {% if data.value.documentation %}
+{{ data.value.documentation | above76 }}
+  {% endif %}
   {% case data.value.name %}
   {% when "BucketLocationConstraint" %}
 newtype {{ data.value.name }} = {{ data.value.name }} Region

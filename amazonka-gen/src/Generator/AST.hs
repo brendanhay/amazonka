@@ -244,11 +244,12 @@ instance Ord Field where
     compare = compare `on` fldCommon
 
 data Ctor
-    = CSum
+    = CWitness
+    | CSum
+    | CNullary
     | CNewtype
     | CData
-    | CNullary
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 data Type = Type
     { _typShape  :: Shape
@@ -266,7 +267,7 @@ instance Eq Type where
     (==) = (==) `on` (view cmnName)
 
 instance Ord Type where
-    compare = compare `on` _typShape
+    compare a b = on compare _typCtor a b <> on compare _typShape a b
 
 instance Ord Shape where
     compare a b =

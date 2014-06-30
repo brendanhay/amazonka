@@ -46,6 +46,8 @@ newtype {{ data.value.name }} = {{ data.value.name }} Region
     deriving (Eq, Show, Generic)
   {% else %}
     {% case data.value.ctor %}
+    {% when "witness" %}
+data {{ data.value.name }}
     {% when "sum" %}
 data {{ data.value.name }}
       {% for branch in data.value.values %}

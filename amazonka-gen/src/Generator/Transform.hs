@@ -122,34 +122,47 @@ prefixed p x = f (p ^. cmnName)
 typeof :: Shape -> Ann
 typeof s = Ann (required s) (defaults s) $
     case s of
-        SStruct Struct {..} -> n
+        SStruct Struct {}   -> n
         SList   List   {..} -> "[" <> ann _lstItem <> "]"
         SMap    Map    {..} -> "HashMap " <> ann _mapKey <> " " <> ann _mapValue
-        SSum    Sum    {..} -> n
+        SSum    Sum    {}
+            | n `elem` switches -> "Switch " <> n
+            | otherwise         -> n
         SPrim   Prim   {..}
             | n `elem` reserved -> n
             | otherwise         -> Text.pack . drop 1 $ show _prmType
   where
-    n   = fromMaybe "Untyped" (s ^. cmnName)
+    n   = fromName s
     ann = anType . typeof
 
-    reserved =
-        [ "BucketName"
-        , "ObjectKey"
-        , "ObjectVersionId"
-        , "ObjectCannedACL"
-        , "ETag"
-        , "Region"
-        , "AvailabilityZone"
-        ]
+reserved :: [Text]
+reserved =
+    [ "BucketName"
+    , "ObjectKey"
+    , "ObjectVersionId"
+    , "ObjectCannedACL"
+    , "ETag"
+    , "Region"
+    , "AvailabilityZone"
+    ]
+
+switches :: [Text]
+switches =
+    [ "BucketVersioningStatus"
+    , "ExpirationStatus"
+    , "MFADelete"
+    , "MFADeleteStatus"
+    ]
 
 ctorof :: Shape -> Ctor
 ctorof s = case s of
     SStruct Struct{..}
-        | Map.size _sctFields == 1 -> CNewtype
-        | Map.null _sctFields      -> CNullary
-    SSum{}                         -> CSum
-    _                              -> CData
+        | Map.size _sctFields == 1   -> CNewtype
+        | Map.null _sctFields        -> CNullary
+    SSum{}
+        | fromName s `elem` switches -> CWitness
+        | otherwise                  -> CSum
+    _                                -> CData
 
 defaults :: Shape -> Bool
 defaults s = case s of

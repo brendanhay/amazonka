@@ -53,6 +53,7 @@ operation s o = o
     imports = sort
         [ "Network.AWS.Data"
         , "Network.AWS.Types hiding (Error)"
+        , "Data.Default"
         , "Data.Monoid"
         , "GHC.Generics"
         , "Data.Time"
@@ -124,7 +125,7 @@ prefixed p x = f (p ^. cmnName)
     f Nothing  = "Prefixed"
 
 typeof :: Shape -> Ann
-typeof s = Ann (required s) (defaults s) $
+typeof s = Ann (required s) (defaults s) (monoids s) $
     case s of
         SStruct Struct {}   -> n
         SList   List   {..} -> "[" <> ann _lstItem <> "]"
@@ -169,18 +170,26 @@ ctorof s = case s of
         | otherwise                  -> CSum
     _                                -> CData
 
+required :: Shape -> Bool
+required s =
+    let Common{..} = s ^. common
+     in _cmnRequired || _cmnLocation == LBody
+
 defaults :: Shape -> Bool
 defaults s = case s of
+    SStruct {} -> False
+    SList   l  -> _lstMinLength l < 1
+    SMap    {} -> False
+    SSum    {} -> False
+    SPrim   {} -> False
+
+monoids :: Shape -> Bool
+monoids s = case s of
     SStruct {} -> False
     SList   l  -> _lstMinLength l < 1
     SMap    {} -> True
     SSum    {} -> False
     SPrim   {} -> False
-
-required :: Shape -> Bool
-required s =
-    let Common{..} = s ^. common
-     in _cmnRequired || _cmnLocation == LBody
 
 serviceTypes :: Service -> [Type]
 serviceTypes = sort

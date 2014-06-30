@@ -22,8 +22,7 @@ data {{ request.name }} = {{ request.name }}
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
 
-    request = {{ request.method }}
-
+    request  = {{ request.method }}
     response = undefined
 
 {% include "_include/path.ede" with request %}

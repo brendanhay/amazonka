@@ -140,9 +140,9 @@ data Common = Common
 
 instance Ord Common where
     compare a b =
-        if _cmnLocation a == LBody
-            then GT
-            else comparing _cmnLocation a b <> comparing _cmnName a b
+           comparing (Down ._cmnRequired) a b
+        <> comparing _cmnLocation a b
+        <> comparing _cmnName a b
 
 instance Default Common where
     def = Common Nothing Nothing def Nothing False Nothing False
@@ -233,6 +233,7 @@ instance HasCommon Shape where
 data Ann = Ann
    { anRequired :: !Bool
    , anDefault  :: !Bool
+   , anMonoid   :: !Bool
    , anType     :: Text
    } deriving (Eq, Show, Generic)
 

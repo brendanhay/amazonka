@@ -12,4 +12,30 @@
 {% else %}
 {{ scope.default }} :: {{ scope.name }}
 {% endif %}
-{{ scope.default }} = undefined -- {{ scope.name }}
+{{ scope.default }} {% for field in scope.required -%} p{{ field.index }} {% endfor -%} = {{ scope.name }}
+{% for field in scope.fields %}
+  {% if field.value.required %}
+    {% if field.first %}
+    { {{ field.value.prefixed }} = p{{ field.index }}
+    {% else %}
+    , {{ field.value.prefixed }} = p{{ field.index }}
+    {% endif %}
+  {% else %}
+    {% if field.value.monoid %}
+      {% if field.first %}
+    { {{ field.value.prefixed }} = mempty
+      {% else %}
+    , {{ field.value.prefixed }} = mempty
+      {% endif %}
+    {% else %}
+      {% if field.first %}
+    { {{ field.value.prefixed }} = def
+      {% else %}
+    , {{ field.value.prefixed }} = def
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  {% if field.last %}
+    }
+  {% endif %}
+{% endfor %}

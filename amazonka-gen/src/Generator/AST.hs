@@ -29,6 +29,8 @@ import           Data.Text.Util
 import           GHC.Generics
 import           Network.HTTP.Types.Method
 
+-- FIXME: switch sum type nested access to prisms
+
 newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Ord, Show, Generic)
 

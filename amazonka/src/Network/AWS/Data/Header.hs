@@ -15,11 +15,21 @@
 
 module Network.AWS.Data.Header where
 
-import Data.ByteString.Char8 (ByteString)
-import Data.Foldable         as Fold
-import Data.Function         (on)
-import Data.List             (deleteBy)
-import Network.HTTP.Types
+import           Control.Applicative
+import           Control.Arrow
+import           Data.ByteString.Char8       (ByteString)
+import qualified Data.ByteString.Char8       as BS
+import qualified Data.CaseInsensitive        as CI
+import           Data.Foldable               as Fold
+import           Data.Function               (on)
+import           Data.List                   (deleteBy)
+import           Data.Maybe
+import           Data.Monoid
+import qualified Data.Text                   as Text
+import           Data.Text                   (Text)
+import qualified Data.Text.Encoding          as Text
+import           Network.AWS.Data.ByteString
+import           Network.HTTP.Types
 
 hHost :: HeaderName
 hHost = "Host"
@@ -36,20 +46,33 @@ hdr k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
 hdrs :: [Header] -> [Header] -> [Header]
 hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
 
-(=:) :: ToHeader a => ByteString -> a -> (HeaderName, Maybe ByteString)
-(=:) = toHeader
-
 class ToHeaders a where
     toHeaders :: a -> [Header]
+    toHeaders = const mempty
 
-instance ToHeaders [Header] where
-    toHeaders = id
+-- instance ToHeaders [Header] where
+--     toHeaders = id
 
---    toHeaders = const []
+instance ToHeaders [(HeaderName, Maybe ByteString)] where
+    toHeaders = mapMaybe go
+      where
+        go (k, Just  v) = Just (k, v)
+        go (_, Nothing) = Nothing
+
+(=:) :: ToHeader a => ByteString -> a -> (HeaderName, Maybe ByteString)
+(=:) = toHeader
 
 class ToHeader a where
     toHeader :: ByteString -> a -> (HeaderName, Maybe ByteString)
 
+instance ToHeader Text where
+    toHeader k = toHeader k . Text.encodeUtf8
+
+instance ToHeader ByteString where
+    toHeader k = toHeader k . Just
+
+instance ToByteString a => ToHeader (Maybe a) where
+    toHeader k mv = (CI.mk k, toBS <$> mv)
 
 -- instance ToHeader ByteString where
 --     toHeader k = (CI.mk k,) . Just

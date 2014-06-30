@@ -13,6 +13,7 @@ module Network.AWS.Data.Path
     ) where
 
 import           Data.ByteString.Char8 (ByteString)
+import           Data.Monoid
 import           Data.Text             (Text)
 import qualified Data.Text.Encoding    as Text
 
@@ -23,7 +24,7 @@ import qualified Data.Text.Encoding    as Text
 
 class ToPath a where
     toPath :: a -> ByteString
---     toPath = const ByteString.empty
+    toPath = const mempty
 
 instance ToPath ByteString where
     toPath = id

@@ -13,8 +13,9 @@ module {{ types_namespace }} where
 import Data.Text (Text)
 import Data.Time
 import GHC.Generics
+import Network.AWS.Data
 import Network.AWS.Signing.{{ signature }}
-import Network.AWS.Types
+import Network.AWS.Types hiding (Error)
 
 -- | Supported version (@{{ raw_version }}@) of the
 -- @{{ full_name }}@ service.
@@ -71,6 +72,12 @@ data {{ data.value.name }}
         {% endif %}
       {% endfor %}
       deriving (Eq, Show, Generic)
+
+instance ToByteString {{ data.value.name }} where
+    toBS x = case x of
+      {% for branch in data.value.values %}
+        {{ branch.key }} -> "{{ branch.value }}"
+      {% endfor %}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
   {% include "_include/record.ede" with data.value.fields %}

@@ -35,6 +35,7 @@ import           Data.Char
 import           Data.Int
 import           Data.Text                  (Text)
 import qualified Data.Text.Encoding         as Text
+import           Data.Time
 import           Network.HTTP.Types.Method
 
 showBS :: ToByteString a => a -> String
@@ -74,3 +75,7 @@ instance ToBuilder (Digest a)
 
 stripBS :: ByteString -> ByteString
 stripBS = BS.dropWhile isSpace . fst . BS.spanEnd isSpace
+
+-- FIXME: Use service time, specifics, etc.
+
+instance ToByteString UTCTime where

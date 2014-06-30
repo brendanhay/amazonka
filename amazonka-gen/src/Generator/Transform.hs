@@ -52,13 +52,15 @@ operation s o = o
   where
     imports = sort
         [ "Network.AWS.Data"
-        , "Network.AWS.Types"
+        , "Network.AWS.Types hiding (Error)"
         , "Data.Monoid"
         , "GHC.Generics"
         , "Data.Time"
         , "Data.Text (Text)"
         , "qualified Data.Text as Text"
         , "Data.HashMap.Strict (HashMap)"
+        , "Data.ByteString (ByteString)"
+        , "Prelude hiding (head)"
         , s ^. svcTypesNamespace
         , fromString $ "Network.AWS.Request." ++ show (s ^. svcType)
         ]
@@ -136,6 +138,8 @@ typeof s = Ann (required s) (defaults s) $
   where
     n   = fromName s
     ann = anType . typeof
+
+-- FIXME: instead of utctime, use the service's time format?
 
 reserved :: [Text]
 reserved =

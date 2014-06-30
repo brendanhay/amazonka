@@ -1,6 +1,6 @@
 {% if scope.payload %}
 instance ToBody {{ scope.name }} where
-    toBody = toBody . {{ scope.payload.name }}
+    toBody = undefined -- toBody . {{ scope.payload.prefixed }}
 {% else %}
 instance ToBody {{ scope.name }}
 {% endif %}

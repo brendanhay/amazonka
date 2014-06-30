@@ -59,6 +59,7 @@ instance IsString Body where
 
 class ToBody a where
     toBody :: a -> Body
+    toBody = const mempty
 
 instance ToBody LBS.ByteString where
     toBody lbs = BodyLBS (hash lbs) lbs

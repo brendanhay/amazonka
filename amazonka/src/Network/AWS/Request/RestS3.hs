@@ -12,6 +12,7 @@ module Network.AWS.Request.RestS3
     ( get
     , Network.AWS.Request.Common.head
     , delete
+    , put
     , post
     ) where
 
@@ -21,5 +22,8 @@ import Network.AWS.Request.Common
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
+put :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
+put x = get x & rqMethod .~ PUT & rqBody .~ toBody x
+
 post :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
-post x = get x & rqMethod .~ POST & rqBody .~ toBody x
+post = put

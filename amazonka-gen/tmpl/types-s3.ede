@@ -1,4 +1,6 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 {% include "_include/license.ede" with types_namespace %}
 
@@ -7,6 +9,9 @@
 {% endif %}
 module {{ types_namespace }} where
 
+import Data.Text (Text)
+import Data.Time
+import GHC.Generics
 import Network.AWS.Signing.{{ signature }}
 import Network.AWS.Types
 

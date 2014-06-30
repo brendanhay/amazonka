@@ -18,16 +18,15 @@ import           Control.Arrow
 import           Control.Lens
 import           Control.Monad
 import           Data.Char
-import           Data.HashMap.Strict        (HashMap)
-import qualified Data.HashMap.Strict        as Map
+import           Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as Map
 import           Data.List
 import           Data.Maybe
-import           Data.Monoid                hiding (Sum)
+import           Data.Monoid         hiding (Sum)
 import           Data.Ord
 import           Data.String
-import           Data.String.CaseConversion
-import           Data.Text                  (Text)
-import qualified Data.Text                  as Text
+import           Data.Text           (Text)
+import qualified Data.Text           as Text
 import           Data.Text.Util
 import           Generator.AST
 import           Text.EDE.Filters
@@ -89,10 +88,10 @@ fromName = fromMaybe "Untyped" . view cmnName
 shapeType :: Shape -> Type
 shapeType s = Type s (typeof s) (ctorof s) (fields s)
 
-shapeEnums :: [Text] -> HashMap Text Text
-shapeEnums = Map.fromList . map trans . filter (not . Text.null)
+shapeEnums :: Maybe Text -> [Text] -> HashMap Text Text
+shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
   where
-    trans = first rules . join (,)
+    trans = first (mappend (fromMaybe "" n) . rules) . join (,)
 
     rules x =
         let y  = Text.replace ":" "" . Text.replace "_" " " $ Text.replace "-" " " x
@@ -140,7 +139,7 @@ reserved =
     [ "BucketName"
     , "ObjectKey"
     , "ObjectVersionId"
-    , "ObjectCannedACL"
+--    , "ObjectCannedACL"
     , "ETag"
     , "Region"
     , "AvailabilityZone"

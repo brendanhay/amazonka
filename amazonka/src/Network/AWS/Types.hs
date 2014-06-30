@@ -283,14 +283,29 @@ newtype Action = Action Text
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
-newtype Bucket = Bucket Text
+newtype BucketName = BucketName Text
     deriving (Eq, Show, IsString)
 
-instance ToByteString Bucket where
-    toBS (Bucket b) = toBS b
+instance ToByteString BucketName where
+    toBS (BucketName b) = toBS b
 
-newtype Key = Key Text
+newtype ObjectKey = ObjectKey Text
     deriving (Eq, Show, IsString)
 
-instance ToByteString Key where
-    toBS (Key k) = toBS k
+instance ToByteString ObjectKey where
+    toBS (ObjectKey k) = toBS k
+
+newtype ObjectVersionId = ObjectVersionId Text
+    deriving (Eq, Show, IsString)
+
+instance ToByteString ObjectVersionId where
+    toBS (ObjectVersionId v) = toBS v
+
+newtype ETag = ETag Text
+    deriving (Eq, Show, IsString)
+
+instance ToByteString ETag where
+    toBS (ETag t) = toBS t
+
+data Switch a = Enabled | Disabled
+    deriving (Eq, Show)

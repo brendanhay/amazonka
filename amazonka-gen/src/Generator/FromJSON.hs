@@ -20,10 +20,7 @@
 module Generator.FromJSON where
 
 import           Control.Applicative
-import           Control.Arrow
 import           Control.Error
-import           Control.Lens               hiding (enum)
-import           Control.Monad
 import           Data.Aeson                 hiding (Error)
 import           Data.Aeson.Types           hiding (Error)
 import qualified Data.ByteString.Char8      as BS
@@ -187,7 +184,7 @@ instance FromJSON Shape where
         f c o typ = do
             ms <- o .:? "enum"
 
-            let enum = shapeEnums <$> ms
+            let enum = shapeEnums (_cmnName c) <$> ms
 
             case enum of
                 Just vs -> return . SSum $ Sum vs c

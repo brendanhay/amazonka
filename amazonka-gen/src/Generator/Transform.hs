@@ -44,27 +44,12 @@ current = mapMaybe latest . groupBy identical
 
 operation :: Service -> Operation -> Operation
 operation s o = o
-    & opService   .~ s ^. svcName
-    & opNamespace .~ s ^. svcVersionNamespace <> NS [_opName o]
-    & opImports  <>~ imports
-    & opRequest   %~ request o
-    & opResponse  %~ response o
-  where
-    imports = sort
-        [ "Network.AWS.Data"
-        , "Network.AWS.Types hiding (Error)"
-        , "Data.Default"
-        , "Data.Monoid"
-        , "GHC.Generics"
-        , "Data.Time"
-        , "Data.Text (Text)"
-        , "qualified Data.Text as Text"
-        , "Data.HashMap.Strict (HashMap)"
-        , "Data.ByteString (ByteString)"
-        , "Prelude hiding (head)"
-        , s ^. svcTypesNamespace
-        , fromString $ "Network.AWS.Request." ++ show (s ^. svcType)
-        ]
+    & opService          .~ s ^. svcName
+    & opNamespace        .~ s ^. svcVersionNamespace <> NS [_opName o]
+    & opTypesNamespace   .~ s ^. svcTypesNamespace
+    & opVersionNamespace .~ s ^. svcVersionNamespace
+    & opRequest          %~ request o
+    & opResponse         %~ response o
 
 request :: Operation -> Request -> Request
 request o rq = rq

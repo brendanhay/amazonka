@@ -339,17 +339,18 @@ data Response = Response
 makeLenses ''Response
 
 data Operation = Operation
-    { _opName          :: Text
-    , _opService       :: Abbrev
-    , _opAlias         :: Maybe Text
-    , _opNamespace     :: NS
-    , _opImports       :: [NS]
-    , _opDocumentation :: Doc
-    , _opUrl           :: Maybe Text
-    , _opRequest       :: Request
-    , _opResponse      :: Response
-    , _opErrors        :: [Shape]
-    , _opPagination    :: Maybe Pagination
+    { _opName             :: Text
+    , _opService          :: Abbrev
+    , _opAlias            :: Maybe Text
+    , _opNamespace        :: NS
+    , _opTypesNamespace   :: NS
+    , _opVersionNamespace :: NS
+    , _opDocumentation    :: Doc
+    , _opUrl              :: Maybe Text
+    , _opRequest          :: Request
+    , _opResponse         :: Response
+    , _opErrors           :: [Shape]
+    , _opPagination       :: Maybe Pagination
     } deriving (Eq, Show, Generic)
 
 makeLenses ''Operation

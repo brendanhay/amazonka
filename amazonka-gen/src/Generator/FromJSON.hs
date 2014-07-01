@@ -111,7 +111,8 @@ instance FromJSON Operation where
             <$> pure def
             <*> o .:? "alias"
             <*> pure def
-            <*> pure []
+            <*> pure def
+            <*> pure def
             <*> o .:  "documentation"
             <*> o .:? "documentation_url"
             <*> parseJSON (Object o)

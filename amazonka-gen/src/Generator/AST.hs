@@ -345,6 +345,7 @@ data Operation = Operation
     , _opNamespace        :: NS
     , _opTypesNamespace   :: NS
     , _opVersionNamespace :: NS
+    , _opRequestNamespace :: NS
     , _opDocumentation    :: Doc
     , _opUrl              :: Maybe Text
     , _opRequest          :: Request

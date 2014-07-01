@@ -3,8 +3,6 @@
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
--- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 {% include "_include/license.ede" with namespace %}
 
 {{ documentation | above76 }}
@@ -19,6 +17,7 @@ import qualified Data.Text           as Text
 import           Data.Time
 import           GHC.Generics
 import           Network.AWS.Data
+import           {{ request_namespace }}
 import           Network.AWS.Types   hiding (Error)
 import           {{ types_namespace }}
 import           Prelude             hiding (head)

@@ -25,6 +25,7 @@ import           Data.List
 import           Data.Maybe
 import           Data.Monoid         hiding (Sum)
 import           Data.Ord
+import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import           Data.Text.Util
@@ -48,6 +49,7 @@ operation Service{..} o = o
     & opNamespace        .~ _svcVersionNamespace <> NS [_opName o]
     & opTypesNamespace   .~ _svcTypesNamespace
     & opVersionNamespace .~ _svcVersionNamespace
+    & opRequestNamespace .~ "Network.AWS.Request" <> fromString (show _svcType)
     & opRequest          %~ request  _svcTimestamp o
     & opResponse         %~ response _svcTimestamp o
 

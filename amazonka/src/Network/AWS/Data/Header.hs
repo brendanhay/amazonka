@@ -15,9 +15,6 @@
 
 module Network.AWS.Data.Header where
 
-Need to sort out date serialisation
-and response parsing
-
 import           Data.ByteString.Char8       (ByteString)
 import qualified Data.CaseInsensitive        as CI
 import           Data.Foldable               as Fold

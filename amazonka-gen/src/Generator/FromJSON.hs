@@ -121,22 +121,15 @@ instance FromJSON Operation where
             <*> o .:? "pagination"
 
 instance FromJSON Request where
-    parseJSON = withObject "request" $ \o -> do
-        s <- o .:! "input"
-
-        let fs = sort (fields s)
-
-        Request "Request" "Request" (bdy fs) fs (req fs) (hs fs) s
-            <$> o .:! "http"
-      where
-        bdy = listToMaybe . filter ((== LBody) . _cmnLocation . fldCommon)
-        req = filter (_cmnRequired . fldCommon)
-        hs  = filter ((== LHeader) . _cmnLocation . fldCommon)
+    parseJSON = withObject "request" $ \o ->
+        Request "Request" "Request" def def def def
+            <$> o .:! "input"
+            <*> o .:! "http"
 
 instance FromJSON Response where
-    parseJSON = withObject "response" $ \o -> do
-        s <- o .:! "output"
-        return $ Response "Response" (fields s) s
+    parseJSON = withObject "response" $ \o ->
+        Response "Response" def
+            <$> o .:! "output"
 
 instance FromJSON Location where
     parseJSON = fromCtor (lowered . drop 1)
@@ -151,11 +144,6 @@ instance FromJSON Common where
             <*> o .:? "required"      .!= (if l == LBody then True else False)
             <*> o .:? "documentation"
             <*> o .:? "streaming"     .!= False
-
--- instance FromJSON Shape where
---     parseJSON o = do
---         f <-  parseJSON o :: Parser (Common -> Shape)
---         f <$> parseJSON o
 
 instance FromJSON Shape where
     parseJSON = withObject "shape" $ \o -> do

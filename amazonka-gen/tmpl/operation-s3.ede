@@ -3,7 +3,7 @@
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 {% include "_include/license.ede" with namespace %}
 

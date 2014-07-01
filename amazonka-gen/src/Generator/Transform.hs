@@ -18,13 +18,13 @@ import           Control.Arrow
 import           Control.Lens
 import           Control.Monad
 import           Data.Char
+import           Data.Default
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid         hiding (Sum)
 import           Data.Ord
-import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import           Data.Text.Util
@@ -43,19 +43,29 @@ current = mapMaybe latest . groupBy identical
     latest xs = Just . head $ sortBy (comparing _svcVersion) xs
 
 operation :: Service -> Operation -> Operation
-operation s o = o
-    & opService          .~ s ^. svcName
-    & opNamespace        .~ s ^. svcVersionNamespace <> NS [_opName o]
-    & opTypesNamespace   .~ s ^. svcTypesNamespace
-    & opVersionNamespace .~ s ^. svcVersionNamespace
-    & opRequest          %~ request o
-    & opResponse         %~ response o
+operation Service{..} o = o
+    & opService          .~ _svcName
+    & opNamespace        .~ _svcVersionNamespace <> NS [_opName o]
+    & opTypesNamespace   .~ _svcTypesNamespace
+    & opVersionNamespace .~ _svcVersionNamespace
+    & opRequest          %~ request  _svcTimestamp o
+    & opResponse         %~ response _svcTimestamp o
 
-request :: Operation -> Request -> Request
-request o rq = rq
-    & rqName    .~ o ^. opName
-    & rqDefault .~ lowerFirst (o ^. opName)
-    & rqHttp    %~ http (rq ^. rqShape)
+request :: Time -> Operation -> Request -> Request
+request t o rq = rq
+    & rqName     .~ o ^. opName
+    & rqDefault  .~ lowerFirst (o ^. opName)
+    & rqHttp     %~ http (rq ^. rqShape)
+    & rqFields   .~ fs
+    & rqPayload  .~ listToMaybe bdy
+    & rqRequired .~ req
+    & rqHeaders  .~ hs
+  where
+    bdy = filter ((== LBody) . _cmnLocation . fldCommon) fs
+    req = filter (_cmnRequired . fldCommon) fs
+    hs  = filter ((== LHeader) . _cmnLocation . fldCommon) fs
+
+    fs  = sort . fields t $ rq ^. rqShape
 
 http :: Shape -> HTTP -> HTTP
 http p = hPath %~ map f
@@ -63,8 +73,10 @@ http p = hPath %~ map f
     f (PVar v) = PVar (prefixed p v)
     f c        = c
 
-response :: Operation -> Response -> Response
-response o = rsName .~ (o ^. opName) <> "Response"
+response :: Time -> Operation -> Response -> Response
+response t o rs = rs
+    & rsName   .~ (o ^. opName) <> "Response"
+    & rsFields .~ (sort . fields t $ rs ^. rsShape)
 
 rootNS :: NS -> NS
 rootNS (NS []) = NS []
@@ -76,8 +88,8 @@ typeNS = (<> "Types")
 fromName :: Shape -> Text
 fromName = fromMaybe "Untyped" . view cmnName
 
-shapeType :: Shape -> Type
-shapeType s = Type s (typeof s) (ctorof s) (fields s)
+shapeType :: Time -> Shape -> Type
+shapeType t s = Type s (typeof t s) (ctorof s) (fields t s)
 
 shapeEnums :: Maybe Text -> [Text] -> HashMap Text Text
 shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
@@ -96,12 +108,12 @@ shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
         | Text.null x = x
         | otherwise   = toUpper (Text.head x) `Text.cons` Text.tail x
 
-fields :: Shape -> [Field]
-fields s = case s of
+fields :: Time -> Shape -> [Field]
+fields t s = case s of
     SStruct Struct{..} -> map f (Map.toList _sctFields)
     _                  -> []
   where
-    f (k, v) = Field (typeof v) (prefixed s k) (v ^. common)
+    f (k, v) = Field (typeof t v) (prefixed s k) (v ^. common)
 
 prefixed :: Shape -> Text -> Text
 prefixed p x = f (p ^. cmnName)
@@ -109,8 +121,8 @@ prefixed p x = f (p ^. cmnName)
     f (Just y) = prefix y <> x
     f Nothing  = "Prefixed"
 
-typeof :: Shape -> Ann
-typeof s = Ann (required s) (defaults s) (monoids s) $
+typeof :: Time -> Shape -> Ann
+typeof t s = Ann (required s) (defaults s) (monoids s) $
     case s of
         SStruct Struct {}   -> n
         SList   List   {..} -> "[" <> ann _lstItem <> "]"
@@ -120,12 +132,15 @@ typeof s = Ann (required s) (defaults s) (monoids s) $
             | otherwise         -> n
         SPrim   Prim   {..}
             | n `elem` reserved -> n
-            | otherwise         -> Text.pack . drop 1 $ show _prmType
+            | otherwise         -> fmt _prmType
   where
-    n   = fromName s
-    ann = anType . typeof
+    n     = fromName s
+    ann   = anType . typeof t
 
--- FIXME: instead of utctime, use the service's time format?
+    fmt x = Text.pack $
+        case x of
+            PUTCTime -> show t
+            _        -> drop 1 (show x)
 
 reserved :: [Text]
 reserved =
@@ -177,11 +192,11 @@ monoids s = case s of
     SPrim   {} -> False
 
 serviceTypes :: Service -> [Type]
-serviceTypes = sort
+serviceTypes Service{..} = sort
     . nub
-    . map (shapeType . snd)
+    . map (shapeType _svcTimestamp . snd)
     . concatMap opfields
-    . _svcOperations
+    $ _svcOperations
   where
     opfields o =
            descend (_rqShape $ _opRequest  o)
@@ -200,5 +215,5 @@ serviceTypes = sort
 serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") ss ts
   where
-    ts = Map.fromList $ map (\s -> (fromName s, shapeType s)) ss
+    ts = Map.fromList $ map (\s -> (fromName s, shapeType def s)) ss
     ss = nub (concatMap _opErrors os)

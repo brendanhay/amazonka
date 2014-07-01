@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds          #-}
+{-# LANGUAGE FlexibleInstances  #-}
 {-# LANGUAGE GADTs              #-}
 {-# LANGUAGE KindSignatures     #-}
 {-# LANGUAGE StandaloneDeriving #-}
@@ -43,7 +44,11 @@ deriving instance Eq   (Time a)
 type RFC822  = Time RFC822Format
 type ISO8601 = Time ISO8601Format
 
+instance ToByteString RFC822 where
+    toBS (Time t) = toBS (RFC822Time defaultTimeLocale t)
 
+instance ToByteString ISO8601 where
+    toBS (Time t) = toBS (ISO8601Time defaultTimeLocale t)
 
 data AWSTime     = AWSTime     TimeLocale UTCTime
 data RFC822Time  = RFC822Time  TimeLocale UTCTime

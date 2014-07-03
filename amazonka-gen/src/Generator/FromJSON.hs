@@ -21,13 +21,13 @@ module Generator.FromJSON where
 
 import           Control.Applicative
 import           Control.Error
+import           Control.Monad
 import           Data.Aeson                 hiding (Error)
 import           Data.Aeson.Types           hiding (Error)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.Default
 import qualified Data.HashMap.Strict        as Map
-import           Data.List
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -199,14 +199,16 @@ instance FromJSON Primitive where
             _           -> fail $ "Unable to parse Prim from: " ++ Text.unpack t
 
 instance FromJSON Pagination where
-    parseJSON = withObject "pagination" $ \o ->
-        let f k = o .: k <|> (head <$> o .: k)
-         in Pagination
-                <$> o .:? "more_key"
-                <*> o .:? "limit_key"
-                <*> f "input_token"
-                <*> f "output_token"
-                <*> f "result_key"
+    parseJSON = withObject "pagination" $ \o -> do
+        let f k = o .: k <|> ((:[]) <$> o .: k)
+
+        x <- f "input_token"
+        y <- f "output_token"
+
+        unless (length x == length y) $
+            fail "input_token and output_token don't contain same number of keys."
+
+        Pagination (zipWith Token x y) <$> o .:? "more_results"
 
 instance FromJSON HTTP where
     parseJSON = withObject "http" $ \o -> HTTP

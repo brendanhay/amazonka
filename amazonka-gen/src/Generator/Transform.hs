@@ -52,6 +52,7 @@ operation Service{..} o = o
     & opRequestNamespace .~ "Network.AWS.Request" <> fromString (show _svcType)
     & opRequest          %~ request  _svcTimestamp o
     & opResponse         %~ response _svcTimestamp o
+    & opPagination       %~ pagination o
 
 request :: Time -> Operation -> Request -> Request
 request t o rq = rq
@@ -79,6 +80,21 @@ response :: Time -> Operation -> Response -> Response
 response t o rs = rs
     & rsName   .~ (o ^. opName) <> "Response"
     & rsFields .~ (sort . fields t $ rs ^. rsShape)
+
+pagination :: Operation -> Maybe Pagination -> Maybe Pagination
+pagination o = fmap go
+  where
+    go p = p
+        & pgTokens %~ map (\t -> t & tokInput %~ rsPref & tokOutput %~ rqPref)
+        & pgMore   %~ fmap rsPref
+
+    -- replace "Contents[-1].Key" = "fmap oKey . listToMaybe $ looContents"
+    -- replace x                  = rsPref x
+
+    rqPref = pref (opRequest  . rqShape)
+    rsPref = pref (opResponse . rsShape)
+
+    pref s = prefixed (o ^. s)
 
 rootNS :: NS -> NS
 rootNS (NS []) = NS []

@@ -26,12 +26,6 @@ import           Prelude             hiding (head)
 data {{ request.name }} = {{ request.name }}
 {% include "_include/record.ede" with request.fields %}
 
-instance AWSRequest {{ request.name }} where
-    type Sv {{ request.name }} = {{ service }}
-
-    request  = {{ request.method }}
-    response = undefined
-
 {% include "_include/path.ede" with request %}
 
 {% include "_include/query.ede" with request %}
@@ -39,6 +33,14 @@ instance AWSRequest {{ request.name }} where
 {% include "_include/headers.ede" with request %}
 
 {% include "_include/body.ede" with request %}
+
+instance AWSRequest {{ request.name }} where
+    type Sv {{ request.name }} = {{ service }}
+
+    request  = {{ request.method }}
+    response = undefined
+
+{% include "_include/pager.ede" %}
 
 data instance Rs {{ request.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}

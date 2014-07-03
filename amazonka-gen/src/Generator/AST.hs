@@ -298,13 +298,19 @@ data QueryPart = QueryPart
     , qpVal :: Maybe Text
     } deriving (Eq, Show, Generic)
 
-data Pagination = Pagination
-    { pgMoreKey     :: Maybe Text
-    , pgLimitKey    :: Maybe Text
-    , pgInputToken  :: Text
-    , pgOutputToken :: Text
-    , pgResultKeys  :: Text
+data Token = Token
+    { _tokInput  :: Text
+    , _tokOutput :: Text
     } deriving (Eq, Show, Generic)
+
+makeLenses ''Token
+
+data Pagination = Pagination
+    { _pgTokens :: [Token]
+    , _pgMore   :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+makeLenses ''Pagination
 
 data HTTP = HTTP
     { _hMethod :: !StdMethod

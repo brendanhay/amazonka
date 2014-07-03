@@ -1,0 +1,16 @@
+{% if scope.pagination %}
+instance AWSPager {{ scope.request.name }} where
+    next rq rs
+        | not ({{ scope.pagination.more }} rs) = Nothing
+        | otherwise = Just rq
+          {% for token in scope.pagination.tokens %}
+            {% if token.first %}
+            { {{ token.value.input }} = {{ token.value.output }} rs
+            {% else %}
+            , {{ token.value.input }} = {{ token.value.output }} rs
+            {% endif %}
+            {% if token.last %}
+            }
+            {% endif %}
+          {% endfor %}
+{% endif %}

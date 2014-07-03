@@ -260,22 +260,22 @@ instance ToText Region where
 instance ToByteString Region where
     toBS = toBS . toText
 
-data AZ = AZ
-    { _azRegion :: !Region
-    , _azSuffix :: !Char
+data Zone = Zone
+    { _zRegion :: !Region
+    , _zSuffix :: !Char
     } deriving (Eq, Ord)
 
-instance Read AZ where
+instance Read Zone where
     readsPrec = const readText
 
-instance Show AZ where
+instance Show Zone where
     show = showText
 
-instance FromText AZ where
-    parser = AZ <$> parser <*> AText.satisfy isAlpha <* AText.endOfInput
+instance FromText Zone where
+    parser = Zone <$> parser <*> AText.satisfy isAlpha <* AText.endOfInput
 
-instance ToText AZ where
-    toText AZ{..} = toText _azRegion `Text.snoc` _azSuffix
+instance ToText Zone where
+    toText Zone{..} = toText _zRegion `Text.snoc` _zSuffix
 
 newtype Action = Action Text
     deriving (Eq, Show, IsString)

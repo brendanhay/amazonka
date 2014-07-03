@@ -169,8 +169,11 @@ instance ToJSON PathPart where
 instance ToJSON QueryPart where
     toJSON = toField (recase Camel Under . drop 2)
 
+instance ToJSON Token where
+    toJSON = toField (recase Camel Under . drop 4)
+
 instance ToJSON Pagination where
-    toJSON = toField (recase Camel Under . drop 2)
+    toJSON = toField (recase Camel Under . drop 3)
 
 toField :: (Generic a, GToJSON (Rep a))
         => (String -> String)

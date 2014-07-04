@@ -40,7 +40,6 @@ instance AWSRequest {{ request.name }} where
 
     request  = {{ request.method }}
     response = undefined
-
 {% include "_include/pager.ede" %}
 
 data instance Rs {{ request.name }} = {{ response.name }}

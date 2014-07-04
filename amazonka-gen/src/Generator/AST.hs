@@ -140,8 +140,8 @@ data Common = Common
 
 instance Ord Common where
     compare a b =
-           comparing (Down ._cmnRequired) a b
-        <> comparing _cmnLocation a b
+           comparing (Down . _cmnRequired) a b
+        <> comparing (Down . _cmnLocation) a b
         <> comparing _cmnName a b
 
 instance Default Common where

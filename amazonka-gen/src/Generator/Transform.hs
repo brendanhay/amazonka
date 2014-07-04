@@ -147,30 +147,31 @@ prefixed p x = f (p ^. cmnName)
 typeof :: Time -> Shape -> Ann
 typeof t s = Ann req (defaults s) (monoids s) typ
   where
-    req = case s of
-        SList _ -> False
-        SMap  _ -> False
-        SSum  _ -> n `elem` switches
-        _       -> s ^. cmnRequired
-
     typ = case s of
         SStruct Struct {}   -> n
         SList   List   {..} -> "[" <> ann _lstItem <> "]"
         SMap    Map    {..} -> "HashMap " <> ann _mapKey <> " " <> ann _mapValue
         SSum    Sum    {}
-            | n `elem` switches -> "Switch " <> n
+            | swt, req          -> "Switch " <> n
+            | swt               -> "(Switch " <> n <> ")"
             | otherwise         -> n
         SPrim   Prim   {..}
             | n `elem` reserved -> n
             | otherwise         -> fmt _prmType
 
-    n     = fromName s
-    ann   = anType . typeof t
+    n   = fromName s
+    ann = anType . typeof t
+
+    req = required s
+    swt = n `elem` switches
 
     fmt x = Text.pack $
         case x of
             PUTCTime -> show t
             _        -> drop 1 (show x)
+
+required :: Shape -> Bool
+required s = s ^. cmnRequired || s ^. cmnLocation == LBody
 
 reserved :: [Text]
 reserved =

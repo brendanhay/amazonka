@@ -1,4 +1,5 @@
 {% if scope.pagination %}
+
 instance AWSPager {{ scope.request.name }} where
     next rq rs
         | not ({{ scope.pagination.more }} rs) = Nothing

@@ -53,10 +53,11 @@ operation Service{..} o = o
     & opRequest          %~ request  _svcTimestamp o
     & opResponse         %~ response _svcTimestamp o
     & opPagination       %~ pagination o
+    & opName             .~ fromMaybe (o ^. opName) (o ^. opAlias)
 
 request :: Time -> Operation -> Request -> Request
 request t o rq = rq
-    & rqName     .~ o ^. opName
+    & rqName     .~ (o ^. opName)
     & rqDefault  .~ lowerFirst (o ^. opName)
     & rqHttp     %~ http (rq ^. rqShape)
     & rqFields   .~ fs
@@ -64,11 +65,14 @@ request t o rq = rq
     & rqRequired .~ req
     & rqHeaders  .~ hs
   where
-    bdy = filter ((== LBody) . _cmnLocation . fldCommon) fs
-    req = filter (_cmnRequired . fldCommon) fs
-    hs  = filter ((== LHeader) . _cmnLocation . fldCommon) fs
+    bdy = filter ((== LBody) . view cmnLocation) fs
+    req = filter (view cmnRequired) fs
+    hs  = filter ((== LHeader) . view cmnLocation) fs
 
-    fs  = sort . fields t $ rq ^. rqShape
+    fs  = map upd . sort . fields t $ rq ^. rqShape
+
+    upd f | f ^. cmnLocation == LBody = f & cmnRequired .~ True
+          | otherwise                 = f
 
 http :: Shape -> HTTP -> HTTP
 http p = hPath %~ map f
@@ -85,11 +89,12 @@ pagination :: Operation -> Maybe Pagination -> Maybe Pagination
 pagination o = fmap go
   where
     go p = p
-        & pgTokens %~ map (\t -> t & tokInput %~ rsPref & tokOutput %~ rqPref)
+        & pgTokens %~ map (\t -> t & tokInput %~ rqPref & tokOutput %~ replace)
         & pgMore   %~ fmap rsPref
 
-    -- replace "Contents[-1].Key" = "fmap oKey . listToMaybe $ looContents"
-    -- replace x                  = rsPref x
+    -- S3 ListObjects
+    replace "NextMarker || Contents[-1].Key" = "fmap oKey . listToMaybe $ looContents"
+    replace x                                = rsPref x
 
     rqPref = pref (opRequest  . rqShape)
     rsPref = pref (opResponse . rsShape)
@@ -140,8 +145,15 @@ prefixed p x = f (p ^. cmnName)
     f Nothing  = "Prefixed"
 
 typeof :: Time -> Shape -> Ann
-typeof t s = Ann (required s) (defaults s) (monoids s) $
-    case s of
+typeof t s = Ann req (defaults s) (monoids s) typ
+  where
+    req = case s of
+        SList _ -> False
+        SMap  _ -> False
+        SSum  _ -> n `elem` switches
+        _       -> s ^. cmnRequired
+
+    typ = case s of
         SStruct Struct {}   -> n
         SList   List   {..} -> "[" <> ann _lstItem <> "]"
         SMap    Map    {..} -> "HashMap " <> ann _mapKey <> " " <> ann _mapValue
@@ -151,7 +163,7 @@ typeof t s = Ann (required s) (defaults s) (monoids s) $
         SPrim   Prim   {..}
             | n `elem` reserved -> n
             | otherwise         -> fmt _prmType
-  where
+
     n     = fromName s
     ann   = anType . typeof t
 
@@ -187,11 +199,6 @@ ctorof s = case s of
         | fromName s `elem` switches -> CWitness
         | otherwise                  -> CSum
     _                                -> CData
-
-required :: Shape -> Bool
-required s =
-    let Common{..} = s ^. common
-     in _cmnRequired || _cmnLocation == LBody
 
 defaults :: Shape -> Bool
 defaults s = case s of

@@ -129,9 +129,9 @@ instance ToJSON Primitive where
     toJSON = toCtor (drop 1)
 
 instance ToJSON Ann where
-    toJSON (Ann True _ _    t) = toJSON t
-    toJSON (Ann _    _ True t) = toJSON t
-    toJSON (Ann _    _ _    t) = toJSON ("Maybe " <> t)
+    toJSON (Ann _     _ True t) = toJSON t
+    toJSON (Ann False _ _    t) = toJSON ("Maybe " <> t)
+    toJSON (Ann _     _ _    t) = toJSON t
 
 instance ToJSON Ctor where
     toJSON = toJSON . lowered . drop 1 . show
@@ -145,12 +145,12 @@ instance ToJSON Type where
 instance ToJSON Field where
     toJSON f = Object (x <> y)
       where
-        Object x = toJSON (fldCommon f)
+        Object x = toJSON (_fldCommon f)
         Object y = object
-            [ "type"     .= fldType f
-            , "prefixed" .= fldPrefixed f
-            , "monoid"   .= anMonoid  (fldType f)
-            , "default"  .= anDefault (fldType f)
+            [ "type"     .= _fldType f
+            , "prefixed" .= _fldPrefixed f
+            , "monoid"   .= anMonoid  (_fldType f)
+            , "default"  .= anDefault (_fldType f)
             ]
 
 instance ToJSON StdMethod where

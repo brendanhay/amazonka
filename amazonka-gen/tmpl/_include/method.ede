@@ -29,9 +29,9 @@
       {% endif %}
     {% else %}
       {% if field.first %}
-    { {{ field.value.prefixed }} = def
+    { {{ field.value.prefixed }} = Nothing
       {% else %}
-    , {{ field.value.prefixed }} = def
+    , {{ field.value.prefixed }} = Nothing
       {% endif %}
     {% endif %}
   {% endif %}

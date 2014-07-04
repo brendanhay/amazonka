@@ -142,7 +142,7 @@ instance FromJSON Common where
         l <- o .:! "location"
         Common n x l
             <$> o .:? "location_name" .!= n
-            <*> o .:? "required"      .!= (if l == LBody then True else False)
+            <*> o .:? "required"      .!= False
             <*> o .:? "documentation"
             <*> o .:? "streaming"     .!= False
 

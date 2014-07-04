@@ -231,20 +231,25 @@ instance HasCommon Shape where
         SPrim   y -> SPrim   <$> common f y
 
 data Ann = Ann
-   { anRequired :: !Bool
+   { anRequiredX :: !Bool
    , anDefault  :: !Bool
    , anMonoid   :: !Bool
    , anType     :: Text
    } deriving (Eq, Show, Generic)
 
 data Field = Field
-    { fldType     :: Ann
-    , fldPrefixed :: Text
-    , fldCommon   :: Common
+    { _fldType     :: Ann
+    , _fldPrefixed :: Text
+    , _fldCommon   :: Common
     } deriving (Eq, Show)
 
+makeLenses ''Field
+
 instance Ord Field where
-    compare = compare `on` fldCommon
+    compare = compare `on` _fldCommon
+
+instance HasCommon Field where
+    common = fldCommon
 
 data Ctor
     = CWitness

@@ -69,7 +69,7 @@ request t o rq = rq
     req = filter (view cmnRequired) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
 
-    fs  = map upd . sort . fields t $ rq ^. rqShape
+    fs  = map upd . sort . fields True t $ rq ^. rqShape
 
     upd f | f ^. cmnLocation == LBody = f & cmnRequired .~ True
           | otherwise                 = f
@@ -83,7 +83,7 @@ http p = hPath %~ map f
 response :: Time -> Operation -> Response -> Response
 response t o rs = rs
     & rsName   .~ (o ^. opName) <> "Response"
-    & rsFields .~ (sort . fields t $ rs ^. rsShape)
+    & rsFields .~ (sort . fields False t $ rs ^. rsShape)
 
 pagination :: Operation -> Maybe Pagination -> Maybe Pagination
 pagination o = fmap go
@@ -93,7 +93,7 @@ pagination o = fmap go
         & pgMore   %~ fmap rsPref
 
     -- S3 ListObjects
-    replace "NextMarker || Contents[-1].Key" = "fmap oKey . listToMaybe $ looContents"
+    replace "NextMarker || Contents[-1].Key" = "fmap (toText . oKey) . listToMaybe $ looContents"
     replace x                                = rsPref x
 
     rqPref = pref (opRequest  . rqShape)
@@ -110,9 +110,6 @@ typeNS = (<> "Types")
 
 fromName :: Shape -> Text
 fromName = fromMaybe "Untyped" . view cmnName
-
-shapeType :: Time -> Shape -> Type
-shapeType t s = Type s (typeof t s) (ctorof s) (fields t s)
 
 shapeEnums :: Maybe Text -> [Text] -> HashMap Text Text
 shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
@@ -131,12 +128,17 @@ shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
         | Text.null x = x
         | otherwise   = toUpper (Text.head x) `Text.cons` Text.tail x
 
-fields :: Time -> Shape -> [Field]
-fields t s = case s of
+fields :: Bool -> Time -> Shape -> [Field]
+fields rq t s = case s of
     SStruct Struct{..} -> map f (Map.toList _sctFields)
     _                  -> []
   where
-    f (k, v) = Field (typeof t v) (prefixed s k) (v ^. common)
+    f :: (Text, Shape) -> Field
+    f (k, v) =
+        let fld = Field (typeof rq t v) (prefixed s k) (v ^. common)
+         in if k == "IsTruncated"
+                then fld & cmnRequired .~ True & fldType %~ (anRequired_ .~ True)
+                else fld
 
 prefixed :: Shape -> Text -> Text
 prefixed p x = f (p ^. cmnName)
@@ -144,13 +146,13 @@ prefixed p x = f (p ^. cmnName)
     f (Just y) = prefix y <> x
     f Nothing  = "Prefixed"
 
-typeof :: Time -> Shape -> Ann
-typeof t s = Ann req (defaults s) (monoids s) typ
+typeof :: Bool -> Time -> Shape -> Ann
+typeof rq t s = Ann req (defaults s) (monoids s) typ
   where
     typ = case s of
-        SStruct Struct {}   -> n
-        SList   List   {..} -> "[" <> ann _lstItem <> "]"
-        SMap    Map    {..} -> "HashMap " <> ann _mapKey <> " " <> ann _mapValue
+        SStruct Struct {}       -> n
+        SList   List   {..}     -> "[" <> ann _lstItem <> "]"
+        SMap    Map    {..}     -> "HashMap " <> ann _mapKey <> " " <> ann _mapValue
         SSum    Sum    {}
             | swt, req          -> "Switch " <> n
             | swt               -> "(Switch " <> n <> ")"
@@ -160,9 +162,9 @@ typeof t s = Ann req (defaults s) (monoids s) typ
             | otherwise         -> fmt _prmType
 
     n   = fromName s
-    ann = anType . typeof t
+    ann = _anType . typeof rq t
 
-    req = required s
+    req = required rq s
     swt = n `elem` switches
 
     fmt x = Text.pack $
@@ -170,8 +172,9 @@ typeof t s = Ann req (defaults s) (monoids s) typ
             PUTCTime -> show t
             _        -> drop 1 (show x)
 
-required :: Shape -> Bool
-required s = s ^. cmnRequired || s ^. cmnLocation == LBody
+required :: Bool -> Shape -> Bool
+required True s = s ^. cmnRequired || s ^. cmnLocation == LBody
+required _    s = s ^. cmnRequired
 
 reserved :: [Text]
 reserved =
@@ -220,7 +223,7 @@ monoids s = case s of
 serviceTypes :: Service -> [Type]
 serviceTypes Service{..} = sort
     . nub
-    . map (shapeType _svcTimestamp . snd)
+    . map (shapeType True _svcTimestamp . snd)
     . concatMap opfields
     $ _svcOperations
   where
@@ -241,5 +244,8 @@ serviceTypes Service{..} = sort
 serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") ss ts
   where
-    ts = Map.fromList $ map (\s -> (fromName s, shapeType def s)) ss
+    ts = Map.fromList $ map (\s -> (fromName s, shapeType True def s)) ss
     ss = nub (concatMap _opErrors os)
+
+shapeType :: Bool -> Time -> Shape -> Type
+shapeType rq t s = Type s (typeof rq t s) (ctorof s) (fields rq t s)

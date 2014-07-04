@@ -231,11 +231,13 @@ instance HasCommon Shape where
         SPrim   y -> SPrim   <$> common f y
 
 data Ann = Ann
-   { anRequiredX :: !Bool
-   , anDefault  :: !Bool
-   , anMonoid   :: !Bool
-   , anType     :: Text
+   { _anRequired_ :: !Bool
+   , _anDefault   :: !Bool
+   , _anMonoid    :: !Bool
+   , _anType      :: Text
    } deriving (Eq, Show, Generic)
+
+makeLenses ''Ann
 
 data Field = Field
     { _fldType     :: Ann

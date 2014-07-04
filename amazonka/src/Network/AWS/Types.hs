@@ -289,11 +289,17 @@ newtype BucketName = BucketName Text
 instance ToByteString BucketName where
     toBS (BucketName b) = toBS b
 
+instance ToText BucketName where
+    toText (BucketName b) = b
+
 newtype ObjectKey = ObjectKey Text
     deriving (Eq, Show, IsString)
 
 instance ToByteString ObjectKey where
     toBS (ObjectKey k) = toBS k
+
+instance ToText ObjectKey where
+    toText (ObjectKey k) = k
 
 newtype ObjectVersionId = ObjectVersionId Text
     deriving (Eq, Show, IsString)
@@ -301,11 +307,17 @@ newtype ObjectVersionId = ObjectVersionId Text
 instance ToByteString ObjectVersionId where
     toBS (ObjectVersionId v) = toBS v
 
+instance ToText ObjectVersionId where
+    toText (ObjectVersionId v) = v
+
 newtype ETag = ETag Text
     deriving (Eq, Show, IsString)
 
 instance ToByteString ETag where
     toBS (ETag t) = toBS t
+
+instance ToText ETag where
+    toText (ETag t) = t
 
 data Switch a = Enabled | Disabled
     deriving (Eq, Show)

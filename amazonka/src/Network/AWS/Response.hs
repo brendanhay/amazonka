@@ -45,13 +45,6 @@ import           Data.Monoid
 import           Data.String
 import           Network.HTTP.Client
 
-
--- parse :: MonadResource m
---       => ClientResponse (ResumableSource m ByteString)
---       -> m (Either (Er (Sv a)) (Rs a))
--- parse rs
---     |
-
 -- Make status code exceptions inhabitants of the AWSError sum?
 
 -- s3Response :: a

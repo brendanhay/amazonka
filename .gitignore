@@ -27,7 +27,3 @@ tags
 
 # OSX
 .DS_Store
-
-# Generated
-/amazonka/gen
-/amazonka/*.cabal

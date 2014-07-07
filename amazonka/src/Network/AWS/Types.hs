@@ -42,9 +42,9 @@ import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
-type ClientException = Client.HttpException
-type ClientRequest   = Client.Request
-type ClientResponse  = Client.Response
+type ClientRequest    = Client.Request
+type ClientResponse m = Client.Response (ResumableSource m ByteString)
+type ClientException  = Client.HttpException
 
 clientRequest :: ClientRequest
 clientRequest = def
@@ -82,7 +82,7 @@ class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
 
     request  :: a -> Request a
     response :: MonadResource m
-             => Either ClientException (ClientResponse (ResumableSource m ByteString))
+             => Either ClientException (ClientResponse m)
              -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where

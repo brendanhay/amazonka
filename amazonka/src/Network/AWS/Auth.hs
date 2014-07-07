@@ -121,7 +121,7 @@ fromEnv' a s = fmap Auth $ AuthEnv
   where
     key (BS.unpack -> k) = do
         m <- liftIO $ lookupEnv k
-        maybe (throwT . Error $ "Unable to read ENV variable: " ++ k)
+        maybe (throwT . fromString $ "Unable to read ENV variable: " ++ k)
               (return . BS.pack)
               m
 

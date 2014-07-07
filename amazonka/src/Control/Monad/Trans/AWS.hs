@@ -99,10 +99,8 @@ newtype AWST m a = AWST { _unAWST :: ReaderT Env (EitherT Error m) a }
     deriving
         ( Functor
         , Applicative
-        , Alternative
         , Monad
         , MonadIO
-        , MonadPlus
         , MonadReader Env
         )
 

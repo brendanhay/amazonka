@@ -42,8 +42,9 @@ import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 
-type ClientRequest  = Client.Request
-type ClientResponse = Client.Response
+type ClientException = Client.HttpException
+type ClientRequest   = Client.Request
+type ClientResponse  = Client.Response
 
 clientRequest :: ClientRequest
 clientRequest = def
@@ -53,25 +54,25 @@ clientRequest = def
     }
 
 data Error
-    = Error  String
-    | Nested [Error]
-    deriving (Eq, Show, Typeable)
+    = AWSError  String
+    | HTTPError ClientException
+      deriving (Show, Typeable)
 
 instance IsString Error where
-    fromString = Error
+    fromString = AWSError
 
 instance Exception Error
 
 -- FIXME: This has currently been defined only for purposes of
 -- an Applicative instance for the monad transformer. Do the monoid laws hold?
 
-instance Monoid Error where
-    mempty = Nested []
+-- instance Monoid Error where
+--     mempty = Nested []
 
-    mappend (Nested a) (Nested b) = Nested (a ++ b)
-    mappend (Nested a) b          = Nested (a ++ [b])
-    mappend a          (Nested b) = Nested (a : b)
-    mappend a          b          = Nested [a, b]
+--     mappend (Nested a) (Nested b) = Nested (a ++ b)
+--     mappend (Nested a) b          = Nested (a ++ [b])
+--     mappend a          (Nested b) = Nested (a : b)
+--     mappend a          b          = Nested [a, b]
 
 class AWSError e where
     toError :: e -> Error

@@ -37,18 +37,18 @@ hAMZToken = "X-AMZ-Security-Token"
 hMetaPrefix :: HeaderName
 hMetaPrefix = "X-AMZ-"
 
-hdr :: HeaderName -> ByteString -> [Header] -> [Header]
-hdr k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
-
-hdrs :: [Header] -> [Header] -> [Header]
-hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
-
 class ToHeaders a where
     toHeaders :: a -> [Header]
     toHeaders = const mempty
 
 (=:) :: ToHeader a => ByteString -> a -> [Header]
 (=:) = toHeader
+
+hdr :: HeaderName -> ByteString -> [Header] -> [Header]
+hdr k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
+
+hdrs :: [Header] -> [Header] -> [Header]
+hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
 
 class ToHeader a where
     toHeader :: ByteString -> a -> [Header]

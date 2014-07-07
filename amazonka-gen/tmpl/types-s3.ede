@@ -32,18 +32,17 @@ instance AWSService {{ name }} where
 
 {% if error.shapes | listLength == 0 %}
 data instance Er {{ name }} = {{ error.name }}
-    deriving (Eq, Show, Generic)
+    deriving (Show, Generic)
 {% else %}
 data instance Er {{ name }}
   {% for ctor in error.ctors %}
     {% if ctor.first %}
-    = {{ ctor.key }}
+    = {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
     {% else %}
-    | {{ ctor.key }}
+    | {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
     {% endif %}
-{% include "_include/error.ede" with ctor.value.fields %}
   {% endfor %}
-      deriving (Eq, Show, Generic)
+      deriving (Show, Generic)
 {% endif %}
 
 instance AWSError (Er S3) where

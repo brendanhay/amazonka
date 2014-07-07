@@ -63,19 +63,8 @@ instance IsString Error where
 
 instance Exception Error
 
--- FIXME: This has currently been defined only for purposes of
--- an Applicative instance for the monad transformer. Do the monoid laws hold?
-
--- instance Monoid Error where
---     mempty = Nested []
-
---     mappend (Nested a) (Nested b) = Nested (a ++ b)
---     mappend (Nested a) b          = Nested (a ++ [b])
---     mappend a          (Nested b) = Nested (a : b)
---     mappend a          b          = Nested [a, b]
-
-class AWSError e where
-    toError :: e -> Error
+class AWSError a where
+    toError :: a -> Error
 
 instance AWSError Error where
     toError = id
@@ -93,7 +82,7 @@ class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
 
     request  :: a -> Request a
     response :: MonadResource m
-             => ClientResponse (ResumableSource m ByteString)
+             => Either ClientException (ClientResponse (ResumableSource m ByteString))
              -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where

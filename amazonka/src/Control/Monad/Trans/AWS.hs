@@ -167,6 +167,7 @@ within r = local (envRegion .~ r)
 
 send :: ( MonadIO m
         , MonadBase IO m
+        , MonadCatch m
         , MonadThrow m
         , AWSRequest a
         , AWSSigner (Sg (Sv a))
@@ -177,6 +178,7 @@ send = hoistAWST <=< sendCatch
 
 sendCatch :: ( MonadIO m
              , MonadBase IO m
+             , MonadCatch m
              , MonadThrow m
              , AWSRequest a
              , AWSSigner (Sg (Sv a))
@@ -188,6 +190,7 @@ sendCatch rq = withEnv $ \Env{..} ->
 
 paginate :: ( MonadIO m
             , MonadBase IO m
+            , MonadCatch m
             , MonadThrow m
             , AWSPager a
             , AWSSigner (Sg (Sv a))
@@ -198,6 +201,7 @@ paginate = ($= Conduit.mapM hoistAWST) . paginateCatch
 
 paginateCatch :: ( MonadIO m
                  , MonadBase IO m
+                 , MonadCatch m
                  , MonadThrow m
                  , AWSPager a
                  , AWSSigner (Sg (Sv a))

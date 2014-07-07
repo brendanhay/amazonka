@@ -23,6 +23,7 @@ module Network.AWS
    , presign
    ) where
 
+import Control.Monad.Catch
 import Control.Monad.IO.Class
 import Control.Monad.Trans
 import Control.Monad.Trans.Resource
@@ -32,19 +33,23 @@ import Network.AWS.Signing.Types
 import Network.AWS.Types
 import Network.HTTP.Conduit
 
-send :: (MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
+send :: (MonadCatch m, MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
      => Auth    -- ^ AWS authentication credentials.
      -> Region  -- ^ AWS Region.
      -> a       -- ^ Request to send.
      -> Manager -- ^ HTTP Manager.
      -> m (Either (Er (Sv a)) (Rs a))
-send a r rq m =
-        liftIO getCurrentTime
-    >>= sign a r rq
-    >>= (`http` m) . _sgRequest
-    >>= response
+send a r rq m = (go `catch` er) >>= response
+  where
+    go = liftIO getCurrentTime
+        >>= sign a r rq
+        >>= (`http` m) . _sgRequest
+        >>= return . Right
 
-paginate :: (MonadResource m, AWSPager a, AWSSigner (Sg (Sv a)))
+    er :: MonadResource m => ClientException -> m (Either ClientException b)
+    er = return . Left
+
+paginate :: (MonadCatch m, MonadResource m, AWSPager a, AWSSigner (Sg (Sv a)))
          => Auth    -- ^ AWS authentication credentials.
          -> Region  -- ^ AWS Region.
          -> a       -- ^ Seed request to send.

@@ -79,7 +79,10 @@ instance ToJSON Service where
     toJSON s = Object (x <> y)
       where
         Object x = toField (recase Camel Under . drop 4) s
-        Object y = object ["types" .= serviceTypes s]
+        Object y = object
+            [ "types"   .= serviceTypes s
+            , "modules" .= sort (map _opNamespace $ _svcOperations s)
+            ]
 
 instance ToJSON Error where
     toJSON = toField (recase Camel Under . drop 3)

@@ -1,5 +1,7 @@
 {% include "_include/license.ede" with namespace %}
 
 module {{ namespace }}
-    (
+    ( module {{ version_namespace }}
     ) where
+
+import {{ version_namespace }}

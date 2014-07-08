@@ -46,7 +46,10 @@ data instance Er {{ name }}
 {% endif %}
 
 instance AWSError (Er S3) where
-    toError = const "{{ error.name }}"
+    awsError = const "{{ error.name }}"
+
+instance ClientError (Er S3) where
+    clientError = {{ name }}Protocol
 
 {% for data in types %}
   {% if data.value.documentation %}

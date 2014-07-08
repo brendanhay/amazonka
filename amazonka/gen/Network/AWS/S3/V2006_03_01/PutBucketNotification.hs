@@ -27,6 +27,7 @@ import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import           GHC.Generics
 import           Network.AWS.Data
+import           Network.AWS.Response
 import           Network.AWS.Request.RestS3
 import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
@@ -69,7 +70,7 @@ instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
 
     request  = put
-    response = undefined
+    response = response' undefined
 
 data instance Rs PutBucketNotification = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)

@@ -17,6 +17,7 @@ import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import           GHC.Generics
 import           Network.AWS.Data
+import           Network.AWS.Response
 import           {{ request_namespace }}
 import           Network.AWS.Types   hiding (Error)
 import           {{ types_namespace }}
@@ -39,7 +40,7 @@ instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
 
     request  = {{ request.method }}
-    response = undefined
+    response = response' undefined
 {% include "_include/pager.ede" %}
 
 data instance Rs {{ request.name }} = {{ response.name }}

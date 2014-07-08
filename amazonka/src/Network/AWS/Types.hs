@@ -55,7 +55,7 @@ clientRequest = def
 
 data Error
     = AWSError  String
-    | HTTPError ClientException
+    | ClientError ClientException
       deriving (Show, Typeable)
 
 instance IsString Error where
@@ -64,10 +64,22 @@ instance IsString Error where
 instance Exception Error
 
 class AWSError a where
-    toError :: a -> Error
+    awsError :: a -> Error
 
 instance AWSError Error where
-    toError = id
+    awsError = id
+
+instance AWSError ClientException where
+    awsError = ClientError
+
+class ClientError a where
+    clientError :: ClientException -> a
+
+instance ClientError Error where
+    clientError = ClientError
+
+instance ClientError ClientException where
+    clientError = id
 
 data family Er a :: *
 data family Rs a :: *

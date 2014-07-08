@@ -27,6 +27,7 @@ import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import           GHC.Generics
 import           Network.AWS.Data
+import           Network.AWS.Response
 import           Network.AWS.Request.RestS3
 import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
@@ -85,7 +86,7 @@ instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
 
     request  = get
-    response = undefined
+    response = response' undefined
 
 instance AWSPager ListObjectVersions where
     next rq rs

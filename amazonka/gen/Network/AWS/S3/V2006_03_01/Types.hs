@@ -18,59 +18,11 @@
 
 module Network.AWS.S3.V2006_03_01.Types where
 
-import           Control.Applicative
-import           Control.Exception            (Exception)
-import           Control.Lens                 hiding (Action)
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Resource
-import           Data.Aeson                   hiding (Error)
-import qualified Data.Attoparsec.Text         as AText
-import           Data.ByteString              (ByteString)
-import           Data.Char
-import           Data.Conduit
-import           Data.Default
-import           Data.IORef
-import           Data.Monoid
-import           Data.String
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
-import qualified Data.Text.Encoding           as Text
-import           Data.Time
-import           Data.Typeable
-import           Network.AWS.Data
-import qualified Network.HTTP.Client          as Client
-import           Network.HTTP.Types.Header
-import           Network.HTTP.Types.Method
-import qualified Crypto.Hash.SHA256         as SHA256
-import           Data.Aeson
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Base16     as Base16
-import qualified Data.ByteString.Lazy       as LBS
-import qualified Data.ByteString.Lazy.Char8 as LBS8
-import           Data.Int
-import           Data.Monoid
-import           Data.String
-import           Network.HTTP.Client
-import Network.HTTP.Types
-
 import Data.Text (Text)
 import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Signing.V4
 import Network.AWS.Types hiding (Error)
-
-response' :: MonadResource m
-          => Either ClientException (ClientResponse m)
-          -> m (Either (Er S3) (Rs a))
-response' (Left  ex) = return . Left $ S3Protocol ex
-response' (Right rs)
-    | statusCode (responseStatus rs) >= 400 =
-        return . Left . S3Protocol $
-            StatusCodeException (responseStatus rs) (responseHeaders rs) mempty
-response' (Right rs) = do
-    undefined
-    -- responseHeaders rs
-    -- responseBody rs
 
 -- | Supported version (@2006-03-01@) of the
 -- @Amazon Simple Storage Service@ service.
@@ -97,7 +49,10 @@ data instance Er S3
       deriving (Show, Generic)
 
 instance AWSError (Er S3) where
-    toError = const "S3Error"
+    awsError = const "S3Error"
+
+instance ClientError (Er S3) where
+    clientError = S3Protocol
 
 -- | The versioning state of the bucket.
 data BucketVersioningStatus

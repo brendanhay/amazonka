@@ -18,10 +18,14 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Base16       as Base16
+import qualified Data.ByteString.Lazy         as LBS
+import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Char
 import           Data.Conduit
 import           Data.Default
 import           Data.IORef
+import           Data.Int
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
@@ -30,20 +34,23 @@ import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Data.Typeable
 import           Network.AWS.Data
-import qualified Network.HTTP.Client          as Client
-import           Network.HTTP.Types.Header
-import           Network.HTTP.Types.Method
-
-import qualified Crypto.Hash.SHA256         as SHA256
-import           Data.Aeson
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Base16     as Base16
-import qualified Data.ByteString.Lazy       as LBS
-import qualified Data.ByteString.Lazy.Char8 as LBS8
-import           Data.Int
-import           Data.Monoid
-import           Data.String
+import           Network.AWS.Types
 import           Network.HTTP.Client
+import           Network.HTTP.Types
+
+response' :: (ClientError e, Monad m)
+          => (ResponseHeaders -> a -> m (Either e b))
+          -> Either ClientException (Response a)
+          -> m (Either e b)
+response' _ (Left  ex) = return . Left $ clientError ex
+response' f (Right rs)
+    | statusCode st >= 400 = return . Left $ clientError ex
+    | otherwise            = f hs bdy
+  where
+    ex  = StatusCodeException st hs mempty
+    st  = responseStatus rs
+    hs  = responseHeaders rs
+    bdy = responseBody rs
 
 -- Make status code exceptions inhabitants of the AWSError sum?
 
@@ -62,7 +69,7 @@ import           Network.HTTP.Client
 --                 return . either Left (Right . Left) . parse $ LBS.toStrict lbs
 --   where
 --     parse :: ByteString -> Either AWSError S3ErrorResponse
---     parse = fmapL toError . fromXML
+--     parse = fmapL awsError . fromXML
 
 --     -- plain      = Right rs
 --     -- badRequest = Left $ S3ErrorResponse "Bad Request." (Just 400)

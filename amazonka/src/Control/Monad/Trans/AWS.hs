@@ -156,7 +156,7 @@ mapAWST f m = AWST . ReaderT $ \r -> EitherT (unwrap r)
     unwrap = f . runEitherT . runReaderT (_unAWST m)
 
 liftAWST :: (Monad m, AWSError e) => EitherT e m a -> AWST m a
-liftAWST = AWST . lift . fmapLT toError
+liftAWST = AWST . lift . fmapLT awsError
 
 hoistAWST :: (Monad m, AWSError e) => Either e a -> AWST m a
 hoistAWST = liftAWST . hoistEither

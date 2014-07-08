@@ -27,6 +27,7 @@ import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import           GHC.Generics
 import           Network.AWS.Data
+import           Network.AWS.Response
 import           Network.AWS.Request.RestS3
 import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
@@ -151,7 +152,7 @@ instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
 
     request  = put
-    response = undefined
+    response = response' undefined
 
 data instance Rs UploadPartCopy = UploadPartCopyResponse
     { upcoCopyPartResult :: Maybe CopyPartResult

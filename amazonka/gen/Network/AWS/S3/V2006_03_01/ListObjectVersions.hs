@@ -5,7 +5,7 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Module      : Network.AWS.S3.V2006_03_01.GetBucketObjectVersions
+-- Module      : Network.AWS.S3.V2006_03_01.ListObjectVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,7 +16,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns metadata about all of the versions of objects in a bucket.
-module Network.AWS.S3.V2006_03_01.GetBucketObjectVersions where
+module Network.AWS.S3.V2006_03_01.ListObjectVersions where
 
 import           Data.ByteString     (ByteString)
 import           Data.Default
@@ -34,10 +34,10 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
 -- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketObjectVersions request.
-getBucketObjectVersions :: BucketName -- ^ 'lovrBucket'
-                        -> GetBucketObjectVersions
-getBucketObjectVersions p1 = GetBucketObjectVersions
+-- specify the minimum viable ListObjectVersions request.
+listObjectVersions :: BucketName -- ^ 'lovrBucket'
+                   -> ListObjectVersions
+listObjectVersions p1 = ListObjectVersions
     { lovrBucket = p1
     , lovrDelimiter = Nothing
     , lovrEncodingType = Nothing
@@ -47,7 +47,7 @@ getBucketObjectVersions p1 = GetBucketObjectVersions
     , lovrVersionIdMarker = Nothing
     }
 
-data GetBucketObjectVersions = GetBucketObjectVersions
+data ListObjectVersions = ListObjectVersions
     { lovrBucket :: BucketName
     , lovrDelimiter :: Maybe Text
       -- ^ A delimiter is a character you use to group keys.
@@ -70,25 +70,25 @@ data GetBucketObjectVersions = GetBucketObjectVersions
       -- ^ Specifies the object version you want to start listing from.
     } deriving (Eq, Show, Generic)
 
-instance ToPath GetBucketObjectVersions where
-    toPath GetBucketObjectVersions{..} = mconcat
+instance ToPath ListObjectVersions where
+    toPath ListObjectVersions{..} = mconcat
         [ "/"
         , toBS lovrBucket
         ]
 
-instance ToQuery GetBucketObjectVersions
+instance ToQuery ListObjectVersions
 
-instance ToHeaders GetBucketObjectVersions
+instance ToHeaders ListObjectVersions
 
-instance ToBody GetBucketObjectVersions
+instance ToBody ListObjectVersions
 
-instance AWSRequest GetBucketObjectVersions where
-    type Sv GetBucketObjectVersions = S3
+instance AWSRequest ListObjectVersions where
+    type Sv ListObjectVersions = S3
 
     request  = get
     response = response' $
 
-instance AWSPager GetBucketObjectVersions where
+instance AWSPager ListObjectVersions where
     next rq rs
         | not (lovoIsTruncated rs) = Nothing
         | otherwise = Just $ rq
@@ -96,7 +96,7 @@ instance AWSPager GetBucketObjectVersions where
             , lovrVersionIdMarker = lovoNextVersionIdMarker rs
             }
 
-data instance Rs GetBucketObjectVersions = GetBucketObjectVersionsResponse
+data instance Rs ListObjectVersions = ListObjectVersionsResponse
     { lovoIsTruncated :: Bool
       -- ^ A flag that indicates whether or not Amazon S3 returned all of
       -- the results that satisfied the search criteria. If your results

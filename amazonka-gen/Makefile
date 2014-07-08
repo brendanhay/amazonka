@@ -41,7 +41,8 @@ MODELS := $(BOTO)/s3
 
 .PHONY: gen
 
-gen: $(GEN)/gen
+gen:
+	rm -rf $(GEN)/gen && make $(GEN)/gen
 
 $(GEN)/gen: build
 	$(BIN) --dir=$(realpath $(GEN)) $(addprefix --model=,$(realpath $(MODELS)))

@@ -60,22 +60,23 @@ library
         , Network.AWS.S3.V2006_03_01.Types
         , Network.AWS.S3.V2006_03_01.AbortMultipartUpload
         , Network.AWS.S3.V2006_03_01.CompleteMultipartUpload
+        , Network.AWS.S3.V2006_03_01.CopyObject
+        , Network.AWS.S3.V2006_03_01.CreateBucket
+        , Network.AWS.S3.V2006_03_01.CreateMultipartUpload
         , Network.AWS.S3.V2006_03_01.DeleteBucket
         , Network.AWS.S3.V2006_03_01.DeleteBucketCors
         , Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle
         , Network.AWS.S3.V2006_03_01.DeleteBucketPolicy
         , Network.AWS.S3.V2006_03_01.DeleteBucketTagging
         , Network.AWS.S3.V2006_03_01.DeleteBucketWebsite
-        , Network.AWS.S3.V2006_03_01.DeleteMultipleObjects
         , Network.AWS.S3.V2006_03_01.DeleteObject
-        , Network.AWS.S3.V2006_03_01.GetBucket
+        , Network.AWS.S3.V2006_03_01.DeleteObjects
         , Network.AWS.S3.V2006_03_01.GetBucketAcl
         , Network.AWS.S3.V2006_03_01.GetBucketCors
         , Network.AWS.S3.V2006_03_01.GetBucketLifecycle
         , Network.AWS.S3.V2006_03_01.GetBucketLocation
         , Network.AWS.S3.V2006_03_01.GetBucketLogging
         , Network.AWS.S3.V2006_03_01.GetBucketNotification
-        , Network.AWS.S3.V2006_03_01.GetBucketObjectVersions
         , Network.AWS.S3.V2006_03_01.GetBucketPolicy
         , Network.AWS.S3.V2006_03_01.GetBucketRequestPayment
         , Network.AWS.S3.V2006_03_01.GetBucketTagging
@@ -84,14 +85,13 @@ library
         , Network.AWS.S3.V2006_03_01.GetObject
         , Network.AWS.S3.V2006_03_01.GetObjectAcl
         , Network.AWS.S3.V2006_03_01.GetObjectTorrent
-        , Network.AWS.S3.V2006_03_01.GetService
         , Network.AWS.S3.V2006_03_01.HeadBucket
         , Network.AWS.S3.V2006_03_01.HeadObject
-        , Network.AWS.S3.V2006_03_01.InitiateMultipartUpload
+        , Network.AWS.S3.V2006_03_01.ListBuckets
         , Network.AWS.S3.V2006_03_01.ListMultipartUploads
+        , Network.AWS.S3.V2006_03_01.ListObjectVersions
+        , Network.AWS.S3.V2006_03_01.ListObjects
         , Network.AWS.S3.V2006_03_01.ListParts
-        , Network.AWS.S3.V2006_03_01.PostObjectRestore
-        , Network.AWS.S3.V2006_03_01.PutBucket
         , Network.AWS.S3.V2006_03_01.PutBucketAcl
         , Network.AWS.S3.V2006_03_01.PutBucketCors
         , Network.AWS.S3.V2006_03_01.PutBucketLifecycle
@@ -104,7 +104,7 @@ library
         , Network.AWS.S3.V2006_03_01.PutBucketWebsite
         , Network.AWS.S3.V2006_03_01.PutObject
         , Network.AWS.S3.V2006_03_01.PutObjectAcl
-        , Network.AWS.S3.V2006_03_01.PutObjectCopy
+        , Network.AWS.S3.V2006_03_01.RestoreObject
         , Network.AWS.S3.V2006_03_01.UploadPart
         , Network.AWS.S3.V2006_03_01.UploadPartCopy
 

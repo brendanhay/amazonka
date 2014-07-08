@@ -5,7 +5,7 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Module      : Network.AWS.S3.V2006_03_01.DeleteMultipleObjects
+-- Module      : Network.AWS.S3.V2006_03_01.DeleteObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -17,7 +17,7 @@
 
 -- | This operation enables you to delete multiple objects from a bucket using a
 -- single HTTP request. You may specify up to 1000 keys.
-module Network.AWS.S3.V2006_03_01.DeleteMultipleObjects where
+module Network.AWS.S3.V2006_03_01.DeleteObjects where
 
 import           Data.ByteString     (ByteString)
 import           Data.Default
@@ -35,17 +35,17 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
 -- | Smart constructor utilising default fields to
--- specify the minimum viable DeleteMultipleObjects request.
-deleteMultipleObjects :: Delete -- ^ 'dorDelete'
-                      -> BucketName -- ^ 'dorBucket'
-                      -> DeleteMultipleObjects
-deleteMultipleObjects p1 p2 = DeleteMultipleObjects
+-- specify the minimum viable DeleteObjects request.
+deleteObjects :: Delete -- ^ 'dorDelete'
+              -> BucketName -- ^ 'dorBucket'
+              -> DeleteObjects
+deleteObjects p1 p2 = DeleteObjects
     { dorDelete = p1
     , dorBucket = p2
     , dorMFA = Nothing
     }
 
-data DeleteMultipleObjects = DeleteMultipleObjects
+data DeleteObjects = DeleteObjects
     { dorDelete :: Delete
     , dorBucket :: BucketName
     , dorMFA :: Maybe Text
@@ -54,29 +54,29 @@ data DeleteMultipleObjects = DeleteMultipleObjects
       -- device.
     } deriving (Eq, Show, Generic)
 
-instance ToPath DeleteMultipleObjects where
-    toPath DeleteMultipleObjects{..} = mconcat
+instance ToPath DeleteObjects where
+    toPath DeleteObjects{..} = mconcat
         [ "/"
         , toBS dorBucket
         ]
 
-instance ToQuery DeleteMultipleObjects
+instance ToQuery DeleteObjects
 
-instance ToHeaders DeleteMultipleObjects where
-    toHeaders DeleteMultipleObjects{..} = concat
+instance ToHeaders DeleteObjects where
+    toHeaders DeleteObjects{..} = concat
         [ "x-amz-mfa" =: dorMFA
         ]
 
-instance ToBody DeleteMultipleObjects where
+instance ToBody DeleteObjects where
     toBody = undefined -- toBody . dorDelete
 
-instance AWSRequest DeleteMultipleObjects where
-    type Sv DeleteMultipleObjects = S3
+instance AWSRequest DeleteObjects where
+    type Sv DeleteObjects = S3
 
     request  = post
     response = response' $
 
-data instance Rs DeleteMultipleObjects = DeleteMultipleObjectsResponse
+data instance Rs DeleteObjects = DeleteObjectsResponse
     { dooDeleted :: [DeletedObject]
     , dooErrors :: [Error]
     } deriving (Eq, Show, Generic)

@@ -5,7 +5,7 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Module      : Network.AWS.S3.V2006_03_01.GetService
+-- Module      : Network.AWS.S3.V2006_03_01.ListBuckets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -17,7 +17,7 @@
 
 -- | Returns a list of all buckets owned by the authenticated sender of the
 -- request.
-module Network.AWS.S3.V2006_03_01.GetService where
+module Network.AWS.S3.V2006_03_01.ListBuckets where
 
 import           Data.ByteString     (ByteString)
 import           Data.Default
@@ -35,29 +35,29 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
 -- | Smart constructor utilising default fields to
--- specify the minimum viable GetService request.
-getService :: GetService
-getService = GetService
+-- specify the minimum viable ListBuckets request.
+listBuckets :: ListBuckets
+listBuckets = ListBuckets
 
-data GetService = GetService
+data ListBuckets = ListBuckets
     deriving (Eq, Show, Generic)
 
-instance ToPath GetService where
+instance ToPath ListBuckets where
     toPath = const "/"
 
-instance ToQuery GetService
+instance ToQuery ListBuckets
 
-instance ToHeaders GetService
+instance ToHeaders ListBuckets
 
-instance ToBody GetService
+instance ToBody ListBuckets
 
-instance AWSRequest GetService where
-    type Sv GetService = S3
+instance AWSRequest ListBuckets where
+    type Sv ListBuckets = S3
 
     request  = get
     response = response' $
 
-data instance Rs GetService = GetServiceResponse
+data instance Rs ListBuckets = ListBucketsResponse
     { lboBuckets :: [Bucket]
     , lboOwner :: Maybe Owner
     } deriving (Eq, Show, Generic)

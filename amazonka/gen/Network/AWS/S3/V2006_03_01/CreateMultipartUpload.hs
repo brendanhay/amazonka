@@ -5,7 +5,7 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Module      : Network.AWS.S3.V2006_03_01.InitiateMultipartUpload
+-- Module      : Network.AWS.S3.V2006_03_01.CreateMultipartUpload
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -21,7 +21,7 @@
 -- storage of the uploaded parts. Only after you either complete or abort
 -- multipart upload, Amazon S3 frees up the parts storage and stops charging
 -- you for the parts storage.
-module Network.AWS.S3.V2006_03_01.InitiateMultipartUpload where
+module Network.AWS.S3.V2006_03_01.CreateMultipartUpload where
 
 import           Data.ByteString     (ByteString)
 import           Data.Default
@@ -39,11 +39,11 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
 -- | Smart constructor utilising default fields to
--- specify the minimum viable InitiateMultipartUpload request.
-initiateMultipartUpload :: BucketName -- ^ 'cmurBucket'
-                        -> ObjectKey -- ^ 'cmurKey'
-                        -> InitiateMultipartUpload
-initiateMultipartUpload p1 p2 = InitiateMultipartUpload
+-- specify the minimum viable CreateMultipartUpload request.
+createMultipartUpload :: BucketName -- ^ 'cmurBucket'
+                      -> ObjectKey -- ^ 'cmurKey'
+                      -> CreateMultipartUpload
+createMultipartUpload p1 p2 = CreateMultipartUpload
     { cmurBucket = p1
     , cmurKey = p2
     , cmurMetadata = mempty
@@ -66,7 +66,7 @@ initiateMultipartUpload p1 p2 = InitiateMultipartUpload
     , cmurWebsiteRedirectLocation = Nothing
     }
 
-data InitiateMultipartUpload = InitiateMultipartUpload
+data CreateMultipartUpload = CreateMultipartUpload
     { cmurBucket :: BucketName
     , cmurKey :: ObjectKey
     , cmurMetadata :: HashMap Text Text
@@ -124,18 +124,18 @@ data InitiateMultipartUpload = InitiateMultipartUpload
       -- object metadata.
     } deriving (Eq, Show, Generic)
 
-instance ToPath InitiateMultipartUpload where
-    toPath InitiateMultipartUpload{..} = mconcat
+instance ToPath CreateMultipartUpload where
+    toPath CreateMultipartUpload{..} = mconcat
         [ "/"
         , toBS cmurBucket
         , "/"
         , toBS cmurKey
         ]
 
-instance ToQuery InitiateMultipartUpload
+instance ToQuery CreateMultipartUpload
 
-instance ToHeaders InitiateMultipartUpload where
-    toHeaders InitiateMultipartUpload{..} = concat
+instance ToHeaders CreateMultipartUpload where
+    toHeaders CreateMultipartUpload{..} = concat
         [ "x-amz-meta-" =: cmurMetadata
         , "Cache-Control" =: cmurCacheControl
         , "Content-Disposition" =: cmurContentDisposition
@@ -156,15 +156,15 @@ instance ToHeaders InitiateMultipartUpload where
         , "x-amz-website-redirect-location" =: cmurWebsiteRedirectLocation
         ]
 
-instance ToBody InitiateMultipartUpload
+instance ToBody CreateMultipartUpload
 
-instance AWSRequest InitiateMultipartUpload where
-    type Sv InitiateMultipartUpload = S3
+instance AWSRequest CreateMultipartUpload where
+    type Sv CreateMultipartUpload = S3
 
     request  = post
     response = response' $
 
-data instance Rs InitiateMultipartUpload = InitiateMultipartUploadResponse
+data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName
       -- ^ Name of the bucket to which the multipart upload was initiated.
     , cmuoUploadId :: Maybe Text

@@ -44,7 +44,7 @@ current = mapMaybe latest . groupBy identical
     latest xs = Just . head $ sortBy (comparing _svcVersion) xs
 
 operation :: Service -> Operation -> Operation
-operation Service{..} o' = o
+operation Service{..} o = o
     & opService          .~ _svcName
     & opNamespace        .~ _svcVersionNamespace <> NS [_opName o]
     & opTypesNamespace   .~ _svcTypesNamespace
@@ -53,8 +53,6 @@ operation Service{..} o' = o
     & opRequest          %~ request  _svcTimestamp o
     & opResponse         %~ response _svcTimestamp o
     & opPagination       %~ pagination o
-  where
-    o = o' & opName .~ fromMaybe (o' ^. opName) (o' ^. opAlias)
 
 request :: Time -> Operation -> Request -> Request
 request t o rq = rq

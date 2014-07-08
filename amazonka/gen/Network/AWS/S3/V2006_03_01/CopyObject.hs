@@ -5,7 +5,7 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Module      : Network.AWS.S3.V2006_03_01.PutObjectCopy
+-- Module      : Network.AWS.S3.V2006_03_01.CopyObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,7 +16,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a copy of an object that is already stored in Amazon S3.
-module Network.AWS.S3.V2006_03_01.PutObjectCopy where
+module Network.AWS.S3.V2006_03_01.CopyObject where
 
 import           Data.ByteString     (ByteString)
 import           Data.Default
@@ -34,12 +34,12 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
 -- | Smart constructor utilising default fields to
--- specify the minimum viable PutObjectCopy request.
-putObjectCopy :: Text -- ^ 'corCopySource'
-              -> BucketName -- ^ 'corBucket'
-              -> ObjectKey -- ^ 'corKey'
-              -> PutObjectCopy
-putObjectCopy p1 p2 p3 = PutObjectCopy
+-- specify the minimum viable CopyObject request.
+copyObject :: Text -- ^ 'corCopySource'
+           -> BucketName -- ^ 'corBucket'
+           -> ObjectKey -- ^ 'corKey'
+           -> CopyObject
+copyObject p1 p2 p3 = CopyObject
     { corCopySource = p1
     , corBucket = p2
     , corKey = p3
@@ -71,7 +71,7 @@ putObjectCopy p1 p2 p3 = PutObjectCopy
     , corWebsiteRedirectLocation = Nothing
     }
 
-data PutObjectCopy = PutObjectCopy
+data CopyObject = CopyObject
     { corCopySource :: Text
       -- ^ The name of the source bucket and key name of the source object,
       -- separated by a slash (/). Must be URL-encoded.
@@ -159,18 +159,18 @@ data PutObjectCopy = PutObjectCopy
       -- object metadata.
     } deriving (Eq, Show, Generic)
 
-instance ToPath PutObjectCopy where
-    toPath PutObjectCopy{..} = mconcat
+instance ToPath CopyObject where
+    toPath CopyObject{..} = mconcat
         [ "/"
         , toBS corBucket
         , "/"
         , toBS corKey
         ]
 
-instance ToQuery PutObjectCopy
+instance ToQuery CopyObject
 
-instance ToHeaders PutObjectCopy where
-    toHeaders PutObjectCopy{..} = concat
+instance ToHeaders CopyObject where
+    toHeaders CopyObject{..} = concat
         [ "x-amz-copy-source" =: corCopySource
         , "x-amz-meta-" =: corMetadata
         , "Cache-Control" =: corCacheControl
@@ -200,15 +200,15 @@ instance ToHeaders PutObjectCopy where
         , "x-amz-website-redirect-location" =: corWebsiteRedirectLocation
         ]
 
-instance ToBody PutObjectCopy
+instance ToBody CopyObject
 
-instance AWSRequest PutObjectCopy where
-    type Sv PutObjectCopy = S3
+instance AWSRequest CopyObject where
+    type Sv CopyObject = S3
 
     request  = put
     response = response' $
 
-data instance Rs PutObjectCopy = PutObjectCopyResponse
+data instance Rs CopyObject = CopyObjectResponse
     { cooCopyObjectResult :: Maybe CopyObjectResult
     , cooCopySourceVersionId :: Maybe Text
     , cooExpiration :: Maybe RFC822

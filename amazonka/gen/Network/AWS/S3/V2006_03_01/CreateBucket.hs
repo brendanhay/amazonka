@@ -5,7 +5,7 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Module      : Network.AWS.S3.V2006_03_01.PutBucket
+-- Module      : Network.AWS.S3.V2006_03_01.CreateBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,7 +16,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new bucket.
-module Network.AWS.S3.V2006_03_01.PutBucket where
+module Network.AWS.S3.V2006_03_01.CreateBucket where
 
 import           Data.ByteString     (ByteString)
 import           Data.Default
@@ -34,11 +34,11 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
 -- | Smart constructor utilising default fields to
--- specify the minimum viable PutBucket request.
-putBucket :: BucketName -- ^ 'cbrBucket'
-          -> CreateBucketConfiguration -- ^ 'cbrCreateBucketConfiguration'
-          -> PutBucket
-putBucket p1 p2 = PutBucket
+-- specify the minimum viable CreateBucket request.
+createBucket :: BucketName -- ^ 'cbrBucket'
+             -> CreateBucketConfiguration -- ^ 'cbrCreateBucketConfiguration'
+             -> CreateBucket
+createBucket p1 p2 = CreateBucket
     { cbrBucket = p1
     , cbrCreateBucketConfiguration = p2
     , cbrACL = Nothing
@@ -49,7 +49,7 @@ putBucket p1 p2 = PutBucket
     , cbrGrantWriteACP = Nothing
     }
 
-data PutBucket = PutBucket
+data CreateBucket = CreateBucket
     { cbrBucket :: BucketName
     , cbrCreateBucketConfiguration :: CreateBucketConfiguration
     , cbrACL :: Maybe BucketCannedACL
@@ -68,16 +68,16 @@ data PutBucket = PutBucket
       -- ^ Allows grantee to write the ACL for the applicable bucket.
     } deriving (Eq, Show, Generic)
 
-instance ToPath PutBucket where
-    toPath PutBucket{..} = mconcat
+instance ToPath CreateBucket where
+    toPath CreateBucket{..} = mconcat
         [ "/"
         , toBS cbrBucket
         ]
 
-instance ToQuery PutBucket
+instance ToQuery CreateBucket
 
-instance ToHeaders PutBucket where
-    toHeaders PutBucket{..} = concat
+instance ToHeaders CreateBucket where
+    toHeaders CreateBucket{..} = concat
         [ "x-amz-acl" =: cbrACL
         , "x-amz-grant-full-control" =: cbrGrantFullControl
         , "x-amz-grant-read" =: cbrGrantRead
@@ -86,15 +86,15 @@ instance ToHeaders PutBucket where
         , "x-amz-grant-write-acp" =: cbrGrantWriteACP
         ]
 
-instance ToBody PutBucket where
+instance ToBody CreateBucket where
     toBody = undefined -- toBody . cbrCreateBucketConfiguration
 
-instance AWSRequest PutBucket where
-    type Sv PutBucket = S3
+instance AWSRequest CreateBucket where
+    type Sv CreateBucket = S3
 
     request  = put
-fromList [("payload",Null),("name",String "PutBucketResponse"),("shape",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",String "CreateBucketOutput"),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",String "CreateBucketOutput"),("documentation",Null),("location_name",String "CreateBucketOutput"),("xml_name",String "CreateBucketOutput")]),("location_name",String "CreateBucketOutput"),("xml_name",String "CreateBucketOutput"),("fields",Object fromList [("Location",Object fromList [("streaming",Bool False),("location",String "header"),("pattern",Null),("required",Bool False),("min_length",Number 0.0),("max_length",Number 0.0),("name",String "Location"),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "header"),("required",Bool False),("name",String "Location"),("documentation",Null),("location_name",String "Location"),("xml_name",String "Location")]),("location_name",String "Location"),("type",String "Text"),("xml_name",String "Location")])])]),("fields",Array (fromList [Object fromList [("streaming",Bool False),("location",String "header"),("default",Bool False),("monoid",Bool False),("required",Bool False),("name",String "Location"),("documentation",Null),("location_name",String "Location"),("type",String "Maybe Text"),("xml_name",String "Location"),("prefixed",String "cboLocation")]]))]
+fromList [("payload",Null),("name",String "CreateBucketResponse"),("shape",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",String "CreateBucketOutput"),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",String "CreateBucketOutput"),("documentation",Null),("location_name",String "CreateBucketOutput"),("xml_name",String "CreateBucketOutput")]),("location_name",String "CreateBucketOutput"),("xml_name",String "CreateBucketOutput"),("fields",Object fromList [("Location",Object fromList [("streaming",Bool False),("location",String "header"),("pattern",Null),("required",Bool False),("min_length",Number 0.0),("max_length",Number 0.0),("name",String "Location"),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "header"),("required",Bool False),("name",String "Location"),("documentation",Null),("location_name",String "Location"),("xml_name",String "Location")]),("location_name",String "Location"),("type",String "Text"),("xml_name",String "Location")])])]),("fields",Array (fromList [Object fromList [("streaming",Bool False),("location",String "header"),("default",Bool False),("monoid",Bool False),("required",Bool False),("name",String "Location"),("documentation",Null),("location_name",String "Location"),("type",String "Maybe Text"),("xml_name",String "Location"),("prefixed",String "cboLocation")]]))]
 
-data instance Rs PutBucket = PutBucketResponse
+data instance Rs CreateBucket = CreateBucketResponse
     { cboLocation :: Maybe Text
     } deriving (Eq, Show, Generic)

@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable UploadPartCopy request.
+
+-- | Default UploadPartCopy request.
 uploadPartCopy :: Text -- ^ 'upcrCopySource'
                -> BucketName -- ^ 'upcrBucket'
                -> Text -- ^ 'upcrUploadId'
@@ -152,7 +152,7 @@ instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
 
     request  = put
-    response = response' $
+    response = response' $ \
 
 data instance Rs UploadPartCopy = UploadPartCopyResponse
     { upcoCopyPartResult :: Maybe CopyPartResult

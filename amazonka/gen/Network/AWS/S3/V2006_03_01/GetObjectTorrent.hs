@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetObjectTorrent request.
+
+-- | Default GetObjectTorrent request.
 getObjectTorrent :: BucketName -- ^ 'gotrBucket'
                  -> ObjectKey -- ^ 'gotrKey'
                  -> GetObjectTorrent
@@ -66,7 +66,7 @@ instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetObjectTorrent = GetObjectTorrentResponse
     { gotoBody :: Maybe ByteString

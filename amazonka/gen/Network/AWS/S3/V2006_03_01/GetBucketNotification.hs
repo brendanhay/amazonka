@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketNotification request.
+
+-- | Default GetBucketNotification request.
 getBucketNotification :: BucketName -- ^ 'gbnrBucket'
                       -> GetBucketNotification
 getBucketNotification p1 = GetBucketNotification
@@ -61,7 +61,7 @@ instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetBucketNotification = GetBucketNotificationResponse
     { gbnoTopicConfiguration :: Maybe TopicConfiguration

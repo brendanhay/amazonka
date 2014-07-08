@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketWebsite request.
+
+-- | Default GetBucketWebsite request.
 getBucketWebsite :: BucketName -- ^ 'gbwrBucket'
                  -> GetBucketWebsite
 getBucketWebsite p1 = GetBucketWebsite
@@ -61,7 +61,7 @@ instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
     { gbwoErrorDocument :: Maybe ErrorDocument

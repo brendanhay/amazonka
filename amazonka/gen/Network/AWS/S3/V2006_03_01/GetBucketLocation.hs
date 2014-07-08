@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketLocation request.
+
+-- | Default GetBucketLocation request.
 getBucketLocation :: BucketName -- ^ 'gblrBucket'
                   -> GetBucketLocation
 getBucketLocation p1 = GetBucketLocation
@@ -61,7 +61,7 @@ instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetBucketLocation = GetBucketLocationResponse
     { gbloLocationConstraint :: Maybe BucketLocationConstraint

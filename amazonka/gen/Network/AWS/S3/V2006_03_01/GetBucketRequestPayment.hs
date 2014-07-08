@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketRequestPayment request.
+
+-- | Default GetBucketRequestPayment request.
 getBucketRequestPayment :: BucketName -- ^ 'gbrprBucket'
                         -> GetBucketRequestPayment
 getBucketRequestPayment p1 = GetBucketRequestPayment
@@ -61,7 +61,7 @@ instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
     { gbrpoPayer :: Maybe Payer

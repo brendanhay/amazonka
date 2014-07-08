@@ -33,8 +33,10 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable CreateBucket request.
+type PutBucket = CreateBucket
+type PutBucketResponse = Rs CreateBucket
+
+-- | Default CreateBucket request.
 createBucket :: BucketName -- ^ 'cbrBucket'
              -> CreateBucketConfiguration -- ^ 'cbrCreateBucketConfiguration'
              -> CreateBucket
@@ -93,7 +95,7 @@ instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
 
     request  = put
-fromList [("payload",Null),("name",String "CreateBucketResponse"),("shape",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",String "CreateBucketOutput"),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",String "CreateBucketOutput"),("documentation",Null),("location_name",String "CreateBucketOutput"),("xml_name",String "CreateBucketOutput")]),("location_name",String "CreateBucketOutput"),("xml_name",String "CreateBucketOutput"),("fields",Object fromList [("Location",Object fromList [("streaming",Bool False),("location",String "header"),("pattern",Null),("required",Bool False),("min_length",Number 0.0),("max_length",Number 0.0),("name",String "Location"),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "header"),("required",Bool False),("name",String "Location"),("documentation",Null),("location_name",String "Location"),("xml_name",String "Location")]),("location_name",String "Location"),("type",String "Text"),("xml_name",String "Location")])])]),("fields",Array (fromList [Object fromList [("streaming",Bool False),("location",String "header"),("default",Bool False),("monoid",Bool False),("required",Bool False),("name",String "Location"),("documentation",Null),("location_name",String "Location"),("type",String "Maybe Text"),("xml_name",String "Location"),("prefixed",String "cboLocation")]]))]
+    response =
 
 data instance Rs CreateBucket = CreateBucketResponse
     { cboLocation :: Maybe Text

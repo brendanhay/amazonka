@@ -38,8 +38,10 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable CreateMultipartUpload request.
+type InitiateMultipartUpload = CreateMultipartUpload
+type InitiateMultipartUploadResponse = Rs CreateMultipartUpload
+
+-- | Default CreateMultipartUpload request.
 createMultipartUpload :: BucketName -- ^ 'cmurBucket'
                       -> ObjectKey -- ^ 'cmurKey'
                       -> CreateMultipartUpload
@@ -162,7 +164,7 @@ instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
 
     request  = post
-    response = response' $
+    response = response' $ \
 
 data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName

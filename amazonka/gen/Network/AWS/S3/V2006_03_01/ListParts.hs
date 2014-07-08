@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable ListParts request.
+
+-- | Default ListParts request.
 listParts :: BucketName -- ^ 'lprBucket'
           -> Text -- ^ 'lprUploadId'
           -> ObjectKey -- ^ 'lprKey'
@@ -78,7 +78,7 @@ instance AWSRequest ListParts where
     type Sv ListParts = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 instance AWSPager ListParts where
     next rq rs

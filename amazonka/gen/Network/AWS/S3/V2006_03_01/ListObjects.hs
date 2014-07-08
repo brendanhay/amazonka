@@ -35,8 +35,10 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable ListObjects request.
+type GetBucket = ListObjects
+type GetBucketResponse = Rs ListObjects
+
+-- | Default ListObjects request.
 listObjects :: BucketName -- ^ 'lorBucket'
             -> ListObjects
 listObjects p1 = ListObjects
@@ -85,7 +87,7 @@ instance AWSRequest ListObjects where
     type Sv ListObjects = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 instance AWSPager ListObjects where
     next rq rs

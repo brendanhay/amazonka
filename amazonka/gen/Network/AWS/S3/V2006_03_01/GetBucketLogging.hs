@@ -34,8 +34,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketLogging request.
+
+-- | Default GetBucketLogging request.
 getBucketLogging :: BucketName -- ^ 'gblrBucket'
                  -> GetBucketLogging
 getBucketLogging p1 = GetBucketLogging
@@ -62,7 +62,7 @@ instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetBucketLogging = GetBucketLoggingResponse
     { gbloLoggingEnabled :: Maybe LoggingEnabled

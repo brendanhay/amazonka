@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable ListMultipartUploads request.
+
+-- | Default ListMultipartUploads request.
 listMultipartUploads :: BucketName -- ^ 'lmurBucket'
                      -> ListMultipartUploads
 listMultipartUploads p1 = ListMultipartUploads
@@ -91,7 +91,7 @@ instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 instance AWSPager ListMultipartUploads where
     next rq rs

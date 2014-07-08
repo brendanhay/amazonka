@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketAcl request.
+
+-- | Default GetBucketAcl request.
 getBucketAcl :: BucketName -- ^ 'gbarBucket'
              -> GetBucketAcl
 getBucketAcl p1 = GetBucketAcl
@@ -61,7 +61,7 @@ instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetBucketAcl = GetBucketAclResponse
     { gbaoGrants :: [Grant]

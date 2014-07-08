@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable DeleteBucketWebsite request.
+
+-- | Default DeleteBucketWebsite request.
 deleteBucketWebsite :: BucketName -- ^ 'dbwrBucket'
                     -> DeleteBucketWebsite
 deleteBucketWebsite p1 = DeleteBucketWebsite
@@ -61,7 +61,7 @@ instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
 
     request  = delete
-fromList [("payload",Null),("name",String "DeleteBucketWebsiteResponse"),("shape",Object fromList [("streaming",Bool False),("location",String "body"),("pattern",Null),("required",Bool False),("min_length",Number 0.0),("max_length",Number 0.0),("name",Null),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",Null),("documentation",Null),("location_name",Null),("xml_name",Null)]),("location_name",Null),("type",String "Text"),("xml_name",Null)]),("fields",Array (fromList []))]
+    response =
 
 data instance Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
     deriving (Eq, Show, Generic)

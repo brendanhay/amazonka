@@ -33,8 +33,10 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable CopyObject request.
+type PutObjectCopy = CopyObject
+type PutObjectCopyResponse = Rs CopyObject
+
+-- | Default CopyObject request.
 copyObject :: Text -- ^ 'corCopySource'
            -> BucketName -- ^ 'corBucket'
            -> ObjectKey -- ^ 'corKey'
@@ -206,7 +208,7 @@ instance AWSRequest CopyObject where
     type Sv CopyObject = S3
 
     request  = put
-    response = response' $
+    response = response' $ \
 
 data instance Rs CopyObject = CopyObjectResponse
     { cooCopyObjectResult :: Maybe CopyObjectResult

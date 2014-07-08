@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetObject request.
+
+-- | Default GetObject request.
 getObject :: BucketName -- ^ 'gorBucket'
           -> ObjectKey -- ^ 'gorKey'
           -> GetObject
@@ -136,7 +136,7 @@ instance AWSRequest GetObject where
     type Sv GetObject = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetObject = GetObjectResponse
     { gooBody :: Maybe ByteString

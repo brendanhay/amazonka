@@ -35,8 +35,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable DeleteObject request.
+
+-- | Default DeleteObject request.
 deleteObject :: BucketName -- ^ 'dorBucket'
              -> ObjectKey -- ^ 'dorKey'
              -> DeleteObject
@@ -79,7 +79,7 @@ instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
 
     request  = delete
-fromList [("payload",Null),("name",String "DeleteObjectResponse"),("shape",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",String "DeleteObjectOutput"),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",String "DeleteObjectOutput"),("documentation",Null),("location_name",String "DeleteObjectOutput"),("xml_name",String "DeleteObjectOutput")]),("location_name",String "DeleteObjectOutput"),("xml_name",String "DeleteObjectOutput"),("fields",Object fromList [("VersionId",Object fromList [("streaming",Bool False),("location",String "header"),("pattern",Null),("required",Bool False),("min_length",Number 0.0),("max_length",Number 0.0),("name",String "ObjectVersionId"),("documentation",String "Returns the version ID of the delete marker created as a result of the DELETE operation."),("common",Object fromList [("streaming",Bool False),("location",String "header"),("required",Bool False),("name",String "ObjectVersionId"),("documentation",String "Returns the version ID of the delete marker created as a result of the DELETE operation."),("location_name",String "x-amz-version-id"),("xml_name",String "ObjectVersionId")]),("location_name",String "x-amz-version-id"),("type",String "Text"),("xml_name",String "ObjectVersionId")]),("DeleteMarker",Object fromList [("streaming",Bool False),("location",String "header"),("pattern",Null),("required",Bool False),("min_length",Number 0.0),("max_length",Number 0.0),("name",String "DeleteMarker"),("documentation",String "Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker."),("common",Object fromList [("streaming",Bool False),("location",String "header"),("required",Bool False),("name",String "DeleteMarker"),("documentation",String "Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker."),("location_name",String "x-amz-delete-marker"),("xml_name",String "DeleteMarker")]),("location_name",String "x-amz-delete-marker"),("type",String "Bool"),("xml_name",String "DeleteMarker")])])]),("fields",Array (fromList [Object fromList [("streaming",Bool False),("location",String "header"),("default",Bool False),("monoid",Bool False),("required",Bool False),("name",String "DeleteMarker"),("documentation",String "Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker."),("location_name",String "x-amz-delete-marker"),("type",String "Maybe Bool"),("xml_name",String "DeleteMarker"),("prefixed",String "dooDeleteMarker")],Object fromList [("streaming",Bool False),("location",String "header"),("default",Bool False),("monoid",Bool False),("required",Bool False),("name",String "ObjectVersionId"),("documentation",String "Returns the version ID of the delete marker created as a result of the DELETE operation."),("location_name",String "x-amz-version-id"),("type",String "Maybe ObjectVersionId"),("xml_name",String "ObjectVersionId"),("prefixed",String "dooVersionId")]]))]
+    response =
 
 data instance Rs DeleteObject = DeleteObjectResponse
     { dooDeleteMarker :: Maybe Bool

@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketPolicy request.
+
+-- | Default GetBucketPolicy request.
 getBucketPolicy :: BucketName -- ^ 'gbprBucket'
                 -> GetBucketPolicy
 getBucketPolicy p1 = GetBucketPolicy
@@ -61,7 +61,7 @@ instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetBucketPolicy = GetBucketPolicyResponse
     { gbpoPolicy :: Maybe Text

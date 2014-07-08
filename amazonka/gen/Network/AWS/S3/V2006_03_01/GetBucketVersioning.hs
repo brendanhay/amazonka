@@ -33,8 +33,8 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable GetBucketVersioning request.
+
+-- | Default GetBucketVersioning request.
 getBucketVersioning :: BucketName -- ^ 'gbvrBucket'
                     -> GetBucketVersioning
 getBucketVersioning p1 = GetBucketVersioning
@@ -61,7 +61,7 @@ instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
 
     request  = get
-    response = response' $
+    response = response' $ \
 
 data instance Rs GetBucketVersioning = GetBucketVersioningResponse
     { gbvoStatus :: Maybe (Switch BucketVersioningStatus)

@@ -34,8 +34,10 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
--- | Smart constructor utilising default fields to
--- specify the minimum viable DeleteObjects request.
+type DeleteMultipleObjects = DeleteObjects
+type DeleteMultipleObjectsResponse = Rs DeleteObjects
+
+-- | Default DeleteObjects request.
 deleteObjects :: Delete -- ^ 'dorDelete'
               -> BucketName -- ^ 'dorBucket'
               -> DeleteObjects
@@ -74,7 +76,7 @@ instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
 
     request  = post
-    response = response' $
+    response = response' $ \
 
 data instance Rs DeleteObjects = DeleteObjectsResponse
     { dooDeleted :: [DeletedObject]

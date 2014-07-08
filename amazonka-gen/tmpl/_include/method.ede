@@ -1,5 +1,4 @@
--- | Smart constructor utilising default fields to
--- specify the minimum viable {{ scope.name }} request.
+-- | Default {{ scope.name }} request.
 {% for field in scope.required %}
   {% if field.first %}
 {{ scope.default }} :: {{ field.value.type }} -- ^ '{{ field.value.prefixed }}'

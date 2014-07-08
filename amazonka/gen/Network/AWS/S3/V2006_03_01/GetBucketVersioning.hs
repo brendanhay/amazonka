@@ -61,7 +61,7 @@ instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketVersioning = GetBucketVersioningResponse
     { gbvoStatus :: Maybe (Switch BucketVersioningStatus)

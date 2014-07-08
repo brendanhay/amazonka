@@ -70,7 +70,7 @@ instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
 
     request  = put
-    response = response' undefined
+fromList [("payload",Null),("name",String "PutBucketNotificationResponse"),("shape",Object fromList [("streaming",Bool False),("location",String "body"),("pattern",Null),("required",Bool False),("min_length",Number 0.0),("max_length",Number 0.0),("name",Null),("documentation",Null),("common",Object fromList [("streaming",Bool False),("location",String "body"),("required",Bool False),("name",Null),("documentation",Null),("location_name",Null),("xml_name",Null)]),("location_name",Null),("type",String "Text"),("xml_name",Null)]),("fields",Array (fromList []))]
 
 data instance Rs PutBucketNotification = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)

@@ -344,9 +344,10 @@ data Request = Request
 makeLenses ''Request
 
 data Response = Response
-    { _rsName   :: Text
-    , _rsFields :: [Field]
-    , _rsShape  :: Shape
+    { _rsName    :: Text
+    , _rsFields  :: [Field]
+    , _rsPayload :: Maybe Field
+    , _rsShape   :: Shape
     } deriving (Eq, Show, Generic)
 
 makeLenses ''Response

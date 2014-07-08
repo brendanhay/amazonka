@@ -61,7 +61,7 @@ instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
     { gbwoErrorDocument :: Maybe ErrorDocument

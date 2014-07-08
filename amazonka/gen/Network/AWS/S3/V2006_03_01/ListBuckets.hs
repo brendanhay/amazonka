@@ -55,7 +55,7 @@ instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs ListBuckets = ListBucketsResponse
     { lboBuckets :: [Bucket]

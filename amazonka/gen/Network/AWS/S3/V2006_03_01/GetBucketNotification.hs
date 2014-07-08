@@ -61,7 +61,7 @@ instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketNotification = GetBucketNotificationResponse
     { gbnoTopicConfiguration :: Maybe TopicConfiguration

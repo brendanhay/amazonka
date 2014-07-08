@@ -69,7 +69,7 @@ instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetObjectAcl = GetObjectAclResponse
     { goaoGrants :: [Grant]

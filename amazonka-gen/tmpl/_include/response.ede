@@ -1,0 +1,5 @@
+{% if scope.response.payload %}
+    response = response' $
+{% else %}
+{{ scope.response | show }}
+{% endif %}

@@ -61,7 +61,7 @@ instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketLifecycle = GetBucketLifecycleResponse
     { gbloRules :: [Rule]

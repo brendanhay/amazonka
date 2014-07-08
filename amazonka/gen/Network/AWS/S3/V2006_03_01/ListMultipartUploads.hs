@@ -91,7 +91,7 @@ instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 instance AWSPager ListMultipartUploads where
     next rq rs

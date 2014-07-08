@@ -61,7 +61,7 @@ instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketCors = GetBucketCorsResponse
     { gbcoCORSRules :: [CORSRule]

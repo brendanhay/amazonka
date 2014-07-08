@@ -66,7 +66,7 @@ instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetObjectTorrent = GetObjectTorrentResponse
     { gotoBody :: Maybe ByteString

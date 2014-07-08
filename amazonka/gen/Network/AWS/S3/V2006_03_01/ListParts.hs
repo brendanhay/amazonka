@@ -78,7 +78,7 @@ instance AWSRequest ListParts where
     type Sv ListParts = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 instance AWSPager ListParts where
     next rq rs

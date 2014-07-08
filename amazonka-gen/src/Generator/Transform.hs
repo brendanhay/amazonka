@@ -44,7 +44,7 @@ current = mapMaybe latest . groupBy identical
     latest xs = Just . head $ sortBy (comparing _svcVersion) xs
 
 operation :: Service -> Operation -> Operation
-operation Service{..} o = o
+operation Service{..} o' = o
     & opService          .~ _svcName
     & opNamespace        .~ _svcVersionNamespace <> NS [_opName o]
     & opTypesNamespace   .~ _svcTypesNamespace
@@ -53,7 +53,8 @@ operation Service{..} o = o
     & opRequest          %~ request  _svcTimestamp o
     & opResponse         %~ response _svcTimestamp o
     & opPagination       %~ pagination o
-    & opName             .~ fromMaybe (o ^. opName) (o ^. opAlias)
+  where
+    o = o' & opName .~ fromMaybe (o' ^. opName) (o' ^. opAlias)
 
 request :: Time -> Operation -> Request -> Request
 request t o rq = rq
@@ -82,8 +83,12 @@ http p = hPath %~ map f
 
 response :: Time -> Operation -> Response -> Response
 response t o rs = rs
-    & rsName   .~ (o ^. opName) <> "Response"
-    & rsFields .~ (sort . fields False t $ rs ^. rsShape)
+    & rsName    .~ (o ^. opName) <> "Response"
+    & rsFields  .~ fs
+    & rsPayload .~ listToMaybe bdy
+  where
+    bdy = filter ((== LBody) . view cmnLocation) fs
+    fs  = sort . fields False t $ rs ^. rsShape
 
 pagination :: Operation -> Maybe Pagination -> Maybe Pagination
 pagination o = fmap go

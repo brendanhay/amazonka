@@ -62,7 +62,7 @@ instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketLogging = GetBucketLoggingResponse
     { gbloLoggingEnabled :: Maybe LoggingEnabled

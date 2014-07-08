@@ -61,7 +61,7 @@ instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketTagging = GetBucketTaggingResponse
     { gbtoTagSet :: [Tag]

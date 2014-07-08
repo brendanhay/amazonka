@@ -5,7 +5,7 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Module      : Network.AWS.S3.V2006_03_01.ListObjects
+-- Module      : Network.AWS.S3.V2006_03_01.GetBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -18,7 +18,7 @@
 -- | Returns some or all (up to 1000) of the objects in a bucket. You can use
 -- the request parameters as selection criteria to return a subset of the
 -- objects in a bucket.
-module Network.AWS.S3.V2006_03_01.ListObjects where
+module Network.AWS.S3.V2006_03_01.GetBucket where
 
 import           Data.ByteString     (ByteString)
 import           Data.Default
@@ -36,10 +36,10 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
 -- | Smart constructor utilising default fields to
--- specify the minimum viable ListObjects request.
-listObjects :: BucketName -- ^ 'lorBucket'
-            -> ListObjects
-listObjects p1 = ListObjects
+-- specify the minimum viable GetBucket request.
+getBucket :: BucketName -- ^ 'lorBucket'
+          -> GetBucket
+getBucket p1 = GetBucket
     { lorBucket = p1
     , lorDelimiter = Nothing
     , lorEncodingType = Nothing
@@ -48,7 +48,7 @@ listObjects p1 = ListObjects
     , lorPrefix = Nothing
     }
 
-data ListObjects = ListObjects
+data GetBucket = GetBucket
     { lorBucket :: BucketName
     , lorDelimiter :: Maybe Text
       -- ^ A delimiter is a character you use to group keys.
@@ -69,32 +69,32 @@ data ListObjects = ListObjects
       -- ^ Limits the response to keys that begin with the specified prefix.
     } deriving (Eq, Show, Generic)
 
-instance ToPath ListObjects where
-    toPath ListObjects{..} = mconcat
+instance ToPath GetBucket where
+    toPath GetBucket{..} = mconcat
         [ "/"
         , toBS lorBucket
         ]
 
-instance ToQuery ListObjects
+instance ToQuery GetBucket
 
-instance ToHeaders ListObjects
+instance ToHeaders GetBucket
 
-instance ToBody ListObjects
+instance ToBody GetBucket
 
-instance AWSRequest ListObjects where
-    type Sv ListObjects = S3
+instance AWSRequest GetBucket where
+    type Sv GetBucket = S3
 
     request  = get
     response = response' $
 
-instance AWSPager ListObjects where
+instance AWSPager GetBucket where
     next rq rs
         | not (looIsTruncated rs) = Nothing
         | otherwise = Just $ rq
             { lorMarker = fmap (toText . oKey) . listToMaybe $ looContents rs
             }
 
-data instance Rs ListObjects = ListObjectsResponse
+data instance Rs GetBucket = GetBucketResponse
     { looIsTruncated :: Bool
       -- ^ A flag that indicates whether or not Amazon S3 returned all of
       -- the results that satisfied the search criteria.

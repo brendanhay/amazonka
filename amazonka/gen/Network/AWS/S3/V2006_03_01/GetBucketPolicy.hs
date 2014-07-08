@@ -61,7 +61,7 @@ instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketPolicy = GetBucketPolicyResponse
     { gbpoPolicy :: Maybe Text

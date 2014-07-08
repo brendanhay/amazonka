@@ -61,7 +61,7 @@ instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetBucketAcl = GetBucketAclResponse
     { gbaoGrants :: [Grant]

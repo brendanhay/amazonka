@@ -152,7 +152,7 @@ instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
 
     request  = put
-    response = response' undefined
+    response = response' $
 
 data instance Rs UploadPartCopy = UploadPartCopyResponse
     { upcoCopyPartResult :: Maybe CopyPartResult

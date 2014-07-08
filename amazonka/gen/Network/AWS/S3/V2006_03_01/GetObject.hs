@@ -136,7 +136,7 @@ instance AWSRequest GetObject where
     type Sv GetObject = S3
 
     request  = get
-    response = response' undefined
+    response = response' $
 
 data instance Rs GetObject = GetObjectResponse
     { gooBody :: Maybe ByteString

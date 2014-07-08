@@ -73,7 +73,7 @@ instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
 
     request  = post
-    response = response' undefined
+    response = response' $
 
 data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName

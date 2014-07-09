@@ -69,10 +69,10 @@ instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetObjectAcl = GetObjectAclResponse
     { goaoGrants :: [Grant]
       -- ^ A list of grants.
     , goaoOwner :: Maybe Owner
     } deriving (Eq, Show, Generic)
+

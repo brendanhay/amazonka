@@ -73,3 +73,4 @@ instance AWSRequest GetObjectTorrent where
 data instance Rs GetObjectTorrent = GetObjectTorrentResponse
     { gotoBody :: Maybe ByteString
     } deriving (Eq, Show, Generic)
+

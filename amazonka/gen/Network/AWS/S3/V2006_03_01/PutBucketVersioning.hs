@@ -81,3 +81,4 @@ instance AWSRequest PutBucketVersioning where
 
 data instance Rs PutBucketVersioning = PutBucketVersioningResponse
     deriving (Eq, Show, Generic)
+

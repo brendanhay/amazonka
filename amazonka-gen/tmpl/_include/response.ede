@@ -1,22 +1,18 @@
-{% if scope.response.fields | listLength == 0 %}
+{% if scope.response.type /= "xml" %}
+  {% if scope.response.fields | listLength == 0 %}
     response = headerResponse . const $ Right {{ scope.response.name }}
-{% else %}
-  {% case scope.response.type %}
-  {% when "xml" %}
-    response = xmlResponse
-  {% when "headers" %}
+  {% else %}
+    {% case scope.response.type %}
+    {% when "headers" %}
     response = headerResponse $ \hs ->
         pure {{ scope.response.name }}
-    {% for field in scope.response.fields %}
-      {% if field.value.required %}
-            <*> hs ~:  "{{ field.value.location_name }}" hs
-      {% else %}
-            <*> hs ~:? "{{ field.value.location_name }}" hs
-      {% endif %}
-    {% endfor %}
-  {% when "body" %}
+    {% when "xml_mix" %}
+    response = xmlResponse $ \hs xml ->
+        pure {{ scope.response.name }}
+    {% when "body" %}
     response = bodyResponse $ \hs bdy ->
         return $! pure {{ scope.response.name }}
+    {% endcase %}
     {% for field in scope.response.fields %}
       {% case field.value.location %}
       {% when "header" %}
@@ -26,8 +22,16 @@
             <*> hs ~:? "{{ field.value.location_name }}"
         {% endif %}
       {% when "body" %}
+        {% if scope.response.type == "xml_mix" %}
+          {% if field.value.required %}
+            <*> xml %|  "{{ field.value.name }}"
+          {% else %}
+            <*> xml %|? "{{ field.value.name }}"
+          {% endif %}
+        {% else %}
             <*> pure bdy
+        {% endif %}
       {% endcase %}
     {% endfor %}
-  {% endcase %}
+  {% endif %}
 {% endif %}

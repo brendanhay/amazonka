@@ -61,8 +61,8 @@ instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketTagging = GetBucketTaggingResponse
     { gbtoTagSet :: [Tag]
     } deriving (Eq, Show, Generic)
+

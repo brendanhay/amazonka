@@ -61,9 +61,9 @@ instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketPolicy = GetBucketPolicyResponse
     { gbpoPolicy :: Maybe Text
       -- ^ The bucket policy as a JSON document.
     } deriving (Eq, Show, Generic)
+

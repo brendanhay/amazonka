@@ -61,8 +61,8 @@ instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketCors = GetBucketCorsResponse
     { gbcoCORSRules :: [CORSRule]
     } deriving (Eq, Show, Generic)
+

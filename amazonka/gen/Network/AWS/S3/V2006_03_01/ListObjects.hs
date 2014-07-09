@@ -88,7 +88,6 @@ instance AWSRequest ListObjects where
     type Sv ListObjects = S3
 
     request  = get
-    response = xmlResponse
 
 instance AWSPager ListObjects where
     next rq rs
@@ -121,3 +120,4 @@ data instance Rs ListObjects = ListObjectsResponse
     , looContents :: [Object]
     , looPrefix :: Maybe Text
     } deriving (Eq, Show, Generic)
+

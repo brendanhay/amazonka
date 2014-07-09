@@ -74,3 +74,4 @@ instance AWSRequest PutBucketTagging where
 
 data instance Rs PutBucketTagging = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)
+

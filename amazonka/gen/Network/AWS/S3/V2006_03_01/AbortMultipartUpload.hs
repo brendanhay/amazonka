@@ -75,3 +75,4 @@ instance AWSRequest AbortMultipartUpload where
 
 data instance Rs AbortMultipartUpload = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)
+

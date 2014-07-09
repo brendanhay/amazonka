@@ -55,7 +55,7 @@ clientRequest = def
     }
 
 data Error
-    = AWSError  String
+    = AWSError    String
     | ClientError ClientException
       deriving (Show, Typeable)
 
@@ -100,6 +100,8 @@ class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
     response :: MonadResource m
              => Either ClientException (ClientResponse m)
              -> m (Either (Er (Sv a)) (Rs a))
+
+    response = undefined
 
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a

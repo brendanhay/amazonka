@@ -89,7 +89,6 @@ instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
 
     request  = get
-    response = xmlResponse
 
 instance AWSPager ListObjectVersions where
     next rq rs
@@ -126,3 +125,4 @@ data instance Rs ListObjectVersions = ListObjectVersionsResponse
     , lovoPrefix :: Maybe Text
     , lovoVersionIdMarker :: Maybe Text
     } deriving (Eq, Show, Generic)
+

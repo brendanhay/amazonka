@@ -76,3 +76,4 @@ instance AWSRequest PutBucketPolicy where
 
 data instance Rs PutBucketPolicy = PutBucketPolicyResponse
     deriving (Eq, Show, Generic)
+

@@ -122,26 +122,26 @@ instance AWSRequest HeadObject where
     request  = head
     response = headerResponse $ \hs ->
         pure HeadObjectResponse
-            <*> hs ~:? "x-amz-meta-" hs
-            <*> hs ~:? "accept-ranges" hs
-            <*> hs ~:? "Cache-Control" hs
-            <*> hs ~:? "Content-Disposition" hs
-            <*> hs ~:? "Content-Encoding" hs
-            <*> hs ~:? "Content-Language" hs
-            <*> hs ~:? "Content-Length" hs
-            <*> hs ~:? "Content-Type" hs
-            <*> hs ~:? "x-amz-delete-marker" hs
-            <*> hs ~:? "ETag" hs
-            <*> hs ~:? "x-amz-expiration" hs
-            <*> hs ~:? "Expires" hs
-            <*> hs ~:? "Last-Modified" hs
-            <*> hs ~:? "x-amz-missing-meta" hs
-            <*> hs ~:? "x-amz-version-id" hs
-            <*> hs ~:? "x-amz-restore" hs
-            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm" hs
-            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5" hs
-            <*> hs ~:? "x-amz-server-side-encryption" hs
-            <*> hs ~:? "x-amz-website-redirect-location" hs
+            <*> hs ~:? "x-amz-meta-"
+            <*> hs ~:? "accept-ranges"
+            <*> hs ~:? "Cache-Control"
+            <*> hs ~:? "Content-Disposition"
+            <*> hs ~:? "Content-Encoding"
+            <*> hs ~:? "Content-Language"
+            <*> hs ~:? "Content-Length"
+            <*> hs ~:? "Content-Type"
+            <*> hs ~:? "x-amz-delete-marker"
+            <*> hs ~:? "ETag"
+            <*> hs ~:? "x-amz-expiration"
+            <*> hs ~:? "Expires"
+            <*> hs ~:? "Last-Modified"
+            <*> hs ~:? "x-amz-missing-meta"
+            <*> hs ~:? "x-amz-version-id"
+            <*> hs ~:? "x-amz-restore"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
+            <*> hs ~:? "x-amz-server-side-encryption"
+            <*> hs ~:? "x-amz-website-redirect-location"
 
 data instance Rs HeadObject = HeadObjectResponse
     { hooMetadata :: HashMap Text Text
@@ -206,3 +206,4 @@ data instance Rs HeadObject = HeadObjectResponse
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
     } deriving (Eq, Show, Generic)
+

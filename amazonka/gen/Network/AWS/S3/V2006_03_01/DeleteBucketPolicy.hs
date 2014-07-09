@@ -65,3 +65,4 @@ instance AWSRequest DeleteBucketPolicy where
 
 data instance Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
     deriving (Eq, Show, Generic)
+

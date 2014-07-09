@@ -61,10 +61,10 @@ instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketAcl = GetBucketAclResponse
     { gbaoGrants :: [Grant]
       -- ^ A list of grants.
     , gbaoOwner :: Maybe Owner
     } deriving (Eq, Show, Generic)
+

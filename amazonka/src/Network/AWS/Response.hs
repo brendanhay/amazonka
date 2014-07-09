@@ -43,18 +43,20 @@ import           Network.AWS.Data
 import           Network.AWS.Types
 import           Network.HTTP.Client
 import           Network.HTTP.Types
+import           Text.XML.Cursor
 
 headerResponse :: (ClientError e, Monad m)
-               => (ResponseHeaders -> Either e a)
+               => (ResponseHeaders -> Either String a)
                -> Either ClientException (ClientResponse m)
                -> m (Either e a)
-headerResponse f = bodyResponse $ \hs bdy ->
-    (bdy $$+- return ()) >> return (f hs)
+headerResponse f = bodyResponse $ \hs bdy -> undefined
+--    (bdy $$+- return ()) >> return ( `fmapL` f hs)
 
-xmlResponse :: (ClientError e, FromXML (ResponseHeaders -> Either String a), Monad m)
-            => Either ClientException (ClientResponse m)
+xmlResponse :: (ClientError e, FromXML a, Monad m)
+            => (ResponseHeaders -> Cursor -> Either String a)
+            -> Either ClientException (ClientResponse m)
             -> m (Either e a)
-xmlResponse = bodyResponse $ \hs bdy -> do
+xmlResponse f = bodyResponse $ \hs bdy -> do
     lbs <- bdy $$+- Conduit.sinkLbs
     undefined
 

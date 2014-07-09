@@ -81,8 +81,8 @@ instance AWSRequest DeleteObject where
     request  = delete
     response = headerResponse $ \hs ->
         pure DeleteObjectResponse
-            <*> hs ~:? "x-amz-delete-marker" hs
-            <*> hs ~:? "x-amz-version-id" hs
+            <*> hs ~:? "x-amz-delete-marker"
+            <*> hs ~:? "x-amz-version-id"
 
 data instance Rs DeleteObject = DeleteObjectResponse
     { dooDeleteMarker :: Maybe Bool
@@ -92,3 +92,4 @@ data instance Rs DeleteObject = DeleteObjectResponse
       -- ^ Returns the version ID of the delete marker created as a result
       -- of the DELETE operation.
     } deriving (Eq, Show, Generic)
+

@@ -152,7 +152,13 @@ instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
 
     request  = put
-    response = xmlResponse
+    response = xmlResponse $ \hs xml ->
+        pure UploadPartCopyResponse
+            <*> xml %|? "CopyPartResult"
+            <*> hs ~:? "x-amz-copy-source-version-id"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
+            <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs UploadPartCopy = UploadPartCopyResponse
     { upcoCopyPartResult :: Maybe CopyPartResult
@@ -172,3 +178,4 @@ data instance Rs UploadPartCopy = UploadPartCopyResponse
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Eq, Show, Generic)
+

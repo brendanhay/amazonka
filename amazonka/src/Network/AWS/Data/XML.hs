@@ -38,6 +38,16 @@ import qualified Data.Text.Encoding         as Text
 import           Data.Time
 import           GHC.Generics
 import           Text.XML
+import           Text.XML.Cursor
+import           Control.Error
+
+infixl 6 %|, %|?
+
+(%|) :: FromXML a => Cursor -> Text -> Either String a
+(%|) xml k = Left "not implemented"
+
+(%|?) :: FromXML a => Cursor -> Text -> Either String (Maybe a)
+(%|?) xml k = Right $ hush (xml %| k)
 
 decodeXML :: forall a. FromXML a => ByteString -> Either String a
 decodeXML = either failure success . parseLBS def

@@ -91,7 +91,6 @@ instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
 
     request  = get
-    response = xmlResponse
 
 instance AWSPager ListMultipartUploads where
     next rq rs
@@ -134,3 +133,4 @@ data instance Rs ListMultipartUploads = ListMultipartUploadsResponse
     , lmuoUploadIdMarker :: Maybe Text
       -- ^ Upload ID after which listing began.
     } deriving (Eq, Show, Generic)
+

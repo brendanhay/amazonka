@@ -79,3 +79,4 @@ instance AWSRequest RestoreObject where
 
 data instance Rs RestoreObject = RestoreObjectResponse
     deriving (Eq, Show, Generic)
+

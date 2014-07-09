@@ -165,7 +165,14 @@ instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
 
     request  = post
-    response = xmlResponse
+    response = xmlResponse $ \hs xml ->
+        pure CreateMultipartUploadResponse
+            <*> xml %|? "BucketName"
+            <*> xml %|? "MultipartUploadId"
+            <*> xml %|? "ObjectKey"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
+            <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName
@@ -187,3 +194,4 @@ data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Eq, Show, Generic)
+

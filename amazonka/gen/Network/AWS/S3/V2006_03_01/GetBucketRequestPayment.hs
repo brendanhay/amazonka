@@ -61,9 +61,9 @@ instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
     { gbrpoPayer :: Maybe Payer
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Eq, Show, Generic)
+

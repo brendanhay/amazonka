@@ -77,9 +77,9 @@ instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
 
     request  = post
-    response = xmlResponse
 
 data instance Rs DeleteObjects = DeleteObjectsResponse
     { dooDeleted :: [DeletedObject]
     , dooErrors :: [Error]
     } deriving (Eq, Show, Generic)
+

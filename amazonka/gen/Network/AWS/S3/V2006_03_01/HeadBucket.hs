@@ -66,3 +66,4 @@ instance AWSRequest HeadBucket where
 
 data instance Rs HeadBucket = HeadBucketResponse
     deriving (Eq, Show, Generic)
+

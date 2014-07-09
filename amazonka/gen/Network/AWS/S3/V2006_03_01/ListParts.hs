@@ -78,7 +78,6 @@ instance AWSRequest ListParts where
     type Sv ListParts = S3
 
     request  = get
-    response = xmlResponse
 
 instance AWSPager ListParts where
     next rq rs
@@ -112,3 +111,4 @@ data instance Rs ListParts = ListPartsResponse
     , lpoStorageClass :: Maybe StorageClass
       -- ^ The class of storage used to store the object.
     } deriving (Eq, Show, Generic)
+

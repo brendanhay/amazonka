@@ -350,12 +350,13 @@ makeLenses ''Request
 
 data RespType
     = RHeaders
+    | RXmlMix
     | RXml
     | RBody
       deriving (Eq, Show, Generic)
 
 instance Default RespType where
-    def = RXml
+    def = RXmlMix
 
 data Response = Response
     { _rsName    :: Text

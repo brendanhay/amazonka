@@ -77,3 +77,4 @@ instance AWSRequest PutBucketRequestPayment where
 
 data instance Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
     deriving (Eq, Show, Generic)
+

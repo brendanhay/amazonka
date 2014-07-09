@@ -74,3 +74,4 @@ instance AWSRequest PutBucketWebsite where
 
 data instance Rs PutBucketWebsite = PutBucketWebsiteResponse
     deriving (Eq, Show, Generic)
+

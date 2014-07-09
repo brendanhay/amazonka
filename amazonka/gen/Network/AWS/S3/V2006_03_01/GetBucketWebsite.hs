@@ -61,7 +61,6 @@ instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
     { gbwoErrorDocument :: Maybe ErrorDocument
@@ -69,3 +68,4 @@ data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
     , gbwoRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , gbwoRoutingRules :: [RoutingRule]
     } deriving (Eq, Show, Generic)
+

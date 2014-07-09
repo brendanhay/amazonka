@@ -61,8 +61,8 @@ instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketLocation = GetBucketLocationResponse
     { gbloLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Eq, Show, Generic)
+

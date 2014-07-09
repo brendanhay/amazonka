@@ -171,12 +171,12 @@ instance AWSRequest PutObject where
     request  = put
     response = headerResponse $ \hs ->
         pure PutObjectResponse
-            <*> hs ~:? "ETag" hs
-            <*> hs ~:? "x-amz-expiration" hs
-            <*> hs ~:? "x-amz-version-id" hs
-            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm" hs
-            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5" hs
-            <*> hs ~:? "x-amz-server-side-encryption" hs
+            <*> hs ~:? "ETag"
+            <*> hs ~:? "x-amz-expiration"
+            <*> hs ~:? "x-amz-version-id"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
+            <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs PutObject = PutObjectResponse
     { pooETag :: Maybe ETag
@@ -200,3 +200,4 @@ data instance Rs PutObject = PutObjectResponse
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Eq, Show, Generic)
+

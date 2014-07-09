@@ -65,3 +65,4 @@ instance AWSRequest DeleteBucketWebsite where
 
 data instance Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
     deriving (Eq, Show, Generic)
+

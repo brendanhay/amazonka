@@ -98,8 +98,9 @@ instance AWSRequest CreateBucket where
     request  = put
     response = headerResponse $ \hs ->
         pure CreateBucketResponse
-            <*> hs ~:? "Location" hs
+            <*> hs ~:? "Location"
 
 data instance Rs CreateBucket = CreateBucketResponse
     { cboLocation :: Maybe Text
     } deriving (Eq, Show, Generic)
+

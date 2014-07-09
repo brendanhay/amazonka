@@ -94,7 +94,8 @@ response t o rs = rs
 
     typ | maybe False (view cmnStreaming) bdy = RBody
         | length hs == length fs              = RHeaders
-        | otherwise                           = RXml
+        | all ((== LBody) . view cmnLocation) fs = RXml
+        | otherwise                           = def
 
 pagination :: Operation -> Maybe Pagination -> Maybe Pagination
 pagination o = fmap go

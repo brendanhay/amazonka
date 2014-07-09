@@ -58,9 +58,9 @@ instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs ListBuckets = ListBucketsResponse
     { lboBuckets :: [Bucket]
     , lboOwner :: Maybe Owner
     } deriving (Eq, Show, Generic)
+

@@ -73,7 +73,15 @@ instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
 
     request  = post
-    response = xmlResponse
+    response = xmlResponse $ \hs xml ->
+        pure CompleteMultipartUploadResponse
+            <*> xml %|? "BucketName"
+            <*> xml %|? "ETag"
+            <*> xml %|? "Location"
+            <*> xml %|? "ObjectKey"
+            <*> hs ~:? "x-amz-expiration"
+            <*> hs ~:? "x-amz-version-id"
+            <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName
@@ -91,3 +99,4 @@ data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Eq, Show, Generic)
+

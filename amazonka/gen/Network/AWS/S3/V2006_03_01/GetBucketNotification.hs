@@ -61,8 +61,8 @@ instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketNotification = GetBucketNotificationResponse
     { gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Eq, Show, Generic)
+

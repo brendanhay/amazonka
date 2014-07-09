@@ -61,8 +61,8 @@ instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
 
     request  = get
-    response = xmlResponse
 
 data instance Rs GetBucketLifecycle = GetBucketLifecycleResponse
     { gbloRules :: [Rule]
     } deriving (Eq, Show, Generic)
+

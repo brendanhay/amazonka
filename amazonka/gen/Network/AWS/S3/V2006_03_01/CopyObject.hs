@@ -209,14 +209,7 @@ instance AWSRequest CopyObject where
     type Sv CopyObject = S3
 
     request  = put
-    response = bodyResponse $ \hs bdy ->
-        return $! pure CopyObjectResponse
-            <*> pure bdy
-            <*> hs ~:? "x-amz-copy-source-version-id"
-            <*> hs ~:? "x-amz-expiration"
-            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
-            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
-            <*> hs ~:? "x-amz-server-side-encryption"
+    response = xmlResponse
 
 data instance Rs CopyObject = CopyObjectResponse
     { cooCopyObjectResult :: Maybe CopyObjectResult

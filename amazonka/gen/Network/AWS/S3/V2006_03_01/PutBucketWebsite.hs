@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketWebsite request.
 putBucketWebsite :: WebsiteConfiguration -- ^ 'pbwrWebsiteConfiguration'
                  -> BucketName -- ^ 'pbwrBucket'
@@ -71,7 +70,7 @@ instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
 
     request  = put
-    response = headerResposne $ const PutBucketWebsiteResponse
+    response = headerResponse . const $ Right PutBucketWebsiteResponse
 
 data instance Rs PutBucketWebsite = PutBucketWebsiteResponse
     deriving (Eq, Show, Generic)

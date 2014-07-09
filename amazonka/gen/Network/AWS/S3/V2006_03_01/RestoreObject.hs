@@ -75,7 +75,7 @@ instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
 
     request  = post
-    response = headerResposne $ const RestoreObjectResponse
+    response = headerResponse . const $ Right RestoreObjectResponse
 
 data instance Rs RestoreObject = RestoreObjectResponse
     deriving (Eq, Show, Generic)

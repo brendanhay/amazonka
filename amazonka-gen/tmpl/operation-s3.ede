@@ -23,8 +23,8 @@ import           {{ request_namespace }}
 import           Network.AWS.Types   hiding (Error)
 import           {{ types_namespace }}
 import           Prelude             hiding (head)
-
 {% if alias %}
+
 type {{ alias }} = {{ request.name }}
 type {{ alias }}Response = Rs {{ request.name }}
 {% endif %}

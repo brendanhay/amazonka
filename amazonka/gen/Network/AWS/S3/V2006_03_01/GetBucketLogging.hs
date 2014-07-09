@@ -35,7 +35,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketLogging request.
 getBucketLogging :: BucketName -- ^ 'gblrBucket'
                  -> GetBucketLogging
@@ -63,9 +62,7 @@ instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketLoggingResponse
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketLogging = GetBucketLoggingResponse
     { gbloLoggingEnabled :: Maybe LoggingEnabled

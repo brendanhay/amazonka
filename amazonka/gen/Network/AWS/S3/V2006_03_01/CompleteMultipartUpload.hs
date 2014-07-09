@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default CompleteMultipartUpload request.
 completeMultipartUpload :: BucketName -- ^ 'cmurBucket'
                         -> Text -- ^ 'cmurUploadId'
@@ -74,15 +73,7 @@ instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
 
     request  = post
-    response = bodyResponse $ \hs bdy ->
-        return $! pure CompleteMultipartUploadResponse
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> hs ~:? "x-amz-expiration"
-            <*> hs ~:? "x-amz-version-id"
-            <*> hs ~:? "x-amz-server-side-encryption"
+    response = xmlResponse
 
 data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName

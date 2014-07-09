@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketAcl request.
 getBucketAcl :: BucketName -- ^ 'gbarBucket'
              -> GetBucketAcl
@@ -62,10 +61,7 @@ instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketAclResponse
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketAcl = GetBucketAclResponse
     { gbaoGrants :: [Grant]

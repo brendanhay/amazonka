@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketCors request.
 getBucketCors :: BucketName -- ^ 'gbcrBucket'
               -> GetBucketCors
@@ -62,9 +61,7 @@ instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketCorsResponse
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketCors = GetBucketCorsResponse
     { gbcoCORSRules :: [CORSRule]

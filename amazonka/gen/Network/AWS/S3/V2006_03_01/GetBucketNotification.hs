@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketNotification request.
 getBucketNotification :: BucketName -- ^ 'gbnrBucket'
                       -> GetBucketNotification
@@ -62,9 +61,7 @@ instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketNotificationResponse
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketNotification = GetBucketNotificationResponse
     { gbnoTopicConfiguration :: Maybe TopicConfiguration

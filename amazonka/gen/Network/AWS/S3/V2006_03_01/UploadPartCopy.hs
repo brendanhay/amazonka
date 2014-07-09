@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default UploadPartCopy request.
 uploadPartCopy :: Text -- ^ 'upcrCopySource'
                -> BucketName -- ^ 'upcrBucket'
@@ -153,13 +152,7 @@ instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
 
     request  = put
-    response = bodyResponse $ \hs bdy ->
-        return $! pure UploadPartCopyResponse
-            <*> pure bdy
-            <*> hs ~:? "x-amz-copy-source-version-id"
-            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
-            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
-            <*> hs ~:? "x-amz-server-side-encryption"
+    response = xmlResponse
 
 data instance Rs UploadPartCopy = UploadPartCopyResponse
     { upcoCopyPartResult :: Maybe CopyPartResult

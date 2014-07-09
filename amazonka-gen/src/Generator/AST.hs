@@ -205,6 +205,7 @@ data Primitive
     | PDouble
     | PBool
     | PByteString
+    | PSource
     | PUTCTime
       deriving (Eq, Show, Generic)
 
@@ -229,6 +230,10 @@ instance HasCommon Shape where
         SMap    y -> SMap    <$> common f y
         SSum    y -> SSum    <$> common f y
         SPrim   y -> SPrim   <$> common f y
+
+isPrim :: Shape -> Bool
+isPrim (SPrim _) = True
+isPrim _         = False
 
 data Ann = Ann
    { _anRequired_ :: !Bool
@@ -345,12 +350,12 @@ makeLenses ''Request
 
 data RespType
     = RHeaders
-    | RXML
+    | RXml
     | RBody
       deriving (Eq, Show, Generic)
 
 instance Default RespType where
-    def = RXML
+    def = RXml
 
 data Response = Response
     { _rsName    :: Text

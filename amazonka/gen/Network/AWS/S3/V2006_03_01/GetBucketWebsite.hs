@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketWebsite request.
 getBucketWebsite :: BucketName -- ^ 'gbwrBucket'
                  -> GetBucketWebsite
@@ -62,12 +61,7 @@ instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketWebsiteResponse
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
     { gbwoErrorDocument :: Maybe ErrorDocument

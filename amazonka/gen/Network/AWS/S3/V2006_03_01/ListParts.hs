@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default ListParts request.
 listParts :: BucketName -- ^ 'lprBucket'
           -> Text -- ^ 'lprUploadId'
@@ -79,19 +78,7 @@ instance AWSRequest ListParts where
     type Sv ListParts = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure ListPartsResponse
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 instance AWSPager ListParts where
     next rq rs

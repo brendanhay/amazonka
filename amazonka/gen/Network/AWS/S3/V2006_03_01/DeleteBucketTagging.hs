@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default DeleteBucketTagging request.
 deleteBucketTagging :: BucketName -- ^ 'dbtrBucket'
                     -> DeleteBucketTagging
@@ -62,7 +61,7 @@ instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
 
     request  = delete
-    response = headerResposne $ const DeleteBucketTaggingResponse
+    response = headerResponse . const $ Right DeleteBucketTaggingResponse
 
 data instance Rs DeleteBucketTagging = DeleteBucketTaggingResponse
     deriving (Eq, Show, Generic)

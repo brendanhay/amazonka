@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketAcl request.
 putBucketAcl :: BucketName -- ^ 'pbarBucket'
              -> AccessControlPolicy -- ^ 'pbarAccessControlPolicy'
@@ -97,7 +96,7 @@ instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
 
     request  = put
-    response = headerResposne $ const PutBucketAclResponse
+    response = headerResponse . const $ Right PutBucketAclResponse
 
 data instance Rs PutBucketAcl = PutBucketAclResponse
     deriving (Eq, Show, Generic)

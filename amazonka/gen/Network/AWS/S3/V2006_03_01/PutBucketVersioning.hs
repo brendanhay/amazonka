@@ -35,7 +35,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketVersioning request.
 putBucketVersioning :: VersioningConfiguration -- ^ 'pbvrVersioningConfiguration'
                     -> BucketName -- ^ 'pbvrBucket'
@@ -78,7 +77,7 @@ instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
 
     request  = put
-    response = headerResposne $ const PutBucketVersioningResponse
+    response = headerResponse . const $ Right PutBucketVersioningResponse
 
 data instance Rs PutBucketVersioning = PutBucketVersioningResponse
     deriving (Eq, Show, Generic)

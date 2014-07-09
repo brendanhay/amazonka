@@ -35,7 +35,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutObjectAcl request.
 putObjectAcl :: BucketName -- ^ 'poarBucket'
              -> ObjectKey -- ^ 'poarKey'
@@ -103,7 +102,7 @@ instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
 
     request  = put
-    response = headerResposne $ const PutObjectAclResponse
+    response = headerResponse . const $ Right PutObjectAclResponse
 
 data instance Rs PutObjectAcl = PutObjectAclResponse
     deriving (Eq, Show, Generic)

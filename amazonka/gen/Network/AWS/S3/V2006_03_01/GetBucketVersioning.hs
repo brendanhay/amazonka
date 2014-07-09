@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketVersioning request.
 getBucketVersioning :: BucketName -- ^ 'gbvrBucket'
                     -> GetBucketVersioning
@@ -62,10 +61,7 @@ instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketVersioningResponse
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketVersioning = GetBucketVersioningResponse
     { gbvoStatus :: Maybe (Switch BucketVersioningStatus)

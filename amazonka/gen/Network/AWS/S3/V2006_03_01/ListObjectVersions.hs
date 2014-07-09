@@ -89,20 +89,7 @@ instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure ListObjectVersionsResponse
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 instance AWSPager ListObjectVersions where
     next rq rs

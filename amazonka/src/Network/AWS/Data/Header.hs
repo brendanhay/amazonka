@@ -42,6 +42,8 @@ class ToHeaders a where
     toHeaders :: a -> [Header]
     toHeaders = const mempty
 
+infixl 6 =:
+
 (=:) :: ToHeader a => ByteString -> a -> [Header]
 (=:) = toHeader
 
@@ -65,6 +67,8 @@ instance ToByteString a => ToHeader (Maybe a) where
 
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
     toHeader p = map (\(k, v) -> (CI.mk (p <> toBS k), toBS v)) . Map.toList
+
+infixl 6 ~:, ~:?
 
 (~:) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String a
 (~:) hs k = undefined

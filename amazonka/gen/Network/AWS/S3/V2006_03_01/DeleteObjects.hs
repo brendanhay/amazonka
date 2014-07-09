@@ -77,10 +77,7 @@ instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
 
     request  = post
-    response = bodyResponse $ \hs bdy ->
-        return $! pure DeleteObjectsResponse
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs DeleteObjects = DeleteObjectsResponse
     { dooDeleted :: [DeletedObject]

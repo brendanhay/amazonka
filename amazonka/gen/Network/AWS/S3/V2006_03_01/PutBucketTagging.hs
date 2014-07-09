@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketTagging request.
 putBucketTagging :: Tagging -- ^ 'pbtrTagging'
                  -> BucketName -- ^ 'pbtrBucket'
@@ -71,7 +70,7 @@ instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
 
     request  = put
-    response = headerResposne $ const PutBucketTaggingResponse
+    response = headerResponse . const $ Right PutBucketTaggingResponse
 
 data instance Rs PutBucketTagging = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)

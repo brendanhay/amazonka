@@ -37,7 +37,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketRequestPayment request.
 putBucketRequestPayment :: RequestPaymentConfiguration -- ^ 'pbrprRequestPaymentConfiguration'
                         -> BucketName -- ^ 'pbrprBucket'
@@ -74,7 +73,7 @@ instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
 
     request  = put
-    response = headerResposne $ const PutBucketRequestPaymentResponse
+    response = headerResponse . const $ Right PutBucketRequestPaymentResponse
 
 data instance Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
     deriving (Eq, Show, Generic)

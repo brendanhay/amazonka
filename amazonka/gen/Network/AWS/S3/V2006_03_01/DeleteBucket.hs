@@ -36,7 +36,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default DeleteBucket request.
 deleteBucket :: BucketName -- ^ 'dbrBucket'
              -> DeleteBucket
@@ -64,7 +63,7 @@ instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3
 
     request  = delete
-    response = headerResposne $ const DeleteBucketResponse
+    response = headerResponse . const $ Right DeleteBucketResponse
 
 data instance Rs DeleteBucket = DeleteBucketResponse
     deriving (Eq, Show, Generic)

@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutObject request.
 putObject :: BucketName -- ^ 'porBucket'
           -> ObjectKey -- ^ 'porKey'

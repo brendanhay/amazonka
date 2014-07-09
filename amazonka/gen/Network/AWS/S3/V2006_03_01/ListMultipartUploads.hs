@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default ListMultipartUploads request.
 listMultipartUploads :: BucketName -- ^ 'lmurBucket'
                      -> ListMultipartUploads
@@ -92,19 +91,7 @@ instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure ListMultipartUploadsResponse
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 instance AWSPager ListMultipartUploads where
     next rq rs

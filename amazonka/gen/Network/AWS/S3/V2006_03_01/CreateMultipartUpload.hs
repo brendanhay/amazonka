@@ -165,14 +165,7 @@ instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
 
     request  = post
-    response = bodyResponse $ \hs bdy ->
-        return $! pure CreateMultipartUploadResponse
-            <*> pure bdy
-            <*> pure bdy
-            <*> pure bdy
-            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
-            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
-            <*> hs ~:? "x-amz-server-side-encryption"
+    response = xmlResponse
 
 data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName

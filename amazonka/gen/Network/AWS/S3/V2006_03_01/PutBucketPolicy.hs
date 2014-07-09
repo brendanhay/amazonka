@@ -35,7 +35,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketPolicy request.
 putBucketPolicy :: Text -- ^ 'pbprPolicy'
                 -> BucketName -- ^ 'pbprBucket'
@@ -73,7 +72,7 @@ instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
 
     request  = put
-    response = headerResposne $ const PutBucketPolicyResponse
+    response = headerResponse . const $ Right PutBucketPolicyResponse
 
 data instance Rs PutBucketPolicy = PutBucketPolicyResponse
     deriving (Eq, Show, Generic)

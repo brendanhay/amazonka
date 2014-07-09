@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default DeleteBucketCors request.
 deleteBucketCors :: BucketName -- ^ 'dbcrBucket'
                  -> DeleteBucketCors
@@ -62,7 +61,7 @@ instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
 
     request  = delete
-    response = headerResposne $ const DeleteBucketCorsResponse
+    response = headerResponse . const $ Right DeleteBucketCorsResponse
 
 data instance Rs DeleteBucketCors = DeleteBucketCorsResponse
     deriving (Eq, Show, Generic)

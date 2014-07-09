@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketPolicy request.
 getBucketPolicy :: BucketName -- ^ 'gbprBucket'
                 -> GetBucketPolicy
@@ -62,9 +61,7 @@ instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketPolicyResponse
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketPolicy = GetBucketPolicyResponse
     { gbpoPolicy :: Maybe Text

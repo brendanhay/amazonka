@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketNotification request.
 putBucketNotification :: NotificationConfiguration -- ^ 'pbnrNotificationConfiguration'
                       -> BucketName -- ^ 'pbnrBucket'
@@ -71,7 +70,7 @@ instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
 
     request  = put
-    response = headerResposne $ const PutBucketNotificationResponse
+    response = headerResponse . const $ Right PutBucketNotificationResponse
 
 data instance Rs PutBucketNotification = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)

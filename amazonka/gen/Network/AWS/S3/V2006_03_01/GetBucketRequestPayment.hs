@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketRequestPayment request.
 getBucketRequestPayment :: BucketName -- ^ 'gbrprBucket'
                         -> GetBucketRequestPayment
@@ -62,9 +61,7 @@ instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketRequestPaymentResponse
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
     { gbrpoPayer :: Maybe Payer

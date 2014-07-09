@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketCors request.
 putBucketCors :: BucketName -- ^ 'pbcrBucket'
               -> CORSConfiguration -- ^ 'pbcrCORSConfiguration'
@@ -71,7 +70,7 @@ instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
 
     request  = put
-    response = headerResposne $ const PutBucketCorsResponse
+    response = headerResponse . const $ Right PutBucketCorsResponse
 
 data instance Rs PutBucketCors = PutBucketCorsResponse
     deriving (Eq, Show, Generic)

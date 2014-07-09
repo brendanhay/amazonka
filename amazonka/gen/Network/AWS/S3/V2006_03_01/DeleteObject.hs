@@ -36,7 +36,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default DeleteObject request.
 deleteObject :: BucketName -- ^ 'dorBucket'
              -> ObjectKey -- ^ 'dorKey'

@@ -35,7 +35,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketLifecycle request.
 putBucketLifecycle :: BucketName -- ^ 'pblrBucket'
                    -> LifecycleConfiguration -- ^ 'pblrLifecycleConfiguration'
@@ -72,7 +71,7 @@ instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
 
     request  = put
-    response = headerResposne $ const PutBucketLifecycleResponse
+    response = headerResponse . const $ Right PutBucketLifecycleResponse
 
 data instance Rs PutBucketLifecycle = PutBucketLifecycleResponse
     deriving (Eq, Show, Generic)

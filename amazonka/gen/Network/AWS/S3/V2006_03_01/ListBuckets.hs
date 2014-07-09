@@ -58,10 +58,7 @@ instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure ListBucketsResponse
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs ListBuckets = ListBucketsResponse
     { lboBuckets :: [Bucket]

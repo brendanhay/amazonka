@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketTagging request.
 getBucketTagging :: BucketName -- ^ 'gbtrBucket'
                  -> GetBucketTagging
@@ -62,9 +61,7 @@ instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketTaggingResponse
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketTagging = GetBucketTaggingResponse
     { gbtoTagSet :: [Tag]

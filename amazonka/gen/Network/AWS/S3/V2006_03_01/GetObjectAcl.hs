@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetObjectAcl request.
 getObjectAcl :: BucketName -- ^ 'goarBucket'
              -> ObjectKey -- ^ 'goarKey'
@@ -70,10 +69,7 @@ instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetObjectAclResponse
-            <*> pure bdy
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetObjectAcl = GetObjectAclResponse
     { goaoGrants :: [Grant]

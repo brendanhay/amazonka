@@ -92,9 +92,9 @@ response t o rs = rs
 
     fs  = sort . fields False t $ rs ^. rsShape
 
-    typ | isJust bdy             = RBody
-        | length hs == length fs = RHeaders
-        | otherwise              = RXML
+    typ | maybe False (view cmnStreaming) bdy = RBody
+        | length hs == length fs              = RHeaders
+        | otherwise                           = RXml
 
 pagination :: Operation -> Maybe Pagination -> Maybe Pagination
 pagination o = fmap go

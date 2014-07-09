@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketLocation request.
 getBucketLocation :: BucketName -- ^ 'gblrBucket'
                   -> GetBucketLocation
@@ -62,9 +61,7 @@ instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketLocationResponse
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketLocation = GetBucketLocationResponse
     { gbloLocationConstraint :: Maybe BucketLocationConstraint

@@ -36,7 +36,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default PutBucketLogging request.
 putBucketLogging :: BucketLoggingStatus -- ^ 'pblrBucketLoggingStatus'
                  -> BucketName -- ^ 'pblrBucket'
@@ -73,7 +72,7 @@ instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
 
     request  = put
-    response = headerResposne $ const PutBucketLoggingResponse
+    response = headerResponse . const $ Right PutBucketLoggingResponse
 
 data instance Rs PutBucketLogging = PutBucketLoggingResponse
     deriving (Eq, Show, Generic)

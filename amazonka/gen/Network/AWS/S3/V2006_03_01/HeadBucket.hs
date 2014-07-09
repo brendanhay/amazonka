@@ -35,7 +35,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default HeadBucket request.
 headBucket :: BucketName -- ^ 'hbrBucket'
            -> HeadBucket
@@ -63,7 +62,7 @@ instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
 
     request  = head
-    response = headerResposne $ const HeadBucketResponse
+    response = headerResponse . const $ Right HeadBucketResponse
 
 data instance Rs HeadBucket = HeadBucketResponse
     deriving (Eq, Show, Generic)

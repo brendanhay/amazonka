@@ -36,7 +36,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default AbortMultipartUpload request.
 abortMultipartUpload :: BucketName -- ^ 'amurBucket'
                      -> Text -- ^ 'amurUploadId'
@@ -72,7 +71,7 @@ instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
 
     request  = delete
-    response = headerResposne $ const AbortMultipartUploadResponse
+    response = headerResponse . const $ Right AbortMultipartUploadResponse
 
 data instance Rs AbortMultipartUpload = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)

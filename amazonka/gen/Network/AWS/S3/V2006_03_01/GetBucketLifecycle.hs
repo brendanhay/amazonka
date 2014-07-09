@@ -34,7 +34,6 @@ import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
 import           Prelude             hiding (head)
 
-
 -- | Default GetBucketLifecycle request.
 getBucketLifecycle :: BucketName -- ^ 'gblrBucket'
                    -> GetBucketLifecycle
@@ -62,9 +61,7 @@ instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
 
     request  = get
-    response = bodyResponse $ \hs bdy ->
-        return $! pure GetBucketLifecycleResponse
-            <*> pure bdy
+    response = xmlResponse
 
 data instance Rs GetBucketLifecycle = GetBucketLifecycleResponse
     { gbloRules :: [Rule]

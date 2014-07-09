@@ -19,6 +19,7 @@
 -- for an object that already exists in a bucket.
 module Network.AWS.S3.V2006_03_01.PutObjectAcl where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -102,7 +103,7 @@ instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
 
     request  = put
-    response =
+    response = headerResposne $ const PutObjectAclResponse
 
 data instance Rs PutObjectAcl = PutObjectAclResponse
     deriving (Eq, Show, Generic)

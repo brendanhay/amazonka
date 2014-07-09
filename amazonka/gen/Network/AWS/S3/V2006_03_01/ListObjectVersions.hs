@@ -18,6 +18,7 @@
 -- | Returns metadata about all of the versions of objects in a bucket.
 module Network.AWS.S3.V2006_03_01.ListObjectVersions where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -88,7 +89,20 @@ instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure ListObjectVersionsResponse
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
 
 instance AWSPager ListObjectVersions where
     next rq rs

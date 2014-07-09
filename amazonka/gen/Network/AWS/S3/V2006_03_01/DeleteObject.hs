@@ -20,6 +20,7 @@
 -- isn't a null version, Amazon S3 does not remove any objects.
 module Network.AWS.S3.V2006_03_01.DeleteObject where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -79,7 +80,10 @@ instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
 
     request  = delete
-    response =
+    response = headerResponse $ \hs ->
+        pure DeleteObjectResponse
+            <*> hs ~:? "x-amz-delete-marker" hs
+            <*> hs ~:? "x-amz-version-id" hs
 
 data instance Rs DeleteObject = DeleteObjectResponse
     { dooDeleteMarker :: Maybe Bool

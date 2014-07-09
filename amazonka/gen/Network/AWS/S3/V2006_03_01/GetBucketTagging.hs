@@ -18,6 +18,7 @@
 -- | Returns the tag set associated with the bucket.
 module Network.AWS.S3.V2006_03_01.GetBucketTagging where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,9 @@ instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure GetBucketTaggingResponse
+            <*> pure bdy
 
 data instance Rs GetBucketTagging = GetBucketTaggingResponse
     { gbtoTagSet :: [Tag]

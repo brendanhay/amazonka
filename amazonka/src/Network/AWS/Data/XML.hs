@@ -39,13 +39,13 @@ import           Data.Time
 import           GHC.Generics
 import           Text.XML
 
--- decodeXML :: forall a. FromXML a => ByteString -> Either String a
--- decodeXML = either failure success . parseLBS def
---   where
---     failure = Left . show
---     success = join . fmap (fromXML o) . fromXMLRoot o
+decodeXML :: forall a. FromXML a => ByteString -> Either String a
+decodeXML = either failure success . parseLBS def
+  where
+    failure = Left . show
+    success = join . fmap (fromXML o) . fromXMLRoot o
 
---     o = fromXMLOptions :: Tagged a XMLOptions
+    o = fromXMLOptions :: Tagged a XMLOptions
 
 encodeXML :: forall a. ToXML a => a -> ByteString
 encodeXML = renderLBS def . toXMLRoot o . toXML o
@@ -69,54 +69,54 @@ instance Default XMLOptions where
         , xmlFieldMod  = Text.pack
         }
 
--- fromNestedRoot :: NonEmpty Text
---                -> Tagged a XMLOptions
---                -> Document
---                -> Either String [Node]
--- fromNestedRoot rs o Document{..} = foldrM unwrap initial (NonEmpty.reverse rs)
---   where
---     initial = [NodeElement documentRoot]
+fromNestedRoot :: NonEmpty Text
+               -> Tagged a XMLOptions
+               -> Document
+               -> Either String [Node]
+fromNestedRoot rs o Document{..} = foldrM unwrap initial (NonEmpty.reverse rs)
+  where
+    initial = [NodeElement documentRoot]
 
---     unwrap n (NodeElement Element{..}:_)
---         | elementName == name = Right elementNodes
---         | otherwise           = Left $ concat
---             [ "Unexpected root element: "
---             , show elementName
---             , ", expecting: "
---             , show name
---             ]
---       where
---         name = Name n (xmlNamespace $ untag o) Nothing
---     unwrap n (_:xs) = unwrap n xs
---     unwrap n _      = Left $ "Unexpected non-element root, expecting: " ++ show n
+    unwrap n (NodeElement Element{..}:_)
+        | elementName == name = Right elementNodes
+        | otherwise           = Left $ concat
+            [ "Unexpected root element: "
+            , show elementName
+            , ", expecting: "
+            , show name
+            ]
+      where
+        name = Name n (xmlNamespace $ untag o) Nothing
+    unwrap n (_:xs) = unwrap n xs
+    unwrap n _      = Left $ "Unexpected non-element root, expecting: " ++ show n
 
--- fromRoot :: Text -> Tagged a XMLOptions -> Document -> Either String [Node]
--- fromRoot = fromNestedRoot . (:| [])
+fromRoot :: Text -> Tagged a XMLOptions -> Document -> Either String [Node]
+fromRoot = fromNestedRoot . (:| [])
 
--- genericFromRoot :: forall a. (Generic a, GXMLRoot (Rep a))
---                 => Tagged a XMLOptions
---                 -> Document
---                 -> Either String [Node]
--- genericFromRoot o = fromRoot (gRootName (untag o) $ from (undefined :: a)) o
+genericFromRoot :: forall a. (Generic a, GXMLRoot (Rep a))
+                => Tagged a XMLOptions
+                -> Document
+                -> Either String [Node]
+genericFromRoot o = fromRoot (gRootName (untag o) $ from (undefined :: a)) o
 
--- class FromXML a where
---     fromXMLOptions :: Tagged a XMLOptions
---     fromXMLRoot    :: Tagged a XMLOptions -> Document -> Either String [Node]
---     fromXML        :: Tagged a XMLOptions -> [Node]   -> Either String a
+class FromXML a where
+    fromXMLOptions :: Tagged a XMLOptions
+    fromXMLRoot    :: Tagged a XMLOptions -> Document -> Either String [Node]
+    fromXML        :: Tagged a XMLOptions -> [Node]   -> Either String a
 
---     fromXMLOptions = Tagged def
+    fromXMLOptions = Tagged def
 
---     default fromXMLRoot :: (Generic a, GXMLRoot (Rep a))
---                         => Tagged a XMLOptions
---                         -> Document
---                         -> Either String [Node]
---     fromXMLRoot = genericFromRoot
+    default fromXMLRoot :: (Generic a, GXMLRoot (Rep a))
+                        => Tagged a XMLOptions
+                        -> Document
+                        -> Either String [Node]
+    fromXMLRoot = genericFromRoot
 
---     default fromXML :: (Generic a, GFromXML (Rep a))
---                     => Tagged a XMLOptions
---                     -> [Node]
---                     -> Either String a
---     fromXML o = fmap to . gFromXML (untag o)
+    default fromXML :: (Generic a, GFromXML (Rep a))
+                    => Tagged a XMLOptions
+                    -> [Node]
+                    -> Either String a
+    fromXML o = fmap to . gFromXML (untag o)
 
 -- instance FromXML Text where
 --     fromXMLRoot                 = fromRoot "Text"
@@ -185,43 +185,43 @@ instance Default XMLOptions where
 -- nodeParser :: AText.Parser a -> Tagged a XMLOptions -> [Node] -> Either String a
 -- nodeParser p o = join . fmap (AText.parseOnly p) . fromXML (retag o)
 
--- class GFromXML f where
---     gFromXML :: XMLOptions -> [Node] -> Either String (f a)
+class GFromXML f where
+    gFromXML :: XMLOptions -> [Node] -> Either String (f a)
 
--- instance (GFromXML f, GFromXML g) => GFromXML (f :+: g) where
---     gFromXML o ns = (L1 <$> gFromXML o ns) <|> (R1 <$> gFromXML o ns)
+instance (GFromXML f, GFromXML g) => GFromXML (f :+: g) where
+    gFromXML o ns = (L1 <$> gFromXML o ns) <|> (R1 <$> gFromXML o ns)
 
--- instance (GFromXML f, GFromXML g) => GFromXML (f :*: g) where
---     gFromXML o ns = (:*:) <$> gFromXML o ns <*> gFromXML o ns
+instance (GFromXML f, GFromXML g) => GFromXML (f :*: g) where
+    gFromXML o ns = (:*:) <$> gFromXML o ns <*> gFromXML o ns
 
--- instance GFromXML U1 where
---     gFromXML _ _ = Right U1
+instance GFromXML U1 where
+    gFromXML _ _ = Right U1
 
--- instance forall a. FromXML a => GFromXML (K1 R a) where
---     gFromXML x = fmap K1 . fromXML (Tagged o)
---       where
---         o | xmlInherit $ untag y = x
---           | otherwise            = untag y
+instance forall a. FromXML a => GFromXML (K1 R a) where
+    gFromXML x = fmap K1 . fromXML (Tagged o)
+      where
+        o | xmlInherit $ untag y = x
+          | otherwise            = untag y
 
---         y = fromXMLOptions :: Tagged a XMLOptions
+        y = fromXMLOptions :: Tagged a XMLOptions
 
--- instance GFromXML f => GFromXML (D1 c f) where
---     gFromXML o = fmap M1 . gFromXML o
+instance GFromXML f => GFromXML (D1 c f) where
+    gFromXML o = fmap M1 . gFromXML o
 
--- instance GFromXML f => GFromXML (C1 c f) where
---     gFromXML o = fmap M1 . gFromXML o
+instance GFromXML f => GFromXML (C1 c f) where
+    gFromXML o = fmap M1 . gFromXML o
 
--- instance (Selector c, GFromXML f) => GFromXML (S1 c f) where
---     gFromXML o ns = findNodes ns >>= fmap M1 . gFromXML o
---       where
---         findNodes [] = Left $ "Failed to find: " ++ Text.unpack sel
---         findNodes (NodeElement e : es)
---             | elementName e == name = Right $ elementNodes e
---             | otherwise    = findNodes es
---         findNodes (_ : es) = findNodes es
+instance (Selector c, GFromXML f) => GFromXML (S1 c f) where
+    gFromXML o ns = findNodes ns >>= fmap M1 . gFromXML o
+      where
+        findNodes [] = Left $ "Failed to find: " ++ Text.unpack sel
+        findNodes (NodeElement e : es)
+            | elementName e == name = Right $ elementNodes e
+            | otherwise    = findNodes es
+        findNodes (_ : es) = findNodes es
 
---         name = Name sel (xmlNamespace o) Nothing
---         sel  = xmlFieldMod o $ selName (undefined :: S1 c f p)
+        name = Name sel (xmlNamespace o) Nothing
+        sel  = xmlFieldMod o $ selName (undefined :: S1 c f p)
 
 -- toNestedRoot :: NonEmpty Text -> Tagged a XMLOptions -> [Node] -> Document
 -- toNestedRoot rs o ns = Document (Prologue [] Nothing []) root []
@@ -361,17 +361,17 @@ class ToXML a where
 --                 . Element (Name (xmlFieldMod o n) (xmlNamespace o) Nothing)
 --                           mempty
 
--- class GXMLRoot f where
---     gRootName :: XMLOptions -> f a -> Text
+class GXMLRoot f where
+    gRootName :: XMLOptions -> f a -> Text
 
--- instance (GXMLRoot f, GXMLRoot g) => GXMLRoot (f :+: g) where
---     gRootName o (_ :: (f :+: g) a) = gRootName o (undefined :: f a)
+instance (GXMLRoot f, GXMLRoot g) => GXMLRoot (f :+: g) where
+    gRootName o (_ :: (f :+: g) a) = gRootName o (undefined :: f a)
 
--- instance GXMLRoot f => GXMLRoot (D1 c f) where
---     gRootName o = gRootName o . unM1
+instance GXMLRoot f => GXMLRoot (D1 c f) where
+    gRootName o = gRootName o . unM1
 
--- instance Constructor c => GXMLRoot (C1 c f) where
---     gRootName o _ = xmlCtorMod o $ conName (undefined :: C1 c f p)
+instance Constructor c => GXMLRoot (C1 c f) where
+    gRootName o _ = xmlCtorMod o $ conName (undefined :: C1 c f p)
 
--- instance GXMLRoot a => GXMLRoot (M1 i c a) where
---     gRootName o = gRootName o . unM1
+instance GXMLRoot a => GXMLRoot (M1 i c a) where
+    gRootName o = gRootName o . unM1

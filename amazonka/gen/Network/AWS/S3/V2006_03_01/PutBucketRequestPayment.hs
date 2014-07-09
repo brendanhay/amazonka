@@ -21,6 +21,7 @@
 -- download will be charged for the download.
 module Network.AWS.S3.V2006_03_01.PutBucketRequestPayment where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -73,7 +74,7 @@ instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
 
     request  = put
-    response =
+    response = headerResposne $ const PutBucketRequestPaymentResponse
 
 data instance Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
     deriving (Eq, Show, Generic)

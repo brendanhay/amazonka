@@ -18,6 +18,7 @@
 -- | Deletes the cors configuration information set for the bucket.
 module Network.AWS.S3.V2006_03_01.DeleteBucketCors where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,7 @@ instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
 
     request  = delete
-    response =
+    response = headerResposne $ const DeleteBucketCorsResponse
 
 data instance Rs DeleteBucketCors = DeleteBucketCorsResponse
     deriving (Eq, Show, Generic)

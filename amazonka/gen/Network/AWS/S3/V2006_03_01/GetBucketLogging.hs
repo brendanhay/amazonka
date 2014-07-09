@@ -19,6 +19,7 @@
 -- view and modify that status. To use GET, you must be the bucket owner.
 module Network.AWS.S3.V2006_03_01.GetBucketLogging where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -62,7 +63,9 @@ instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure GetBucketLoggingResponse
+            <*> pure bdy
 
 data instance Rs GetBucketLogging = GetBucketLoggingResponse
     { gbloLoggingEnabled :: Maybe LoggingEnabled

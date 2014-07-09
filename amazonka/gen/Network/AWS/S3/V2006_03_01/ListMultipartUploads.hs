@@ -18,6 +18,7 @@
 -- | This operation lists in-progress multipart uploads.
 module Network.AWS.S3.V2006_03_01.ListMultipartUploads where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -91,7 +92,19 @@ instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure ListMultipartUploadsResponse
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
 
 instance AWSPager ListMultipartUploads where
     next rq rs

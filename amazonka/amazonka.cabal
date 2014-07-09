@@ -117,6 +117,7 @@ library
         , bytestring
         , case-insensitive
         , conduit           == 1.1.*
+        , conduit-extra
         , cryptohash
         , data-default
         , errors

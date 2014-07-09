@@ -1,5 +1,33 @@
-{% if scope.response.payload %}
-    response = response' $ \
+{% if scope.response.fields | listLength == 0 %}
+    response = headerResponse $ const {{ scope.response.name }}
 {% else %}
-    response =
+  {% case scope.response.type %}
+  {% when "xml" %}
+    response = xmlResponse
+  {% when "headers" %}
+    response = headerResponse $ \hs ->
+        pure {{ scope.response.name }}
+    {% for field in scope.response.fields %}
+      {% if field.value.required %}
+            <*> hs ~:  "{{ field.value.location_name }}" hs
+      {% else %}
+            <*> hs ~:? "{{ field.value.location_name }}" hs
+      {% endif %}
+    {% endfor %}
+  {% when "body" %}
+    response = bodyResponse $ \hs bdy ->
+        return $! pure {{ scope.response.name }}
+    {% for field in scope.response.fields %}
+      {% case field.value.location %}
+      {% when "header" %}
+        {% if field.value.required %}
+            <*> hs ~:  "{{ field.value.location_name }}"
+        {% else %}
+            <*> hs ~:? "{{ field.value.location_name }}"
+        {% endif %}
+      {% when "body" %}
+            <*> pure bdy
+      {% endcase %}
+    {% endfor %}
+  {% endcase %}
 {% endif %}

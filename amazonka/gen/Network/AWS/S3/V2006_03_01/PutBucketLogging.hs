@@ -20,6 +20,7 @@
 -- bucket, you must be the bucket owner.
 module Network.AWS.S3.V2006_03_01.PutBucketLogging where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -72,7 +73,7 @@ instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
 
     request  = put
-    response =
+    response = headerResposne $ const PutBucketLoggingResponse
 
 data instance Rs PutBucketLogging = PutBucketLoggingResponse
     deriving (Eq, Show, Generic)

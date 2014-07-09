@@ -18,6 +18,7 @@
 -- | Sets the cors configuration for a bucket.
 module Network.AWS.S3.V2006_03_01.PutBucketCors where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -70,7 +71,7 @@ instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
 
     request  = put
-    response =
+    response = headerResposne $ const PutBucketCorsResponse
 
 data instance Rs PutBucketCors = PutBucketCorsResponse
     deriving (Eq, Show, Generic)

@@ -18,6 +18,7 @@
 -- | Deletes the policy from the bucket.
 module Network.AWS.S3.V2006_03_01.DeleteBucketPolicy where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,7 @@ instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
 
     request  = delete
-    response =
+    response = headerResposne $ const DeleteBucketPolicyResponse
 
 data instance Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
     deriving (Eq, Show, Generic)

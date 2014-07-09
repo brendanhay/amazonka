@@ -18,6 +18,7 @@
 -- | Returns the cors configuration for the bucket.
 module Network.AWS.S3.V2006_03_01.GetBucketCors where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,9 @@ instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure GetBucketCorsResponse
+            <*> pure bdy
 
 data instance Rs GetBucketCors = GetBucketCorsResponse
     { gbcoCORSRules :: [CORSRule]

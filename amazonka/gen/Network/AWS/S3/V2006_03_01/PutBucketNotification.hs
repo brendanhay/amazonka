@@ -18,6 +18,7 @@
 -- | Enables notifications of specified events for a bucket.
 module Network.AWS.S3.V2006_03_01.PutBucketNotification where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -70,7 +71,7 @@ instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
 
     request  = put
-    response =
+    response = headerResposne $ const PutBucketNotificationResponse
 
 data instance Rs PutBucketNotification = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)

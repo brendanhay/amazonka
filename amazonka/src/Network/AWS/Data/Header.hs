@@ -15,6 +15,7 @@
 
 module Network.AWS.Data.Header where
 
+import           Control.Error
 import           Data.ByteString.Char8       (ByteString)
 import qualified Data.CaseInsensitive        as CI
 import           Data.Foldable               as Fold
@@ -64,6 +65,15 @@ instance ToByteString a => ToHeader (Maybe a) where
 
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
     toHeader p = map (\(k, v) -> (CI.mk (p <> toBS k), toBS v)) . Map.toList
+
+(~:) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String a
+(~:) hs k = undefined
+
+(~:?) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
+(~:?) hs k = Right $ hush (hs ~: k)
+
+class FromHeader a where
+    fromHeader :: Header -> Either String a
 
 -- instance ToHeader ByteString where
 --     toHeader k = (CI.mk k,) . Just

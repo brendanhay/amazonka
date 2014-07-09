@@ -60,11 +60,11 @@ request t o rq = rq
     & rqDefault  .~ lowerFirst (o ^. opName)
     & rqHttp     %~ http (rq ^. rqShape)
     & rqFields   .~ fs
-    & rqPayload  .~ listToMaybe bdy
+    & rqPayload  .~ bdy
     & rqRequired .~ req
     & rqHeaders  .~ hs
   where
-    bdy = filter ((== LBody) . view cmnLocation) fs
+    bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
     req = filter (view cmnRequired) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
 
@@ -83,10 +83,18 @@ response :: Time -> Operation -> Response -> Response
 response t o rs = rs
     & rsName    .~ (o ^. opName) <> "Response"
     & rsFields  .~ fs
-    & rsPayload .~ listToMaybe bdy
+    & rsPayload .~ bdy
+    & rsHeaders .~ hs
+    & rsType    .~ typ
   where
-    bdy = filter ((== LBody) . view cmnLocation) fs
+    bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
+    hs  = filter ((== LHeader) . view cmnLocation) fs
+
     fs  = sort . fields False t $ rs ^. rsShape
+
+    typ | isJust bdy             = RBody
+        | length hs == length fs = RHeaders
+        | otherwise              = RXML
 
 pagination :: Operation -> Maybe Pagination -> Maybe Pagination
 pagination o = fmap go

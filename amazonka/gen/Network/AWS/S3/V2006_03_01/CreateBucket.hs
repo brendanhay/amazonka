@@ -18,6 +18,7 @@
 -- | Creates a new bucket.
 module Network.AWS.S3.V2006_03_01.CreateBucket where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -95,7 +96,9 @@ instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
 
     request  = put
-    response =
+    response = headerResponse $ \hs ->
+        pure CreateBucketResponse
+            <*> hs ~:? "Location" hs
 
 data instance Rs CreateBucket = CreateBucketResponse
     { cboLocation :: Maybe Text

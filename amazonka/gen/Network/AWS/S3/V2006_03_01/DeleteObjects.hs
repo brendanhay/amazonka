@@ -19,6 +19,7 @@
 -- single HTTP request. You may specify up to 1000 keys.
 module Network.AWS.S3.V2006_03_01.DeleteObjects where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -76,7 +77,10 @@ instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
 
     request  = post
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure DeleteObjectsResponse
+            <*> pure bdy
+            <*> pure bdy
 
 data instance Rs DeleteObjects = DeleteObjectsResponse
     { dooDeleted :: [DeletedObject]

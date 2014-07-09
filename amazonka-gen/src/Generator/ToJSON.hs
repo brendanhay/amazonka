@@ -99,6 +99,9 @@ instance ToJSON Request where
 
         pad = Text.replicate (Text.length $ _rqName rq) " "
 
+instance ToJSON RespType where
+    toJSON = toCtor (recase Camel Under . drop 1)
+
 instance ToJSON Response where
     toJSON = toField (recase Camel Under . drop 3)
 

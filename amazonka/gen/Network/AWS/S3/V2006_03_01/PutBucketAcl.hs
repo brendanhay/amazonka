@@ -18,6 +18,7 @@
 -- | Sets the permissions on a bucket using access control lists (ACL).
 module Network.AWS.S3.V2006_03_01.PutBucketAcl where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -96,7 +97,7 @@ instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
 
     request  = put
-    response =
+    response = headerResposne $ const PutBucketAclResponse
 
 data instance Rs PutBucketAcl = PutBucketAclResponse
     deriving (Eq, Show, Generic)

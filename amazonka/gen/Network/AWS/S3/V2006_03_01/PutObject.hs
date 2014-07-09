@@ -18,6 +18,7 @@
 -- | Adds an object to a bucket.
 module Network.AWS.S3.V2006_03_01.PutObject where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -169,7 +170,14 @@ instance AWSRequest PutObject where
     type Sv PutObject = S3
 
     request  = put
-    response =
+    response = headerResponse $ \hs ->
+        pure PutObjectResponse
+            <*> hs ~:? "ETag" hs
+            <*> hs ~:? "x-amz-expiration" hs
+            <*> hs ~:? "x-amz-version-id" hs
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm" hs
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5" hs
+            <*> hs ~:? "x-amz-server-side-encryption" hs
 
 data instance Rs PutObject = PutObjectResponse
     { pooETag :: Maybe ETag

@@ -18,6 +18,7 @@
 -- | Gets the access control policy for the bucket.
 module Network.AWS.S3.V2006_03_01.GetBucketAcl where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,10 @@ instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure GetBucketAclResponse
+            <*> pure bdy
+            <*> pure bdy
 
 data instance Rs GetBucketAcl = GetBucketAclResponse
     { gbaoGrants :: [Grant]

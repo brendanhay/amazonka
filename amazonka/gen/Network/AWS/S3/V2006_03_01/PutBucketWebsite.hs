@@ -18,6 +18,7 @@
 -- | Set the website configuration for a bucket.
 module Network.AWS.S3.V2006_03_01.PutBucketWebsite where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -70,7 +71,7 @@ instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
 
     request  = put
-    response =
+    response = headerResposne $ const PutBucketWebsiteResponse
 
 data instance Rs PutBucketWebsite = PutBucketWebsiteResponse
     deriving (Eq, Show, Generic)

@@ -20,6 +20,7 @@
 -- deleted.
 module Network.AWS.S3.V2006_03_01.DeleteBucket where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -63,7 +64,7 @@ instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3
 
     request  = delete
-    response =
+    response = headerResposne $ const DeleteBucketResponse
 
 data instance Rs DeleteBucket = DeleteBucketResponse
     deriving (Eq, Show, Generic)

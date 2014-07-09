@@ -20,6 +20,7 @@
 -- operation and ensure the parts list is empty.
 module Network.AWS.S3.V2006_03_01.AbortMultipartUpload where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -71,7 +72,7 @@ instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
 
     request  = delete
-    response =
+    response = headerResposne $ const AbortMultipartUploadResponse
 
 data instance Rs AbortMultipartUpload = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)

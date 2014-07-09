@@ -18,6 +18,7 @@
 -- | Uploads a part by copying data from an existing object as data source.
 module Network.AWS.S3.V2006_03_01.UploadPartCopy where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -152,7 +153,13 @@ instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
 
     request  = put
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure UploadPartCopyResponse
+            <*> pure bdy
+            <*> hs ~:? "x-amz-copy-source-version-id"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
+            <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs UploadPartCopy = UploadPartCopyResponse
     { upcoCopyPartResult :: Maybe CopyPartResult

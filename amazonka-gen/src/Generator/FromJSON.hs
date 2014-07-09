@@ -129,7 +129,7 @@ instance FromJSON Request where
 
 instance FromJSON Response where
     parseJSON = withObject "response" $ \o ->
-        Response "Response" def def
+        Response "Response" def def def def
             <$> o .:! "output"
 
 instance FromJSON Location where

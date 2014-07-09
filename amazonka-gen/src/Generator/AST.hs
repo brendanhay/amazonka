@@ -343,10 +343,21 @@ data Request = Request
 
 makeLenses ''Request
 
+data RespType
+    = RHeaders
+    | RXML
+    | RBody
+      deriving (Eq, Show, Generic)
+
+instance Default RespType where
+    def = RXML
+
 data Response = Response
     { _rsName    :: Text
-    , _rsFields  :: [Field]
+    , _rsType    :: RespType
     , _rsPayload :: Maybe Field
+    , _rsFields  :: [Field]
+    , _rsHeaders :: [Field]
     , _rsShape   :: Shape
     } deriving (Eq, Show, Generic)
 

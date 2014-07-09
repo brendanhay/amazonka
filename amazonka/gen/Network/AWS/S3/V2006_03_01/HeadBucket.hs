@@ -19,6 +19,7 @@
 -- permission to access it.
 module Network.AWS.S3.V2006_03_01.HeadBucket where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -62,7 +63,7 @@ instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
 
     request  = head
-    response =
+    response = headerResposne $ const HeadBucketResponse
 
 data instance Rs HeadBucket = HeadBucketResponse
     deriving (Eq, Show, Generic)

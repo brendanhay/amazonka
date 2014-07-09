@@ -18,6 +18,7 @@
 -- | Returns the versioning state of a bucket.
 module Network.AWS.S3.V2006_03_01.GetBucketVersioning where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,10 @@ instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure GetBucketVersioningResponse
+            <*> pure bdy
+            <*> pure bdy
 
 data instance Rs GetBucketVersioning = GetBucketVersioningResponse
     { gbvoStatus :: Maybe (Switch BucketVersioningStatus)

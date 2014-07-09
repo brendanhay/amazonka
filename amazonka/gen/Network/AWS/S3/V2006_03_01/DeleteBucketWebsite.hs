@@ -18,6 +18,7 @@
 -- | This operation removes the website configuration from the bucket.
 module Network.AWS.S3.V2006_03_01.DeleteBucketWebsite where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,7 @@ instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
 
     request  = delete
-    response =
+    response = headerResposne $ const DeleteBucketWebsiteResponse
 
 data instance Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
     deriving (Eq, Show, Generic)

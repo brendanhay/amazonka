@@ -21,10 +21,8 @@ module Network.AWS.Error
     ) where
 
 import Control.Error
-import Control.Exception
 import Control.Monad.IO.Class
 import Data.String
-import Data.Typeable
 import Network.AWS.Types
 
 -- FIXME: Richer, typed errors

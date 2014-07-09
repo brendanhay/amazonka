@@ -18,6 +18,7 @@
 -- | Deletes the tags from the bucket.
 module Network.AWS.S3.V2006_03_01.DeleteBucketTagging where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,7 @@ instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
 
     request  = delete
-    response =
+    response = headerResposne $ const DeleteBucketTaggingResponse
 
 data instance Rs DeleteBucketTagging = DeleteBucketTaggingResponse
     deriving (Eq, Show, Generic)

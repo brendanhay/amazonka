@@ -8,6 +8,7 @@
 {{ documentation | above76 }}
 module {{ namespace }} where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)

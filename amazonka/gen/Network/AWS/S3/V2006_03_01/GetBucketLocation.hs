@@ -18,6 +18,7 @@
 -- | Returns the region the bucket resides in.
 module Network.AWS.S3.V2006_03_01.GetBucketLocation where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,9 @@ instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure GetBucketLocationResponse
+            <*> pure bdy
 
 data instance Rs GetBucketLocation = GetBucketLocationResponse
     { gbloLocationConstraint :: Maybe BucketLocationConstraint

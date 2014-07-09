@@ -18,6 +18,7 @@
 -- | Deletes the lifecycle configuration from the bucket.
 module Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -61,7 +62,7 @@ instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
 
     request  = delete
-    response =
+    response = headerResposne $ const DeleteBucketLifecycleResponse
 
 data instance Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
     deriving (Eq, Show, Generic)

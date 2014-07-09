@@ -23,6 +23,7 @@
 -- you for the parts storage.
 module Network.AWS.S3.V2006_03_01.CreateMultipartUpload where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -164,7 +165,14 @@ instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
 
     request  = post
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure CreateMultipartUploadResponse
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
+            <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName

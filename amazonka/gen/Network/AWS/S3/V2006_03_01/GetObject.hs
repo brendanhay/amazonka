@@ -18,6 +18,7 @@
 -- | Retrieves objects from Amazon S3.
 module Network.AWS.S3.V2006_03_01.GetObject where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -136,7 +137,29 @@ instance AWSRequest GetObject where
     type Sv GetObject = S3
 
     request  = get
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure GetObjectResponse
+            <*> pure bdy
+            <*> hs ~:? "x-amz-meta-"
+            <*> hs ~:? "accept-ranges"
+            <*> hs ~:? "Cache-Control"
+            <*> hs ~:? "Content-Disposition"
+            <*> hs ~:? "Content-Encoding"
+            <*> hs ~:? "Content-Language"
+            <*> hs ~:? "Content-Length"
+            <*> hs ~:? "Content-Type"
+            <*> hs ~:? "x-amz-delete-marker"
+            <*> hs ~:? "ETag"
+            <*> hs ~:? "x-amz-expiration"
+            <*> hs ~:? "Expires"
+            <*> hs ~:? "Last-Modified"
+            <*> hs ~:? "x-amz-missing-meta"
+            <*> hs ~:? "x-amz-version-id"
+            <*> hs ~:? "x-amz-restore"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
+            <*> hs ~:? "x-amz-server-side-encryption"
+            <*> hs ~:? "x-amz-website-redirect-location"
 
 data instance Rs GetObject = GetObjectResponse
     { gooBody :: Maybe ByteString

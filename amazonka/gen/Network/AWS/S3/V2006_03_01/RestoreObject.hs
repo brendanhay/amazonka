@@ -18,6 +18,7 @@
 -- | Restores an archived copy of an object back into Amazon S3.
 module Network.AWS.S3.V2006_03_01.RestoreObject where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -74,7 +75,7 @@ instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
 
     request  = post
-    response =
+    response = headerResposne $ const RestoreObjectResponse
 
 data instance Rs RestoreObject = RestoreObjectResponse
     deriving (Eq, Show, Generic)

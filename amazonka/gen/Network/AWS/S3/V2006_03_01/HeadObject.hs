@@ -20,6 +20,7 @@
 -- object's metadata. To use HEAD, you must have READ access to the object.
 module Network.AWS.S3.V2006_03_01.HeadObject where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -120,7 +121,28 @@ instance AWSRequest HeadObject where
     type Sv HeadObject = S3
 
     request  = head
-    response =
+    response = headerResponse $ \hs ->
+        pure HeadObjectResponse
+            <*> hs ~:? "x-amz-meta-" hs
+            <*> hs ~:? "accept-ranges" hs
+            <*> hs ~:? "Cache-Control" hs
+            <*> hs ~:? "Content-Disposition" hs
+            <*> hs ~:? "Content-Encoding" hs
+            <*> hs ~:? "Content-Language" hs
+            <*> hs ~:? "Content-Length" hs
+            <*> hs ~:? "Content-Type" hs
+            <*> hs ~:? "x-amz-delete-marker" hs
+            <*> hs ~:? "ETag" hs
+            <*> hs ~:? "x-amz-expiration" hs
+            <*> hs ~:? "Expires" hs
+            <*> hs ~:? "Last-Modified" hs
+            <*> hs ~:? "x-amz-missing-meta" hs
+            <*> hs ~:? "x-amz-version-id" hs
+            <*> hs ~:? "x-amz-restore" hs
+            <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm" hs
+            <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5" hs
+            <*> hs ~:? "x-amz-server-side-encryption" hs
+            <*> hs ~:? "x-amz-website-redirect-location" hs
 
 data instance Rs HeadObject = HeadObjectResponse
     { hooMetadata :: HashMap Text Text

@@ -18,6 +18,7 @@
 -- | Sets the tags for a bucket.
 module Network.AWS.S3.V2006_03_01.PutBucketTagging where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -70,7 +71,7 @@ instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
 
     request  = put
-    response =
+    response = headerResposne $ const PutBucketTaggingResponse
 
 data instance Rs PutBucketTagging = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)

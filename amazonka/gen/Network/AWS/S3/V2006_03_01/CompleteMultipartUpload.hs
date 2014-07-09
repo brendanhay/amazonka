@@ -18,6 +18,7 @@
 -- | Completes a multipart upload by assembling previously uploaded parts.
 module Network.AWS.S3.V2006_03_01.CompleteMultipartUpload where
 
+import           Control.Applicative
 import           Data.ByteString     (ByteString)
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -73,7 +74,15 @@ instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
 
     request  = post
-    response = response' $ \
+    response = bodyResponse $ \hs bdy ->
+        return $! pure CompleteMultipartUploadResponse
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> pure bdy
+            <*> hs ~:? "x-amz-expiration"
+            <*> hs ~:? "x-amz-version-id"
+            <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
     { cmuoBucket :: Maybe BucketName

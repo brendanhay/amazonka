@@ -1,8 +1,10 @@
-{-# LANGUAGE DataKinds          #-}
-{-# LANGUAGE FlexibleInstances  #-}
-{-# LANGUAGE GADTs              #-}
-{-# LANGUAGE KindSignatures     #-}
-{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE FlexibleInstances   #-}
+{-# LANGUAGE GADTs               #-}
+{-# LANGUAGE KindSignatures      #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE StandaloneDeriving  #-}
 
 -- Module      : Network.AWS.Data.Time
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,58 +16,76 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Time
-    ( Format      (..)
-    , Time        (..)
-    , RFC822
-    , ISO8601
+module Network.AWS.Data.Time where
 
-    , AWSTime     (..)
-    , RFC822Time  (..)
-    , ISO8601Time (..)
-    , BasicTime   (..)
-    ) where
-
+import           Control.Applicative
+import           Control.Monad
+import           Data.Attoparsec.Text        (Parser)
+import qualified Data.Attoparsec.Text        as AText
 import           Data.ByteString             (ByteString)
 import qualified Data.ByteString.Char8       as BS
+import           Data.Tagged
+import qualified Data.Text                   as Text
 import           Data.Time
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Text
 import           System.Locale
 
-data Format = RFC822Format | ISO8601Format
-    deriving (Eq, Show)
+data Format
+    = RFC822Format
+    | ISO8601Format
+    | BasicFormat
+    | AWSFormat
+      deriving (Eq, Show)
 
 data Time :: Format -> * where
-    Time :: UTCTime -> Time a
+    Time       :: UTCTime    -> Time a
+    LocaleTime :: TimeLocale -> UTCTime -> Time a
 
 deriving instance Show (Time a)
 deriving instance Eq   (Time a)
 
-type RFC822  = Time RFC822Format
-type ISO8601 = Time ISO8601Format
+type RFC822    = Time RFC822Format
+type ISO8601   = Time ISO8601Format
+type BasicTime = Time BasicFormat
+type AWSTime   = Time AWSFormat
 
-instance ToByteString RFC822 where
-    toBS (Time t) = toBS (RFC822Time defaultTimeLocale t)
+class TimeFormat a where
+    format :: Tagged a String
 
-instance ToByteString ISO8601 where
-    toBS (Time t) = toBS (ISO8601Time defaultTimeLocale t)
+instance TimeFormat RFC822    where format = Tagged "%a, %d %b %Y %H:%M:%S GMT"
+instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%XZ"))
+instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
+instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%SZ"
 
-data AWSTime     = AWSTime     TimeLocale UTCTime
-data RFC822Time  = RFC822Time  TimeLocale UTCTime
-data ISO8601Time = ISO8601Time TimeLocale UTCTime
-data BasicTime   = BasicTime   TimeLocale UTCTime
+instance ToByteString RFC822    where toBS = renderFormattedTime
+instance ToByteString ISO8601   where toBS = renderFormattedTime
+instance ToByteString BasicTime where toBS = renderFormattedTime
+instance ToByteString AWSTime   where toBS = renderFormattedTime
 
-instance ToByteString AWSTime where
-    toBS (AWSTime l t) = format l "%Y%m%dT%H%M%SZ" t
+renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> ByteString
+renderFormattedTime x = BS.pack (formatTime l (untag f) t)
+  where
+    (l, t) = case x of
+        Time          t' -> (defaultTimeLocale, t')
+        LocaleTime l' t' -> (l', t')
 
-instance ToByteString RFC822Time where
-    toBS (RFC822Time l t) = format l "%a, %d %b %Y %H:%M:%S GMT" t
+    f :: Tagged (Time a) String
+    f = format
 
-instance ToByteString ISO8601Time where
-    toBS (ISO8601Time l t) = format l (iso8601DateFormat $ Just "%XZ") t
+instance FromText RFC822    where parser = parseFormattedTime
+instance FromText ISO8601   where parser = parseFormattedTime
+instance FromText BasicTime where parser = parseFormattedTime
+instance FromText AWSTime   where parser = parseFormattedTime
 
-instance ToByteString BasicTime where
-    toBS (BasicTime l t) = format l "%Y%m%d" t
+parseFormattedTime :: forall a. TimeFormat (Time a) => Parser (Time a)
+parseFormattedTime = do
+    x <- Text.unpack <$> AText.takeText
+    p (parseTime defaultTimeLocale (untag f) x) x
+  where
+    p :: Maybe UTCTime -> String -> Parser (Time a)
+    p Nothing  s = fail   ("Unable to parse " ++ untag f ++ " from " ++ s)
+    p (Just x) _ = return (Time x)
 
-format :: TimeLocale -> String -> UTCTime -> ByteString
-format l f = BS.pack . formatTime l f
+    f :: Tagged (Time a) String
+    f = format

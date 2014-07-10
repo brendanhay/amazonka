@@ -30,6 +30,7 @@ import           Data.Text                   (Text)
 import qualified Data.Text.Encoding          as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
+import           Network.AWS.Data.Time
 import           Network.HTTP.Types
 
 hHost :: HeaderName

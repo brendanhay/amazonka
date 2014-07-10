@@ -120,4 +120,3 @@ data instance Rs ListObjects = ListObjectsResponse
     , looContents :: [Object]
     , looPrefix :: Maybe Text
     } deriving (Eq, Show, Generic)
-

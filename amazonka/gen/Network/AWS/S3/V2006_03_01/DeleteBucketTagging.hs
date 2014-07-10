@@ -65,4 +65,3 @@ instance AWSRequest DeleteBucketTagging where
 
 data instance Rs DeleteBucketTagging = DeleteBucketTaggingResponse
     deriving (Eq, Show, Generic)
-

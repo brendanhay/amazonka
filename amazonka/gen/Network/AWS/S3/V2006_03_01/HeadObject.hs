@@ -206,4 +206,3 @@ data instance Rs HeadObject = HeadObjectResponse
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
     } deriving (Eq, Show, Generic)
-

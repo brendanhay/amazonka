@@ -65,4 +65,3 @@ instance AWSRequest GetBucketCors where
 data instance Rs GetBucketCors = GetBucketCorsResponse
     { gbcoCORSRules :: [CORSRule]
     } deriving (Eq, Show, Generic)
-

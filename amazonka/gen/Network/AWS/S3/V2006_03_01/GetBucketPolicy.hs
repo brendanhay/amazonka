@@ -66,4 +66,3 @@ data instance Rs GetBucketPolicy = GetBucketPolicyResponse
     { gbpoPolicy :: Maybe Text
       -- ^ The bucket policy as a JSON document.
     } deriving (Eq, Show, Generic)
-

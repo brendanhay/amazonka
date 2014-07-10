@@ -67,4 +67,3 @@ instance AWSRequest DeleteBucket where
 
 data instance Rs DeleteBucket = DeleteBucketResponse
     deriving (Eq, Show, Generic)
-

@@ -51,7 +51,7 @@ instance AWSRequest {{ request.name }} where
 
 data instance Rs {{ request.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}
-
 {% if scope.response.type == "xml" %}
+
 instance FromXML (Rs {{ request.name }})
 {% endif %}

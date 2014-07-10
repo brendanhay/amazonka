@@ -66,4 +66,3 @@ instance AWSRequest GetBucketLogging where
 data instance Rs GetBucketLogging = GetBucketLoggingResponse
     { gbloLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Eq, Show, Generic)
-

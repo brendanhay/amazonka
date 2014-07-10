@@ -65,4 +65,3 @@ instance AWSRequest GetBucketLocation where
 data instance Rs GetBucketLocation = GetBucketLocationResponse
     { gbloLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Eq, Show, Generic)
-

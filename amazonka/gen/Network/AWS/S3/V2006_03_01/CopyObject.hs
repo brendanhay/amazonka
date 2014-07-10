@@ -237,4 +237,3 @@ data instance Rs CopyObject = CopyObjectResponse
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Eq, Show, Generic)
-

@@ -76,4 +76,3 @@ instance AWSRequest PutBucketLogging where
 
 data instance Rs PutBucketLogging = PutBucketLoggingResponse
     deriving (Eq, Show, Generic)
-

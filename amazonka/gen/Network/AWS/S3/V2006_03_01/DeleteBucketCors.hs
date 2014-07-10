@@ -65,4 +65,3 @@ instance AWSRequest DeleteBucketCors where
 
 data instance Rs DeleteBucketCors = DeleteBucketCorsResponse
     deriving (Eq, Show, Generic)
-

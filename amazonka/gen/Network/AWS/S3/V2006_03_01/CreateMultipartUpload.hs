@@ -194,4 +194,3 @@ data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Eq, Show, Generic)
-

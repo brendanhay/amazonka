@@ -67,4 +67,3 @@ data instance Rs GetBucketAcl = GetBucketAclResponse
       -- ^ A list of grants.
     , gbaoOwner :: Maybe Owner
     } deriving (Eq, Show, Generic)
-

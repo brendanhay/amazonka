@@ -75,4 +75,3 @@ instance AWSRequest PutBucketLifecycle where
 
 data instance Rs PutBucketLifecycle = PutBucketLifecycleResponse
     deriving (Eq, Show, Generic)
-

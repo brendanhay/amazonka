@@ -100,4 +100,3 @@ instance AWSRequest PutBucketAcl where
 
 data instance Rs PutBucketAcl = PutBucketAclResponse
     deriving (Eq, Show, Generic)
-

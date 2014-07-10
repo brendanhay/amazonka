@@ -65,4 +65,3 @@ instance AWSRequest DeleteBucketLifecycle where
 
 data instance Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
     deriving (Eq, Show, Generic)
-

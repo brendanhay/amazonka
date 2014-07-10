@@ -111,4 +111,3 @@ data instance Rs ListParts = ListPartsResponse
     , lpoStorageClass :: Maybe StorageClass
       -- ^ The class of storage used to store the object.
     } deriving (Eq, Show, Generic)
-

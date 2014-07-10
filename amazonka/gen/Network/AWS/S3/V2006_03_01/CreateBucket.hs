@@ -103,4 +103,3 @@ instance AWSRequest CreateBucket where
 data instance Rs CreateBucket = CreateBucketResponse
     { cboLocation :: Maybe Text
     } deriving (Eq, Show, Generic)
-

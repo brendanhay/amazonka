@@ -65,4 +65,3 @@ instance AWSRequest GetBucketTagging where
 data instance Rs GetBucketTagging = GetBucketTaggingResponse
     { gbtoTagSet :: [Tag]
     } deriving (Eq, Show, Generic)
-

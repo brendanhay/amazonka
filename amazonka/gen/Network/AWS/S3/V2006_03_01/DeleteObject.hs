@@ -92,4 +92,3 @@ data instance Rs DeleteObject = DeleteObjectResponse
       -- ^ Returns the version ID of the delete marker created as a result
       -- of the DELETE operation.
     } deriving (Eq, Show, Generic)
-

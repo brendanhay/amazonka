@@ -133,4 +133,3 @@ data instance Rs ListMultipartUploads = ListMultipartUploadsResponse
     , lmuoUploadIdMarker :: Maybe Text
       -- ^ Upload ID after which listing began.
     } deriving (Eq, Show, Generic)
-

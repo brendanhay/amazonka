@@ -68,4 +68,3 @@ data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
     , gbwoRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , gbwoRoutingRules :: [RoutingRule]
     } deriving (Eq, Show, Generic)
-

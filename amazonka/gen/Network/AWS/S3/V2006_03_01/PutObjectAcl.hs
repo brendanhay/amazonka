@@ -106,4 +106,3 @@ instance AWSRequest PutObjectAcl where
 
 data instance Rs PutObjectAcl = PutObjectAclResponse
     deriving (Eq, Show, Generic)
-

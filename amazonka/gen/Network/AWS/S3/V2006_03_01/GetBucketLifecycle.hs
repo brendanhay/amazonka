@@ -65,4 +65,3 @@ instance AWSRequest GetBucketLifecycle where
 data instance Rs GetBucketLifecycle = GetBucketLifecycleResponse
     { gbloRules :: [Rule]
     } deriving (Eq, Show, Generic)
-

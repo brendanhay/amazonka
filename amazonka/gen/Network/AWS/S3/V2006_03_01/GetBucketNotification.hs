@@ -65,4 +65,3 @@ instance AWSRequest GetBucketNotification where
 data instance Rs GetBucketNotification = GetBucketNotificationResponse
     { gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Eq, Show, Generic)
-

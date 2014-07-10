@@ -82,4 +82,3 @@ data instance Rs DeleteObjects = DeleteObjectsResponse
     { dooDeleted :: [DeletedObject]
     , dooErrors :: [Error]
     } deriving (Eq, Show, Generic)
-

@@ -61,15 +61,12 @@ instance ServiceError (Er S3) where
   {% when "BucketLocationConstraint" %}
 newtype {{ data.value.name }} = {{ data.value.name }} Region
     deriving (Eq, Show, Generic)
+
+instance FromXML {{ data.value.name }}
   {% else %}
     {% case data.value.ctor %}
     {% when "switch" %}
 data {{ data.value.name }}
-
-instance ToByteString (Switch {{ data.value.name }}) where
-      {% for branch in data.value.values %}
-    toBS {{ branch.key }} = "{{ branch.value }}"
-      {% endfor %}
 
 instance FromText (Switch {{ data.value.name }}) where
       {% for branch in data.value.values %}
@@ -83,6 +80,11 @@ instance FromText (Switch {{ data.value.name }}) where
 instance ToText (Switch {{ data.value.name }}) where
       {% for branch in data.value.values %}
     toText {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance ToByteString (Switch {{ data.value.name }}) where
+      {% for branch in data.value.values %}
+    toBS {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
 
 instance FromXML (Switch {{ data.value.name }})
@@ -99,11 +101,6 @@ data {{ data.value.name }}
       {% endfor %}
       deriving (Eq, Show, Generic)
 
-instance ToByteString {{ data.value.name }} where
-      {% for branch in data.value.values %}
-    toBS {{ branch.key }} = "{{ branch.value }}"
-      {% endfor %}
-
 instance FromText {{ data.value.name }} where
       {% for branch in data.value.values %}
         {% if branch.first %}
@@ -117,12 +114,23 @@ instance ToText {{ data.value.name }} where
       {% for branch in data.value.values %}
     toText {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
+
+instance ToByteString {{ data.value.name }} where
+      {% for branch in data.value.values %}
+    toBS {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance FromXML {{ data.value.name }}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
   {% include "_include/record.ede" with data.value.fields %}
+
+instance FromXML {{ data.value.name }}
     {% when "data" %}
 data {{ data.value.name }} = {{ data.value.name }}
   {% include "_include/record.ede" with data.value.fields %}
+
+instance FromXML {{ data.value.name }}
     {% when "nullary" %}
 data {{ data.value.name }} = {{ data.value.name }}
     {% endcase %}

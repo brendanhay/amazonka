@@ -74,4 +74,3 @@ instance AWSRequest PutBucketCors where
 
 data instance Rs PutBucketCors = PutBucketCorsResponse
     deriving (Eq, Show, Generic)
-

@@ -71,4 +71,3 @@ data instance Rs GetBucketVersioning = GetBucketVersioningResponse
       -- been configured with MFA delete. If the bucket has never been so
       -- configured, this element is not returned.
     } deriving (Eq, Show, Generic)
-

@@ -74,4 +74,3 @@ instance AWSRequest PutBucketNotification where
 
 data instance Rs PutBucketNotification = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)
-

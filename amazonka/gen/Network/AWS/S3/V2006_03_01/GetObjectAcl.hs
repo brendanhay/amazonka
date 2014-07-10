@@ -75,4 +75,3 @@ data instance Rs GetObjectAcl = GetObjectAclResponse
       -- ^ A list of grants.
     , goaoOwner :: Maybe Owner
     } deriving (Eq, Show, Generic)
-

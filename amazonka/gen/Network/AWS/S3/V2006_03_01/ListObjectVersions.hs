@@ -125,4 +125,3 @@ data instance Rs ListObjectVersions = ListObjectVersionsResponse
     , lovoPrefix :: Maybe Text
     , lovoVersionIdMarker :: Maybe Text
     } deriving (Eq, Show, Generic)
-

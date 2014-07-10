@@ -66,4 +66,3 @@ data instance Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
     { gbrpoPayer :: Maybe Payer
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Eq, Show, Generic)
-

@@ -327,4 +327,4 @@ instance FromHeader   ETag
 instance FromXML      ETag
 
 data Switch a = Enabled | Disabled
-    deriving (Eq, Show)
+    deriving (Eq, Show, Generic)

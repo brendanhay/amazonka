@@ -120,7 +120,7 @@ rootNS (NS xs) = NS (init xs)
 typeNS :: NS -> NS
 typeNS = (<> "Types")
 
-fromName :: Shape -> Text
+fromName :: HasCommon a => a -> Text
 fromName = fromMaybe "Untyped" . view cmnName
 
 shapeEnums :: Maybe Text -> [Text] -> HashMap Text Text
@@ -212,7 +212,7 @@ ctorof s = case s of
         | Map.size _sctFields == 1   -> CNewtype
         | Map.null _sctFields        -> CNullary
     SSum{}
-        | fromName s `elem` switches -> CWitness
+        | fromName s `elem` switches -> CSwitch
         | otherwise                  -> CSum
     _                                -> CData
 
@@ -247,11 +247,20 @@ serviceTypes Service{..} = sort
         concatMap (\s -> flat (fromName s) s) (Map.elems _sctFields)
     descend _                   = []
 
-    flat p s@SStruct     {}    = (p, s) : descend s
-    flat _ s@(SList List {..}) = flat (fromName s) _lstItem
-    flat _ s@(SMap  Map  {..}) = flat (fromName s) _mapKey ++ flat (fromName s) _mapValue
-    flat p s@SSum        {}    = [(p, s)]
-    flat _ _                   = []
+    flat p s@SStruct {}         = (p, s) : descend s
+    flat _ s@(SList  List {..}) = flat (fromName s) _lstItem
+    flat _ s@(SMap   Map  {..}) = flat (fromName s) _mapKey ++ flat (fromName s) _mapValue
+    flat p (SSum     x)         = [(p, SSum $ rename x)]
+    flat _ _                    = []
+
+    rename s
+        | fromName s `notElem` switches = s
+        | otherwise = s { _sumValues = f (_sumValues s) }
+      where
+        f = Map.fromList . map g . Map.toList
+
+        g (_, "Enabled") = ("Enabled", "Enabled")
+        g (_, v)         = ("Disabled", v)
 
 serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") ss ts

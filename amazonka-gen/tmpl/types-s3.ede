@@ -63,6 +63,30 @@ newtype {{ data.value.name }} = {{ data.value.name }} Region
     deriving (Eq, Show, Generic)
   {% else %}
     {% case data.value.ctor %}
+    {% when "switch" %}
+data {{ data.value.name }}
+
+instance ToByteString (Switch {{ data.value.name }}) where
+      {% for branch in data.value.values %}
+    toBS {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance FromText (Switch {{ data.value.name }}) where
+      {% for branch in data.value.values %}
+        {% if branch.first %}
+    parser = matchText "{{ branch.value }}" {{ branch.key }}
+        {% else %}
+         <|> matchText "{{ branch.value }}" {{ branch.key }}
+        {% endif %}
+      {% endfor %}
+
+instance ToText (Switch {{ data.value.name }}) where
+      {% for branch in data.value.values %}
+    toText {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance FromHeader (Switch {{ data.value.name }})
+instance FromXML (Switch {{ data.value.name }})
     {% when "witness" %}
 data {{ data.value.name }}
     {% when "sum" %}
@@ -75,6 +99,11 @@ data {{ data.value.name }}
         {% endif %}
       {% endfor %}
       deriving (Eq, Show, Generic)
+
+instance ToByteString {{ data.value.name }} where
+      {% for branch in data.value.values %}
+    toBS {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
 
 instance FromText {{ data.value.name }} where
       {% for branch in data.value.values %}
@@ -90,11 +119,6 @@ instance ToText {{ data.value.name }} where
     toText {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
 
-instance ToByteString {{ data.value.name }} where
-      {% for branch in data.value.values %}
-    toBS {{ branch.key }} = "{{ branch.value }}"
-      {% endfor %}
-
 instance FromHeader {{ data.value.name }}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
@@ -106,8 +130,6 @@ data {{ data.value.name }} = {{ data.value.name }}
 data {{ data.value.name }} = {{ data.value.name }}
     {% endcase %}
   {% endcase %}
-
-instance FromXML {{ data.value.name }}
   {% if !data.last %}
 
   {% endif %}

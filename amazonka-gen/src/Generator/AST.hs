@@ -260,6 +260,7 @@ instance HasCommon Field where
 
 data Ctor
     = CWitness
+    | CSwitch
     | CSum
     | CNullary
     | CNewtype

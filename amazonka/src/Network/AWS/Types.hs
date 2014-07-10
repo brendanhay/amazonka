@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
@@ -38,6 +39,7 @@ import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Data.Typeable
+import           GHC.Generics
 import           Network.AWS.Data
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
@@ -291,56 +293,38 @@ instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
 newtype BucketName = BucketName Text
-    deriving (Eq, Show, IsString)
+    deriving (Eq, Show, Generic, IsString)
 
-instance ToByteString BucketName where
-    toBS (BucketName b) = toBS b
-
-instance FromText BucketName where
-    parser = BucketName <$> takeText
-
-instance ToText BucketName where
-    toText (BucketName b) = b
+instance ToByteString BucketName where toBS (BucketName b) = toBS b
+instance FromText     BucketName where parser = BucketName <$> takeText
+instance ToText       BucketName where toText (BucketName b) = b
+instance FromXML      BucketName
 
 newtype ObjectKey = ObjectKey Text
-    deriving (Eq, Show, IsString)
+    deriving (Eq, Show, Generic, IsString)
 
-instance ToByteString ObjectKey where
-    toBS (ObjectKey k) = toBS k
-
-instance FromText ObjectKey where
-    parser = ObjectKey <$> takeText
-
-instance ToText ObjectKey where
-    toText (ObjectKey k) = k
+instance ToByteString ObjectKey where toBS (ObjectKey k) = toBS k
+instance FromText     ObjectKey where parser = ObjectKey <$> takeText
+instance ToText       ObjectKey where toText (ObjectKey k) = k
+instance FromXML      ObjectKey
 
 newtype ObjectVersionId = ObjectVersionId Text
-    deriving (Eq, Show, IsString)
+    deriving (Eq, Show, Generic, IsString)
 
-instance ToByteString ObjectVersionId where
-    toBS (ObjectVersionId v) = toBS v
-
-instance FromText ObjectVersionId where
-    parser = ObjectVersionId <$> takeText
-
-instance ToText ObjectVersionId where
-    toText (ObjectVersionId v) = v
-
-instance FromHeader ObjectVersionId
+instance ToByteString ObjectVersionId where toBS (ObjectVersionId v) = toBS v
+instance FromText     ObjectVersionId where parser = ObjectVersionId <$> takeText
+instance ToText       ObjectVersionId where toText (ObjectVersionId v) = v
+instance FromHeader   ObjectVersionId
+instance FromXML      ObjectVersionId
 
 newtype ETag = ETag Text
-    deriving (Eq, Show, IsString)
+    deriving (Eq, Show, Generic, IsString)
 
-instance ToByteString ETag where
-    toBS (ETag t) = toBS t
-
-instance FromText ETag where
-    parser = ETag <$> takeText
-
-instance ToText ETag where
-    toText (ETag t) = t
-
-instance FromHeader ETag
+instance ToByteString ETag where toBS (ETag t) = toBS t
+instance FromText     ETag where parser = ETag <$> takeText
+instance ToText       ETag where toText (ETag t) = t
+instance FromHeader   ETag
+instance FromXML      ETag
 
 data Switch a = Enabled | Disabled
     deriving (Eq, Show)

@@ -79,10 +79,11 @@ infixl 6 ~:, ~:?
   where
     missing = BS.unpack $ "Unable to find header: " <> CI.original k
 
+-- FIXME: Should ignore missing, but fail on parsing error if present
 (~:?) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
 (~:?) hs k = Right $ hush (hs ~: k)
 
--- FIXME: Should ignore missing, but fail on parsing error if present
+-- FIXME: Reuse FromText/ByteString instead of custom/disparate type class?
 
 class FromHeader a where
     fromHeader :: HeaderName -> ByteString -> Either String a
@@ -91,13 +92,18 @@ class FromHeader a where
                        => HeaderName
                        -> ByteString
                        -> Either String a
-    fromHeader _ = fromText . Text.decodeUtf8
+    fromHeader = const $ fromText . Text.decodeUtf8
 
 instance FromHeader ByteString where
-    fromHeader _ = Right
+    fromHeader = const Right
 
 instance FromHeader Text where
-    fromHeader _ = Right . Text.decodeUtf8
+    fromHeader = const $ Right . Text.decodeUtf8
+
+instance FromHeader RFC822
+instance FromHeader ISO8601
+instance FromHeader BasicTime
+instance FromHeader AWSTime
 
 -- (~:) :: FromHeaders a => [Header] -> HeaderName -> Either String a
 -- (~:) = flip fromHeaders

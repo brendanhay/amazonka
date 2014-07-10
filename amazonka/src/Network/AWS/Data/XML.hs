@@ -40,6 +40,7 @@ import           GHC.Generics
 import           Text.XML
 import           Text.XML.Cursor
 import           Control.Error
+import           Network.AWS.Data.Text
 
 infixl 6 %|, %|?
 
@@ -128,10 +129,13 @@ class FromXML a where
                     -> Either String a
     fromXML o = fmap to . gFromXML (untag o)
 
--- instance FromXML Text where
---     fromXMLRoot                 = fromRoot "Text"
---     fromXML _ [NodeContent txt] = Right txt
---     fromXML _ _                 = Left "Unexpected node contents."
+instance FromXML Text where
+    fromXMLRoot = undefined
+    fromXML     = undefined
+
+fromNodeContent :: FromText a => XMLOptions -> [Node] -> Either String a
+fromNodeContent _ [NodeContent x] = fromText x
+fromNodeContent _ _               = Left "Unexpected non-textual node contents."
 
 -- instance FromXML BS.ByteString where
 --     fromXMLRoot = fromRoot "ByteString"

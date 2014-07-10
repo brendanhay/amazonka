@@ -81,6 +81,8 @@ infixl 6 ~:, ~:?
 (~:?) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
 (~:?) hs k = Right $ hush (hs ~: k)
 
+-- FIXME: Should ignore missing, but fail on parsing error if present
+
 class FromHeader a where
     fromHeader :: HeaderName -> ByteString -> Either String a
 

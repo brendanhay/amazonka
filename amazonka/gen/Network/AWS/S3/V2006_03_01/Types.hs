@@ -18,6 +18,7 @@
 
 module Network.AWS.S3.V2006_03_01.Types where
 
+import Control.Applicative
 import Data.Text (Text)
 import GHC.Generics
 import Network.AWS.Data
@@ -45,14 +46,16 @@ data instance Er S3
     | NoSuchUpload
     | ObjectAlreadyInActiveTierError
     | ObjectNotInActiveTierError
+    | S3Error String
     | S3Protocol ClientException
       deriving (Show, Generic)
 
 instance AWSError (Er S3) where
     awsError = const "S3Error"
 
-instance ClientError (Er S3) where
-    clientError = S3Protocol
+instance ServiceError (Er S3) where
+    serviceError = S3Error
+    clientError  = S3Protocol
 
 -- | The versioning state of the bucket.
 data BucketVersioningStatus
@@ -81,12 +84,25 @@ data BucketCannedACL
     | BucketCannedACLPublicReadWrite -- ^ public-read-write
       deriving (Eq, Show, Generic)
 
+instance FromText BucketCannedACL where
+    parser = matchText "authenticated-read" BucketCannedACLAuthenticatedRead
+         <|> matchText "private" BucketCannedACLPrivate
+         <|> matchText "public-read" BucketCannedACLPublicRead
+         <|> matchText "public-read-write" BucketCannedACLPublicReadWrite
+
+instance ToText BucketCannedACL where
+    toText BucketCannedACLAuthenticatedRead = "authenticated-read"
+    toText BucketCannedACLPrivate = "private"
+    toText BucketCannedACLPublicRead = "public-read"
+    toText BucketCannedACLPublicReadWrite = "public-read-write"
+
 instance ToByteString BucketCannedACL where
-    toBS x = case x of
-        BucketCannedACLAuthenticatedRead -> "authenticated-read"
-        BucketCannedACLPrivate -> "private"
-        BucketCannedACLPublicRead -> "public-read"
-        BucketCannedACLPublicReadWrite -> "public-read-write"
+    toBS BucketCannedACLAuthenticatedRead = "authenticated-read"
+    toBS BucketCannedACLPrivate = "private"
+    toBS BucketCannedACLPublicRead = "public-read"
+    toBS BucketCannedACLPublicReadWrite = "public-read-write"
+
+instance FromHeader BucketCannedACL
 
 -- | Specifies the region where the bucket will be created.
 newtype BucketLocationConstraint = BucketLocationConstraint Region
@@ -99,11 +115,22 @@ data BucketLogsPermission
     | BucketLogsPermissionWrite -- ^ WRITE
       deriving (Eq, Show, Generic)
 
+instance FromText BucketLogsPermission where
+    parser = matchText "FULL_CONTROL" BucketLogsPermissionFullControl
+         <|> matchText "READ" BucketLogsPermissionRead
+         <|> matchText "WRITE" BucketLogsPermissionWrite
+
+instance ToText BucketLogsPermission where
+    toText BucketLogsPermissionFullControl = "FULL_CONTROL"
+    toText BucketLogsPermissionRead = "READ"
+    toText BucketLogsPermissionWrite = "WRITE"
+
 instance ToByteString BucketLogsPermission where
-    toBS x = case x of
-        BucketLogsPermissionFullControl -> "FULL_CONTROL"
-        BucketLogsPermissionRead -> "READ"
-        BucketLogsPermissionWrite -> "WRITE"
+    toBS BucketLogsPermissionFullControl = "FULL_CONTROL"
+    toBS BucketLogsPermissionRead = "READ"
+    toBS BucketLogsPermissionWrite = "WRITE"
+
+instance FromHeader BucketLogsPermission
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
 -- the encoding method to use. An object key may contain any Unicode
@@ -115,18 +142,32 @@ data EncodingType
     = EncodingTypeUrl -- ^ url
       deriving (Eq, Show, Generic)
 
+instance FromText EncodingType where
+    parser = matchText "url" EncodingTypeUrl
+
+instance ToText EncodingType where
+    toText EncodingTypeUrl = "url"
+
 instance ToByteString EncodingType where
-    toBS x = case x of
-        EncodingTypeUrl -> "url"
+    toBS EncodingTypeUrl = "url"
+
+instance FromHeader EncodingType
 
 -- | Bucket event for which to send notifications.
 data Event
     = EventS3ReducedRedundancyLostObject -- ^ s3:ReducedRedundancyLostObject
       deriving (Eq, Show, Generic)
 
+instance FromText Event where
+    parser = matchText "s3:ReducedRedundancyLostObject" EventS3ReducedRedundancyLostObject
+
+instance ToText Event where
+    toText EventS3ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
+
 instance ToByteString Event where
-    toBS x = case x of
-        EventS3ReducedRedundancyLostObject -> "s3:ReducedRedundancyLostObject"
+    toBS EventS3ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
+
+instance FromHeader Event
 
 -- | Specifies whether the metadata is copied from the source object or replaced
 -- with metadata provided in the request.
@@ -135,10 +176,19 @@ data MetadataDirective
     | MetadataDirectiveReplace -- ^ REPLACE
       deriving (Eq, Show, Generic)
 
+instance FromText MetadataDirective where
+    parser = matchText "COPY" MetadataDirectiveCopy
+         <|> matchText "REPLACE" MetadataDirectiveReplace
+
+instance ToText MetadataDirective where
+    toText MetadataDirectiveCopy = "COPY"
+    toText MetadataDirectiveReplace = "REPLACE"
+
 instance ToByteString MetadataDirective where
-    toBS x = case x of
-        MetadataDirectiveCopy -> "COPY"
-        MetadataDirectiveReplace -> "REPLACE"
+    toBS MetadataDirectiveCopy = "COPY"
+    toBS MetadataDirectiveReplace = "REPLACE"
+
+instance FromHeader MetadataDirective
 
 -- | The canned ACL to apply to the object.
 data ObjectCannedACL
@@ -150,14 +200,31 @@ data ObjectCannedACL
     | ObjectCannedACLPublicReadWrite -- ^ public-read-write
       deriving (Eq, Show, Generic)
 
+instance FromText ObjectCannedACL where
+    parser = matchText "authenticated-read" ObjectCannedACLAuthenticatedRead
+         <|> matchText "bucket-owner-full-control" ObjectCannedACLBucketOwnerFullControl
+         <|> matchText "bucket-owner-read" ObjectCannedACLBucketOwnerRead
+         <|> matchText "private" ObjectCannedACLPrivate
+         <|> matchText "public-read" ObjectCannedACLPublicRead
+         <|> matchText "public-read-write" ObjectCannedACLPublicReadWrite
+
+instance ToText ObjectCannedACL where
+    toText ObjectCannedACLAuthenticatedRead = "authenticated-read"
+    toText ObjectCannedACLBucketOwnerFullControl = "bucket-owner-full-control"
+    toText ObjectCannedACLBucketOwnerRead = "bucket-owner-read"
+    toText ObjectCannedACLPrivate = "private"
+    toText ObjectCannedACLPublicRead = "public-read"
+    toText ObjectCannedACLPublicReadWrite = "public-read-write"
+
 instance ToByteString ObjectCannedACL where
-    toBS x = case x of
-        ObjectCannedACLAuthenticatedRead -> "authenticated-read"
-        ObjectCannedACLBucketOwnerFullControl -> "bucket-owner-full-control"
-        ObjectCannedACLBucketOwnerRead -> "bucket-owner-read"
-        ObjectCannedACLPrivate -> "private"
-        ObjectCannedACLPublicRead -> "public-read"
-        ObjectCannedACLPublicReadWrite -> "public-read-write"
+    toBS ObjectCannedACLAuthenticatedRead = "authenticated-read"
+    toBS ObjectCannedACLBucketOwnerFullControl = "bucket-owner-full-control"
+    toBS ObjectCannedACLBucketOwnerRead = "bucket-owner-read"
+    toBS ObjectCannedACLPrivate = "private"
+    toBS ObjectCannedACLPublicRead = "public-read"
+    toBS ObjectCannedACLPublicReadWrite = "public-read-write"
+
+instance FromHeader ObjectCannedACL
 
 -- | The class of storage used to store the object.
 data ObjectStorageClass
@@ -166,20 +233,38 @@ data ObjectStorageClass
     | ObjectStorageClassStandard -- ^ STANDARD
       deriving (Eq, Show, Generic)
 
+instance FromText ObjectStorageClass where
+    parser = matchText "GLACIER" ObjectStorageClassGlacier
+         <|> matchText "REDUCED_REDUNDANCY" ObjectStorageClassReducedRedundancy
+         <|> matchText "STANDARD" ObjectStorageClassStandard
+
+instance ToText ObjectStorageClass where
+    toText ObjectStorageClassGlacier = "GLACIER"
+    toText ObjectStorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
+    toText ObjectStorageClassStandard = "STANDARD"
+
 instance ToByteString ObjectStorageClass where
-    toBS x = case x of
-        ObjectStorageClassGlacier -> "GLACIER"
-        ObjectStorageClassReducedRedundancy -> "REDUCED_REDUNDANCY"
-        ObjectStorageClassStandard -> "STANDARD"
+    toBS ObjectStorageClassGlacier = "GLACIER"
+    toBS ObjectStorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
+    toBS ObjectStorageClassStandard = "STANDARD"
+
+instance FromHeader ObjectStorageClass
 
 -- | The class of storage used to store the object.
 data ObjectVersionStorageClass
     = ObjectVersionStorageClassStandard -- ^ STANDARD
       deriving (Eq, Show, Generic)
 
+instance FromText ObjectVersionStorageClass where
+    parser = matchText "STANDARD" ObjectVersionStorageClassStandard
+
+instance ToText ObjectVersionStorageClass where
+    toText ObjectVersionStorageClassStandard = "STANDARD"
+
 instance ToByteString ObjectVersionStorageClass where
-    toBS x = case x of
-        ObjectVersionStorageClassStandard -> "STANDARD"
+    toBS ObjectVersionStorageClassStandard = "STANDARD"
+
+instance FromHeader ObjectVersionStorageClass
 
 -- | Specifies who pays for the download and request fees.
 data Payer
@@ -187,10 +272,19 @@ data Payer
     | PayerRequester -- ^ Requester
       deriving (Eq, Show, Generic)
 
+instance FromText Payer where
+    parser = matchText "BucketOwner" PayerBucketOwner
+         <|> matchText "Requester" PayerRequester
+
+instance ToText Payer where
+    toText PayerBucketOwner = "BucketOwner"
+    toText PayerRequester = "Requester"
+
 instance ToByteString Payer where
-    toBS x = case x of
-        PayerBucketOwner -> "BucketOwner"
-        PayerRequester -> "Requester"
+    toBS PayerBucketOwner = "BucketOwner"
+    toBS PayerRequester = "Requester"
+
+instance FromHeader Payer
 
 -- | Specifies the permission given to the grantee.
 data Permission
@@ -201,13 +295,28 @@ data Permission
     | PermissionWriteAcp -- ^ WRITE_ACP
       deriving (Eq, Show, Generic)
 
+instance FromText Permission where
+    parser = matchText "FULL_CONTROL" PermissionFullControl
+         <|> matchText "READ" PermissionRead
+         <|> matchText "READ_ACP" PermissionReadAcp
+         <|> matchText "WRITE" PermissionWrite
+         <|> matchText "WRITE_ACP" PermissionWriteAcp
+
+instance ToText Permission where
+    toText PermissionFullControl = "FULL_CONTROL"
+    toText PermissionRead = "READ"
+    toText PermissionReadAcp = "READ_ACP"
+    toText PermissionWrite = "WRITE"
+    toText PermissionWriteAcp = "WRITE_ACP"
+
 instance ToByteString Permission where
-    toBS x = case x of
-        PermissionFullControl -> "FULL_CONTROL"
-        PermissionRead -> "READ"
-        PermissionReadAcp -> "READ_ACP"
-        PermissionWrite -> "WRITE"
-        PermissionWriteAcp -> "WRITE_ACP"
+    toBS PermissionFullControl = "FULL_CONTROL"
+    toBS PermissionRead = "READ"
+    toBS PermissionReadAcp = "READ_ACP"
+    toBS PermissionWrite = "WRITE"
+    toBS PermissionWriteAcp = "WRITE_ACP"
+
+instance FromHeader Permission
 
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
@@ -216,19 +325,35 @@ data Protocol
     | ProtocolHttps -- ^ https
       deriving (Eq, Show, Generic)
 
+instance FromText Protocol where
+    parser = matchText "http" ProtocolHttp
+         <|> matchText "https" ProtocolHttps
+
+instance ToText Protocol where
+    toText ProtocolHttp = "http"
+    toText ProtocolHttps = "https"
+
 instance ToByteString Protocol where
-    toBS x = case x of
-        ProtocolHttp -> "http"
-        ProtocolHttps -> "https"
+    toBS ProtocolHttp = "http"
+    toBS ProtocolHttps = "https"
+
+instance FromHeader Protocol
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
 data ServerSideEncryption
     = ServerSideEncryptionAES256 -- ^ AES256
       deriving (Eq, Show, Generic)
 
+instance FromText ServerSideEncryption where
+    parser = matchText "AES256" ServerSideEncryptionAES256
+
+instance ToText ServerSideEncryption where
+    toText ServerSideEncryptionAES256 = "AES256"
+
 instance ToByteString ServerSideEncryption where
-    toBS x = case x of
-        ServerSideEncryptionAES256 -> "AES256"
+    toBS ServerSideEncryptionAES256 = "AES256"
+
+instance FromHeader ServerSideEncryption
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
 data StorageClass
@@ -236,19 +361,35 @@ data StorageClass
     | StorageClassStandard -- ^ STANDARD
       deriving (Eq, Show, Generic)
 
+instance FromText StorageClass where
+    parser = matchText "REDUCED_REDUNDANCY" StorageClassReducedRedundancy
+         <|> matchText "STANDARD" StorageClassStandard
+
+instance ToText StorageClass where
+    toText StorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
+    toText StorageClassStandard = "STANDARD"
+
 instance ToByteString StorageClass where
-    toBS x = case x of
-        StorageClassReducedRedundancy -> "REDUCED_REDUNDANCY"
-        StorageClassStandard -> "STANDARD"
+    toBS StorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
+    toBS StorageClassStandard = "STANDARD"
+
+instance FromHeader StorageClass
 
 -- | The class of storage used to store the object.
 data TransitionStorageClass
     = TransitionStorageClassGlacier -- ^ GLACIER
       deriving (Eq, Show, Generic)
 
+instance FromText TransitionStorageClass where
+    parser = matchText "GLACIER" TransitionStorageClassGlacier
+
+instance ToText TransitionStorageClass where
+    toText TransitionStorageClassGlacier = "GLACIER"
+
 instance ToByteString TransitionStorageClass where
-    toBS x = case x of
-        TransitionStorageClassGlacier -> "GLACIER"
+    toBS TransitionStorageClassGlacier = "GLACIER"
+
+instance FromHeader TransitionStorageClass
 
 -- | Type of grantee.
 data Type
@@ -257,11 +398,22 @@ data Type
     | TypeGroup -- ^ Group
       deriving (Eq, Show, Generic)
 
+instance FromText Type where
+    parser = matchText "AmazonCustomerByEmail" TypeAmazonCustomerByEmail
+         <|> matchText "CanonicalUser" TypeCanonicalUser
+         <|> matchText "Group" TypeGroup
+
+instance ToText Type where
+    toText TypeAmazonCustomerByEmail = "AmazonCustomerByEmail"
+    toText TypeCanonicalUser = "CanonicalUser"
+    toText TypeGroup = "Group"
+
 instance ToByteString Type where
-    toBS x = case x of
-        TypeAmazonCustomerByEmail -> "AmazonCustomerByEmail"
-        TypeCanonicalUser -> "CanonicalUser"
-        TypeGroup -> "Group"
+    toBS TypeAmazonCustomerByEmail = "AmazonCustomerByEmail"
+    toBS TypeCanonicalUser = "CanonicalUser"
+    toBS TypeGroup = "Group"
+
+instance FromHeader Type
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { blsLoggingEnabled :: LoggingEnabled

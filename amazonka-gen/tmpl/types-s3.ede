@@ -10,6 +10,7 @@
 {% endif %}
 module {{ types_namespace }} where
 
+import Control.Applicative
 import Data.Text (Text)
 import GHC.Generics
 import Network.AWS.Data
@@ -48,8 +49,9 @@ data instance Er {{ name }}
 instance AWSError (Er S3) where
     awsError = const "{{ error.name }}"
 
-instance ClientError (Er S3) where
-    clientError = {{ name }}Protocol
+instance ServiceError (Er S3) where
+    serviceError = {{ name }}Error
+    clientError  = {{ name }}Protocol
 
 {% for data in types %}
   {% if data.value.documentation %}
@@ -74,11 +76,26 @@ data {{ data.value.name }}
       {% endfor %}
       deriving (Eq, Show, Generic)
 
-instance ToByteString {{ data.value.name }} where
-    toBS x = case x of
+instance FromText {{ data.value.name }} where
       {% for branch in data.value.values %}
-        {{ branch.key }} -> "{{ branch.value }}"
+        {% if branch.first %}
+    parser = matchText "{{ branch.value }}" {{ branch.key }}
+        {% else %}
+         <|> matchText "{{ branch.value }}" {{ branch.key }}
+        {% endif %}
       {% endfor %}
+
+instance ToText {{ data.value.name }} where
+      {% for branch in data.value.values %}
+    toText {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance ToByteString {{ data.value.name }} where
+      {% for branch in data.value.values %}
+    toBS {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance FromHeader {{ data.value.name }}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
   {% include "_include/record.ede" with data.value.fields %}

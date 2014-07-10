@@ -76,14 +76,13 @@ instance AWSError String where
 instance AWSError ClientException where
     awsError = ClientError
 
-class ClientError a where
-    clientError :: ClientException -> a
+class ServiceError a where
+    serviceError :: String          -> a
+    clientError  :: ClientException -> a
 
-instance ClientError Error where
-    clientError = ClientError
-
-instance ClientError ClientException where
-    clientError = id
+instance ServiceError Error where
+    serviceError = AWSError
+    clientError  = ClientError
 
 data family Er a :: *
 data family Rs a :: *
@@ -297,6 +296,9 @@ newtype BucketName = BucketName Text
 instance ToByteString BucketName where
     toBS (BucketName b) = toBS b
 
+instance FromText BucketName where
+    parser = BucketName <$> takeText
+
 instance ToText BucketName where
     toText (BucketName b) = b
 
@@ -305,6 +307,9 @@ newtype ObjectKey = ObjectKey Text
 
 instance ToByteString ObjectKey where
     toBS (ObjectKey k) = toBS k
+
+instance FromText ObjectKey where
+    parser = ObjectKey <$> takeText
 
 instance ToText ObjectKey where
     toText (ObjectKey k) = k
@@ -315,8 +320,13 @@ newtype ObjectVersionId = ObjectVersionId Text
 instance ToByteString ObjectVersionId where
     toBS (ObjectVersionId v) = toBS v
 
+instance FromText ObjectVersionId where
+    parser = ObjectVersionId <$> takeText
+
 instance ToText ObjectVersionId where
     toText (ObjectVersionId v) = v
+
+instance FromHeader ObjectVersionId
 
 newtype ETag = ETag Text
     deriving (Eq, Show, IsString)
@@ -324,8 +334,13 @@ newtype ETag = ETag Text
 instance ToByteString ETag where
     toBS (ETag t) = toBS t
 
+instance FromText ETag where
+    parser = ETag <$> takeText
+
 instance ToText ETag where
     toText (ETag t) = t
+
+instance FromHeader ETag
 
 data Switch a = Enabled | Disabled
     deriving (Eq, Show)

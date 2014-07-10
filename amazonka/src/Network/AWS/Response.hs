@@ -45,27 +45,22 @@ import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           Text.XML.Cursor
 
-headerResponse :: (ClientError e, Monad m)
+headerResponse :: (Monad m, ServiceError e)
                => (ResponseHeaders -> Either String a)
                -> Either ClientException (ClientResponse m)
                -> m (Either e a)
-headerResponse f = bodyResponse $ \hs bdy -> undefined
---    (bdy $$+- return ()) >> return ( `fmapL` f hs)
+headerResponse f = bodyResponse $ \hs bdy ->
+    (bdy $$+- return ()) >> return (serviceError `fmapL` f hs)
 
-xmlResponse :: (ClientError e, FromXML a, Monad m)
+xmlResponse :: (Monad m, ServiceError e)
             => (ResponseHeaders -> Cursor -> Either String a)
             -> Either ClientException (ClientResponse m)
             -> m (Either e a)
 xmlResponse f = bodyResponse $ \hs bdy -> do
     lbs <- bdy $$+- Conduit.sinkLbs
-    undefined
+    return $ serviceError `fmapL` f hs (undefined lbs)
 
-    -- return . fmapL clientError
-    --        . join
-    --        . fmap ($ hs)
-    --        $ decodeXML lbs
-
-bodyResponse :: (ClientError e, Monad m)
+bodyResponse :: (Monad m, ServiceError e)
              => (ResponseHeaders -> b -> m (Either e a))
              -> Either ClientException (Response b)
              -> m (Either e a)

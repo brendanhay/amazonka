@@ -257,11 +257,15 @@ serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") ss ts
   where
     ts = Map.fromList $ map (\s -> (fromName s, shapeType True def s)) ss
-    ss = except : nub (concatMap _opErrors os)
 
-    except = SStruct $ Struct (Map.fromList [("clientException", field)]) ctor
-    ctor   = def & cmnName .~ Just (unAbbrev a <> "Protocol")
-    field  = SStruct . Struct mempty $ def & cmnName .~ Just "ClientException"
+    ss = except "Protocol" "ClientException"
+       : except "Error" "String"
+       : nub (concatMap _opErrors os)
+
+    except s t = SStruct $ Struct (Map.fromList [("", field)]) ctor
+      where
+        field  = SStruct . Struct mempty $ def & cmnName .~ Just t
+        ctor   = def & cmnName .~ Just (unAbbrev a <> s)
 
 shapeType :: Bool -> Time -> Shape -> Type
 shapeType rq t s = Type s (typeof rq t s) (ctorof s) (fields rq t s)

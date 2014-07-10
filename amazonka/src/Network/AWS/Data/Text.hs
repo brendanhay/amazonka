@@ -19,6 +19,9 @@ module Network.AWS.Data.Text
       FromText  (..)
     , fromText
     , readText
+    , matchText
+    , matchTextCI
+    , AText.takeText
 
     -- ** ToText
     , ToText    (..)
@@ -28,9 +31,11 @@ module Network.AWS.Data.Text
 import           Control.Applicative
 import           Data.Attoparsec.Text             (Parser)
 import qualified Data.Attoparsec.Text             as AText
+import           Data.ByteString                  (ByteString)
 import           Data.Int
 import           Data.Text                        (Text)
 import qualified Data.Text                        as Text
+import qualified Data.Text.Encoding               as Text
 import qualified Data.Text.Lazy                   as LText
 import           Data.Text.Lazy.Builder           (Builder)
 import qualified Data.Text.Lazy.Builder           as Build
@@ -43,18 +48,23 @@ fromText = AText.parseOnly parser
 readText :: FromText a => ReadS a
 readText = either (const []) (\x -> [(x, "")]) . fromText . Text.pack
 
+matchText :: Text -> a -> Parser a
+matchText x y = AText.string x >> return y
+
+matchTextCI :: Text -> a -> Parser a
+matchTextCI x y = AText.asciiCI x >> return y
+
 class FromText a where
     parser :: Parser a
 
-instance FromText Text    where parser = AText.takeText
-instance FromText Int     where parser = AText.decimal
-instance FromText Integer where parser = AText.decimal
-instance FromText Double  where parser = AText.rational
+instance FromText Text       where parser = AText.takeText
+instance FromText ByteString where parser = Text.encodeUtf8 <$> AText.takeText
+instance FromText Int        where parser = AText.decimal
+instance FromText Integer    where parser = AText.decimal
+instance FromText Double     where parser = AText.rational
 
 instance FromText Bool where
-    parser = f "false" False <|> f "true" True
-      where
-        f x y = AText.asciiCI x >> return y
+    parser = matchTextCI "false" False <|> matchTextCI "true" True
 
 showText :: ToText a => a -> String
 showText = Text.unpack . toText
@@ -62,11 +72,12 @@ showText = Text.unpack . toText
 class ToText a where
     toText :: a -> Text
 
-instance ToText Text    where toText = id
-instance ToText Int     where toText = shortText . Build.decimal
-instance ToText Int64   where toText = shortText . Build.decimal
-instance ToText Integer where toText = shortText . Build.decimal
-instance ToText Double  where toText = shortText . Build.realFloat
+instance ToText Text       where toText = id
+instance ToText ByteString where toText = Text.decodeUtf8
+instance ToText Int        where toText = shortText . Build.decimal
+instance ToText Int64      where toText = shortText . Build.decimal
+instance ToText Integer    where toText = shortText . Build.decimal
+instance ToText Double     where toText = shortText . Build.realFloat
 
 shortText :: Builder -> Text
 shortText = LText.toStrict . Build.toLazyTextWith 32

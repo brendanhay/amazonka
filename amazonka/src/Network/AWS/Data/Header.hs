@@ -1,3 +1,4 @@
+{-# LANGUAGE DefaultSignatures #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -17,6 +18,7 @@ module Network.AWS.Data.Header where
 
 import           Control.Error
 import           Data.ByteString.Char8       (ByteString)
+import qualified Data.ByteString.Char8       as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Foldable               as Fold
 import           Data.Function               (on)
@@ -27,6 +29,7 @@ import           Data.Monoid
 import           Data.Text                   (Text)
 import qualified Data.Text.Encoding          as Text
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Text
 import           Network.HTTP.Types
 
 hHost :: HeaderName
@@ -71,42 +74,67 @@ instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
 infixl 6 ~:, ~:?
 
 (~:) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String a
-(~:) hs k = undefined
+(~:) hs k = note missing (find ((k ==) . fst) hs) >>= uncurry fromHeader
+  where
+    missing = BS.unpack $ "Unable to find header: " <> CI.original k
 
 (~:?) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
 (~:?) hs k = Right $ hush (hs ~: k)
 
 class FromHeader a where
-    fromHeader :: Header -> Either String a
+    fromHeader :: HeaderName -> ByteString -> Either String a
 
--- instance ToHeader ByteString where
---     toHeader k = (CI.mk k,) . Just
+    default fromHeader :: FromText a
+                       => HeaderName
+                       -> ByteString
+                       -> Either String a
+    fromHeader _ = fromText . Text.decodeUtf8
 
--- instance ToByteString a => ToHeader a where
---     toHeader k = (CI.mk k,) . Just . ByteString.encodeUtf8 . toBS
+instance FromHeader ByteString where
+    fromHeader _ = Right
 
--- instance ToHeader a => ToHeader (Maybe a) where
---     toHeader k (Just x) = toHeader k x
---     toHeader k Nothing  = (CI.mk k, Nothing)
+instance FromHeader Text where
+    fromHeader _ = Right . Text.decodeUtf8
 
--- (=:) :: ToHeader a => ByteString -> a -> (HeaderName, Maybe ByteString)
--- (=:) = toHeader
+-- (~:) :: FromHeaders a => [Header] -> HeaderName -> Either String a
+-- (~:) = flip fromHeaders
 
--- hdr :: (Applicative f, FromByteString a)
---     => HeaderName
---     -> HashMap HeaderName ByteString
---     -> f (Maybe a)
--- hdr k = pure
---     . join
---     . fmap (hush . fromBS . ByteString.decodeUtf8)
---     . Map.lookup k
+-- class FromHeaders a where
+--     fromHeaders :: HeaderName -> [Header] -> Either String a
 
--- hdrs :: Applicative f
---      => ByteString
---      -> HashMap HeaderName ByteString
---      -> f (HashMap ByteString ByteString)
--- hdrs pre hs = pure $
---     Map.fromList [f (CI.original k, v) | (k, v) <- Map.toList hs, p k]
---   where
---     f = join (***) ByteString.decodeUtf8
---     p = BS.isPrefixOf pre . CI.foldedCase
+--     default fromHeaders :: FromText a
+--                         => HeaderName
+--                         -> [Header]
+--                         -> Either String a
+--     fromHeaders k = fromText . Text.decodeUtf8 <=< lookupKey k
+
+-- lookupKey :: HeaderName -> [Header] -> Either String ByteString
+-- lookupKey k hs =
+
+-- instance FromHeaders ByteString where
+--     fromHeaders = lookupKey
+
+-- instance FromHeaders Text where
+--     fromHeaders k = return . Text.decodeUtf8 <=< lookupKey k
+
+-- instance FromHeaders (HashMap Text Text) where
+--     fromHeaders k = Right . Map.fromList . map decode . filter match
+--       where
+--         decode  = ((Text.decodeUtf8 . CI.original) *** Text.decodeUtf8)
+
+--         match x = CI.foldedCase (fst x) `BS.isPrefixOf` CI.foldedCase k
+
+-- instance FromText a => FromHeaders (Maybe a) where
+--     fromHeaders k hs =
+--         maybe (Right Nothing)
+--               (fmap Just . fromText . Text.decodeUtf8)
+--               (k `lookup` hs)
+
+-- class FromHeader a where
+--     fromHeader :: Header -> Either String a
+
+--     default fromHeaders :: FromText a
+--                         => HeaderName
+--                         -> [Header]
+--                         -> Either String a
+--     fromHeaders k = fromText . Text.decodeUtf8 <=< lookupKey k

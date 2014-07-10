@@ -327,18 +327,20 @@ instance (ToByteString k, ToByteString v) => ToQuery (k, v) where
 instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
     toQuery (k, v) = Pair (toBS k) . Value $ toBS <$> v
 
+instance ToQuery () where
+    toQuery () = mempty
+
 instance ToQuery ByteString where
     toQuery "" = Value Nothing
     toQuery bs = Value (Just bs)
 
-instance ToQuery Text where
-    toQuery = toQuery . toBS
-
-instance ToQuery Int where
-    toQuery = toQuery . toBS
-
-instance ToQuery Integer where
-    toQuery = toQuery . toBS
+instance ToQuery Text      where toQuery = toQuery . toBS
+instance ToQuery Int       where toQuery = toQuery . toBS
+instance ToQuery Integer   where toQuery = toQuery . toBS
+instance ToQuery RFC822    where toQuery = toQuery . toBS
+instance ToQuery ISO8601   where toQuery = toQuery . toBS
+instance ToQuery BasicTime where toQuery = toQuery . toBS
+instance ToQuery AWSTime   where toQuery = toQuery . toBS
 
 -- instance ToQuery Double where
 --     toQuery = valueFromFloat
@@ -362,12 +364,6 @@ instance ToQuery Integer where
 instance ToQuery Bool where
     toQuery True  = toQuery ("true"  :: ByteString)
     toQuery False = toQuery ("false" :: ByteString)
-
-instance ToQuery ISO8601Time where
-    toQuery = Value . Just . toBS
-
-instance ToQuery () where
-    toQuery () = mempty
 
 -- -- FIXME: implement this shizzle
 -- -- instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where

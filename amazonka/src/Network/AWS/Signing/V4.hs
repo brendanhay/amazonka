@@ -66,7 +66,7 @@ instance AWSPresigner V4 where
         qry cs sh =
               pair "X-AMZ-Algorithm" algorithm
             . pair "X-AMZ-Credential" cs
-            . pair "X-AMZ-Date" (ISO8601Time l t)
+            . pair "X-AMZ-Date" (LocaleTime l t :: ISO8601)
             . pair "X-AMZ-Expires" e
             . pair "X-AMZ-SignedHeaders" sh
 
@@ -136,7 +136,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     headers = sortBy (comparing fst)
         . hdr hHost host'
-        . hdr hDate (toBS $ RFC822Time l t)
+        . hdr hDate (toBS (LocaleTime l t :: RFC822))
         $ _rqHeaders
 
     joinedHeaders = map f $ groupBy ((==) `on` fst) headers
@@ -167,7 +167,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
        ]
 
     scope =
-        [ toBS (BasicTime l t)
+        [ toBS (LocaleTime l t :: BasicTime)
         , toBS r
         , toBS _svcPrefix
         , "aws4_request"
@@ -180,7 +180,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     stringToSign = BS.intercalate "\n"
         [ algorithm
-        , toBS (AWSTime l t)
+        , toBS (LocaleTime l t :: AWSTime)
         , credentialScope
         , Base16.encode (SHA256.hash canonicalRequest)
         ]

@@ -72,7 +72,6 @@ instance ToText (Switch BucketVersioningStatus) where
     toText Disabled = "Suspended"
     toText Enabled = "Enabled"
 
-instance FromHeader (Switch BucketVersioningStatus)
 instance FromXML (Switch BucketVersioningStatus)
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
@@ -91,7 +90,6 @@ instance ToText (Switch ExpirationStatus) where
     toText Disabled = "Disabled"
     toText Enabled = "Enabled"
 
-instance FromHeader (Switch ExpirationStatus)
 instance FromXML (Switch ExpirationStatus)
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
@@ -112,7 +110,6 @@ instance ToText (Switch MFADelete) where
     toText Disabled = "Disabled"
     toText Enabled = "Enabled"
 
-instance FromHeader (Switch MFADelete)
 instance FromXML (Switch MFADelete)
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
@@ -133,7 +130,6 @@ instance ToText (Switch MFADeleteStatus) where
     toText Disabled = "Disabled"
     toText Enabled = "Enabled"
 
-instance FromHeader (Switch MFADeleteStatus)
 instance FromXML (Switch MFADeleteStatus)
 
 -- | The canned ACL to apply to the bucket.
@@ -162,8 +158,6 @@ instance ToText BucketCannedACL where
     toText BucketCannedACLPublicRead = "public-read"
     toText BucketCannedACLPublicReadWrite = "public-read-write"
 
-instance FromHeader BucketCannedACL
-
 -- | Specifies the region where the bucket will be created.
 newtype BucketLocationConstraint = BucketLocationConstraint Region
     deriving (Eq, Show, Generic)
@@ -190,8 +184,6 @@ instance ToText BucketLogsPermission where
     toText BucketLogsPermissionRead = "READ"
     toText BucketLogsPermissionWrite = "WRITE"
 
-instance FromHeader BucketLogsPermission
-
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
 -- the encoding method to use. An object key may contain any Unicode
 -- character; however, XML 1.0 parser cannot parse some characters, such as
@@ -211,8 +203,6 @@ instance FromText EncodingType where
 instance ToText EncodingType where
     toText EncodingTypeUrl = "url"
 
-instance FromHeader EncodingType
-
 -- | Bucket event for which to send notifications.
 data Event
     = EventS3ReducedRedundancyLostObject -- ^ s3:ReducedRedundancyLostObject
@@ -226,8 +216,6 @@ instance FromText Event where
 
 instance ToText Event where
     toText EventS3ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
-
-instance FromHeader Event
 
 -- | Specifies whether the metadata is copied from the source object or replaced
 -- with metadata provided in the request.
@@ -247,8 +235,6 @@ instance FromText MetadataDirective where
 instance ToText MetadataDirective where
     toText MetadataDirectiveCopy = "COPY"
     toText MetadataDirectiveReplace = "REPLACE"
-
-instance FromHeader MetadataDirective
 
 -- | The canned ACL to apply to the object.
 data ObjectCannedACL
@@ -284,8 +270,6 @@ instance ToText ObjectCannedACL where
     toText ObjectCannedACLPublicRead = "public-read"
     toText ObjectCannedACLPublicReadWrite = "public-read-write"
 
-instance FromHeader ObjectCannedACL
-
 -- | The class of storage used to store the object.
 data ObjectStorageClass
     = ObjectStorageClassGlacier -- ^ GLACIER
@@ -308,8 +292,6 @@ instance ToText ObjectStorageClass where
     toText ObjectStorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
     toText ObjectStorageClassStandard = "STANDARD"
 
-instance FromHeader ObjectStorageClass
-
 -- | The class of storage used to store the object.
 data ObjectVersionStorageClass
     = ObjectVersionStorageClassStandard -- ^ STANDARD
@@ -323,8 +305,6 @@ instance FromText ObjectVersionStorageClass where
 
 instance ToText ObjectVersionStorageClass where
     toText ObjectVersionStorageClassStandard = "STANDARD"
-
-instance FromHeader ObjectVersionStorageClass
 
 -- | Specifies who pays for the download and request fees.
 data Payer
@@ -343,8 +323,6 @@ instance FromText Payer where
 instance ToText Payer where
     toText PayerBucketOwner = "BucketOwner"
     toText PayerRequester = "Requester"
-
-instance FromHeader Payer
 
 -- | Specifies the permission given to the grantee.
 data Permission
@@ -376,8 +354,6 @@ instance ToText Permission where
     toText PermissionWrite = "WRITE"
     toText PermissionWriteAcp = "WRITE_ACP"
 
-instance FromHeader Permission
-
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
 data Protocol
@@ -397,8 +373,6 @@ instance ToText Protocol where
     toText ProtocolHttp = "http"
     toText ProtocolHttps = "https"
 
-instance FromHeader Protocol
-
 -- | The Server-side encryption algorithm used when storing this object in S3.
 data ServerSideEncryption
     = ServerSideEncryptionAES256 -- ^ AES256
@@ -412,8 +386,6 @@ instance FromText ServerSideEncryption where
 
 instance ToText ServerSideEncryption where
     toText ServerSideEncryptionAES256 = "AES256"
-
-instance FromHeader ServerSideEncryption
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
 data StorageClass
@@ -433,8 +405,6 @@ instance ToText StorageClass where
     toText StorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
     toText StorageClassStandard = "STANDARD"
 
-instance FromHeader StorageClass
-
 -- | The class of storage used to store the object.
 data TransitionStorageClass
     = TransitionStorageClassGlacier -- ^ GLACIER
@@ -448,8 +418,6 @@ instance FromText TransitionStorageClass where
 
 instance ToText TransitionStorageClass where
     toText TransitionStorageClassGlacier = "GLACIER"
-
-instance FromHeader TransitionStorageClass
 
 -- | Type of grantee.
 data Type
@@ -472,8 +440,6 @@ instance ToText Type where
     toText TypeAmazonCustomerByEmail = "AmazonCustomerByEmail"
     toText TypeCanonicalUser = "CanonicalUser"
     toText TypeGroup = "Group"
-
-instance FromHeader Type
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { blsLoggingEnabled :: LoggingEnabled

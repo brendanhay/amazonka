@@ -314,7 +314,6 @@ newtype ObjectVersionId = ObjectVersionId Text
 instance ToByteString ObjectVersionId where toBS (ObjectVersionId v) = toBS v
 instance FromText     ObjectVersionId where parser = ObjectVersionId <$> takeText
 instance ToText       ObjectVersionId where toText (ObjectVersionId v) = v
-instance FromHeader   ObjectVersionId
 instance FromXML      ObjectVersionId
 
 newtype ETag = ETag Text
@@ -323,7 +322,6 @@ newtype ETag = ETag Text
 instance ToByteString ETag where toBS (ETag t) = toBS t
 instance FromText     ETag where parser = ETag <$> takeText
 instance ToText       ETag where toText (ETag t) = t
-instance FromHeader   ETag
 instance FromXML      ETag
 
 data Switch a = Enabled | Disabled

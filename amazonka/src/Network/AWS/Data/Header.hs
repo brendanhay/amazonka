@@ -74,76 +74,34 @@ instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
 
 infixl 6 ~:, ~:?
 
-(~:) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String a
-(~:) hs k = note missing (find ((k ==) . fst) hs) >>= uncurry fromHeader
+(~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
+(~:) hs k = note missing (k `lookup` hs) >>= fromText . Text.decodeUtf8
   where
     missing = BS.unpack $ "Unable to find header: " <> CI.original k
 
 -- FIXME: Should ignore missing, but fail on parsing error if present
-(~:?) :: FromHeader a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
+(~:?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
 (~:?) hs k = Right $ hush (hs ~: k)
 
 -- FIXME: Reuse FromText/ByteString instead of custom/disparate type class?
 
-class FromHeader a where
-    fromHeader :: HeaderName -> ByteString -> Either String a
-
-    default fromHeader :: FromText a
-                       => HeaderName
-                       -> ByteString
-                       -> Either String a
-    fromHeader = const $ fromText . Text.decodeUtf8
-
-instance FromHeader ByteString where
-    fromHeader = const Right
-
-instance FromHeader Text where
-    fromHeader = const $ Right . Text.decodeUtf8
-
-instance FromHeader RFC822
-instance FromHeader ISO8601
-instance FromHeader BasicTime
-instance FromHeader AWSTime
-
--- (~:) :: FromHeaders a => [Header] -> HeaderName -> Either String a
--- (~:) = flip fromHeaders
-
--- class FromHeaders a where
---     fromHeaders :: HeaderName -> [Header] -> Either String a
-
---     default fromHeaders :: FromText a
---                         => HeaderName
---                         -> [Header]
---                         -> Either String a
---     fromHeaders k = fromText . Text.decodeUtf8 <=< lookupKey k
-
--- lookupKey :: HeaderName -> [Header] -> Either String ByteString
--- lookupKey k hs =
-
--- instance FromHeaders ByteString where
---     fromHeaders = lookupKey
-
--- instance FromHeaders Text where
---     fromHeaders k = return . Text.decodeUtf8 <=< lookupKey k
-
--- instance FromHeaders (HashMap Text Text) where
---     fromHeaders k = Right . Map.fromList . map decode . filter match
---       where
---         decode  = ((Text.decodeUtf8 . CI.original) *** Text.decodeUtf8)
-
---         match x = CI.foldedCase (fst x) `BS.isPrefixOf` CI.foldedCase k
-
--- instance FromText a => FromHeaders (Maybe a) where
---     fromHeaders k hs =
---         maybe (Right Nothing)
---               (fmap Just . fromText . Text.decodeUtf8)
---               (k `lookup` hs)
-
 -- class FromHeader a where
---     fromHeader :: Header -> Either String a
+--     fromHeader :: HeaderName -> ByteString -> Either String a
 
---     default fromHeaders :: FromText a
---                         => HeaderName
---                         -> [Header]
---                         -> Either String a
---     fromHeaders k = fromText . Text.decodeUtf8 <=< lookupKey k
+--     default fromHeader :: FromText a
+--                        => HeaderName
+--                        -> ByteString
+--                        -> Either String a
+--     fromHeader = const $ fromText . Text.decodeUtf8
+
+-- instance FromHeader ByteString where
+--     fromHeader = const Right
+
+-- instance FromHeader Text where
+--     fromHeader = const $ Right . Text.decodeUtf8
+
+-- instance FromHeader Bool
+-- instance FromHeader RFC822
+-- instance FromHeader ISO8601
+-- instance FromHeader BasicTime
+-- instance FromHeader AWSTime

@@ -85,7 +85,6 @@ instance ToText (Switch {{ data.value.name }}) where
     toText {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
 
-instance FromHeader (Switch {{ data.value.name }})
 instance FromXML (Switch {{ data.value.name }})
     {% when "witness" %}
 data {{ data.value.name }}
@@ -118,8 +117,6 @@ instance ToText {{ data.value.name }} where
       {% for branch in data.value.values %}
     toText {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
-
-instance FromHeader {{ data.value.name }}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
   {% include "_include/record.ede" with data.value.fields %}

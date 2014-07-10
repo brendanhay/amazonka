@@ -74,9 +74,9 @@ instance ToByteString (Switch {{ data.value.name }}) where
 instance FromText (Switch {{ data.value.name }}) where
       {% for branch in data.value.values %}
         {% if branch.first %}
-    parser = matchText "{{ branch.value }}" {{ branch.key }}
+    parser = match "{{ branch.value }}" {{ branch.key }}
         {% else %}
-         <|> matchText "{{ branch.value }}" {{ branch.key }}
+         <|> match "{{ branch.value }}" {{ branch.key }}
         {% endif %}
       {% endfor %}
 
@@ -108,9 +108,9 @@ instance ToByteString {{ data.value.name }} where
 instance FromText {{ data.value.name }} where
       {% for branch in data.value.values %}
         {% if branch.first %}
-    parser = matchText "{{ branch.value }}" {{ branch.key }}
+    parser = match "{{ branch.value }}" {{ branch.key }}
         {% else %}
-         <|> matchText "{{ branch.value }}" {{ branch.key }}
+         <|> match "{{ branch.value }}" {{ branch.key }}
         {% endif %}
       {% endfor %}
 

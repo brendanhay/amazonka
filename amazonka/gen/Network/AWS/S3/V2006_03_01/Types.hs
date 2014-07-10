@@ -65,8 +65,8 @@ instance ToByteString (Switch BucketVersioningStatus) where
     toBS Enabled = "Enabled"
 
 instance FromText (Switch BucketVersioningStatus) where
-    parser = matchText "Suspended" Disabled
-         <|> matchText "Enabled" Enabled
+    parser = match "Suspended" Disabled
+         <|> match "Enabled" Enabled
 
 instance ToText (Switch BucketVersioningStatus) where
     toText Disabled = "Suspended"
@@ -84,8 +84,8 @@ instance ToByteString (Switch ExpirationStatus) where
     toBS Enabled = "Enabled"
 
 instance FromText (Switch ExpirationStatus) where
-    parser = matchText "Disabled" Disabled
-         <|> matchText "Enabled" Enabled
+    parser = match "Disabled" Disabled
+         <|> match "Enabled" Enabled
 
 instance ToText (Switch ExpirationStatus) where
     toText Disabled = "Disabled"
@@ -105,8 +105,8 @@ instance ToByteString (Switch MFADelete) where
     toBS Enabled = "Enabled"
 
 instance FromText (Switch MFADelete) where
-    parser = matchText "Disabled" Disabled
-         <|> matchText "Enabled" Enabled
+    parser = match "Disabled" Disabled
+         <|> match "Enabled" Enabled
 
 instance ToText (Switch MFADelete) where
     toText Disabled = "Disabled"
@@ -126,8 +126,8 @@ instance ToByteString (Switch MFADeleteStatus) where
     toBS Enabled = "Enabled"
 
 instance FromText (Switch MFADeleteStatus) where
-    parser = matchText "Disabled" Disabled
-         <|> matchText "Enabled" Enabled
+    parser = match "Disabled" Disabled
+         <|> match "Enabled" Enabled
 
 instance ToText (Switch MFADeleteStatus) where
     toText Disabled = "Disabled"
@@ -151,10 +151,10 @@ instance ToByteString BucketCannedACL where
     toBS BucketCannedACLPublicReadWrite = "public-read-write"
 
 instance FromText BucketCannedACL where
-    parser = matchText "authenticated-read" BucketCannedACLAuthenticatedRead
-         <|> matchText "private" BucketCannedACLPrivate
-         <|> matchText "public-read" BucketCannedACLPublicRead
-         <|> matchText "public-read-write" BucketCannedACLPublicReadWrite
+    parser = match "authenticated-read" BucketCannedACLAuthenticatedRead
+         <|> match "private" BucketCannedACLPrivate
+         <|> match "public-read" BucketCannedACLPublicRead
+         <|> match "public-read-write" BucketCannedACLPublicReadWrite
 
 instance ToText BucketCannedACL where
     toText BucketCannedACLAuthenticatedRead = "authenticated-read"
@@ -181,9 +181,9 @@ instance ToByteString BucketLogsPermission where
     toBS BucketLogsPermissionWrite = "WRITE"
 
 instance FromText BucketLogsPermission where
-    parser = matchText "FULL_CONTROL" BucketLogsPermissionFullControl
-         <|> matchText "READ" BucketLogsPermissionRead
-         <|> matchText "WRITE" BucketLogsPermissionWrite
+    parser = match "FULL_CONTROL" BucketLogsPermissionFullControl
+         <|> match "READ" BucketLogsPermissionRead
+         <|> match "WRITE" BucketLogsPermissionWrite
 
 instance ToText BucketLogsPermission where
     toText BucketLogsPermissionFullControl = "FULL_CONTROL"
@@ -206,7 +206,7 @@ instance ToByteString EncodingType where
     toBS EncodingTypeUrl = "url"
 
 instance FromText EncodingType where
-    parser = matchText "url" EncodingTypeUrl
+    parser = match "url" EncodingTypeUrl
 
 instance ToText EncodingType where
     toText EncodingTypeUrl = "url"
@@ -222,7 +222,7 @@ instance ToByteString Event where
     toBS EventS3ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
 
 instance FromText Event where
-    parser = matchText "s3:ReducedRedundancyLostObject" EventS3ReducedRedundancyLostObject
+    parser = match "s3:ReducedRedundancyLostObject" EventS3ReducedRedundancyLostObject
 
 instance ToText Event where
     toText EventS3ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
@@ -241,8 +241,8 @@ instance ToByteString MetadataDirective where
     toBS MetadataDirectiveReplace = "REPLACE"
 
 instance FromText MetadataDirective where
-    parser = matchText "COPY" MetadataDirectiveCopy
-         <|> matchText "REPLACE" MetadataDirectiveReplace
+    parser = match "COPY" MetadataDirectiveCopy
+         <|> match "REPLACE" MetadataDirectiveReplace
 
 instance ToText MetadataDirective where
     toText MetadataDirectiveCopy = "COPY"
@@ -269,12 +269,12 @@ instance ToByteString ObjectCannedACL where
     toBS ObjectCannedACLPublicReadWrite = "public-read-write"
 
 instance FromText ObjectCannedACL where
-    parser = matchText "authenticated-read" ObjectCannedACLAuthenticatedRead
-         <|> matchText "bucket-owner-full-control" ObjectCannedACLBucketOwnerFullControl
-         <|> matchText "bucket-owner-read" ObjectCannedACLBucketOwnerRead
-         <|> matchText "private" ObjectCannedACLPrivate
-         <|> matchText "public-read" ObjectCannedACLPublicRead
-         <|> matchText "public-read-write" ObjectCannedACLPublicReadWrite
+    parser = match "authenticated-read" ObjectCannedACLAuthenticatedRead
+         <|> match "bucket-owner-full-control" ObjectCannedACLBucketOwnerFullControl
+         <|> match "bucket-owner-read" ObjectCannedACLBucketOwnerRead
+         <|> match "private" ObjectCannedACLPrivate
+         <|> match "public-read" ObjectCannedACLPublicRead
+         <|> match "public-read-write" ObjectCannedACLPublicReadWrite
 
 instance ToText ObjectCannedACL where
     toText ObjectCannedACLAuthenticatedRead = "authenticated-read"
@@ -299,9 +299,9 @@ instance ToByteString ObjectStorageClass where
     toBS ObjectStorageClassStandard = "STANDARD"
 
 instance FromText ObjectStorageClass where
-    parser = matchText "GLACIER" ObjectStorageClassGlacier
-         <|> matchText "REDUCED_REDUNDANCY" ObjectStorageClassReducedRedundancy
-         <|> matchText "STANDARD" ObjectStorageClassStandard
+    parser = match "GLACIER" ObjectStorageClassGlacier
+         <|> match "REDUCED_REDUNDANCY" ObjectStorageClassReducedRedundancy
+         <|> match "STANDARD" ObjectStorageClassStandard
 
 instance ToText ObjectStorageClass where
     toText ObjectStorageClassGlacier = "GLACIER"
@@ -319,7 +319,7 @@ instance ToByteString ObjectVersionStorageClass where
     toBS ObjectVersionStorageClassStandard = "STANDARD"
 
 instance FromText ObjectVersionStorageClass where
-    parser = matchText "STANDARD" ObjectVersionStorageClassStandard
+    parser = match "STANDARD" ObjectVersionStorageClassStandard
 
 instance ToText ObjectVersionStorageClass where
     toText ObjectVersionStorageClassStandard = "STANDARD"
@@ -337,8 +337,8 @@ instance ToByteString Payer where
     toBS PayerRequester = "Requester"
 
 instance FromText Payer where
-    parser = matchText "BucketOwner" PayerBucketOwner
-         <|> matchText "Requester" PayerRequester
+    parser = match "BucketOwner" PayerBucketOwner
+         <|> match "Requester" PayerRequester
 
 instance ToText Payer where
     toText PayerBucketOwner = "BucketOwner"
@@ -363,11 +363,11 @@ instance ToByteString Permission where
     toBS PermissionWriteAcp = "WRITE_ACP"
 
 instance FromText Permission where
-    parser = matchText "FULL_CONTROL" PermissionFullControl
-         <|> matchText "READ" PermissionRead
-         <|> matchText "READ_ACP" PermissionReadAcp
-         <|> matchText "WRITE" PermissionWrite
-         <|> matchText "WRITE_ACP" PermissionWriteAcp
+    parser = match "FULL_CONTROL" PermissionFullControl
+         <|> match "READ" PermissionRead
+         <|> match "READ_ACP" PermissionReadAcp
+         <|> match "WRITE" PermissionWrite
+         <|> match "WRITE_ACP" PermissionWriteAcp
 
 instance ToText Permission where
     toText PermissionFullControl = "FULL_CONTROL"
@@ -390,8 +390,8 @@ instance ToByteString Protocol where
     toBS ProtocolHttps = "https"
 
 instance FromText Protocol where
-    parser = matchText "http" ProtocolHttp
-         <|> matchText "https" ProtocolHttps
+    parser = match "http" ProtocolHttp
+         <|> match "https" ProtocolHttps
 
 instance ToText Protocol where
     toText ProtocolHttp = "http"
@@ -408,7 +408,7 @@ instance ToByteString ServerSideEncryption where
     toBS ServerSideEncryptionAES256 = "AES256"
 
 instance FromText ServerSideEncryption where
-    parser = matchText "AES256" ServerSideEncryptionAES256
+    parser = match "AES256" ServerSideEncryptionAES256
 
 instance ToText ServerSideEncryption where
     toText ServerSideEncryptionAES256 = "AES256"
@@ -426,8 +426,8 @@ instance ToByteString StorageClass where
     toBS StorageClassStandard = "STANDARD"
 
 instance FromText StorageClass where
-    parser = matchText "REDUCED_REDUNDANCY" StorageClassReducedRedundancy
-         <|> matchText "STANDARD" StorageClassStandard
+    parser = match "REDUCED_REDUNDANCY" StorageClassReducedRedundancy
+         <|> match "STANDARD" StorageClassStandard
 
 instance ToText StorageClass where
     toText StorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
@@ -444,7 +444,7 @@ instance ToByteString TransitionStorageClass where
     toBS TransitionStorageClassGlacier = "GLACIER"
 
 instance FromText TransitionStorageClass where
-    parser = matchText "GLACIER" TransitionStorageClassGlacier
+    parser = match "GLACIER" TransitionStorageClassGlacier
 
 instance ToText TransitionStorageClass where
     toText TransitionStorageClassGlacier = "GLACIER"
@@ -464,9 +464,9 @@ instance ToByteString Type where
     toBS TypeGroup = "Group"
 
 instance FromText Type where
-    parser = matchText "AmazonCustomerByEmail" TypeAmazonCustomerByEmail
-         <|> matchText "CanonicalUser" TypeCanonicalUser
-         <|> matchText "Group" TypeGroup
+    parser = match "AmazonCustomerByEmail" TypeAmazonCustomerByEmail
+         <|> match "CanonicalUser" TypeCanonicalUser
+         <|> match "Group" TypeGroup
 
 instance ToText Type where
     toText TypeAmazonCustomerByEmail = "AmazonCustomerByEmail"

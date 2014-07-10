@@ -19,8 +19,8 @@ module Network.AWS.Data.Text
       FromText  (..)
     , fromText
     , readText
-    , matchText
-    , matchTextCI
+    , match
+    , matchCI
     , AText.takeText
 
     -- ** ToText
@@ -48,11 +48,11 @@ fromText = AText.parseOnly parser
 readText :: FromText a => ReadS a
 readText = either (const []) (\x -> [(x, "")]) . fromText . Text.pack
 
-matchText :: Text -> a -> Parser a
-matchText x y = AText.string x >> return y
+match :: Text -> a -> Parser a
+match x y = AText.string x >> return y
 
-matchTextCI :: Text -> a -> Parser a
-matchTextCI x y = AText.asciiCI x >> return y
+matchCI :: Text -> a -> Parser a
+matchCI x y = AText.asciiCI x >> return y
 
 class FromText a where
     parser :: Parser a
@@ -64,7 +64,7 @@ instance FromText Integer    where parser = AText.decimal
 instance FromText Double     where parser = AText.rational
 
 instance FromText Bool where
-    parser = matchTextCI "false" False <|> matchTextCI "true" True
+    parser = matchCI "false" False <|> matchCI "true" True
 
 showText :: ToText a => a -> String
 showText = Text.unpack . toText

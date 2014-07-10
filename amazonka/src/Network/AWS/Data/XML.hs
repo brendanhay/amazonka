@@ -129,31 +129,30 @@ class FromXML a where
                     -> Either String a
     fromXML o = fmap to . gFromXML (untag o)
 
-instance FromXML Text where
-    fromXMLRoot = undefined
-    fromXML     = undefined
+fromNodeContent :: FromText a => [Node] -> Either String a
+fromNodeContent [NodeContent x] = fromText x
+fromNodeContent _               = Left "Unexpected non-textual node contents."
 
-fromNodeContent :: FromText a => XMLOptions -> [Node] -> Either String a
-fromNodeContent _ [NodeContent x] = fromText x
-fromNodeContent _ _               = Left "Unexpected non-textual node contents."
+instance FromXML Bool where
+    fromXML = const fromNodeContent
+
+instance FromXML Text where
+    fromXMLRoot = fromRoot "Text"
+    fromXML     = const fromNodeContent
 
 -- instance FromXML BS.ByteString where
 --     fromXMLRoot = fromRoot "ByteString"
 --     fromXML o   = fmap Text.encodeUtf8 . fromXML (retag o)
 
--- instance FromXML Int where
---     fromXMLRoot = fromRoot "Int"
---     fromXML     = nodeParser AText.decimal
+instance FromXML Int where
+    fromXML = const fromNodeContent
 
--- instance FromXML Integer where
---     fromXMLRoot = fromRoot "Integer"
---     fromXML     = nodeParser AText.decimal
+instance FromXML Integer where
+    fromXMLRoot = fromRoot "Integer"
+    fromXML     = const fromNodeContent
 
--- instance FromXML Double where
---     fromXML = nodeParser AText.rational
-
--- instance FromXML Float where
---     fromXML = nodeParser AText.rational
+instance FromXML Double where
+    fromXML = const fromNodeContent
 
 -- -- FIXME: is it possible to (nicely) implement HashMaps generically?
 -- instance (FromXML k, FromXML v) => FromXML (HashMap k v) where
@@ -183,11 +182,6 @@ fromNodeContent _ _               = Left "Unexpected non-textual node contents."
 --         either (const $ Right Nothing)
 --                (Right . Just)
 --                (fromXML (retag o) ns :: Either String a)
-
--- instance FromXML Bool where
---     fromXML = nodeParser (p "true" True <|> p "false" False)
---       where
---         p s b = AText.string s *> return b <* AText.endOfInput
 
 -- instance FromXML UTCTime where
 --     fromXMLRoot = fromRoot "UTCTime"

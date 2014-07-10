@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleInstances   #-}
 {-# LANGUAGE GADTs               #-}
 {-# LANGUAGE KindSignatures      #-}
+{-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE StandaloneDeriving  #-}
 
@@ -29,6 +30,7 @@ import qualified Data.Text                   as Text
 import           Data.Time
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
+import           Network.AWS.Data.XML
 import           System.Locale
 
 data Format
@@ -89,3 +91,11 @@ parseFormattedTime = do
 
     f :: Tagged (Time a) String
     f = format
+
+instance FromXML RFC822 where
+    fromXMLRoot = fromRoot "Date"
+    fromXML     = const fromNodeContent
+
+-- instance FromXML ISO8601   where parser = parseFormattedTime
+-- instance FromXML BasicTime where parser = parseFormattedTime
+-- instance FromXML AWSTime   where parser = parseFormattedTime

@@ -52,7 +52,7 @@ data PutBucketRequestPayment = PutBucketRequestPayment
     { pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
     , pbrprBucket :: BucketName
     , pbrprContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketRequestPayment where
     toPath PutBucketRequestPayment{..} = mconcat

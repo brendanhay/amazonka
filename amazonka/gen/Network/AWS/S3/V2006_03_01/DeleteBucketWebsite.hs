@@ -44,7 +44,7 @@ deleteBucketWebsite p1 = DeleteBucketWebsite
 
 data DeleteBucketWebsite = DeleteBucketWebsite
     { dbwrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath DeleteBucketWebsite where
     toPath DeleteBucketWebsite{..} = mconcat

@@ -74,7 +74,7 @@ data ListMultipartUploads = ListMultipartUploads
       -- ^ Together with key-marker, specifies the multipart upload after
       -- which listing should begin. If key-marker is not specified, the
       -- upload-id-marker parameter is ignored.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat
@@ -133,4 +133,4 @@ data instance Rs ListMultipartUploads = ListMultipartUploadsResponse
       -- specified prefix.
     , lmuoUploadIdMarker :: Maybe Text
       -- ^ Upload ID after which listing began.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

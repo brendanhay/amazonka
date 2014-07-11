@@ -71,7 +71,7 @@ data ListObjects = ListObjects
       -- response might contain fewer keys but will never contain more.
     , lorPrefix :: Maybe Text
       -- ^ Limits the response to keys that begin with the specified prefix.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath ListObjects where
     toPath ListObjects{..} = mconcat
@@ -120,4 +120,4 @@ data instance Rs ListObjects = ListObjectsResponse
       -- object keys.
     , looContents :: [Object]
     , looPrefix :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

@@ -44,7 +44,7 @@ deleteBucketPolicy p1 = DeleteBucketPolicy
 
 data DeleteBucketPolicy = DeleteBucketPolicy
     { dbprBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath DeleteBucketPolicy where
     toPath DeleteBucketPolicy{..} = mconcat

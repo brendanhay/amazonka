@@ -59,7 +59,7 @@ data ListParts = ListParts
     , lprPartNumberMarker :: Maybe Integer
       -- ^ Specifies the part after which listing should begin. Only parts
       -- with higher part numbers will be listed.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath ListParts where
     toPath ListParts{..} = mconcat
@@ -111,4 +111,4 @@ data instance Rs ListParts = ListPartsResponse
     , lpoParts :: [Part]
     , lpoStorageClass :: Maybe StorageClass
       -- ^ The class of storage used to store the object.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

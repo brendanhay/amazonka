@@ -49,7 +49,7 @@ data PutBucketNotification = PutBucketNotification
     { pbnrNotificationConfiguration :: NotificationConfiguration
     , pbnrBucket :: BucketName
     , pbnrContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketNotification where
     toPath PutBucketNotification{..} = mconcat

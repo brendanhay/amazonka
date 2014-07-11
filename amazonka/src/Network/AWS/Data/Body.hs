@@ -1,3 +1,4 @@
+{-# LANGUAGE GADTs             #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Data.Body
@@ -13,7 +14,8 @@
 module Network.AWS.Data.Body
     (
     -- * Types
-      Body
+      BodySource (..)
+    , Body
     , clientBody
     , payloadHash
 
@@ -21,12 +23,14 @@ module Network.AWS.Data.Body
     , ToBody (..)
     ) where
 
-import qualified Crypto.Hash.SHA256         as SHA256
+import           Control.Monad.Trans.Resource
+import qualified Crypto.Hash.SHA256           as SHA256
 import           Data.Aeson
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Base16     as Base16
-import qualified Data.ByteString.Lazy       as LBS
-import qualified Data.ByteString.Lazy.Char8 as LBS8
+import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Base16       as Base16
+import qualified Data.ByteString.Lazy         as LBS
+import qualified Data.ByteString.Lazy.Char8   as LBS8
+import           Data.Conduit
 import           Data.Int
 import           Data.Monoid
 import           Data.String
@@ -39,6 +43,12 @@ clientBody (BodyStream _ n p) = RequestBodyStream n p
 payloadHash :: Body -> ByteString
 payloadHash (BodyLBS    h _)   = h
 payloadHash (BodyStream h _ _) = h
+
+data BodySource where
+    Body :: MonadResource m => ResumableSource m ByteString -> BodySource
+
+instance Show BodySource where
+    show = const "MonadResource m => ResumableSource m ByteString"
 
 data Body
     = BodyLBS    ByteString LBS.ByteString
@@ -70,4 +80,5 @@ instance ToBody ByteString where
 instance ToBody Value where
     toBody = toBody . encode
 
+hash :: LBS8.ByteString -> ByteString
 hash = Base16.encode . SHA256.hashlazy

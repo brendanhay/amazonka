@@ -171,7 +171,7 @@ typeof rq t s = Ann req (defaults s) (monoids s) typ
             | otherwise         -> n
         SPrim   Prim   {..}
             | n `elem` reserved -> n
-            | bdy               -> "Response ByteString"
+            | bdy               -> "BodySource"
             | otherwise         -> fmt _prmType
 
     n   = fromName s

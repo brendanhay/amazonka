@@ -44,7 +44,7 @@ getBucketPolicy p1 = GetBucketPolicy
 
 data GetBucketPolicy = GetBucketPolicy
     { gbprBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketPolicy where
     toPath GetBucketPolicy{..} = mconcat
@@ -66,4 +66,4 @@ instance AWSRequest GetBucketPolicy where
 data instance Rs GetBucketPolicy = GetBucketPolicyResponse
     { gbpoPolicy :: Maybe Text
       -- ^ The bucket policy as a JSON document.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

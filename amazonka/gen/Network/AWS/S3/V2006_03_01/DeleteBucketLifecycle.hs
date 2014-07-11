@@ -44,7 +44,7 @@ deleteBucketLifecycle p1 = DeleteBucketLifecycle
 
 data DeleteBucketLifecycle = DeleteBucketLifecycle
     { dblrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath DeleteBucketLifecycle where
     toPath DeleteBucketLifecycle{..} = mconcat

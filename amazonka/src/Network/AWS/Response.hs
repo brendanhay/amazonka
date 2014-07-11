@@ -45,14 +45,14 @@ import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           Text.XML.Cursor
 
-headerResponse :: (Monad m, ServiceError e)
+headerResponse :: (MonadResource m, ServiceError e)
                => (ResponseHeaders -> Either String a)
                -> Either ClientException (ClientResponse m)
                -> m (Either e a)
 headerResponse f = bodyResponse $ \hs bdy ->
     (bdy $$+- return ()) >> return (serviceError `fmapL` f hs)
 
-xmlResponse :: (Monad m, ServiceError e)
+xmlResponse :: (MonadResource m, ServiceError e)
             => (ResponseHeaders -> Cursor -> Either String a)
             -> Either ClientException (ClientResponse m)
             -> m (Either e a)
@@ -60,9 +60,9 @@ xmlResponse f = bodyResponse $ \hs bdy -> do
     lbs <- bdy $$+- Conduit.sinkLbs
     return $ serviceError `fmapL` f hs (undefined lbs)
 
-bodyResponse :: (Monad m, ServiceError e)
-             => (ResponseHeaders -> b -> m (Either e a))
-             -> Either ClientException (Response b)
+bodyResponse :: (MonadResource m, ServiceError e)
+             => (ResponseHeaders -> ResumableSource m ByteString -> m (Either e a))
+             -> Either ClientException (Response (ResumableSource m ByteString))
              -> m (Either e a)
 bodyResponse _ (Left  ex) = return . Left $ clientError ex
 bodyResponse f (Right rs)

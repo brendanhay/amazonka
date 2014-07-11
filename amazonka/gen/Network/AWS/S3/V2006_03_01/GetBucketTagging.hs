@@ -44,7 +44,7 @@ getBucketTagging p1 = GetBucketTagging
 
 data GetBucketTagging = GetBucketTagging
     { gbtrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketTagging where
     toPath GetBucketTagging{..} = mconcat
@@ -65,4 +65,4 @@ instance AWSRequest GetBucketTagging where
 
 data instance Rs GetBucketTagging = GetBucketTaggingResponse
     { gbtoTagSet :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

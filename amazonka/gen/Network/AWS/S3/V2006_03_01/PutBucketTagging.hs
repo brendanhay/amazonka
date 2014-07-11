@@ -49,7 +49,7 @@ data PutBucketTagging = PutBucketTagging
     { pbtrTagging :: Tagging
     , pbtrBucket :: BucketName
     , pbtrContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat

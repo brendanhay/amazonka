@@ -44,7 +44,7 @@ deleteBucketCors p1 = DeleteBucketCors
 
 data DeleteBucketCors = DeleteBucketCors
     { dbcrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath DeleteBucketCors where
     toPath DeleteBucketCors{..} = mconcat

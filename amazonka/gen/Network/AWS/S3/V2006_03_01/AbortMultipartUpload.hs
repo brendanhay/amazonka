@@ -52,7 +52,7 @@ data AbortMultipartUpload = AbortMultipartUpload
     { amurBucket :: BucketName
     , amurUploadId :: Text
     , amurKey :: ObjectKey
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat

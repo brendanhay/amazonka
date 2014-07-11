@@ -50,7 +50,7 @@ data PutBucketLifecycle = PutBucketLifecycle
     { pblrBucket :: BucketName
     , pblrLifecycleConfiguration :: LifecycleConfiguration
     , pblrContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketLifecycle where
     toPath PutBucketLifecycle{..} = mconcat

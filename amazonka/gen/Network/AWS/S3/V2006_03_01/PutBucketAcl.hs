@@ -69,7 +69,7 @@ data PutBucketAcl = PutBucketAcl
       -- bucket.
     , pbarGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable bucket.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketAcl where
     toPath PutBucketAcl{..} = mconcat

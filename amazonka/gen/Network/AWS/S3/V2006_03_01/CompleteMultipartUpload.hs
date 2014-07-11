@@ -53,7 +53,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload
     , cmurUploadId :: Text
     , cmurKey :: ObjectKey
     , cmurMultipartUpload :: CompletedMultipartUpload
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath CompleteMultipartUpload where
     toPath CompleteMultipartUpload{..} = mconcat
@@ -99,4 +99,4 @@ data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
     , cmuoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

@@ -45,7 +45,7 @@ headBucket p1 = HeadBucket
 
 data HeadBucket = HeadBucket
     { hbrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath HeadBucket where
     toPath HeadBucket{..} = mconcat

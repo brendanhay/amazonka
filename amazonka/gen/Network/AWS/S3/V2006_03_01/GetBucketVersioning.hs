@@ -44,7 +44,7 @@ getBucketVersioning p1 = GetBucketVersioning
 
 data GetBucketVersioning = GetBucketVersioning
     { gbvrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketVersioning where
     toPath GetBucketVersioning{..} = mconcat
@@ -71,4 +71,4 @@ data instance Rs GetBucketVersioning = GetBucketVersioningResponse
       -- configuration. This element is only returned if the bucket has
       -- been configured with MFA delete. If the bucket has never been so
       -- configured, this element is not returned.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

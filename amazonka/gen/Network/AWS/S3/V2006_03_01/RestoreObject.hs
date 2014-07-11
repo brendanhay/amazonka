@@ -55,7 +55,7 @@ data RestoreObject = RestoreObject
     , rorKey :: ObjectKey
     , rorRestoreRequest :: RestoreRequest
     , rorVersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat

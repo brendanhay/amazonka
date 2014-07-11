@@ -50,7 +50,7 @@ data GetObjectAcl = GetObjectAcl
     , goarKey :: ObjectKey
     , goarVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetObjectAcl where
     toPath GetObjectAcl{..} = mconcat
@@ -75,4 +75,4 @@ data instance Rs GetObjectAcl = GetObjectAclResponse
     { goaoGrants :: [Grant]
       -- ^ A list of grants.
     , goaoOwner :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

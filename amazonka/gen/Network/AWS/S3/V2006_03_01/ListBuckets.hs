@@ -63,4 +63,4 @@ instance AWSRequest ListBuckets where
 data instance Rs ListBuckets = ListBucketsResponse
     { lboBuckets :: [Bucket]
     , lboOwner :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

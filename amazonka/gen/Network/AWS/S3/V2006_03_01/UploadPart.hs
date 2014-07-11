@@ -45,7 +45,7 @@ uploadPart :: BucketName -- ^ 'uprBucket'
            -> Text -- ^ 'uprUploadId'
            -> ObjectKey -- ^ 'uprKey'
            -> Integer -- ^ 'uprPartNumber'
-           -> Response ByteString -- ^ 'uprBody'
+           -> BodySource -- ^ 'uprBody'
            -> UploadPart
 uploadPart p1 p2 p3 p4 p5 = UploadPart
     { uprBucket = p1
@@ -68,7 +68,7 @@ data UploadPart = UploadPart
     , uprKey :: ObjectKey
     , uprPartNumber :: Integer
       -- ^ Part number of part being uploaded.
-    , uprBody :: Response ByteString
+    , uprBody :: BodySource
     , uprContentLength :: Maybe Integer
       -- ^ Size of the body in bytes. This parameter is useful when the size
       -- of the body cannot be determined automatically.
@@ -89,7 +89,7 @@ data UploadPart = UploadPart
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath UploadPart where
     toPath UploadPart{..} = mconcat
@@ -139,4 +139,4 @@ data instance Rs UploadPart = UploadPartResponse
     , upoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

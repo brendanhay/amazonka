@@ -46,7 +46,7 @@ deleteBucket p1 = DeleteBucket
 
 data DeleteBucket = DeleteBucket
     { dbrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath DeleteBucket where
     toPath DeleteBucket{..} = mconcat

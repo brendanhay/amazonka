@@ -57,7 +57,7 @@ data DeleteObject = DeleteObject
       -- device.
     , dorVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath DeleteObject where
     toPath DeleteObject{..} = mconcat
@@ -92,4 +92,4 @@ data instance Rs DeleteObject = DeleteObjectResponse
     , dooVersionId :: Maybe ObjectVersionId
       -- ^ Returns the version ID of the delete marker created as a result
       -- of the DELETE operation.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

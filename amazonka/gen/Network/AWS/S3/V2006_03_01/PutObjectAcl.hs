@@ -73,7 +73,7 @@ data PutObjectAcl = PutObjectAcl
       -- ^ Allows grantee to write the ACL for the applicable bucket.
     , poarACL :: Maybe ObjectCannedACL
       -- ^ The canned ACL to apply to the object.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutObjectAcl where
     toPath PutObjectAcl{..} = mconcat

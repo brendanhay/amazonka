@@ -44,7 +44,7 @@ deleteBucketTagging p1 = DeleteBucketTagging
 
 data DeleteBucketTagging = DeleteBucketTagging
     { dbtrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath DeleteBucketTagging where
     toPath DeleteBucketTagging{..} = mconcat

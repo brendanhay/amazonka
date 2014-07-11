@@ -44,7 +44,7 @@ getBucketLifecycle p1 = GetBucketLifecycle
 
 data GetBucketLifecycle = GetBucketLifecycle
     { gblrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat
@@ -65,4 +65,4 @@ instance AWSRequest GetBucketLifecycle where
 
 data instance Rs GetBucketLifecycle = GetBucketLifecycleResponse
     { gbloRules :: [Rule]
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

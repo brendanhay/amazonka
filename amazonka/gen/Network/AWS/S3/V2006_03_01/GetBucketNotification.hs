@@ -44,7 +44,7 @@ getBucketNotification p1 = GetBucketNotification
 
 data GetBucketNotification = GetBucketNotification
     { gbnrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketNotification where
     toPath GetBucketNotification{..} = mconcat
@@ -65,4 +65,4 @@ instance AWSRequest GetBucketNotification where
 
 data instance Rs GetBucketNotification = GetBucketNotificationResponse
     { gbnoTopicConfiguration :: Maybe TopicConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

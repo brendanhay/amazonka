@@ -56,7 +56,7 @@ data DeleteObjects = DeleteObjects
       -- ^ The concatenation of the authentication device's serial number, a
       -- space, and the value that is displayed on your authentication
       -- device.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
@@ -82,4 +82,4 @@ instance AWSRequest DeleteObjects where
 data instance Rs DeleteObjects = DeleteObjectsResponse
     { dooDeleted :: [DeletedObject]
     , dooErrors :: [Error]
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

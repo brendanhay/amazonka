@@ -72,7 +72,7 @@ data ListObjectVersions = ListObjectVersions
       -- ^ Limits the response to keys that begin with the specified prefix.
     , lovrVersionIdMarker :: Maybe Text
       -- ^ Specifies the object version you want to start listing from.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath ListObjectVersions where
     toPath ListObjectVersions{..} = mconcat
@@ -125,4 +125,4 @@ data instance Rs ListObjectVersions = ListObjectVersionsResponse
     , lovoVersions :: [ObjectVersion]
     , lovoPrefix :: Maybe Text
     , lovoVersionIdMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

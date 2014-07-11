@@ -49,7 +49,7 @@ data PutBucketCors = PutBucketCors
     { pbcrBucket :: BucketName
     , pbcrCORSConfiguration :: CORSConfiguration
     , pbcrContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketCors where
     toPath PutBucketCors{..} = mconcat

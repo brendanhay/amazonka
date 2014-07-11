@@ -126,7 +126,7 @@ data CreateMultipartUpload = CreateMultipartUpload
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath CreateMultipartUpload where
     toPath CreateMultipartUpload{..} = mconcat
@@ -194,4 +194,4 @@ data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
     , cmuoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

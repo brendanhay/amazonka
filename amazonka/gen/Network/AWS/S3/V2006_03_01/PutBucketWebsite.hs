@@ -49,7 +49,7 @@ data PutBucketWebsite = PutBucketWebsite
     { pbwrWebsiteConfiguration :: WebsiteConfiguration
     , pbwrBucket :: BucketName
     , pbwrContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketWebsite where
     toPath PutBucketWebsite{..} = mconcat

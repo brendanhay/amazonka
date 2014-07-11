@@ -44,7 +44,7 @@ getBucketWebsite p1 = GetBucketWebsite
 
 data GetBucketWebsite = GetBucketWebsite
     { gbwrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketWebsite where
     toPath GetBucketWebsite{..} = mconcat
@@ -68,4 +68,4 @@ data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
     , gbwoIndexDocument :: Maybe IndexDocument
     , gbwoRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , gbwoRoutingRules :: [RoutingRule]
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

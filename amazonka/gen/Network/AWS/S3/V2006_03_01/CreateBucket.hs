@@ -70,7 +70,7 @@ data CreateBucket = CreateBucket
       -- bucket.
     , cbrGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable bucket.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath CreateBucket where
     toPath CreateBucket{..} = mconcat
@@ -103,4 +103,4 @@ instance AWSRequest CreateBucket where
 
 data instance Rs CreateBucket = CreateBucketResponse
     { cboLocation :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

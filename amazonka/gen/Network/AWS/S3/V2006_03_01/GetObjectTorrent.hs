@@ -47,7 +47,7 @@ getObjectTorrent p1 p2 = GetObjectTorrent
 data GetObjectTorrent = GetObjectTorrent
     { gotrBucket :: BucketName
     , gotrKey :: ObjectKey
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
@@ -69,8 +69,8 @@ instance AWSRequest GetObjectTorrent where
     request  = get
     response = bodyResponse $ \hs bdy ->
         return $! pure GetObjectTorrentResponse
-            <*> pure bdy
+            <*> pure (Body bdy)
 
 data instance Rs GetObjectTorrent = GetObjectTorrentResponse
-    { gotoBody :: Response ByteString
-    } deriving (Eq, Show, Generic)
+    { gotoBody :: BodySource
+    } deriving (Show, Generic)

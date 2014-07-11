@@ -51,7 +51,7 @@ data PutBucketPolicy = PutBucketPolicy
       -- ^ The bucket policy as a JSON document.
     , pbprBucket :: BucketName
     , pbprContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketPolicy where
     toPath PutBucketPolicy{..} = mconcat

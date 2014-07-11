@@ -161,7 +161,7 @@ data CopyObject = CopyObject
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath CopyObject where
     toPath CopyObject{..} = mconcat
@@ -237,4 +237,4 @@ data instance Rs CopyObject = CopyObjectResponse
     , cooServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

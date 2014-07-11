@@ -51,7 +51,7 @@ data PutBucketLogging = PutBucketLogging
     { pblrBucketLoggingStatus :: BucketLoggingStatus
     , pblrBucket :: BucketName
     , pblrContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketLogging where
     toPath PutBucketLogging{..} = mconcat

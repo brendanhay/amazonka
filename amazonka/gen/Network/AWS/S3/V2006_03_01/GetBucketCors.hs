@@ -44,7 +44,7 @@ getBucketCors p1 = GetBucketCors
 
 data GetBucketCors = GetBucketCors
     { gbcrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat
@@ -65,4 +65,4 @@ instance AWSRequest GetBucketCors where
 
 data instance Rs GetBucketCors = GetBucketCorsResponse
     { gbcoCORSRules :: [CORSRule]
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

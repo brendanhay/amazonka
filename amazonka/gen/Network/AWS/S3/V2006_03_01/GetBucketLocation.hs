@@ -44,7 +44,7 @@ getBucketLocation p1 = GetBucketLocation
 
 data GetBucketLocation = GetBucketLocation
     { gblrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketLocation where
     toPath GetBucketLocation{..} = mconcat
@@ -65,4 +65,4 @@ instance AWSRequest GetBucketLocation where
 
 data instance Rs GetBucketLocation = GetBucketLocationResponse
     { gbloLocationConstraint :: Maybe BucketLocationConstraint
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

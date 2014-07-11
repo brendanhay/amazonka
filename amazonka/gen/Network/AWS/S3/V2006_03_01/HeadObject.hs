@@ -91,7 +91,7 @@ data HeadObject = HeadObject
       -- check to ensure the encryption key was transmitted without error.
     , horVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath HeadObject where
     toPath HeadObject{..} = mconcat
@@ -206,4 +206,4 @@ data instance Rs HeadObject = HeadObjectResponse
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

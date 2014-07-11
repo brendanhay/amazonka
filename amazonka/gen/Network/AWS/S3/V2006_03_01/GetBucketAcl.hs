@@ -44,7 +44,7 @@ getBucketAcl p1 = GetBucketAcl
 
 data GetBucketAcl = GetBucketAcl
     { gbarBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketAcl where
     toPath GetBucketAcl{..} = mconcat
@@ -67,4 +67,4 @@ data instance Rs GetBucketAcl = GetBucketAclResponse
     { gbaoGrants :: [Grant]
       -- ^ A list of grants.
     , gbaoOwner :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

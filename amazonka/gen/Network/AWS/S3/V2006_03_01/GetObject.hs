@@ -107,7 +107,7 @@ data GetObject = GetObject
       -- ^ Sets the Content-Type header of the response.
     , gorResponseExpires :: Maybe RFC822
       -- ^ Sets the Expires header of the response.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetObject where
     toPath GetObject{..} = mconcat
@@ -139,7 +139,7 @@ instance AWSRequest GetObject where
     request  = get
     response = bodyResponse $ \hs bdy ->
         return $! pure GetObjectResponse
-            <*> pure bdy
+            <*> pure (Body bdy)
             <*> (hs `filterHeaders` "x-amz-meta-")
             <*> hs ~:? "accept-ranges"
             <*> hs ~:? "Cache-Control"
@@ -162,7 +162,7 @@ instance AWSRequest GetObject where
             <*> hs ~:? "x-amz-website-redirect-location"
 
 data instance Rs GetObject = GetObjectResponse
-    { gooBody :: Response ByteString
+    { gooBody :: BodySource
       -- ^ Object data.
     , gooMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
@@ -225,4 +225,4 @@ data instance Rs GetObject = GetObjectResponse
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

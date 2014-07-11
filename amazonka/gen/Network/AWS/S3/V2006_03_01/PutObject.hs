@@ -38,7 +38,7 @@ import           Prelude              hiding (head)
 -- | Default PutObject request.
 putObject :: BucketName -- ^ 'porBucket'
           -> ObjectKey -- ^ 'porKey'
-          -> Response ByteString -- ^ 'porBody'
+          -> BodySource -- ^ 'porBody'
           -> PutObject
 putObject p1 p2 p3 = PutObject
     { porBucket = p1
@@ -69,7 +69,7 @@ putObject p1 p2 p3 = PutObject
 data PutObject = PutObject
     { porBucket :: BucketName
     , porKey :: ObjectKey
-    , porBody :: Response ByteString
+    , porBody :: BodySource
     , porMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
     , porCacheControl :: Maybe Text
@@ -127,7 +127,7 @@ data PutObject = PutObject
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutObject where
     toPath PutObject{..} = mconcat
@@ -200,4 +200,4 @@ data instance Rs PutObject = PutObjectResponse
     , pooServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

@@ -44,7 +44,7 @@ getBucketRequestPayment p1 = GetBucketRequestPayment
 
 data GetBucketRequestPayment = GetBucketRequestPayment
     { gbrprBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketRequestPayment where
     toPath GetBucketRequestPayment{..} = mconcat
@@ -66,4 +66,4 @@ instance AWSRequest GetBucketRequestPayment where
 data instance Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
     { gbrpoPayer :: Maybe Payer
       -- ^ Specifies who pays for the download and request fees.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

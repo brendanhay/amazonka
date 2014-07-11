@@ -119,7 +119,7 @@ data UploadPartCopy = UploadPartCopy
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath UploadPartCopy where
     toPath UploadPartCopy{..} = mconcat
@@ -178,4 +178,4 @@ data instance Rs UploadPartCopy = UploadPartCopyResponse
     , upcoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

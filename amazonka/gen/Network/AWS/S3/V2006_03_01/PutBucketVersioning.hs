@@ -55,7 +55,7 @@ data PutBucketVersioning = PutBucketVersioning
       -- ^ The concatenation of the authentication device's serial number, a
       -- space, and the value that is displayed on your authentication
       -- device.
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath PutBucketVersioning where
     toPath PutBucketVersioning{..} = mconcat

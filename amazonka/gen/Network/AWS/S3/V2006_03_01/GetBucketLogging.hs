@@ -45,7 +45,7 @@ getBucketLogging p1 = GetBucketLogging
 
 data GetBucketLogging = GetBucketLogging
     { gblrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 instance ToPath GetBucketLogging where
     toPath GetBucketLogging{..} = mconcat
@@ -66,4 +66,4 @@ instance AWSRequest GetBucketLogging where
 
 data instance Rs GetBucketLogging = GetBucketLoggingResponse
     { gbloLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)

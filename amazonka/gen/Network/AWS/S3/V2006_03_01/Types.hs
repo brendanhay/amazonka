@@ -19,11 +19,13 @@
 module Network.AWS.S3.V2006_03_01.Types where
 
 import Control.Applicative
-import Data.Text (Text)
+import Data.Default
+import Data.Tagged
+import Data.Text              (Text)
 import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Signing.V4
-import Network.AWS.Types hiding (Error)
+import Network.AWS.Types      hiding (Error)
 
 -- | Supported version (@2006-03-01@) of the
 -- @Amazon Simple Storage Service@ service.
@@ -57,6 +59,11 @@ instance ServiceError (Er S3) where
     serviceError = S3Error
     clientError  = S3Protocol
 
+xmlOptions :: Tagged a XMLOptions
+xmlOptions = Tagged def
+    { xmlNamespace = Just "http://s3.amazonaws.com/doc/2006-03-01/"
+    }
+
 -- | The versioning state of the bucket.
 data BucketVersioningStatus
 
@@ -72,7 +79,9 @@ instance ToByteString (Switch BucketVersioningStatus) where
     toBS Disabled = "Suspended"
     toBS Enabled = "Enabled"
 
-instance FromXML (Switch BucketVersioningStatus)
+instance FromXML (Switch BucketVersioningStatus) where
+    fromXMLRoot    = fromRoot "BucketVersioningStatus"
+    fromXMLOptions = xmlOptions
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
 -- is not currently being applied.
@@ -90,7 +99,9 @@ instance ToByteString (Switch ExpirationStatus) where
     toBS Disabled = "Disabled"
     toBS Enabled = "Enabled"
 
-instance FromXML (Switch ExpirationStatus)
+instance FromXML (Switch ExpirationStatus) where
+    fromXMLRoot    = fromRoot "ExpirationStatus"
+    fromXMLOptions = xmlOptions
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -110,7 +121,9 @@ instance ToByteString (Switch MFADelete) where
     toBS Disabled = "Disabled"
     toBS Enabled = "Enabled"
 
-instance FromXML (Switch MFADelete)
+instance FromXML (Switch MFADelete) where
+    fromXMLRoot    = fromRoot "MfaDelete"
+    fromXMLOptions = xmlOptions
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -130,7 +143,9 @@ instance ToByteString (Switch MFADeleteStatus) where
     toBS Disabled = "Disabled"
     toBS Enabled = "Enabled"
 
-instance FromXML (Switch MFADeleteStatus)
+instance FromXML (Switch MFADeleteStatus) where
+    fromXMLRoot    = fromRoot "MfaDelete"
+    fromXMLOptions = xmlOptions
 
 -- | The canned ACL to apply to the bucket.
 data BucketCannedACL
@@ -158,13 +173,26 @@ instance ToByteString BucketCannedACL where
     toBS BucketCannedACLPublicRead = "public-read"
     toBS BucketCannedACLPublicReadWrite = "public-read-write"
 
-instance FromXML BucketCannedACL
+instance FromXML BucketCannedACL where
+    fromXMLRoot    = fromRoot "BucketCannedACL"
+    fromXMLOptions = xmlOptions
 
 -- | Specifies the region where the bucket will be created.
 newtype BucketLocationConstraint = BucketLocationConstraint Region
     deriving (Eq, Show, Generic)
 
-instance FromXML BucketLocationConstraint
+instance FromText BucketLocationConstraint where
+    parser = BucketLocationConstraint <$> parser
+
+instance ToText BucketLocationConstraint where
+    toText (BucketLocationConstraint r) = toText r
+
+instance ToByteString BucketLocationConstraint where
+    toBS (BucketLocationConstraint r) = toBS r
+
+instance FromXML BucketLocationConstraint where
+    fromXMLRoot = fromRoot "BucketLocationConstraint"
+    fromXML     = const fromNodeContent
 
 -- | Logging permissions assigned to the Grantee for the bucket.
 data BucketLogsPermission
@@ -188,7 +216,9 @@ instance ToByteString BucketLogsPermission where
     toBS BucketLogsPermissionRead = "READ"
     toBS BucketLogsPermissionWrite = "WRITE"
 
-instance FromXML BucketLogsPermission
+instance FromXML BucketLogsPermission where
+    fromXMLRoot    = fromRoot "BucketLogsPermission"
+    fromXMLOptions = xmlOptions
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
 -- the encoding method to use. An object key may contain any Unicode
@@ -209,7 +239,9 @@ instance ToText EncodingType where
 instance ToByteString EncodingType where
     toBS EncodingTypeUrl = "url"
 
-instance FromXML EncodingType
+instance FromXML EncodingType where
+    fromXMLRoot    = fromRoot "EncodingType"
+    fromXMLOptions = xmlOptions
 
 -- | Bucket event for which to send notifications.
 data Event
@@ -225,7 +257,9 @@ instance ToText Event where
 instance ToByteString Event where
     toBS EventS3ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
 
-instance FromXML Event
+instance FromXML Event where
+    fromXMLRoot    = fromRoot "Event"
+    fromXMLOptions = xmlOptions
 
 -- | Specifies whether the metadata is copied from the source object or replaced
 -- with metadata provided in the request.
@@ -246,7 +280,9 @@ instance ToByteString MetadataDirective where
     toBS MetadataDirectiveCopy = "COPY"
     toBS MetadataDirectiveReplace = "REPLACE"
 
-instance FromXML MetadataDirective
+instance FromXML MetadataDirective where
+    fromXMLRoot    = fromRoot "MetadataDirective"
+    fromXMLOptions = xmlOptions
 
 -- | The canned ACL to apply to the object.
 data ObjectCannedACL
@@ -282,7 +318,9 @@ instance ToByteString ObjectCannedACL where
     toBS ObjectCannedACLPublicRead = "public-read"
     toBS ObjectCannedACLPublicReadWrite = "public-read-write"
 
-instance FromXML ObjectCannedACL
+instance FromXML ObjectCannedACL where
+    fromXMLRoot    = fromRoot "ObjectCannedACL"
+    fromXMLOptions = xmlOptions
 
 -- | The class of storage used to store the object.
 data ObjectStorageClass
@@ -306,7 +344,9 @@ instance ToByteString ObjectStorageClass where
     toBS ObjectStorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
     toBS ObjectStorageClassStandard = "STANDARD"
 
-instance FromXML ObjectStorageClass
+instance FromXML ObjectStorageClass where
+    fromXMLRoot    = fromRoot "ObjectStorageClass"
+    fromXMLOptions = xmlOptions
 
 -- | The class of storage used to store the object.
 data ObjectVersionStorageClass
@@ -322,7 +362,9 @@ instance ToText ObjectVersionStorageClass where
 instance ToByteString ObjectVersionStorageClass where
     toBS ObjectVersionStorageClassStandard = "STANDARD"
 
-instance FromXML ObjectVersionStorageClass
+instance FromXML ObjectVersionStorageClass where
+    fromXMLRoot    = fromRoot "ObjectVersionStorageClass"
+    fromXMLOptions = xmlOptions
 
 -- | Specifies who pays for the download and request fees.
 data Payer
@@ -342,7 +384,9 @@ instance ToByteString Payer where
     toBS PayerBucketOwner = "BucketOwner"
     toBS PayerRequester = "Requester"
 
-instance FromXML Payer
+instance FromXML Payer where
+    fromXMLRoot    = fromRoot "Payer"
+    fromXMLOptions = xmlOptions
 
 -- | Specifies the permission given to the grantee.
 data Permission
@@ -374,7 +418,9 @@ instance ToByteString Permission where
     toBS PermissionWrite = "WRITE"
     toBS PermissionWriteAcp = "WRITE_ACP"
 
-instance FromXML Permission
+instance FromXML Permission where
+    fromXMLRoot    = fromRoot "Permission"
+    fromXMLOptions = xmlOptions
 
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
@@ -395,7 +441,9 @@ instance ToByteString Protocol where
     toBS ProtocolHttp = "http"
     toBS ProtocolHttps = "https"
 
-instance FromXML Protocol
+instance FromXML Protocol where
+    fromXMLRoot    = fromRoot "Protocol"
+    fromXMLOptions = xmlOptions
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
 data ServerSideEncryption
@@ -411,7 +459,9 @@ instance ToText ServerSideEncryption where
 instance ToByteString ServerSideEncryption where
     toBS ServerSideEncryptionAES256 = "AES256"
 
-instance FromXML ServerSideEncryption
+instance FromXML ServerSideEncryption where
+    fromXMLRoot    = fromRoot "ServerSideEncryption"
+    fromXMLOptions = xmlOptions
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
 data StorageClass
@@ -431,7 +481,9 @@ instance ToByteString StorageClass where
     toBS StorageClassReducedRedundancy = "REDUCED_REDUNDANCY"
     toBS StorageClassStandard = "STANDARD"
 
-instance FromXML StorageClass
+instance FromXML StorageClass where
+    fromXMLRoot    = fromRoot "StorageClass"
+    fromXMLOptions = xmlOptions
 
 -- | The class of storage used to store the object.
 data TransitionStorageClass
@@ -447,7 +499,9 @@ instance ToText TransitionStorageClass where
 instance ToByteString TransitionStorageClass where
     toBS TransitionStorageClassGlacier = "GLACIER"
 
-instance FromXML TransitionStorageClass
+instance FromXML TransitionStorageClass where
+    fromXMLRoot    = fromRoot "TransitionStorageClass"
+    fromXMLOptions = xmlOptions
 
 -- | Type of grantee.
 data Type
@@ -471,45 +525,59 @@ instance ToByteString Type where
     toBS TypeCanonicalUser = "CanonicalUser"
     toBS TypeGroup = "Group"
 
-instance FromXML Type
+instance FromXML Type where
+    fromXMLRoot    = fromRoot "xsi:type"
+    fromXMLOptions = xmlOptions
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { blsLoggingEnabled :: LoggingEnabled
     } deriving (Eq, Show, Generic)
 
-instance FromXML BucketLoggingStatus
+instance FromXML BucketLoggingStatus where
+    fromXMLRoot    = fromRoot "BucketLoggingStatus"
+    fromXMLOptions = xmlOptions
 
 newtype CORSConfiguration = CORSConfiguration
     { corscCORSRules :: [CORSRule]
     } deriving (Eq, Show, Generic)
 
-instance FromXML CORSConfiguration
+instance FromXML CORSConfiguration where
+    fromXMLRoot    = fromRoot "CORSConfiguration"
+    fromXMLOptions = xmlOptions
 
 newtype CommonPrefix = CommonPrefix
     { cpPrefix :: Text
     } deriving (Eq, Show, Generic)
 
-instance FromXML CommonPrefix
+instance FromXML CommonPrefix where
+    fromXMLRoot    = fromRoot "CommonPrefix"
+    fromXMLOptions = xmlOptions
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { cmuParts :: [CompletedPart]
     } deriving (Eq, Show, Generic)
 
-instance FromXML CompletedMultipartUpload
+instance FromXML CompletedMultipartUpload where
+    fromXMLRoot    = fromRoot "CompleteMultipartUpload"
+    fromXMLOptions = xmlOptions
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
     { cbcLocationConstraint :: BucketLocationConstraint
       -- ^ Specifies the region where the bucket will be created.
     } deriving (Eq, Show, Generic)
 
-instance FromXML CreateBucketConfiguration
+instance FromXML CreateBucketConfiguration where
+    fromXMLRoot    = fromRoot "CreateBucketConfiguration"
+    fromXMLOptions = xmlOptions
 
 newtype ErrorDocument = ErrorDocument
     { edKey :: ObjectKey
       -- ^ The object key name to use when a 4XX class error occurs.
     } deriving (Eq, Show, Generic)
 
-instance FromXML ErrorDocument
+instance FromXML ErrorDocument where
+    fromXMLRoot    = fromRoot "ErrorDocument"
+    fromXMLOptions = xmlOptions
 
 newtype IndexDocument = IndexDocument
     { idSuffix :: Text
@@ -520,13 +588,17 @@ newtype IndexDocument = IndexDocument
       -- suffix must not be empty and must not include a slash character.
     } deriving (Eq, Show, Generic)
 
-instance FromXML IndexDocument
+instance FromXML IndexDocument where
+    fromXMLRoot    = fromRoot "IndexDocument"
+    fromXMLOptions = xmlOptions
 
 newtype LifecycleConfiguration = LifecycleConfiguration
     { lcRules :: [Rule]
     } deriving (Eq, Show, Generic)
 
-instance FromXML LifecycleConfiguration
+instance FromXML LifecycleConfiguration where
+    fromXMLRoot    = fromRoot "LifecycleConfiguration"
+    fromXMLOptions = xmlOptions
 
 -- | Specifies when noncurrent object versions expire. Upon expiration, Amazon
 -- S3 permanently deletes the noncurrent object versions. You set this
@@ -542,33 +614,43 @@ newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
       -- Storage Service Developer Guide.
     } deriving (Eq, Show, Generic)
 
-instance FromXML NoncurrentVersionExpiration
+instance FromXML NoncurrentVersionExpiration where
+    fromXMLRoot    = fromRoot "NoncurrentVersionExpiration"
+    fromXMLOptions = xmlOptions
 
 newtype NotificationConfiguration = NotificationConfiguration
     { ncTopicConfiguration :: TopicConfiguration
     } deriving (Eq, Show, Generic)
 
-instance FromXML NotificationConfiguration
+instance FromXML NotificationConfiguration where
+    fromXMLRoot    = fromRoot "NotificationConfiguration"
+    fromXMLOptions = xmlOptions
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { rpcPayer :: Payer
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Eq, Show, Generic)
 
-instance FromXML RequestPaymentConfiguration
+instance FromXML RequestPaymentConfiguration where
+    fromXMLRoot    = fromRoot "RequestPaymentConfiguration"
+    fromXMLOptions = xmlOptions
 
 newtype RestoreRequest = RestoreRequest
     { rrDays :: Integer
       -- ^ Lifetime of the active copy in days.
     } deriving (Eq, Show, Generic)
 
-instance FromXML RestoreRequest
+instance FromXML RestoreRequest where
+    fromXMLRoot    = fromRoot "RestoreRequest"
+    fromXMLOptions = xmlOptions
 
 newtype Tagging = Tagging
     { tTagSet :: [Tag]
     } deriving (Eq, Show, Generic)
 
-instance FromXML Tagging
+instance FromXML Tagging where
+    fromXMLRoot    = fromRoot "Tagging"
+    fromXMLOptions = xmlOptions
 
 data AccessControlPolicy = AccessControlPolicy
     { acpGrants :: [Grant]
@@ -576,7 +658,9 @@ data AccessControlPolicy = AccessControlPolicy
     , acpOwner :: Owner
     } deriving (Eq, Show, Generic)
 
-instance FromXML AccessControlPolicy
+instance FromXML AccessControlPolicy where
+    fromXMLRoot    = fromRoot "AccessControlPolicy"
+    fromXMLOptions = xmlOptions
 
 data Bucket = Bucket
     { bName :: BucketName
@@ -585,7 +669,9 @@ data Bucket = Bucket
       -- ^ Date the bucket was created.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Bucket
+instance FromXML Bucket where
+    fromXMLRoot    = fromRoot "Bucket"
+    fromXMLOptions = xmlOptions
 
 data CORSRule = CORSRule
     { corsrAllowedMethods :: [Text]
@@ -606,7 +692,9 @@ data CORSRule = CORSRule
       -- JavaScript XMLHttpRequest object).
     } deriving (Eq, Show, Generic)
 
-instance FromXML CORSRule
+instance FromXML CORSRule where
+    fromXMLRoot    = fromRoot "CORSRule"
+    fromXMLOptions = xmlOptions
 
 data CompletedPart = CompletedPart
     { cpETag :: ETag
@@ -615,7 +703,9 @@ data CompletedPart = CompletedPart
       -- ^ Part number that identifies the part.
     } deriving (Eq, Show, Generic)
 
-instance FromXML CompletedPart
+instance FromXML CompletedPart where
+    fromXMLRoot    = fromRoot "CompletedPart"
+    fromXMLOptions = xmlOptions
 
 -- | A container for describing a condition that must be met for the specified
 -- redirect to apply. For example, 1. If request is for pages in the /docs
@@ -641,14 +731,18 @@ data Condition = Condition
       -- applied.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Condition
+instance FromXML Condition where
+    fromXMLRoot    = fromRoot "Condition"
+    fromXMLOptions = xmlOptions
 
 data CopyObjectResult = CopyObjectResult
     { corETag :: ETag
     , corLastModified :: RFC822
     } deriving (Eq, Show, Generic)
 
-instance FromXML CopyObjectResult
+instance FromXML CopyObjectResult where
+    fromXMLRoot    = fromRoot "CopyObjectResult"
+    fromXMLOptions = xmlOptions
 
 data CopyPartResult = CopyPartResult
     { cprETag :: ETag
@@ -657,7 +751,9 @@ data CopyPartResult = CopyPartResult
       -- ^ Date and time at which the object was uploaded.
     } deriving (Eq, Show, Generic)
 
-instance FromXML CopyPartResult
+instance FromXML CopyPartResult where
+    fromXMLRoot    = fromRoot "CopyPartResult"
+    fromXMLOptions = xmlOptions
 
 data Delete = Delete
     { dQuiet :: Bool
@@ -666,7 +762,9 @@ data Delete = Delete
     , dObjects :: [ObjectIdentifier]
     } deriving (Eq, Show, Generic)
 
-instance FromXML Delete
+instance FromXML Delete where
+    fromXMLRoot    = fromRoot "Delete"
+    fromXMLOptions = xmlOptions
 
 data DeleteMarkerEntry = DeleteMarkerEntry
     { dmeVersionId :: ObjectVersionId
@@ -681,7 +779,9 @@ data DeleteMarkerEntry = DeleteMarkerEntry
       -- ^ Date and time the object was last modified.
     } deriving (Eq, Show, Generic)
 
-instance FromXML DeleteMarkerEntry
+instance FromXML DeleteMarkerEntry where
+    fromXMLRoot    = fromRoot "DeleteMarkerEntry"
+    fromXMLOptions = xmlOptions
 
 data DeletedObject = DeletedObject
     { doVersionId :: ObjectVersionId
@@ -690,7 +790,9 @@ data DeletedObject = DeletedObject
     , doKey :: ObjectKey
     } deriving (Eq, Show, Generic)
 
-instance FromXML DeletedObject
+instance FromXML DeletedObject where
+    fromXMLRoot    = fromRoot "DeletedObject"
+    fromXMLOptions = xmlOptions
 
 data Error = Error
     { eVersionId :: ObjectVersionId
@@ -699,7 +801,9 @@ data Error = Error
     , eMessage :: Text
     } deriving (Eq, Show, Generic)
 
-instance FromXML Error
+instance FromXML Error where
+    fromXMLRoot    = fromRoot "Error"
+    fromXMLOptions = xmlOptions
 
 data Grant = Grant
     { gPermission :: Permission
@@ -707,7 +811,9 @@ data Grant = Grant
     , gGrantee :: Grantee
     } deriving (Eq, Show, Generic)
 
-instance FromXML Grant
+instance FromXML Grant where
+    fromXMLRoot    = fromRoot "Grant"
+    fromXMLOptions = xmlOptions
 
 data Grantee = Grantee
     { gURI :: Text
@@ -722,7 +828,9 @@ data Grantee = Grantee
       -- ^ Type of grantee.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Grantee
+instance FromXML Grantee where
+    fromXMLRoot    = fromRoot "Grantee"
+    fromXMLOptions = xmlOptions
 
 -- | Identifies who initiated the multipart upload.
 data Initiator = Initiator
@@ -734,7 +842,9 @@ data Initiator = Initiator
       -- value.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Initiator
+instance FromXML Initiator where
+    fromXMLRoot    = fromRoot "Initiator"
+    fromXMLOptions = xmlOptions
 
 data LifecycleExpiration = LifecycleExpiration
     { leDays :: Integer
@@ -745,7 +855,9 @@ data LifecycleExpiration = LifecycleExpiration
       -- Should be in GMT ISO 8601 Format.
     } deriving (Eq, Show, Generic)
 
-instance FromXML LifecycleExpiration
+instance FromXML LifecycleExpiration where
+    fromXMLRoot    = fromRoot "LifecycleExpiration"
+    fromXMLOptions = xmlOptions
 
 data LoggingEnabled = LoggingEnabled
     { leTargetBucket :: Text
@@ -762,7 +874,9 @@ data LoggingEnabled = LoggingEnabled
       -- files will be stored under.
     } deriving (Eq, Show, Generic)
 
-instance FromXML LoggingEnabled
+instance FromXML LoggingEnabled where
+    fromXMLRoot    = fromRoot "LoggingEnabled"
+    fromXMLOptions = xmlOptions
 
 data MultipartUpload = MultipartUpload
     { muInitiated :: RFC822
@@ -778,7 +892,9 @@ data MultipartUpload = MultipartUpload
       -- ^ Upload ID that identifies the multipart upload.
     } deriving (Eq, Show, Generic)
 
-instance FromXML MultipartUpload
+instance FromXML MultipartUpload where
+    fromXMLRoot    = fromRoot "MultipartUpload"
+    fromXMLOptions = xmlOptions
 
 -- | Container for the transition rule that describes when noncurrent objects
 -- transition to the GLACIER storage class. If your bucket is
@@ -796,7 +912,9 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition
       -- Storage Service Developer Guide.
     } deriving (Eq, Show, Generic)
 
-instance FromXML NoncurrentVersionTransition
+instance FromXML NoncurrentVersionTransition where
+    fromXMLRoot    = fromRoot "NoncurrentVersionTransition"
+    fromXMLOptions = xmlOptions
 
 data Object = Object
     { oETag :: ETag
@@ -808,7 +926,9 @@ data Object = Object
     , oLastModified :: RFC822
     } deriving (Eq, Show, Generic)
 
-instance FromXML Object
+instance FromXML Object where
+    fromXMLRoot    = fromRoot "Object"
+    fromXMLOptions = xmlOptions
 
 data ObjectIdentifier = ObjectIdentifier
     { oiVersionId :: ObjectVersionId
@@ -817,7 +937,9 @@ data ObjectIdentifier = ObjectIdentifier
       -- ^ Key name of the object to delete.
     } deriving (Eq, Show, Generic)
 
-instance FromXML ObjectIdentifier
+instance FromXML ObjectIdentifier where
+    fromXMLRoot    = fromRoot "ObjectIdentifier"
+    fromXMLOptions = xmlOptions
 
 data ObjectVersion = ObjectVersion
     { ovETag :: ETag
@@ -837,14 +959,18 @@ data ObjectVersion = ObjectVersion
       -- ^ Date and time the object was last modified.
     } deriving (Eq, Show, Generic)
 
-instance FromXML ObjectVersion
+instance FromXML ObjectVersion where
+    fromXMLRoot    = fromRoot "ObjectVersion"
+    fromXMLOptions = xmlOptions
 
 data Owner = Owner
     { oDisplayName :: Text
     , oID :: Text
     } deriving (Eq, Show, Generic)
 
-instance FromXML Owner
+instance FromXML Owner where
+    fromXMLRoot    = fromRoot "Owner"
+    fromXMLOptions = xmlOptions
 
 data Part = Part
     { pETag :: ETag
@@ -857,7 +983,9 @@ data Part = Part
       -- ^ Date and time at which the part was uploaded.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Part
+instance FromXML Part where
+    fromXMLRoot    = fromRoot "Part"
+    fromXMLOptions = xmlOptions
 
 -- | Container for redirect information. You can redirect requests to another
 -- host, to another page, or with another protocol. In the event of an error,
@@ -886,7 +1014,9 @@ data Redirect = Redirect
       -- ReplaceKeyWith is not provided.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Redirect
+instance FromXML Redirect where
+    fromXMLRoot    = fromRoot "Redirect"
+    fromXMLOptions = xmlOptions
 
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { rartHostName :: Text
@@ -896,7 +1026,9 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo
       -- default is the protocol that is used in the original request.
     } deriving (Eq, Show, Generic)
 
-instance FromXML RedirectAllRequestsTo
+instance FromXML RedirectAllRequestsTo where
+    fromXMLRoot    = fromRoot "RedirectAllRequestsTo"
+    fromXMLOptions = xmlOptions
 
 data RoutingRule = RoutingRule
     { rrRedirect :: Redirect
@@ -912,7 +1044,9 @@ data RoutingRule = RoutingRule
       -- host where you might process the error.
     } deriving (Eq, Show, Generic)
 
-instance FromXML RoutingRule
+instance FromXML RoutingRule where
+    fromXMLRoot    = fromRoot "RoutingRule"
+    fromXMLOptions = xmlOptions
 
 data Rule = Rule
     { rStatus :: Switch ExpirationStatus
@@ -941,7 +1075,9 @@ data Rule = Rule
       -- 255 characters.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Rule
+instance FromXML Rule where
+    fromXMLRoot    = fromRoot "Rule"
+    fromXMLOptions = xmlOptions
 
 data Tag = Tag
     { tValue :: Text
@@ -950,7 +1086,9 @@ data Tag = Tag
       -- ^ Name of the tag.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Tag
+instance FromXML Tag where
+    fromXMLRoot    = fromRoot "Tag"
+    fromXMLOptions = xmlOptions
 
 data TargetGrant = TargetGrant
     { tgPermission :: BucketLogsPermission
@@ -958,7 +1096,9 @@ data TargetGrant = TargetGrant
     , tgGrantee :: Grantee
     } deriving (Eq, Show, Generic)
 
-instance FromXML TargetGrant
+instance FromXML TargetGrant where
+    fromXMLRoot    = fromRoot "Grant"
+    fromXMLOptions = xmlOptions
 
 data TopicConfiguration = TopicConfiguration
     { tcEvent :: Event
@@ -968,7 +1108,9 @@ data TopicConfiguration = TopicConfiguration
       -- report the specified events for the bucket.
     } deriving (Eq, Show, Generic)
 
-instance FromXML TopicConfiguration
+instance FromXML TopicConfiguration where
+    fromXMLRoot    = fromRoot "TopicConfiguration"
+    fromXMLOptions = xmlOptions
 
 data Transition = Transition
     { tDays :: Integer
@@ -981,7 +1123,9 @@ data Transition = Transition
       -- ^ The class of storage used to store the object.
     } deriving (Eq, Show, Generic)
 
-instance FromXML Transition
+instance FromXML Transition where
+    fromXMLRoot    = fromRoot "Transition"
+    fromXMLOptions = xmlOptions
 
 data VersioningConfiguration = VersioningConfiguration
     { vcStatus :: Switch BucketVersioningStatus
@@ -993,7 +1137,9 @@ data VersioningConfiguration = VersioningConfiguration
       -- configured, this element is not returned.
     } deriving (Eq, Show, Generic)
 
-instance FromXML VersioningConfiguration
+instance FromXML VersioningConfiguration where
+    fromXMLRoot    = fromRoot "VersioningConfiguration"
+    fromXMLOptions = xmlOptions
 
 data WebsiteConfiguration = WebsiteConfiguration
     { wcRedirectAllRequestsTo :: RedirectAllRequestsTo
@@ -1002,4 +1148,6 @@ data WebsiteConfiguration = WebsiteConfiguration
     , wcRoutingRules :: [RoutingRule]
     } deriving (Eq, Show, Generic)
 
-instance FromXML WebsiteConfiguration
+instance FromXML WebsiteConfiguration where
+    fromXMLRoot    = fromRoot "WebsiteConfiguration"
+    fromXMLOptions = xmlOptions

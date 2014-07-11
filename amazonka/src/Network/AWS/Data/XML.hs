@@ -104,11 +104,11 @@ fromNestedRoot rs o Document{..} = foldrM unwrap initial (NonEmpty.reverse rs)
 fromRoot :: Text -> Tagged a XMLOptions -> Document -> Either String [Node]
 fromRoot = fromNestedRoot . (:| [])
 
-genericFromRoot :: forall a. (Generic a, GXMLRoot (Rep a))
+gFromRoot :: forall a. (Generic a, GXMLRoot (Rep a))
                 => Tagged a XMLOptions
                 -> Document
                 -> Either String [Node]
-genericFromRoot o = fromRoot (gRootName (untag o) $ from (undefined :: a)) o
+gFromRoot o = fromRoot (gRootName (untag o) $ from (undefined :: a)) o
 
 class FromXML a where
     fromXMLOptions :: Tagged a XMLOptions
@@ -121,7 +121,7 @@ class FromXML a where
                         => Tagged a XMLOptions
                         -> Document
                         -> Either String [Node]
-    fromXMLRoot = genericFromRoot
+    fromXMLRoot = gFromRoot
 
     default fromXML :: (Generic a, GFromXML (Rep a))
                     => Tagged a XMLOptions
@@ -132,6 +132,9 @@ class FromXML a where
 fromNodeContent :: FromText a => [Node] -> Either String a
 fromNodeContent [NodeContent x] = fromText x
 fromNodeContent _               = Left "Unexpected non-textual node contents."
+
+instance FromXML () where
+    fromXML _ _ = Right ()
 
 instance FromXML Bool where
     fromXML = const fromNodeContent
@@ -159,36 +162,29 @@ instance FromXML Double where
 --     fromXMLRoot = fromRoot "HashMap"
 --     fromXML     = undefined
 
--- instance FromXML a => FromXML [a] where
---     fromXML o = sequence . f (xmlListElem $ untag o)
---       where
---         f (Just x) = map (g x)
---         f Nothing  = map (fromXML (retag o) . (:[]))
+instance FromXML a => FromXML [a] where
+    fromXML o = sequence . f (xmlListElem $ untag o)
+      where
+        f (Just x) = map (g x)
+        f Nothing  = map (fromXML (retag o) . (:[]))
 
---         g n (NodeElement (Element n' _ xs))
---             | n' == Name n (xmlNamespace $ untag o) Nothing = fromXML (retag o) xs
---             | otherwise = Left "Unrecognised list element name."
---         g _ _ = Left "Unable to parse list element."
+        g n (NodeElement (Element n' _ xs))
+            | n' == Name n (xmlNamespace $ untag o) Nothing = fromXML (retag o) xs
+            | otherwise = Left "Unrecognised list element name."
+        g _ _ = Left "Unable to parse list element."
 
--- instance FromXML a => FromXML (NonEmpty a) where
---     fromXMLRoot = fromRoot "NonEmpty"
---     fromXML o   = join
---         . fmap (note "Unexpected empty list." . NonEmpty.nonEmpty)
---         . fromXML (retag o)
+instance FromXML a => FromXML (NonEmpty a) where
+    fromXMLRoot = fromRoot "NonEmpty"
+    fromXML o   = join
+        . fmap (note "Unexpected empty list." . NonEmpty.nonEmpty)
+        . fromXML (retag o)
 
--- -- FIXME: should fail if target doesn't exist
--- instance FromXML a => FromXML (Maybe a) where
---     fromXML o ns =
---         either (const $ Right Nothing)
---                (Right . Just)
---                (fromXML (retag o) ns :: Either String a)
-
--- instance FromXML UTCTime where
---     fromXMLRoot = fromRoot "UTCTime"
---     fromXML o   = join . fmap (parseISO8601 . Text.unpack) . fromXML (retag o)
-
--- instance FromXML () where
---     fromXML _ _ = Right ()
+-- FIXME: should fail if target doesn't exist
+instance FromXML a => FromXML (Maybe a) where
+    fromXML o ns =
+        either (const $ Right Nothing)
+               (Right . Just)
+               (fromXML (retag o) ns :: Either String a)
 
 -- nodeParser :: AText.Parser a -> Tagged a XMLOptions -> [Node] -> Either String a
 -- nodeParser p o = join . fmap (AText.parseOnly p) . fromXML (retag o)

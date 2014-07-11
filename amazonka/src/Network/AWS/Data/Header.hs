@@ -88,10 +88,10 @@ infixl 6 ~:, ~:?, ~:!
 (~:!) p v = fromMaybe v <$> p
 
 filterHeaders :: FromText v
-              => Text
-              -> [Header]
+              => [Header]
+              -> Text
               -> Either String (HashMap Text v)
-filterHeaders p hs =
+filterHeaders hs p =
     Map.filterWithKey (const . Text.isPrefixOf p) . Map.fromList <$> mapM f hs
   where
     f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)

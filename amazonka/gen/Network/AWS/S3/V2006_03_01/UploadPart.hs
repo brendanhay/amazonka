@@ -24,27 +24,28 @@
 module Network.AWS.S3.V2006_03_01.UploadPart where
 
 import           Control.Applicative
-import           Data.ByteString     (ByteString)
+import           Data.ByteString      (ByteString)
 import           Data.Default
-import           Data.HashMap.Strict (HashMap)
+import           Data.HashMap.Strict  (HashMap)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
+import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
-import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
-import           Prelude             hiding (head)
+import           Network.HTTP.Client  (Response)
+import           Prelude              hiding (head)
 
 -- | Default UploadPart request.
 uploadPart :: BucketName -- ^ 'uprBucket'
            -> Text -- ^ 'uprUploadId'
            -> ObjectKey -- ^ 'uprKey'
            -> Integer -- ^ 'uprPartNumber'
-           -> ByteString -- ^ 'uprBody'
+           -> Response ByteString -- ^ 'uprBody'
            -> UploadPart
 uploadPart p1 p2 p3 p4 p5 = UploadPart
     { uprBucket = p1
@@ -67,7 +68,7 @@ data UploadPart = UploadPart
     , uprKey :: ObjectKey
     , uprPartNumber :: Integer
       -- ^ Part number of part being uploaded.
-    , uprBody :: ByteString
+    , uprBody :: Response ByteString
     , uprContentLength :: Maybe Integer
       -- ^ Size of the body in bytes. This parameter is useful when the size
       -- of the body cannot be determined automatically.

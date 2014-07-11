@@ -19,25 +19,26 @@
 module Network.AWS.S3.V2006_03_01.PutObject where
 
 import           Control.Applicative
-import           Data.ByteString     (ByteString)
+import           Data.ByteString      (ByteString)
 import           Data.Default
-import           Data.HashMap.Strict (HashMap)
+import           Data.HashMap.Strict  (HashMap)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
+import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
-import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
-import           Prelude             hiding (head)
+import           Network.HTTP.Client  (Response)
+import           Prelude              hiding (head)
 
 -- | Default PutObject request.
 putObject :: BucketName -- ^ 'porBucket'
           -> ObjectKey -- ^ 'porKey'
-          -> ByteString -- ^ 'porBody'
+          -> Response ByteString -- ^ 'porBody'
           -> PutObject
 putObject p1 p2 p3 = PutObject
     { porBucket = p1
@@ -68,7 +69,7 @@ putObject p1 p2 p3 = PutObject
 data PutObject = PutObject
     { porBucket :: BucketName
     , porKey :: ObjectKey
-    , porBody :: ByteString
+    , porBody :: Response ByteString
     , porMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
     , porCacheControl :: Maybe Text

@@ -21,20 +21,21 @@
 module Network.AWS.S3.V2006_03_01.HeadObject where
 
 import           Control.Applicative
-import           Data.ByteString     (ByteString)
+import           Data.ByteString      (ByteString)
 import           Data.Default
-import           Data.HashMap.Strict (HashMap)
+import           Data.HashMap.Strict  (HashMap)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
+import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
-import           Network.AWS.Types   hiding (Error)
 import           Network.AWS.S3.V2006_03_01.Types
-import           Prelude             hiding (head)
+import           Network.HTTP.Client  (Response)
+import           Prelude              hiding (head)
 
 -- | Default HeadObject request.
 headObject :: BucketName -- ^ 'horBucket'
@@ -122,7 +123,7 @@ instance AWSRequest HeadObject where
     request  = head
     response = headerResponse $ \hs ->
         pure HeadObjectResponse
-            <*> filterHeaders "x-amz-meta-" hs
+            <*> (hs `filterHeaders` "x-amz-meta-")
             <*> hs ~:? "accept-ranges"
             <*> hs ~:? "Cache-Control"
             <*> hs ~:? "Content-Disposition"

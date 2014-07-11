@@ -18,7 +18,7 @@
       {% when "header" %}
         {% case field.value.location_name %}
         {% when "x-amz-meta-" %}
-            <*> filterHeaders "{{ field.value.location_name }}" hs
+            <*> (hs `filterHeaders` "{{ field.value.location_name }}")
         {% else %}
           {% if field.value.required %}
             <*> hs ~:  "{{ field.value.location_name }}"

@@ -92,10 +92,10 @@ response t o rs = rs
 
     fs  = sort . fields False t $ rs ^. rsShape
 
-    typ | maybe False (view cmnStreaming) bdy = RBody
-        | length hs == length fs              = RHeaders
+    typ | maybe False (view cmnStreaming) bdy    = RBody
+        | length hs == length fs                 = RHeaders
         | all ((== LBody) . view cmnLocation) fs = RXml
-        | otherwise                           = def
+        | otherwise                              = def
 
 pagination :: Operation -> Maybe Pagination -> Maybe Pagination
 pagination o = fmap go
@@ -171,13 +171,15 @@ typeof rq t s = Ann req (defaults s) (monoids s) typ
             | otherwise         -> n
         SPrim   Prim   {..}
             | n `elem` reserved -> n
+            | bdy               -> "Response ByteString"
             | otherwise         -> fmt _prmType
 
     n   = fromName s
     ann = _anType . typeof rq t
 
-    req = required rq s
+    req = bdy || required rq s
     swt = n `elem` switches
+    bdy = body s
 
     fmt x = Text.pack $
         case x of
@@ -187,6 +189,9 @@ typeof rq t s = Ann req (defaults s) (monoids s) typ
 required :: Bool -> Shape -> Bool
 required True s = s ^. cmnRequired || s ^. cmnLocation == LBody
 required _    s = s ^. cmnRequired
+
+body :: Shape -> Bool
+body s = s ^. cmnLocation == LBody && s ^. cmnStreaming
 
 reserved :: [Text]
 reserved =

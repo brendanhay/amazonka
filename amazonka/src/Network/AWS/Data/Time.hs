@@ -95,7 +95,3 @@ parseFormattedTime = do
 instance FromXML RFC822 where
     fromXMLRoot = fromRoot "Date"
     fromXML     = const fromNodeContent
-
--- instance FromXML ISO8601   where parser = parseFormattedTime
--- instance FromXML BasicTime where parser = parseFormattedTime
--- instance FromXML AWSTime   where parser = parseFormattedTime

@@ -122,7 +122,7 @@ instance AWSRequest HeadObject where
     request  = head
     response = headerResponse $ \hs ->
         pure HeadObjectResponse
-            <*> hs ~:? "x-amz-meta-"
+            <*> filterHeaders "x-amz-meta-" hs
             <*> hs ~:? "accept-ranges"
             <*> hs ~:? "Cache-Control"
             <*> hs ~:? "Content-Disposition"

@@ -16,11 +16,20 @@
     {% for field in scope.response.fields %}
       {% case field.value.location %}
       {% when "header" %}
-        {% if field.value.required %}
-            <*> hs ~:  "{{ field.value.location_name }}"
+        {% case field.value.location_name %}
+        {% when "x-amz-meta-" %}
+            <*> filterHeaders "{{ field.value.location_name }}" hs
         {% else %}
+          {% if field.value.required %}
+            <*> hs ~:  "{{ field.value.location_name }}"
+          {% else %}
+              {% if field.value.monoid %}
+            <*> hs ~:? "{{ field.value.location_name }}" ~:! mempty
+              {% else %}
             <*> hs ~:? "{{ field.value.location_name }}"
-        {% endif %}
+              {% endif %}
+          {% endif %}
+        {% endcase %}
       {% when "body" %}
         {% if scope.response.type == "xml_mix" %}
           {% if field.value.required %}

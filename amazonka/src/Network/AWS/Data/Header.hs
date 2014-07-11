@@ -16,6 +16,7 @@
 
 module Network.AWS.Data.Header where
 
+import           Control.Applicative
 import           Control.Error
 import           Data.ByteString.Char8       (ByteString)
 import qualified Data.ByteString.Char8       as BS
@@ -27,10 +28,10 @@ import qualified Data.HashMap.Strict         as Map
 import           Data.List                   (deleteBy)
 import           Data.Monoid
 import           Data.Text                   (Text)
+import qualified Data.Text                   as Text
 import qualified Data.Text.Encoding          as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
-import           Network.AWS.Data.Time
 import           Network.HTTP.Types
 
 hHost :: HeaderName
@@ -72,7 +73,7 @@ instance ToByteString a => ToHeader (Maybe a) where
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
     toHeader p = map (\(k, v) -> (CI.mk (p <> toBS k), toBS v)) . Map.toList
 
-infixl 6 ~:, ~:?
+infixl 6 ~:, ~:?, ~:!
 
 (~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 (~:) hs k = note missing (k `lookup` hs) >>= fromText . Text.decodeUtf8
@@ -82,6 +83,19 @@ infixl 6 ~:, ~:?
 -- FIXME: Should ignore missing, but fail on parsing error if present
 (~:?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
 (~:?) hs k = Right $ hush (hs ~: k)
+
+(~:!) :: Functor f => f (Maybe a) -> a -> f a
+(~:!) p v = fromMaybe v <$> p
+
+filterHeaders :: FromText v
+              => Text
+              -> [Header]
+              -> Either String (HashMap Text v)
+filterHeaders p hs =
+    Map.filterWithKey (const . Text.isPrefixOf p) . Map.fromList <$> mapM f hs
+  where
+    f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
+        <$> fromText (Text.decodeUtf8 v)
 
 -- FIXME: Reuse FromText/ByteString instead of custom/disparate type class?
 

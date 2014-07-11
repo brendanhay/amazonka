@@ -139,7 +139,7 @@ instance AWSRequest GetObject where
     response = bodyResponse $ \hs bdy ->
         return $! pure GetObjectResponse
             <*> pure bdy
-            <*> hs ~:? "x-amz-meta-"
+            <*> filterHeaders "x-amz-meta-" hs
             <*> hs ~:? "accept-ranges"
             <*> hs ~:? "Cache-Control"
             <*> hs ~:? "Content-Disposition"

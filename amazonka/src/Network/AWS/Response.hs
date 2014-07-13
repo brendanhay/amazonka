@@ -50,7 +50,7 @@ headerResponse :: (MonadResource m, ServiceError e)
                -> Either ClientException (ClientResponse m)
                -> m (Either e a)
 headerResponse f = bodyResponse $ \hs bdy ->
-    (bdy $$+- return ()) >> return (serviceError `fmapL` f hs)
+    (bdy $$+- return ()) >> return (f hs)
 
 xmlResponse :: (MonadResource m, ServiceError e)
             => (ResponseHeaders -> Cursor -> Either String a)
@@ -58,16 +58,16 @@ xmlResponse :: (MonadResource m, ServiceError e)
             -> m (Either e a)
 xmlResponse f = bodyResponse $ \hs bdy -> do
     lbs <- bdy $$+- Conduit.sinkLbs
-    return $ serviceError `fmapL` f hs (undefined lbs)
+    return $ f hs (undefined lbs)
 
 bodyResponse :: (MonadResource m, ServiceError e)
-             => (ResponseHeaders -> ResumableSource m ByteString -> m (Either e a))
-             -> Either ClientException (Response (ResumableSource m ByteString))
-             -> m (Either e a)
+             => (ResponseHeaders -> a -> m (Either String b))
+             -> Either ClientException (Response a)
+             -> m (Either e b)
 bodyResponse _ (Left  ex) = return . Left $ clientError ex
 bodyResponse f (Right rs)
     | statusCode st >= 400 = return . Left $ clientError ex
-    | otherwise            = f hs bdy
+    | otherwise            = fmapL serviceError <$> f hs bdy
   where
     ex  = StatusCodeException st hs mempty
     st  = responseStatus rs

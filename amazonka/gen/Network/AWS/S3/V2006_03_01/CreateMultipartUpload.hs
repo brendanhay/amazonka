@@ -44,66 +44,66 @@ type InitiateMultipartUpload = CreateMultipartUpload
 type InitiateMultipartUploadResponse = Rs CreateMultipartUpload
 
 -- | Default CreateMultipartUpload request.
-createMultipartUpload :: BucketName -- ^ 'cmurBucket'
-                      -> ObjectKey -- ^ 'cmurKey'
+createMultipartUpload :: BucketName -- ^ '_cmurBucket'
+                      -> ObjectKey -- ^ '_cmurKey'
                       -> CreateMultipartUpload
 createMultipartUpload p1 p2 = CreateMultipartUpload
-    { cmurBucket = p1
-    , cmurKey = p2
-    , cmurMetadata = mempty
-    , cmurCacheControl = Nothing
-    , cmurContentDisposition = Nothing
-    , cmurContentEncoding = Nothing
-    , cmurContentLanguage = Nothing
-    , cmurContentType = Nothing
-    , cmurExpires = Nothing
-    , cmurGrantFullControl = Nothing
-    , cmurGrantRead = Nothing
-    , cmurGrantReadACP = Nothing
-    , cmurGrantWriteACP = Nothing
-    , cmurACL = Nothing
-    , cmurSSECustomerAlgorithm = Nothing
-    , cmurSSECustomerKey = Nothing
-    , cmurSSECustomerKeyMD5 = Nothing
-    , cmurServerSideEncryption = Nothing
-    , cmurStorageClass = Nothing
-    , cmurWebsiteRedirectLocation = Nothing
+    { _cmurBucket = p1
+    , _cmurKey = p2
+    , _cmurMetadata = mempty
+    , _cmurCacheControl = Nothing
+    , _cmurContentDisposition = Nothing
+    , _cmurContentEncoding = Nothing
+    , _cmurContentLanguage = Nothing
+    , _cmurContentType = Nothing
+    , _cmurExpires = Nothing
+    , _cmurGrantFullControl = Nothing
+    , _cmurGrantRead = Nothing
+    , _cmurGrantReadACP = Nothing
+    , _cmurGrantWriteACP = Nothing
+    , _cmurACL = Nothing
+    , _cmurSSECustomerAlgorithm = Nothing
+    , _cmurSSECustomerKey = Nothing
+    , _cmurSSECustomerKeyMD5 = Nothing
+    , _cmurServerSideEncryption = Nothing
+    , _cmurStorageClass = Nothing
+    , _cmurWebsiteRedirectLocation = Nothing
     }
 
 data CreateMultipartUpload = CreateMultipartUpload
-    { cmurBucket :: BucketName
-    , cmurKey :: ObjectKey
-    , cmurMetadata :: HashMap Text Text
+    { _cmurBucket :: BucketName
+    , _cmurKey :: ObjectKey
+    , _cmurMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
-    , cmurCacheControl :: Maybe Text
+    , _cmurCacheControl :: Maybe Text
       -- ^ Specifies caching behavior along the request/reply chain.
-    , cmurContentDisposition :: Maybe Text
+    , _cmurContentDisposition :: Maybe Text
       -- ^ Specifies presentational information for the object.
-    , cmurContentEncoding :: Maybe Text
+    , _cmurContentEncoding :: Maybe Text
       -- ^ Specifies what content encodings have been applied to the object
       -- and thus what decoding mechanisms must be applied to obtain the
       -- media-type referenced by the Content-Type header field.
-    , cmurContentLanguage :: Maybe Text
+    , _cmurContentLanguage :: Maybe Text
       -- ^ The language the content is in.
-    , cmurContentType :: Maybe Text
+    , _cmurContentType :: Maybe Text
       -- ^ A standard MIME type describing the format of the object data.
-    , cmurExpires :: Maybe RFC822
+    , _cmurExpires :: Maybe RFC822
       -- ^ The date and time at which the object is no longer cacheable.
-    , cmurGrantFullControl :: Maybe Text
+    , _cmurGrantFullControl :: Maybe Text
       -- ^ Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on
       -- the object.
-    , cmurGrantRead :: Maybe Text
+    , _cmurGrantRead :: Maybe Text
       -- ^ Allows grantee to read the object data and its metadata.
-    , cmurGrantReadACP :: Maybe Text
+    , _cmurGrantReadACP :: Maybe Text
       -- ^ Allows grantee to read the object ACL.
-    , cmurGrantWriteACP :: Maybe Text
+    , _cmurGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable object.
-    , cmurACL :: Maybe ObjectCannedACL
+    , _cmurACL :: Maybe ObjectCannedACL
       -- ^ The canned ACL to apply to the object.
-    , cmurSSECustomerAlgorithm :: Maybe Text
+    , _cmurSSECustomerAlgorithm :: Maybe Text
       -- ^ Specifies the algorithm to use to when encrypting the object
       -- (e.g., AES256).
-    , cmurSSECustomerKey :: Maybe Text
+    , _cmurSSECustomerKey :: Maybe Text
       -- ^ Specifies the customer-provided encryption key for Amazon S3 to
       -- use in encrypting data. This value is used to store the object
       -- and then it is discarded; Amazon does not store the encryption
@@ -111,17 +111,17 @@ data CreateMultipartUpload = CreateMultipartUpload
       -- specified in the
       -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm
       -- header.
-    , cmurSSECustomerKeyMD5 :: Maybe Text
+    , _cmurSSECustomerKeyMD5 :: Maybe Text
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    , cmurServerSideEncryption :: Maybe ServerSideEncryption
+    , _cmurServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    , cmurStorageClass :: Maybe StorageClass
+    , _cmurStorageClass :: Maybe StorageClass
       -- ^ The type of storage to use for the object. Defaults to
       -- 'STANDARD'.
-    , cmurWebsiteRedirectLocation :: Maybe Text
+    , _cmurWebsiteRedirectLocation :: Maybe Text
       -- ^ If the bucket is configured as a website, redirects requests for
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
@@ -131,33 +131,33 @@ data CreateMultipartUpload = CreateMultipartUpload
 instance ToPath CreateMultipartUpload where
     toPath CreateMultipartUpload{..} = mconcat
         [ "/"
-        , toBS cmurBucket
+        , toBS _cmurBucket
         , "/"
-        , toBS cmurKey
+        , toBS _cmurKey
         ]
 
 instance ToQuery CreateMultipartUpload
 
 instance ToHeaders CreateMultipartUpload where
     toHeaders CreateMultipartUpload{..} = concat
-        [ "x-amz-meta-" =: cmurMetadata
-        , "Cache-Control" =: cmurCacheControl
-        , "Content-Disposition" =: cmurContentDisposition
-        , "Content-Encoding" =: cmurContentEncoding
-        , "Content-Language" =: cmurContentLanguage
-        , "Content-Type" =: cmurContentType
-        , "Expires" =: cmurExpires
-        , "x-amz-grant-full-control" =: cmurGrantFullControl
-        , "x-amz-grant-read" =: cmurGrantRead
-        , "x-amz-grant-read-acp" =: cmurGrantReadACP
-        , "x-amz-grant-write-acp" =: cmurGrantWriteACP
-        , "x-amz-acl" =: cmurACL
-        , "x-amz-server-side-encryption-customer-algorithm" =: cmurSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key" =: cmurSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5" =: cmurSSECustomerKeyMD5
-        , "x-amz-server-side-encryption" =: cmurServerSideEncryption
-        , "x-amz-storage-class" =: cmurStorageClass
-        , "x-amz-website-redirect-location" =: cmurWebsiteRedirectLocation
+        [ "x-amz-meta-" =: _cmurMetadata
+        , "Cache-Control" =: _cmurCacheControl
+        , "Content-Disposition" =: _cmurContentDisposition
+        , "Content-Encoding" =: _cmurContentEncoding
+        , "Content-Language" =: _cmurContentLanguage
+        , "Content-Type" =: _cmurContentType
+        , "Expires" =: _cmurExpires
+        , "x-amz-grant-full-control" =: _cmurGrantFullControl
+        , "x-amz-grant-read" =: _cmurGrantRead
+        , "x-amz-grant-read-acp" =: _cmurGrantReadACP
+        , "x-amz-grant-write-acp" =: _cmurGrantWriteACP
+        , "x-amz-acl" =: _cmurACL
+        , "x-amz-server-side-encryption-customer-algorithm" =: _cmurSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key" =: _cmurSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5" =: _cmurSSECustomerKeyMD5
+        , "x-amz-server-side-encryption" =: _cmurServerSideEncryption
+        , "x-amz-storage-class" =: _cmurStorageClass
+        , "x-amz-website-redirect-location" =: _cmurWebsiteRedirectLocation
         ]
 
 instance ToBody CreateMultipartUpload
@@ -166,7 +166,7 @@ instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
 
     request  = post
-    response = xmlResponse $ \hs xml ->
+    response = cursorResponse $ \hs xml ->
         pure CreateMultipartUploadResponse
             <*> xml %|? "BucketName"
             <*> xml %|? "MultipartUploadId"
@@ -176,22 +176,22 @@ instance AWSRequest CreateMultipartUpload where
             <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
-    { cmuoBucket :: Maybe BucketName
+    { _cmuoBucket :: Maybe BucketName
       -- ^ Name of the bucket to which the multipart upload was initiated.
-    , cmuoUploadId :: Maybe Text
+    , _cmuoUploadId :: Maybe Text
       -- ^ ID for the initiated multipart upload.
-    , cmuoKey :: Maybe ObjectKey
+    , _cmuoKey :: Maybe ObjectKey
       -- ^ Object key for which the multipart upload was initiated.
-    , cmuoSSECustomerAlgorithm :: Maybe Text
+    , _cmuoSSECustomerAlgorithm :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header confirming
       -- the encryption algorithm used.
-    , cmuoSSECustomerKeyMD5 :: Maybe Text
+    , _cmuoSSECustomerKeyMD5 :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header to provide
       -- round trip message integrity verification of the
       -- customer-provided encryption key.
-    , cmuoServerSideEncryption :: Maybe ServerSideEncryption
+    , _cmuoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Show, Generic)

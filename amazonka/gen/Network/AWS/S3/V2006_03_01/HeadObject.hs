@@ -38,46 +38,46 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default HeadObject request.
-headObject :: BucketName -- ^ 'horBucket'
-           -> ObjectKey -- ^ 'horKey'
+headObject :: BucketName -- ^ '_horBucket'
+           -> ObjectKey -- ^ '_horKey'
            -> HeadObject
 headObject p1 p2 = HeadObject
-    { horBucket = p1
-    , horKey = p2
-    , horIfMatch = Nothing
-    , horIfModifiedSince = Nothing
-    , horIfNoneMatch = Nothing
-    , horIfUnmodifiedSince = Nothing
-    , horRange = Nothing
-    , horSSECustomerAlgorithm = Nothing
-    , horSSECustomerKey = Nothing
-    , horSSECustomerKeyMD5 = Nothing
-    , horVersionId = Nothing
+    { _horBucket = p1
+    , _horKey = p2
+    , _horIfMatch = Nothing
+    , _horIfModifiedSince = Nothing
+    , _horIfNoneMatch = Nothing
+    , _horIfUnmodifiedSince = Nothing
+    , _horRange = Nothing
+    , _horSSECustomerAlgorithm = Nothing
+    , _horSSECustomerKey = Nothing
+    , _horSSECustomerKeyMD5 = Nothing
+    , _horVersionId = Nothing
     }
 
 data HeadObject = HeadObject
-    { horBucket :: BucketName
-    , horKey :: ObjectKey
-    , horIfMatch :: Maybe Text
+    { _horBucket :: BucketName
+    , _horKey :: ObjectKey
+    , _horIfMatch :: Maybe Text
       -- ^ Return the object only if its entity tag (ETag) is the same as
       -- the one specified, otherwise return a 412 (precondition failed).
-    , horIfModifiedSince :: Maybe RFC822
+    , _horIfModifiedSince :: Maybe RFC822
       -- ^ Return the object only if it has been modified since the
       -- specified time, otherwise return a 304 (not modified).
-    , horIfNoneMatch :: Maybe Text
+    , _horIfNoneMatch :: Maybe Text
       -- ^ Return the object only if its entity tag (ETag) is different from
       -- the one specified, otherwise return a 304 (not modified).
-    , horIfUnmodifiedSince :: Maybe RFC822
+    , _horIfUnmodifiedSince :: Maybe RFC822
       -- ^ Return the object only if it has not been modified since the
       -- specified time, otherwise return a 412 (precondition failed).
-    , horRange :: Maybe Text
+    , _horRange :: Maybe Text
       -- ^ Downloads the specified range bytes of an object. For more
       -- information about the HTTP Range header, go to
       -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
-    , horSSECustomerAlgorithm :: Maybe Text
+    , _horSSECustomerAlgorithm :: Maybe Text
       -- ^ Specifies the algorithm to use to when encrypting the object
       -- (e.g., AES256).
-    , horSSECustomerKey :: Maybe Text
+    , _horSSECustomerKey :: Maybe Text
       -- ^ Specifies the customer-provided encryption key for Amazon S3 to
       -- use in encrypting data. This value is used to store the object
       -- and then it is discarded; Amazon does not store the encryption
@@ -85,34 +85,34 @@ data HeadObject = HeadObject
       -- specified in the
       -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm
       -- header.
-    , horSSECustomerKeyMD5 :: Maybe Text
+    , _horSSECustomerKeyMD5 :: Maybe Text
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    , horVersionId :: Maybe ObjectVersionId
+    , _horVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
     } deriving (Show, Generic)
 
 instance ToPath HeadObject where
     toPath HeadObject{..} = mconcat
         [ "/"
-        , toBS horBucket
+        , toBS _horBucket
         , "/"
-        , toBS horKey
+        , toBS _horKey
         ]
 
 instance ToQuery HeadObject
 
 instance ToHeaders HeadObject where
     toHeaders HeadObject{..} = concat
-        [ "If-Match" =: horIfMatch
-        , "If-Modified-Since" =: horIfModifiedSince
-        , "If-None-Match" =: horIfNoneMatch
-        , "If-Unmodified-Since" =: horIfUnmodifiedSince
-        , "Range" =: horRange
-        , "x-amz-server-side-encryption-customer-algorithm" =: horSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key" =: horSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5" =: horSSECustomerKeyMD5
+        [ "If-Match" =: _horIfMatch
+        , "If-Modified-Since" =: _horIfModifiedSince
+        , "If-None-Match" =: _horIfNoneMatch
+        , "If-Unmodified-Since" =: _horIfUnmodifiedSince
+        , "Range" =: _horRange
+        , "x-amz-server-side-encryption-customer-algorithm" =: _horSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key" =: _horSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5" =: _horSSECustomerKeyMD5
         ]
 
 instance ToBody HeadObject
@@ -145,63 +145,63 @@ instance AWSRequest HeadObject where
             <*> hs ~:? "x-amz-website-redirect-location"
 
 data instance Rs HeadObject = HeadObjectResponse
-    { hooMetadata :: HashMap Text Text
+    { _hooMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
-    , hooAcceptRanges :: Maybe Text
-    , hooCacheControl :: Maybe Text
+    , _hooAcceptRanges :: Maybe Text
+    , _hooCacheControl :: Maybe Text
       -- ^ Specifies caching behavior along the request/reply chain.
-    , hooContentDisposition :: Maybe Text
+    , _hooContentDisposition :: Maybe Text
       -- ^ Specifies presentational information for the object.
-    , hooContentEncoding :: Maybe Text
+    , _hooContentEncoding :: Maybe Text
       -- ^ Specifies what content encodings have been applied to the object
       -- and thus what decoding mechanisms must be applied to obtain the
       -- media-type referenced by the Content-Type header field.
-    , hooContentLanguage :: Maybe Text
+    , _hooContentLanguage :: Maybe Text
       -- ^ The language the content is in.
-    , hooContentLength :: Maybe Integer
+    , _hooContentLength :: Maybe Integer
       -- ^ Size of the body in bytes.
-    , hooContentType :: Maybe Text
+    , _hooContentType :: Maybe Text
       -- ^ A standard MIME type describing the format of the object data.
-    , hooDeleteMarker :: Maybe Bool
+    , _hooDeleteMarker :: Maybe Bool
       -- ^ Specifies whether the object retrieved was (true) or was not
       -- (false) a Delete Marker. If false, this response header does not
       -- appear in the response.
-    , hooETag :: Maybe ETag
+    , _hooETag :: Maybe ETag
       -- ^ An ETag is an opaque identifier assigned by a web server to a
       -- specific version of a resource found at a URL.
-    , hooExpiration :: Maybe RFC822
+    , _hooExpiration :: Maybe RFC822
       -- ^ If the object expiration is configured (see PUT Bucket
       -- lifecycle), the response includes this header. It includes the
       -- expiry-date and rule-id key value pairs providing object
       -- expiration information. The value of the rule-id is URL encoded.
-    , hooExpires :: Maybe RFC822
+    , _hooExpires :: Maybe RFC822
       -- ^ The date and time at which the object is no longer cacheable.
-    , hooLastModified :: Maybe RFC822
+    , _hooLastModified :: Maybe RFC822
       -- ^ Last modified date of the object.
-    , hooMissingMeta :: Maybe Integer
+    , _hooMissingMeta :: Maybe Integer
       -- ^ This is set to the number of metadata entries not returned in
       -- x-amz-meta headers. This can happen if you create metadata using
       -- an API like SOAP that supports more flexible metadata than the
       -- REST API. For example, using SOAP, you can create metadata whose
       -- values are not legal HTTP headers.
-    , hooVersionId :: Maybe ObjectVersionId
+    , _hooVersionId :: Maybe ObjectVersionId
       -- ^ Version of the object.
-    , hooRestore :: Maybe Text
+    , _hooRestore :: Maybe Text
       -- ^ Provides information about object restoration operation and
       -- expiration time of the restored object copy.
-    , hooSSECustomerAlgorithm :: Maybe Text
+    , _hooSSECustomerAlgorithm :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header confirming
       -- the encryption algorithm used.
-    , hooSSECustomerKeyMD5 :: Maybe Text
+    , _hooSSECustomerKeyMD5 :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header to provide
       -- round trip message integrity verification of the
       -- customer-provided encryption key.
-    , hooServerSideEncryption :: Maybe ServerSideEncryption
+    , _hooServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    , hooWebsiteRedirectLocation :: Maybe Text
+    , _hooWebsiteRedirectLocation :: Maybe Text
       -- ^ If the bucket is configured as a website, redirects requests for
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the

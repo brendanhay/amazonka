@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteBucketWebsite request.
-deleteBucketWebsite :: BucketName -- ^ 'dbwrBucket'
+deleteBucketWebsite :: BucketName -- ^ '_dbwrBucket'
                     -> DeleteBucketWebsite
 deleteBucketWebsite p1 = DeleteBucketWebsite
-    { dbwrBucket = p1
+    { _dbwrBucket = p1
     }
 
 data DeleteBucketWebsite = DeleteBucketWebsite
-    { dbwrBucket :: BucketName
+    { _dbwrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath DeleteBucketWebsite where
     toPath DeleteBucketWebsite{..} = mconcat
         [ "/"
-        , toBS dbwrBucket
+        , toBS _dbwrBucket
         ]
 
 instance ToQuery DeleteBucketWebsite

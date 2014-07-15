@@ -36,23 +36,23 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default ListMultipartUploads request.
-listMultipartUploads :: BucketName -- ^ 'lmurBucket'
+listMultipartUploads :: BucketName -- ^ '_lmurBucket'
                      -> ListMultipartUploads
 listMultipartUploads p1 = ListMultipartUploads
-    { lmurBucket = p1
-    , lmurDelimiter = Nothing
-    , lmurEncodingType = Nothing
-    , lmurKeyMarker = Nothing
-    , lmurMaxUploads = Nothing
-    , lmurPrefix = Nothing
-    , lmurUploadIdMarker = Nothing
+    { _lmurBucket = p1
+    , _lmurDelimiter = Nothing
+    , _lmurEncodingType = Nothing
+    , _lmurKeyMarker = Nothing
+    , _lmurMaxUploads = Nothing
+    , _lmurPrefix = Nothing
+    , _lmurUploadIdMarker = Nothing
     }
 
 data ListMultipartUploads = ListMultipartUploads
-    { lmurBucket :: BucketName
-    , lmurDelimiter :: Maybe Text
+    { _lmurBucket :: BucketName
+    , _lmurDelimiter :: Maybe Text
       -- ^ Character you use to group keys.
-    , lmurEncodingType :: Maybe EncodingType
+    , _lmurEncodingType :: Maybe EncodingType
       -- ^ Requests Amazon S3 to encode the object keys in the response and
       -- specifies the encoding method to use. An object key may contain
       -- any Unicode character; however, XML 1.0 parser cannot parse some
@@ -60,17 +60,17 @@ data ListMultipartUploads = ListMultipartUploads
       -- For characters that are not supported in XML 1.0, you can add
       -- this parameter to request that Amazon S3 encode the keys in the
       -- response.
-    , lmurKeyMarker :: Maybe Text
+    , _lmurKeyMarker :: Maybe Text
       -- ^ Together with upload-id-marker, this parameter specifies the
       -- multipart upload after which listing should begin.
-    , lmurMaxUploads :: Maybe Integer
+    , _lmurMaxUploads :: Maybe Integer
       -- ^ Sets the maximum number of multipart uploads, from 1 to 1,000, to
       -- return in the response body. 1,000 is the maximum number of
       -- uploads that can be returned in a response.
-    , lmurPrefix :: Maybe Text
+    , _lmurPrefix :: Maybe Text
       -- ^ Lists in-progress uploads only for those keys that begin with the
       -- specified prefix.
-    , lmurUploadIdMarker :: Maybe Text
+    , _lmurUploadIdMarker :: Maybe Text
       -- ^ Together with key-marker, specifies the multipart upload after
       -- which listing should begin. If key-marker is not specified, the
       -- upload-id-marker parameter is ignored.
@@ -79,7 +79,7 @@ data ListMultipartUploads = ListMultipartUploads
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat
         [ "/"
-        , toBS lmurBucket
+        , toBS _lmurBucket
         ]
 
 instance ToQuery ListMultipartUploads
@@ -92,45 +92,49 @@ instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
 
     request  = get
+    response = xmlResponse
 
 instance AWSPager ListMultipartUploads where
     next rq rs
-        | not (lmuoIsTruncated rs) = Nothing
+        | not (_lmuoIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { lmurKeyMarker = lmuoNextKeyMarker rs
-            , lmurUploadIdMarker = lmuoNextUploadIdMarker rs
+            { _lmurKeyMarker = _lmuoNextKeyMarker rs
+            , _lmurUploadIdMarker = _lmuoNextUploadIdMarker rs
             }
 
 data instance Rs ListMultipartUploads = ListMultipartUploadsResponse
-    { lmuoIsTruncated :: Bool
+    { _lmuoIsTruncated :: Bool
       -- ^ Indicates whether the returned list of multipart uploads is
       -- truncated. A value of true indicates that the list was truncated.
       -- The list can be truncated if the number of multipart uploads
       -- exceeds the limit allowed or specified by max uploads.
-    , lmuoBucket :: Maybe BucketName
+    , _lmuoBucket :: Maybe BucketName
       -- ^ Name of the bucket to which the multipart upload was initiated.
-    , lmuoCommonPrefixes :: [CommonPrefix]
-    , lmuoEncodingType :: Maybe EncodingType
+    , _lmuoCommonPrefixes :: [CommonPrefix]
+    , _lmuoEncodingType :: Maybe EncodingType
       -- ^ Encoding type used by Amazon S3 to encode object keys in the
       -- response.
-    , lmuoKeyMarker :: Maybe Text
+    , _lmuoKeyMarker :: Maybe Text
       -- ^ The key at or after which the listing began.
-    , lmuoMaxUploads :: Maybe Integer
+    , _lmuoMaxUploads :: Maybe Integer
       -- ^ Maximum number of multipart uploads that could have been included
       -- in the response.
-    , lmuoUploads :: [MultipartUpload]
-    , lmuoNextKeyMarker :: Maybe Text
+    , _lmuoUploads :: [MultipartUpload]
+    , _lmuoNextKeyMarker :: Maybe Text
       -- ^ When a list is truncated, this element specifies the value that
       -- should be used for the key-marker request parameter in a
       -- subsequent request.
-    , lmuoNextUploadIdMarker :: Maybe Text
+    , _lmuoNextUploadIdMarker :: Maybe Text
       -- ^ When a list is truncated, this element specifies the value that
       -- should be used for the upload-id-marker request parameter in a
       -- subsequent request.
-    , lmuoPrefix :: Maybe Text
+    , _lmuoPrefix :: Maybe Text
       -- ^ When a prefix is provided in the request, this field contains the
       -- specified prefix. The result contains only keys starting with the
       -- specified prefix.
-    , lmuoUploadIdMarker :: Maybe Text
+    , _lmuoUploadIdMarker :: Maybe Text
       -- ^ Upload ID after which listing began.
     } deriving (Show, Generic)
+
+instance FromXML (Rs ListMultipartUploads) where
+    fromXMLOptions = xmlOptions

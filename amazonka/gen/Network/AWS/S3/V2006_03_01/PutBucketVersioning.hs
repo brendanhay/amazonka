@@ -37,21 +37,21 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketVersioning request.
-putBucketVersioning :: VersioningConfiguration -- ^ 'pbvrVersioningConfiguration'
-                    -> BucketName -- ^ 'pbvrBucket'
+putBucketVersioning :: VersioningConfiguration -- ^ '_pbvrVersioningConfiguration'
+                    -> BucketName -- ^ '_pbvrBucket'
                     -> PutBucketVersioning
 putBucketVersioning p1 p2 = PutBucketVersioning
-    { pbvrVersioningConfiguration = p1
-    , pbvrBucket = p2
-    , pbvrContentMD5 = Nothing
-    , pbvrMFA = Nothing
+    { _pbvrVersioningConfiguration = p1
+    , _pbvrBucket = p2
+    , _pbvrContentMD5 = Nothing
+    , _pbvrMFA = Nothing
     }
 
 data PutBucketVersioning = PutBucketVersioning
-    { pbvrVersioningConfiguration :: VersioningConfiguration
-    , pbvrBucket :: BucketName
-    , pbvrContentMD5 :: Maybe Text
-    , pbvrMFA :: Maybe Text
+    { _pbvrVersioningConfiguration :: VersioningConfiguration
+    , _pbvrBucket :: BucketName
+    , _pbvrContentMD5 :: Maybe Text
+    , _pbvrMFA :: Maybe Text
       -- ^ The concatenation of the authentication device's serial number, a
       -- space, and the value that is displayed on your authentication
       -- device.
@@ -60,19 +60,19 @@ data PutBucketVersioning = PutBucketVersioning
 instance ToPath PutBucketVersioning where
     toPath PutBucketVersioning{..} = mconcat
         [ "/"
-        , toBS pbvrBucket
+        , toBS _pbvrBucket
         ]
 
 instance ToQuery PutBucketVersioning
 
 instance ToHeaders PutBucketVersioning where
     toHeaders PutBucketVersioning{..} = concat
-        [ "Content-MD5" =: pbvrContentMD5
-        , "x-amz-mfa" =: pbvrMFA
+        [ "Content-MD5" =: _pbvrContentMD5
+        , "x-amz-mfa" =: _pbvrMFA
         ]
 
 instance ToBody PutBucketVersioning where
-    toBody = undefined -- toBody . pbvrVersioningConfiguration
+    toBody = undefined -- toBody . _pbvrVersioningConfiguration
 
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3

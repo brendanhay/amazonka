@@ -37,20 +37,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default HeadBucket request.
-headBucket :: BucketName -- ^ 'hbrBucket'
+headBucket :: BucketName -- ^ '_hbrBucket'
            -> HeadBucket
 headBucket p1 = HeadBucket
-    { hbrBucket = p1
+    { _hbrBucket = p1
     }
 
 data HeadBucket = HeadBucket
-    { hbrBucket :: BucketName
+    { _hbrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath HeadBucket where
     toPath HeadBucket{..} = mconcat
         [ "/"
-        , toBS hbrBucket
+        , toBS _hbrBucket
         ]
 
 instance ToQuery HeadBucket

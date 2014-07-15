@@ -36,36 +36,36 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketTagging request.
-putBucketTagging :: Tagging -- ^ 'pbtrTagging'
-                 -> BucketName -- ^ 'pbtrBucket'
+putBucketTagging :: Tagging -- ^ '_pbtrTagging'
+                 -> BucketName -- ^ '_pbtrBucket'
                  -> PutBucketTagging
 putBucketTagging p1 p2 = PutBucketTagging
-    { pbtrTagging = p1
-    , pbtrBucket = p2
-    , pbtrContentMD5 = Nothing
+    { _pbtrTagging = p1
+    , _pbtrBucket = p2
+    , _pbtrContentMD5 = Nothing
     }
 
 data PutBucketTagging = PutBucketTagging
-    { pbtrTagging :: Tagging
-    , pbtrBucket :: BucketName
-    , pbtrContentMD5 :: Maybe Text
+    { _pbtrTagging :: Tagging
+    , _pbtrBucket :: BucketName
+    , _pbtrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat
         [ "/"
-        , toBS pbtrBucket
+        , toBS _pbtrBucket
         ]
 
 instance ToQuery PutBucketTagging
 
 instance ToHeaders PutBucketTagging where
     toHeaders PutBucketTagging{..} = concat
-        [ "Content-MD5" =: pbtrContentMD5
+        [ "Content-MD5" =: _pbtrContentMD5
         ]
 
 instance ToBody PutBucketTagging where
-    toBody = undefined -- toBody . pbtrTagging
+    toBody = undefined -- toBody . _pbtrTagging
 
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3

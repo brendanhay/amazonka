@@ -39,59 +39,59 @@ type PutBucket = CreateBucket
 type PutBucketResponse = Rs CreateBucket
 
 -- | Default CreateBucket request.
-createBucket :: BucketName -- ^ 'cbrBucket'
-             -> CreateBucketConfiguration -- ^ 'cbrCreateBucketConfiguration'
+createBucket :: BucketName -- ^ '_cbrBucket'
+             -> CreateBucketConfiguration -- ^ '_cbrCreateBucketConfiguration'
              -> CreateBucket
 createBucket p1 p2 = CreateBucket
-    { cbrBucket = p1
-    , cbrCreateBucketConfiguration = p2
-    , cbrACL = Nothing
-    , cbrGrantFullControl = Nothing
-    , cbrGrantRead = Nothing
-    , cbrGrantReadACP = Nothing
-    , cbrGrantWrite = Nothing
-    , cbrGrantWriteACP = Nothing
+    { _cbrBucket = p1
+    , _cbrCreateBucketConfiguration = p2
+    , _cbrACL = Nothing
+    , _cbrGrantFullControl = Nothing
+    , _cbrGrantRead = Nothing
+    , _cbrGrantReadACP = Nothing
+    , _cbrGrantWrite = Nothing
+    , _cbrGrantWriteACP = Nothing
     }
 
 data CreateBucket = CreateBucket
-    { cbrBucket :: BucketName
-    , cbrCreateBucketConfiguration :: CreateBucketConfiguration
-    , cbrACL :: Maybe BucketCannedACL
+    { _cbrBucket :: BucketName
+    , _cbrCreateBucketConfiguration :: CreateBucketConfiguration
+    , _cbrACL :: Maybe BucketCannedACL
       -- ^ The canned ACL to apply to the bucket.
-    , cbrGrantFullControl :: Maybe Text
+    , _cbrGrantFullControl :: Maybe Text
       -- ^ Allows grantee the read, write, read ACP, and write ACP
       -- permissions on the bucket.
-    , cbrGrantRead :: Maybe Text
+    , _cbrGrantRead :: Maybe Text
       -- ^ Allows grantee to list the objects in the bucket.
-    , cbrGrantReadACP :: Maybe Text
+    , _cbrGrantReadACP :: Maybe Text
       -- ^ Allows grantee to read the bucket ACL.
-    , cbrGrantWrite :: Maybe Text
+    , _cbrGrantWrite :: Maybe Text
       -- ^ Allows grantee to create, overwrite, and delete any object in the
       -- bucket.
-    , cbrGrantWriteACP :: Maybe Text
+    , _cbrGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable bucket.
     } deriving (Show, Generic)
 
 instance ToPath CreateBucket where
     toPath CreateBucket{..} = mconcat
         [ "/"
-        , toBS cbrBucket
+        , toBS _cbrBucket
         ]
 
 instance ToQuery CreateBucket
 
 instance ToHeaders CreateBucket where
     toHeaders CreateBucket{..} = concat
-        [ "x-amz-acl" =: cbrACL
-        , "x-amz-grant-full-control" =: cbrGrantFullControl
-        , "x-amz-grant-read" =: cbrGrantRead
-        , "x-amz-grant-read-acp" =: cbrGrantReadACP
-        , "x-amz-grant-write" =: cbrGrantWrite
-        , "x-amz-grant-write-acp" =: cbrGrantWriteACP
+        [ "x-amz-acl" =: _cbrACL
+        , "x-amz-grant-full-control" =: _cbrGrantFullControl
+        , "x-amz-grant-read" =: _cbrGrantRead
+        , "x-amz-grant-read-acp" =: _cbrGrantReadACP
+        , "x-amz-grant-write" =: _cbrGrantWrite
+        , "x-amz-grant-write-acp" =: _cbrGrantWriteACP
         ]
 
 instance ToBody CreateBucket where
-    toBody = undefined -- toBody . cbrCreateBucketConfiguration
+    toBody = undefined -- toBody . _cbrCreateBucketConfiguration
 
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
@@ -102,5 +102,5 @@ instance AWSRequest CreateBucket where
             <*> hs ~:? "Location"
 
 data instance Rs CreateBucket = CreateBucketResponse
-    { cboLocation :: Maybe Text
+    { _cboLocation :: Maybe Text
     } deriving (Show, Generic)

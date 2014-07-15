@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketRequestPayment request.
-getBucketRequestPayment :: BucketName -- ^ 'gbrprBucket'
+getBucketRequestPayment :: BucketName -- ^ '_gbrprBucket'
                         -> GetBucketRequestPayment
 getBucketRequestPayment p1 = GetBucketRequestPayment
-    { gbrprBucket = p1
+    { _gbrprBucket = p1
     }
 
 data GetBucketRequestPayment = GetBucketRequestPayment
-    { gbrprBucket :: BucketName
+    { _gbrprBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketRequestPayment where
     toPath GetBucketRequestPayment{..} = mconcat
         [ "/"
-        , toBS gbrprBucket
+        , toBS _gbrprBucket
         ]
 
 instance ToQuery GetBucketRequestPayment
@@ -62,8 +62,12 @@ instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
-    { gbrpoPayer :: Maybe Payer
+    { _gbrpoPayer :: Maybe Payer
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketRequestPayment) where
+    fromXMLOptions = xmlOptions

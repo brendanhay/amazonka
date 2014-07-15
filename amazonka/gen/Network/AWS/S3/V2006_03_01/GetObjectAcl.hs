@@ -36,28 +36,28 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetObjectAcl request.
-getObjectAcl :: BucketName -- ^ 'goarBucket'
-             -> ObjectKey -- ^ 'goarKey'
+getObjectAcl :: BucketName -- ^ '_goarBucket'
+             -> ObjectKey -- ^ '_goarKey'
              -> GetObjectAcl
 getObjectAcl p1 p2 = GetObjectAcl
-    { goarBucket = p1
-    , goarKey = p2
-    , goarVersionId = Nothing
+    { _goarBucket = p1
+    , _goarKey = p2
+    , _goarVersionId = Nothing
     }
 
 data GetObjectAcl = GetObjectAcl
-    { goarBucket :: BucketName
-    , goarKey :: ObjectKey
-    , goarVersionId :: Maybe ObjectVersionId
+    { _goarBucket :: BucketName
+    , _goarKey :: ObjectKey
+    , _goarVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
     } deriving (Show, Generic)
 
 instance ToPath GetObjectAcl where
     toPath GetObjectAcl{..} = mconcat
         [ "/"
-        , toBS goarBucket
+        , toBS _goarBucket
         , "/"
-        , toBS goarKey
+        , toBS _goarKey
         ]
 
 instance ToQuery GetObjectAcl
@@ -70,9 +70,13 @@ instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetObjectAcl = GetObjectAclResponse
-    { goaoGrants :: [Grant]
+    { _goaoGrants :: [Grant]
       -- ^ A list of grants.
-    , goaoOwner :: Maybe Owner
+    , _goaoOwner :: Maybe Owner
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetObjectAcl) where
+    fromXMLOptions = xmlOptions

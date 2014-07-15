@@ -36,52 +36,52 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetObject request.
-getObject :: BucketName -- ^ 'gorBucket'
-          -> ObjectKey -- ^ 'gorKey'
+getObject :: BucketName -- ^ '_gorBucket'
+          -> ObjectKey -- ^ '_gorKey'
           -> GetObject
 getObject p1 p2 = GetObject
-    { gorBucket = p1
-    , gorKey = p2
-    , gorIfMatch = Nothing
-    , gorIfModifiedSince = Nothing
-    , gorIfNoneMatch = Nothing
-    , gorIfUnmodifiedSince = Nothing
-    , gorRange = Nothing
-    , gorSSECustomerAlgorithm = Nothing
-    , gorSSECustomerKey = Nothing
-    , gorSSECustomerKeyMD5 = Nothing
-    , gorVersionId = Nothing
-    , gorResponseCacheControl = Nothing
-    , gorResponseContentDisposition = Nothing
-    , gorResponseContentEncoding = Nothing
-    , gorResponseContentLanguage = Nothing
-    , gorResponseContentType = Nothing
-    , gorResponseExpires = Nothing
+    { _gorBucket = p1
+    , _gorKey = p2
+    , _gorIfMatch = Nothing
+    , _gorIfModifiedSince = Nothing
+    , _gorIfNoneMatch = Nothing
+    , _gorIfUnmodifiedSince = Nothing
+    , _gorRange = Nothing
+    , _gorSSECustomerAlgorithm = Nothing
+    , _gorSSECustomerKey = Nothing
+    , _gorSSECustomerKeyMD5 = Nothing
+    , _gorVersionId = Nothing
+    , _gorResponseCacheControl = Nothing
+    , _gorResponseContentDisposition = Nothing
+    , _gorResponseContentEncoding = Nothing
+    , _gorResponseContentLanguage = Nothing
+    , _gorResponseContentType = Nothing
+    , _gorResponseExpires = Nothing
     }
 
 data GetObject = GetObject
-    { gorBucket :: BucketName
-    , gorKey :: ObjectKey
-    , gorIfMatch :: Maybe Text
+    { _gorBucket :: BucketName
+    , _gorKey :: ObjectKey
+    , _gorIfMatch :: Maybe Text
       -- ^ Return the object only if its entity tag (ETag) is the same as
       -- the one specified, otherwise return a 412 (precondition failed).
-    , gorIfModifiedSince :: Maybe RFC822
+    , _gorIfModifiedSince :: Maybe RFC822
       -- ^ Return the object only if it has been modified since the
       -- specified time, otherwise return a 304 (not modified).
-    , gorIfNoneMatch :: Maybe Text
+    , _gorIfNoneMatch :: Maybe Text
       -- ^ Return the object only if its entity tag (ETag) is different from
       -- the one specified, otherwise return a 304 (not modified).
-    , gorIfUnmodifiedSince :: Maybe RFC822
+    , _gorIfUnmodifiedSince :: Maybe RFC822
       -- ^ Return the object only if it has not been modified since the
       -- specified time, otherwise return a 412 (precondition failed).
-    , gorRange :: Maybe Text
+    , _gorRange :: Maybe Text
       -- ^ Downloads the specified range bytes of an object. For more
       -- information about the HTTP Range header, go to
       -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
-    , gorSSECustomerAlgorithm :: Maybe Text
+    , _gorSSECustomerAlgorithm :: Maybe Text
       -- ^ Specifies the algorithm to use to when encrypting the object
       -- (e.g., AES256).
-    , gorSSECustomerKey :: Maybe Text
+    , _gorSSECustomerKey :: Maybe Text
       -- ^ Specifies the customer-provided encryption key for Amazon S3 to
       -- use in encrypting data. This value is used to store the object
       -- and then it is discarded; Amazon does not store the encryption
@@ -89,46 +89,46 @@ data GetObject = GetObject
       -- specified in the
       -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm
       -- header.
-    , gorSSECustomerKeyMD5 :: Maybe Text
+    , _gorSSECustomerKeyMD5 :: Maybe Text
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    , gorVersionId :: Maybe ObjectVersionId
+    , _gorVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
-    , gorResponseCacheControl :: Maybe Text
+    , _gorResponseCacheControl :: Maybe Text
       -- ^ Sets the Cache-Control header of the response.
-    , gorResponseContentDisposition :: Maybe Text
+    , _gorResponseContentDisposition :: Maybe Text
       -- ^ Sets the Content-Disposition header of the response.
-    , gorResponseContentEncoding :: Maybe Text
+    , _gorResponseContentEncoding :: Maybe Text
       -- ^ Sets the Content-Encoding header of the response.
-    , gorResponseContentLanguage :: Maybe Text
+    , _gorResponseContentLanguage :: Maybe Text
       -- ^ Sets the Content-Language header of the response.
-    , gorResponseContentType :: Maybe Text
+    , _gorResponseContentType :: Maybe Text
       -- ^ Sets the Content-Type header of the response.
-    , gorResponseExpires :: Maybe RFC822
+    , _gorResponseExpires :: Maybe RFC822
       -- ^ Sets the Expires header of the response.
     } deriving (Show, Generic)
 
 instance ToPath GetObject where
     toPath GetObject{..} = mconcat
         [ "/"
-        , toBS gorBucket
+        , toBS _gorBucket
         , "/"
-        , toBS gorKey
+        , toBS _gorKey
         ]
 
 instance ToQuery GetObject
 
 instance ToHeaders GetObject where
     toHeaders GetObject{..} = concat
-        [ "If-Match" =: gorIfMatch
-        , "If-Modified-Since" =: gorIfModifiedSince
-        , "If-None-Match" =: gorIfNoneMatch
-        , "If-Unmodified-Since" =: gorIfUnmodifiedSince
-        , "Range" =: gorRange
-        , "x-amz-server-side-encryption-customer-algorithm" =: gorSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key" =: gorSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5" =: gorSSECustomerKeyMD5
+        [ "If-Match" =: _gorIfMatch
+        , "If-Modified-Since" =: _gorIfModifiedSince
+        , "If-None-Match" =: _gorIfNoneMatch
+        , "If-Unmodified-Since" =: _gorIfUnmodifiedSince
+        , "Range" =: _gorRange
+        , "x-amz-server-side-encryption-customer-algorithm" =: _gorSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key" =: _gorSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5" =: _gorSSECustomerKeyMD5
         ]
 
 instance ToBody GetObject
@@ -162,65 +162,65 @@ instance AWSRequest GetObject where
             <*> hs ~:? "x-amz-website-redirect-location"
 
 data instance Rs GetObject = GetObjectResponse
-    { gooBody :: BodySource
+    { _gooBody :: BodySource
       -- ^ Object data.
-    , gooMetadata :: HashMap Text Text
+    , _gooMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
-    , gooAcceptRanges :: Maybe Text
-    , gooCacheControl :: Maybe Text
+    , _gooAcceptRanges :: Maybe Text
+    , _gooCacheControl :: Maybe Text
       -- ^ Specifies caching behavior along the request/reply chain.
-    , gooContentDisposition :: Maybe Text
+    , _gooContentDisposition :: Maybe Text
       -- ^ Specifies presentational information for the object.
-    , gooContentEncoding :: Maybe Text
+    , _gooContentEncoding :: Maybe Text
       -- ^ Specifies what content encodings have been applied to the object
       -- and thus what decoding mechanisms must be applied to obtain the
       -- media-type referenced by the Content-Type header field.
-    , gooContentLanguage :: Maybe Text
+    , _gooContentLanguage :: Maybe Text
       -- ^ The language the content is in.
-    , gooContentLength :: Maybe Integer
+    , _gooContentLength :: Maybe Integer
       -- ^ Size of the body in bytes.
-    , gooContentType :: Maybe Text
+    , _gooContentType :: Maybe Text
       -- ^ A standard MIME type describing the format of the object data.
-    , gooDeleteMarker :: Maybe Bool
+    , _gooDeleteMarker :: Maybe Bool
       -- ^ Specifies whether the object retrieved was (true) or was not
       -- (false) a Delete Marker. If false, this response header does not
       -- appear in the response.
-    , gooETag :: Maybe ETag
+    , _gooETag :: Maybe ETag
       -- ^ An ETag is an opaque identifier assigned by a web server to a
       -- specific version of a resource found at a URL.
-    , gooExpiration :: Maybe RFC822
+    , _gooExpiration :: Maybe RFC822
       -- ^ If the object expiration is configured (see PUT Bucket
       -- lifecycle), the response includes this header. It includes the
       -- expiry-date and rule-id key value pairs providing object
       -- expiration information. The value of the rule-id is URL encoded.
-    , gooExpires :: Maybe RFC822
+    , _gooExpires :: Maybe RFC822
       -- ^ The date and time at which the object is no longer cacheable.
-    , gooLastModified :: Maybe RFC822
+    , _gooLastModified :: Maybe RFC822
       -- ^ Last modified date of the object.
-    , gooMissingMeta :: Maybe Integer
+    , _gooMissingMeta :: Maybe Integer
       -- ^ This is set to the number of metadata entries not returned in
       -- x-amz-meta headers. This can happen if you create metadata using
       -- an API like SOAP that supports more flexible metadata than the
       -- REST API. For example, using SOAP, you can create metadata whose
       -- values are not legal HTTP headers.
-    , gooVersionId :: Maybe ObjectVersionId
+    , _gooVersionId :: Maybe ObjectVersionId
       -- ^ Version of the object.
-    , gooRestore :: Maybe Text
+    , _gooRestore :: Maybe Text
       -- ^ Provides information about object restoration operation and
       -- expiration time of the restored object copy.
-    , gooSSECustomerAlgorithm :: Maybe Text
+    , _gooSSECustomerAlgorithm :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header confirming
       -- the encryption algorithm used.
-    , gooSSECustomerKeyMD5 :: Maybe Text
+    , _gooSSECustomerKeyMD5 :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header to provide
       -- round trip message integrity verification of the
       -- customer-provided encryption key.
-    , gooServerSideEncryption :: Maybe ServerSideEncryption
+    , _gooServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    , gooWebsiteRedirectLocation :: Maybe Text
+    , _gooWebsiteRedirectLocation :: Maybe Text
       -- ^ If the bucket is configured as a website, redirects requests for
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the

@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketPolicy request.
-getBucketPolicy :: BucketName -- ^ 'gbprBucket'
+getBucketPolicy :: BucketName -- ^ '_gbprBucket'
                 -> GetBucketPolicy
 getBucketPolicy p1 = GetBucketPolicy
-    { gbprBucket = p1
+    { _gbprBucket = p1
     }
 
 data GetBucketPolicy = GetBucketPolicy
-    { gbprBucket :: BucketName
+    { _gbprBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketPolicy where
     toPath GetBucketPolicy{..} = mconcat
         [ "/"
-        , toBS gbprBucket
+        , toBS _gbprBucket
         ]
 
 instance ToQuery GetBucketPolicy
@@ -62,8 +62,12 @@ instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketPolicy = GetBucketPolicyResponse
-    { gbpoPolicy :: Maybe Text
+    { _gbpoPolicy :: Maybe Text
       -- ^ The bucket policy as a JSON document.
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketPolicy) where
+    fromXMLOptions = xmlOptions

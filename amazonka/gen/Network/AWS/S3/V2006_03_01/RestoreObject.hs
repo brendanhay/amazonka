@@ -39,30 +39,30 @@ type PostObjectRestore = RestoreObject
 type PostObjectRestoreResponse = Rs RestoreObject
 
 -- | Default RestoreObject request.
-restoreObject :: BucketName -- ^ 'rorBucket'
-              -> ObjectKey -- ^ 'rorKey'
-              -> RestoreRequest -- ^ 'rorRestoreRequest'
+restoreObject :: BucketName -- ^ '_rorBucket'
+              -> ObjectKey -- ^ '_rorKey'
+              -> RestoreRequest -- ^ '_rorRestoreRequest'
               -> RestoreObject
 restoreObject p1 p2 p3 = RestoreObject
-    { rorBucket = p1
-    , rorKey = p2
-    , rorRestoreRequest = p3
-    , rorVersionId = Nothing
+    { _rorBucket = p1
+    , _rorKey = p2
+    , _rorRestoreRequest = p3
+    , _rorVersionId = Nothing
     }
 
 data RestoreObject = RestoreObject
-    { rorBucket :: BucketName
-    , rorKey :: ObjectKey
-    , rorRestoreRequest :: RestoreRequest
-    , rorVersionId :: Maybe ObjectVersionId
+    { _rorBucket :: BucketName
+    , _rorKey :: ObjectKey
+    , _rorRestoreRequest :: RestoreRequest
+    , _rorVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat
         [ "/"
-        , toBS rorBucket
+        , toBS _rorBucket
         , "/"
-        , toBS rorKey
+        , toBS _rorKey
         ]
 
 instance ToQuery RestoreObject
@@ -70,7 +70,7 @@ instance ToQuery RestoreObject
 instance ToHeaders RestoreObject
 
 instance ToBody RestoreObject where
-    toBody = undefined -- toBody . rorRestoreRequest
+    toBody = undefined -- toBody . _rorRestoreRequest
 
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3

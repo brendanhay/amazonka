@@ -36,36 +36,36 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketWebsite request.
-putBucketWebsite :: WebsiteConfiguration -- ^ 'pbwrWebsiteConfiguration'
-                 -> BucketName -- ^ 'pbwrBucket'
+putBucketWebsite :: WebsiteConfiguration -- ^ '_pbwrWebsiteConfiguration'
+                 -> BucketName -- ^ '_pbwrBucket'
                  -> PutBucketWebsite
 putBucketWebsite p1 p2 = PutBucketWebsite
-    { pbwrWebsiteConfiguration = p1
-    , pbwrBucket = p2
-    , pbwrContentMD5 = Nothing
+    { _pbwrWebsiteConfiguration = p1
+    , _pbwrBucket = p2
+    , _pbwrContentMD5 = Nothing
     }
 
 data PutBucketWebsite = PutBucketWebsite
-    { pbwrWebsiteConfiguration :: WebsiteConfiguration
-    , pbwrBucket :: BucketName
-    , pbwrContentMD5 :: Maybe Text
+    { _pbwrWebsiteConfiguration :: WebsiteConfiguration
+    , _pbwrBucket :: BucketName
+    , _pbwrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 instance ToPath PutBucketWebsite where
     toPath PutBucketWebsite{..} = mconcat
         [ "/"
-        , toBS pbwrBucket
+        , toBS _pbwrBucket
         ]
 
 instance ToQuery PutBucketWebsite
 
 instance ToHeaders PutBucketWebsite where
     toHeaders PutBucketWebsite{..} = concat
-        [ "Content-MD5" =: pbwrContentMD5
+        [ "Content-MD5" =: _pbwrContentMD5
         ]
 
 instance ToBody PutBucketWebsite where
-    toBody = undefined -- toBody . pbwrWebsiteConfiguration
+    toBody = undefined -- toBody . _pbwrWebsiteConfiguration
 
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3

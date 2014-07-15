@@ -36,27 +36,27 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default ListParts request.
-listParts :: BucketName -- ^ 'lprBucket'
-          -> Text -- ^ 'lprUploadId'
-          -> ObjectKey -- ^ 'lprKey'
+listParts :: BucketName -- ^ '_lprBucket'
+          -> Text -- ^ '_lprUploadId'
+          -> ObjectKey -- ^ '_lprKey'
           -> ListParts
 listParts p1 p2 p3 = ListParts
-    { lprBucket = p1
-    , lprUploadId = p2
-    , lprKey = p3
-    , lprMaxParts = Nothing
-    , lprPartNumberMarker = Nothing
+    { _lprBucket = p1
+    , _lprUploadId = p2
+    , _lprKey = p3
+    , _lprMaxParts = Nothing
+    , _lprPartNumberMarker = Nothing
     }
 
 data ListParts = ListParts
-    { lprBucket :: BucketName
-    , lprUploadId :: Text
+    { _lprBucket :: BucketName
+    , _lprUploadId :: Text
       -- ^ Upload ID identifying the multipart upload whose parts are being
       -- listed.
-    , lprKey :: ObjectKey
-    , lprMaxParts :: Maybe Integer
+    , _lprKey :: ObjectKey
+    , _lprMaxParts :: Maybe Integer
       -- ^ Sets the maximum number of parts to return.
-    , lprPartNumberMarker :: Maybe Integer
+    , _lprPartNumberMarker :: Maybe Integer
       -- ^ Specifies the part after which listing should begin. Only parts
       -- with higher part numbers will be listed.
     } deriving (Show, Generic)
@@ -64,9 +64,9 @@ data ListParts = ListParts
 instance ToPath ListParts where
     toPath ListParts{..} = mconcat
         [ "/"
-        , toBS lprBucket
+        , toBS _lprBucket
         , "/"
-        , toBS lprKey
+        , toBS _lprKey
         ]
 
 instance ToQuery ListParts
@@ -79,36 +79,40 @@ instance AWSRequest ListParts where
     type Sv ListParts = S3
 
     request  = get
+    response = xmlResponse
 
 instance AWSPager ListParts where
     next rq rs
-        | not (lpoIsTruncated rs) = Nothing
+        | not (_lpoIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { lprPartNumberMarker = lpoNextPartNumberMarker rs
+            { _lprPartNumberMarker = _lpoNextPartNumberMarker rs
             }
 
 data instance Rs ListParts = ListPartsResponse
-    { lpoIsTruncated :: Bool
+    { _lpoIsTruncated :: Bool
       -- ^ Indicates whether the returned list of parts is truncated.
-    , lpoBucket :: Maybe BucketName
+    , _lpoBucket :: Maybe BucketName
       -- ^ Name of the bucket to which the multipart upload was initiated.
-    , lpoInitiator :: Maybe Initiator
+    , _lpoInitiator :: Maybe Initiator
       -- ^ Identifies who initiated the multipart upload.
-    , lpoMaxParts :: Maybe Integer
+    , _lpoMaxParts :: Maybe Integer
       -- ^ Maximum number of parts that were allowed in the response.
-    , lpoUploadId :: Maybe Text
+    , _lpoUploadId :: Maybe Text
       -- ^ Upload ID identifying the multipart upload whose parts are being
       -- listed.
-    , lpoNextPartNumberMarker :: Maybe Integer
+    , _lpoNextPartNumberMarker :: Maybe Integer
       -- ^ When a list is truncated, this element specifies the last part in
       -- the list, as well as the value to use for the part-number-marker
       -- request parameter in a subsequent request.
-    , lpoKey :: Maybe ObjectKey
+    , _lpoKey :: Maybe ObjectKey
       -- ^ Object key for which the multipart upload was initiated.
-    , lpoOwner :: Maybe Owner
-    , lpoPartNumberMarker :: Maybe Integer
+    , _lpoOwner :: Maybe Owner
+    , _lpoPartNumberMarker :: Maybe Integer
       -- ^ Part number after which listing begins.
-    , lpoParts :: [Part]
-    , lpoStorageClass :: Maybe StorageClass
+    , _lpoParts :: [Part]
+    , _lpoStorageClass :: Maybe StorageClass
       -- ^ The class of storage used to store the object.
     } deriving (Show, Generic)
+
+instance FromXML (Rs ListParts) where
+    fromXMLOptions = xmlOptions

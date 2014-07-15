@@ -36,36 +36,36 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketNotification request.
-putBucketNotification :: NotificationConfiguration -- ^ 'pbnrNotificationConfiguration'
-                      -> BucketName -- ^ 'pbnrBucket'
+putBucketNotification :: NotificationConfiguration -- ^ '_pbnrNotificationConfiguration'
+                      -> BucketName -- ^ '_pbnrBucket'
                       -> PutBucketNotification
 putBucketNotification p1 p2 = PutBucketNotification
-    { pbnrNotificationConfiguration = p1
-    , pbnrBucket = p2
-    , pbnrContentMD5 = Nothing
+    { _pbnrNotificationConfiguration = p1
+    , _pbnrBucket = p2
+    , _pbnrContentMD5 = Nothing
     }
 
 data PutBucketNotification = PutBucketNotification
-    { pbnrNotificationConfiguration :: NotificationConfiguration
-    , pbnrBucket :: BucketName
-    , pbnrContentMD5 :: Maybe Text
+    { _pbnrNotificationConfiguration :: NotificationConfiguration
+    , _pbnrBucket :: BucketName
+    , _pbnrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 instance ToPath PutBucketNotification where
     toPath PutBucketNotification{..} = mconcat
         [ "/"
-        , toBS pbnrBucket
+        , toBS _pbnrBucket
         ]
 
 instance ToQuery PutBucketNotification
 
 instance ToHeaders PutBucketNotification where
     toHeaders PutBucketNotification{..} = concat
-        [ "Content-MD5" =: pbnrContentMD5
+        [ "Content-MD5" =: _pbnrContentMD5
         ]
 
 instance ToBody PutBucketNotification where
-    toBody = undefined -- toBody . pbnrNotificationConfiguration
+    toBody = undefined -- toBody . _pbnrNotificationConfiguration
 
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3

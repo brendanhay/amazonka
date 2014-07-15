@@ -397,6 +397,7 @@ data Service = Service
     , _svcNamespace        :: NS
     , _svcVersionNamespace :: NS
     , _svcTypesNamespace   :: NS
+    , _svcLensNamespace    :: NS
     , _svcVersion          :: Version
     , _svcRawVersion       :: Text
     , _svcType             :: ServiceType

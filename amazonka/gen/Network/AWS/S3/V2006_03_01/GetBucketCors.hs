@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketCors request.
-getBucketCors :: BucketName -- ^ 'gbcrBucket'
+getBucketCors :: BucketName -- ^ '_gbcrBucket'
               -> GetBucketCors
 getBucketCors p1 = GetBucketCors
-    { gbcrBucket = p1
+    { _gbcrBucket = p1
     }
 
 data GetBucketCors = GetBucketCors
-    { gbcrBucket :: BucketName
+    { _gbcrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat
         [ "/"
-        , toBS gbcrBucket
+        , toBS _gbcrBucket
         ]
 
 instance ToQuery GetBucketCors
@@ -62,7 +62,11 @@ instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketCors = GetBucketCorsResponse
-    { gbcoCORSRules :: [CORSRule]
+    { _gbcoCORSRules :: [CORSRule]
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketCors) where
+    fromXMLOptions = xmlOptions

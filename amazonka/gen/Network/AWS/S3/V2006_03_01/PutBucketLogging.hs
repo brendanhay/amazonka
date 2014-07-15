@@ -38,36 +38,36 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketLogging request.
-putBucketLogging :: BucketLoggingStatus -- ^ 'pblrBucketLoggingStatus'
-                 -> BucketName -- ^ 'pblrBucket'
+putBucketLogging :: BucketLoggingStatus -- ^ '_pblrBucketLoggingStatus'
+                 -> BucketName -- ^ '_pblrBucket'
                  -> PutBucketLogging
 putBucketLogging p1 p2 = PutBucketLogging
-    { pblrBucketLoggingStatus = p1
-    , pblrBucket = p2
-    , pblrContentMD5 = Nothing
+    { _pblrBucketLoggingStatus = p1
+    , _pblrBucket = p2
+    , _pblrContentMD5 = Nothing
     }
 
 data PutBucketLogging = PutBucketLogging
-    { pblrBucketLoggingStatus :: BucketLoggingStatus
-    , pblrBucket :: BucketName
-    , pblrContentMD5 :: Maybe Text
+    { _pblrBucketLoggingStatus :: BucketLoggingStatus
+    , _pblrBucket :: BucketName
+    , _pblrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 instance ToPath PutBucketLogging where
     toPath PutBucketLogging{..} = mconcat
         [ "/"
-        , toBS pblrBucket
+        , toBS _pblrBucket
         ]
 
 instance ToQuery PutBucketLogging
 
 instance ToHeaders PutBucketLogging where
     toHeaders PutBucketLogging{..} = concat
-        [ "Content-MD5" =: pblrContentMD5
+        [ "Content-MD5" =: _pblrContentMD5
         ]
 
 instance ToBody PutBucketLogging where
-    toBody = undefined -- toBody . pblrBucketLoggingStatus
+    toBody = undefined -- toBody . _pblrBucketLoggingStatus
 
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3

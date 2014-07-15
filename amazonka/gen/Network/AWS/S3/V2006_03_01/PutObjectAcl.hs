@@ -37,67 +37,67 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutObjectAcl request.
-putObjectAcl :: BucketName -- ^ 'poarBucket'
-             -> ObjectKey -- ^ 'poarKey'
-             -> AccessControlPolicy -- ^ 'poarAccessControlPolicy'
+putObjectAcl :: BucketName -- ^ '_poarBucket'
+             -> ObjectKey -- ^ '_poarKey'
+             -> AccessControlPolicy -- ^ '_poarAccessControlPolicy'
              -> PutObjectAcl
 putObjectAcl p1 p2 p3 = PutObjectAcl
-    { poarBucket = p1
-    , poarKey = p2
-    , poarAccessControlPolicy = p3
-    , poarContentMD5 = Nothing
-    , poarGrantFullControl = Nothing
-    , poarGrantRead = Nothing
-    , poarGrantReadACP = Nothing
-    , poarGrantWrite = Nothing
-    , poarGrantWriteACP = Nothing
-    , poarACL = Nothing
+    { _poarBucket = p1
+    , _poarKey = p2
+    , _poarAccessControlPolicy = p3
+    , _poarContentMD5 = Nothing
+    , _poarGrantFullControl = Nothing
+    , _poarGrantRead = Nothing
+    , _poarGrantReadACP = Nothing
+    , _poarGrantWrite = Nothing
+    , _poarGrantWriteACP = Nothing
+    , _poarACL = Nothing
     }
 
 data PutObjectAcl = PutObjectAcl
-    { poarBucket :: BucketName
-    , poarKey :: ObjectKey
-    , poarAccessControlPolicy :: AccessControlPolicy
-    , poarContentMD5 :: Maybe Text
-    , poarGrantFullControl :: Maybe Text
+    { _poarBucket :: BucketName
+    , _poarKey :: ObjectKey
+    , _poarAccessControlPolicy :: AccessControlPolicy
+    , _poarContentMD5 :: Maybe Text
+    , _poarGrantFullControl :: Maybe Text
       -- ^ Allows grantee the read, write, read ACP, and write ACP
       -- permissions on the bucket.
-    , poarGrantRead :: Maybe Text
+    , _poarGrantRead :: Maybe Text
       -- ^ Allows grantee to list the objects in the bucket.
-    , poarGrantReadACP :: Maybe Text
+    , _poarGrantReadACP :: Maybe Text
       -- ^ Allows grantee to read the bucket ACL.
-    , poarGrantWrite :: Maybe Text
+    , _poarGrantWrite :: Maybe Text
       -- ^ Allows grantee to create, overwrite, and delete any object in the
       -- bucket.
-    , poarGrantWriteACP :: Maybe Text
+    , _poarGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable bucket.
-    , poarACL :: Maybe ObjectCannedACL
+    , _poarACL :: Maybe ObjectCannedACL
       -- ^ The canned ACL to apply to the object.
     } deriving (Show, Generic)
 
 instance ToPath PutObjectAcl where
     toPath PutObjectAcl{..} = mconcat
         [ "/"
-        , toBS poarBucket
+        , toBS _poarBucket
         , "/"
-        , toBS poarKey
+        , toBS _poarKey
         ]
 
 instance ToQuery PutObjectAcl
 
 instance ToHeaders PutObjectAcl where
     toHeaders PutObjectAcl{..} = concat
-        [ "Content-MD5" =: poarContentMD5
-        , "x-amz-grant-full-control" =: poarGrantFullControl
-        , "x-amz-grant-read" =: poarGrantRead
-        , "x-amz-grant-read-acp" =: poarGrantReadACP
-        , "x-amz-grant-write" =: poarGrantWrite
-        , "x-amz-grant-write-acp" =: poarGrantWriteACP
-        , "x-amz-acl" =: poarACL
+        [ "Content-MD5" =: _poarContentMD5
+        , "x-amz-grant-full-control" =: _poarGrantFullControl
+        , "x-amz-grant-read" =: _poarGrantRead
+        , "x-amz-grant-read-acp" =: _poarGrantReadACP
+        , "x-amz-grant-write" =: _poarGrantWrite
+        , "x-amz-grant-write-acp" =: _poarGrantWriteACP
+        , "x-amz-acl" =: _poarACL
         ]
 
 instance ToBody PutObjectAcl where
-    toBody = undefined -- toBody . poarAccessControlPolicy
+    toBody = undefined -- toBody . _poarAccessControlPolicy
 
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3

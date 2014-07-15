@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketVersioning request.
-getBucketVersioning :: BucketName -- ^ 'gbvrBucket'
+getBucketVersioning :: BucketName -- ^ '_gbvrBucket'
                     -> GetBucketVersioning
 getBucketVersioning p1 = GetBucketVersioning
-    { gbvrBucket = p1
+    { _gbvrBucket = p1
     }
 
 data GetBucketVersioning = GetBucketVersioning
-    { gbvrBucket :: BucketName
+    { _gbvrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketVersioning where
     toPath GetBucketVersioning{..} = mconcat
         [ "/"
-        , toBS gbvrBucket
+        , toBS _gbvrBucket
         ]
 
 instance ToQuery GetBucketVersioning
@@ -62,13 +62,17 @@ instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketVersioning = GetBucketVersioningResponse
-    { gbvoStatus :: Maybe (Switch BucketVersioningStatus)
+    { _gbvoStatus :: Maybe (Switch BucketVersioningStatus)
       -- ^ The versioning state of the bucket.
-    , gbvoMfaDelete :: Maybe (Switch MFADeleteStatus)
+    , _gbvoMfaDelete :: Maybe (Switch MFADeleteStatus)
       -- ^ Specifies whether MFA delete is enabled in the bucket versioning
       -- configuration. This element is only returned if the bucket has
       -- been configured with MFA delete. If the bucket has never been so
       -- configured, this element is not returned.
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketVersioning) where
+    fromXMLOptions = xmlOptions

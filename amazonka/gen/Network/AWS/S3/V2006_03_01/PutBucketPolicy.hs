@@ -37,37 +37,37 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketPolicy request.
-putBucketPolicy :: Text -- ^ 'pbprPolicy'
-                -> BucketName -- ^ 'pbprBucket'
+putBucketPolicy :: Text -- ^ '_pbprPolicy'
+                -> BucketName -- ^ '_pbprBucket'
                 -> PutBucketPolicy
 putBucketPolicy p1 p2 = PutBucketPolicy
-    { pbprPolicy = p1
-    , pbprBucket = p2
-    , pbprContentMD5 = Nothing
+    { _pbprPolicy = p1
+    , _pbprBucket = p2
+    , _pbprContentMD5 = Nothing
     }
 
 data PutBucketPolicy = PutBucketPolicy
-    { pbprPolicy :: Text
+    { _pbprPolicy :: Text
       -- ^ The bucket policy as a JSON document.
-    , pbprBucket :: BucketName
-    , pbprContentMD5 :: Maybe Text
+    , _pbprBucket :: BucketName
+    , _pbprContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 instance ToPath PutBucketPolicy where
     toPath PutBucketPolicy{..} = mconcat
         [ "/"
-        , toBS pbprBucket
+        , toBS _pbprBucket
         ]
 
 instance ToQuery PutBucketPolicy
 
 instance ToHeaders PutBucketPolicy where
     toHeaders PutBucketPolicy{..} = concat
-        [ "Content-MD5" =: pbprContentMD5
+        [ "Content-MD5" =: _pbprContentMD5
         ]
 
 instance ToBody PutBucketPolicy where
-    toBody = undefined -- toBody . pbprPolicy
+    toBody = undefined -- toBody . _pbprPolicy
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3

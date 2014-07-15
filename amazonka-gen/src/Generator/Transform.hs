@@ -105,7 +105,7 @@ pagination o = fmap go
         & pgMore   %~ fmap rsPref
 
     -- S3 ListObjects
-    replace "NextMarker || Contents[-1].Key" = "fmap (toText . oKey) . listToMaybe $ looContents"
+    replace "NextMarker || Contents[-1].Key" = "fmap (toText . _oKey) . listToMaybe $ _looContents"
     replace x                                = rsPref x
 
     rqPref = pref (opRequest  . rqShape)
@@ -119,6 +119,15 @@ rootNS (NS xs) = NS (init xs)
 
 typeNS :: NS -> NS
 typeNS = (<> "Types")
+
+lensNS :: NS -> NS
+lensNS = (<> "Lenses")
+
+serviceNamespaces :: Service -> [NS]
+serviceNamespaces s = sort
+    $ _svcTypesNamespace s
+    : _svcLensNamespace s
+    : map _opNamespace (_svcOperations s)
 
 fromName :: HasCommon a => a -> Text
 fromName = fromMaybe "Untyped" . view cmnName
@@ -155,7 +164,7 @@ fields rq t s = case s of
 prefixed :: Shape -> Text -> Text
 prefixed p x = f (p ^. cmnName)
   where
-    f (Just y) = prefix y <> x
+    f (Just y) = "_" <> prefix y <> x
     f Nothing  = "Prefixed"
 
 typeof :: Bool -> Time -> Shape -> Ann

@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketWebsite request.
-getBucketWebsite :: BucketName -- ^ 'gbwrBucket'
+getBucketWebsite :: BucketName -- ^ '_gbwrBucket'
                  -> GetBucketWebsite
 getBucketWebsite p1 = GetBucketWebsite
-    { gbwrBucket = p1
+    { _gbwrBucket = p1
     }
 
 data GetBucketWebsite = GetBucketWebsite
-    { gbwrBucket :: BucketName
+    { _gbwrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketWebsite where
     toPath GetBucketWebsite{..} = mconcat
         [ "/"
-        , toBS gbwrBucket
+        , toBS _gbwrBucket
         ]
 
 instance ToQuery GetBucketWebsite
@@ -62,10 +62,14 @@ instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
-    { gbwoErrorDocument :: Maybe ErrorDocument
-    , gbwoIndexDocument :: Maybe IndexDocument
-    , gbwoRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , gbwoRoutingRules :: [RoutingRule]
+    { _gbwoErrorDocument :: Maybe ErrorDocument
+    , _gbwoIndexDocument :: Maybe IndexDocument
+    , _gbwoRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+    , _gbwoRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketWebsite) where
+    fromXMLOptions = xmlOptions

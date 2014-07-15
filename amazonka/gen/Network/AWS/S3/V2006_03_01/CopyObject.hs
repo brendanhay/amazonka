@@ -39,106 +39,106 @@ type PutObjectCopy = CopyObject
 type PutObjectCopyResponse = Rs CopyObject
 
 -- | Default CopyObject request.
-copyObject :: Text -- ^ 'corCopySource'
-           -> BucketName -- ^ 'corBucket'
-           -> ObjectKey -- ^ 'corKey'
+copyObject :: Text -- ^ '_corCopySource'
+           -> BucketName -- ^ '_corBucket'
+           -> ObjectKey -- ^ '_corKey'
            -> CopyObject
 copyObject p1 p2 p3 = CopyObject
-    { corCopySource = p1
-    , corBucket = p2
-    , corKey = p3
-    , corMetadata = mempty
-    , corCacheControl = Nothing
-    , corContentDisposition = Nothing
-    , corContentEncoding = Nothing
-    , corContentLanguage = Nothing
-    , corContentType = Nothing
-    , corCopySourceIfMatch = Nothing
-    , corCopySourceIfModifiedSince = Nothing
-    , corCopySourceIfNoneMatch = Nothing
-    , corCopySourceIfUnmodifiedSince = Nothing
-    , corCopySourceSSECustomerAlgorithm = Nothing
-    , corCopySourceSSECustomerKey = Nothing
-    , corCopySourceSSECustomerKeyMD5 = Nothing
-    , corExpires = Nothing
-    , corGrantFullControl = Nothing
-    , corGrantRead = Nothing
-    , corGrantReadACP = Nothing
-    , corGrantWriteACP = Nothing
-    , corMetadataDirective = Nothing
-    , corACL = Nothing
-    , corSSECustomerAlgorithm = Nothing
-    , corSSECustomerKey = Nothing
-    , corSSECustomerKeyMD5 = Nothing
-    , corServerSideEncryption = Nothing
-    , corStorageClass = Nothing
-    , corWebsiteRedirectLocation = Nothing
+    { _corCopySource = p1
+    , _corBucket = p2
+    , _corKey = p3
+    , _corMetadata = mempty
+    , _corCacheControl = Nothing
+    , _corContentDisposition = Nothing
+    , _corContentEncoding = Nothing
+    , _corContentLanguage = Nothing
+    , _corContentType = Nothing
+    , _corCopySourceIfMatch = Nothing
+    , _corCopySourceIfModifiedSince = Nothing
+    , _corCopySourceIfNoneMatch = Nothing
+    , _corCopySourceIfUnmodifiedSince = Nothing
+    , _corCopySourceSSECustomerAlgorithm = Nothing
+    , _corCopySourceSSECustomerKey = Nothing
+    , _corCopySourceSSECustomerKeyMD5 = Nothing
+    , _corExpires = Nothing
+    , _corGrantFullControl = Nothing
+    , _corGrantRead = Nothing
+    , _corGrantReadACP = Nothing
+    , _corGrantWriteACP = Nothing
+    , _corMetadataDirective = Nothing
+    , _corACL = Nothing
+    , _corSSECustomerAlgorithm = Nothing
+    , _corSSECustomerKey = Nothing
+    , _corSSECustomerKeyMD5 = Nothing
+    , _corServerSideEncryption = Nothing
+    , _corStorageClass = Nothing
+    , _corWebsiteRedirectLocation = Nothing
     }
 
 data CopyObject = CopyObject
-    { corCopySource :: Text
+    { _corCopySource :: Text
       -- ^ The name of the source bucket and key name of the source object,
       -- separated by a slash (/). Must be URL-encoded.
-    , corBucket :: BucketName
-    , corKey :: ObjectKey
-    , corMetadata :: HashMap Text Text
+    , _corBucket :: BucketName
+    , _corKey :: ObjectKey
+    , _corMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
-    , corCacheControl :: Maybe Text
+    , _corCacheControl :: Maybe Text
       -- ^ Specifies caching behavior along the request/reply chain.
-    , corContentDisposition :: Maybe Text
+    , _corContentDisposition :: Maybe Text
       -- ^ Specifies presentational information for the object.
-    , corContentEncoding :: Maybe Text
+    , _corContentEncoding :: Maybe Text
       -- ^ Specifies what content encodings have been applied to the object
       -- and thus what decoding mechanisms must be applied to obtain the
       -- media-type referenced by the Content-Type header field.
-    , corContentLanguage :: Maybe Text
+    , _corContentLanguage :: Maybe Text
       -- ^ The language the content is in.
-    , corContentType :: Maybe Text
+    , _corContentType :: Maybe Text
       -- ^ A standard MIME type describing the format of the object data.
-    , corCopySourceIfMatch :: Maybe Text
+    , _corCopySourceIfMatch :: Maybe Text
       -- ^ Copies the object if its entity tag (ETag) matches the specified
       -- tag.
-    , corCopySourceIfModifiedSince :: Maybe RFC822
+    , _corCopySourceIfModifiedSince :: Maybe RFC822
       -- ^ Copies the object if it has been modified since the specified
       -- time.
-    , corCopySourceIfNoneMatch :: Maybe Text
+    , _corCopySourceIfNoneMatch :: Maybe Text
       -- ^ Copies the object if its entity tag (ETag) is different than the
       -- specified ETag.
-    , corCopySourceIfUnmodifiedSince :: Maybe RFC822
+    , _corCopySourceIfUnmodifiedSince :: Maybe RFC822
       -- ^ Copies the object if it hasn't been modified since the specified
       -- time.
-    , corCopySourceSSECustomerAlgorithm :: Maybe Text
+    , _corCopySourceSSECustomerAlgorithm :: Maybe Text
       -- ^ Specifies the algorithm to use when decrypting the source object
       -- (e.g., AES256).
-    , corCopySourceSSECustomerKey :: Maybe Text
+    , _corCopySourceSSECustomerKey :: Maybe Text
       -- ^ Specifies the customer-provided encryption key for Amazon S3 to
       -- use to decrypt the source object. The encryption key provided in
       -- this header must be one that was used when the source object was
       -- created.
-    , corCopySourceSSECustomerKeyMD5 :: Maybe Text
+    , _corCopySourceSSECustomerKeyMD5 :: Maybe Text
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    , corExpires :: Maybe RFC822
+    , _corExpires :: Maybe RFC822
       -- ^ The date and time at which the object is no longer cacheable.
-    , corGrantFullControl :: Maybe Text
+    , _corGrantFullControl :: Maybe Text
       -- ^ Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on
       -- the object.
-    , corGrantRead :: Maybe Text
+    , _corGrantRead :: Maybe Text
       -- ^ Allows grantee to read the object data and its metadata.
-    , corGrantReadACP :: Maybe Text
+    , _corGrantReadACP :: Maybe Text
       -- ^ Allows grantee to read the object ACL.
-    , corGrantWriteACP :: Maybe Text
+    , _corGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable object.
-    , corMetadataDirective :: Maybe MetadataDirective
+    , _corMetadataDirective :: Maybe MetadataDirective
       -- ^ Specifies whether the metadata is copied from the source object
       -- or replaced with metadata provided in the request.
-    , corACL :: Maybe ObjectCannedACL
+    , _corACL :: Maybe ObjectCannedACL
       -- ^ The canned ACL to apply to the object.
-    , corSSECustomerAlgorithm :: Maybe Text
+    , _corSSECustomerAlgorithm :: Maybe Text
       -- ^ Specifies the algorithm to use to when encrypting the object
       -- (e.g., AES256).
-    , corSSECustomerKey :: Maybe Text
+    , _corSSECustomerKey :: Maybe Text
       -- ^ Specifies the customer-provided encryption key for Amazon S3 to
       -- use in encrypting data. This value is used to store the object
       -- and then it is discarded; Amazon does not store the encryption
@@ -146,17 +146,17 @@ data CopyObject = CopyObject
       -- specified in the
       -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm
       -- header.
-    , corSSECustomerKeyMD5 :: Maybe Text
+    , _corSSECustomerKeyMD5 :: Maybe Text
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    , corServerSideEncryption :: Maybe ServerSideEncryption
+    , _corServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    , corStorageClass :: Maybe StorageClass
+    , _corStorageClass :: Maybe StorageClass
       -- ^ The type of storage to use for the object. Defaults to
       -- 'STANDARD'.
-    , corWebsiteRedirectLocation :: Maybe Text
+    , _corWebsiteRedirectLocation :: Maybe Text
       -- ^ If the bucket is configured as a website, redirects requests for
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
@@ -166,42 +166,42 @@ data CopyObject = CopyObject
 instance ToPath CopyObject where
     toPath CopyObject{..} = mconcat
         [ "/"
-        , toBS corBucket
+        , toBS _corBucket
         , "/"
-        , toBS corKey
+        , toBS _corKey
         ]
 
 instance ToQuery CopyObject
 
 instance ToHeaders CopyObject where
     toHeaders CopyObject{..} = concat
-        [ "x-amz-copy-source" =: corCopySource
-        , "x-amz-meta-" =: corMetadata
-        , "Cache-Control" =: corCacheControl
-        , "Content-Disposition" =: corContentDisposition
-        , "Content-Encoding" =: corContentEncoding
-        , "Content-Language" =: corContentLanguage
-        , "Content-Type" =: corContentType
-        , "x-amz-copy-source-if-match" =: corCopySourceIfMatch
-        , "x-amz-copy-source-if-modified-since" =: corCopySourceIfModifiedSince
-        , "x-amz-copy-source-if-none-match" =: corCopySourceIfNoneMatch
-        , "x-amz-copy-source-if-unmodified-since" =: corCopySourceIfUnmodifiedSince
-        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: corCopySourceSSECustomerAlgorithm
-        , "x-amz-copy-source-server-side-encryption-customer-key" =: corCopySourceSSECustomerKey
-        , "x-amz-copy-source-server-side-encryption-customer-key-MD5" =: corCopySourceSSECustomerKeyMD5
-        , "Expires" =: corExpires
-        , "x-amz-grant-full-control" =: corGrantFullControl
-        , "x-amz-grant-read" =: corGrantRead
-        , "x-amz-grant-read-acp" =: corGrantReadACP
-        , "x-amz-grant-write-acp" =: corGrantWriteACP
-        , "x-amz-metadata-directive" =: corMetadataDirective
-        , "x-amz-acl" =: corACL
-        , "x-amz-server-side-encryption-customer-algorithm" =: corSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key" =: corSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5" =: corSSECustomerKeyMD5
-        , "x-amz-server-side-encryption" =: corServerSideEncryption
-        , "x-amz-storage-class" =: corStorageClass
-        , "x-amz-website-redirect-location" =: corWebsiteRedirectLocation
+        [ "x-amz-copy-source" =: _corCopySource
+        , "x-amz-meta-" =: _corMetadata
+        , "Cache-Control" =: _corCacheControl
+        , "Content-Disposition" =: _corContentDisposition
+        , "Content-Encoding" =: _corContentEncoding
+        , "Content-Language" =: _corContentLanguage
+        , "Content-Type" =: _corContentType
+        , "x-amz-copy-source-if-match" =: _corCopySourceIfMatch
+        , "x-amz-copy-source-if-modified-since" =: _corCopySourceIfModifiedSince
+        , "x-amz-copy-source-if-none-match" =: _corCopySourceIfNoneMatch
+        , "x-amz-copy-source-if-unmodified-since" =: _corCopySourceIfUnmodifiedSince
+        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _corCopySourceSSECustomerAlgorithm
+        , "x-amz-copy-source-server-side-encryption-customer-key" =: _corCopySourceSSECustomerKey
+        , "x-amz-copy-source-server-side-encryption-customer-key-MD5" =: _corCopySourceSSECustomerKeyMD5
+        , "Expires" =: _corExpires
+        , "x-amz-grant-full-control" =: _corGrantFullControl
+        , "x-amz-grant-read" =: _corGrantRead
+        , "x-amz-grant-read-acp" =: _corGrantReadACP
+        , "x-amz-grant-write-acp" =: _corGrantWriteACP
+        , "x-amz-metadata-directive" =: _corMetadataDirective
+        , "x-amz-acl" =: _corACL
+        , "x-amz-server-side-encryption-customer-algorithm" =: _corSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key" =: _corSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5" =: _corSSECustomerKeyMD5
+        , "x-amz-server-side-encryption" =: _corServerSideEncryption
+        , "x-amz-storage-class" =: _corStorageClass
+        , "x-amz-website-redirect-location" =: _corWebsiteRedirectLocation
         ]
 
 instance ToBody CopyObject
@@ -210,7 +210,7 @@ instance AWSRequest CopyObject where
     type Sv CopyObject = S3
 
     request  = put
-    response = xmlResponse $ \hs xml ->
+    response = cursorResponse $ \hs xml ->
         pure CopyObjectResponse
             <*> xml %|? "CopyObjectResult"
             <*> hs ~:? "x-amz-copy-source-version-id"
@@ -220,21 +220,21 @@ instance AWSRequest CopyObject where
             <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs CopyObject = CopyObjectResponse
-    { cooCopyObjectResult :: Maybe CopyObjectResult
-    , cooCopySourceVersionId :: Maybe Text
-    , cooExpiration :: Maybe RFC822
+    { _cooCopyObjectResult :: Maybe CopyObjectResult
+    , _cooCopySourceVersionId :: Maybe Text
+    , _cooExpiration :: Maybe RFC822
       -- ^ If the object expiration is configured, the response includes
       -- this header.
-    , cooSSECustomerAlgorithm :: Maybe Text
+    , _cooSSECustomerAlgorithm :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header confirming
       -- the encryption algorithm used.
-    , cooSSECustomerKeyMD5 :: Maybe Text
+    , _cooSSECustomerKeyMD5 :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header to provide
       -- round trip message integrity verification of the
       -- customer-provided encryption key.
-    , cooServerSideEncryption :: Maybe ServerSideEncryption
+    , _cooServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Show, Generic)

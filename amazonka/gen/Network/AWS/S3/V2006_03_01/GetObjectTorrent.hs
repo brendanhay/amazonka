@@ -36,25 +36,25 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetObjectTorrent request.
-getObjectTorrent :: BucketName -- ^ 'gotrBucket'
-                 -> ObjectKey -- ^ 'gotrKey'
+getObjectTorrent :: BucketName -- ^ '_gotrBucket'
+                 -> ObjectKey -- ^ '_gotrKey'
                  -> GetObjectTorrent
 getObjectTorrent p1 p2 = GetObjectTorrent
-    { gotrBucket = p1
-    , gotrKey = p2
+    { _gotrBucket = p1
+    , _gotrKey = p2
     }
 
 data GetObjectTorrent = GetObjectTorrent
-    { gotrBucket :: BucketName
-    , gotrKey :: ObjectKey
+    { _gotrBucket :: BucketName
+    , _gotrKey :: ObjectKey
     } deriving (Show, Generic)
 
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
         [ "/"
-        , toBS gotrBucket
+        , toBS _gotrBucket
         , "/"
-        , toBS gotrKey
+        , toBS _gotrKey
         ]
 
 instance ToQuery GetObjectTorrent
@@ -72,5 +72,5 @@ instance AWSRequest GetObjectTorrent where
             <*> pure (Body bdy)
 
 data instance Rs GetObjectTorrent = GetObjectTorrentResponse
-    { gotoBody :: BodySource
+    { _gotoBody :: BodySource
     } deriving (Show, Generic)

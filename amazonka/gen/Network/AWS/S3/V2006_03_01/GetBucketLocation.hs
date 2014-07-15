@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketLocation request.
-getBucketLocation :: BucketName -- ^ 'gblrBucket'
+getBucketLocation :: BucketName -- ^ '_gblrBucket'
                   -> GetBucketLocation
 getBucketLocation p1 = GetBucketLocation
-    { gblrBucket = p1
+    { _gblrBucket = p1
     }
 
 data GetBucketLocation = GetBucketLocation
-    { gblrBucket :: BucketName
+    { _gblrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketLocation where
     toPath GetBucketLocation{..} = mconcat
         [ "/"
-        , toBS gblrBucket
+        , toBS _gblrBucket
         ]
 
 instance ToQuery GetBucketLocation
@@ -62,7 +62,11 @@ instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketLocation = GetBucketLocationResponse
-    { gbloLocationConstraint :: Maybe BucketLocationConstraint
+    { _gbloLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketLocation) where
+    fromXMLOptions = xmlOptions

@@ -38,20 +38,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteBucket request.
-deleteBucket :: BucketName -- ^ 'dbrBucket'
+deleteBucket :: BucketName -- ^ '_dbrBucket'
              -> DeleteBucket
 deleteBucket p1 = DeleteBucket
-    { dbrBucket = p1
+    { _dbrBucket = p1
     }
 
 data DeleteBucket = DeleteBucket
-    { dbrBucket :: BucketName
+    { _dbrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath DeleteBucket where
     toPath DeleteBucket{..} = mconcat
         [ "/"
-        , toBS dbrBucket
+        , toBS _dbrBucket
         ]
 
 instance ToQuery DeleteBucket

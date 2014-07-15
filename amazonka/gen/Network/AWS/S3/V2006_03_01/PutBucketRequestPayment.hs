@@ -39,36 +39,36 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketRequestPayment request.
-putBucketRequestPayment :: RequestPaymentConfiguration -- ^ 'pbrprRequestPaymentConfiguration'
-                        -> BucketName -- ^ 'pbrprBucket'
+putBucketRequestPayment :: RequestPaymentConfiguration -- ^ '_pbrprRequestPaymentConfiguration'
+                        -> BucketName -- ^ '_pbrprBucket'
                         -> PutBucketRequestPayment
 putBucketRequestPayment p1 p2 = PutBucketRequestPayment
-    { pbrprRequestPaymentConfiguration = p1
-    , pbrprBucket = p2
-    , pbrprContentMD5 = Nothing
+    { _pbrprRequestPaymentConfiguration = p1
+    , _pbrprBucket = p2
+    , _pbrprContentMD5 = Nothing
     }
 
 data PutBucketRequestPayment = PutBucketRequestPayment
-    { pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
-    , pbrprBucket :: BucketName
-    , pbrprContentMD5 :: Maybe Text
+    { _pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
+    , _pbrprBucket :: BucketName
+    , _pbrprContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 instance ToPath PutBucketRequestPayment where
     toPath PutBucketRequestPayment{..} = mconcat
         [ "/"
-        , toBS pbrprBucket
+        , toBS _pbrprBucket
         ]
 
 instance ToQuery PutBucketRequestPayment
 
 instance ToHeaders PutBucketRequestPayment where
     toHeaders PutBucketRequestPayment{..} = concat
-        [ "Content-MD5" =: pbrprContentMD5
+        [ "Content-MD5" =: _pbrprContentMD5
         ]
 
 instance ToBody PutBucketRequestPayment where
-    toBody = undefined -- toBody . pbrprRequestPaymentConfiguration
+    toBody = undefined -- toBody . _pbrprRequestPaymentConfiguration
 
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3

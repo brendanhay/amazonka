@@ -39,23 +39,23 @@ type GetBucketObjectVersions = ListObjectVersions
 type GetBucketObjectVersionsResponse = Rs ListObjectVersions
 
 -- | Default ListObjectVersions request.
-listObjectVersions :: BucketName -- ^ 'lovrBucket'
+listObjectVersions :: BucketName -- ^ '_lovrBucket'
                    -> ListObjectVersions
 listObjectVersions p1 = ListObjectVersions
-    { lovrBucket = p1
-    , lovrDelimiter = Nothing
-    , lovrEncodingType = Nothing
-    , lovrKeyMarker = Nothing
-    , lovrMaxKeys = Nothing
-    , lovrPrefix = Nothing
-    , lovrVersionIdMarker = Nothing
+    { _lovrBucket = p1
+    , _lovrDelimiter = Nothing
+    , _lovrEncodingType = Nothing
+    , _lovrKeyMarker = Nothing
+    , _lovrMaxKeys = Nothing
+    , _lovrPrefix = Nothing
+    , _lovrVersionIdMarker = Nothing
     }
 
 data ListObjectVersions = ListObjectVersions
-    { lovrBucket :: BucketName
-    , lovrDelimiter :: Maybe Text
+    { _lovrBucket :: BucketName
+    , _lovrDelimiter :: Maybe Text
       -- ^ A delimiter is a character you use to group keys.
-    , lovrEncodingType :: Maybe EncodingType
+    , _lovrEncodingType :: Maybe EncodingType
       -- ^ Requests Amazon S3 to encode the object keys in the response and
       -- specifies the encoding method to use. An object key may contain
       -- any Unicode character; however, XML 1.0 parser cannot parse some
@@ -63,21 +63,21 @@ data ListObjectVersions = ListObjectVersions
       -- For characters that are not supported in XML 1.0, you can add
       -- this parameter to request that Amazon S3 encode the keys in the
       -- response.
-    , lovrKeyMarker :: Maybe Text
+    , _lovrKeyMarker :: Maybe Text
       -- ^ Specifies the key to start with when listing objects in a bucket.
-    , lovrMaxKeys :: Maybe Integer
+    , _lovrMaxKeys :: Maybe Integer
       -- ^ Sets the maximum number of keys returned in the response. The
       -- response might contain fewer keys but will never contain more.
-    , lovrPrefix :: Maybe Text
+    , _lovrPrefix :: Maybe Text
       -- ^ Limits the response to keys that begin with the specified prefix.
-    , lovrVersionIdMarker :: Maybe Text
+    , _lovrVersionIdMarker :: Maybe Text
       -- ^ Specifies the object version you want to start listing from.
     } deriving (Show, Generic)
 
 instance ToPath ListObjectVersions where
     toPath ListObjectVersions{..} = mconcat
         [ "/"
-        , toBS lovrBucket
+        , toBS _lovrBucket
         ]
 
 instance ToQuery ListObjectVersions
@@ -90,39 +90,43 @@ instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
 
     request  = get
+    response = xmlResponse
 
 instance AWSPager ListObjectVersions where
     next rq rs
-        | not (lovoIsTruncated rs) = Nothing
+        | not (_lovoIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { lovrKeyMarker = lovoNextKeyMarker rs
-            , lovrVersionIdMarker = lovoNextVersionIdMarker rs
+            { _lovrKeyMarker = _lovoNextKeyMarker rs
+            , _lovrVersionIdMarker = _lovoNextVersionIdMarker rs
             }
 
 data instance Rs ListObjectVersions = ListObjectVersionsResponse
-    { lovoIsTruncated :: Bool
+    { _lovoIsTruncated :: Bool
       -- ^ A flag that indicates whether or not Amazon S3 returned all of
       -- the results that satisfied the search criteria. If your results
       -- were truncated, you can make a follow-up paginated request using
       -- the NextKeyMarker and NextVersionIdMarker response parameters as
       -- a starting place in another request to return the rest of the
       -- results.
-    , lovoName :: Maybe BucketName
-    , lovoCommonPrefixes :: [CommonPrefix]
-    , lovoDeleteMarkers :: [DeleteMarkerEntry]
-    , lovoEncodingType :: Maybe EncodingType
+    , _lovoName :: Maybe BucketName
+    , _lovoCommonPrefixes :: [CommonPrefix]
+    , _lovoDeleteMarkers :: [DeleteMarkerEntry]
+    , _lovoEncodingType :: Maybe EncodingType
       -- ^ Encoding type used by Amazon S3 to encode object keys in the
       -- response.
-    , lovoKeyMarker :: Maybe Text
+    , _lovoKeyMarker :: Maybe Text
       -- ^ Marks the last Key returned in a truncated response.
-    , lovoMaxKeys :: Maybe Integer
-    , lovoNextKeyMarker :: Maybe Text
+    , _lovoMaxKeys :: Maybe Integer
+    , _lovoNextKeyMarker :: Maybe Text
       -- ^ Use this value for the key marker request parameter in a
       -- subsequent request.
-    , lovoNextVersionIdMarker :: Maybe Text
+    , _lovoNextVersionIdMarker :: Maybe Text
       -- ^ Use this value for the next version id marker parameter in a
       -- subsequent request.
-    , lovoVersions :: [ObjectVersion]
-    , lovoPrefix :: Maybe Text
-    , lovoVersionIdMarker :: Maybe Text
+    , _lovoVersions :: [ObjectVersion]
+    , _lovoPrefix :: Maybe Text
+    , _lovoVersionIdMarker :: Maybe Text
     } deriving (Show, Generic)
+
+instance FromXML (Rs ListObjectVersions) where
+    fromXMLOptions = xmlOptions

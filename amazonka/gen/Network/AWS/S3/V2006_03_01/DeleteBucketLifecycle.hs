@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteBucketLifecycle request.
-deleteBucketLifecycle :: BucketName -- ^ 'dblrBucket'
+deleteBucketLifecycle :: BucketName -- ^ '_dblrBucket'
                       -> DeleteBucketLifecycle
 deleteBucketLifecycle p1 = DeleteBucketLifecycle
-    { dblrBucket = p1
+    { _dblrBucket = p1
     }
 
 data DeleteBucketLifecycle = DeleteBucketLifecycle
-    { dblrBucket :: BucketName
+    { _dblrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath DeleteBucketLifecycle where
     toPath DeleteBucketLifecycle{..} = mconcat
         [ "/"
-        , toBS dblrBucket
+        , toBS _dblrBucket
         ]
 
 instance ToQuery DeleteBucketLifecycle

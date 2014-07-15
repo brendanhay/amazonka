@@ -36,36 +36,36 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketCors request.
-putBucketCors :: BucketName -- ^ 'pbcrBucket'
-              -> CORSConfiguration -- ^ 'pbcrCORSConfiguration'
+putBucketCors :: BucketName -- ^ '_pbcrBucket'
+              -> CORSConfiguration -- ^ '_pbcrCORSConfiguration'
               -> PutBucketCors
 putBucketCors p1 p2 = PutBucketCors
-    { pbcrBucket = p1
-    , pbcrCORSConfiguration = p2
-    , pbcrContentMD5 = Nothing
+    { _pbcrBucket = p1
+    , _pbcrCORSConfiguration = p2
+    , _pbcrContentMD5 = Nothing
     }
 
 data PutBucketCors = PutBucketCors
-    { pbcrBucket :: BucketName
-    , pbcrCORSConfiguration :: CORSConfiguration
-    , pbcrContentMD5 :: Maybe Text
+    { _pbcrBucket :: BucketName
+    , _pbcrCORSConfiguration :: CORSConfiguration
+    , _pbcrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 instance ToPath PutBucketCors where
     toPath PutBucketCors{..} = mconcat
         [ "/"
-        , toBS pbcrBucket
+        , toBS _pbcrBucket
         ]
 
 instance ToQuery PutBucketCors
 
 instance ToHeaders PutBucketCors where
     toHeaders PutBucketCors{..} = concat
-        [ "Content-MD5" =: pbcrContentMD5
+        [ "Content-MD5" =: _pbcrContentMD5
         ]
 
 instance ToBody PutBucketCors where
-    toBody = undefined -- toBody . pbcrCORSConfiguration
+    toBody = undefined -- toBody . _pbcrCORSConfiguration
 
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3

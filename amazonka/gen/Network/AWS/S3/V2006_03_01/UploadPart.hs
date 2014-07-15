@@ -41,42 +41,42 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default UploadPart request.
-uploadPart :: BucketName -- ^ 'uprBucket'
-           -> Text -- ^ 'uprUploadId'
-           -> ObjectKey -- ^ 'uprKey'
-           -> Integer -- ^ 'uprPartNumber'
-           -> BodySource -- ^ 'uprBody'
+uploadPart :: BucketName -- ^ '_uprBucket'
+           -> Text -- ^ '_uprUploadId'
+           -> ObjectKey -- ^ '_uprKey'
+           -> Integer -- ^ '_uprPartNumber'
+           -> BodySource -- ^ '_uprBody'
            -> UploadPart
 uploadPart p1 p2 p3 p4 p5 = UploadPart
-    { uprBucket = p1
-    , uprUploadId = p2
-    , uprKey = p3
-    , uprPartNumber = p4
-    , uprBody = p5
-    , uprContentLength = Nothing
-    , uprContentMD5 = Nothing
-    , uprSSECustomerAlgorithm = Nothing
-    , uprSSECustomerKey = Nothing
-    , uprSSECustomerKeyMD5 = Nothing
+    { _uprBucket = p1
+    , _uprUploadId = p2
+    , _uprKey = p3
+    , _uprPartNumber = p4
+    , _uprBody = p5
+    , _uprContentLength = Nothing
+    , _uprContentMD5 = Nothing
+    , _uprSSECustomerAlgorithm = Nothing
+    , _uprSSECustomerKey = Nothing
+    , _uprSSECustomerKeyMD5 = Nothing
     }
 
 data UploadPart = UploadPart
-    { uprBucket :: BucketName
-    , uprUploadId :: Text
+    { _uprBucket :: BucketName
+    , _uprUploadId :: Text
       -- ^ Upload ID identifying the multipart upload whose part is being
       -- uploaded.
-    , uprKey :: ObjectKey
-    , uprPartNumber :: Integer
+    , _uprKey :: ObjectKey
+    , _uprPartNumber :: Integer
       -- ^ Part number of part being uploaded.
-    , uprBody :: BodySource
-    , uprContentLength :: Maybe Integer
+    , _uprBody :: BodySource
+    , _uprContentLength :: Maybe Integer
       -- ^ Size of the body in bytes. This parameter is useful when the size
       -- of the body cannot be determined automatically.
-    , uprContentMD5 :: Maybe Text
-    , uprSSECustomerAlgorithm :: Maybe Text
+    , _uprContentMD5 :: Maybe Text
+    , _uprSSECustomerAlgorithm :: Maybe Text
       -- ^ Specifies the algorithm to use to when encrypting the object
       -- (e.g., AES256).
-    , uprSSECustomerKey :: Maybe Text
+    , _uprSSECustomerKey :: Maybe Text
       -- ^ Specifies the customer-provided encryption key for Amazon S3 to
       -- use in encrypting data. This value is used to store the object
       -- and then it is discarded; Amazon does not store the encryption
@@ -85,7 +85,7 @@ data UploadPart = UploadPart
       -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm
       -- header. This must be the same encryption key specified in the
       -- initiate multipart upload request.
-    , uprSSECustomerKeyMD5 :: Maybe Text
+    , _uprSSECustomerKeyMD5 :: Maybe Text
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
@@ -94,24 +94,24 @@ data UploadPart = UploadPart
 instance ToPath UploadPart where
     toPath UploadPart{..} = mconcat
         [ "/"
-        , toBS uprBucket
+        , toBS _uprBucket
         , "/"
-        , toBS uprKey
+        , toBS _uprKey
         ]
 
 instance ToQuery UploadPart
 
 instance ToHeaders UploadPart where
     toHeaders UploadPart{..} = concat
-        [ "Content-Length" =: uprContentLength
-        , "Content-MD5" =: uprContentMD5
-        , "x-amz-server-side-encryption-customer-algorithm" =: uprSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key" =: uprSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5" =: uprSSECustomerKeyMD5
+        [ "Content-Length" =: _uprContentLength
+        , "Content-MD5" =: _uprContentMD5
+        , "x-amz-server-side-encryption-customer-algorithm" =: _uprSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key" =: _uprSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5" =: _uprSSECustomerKeyMD5
         ]
 
 instance ToBody UploadPart where
-    toBody = undefined -- toBody . uprBody
+    toBody = undefined -- toBody . _uprBody
 
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
@@ -125,18 +125,18 @@ instance AWSRequest UploadPart where
             <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs UploadPart = UploadPartResponse
-    { upoETag :: Maybe ETag
+    { _upoETag :: Maybe ETag
       -- ^ Entity tag for the uploaded object.
-    , upoSSECustomerAlgorithm :: Maybe Text
+    , _upoSSECustomerAlgorithm :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header confirming
       -- the encryption algorithm used.
-    , upoSSECustomerKeyMD5 :: Maybe Text
+    , _upoSSECustomerKeyMD5 :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header to provide
       -- round trip message integrity verification of the
       -- customer-provided encryption key.
-    , upoServerSideEncryption :: Maybe ServerSideEncryption
+    , _upoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Show, Generic)

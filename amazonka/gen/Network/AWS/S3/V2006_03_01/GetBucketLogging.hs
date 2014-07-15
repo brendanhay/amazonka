@@ -37,20 +37,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketLogging request.
-getBucketLogging :: BucketName -- ^ 'gblrBucket'
+getBucketLogging :: BucketName -- ^ '_gblrBucket'
                  -> GetBucketLogging
 getBucketLogging p1 = GetBucketLogging
-    { gblrBucket = p1
+    { _gblrBucket = p1
     }
 
 data GetBucketLogging = GetBucketLogging
-    { gblrBucket :: BucketName
+    { _gblrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketLogging where
     toPath GetBucketLogging{..} = mconcat
         [ "/"
-        , toBS gblrBucket
+        , toBS _gblrBucket
         ]
 
 instance ToQuery GetBucketLogging
@@ -63,7 +63,11 @@ instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketLogging = GetBucketLoggingResponse
-    { gbloLoggingEnabled :: Maybe LoggingEnabled
+    { _gbloLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketLogging) where
+    fromXMLOptions = xmlOptions

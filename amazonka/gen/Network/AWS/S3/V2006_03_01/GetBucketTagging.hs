@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketTagging request.
-getBucketTagging :: BucketName -- ^ 'gbtrBucket'
+getBucketTagging :: BucketName -- ^ '_gbtrBucket'
                  -> GetBucketTagging
 getBucketTagging p1 = GetBucketTagging
-    { gbtrBucket = p1
+    { _gbtrBucket = p1
     }
 
 data GetBucketTagging = GetBucketTagging
-    { gbtrBucket :: BucketName
+    { _gbtrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketTagging where
     toPath GetBucketTagging{..} = mconcat
         [ "/"
-        , toBS gbtrBucket
+        , toBS _gbtrBucket
         ]
 
 instance ToQuery GetBucketTagging
@@ -62,7 +62,11 @@ instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketTagging = GetBucketTaggingResponse
-    { gbtoTagSet :: [Tag]
+    { _gbtoTagSet :: [Tag]
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketTagging) where
+    fromXMLOptions = xmlOptions

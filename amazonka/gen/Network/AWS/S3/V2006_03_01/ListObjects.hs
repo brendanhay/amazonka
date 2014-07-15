@@ -41,22 +41,22 @@ type GetBucket = ListObjects
 type GetBucketResponse = Rs ListObjects
 
 -- | Default ListObjects request.
-listObjects :: BucketName -- ^ 'lorBucket'
+listObjects :: BucketName -- ^ '_lorBucket'
             -> ListObjects
 listObjects p1 = ListObjects
-    { lorBucket = p1
-    , lorDelimiter = Nothing
-    , lorEncodingType = Nothing
-    , lorMarker = Nothing
-    , lorMaxKeys = Nothing
-    , lorPrefix = Nothing
+    { _lorBucket = p1
+    , _lorDelimiter = Nothing
+    , _lorEncodingType = Nothing
+    , _lorMarker = Nothing
+    , _lorMaxKeys = Nothing
+    , _lorPrefix = Nothing
     }
 
 data ListObjects = ListObjects
-    { lorBucket :: BucketName
-    , lorDelimiter :: Maybe Text
+    { _lorBucket :: BucketName
+    , _lorDelimiter :: Maybe Text
       -- ^ A delimiter is a character you use to group keys.
-    , lorEncodingType :: Maybe EncodingType
+    , _lorEncodingType :: Maybe EncodingType
       -- ^ Requests Amazon S3 to encode the object keys in the response and
       -- specifies the encoding method to use. An object key may contain
       -- any Unicode character; however, XML 1.0 parser cannot parse some
@@ -64,19 +64,19 @@ data ListObjects = ListObjects
       -- For characters that are not supported in XML 1.0, you can add
       -- this parameter to request that Amazon S3 encode the keys in the
       -- response.
-    , lorMarker :: Maybe Text
+    , _lorMarker :: Maybe Text
       -- ^ Specifies the key to start with when listing objects in a bucket.
-    , lorMaxKeys :: Maybe Integer
+    , _lorMaxKeys :: Maybe Integer
       -- ^ Sets the maximum number of keys returned in the response. The
       -- response might contain fewer keys but will never contain more.
-    , lorPrefix :: Maybe Text
+    , _lorPrefix :: Maybe Text
       -- ^ Limits the response to keys that begin with the specified prefix.
     } deriving (Show, Generic)
 
 instance ToPath ListObjects where
     toPath ListObjects{..} = mconcat
         [ "/"
-        , toBS lorBucket
+        , toBS _lorBucket
         ]
 
 instance ToQuery ListObjects
@@ -89,26 +89,27 @@ instance AWSRequest ListObjects where
     type Sv ListObjects = S3
 
     request  = get
+    response = xmlResponse
 
 instance AWSPager ListObjects where
     next rq rs
-        | not (looIsTruncated rs) = Nothing
+        | not (_looIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { lorMarker = fmap (toText . oKey) . listToMaybe $ looContents rs
+            { _lorMarker = fmap (toText . _oKey) . listToMaybe $ _looContents rs
             }
 
 data instance Rs ListObjects = ListObjectsResponse
-    { looIsTruncated :: Bool
+    { _looIsTruncated :: Bool
       -- ^ A flag that indicates whether or not Amazon S3 returned all of
       -- the results that satisfied the search criteria.
-    , looName :: Maybe BucketName
-    , looCommonPrefixes :: [CommonPrefix]
-    , looEncodingType :: Maybe EncodingType
+    , _looName :: Maybe BucketName
+    , _looCommonPrefixes :: [CommonPrefix]
+    , _looEncodingType :: Maybe EncodingType
       -- ^ Encoding type used by Amazon S3 to encode object keys in the
       -- response.
-    , looMarker :: Maybe Text
-    , looMaxKeys :: Maybe Integer
-    , looNextMarker :: Maybe Text
+    , _looMarker :: Maybe Text
+    , _looMaxKeys :: Maybe Integer
+    , _looNextMarker :: Maybe Text
       -- ^ When response is truncated (the IsTruncated element value in the
       -- response is true), you can use the key name in this field as
       -- marker in the subsequent request to get next set of objects.
@@ -118,6 +119,9 @@ data instance Rs ListObjects = ListObjectsResponse
       -- truncated, you can use the value of the last Key in the response
       -- as the marker in the subsequent request to get the next set of
       -- object keys.
-    , looContents :: [Object]
-    , looPrefix :: Maybe Text
+    , _looContents :: [Object]
+    , _looPrefix :: Maybe Text
     } deriving (Show, Generic)
+
+instance FromXML (Rs ListObjects) where
+    fromXMLOptions = xmlOptions

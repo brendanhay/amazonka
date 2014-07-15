@@ -530,7 +530,7 @@ instance FromXML Type where
     fromXMLOptions = xmlOptions
 
 newtype BucketLoggingStatus = BucketLoggingStatus
-    { blsLoggingEnabled :: LoggingEnabled
+    { _blsLoggingEnabled :: LoggingEnabled
     } deriving (Show, Generic)
 
 instance FromXML BucketLoggingStatus where
@@ -538,7 +538,7 @@ instance FromXML BucketLoggingStatus where
     fromXMLOptions = xmlOptions
 
 newtype CORSConfiguration = CORSConfiguration
-    { corscCORSRules :: [CORSRule]
+    { _corscCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
 instance FromXML CORSConfiguration where
@@ -546,7 +546,7 @@ instance FromXML CORSConfiguration where
     fromXMLOptions = xmlOptions
 
 newtype CommonPrefix = CommonPrefix
-    { cpPrefix :: Text
+    { _cpPrefix :: Text
     } deriving (Show, Generic)
 
 instance FromXML CommonPrefix where
@@ -554,7 +554,7 @@ instance FromXML CommonPrefix where
     fromXMLOptions = xmlOptions
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
-    { cmuParts :: [CompletedPart]
+    { _cmuParts :: [CompletedPart]
     } deriving (Show, Generic)
 
 instance FromXML CompletedMultipartUpload where
@@ -562,7 +562,7 @@ instance FromXML CompletedMultipartUpload where
     fromXMLOptions = xmlOptions
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
-    { cbcLocationConstraint :: BucketLocationConstraint
+    { _cbcLocationConstraint :: BucketLocationConstraint
       -- ^ Specifies the region where the bucket will be created.
     } deriving (Show, Generic)
 
@@ -571,7 +571,7 @@ instance FromXML CreateBucketConfiguration where
     fromXMLOptions = xmlOptions
 
 newtype ErrorDocument = ErrorDocument
-    { edKey :: ObjectKey
+    { _edKey :: ObjectKey
       -- ^ The object key name to use when a 4XX class error occurs.
     } deriving (Show, Generic)
 
@@ -580,7 +580,7 @@ instance FromXML ErrorDocument where
     fromXMLOptions = xmlOptions
 
 newtype IndexDocument = IndexDocument
-    { idSuffix :: Text
+    { _idSuffix :: Text
       -- ^ A suffix that is appended to a request that is for a directory on
       -- the website endpoint (e.g. if the suffix is index.html and you
       -- make a request to samplebucket/images/ the data that is returned
@@ -593,7 +593,7 @@ instance FromXML IndexDocument where
     fromXMLOptions = xmlOptions
 
 newtype LifecycleConfiguration = LifecycleConfiguration
-    { lcRules :: [Rule]
+    { _lcRules :: [Rule]
     } deriving (Show, Generic)
 
 instance FromXML LifecycleConfiguration where
@@ -606,7 +606,7 @@ instance FromXML LifecycleConfiguration where
 -- suspended) to request that Amazon S3 delete noncurrent object versions at a
 -- specific period in the object's lifetime.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
-    { nveNoncurrentDays :: Integer
+    { _nveNoncurrentDays :: Integer
       -- ^ Specifies the number of days an object is noncurrent before
       -- Amazon S3 can perform the associated action. For information
       -- about the noncurrent days calculations, see How Amazon S3
@@ -619,7 +619,7 @@ instance FromXML NoncurrentVersionExpiration where
     fromXMLOptions = xmlOptions
 
 newtype NotificationConfiguration = NotificationConfiguration
-    { ncTopicConfiguration :: TopicConfiguration
+    { _ncTopicConfiguration :: TopicConfiguration
     } deriving (Show, Generic)
 
 instance FromXML NotificationConfiguration where
@@ -627,7 +627,7 @@ instance FromXML NotificationConfiguration where
     fromXMLOptions = xmlOptions
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
-    { rpcPayer :: Payer
+    { _rpcPayer :: Payer
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Show, Generic)
 
@@ -636,7 +636,7 @@ instance FromXML RequestPaymentConfiguration where
     fromXMLOptions = xmlOptions
 
 newtype RestoreRequest = RestoreRequest
-    { rrDays :: Integer
+    { _rrDays :: Integer
       -- ^ Lifetime of the active copy in days.
     } deriving (Show, Generic)
 
@@ -645,7 +645,7 @@ instance FromXML RestoreRequest where
     fromXMLOptions = xmlOptions
 
 newtype Tagging = Tagging
-    { tTagSet :: [Tag]
+    { _tTagSet :: [Tag]
     } deriving (Show, Generic)
 
 instance FromXML Tagging where
@@ -653,9 +653,9 @@ instance FromXML Tagging where
     fromXMLOptions = xmlOptions
 
 data AccessControlPolicy = AccessControlPolicy
-    { acpGrants :: [Grant]
+    { _acpGrants :: [Grant]
       -- ^ A list of grants.
-    , acpOwner :: Owner
+    , _acpOwner :: Owner
     } deriving (Show, Generic)
 
 instance FromXML AccessControlPolicy where
@@ -663,9 +663,9 @@ instance FromXML AccessControlPolicy where
     fromXMLOptions = xmlOptions
 
 data Bucket = Bucket
-    { bName :: BucketName
+    { _bName :: BucketName
       -- ^ The name of the bucket.
-    , bCreationDate :: RFC822
+    , _bCreationDate :: RFC822
       -- ^ Date the bucket was created.
     } deriving (Show, Generic)
 
@@ -674,19 +674,19 @@ instance FromXML Bucket where
     fromXMLOptions = xmlOptions
 
 data CORSRule = CORSRule
-    { corsrAllowedMethods :: [Text]
+    { _corsrAllowedMethods :: [Text]
       -- ^ Identifies HTTP methods that the domain/origin specified in the
       -- rule is allowed to execute.
-    , corsrMaxAgeSeconds :: Integer
+    , _corsrMaxAgeSeconds :: Integer
       -- ^ The time in seconds that your browser is to cache the preflight
       -- response for the specified resource.
-    , corsrAllowedHeaders :: [Text]
+    , _corsrAllowedHeaders :: [Text]
       -- ^ Specifies which headers are allowed in a pre-flight OPTIONS
       -- request.
-    , corsrAllowedOrigins :: [Text]
+    , _corsrAllowedOrigins :: [Text]
       -- ^ One or more origins you want customers to be able to access the
       -- bucket from.
-    , corsrExposeHeaders :: [Text]
+    , _corsrExposeHeaders :: [Text]
       -- ^ One or more headers in the response that you want customers to be
       -- able to access from their applications (for example, from a
       -- JavaScript XMLHttpRequest object).
@@ -697,9 +697,9 @@ instance FromXML CORSRule where
     fromXMLOptions = xmlOptions
 
 data CompletedPart = CompletedPart
-    { cpETag :: ETag
+    { _cpETag :: ETag
       -- ^ Entity tag returned when the part was uploaded.
-    , cpPartNumber :: Integer
+    , _cpPartNumber :: Integer
       -- ^ Part number that identifies the part.
     } deriving (Show, Generic)
 
@@ -713,7 +713,7 @@ instance FromXML CompletedPart where
 -- error 4xx, redirect request to another host where you might process the
 -- error.
 data Condition = Condition
-    { cKeyPrefixEquals :: Text
+    { _cKeyPrefixEquals :: Text
       -- ^ The object key name prefix when the redirect is applied. For
       -- example, to redirect requests for ExamplePage.html, the key
       -- prefix will be ExamplePage.html. To redirect request for all
@@ -722,7 +722,7 @@ data Condition = Condition
       -- parent element Condition is specified and sibling
       -- HttpErrorCodeReturnedEquals is not specified. If both conditions
       -- are specified, both must be true for the redirect to be applied.
-    , cHttpErrorCodeReturnedEquals :: Text
+    , _cHttpErrorCodeReturnedEquals :: Text
       -- ^ The HTTP error code when the redirect is applied. In the event of
       -- an error, if the error code equals this value, then the specified
       -- redirect is applied. Required when parent element Condition is
@@ -736,8 +736,8 @@ instance FromXML Condition where
     fromXMLOptions = xmlOptions
 
 data CopyObjectResult = CopyObjectResult
-    { corETag :: ETag
-    , corLastModified :: RFC822
+    { _corETag :: ETag
+    , _corLastModified :: RFC822
     } deriving (Show, Generic)
 
 instance FromXML CopyObjectResult where
@@ -745,9 +745,9 @@ instance FromXML CopyObjectResult where
     fromXMLOptions = xmlOptions
 
 data CopyPartResult = CopyPartResult
-    { cprETag :: ETag
+    { _cprETag :: ETag
       -- ^ Entity tag of the object.
-    , cprLastModified :: RFC822
+    , _cprLastModified :: RFC822
       -- ^ Date and time at which the object was uploaded.
     } deriving (Show, Generic)
 
@@ -756,10 +756,10 @@ instance FromXML CopyPartResult where
     fromXMLOptions = xmlOptions
 
 data Delete = Delete
-    { dQuiet :: Bool
+    { _dQuiet :: Bool
       -- ^ Element to enable quiet mode for the request. When you add this
       -- element, you must set its value to true.
-    , dObjects :: [ObjectIdentifier]
+    , _dObjects :: [ObjectIdentifier]
     } deriving (Show, Generic)
 
 instance FromXML Delete where
@@ -767,15 +767,15 @@ instance FromXML Delete where
     fromXMLOptions = xmlOptions
 
 data DeleteMarkerEntry = DeleteMarkerEntry
-    { dmeVersionId :: ObjectVersionId
+    { _dmeVersionId :: ObjectVersionId
       -- ^ Version ID of an object.
-    , dmeIsLatest :: Bool
+    , _dmeIsLatest :: Bool
       -- ^ Specifies whether the object is (true) or is not (false) the
       -- latest version of an object.
-    , dmeOwner :: Owner
-    , dmeKey :: ObjectKey
+    , _dmeOwner :: Owner
+    , _dmeKey :: ObjectKey
       -- ^ The object key.
-    , dmeLastModified :: RFC822
+    , _dmeLastModified :: RFC822
       -- ^ Date and time the object was last modified.
     } deriving (Show, Generic)
 
@@ -784,10 +784,10 @@ instance FromXML DeleteMarkerEntry where
     fromXMLOptions = xmlOptions
 
 data DeletedObject = DeletedObject
-    { doVersionId :: ObjectVersionId
-    , doDeleteMarker :: Bool
-    , doDeleteMarkerVersionId :: Text
-    , doKey :: ObjectKey
+    { _doVersionId :: ObjectVersionId
+    , _doDeleteMarker :: Bool
+    , _doDeleteMarkerVersionId :: Text
+    , _doKey :: ObjectKey
     } deriving (Show, Generic)
 
 instance FromXML DeletedObject where
@@ -795,10 +795,10 @@ instance FromXML DeletedObject where
     fromXMLOptions = xmlOptions
 
 data Error = Error
-    { eVersionId :: ObjectVersionId
-    , eKey :: ObjectKey
-    , eCode :: Text
-    , eMessage :: Text
+    { _eVersionId :: ObjectVersionId
+    , _eKey :: ObjectKey
+    , _eCode :: Text
+    , _eMessage :: Text
     } deriving (Show, Generic)
 
 instance FromXML Error where
@@ -806,9 +806,9 @@ instance FromXML Error where
     fromXMLOptions = xmlOptions
 
 data Grant = Grant
-    { gPermission :: Permission
+    { _gPermission :: Permission
       -- ^ Specifies the permission given to the grantee.
-    , gGrantee :: Grantee
+    , _gGrantee :: Grantee
     } deriving (Show, Generic)
 
 instance FromXML Grant where
@@ -816,15 +816,15 @@ instance FromXML Grant where
     fromXMLOptions = xmlOptions
 
 data Grantee = Grantee
-    { gURI :: Text
+    { _gURI :: Text
       -- ^ URI of the grantee group.
-    , gEmailAddress :: Text
+    , _gEmailAddress :: Text
       -- ^ Email address of the grantee.
-    , gDisplayName :: Text
+    , _gDisplayName :: Text
       -- ^ Screen name of the grantee.
-    , gID :: Text
+    , _gID :: Text
       -- ^ The canonical user ID of the grantee.
-    , gType :: Type
+    , _gType :: Type
       -- ^ Type of grantee.
     } deriving (Show, Generic)
 
@@ -834,9 +834,9 @@ instance FromXML Grantee where
 
 -- | Identifies who initiated the multipart upload.
 data Initiator = Initiator
-    { iDisplayName :: Text
+    { _iDisplayName :: Text
       -- ^ Name of the Principal.
-    , iID :: Text
+    , _iID :: Text
       -- ^ If the principal is an AWS account, it provides the Canonical
       -- User ID. If the principal is an IAM User, it provides a user ARN
       -- value.
@@ -847,10 +847,10 @@ instance FromXML Initiator where
     fromXMLOptions = xmlOptions
 
 data LifecycleExpiration = LifecycleExpiration
-    { leDays :: Integer
+    { _leDays :: Integer
       -- ^ Indicates the lifetime, in days, of the objects that are subject
       -- to the rule. The value must be a non-zero positive integer.
-    , leDate :: RFC822
+    , _leDate :: RFC822
       -- ^ Indicates at what date the object is to be moved or deleted.
       -- Should be in GMT ISO 8601 Format.
     } deriving (Show, Generic)
@@ -860,7 +860,7 @@ instance FromXML LifecycleExpiration where
     fromXMLOptions = xmlOptions
 
 data LoggingEnabled = LoggingEnabled
-    { leTargetBucket :: Text
+    { _leTargetBucket :: Text
       -- ^ Specifies the bucket where you want Amazon S3 to store server
       -- access logs. You can have your logs delivered to any bucket that
       -- you own, including the same bucket that is being logged. You can
@@ -868,8 +868,8 @@ data LoggingEnabled = LoggingEnabled
       -- target bucket. In this case you should choose a different
       -- TargetPrefix for each source bucket so that the delivered log
       -- files can be distinguished by key.
-    , leTargetGrants :: [TargetGrant]
-    , leTargetPrefix :: Text
+    , _leTargetGrants :: [TargetGrant]
+    , _leTargetPrefix :: Text
       -- ^ This element lets you specify a prefix for the keys that the log
       -- files will be stored under.
     } deriving (Show, Generic)
@@ -879,16 +879,16 @@ instance FromXML LoggingEnabled where
     fromXMLOptions = xmlOptions
 
 data MultipartUpload = MultipartUpload
-    { muInitiated :: RFC822
+    { _muInitiated :: RFC822
       -- ^ Date and time at which the multipart upload was initiated.
-    , muInitiator :: Initiator
+    , _muInitiator :: Initiator
       -- ^ Identifies who initiated the multipart upload.
-    , muOwner :: Owner
-    , muKey :: ObjectKey
+    , _muOwner :: Owner
+    , _muKey :: ObjectKey
       -- ^ Key of the object for which the multipart upload was initiated.
-    , muStorageClass :: StorageClass
+    , _muStorageClass :: StorageClass
       -- ^ The class of storage used to store the object.
-    , muUploadId :: Text
+    , _muUploadId :: Text
       -- ^ Upload ID that identifies the multipart upload.
     } deriving (Show, Generic)
 
@@ -902,9 +902,9 @@ instance FromXML MultipartUpload where
 -- request that Amazon S3 transition noncurrent object versions to the GLACIER
 -- storage class at a specific period in the object's lifetime.
 data NoncurrentVersionTransition = NoncurrentVersionTransition
-    { nvtStorageClass :: TransitionStorageClass
+    { _nvtStorageClass :: TransitionStorageClass
       -- ^ The class of storage used to store the object.
-    , nvtNoncurrentDays :: Integer
+    , _nvtNoncurrentDays :: Integer
       -- ^ Specifies the number of days an object is noncurrent before
       -- Amazon S3 can perform the associated action. For information
       -- about the noncurrent days calculations, see How Amazon S3
@@ -917,13 +917,13 @@ instance FromXML NoncurrentVersionTransition where
     fromXMLOptions = xmlOptions
 
 data Object = Object
-    { oETag :: ETag
-    , oSize :: Integer
-    , oOwner :: Owner
-    , oKey :: ObjectKey
-    , oStorageClass :: ObjectStorageClass
+    { _oETag :: ETag
+    , _oSize :: Integer
+    , _oOwner :: Owner
+    , _oKey :: ObjectKey
+    , _oStorageClass :: ObjectStorageClass
       -- ^ The class of storage used to store the object.
-    , oLastModified :: RFC822
+    , _oLastModified :: RFC822
     } deriving (Show, Generic)
 
 instance FromXML Object where
@@ -931,9 +931,9 @@ instance FromXML Object where
     fromXMLOptions = xmlOptions
 
 data ObjectIdentifier = ObjectIdentifier
-    { oiVersionId :: ObjectVersionId
+    { _oiVersionId :: ObjectVersionId
       -- ^ VersionId for the specific version of the object to delete.
-    , oiKey :: ObjectKey
+    , _oiKey :: ObjectKey
       -- ^ Key name of the object to delete.
     } deriving (Show, Generic)
 
@@ -942,20 +942,20 @@ instance FromXML ObjectIdentifier where
     fromXMLOptions = xmlOptions
 
 data ObjectVersion = ObjectVersion
-    { ovETag :: ETag
-    , ovVersionId :: ObjectVersionId
+    { _ovETag :: ETag
+    , _ovVersionId :: ObjectVersionId
       -- ^ Version ID of an object.
-    , ovSize :: Integer
+    , _ovSize :: Integer
       -- ^ Size in bytes of the object.
-    , ovIsLatest :: Bool
+    , _ovIsLatest :: Bool
       -- ^ Specifies whether the object is (true) or is not (false) the
       -- latest version of an object.
-    , ovOwner :: Owner
-    , ovKey :: ObjectKey
+    , _ovOwner :: Owner
+    , _ovKey :: ObjectKey
       -- ^ The object key.
-    , ovStorageClass :: ObjectVersionStorageClass
+    , _ovStorageClass :: ObjectVersionStorageClass
       -- ^ The class of storage used to store the object.
-    , ovLastModified :: RFC822
+    , _ovLastModified :: RFC822
       -- ^ Date and time the object was last modified.
     } deriving (Show, Generic)
 
@@ -964,8 +964,8 @@ instance FromXML ObjectVersion where
     fromXMLOptions = xmlOptions
 
 data Owner = Owner
-    { oDisplayName :: Text
-    , oID :: Text
+    { _oDisplayName :: Text
+    , _oID :: Text
     } deriving (Show, Generic)
 
 instance FromXML Owner where
@@ -973,13 +973,13 @@ instance FromXML Owner where
     fromXMLOptions = xmlOptions
 
 data Part = Part
-    { pETag :: ETag
+    { _pETag :: ETag
       -- ^ Entity tag returned when the part was uploaded.
-    , pSize :: Integer
+    , _pSize :: Integer
       -- ^ Size of the uploaded part data.
-    , pPartNumber :: Integer
+    , _pPartNumber :: Integer
       -- ^ Part number identifying the part.
-    , pLastModified :: RFC822
+    , _pLastModified :: RFC822
       -- ^ Date and time at which the part was uploaded.
     } deriving (Show, Generic)
 
@@ -991,20 +991,20 @@ instance FromXML Part where
 -- host, to another page, or with another protocol. In the event of an error,
 -- you can can specify a different error code to return.
 data Redirect = Redirect
-    { rHostName :: Text
+    { _rHostName :: Text
       -- ^ The host name to use in the redirect request.
-    , rProtocol :: Protocol
+    , _rProtocol :: Protocol
       -- ^ Protocol to use (http, https) when redirecting requests. The
       -- default is the protocol that is used in the original request.
-    , rHttpRedirectCode :: Text
+    , _rHttpRedirectCode :: Text
       -- ^ The HTTP redirect code to use on the response. Not required if
       -- one of the siblings is present.
-    , rReplaceKeyWith :: Text
+    , _rReplaceKeyWith :: Text
       -- ^ The specific object key to use in the redirect request. For
       -- example, redirect request to error.html. Not required if one of
       -- the sibling is present. Can be present only if
       -- ReplaceKeyPrefixWith is not provided.
-    , rReplaceKeyPrefixWith :: Text
+    , _rReplaceKeyPrefixWith :: Text
       -- ^ The object key prefix to use in the redirect request. For
       -- example, to redirect requests for all pages with prefix docs/
       -- (objects in the docs/ folder) to documents/, you can set a
@@ -1019,9 +1019,9 @@ instance FromXML Redirect where
     fromXMLOptions = xmlOptions
 
 data RedirectAllRequestsTo = RedirectAllRequestsTo
-    { rartHostName :: Text
+    { _rartHostName :: Text
       -- ^ Name of the host where requests will be redirected.
-    , rartProtocol :: Protocol
+    , _rartProtocol :: Protocol
       -- ^ Protocol to use (http, https) when redirecting requests. The
       -- default is the protocol that is used in the original request.
     } deriving (Show, Generic)
@@ -1031,12 +1031,12 @@ instance FromXML RedirectAllRequestsTo where
     fromXMLOptions = xmlOptions
 
 data RoutingRule = RoutingRule
-    { rrRedirect :: Redirect
+    { _rrRedirect :: Redirect
       -- ^ Container for redirect information. You can redirect requests to
       -- another host, to another page, or with another protocol. In the
       -- event of an error, you can can specify a different error code to
       -- return.
-    , rrCondition :: Condition
+    , _rrCondition :: Condition
       -- ^ A container for describing a condition that must be met for the
       -- specified redirect to apply. For example, 1. If request is for
       -- pages in the /docs folder, redirect to the /documents folder. 2.
@@ -1049,28 +1049,28 @@ instance FromXML RoutingRule where
     fromXMLOptions = xmlOptions
 
 data Rule = Rule
-    { rStatus :: Switch ExpirationStatus
+    { _rStatus :: Switch ExpirationStatus
       -- ^ If 'Enabled', the rule is currently being applied. If 'Disabled',
       -- the rule is not currently being applied.
-    , rNoncurrentVersionExpiration :: NoncurrentVersionExpiration
+    , _rNoncurrentVersionExpiration :: NoncurrentVersionExpiration
       -- ^ Specifies when noncurrent object versions expire. Upon
       -- expiration, Amazon S3 permanently deletes the noncurrent object
       -- versions. You set this lifecycle configuration action on a bucket
       -- that has versioning enabled (or suspended) to request that Amazon
       -- S3 delete noncurrent object versions at a specific period in the
       -- object's lifetime.
-    , rTransition :: Transition
-    , rPrefix :: Text
+    , _rTransition :: Transition
+    , _rPrefix :: Text
       -- ^ Prefix identifying one or more objects to which the rule applies.
-    , rExpiration :: LifecycleExpiration
-    , rNoncurrentVersionTransition :: NoncurrentVersionTransition
+    , _rExpiration :: LifecycleExpiration
+    , _rNoncurrentVersionTransition :: NoncurrentVersionTransition
       -- ^ Container for the transition rule that describes when noncurrent
       -- objects transition to the GLACIER storage class. If your bucket
       -- is versioning-enabled (or versioning is suspended), you can set
       -- this action to request that Amazon S3 transition noncurrent
       -- object versions to the GLACIER storage class at a specific period
       -- in the object's lifetime.
-    , rID :: Text
+    , _rID :: Text
       -- ^ Unique identifier for the rule. The value cannot be longer than
       -- 255 characters.
     } deriving (Show, Generic)
@@ -1080,9 +1080,9 @@ instance FromXML Rule where
     fromXMLOptions = xmlOptions
 
 data Tag = Tag
-    { tValue :: Text
+    { _tValue :: Text
       -- ^ Value of the tag.
-    , tKey :: ObjectKey
+    , _tKey :: ObjectKey
       -- ^ Name of the tag.
     } deriving (Show, Generic)
 
@@ -1091,9 +1091,9 @@ instance FromXML Tag where
     fromXMLOptions = xmlOptions
 
 data TargetGrant = TargetGrant
-    { tgPermission :: BucketLogsPermission
+    { _tgPermission :: BucketLogsPermission
       -- ^ Logging permissions assigned to the Grantee for the bucket.
-    , tgGrantee :: Grantee
+    , _tgGrantee :: Grantee
     } deriving (Show, Generic)
 
 instance FromXML TargetGrant where
@@ -1101,9 +1101,9 @@ instance FromXML TargetGrant where
     fromXMLOptions = xmlOptions
 
 data TopicConfiguration = TopicConfiguration
-    { tcEvent :: Event
+    { _tcEvent :: Event
       -- ^ Bucket event for which to send notifications.
-    , tcTopic :: Text
+    , _tcTopic :: Text
       -- ^ Amazon SNS topic to which Amazon S3 will publish a message to
       -- report the specified events for the bucket.
     } deriving (Show, Generic)
@@ -1113,13 +1113,13 @@ instance FromXML TopicConfiguration where
     fromXMLOptions = xmlOptions
 
 data Transition = Transition
-    { tDays :: Integer
+    { _tDays :: Integer
       -- ^ Indicates the lifetime, in days, of the objects that are subject
       -- to the rule. The value must be a non-zero positive integer.
-    , tDate :: RFC822
+    , _tDate :: RFC822
       -- ^ Indicates at what date the object is to be moved or deleted.
       -- Should be in GMT ISO 8601 Format.
-    , tStorageClass :: TransitionStorageClass
+    , _tStorageClass :: TransitionStorageClass
       -- ^ The class of storage used to store the object.
     } deriving (Show, Generic)
 
@@ -1128,9 +1128,9 @@ instance FromXML Transition where
     fromXMLOptions = xmlOptions
 
 data VersioningConfiguration = VersioningConfiguration
-    { vcStatus :: Switch BucketVersioningStatus
+    { _vcStatus :: Switch BucketVersioningStatus
       -- ^ The versioning state of the bucket.
-    , vcMfaDelete :: Switch MFADelete
+    , _vcMfaDelete :: Switch MFADelete
       -- ^ Specifies whether MFA delete is enabled in the bucket versioning
       -- configuration. This element is only returned if the bucket has
       -- been configured with MFA delete. If the bucket has never been so
@@ -1142,10 +1142,10 @@ instance FromXML VersioningConfiguration where
     fromXMLOptions = xmlOptions
 
 data WebsiteConfiguration = WebsiteConfiguration
-    { wcRedirectAllRequestsTo :: RedirectAllRequestsTo
-    , wcErrorDocument :: ErrorDocument
-    , wcIndexDocument :: IndexDocument
-    , wcRoutingRules :: [RoutingRule]
+    { _wcRedirectAllRequestsTo :: RedirectAllRequestsTo
+    , _wcErrorDocument :: ErrorDocument
+    , _wcIndexDocument :: IndexDocument
+    , _wcRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
 
 instance FromXML WebsiteConfiguration where

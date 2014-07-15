@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketAcl request.
-getBucketAcl :: BucketName -- ^ 'gbarBucket'
+getBucketAcl :: BucketName -- ^ '_gbarBucket'
              -> GetBucketAcl
 getBucketAcl p1 = GetBucketAcl
-    { gbarBucket = p1
+    { _gbarBucket = p1
     }
 
 data GetBucketAcl = GetBucketAcl
-    { gbarBucket :: BucketName
+    { _gbarBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketAcl where
     toPath GetBucketAcl{..} = mconcat
         [ "/"
-        , toBS gbarBucket
+        , toBS _gbarBucket
         ]
 
 instance ToQuery GetBucketAcl
@@ -62,9 +62,13 @@ instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketAcl = GetBucketAclResponse
-    { gbaoGrants :: [Grant]
+    { _gbaoGrants :: [Grant]
       -- ^ A list of grants.
-    , gbaoOwner :: Maybe Owner
+    , _gbaoOwner :: Maybe Owner
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketAcl) where
+    fromXMLOptions = xmlOptions

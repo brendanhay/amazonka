@@ -1,14 +1,15 @@
 {% include "_include/license.ede" with version_namespace %}
 
 module {{ version_namespace }}
-    ( module Network.AWS.Types
- {% for module in modules %}
---    , module {{ module.value }}
+{% for module in modules %}
+  {% if module.first %}
+    ( module {{ module.value }}
+  {% else %}
+    , module {{ module.value }}
+  {% endif %}
 {% endfor %}
     ) where
 
-import Network.AWS.Types
--- Commented until record field disambiguation is implemented
 {% for module in modules %}
--- import {{ module.value }}
+import {{ module.value }}
 {% endfor %}

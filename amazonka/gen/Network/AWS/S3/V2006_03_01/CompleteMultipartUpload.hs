@@ -36,31 +36,31 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default CompleteMultipartUpload request.
-completeMultipartUpload :: BucketName -- ^ 'cmurBucket'
-                        -> Text -- ^ 'cmurUploadId'
-                        -> ObjectKey -- ^ 'cmurKey'
-                        -> CompletedMultipartUpload -- ^ 'cmurMultipartUpload'
+completeMultipartUpload :: BucketName -- ^ '_cmurBucket'
+                        -> Text -- ^ '_cmurUploadId'
+                        -> ObjectKey -- ^ '_cmurKey'
+                        -> CompletedMultipartUpload -- ^ '_cmurMultipartUpload'
                         -> CompleteMultipartUpload
 completeMultipartUpload p1 p2 p3 p4 = CompleteMultipartUpload
-    { cmurBucket = p1
-    , cmurUploadId = p2
-    , cmurKey = p3
-    , cmurMultipartUpload = p4
+    { _cmurBucket = p1
+    , _cmurUploadId = p2
+    , _cmurKey = p3
+    , _cmurMultipartUpload = p4
     }
 
 data CompleteMultipartUpload = CompleteMultipartUpload
-    { cmurBucket :: BucketName
-    , cmurUploadId :: Text
-    , cmurKey :: ObjectKey
-    , cmurMultipartUpload :: CompletedMultipartUpload
+    { _cmurBucket :: BucketName
+    , _cmurUploadId :: Text
+    , _cmurKey :: ObjectKey
+    , _cmurMultipartUpload :: CompletedMultipartUpload
     } deriving (Show, Generic)
 
 instance ToPath CompleteMultipartUpload where
     toPath CompleteMultipartUpload{..} = mconcat
         [ "/"
-        , toBS cmurBucket
+        , toBS _cmurBucket
         , "/"
-        , toBS cmurKey
+        , toBS _cmurKey
         ]
 
 instance ToQuery CompleteMultipartUpload
@@ -68,13 +68,13 @@ instance ToQuery CompleteMultipartUpload
 instance ToHeaders CompleteMultipartUpload
 
 instance ToBody CompleteMultipartUpload where
-    toBody = undefined -- toBody . cmurMultipartUpload
+    toBody = undefined -- toBody . _cmurMultipartUpload
 
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
 
     request  = post
-    response = xmlResponse $ \hs xml ->
+    response = cursorResponse $ \hs xml ->
         pure CompleteMultipartUploadResponse
             <*> xml %|? "BucketName"
             <*> xml %|? "ETag"
@@ -85,18 +85,18 @@ instance AWSRequest CompleteMultipartUpload where
             <*> hs ~:? "x-amz-server-side-encryption"
 
 data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
-    { cmuoBucket :: Maybe BucketName
-    , cmuoETag :: Maybe ETag
+    { _cmuoBucket :: Maybe BucketName
+    , _cmuoETag :: Maybe ETag
       -- ^ Entity tag of the object.
-    , cmuoLocation :: Maybe Text
-    , cmuoKey :: Maybe ObjectKey
-    , cmuoExpiration :: Maybe RFC822
+    , _cmuoLocation :: Maybe Text
+    , _cmuoKey :: Maybe ObjectKey
+    , _cmuoExpiration :: Maybe RFC822
       -- ^ If the object expiration is configured, this will contain the
       -- expiration date (expiry-date) and rule ID (rule-id). The value of
       -- rule-id is URL encoded.
-    , cmuoVersionId :: Maybe ObjectVersionId
+    , _cmuoVersionId :: Maybe ObjectVersionId
       -- ^ Version of the object.
-    , cmuoServerSideEncryption :: Maybe ServerSideEncryption
+    , _cmuoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
     } deriving (Show, Generic)

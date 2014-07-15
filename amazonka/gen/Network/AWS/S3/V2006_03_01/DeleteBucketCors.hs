@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteBucketCors request.
-deleteBucketCors :: BucketName -- ^ 'dbcrBucket'
+deleteBucketCors :: BucketName -- ^ '_dbcrBucket'
                  -> DeleteBucketCors
 deleteBucketCors p1 = DeleteBucketCors
-    { dbcrBucket = p1
+    { _dbcrBucket = p1
     }
 
 data DeleteBucketCors = DeleteBucketCors
-    { dbcrBucket :: BucketName
+    { _dbcrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath DeleteBucketCors where
     toPath DeleteBucketCors{..} = mconcat
         [ "/"
-        , toBS dbcrBucket
+        , toBS _dbcrBucket
         ]
 
 instance ToQuery DeleteBucketCors

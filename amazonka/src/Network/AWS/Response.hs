@@ -52,13 +52,19 @@ headerResponse :: (MonadResource m, ServiceError e)
 headerResponse f = bodyResponse $ \hs bdy ->
     (bdy $$+- return ()) >> return (f hs)
 
-xmlResponse :: (MonadResource m, ServiceError e)
-            => (ResponseHeaders -> Cursor -> Either String a)
-            -> Either ClientException (ClientResponse m)
-            -> m (Either e a)
-xmlResponse f = bodyResponse $ \hs bdy -> do
+cursorResponse :: (MonadResource m, ServiceError e)
+               => (ResponseHeaders -> Cursor -> Either String a)
+               -> Either ClientException (ClientResponse m)
+               -> m (Either e a)
+cursorResponse f = bodyResponse $ \hs bdy -> do
     lbs <- bdy $$+- Conduit.sinkLbs
     return $ f hs (undefined lbs)
+
+xmlResponse :: (MonadResource m, ServiceError e, FromXML a)
+            => Either ClientException (ClientResponse m)
+            -> m (Either e a)
+xmlResponse = bodyResponse $ \hs bdy ->
+    decodeXML <$> (bdy $$+- Conduit.sinkLbs)
 
 bodyResponse :: (MonadResource m, ServiceError e)
              => (ResponseHeaders -> a -> m (Either String b))

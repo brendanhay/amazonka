@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteBucketTagging request.
-deleteBucketTagging :: BucketName -- ^ 'dbtrBucket'
+deleteBucketTagging :: BucketName -- ^ '_dbtrBucket'
                     -> DeleteBucketTagging
 deleteBucketTagging p1 = DeleteBucketTagging
-    { dbtrBucket = p1
+    { _dbtrBucket = p1
     }
 
 data DeleteBucketTagging = DeleteBucketTagging
-    { dbtrBucket :: BucketName
+    { _dbtrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath DeleteBucketTagging where
     toPath DeleteBucketTagging{..} = mconcat
         [ "/"
-        , toBS dbtrBucket
+        , toBS _dbtrBucket
         ]
 
 instance ToQuery DeleteBucketTagging

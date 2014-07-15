@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteBucketPolicy request.
-deleteBucketPolicy :: BucketName -- ^ 'dbprBucket'
+deleteBucketPolicy :: BucketName -- ^ '_dbprBucket'
                    -> DeleteBucketPolicy
 deleteBucketPolicy p1 = DeleteBucketPolicy
-    { dbprBucket = p1
+    { _dbprBucket = p1
     }
 
 data DeleteBucketPolicy = DeleteBucketPolicy
-    { dbprBucket :: BucketName
+    { _dbprBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath DeleteBucketPolicy where
     toPath DeleteBucketPolicy{..} = mconcat
         [ "/"
-        , toBS dbprBucket
+        , toBS _dbprBucket
         ]
 
 instance ToQuery DeleteBucketPolicy

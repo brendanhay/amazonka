@@ -38,40 +38,40 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteObject request.
-deleteObject :: BucketName -- ^ 'dorBucket'
-             -> ObjectKey -- ^ 'dorKey'
+deleteObject :: BucketName -- ^ '_dorBucket'
+             -> ObjectKey -- ^ '_dorKey'
              -> DeleteObject
 deleteObject p1 p2 = DeleteObject
-    { dorBucket = p1
-    , dorKey = p2
-    , dorMFA = Nothing
-    , dorVersionId = Nothing
+    { _dorBucket = p1
+    , _dorKey = p2
+    , _dorMFA = Nothing
+    , _dorVersionId = Nothing
     }
 
 data DeleteObject = DeleteObject
-    { dorBucket :: BucketName
-    , dorKey :: ObjectKey
-    , dorMFA :: Maybe Text
+    { _dorBucket :: BucketName
+    , _dorKey :: ObjectKey
+    , _dorMFA :: Maybe Text
       -- ^ The concatenation of the authentication device's serial number, a
       -- space, and the value that is displayed on your authentication
       -- device.
-    , dorVersionId :: Maybe ObjectVersionId
+    , _dorVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
     } deriving (Show, Generic)
 
 instance ToPath DeleteObject where
     toPath DeleteObject{..} = mconcat
         [ "/"
-        , toBS dorBucket
+        , toBS _dorBucket
         , "/"
-        , toBS dorKey
+        , toBS _dorKey
         ]
 
 instance ToQuery DeleteObject
 
 instance ToHeaders DeleteObject where
     toHeaders DeleteObject{..} = concat
-        [ "x-amz-mfa" =: dorMFA
+        [ "x-amz-mfa" =: _dorMFA
         ]
 
 instance ToBody DeleteObject
@@ -86,10 +86,10 @@ instance AWSRequest DeleteObject where
             <*> hs ~:? "x-amz-version-id"
 
 data instance Rs DeleteObject = DeleteObjectResponse
-    { dooDeleteMarker :: Maybe Bool
+    { _dooDeleteMarker :: Maybe Bool
       -- ^ Specifies whether the versioned object that was permanently
       -- deleted was (true) or was not (false) a delete marker.
-    , dooVersionId :: Maybe ObjectVersionId
+    , _dooVersionId :: Maybe ObjectVersionId
       -- ^ Returns the version ID of the delete marker created as a result
       -- of the DELETE operation.
     } deriving (Show, Generic)

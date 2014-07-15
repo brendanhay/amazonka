@@ -36,20 +36,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketNotification request.
-getBucketNotification :: BucketName -- ^ 'gbnrBucket'
+getBucketNotification :: BucketName -- ^ '_gbnrBucket'
                       -> GetBucketNotification
 getBucketNotification p1 = GetBucketNotification
-    { gbnrBucket = p1
+    { _gbnrBucket = p1
     }
 
 data GetBucketNotification = GetBucketNotification
-    { gbnrBucket :: BucketName
+    { _gbnrBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketNotification where
     toPath GetBucketNotification{..} = mconcat
         [ "/"
-        , toBS gbnrBucket
+        , toBS _gbnrBucket
         ]
 
 instance ToQuery GetBucketNotification
@@ -62,7 +62,11 @@ instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
 
     request  = get
+    response = xmlResponse
 
 data instance Rs GetBucketNotification = GetBucketNotificationResponse
-    { gbnoTopicConfiguration :: Maybe TopicConfiguration
+    { _gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Show, Generic)
+
+instance FromXML (Rs GetBucketNotification) where
+    fromXMLOptions = xmlOptions

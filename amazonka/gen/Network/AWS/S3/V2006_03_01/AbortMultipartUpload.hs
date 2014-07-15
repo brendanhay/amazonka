@@ -38,28 +38,28 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default AbortMultipartUpload request.
-abortMultipartUpload :: BucketName -- ^ 'amurBucket'
-                     -> Text -- ^ 'amurUploadId'
-                     -> ObjectKey -- ^ 'amurKey'
+abortMultipartUpload :: BucketName -- ^ '_amurBucket'
+                     -> Text -- ^ '_amurUploadId'
+                     -> ObjectKey -- ^ '_amurKey'
                      -> AbortMultipartUpload
 abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
-    { amurBucket = p1
-    , amurUploadId = p2
-    , amurKey = p3
+    { _amurBucket = p1
+    , _amurUploadId = p2
+    , _amurKey = p3
     }
 
 data AbortMultipartUpload = AbortMultipartUpload
-    { amurBucket :: BucketName
-    , amurUploadId :: Text
-    , amurKey :: ObjectKey
+    { _amurBucket :: BucketName
+    , _amurUploadId :: Text
+    , _amurKey :: ObjectKey
     } deriving (Show, Generic)
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat
         [ "/"
-        , toBS amurBucket
+        , toBS _amurBucket
         , "/"
-        , toBS amurKey
+        , toBS _amurKey
         ]
 
 instance ToQuery AbortMultipartUpload

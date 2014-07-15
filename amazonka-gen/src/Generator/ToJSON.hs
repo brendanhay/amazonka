@@ -69,10 +69,10 @@ instance ToJSON Cabal where
             , "versions" .= map _svcVersionNamespace (sort ss)
             ]
 
-        versioned Service{..} = object
+        versioned s@Service{..} = object
             [ "name"    .= _svcName
             , "version" .= _svcVersion
-            , "modules" .= (_svcTypesNamespace : sort (map _opNamespace _svcOperations))
+            , "modules" .= serviceNamespaces s
             ]
 
 instance ToJSON Service where
@@ -81,7 +81,7 @@ instance ToJSON Service where
         Object x = toField (recase Camel Under . drop 4) s
         Object y = object
             [ "types"   .= serviceTypes s
-            , "modules" .= sort (map _opNamespace $ _svcOperations s)
+            , "modules" .= serviceNamespaces s
             ]
 
 instance ToJSON Error where

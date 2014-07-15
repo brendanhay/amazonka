@@ -102,8 +102,6 @@ class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
              => Either ClientException (ClientResponse m)
              -> m (Either (Er (Sv a)) (Rs a))
 
-    response = undefined
-
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
 

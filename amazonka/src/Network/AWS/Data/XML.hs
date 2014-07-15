@@ -42,6 +42,10 @@ import           Text.XML.Cursor
 import           Control.Error
 import           Network.AWS.Data.Text
 
+-- FIXME: Way to deal with unknowable XML root elements
+-- Some of the xmlnamespaces for root elements (S3: ie. ListVersionsResult)
+-- are not known from the json model, can these just be stripped by default?
+
 infixl 6 %|, %|?
 
 (%|) :: FromXML a => Cursor -> Text -> Either String a

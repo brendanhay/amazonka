@@ -61,9 +61,11 @@ instance ToBody DeleteBucketWebsite
 
 instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
+    type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
 
-    request  = delete
-    response = headerResponse . const $ Right DeleteBucketWebsiteResponse
+    request = delete
 
-data instance Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
+    response _ = headerResponse . const $ Right DeleteBucketWebsiteResponse
+
+data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
     deriving (Eq, Show, Generic)

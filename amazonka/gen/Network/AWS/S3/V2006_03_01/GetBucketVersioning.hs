@@ -61,11 +61,13 @@ instance ToBody GetBucketVersioning
 
 instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
+    type Rs GetBucketVersioning = GetBucketVersioningResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketVersioning = GetBucketVersioningResponse
+    response _ = xmlResponse
+
+data GetBucketVersioningResponse = GetBucketVersioningResponse
     { _gbvoStatus :: Maybe (Switch BucketVersioningStatus)
       -- ^ The versioning state of the bucket.
     , _gbvoMfaDelete :: Maybe (Switch MFADeleteStatus)
@@ -75,5 +77,5 @@ data instance Rs GetBucketVersioning = GetBucketVersioningResponse
       -- configured, this element is not returned.
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketVersioning) where
+instance FromXML GetBucketVersioningResponse where
     fromXMLOptions = xmlOptions

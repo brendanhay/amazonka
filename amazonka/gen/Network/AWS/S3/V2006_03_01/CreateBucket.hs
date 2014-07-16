@@ -37,7 +37,6 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 type PutBucket = CreateBucket
-type PutBucketResponse = Rs CreateBucket
 
 -- | Default CreateBucket request.
 createBucket :: BucketName -- ^ '_cbrBucket'
@@ -96,12 +95,14 @@ instance ToBody CreateBucket where
 
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
+    type Rs CreateBucket = CreateBucketResponse
 
-    request  = put
-    response = headerResponse $ \hs ->
+    request = put
+
+    response _ = headerResponse $ \hs ->
         pure CreateBucketResponse
             <*> hs ~:? "Location"
 
-data instance Rs CreateBucket = CreateBucketResponse
+data CreateBucketResponse = CreateBucketResponse
     { _cboLocation :: Maybe Text
     } deriving (Show, Generic)

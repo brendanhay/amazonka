@@ -169,9 +169,11 @@ instance ToBody PutObject where
 
 instance AWSRequest PutObject where
     type Sv PutObject = S3
+    type Rs PutObject = PutObjectResponse
 
-    request  = put
-    response = headerResponse $ \hs ->
+    request = put
+
+    response _ = headerResponse $ \hs ->
         pure PutObjectResponse
             <*> hs ~:? "ETag"
             <*> hs ~:? "x-amz-expiration"
@@ -180,7 +182,7 @@ instance AWSRequest PutObject where
             <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
             <*> hs ~:? "x-amz-server-side-encryption"
 
-data instance Rs PutObject = PutObjectResponse
+data PutObjectResponse = PutObjectResponse
     { _pooETag :: Maybe ETag
       -- ^ Entity tag for the uploaded object.
     , _pooExpiration :: Maybe RFC822

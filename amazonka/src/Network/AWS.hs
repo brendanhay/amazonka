@@ -39,7 +39,7 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a, AWSSigner (Sg (Sv a)))
      -> a       -- ^ Request to send.
      -> Manager -- ^ HTTP Manager.
      -> m (Either (Er (Sv a)) (Rs a))
-send a r rq m = (go `catch` er) >>= response
+send a r rq m = (go `catch` er) >>= response rq
   where
     go = liftIO getCurrentTime
         >>= sign a r rq

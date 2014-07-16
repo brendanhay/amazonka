@@ -61,13 +61,15 @@ instance ToBody GetBucketLifecycle
 
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
+    type Rs GetBucketLifecycle = GetBucketLifecycleResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketLifecycle = GetBucketLifecycleResponse
+    response _ = xmlResponse
+
+data GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gbloRules :: [Rule]
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketLifecycle) where
+instance FromXML GetBucketLifecycleResponse where
     fromXMLOptions = xmlOptions

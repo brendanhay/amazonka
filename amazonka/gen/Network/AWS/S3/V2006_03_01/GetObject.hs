@@ -136,9 +136,11 @@ instance ToBody GetObject
 
 instance AWSRequest GetObject where
     type Sv GetObject = S3
+    type Rs GetObject = GetObjectResponse
 
-    request  = get
-    response = bodyResponse $ \hs bdy ->
+    request = get
+
+    response _ = bodyResponse $ \hs bdy ->
         return $! pure GetObjectResponse
             <*> pure (Body bdy)
             <*> (hs `filterHeaders` "x-amz-meta-")
@@ -162,7 +164,7 @@ instance AWSRequest GetObject where
             <*> hs ~:? "x-amz-server-side-encryption"
             <*> hs ~:? "x-amz-website-redirect-location"
 
-data instance Rs GetObject = GetObjectResponse
+data GetObjectResponse = GetObjectResponse
     { _gooBody :: BodySource
       -- ^ Object data.
     , _gooMetadata :: HashMap Text Text

@@ -61,9 +61,11 @@ instance ToBody DeleteBucketCors
 
 instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
+    type Rs DeleteBucketCors = DeleteBucketCorsResponse
 
-    request  = delete
-    response = headerResponse . const $ Right DeleteBucketCorsResponse
+    request = delete
 
-data instance Rs DeleteBucketCors = DeleteBucketCorsResponse
+    response _ = headerResponse . const $ Right DeleteBucketCorsResponse
+
+data DeleteBucketCorsResponse = DeleteBucketCorsResponse
     deriving (Eq, Show, Generic)

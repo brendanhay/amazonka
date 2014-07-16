@@ -73,9 +73,11 @@ instance ToBody CompleteMultipartUpload where
 
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
+    type Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
 
-    request  = post
-    response = cursorResponse $ \hs xml ->
+    request = post
+
+    response _ = cursorResponse $ \hs xml ->
         pure CompleteMultipartUploadResponse
             <*> xml %|? "BucketName"
             <*> xml %|? "ETag"
@@ -85,7 +87,7 @@ instance AWSRequest CompleteMultipartUpload where
             <*> hs ~:? "x-amz-version-id"
             <*> hs ~:? "x-amz-server-side-encryption"
 
-data instance Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
+data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     { _cmuoBucket :: Maybe BucketName
     , _cmuoETag :: Maybe ETag
       -- ^ Entity tag of the object.

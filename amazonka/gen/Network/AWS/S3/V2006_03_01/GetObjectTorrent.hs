@@ -66,12 +66,14 @@ instance ToBody GetObjectTorrent
 
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
+    type Rs GetObjectTorrent = GetObjectTorrentResponse
 
-    request  = get
-    response = bodyResponse $ \hs bdy ->
+    request = get
+
+    response _ = bodyResponse $ \hs bdy ->
         return $! pure GetObjectTorrentResponse
             <*> pure (Body bdy)
 
-data instance Rs GetObjectTorrent = GetObjectTorrentResponse
+data GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotoBody :: BodySource
     } deriving (Show, Generic)

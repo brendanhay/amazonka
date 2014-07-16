@@ -39,7 +39,6 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 type GetBucket = ListObjects
-type GetBucketResponse = Rs ListObjects
 
 -- | Default ListObjects request.
 listObjects :: BucketName -- ^ '_lorBucket'
@@ -88,9 +87,11 @@ instance ToBody ListObjects
 
 instance AWSRequest ListObjects where
     type Sv ListObjects = S3
+    type Rs ListObjects = ListObjectsResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
+
+    response _ = xmlResponse
 
 instance AWSPager ListObjects where
     next rq rs
@@ -99,7 +100,7 @@ instance AWSPager ListObjects where
             { _lorMarker = fmap (toText . _oKey) . listToMaybe $ _looContents rs
             }
 
-data instance Rs ListObjects = ListObjectsResponse
+data ListObjectsResponse = ListObjectsResponse
     { _looIsTruncated :: Bool
       -- ^ A flag that indicates whether or not Amazon S3 returned all of
       -- the results that satisfied the search criteria.
@@ -124,5 +125,5 @@ data instance Rs ListObjects = ListObjectsResponse
     , _looPrefix :: Maybe Text
     } deriving (Show, Generic)
 
-instance FromXML (Rs ListObjects) where
+instance FromXML ListObjectsResponse where
     fromXMLOptions = xmlOptions

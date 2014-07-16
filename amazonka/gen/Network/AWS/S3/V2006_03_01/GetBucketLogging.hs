@@ -62,13 +62,15 @@ instance ToBody GetBucketLogging
 
 instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
+    type Rs GetBucketLogging = GetBucketLoggingResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketLogging = GetBucketLoggingResponse
+    response _ = xmlResponse
+
+data GetBucketLoggingResponse = GetBucketLoggingResponse
     { _gbloLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketLogging) where
+instance FromXML GetBucketLoggingResponse where
     fromXMLOptions = xmlOptions

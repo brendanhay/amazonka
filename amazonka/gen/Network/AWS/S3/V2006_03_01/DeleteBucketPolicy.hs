@@ -61,9 +61,11 @@ instance ToBody DeleteBucketPolicy
 
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
+    type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
 
-    request  = delete
-    response = headerResponse . const $ Right DeleteBucketPolicyResponse
+    request = delete
 
-data instance Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
+    response _ = headerResponse . const $ Right DeleteBucketPolicyResponse
+
+data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
     deriving (Eq, Show, Generic)

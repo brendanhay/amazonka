@@ -71,9 +71,11 @@ instance ToBody AbortMultipartUpload
 
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
+    type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
-    request  = delete
-    response = headerResponse . const $ Right AbortMultipartUploadResponse
+    request = delete
 
-data instance Rs AbortMultipartUpload = AbortMultipartUploadResponse
+    response _ = headerResponse . const $ Right AbortMultipartUploadResponse
+
+data AbortMultipartUploadResponse = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)

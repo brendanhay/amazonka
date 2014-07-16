@@ -77,9 +77,11 @@ instance ToBody PutBucketVersioning where
 
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
+    type Rs PutBucketVersioning = PutBucketVersioningResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketVersioningResponse
+    request = put
 
-data instance Rs PutBucketVersioning = PutBucketVersioningResponse
+    response _ = headerResponse . const $ Right PutBucketVersioningResponse
+
+data PutBucketVersioningResponse = PutBucketVersioningResponse
     deriving (Eq, Show, Generic)

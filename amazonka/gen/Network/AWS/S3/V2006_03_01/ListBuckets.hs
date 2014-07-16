@@ -38,7 +38,6 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 type GetService = ListBuckets
-type GetServiceResponse = Rs ListBuckets
 
 -- | Default ListBuckets request.
 listBuckets :: ListBuckets
@@ -58,14 +57,16 @@ instance ToBody ListBuckets
 
 instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
+    type Rs ListBuckets = ListBucketsResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs ListBuckets = ListBucketsResponse
+    response _ = xmlResponse
+
+data ListBucketsResponse = ListBucketsResponse
     { _lboBuckets :: [Bucket]
     , _lboOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-instance FromXML (Rs ListBuckets) where
+instance FromXML ListBucketsResponse where
     fromXMLOptions = xmlOptions

@@ -73,9 +73,11 @@ instance ToBody PutBucketRequestPayment where
 
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
+    type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketRequestPaymentResponse
+    request = put
 
-data instance Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
+    response _ = headerResponse . const $ Right PutBucketRequestPaymentResponse
+
+data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
     deriving (Eq, Show, Generic)

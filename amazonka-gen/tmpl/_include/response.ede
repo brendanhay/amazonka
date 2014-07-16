@@ -1,17 +1,17 @@
 {% if scope.response.fields | listLength == 0 %}
-    response = headerResponse . const $ Right {{ scope.response.name }}
+    response _ = headerResponse . const $ Right {{ scope.response.name }}
 {% else %}
   {% case scope.response.type %}
   {% when "xml" %}
-    response = xmlResponse
+    response _ = xmlResponse
   {% when "headers" %}
-    response = headerResponse $ \hs ->
+    response _ = headerResponse $ \hs ->
         pure {{ scope.response.name }}
   {% when "xml_mix" %}
-    response = cursorResponse $ \hs xml ->
+    response _ = cursorResponse $ \hs xml ->
         pure {{ scope.response.name }}
   {% when "body" %}
-    response = bodyResponse $ \hs bdy ->
+    response _ = bodyResponse $ \hs bdy ->
         return $! pure {{ scope.response.name }}
   {% endcase %}
   {% if scope.response.type /= "xml" %}

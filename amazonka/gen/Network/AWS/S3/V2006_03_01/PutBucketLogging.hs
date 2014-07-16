@@ -72,9 +72,11 @@ instance ToBody PutBucketLogging where
 
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
+    type Rs PutBucketLogging = PutBucketLoggingResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketLoggingResponse
+    request = put
 
-data instance Rs PutBucketLogging = PutBucketLoggingResponse
+    response _ = headerResponse . const $ Right PutBucketLoggingResponse
+
+data PutBucketLoggingResponse = PutBucketLoggingResponse
     deriving (Eq, Show, Generic)

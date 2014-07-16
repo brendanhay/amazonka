@@ -79,14 +79,16 @@ instance ToBody DeleteObject
 
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
+    type Rs DeleteObject = DeleteObjectResponse
 
-    request  = delete
-    response = headerResponse $ \hs ->
+    request = delete
+
+    response _ = headerResponse $ \hs ->
         pure DeleteObjectResponse
             <*> hs ~:? "x-amz-delete-marker"
             <*> hs ~:? "x-amz-version-id"
 
-data instance Rs DeleteObject = DeleteObjectResponse
+data DeleteObjectResponse = DeleteObjectResponse
     { _dooDeleteMarker :: Maybe Bool
       -- ^ Specifies whether the versioned object that was permanently
       -- deleted was (true) or was not (false) a delete marker.

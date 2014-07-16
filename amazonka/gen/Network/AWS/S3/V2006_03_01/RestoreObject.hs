@@ -37,7 +37,6 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 type PostObjectRestore = RestoreObject
-type PostObjectRestoreResponse = Rs RestoreObject
 
 -- | Default RestoreObject request.
 restoreObject :: BucketName -- ^ '_rorBucket'
@@ -75,9 +74,11 @@ instance ToBody RestoreObject where
 
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
+    type Rs RestoreObject = RestoreObjectResponse
 
-    request  = post
-    response = headerResponse . const $ Right RestoreObjectResponse
+    request = post
 
-data instance Rs RestoreObject = RestoreObjectResponse
+    response _ = headerResponse . const $ Right RestoreObjectResponse
+
+data RestoreObjectResponse = RestoreObjectResponse
     deriving (Eq, Show, Generic)

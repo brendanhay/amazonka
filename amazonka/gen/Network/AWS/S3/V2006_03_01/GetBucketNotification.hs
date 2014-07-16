@@ -61,13 +61,15 @@ instance ToBody GetBucketNotification
 
 instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
+    type Rs GetBucketNotification = GetBucketNotificationResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketNotification = GetBucketNotificationResponse
+    response _ = xmlResponse
+
+data GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketNotification) where
+instance FromXML GetBucketNotificationResponse where
     fromXMLOptions = xmlOptions

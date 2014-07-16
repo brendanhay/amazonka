@@ -70,9 +70,11 @@ instance ToBody PutBucketCors where
 
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
+    type Rs PutBucketCors = PutBucketCorsResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketCorsResponse
+    request = put
 
-data instance Rs PutBucketCors = PutBucketCorsResponse
+    response _ = headerResponse . const $ Right PutBucketCorsResponse
+
+data PutBucketCorsResponse = PutBucketCorsResponse
     deriving (Eq, Show, Generic)

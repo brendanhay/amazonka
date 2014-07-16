@@ -70,9 +70,11 @@ instance ToBody PutBucketTagging where
 
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
+    type Rs PutBucketTagging = PutBucketTaggingResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketTaggingResponse
+    request = put
 
-data instance Rs PutBucketTagging = PutBucketTaggingResponse
+    response _ = headerResponse . const $ Right PutBucketTaggingResponse
+
+data PutBucketTaggingResponse = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)

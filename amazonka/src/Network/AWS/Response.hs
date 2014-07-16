@@ -14,31 +14,10 @@ module Network.AWS.Response where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Exception            (Exception)
-import           Control.Lens                 hiding (Action)
-import           Control.Monad
-import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
-import           Data.Aeson                   hiding (Error)
-import qualified Data.Attoparsec.Text         as AText
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Base16       as Base16
-import qualified Data.ByteString.Lazy         as LBS
-import qualified Data.ByteString.Lazy.Char8   as LBS8
-import           Data.Char
-import           Data.Conduit
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
-import           Data.Default
-import           Data.IORef
-import           Data.Int
 import           Data.Monoid
-import           Data.String
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
-import qualified Data.Text.Encoding           as Text
-import           Data.Time
-import           Data.Typeable
 import           Network.AWS.Data
 import           Network.AWS.Types
 import           Network.HTTP.Client
@@ -63,7 +42,7 @@ cursorResponse f = bodyResponse $ \hs bdy -> do
 xmlResponse :: (MonadResource m, ServiceError e, FromXML a)
             => Either ClientException (ClientResponse m)
             -> m (Either e a)
-xmlResponse = bodyResponse $ \hs bdy ->
+xmlResponse = bodyResponse $ \_ bdy ->
     decodeXML <$> (bdy $$+- Conduit.sinkLbs)
 
 bodyResponse :: (MonadResource m, ServiceError e)

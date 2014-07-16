@@ -102,9 +102,11 @@ instance ToBody PutObjectAcl where
 
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
+    type Rs PutObjectAcl = PutObjectAclResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutObjectAclResponse
+    request = put
 
-data instance Rs PutObjectAcl = PutObjectAclResponse
+    response _ = headerResponse . const $ Right PutObjectAclResponse
+
+data PutObjectAclResponse = PutObjectAclResponse
     deriving (Eq, Show, Generic)

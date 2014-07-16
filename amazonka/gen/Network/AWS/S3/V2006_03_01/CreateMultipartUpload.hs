@@ -42,7 +42,6 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 type InitiateMultipartUpload = CreateMultipartUpload
-type InitiateMultipartUploadResponse = Rs CreateMultipartUpload
 
 -- | Default CreateMultipartUpload request.
 createMultipartUpload :: BucketName -- ^ '_cmurBucket'
@@ -165,9 +164,11 @@ instance ToBody CreateMultipartUpload
 
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
+    type Rs CreateMultipartUpload = CreateMultipartUploadResponse
 
-    request  = post
-    response = cursorResponse $ \hs xml ->
+    request = post
+
+    response _ = cursorResponse $ \hs xml ->
         pure CreateMultipartUploadResponse
             <*> xml %|? "BucketName"
             <*> xml %|? "MultipartUploadId"
@@ -176,7 +177,7 @@ instance AWSRequest CreateMultipartUpload where
             <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
             <*> hs ~:? "x-amz-server-side-encryption"
 
-data instance Rs CreateMultipartUpload = CreateMultipartUploadResponse
+data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     { _cmuoBucket :: Maybe BucketName
       -- ^ Name of the bucket to which the multipart upload was initiated.
     , _cmuoUploadId :: Maybe Text

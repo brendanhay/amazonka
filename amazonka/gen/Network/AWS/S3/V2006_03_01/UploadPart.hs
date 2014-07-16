@@ -116,16 +116,18 @@ instance ToBody UploadPart where
 
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
+    type Rs UploadPart = UploadPartResponse
 
-    request  = put
-    response = headerResponse $ \hs ->
+    request = put
+
+    response _ = headerResponse $ \hs ->
         pure UploadPartResponse
             <*> hs ~:? "ETag"
             <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
             <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
             <*> hs ~:? "x-amz-server-side-encryption"
 
-data instance Rs UploadPart = UploadPartResponse
+data UploadPartResponse = UploadPartResponse
     { _upoETag :: Maybe ETag
       -- ^ Entity tag for the uploaded object.
     , _upoSSECustomerAlgorithm :: Maybe Text

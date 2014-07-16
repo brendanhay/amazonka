@@ -152,9 +152,11 @@ instance ToBody UploadPartCopy
 
 instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
+    type Rs UploadPartCopy = UploadPartCopyResponse
 
-    request  = put
-    response = cursorResponse $ \hs xml ->
+    request = put
+
+    response _ = cursorResponse $ \hs xml ->
         pure UploadPartCopyResponse
             <*> xml %|? "CopyPartResult"
             <*> hs ~:? "x-amz-copy-source-version-id"
@@ -162,7 +164,7 @@ instance AWSRequest UploadPartCopy where
             <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
             <*> hs ~:? "x-amz-server-side-encryption"
 
-data instance Rs UploadPartCopy = UploadPartCopyResponse
+data UploadPartCopyResponse = UploadPartCopyResponse
     { _upcoCopyPartResult :: Maybe CopyPartResult
     , _upcoCopySourceVersionId :: Maybe Text
       -- ^ The version of the source object that was copied, if you have

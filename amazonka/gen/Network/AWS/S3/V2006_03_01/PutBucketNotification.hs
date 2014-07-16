@@ -70,9 +70,11 @@ instance ToBody PutBucketNotification where
 
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
+    type Rs PutBucketNotification = PutBucketNotificationResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketNotificationResponse
+    request = put
 
-data instance Rs PutBucketNotification = PutBucketNotificationResponse
+    response _ = headerResponse . const $ Right PutBucketNotificationResponse
+
+data PutBucketNotificationResponse = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)

@@ -69,15 +69,17 @@ instance ToBody GetObjectAcl
 
 instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
+    type Rs GetObjectAcl = GetObjectAclResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetObjectAcl = GetObjectAclResponse
+    response _ = xmlResponse
+
+data GetObjectAclResponse = GetObjectAclResponse
     { _goaoGrants :: [Grant]
       -- ^ A list of grants.
     , _goaoOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetObjectAcl) where
+instance FromXML GetObjectAclResponse where
     fromXMLOptions = xmlOptions

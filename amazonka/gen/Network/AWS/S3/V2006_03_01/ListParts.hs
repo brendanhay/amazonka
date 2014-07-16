@@ -78,9 +78,11 @@ instance ToBody ListParts
 
 instance AWSRequest ListParts where
     type Sv ListParts = S3
+    type Rs ListParts = ListPartsResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
+
+    response _ = xmlResponse
 
 instance AWSPager ListParts where
     next rq rs
@@ -89,7 +91,7 @@ instance AWSPager ListParts where
             { _lprPartNumberMarker = _lpoNextPartNumberMarker rs
             }
 
-data instance Rs ListParts = ListPartsResponse
+data ListPartsResponse = ListPartsResponse
     { _lpoIsTruncated :: Bool
       -- ^ Indicates whether the returned list of parts is truncated.
     , _lpoBucket :: Maybe BucketName
@@ -115,5 +117,5 @@ data instance Rs ListParts = ListPartsResponse
       -- ^ The class of storage used to store the object.
     } deriving (Show, Generic)
 
-instance FromXML (Rs ListParts) where
+instance FromXML ListPartsResponse where
     fromXMLOptions = xmlOptions

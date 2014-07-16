@@ -61,9 +61,11 @@ instance ToBody DeleteBucketLifecycle
 
 instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
+    type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
 
-    request  = delete
-    response = headerResponse . const $ Right DeleteBucketLifecycleResponse
+    request = delete
 
-data instance Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
+    response _ = headerResponse . const $ Right DeleteBucketLifecycleResponse
+
+data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
     deriving (Eq, Show, Generic)

@@ -61,13 +61,15 @@ instance ToBody GetBucketLocation
 
 instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
+    type Rs GetBucketLocation = GetBucketLocationResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketLocation = GetBucketLocationResponse
+    response _ = xmlResponse
+
+data GetBucketLocationResponse = GetBucketLocationResponse
     { _gbloLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketLocation) where
+instance FromXML GetBucketLocationResponse where
     fromXMLOptions = xmlOptions

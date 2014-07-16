@@ -70,9 +70,11 @@ instance ToBody PutBucketWebsite where
 
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
+    type Rs PutBucketWebsite = PutBucketWebsiteResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketWebsiteResponse
+    request = put
 
-data instance Rs PutBucketWebsite = PutBucketWebsiteResponse
+    response _ = headerResponse . const $ Right PutBucketWebsiteResponse
+
+data PutBucketWebsiteResponse = PutBucketWebsiteResponse
     deriving (Eq, Show, Generic)

@@ -71,9 +71,11 @@ instance ToBody PutBucketLifecycle where
 
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
+    type Rs PutBucketLifecycle = PutBucketLifecycleResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketLifecycleResponse
+    request = put
 
-data instance Rs PutBucketLifecycle = PutBucketLifecycleResponse
+    response _ = headerResponse . const $ Right PutBucketLifecycleResponse
+
+data PutBucketLifecycleResponse = PutBucketLifecycleResponse
     deriving (Eq, Show, Generic)

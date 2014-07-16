@@ -120,9 +120,11 @@ instance ToBody HeadObject
 
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3
+    type Rs HeadObject = HeadObjectResponse
 
-    request  = head
-    response = headerResponse $ \hs ->
+    request = head
+
+    response _ = headerResponse $ \hs ->
         pure HeadObjectResponse
             <*> (hs `filterHeaders` "x-amz-meta-")
             <*> hs ~:? "accept-ranges"
@@ -145,7 +147,7 @@ instance AWSRequest HeadObject where
             <*> hs ~:? "x-amz-server-side-encryption"
             <*> hs ~:? "x-amz-website-redirect-location"
 
-data instance Rs HeadObject = HeadObjectResponse
+data HeadObjectResponse = HeadObjectResponse
     { _hooMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
     , _hooAcceptRanges :: Maybe Text

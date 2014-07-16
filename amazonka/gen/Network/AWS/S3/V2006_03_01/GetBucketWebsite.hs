@@ -61,16 +61,18 @@ instance ToBody GetBucketWebsite
 
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
+    type Rs GetBucketWebsite = GetBucketWebsiteResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketWebsite = GetBucketWebsiteResponse
+    response _ = xmlResponse
+
+data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwoErrorDocument :: Maybe ErrorDocument
     , _gbwoIndexDocument :: Maybe IndexDocument
     , _gbwoRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _gbwoRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketWebsite) where
+instance FromXML GetBucketWebsiteResponse where
     fromXMLOptions = xmlOptions

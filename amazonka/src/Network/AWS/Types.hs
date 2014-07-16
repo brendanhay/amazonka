@@ -87,7 +87,6 @@ instance ServiceError Error where
     clientError  = ClientError
 
 data family Er a :: *
-data family Rs a :: *
 
 class AWSService a where
     type Sg a :: *
@@ -96,10 +95,12 @@ class AWSService a where
 
 class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
     type Sv a :: *
+    type Rs a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
-             => Either ClientException (ClientResponse m)
+             => a
+             -> Either ClientException (ClientResponse m)
              -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where

@@ -61,9 +61,11 @@ instance ToBody DeleteBucketTagging
 
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
+    type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
 
-    request  = delete
-    response = headerResponse . const $ Right DeleteBucketTaggingResponse
+    request = delete
 
-data instance Rs DeleteBucketTagging = DeleteBucketTaggingResponse
+    response _ = headerResponse . const $ Right DeleteBucketTaggingResponse
+
+data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
     deriving (Eq, Show, Generic)

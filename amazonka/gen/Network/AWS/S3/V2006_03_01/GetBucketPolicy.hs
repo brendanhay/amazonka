@@ -61,14 +61,16 @@ instance ToBody GetBucketPolicy
 
 instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
+    type Rs GetBucketPolicy = GetBucketPolicyResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketPolicy = GetBucketPolicyResponse
+    response _ = xmlResponse
+
+data GetBucketPolicyResponse = GetBucketPolicyResponse
     { _gbpoPolicy :: Maybe Text
       -- ^ The bucket policy as a JSON document.
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketPolicy) where
+instance FromXML GetBucketPolicyResponse where
     fromXMLOptions = xmlOptions

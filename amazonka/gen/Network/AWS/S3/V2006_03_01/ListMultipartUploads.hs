@@ -91,9 +91,11 @@ instance ToBody ListMultipartUploads
 
 instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
+    type Rs ListMultipartUploads = ListMultipartUploadsResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
+
+    response _ = xmlResponse
 
 instance AWSPager ListMultipartUploads where
     next rq rs
@@ -103,7 +105,7 @@ instance AWSPager ListMultipartUploads where
             , _lmurUploadIdMarker = _lmuoNextUploadIdMarker rs
             }
 
-data instance Rs ListMultipartUploads = ListMultipartUploadsResponse
+data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     { _lmuoIsTruncated :: Bool
       -- ^ Indicates whether the returned list of multipart uploads is
       -- truncated. A value of true indicates that the list was truncated.
@@ -137,5 +139,5 @@ data instance Rs ListMultipartUploads = ListMultipartUploadsResponse
       -- ^ Upload ID after which listing began.
     } deriving (Show, Generic)
 
-instance FromXML (Rs ListMultipartUploads) where
+instance FromXML ListMultipartUploadsResponse where
     fromXMLOptions = xmlOptions

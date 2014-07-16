@@ -62,9 +62,11 @@ instance ToBody HeadBucket
 
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
+    type Rs HeadBucket = HeadBucketResponse
 
-    request  = head
-    response = headerResponse . const $ Right HeadBucketResponse
+    request = head
 
-data instance Rs HeadBucket = HeadBucketResponse
+    response _ = headerResponse . const $ Right HeadBucketResponse
+
+data HeadBucketResponse = HeadBucketResponse
     deriving (Eq, Show, Generic)

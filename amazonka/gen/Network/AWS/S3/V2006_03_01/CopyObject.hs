@@ -37,7 +37,6 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 type PutObjectCopy = CopyObject
-type PutObjectCopyResponse = Rs CopyObject
 
 -- | Default CopyObject request.
 copyObject :: Text -- ^ '_corCopySource'
@@ -209,9 +208,11 @@ instance ToBody CopyObject
 
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3
+    type Rs CopyObject = CopyObjectResponse
 
-    request  = put
-    response = cursorResponse $ \hs xml ->
+    request = put
+
+    response _ = cursorResponse $ \hs xml ->
         pure CopyObjectResponse
             <*> xml %|? "CopyObjectResult"
             <*> hs ~:? "x-amz-copy-source-version-id"
@@ -220,7 +221,7 @@ instance AWSRequest CopyObject where
             <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
             <*> hs ~:? "x-amz-server-side-encryption"
 
-data instance Rs CopyObject = CopyObjectResponse
+data CopyObjectResponse = CopyObjectResponse
     { _cooCopyObjectResult :: Maybe CopyObjectResult
     , _cooCopySourceVersionId :: Maybe Text
     , _cooExpiration :: Maybe RFC822

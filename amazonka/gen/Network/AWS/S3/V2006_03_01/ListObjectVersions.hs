@@ -37,7 +37,6 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 type GetBucketObjectVersions = ListObjectVersions
-type GetBucketObjectVersionsResponse = Rs ListObjectVersions
 
 -- | Default ListObjectVersions request.
 listObjectVersions :: BucketName -- ^ '_lovrBucket'
@@ -89,9 +88,11 @@ instance ToBody ListObjectVersions
 
 instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
+    type Rs ListObjectVersions = ListObjectVersionsResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
+
+    response _ = xmlResponse
 
 instance AWSPager ListObjectVersions where
     next rq rs
@@ -101,7 +102,7 @@ instance AWSPager ListObjectVersions where
             , _lovrVersionIdMarker = _lovoNextVersionIdMarker rs
             }
 
-data instance Rs ListObjectVersions = ListObjectVersionsResponse
+data ListObjectVersionsResponse = ListObjectVersionsResponse
     { _lovoIsTruncated :: Bool
       -- ^ A flag that indicates whether or not Amazon S3 returned all of
       -- the results that satisfied the search criteria. If your results
@@ -129,5 +130,5 @@ data instance Rs ListObjectVersions = ListObjectVersionsResponse
     , _lovoVersionIdMarker :: Maybe Text
     } deriving (Show, Generic)
 
-instance FromXML (Rs ListObjectVersions) where
+instance FromXML ListObjectVersionsResponse where
     fromXMLOptions = xmlOptions

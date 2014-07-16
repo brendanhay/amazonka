@@ -61,14 +61,16 @@ instance ToBody GetBucketRequestPayment
 
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
+    type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
+    response _ = xmlResponse
+
+data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrpoPayer :: Maybe Payer
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketRequestPayment) where
+instance FromXML GetBucketRequestPaymentResponse where
     fromXMLOptions = xmlOptions

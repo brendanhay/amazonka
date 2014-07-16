@@ -61,13 +61,15 @@ instance ToBody GetBucketTagging
 
 instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
+    type Rs GetBucketTagging = GetBucketTaggingResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketTagging = GetBucketTaggingResponse
+    response _ = xmlResponse
+
+data GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtoTagSet :: [Tag]
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketTagging) where
+instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions

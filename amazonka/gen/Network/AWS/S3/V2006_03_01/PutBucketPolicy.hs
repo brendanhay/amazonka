@@ -72,9 +72,11 @@ instance ToBody PutBucketPolicy where
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
+    type Rs PutBucketPolicy = PutBucketPolicyResponse
 
-    request  = put
-    response = headerResponse . const $ Right PutBucketPolicyResponse
+    request = put
 
-data instance Rs PutBucketPolicy = PutBucketPolicyResponse
+    response _ = headerResponse . const $ Right PutBucketPolicyResponse
+
+data PutBucketPolicyResponse = PutBucketPolicyResponse
     deriving (Eq, Show, Generic)

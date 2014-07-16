@@ -61,13 +61,15 @@ instance ToBody GetBucketCors
 
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
+    type Rs GetBucketCors = GetBucketCorsResponse
 
-    request  = get
-    response = xmlResponse
+    request = get
 
-data instance Rs GetBucketCors = GetBucketCorsResponse
+    response _ = xmlResponse
+
+data GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcoCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
-instance FromXML (Rs GetBucketCors) where
+instance FromXML GetBucketCorsResponse where
     fromXMLOptions = xmlOptions

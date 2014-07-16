@@ -38,7 +38,6 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 type DeleteMultipleObjects = DeleteObjects
-type DeleteMultipleObjectsResponse = Rs DeleteObjects
 
 -- | Default DeleteObjects request.
 deleteObjects :: Delete -- ^ '_dorDelete'
@@ -77,14 +76,16 @@ instance ToBody DeleteObjects where
 
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
+    type Rs DeleteObjects = DeleteObjectsResponse
 
-    request  = post
-    response = xmlResponse
+    request = post
 
-data instance Rs DeleteObjects = DeleteObjectsResponse
+    response _ = xmlResponse
+
+data DeleteObjectsResponse = DeleteObjectsResponse
     { _dooDeleted :: [DeletedObject]
     , _dooErrors :: [Error]
     } deriving (Show, Generic)
 
-instance FromXML (Rs DeleteObjects) where
+instance FromXML DeleteObjectsResponse where
     fromXMLOptions = xmlOptions

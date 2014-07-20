@@ -40,19 +40,19 @@ import           Prelude              hiding (head)
 type DeleteMultipleObjects = DeleteObjects
 
 -- | Default DeleteObjects request.
-deleteObjects :: Delete -- ^ '_dorDelete'
-              -> BucketName -- ^ '_dorBucket'
+deleteObjects :: Delete -- ^ '_dosDelete'
+              -> BucketName -- ^ '_dosBucket'
               -> DeleteObjects
 deleteObjects p1 p2 = DeleteObjects
-    { _dorDelete = p1
-    , _dorBucket = p2
-    , _dorMFA = Nothing
+    { _dosDelete = p1
+    , _dosBucket = p2
+    , _dosMFA = Nothing
     }
 
 data DeleteObjects = DeleteObjects
-    { _dorDelete :: Delete
-    , _dorBucket :: BucketName
-    , _dorMFA :: Maybe Text
+    { _dosDelete :: Delete
+    , _dosBucket :: BucketName
+    , _dosMFA :: Maybe Text
       -- ^ The concatenation of the authentication device's serial number, a
       -- space, and the value that is displayed on your authentication
       -- device.
@@ -61,18 +61,18 @@ data DeleteObjects = DeleteObjects
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
         [ "/"
-        , toBS _dorBucket
+        , toBS _dosBucket
         ]
 
 instance ToQuery DeleteObjects
 
 instance ToHeaders DeleteObjects where
     toHeaders DeleteObjects{..} = concat
-        [ "x-amz-mfa" =: _dorMFA
+        [ "x-amz-mfa" =: _dosMFA
         ]
 
 instance ToBody DeleteObjects where
-    toBody = undefined -- toBody . _dorDelete
+    toBody = undefined -- toBody . _dosDelete
 
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
@@ -83,8 +83,8 @@ instance AWSRequest DeleteObjects where
     response _ = xmlResponse
 
 data DeleteObjectsResponse = DeleteObjectsResponse
-    { _dooDeleted :: [DeletedObject]
-    , _dooErrors :: [Error]
+    { _dopDeleted :: [DeletedObject]
+    , _dopErrors :: [Error]
     } deriving (Show, Generic)
 
 instance FromXML DeleteObjectsResponse where

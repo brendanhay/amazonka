@@ -37,20 +37,20 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketLifecycle request.
-getBucketLifecycle :: BucketName -- ^ '_gblrBucket'
+getBucketLifecycle :: BucketName -- ^ '_gblsBucket'
                    -> GetBucketLifecycle
 getBucketLifecycle p1 = GetBucketLifecycle
-    { _gblrBucket = p1
+    { _gblsBucket = p1
     }
 
 data GetBucketLifecycle = GetBucketLifecycle
-    { _gblrBucket :: BucketName
+    { _gblsBucket :: BucketName
     } deriving (Show, Generic)
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat
         [ "/"
-        , toBS _gblrBucket
+        , toBS _gblsBucket
         ]
 
 instance ToQuery GetBucketLifecycle
@@ -68,7 +68,7 @@ instance AWSRequest GetBucketLifecycle where
     response _ = xmlResponse
 
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gbloRules :: [Rule]
+    { _gblpRules :: [Rule]
     } deriving (Show, Generic)
 
 instance FromXML GetBucketLifecycleResponse where

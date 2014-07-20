@@ -153,10 +153,11 @@ instance ToJSON Field where
       where
         Object x = toJSON (_fldCommon f)
         Object y = object
-            [ "type"     .= _fldType f
-            , "prefixed" .= _fldPrefixed f
-            , "monoid"   .= _anMonoid  (_fldType f)
-            , "default"  .= _anDefault (_fldType f)
+            [ "type"          .= _fldType f
+            , "prefix_length" .= Text.length (f ^. cmnPrefix)
+            , "prefixed"      .= _fldPrefixed f
+            , "monoid"        .= _anMonoid  (_fldType f)
+            , "default"       .= _anDefault (_fldType f)
             ]
 
 instance ToJSON StdMethod where

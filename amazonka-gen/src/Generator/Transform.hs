@@ -17,10 +17,13 @@ module Generator.Transform where
 import           Control.Arrow
 import           Control.Lens
 import           Control.Monad
+import           Control.Monad.State
 import           Data.Char
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
+import           Data.HashSet        (HashSet)
+import qualified Data.HashSet        as Set
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid         hiding (Sum)
@@ -28,12 +31,17 @@ import           Data.Ord
 import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
-import           Data.Text.Util
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- We need to prefix all fields of a shape uniformly,
+-- and provide the 'length' of the prefix so lenses can be derived.
+
 transform :: [Service] -> [Service]
-transform = map (\s -> s & svcOperations %~ map (operation s))
+transform = map eval
+  where
+    eval s = s
+        & svcOperations .~ evalState (mapM (operation s) (_svcOperations s)) mempty
 
 current :: [Service] -> [Service]
 current = mapMaybe latest . groupBy identical
@@ -43,16 +51,48 @@ current = mapMaybe latest . groupBy identical
     latest [] = Nothing
     latest xs = Just . head $ sortBy (comparing _svcVersion) xs
 
-operation :: Service -> Operation -> Operation
-operation Service{..} o = o
-    & opService          .~ _svcName
-    & opNamespace        .~ _svcVersionNamespace <> NS [_opName o]
-    & opTypesNamespace   .~ _svcTypesNamespace
-    & opVersionNamespace .~ _svcVersionNamespace
-    & opRequestNamespace .~ "Network.AWS.Request" <> fromString (show _svcType)
-    & opRequest          %~ request  _svcTimestamp o
-    & opResponse         %~ response _svcTimestamp o
-    & opPagination       %~ pagination o
+operation :: Service -> Operation -> State (HashSet Text) Operation
+operation Service{..} o = do
+    rq <- uniquify (o ^. opRequest  . rqShape)
+    rs <- uniquify (o ^. opResponse . rsShape)
+
+    return $ o
+        & opService            .~ _svcName
+        & opNamespace          .~ _svcVersionNamespace <> NS [_opName o]
+        & opTypesNamespace     .~ _svcTypesNamespace
+        & opVersionNamespace   .~ _svcVersionNamespace
+        & opRequestNamespace   .~ "Network.AWS.Request" <> fromString (show _svcType)
+        & opPagination         %~ pagination o
+        & opRequest  . rqShape .~ rq
+        & opRequest            %~ request  _svcTimestamp o
+        & opResponse . rsShape .~ rs
+        & opResponse           %~ response _svcTimestamp o
+
+uniquify :: Shape -> State (HashSet Text) Shape
+uniquify s = case s of
+    SStruct c@Struct{..} -> do
+        x <- go (c ^. cmnPrefix)
+        return . SStruct $ (c & cmnPrefix .~ x) { _sctFields = _sctFields }
+    SList l@List{..} -> do
+        i <- uniquify _lstItem
+        return . SList $ l { _lstItem = i }
+    SMap m@Map{..} -> do
+        k <- uniquify _mapKey
+        v <- uniquify _mapValue
+        return . SMap $ m { _mapKey = k, _mapValue = v }
+    _ -> return s
+  where
+    go :: Text -> State (HashSet Text) Text
+    go x = do
+        p <- gets (Set.member x)
+        if p
+            then go (next x)
+            else modify (Set.insert x) >> return x
+
+    next x
+        | Text.null x = "_a"
+        | "_" <- x    = "_a"
+        | otherwise   = Text.init x `Text.snoc` succ (Text.last x)
 
 request :: Time -> Operation -> Request -> Request
 request t o rq = rq
@@ -162,10 +202,7 @@ fields rq t s = case s of
                 else fld
 
 prefixed :: Shape -> Text -> Text
-prefixed p x = f (p ^. cmnName)
-  where
-    f (Just y) = "_" <> prefix y <> x
-    f Nothing  = "Prefixed"
+prefixed p = mappend (p ^. cmnPrefix)
 
 typeof :: Bool -> Time -> Shape -> Ann
 typeof rq t s = Ann req (defaults s) (monoids s) typ

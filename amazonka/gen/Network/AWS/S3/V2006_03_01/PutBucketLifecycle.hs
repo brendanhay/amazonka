@@ -38,36 +38,36 @@ import           Network.HTTP.Client  (Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketLifecycle request.
-putBucketLifecycle :: BucketName -- ^ '_pblrBucket'
-                   -> LifecycleConfiguration -- ^ '_pblrLifecycleConfiguration'
+putBucketLifecycle :: BucketName -- ^ '_pblsBucket'
+                   -> LifecycleConfiguration -- ^ '_pblsLifecycleConfiguration'
                    -> PutBucketLifecycle
 putBucketLifecycle p1 p2 = PutBucketLifecycle
-    { _pblrBucket = p1
-    , _pblrLifecycleConfiguration = p2
-    , _pblrContentMD5 = Nothing
+    { _pblsBucket = p1
+    , _pblsLifecycleConfiguration = p2
+    , _pblsContentMD5 = Nothing
     }
 
 data PutBucketLifecycle = PutBucketLifecycle
-    { _pblrBucket :: BucketName
-    , _pblrLifecycleConfiguration :: LifecycleConfiguration
-    , _pblrContentMD5 :: Maybe Text
+    { _pblsBucket :: BucketName
+    , _pblsLifecycleConfiguration :: LifecycleConfiguration
+    , _pblsContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 instance ToPath PutBucketLifecycle where
     toPath PutBucketLifecycle{..} = mconcat
         [ "/"
-        , toBS _pblrBucket
+        , toBS _pblsBucket
         ]
 
 instance ToQuery PutBucketLifecycle
 
 instance ToHeaders PutBucketLifecycle where
     toHeaders PutBucketLifecycle{..} = concat
-        [ "Content-MD5" =: _pblrContentMD5
+        [ "Content-MD5" =: _pblsContentMD5
         ]
 
 instance ToBody PutBucketLifecycle where
-    toBody = undefined -- toBody . _pblrLifecycleConfiguration
+    toBody = undefined -- toBody . _pblsLifecycleConfiguration
 
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3

@@ -130,6 +130,7 @@ instance Default Location where
 
 data Common = Common
     { _cmnName          :: Maybe Text
+    , _cmnPrefix        :: Text
     , _cmnXmlName       :: Maybe Text
     , _cmnLocation      :: Location
     , _cmnLocationName  :: Maybe Text
@@ -145,7 +146,7 @@ instance Ord Common where
         <> comparing _cmnName a b
 
 instance Default Common where
-    def = Common Nothing Nothing def Nothing False Nothing False
+    def = Common Nothing "_" Nothing def Nothing False Nothing False
 
 makeClassy ''Common
 

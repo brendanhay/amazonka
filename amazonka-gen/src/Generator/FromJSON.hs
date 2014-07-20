@@ -34,6 +34,7 @@ import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
+import           Data.Text.Util
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Log
@@ -140,7 +141,7 @@ instance FromJSON Common where
         n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name" <|> return Nothing
         x <- o .:? "xmlname" .!= n
         l <- o .:! "location"
-        Common n x l
+        Common n (prefixof n) x l
             <$> o .:? "location_name" .!= n
             <*> o .:? "required"      .!= False
             <*> o .:? "documentation"

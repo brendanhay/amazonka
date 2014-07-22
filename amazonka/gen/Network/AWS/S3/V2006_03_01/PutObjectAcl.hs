@@ -34,7 +34,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutObjectAcl request.
@@ -74,7 +74,7 @@ data PutObjectAcl = PutObjectAcl
       -- ^ Allows grantee to write the ACL for the applicable bucket.
     , _poarACL :: Maybe ObjectCannedACL
       -- ^ The canned ACL to apply to the object.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutObjectAcl where
     toPath PutObjectAcl{..} = mconcat
@@ -98,7 +98,7 @@ instance ToHeaders PutObjectAcl where
         ]
 
 instance ToBody PutObjectAcl where
-    toBody = undefined -- toBody . _poarAccessControlPolicy
+    toBody = toBody . encodeXML . _poarAccessControlPolicy
 
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3

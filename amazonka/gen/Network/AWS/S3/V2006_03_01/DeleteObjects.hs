@@ -34,7 +34,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type DeleteMultipleObjects = DeleteObjects
@@ -56,7 +56,7 @@ data DeleteObjects = DeleteObjects
       -- ^ The concatenation of the authentication device's serial number, a
       -- space, and the value that is displayed on your authentication
       -- device.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
@@ -72,7 +72,7 @@ instance ToHeaders DeleteObjects where
         ]
 
 instance ToBody DeleteObjects where
-    toBody = undefined -- toBody . _dosDelete
+    toBody = toBody . encodeXML . _dosDelete
 
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
@@ -85,7 +85,7 @@ instance AWSRequest DeleteObjects where
 data DeleteObjectsResponse = DeleteObjectsResponse
     { _dopDeleted :: [DeletedObject]
     , _dopErrors :: [Error]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML DeleteObjectsResponse where
     fromXMLOptions = xmlOptions

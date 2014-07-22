@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketCors request.
@@ -45,7 +45,7 @@ getBucketCors p1 = GetBucketCors
 
 data GetBucketCors = GetBucketCors
     { _gbcrBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat
@@ -69,7 +69,7 @@ instance AWSRequest GetBucketCors where
 
 data GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcoCORSRules :: [CORSRule]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML GetBucketCorsResponse where
     fromXMLOptions = xmlOptions

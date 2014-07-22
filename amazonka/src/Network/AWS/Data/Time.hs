@@ -60,13 +60,18 @@ instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%X
 instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
 instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%SZ"
 
-instance ToByteString RFC822    where toBS = renderFormattedTime
-instance ToByteString ISO8601   where toBS = renderFormattedTime
-instance ToByteString BasicTime where toBS = renderFormattedTime
-instance ToByteString AWSTime   where toBS = renderFormattedTime
+instance ToByteString RFC822    where toBS = BS.pack . renderFormattedTime
+instance ToByteString ISO8601   where toBS = BS.pack . renderFormattedTime
+instance ToByteString BasicTime where toBS = BS.pack . renderFormattedTime
+instance ToByteString AWSTime   where toBS = BS.pack . renderFormattedTime
 
-renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> ByteString
-renderFormattedTime x = BS.pack (formatTime l (untag f) t)
+instance ToText RFC822    where toText = Text.pack . renderFormattedTime
+instance ToText ISO8601   where toText = Text.pack . renderFormattedTime
+instance ToText BasicTime where toText = Text.pack . renderFormattedTime
+instance ToText AWSTime   where toText = Text.pack . renderFormattedTime
+
+renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
+renderFormattedTime x = formatTime l (untag f) t
   where
     (l, t) = case x of
         Time          t' -> (defaultTimeLocale, t')

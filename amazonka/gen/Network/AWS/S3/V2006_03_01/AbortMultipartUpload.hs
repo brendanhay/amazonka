@@ -35,7 +35,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default AbortMultipartUpload request.
@@ -53,7 +53,7 @@ data AbortMultipartUpload = AbortMultipartUpload
     { _amurBucket :: BucketName
     , _amurUploadId :: Text
     , _amurKey :: ObjectKey
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat

@@ -35,7 +35,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketLogging request.
@@ -52,7 +52,7 @@ data PutBucketLogging = PutBucketLogging
     { _pblrBucketLoggingStatus :: BucketLoggingStatus
     , _pblrBucket :: BucketName
     , _pblrContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketLogging where
     toPath PutBucketLogging{..} = mconcat
@@ -68,7 +68,7 @@ instance ToHeaders PutBucketLogging where
         ]
 
 instance ToBody PutBucketLogging where
-    toBody = undefined -- toBody . _pblrBucketLoggingStatus
+    toBody = toBody . encodeXML . _pblrBucketLoggingStatus
 
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3

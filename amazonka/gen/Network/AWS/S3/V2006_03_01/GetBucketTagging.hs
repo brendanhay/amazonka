@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketTagging request.
@@ -45,7 +45,7 @@ getBucketTagging p1 = GetBucketTagging
 
 data GetBucketTagging = GetBucketTagging
     { _gbtrBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetBucketTagging where
     toPath GetBucketTagging{..} = mconcat
@@ -69,7 +69,7 @@ instance AWSRequest GetBucketTagging where
 
 data GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtoTagSet :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions

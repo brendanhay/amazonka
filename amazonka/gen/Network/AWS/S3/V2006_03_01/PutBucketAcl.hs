@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketAcl request.
@@ -70,7 +70,7 @@ data PutBucketAcl = PutBucketAcl
       -- bucket.
     , _pbarGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable bucket.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketAcl where
     toPath PutBucketAcl{..} = mconcat
@@ -92,7 +92,7 @@ instance ToHeaders PutBucketAcl where
         ]
 
 instance ToBody PutBucketAcl where
-    toBody = undefined -- toBody . _pbarAccessControlPolicy
+    toBody = toBody . encodeXML . _pbarAccessControlPolicy
 
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3

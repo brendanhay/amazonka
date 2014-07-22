@@ -32,12 +32,12 @@ makeLenses ''{{ data.value.name }}
 
 -- Requests
   {% endif %}
-makeLenses ''{{ op.value.request.name }}
+makeFields ''{{ op.value.request.name }}
 {% endfor %}
 {% for op in operations %}
   {% if op.first %}
 
 -- Responses
   {% endif %}
-makeLenses ''{{ op.value.response.name }}
+makeFields ''{{ op.value.response.name }}
 {% endfor %}

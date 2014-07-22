@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketCors request.
@@ -50,7 +50,7 @@ data PutBucketCors = PutBucketCors
     { _pbcrBucket :: BucketName
     , _pbcrCORSConfiguration :: CORSConfiguration
     , _pbcrContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketCors where
     toPath PutBucketCors{..} = mconcat
@@ -66,7 +66,7 @@ instance ToHeaders PutBucketCors where
         ]
 
 instance ToBody PutBucketCors where
-    toBody = undefined -- toBody . _pbcrCORSConfiguration
+    toBody = toBody . encodeXML . _pbcrCORSConfiguration
 
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3

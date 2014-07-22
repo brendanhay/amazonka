@@ -45,7 +45,7 @@ data instance Er {{ name }}
     | {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
     {% endif %}
   {% endfor %}
-      deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 {% endif %}
 
 instance AWSError (Er S3) where
@@ -54,6 +54,8 @@ instance AWSError (Er S3) where
 instance ServiceError (Er S3) where
     serviceError = {{ name }}Error
     clientError  = {{ name }}Protocol
+
+instance Exception (Er S3)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

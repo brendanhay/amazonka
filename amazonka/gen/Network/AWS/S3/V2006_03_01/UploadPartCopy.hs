@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default UploadPartCopy request.
@@ -120,7 +120,7 @@ data UploadPartCopy = UploadPartCopy
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath UploadPartCopy where
     toPath UploadPartCopy{..} = mconcat
@@ -181,4 +181,4 @@ data UploadPartCopyResponse = UploadPartCopyResponse
     , _upcoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Show, Generic)
+    } deriving (Generic)

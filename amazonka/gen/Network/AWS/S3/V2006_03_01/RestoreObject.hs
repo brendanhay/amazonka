@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type PostObjectRestore = RestoreObject
@@ -55,7 +55,7 @@ data RestoreObject = RestoreObject
     , _rorKey :: ObjectKey
     , _rorRestoreRequest :: RestoreRequest
     , _rorVersionId :: Maybe ObjectVersionId
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat
@@ -70,7 +70,7 @@ instance ToQuery RestoreObject
 instance ToHeaders RestoreObject
 
 instance ToBody RestoreObject where
-    toBody = undefined -- toBody . _rorRestoreRequest
+    toBody = toBody . encodeXML . _rorRestoreRequest
 
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3

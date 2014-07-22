@@ -35,7 +35,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default HeadObject request.
@@ -92,7 +92,7 @@ data HeadObject = HeadObject
       -- check to ensure the encryption key was transmitted without error.
     , _horVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath HeadObject where
     toPath HeadObject{..} = mconcat
@@ -209,4 +209,4 @@ data HeadObjectResponse = HeadObjectResponse
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Show, Generic)
+    } deriving (Generic)

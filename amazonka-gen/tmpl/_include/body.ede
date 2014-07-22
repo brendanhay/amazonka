@@ -1,6 +1,0 @@
-{% if scope.payload %}
-instance ToBody {{ scope.name }} where
-    toBody = undefined -- toBody . {{ scope.payload.prefixed }}
-{% else %}
-instance ToBody {{ scope.name }}
-{% endif %}

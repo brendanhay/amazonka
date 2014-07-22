@@ -33,13 +33,13 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutObject request.
 putObject :: BucketName -- ^ '_porBucket'
           -> ObjectKey -- ^ '_porKey'
-          -> BodySource -- ^ '_porBody'
+          -> RequestBody -- ^ '_porBody'
           -> PutObject
 putObject p1 p2 p3 = PutObject
     { _porBucket = p1
@@ -70,7 +70,7 @@ putObject p1 p2 p3 = PutObject
 data PutObject = PutObject
     { _porBucket :: BucketName
     , _porKey :: ObjectKey
-    , _porBody :: BodySource
+    , _porBody :: RequestBody
     , _porMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
     , _porCacheControl :: Maybe Text
@@ -128,7 +128,7 @@ data PutObject = PutObject
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutObject where
     toPath PutObject{..} = mconcat
@@ -165,7 +165,7 @@ instance ToHeaders PutObject where
         ]
 
 instance ToBody PutObject where
-    toBody = undefined -- toBody . _porBody
+    toBody = toBody . _porBody
 
 instance AWSRequest PutObject where
     type Sv PutObject = S3
@@ -203,4 +203,4 @@ data PutObjectResponse = PutObjectResponse
     , _pooServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Show, Generic)
+    } deriving (Generic)

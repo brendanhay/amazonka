@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type PutObjectCopy = CopyObject
@@ -161,7 +161,7 @@ data CopyObject = CopyObject
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath CopyObject where
     toPath CopyObject{..} = mconcat
@@ -239,4 +239,4 @@ data CopyObjectResponse = CopyObjectResponse
     , _cooServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Show, Generic)
+    } deriving (Generic)

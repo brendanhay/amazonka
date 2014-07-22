@@ -1,0 +1,10 @@
+{% if scope.payload %}
+instance ToBody {{ scope.name }} where
+  {% if scope.payload.streaming %}
+    toBody = toBody . {{ scope.payload.prefixed }}
+  {% else %}
+    toBody = toBody . encodeXML . {{ scope.payload.prefixed }}
+  {% endif %}
+{% else %}
+instance ToBody {{ scope.name }}
+{% endif %}

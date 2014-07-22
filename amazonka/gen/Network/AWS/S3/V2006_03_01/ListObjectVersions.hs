@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type GetBucketObjectVersions = ListObjectVersions
@@ -72,7 +72,7 @@ data ListObjectVersions = ListObjectVersions
       -- ^ Limits the response to keys that begin with the specified prefix.
     , _lovrVersionIdMarker :: Maybe Text
       -- ^ Specifies the object version you want to start listing from.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath ListObjectVersions where
     toPath ListObjectVersions{..} = mconcat
@@ -128,7 +128,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
     , _lovoVersions :: [ObjectVersion]
     , _lovoPrefix :: Maybe Text
     , _lovoVersionIdMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML ListObjectVersionsResponse where
     fromXMLOptions = xmlOptions

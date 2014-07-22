@@ -11,17 +11,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Body
-    (
-    -- * Types
-      BodySource (..)
-    , Body
-    , clientBody
-    , payloadHash
+module Network.AWS.Data.Body where
+    -- (
+    -- -- * Types
+    --   BodySource (..)
+    -- , Body
+    -- , clientBody
+    -- , payloadHash
 
-    -- * Classes
-    , ToBody (..)
-    ) where
+    -- -- * Classes
+    -- , ToBody (..)
+    -- ) where
 
 import           Control.Monad.Trans.Resource
 import qualified Crypto.Hash.SHA256           as SHA256
@@ -30,7 +30,6 @@ import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base16       as Base16
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
-import           Data.Conduit
 import           Data.Int
 import           Data.Monoid
 import           Data.String
@@ -44,11 +43,15 @@ payloadHash :: Body -> ByteString
 payloadHash (BodyLBS    h _)   = h
 payloadHash (BodyStream h _ _) = h
 
-data BodySource where
-    Body :: MonadResource m => ResumableSource m ByteString -> BodySource
+-- FIXME: need to clean this up and differentiate between rq and rs bodies
+-- Think about using http-client directly - no monadresource and only with idioms
+-- Would need a differentiated send function with yields the body for streaming requests?
 
-instance Show BodySource where
-    show = const "MonadResource m => ResumableSource m ByteString"
+-- data BodySource where
+--     Body :: MonadResource m => ResumableSource m ByteString -> BodySource
+
+-- instance Show BodySource where
+--     show = const "MonadResource m => ResumableSource m ByteString"
 
 data Body
     = BodyLBS    ByteString LBS.ByteString

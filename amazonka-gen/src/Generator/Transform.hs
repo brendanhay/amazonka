@@ -34,7 +34,7 @@ import qualified Data.Text           as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
--- We need to prefix all fields of a shape uniformly,
+-- FIXME: We need to prefix all fields of a shape uniformly,
 -- and provide the 'length' of the prefix so lenses can be derived.
 
 transform :: [Service] -> [Service]
@@ -217,6 +217,7 @@ typeof rq t s = Ann req (defaults s) (monoids s) typ
             | otherwise         -> n
         SPrim   Prim   {..}
             | n `elem` reserved -> n
+            | bdy, rq           -> "RequestBody"
             | bdy               -> "BodySource"
             | otherwise         -> fmt _prmType
 

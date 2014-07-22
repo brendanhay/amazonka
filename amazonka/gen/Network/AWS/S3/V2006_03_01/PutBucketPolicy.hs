@@ -34,7 +34,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketPolicy request.
@@ -52,7 +52,7 @@ data PutBucketPolicy = PutBucketPolicy
       -- ^ The bucket policy as a JSON document.
     , _pbprBucket :: BucketName
     , _pbprContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketPolicy where
     toPath PutBucketPolicy{..} = mconcat
@@ -68,7 +68,7 @@ instance ToHeaders PutBucketPolicy where
         ]
 
 instance ToBody PutBucketPolicy where
-    toBody = undefined -- toBody . _pbprPolicy
+    toBody = toBody . encodeXML . _pbprPolicy
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3

@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketWebsite request.
@@ -50,7 +50,7 @@ data PutBucketWebsite = PutBucketWebsite
     { _pbwrWebsiteConfiguration :: WebsiteConfiguration
     , _pbwrBucket :: BucketName
     , _pbwrContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketWebsite where
     toPath PutBucketWebsite{..} = mconcat
@@ -66,7 +66,7 @@ instance ToHeaders PutBucketWebsite where
         ]
 
 instance ToBody PutBucketWebsite where
-    toBody = undefined -- toBody . _pbwrWebsiteConfiguration
+    toBody = toBody . encodeXML . _pbwrWebsiteConfiguration
 
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3

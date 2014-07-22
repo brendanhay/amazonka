@@ -50,7 +50,7 @@ data instance Er S3
     | ObjectNotInActiveTierError
     | S3Error String
     | S3Protocol ClientException
-      deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError (Er S3) where
     awsError = const "S3Error"
@@ -58,6 +58,8 @@ instance AWSError (Er S3) where
 instance ServiceError (Er S3) where
     serviceError = S3Error
     clientError  = S3Protocol
+
+instance Exception (Er S3)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
@@ -531,7 +533,7 @@ instance FromXML Type where
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: LoggingEnabled
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML BucketLoggingStatus where
     fromXMLRoot    = fromRoot "BucketLoggingStatus"
@@ -539,7 +541,7 @@ instance FromXML BucketLoggingStatus where
 
 newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML CORSConfiguration where
     fromXMLRoot    = fromRoot "CORSConfiguration"
@@ -547,7 +549,7 @@ instance FromXML CORSConfiguration where
 
 newtype CommonPrefix = CommonPrefix
     { _cpPrefix :: Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML CommonPrefix where
     fromXMLRoot    = fromRoot "CommonPrefix"
@@ -555,7 +557,7 @@ instance FromXML CommonPrefix where
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: [CompletedPart]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML CompletedMultipartUpload where
     fromXMLRoot    = fromRoot "CompleteMultipartUpload"
@@ -564,7 +566,7 @@ instance FromXML CompletedMultipartUpload where
 newtype CreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint :: BucketLocationConstraint
       -- ^ Specifies the region where the bucket will be created.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML CreateBucketConfiguration where
     fromXMLRoot    = fromRoot "CreateBucketConfiguration"
@@ -573,7 +575,7 @@ instance FromXML CreateBucketConfiguration where
 newtype ErrorDocument = ErrorDocument
     { _edKey :: ObjectKey
       -- ^ The object key name to use when a 4XX class error occurs.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML ErrorDocument where
     fromXMLRoot    = fromRoot "ErrorDocument"
@@ -586,7 +588,7 @@ newtype IndexDocument = IndexDocument
       -- make a request to samplebucket/images/ the data that is returned
       -- will be for the object with the key name images/index.html) The
       -- suffix must not be empty and must not include a slash character.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML IndexDocument where
     fromXMLRoot    = fromRoot "IndexDocument"
@@ -594,7 +596,7 @@ instance FromXML IndexDocument where
 
 newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML LifecycleConfiguration where
     fromXMLRoot    = fromRoot "LifecycleConfiguration"
@@ -612,7 +614,7 @@ newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
       -- about the noncurrent days calculations, see How Amazon S3
       -- Calculates When an Object Became Noncurrent in the Amazon Simple
       -- Storage Service Developer Guide.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML NoncurrentVersionExpiration where
     fromXMLRoot    = fromRoot "NoncurrentVersionExpiration"
@@ -620,7 +622,7 @@ instance FromXML NoncurrentVersionExpiration where
 
 newtype NotificationConfiguration = NotificationConfiguration
     { _ncTopicConfiguration :: TopicConfiguration
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML NotificationConfiguration where
     fromXMLRoot    = fromRoot "NotificationConfiguration"
@@ -629,7 +631,7 @@ instance FromXML NotificationConfiguration where
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Payer
       -- ^ Specifies who pays for the download and request fees.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML RequestPaymentConfiguration where
     fromXMLRoot    = fromRoot "RequestPaymentConfiguration"
@@ -638,7 +640,7 @@ instance FromXML RequestPaymentConfiguration where
 newtype RestoreRequest = RestoreRequest
     { _rrDays :: Integer
       -- ^ Lifetime of the active copy in days.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML RestoreRequest where
     fromXMLRoot    = fromRoot "RestoreRequest"
@@ -646,7 +648,7 @@ instance FromXML RestoreRequest where
 
 newtype Tagging = Tagging
     { _tTagSet :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Tagging where
     fromXMLRoot    = fromRoot "Tagging"
@@ -656,7 +658,7 @@ data AccessControlPolicy = AccessControlPolicy
     { _acpGrants :: [Grant]
       -- ^ A list of grants.
     , _acpOwner :: Owner
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML AccessControlPolicy where
     fromXMLRoot    = fromRoot "AccessControlPolicy"
@@ -667,7 +669,7 @@ data Bucket = Bucket
       -- ^ The name of the bucket.
     , _bCreationDate :: RFC822
       -- ^ Date the bucket was created.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Bucket where
     fromXMLRoot    = fromRoot "Bucket"
@@ -690,7 +692,7 @@ data CORSRule = CORSRule
       -- ^ One or more headers in the response that you want customers to be
       -- able to access from their applications (for example, from a
       -- JavaScript XMLHttpRequest object).
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML CORSRule where
     fromXMLRoot    = fromRoot "CORSRule"
@@ -701,7 +703,7 @@ data CompletedPart = CompletedPart
       -- ^ Entity tag returned when the part was uploaded.
     , _cpPartNumber :: Integer
       -- ^ Part number that identifies the part.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML CompletedPart where
     fromXMLRoot    = fromRoot "CompletedPart"
@@ -729,7 +731,7 @@ data Condition = Condition
       -- specified and sibling KeyPrefixEquals is not specified. If both
       -- are specified, then both must be true for the redirect to be
       -- applied.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Condition where
     fromXMLRoot    = fromRoot "Condition"
@@ -738,7 +740,7 @@ instance FromXML Condition where
 data CopyObjectResult = CopyObjectResult
     { _corETag :: ETag
     , _corLastModified :: RFC822
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML CopyObjectResult where
     fromXMLRoot    = fromRoot "CopyObjectResult"
@@ -749,7 +751,7 @@ data CopyPartResult = CopyPartResult
       -- ^ Entity tag of the object.
     , _cprLastModified :: RFC822
       -- ^ Date and time at which the object was uploaded.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML CopyPartResult where
     fromXMLRoot    = fromRoot "CopyPartResult"
@@ -760,7 +762,7 @@ data Delete = Delete
       -- ^ Element to enable quiet mode for the request. When you add this
       -- element, you must set its value to true.
     , _dObjects :: [ObjectIdentifier]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Delete where
     fromXMLRoot    = fromRoot "Delete"
@@ -777,7 +779,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry
       -- ^ The object key.
     , _dmeLastModified :: RFC822
       -- ^ Date and time the object was last modified.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML DeleteMarkerEntry where
     fromXMLRoot    = fromRoot "DeleteMarkerEntry"
@@ -788,7 +790,7 @@ data DeletedObject = DeletedObject
     , _doDeleteMarker :: Bool
     , _doDeleteMarkerVersionId :: Text
     , _doKey :: ObjectKey
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML DeletedObject where
     fromXMLRoot    = fromRoot "DeletedObject"
@@ -799,7 +801,7 @@ data Error = Error
     , _eKey :: ObjectKey
     , _eCode :: Text
     , _eMessage :: Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Error where
     fromXMLRoot    = fromRoot "Error"
@@ -809,7 +811,7 @@ data Grant = Grant
     { _gPermission :: Permission
       -- ^ Specifies the permission given to the grantee.
     , _gGrantee :: Grantee
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Grant where
     fromXMLRoot    = fromRoot "Grant"
@@ -826,7 +828,7 @@ data Grantee = Grantee
       -- ^ The canonical user ID of the grantee.
     , _gType :: Type
       -- ^ Type of grantee.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Grantee where
     fromXMLRoot    = fromRoot "Grantee"
@@ -840,7 +842,7 @@ data Initiator = Initiator
       -- ^ If the principal is an AWS account, it provides the Canonical
       -- User ID. If the principal is an IAM User, it provides a user ARN
       -- value.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Initiator where
     fromXMLRoot    = fromRoot "Initiator"
@@ -853,7 +855,7 @@ data LifecycleExpiration = LifecycleExpiration
     , _leDate :: RFC822
       -- ^ Indicates at what date the object is to be moved or deleted.
       -- Should be in GMT ISO 8601 Format.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML LifecycleExpiration where
     fromXMLRoot    = fromRoot "LifecycleExpiration"
@@ -872,7 +874,7 @@ data LoggingEnabled = LoggingEnabled
     , _leTargetPrefix :: Text
       -- ^ This element lets you specify a prefix for the keys that the log
       -- files will be stored under.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML LoggingEnabled where
     fromXMLRoot    = fromRoot "LoggingEnabled"
@@ -890,7 +892,7 @@ data MultipartUpload = MultipartUpload
       -- ^ The class of storage used to store the object.
     , _muUploadId :: Text
       -- ^ Upload ID that identifies the multipart upload.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML MultipartUpload where
     fromXMLRoot    = fromRoot "MultipartUpload"
@@ -910,7 +912,7 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition
       -- about the noncurrent days calculations, see How Amazon S3
       -- Calculates When an Object Became Noncurrent in the Amazon Simple
       -- Storage Service Developer Guide.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML NoncurrentVersionTransition where
     fromXMLRoot    = fromRoot "NoncurrentVersionTransition"
@@ -924,7 +926,7 @@ data Object = Object
     , _oStorageClass :: ObjectStorageClass
       -- ^ The class of storage used to store the object.
     , _oLastModified :: RFC822
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Object where
     fromXMLRoot    = fromRoot "Object"
@@ -935,7 +937,7 @@ data ObjectIdentifier = ObjectIdentifier
       -- ^ VersionId for the specific version of the object to delete.
     , _oiKey :: ObjectKey
       -- ^ Key name of the object to delete.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML ObjectIdentifier where
     fromXMLRoot    = fromRoot "ObjectIdentifier"
@@ -957,7 +959,7 @@ data ObjectVersion = ObjectVersion
       -- ^ The class of storage used to store the object.
     , _ovLastModified :: RFC822
       -- ^ Date and time the object was last modified.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML ObjectVersion where
     fromXMLRoot    = fromRoot "ObjectVersion"
@@ -966,7 +968,7 @@ instance FromXML ObjectVersion where
 data Owner = Owner
     { _oDisplayName :: Text
     , _oID :: Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Owner where
     fromXMLRoot    = fromRoot "Owner"
@@ -981,7 +983,7 @@ data Part = Part
       -- ^ Part number identifying the part.
     , _pLastModified :: RFC822
       -- ^ Date and time at which the part was uploaded.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Part where
     fromXMLRoot    = fromRoot "Part"
@@ -1012,7 +1014,7 @@ data Redirect = Redirect
       -- Redirect set ReplaceKeyPrefixWith to /documents. Not required if
       -- one of the siblings is present. Can be present only if
       -- ReplaceKeyWith is not provided.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Redirect where
     fromXMLRoot    = fromRoot "Redirect"
@@ -1024,7 +1026,7 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo
     , _rartProtocol :: Protocol
       -- ^ Protocol to use (http, https) when redirecting requests. The
       -- default is the protocol that is used in the original request.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML RedirectAllRequestsTo where
     fromXMLRoot    = fromRoot "RedirectAllRequestsTo"
@@ -1042,7 +1044,7 @@ data RoutingRule = RoutingRule
       -- pages in the /docs folder, redirect to the /documents folder. 2.
       -- If request results in HTTP error 4xx, redirect request to another
       -- host where you might process the error.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML RoutingRule where
     fromXMLRoot    = fromRoot "RoutingRule"
@@ -1073,7 +1075,7 @@ data Rule = Rule
     , _rID :: Text
       -- ^ Unique identifier for the rule. The value cannot be longer than
       -- 255 characters.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Rule where
     fromXMLRoot    = fromRoot "Rule"
@@ -1084,7 +1086,7 @@ data Tag = Tag
       -- ^ Value of the tag.
     , _tKey :: ObjectKey
       -- ^ Name of the tag.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Tag where
     fromXMLRoot    = fromRoot "Tag"
@@ -1094,7 +1096,7 @@ data TargetGrant = TargetGrant
     { _tgPermission :: BucketLogsPermission
       -- ^ Logging permissions assigned to the Grantee for the bucket.
     , _tgGrantee :: Grantee
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML TargetGrant where
     fromXMLRoot    = fromRoot "Grant"
@@ -1106,7 +1108,7 @@ data TopicConfiguration = TopicConfiguration
     , _tcTopic :: Text
       -- ^ Amazon SNS topic to which Amazon S3 will publish a message to
       -- report the specified events for the bucket.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML TopicConfiguration where
     fromXMLRoot    = fromRoot "TopicConfiguration"
@@ -1121,7 +1123,7 @@ data Transition = Transition
       -- Should be in GMT ISO 8601 Format.
     , _tStorageClass :: TransitionStorageClass
       -- ^ The class of storage used to store the object.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML Transition where
     fromXMLRoot    = fromRoot "Transition"
@@ -1135,7 +1137,7 @@ data VersioningConfiguration = VersioningConfiguration
       -- configuration. This element is only returned if the bucket has
       -- been configured with MFA delete. If the bucket has never been so
       -- configured, this element is not returned.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML VersioningConfiguration where
     fromXMLRoot    = fromRoot "VersioningConfiguration"
@@ -1146,7 +1148,7 @@ data WebsiteConfiguration = WebsiteConfiguration
     , _wcErrorDocument :: ErrorDocument
     , _wcIndexDocument :: IndexDocument
     , _wcRoutingRules :: [RoutingRule]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML WebsiteConfiguration where
     fromXMLRoot    = fromRoot "WebsiteConfiguration"

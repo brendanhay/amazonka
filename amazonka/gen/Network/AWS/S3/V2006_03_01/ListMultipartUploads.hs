@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default ListMultipartUploads request.
@@ -75,7 +75,7 @@ data ListMultipartUploads = ListMultipartUploads
       -- ^ Together with key-marker, specifies the multipart upload after
       -- which listing should begin. If key-marker is not specified, the
       -- upload-id-marker parameter is ignored.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat
@@ -137,7 +137,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
       -- specified prefix.
     , _lmuoUploadIdMarker :: Maybe Text
       -- ^ Upload ID after which listing began.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML ListMultipartUploadsResponse where
     fromXMLOptions = xmlOptions

@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketRequestPayment request.
@@ -45,7 +45,7 @@ getBucketRequestPayment p1 = GetBucketRequestPayment
 
 data GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrprBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetBucketRequestPayment where
     toPath GetBucketRequestPayment{..} = mconcat
@@ -70,7 +70,7 @@ instance AWSRequest GetBucketRequestPayment where
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrpoPayer :: Maybe Payer
       -- ^ Specifies who pays for the download and request fees.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML GetBucketRequestPaymentResponse where
     fromXMLOptions = xmlOptions

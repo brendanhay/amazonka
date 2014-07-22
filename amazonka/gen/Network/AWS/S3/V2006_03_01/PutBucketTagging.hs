@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketTagging request.
@@ -50,7 +50,7 @@ data PutBucketTagging = PutBucketTagging
     { _pbtrTagging :: Tagging
     , _pbtrBucket :: BucketName
     , _pbtrContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat
@@ -66,7 +66,7 @@ instance ToHeaders PutBucketTagging where
         ]
 
 instance ToBody PutBucketTagging where
-    toBody = undefined -- toBody . _pbtrTagging
+    toBody = toBody . encodeXML . _pbtrTagging
 
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3

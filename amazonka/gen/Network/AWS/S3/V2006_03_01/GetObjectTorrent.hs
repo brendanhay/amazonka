@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetObjectTorrent request.
@@ -48,7 +48,7 @@ getObjectTorrent p1 p2 = GetObjectTorrent
 data GetObjectTorrent = GetObjectTorrent
     { _gotrBucket :: BucketName
     , _gotrKey :: ObjectKey
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
@@ -76,4 +76,4 @@ instance AWSRequest GetObjectTorrent where
 
 data GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotoBody :: BodySource
-    } deriving (Show, Generic)
+    } deriving (Generic)

@@ -34,7 +34,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default HeadBucket request.
@@ -46,7 +46,7 @@ headBucket p1 = HeadBucket
 
 data HeadBucket = HeadBucket
     { _hbrBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath HeadBucket where
     toPath HeadBucket{..} = mconcat

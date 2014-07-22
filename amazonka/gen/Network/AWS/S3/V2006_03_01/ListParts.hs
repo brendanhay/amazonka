@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default ListParts request.
@@ -60,7 +60,7 @@ data ListParts = ListParts
     , _lprPartNumberMarker :: Maybe Integer
       -- ^ Specifies the part after which listing should begin. Only parts
       -- with higher part numbers will be listed.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath ListParts where
     toPath ListParts{..} = mconcat
@@ -115,7 +115,7 @@ data ListPartsResponse = ListPartsResponse
     , _lpoParts :: [Part]
     , _lpoStorageClass :: Maybe StorageClass
       -- ^ The class of storage used to store the object.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML ListPartsResponse where
     fromXMLOptions = xmlOptions

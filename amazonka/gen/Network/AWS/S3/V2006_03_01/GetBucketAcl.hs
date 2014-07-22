@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketAcl request.
@@ -45,7 +45,7 @@ getBucketAcl p1 = GetBucketAcl
 
 data GetBucketAcl = GetBucketAcl
     { _gbarBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetBucketAcl where
     toPath GetBucketAcl{..} = mconcat
@@ -71,7 +71,7 @@ data GetBucketAclResponse = GetBucketAclResponse
     { _gbaoGrants :: [Grant]
       -- ^ A list of grants.
     , _gbaoOwner :: Maybe Owner
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML GetBucketAclResponse where
     fromXMLOptions = xmlOptions

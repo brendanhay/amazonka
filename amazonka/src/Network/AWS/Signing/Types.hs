@@ -25,58 +25,24 @@ import           Data.Time
 import           Network.AWS.Types
 import           System.Locale
 
-data family Meta v :: *
-
-data Signed a v = Signed
-    { _sgMeta    :: Meta v
-    , _sgRequest :: ClientRequest
-    }
-
-sgMeta :: Functor f => LensLike' f (Signed a v) (Meta v)
-sgMeta f x = (\y -> x { _sgMeta = y }) <$> f (_sgMeta x)
-
-sgRequest :: Functor f => LensLike' f (Signed a v) ClientRequest
-sgRequest f x = (\y -> x { _sgRequest = y }) <$> f (_sgRequest x)
-
-class AWSSigner v where
-    signed :: v ~ Sg (Sv a)
-           => Service (Sv a)
-           -> AuthEnv
-           -> Region
-           -> Request a
-           -> TimeLocale
-           -> UTCTime
-           -> Signed a v
-
-class AWSPresigner v where
-    presigned :: v ~ Sg (Sv a)
-              => Service (Sv a)
-              -> AuthEnv
-              -> Region
-              -> Request a
-              -> TimeLocale
-              -> Int
-              -> UTCTime
-              -> Signed a v
-
 sign :: (MonadIO m, AWSRequest a, AWSSigner (Sg (Sv a)))
-     => Auth    -- ^ AWS authentication credentials.
-     -> Region  -- ^ AWS Region.
-     -> a       -- ^ Request to sign.
-     -> UTCTime -- ^ Signing time.
+     => Auth      -- ^ AWS authentication credentials.
+     -> Region    -- ^ AWS Region.
+     -> Request a -- ^ Request to sign.
+     -> UTCTime   -- ^ Signing time.
      -> m (Signed a (Sg (Sv a)))
 sign a r rq t = withAuth a $ \e -> return $
-    signed service e r (request rq) defaultTimeLocale t
+    signed service e r rq defaultTimeLocale t
 
 presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
-        => Auth    -- ^ AWS authentication credentials.
-        -> Region  -- ^ AWS Region.
-        -> a       -- ^ Request to presign.
-        -> Int     -- ^ Expiry time in seconds.
-        -> UTCTime -- ^ Signing time.
+        => Auth      -- ^ AWS authentication credentials.
+        -> Region    -- ^ AWS Region.
+        -> Request a -- ^ Request to presign.
+        -> UTCTime   -- ^ Signing time.
+        -> Int       -- ^ Expiry time in seconds.
         -> m (Signed a (Sg (Sv a)))
-presign a r rq x t = withAuth a $ \e -> return $
-    presigned service e r (request rq) defaultTimeLocale x t
+presign a r rq t x = withAuth a $ \e -> return $
+    presigned service e r rq defaultTimeLocale t x
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64

@@ -35,7 +35,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteObject request.
@@ -58,7 +58,7 @@ data DeleteObject = DeleteObject
       -- device.
     , _dorVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath DeleteObject where
     toPath DeleteObject{..} = mconcat
@@ -95,4 +95,4 @@ data DeleteObjectResponse = DeleteObjectResponse
     , _dooVersionId :: Maybe ObjectVersionId
       -- ^ Returns the version ID of the delete marker created as a result
       -- of the DELETE operation.
-    } deriving (Show, Generic)
+    } deriving (Generic)

@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetObjectAcl request.
@@ -51,7 +51,7 @@ data GetObjectAcl = GetObjectAcl
     , _goarKey :: ObjectKey
     , _goarVersionId :: Maybe ObjectVersionId
       -- ^ VersionId used to reference a specific version of the object.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetObjectAcl where
     toPath GetObjectAcl{..} = mconcat
@@ -79,7 +79,7 @@ data GetObjectAclResponse = GetObjectAclResponse
     { _goaoGrants :: [Grant]
       -- ^ A list of grants.
     , _goaoOwner :: Maybe Owner
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML GetObjectAclResponse where
     fromXMLOptions = xmlOptions

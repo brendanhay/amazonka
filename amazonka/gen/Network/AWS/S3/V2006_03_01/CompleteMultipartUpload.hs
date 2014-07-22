@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default CompleteMultipartUpload request.
@@ -54,7 +54,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload
     , _cmusUploadId :: Text
     , _cmusKey :: ObjectKey
     , _cmusMultipartUpload :: CompletedMultipartUpload
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath CompleteMultipartUpload where
     toPath CompleteMultipartUpload{..} = mconcat
@@ -69,7 +69,7 @@ instance ToQuery CompleteMultipartUpload
 instance ToHeaders CompleteMultipartUpload
 
 instance ToBody CompleteMultipartUpload where
-    toBody = undefined -- toBody . _cmusMultipartUpload
+    toBody = toBody . encodeXML . _cmusMultipartUpload
 
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
@@ -102,4 +102,4 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmupServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Show, Generic)
+    } deriving (Generic)

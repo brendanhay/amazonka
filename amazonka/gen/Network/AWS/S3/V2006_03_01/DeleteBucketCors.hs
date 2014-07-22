@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default DeleteBucketCors request.
@@ -45,7 +45,7 @@ deleteBucketCors p1 = DeleteBucketCors
 
 data DeleteBucketCors = DeleteBucketCors
     { _dbcrBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath DeleteBucketCors where
     toPath DeleteBucketCors{..} = mconcat

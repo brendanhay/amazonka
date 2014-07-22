@@ -38,7 +38,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default UploadPart request.
@@ -46,7 +46,7 @@ uploadPart :: BucketName -- ^ '_uprBucket'
            -> Text -- ^ '_uprUploadId'
            -> ObjectKey -- ^ '_uprKey'
            -> Integer -- ^ '_uprPartNumber'
-           -> BodySource -- ^ '_uprBody'
+           -> RequestBody -- ^ '_uprBody'
            -> UploadPart
 uploadPart p1 p2 p3 p4 p5 = UploadPart
     { _uprBucket = p1
@@ -69,7 +69,7 @@ data UploadPart = UploadPart
     , _uprKey :: ObjectKey
     , _uprPartNumber :: Integer
       -- ^ Part number of part being uploaded.
-    , _uprBody :: BodySource
+    , _uprBody :: RequestBody
     , _uprContentLength :: Maybe Integer
       -- ^ Size of the body in bytes. This parameter is useful when the size
       -- of the body cannot be determined automatically.
@@ -90,7 +90,7 @@ data UploadPart = UploadPart
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath UploadPart where
     toPath UploadPart{..} = mconcat
@@ -112,7 +112,7 @@ instance ToHeaders UploadPart where
         ]
 
 instance ToBody UploadPart where
-    toBody = undefined -- toBody . _uprBody
+    toBody = toBody . _uprBody
 
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
@@ -142,4 +142,4 @@ data UploadPartResponse = UploadPartResponse
     , _upoServerSideEncryption :: Maybe ServerSideEncryption
       -- ^ The Server-side encryption algorithm used when storing this
       -- object in S3.
-    } deriving (Show, Generic)
+    } deriving (Generic)

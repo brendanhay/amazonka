@@ -34,7 +34,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketVersioning request.
@@ -56,7 +56,7 @@ data PutBucketVersioning = PutBucketVersioning
       -- ^ The concatenation of the authentication device's serial number, a
       -- space, and the value that is displayed on your authentication
       -- device.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketVersioning where
     toPath PutBucketVersioning{..} = mconcat
@@ -73,7 +73,7 @@ instance ToHeaders PutBucketVersioning where
         ]
 
 instance ToBody PutBucketVersioning where
-    toBody = undefined -- toBody . _pbvrVersioningConfiguration
+    toBody = toBody . encodeXML . _pbvrVersioningConfiguration
 
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3

@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketNotification request.
@@ -50,7 +50,7 @@ data PutBucketNotification = PutBucketNotification
     { _pbnrNotificationConfiguration :: NotificationConfiguration
     , _pbnrBucket :: BucketName
     , _pbnrContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketNotification where
     toPath PutBucketNotification{..} = mconcat
@@ -66,7 +66,7 @@ instance ToHeaders PutBucketNotification where
         ]
 
 instance ToBody PutBucketNotification where
-    toBody = undefined -- toBody . _pbnrNotificationConfiguration
+    toBody = toBody . encodeXML . _pbnrNotificationConfiguration
 
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3

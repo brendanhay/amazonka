@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -54,10 +55,23 @@ data instance Meta V4 = Meta
     , _mCReq      :: ByteString
     , _mSTS       :: ByteString
     , _mSignature :: ByteString
+    , _mTime      :: UTCTime
     }
 
+instance Show (Meta V4) where
+    show Meta{..} = BS.unpack $ BS.unlines
+        [ "Version 4 Metadata:"
+        , "_mAlgorithm " <> _mAlgorithm
+        , "_mScope     " <> _mScope
+        , "_mSigned    " <> _mSigned
+        , "_mCReq      " <> _mCReq
+        , "_mSTS       " <> _mSTS
+        , "_mSignature " <> _mSignature
+        , "_mTime      " <> BS.pack (show _mTime)
+        ]
+
 instance AWSPresigner V4 where
-    presigned s a r rq l e t =
+    presigned s a r rq l t x =
         out & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
         out = finalise Nothing qry s a r rq l t
@@ -67,7 +81,7 @@ instance AWSPresigner V4 where
               pair "X-AMZ-Algorithm" algorithm
             . pair "X-AMZ-Credential" cs
             . pair "X-AMZ-Date" (LocaleTime l t :: ISO8601)
-            . pair "X-AMZ-Expires" e
+            . pair "X-AMZ-Expires" x
             . pair "X-AMZ-SignedHeaders" sh
 
         auth = mappend "&X-AMZ-Signature=" . _mSignature
@@ -116,6 +130,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
         , _mSigned    = signedHeaders
         , _mSTS       = stringToSign
         , _mSignature = signature
+        , _mTime      = t
         }
 
     rq = clientRequest

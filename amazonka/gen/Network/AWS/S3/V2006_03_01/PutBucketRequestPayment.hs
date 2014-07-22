@@ -36,7 +36,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketRequestPayment request.
@@ -53,7 +53,7 @@ data PutBucketRequestPayment = PutBucketRequestPayment
     { _pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
     , _pbrprBucket :: BucketName
     , _pbrprContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketRequestPayment where
     toPath PutBucketRequestPayment{..} = mconcat
@@ -69,7 +69,7 @@ instance ToHeaders PutBucketRequestPayment where
         ]
 
 instance ToBody PutBucketRequestPayment where
-    toBody = undefined -- toBody . _pbrprRequestPaymentConfiguration
+    toBody = toBody . encodeXML . _pbrprRequestPaymentConfiguration
 
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3

@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketNotification request.
@@ -45,7 +45,7 @@ getBucketNotification p1 = GetBucketNotification
 
 data GetBucketNotification = GetBucketNotification
     { _gbnrBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetBucketNotification where
     toPath GetBucketNotification{..} = mconcat
@@ -69,7 +69,7 @@ instance AWSRequest GetBucketNotification where
 
 data GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnoTopicConfiguration :: Maybe TopicConfiguration
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML GetBucketNotificationResponse where
     fromXMLOptions = xmlOptions

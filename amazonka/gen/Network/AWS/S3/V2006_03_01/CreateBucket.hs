@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type PutBucket = CreateBucket
@@ -70,7 +70,7 @@ data CreateBucket = CreateBucket
       -- bucket.
     , _cbrGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable bucket.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath CreateBucket where
     toPath CreateBucket{..} = mconcat
@@ -91,7 +91,7 @@ instance ToHeaders CreateBucket where
         ]
 
 instance ToBody CreateBucket where
-    toBody = undefined -- toBody . _cbrCreateBucketConfiguration
+    toBody = toBody . encodeXML . _cbrCreateBucketConfiguration
 
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
@@ -105,4 +105,4 @@ instance AWSRequest CreateBucket where
 
 data CreateBucketResponse = CreateBucketResponse
     { _cboLocation :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)

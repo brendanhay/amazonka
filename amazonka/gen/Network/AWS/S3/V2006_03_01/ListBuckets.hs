@@ -34,7 +34,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type GetService = ListBuckets
@@ -66,7 +66,7 @@ instance AWSRequest ListBuckets where
 data ListBucketsResponse = ListBucketsResponse
     { _lboBuckets :: [Bucket]
     , _lboOwner :: Maybe Owner
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML ListBucketsResponse where
     fromXMLOptions = xmlOptions

@@ -35,7 +35,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type GetBucket = ListObjects
@@ -71,7 +71,7 @@ data ListObjects = ListObjects
       -- response might contain fewer keys but will never contain more.
     , _lorPrefix :: Maybe Text
       -- ^ Limits the response to keys that begin with the specified prefix.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath ListObjects where
     toPath ListObjects{..} = mconcat
@@ -123,7 +123,7 @@ data ListObjectsResponse = ListObjectsResponse
       -- object keys.
     , _looContents :: [Object]
     , _looPrefix :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML ListObjectsResponse where
     fromXMLOptions = xmlOptions

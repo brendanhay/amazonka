@@ -2,11 +2,15 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
+
+{-# LANGUAGE ScopedTypeVariables               #-}
+
 
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,12 +28,10 @@ import           Control.Applicative
 import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
 import           Data.Char
-import           Data.Conduit
 import           Data.Default
 import           Data.IORef
 import           Data.Monoid
@@ -44,10 +46,11 @@ import           Network.AWS.Data
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
+import           System.Locale
 
-type ClientRequest    = Client.Request
-type ClientResponse m = Client.Response (ResumableSource m ByteString)
-type ClientException  = Client.HttpException
+type ClientRequest   = Client.Request
+type ClientResponse  = Client.Response Client.BodyReader
+type ClientException = Client.HttpException
 
 clientRequest :: ClientRequest
 clientRequest = def
@@ -86,25 +89,67 @@ instance ServiceError Error where
     serviceError = AWSError
     clientError  = ClientError
 
-data family Er a :: *
-
 class AWSService a where
     type Sg a :: *
+    data Er a :: *
 
     service :: Service a
 
-class (AWSService (Sv a), AWSError (Er (Sv a))) => AWSRequest a where
+class ( AWSService   (Sv a)
+      , AWSSigner    (Sg (Sv a))
+      , AWSError     (Er (Sv a))
+      , ServiceError (Er (Sv a))
+      ) => AWSRequest a where
     type Sv a :: *
     type Rs a :: *
 
     request  :: a -> Request a
-    response :: MonadResource m
+    response :: MonadIO m
              => a
-             -> Either ClientException (ClientResponse m)
+             -> ClientResponse
              -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
+
+data family Meta v :: *
+
+data Signed a v where
+    Signed :: Show (Meta v) => Meta v -> ClientRequest -> Signed a v
+
+instance ToText (Signed a v) where
+    toText (Signed m rq) = Text.unlines
+        [ Text.pack (show m)
+        , "HTTP Request:"
+        , Text.pack (show rq)
+        ]
+
+sgMeta :: Functor f => LensLike' f (Signed a v) (Meta v)
+sgMeta f (Signed m rq) = (\y -> Signed y rq) <$> f m
+
+sgRequest :: Functor f => LensLike' f (Signed a v) ClientRequest
+sgRequest f (Signed m rq) = (\y -> Signed m y) <$> f rq
+
+class AWSSigner v where
+    signed :: v ~ Sg (Sv a)
+           => Service (Sv a)
+           -> AuthEnv
+           -> Region
+           -> Request a
+           -> TimeLocale
+           -> UTCTime
+           -> Signed a v
+
+class AWSPresigner v where
+    presigned :: v ~ Sg (Sv a)
+              => Service (Sv a)
+              -> AuthEnv
+              -> Region
+              -> Request a
+              -> TimeLocale
+              -> UTCTime
+              -> Int
+              -> Signed a v
 
 newtype AccessKey = AccessKey ByteString
     deriving (Eq, Show, IsString)
@@ -147,6 +192,16 @@ data Auth
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Ref  r) f = liftIO (readIORef r) >>= f
 withAuth (Auth e) f = f e
+
+data Logging
+    = None
+    | Debug (Text -> IO ())
+
+debug :: MonadIO m => Logging -> Text -> m ()
+debug l =
+    case l of
+        None    -> const (return ())
+        Debug f -> liftIO . f
 
 data Endpoint
     = Global

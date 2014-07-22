@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetBucketLifecycle request.
@@ -45,7 +45,7 @@ getBucketLifecycle p1 = GetBucketLifecycle
 
 data GetBucketLifecycle = GetBucketLifecycle
     { _gblsBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat
@@ -69,7 +69,7 @@ instance AWSRequest GetBucketLifecycle where
 
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblpRules :: [Rule]
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance FromXML GetBucketLifecycleResponse where
     fromXMLOptions = xmlOptions

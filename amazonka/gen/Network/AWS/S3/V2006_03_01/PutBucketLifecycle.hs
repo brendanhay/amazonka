@@ -34,7 +34,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default PutBucketLifecycle request.
@@ -51,7 +51,7 @@ data PutBucketLifecycle = PutBucketLifecycle
     { _pblsBucket :: BucketName
     , _pblsLifecycleConfiguration :: LifecycleConfiguration
     , _pblsContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath PutBucketLifecycle where
     toPath PutBucketLifecycle{..} = mconcat
@@ -67,7 +67,7 @@ instance ToHeaders PutBucketLifecycle where
         ]
 
 instance ToBody PutBucketLifecycle where
-    toBody = undefined -- toBody . _pblsLifecycleConfiguration
+    toBody = toBody . encodeXML . _pblsLifecycleConfiguration
 
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3

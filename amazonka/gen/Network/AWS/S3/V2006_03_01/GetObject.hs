@@ -33,7 +33,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 -- | Default GetObject request.
@@ -108,7 +108,7 @@ data GetObject = GetObject
       -- ^ Sets the Content-Type header of the response.
     , _gorResponseExpires :: Maybe RFC822
       -- ^ Sets the Expires header of the response.
-    } deriving (Show, Generic)
+    } deriving (Generic)
 
 instance ToPath GetObject where
     toPath GetObject{..} = mconcat
@@ -228,4 +228,4 @@ data GetObjectResponse = GetObjectResponse
       -- this object to another object in the same bucket or to an
       -- external URL. Amazon S3 stores the value of this header in the
       -- object metadata.
-    } deriving (Show, Generic)
+    } deriving (Generic)

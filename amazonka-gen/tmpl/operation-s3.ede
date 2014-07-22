@@ -23,7 +23,7 @@ import           Network.AWS.Response
 import           Network.AWS.Types    hiding (Error)
 import           {{ request_namespace }}
 import           {{ types_namespace }}
-import           Network.HTTP.Client  (Response)
+import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 {% if alias %}
 
@@ -41,7 +41,7 @@ data {{ request.name }} = {{ request.name }}
 
 {% include "_include/headers.ede" with request %}
 
-{% include "_include/body.ede" with request %}
+{% include "_include/body-s3.ede" with request %}
 
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}

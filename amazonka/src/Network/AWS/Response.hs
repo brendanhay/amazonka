@@ -51,12 +51,12 @@ bodyResponse f = either failure success
   where
     failure = return . Left . clientError
 
-    success rs =
-        let st = responseStatus rs
-            hs = responseHeaders rs
-         in if statusCode st >= 400
-                then failure (StatusCodeException st hs mempty)
-                else first serviceError `liftM` f hs (responseBody rs)
+    success rs
+        |  statusCode st >= 400 = failure (StatusCodeException st hs mempty)
+        | otherwise = first serviceError `liftM` f hs (responseBody rs)
+      where
+        st = responseStatus rs
+        hs = responseHeaders rs
 
 consume :: Monad m => m ByteString -> m LBS.ByteString
 consume action = LBS.fromChunks `liftM` go id

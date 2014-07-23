@@ -32,7 +32,6 @@ module Network.AWS.Auth where
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Control.Error
 import           Control.Monad
 import           Control.Monad.IO.Class
 import qualified Data.Aeson                 as Aeson
@@ -45,7 +44,6 @@ import           Data.String
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
-import           Network.AWS.Error
 import           Network.AWS.Types
 import           System.Environment
 

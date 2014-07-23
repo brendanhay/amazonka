@@ -17,7 +17,6 @@
 module Network.AWS.Data.Header where
 
 import           Control.Applicative
-import           Control.Error
 import           Data.ByteString.Char8       (ByteString)
 import qualified Data.ByteString.Char8       as BS
 import qualified Data.CaseInsensitive        as CI
@@ -26,6 +25,7 @@ import           Data.Function               (on)
 import           Data.HashMap.Strict         (HashMap)
 import qualified Data.HashMap.Strict         as Map
 import           Data.List                   (deleteBy)
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                   (Text)
 import qualified Data.Text                   as Text
@@ -76,13 +76,17 @@ instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
 infixl 6 ~:, ~:?, ~:!
 
 (~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
-(~:) hs k = note missing (k `lookup` hs) >>= fromText . Text.decodeUtf8
+(~:) hs k = note (k `lookup` hs) >>= fromText . Text.decodeUtf8
   where
-    missing = BS.unpack $ "Unable to find header: " <> CI.original k
+    note Nothing  = Left (BS.unpack $ "Unable to find header: " <> CI.original k)
+    note (Just x) = Right x
 
 -- FIXME: Should ignore missing, but fail on parsing error if present
 (~:?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
 (~:?) hs k = Right $ hush (hs ~: k)
+  where
+    hush (Left  _) = Nothing
+    hush (Right x) = Just x
 
 (~:!) :: Functor f => f (Maybe a) -> a -> f a
 (~:!) p v = fromMaybe v <$> p

@@ -1,7 +1,9 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE FlexibleInstances  #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -19,9 +21,11 @@
 module Network.AWS.S3.V2006_03_01.Types where
 
 import Control.Applicative
+import Control.Exception      (Exception)
 import Data.Default
 import Data.Tagged
 import Data.Text              (Text)
+import Data.Typeable
 import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Signing.V4
@@ -30,9 +34,19 @@ import Network.AWS.Types      hiding (Error)
 -- | Supported version (@2006-03-01@) of the
 -- @Amazon Simple Storage Service@ service.
 data S3
+    deriving (Typeable)
 
 instance AWSService S3 where
     type Sg S3 = V4
+    data Er S3
+        = BucketAlreadyExists
+        | NoSuchBucket
+        | NoSuchKey
+        | NoSuchUpload
+        | ObjectAlreadyInActiveTierError
+        | ObjectNotInActiveTierError
+        | S3Error String
+        | S3Protocol ClientException
 
     service = Service
         { _svcEndpoint = Global
@@ -41,16 +55,8 @@ instance AWSService S3 where
         , _svcTarget   = Nothing
         }
 
-data instance Er S3
-    = BucketAlreadyExists
-    | NoSuchBucket
-    | NoSuchKey
-    | NoSuchUpload
-    | ObjectAlreadyInActiveTierError
-    | ObjectNotInActiveTierError
-    | S3Error String
-    | S3Protocol ClientException
-      deriving (Show, Typeable, Generic)
+deriving instance Show     (Er S3)
+deriving instance Generic  (Er S3)
 
 instance AWSError (Er S3) where
     awsError = const "S3Error"

@@ -20,7 +20,6 @@
 module Network.AWS.Data.XML where
 
 import           Control.Applicative
-import           Control.Error              (note)
 import           Control.Monad
 import qualified Data.Attoparsec.Text       as AText
 import qualified Data.ByteString            as BS
@@ -39,7 +38,6 @@ import           Data.Time
 import           GHC.Generics
 import           Text.XML
 import           Text.XML.Cursor
-import           Control.Error
 import           Network.AWS.Data.Text
 
 -- FIXME: Way to deal with unknowable XML root elements
@@ -53,6 +51,9 @@ infixl 6 %|, %|?
 
 (%|?) :: FromXML a => Cursor -> Text -> Either String (Maybe a)
 (%|?) xml k = Right $ hush (xml %| k)
+  where
+    hush (Left  _) = Nothing
+    hush (Right x) = Just x
 
 decodeXML :: forall a. FromXML a => ByteString -> Either String a
 decodeXML = either failure success . parseLBS def
@@ -180,8 +181,11 @@ instance FromXML a => FromXML [a] where
 instance FromXML a => FromXML (NonEmpty a) where
     fromXMLRoot = fromRoot "NonEmpty"
     fromXML o   = join
-        . fmap (note "Unexpected empty list." . NonEmpty.nonEmpty)
+        . fmap (note . NonEmpty.nonEmpty)
         . fromXML (retag o)
+      where
+        note Nothing  = Left "Unexpected empty list."
+        note (Just x) = Right x
 
 -- FIXME: should fail if target doesn't exist
 instance FromXML a => FromXML (Maybe a) where

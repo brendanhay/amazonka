@@ -44,7 +44,6 @@ module Network.AWS.Data.Query
 
 import           Control.Applicative
 import           Control.Arrow
-import           Control.Error                (note)
 import           Control.Lens
 import           Control.Lens.Plated
 import           Control.Lens.TH

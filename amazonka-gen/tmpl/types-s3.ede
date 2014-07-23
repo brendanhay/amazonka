@@ -1,7 +1,9 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE FlexibleInstances  #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {% include "_include/license.ede" with types_namespace %}
 
@@ -11,9 +13,11 @@
 module {{ types_namespace }} where
 
 import Control.Applicative
+import Control.Exception      (Exception)
 import Data.Default
 import Data.Tagged
 import Data.Text              (Text)
+import Data.Typeable
 import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Signing.{{ signature }}
@@ -21,10 +25,22 @@ import Network.AWS.Types      hiding (Error)
 
 -- | Supported version (@{{ raw_version }}@) of the
 -- @{{ full_name }}@ service.
-data {{ name }}
+data {{ name }} deriving (Typeable)
 
 instance AWSService {{ name }} where
     type Sg {{ name }} = {{ signature }}
+    {% if error.shapes | listLength == 0 %}
+    data Er {{ name }} = {{ error.name }}
+    {% else %}
+    data Er {{ name }}
+      {% for ctor in error.ctors %}
+        {% if ctor.first %}
+        = {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
+        {% else %}
+        | {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
 
     service = Service
         { _svcEndpoint = {% if global_endpoint -%} Global{% else -%} Regional{% endif -%}
@@ -33,20 +49,8 @@ instance AWSService {{ name }} where
         , _svcTarget   = {% if target_prefix -%} (Just "{{ target_prefix }}"){% else -%} Nothing {% endif -%}
         }
 
-{% if error.shapes | listLength == 0 %}
-data instance Er {{ name }} = {{ error.name }}
-    deriving (Show, Generic)
-{% else %}
-data instance Er {{ name }}
-  {% for ctor in error.ctors %}
-    {% if ctor.first %}
-    = {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
-    {% else %}
-    | {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
-    {% endif %}
-  {% endfor %}
-      deriving (Show, Typeable, Generic)
-{% endif %}
+deriving instance Show     (Er S3)
+deriving instance Generic  (Er S3)
 
 instance AWSError (Er S3) where
     awsError = const "{{ error.name }}"

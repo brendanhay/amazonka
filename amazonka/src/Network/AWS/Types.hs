@@ -1,14 +1,14 @@
-{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
-
 
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +26,6 @@ import           Control.Applicative
 import           Control.Exception         (Exception)
 import           Control.Lens              hiding (Action)
 import           Control.Monad.Base
-import           Control.Monad.IO.Class
 import           Data.Aeson                hiding (Error)
 import qualified Data.Attoparsec.Text      as AText
 import           Data.ByteString           (ByteString)
@@ -93,6 +92,8 @@ class AWSService a where
     data Er a :: *
 
     service :: Service a
+
+deriving instance Typeable Er
 
 class ( AWSService   (Sv a)
       , AWSSigner    (Sg (Sv a))

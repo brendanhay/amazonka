@@ -13,8 +13,6 @@
 module Network.AWS.Response where
 
 import           Control.Applicative
-import           Control.Error
-import           Control.Monad.Trans.Resource
 -- import           Data.Conduit
 -- import qualified Data.Conduit.Binary          as Conduit
 import           Data.Monoid

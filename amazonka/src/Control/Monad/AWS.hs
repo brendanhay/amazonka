@@ -91,7 +91,7 @@ newtype AWS a = AWS { _unAWS :: ReaderT Env (ExceptT Error IO) a }
 runAWS :: Auth -> Region -> Manager -> Logging -> AWS a -> IO (Either Error a)
 runAWS a r m l (AWS k) = runExceptT (runReaderT k (Env a r m l))
 
-mapAWS :: MonadBase IO m => (IO (Either Error a) -> IO (Either Error b)) -> AWS a -> AWS b
+mapAWS :: (IO (Either Error a) -> IO (Either Error b)) -> AWS a -> AWS b
 mapAWS f = AWS . mapReaderT (mapExceptT f) . _unAWS
 
 -- | HoistAWS an 'Either' throwing the 'Left' case, and returning the 'Right'.

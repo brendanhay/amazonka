@@ -54,7 +54,7 @@ import           Data.Monoid
 import qualified Data.Text                   as Text
 import           Data.Time
 import           Network.AWS.Data
-import           Network.AWS.Signing.Types
+import           Network.AWS.Signing.Common
 import           Network.AWS.Types
 import           Network.HTTP.Client
 

@@ -74,7 +74,7 @@ import qualified Data.Conduit.List                     as Conduit
 import           Data.Time
 import qualified Network.AWS                           as AWS
 import           Network.AWS.Auth
-import           Network.AWS.Signing.Types             hiding (presign)
+import           Network.AWS.Signing.Common             hiding (presign)
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 

@@ -21,7 +21,7 @@ module Network.AWS.Signing.V3
     , authorisation
 
     -- * Re-exports
-    , module Network.AWS.Signing.Types
+    , module Network.AWS.Signing.Common
     ) where
 
 import           Control.Applicative
@@ -39,7 +39,7 @@ import           Data.Monoid
 import           Data.Ord
 import           Data.Time
 import           Network.AWS.Data
-import           Network.AWS.Signing.Types
+import           Network.AWS.Signing.Common
 import           Network.AWS.Types
 import           Network.HTTP.Client.Lens
 import           Network.HTTP.Types.Header

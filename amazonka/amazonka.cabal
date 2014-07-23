@@ -27,11 +27,12 @@ library
 
     exposed-modules:
           Control.Monad.AWS
---        , Network.AWS
+        , Network.AWS
+
 --        , Network.AWS.Auth
 --        , Network.AWS.EC2.Metadata
 --        , Network.AWS.Error
---        , Network.AWS.Signing.Types
+--        , Network.AWS.Signing.Common
 --        , Network.AWS.Types
 --
 ----        , Network.AWS.S3

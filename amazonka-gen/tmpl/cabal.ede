@@ -76,24 +76,18 @@ library
         , bytestring
         , case-insensitive
         , cryptohash
-        , data-default
-        , errors
         , exceptions        == 0.6.*
         , http-client
         , http-client-lens
         , http-types
         , lens              == 4.2.*
-        , lifted-async
-        , mmorph
-        , monad-control
         , mtl
         , old-locale
-        , resourcet         == 1.1.*
         , semigroups
         , tagged
         , text
         , time
-        , transformers
+        , transformers      == 4.*
         , transformers-base
         , unordered-containers
         , xml-conduit

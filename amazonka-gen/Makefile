@@ -1,8 +1,9 @@
-TOP  := ..
-BIN  := dist/build/amazonka-gen/amazonka-gen
-DEPS := vendor/botocore vendor/ede
-BOTO := vendor/botocore/botocore/data/aws
-GEN  := $(TOP)/amazonka
+SHELL := /usr/bin/env bash
+FLAGS := -j --disable-documentation --disable-library-coverage
+BIN   := dist/build/amazonka-gen/amazonka-gen
+DEPS  := vendor/botocore vendor/ede
+BOTO  := vendor/botocore/botocore/data/aws
+GEN   := $(TOP)/amazonka
 
 include $(TOP)/include/common.mk
 
@@ -51,13 +52,16 @@ build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
 install: add-sources
-	cabal install $(FLAGS)
+	cabal install $(FLAGS) --only-dependencies
 
 clean:
 	cabal clean
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/ede
+
+cabal.sandbox.config:
+	cabal sandbox init
 
 vendor/botocore:
 	git clone git@github.com:boto/botocore $@

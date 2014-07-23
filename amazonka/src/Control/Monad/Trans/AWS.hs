@@ -107,8 +107,8 @@ newtype AWST m a = AWST { _unAWST :: ReaderT Env (EitherT Error m) a }
 instance MonadTrans AWST where
     lift = AWST . lift . lift
 
--- instance MonadBase IO m => MonadBase IO (AWST m) where
---     liftBase = liftBaseDefault
+instance MonadBase IO m => MonadBase IO (AWST m) where
+    liftBase = liftBaseDefault
 
 instance MonadThrow m => MonadThrow (AWST m) where
     throwM = AWST . lift . lift . throwM
@@ -116,8 +116,8 @@ instance MonadThrow m => MonadThrow (AWST m) where
 instance MonadCatch m => MonadCatch (AWST m) where
     catch m f = AWST (catch (_unAWST m) (_unAWST . f))
 
--- instance (MonadIO m, MonadBase IO m, MonadThrow m) => MonadResource (AWST m) where
---     liftResourceT f = AWST $ asks _envState >>= liftIO . runInternalState f
+instance (MonadIO m, MonadBase IO m, MonadThrow m) => MonadResource (AWST m) where
+    liftResourceT f = AWST $ asks _envState >>= liftIO . runInternalState f
 
 instance MFunctor AWST where
     hoist nat m = mapAWST nat m
@@ -168,7 +168,7 @@ within r = local (envRegion .~ r)
 send :: ( MonadIO m
         , MonadBase IO m
         , MonadCatch m
-        , MonadThrow m
+        , Monadthrow m
         , AWSRequest a
         , AWSSigner (Sg (Sv a))
         )

@@ -34,6 +34,7 @@ import           Control.Arrow
 import           Control.Exception
 import           Control.Lens                 ((^.))
 import           Control.Monad
+import qualified Control.Monad.Catch          as Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans
 import           Control.Monad.Trans.Resource
@@ -75,7 +76,7 @@ with :: AWSRequest a
      -> a
      -> (Rs a -> BodyReader -> IO b)
      -> IO (Either (Er (Sv a)) b)
-with a r m l rq f = bracket (open a r m l rq) close $ \rs -> do
+with a r m l rq f = Catch.bracket (open a r m l rq) close $ \rs -> do
     debug l ("[Raw Response]\n" <> Text.pack (show $ rs { responseBody = () }))
     x <- response rq rs
     either (return . Left)
@@ -89,12 +90,12 @@ open :: AWSRequest a
      -> Logging
      -> a
      -> IO ClientResponse
-open a r m l (request -> rq) = liftIO $ do
+open a r m l (request -> rq) = do
     t <- getCurrentTime
     s <- sign a r rq t
     debug l ("[Signed Request]\n" <> toText s)
     responseOpen (s ^. sgRequest) m
 
-close :: ClientResponse -> IO ()
-close = responseClose
+close :: MonadIO m => ClientResponse -> m ()
+close = liftIO . responseClose
 

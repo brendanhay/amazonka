@@ -1,11 +1,10 @@
-TOP := ..
-
-include $(TOP)/include/common.mk
+SHELL := /usr/bin/env bash
+FLAGS := -j --disable-documentation --disable-library-coverage
 
 build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
-install:
+install: cabal.sandbox.config
 	cabal install $(FLAGS) --only-dependencies
 
 clean:
@@ -14,3 +13,6 @@ clean:
 
 doc:
 	cabal haddock
+
+cabal.sandbox.config:
+	cabal sandbox init

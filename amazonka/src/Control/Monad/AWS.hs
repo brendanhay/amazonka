@@ -160,7 +160,7 @@ paginateCatch :: ( MonadBaseControl IO m
 paginateCatch rq = withEnv $ \e -> AWS.paginate e rq
 
 async :: (MonadBase IO m, MonadReader Env m) => AWS a -> m (Async (Either Error a))
-async (AWS r) = ask >>= liftBase . Async.async . runExceptT . runReaderT r
+async (AWS k) = ask >>= liftBase . Async.async . runExceptT . runReaderT k
 
 wait :: (MonadBase IO m, MonadError Error m) => Async (Either Error a) -> m a
 wait = hoistAWS <=< waitCatch

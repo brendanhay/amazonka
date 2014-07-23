@@ -32,12 +32,13 @@ module Network.AWS
    , with
    -- ** Pagination
    , paginate
-   -- ** Primitives
-   , open
-   , close
 
    -- * Signing URLs
    , presign
+
+   -- * Request primitives
+   , open
+   , close
    ) where
 
 import           Control.Arrow

@@ -102,7 +102,7 @@ hoistAWS = either (throwError . awsError) return
 withEnv :: MonadReader Env m => (Env -> m a) -> m a
 withEnv f = ask >>= f
 
--- | Regionalise an action inside a specific 'Region'.
+-- | Regionalise a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a
 within r = local (envRegion .~ r)
 

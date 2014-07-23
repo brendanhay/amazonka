@@ -3,6 +3,10 @@
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
+
+{-# LANGUAGE MultiParamTypeClasses            #-}
+
+
 -- Module      : Control.Monad.AWS
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -50,31 +54,15 @@ module Control.Monad.AWS
 import           Control.Applicative
 import           Control.Concurrent.Async    (Async)
 import qualified Control.Concurrent.Async    as Async
-import           Control.Error
-import           Control.Exception.Lifted
 import           Control.Lens
 import           Control.Monad.Base
-import           Control.Monad.Base
-import           Control.Monad.Error         (MonadError, ErrorT, throwError)
 import           Control.Monad.Except
-import           Control.Monad.IO.Class
-import           Control.Monad.List          (ListT)
-import qualified Control.Monad.RWS.Lazy      as LRWS
-import           Control.Monad.RWS.Strict    (RWST)
 import           Control.Monad.Reader
-import qualified Control.Monad.State.Lazy    as LState
-import           Control.Monad.State.Strict  (StateT)
 import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Except
-import qualified Control.Monad.Writer.Lazy   as LWriter
-import           Control.Monad.Writer.Strict (WriterT)
 import           Data.ByteString             (ByteString)
-import           Data.Monoid
 import           Data.Time
 import           Network.AWS                 (Env(..), envRegion)
 import qualified Network.AWS                 as AWS
-import           Network.AWS.Auth
-import           Network.AWS.Signing.Common   hiding (presign)
 import           Network.AWS.Types
 import           Network.HTTP.Client
 

@@ -40,14 +40,12 @@ module Network.AWS
    , presign
    ) where
 
-import           Control.Applicative
 import           Control.Arrow
 import           Control.Exception.Lifted
 import           Control.Lens                ((^.))
 import           Control.Lens.TH
 import           Control.Monad
 import           Control.Monad.Base
-import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Control
 import           Data.ByteString             (ByteString)
 import           Data.Monoid

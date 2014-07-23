@@ -73,6 +73,7 @@ library
         , base              == 4.7.*
         , base16-bytestring
         , base64-bytestring
+        , bifunctors
         , bytestring
         , case-insensitive
         , cryptohash

@@ -12,9 +12,11 @@
 
 module Network.AWS.Response where
 
-import           Control.Applicative
--- import           Data.Conduit
--- import qualified Data.Conduit.Binary          as Conduit
+import           Control.Monad
+import           Data.Bifunctor
+import           Data.ByteString      (ByteString)
+import qualified Data.ByteString      as BS
+import qualified Data.ByteString.Lazy as LBS
 import           Data.Monoid
 import           Network.AWS.Data
 import           Network.AWS.Types
@@ -22,37 +24,45 @@ import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           Text.XML.Cursor
 
--- headerResponse :: (MonadResource m, ServiceError e)
---                => (ResponseHeaders -> Either String a)
---                -> Either ClientException (ClientResponse m)
---                -> m (Either e a)
--- headerResponse f = bodyResponse $ \hs bdy ->
---     (bdy $$+- return ()) >> return (f hs)
+headerResponse :: (Monad m, ServiceError e)
+               => (ResponseHeaders -> Either String a)
+               -> Either ClientException (ClientResponse m)
+               -> m (Either e a)
+headerResponse f = bodyResponse (const . return . f)
 
--- cursorResponse :: (MonadResource m, ServiceError e)
---                => (ResponseHeaders -> Cursor -> Either String a)
---                -> Either ClientException (ClientResponse m)
---                -> m (Either e a)
--- cursorResponse f = bodyResponse $ \hs bdy -> do
---     lbs <- bdy $$+- Conduit.sinkLbs
---     return $ f hs (undefined lbs)
+cursorResponse :: (Monad m, ServiceError e)
+               => (ResponseHeaders -> Cursor -> Either String a)
+               -> Either ClientException (ClientResponse m)
+               -> m (Either e a)
+cursorResponse f = bodyResponse $ \hs bdy -> do
+    lbs <- consume bdy
+    return $ f hs (undefined lbs)
 
--- xmlResponse :: (MonadResource m, ServiceError e, FromXML a)
---             => Either ClientException (ClientResponse m)
---             -> m (Either e a)
--- xmlResponse = bodyResponse $ \_ bdy ->
---     decodeXML <$> (bdy $$+- Conduit.sinkLbs)
+xmlResponse :: (Monad m, ServiceError e, FromXML a)
+            => Either ClientException (ClientResponse m)
+            -> m (Either e a)
+xmlResponse = bodyResponse (const (liftM decodeXML . consume))
 
--- bodyResponse :: (MonadResource m, ServiceError e)
---              => (ResponseHeaders -> a -> m (Either String b))
---              -> Either ClientException (Response a)
---              -> m (Either e b)
--- bodyResponse _ (Left  ex) = return . Left $ clientError ex
--- bodyResponse f (Right rs)
---     | statusCode st >= 400 = return . Left $ clientError ex
---     | otherwise            = fmapL serviceError <$> f hs bdy
---   where
---     ex  = StatusCodeException st hs mempty
---     st  = responseStatus rs
---     hs  = responseHeaders rs
---     bdy = responseBody rs
+bodyResponse :: (Monad m, ServiceError e)
+             => (ResponseHeaders -> a -> m (Either String b))
+             -> Either ClientException (Response a)
+             -> m (Either e b)
+bodyResponse f = either failure success
+  where
+    failure = return . Left . clientError
+
+    success rs =
+        let st = responseStatus rs
+            hs = responseHeaders rs
+         in if statusCode st >= 400
+                then failure (StatusCodeException st hs mempty)
+                else first serviceError `liftM` f hs (responseBody rs)
+
+consume :: Monad m => m ByteString -> m LBS.ByteString
+consume action = LBS.fromChunks `liftM` go id
+  where
+    go front = do
+        x <- action
+        if BS.null x
+            then return (front [])
+            else go (front . (x:))

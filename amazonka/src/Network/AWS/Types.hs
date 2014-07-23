@@ -46,9 +46,9 @@ import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           System.Locale
 
-type ClientRequest   = Client.Request
-type ClientResponse  = Client.Response Client.BodyReader
-type ClientException = Client.HttpException
+type ClientRequest    = Client.Request
+type ClientResponse m = Client.Response (m ByteString)
+type ClientException  = Client.HttpException
 
 clientRequest :: ClientRequest
 clientRequest = def
@@ -104,9 +104,9 @@ class ( AWSService   (Sv a)
     type Rs a :: *
 
     request  :: a -> Request a
-    response :: MonadBase IO m
+    response :: Monad m
              => a
-             -> ClientResponse
+             -> ClientResponse m
              -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where

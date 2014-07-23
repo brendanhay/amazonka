@@ -33,8 +33,7 @@ import Network.AWS.Types      hiding (Error)
 
 -- | Supported version (@2006-03-01@) of the
 -- @Amazon Simple Storage Service@ service.
-data S3
-    deriving (Typeable)
+data S3 deriving (Typeable)
 
 instance AWSService S3 where
     type Sg S3 = V4

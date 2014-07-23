@@ -43,7 +43,7 @@ module Network.AWS.Data.Query
     ) where
 
 import           Control.Applicative
-import           Control.Arrow
+import           Data.Bifunctor
 import           Control.Lens
 import           Control.Lens.Plated
 import           Control.Lens.TH

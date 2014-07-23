@@ -41,7 +41,7 @@ module Network.AWS
    , close
    ) where
 
-import           Control.Arrow
+import           Data.Bifunctor
 import           Control.Exception.Lifted
 import           Control.Lens                ((^.))
 import           Control.Lens.TH
@@ -81,11 +81,9 @@ with :: (MonadBaseControl IO m, AWSRequest a)
      -> (Rs a -> m ByteString -> m b)
      -> m (Either (Er (Sv a)) b)
 with e rq f = bracket (open e rq) close $ \rs -> do
-    debug (_envLogging e) $
-        "[Raw Response]\n" <> Text.pack (show $ rs { responseBody = () })
     x <- response rq rs
     either (return . Left)
-           (\y -> Right `liftM` f y (liftBase $ responseBody rs))
+           (\y -> Right `liftM` f y (responseBody rs))
            x
 
 paginate :: (MonadBaseControl IO m, AWSPager a)
@@ -97,13 +95,16 @@ paginate e rq = fmap (second (next rq) . join (,)) `liftM` send e rq
 open :: (MonadBase IO m, AWSRequest a)
      => Env
      -> a
-     -> m ClientResponse
+     -> m (ClientResponse m)
 open Env{..} (request -> rq) = liftBase $ do
-    t <- getCurrentTime
-    s <- sign _envAuth _envRegion rq t
+    t  <- getCurrentTime
+    sg <- sign _envAuth _envRegion rq t
     debug _envLogging $
-        "[Signed Request]\n" <> toText s
-    responseOpen (s ^. sgRequest) _envManager
+        "[Signed Request]\n" <> toText sg
+    rs <- responseOpen (sg ^. sgRequest) _envManager
+    debug _envLogging $
+        "[Raw Response]\n" <> Text.pack (show $ rs { responseBody = () })
+    return $ rs { responseBody = liftBase (responseBody rs)  }
 
-close :: MonadBase IO m => ClientResponse -> m ()
+close :: MonadBase IO m => ClientResponse m -> m ()
 close = liftBase . responseClose

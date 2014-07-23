@@ -1,5 +1,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -13,34 +15,34 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS
-   (
-   -- * Sending Requests
-   -- ** Synchronous
-     send
-   -- ** Pagination
-   , paginate
-   -- ** Streaming
-   , with
-   -- ** Primitives
-   , open
-   , close
-   -- ** Signed URLs
-   , presign
-   ) where
+module Network.AWS where
+   -- (
+   -- -- * Sending Requests
+   -- -- ** Synchronous
+   --   send
+   -- -- ** Pagination
+   -- , paginate
+   -- -- ** Streaming
+   -- , with
+   -- -- ** Primitives
+   -- , open
+   -- , close
+   -- -- ** Signed URLs
+   -- , presign
+   -- ) where
 
 import           Control.Applicative
 import           Control.Arrow
-import           Control.Exception
-import           Control.Lens                 ((^.))
+import           Control.Exception.Lifted
+import           Control.Lens                ((^.))
+import           Control.Lens.TH
 import           Control.Monad
-import qualified Control.Monad.Catch          as Catch
+import           Control.Monad.Base
 import           Control.Monad.IO.Class
-import           Control.Monad.Trans
-import           Control.Monad.Trans.Resource
-import qualified Data.ByteString              as BS
+import           Control.Monad.Trans.Control
+import           Data.ByteString             (ByteString)
 import           Data.Monoid
-import qualified Data.Text                    as Text
+import qualified Data.Text                   as Text
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.Signing.Types
@@ -50,52 +52,51 @@ import           Network.HTTP.Client
 -- FIXME: How to constraint send/stream to the correct data types without
 -- introducing extraneous/meaningless type classes
 
-send :: AWSRequest a
-     => Auth
-     -> Region
-     -> Manager
-     -> Logging
-     -> a
-     -> IO (Either (Er (Sv a)) (Rs a))
-send a r m l rq = with a r m l rq (const . return)
+data Env = Env
+    { _envAuth    :: Auth
+    , _envRegion  :: Region
+    , _envManager :: Manager
+    , _envLogging :: Logging
+    }
 
-paginate :: AWSPager a
-         => Auth
-         -> Region
-         -> Manager
-         -> Logging
+makeLenses ''Env
+
+send :: (MonadBaseControl IO m, AWSRequest a)
+     => Env
+     -> a
+     -> m (Either (Er (Sv a)) (Rs a))
+send e rq = with e rq (const . return)
+
+paginate :: (MonadBaseControl IO m, AWSPager a)
+         => Env
          -> a
-         -> IO (Either (Er (Sv a)) (Rs a, Maybe a))
-paginate a r m l rq = fmap (second (next rq) . join (,)) `liftM` send a r m l rq
+         -> m (Either (Er (Sv a)) (Rs a, Maybe a))
+paginate e rq = fmap (second (next rq) . join (,)) `liftM` send e rq
 
-with :: AWSRequest a
-     => Auth
-     -> Region
-     -> Manager
-     -> Logging
+with :: (MonadBaseControl IO m, AWSRequest a)
+     => Env
      -> a
-     -> (Rs a -> BodyReader -> IO b)
-     -> IO (Either (Er (Sv a)) b)
-with a r m l rq f = Catch.bracket (open a r m l rq) close $ \rs -> do
-    debug l ("[Raw Response]\n" <> Text.pack (show $ rs { responseBody = () }))
+     -> (Rs a -> m ByteString -> m b)
+     -> m (Either (Er (Sv a)) b)
+with e rq f = bracket (open e rq) close $ \rs -> do
+    debug (_envLogging e) $
+        "[Raw Response]\n" <> Text.pack (show $ rs { responseBody = () })
     x <- response rq rs
     either (return . Left)
-           (\y -> Right `liftM` f y (responseBody rs))
+           (\y -> Right `liftM` f y (liftBase $ responseBody rs))
            x
 
-open :: AWSRequest a
-     => Auth
-     -> Region
-     -> Manager
-     -> Logging
+open :: (MonadBase IO m, AWSRequest a)
+     => Env
      -> a
-     -> IO ClientResponse
-open a r m l (request -> rq) = do
+     -> m ClientResponse
+open Env{..} (request -> rq) = liftBase $ do
     t <- getCurrentTime
-    s <- sign a r rq t
-    debug l ("[Signed Request]\n" <> toText s)
-    responseOpen (s ^. sgRequest) m
+    s <- sign _envAuth _envRegion rq t
+    debug _envLogging $
+        "[Signed Request]\n" <> toText s
+    responseOpen (s ^. sgRequest) _envManager
 
-close :: MonadIO m => ClientResponse -> m ()
-close = liftIO . responseClose
+close :: MonadBase IO m => ClientResponse -> m ()
+close = liftBase . responseClose
 

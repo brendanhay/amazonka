@@ -3,9 +3,7 @@ FLAGS := -j --disable-documentation --disable-library-coverage
 BIN   := dist/build/amazonka-gen/amazonka-gen
 DEPS  := vendor/botocore vendor/ede
 BOTO  := vendor/botocore/botocore/data/aws
-GEN   := $(TOP)/amazonka
-
-include $(TOP)/include/common.mk
+GEN   := ../amazonka
 
 MODELS := $(BOTO)/s3
  # $(BOTO)/autoscaling \

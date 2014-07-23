@@ -66,9 +66,10 @@ library
 --        , {{ module.value }}
 --    {% endfor %}
 --
---  {% endfor %}
+    {% endfor %}
     build-depends:
           aeson
+        , async
         , attoparsec
         , base              == 4.7.*
         , base16-bytestring
@@ -76,18 +77,22 @@ library
         , bytestring
         , case-insensitive
         , cryptohash
+        , data-default
+        , errors
         , exceptions        == 0.6.*
         , http-client
         , http-client-lens
         , http-types
+        , lifted-base
         , lens              == 4.2.*
+        , monad-control
         , mtl
         , old-locale
         , semigroups
         , tagged
         , text
         , time
-        , transformers      == 4.*
+        , transformers      == 0.4.*
         , transformers-base
         , unordered-containers
         , xml-conduit

@@ -9,8 +9,6 @@
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
 
-{-# LANGUAGE ScopedTypeVariables               #-}
-
 
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,25 +23,26 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
-import           Control.Exception            (Exception)
-import           Control.Lens                 hiding (Action)
+import           Control.Exception         (Exception)
+import           Control.Lens              hiding (Action)
+import           Control.Monad.Base
 import           Control.Monad.IO.Class
-import           Data.Aeson                   hiding (Error)
-import qualified Data.Attoparsec.Text         as AText
-import           Data.ByteString              (ByteString)
+import           Data.Aeson                hiding (Error)
+import qualified Data.Attoparsec.Text      as AText
+import           Data.ByteString           (ByteString)
 import           Data.Char
 import           Data.Default
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
-import qualified Data.Text.Encoding           as Text
+import           Data.Text                 (Text)
+import qualified Data.Text                 as Text
+import qualified Data.Text.Encoding        as Text
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Data
-import qualified Network.HTTP.Client          as Client
+import qualified Network.HTTP.Client       as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           System.Locale
@@ -104,7 +103,7 @@ class ( AWSService   (Sv a)
     type Rs a :: *
 
     request  :: a -> Request a
-    response :: MonadIO m
+    response :: MonadBase IO m
              => a
              -> ClientResponse
              -> m (Either (Er (Sv a)) (Rs a))
@@ -189,19 +188,19 @@ data Auth
     = Ref  (IORef AuthEnv)
     | Auth AuthEnv
 
-withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
-withAuth (Ref  r) f = liftIO (readIORef r) >>= f
+withAuth :: MonadBase IO m => Auth -> (AuthEnv -> m a) -> m a
+withAuth (Ref  r) f = liftBase (readIORef r) >>= f
 withAuth (Auth e) f = f e
 
 data Logging
     = None
     | Debug (Text -> IO ())
 
-debug :: MonadIO m => Logging -> Text -> m ()
+debug :: MonadBase IO m => Logging -> Text -> m ()
 debug l =
     case l of
         None    -> const (return ())
-        Debug f -> liftIO . f
+        Debug f -> liftBase . f
 
 data Endpoint
     = Global

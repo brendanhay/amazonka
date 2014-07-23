@@ -23,7 +23,6 @@ module Network.AWS.Data.Body where
     -- , ToBody (..)
     -- ) where
 
-import           Control.Monad.Trans.Resource
 import qualified Crypto.Hash.SHA256           as SHA256
 import           Data.Aeson
 import           Data.ByteString              (ByteString)

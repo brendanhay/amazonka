@@ -15,21 +15,30 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS where
-   -- (
-   -- -- * Sending Requests
-   -- -- ** Synchronous
-   --   send
-   -- -- ** Pagination
-   -- , paginate
-   -- -- ** Streaming
-   -- , with
-   -- -- ** Primitives
-   -- , open
-   -- , close
-   -- -- ** Signed URLs
-   -- , presign
-   -- ) where
+module Network.AWS
+   (
+   -- * Environment
+     Env (..)
+   -- ** Lenses
+   , envAuth
+   , envRegion
+   , envManager
+   , envLogging
+
+   -- * Synchronous requests
+   -- ** Strict
+   , send
+   -- ** Streaming
+   , with
+   -- ** Pagination
+   , paginate
+   -- ** Primitives
+   , open
+   , close
+
+   -- * Signing URLs
+   , presign
+   ) where
 
 import           Control.Applicative
 import           Control.Arrow
@@ -67,12 +76,6 @@ send :: (MonadBaseControl IO m, AWSRequest a)
      -> m (Either (Er (Sv a)) (Rs a))
 send e rq = with e rq (const . return)
 
-paginate :: (MonadBaseControl IO m, AWSPager a)
-         => Env
-         -> a
-         -> m (Either (Er (Sv a)) (Rs a, Maybe a))
-paginate e rq = fmap (second (next rq) . join (,)) `liftM` send e rq
-
 with :: (MonadBaseControl IO m, AWSRequest a)
      => Env
      -> a
@@ -85,6 +88,12 @@ with e rq f = bracket (open e rq) close $ \rs -> do
     either (return . Left)
            (\y -> Right `liftM` f y (liftBase $ responseBody rs))
            x
+
+paginate :: (MonadBaseControl IO m, AWSPager a)
+         => Env
+         -> a
+         -> m (Either (Er (Sv a)) (Rs a, Maybe a))
+paginate e rq = fmap (second (next rq) . join (,)) `liftM` send e rq
 
 open :: (MonadBase IO m, AWSRequest a)
      => Env
@@ -99,4 +108,3 @@ open Env{..} (request -> rq) = liftBase $ do
 
 close :: MonadBase IO m => ClientResponse -> m ()
 close = liftBase . responseClose
-

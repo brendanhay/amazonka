@@ -27,7 +27,8 @@ library
 
     exposed-modules:
           Control.Monad.AWS
---        , Network.AWS
+        , Network.AWS
+
 --        , Network.AWS.Auth
 --        , Network.AWS.EC2.Metadata
 --        , Network.AWS.Error

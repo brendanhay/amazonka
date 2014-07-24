@@ -49,10 +49,6 @@ module Control.Monad.Trans.AWS
     , async
     , wait
 
-    -- -- ** Requests
-    -- , sendAsync
-    -- , waitAsync
-
     -- * Signing URLs
     , presign
     ) where

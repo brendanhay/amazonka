@@ -23,14 +23,12 @@ module Network.AWS.Data.Body where
     -- , ToBody (..)
     -- ) where
 
-import           Crypto.Hash
+import qualified           Crypto.Hash.SHA256 as SHA256
 import           Data.Aeson
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Base16     as Base16
 import qualified Data.ByteString.Lazy       as LBS
 import qualified Data.ByteString.Lazy.Char8 as LBS8
-import           Data.Int
-import           Data.Monoid
 import           Data.String
 import           Network.HTTP.Client
 
@@ -42,7 +40,7 @@ data RsBody where
     RsBody :: Monad m => m ByteString -> RsBody
 
 data RqBody = RqBody
-    { _bdyHash :: Digest SHA256
+    { _bdyHash :: ByteString
     , _bdyBody :: RequestBody
     }
 
@@ -52,21 +50,21 @@ instance Show RqBody where
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
 
-payloadHash :: RqBody -> ByteString
-payloadHash = digestToByteString . _bdyHash
-
 class ToBody a where
     toBody :: a -> RqBody
-    toBody = const (RqBody (hash "") (RequestBodyLBS ""))
+    toBody = const (RqBody (hashLazy "") (RequestBodyLBS ""))
 
 instance ToBody RqBody where
     toBody = id
 
 instance ToBody LBS.ByteString where
-    toBody lbs = RqBody (hashlazy lbs) (RequestBodyLBS lbs)
+    toBody lbs = RqBody (hashLazy lbs) (RequestBodyLBS lbs)
 
 instance ToBody ByteString where
     toBody = toBody . LBS.fromStrict
 
 instance ToBody Value where
     toBody = toBody . encode
+
+hashLazy :: LBS8.ByteString -> ByteString
+hashLazy = Base16.encode . SHA256.hashlazy

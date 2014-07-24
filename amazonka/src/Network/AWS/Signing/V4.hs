@@ -178,7 +178,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders
-       , payloadHash _rqBody
+       , _bdyHash _rqBody
        ]
 
     scope =

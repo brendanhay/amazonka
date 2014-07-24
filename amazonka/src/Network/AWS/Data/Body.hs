@@ -48,13 +48,13 @@ instance IsString RqBody where
 
 class ToBody a where
     toBody :: a -> RqBody
-    toBody = const (RqBody (hashLazy "") (RequestBodyLBS ""))
+    toBody = const (RqBody (base16SHA256 "") (RequestBodyLBS ""))
 
 instance ToBody RqBody where
     toBody = id
 
 instance ToBody LBS.ByteString where
-    toBody lbs = RqBody (hashLazy lbs) (RequestBodyLBS lbs)
+    toBody lbs = RqBody (base16SHA256 lbs) (RequestBodyLBS lbs)
 
 instance ToBody ByteString where
     toBody = toBody . LBS.fromStrict
@@ -62,5 +62,5 @@ instance ToBody ByteString where
 instance ToBody Value where
     toBody = toBody . encode
 
-hashLazy :: LBS8.ByteString -> ByteString
-hashLazy = Base16.encode . SHA256.hashlazy
+base16SHA256 :: LBS8.ByteString -> ByteString
+base16SHA256 = Base16.encode . SHA256.hashlazy

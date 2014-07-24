@@ -32,12 +32,7 @@ library
         , Network.AWS.EC2.Metadata
         , Network.AWS.Signing.Common
         , Network.AWS.Types
-
-        , Network.AWS.S3
-        , Network.AWS.S3.V2006_03_01
-
-    other-modules:
-          Network.AWS.Data
+        , Network.AWS.Data
         , Network.AWS.Data.Body
         , Network.AWS.Data.ByteString
         , Network.AWS.Data.Header
@@ -54,6 +49,9 @@ library
         , Network.AWS.Request.RestXML
         , Network.AWS.Response
         , Network.AWS.Signing.V4
+
+        , Network.AWS.S3
+        , Network.AWS.S3.V2006_03_01
 
         -- * S3 Version V2006_03_01
         , Network.AWS.S3.V2006_03_01.AbortMultipartUpload

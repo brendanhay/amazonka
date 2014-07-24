@@ -18,42 +18,44 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Control.Monad.Trans.AWS where
-    -- (
-    -- -- * AWS Monad
-    --   AWS
-    -- -- ** Concrete operations
-    -- , runAWS
-    -- , mapAWS
+module Control.Monad.Trans.AWS
+    (
+    -- * Monad
+      AWS
 
-    -- -- ** Generalised operations
-    -- , hoistAWS
+    -- * Transformer
+    , AWST
+    , runAWST
 
-    -- -- * Regionalisation
-    -- , within
+    -- * Helpers
+    , hoistEither
+    , scoped
 
-    -- -- * Synchronous requests
-    -- -- ** Strict
-    -- , send
-    -- , sendCatch
-    -- -- ** Streaming
-    -- , with
-    -- , withCatch
-    -- -- ** Pagination
-    -- , paginate
-    -- , paginateCatch
+    -- * Regionalisation
+    , within
 
-    -- -- * Asynchronous actions
-    -- , async
-    -- , wait
+    -- * Synchronous requests
+    -- ** Strict
+    , send
+    , sendCatch
+    -- ** Streaming
+    , with
+    , withCatch
+    -- ** Pagination
+    , paginate
+    , paginateCatch
+
+    -- * Asynchronous actions
+    , async
+    , wait
 
     -- -- ** Requests
     -- , sendAsync
     -- , waitAsync
 
-    -- -- * Signing URLs
-    -- , presign
-    -- ) where
+    -- * Signing URLs
+    , presign
+    ) where
 
 import           Control.Applicative
 import           Control.Concurrent.Async.Lifted (Async)
@@ -136,8 +138,8 @@ hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
 hoistEither = either (throwError . awsError) return
 
 -- | Pass the current environment to a function.
-withEnv :: MonadReader Env m => (Env -> m a) -> m a
-withEnv f = ask >>= f
+scoped :: MonadReader Env m => (Env -> m a) -> m a
+scoped f = ask >>= f
 
 -- | Regionalise a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a
@@ -155,7 +157,7 @@ send = hoistEither <=< sendCatch
 sendCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSRequest a)
           => a
           -> m (Either (Er (Sv a)) (Rs a))
-sendCatch rq = withEnv $ \e -> AWS.send e rq
+sendCatch rq = scoped $ \e -> AWS.send e rq
 
 with :: ( MonadBaseControl IO m
         , MonadReader Env m
@@ -171,7 +173,7 @@ withCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSRequest a)
           => a
           -> (Rs a -> m ByteString -> m b)
           -> m (Either (Er (Sv a)) b)
-withCatch rq f = withEnv $ \e -> AWS.with e rq f
+withCatch rq f = scoped $ \e -> AWS.with e rq f
 
 paginate :: ( MonadBaseControl IO m
             , MonadReader Env m
@@ -185,7 +187,7 @@ paginate = hoistEither <=< paginateCatch
 paginateCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSPager a)
               => a
               -> m (Either (Er (Sv a)) (Rs a, Maybe a))
-paginateCatch rq = withEnv $ \e -> AWS.paginate e rq
+paginateCatch rq = scoped $ \e -> AWS.paginate e rq
 
 async :: (MonadBaseControl IO m, MonadReader Env m)
       => AWST m a
@@ -206,5 +208,5 @@ presign :: ( MonadBase IO m
         -> UTCTime
         -> Int
         -> m (Signed a (Sg (Sv a)))
-presign rq t x = withEnv $ \Env{..} ->
+presign rq t x = scoped $ \Env{..} ->
     AWS.presign _envAuth _envRegion (request rq) t x

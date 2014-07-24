@@ -88,8 +88,9 @@ instance ToByteString {{ data.value.name }} where
     toBS ({{ data.value.name }} r) = toBS r
 
 instance FromXML {{ data.value.name }} where
-    fromXMLRoot = fromRoot "{{ data.value.name }}"
-    fromXML     = const fromNodeContent
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "{{ data.value.name }}"
+    fromXML        = const fromNodeContent
   {% else %}
     {% case data.value.ctor %}
     {% when "switch" %}
@@ -115,7 +116,10 @@ instance ToByteString (Switch {{ data.value.name }}) where
       {% endfor %}
 
 instance FromXML (Switch {{ data.value.name }}) where
-    {% include "_include/xml.ede" with data.value %}
+    {% include "_include/xml-from.ede" with data.value %}
+
+instance ToXML (Switch {{ data.value.name }}) where
+    {% include "_include/xml-to.ede" with data.value %}
     {% when "witness" %}
 data {{ data.value.name }}
     {% when "sum" %}
@@ -149,24 +153,36 @@ instance ToByteString {{ data.value.name }} where
       {% endfor %}
 
 instance FromXML {{ data.value.name }} where
-    {% include "_include/xml.ede" with data.value %}
+    {% include "_include/xml-from.ede" with data.value %}
+
+instance ToXML {{ data.value.name }} where
+    {% include "_include/xml-to.ede" with data.value %}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
     {% include "_include/record.ede" with data.value.fields %}
 
 instance FromXML {{ data.value.name }} where
-    {% include "_include/xml.ede" with data.value %}
+    {% include "_include/xml-from.ede" with data.value %}
+
+instance ToXML {{ data.value.name }} where
+    {% include "_include/xml-to.ede" with data.value %}
     {% when "data" %}
 data {{ data.value.name }} = {{ data.value.name }}
     {% include "_include/record.ede" with data.value.fields %}
 
 instance FromXML {{ data.value.name }} where
-    {% include "_include/xml.ede" with data.value %}
+    {% include "_include/xml-from.ede" with data.value %}
+
+instance ToXML {{ data.value.name }} where
+    {% include "_include/xml-to.ede" with data.value %}
     {% when "nullary" %}
 data {{ data.value.name }} = {{ data.value.name }}
 
 instance FromXML {{ data.value.name }} where
-  {% include "_include/xml.ede" with data.value %}
+  {% include "_include/xml-from.ede" with data.value %}
+
+instance ToXML {{ data.value.name }} where
+  {% include "_include/xml-to.ede" with data.value %}
     {% endcase %}
   {% endcase %}
   {% if !data.last %}

@@ -152,9 +152,6 @@ instance FromXML Text where
 --     fromXMLRoot = fromRoot "ByteString"
 --     fromXML o   = fmap Text.encodeUtf8 . fromXML (retag o)
 
-instance FromXML Int where
-    fromXML = const fromNodeContent
-
 instance FromXML Integer where
     fromXMLRoot = fromRoot "Integer"
     fromXML     = const fromNodeContent
@@ -235,143 +232,126 @@ instance (Selector c, GFromXML f) => GFromXML (S1 c f) where
         name = Name sel (xmlNamespace o) Nothing
         sel  = xmlFieldMod o $ selName (undefined :: S1 c f p)
 
--- toNestedRoot :: NonEmpty Text -> Tagged a XMLOptions -> [Node] -> Document
--- toNestedRoot rs o ns = Document (Prologue [] Nothing []) root []
---   where
---     root = foldr' (\k e -> wrap k [NodeElement e])
---                   (wrap (NonEmpty.last rs) ns)
---                   (NonEmpty.init rs)
+toNestedRoot :: NonEmpty Text -> Tagged a XMLOptions -> [Node] -> Document
+toNestedRoot rs o ns = Document (Prologue [] Nothing []) root []
+  where
+    root = foldr' (\k e -> wrap k [NodeElement e])
+                  (wrap (NonEmpty.last rs) ns)
+                  (NonEmpty.init rs)
 
---     wrap x = Element (name x) mempty
---     name x = Name x (xmlNamespace $ untag o) Nothing
+    wrap x = Element (name x) mempty
+    name x = Name x (xmlNamespace $ untag o) Nothing
 
--- toRoot :: Text -> Tagged a XMLOptions -> [Node] -> Document
--- toRoot = toNestedRoot . (NonEmpty.:| [])
+toRoot :: Text -> Tagged a XMLOptions -> [Node] -> Document
+toRoot = toNestedRoot . (NonEmpty.:| [])
 
--- genericToRoot :: forall a. (Generic a, GXMLRoot (Rep a))
---               => Tagged a XMLOptions
---               -> [Node]
---               -> Document
--- genericToRoot o = toRoot (gRootName (untag o) $ from (undefined :: a)) o
+genericToRoot :: forall a. (Generic a, GXMLRoot (Rep a))
+              => Tagged a XMLOptions
+              -> [Node]
+              -> Document
+genericToRoot o = toRoot (gRootName (untag o) $ from (undefined :: a)) o
 
 class ToXML a where
     toXMLOptions :: Tagged a XMLOptions
     toXMLRoot    :: Tagged a XMLOptions -> [Node] -> Document
     toXML        :: Tagged a XMLOptions -> a -> [Node]
 
---     toXMLOptions = Tagged def
+    toXMLOptions = Tagged def
 
---     default toXMLRoot :: (Generic a, GXMLRoot (Rep a))
---                       => Tagged a XMLOptions
---                       -> [Node]
---                       -> Document
---     toXMLRoot = genericToRoot
+    default toXMLRoot :: (Generic a, GXMLRoot (Rep a))
+                      => Tagged a XMLOptions
+                      -> [Node]
+                      -> Document
+    toXMLRoot = genericToRoot
 
---     default toXML :: (Generic a, GToXML (Rep a))
---                   => Tagged a XMLOptions
---                   -> a
---                   -> [Node]
---     toXML o = gToXML (untag o) . from
+    default toXML :: (Generic a, GToXML (Rep a))
+                  => Tagged a XMLOptions
+                  -> a
+                  -> [Node]
+    toXML o = gToXML (untag o) . from
 
--- instance ToXML Text where
---     toXMLRoot = toRoot "Text"
---     toXML _   = (:[]) . NodeContent
+instance ToXML Text where
+    toXMLRoot = toRoot "Text"
+    toXML _   = (:[]) . NodeContent
 
--- instance ToXML BS.ByteString where
---     toXMLRoot = toRoot "ByteString"
---     toXML o   = toXML (retag o) . Text.decodeUtf8
+instance ToXML BS.ByteString where
+    toXMLRoot = toRoot "ByteString"
+    toXML o   = toXML (retag o) . Text.decodeUtf8
 
--- instance ToXML Int where
---     toXMLRoot = toRoot "Int"
---     toXML _   = nodeFromIntegral
+instance ToXML Integer where
+    toXMLRoot = toRoot "Integer"
+    toXML _   = (:[]) . NodeContent . toText
 
--- instance ToXML Integer where
---     toXMLRoot = toRoot "Integer"
---     toXML _   = nodeFromIntegral
-
--- instance ToXML Double where
---     toXML _ = nodeFromFloat
-
--- instance ToXML Float where
---     toXML _ = nodeFromFloat
+instance ToXML Double where
+    toXML _ = (:[]) . NodeContent . toText
 
 -- -- FIXME: implement this shizzle
 -- instance (ToXML k, ToXML v) => ToXML (HashMap k v) where
 --     toXMLRoot = undefined
 --     toXML o   = undefined
 
--- instance ToXML a => ToXML [a] where
---     toXML o = f (xmlListElem $ untag o)
---       where
---         f (Just x) = map (g (Name x (xmlNamespace $ untag o) Nothing) . toXML o')
---         f Nothing  = concatMap (toXML o')
+instance ToXML a => ToXML [a] where
+    toXML o = f (xmlListElem $ untag o)
+      where
+        f (Just x) = map (g (Name x (xmlNamespace $ untag o) Nothing) . toXML o')
+        f Nothing  = concatMap (toXML o')
 
---         g n = NodeElement . Element n mempty
+        g n = NodeElement . Element n mempty
 
---         o' = retag o
+        o' = retag o
 
--- instance ToXML a => ToXML (NonEmpty a) where
---     toXMLRoot = toRoot "NonEmpty"
---     toXML o   = toXML (retag o) . NonEmpty.toList
+instance ToXML a => ToXML (NonEmpty a) where
+    toXMLRoot = toRoot "NonEmpty"
+    toXML o   = toXML (retag o) . NonEmpty.toList
 
--- instance ToXML a => ToXML (Maybe a) where
---     toXML o (Just x) = toXML (retag o) x
---     toXML _ Nothing  = []
+instance ToXML a => ToXML (Maybe a) where
+    toXML o (Just x) = toXML (retag o) x
+    toXML _ Nothing  = []
 
--- instance ToXML Bool where
---     toXML _ True  = [NodeContent "true"]
---     toXML _ False = [NodeContent "false"]
+instance ToXML Bool where
+    toXML _ True  = [NodeContent "true"]
+    toXML _ False = [NodeContent "false"]
 
--- instance ToXML UTCTime where
---     toXMLRoot = toRoot "UTCTime"
---     toXML _   = (:[]) . NodeContent . formatISO8601
+instance ToXML () where
+    toXML _ () = []
 
--- instance ToXML () where
---     toXML _ () = []
+class GToXML f where
+    gToXML :: XMLOptions -> f a -> [Node]
 
--- nodeFromIntegral :: Integral a => a -> [Node]
--- nodeFromIntegral = (:[]) . NodeContent . integralToText
+instance (GToXML f, GToXML g) => GToXML (f :+: g) where
+    gToXML o (L1 x) = gToXML o x
+    gToXML o (R1 y) = gToXML o y
 
--- nodeFromFloat :: RealFloat a => a -> [Node]
--- nodeFromFloat = (:[]) . NodeContent . floatToText
+instance (GToXML f, GToXML g) => GToXML (f :*: g) where
+    gToXML o (x :*: y) = gToXML o x ++ gToXML o y
 
--- class GToXML f where
---     gToXML :: XMLOptions -> f a -> [Node]
+instance GToXML U1 where
+    gToXML _ _ = []
 
--- instance (GToXML f, GToXML g) => GToXML (f :+: g) where
---     gToXML o (L1 x) = gToXML o x
---     gToXML o (R1 y) = gToXML o y
+instance ToXML a => GToXML (K1 R a) where
+    gToXML x f = toXML o g
+      where
+        o | xmlInherit $ untag y = Tagged x
+          | otherwise            = y
 
--- instance (GToXML f, GToXML g) => GToXML (f :*: g) where
---     gToXML o (x :*: y) = gToXML o x ++ gToXML o y
+        y = toXMLOptions :: Tagged a XMLOptions
+        g = unK1 f
 
--- instance GToXML U1 where
---     gToXML _ _ = []
+instance GToXML f => GToXML (D1 c f) where
+    gToXML o = gToXML o . unM1
 
--- instance ToXML a => GToXML (K1 R a) where
---     gToXML x f = toXML o g
---       where
---         o | xmlInherit $ untag y = Tagged x
---           | otherwise            = y
+instance GToXML f => GToXML (C1 c f) where
+    gToXML o = gToXML o . unM1
 
---         y = toXMLOptions :: Tagged a XMLOptions
---         g = unK1 f
-
--- instance GToXML f => GToXML (D1 c f) where
---     gToXML o = gToXML o . unM1
-
--- instance GToXML f => GToXML (C1 c f) where
---     gToXML o = gToXML o . unM1
-
--- instance (Selector c, GToXML f) => GToXML (S1 c f) where
---     gToXML o (m1 :: (S1 c f) a) = f . gToXML o $ unM1 m1
---       where
---         f = case selName m1 of
---             "" -> id
---             n  -> (:[])
---                 . NodeElement
---                 . Element (Name (xmlFieldMod o n) (xmlNamespace o) Nothing)
---                           mempty
+instance (Selector c, GToXML f) => GToXML (S1 c f) where
+    gToXML o (m1 :: (S1 c f) a) = f . gToXML o $ unM1 m1
+      where
+        f = case selName m1 of
+            "" -> id
+            n  -> (:[])
+                . NodeElement
+                . Element (Name (xmlFieldMod o n) (xmlNamespace o) Nothing)
+                          mempty
 
 class GXMLRoot f where
     gRootName :: XMLOptions -> f a -> Text

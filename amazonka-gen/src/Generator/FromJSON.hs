@@ -42,6 +42,9 @@ import           Generator.Models
 import           Generator.Transform
 import           Network.HTTP.Types.Method
 
+-- FIXME: annotate types whether they are request, response, or bijective
+-- so serialisation instances can be defined as needed.
+
 parseModel :: Model -> Script Service
 parseModel Model{..} = do
     r <- scriptIO $ say "Parse Service" modPath >> LBS.readFile modPath

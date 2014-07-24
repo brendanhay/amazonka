@@ -74,7 +74,7 @@ instance AWSRequest PutBucketCors where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketCorsResponse
+    response _ _ = return (Right PutBucketCorsResponse)
 
 data PutBucketCorsResponse = PutBucketCorsResponse
     deriving (Eq, Show, Generic)

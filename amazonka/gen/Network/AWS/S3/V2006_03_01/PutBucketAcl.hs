@@ -100,7 +100,7 @@ instance AWSRequest PutBucketAcl where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketAclResponse
+    response _ _ = return (Right PutBucketAclResponse)
 
 data PutBucketAclResponse = PutBucketAclResponse
     deriving (Eq, Show, Generic)

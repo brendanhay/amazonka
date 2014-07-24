@@ -74,7 +74,7 @@ instance AWSRequest PutBucketWebsite where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketWebsiteResponse
+    response _ _ = return (Right PutBucketWebsiteResponse)
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
     deriving (Eq, Show, Generic)

@@ -65,7 +65,7 @@ instance AWSRequest DeleteBucketTagging where
 
     request = delete
 
-    response _ = headerResponse . const $ Right DeleteBucketTaggingResponse
+    response _ _ = return (Right DeleteBucketTaggingResponse)
 
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
     deriving (Eq, Show, Generic)

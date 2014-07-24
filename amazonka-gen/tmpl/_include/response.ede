@@ -1,5 +1,5 @@
 {% if scope.response.fields | listLength == 0 %}
-    response _ = headerResponse . const $ Right {{ scope.response.name }}
+    response _ _ = return (Right {{ scope.response.name }})
 {% else %}
   {% case scope.response.type %}
   {% when "xml" %}

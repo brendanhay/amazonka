@@ -81,7 +81,7 @@ instance AWSRequest PutBucketVersioning where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketVersioningResponse
+    response _ _ = return (Right PutBucketVersioningResponse)
 
 data PutBucketVersioningResponse = PutBucketVersioningResponse
     deriving (Eq, Show, Generic)

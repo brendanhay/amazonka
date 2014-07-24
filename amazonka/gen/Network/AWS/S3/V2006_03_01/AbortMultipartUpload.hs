@@ -75,7 +75,7 @@ instance AWSRequest AbortMultipartUpload where
 
     request = delete
 
-    response _ = headerResponse . const $ Right AbortMultipartUploadResponse
+    response _ _ = return (Right AbortMultipartUploadResponse)
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)

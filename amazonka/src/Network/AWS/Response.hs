@@ -10,7 +10,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Response where
+module Network.AWS.Response
+    ( headerResponse
+    , cursorResponse
+    , xmlResponse
+    , bodyResponse
+    ) where
 
 import           Control.Monad
 import           Data.Bifunctor

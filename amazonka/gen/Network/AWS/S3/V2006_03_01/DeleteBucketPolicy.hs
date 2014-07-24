@@ -65,7 +65,7 @@ instance AWSRequest DeleteBucketPolicy where
 
     request = delete
 
-    response _ = headerResponse . const $ Right DeleteBucketPolicyResponse
+    response _ _ = return (Right DeleteBucketPolicyResponse)
 
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
     deriving (Eq, Show, Generic)

@@ -106,7 +106,7 @@ instance AWSRequest PutObjectAcl where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutObjectAclResponse
+    response _ _ = return (Right PutObjectAclResponse)
 
 data PutObjectAclResponse = PutObjectAclResponse
     deriving (Eq, Show, Generic)

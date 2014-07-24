@@ -76,7 +76,7 @@ instance AWSRequest PutBucketPolicy where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketPolicyResponse
+    response _ _ = return (Right PutBucketPolicyResponse)
 
 data PutBucketPolicyResponse = PutBucketPolicyResponse
     deriving (Eq, Show, Generic)

@@ -41,13 +41,13 @@ module Network.AWS
    , close
    ) where
 
-import           Data.Bifunctor
 import           Control.Exception.Lifted
 import           Control.Lens                ((^.))
 import           Control.Lens.TH
 import           Control.Monad
 import           Control.Monad.Base
 import           Control.Monad.Trans.Control
+import           Data.Bifunctor
 import           Data.ByteString             (ByteString)
 import           Data.Monoid
 import qualified Data.Text                   as Text
@@ -80,11 +80,15 @@ with :: (MonadBaseControl IO m, AWSRequest a)
      -> a
      -> (Rs a -> m ByteString -> m b)
      -> m (Either (Er (Sv a)) b)
-with e rq f = bracket (open e rq) close $ \rs -> do
-    x <- response rq rs
-    either (return . Left)
-           (\y -> Right `liftM` f y (responseBody rs))
-           x
+with e rq f = bracket (open e rq) close go
+  where
+    go rs = (`catch` er) $ do
+        x <- response rq (Right rs)
+        either (return . Left)
+               (\y -> Right `liftM` f y (responseBody rs))
+               x
+
+    er ex = return . Left $ clientError (ex :: ClientException)
 
 paginate :: (MonadBaseControl IO m, AWSPager a)
          => Env

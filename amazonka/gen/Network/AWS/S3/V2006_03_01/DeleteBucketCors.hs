@@ -65,7 +65,7 @@ instance AWSRequest DeleteBucketCors where
 
     request = delete
 
-    response _ = headerResponse . const $ Right DeleteBucketCorsResponse
+    response _ _ = return (Right DeleteBucketCorsResponse)
 
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse
     deriving (Eq, Show, Generic)

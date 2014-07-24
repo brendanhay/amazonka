@@ -77,7 +77,7 @@ instance AWSRequest PutBucketRequestPayment where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketRequestPaymentResponse
+    response _ _ = return (Right PutBucketRequestPaymentResponse)
 
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
     deriving (Eq, Show, Generic)

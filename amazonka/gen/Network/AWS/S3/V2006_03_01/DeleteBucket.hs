@@ -67,7 +67,7 @@ instance AWSRequest DeleteBucket where
 
     request = delete
 
-    response _ = headerResponse . const $ Right DeleteBucketResponse
+    response _ _ = return (Right DeleteBucketResponse)
 
 data DeleteBucketResponse = DeleteBucketResponse
     deriving (Eq, Show, Generic)

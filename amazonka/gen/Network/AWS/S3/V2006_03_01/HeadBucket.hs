@@ -66,7 +66,7 @@ instance AWSRequest HeadBucket where
 
     request = head
 
-    response _ = headerResponse . const $ Right HeadBucketResponse
+    response _ _ = return (Right HeadBucketResponse)
 
 data HeadBucketResponse = HeadBucketResponse
     deriving (Eq, Show, Generic)

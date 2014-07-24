@@ -76,7 +76,7 @@ instance AWSRequest PutBucketLogging where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketLoggingResponse
+    response _ _ = return (Right PutBucketLoggingResponse)
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
     deriving (Eq, Show, Generic)

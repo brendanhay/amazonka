@@ -106,7 +106,7 @@ class ( AWSService   (Sv a)
     request  :: a -> Request a
     response :: Monad m
              => a
-             -> ClientResponse m
+             -> Either ClientException (ClientResponse m)
              -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where

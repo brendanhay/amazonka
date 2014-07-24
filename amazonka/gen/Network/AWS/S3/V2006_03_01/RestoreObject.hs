@@ -78,7 +78,7 @@ instance AWSRequest RestoreObject where
 
     request = post
 
-    response _ = headerResponse . const $ Right RestoreObjectResponse
+    response _ _ = return (Right RestoreObjectResponse)
 
 data RestoreObjectResponse = RestoreObjectResponse
     deriving (Eq, Show, Generic)

@@ -75,7 +75,7 @@ instance AWSRequest PutBucketLifecycle where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketLifecycleResponse
+    response _ _ = return (Right PutBucketLifecycleResponse)
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
     deriving (Eq, Show, Generic)

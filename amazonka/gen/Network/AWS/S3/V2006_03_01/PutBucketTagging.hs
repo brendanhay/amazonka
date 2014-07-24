@@ -74,7 +74,7 @@ instance AWSRequest PutBucketTagging where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketTaggingResponse
+    response _ _ = return (Right PutBucketTaggingResponse)
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)

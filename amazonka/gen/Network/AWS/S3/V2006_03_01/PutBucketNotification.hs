@@ -74,7 +74,7 @@ instance AWSRequest PutBucketNotification where
 
     request = put
 
-    response _ = headerResponse . const $ Right PutBucketNotificationResponse
+    response _ _ = return (Right PutBucketNotificationResponse)
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)

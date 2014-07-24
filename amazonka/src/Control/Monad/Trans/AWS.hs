@@ -137,7 +137,7 @@ hoistEither = either (throwError . awsError) return
 scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
--- | Regionalise a monadic action within the specific 'Region'.
+-- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a
 within r = local (envRegion .~ r)
 

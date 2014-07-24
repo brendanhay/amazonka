@@ -1,0 +1,6 @@
+  {% if scope.flattened %}
+    toXMLOptions = xmlOptions { xmlListElem = Nothing }
+  {% else %}
+    toXMLOptions = xmlOptions
+  {% endif %}
+    toXMLRoot    = toRoot "{{ scope.xml_name }}"

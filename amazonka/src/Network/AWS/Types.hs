@@ -361,6 +361,7 @@ instance ToByteString BucketName where toBS (BucketName b) = toBS b
 instance FromText     BucketName where parser = BucketName <$> takeText
 instance ToText       BucketName where toText (BucketName b) = b
 instance FromXML      BucketName
+instance ToXML        BucketName
 
 newtype ObjectKey = ObjectKey Text
     deriving (Eq, Show, Generic, IsString)
@@ -369,6 +370,7 @@ instance ToByteString ObjectKey where toBS (ObjectKey k) = toBS k
 instance FromText     ObjectKey where parser = ObjectKey <$> takeText
 instance ToText       ObjectKey where toText (ObjectKey k) = k
 instance FromXML      ObjectKey
+instance ToXML        ObjectKey
 
 newtype ObjectVersionId = ObjectVersionId Text
     deriving (Eq, Show, Generic, IsString)
@@ -377,6 +379,7 @@ instance ToByteString ObjectVersionId where toBS (ObjectVersionId v) = toBS v
 instance FromText     ObjectVersionId where parser = ObjectVersionId <$> takeText
 instance ToText       ObjectVersionId where toText (ObjectVersionId v) = v
 instance FromXML      ObjectVersionId
+instance ToXML        ObjectVersionId
 
 newtype ETag = ETag Text
     deriving (Eq, Show, Generic, IsString)
@@ -385,6 +388,7 @@ instance ToByteString ETag where toBS (ETag t) = toBS t
 instance FromText     ETag where parser = ETag <$> takeText
 instance ToText       ETag where toText (ETag t) = t
 instance FromXML      ETag
+instance ToXML        ETag
 
 data Switch a = Enabled | Disabled
     deriving (Eq, Show, Generic)

@@ -223,6 +223,11 @@ instance FromXML BucketLocationConstraint where
     fromXMLRoot    = fromRoot "BucketLocationConstraint"
     fromXML        = const fromNodeContent
 
+instance ToXML BucketLocationConstraint where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "BucketLocationConstraint"
+    toXML o      = toXML (retag o) . toText
+
 -- | Logging permissions assigned to the Grantee for the bucket.
 data BucketLogsPermission
     = BucketLogsPermissionFullControl -- ^ FULL_CONTROL

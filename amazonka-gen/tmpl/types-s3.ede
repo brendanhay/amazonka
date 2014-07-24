@@ -91,6 +91,11 @@ instance FromXML {{ data.value.name }} where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "{{ data.value.name }}"
     fromXML        = const fromNodeContent
+
+instance ToXML {{ data.value.name }} where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "{{ data.value.name }}"
+    toXML o      = toXML (retag o) . toText
   {% else %}
     {% case data.value.ctor %}
     {% when "switch" %}

@@ -245,7 +245,7 @@ data Request a = Request
     , _rqPath    :: ByteString
     , _rqQuery   :: Query
     , _rqHeaders :: [Header]
-    , _rqBody    :: Body
+    , _rqBody    :: RqBody
     }
 
 instance Default (Request a) where
@@ -273,7 +273,7 @@ rqQuery f x = (\y -> x { _rqQuery = y }) <$> f (_rqQuery x)
 rqHeaders :: Functor f => LensLike' f (Request a) [Header]
 rqHeaders f x = (\y -> x { _rqHeaders = y }) <$> f (_rqHeaders x)
 
-rqBody :: Functor f => LensLike' f (Request a) Body
+rqBody :: Functor f => LensLike' f (Request a) RqBody
 rqBody f x = (\y -> x { _rqBody = y }) <$> f (_rqBody x)
 
 data Region

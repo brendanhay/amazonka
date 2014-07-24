@@ -46,7 +46,7 @@ uploadPart :: BucketName -- ^ '_uprBucket'
            -> Text -- ^ '_uprUploadId'
            -> ObjectKey -- ^ '_uprKey'
            -> Integer -- ^ '_uprPartNumber'
-           -> RequestBody -- ^ '_uprBody'
+           -> RqBody -- ^ '_uprBody'
            -> UploadPart
 uploadPart p1 p2 p3 p4 p5 = UploadPart
     { _uprBucket = p1
@@ -69,7 +69,7 @@ data UploadPart = UploadPart
     , _uprKey :: ObjectKey
     , _uprPartNumber :: Integer
       -- ^ Part number of part being uploaded.
-    , _uprBody :: RequestBody
+    , _uprBody :: RqBody
     , _uprContentLength :: Maybe Integer
       -- ^ Size of the body in bytes. This parameter is useful when the size
       -- of the body cannot be determined automatically.

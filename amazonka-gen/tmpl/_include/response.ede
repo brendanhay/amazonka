@@ -40,7 +40,7 @@
             <*> xml %|? "{{ field.value.name }}"
           {% endif %}
         {% else %}
-            <*> pure (Body bdy)
+            <*> pure (RsBody bdy)
         {% endif %}
       {% endcase %}
     {% endfor %}

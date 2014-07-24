@@ -217,8 +217,8 @@ typeof rq t s = Ann req (defaults s) (monoids s) typ
             | otherwise         -> n
         SPrim   Prim   {..}
             | n `elem` reserved -> n
-            | bdy, rq           -> "RequestBody"
-            | bdy               -> "BodySource"
+            | bdy, rq           -> "RqBody"
+            | bdy               -> "RsBody"
             | otherwise         -> fmt _prmType
 
     n   = fromName s

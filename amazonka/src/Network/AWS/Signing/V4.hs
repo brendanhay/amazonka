@@ -139,7 +139,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
         & path           .~ _rqPath
         & queryString    .~ renderQuery query
         & requestHeaders .~ headers
-        & requestBody    .~ clientBody _rqBody
+        & requestBody    .~ _bdyBody _rqBody
 
     meth  = toBS _rqMethod
     host' = toBS (endpoint s r)

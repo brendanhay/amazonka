@@ -49,8 +49,8 @@ xmlResponse :: (Monad m, ServiceError e, FromXML a)
 xmlResponse = bodyResponse (const (liftM decodeXML . consume))
 
 bodyResponse :: (Monad m, ServiceError e)
-             => (ResponseHeaders -> a -> m (Either String b))
-             -> Either HttpException (Response a)
+             => (ResponseHeaders -> m ByteString -> m (Either String b))
+             -> Either HttpException (Response (m ByteString))
              -> m (Either e b)
 bodyResponse f = either failure success
   where

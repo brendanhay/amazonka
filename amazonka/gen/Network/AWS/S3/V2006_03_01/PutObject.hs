@@ -39,7 +39,7 @@ import           Prelude              hiding (head)
 -- | Default PutObject request.
 putObject :: BucketName -- ^ '_porBucket'
           -> ObjectKey -- ^ '_porKey'
-          -> RequestBody -- ^ '_porBody'
+          -> RqBody -- ^ '_porBody'
           -> PutObject
 putObject p1 p2 p3 = PutObject
     { _porBucket = p1
@@ -70,7 +70,7 @@ putObject p1 p2 p3 = PutObject
 data PutObject = PutObject
     { _porBucket :: BucketName
     , _porKey :: ObjectKey
-    , _porBody :: RequestBody
+    , _porBody :: RqBody
     , _porMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.
     , _porCacheControl :: Maybe Text

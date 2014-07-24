@@ -72,8 +72,8 @@ instance AWSRequest GetObjectTorrent where
 
     response _ = bodyResponse $ \hs bdy ->
         return $! pure GetObjectTorrentResponse
-            <*> pure (Body bdy)
+            <*> pure (RsBody bdy)
 
 data GetObjectTorrentResponse = GetObjectTorrentResponse
-    { _gotoBody :: BodySource
+    { _gotoBody :: RsBody
     } deriving (Generic)

@@ -142,7 +142,7 @@ instance AWSRequest GetObject where
 
     response _ = bodyResponse $ \hs bdy ->
         return $! pure GetObjectResponse
-            <*> pure (Body bdy)
+            <*> pure (RsBody bdy)
             <*> (hs `filterHeaders` "x-amz-meta-")
             <*> hs ~:? "accept-ranges"
             <*> hs ~:? "Cache-Control"
@@ -165,7 +165,7 @@ instance AWSRequest GetObject where
             <*> hs ~:? "x-amz-website-redirect-location"
 
 data GetObjectResponse = GetObjectResponse
-    { _gooBody :: BodySource
+    { _gooBody :: RsBody
       -- ^ Object data.
     , _gooMetadata :: HashMap Text Text
       -- ^ A map of metadata to store with the object in S3.

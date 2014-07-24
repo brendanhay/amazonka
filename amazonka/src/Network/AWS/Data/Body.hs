@@ -32,10 +32,6 @@ import qualified Data.ByteString.Lazy.Char8 as LBS8
 import           Data.String
 import           Network.HTTP.Client
 
--- FIXME: need to clean this up and differentiate between rq and rs bodies
--- Think about using http-client directly - no monadresource and only with idioms
--- Would need a differentiated send function with yields the body for streaming requests?
-
 data RsBody where
     RsBody :: Monad m => m ByteString -> RsBody
 

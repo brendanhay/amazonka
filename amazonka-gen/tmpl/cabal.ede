@@ -34,9 +34,9 @@ library
         , Network.AWS.Types
 
   {% for service in modules %}
-        , {{ service.value.current }}
+--        , {{ service.value.current }}
     {% for module in service.value.versions %}
-        , {{ module.value }}
+--        , {{ module.value }}
     {% endfor %}
 
   {% endfor %}
@@ -62,7 +62,7 @@ library
   {% for service in versions %}
         -- * {{ service.value.name }} Version {{ service.value.version }}
     {% for module in service.value.modules %}
-        , {{ module.value }}
+--        , {{ module.value }}
     {% endfor %}
 
     {% endfor %}
@@ -77,12 +77,14 @@ library
         , case-insensitive
         , cryptohash
         , data-default
+        , exceptions        == 0.6.*
         , http-client
         , http-client-lens
         , http-types
         , lens              == 4.2.*
         , lifted-async
         , lifted-base
+        , mmorph
         , monad-control
         , mtl
         , old-locale

@@ -119,12 +119,14 @@ library
         , case-insensitive
         , cryptohash
         , data-default
+        , exceptions        == 0.6.*
         , http-client
         , http-client-lens
         , http-types
         , lens              == 4.2.*
         , lifted-async
         , lifted-base
+        , mmorph
         , monad-control
         , mtl
         , old-locale

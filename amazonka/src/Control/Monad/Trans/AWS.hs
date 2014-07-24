@@ -1,7 +1,12 @@
 {-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE KindSignatures             #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
+{-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE UndecidableInstances       #-}
 
 -- Module      : Control.Monad.Trans.AWS
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,7 +60,9 @@ import           Control.Concurrent.Async.Lifted (Async)
 import qualified Control.Concurrent.Async.Lifted as Async
 import           Control.Lens
 import           Control.Monad.Base
+import           Control.Monad.Catch
 import           Control.Monad.Except
+import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Data.ByteString                 (ByteString)
@@ -66,29 +73,67 @@ import           Network.AWS.Types
 
 type AWS = AWST IO
 
-newtype AWST m a = AWST { _unAWST :: ReaderT Env (ExceptT Error m) a }
+newtype AWST m a = AWST { unAWST :: ReaderT Env (ExceptT Error m) a }
     deriving
         ( Functor
         , Applicative
         , Alternative
         , Monad
+        , MonadIO
+        , MonadFix
         , MonadPlus
+        , MonadThrow
+        , MonadCatch
         , MonadReader Env
         , MonadError Error
         )
 
 instance MonadTrans AWST where
     lift = AWST . lift . lift
+    {-# INLINE lift #-}
+
+instance MonadBase b m => MonadBase b (AWST m) where
+    liftBase = liftBaseDefault
+    {-# INLINE liftBase #-}
+
+instance MonadTransControl AWST where
+    newtype StT AWST a = AWSTC
+        { unAWSTC :: StT (ExceptT Error) (StT (ReaderT Env) a)
+        }
+
+    liftWith = \f -> AWST $
+        liftWith $ \g ->
+            liftWith $ \h ->
+                f $ liftM AWSTC . h . g . unAWST
+    {-# INLINE liftWith #-}
+
+    restoreT = AWST . restoreT . restoreT . liftM unAWSTC
+    {-# INLINE restoreT #-}
+
+-- NOTE: Requires UndecidableInstances
+instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
+    newtype StM (AWST m) a = AWSTB { unAWSTB :: ComposeSt AWST m a }
+
+    liftBaseWith = defaultLiftBaseWith AWSTB
+    {-# INLINE liftBaseWith #-}
+
+    restoreM = defaultRestoreM unAWSTB
+    {-# INLINE restoreM #-}
+
+instance MFunctor AWST where
+    hoist nat m = AWST $ ReaderT (ExceptT . nat . runAWST m)
+    {-# INLINE hoist #-}
+
+instance MMonad AWST where
+    embed f m = ask >>= f . runAWST m >>= either throwError return
+    {-# INLINE embed #-}
 
 runAWST :: AWST m a -> Env -> m (Either Error a)
 runAWST (AWST k) = runExceptT . runReaderT k
 
-mapAWST :: (m (Either Error a) -> m (Either Error b)) -> AWST m a -> AWST m b
-mapAWST f = AWST . mapReaderT (mapExceptT f) . _unAWST
-
 -- | HoistAWS an 'Either' throwing the 'Left' case, and returning the 'Right'.
-hoistAWS :: (MonadError Error m, AWSError e) => Either e a -> m a
-hoistAWS = either (throwError . awsError) return
+hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
+hoistEither = either (throwError . awsError) return
 
 -- | Pass the current environment to a function.
 withEnv :: MonadReader Env m => (Env -> m a) -> m a
@@ -105,7 +150,7 @@ send :: ( MonadBaseControl IO m
         )
      => a
      -> m (Rs a)
-send = hoistAWS <=< sendCatch
+send = hoistEither <=< sendCatch
 
 sendCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSRequest a)
           => a
@@ -120,7 +165,7 @@ with :: ( MonadBaseControl IO m
      => a
      -> (Rs a -> m ByteString -> m b)
      -> m b
-with rq = hoistAWS <=< withCatch rq
+with rq = hoistEither <=< withCatch rq
 
 withCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSRequest a)
           => a
@@ -135,7 +180,7 @@ paginate :: ( MonadBaseControl IO m
             )
          => a
          -> m (Rs a, Maybe a)
-paginate = hoistAWS <=< paginateCatch
+paginate = hoistEither <=< paginateCatch
 
 paginateCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSPager a)
               => a
@@ -150,7 +195,7 @@ async m = ask >>= Async.async . runAWST m
 wait :: (MonadBaseControl IO m, MonadError Error m)
      => Async (StM m (Either Error a))
      -> m a
-wait = hoistAWS <=< Async.wait
+wait = hoistEither <=< Async.wait
 
 presign :: ( MonadBase IO m
            , MonadReader Env m

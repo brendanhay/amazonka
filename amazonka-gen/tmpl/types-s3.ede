@@ -22,6 +22,7 @@ import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Signing.{{ signature }}
 import Network.AWS.Types      hiding (Error)
+import Network.HTTP.Client    (HttpException)
 
 -- | Supported version (@{{ raw_version }}@) of the
 -- @{{ full_name }}@ service.

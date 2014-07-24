@@ -31,26 +31,26 @@ import           Text.XML.Cursor
 
 headerResponse :: (Monad m, ServiceError e)
                => (ResponseHeaders -> Either String a)
-               -> Either ClientException (ClientResponse m)
+               -> Either HttpException (ClientResponse m)
                -> m (Either e a)
 headerResponse f = bodyResponse (const . return . f)
 
 cursorResponse :: (Monad m, ServiceError e)
                => (ResponseHeaders -> Cursor -> Either String a)
-               -> Either ClientException (ClientResponse m)
+               -> Either HttpException (ClientResponse m)
                -> m (Either e a)
 cursorResponse f = bodyResponse $ \hs bdy -> do
     lbs <- consume bdy
     return $ f hs (undefined lbs)
 
 xmlResponse :: (Monad m, ServiceError e, FromXML a)
-            => Either ClientException (ClientResponse m)
+            => Either HttpException (ClientResponse m)
             -> m (Either e a)
 xmlResponse = bodyResponse (const (liftM decodeXML . consume))
 
 bodyResponse :: (Monad m, ServiceError e)
              => (ResponseHeaders -> a -> m (Either String b))
-             -> Either ClientException (Response a)
+             -> Either HttpException (Response a)
              -> m (Either e b)
 bodyResponse f = either failure success
   where

@@ -42,13 +42,13 @@ import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Data
 import qualified Network.HTTP.Client       as Client
+import           Network.HTTP.Client       hiding (Request, Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           System.Locale
 
 type ClientRequest    = Client.Request
 type ClientResponse m = Client.Response (m ByteString)
-type ClientException  = Client.HttpException
 
 clientRequest :: ClientRequest
 clientRequest = def
@@ -58,14 +58,22 @@ clientRequest = def
     }
 
 data Error
-    = AWSError    String
-    | ClientError ClientException
+    = Error     String
+    | Exception HttpException
+    | Nested    [Error]
       deriving (Show, Typeable)
 
-instance IsString Error where
-    fromString = AWSError
-
 instance Exception Error
+
+instance IsString Error where
+    fromString = Error
+
+instance Monoid Error where
+    mempty      = Nested []
+    mappend a b = Nested (f a <> f b)
+      where
+        f (Nested xs) = xs
+        f x           = [x]
 
 class AWSError a where
     awsError :: a -> Error
@@ -74,18 +82,18 @@ instance AWSError Error where
     awsError = id
 
 instance AWSError String where
-    awsError = AWSError
+    awsError = Error
 
-instance AWSError ClientException where
-    awsError = ClientError
+instance AWSError HttpException where
+    awsError = Exception
 
 class ServiceError a where
     serviceError :: String          -> a
-    clientError  :: ClientException -> a
+    clientError  :: HttpException -> a
 
 instance ServiceError Error where
-    serviceError = AWSError
-    clientError  = ClientError
+    serviceError = Error
+    clientError  = Exception
 
 class AWSService a where
     type Sg a :: *
@@ -106,7 +114,7 @@ class ( AWSService   (Sv a)
     request  :: a -> Request a
     response :: Monad m
              => a
-             -> Either ClientException (ClientResponse m)
+             -> Either HttpException (ClientResponse m)
              -> m (Either (Er (Sv a)) (Rs a))
 
 class AWSRequest a => AWSPager a where

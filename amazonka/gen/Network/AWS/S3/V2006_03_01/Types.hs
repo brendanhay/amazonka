@@ -30,6 +30,7 @@ import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Signing.V4
 import Network.AWS.Types      hiding (Error)
+import Network.HTTP.Client    (HttpException)
 
 -- | Supported version (@2006-03-01@) of the
 -- @Amazon Simple Storage Service@ service.
@@ -45,7 +46,7 @@ instance AWSService S3 where
         | ObjectAlreadyInActiveTierError
         | ObjectNotInActiveTierError
         | S3Error String
-        | S3Protocol ClientException
+        | S3Protocol HttpException
 
     service = Service
         { _svcEndpoint = Global

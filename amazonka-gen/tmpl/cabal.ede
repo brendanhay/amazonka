@@ -26,7 +26,7 @@ library
     ghc-options:       -Wall -ddump-splices
 
     exposed-modules:
-          Control.Monad.AWS
+          Control.Monad.Trans.AWS
         , Network.AWS
         , Network.AWS.Auth
         , Network.AWS.EC2.Metadata
@@ -68,7 +68,6 @@ library
     {% endfor %}
     build-depends:
           aeson
-        , async
         , attoparsec
         , base              == 4.7.*
         , base16-bytestring
@@ -82,6 +81,7 @@ library
         , http-client-lens
         , http-types
         , lens              == 4.2.*
+        , lifted-async
         , lifted-base
         , monad-control
         , mtl

@@ -88,7 +88,7 @@ with e rq f = bracket (open e rq) close go
                (\y -> Right `liftM` f y (responseBody rs))
                x
 
-    er ex = return . Left $ clientError (ex :: ClientException)
+    er ex = return . Left $ clientError (ex :: HttpException)
 
 paginate :: (MonadBaseControl IO m, AWSPager a)
          => Env

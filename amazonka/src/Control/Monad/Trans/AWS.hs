@@ -129,7 +129,7 @@ instance MMonad AWST where
 runAWST :: AWST m a -> Env -> m (Either Error a)
 runAWST (AWST k) = runExceptT . runReaderT k
 
--- | HoistAWS an 'Either' throwing the 'Left' case, and returning the 'Right'.
+-- | Hoist an 'Either' throwing the 'Left' case, and returning the 'Right'.
 hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
 hoistEither = either (throwError . awsError) return
 

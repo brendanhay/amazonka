@@ -326,8 +326,9 @@ serviceError a os = Error (unAbbrev a <> "Error") ss ts
   where
     ts = Map.fromList $ map (\s -> (fromName s, shapeType True def s)) ss
 
-    ss = except "Protocol" "HttpException"
-       : except "Error" "String"
+    ss = except "Serializer" "String"
+       : except "Client" "HttpException"
+       : except "Service" "String"
        : nub (concatMap _opErrors os)
 
     except s t = SStruct $ Struct (Map.fromList [("", field)]) ctor

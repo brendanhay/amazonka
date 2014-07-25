@@ -23,7 +23,7 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
-import           Control.Exception         (Exception)
+import           Control.Exception         (Exception, SomeException)
 import           Control.Lens              hiding (Action)
 import           Control.Monad.Base
 import           Data.Aeson                hiding (Error)
@@ -58,15 +58,16 @@ clientRequest = def
     }
 
 data Error
-    = Error     String
-    | Exception HttpException
-    | Nested    [Error]
+    = ServiceError    String
+    | ClientError     HttpException
+    | SerializerError String
+    | Nested          [Error]
       deriving (Show, Typeable)
 
 instance Exception Error
 
 instance IsString Error where
-    fromString = Error
+    fromString = ServiceError
 
 instance Monoid Error where
     mempty      = Nested []
@@ -82,18 +83,20 @@ instance AWSError Error where
     awsError = id
 
 instance AWSError String where
-    awsError = Error
+    awsError = ServiceError
 
 instance AWSError HttpException where
-    awsError = Exception
+    awsError = ClientError
 
 class ServiceError a where
-    serviceError :: String          -> a
-    clientError  :: HttpException -> a
+    serviceError    :: String        -> a
+    clientError     :: HttpException -> a
+    serializerError :: String        -> a
 
 instance ServiceError Error where
-    serviceError = Error
-    clientError  = Exception
+    serviceError    = ServiceError
+    clientError     = ClientError
+    serializerError = SerializerError
 
 class AWSService a where
     type Sg a :: *

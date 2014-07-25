@@ -57,8 +57,9 @@ instance AWSError (Er S3) where
     awsError = const "{{ error.name }}"
 
 instance ServiceError (Er S3) where
-    serviceError = {{ name }}Error
-    clientError  = {{ name }}Protocol
+    serviceError    = {{ name }}Service
+    clientError     = {{ name }}Client
+    serializerError = {{ name }}Serializer
 
 instance Exception (Er S3)
 

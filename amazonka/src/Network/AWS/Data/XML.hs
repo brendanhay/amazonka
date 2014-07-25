@@ -40,6 +40,8 @@ import           Text.XML
 import           Text.XML.Cursor
 import           Network.AWS.Data.Text
 
+-- FIXME: rather than returning a string, return an exception?
+
 -- FIXME: Way to deal with unknowable XML root elements
 -- Some of the xmlnamespaces for root elements (S3: ie. ListVersionsResult)
 -- are not known from the json model, can these just be stripped by default?

@@ -45,8 +45,9 @@ instance AWSService S3 where
         | NoSuchUpload
         | ObjectAlreadyInActiveTierError
         | ObjectNotInActiveTierError
-        | S3Error String
-        | S3Protocol HttpException
+        | S3Client HttpException
+        | S3Serializer String
+        | S3Service String
 
     service = Service
         { _svcEndpoint = Global
@@ -62,8 +63,9 @@ instance AWSError (Er S3) where
     awsError = const "S3Error"
 
 instance ServiceError (Er S3) where
-    serviceError = S3Error
-    clientError  = S3Protocol
+    serviceError    = S3Service
+    clientError     = S3Client
+    serializerError = S3Serializer
 
 instance Exception (Er S3)
 

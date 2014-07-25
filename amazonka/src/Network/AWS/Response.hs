@@ -35,14 +35,13 @@ headerResponse :: (Monad m, ServiceError e)
                => (ResponseHeaders -> Either String a)
                -> Either HttpException (ClientResponse m)
                -> m (Either e a)
-headerResponse f = bodyResponse' $
-    const . return . first serializerError . f
+headerResponse f = receive (const . return . first serializerError . f)
 
 cursorResponse :: (Monad m, ServiceError e)
                => (ResponseHeaders -> Cursor -> Either String a)
                -> Either HttpException (ClientResponse m)
                -> m (Either e a)
-cursorResponse f = bodyResponse' $ \hs bdy -> do
+cursorResponse f = receive $ \hs bdy -> do
     lbs <- consume bdy
     case XML.parseLBS def lbs of
         Left  ex  -> return . Left . serializerError $ show ex
@@ -54,21 +53,19 @@ cursorResponse f = bodyResponse' $ \hs bdy -> do
 xmlResponse :: (Monad m, ServiceError e, FromXML a)
             => Either HttpException (ClientResponse m)
             -> m (Either e a)
-xmlResponse = bodyResponse' $
-     const (liftM (first serializerError . decodeXML) . consume)
+xmlResponse = receive (const (liftM (first serializerError . decodeXML) . consume))
 
 bodyResponse :: (Monad m, ServiceError e)
              => (ResponseHeaders -> m ByteString -> m (Either String b))
              -> Either HttpException (Response (m ByteString))
              -> m (Either e b)
-bodyResponse f = bodyResponse' $ \hs bdy ->
-    liftM (first serializerError) (f hs bdy)
+bodyResponse f = receive (\hs bdy -> liftM (first serializerError) (f hs bdy))
 
-bodyResponse' :: (Monad m, ServiceError e)
-             => (ResponseHeaders -> m ByteString -> m (Either e b))
-             -> Either HttpException (Response (m ByteString))
-             -> m (Either e b)
-bodyResponse' f = either failure success
+receive :: (Monad m, ServiceError e)
+        => (ResponseHeaders -> m ByteString -> m (Either e b))
+        -> Either HttpException (Response (m ByteString))
+        -> m (Either e b)
+receive f = either failure success
   where
     failure = return . Left . clientError
 

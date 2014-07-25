@@ -119,7 +119,7 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
     {-# INLINE restoreM #-}
 
 instance MFunctor AWST where
-    hoist nat m = AWST $ ReaderT (ExceptT . nat . runAWST m)
+    hoist nat m = AWST (ReaderT (ExceptT . nat . runAWST m))
     {-# INLINE hoist #-}
 
 instance MMonad AWST where

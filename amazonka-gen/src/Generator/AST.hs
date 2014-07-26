@@ -107,8 +107,7 @@ instance Default ServiceType where
     def = Query
 
 data Signature
-    = V2
-    | V3
+    = V3
     | V4
       deriving (Eq, Show, Generic)
 

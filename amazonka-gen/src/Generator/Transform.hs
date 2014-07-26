@@ -176,10 +176,25 @@ fromName = fromMaybe "Untyped" . view cmnName
 shapeEnums :: Maybe Text -> [Text] -> HashMap Text Text
 shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
   where
-    trans = first (mappend (fromMaybe "" n) . rules) . join (,)
+    trans = first (mappend (reserve n) . rules) . join (,)
+
+    reserve Nothing = ""
+    reserve (Just x)
+        | x `elem` unprefixed = ""
+        | otherwise           = x
+
+    unprefixed =
+        [ "InstanceType"
+        ]
 
     rules x =
-        let y  = Text.replace ":" "" . Text.replace "_" " " $ Text.replace "-" " " x
+        let y  = Text.replace ":" ""
+               . Text.replace "." " "
+               . Text.replace "/" " "
+               . Text.replace "(" " "
+               . Text.replace ")" " "
+               . Text.replace "_" " "
+               $ Text.replace "-" " " x
             zs = Text.words y
 
          in if | length zs > 1      -> Text.concat (map Text.toTitle zs)

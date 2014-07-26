@@ -40,15 +40,16 @@ module Network.AWS.Data.Query
     -- * Serialisation
     , ToQuery   (..)
     , renderQuery
+    , genericToQuery
     ) where
 
 import           Control.Applicative
-import           Data.Bifunctor
-import           Control.Lens
+import           Control.Lens                 (Traversal', _1)
 import           Control.Lens.Plated
 import           Control.Lens.TH
 import           Control.Monad
 import qualified Data.Attoparsec.ByteString   as ABS
+import           Data.Bifunctor
 import           Data.ByteString.Char8        (ByteString)
 import qualified Data.ByteString.Char8        as BS
 import           Data.Char
@@ -160,31 +161,16 @@ renderQuery = intercalate . sort . enc Nothing
 
 -- valuesOf :: Traversal' Query (Maybe ByteString)
 
--- data QueryOptions = QueryOptions
---     { queryCtorMod  :: String -> ByteString
---     , queryFieldMod :: String -> ByteString
---     }
+data QueryOptions = QueryOptions
+    { queryCtorMod  :: String -> ByteString
+    , queryFieldMod :: String -> ByteString
+    }
 
--- instance Default QueryOptions where
---     def = QueryOptions
---         { queryCtorMod  = ByteString.pack
---         , queryFieldMod = safeDropLower
---         }
-
--- newtype LoweredQueryOptions = LoweredQueryOptions { lowered :: QueryOptions }
-
--- instance Default LoweredQueryOptions where
---     def = LoweredQueryOptions $ def
---         { queryFieldMod = ByteString.toLower . safeDropLower
---         }
-
--- safeDropLower :: String -> ByteString
--- safeDropLower [] = ByteString.empty
--- safeDropLower xs
---     | all isLower xs = t
---     | otherwise      = ByteString.dropWhile isLower t
---   where
---     t = ByteString.pack xs
+instance Default QueryOptions where
+    def = QueryOptions
+        { queryCtorMod  = BS.pack
+        , queryFieldMod = BS.pack
+        }
 
 -- fromLoweredQuery :: (Generic a, GFromQuery (Rep a))
 --                  => Query
@@ -299,11 +285,11 @@ class FromQuery a where
 --                -> Query
 -- toLoweredQuery = genericToQuery (lowered def)
 
--- genericToQuery :: (Generic a, GToQuery (Rep a))
---                => QueryOptions
---                -> a
---                -> Query
--- genericToQuery o = gToQuery o . from
+genericToQuery :: (Generic a, GToQuery (Rep a))
+               => QueryOptions
+               -> a
+               -> Query
+genericToQuery o = gToQuery o . from
 
 class ToQuery a where
     toQuery :: a -> Query
@@ -374,29 +360,29 @@ instance ToQuery Bool where
 -- valueFromFloat :: RealFloat a => a -> Query
 -- valueFromFloat = Value . floatToByteString
 
--- class GToQuery f where
---     gToQuery :: QueryOptions -> f a -> Query
+class GToQuery f where
+    gToQuery :: QueryOptions -> f a -> Query
 
--- instance (GToQuery f, GToQuery g) => GToQuery (f :+: g) where
---     gToQuery o (L1 x) = gToQuery o x
---     gToQuery o (R1 y) = gToQuery o y
+instance (GToQuery f, GToQuery g) => GToQuery (f :+: g) where
+    gToQuery o (L1 x) = gToQuery o x
+    gToQuery o (R1 y) = gToQuery o y
 
--- instance (GToQuery f, GToQuery g) => GToQuery (f :*: g) where
---     gToQuery o (x :*: y) = gToQuery o x <> gToQuery o y
+instance (GToQuery f, GToQuery g) => GToQuery (f :*: g) where
+    gToQuery o (x :*: y) = gToQuery o x <> gToQuery o y
 
--- instance GToQuery U1 where
---     gToQuery _ _ = mempty
+instance GToQuery U1 where
+    gToQuery _ _ = mempty
 
--- instance ToQuery a => GToQuery (K1 R a) where
---     gToQuery _ = toQuery . unK1
+instance ToQuery a => GToQuery (K1 R a) where
+    gToQuery _ = toQuery . unK1
 
--- instance GToQuery f => GToQuery (D1 c f) where
---     gToQuery o = gToQuery o . unM1
+instance GToQuery f => GToQuery (D1 c f) where
+    gToQuery o = gToQuery o . unM1
 
--- instance GToQuery f => GToQuery (C1 c f) where
---     gToQuery o = gToQuery o . unM1
+instance GToQuery f => GToQuery (C1 c f) where
+    gToQuery o = gToQuery o . unM1
 
--- instance (Selector c, GToQuery f) => GToQuery (S1 c f) where
---     gToQuery o = Pair name . gToQuery o . unM1
---       where
---         name = queryFieldMod o $ selName (undefined :: S1 c f p)
+instance (Selector c, GToQuery f) => GToQuery (S1 c f) where
+    gToQuery o = Pair name . gToQuery o . unM1
+      where
+        name = queryFieldMod o $ selName (undefined :: S1 c f p)

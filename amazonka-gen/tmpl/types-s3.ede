@@ -8,7 +8,7 @@
 {% include "_include/license.ede" with types_namespace %}
 
 {% if documentation %}
-{{ documentation }}
+{{ documentation | above76 }}
 {% endif %}
 module {{ types_namespace }} where
 
@@ -24,44 +24,7 @@ import Network.AWS.Signing.{{ signature }}
 import Network.AWS.Types      hiding (Error)
 import Network.HTTP.Client    (HttpException)
 
--- | Supported version (@{{ raw_version }}@) of the
--- @{{ full_name }}@ service.
-data {{ name }} deriving (Typeable)
-
-instance AWSService {{ name }} where
-    type Sg {{ name }} = {{ signature }}
-    {% if error.shapes | listLength == 0 %}
-    data Er {{ name }} = {{ error.name }}
-    {% else %}
-    data Er {{ name }}
-      {% for ctor in error.ctors %}
-        {% if ctor.first %}
-        = {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
-        {% else %}
-        | {{ ctor.key }} {% include "_include/error.ede" with ctor.value.fields %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-
-    service = Service
-        { _svcEndpoint = {% if global_endpoint -%} Global{% else -%} Regional{% endif -%}
-        , _svcPrefix   = "{{ endpoint_prefix }}"
-        , _svcVersion  = "{{ raw_version }}"
-        , _svcTarget   = {% if target_prefix -%} (Just "{{ target_prefix }}"){% else -%} Nothing {% endif -%}
-        }
-
-deriving instance Show     (Er S3)
-deriving instance Generic  (Er S3)
-
-instance AWSError (Er S3) where
-    awsError = const "{{ error.name }}"
-
-instance ServiceError (Er S3) where
-    serviceError    = {{ name }}Service
-    clientError     = {{ name }}Client
-    serializerError = {{ name }}Serializer
-
-instance Exception (Er S3)
+{% include "_include/service.ede" %}
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

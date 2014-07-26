@@ -6,7 +6,7 @@ BOTO  := vendor/botocore/botocore/data/aws
 GEN   := ../amazonka
 
 VERSIONS := 1
-MODELS   := $(BOTO)/s3 $(BOTO)/ec2
+MODELS   := $(BOTO)/ec2
 
 # MODELS := \
  # $(BOTO)/autoscaling \

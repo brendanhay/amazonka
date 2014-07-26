@@ -65,7 +65,6 @@ instance FromJSON ServiceType where
 instance FromJSON Signature where
     parseJSON = withText "signature" $ \t ->
         return $ case t of
-            "v2"      -> V2
             "v3"      -> V3
             "v3https" -> V3
             _         -> V4

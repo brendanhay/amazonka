@@ -16,6 +16,7 @@ import Control.Applicative
 import Control.Error
 import Control.Monad
 import Data.List
+import Data.Ord
 import Generator.Log
 import System.Directory
 import System.FilePath
@@ -23,13 +24,16 @@ import System.FilePath
 data Model = Model
     { modPath    :: FilePath
     , modVersion :: String
-    } deriving (Show)
+    } deriving (Show, Eq)
+
+instance Ord Model where
+    compare = comparing modVersion
 
 modelFromPath :: FilePath -> String -> Model
 modelFromPath d f = Model (d </> f) (fst $ break (== '.') f)
 
 models :: [FilePath] -> Script [Model]
-models = fmap concat . mapM model
+models = fmap (concat . sort) . mapM model
   where
     model d = sync $ do
         xs <- json <$> getDirectoryContents d

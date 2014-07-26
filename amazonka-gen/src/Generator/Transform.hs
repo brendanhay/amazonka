@@ -39,7 +39,7 @@ import           Text.EDE.Filters
 -- FIXME: Add documentation about where the type in the 'Types' module is used
 
 transform :: [Service] -> [Service]
-transform = map eval
+transform = map eval . sort . nub
   where
     eval s = s
         & svcOperations .~ evalState (mapM (operation s) (_svcOperations s)) mempty

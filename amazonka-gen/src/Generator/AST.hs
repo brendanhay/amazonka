@@ -432,12 +432,18 @@ data Service = Service
     , _svcJsonVersion      :: JSONV
     , _svcTargetPrefix     :: Maybe Text
     , _svcOperations       :: [Operation]
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
+
+instance Eq Service where
+    (==) a b = f _svcVersionNamespace
+      where
+        f :: Eq a => (Service -> a) -> Bool
+        f g = g a == g b
 
 instance Ord Service where
     compare a b = f _svcNamespace <> f _svcVersion
       where
         f :: Ord a => (Service -> a) -> Ordering
-        f g = compare (g a) (g b)
+        f g = compare (Down $ g a) (Down $ g b)
 
 makeLenses ''Service

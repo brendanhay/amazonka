@@ -5,7 +5,9 @@ DEPS  := vendor/botocore vendor/ede
 BOTO  := vendor/botocore/botocore/data/aws
 GEN   := ../amazonka
 
-MODELS := $(BOTO)/s3
+MODELS := $(BOTO)/s3 $(BOTO)/ec2
+
+# MODELS := \
  # $(BOTO)/autoscaling \
  # $(BOTO)/cloudformation \
  # $(BOTO)/cloudfront \

@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default GetBucketAcl request.
-getBucketAcl :: BucketName -- ^ '_gbarBucket'
-             -> GetBucketAcl
-getBucketAcl p1 = GetBucketAcl
-    { _gbarBucket = p1
-    }
+False
 
 data GetBucketAcl = GetBucketAcl
     { _gbarBucket :: BucketName

@@ -38,10 +38,7 @@ import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type GetService = ListBuckets
-
--- | Default ListBuckets request.
-listBuckets :: ListBuckets
-listBuckets = ListBuckets
+False
 
 data ListBuckets = ListBuckets
     deriving (Eq, Show, Generic)

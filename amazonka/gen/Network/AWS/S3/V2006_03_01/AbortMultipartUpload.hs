@@ -37,17 +37,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default AbortMultipartUpload request.
-abortMultipartUpload :: BucketName -- ^ '_amurBucket'
-                     -> Text -- ^ '_amurUploadId'
-                     -> ObjectKey -- ^ '_amurKey'
-                     -> AbortMultipartUpload
-abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
-    { _amurBucket = p1
-    , _amurUploadId = p2
-    , _amurKey = p3
-    }
+False
 
 data AbortMultipartUpload = AbortMultipartUpload
     { _amurBucket :: BucketName

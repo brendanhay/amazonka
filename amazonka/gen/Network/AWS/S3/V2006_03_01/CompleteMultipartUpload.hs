@@ -35,19 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default CompleteMultipartUpload request.
-completeMultipartUpload :: BucketName -- ^ '_cmusBucket'
-                        -> Text -- ^ '_cmusUploadId'
-                        -> ObjectKey -- ^ '_cmusKey'
-                        -> CompletedMultipartUpload -- ^ '_cmusMultipartUpload'
-                        -> CompleteMultipartUpload
-completeMultipartUpload p1 p2 p3 p4 = CompleteMultipartUpload
-    { _cmusBucket = p1
-    , _cmusUploadId = p2
-    , _cmusKey = p3
-    , _cmusMultipartUpload = p4
-    }
+False
 
 data CompleteMultipartUpload = CompleteMultipartUpload
     { _cmusBucket :: BucketName

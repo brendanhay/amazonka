@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default DeleteBucketWebsite request.
-deleteBucketWebsite :: BucketName -- ^ '_dbwrBucket'
-                    -> DeleteBucketWebsite
-deleteBucketWebsite p1 = DeleteBucketWebsite
-    { _dbwrBucket = p1
-    }
+False
 
 data DeleteBucketWebsite = DeleteBucketWebsite
     { _dbwrBucket :: BucketName

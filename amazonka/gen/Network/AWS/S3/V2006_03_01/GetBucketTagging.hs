@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default GetBucketTagging request.
-getBucketTagging :: BucketName -- ^ '_gbtrBucket'
-                 -> GetBucketTagging
-getBucketTagging p1 = GetBucketTagging
-    { _gbtrBucket = p1
-    }
+False
 
 data GetBucketTagging = GetBucketTagging
     { _gbtrBucket :: BucketName

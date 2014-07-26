@@ -91,13 +91,14 @@ instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Request where
-    toJSON rq = Object (x <> y <> z)
+    toJSON rq@Request{..} = Object (x <> y <> z)
       where
-        Object x = toJSON (_rqHttp rq)
+        Object x = toJSON _rqHttp
         Object y = toField (recase Camel Under . drop 3) rq
-        Object z = object ["pad" .= pad]
-
-        pad = Text.replicate (Text.length $ _rqName rq) " "
+        Object z = object
+            [ "padding"        .= Text.replicate (Text.length _rqName) " "
+            , "default_method" .= (length _rqFields /= length _rqRequired)
+            ]
 
 instance ToJSON RespType where
     toJSON = toCtor (recase Camel Under . drop 1)

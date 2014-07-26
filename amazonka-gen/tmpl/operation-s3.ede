@@ -29,7 +29,6 @@ import           Prelude              hiding (head)
 
 type {{ alias }} = {{ request.name }}
 {% endif %}
-
 {% include "_include/method.ede" with request %}
 
 data {{ request.name }} = {{ request.name }}

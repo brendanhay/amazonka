@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default DeleteBucketCors request.
-deleteBucketCors :: BucketName -- ^ '_dbcrBucket'
-                 -> DeleteBucketCors
-deleteBucketCors p1 = DeleteBucketCors
-    { _dbcrBucket = p1
-    }
+False
 
 data DeleteBucketCors = DeleteBucketCors
     { _dbcrBucket :: BucketName

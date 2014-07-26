@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default GetBucketVersioning request.
-getBucketVersioning :: BucketName -- ^ '_gbvrBucket'
-                    -> GetBucketVersioning
-getBucketVersioning p1 = GetBucketVersioning
-    { _gbvrBucket = p1
-    }
+False
 
 data GetBucketVersioning = GetBucketVersioning
     { _gbvrBucket :: BucketName

@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default GetBucketWebsite request.
-getBucketWebsite :: BucketName -- ^ '_gbwrBucket'
-                 -> GetBucketWebsite
-getBucketWebsite p1 = GetBucketWebsite
-    { _gbwrBucket = p1
-    }
+False
 
 data GetBucketWebsite = GetBucketWebsite
     { _gbwrBucket :: BucketName

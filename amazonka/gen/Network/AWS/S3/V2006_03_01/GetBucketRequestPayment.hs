@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default GetBucketRequestPayment request.
-getBucketRequestPayment :: BucketName -- ^ '_gbrprBucket'
-                        -> GetBucketRequestPayment
-getBucketRequestPayment p1 = GetBucketRequestPayment
-    { _gbrprBucket = p1
-    }
+False
 
 data GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrprBucket :: BucketName

@@ -36,13 +36,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default HeadBucket request.
-headBucket :: BucketName -- ^ '_hbrBucket'
-           -> HeadBucket
-headBucket p1 = HeadBucket
-    { _hbrBucket = p1
-    }
+False
 
 data HeadBucket = HeadBucket
     { _hbrBucket :: BucketName

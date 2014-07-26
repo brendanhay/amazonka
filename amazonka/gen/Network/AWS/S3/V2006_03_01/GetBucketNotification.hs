@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default GetBucketNotification request.
-getBucketNotification :: BucketName -- ^ '_gbnrBucket'
-                      -> GetBucketNotification
-getBucketNotification p1 = GetBucketNotification
-    { _gbnrBucket = p1
-    }
+False
 
 data GetBucketNotification = GetBucketNotification
     { _gbnrBucket :: BucketName

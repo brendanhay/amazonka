@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default DeleteBucketPolicy request.
-deleteBucketPolicy :: BucketName -- ^ '_dbprBucket'
-                   -> DeleteBucketPolicy
-deleteBucketPolicy p1 = DeleteBucketPolicy
-    { _dbprBucket = p1
-    }
+False
 
 data DeleteBucketPolicy = DeleteBucketPolicy
     { _dbprBucket :: BucketName

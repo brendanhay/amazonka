@@ -35,13 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default GetBucketCors request.
-getBucketCors :: BucketName -- ^ '_gbcrBucket'
-              -> GetBucketCors
-getBucketCors p1 = GetBucketCors
-    { _gbcrBucket = p1
-    }
+False
 
 data GetBucketCors = GetBucketCors
     { _gbcrBucket :: BucketName

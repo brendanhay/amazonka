@@ -37,6 +37,7 @@ import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type PutBucket = CreateBucket
+True
 
 -- | Default CreateBucket request.
 createBucket :: BucketName -- ^ '_cbrBucket'

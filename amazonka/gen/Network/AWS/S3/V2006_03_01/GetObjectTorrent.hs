@@ -35,15 +35,7 @@ import           Network.AWS.Request.RestS3
 import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
-
--- | Default GetObjectTorrent request.
-getObjectTorrent :: BucketName -- ^ '_gotrBucket'
-                 -> ObjectKey -- ^ '_gotrKey'
-                 -> GetObjectTorrent
-getObjectTorrent p1 p2 = GetObjectTorrent
-    { _gotrBucket = p1
-    , _gotrKey = p2
-    }
+False
 
 data GetObjectTorrent = GetObjectTorrent
     { _gotrBucket :: BucketName

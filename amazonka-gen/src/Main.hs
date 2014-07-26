@@ -26,6 +26,7 @@ import System.Directory
 data Options = Options
     { optDir    :: FilePath
     , optModels :: [FilePath]
+    , optMax    :: Int
     } deriving (Show)
 
 options :: Parser Options
@@ -35,11 +36,18 @@ options = Options
         <> metavar "DIR"
         <> help "Directory to place the generated library. [required]"
          )
+
     <*> some (strOption
          ( long "model"
         <> metavar "DIR"
         <> help "Path to a botocore JSON model directory. [required]"
          ))
+
+    <*> option
+         ( long "max"
+        <> metavar "INT"
+        <> help "Maximum number of botocore JSON models to load. [required]"
+         )
 
 main :: IO ()
 main = do
@@ -50,7 +58,7 @@ main = do
     createDirectoryIfMissing True optDir
 
     runScript $ do
-        ms <- models optModels
+        ms <- models optMax optModels
         ts <- getTemplates
         ss <- mapM parseModel ms
 

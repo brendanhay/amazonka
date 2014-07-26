@@ -32,14 +32,13 @@ instance Ord Model where
 modelFromPath :: FilePath -> String -> Model
 modelFromPath d f = Model (d </> f) (fst $ break (== '.') f)
 
-models :: [FilePath] -> Script [Model]
-models = fmap (concat . sort) . mapM model
+models :: Int -> [FilePath] -> Script [Model]
+models n xs = concat . fmap (take n . reverse . sort) <$> mapM model xs
   where
-    model d = sync $ do
+    model d = scriptIO $ do
         xs <- json <$> getDirectoryContents d
         forM xs $ \f ->
             say "Locate Model" (d </> f)
                 >> return (modelFromPath d f)
 
-    sync = fmapLT show . syncIO
     json = filter (isSuffixOf ".json")

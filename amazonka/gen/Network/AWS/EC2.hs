@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.EC2
-    ( module Network.AWS.EC2.V2013_10_15
+    ( module Network.AWS.EC2.V2014_05_01
     ) where
 
-import Network.AWS.EC2.V2013_10_15
+import Network.AWS.EC2.V2014_05_01

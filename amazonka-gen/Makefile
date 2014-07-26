@@ -5,7 +5,8 @@ DEPS  := vendor/botocore vendor/ede
 BOTO  := vendor/botocore/botocore/data/aws
 GEN   := ../amazonka
 
-MODELS := $(BOTO)/s3 $(BOTO)/ec2
+VERSIONS := 1
+MODELS   := $(BOTO)/s3 $(BOTO)/ec2
 
 # MODELS := \
  # $(BOTO)/autoscaling \
@@ -46,7 +47,10 @@ gen:
 	rm -rf $(GEN)/gen && make $(GEN)/gen
 
 $(GEN)/gen: build
-	$(BIN) --dir=$(realpath $(GEN)) $(addprefix --model=,$(realpath $(MODELS)))
+	$(BIN) \
+	 --dir=$(realpath $(GEN)) \
+	 --max=$(VERSIONS) \
+	 $(addprefix --model=,$(realpath $(MODELS)))
 
 build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))

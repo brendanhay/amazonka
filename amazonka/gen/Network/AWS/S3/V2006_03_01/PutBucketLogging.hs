@@ -38,7 +38,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default PutBucketLogging request.
+-- | Minimum specification for a 'PutBucketLogging' request.
 putBucketLogging :: BucketLoggingStatus -- ^ '_pblrBucketLoggingStatus'
                  -> BucketName -- ^ '_pblrBucket'
                  -> PutBucketLogging

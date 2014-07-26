@@ -37,7 +37,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default PutBucketPolicy request.
+-- | Minimum specification for a 'PutBucketPolicy' request.
 putBucketPolicy :: Text -- ^ '_pbprPolicy'
                 -> BucketName -- ^ '_pbprBucket'
                 -> PutBucketPolicy

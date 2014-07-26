@@ -38,7 +38,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default HeadObject request.
+-- | Minimum specification for a 'HeadObject' request.
 headObject :: BucketName -- ^ '_horBucket'
            -> ObjectKey -- ^ '_horKey'
            -> HeadObject

@@ -36,7 +36,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default PutBucketCors request.
+-- | Minimum specification for a 'PutBucketCors' request.
 putBucketCors :: BucketName -- ^ '_pbcrBucket'
               -> CORSConfiguration -- ^ '_pbcrCORSConfiguration'
               -> PutBucketCors

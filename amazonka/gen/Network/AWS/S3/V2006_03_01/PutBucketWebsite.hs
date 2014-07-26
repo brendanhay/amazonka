@@ -36,7 +36,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default PutBucketWebsite request.
+-- | Minimum specification for a 'PutBucketWebsite' request.
 putBucketWebsite :: WebsiteConfiguration -- ^ '_pbwrWebsiteConfiguration'
                  -> BucketName -- ^ '_pbwrBucket'
                  -> PutBucketWebsite

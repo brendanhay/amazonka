@@ -37,7 +37,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default PutBucketVersioning request.
+-- | Minimum specification for a 'PutBucketVersioning' request.
 putBucketVersioning :: VersioningConfiguration -- ^ '_pbvrVersioningConfiguration'
                     -> BucketName -- ^ '_pbvrBucket'
                     -> PutBucketVersioning

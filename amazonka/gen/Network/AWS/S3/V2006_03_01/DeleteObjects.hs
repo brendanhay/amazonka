@@ -39,7 +39,7 @@ import           Prelude              hiding (head)
 
 type DeleteMultipleObjects = DeleteObjects
 
--- | Default DeleteObjects request.
+-- | Minimum specification for a 'DeleteObjects' request.
 deleteObjects :: Delete -- ^ '_dosDelete'
               -> BucketName -- ^ '_dosBucket'
               -> DeleteObjects

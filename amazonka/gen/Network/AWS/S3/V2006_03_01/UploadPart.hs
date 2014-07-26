@@ -41,7 +41,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default UploadPart request.
+-- | Minimum specification for a 'UploadPart' request.
 uploadPart :: BucketName -- ^ '_uprBucket'
            -> Text -- ^ '_uprUploadId'
            -> ObjectKey -- ^ '_uprKey'

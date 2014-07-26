@@ -36,7 +36,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default PutBucketAcl request.
+-- | Minimum specification for a 'PutBucketAcl' request.
 putBucketAcl :: BucketName -- ^ '_pbarBucket'
              -> AccessControlPolicy -- ^ '_pbarAccessControlPolicy'
              -> PutBucketAcl

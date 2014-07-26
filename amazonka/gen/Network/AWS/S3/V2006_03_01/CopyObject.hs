@@ -38,7 +38,7 @@ import           Prelude              hiding (head)
 
 type PutObjectCopy = CopyObject
 
--- | Default CopyObject request.
+-- | Minimum specification for a 'CopyObject' request.
 copyObject :: Text -- ^ '_corCopySource'
            -> BucketName -- ^ '_corBucket'
            -> ObjectKey -- ^ '_corKey'

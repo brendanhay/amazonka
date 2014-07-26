@@ -38,7 +38,7 @@ import           Prelude              hiding (head)
 
 type GetBucketObjectVersions = ListObjectVersions
 
--- | Default ListObjectVersions request.
+-- | Minimum specification for a 'ListObjectVersions' request.
 listObjectVersions :: BucketName -- ^ '_lovrBucket'
                    -> ListObjectVersions
 listObjectVersions p1 = ListObjectVersions
@@ -53,7 +53,7 @@ listObjectVersions p1 = ListObjectVersions
 
 data ListObjectVersions = ListObjectVersions
     { _lovrBucket :: BucketName
-    , _lovrDelimiter :: Maybe Text
+    , _lovrDelimiter :: Maybe Char
       -- ^ A delimiter is a character you use to group keys.
     , _lovrEncodingType :: Maybe EncodingType
       -- ^ Requests Amazon S3 to encode the object keys in the response and

@@ -36,7 +36,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default GetObjectAcl request.
+-- | Minimum specification for a 'GetObjectAcl' request.
 getObjectAcl :: BucketName -- ^ '_goarBucket'
              -> ObjectKey -- ^ '_goarKey'
              -> GetObjectAcl

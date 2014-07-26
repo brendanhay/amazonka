@@ -36,7 +36,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default ListMultipartUploads request.
+-- | Minimum specification for a 'ListMultipartUploads' request.
 listMultipartUploads :: BucketName -- ^ '_lmurBucket'
                      -> ListMultipartUploads
 listMultipartUploads p1 = ListMultipartUploads
@@ -51,7 +51,7 @@ listMultipartUploads p1 = ListMultipartUploads
 
 data ListMultipartUploads = ListMultipartUploads
     { _lmurBucket :: BucketName
-    , _lmurDelimiter :: Maybe Text
+    , _lmurDelimiter :: Maybe Char
       -- ^ Character you use to group keys.
     , _lmurEncodingType :: Maybe EncodingType
       -- ^ Requests Amazon S3 to encode the object keys in the response and

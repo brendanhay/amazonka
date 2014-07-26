@@ -38,7 +38,7 @@ import           Prelude              hiding (head)
 
 type PostObjectRestore = RestoreObject
 
--- | Default RestoreObject request.
+-- | Minimum specification for a 'RestoreObject' request.
 restoreObject :: BucketName -- ^ '_rorBucket'
               -> ObjectKey -- ^ '_rorKey'
               -> RestoreRequest -- ^ '_rorRestoreRequest'

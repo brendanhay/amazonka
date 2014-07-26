@@ -38,7 +38,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default DeleteObject request.
+-- | Minimum specification for a 'DeleteObject' request.
 deleteObject :: BucketName -- ^ '_dorBucket'
              -> ObjectKey -- ^ '_dorKey'
              -> DeleteObject

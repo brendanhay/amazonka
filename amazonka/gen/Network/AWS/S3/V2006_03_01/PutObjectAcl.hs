@@ -37,7 +37,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default PutObjectAcl request.
+-- | Minimum specification for a 'PutObjectAcl' request.
 putObjectAcl :: BucketName -- ^ '_poarBucket'
              -> ObjectKey -- ^ '_poarKey'
              -> AccessControlPolicy -- ^ '_poarAccessControlPolicy'

@@ -40,7 +40,7 @@ import           Prelude              hiding (head)
 
 type GetBucket = ListObjects
 
--- | Default ListObjects request.
+-- | Minimum specification for a 'ListObjects' request.
 listObjects :: BucketName -- ^ '_lorBucket'
             -> ListObjects
 listObjects p1 = ListObjects
@@ -54,7 +54,7 @@ listObjects p1 = ListObjects
 
 data ListObjects = ListObjects
     { _lorBucket :: BucketName
-    , _lorDelimiter :: Maybe Text
+    , _lorDelimiter :: Maybe Char
       -- ^ A delimiter is a character you use to group keys.
     , _lorEncodingType :: Maybe EncodingType
       -- ^ Requests Amazon S3 to encode the object keys in the response and

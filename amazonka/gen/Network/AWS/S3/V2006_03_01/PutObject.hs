@@ -36,7 +36,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default PutObject request.
+-- | Minimum specification for a 'PutObject' request.
 putObject :: BucketName -- ^ '_porBucket'
           -> ObjectKey -- ^ '_porKey'
           -> RqBody -- ^ '_porBody'

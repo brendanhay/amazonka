@@ -36,7 +36,7 @@ import           Network.AWS.S3.V2006_03_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
--- | Default ListParts request.
+-- | Minimum specification for a 'ListParts' request.
 listParts :: BucketName -- ^ '_lprBucket'
           -> Text -- ^ '_lprUploadId'
           -> ObjectKey -- ^ '_lprKey'

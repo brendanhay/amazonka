@@ -1,6 +1,6 @@
 {% if scope.default_method %}
 
--- | Default {{ scope.name }} request.
+-- | Minimum specification for a '{{ scope.name }}' request.
   {% for field in scope.required %}
     {% if field.first %}
 {{ scope.default }} :: {{ field.value.type }} -- ^ '{{ field.value.prefixed }}'

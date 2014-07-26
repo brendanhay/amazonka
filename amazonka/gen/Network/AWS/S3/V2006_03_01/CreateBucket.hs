@@ -38,7 +38,7 @@ import           Prelude              hiding (head)
 
 type PutBucket = CreateBucket
 
--- | Default CreateBucket request.
+-- | Minimum specification for a 'CreateBucket' request.
 createBucket :: BucketName -- ^ '_cbrBucket'
              -> CreateBucketConfiguration -- ^ '_cbrCreateBucketConfiguration'
              -> CreateBucket

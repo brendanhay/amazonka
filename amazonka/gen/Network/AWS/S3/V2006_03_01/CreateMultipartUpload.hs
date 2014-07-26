@@ -43,7 +43,7 @@ import           Prelude              hiding (head)
 
 type InitiateMultipartUpload = CreateMultipartUpload
 
--- | Default CreateMultipartUpload request.
+-- | Minimum specification for a 'CreateMultipartUpload' request.
 createMultipartUpload :: BucketName -- ^ '_cmurBucket'
                       -> ObjectKey -- ^ '_cmurKey'
                       -> CreateMultipartUpload

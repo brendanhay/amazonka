@@ -35,14 +35,7 @@ import           Generator.AST
 import           Text.EDE.Filters
 
 -- FIXME: Provide the 'length' of the prefix so lenses can be derived.
-
 -- FIXME: Fix ambiguous lens fields
-
--- FIXME: Don't write out default methods for operations which have
--- all required fields.
-
--- FIXME: remove need for so many type classes on the operation
--- by writing out the code directing into the AWSRequest instance
 
 transform :: [Service] -> [Service]
 transform = map eval

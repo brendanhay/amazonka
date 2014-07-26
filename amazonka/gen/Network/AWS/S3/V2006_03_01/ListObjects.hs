@@ -39,7 +39,6 @@ import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type GetBucket = ListObjects
-True
 
 -- | Default ListObjects request.
 listObjects :: BucketName -- ^ '_lorBucket'

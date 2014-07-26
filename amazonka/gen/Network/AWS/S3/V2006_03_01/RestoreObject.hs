@@ -37,7 +37,6 @@ import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type PostObjectRestore = RestoreObject
-True
 
 -- | Default RestoreObject request.
 restoreObject :: BucketName -- ^ '_rorBucket'

@@ -37,7 +37,6 @@ import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type PutObjectCopy = CopyObject
-True
 
 -- | Default CopyObject request.
 copyObject :: Text -- ^ '_corCopySource'

@@ -38,7 +38,6 @@ import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type DeleteMultipleObjects = DeleteObjects
-True
 
 -- | Default DeleteObjects request.
 deleteObjects :: Delete -- ^ '_dosDelete'

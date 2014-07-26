@@ -37,7 +37,6 @@ import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type GetBucketObjectVersions = ListObjectVersions
-True
 
 -- | Default ListObjectVersions request.
 listObjectVersions :: BucketName -- ^ '_lovrBucket'

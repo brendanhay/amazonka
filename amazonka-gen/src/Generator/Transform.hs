@@ -36,6 +36,7 @@ import           Text.EDE.Filters
 
 -- FIXME: Provide the 'length' of the prefix so lenses can be derived.
 -- FIXME: Fix ambiguous lens fields
+-- FIXME: Add documentation about where the type in the 'Types' module is used
 
 transform :: [Service] -> [Service]
 transform = map eval

@@ -42,7 +42,6 @@ import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 type InitiateMultipartUpload = CreateMultipartUpload
-True
 
 -- | Default CreateMultipartUpload request.
 createMultipartUpload :: BucketName -- ^ '_cmurBucket'

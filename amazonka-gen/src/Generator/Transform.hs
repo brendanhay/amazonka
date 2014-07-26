@@ -218,7 +218,8 @@ typeof rq t s = Ann req (defaults s) (monoids s) typ
             | otherwise         -> n
         SPrim   Prim   {..}
             | n `elem` reserved -> n
-            | n == "Delimiter"  -> "Char"
+            | n == "Delimiter"
+            , _prmType == PText -> "Char"
             | bdy, rq           -> "RqBody"
             | bdy               -> "RsBody"
             | otherwise         -> fmt _prmType

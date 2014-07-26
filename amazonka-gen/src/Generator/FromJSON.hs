@@ -42,9 +42,6 @@ import           Generator.Models
 import           Generator.Transform
 import           Network.HTTP.Types.Method
 
--- FIXME: annotate types whether they are request, response, or bijective
--- so serialisation instances can be defined as needed.
-
 parseModel :: Model -> Script Service
 parseModel Model{..} = do
     r <- scriptIO $ say "Parse Service" modPath >> LBS.readFile modPath
@@ -128,13 +125,13 @@ instance FromJSON Operation where
 instance FromJSON Request where
     parseJSON = withObject "request" $ \o ->
         Request "Request" "Request" def def def def
-            <$> o .:! "input"
+            <$> (setDirection DRequest <$> o .:! "input")
             <*> o .:! "http"
 
 instance FromJSON Response where
     parseJSON = withObject "response" $ \o ->
         Response "Response" def def def def
-            <$> o .:! "output"
+            <$> (setDirection DResponse <$> o .:! "output")
 
 instance FromJSON Location where
     parseJSON = fromCtor (lowered . drop 1)
@@ -149,6 +146,7 @@ instance FromJSON Common where
             <*> o .:? "required"      .!= False
             <*> o .:? "documentation"
             <*> o .:? "streaming"     .!= False
+            <*> pure def
 
 instance FromJSON Shape where
     parseJSON = withObject "shape" $ \o -> do
@@ -178,9 +176,9 @@ instance FromJSON Shape where
         f c o typ = do
             ms <- o .:? "enum"
 
-            let enum = shapeEnums (_cmnName c) <$> ms
+            let e = shapeEnums (_cmnName c) <$> ms
 
-            case enum of
+            case e of
                 Just vs -> return . SSum $ Sum vs c
                 Nothing -> fmap SPrim $ Prim
                     <$> parseJSON (String typ)

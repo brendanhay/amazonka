@@ -128,6 +128,23 @@ data Location
 instance Default Location where
     def = LBody
 
+data Direction
+    = DBoth
+    | DRequest
+    | DResponse
+      deriving (Eq, Show, Generic)
+
+instance Default Direction where
+    def = mempty
+
+instance Monoid Direction where
+    mempty                      = DBoth
+    mappend DBoth      _        = DBoth
+    mappend _         DBoth     = DBoth
+    mappend DRequest  DResponse = DBoth
+    mappend DResponse DRequest  = DBoth
+    mappend _         b         = b
+
 data Common = Common
     { _cmnName          :: Maybe Text
     , _cmnPrefix        :: Text
@@ -137,6 +154,7 @@ data Common = Common
     , _cmnRequired      :: Bool
     , _cmnDocumentation :: Maybe Doc
     , _cmnStreaming     :: Bool
+    , _cmnDirection     :: Direction
     } deriving (Eq, Show, Generic)
 
 instance Ord Common where
@@ -146,7 +164,7 @@ instance Ord Common where
         <> comparing _cmnName a b
 
 instance Default Common where
-    def = Common Nothing "_" Nothing def Nothing False Nothing False
+    def = Common Nothing "_" Nothing def Nothing False Nothing False def
 
 makeClassy ''Common
 
@@ -232,6 +250,14 @@ instance HasCommon Shape where
         SSum    y -> SSum    <$> common f y
         SPrim   y -> SPrim   <$> common f y
 
+instance Ord Shape where
+    compare a b =
+        case (a, b) of
+            (SSum{}, SSum{}) -> on compare (view cmnName) a b
+            (SSum{}, _)      -> LT
+            (_,      SSum{}) -> GT
+            _                -> on compare (view cmnName) a b
+
 isPrim :: Shape -> Bool
 isPrim (SPrim _) = True
 isPrim _         = False
@@ -285,14 +311,6 @@ instance Eq Type where
 
 instance Ord Type where
     compare a b = on compare _typCtor a b <> on compare _typShape a b
-
-instance Ord Shape where
-    compare a b =
-        case (a, b) of
-            (SSum{}, SSum{}) -> on compare (view cmnName) a b
-            (SSum{}, _)      -> LT
-            (_,      SSum{}) -> GT
-            _                -> on compare (view cmnName) a b
 
 data Error = Error
     { _erName   :: Text

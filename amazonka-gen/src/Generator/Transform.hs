@@ -266,38 +266,67 @@ switches =
     ]
 
 ctorof :: Shape -> Ctor
-ctorof s = case s of
-    SStruct Struct{..}
-        | Map.size _sctFields == 1   -> CNewtype
-        | Map.null _sctFields        -> CNullary
-    SSum{}
-        | fromName s `elem` switches -> CSwitch
-        | otherwise                  -> CSum
-    _                                -> CData
+ctorof s =
+    case s of
+        SStruct Struct{..}
+            | Map.size _sctFields == 1   -> CNewtype
+            | Map.null _sctFields        -> CNullary
+        SSum{}
+            | fromName s `elem` switches -> CSwitch
+            | otherwise                  -> CSum
+        _                                -> CData
 
 defaults :: Shape -> Bool
-defaults s = case s of
-    SStruct {} -> False
-    SList   l  -> _lstMinLength l < 1
-    SMap    {} -> False
-    SSum    {} -> False
-    SPrim   {} -> False
+defaults s =
+    case s of
+        SStruct {} -> False
+        SList   l  -> _lstMinLength l < 1
+        SMap    {} -> False
+        SSum    {} -> False
+        SPrim   {} -> False
 
 monoids :: Shape -> Bool
-monoids s = case s of
-    SStruct {} -> False
-    SList   l  -> _lstMinLength l < 1
-    SMap    {} -> True
-    SSum    {} -> False
-    SPrim   {} -> False
+monoids s =
+    case s of
+        SStruct {} -> False
+        SList   l  -> _lstMinLength l < 1
+        SMap    {} -> True
+        SSum    {} -> False
+        SPrim   {} -> False
+
+setDirection :: Direction -> Shape -> Shape
+setDirection d s =
+    case s of
+        SStruct x@Struct{..} ->
+            SStruct (dir x { _sctFields = Map.map (setDirection d) _sctFields })
+        SList x@List{..} ->
+            SList (dir x { _lstItem = dir _lstItem })
+        SMap x@Map{..} ->
+            SMap (dir x { _mapKey = dir _mapKey, _mapValue = dir _mapValue })
+        SSum x ->
+            SSum (dir x)
+        SPrim x ->
+            SPrim (dir x)
+  where
+    dir :: HasCommon a => a -> a
+    dir = cmnDirection .~ d
 
 serviceTypes :: Service -> [Type]
 serviceTypes Service{..} = sort
-    . nub
+    . Map.elems
+    . (`execState` mempty)
+    . mapM uniq
     . map (shapeType True _svcTimestamp . snd)
     . concatMap opfields
     $ _svcOperations
   where
+    uniq :: Type -> State (HashMap Text Type) ()
+    uniq x = modify $ \m ->
+        let n = fromMaybe "Unknown" (x ^. cmnName)
+            y = Map.lookup n m
+            z = maybe x (cmnDirection <>~ (x ^. cmnDirection)) y
+         in Map.insert n z m
+
     opfields o =
            descend (_rqShape $ _opRequest  o)
         ++ descend (_rsShape $ _opResponse o)

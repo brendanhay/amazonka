@@ -108,6 +108,9 @@ instance ToJSON Response where
 instance ToJSON Location where
     toJSON = toCtor (lowered . drop 1)
 
+instance ToJSON Direction where
+    toJSON = toCtor (lowered . drop 1)
+
 instance ToJSON Common where
     toJSON = toField (recase Camel Under . drop 4)
 

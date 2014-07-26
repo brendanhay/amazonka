@@ -71,6 +71,8 @@ xmlOptions = Tagged def
 {% endif %}
 
 {% for data in types %}
+{{ data.value.direction }}
+
   {% if data.value.documentation %}
 {{ data.value.documentation | above76 }}
   {% endif %}

@@ -441,7 +441,7 @@ instance Eq Service where
         f g = g a == g b
 
 instance Ord Service where
-    compare a b = f _svcNamespace <> f _svcVersion
+    compare a b = f _svcVersionNamespace
       where
         f :: Ord a => (Service -> a) -> Ordering
         f g = compare (Down $ g a) (Down $ g b)

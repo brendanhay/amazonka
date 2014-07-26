@@ -20,6 +20,7 @@ module Generator.ToJSON where
 import           Control.Lens               ((^.))
 import           Data.Aeson
 import           Data.Aeson.Types
+import           Data.Function
 import           Data.List
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
@@ -66,7 +67,7 @@ instance ToJSON Cabal where
       where
         service s = object
             [ "current"  .= _svcNamespace s
-            , "versions" .= map _svcVersionNamespace (sort ss)
+            , "versions" .= map _svcVersionNamespace (filter (on (==) _svcName s) ss)
             ]
 
         versioned s@Service{..} = object

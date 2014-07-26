@@ -71,8 +71,6 @@ xmlOptions = Tagged def
 {% endif %}
 
 {% for data in types %}
-{{ data.value.direction }}
-
   {% if data.value.documentation %}
 {{ data.value.documentation | above76 }}
   {% endif %}
@@ -122,12 +120,26 @@ instance ToByteString (Switch {{ data.value.name }}) where
       {% for branch in data.value.values %}
     toBS {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
+  {% if data.value.direction.response %}
 
 instance FromXML (Switch {{ data.value.name }}) where
-    {% include "_include/xml-from.ede" with data.value %}
+    {% if data.value.flattened %}
+    fromXMLOptions = xmlOptions { xmlListElem = Nothing }
+    {% else %}
+    fromXMLOptions = xmlOptions
+    {% endif %}
+    fromXMLRoot    = fromRoot "{{ data.value.xml_name }}"
+  {% endif %}
+  {% if data.value.direction.request %}
 
 instance ToXML (Switch {{ data.value.name }}) where
-    {% include "_include/xml-to.ede" with data.value %}
+    {% if data.value.flattened %}
+    toXMLOptions = xmlOptions { xmlListElem = Nothing }
+    {% else %}
+    toXMLOptions = xmlOptions
+    {% endif %}
+    toXMLRoot    = toRoot "{{ data.value.xml_name }}"
+  {% endif %}
     {% when "witness" %}
 data {{ data.value.name }}
     {% when "sum" %}
@@ -159,37 +171,21 @@ instance ToByteString {{ data.value.name }} where
       {% for branch in data.value.values %}
     toBS {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
-
-instance FromXML {{ data.value.name }} where
     {% include "_include/xml-from.ede" with data.value %}
-
-instance ToXML {{ data.value.name }} where
     {% include "_include/xml-to.ede" with data.value %}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
     {% include "_include/record.ede" with data.value.fields %}
-
-instance FromXML {{ data.value.name }} where
     {% include "_include/xml-from.ede" with data.value %}
-
-instance ToXML {{ data.value.name }} where
     {% include "_include/xml-to.ede" with data.value %}
     {% when "data" %}
 data {{ data.value.name }} = {{ data.value.name }}
     {% include "_include/record.ede" with data.value.fields %}
-
-instance FromXML {{ data.value.name }} where
     {% include "_include/xml-from.ede" with data.value %}
-
-instance ToXML {{ data.value.name }} where
     {% include "_include/xml-to.ede" with data.value %}
     {% when "nullary" %}
 data {{ data.value.name }} = {{ data.value.name }}
-
-instance FromXML {{ data.value.name }} where
   {% include "_include/xml-from.ede" with data.value %}
-
-instance ToXML {{ data.value.name }} where
   {% include "_include/xml-to.ede" with data.value %}
     {% endcase %}
   {% endcase %}

@@ -74,8 +74,6 @@ xmlOptions = Tagged def
     { xmlNamespace = Just "http://s3.amazonaws.com/doc/2006-03-01/"
     }
 
-both
-
 -- | The versioning state of the bucket.
 data BucketVersioningStatus
 
@@ -98,8 +96,6 @@ instance FromXML (Switch BucketVersioningStatus) where
 instance ToXML (Switch BucketVersioningStatus) where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "BucketVersioningStatus"
-
-both
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
 -- is not currently being applied.
@@ -125,8 +121,6 @@ instance ToXML (Switch ExpirationStatus) where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ExpirationStatus"
 
-request
-
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
@@ -145,15 +139,9 @@ instance ToByteString (Switch MFADelete) where
     toBS Disabled = "Disabled"
     toBS Enabled = "Enabled"
 
-instance FromXML (Switch MFADelete) where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MfaDelete"
-
 instance ToXML (Switch MFADelete) where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "MfaDelete"
-
-response
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -176,12 +164,6 @@ instance ToByteString (Switch MFADeleteStatus) where
 instance FromXML (Switch MFADeleteStatus) where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "MfaDelete"
-
-instance ToXML (Switch MFADeleteStatus) where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "MfaDelete"
-
-request
 
 -- | The canned ACL to apply to the bucket.
 data BucketCannedACL
@@ -209,15 +191,9 @@ instance ToByteString BucketCannedACL where
     toBS BucketCannedACLPublicRead = "public-read"
     toBS BucketCannedACLPublicReadWrite = "public-read-write"
 
-instance FromXML BucketCannedACL where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BucketCannedACL"
-
 instance ToXML BucketCannedACL where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "BucketCannedACL"
-
-both
 
 -- | Specifies the region where the bucket will be created.
 newtype BucketLocationConstraint = BucketLocationConstraint Region
@@ -241,8 +217,6 @@ instance ToXML BucketLocationConstraint where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "BucketLocationConstraint"
     toXML o      = toXML (retag o) . toText
-
-both
 
 -- | Logging permissions assigned to the Grantee for the bucket.
 data BucketLogsPermission
@@ -274,8 +248,6 @@ instance ToXML BucketLogsPermission where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "BucketLogsPermission"
 
-both
-
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
 -- the encoding method to use. An object key may contain any Unicode
 -- character; however, XML 1.0 parser cannot parse some characters, such as
@@ -303,8 +275,6 @@ instance ToXML EncodingType where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "EncodingType"
 
-both
-
 -- | Bucket event for which to send notifications.
 data Event
     = EventS3ReducedRedundancyLostObject -- ^ s3:ReducedRedundancyLostObject
@@ -327,8 +297,6 @@ instance ToXML Event where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Event"
 
-request
-
 -- | Specifies whether the metadata is copied from the source object or replaced
 -- with metadata provided in the request.
 data MetadataDirective
@@ -348,15 +316,9 @@ instance ToByteString MetadataDirective where
     toBS MetadataDirectiveCopy = "COPY"
     toBS MetadataDirectiveReplace = "REPLACE"
 
-instance FromXML MetadataDirective where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MetadataDirective"
-
 instance ToXML MetadataDirective where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "MetadataDirective"
-
-request
 
 -- | The canned ACL to apply to the object.
 data ObjectCannedACL
@@ -392,15 +354,9 @@ instance ToByteString ObjectCannedACL where
     toBS ObjectCannedACLPublicRead = "public-read"
     toBS ObjectCannedACLPublicReadWrite = "public-read-write"
 
-instance FromXML ObjectCannedACL where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ObjectCannedACL"
-
 instance ToXML ObjectCannedACL where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ObjectCannedACL"
-
-both
 
 -- | The class of storage used to store the object.
 data ObjectStorageClass
@@ -432,8 +388,6 @@ instance ToXML ObjectStorageClass where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ObjectStorageClass"
 
-both
-
 -- | The class of storage used to store the object.
 data ObjectVersionStorageClass
     = ObjectVersionStorageClassStandard -- ^ STANDARD
@@ -455,8 +409,6 @@ instance FromXML ObjectVersionStorageClass where
 instance ToXML ObjectVersionStorageClass where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ObjectVersionStorageClass"
-
-both
 
 -- | Specifies who pays for the download and request fees.
 data Payer
@@ -483,8 +435,6 @@ instance FromXML Payer where
 instance ToXML Payer where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Payer"
-
-both
 
 -- | Specifies the permission given to the grantee.
 data Permission
@@ -524,8 +474,6 @@ instance ToXML Permission where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Permission"
 
-both
-
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
 data Protocol
@@ -553,8 +501,6 @@ instance ToXML Protocol where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Protocol"
 
-both
-
 -- | The Server-side encryption algorithm used when storing this object in S3.
 data ServerSideEncryption
     = ServerSideEncryptionAES256 -- ^ AES256
@@ -576,8 +522,6 @@ instance FromXML ServerSideEncryption where
 instance ToXML ServerSideEncryption where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ServerSideEncryption"
-
-both
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
 data StorageClass
@@ -605,8 +549,6 @@ instance ToXML StorageClass where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "StorageClass"
 
-both
-
 -- | The class of storage used to store the object.
 data TransitionStorageClass
     = TransitionStorageClassGlacier -- ^ GLACIER
@@ -628,8 +570,6 @@ instance FromXML TransitionStorageClass where
 instance ToXML TransitionStorageClass where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "TransitionStorageClass"
-
-both
 
 -- | Type of grantee.
 data Type
@@ -661,35 +601,21 @@ instance ToXML Type where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "xsi:type"
 
-request
-
 newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: LoggingEnabled
     } deriving (Generic)
-
-instance FromXML BucketLoggingStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BucketLoggingStatus"
 
 instance ToXML BucketLoggingStatus where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "BucketLoggingStatus"
 
-request
-
 newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
     } deriving (Generic)
 
-instance FromXML CORSConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CORSConfiguration"
-
 instance ToXML CORSConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CORSConfiguration"
-
-response
 
 newtype CommonPrefix = CommonPrefix
     { _cpPrefix :: Text
@@ -699,40 +625,22 @@ instance FromXML CommonPrefix where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CommonPrefix"
 
-instance ToXML CommonPrefix where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CommonPrefix"
-
-request
-
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: [CompletedPart]
     } deriving (Generic)
 
-instance FromXML CompletedMultipartUpload where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CompleteMultipartUpload"
-
 instance ToXML CompletedMultipartUpload where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CompleteMultipartUpload"
-
-request
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint :: BucketLocationConstraint
       -- ^ Specifies the region where the bucket will be created.
     } deriving (Generic)
 
-instance FromXML CreateBucketConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateBucketConfiguration"
-
 instance ToXML CreateBucketConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateBucketConfiguration"
-
-both
 
 newtype ErrorDocument = ErrorDocument
     { _edKey :: ObjectKey
@@ -746,8 +654,6 @@ instance FromXML ErrorDocument where
 instance ToXML ErrorDocument where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ErrorDocument"
-
-both
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text
@@ -766,21 +672,13 @@ instance ToXML IndexDocument where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "IndexDocument"
 
-request
-
 newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
     } deriving (Generic)
 
-instance FromXML LifecycleConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LifecycleConfiguration"
-
 instance ToXML LifecycleConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "LifecycleConfiguration"
-
-both
 
 -- | Specifies when noncurrent object versions expire. Upon expiration, Amazon
 -- S3 permanently deletes the noncurrent object versions. You set this
@@ -804,65 +702,39 @@ instance ToXML NoncurrentVersionExpiration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "NoncurrentVersionExpiration"
 
-request
-
 newtype NotificationConfiguration = NotificationConfiguration
     { _ncTopicConfiguration :: TopicConfiguration
     } deriving (Generic)
 
-instance FromXML NotificationConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NotificationConfiguration"
-
 instance ToXML NotificationConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "NotificationConfiguration"
-
-request
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Payer
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Generic)
 
-instance FromXML RequestPaymentConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RequestPaymentConfiguration"
-
 instance ToXML RequestPaymentConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "RequestPaymentConfiguration"
-
-request
 
 newtype RestoreRequest = RestoreRequest
     { _rrDays :: Integer
       -- ^ Lifetime of the active copy in days.
     } deriving (Generic)
 
-instance FromXML RestoreRequest where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RestoreRequest"
-
 instance ToXML RestoreRequest where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "RestoreRequest"
-
-request
 
 newtype Tagging = Tagging
     { _tTagSet :: [Tag]
     } deriving (Generic)
 
-instance FromXML Tagging where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tagging"
-
 instance ToXML Tagging where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Tagging"
-
-request
 
 data AccessControlPolicy = AccessControlPolicy
     { _acpGrants :: [Grant]
@@ -870,15 +742,9 @@ data AccessControlPolicy = AccessControlPolicy
     , _acpOwner :: Owner
     } deriving (Generic)
 
-instance FromXML AccessControlPolicy where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AccessControlPolicy"
-
 instance ToXML AccessControlPolicy where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "AccessControlPolicy"
-
-response
 
 data Bucket = Bucket
     { _bName :: BucketName
@@ -890,12 +756,6 @@ data Bucket = Bucket
 instance FromXML Bucket where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Bucket"
-
-instance ToXML Bucket where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Bucket"
-
-both
 
 data CORSRule = CORSRule
     { _corsrAllowedMethods :: [Text]
@@ -924,8 +784,6 @@ instance ToXML CORSRule where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CORSRule"
 
-request
-
 data CompletedPart = CompletedPart
     { _cpETag :: ETag
       -- ^ Entity tag returned when the part was uploaded.
@@ -933,15 +791,9 @@ data CompletedPart = CompletedPart
       -- ^ Part number that identifies the part.
     } deriving (Generic)
 
-instance FromXML CompletedPart where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CompletedPart"
-
 instance ToXML CompletedPart where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CompletedPart"
-
-both
 
 -- | A container for describing a condition that must be met for the specified
 -- redirect to apply. For example, 1. If request is for pages in the /docs
@@ -975,8 +827,6 @@ instance ToXML Condition where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Condition"
 
-response
-
 data CopyObjectResult = CopyObjectResult
     { _corETag :: ETag
     , _corLastModified :: RFC822
@@ -985,12 +835,6 @@ data CopyObjectResult = CopyObjectResult
 instance FromXML CopyObjectResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyObjectResult"
-
-instance ToXML CopyObjectResult where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CopyObjectResult"
-
-response
 
 data CopyPartResult = CopyPartResult
     { _cprETag :: ETag
@@ -1003,12 +847,6 @@ instance FromXML CopyPartResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyPartResult"
 
-instance ToXML CopyPartResult where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CopyPartResult"
-
-request
-
 data Delete = Delete
     { _dQuiet :: Bool
       -- ^ Element to enable quiet mode for the request. When you add this
@@ -1016,15 +854,9 @@ data Delete = Delete
     , _dObjects :: [ObjectIdentifier]
     } deriving (Generic)
 
-instance FromXML Delete where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Delete"
-
 instance ToXML Delete where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Delete"
-
-response
 
 data DeleteMarkerEntry = DeleteMarkerEntry
     { _dmeVersionId :: ObjectVersionId
@@ -1043,12 +875,6 @@ instance FromXML DeleteMarkerEntry where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteMarkerEntry"
 
-instance ToXML DeleteMarkerEntry where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteMarkerEntry"
-
-response
-
 data DeletedObject = DeletedObject
     { _doVersionId :: ObjectVersionId
     , _doDeleteMarker :: Bool
@@ -1060,12 +886,6 @@ instance FromXML DeletedObject where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeletedObject"
 
-instance ToXML DeletedObject where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeletedObject"
-
-response
-
 data Error = Error
     { _eVersionId :: ObjectVersionId
     , _eKey :: ObjectKey
@@ -1076,12 +896,6 @@ data Error = Error
 instance FromXML Error where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Error"
-
-instance ToXML Error where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Error"
-
-both
 
 data Grant = Grant
     { _gPermission :: Permission
@@ -1096,8 +910,6 @@ instance FromXML Grant where
 instance ToXML Grant where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Grant"
-
-both
 
 data Grantee = Grantee
     { _gURI :: Text
@@ -1120,8 +932,6 @@ instance ToXML Grantee where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Grantee"
 
-both
-
 -- | Identifies who initiated the multipart upload.
 data Initiator = Initiator
     { _iDisplayName :: Text
@@ -1140,8 +950,6 @@ instance ToXML Initiator where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Initiator"
 
-both
-
 data LifecycleExpiration = LifecycleExpiration
     { _leDays :: Integer
       -- ^ Indicates the lifetime, in days, of the objects that are subject
@@ -1158,8 +966,6 @@ instance FromXML LifecycleExpiration where
 instance ToXML LifecycleExpiration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "LifecycleExpiration"
-
-both
 
 data LoggingEnabled = LoggingEnabled
     { _leTargetBucket :: Text
@@ -1184,8 +990,6 @@ instance ToXML LoggingEnabled where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "LoggingEnabled"
 
-response
-
 data MultipartUpload = MultipartUpload
     { _muInitiated :: RFC822
       -- ^ Date and time at which the multipart upload was initiated.
@@ -1203,12 +1007,6 @@ data MultipartUpload = MultipartUpload
 instance FromXML MultipartUpload where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "MultipartUpload"
-
-instance ToXML MultipartUpload where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "MultipartUpload"
-
-both
 
 -- | Container for the transition rule that describes when noncurrent objects
 -- transition to the GLACIER storage class. If your bucket is
@@ -1234,8 +1032,6 @@ instance ToXML NoncurrentVersionTransition where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "NoncurrentVersionTransition"
 
-response
-
 data Object = Object
     { _oETag :: ETag
     , _oSize :: Integer
@@ -1250,12 +1046,6 @@ instance FromXML Object where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Object"
 
-instance ToXML Object where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Object"
-
-request
-
 data ObjectIdentifier = ObjectIdentifier
     { _oiVersionId :: ObjectVersionId
       -- ^ VersionId for the specific version of the object to delete.
@@ -1263,15 +1053,9 @@ data ObjectIdentifier = ObjectIdentifier
       -- ^ Key name of the object to delete.
     } deriving (Generic)
 
-instance FromXML ObjectIdentifier where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ObjectIdentifier"
-
 instance ToXML ObjectIdentifier where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ObjectIdentifier"
-
-response
 
 data ObjectVersion = ObjectVersion
     { _ovETag :: ETag
@@ -1295,12 +1079,6 @@ instance FromXML ObjectVersion where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ObjectVersion"
 
-instance ToXML ObjectVersion where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ObjectVersion"
-
-both
-
 data Owner = Owner
     { _oDisplayName :: Text
     , _oID :: Text
@@ -1313,8 +1091,6 @@ instance FromXML Owner where
 instance ToXML Owner where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Owner"
-
-response
 
 data Part = Part
     { _pETag :: ETag
@@ -1330,12 +1106,6 @@ data Part = Part
 instance FromXML Part where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Part"
-
-instance ToXML Part where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Part"
-
-both
 
 -- | Container for redirect information. You can redirect requests to another
 -- host, to another page, or with another protocol. In the event of an error,
@@ -1372,8 +1142,6 @@ instance ToXML Redirect where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Redirect"
 
-both
-
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { _rartHostName :: Text
       -- ^ Name of the host where requests will be redirected.
@@ -1389,8 +1157,6 @@ instance FromXML RedirectAllRequestsTo where
 instance ToXML RedirectAllRequestsTo where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "RedirectAllRequestsTo"
-
-both
 
 data RoutingRule = RoutingRule
     { _rrRedirect :: Redirect
@@ -1413,8 +1179,6 @@ instance FromXML RoutingRule where
 instance ToXML RoutingRule where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "RoutingRule"
-
-both
 
 data Rule = Rule
     { _rStatus :: Switch ExpirationStatus
@@ -1451,8 +1215,6 @@ instance ToXML Rule where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Rule"
 
-both
-
 data Tag = Tag
     { _tValue :: Text
       -- ^ Value of the tag.
@@ -1468,8 +1230,6 @@ instance ToXML Tag where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Tag"
 
-both
-
 data TargetGrant = TargetGrant
     { _tgPermission :: BucketLogsPermission
       -- ^ Logging permissions assigned to the Grantee for the bucket.
@@ -1483,8 +1243,6 @@ instance FromXML TargetGrant where
 instance ToXML TargetGrant where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Grant"
-
-both
 
 data TopicConfiguration = TopicConfiguration
     { _tcEvent :: Event
@@ -1501,8 +1259,6 @@ instance FromXML TopicConfiguration where
 instance ToXML TopicConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "TopicConfiguration"
-
-both
 
 data Transition = Transition
     { _tDays :: Integer
@@ -1523,8 +1279,6 @@ instance ToXML Transition where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Transition"
 
-request
-
 data VersioningConfiguration = VersioningConfiguration
     { _vcStatus :: Switch BucketVersioningStatus
       -- ^ The versioning state of the bucket.
@@ -1535,15 +1289,9 @@ data VersioningConfiguration = VersioningConfiguration
       -- configured, this element is not returned.
     } deriving (Generic)
 
-instance FromXML VersioningConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VersioningConfiguration"
-
 instance ToXML VersioningConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "VersioningConfiguration"
-
-request
 
 data WebsiteConfiguration = WebsiteConfiguration
     { _wcRedirectAllRequestsTo :: RedirectAllRequestsTo
@@ -1551,10 +1299,6 @@ data WebsiteConfiguration = WebsiteConfiguration
     , _wcIndexDocument :: IndexDocument
     , _wcRoutingRules :: [RoutingRule]
     } deriving (Generic)
-
-instance FromXML WebsiteConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "WebsiteConfiguration"
 
 instance ToXML WebsiteConfiguration where
     toXMLOptions = xmlOptions

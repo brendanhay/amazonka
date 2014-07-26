@@ -109,7 +109,11 @@ instance ToJSON Location where
     toJSON = toCtor (lowered . drop 1)
 
 instance ToJSON Direction where
-    toJSON = toCtor (lowered . drop 1)
+    toJSON d = (\(rq, rs) -> object ["request" .= rq, "response" .= rs]) $
+        case d of
+            DRequest  -> (True, False)
+            DResponse -> (False, True)
+            DBoth     -> (True, True)
 
 instance ToJSON Common where
     toJSON = toField (recase Camel Under . drop 4)

@@ -1,6 +1,10 @@
+{% if scope.direction.request %}
+
+instance ToXML {{ scope.name }} where
   {% if scope.flattened %}
     toXMLOptions = xmlOptions { xmlListElem = Nothing }
   {% else %}
     toXMLOptions = xmlOptions
   {% endif %}
     toXMLRoot    = toRoot "{{ scope.xml_name }}"
+{% endif %}

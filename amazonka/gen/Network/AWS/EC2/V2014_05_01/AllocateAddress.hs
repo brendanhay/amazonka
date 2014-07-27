@@ -50,16 +50,16 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data AllocateAddress = AllocateAddress
-    { _aarDryRun :: Bool
+    { _aarDryRun :: Maybe Bool
       -- ^ 
-    , _aarDomain :: DomainType
+    , _aarDomain :: Maybe DomainType
       -- ^ Set to vpc to allocate the address for use with instances in a
       -- VPC. Default: The address is for use with instances in
       -- EC2-Classic.
@@ -73,17 +73,16 @@ instance AWSRequest AllocateAddress where
     type Rs AllocateAddress = AllocateAddressResponse
 
     request = post "AllocateAddress"
-
     response _ = xmlResponse
 
 data AllocateAddressResponse = AllocateAddressResponse
-    { _aasDomain :: Maybe DomainType
+    { _aawDomain :: Maybe DomainType
       -- ^ Indicates whether this Elastic IP address is for use with
       -- instances in EC2-Classic (standard) or instances in a VPC (vpc).
-    , _aasAllocationId :: Maybe Text
+    , _aawAllocationId :: Maybe Text
       -- ^ [EC2-VPC] The ID that AWS assigns to represent the allocation of
       -- the Elastic IP address for use with instances in a VPC.
-    , _aasPublicIp :: Maybe Text
+    , _aawPublicIp :: Maybe Text
       -- ^ The Elastic IP address.
     } deriving (Generic)
 

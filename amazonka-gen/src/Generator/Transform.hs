@@ -1,6 +1,7 @@
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Generator.Transform
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +35,18 @@ import qualified Data.Text           as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: Make a way to override the endpoint when sending a request (for mocks etc)
 -- FIXME: Provide the 'length' of the prefix so lenses can be derived.
 -- FIXME: Fix ambiguous lens fields
 -- FIXME: Add documentation about where the type in the 'Types' module is used
 -- FIXME: Add selected de/serialisation tests for the services
+-- FIXME: Rewrite, so that each transformation step happens goddamn logically.
+
+
+-- FIXME: Why is NextToken from EC2 DescribeTags not marked as required
+-- This is a continuation of response type fields all being 'Maybe'
+-- how should it be solved?
+
 
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
@@ -54,50 +63,66 @@ current = mapMaybe latest . groupBy identical
     latest xs = Just . head $ sortBy (comparing _svcVersion) xs
 
 operation :: Service -> Operation -> State (HashSet Text) Operation
-operation Service{..} o = do
-    rq <- uniquify (o ^. opRequest  . rqShape)
-    rs <- uniquify (o ^. opResponse . rsShape)
+operation svc@Service{..} o = do
+    rq <- uniquify svc (o ^. opRequest  . rqShape)
+    rs <- uniquify svc (o ^. opResponse . rsShape)
 
-    return $ o
-        & opService            .~ _svcName
-        & opNamespace          .~ _svcVersionNamespace <> NS [_opName o]
-        & opTypesNamespace     .~ _svcTypesNamespace
-        & opVersionNamespace   .~ _svcVersionNamespace
-        & opRequestNamespace   .~ "Network.AWS.Request" <> fromString (show _svcType)
-        & opPagination         %~ pagination o
-        & opRequest  . rqShape .~ rq
-        & opRequest            %~ request  _svcTimestamp o
-        & opResponse . rsShape .~ rs
-        & opResponse           %~ response _svcTimestamp o
+    let x = o & opService          .~ _svcName
+              & opNamespace        .~ _svcVersionNamespace <> NS [_opName o]
+              & opTypesNamespace   .~ _svcTypesNamespace
+              & opVersionNamespace .~ _svcVersionNamespace
+              & opRequestNamespace .~ "Network.AWS.Request" <> fromString (show _svcType)
 
-uniquify :: Shape -> State (HashSet Text) Shape
-uniquify s = case s of
-    SStruct c@Struct{..} -> do
-        x <- go (c ^. cmnPrefix)
-        return . SStruct $ (c & cmnPrefix .~ x) { _sctFields = _sctFields }
-    SList l@List{..} -> do
-        i <- uniquify _lstItem
-        return . SList $ l { _lstItem = i }
-    SMap m@Map{..} -> do
-        k <- uniquify _mapKey
-        v <- uniquify _mapValue
-        return . SMap $ m { _mapKey = k, _mapValue = v }
-    _ -> return s
+        y = x & opRequest  . rqShape .~ rq
+              & opRequest            %~ request svc x
+              & opResponse . rsShape .~ rs
+              & opResponse           %~ response svc x
+
+        z = y & opPagination %~ fmap (pagination y)
+
+    return z
+
+uniquify :: Service -> Shape -> State (HashSet Text) Shape
+uniquify svc (special svc -> s) = do
+    x <- go (s ^. cmnPrefix) (s ^. cmnName)
+    case s of
+        SStruct c@Struct{..} -> do
+            xs <- mapM (uniquify svc) (Map.elems _sctFields)
+            let fs = Map.fromList (zip (Map.keys _sctFields) xs)
+            return . SStruct $ (c & cmnPrefix .~ x) { _sctFields = fs }
+        SList l@List{..} -> do
+            i <- uniquify svc _lstItem
+            return . SList $ (l & cmnPrefix .~ x) { _lstItem = i }
+        SMap m@Map{..} -> do
+            k <- uniquify svc _mapKey
+            v <- uniquify svc _mapValue
+            return . SMap $ (m & cmnPrefix .~ x) { _mapKey = k, _mapValue = v }
+        _ -> return s
   where
-    go :: Text -> State (HashSet Text) Text
-    go x = do
+    go :: Text -> Text -> State (HashSet Text) Text
+    go x n = do
         p <- gets (Set.member x)
         if p
-            then go (next x)
+            then go (next x n) n
             else modify (Set.insert x) >> return x
 
-    next x
+    next x n
         | Text.null x = "_a"
         | "_" <- x    = "_a"
-        | otherwise   = Text.init x `Text.snoc` succ (Text.last x)
+        | otherwise   = Text.init x <> succ' n (Text.last x)
 
-request :: Time -> Operation -> Request -> Request
-request t o rq = rq
+    succ' n 'z' = Text.toLower (Text.pack [Text.head n, Text.last n])
+    succ' _ c   = Text.singleton (succ c)
+
+special :: Service -> Shape -> Shape
+special svc s = f (_svcName svc) (s ^. cmnName) s
+  where
+    -- Special cases for erroneous service model types
+    f "EC2" "String" = cmnName .~ "VirtualizationType"
+    f _     _        = id
+
+request :: Service -> Operation -> Request -> Request
+request svc o rq = rq
     & rqName     .~ (o ^. opName)
     & rqDefault  .~ lowerFirst (o ^. opName)
     & rqHttp     %~ http (rq ^. rqShape)
@@ -110,7 +135,7 @@ request t o rq = rq
     req = filter (view cmnRequired) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
 
-    fs  = map upd . sort . fields True t $ rq ^. rqShape
+    fs  = map upd . sort . fields True svc $ rq ^. rqShape
 
     upd f | f ^. cmnLocation == LBody = f & cmnRequired .~ True
           | otherwise                 = f
@@ -121,8 +146,8 @@ http p = hPath %~ map f
     f (PVar v) = PVar (prefixed p v)
     f c        = c
 
-response :: Time -> Operation -> Response -> Response
-response t o rs = rs
+response :: Service -> Operation -> Response -> Response
+response svc o rs = rs
     & rsName    .~ (o ^. opName) <> "Response"
     & rsFields  .~ fs
     & rsPayload .~ bdy
@@ -132,23 +157,25 @@ response t o rs = rs
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
 
-    fs  = sort . fields False t $ rs ^. rsShape
+    fs  = sort . fields False svc $ rs ^. rsShape
 
     typ | maybe False (view cmnStreaming) bdy    = RBody
         | length hs == length fs                 = RHeaders
         | all ((== LBody) . view cmnLocation) fs = RXml
         | otherwise                              = def
 
-pagination :: Operation -> Maybe Pagination -> Maybe Pagination
-pagination o = fmap go
+pagination :: Operation -> Pagination -> Pagination
+pagination o p =
+    case p of
+        More m  ts -> More (rsPref m)  (map token ts)
+        Next rk t  -> Next (rsPref rk) (token t)
   where
-    go p = p
-        & pgTokens %~ map (\t -> t & tokInput %~ rqPref & tokOutput %~ replace)
-        & pgMore   %~ fmap rsPref
+    token t = t & tokInput %~ rqPref & tokOutput %~ replace
 
     -- S3 ListObjects
-    replace "NextMarker || Contents[-1].Key" = "fmap (toText . _oKey) . listToMaybe $ _looContents"
-    replace x                                = rsPref x
+    replace "NextMarker || Contents[-1].Key" =
+        "fmap (toText . _oKey) . listToMaybe $ _looContents"
+    replace x = rsPref x
 
     rqPref = pref (opRequest  . rqShape)
     rsPref = pref (opResponse . rsShape)
@@ -202,14 +229,14 @@ shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
         | Text.null x = x
         | otherwise   = toUpper (Text.head x) `Text.cons` Text.tail x
 
-fields :: Bool -> Time -> Shape -> [Field]
-fields rq t s = case s of
+fields :: Bool -> Service -> Shape -> [Field]
+fields rq svc s = case s of
     SStruct Struct{..} -> map f (Map.toList _sctFields)
     _                  -> []
   where
     f :: (Text, Shape) -> Field
     f (k, v) =
-        let fld = Field (typeof rq t v) (prefixed s k) (v ^. common)
+        let fld = Field (typeof rq svc v) (prefixed s k) (v ^. common)
          in if k == "IsTruncated"
                 then fld & cmnRequired .~ True & fldType %~ (anRequired_ .~ True)
                 else fld
@@ -217,8 +244,11 @@ fields rq t s = case s of
 prefixed :: Shape -> Text -> Text
 prefixed p = mappend (p ^. cmnPrefix)
 
-typeof :: Bool -> Time -> Shape -> Ann
-typeof rq t s = Ann req (defaults s) (monoids s) typ
+shapeType :: Bool -> Service -> Shape -> Type
+shapeType rq svc s = Type s (typeof rq svc s) (ctorof s) (fields rq svc s)
+
+typeof :: Bool -> Service -> Shape -> Ann
+typeof rq svc s = Ann req (defaults s) (monoids s) typ
   where
     typ = case s of
         SStruct Struct {}       -> n
@@ -237,20 +267,20 @@ typeof rq t s = Ann req (defaults s) (monoids s) typ
             | otherwise         -> fmt _prmType
 
     n   = s ^. cmnName
-    ann = _anType . typeof rq t
+    ann = _anType . typeof rq svc
 
-    req = bdy || required rq s
+    req = bdy || s ^. cmnRequired
     swt = n `elem` switches
     bdy = body s
 
     fmt x = Text.pack $
         case x of
-            PUTCTime -> show t
+            PUTCTime -> show (_svcTimestamp svc)
             _        -> drop 1 (show x)
 
-required :: Bool -> Shape -> Bool
-required True s = s ^. cmnRequired || s ^. cmnLocation == LBody
-required _    s = s ^. cmnRequired
+-- required :: Bool -> Shape -> Bool
+-- --required True s = s ^. cmnLocation == LBody || s ^. cmnRequired
+-- required _    s = s ^. cmnRequired
 
 body :: Shape -> Bool
 body s = s ^. cmnLocation == LBody && s ^. cmnStreaming
@@ -320,11 +350,11 @@ setDirection d s =
     dir = cmnDirection .~ d
 
 serviceTypes :: Service -> [Type]
-serviceTypes Service{..} = sort
+serviceTypes svc@Service{..} = sort
     . Map.elems
     . (`execState` mempty)
     . mapM uniq
-    . map (shapeType True _svcTimestamp . snd)
+    . map (shapeType True svc . snd)
     . concatMap opfields
     $ _svcOperations
   where
@@ -339,9 +369,8 @@ serviceTypes Service{..} = sort
            descend (_rqShape $ _opRequest  o)
         ++ descend (_rsShape $ _opResponse o)
 
-    descend (SStruct Struct{..}) =
-        concatMap (\s -> flat ((s ^. cmnName)) s) (Map.elems _sctFields)
-    descend _                   = []
+    descend (SStruct Struct{..}) = concatMap (uncurry flat) (Map.toList _sctFields)
+    descend _                    = []
 
     flat p s@SStruct {}         = (p, s) : descend s
     flat _ s@(SList  List {..}) = flat ((s ^. cmnName)) _lstItem
@@ -351,7 +380,7 @@ serviceTypes Service{..} = sort
 
     rename s
         | (s ^. cmnName) `notElem` switches = s
-        | otherwise = s { _sumValues = f (_sumValues s) }
+        | otherwise = s { _sumValues        = f (_sumValues s) }
       where
         f = Map.fromList . map g . Map.toList
 
@@ -361,7 +390,7 @@ serviceTypes Service{..} = sort
 serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") ss ts
   where
-    ts = Map.fromList $ map (\s -> (s ^. cmnName, shapeType True def s)) ss
+    ts = Map.fromList $ map (\s -> (s ^. cmnName, shapeType True svc s)) ss
 
     ss = except "Serializer" "String"
        : except "Client" "HttpException"
@@ -370,8 +399,29 @@ serviceError a os = Error (unAbbrev a <> "Error") ss ts
 
     except s t = SStruct $ Struct (Map.fromList [("", field)]) ctor
       where
-        field  = SStruct . Struct mempty $ def & cmnName .~ t
-        ctor   = def & cmnName .~ (unAbbrev a <> s)
+        field = SStruct . Struct mempty $ def & cmnName .~ t & cmnRequired .~ True
+        ctor  = def & cmnName .~ (unAbbrev a <> s)
 
-shapeType :: Bool -> Time -> Shape -> Type
-shapeType rq t s = Type s (typeof rq t s) (ctorof s) (fields rq t s)
+    svc = Service
+        { _svcName             = a
+        , _svcFullName         = unAbbrev a
+        , _svcNamespace        = def
+        , _svcVersionNamespace = def
+        , _svcTypesNamespace   = def
+        , _svcLensNamespace    = def
+        , _svcVersion          = Version mempty
+        , _svcRawVersion       = mempty
+        , _svcType             = def
+        , _svcError            = Error (unAbbrev a) [] mempty
+        , _svcWrapped          = False
+        , _svcSignature        = def
+        , _svcDocumentation    = def
+        , _svcEndpointPrefix   = mempty
+        , _svcGlobalEndpoint   = def
+        , _svcXmlNamespace     = def
+        , _svcTimestamp        = def
+        , _svcChecksum         = def
+        , _svcJsonVersion      = def
+        , _svcTargetPrefix     = def
+        , _svcOperations       = []
+        }

@@ -42,7 +42,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -55,15 +55,15 @@ data ReplaceRoute = ReplaceRoute
       -- ^ The CIDR address block used for the destination match. The value
       -- you provide must match the CIDR of an existing route in the
       -- table.
-    , _rrrDryRun :: Bool
+    , _rrrDryRun :: Maybe Bool
       -- ^ 
-    , _rrrVpcPeeringConnectionId :: Text
+    , _rrrVpcPeeringConnectionId :: Maybe Text
       -- ^ The ID of a VPC peering connection.
-    , _rrrInstanceId :: Text
+    , _rrrInstanceId :: Maybe Text
       -- ^ The ID of a NAT instance in your VPC.
-    , _rrrNetworkInterfaceId :: Text
+    , _rrrNetworkInterfaceId :: Maybe Text
       -- ^ The ID of a network interface.
-    , _rrrGatewayId :: Text
+    , _rrrGatewayId :: Maybe Text
       -- ^ The ID of an Internet gateway attached to your VPC.
     } deriving (Generic)
 
@@ -75,7 +75,6 @@ instance AWSRequest ReplaceRoute where
     type Rs ReplaceRoute = ReplaceRouteResponse
 
     request = post "ReplaceRoute"
-
     response _ _ = return (Right ReplaceRouteResponse)
 
 data ReplaceRouteResponse = ReplaceRouteResponse

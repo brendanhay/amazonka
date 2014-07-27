@@ -189,7 +189,10 @@ instance ToJSON Token where
     toJSON = toField (recase Camel Under . drop 4)
 
 instance ToJSON Pagination where
-    toJSON = toField (recase Camel Under . drop 3)
+    toJSON p = object $
+        case p of
+            More m  ts -> ["type" .= ("more" :: Text), "more" .= m, "tokens" .= ts]
+            Next rk t  -> ["type" .= ("next" :: Text), "result_key" .= rk, "token" .= t]
 
 toField :: (Generic a, GToJSON (Rep a))
         => (String -> String)

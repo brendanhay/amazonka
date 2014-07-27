@@ -60,35 +60,35 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data AssociateAddress = AssociateAddress
-    { _aatAllowReassociation :: Bool
+    { _aaauAllowReassociation :: Maybe Bool
       -- ^ [EC2-VPC] Allows an Elastic IP address that is already associated
       -- with an instance or network interface to be re-associated with
       -- the specified instance or network interface. Otherwise, the
       -- operation fails. Default: false.
-    , _aatDryRun :: Bool
+    , _aaauDryRun :: Maybe Bool
       -- ^ 
-    , _aatInstanceId :: Text
+    , _aaauInstanceId :: Maybe Text
       -- ^ The ID of the instance. The operation fails if you specify an
       -- instance ID unless exactly one network interface is attached.
-    , _aatAllocationId :: Text
+    , _aaauAllocationId :: Maybe Text
       -- ^ [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-    , _aatNetworkInterfaceId :: Text
+    , _aaauNetworkInterfaceId :: Maybe Text
       -- ^ [EC2-VPC] The ID of the network interface. If the instance has
       -- more than one network interface, you must specify a network
       -- interface ID.
-    , _aatPrivateIpAddress :: Text
+    , _aaauPrivateIpAddress :: Maybe Text
       -- ^ [EC2-VPC] The primary or secondary private IP address to
       -- associate with the Elastic IP address. If no private IP address
       -- is specified, the Elastic IP address is associated with the
       -- primary private IP address.
-    , _aatPublicIp :: Text
+    , _aaauPublicIp :: Maybe Text
       -- ^ The Elastic IP address.
     } deriving (Generic)
 
@@ -100,11 +100,10 @@ instance AWSRequest AssociateAddress where
     type Rs AssociateAddress = AssociateAddressResponse
 
     request = post "AssociateAddress"
-
     response _ = xmlResponse
 
 data AssociateAddressResponse = AssociateAddressResponse
-    { _aauAssociationId :: Maybe Text
+    { _aaavAssociationId :: Maybe Text
       -- ^ [EC2-VPC] The ID that represents the association of the Elastic
       -- IP address with an instance.
     } deriving (Generic)

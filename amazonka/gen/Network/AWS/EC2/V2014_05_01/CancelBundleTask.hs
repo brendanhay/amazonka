@@ -44,7 +44,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -53,7 +53,7 @@ import           Prelude              hiding (head)
 data CancelBundleTask = CancelBundleTask
     { _cbtrBundleId :: Text
       -- ^ The ID of the bundle task.
-    , _cbtrDryRun :: Bool
+    , _cbtrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -65,7 +65,6 @@ instance AWSRequest CancelBundleTask where
     type Rs CancelBundleTask = CancelBundleTaskResponse
 
     request = post "CancelBundleTask"
-
     response _ = xmlResponse
 
 data CancelBundleTaskResponse = CancelBundleTaskResponse

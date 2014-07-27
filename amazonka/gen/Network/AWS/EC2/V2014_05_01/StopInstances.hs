@@ -62,7 +62,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -71,13 +71,13 @@ import           Prelude              hiding (head)
 data StopInstances = StopInstances
     { _sirInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _sirForce :: Bool
+    , _sirForce :: Maybe Bool
       -- ^ Forces the instances to stop. The instances do not have an
       -- opportunity to flush file system caches or file system metadata.
       -- If you use this option, you must perform file system check and
       -- repair procedures. This option is not recommended for Windows
       -- instances. Default: false.
-    , _sirDryRun :: Bool
+    , _sirDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -89,7 +89,6 @@ instance AWSRequest StopInstances where
     type Rs StopInstances = StopInstancesResponse
 
     request = post "StopInstances"
-
     response _ = xmlResponse
 
 data StopInstancesResponse = StopInstancesResponse

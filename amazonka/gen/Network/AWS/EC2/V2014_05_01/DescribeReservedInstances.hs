@@ -45,14 +45,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeReservedInstances = DescribeReservedInstances
-    { _drirDryRun :: Bool
+    { _drirDryRun :: Maybe Bool
       -- ^ 
     , _drirFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
@@ -80,7 +80,7 @@ data DescribeReservedInstances = DescribeReservedInstances
       -- This filter is independent of the tag-key filter. usage-price -
       -- The usage price of the Reserved Instance, per hour (for example,
       -- 0.84).
-    , _drirOfferingType :: OfferingTypeValues
+    , _drirOfferingType :: Maybe OfferingTypeValues
       -- ^ The Reserved Instance offering type.
     , _drirReservedInstancesIds :: [Text]
       -- ^ One or more Reserved Instance IDs. Default: Describes all your
@@ -95,7 +95,6 @@ instance AWSRequest DescribeReservedInstances where
     type Rs DescribeReservedInstances = DescribeReservedInstancesResponse
 
     request = post "DescribeReservedInstances"
-
     response _ = xmlResponse
 
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse

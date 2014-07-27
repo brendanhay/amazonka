@@ -1,0 +1,5 @@
+{% if scope.direction.request %}
+
+instance ToQuery {{ scope.name }} where
+    toQuery = genericToQuery def
+{% endif %}

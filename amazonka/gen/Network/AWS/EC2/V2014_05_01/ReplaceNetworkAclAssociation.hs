@@ -44,7 +44,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -56,7 +56,7 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
       -- ACL and the subnet.
     , _rnaarNetworkAclId :: Text
       -- ^ The ID of the new ACL to associate with the subnet.
-    , _rnaarDryRun :: Bool
+    , _rnaarDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -68,7 +68,6 @@ instance AWSRequest ReplaceNetworkAclAssociation where
     type Rs ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociationResponse
 
     request = post "ReplaceNetworkAclAssociation"
-
     response _ = xmlResponse
 
 data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse

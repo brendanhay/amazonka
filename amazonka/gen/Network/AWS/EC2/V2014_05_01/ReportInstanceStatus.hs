@@ -43,18 +43,18 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data ReportInstanceStatus = ReportInstanceStatus
-    { _risrDryRun :: Bool
+    { _risrDryRun :: Maybe Bool
       -- ^ 
-    , _risrStartTime :: ISO8601
+    , _risrStartTime :: Maybe ISO8601
       -- ^ The time at which the reported instance health state began.
-    , _risrEndTime :: ISO8601
+    , _risrEndTime :: Maybe ISO8601
       -- ^ The time at which the reported instance health state ended.
     , _risrInstances :: [Text]
       -- ^ One or more instances.
@@ -73,9 +73,9 @@ data ReportInstanceStatus = ReportInstanceStatus
       -- volume. performance-other: My instance is experiencing
       -- performance problems. other: [explain using the description
       -- parameter].
-    , _risrStatus :: ReportStatusType
+    , _risrStatus :: Maybe ReportStatusType
       -- ^ The status of all instances listed.
-    , _risrDescription :: Text
+    , _risrDescription :: Maybe Text
       -- ^ Descriptive text about the health state of your instance.
     } deriving (Generic)
 
@@ -87,7 +87,6 @@ instance AWSRequest ReportInstanceStatus where
     type Rs ReportInstanceStatus = ReportInstanceStatusResponse
 
     request = post "ReportInstanceStatus"
-
     response _ _ = return (Right ReportInstanceStatusResponse)
 
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse

@@ -50,14 +50,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeSecurityGroups = DescribeSecurityGroups
-    { _dsgsDryRun :: Bool
+    { _dsgsDryRun :: Maybe Bool
       -- ^ 
     , _dsgsFilters :: [Filter]
       -- ^ One or more filters. description - The description of the
@@ -93,7 +93,6 @@ instance AWSRequest DescribeSecurityGroups where
     type Rs DescribeSecurityGroups = DescribeSecurityGroupsResponse
 
     request = post "DescribeSecurityGroups"
-
     response _ = xmlResponse
 
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse

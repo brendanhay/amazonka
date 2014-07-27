@@ -44,7 +44,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -55,9 +55,9 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
       -- ^ The Amazon S3 bucket in which to store the Spot Instance
       -- datafeed. Constraints: Must be a valid bucket associated with
       -- your AWS account.
-    , _csdsrDryRun :: Bool
+    , _csdsrDryRun :: Maybe Bool
       -- ^ 
-    , _csdsrPrefix :: Text
+    , _csdsrPrefix :: Maybe Text
       -- ^ A prefix for the datafeed file names.
     } deriving (Generic)
 
@@ -69,7 +69,6 @@ instance AWSRequest CreateSpotDatafeedSubscription where
     type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResponse
 
     request = post "CreateSpotDatafeedSubscription"
-
     response _ = xmlResponse
 
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse

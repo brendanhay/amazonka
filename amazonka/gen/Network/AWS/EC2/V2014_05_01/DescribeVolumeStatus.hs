@@ -73,14 +73,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeVolumeStatus = DescribeVolumeStatus
-    { _dvsrDryRun :: Bool
+    { _dvsrDryRun :: Maybe Bool
       -- ^ 
     , _dvsrFilters :: [Filter]
       -- ^ One or more filters. action.code - The action code for the event
@@ -100,9 +100,9 @@ data DescribeVolumeStatus = DescribeVolumeStatus
       -- io-performance: normal | degraded | severely-degraded | stalled).
       -- volume-status.status - The status of the volume (ok | impaired |
       -- warning | insufficient-data).
-    , _dvsrMaxResults :: Integer
+    , _dvsrMaxResults :: Maybe Integer
       -- ^ The maximum number of paginated volume items per response.
-    , _dvsrNextToken :: Text
+    , _dvsrNextToken :: Maybe Text
       -- ^ The next paginated set of results to return using the pagination
       -- token returned by a previous call.
     , _dvsrVolumeIds :: [Text]
@@ -117,15 +117,11 @@ instance AWSRequest DescribeVolumeStatus where
     type Rs DescribeVolumeStatus = DescribeVolumeStatusResponse
 
     request = post "DescribeVolumeStatus"
-
     response _ = xmlResponse
 
 instance AWSPager DescribeVolumeStatus where
-    next rq rs
-        | not ( rs) = Nothing
-        | otherwise = Just $ rq
-            { _dvsrNextToken = _dvsrNextToken rs
-            }
+    next rq rs = (\x -> rq { _dvsrNextToken = Just x })
+        <$> _dvssNextToken rs
 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvssNextToken :: Maybe Text

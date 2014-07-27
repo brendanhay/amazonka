@@ -45,14 +45,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeBundleTasks = DescribeBundleTasks
-    { _dbtrDryRun :: Bool
+    { _dbtrDryRun :: Maybe Bool
       -- ^ 
     , _dbtrBundleIds :: [Text]
       -- ^ One or more bundle task IDs. Default: Describes all your bundle
@@ -79,7 +79,6 @@ instance AWSRequest DescribeBundleTasks where
     type Rs DescribeBundleTasks = DescribeBundleTasksResponse
 
     request = post "DescribeBundleTasks"
-
     response _ = xmlResponse
 
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse

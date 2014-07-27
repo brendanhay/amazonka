@@ -48,39 +48,39 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgirDryRun :: Bool
+    { _rsgirDryRun :: Maybe Bool
       -- ^ 
-    , _rsgirFromPort :: Integer
+    , _rsgirFromPort :: Maybe Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. For the ICMP type number, use -1 to specify all ICMP
       -- types.
-    , _rsgirToPort :: Integer
+    , _rsgirToPort :: Maybe Integer
       -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
       -- code number. For the ICMP code number, use -1 to specify all ICMP
       -- codes for the ICMP type.
     , _rsgirIpPermissions :: [IpPermission]
       -- ^ 
-    , _rsgirIpProtocol :: Text
+    , _rsgirIpProtocol :: Maybe Text
       -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
       -- Numbers). Use -1 to specify all.
-    , _rsgirGroupId :: Text
+    , _rsgirGroupId :: Maybe Text
       -- ^ The ID of the security group.
-    , _rsgirCidrIp :: Text
+    , _rsgirCidrIp :: Maybe Text
       -- ^ The CIDR IP address range. You can't specify this parameter when
       -- specifying a source security group.
-    , _rsgirSourceSecurityGroupOwnerId :: Text
+    , _rsgirSourceSecurityGroupOwnerId :: Maybe Text
       -- ^ The ID of the source security group. You can't specify a source
       -- security group and a CIDR IP address range.
-    , _rsgirGroupName :: Text
+    , _rsgirGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the security group.
-    , _rsgirSourceSecurityGroupName :: Text
+    , _rsgirSourceSecurityGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the source security group.
       -- You can't specify a source security group and a CIDR IP address
       -- range.
@@ -94,7 +94,6 @@ instance AWSRequest RevokeSecurityGroupIngress where
     type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse
 
     request = post "RevokeSecurityGroupIngress"
-
     response _ _ = return (Right RevokeSecurityGroupIngressResponse)
 
 data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse

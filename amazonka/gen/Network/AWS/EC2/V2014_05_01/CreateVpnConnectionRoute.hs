@@ -45,7 +45,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -67,7 +67,6 @@ instance AWSRequest CreateVpnConnectionRoute where
     type Rs CreateVpnConnectionRoute = CreateVpnConnectionRouteResponse
 
     request = post "CreateVpnConnectionRoute"
-
     response _ _ = return (Right CreateVpnConnectionRouteResponse)
 
 data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse

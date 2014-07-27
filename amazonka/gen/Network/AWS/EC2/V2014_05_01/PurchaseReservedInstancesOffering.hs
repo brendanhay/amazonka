@@ -51,7 +51,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -62,9 +62,9 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
       -- ^ The number of Reserved Instances to purchase.
     , _priorReservedInstancesOfferingId :: Text
       -- ^ The ID of the Reserved Instance offering to purchase.
-    , _priorDryRun :: Bool
+    , _priorDryRun :: Maybe Bool
       -- ^ 
-    , _priorLimitPrice :: ReservedInstanceLimitPrice
+    , _priorLimitPrice :: Maybe ReservedInstanceLimitPrice
       -- ^ Specified for Reserved Instance Marketplace offerings to limit
       -- the total order and ensure that the Reserved Instances are not
       -- purchased at unexpected prices.
@@ -78,7 +78,6 @@ instance AWSRequest PurchaseReservedInstancesOffering where
     type Rs PurchaseReservedInstancesOffering = PurchaseReservedInstancesOfferingResponse
 
     request = post "PurchaseReservedInstancesOffering"
-
     response _ = xmlResponse
 
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse

@@ -136,14 +136,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeInstances = DescribeInstances
-    { _disDryRun :: Bool
+    { _disDryRun :: Maybe Bool
       -- ^ 
     , _disFilters :: [Filter]
       -- ^ One or more filters. architecture - The instance architecture
@@ -288,12 +288,12 @@ data DescribeInstances = DescribeInstances
       -- associated with an IP address.
     , _disInstanceIds :: [Text]
       -- ^ One or more instance IDs. Default: Describes all your instances.
-    , _disMaxResults :: Integer
+    , _disMaxResults :: Maybe Integer
       -- ^ The maximum number of items to return for this call. The call
       -- also returns a token that you can specify in a subsequent call to
       -- get the next set of results. If the value is greater than 1000,
       -- we return only 1000 items.
-    , _disNextToken :: Text
+    , _disNextToken :: Maybe Text
       -- ^ The token for the next set of items to return. (You received this
       -- token from a prior call.).
     } deriving (Generic)
@@ -306,15 +306,11 @@ instance AWSRequest DescribeInstances where
     type Rs DescribeInstances = DescribeInstancesResponse
 
     request = post "DescribeInstances"
-
     response _ = xmlResponse
 
 instance AWSPager DescribeInstances where
-    next rq rs
-        | not ( rs) = Nothing
-        | otherwise = Just $ rq
-            { _dirNextToken = _dirNextToken rs
-            }
+    next rq rs = (\x -> rq { _disNextToken = Just x })
+        <$> _ditNextToken rs
 
 data DescribeInstancesResponse = DescribeInstancesResponse
     { _ditReservations :: [Reservation]

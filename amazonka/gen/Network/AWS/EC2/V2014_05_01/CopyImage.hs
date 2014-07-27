@@ -43,7 +43,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -54,16 +54,16 @@ data CopyImage = CopyImage
       -- ^ The name of the region that contains the AMI to copy.
     , _cirSourceImageId :: Text
       -- ^ The ID of the AMI to copy.
-    , _cirDryRun :: Bool
+    , _cirDryRun :: Maybe Bool
       -- ^ 
-    , _cirClientToken :: Text
+    , _cirClientToken :: Maybe Text
       -- ^ Unique, case-sensitive identifier you provide to ensure
       -- idempotency of the request. For more information, see How to
       -- Ensure Idempotency in the Amazon Elastic Compute Cloud User
       -- Guide.
-    , _cirName :: Text
+    , _cirName :: Maybe Text
       -- ^ The name of the new AMI in the destination region.
-    , _cirDescription :: Text
+    , _cirDescription :: Maybe Text
       -- ^ A description for the new AMI in the destination region.
     } deriving (Generic)
 
@@ -75,7 +75,6 @@ instance AWSRequest CopyImage where
     type Rs CopyImage = CopyImageResponse
 
     request = post "CopyImage"
-
     response _ = xmlResponse
 
 data CopyImageResponse = CopyImageResponse

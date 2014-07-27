@@ -59,7 +59,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -69,9 +69,9 @@ data CreateVpc = CreateVpc
     { _cvrCidrBlock :: Text
       -- ^ The network range for the VPC, in CIDR notation. For example,
       -- 10.0.0.0/16.
-    , _cvrDryRun :: Bool
+    , _cvrDryRun :: Maybe Bool
       -- ^ 
-    , _cvrInstanceTenancy :: Tenancy
+    , _cvrInstanceTenancy :: Maybe Tenancy
       -- ^ The supported tenancy options for instances launched into the
       -- VPC. A value of default means that instances can be launched with
       -- any tenancy; a value of dedicated means all instances launched
@@ -89,7 +89,6 @@ instance AWSRequest CreateVpc where
     type Rs CreateVpc = CreateVpcResponse
 
     request = post "CreateVpc"
-
     response _ = xmlResponse
 
 data CreateVpcResponse = CreateVpcResponse

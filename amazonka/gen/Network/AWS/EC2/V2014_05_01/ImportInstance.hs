@@ -45,7 +45,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -54,13 +54,13 @@ import           Prelude              hiding (head)
 data ImportInstance = ImportInstance
     { _iirPlatform :: PlatformValues
       -- ^ The instance operating system.
-    , _iirDryRun :: Bool
+    , _iirDryRun :: Maybe Bool
       -- ^ 
     , _iirDiskImages :: [DiskImage]
       -- ^ 
-    , _iirLaunchSpecification :: ImportInstanceLaunchSpecification
+    , _iirLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
       -- ^ 
-    , _iirDescription :: Text
+    , _iirDescription :: Maybe Text
       -- ^ A description for the instance being imported.
     } deriving (Generic)
 
@@ -72,7 +72,6 @@ instance AWSRequest ImportInstance where
     type Rs ImportInstance = ImportInstanceResponse
 
     request = post "ImportInstance"
-
     response _ = xmlResponse
 
 data ImportInstanceResponse = ImportInstanceResponse

@@ -20,7 +20,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           {{ request_namespace }}
 import           {{ types_namespace }}
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -42,7 +42,6 @@ instance AWSRequest {{ request.name }} where
     type Rs {{ request.name }} = {{ response.name }}
 
     request = post "{{ request.name }}"
-
 {% include "_include/response.ede" %}
 {% include "_include/pager.ede" %}
 

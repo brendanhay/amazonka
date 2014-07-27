@@ -53,7 +53,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -65,7 +65,7 @@ data AssociateDhcpOptions = AssociateDhcpOptions
     , _adorDhcpOptionsId :: Text
       -- ^ The ID of the DHCP options set, or default to associate no DHCP
       -- options with the VPC.
-    , _adorDryRun :: Bool
+    , _adorDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -77,7 +77,6 @@ instance AWSRequest AssociateDhcpOptions where
     type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
 
     request = post "AssociateDhcpOptions"
-
     response _ _ = return (Right AssociateDhcpOptionsResponse)
 
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse

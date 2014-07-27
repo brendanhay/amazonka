@@ -47,7 +47,6 @@ instance AWSRequest {{ request.name }} where
     type Rs {{ request.name }} = {{ response.name }}
 
     request = {{ request.method }}
-
 {% include "_include/response.ede" %}
 {% include "_include/pager.ede" %}
 

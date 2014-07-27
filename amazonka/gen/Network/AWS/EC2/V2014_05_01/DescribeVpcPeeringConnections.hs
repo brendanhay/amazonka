@@ -62,14 +62,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpctDryRun :: Bool
+    { _dvpctDryRun :: Maybe Bool
       -- ^ 
     , _dvpctFilters :: [Filter]
       -- ^ One or more filters. accepter-vpc-info.cidr-block - The CIDR
@@ -109,7 +109,6 @@ instance AWSRequest DescribeVpcPeeringConnections where
     type Rs DescribeVpcPeeringConnections = DescribeVpcPeeringConnectionsResponse
 
     request = post "DescribeVpcPeeringConnections"
-
     response _ = xmlResponse
 
 data DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse

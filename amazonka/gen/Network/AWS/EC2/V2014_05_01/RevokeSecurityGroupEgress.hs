@@ -50,7 +50,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -59,28 +59,28 @@ import           Prelude              hiding (head)
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     { _rsgerGroupId :: Text
       -- ^ The ID of the security group.
-    , _rsgerDryRun :: Bool
+    , _rsgerDryRun :: Maybe Bool
       -- ^ 
-    , _rsgerFromPort :: Integer
+    , _rsgerFromPort :: Maybe Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. For the ICMP type number, use -1 to specify all ICMP
       -- types.
-    , _rsgerToPort :: Integer
+    , _rsgerToPort :: Maybe Integer
       -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
       -- code number. For the ICMP code number, use -1 to specify all ICMP
       -- codes for the ICMP type.
     , _rsgerIpPermissions :: [IpPermission]
       -- ^ 
-    , _rsgerIpProtocol :: Text
+    , _rsgerIpProtocol :: Maybe Text
       -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
       -- Numbers). Use -1 to specify all.
-    , _rsgerCidrIp :: Text
+    , _rsgerCidrIp :: Maybe Text
       -- ^ The CIDR IP address range. You can't specify this parameter when
       -- specifying a source security group.
-    , _rsgerSourceSecurityGroupOwnerId :: Text
+    , _rsgerSourceSecurityGroupOwnerId :: Maybe Text
       -- ^ The ID of the source security group. You can't specify a source
       -- security group and a CIDR IP address range.
-    , _rsgerSourceSecurityGroupName :: Text
+    , _rsgerSourceSecurityGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the source security group.
       -- You can't specify a source security group and a CIDR IP address
       -- range.
@@ -94,7 +94,6 @@ instance AWSRequest RevokeSecurityGroupEgress where
     type Rs RevokeSecurityGroupEgress = RevokeSecurityGroupEgressResponse
 
     request = post "RevokeSecurityGroupEgress"
-
     response _ _ = return (Right RevokeSecurityGroupEgressResponse)
 
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse

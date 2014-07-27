@@ -51,7 +51,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -60,9 +60,9 @@ import           Prelude              hiding (head)
 data DescribeVpcAttribute = DescribeVpcAttribute
     { _dvatVpcId :: Text
       -- ^ The ID of the VPC.
-    , _dvatDryRun :: Bool
+    , _dvatDryRun :: Maybe Bool
       -- ^ 
-    , _dvatAttribute :: VpcAttributeName
+    , _dvatAttribute :: Maybe VpcAttributeName
       -- ^ The VPC attribute.
     } deriving (Generic)
 
@@ -74,7 +74,6 @@ instance AWSRequest DescribeVpcAttribute where
     type Rs DescribeVpcAttribute = DescribeVpcAttributeResponse
 
     request = post "DescribeVpcAttribute"
-
     response _ = xmlResponse
 
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse

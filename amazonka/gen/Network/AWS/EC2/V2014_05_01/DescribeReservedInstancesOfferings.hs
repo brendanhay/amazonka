@@ -76,16 +76,16 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _driorIncludeMarketplace :: Bool
+    { _driorIncludeMarketplace :: Maybe Bool
       -- ^ Include Marketplace offerings in the response.
-    , _driorDryRun :: Bool
+    , _driorDryRun :: Maybe Bool
       -- ^ 
     , _driorFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
@@ -102,37 +102,37 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
       -- VPC)). reserved-instances-offering-id - The Reserved Instances
       -- offering ID. usage-price - The usage price of the Reserved
       -- Instance, per hour (for example, 0.84).
-    , _driorInstanceType :: InstanceType
+    , _driorInstanceType :: Maybe InstanceType
       -- ^ The instance type on which the Reserved Instance can be used. For
       -- more information, see Instance Types in the Amazon Elastic
       -- Compute Cloud User Guide.
-    , _driorMaxInstanceCount :: Integer
+    , _driorMaxInstanceCount :: Maybe Integer
       -- ^ The maximum number of instances to filter when searching for
       -- offerings.
-    , _driorMaxResults :: Integer
+    , _driorMaxResults :: Maybe Integer
       -- ^ The maximum number of offerings to return.
-    , _driorMaxDuration :: Integer
+    , _driorMaxDuration :: Maybe Integer
       -- ^ The maximum duration (in seconds) to filter when searching for
       -- offerings.
-    , _driorMinDuration :: Integer
+    , _driorMinDuration :: Maybe Integer
       -- ^ The minimum duration (in seconds) to filter when searching for
       -- offerings.
-    , _driorOfferingType :: OfferingTypeValues
+    , _driorOfferingType :: Maybe OfferingTypeValues
       -- ^ The Reserved Instance offering type.
-    , _driorProductDescription :: RIProductDescription
+    , _driorProductDescription :: Maybe RIProductDescription
       -- ^ The Reserved Instance description. Instances that include (Amazon
       -- VPC) in the description are for use with Amazon VPC.
     , _driorReservedInstancesOfferingIds :: [Text]
       -- ^ One or more Reserved Instances offering IDs.
-    , _driorNextToken :: Text
-      -- ^ The token to use when requesting the next paginated set of
-      -- offerings.
-    , _driorAvailabilityZone :: Text
-      -- ^ The Availability Zone in which the Reserved Instance can be used.
-    , _driorInstanceTenancy :: Tenancy
+    , _driorInstanceTenancy :: Maybe Tenancy
       -- ^ The tenancy of the Reserved Instance offering. A Reserved
       -- Instance with dedicated tenancy runs on single-tenant hardware
       -- and can only be launched within a VPC. Default: default.
+    , _driorNextToken :: Maybe Text
+      -- ^ The token to use when requesting the next paginated set of
+      -- offerings.
+    , _driorAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone in which the Reserved Instance can be used.
     } deriving (Generic)
 
 instance ToQuery DescribeReservedInstancesOfferings where
@@ -143,15 +143,11 @@ instance AWSRequest DescribeReservedInstancesOfferings where
     type Rs DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferingsResponse
 
     request = post "DescribeReservedInstancesOfferings"
-
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedInstancesOfferings where
-    next rq rs
-        | not ( rs) = Nothing
-        | otherwise = Just $ rq
-            { _driorNextToken = _driorNextToken rs
-            }
+    next rq rs = (\x -> rq { _driorNextToken = Just x })
+        <$> _driosNextToken rs
 
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driosReservedInstancesOfferings :: [ReservedInstancesOffering]

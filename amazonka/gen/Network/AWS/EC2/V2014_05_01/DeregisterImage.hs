@@ -37,7 +37,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -46,7 +46,7 @@ import           Prelude              hiding (head)
 data DeregisterImage = DeregisterImage
     { _dirImageId :: Text
       -- ^ The ID of the AMI.
-    , _dirDryRun :: Bool
+    , _dirDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -58,7 +58,6 @@ instance AWSRequest DeregisterImage where
     type Rs DeregisterImage = DeregisterImageResponse
 
     request = post "DeregisterImage"
-
     response _ _ = return (Right DeregisterImageResponse)
 
 data DeregisterImageResponse = DeregisterImageResponse

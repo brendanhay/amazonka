@@ -56,7 +56,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -71,7 +71,7 @@ data CreateCustomerGateway = CreateCustomerGateway
     , _ccgrPublicIp :: Text
       -- ^ The Internet-routable IP address for the customer gateway's
       -- outside interface. The address must be static.
-    , _ccgrDryRun :: Bool
+    , _ccgrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -83,7 +83,6 @@ instance AWSRequest CreateCustomerGateway where
     type Rs CreateCustomerGateway = CreateCustomerGatewayResponse
 
     request = post "CreateCustomerGateway"
-
     response _ = xmlResponse
 
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse

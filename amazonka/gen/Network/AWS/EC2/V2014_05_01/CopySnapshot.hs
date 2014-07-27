@@ -45,7 +45,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -56,9 +56,9 @@ data CopySnapshot = CopySnapshot
       -- ^ The ID of the Amazon EBS snapshot to copy.
     , _csrSourceRegion :: Text
       -- ^ The ID of the region that contains the snapshot to be copied.
-    , _csrDryRun :: Bool
+    , _csrDryRun :: Maybe Bool
       -- ^ 
-    , _csrPresignedUrl :: Text
+    , _csrPresignedUrl :: Maybe Text
       -- ^ The pre-signed URL that facilitates copying an encrypted
       -- snapshot. This parameter is only required when copying an
       -- encrypted snapshot with the Amazon EC2 Query API; it is available
@@ -73,10 +73,10 @@ data CopySnapshot = CopySnapshot
       -- Simple Storage Service API Reference. An invalid or improperly
       -- signed PresignedUrl will cause the copy operation to fail
       -- asynchronously, and the snapshot will move to an error state.
-    , _csrDestinationRegion :: Text
+    , _csrDestinationRegion :: Maybe Text
       -- ^ The destination region of the snapshot copy operation. This
       -- parameter is required in the PresignedUrl.
-    , _csrDescription :: Text
+    , _csrDescription :: Maybe Text
       -- ^ A description for the new Amazon EBS snapshot.
     } deriving (Generic)
 
@@ -88,7 +88,6 @@ instance AWSRequest CopySnapshot where
     type Rs CopySnapshot = CopySnapshotResponse
 
     request = post "CopySnapshot"
-
     response _ = xmlResponse
 
 data CopySnapshotResponse = CopySnapshotResponse

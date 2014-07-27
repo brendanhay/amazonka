@@ -39,7 +39,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -48,17 +48,17 @@ import           Prelude              hiding (head)
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     { _mniarNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
-    , _mniarSourceDestCheck :: AttributeBooleanValue
+    , _mniarSourceDestCheck :: Maybe AttributeBooleanValue
       -- ^ Indicates whether source/destination checking is enabled. A value
       -- of true means checking is enabled, and false means checking is
       -- disabled. This value must be false for a NAT instance to perform
       -- NAT. For more information, see NAT Instances in the Amazon
       -- Virtual Private Cloud User Guide.
-    , _mniarDescription :: AttributeValue
+    , _mniarDescription :: Maybe AttributeValue
       -- ^ A description for the network interface.
-    , _mniarDryRun :: Bool
+    , _mniarDryRun :: Maybe Bool
       -- ^ 
-    , _mniarAttachment :: NetworkInterfaceAttachmentChanges
+    , _mniarAttachment :: Maybe NetworkInterfaceAttachmentChanges
       -- ^ The ID of the interface attachment.
     , _mniarGroups :: [Text]
       -- ^ Changes the security groups for the network interface. The new
@@ -76,7 +76,6 @@ instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Rs ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttributeResponse
 
     request = post "ModifyNetworkInterfaceAttribute"
-
     response _ _ = return (Right ModifyNetworkInterfaceAttributeResponse)
 
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse

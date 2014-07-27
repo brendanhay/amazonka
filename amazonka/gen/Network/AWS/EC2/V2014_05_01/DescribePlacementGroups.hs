@@ -41,14 +41,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribePlacementGroups = DescribePlacementGroups
-    { _dpgsDryRun :: Bool
+    { _dpgsDryRun :: Maybe Bool
       -- ^ 
     , _dpgsFilters :: [Filter]
       -- ^ One or more filters. group-name - The name of the placement
@@ -68,7 +68,6 @@ instance AWSRequest DescribePlacementGroups where
     type Rs DescribePlacementGroups = DescribePlacementGroupsResponse
 
     request = post "DescribePlacementGroups"
-
     response _ = xmlResponse
 
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse

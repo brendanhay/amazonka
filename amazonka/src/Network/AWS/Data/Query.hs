@@ -33,10 +33,6 @@ module Network.AWS.Data.Query
     , pair
     , (=?)
 
-    -- * Deserialisation
-    , FromQuery (..)
-    , decodeQuery
-
     -- * Serialisation
     , ToQuery   (..)
     , renderQuery
@@ -121,21 +117,6 @@ instance Plated Query where
 instance IsString Query where
     fromString = toQuery . BS.pack
 
--- FIXME: Neither of these is the correct type
--- And what about the breaking of query elements? not all pieces have =
-
-decodeQuery :: ByteString -> Query
-decodeQuery = Fold.foldl' (\a b -> reify b <> a) mempty . URI.parseQuery
-  where
-    reify (k, v)
-        | BS.null k         = Value v
-        | BS.any (== '.') k = fold k v
-        | otherwise         = Pair k $ Value v
-
-    fold k v =
-        let ks = BS.split '.' k
-         in foldr Pair (Pair (last ks) $ Value v) $ init ks
-
 renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing
   where
@@ -158,7 +139,6 @@ renderQuery = intercalate . sort . enc Nothing
     vsep = "="
 
 -- keysOf :: Traversal' Query ByteString
-
 -- valuesOf :: Traversal' Query (Maybe ByteString)
 
 data QueryOptions = QueryOptions
@@ -171,114 +151,6 @@ instance Default QueryOptions where
         { queryCtorMod  = BS.pack
         , queryFieldMod = BS.pack
         }
-
--- fromLoweredQuery :: (Generic a, GFromQuery (Rep a))
---                  => Query
---                  -> Either String a
--- fromLoweredQuery = genericFromQuery (lowered def)
-
--- genericFromQuery :: (Generic a, GFromQuery (Rep a))
---                  => QueryOptions
---                  -> Query
---                  -> Either String a
--- genericFromQuery o = fmap to . gFromQuery o
-
-class FromQuery a where
-    fromQuery :: Query -> Either String a
-
---     default fromQuery :: (Generic a, GFromQuery (Rep a))
---                       => Query
---                       -> Either String a
---     fromQuery = genericFromQuery def
-
--- instance FromQuery ByteString where
---     fromQuery = valueParser ABS.takeByteString
-
--- instance FromQuery Int where
---     fromQuery = valueParser ABS.decimal
-
--- instance FromQuery Integer where
---     fromQuery = valueParser ABS.decimal
-
--- instance FromQuery Double where
---     fromQuery = valueParser ABS.rational
-
--- instance FromQuery Float where
---     fromQuery = valueParser ABS.rational
-
--- instance FromQuery a => FromQuery [a] where
---     fromQuery (List qs) = concatEithers $ map fromQuery [v | Pair _ v <- sort qs]
---       where
---         concatEithers xs = case partitionEithers xs of
---             (l:_, _) -> Left l
---             ([], rs) -> Right rs
---     fromQuery _         = Left "Unexpected non-list."
-
--- instance FromQuery a => FromQuery (NonEmpty a) where
---     fromQuery = join
---         . fmap (note "Unexpected empty list." . NonEmpty.nonEmpty)
---         . fromQuery
-
--- -- FIXME: should fail if target doesn't exist
--- instance FromQuery a => FromQuery (Maybe a) where
---     fromQuery q =
---         either (const $ Right Nothing)
---                (Right . Just)
---                (fromQuery q)
-
--- instance FromQuery Bool where
---     fromQuery = valueParser (p "true" True <|> p "false" False)
---       where
---         p s b = ABS.string s *> return b <* ABS.endOfInput
-
--- instance FromQuery UTCTime where
---     fromQuery (Value v) = parseISO8601 $ ByteString.unpack v
---     fromQuery _         = Left "Unexpected non-value."
-
--- instance FromQuery () where
---     fromQuery _ = Right ()
-
--- -- FIXME: implement this shizzle
--- -- instance (FromQuery k, FromQuery v) => FromQuery (HashMap k v) where
--- --     fromQuery = undefined
-
--- valueParser :: ABS.Parser a -> Query -> Either String a
--- valueParser p (Value v) = ABS.parseOnly p v
--- valueParser _ _         = Left "Unexpected non-value."
-
--- class GFromQuery f where
---     gFromQuery :: QueryOptions -> Query -> Either String (f a)
-
--- instance (GFromQuery f, GFromQuery g) => GFromQuery (f :+: g) where
---     gFromQuery o q = (L1 <$> gFromQuery o q) <|> (R1 <$> gFromQuery o q)
-
--- instance (GFromQuery f, GFromQuery g) => GFromQuery (f :*: g) where
---     gFromQuery o q = (:*:) <$> gFromQuery o q <*> gFromQuery o q
-
--- instance GFromQuery U1 where
---     gFromQuery _ _ = Right U1
-
--- instance FromQuery a => GFromQuery (K1 R a) where
---     gFromQuery _ = fmap K1 . fromQuery
-
--- instance GFromQuery f => GFromQuery (D1 c f) where
---     gFromQuery o = fmap M1 . gFromQuery o
-
--- instance GFromQuery f => GFromQuery (C1 c f) where
---     gFromQuery o = fmap M1 . gFromQuery o
-
--- instance (Selector c, GFromQuery f) => GFromQuery (S1 c f) where
---     gFromQuery o =
---         either Left (fmap M1 . gFromQuery o)
---             . note ("Unable to find: " ++ ByteString.unpack name)
---             . findPair name
---       where
---         name = queryFieldMod o $ selName (undefined :: S1 c f p)
-
---         findPair k qry
---             | List qs <- qry            = mconcat $ map (findPair k) qs
---             | Pair k' q <- qry, k == k' = Just q
---             | otherwise                 = Nothing
 
 -- toLoweredQuery :: (Generic a, GToQuery (Rep a))
 --                => a
@@ -322,29 +194,23 @@ instance ToQuery ByteString where
 instance ToQuery Text      where toQuery = toQuery . toBS
 instance ToQuery Int       where toQuery = toQuery . toBS
 instance ToQuery Integer   where toQuery = toQuery . toBS
+instance ToQuery Double    where toQuery = toQuery . toBS
 instance ToQuery RFC822    where toQuery = toQuery . toBS
 instance ToQuery ISO8601   where toQuery = toQuery . toBS
 instance ToQuery BasicTime where toQuery = toQuery . toBS
 instance ToQuery AWSTime   where toQuery = toQuery . toBS
 
--- instance ToQuery Double where
---     toQuery = valueFromFloat
+instance ToQuery a => ToQuery [a] where
+    toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
+      where
+        idx = [1..] :: [Integer]
 
--- instance ToQuery Float where
---     toQuery = valueFromFloat
+instance ToQuery a => ToQuery (NonEmpty a) where
+    toQuery = toQuery . NonEmpty.toList
 
--- instance ToQuery a => ToQuery [a] where
---     toQuery = List . zipWith (\n v -> Pair (key n) (toQuery v)) idx
---       where
---         key = LByteString.toStrict . LByteString.toLazyByteString . LByteString.decimal
---         idx = [1..] :: [Integer]
-
--- instance ToQuery a => ToQuery (NonEmpty a) where
---     toQuery = toQuery . NonEmpty.toList
-
--- instance ToQuery a => ToQuery (Maybe a) where
---     toQuery (Just x) = toQuery x
---     toQuery Nothing  = mempty
+instance ToQuery a => ToQuery (Maybe a) where
+    toQuery (Just x) = toQuery x
+    toQuery Nothing  = mempty
 
 instance ToQuery Bool where
     toQuery True  = toQuery ("true"  :: ByteString)
@@ -353,12 +219,6 @@ instance ToQuery Bool where
 -- -- FIXME: implement this shizzle
 -- -- instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where
 -- --     toQuery = undefined
-
--- valueFromIntegral :: Integral a => a -> Query
--- valueFromIntegral = Value . integralToByteString
-
--- valueFromFloat :: RealFloat a => a -> Query
--- valueFromFloat = Value . floatToByteString
 
 class GToQuery f where
     gToQuery :: QueryOptions -> f a -> Query

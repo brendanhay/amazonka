@@ -74,42 +74,42 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data RegisterImage = RegisterImage
-    { _risArchitecture :: ArchitectureValues
+    { _ritArchitecture :: Maybe ArchitectureValues
       -- ^ The architecture of the AMI. Default: For Amazon EBS-backed AMIs,
       -- i386. For instance store-backed AMIs, the architecture specified
       -- in the manifest file.
-    , _risBlockDeviceMappings :: [BlockDeviceMapping]
+    , _ritBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ One or more block device mapping entries.
-    , _risDryRun :: Bool
+    , _ritDryRun :: Maybe Bool
       -- ^ 
-    , _risVirtualizationType :: String
+    , _ritVirtualizationType :: Maybe VirtualizationType
       -- ^ The type of virtualization.
-    , _risImageLocation :: Text
+    , _ritImageLocation :: Maybe Text
       -- ^ The full path to your AMI manifest in Amazon S3 storage.
-    , _risRamdiskId :: Text
+    , _ritRamdiskId :: Maybe Text
       -- ^ The ID of the RAM disk.
-    , _risKernelId :: Text
+    , _ritKernelId :: Maybe Text
       -- ^ The ID of the kernel.
-    , _risRootDeviceName :: Text
+    , _ritRootDeviceName :: Maybe Text
       -- ^ The name of the root device (for example, /dev/sda1, or xvda).
-    , _risSriovNetSupport :: Text
+    , _ritSriovNetSupport :: Maybe Text
       -- ^ Set to simple to enable enhanced networking for the AMI and any
       -- instances that you launch from the AMI. There is no way to
       -- disable enhanced networking at this time. This option is
       -- supported only for HVM AMIs. Specifying this option with a PV AMI
       -- can make instances launched from the AMI unreachable.
-    , _risName :: Text
+    , _ritName :: Maybe Text
       -- ^ A name for your AMI. Constraints: 3-128 alphanumeric characters,
       -- parenthesis (()), commas (,), slashes (/), dashes (-), or
       -- underscores (_).
-    , _risDescription :: Text
+    , _ritDescription :: Maybe Text
       -- ^ A description for your AMI.
     } deriving (Generic)
 
@@ -121,11 +121,10 @@ instance AWSRequest RegisterImage where
     type Rs RegisterImage = RegisterImageResponse
 
     request = post "RegisterImage"
-
     response _ = xmlResponse
 
 data RegisterImageResponse = RegisterImageResponse
-    { _ritImageId :: Maybe Text
+    { _riuImageId :: Maybe Text
       -- ^ The ID of the newly registered AMI.
     } deriving (Generic)
 

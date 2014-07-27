@@ -62,21 +62,21 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
-    { _cvpcrDryRun :: Bool
+    { _cvpcrDryRun :: Maybe Bool
       -- ^ 
-    , _cvpcrPeerVpcId :: Text
+    , _cvpcrPeerVpcId :: Maybe Text
       -- ^ The ID of the VPC with which you are creating the VPC peering
       -- connection.
-    , _cvpcrVpcId :: Text
+    , _cvpcrVpcId :: Maybe Text
       -- ^ The ID of the requester VPC.
-    , _cvpcrPeerOwnerId :: Text
+    , _cvpcrPeerOwnerId :: Maybe Text
       -- ^ The AWS account ID of the owner of the peer VPC. Default: Your
       -- AWS account ID.
     } deriving (Generic)
@@ -89,7 +89,6 @@ instance AWSRequest CreateVpcPeeringConnection where
     type Rs CreateVpcPeeringConnection = CreateVpcPeeringConnectionResponse
 
     request = post "CreateVpcPeeringConnection"
-
     response _ = xmlResponse
 
 data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse

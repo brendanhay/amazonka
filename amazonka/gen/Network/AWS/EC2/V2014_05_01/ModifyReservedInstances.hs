@@ -42,7 +42,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -53,7 +53,7 @@ data ModifyReservedInstances = ModifyReservedInstances
       -- ^ The configuration settings for the Reserved Instances to modify.
     , _mrirReservedInstancesIds :: [Text]
       -- ^ The IDs of the Reserved Instances to modify.
-    , _mrirClientToken :: Text
+    , _mrirClientToken :: Maybe Text
       -- ^ A unique, case-sensitive token you provide to ensure idempotency
       -- of your modification request.
     } deriving (Generic)
@@ -66,7 +66,6 @@ instance AWSRequest ModifyReservedInstances where
     type Rs ModifyReservedInstances = ModifyReservedInstancesResponse
 
     request = post "ModifyReservedInstances"
-
     response _ = xmlResponse
 
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse

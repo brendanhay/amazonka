@@ -37,7 +37,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -48,7 +48,7 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
       -- ^ The snapshot attribute you would like to view.
     , _dsarSnapshotId :: Text
       -- ^ The ID of the Amazon EBS snapshot.
-    , _dsarDryRun :: Bool
+    , _dsarDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -60,7 +60,6 @@ instance AWSRequest DescribeSnapshotAttribute where
     type Rs DescribeSnapshotAttribute = DescribeSnapshotAttributeResponse
 
     request = post "DescribeSnapshotAttribute"
-
     response _ = xmlResponse
 
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse

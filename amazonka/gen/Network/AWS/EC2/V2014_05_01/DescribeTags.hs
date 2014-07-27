@@ -67,14 +67,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeTags = DescribeTags
-    { _dtrDryRun :: Bool
+    { _dtrDryRun :: Maybe Bool
       -- ^ 
     , _dtrFilters :: [Filter]
       -- ^ One or more filters. key - The tag key. resource-id - The
@@ -84,12 +84,12 @@ data DescribeTags = DescribeTags
       -- route-table | security-group | snapshot | spot-instances-request
       -- | subnet | volume | vpc | vpn-connection | vpn-gateway). value -
       -- The tag value.
-    , _dtrMaxResults :: Integer
+    , _dtrMaxResults :: Maybe Integer
       -- ^ The maximum number of items to return for this call. The call
       -- also returns a token that you can specify in a subsequent call to
       -- get the next set of results. If the value is greater than 1000,
       -- we return only 1000 items.
-    , _dtrNextToken :: Text
+    , _dtrNextToken :: Maybe Text
       -- ^ The token for the next set of items to return. (You received this
       -- token from a prior call.).
     } deriving (Generic)
@@ -102,22 +102,18 @@ instance AWSRequest DescribeTags where
     type Rs DescribeTags = DescribeTagsResponse
 
     request = post "DescribeTags"
-
     response _ = xmlResponse
 
 instance AWSPager DescribeTags where
-    next rq rs
-        | not ( rs) = Nothing
-        | otherwise = Just $ rq
-            { _dtrNextToken = _dtrNextToken rs
-            }
+    next rq rs = (\x -> rq { _dtrNextToken = Just x })
+        <$> _dtsNextToken rs
 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _dtsNextToken :: Maybe Text
+    { _dtsTags :: [TagDescription]
+      -- ^ A list of tags.
+    , _dtsNextToken :: Maybe Text
       -- ^ The token to use when requesting the next set of items. If there
       -- are no additional items to return, the string is empty.
-    , _dtsTags :: [TagDescription]
-      -- ^ A list of tags.
     } deriving (Generic)
 
 instance FromXML DescribeTagsResponse where

@@ -49,7 +49,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -58,7 +58,7 @@ import           Prelude              hiding (head)
 data DetachVolume = DetachVolume
     { _dvrVolumeId :: Text
       -- ^ The ID of the volume.
-    , _dvrForce :: Bool
+    , _dvrForce :: Maybe Bool
       -- ^ Forces detachment if the previous detachment attempt did not
       -- occur cleanly (for example, logging into an instance, unmounting
       -- the volume, and detaching normally). This option can lead to data
@@ -67,11 +67,11 @@ data DetachVolume = DetachVolume
       -- won't have an opportunity to flush file system caches or file
       -- system metadata. If you use this option, you must perform file
       -- system check and repair procedures.
-    , _dvrDryRun :: Bool
+    , _dvrDryRun :: Maybe Bool
       -- ^ 
-    , _dvrInstanceId :: Text
+    , _dvrInstanceId :: Maybe Text
       -- ^ The ID of the instance.
-    , _dvrDevice :: Text
+    , _dvrDevice :: Maybe Text
       -- ^ The device name.
     } deriving (Generic)
 
@@ -83,22 +83,21 @@ instance AWSRequest DetachVolume where
     type Rs DetachVolume = DetachVolumeResponse
 
     request = post "DetachVolume"
-
     response _ = xmlResponse
 
 data DetachVolumeResponse = DetachVolumeResponse
-    { _vaDeleteOnTermination :: Maybe Bool
+    { _vbDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the Amazon EBS volume is deleted on instance
       -- termination.
-    , _vaAttachTime :: Maybe ISO8601
+    , _vbAttachTime :: Maybe ISO8601
       -- ^ The time stamp when the attachment initiated.
-    , _vaInstanceId :: Maybe Text
+    , _vbInstanceId :: Maybe Text
       -- ^ The ID of the instance.
-    , _vaDevice :: Maybe Text
+    , _vbDevice :: Maybe Text
       -- ^ The device name.
-    , _vaVolumeId :: Maybe Text
+    , _vbVolumeId :: Maybe Text
       -- ^ The ID of the volume.
-    , _vaState :: Maybe VolumeAttachmentState
+    , _vbState :: Maybe VolumeAttachmentState
       -- ^ The attachment state of the volume.
     } deriving (Generic)
 

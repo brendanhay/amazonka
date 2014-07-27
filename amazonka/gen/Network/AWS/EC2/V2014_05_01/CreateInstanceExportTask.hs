@@ -58,7 +58,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -67,11 +67,11 @@ import           Prelude              hiding (head)
 data CreateInstanceExportTask = CreateInstanceExportTask
     { _cietrInstanceId :: Text
       -- ^ The ID of the instance.
-    , _cietrTargetEnvironment :: ExportEnvironment
+    , _cietrTargetEnvironment :: Maybe ExportEnvironment
       -- ^ The target virtualization environment.
-    , _cietrExportToS3Task :: ExportToS3TaskSpecification
+    , _cietrExportToS3Task :: Maybe ExportToS3TaskSpecification
       -- ^ 
-    , _cietrDescription :: Text
+    , _cietrDescription :: Maybe Text
       -- ^ A description for the conversion task or the resource being
       -- exported. The maximum length is 255 bytes.
     } deriving (Generic)
@@ -84,7 +84,6 @@ instance AWSRequest CreateInstanceExportTask where
     type Rs CreateInstanceExportTask = CreateInstanceExportTaskResponse
 
     request = post "CreateInstanceExportTask"
-
     response _ = xmlResponse
 
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse

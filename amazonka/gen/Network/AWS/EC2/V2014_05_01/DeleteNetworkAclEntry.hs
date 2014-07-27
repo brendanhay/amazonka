@@ -38,7 +38,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -51,7 +51,7 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
       -- ^ The rule number of the entry to delete.
     , _dnaerNetworkAclId :: Text
       -- ^ The ID of the network ACL.
-    , _dnaerDryRun :: Bool
+    , _dnaerDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -63,7 +63,6 @@ instance AWSRequest DeleteNetworkAclEntry where
     type Rs DeleteNetworkAclEntry = DeleteNetworkAclEntryResponse
 
     request = post "DeleteNetworkAclEntry"
-
     response _ _ = return (Right DeleteNetworkAclEntryResponse)
 
 data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse

@@ -62,14 +62,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeSubnets = DescribeSubnets
-    { _dsrDryRun :: Bool
+    { _dsrDryRun :: Maybe Bool
       -- ^ 
     , _dsrFilters :: [Filter]
       -- ^ One or more filters. availabilityZone - The Availability Zone for
@@ -105,7 +105,6 @@ instance AWSRequest DescribeSubnets where
     type Rs DescribeSubnets = DescribeSubnetsResponse
 
     request = post "DescribeSubnets"
-
     response _ = xmlResponse
 
 data DescribeSubnetsResponse = DescribeSubnetsResponse

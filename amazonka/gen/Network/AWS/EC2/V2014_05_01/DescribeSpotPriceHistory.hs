@@ -55,18 +55,18 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
-    { _dsphrDryRun :: Bool
+    { _dsphrDryRun :: Maybe Bool
       -- ^ 
-    , _dsphrStartTime :: ISO8601
+    , _dsphrStartTime :: Maybe ISO8601
       -- ^ The start date and time of the Spot Price history data.
-    , _dsphrEndTime :: ISO8601
+    , _dsphrEndTime :: Maybe ISO8601
       -- ^ The end date and time of the Spot Price history data.
     , _dsphrFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
@@ -82,13 +82,13 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
       -- is not supported.
     , _dsphrInstanceTypes :: [InstanceType]
       -- ^ One or more instance types.
-    , _dsphrMaxResults :: Integer
+    , _dsphrMaxResults :: Maybe Integer
       -- ^ The number of rows to return.
     , _dsphrProductDescriptions :: [Text]
       -- ^ One or more basic product descriptions.
-    , _dsphrNextToken :: Text
+    , _dsphrNextToken :: Maybe Text
       -- ^ The next set of rows to return.
-    , _dsphrAvailabilityZone :: Text
+    , _dsphrAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone.
     } deriving (Generic)
 
@@ -100,15 +100,11 @@ instance AWSRequest DescribeSpotPriceHistory where
     type Rs DescribeSpotPriceHistory = DescribeSpotPriceHistoryResponse
 
     request = post "DescribeSpotPriceHistory"
-
     response _ = xmlResponse
 
 instance AWSPager DescribeSpotPriceHistory where
-    next rq rs
-        | not ( rs) = Nothing
-        | otherwise = Just $ rq
-            { _dsphrNextToken = _dsphrNextToken rs
-            }
+    next rq rs = (\x -> rq { _dsphrNextToken = Just x })
+        <$> _dsphsNextToken rs
 
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphsSpotPriceHistory :: [SpotPrice]

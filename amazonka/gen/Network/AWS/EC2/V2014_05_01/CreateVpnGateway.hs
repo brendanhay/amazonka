@@ -44,7 +44,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -53,9 +53,9 @@ import           Prelude              hiding (head)
 data CreateVpnGateway = CreateVpnGateway
     { _cvgrType :: GatewayType
       -- ^ The type of VPN connection this virtual private gateway supports.
-    , _cvgrDryRun :: Bool
+    , _cvgrDryRun :: Maybe Bool
       -- ^ 
-    , _cvgrAvailabilityZone :: Text
+    , _cvgrAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone for the virtual private gateway.
     } deriving (Generic)
 
@@ -67,7 +67,6 @@ instance AWSRequest CreateVpnGateway where
     type Rs CreateVpnGateway = CreateVpnGatewayResponse
 
     request = post "CreateVpnGateway"
-
     response _ = xmlResponse
 
 data CreateVpnGatewayResponse = CreateVpnGatewayResponse

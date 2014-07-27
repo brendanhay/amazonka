@@ -54,7 +54,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -63,18 +63,18 @@ import           Prelude              hiding (head)
 data ModifySnapshotAttribute = ModifySnapshotAttribute
     { _msarSnapshotId :: Text
       -- ^ The ID of the snapshot.
-    , _msarDryRun :: Bool
+    , _msarDryRun :: Maybe Bool
       -- ^ 
-    , _msarCreateVolumePermission :: CreateVolumePermissionModifications
+    , _msarCreateVolumePermission :: Maybe CreateVolumePermissionModifications
       -- ^ A JSON representation of the snapshot attribute modification.
     , _msarGroupNames :: [Text]
       -- ^ The group to modify for the snapshot.
-    , _msarAttribute :: SnapshotAttributeName
+    , _msarAttribute :: Maybe SnapshotAttributeName
       -- ^ The snapshot attribute to modify.
-    , _msarOperationType :: Text
-      -- ^ The type of operation to perform to the attribute.
     , _msarUserIds :: [Text]
       -- ^ The account ID to modify for the snapshot.
+    , _msarOperationType :: Maybe Text
+      -- ^ The type of operation to perform to the attribute.
     } deriving (Generic)
 
 instance ToQuery ModifySnapshotAttribute where
@@ -85,7 +85,6 @@ instance AWSRequest ModifySnapshotAttribute where
     type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse
 
     request = post "ModifySnapshotAttribute"
-
     response _ _ = return (Right ModifySnapshotAttributeResponse)
 
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse

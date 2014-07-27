@@ -40,7 +40,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -49,9 +49,9 @@ import           Prelude              hiding (head)
 data CancelConversionTask = CancelConversionTask
     { _ccrConversionTaskId :: Text
       -- ^ The ID of the conversion task.
-    , _ccrDryRun :: Bool
+    , _ccrDryRun :: Maybe Bool
       -- ^ 
-    , _ccrReasonMessage :: Text
+    , _ccrReasonMessage :: Maybe Text
       -- ^ 
     } deriving (Generic)
 
@@ -63,7 +63,6 @@ instance AWSRequest CancelConversionTask where
     type Rs CancelConversionTask = CancelConversionTaskResponse
 
     request = post "CancelConversionTask"
-
     response _ _ = return (Right CancelConversionTaskResponse)
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse

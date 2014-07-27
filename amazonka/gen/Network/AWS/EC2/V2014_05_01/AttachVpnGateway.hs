@@ -41,7 +41,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -52,7 +52,7 @@ data AttachVpnGateway = AttachVpnGateway
       -- ^ The ID of the virtual private gateway.
     , _avgrVpcId :: Text
       -- ^ The ID of the VPC.
-    , _avgrDryRun :: Bool
+    , _avgrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -64,7 +64,6 @@ instance AWSRequest AttachVpnGateway where
     type Rs AttachVpnGateway = AttachVpnGatewayResponse
 
     request = post "AttachVpnGateway"
-
     response _ = xmlResponse
 
 data AttachVpnGatewayResponse = AttachVpnGatewayResponse

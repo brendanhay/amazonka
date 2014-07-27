@@ -53,7 +53,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -62,9 +62,9 @@ import           Prelude              hiding (head)
 data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dvarVolumeId :: Text
       -- ^ The ID of the volume.
-    , _dvarDryRun :: Bool
+    , _dvarDryRun :: Maybe Bool
       -- ^ 
-    , _dvarAttribute :: VolumeAttributeName
+    , _dvarAttribute :: Maybe VolumeAttributeName
       -- ^ The instance attribute.
     } deriving (Generic)
 
@@ -76,7 +76,6 @@ instance AWSRequest DescribeVolumeAttribute where
     type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResponse
 
     request = post "DescribeVolumeAttribute"
-
     response _ = xmlResponse
 
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse

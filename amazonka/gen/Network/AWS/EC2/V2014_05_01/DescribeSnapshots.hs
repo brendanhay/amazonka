@@ -68,16 +68,16 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeSnapshots = DescribeSnapshots
-    { _dstDryRun :: Bool
+    { _dsuDryRun :: Maybe Bool
       -- ^ 
-    , _dstFilters :: [Filter]
+    , _dsuFilters :: [Filter]
       -- ^ One or more filters. description - A description of the snapshot.
       -- owner-alias - The AWS account alias (for example, amazon) that
       -- owns the snapshot. owner-id - The ID of the AWS account that owns
@@ -97,13 +97,13 @@ data DescribeSnapshots = DescribeSnapshots
       -- This filter is independent of the tag-key filter. volume-id - The
       -- ID of the volume the snapshot is for. volume-size - The size of
       -- the volume, in GiB.
-    , _dstOwnerIds :: [Text]
+    , _dsuOwnerIds :: [Text]
       -- ^ Returns the snapshots owned by the specified owner. Multiple
       -- owners can be specified.
-    , _dstRestorableByUserIds :: [Text]
+    , _dsuRestorableByUserIds :: [Text]
       -- ^ One or more AWS accounts IDs that can create volumes from the
       -- snapshot.
-    , _dstSnapshotIds :: [Text]
+    , _dsuSnapshotIds :: [Text]
       -- ^ One or more snapshot IDs. Default: Describes snapshots for which
       -- you have launch permissions.
     } deriving (Generic)
@@ -116,11 +116,10 @@ instance AWSRequest DescribeSnapshots where
     type Rs DescribeSnapshots = DescribeSnapshotsResponse
 
     request = post "DescribeSnapshots"
-
     response _ = xmlResponse
 
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsuSnapshots :: [Snapshot]
+    { _dsvSnapshots :: [Snapshot]
       -- ^ 
     } deriving (Generic)
 

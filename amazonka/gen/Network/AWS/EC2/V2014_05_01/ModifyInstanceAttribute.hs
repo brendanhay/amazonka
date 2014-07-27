@@ -58,7 +58,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -67,41 +67,41 @@ import           Prelude              hiding (head)
 data ModifyInstanceAttribute = ModifyInstanceAttribute
     { _miasInstanceId :: Text
       -- ^ The ID of the instance.
-    , _miasSourceDestCheck :: AttributeBooleanValue
+    , _miasSourceDestCheck :: Maybe AttributeBooleanValue
       -- ^ Specifies whether source/destination checking is enabled. A value
       -- of true means that checking is enabled, and false means checking
       -- is disabled. This value must be false for a NAT instance to
       -- perform NAT.
-    , _miasDisableApiTermination :: AttributeBooleanValue
+    , _miasDisableApiTermination :: Maybe AttributeBooleanValue
       -- ^ Specifies whether to disable the ability to terminate the
       -- instance using the Amazon EC2 console, CLI, and API.
-    , _miasEbsOptimized :: AttributeBooleanValue
+    , _miasEbsOptimized :: Maybe AttributeBooleanValue
       -- ^ Specifies whether the instance is optimized for EBS I/O. This
       -- optimization provides dedicated throughput to Amazon EBS and an
       -- optimized configuration stack to provide optimal EBS I/O
       -- performance. This optimization isn't available with all instance
       -- types. Additional usage charges apply when using an EBS Optimized
       -- instance.
-    , _miasKernel :: AttributeValue
+    , _miasKernel :: Maybe AttributeValue
       -- ^ Changes the instance's kernel to the specified value.
-    , _miasRamdisk :: AttributeValue
+    , _miasRamdisk :: Maybe AttributeValue
       -- ^ Changes the instance's RAM disk to the specified value.
-    , _miasInstanceType :: AttributeValue
+    , _miasInstanceType :: Maybe AttributeValue
       -- ^ Changes the instance type to the specified value. For more
       -- information, see Instance Types. If the instance type is not
       -- valid, the error returned is InvalidInstanceAttributeValue.
-    , _miasSriovNetSupport :: AttributeValue
+    , _miasSriovNetSupport :: Maybe AttributeValue
       -- ^ Set to simple to enable enhanced networking for the instance.
       -- There is no way to disable enhanced networking at this time. This
       -- option is supported only for HVM instances. Specifying this
       -- option with a PV instance can make it unreachable.
-    , _miasUserData :: AttributeValue
+    , _miasUserData :: Maybe AttributeValue
       -- ^ Changes the instance's user data to the specified value.
-    , _miasInstanceInitiatedShutdownBehavior :: AttributeValue
+    , _miasInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
       -- ^ Specifies whether an instance stops or terminates when you
       -- initiate shutdown from the instance (using the operating system
       -- command for system shutdown).
-    , _miasDryRun :: Bool
+    , _miasDryRun :: Maybe Bool
       -- ^ 
     , _miasGroups :: [Text]
       -- ^ [EC2-VPC] Changes the security groups of the instance. You must
@@ -110,7 +110,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
       -- group ID, not the security group name. For example, if you want
       -- the instance to be in sg-1a1a1a1a and sg-9b9b9b9b, specify
       -- GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
-    , _miasAttribute :: InstanceAttributeName
+    , _miasAttribute :: Maybe InstanceAttributeName
       -- ^ The name of the attribute.
     , _miasBlockDeviceMappings :: [InstanceBlockDeviceMappingSpecification]
       -- ^ Modifies the DeleteOnTermination attribute for volumes that are
@@ -121,7 +121,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
       -- add them when you launch the instance. For more information, see
       -- Updating the Block Device Mapping when Launching an Instance in
       -- the Amazon Elastic Compute Cloud User Guide.
-    , _miasValue :: Text
+    , _miasValue :: Maybe Text
       -- ^ A new value for the attribute. Use only with the kernel, ramdisk,
       -- userData, disableApiTermination, or
       -- intanceInitiateShutdownBehavior attribute.
@@ -135,7 +135,6 @@ instance AWSRequest ModifyInstanceAttribute where
     type Rs ModifyInstanceAttribute = ModifyInstanceAttributeResponse
 
     request = post "ModifyInstanceAttribute"
-
     response _ _ = return (Right ModifyInstanceAttributeResponse)
 
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse

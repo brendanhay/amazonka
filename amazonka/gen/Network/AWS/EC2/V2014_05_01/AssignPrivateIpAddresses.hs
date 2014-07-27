@@ -56,7 +56,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -65,11 +65,11 @@ import           Prelude              hiding (head)
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     { _apiarNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
-    , _apiarAllowReassignment :: Bool
+    , _apiarAllowReassignment :: Maybe Bool
       -- ^ Indicates whether to allow an IP address that is already assigned
       -- to another network interface or instance to be reassigned to the
       -- specified network interface.
-    , _apiarSecondaryPrivateIpAddressCount :: Integer
+    , _apiarSecondaryPrivateIpAddressCount :: Maybe Integer
       -- ^ The number of secondary IP addresses to assign to the network
       -- interface.
     , _apiarPrivateIpAddresses :: [Text]
@@ -87,7 +87,6 @@ instance AWSRequest AssignPrivateIpAddresses where
     type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
 
     request = post "AssignPrivateIpAddresses"
-
     response _ _ = return (Right AssignPrivateIpAddressesResponse)
 
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse

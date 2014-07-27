@@ -70,14 +70,15 @@ newtype Version = Version { unVersion :: Text }
 version :: Text -> Version
 version = Version . mappend "V" . Text.replace "-" "_"
 
-newtype Doc = Doc { unDoc :: Text }
+newtype Doc = Doc { unDoc :: Maybe Text }
     deriving (Eq, Show, Generic)
 
 documentation :: Text -> Doc
-documentation = Doc
+documentation "" = Doc Nothing
+documentation x  = Doc (Just x)
 
 instance Default Doc where
-    def = Doc mempty
+    def = Doc Nothing
 
 data Time
     = RFC822
@@ -110,6 +111,9 @@ data Signature
     = V3
     | V4
       deriving (Eq, Show, Generic)
+
+instance Default Signature where
+    def = V4
 
 newtype JSONV = JSONV { unJSONV :: Text }
     deriving (Eq, Show)
@@ -147,7 +151,7 @@ instance Monoid Direction where
 data Common = Common
     { _cmnName          :: Text
     , _cmnPrefix        :: Text
-    , _cmnXmlName       :: Maybe Text
+    , _cmnXmlName       :: Text
     , _cmnLocation      :: Location
     , _cmnLocationName  :: Maybe Text
     , _cmnRequired      :: Bool
@@ -166,7 +170,7 @@ instance Ord Common where
         <> comparing _cmnName a b
 
 instance Default Common where
-    def = Common defName "_" Nothing def Nothing False Nothing False def
+    def = Common defName "_" defName def Nothing False Nothing False def
 
 makeClassy ''Common
 
@@ -339,12 +343,10 @@ data Token = Token
 
 makeLenses ''Token
 
-data Pagination = Pagination
-    { _pgTokens :: [Token]
-    , _pgMore   :: Maybe Text
-    } deriving (Eq, Show, Generic)
-
-makeLenses ''Pagination
+data Pagination
+    = More Text [Token]
+    | Next Text Token
+      deriving (Eq, Show, Generic)
 
 data HTTP = HTTP
     { _hMethod :: !StdMethod

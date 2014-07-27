@@ -54,14 +54,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeDhcpOptions = DescribeDhcpOptions
-    { _ddorDryRun :: Bool
+    { _ddorDryRun :: Maybe Bool
       -- ^ 
     , _ddorDhcpOptionsIds :: [Text]
       -- ^ The IDs of one or more DHCP options sets. Default: Describes all
@@ -90,7 +90,6 @@ instance AWSRequest DescribeDhcpOptions where
     type Rs DescribeDhcpOptions = DescribeDhcpOptionsResponse
 
     request = post "DescribeDhcpOptions"
-
     response _ = xmlResponse
 
 data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse

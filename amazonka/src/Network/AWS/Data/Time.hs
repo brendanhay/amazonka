@@ -74,6 +74,10 @@ instance ToXML RFC822 where
     toXMLRoot = toRoot "Date"
     toXML o   = toXML (retag o) . toText
 
+instance ToXML ISO8601 where
+    toXMLRoot = toRoot "Date"
+    toXML o   = toXML (retag o) . toText
+
 renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
 renderFormattedTime x = formatTime l (untag f) t
   where
@@ -102,5 +106,9 @@ parseFormattedTime = do
     f = format
 
 instance FromXML RFC822 where
+    fromXMLRoot = fromRoot "Date"
+    fromXML     = const fromNodeContent
+
+instance FromXML ISO8601 where
     fromXMLRoot = fromRoot "Date"
     fromXML     = const fromNodeContent

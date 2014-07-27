@@ -40,7 +40,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -53,9 +53,9 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
       -- Reserved Instances listing. status - The status of the Reserved
       -- Instance listing (pending | active | cancelled | closed).
       -- status-message - The reason for the status.
-    , _drilrReservedInstancesId :: Text
+    , _drilrReservedInstancesId :: Maybe Text
       -- ^ One or more Reserved Instance IDs.
-    , _drilrReservedInstancesListingId :: Text
+    , _drilrReservedInstancesListingId :: Maybe Text
       -- ^ One or more Reserved Instance Listing IDs.
     } deriving (Generic)
 
@@ -67,7 +67,6 @@ instance AWSRequest DescribeReservedInstancesListings where
     type Rs DescribeReservedInstancesListings = DescribeReservedInstancesListingsResponse
 
     request = post "DescribeReservedInstancesListings"
-
     response _ = xmlResponse
 
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse

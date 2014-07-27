@@ -58,7 +58,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -70,7 +70,7 @@ data ImportKeyPair = ImportKeyPair
     , _ikprPublicKeyMaterial :: ByteString
       -- ^ The public key. You must base64 encode the public key material
       -- before sending it to AWS.
-    , _ikprDryRun :: Bool
+    , _ikprDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -82,7 +82,6 @@ instance AWSRequest ImportKeyPair where
     type Rs ImportKeyPair = ImportKeyPairResponse
 
     request = post "ImportKeyPair"
-
     response _ = xmlResponse
 
 data ImportKeyPairResponse = ImportKeyPairResponse

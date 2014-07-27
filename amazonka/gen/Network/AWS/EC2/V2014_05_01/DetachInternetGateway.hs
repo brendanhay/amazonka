@@ -39,7 +39,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -50,7 +50,7 @@ data DetachInternetGateway = DetachInternetGateway
       -- ^ The ID of the VPC.
     , _digrInternetGatewayId :: Text
       -- ^ The ID of the Internet gateway.
-    , _digrDryRun :: Bool
+    , _digrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -62,7 +62,6 @@ instance AWSRequest DetachInternetGateway where
     type Rs DetachInternetGateway = DetachInternetGatewayResponse
 
     request = post "DetachInternetGateway"
-
     response _ _ = return (Right DetachInternetGatewayResponse)
 
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse

@@ -40,7 +40,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -51,7 +51,7 @@ data DescribeImageAttribute = DescribeImageAttribute
       -- ^ The AMI attribute.
     , _diasImageId :: Text
       -- ^ The ID of the AMI.
-    , _diasDryRun :: Bool
+    , _diasDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -63,7 +63,6 @@ instance AWSRequest DescribeImageAttribute where
     type Rs DescribeImageAttribute = DescribeImageAttributeResponse
 
     request = post "DescribeImageAttribute"
-
     response _ = xmlResponse
 
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse

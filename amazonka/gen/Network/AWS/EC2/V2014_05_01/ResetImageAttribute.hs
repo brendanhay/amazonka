@@ -37,7 +37,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -49,7 +49,7 @@ data ResetImageAttribute = ResetImageAttribute
       -- permission attribute).
     , _riasImageId :: Text
       -- ^ The ID of the AMI.
-    , _riasDryRun :: Bool
+    , _riasDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -61,7 +61,6 @@ instance AWSRequest ResetImageAttribute where
     type Rs ResetImageAttribute = ResetImageAttributeResponse
 
     request = post "ResetImageAttribute"
-
     response _ _ = return (Right ResetImageAttributeResponse)
 
 data ResetImageAttributeResponse = ResetImageAttributeResponse

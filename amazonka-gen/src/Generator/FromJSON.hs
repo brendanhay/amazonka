@@ -141,7 +141,7 @@ instance FromJSON Common where
     parseJSON = withObject "common" $ \o -> do
         n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name" <|> return defName
         Common n (prefixof n)
-            <$> o .:? "xmlname"
+            <$> o .:? "xmlname"       .!= n
             <*> o .:! "location"
             <*> o .:? "location_name"
             <*> o .:? "required"      .!= False
@@ -205,16 +205,22 @@ instance FromJSON Primitive where
             _           -> fail $ "Unable to parse Prim from: " ++ Text.unpack t
 
 instance FromJSON Pagination where
-    parseJSON = withObject "pagination" $ \o -> do
-        let f k = o .: k <|> ((:[]) <$> o .: k)
+    parseJSON = withObject "pagination" $ \o -> more o <|> next o
+      where
+        more o = do
+            xs <- f "input_token"
+            ys <- f "output_token"
 
-        x <- f "input_token"
-        y <- f "output_token"
+            unless (length xs == length ys) $
+                fail "input_token and output_token don't contain same number of keys."
 
-        unless (length x == length y) $
-            fail "input_token and output_token don't contain same number of keys."
+            More <$> o .: "more_results" <*> pure (zipWith Token xs ys)
+          where
+            f k = (:[]) <$> o .: k
 
-        Pagination (zipWith Token x y) <$> o .:? "more_results"
+        next o = Next
+            <$> o .: "result_key"
+            <*> (Token <$> o .: "input_token" <*> o .: "output_token")
 
 instance FromJSON HTTP where
     parseJSON = withObject "http" $ \o -> HTTP

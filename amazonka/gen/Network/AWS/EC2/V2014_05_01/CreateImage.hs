@@ -43,7 +43,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -58,16 +58,16 @@ data CreateImage = CreateImage
       -- (-), or underscores(_).
     , _citBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ Information about one or more block device mappings.
-    , _citNoReboot :: Bool
+    , _citNoReboot :: Maybe Bool
       -- ^ By default, this parameter is set to false, which means Amazon
       -- EC2 attempts to shut down the instance cleanly before image
       -- creation and then reboots the instance. When the parameter is set
       -- to true, Amazon EC2 doesn't shut down the instance before
       -- creating the image. When this option is used, file system
       -- integrity on the created image can't be guaranteed.
-    , _citDryRun :: Bool
+    , _citDryRun :: Maybe Bool
       -- ^ 
-    , _citDescription :: Text
+    , _citDescription :: Maybe Text
       -- ^ A description for the new image.
     } deriving (Generic)
 
@@ -79,7 +79,6 @@ instance AWSRequest CreateImage where
     type Rs CreateImage = CreateImageResponse
 
     request = post "CreateImage"
-
     response _ = xmlResponse
 
 data CreateImageResponse = CreateImageResponse

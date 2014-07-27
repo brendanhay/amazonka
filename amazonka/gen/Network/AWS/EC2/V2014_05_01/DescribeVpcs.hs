@@ -47,14 +47,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeVpcs = DescribeVpcs
-    { _dvsDryRun :: Bool
+    { _dvsDryRun :: Maybe Bool
       -- ^ 
     , _dvsFilters :: [Filter]
       -- ^ One or more filters. cidr - The CIDR block of the VPC. The CIDR
@@ -85,7 +85,6 @@ instance AWSRequest DescribeVpcs where
     type Rs DescribeVpcs = DescribeVpcsResponse
 
     request = post "DescribeVpcs"
-
     response _ = xmlResponse
 
 data DescribeVpcsResponse = DescribeVpcsResponse

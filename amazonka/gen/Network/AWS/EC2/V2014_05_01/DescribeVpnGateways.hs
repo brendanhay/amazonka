@@ -52,14 +52,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeVpnGateways = DescribeVpnGateways
-    { _dvgtDryRun :: Bool
+    { _dvgtDryRun :: Maybe Bool
       -- ^ 
     , _dvgtFilters :: [Filter]
       -- ^ One or more filters. attachment.state - The current state of the
@@ -93,7 +93,6 @@ instance AWSRequest DescribeVpnGateways where
     type Rs DescribeVpnGateways = DescribeVpnGatewaysResponse
 
     request = post "DescribeVpnGateways"
-
     response _ = xmlResponse
 
 data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse

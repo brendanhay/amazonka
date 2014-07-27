@@ -77,7 +77,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -86,7 +86,7 @@ import           Prelude              hiding (head)
 data DescribeAccountAttributes = DescribeAccountAttributes
     { _daarAttributeNames :: [AccountAttributeName]
       -- ^ One or more account attribute names.
-    , _daarDryRun :: Bool
+    , _daarDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -98,7 +98,6 @@ instance AWSRequest DescribeAccountAttributes where
     type Rs DescribeAccountAttributes = DescribeAccountAttributesResponse
 
     request = post "DescribeAccountAttributes"
-
     response _ = xmlResponse
 
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse

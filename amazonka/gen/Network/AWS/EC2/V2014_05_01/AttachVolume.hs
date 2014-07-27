@@ -62,7 +62,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -77,7 +77,7 @@ data AttachVolume = AttachVolume
     , _avrVolumeId :: Text
       -- ^ The ID of the Amazon EBS volume. The volume and instance must be
       -- within the same Availability Zone.
-    , _avrDryRun :: Bool
+    , _avrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -89,22 +89,21 @@ instance AWSRequest AttachVolume where
     type Rs AttachVolume = AttachVolumeResponse
 
     request = post "AttachVolume"
-
     response _ = xmlResponse
 
 data AttachVolumeResponse = AttachVolumeResponse
-    { _vbDeleteOnTermination :: Maybe Bool
+    { _vvvvvvvvvvvvvvvvvvvvvvvtDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the Amazon EBS volume is deleted on instance
       -- termination.
-    , _vbAttachTime :: Maybe ISO8601
+    , _vvvvvvvvvvvvvvvvvvvvvvvtAttachTime :: Maybe ISO8601
       -- ^ The time stamp when the attachment initiated.
-    , _vbInstanceId :: Maybe Text
+    , _vvvvvvvvvvvvvvvvvvvvvvvtInstanceId :: Maybe Text
       -- ^ The ID of the instance.
-    , _vbDevice :: Maybe Text
+    , _vvvvvvvvvvvvvvvvvvvvvvvtDevice :: Maybe Text
       -- ^ The device name.
-    , _vbVolumeId :: Maybe Text
+    , _vvvvvvvvvvvvvvvvvvvvvvvtVolumeId :: Maybe Text
       -- ^ The ID of the volume.
-    , _vbState :: Maybe VolumeAttachmentState
+    , _vvvvvvvvvvvvvvvvvvvvvvvtState :: Maybe VolumeAttachmentState
       -- ^ The attachment state of the volume.
     } deriving (Generic)
 

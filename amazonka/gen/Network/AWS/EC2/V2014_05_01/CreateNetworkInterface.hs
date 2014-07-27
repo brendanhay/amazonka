@@ -128,7 +128,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -137,9 +137,9 @@ import           Prelude              hiding (head)
 data CreateNetworkInterface = CreateNetworkInterface
     { _cnirSubnetId :: Text
       -- ^ The ID of the subnet to associate with the network interface.
-    , _cnirDryRun :: Bool
+    , _cnirDryRun :: Maybe Bool
       -- ^ 
-    , _cnirSecondaryPrivateIpAddressCount :: Integer
+    , _cnirSecondaryPrivateIpAddressCount :: Maybe Integer
       -- ^ The number of secondary private IP addresses to assign to a
       -- network interface. When you specify a number of secondary IP
       -- addresses, Amazon EC2 selects these IP addresses within the
@@ -151,11 +151,11 @@ data CreateNetworkInterface = CreateNetworkInterface
       -- ^ One or more private IP addresses.
     , _cnirGroups :: [Text]
       -- ^ The IDs of one or more security groups.
-    , _cnirPrivateIpAddress :: Text
+    , _cnirPrivateIpAddress :: Maybe Text
       -- ^ The primary private IP address of the network interface. If you
       -- don't specify an IP address, Amazon EC2 selects one for you from
       -- the subnet range.
-    , _cnirDescription :: Text
+    , _cnirDescription :: Maybe Text
       -- ^ A description for the network interface.
     } deriving (Generic)
 
@@ -167,7 +167,6 @@ instance AWSRequest CreateNetworkInterface where
     type Rs CreateNetworkInterface = CreateNetworkInterfaceResponse
 
     request = post "CreateNetworkInterface"
-
     response _ = xmlResponse
 
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse

@@ -53,18 +53,18 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data StartInstances = StartInstances
-    { _sitInstanceIds :: [Text]
+    { _siyInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _sitDryRun :: Bool
+    , _siyDryRun :: Maybe Bool
       -- ^ 
-    , _sitAdditionalInfo :: Text
+    , _siyAdditionalInfo :: Maybe Text
       -- ^ 
     } deriving (Generic)
 
@@ -76,11 +76,10 @@ instance AWSRequest StartInstances where
     type Rs StartInstances = StartInstancesResponse
 
     request = post "StartInstances"
-
     response _ = xmlResponse
 
 data StartInstancesResponse = StartInstancesResponse
-    { _siuStartingInstances :: [InstanceStateChange]
+    { _sizStartingInstances :: [InstanceStateChange]
       -- ^ Information about one or more started instances.
     } deriving (Generic)
 

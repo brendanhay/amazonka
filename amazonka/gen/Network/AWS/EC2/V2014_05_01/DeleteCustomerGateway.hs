@@ -38,7 +38,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -47,7 +47,7 @@ import           Prelude              hiding (head)
 data DeleteCustomerGateway = DeleteCustomerGateway
     { _dcgtCustomerGatewayId :: Text
       -- ^ The ID of the customer gateway.
-    , _dcgtDryRun :: Bool
+    , _dcgtDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -59,7 +59,6 @@ instance AWSRequest DeleteCustomerGateway where
     type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse
 
     request = post "DeleteCustomerGateway"
-
     response _ _ = return (Right DeleteCustomerGatewayResponse)
 
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse

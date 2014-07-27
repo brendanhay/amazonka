@@ -58,20 +58,20 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeImages = DescribeImages
-    { _diuDryRun :: Bool
+    { _didtDryRun :: Maybe Bool
       -- ^ 
-    , _diuExecutableUsers :: [Text]
+    , _didtExecutableUsers :: [Text]
       -- ^ Scopes the images by users with explicit launch permissions.
       -- Specify an AWS account ID, self (the sender of the request), or
       -- all (public AMIs).
-    , _diuFilters :: [Filter]
+    , _didtFilters :: [Filter]
       -- ^ One or more filters. architecture - The image architecture (i386
       -- | x86_64). block-device-mapping.delete-on-termination - A Boolean
       -- value that indicates whether the Amazon EBS volume is deleted on
@@ -110,10 +110,10 @@ data DescribeImages = DescribeImages
       -- tag assigned to the resource. This filter is independent of the
       -- tag-key filter. virtualization-type - The virtualization type
       -- (paravirtual | hvm).
-    , _diuImageIds :: [Text]
+    , _didtImageIds :: [Text]
       -- ^ One or more image IDs. Default: Describes all images available to
       -- you.
-    , _diuOwners :: [Text]
+    , _didtOwners :: [Text]
       -- ^ Filters the images by the owner. Specify an AWS account ID,
       -- amazon (owner is Amazon), aws-marketplace (owner is AWS
       -- Marketplace), self (owner is the sender of the request), or all
@@ -128,11 +128,10 @@ instance AWSRequest DescribeImages where
     type Rs DescribeImages = DescribeImagesResponse
 
     request = post "DescribeImages"
-
     response _ = xmlResponse
 
 data DescribeImagesResponse = DescribeImagesResponse
-    { _divImages :: [Image]
+    { _diduImages :: [Image]
       -- ^ Information about one or more images.
     } deriving (Generic)
 

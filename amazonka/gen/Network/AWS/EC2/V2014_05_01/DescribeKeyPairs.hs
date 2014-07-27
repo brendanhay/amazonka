@@ -39,14 +39,14 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DescribeKeyPairs = DescribeKeyPairs
-    { _dkpsDryRun :: Bool
+    { _dkpsDryRun :: Maybe Bool
       -- ^ 
     , _dkpsFilters :: [Filter]
       -- ^ One or more filters. fingerprint - The fingerprint of the key
@@ -64,7 +64,6 @@ instance AWSRequest DescribeKeyPairs where
     type Rs DescribeKeyPairs = DescribeKeyPairsResponse
 
     request = post "DescribeKeyPairs"
-
     response _ = xmlResponse
 
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse

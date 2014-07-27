@@ -42,7 +42,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -63,11 +63,11 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
       -- ^ The IP protocol. You can specify all or -1 to mean all protocols.
     , _rnaerCidrBlock :: Text
       -- ^ The network range to allow or deny, in CIDR notation.
-    , _rnaerDryRun :: Bool
+    , _rnaerDryRun :: Maybe Bool
       -- ^ 
-    , _rnaerIcmpTypeCode :: IcmpTypeCode
+    , _rnaerIcmpTypeCode :: Maybe IcmpTypeCode
       -- ^ ICMP protocol: The ICMP type and code.
-    , _rnaerPortRange :: PortRange
+    , _rnaerPortRange :: Maybe PortRange
       -- ^ TCP or UDP protocols: The range of ports the rule applies to.
     } deriving (Generic)
 
@@ -79,7 +79,6 @@ instance AWSRequest ReplaceNetworkAclEntry where
     type Rs ReplaceNetworkAclEntry = ReplaceNetworkAclEntryResponse
 
     request = post "ReplaceNetworkAclEntry"
-
     response _ _ = return (Right ReplaceNetworkAclEntryResponse)
 
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse

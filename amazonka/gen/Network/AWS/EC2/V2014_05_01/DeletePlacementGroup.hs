@@ -39,7 +39,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -48,7 +48,7 @@ import           Prelude              hiding (head)
 data DeletePlacementGroup = DeletePlacementGroup
     { _dpgrGroupName :: Text
       -- ^ The name of the placement group.
-    , _dpgrDryRun :: Bool
+    , _dpgrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -60,7 +60,6 @@ instance AWSRequest DeletePlacementGroup where
     type Rs DeletePlacementGroup = DeletePlacementGroupResponse
 
     request = post "DeletePlacementGroup"
-
     response _ _ = return (Right DeletePlacementGroupResponse)
 
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse

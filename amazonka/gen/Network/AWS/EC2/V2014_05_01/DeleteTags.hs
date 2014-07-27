@@ -52,7 +52,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -62,7 +62,7 @@ data DeleteTags = DeleteTags
     { _dttResources :: [Text]
       -- ^ The ID of the resource. For example, ami-1a2b3c4d. You can
       -- specify more than one resource ID.
-    , _dttDryRun :: Bool
+    , _dttDryRun :: Maybe Bool
       -- ^ 
     , _dttTags :: [Tag]
       -- ^ One or more tags to delete. If you omit the value parameter, we
@@ -79,7 +79,6 @@ instance AWSRequest DeleteTags where
     type Rs DeleteTags = DeleteTagsResponse
 
     request = post "DeleteTags"
-
     response _ _ = return (Right DeleteTagsResponse)
 
 data DeleteTagsResponse = DeleteTagsResponse

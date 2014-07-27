@@ -21,7 +21,7 @@ import Data.Typeable
 import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Signing.{{ signature }}
-import Network.AWS.Types      hiding (Error)
+import Network.AWS.Types      hiding (Error, Region)
 import Network.HTTP.Client    (HttpException)
 
 {% include "_include/service.ede" %}
@@ -38,47 +38,6 @@ xmlOptions = Tagged def
 {{ data.value.documentation | above76 }}
   {% endif %}
     {% case data.value.ctor %}
-    {% when "switch" %}
-data {{ data.value.name }}
-
-instance FromText (Switch {{ data.value.name }}) where
-      {% for branch in data.value.values %}
-        {% if branch.first %}
-    parser = match "{{ branch.value }}" {{ branch.key }}
-        {% else %}
-         <|> match "{{ branch.value }}" {{ branch.key }}
-        {% endif %}
-      {% endfor %}
-
-instance ToText (Switch {{ data.value.name }}) where
-      {% for branch in data.value.values %}
-    toText {{ branch.key }} = "{{ branch.value }}"
-      {% endfor %}
-
-instance ToByteString (Switch {{ data.value.name }}) where
-      {% for branch in data.value.values %}
-    toBS {{ branch.key }} = "{{ branch.value }}"
-      {% endfor %}
-  {% if data.value.direction.response %}
-
-instance FromXML (Switch {{ data.value.name }}) where
-    {% if data.value.flattened %}
-    fromXMLOptions = xmlOptions { xmlListElem = Nothing }
-    {% else %}
-    fromXMLOptions = xmlOptions
-    {% endif %}
-    fromXMLRoot    = fromRoot "{{ data.value.xml_name }}"
-  {% endif %}
-  {% if data.value.direction.request %}
-
-instance ToXML (Switch {{ data.value.name }}) where
-    {% if data.value.flattened %}
-    toXMLOptions = xmlOptions { xmlListElem = Nothing }
-    {% else %}
-    toXMLOptions = xmlOptions
-    {% endif %}
-    toXMLRoot    = toRoot "{{ data.value.xml_name }}"
-  {% endif %}
     {% when "witness" %}
 data {{ data.value.name }}
     {% when "sum" %}
@@ -111,21 +70,21 @@ instance ToByteString {{ data.value.name }} where
     toBS {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
     {% include "_include/xml-from.ede" with data.value %}
-    {% include "_include/xml-to.ede" with data.value %}
+    {% include "_include/query-to.ede" with data.value %}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
     {% include "_include/record.ede" with data.value.fields %}
     {% include "_include/xml-from.ede" with data.value %}
-    {% include "_include/xml-to.ede" with data.value %}
+    {% include "_include/query-to.ede" with data.value %}
     {% when "data" %}
 data {{ data.value.name }} = {{ data.value.name }}
     {% include "_include/record.ede" with data.value.fields %}
     {% include "_include/xml-from.ede" with data.value %}
-    {% include "_include/xml-to.ede" with data.value %}
+    {% include "_include/query-to.ede" with data.value %}
     {% when "nullary" %}
 data {{ data.value.name }} = {{ data.value.name }}
   {% include "_include/xml-from.ede" with data.value %}
-  {% include "_include/xml-to.ede" with data.value %}
+  {% include "_include/query-to.ede" with data.value %}
     {% endcase %}
   {% if !data.last %}
 

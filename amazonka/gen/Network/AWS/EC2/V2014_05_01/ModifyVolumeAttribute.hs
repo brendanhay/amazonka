@@ -43,7 +43,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -52,10 +52,10 @@ import           Prelude              hiding (head)
 data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvarVolumeId :: Text
       -- ^ The ID of the volume.
-    , _mvarAutoEnableIO :: AttributeBooleanValue
+    , _mvarAutoEnableIO :: Maybe AttributeBooleanValue
       -- ^ Indicates whether the volume should be auto-enabled for I/O
       -- operations.
-    , _mvarDryRun :: Bool
+    , _mvarDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -67,7 +67,6 @@ instance AWSRequest ModifyVolumeAttribute where
     type Rs ModifyVolumeAttribute = ModifyVolumeAttributeResponse
 
     request = post "ModifyVolumeAttribute"
-
     response _ _ = return (Right ModifyVolumeAttributeResponse)
 
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse

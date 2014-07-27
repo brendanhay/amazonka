@@ -38,7 +38,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -70,7 +70,7 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
       -- time when the modification request was last updated.
     , _drimrReservedInstancesModificationIds :: [Text]
       -- ^ IDs for the submitted modification request.
-    , _drimrNextToken :: Text
+    , _drimrNextToken :: Maybe Text
       -- ^ The token for the next page of data.
     } deriving (Generic)
 
@@ -82,15 +82,11 @@ instance AWSRequest DescribeReservedInstancesModifications where
     type Rs DescribeReservedInstancesModifications = DescribeReservedInstancesModificationsResponse
 
     request = post "DescribeReservedInstancesModifications"
-
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedInstancesModifications where
-    next rq rs
-        | not ( rs) = Nothing
-        | otherwise = Just $ rq
-            { _drimrNextToken = _drimrNextToken rs
-            }
+    next rq rs = (\x -> rq { _drimrNextToken = Just x })
+        <$> _drimsNextToken rs
 
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimsReservedInstancesModifications :: [ReservedInstancesModification]

@@ -45,18 +45,18 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
 import           Prelude              hiding (head)
 
 data DeleteSecurityGroup = DeleteSecurityGroup
-    { _dsgrDryRun :: Bool
+    { _dsgrDryRun :: Maybe Bool
       -- ^ 
-    , _dsgrGroupId :: Text
+    , _dsgrGroupId :: Maybe Text
       -- ^ The ID of the security group.
-    , _dsgrGroupName :: Text
+    , _dsgrGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the security group.
     } deriving (Generic)
 
@@ -68,7 +68,6 @@ instance AWSRequest DeleteSecurityGroup where
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
 
     request = post "DeleteSecurityGroup"
-
     response _ _ = return (Right DeleteSecurityGroupResponse)
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse

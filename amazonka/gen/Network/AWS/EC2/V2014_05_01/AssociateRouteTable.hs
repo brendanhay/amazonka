@@ -44,7 +44,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -55,7 +55,7 @@ data AssociateRouteTable = AssociateRouteTable
       -- ^ The ID of the route table.
     , _artrSubnetId :: Text
       -- ^ The ID of the subnet.
-    , _artrDryRun :: Bool
+    , _artrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -67,7 +67,6 @@ instance AWSRequest AssociateRouteTable where
     type Rs AssociateRouteTable = AssociateRouteTableResponse
 
     request = post "AssociateRouteTable"
-
     response _ = xmlResponse
 
 data AssociateRouteTableResponse = AssociateRouteTableResponse

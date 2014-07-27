@@ -70,7 +70,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -79,7 +79,7 @@ import           Prelude              hiding (head)
 data CreateDhcpOptions = CreateDhcpOptions
     { _cdorDhcpConfigurations :: [DhcpConfiguration]
       -- ^ A DHCP configuration option.
-    , _cdorDryRun :: Bool
+    , _cdorDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -91,7 +91,6 @@ instance AWSRequest CreateDhcpOptions where
     type Rs CreateDhcpOptions = CreateDhcpOptionsResponse
 
     request = post "CreateDhcpOptions"
-
     response _ = xmlResponse
 
 data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse

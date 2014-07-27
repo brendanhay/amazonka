@@ -37,7 +37,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -49,7 +49,7 @@ data DeleteRoute = DeleteRoute
     , _drrDestinationCidrBlock :: Text
       -- ^ The CIDR range for the route. The value you specify must match
       -- the CIDR for the route exactly.
-    , _drrDryRun :: Bool
+    , _drrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -61,7 +61,6 @@ instance AWSRequest DeleteRoute where
     type Rs DeleteRoute = DeleteRouteResponse
 
     request = post "DeleteRoute"
-
     response _ _ = return (Right DeleteRouteResponse)
 
 data DeleteRouteResponse = DeleteRouteResponse

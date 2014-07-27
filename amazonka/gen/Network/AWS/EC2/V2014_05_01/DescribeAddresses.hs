@@ -69,7 +69,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -79,7 +79,7 @@ data DescribeAddresses = DescribeAddresses
     { _darAllocationIds :: [Text]
       -- ^ [EC2-VPC] One or more allocation IDs. Default: Describes all your
       -- Elastic IP addresses.
-    , _darDryRun :: Bool
+    , _darDryRun :: Maybe Bool
       -- ^ 
     , _darFilters :: [Filter]
       -- ^ One or more filters. allocation-id - [EC2-VPC] The allocation ID
@@ -105,7 +105,6 @@ instance AWSRequest DescribeAddresses where
     type Rs DescribeAddresses = DescribeAddressesResponse
 
     request = post "DescribeAddresses"
-
     response _ = xmlResponse
 
 data DescribeAddressesResponse = DescribeAddressesResponse

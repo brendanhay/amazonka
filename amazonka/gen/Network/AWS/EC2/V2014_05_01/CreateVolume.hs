@@ -53,7 +53,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -64,22 +64,22 @@ data CreateVolume = CreateVolume
       -- ^ The Availability Zone in which to create the volume. Use
       -- DescribeAvailabilityZones to list the Availability Zones that are
       -- currently available to you.
-    , _cvtEncrypted :: Bool
+    , _cvtEncrypted :: Maybe Bool
       -- ^ Specifies whether the volume should be encrypted.
-    , _cvtDryRun :: Bool
+    , _cvtDryRun :: Maybe Bool
       -- ^ 
-    , _cvtSize :: Integer
+    , _cvtSize :: Maybe Integer
       -- ^ The size of the volume, in GiBs. Constraints: If the volume type
       -- is io1, the minimum size of the volume is 10 GiB. Default: If
       -- you're creating the volume from a snapshot and don't specify a
       -- volume size, the default is the snapshot size.
-    , _cvtIops :: Integer
+    , _cvtIops :: Maybe Integer
       -- ^ The number of I/O operations per second (IOPS) that the volume
       -- supports. This parameter is not used with standard volumes, but
       -- is required when the volume type is io1.
-    , _cvtSnapshotId :: Text
+    , _cvtSnapshotId :: Maybe Text
       -- ^ The snapshot from which to create the volume.
-    , _cvtVolumeType :: VolumeType
+    , _cvtVolumeType :: Maybe VolumeType
       -- ^ The volume type. This can be standard for standard EBS volumes or
       -- io1 for Provisioned IOPS volumes. Default: standard.
     } deriving (Generic)
@@ -92,32 +92,31 @@ instance AWSRequest CreateVolume where
     type Rs CreateVolume = CreateVolumeResponse
 
     request = post "CreateVolume"
-
     response _ = xmlResponse
 
 data CreateVolumeResponse = CreateVolumeResponse
-    { _vEncrypted :: Maybe Bool
+    { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgEncrypted :: Maybe Bool
       -- ^ Indicates whether the volume is encrypted.
-    , _vCreateTime :: Maybe ISO8601
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgCreateTime :: Maybe ISO8601
       -- ^ The time stamp when volume creation was initiated.
-    , _vSize :: Maybe Integer
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgSize :: Maybe Integer
       -- ^ The size of the volume, in GiBs.
-    , _vIops :: Maybe Integer
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgIops :: Maybe Integer
       -- ^ The number of I/O operations per second (IOPS) that the volume
       -- supports.
-    , _vAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone for the volume.
-    , _vVolumeId :: Maybe Text
-      -- ^ The ID of the volume.
-    , _vSnapshotId :: Maybe Text
-      -- ^ The snapshot from which the volume was created, if applicable.
-    , _vTags :: [Tag]
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgTags :: [Tag]
       -- ^ Any tags assigned to the volume.
-    , _vAttachments :: [VolumeAttachment]
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone for the volume.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgVolumeId :: Maybe Text
+      -- ^ The ID of the volume.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgSnapshotId :: Maybe Text
+      -- ^ The snapshot from which the volume was created, if applicable.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgAttachments :: [VolumeAttachment]
       -- ^ 
-    , _vState :: Maybe VolumeState
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgState :: Maybe VolumeState
       -- ^ The volume state.
-    , _vVolumeType :: Maybe VolumeType
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgVolumeType :: Maybe VolumeType
       -- ^ The volume type. This can be standard for standard EBS volumes or
       -- io1 for Provisioned IOPS volumes.
     } deriving (Generic)

@@ -24,8 +24,8 @@ instance AWSService {{ scope.name }} where
         , _svcTarget   = {% if target_prefix -%} (Just "{{ scope.target_prefix }}"){% else -%} Nothing {% endif -%}
         }
 
-deriving instance Show     (Er {{ scope.name }})
-deriving instance Generic  (Er {{ scope.name }})
+deriving instance Show    (Er {{ scope.name }})
+deriving instance Generic (Er {{ scope.name }})
 
 instance AWSError (Er {{ scope.name }}) where
     awsError = const "{{ scope.error.name }}"

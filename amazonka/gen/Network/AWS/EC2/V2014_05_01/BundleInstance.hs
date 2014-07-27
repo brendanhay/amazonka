@@ -56,7 +56,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -70,7 +70,7 @@ data BundleInstance = BundleInstance
       -- else, Amazon EC2 returns an error.
     , _birInstanceId :: Text
       -- ^ The ID of the instance to bundle.
-    , _birDryRun :: Bool
+    , _birDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -82,7 +82,6 @@ instance AWSRequest BundleInstance where
     type Rs BundleInstance = BundleInstanceResponse
 
     request = post "BundleInstance"
-
     response _ = xmlResponse
 
 data BundleInstanceResponse = BundleInstanceResponse

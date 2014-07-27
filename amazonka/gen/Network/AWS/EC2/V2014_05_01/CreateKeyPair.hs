@@ -62,7 +62,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -71,7 +71,7 @@ import           Prelude              hiding (head)
 data CreateKeyPair = CreateKeyPair
     { _ckprKeyName :: Text
       -- ^ A unique name for the key pair.
-    , _ckprDryRun :: Bool
+    , _ckprDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -83,7 +83,6 @@ instance AWSRequest CreateKeyPair where
     type Rs CreateKeyPair = CreateKeyPairResponse
 
     request = post "CreateKeyPair"
-
     response _ = xmlResponse
 
 data CreateKeyPairResponse = CreateKeyPairResponse

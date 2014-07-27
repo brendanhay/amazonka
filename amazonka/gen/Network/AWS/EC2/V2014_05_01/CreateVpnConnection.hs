@@ -81,7 +81,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -94,9 +94,9 @@ data CreateVpnConnection = CreateVpnConnection
       -- ^ The ID of the customer gateway.
     , _cvcrType :: Text
       -- ^ The type of VPN connection.
-    , _cvcrDryRun :: Bool
+    , _cvcrDryRun :: Maybe Bool
       -- ^ 
-    , _cvcrOptions :: VpnConnectionOptionsSpecification
+    , _cvcrOptions :: Maybe VpnConnectionOptionsSpecification
       -- ^ Indicates whether the VPN connection requires static routes. If
       -- you are creating a VPN connection for a device that does not
       -- support BGP, you must specify true. Default: false.
@@ -110,7 +110,6 @@ instance AWSRequest CreateVpnConnection where
     type Rs CreateVpnConnection = CreateVpnConnectionResponse
 
     request = post "CreateVpnConnection"
-
     response _ = xmlResponse
 
 data CreateVpnConnectionResponse = CreateVpnConnectionResponse

@@ -53,7 +53,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -65,9 +65,9 @@ data CreateSubnet = CreateSubnet
     , _cstCidrBlock :: Text
       -- ^ The network range for the subnet, in CIDR notation. For example,
       -- 10.0.0.0/24.
-    , _cstDryRun :: Bool
+    , _cstDryRun :: Maybe Bool
       -- ^ 
-    , _cstAvailabilityZone :: Text
+    , _cstAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone for the subnet. Default: Amazon EC2 selects
       -- one for you (recommended).
     } deriving (Generic)
@@ -80,7 +80,6 @@ instance AWSRequest CreateSubnet where
     type Rs CreateSubnet = CreateSubnetResponse
 
     request = post "CreateSubnet"
-
     response _ = xmlResponse
 
 data CreateSubnetResponse = CreateSubnetResponse

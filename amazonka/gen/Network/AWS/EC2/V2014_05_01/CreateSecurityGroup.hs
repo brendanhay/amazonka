@@ -65,7 +65,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -79,9 +79,9 @@ data CreateSecurityGroup = CreateSecurityGroup
       -- ._-:/()#,@[]+=&amp;;{}!$*.
     , _csgrDescription :: Text
       -- ^ A description for the security group. This is informational only.
-    , _csgrDryRun :: Bool
+    , _csgrDryRun :: Maybe Bool
       -- ^ 
-    , _csgrVpcId :: Text
+    , _csgrVpcId :: Maybe Text
       -- ^ [EC2-VPC] The ID of the VPC.
     } deriving (Generic)
 
@@ -93,7 +93,6 @@ instance AWSRequest CreateSecurityGroup where
     type Rs CreateSecurityGroup = CreateSecurityGroupResponse
 
     request = post "CreateSecurityGroup"
-
     response _ = xmlResponse
 
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse

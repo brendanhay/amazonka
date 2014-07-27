@@ -52,7 +52,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -62,28 +62,28 @@ data RequestSpotInstances = RequestSpotInstances
     { _rsirSpotPrice :: Text
       -- ^ The maximum hourly price for any Spot Instance launched to
       -- fulfill the request.
-    , _rsirDryRun :: Bool
+    , _rsirDryRun :: Maybe Bool
       -- ^ 
-    , _rsirValidUntil :: ISO8601
+    , _rsirValidUntil :: Maybe ISO8601
       -- ^ The end date of the request. If this is a one-time request, the
       -- request remains active until all instances launch, the request is
       -- canceled, or this date is reached. If the request is persistent,
       -- it remains active until it is canceled or this date and time is
       -- reached. Default: The request is effective indefinitely.
-    , _rsirValidFrom :: ISO8601
+    , _rsirValidFrom :: Maybe ISO8601
       -- ^ The start date of the request. If this is a one-time request, the
       -- request becomes active at this date and time and remains active
       -- until all instances launch, the request expires, or the request
       -- is canceled. If the request is persistent, the request becomes
       -- active at this date and time and remains active until it expires
       -- or is canceled. Default: The request is effective indefinitely.
-    , _rsirInstanceCount :: Integer
+    , _rsirInstanceCount :: Maybe Integer
       -- ^ The maximum number of Spot Instances to launch. Default: 1.
-    , _rsirLaunchSpecification :: LaunchSpecification
+    , _rsirLaunchSpecification :: Maybe LaunchSpecification
       -- ^ The launch specification.
-    , _rsirType :: SpotInstanceType
+    , _rsirType :: Maybe SpotInstanceType
       -- ^ The Spot Instance request type. Default: one-time.
-    , _rsirAvailabilityZoneGroup :: Text
+    , _rsirAvailabilityZoneGroup :: Maybe Text
       -- ^ The user-specified name for a logical grouping of bids. When you
       -- specify an Availability Zone group in a Spot Instance request,
       -- all Spot Instances in the request are launched in the same
@@ -103,7 +103,7 @@ data RequestSpotInstances = RequestSpotInstances
       -- request, even if you specified the same Availability Zone group.
       -- Default: Instances are launched in any available Availability
       -- Zone.
-    , _rsirLaunchGroup :: Text
+    , _rsirLaunchGroup :: Maybe Text
       -- ^ The instance launch group. Launch groups are Spot Instances that
       -- launch together and terminate together. Default: Instances are
       -- launched and terminated individually.
@@ -117,7 +117,6 @@ instance AWSRequest RequestSpotInstances where
     type Rs RequestSpotInstances = RequestSpotInstancesResponse
 
     request = post "RequestSpotInstances"
-
     response _ = xmlResponse
 
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse

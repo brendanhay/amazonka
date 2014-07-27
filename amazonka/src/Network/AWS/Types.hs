@@ -23,7 +23,7 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
-import           Control.Exception         (Exception, SomeException)
+import           Control.Exception         (Exception)
 import           Control.Lens              hiding (Action)
 import           Control.Monad.Base
 import           Data.Aeson                hiding (Error)

@@ -42,7 +42,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -56,7 +56,7 @@ data CreateTags = CreateTags
       -- ^ One or more tags. The value parameter is required, but if you
       -- don't want the tag to have a value, specify the parameter with no
       -- value, and we set the value to an empty string.
-    , _ctrDryRun :: Bool
+    , _ctrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Generic)
 
@@ -68,7 +68,6 @@ instance AWSRequest CreateTags where
     type Rs CreateTags = CreateTagsResponse
 
     request = post "CreateTags"
-
     response _ _ = return (Right CreateTagsResponse)
 
 data CreateTagsResponse = CreateTagsResponse

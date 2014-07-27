@@ -34,7 +34,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -43,13 +43,13 @@ import           Prelude              hiding (head)
 data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvasVpcId :: Text
       -- ^ The ID of the VPC.
-    , _mvasEnableDnsHostnames :: AttributeBooleanValue
+    , _mvasEnableDnsHostnames :: Maybe AttributeBooleanValue
       -- ^ Indicates whether the instances launched in the VPC get DNS
       -- hostnames. If this attribute is true, instances in the VPC get
       -- DNS hostnames; otherwise, they do not. You can only set
       -- enableDnsHostnames to true if you also set the EnableDnsSupport
       -- attribute to true.
-    , _mvasEnableDnsSupport :: AttributeBooleanValue
+    , _mvasEnableDnsSupport :: Maybe AttributeBooleanValue
       -- ^ Indicates whether the DNS resolution is supported for the VPC. If
       -- this attribute is false, the Amazon provided DNS service in the
       -- VPC that resolves public DNS hostnames to IP addresses is not
@@ -67,7 +67,6 @@ instance AWSRequest ModifyVpcAttribute where
     type Rs ModifyVpcAttribute = ModifyVpcAttributeResponse
 
     request = post "ModifyVpcAttribute"
-
     response _ _ = return (Right ModifyVpcAttributeResponse)
 
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse

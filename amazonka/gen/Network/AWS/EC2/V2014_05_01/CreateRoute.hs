@@ -57,7 +57,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -69,17 +69,17 @@ data CreateRoute = CreateRoute
     , _crrDestinationCidrBlock :: Text
       -- ^ The CIDR address block used for the destination match. Routing
       -- decisions are based on the most specific match.
-    , _crrDryRun :: Bool
+    , _crrDryRun :: Maybe Bool
       -- ^ 
-    , _crrVpcPeeringConnectionId :: Text
+    , _crrVpcPeeringConnectionId :: Maybe Text
       -- ^ The ID of a VPC peering connection.
-    , _crrInstanceId :: Text
+    , _crrInstanceId :: Maybe Text
       -- ^ The ID of a NAT instance in your VPC. The operation fails if you
       -- specify an instance ID unless exactly one network interface is
       -- attached.
-    , _crrNetworkInterfaceId :: Text
+    , _crrNetworkInterfaceId :: Maybe Text
       -- ^ The ID of a network interface.
-    , _crrGatewayId :: Text
+    , _crrGatewayId :: Maybe Text
       -- ^ The ID of an Internet gateway attached to your VPC.
     } deriving (Generic)
 
@@ -91,7 +91,6 @@ instance AWSRequest CreateRoute where
     type Rs CreateRoute = CreateRouteResponse
 
     request = post "CreateRoute"
-
     response _ _ = return (Right CreateRouteResponse)
 
 data CreateRouteResponse = CreateRouteResponse

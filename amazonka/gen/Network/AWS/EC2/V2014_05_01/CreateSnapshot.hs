@@ -63,7 +63,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error)
+import           Network.AWS.Types    hiding (Region, Error)
 import           Network.AWS.Request.Query
 import           Network.AWS.EC2.V2014_05_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)
@@ -72,9 +72,9 @@ import           Prelude              hiding (head)
 data CreateSnapshot = CreateSnapshot
     { _csvVolumeId :: Text
       -- ^ The ID of the Amazon EBS volume.
-    , _csvDryRun :: Bool
+    , _csvDryRun :: Maybe Bool
       -- ^ 
-    , _csvDescription :: Text
+    , _csvDescription :: Maybe Text
       -- ^ A description for the snapshot.
     } deriving (Generic)
 
@@ -86,30 +86,29 @@ instance AWSRequest CreateSnapshot where
     type Rs CreateSnapshot = CreateSnapshotResponse
 
     request = post "CreateSnapshot"
-
     response _ = xmlResponse
 
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { _sEncrypted :: Maybe Bool
+    { _ssyEncrypted :: Maybe Bool
       -- ^ Indicates whether the snapshot is encrypted.
-    , _sStartTime :: Maybe ISO8601
+    , _ssyStartTime :: Maybe ISO8601
       -- ^ The time stamp when the snapshot was initiated.
-    , _sVolumeSize :: Maybe Integer
+    , _ssyVolumeSize :: Maybe Integer
       -- ^ The size of the volume, in GiB.
-    , _sState :: Maybe SnapshotState
+    , _ssyState :: Maybe SnapshotState
       -- ^ The snapshot state.
-    , _sOwnerAlias :: Maybe Text
+    , _ssyOwnerAlias :: Maybe Text
       -- ^ The AWS account alias (for example, amazon, self) or AWS account
       -- ID that owns the snapshot.
-    , _sProgress :: Maybe Text
+    , _ssyProgress :: Maybe Text
       -- ^ The progress of the snapshot, as a percentage.
-    , _sOwnerId :: Maybe Text
+    , _ssyOwnerId :: Maybe Text
       -- ^ The AWS account ID of the Amazon EBS snapshot owner.
-    , _sVolumeId :: Maybe Text
+    , _ssyVolumeId :: Maybe Text
       -- ^ The ID of the volume.
-    , _sDescription :: Maybe Text
+    , _ssyDescription :: Maybe Text
       -- ^ The description for the snapshot.
-    , _sSnapshotId :: Maybe Text
+    , _ssySnapshotId :: Maybe Text
       -- ^ The ID of the snapshot.
     } deriving (Generic)
 

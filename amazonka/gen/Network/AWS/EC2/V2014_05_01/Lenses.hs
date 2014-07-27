@@ -171,7 +171,6 @@ import Network.AWS.EC2.V2014_05_01.CreateKeyPair
 import Network.AWS.EC2.V2014_05_01.DeleteVolume
 
 -- Newtypes
-makeIso ''
 makeIso ''AccountAttributeValue
 makeIso ''AttributeBooleanValue
 makeIso ''AttributeValue

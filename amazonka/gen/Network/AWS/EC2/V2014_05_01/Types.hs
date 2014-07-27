@@ -112,11 +112,11 @@ instance ToByteString ArchitectureValues where
 
 instance FromXML ArchitectureValues where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ArchitectureValues"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML ArchitectureValues where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ArchitectureValues"
+    toXMLRoot    = toRoot ""
 
 -- | The current state of the attachment.
 data AttachmentStatus
@@ -274,11 +274,11 @@ instance ToByteString ContainerFormat where
 
 instance FromXML ContainerFormat where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ContainerFormat"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML ContainerFormat where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ContainerFormat"
+    toXMLRoot    = toRoot ""
 
 -- | The state of the conversion task.
 data ConversionTaskState
@@ -410,11 +410,11 @@ instance ToByteString DiskImageFormat where
 
 instance FromXML DiskImageFormat where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DiskImageFormat"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML DiskImageFormat where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DiskImageFormat"
+    toXMLRoot    = toRoot ""
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic (standard) or instances in a VPC (vpc).
@@ -505,11 +505,11 @@ instance ToByteString ExportEnvironment where
 
 instance FromXML ExportEnvironment where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExportEnvironment"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML ExportEnvironment where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ExportEnvironment"
+    toXMLRoot    = toRoot ""
 
 -- | The state of the conversion task.
 data ExportTaskState
@@ -561,11 +561,11 @@ instance ToByteString GatewayType where
 
 instance FromXML GatewayType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GatewayType"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML GatewayType where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GatewayType"
+    toXMLRoot    = toRoot ""
 
 -- | The hypervisor type of the instance.
 data HypervisorType
@@ -629,7 +629,7 @@ instance ToByteString ImageAttributeName where
 
 instance ToXML ImageAttributeName where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ImageAttributeName"
+    toXMLRoot    = toRoot ""
 
 -- | The current state of the AMI. If the state is available, the image is
 -- successfully registered and can be used to launch an instance.
@@ -752,7 +752,7 @@ instance ToByteString InstanceAttributeName where
 
 instance ToXML InstanceAttributeName where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InstanceAttributeName"
+    toXMLRoot    = toRoot ""
 
 -- | Indicates whether this is a Spot Instance.
 data InstanceLifecycleType
@@ -971,11 +971,11 @@ instance ToByteString InstanceType where
 
 instance FromXML InstanceType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceType"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML InstanceType where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InstanceType"
+    toXMLRoot    = toRoot ""
 
 -- | The states of the listed Reserved Instances.
 data ListingState
@@ -1133,11 +1133,11 @@ instance ToByteString OfferingTypeValues where
 
 instance FromXML OfferingTypeValues where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OfferingTypeValues"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML OfferingTypeValues where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "OfferingTypeValues"
+    toXMLRoot    = toRoot ""
 
 -- | The specific group that is to be added or removed from a volume's list of
 -- create volume permissions.
@@ -1212,11 +1212,11 @@ instance ToByteString PlacementStrategy where
 
 instance FromXML PlacementStrategy where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PlacementStrategy"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML PlacementStrategy where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PlacementStrategy"
+    toXMLRoot    = toRoot ""
 
 -- | The instance operating system.
 data PlatformValues
@@ -1234,11 +1234,11 @@ instance ToByteString PlatformValues where
 
 instance FromXML PlatformValues where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PlatformValues"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML PlatformValues where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PlatformValues"
+    toXMLRoot    = toRoot ""
 
 -- | The type of product code.
 data ProductCodeValues
@@ -1391,7 +1391,7 @@ instance ToByteString ReportStatusType where
 
 instance ToXML ReportStatusType where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ReportStatusType"
+    toXMLRoot    = toRoot ""
 
 -- | The state of the Reserved Instance purchase.
 data ReservedInstanceState
@@ -1444,7 +1444,7 @@ instance ToByteString ResetImageAttributeName where
 
 instance ToXML ResetImageAttributeName where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResetImageAttributeName"
+    toXMLRoot    = toRoot ""
 
 -- | The type of resource.
 data ResourceType
@@ -1642,7 +1642,7 @@ instance ToByteString ShutdownBehavior where
 
 instance ToXML ShutdownBehavior where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ShutdownBehavior"
+    toXMLRoot    = toRoot ""
 
 -- | The snapshot attribute you would like to view.
 data SnapshotAttributeName
@@ -1664,7 +1664,7 @@ instance ToByteString SnapshotAttributeName where
 
 instance ToXML SnapshotAttributeName where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "SnapshotAttributeName"
+    toXMLRoot    = toRoot ""
 
 -- | The snapshot state.
 data SnapshotState
@@ -1757,11 +1757,11 @@ instance ToByteString SpotInstanceType where
 
 instance FromXML SpotInstanceType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotInstanceType"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML SpotInstanceType where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "SpotInstanceType"
+    toXMLRoot    = toRoot ""
 
 -- | The type of instance status.
 data StatusName
@@ -1835,7 +1835,7 @@ instance ToByteString String where
 
 instance ToXML String where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "String"
+    toXMLRoot    = toRoot ""
 
 -- | The current state of the subnet.
 data SubnetState
@@ -1944,11 +1944,11 @@ instance ToByteString Tenancy where
 
 instance FromXML Tenancy where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tenancy"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML Tenancy where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Tenancy"
+    toXMLRoot    = toRoot ""
 
 -- | The virtualization type of the instance.
 data VirtualizationType
@@ -2030,7 +2030,7 @@ instance ToByteString VolumeAttributeName where
 
 instance ToXML VolumeAttributeName where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "VolumeAttributeName"
+    toXMLRoot    = toRoot ""
 
 -- | The volume state.
 data VolumeState
@@ -2150,11 +2150,11 @@ instance ToByteString VolumeType where
 
 instance FromXML VolumeType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeType"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML VolumeType where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "VolumeType"
+    toXMLRoot    = toRoot ""
 
 -- | The VPC attribute.
 data VpcAttributeName
@@ -2176,7 +2176,7 @@ instance ToByteString VpcAttributeName where
 
 instance ToXML VpcAttributeName where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "VpcAttributeName"
+    toXMLRoot    = toRoot ""
 
 -- | The current state of the VPC.
 data VpcState
@@ -2260,15 +2260,6 @@ instance ToXML VpnStaticRouteSource where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "source"
 
-newtype  = 
-    { _aEnabled :: Bool
-      -- ^ Enables monitoring for the instance. Default: Disabled.
-    } deriving (Generic)
-
-instance ToXML  where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot ""
-
 -- | Describes a value of an account attribute.
 newtype AccountAttributeValue = AccountAttributeValue
     { _aavAttributeValue :: Text
@@ -2294,11 +2285,11 @@ newtype AttributeBooleanValue = AttributeBooleanValue
 
 instance FromXML AttributeBooleanValue where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttributeBooleanValue"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML AttributeBooleanValue where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AttributeBooleanValue"
+    toXMLRoot    = toRoot ""
 
 -- | A description for the network interface.
 newtype AttributeValue = AttributeValue
@@ -2308,11 +2299,11 @@ newtype AttributeValue = AttributeValue
 
 instance FromXML AttributeValue where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttributeValue"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML AttributeValue where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AttributeValue"
+    toXMLRoot    = toRoot ""
 
 -- | Describes a message about an Availability Zone.
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage
@@ -2337,11 +2328,11 @@ newtype IpRange = IpRange
 
 instance FromXML IpRange where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IpRange"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML IpRange where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "IpRange"
+    toXMLRoot    = toRoot ""
 
 -- | The monitoring information for the instance.
 newtype Monitoring = Monitoring
@@ -2393,7 +2384,7 @@ newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
 
 instance ToXML RunInstancesMonitoringEnabled where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RunInstancesMonitoringEnabled"
+    toXMLRoot    = toRoot ""
 
 -- | The Amazon S3 storage locations.
 newtype Storage = Storage
@@ -2417,11 +2408,11 @@ newtype VolumeDetail = VolumeDetail
 
 instance FromXML VolumeDetail where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeDetail"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML VolumeDetail where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "VolumeDetail"
+    toXMLRoot    = toRoot ""
 
 -- | The VPN connection options.
 newtype VpnConnectionOptions = VpnConnectionOptions
@@ -2449,7 +2440,7 @@ newtype VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
 
 instance ToXML VpnConnectionOptionsSpecification where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "VpnConnectionOptionsSpecification"
+    toXMLRoot    = toRoot ""
 
 -- | Describes an account attribute.
 data AccountAttribute = AccountAttribute
@@ -2635,7 +2626,7 @@ data CreateVolumePermissionModifications = CreateVolumePermissionModifications
 
 instance ToXML CreateVolumePermissionModifications where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateVolumePermissionModifications"
+    toXMLRoot    = toRoot ""
 
 -- | Information about the customer gateway.
 data CustomerGateway = CustomerGateway
@@ -2743,11 +2734,11 @@ data DiskImageDetail = DiskImageDetail
 
 instance FromXML DiskImageDetail where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DiskImageDetail"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML DiskImageDetail where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DiskImageDetail"
+    toXMLRoot    = toRoot ""
 
 -- | The volume.
 data DiskImageVolumeDescription = DiskImageVolumeDescription
@@ -2790,11 +2781,11 @@ data EbsBlockDevice = EbsBlockDevice
 
 instance FromXML EbsBlockDevice where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EbsBlockDevice"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML EbsBlockDevice where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "EbsBlockDevice"
+    toXMLRoot    = toRoot ""
 
 -- | Parameters used to automatically set up Amazon EBS volumes when the
 -- instance is launched.
@@ -2828,11 +2819,11 @@ data EbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
 
 instance FromXML EbsInstanceBlockDeviceSpecification where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EbsInstanceBlockDeviceSpecification"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML EbsInstanceBlockDeviceSpecification where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "EbsInstanceBlockDeviceSpecification"
+    toXMLRoot    = toRoot ""
 
 -- | 
 data ExportTask = ExportTask
@@ -2948,11 +2939,11 @@ data IamInstanceProfileSpecification = IamInstanceProfileSpecification
 
 instance FromXML IamInstanceProfileSpecification where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IamInstanceProfileSpecification"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML IamInstanceProfileSpecification where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "IamInstanceProfileSpecification"
+    toXMLRoot    = toRoot ""
 
 -- | ICMP protocol: The ICMP type and code.
 data IcmpTypeCode = IcmpTypeCode
@@ -3064,7 +3055,7 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
 
 instance ToXML ImportInstanceLaunchSpecification where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ImportInstanceLaunchSpecification"
+    toXMLRoot    = toRoot ""
 
 -- | If the task is for importing an instance, this contains information about
 -- the import instance task.
@@ -3633,11 +3624,11 @@ data IpPermission = IpPermission
 
 instance FromXML IpPermission where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IpPermission"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML IpPermission where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "IpPermission"
+    toXMLRoot    = toRoot ""
 
 -- | Describes a key pair.
 data KeyPairInfo = KeyPairInfo
@@ -3664,11 +3655,11 @@ data LaunchPermission = LaunchPermission
 
 instance FromXML LaunchPermission where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LaunchPermission"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML LaunchPermission where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "LaunchPermission"
+    toXMLRoot    = toRoot ""
 
 -- | 
 data LaunchPermissionModifications = LaunchPermissionModifications
@@ -3682,7 +3673,7 @@ data LaunchPermissionModifications = LaunchPermissionModifications
 
 instance ToXML LaunchPermissionModifications where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "LaunchPermissionModifications"
+    toXMLRoot    = toRoot ""
 
 -- | The launch specification.
 data LaunchSpecification = LaunchSpecification
@@ -3710,7 +3701,7 @@ data LaunchSpecification = LaunchSpecification
     , _lsUserData :: Text
       -- ^ The Base64-encoded MIME user data to make available to the
       -- instances.
-    , _lsMonitoring :: Untyped
+    , _lsMonitoring :: Monitoring
     , _lsIamInstanceProfile :: IamInstanceProfileSpecification
       -- ^ The IAM instance profile.
     , _lsImageId :: Text
@@ -3725,11 +3716,11 @@ data LaunchSpecification = LaunchSpecification
 
 instance FromXML LaunchSpecification where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LaunchSpecification"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML LaunchSpecification where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "LaunchSpecification"
+    toXMLRoot    = toRoot ""
 
 -- | Information about the network ACL.
 data NetworkAcl = NetworkAcl
@@ -3907,7 +3898,7 @@ data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
 
 instance ToXML NetworkInterfaceAttachmentChanges where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NetworkInterfaceAttachmentChanges"
+    toXMLRoot    = toRoot ""
 
 -- | Describes the private IP address of a network interface.
 data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
@@ -3946,11 +3937,11 @@ data Placement = Placement
 
 instance FromXML Placement where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Placement"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML Placement where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Placement"
+    toXMLRoot    = toRoot ""
 
 -- | Describes a placement group.
 data PlacementGroup = PlacementGroup
@@ -4029,7 +4020,7 @@ data PriceScheduleSpecification = PriceScheduleSpecification
 
 instance ToXML PriceScheduleSpecification where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PriceScheduleSpecification"
+    toXMLRoot    = toRoot ""
 
 -- | Describes a Reserved Instance offering.
 data PricingDetail = PricingDetail
@@ -4141,7 +4132,7 @@ data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
 
 instance ToXML ReservedInstanceLimitPrice where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ReservedInstanceLimitPrice"
+    toXMLRoot    = toRoot ""
 
 -- | Describes a Reserved Instance.
 data ReservedInstances = ReservedInstances
@@ -4417,11 +4408,11 @@ data S3Storage = S3Storage
 
 instance FromXML S3Storage where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "S3Storage"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML S3Storage where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "S3Storage"
+    toXMLRoot    = toRoot ""
 
 -- | Describes a security group.
 data SecurityGroup = SecurityGroup
@@ -4598,11 +4589,11 @@ data SpotPlacement = SpotPlacement
 
 instance FromXML SpotPlacement where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotPlacement"
+    fromXMLRoot    = fromRoot ""
 
 instance ToXML SpotPlacement where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "SpotPlacement"
+    toXMLRoot    = toRoot ""
 
 -- | Describes the Spot Price.
 data SpotPrice = SpotPrice

@@ -21,8 +21,8 @@ import qualified Data.Text   as Text
 prefix :: Text -> Text
 prefix = Text.toLower . Text.filter isUpper
 
-prefixof :: Maybe Text -> Text
-prefixof = maybe "_a" ("_" <>) . fmap prefix
+prefixof :: Text -> Text
+prefixof = ("_" <>) . prefix
 
 indent :: Int -> Text -> Text
 indent n = Text.intercalate "\n"

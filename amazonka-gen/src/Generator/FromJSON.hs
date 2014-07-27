@@ -21,9 +21,11 @@ module Generator.FromJSON where
 
 import           Control.Applicative
 import           Control.Error
+import           Control.Lens               ((%~))
 import           Control.Monad
 import           Data.Aeson                 hiding (Error)
 import           Data.Aeson.Types           hiding (Error)
+import           Data.Bifunctor
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.Default
@@ -137,11 +139,11 @@ instance FromJSON Location where
 
 instance FromJSON Common where
     parseJSON = withObject "common" $ \o -> do
-        n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name" <|> return Nothing
-        x <- o .:? "xmlname" .!= n
-        l <- o .:! "location"
-        Common n (prefixof n) x l
-            <$> o .:? "location_name" .!= n
+        n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name" <|> return defName
+        Common n (prefixof n)
+            <$> o .:? "xmlname"
+            <*> o .:! "location"
+            <*> o .:? "location_name"
             <*> o .:? "required"      .!= False
             <*> o .:? "documentation"
             <*> o .:? "streaming"     .!= False
@@ -156,7 +158,10 @@ instance FromJSON Shape where
             xs <- o .:? "members"      .!= mempty
             ys <- o .:? "member_order" .!= Map.keys xs :: Parser [Text]
 
-            let fs = Map.fromList $ mapMaybe (\y -> (y,) <$> Map.lookup y xs) ys
+            let g y x | x == defName = y
+                      | otherwise    = x
+                h y = second (cmnName %~ g y) . (y,) <$> Map.lookup y xs
+                fs  = Map.fromList $ mapMaybe h ys
 
             return . SStruct $ Struct fs c
 

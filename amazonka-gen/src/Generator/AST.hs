@@ -145,7 +145,7 @@ instance Monoid Direction where
     mappend _         b         = b
 
 data Common = Common
-    { _cmnName          :: Maybe Text
+    { _cmnName          :: Text
     , _cmnPrefix        :: Text
     , _cmnXmlName       :: Maybe Text
     , _cmnLocation      :: Location
@@ -156,6 +156,9 @@ data Common = Common
     , _cmnDirection     :: Direction
     } deriving (Eq, Show, Generic)
 
+defName :: Text
+defName = "Unknown"
+
 instance Ord Common where
     compare a b =
            comparing (Down . _cmnRequired) a b
@@ -163,7 +166,7 @@ instance Ord Common where
         <> comparing _cmnName a b
 
 instance Default Common where
-    def = Common Nothing "_" Nothing def Nothing False Nothing False def
+    def = Common defName "_" Nothing def Nothing False Nothing False def
 
 makeClassy ''Common
 

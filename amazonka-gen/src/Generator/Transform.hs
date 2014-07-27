@@ -37,6 +37,7 @@ import           Text.EDE.Filters
 -- FIXME: Provide the 'length' of the prefix so lenses can be derived.
 -- FIXME: Fix ambiguous lens fields
 -- FIXME: Add documentation about where the type in the 'Types' module is used
+-- FIXME: Add selected de/serialisation tests for the services
 
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
@@ -170,16 +171,12 @@ serviceNamespaces s = sort
     : _svcLensNamespace s
     : map _opNamespace (_svcOperations s)
 
-fromName :: HasCommon a => a -> Text
-fromName = fromMaybe "Untyped" . view cmnName
-
-shapeEnums :: Maybe Text -> [Text] -> HashMap Text Text
+shapeEnums :: Text -> [Text] -> HashMap Text Text
 shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
   where
     trans = first (mappend (reserve n) . rules) . join (,)
 
-    reserve Nothing = ""
-    reserve (Just x)
+    reserve x
         | x `elem` unprefixed = ""
         | otherwise           = x
 
@@ -239,7 +236,7 @@ typeof rq t s = Ann req (defaults s) (monoids s) typ
             | bdy               -> "RsBody"
             | otherwise         -> fmt _prmType
 
-    n   = fromName s
+    n   = s ^. cmnName
     ann = _anType . typeof rq t
 
     req = bdy || required rq s
@@ -283,7 +280,7 @@ ctorof s =
             | Map.size _sctFields == 1   -> CNewtype
             | Map.null _sctFields        -> CNullary
         SSum{}
-            | fromName s `elem` switches -> CSwitch
+            | (s ^. cmnName) `elem` switches -> CSwitch
             | otherwise                  -> CSum
         _                                -> CData
 
@@ -333,7 +330,7 @@ serviceTypes Service{..} = sort
   where
     uniq :: Type -> State (HashMap Text Type) ()
     uniq x = modify $ \m ->
-        let n = fromMaybe "Unknown" (x ^. cmnName)
+        let n = x ^. cmnName
             y = Map.lookup n m
             z = maybe x (cmnDirection <>~ (x ^. cmnDirection)) y
          in Map.insert n z m
@@ -343,17 +340,17 @@ serviceTypes Service{..} = sort
         ++ descend (_rsShape $ _opResponse o)
 
     descend (SStruct Struct{..}) =
-        concatMap (\s -> flat (fromName s) s) (Map.elems _sctFields)
+        concatMap (\s -> flat ((s ^. cmnName)) s) (Map.elems _sctFields)
     descend _                   = []
 
     flat p s@SStruct {}         = (p, s) : descend s
-    flat _ s@(SList  List {..}) = flat (fromName s) _lstItem
-    flat _ s@(SMap   Map  {..}) = flat (fromName s) _mapKey ++ flat (fromName s) _mapValue
+    flat _ s@(SList  List {..}) = flat ((s ^. cmnName)) _lstItem
+    flat _ s@(SMap   Map  {..}) = flat ((s ^. cmnName)) _mapKey ++ flat ((s ^. cmnName)) _mapValue
     flat p (SSum     x)         = [(p, SSum $ rename x)]
     flat _ _                    = []
 
     rename s
-        | fromName s `notElem` switches = s
+        | (s ^. cmnName) `notElem` switches = s
         | otherwise = s { _sumValues = f (_sumValues s) }
       where
         f = Map.fromList . map g . Map.toList
@@ -364,7 +361,7 @@ serviceTypes Service{..} = sort
 serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") ss ts
   where
-    ts = Map.fromList $ map (\s -> (fromName s, shapeType True def s)) ss
+    ts = Map.fromList $ map (\s -> (s ^. cmnName, shapeType True def s)) ss
 
     ss = except "Serializer" "String"
        : except "Client" "HttpException"
@@ -373,8 +370,8 @@ serviceError a os = Error (unAbbrev a <> "Error") ss ts
 
     except s t = SStruct $ Struct (Map.fromList [("", field)]) ctor
       where
-        field  = SStruct . Struct mempty $ def & cmnName .~ Just t
-        ctor   = def & cmnName .~ Just (unAbbrev a <> s)
+        field  = SStruct . Struct mempty $ def & cmnName .~ t
+        ctor   = def & cmnName .~ (unAbbrev a <> s)
 
 shapeType :: Bool -> Time -> Shape -> Type
 shapeType rq t s = Type s (typeof rq t s) (ctorof s) (fields rq t s)

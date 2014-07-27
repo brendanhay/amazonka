@@ -23,6 +23,7 @@ executable amazonka-gen
     build-depends:
           aeson
         , base                 == 4.7.*
+        , bifunctors
         , bytestring
         , data-default
         , directory

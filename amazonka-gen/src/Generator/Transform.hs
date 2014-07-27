@@ -37,16 +37,13 @@ import           Text.EDE.Filters
 
 -- FIXME: Make a way to override the endpoint when sending a request (for mocks etc)
 -- FIXME: Provide the 'length' of the prefix so lenses can be derived.
--- FIXME: Fix ambiguous lens fields
+-- FIXME: Fix ambiguous lens when using makeFields
 -- FIXME: Add documentation about where the type in the 'Types' module is used
 -- FIXME: Add selected de/serialisation tests for the services
 -- FIXME: Rewrite, so that each transformation step happens goddamn logically.
 
-
--- FIXME: Why is NextToken from EC2 DescribeTags not marked as required
--- This is a continuation of response type fields all being 'Maybe'
--- how should it be solved?
-
+-- FIXME: Continuation of response type fields all being 'Maybe', ie
+-- not being marked correctly as required - how should it be solved?
 
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub

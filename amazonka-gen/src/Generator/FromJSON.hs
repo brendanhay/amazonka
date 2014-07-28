@@ -21,7 +21,7 @@ module Generator.FromJSON where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens               ((%~))
+import           Control.Lens               ((&), (%~), (.~))
 import           Control.Monad
 import           Data.Aeson                 hiding (Error)
 import           Data.Aeson.Types           hiding (Error)
@@ -30,6 +30,7 @@ import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.Default
 import qualified Data.HashMap.Strict        as Map
+import           Data.Maybe
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -37,6 +38,7 @@ import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
 import           Data.Text.Util
+import qualified Data.Traversable           as Traverse
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Log
@@ -46,8 +48,20 @@ import           Network.HTTP.Types.Method
 
 parseModel :: Model -> Script Service
 parseModel Model{..} = do
-    r <- scriptIO $ say "Parse Service" modPath >> LBS.readFile modPath
-    hoistEither (eitherDecode r)
+    (s, g, l) <- (,,)
+        <$> load "Service" modPath
+        <*> (Traverse.sequence $ load "Override" <$> modGlobal)
+        <*> (Traverse.sequence $ load "Override" <$> modLocal)
+    return (s & svcOverrides .~ catMaybes [g, l])
+  where
+    load :: FromJSON a => Text -> FilePath -> Script a
+    load n f = do
+        say ("Parse " <> n) f
+        eitherDecode <$> scriptIO (LBS.readFile f) >>= hoistEither
+
+load all three json files as Objects,
+get any specific custom structures out (like "shapes")
+recursively merge them, then parse as a Service without any override type
 
 instance FromJSON Abbrev where
     parseJSON = withText "abbrev" (return . abbrev)
@@ -75,6 +89,10 @@ instance FromJSON JSONV where
     parseJSON (String t) = return (JSONV t)
     parseJSON (Number n) = return . JSONV . Text.pack $ show n
     parseJSON e          = fail $ "Unrecognised JSONV field: " ++ show e
+
+instance FromJSON Override where
+    parseJSON = withObject "override" $ \o -> Override
+        <$> o .:! "shapes"
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do

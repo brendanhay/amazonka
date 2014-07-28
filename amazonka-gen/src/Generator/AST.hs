@@ -36,7 +36,7 @@ newtype Abbrev = Abbrev { unAbbrev :: Text }
 
 instance IsString Abbrev where
     fromString = abbrev . Text.pack
-
+ 
 instance Default Abbrev where
     def = Abbrev "AWS"
 

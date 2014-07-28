@@ -45,6 +45,9 @@ import           Text.EDE.Filters
 -- FIXME: Continuation of response type fields all being 'Maybe', ie
 -- not being marked correctly as required - how should it be solved?
 
+-- FIXME: Add a 3rd pagination type, nested, which is the result of parsing
+-- for the 'last element [-1]' array indicies
+
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
   where
@@ -287,8 +290,6 @@ reserved =
     , "ObjectKey"
     , "ObjectVersionId"
     , "ETag"
-    , "Region"
-    , "AvailabilityZone"
     ]
 
 switches :: [Text]

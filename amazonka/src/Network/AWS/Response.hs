@@ -11,7 +11,9 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Response
-    ( headerResponse
+    (
+    -- * Responses
+      headerResponse
     , cursorResponse
     , xmlResponse
     , bodyResponse

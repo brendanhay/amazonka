@@ -4,10 +4,14 @@ instance AWSPager {{ scope.request.name }} where
   {% case scope.request.name %}
   {% when "ListObjects" %}
     next rq rs
+
+
         | not ({{ scope.pagination.more }} rs) = Nothing
-        | otherwise = Just $ rq
-            { _lorMarker = toText <$> (listToMaybe (_looContents rs) >>= _oouKey)
-            }
+        | otherwise = Just rq { _lorMarker = nestedMarker _looContents _oouKey rs }
+  {% when "ListJobs" %}
+    next rq rs
+        | not ({{ scope.pagination.more }} rs) = Nothing
+        | otherwise = Just rq { _ljiMarker = nestedMarker _ljoJobs _lJobId rs }
   {% else %}
     {% case scope.pagination.type %}
     {% when "more" %}

@@ -96,7 +96,7 @@ instance AWSPager ListObjects where
     next rq rs
         | not (_looIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lorMarker = fmap (toText . _oKey) . listToMaybe $ _looContents rs
+            { _lorMarker = toText <$> (listToMaybe (_looContents rs) >>= _oouKey)
             }
 
 data ListObjectsResponse = ListObjectsResponse

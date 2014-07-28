@@ -1,23 +1,32 @@
 {% if scope.pagination %}
 
 instance AWSPager {{ scope.request.name }} where
-  {% case scope.pagination.type %}
-  {% when "more" %}
+  {% case scope.request.name %}
+  {% when "ListObjects" %}
     next rq rs
         | not ({{ scope.pagination.more }} rs) = Nothing
         | otherwise = Just $ rq
-    {% for token in scope.pagination.tokens %}
-      {% if token.first %}
-            { {{ token.value.input }} = {{ token.value.output }} rs
-      {% else %}
-            , {{ token.value.input }} = {{ token.value.output }} rs
-      {% endif %}
-      {% if token.last %}
+            { _lorMarker = toText <$> (listToMaybe (_looContents rs) >>= _oouKey)
             }
-      {% endif %}
-    {% endfor %}
-  {% when "next" %}
+  {% else %}
+    {% case scope.pagination.type %}
+    {% when "more" %}
+    next rq rs
+        | not ({{ scope.pagination.more }} rs) = Nothing
+        | otherwise = Just $ rq
+      {% for token in scope.pagination.tokens %}
+        {% if token.first %}
+            { {{ token.value.input }} = {{ token.value.output }} rs
+        {% else %}
+            , {{ token.value.input }} = {{ token.value.output }} rs
+        {% endif %}
+        {% if token.last %}
+            }
+        {% endif %}
+      {% endfor %}
+    {% when "next" %}
     next rq rs = (\x -> rq { {{ scope.pagination.token.input }} = Just x })
         <$> {{ scope.pagination.token.output }} rs
+    {% endcase %}
   {% endcase %}
 {% endif %}

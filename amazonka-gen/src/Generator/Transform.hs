@@ -168,12 +168,7 @@ pagination o p =
         More m  ts -> More (rsPref m)  (map token ts)
         Next rk t  -> Next (rsPref rk) (token t)
   where
-    token t = t & tokInput %~ rqPref & tokOutput %~ replace
-
-    -- FIXME: S3 ListObjects special case
-    replace "NextMarker || Contents[-1].Key" =
-        "fmap (toText . _oouKey) . listToMaybe $ _looContents"
-    replace x = rsPref x
+    token t = t & tokInput %~ rqPref & tokOutput %~ rsPref
 
     rqPref = pref (opRequest  . rqShape)
     rsPref = pref (opResponse . rsShape)
@@ -267,7 +262,7 @@ typeof rq svc s = Ann req (defaults s) (monoids s) typ
     n   = s ^. cmnName
     ann = _anType . typeof rq svc
 
-    req = bdy || s ^. cmnRequired
+    req = s ^. cmnRequired || bdy
     swt = n `elem` switches
     bdy = body s
 
@@ -352,7 +347,7 @@ serviceTypes svc@Service{..} = sort
     . Map.elems
     . (`execState` mempty)
     . mapM uniq
-    . map (shapeType True svc . snd)
+    . map (shapeType False svc . snd)
     . concatMap opfields
     $ _svcOperations
   where

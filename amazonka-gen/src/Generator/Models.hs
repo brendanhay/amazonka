@@ -63,7 +63,7 @@ fromPath o d f = do
     may = bool (const Nothing) Just
 
     override :: MonadIO m => Bool -> (String -> m ())
-    override = bool (say "Skipping Override") (say "Located Override")
+    override = bool (say "No Override") (say "Located Override")
 
 
 

@@ -28,11 +28,14 @@ def main():
 
     parser.add_argument('--services', required=True)
     parser.add_argument('--destination', required=True)
+    parser.add_argument('--overrides', required=True)
     parser.add_argument('--script', required=True)
 
     args         = parser.parse_args()
     services_dir = args.services
     dest_dir     = args.destination
+    override_ext = '.extra.json'
+    override_dir = args.overrides
     build_script = os.path.abspath(args.script)
 
     assert os.path.isdir(services_dir)
@@ -49,7 +52,6 @@ def main():
             continue
 
         if filename.startswith('_') and filename.endswith('.json'):
-            # Copy it unchanged to the destination directory.
             dest = os.path.join(services_dir, filename)
             print("Copying '%s' to '%s'" % (service_filename, dest))
 
@@ -59,10 +61,18 @@ def main():
                 pass
 
         elif filename.endswith('.json') and filename.count('.') == 1:
-            build = '%s %s' % (build_script, service_filename)
-            print("Running command: %s" % build)
+            (extra_name, ext) = os.path.splitext(filename)
+            extra_file        = os.path.join(override_dir, extra_name + override_ext)
+
+            enhance = ''
+
+            if os.path.isfile(extra_file):
+                enhance = '--enhancements-file %s' % extra_file
+
+            build = '%s %s %s' % (build_script, service_filename, enhance)
 
             try:
+                print("Running command: %s" % build)
                 model = check_output(build, shell=True).decode('utf-8')
             except Exception:
                 continue

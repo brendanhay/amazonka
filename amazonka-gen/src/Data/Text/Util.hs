@@ -18,11 +18,11 @@ import           Data.Monoid
 import           Data.Text   (Text)
 import qualified Data.Text   as Text
 
+prefixof :: Text -> Text
+prefixof = Text.cons '_' . prefix
+
 prefix :: Text -> Text
 prefix = Text.toLower . Text.filter isUpper
-
-prefixof :: Text -> Text
-prefixof = ("_" <>) . prefix
 
 indent :: Int -> Text -> Text
 indent n = Text.intercalate "\n"

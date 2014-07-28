@@ -235,7 +235,10 @@ fields rq svc s = case s of
                 else fld
 
 prefixed :: Shape -> Text -> Text
-prefixed p = mappend (p ^. cmnPrefix)
+prefixed p t = (p ^. cmnPrefix) <> f (uncons t)
+  where
+    f Nothing        = t
+    f (Just (x, xs)) = toUpper x `Text.cons` xs
 
 shapeType :: Bool -> Service -> Shape -> Type
 shapeType rq svc s = Type s (typeof rq svc s) (ctorof s) (fields rq svc s)
@@ -262,7 +265,7 @@ typeof rq svc s = Ann req (defaults s) (monoids s) typ
     n   = s ^. cmnName
     ann = _anType . typeof rq svc
 
-    req = s ^. cmnRequired || bdy
+    req = bdy || s ^. cmnRequired
     swt = n `elem` switches
     bdy = body s
 
@@ -300,12 +303,12 @@ ctorof :: Shape -> Ctor
 ctorof s =
     case s of
         SStruct Struct{..}
-            | Map.size _sctFields == 1   -> CNewtype
-            | Map.null _sctFields        -> CNullary
+            | Map.size _sctFields == 1       -> CNewtype
+            | Map.null _sctFields            -> CNullary
         SSum{}
             | (s ^. cmnName) `elem` switches -> CSwitch
-            | otherwise                  -> CSum
-        _                                -> CData
+            | otherwise                      -> CSum
+        _                                    -> CData
 
 defaults :: Shape -> Bool
 defaults s =
@@ -347,7 +350,7 @@ serviceTypes svc@Service{..} = sort
     . Map.elems
     . (`execState` mempty)
     . mapM uniq
-    . map (shapeType False svc . snd)
+    . map (shapeType True svc . snd)
     . concatMap opfields
     $ _svcOperations
   where
@@ -381,19 +384,28 @@ serviceTypes svc@Service{..} = sort
         g (_, v)         = ("Disabled", v)
 
 serviceError :: Abbrev -> [Operation] -> Error
-serviceError a os = Error (unAbbrev a <> "Error") ss ts
+serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
   where
-    ts = Map.fromList $ map (\s -> (s ^. cmnName, shapeType True svc s)) ss
+    ts = Map.fromList
+         $ map (bimap (view cmnName) custom . join (,)) cs
+        ++ map (bimap (view cmnName) (shapeType True svc) . join (,)) es
 
-    ss = except "Serializer" "String"
-       : except "Client" "HttpException"
-       : except "Service" "String"
-       : nub (concatMap _opErrors os)
+    cs = [ except "Serializer" "String"
+         , except "Client"     "HttpException"
+         , except "Service"    "String"
+         ]
 
-    except s t = SStruct $ Struct (Map.fromList [("", field)]) ctor
+    es = nub (concatMap _opErrors os)
+
+    custom s = Type s (typeof True svc s) CError (fields True svc s)
+
+    except k v = SStruct (Struct (Map.fromList [("", field)]) ctor)
       where
-        field = SStruct . Struct mempty $ def & cmnName .~ t & cmnRequired .~ True
-        ctor  = def & cmnName .~ (unAbbrev a <> s)
+        field = SStruct . Struct mempty $ def
+            & cmnName .~ v
+            & cmnRequired .~ True
+
+        ctor = def & cmnName .~ (unAbbrev a <> k)
 
     svc = Service
         { _svcName             = a

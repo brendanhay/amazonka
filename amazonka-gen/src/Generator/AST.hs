@@ -41,7 +41,12 @@ instance Default Abbrev where
     def = Abbrev "AWS"
 
 abbrev :: Text -> Abbrev
-abbrev = Abbrev . mconcat . Text.words . strip "AWS" . strip "Amazon"
+abbrev = Abbrev
+    . mconcat
+    . Text.words
+    . strip "AWS"
+    . strip "Amazon"
+    . Text.replace "/" ""
 
 newtype NS = NS { unNS :: [Text] }
     deriving (Eq, Ord, Show, Generic)
@@ -298,6 +303,7 @@ data Ctor
     | CNullary
     | CNewtype
     | CData
+    | CError
       deriving (Eq, Ord, Show, Generic)
 
 data Type = Type

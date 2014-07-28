@@ -8,13 +8,7 @@ instance AWSService {{ scope.name }} where
     data Er {{ scope.name }} = {{ scope.error.name }}
     {% else %}
     data Er {{ scope.name }}
-      {% for ctor in scope.error.ctors %}
-        {% if ctor.first %}
-        = {{ ctor.key }} {% include "error.ede" with ctor.value.fields %}
-        {% else %}
-        | {{ ctor.key }} {% include "error.ede" with ctor.value.fields %}
-        {% endif %}
-      {% endfor %}
+      {% include "error-sum.ede" with scope.error %}
     {% endif %}
 
     service = Service

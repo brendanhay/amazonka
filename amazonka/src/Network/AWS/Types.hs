@@ -214,6 +214,9 @@ debug l =
         None    -> const (return ())
         Debug f -> liftBase . f
 
+-- FIXME: Error, Endpoint, and Region are all ambiguous
+-- Maybe Service too?
+
 data Endpoint
     = Global
     | Regional

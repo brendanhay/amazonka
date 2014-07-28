@@ -1,2 +1,0 @@
-{% for field in scope -%} {{ field.value.type }} {% endfor %}
-

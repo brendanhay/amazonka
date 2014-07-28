@@ -58,7 +58,7 @@ library
 
   {% endfor %}
   {% for service in versions %}
-        -- * {{ service.value.name }} Version {{ service.value.version }}
+        -- * {{ service.value.name }} {{ service.value.version }}
     {% for module in service.value.modules %}
         , {{ module.value }}
     {% endfor %}

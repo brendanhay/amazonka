@@ -79,7 +79,7 @@ instance FromJSON JSONV where
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
         n   <- o .:  "service_full_name"
-        a   <- o .:  "service_abbreviation" .!= abbrev n
+        a   <- o .:? "service_abbreviation" .!= abbrev n
         rv  <- o .:  "api_version"
         t   <- o .:! "type"
         ops <- o .:  "operations"

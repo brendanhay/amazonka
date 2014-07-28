@@ -127,7 +127,7 @@ filters :: HashMap Text Fun
 filters = EDE.defaultFilters <> Map.fromList fs
   where
     fs = funN "pad"    pad         [4, 8]
-      ++ funN "indent" indent      [4, 6, 8]
+      ++ funN "indent" indent      [4, 6, 8, 10]
       ++ funN "wrap"   (wrap "")   [66, 76, 80]
       ++ funN "above"  (wrap "| ") [66, 76]
       ++ funN "below"  (wrap "^ ") [66, 76]

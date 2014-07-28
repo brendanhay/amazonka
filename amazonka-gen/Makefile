@@ -47,7 +47,7 @@ JSON := \
  $(BOTO)/support \
  $(BOTO)/swf
 
-MODELS ?= $(RESTS3)
+MODELS ?= $(BOTO)/autoscaling
 
 .PHONY: gen
 

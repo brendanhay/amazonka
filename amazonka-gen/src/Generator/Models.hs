@@ -17,7 +17,7 @@ module Generator.Models
 
 import Control.Applicative
 import Control.Error
-import Control.Monad
+import Control.Monad.IO.Class
 import Data.List
 import Data.Ord
 import Generator.Log
@@ -44,26 +44,26 @@ models n o xs = concat . fmap (take n . reverse . sort) <$> mapM model xs
 
 fromPath :: FilePath -> FilePath -> String -> Script Model
 fromPath o d f = do
-    let file   = d </> f
-        global = o </> takeBaseName d <.> ".override.json"
-        local  = o </> takeBaseName d </> replaceExtension f ".override.json"
-
-    let exists True  = Just
-        exists False = const Nothing
-
-    p <- scriptIO $ (,,)
+    (p, g, l) <- scriptIO $ (,,)
         <$> doesFileExist file
         <*> doesFileExist global
         <*> doesFileExist local
 
-    case p of
-        (False, _, _) -> left ("Unable to locate: " ++ file)
-        (_,     g, l) -> do
-            say "Located Model" file
+    bool (left ("Unable to locate model: " ++ file))
+         (do say "Located Model" file
+             override g global
+             override l local
+             right $ Model file (dropExtension f) (may g global) (may l local))
+         p
+  where
+    file   = d </> f
+    global = o </> takeBaseName d <.> ".override.json"
+    local  = o </> takeBaseName d </> replaceExtension f ".override.json"
 
-            when g (say "Located Override" global)
-            when l (say "Located Override" local)
+    may = bool (const Nothing) Just
 
-            return $
-                Model file (dropExtension f) (exists g global) (exists l local)
+    override :: MonadIO m => Bool -> (String -> m ())
+    override = bool (say "Skipping Override") (say "Located Override")
+
+
 

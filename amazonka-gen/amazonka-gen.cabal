@@ -36,4 +36,5 @@ executable amazonka-gen
         , optparse-applicative == 0.8.*
         , semigroups
         , text
+        , transformers
         , unordered-containers

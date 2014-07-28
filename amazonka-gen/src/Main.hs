@@ -24,29 +24,36 @@ import Options.Applicative
 import System.Directory
 
 data Options = Options
-    { optDir    :: FilePath
-    , optModels :: [FilePath]
-    , optMax    :: Int
+    { optDir      :: FilePath
+    , optOverride :: FilePath
+    , optModels   :: [FilePath]
+    , optVersions :: Int
     } deriving (Show)
 
 options :: Parser Options
 options = Options
     <$> strOption
-         ( long "dir"
+         ( long "output"
         <> metavar "DIR"
         <> help "Directory to place the generated library. [required]"
          )
 
+    <*> strOption
+         ( long "override"
+        <> metavar "DIR"
+        <> help "Directory containing model overrides. [required]"
+         )
+
     <*> some (strOption
          ( long "model"
-        <> metavar "DIR"
-        <> help "Path to a botocore JSON model directory. [required]"
+        <> metavar "PATH"
+        <> help "Directory containing a service's models. [required]"
          ))
 
     <*> option
-         ( long "max"
+         ( long "versions"
         <> metavar "INT"
-        <> help "Maximum number of botocore JSON models to load. [required]"
+        <> help "Maximum number of model versions to load. [required]"
          )
 
 main :: IO ()
@@ -58,7 +65,7 @@ main = do
     createDirectoryIfMissing True optDir
 
     runScript $ do
-        ms <- models optMax optModels
+        ms <- models optVersions optOverride optModels
         ts <- getTemplates
         ss <- mapM parseModel ms
 

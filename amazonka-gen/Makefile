@@ -1,76 +1,63 @@
 SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
-BOTO     := vendor/botocore
-DEPS     := $(BOTO) vendor/ede
-SERVICES := $(BOTO)/services
-DEST     := model/gen
-OVERRIDE := model/extra
+DEPS     := vendor/botocore vendor/ede
+BOTO     := vendor/botocore/botocore/data/aws
 GEN      := ../amazonka
 VERSIONS := 1
 
-RESTS3 := \
- $(DEST)/s3
+RESTS3 := $(BOTO)/s3
 
 RESTXML := \
- $(DEST)/cloudfront \
- $(DEST)/route53
+ $(BOTO)/cloudfront \
+ $(BOTO)/route53
 
 RESTJSON := \
- $(DEST)/elastictranscoder
+ $(BOTO)/elastictranscoder
 
 QUERY := \
- $(DEST)/autoscaling \
- $(DEST)/cloudformation \
- $(DEST)/cloudsearch \
- $(DEST)/cloudwatch \
- $(DEST)/ec2 \
- $(DEST)/elasticache \
- $(DEST)/elasticbeanstalk \
- $(DEST)/elb \
- $(DEST)/iam \
- $(DEST)/importexport \
- $(DEST)/rds \
- $(DEST)/redshift \
- $(DEST)/sdb \
- $(DEST)/ses \
- $(DEST)/sns \
- $(DEST)/sqs \
- $(DEST)/sts
+ $(BOTO)/autoscaling \
+ $(BOTO)/cloudformation \
+ $(BOTO)/cloudsearch \
+ $(BOTO)/cloudwatch \
+ $(BOTO)/ec2 \
+ $(BOTO)/elasticache \
+ $(BOTO)/elasticbeanstalk \
+ $(BOTO)/elb \
+ $(BOTO)/iam \
+ $(BOTO)/importexport \
+ $(BOTO)/rds \
+ $(BOTO)/redshift \
+ $(BOTO)/sdb \
+ $(BOTO)/ses \
+ $(BOTO)/sns \
+ $(BOTO)/sqs \
+ $(BOTO)/sts
 
 JSON := \
- $(DEST)/cloudtrail \
- $(DEST)/datapipeline \
- $(DEST)/directconnect \
- $(DEST)/dynamodb \
- $(DEST)/emr \
- $(DEST)/kinesis \
- $(DEST)/opsworks \
- $(DEST)/storagegateway \
- $(DEST)/support \
- $(DEST)/swf
+ $(BOTO)/cloudtrail \
+ $(BOTO)/datapipeline \
+ $(BOTO)/directconnect \
+ $(BOTO)/dynamodb \
+ $(BOTO)/emr \
+ $(BOTO)/kinesis \
+ $(BOTO)/opsworks \
+ $(BOTO)/storagegateway \
+ $(BOTO)/support \
+ $(BOTO)/swf
 
-MODELS ?= $(QUERY)
+MODELS ?= $(BOTO)/s3
 
-.PHONY: gen model
+.PHONY: gen
 
 gen:
 	rm -rf $(GEN)/gen && make $(GEN)/gen
 
 $(GEN)/gen: build
 	dist/build/amazonka-gen/amazonka-gen \
-	 --dir=$(realpath $(GEN)) \
-	 --max=$(VERSIONS) \
+	 --output=$(realpath $(GEN)) \
+	 --override=$(realpath ./model) \
+	 --versions=$(VERSIONS) \
 	 $(addprefix --model=,$(realpath $(MODELS)))
-
-model:
-	rm -rf $(DEST) && make $(DEST)
-
-$(DEST):
-	script/build \
-	 --services $(SERVICES) \
-	 --destination $(DEST) \
-	 --overrides $(OVERRIDE) \
-	 --script script/model
 
 build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
@@ -80,8 +67,7 @@ install: add-sources
 
 clean:
 	cabal clean
-	rm -rf $(GEN)/gen
-	rm -rf $(DEST)
+	rm -rf $(GEN)/gen cabal.sandbox.config .cabal-sandbox vendor
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/ede

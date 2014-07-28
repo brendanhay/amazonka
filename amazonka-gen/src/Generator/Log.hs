@@ -14,13 +14,14 @@ module Generator.Log
     ( say
     ) where
 
+import           Control.Monad.IO.Class
 import           Data.Monoid
-import           Data.Text    (Text)
-import qualified Data.Text    as Text
-import qualified Data.Text.IO as Text
+import           Data.Text              (Text)
+import qualified Data.Text              as Text
+import qualified Data.Text.IO           as Text
 
-say :: Text -> String -> IO ()
-say lbl msg = Text.putStrLn $ title lbl <> Text.pack msg
+say :: MonadIO m => Text -> String -> m ()
+say lbl msg = liftIO . Text.putStrLn $ title lbl <> Text.pack msg
 
 title :: Text -> Text
 title x = "[ " <> y <> "] "

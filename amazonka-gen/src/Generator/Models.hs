@@ -10,7 +10,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Generator.Models where
+module Generator.Models
+    ( Model (..)
+    , models
+    ) where
 
 import Control.Applicative
 import Control.Error
@@ -24,21 +27,43 @@ import System.FilePath
 data Model = Model
     { modPath    :: FilePath
     , modVersion :: String
+    , modGlobal  :: Maybe FilePath
+    , modLocal   :: Maybe FilePath
     } deriving (Show, Eq)
 
 instance Ord Model where
     compare = comparing modVersion
 
-modelFromPath :: FilePath -> String -> Model
-modelFromPath d f = Model (d </> f) (fst $ break (== '.') f)
-
-models :: Int -> [FilePath] -> Script [Model]
-models n xs = concat . fmap (take n . reverse . sort) <$> mapM model xs
+models :: Int -> FilePath -> [FilePath] -> Script [Model]
+models n o xs = concat . fmap (take n . reverse . sort) <$> mapM model xs
   where
-    model d = scriptIO $ do
-        xs <- json <$> getDirectoryContents d
-        forM xs $ \f ->
-            say "Locate Model" (d </> f)
-                >> return (modelFromPath d f)
+    model d = (json <$> scriptIO (getDirectoryContents d))
+        >>= mapM (fromPath o d)
 
     json = filter (isSuffixOf ".json")
+
+fromPath :: FilePath -> FilePath -> String -> Script Model
+fromPath o d f = do
+    let file   = d </> f
+        global = o </> takeBaseName d <.> ".override.json"
+        local  = o </> takeBaseName d </> replaceExtension f ".override.json"
+
+    let exists True  = Just
+        exists False = const Nothing
+
+    p <- scriptIO $ (,,)
+        <$> doesFileExist file
+        <*> doesFileExist global
+        <*> doesFileExist local
+
+    case p of
+        (False, _, _) -> left ("Unable to locate: " ++ file)
+        (_,     g, l) -> do
+            say "Located Model" file
+
+            when g (say "Located Override" global)
+            when l (say "Located Override" local)
+
+            return $
+                Model file (dropExtension f) (exists g global) (exists l local)
+

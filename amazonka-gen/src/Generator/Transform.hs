@@ -170,9 +170,9 @@ pagination o p =
   where
     token t = t & tokInput %~ rqPref & tokOutput %~ replace
 
-    -- S3 ListObjects
+    -- FIXME: S3 ListObjects special case
     replace "NextMarker || Contents[-1].Key" =
-        "fmap (toText . _oKey) . listToMaybe $ _looContents"
+        "fmap (toText . _oouKey) . listToMaybe $ _looContents"
     replace x = rsPref x
 
     rqPref = pref (opRequest  . rqShape)

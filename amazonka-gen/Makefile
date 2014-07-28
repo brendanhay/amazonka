@@ -6,8 +6,6 @@ BOTO     := vendor/botocore/botocore/data/aws
 GEN      := ../amazonka
 VERSIONS := 1
 
-MODELS := $(RESTXML) $(RESTS3) $(JSON) $(QUERY)
-
 RESTS3 := \
  $(BOTO)/s3
 
@@ -48,6 +46,8 @@ JSON := \
  $(BOTO)/storagegateway \
  $(BOTO)/support \
  $(BOTO)/swf
+
+MODELS ?= $(RESTS3)
 
 .PHONY: gen
 

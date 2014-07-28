@@ -46,13 +46,14 @@ uploadPart :: BucketName -- ^ '_uprBucket'
            -> Text -- ^ '_uprUploadId'
            -> ObjectKey -- ^ '_uprKey'
            -> Integer -- ^ '_uprPartNumber'
+           -> RqBody -- ^ '_uprBody'
            -> UploadPart
-uploadPart p1 p2 p3 p4 = UploadPart
+uploadPart p1 p2 p3 p4 p5 = UploadPart
     { _uprBucket = p1
     , _uprUploadId = p2
     , _uprKey = p3
     , _uprPartNumber = p4
-    , _uprBody = Nothing
+    , _uprBody = p5
     , _uprContentLength = Nothing
     , _uprContentMD5 = Nothing
     , _uprSSECustomerAlgorithm = Nothing

@@ -132,12 +132,11 @@ request svc o rq = rq
     req = filter (view cmnRequired) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
 
-    fs  = sort . fields True svc $ rq ^. rqShape
+    fs  = map upd . sort . fields True svc $ rq ^. rqShape
 
-    -- FIXME: required for s3 xml bodies, not being marked as required?
-    -- erroneous for other serivces
-    -- upd f | f ^. cmnLocation == LBody = f & cmnRequired .~ True
-    --       | otherwise                 = f
+    upd f | f ^. cmnLocation == LBody
+          , f ^. cmnStreaming         = f & cmnRequired .~ True
+          | otherwise                 = f
 
 http :: Shape -> HTTP -> HTTP
 http p = hPath %~ map f

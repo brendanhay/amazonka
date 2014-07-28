@@ -39,11 +39,12 @@ import           Prelude              hiding (head)
 -- | Minimum specification for a 'PutObject' request.
 putObject :: BucketName -- ^ '_porBucket'
           -> ObjectKey -- ^ '_porKey'
+          -> RqBody -- ^ '_porBody'
           -> PutObject
-putObject p1 p2 = PutObject
+putObject p1 p2 p3 = PutObject
     { _porBucket = p1
     , _porKey = p2
-    , _porBody = Nothing
+    , _porBody = p3
     , _porCacheControl = Nothing
     , _porContentDisposition = Nothing
     , _porContentEncoding = Nothing

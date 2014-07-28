@@ -216,7 +216,7 @@ instance FromJSON Pagination where
 
             More <$> o .: "more_results" <*> pure (zipWith Token xs ys)
           where
-            f k = (:[]) <$> o .: k
+            f k = o .: k <|> (:[]) <$> o .: k
 
         next o = Next
             <$> o .: "result_key"

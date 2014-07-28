@@ -1,45 +1,53 @@
-SHELL := /usr/bin/env bash
-FLAGS := -j --disable-documentation --disable-library-coverage
-BIN   := dist/build/amazonka-gen/amazonka-gen
-DEPS  := vendor/botocore vendor/ede
-BOTO  := vendor/botocore/botocore/data/aws
-GEN   := ../amazonka
-
+SHELL    := /usr/bin/env bash
+FLAGS    := -j --disable-documentation --disable-library-coverage
+BIN      := dist/build/amazonka-gen/amazonka-gen
+DEPS     := vendor/botocore vendor/ede
+BOTO     := vendor/botocore/botocore/data/aws
+GEN      := ../amazonka
 VERSIONS := 1
-MODELS   := $(BOTO)/ec2
 
-# MODELS := \
- # $(BOTO)/autoscaling \
- # $(BOTO)/cloudformation \
- # $(BOTO)/cloudfront \
- # $(BOTO)/cloudsearch \
- # $(BOTO)/cloudtrail \
- # $(BOTO)/cloudwatch \
- # $(BOTO)/datapipeline \
- # $(BOTO)/directconnect \
- # $(BOTO)/dynamodb \
- # $(BOTO)/ec2 \
- # $(BOTO)/elasticache \
- # $(BOTO)/elasticbeanstalk \
- # $(BOTO)/elastictranscoder \
- # $(BOTO)/elb \
- # $(BOTO)/emr \
- # $(BOTO)/iam \
- # $(BOTO)/importexport \
- # $(BOTO)/kinesis \
- # $(BOTO)/opsworks \
- # $(BOTO)/rds \
- # $(BOTO)/redshift \
- # $(BOTO)/route53 \
- # $(BOTO)/s3 \
- # $(BOTO)/sdb \
- # $(BOTO)/ses \
- # $(BOTO)/sns \
- # $(BOTO)/sqs \
- # $(BOTO)/storagegateway \
- # $(BOTO)/sts \
- # $(BOTO)/support \
- # $(BOTO)/swf
+MODELS := $(RESTXML) $(RESTS3) $(JSON) $(QUERY)
+
+RESTS3 := \
+ $(BOTO)/s3
+
+RESTXML := \
+ $(BOTO)/cloudfront \
+ $(BOTO)/route53
+
+RESTJSON := \
+ $(BOTO)/elastictranscoder
+
+QUERY := \
+ $(BOTO)/autoscaling \
+ $(BOTO)/cloudformation \
+ $(BOTO)/cloudsearch \
+ $(BOTO)/cloudwatch \
+ $(BOTO)/ec2 \
+ $(BOTO)/elasticache \
+ $(BOTO)/elasticbeanstalk \
+ $(BOTO)/elb \
+ $(BOTO)/iam \
+ $(BOTO)/importexport \
+ $(BOTO)/rds \
+ $(BOTO)/redshift \
+ $(BOTO)/sdb \
+ $(BOTO)/ses \
+ $(BOTO)/sns \
+ $(BOTO)/sqs \
+ $(BOTO)/sts
+
+JSON := \
+ $(BOTO)/cloudtrail \
+ $(BOTO)/datapipeline \
+ $(BOTO)/directconnect \
+ $(BOTO)/dynamodb \
+ $(BOTO)/emr \
+ $(BOTO)/kinesis \
+ $(BOTO)/opsworks \
+ $(BOTO)/storagegateway \
+ $(BOTO)/support \
+ $(BOTO)/swf
 
 .PHONY: gen
 

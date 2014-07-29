@@ -49,19 +49,35 @@ import           Network.HTTP.Types.Method
 parseModel :: Model -> Script Service
 parseModel Model{..} = do
     (s, g, l) <- (,,)
-        <$> load "Service" modPath
-        <*> (Traverse.sequence $ load "Override" <$> modGlobal)
-        <*> (Traverse.sequence $ load "Override" <$> modLocal)
-    return (s & svcOverrides .~ catMaybes [g, l])
+        <$> load "Service"  (Just modPath)
+        <*> load "Override" modGlobal
+        <*> load "Override" modLocal
+
+    -- First merge local, then global overrides.
+    let o = l <> g
+
+    os  <- overrides o
+    svc <- parse (o <> s)
+
+    return (svc & svcOverrides .~ os)
   where
-    load :: FromJSON a => Text -> FilePath -> Script a
-    load n f = do
+    load :: Text -> Maybe FilePath -> Script Object
+    load _ Nothing  = return mempty
+    load n (Just f) = do
         say ("Parse " <> n) f
         eitherDecode <$> scriptIO (LBS.readFile f) >>= hoistEither
 
-load all three json files as Objects,
-get any specific custom structures out (like "shapes")
-recursively merge them, then parse as a Service without any override type
+    parse :: FromJSON a => Object -> Script a
+    parse = hoistEither . parseEither parseJSON . Object
+
+    overrides :: Object -> Script [Shape]
+    overrides m =
+        case Map.lookup key m of
+            Nothing         -> return []
+            Just (Object o) -> parse o
+            _ -> left ("Failed to unwrap object from: " ++ Text.unpack key)
+
+    key = "shape_overrides"
 
 instance FromJSON Abbrev where
     parseJSON = withText "abbrev" (return . abbrev)
@@ -90,10 +106,6 @@ instance FromJSON JSONV where
     parseJSON (Number n) = return . JSONV . Text.pack $ show n
     parseJSON e          = fail $ "Unrecognised JSONV field: " ++ show e
 
-instance FromJSON Override where
-    parseJSON = withObject "override" $ \o -> Override
-        <$> o .:! "shapes"
-
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
         n   <- o .:  "service_full_name"
@@ -120,6 +132,7 @@ instance FromJSON Service where
             <*> o .:! "json_version"
             <*> o .:? "target_prefix"
             <*> pure ops
+            <*> pure def
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" (mapM parseJSON . Map.elems)

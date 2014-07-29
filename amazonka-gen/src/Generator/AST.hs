@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -29,14 +30,12 @@ import           Data.Text.Util
 import           GHC.Generics
 import           Network.HTTP.Types.Method
 
--- FIXME: switch sum type nested access to prisms
-
 newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Ord, Show, Generic)
 
 instance IsString Abbrev where
     fromString = abbrev . Text.pack
- 
+
 instance Default Abbrev where
     def = Abbrev "AWS"
 
@@ -184,9 +183,6 @@ data Struct = Struct
     , _sctCommon    :: Common
     } deriving (Eq, Show, Generic)
 
-instance HasCommon Struct where
-    common f x = (\y -> x { _sctCommon = y }) <$> f (_sctCommon x)
-
 data List = List
     { _lstItem      :: Shape
     , _lstFlattened :: Bool
@@ -195,25 +191,16 @@ data List = List
     , _lstCommon    :: Common
     } deriving (Eq, Show, Generic)
 
-instance HasCommon List where
-    common f x = (\y -> x { _lstCommon = y }) <$> f (_lstCommon x)
-
 data Map = Map
     { _mapKey       :: Shape
     , _mapValue     :: Shape
     , _mapCommon    :: Common
     } deriving (Eq, Show, Generic)
 
-instance HasCommon Map where
-    common f x = (\y -> x { _mapCommon = y }) <$> f (_mapCommon x)
-
 data Sum = Sum
     { _sumValues    :: HashMap Text Text
     , _sumCommon    :: Common
     } deriving (Eq, Show, Generic)
-
-instance HasCommon Sum where
-    common f x = (\y -> x { _sumCommon = y }) <$> f (_sumCommon x)
 
 data Prim = Prim
     { _prmType      :: Primitive
@@ -222,9 +209,6 @@ data Prim = Prim
     , _prmPattern   :: Maybe Text
     , _prmCommon    :: Common
     } deriving (Eq, Show, Generic)
-
-instance HasCommon Prim where
-    common f x = (\y -> x { _prmCommon = y }) <$> f (_prmCommon x)
 
 instance Default Prim where
     def = Prim def 0 0 Nothing def
@@ -253,14 +237,6 @@ data Shape
 instance Default Shape where
     def = SPrim def
 
-instance HasCommon Shape where
-    common f x = case x of
-        SStruct y -> SStruct <$> common f y
-        SList   y -> SList   <$> common f y
-        SMap    y -> SMap    <$> common f y
-        SSum    y -> SSum    <$> common f y
-        SPrim   y -> SPrim   <$> common f y
-
 instance Ord Shape where
     compare a b =
         case (a, b) of
@@ -280,21 +256,14 @@ data Ann = Ann
    , _anType      :: Text
    } deriving (Eq, Show, Generic)
 
-makeLenses ''Ann
-
 data Field = Field
     { _fldType     :: Ann
     , _fldPrefixed :: Text
     , _fldCommon   :: Common
     } deriving (Eq, Show)
 
-makeLenses ''Field
-
 instance Ord Field where
     compare = compare `on` _fldCommon
-
-instance HasCommon Field where
-    common = fldCommon
 
 data Ctor
     = CWitness
@@ -313,11 +282,6 @@ data Type = Type
     , _typFields :: [Field]
     } deriving (Show, Generic)
 
-makeLenses ''Type
-
-instance HasCommon Type where
-    common = typShape . common
-
 instance Eq Type where
     (==) = (==) `on` (view cmnName)
 
@@ -329,8 +293,6 @@ data Error = Error
     , _erShapes :: [Shape]
     , _erCtors  :: HashMap Text Type
     } deriving (Eq, Show, Generic)
-
-makeLenses ''Error
 
 data PathPart
     = PConst Text
@@ -347,8 +309,6 @@ data Token = Token
     , _tokOutput :: Text
     } deriving (Eq, Show, Generic)
 
-makeLenses ''Token
-
 data Pagination
     = More Text [Token]
     | Next Text Token
@@ -363,8 +323,6 @@ data HTTP = HTTP
 instance Default HTTP where
     def = HTTP GET [] []
 
-makeLenses ''HTTP
-
 data Request = Request
     { _rqName     :: Text
     , _rqDefault  :: Text
@@ -375,8 +333,6 @@ data Request = Request
     , _rqShape    :: Shape
     , _rqHttp     :: HTTP
     } deriving (Eq, Show, Generic)
-
-makeLenses ''Request
 
 data RespType
     = RHeaders
@@ -397,8 +353,6 @@ data Response = Response
     , _rsShape   :: Shape
     } deriving (Eq, Show, Generic)
 
-makeLenses ''Response
-
 data Operation = Operation
     { _opName             :: Text
     , _opService          :: Abbrev
@@ -414,8 +368,6 @@ data Operation = Operation
     , _opErrors           :: [Shape]
     , _opPagination       :: Maybe Pagination
     } deriving (Eq, Show, Generic)
-
-makeLenses ''Operation
 
 newtype Cabal = Cabal [Service]
     deriving (Show)
@@ -442,6 +394,7 @@ data Service = Service
     , _svcJsonVersion      :: JSONV
     , _svcTargetPrefix     :: Maybe Text
     , _svcOperations       :: [Operation]
+    , _svcOverrides        :: [Shape]
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -456,4 +409,73 @@ instance Ord Service where
         f :: Ord a => (Service -> a) -> Ordering
         f g = compare (Down $ g a) (Down $ g b)
 
+defaultService :: Abbrev -> Service
+defaultService a = Service
+    { _svcName             = a
+    , _svcFullName         = unAbbrev a
+    , _svcNamespace        = def
+    , _svcVersionNamespace = def
+    , _svcTypesNamespace   = def
+    , _svcLensNamespace    = def
+    , _svcVersion          = Version mempty
+    , _svcRawVersion       = mempty
+    , _svcType             = def
+    , _svcError            = Error (unAbbrev a) [] mempty
+    , _svcWrapped          = False
+    , _svcSignature        = def
+    , _svcDocumentation    = def
+    , _svcEndpointPrefix   = mempty
+    , _svcGlobalEndpoint   = def
+    , _svcXmlNamespace     = def
+    , _svcTimestamp        = def
+    , _svcChecksum         = def
+    , _svcJsonVersion      = def
+    , _svcTargetPrefix     = def
+    , _svcOperations       = []
+    , _svcOverrides        = []
+    }
+
+makeLenses ''Request
+makeLenses ''Ann
+makeLenses ''Field
+makeLenses ''Type
+makeLenses ''Error
+makeLenses ''Token
+makeLenses ''HTTP
+makeLenses ''Response
+makeLenses ''Operation
 makeLenses ''Service
+makeLenses ''Struct
+makeLenses ''List
+makeLenses ''Map
+makeLenses ''Sum
+makeLenses ''Prim
+
+instance HasCommon Shape where
+    common f x = case x of
+        SStruct y -> SStruct <$> common f y
+        SList   y -> SList   <$> common f y
+        SMap    y -> SMap    <$> common f y
+        SSum    y -> SSum    <$> common f y
+        SPrim   y -> SPrim   <$> common f y
+
+instance HasCommon Struct where
+    common f x = (\y -> x { _sctCommon = y }) <$> f (_sctCommon x)
+
+instance HasCommon List where
+    common f x = (\y -> x { _lstCommon = y }) <$> f (_lstCommon x)
+
+instance HasCommon Map where
+    common f x = (\y -> x { _mapCommon = y }) <$> f (_mapCommon x)
+
+instance HasCommon Sum where
+    common f x = (\y -> x { _sumCommon = y }) <$> f (_sumCommon x)
+
+instance HasCommon Prim where
+    common f x = (\y -> x { _prmCommon = y }) <$> f (_prmCommon x)
+
+instance HasCommon Field where
+    common = fldCommon
+
+instance HasCommon Type where
+    common = typShape . common

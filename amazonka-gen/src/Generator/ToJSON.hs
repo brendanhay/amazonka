@@ -76,9 +76,6 @@ instance ToJSON Cabal where
             , "modules" .= serviceNamespaces s
             ]
 
-instance ToJSON Override where
-    toJSON = const (Object mempty)
-
 instance ToJSON Service where
     toJSON s = Object (x <> y)
       where

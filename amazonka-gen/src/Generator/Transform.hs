@@ -400,6 +400,8 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
 
     custom s = Type s (typeof True svc s) CError (fields True svc s)
 
+    svc = defaultService a
+
     except k v = SStruct (Struct (Map.fromList [("", field)]) ctor)
       where
         field = SStruct . Struct mempty $ def
@@ -407,27 +409,3 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
             & cmnRequired .~ True
 
         ctor = def & cmnName .~ (unAbbrev a <> k)
-
-    svc = Service
-        { _svcName             = a
-        , _svcFullName         = unAbbrev a
-        , _svcNamespace        = def
-        , _svcVersionNamespace = def
-        , _svcTypesNamespace   = def
-        , _svcLensNamespace    = def
-        , _svcVersion          = Version mempty
-        , _svcRawVersion       = mempty
-        , _svcType             = def
-        , _svcError            = Error (unAbbrev a) [] mempty
-        , _svcWrapped          = False
-        , _svcSignature        = def
-        , _svcDocumentation    = def
-        , _svcEndpointPrefix   = mempty
-        , _svcGlobalEndpoint   = def
-        , _svcXmlNamespace     = def
-        , _svcTimestamp        = def
-        , _svcChecksum         = def
-        , _svcJsonVersion      = def
-        , _svcTargetPrefix     = def
-        , _svcOperations       = []
-        }

@@ -36,7 +36,7 @@ import Data.Typeable
 import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Signing.V4
-import Network.AWS.Types      hiding (Error, Region)
+import Network.AWS.Types      hiding (Error, Endpoint, Region)
 import Network.HTTP.Client    (HttpException)
 
 -- | Supported version (@2011-01-01@) of the

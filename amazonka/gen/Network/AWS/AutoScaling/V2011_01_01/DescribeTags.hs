@@ -38,7 +38,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Region, Error)
+import           Network.AWS.Types    hiding (Error, Endpoint, Region)
 import           Network.AWS.Request.Query
 import           Network.AWS.AutoScaling.V2011_01_01.Types
 import           Network.HTTP.Client  (RequestBody, Response)

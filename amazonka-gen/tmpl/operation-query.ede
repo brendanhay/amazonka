@@ -19,7 +19,7 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Region, Error)
+import           Network.AWS.Types    hiding (Error, Endpoint, Region)
 import           {{ request_namespace }}
 import           {{ types_namespace }}
 import           Network.HTTP.Client  (RequestBody, Response)

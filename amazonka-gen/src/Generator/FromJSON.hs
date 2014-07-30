@@ -44,6 +44,11 @@ import           Generator.Models
 import           Generator.Transform
 import           Network.HTTP.Types.Method
 
+-- FIXME: considering the pervasive-ness/requirements of having overrides
+-- maybe it should error if they don't exist, just global?
+
+-- FIXME: what is 'signing_name' in the ses json model?
+
 parseModel :: Model -> Script Service
 parseModel Model{..} = do
     (s, g, l) <- (,,)

@@ -45,7 +45,10 @@ JSON := \
  $(BOTO)/support \
  $(BOTO)/swf
 
-MODELS ?= $(BOTO)/autoscaling
+# cognito-identity
+# cognito-sync
+
+MODELS ?= $(QUERY)
 
 .PHONY: gen
 

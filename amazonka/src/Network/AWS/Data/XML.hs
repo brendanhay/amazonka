@@ -26,7 +26,7 @@ import qualified Data.ByteString            as BS
 import           Data.ByteString.Lazy.Char8 (ByteString)
 import           Data.Default
 import           Data.Foldable              (foldr', foldrM)
---import           Data.HashMap.Strict        (HashMap)
+import           Data.HashMap.Strict        (HashMap)
 import           Data.List.NonEmpty         (NonEmpty(..))
 import qualified Data.List.NonEmpty         as NonEmpty
 import           Data.Monoid
@@ -40,7 +40,8 @@ import           Text.XML
 import           Text.XML.Cursor
 import           Network.AWS.Data.Text
 
--- FIXME: rather than returning a string, return an exception?
+-- FIXME: rather than returning a string, return typed exceptions which can be
+-- rolled into the service serialisation errors branch.
 
 -- FIXME: Way to deal with unknowable XML root elements
 -- Some of the xmlnamespaces for root elements (S3: ie. ListVersionsResult)
@@ -161,10 +162,16 @@ instance FromXML Integer where
 instance FromXML Double where
     fromXML = const fromNodeContent
 
--- -- FIXME: is it possible to (nicely) implement HashMaps generically?
--- instance (FromXML k, FromXML v) => FromXML (HashMap k v) where
---     fromXMLRoot = fromRoot "HashMap"
---     fromXML     = undefined
+-- FIXME: is it possible to (nicely) implement HashMaps generically?
+-- IAM example:
+-- <SummaryMap>
+--   <entry>
+--     <key>Groups</key>
+--     <value>31</value>
+--   </entry>
+instance (FromXML k, FromXML v) => FromXML (HashMap k v) where
+    fromXMLRoot = fromRoot "HashMap"
+    fromXML     = undefined
 
 instance FromXML a => FromXML [a] where
     fromXML o = sequence . f (xmlListElem $ untag o)

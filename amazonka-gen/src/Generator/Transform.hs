@@ -51,6 +51,8 @@ import           Text.EDE.Filters
 -- FIXME: Add a 3rd pagination type, nested, which is the result of parsing
 -- for the 'last element [-1]' array indicies
 
+-- FIXME: Deal with result_wrapped=true in XML responses
+
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
   where

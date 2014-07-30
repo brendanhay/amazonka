@@ -30,7 +30,6 @@ import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.Default
 import qualified Data.HashMap.Strict        as Map
-import           Data.Maybe
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -38,7 +37,6 @@ import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
 import           Data.Text.Util
-import qualified Data.Traversable           as Traverse
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Log
@@ -57,7 +55,7 @@ parseModel Model{..} = do
     let o = l <> g
 
     os  <- overrides o
-    svc <- parse (o <> s)
+    svc <- parse' (o <> s)
 
     return (svc & svcOverrides .~ os)
   where
@@ -67,20 +65,20 @@ parseModel Model{..} = do
         say ("Parse " <> n) f
         eitherDecode <$> scriptIO (LBS.readFile f) >>= hoistEither
 
-    parse :: FromJSON a => Object -> Script a
-    parse = hoistEither . parseEither parseJSON . Object
-
     overrides :: Object -> Script [Shape]
     overrides m =
         case Map.lookup key m of
             Nothing         -> return []
-            Just (Object o) -> parse o
+            Just (Object o) -> parse' o
             _ -> left ("Failed to unwrap object from: " ++ Text.unpack key)
 
     key = "shape_overrides"
 
+    parse' :: FromJSON a => Object -> Script a
+    parse' = hoistEither . parseEither parseJSON . Object
+
 instance FromJSON Abbrev where
-    parseJSON = withText "abbrev" (return . abbrev)
+    parseJSON = withText "abbrev" (return . Abbrev)
 
 instance FromJSON Doc where
     parseJSON = withText "documentation" (return . documentation)
@@ -95,11 +93,7 @@ instance FromJSON ServiceType where
     parseJSON = fromCtor (recase Camel Hyphen)
 
 instance FromJSON Signature where
-    parseJSON = withText "signature" $ \t ->
-        return $ case t of
-            "v3"      -> V3
-            "v3https" -> V3
-            _         -> V4
+    parseJSON = fromCtor lowered
 
 instance FromJSON JSONV where
     parseJSON (String t) = return (JSONV t)
@@ -108,11 +102,11 @@ instance FromJSON JSONV where
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
-        n   <- o .:  "service_full_name"
-        a   <- o .:? "service_abbreviation" .!= abbrev n
-        rv  <- o .:  "api_version"
-        t   <- o .:! "type"
-        ops <- o .:  "operations"
+        n   <- o .: "service_full_name"
+        a   <- o .: "service_abbreviation"
+        rv  <- o .: "api_version"
+        t   <- o .: "type"
+        ops <- o .: "operations"
 
         let ver = version rv
             vNS = namespace a ver
@@ -123,7 +117,7 @@ instance FromJSON Service where
         Service a n (rootNS vNS) vNS (typeNS vNS) (lensNS vNS) ver rv typ sEr
             <$> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
-            <*> o .:! "documentation"
+            <*> o .:  "documentation"
             <*> o .:  "endpoint_prefix"
             <*> o .:? "global_endpoint"
             <*> o .:? "xmlnamespace"

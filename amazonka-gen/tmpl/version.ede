@@ -1,5 +1,6 @@
 {% include "_include/license.ede" with version_namespace %}
 
+{{ documentation | above76 }}
 module {{ version_namespace }}
 {% for module in modules %}
   {% if module.first %}

@@ -45,7 +45,7 @@ JSON := \
  $(BOTO)/support \
  $(BOTO)/swf
 
-MODELS ?= $(BOTO)/s3
+MODELS ?= $(BOTO)/ec2 $(BOTO)/s3
 
 .PHONY: gen
 

@@ -34,18 +34,18 @@ newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Ord, Show, Generic)
 
 instance IsString Abbrev where
-    fromString = abbrev . Text.pack
+    fromString = Abbrev . Text.pack
 
 instance Default Abbrev where
     def = Abbrev "AWS"
 
-abbrev :: Text -> Abbrev
-abbrev = Abbrev
-    . mconcat
-    . Text.words
-    . strip "AWS"
-    . strip "Amazon"
-    . Text.replace "/" ""
+-- abbrev :: Text -> Abbrev
+-- abbrev = Abbrev
+--     . mconcat
+--     . Text.words
+--     . strip "AWS"
+--     . strip "Amazon"
+--     . Text.replace "/" ""
 
 newtype NS = NS { unNS :: [Text] }
     deriving (Eq, Ord, Show, Generic)

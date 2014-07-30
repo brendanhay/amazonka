@@ -26,7 +26,6 @@ import           Data.Ord
 import           Data.String
 import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
-import           Data.Text.Util
 import           GHC.Generics
 import           Network.HTTP.Types.Method
 

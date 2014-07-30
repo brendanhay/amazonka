@@ -29,9 +29,6 @@ library
           Control.Monad.Trans.AWS
         , Network.AWS
         , Network.AWS.Auth
-        , Network.AWS.EC2.Metadata
-        , Network.AWS.Signing.Common
-        , Network.AWS.Types
         , Network.AWS.Data
         , Network.AWS.Data.Body
         , Network.AWS.Data.ByteString
@@ -42,13 +39,18 @@ library
         , Network.AWS.Data.Time
         , Network.AWS.Data.URI
         , Network.AWS.Data.XML
+        , Network.AWS.EC2.Metadata
         , Network.AWS.Request.Common
         , Network.AWS.Request.JSON
         , Network.AWS.Request.Query
         , Network.AWS.Request.RestS3
         , Network.AWS.Request.RestXML
         , Network.AWS.Response
+        , Network.AWS.Signing.Common
+        , Network.AWS.Signing.V2
+        , Network.AWS.Signing.V3
         , Network.AWS.Signing.V4
+        , Network.AWS.Types
 
   {% for service in modules %}
         , {{ service.value.current }}

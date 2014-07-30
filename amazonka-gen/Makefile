@@ -48,7 +48,7 @@ JSON := \
 # cognito-identity
 # cognito-sync
 
-MODELS ?= $(QUERY)
+MODELS ?= $(BOTO)/autoscaling $(BOTO)/elb $(BOTO)/iam
 
 .PHONY: gen
 

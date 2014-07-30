@@ -40,6 +40,7 @@ library
         , Network.AWS.Data.URI
         , Network.AWS.Data.XML
         , Network.AWS.EC2.Metadata
+        , Network.AWS.Prelude
         , Network.AWS.Request.Common
         , Network.AWS.Request.JSON
         , Network.AWS.Request.Query

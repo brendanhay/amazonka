@@ -1,10 +1,9 @@
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.V2011_01_01.CreateAutoScalingGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,21 +29,9 @@
 -- 8d798a29-f083-11e1-bdfb-cb223EXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.CreateAutoScalingGroup where
 
-import           Control.Applicative
-import           Data.ByteString      (ByteString)
-import           Data.Default
-import           Data.HashMap.Strict  (HashMap)
-import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           GHC.Generics
-import           Network.AWS.Data
-import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error, Endpoint, Region)
-import           Network.AWS.Request.Query
-import           Network.AWS.AutoScaling.V2011_01_01.Types
-import           Network.HTTP.Client  (RequestBody, Response)
-import           Prelude              hiding (head)
+import Network.AWS.Request.Query
+import Network.AWS.AutoScaling.V2011_01_01.Types
+import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateAutoScalingGroup' request.
 createAutoScalingGroup :: Integer -- ^ '_casgtMaxSize'

@@ -74,3 +74,9 @@ stripTags t
         case Text.head t of
             '<' -> stripTags . Text.drop 1 . Text.dropWhile (/= '>') $ Text.tail t
             _   -> Text.cons (Text.head t) . stripTags $ Text.tail t
+
+upperFirst :: Text -> Text
+upperFirst t = f (Text.uncons t)
+  where
+    f Nothing        = t
+    f (Just (x, xs)) = toUpper x `Text.cons` xs

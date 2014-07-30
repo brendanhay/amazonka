@@ -1,10 +1,9 @@
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.V2010_05_08.GetSAMLProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,21 +23,9 @@
 -- Pd9fexDssTkRgGNqs...DxptfEs== 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 module Network.AWS.IAM.V2010_05_08.GetSAMLProvider where
 
-import           Control.Applicative
-import           Data.ByteString      (ByteString)
-import           Data.Default
-import           Data.HashMap.Strict  (HashMap)
-import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           GHC.Generics
-import           Network.AWS.Data
-import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error, Endpoint, Region)
-import           Network.AWS.Request.Query
-import           Network.AWS.IAM.V2010_05_08.Types
-import           Network.HTTP.Client  (RequestBody, Response)
-import           Prelude              hiding (head)
+import Network.AWS.Request.Query
+import Network.AWS.IAM.V2010_05_08.Types
+import Network.AWS.Prelude
 
 data GetSAMLProvider = GetSAMLProvider
     { _gsamlprSAMLProviderArn :: Text
@@ -57,13 +44,13 @@ instance AWSRequest GetSAMLProvider where
     response _ = xmlResponse
 
 data GetSAMLProviderResponse = GetSAMLProviderResponse
-    { _gsamlpsSAMLMetadataDocument :: Maybe Text
-      -- ^ The XML metadata document that includes information about an
-      -- identity provider.
-    , _gsamlpsCreateDate :: Maybe ISO8601
+    { _gsamlpsCreateDate :: Maybe ISO8601
       -- ^ The date and time when the SAML provider was created.
     , _gsamlpsValidUntil :: Maybe ISO8601
       -- ^ The expiration date and time for the SAML provider.
+    , _gsamlpsSAMLMetadataDocument :: Maybe Text
+      -- ^ The XML metadata document that includes information about an
+      -- identity provider.
     } deriving (Generic)
 
 instance FromXML GetSAMLProviderResponse where

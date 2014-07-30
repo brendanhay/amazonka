@@ -35,6 +35,9 @@ import qualified Data.Text           as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: Nested shapes from requests should have the fields correctly marked as required or not
+-- whereas responses don't. Request shapes should take preference in the case of equality/ord
+
 -- FIXME: Make a way to override the endpoint when sending a request (for mocks etc)
 -- FIXME: Provide the 'length' of the prefix so lenses can be derived.
 -- FIXME: Fix ambiguous lens when using makeFields
@@ -238,10 +241,7 @@ fields rq svc s = case s of
                 else fld
 
 prefixed :: Shape -> Text -> Text
-prefixed p t = (p ^. cmnPrefix) <> f (uncons t)
-  where
-    f Nothing        = t
-    f (Just (x, xs)) = toUpper x `Text.cons` xs
+prefixed p = mappend (p ^. cmnPrefix) . upperFirst
 
 shapeType :: Bool -> Service -> Shape -> Type
 shapeType rq svc s = Type s (typeof rq svc s) (ctorof s) (fields rq svc s)

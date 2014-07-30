@@ -1,10 +1,9 @@
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.V2012_06_01.CreateLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,21 +74,9 @@
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 module Network.AWS.ELB.V2012_06_01.CreateLoadBalancer where
 
-import           Control.Applicative
-import           Data.ByteString      (ByteString)
-import           Data.Default
-import           Data.HashMap.Strict  (HashMap)
-import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           GHC.Generics
-import           Network.AWS.Data
-import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error, Endpoint, Region)
-import           Network.AWS.Request.Query
-import           Network.AWS.ELB.V2012_06_01.Types
-import           Network.HTTP.Client  (RequestBody, Response)
-import           Prelude              hiding (head)
+import Network.AWS.Request.Query
+import Network.AWS.ELB.V2012_06_01.Types
+import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateLoadBalancer' request.
 createLoadBalancer :: Text -- ^ '_capiLoadBalancerName'

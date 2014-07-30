@@ -1,10 +1,9 @@
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.V2010_05_08.GetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,21 +27,9 @@
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.V2010_05_08.GetGroup where
 
-import           Control.Applicative
-import           Data.ByteString      (ByteString)
-import           Data.Default
-import           Data.HashMap.Strict  (HashMap)
-import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           GHC.Generics
-import           Network.AWS.Data
-import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error, Endpoint, Region)
-import           Network.AWS.Request.Query
-import           Network.AWS.IAM.V2010_05_08.Types
-import           Network.HTTP.Client  (RequestBody, Response)
-import           Prelude              hiding (head)
+import Network.AWS.Request.Query
+import Network.AWS.IAM.V2010_05_08.Types
+import Network.AWS.Prelude
 
 -- | Minimum specification for a 'GetGroup' request.
 getGroup :: Text -- ^ '_ggrGroupName'
@@ -87,13 +74,13 @@ instance AWSPager GetGroup where
             }
 
 data GetGroupResponse = GetGroupResponse
-    { _ggsGroup :: Group
-      -- ^ Information about the group.
-    , _ggsIsTruncated :: Bool
+    { _ggsIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more user names to list.
       -- If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more user names in the list.
+    , _ggsGroup :: Group
+      -- ^ Information about the group.
     , _ggsUsers :: [User]
       -- ^ A list of users in the group.
     , _ggsMarker :: Maybe Text

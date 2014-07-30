@@ -150,9 +150,9 @@ instance FromXML Text where
     fromXMLRoot = fromRoot "Text"
     fromXML     = const fromNodeContent
 
--- instance FromXML BS.ByteString where
---     fromXMLRoot = fromRoot "ByteString"
---     fromXML o   = fmap Text.encodeUtf8 . fromXML (retag o)
+instance FromXML BS.ByteString where
+    fromXMLRoot = fromRoot "ByteString"
+    fromXML o   = fmap Text.encodeUtf8 . fromXML (retag o)
 
 instance FromXML Integer where
     fromXMLRoot = fromRoot "Integer"

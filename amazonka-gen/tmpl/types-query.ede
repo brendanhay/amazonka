@@ -12,18 +12,8 @@
 {% endif %}
 module {{ types_namespace }} where
 
-import Control.Applicative
-import Control.Exception      (Exception)
-import Data.Default
-import Data.HashMap.Strict    (HashMap)
-import Data.Tagged
-import Data.Text              (Text)
-import Data.Typeable
-import GHC.Generics
-import Network.AWS.Data
+import Network.AWS.Prelude
 import Network.AWS.Signing.{{ signature }}
-import Network.AWS.Types      hiding (Error, Endpoint, Region)
-import Network.HTTP.Client    (HttpException)
 
 {% include "_include/service.ede" %}
 

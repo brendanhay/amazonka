@@ -5,8 +5,6 @@
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Module      : Network.AWS.IAM.V2010_05_08.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,17 +21,8 @@
 -- deny their access to AWS resources.
 module Network.AWS.IAM.V2010_05_08.Types where
 
-import Control.Applicative
-import Control.Exception      (Exception)
-import Data.Default
-import Data.Tagged
-import Data.Text              (Text)
-import Data.Typeable
-import GHC.Generics
-import Network.AWS.Data
+import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.Types      hiding (Error, Endpoint, Region)
-import Network.HTTP.Client    (HttpException)
 
 -- | Supported version (@2010-05-08@) of the
 -- @AWS Identity and Access Management@ service.
@@ -139,6 +128,33 @@ xmlOptions = Tagged def
     { xmlNamespace = Just "https://iam.amazonaws.com/doc/2010-05-08/"
     }
 
+-- | The status (unassigned or assigned) of the devices to list. If you do not
+-- specify an AssignmentStatus, the action defaults to Any which lists both
+-- assigned and unassigned virtual MFA devices.
+data AssignmentStatusType
+    = AssignmentStatusTypeAny -- ^ Any
+    | AssignmentStatusTypeAssigned -- ^ Assigned
+    | AssignmentStatusTypeUnassigned -- ^ Unassigned
+      deriving (Eq, Show, Generic)
+
+instance FromText AssignmentStatusType where
+    parser = match "Any" AssignmentStatusTypeAny
+         <|> match "Assigned" AssignmentStatusTypeAssigned
+         <|> match "Unassigned" AssignmentStatusTypeUnassigned
+
+instance ToText AssignmentStatusType where
+    toText AssignmentStatusTypeAny = "Any"
+    toText AssignmentStatusTypeAssigned = "Assigned"
+    toText AssignmentStatusTypeUnassigned = "Unassigned"
+
+instance ToByteString AssignmentStatusType where
+    toBS AssignmentStatusTypeAny = "Any"
+    toBS AssignmentStatusTypeAssigned = "Assigned"
+    toBS AssignmentStatusTypeUnassigned = "Unassigned"
+
+instance ToQuery AssignmentStatusType where
+    toQuery = genericToQuery def
+
 -- | The format (MIME type) of the credential report.
 data ReportFormatType
     = ReportFormatTypeTextCsv -- ^ text/csv
@@ -183,131 +199,104 @@ instance FromXML ReportStateType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReportStateType"
 
--- | The status (unassigned or assigned) of the devices to list. If you do not
--- specify an AssignmentStatus, the action defaults to Any which lists both
--- assigned and unassigned virtual MFA devices.
-data assignmentStatusType
-    = assignmentStatusTypeAny -- ^ Any
-    | assignmentStatusTypeAssigned -- ^ Assigned
-    | assignmentStatusTypeUnassigned -- ^ Unassigned
-      deriving (Eq, Show, Generic)
-
-instance FromText assignmentStatusType where
-    parser = match "Any" assignmentStatusTypeAny
-         <|> match "Assigned" assignmentStatusTypeAssigned
-         <|> match "Unassigned" assignmentStatusTypeUnassigned
-
-instance ToText assignmentStatusType where
-    toText assignmentStatusTypeAny = "Any"
-    toText assignmentStatusTypeAssigned = "Assigned"
-    toText assignmentStatusTypeUnassigned = "Unassigned"
-
-instance ToByteString assignmentStatusType where
-    toBS assignmentStatusTypeAny = "Any"
-    toBS assignmentStatusTypeAssigned = "Assigned"
-    toBS assignmentStatusTypeUnassigned = "Unassigned"
-
-instance ToQuery assignmentStatusType where
-    toQuery = genericToQuery def
-
 -- | The status of the access key. Active means the key is valid for API calls,
 -- while Inactive means it is not.
-data statusType
-    = statusTypeActive -- ^ Active
-    | statusTypeInactive -- ^ Inactive
+data StatusType
+    = StatusTypeActive -- ^ Active
+    | StatusTypeInactive -- ^ Inactive
       deriving (Eq, Show, Generic)
 
-instance FromText statusType where
-    parser = match "Active" statusTypeActive
-         <|> match "Inactive" statusTypeInactive
+instance FromText StatusType where
+    parser = match "Active" StatusTypeActive
+         <|> match "Inactive" StatusTypeInactive
 
-instance ToText statusType where
-    toText statusTypeActive = "Active"
-    toText statusTypeInactive = "Inactive"
+instance ToText StatusType where
+    toText StatusTypeActive = "Active"
+    toText StatusTypeInactive = "Inactive"
 
-instance ToByteString statusType where
-    toBS statusTypeActive = "Active"
-    toBS statusTypeInactive = "Inactive"
+instance ToByteString StatusType where
+    toBS StatusTypeActive = "Active"
+    toBS StatusTypeInactive = "Inactive"
 
-instance FromXML statusType where
+instance FromXML StatusType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "statusType"
+    fromXMLRoot    = fromRoot "StatusType"
 
-instance ToQuery statusType where
+instance ToQuery StatusType where
     toQuery = genericToQuery def
 
-data summaryKeyType
-    = summaryKeyTypeAccessKeysPerUserQuota -- ^ AccessKeysPerUserQuota
-    | summaryKeyTypeAccountMFAEnabled -- ^ AccountMFAEnabled
-    | summaryKeyTypeGroupPolicySizeQuota -- ^ GroupPolicySizeQuota
-    | summaryKeyTypeGroups -- ^ Groups
-    | summaryKeyTypeGroupsPerUserQuota -- ^ GroupsPerUserQuota
-    | summaryKeyTypeGroupsQuota -- ^ GroupsQuota
-    | summaryKeyTypeMFADevices -- ^ MFADevices
-    | summaryKeyTypeMFADevicesInUse -- ^ MFADevicesInUse
-    | summaryKeyTypeServerCertificates -- ^ ServerCertificates
-    | summaryKeyTypeServerCertificatesQuota -- ^ ServerCertificatesQuota
-    | summaryKeyTypeSigningCertificatesPerUserQuota -- ^ SigningCertificatesPerUserQuota
-    | summaryKeyTypeUserPolicySizeQuota -- ^ UserPolicySizeQuota
-    | summaryKeyTypeUsers -- ^ Users
-    | summaryKeyTypeUsersQuota -- ^ UsersQuota
+data SummaryKeyType
+    = SummaryKeyTypeAccessKeysPerUserQuota -- ^ AccessKeysPerUserQuota
+    | SummaryKeyTypeAccountMFAEnabled -- ^ AccountMFAEnabled
+    | SummaryKeyTypeGroupPolicySizeQuota -- ^ GroupPolicySizeQuota
+    | SummaryKeyTypeGroups -- ^ Groups
+    | SummaryKeyTypeGroupsPerUserQuota -- ^ GroupsPerUserQuota
+    | SummaryKeyTypeGroupsQuota -- ^ GroupsQuota
+    | SummaryKeyTypeMFADevices -- ^ MFADevices
+    | SummaryKeyTypeMFADevicesInUse -- ^ MFADevicesInUse
+    | SummaryKeyTypeServerCertificates -- ^ ServerCertificates
+    | SummaryKeyTypeServerCertificatesQuota -- ^ ServerCertificatesQuota
+    | SummaryKeyTypeSigningCertificatesPerUserQuota -- ^ SigningCertificatesPerUserQuota
+    | SummaryKeyTypeUserPolicySizeQuota -- ^ UserPolicySizeQuota
+    | SummaryKeyTypeUsers -- ^ Users
+    | SummaryKeyTypeUsersQuota -- ^ UsersQuota
       deriving (Eq, Show, Generic)
 
-instance FromText summaryKeyType where
-    parser = match "AccessKeysPerUserQuota" summaryKeyTypeAccessKeysPerUserQuota
-         <|> match "AccountMFAEnabled" summaryKeyTypeAccountMFAEnabled
-         <|> match "GroupPolicySizeQuota" summaryKeyTypeGroupPolicySizeQuota
-         <|> match "Groups" summaryKeyTypeGroups
-         <|> match "GroupsPerUserQuota" summaryKeyTypeGroupsPerUserQuota
-         <|> match "GroupsQuota" summaryKeyTypeGroupsQuota
-         <|> match "MFADevices" summaryKeyTypeMFADevices
-         <|> match "MFADevicesInUse" summaryKeyTypeMFADevicesInUse
-         <|> match "ServerCertificates" summaryKeyTypeServerCertificates
-         <|> match "ServerCertificatesQuota" summaryKeyTypeServerCertificatesQuota
-         <|> match "SigningCertificatesPerUserQuota" summaryKeyTypeSigningCertificatesPerUserQuota
-         <|> match "UserPolicySizeQuota" summaryKeyTypeUserPolicySizeQuota
-         <|> match "Users" summaryKeyTypeUsers
-         <|> match "UsersQuota" summaryKeyTypeUsersQuota
+instance FromText SummaryKeyType where
+    parser = match "AccessKeysPerUserQuota" SummaryKeyTypeAccessKeysPerUserQuota
+         <|> match "AccountMFAEnabled" SummaryKeyTypeAccountMFAEnabled
+         <|> match "GroupPolicySizeQuota" SummaryKeyTypeGroupPolicySizeQuota
+         <|> match "Groups" SummaryKeyTypeGroups
+         <|> match "GroupsPerUserQuota" SummaryKeyTypeGroupsPerUserQuota
+         <|> match "GroupsQuota" SummaryKeyTypeGroupsQuota
+         <|> match "MFADevices" SummaryKeyTypeMFADevices
+         <|> match "MFADevicesInUse" SummaryKeyTypeMFADevicesInUse
+         <|> match "ServerCertificates" SummaryKeyTypeServerCertificates
+         <|> match "ServerCertificatesQuota" SummaryKeyTypeServerCertificatesQuota
+         <|> match "SigningCertificatesPerUserQuota" SummaryKeyTypeSigningCertificatesPerUserQuota
+         <|> match "UserPolicySizeQuota" SummaryKeyTypeUserPolicySizeQuota
+         <|> match "Users" SummaryKeyTypeUsers
+         <|> match "UsersQuota" SummaryKeyTypeUsersQuota
 
-instance ToText summaryKeyType where
-    toText summaryKeyTypeAccessKeysPerUserQuota = "AccessKeysPerUserQuota"
-    toText summaryKeyTypeAccountMFAEnabled = "AccountMFAEnabled"
-    toText summaryKeyTypeGroupPolicySizeQuota = "GroupPolicySizeQuota"
-    toText summaryKeyTypeGroups = "Groups"
-    toText summaryKeyTypeGroupsPerUserQuota = "GroupsPerUserQuota"
-    toText summaryKeyTypeGroupsQuota = "GroupsQuota"
-    toText summaryKeyTypeMFADevices = "MFADevices"
-    toText summaryKeyTypeMFADevicesInUse = "MFADevicesInUse"
-    toText summaryKeyTypeServerCertificates = "ServerCertificates"
-    toText summaryKeyTypeServerCertificatesQuota = "ServerCertificatesQuota"
-    toText summaryKeyTypeSigningCertificatesPerUserQuota = "SigningCertificatesPerUserQuota"
-    toText summaryKeyTypeUserPolicySizeQuota = "UserPolicySizeQuota"
-    toText summaryKeyTypeUsers = "Users"
-    toText summaryKeyTypeUsersQuota = "UsersQuota"
+instance ToText SummaryKeyType where
+    toText SummaryKeyTypeAccessKeysPerUserQuota = "AccessKeysPerUserQuota"
+    toText SummaryKeyTypeAccountMFAEnabled = "AccountMFAEnabled"
+    toText SummaryKeyTypeGroupPolicySizeQuota = "GroupPolicySizeQuota"
+    toText SummaryKeyTypeGroups = "Groups"
+    toText SummaryKeyTypeGroupsPerUserQuota = "GroupsPerUserQuota"
+    toText SummaryKeyTypeGroupsQuota = "GroupsQuota"
+    toText SummaryKeyTypeMFADevices = "MFADevices"
+    toText SummaryKeyTypeMFADevicesInUse = "MFADevicesInUse"
+    toText SummaryKeyTypeServerCertificates = "ServerCertificates"
+    toText SummaryKeyTypeServerCertificatesQuota = "ServerCertificatesQuota"
+    toText SummaryKeyTypeSigningCertificatesPerUserQuota = "SigningCertificatesPerUserQuota"
+    toText SummaryKeyTypeUserPolicySizeQuota = "UserPolicySizeQuota"
+    toText SummaryKeyTypeUsers = "Users"
+    toText SummaryKeyTypeUsersQuota = "UsersQuota"
 
-instance ToByteString summaryKeyType where
-    toBS summaryKeyTypeAccessKeysPerUserQuota = "AccessKeysPerUserQuota"
-    toBS summaryKeyTypeAccountMFAEnabled = "AccountMFAEnabled"
-    toBS summaryKeyTypeGroupPolicySizeQuota = "GroupPolicySizeQuota"
-    toBS summaryKeyTypeGroups = "Groups"
-    toBS summaryKeyTypeGroupsPerUserQuota = "GroupsPerUserQuota"
-    toBS summaryKeyTypeGroupsQuota = "GroupsQuota"
-    toBS summaryKeyTypeMFADevices = "MFADevices"
-    toBS summaryKeyTypeMFADevicesInUse = "MFADevicesInUse"
-    toBS summaryKeyTypeServerCertificates = "ServerCertificates"
-    toBS summaryKeyTypeServerCertificatesQuota = "ServerCertificatesQuota"
-    toBS summaryKeyTypeSigningCertificatesPerUserQuota = "SigningCertificatesPerUserQuota"
-    toBS summaryKeyTypeUserPolicySizeQuota = "UserPolicySizeQuota"
-    toBS summaryKeyTypeUsers = "Users"
-    toBS summaryKeyTypeUsersQuota = "UsersQuota"
+instance ToByteString SummaryKeyType where
+    toBS SummaryKeyTypeAccessKeysPerUserQuota = "AccessKeysPerUserQuota"
+    toBS SummaryKeyTypeAccountMFAEnabled = "AccountMFAEnabled"
+    toBS SummaryKeyTypeGroupPolicySizeQuota = "GroupPolicySizeQuota"
+    toBS SummaryKeyTypeGroups = "Groups"
+    toBS SummaryKeyTypeGroupsPerUserQuota = "GroupsPerUserQuota"
+    toBS SummaryKeyTypeGroupsQuota = "GroupsQuota"
+    toBS SummaryKeyTypeMFADevices = "MFADevices"
+    toBS SummaryKeyTypeMFADevicesInUse = "MFADevicesInUse"
+    toBS SummaryKeyTypeServerCertificates = "ServerCertificates"
+    toBS SummaryKeyTypeServerCertificatesQuota = "ServerCertificatesQuota"
+    toBS SummaryKeyTypeSigningCertificatesPerUserQuota = "SigningCertificatesPerUserQuota"
+    toBS SummaryKeyTypeUserPolicySizeQuota = "UserPolicySizeQuota"
+    toBS SummaryKeyTypeUsers = "Users"
+    toBS SummaryKeyTypeUsersQuota = "UsersQuota"
 
-instance FromXML summaryKeyType where
+instance FromXML SummaryKeyType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "summaryKeyType"
+    fromXMLRoot    = fromRoot "SummaryKeyType"
 
 -- | Information about the access key.
 data AccessKey = AccessKey
-    { _akStatus :: statusType
+    { _akStatus :: StatusType
       -- ^ The status of the access key. Active means the key is valid for
       -- API calls, while Inactive means it is not.
     , _akSecretAccessKey :: Text
@@ -328,7 +317,7 @@ instance FromXML AccessKey where
 -- without its secret key. This data type is used as a response element in the
 -- action ListAccessKeys.
 data AccessKeyMetadata = AccessKeyMetadata
-    { _akmStatus :: Maybe statusType
+    { _akmStatus :: Maybe StatusType
       -- ^ The status of the access key. Active means the key is valid for
       -- API calls, while Inactive means it is not.
     , _akmCreateDate :: Maybe ISO8601
@@ -432,30 +421,30 @@ instance FromXML MFADevice where
 -- password policy. This data type is used as a response element in the action
 -- GetAccountPasswordPolicy.
 data PasswordPolicy = PasswordPolicy
-    { _ppyExpirePasswords :: Maybe Bool
+    { _ppExpirePasswords :: Maybe Bool
       -- ^ Specifies whether IAM users are required to change their password
       -- after a specified number of days.
-    , _ppyMinimumPasswordLength :: Maybe Integer
+    , _ppMinimumPasswordLength :: Maybe Integer
       -- ^ Minimum length to require for IAM user passwords.
-    , _ppyRequireNumbers :: Maybe Bool
+    , _ppRequireNumbers :: Maybe Bool
       -- ^ Specifies whether to require numbers for IAM user passwords.
-    , _ppyPasswordReusePrevention :: Maybe Integer
+    , _ppPasswordReusePrevention :: Maybe Integer
       -- ^ Specifies the number of previous passwords that IAM users are
       -- prevented from reusing.
-    , _ppyRequireLowercaseCharacters :: Maybe Bool
+    , _ppRequireLowercaseCharacters :: Maybe Bool
       -- ^ Specifies whether to require lowercase characters for IAM user
       -- passwords.
-    , _ppyMaxPasswordAge :: Maybe Integer
+    , _ppMaxPasswordAge :: Maybe Integer
       -- ^ The number of days that an IAM user password is valid.
-    , _ppyHardExpiry :: Maybe Bool
+    , _ppHardExpiry :: Maybe Bool
       -- ^ Specifies whether IAM users are prevented from setting a new
       -- password after their password has expired.
-    , _ppyRequireSymbols :: Maybe Bool
+    , _ppRequireSymbols :: Maybe Bool
       -- ^ Specifies whether to require symbols for IAM user passwords.
-    , _ppyRequireUppercaseCharacters :: Maybe Bool
+    , _ppRequireUppercaseCharacters :: Maybe Bool
       -- ^ Specifies whether to require uppercase characters for IAM user
       -- passwords.
-    , _ppyAllowUsersToChangePassword :: Maybe Bool
+    , _ppAllowUsersToChangePassword :: Maybe Bool
       -- ^ Specifies whether IAM users are allowed to change their own
       -- password.
     } deriving (Generic)
@@ -513,12 +502,12 @@ instance FromXML SAMLProviderListEntry where
 
 -- | Information about the server certificate.
 data ServerCertificate = ServerCertificate
-    { _skServerCertificateMetadata :: ServerCertificateMetadata
+    { _seServerCertificateMetadata :: ServerCertificateMetadata
       -- ^ The meta information of the server certificate, such as its name,
       -- path, ID, and ARN.
-    , _skCertificateBody :: Text
+    , _seCertificateBody :: Text
       -- ^ The contents of the public key certificate.
-    , _skCertificateChain :: Maybe Text
+    , _seCertificateChain :: Maybe Text
       -- ^ The contents of the public key certificate chain.
     } deriving (Generic)
 
@@ -558,7 +547,7 @@ instance FromXML ServerCertificateMetadata where
 -- signing certificate. This data type is used as a response element in the
 -- actions UploadSigningCertificate and ListSigningCertificates.
 data SigningCertificate = SigningCertificate
-    { _scStatus :: statusType
+    { _scStatus :: StatusType
       -- ^ The status of the signing certificate. Active means the key is
       -- valid for API calls, while Inactive means it is not.
     , _scUploadDate :: Maybe ISO8601
@@ -579,18 +568,18 @@ instance FromXML SigningCertificate where
 -- used as a response element in the following actions: CreateUser GetUser
 -- ListUsers.
 data User = User
-    { _urArn :: Text
+    { _uArn :: Text
       -- ^ The Amazon Resource Name (ARN) specifying the user. For more
       -- information about ARNs and how to use them in policies, see
       -- Identifiers for IAM Entities in the Using IAM guide.
-    , _urPath :: Text
+    , _uPath :: Text
       -- ^ Path to the user. For more information about paths, see
       -- Identifiers for IAM Entities in the Using IAM guide.
-    , _urCreateDate :: ISO8601
+    , _uCreateDate :: ISO8601
       -- ^ The date when the user was created.
-    , _urUserName :: Text
+    , _uUserName :: Text
       -- ^ The name identifying the user.
-    , _urUserId :: Text
+    , _uUserId :: Text
       -- ^ The stable and unique string identifying the user. For more
       -- information about IDs, see Identifiers for IAM Entities in the
       -- Using IAM guide.

@@ -1,10 +1,9 @@
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.V2010_05_08.CreateRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,21 +32,9 @@
 -- 4a93ceee-9966-11e1-b624-b1aEXAMPLE7c.
 module Network.AWS.IAM.V2010_05_08.CreateRole where
 
-import           Control.Applicative
-import           Data.ByteString      (ByteString)
-import           Data.Default
-import           Data.HashMap.Strict  (HashMap)
-import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           GHC.Generics
-import           Network.AWS.Data
-import           Network.AWS.Response
-import           Network.AWS.Types    hiding (Error, Endpoint, Region)
-import           Network.AWS.Request.Query
-import           Network.AWS.IAM.V2010_05_08.Types
-import           Network.HTTP.Client  (RequestBody, Response)
-import           Prelude              hiding (head)
+import Network.AWS.Request.Query
+import Network.AWS.IAM.V2010_05_08.Types
+import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateRole' request.
 createRole :: Text -- ^ '_crrAssumeRolePolicyDocument'

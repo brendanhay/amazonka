@@ -146,7 +146,7 @@ instance FromJSON Operation where
             <*> pure def
             <*> pure def
             <*> pure def
-            <*> o .:  "documentation"
+            <*> (Doc <$> o .:? "documentation")
             <*> o .:? "documentation_url"
             <*> parseJSON (Object o)
             <*> parseJSON (Object o)
@@ -169,7 +169,7 @@ instance FromJSON Location where
 
 instance FromJSON Common where
     parseJSON = withObject "common" $ \o -> do
-        n <- o .:  "shape_name" <|> o .: "alias" <|> o .: "name" <|> return defName
+        n <- name o
         Common n (prefixof n)
             <$> o .:? "xmlname"       .!= n
             <*> o .:! "location"
@@ -178,6 +178,12 @@ instance FromJSON Common where
             <*> o .:? "documentation"
             <*> o .:? "streaming"     .!= False
             <*> pure def
+      where
+        name o = upperFirst
+           <$> o .: "shape_name"
+           <|> o .: "alias"
+           <|> o .: "name"
+           <|> return defName
 
 instance FromJSON Shape where
     parseJSON = withObject "shape" $ \o -> do

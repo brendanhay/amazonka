@@ -5,8 +5,6 @@
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Module      : Network.AWS.AutoScaling.V2011_01_01.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -27,17 +25,8 @@
 -- and available at no additional charge beyond Amazon CloudWatch fees.
 module Network.AWS.AutoScaling.V2011_01_01.Types where
 
-import Control.Applicative
-import Control.Exception      (Exception)
-import Data.Default
-import Data.Tagged
-import Data.Text              (Text)
-import Data.Typeable
-import GHC.Generics
-import Network.AWS.Data
+import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.Types      hiding (Error, Endpoint, Region)
-import Network.HTTP.Client    (HttpException)
 
 -- | Supported version (@2011-01-01@) of the
 -- @Auto Scaling@ service.

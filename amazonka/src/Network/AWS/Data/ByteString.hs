@@ -36,6 +36,7 @@ import           Data.Int
 import           Data.Text                  (Text)
 import qualified Data.Text.Encoding         as Text
 import           Data.Time
+import           Network.AWS.Data.Text
 import           Network.HTTP.Types.Method
 
 showBS :: ToByteString a => a -> String
@@ -43,6 +44,9 @@ showBS = BS.unpack . toBS
 
 class ToByteString a where
     toBS :: a -> ByteString
+
+    default toBS :: ToText a => a -> ByteString
+    toBS = toBS . toText
 
 instance ToByteString Builder    where toBS = buildBS
 instance ToByteString ByteString where toBS = id
@@ -75,7 +79,3 @@ instance ToBuilder (Digest a)
 
 stripBS :: ByteString -> ByteString
 stripBS = BS.dropWhile isSpace . fst . BS.spanEnd isSpace
-
--- FIXME: Use service time, specifics, etc.
-
-instance ToByteString UTCTime where

@@ -218,9 +218,6 @@ debug l =
         None    -> const (return ())
         Debug f -> liftBase . f
 
--- FIXME: Error, Endpoint, and Region are all ambiguous
--- Maybe Service too?
-
 data Endpoint
     = Global
     | Regional
@@ -298,31 +295,23 @@ data Region
     | GovCloud        -- ^ AWS GovCloud / us-gov-west-1
     | GovCloudFIPS    -- ^ AWS GovCloud (FIPS 140-2) S3 Only / fips-us-gov-west-1
     | SaoPaulo        -- ^ South America / sa-east-1
-      deriving (Eq, Ord)
+      deriving (Eq, Ord, Read, Show, Generic)
 
 instance Default Region where
     def = NorthVirginia
 
-instance Read Region where
-    readsPrec = const readText
-
-instance Show Region where
-    show = showText
-
 instance FromText Region where
-    parser = AText.choice $ map (\(x, y) -> AText.string x >> return y)
-        [ ("eu-west-1",          Ireland)
-        , ("ap-northeast-1",     Tokyo)
-        , ("ap-southeast-1",     Singapore)
-        , ("ap-southeast-2",     Sydney)
-        , ("cn-north-1",         Beijing)
-        , ("us-east-1",          NorthVirginia)
-        , ("us-west-2",          NorthCalifornia)
-        , ("us-west-1",          Oregon)
-        , ("us-gov-west-1",      GovCloud)
-        , ("fips-us-gov-west-1", GovCloudFIPS)
-        , ("sa-east-1",          SaoPaulo)
-        ]
+    parser = match "eu-west-1"          Ireland
+         <|> match "ap-northeast-1"     Tokyo
+         <|> match "ap-southeast-1"     Singapore
+         <|> match "ap-southeast-2"     Sydney
+         <|> match "cn-north-1"         Beijing
+         <|> match "us-east-1"          NorthVirginia
+         <|> match "us-west-2"          NorthCalifornia
+         <|> match "us-west-1"          Oregon
+         <|> match "us-gov-west-1"      GovCloud
+         <|> match "fips-us-gov-west-1" GovCloudFIPS
+         <|> match "sa-east-1"          SaoPaulo
 
 instance ToText Region where
     toText r = case r of
@@ -338,19 +327,14 @@ instance ToText Region where
         GovCloudFIPS    -> "fips-us-gov-west-1"
         SaoPaulo        -> "sa-east-1"
 
-instance ToByteString Region where
-    toBS = toBS . toText
+instance ToByteString Region
+instance FromXML      Region
+instance ToXML        Region
 
 data Zone = Zone
     { _zRegion :: !Region
     , _zSuffix :: !Char
-    } deriving (Eq, Ord)
-
-instance Read Zone where
-    readsPrec = const readText
-
-instance Show Zone where
-    show = showText
+    } deriving (Eq, Ord, Read, Show)
 
 instance FromText Zone where
     parser = Zone <$> parser <*> AText.satisfy isAlpha <* AText.endOfInput
@@ -367,38 +351,70 @@ instance ToQuery Action where
 newtype BucketName = BucketName Text
     deriving (Eq, Show, Generic, IsString)
 
-instance ToByteString BucketName where toBS (BucketName b) = toBS b
 instance FromText     BucketName where parser = BucketName <$> takeText
 instance ToText       BucketName where toText (BucketName b) = b
+instance ToByteString BucketName
 instance FromXML      BucketName
 instance ToXML        BucketName
 
 newtype ObjectKey = ObjectKey Text
     deriving (Eq, Show, Generic, IsString)
 
-instance ToByteString ObjectKey where toBS (ObjectKey k) = toBS k
 instance FromText     ObjectKey where parser = ObjectKey <$> takeText
 instance ToText       ObjectKey where toText (ObjectKey k) = k
+instance ToByteString ObjectKey
 instance FromXML      ObjectKey
 instance ToXML        ObjectKey
 
 newtype ObjectVersionId = ObjectVersionId Text
     deriving (Eq, Show, Generic, IsString)
 
-instance ToByteString ObjectVersionId where toBS (ObjectVersionId v) = toBS v
 instance FromText     ObjectVersionId where parser = ObjectVersionId <$> takeText
 instance ToText       ObjectVersionId where toText (ObjectVersionId v) = v
+instance ToByteString ObjectVersionId
 instance FromXML      ObjectVersionId
 instance ToXML        ObjectVersionId
 
 newtype ETag = ETag Text
     deriving (Eq, Show, Generic, IsString)
 
-instance ToByteString ETag where toBS (ETag t) = toBS t
 instance FromText     ETag where parser = ETag <$> takeText
 instance ToText       ETag where toText (ETag t) = t
+instance ToByteString ETag
 instance FromXML      ETag
 instance ToXML        ETag
 
 data Switch a = Enabled | Disabled
     deriving (Eq, Show, Generic)
+
+data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
+    deriving (Eq, Read, Show, Ord, Generic)
+
+instance FromText RecordType where
+    parser = match "A"     A
+         <|> match "AAAA"  AAAA
+         <|> match "CNAME" CNAME
+         <|> match "MX"    MX
+         <|> match "NS"    NS
+         <|> match "PTR"   PTR
+         <|> match "SOA"   SOA
+         <|> match "SPF"   SPF
+         <|> match "SRV"   SRV
+         <|> match "TXT"   TXT
+
+instance ToText RecordType where
+    toText t = case t of
+         A     -> "A"
+         AAAA  -> "AAAA"
+         CNAME -> "CNAME"
+         MX    -> "MX"
+         NS    -> "NS"
+         PTR   -> "PTR"
+         SOA   -> "SOA"
+         SPF   -> "SPF"
+         SRV   -> "SRV"
+         TXT   -> "TXT"
+
+instance ToByteString RecordType
+instance FromXML      RecordType
+instance ToXML        RecordType

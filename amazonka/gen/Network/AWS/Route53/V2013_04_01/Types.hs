@@ -15,7 +15,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | 
+-- | Amazon Route 53 is a scalable Domain Name System (DNS) web service. It
+-- provides secure and reliable routing to your infrastructure that uses
+-- Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud
+-- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
+-- (Amazon S3). You can also use Amazon Route 53 to route users to your
+-- infrastructure outside of AWS.
 module Network.AWS.Route53.V2013_04_01.Types where
 
 import Network.AWS.Prelude
@@ -142,10 +147,7 @@ instance ToText ChangeAction where
     toText ChangeActionDelete = "DELETE"
     toText ChangeActionUpsert = "UPSERT"
 
-instance ToByteString ChangeAction where
-    toBS ChangeActionCreate = "CREATE"
-    toBS ChangeActionDelete = "DELETE"
-    toBS ChangeActionUpsert = "UPSERT"
+instance ToByteString ChangeAction
 
 instance FromXML ChangeAction where
     fromXMLOptions = xmlOptions
@@ -171,9 +173,7 @@ instance ToText ChangeStatus where
     toText ChangeStatusInsync = "INSYNC"
     toText ChangeStatusPending = "PENDING"
 
-instance ToByteString ChangeStatus where
-    toBS ChangeStatusInsync = "INSYNC"
-    toBS ChangeStatusPending = "PENDING"
+instance ToByteString ChangeStatus
 
 instance FromXML ChangeStatus where
     fromXMLOptions = xmlOptions
@@ -203,12 +203,7 @@ instance ToText HealthCheckType where
     toText HealthCheckTypeHttpsStrMatch = "HTTPS_STR_MATCH"
     toText HealthCheckTypeTcp = "TCP"
 
-instance ToByteString HealthCheckType where
-    toBS HealthCheckTypeHttp = "HTTP"
-    toBS HealthCheckTypeHttpStrMatch = "HTTP_STR_MATCH"
-    toBS HealthCheckTypeHttps = "HTTPS"
-    toBS HealthCheckTypeHttpsStrMatch = "HTTPS_STR_MATCH"
-    toBS HealthCheckTypeTcp = "TCP"
+instance ToByteString HealthCheckType
 
 instance FromXML HealthCheckType where
     fromXMLOptions = xmlOptions
@@ -245,9 +240,7 @@ instance ToText ResourceRecordSetFailover where
     toText ResourceRecordSetFailoverPrimary = "PRIMARY"
     toText ResourceRecordSetFailoverSecondary = "SECONDARY"
 
-instance ToByteString ResourceRecordSetFailover where
-    toBS ResourceRecordSetFailoverPrimary = "PRIMARY"
-    toBS ResourceRecordSetFailoverSecondary = "SECONDARY"
+instance ToByteString ResourceRecordSetFailover
 
 instance FromXML ResourceRecordSetFailover where
     fromXMLOptions = xmlOptions
@@ -269,8 +262,7 @@ instance FromText TagResourceType where
 instance ToText TagResourceType where
     toText TagResourceTypeHealthcheck = "healthcheck"
 
-instance ToByteString TagResourceType where
-    toBS TagResourceTypeHealthcheck = "healthcheck"
+instance ToByteString TagResourceType
 
 instance FromXML TagResourceType where
     fromXMLOptions = xmlOptions

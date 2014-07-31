@@ -51,7 +51,7 @@ instance ToJSON Checksum where
     toJSON = toCtor lowered
 
 instance ToJSON ServiceType where
-    toJSON = toCtor (recase Camel Under)
+    toJSON = toJSON . show
 
 instance ToJSON Signature where
     toJSON = toCtor id

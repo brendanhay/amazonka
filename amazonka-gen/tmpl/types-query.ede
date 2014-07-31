@@ -56,10 +56,7 @@ instance ToText {{ data.value.name }} where
     toText {{ branch.key }} = "{{ branch.value }}"
       {% endfor %}
 
-instance ToByteString {{ data.value.name }} where
-      {% for branch in data.value.values %}
-    toBS {{ branch.key }} = "{{ branch.value }}"
-      {% endfor %}
+instance ToByteString {{ data.value.name }}
     {% include "_include/xml-from.ede" with data.value %}
     {% include "_include/query-to.ede" with data.value %}
     {% when "newtype" %}

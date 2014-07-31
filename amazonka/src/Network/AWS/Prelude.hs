@@ -36,12 +36,14 @@ module Network.AWS.Prelude
     -- * Shared
     , Service         (..)
     , Endpoint        (..)
+    , Region          (..)
     , Action          (..)
     , BucketName      (..)
     , ObjectKey       (..)
     , ObjectVersionId (..)
     , ETag            (..)
     , Switch          (..)
+    , RecordType      (..)
     ) where
 
 import Control.Applicative  as Export

@@ -97,7 +97,15 @@ data ServiceType
     | RestS3
     | Json
     | Query
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Generic)
+
+instance Show ServiceType where
+    show t = case t of
+        RestXml  -> "RestXML"
+        RestJson -> "RestJSON"
+        RestS3   -> "RestS3"
+        Json     -> "JSON"
+        Query    -> "Query"
 
 instance Default ServiceType where
     def = Query

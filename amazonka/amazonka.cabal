@@ -81,29 +81,29 @@ library
         , Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
 
         -- * CloudFront V2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.CreateDistribution2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.CreateInvalidation2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.DeleteDistribution2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentity2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentityConfig2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.GetDistribution2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.GetInvalidation2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.GetStreamingDistribution2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig2014_05_31
+        , Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.V2014_05_31.CreateDistribution
+        , Network.AWS.CloudFront.V2014_05_31.CreateInvalidation
+        , Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution
+        , Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.V2014_05_31.DeleteDistribution
+        , Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution
+        , Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentityConfig
+        , Network.AWS.CloudFront.V2014_05_31.GetDistribution
+        , Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig
+        , Network.AWS.CloudFront.V2014_05_31.GetInvalidation
+        , Network.AWS.CloudFront.V2014_05_31.GetStreamingDistribution
+        , Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig
         , Network.AWS.CloudFront.V2014_05_31.Lenses
-        , Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.ListDistributions2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.ListInvalidations2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions2014_05_31
+        , Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities
+        , Network.AWS.CloudFront.V2014_05_31.ListDistributions
+        , Network.AWS.CloudFront.V2014_05_31.ListInvalidations
+        , Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions
         , Network.AWS.CloudFront.V2014_05_31.Types
-        , Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.UpdateDistribution2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution2014_05_31
+        , Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.V2014_05_31.UpdateDistribution
+        , Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution
 
     build-depends:
           aeson

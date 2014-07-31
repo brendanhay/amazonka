@@ -7,7 +7,9 @@
 
 {% include "_include/license.ede" with namespace %}
 
+{% if documentation %}
 {{ documentation | above76 }}
+{% endif %}
 module {{ namespace }} where
 
 import {{ request_namespace }}

@@ -32,7 +32,6 @@ import           Data.Ord
 import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
-import           Debug.Trace
 import           Generator.AST
 import           Text.EDE.Filters
 
@@ -256,7 +255,7 @@ typeof :: Bool -> Service -> Shape -> Ann
 typeof rq svc s = Ann req (defaults s) (monoids s) typ
   where
     typ = case s of
-        _ | Just x <- remapType svc s -> trace (show x) x
+        _ | Just x <- remapType svc s -> x
 
         SStruct _ -> name
         SList   l -> "[" <> ann (_lstItem l) <> "]"

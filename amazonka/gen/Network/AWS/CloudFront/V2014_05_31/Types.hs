@@ -269,10 +269,7 @@ instance ToText GeoRestrictionType where
     toText GeoRestrictionTypeNone = "none"
     toText GeoRestrictionTypeWhitelist = "whitelist"
 
-instance ToByteString GeoRestrictionType where
-    toBS GeoRestrictionTypeBlacklist = "blacklist"
-    toBS GeoRestrictionTypeNone = "none"
-    toBS GeoRestrictionTypeWhitelist = "whitelist"
+instance ToByteString GeoRestrictionType
 
 instance FromXML GeoRestrictionType where
     fromXMLOptions = xmlOptions
@@ -302,10 +299,7 @@ instance ToText ItemSelection where
     toText ItemSelectionNone = "none"
     toText ItemSelectionWhitelist = "whitelist"
 
-instance ToByteString ItemSelection where
-    toBS ItemSelectionAll = "all"
-    toBS ItemSelectionNone = "none"
-    toBS ItemSelectionWhitelist = "whitelist"
+instance ToByteString ItemSelection
 
 instance FromXML ItemSelection where
     fromXMLOptions = xmlOptions
@@ -343,14 +337,7 @@ instance ToText Method where
     toText MethodPost = "POST"
     toText MethodPut = "PUT"
 
-instance ToByteString Method where
-    toBS MethodDelete = "DELETE"
-    toBS MethodGet = "GET"
-    toBS MethodHead = "HEAD"
-    toBS MethodOptions = "OPTIONS"
-    toBS MethodPatch = "PATCH"
-    toBS MethodPost = "POST"
-    toBS MethodPut = "PUT"
+instance ToByteString Method
 
 instance FromXML Method where
     fromXMLOptions = xmlOptions
@@ -374,9 +361,7 @@ instance ToText OriginProtocolPolicy where
     toText OriginProtocolPolicyHttpOnly = "http-only"
     toText OriginProtocolPolicyMatchViewer = "match-viewer"
 
-instance ToByteString OriginProtocolPolicy where
-    toBS OriginProtocolPolicyHttpOnly = "http-only"
-    toBS OriginProtocolPolicyMatchViewer = "match-viewer"
+instance ToByteString OriginProtocolPolicy
 
 instance FromXML OriginProtocolPolicy where
     fromXMLOptions = xmlOptions
@@ -404,10 +389,7 @@ instance ToText PriceClass where
     toText PriceClassPriceclass200 = "PriceClass_200"
     toText PriceClassPriceclassAll = "PriceClass_All"
 
-instance ToByteString PriceClass where
-    toBS PriceClassPriceclass100 = "PriceClass_100"
-    toBS PriceClassPriceclass200 = "PriceClass_200"
-    toBS PriceClassPriceclassAll = "PriceClass_All"
+instance ToByteString PriceClass
 
 instance FromXML PriceClass where
     fromXMLOptions = xmlOptions
@@ -440,9 +422,7 @@ instance ToText SSLSupportMethod where
     toText SSLSupportMethodSniOnly = "sni-only"
     toText SSLSupportMethodVip = "vip"
 
-instance ToByteString SSLSupportMethod where
-    toBS SSLSupportMethodSniOnly = "sni-only"
-    toBS SSLSupportMethodVip = "vip"
+instance ToByteString SSLSupportMethod
 
 instance FromXML SSLSupportMethod where
     fromXMLOptions = xmlOptions
@@ -476,10 +456,7 @@ instance ToText ViewerProtocolPolicy where
     toText ViewerProtocolPolicyHttpsOnly = "https-only"
     toText ViewerProtocolPolicyRedirectToHttps = "redirect-to-https"
 
-instance ToByteString ViewerProtocolPolicy where
-    toBS ViewerProtocolPolicyAllowAll = "allow-all"
-    toBS ViewerProtocolPolicyHttpsOnly = "https-only"
-    toBS ViewerProtocolPolicyRedirectToHttps = "redirect-to-https"
+instance ToByteString ViewerProtocolPolicy
 
 instance FromXML ViewerProtocolPolicy where
     fromXMLOptions = xmlOptions

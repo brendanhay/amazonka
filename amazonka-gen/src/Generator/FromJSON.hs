@@ -134,12 +134,13 @@ instance FromJSON Service where
             <*> pure def
 
 instance FromJSON [Operation] where
-    parseJSON = withObject "operations" (mapM parseJSON . Map.elems)
+    parseJSON = withObject "operations" $ \o ->
+        forM (Map.toList o) $ \(k, v) ->
+            ($ k) <$> parseJSON v
 
-instance FromJSON Operation where
+instance FromJSON (Text -> Operation) where
     parseJSON = withObject "operation" $ \o -> do
-        n <- o .:  "name"
-        Operation n
+        op <- Operation ""
             <$> pure def
             <*> o .:? "alias"
             <*> pure def
@@ -152,6 +153,7 @@ instance FromJSON Operation where
             <*> parseJSON (Object o)
             <*> o .:  "errors"
             <*> o .:? "pagination"
+        return $ \n -> op & opName .~ n
 
 instance FromJSON Request where
     parseJSON = withObject "request" $ \o ->

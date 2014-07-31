@@ -47,7 +47,7 @@ instance ToQuery DeleteHostedZone
 
 instance ToHeaders DeleteHostedZone
 
-instance ToXML DeleteHostedZoneRequest where
+instance ToXML DeleteHostedZone where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteHostedZoneRequest"
 

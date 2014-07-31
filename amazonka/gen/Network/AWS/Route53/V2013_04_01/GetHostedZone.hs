@@ -41,7 +41,7 @@ instance ToQuery GetHostedZone
 
 instance ToHeaders GetHostedZone
 
-instance ToXML GetHostedZoneRequest where
+instance ToXML GetHostedZone where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHostedZoneRequest"
 

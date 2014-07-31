@@ -36,7 +36,7 @@ instance ToQuery GetCheckerIpRanges
 
 instance ToHeaders GetCheckerIpRanges
 
-instance ToXML GetCheckerIpRangesRequest where
+instance ToXML GetCheckerIpRanges where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetCheckerIpRangesRequest"
 

@@ -61,7 +61,7 @@ instance ToQuery ChangeResourceRecordSets
 
 instance ToHeaders ChangeResourceRecordSets
 
-instance ToXML ChangeResourceRecordSetsRequest where
+instance ToXML ChangeResourceRecordSets where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeResourceRecordSetsRequest"
 

@@ -60,7 +60,7 @@ instance ToQuery ChangeTagsForResource
 
 instance ToHeaders ChangeTagsForResource
 
-instance ToXML ChangeTagsForResourceRequest where
+instance ToXML ChangeTagsForResource where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeTagsForResourceRequest"
 

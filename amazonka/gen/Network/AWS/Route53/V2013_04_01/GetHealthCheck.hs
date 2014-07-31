@@ -38,7 +38,7 @@ instance ToQuery GetHealthCheck
 
 instance ToHeaders GetHealthCheck
 
-instance ToXML GetHealthCheckRequest where
+instance ToXML GetHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHealthCheckRequest"
 

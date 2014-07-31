@@ -77,7 +77,7 @@ instance ToQuery CreateHostedZone
 
 instance ToHeaders CreateHostedZone
 
-instance ToXML CreateHostedZoneRequest where
+instance ToXML CreateHostedZone where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateHostedZoneRequest"
 

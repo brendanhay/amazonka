@@ -43,7 +43,7 @@ instance ToQuery GetChange
 
 instance ToHeaders GetChange
 
-instance ToXML GetChangeRequest where
+instance ToXML GetChange where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetChangeRequest"
 

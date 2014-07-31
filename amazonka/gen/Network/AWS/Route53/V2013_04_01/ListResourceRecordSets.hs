@@ -100,7 +100,7 @@ instance ToQuery ListResourceRecordSets
 
 instance ToHeaders ListResourceRecordSets
 
-instance ToXML ListResourceRecordSetsRequest where
+instance ToXML ListResourceRecordSets where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListResourceRecordSetsRequest"
 

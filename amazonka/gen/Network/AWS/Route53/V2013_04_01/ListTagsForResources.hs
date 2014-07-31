@@ -40,7 +40,7 @@ instance ToQuery ListTagsForResources
 
 instance ToHeaders ListTagsForResources
 
-instance ToXML ListTagsForResourcesRequest where
+instance ToXML ListTagsForResources where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListTagsForResourcesRequest"
 

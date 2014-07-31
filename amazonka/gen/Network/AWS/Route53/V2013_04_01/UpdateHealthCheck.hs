@@ -92,7 +92,7 @@ instance ToQuery UpdateHealthCheck
 
 instance ToHeaders UpdateHealthCheck
 
-instance ToXML UpdateHealthCheckRequest where
+instance ToXML UpdateHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "UpdateHealthCheckRequest"
 

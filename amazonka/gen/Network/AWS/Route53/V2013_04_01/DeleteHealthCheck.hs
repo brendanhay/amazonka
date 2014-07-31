@@ -45,7 +45,7 @@ instance ToQuery DeleteHealthCheck
 
 instance ToHeaders DeleteHealthCheck
 
-instance ToXML DeleteHealthCheckRequest where
+instance ToXML DeleteHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteHealthCheckRequest"
 

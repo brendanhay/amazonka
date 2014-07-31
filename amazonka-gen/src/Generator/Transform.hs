@@ -81,10 +81,10 @@ operation svc@Service{..} o = do
               & opVersionNamespace .~ _svcVersionNamespace
               & opRequestNamespace .~ "Network.AWS.Request" <> fromString (show _svcType)
 
-        y = x & opRequest  . rqShape .~ rq
-              & opRequest            %~ request svc x
-              & opResponse . rsShape .~ rs
-              & opResponse           %~ response svc x
+        y = x & opRequest.rqShape  .~ rq
+              & opRequest          %~ request svc x
+              & opResponse.rsShape .~ rs
+              & opResponse         %~ response svc x
 
         z = y & opPagination %~ fmap (pagination y)
 
@@ -131,13 +131,14 @@ special svc s = f (_svcName svc) (s ^. cmnName) s
 
 request :: Service -> Operation -> Request -> Request
 request svc o rq = rq
-    & rqName     .~ (o ^. opName)
-    & rqDefault  .~ lowerFirst (o ^. opName)
-    & rqHttp     %~ http (rq ^. rqShape)
-    & rqFields   .~ fs
-    & rqPayload  .~ bdy
-    & rqRequired .~ req
-    & rqHeaders  .~ hs
+    & rqName          .~ (o ^. opName)
+    & rqShape.cmnName .~ (o ^. opName)
+    & rqDefault       .~ lowerFirst (o ^. opName)
+    & rqHttp          %~ http (rq ^. rqShape)
+    & rqFields        .~ fs
+    & rqPayload       .~ bdy
+    & rqRequired      .~ req
+    & rqHeaders       .~ hs
   where
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
     req = filter (view cmnRequired) fs

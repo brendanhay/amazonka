@@ -32,6 +32,7 @@ import           Data.Ord
 import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
+import           Debug.Trace
 import           Generator.AST
 import           Text.EDE.Filters
 
@@ -52,6 +53,9 @@ import           Text.EDE.Filters
 -- for the 'last element [-1]' array indicies
 
 -- FIXME: Deal with result_wrapped=true in XML responses
+
+-- FIXME: Route53 ResourceRecordSetRegion should be dropped in favour of Network.AWS.Types.Region
+-- Likewise with RRType
 
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
@@ -252,47 +256,52 @@ typeof :: Bool -> Service -> Shape -> Ann
 typeof rq svc s = Ann req (defaults s) (monoids s) typ
   where
     typ = case s of
-        SStruct Struct {}       -> n
-        SList   List   {..}     -> "[" <> ann _lstItem <> "]"
-        SMap    Map    {..}     -> "HashMap " <> ann _mapKey <> " " <> ann _mapValue
-        SSum    Sum    {}
-            | swt, req          -> "Switch " <> n
-            | swt               -> "(Switch " <> n <> ")"
-            | otherwise         -> n
-        SPrim   Prim   {..}
-            | n `elem` reserved -> n
-            | n == "Delimiter"
-            , _prmType == PText -> "Char"
-            | bdy, rq           -> "RqBody"
-            | bdy               -> "RsBody"
-            | otherwise         -> fmt _prmType
+        _ | Just x <- remapType svc s -> trace (show x) x
 
-    n   = s ^. cmnName
-    ann = _anType . typeof rq svc
+        SStruct _ -> name
+        SList   l -> "[" <> ann (_lstItem l) <> "]"
+        SMap    m -> "HashMap " <> ann (_mapKey m) <> " " <> ann (_mapValue m)
 
-    req = bdy || s ^. cmnRequired
-    swt = n `elem` switches
-    bdy = body s
+        SSum _ | switch, req -> "Switch " <> name
+               | switch      -> "(Switch " <> name <> ")"
+               | otherwise   -> name
 
-    fmt x = Text.pack $
-        case x of
-            PUTCTime -> show (_svcTimestamp svc)
-            _        -> drop 1 (show x)
+        SPrim p | body, rq   -> "RqBody"
+                | body       -> "RsBody"
+                | otherwise  -> formatPrim (_svcTimestamp svc) p
 
--- required :: Bool -> Shape -> Bool
--- --required True s = s ^. cmnLocation == LBody || s ^. cmnRequired
--- required _    s = s ^. cmnRequired
+    req    = body || s ^. cmnRequired
+    switch = name `elem` switches
 
-body :: Shape -> Bool
-body s = s ^. cmnLocation == LBody && s ^. cmnStreaming
+    name   = s ^. cmnName
+    body   = isBody s
 
-reserved :: [Text]
-reserved =
-    [ "BucketName"
-    , "ObjectKey"
-    , "ObjectVersionId"
-    , "ETag"
-    ]
+    ann    = _anType . typeof rq svc
+
+isBody :: HasCommon a => a -> Bool
+isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming
+
+remapType :: HasCommon a => Service -> a -> Maybe Text
+remapType Service{..} x = lookup (x ^. cmnName) $
+    case _svcName of
+        "S3" ->
+            [ ("BucketName",      "BucketName")
+            , ("ObjectKey",       "ObjectKey")
+            , ("ObjectVersionId", "ObjectVersionId")
+            , ("ETag",            "ETag")
+            , ("Delimiter",       "Char")
+            ]
+        "Route53" ->
+            [ ("RRType",                  "RecordType")
+            , ("ResourceRecordSetRegion", "Region")
+            ]
+        _ -> []
+
+formatPrim :: Time -> Prim -> Text
+formatPrim ts Prim{..} = Text.pack $
+    case _prmType of
+        PUTCTime -> show ts
+        _        -> drop 1 (show _prmType)
 
 switches :: [Text]
 switches =
@@ -354,9 +363,13 @@ serviceTypes svc@Service{..} = sort
     . (`execState` mempty)
     . mapM uniq
     . map (shapeType True svc . snd)
+    . mapMaybe exclude
     . concatMap opfields
     $ _svcOperations
   where
+    exclude :: (a, Shape) -> Maybe (a, Shape)
+    exclude x = maybe (Just x) (const Nothing) (remapType svc (snd x))
+
     uniq :: Type -> State (HashMap Text Type) ()
     uniq x = modify $ \m ->
         let n = x ^. cmnName

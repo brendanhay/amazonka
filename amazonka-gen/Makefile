@@ -43,12 +43,11 @@ JSON := \
  $(BOTO)/opsworks \
  $(BOTO)/storagegateway \
  $(BOTO)/support \
- $(BOTO)/swf
+ $(BOTO)/swf \
+ $(BOTO)/cognito-identity \
+ $(BOTO)/cognito-sync
 
-# cognito-identity
-# cognito-sync
-
-MODELS ?= $(BOTO)/autoscaling $(BOTO)/elb $(BOTO)/iam
+MODELS ?= $(RESTXML)
 
 .PHONY: gen
 

@@ -1,0 +1,149 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE FlexibleInstances  #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{% include "_include/license.ede" with types_namespace %}
+
+{% if documentation %}
+{{ documentation | above76 }}
+{% endif %}
+module {{ types_namespace }} where
+
+import Network.AWS.Prelude
+import Network.AWS.Signing.{{ signature }}
+
+{% include "_include/service.ede" %}
+
+xmlOptions :: Tagged a XMLOptions
+xmlOptions = Tagged def
+{% if xml_namespace %}
+    { xmlNamespace = Just "{{ xml_namespace }}"
+    }
+{% endif %}
+
+{% for data in types %}
+  {% if data.value.documentation %}
+{{ data.value.documentation | above76 }}
+  {% endif %}
+  {% case data.value.name %}
+  {% when "BucketLocationConstraint" %}
+newtype {{ data.value.name }} = {{ data.value.name }} Region
+    deriving (Eq, Show, Generic)
+
+instance FromText {{ data.value.name }} where
+    parser = {{ data.value.name }} <$> parser
+
+instance ToText {{ data.value.name }} where
+    toText ({{ data.value.name }} r) = toText r
+
+instance ToByteString {{ data.value.name }} where
+    toBS ({{ data.value.name }} r) = toBS r
+
+instance FromXML {{ data.value.name }} where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "{{ data.value.name }}"
+    fromXML        = const fromNodeContent
+
+instance ToXML {{ data.value.name }} where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "{{ data.value.name }}"
+    toXML o      = toXML (retag o) . toText
+  {% else %}
+    {% case data.value.ctor %}
+    {% when "switch" %}
+data {{ data.value.name }}
+
+instance FromText (Switch {{ data.value.name }}) where
+      {% for branch in data.value.values %}
+        {% if branch.first %}
+    parser = match "{{ branch.value }}" {{ branch.key }}
+        {% else %}
+         <|> match "{{ branch.value }}" {{ branch.key }}
+        {% endif %}
+      {% endfor %}
+
+instance ToText (Switch {{ data.value.name }}) where
+      {% for branch in data.value.values %}
+    toText {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance ToByteString (Switch {{ data.value.name }}) where
+      {% for branch in data.value.values %}
+    toBS {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+  {% if data.value.direction.response %}
+
+instance FromXML (Switch {{ data.value.name }}) where
+    {% if data.value.flattened %}
+    fromXMLOptions = xmlOptions { xmlListElem = Nothing }
+    {% else %}
+    fromXMLOptions = xmlOptions
+    {% endif %}
+    fromXMLRoot    = fromRoot "{{ data.value.xml_name }}"
+  {% endif %}
+  {% if data.value.direction.request %}
+
+instance ToXML (Switch {{ data.value.name }}) where
+    {% if data.value.flattened %}
+    toXMLOptions = xmlOptions { xmlListElem = Nothing }
+    {% else %}
+    toXMLOptions = xmlOptions
+    {% endif %}
+    toXMLRoot    = toRoot "{{ data.value.xml_name }}"
+  {% endif %}
+    {% when "witness" %}
+data {{ data.value.name }}
+    {% when "sum" %}
+data {{ data.value.name }}
+      {% for branch in data.value.values %}
+        {% if branch.first %}
+    = {{ branch.key }} -- ^ {{ branch.value }}
+        {% else %}
+    | {{ branch.key }} -- ^ {{ branch.value }}
+        {% endif %}
+      {% endfor %}
+      deriving (Eq, Show, Generic)
+
+instance FromText {{ data.value.name }} where
+      {% for branch in data.value.values %}
+        {% if branch.first %}
+    parser = match "{{ branch.value }}" {{ branch.key }}
+        {% else %}
+         <|> match "{{ branch.value }}" {{ branch.key }}
+        {% endif %}
+      {% endfor %}
+
+instance ToText {{ data.value.name }} where
+      {% for branch in data.value.values %}
+    toText {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance ToByteString {{ data.value.name }} where
+      {% for branch in data.value.values %}
+    toBS {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+    {% include "_include/xml-from.ede" with data.value %}
+    {% include "_include/xml-to.ede" with data.value %}
+    {% when "newtype" %}
+newtype {{ data.value.name }} = {{ data.value.name }}
+    {% include "_include/record.ede" with data.value.fields %}
+    {% include "_include/xml-from.ede" with data.value %}
+    {% include "_include/xml-to.ede" with data.value %}
+    {% when "data" %}
+data {{ data.value.name }} = {{ data.value.name }}
+    {% include "_include/record.ede" with data.value.fields %}
+    {% include "_include/xml-from.ede" with data.value %}
+    {% include "_include/xml-to.ede" with data.value %}
+    {% when "nullary" %}
+data {{ data.value.name }} = {{ data.value.name }}
+  {% include "_include/xml-from.ede" with data.value %}
+  {% include "_include/xml-to.ede" with data.value %}
+    {% endcase %}
+  {% endcase %}
+  {% if !data.last %}
+
+  {% endif %}
+{% endfor %}

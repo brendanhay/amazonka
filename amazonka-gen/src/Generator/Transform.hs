@@ -86,7 +86,7 @@ operation svc@Service{..} o = do
               & opResponse.rsShape .~ rs
               & opResponse         %~ response svc x
 
-        z = y & opPagination %~ fmap (pagination y)
+        z = y & opPagination       %~ fmap (pagination y)
 
     return z
 

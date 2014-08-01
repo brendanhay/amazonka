@@ -250,7 +250,7 @@ instance FromJSON Primitive where
             "boolean"   -> return PBool
             "blob"      -> return PByteString
             "timestamp" -> return PUTCTime
-            _           -> fail $ "Unable to parse Prim from: " ++ Text.unpack t
+            _           -> fail ("Unable to parse Prim from: " ++ Text.unpack t)
 
 instance FromJSON Pagination where
     parseJSON = withObject "pagination" $ \o -> more o <|> next o

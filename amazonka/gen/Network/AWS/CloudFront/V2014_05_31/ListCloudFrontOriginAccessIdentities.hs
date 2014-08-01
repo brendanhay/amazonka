@@ -76,7 +76,7 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
     next rq rs
-        | not (_lcfoaisCloudFrontOriginAccessIdentityList.IsTruncated rs) = Nothing
+        | not (_cfoailIsTruncated $ _lcfoaisCloudFrontOriginAccessIdentityList rs) = Nothing
         | otherwise = Just $ rq
             { _lcfoairMarker = _cfoailNextMarker $ _lcfoaisCloudFrontOriginAccessIdentityList rs
             }

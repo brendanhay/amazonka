@@ -86,7 +86,7 @@ instance AWSRequest ListInvalidations where
 
 instance AWSPager ListInvalidations where
     next rq rs
-        | not (_lisInvalidationList.IsTruncated rs) = Nothing
+        | not (_ilIsTruncated $ _lisInvalidationList rs) = Nothing
         | otherwise = Just $ rq
             { _lirMarker = _ilNextMarker $ _lisInvalidationList rs
             }

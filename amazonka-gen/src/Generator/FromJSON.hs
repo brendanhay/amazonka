@@ -263,15 +263,18 @@ instance FromJSON Pagination where
             unless (length xs == length ys) $
                 fail "input_token and output_token don't contain same number of keys."
 
-            More <$> o .: "more_results" <*> pure (zipWith token xs ys)
+            More <$> (split <$> o .: "more_results")
+                 <*> pure (zipWith token xs ys)
           where
             f k = o .: k <|> (:[]) <$> o .: k
 
         next o = Next
-            <$> o .: "result_key"
+            <$> (split <$> o .: "result_key")
             <*> (token <$> o .: "input_token" <*> o .: "output_token")
 
-        token x y = Token x (map Text.strip (Text.split (== '.') y))
+        token x = Token x . split
+
+        split = map Text.strip . Text.split (== '.')
 
 instance FromJSON HTTP where
     parseJSON = withObject "http" $ \o -> HTTP

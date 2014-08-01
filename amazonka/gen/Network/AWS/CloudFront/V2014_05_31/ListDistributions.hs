@@ -76,7 +76,7 @@ instance AWSRequest ListDistributions where
 
 instance AWSPager ListDistributions where
     next rq rs
-        | not (_ldsDistributionList.IsTruncated rs) = Nothing
+        | not (_dlIsTruncated $ _ldsDistributionList rs) = Nothing
         | otherwise = Just $ rq
             { _ldrMarker = _dlNextMarker $ _ldsDistributionList rs
             }

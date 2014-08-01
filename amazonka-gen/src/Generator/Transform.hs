@@ -178,10 +178,9 @@ response svc o rs = rs
         | otherwise                              = def
 
 pagination :: [Type] -> Operation -> Pagination -> Pagination
-pagination typs o p =
-    case p of
-        More m  ts -> More (rsPref m)  (map token ts)
-        Next rk t  -> Next (rsPref rk) (token t)
+pagination typs o p = case p of
+    More ms ts -> More (tyPref ms) (map token ts)
+    Next rs t  -> Next (tyPref rs) (token t)
   where
     token t = t & tokInput %~ rqPref & tokOutput %~ tyPref
 

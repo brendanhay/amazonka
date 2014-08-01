@@ -311,8 +311,8 @@ data Token = Token
     } deriving (Eq, Show, Generic)
 
 data Pagination
-    = More Text [Token]
-    | Next Text Token
+    = More [Text] [Token]
+    | Next [Text] Token
       deriving (Eq, Show, Generic)
 
 data HTTP = HTTP
@@ -420,7 +420,7 @@ defaultService a = Service
     , _svcVersion          = Version mempty
     , _svcRawVersion       = mempty
     , _svcType             = def
-    , _svcError            = Error (unAbbrev a) [] mempty
+    , _svcError            = Error (unAbbrev a) mempty mempty
     , _svcWrapped          = False
     , _svcSignature        = def
     , _svcDocumentation    = def
@@ -431,9 +431,9 @@ defaultService a = Service
     , _svcChecksum         = def
     , _svcJsonVersion      = def
     , _svcTargetPrefix     = def
-    , _svcOperations       = []
-    , _svcOverrides        = []
-    , _svcTypes            = []
+    , _svcOperations       = mempty
+    , _svcOverrides        = mempty
+    , _svcTypes            = mempty
     }
 
 makeLenses ''Request

@@ -185,7 +185,7 @@ instance ToJSON QueryPart where
 instance ToJSON Token where
     toJSON Token{..} = object
         [ "input"  .= _tokInput
-        , "output" .= Text.intercalate " $ " (reverse _tokOutput)
+        , "output" .= appliedFns _tokOutput
         ]
 
 instance ToJSON Pagination where
@@ -193,14 +193,18 @@ instance ToJSON Pagination where
         case p of
             More m  ts ->
                 [ "type"   .= ("more" :: Text)
-                , "more"   .= m
+                , "more"   .= appliedFns m
                 , "tokens" .= ts
                 ]
             Next rk t  ->
                 [ "type"       .= ("next" :: Text)
-                , "result_key" .= rk
+                , "result_key" .= appliedFns rk
                 , "token"      .= t
                 ]
+
+
+appliedFns :: [Text] -> Text
+appliedFns = Text.intercalate " $ " . reverse
 
 toField :: (Generic a, GToJSON (Rep a))
         => (String -> String)

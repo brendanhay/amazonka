@@ -68,7 +68,7 @@ instance ToXML ListInvalidations where
     toXMLRoot    = toRoot "ListInvalidationsRequest"
 
 data ListInvalidationsResponse = ListInvalidationsResponse
-    { _lisInvalidationList :: Maybe InvalidationList
+    { _lisInvalidationList :: InvalidationList
       -- ^ Information about invalidation batches.
     } deriving (Generic)
 

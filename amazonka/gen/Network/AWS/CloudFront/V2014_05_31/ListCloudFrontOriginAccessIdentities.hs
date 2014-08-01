@@ -58,7 +58,7 @@ instance ToXML ListCloudFrontOriginAccessIdentities where
     toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentitiesRequest"
 
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoaisCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
+    { _lcfoaisCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
       -- ^ The CloudFrontOriginAccessIdentityList type.
     } deriving (Generic)
 

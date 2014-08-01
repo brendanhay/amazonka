@@ -58,7 +58,7 @@ instance ToXML ListStreamingDistributions where
     toXMLRoot    = toRoot "ListStreamingDistributionsRequest"
 
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdsStreamingDistributionList :: Maybe StreamingDistributionList
+    { _lsdsStreamingDistributionList :: StreamingDistributionList
       -- ^ The StreamingDistributionList type.
     } deriving (Generic)
 

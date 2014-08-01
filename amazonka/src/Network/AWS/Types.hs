@@ -407,5 +407,10 @@ instance ToXML        RecordType
 makePrisms ''Error
 
 -- Products
-makeLenses ''Signed
 makeLenses ''Request
+
+sgMeta :: Functor f => LensLike' f (Signed a v) (Meta v)
+sgMeta f (Signed m rq) = (\y -> Signed y rq) <$> f m
+
+sgRequest :: Functor f => LensLike' f (Signed a v) ClientRequest
+sgRequest f (Signed m rq) = (\y -> Signed m y) <$> f rq

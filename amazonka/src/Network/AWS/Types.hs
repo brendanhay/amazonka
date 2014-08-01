@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE StandaloneDeriving         #-}
+{-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
 
@@ -130,7 +131,11 @@ nestedMarker f g x = toText <$> (listToMaybe (f x) >>= g)
 data family Meta v :: *
 
 data Signed a v where
-    Signed :: Show (Meta v) => Meta v -> ClientRequest -> Signed a v
+    Signed :: Show (Meta v)
+           => { _sgMeta    :: Meta v
+              , _sgRequest :: ClientRequest
+              }
+           -> Signed a v
 
 instance ToText (Signed a v) where
     toText (Signed m rq) = Text.unlines
@@ -138,12 +143,6 @@ instance ToText (Signed a v) where
         , "HTTP Request:"
         , Text.pack (show rq)
         ]
-
-sgMeta :: Functor f => LensLike' f (Signed a v) (Meta v)
-sgMeta f (Signed m rq) = (\y -> Signed y rq) <$> f m
-
-sgRequest :: Functor f => LensLike' f (Signed a v) ClientRequest
-sgRequest f (Signed m rq) = (\y -> Signed m y) <$> f rq
 
 class AWSSigner v where
     signed :: v ~ Sg (Sv a)
@@ -267,21 +266,6 @@ instance Show (Request a) where
         , "_rqHeaders = " ++ show _rqHeaders
         , "_rqBody    = " ++ show _rqBody
         ]
-
-rqMethod :: Functor f => LensLike' f (Request a) StdMethod
-rqMethod f x = (\y -> x { _rqMethod = y }) <$> f (_rqMethod x)
-
-rqPath :: Functor f => LensLike' f (Request a) ByteString
-rqPath f x = (\y -> x { _rqPath = y }) <$> f (_rqPath x)
-
-rqQuery :: Functor f => LensLike' f (Request a) Query
-rqQuery f x = (\y -> x { _rqQuery = y }) <$> f (_rqQuery x)
-
-rqHeaders :: Functor f => LensLike' f (Request a) [Header]
-rqHeaders f x = (\y -> x { _rqHeaders = y }) <$> f (_rqHeaders x)
-
-rqBody :: Functor f => LensLike' f (Request a) RqBody
-rqBody f x = (\y -> x { _rqBody = y }) <$> f (_rqBody x)
 
 data Region
     = Ireland         -- ^ Europe / eu-west-1
@@ -418,3 +402,10 @@ instance ToText RecordType where
 instance ToByteString RecordType
 instance FromXML      RecordType
 instance ToXML        RecordType
+
+-- Sums
+makePrisms ''Error
+
+-- Products
+makeLenses ''Signed
+makeLenses ''Request

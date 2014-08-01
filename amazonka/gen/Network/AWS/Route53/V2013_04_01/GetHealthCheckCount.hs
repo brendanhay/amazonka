@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,12 +20,15 @@
 -- 2013-04-01/healthcheckcount resource.
 module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
 data GetHealthCheckCount = GetHealthCheckCount
     deriving (Eq, Show, Generic)
+
+makeLenses ''GetHealthCheckCount
 
 instance ToPath GetHealthCheckCount where
     toPath = const "/2013-04-01/healthcheckcount"
@@ -37,18 +41,20 @@ instance ToXML GetHealthCheckCount where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHealthCheckCountRequest"
 
-instance AWSRequest GetHealthCheckCount where
-    type Sv GetHealthCheckCount = Route53
-    type Rs GetHealthCheckCount = GetHealthCheckCountResponse
-
-    request = get
-    response _ = xmlResponse
-
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccsHealthCheckCount :: Integer
       -- ^ The number of health checks associated with the current AWS
       -- account.
     } deriving (Generic)
 
+makeLenses ''GetHealthCheckCountResponse
+
 instance FromXML GetHealthCheckCountResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest GetHealthCheckCount where
+    type Sv GetHealthCheckCount = Route53
+    type Rs GetHealthCheckCount = GetHealthCheckCountResponse
+
+    request = get
+    response _ = xmlResponse

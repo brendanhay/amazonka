@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.CreateHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,6 +23,7 @@
 -- metadata about the health check.
 module Network.AWS.Route53.V2013_04_01.CreateHealthCheck where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -40,6 +42,8 @@ data CreateHealthCheck = CreateHealthCheck
       -- UTF-8 encoding of the value must be less than 128 bytes.
     } deriving (Generic)
 
+makeLenses ''CreateHealthCheck
+
 instance ToPath CreateHealthCheck where
     toPath = const "/2013-04-01/healthcheck"
 
@@ -51,6 +55,16 @@ instance ToXML CreateHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateHealthCheckRequest"
 
+data CreateHealthCheckResponse = CreateHealthCheckResponse
+    { _chcsHealthCheck :: HealthCheck
+      -- ^ A complex type that contains identifying information about the
+      -- health check.
+    , _chcsLocation :: Text
+      -- ^ The unique URL representing the new health check.
+    } deriving (Generic)
+
+makeLenses ''CreateHealthCheckResponse
+
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53
     type Rs CreateHealthCheck = CreateHealthCheckResponse
@@ -60,11 +74,3 @@ instance AWSRequest CreateHealthCheck where
         pure CreateHealthCheckResponse
             <*> xml %|  "HealthCheck"
             <*> hs ~:  "Location"
-
-data CreateHealthCheckResponse = CreateHealthCheckResponse
-    { _chcsHealthCheck :: HealthCheck
-      -- ^ A complex type that contains identifying information about the
-      -- health check.
-    , _chcsLocation :: Text
-      -- ^ The unique URL representing the new health check.
-    } deriving (Generic)

@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleInstances  #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TemplateHaskell    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.Types
@@ -23,6 +24,7 @@
 -- infrastructure outside of AWS.
 module Network.AWS.Route53.V2013_04_01.Types where
 
+import Control.Lens.TH
 import Network.AWS.Prelude
 import Network.AWS.Signing.V3
 
@@ -582,3 +584,20 @@ instance FromXML Tag where
 instance ToXML Tag where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Tag"
+
+-- Newtypes
+makeIso ''DelegationSet
+makeIso ''HostedZoneConfig
+makeIso ''ResourceRecord
+
+-- Products
+makeLenses ''AliasTarget
+makeLenses ''Change
+makeLenses ''ChangeBatch
+makeLenses ''ChangeInfo
+makeLenses ''HealthCheck
+makeLenses ''HealthCheckConfig
+makeLenses ''HostedZone
+makeLenses ''ResourceRecordSet
+makeLenses ''ResourceTagSet
+makeLenses ''Tag

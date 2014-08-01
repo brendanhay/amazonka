@@ -1,16 +1,8 @@
 {% include "_include/license.ede" with version_namespace %}
 
 {{ documentation | above76 }}
-module {{ version_namespace }}
-{% for module in modules %}
-  {% if module.first %}
-    ( module {{ module.value }}
-  {% else %}
-    , module {{ module.value }}
-  {% endif %}
-{% endfor %}
-    ) where
+module {{ version_namespace }} (module Export) where
 
 {% for module in modules %}
-import {{ module.value }}
+import {{ module.value }} as Export
 {% endfor %}

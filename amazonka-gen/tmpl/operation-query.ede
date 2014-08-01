@@ -1,15 +1,17 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 {% include "_include/license.ede" with namespace %}
 
 {{ documentation | above76 }}
 module {{ namespace }} where
 
+import Control.Lens
 import {{ request_namespace }}
 import {{ types_namespace }}
 import Network.AWS.Prelude
@@ -22,8 +24,20 @@ type {{ alias }} = {{ request.name }}
 data {{ request.name }} = {{ request.name }}
 {% include "_include/record.ede" with request.fields %}
 
+makeLenses ''{{ request.name }}
+
 instance ToQuery {{ request.name }} where
     toQuery = genericToQuery def
+
+data {{ response.name }} = {{ response.name }}
+{% include "_include/record.ede" with response.fields %}
+
+makeLenses ''{{ response.name }}
+{% if response.type == "xml" %}
+
+instance FromXML {{ response.name }} where
+    fromXMLOptions = xmlOptions
+{% endif %}
 
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
@@ -32,11 +46,3 @@ instance AWSRequest {{ request.name }} where
     request = post "{{ request.name }}"
 {% include "_include/response.ede" %}
 {% include "_include/pager.ede" %}
-
-data {{ response.name }} = {{ response.name }}
-{% include "_include/record.ede" with response.fields %}
-{% if response.type == "xml" %}
-
-instance FromXML {{ response.name }} where
-    fromXMLOptions = xmlOptions
-{% endif %}

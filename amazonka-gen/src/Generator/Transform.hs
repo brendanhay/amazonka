@@ -194,14 +194,9 @@ rootNS (NS xs) = NS (init xs)
 typeNS :: NS -> NS
 typeNS = (<> "Types")
 
-lensNS :: NS -> NS
-lensNS = (<> "Lenses")
-
 serviceNamespaces :: Service -> [NS]
-serviceNamespaces s = sort
-    $ _svcTypesNamespace s
-    : _svcLensNamespace s
-    : map _opNamespace (_svcOperations s)
+serviceNamespaces s = sort $
+    _svcTypesNamespace s : map _opNamespace (_svcOperations s)
 
 shapeEnums :: Text -> [Text] -> HashMap Text Text
 shapeEnums n = Map.fromList . map trans . filter (not . Text.null)

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.CreateInvalidation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Create a new invalidation.
 module Network.AWS.CloudFront.V2014_05_31.CreateInvalidation where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -28,6 +30,8 @@ data CreateInvalidation = CreateInvalidation
     , _cirDistributionId :: Text
       -- ^ The distribution's id.
     } deriving (Generic)
+
+makeLenses ''CreateInvalidation
 
 instance ToPath CreateInvalidation where
     toPath CreateInvalidation{..} = mconcat
@@ -44,6 +48,16 @@ instance ToXML CreateInvalidation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateInvalidationRequest"
 
+data CreateInvalidationResponse = CreateInvalidationResponse
+    { _cisInvalidation :: Maybe Invalidation
+      -- ^ The invalidation's information.
+    , _cisLocation :: Maybe Text
+      -- ^ The fully qualified URI of the distribution and invalidation
+      -- batch request, including the Invalidation ID.
+    } deriving (Generic)
+
+makeLenses ''CreateInvalidationResponse
+
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront
     type Rs CreateInvalidation = CreateInvalidationResponse
@@ -53,11 +67,3 @@ instance AWSRequest CreateInvalidation where
         pure CreateInvalidationResponse
             <*> xml %|? "Invalidation"
             <*> hs ~:? "Location"
-
-data CreateInvalidationResponse = CreateInvalidationResponse
-    { _cisInvalidation :: Maybe Invalidation
-      -- ^ The invalidation's information.
-    , _cisLocation :: Maybe Text
-      -- ^ The fully qualified URI of the distribution and invalidation
-      -- batch request, including the Invalidation ID.
-    } deriving (Generic)

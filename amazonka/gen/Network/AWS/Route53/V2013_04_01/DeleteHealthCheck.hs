@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,6 +27,7 @@
 -- see ChangeResourceRecordSets.
 module Network.AWS.Route53.V2013_04_01.DeleteHealthCheck where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -34,6 +36,8 @@ data DeleteHealthCheck = DeleteHealthCheck
     { _dhcrHealthCheckId :: Text
       -- ^ The ID of the health check to delete.
     } deriving (Generic)
+
+makeLenses ''DeleteHealthCheck
 
 instance ToPath DeleteHealthCheck where
     toPath DeleteHealthCheck{..} = mconcat
@@ -49,12 +53,14 @@ instance ToXML DeleteHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteHealthCheckRequest"
 
+data DeleteHealthCheckResponse = DeleteHealthCheckResponse
+    deriving (Eq, Show, Generic)
+
+makeLenses ''DeleteHealthCheckResponse
+
 instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53
     type Rs DeleteHealthCheck = DeleteHealthCheckResponse
 
     request = delete
     response _ _ = return (Right DeleteHealthCheckResponse)
-
-data DeleteHealthCheckResponse = DeleteHealthCheckResponse
-    deriving (Eq, Show, Generic)

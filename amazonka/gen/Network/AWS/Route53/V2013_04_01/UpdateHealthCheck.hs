@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,6 +24,7 @@
 -- check.
 module Network.AWS.Route53.V2013_04_01.UpdateHealthCheck where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -82,6 +84,8 @@ data UpdateHealthCheck = UpdateHealthCheck
       -- this value only if you want to change it.
     } deriving (Generic)
 
+makeLenses ''UpdateHealthCheck
+
 instance ToPath UpdateHealthCheck where
     toPath UpdateHealthCheck{..} = mconcat
         [ "/2013-04-01/healthcheck/"
@@ -96,18 +100,20 @@ instance ToXML UpdateHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "UpdateHealthCheckRequest"
 
-instance AWSRequest UpdateHealthCheck where
-    type Sv UpdateHealthCheck = Route53
-    type Rs UpdateHealthCheck = UpdateHealthCheckResponse
-
-    request = post
-    response _ = xmlResponse
-
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse
     { _uhcsHealthCheck :: HealthCheck
       -- ^ A complex type that contains identifying information about the
       -- health check.
     } deriving (Generic)
 
+makeLenses ''UpdateHealthCheckResponse
+
 instance FromXML UpdateHealthCheckResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest UpdateHealthCheck where
+    type Sv UpdateHealthCheck = Route53
+    type Rs UpdateHealthCheck = UpdateHealthCheckResponse
+
+    request = post
+    response _ = xmlResponse

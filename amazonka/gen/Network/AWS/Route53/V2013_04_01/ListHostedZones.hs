@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.ListHostedZones
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,6 +27,7 @@
 -- the first 100.
 module Network.AWS.Route53.V2013_04_01.ListHostedZones where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -47,6 +49,8 @@ data ListHostedZones = ListHostedZones
       -- results.
     } deriving (Generic)
 
+makeLenses ''ListHostedZones
+
 instance ToPath ListHostedZones where
     toPath = const "/2013-04-01/hostedzone"
 
@@ -57,20 +61,6 @@ instance ToHeaders ListHostedZones
 instance ToXML ListHostedZones where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListHostedZonesRequest"
-
-instance AWSRequest ListHostedZones where
-    type Sv ListHostedZones = Route53
-    type Rs ListHostedZones = ListHostedZonesResponse
-
-    request = get
-    response _ = xmlResponse
-
-instance AWSPager ListHostedZones where
-    next rq rs
-        | not (_lhzsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lhzrMarker = _lhzsNextMarker rs
-            }
 
 data ListHostedZonesResponse = ListHostedZonesResponse
     { _lhzsHostedZones :: [HostedZone]
@@ -101,5 +91,21 @@ data ListHostedZonesResponse = ListHostedZonesResponse
       -- element in the Marker element to get the next page of results.
     } deriving (Generic)
 
+makeLenses ''ListHostedZonesResponse
+
 instance FromXML ListHostedZonesResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest ListHostedZones where
+    type Sv ListHostedZones = Route53
+    type Rs ListHostedZones = ListHostedZonesResponse
+
+    request = get
+    response _ = xmlResponse
+
+instance AWSPager ListHostedZones where
+    next rq rs
+        | not (_lhzsIsTruncated rs) = Nothing
+        | otherwise = Just $ rq
+            { _lhzrMarker = _lhzsNextMarker rs
+            }

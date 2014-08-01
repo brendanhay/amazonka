@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Create a new origin access identity.
 module Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -26,6 +28,8 @@ data CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     { _ccfoairCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
       -- ^ The origin access identity's configuration information.
     } deriving (Generic)
+
+makeLenses ''CreateCloudFrontOriginAccessIdentity
 
 instance ToPath CreateCloudFrontOriginAccessIdentity where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
@@ -38,17 +42,6 @@ instance ToXML CreateCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateCloudFrontOriginAccessIdentityRequest"
 
-instance AWSRequest CreateCloudFrontOriginAccessIdentity where
-    type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
-    type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResponse
-
-    request = post
-    response _ = cursorResponse $ \hs xml ->
-        pure CreateCloudFrontOriginAccessIdentityResponse
-            <*> xml %|? "CloudFrontOriginAccessIdentity"
-            <*> hs ~:? "ETag"
-            <*> hs ~:? "Location"
-
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
     { _ccfoaisCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
       -- ^ The origin access identity's information.
@@ -60,3 +53,16 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
       -- https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
       -- 
     } deriving (Generic)
+
+makeLenses ''CreateCloudFrontOriginAccessIdentityResponse
+
+instance AWSRequest CreateCloudFrontOriginAccessIdentity where
+    type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
+    type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResponse
+
+    request = post
+    response _ = cursorResponse $ \hs xml ->
+        pure CreateCloudFrontOriginAccessIdentityResponse
+            <*> xml %|? "CloudFrontOriginAccessIdentity"
+            <*> hs ~:? "ETag"
+            <*> hs ~:? "Location"

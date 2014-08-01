@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.CreateHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,6 +31,7 @@
 -- DNS servers.
 module Network.AWS.Route53.V2013_04_01.CreateHostedZone where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -70,6 +72,8 @@ data CreateHostedZone = CreateHostedZone
       -- hosted zone.
     } deriving (Generic)
 
+makeLenses ''CreateHostedZone
+
 instance ToPath CreateHostedZone where
     toPath = const "/2013-04-01/hostedzone"
 
@@ -80,18 +84,6 @@ instance ToHeaders CreateHostedZone
 instance ToXML CreateHostedZone where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateHostedZoneRequest"
-
-instance AWSRequest CreateHostedZone where
-    type Sv CreateHostedZone = Route53
-    type Rs CreateHostedZone = CreateHostedZoneResponse
-
-    request = post
-    response _ = cursorResponse $ \hs xml ->
-        pure CreateHostedZoneResponse
-            <*> xml %|  "ChangeInfo"
-            <*> xml %|  "DelegationSet"
-            <*> xml %|  "HostedZone"
-            <*> hs ~:  "Location"
 
 data CreateHostedZoneResponse = CreateHostedZoneResponse
     { _chzsChangeInfo :: ChangeInfo
@@ -107,3 +99,17 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , _chzsLocation :: Text
       -- ^ The unique URL representing the new hosted zone.
     } deriving (Generic)
+
+makeLenses ''CreateHostedZoneResponse
+
+instance AWSRequest CreateHostedZone where
+    type Sv CreateHostedZone = Route53
+    type Rs CreateHostedZone = CreateHostedZoneResponse
+
+    request = post
+    response _ = cursorResponse $ \hs xml ->
+        pure CreateHostedZoneResponse
+            <*> xml %|  "ChangeInfo"
+            <*> xml %|  "DelegationSet"
+            <*> xml %|  "HostedZone"
+            <*> hs ~:  "Location"

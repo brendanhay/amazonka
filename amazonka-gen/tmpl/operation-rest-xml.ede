@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 {% include "_include/license.ede" with namespace %}
 
@@ -12,6 +13,7 @@
 {% endif %}
 module {{ namespace }} where
 
+import Control.Lens
 import {{ request_namespace }}
 import {{ types_namespace }}
 import Network.AWS.Prelude
@@ -24,12 +26,24 @@ type {{ alias }} = {{ request.name }}
 data {{ request.name }} = {{ request.name }}
 {% include "_include/record.ede" with request.fields %}
 
+makeLenses ''{{ request.name }}
+
 {% include "_include/path.ede" with request %}
 
 {% include "_include/query.ede" with request %}
 
 {% include "_include/headers.ede" with request %}
 {% include "_include/xml-to.ede" with request.shape %}
+
+data {{ response.name }} = {{ response.name }}
+{% include "_include/record.ede" with response.fields %}
+
+makeLenses ''{{ response.name }}
+{% if response.type == "xml" %}
+
+instance FromXML {{ response.name }} where
+    fromXMLOptions = xmlOptions
+{% endif %}
 
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
@@ -38,11 +52,3 @@ instance AWSRequest {{ request.name }} where
     request = {{ request.method }}
 {% include "_include/response.ede" %}
 {% include "_include/pager.ede" %}
-
-data {{ response.name }} = {{ response.name }}
-{% include "_include/record.ede" with response.fields %}
-{% if response.type == "xml" %}
-
-instance FromXML {{ response.name }} where
-    fromXMLOptions = xmlOptions
-{% endif %}

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Get the information about an origin access identity.
 module Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentity where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -26,6 +28,8 @@ data GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
     { _gcfoairId :: Text
       -- ^ The identity's id.
     } deriving (Generic)
+
+makeLenses ''GetCloudFrontOriginAccessIdentity
 
 instance ToPath GetCloudFrontOriginAccessIdentity where
     toPath GetCloudFrontOriginAccessIdentity{..} = mconcat
@@ -41,6 +45,16 @@ instance ToXML GetCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentityRequest"
 
+data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
+    { _gcfoaisCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+      -- ^ The origin access identity's information.
+    , _gcfoaisETag :: Maybe Text
+      -- ^ The current version of the origin access identity's information.
+      -- For example: E2QWRUHAPOMQZL.
+    } deriving (Generic)
+
+makeLenses ''GetCloudFrontOriginAccessIdentityResponse
+
 instance AWSRequest GetCloudFrontOriginAccessIdentity where
     type Sv GetCloudFrontOriginAccessIdentity = CloudFront
     type Rs GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentityResponse
@@ -50,11 +64,3 @@ instance AWSRequest GetCloudFrontOriginAccessIdentity where
         pure GetCloudFrontOriginAccessIdentityResponse
             <*> xml %|? "CloudFrontOriginAccessIdentity"
             <*> hs ~:? "ETag"
-
-data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
-    { _gcfoaisCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
-      -- ^ The origin access identity's information.
-    , _gcfoaisETag :: Maybe Text
-      -- ^ The current version of the origin access identity's information.
-      -- For example: E2QWRUHAPOMQZL.
-    } deriving (Generic)

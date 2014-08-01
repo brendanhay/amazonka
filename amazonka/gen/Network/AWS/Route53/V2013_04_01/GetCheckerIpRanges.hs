@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,12 +23,15 @@
 -- health of your resources.
 module Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
 data GetCheckerIpRanges = GetCheckerIpRanges
     deriving (Eq, Show, Generic)
+
+makeLenses ''GetCheckerIpRanges
 
 instance ToPath GetCheckerIpRanges where
     toPath = const "/2013-04-01/checkeripranges"
@@ -40,18 +44,20 @@ instance ToXML GetCheckerIpRanges where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetCheckerIpRangesRequest"
 
-instance AWSRequest GetCheckerIpRanges where
-    type Sv GetCheckerIpRanges = Route53
-    type Rs GetCheckerIpRanges = GetCheckerIpRangesResponse
-
-    request = get
-    response _ = xmlResponse
-
 data GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirsCheckerIpRanges :: [Text]
       -- ^ A complex type that contains sorted list of IP ranges in CIDR
       -- format for Amazon Route 53 health checkers.
     } deriving (Generic)
 
+makeLenses ''GetCheckerIpRangesResponse
+
 instance FromXML GetCheckerIpRangesResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest GetCheckerIpRanges where
+    type Sv GetCheckerIpRanges = Route53
+    type Rs GetCheckerIpRanges = GetCheckerIpRangesResponse
+
+    request = get
+    response _ = xmlResponse

@@ -8,8 +8,6 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.CloudFront
-    ( module Network.AWS.CloudFront.V2014_05_31
-    ) where
+module Network.AWS.CloudFront (module Export) where
 
-import Network.AWS.CloudFront.V2014_05_31
+import Network.AWS.CloudFront.V2014_05_31 as Export

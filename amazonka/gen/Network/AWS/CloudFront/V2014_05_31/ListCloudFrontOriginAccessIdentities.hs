@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | List origin access identities.
 module Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -42,6 +44,8 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
       -- response body.
     } deriving (Generic)
 
+makeLenses ''ListCloudFrontOriginAccessIdentities
+
 instance ToPath ListCloudFrontOriginAccessIdentities where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
 
@@ -52,6 +56,16 @@ instance ToHeaders ListCloudFrontOriginAccessIdentities
 instance ToXML ListCloudFrontOriginAccessIdentities where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentitiesRequest"
+
+data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
+    { _lcfoaisCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
+      -- ^ The CloudFrontOriginAccessIdentityList type.
+    } deriving (Generic)
+
+makeLenses ''ListCloudFrontOriginAccessIdentitiesResponse
+
+instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
+    fromXMLOptions = xmlOptions
 
 instance AWSRequest ListCloudFrontOriginAccessIdentities where
     type Sv ListCloudFrontOriginAccessIdentities = CloudFront
@@ -66,11 +80,3 @@ instance AWSPager ListCloudFrontOriginAccessIdentities where
         | otherwise = Just $ rq
             { _lcfoairMarker = _lcfoaisCloudFrontOriginAccessIdentityList.NextMarker rs
             }
-
-data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoaisCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
-      -- ^ The CloudFrontOriginAccessIdentityList type.
-    } deriving (Generic)
-
-instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
-    fromXMLOptions = xmlOptions

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Get the configuration information about a streaming distribution.
 module Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -26,6 +28,8 @@ data GetStreamingDistributionConfig = GetStreamingDistributionConfig
     { _gsdcrId :: Text
       -- ^ The streaming distribution's id.
     } deriving (Generic)
+
+makeLenses ''GetStreamingDistributionConfig
 
 instance ToPath GetStreamingDistributionConfig where
     toPath GetStreamingDistributionConfig{..} = mconcat
@@ -42,6 +46,16 @@ instance ToXML GetStreamingDistributionConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetStreamingDistributionConfigRequest"
 
+data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
+    { _gsdcsStreamingDistributionConfig :: Maybe StreamingDistributionConfig
+      -- ^ The streaming distribution's configuration information.
+    , _gsdcsETag :: Maybe Text
+      -- ^ The current version of the configuration. For example:
+      -- E2QWRUHAPOMQZL.
+    } deriving (Generic)
+
+makeLenses ''GetStreamingDistributionConfigResponse
+
 instance AWSRequest GetStreamingDistributionConfig where
     type Sv GetStreamingDistributionConfig = CloudFront
     type Rs GetStreamingDistributionConfig = GetStreamingDistributionConfigResponse
@@ -51,11 +65,3 @@ instance AWSRequest GetStreamingDistributionConfig where
         pure GetStreamingDistributionConfigResponse
             <*> xml %|? "StreamingDistributionConfig"
             <*> hs ~:? "ETag"
-
-data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
-    { _gsdcsStreamingDistributionConfig :: Maybe StreamingDistributionConfig
-      -- ^ The streaming distribution's configuration information.
-    , _gsdcsETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
-    } deriving (Generic)

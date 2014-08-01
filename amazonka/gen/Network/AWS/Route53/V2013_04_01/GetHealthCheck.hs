@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.GetHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,6 +20,7 @@
 -- 2013-04-01/healthcheck/health check ID resource.
 module Network.AWS.Route53.V2013_04_01.GetHealthCheck where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -27,6 +29,8 @@ data GetHealthCheck = GetHealthCheck
     { _ghcrHealthCheckId :: Text
       -- ^ The ID of the health check to retrieve.
     } deriving (Generic)
+
+makeLenses ''GetHealthCheck
 
 instance ToPath GetHealthCheck where
     toPath GetHealthCheck{..} = mconcat
@@ -42,18 +46,20 @@ instance ToXML GetHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHealthCheckRequest"
 
-instance AWSRequest GetHealthCheck where
-    type Sv GetHealthCheck = Route53
-    type Rs GetHealthCheck = GetHealthCheckResponse
-
-    request = get
-    response _ = xmlResponse
-
 data GetHealthCheckResponse = GetHealthCheckResponse
     { _ghcsHealthCheck :: HealthCheck
       -- ^ A complex type that contains the information about the specified
       -- health check.
     } deriving (Generic)
 
+makeLenses ''GetHealthCheckResponse
+
 instance FromXML GetHealthCheckResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest GetHealthCheck where
+    type Sv GetHealthCheck = Route53
+    type Rs GetHealthCheck = GetHealthCheckResponse
+
+    request = get
+    response _ = xmlResponse

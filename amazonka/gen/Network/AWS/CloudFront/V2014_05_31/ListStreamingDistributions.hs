@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | List streaming distributions.
 module Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -42,6 +44,8 @@ data ListStreamingDistributions = ListStreamingDistributions
       -- response body.
     } deriving (Generic)
 
+makeLenses ''ListStreamingDistributions
+
 instance ToPath ListStreamingDistributions where
     toPath = const "/2014-05-31/streaming-distribution"
 
@@ -52,6 +56,16 @@ instance ToHeaders ListStreamingDistributions
 instance ToXML ListStreamingDistributions where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListStreamingDistributionsRequest"
+
+data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
+    { _lsdsStreamingDistributionList :: Maybe StreamingDistributionList
+      -- ^ The StreamingDistributionList type.
+    } deriving (Generic)
+
+makeLenses ''ListStreamingDistributionsResponse
+
+instance FromXML ListStreamingDistributionsResponse where
+    fromXMLOptions = xmlOptions
 
 instance AWSRequest ListStreamingDistributions where
     type Sv ListStreamingDistributions = CloudFront
@@ -66,11 +80,3 @@ instance AWSPager ListStreamingDistributions where
         | otherwise = Just $ rq
             { _lsdrMarker = _lsdsStreamingDistributionList.NextMarker rs
             }
-
-data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdsStreamingDistributionList :: Maybe StreamingDistributionList
-      -- ^ The StreamingDistributionList type.
-    } deriving (Generic)
-
-instance FromXML ListStreamingDistributionsResponse where
-    fromXMLOptions = xmlOptions

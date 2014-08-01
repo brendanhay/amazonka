@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.UpdateDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Update a distribution.
 module Network.AWS.CloudFront.V2014_05_31.UpdateDistribution where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -42,6 +44,8 @@ data UpdateDistribution = UpdateDistribution
       -- distribution's configuration. For example: E2QWRUHAPOMQZL.
     } deriving (Generic)
 
+makeLenses ''UpdateDistribution
+
 instance ToPath UpdateDistribution where
     toPath UpdateDistribution{..} = mconcat
         [ "/2014-05-31/distribution/"
@@ -60,6 +64,16 @@ instance ToXML UpdateDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "UpdateDistributionRequest"
 
+data UpdateDistributionResponse = UpdateDistributionResponse
+    { _udsDistribution :: Maybe Distribution
+      -- ^ The distribution's information.
+    , _udsETag :: Maybe Text
+      -- ^ The current version of the configuration. For example:
+      -- E2QWRUHAPOMQZL.
+    } deriving (Generic)
+
+makeLenses ''UpdateDistributionResponse
+
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront
     type Rs UpdateDistribution = UpdateDistributionResponse
@@ -69,11 +83,3 @@ instance AWSRequest UpdateDistribution where
         pure UpdateDistributionResponse
             <*> xml %|? "Distribution"
             <*> hs ~:? "ETag"
-
-data UpdateDistributionResponse = UpdateDistributionResponse
-    { _udsDistribution :: Maybe Distribution
-      -- ^ The distribution's information.
-    , _udsETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
-    } deriving (Generic)

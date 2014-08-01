@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.ChangeTagsForResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,6 +18,7 @@
 
 module Network.AWS.Route53.V2013_04_01.ChangeTagsForResource where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -48,6 +50,8 @@ data ChangeTagsForResource = ChangeTagsForResource
       -- specified resource.
     } deriving (Generic)
 
+makeLenses ''ChangeTagsForResource
+
 instance ToPath ChangeTagsForResource where
     toPath ChangeTagsForResource{..} = mconcat
         [ "/2013-04-01/tags/"
@@ -64,12 +68,14 @@ instance ToXML ChangeTagsForResource where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeTagsForResourceRequest"
 
+data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
+    deriving (Eq, Show, Generic)
+
+makeLenses ''ChangeTagsForResourceResponse
+
 instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53
     type Rs ChangeTagsForResource = ChangeTagsForResourceResponse
 
     request = post
     response _ _ = return (Right ChangeTagsForResourceResponse)
-
-data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
-    deriving (Eq, Show, Generic)

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.GetInvalidation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Get the information about an invalidation.
 module Network.AWS.CloudFront.V2014_05_31.GetInvalidation where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -28,6 +30,8 @@ data GetInvalidation = GetInvalidation
     , _girId :: Text
       -- ^ The invalidation's id.
     } deriving (Generic)
+
+makeLenses ''GetInvalidation
 
 instance ToPath GetInvalidation where
     toPath GetInvalidation{..} = mconcat
@@ -45,17 +49,19 @@ instance ToXML GetInvalidation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetInvalidationRequest"
 
+data GetInvalidationResponse = GetInvalidationResponse
+    { _gisInvalidation :: Maybe Invalidation
+      -- ^ The invalidation's information.
+    } deriving (Generic)
+
+makeLenses ''GetInvalidationResponse
+
+instance FromXML GetInvalidationResponse where
+    fromXMLOptions = xmlOptions
+
 instance AWSRequest GetInvalidation where
     type Sv GetInvalidation = CloudFront
     type Rs GetInvalidation = GetInvalidationResponse
 
     request = get
     response _ = xmlResponse
-
-data GetInvalidationResponse = GetInvalidationResponse
-    { _gisInvalidation :: Maybe Invalidation
-      -- ^ The invalidation's information.
-    } deriving (Generic)
-
-instance FromXML GetInvalidationResponse where
-    fromXMLOptions = xmlOptions

@@ -14,44 +14,23 @@
 -- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
 -- (Amazon S3). You can also use Amazon Route 53 to route users to your
 -- infrastructure outside of AWS.
-module Network.AWS.Route53.V2013_04_01
-    ( module Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
-    , module Network.AWS.Route53.V2013_04_01.ChangeTagsForResource
-    , module Network.AWS.Route53.V2013_04_01.CreateHealthCheck
-    , module Network.AWS.Route53.V2013_04_01.CreateHostedZone
-    , module Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
-    , module Network.AWS.Route53.V2013_04_01.DeleteHostedZone
-    , module Network.AWS.Route53.V2013_04_01.GetChange
-    , module Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
-    , module Network.AWS.Route53.V2013_04_01.GetHealthCheck
-    , module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
-    , module Network.AWS.Route53.V2013_04_01.GetHostedZone
-    , module Network.AWS.Route53.V2013_04_01.Lenses
-    , module Network.AWS.Route53.V2013_04_01.ListHealthChecks
-    , module Network.AWS.Route53.V2013_04_01.ListHostedZones
-    , module Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
-    , module Network.AWS.Route53.V2013_04_01.ListTagsForResource
-    , module Network.AWS.Route53.V2013_04_01.ListTagsForResources
-    , module Network.AWS.Route53.V2013_04_01.Types
-    , module Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
-    ) where
+module Network.AWS.Route53.V2013_04_01 (module Export) where
 
-import Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
-import Network.AWS.Route53.V2013_04_01.ChangeTagsForResource
-import Network.AWS.Route53.V2013_04_01.CreateHealthCheck
-import Network.AWS.Route53.V2013_04_01.CreateHostedZone
-import Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
-import Network.AWS.Route53.V2013_04_01.DeleteHostedZone
-import Network.AWS.Route53.V2013_04_01.GetChange
-import Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
-import Network.AWS.Route53.V2013_04_01.GetHealthCheck
-import Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
-import Network.AWS.Route53.V2013_04_01.GetHostedZone
-import Network.AWS.Route53.V2013_04_01.Lenses
-import Network.AWS.Route53.V2013_04_01.ListHealthChecks
-import Network.AWS.Route53.V2013_04_01.ListHostedZones
-import Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
-import Network.AWS.Route53.V2013_04_01.ListTagsForResource
-import Network.AWS.Route53.V2013_04_01.ListTagsForResources
-import Network.AWS.Route53.V2013_04_01.Types
-import Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
+import Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets as Export
+import Network.AWS.Route53.V2013_04_01.ChangeTagsForResource as Export
+import Network.AWS.Route53.V2013_04_01.CreateHealthCheck as Export
+import Network.AWS.Route53.V2013_04_01.CreateHostedZone as Export
+import Network.AWS.Route53.V2013_04_01.DeleteHealthCheck as Export
+import Network.AWS.Route53.V2013_04_01.DeleteHostedZone as Export
+import Network.AWS.Route53.V2013_04_01.GetChange as Export
+import Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges as Export
+import Network.AWS.Route53.V2013_04_01.GetHealthCheck as Export
+import Network.AWS.Route53.V2013_04_01.GetHealthCheckCount as Export
+import Network.AWS.Route53.V2013_04_01.GetHostedZone as Export
+import Network.AWS.Route53.V2013_04_01.ListHealthChecks as Export
+import Network.AWS.Route53.V2013_04_01.ListHostedZones as Export
+import Network.AWS.Route53.V2013_04_01.ListResourceRecordSets as Export
+import Network.AWS.Route53.V2013_04_01.ListTagsForResource as Export
+import Network.AWS.Route53.V2013_04_01.ListTagsForResources as Export
+import Network.AWS.Route53.V2013_04_01.Types as Export
+import Network.AWS.Route53.V2013_04_01.UpdateHealthCheck as Export

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.GetHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,6 +22,7 @@
 -- created it.
 module Network.AWS.Route53.V2013_04_01.GetHostedZone where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -30,6 +32,8 @@ data GetHostedZone = GetHostedZone
       -- ^ The ID of the hosted zone for which you want to get a list of the
       -- name servers in the delegation set.
     } deriving (Generic)
+
+makeLenses ''GetHostedZone
 
 instance ToPath GetHostedZone where
     toPath GetHostedZone{..} = mconcat
@@ -45,13 +49,6 @@ instance ToXML GetHostedZone where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHostedZoneRequest"
 
-instance AWSRequest GetHostedZone where
-    type Sv GetHostedZone = Route53
-    type Rs GetHostedZone = GetHostedZoneResponse
-
-    request = get
-    response _ = xmlResponse
-
 data GetHostedZoneResponse = GetHostedZoneResponse
     { _ghzsDelegationSet :: DelegationSet
       -- ^ A complex type that contains information about the name servers
@@ -61,5 +58,14 @@ data GetHostedZoneResponse = GetHostedZoneResponse
       -- hosted zone.
     } deriving (Generic)
 
+makeLenses ''GetHostedZoneResponse
+
 instance FromXML GetHostedZoneResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest GetHostedZone where
+    type Sv GetHostedZone = Route53
+    type Rs GetHostedZone = GetHostedZoneResponse
+
+    request = get
+    response _ = xmlResponse

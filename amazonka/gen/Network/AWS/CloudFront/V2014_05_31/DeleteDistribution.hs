@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.DeleteDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Delete a distribution.
 module Network.AWS.CloudFront.V2014_05_31.DeleteDistribution where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -38,6 +40,8 @@ data DeleteDistribution = DeleteDistribution
       -- distribution. For example: E2QWRUHAPOMQZL.
     } deriving (Generic)
 
+makeLenses ''DeleteDistribution
+
 instance ToPath DeleteDistribution where
     toPath DeleteDistribution{..} = mconcat
         [ "/2014-05-31/distribution/"
@@ -55,12 +59,14 @@ instance ToXML DeleteDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteDistributionRequest"
 
+data DeleteDistributionResponse = DeleteDistributionResponse
+    deriving (Eq, Show, Generic)
+
+makeLenses ''DeleteDistributionResponse
+
 instance AWSRequest DeleteDistribution where
     type Sv DeleteDistribution = CloudFront
     type Rs DeleteDistribution = DeleteDistributionResponse
 
     request = delete
     response _ _ = return (Right DeleteDistributionResponse)
-
-data DeleteDistributionResponse = DeleteDistributionResponse
-    deriving (Eq, Show, Generic)

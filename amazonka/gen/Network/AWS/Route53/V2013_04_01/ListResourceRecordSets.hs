@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,6 +50,7 @@
 -- subsequent call to ListResourceRecordSets by that process.
 module Network.AWS.Route53.V2013_04_01.ListResourceRecordSets where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -89,6 +91,8 @@ data ListResourceRecordSets = ListResourceRecordSets
       -- the current DNS name and type.
     } deriving (Generic)
 
+makeLenses ''ListResourceRecordSets
+
 instance ToPath ListResourceRecordSets where
     toPath ListResourceRecordSets{..} = mconcat
         [ "/2013-04-01/hostedzone/"
@@ -103,22 +107,6 @@ instance ToHeaders ListResourceRecordSets
 instance ToXML ListResourceRecordSets where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListResourceRecordSetsRequest"
-
-instance AWSRequest ListResourceRecordSets where
-    type Sv ListResourceRecordSets = Route53
-    type Rs ListResourceRecordSets = ListResourceRecordSetsResponse
-
-    request = get
-    response _ = xmlResponse
-
-instance AWSPager ListResourceRecordSets where
-    next rq rs
-        | not (_lrrssIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lrrsrStartRecordName = _lrrssNextRecordName rs
-            , _lrrsrStartRecordType = _lrrssNextRecordType rs
-            , _lrrsrStartRecordIdentifier = _lrrssNextRecordIdentifier rs
-            }
 
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { _lrrssMaxItems :: Text
@@ -147,5 +135,23 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
       -- next resource record set that has the current DNS name and type.
     } deriving (Generic)
 
+makeLenses ''ListResourceRecordSetsResponse
+
 instance FromXML ListResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest ListResourceRecordSets where
+    type Sv ListResourceRecordSets = Route53
+    type Rs ListResourceRecordSets = ListResourceRecordSetsResponse
+
+    request = get
+    response _ = xmlResponse
+
+instance AWSPager ListResourceRecordSets where
+    next rq rs
+        | not (_lrrssIsTruncated rs) = Nothing
+        | otherwise = Just $ rq
+            { _lrrsrStartRecordName = _lrrssNextRecordName rs
+            , _lrrsrStartRecordType = _lrrssNextRecordType rs
+            , _lrrsrStartRecordIdentifier = _lrrssNextRecordIdentifier rs
+            }

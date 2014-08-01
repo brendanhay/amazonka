@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,6 +38,7 @@
 -- Value elements in a request cannot exceed 32,000 characters.
 module Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -49,6 +51,8 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
       -- ^ The ID of the hosted zone that contains the resource record sets
       -- that you want to change.
     } deriving (Generic)
+
+makeLenses ''ChangeResourceRecordSets
 
 instance ToPath ChangeResourceRecordSets where
     toPath ChangeResourceRecordSets{..} = mconcat
@@ -65,13 +69,6 @@ instance ToXML ChangeResourceRecordSets where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeResourceRecordSetsRequest"
 
-instance AWSRequest ChangeResourceRecordSets where
-    type Sv ChangeResourceRecordSets = Route53
-    type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
-
-    request = post
-    response _ = xmlResponse
-
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrssChangeInfo :: ChangeInfo
       -- ^ A complex type that contains information about changes made to
@@ -80,5 +77,14 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
       -- the change.
     } deriving (Generic)
 
+makeLenses ''ChangeResourceRecordSetsResponse
+
 instance FromXML ChangeResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest ChangeResourceRecordSets where
+    type Sv ChangeResourceRecordSets = Route53
+    type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
+
+    request = post
+    response _ = xmlResponse

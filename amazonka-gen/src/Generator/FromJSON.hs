@@ -57,10 +57,10 @@ parseModel Model{..} = do
         <*> load "Override" modLocal
 
     -- First merge local, then global overrides.
-    let o = l <> g
+    let o = union l g
 
     os  <- overrides o
-    svc <- parse' (o <> s)
+    svc <- parse' . Object $ union o s
 
     return (svc & svcOverrides .~ os)
   where
@@ -68,19 +68,29 @@ parseModel Model{..} = do
     load _ Nothing  = return mempty
     load n (Just f) = do
         say ("Parse " <> n) f
-        eitherDecode <$> scriptIO (LBS.readFile f) >>= hoistEither
+        eitherDecode <$>
+            scriptIO (LBS.readFile f) >>= hoistEither
 
     overrides :: Object -> Script [Shape]
     overrides m =
         case Map.lookup key m of
-            Nothing         -> return []
-            Just (Object o) -> parse' o
-            _ -> left ("Failed to unwrap object from: " ++ Text.unpack key)
+            Nothing -> return []
+            Just x  -> parse' x
 
+    -- FIXME: support other overrides nested under top-level 'overrides' key
     key = "shape_overrides"
 
-    parse' :: FromJSON a => Object -> Script a
-    parse' = hoistEither . parseEither parseJSON . Object
+    parse' :: FromJSON a => Value -> Script a
+    parse' = hoistEither . parseEither parseJSON
+
+    union :: Object -> Object -> Object
+    union = Map.unionWith merge
+
+    merge :: Value -> Value -> Value
+    merge a b =
+        case (a, b) of
+            (Object x, Object y) -> Object (union x y)
+            (_,        _)        -> a
 
 instance FromJSON Abbrev where
     parseJSON = withText "abbrev" (return . Abbrev)
@@ -119,7 +129,7 @@ instance FromJSON Service where
                 | otherwise = t
             sEr = serviceError a ops
 
-        Service a n (rootNS vNS) vNS (typeNS vNS) (lensNS vNS) ver rv typ sEr
+        Service a n (rootNS vNS) vNS (typeNS vNS) ver rv typ sEr
             <$> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
             <*> o .:  "documentation"

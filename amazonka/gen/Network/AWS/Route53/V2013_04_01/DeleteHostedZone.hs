@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.DeleteHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,6 +28,7 @@
 -- about deleting records from your hosted zone, see ChangeResourceRecordSets.
 module Network.AWS.Route53.V2013_04_01.DeleteHostedZone where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -36,6 +38,8 @@ data DeleteHostedZone = DeleteHostedZone
       -- ^ The ID of the request. Include this ID in a call to GetChange to
       -- track when the change has propagated to all Route 53 DNS servers.
     } deriving (Generic)
+
+makeLenses ''DeleteHostedZone
 
 instance ToPath DeleteHostedZone where
     toPath DeleteHostedZone{..} = mconcat
@@ -51,18 +55,20 @@ instance ToXML DeleteHostedZone where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteHostedZoneRequest"
 
-instance AWSRequest DeleteHostedZone where
-    type Sv DeleteHostedZone = Route53
-    type Rs DeleteHostedZone = DeleteHostedZoneResponse
-
-    request = delete
-    response _ = xmlResponse
-
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { _dhzsChangeInfo :: ChangeInfo
       -- ^ A complex type that contains the ID, the status, and the date and
       -- time of your delete request.
     } deriving (Generic)
 
+makeLenses ''DeleteHostedZoneResponse
+
 instance FromXML DeleteHostedZoneResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest DeleteHostedZone where
+    type Sv DeleteHostedZone = Route53
+    type Rs DeleteHostedZone = DeleteHostedZoneResponse
+
+    request = delete
+    response _ = xmlResponse

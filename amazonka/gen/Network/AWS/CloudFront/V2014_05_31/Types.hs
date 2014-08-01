@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleInstances  #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TemplateHaskell    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.Types
@@ -28,6 +29,7 @@
 -- for the definitive version of your content.
 module Network.AWS.CloudFront.V2014_05_31.Types where
 
+import Control.Lens.TH
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -1766,3 +1768,49 @@ instance FromXML ViewerCertificate where
 instance ToXML ViewerCertificate where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ViewerCertificate"
+
+-- Newtypes
+makeIso ''Restrictions
+makeIso ''S3OriginConfig
+
+-- Products
+makeLenses ''ActiveTrustedSigners
+makeLenses ''Aliases
+makeLenses ''AllowedMethods
+makeLenses ''CacheBehavior
+makeLenses ''CacheBehaviors
+makeLenses ''CloudFrontOriginAccessIdentity
+makeLenses ''CloudFrontOriginAccessIdentityConfig
+makeLenses ''CloudFrontOriginAccessIdentityList
+makeLenses ''CloudFrontOriginAccessIdentitySummary
+makeLenses ''CookieNames
+makeLenses ''CookiePreference
+makeLenses ''CustomErrorResponse
+makeLenses ''CustomErrorResponses
+makeLenses ''CustomOriginConfig
+makeLenses ''DefaultCacheBehavior
+makeLenses ''Distribution
+makeLenses ''DistributionConfig
+makeLenses ''DistributionList
+makeLenses ''DistributionSummary
+makeLenses ''ForwardedValues
+makeLenses ''GeoRestriction
+makeLenses ''Headers
+makeLenses ''Invalidation
+makeLenses ''InvalidationBatch
+makeLenses ''InvalidationList
+makeLenses ''InvalidationSummary
+makeLenses ''KeyPairIds
+makeLenses ''LoggingConfig
+makeLenses ''Origin
+makeLenses ''Origins
+makeLenses ''Paths
+makeLenses ''S3Origin
+makeLenses ''Signer
+makeLenses ''StreamingDistribution
+makeLenses ''StreamingDistributionConfig
+makeLenses ''StreamingDistributionList
+makeLenses ''StreamingDistributionSummary
+makeLenses ''StreamingLoggingConfig
+makeLenses ''TrustedSigners
+makeLenses ''ViewerCertificate

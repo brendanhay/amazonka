@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Create a new streaming distribution.
 module Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -26,6 +28,8 @@ data CreateStreamingDistribution = CreateStreamingDistribution
     { _csdrStreamingDistributionConfig :: StreamingDistributionConfig
       -- ^ The streaming distribution's configuration information.
     } deriving (Generic)
+
+makeLenses ''CreateStreamingDistribution
 
 instance ToPath CreateStreamingDistribution where
     toPath = const "/2014-05-31/streaming-distribution"
@@ -38,17 +42,6 @@ instance ToXML CreateStreamingDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateStreamingDistributionRequest"
 
-instance AWSRequest CreateStreamingDistribution where
-    type Sv CreateStreamingDistribution = CloudFront
-    type Rs CreateStreamingDistribution = CreateStreamingDistributionResponse
-
-    request = post
-    response _ = cursorResponse $ \hs xml ->
-        pure CreateStreamingDistributionResponse
-            <*> xml %|? "StreamingDistribution"
-            <*> hs ~:? "ETag"
-            <*> hs ~:? "Location"
-
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
     { _csdsStreamingDistribution :: Maybe StreamingDistribution
       -- ^ The streaming distribution's information.
@@ -60,3 +53,16 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
       -- https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
       -- 
     } deriving (Generic)
+
+makeLenses ''CreateStreamingDistributionResponse
+
+instance AWSRequest CreateStreamingDistribution where
+    type Sv CreateStreamingDistribution = CloudFront
+    type Rs CreateStreamingDistribution = CreateStreamingDistributionResponse
+
+    request = post
+    response _ = cursorResponse $ \hs xml ->
+        pure CreateStreamingDistributionResponse
+            <*> xml %|? "StreamingDistribution"
+            <*> hs ~:? "ETag"
+            <*> hs ~:? "Location"

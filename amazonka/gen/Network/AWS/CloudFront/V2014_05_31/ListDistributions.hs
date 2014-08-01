@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.ListDistributions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | List distributions.
 module Network.AWS.CloudFront.V2014_05_31.ListDistributions where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -42,6 +44,8 @@ data ListDistributions = ListDistributions
       -- body.
     } deriving (Generic)
 
+makeLenses ''ListDistributions
+
 instance ToPath ListDistributions where
     toPath = const "/2014-05-31/distribution"
 
@@ -52,6 +56,16 @@ instance ToHeaders ListDistributions
 instance ToXML ListDistributions where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListDistributionsRequest"
+
+data ListDistributionsResponse = ListDistributionsResponse
+    { _ldsDistributionList :: DistributionList
+      -- ^ The DistributionList type.
+    } deriving (Generic)
+
+makeLenses ''ListDistributionsResponse
+
+instance FromXML ListDistributionsResponse where
+    fromXMLOptions = xmlOptions
 
 instance AWSRequest ListDistributions where
     type Sv ListDistributions = CloudFront
@@ -64,13 +78,5 @@ instance AWSPager ListDistributions where
     next rq rs
         | not (_ldsDistributionList.IsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _ldrMarker = _ldsDistributionList.NextMarker rs
+            { _ldrMarker = _ldsDistributionList . NextMarker rs
             }
-
-data ListDistributionsResponse = ListDistributionsResponse
-    { _ldsDistributionList :: Maybe DistributionList
-      -- ^ The DistributionList type.
-    } deriving (Generic)
-
-instance FromXML ListDistributionsResponse where
-    fromXMLOptions = xmlOptions

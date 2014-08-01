@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.ListHealthChecks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,6 +27,7 @@
 -- returns only the first 100.
 module Network.AWS.Route53.V2013_04_01.ListHealthChecks where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -47,6 +49,8 @@ data ListHealthChecks = ListHealthChecks
       -- results.
     } deriving (Generic)
 
+makeLenses ''ListHealthChecks
+
 instance ToPath ListHealthChecks where
     toPath = const "/2013-04-01/healthcheck"
 
@@ -57,20 +61,6 @@ instance ToHeaders ListHealthChecks
 instance ToXML ListHealthChecks where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListHealthChecksRequest"
-
-instance AWSRequest ListHealthChecks where
-    type Sv ListHealthChecks = Route53
-    type Rs ListHealthChecks = ListHealthChecksResponse
-
-    request = get
-    response _ = xmlResponse
-
-instance AWSPager ListHealthChecks where
-    next rq rs
-        | not (_lhcsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lhcrMarker = _lhcsNextMarker rs
-            }
 
 data ListHealthChecksResponse = ListHealthChecksResponse
     { _lhcsHealthChecks :: [HealthCheck]
@@ -102,5 +92,21 @@ data ListHealthChecksResponse = ListHealthChecksResponse
       -- results.
     } deriving (Generic)
 
+makeLenses ''ListHealthChecksResponse
+
 instance FromXML ListHealthChecksResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest ListHealthChecks where
+    type Sv ListHealthChecks = Route53
+    type Rs ListHealthChecks = ListHealthChecksResponse
+
+    request = get
+    response _ = xmlResponse
+
+instance AWSPager ListHealthChecks where
+    next rq rs
+        | not (_lhcsIsTruncated rs) = Nothing
+        | otherwise = Just $ rq
+            { _lhcrMarker = _lhcsNextMarker rs
+            }

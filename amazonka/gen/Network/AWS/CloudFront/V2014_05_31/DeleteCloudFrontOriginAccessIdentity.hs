@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Delete an origin access identity.
 module Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -38,6 +40,8 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
       -- PUT request. For example: E2QWRUHAPOMQZL.
     } deriving (Generic)
 
+makeLenses ''DeleteCloudFrontOriginAccessIdentity
+
 instance ToPath DeleteCloudFrontOriginAccessIdentity where
     toPath DeleteCloudFrontOriginAccessIdentity{..} = mconcat
         [ "/2014-05-31/origin-access-identity/cloudfront/"
@@ -55,12 +59,14 @@ instance ToXML DeleteCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteCloudFrontOriginAccessIdentityRequest"
 
+data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
+    deriving (Eq, Show, Generic)
+
+makeLenses ''DeleteCloudFrontOriginAccessIdentityResponse
+
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront
     type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse
 
     request = delete
     response _ _ = return (Right DeleteCloudFrontOriginAccessIdentityResponse)
-
-data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
-    deriving (Eq, Show, Generic)

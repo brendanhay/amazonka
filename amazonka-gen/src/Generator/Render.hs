@@ -53,7 +53,6 @@ data Templates = Templates
     { tmplCabal   :: Template
     , tmplVersion :: Template
     , tmplCurrent :: Template
-    , tmplLens    :: Template
     , tmplService :: ServiceType -> (Template, Template)
     }
 
@@ -67,7 +66,6 @@ getTemplates = do
         <$> load "cabal"
         <*> load "version"
         <*> load "current"
-        <*> load "lens"
 
     !xml <- (,) <$> load "types-rest-xml"  <*> load "operation-rest-xml"
     !rjs <- (,) <$> load "types-rest-json" <*> load "operation-rest-json"
@@ -98,7 +96,6 @@ render dir Templates{..} ss = do
 
         write "Render Types" (path _svcTypesNamespace) types s
         write "Render Interface" (path _svcVersionNamespace) tmplVersion s
-        write "Render Lenses" (path _svcLensNamespace) tmplLens s
 
     forM_ (current ss) $ \s ->
         write "Render Service" (path (_svcName s)) tmplCurrent s

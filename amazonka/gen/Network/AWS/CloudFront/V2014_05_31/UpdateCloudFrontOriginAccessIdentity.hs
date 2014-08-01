@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Update an origin access identity.
 module Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -42,6 +44,8 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
       -- identity's configuration. For example: E2QWRUHAPOMQZL.
     } deriving (Generic)
 
+makeLenses ''UpdateCloudFrontOriginAccessIdentity
+
 instance ToPath UpdateCloudFrontOriginAccessIdentity where
     toPath UpdateCloudFrontOriginAccessIdentity{..} = mconcat
         [ "/2014-05-31/origin-access-identity/cloudfront/"
@@ -60,6 +64,16 @@ instance ToXML UpdateCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "UpdateCloudFrontOriginAccessIdentityRequest"
 
+data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
+    { _ucfoaisCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+      -- ^ The origin access identity's information.
+    , _ucfoaisETag :: Maybe Text
+      -- ^ The current version of the configuration. For example:
+      -- E2QWRUHAPOMQZL.
+    } deriving (Generic)
+
+makeLenses ''UpdateCloudFrontOriginAccessIdentityResponse
+
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Sv UpdateCloudFrontOriginAccessIdentity = CloudFront
     type Rs UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentityResponse
@@ -69,11 +83,3 @@ instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
         pure UpdateCloudFrontOriginAccessIdentityResponse
             <*> xml %|? "CloudFrontOriginAccessIdentity"
             <*> hs ~:? "ETag"
-
-data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
-    { _ucfoaisCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
-      -- ^ The origin access identity's information.
-    , _ucfoaisETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
-    } deriving (Generic)

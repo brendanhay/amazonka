@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.ListTagsForResources
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,6 +18,7 @@
 
 module Network.AWS.Route53.V2013_04_01.ListTagsForResources where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -29,6 +31,8 @@ data ListTagsForResources = ListTagsForResources
       -- ^ The type of the resources. The resource type for health checks is
       -- healthcheck.
     } deriving (Generic)
+
+makeLenses ''ListTagsForResources
 
 instance ToPath ListTagsForResources where
     toPath ListTagsForResources{..} = mconcat
@@ -44,18 +48,20 @@ instance ToXML ListTagsForResources where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListTagsForResourcesRequest"
 
-instance AWSRequest ListTagsForResources where
-    type Sv ListTagsForResources = Route53
-    type Rs ListTagsForResources = ListTagsForResourcesResponse
-
-    request = post
-    response _ = xmlResponse
-
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfruResourceTagSets :: [ResourceTagSet]
       -- ^ A list of ResourceTagSets containing tags associated with the
       -- specified resources.
     } deriving (Generic)
 
+makeLenses ''ListTagsForResourcesResponse
+
 instance FromXML ListTagsForResourcesResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest ListTagsForResources where
+    type Sv ListTagsForResources = Route53
+    type Rs ListTagsForResources = ListTagsForResourcesResponse
+
+    request = post
+    response _ = xmlResponse

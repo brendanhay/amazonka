@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.CreateDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Create a new distribution.
 module Network.AWS.CloudFront.V2014_05_31.CreateDistribution where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -26,6 +28,8 @@ data CreateDistribution = CreateDistribution
     { _cdrDistributionConfig :: DistributionConfig
       -- ^ The distribution's configuration information.
     } deriving (Generic)
+
+makeLenses ''CreateDistribution
 
 instance ToPath CreateDistribution where
     toPath = const "/2014-05-31/distribution"
@@ -38,17 +42,6 @@ instance ToXML CreateDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateDistributionRequest"
 
-instance AWSRequest CreateDistribution where
-    type Sv CreateDistribution = CloudFront
-    type Rs CreateDistribution = CreateDistributionResponse
-
-    request = post
-    response _ = cursorResponse $ \hs xml ->
-        pure CreateDistributionResponse
-            <*> xml %|? "Distribution"
-            <*> hs ~:? "ETag"
-            <*> hs ~:? "Location"
-
 data CreateDistributionResponse = CreateDistributionResponse
     { _cdsDistribution :: Maybe Distribution
       -- ^ The distribution's information.
@@ -60,3 +53,16 @@ data CreateDistributionResponse = CreateDistributionResponse
       -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
       -- 
     } deriving (Generic)
+
+makeLenses ''CreateDistributionResponse
+
+instance AWSRequest CreateDistribution where
+    type Sv CreateDistribution = CloudFront
+    type Rs CreateDistribution = CreateDistributionResponse
+
+    request = post
+    response _ = cursorResponse $ \hs xml ->
+        pure CreateDistributionResponse
+            <*> xml %|? "Distribution"
+            <*> hs ~:? "ETag"
+            <*> hs ~:? "Location"

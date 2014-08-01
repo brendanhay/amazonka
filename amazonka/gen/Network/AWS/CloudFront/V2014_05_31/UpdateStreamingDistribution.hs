@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Update a streaming distribution.
 module Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -43,6 +45,8 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
       -- E2QWRUHAPOMQZL.
     } deriving (Generic)
 
+makeLenses ''UpdateStreamingDistribution
+
 instance ToPath UpdateStreamingDistribution where
     toPath UpdateStreamingDistribution{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
@@ -61,6 +65,16 @@ instance ToXML UpdateStreamingDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "UpdateStreamingDistributionRequest"
 
+data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
+    { _usdsStreamingDistribution :: Maybe StreamingDistribution
+      -- ^ The streaming distribution's information.
+    , _usdsETag :: Maybe Text
+      -- ^ The current version of the configuration. For example:
+      -- E2QWRUHAPOMQZL.
+    } deriving (Generic)
+
+makeLenses ''UpdateStreamingDistributionResponse
+
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront
     type Rs UpdateStreamingDistribution = UpdateStreamingDistributionResponse
@@ -70,11 +84,3 @@ instance AWSRequest UpdateStreamingDistribution where
         pure UpdateStreamingDistributionResponse
             <*> xml %|? "StreamingDistribution"
             <*> hs ~:? "ETag"
-
-data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
-    { _usdsStreamingDistribution :: Maybe StreamingDistribution
-      -- ^ The streaming distribution's information.
-    , _usdsETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
-    } deriving (Generic)

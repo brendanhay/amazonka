@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | Delete a streaming distribution.
 module Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -38,6 +40,8 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
       -- streaming distribution. For example: E2QWRUHAPOMQZL.
     } deriving (Generic)
 
+makeLenses ''DeleteStreamingDistribution
+
 instance ToPath DeleteStreamingDistribution where
     toPath DeleteStreamingDistribution{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
@@ -55,12 +59,14 @@ instance ToXML DeleteStreamingDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteStreamingDistributionRequest"
 
+data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
+    deriving (Eq, Show, Generic)
+
+makeLenses ''DeleteStreamingDistributionResponse
+
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront
     type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
 
     request = delete
     response _ _ = return (Right DeleteStreamingDistributionResponse)
-
-data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
-    deriving (Eq, Show, Generic)

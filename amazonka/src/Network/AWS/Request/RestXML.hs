@@ -12,6 +12,7 @@ module Network.AWS.Request.RestXML
    ( get
    , delete
    , post
+   , put
    ) where
 
 import Control.Lens
@@ -21,4 +22,7 @@ import Network.AWS.Types
 import Network.HTTP.Types.Method
 
 post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request a
-post x = get x & rqMethod .~ POST & rqBody .~ toBody (encodeXML x)
+post x = put x & rqMethod .~ POST
+
+put :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request a
+put x = get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x)

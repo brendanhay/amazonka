@@ -71,7 +71,6 @@ library
         , Network.AWS.Route53.V2013_04_01.GetHealthCheck
         , Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
         , Network.AWS.Route53.V2013_04_01.GetHostedZone
-        , Network.AWS.Route53.V2013_04_01.Lenses
         , Network.AWS.Route53.V2013_04_01.ListHealthChecks
         , Network.AWS.Route53.V2013_04_01.ListHostedZones
         , Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
@@ -95,7 +94,6 @@ library
         , Network.AWS.CloudFront.V2014_05_31.GetInvalidation
         , Network.AWS.CloudFront.V2014_05_31.GetStreamingDistribution
         , Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig
-        , Network.AWS.CloudFront.V2014_05_31.Lenses
         , Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities
         , Network.AWS.CloudFront.V2014_05_31.ListDistributions
         , Network.AWS.CloudFront.V2014_05_31.ListInvalidations

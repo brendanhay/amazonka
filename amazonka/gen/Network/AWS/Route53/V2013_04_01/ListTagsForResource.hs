@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.ListTagsForResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,6 +18,7 @@
 
 module Network.AWS.Route53.V2013_04_01.ListTagsForResource where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
@@ -28,6 +30,8 @@ data ListTagsForResource = ListTagsForResource
       -- ^ The type of the resource. The resource type for health checks is
       -- healthcheck.
     } deriving (Generic)
+
+makeLenses ''ListTagsForResource
 
 instance ToPath ListTagsForResource where
     toPath ListTagsForResource{..} = mconcat
@@ -45,18 +49,20 @@ instance ToXML ListTagsForResource where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListTagsForResourceRequest"
 
-instance AWSRequest ListTagsForResource where
-    type Sv ListTagsForResource = Route53
-    type Rs ListTagsForResource = ListTagsForResourceResponse
-
-    request = get
-    response _ = xmlResponse
-
 data ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrsResourceTagSet :: ResourceTagSet
       -- ^ A ResourceTagSet containing tags associated with the specified
       -- resource.
     } deriving (Generic)
 
+makeLenses ''ListTagsForResourceResponse
+
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions
+
+instance AWSRequest ListTagsForResource where
+    type Sv ListTagsForResource = Route53
+    type Rs ListTagsForResource = ListTagsForResourceResponse
+
+    request = get
+    response _ = xmlResponse

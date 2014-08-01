@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.V2014_05_31.ListInvalidations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +19,7 @@
 -- | List invalidation batches.
 module Network.AWS.CloudFront.V2014_05_31.ListInvalidations where
 
+import Control.Lens
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
@@ -48,6 +50,8 @@ data ListInvalidations = ListInvalidations
       -- response body.
     } deriving (Generic)
 
+makeLenses ''ListInvalidations
+
 instance ToPath ListInvalidations where
     toPath ListInvalidations{..} = mconcat
         [ "/2014-05-31/distribution/"
@@ -63,6 +67,16 @@ instance ToXML ListInvalidations where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListInvalidationsRequest"
 
+data ListInvalidationsResponse = ListInvalidationsResponse
+    { _lisInvalidationList :: Maybe InvalidationList
+      -- ^ Information about invalidation batches.
+    } deriving (Generic)
+
+makeLenses ''ListInvalidationsResponse
+
+instance FromXML ListInvalidationsResponse where
+    fromXMLOptions = xmlOptions
+
 instance AWSRequest ListInvalidations where
     type Sv ListInvalidations = CloudFront
     type Rs ListInvalidations = ListInvalidationsResponse
@@ -76,11 +90,3 @@ instance AWSPager ListInvalidations where
         | otherwise = Just $ rq
             { _lirMarker = _lisInvalidationList.NextMarker rs
             }
-
-data ListInvalidationsResponse = ListInvalidationsResponse
-    { _lisInvalidationList :: Maybe InvalidationList
-      -- ^ Information about invalidation batches.
-    } deriving (Generic)
-
-instance FromXML ListInvalidationsResponse where
-    fromXMLOptions = xmlOptions

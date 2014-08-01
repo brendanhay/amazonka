@@ -378,7 +378,6 @@ data Service = Service
     , _svcNamespace        :: NS
     , _svcVersionNamespace :: NS
     , _svcTypesNamespace   :: NS
-    , _svcLensNamespace    :: NS
     , _svcVersion          :: Version
     , _svcRawVersion       :: Text
     , _svcType             :: ServiceType
@@ -416,7 +415,6 @@ defaultService a = Service
     , _svcNamespace        = def
     , _svcVersionNamespace = def
     , _svcTypesNamespace   = def
-    , _svcLensNamespace    = def
     , _svcVersion          = Version mempty
     , _svcRawVersion       = mempty
     , _svcType             = def

@@ -8,8 +8,6 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53
-    ( module Network.AWS.Route53.V2013_04_01
-    ) where
+module Network.AWS.Route53 (module Export) where
 
-import Network.AWS.Route53.V2013_04_01
+import Network.AWS.Route53.V2013_04_01 as Export

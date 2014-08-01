@@ -80,10 +80,7 @@ instance ToJSON Service where
     toJSON s = Object (x <> y)
       where
         Object x = toField (recase Camel Under . drop 4) s
-        Object y = object
-            [ "types"   .= serviceTypes s
-            , "modules" .= serviceNamespaces s
-            ]
+        Object y = object ["modules" .= serviceNamespaces s]
 
 instance ToJSON Error where
     toJSON = toField (recase Camel Under . drop 3)
@@ -186,7 +183,10 @@ instance ToJSON QueryPart where
     toJSON = toField (recase Camel Under . drop 2)
 
 instance ToJSON Token where
-    toJSON = toField (lowered . drop 4)
+    toJSON Token{..} = object
+        [ "input"  .= _tokInput
+        , "output" .= Text.intercalate " $ " (reverse _tokOutput)
+        ]
 
 instance ToJSON Pagination where
     toJSON p = object $

@@ -78,5 +78,5 @@ instance AWSPager ListDistributions where
     next rq rs
         | not (_ldsDistributionList.IsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _ldrMarker = _ldsDistributionList . NextMarker rs
+            { _ldrMarker = _dlNextMarker $ _ldsDistributionList rs
             }

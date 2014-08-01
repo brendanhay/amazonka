@@ -306,7 +306,7 @@ instance ToXML HostedZoneConfig where
 -- | A complex type that contains the value of the Value element for the current
 -- resource record set.
 newtype ResourceRecord = ResourceRecord
-    { _rsValue :: Text
+    { _rrValue :: Text
       -- ^ The value of the Value element for the current resource record
       -- set.
     } deriving (Generic)
@@ -352,9 +352,9 @@ instance ToXML AliasTarget where
 -- | A complex type that contains the information for each change in a change
 -- batch request.
 data Change = Change
-    { _dAction :: ChangeAction
+    { _cAction :: ChangeAction
       -- ^ The action to perform. Valid values: CREATE | DELETE | UPSERT.
-    , _dResourceRecordSet :: ResourceRecordSet
+    , _cResourceRecordSet :: ResourceRecordSet
       -- ^ Information about the resource record set to create or delete.
     } deriving (Generic)
 

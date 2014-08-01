@@ -142,6 +142,7 @@ instance FromJSON Service where
             <*> o .:? "target_prefix"
             <*> pure ops
             <*> pure def
+            <*> pure def
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $ \o ->
@@ -262,13 +263,15 @@ instance FromJSON Pagination where
             unless (length xs == length ys) $
                 fail "input_token and output_token don't contain same number of keys."
 
-            More <$> o .: "more_results" <*> pure (zipWith Token xs ys)
+            More <$> o .: "more_results" <*> pure (zipWith token xs ys)
           where
             f k = o .: k <|> (:[]) <$> o .: k
 
         next o = Next
             <$> o .: "result_key"
-            <*> (Token <$> o .: "input_token" <*> o .: "output_token")
+            <*> (token <$> o .: "input_token" <*> o .: "output_token")
+
+        token x y = Token x (map Text.strip (Text.split (== '.') y))
 
 instance FromJSON HTTP where
     parseJSON = withObject "http" $ \o -> HTTP

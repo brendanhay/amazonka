@@ -471,7 +471,7 @@ instance ToXML ViewerProtocolPolicy where
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
 newtype Restrictions = Restrictions
-    { _rsGeoRestriction :: GeoRestriction
+    { _rGeoRestriction :: GeoRestriction
       -- ^ A complex type that controls the countries in which your content
       -- is distributed. For more information about geo restriction, go to
       -- Customizing Error Responses in the Amazon CloudFront Developer
@@ -571,11 +571,11 @@ instance ToXML Aliases where
 -- don't want them to. For example, you may not want users to have permission
 -- to delete objects from your origin.
 data AllowedMethods = AllowedMethods
-    { _aoQuantity :: Integer
+    { _amQuantity :: Integer
       -- ^ The number of HTTP methods that you want CloudFront to forward to
       -- your origin. Valid values are 2 (for GET and HEAD requests) and 7
       -- (for DELETE, GET, HEAD, OPTIONS, PATCH, POST, and PUT requests).
-    , _aoItems :: [Method]
+    , _amItems :: [Method]
       -- ^ A complex type that contains the HTTP methods that you want
       -- CloudFront to process and forward to your origin.
     } deriving (Generic)
@@ -604,7 +604,7 @@ instance ToXML AllowedMethods where
 -- behaviors, update the distribution configuration and specify all of the
 -- cache behaviors that you want to include in the updated distribution.
 data CacheBehavior = CacheBehavior
-    { _ccAllowedMethods :: Maybe AllowedMethods
+    { _cbAllowedMethods :: Maybe AllowedMethods
       -- ^ A complex type that controls which HTTP methods CloudFront
       -- processes and forwards to your Amazon S3 bucket or your custom
       -- origin. There are two options: - CloudFront forwards only GET and
@@ -614,7 +614,7 @@ data CacheBehavior = CacheBehavior
       -- your custom origin so users can't perform operations that you
       -- don't want them to. For example, you may not want users to have
       -- permission to delete objects from your origin.
-    , _ccViewerProtocolPolicy :: ViewerProtocolPolicy
+    , _cbViewerProtocolPolicy :: ViewerProtocolPolicy
       -- ^ Use this element to specify the protocol that users can use to
       -- access the files in the origin specified by TargetOriginId when a
       -- request matches the path pattern in PathPattern. If you want
@@ -624,23 +624,23 @@ data CacheBehavior = CacheBehavior
       -- request with an HTTP status code of 301 (Moved Permanently) and
       -- the HTTPS URL, specify redirect-to-https. The viewer then
       -- resubmits the request using the HTTPS URL.
-    , _ccTargetOriginId :: Text
+    , _cbTargetOriginId :: Text
       -- ^ The value of ID for the origin that you want CloudFront to route
       -- requests to when a request matches the path pattern either for a
       -- cache behavior or for the default cache behavior.
-    , _ccMinTTL :: Integer
+    , _cbMinTTL :: Integer
       -- ^ The minimum amount of time that you want objects to stay in
       -- CloudFront caches before CloudFront queries your origin to see
       -- whether the object has been updated.You can specify a value from
       -- 0 to 3,153,600,000 seconds (100 years).
-    , _ccSmoothStreaming :: Maybe Bool
+    , _cbSmoothStreaming :: Maybe Bool
       -- ^ Indicates whether you want to distribute media files in Microsoft
       -- Smooth Streaming format using the origin that is associated with
       -- this cache behavior. If so, specify true; if not, specify false.
-    , _ccForwardedValues :: ForwardedValues
+    , _cbForwardedValues :: ForwardedValues
       -- ^ A complex type that specifies how CloudFront handles query
       -- strings, cookies and headers.
-    , _ccTrustedSigners :: TrustedSigners
+    , _cbTrustedSigners :: TrustedSigners
       -- ^ A complex type that specifies the AWS accounts, if any, that you
       -- want to allow to create signed URLs for private content. If you
       -- want to require signed URLs in requests for objects in the target
@@ -655,7 +655,7 @@ data CacheBehavior = CacheBehavior
       -- false), change Quantity as applicable, and specify all of the
       -- trusted signers that you want to include in the updated
       -- distribution.
-    , _ccPathPattern :: Text
+    , _cbPathPattern :: Text
       -- ^ The pattern (for example, images/*.jpg) that specifies which
       -- requests you want this cache behavior to apply to. When
       -- CloudFront receives an end-user request, the requested path is
@@ -836,7 +836,7 @@ instance ToXML CookiePreference where
 -- update the distribution configuration and specify all of the custom error
 -- responses that you want to include in the updated distribution.
 data CustomErrorResponse = CustomErrorResponse
-    { _cesResponsePagePath :: Maybe Text
+    { _cerResponsePagePath :: Maybe Text
       -- ^ The path of the custom error page (for example,
       -- /custom_404.html). The path is relative to the distribution and
       -- must begin with a slash (/). If the path includes any non-ASCII
@@ -845,16 +845,16 @@ data CustomErrorResponse = CustomErrorResponse
       -- characters. Do not URL encode any other characters in the path,
       -- or CloudFront will not return the custom error page to the
       -- viewer.
-    , _cesResponseCode :: Maybe Text
+    , _cerResponseCode :: Maybe Text
       -- ^ The HTTP status code that you want CloudFront to return with the
       -- custom error page to the viewer. For a list of HTTP status codes
       -- that you can replace, see CloudFront Documentation.
-    , _cesErrorCachingMinTTL :: Maybe Integer
+    , _cerErrorCachingMinTTL :: Maybe Integer
       -- ^ The minimum amount of time you want HTTP error codes to stay in
       -- CloudFront caches before CloudFront queries your origin to see
       -- whether the object has been updated. You can specify a value from
       -- 0 to 31,536,000.
-    , _cesErrorCode :: Integer
+    , _cerErrorCode :: Integer
       -- ^ The 4xx or 5xx HTTP status code that you want to customize. For a
       -- list of HTTP status codes that you can customize, see CloudFront
       -- documentation.
@@ -972,24 +972,24 @@ instance ToXML DefaultCacheBehavior where
 
 -- | The distribution's information.
 data Distribution = Distribution
-    { _dnInProgressInvalidationBatches :: Integer
+    { _dInProgressInvalidationBatches :: Integer
       -- ^ The number of invalidation batches currently in progress.
-    , _dnStatus :: Text
+    , _dStatus :: Text
       -- ^ This response element indicates the current status of the
       -- distribution. When the status is Deployed, the distribution's
       -- information is fully propagated throughout the Amazon CloudFront
       -- system.
-    , _dnDistributionConfig :: DistributionConfig
+    , _dDistributionConfig :: DistributionConfig
       -- ^ The current configuration information for the distribution.
-    , _dnLastModifiedTime :: ISO8601
+    , _dLastModifiedTime :: ISO8601
       -- ^ The date and time the distribution was last modified.
-    , _dnDomainName :: Text
+    , _dDomainName :: Text
       -- ^ The domain name corresponding to the distribution. For example:
       -- d604721fxaaqy9.cloudfront.net.
-    , _dnId :: Text
+    , _dId :: Text
       -- ^ The identifier for the distribution. For example:
       -- EDFDVBD632BHDS5.
-    , _dnActiveTrustedSigners :: ActiveTrustedSigners
+    , _dActiveTrustedSigners :: ActiveTrustedSigners
       -- ^ CloudFront automatically adds this element to the response only
       -- if you've set up the distribution to serve private content with
       -- signed URLs. The element lists the key pair IDs that CloudFront
@@ -1219,7 +1219,7 @@ instance ToXML GeoRestriction where
 -- | A complex type that specifies the Headers, if any, that you want CloudFront
 -- to vary upon for this cache behavior.
 data Headers = Headers
-    { _hsQuantity :: Integer
+    { _hQuantity :: Integer
       -- ^ The number of different headers that you want CloudFront to
       -- forward to the origin and to vary on for this cache behavior. The
       -- maximum number of headers that you can specify by name is 10. If
@@ -1228,7 +1228,7 @@ data Headers = Headers
       -- don't want CloudFront to forward any additional headers to the
       -- origin or to vary on any headers, specify 0 for Quantity and omit
       -- Items.
-    , _hsItems :: [Text]
+    , _hItems :: [Text]
       -- ^ Optional: A complex type that contains a Name element for each
       -- header that you want CloudFront to forward to the origin and to
       -- vary on for this cache behavior. If Quantity is 0, omit Items.
@@ -1244,15 +1244,15 @@ instance ToXML Headers where
 
 -- | The invalidation's information.
 data Invalidation = Invalidation
-    { _inStatus :: Text
+    { _iStatus :: Text
       -- ^ The status of the invalidation request. When the invalidation
       -- batch is finished, the status is Completed.
-    , _inInvalidationBatch :: InvalidationBatch
+    , _iInvalidationBatch :: InvalidationBatch
       -- ^ The current invalidation information for the batch request.
-    , _inId :: Text
+    , _iId :: Text
       -- ^ The identifier for the invalidation request. For example:
       -- IDFDVBD632BHDS5.
-    , _inCreateTime :: ISO8601
+    , _iCreateTime :: ISO8601
       -- ^ The date and time the invalidation request was first made.
     } deriving (Generic)
 
@@ -1323,11 +1323,11 @@ instance FromXML InvalidationList where
 
 -- | Summary of an invalidation request.
 data InvalidationSummary = InvalidationSummary
-    { _iiiiiiiiiiyStatus :: Text
+    { _isStatus :: Text
       -- ^ The status of an invalidation request.
-    , _iiiiiiiiiiyId :: Text
+    , _isId :: Text
       -- ^ The unique ID for an invalidation request.
-    , _iiiiiiiiiiyCreateTime :: ISO8601
+    , _isCreateTime :: ISO8601
     } deriving (Generic)
 
 instance FromXML InvalidationSummary where
@@ -1394,21 +1394,21 @@ instance ToXML LoggingConfig where
 -- example, a web server) from which CloudFront gets your files.You must
 -- create at least one origin.
 data Origin = Origin
-    { _onCustomOriginConfig :: Maybe CustomOriginConfig
+    { _oCustomOriginConfig :: Maybe CustomOriginConfig
       -- ^ A complex type that contains information about a custom origin.
       -- If the origin is an Amazon S3 bucket, use the S3OriginConfig
       -- element instead.
-    , _onS3OriginConfig :: Maybe S3OriginConfig
+    , _oS3OriginConfig :: Maybe S3OriginConfig
       -- ^ A complex type that contains information about the Amazon S3
       -- origin. If the origin is a custom origin, use the
       -- CustomOriginConfig element instead.
-    , _onDomainName :: Text
+    , _oDomainName :: Text
       -- ^ Amazon S3 origins: The DNS name of the Amazon S3 bucket from
       -- which you want CloudFront to get objects for this origin, for
       -- example, myawsbucket.s3.amazonaws.com. Custom origins: The DNS
       -- domain name for the HTTP server from which you want CloudFront to
       -- get objects for this origin, for example, www.example.com.
-    , _onId :: Text
+    , _oId :: Text
       -- ^ A unique identifier for the origin. The value of Id must be
       -- unique within the distribution. You use the value of Id when you
       -- create a cache behavior. The Id identifies the origin that
@@ -1427,9 +1427,9 @@ instance ToXML Origin where
 -- | A complex type that contains information about origins for this
 -- distribution.
 data Origins = Origins
-    { _osQuantity :: Integer
+    { _oQuantity :: Integer
       -- ^ The number of origins for this distribution.
-    , _osItems :: Maybe [Origin]
+    , _oItems :: Maybe [Origin]
       -- ^ A complex type that contains origins for this distribution.
     } deriving (Generic)
 
@@ -1449,9 +1449,9 @@ instance ToXML Origins where
 -- URL encode any other characters in the path, or CloudFront will not
 -- invalidate the old version of the updated object.
 data Paths = Paths
-    { _psQuantity :: Integer
+    { _pQuantity :: Integer
       -- ^ The number of objects that you want to invalidate.
-    , _psItems :: [Text]
+    , _pItems :: [Text]
       -- ^ A complex type that contains a list of the objects that you want
       -- to invalidate.
     } deriving (Generic)
@@ -1485,12 +1485,12 @@ instance ToXML S3Origin where
 -- TrustedSigners complex type, as well as their active CloudFront key pair
 -- IDs, if any.
 data Signer = Signer
-    { _szAwsAccountNumber :: Maybe Text
+    { _sAwsAccountNumber :: Maybe Text
       -- ^ Specifies an AWS account that can create signed URLs. Values:
       -- self, which indicates that the AWS account that was used to
       -- create the distribution can created signed URLs, or an AWS
       -- account number. Omit the dashes in the account number.
-    , _szKeyPairIds :: Maybe KeyPairIds
+    , _sKeyPairIds :: Maybe KeyPairIds
       -- ^ A complex type that lists the active CloudFront key pairs, if
       -- any, that are associated with AwsAccountNumber.
     } deriving (Generic)

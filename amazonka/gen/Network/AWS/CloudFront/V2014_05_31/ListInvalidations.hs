@@ -88,5 +88,5 @@ instance AWSPager ListInvalidations where
     next rq rs
         | not (_lisInvalidationList.IsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lirMarker = _lisInvalidationList.NextMarker rs
+            { _lirMarker = _ilNextMarker $ _lisInvalidationList rs
             }

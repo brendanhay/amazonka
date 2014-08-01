@@ -78,5 +78,5 @@ instance AWSPager ListStreamingDistributions where
     next rq rs
         | not (_lsdsStreamingDistributionList.IsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lsdrMarker = _lsdsStreamingDistributionList.NextMarker rs
+            { _lsdrMarker = _sdlNextMarker $ _lsdsStreamingDistributionList rs
             }

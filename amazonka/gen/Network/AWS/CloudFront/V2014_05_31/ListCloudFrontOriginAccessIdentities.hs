@@ -78,5 +78,5 @@ instance AWSPager ListCloudFrontOriginAccessIdentities where
     next rq rs
         | not (_lcfoaisCloudFrontOriginAccessIdentityList.IsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lcfoairMarker = _lcfoaisCloudFrontOriginAccessIdentityList.NextMarker rs
+            { _lcfoairMarker = _cfoailNextMarker $ _lcfoaisCloudFrontOriginAccessIdentityList rs
             }

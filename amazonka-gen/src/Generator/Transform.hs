@@ -15,6 +15,7 @@
 
 module Generator.Transform where
 
+import           Control.Applicative
 import           Control.Arrow
 import           Control.Lens
 import           Control.Monad
@@ -59,8 +60,10 @@ import           Text.EDE.Filters
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
   where
-    eval s = s
-        & svcOperations .~ evalState (mapM (operation s) (_svcOperations s)) mempty
+    eval x =
+        let y  = x & svcTypes .~ serviceTypes x
+            os = evalState (mapM (operation y) (_svcOperations y)) mempty
+         in y & svcOperations .~ os
 
 current :: [Service] -> [Service]
 current = mapMaybe latest . groupBy identical
@@ -86,7 +89,7 @@ operation svc@Service{..} o = do
               & opResponse.rsShape .~ rs
               & opResponse         %~ response svc x
 
-        z = y & opPagination       %~ fmap (pagination y)
+        z = y & opPagination       %~ fmap (pagination _svcTypes y)
 
     return z
 
@@ -174,16 +177,24 @@ response svc o rs = rs
         | all ((== LBody) . view cmnLocation) fs = RXml
         | otherwise                              = def
 
-pagination :: Operation -> Pagination -> Pagination
-pagination o p =
+pagination :: [Type] -> Operation -> Pagination -> Pagination
+pagination typs o p =
     case p of
         More m  ts -> More (rsPref m)  (map token ts)
         Next rk t  -> Next (rsPref rk) (token t)
   where
-    token t = t & tokInput %~ rqPref & tokOutput %~ rsPref
+    token t = t & tokInput %~ rqPref & tokOutput %~ tyPref
 
-    rqPref = pref (opRequest  . rqShape)
-    rsPref = pref (opResponse . rsShape)
+    rqPref = pref (opRequest.rqShape)
+    rsPref = pref (opResponse.rsShape)
+
+    -- Get nested response prefixes from the operation
+    tyPref []     = []
+    tyPref [x]    = [rsPref x]
+    tyPref (x:xs) = rsPref x : mapMaybe (fmap _fldPrefixed . f) xs
+      where
+        f y = join $ find ((y ==) . _fldName) . _typFields <$> typ
+        typ = find ((x ==) . view cmnName) typs
 
     pref s = prefixed (o ^. s)
 
@@ -236,12 +247,12 @@ fields rq svc s = case s of
   where
     f :: (Text, Shape) -> Field
     f (k, v) =
-        let fld = Field (typeof rq svc v) (prefixed s k) (v ^. common)
+        let fld = Field (typeof rq svc v) k (prefixed s k) (v ^. common)
          in if k == "IsTruncated"
                 then fld & cmnRequired .~ True & fldType %~ (anRequired_ .~ True)
                 else fld
 
-prefixed :: Shape -> Text -> Text
+prefixed :: HasCommon a => a -> Text -> Text
 prefixed p = mappend (p ^. cmnPrefix) . upperFirst
 
 shapeType :: Bool -> Service -> Shape -> Type
@@ -359,8 +370,7 @@ serviceTypes svc@Service{..} = sort
     . mapM uniq
     . map (shapeType True svc . snd)
     . mapMaybe exclude
-    . concatMap opfields
-    $ _svcOperations
+    $ concatMap opfields _svcOperations
   where
     exclude :: (a, Shape) -> Maybe (a, Shape)
     exclude x = maybe (Just x) (const Nothing) (remapType svc (snd x))

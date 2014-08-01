@@ -258,6 +258,7 @@ data Ann = Ann
 
 data Field = Field
     { _fldType     :: Ann
+    , _fldName     :: Text
     , _fldPrefixed :: Text
     , _fldCommon   :: Common
     } deriving (Eq, Show)
@@ -306,7 +307,7 @@ data QueryPart = QueryPart
 
 data Token = Token
     { _tokInput  :: Text
-    , _tokOutput :: Text
+    , _tokOutput :: [Text]
     } deriving (Eq, Show, Generic)
 
 data Pagination
@@ -394,6 +395,7 @@ data Service = Service
     , _svcTargetPrefix     :: Maybe Text
     , _svcOperations       :: [Operation]
     , _svcOverrides        :: [Shape]
+    , _svcTypes            :: [Type]
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -431,6 +433,7 @@ defaultService a = Service
     , _svcTargetPrefix     = def
     , _svcOperations       = []
     , _svcOverrides        = []
+    , _svcTypes            = []
     }
 
 makeLenses ''Request

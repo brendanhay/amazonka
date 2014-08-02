@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
 {-# LANGUAGE RecordWildCards      #-}
+{-# LANGUAGE TupleSections        #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
@@ -22,6 +23,7 @@ import           Control.Lens               ((^.))
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.Function
+import qualified Data.HashMap.Strict        as Map
 import           Data.List
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
@@ -184,7 +186,9 @@ instance ToJSON QueryPart where
     toJSON = toField (recase Camel Under . drop 2)
 
 instance ToJSON Python where
-    toJSON = toJSON . show -- Text.intercalate " $ " . reverse . map _unPython
+    toJSON (Keyed   k) = toJSON k
+    toJSON (Index c k) = toJSON (k <> " . listToMaybe . reverse $ " <> c)
+    toJSON (Apply x y) = toJSON (y <> " $ " <> x)
 
 instance ToJSON Token where
     toJSON Token{..} = object
@@ -195,16 +199,26 @@ instance ToJSON Token where
 instance ToJSON Pagination where
     toJSON p = object $
         case p of
-            More m  ts ->
-                [ "type"   .= ("more" :: Text)
-                , "more"   .= m
-                , "tokens" .= ts
-                ]
-            Next rk t  ->
+            Next rk t ->
                 [ "type"       .= ("next" :: Text)
                 , "result_key" .= rk
                 , "token"      .= t
                 ]
+            More k [t] ->
+                [ "type"  .= ("one" :: Text)
+                , "more"  .= k
+                , "token" .= t
+                ]
+            More k ts ->
+                let f x = (Text.pack ('p' : show x),)
+                    m   = Map.fromList (zipWith f [1..length ts] ts)
+                    fn  = ", isNothing "
+                    pre = "and [isNothing " <> Text.intercalate fn (Map.keys m) <> "]"
+                 in [ "type"   .= ("many" :: Text)
+                    , "more"   .= k
+                    , "tokens" .= m
+                    , "negate" .= pre
+                    ]
 
 toField :: (Generic a, GToJSON (Rep a))
         => (String -> String)

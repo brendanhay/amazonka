@@ -47,7 +47,7 @@ JSON := \
  $(BOTO)/cognito-identity \
  $(BOTO)/cognito-sync
 
-MODELS ?= $(QUERY)
+MODELS ?= $(RESTXML)
 
 .PHONY: gen
 

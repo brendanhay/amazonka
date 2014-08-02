@@ -91,5 +91,5 @@ instance AWSRequest DescribeOptionGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeOptionGroups where
-    next rq rs = (\x -> rq { _dogmMarker = Just x })
-        <$> (_ogMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dogmMarker" = Just x })
+        <$> (Keyed "_ogMarker" rs)

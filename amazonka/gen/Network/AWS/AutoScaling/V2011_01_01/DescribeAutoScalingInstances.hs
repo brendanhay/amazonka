@@ -82,5 +82,5 @@ instance AWSRequest DescribeAutoScalingInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeAutoScalingInstances where
-    next rq rs = (\x -> rq { _dasitNextToken = Just x })
-        <$> (_asitNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dasitNextToken" = Just x })
+        <$> (Keyed "_asitNextToken" rs)

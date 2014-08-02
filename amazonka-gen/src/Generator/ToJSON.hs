@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveGeneric        #-}
 {-# LANGUAGE FlexibleContexts     #-}
+{-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
 {-# LANGUAGE RecordWildCards      #-}
 
@@ -182,10 +183,13 @@ instance ToJSON PathPart where
 instance ToJSON QueryPart where
     toJSON = toField (recase Camel Under . drop 2)
 
+instance ToJSON Python where
+    toJSON = toJSON . show -- Text.intercalate " $ " . reverse . map _unPython
+
 instance ToJSON Token where
     toJSON Token{..} = object
         [ "input"  .= _tokInput
-        , "output" .= appliedFns _tokOutput
+        , "output" .= _tokOutput
         ]
 
 instance ToJSON Pagination where
@@ -193,18 +197,14 @@ instance ToJSON Pagination where
         case p of
             More m  ts ->
                 [ "type"   .= ("more" :: Text)
-                , "more"   .= appliedFns m
+                , "more"   .= m
                 , "tokens" .= ts
                 ]
             Next rk t  ->
                 [ "type"       .= ("next" :: Text)
-                , "result_key" .= appliedFns rk
+                , "result_key" .= rk
                 , "token"      .= t
                 ]
-
-
-appliedFns :: [Text] -> Text
-appliedFns = Text.intercalate " $ " . reverse
 
 toField :: (Generic a, GToJSON (Rep a))
         => (String -> String)

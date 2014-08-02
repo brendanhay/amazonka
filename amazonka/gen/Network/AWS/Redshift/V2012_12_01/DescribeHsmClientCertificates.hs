@@ -89,5 +89,5 @@ instance AWSRequest DescribeHsmClientCertificates where
     response _ = xmlResponse
 
 instance AWSPager DescribeHsmClientCertificates where
-    next rq rs = (\x -> rq { _dhccmMarker = Just x })
-        <$> (_hccmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dhccmMarker" = Just x })
+        <$> (Keyed "_hccmMarker" rs)

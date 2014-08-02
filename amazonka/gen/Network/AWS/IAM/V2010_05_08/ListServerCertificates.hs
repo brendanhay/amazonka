@@ -99,7 +99,7 @@ instance AWSRequest ListServerCertificates where
 
 instance AWSPager ListServerCertificates where
     next rq rs
-        | not (_lscsIsTruncated rs) = Nothing
+        | not (Keyed "_lscsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lscrMarker = _lscsMarker rs
+            { Keyed "_lscrMarker" = Keyed "_lscsMarker" rs
             }

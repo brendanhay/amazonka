@@ -87,5 +87,5 @@ instance AWSRequest DescribeScheduledActions where
     response _ = xmlResponse
 
 instance AWSPager DescribeScheduledActions where
-    next rq rs = (\x -> rq { _dsauNextToken = Just x })
-        <$> (_satNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dsauNextToken" = Just x })
+        <$> (Keyed "_satNextToken" rs)

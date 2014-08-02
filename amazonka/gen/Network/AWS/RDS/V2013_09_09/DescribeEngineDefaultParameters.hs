@@ -86,5 +86,5 @@ instance AWSRequest DescribeEngineDefaultParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeEngineDefaultParameters where
-    next rq rs = (\x -> rq { _dedpmMarker = Just x })
-        <$> (_edMarker $ _edwEngineDefaults rs)
+    next rq rs = (\x -> rq { Keyed "_dedpmMarker" = Just x })
+        <$> (Apply "_edwEngineDefaults" "_edMarker" rs)

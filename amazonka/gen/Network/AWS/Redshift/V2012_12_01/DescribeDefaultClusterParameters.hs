@@ -97,5 +97,5 @@ instance AWSRequest DescribeDefaultClusterParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeDefaultClusterParameters where
-    next rq rs = (\x -> rq { _ddcpmMarker = Just x })
-        <$> (_dcpMarker $ _dcpwDefaultClusterParameters rs)
+    next rq rs = (\x -> rq { Keyed "_ddcpmMarker" = Just x })
+        <$> (Apply "_dcpwDefaultClusterParameters" "_dcpMarker" rs)

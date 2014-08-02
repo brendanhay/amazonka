@@ -86,5 +86,5 @@ instance AWSRequest DescribeStackEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeStackEvents where
-    next rq rs = (\x -> rq { _dseiNextToken = Just x })
-        <$> (_dseoNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dseiNextToken" = Just x })
+        <$> (Keyed "_dseoNextToken" rs)

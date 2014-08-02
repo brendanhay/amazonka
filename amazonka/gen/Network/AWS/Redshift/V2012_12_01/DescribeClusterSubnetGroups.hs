@@ -93,5 +93,5 @@ instance AWSRequest DescribeClusterSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSubnetGroups where
-    next rq rs = (\x -> rq { _dcsgoMarker = Just x })
-        <$> (_csgpMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dcsgoMarker" = Just x })
+        <$> (Keyed "_csgpMarker" rs)

@@ -80,5 +80,5 @@ instance AWSRequest DescribeAutoScalingGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeAutoScalingGroups where
-    next rq rs = (\x -> rq { _asgntNextToken = Just x })
-        <$> (_asgtNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_asgntNextToken" = Just x })
+        <$> (Keyed "_asgtNextToken" rs)

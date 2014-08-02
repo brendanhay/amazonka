@@ -85,5 +85,5 @@ instance AWSRequest DescribeDBSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSubnetGroups where
-    next rq rs = (\x -> rq { _ddbsgmMarker = Just x })
-        <$> (_dbsgrMarker rs)
+    next rq rs = (\x -> rq { Keyed "_ddbsgmMarker" = Just x })
+        <$> (Keyed "_dbsgrMarker" rs)

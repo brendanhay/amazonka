@@ -88,5 +88,5 @@ instance AWSRequest DescribeEventSubscriptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeEventSubscriptions where
-    next rq rs = (\x -> rq { _desnMarker = Just x })
-        <$> (_esmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_desnMarker" = Just x })
+        <$> (Keyed "_esmMarker" rs)

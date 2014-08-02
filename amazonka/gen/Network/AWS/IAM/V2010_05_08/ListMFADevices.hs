@@ -87,7 +87,7 @@ instance AWSRequest ListMFADevices where
 
 instance AWSPager ListMFADevices where
     next rq rs
-        | not (_lmfadsIsTruncated rs) = Nothing
+        | not (Keyed "_lmfadsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lmfadrMarker = _lmfadsMarker rs
+            { Keyed "_lmfadrMarker" = Keyed "_lmfadsMarker" rs
             }

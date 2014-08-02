@@ -99,5 +99,5 @@ instance AWSRequest DescribeClusterParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterParameterGroups where
-    next rq rs = (\x -> rq { _dcpgmMarker = Just x })
-        <$> (_cpgmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dcpgmMarker" = Just x })
+        <$> (Keyed "_cpgmMarker" rs)

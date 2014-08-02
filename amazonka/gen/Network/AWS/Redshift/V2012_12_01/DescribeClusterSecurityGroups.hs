@@ -98,5 +98,5 @@ instance AWSRequest DescribeClusterSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSecurityGroups where
-    next rq rs = (\x -> rq { _dcsgnMarker = Just x })
-        <$> (_csgnMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dcsgnMarker" = Just x })
+        <$> (Keyed "_csgnMarker" rs)

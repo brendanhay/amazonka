@@ -99,5 +99,5 @@ instance AWSRequest DescribeClusters where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusters where
-    next rq rs = (\x -> rq { _dcmMarker = Just x })
-        <$> (_cmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dcmMarker" = Just x })
+        <$> (Keyed "_cmMarker" rs)

@@ -87,5 +87,5 @@ instance AWSRequest DescribeHsmConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeHsmConfigurations where
-    next rq rs = (\x -> rq { _dhcnMarker = Just x })
-        <$> (_hcmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dhcnMarker" = Just x })
+        <$> (Keyed "_hcmMarker" rs)

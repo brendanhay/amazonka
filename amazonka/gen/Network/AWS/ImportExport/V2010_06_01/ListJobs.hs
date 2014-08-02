@@ -75,7 +75,7 @@ instance AWSRequest ListJobs where
 
 instance AWSPager ListJobs where
     next rq rs
-        | not (_ljoIsTruncated rs) = Nothing
+        | not (Keyed "_ljoIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _ljiMarker = _ljoJobs[-1] rs
+            { Keyed "_ljiMarker" = Index "_ljoJobs" "_jJobId" rs
             }

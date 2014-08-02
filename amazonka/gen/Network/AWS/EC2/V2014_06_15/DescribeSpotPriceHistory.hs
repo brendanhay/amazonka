@@ -120,5 +120,5 @@ instance AWSRequest DescribeSpotPriceHistory where
     response _ = xmlResponse
 
 instance AWSPager DescribeSpotPriceHistory where
-    next rq rs = (\x -> rq { _dsphrNextToken = Just x })
-        <$> (_dsphsNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dsphrNextToken" = Just x })
+        <$> (Keyed "_dsphsNextToken" rs)

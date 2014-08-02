@@ -80,5 +80,5 @@ instance AWSRequest ListSubscriptions where
     response _ = xmlResponse
 
 instance AWSPager ListSubscriptions where
-    next rq rs = (\x -> rq { _lsiNextToken = Just x })
-        <$> (_lsrNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_lsiNextToken" = Just x })
+        <$> (Keyed "_lsrNextToken" rs)

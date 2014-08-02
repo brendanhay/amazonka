@@ -167,5 +167,5 @@ instance AWSRequest DescribeReservedInstancesOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedInstancesOfferings where
-    next rq rs = (\x -> rq { _driorNextToken = Just x })
-        <$> (_driosNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_driorNextToken" = Just x })
+        <$> (Keyed "_driosNextToken" rs)

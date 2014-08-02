@@ -77,5 +77,5 @@ instance AWSRequest DescribeStacks where
     response _ = xmlResponse
 
 instance AWSPager DescribeStacks where
-    next rq rs = (\x -> rq { _dsjNextToken = Just x })
-        <$> (_dsoNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dsjNextToken" = Just x })
+        <$> (Keyed "_dsoNextToken" rs)

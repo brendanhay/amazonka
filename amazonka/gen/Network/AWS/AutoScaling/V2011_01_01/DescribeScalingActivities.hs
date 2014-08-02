@@ -95,5 +95,5 @@ instance AWSRequest DescribeScalingActivities where
     response _ = xmlResponse
 
 instance AWSPager DescribeScalingActivities where
-    next rq rs = (\x -> rq { _dsavNextToken = Just x })
-        <$> (_auNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dsavNextToken" = Just x })
+        <$> (Keyed "_auNextToken" rs)

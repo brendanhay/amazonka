@@ -132,5 +132,5 @@ instance AWSRequest DescribeVolumeStatus where
     response _ = xmlResponse
 
 instance AWSPager DescribeVolumeStatus where
-    next rq rs = (\x -> rq { _dvsrNextToken = Just x })
-        <$> (_dvssNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dvsrNextToken" = Just x })
+        <$> (Keyed "_dvssNextToken" rs)

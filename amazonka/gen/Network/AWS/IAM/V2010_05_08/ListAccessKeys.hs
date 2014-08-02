@@ -93,7 +93,7 @@ instance AWSRequest ListAccessKeys where
 
 instance AWSPager ListAccessKeys where
     next rq rs
-        | not (_laksIsTruncated rs) = Nothing
+        | not (Keyed "_laksIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lakrMarker = _laksMarker rs
+            { Keyed "_lakrMarker" = Keyed "_laksMarker" rs
             }

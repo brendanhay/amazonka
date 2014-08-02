@@ -97,7 +97,7 @@ instance AWSRequest ListGroups where
 
 instance AWSPager ListGroups where
     next rq rs
-        | not (_lgsIsTruncated rs) = Nothing
+        | not (Keyed "_lgsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lgrMarker = _lgsMarker rs
+            { Keyed "_lgrMarker" = Keyed "_lgsMarker" rs
             }

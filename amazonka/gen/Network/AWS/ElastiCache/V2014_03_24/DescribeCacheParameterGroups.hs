@@ -85,5 +85,5 @@ instance AWSRequest DescribeCacheParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheParameterGroups where
-    next rq rs = (\x -> rq { _dcpgmMarker = Just x })
-        <$> (_cpgmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dcpgmMarker" = Just x })
+        <$> (Keyed "_cpgmMarker" rs)

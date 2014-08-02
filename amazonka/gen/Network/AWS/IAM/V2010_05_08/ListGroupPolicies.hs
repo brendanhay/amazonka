@@ -86,7 +86,7 @@ instance AWSRequest ListGroupPolicies where
 
 instance AWSPager ListGroupPolicies where
     next rq rs
-        | not (_lgpsIsTruncated rs) = Nothing
+        | not (Keyed "_lgpsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lgprMarker = _lgpsMarker rs
+            { Keyed "_lgprMarker" = Keyed "_lgpsMarker" rs
             }

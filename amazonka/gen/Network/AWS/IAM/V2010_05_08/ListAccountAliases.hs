@@ -84,7 +84,7 @@ instance AWSRequest ListAccountAliases where
 
 instance AWSPager ListAccountAliases where
     next rq rs
-        | not (_laasIsTruncated rs) = Nothing
+        | not (Keyed "_laasIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _laarMarker = _laasMarker rs
+            { Keyed "_laarMarker" = Keyed "_laasMarker" rs
             }

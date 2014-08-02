@@ -101,7 +101,7 @@ instance AWSRequest ListRoles where
 
 instance AWSPager ListRoles where
     next rq rs
-        | not (_lrsIsTruncated rs) = Nothing
+        | not (Keyed "_lrsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lrrMarker = _lrsMarker rs
+            { Keyed "_lrrMarker" = Keyed "_lrsMarker" rs
             }

@@ -108,5 +108,5 @@ instance AWSRequest DescribeReservedCacheNodes where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedCacheNodes where
-    next rq rs = (\x -> rq { _drcnmMarker = Just x })
-        <$> (_rcnmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_drcnmMarker" = Just x })
+        <$> (Keyed "_rcnmMarker" rs)

@@ -105,5 +105,5 @@ instance AWSRequest DescribeCacheClusters where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheClusters where
-    next rq rs = (\x -> rq { _dccnMarker = Just x })
-        <$> (_ccmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dccnMarker" = Just x })
+        <$> (Keyed "_ccmMarker" rs)

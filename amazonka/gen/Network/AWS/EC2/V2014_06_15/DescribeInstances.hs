@@ -325,5 +325,5 @@ instance AWSRequest DescribeInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeInstances where
-    next rq rs = (\x -> rq { _disNextToken = Just x })
-        <$> (_ditNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_disNextToken" = Just x })
+        <$> (Keyed "_ditNextToken" rs)

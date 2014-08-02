@@ -96,7 +96,7 @@ instance AWSRequest ListInstanceProfiles where
 
 instance AWSPager ListInstanceProfiles where
     next rq rs
-        | not (_lipsIsTruncated rs) = Nothing
+        | not (Keyed "_lipsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _liprMarker = _lipsMarker rs
+            { Keyed "_liprMarker" = Keyed "_lipsMarker" rs
             }

@@ -88,7 +88,7 @@ instance AWSRequest ListRolePolicies where
 
 instance AWSPager ListRolePolicies where
     next rq rs
-        | not (_lrpsIsTruncated rs) = Nothing
+        | not (Keyed "_lrpsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lrprMarker = _lrpsMarker rs
+            { Keyed "_lrprMarker" = Keyed "_lrpsMarker" rs
             }

@@ -87,7 +87,7 @@ instance AWSRequest ListUserPolicies where
 
 instance AWSPager ListUserPolicies where
     next rq rs
-        | not (_lupsIsTruncated rs) = Nothing
+        | not (Keyed "_lupsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _luprMarker = _lupsMarker rs
+            { Keyed "_luprMarker" = Keyed "_lupsMarker" rs
             }

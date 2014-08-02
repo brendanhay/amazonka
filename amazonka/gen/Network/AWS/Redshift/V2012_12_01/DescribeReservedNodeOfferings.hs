@@ -99,5 +99,5 @@ instance AWSRequest DescribeReservedNodeOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedNodeOfferings where
-    next rq rs = (\x -> rq { _drnomMarker = Just x })
-        <$> (_rnomMarker rs)
+    next rq rs = (\x -> rq { Keyed "_drnomMarker" = Just x })
+        <$> (Keyed "_rnomMarker" rs)

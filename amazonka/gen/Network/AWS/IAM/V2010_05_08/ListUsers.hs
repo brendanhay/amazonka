@@ -96,7 +96,7 @@ instance AWSRequest ListUsers where
 
 instance AWSPager ListUsers where
     next rq rs
-        | not (_lusIsTruncated rs) = Nothing
+        | not (Keyed "_lusIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lurMarker = _lusMarker rs
+            { Keyed "_lurMarker" = Keyed "_lusMarker" rs
             }

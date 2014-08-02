@@ -81,5 +81,5 @@ instance AWSRequest DescribeCacheSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheSecurityGroups where
-    next rq rs = (\x -> rq { _dcsgoMarker = Just x })
-        <$> (_csgrMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dcsgoMarker" = Just x })
+        <$> (Keyed "_csgrMarker" rs)

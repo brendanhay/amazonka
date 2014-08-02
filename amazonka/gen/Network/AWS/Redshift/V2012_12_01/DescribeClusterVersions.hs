@@ -98,5 +98,5 @@ instance AWSRequest DescribeClusterVersions where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterVersions where
-    next rq rs = (\x -> rq { _dcvmMarker = Just x })
-        <$> (_cvmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dcvmMarker" = Just x })
+        <$> (Keyed "_cvmMarker" rs)

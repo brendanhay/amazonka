@@ -85,5 +85,5 @@ instance AWSRequest ListStacks where
     response _ = xmlResponse
 
 instance AWSPager ListStacks where
-    next rq rs = (\x -> rq { _lsiNextToken = Just x })
-        <$> (_lsoNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_lsiNextToken" = Just x })
+        <$> (Keyed "_lsoNextToken" rs)

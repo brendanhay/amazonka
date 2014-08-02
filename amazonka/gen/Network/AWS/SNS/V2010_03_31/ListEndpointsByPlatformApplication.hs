@@ -100,5 +100,5 @@ instance AWSRequest ListEndpointsByPlatformApplication where
     response _ = xmlResponse
 
 instance AWSPager ListEndpointsByPlatformApplication where
-    next rq rs = (\x -> rq { _lebpaiNextToken = Just x })
-        <$> (_lebparNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_lebpaiNextToken" = Just x })
+        <$> (Keyed "_lebparNextToken" rs)

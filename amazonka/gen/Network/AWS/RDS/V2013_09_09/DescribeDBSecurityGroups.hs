@@ -84,5 +84,5 @@ instance AWSRequest DescribeDBSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSecurityGroups where
-    next rq rs = (\x -> rq { _ddbsgpMarker = Just x })
-        <$> (_dbsgdeMarker rs)
+    next rq rs = (\x -> rq { Keyed "_ddbsgpMarker" = Just x })
+        <$> (Keyed "_dbsgdeMarker" rs)

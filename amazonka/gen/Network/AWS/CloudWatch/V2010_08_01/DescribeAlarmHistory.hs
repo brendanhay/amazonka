@@ -80,5 +80,5 @@ instance AWSRequest DescribeAlarmHistory where
     response _ = xmlResponse
 
 instance AWSPager DescribeAlarmHistory where
-    next rq rs = (\x -> rq { _dahiNextToken = Just x })
-        <$> (_dahoNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dahiNextToken" = Just x })
+        <$> (Keyed "_dahoNextToken" rs)

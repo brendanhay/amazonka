@@ -88,5 +88,5 @@ instance AWSRequest ListStackResources where
     response _ = xmlResponse
 
 instance AWSPager ListStackResources where
-    next rq rs = (\x -> rq { _lsriNextToken = Just x })
-        <$> (_lsroNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_lsriNextToken" = Just x })
+        <$> (Keyed "_lsroNextToken" rs)

@@ -93,7 +93,7 @@ instance AWSRequest GetGroup where
 
 instance AWSPager GetGroup where
     next rq rs
-        | not (_ggsIsTruncated rs) = Nothing
+        | not (Keyed "_ggsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _ggrMarker = _ggsMarker rs
+            { Keyed "_ggrMarker" = Keyed "_ggsMarker" rs
             }

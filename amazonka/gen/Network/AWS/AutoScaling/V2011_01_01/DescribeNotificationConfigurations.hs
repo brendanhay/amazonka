@@ -69,5 +69,5 @@ instance AWSRequest DescribeNotificationConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeNotificationConfigurations where
-    next rq rs = (\x -> rq { _dncuNextToken = Just x })
-        <$> (_dncaNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dncuNextToken" = Just x })
+        <$> (Keyed "_dncaNextToken" rs)

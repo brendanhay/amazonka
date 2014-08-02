@@ -95,5 +95,5 @@ instance AWSRequest DescribeReservedInstancesModifications where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedInstancesModifications where
-    next rq rs = (\x -> rq { _drimrNextToken = Just x })
-        <$> (_drimsNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_drimrNextToken" = Just x })
+        <$> (Keyed "_drimsNextToken" rs)

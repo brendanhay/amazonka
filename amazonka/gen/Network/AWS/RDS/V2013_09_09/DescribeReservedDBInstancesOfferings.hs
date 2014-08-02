@@ -109,5 +109,5 @@ instance AWSRequest DescribeReservedDBInstancesOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedDBInstancesOfferings where
-    next rq rs = (\x -> rq { _drdbiomMarker = Just x })
-        <$> (_rdbiomMarker rs)
+    next rq rs = (\x -> rq { Keyed "_drdbiomMarker" = Just x })
+        <$> (Keyed "_rdbiomMarker" rs)

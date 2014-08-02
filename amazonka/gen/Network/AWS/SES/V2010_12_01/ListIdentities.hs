@@ -79,5 +79,5 @@ instance AWSRequest ListIdentities where
     response _ = xmlResponse
 
 instance AWSPager ListIdentities where
-    next rq rs = (\x -> rq { _lirNextToken = Just x })
-        <$> (_lisNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_lirNextToken" = Just x })
+        <$> (Keyed "_lisNextToken" rs)

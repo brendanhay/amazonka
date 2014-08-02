@@ -15,7 +15,6 @@
 
 module Generator.Transform where
 
-import           Control.Applicative
 import           Control.Arrow
 import           Control.Lens
 import           Control.Monad
@@ -33,6 +32,7 @@ import           Data.Ord
 import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
+import           Debug.Trace
 import           Generator.AST
 import           Text.EDE.Filters
 
@@ -178,24 +178,41 @@ response svc o rs = rs
         | otherwise                              = def
 
 pagination :: [Type] -> Operation -> Pagination -> Pagination
-pagination typs o p = case p of
-    More ms ts -> More (tyPref ms) (map token ts)
-    Next rs t  -> Next (tyPref rs) (token t)
+pagination typs o p =
+    case p of
+        More m  ts -> More (tyPref m)  (map token ts)
+        Next rk t  -> Next (tyPref rk) (token t)
   where
-    token t = t & tokInput %~ rqPref & tokOutput %~ tyPref
+    token t = t
+        & tokInput  %~ key rqPref
+        & tokOutput %~ tyPref
+
+    tyPref = key rsPref . label
 
     rqPref = pref (opRequest.rqShape)
     rsPref = pref (opResponse.rsShape)
 
-    -- Get nested response prefixes from the operation
-    tyPref []     = []
-    tyPref [x]    = [rsPref x]
-    tyPref (x:xs) = rsPref x : mapMaybe (fmap _fldPrefixed . f) xs
-      where
-        f y = join $ find ((y ==) . _fldName) . _typFields <$> typ
-        typ = find ((x ==) . view cmnName) typs
-
     pref s = prefixed (o ^. s)
+
+    label (Index x y) = Index x (indexed x y)
+    label (Apply x y) = Apply x (applied x y)
+    label q           = q
+
+    indexed x y =
+        let fld = getField x . _rsFields $ _opResponse o
+            ann = Text.init . Text.tail . _anType $ _fldType fld
+         in applied ann y
+
+    applied x y = _fldPrefixed . getField y . _typFields $ getType x
+
+    getType  x = err x (find ((x ==) . view cmnName) typs)
+    getField y = err y . find ((y ==) . _fldName)
+
+    err z = fromMaybe (error $ "Missing: " ++ show z)
+
+    key f (Keyed x)   = Keyed (f x)
+    key f (Index x y) = Index (f x) y
+    key f (Apply x y) = Apply (f x) y
 
 rootNS :: NS -> NS
 rootNS (NS []) = NS []

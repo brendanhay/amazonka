@@ -79,5 +79,5 @@ instance AWSRequest DescribeLoadBalancers where
     response _ = xmlResponse
 
 instance AWSPager DescribeLoadBalancers where
-    next rq rs = (\x -> rq { _dapiMarker = Just x })
-        <$> (_dapoNextMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dapiMarker" = Just x })
+        <$> (Keyed "_dapoNextMarker" rs)

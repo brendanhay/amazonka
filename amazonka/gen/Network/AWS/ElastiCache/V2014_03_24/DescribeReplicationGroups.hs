@@ -77,5 +77,5 @@ instance AWSRequest DescribeReplicationGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeReplicationGroups where
-    next rq rs = (\x -> rq { _drgnMarker = Just x })
-        <$> (_rgmMarker rs)
+    next rq rs = (\x -> rq { Keyed "_drgnMarker" = Just x })
+        <$> (Keyed "_rgmMarker" rs)

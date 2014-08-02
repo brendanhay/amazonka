@@ -82,5 +82,5 @@ instance AWSRequest Select where
     response _ = xmlResponse
 
 instance AWSPager Select where
-    next rq rs = (\x -> rq { _srNextToken = Just x })
-        <$> (_suNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_srNextToken" = Just x })
+        <$> (Keyed "_suNextToken" rs)

@@ -87,7 +87,7 @@ instance AWSRequest ListGroupsForUser where
 
 instance AWSPager ListGroupsForUser where
     next rq rs
-        | not (_lgfusIsTruncated rs) = Nothing
+        | not (Keyed "_lgfusIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lgfurMarker = _lgfusMarker rs
+            { Keyed "_lgfurMarker" = Keyed "_lgfusMarker" rs
             }

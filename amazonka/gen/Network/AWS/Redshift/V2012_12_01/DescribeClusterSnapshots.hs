@@ -124,5 +124,5 @@ instance AWSRequest DescribeClusterSnapshots where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSnapshots where
-    next rq rs = (\x -> rq { _dcsnMarker = Just x })
-        <$> (_ssseMarker rs)
+    next rq rs = (\x -> rq { Keyed "_dcsnMarker" = Just x })
+        <$> (Keyed "_ssseMarker" rs)

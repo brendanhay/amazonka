@@ -90,5 +90,5 @@ instance AWSRequest DescribePolicies where
     response _ = xmlResponse
 
 instance AWSPager DescribePolicies where
-    next rq rs = (\x -> rq { _dpuNextToken = Just x })
-        <$> (_pvNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_dpuNextToken" = Just x })
+        <$> (Keyed "_pvNextToken" rs)

@@ -89,5 +89,5 @@ instance AWSRequest DescribeDBInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBInstances where
-    next rq rs = (\x -> rq { _ddbinMarker = Just x })
-        <$> (_dbimMarker rs)
+    next rq rs = (\x -> rq { Keyed "_ddbinMarker" = Just x })
+        <$> (Keyed "_dbimMarker" rs)

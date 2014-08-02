@@ -100,5 +100,5 @@ instance AWSRequest DescribeDBLogFiles where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBLogFiles where
-    next rq rs = (\x -> rq { _ddblfmMarker = Just x })
-        <$> (_ddblfrMarker rs)
+    next rq rs = (\x -> rq { Keyed "_ddblfmMarker" = Just x })
+        <$> (Keyed "_ddblfrMarker" rs)

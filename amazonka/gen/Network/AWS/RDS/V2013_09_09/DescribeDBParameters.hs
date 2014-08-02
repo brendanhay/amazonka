@@ -92,5 +92,5 @@ instance AWSRequest DescribeDBParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBParameters where
-    next rq rs = (\x -> rq { _ddbpmMarker = Just x })
-        <$> (_dbpgdMarker rs)
+    next rq rs = (\x -> rq { Keyed "_ddbpmMarker" = Just x })
+        <$> (Keyed "_dbpgdMarker" rs)

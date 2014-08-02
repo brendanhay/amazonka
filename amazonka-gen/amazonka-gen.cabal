@@ -22,6 +22,7 @@ executable amazonka-gen
 
     build-depends:
           aeson
+        , attoparsec
         , base                 == 4.7.*
         , bifunctors
         , bytestring

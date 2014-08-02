@@ -80,5 +80,5 @@ instance AWSRequest DescribeAlarms where
     response _ = xmlResponse
 
 instance AWSPager DescribeAlarms where
-    next rq rs = (\x -> rq { _daiNextToken = Just x })
-        <$> (_daoNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_daiNextToken" = Just x })
+        <$> (Keyed "_daoNextToken" rs)

@@ -93,7 +93,7 @@ instance AWSRequest DownloadDBLogFilePortion where
 
 instance AWSPager DownloadDBLogFilePortion where
     next rq rs
-        | not (_ddblfpdAdditionalDataPending rs) = Nothing
+        | not (Keyed "_ddblfpdAdditionalDataPending" rs) = Nothing
         | otherwise = Just $ rq
-            { _ddblfpmMarker = _ddblfpdMarker rs
+            { Keyed "_ddblfpmMarker" = Keyed "_ddblfpdMarker" rs
             }

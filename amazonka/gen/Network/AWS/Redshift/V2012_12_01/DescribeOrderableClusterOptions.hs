@@ -106,5 +106,5 @@ instance AWSRequest DescribeOrderableClusterOptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeOrderableClusterOptions where
-    next rq rs = (\x -> rq { _docomMarker = Just x })
-        <$> (_ocomMarker rs)
+    next rq rs = (\x -> rq { Keyed "_docomMarker" = Just x })
+        <$> (Keyed "_ocomMarker" rs)

@@ -25,6 +25,7 @@ import           Control.Lens               ((&), (%~), (.~))
 import           Control.Monad
 import           Data.Aeson                 hiding (Error)
 import           Data.Aeson.Types           hiding (Error)
+import qualified Data.Attoparsec.Text       as AText
 import           Data.Bifunctor
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
@@ -253,6 +254,31 @@ instance FromJSON Primitive where
             "timestamp" -> return PUTCTime
             _           -> fail ("Unable to parse Prim from: " ++ Text.unpack t)
 
+instance FromJSON Python where
+    parseJSON = withText "python" $ \t ->
+        either (fail . mappend (msg t)) return (AText.parseOnly p t)
+      where
+        msg t = "Failed parsing python syntax from: "
+            ++ Text.unpack t
+            ++ ", with: "
+
+        p = (index <|> apply <|> keyed) <* AText.endOfInput
+
+        keyed = Keyed
+            <$> AText.takeText
+
+        index = Index
+            <$> AText.takeWhile1 (/= '[') <* AText.string "[-1]"
+            <*> label
+
+        apply = Apply
+            <$> AText.takeWhile1 (/= '.')
+            <*> label
+
+        label = AText.char '.'
+             >> AText.skipSpace
+             >> AText.takeText
+
 instance FromJSON Pagination where
     parseJSON = withObject "pagination" $ \o -> more o <|> next o
       where
@@ -263,18 +289,14 @@ instance FromJSON Pagination where
             unless (length xs == length ys) $
                 fail "input_token and output_token don't contain same number of keys."
 
-            More <$> (split <$> o .: "more_results")
-                 <*> pure (zipWith token xs ys)
+            More <$> o .: "more_results"
+                 <*> pure (zipWith Token xs ys)
           where
             f k = o .: k <|> (:[]) <$> o .: k
 
         next o = Next
-            <$> (split <$> o .: "result_key")
-            <*> (token <$> o .: "input_token" <*> o .: "output_token")
-
-        token x = Token x . split
-
-        split = map Text.strip . Text.split (== '.')
+            <$> o .: "result_key"
+            <*> (Token <$> o .: "input_token" <*> o .: "output_token")
 
 instance FromJSON HTTP where
     parseJSON = withObject "http" $ \o -> HTTP

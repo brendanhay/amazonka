@@ -1,8 +1,9 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TemplateHaskell            #-}
 
 -- Module      : Generator.AST
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -305,14 +306,20 @@ data QueryPart = QueryPart
     , qpVal :: Maybe Text
     } deriving (Eq, Show, Generic)
 
+data Python
+    = Keyed Text
+    | Index Text Text
+    | Apply Text Text
+      deriving (Eq, Show, Generic)
+
 data Token = Token
-    { _tokInput  :: Text
-    , _tokOutput :: [Text]
+    { _tokInput  :: Python
+    , _tokOutput :: Python
     } deriving (Eq, Show, Generic)
 
 data Pagination
-    = More [Text] [Token]
-    | Next [Text] Token
+    = More Python [Token]
+    | Next Python Token
       deriving (Eq, Show, Generic)
 
 data HTTP = HTTP

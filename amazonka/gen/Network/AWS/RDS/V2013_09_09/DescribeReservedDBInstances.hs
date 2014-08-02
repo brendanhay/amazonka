@@ -114,5 +114,5 @@ instance AWSRequest DescribeReservedDBInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedDBInstances where
-    next rq rs = (\x -> rq { _drdbimMarker = Just x })
-        <$> (_rdbimMarker rs)
+    next rq rs = (\x -> rq { Keyed "_drdbimMarker" = Just x })
+        <$> (Keyed "_rdbimMarker" rs)

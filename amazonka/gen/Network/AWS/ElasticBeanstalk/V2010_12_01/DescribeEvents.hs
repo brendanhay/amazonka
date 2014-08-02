@@ -121,5 +121,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq { _demNextToken = Just x })
-        <$> (_edmNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_demNextToken" = Just x })
+        <$> (Keyed "_edmNextToken" rs)

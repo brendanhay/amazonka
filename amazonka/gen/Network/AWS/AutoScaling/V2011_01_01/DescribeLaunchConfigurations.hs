@@ -76,5 +76,5 @@ instance AWSRequest DescribeLaunchConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeLaunchConfigurations where
-    next rq rs = (\x -> rq { _lcnuNextToken = Just x })
-        <$> (_lctNextToken rs)
+    next rq rs = (\x -> rq { Keyed "_lcnuNextToken" = Just x })
+        <$> (Keyed "_lctNextToken" rs)

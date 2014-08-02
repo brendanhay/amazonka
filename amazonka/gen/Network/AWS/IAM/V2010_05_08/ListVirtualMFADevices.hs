@@ -96,7 +96,7 @@ instance AWSRequest ListVirtualMFADevices where
 
 instance AWSPager ListVirtualMFADevices where
     next rq rs
-        | not (_lvmfadsIsTruncated rs) = Nothing
+        | not (Keyed "_lvmfadsIsTruncated" rs) = Nothing
         | otherwise = Just $ rq
-            { _lvmfadrMarker = _lvmfadsMarker rs
+            { Keyed "_lvmfadrMarker" = Keyed "_lvmfadsMarker" rs
             }

@@ -1,3 +1,5 @@
+{-# LANGUAGE PatternSynonyms #-}
+
 -- Module      : Network.AWS.Prelude.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -35,7 +37,6 @@ module Network.AWS.Prelude
 
     -- * Shared
     , Service         (..)
-    , Endpoint        (..)
     , Action          (..)
     , BucketName      (..)
     , ObjectKey       (..)
@@ -43,6 +44,11 @@ module Network.AWS.Prelude
     , ETag            (..)
     , Switch          (..)
     , RecordType      (..)
+
+    -- ** Constructors only
+    , pattern Global
+    , pattern Regional
+    , pattern Custom
     ) where
 
 import Control.Applicative  as Export

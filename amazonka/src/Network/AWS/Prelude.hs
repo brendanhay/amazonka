@@ -56,6 +56,7 @@ import Control.Exception    (Exception)
 import Data.ByteString      (ByteString)
 import Data.Default         as Export
 import Data.HashMap.Strict  (HashMap)
+import Data.Hashable        as Export
 import Data.Monoid          as Export
 import Data.Tagged          as Export
 import Data.Text            (Text)

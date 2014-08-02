@@ -47,7 +47,7 @@ JSON := \
  $(BOTO)/cognito-identity \
  $(BOTO)/cognito-sync
 
-MODELS ?= $(BOTO)/ec2
+MODELS ?= $(QUERY)
 
 .PHONY: gen
 

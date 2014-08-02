@@ -53,8 +53,441 @@ library
         , Network.AWS.Signing.V4
         , Network.AWS.Types
 
+        , Network.AWS.SimpleDB
+        , Network.AWS.SimpleDB.V2009_04_15
+
+        , Network.AWS.STS
+        , Network.AWS.STS.V2011_06_15
+
+        , Network.AWS.SQS
+        , Network.AWS.SQS.V2012_11_05
+
+        , Network.AWS.SNS
+        , Network.AWS.SNS.V2010_03_31
+
+        , Network.AWS.SES
+        , Network.AWS.SES.V2010_12_01
+
+        , Network.AWS.Redshift
+        , Network.AWS.Redshift.V2012_12_01
+
+        , Network.AWS.RDS
+        , Network.AWS.RDS.V2013_09_09
+
+        , Network.AWS.ImportExport
+        , Network.AWS.ImportExport.V2010_06_01
+
+        , Network.AWS.IAM
+        , Network.AWS.IAM.V2010_05_08
+
+        , Network.AWS.ElasticBeanstalk
+        , Network.AWS.ElasticBeanstalk.V2010_12_01
+
+        , Network.AWS.ElastiCache
+        , Network.AWS.ElastiCache.V2014_03_24
+
+        , Network.AWS.ELB
+        , Network.AWS.ELB.V2012_06_01
+
         , Network.AWS.EC2
         , Network.AWS.EC2.V2014_06_15
+
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch.V2010_08_01
+
+        , Network.AWS.CloudSearch
+        , Network.AWS.CloudSearch.V2013_01_01
+
+        , Network.AWS.CloudFormation
+        , Network.AWS.CloudFormation.V2010_05_15
+
+        , Network.AWS.AutoScaling
+        , Network.AWS.AutoScaling.V2011_01_01
+
+        -- * SimpleDB V2009_04_15
+        , Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes
+        , Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes
+        , Network.AWS.SimpleDB.V2009_04_15.CreateDomain
+        , Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes
+        , Network.AWS.SimpleDB.V2009_04_15.DeleteDomain
+        , Network.AWS.SimpleDB.V2009_04_15.DomainMetadata
+        , Network.AWS.SimpleDB.V2009_04_15.GetAttributes
+        , Network.AWS.SimpleDB.V2009_04_15.ListDomains
+        , Network.AWS.SimpleDB.V2009_04_15.PutAttributes
+        , Network.AWS.SimpleDB.V2009_04_15.Select
+        , Network.AWS.SimpleDB.V2009_04_15.Types
+
+        -- * STS V2011_06_15
+        , Network.AWS.STS.V2011_06_15.AssumeRole
+        , Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML
+        , Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity
+        , Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
+        , Network.AWS.STS.V2011_06_15.GetFederationToken
+        , Network.AWS.STS.V2011_06_15.GetSessionToken
+        , Network.AWS.STS.V2011_06_15.Types
+
+        -- * SQS V2012_11_05
+        , Network.AWS.SQS.V2012_11_05.AddPermission
+        , Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility
+        , Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch
+        , Network.AWS.SQS.V2012_11_05.CreateQueue
+        , Network.AWS.SQS.V2012_11_05.DeleteMessage
+        , Network.AWS.SQS.V2012_11_05.DeleteMessageBatch
+        , Network.AWS.SQS.V2012_11_05.DeleteQueue
+        , Network.AWS.SQS.V2012_11_05.GetQueueAttributes
+        , Network.AWS.SQS.V2012_11_05.GetQueueUrl
+        , Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues
+        , Network.AWS.SQS.V2012_11_05.ListQueues
+        , Network.AWS.SQS.V2012_11_05.ReceiveMessage
+        , Network.AWS.SQS.V2012_11_05.RemovePermission
+        , Network.AWS.SQS.V2012_11_05.SendMessage
+        , Network.AWS.SQS.V2012_11_05.SendMessageBatch
+        , Network.AWS.SQS.V2012_11_05.SetQueueAttributes
+        , Network.AWS.SQS.V2012_11_05.Types
+
+        -- * SNS V2010_03_31
+        , Network.AWS.SNS.V2010_03_31.AddPermission
+        , Network.AWS.SNS.V2010_03_31.ConfirmSubscription
+        , Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
+        , Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint
+        , Network.AWS.SNS.V2010_03_31.CreateTopic
+        , Network.AWS.SNS.V2010_03_31.DeleteEndpoint
+        , Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
+        , Network.AWS.SNS.V2010_03_31.DeleteTopic
+        , Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
+        , Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
+        , Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
+        , Network.AWS.SNS.V2010_03_31.GetTopicAttributes
+        , Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication
+        , Network.AWS.SNS.V2010_03_31.ListPlatformApplications
+        , Network.AWS.SNS.V2010_03_31.ListSubscriptions
+        , Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
+        , Network.AWS.SNS.V2010_03_31.ListTopics
+        , Network.AWS.SNS.V2010_03_31.Publish
+        , Network.AWS.SNS.V2010_03_31.RemovePermission
+        , Network.AWS.SNS.V2010_03_31.SetEndpointAttributes
+        , Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
+        , Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes
+        , Network.AWS.SNS.V2010_03_31.SetTopicAttributes
+        , Network.AWS.SNS.V2010_03_31.Subscribe
+        , Network.AWS.SNS.V2010_03_31.Types
+        , Network.AWS.SNS.V2010_03_31.Unsubscribe
+
+        -- * SES V2010_12_01
+        , Network.AWS.SES.V2010_12_01.DeleteIdentity
+        , Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress
+        , Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes
+        , Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes
+        , Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes
+        , Network.AWS.SES.V2010_12_01.GetSendQuota
+        , Network.AWS.SES.V2010_12_01.GetSendStatistics
+        , Network.AWS.SES.V2010_12_01.ListIdentities
+        , Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses
+        , Network.AWS.SES.V2010_12_01.SendEmail
+        , Network.AWS.SES.V2010_12_01.SendRawEmail
+        , Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled
+        , Network.AWS.SES.V2010_12_01.SetIdentityFeedbackForwardingEnabled
+        , Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic
+        , Network.AWS.SES.V2010_12_01.Types
+        , Network.AWS.SES.V2010_12_01.VerifyDomainDkim
+        , Network.AWS.SES.V2010_12_01.VerifyDomainIdentity
+        , Network.AWS.SES.V2010_12_01.VerifyEmailAddress
+        , Network.AWS.SES.V2010_12_01.VerifyEmailIdentity
+
+        -- * Redshift V2012_12_01
+        , Network.AWS.Redshift.V2012_12_01.AuthorizeClusterSecurityGroupIngress
+        , Network.AWS.Redshift.V2012_12_01.AuthorizeSnapshotAccess
+        , Network.AWS.Redshift.V2012_12_01.CopyClusterSnapshot
+        , Network.AWS.Redshift.V2012_12_01.CreateCluster
+        , Network.AWS.Redshift.V2012_12_01.CreateClusterParameterGroup
+        , Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup
+        , Network.AWS.Redshift.V2012_12_01.CreateClusterSnapshot
+        , Network.AWS.Redshift.V2012_12_01.CreateClusterSubnetGroup
+        , Network.AWS.Redshift.V2012_12_01.CreateEventSubscription
+        , Network.AWS.Redshift.V2012_12_01.CreateHsmClientCertificate
+        , Network.AWS.Redshift.V2012_12_01.CreateHsmConfiguration
+        , Network.AWS.Redshift.V2012_12_01.DeleteCluster
+        , Network.AWS.Redshift.V2012_12_01.DeleteClusterParameterGroup
+        , Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup
+        , Network.AWS.Redshift.V2012_12_01.DeleteClusterSnapshot
+        , Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup
+        , Network.AWS.Redshift.V2012_12_01.DeleteEventSubscription
+        , Network.AWS.Redshift.V2012_12_01.DeleteHsmClientCertificate
+        , Network.AWS.Redshift.V2012_12_01.DeleteHsmConfiguration
+        , Network.AWS.Redshift.V2012_12_01.DescribeClusterParameterGroups
+        , Network.AWS.Redshift.V2012_12_01.DescribeClusterParameters
+        , Network.AWS.Redshift.V2012_12_01.DescribeClusterSecurityGroups
+        , Network.AWS.Redshift.V2012_12_01.DescribeClusterSnapshots
+        , Network.AWS.Redshift.V2012_12_01.DescribeClusterSubnetGroups
+        , Network.AWS.Redshift.V2012_12_01.DescribeClusterVersions
+        , Network.AWS.Redshift.V2012_12_01.DescribeClusters
+        , Network.AWS.Redshift.V2012_12_01.DescribeDefaultClusterParameters
+        , Network.AWS.Redshift.V2012_12_01.DescribeEventCategories
+        , Network.AWS.Redshift.V2012_12_01.DescribeEventSubscriptions
+        , Network.AWS.Redshift.V2012_12_01.DescribeEvents
+        , Network.AWS.Redshift.V2012_12_01.DescribeHsmClientCertificates
+        , Network.AWS.Redshift.V2012_12_01.DescribeHsmConfigurations
+        , Network.AWS.Redshift.V2012_12_01.DescribeLoggingStatus
+        , Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions
+        , Network.AWS.Redshift.V2012_12_01.DescribeReservedNodeOfferings
+        , Network.AWS.Redshift.V2012_12_01.DescribeReservedNodes
+        , Network.AWS.Redshift.V2012_12_01.DescribeResize
+        , Network.AWS.Redshift.V2012_12_01.DisableLogging
+        , Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy
+        , Network.AWS.Redshift.V2012_12_01.EnableLogging
+        , Network.AWS.Redshift.V2012_12_01.EnableSnapshotCopy
+        , Network.AWS.Redshift.V2012_12_01.ModifyCluster
+        , Network.AWS.Redshift.V2012_12_01.ModifyClusterParameterGroup
+        , Network.AWS.Redshift.V2012_12_01.ModifyClusterSubnetGroup
+        , Network.AWS.Redshift.V2012_12_01.ModifyEventSubscription
+        , Network.AWS.Redshift.V2012_12_01.ModifySnapshotCopyRetentionPeriod
+        , Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering
+        , Network.AWS.Redshift.V2012_12_01.RebootCluster
+        , Network.AWS.Redshift.V2012_12_01.ResetClusterParameterGroup
+        , Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot
+        , Network.AWS.Redshift.V2012_12_01.RevokeClusterSecurityGroupIngress
+        , Network.AWS.Redshift.V2012_12_01.RevokeSnapshotAccess
+        , Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey
+        , Network.AWS.Redshift.V2012_12_01.Types
+
+        -- * RDS V2013_09_09
+        , Network.AWS.RDS.V2013_09_09.AddSourceIdentifierToSubscription
+        , Network.AWS.RDS.V2013_09_09.AddTagsToResource
+        , Network.AWS.RDS.V2013_09_09.AuthorizeDBSecurityGroupIngress
+        , Network.AWS.RDS.V2013_09_09.CopyDBSnapshot
+        , Network.AWS.RDS.V2013_09_09.CreateDBInstance
+        , Network.AWS.RDS.V2013_09_09.CreateDBInstanceReadReplica
+        , Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup
+        , Network.AWS.RDS.V2013_09_09.CreateDBSecurityGroup
+        , Network.AWS.RDS.V2013_09_09.CreateDBSnapshot
+        , Network.AWS.RDS.V2013_09_09.CreateDBSubnetGroup
+        , Network.AWS.RDS.V2013_09_09.CreateEventSubscription
+        , Network.AWS.RDS.V2013_09_09.CreateOptionGroup
+        , Network.AWS.RDS.V2013_09_09.DeleteDBInstance
+        , Network.AWS.RDS.V2013_09_09.DeleteDBParameterGroup
+        , Network.AWS.RDS.V2013_09_09.DeleteDBSecurityGroup
+        , Network.AWS.RDS.V2013_09_09.DeleteDBSnapshot
+        , Network.AWS.RDS.V2013_09_09.DeleteDBSubnetGroup
+        , Network.AWS.RDS.V2013_09_09.DeleteEventSubscription
+        , Network.AWS.RDS.V2013_09_09.DeleteOptionGroup
+        , Network.AWS.RDS.V2013_09_09.DescribeDBEngineVersions
+        , Network.AWS.RDS.V2013_09_09.DescribeDBInstances
+        , Network.AWS.RDS.V2013_09_09.DescribeDBLogFiles
+        , Network.AWS.RDS.V2013_09_09.DescribeDBParameterGroups
+        , Network.AWS.RDS.V2013_09_09.DescribeDBParameters
+        , Network.AWS.RDS.V2013_09_09.DescribeDBSecurityGroups
+        , Network.AWS.RDS.V2013_09_09.DescribeDBSnapshots
+        , Network.AWS.RDS.V2013_09_09.DescribeDBSubnetGroups
+        , Network.AWS.RDS.V2013_09_09.DescribeEngineDefaultParameters
+        , Network.AWS.RDS.V2013_09_09.DescribeEventCategories
+        , Network.AWS.RDS.V2013_09_09.DescribeEventSubscriptions
+        , Network.AWS.RDS.V2013_09_09.DescribeEvents
+        , Network.AWS.RDS.V2013_09_09.DescribeOptionGroupOptions
+        , Network.AWS.RDS.V2013_09_09.DescribeOptionGroups
+        , Network.AWS.RDS.V2013_09_09.DescribeOrderableDBInstanceOptions
+        , Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstances
+        , Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstancesOfferings
+        , Network.AWS.RDS.V2013_09_09.DownloadDBLogFilePortion
+        , Network.AWS.RDS.V2013_09_09.ListTagsForResource
+        , Network.AWS.RDS.V2013_09_09.ModifyDBInstance
+        , Network.AWS.RDS.V2013_09_09.ModifyDBParameterGroup
+        , Network.AWS.RDS.V2013_09_09.ModifyDBSubnetGroup
+        , Network.AWS.RDS.V2013_09_09.ModifyEventSubscription
+        , Network.AWS.RDS.V2013_09_09.ModifyOptionGroup
+        , Network.AWS.RDS.V2013_09_09.PromoteReadReplica
+        , Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering
+        , Network.AWS.RDS.V2013_09_09.RebootDBInstance
+        , Network.AWS.RDS.V2013_09_09.RemoveSourceIdentifierFromSubscription
+        , Network.AWS.RDS.V2013_09_09.RemoveTagsFromResource
+        , Network.AWS.RDS.V2013_09_09.ResetDBParameterGroup
+        , Network.AWS.RDS.V2013_09_09.RestoreDBInstanceFromDBSnapshot
+        , Network.AWS.RDS.V2013_09_09.RestoreDBInstanceToPointInTime
+        , Network.AWS.RDS.V2013_09_09.RevokeDBSecurityGroupIngress
+        , Network.AWS.RDS.V2013_09_09.Types
+
+        -- * ImportExport V2010_06_01
+        , Network.AWS.ImportExport.V2010_06_01.CancelJob
+        , Network.AWS.ImportExport.V2010_06_01.CreateJob
+        , Network.AWS.ImportExport.V2010_06_01.GetStatus
+        , Network.AWS.ImportExport.V2010_06_01.ListJobs
+        , Network.AWS.ImportExport.V2010_06_01.Types
+        , Network.AWS.ImportExport.V2010_06_01.UpdateJob
+
+        -- * IAM V2010_05_08
+        , Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.AddUserToGroup
+        , Network.AWS.IAM.V2010_05_08.ChangePassword
+        , Network.AWS.IAM.V2010_05_08.CreateAccessKey
+        , Network.AWS.IAM.V2010_05_08.CreateAccountAlias
+        , Network.AWS.IAM.V2010_05_08.CreateGroup
+        , Network.AWS.IAM.V2010_05_08.CreateInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.CreateLoginProfile
+        , Network.AWS.IAM.V2010_05_08.CreateRole
+        , Network.AWS.IAM.V2010_05_08.CreateSAMLProvider
+        , Network.AWS.IAM.V2010_05_08.CreateUser
+        , Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
+        , Network.AWS.IAM.V2010_05_08.DeactivateMFADevice
+        , Network.AWS.IAM.V2010_05_08.DeleteAccessKey
+        , Network.AWS.IAM.V2010_05_08.DeleteAccountAlias
+        , Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy
+        , Network.AWS.IAM.V2010_05_08.DeleteGroup
+        , Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy
+        , Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.DeleteLoginProfile
+        , Network.AWS.IAM.V2010_05_08.DeleteRole
+        , Network.AWS.IAM.V2010_05_08.DeleteRolePolicy
+        , Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider
+        , Network.AWS.IAM.V2010_05_08.DeleteServerCertificate
+        , Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate
+        , Network.AWS.IAM.V2010_05_08.DeleteUser
+        , Network.AWS.IAM.V2010_05_08.DeleteUserPolicy
+        , Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice
+        , Network.AWS.IAM.V2010_05_08.EnableMFADevice
+        , Network.AWS.IAM.V2010_05_08.GenerateCredentialReport
+        , Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
+        , Network.AWS.IAM.V2010_05_08.GetAccountSummary
+        , Network.AWS.IAM.V2010_05_08.GetCredentialReport
+        , Network.AWS.IAM.V2010_05_08.GetGroup
+        , Network.AWS.IAM.V2010_05_08.GetGroupPolicy
+        , Network.AWS.IAM.V2010_05_08.GetInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.GetLoginProfile
+        , Network.AWS.IAM.V2010_05_08.GetRole
+        , Network.AWS.IAM.V2010_05_08.GetRolePolicy
+        , Network.AWS.IAM.V2010_05_08.GetSAMLProvider
+        , Network.AWS.IAM.V2010_05_08.GetServerCertificate
+        , Network.AWS.IAM.V2010_05_08.GetUser
+        , Network.AWS.IAM.V2010_05_08.GetUserPolicy
+        , Network.AWS.IAM.V2010_05_08.ListAccessKeys
+        , Network.AWS.IAM.V2010_05_08.ListAccountAliases
+        , Network.AWS.IAM.V2010_05_08.ListGroupPolicies
+        , Network.AWS.IAM.V2010_05_08.ListGroups
+        , Network.AWS.IAM.V2010_05_08.ListGroupsForUser
+        , Network.AWS.IAM.V2010_05_08.ListInstanceProfiles
+        , Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole
+        , Network.AWS.IAM.V2010_05_08.ListMFADevices
+        , Network.AWS.IAM.V2010_05_08.ListRolePolicies
+        , Network.AWS.IAM.V2010_05_08.ListRoles
+        , Network.AWS.IAM.V2010_05_08.ListSAMLProviders
+        , Network.AWS.IAM.V2010_05_08.ListServerCertificates
+        , Network.AWS.IAM.V2010_05_08.ListSigningCertificates
+        , Network.AWS.IAM.V2010_05_08.ListUserPolicies
+        , Network.AWS.IAM.V2010_05_08.ListUsers
+        , Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices
+        , Network.AWS.IAM.V2010_05_08.PutGroupPolicy
+        , Network.AWS.IAM.V2010_05_08.PutRolePolicy
+        , Network.AWS.IAM.V2010_05_08.PutUserPolicy
+        , Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup
+        , Network.AWS.IAM.V2010_05_08.ResyncMFADevice
+        , Network.AWS.IAM.V2010_05_08.Types
+        , Network.AWS.IAM.V2010_05_08.UpdateAccessKey
+        , Network.AWS.IAM.V2010_05_08.UpdateAccountPasswordPolicy
+        , Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy
+        , Network.AWS.IAM.V2010_05_08.UpdateGroup
+        , Network.AWS.IAM.V2010_05_08.UpdateLoginProfile
+        , Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider
+        , Network.AWS.IAM.V2010_05_08.UpdateServerCertificate
+        , Network.AWS.IAM.V2010_05_08.UpdateSigningCertificate
+        , Network.AWS.IAM.V2010_05_08.UpdateUser
+        , Network.AWS.IAM.V2010_05_08.UploadServerCertificate
+        , Network.AWS.IAM.V2010_05_08.UploadSigningCertificate
+
+        -- * ElasticBeanstalk V2010_12_01
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.CheckDNSAvailability
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplicationVersion
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.CreateConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.CreateEnvironment
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.CreateStorageLocation
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplication
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplicationVersion
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteEnvironmentConfiguration
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationOptions
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationSettings
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironments
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEvents
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.ListAvailableSolutionStacks
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.RequestEnvironmentInfo
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.RestartAppServer
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.RetrieveEnvironmentInfo
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.SwapEnvironmentCNAMEs
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.TerminateEnvironment
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.Types
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplication
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplicationVersion
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateEnvironment
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings
+
+        -- * ElastiCache V2014_03_24
+        , Network.AWS.ElastiCache.V2014_03_24.AuthorizeCacheSecurityGroupIngress
+        , Network.AWS.ElastiCache.V2014_03_24.CopySnapshot
+        , Network.AWS.ElastiCache.V2014_03_24.CreateCacheCluster
+        , Network.AWS.ElastiCache.V2014_03_24.CreateCacheParameterGroup
+        , Network.AWS.ElastiCache.V2014_03_24.CreateCacheSecurityGroup
+        , Network.AWS.ElastiCache.V2014_03_24.CreateCacheSubnetGroup
+        , Network.AWS.ElastiCache.V2014_03_24.CreateReplicationGroup
+        , Network.AWS.ElastiCache.V2014_03_24.CreateSnapshot
+        , Network.AWS.ElastiCache.V2014_03_24.DeleteCacheCluster
+        , Network.AWS.ElastiCache.V2014_03_24.DeleteCacheParameterGroup
+        , Network.AWS.ElastiCache.V2014_03_24.DeleteCacheSecurityGroup
+        , Network.AWS.ElastiCache.V2014_03_24.DeleteCacheSubnetGroup
+        , Network.AWS.ElastiCache.V2014_03_24.DeleteReplicationGroup
+        , Network.AWS.ElastiCache.V2014_03_24.DeleteSnapshot
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeCacheClusters
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeCacheEngineVersions
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeCacheParameterGroups
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeCacheParameters
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeCacheSecurityGroups
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeCacheSubnetGroups
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeEngineDefaultParameters
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeEvents
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeReplicationGroups
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeReservedCacheNodes
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeReservedCacheNodesOfferings
+        , Network.AWS.ElastiCache.V2014_03_24.DescribeSnapshots
+        , Network.AWS.ElastiCache.V2014_03_24.ModifyCacheCluster
+        , Network.AWS.ElastiCache.V2014_03_24.ModifyCacheParameterGroup
+        , Network.AWS.ElastiCache.V2014_03_24.ModifyCacheSubnetGroup
+        , Network.AWS.ElastiCache.V2014_03_24.ModifyReplicationGroup
+        , Network.AWS.ElastiCache.V2014_03_24.PurchaseReservedCacheNodesOffering
+        , Network.AWS.ElastiCache.V2014_03_24.RebootCacheCluster
+        , Network.AWS.ElastiCache.V2014_03_24.ResetCacheParameterGroup
+        , Network.AWS.ElastiCache.V2014_03_24.RevokeCacheSecurityGroupIngress
+        , Network.AWS.ElastiCache.V2014_03_24.Types
+
+        -- * ELB V2012_06_01
+        , Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer
+        , Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets
+        , Network.AWS.ELB.V2012_06_01.ConfigureHealthCheck
+        , Network.AWS.ELB.V2012_06_01.CreateAppCookieStickinessPolicy
+        , Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy
+        , Network.AWS.ELB.V2012_06_01.CreateLoadBalancer
+        , Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners
+        , Network.AWS.ELB.V2012_06_01.CreateLoadBalancerPolicy
+        , Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer
+        , Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerListeners
+        , Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy
+        , Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer
+        , Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth
+        , Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerAttributes
+        , Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies
+        , Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes
+        , Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers
+        , Network.AWS.ELB.V2012_06_01.DetachLoadBalancerFromSubnets
+        , Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer
+        , Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer
+        , Network.AWS.ELB.V2012_06_01.ModifyLoadBalancerAttributes
+        , Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer
+        , Network.AWS.ELB.V2012_06_01.SetLoadBalancerListenerSSLCertificate
+        , Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer
+        , Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesOfListener
+        , Network.AWS.ELB.V2012_06_01.Types
 
         -- * EC2 V2014_06_15
         , Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
@@ -213,6 +646,104 @@ library
         , Network.AWS.EC2.V2014_06_15.UnassignPrivateIpAddresses
         , Network.AWS.EC2.V2014_06_15.UnmonitorInstances
 
+        -- * CloudWatch V2010_08_01
+        , Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
+        , Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory
+        , Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms
+        , Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric
+        , Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions
+        , Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions
+        , Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics
+        , Network.AWS.CloudWatch.V2010_08_01.ListMetrics
+        , Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm
+        , Network.AWS.CloudWatch.V2010_08_01.PutMetricData
+        , Network.AWS.CloudWatch.V2010_08_01.SetAlarmState
+        , Network.AWS.CloudWatch.V2010_08_01.Types
+
+        -- * CloudSearch V2013_01_01
+        , Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters
+        , Network.AWS.CloudSearch.V2013_01_01.CreateDomain
+        , Network.AWS.CloudSearch.V2013_01_01.DefineAnalysisScheme
+        , Network.AWS.CloudSearch.V2013_01_01.DefineExpression
+        , Network.AWS.CloudSearch.V2013_01_01.DefineIndexField
+        , Network.AWS.CloudSearch.V2013_01_01.DefineSuggester
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteDomain
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteExpression
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteSuggester
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeAnalysisSchemes
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeDomains
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeExpressions
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeIndexFields
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeSuggesters
+        , Network.AWS.CloudSearch.V2013_01_01.IndexDocuments
+        , Network.AWS.CloudSearch.V2013_01_01.ListDomainNames
+        , Network.AWS.CloudSearch.V2013_01_01.Types
+        , Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions
+        , Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters
+        , Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies
+
+        -- * CloudFormation V2010_05_15
+        , Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack
+        , Network.AWS.CloudFormation.V2010_05_15.CreateStack
+        , Network.AWS.CloudFormation.V2010_05_15.DeleteStack
+        , Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
+        , Network.AWS.CloudFormation.V2010_05_15.DescribeStackResource
+        , Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources
+        , Network.AWS.CloudFormation.V2010_05_15.DescribeStacks
+        , Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost
+        , Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy
+        , Network.AWS.CloudFormation.V2010_05_15.GetTemplate
+        , Network.AWS.CloudFormation.V2010_05_15.ListStackResources
+        , Network.AWS.CloudFormation.V2010_05_15.ListStacks
+        , Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy
+        , Network.AWS.CloudFormation.V2010_05_15.Types
+        , Network.AWS.CloudFormation.V2010_05_15.UpdateStack
+        , Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
+
+        -- * AutoScaling V2011_01_01
+        , Network.AWS.AutoScaling.V2011_01_01.AttachInstances
+        , Network.AWS.AutoScaling.V2011_01_01.CreateAutoScalingGroup
+        , Network.AWS.AutoScaling.V2011_01_01.CreateLaunchConfiguration
+        , Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteNotificationConfiguration
+        , Network.AWS.AutoScaling.V2011_01_01.DeletePolicy
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteTags
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingNotificationTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations
+        , Network.AWS.AutoScaling.V2011_01_01.DescribePolicies
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeScheduledActions
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeTags
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection
+        , Network.AWS.AutoScaling.V2011_01_01.EnableMetricsCollection
+        , Network.AWS.AutoScaling.V2011_01_01.ExecutePolicy
+        , Network.AWS.AutoScaling.V2011_01_01.PutNotificationConfiguration
+        , Network.AWS.AutoScaling.V2011_01_01.PutScalingPolicy
+        , Network.AWS.AutoScaling.V2011_01_01.PutScheduledUpdateGroupAction
+        , Network.AWS.AutoScaling.V2011_01_01.ResumeProcesses
+        , Network.AWS.AutoScaling.V2011_01_01.SetDesiredCapacity
+        , Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth
+        , Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses
+        , Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup
+        , Network.AWS.AutoScaling.V2011_01_01.Types
+        , Network.AWS.AutoScaling.V2011_01_01.UpdateAutoScalingGroup
+
     build-depends:
           aeson
         , attoparsec
@@ -225,6 +756,7 @@ library
         , cryptohash
         , data-default
         , exceptions        == 0.6.*
+        , hashable
         , http-client
         , http-client-lens
         , http-types

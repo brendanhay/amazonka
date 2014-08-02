@@ -133,4 +133,4 @@ instance AWSRequest DescribeVolumeStatus where
 
 instance AWSPager DescribeVolumeStatus where
     next rq rs = (\x -> rq { _dvsrNextToken = Just x })
-        <$> _dvssNextToken rs
+        <$> (_dvssNextToken rs)

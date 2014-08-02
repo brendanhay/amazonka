@@ -167,4 +167,4 @@ instance AWSRequest DescribeInstanceStatus where
 
 instance AWSPager DescribeInstanceStatus where
     next rq rs = (\x -> rq { _disrNextToken = Just x })
-        <$> _dissNextToken rs
+        <$> (_dissNextToken rs)

@@ -168,4 +168,4 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 
 instance AWSPager DescribeReservedInstancesOfferings where
     next rq rs = (\x -> rq { _driorNextToken = Just x })
-        <$> _driosNextToken rs
+        <$> (_driosNextToken rs)

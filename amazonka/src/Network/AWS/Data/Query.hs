@@ -46,8 +46,12 @@ import           Control.Lens.TH
 import           Control.Monad
 import qualified Data.Attoparsec.ByteString   as ABS
 import           Data.Bifunctor
+import           Data.ByteString              (ByteString)
+import qualified Data.ByteString              as ByteString
 import           Data.ByteString.Char8        (ByteString)
 import qualified Data.ByteString.Char8        as BS
+import qualified Data.ByteString.Lazy         as Build
+import qualified Data.ByteString.Lazy.Builder as Build
 import           Data.Char
 import           Data.Data
 import           Data.Data.Lens
@@ -55,25 +59,21 @@ import           Data.Default
 import           Data.Either
 import           Data.Foldable                (foldl')
 import qualified Data.Foldable                as Fold
-import           Data.Maybe
-import           Data.Text                    (Text)
-import           Data.Typeable
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Time
--- import           Data.HashMap.Strict        (HashMap)
+import           Data.HashMap.Strict          (HashMap)
 import           Data.List                    (sort, sortBy, intersperse)
 import           Data.List.NonEmpty           (NonEmpty(..))
 import qualified Data.List.NonEmpty           as NonEmpty
+import           Data.Maybe
 import           Data.Monoid
-import           Data.String
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString              as ByteString
-import qualified Data.ByteString.Lazy         as Build
-import qualified Data.ByteString.Lazy.Builder as Build
-import           Data.Time
-import           GHC.Generics
-import qualified Network.HTTP.Types.URI       as URI
 import           Data.Ord
+import           Data.String
+import           Data.Text                    (Text)
+import           Data.Time
+import           Data.Typeable
+import           GHC.Generics
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Time
+import qualified Network.HTTP.Types.URI       as URI
 
 data Query
     = List  [Query]
@@ -216,9 +216,9 @@ instance ToQuery Bool where
     toQuery True  = toQuery ("true"  :: ByteString)
     toQuery False = toQuery ("false" :: ByteString)
 
--- -- FIXME: implement this shizzle
--- -- instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where
--- --     toQuery = undefined
+-- FIXME: implement this shizzle
+instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where
+    toQuery = undefined
 
 class GToQuery f where
     gToQuery :: QueryOptions -> f a -> Query

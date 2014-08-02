@@ -79,6 +79,7 @@ library
         , cryptohash
         , data-default
         , exceptions        == 0.6.*
+        , hashable
         , http-client
         , http-client-lens
         , http-types

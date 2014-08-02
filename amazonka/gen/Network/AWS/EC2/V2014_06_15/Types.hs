@@ -73,6 +73,8 @@ data AccountAttributeName
     | AccountAttributeNameSupportedPlatforms -- ^ supported-platforms
       deriving (Eq, Show, Generic)
 
+instance Hashable AccountAttributeName
+
 instance FromText AccountAttributeName where
     parser = match "default-vpc" AccountAttributeNameDefaultVpc
          <|> match "supported-platforms" AccountAttributeNameSupportedPlatforms
@@ -91,6 +93,8 @@ data ArchitectureValues
     = ArchitectureValuesI386 -- ^ i386
     | ArchitectureValuesX8664 -- ^ x86_64
       deriving (Eq, Show, Generic)
+
+instance Hashable ArchitectureValues
 
 instance FromText ArchitectureValues where
     parser = match "i386" ArchitectureValuesI386
@@ -116,6 +120,8 @@ data AttachmentStatus
     | AttachmentStatusDetached -- ^ detached
     | AttachmentStatusDetaching -- ^ detaching
       deriving (Eq, Show, Generic)
+
+instance Hashable AttachmentStatus
 
 instance FromText AttachmentStatus where
     parser = match "attached" AttachmentStatusAttached
@@ -143,6 +149,8 @@ data AvailabilityZoneState
     = AvailabilityZoneStateAvailable -- ^ available
       deriving (Eq, Show, Generic)
 
+instance Hashable AvailabilityZoneState
+
 instance FromText AvailabilityZoneState where
     parser = match "available" AvailabilityZoneStateAvailable
 
@@ -168,6 +176,8 @@ data BundleTaskState
     | BundleTaskStateStoring -- ^ storing
     | BundleTaskStateWaitingForShutdown -- ^ waiting-for-shutdown
       deriving (Eq, Show, Generic)
+
+instance Hashable BundleTaskState
 
 instance FromText BundleTaskState where
     parser = match "bundling" BundleTaskStateBundling
@@ -205,6 +215,8 @@ data CancelSpotInstanceRequestState
     | CancelSpotInstanceRequestStateOpen -- ^ open
       deriving (Eq, Show, Generic)
 
+instance Hashable CancelSpotInstanceRequestState
+
 instance FromText CancelSpotInstanceRequestState where
     parser = match "active" CancelSpotInstanceRequestStateActive
          <|> match "cancelled" CancelSpotInstanceRequestStateCancelled
@@ -233,6 +245,8 @@ data ContainerFormat
     = ContainerFormatOva -- ^ ova
       deriving (Eq, Show, Generic)
 
+instance Hashable ContainerFormat
+
 instance FromText ContainerFormat where
     parser = match "ova" ContainerFormatOva
 
@@ -255,6 +269,8 @@ data ConversionTaskState
     | ConversionTaskStateCancelling -- ^ cancelling
     | ConversionTaskStateCompleted -- ^ completed
       deriving (Eq, Show, Generic)
+
+instance Hashable ConversionTaskState
 
 instance FromText ConversionTaskState where
     parser = match "active" ConversionTaskStateActive
@@ -283,6 +299,8 @@ data CurrencyCodeValues
     = CurrencyCodeValuesUsd -- ^ USD
       deriving (Eq, Show, Generic)
 
+instance Hashable CurrencyCodeValues
+
 instance FromText CurrencyCodeValues where
     parser = match "USD" CurrencyCodeValuesUsd
 
@@ -304,6 +322,8 @@ data DatafeedSubscriptionState
     | DatafeedSubscriptionStateInactive -- ^ Inactive
       deriving (Eq, Show, Generic)
 
+instance Hashable DatafeedSubscriptionState
+
 instance FromText DatafeedSubscriptionState where
     parser = match "Active" DatafeedSubscriptionStateActive
          <|> match "Inactive" DatafeedSubscriptionStateInactive
@@ -324,6 +344,8 @@ data DeviceType
     = DeviceTypeEbs -- ^ ebs
     | DeviceTypeInstanceStore -- ^ instance-store
       deriving (Eq, Show, Generic)
+
+instance Hashable DeviceType
 
 instance FromText DeviceType where
     parser = match "ebs" DeviceTypeEbs
@@ -348,6 +370,8 @@ data DiskImageFormat
     | DiskImageFormatVhd -- ^ VHD
     | DiskImageFormatVmdk -- ^ VMDK
       deriving (Eq, Show, Generic)
+
+instance Hashable DiskImageFormat
 
 instance FromText DiskImageFormat where
     parser = match "RAW" DiskImageFormatRaw
@@ -375,6 +399,8 @@ data DomainType
     | DomainTypeVpc -- ^ vpc
       deriving (Eq, Show, Generic)
 
+instance Hashable DomainType
+
 instance FromText DomainType where
     parser = match "standard" DomainTypeStandard
          <|> match "vpc" DomainTypeVpc
@@ -400,6 +426,8 @@ data EventCode
     | EventCodeSystemMaintenance -- ^ system-maintenance
     | EventCodeSystemReboot -- ^ system-reboot
       deriving (Eq, Show, Generic)
+
+instance Hashable EventCode
 
 instance FromText EventCode where
     parser = match "instance-reboot" EventCodeInstanceReboot
@@ -431,6 +459,8 @@ data ExportEnvironment
     | ExportEnvironmentVmware -- ^ vmware
       deriving (Eq, Show, Generic)
 
+instance Hashable ExportEnvironment
+
 instance FromText ExportEnvironment where
     parser = match "citrix" ExportEnvironmentCitrix
          <|> match "microsoft" ExportEnvironmentMicrosoft
@@ -458,6 +488,8 @@ data ExportTaskState
     | ExportTaskStateCompleted -- ^ completed
       deriving (Eq, Show, Generic)
 
+instance Hashable ExportTaskState
+
 instance FromText ExportTaskState where
     parser = match "active" ExportTaskStateActive
          <|> match "cancelled" ExportTaskStateCancelled
@@ -484,6 +516,8 @@ data GatewayType
     = GatewayTypeIpsec1 -- ^ ipsec.1
       deriving (Eq, Show, Generic)
 
+instance Hashable GatewayType
+
 instance FromText GatewayType where
     parser = match "ipsec.1" GatewayTypeIpsec1
 
@@ -504,6 +538,8 @@ data HypervisorType
     = HypervisorTypeOvm -- ^ ovm
     | HypervisorTypeXen -- ^ xen
       deriving (Eq, Show, Generic)
+
+instance Hashable HypervisorType
 
 instance FromText HypervisorType where
     parser = match "ovm" HypervisorTypeOvm
@@ -531,6 +567,8 @@ data ImageAttributeName
     | ImageAttributeNameProductCodes -- ^ productCodes
     | ImageAttributeNameRamdisk -- ^ ramdisk
       deriving (Eq, Show, Generic)
+
+instance Hashable ImageAttributeName
 
 instance FromText ImageAttributeName where
     parser = match "blockDeviceMapping" ImageAttributeNameBlockDeviceMapping
@@ -560,6 +598,8 @@ data ImageState
     | ImageStateDeregistered -- ^ deregistered
       deriving (Eq, Show, Generic)
 
+instance Hashable ImageState
+
 instance FromText ImageState where
     parser = match "available" ImageStateAvailable
          <|> match "deregistered" ImageStateDeregistered
@@ -583,6 +623,8 @@ data ImageTypeValues
     | ImageTypeValuesMachine -- ^ machine
     | ImageTypeValuesRamdisk -- ^ ramdisk
       deriving (Eq, Show, Generic)
+
+instance Hashable ImageTypeValues
 
 instance FromText ImageTypeValues where
     parser = match "kernel" ImageTypeValuesKernel
@@ -619,6 +661,8 @@ data InstanceAttributeName
     | InstanceAttributeNameSriovNetSupport -- ^ sriovNetSupport
     | InstanceAttributeNameUserData -- ^ userData
       deriving (Eq, Show, Generic)
+
+instance Hashable InstanceAttributeName
 
 instance FromText InstanceAttributeName where
     parser = match "blockDeviceMapping" InstanceAttributeNameBlockDeviceMapping
@@ -660,6 +704,8 @@ data InstanceLifecycleType
     = InstanceLifecycleTypeSpot -- ^ spot
       deriving (Eq, Show, Generic)
 
+instance Hashable InstanceLifecycleType
+
 instance FromText InstanceLifecycleType where
     parser = match "spot" InstanceLifecycleTypeSpot
 
@@ -684,6 +730,8 @@ data InstanceStateName
     | InstanceStateNameStopping -- ^ stopping
     | InstanceStateNameTerminated -- ^ terminated
       deriving (Eq, Show, Generic)
+
+instance Hashable InstanceStateName
 
 instance FromText InstanceStateName where
     parser = match "pending" InstanceStateNamePending
@@ -752,6 +800,8 @@ data InstanceType
     | T2Micro -- ^ t2.micro
     | T2Small -- ^ t2.small
       deriving (Eq, Show, Generic)
+
+instance Hashable InstanceType
 
 instance FromText InstanceType where
     parser = match "c1.medium" C1Medium
@@ -850,6 +900,8 @@ data ListingState
     | ListingStateSold -- ^ sold
       deriving (Eq, Show, Generic)
 
+instance Hashable ListingState
+
 instance FromText ListingState where
     parser = match "available" ListingStateAvailable
          <|> match "cancelled" ListingStateCancelled
@@ -879,6 +931,8 @@ data ListingStatus
     | ListingStatusPending -- ^ pending
       deriving (Eq, Show, Generic)
 
+instance Hashable ListingStatus
+
 instance FromText ListingStatus where
     parser = match "active" ListingStatusActive
          <|> match "cancelled" ListingStatusCancelled
@@ -907,6 +961,8 @@ data MonitoringState
     | MonitoringStatePending -- ^ pending
       deriving (Eq, Show, Generic)
 
+instance Hashable MonitoringState
+
 instance FromText MonitoringState where
     parser = match "disabled" MonitoringStateDisabled
          <|> match "enabled" MonitoringStateEnabled
@@ -933,6 +989,8 @@ data NetworkInterfaceStatus
     | NetworkInterfaceStatusDetaching -- ^ detaching
     | NetworkInterfaceStatusInUse -- ^ in-use
       deriving (Eq, Show, Generic)
+
+instance Hashable NetworkInterfaceStatus
 
 instance FromText NetworkInterfaceStatus where
     parser = match "attaching" NetworkInterfaceStatusAttaching
@@ -962,6 +1020,8 @@ data OfferingTypeValues
     | OfferingTypeValuesMediumUtilization -- ^ Medium Utilization
       deriving (Eq, Show, Generic)
 
+instance Hashable OfferingTypeValues
+
 instance FromText OfferingTypeValues where
     parser = match "Heavy Utilization" OfferingTypeValuesHeavyUtilization
          <|> match "Light Utilization" OfferingTypeValuesLightUtilization
@@ -987,6 +1047,8 @@ data PermissionGroup
     = PermissionGroupAll -- ^ all
       deriving (Eq, Show, Generic)
 
+instance Hashable PermissionGroup
+
 instance FromText PermissionGroup where
     parser = match "all" PermissionGroupAll
 
@@ -1009,6 +1071,8 @@ data PlacementGroupState
     | PlacementGroupStateDeleting -- ^ deleting
     | PlacementGroupStatePending -- ^ pending
       deriving (Eq, Show, Generic)
+
+instance Hashable PlacementGroupState
 
 instance FromText PlacementGroupState where
     parser = match "available" PlacementGroupStateAvailable
@@ -1036,6 +1100,8 @@ data PlacementStrategy
     = PlacementStrategyCluster -- ^ cluster
       deriving (Eq, Show, Generic)
 
+instance Hashable PlacementStrategy
+
 instance FromText PlacementStrategy where
     parser = match "cluster" PlacementStrategyCluster
 
@@ -1055,6 +1121,8 @@ instance ToQuery PlacementStrategy where
 data PlatformValues
     = PlatformValuesWindows -- ^ Windows
       deriving (Eq, Show, Generic)
+
+instance Hashable PlatformValues
 
 instance FromText PlatformValues where
     parser = match "Windows" PlatformValuesWindows
@@ -1076,6 +1144,8 @@ data ProductCodeValues
     = ProductCodeValuesDevpay -- ^ devpay
     | ProductCodeValuesMarketplace -- ^ marketplace
       deriving (Eq, Show, Generic)
+
+instance Hashable ProductCodeValues
 
 instance FromText ProductCodeValues where
     parser = match "devpay" ProductCodeValuesDevpay
@@ -1101,6 +1171,8 @@ data RIProductDescription
     | RIProductDescriptionWindows -- ^ Windows
     | RIProductDescriptionWindowsAmazonVpc -- ^ Windows (Amazon VPC)
       deriving (Eq, Show, Generic)
+
+instance Hashable RIProductDescription
 
 instance FromText RIProductDescription where
     parser = match "Linux/UNIX" RIProductDescriptionLinuxUnix
@@ -1128,6 +1200,8 @@ data RecurringChargeFrequency
     = RecurringChargeFrequencyHourly -- ^ Hourly
       deriving (Eq, Show, Generic)
 
+instance Hashable RecurringChargeFrequency
+
 instance FromText RecurringChargeFrequency where
     parser = match "Hourly" RecurringChargeFrequencyHourly
 
@@ -1154,6 +1228,8 @@ data ReportInstanceReasonCodes
     | ReportInstanceReasonCodesPerformanceOther -- ^ performance-other
     | ReportInstanceReasonCodesUnresponsive -- ^ unresponsive
       deriving (Eq, Show, Generic)
+
+instance Hashable ReportInstanceReasonCodes
 
 instance FromText ReportInstanceReasonCodes where
     parser = match "instance-stuck-in-state" ReportInstanceReasonCodesInstanceStuckInState
@@ -1188,6 +1264,8 @@ data ReportStatusType
     | ReportStatusTypeOk -- ^ ok
       deriving (Eq, Show, Generic)
 
+instance Hashable ReportStatusType
+
 instance FromText ReportStatusType where
     parser = match "impaired" ReportStatusTypeImpaired
          <|> match "ok" ReportStatusTypeOk
@@ -1208,6 +1286,8 @@ data ReservedInstanceState
     | ReservedInstanceStatePaymentPending -- ^ payment-pending
     | ReservedInstanceStateRetired -- ^ retired
       deriving (Eq, Show, Generic)
+
+instance Hashable ReservedInstanceState
 
 instance FromText ReservedInstanceState where
     parser = match "active" ReservedInstanceStateActive
@@ -1235,6 +1315,8 @@ instance ToQuery ReservedInstanceState where
 data ResetImageAttributeName
     = ResetImageAttributeNameLaunchPermission -- ^ launchPermission
       deriving (Eq, Show, Generic)
+
+instance Hashable ResetImageAttributeName
 
 instance FromText ResetImageAttributeName where
     parser = match "launchPermission" ResetImageAttributeNameLaunchPermission
@@ -1267,6 +1349,8 @@ data ResourceType
     | ResourceTypeVpnConnection -- ^ vpn-connection
     | ResourceTypeVpnGateway -- ^ vpn-gateway
       deriving (Eq, Show, Generic)
+
+instance Hashable ResourceType
 
 instance FromText ResourceType where
     parser = match "customer-gateway" ResourceTypeCustomerGateway
@@ -1326,6 +1410,8 @@ data RouteOrigin
     | RouteOriginEnableVgwRoutePropagation -- ^ EnableVgwRoutePropagation
       deriving (Eq, Show, Generic)
 
+instance Hashable RouteOrigin
+
 instance FromText RouteOrigin where
     parser = match "CreateRoute" RouteOriginCreateRoute
          <|> match "CreateRouteTable" RouteOriginCreateRouteTable
@@ -1353,6 +1439,8 @@ data RouteState
     | RouteStateBlackhole -- ^ blackhole
       deriving (Eq, Show, Generic)
 
+instance Hashable RouteState
+
 instance FromText RouteState where
     parser = match "active" RouteStateActive
          <|> match "blackhole" RouteStateBlackhole
@@ -1375,6 +1463,8 @@ data RuleAction
     = RuleActionAllow -- ^ allow
     | RuleActionDeny -- ^ deny
       deriving (Eq, Show, Generic)
+
+instance Hashable RuleAction
 
 instance FromText RuleAction where
     parser = match "allow" RuleActionAllow
@@ -1401,6 +1491,8 @@ data ShutdownBehavior
     | ShutdownBehaviorTerminate -- ^ terminate
       deriving (Eq, Show, Generic)
 
+instance Hashable ShutdownBehavior
+
 instance FromText ShutdownBehavior where
     parser = match "stop" ShutdownBehaviorStop
          <|> match "terminate" ShutdownBehaviorTerminate
@@ -1419,6 +1511,8 @@ data SnapshotAttributeName
     = SnapshotAttributeNameCreateVolumePermission -- ^ createVolumePermission
     | SnapshotAttributeNameProductCodes -- ^ productCodes
       deriving (Eq, Show, Generic)
+
+instance Hashable SnapshotAttributeName
 
 instance FromText SnapshotAttributeName where
     parser = match "createVolumePermission" SnapshotAttributeNameCreateVolumePermission
@@ -1439,6 +1533,8 @@ data SnapshotState
     | SnapshotStateError -- ^ error
     | SnapshotStatePending -- ^ pending
       deriving (Eq, Show, Generic)
+
+instance Hashable SnapshotState
 
 instance FromText SnapshotState where
     parser = match "completed" SnapshotStateCompleted
@@ -1471,6 +1567,8 @@ data SpotInstanceState
     | SpotInstanceStateOpen -- ^ open
       deriving (Eq, Show, Generic)
 
+instance Hashable SpotInstanceState
+
 instance FromText SpotInstanceState where
     parser = match "active" SpotInstanceStateActive
          <|> match "cancelled" SpotInstanceStateCancelled
@@ -1500,6 +1598,8 @@ data SpotInstanceType
     | SpotInstanceTypePersistent -- ^ persistent
       deriving (Eq, Show, Generic)
 
+instance Hashable SpotInstanceType
+
 instance FromText SpotInstanceType where
     parser = match "one-time" SpotInstanceTypeOneTime
          <|> match "persistent" SpotInstanceTypePersistent
@@ -1522,6 +1622,8 @@ data StatusName
     = StatusNameReachability -- ^ reachability
       deriving (Eq, Show, Generic)
 
+instance Hashable StatusName
+
 instance FromText StatusName where
     parser = match "reachability" StatusNameReachability
 
@@ -1543,6 +1645,8 @@ data StatusType
     | StatusTypeInsufficientData -- ^ insufficient-data
     | StatusTypePassed -- ^ passed
       deriving (Eq, Show, Generic)
+
+instance Hashable StatusType
 
 instance FromText StatusType where
     parser = match "failed" StatusTypeFailed
@@ -1569,6 +1673,8 @@ data SubnetState
     | SubnetStatePending -- ^ pending
       deriving (Eq, Show, Generic)
 
+instance Hashable SubnetState
+
 instance FromText SubnetState where
     parser = match "available" SubnetStateAvailable
          <|> match "pending" SubnetStatePending
@@ -1593,6 +1699,8 @@ data SummaryStatus
     | SummaryStatusNotApplicable -- ^ not-applicable
     | SummaryStatusOk -- ^ ok
       deriving (Eq, Show, Generic)
+
+instance Hashable SummaryStatus
 
 instance FromText SummaryStatus where
     parser = match "impaired" SummaryStatusImpaired
@@ -1621,6 +1729,8 @@ data TelemetryStatus
     | TelemetryStatusUp -- ^ UP
       deriving (Eq, Show, Generic)
 
+instance Hashable TelemetryStatus
+
 instance FromText TelemetryStatus where
     parser = match "DOWN" TelemetryStatusDown
          <|> match "UP" TelemetryStatusUp
@@ -1645,6 +1755,8 @@ data Tenancy
     | TenancyDefault -- ^ default
       deriving (Eq, Show, Generic)
 
+instance Hashable Tenancy
+
 instance FromText Tenancy where
     parser = match "dedicated" TenancyDedicated
          <|> match "default" TenancyDefault
@@ -1667,6 +1779,8 @@ data VirtualizationType
     = VirtualizationTypeHvm -- ^ hvm
     | VirtualizationTypeParavirtual -- ^ paravirtual
       deriving (Eq, Show, Generic)
+
+instance Hashable VirtualizationType
 
 instance FromText VirtualizationType where
     parser = match "hvm" VirtualizationTypeHvm
@@ -1692,6 +1806,8 @@ data VolumeAttachmentState
     | VolumeAttachmentStateDetached -- ^ detached
     | VolumeAttachmentStateDetaching -- ^ detaching
       deriving (Eq, Show, Generic)
+
+instance Hashable VolumeAttachmentState
 
 instance FromText VolumeAttachmentState where
     parser = match "attached" VolumeAttachmentStateAttached
@@ -1720,6 +1836,8 @@ data VolumeAttributeName
     | VolumeAttributeNameProductCodes -- ^ productCodes
       deriving (Eq, Show, Generic)
 
+instance Hashable VolumeAttributeName
+
 instance FromText VolumeAttributeName where
     parser = match "autoEnableIO" VolumeAttributeNameAutoEnableIO
          <|> match "productCodes" VolumeAttributeNameProductCodes
@@ -1742,6 +1860,8 @@ data VolumeState
     | VolumeStateError -- ^ error
     | VolumeStateInUse -- ^ in-use
       deriving (Eq, Show, Generic)
+
+instance Hashable VolumeState
 
 instance FromText VolumeState where
     parser = match "available" VolumeStateAvailable
@@ -1775,6 +1895,8 @@ data VolumeStatusInfoStatus
     | VolumeStatusInfoStatusOk -- ^ ok
       deriving (Eq, Show, Generic)
 
+instance Hashable VolumeStatusInfoStatus
+
 instance FromText VolumeStatusInfoStatus where
     parser = match "impaired" VolumeStatusInfoStatusImpaired
          <|> match "insufficient-data" VolumeStatusInfoStatusInsufficientData
@@ -1799,6 +1921,8 @@ data VolumeStatusName
     = VolumeStatusNameIoEnabled -- ^ io-enabled
     | VolumeStatusNameIoPerformance -- ^ io-performance
       deriving (Eq, Show, Generic)
+
+instance Hashable VolumeStatusName
 
 instance FromText VolumeStatusName where
     parser = match "io-enabled" VolumeStatusNameIoEnabled
@@ -1825,6 +1949,8 @@ data VolumeType
     | VolumeTypeStandard -- ^ standard
       deriving (Eq, Show, Generic)
 
+instance Hashable VolumeType
+
 instance FromText VolumeType where
     parser = match "gp2" VolumeTypeGp2
          <|> match "io1" VolumeTypeIo1
@@ -1850,6 +1976,8 @@ data VpcAttributeName
     | VpcAttributeNameEnableDnsSupport -- ^ enableDnsSupport
       deriving (Eq, Show, Generic)
 
+instance Hashable VpcAttributeName
+
 instance FromText VpcAttributeName where
     parser = match "enableDnsHostnames" VpcAttributeNameEnableDnsHostnames
          <|> match "enableDnsSupport" VpcAttributeNameEnableDnsSupport
@@ -1868,6 +1996,8 @@ data VpcState
     = VpcStateAvailable -- ^ available
     | VpcStatePending -- ^ pending
       deriving (Eq, Show, Generic)
+
+instance Hashable VpcState
 
 instance FromText VpcState where
     parser = match "available" VpcStateAvailable
@@ -1894,6 +2024,8 @@ data VpnState
     | VpnStatePending -- ^ pending
       deriving (Eq, Show, Generic)
 
+instance Hashable VpnState
+
 instance FromText VpnState where
     parser = match "available" VpnStateAvailable
          <|> match "deleted" VpnStateDeleted
@@ -1919,6 +2051,8 @@ instance ToQuery VpnState where
 data VpnStaticRouteSource
     = VpnStaticRouteSourceStatic -- ^ Static
       deriving (Eq, Show, Generic)
+
+instance Hashable VpnStaticRouteSource
 
 instance FromText VpnStaticRouteSource where
     parser = match "Static" VpnStaticRouteSourceStatic

@@ -103,6 +103,8 @@ data {{ data.value.name }}
       {% endfor %}
       deriving (Eq, Show, Generic)
 
+instance Hashable {{ data.value.name }}
+
 instance FromText {{ data.value.name }} where
       {% for branch in data.value.values %}
         {% if branch.first %}

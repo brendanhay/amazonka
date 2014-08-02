@@ -326,4 +326,4 @@ instance AWSRequest DescribeInstances where
 
 instance AWSPager DescribeInstances where
     next rq rs = (\x -> rq { _disNextToken = Just x })
-        <$> _ditNextToken rs
+        <$> (_ditNextToken rs)

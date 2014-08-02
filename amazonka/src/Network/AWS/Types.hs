@@ -125,9 +125,6 @@ class ( AWSService   (Sv a)
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
 
-nestedMarker :: ToText c => (a -> [b]) -> (b -> Maybe c) -> a -> Maybe Text
-nestedMarker f g x = toText <$> (listToMaybe (f x) >>= g)
-
 data family Meta v :: *
 
 data Signed a v where

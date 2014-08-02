@@ -118,4 +118,4 @@ instance AWSRequest DescribeTags where
 
 instance AWSPager DescribeTags where
     next rq rs = (\x -> rq { _dtrNextToken = Just x })
-        <$> _dtsNextToken rs
+        <$> (_dtsNextToken rs)

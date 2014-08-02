@@ -96,4 +96,4 @@ instance AWSRequest DescribeReservedInstancesModifications where
 
 instance AWSPager DescribeReservedInstancesModifications where
     next rq rs = (\x -> rq { _drimrNextToken = Just x })
-        <$> _drimsNextToken rs
+        <$> (_drimsNextToken rs)

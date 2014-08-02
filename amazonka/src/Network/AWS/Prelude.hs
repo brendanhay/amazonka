@@ -36,7 +36,6 @@ module Network.AWS.Prelude
     -- * Shared
     , Service         (..)
     , Endpoint        (..)
-    , Region          (..)
     , Action          (..)
     , BucketName      (..)
     , ObjectKey       (..)

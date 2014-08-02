@@ -13,7 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Generator.Transform where throws IOError
+module Generator.Transform where
 
 import           Control.Applicative
 import           Control.Arrow
@@ -60,11 +60,12 @@ import           Text.EDE.Filters
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
   where
-    eval s =
-        let os  = evalState (mapM (operation s) (_svcOperations s)) mempty
-            s'  = s & svcOperations .~ os
-            p o = o & opPagination %~ fmap (pagination (_svcTypes s') o)
-         in s' & svcOperations %~ map p
+    eval x =
+        let os  = evalState (mapM (operation x) (_svcOperations x)) mempty
+            y   = x & svcOperations .~ os
+            z   = y & svcTypes .~ serviceTypes y
+            p o = o & opPagination %~ fmap (pagination (_svcTypes z) o)
+         in z & svcOperations %~ map p
 
 current :: [Service] -> [Service]
 current = mapMaybe latest . groupBy identical

@@ -15,6 +15,7 @@ module {{ types_namespace }} where
 
 import Control.Lens.TH
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
 import Network.AWS.Signing.{{ signature }}
 
 {% include "_include/service.ede" %}

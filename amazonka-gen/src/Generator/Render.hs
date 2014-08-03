@@ -67,17 +67,15 @@ getTemplates = do
         <*> load "version"
         <*> load "current"
 
-    !xml <- (,) <$> load "types-rest-xml"  <*> load "operation-rest-xml"
-    !rjs <- (,) <$> load "types-rest-json" <*> load "operation-rest-json"
-    !s3  <- (,) <$> load "types-s3"        <*> load "operation-s3"
-    !js  <- (,) <$> load "types-json"      <*> load "operation-json"
-    !qry <- (,) <$> load "types-query"     <*> load "operation-query"
+    !xml <- (,) <$> load "types-xml"   <*> load "operation-xml"
+    !js  <- (,) <$> load "types-json"  <*> load "operation-json"
+    !qry <- (,) <$> load "types-query" <*> load "operation-query"
 
     return $! ctor $ \t ->
         case t of
             RestXml  -> xml
-            RestJson -> rjs
-            RestS3   -> s3
+            RestJson -> js
+            RestS3   -> xml
             Json     -> js
             Query    -> qry
 

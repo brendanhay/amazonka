@@ -1,0 +1,4 @@
+{% if scope.direction.response %}
+
+instance FromJSON {{ scope.name }}
+{% endif %}

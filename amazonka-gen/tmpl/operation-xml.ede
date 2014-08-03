@@ -36,8 +36,13 @@ makeLenses ''{{ request.name }}
 {% include "_include/query.ede" with request %}
 
 {% include "_include/headers.ede" with request %}
+{% case type %}
+{% when "rest-s3" %}
 
 {% include "_include/body-s3.ede" with request %}
+{% else %}
+{% include "_include/xml-to.ede" with request.shape %}
+{% endcase %}
 
 data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}

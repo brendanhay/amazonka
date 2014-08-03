@@ -19,7 +19,6 @@ module Generator.AST where
 
 import           Control.Applicative
 import           Control.Lens
-import           Data.Aeson                (Object)
 import           Data.Default
 import           Data.Function
 import           Data.HashMap.Strict       (HashMap)

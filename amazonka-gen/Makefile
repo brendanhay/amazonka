@@ -42,7 +42,7 @@ JSON := \
  $(BOTO)/cognito-identity \
  $(BOTO)/cognito-sync
 
-MODELS ?= $(RESTS3)
+MODELS ?= $(BOTO)/importexport
 
 .PHONY: gen
 

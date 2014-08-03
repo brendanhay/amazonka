@@ -404,6 +404,7 @@ data Service = Service
     , _svcTargetPrefix     :: Maybe Text
     , _svcOperations       :: [Operation]
     , _svcTypes            :: [Type]
+    , _svcRequired         :: HashMap Text [Text]
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -441,6 +442,7 @@ defaultService a = Service
     , _svcTargetPrefix     = def
     , _svcOperations       = mempty
     , _svcTypes            = mempty
+    , _svcRequired         = mempty
     }
 
 makeLenses ''Request

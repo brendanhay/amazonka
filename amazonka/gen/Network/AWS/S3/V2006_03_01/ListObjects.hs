@@ -76,10 +76,10 @@ instance ToHeaders ListObjects
 instance ToBody ListObjects
 
 data ListObjectsResponse = ListObjectsResponse
-    { _looName :: BucketName
-    , _looIsTruncated :: Bool
+    { _looIsTruncated :: Bool
       -- ^ A flag that indicates whether or not Amazon S3 returned all of
       -- the results that satisfied the search criteria.
+    , _looName :: BucketName
     , _looCommonPrefixes :: [CommonPrefix]
     , _looEncodingType :: Maybe EncodingType
       -- ^ Encoding type used by Amazon S3 to encode object keys in the

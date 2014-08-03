@@ -133,24 +133,34 @@ special svc s = f (_svcName svc) (s ^. cmnName) s
 
 request :: Service -> Operation -> Request -> Request
 request svc o rq = rq
-    & rqName          .~ (o ^. opName)
-    & rqShape.cmnName .~ (o ^. opName)
-    & rqDefault       .~ lowerFirst (o ^. opName)
-    & rqHttp          %~ http (rq ^. rqShape)
+    & rqName          .~ name
+    & rqShape         .~ shape
+    & rqDefault       .~ lowerFirst name
+    & rqHttp          %~ http shape
     & rqFields        .~ fs
     & rqPayload       .~ bdy
-    & rqRequired      .~ req
+    & rqRequired      .~ rs
     & rqHeaders       .~ hs
   where
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
-    req = filter (view cmnRequired) fs
-    hs  = filter ((== LHeader) . view cmnLocation) fs
 
-    fs  = map upd . sort . fields True svc $ rq ^. rqShape
+    rs = filter (view cmnRequired) fs
+    hs = filter ((== LHeader) . view cmnLocation) fs
+    fs = map (require . upd) . sort $ fields True svc shape
+
+    require f =
+        if _fldName f `notElem` overrides
+            then f
+            else f & cmnRequired .~ True & fldType.anRequired_ .~ True
+
+    overrides = fromMaybe [] (Map.lookup name (_svcRequired svc))
 
     upd f | f ^. cmnLocation == LBody
           , f ^. cmnStreaming         = f & cmnRequired .~ True
           | otherwise                 = f
+
+    shape = rq ^. rqShape & cmnName .~ name
+    name  = o ^. opName
 
 http :: Shape -> HTTP -> HTTP
 http p = hPath %~ map f
@@ -160,21 +170,31 @@ http p = hPath %~ map f
 
 response :: Service -> Operation -> Response -> Response
 response svc o rs = rs
-    & rsName    .~ (o ^. opName) <> "Response"
+    & rsName    .~ name
     & rsFields  .~ fs
     & rsPayload .~ bdy
     & rsHeaders .~ hs
     & rsType    .~ typ
   where
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
-    hs  = filter ((== LHeader) . view cmnLocation) fs
 
-    fs  = sort . fields False svc $ rs ^. rsShape
+    hs = filter ((== LHeader) . view cmnLocation) fs
+    fs = map require . sort $ fields False svc shape
+
+    require f =
+        if _fldName f `notElem` overrides
+            then f
+            else f & cmnRequired .~ True & fldType.anRequired_ .~ True
+
+    overrides = fromMaybe [] (Map.lookup name (_svcRequired svc))
 
     typ | maybe False (view cmnStreaming) bdy    = RBody
         | length hs == length fs                 = RHeaders
         | all ((== LBody) . view cmnLocation) fs = RXml
         | otherwise                              = def
+
+    shape = rs ^. rsShape & cmnName .~ name
+    name  = o ^. opName <> "Response"
 
 pagination :: [Type] -> Operation -> Pagination -> Pagination
 pagination typs o p =
@@ -381,7 +401,8 @@ setDirection d s =
     dir = cmnDirection .~ d
 
 serviceTypes :: Service -> [Type]
-serviceTypes svc@Service{..} = sort
+serviceTypes svc@Service{..} = map require
+    . sort
     . Map.elems
     . (`execState` mempty)
     . mapM uniq
@@ -389,6 +410,20 @@ serviceTypes svc@Service{..} = sort
     . mapMaybe exclude
     $ concatMap opfields _svcOperations
   where
+    require t =
+        if null candidates
+            then t
+            else t & typFields %~ map override
+      where
+        candidates = fromMaybe [] (Map.lookup (t ^. cmnName) _svcRequired)
+
+        override f =
+            if _fldName f `notElem` candidates
+                then f
+                else f
+                    & cmnRequired         .~ True
+                    & fldType.anRequired_ .~ True
+
     exclude :: (a, Shape) -> Maybe (a, Shape)
     exclude x = maybe (Just x) (const Nothing) (remapType svc (snd x))
 
@@ -407,8 +442,8 @@ serviceTypes svc@Service{..} = sort
     descend _                    = []
 
     flat p s@SStruct {}         = (p, s) : descend s
-    flat _ s@(SList  List {..}) = flat ((s ^. cmnName)) _lstItem
-    flat _ s@(SMap   Map  {..}) = flat ((s ^. cmnName)) _mapKey ++ flat ((s ^. cmnName)) _mapValue
+    flat _ s@(SList  List {..}) = flat (s ^. cmnName) _lstItem
+    flat _ s@(SMap   Map  {..}) = flat (s ^. cmnName) _mapKey ++ flat (s ^. cmnName) _mapValue
     flat p (SSum     x)         = [(p, SSum $ rename x)]
     flat _ _                    = []
 

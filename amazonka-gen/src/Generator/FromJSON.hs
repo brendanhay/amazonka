@@ -129,6 +129,7 @@ instance FromJSON Service where
             <*> o .:? "target_prefix"
             <*> pure ops
             <*> pure def
+            <*> o .:? "required" .!= mempty
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $ \o ->

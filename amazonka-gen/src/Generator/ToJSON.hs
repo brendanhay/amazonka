@@ -186,9 +186,13 @@ instance ToJSON QueryPart where
     toJSON = toField (recase Camel Under . drop 2)
 
 instance ToJSON Python where
-    toJSON (Keyed   k) = toJSON k
-    toJSON (Index c k) = toJSON (k <> " . listToMaybe . reverse $ " <> c)
-    toJSON (Apply x y) = toJSON (y <> " $ " <> x)
+    toJSON = toJSON . go
+      where
+        go p = case p of
+            Keyed    k -> k
+            Index  c k -> "keyed " <> k <> " " <> c
+            Apply  x y -> y <> " $ " <> x
+            Choice l r -> "choice (" <> go l <> ") (" <> go r <> ")"
 
 instance ToJSON Token where
     toJSON Token{..} = object

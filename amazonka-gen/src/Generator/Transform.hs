@@ -16,7 +16,7 @@
 module Generator.Transform where
 
 import           Control.Arrow
-import           Control.Lens
+import           Control.Lens        hiding (indexed)
 import           Control.Monad
 import           Control.Monad.State
 import           Data.Char
@@ -32,7 +32,6 @@ import           Data.Ord
 import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
-import           Debug.Trace
 import           Generator.AST
 import           Text.EDE.Filters
 
@@ -194,8 +193,9 @@ pagination typs o p =
 
     pref s = prefixed (o ^. s)
 
-    label (Index x y) = Index x (indexed x y)
-    label (Apply x y) = Apply x (applied x y)
+    label (Index  x y) = Index x (indexed x y)
+    label (Apply  x y) = Apply x (applied x y)
+    label (Choice l r) = Choice (label l) (label r)
     label q           = q
 
     indexed x y =
@@ -210,9 +210,10 @@ pagination typs o p =
 
     err z = fromMaybe (error $ "Missing: " ++ show z)
 
-    key f (Keyed x)   = Keyed (f x)
-    key f (Index x y) = Index (f x) y
-    key f (Apply x y) = Apply (f x) y
+    key f (Keyed  x)   = Keyed (f x)
+    key f (Index  x y) = Index (f x) y
+    key f (Apply  x y) = Apply (f x) y
+    key f (Choice l r) = Choice (key f l) (key f r)
 
 rootNS :: NS -> NS
 rootNS (NS []) = NS []

@@ -19,6 +19,7 @@ module Generator.AST where
 
 import           Control.Applicative
 import           Control.Lens
+import           Data.Aeson                (Object)
 import           Data.Default
 import           Data.Function
 import           Data.HashMap.Strict       (HashMap)
@@ -307,9 +308,10 @@ data QueryPart = QueryPart
     } deriving (Eq, Show, Generic)
 
 data Python
-    = Keyed Text
-    | Index Text Text
-    | Apply Text Text
+    = Keyed  Text
+    | Index  Text Text
+    | Apply  Text Text
+    | Choice Python Python
       deriving (Eq, Show, Generic)
 
 data Token = Token
@@ -401,7 +403,6 @@ data Service = Service
     , _svcJsonVersion      :: JSONV
     , _svcTargetPrefix     :: Maybe Text
     , _svcOperations       :: [Operation]
-    , _svcOverrides        :: [Shape]
     , _svcTypes            :: [Type]
     } deriving (Show, Generic)
 
@@ -439,7 +440,6 @@ defaultService a = Service
     , _svcJsonVersion      = def
     , _svcTargetPrefix     = def
     , _svcOperations       = mempty
-    , _svcOverrides        = mempty
     , _svcTypes            = mempty
     }
 

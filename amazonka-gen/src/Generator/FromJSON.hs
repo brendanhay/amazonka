@@ -58,12 +58,7 @@ parseModel Model{..} = do
         <*> load "Override" modLocal
 
     -- First merge local, then global overrides.
-    let o = union l g
-
-    os  <- overrides o
-    svc <- parse' . Object $ union o s
-
-    return (svc & svcOverrides .~ os)
+    parse' . Object $ union (union l g) s
   where
     load :: Text -> Maybe FilePath -> Script Object
     load _ Nothing  = return mempty
@@ -71,15 +66,6 @@ parseModel Model{..} = do
         say ("Parse " <> n) f
         eitherDecode <$>
             scriptIO (LBS.readFile f) >>= hoistEither
-
-    overrides :: Object -> Script [Shape]
-    overrides m =
-        case Map.lookup key m of
-            Nothing -> return []
-            Just x  -> parse' x
-
-    -- FIXME: support other overrides nested under top-level 'overrides' key
-    key = "shape_overrides"
 
     parse' :: FromJSON a => Value -> Script a
     parse' = hoistEither . parseEither parseJSON
@@ -142,7 +128,6 @@ instance FromJSON Service where
             <*> o .:! "json_version"
             <*> o .:? "target_prefix"
             <*> pure ops
-            <*> pure def
             <*> pure def
 
 instance FromJSON [Operation] where
@@ -256,28 +241,39 @@ instance FromJSON Primitive where
 
 instance FromJSON Python where
     parseJSON = withText "python" $ \t ->
-        either (fail . mappend (msg t)) return (AText.parseOnly p t)
+        either (fail . mappend (msg t)) return (AText.parseOnly python t)
       where
         msg t = "Failed parsing python syntax from: "
             ++ Text.unpack t
             ++ ", with: "
 
-        p = (index <|> apply <|> keyed) <* AText.endOfInput
+        python = choice <|> index <|> apply <|> keyed
 
-        keyed = Keyed
-            <$> AText.takeText
+        choice = Choice
+            <$> keyed
+             <* AText.string "||"
+            <*> python
+
+        keyed = Keyed <$> label
 
         index = Index
-            <$> AText.takeWhile1 (/= '[') <* AText.string "[-1]"
+            <$> clean (AText.takeWhile1 (/= '['))
+             <* AText.string "[-1]"
+             <* AText.char '.'
             <*> label
 
         apply = Apply
-            <$> AText.takeWhile1 (/= '.')
+            <$> clean (AText.takeWhile1 (/= '.'))
+            <* AText.char '.'
             <*> label
 
-        label = AText.char '.'
-             >> AText.skipSpace
-             >> AText.takeText
+        label = clean (AText.takeWhile1 (not . delim))
+
+        delim c = c == '.'
+               || c == '['
+               || c == '|'
+
+        clean = fmap Text.strip
 
 instance FromJSON Pagination where
     parseJSON = withObject "pagination" $ \o -> more o <|> next o

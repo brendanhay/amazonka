@@ -5,14 +5,9 @@ BOTO     := vendor/botocore/botocore/data/aws
 GEN      := ../amazonka
 VERSIONS := 1
 
-RESTS3 := $(BOTO)/s3
-
-RESTXML := \
- $(BOTO)/cloudfront \
- $(BOTO)/route53
-
-RESTJSON := \
- $(BOTO)/elastictranscoder
+RESTS3   := $(BOTO)/s3
+RESTXML  := $(BOTO)/cloudfront $(BOTO)/route53
+RESTJSON := $(BOTO)/elastictranscoder
 
 QUERY := \
  $(BOTO)/autoscaling \
@@ -47,7 +42,7 @@ JSON := \
  $(BOTO)/cognito-identity \
  $(BOTO)/cognito-sync
 
-MODELS ?= $(RESTXML)
+MODELS ?= $(RESTS3)
 
 .PHONY: gen
 

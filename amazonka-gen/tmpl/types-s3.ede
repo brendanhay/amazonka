@@ -14,6 +14,7 @@ module {{ types_namespace }} where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ signature }}
+import Network.AWS.Types (Region)
 
 {% include "_include/service.ede" %}
 

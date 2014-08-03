@@ -17,21 +17,34 @@ module Network.AWS.Response
     , cursorResponse
     , xmlResponse
     , bodyResponse
+
+    -- * Pagination
+    , keyed
+    , choice
     ) where
 
+import           Control.Applicative
 import           Control.Monad
 import           Data.Bifunctor
 import           Data.ByteString      (ByteString)
 import qualified Data.ByteString      as BS
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Default
+import           Data.Maybe
 import           Data.Monoid
+import           Data.Text            (Text)
 import           Network.AWS.Data
 import           Network.AWS.Types
 import           Network.HTTP.Client
 import           Network.HTTP.Types
 import qualified Text.XML             as XML
 import           Text.XML.Cursor
+
+keyed :: ToText c => (b -> c) -> (a -> [b]) -> a -> Maybe Text
+keyed g f = fmap (toText . g) . listToMaybe . reverse . f
+
+choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
+choice f g x = f x <|> g x
 
 headerResponse :: (Monad m, ServiceError e)
                => (ResponseHeaders -> Either String a)

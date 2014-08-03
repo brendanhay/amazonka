@@ -9,18 +9,22 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Request.JSON
-   ( post
-   ) where
+    ( get
+    , delete
+    , post
+    , put
+    ) where
 
-import Control.Lens              hiding (Action)
+import Control.Lens
 import Data.Aeson
 import Data.Default
 import Network.AWS.Data
+import Network.AWS.Request.Common
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: ToJSON a => Action -> a -> Request a
-post a x = def
-    & rqMethod  .~ POST
-    & rqQuery  <>~ toQuery a
-    & rqBody    .~ toBody (toJSON x)
+post :: ToJSON a => a -> Request a
+post x = put x & rqMethod .~ POST
+
+put :: ToJSON a => a -> Request a
+put x = def & rqMethod .~ PUT & rqBody .~ toBody (toJSON x)

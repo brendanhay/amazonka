@@ -15,6 +15,7 @@ module Network.AWS.Response
     -- * Responses
       headerResponse
     , cursorResponse
+    , jsonResponse
     , xmlResponse
     , bodyResponse
 
@@ -46,6 +47,11 @@ keyed g f = fmap (toText . g) . listToMaybe . reverse . f
 choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
 choice f g x = f x <|> g x
 
+-- FIXME: Keyed and choice into pagination module
+-- FIXME: the return (Right Nullary) data ctor pattern doesn't correctly
+-- check for status code errors
+-- FIXME: implement json responses
+
 headerResponse :: (Monad m, ServiceError e)
                => (ResponseHeaders -> Either String a)
                -> Either HttpException (ClientResponse m)
@@ -64,6 +70,8 @@ cursorResponse f = receive $ \hs bdy -> do
             case f hs (fromDocument doc) of
                 Left  s -> return . Left $ serviceError s
                 Right x -> return (Right x)
+
+jsonResponse = undefined
 
 xmlResponse :: (Monad m, ServiceError e, FromXML a)
             => Either HttpException (ClientResponse m)

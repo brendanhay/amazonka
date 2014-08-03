@@ -2,47 +2,21 @@
     response _ _ = return (Right {{ scope.response.name }})
 {% else %}
   {% case scope.response.type %}
+  {% when "json" %}
+    response _ = jsonResponse
   {% when "xml" %}
     response _ = xmlResponse
   {% when "headers" %}
     response _ = headerResponse $ \hs ->
         pure {{ scope.response.name }}
+    {% include "response-fields.ede" %}
   {% when "xml_mix" %}
     response _ = cursorResponse $ \hs xml ->
         pure {{ scope.response.name }}
+    {% include "response-fields.ede" %}
   {% when "body" %}
     response _ = bodyResponse $ \hs bdy ->
         return $! pure {{ scope.response.name }}
+    {% include "response-fields.ede" %}
   {% endcase %}
-  {% if scope.response.type /= "xml" %}
-    {% for field in scope.response.fields %}
-      {% case field.value.location %}
-      {% when "header" %}
-        {% case field.value.location_name %}
-        {% when "x-amz-meta-" %}
-            <*> (hs `filterHeaders` "{{ field.value.location_name }}")
-        {% else %}
-          {% if field.value.required %}
-            <*> hs ~:  "{{ field.value.location_name }}"
-          {% else %}
-              {% if field.value.monoid %}
-            <*> hs ~:? "{{ field.value.location_name }}" ~:! mempty
-              {% else %}
-            <*> hs ~:? "{{ field.value.location_name }}"
-              {% endif %}
-          {% endif %}
-        {% endcase %}
-      {% when "body" %}
-        {% if scope.response.type == "xml_mix" %}
-          {% if field.value.required %}
-            <*> xml %|  "{{ field.value.name }}"
-          {% else %}
-            <*> xml %|? "{{ field.value.name }}"
-          {% endif %}
-        {% else %}
-            <*> pure (RsBody bdy)
-        {% endif %}
-      {% endcase %}
-    {% endfor %}
-  {% endif %}
 {% endif %}

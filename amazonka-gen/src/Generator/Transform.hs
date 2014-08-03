@@ -169,7 +169,7 @@ http p = hPath %~ map f
     f c        = c
 
 response :: Service -> Operation -> Response -> Response
-response svc o rs = rs
+response svc@Service{..} o rs = rs
     & rsName    .~ name
     & rsFields  .~ fs
     & rsPayload .~ bdy
@@ -186,11 +186,11 @@ response svc o rs = rs
             then f
             else f & cmnRequired .~ True & fldType.anRequired_ .~ True
 
-    overrides = fromMaybe [] (Map.lookup name (_svcRequired svc))
+    overrides = fromMaybe [] (Map.lookup name _svcRequired)
 
     typ | maybe False (view cmnStreaming) bdy    = RBody
         | length hs == length fs                 = RHeaders
-        | all ((== LBody) . view cmnLocation) fs = RXml
+        | all ((== LBody) . view cmnLocation) fs = responseType _svcType
         | otherwise                              = def
 
     shape = rs ^. rsShape & cmnName .~ name

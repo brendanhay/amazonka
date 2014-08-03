@@ -17,7 +17,7 @@
 module {{ namespace }} where
 
 import Control.Lens
-import {{ request_namespace }}
+import Network.AWS.Request.JSON
 import {{ types_namespace }}
 import Network.AWS.Prelude
 {% if alias %}
@@ -36,14 +36,13 @@ makeLenses ''{{ request.name }}
 {% include "_include/query.ede" with request %}
 
 {% include "_include/headers.ede" with request %}
-
 {% include "_include/json-to.ede" with request.shape %}
 
 data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}
 
 makeLenses ''{{ response.name }}
-{% if response.type == "xml" %}
+{% if response.type == "json" %}
 
 instance FromJSON {{ response.name }}
 {% endif %}

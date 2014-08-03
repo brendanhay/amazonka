@@ -53,6 +53,7 @@ module Network.AWS.Prelude
 
 import Control.Applicative  as Export
 import Control.Exception    (Exception)
+import Data.Aeson           as Export
 import Data.ByteString      (ByteString)
 import Data.Default         as Export
 import Data.HashMap.Strict  (HashMap)

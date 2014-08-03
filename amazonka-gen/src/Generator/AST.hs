@@ -347,11 +347,18 @@ data RespType
     = RHeaders
     | RXmlMix
     | RXml
+    | RJson
     | RBody
       deriving (Eq, Show, Generic)
 
 instance Default RespType where
     def = RXmlMix
+
+responseType :: ServiceType -> RespType
+responseType s =
+    case s of
+        RestJson -> RJson
+        _        -> def
 
 data Response = Response
     { _rsName    :: Text

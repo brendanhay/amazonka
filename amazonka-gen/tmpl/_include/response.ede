@@ -9,14 +9,14 @@
   {% when "headers" %}
     response _ = headerResponse $ \hs ->
         pure {{ scope.response.name }}
-    {% include "response-fields.ede" %}
+    {% include "response-fields.ede" with scope.response %}
   {% when "xml_mix" %}
     response _ = cursorResponse $ \hs xml ->
         pure {{ scope.response.name }}
-    {% include "response-fields.ede" %}
+    {% include "response-fields.ede" with scope.response %}
   {% when "body" %}
     response _ = bodyResponse $ \hs bdy ->
         return $! pure {{ scope.response.name }}
-    {% include "response-fields.ede" %}
+    {% include "response-fields.ede" with scope.response %}
   {% endcase %}
 {% endif %}

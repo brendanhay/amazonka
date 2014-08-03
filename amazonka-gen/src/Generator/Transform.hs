@@ -39,22 +39,25 @@ import           Text.EDE.Filters
 -- whereas responses don't. Request shapes should take preference in the case of equality/ord
 
 -- FIXME: Make a way to override the endpoint when sending a request (for mocks etc)
--- FIXME: Provide the 'length' of the prefix so lenses can be derived.
+
 -- FIXME: Fix ambiguous lens when using makeFields
+-- Provide the 'length' of the prefix so lenses can be derived.
+
 -- FIXME: Add documentation about where the type in the 'Types' module is used
+
 -- FIXME: Add selected de/serialisation tests for the services
+
 -- FIXME: Rewrite, so that each transformation step happens goddamn logically.
-
--- FIXME: Continuation of response type fields all being 'Maybe', ie
--- not being marked correctly as required - how should it be solved?
-
--- FIXME: Add a 3rd pagination type, nested, which is the result of parsing
--- for the 'last element [-1]' array indicies
 
 -- FIXME: Deal with result_wrapped=true in XML responses
 
 -- FIXME: Route53 ResourceRecordSetRegion should be dropped in favour of Network.AWS.Types.Region
 -- Likewise with RRType
+
+-- FIXME: kinesis features "non_aggregate_keys" in pagination, what is it?
+
+-- FIXME: kinesis pagination (DescribeStream) not correctly splitting python expressions
+-- (with '.')
 
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub

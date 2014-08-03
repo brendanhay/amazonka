@@ -79,6 +79,7 @@ instance Default Doc where
 data Time
     = RFC822
     | ISO8601
+    | POSIXTime
       deriving (Eq, Show, Generic)
 
 instance Default Time where

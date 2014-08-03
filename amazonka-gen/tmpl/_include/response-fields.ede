@@ -1,4 +1,4 @@
-{% for field in scope.response.fields %}
+{% for field in scope.fields %}
   {% case field.value.location %}
   {% when "header" %}
     {% case field.value.location_name %}
@@ -16,7 +16,7 @@
       {% endif %}
     {% endcase %}
   {% when "body" %}
-    {% if scope.response.type == "xml_mix" %}
+    {% if scope.type == "xml_mix" %}
       {% if field.value.required %}
             <*> xml %|  "{{ field.value.name }}"
       {% else %}

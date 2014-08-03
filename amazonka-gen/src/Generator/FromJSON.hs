@@ -86,7 +86,11 @@ instance FromJSON Doc where
     parseJSON = withText "documentation" (return . documentation)
 
 instance FromJSON Time where
-    parseJSON = fromCtor lowered
+    parseJSON = withText "timestamp" $ \t ->
+        case t of
+            "rfc822"        -> return RFC822
+            "unixTimestamp" -> return POSIXTime
+            _               -> return def
 
 instance FromJSON Checksum where
     parseJSON = fromCtor lowered

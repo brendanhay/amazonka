@@ -1,11 +1,12 @@
 {% for branch in scope.ctors %}
-
   {% case branch.value.ctor %}
   {% when "error" %}
     {% if branch.first %}
         = {{ branch.key }} {% include "error-product.ede" with branch.value.fields %}
+
     {% else %}
         | {{ branch.key }} {% include "error-product.ede" with branch.value.fields %}
+
     {% endif %}
   {% when "nullary" %}
     {% if branch.first %}

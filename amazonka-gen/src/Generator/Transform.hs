@@ -59,6 +59,8 @@ import           Text.EDE.Filters
 -- FIXME: kinesis pagination (DescribeStream) not correctly splitting python expressions
 -- (with '.')
 
+-- FIXME: add a way to correctly emit the usual deriving clauses for non-sum types
+
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
   where
@@ -444,6 +446,7 @@ serviceTypes svc@Service{..} = map require
     opfields o =
            descend (_rqShape $ _opRequest  o)
         ++ descend (_rsShape $ _opResponse o)
+        ++ concatMap descend (_opErrors o)
 
     descend (SStruct Struct{..}) = concatMap (uncurry flat) (Map.toList _sctFields)
     descend _                    = []

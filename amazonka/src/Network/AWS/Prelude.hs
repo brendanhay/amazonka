@@ -20,6 +20,7 @@ module Network.AWS.Prelude
     , Typeable
 
     -- * Primitives
+    , Base64
     , ByteString
     , Exception
     , HashMap

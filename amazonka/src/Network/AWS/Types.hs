@@ -33,7 +33,6 @@ import           Data.ByteString           (ByteString)
 import           Data.Char
 import           Data.Default
 import           Data.IORef
-import           Data.Maybe
 import           Data.Monoid
 import           Data.String
 import           Data.Text                 (Text)
@@ -399,6 +398,19 @@ instance ToText RecordType where
 instance ToByteString RecordType
 instance FromXML      RecordType
 instance ToXML        RecordType
+
+-- FIXME: Add actual de/conversion from/to base64 values
+newtype Base64 = Base64 ByteString
+    deriving (Eq, Show, Generic)
+
+instance ToByteString Base64 where
+    toBS (Base64 bs) = bs
+
+instance FromJSON Base64 where
+    parseJSON = withText "Base64" (return . Base64 . Text.encodeUtf8)
+
+instance ToJSON Base64 where
+    toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
 -- Sums
 makePrisms ''Error

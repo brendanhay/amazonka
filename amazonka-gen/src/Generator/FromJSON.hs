@@ -241,6 +241,7 @@ instance FromJSON Primitive where
             "float"     -> return PDouble
             "boolean"   -> return PBool
             "blob"      -> return PByteString
+            "base64"    -> return PBase64
             "timestamp" -> return PUTCTime
             _           -> fail ("Unable to parse Prim from: " ++ Text.unpack t)
 
@@ -255,22 +256,21 @@ instance FromJSON Python where
         python = choice <|> index <|> apply <|> keyed
 
         choice = Choice
-            <$> keyed
+            <$> label
              <* AText.string "||"
             <*> python
 
         keyed = Keyed <$> label
 
         index = Index
-            <$> clean (AText.takeWhile1 (/= '['))
+            <$> label
              <* AText.string "[-1]"
-             <* AText.char '.'
-            <*> label
+            <*> (AText.char '.' *> python <|> return Empty)
 
         apply = Apply
-            <$> clean (AText.takeWhile1 (/= '.'))
+            <$> label
             <* AText.char '.'
-            <*> label
+            <*> python
 
         label = clean (AText.takeWhile1 (not . delim))
 

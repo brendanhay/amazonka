@@ -42,7 +42,7 @@ JSON := \
  $(BOTO)/cognito-identity \
  $(BOTO)/cognito-sync
 
-MODELS ?= $(JSON)
+MODELS ?= $(BOTO)/kinesis
 
 .PHONY: gen
 

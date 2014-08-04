@@ -15,10 +15,10 @@
 
 module Generator.Transform where
 
-import           Control.Arrow
 import           Control.Lens        hiding (indexed)
 import           Control.Monad
 import           Control.Monad.State
+import           Data.Bifunctor
 import           Data.Char
 import           Data.Default
 import           Data.HashMap.Strict (HashMap)
@@ -35,8 +35,8 @@ import qualified Data.Text           as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
--- FIXME: Nested shapes from requests should have the fields correctly marked as required or not
--- whereas responses don't. Request shapes should take preference in the case of equality/ord
+-- FIXME: Request shapes should take preference in the case of equality/ord
+-- this ensures a minimum of overrides are needed for required fields.
 
 -- FIXME: Make a way to override the endpoint when sending a request (for mocks etc)
 
@@ -66,7 +66,7 @@ transform = map eval . sort . nub
         let os  = evalState (mapM (operation x) (_svcOperations x)) mempty
             y   = x & svcOperations .~ os
             z   = y & svcTypes .~ serviceTypes y
-            p o = o & opPagination %~ fmap (pagination (_svcTypes z) o)
+            p o = o & opPagination %~ fmap (pagination z o)
          in z & svcOperations %~ map p
 
 current :: [Service] -> [Service]
@@ -199,44 +199,43 @@ response svc@Service{..} o rs = rs
     shape = rs ^. rsShape & cmnName .~ name
     name  = o ^. opName <> "Response"
 
-pagination :: [Type] -> Operation -> Pagination -> Pagination
-pagination typs o p =
-    case p of
-        More m  ts -> More (tyPref m)  (map token ts)
-        Next rk t  -> Next (tyPref rk) (token t)
+pagination :: Service -> Operation -> Pagination -> Pagination
+pagination svc o p = case p of
+    More m t -> More (labeled (rs ^. cmnName) m) (map token t)
+    Next r t -> Next (labeled (rs ^. cmnName) r) (token t)
   where
     token t = t
-        & tokInput  %~ key rqPref
-        & tokOutput %~ tyPref
+        & tokInput  %~ labeled (rq ^. cmnName)
+        & tokOutput %~ labeled (rs ^. cmnName)
 
-    tyPref = key rsPref . label
+    rq = o ^. opRequest.rqShape
+    rs = o ^. opResponse.rsShape
 
-    rqPref = pref (opRequest.rqShape)
-    rsPref = pref (opResponse.rsShape)
+    types = shapeType True  svc rq : shapeType False svc rs : _svcTypes svc
 
-    pref s = prefixed (o ^. s)
-
-    label (Index  x y) = Index x (indexed x y)
-    label (Apply  x y) = Apply x (applied x y)
-    label (Choice l r) = Choice (label l) (label r)
-    label q           = q
+    labeled _ Empty        = Empty
+    labeled x (Keyed  y)   = Keyed  (applied x y)
+    labeled x (Index  y z) = Index  (applied x y) (labeled (indexed x y) z)
+    labeled x (Apply  y z) = Apply  (applied x y) (labeled y z)
+    labeled x (Choice y z) = Choice (applied x y) (labeled y z)
 
     indexed x y =
-        let fld = getField x . _rsFields $ _opResponse o
-            ann = Text.init . Text.tail . _anType $ _fldType fld
-         in applied ann y
+        let t = getType x
+            f = getField y (_typFields t)
+          in Text.init . Text.tail . _anType $ _fldType f
 
-    applied x y = _fldPrefixed . getField y . _typFields $ getType x
+    applied x y =
+        let t = getType x
+            f = getField y (_typFields t)
+         in _fldPrefixed f
 
-    getType  x = err x (find ((x ==) . view cmnName) typs)
-    getField y = err y . find ((y ==) . _fldName)
+    getType x =
+        fromMaybe (error $ "Missing type: " ++ show (x, map (view cmnName) types))
+                  (find ((x ==) . view cmnName) types)
 
-    err z = fromMaybe (error $ "Missing: " ++ show z)
-
-    key f (Keyed  x)   = Keyed (f x)
-    key f (Index  x y) = Index (f x) y
-    key f (Apply  x y) = Apply (f x) y
-    key f (Choice l r) = Choice (key f l) (key f r)
+    getField y z =
+        fromMaybe (error $ "Missing field: " ++ show y)
+                  (find ((y ==) . _fldName) z)
 
 rootNS :: NS -> NS
 rootNS (NS []) = NS []

@@ -189,10 +189,11 @@ instance ToJSON Python where
     toJSON = toJSON . go
       where
         go p = case p of
+            Empty      -> "id"
             Keyed    k -> k
-            Index  c k -> "keyed " <> k <> " " <> c
-            Apply  x y -> y <> " $ " <> x
-            Choice l r -> "choice (" <> go l <> ") (" <> go r <> ")"
+            Index  x y -> "keyed " <> go y <> " " <> x
+            Apply  x y -> go y <> " $ " <> x
+            Choice x y -> "choice (" <> x <> ") (" <> go y <> ")"
 
 instance ToJSON Token where
     toJSON Token{..} = object

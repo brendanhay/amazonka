@@ -53,8 +53,205 @@ library
         , Network.AWS.Signing.V4
         , Network.AWS.Types
 
+        , Network.AWS.Support
+        , Network.AWS.Support.V2013_04_15
+
+        , Network.AWS.StorageGateway
+        , Network.AWS.StorageGateway.V2013_06_30
+
+        , Network.AWS.SWF
+        , Network.AWS.SWF.V2012_01_25
+
+        , Network.AWS.OpsWorks
+        , Network.AWS.OpsWorks.V2013_02_18
+
         , Network.AWS.Kinesis
         , Network.AWS.Kinesis.V2013_12_02
+
+        , Network.AWS.EMR
+        , Network.AWS.EMR.V2009_03_31
+
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB.V2012_08_10
+
+        , Network.AWS.DirectConnect
+        , Network.AWS.DirectConnect.V2012_10_25
+
+        , Network.AWS.DataPipeline
+        , Network.AWS.DataPipeline.V2012_10_29
+
+        , Network.AWS.CognitoSync
+        , Network.AWS.CognitoSync.V2014_06_30
+
+        , Network.AWS.CognitoIdentity
+        , Network.AWS.CognitoIdentity.V2014_06_30
+
+        , Network.AWS.CloudTrail
+        , Network.AWS.CloudTrail.V2013_11_01
+
+        -- * Support V2013_04_15
+        , Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
+        , Network.AWS.Support.V2013_04_15.AddCommunicationToCase
+        , Network.AWS.Support.V2013_04_15.CreateCase
+        , Network.AWS.Support.V2013_04_15.DescribeAttachment
+        , Network.AWS.Support.V2013_04_15.DescribeCases
+        , Network.AWS.Support.V2013_04_15.DescribeCommunications
+        , Network.AWS.Support.V2013_04_15.DescribeServices
+        , Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
+        , Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuses
+        , Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult
+        , Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries
+        , Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks
+        , Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
+        , Network.AWS.Support.V2013_04_15.ResolveCase
+        , Network.AWS.Support.V2013_04_15.Types
+
+        -- * StorageGateway V2013_06_30
+        , Network.AWS.StorageGateway.V2013_06_30.ActivateGateway
+        , Network.AWS.StorageGateway.V2013_06_30.AddCache
+        , Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer
+        , Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage
+        , Network.AWS.StorageGateway.V2013_06_30.CancelArchival
+        , Network.AWS.StorageGateway.V2013_06_30.CancelRetrieval
+        , Network.AWS.StorageGateway.V2013_06_30.CreateCachediSCSIVolume
+        , Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot
+        , Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPoint
+        , Network.AWS.StorageGateway.V2013_06_30.CreateStorediSCSIVolume
+        , Network.AWS.StorageGateway.V2013_06_30.CreateTapes
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteBandwidthRateLimit
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteChapCredentials
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteGateway
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteTape
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteVolume
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeBandwidthRateLimit
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeCache
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeChapCredentials
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeGatewayInformation
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeMaintenanceStartTime
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeTapes
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeUploadBuffer
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeVTLDevices
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage
+        , Network.AWS.StorageGateway.V2013_06_30.DisableGateway
+        , Network.AWS.StorageGateway.V2013_06_30.ListGateways
+        , Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks
+        , Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
+        , Network.AWS.StorageGateway.V2013_06_30.ListVolumes
+        , Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeArchive
+        , Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeRecoveryPoint
+        , Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway
+        , Network.AWS.StorageGateway.V2013_06_30.StartGateway
+        , Network.AWS.StorageGateway.V2013_06_30.Types
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateBandwidthRateLimit
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateGatewaySoftwareNow
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateSnapshotSchedule
+
+        -- * SWF V2012_01_25
+        , Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
+        , Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
+        , Network.AWS.SWF.V2012_01_25.DeprecateActivityType
+        , Network.AWS.SWF.V2012_01_25.DeprecateDomain
+        , Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType
+        , Network.AWS.SWF.V2012_01_25.DescribeActivityType
+        , Network.AWS.SWF.V2012_01_25.DescribeDomain
+        , Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
+        , Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
+        , Network.AWS.SWF.V2012_01_25.ListActivityTypes
+        , Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.ListDomains
+        , Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
+        , Network.AWS.SWF.V2012_01_25.PollForActivityTask
+        , Network.AWS.SWF.V2012_01_25.PollForDecisionTask
+        , Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat
+        , Network.AWS.SWF.V2012_01_25.RegisterActivityType
+        , Network.AWS.SWF.V2012_01_25.RegisterDomain
+        , Network.AWS.SWF.V2012_01_25.RegisterWorkflowType
+        , Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed
+        , Network.AWS.SWF.V2012_01_25.RespondDecisionTaskCompleted
+        , Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.StartWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.Types
+
+        -- * OpsWorks V2013_02_18
+        , Network.AWS.OpsWorks.V2013_02_18.AssignVolume
+        , Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.AttachElasticLoadBalancer
+        , Network.AWS.OpsWorks.V2013_02_18.CloneStack
+        , Network.AWS.OpsWorks.V2013_02_18.CreateApp
+        , Network.AWS.OpsWorks.V2013_02_18.CreateDeployment
+        , Network.AWS.OpsWorks.V2013_02_18.CreateInstance
+        , Network.AWS.OpsWorks.V2013_02_18.CreateLayer
+        , Network.AWS.OpsWorks.V2013_02_18.CreateStack
+        , Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteApp
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteInstance
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteLayer
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteStack
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.DeregisterElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.DeregisterRdsDbInstance
+        , Network.AWS.OpsWorks.V2013_02_18.DeregisterVolume
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeApps
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeCommands
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeInstances
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeLayers
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.DescribePermissions
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeRdsDbInstances
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeStackSummary
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeStacks
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes
+        , Network.AWS.OpsWorks.V2013_02_18.DetachElasticLoadBalancer
+        , Network.AWS.OpsWorks.V2013_02_18.DisassociateElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.GetHostnameSuggestion
+        , Network.AWS.OpsWorks.V2013_02_18.RebootInstance
+        , Network.AWS.OpsWorks.V2013_02_18.RegisterElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.RegisterRdsDbInstance
+        , Network.AWS.OpsWorks.V2013_02_18.RegisterVolume
+        , Network.AWS.OpsWorks.V2013_02_18.SetLoadBasedAutoScaling
+        , Network.AWS.OpsWorks.V2013_02_18.SetPermission
+        , Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling
+        , Network.AWS.OpsWorks.V2013_02_18.StartInstance
+        , Network.AWS.OpsWorks.V2013_02_18.StartStack
+        , Network.AWS.OpsWorks.V2013_02_18.StopInstance
+        , Network.AWS.OpsWorks.V2013_02_18.StopStack
+        , Network.AWS.OpsWorks.V2013_02_18.Types
+        , Network.AWS.OpsWorks.V2013_02_18.UnassignVolume
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateApp
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateInstance
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateLayer
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateMyUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateRdsDbInstance
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateStack
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateVolume
 
         -- * Kinesis V2013_12_02
         , Network.AWS.Kinesis.V2013_12_02.CreateStream
@@ -67,6 +264,116 @@ library
         , Network.AWS.Kinesis.V2013_12_02.PutRecord
         , Network.AWS.Kinesis.V2013_12_02.SplitShard
         , Network.AWS.Kinesis.V2013_12_02.Types
+
+        -- * EMR V2009_03_31
+        , Network.AWS.EMR.V2009_03_31.AddInstanceGroups
+        , Network.AWS.EMR.V2009_03_31.AddJobFlowSteps
+        , Network.AWS.EMR.V2009_03_31.AddTags
+        , Network.AWS.EMR.V2009_03_31.DescribeCluster
+        , Network.AWS.EMR.V2009_03_31.DescribeJobFlows
+        , Network.AWS.EMR.V2009_03_31.DescribeStep
+        , Network.AWS.EMR.V2009_03_31.ListBootstrapActions
+        , Network.AWS.EMR.V2009_03_31.ListClusters
+        , Network.AWS.EMR.V2009_03_31.ListInstanceGroups
+        , Network.AWS.EMR.V2009_03_31.ListInstances
+        , Network.AWS.EMR.V2009_03_31.ListSteps
+        , Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups
+        , Network.AWS.EMR.V2009_03_31.RemoveTags
+        , Network.AWS.EMR.V2009_03_31.RunJobFlow
+        , Network.AWS.EMR.V2009_03_31.SetTerminationProtection
+        , Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers
+        , Network.AWS.EMR.V2009_03_31.TerminateJobFlows
+        , Network.AWS.EMR.V2009_03_31.Types
+
+        -- * DynamoDB V2012_08_10
+        , Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
+        , Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
+        , Network.AWS.DynamoDB.V2012_08_10.CreateTable
+        , Network.AWS.DynamoDB.V2012_08_10.DeleteItem
+        , Network.AWS.DynamoDB.V2012_08_10.DeleteTable
+        , Network.AWS.DynamoDB.V2012_08_10.DescribeTable
+        , Network.AWS.DynamoDB.V2012_08_10.GetItem
+        , Network.AWS.DynamoDB.V2012_08_10.ListTables
+        , Network.AWS.DynamoDB.V2012_08_10.PutItem
+        , Network.AWS.DynamoDB.V2012_08_10.Query
+        , Network.AWS.DynamoDB.V2012_08_10.Scan
+        , Network.AWS.DynamoDB.V2012_08_10.Types
+        , Network.AWS.DynamoDB.V2012_08_10.UpdateItem
+        , Network.AWS.DynamoDB.V2012_08_10.UpdateTable
+
+        -- * DirectConnect V2012_10_25
+        , Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
+        , Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
+        , Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.CreateConnection
+        , Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect
+        , Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
+        , Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
+        , Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
+        , Network.AWS.DirectConnect.V2012_10_25.Types
+
+        -- * DataPipeline V2012_10_29
+        , Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
+        , Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
+        , Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
+        , Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
+        , Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
+        , Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
+        , Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
+        , Network.AWS.DataPipeline.V2012_10_29.ListPipelines
+        , Network.AWS.DataPipeline.V2012_10_29.PollForTask
+        , Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
+        , Network.AWS.DataPipeline.V2012_10_29.QueryObjects
+        , Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
+        , Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
+        , Network.AWS.DataPipeline.V2012_10_29.SetStatus
+        , Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
+        , Network.AWS.DataPipeline.V2012_10_29.Types
+        , Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition
+
+        -- * CognitoSync V2014_06_30
+        , Network.AWS.CognitoSync.V2014_06_30.DeleteDataset
+        , Network.AWS.CognitoSync.V2014_06_30.DescribeDataset
+        , Network.AWS.CognitoSync.V2014_06_30.DescribeIdentityPoolUsage
+        , Network.AWS.CognitoSync.V2014_06_30.DescribeIdentityUsage
+        , Network.AWS.CognitoSync.V2014_06_30.ListDatasets
+        , Network.AWS.CognitoSync.V2014_06_30.ListIdentityPoolUsage
+        , Network.AWS.CognitoSync.V2014_06_30.ListRecords
+        , Network.AWS.CognitoSync.V2014_06_30.Types
+        , Network.AWS.CognitoSync.V2014_06_30.UpdateRecords
+
+        -- * CognitoIdentity V2014_06_30
+        , Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool
+        , Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool
+        , Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool
+        , Network.AWS.CognitoIdentity.V2014_06_30.GetId
+        , Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken
+        , Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
+        , Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
+        , Network.AWS.CognitoIdentity.V2014_06_30.Types
+        , Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity
+        , Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool
+
+        -- * CloudTrail V2013_11_01
+        , Network.AWS.CloudTrail.V2013_11_01.CreateTrail
+        , Network.AWS.CloudTrail.V2013_11_01.DeleteTrail
+        , Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
+        , Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus
+        , Network.AWS.CloudTrail.V2013_11_01.StartLogging
+        , Network.AWS.CloudTrail.V2013_11_01.StopLogging
+        , Network.AWS.CloudTrail.V2013_11_01.Types
+        , Network.AWS.CloudTrail.V2013_11_01.UpdateTrail
 
     build-depends:
           aeson

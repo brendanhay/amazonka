@@ -1,8 +1,5 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE FlexibleInstances #-}
-{% if pagination.type == "many" %}
-{-# LANGUAGE MultiWayIf        #-}
-{% endif %}
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -20,6 +17,9 @@ import Control.Lens
 import Network.AWS.Request.JSON
 import {{ types_namespace }}
 import Network.AWS.Prelude
+{% if service == "DynamoDB" %}
+import qualified Data.HashMap.Strict as Map
+{% endif %}
 {% if alias %}
 
 type {{ alias }} = {{ request.name }}
@@ -53,4 +53,15 @@ instance AWSRequest {{ request.name }} where
 
     request = {{ request.method }}
 {% include "_include/response.ede" %}
-{% include "_include/pager.ede" %}
+{% if service == "DynamoDB" %}
+  {% case request.name %}
+  {% when "Scan" %}
+    {% include "_include/pager-monoid.ede" %}
+  {% when "Query" %}
+    {% include "_include/pager-monoid.ede" %}
+  {% else %}
+    {% include "_include/pager.ede" %}
+  {% endcase %}
+{% else %}
+  {% include "_include/pager.ede" %}
+{% endif %}

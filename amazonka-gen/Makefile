@@ -39,10 +39,12 @@ JSON := \
  $(BOTO)/storagegateway \
  $(BOTO)/support \
  $(BOTO)/swf \
- $(BOTO)/cognito-identity \
- $(BOTO)/cognito-sync
+ $(BOTO)/cognito-identity
 
-MODELS ?= $(BOTO)/cognito-sync
+# Behaving strangely, boto's models don't reflect the documentation
+# $(BOTO)/cognito-sync
+
+MODELS ?= $(BOTO)/dynamodb
 
 .PHONY: gen
 

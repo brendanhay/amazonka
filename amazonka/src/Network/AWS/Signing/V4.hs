@@ -121,7 +121,7 @@ finalise :: Maybe ByteString
          -> TimeLocale
          -> UTCTime
          -> Signed a V4
-finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
+finalise p qry s@Service'{..} AuthEnv{..} r Request{..} l t = Signed meta rq
   where
     meta = Meta
         { _mAlgorithm = algorithm

@@ -75,7 +75,13 @@ instance ToPath ListRecords where
         , "/records"
         ]
 
-instance ToQuery ListRecords
+instance ToQuery ListRecords where
+    toQuery ListRecords{..} = mconcat
+        [ "lastSyncCount" =? _lrrLastSyncCount
+        , "maxResults" =? _lrrMaxResults
+        , "nextToken" =? _lrrNextToken
+        , "syncSessionToken" =? _lrrSyncSessionToken
+        ]
 
 instance ToHeaders ListRecords
 

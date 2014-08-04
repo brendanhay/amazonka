@@ -19,6 +19,7 @@
 
 module Generator.ToJSON where
 
+import           Control.Arrow
 import           Control.Lens               ((^.))
 import           Data.Aeson
 import           Data.Aeson.Types
@@ -182,8 +183,8 @@ instance ToJSON PathPart where
       where
         f k v = object ["type" .= (k :: Text), "value" .= v]
 
-instance ToJSON QueryPart where
-    toJSON = toField (recase Camel Under . drop 2)
+instance ToJSON [QueryPart] where
+    toJSON = object . map (_qpKey &&& toJSON . _qpVal)
 
 instance ToJSON Python where
     toJSON = toJSON . go

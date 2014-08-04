@@ -11,7 +11,7 @@ instance AWSService {{ scope.name }} where
       {% include "error-sum.ede" with scope.error %}
     {% endif %}
 
-    service = Service
+    service = Service'
         { _svcEndpoint = {% if global_endpoint -%} Global{% else -%} Regional{% endif -%}
         , _svcPrefix   = "{{ scope.endpoint_prefix }}"
         , _svcVersion  = "{{ scope.raw_version }}"

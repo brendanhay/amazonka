@@ -43,7 +43,11 @@ makeLenses ''ListIdentityPoolUsage
 instance ToPath ListIdentityPoolUsage where
     toPath = const "/identitypools"
 
-instance ToQuery ListIdentityPoolUsage
+instance ToQuery ListIdentityPoolUsage where
+    toQuery ListIdentityPoolUsage{..} = mconcat
+        [ "maxResults" =? _lipurMaxResults
+        , "nextToken" =? _lipurNextToken
+        ]
 
 instance ToHeaders ListIdentityPoolUsage
 

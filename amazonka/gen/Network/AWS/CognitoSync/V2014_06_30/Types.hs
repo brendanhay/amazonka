@@ -70,7 +70,7 @@ instance AWSService CognitoSync where
             { _tmreMessage :: Text
             }
 
-    service = Service
+    service = Service'
         { _svcEndpoint = Regional
         , _svcPrefix   = "cognito-sync"
         , _svcVersion  = "2014-06-30"

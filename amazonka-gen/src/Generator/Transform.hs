@@ -166,10 +166,12 @@ request svc o rq = rq
     name  = o ^. opName
 
 http :: Shape -> HTTP -> HTTP
-http p = hPath %~ map f
+http p h = h & hPath %~ map f & hQuery %~ map g
   where
     f (PVar v) = PVar (prefixed p v)
     f c        = c
+
+    g = qpVal %~ fmap (prefixed p)
 
 response :: Service -> Operation -> Response -> Response
 response svc@Service{..} o rs = rs
@@ -313,7 +315,7 @@ typeof rq svc s = Ann req (defaults s) (monoids s) typ
 
         SPrim p | body, rq   -> "RqBody"
                 | body       -> "RsBody"
-                | otherwise  -> formatPrim (_svcTimestamp svc) p
+                | otherwise  -> formatPrim svc p
 
     req    = body || s ^. cmnRequired
     switch = name `elem` switches
@@ -342,10 +344,13 @@ remapType Service{..} x = lookup (x ^. cmnName) $
             ]
         _ -> []
 
-formatPrim :: Time -> Prim -> Text
-formatPrim ts Prim{..} = Text.pack $
+formatPrim :: Service -> Prim -> Text
+formatPrim Service{..} Prim{..} = Text.pack $
     case _prmType of
-        PUTCTime -> show ts
+        PUTCTime -> show _svcTimestamp
+        PByteString
+            | _svcType == Json -> "Base64"
+           -- _svcName `elem` ["Kinesis", "DynamoDB"] -> "Base64"
         _        -> drop 1 (show _prmType)
 
 switches :: [Text]

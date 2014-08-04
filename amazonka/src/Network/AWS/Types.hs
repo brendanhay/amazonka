@@ -221,7 +221,7 @@ data Endpoint
 instance IsString Endpoint where
     fromString = Custom . fromString
 
-data Service a = Service
+data Service a = Service'
     { _svcEndpoint :: !Endpoint
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
@@ -235,7 +235,7 @@ instance ToByteString Host where
     toBS (Host h) = h
 
 endpoint :: Service a -> Region -> Host
-endpoint Service{..} reg =
+endpoint Service'{..} reg =
     let suf = ".amazonaws.com"
      in Host $ case _svcEndpoint of
             Global   -> _svcPrefix <> suf

@@ -89,7 +89,7 @@ instance FromJSON Time where
     parseJSON = withText "timestamp" $ \t ->
         case t of
             "rfc822"        -> return RFC822
-            "unixTimestamp" -> return POSIXTime
+            "unixTimestamp" -> return POSIX
             _               -> return def
 
 instance FromJSON Checksum where
@@ -241,7 +241,6 @@ instance FromJSON Primitive where
             "float"     -> return PDouble
             "boolean"   -> return PBool
             "blob"      -> return PByteString
-            "base64"    -> return PBase64
             "timestamp" -> return PUTCTime
             _           -> fail ("Unable to parse Prim from: " ++ Text.unpack t)
 

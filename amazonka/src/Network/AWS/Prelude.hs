@@ -37,7 +37,6 @@ module Network.AWS.Prelude
     , AWSPager        (..)
 
     -- * Shared
-    , Service         (..)
     , Action          (..)
     , BucketName      (..)
     , ObjectKey       (..)
@@ -50,24 +49,29 @@ module Network.AWS.Prelude
     , pattern Global
     , pattern Regional
     , pattern Custom
+    , pattern Service'
+
+    , _svcEndpoint
+    , _svcPrefix
+    , _svcVersion
+    , _svcTarget
     ) where
 
-import Control.Applicative   as Export
-import Control.Exception     (Exception)
-import Data.Aeson            as Export
-import Data.ByteString       (ByteString)
-import Data.Default          as Export
-import Data.HashMap.Strict   (HashMap)
-import Data.Hashable         as Export
-import Data.Maybe            as Export
-import Data.Monoid           as Export
-import Data.Tagged           as Export
-import Data.Text             (Text)
-import Data.Time.Clock.POSIX as Export
-import Data.Typeable         (Typeable)
-import GHC.Generics          (Generic)
-import Network.AWS.Data      as Export
-import Network.AWS.Response  as Export
+import Control.Applicative  as Export
+import Control.Exception    (Exception)
+import Data.Aeson           as Export
+import Data.ByteString      (ByteString)
+import Data.Default         as Export
+import Data.HashMap.Strict  (HashMap)
+import Data.Hashable        as Export
+import Data.Maybe           as Export
+import Data.Monoid          as Export
+import Data.Tagged          as Export
+import Data.Text            (Text)
+import Data.Typeable        (Typeable)
+import GHC.Generics         (Generic)
+import Network.AWS.Data     as Export
+import Network.AWS.Response as Export
 import Network.AWS.Types
-import Network.HTTP.Client   (HttpException, RequestBody, Response)
-import Prelude               as Export hiding (head)
+import Network.HTTP.Client  (HttpException, RequestBody, Response)
+import Prelude              as Export hiding (head)

@@ -60,7 +60,11 @@ instance ToPath ListDatasets where
         , "/datasets"
         ]
 
-instance ToQuery ListDatasets
+instance ToQuery ListDatasets where
+    toQuery ListDatasets{..} = mconcat
+        [ "maxResults" =? _ldrMaxResults
+        , "nextToken" =? _ldrNextToken
+        ]
 
 instance ToHeaders ListDatasets
 

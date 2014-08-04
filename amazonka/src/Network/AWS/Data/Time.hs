@@ -20,14 +20,14 @@
 module Network.AWS.Data.Time where
 
 import           Control.Applicative
-import           Control.Monad
+import           Data.Aeson
 import           Data.Attoparsec.Text        (Parser)
 import qualified Data.Attoparsec.Text        as AText
-import           Data.ByteString             (ByteString)
 import qualified Data.ByteString.Char8       as BS
 import           Data.Tagged
 import qualified Data.Text                   as Text
 import           Data.Time
+import           Data.Time.Clock.POSIX
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
@@ -38,6 +38,7 @@ data Format
     | ISO8601Format
     | BasicFormat
     | AWSFormat
+    | POSIXFormat
       deriving (Eq, Show)
 
 data Time :: Format -> * where
@@ -51,6 +52,7 @@ type RFC822    = Time RFC822Format
 type ISO8601   = Time ISO8601Format
 type BasicTime = Time BasicFormat
 type AWSTime   = Time AWSFormat
+type POSIX     = Time POSIXFormat
 
 class TimeFormat a where
     format :: Tagged a String
@@ -70,13 +72,32 @@ instance ToText ISO8601   where toText = Text.pack . renderFormattedTime
 instance ToText BasicTime where toText = Text.pack . renderFormattedTime
 instance ToText AWSTime   where toText = Text.pack . renderFormattedTime
 
+instance ToText POSIX where
+    -- FIXME: truncate?!
+    toText t = toText time
+      where
+        time :: Integer
+        time = truncate . utcTimeToPOSIXSeconds $
+            case t of
+                Time         x -> x
+                LocaleTime _ x -> x
+
 instance ToXML RFC822 where
     toXMLRoot = toRoot "Date"
     toXML o   = toXML (retag o) . toText
 
+instance ToJSON RFC822 where
+    toJSON = toJSON . toText
+
 instance ToXML ISO8601 where
     toXMLRoot = toRoot "Date"
     toXML o   = toXML (retag o) . toText
+
+instance ToJSON ISO8601 where
+    toJSON = toJSON . toText
+
+instance ToJSON POSIX where
+    toJSON = toJSON . toText
 
 renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
 renderFormattedTime x = formatTime l (untag f) t
@@ -92,6 +113,10 @@ instance FromText RFC822    where parser = parseFormattedTime
 instance FromText ISO8601   where parser = parseFormattedTime
 instance FromText BasicTime where parser = parseFormattedTime
 instance FromText AWSTime   where parser = parseFormattedTime
+
+instance FromText POSIX where
+    parser = Time . posixSecondsToUTCTime . realToFrac
+        <$> (parser :: Parser Integer)
 
 parseFormattedTime :: forall a. TimeFormat (Time a) => Parser (Time a)
 parseFormattedTime = do
@@ -109,6 +134,15 @@ instance FromXML RFC822 where
     fromXMLRoot = fromRoot "Date"
     fromXML     = const fromNodeContent
 
+instance FromJSON RFC822 where
+    parseJSON = withText "Date" (either fail return . fromText)
+
 instance FromXML ISO8601 where
     fromXMLRoot = fromRoot "Date"
     fromXML     = const fromNodeContent
+
+instance FromJSON ISO8601 where
+    parseJSON = withText "Date" (either fail return . fromText)
+
+instance FromJSON POSIX where
+    parseJSON = withText "Date" (either fail return . fromText)

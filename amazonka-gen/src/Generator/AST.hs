@@ -79,7 +79,7 @@ instance Default Doc where
 data Time
     = RFC822
     | ISO8601
-    | POSIXTime
+    | POSIX
       deriving (Eq, Show, Generic)
 
 instance Default Time where
@@ -221,7 +221,6 @@ data Primitive
     | PDouble
     | PBool
     | PByteString
-    | PBase64
     | PSource
     | PUTCTime
       deriving (Eq, Show, Generic)
@@ -298,16 +297,6 @@ data Error = Error
     , _erCtors  :: HashMap Text Type
     } deriving (Eq, Show, Generic)
 
-data PathPart
-    = PConst Text
-    | PVar   Text
-      deriving (Eq, Show)
-
-data QueryPart = QueryPart
-    { qpKey :: Text
-    , qpVal :: Maybe Text
-    } deriving (Eq, Show, Generic)
-
 data Python
     = Empty
     | Keyed  Text
@@ -357,6 +346,16 @@ data Pagination
     = More Python [Token]
     | Next Python Token
       deriving (Eq, Show, Generic)
+
+data PathPart
+    = PConst Text
+    | PVar   Text
+      deriving (Eq, Show)
+
+data QueryPart = QueryPart
+    { _qpKey :: Text
+    , _qpVal :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
 data HTTP = HTTP
     { _hMethod :: !StdMethod
@@ -502,6 +501,7 @@ makeLenses ''List
 makeLenses ''Map
 makeLenses ''Sum
 makeLenses ''Prim
+makeLenses ''QueryPart
 
 instance HasCommon Shape where
     common f x = case x of

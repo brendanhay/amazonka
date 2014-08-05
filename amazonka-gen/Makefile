@@ -5,8 +5,12 @@ BOTO     := vendor/botocore/botocore/data/aws
 GEN      := ../amazonka
 VERSIONS := 1
 
-RESTS3   := $(BOTO)/s3
-RESTXML  := $(BOTO)/cloudfront $(BOTO)/route53
+RESTS3 := $(BOTO)/s3
+
+RESTXML := \
+ $(BOTO)/cloudfront \
+ $(BOTO)/route53
+
 RESTJSON := $(BOTO)/elastictranscoder
 
 QUERY := \
@@ -44,7 +48,7 @@ JSON := \
 # Omitted for the time being - boto's models don't reflect the documentation
 # $(BOTO)/cognito-sync
 
-MODELS ?= $(RESTS3)
+MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 

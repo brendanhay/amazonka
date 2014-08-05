@@ -13,7 +13,7 @@
 {% endif %}
 module {{ namespace }} where
 
-import Control.Lens
+import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.JSON
 import {{ types_namespace }}
 import Network.AWS.Prelude

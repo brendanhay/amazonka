@@ -26,6 +26,7 @@ executable amazonka-gen
         , base                 == 4.7.*
         , bifunctors
         , bytestring
+        , case-insensitive
         , data-default
         , directory
         , ede                  >= 0.1.5

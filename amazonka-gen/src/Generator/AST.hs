@@ -19,6 +19,7 @@ module Generator.AST where
 
 import           Control.Applicative
 import           Control.Lens
+import           Data.CaseInsensitive      (CI)
 import           Data.Default
 import           Data.Function
 import           Data.HashMap.Strict       (HashMap)
@@ -445,7 +446,7 @@ data Service = Service
     , _svcTargetPrefix     :: Maybe Text
     , _svcOperations       :: [Operation]
     , _svcTypes            :: [Type]
-    , _svcRequired         :: HashMap Text [Text]
+    , _svcRequired         :: HashMap Text [CI Text]
     } deriving (Show, Generic)
 
 instance Eq Service where

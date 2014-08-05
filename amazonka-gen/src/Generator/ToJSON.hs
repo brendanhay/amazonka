@@ -23,6 +23,8 @@ import           Control.Arrow
 import           Control.Lens               ((^.))
 import           Data.Aeson
 import           Data.Aeson.Types
+import           Data.CaseInsensitive       (CI)
+import qualified Data.CaseInsensitive       as CI
 import           Data.Function
 import qualified Data.HashMap.Strict        as Map
 import           Data.List
@@ -35,6 +37,9 @@ import           GHC.Generics
 import           Generator.AST
 import           Generator.Transform
 import           Network.HTTP.Types.Method
+
+instance ToJSON a => ToJSON (CI a) where
+    toJSON = toJSON . CI.original
 
 instance ToJSON Abbrev where
     toJSON = toJSON . unAbbrev

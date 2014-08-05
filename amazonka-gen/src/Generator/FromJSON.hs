@@ -29,6 +29,8 @@ import qualified Data.Attoparsec.Text       as AText
 import           Data.Bifunctor
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
+import           Data.CaseInsensitive       (CI)
+import qualified Data.CaseInsensitive       as CI
 import           Data.Default
 import qualified Data.HashMap.Strict        as Map
 import           Data.Monoid                hiding (Sum)
@@ -78,6 +80,9 @@ parseModel Model{..} = do
         case (a, b) of
             (Object x, Object y) -> Object (union x y)
             (_,        _)        -> a
+
+instance FromJSON (CI Text) where
+    parseJSON = withText "case-insensitive" (return . CI.mk)
 
 instance FromJSON Abbrev where
     parseJSON = withText "abbrev" (return . Abbrev)

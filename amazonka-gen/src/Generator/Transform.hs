@@ -15,23 +15,25 @@
 
 module Generator.Transform where
 
-import           Control.Lens        hiding (indexed)
+import           Control.Lens         hiding (indexed)
 import           Control.Monad
 import           Control.Monad.State
 import           Data.Bifunctor
+import           Data.CaseInsensitive (CI)
+import qualified Data.CaseInsensitive as CI
 import           Data.Char
 import           Data.Default
-import           Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
-import           Data.HashSet        (HashSet)
-import qualified Data.HashSet        as Set
+import           Data.HashMap.Strict  (HashMap)
+import qualified Data.HashMap.Strict  as Map
+import           Data.HashSet         (HashSet)
+import qualified Data.HashSet         as Set
 import           Data.List
 import           Data.Maybe
-import           Data.Monoid         hiding (Sum)
+import           Data.Monoid          hiding (Sum)
 import           Data.Ord
 import           Data.String
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
@@ -60,6 +62,7 @@ import           Text.EDE.Filters
 -- (with '.')
 
 -- FIXME: add a way to correctly emit the usual deriving clauses for non-sum types
+-- this is also needed so error types can have a show instance
 
 transform :: [Service] -> [Service]
 transform = map eval . sort . nub
@@ -151,12 +154,7 @@ request svc o rq = rq
 
     rs = filter (view cmnRequired) fs
     hs = filter ((== LHeader) . view cmnLocation) fs
-    fs = map (require . upd) . sort $ fields True svc shape
-
-    require f =
-        if _fldName f `notElem` overrides
-            then f
-            else f & cmnRequired .~ True & fldType.anRequired_ .~ True
+    fs = map (requireField overrides . upd) . sort $ fields True svc shape
 
     overrides = fromMaybe [] (Map.lookup name (_svcRequired svc))
 
@@ -186,12 +184,7 @@ response svc@Service{..} o rs = rs
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
 
     hs = filter ((== LHeader) . view cmnLocation) fs
-    fs = map require . sort $ fields False svc shape
-
-    require f =
-        if _fldName f `notElem` overrides
-            then f
-            else f & cmnRequired .~ True & fldType.anRequired_ .~ True
+    fs = map (requireField overrides) . sort $ fields False svc shape
 
     overrides = fromMaybe [] (Map.lookup name _svcRequired)
 
@@ -410,7 +403,7 @@ setDirection d s =
     dir = cmnDirection .~ d
 
 serviceTypes :: Service -> [Type]
-serviceTypes svc@Service{..} = map require
+serviceTypes svc@Service{..} = map override
     . sort
     . Map.elems
     . (`execState` mempty)
@@ -419,19 +412,11 @@ serviceTypes svc@Service{..} = map require
     . mapMaybe exclude
     $ concatMap opfields _svcOperations
   where
-    require t =
-        if null candidates
-            then t
-            else t & typFields %~ map override
+    override t
+        | null candidates = t
+        | otherwise       = t & typFields %~ map (requireField candidates)
       where
         candidates = fromMaybe [] (Map.lookup (t ^. cmnName) _svcRequired)
-
-        override f =
-            if _fldName f `notElem` candidates
-                then f
-                else f
-                    & cmnRequired         .~ True
-                    & fldType.anRequired_ .~ True
 
     exclude :: (a, Shape) -> Maybe (a, Shape)
     exclude x = maybe (Just x) (const Nothing) (remapType svc (snd x))
@@ -491,3 +476,8 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
             & cmnRequired .~ True
 
         ctor = def & cmnName .~ (unAbbrev a <> k)
+
+requireField :: [CI Text] -> Field -> Field
+requireField cs f
+    | CI.mk (_fldName f) `notElem` cs = f
+    | otherwise = f & cmnRequired .~ True & fldType.anRequired_ .~ True

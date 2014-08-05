@@ -44,7 +44,7 @@ JSON := \
 # Behaving strangely, boto's models don't reflect the documentation
 # $(BOTO)/cognito-sync
 
-MODELS ?= $(BOTO)/dynamodb
+MODELS ?= $(BOTO)/datapipeline
 
 .PHONY: gen
 

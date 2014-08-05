@@ -35,6 +35,9 @@ import           Network.HTTP.Client
 data RsBody where
     RsBody :: Monad m => m ByteString -> RsBody
 
+instance Show RsBody where
+    show = const "RsBody <body>"
+
 data RqBody = RqBody
     { _bdyHash :: ByteString
     , _bdyBody :: RequestBody

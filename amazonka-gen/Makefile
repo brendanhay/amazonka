@@ -44,7 +44,7 @@ JSON := \
 # Omitted for the time being - boto's models don't reflect the documentation
 # $(BOTO)/cognito-sync
 
-MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON)
+MODELS ?= $(RESTS3)
 
 .PHONY: gen
 

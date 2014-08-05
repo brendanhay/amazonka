@@ -187,6 +187,9 @@ instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
 instance ToQuery () where
     toQuery () = mempty
 
+instance ToQuery Char where
+    toQuery = toQuery . BS.singleton
+
 instance ToQuery ByteString where
     toQuery "" = Value Nothing
     toQuery bs = Value (Just bs)

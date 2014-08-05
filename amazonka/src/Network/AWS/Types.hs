@@ -332,6 +332,7 @@ instance ToText       BucketName where toText (BucketName b) = b
 instance ToByteString BucketName
 instance FromXML      BucketName
 instance ToXML        BucketName
+instance ToQuery      BucketName where toQuery = toQuery . toBS
 
 newtype ObjectKey = ObjectKey Text
     deriving (Eq, Show, Generic, IsString)
@@ -341,6 +342,7 @@ instance ToText       ObjectKey where toText (ObjectKey k) = k
 instance ToByteString ObjectKey
 instance FromXML      ObjectKey
 instance ToXML        ObjectKey
+instance ToQuery      ObjectKey where toQuery = toQuery . toBS
 
 newtype ObjectVersionId = ObjectVersionId Text
     deriving (Eq, Show, Generic, IsString)
@@ -350,6 +352,7 @@ instance ToText       ObjectVersionId where toText (ObjectVersionId v) = v
 instance ToByteString ObjectVersionId
 instance FromXML      ObjectVersionId
 instance ToXML        ObjectVersionId
+instance ToQuery      ObjectVersionId where toQuery = toQuery . toBS
 
 newtype ETag = ETag Text
     deriving (Eq, Show, Generic, IsString)
@@ -359,6 +362,7 @@ instance ToText       ETag where toText (ETag t) = t
 instance ToByteString ETag
 instance FromXML      ETag
 instance ToXML        ETag
+instance ToQuery      ETag where toQuery = toQuery . toBS
 
 data Switch a = Enabled | Disabled
     deriving (Eq, Show, Generic)

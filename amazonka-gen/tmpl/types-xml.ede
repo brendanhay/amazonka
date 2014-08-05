@@ -125,6 +125,9 @@ instance ToText {{ data.value.name }} where
 instance ToByteString {{ data.value.name }}
     {% include "_include/xml-from.ede" with data.value %}
     {% include "_include/xml-to.ede" with data.value %}
+
+instance ToQuery {{ data.value.name }} where
+      toQuery = toQuery . toBS
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
     {% include "_include/record.ede" with data.value.fields %}

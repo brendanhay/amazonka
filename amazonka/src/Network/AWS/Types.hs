@@ -103,7 +103,7 @@ class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
     type Sg a :: *
     data Er a :: *
 
-    service :: Service a
+    service :: Service' a
 
 deriving instance Typeable Er
 
@@ -138,7 +138,7 @@ instance ToText (Signed a v) where
 
 class AWSSigner v where
     signed :: v ~ Sg (Sv a)
-           => Service (Sv a)
+           => Service' (Sv a)
            -> AuthEnv
            -> Region
            -> Request a
@@ -148,7 +148,7 @@ class AWSSigner v where
 
 class AWSPresigner v where
     presigned :: v ~ Sg (Sv a)
-              => Service (Sv a)
+              => Service' (Sv a)
               -> AuthEnv
               -> Region
               -> Request a
@@ -209,16 +209,16 @@ debug l =
         None    -> const (return ())
         Debug f -> liftBase . f
 
-data Endpoint
+data Endpoint'
     = Global
     | Regional
     | Custom ByteString
 
-instance IsString Endpoint where
+instance IsString Endpoint' where
     fromString = Custom . fromString
 
-data Service a = Service'
-    { _svcEndpoint :: !Endpoint
+data Service' a = Service'
+    { _svcEndpoint :: !Endpoint'
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcTarget   :: Maybe ByteString
@@ -230,7 +230,7 @@ newtype Host = Host ByteString
 instance ToByteString Host where
     toBS (Host h) = h
 
-endpoint :: Service a -> Region -> Host
+endpoint :: Service' a -> Region -> Host
 endpoint Service'{..} reg =
     let suf = ".amazonaws.com"
      in Host $ case _svcEndpoint of

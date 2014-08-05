@@ -39,6 +39,7 @@ module Network.AWS.Prelude
     , AWSPager        (..)
 
     -- * Shared
+    , Service'        (..)
     , Action          (..)
     , BucketName      (..)
     , ObjectKey       (..)
@@ -46,17 +47,7 @@ module Network.AWS.Prelude
     , ETag            (..)
     , Switch          (..)
     , RecordType      (..)
-
-    -- ** Constructors only
-    , pattern Global
-    , pattern Regional
-    , pattern Custom
-    , pattern Service'
-
-    , _svcEndpoint
-    , _svcPrefix
-    , _svcVersion
-    , _svcTarget
+    , Endpoint'       (..)
     ) where
 
 import Control.Applicative  as Export

@@ -15,7 +15,6 @@ module Network.AWS.Response
     -- * Responses
       headerResponse
     , cursorResponse
-    , jsonResponse
     , xmlResponse
     , bodyResponse
 
@@ -50,6 +49,7 @@ choice f g x = f x <|> g x
 -- FIXME: Keyed and choice into pagination module
 -- FIXME: the return (Right Nullary) data ctor pattern doesn't correctly
 -- check for status code errors
+-- FIXME: Implement json responses
 
 headerResponse :: (Monad m, AWSServiceError e)
                => (ResponseHeaders -> Either String a)
@@ -70,8 +70,6 @@ cursorResponse f = receive $ \hs bdy -> do
                 Left  s -> return . Left $ serviceError s
                 Right x -> return (Right x)
 
--- FIXME: Implement json responses
-jsonResponse = undefined
 
 xmlResponse :: (Monad m, AWSServiceError e, FromXML a)
             => Either HttpException (ClientResponse m)

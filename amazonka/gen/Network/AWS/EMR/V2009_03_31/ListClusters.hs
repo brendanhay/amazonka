@@ -78,7 +78,7 @@ instance AWSRequest ListClusters where
     type Rs ListClusters = ListClustersResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListClusters where
     next rq rs = (\x -> rq { _lciMarker = Just x })

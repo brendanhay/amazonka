@@ -85,4 +85,4 @@ instance AWSRequest ReadPreset where
     type Rs ReadPreset = ReadPresetResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

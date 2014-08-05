@@ -121,7 +121,7 @@ instance AWSRequest ListDomains where
     type Rs ListDomains = ListDomainsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListDomains where
     next rq rs = (\x -> rq { _ldiNextPageToken = Just x })

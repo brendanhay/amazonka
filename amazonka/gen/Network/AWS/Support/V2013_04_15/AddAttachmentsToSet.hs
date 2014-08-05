@@ -80,4 +80,4 @@ instance AWSRequest AddAttachmentsToSet where
     type Rs AddAttachmentsToSet = AddAttachmentsToSetResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

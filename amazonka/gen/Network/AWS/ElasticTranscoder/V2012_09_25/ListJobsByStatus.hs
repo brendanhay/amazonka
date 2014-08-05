@@ -130,7 +130,7 @@ instance AWSRequest ListJobsByStatus where
     type Rs ListJobsByStatus = ListJobsByStatusResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListJobsByStatus where
     next rq rs = (\x -> rq { _ljbsrPageToken = Just x })

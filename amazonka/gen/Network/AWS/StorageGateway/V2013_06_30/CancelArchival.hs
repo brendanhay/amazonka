@@ -54,4 +54,4 @@ instance AWSRequest CancelArchival where
     type Rs CancelArchival = CancelArchivalResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

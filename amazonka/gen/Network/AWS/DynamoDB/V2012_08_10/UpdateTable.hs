@@ -99,4 +99,4 @@ instance AWSRequest UpdateTable where
     type Rs UpdateTable = UpdateTableResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

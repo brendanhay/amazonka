@@ -131,4 +131,4 @@ instance AWSRequest PutRecord where
     type Rs PutRecord = PutRecordResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

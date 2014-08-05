@@ -62,4 +62,4 @@ instance AWSRequest DescribeUserProfiles where
     type Rs DescribeUserProfiles = DescribeUserProfilesResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

@@ -103,4 +103,4 @@ instance AWSRequest CreateTrail where
     type Rs CreateTrail = CreateTrailResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

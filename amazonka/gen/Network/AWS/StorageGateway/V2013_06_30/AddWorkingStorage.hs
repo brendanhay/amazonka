@@ -81,4 +81,4 @@ instance AWSRequest AddWorkingStorage where
     type Rs AddWorkingStorage = AddWorkingStorageResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

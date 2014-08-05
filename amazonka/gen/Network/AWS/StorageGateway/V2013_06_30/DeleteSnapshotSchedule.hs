@@ -71,4 +71,4 @@ instance AWSRequest DeleteSnapshotSchedule where
     type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

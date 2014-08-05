@@ -111,4 +111,4 @@ instance AWSRequest RecordActivityTaskHeartbeat where
     type Rs RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeatResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

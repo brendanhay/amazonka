@@ -93,4 +93,4 @@ instance AWSRequest CreatePipeline where
     type Rs CreatePipeline = CreatePipelineResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

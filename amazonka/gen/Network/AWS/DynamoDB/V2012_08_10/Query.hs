@@ -281,7 +281,7 @@ instance AWSRequest Query where
     type Rs Query = QueryResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager Query where
     next rq rs

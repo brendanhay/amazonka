@@ -74,4 +74,4 @@ instance AWSRequest DeleteBandwidthRateLimit where
     type Rs DeleteBandwidthRateLimit = DeleteBandwidthRateLimitResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

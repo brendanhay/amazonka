@@ -81,4 +81,4 @@ instance AWSRequest AddCommunicationToCase where
     type Rs AddCommunicationToCase = AddCommunicationToCaseResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

@@ -97,7 +97,7 @@ instance AWSRequest ListPresets where
     type Rs ListPresets = ListPresetsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListPresets where
     next rq rs = (\x -> rq { _lptPageToken = Just x })

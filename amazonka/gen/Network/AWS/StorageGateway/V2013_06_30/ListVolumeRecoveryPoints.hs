@@ -82,4 +82,4 @@ instance AWSRequest ListVolumeRecoveryPoints where
     type Rs ListVolumeRecoveryPoints = ListVolumeRecoveryPointsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

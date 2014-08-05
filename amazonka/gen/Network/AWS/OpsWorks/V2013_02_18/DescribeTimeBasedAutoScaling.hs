@@ -59,4 +59,4 @@ instance AWSRequest DescribeTimeBasedAutoScaling where
     type Rs DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScalingResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

@@ -83,4 +83,4 @@ instance AWSRequest DescribeCache where
     type Rs DescribeCache = DescribeCacheResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

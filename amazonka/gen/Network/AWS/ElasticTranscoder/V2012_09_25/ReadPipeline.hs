@@ -75,4 +75,4 @@ instance AWSRequest ReadPipeline where
     type Rs ReadPipeline = ReadPipelineResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

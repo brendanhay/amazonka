@@ -66,4 +66,4 @@ instance AWSRequest DescribeSeverityLevels where
     type Rs DescribeSeverityLevels = DescribeSeverityLevelsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

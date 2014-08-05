@@ -83,4 +83,4 @@ instance AWSRequest DeleteConnection where
     type Rs DeleteConnection = DeleteConnectionResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

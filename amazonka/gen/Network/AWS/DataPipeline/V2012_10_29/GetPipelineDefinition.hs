@@ -85,4 +85,4 @@ instance AWSRequest GetPipelineDefinition where
     type Rs GetPipelineDefinition = GetPipelineDefinitionResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

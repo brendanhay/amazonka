@@ -111,7 +111,7 @@ instance AWSRequest DescribeStream where
     type Rs DescribeStream = DescribeStreamResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager DescribeStream where
     next rq rs

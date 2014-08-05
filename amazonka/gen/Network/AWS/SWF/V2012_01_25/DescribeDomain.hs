@@ -81,4 +81,4 @@ instance AWSRequest DescribeDomain where
     type Rs DescribeDomain = DescribeDomainResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

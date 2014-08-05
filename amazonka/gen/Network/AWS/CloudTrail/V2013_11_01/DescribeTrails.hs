@@ -59,4 +59,4 @@ instance AWSRequest DescribeTrails where
     type Rs DescribeTrails = DescribeTrailsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

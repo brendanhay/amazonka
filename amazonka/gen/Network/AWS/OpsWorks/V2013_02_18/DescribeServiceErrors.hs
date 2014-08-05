@@ -75,4 +75,4 @@ instance AWSRequest DescribeServiceErrors where
     type Rs DescribeServiceErrors = DescribeServiceErrorsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

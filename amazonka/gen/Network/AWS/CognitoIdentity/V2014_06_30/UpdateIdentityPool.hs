@@ -68,4 +68,4 @@ instance AWSRequest UpdateIdentityPool where
     type Rs UpdateIdentityPool = UpdateIdentityPoolResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

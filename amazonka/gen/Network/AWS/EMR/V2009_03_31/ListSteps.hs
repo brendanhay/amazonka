@@ -70,7 +70,7 @@ instance AWSRequest ListSteps where
     type Rs ListSteps = ListStepsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListSteps where
     next rq rs = (\x -> rq { _lsiMarker = Just x })

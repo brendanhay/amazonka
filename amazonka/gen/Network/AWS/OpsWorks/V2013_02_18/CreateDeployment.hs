@@ -91,4 +91,4 @@ instance AWSRequest CreateDeployment where
     type Rs CreateDeployment = CreateDeploymentResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

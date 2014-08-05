@@ -62,4 +62,4 @@ instance AWSRequest GetId where
     type Rs GetId = GetIdResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

@@ -74,4 +74,4 @@ instance AWSRequest ConfirmPublicVirtualInterface where
     type Rs ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterfaceResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

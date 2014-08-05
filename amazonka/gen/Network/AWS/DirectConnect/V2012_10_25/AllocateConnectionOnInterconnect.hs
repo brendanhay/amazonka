@@ -94,4 +94,4 @@ instance AWSRequest AllocateConnectionOnInterconnect where
     type Rs AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnectResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

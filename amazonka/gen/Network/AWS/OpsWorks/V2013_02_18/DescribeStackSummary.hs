@@ -58,4 +58,4 @@ instance AWSRequest DescribeStackSummary where
     type Rs DescribeStackSummary = DescribeStackSummaryResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

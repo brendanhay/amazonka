@@ -96,4 +96,4 @@ instance AWSRequest UpdateSnapshotSchedule where
     type Rs UpdateSnapshotSchedule = UpdateSnapshotScheduleResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

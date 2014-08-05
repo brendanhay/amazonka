@@ -118,4 +118,4 @@ instance AWSRequest CountOpenWorkflowExecutions where
     type Rs CountOpenWorkflowExecutions = CountOpenWorkflowExecutionsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

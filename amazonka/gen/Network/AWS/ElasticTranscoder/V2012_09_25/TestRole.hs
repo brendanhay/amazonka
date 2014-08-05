@@ -98,4 +98,4 @@ instance AWSRequest TestRole where
     type Rs TestRole = TestRoleResponse
 
     request = post
-    response _ = jsonResponse
+    response _ = undefined

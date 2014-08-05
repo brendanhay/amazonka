@@ -81,4 +81,4 @@ instance AWSRequest UpdateGatewaySoftwareNow where
     type Rs UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNowResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

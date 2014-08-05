@@ -91,4 +91,4 @@ instance AWSRequest DescribeWorkingStorage where
     type Rs DescribeWorkingStorage = DescribeWorkingStorageResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

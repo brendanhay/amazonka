@@ -69,4 +69,4 @@ instance AWSRequest RegisterVolume where
     type Rs RegisterVolume = RegisterVolumeResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

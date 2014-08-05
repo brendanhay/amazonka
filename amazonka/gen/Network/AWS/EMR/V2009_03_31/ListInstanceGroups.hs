@@ -68,7 +68,7 @@ instance AWSRequest ListInstanceGroups where
     type Rs ListInstanceGroups = ListInstanceGroupsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListInstanceGroups where
     next rq rs = (\x -> rq { _ligiMarker = Just x })

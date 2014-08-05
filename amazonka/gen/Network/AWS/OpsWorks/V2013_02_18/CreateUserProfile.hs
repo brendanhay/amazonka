@@ -77,4 +77,4 @@ instance AWSRequest CreateUserProfile where
     type Rs CreateUserProfile = CreateUserProfileResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

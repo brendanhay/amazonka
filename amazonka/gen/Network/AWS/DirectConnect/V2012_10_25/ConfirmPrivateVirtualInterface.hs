@@ -80,4 +80,4 @@ instance AWSRequest ConfirmPrivateVirtualInterface where
     type Rs ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterfaceResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

@@ -52,4 +52,4 @@ instance AWSRequest DescribeLocations where
     type Rs DescribeLocations = DescribeLocationsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

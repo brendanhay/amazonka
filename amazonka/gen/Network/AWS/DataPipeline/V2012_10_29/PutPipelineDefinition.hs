@@ -113,4 +113,4 @@ instance AWSRequest PutPipelineDefinition where
     type Rs PutPipelineDefinition = PutPipelineDefinitionResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

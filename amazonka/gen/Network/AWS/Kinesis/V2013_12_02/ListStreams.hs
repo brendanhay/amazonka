@@ -88,7 +88,7 @@ instance AWSRequest ListStreams where
     type Rs ListStreams = ListStreamsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListStreams where
     next rq rs

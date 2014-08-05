@@ -104,4 +104,4 @@ instance AWSRequest UpdateTrail where
     type Rs UpdateTrail = UpdateTrailResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

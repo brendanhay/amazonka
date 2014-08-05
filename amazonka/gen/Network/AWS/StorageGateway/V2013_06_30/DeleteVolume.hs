@@ -78,4 +78,4 @@ instance AWSRequest DeleteVolume where
     type Rs DeleteVolume = DeleteVolumeResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

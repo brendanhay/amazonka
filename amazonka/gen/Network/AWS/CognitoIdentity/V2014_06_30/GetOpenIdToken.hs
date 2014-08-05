@@ -60,4 +60,4 @@ instance AWSRequest GetOpenIdToken where
     type Rs GetOpenIdToken = GetOpenIdTokenResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

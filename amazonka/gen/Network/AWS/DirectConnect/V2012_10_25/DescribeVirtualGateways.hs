@@ -55,4 +55,4 @@ instance AWSRequest DescribeVirtualGateways where
     type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

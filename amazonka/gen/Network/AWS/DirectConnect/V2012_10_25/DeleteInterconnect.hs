@@ -59,4 +59,4 @@ instance AWSRequest DeleteInterconnect where
     type Rs DeleteInterconnect = DeleteInterconnectResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

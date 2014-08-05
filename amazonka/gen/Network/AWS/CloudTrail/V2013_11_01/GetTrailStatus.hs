@@ -110,4 +110,4 @@ instance AWSRequest GetTrailStatus where
     type Rs GetTrailStatus = GetTrailStatusResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

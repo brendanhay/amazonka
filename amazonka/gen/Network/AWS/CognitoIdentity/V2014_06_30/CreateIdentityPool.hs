@@ -65,4 +65,4 @@ instance AWSRequest CreateIdentityPool where
     type Rs CreateIdentityPool = CreateIdentityPoolResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

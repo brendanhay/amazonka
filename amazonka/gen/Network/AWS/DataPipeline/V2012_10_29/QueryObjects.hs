@@ -104,7 +104,7 @@ instance AWSRequest QueryObjects where
     type Rs QueryObjects = QueryObjectsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager QueryObjects where
     next rq rs

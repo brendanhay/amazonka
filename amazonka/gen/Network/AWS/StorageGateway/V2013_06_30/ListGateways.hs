@@ -85,7 +85,7 @@ instance AWSRequest ListGateways where
     type Rs ListGateways = ListGatewaysResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListGateways where
     next rq rs = (\x -> rq { _lgiMarker = Just x })

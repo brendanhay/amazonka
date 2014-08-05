@@ -63,4 +63,4 @@ instance AWSRequest AddUploadBuffer where
     type Rs AddUploadBuffer = AddUploadBufferResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

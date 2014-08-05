@@ -79,4 +79,4 @@ instance AWSRequest DescribeVolumes where
     type Rs DescribeVolumes = DescribeVolumesResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

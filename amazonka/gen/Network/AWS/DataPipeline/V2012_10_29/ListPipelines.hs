@@ -83,7 +83,7 @@ instance AWSRequest ListPipelines where
     type Rs ListPipelines = ListPipelinesResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListPipelines where
     next rq rs

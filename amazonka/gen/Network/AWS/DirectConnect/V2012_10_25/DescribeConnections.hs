@@ -60,4 +60,4 @@ instance AWSRequest DescribeConnections where
     type Rs DescribeConnections = DescribeConnectionsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

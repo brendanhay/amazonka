@@ -78,4 +78,4 @@ instance AWSRequest DescribeCachediSCSIVolumes where
     type Rs DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumesResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

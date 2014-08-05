@@ -65,4 +65,4 @@ instance AWSRequest DescribeRdsDbInstances where
     type Rs DescribeRdsDbInstances = DescribeRdsDbInstancesResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

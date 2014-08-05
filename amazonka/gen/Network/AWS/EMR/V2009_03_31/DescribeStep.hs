@@ -55,4 +55,4 @@ instance AWSRequest DescribeStep where
     type Rs DescribeStep = DescribeStepResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

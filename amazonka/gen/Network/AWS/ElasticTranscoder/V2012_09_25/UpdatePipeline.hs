@@ -182,4 +182,4 @@ instance AWSRequest UpdatePipeline where
     type Rs UpdatePipeline = UpdatePipelineResponse
 
     request = put
-    response _ = jsonResponse
+    response _ = undefined

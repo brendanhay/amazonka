@@ -101,4 +101,4 @@ instance AWSRequest CreateApp where
     type Rs CreateApp = CreateAppResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

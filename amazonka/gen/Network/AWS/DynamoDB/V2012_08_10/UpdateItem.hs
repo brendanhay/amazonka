@@ -215,4 +215,4 @@ instance AWSRequest UpdateItem where
     type Rs UpdateItem = UpdateItemResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

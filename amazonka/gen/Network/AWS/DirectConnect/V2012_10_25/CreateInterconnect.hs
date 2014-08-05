@@ -88,4 +88,4 @@ instance AWSRequest CreateInterconnect where
     type Rs CreateInterconnect = CreateInterconnectResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

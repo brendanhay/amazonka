@@ -146,7 +146,7 @@ instance AWSRequest ListOpenWorkflowExecutions where
     type Rs ListOpenWorkflowExecutions = ListOpenWorkflowExecutionsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListOpenWorkflowExecutions where
     next rq rs = (\x -> rq { _loweiNextPageToken = Just x })

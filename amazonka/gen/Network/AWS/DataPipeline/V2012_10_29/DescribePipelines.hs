@@ -78,4 +78,4 @@ instance AWSRequest DescribePipelines where
     type Rs DescribePipelines = DescribePipelinesResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

@@ -65,4 +65,4 @@ instance AWSRequest ResolveCase where
     type Rs ResolveCase = ResolveCaseResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

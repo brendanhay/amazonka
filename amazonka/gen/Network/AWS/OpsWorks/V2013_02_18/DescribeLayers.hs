@@ -68,4 +68,4 @@ instance AWSRequest DescribeLayers where
     type Rs DescribeLayers = DescribeLayersResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

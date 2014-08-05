@@ -77,4 +77,4 @@ instance AWSRequest DescribeElasticIps where
     type Rs DescribeElasticIps = DescribeElasticIpsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

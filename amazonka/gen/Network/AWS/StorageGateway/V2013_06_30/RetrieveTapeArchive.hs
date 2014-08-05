@@ -54,4 +54,4 @@ instance AWSRequest RetrieveTapeArchive where
     type Rs RetrieveTapeArchive = RetrieveTapeArchiveResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

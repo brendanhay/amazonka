@@ -82,4 +82,4 @@ instance AWSRequest DescribeChapCredentials where
     type Rs DescribeChapCredentials = DescribeChapCredentialsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

@@ -92,4 +92,4 @@ instance AWSRequest DescribeGatewayInformation where
     type Rs DescribeGatewayInformation = DescribeGatewayInformationResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

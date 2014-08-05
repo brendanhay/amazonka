@@ -125,4 +125,4 @@ instance AWSRequest CreateCase where
     type Rs CreateCase = CreateCaseResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

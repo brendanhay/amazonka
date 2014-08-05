@@ -67,7 +67,7 @@ instance AWSRequest ListBootstrapActions where
     type Rs ListBootstrapActions = ListBootstrapActionsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager ListBootstrapActions where
     next rq rs = (\x -> rq { _lbaiMarker = Just x })

@@ -91,4 +91,4 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
     type Rs ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeatResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

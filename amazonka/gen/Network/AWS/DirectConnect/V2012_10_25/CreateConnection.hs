@@ -93,4 +93,4 @@ instance AWSRequest CreateConnection where
     type Rs CreateConnection = CreateConnectionResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

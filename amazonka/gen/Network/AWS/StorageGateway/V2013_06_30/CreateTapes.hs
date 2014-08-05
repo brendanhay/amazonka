@@ -57,4 +57,4 @@ instance AWSRequest CreateTapes where
     type Rs CreateTapes = CreateTapesResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

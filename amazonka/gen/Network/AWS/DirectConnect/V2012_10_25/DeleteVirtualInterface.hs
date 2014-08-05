@@ -72,4 +72,4 @@ instance AWSRequest DeleteVirtualInterface where
     type Rs DeleteVirtualInterface = DeleteVirtualInterfaceResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

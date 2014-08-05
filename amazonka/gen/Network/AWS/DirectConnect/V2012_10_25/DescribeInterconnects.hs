@@ -61,4 +61,4 @@ instance AWSRequest DescribeInterconnects where
     type Rs DescribeInterconnects = DescribeInterconnectsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

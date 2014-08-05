@@ -87,7 +87,7 @@ instance AWSRequest DescribeCommunications where
     type Rs DescribeCommunications = DescribeCommunicationsResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined
 
 instance AWSPager DescribeCommunications where
     next rq rs = (\x -> rq { _dctNextToken = Just x })

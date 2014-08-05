@@ -177,4 +177,4 @@ instance AWSRequest RunJobFlow where
     type Rs RunJobFlow = RunJobFlowResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

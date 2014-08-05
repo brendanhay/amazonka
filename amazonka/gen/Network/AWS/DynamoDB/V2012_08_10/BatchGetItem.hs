@@ -132,4 +132,4 @@ instance AWSRequest BatchGetItem where
     type Rs BatchGetItem = BatchGetItemResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

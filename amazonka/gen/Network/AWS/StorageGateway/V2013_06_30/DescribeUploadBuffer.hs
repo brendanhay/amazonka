@@ -81,4 +81,4 @@ instance AWSRequest DescribeUploadBuffer where
     type Rs DescribeUploadBuffer = DescribeUploadBufferResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

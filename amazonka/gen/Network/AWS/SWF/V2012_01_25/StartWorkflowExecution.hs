@@ -190,4 +190,4 @@ instance AWSRequest StartWorkflowExecution where
     type Rs StartWorkflowExecution = StartWorkflowExecutionResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

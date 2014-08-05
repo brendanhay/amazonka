@@ -61,4 +61,4 @@ instance AWSRequest RegisterElasticIp where
     type Rs RegisterElasticIp = RegisterElasticIpResponse
 
     request = get
-    response _ = jsonResponse
+    response _ = undefined

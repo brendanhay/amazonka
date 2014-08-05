@@ -27,7 +27,7 @@ import           Control.Applicative
 import           Control.Exception         (Exception)
 import           Control.Lens              hiding (Action)
 import           Control.Monad.Base
-import           Data.Aeson
+import           Data.Aeson                hiding (Error)
 import qualified Data.Attoparsec.Text      as AText
 import           Data.ByteString           (ByteString)
 import           Data.Char
@@ -58,19 +58,19 @@ clientRequest = def
     , Client.checkStatus = \_ _ _ -> Nothing
     }
 
-data Err
-    = ServiceErr    String
-    | ClientErr     HttpException
-    | SerializerErr String
-    | Nested        [Err]
+data Error
+    = ServiceError    String
+    | ClientError     HttpException
+    | SerializerError String
+    | Nested          [Error]
       deriving (Show, Typeable)
 
-instance Exception Err
+instance Exception Error
 
-instance IsString Err where
-    fromString = ServiceErr
+instance IsString Error where
+    fromString = ServiceError
 
-instance Monoid Err where
+instance Monoid Error where
     mempty      = Nested []
     mappend a b = Nested (f a <> f b)
       where
@@ -78,28 +78,28 @@ instance Monoid Err where
         f x           = [x]
 
 class AWSError a where
-    awsError :: a -> Err
+    awsError :: a -> Error
 
-instance AWSError Err where
+instance AWSError Error where
     awsError = id
 
 instance AWSError String where
-    awsError = ServiceErr
+    awsError = ServiceError
 
 instance AWSError HttpException where
-    awsError = ClientErr
+    awsError = ClientError
 
-class ServiceError a where
+class AWSError a => AWSServiceError a where
     serviceError    :: String        -> a
     clientError     :: HttpException -> a
     serializerError :: String        -> a
 
-instance ServiceError Err where
-    serviceError    = ServiceErr
-    clientError     = ClientErr
-    serializerError = SerializerErr
+instance AWSServiceError Error where
+    serviceError    = ServiceError
+    clientError     = ClientError
+    serializerError = SerializerError
 
-class AWSService a where
+class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
     type Sg a :: *
     data Er a :: *
 
@@ -107,11 +107,7 @@ class AWSService a where
 
 deriving instance Typeable Er
 
-class ( AWSService   (Sv a)
-      , AWSSigner    (Sg (Sv a))
-      , AWSError     (Er (Sv a))
-      , ServiceError (Er (Sv a))
-      ) => AWSRequest a where
+class (AWSService (Sv a), AWSSigner  (Sg (Sv a))) => AWSRequest a where
     type Sv a :: *
     type Rs a :: *
 
@@ -413,7 +409,7 @@ instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
 -- Sums
-makePrisms ''Err
+makePrisms ''Error
 
 -- Products
 makeLenses ''Request

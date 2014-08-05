@@ -15,10 +15,7 @@
 
 module Network.AWS.Signing.Common where
 
-import           Control.Applicative
-import           Control.Lens
 import           Control.Monad.Base
-import           Control.Monad.IO.Class
 import qualified Crypto.Hash.SHA256     as SHA256
 import qualified Crypto.MAC.HMAC        as HMAC
 import           Data.ByteString        (ByteString)

@@ -51,13 +51,13 @@ choice f g x = f x <|> g x
 -- FIXME: the return (Right Nullary) data ctor pattern doesn't correctly
 -- check for status code errors
 
-headerResponse :: (Monad m, ServiceError e)
+headerResponse :: (Monad m, AWSServiceError e)
                => (ResponseHeaders -> Either String a)
                -> Either HttpException (ClientResponse m)
                -> m (Either e a)
 headerResponse f = receive (const . return . first serializerError . f)
 
-cursorResponse :: (Monad m, ServiceError e)
+cursorResponse :: (Monad m, AWSServiceError e)
                => (ResponseHeaders -> Cursor -> Either String a)
                -> Either HttpException (ClientResponse m)
                -> m (Either e a)
@@ -73,18 +73,18 @@ cursorResponse f = receive $ \hs bdy -> do
 -- FIXME: Implement json responses
 jsonResponse = undefined
 
-xmlResponse :: (Monad m, ServiceError e, FromXML a)
+xmlResponse :: (Monad m, AWSServiceError e, FromXML a)
             => Either HttpException (ClientResponse m)
             -> m (Either e a)
 xmlResponse = receive (const (liftM (first serializerError . decodeXML) . consume))
 
-bodyResponse :: (Monad m, ServiceError e)
+bodyResponse :: (Monad m, AWSServiceError e)
              => (ResponseHeaders -> m ByteString -> m (Either String b))
              -> Either HttpException (Response (m ByteString))
              -> m (Either e b)
 bodyResponse f = receive (\hs bdy -> liftM (first serializerError) (f hs bdy))
 
-receive :: (Monad m, ServiceError e)
+receive :: (Monad m, AWSServiceError e)
         => (ResponseHeaders -> m ByteString -> m (Either e b))
         -> Either HttpException (Response (m ByteString))
         -> m (Either e b)

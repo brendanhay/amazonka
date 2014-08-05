@@ -12,6 +12,7 @@
 {% endif %}
 module {{ types_namespace }} where
 
+import Control.Lens.TH (makeIso, makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ signature }}
 
@@ -80,3 +81,4 @@ data {{ data.value.name }} = {{ data.value.name }}
 
   {% endif %}
 {% endfor %}
+{% include "_include/lens-types.ede" %}

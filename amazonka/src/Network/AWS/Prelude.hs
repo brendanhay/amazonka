@@ -31,7 +31,7 @@ module Network.AWS.Prelude
 
     -- * Classes
     , AWSError        (..)
-    , ServiceError    (..)
+    , AWSServiceError (..)
     , AWSService      (..)
     , AWSRequest      (..)
     , AWSPager        (..)

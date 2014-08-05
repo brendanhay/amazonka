@@ -24,7 +24,7 @@ deriving instance Generic (Er {{ scope.name }})
 instance AWSError (Er {{ scope.name }}) where
     awsError = const "{{ scope.error.name }}"
 
-instance ServiceError (Er {{ scope.name }}) where
+instance AWSServiceError (Er {{ scope.name }}) where
     serviceError    = {{ scope.name }}Service
     clientError     = {{ scope.name }}Client
     serializerError = {{ scope.name }}Serializer

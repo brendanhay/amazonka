@@ -71,7 +71,7 @@ import           Network.AWS.Types
 
 type AWS = AWST IO
 
-newtype AWST m a = AWST { unAWST :: ReaderT Env (ExceptT Error m) a }
+newtype AWST m a = AWST { unAWST :: ReaderT Env (ExceptT Err m) a }
     deriving
         ( Functor
         , Applicative
@@ -83,7 +83,7 @@ newtype AWST m a = AWST { unAWST :: ReaderT Env (ExceptT Error m) a }
         , MonadThrow
         , MonadCatch
         , MonadReader Env
-        , MonadError Error
+        , MonadError  Err
         )
 
 instance MonadTrans AWST where
@@ -96,7 +96,7 @@ instance MonadBase b m => MonadBase b (AWST m) where
 
 instance MonadTransControl AWST where
     newtype StT AWST a = StAWSTT
-        { unStAWSTT :: StT (ExceptT Error) (StT (ReaderT Env) a)
+        { unStAWSTT :: StT (ExceptT Err) (StT (ReaderT Env) a)
         }
 
     liftWith = \f -> AWST $
@@ -126,11 +126,11 @@ instance MMonad AWST where
     embed f m = ask >>= f . runAWST m >>= either throwError return
     {-# INLINE embed #-}
 
-runAWST :: AWST m a -> Env -> m (Either Error a)
+runAWST :: AWST m a -> Env -> m (Either Err a)
 runAWST (AWST k) = runExceptT . runReaderT k
 
 -- | Hoist an 'Either' throwing the 'Left' case, and returning the 'Right'.
-hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
+hoistEither :: (MonadError Err m, AWSError e) => Either e a -> m a
 hoistEither = either (throwError . awsError) return
 
 -- | Pass the current environment to a function.
@@ -143,7 +143,7 @@ within r = local (envRegion .~ r)
 
 send :: ( MonadBaseControl IO m
         , MonadReader Env m
-        , MonadError Error m
+        , MonadError Err m
         , AWSRequest a
         )
      => a
@@ -157,7 +157,7 @@ sendCatch rq = scoped $ \e -> AWS.send e rq
 
 with :: ( MonadBaseControl IO m
         , MonadReader Env m
-        , MonadError Error m
+        , MonadError Err m
         , AWSRequest a
         )
      => a
@@ -173,7 +173,7 @@ withCatch rq f = scoped $ \e -> AWS.with e rq f
 
 paginate :: ( MonadBaseControl IO m
             , MonadReader Env m
-            , MonadError Error m
+            , MonadError Err m
             , AWSPager a
             )
          => a
@@ -187,11 +187,11 @@ paginateCatch rq = scoped $ \e -> AWS.paginate e rq
 
 async :: (MonadBaseControl IO m, MonadReader Env m)
       => AWST m a
-      -> m (Async (StM m (Either Error a)))
+      -> m (Async (StM m (Either Err a)))
 async m = ask >>= Async.async . runAWST m
 
-wait :: (MonadBaseControl IO m, MonadError Error m)
-     => Async (StM m (Either Error a))
+wait :: (MonadBaseControl IO m, MonadError Err m)
+     => Async (StM m (Either Err a))
      -> m a
 wait = hoistEither <=< Async.wait
 

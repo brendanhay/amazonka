@@ -37,6 +37,9 @@ import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: Remove all the disparate request type classes in favour of case analysis
+-- in templates
+
 -- FIXME: Request shapes should take preference in the case of equality/ord
 -- this ensures a minimum of overrides are needed for required fields.
 

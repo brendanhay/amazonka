@@ -53,27 +53,71 @@ library
         , Network.AWS.Signing.V4
         , Network.AWS.Types
 
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline.V2012_10_29
+        , Network.AWS.OpsWorks
+        , Network.AWS.OpsWorks.V2013_02_18
 
-        -- * DataPipeline V2012_10_29
-        , Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
-        , Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
-        , Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
-        , Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
-        , Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
-        , Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
-        , Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
-        , Network.AWS.DataPipeline.V2012_10_29.ListPipelines
-        , Network.AWS.DataPipeline.V2012_10_29.PollForTask
-        , Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
-        , Network.AWS.DataPipeline.V2012_10_29.QueryObjects
-        , Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
-        , Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
-        , Network.AWS.DataPipeline.V2012_10_29.SetStatus
-        , Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
-        , Network.AWS.DataPipeline.V2012_10_29.Types
-        , Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition
+        -- * OpsWorks V2013_02_18
+        , Network.AWS.OpsWorks.V2013_02_18.AssignVolume
+        , Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.AttachElasticLoadBalancer
+        , Network.AWS.OpsWorks.V2013_02_18.CloneStack
+        , Network.AWS.OpsWorks.V2013_02_18.CreateApp
+        , Network.AWS.OpsWorks.V2013_02_18.CreateDeployment
+        , Network.AWS.OpsWorks.V2013_02_18.CreateInstance
+        , Network.AWS.OpsWorks.V2013_02_18.CreateLayer
+        , Network.AWS.OpsWorks.V2013_02_18.CreateStack
+        , Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteApp
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteInstance
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteLayer
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteStack
+        , Network.AWS.OpsWorks.V2013_02_18.DeleteUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.DeregisterElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.DeregisterRdsDbInstance
+        , Network.AWS.OpsWorks.V2013_02_18.DeregisterVolume
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeApps
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeCommands
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeInstances
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeLayers
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.DescribePermissions
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeRdsDbInstances
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeStackSummary
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeStacks
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles
+        , Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes
+        , Network.AWS.OpsWorks.V2013_02_18.DetachElasticLoadBalancer
+        , Network.AWS.OpsWorks.V2013_02_18.DisassociateElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.GetHostnameSuggestion
+        , Network.AWS.OpsWorks.V2013_02_18.RebootInstance
+        , Network.AWS.OpsWorks.V2013_02_18.RegisterElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.RegisterRdsDbInstance
+        , Network.AWS.OpsWorks.V2013_02_18.RegisterVolume
+        , Network.AWS.OpsWorks.V2013_02_18.SetLoadBasedAutoScaling
+        , Network.AWS.OpsWorks.V2013_02_18.SetPermission
+        , Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling
+        , Network.AWS.OpsWorks.V2013_02_18.StartInstance
+        , Network.AWS.OpsWorks.V2013_02_18.StartStack
+        , Network.AWS.OpsWorks.V2013_02_18.StopInstance
+        , Network.AWS.OpsWorks.V2013_02_18.StopStack
+        , Network.AWS.OpsWorks.V2013_02_18.Types
+        , Network.AWS.OpsWorks.V2013_02_18.UnassignVolume
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateApp
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateInstance
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateLayer
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateMyUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateRdsDbInstance
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateStack
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateUserProfile
+        , Network.AWS.OpsWorks.V2013_02_18.UpdateVolume
 
     build-depends:
           aeson

@@ -27,7 +27,7 @@ import           Control.Applicative
 import           Control.Exception         (Exception)
 import           Control.Lens              hiding (Action)
 import           Control.Monad.Base
-import           Data.Aeson                hiding (Error)
+import           Data.Aeson
 import qualified Data.Attoparsec.Text      as AText
 import           Data.ByteString           (ByteString)
 import           Data.Char
@@ -58,19 +58,19 @@ clientRequest = def
     , Client.checkStatus = \_ _ _ -> Nothing
     }
 
-data Error
-    = ServiceError    String
-    | ClientError     HttpException
-    | SerializerError String
-    | Nested          [Error]
+data Err
+    = ServiceErr    String
+    | ClientErr     HttpException
+    | SerializerErr String
+    | Nested        [Err]
       deriving (Show, Typeable)
 
-instance Exception Error
+instance Exception Err
 
-instance IsString Error where
-    fromString = ServiceError
+instance IsString Err where
+    fromString = ServiceErr
 
-instance Monoid Error where
+instance Monoid Err where
     mempty      = Nested []
     mappend a b = Nested (f a <> f b)
       where
@@ -78,26 +78,26 @@ instance Monoid Error where
         f x           = [x]
 
 class AWSError a where
-    awsError :: a -> Error
+    awsError :: a -> Err
 
-instance AWSError Error where
+instance AWSError Err where
     awsError = id
 
 instance AWSError String where
-    awsError = ServiceError
+    awsError = ServiceErr
 
 instance AWSError HttpException where
-    awsError = ClientError
+    awsError = ClientErr
 
 class ServiceError a where
     serviceError    :: String        -> a
     clientError     :: HttpException -> a
     serializerError :: String        -> a
 
-instance ServiceError Error where
-    serviceError    = ServiceError
-    clientError     = ClientError
-    serializerError = SerializerError
+instance ServiceError Err where
+    serviceError    = ServiceErr
+    clientError     = ClientErr
+    serializerError = SerializerErr
 
 class AWSService a where
     type Sg a :: *
@@ -413,7 +413,7 @@ instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
 -- Sums
-makePrisms ''Error
+makePrisms ''Err
 
 -- Products
 makeLenses ''Request

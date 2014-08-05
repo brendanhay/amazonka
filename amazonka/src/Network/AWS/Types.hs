@@ -395,6 +395,9 @@ instance ToByteString RecordType
 instance FromXML      RecordType
 instance ToXML        RecordType
 
+instance ToQuery RecordType where
+    toQuery = toQuery . toBS
+
 -- FIXME: Add actual de/conversion from/to base64 values
 newtype Base64 = Base64 ByteString
     deriving (Eq, Show, Generic)

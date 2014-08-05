@@ -6,7 +6,7 @@
             <*> (hs `filterHeaders` "{{ field.value.location_name }}")
     {% else %}
       {% if field.value.required %}
-            <*> hs ~:  "{{ field.value.location_name }}"
+            <*> hs ~: "{{ field.value.location_name }}"
       {% else %}
           {% if field.value.monoid %}
             <*> hs ~:? "{{ field.value.location_name }}" ~:! mempty
@@ -18,9 +18,13 @@
   {% when "body" %}
     {% if scope.type == "xml_mix" %}
       {% if field.value.required %}
-            <*> xml %|  "{{ field.value.name }}"
+            <*> xml %| "{{ field.value.name }}"
       {% else %}
+        {% if field.value.monoid %}
+            <*> xml %| "{{ field.value.name }}"
+        {% else %}
             <*> xml %|? "{{ field.value.name }}"
+        {% endif %}
       {% endif %}
     {% else %}
             <*> pure (RsBody bdy)

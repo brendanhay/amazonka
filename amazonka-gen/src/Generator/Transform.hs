@@ -217,7 +217,7 @@ pagination svc o p = case p of
     labeled x (Keyed  y)   = Keyed  (applied x y)
     labeled x (Index  y z) = Index  (applied x y) (labeled (indexed x y) z)
     labeled x (Apply  y z) = Apply  (applied x y) (labeled y z)
-    labeled x (Choice y z) = Choice (applied x y) (labeled y z)
+    labeled x (Choice y z) = Choice (labeled x y) (labeled x z)
 
     indexed x y =
         let t = getType x

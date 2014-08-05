@@ -33,8 +33,8 @@ makeLenses ''{{ request.name }}
 {% include "_include/query.ede" with request %}
 
 {% include "_include/headers.ede" with request %}
-{% case type %}
-{% when "rest-s3" %}
+{% case service %}
+{% when "S3" %}
 
 {% include "_include/body-s3.ede" with request %}
 {% else %}

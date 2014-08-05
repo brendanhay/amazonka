@@ -41,10 +41,10 @@ JSON := \
  $(BOTO)/swf \
  $(BOTO)/cognito-identity
 
-# Behaving strangely, boto's models don't reflect the documentation
+# Omitted for the time being - boto's models don't reflect the documentation
 # $(BOTO)/cognito-sync
 
-MODELS ?= $(JSON)
+MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON)
 
 .PHONY: gen
 

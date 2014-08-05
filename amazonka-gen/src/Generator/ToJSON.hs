@@ -199,7 +199,7 @@ instance ToJSON Python where
             Keyed    k -> k
             Index  x y -> "keyed " <> go y <> " " <> x
             Apply  x y -> go y <> " $ " <> x
-            Choice x y -> "choice (" <> x <> ") (" <> go y <> ")"
+            Choice x y -> "choice (" <> go x <> ") (" <> go y <> ")"
 
 instance ToJSON Token where
     toJSON Token{..} = object

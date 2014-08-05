@@ -303,7 +303,7 @@ data Python
     | Keyed  Text
     | Index  Text Python
     | Apply  Text Python
-    | Choice Text Python
+    | Choice Python Python
       deriving (Eq, Show, Generic)
 
 -- _Keyed :: Prism' Python Text

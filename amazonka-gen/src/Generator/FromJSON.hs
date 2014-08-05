@@ -257,10 +257,10 @@ instance FromJSON Python where
             ++ Text.unpack t
             ++ ", with: "
 
-        python = choice <|> index <|> apply <|> keyed
+        python = index <|> apply <|> keyed <|> choice
 
         choice = Choice
-            <$> label
+            <$> python
              <* AText.string "||"
             <*> python
 

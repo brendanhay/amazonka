@@ -25,6 +25,9 @@ module Network.AWS
    , envManager
    , envLogging
 
+   -- ** Creating the environment
+   , newEnv
+
    -- * Synchronous requests
    -- ** Strict
    , send
@@ -41,17 +44,20 @@ module Network.AWS
    , close
    ) where
 
+import           Control.Applicative
 import           Control.Exception.Lifted
 import           Control.Lens                ((^.))
 import           Control.Lens.TH
 import           Control.Monad
 import           Control.Monad.Base
+import           Control.Monad.Except
 import           Control.Monad.Trans.Control
 import           Data.Bifunctor
 import           Data.ByteString             (ByteString)
 import           Data.Monoid
 import qualified Data.Text                   as Text
 import           Data.Time
+import           Network.AWS.Auth
 import           Network.AWS.Data
 import           Network.AWS.Signing.Common
 import           Network.AWS.Types
@@ -61,13 +67,18 @@ import           Network.HTTP.Client
 -- introducing extraneous/meaningless type classes
 
 data Env = Env
-    { _envAuth    :: Auth
-    , _envRegion  :: Region
-    , _envManager :: Manager
+    { _envRegion  :: Region
     , _envLogging :: Logging
+    , _envManager :: Manager
+    , _envAuth    :: Auth
     }
 
 makeLenses ''Env
+
+newEnv :: MonadBaseControl IO m => Region -> Credentials -> ExceptT Error m Env
+newEnv r c = Env r None
+    <$> liftBase (newManager defaultManagerSettings)
+    <*> getAuth
 
 send :: (MonadBaseControl IO m, AWSRequest a)
      => Env

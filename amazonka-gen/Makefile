@@ -5,7 +5,7 @@ BOTO     := vendor/botocore/botocore/data/aws
 GEN      := ../amazonka
 VERSIONS := 1
 
-RESTS3 := $(BOTO)/s3
+3RESTS3 := $(BOTO)/s3
 
 RESTXML := \
  $(BOTO)/cloudfront \
@@ -46,14 +46,14 @@ JSON := \
  $(BOTO)/cognito-identity
 
 # Omitted for the time being - boto's models don't reflect the documentation
+# and my understanding of the service is too limited.
 # $(BOTO)/cognito-sync
 
 MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 
-gen:
-	rm -rf $(GEN)/gen && make $(GEN)/gen
+gen: $(GEN)/gen
 
 $(GEN)/gen: build
 	dist/build/amazonka-gen/amazonka-gen \

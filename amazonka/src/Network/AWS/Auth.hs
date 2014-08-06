@@ -159,6 +159,7 @@ fromProfile' name = auth >>= runIO . start
             void . forkIO $ timer r t x
             return (Ref r)
 
+    -- FIXME: add note to documentation about compiling with -threaded
     timer r t x = do
         -- FIXME: guard against a lower expiration than the -60
         n <- truncate . diffUTCTime x <$> getCurrentTime

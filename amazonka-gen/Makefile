@@ -5,7 +5,7 @@ BOTO     := vendor/botocore/botocore/data/aws
 GEN      := ../amazonka
 VERSIONS := 1
 
-3RESTS3 := $(BOTO)/s3
+RESTS3 := $(BOTO)/s3
 
 RESTXML := \
  $(BOTO)/cloudfront \

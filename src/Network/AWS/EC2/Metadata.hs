@@ -1,5 +1,7 @@
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE FlexibleContexts   #-}
+{-# LANGUAGE OverloadedStrings  #-}
 
 -- Module      : Network.AWS.EC2.Metadata
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,9 +22,11 @@ import qualified Control.Exception    as EX
 import           Control.Monad.Error
 import           Data.ByteString      (ByteString)
 import qualified Data.ByteString.Lazy as LBS
+import           Data.Data
 import           Data.Monoid
-import qualified Data.Text            as Text
 import           Data.Text            (Text)
+import qualified Data.Text            as Text
+import           GHC.Generics
 import           Network.AWS.Internal.String
 import           Network.HTTP.Conduit
 import           Network.HTTP.Types   (status404)
@@ -43,6 +47,7 @@ data Dynamic
     -- ^ Used to verify the document's authenticity and content against the
     -- signature.
     | Signature
+      deriving (Eq, Ord, Show, Data, Typeable, Generic)
 
 instance ToPath Dynamic where
     toPath FWS       = "fws/instance-monitoring"
@@ -117,7 +122,7 @@ data Meta
     -- ^ ID of the reservation.
     | SecurityGroups
     -- ^ The names of the security groups applied to the instance.
-      deriving (Eq, Ord, Show)
+      deriving (Eq, Ord, Show, Data, Typeable, Generic)
 
 instance ToPath Meta where
     toPath AMIId            = "ami-id"
@@ -160,7 +165,7 @@ data Mapping
     -- is associated with the given instance.
     | Swap
     -- ^ The virtual devices associated with swap. Not always present.
-      deriving (Eq, Ord, Show)
+      deriving (Eq, Ord, Show, Data, Typeable, Generic)
 
 instance ToPath Mapping where
     toPath AMI           = "ami"
@@ -214,7 +219,7 @@ data Interface
     | IVPCIPV4_CIDRBlock
     -- ^ The CIDR block of the VPC in which the interface resides. Returned only
     -- for instances launched into a VPC.
-      deriving (Eq, Ord, Show)
+      deriving (Eq, Ord, Show, Data, Typeable, Generic)
 
 instance ToPath Interface where
     toPath IDeviceNumber          = "device-number"
@@ -242,7 +247,7 @@ data Info
     -- Returns the temporary security credentials.
     --
     -- See: 'Auth' for JSON deserialisation.
-      deriving (Eq, Ord, Show)
+      deriving (Eq, Ord, Show, Data, Typeable, Generic)
 
 instance ToPath Info where
     toPath Info                    = "info"

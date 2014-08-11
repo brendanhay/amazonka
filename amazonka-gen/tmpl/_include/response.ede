@@ -3,7 +3,7 @@
 {% else %}
   {% case scope.response.type %}
   {% when "json" %}
-    response _ = undefined
+    response _ = jsonResponse
   {% when "xml" %}
     response _ = xmlResponse
   {% when "headers" %}

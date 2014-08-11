@@ -20,12 +20,14 @@ module Network.AWS.Response
     , headerResponse
     , cursorResponse
     , xmlResponse
+    , jsonResponse
     , nullaryResponse
     , bodyResponse
     ) where
 
 import           Control.Applicative
 import           Control.Monad
+import           Data.Aeson
 import           Data.Bifunctor
 import           Data.ByteString      (ByteString)
 import qualified Data.ByteString      as BS
@@ -47,8 +49,6 @@ keyed g f = fmap (toText . g) . listToMaybe . reverse . f
 choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
 choice f g x = f x <|> g x
 
--- FIXME: the return (Right Nullary) data ctor pattern doesn't correctly
--- check for status code errors
 -- FIXME: Implement json responses
 
 headerResponse :: (Monad m, AWSServiceError e)
@@ -74,7 +74,14 @@ cursorResponse f = receive $ \hs bdy -> do
 xmlResponse :: (Monad m, AWSServiceError e, FromXML a)
             => Either HttpException (ClientResponse m)
             -> m (Either e a)
-xmlResponse = receive (const (liftM (first serializerError . decodeXML) . consume))
+xmlResponse = receive $
+    const (liftM (first serializerError . decodeXML) . consume)
+
+jsonResponse :: (Monad m, AWSServiceError e, FromJSON a)
+             => Either HttpException (ClientResponse m)
+             -> m (Either e a)
+jsonResponse = receive $
+    const (liftM (first serializerError . eitherDecode . LBS.fromStrict))
 
 bodyResponse :: (Monad m, AWSServiceError e)
              => (ResponseHeaders -> m ByteString -> m (Either String b))

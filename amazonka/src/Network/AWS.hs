@@ -78,7 +78,7 @@ makeLenses ''Env
 newEnv :: MonadBaseControl IO m => Region -> Credentials -> ExceptT Error m Env
 newEnv r c = Env r None
     <$> liftBase (newManager defaultManagerSettings)
-    <*> getAuth
+    <*> getAuth c
 
 send :: (MonadBaseControl IO m, AWSRequest a)
      => Env

@@ -96,7 +96,7 @@ instance Show Credentials where
     show = showBS
 
 -- | Retrieve authentication information from the environment or instance-data.
-getAuth :: MonadBase IO m => Credentials -> m Auth
+getAuth :: (Functor m, MonadBase IO m) => Credentials -> ExceptT Error m Auth
 getAuth c = case c of
     FromKeys a s      -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)
@@ -107,17 +107,21 @@ getAuth c = case c of
 -- | Retrieve access and secret keys from the default environment variables.
 --
 -- See: 'accessKey' and 'secretKey'
-fromEnv :: MonadBase IO m => ExceptT Error m Auth
+fromEnv :: (Functor m, MonadBase IO m) => ExceptT Error m Auth
 fromEnv = fromEnv' accessKey secretKey
 
 -- | Retrieve access and secret keys from specific environment variables.
-fromEnv' :: MonadBase IO m => ByteString -> ByteString -> ExceptT Error m Auth
+fromEnv' :: (Functor m, MonadBase IO m)
+         => ByteString
+         -> ByteString
+         -> ExceptT Error m Auth
 fromEnv' a s = fmap Auth $ AuthEnv
     <$> (AccessKey <$> key a)
     <*> (SecretKey <$> key s)
     <*> pure Nothing
     <*> pure Nothing
   where
+    key :: MonadBase IO m => ByteString -> ExceptT Error m ByteString
     key (BS.unpack -> k) = do
         m <- liftBase (lookupEnv k)
         maybe (throwError . fromString $ "Unable to read ENV variable: " ++ k)
@@ -130,9 +134,10 @@ fromEnv' a s = fmap Auth $ AuthEnv
 -- @http://169.254.169.254/latest/meta-data/iam/security-credentials/@
 fromProfile :: MonadBase IO m => ExceptT Error m Auth
 fromProfile = do
-    !ls <- BS.lines <$> metadata (IAM $ SecurityCredentials Nothing)
-    !n  <- tryHead "Unable to get default IAM Profile from EC2 metadata" ls
-    fromProfile' n
+    !ls <- BS.lines `liftM` metadata (IAM $ SecurityCredentials Nothing)
+    case ls of
+        (x:_) -> fromProfile' x
+        _     -> throwError "Unable to get default IAM Profile from EC2 metadata"
 
 -- | Lookup a specific IAM Profile by name from the local EC2 instance-data.
 --
@@ -143,21 +148,23 @@ fromProfile = do
 -- The forked timer ensures a singular owner and pre-emptive refresh of the
 -- temporary session credentials.
 fromProfile' :: MonadBase IO m => ByteString -> ExceptT Error m Auth
-fromProfile' name = auth >>= runIO . start
+fromProfile' name = auth >>= start
   where
     auth :: MonadBase IO m => ExceptT Error m AuthEnv
     auth = do
-        !m <- LBS.fromStrict `liftM` meta (IAM . SecurityCredentials $ Just name)
-        hoistEither . fmapL fromString $ Aeson.eitherDecode m
+        !m <- LBS.fromStrict `liftM` metadata
+            (IAM . SecurityCredentials $ Just name)
+        either (throwError . fromString) return (Aeson.eitherDecode m)
 
-    start :: AuthEnv -> IO Auth
-    start !a = case _authExpiry a of
-        Nothing -> return (Auth a)
-        Just x  -> do
-            r <- newIORef a
-            t <- myThreadId
-            void . forkIO $ timer r t x
-            return (Ref r)
+    start :: MonadBase IO m => AuthEnv -> ExceptT Error m Auth
+    start !a =
+        case _authExpiry a of
+            Nothing -> return (Auth a)
+            Just x  -> liftBase $ do
+                r <- newIORef a
+                t <- myThreadId
+                void . forkIO $ timer r t x
+                return (Ref r)
 
     -- FIXME: add note to documentation about compiling with -threaded
     timer r t x = do

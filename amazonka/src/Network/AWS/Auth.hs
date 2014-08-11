@@ -166,11 +166,9 @@ fromProfile' name = auth >>= start
                 void . forkIO $ timer r t x
                 return (Ref r)
 
-    -- FIXME: add note to documentation about compiling with -threaded
     timer r t x = do
         -- FIXME: guard against a lower expiration than the -60
-        n <- truncate . diffUTCTime x <$> getCurrentTime
-        threadDelay $ (n - 60) * 1000000
+        diff x <$> getCurrentTime >>= threadDelay
         l <- runExceptT auth
         case l of
             Left   e -> throwTo t e
@@ -179,3 +177,7 @@ fromProfile' name = auth >>= start
                  maybe (return ())
                        (timer r t)
                        (_authExpiry a)
+
+    diff x y = (* 1000000) $
+        let n = truncate (diffUTCTime x y) - 60
+         in if n > 0 then n else 1

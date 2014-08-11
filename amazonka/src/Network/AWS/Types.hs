@@ -30,6 +30,7 @@ import           Control.Monad.Base
 import           Data.Aeson                hiding (Error)
 import qualified Data.Attoparsec.Text      as AText
 import           Data.ByteString           (ByteString)
+import qualified Data.ByteString.Base64    as Base64
 import           Data.Char
 import           Data.Default
 import           Data.IORef
@@ -402,15 +403,18 @@ instance ToXML        RecordType
 instance ToQuery RecordType where
     toQuery = toQuery . toBS
 
--- FIXME: Add actual de/conversion from/to base64 values
 newtype Base64 = Base64 ByteString
     deriving (Eq, Show, Generic)
+
+base64 :: ByteString -> Base64
+base64 = Base64 . Base64.encode
 
 instance ToByteString Base64 where
     toBS (Base64 bs) = bs
 
 instance FromJSON Base64 where
-    parseJSON = withText "Base64" (return . Base64 . Text.encodeUtf8)
+    parseJSON = withText "Base64" $
+        return . Base64 . Base64.decodeLenient . Text.encodeUtf8
 
 instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)

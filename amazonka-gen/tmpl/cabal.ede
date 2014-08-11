@@ -60,10 +60,14 @@ library
     {% endfor %}
 
   {% endfor %}
+    other-modules:
   {% for service in versions %}
         -- * {{ service.value.name }} {{ service.value.version }}
     {% for module in service.value.modules %}
+      {% if module.first %}
+      {% else %}
         , {{ module.value }}
+      {% endif %}
     {% endfor %}
 
   {% endfor %}

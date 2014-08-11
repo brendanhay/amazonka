@@ -91,4 +91,4 @@ instance AWSRequest UpdateAccountPasswordPolicy where
     type Rs UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicyResponse
 
     request = post "UpdateAccountPasswordPolicy"
-    response _ _ = return (Right UpdateAccountPasswordPolicyResponse)
+    response _ = nullaryResponse UpdateAccountPasswordPolicyResponse

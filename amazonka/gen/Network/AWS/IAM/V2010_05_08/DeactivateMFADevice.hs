@@ -50,4 +50,4 @@ instance AWSRequest DeactivateMFADevice where
     type Rs DeactivateMFADevice = DeactivateMFADeviceResponse
 
     request = post "DeactivateMFADevice"
-    response _ _ = return (Right DeactivateMFADeviceResponse)
+    response _ = nullaryResponse DeactivateMFADeviceResponse

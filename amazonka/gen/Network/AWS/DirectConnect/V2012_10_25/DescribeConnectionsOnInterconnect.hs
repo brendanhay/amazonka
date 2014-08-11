@@ -55,4 +55,4 @@ instance AWSRequest DescribeConnectionsOnInterconnect where
     type Rs DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnectResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

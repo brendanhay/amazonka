@@ -67,4 +67,4 @@ instance AWSRequest DeleteApplicationVersion where
     type Rs DeleteApplicationVersion = DeleteApplicationVersionResponse
 
     request = post "DeleteApplicationVersion"
-    response _ _ = return (Right DeleteApplicationVersionResponse)
+    response _ = nullaryResponse DeleteApplicationVersionResponse

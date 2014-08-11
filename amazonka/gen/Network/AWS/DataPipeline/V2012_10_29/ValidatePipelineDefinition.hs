@@ -99,4 +99,4 @@ instance AWSRequest ValidatePipelineDefinition where
     type Rs ValidatePipelineDefinition = ValidatePipelineDefinitionResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

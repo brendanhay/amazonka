@@ -52,4 +52,4 @@ instance AWSRequest AddTagsToResource where
     type Rs AddTagsToResource = AddTagsToResourceResponse
 
     request = post "AddTagsToResource"
-    response _ _ = return (Right AddTagsToResourceResponse)
+    response _ = nullaryResponse AddTagsToResourceResponse

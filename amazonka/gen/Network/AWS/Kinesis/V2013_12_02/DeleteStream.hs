@@ -69,4 +69,4 @@ instance AWSRequest DeleteStream where
     type Rs DeleteStream = DeleteStreamResponse
 
     request = get
-    response _ _ = return (Right DeleteStreamResponse)
+    response _ = nullaryResponse DeleteStreamResponse

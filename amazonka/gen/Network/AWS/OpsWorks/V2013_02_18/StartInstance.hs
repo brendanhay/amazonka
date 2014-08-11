@@ -53,4 +53,4 @@ instance AWSRequest StartInstance where
     type Rs StartInstance = StartInstanceResponse
 
     request = get
-    response _ _ = return (Right StartInstanceResponse)
+    response _ = nullaryResponse StartInstanceResponse

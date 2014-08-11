@@ -70,4 +70,4 @@ instance AWSRequest PutBucketCors where
     type Rs PutBucketCors = PutBucketCorsResponse
 
     request = put
-    response _ _ = return (Right PutBucketCorsResponse)
+    response _ = nullaryResponse PutBucketCorsResponse

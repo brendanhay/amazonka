@@ -62,4 +62,4 @@ instance AWSRequest DeletePipeline where
     type Rs DeletePipeline = DeletePipelineResponse
 
     request = get
-    response _ _ = return (Right DeletePipelineResponse)
+    response _ = nullaryResponse DeletePipelineResponse

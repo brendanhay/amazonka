@@ -53,4 +53,4 @@ instance AWSRequest DeleteDBSecurityGroup where
     type Rs DeleteDBSecurityGroup = DeleteDBSecurityGroupResponse
 
     request = post "DeleteDBSecurityGroup"
-    response _ _ = return (Right DeleteDBSecurityGroupResponse)
+    response _ = nullaryResponse DeleteDBSecurityGroupResponse

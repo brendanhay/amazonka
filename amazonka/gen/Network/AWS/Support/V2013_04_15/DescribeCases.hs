@@ -103,7 +103,7 @@ instance AWSRequest DescribeCases where
     type Rs DescribeCases = DescribeCasesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager DescribeCases where
     next rq rs = (\x -> rq { _dcrNextToken = Just x })

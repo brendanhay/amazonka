@@ -123,4 +123,4 @@ instance AWSRequest DescribeJobFlows where
     type Rs DescribeJobFlows = DescribeJobFlowsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

@@ -77,4 +77,4 @@ instance AWSRequest ReportTaskProgress where
     type Rs ReportTaskProgress = ReportTaskProgressResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

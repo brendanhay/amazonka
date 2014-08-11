@@ -47,4 +47,4 @@ instance AWSRequest DeleteGroup where
     type Rs DeleteGroup = DeleteGroupResponse
 
     request = post "DeleteGroup"
-    response _ _ = return (Right DeleteGroupResponse)
+    response _ = nullaryResponse DeleteGroupResponse

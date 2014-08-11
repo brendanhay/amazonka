@@ -56,4 +56,4 @@ instance AWSRequest DetachElasticLoadBalancer where
     type Rs DetachElasticLoadBalancer = DetachElasticLoadBalancerResponse
 
     request = get
-    response _ _ = return (Right DetachElasticLoadBalancerResponse)
+    response _ = nullaryResponse DetachElasticLoadBalancerResponse

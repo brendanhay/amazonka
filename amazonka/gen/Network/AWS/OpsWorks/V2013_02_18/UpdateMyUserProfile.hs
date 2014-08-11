@@ -58,4 +58,4 @@ instance AWSRequest UpdateMyUserProfile where
     type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
 
     request = get
-    response _ _ = return (Right UpdateMyUserProfileResponse)
+    response _ = nullaryResponse UpdateMyUserProfileResponse

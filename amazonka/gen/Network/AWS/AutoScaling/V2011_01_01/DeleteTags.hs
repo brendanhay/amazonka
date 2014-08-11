@@ -47,4 +47,4 @@ instance AWSRequest DeleteTags where
     type Rs DeleteTags = DeleteTagsResponse
 
     request = post "DeleteTags"
-    response _ _ = return (Right DeleteTagsResponse)
+    response _ = nullaryResponse DeleteTagsResponse

@@ -66,4 +66,4 @@ instance AWSRequest UpdateVolume where
     type Rs UpdateVolume = UpdateVolumeResponse
 
     request = get
-    response _ _ = return (Right UpdateVolumeResponse)
+    response _ = nullaryResponse UpdateVolumeResponse

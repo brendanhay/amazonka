@@ -71,4 +71,4 @@ instance AWSRequest PutBucketTagging where
     type Rs PutBucketTagging = PutBucketTaggingResponse
 
     request = put
-    response _ _ = return (Right PutBucketTaggingResponse)
+    response _ = nullaryResponse PutBucketTaggingResponse

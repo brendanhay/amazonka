@@ -81,4 +81,4 @@ instance AWSRequest DeleteGateway where
     type Rs DeleteGateway = DeleteGatewayResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

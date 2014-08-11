@@ -51,4 +51,4 @@ instance AWSRequest CancelUpdateStack where
     type Rs CancelUpdateStack = CancelUpdateStackResponse
 
     request = post "CancelUpdateStack"
-    response _ _ = return (Right CancelUpdateStackResponse)
+    response _ = nullaryResponse CancelUpdateStackResponse

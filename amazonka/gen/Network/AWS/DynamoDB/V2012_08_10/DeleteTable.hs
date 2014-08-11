@@ -68,4 +68,4 @@ instance AWSRequest DeleteTable where
     type Rs DeleteTable = DeleteTableResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

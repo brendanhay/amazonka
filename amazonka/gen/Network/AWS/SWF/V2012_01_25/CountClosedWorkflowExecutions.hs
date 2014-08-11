@@ -133,4 +133,4 @@ instance AWSRequest CountClosedWorkflowExecutions where
     type Rs CountClosedWorkflowExecutions = CountClosedWorkflowExecutionsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

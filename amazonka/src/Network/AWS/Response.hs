@@ -49,8 +49,6 @@ keyed g f = fmap (toText . g) . listToMaybe . reverse . f
 choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
 choice f g x = f x <|> g x
 
--- FIXME: Implement json responses
-
 headerResponse :: (Monad m, AWSServiceError e)
                => (ResponseHeaders -> Either String a)
                -> Either HttpException (ClientResponse m)

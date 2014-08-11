@@ -69,7 +69,7 @@ instance AWSRequest DescribeTapeRecoveryPoints where
     type Rs DescribeTapeRecoveryPoints = DescribeTapeRecoveryPointsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager DescribeTapeRecoveryPoints where
     next rq rs = (\x -> rq { _dtrpiMarker = Just x })

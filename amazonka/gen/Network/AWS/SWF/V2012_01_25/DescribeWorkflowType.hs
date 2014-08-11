@@ -98,4 +98,4 @@ instance AWSRequest DescribeWorkflowType where
     type Rs DescribeWorkflowType = DescribeWorkflowTypeResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

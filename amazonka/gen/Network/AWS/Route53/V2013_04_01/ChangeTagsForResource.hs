@@ -78,4 +78,4 @@ instance AWSRequest ChangeTagsForResource where
     type Rs ChangeTagsForResource = ChangeTagsForResourceResponse
 
     request = post
-    response _ _ = return (Right ChangeTagsForResourceResponse)
+    response _ = nullaryResponse ChangeTagsForResourceResponse

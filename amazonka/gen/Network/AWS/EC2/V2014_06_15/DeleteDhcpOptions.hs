@@ -63,4 +63,4 @@ instance AWSRequest DeleteDhcpOptions where
     type Rs DeleteDhcpOptions = DeleteDhcpOptionsResponse
 
     request = post "DeleteDhcpOptions"
-    response _ _ = return (Right DeleteDhcpOptionsResponse)
+    response _ = nullaryResponse DeleteDhcpOptionsResponse

@@ -102,4 +102,4 @@ instance AWSRequest RespondDecisionTaskCompleted where
     type Rs RespondDecisionTaskCompleted = RespondDecisionTaskCompletedResponse
 
     request = get
-    response _ _ = return (Right RespondDecisionTaskCompletedResponse)
+    response _ = nullaryResponse RespondDecisionTaskCompletedResponse

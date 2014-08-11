@@ -79,4 +79,4 @@ instance AWSRequest SetPlatformApplicationAttributes where
     type Rs SetPlatformApplicationAttributes = SetPlatformApplicationAttributesResponse
 
     request = post "SetPlatformApplicationAttributes"
-    response _ _ = return (Right SetPlatformApplicationAttributesResponse)
+    response _ = nullaryResponse SetPlatformApplicationAttributesResponse

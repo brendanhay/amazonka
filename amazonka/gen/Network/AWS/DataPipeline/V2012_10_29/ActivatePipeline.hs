@@ -60,4 +60,4 @@ instance AWSRequest ActivatePipeline where
     type Rs ActivatePipeline = ActivatePipelineResponse
 
     request = get
-    response _ _ = return (Right ActivatePipelineResponse)
+    response _ = nullaryResponse ActivatePipelineResponse

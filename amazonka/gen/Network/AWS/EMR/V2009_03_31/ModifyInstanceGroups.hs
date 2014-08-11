@@ -74,4 +74,4 @@ instance AWSRequest ModifyInstanceGroups where
     type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse
 
     request = get
-    response _ _ = return (Right ModifyInstanceGroupsResponse)
+    response _ = nullaryResponse ModifyInstanceGroupsResponse

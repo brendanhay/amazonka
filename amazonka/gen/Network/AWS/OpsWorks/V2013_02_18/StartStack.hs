@@ -52,4 +52,4 @@ instance AWSRequest StartStack where
     type Rs StartStack = StartStackResponse
 
     request = get
-    response _ _ = return (Right StartStackResponse)
+    response _ = nullaryResponse StartStackResponse

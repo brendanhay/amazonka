@@ -74,4 +74,4 @@ instance AWSRequest RequestEnvironmentInfo where
     type Rs RequestEnvironmentInfo = RequestEnvironmentInfoResponse
 
     request = post "RequestEnvironmentInfo"
-    response _ _ = return (Right RequestEnvironmentInfoResponse)
+    response _ = nullaryResponse RequestEnvironmentInfoResponse

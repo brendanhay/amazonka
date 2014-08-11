@@ -74,4 +74,4 @@ instance AWSRequest RestoreObject where
     type Rs RestoreObject = RestoreObjectResponse
 
     request = post
-    response _ _ = return (Right RestoreObjectResponse)
+    response _ = nullaryResponse RestoreObjectResponse

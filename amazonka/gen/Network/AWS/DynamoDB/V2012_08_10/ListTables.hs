@@ -77,7 +77,7 @@ instance AWSRequest ListTables where
     type Rs ListTables = ListTablesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager ListTables where
     next rq rs = (\x -> rq { _ltiExclusiveStartTableName = Just x })

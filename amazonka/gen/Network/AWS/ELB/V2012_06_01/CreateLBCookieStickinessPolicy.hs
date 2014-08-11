@@ -79,4 +79,4 @@ instance AWSRequest CreateLBCookieStickinessPolicy where
     type Rs CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicyResponse
 
     request = post "CreateLBCookieStickinessPolicy"
-    response _ _ = return (Right CreateLBCookieStickinessPolicyResponse)
+    response _ = nullaryResponse CreateLBCookieStickinessPolicyResponse

@@ -167,4 +167,4 @@ instance AWSRequest UpdateStack where
     type Rs UpdateStack = UpdateStackResponse
 
     request = get
-    response _ _ = return (Right UpdateStackResponse)
+    response _ = nullaryResponse UpdateStackResponse

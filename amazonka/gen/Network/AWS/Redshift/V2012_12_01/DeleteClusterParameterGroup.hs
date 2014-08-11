@@ -54,4 +54,4 @@ instance AWSRequest DeleteClusterParameterGroup where
     type Rs DeleteClusterParameterGroup = DeleteClusterParameterGroupResponse
 
     request = post "DeleteClusterParameterGroup"
-    response _ _ = return (Right DeleteClusterParameterGroupResponse)
+    response _ = nullaryResponse DeleteClusterParameterGroupResponse

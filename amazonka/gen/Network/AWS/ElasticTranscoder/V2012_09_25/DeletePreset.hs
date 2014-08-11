@@ -66,4 +66,4 @@ instance AWSRequest DeletePreset where
     type Rs DeletePreset = DeletePresetResponse
 
     request = delete
-    response _ _ = return (Right DeletePresetResponse)
+    response _ = nullaryResponse DeletePresetResponse

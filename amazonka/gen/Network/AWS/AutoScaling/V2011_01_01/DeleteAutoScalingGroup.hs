@@ -63,4 +63,4 @@ instance AWSRequest DeleteAutoScalingGroup where
     type Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse
 
     request = post "DeleteAutoScalingGroup"
-    response _ _ = return (Right DeleteAutoScalingGroupResponse)
+    response _ = nullaryResponse DeleteAutoScalingGroupResponse

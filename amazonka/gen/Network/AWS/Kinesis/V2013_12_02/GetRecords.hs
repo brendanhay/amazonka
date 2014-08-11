@@ -106,4 +106,4 @@ instance AWSRequest GetRecords where
     type Rs GetRecords = GetRecordsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

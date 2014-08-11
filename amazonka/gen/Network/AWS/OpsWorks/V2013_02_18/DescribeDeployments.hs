@@ -76,4 +76,4 @@ instance AWSRequest DescribeDeployments where
     type Rs DescribeDeployments = DescribeDeploymentsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

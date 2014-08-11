@@ -69,4 +69,4 @@ instance AWSRequest CreatePlacementGroup where
     type Rs CreatePlacementGroup = CreatePlacementGroupResponse
 
     request = post "CreatePlacementGroup"
-    response _ _ = return (Right CreatePlacementGroupResponse)
+    response _ = nullaryResponse CreatePlacementGroupResponse

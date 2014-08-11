@@ -60,4 +60,4 @@ instance AWSRequest PutUserPolicy where
     type Rs PutUserPolicy = PutUserPolicyResponse
 
     request = post "PutUserPolicy"
-    response _ _ = return (Right PutUserPolicyResponse)
+    response _ = nullaryResponse PutUserPolicyResponse

@@ -70,4 +70,4 @@ instance AWSRequest DescribeRaidArrays where
     type Rs DescribeRaidArrays = DescribeRaidArraysResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

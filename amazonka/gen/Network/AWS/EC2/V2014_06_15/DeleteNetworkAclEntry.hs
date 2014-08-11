@@ -70,4 +70,4 @@ instance AWSRequest DeleteNetworkAclEntry where
     type Rs DeleteNetworkAclEntry = DeleteNetworkAclEntryResponse
 
     request = post "DeleteNetworkAclEntry"
-    response _ _ = return (Right DeleteNetworkAclEntryResponse)
+    response _ = nullaryResponse DeleteNetworkAclEntryResponse

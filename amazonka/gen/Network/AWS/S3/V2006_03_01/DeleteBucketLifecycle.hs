@@ -55,4 +55,4 @@ instance AWSRequest DeleteBucketLifecycle where
     type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
 
     request = delete
-    response _ _ = return (Right DeleteBucketLifecycleResponse)
+    response _ = nullaryResponse DeleteBucketLifecycleResponse

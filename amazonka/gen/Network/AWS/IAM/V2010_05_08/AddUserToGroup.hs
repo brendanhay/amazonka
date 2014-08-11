@@ -48,4 +48,4 @@ instance AWSRequest AddUserToGroup where
     type Rs AddUserToGroup = AddUserToGroupResponse
 
     request = post "AddUserToGroup"
-    response _ _ = return (Right AddUserToGroupResponse)
+    response _ = nullaryResponse AddUserToGroupResponse

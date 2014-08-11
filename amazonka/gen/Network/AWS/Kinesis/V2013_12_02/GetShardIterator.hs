@@ -126,4 +126,4 @@ instance AWSRequest GetShardIterator where
     type Rs GetShardIterator = GetShardIteratorResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

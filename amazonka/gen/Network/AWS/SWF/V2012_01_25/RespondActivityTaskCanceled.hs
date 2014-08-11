@@ -97,4 +97,4 @@ instance AWSRequest RespondActivityTaskCanceled where
     type Rs RespondActivityTaskCanceled = RespondActivityTaskCanceledResponse
 
     request = get
-    response _ _ = return (Right RespondActivityTaskCanceledResponse)
+    response _ = nullaryResponse RespondActivityTaskCanceledResponse

@@ -54,4 +54,4 @@ instance AWSRequest DisassociateElasticIp where
     type Rs DisassociateElasticIp = DisassociateElasticIpResponse
 
     request = get
-    response _ _ = return (Right DisassociateElasticIpResponse)
+    response _ = nullaryResponse DisassociateElasticIpResponse

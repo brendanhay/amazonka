@@ -50,4 +50,4 @@ instance AWSRequest DeleteTapeArchive where
     type Rs DeleteTapeArchive = DeleteTapeArchiveResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

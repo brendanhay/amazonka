@@ -104,4 +104,4 @@ instance AWSRequest RevokeSecurityGroupIngress where
     type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse
 
     request = post "RevokeSecurityGroupIngress"
-    response _ _ = return (Right RevokeSecurityGroupIngressResponse)
+    response _ = nullaryResponse RevokeSecurityGroupIngressResponse

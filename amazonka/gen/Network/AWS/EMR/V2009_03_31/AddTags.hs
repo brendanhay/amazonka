@@ -65,4 +65,4 @@ instance AWSRequest AddTags where
     type Rs AddTags = AddTagsResponse
 
     request = get
-    response _ _ = return (Right AddTagsResponse)
+    response _ = nullaryResponse AddTagsResponse

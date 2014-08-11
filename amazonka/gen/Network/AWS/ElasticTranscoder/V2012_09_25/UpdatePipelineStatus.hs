@@ -81,4 +81,4 @@ instance AWSRequest UpdatePipelineStatus where
     type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
 
     request = post
-    response _ = undefined
+    response _ = jsonResponse

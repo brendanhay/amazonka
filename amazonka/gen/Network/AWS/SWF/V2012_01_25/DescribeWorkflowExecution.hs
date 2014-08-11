@@ -107,4 +107,4 @@ instance AWSRequest DescribeWorkflowExecution where
     type Rs DescribeWorkflowExecution = DescribeWorkflowExecutionResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

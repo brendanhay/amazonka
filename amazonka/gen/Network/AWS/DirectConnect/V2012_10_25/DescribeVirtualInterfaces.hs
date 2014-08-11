@@ -72,4 +72,4 @@ instance AWSRequest DescribeVirtualInterfaces where
     type Rs DescribeVirtualInterfaces = DescribeVirtualInterfacesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

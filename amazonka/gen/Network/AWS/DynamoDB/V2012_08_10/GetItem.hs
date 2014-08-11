@@ -105,4 +105,4 @@ instance AWSRequest GetItem where
     type Rs GetItem = GetItemResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

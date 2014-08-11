@@ -68,4 +68,4 @@ instance AWSRequest EvaluateExpression where
     type Rs EvaluateExpression = EvaluateExpressionResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

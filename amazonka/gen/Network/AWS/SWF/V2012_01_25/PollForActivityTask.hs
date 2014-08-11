@@ -129,4 +129,4 @@ instance AWSRequest PollForActivityTask where
     type Rs PollForActivityTask = PollForActivityTaskResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

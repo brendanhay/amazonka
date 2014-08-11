@@ -56,4 +56,4 @@ instance AWSRequest PutNotificationConfiguration where
     type Rs PutNotificationConfiguration = PutNotificationConfigurationResponse
 
     request = post "PutNotificationConfiguration"
-    response _ _ = return (Right PutNotificationConfigurationResponse)
+    response _ = nullaryResponse PutNotificationConfigurationResponse

@@ -160,4 +160,4 @@ instance AWSRequest CreateAutoScalingGroup where
     type Rs CreateAutoScalingGroup = CreateAutoScalingGroupResponse
 
     request = post "CreateAutoScalingGroup"
-    response _ _ = return (Right CreateAutoScalingGroupResponse)
+    response _ = nullaryResponse CreateAutoScalingGroupResponse

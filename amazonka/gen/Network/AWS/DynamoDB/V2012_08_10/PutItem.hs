@@ -173,4 +173,4 @@ instance AWSRequest PutItem where
     type Rs PutItem = PutItemResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

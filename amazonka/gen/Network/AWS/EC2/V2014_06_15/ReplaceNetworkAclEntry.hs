@@ -94,4 +94,4 @@ instance AWSRequest ReplaceNetworkAclEntry where
     type Rs ReplaceNetworkAclEntry = ReplaceNetworkAclEntryResponse
 
     request = post "ReplaceNetworkAclEntry"
-    response _ _ = return (Right ReplaceNetworkAclEntryResponse)
+    response _ = nullaryResponse ReplaceNetworkAclEntryResponse

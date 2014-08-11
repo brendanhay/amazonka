@@ -282,7 +282,7 @@ instance AWSRequest Scan where
     type Rs Scan = ScanResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager Scan where
     next rq rs

@@ -54,4 +54,4 @@ instance AWSRequest DeleteTape where
     type Rs DeleteTape = DeleteTapeResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

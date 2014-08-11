@@ -66,4 +66,4 @@ instance AWSRequest DeleteRoute where
     type Rs DeleteRoute = DeleteRouteResponse
 
     request = post "DeleteRoute"
-    response _ _ = return (Right DeleteRouteResponse)
+    response _ = nullaryResponse DeleteRouteResponse

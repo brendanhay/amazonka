@@ -163,4 +163,4 @@ instance AWSRequest DeleteItem where
     type Rs DeleteItem = DeleteItemResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

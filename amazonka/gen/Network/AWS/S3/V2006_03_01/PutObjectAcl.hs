@@ -102,4 +102,4 @@ instance AWSRequest PutObjectAcl where
     type Rs PutObjectAcl = PutObjectAclResponse
 
     request = put
-    response _ _ = return (Right PutObjectAclResponse)
+    response _ = nullaryResponse PutObjectAclResponse

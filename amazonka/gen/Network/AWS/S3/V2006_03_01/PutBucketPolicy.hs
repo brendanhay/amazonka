@@ -73,4 +73,4 @@ instance AWSRequest PutBucketPolicy where
     type Rs PutBucketPolicy = PutBucketPolicyResponse
 
     request = put
-    response _ _ = return (Right PutBucketPolicyResponse)
+    response _ = nullaryResponse PutBucketPolicyResponse

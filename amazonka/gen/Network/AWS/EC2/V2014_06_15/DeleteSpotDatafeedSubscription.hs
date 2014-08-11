@@ -58,4 +58,4 @@ instance AWSRequest DeleteSpotDatafeedSubscription where
     type Rs DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscriptionResponse
 
     request = post "DeleteSpotDatafeedSubscription"
-    response _ _ = return (Right DeleteSpotDatafeedSubscriptionResponse)
+    response _ = nullaryResponse DeleteSpotDatafeedSubscriptionResponse

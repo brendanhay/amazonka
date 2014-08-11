@@ -47,4 +47,4 @@ instance AWSRequest DeleteUser where
     type Rs DeleteUser = DeleteUserResponse
 
     request = post "DeleteUser"
-    response _ _ = return (Right DeleteUserResponse)
+    response _ = nullaryResponse DeleteUserResponse

@@ -92,4 +92,4 @@ instance AWSRequest AssignPrivateIpAddresses where
     type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
 
     request = post "AssignPrivateIpAddresses"
-    response _ _ = return (Right AssignPrivateIpAddressesResponse)
+    response _ = nullaryResponse AssignPrivateIpAddressesResponse

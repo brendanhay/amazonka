@@ -54,4 +54,4 @@ instance AWSRequest DeregisterElasticIp where
     type Rs DeregisterElasticIp = DeregisterElasticIpResponse
 
     request = get
-    response _ _ = return (Right DeregisterElasticIpResponse)
+    response _ = nullaryResponse DeregisterElasticIpResponse

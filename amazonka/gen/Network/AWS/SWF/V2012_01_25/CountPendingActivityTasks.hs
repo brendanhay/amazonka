@@ -87,4 +87,4 @@ instance AWSRequest CountPendingActivityTasks where
     type Rs CountPendingActivityTasks = CountPendingActivityTasksResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

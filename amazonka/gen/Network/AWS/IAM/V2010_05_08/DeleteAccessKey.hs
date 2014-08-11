@@ -61,4 +61,4 @@ instance AWSRequest DeleteAccessKey where
     type Rs DeleteAccessKey = DeleteAccessKeyResponse
 
     request = post "DeleteAccessKey"
-    response _ _ = return (Right DeleteAccessKeyResponse)
+    response _ = nullaryResponse DeleteAccessKeyResponse

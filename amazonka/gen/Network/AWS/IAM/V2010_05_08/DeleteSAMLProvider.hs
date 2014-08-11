@@ -50,4 +50,4 @@ instance AWSRequest DeleteSAMLProvider where
     type Rs DeleteSAMLProvider = DeleteSAMLProviderResponse
 
     request = post "DeleteSAMLProvider"
-    response _ _ = return (Right DeleteSAMLProviderResponse)
+    response _ = nullaryResponse DeleteSAMLProviderResponse

@@ -73,4 +73,4 @@ instance AWSRequest ReleaseAddress where
     type Rs ReleaseAddress = ReleaseAddressResponse
 
     request = post "ReleaseAddress"
-    response _ _ = return (Right ReleaseAddressResponse)
+    response _ = nullaryResponse ReleaseAddressResponse

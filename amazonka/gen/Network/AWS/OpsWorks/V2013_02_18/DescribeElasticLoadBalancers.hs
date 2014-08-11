@@ -69,4 +69,4 @@ instance AWSRequest DescribeElasticLoadBalancers where
     type Rs DescribeElasticLoadBalancers = DescribeElasticLoadBalancersResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

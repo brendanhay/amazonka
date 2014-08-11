@@ -63,4 +63,4 @@ instance AWSRequest RestartAppServer where
     type Rs RestartAppServer = RestartAppServerResponse
 
     request = post "RestartAppServer"
-    response _ _ = return (Right RestartAppServerResponse)
+    response _ = nullaryResponse RestartAppServerResponse

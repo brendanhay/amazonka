@@ -140,4 +140,4 @@ instance AWSRequest CreateLayer where
     type Rs CreateLayer = CreateLayerResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

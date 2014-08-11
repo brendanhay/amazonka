@@ -77,4 +77,4 @@ instance AWSRequest AddCache where
     type Rs AddCache = AddCacheResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

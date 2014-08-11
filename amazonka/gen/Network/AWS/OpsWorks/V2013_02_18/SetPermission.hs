@@ -77,4 +77,4 @@ instance AWSRequest SetPermission where
     type Rs SetPermission = SetPermissionResponse
 
     request = get
-    response _ _ = return (Right SetPermissionResponse)
+    response _ = nullaryResponse SetPermissionResponse

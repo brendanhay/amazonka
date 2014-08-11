@@ -105,4 +105,4 @@ instance AWSRequest SignalWorkflowExecution where
     type Rs SignalWorkflowExecution = SignalWorkflowExecutionResponse
 
     request = get
-    response _ _ = return (Right SignalWorkflowExecutionResponse)
+    response _ = nullaryResponse SignalWorkflowExecutionResponse

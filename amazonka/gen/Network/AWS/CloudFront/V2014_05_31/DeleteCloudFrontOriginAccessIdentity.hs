@@ -69,4 +69,4 @@ instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse
 
     request = delete
-    response _ _ = return (Right DeleteCloudFrontOriginAccessIdentityResponse)
+    response _ = nullaryResponse DeleteCloudFrontOriginAccessIdentityResponse

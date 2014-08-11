@@ -67,4 +67,4 @@ instance AWSRequest SetIdentityDkimEnabled where
     type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse
 
     request = post "SetIdentityDkimEnabled"
-    response _ _ = return (Right SetIdentityDkimEnabledResponse)
+    response _ = nullaryResponse SetIdentityDkimEnabledResponse

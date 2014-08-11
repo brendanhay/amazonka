@@ -86,4 +86,4 @@ instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     type Rs CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPointResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

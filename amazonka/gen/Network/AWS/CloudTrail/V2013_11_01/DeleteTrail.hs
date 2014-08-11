@@ -49,4 +49,4 @@ instance AWSRequest DeleteTrail where
     type Rs DeleteTrail = DeleteTrailResponse
 
     request = get
-    response _ _ = return (Right DeleteTrailResponse)
+    response _ = nullaryResponse DeleteTrailResponse

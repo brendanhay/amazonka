@@ -75,4 +75,4 @@ instance AWSRequest DescribeServices where
     type Rs DescribeServices = DescribeServicesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

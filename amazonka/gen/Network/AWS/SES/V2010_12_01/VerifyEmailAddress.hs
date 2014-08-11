@@ -56,4 +56,4 @@ instance AWSRequest VerifyEmailAddress where
     type Rs VerifyEmailAddress = VerifyEmailAddressResponse
 
     request = post "VerifyEmailAddress"
-    response _ _ = return (Right VerifyEmailAddressResponse)
+    response _ = nullaryResponse VerifyEmailAddressResponse

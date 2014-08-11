@@ -78,7 +78,7 @@ instance AWSRequest ListInstances where
     type Rs ListInstances = ListInstancesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager ListInstances where
     next rq rs = (\x -> rq { _liiMarker = Just x })

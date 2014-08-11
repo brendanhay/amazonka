@@ -53,4 +53,4 @@ instance AWSRequest ResyncMFADevice where
     type Rs ResyncMFADevice = ResyncMFADeviceResponse
 
     request = post "ResyncMFADevice"
-    response _ _ = return (Right ResyncMFADeviceResponse)
+    response _ = nullaryResponse ResyncMFADeviceResponse

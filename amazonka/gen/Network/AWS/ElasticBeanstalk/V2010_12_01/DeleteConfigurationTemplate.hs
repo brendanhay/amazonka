@@ -53,4 +53,4 @@ instance AWSRequest DeleteConfigurationTemplate where
     type Rs DeleteConfigurationTemplate = DeleteConfigurationTemplateResponse
 
     request = post "DeleteConfigurationTemplate"
-    response _ _ = return (Right DeleteConfigurationTemplateResponse)
+    response _ = nullaryResponse DeleteConfigurationTemplateResponse

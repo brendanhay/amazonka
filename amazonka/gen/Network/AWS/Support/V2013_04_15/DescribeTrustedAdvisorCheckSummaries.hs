@@ -56,4 +56,4 @@ instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
     type Rs DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummariesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

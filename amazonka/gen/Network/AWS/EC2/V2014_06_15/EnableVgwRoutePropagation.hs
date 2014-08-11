@@ -54,4 +54,4 @@ instance AWSRequest EnableVgwRoutePropagation where
     type Rs EnableVgwRoutePropagation = EnableVgwRoutePropagationResponse
 
     request = post "EnableVgwRoutePropagation"
-    response _ _ = return (Right EnableVgwRoutePropagationResponse)
+    response _ = nullaryResponse EnableVgwRoutePropagationResponse

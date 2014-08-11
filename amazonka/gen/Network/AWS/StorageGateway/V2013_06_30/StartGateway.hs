@@ -77,4 +77,4 @@ instance AWSRequest StartGateway where
     type Rs StartGateway = StartGatewayResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

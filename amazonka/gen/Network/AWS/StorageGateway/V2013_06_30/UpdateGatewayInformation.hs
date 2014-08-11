@@ -85,4 +85,4 @@ instance AWSRequest UpdateGatewayInformation where
     type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

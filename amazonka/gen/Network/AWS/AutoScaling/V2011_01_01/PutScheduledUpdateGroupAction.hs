@@ -106,4 +106,4 @@ instance AWSRequest PutScheduledUpdateGroupAction where
     type Rs PutScheduledUpdateGroupAction = PutScheduledUpdateGroupActionResponse
 
     request = post "PutScheduledUpdateGroupAction"
-    response _ _ = return (Right PutScheduledUpdateGroupActionResponse)
+    response _ = nullaryResponse PutScheduledUpdateGroupActionResponse

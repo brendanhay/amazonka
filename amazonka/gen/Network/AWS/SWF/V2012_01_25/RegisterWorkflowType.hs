@@ -155,4 +155,4 @@ instance AWSRequest RegisterWorkflowType where
     type Rs RegisterWorkflowType = RegisterWorkflowTypeResponse
 
     request = get
-    response _ _ = return (Right RegisterWorkflowTypeResponse)
+    response _ = nullaryResponse RegisterWorkflowTypeResponse

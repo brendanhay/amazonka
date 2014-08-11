@@ -47,4 +47,4 @@ instance AWSRequest DeleteIdentityPool where
     type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
 
     request = get
-    response _ _ = return (Right DeleteIdentityPoolResponse)
+    response _ = nullaryResponse DeleteIdentityPoolResponse

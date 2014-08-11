@@ -154,7 +154,7 @@ instance AWSRequest GetWorkflowExecutionHistory where
     type Rs GetWorkflowExecutionHistory = GetWorkflowExecutionHistoryResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager GetWorkflowExecutionHistory where
     next rq rs = (\x -> rq { _gwehiNextPageToken = Just x })

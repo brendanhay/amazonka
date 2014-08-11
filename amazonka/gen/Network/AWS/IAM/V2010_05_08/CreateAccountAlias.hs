@@ -48,4 +48,4 @@ instance AWSRequest CreateAccountAlias where
     type Rs CreateAccountAlias = CreateAccountAliasResponse
 
     request = post "CreateAccountAlias"
-    response _ _ = return (Right CreateAccountAliasResponse)
+    response _ = nullaryResponse CreateAccountAliasResponse

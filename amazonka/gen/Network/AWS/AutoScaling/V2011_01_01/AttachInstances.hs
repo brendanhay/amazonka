@@ -60,4 +60,4 @@ instance AWSRequest AttachInstances where
     type Rs AttachInstances = AttachInstancesResponse
 
     request = post "AttachInstances"
-    response _ _ = return (Right AttachInstancesResponse)
+    response _ = nullaryResponse AttachInstancesResponse

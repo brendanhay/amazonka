@@ -54,4 +54,4 @@ instance AWSRequest CancelRetrieval where
     type Rs CancelRetrieval = CancelRetrievalResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

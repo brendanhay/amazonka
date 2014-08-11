@@ -71,4 +71,4 @@ instance AWSRequest UpdateUser where
     type Rs UpdateUser = UpdateUserResponse
 
     request = post "UpdateUser"
-    response _ _ = return (Right UpdateUserResponse)
+    response _ = nullaryResponse UpdateUserResponse

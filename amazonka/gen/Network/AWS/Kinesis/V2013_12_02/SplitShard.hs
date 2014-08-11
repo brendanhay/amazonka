@@ -104,4 +104,4 @@ instance AWSRequest SplitShard where
     type Rs SplitShard = SplitShardResponse
 
     request = get
-    response _ _ = return (Right SplitShardResponse)
+    response _ = nullaryResponse SplitShardResponse

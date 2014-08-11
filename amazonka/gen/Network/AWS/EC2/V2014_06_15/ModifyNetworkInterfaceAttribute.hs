@@ -83,4 +83,4 @@ instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Rs ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttributeResponse
 
     request = post "ModifyNetworkInterfaceAttribute"
-    response _ _ = return (Right ModifyNetworkInterfaceAttributeResponse)
+    response _ = nullaryResponse ModifyNetworkInterfaceAttributeResponse

@@ -63,4 +63,4 @@ instance AWSRequest DeletePlacementGroup where
     type Rs DeletePlacementGroup = DeletePlacementGroupResponse
 
     request = post "DeletePlacementGroup"
-    response _ _ = return (Right DeletePlacementGroupResponse)
+    response _ = nullaryResponse DeletePlacementGroupResponse

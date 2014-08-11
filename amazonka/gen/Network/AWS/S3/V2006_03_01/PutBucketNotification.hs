@@ -71,4 +71,4 @@ instance AWSRequest PutBucketNotification where
     type Rs PutBucketNotification = PutBucketNotificationResponse
 
     request = put
-    response _ _ = return (Right PutBucketNotificationResponse)
+    response _ = nullaryResponse PutBucketNotificationResponse

@@ -52,4 +52,4 @@ instance AWSRequest DeleteDBSubnetGroup where
     type Rs DeleteDBSubnetGroup = DeleteDBSubnetGroupResponse
 
     request = post "DeleteDBSubnetGroup"
-    response _ _ = return (Right DeleteDBSubnetGroupResponse)
+    response _ = nullaryResponse DeleteDBSubnetGroupResponse

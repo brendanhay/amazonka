@@ -66,4 +66,4 @@ instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
     type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
 
     request = post "SetLoadBalancerPoliciesForBackendServer"
-    response _ _ = return (Right SetLoadBalancerPoliciesForBackendServerResponse)
+    response _ = nullaryResponse SetLoadBalancerPoliciesForBackendServerResponse

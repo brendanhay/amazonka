@@ -112,4 +112,4 @@ instance AWSRequest CreatePrivateVirtualInterface where
     type Rs CreatePrivateVirtualInterface = CreatePrivateVirtualInterfaceResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

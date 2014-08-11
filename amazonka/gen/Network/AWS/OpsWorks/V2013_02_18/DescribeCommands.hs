@@ -76,4 +76,4 @@ instance AWSRequest DescribeCommands where
     type Rs DescribeCommands = DescribeCommandsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

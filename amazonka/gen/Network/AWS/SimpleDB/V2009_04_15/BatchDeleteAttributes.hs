@@ -61,4 +61,4 @@ instance AWSRequest BatchDeleteAttributes where
     type Rs BatchDeleteAttributes = BatchDeleteAttributesResponse
 
     request = post "BatchDeleteAttributes"
-    response _ _ = return (Right BatchDeleteAttributesResponse)
+    response _ = nullaryResponse BatchDeleteAttributesResponse

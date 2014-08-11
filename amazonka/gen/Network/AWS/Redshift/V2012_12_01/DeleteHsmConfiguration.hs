@@ -45,4 +45,4 @@ instance AWSRequest DeleteHsmConfiguration where
     type Rs DeleteHsmConfiguration = DeleteHsmConfigurationResponse
 
     request = post "DeleteHsmConfiguration"
-    response _ _ = return (Right DeleteHsmConfigurationResponse)
+    response _ = nullaryResponse DeleteHsmConfigurationResponse

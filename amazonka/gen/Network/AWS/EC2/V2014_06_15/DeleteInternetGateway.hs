@@ -62,4 +62,4 @@ instance AWSRequest DeleteInternetGateway where
     type Rs DeleteInternetGateway = DeleteInternetGatewayResponse
 
     request = post "DeleteInternetGateway"
-    response _ _ = return (Right DeleteInternetGatewayResponse)
+    response _ = nullaryResponse DeleteInternetGatewayResponse

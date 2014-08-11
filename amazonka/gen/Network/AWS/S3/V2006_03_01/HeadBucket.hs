@@ -53,4 +53,4 @@ instance AWSRequest HeadBucket where
     type Rs HeadBucket = HeadBucketResponse
 
     request = head
-    response _ _ = return (Right HeadBucketResponse)
+    response _ = nullaryResponse HeadBucketResponse

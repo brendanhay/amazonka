@@ -73,4 +73,4 @@ instance AWSRequest DescribeSnapshotSchedule where
     type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

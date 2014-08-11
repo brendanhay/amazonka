@@ -74,4 +74,4 @@ instance AWSRequest DescribeTrustedAdvisorCheckResult where
     type Rs DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResultResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

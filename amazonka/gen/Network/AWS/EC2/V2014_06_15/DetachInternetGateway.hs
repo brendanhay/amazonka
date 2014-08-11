@@ -67,4 +67,4 @@ instance AWSRequest DetachInternetGateway where
     type Rs DetachInternetGateway = DetachInternetGatewayResponse
 
     request = post "DetachInternetGateway"
-    response _ _ = return (Right DetachInternetGatewayResponse)
+    response _ = nullaryResponse DetachInternetGatewayResponse

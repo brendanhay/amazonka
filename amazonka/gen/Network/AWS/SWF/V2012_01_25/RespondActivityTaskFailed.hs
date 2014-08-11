@@ -97,4 +97,4 @@ instance AWSRequest RespondActivityTaskFailed where
     type Rs RespondActivityTaskFailed = RespondActivityTaskFailedResponse
 
     request = get
-    response _ _ = return (Right RespondActivityTaskFailedResponse)
+    response _ = nullaryResponse RespondActivityTaskFailedResponse

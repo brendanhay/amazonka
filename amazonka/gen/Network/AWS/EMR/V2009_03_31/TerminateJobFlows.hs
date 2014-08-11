@@ -70,4 +70,4 @@ instance AWSRequest TerminateJobFlows where
     type Rs TerminateJobFlows = TerminateJobFlowsResponse
 
     request = get
-    response _ _ = return (Right TerminateJobFlowsResponse)
+    response _ = nullaryResponse TerminateJobFlowsResponse

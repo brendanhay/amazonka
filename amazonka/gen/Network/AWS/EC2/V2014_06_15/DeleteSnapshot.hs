@@ -69,4 +69,4 @@ instance AWSRequest DeleteSnapshot where
     type Rs DeleteSnapshot = DeleteSnapshotResponse
 
     request = post "DeleteSnapshot"
-    response _ _ = return (Right DeleteSnapshotResponse)
+    response _ = nullaryResponse DeleteSnapshotResponse

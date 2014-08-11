@@ -47,4 +47,4 @@ instance AWSRequest DeleteLoadBalancerListeners where
     type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
 
     request = post "DeleteLoadBalancerListeners"
-    response _ _ = return (Right DeleteLoadBalancerListenersResponse)
+    response _ = nullaryResponse DeleteLoadBalancerListenersResponse

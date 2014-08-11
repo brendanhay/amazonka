@@ -44,4 +44,4 @@ instance AWSRequest EnableAlarmActions where
     type Rs EnableAlarmActions = EnableAlarmActionsResponse
 
     request = post "EnableAlarmActions"
-    response _ _ = return (Right EnableAlarmActionsResponse)
+    response _ = nullaryResponse EnableAlarmActionsResponse

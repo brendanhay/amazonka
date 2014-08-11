@@ -73,4 +73,4 @@ instance AWSRequest PutBucketLogging where
     type Rs PutBucketLogging = PutBucketLoggingResponse
 
     request = put
-    response _ _ = return (Right PutBucketLoggingResponse)
+    response _ = nullaryResponse PutBucketLoggingResponse

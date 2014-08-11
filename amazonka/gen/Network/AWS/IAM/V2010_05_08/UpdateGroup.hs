@@ -73,4 +73,4 @@ instance AWSRequest UpdateGroup where
     type Rs UpdateGroup = UpdateGroupResponse
 
     request = post "UpdateGroup"
-    response _ _ = return (Right UpdateGroupResponse)
+    response _ = nullaryResponse UpdateGroupResponse

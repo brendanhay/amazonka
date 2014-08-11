@@ -81,4 +81,4 @@ instance AWSRequest DeprecateActivityType where
     type Rs DeprecateActivityType = DeprecateActivityTypeResponse
 
     request = get
-    response _ _ = return (Right DeprecateActivityTypeResponse)
+    response _ = nullaryResponse DeprecateActivityTypeResponse

@@ -53,4 +53,4 @@ instance AWSRequest StopLogging where
     type Rs StopLogging = StopLoggingResponse
 
     request = get
-    response _ _ = return (Right StopLoggingResponse)
+    response _ = nullaryResponse StopLoggingResponse

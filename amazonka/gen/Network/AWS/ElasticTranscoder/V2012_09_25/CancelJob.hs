@@ -69,4 +69,4 @@ instance AWSRequest CancelJob where
     type Rs CancelJob = CancelJobResponse
 
     request = delete
-    response _ _ = return (Right CancelJobResponse)
+    response _ = nullaryResponse CancelJobResponse

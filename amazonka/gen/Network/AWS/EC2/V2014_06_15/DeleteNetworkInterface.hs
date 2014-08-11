@@ -62,4 +62,4 @@ instance AWSRequest DeleteNetworkInterface where
     type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse
 
     request = post "DeleteNetworkInterface"
-    response _ _ = return (Right DeleteNetworkInterfaceResponse)
+    response _ = nullaryResponse DeleteNetworkInterfaceResponse

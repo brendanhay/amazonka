@@ -56,4 +56,4 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener where
     type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
 
     request = post "SetLoadBalancerPoliciesOfListener"
-    response _ _ = return (Right SetLoadBalancerPoliciesOfListenerResponse)
+    response _ = nullaryResponse SetLoadBalancerPoliciesOfListenerResponse

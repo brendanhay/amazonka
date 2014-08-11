@@ -66,4 +66,4 @@ instance AWSRequest DisassociateAddress where
     type Rs DisassociateAddress = DisassociateAddressResponse
 
     request = post "DisassociateAddress"
-    response _ _ = return (Right DisassociateAddressResponse)
+    response _ = nullaryResponse DisassociateAddressResponse

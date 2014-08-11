@@ -72,4 +72,4 @@ instance AWSRequest SetEndpointAttributes where
     type Rs SetEndpointAttributes = SetEndpointAttributesResponse
 
     request = post "SetEndpointAttributes"
-    response _ _ = return (Right SetEndpointAttributesResponse)
+    response _ = nullaryResponse SetEndpointAttributesResponse

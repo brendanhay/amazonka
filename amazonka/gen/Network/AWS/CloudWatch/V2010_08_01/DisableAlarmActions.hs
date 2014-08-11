@@ -46,4 +46,4 @@ instance AWSRequest DisableAlarmActions where
     type Rs DisableAlarmActions = DisableAlarmActionsResponse
 
     request = post "DisableAlarmActions"
-    response _ _ = return (Right DisableAlarmActionsResponse)
+    response _ = nullaryResponse DisableAlarmActionsResponse

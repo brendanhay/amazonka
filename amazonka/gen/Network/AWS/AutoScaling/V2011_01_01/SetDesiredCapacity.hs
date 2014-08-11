@@ -67,4 +67,4 @@ instance AWSRequest SetDesiredCapacity where
     type Rs SetDesiredCapacity = SetDesiredCapacityResponse
 
     request = post "SetDesiredCapacity"
-    response _ _ = return (Right SetDesiredCapacityResponse)
+    response _ = nullaryResponse SetDesiredCapacityResponse

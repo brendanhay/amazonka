@@ -62,4 +62,4 @@ instance AWSRequest CreateVpnConnectionRoute where
     type Rs CreateVpnConnectionRoute = CreateVpnConnectionRouteResponse
 
     request = post "CreateVpnConnectionRoute"
-    response _ _ = return (Right CreateVpnConnectionRouteResponse)
+    response _ = nullaryResponse CreateVpnConnectionRouteResponse

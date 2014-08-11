@@ -57,4 +57,4 @@ instance AWSRequest UnassignPrivateIpAddresses where
     type Rs UnassignPrivateIpAddresses = UnassignPrivateIpAddressesResponse
 
     request = post "UnassignPrivateIpAddresses"
-    response _ _ = return (Right UnassignPrivateIpAddressesResponse)
+    response _ = nullaryResponse UnassignPrivateIpAddressesResponse

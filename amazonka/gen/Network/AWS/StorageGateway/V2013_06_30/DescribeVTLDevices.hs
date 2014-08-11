@@ -71,7 +71,7 @@ instance AWSRequest DescribeVTLDevices where
     type Rs DescribeVTLDevices = DescribeVTLDevicesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager DescribeVTLDevices where
     next rq rs = (\x -> rq { _dvtldiMarker = Just x })

@@ -107,4 +107,4 @@ instance AWSRequest SetQueueAttributes where
     type Rs SetQueueAttributes = SetQueueAttributesResponse
 
     request = post "SetQueueAttributes"
-    response _ _ = return (Right SetQueueAttributesResponse)
+    response _ = nullaryResponse SetQueueAttributesResponse

@@ -62,4 +62,4 @@ instance AWSRequest DeleteCustomerGateway where
     type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse
 
     request = post "DeleteCustomerGateway"
-    response _ _ = return (Right DeleteCustomerGatewayResponse)
+    response _ = nullaryResponse DeleteCustomerGatewayResponse

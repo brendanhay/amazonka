@@ -64,4 +64,4 @@ instance AWSRequest DeleteVpc where
     type Rs DeleteVpc = DeleteVpcResponse
 
     request = post "DeleteVpc"
-    response _ _ = return (Right DeleteVpcResponse)
+    response _ = nullaryResponse DeleteVpcResponse

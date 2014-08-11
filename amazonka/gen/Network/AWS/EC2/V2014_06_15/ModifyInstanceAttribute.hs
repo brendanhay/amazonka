@@ -151,4 +151,4 @@ instance AWSRequest ModifyInstanceAttribute where
     type Rs ModifyInstanceAttribute = ModifyInstanceAttributeResponse
 
     request = post "ModifyInstanceAttribute"
-    response _ _ = return (Right ModifyInstanceAttributeResponse)
+    response _ = nullaryResponse ModifyInstanceAttributeResponse

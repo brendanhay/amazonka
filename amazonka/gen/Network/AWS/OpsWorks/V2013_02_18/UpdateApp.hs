@@ -88,4 +88,4 @@ instance AWSRequest UpdateApp where
     type Rs UpdateApp = UpdateAppResponse
 
     request = get
-    response _ _ = return (Right UpdateAppResponse)
+    response _ = nullaryResponse UpdateAppResponse

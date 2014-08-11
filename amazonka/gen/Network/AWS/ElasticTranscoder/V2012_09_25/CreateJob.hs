@@ -147,4 +147,4 @@ instance AWSRequest CreateJob where
     type Rs CreateJob = CreateJobResponse
 
     request = post
-    response _ = undefined
+    response _ = jsonResponse

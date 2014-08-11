@@ -49,4 +49,4 @@ instance AWSRequest RemoveTagsFromResource where
     type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
 
     request = post "RemoveTagsFromResource"
-    response _ _ = return (Right RemoveTagsFromResourceResponse)
+    response _ = nullaryResponse RemoveTagsFromResourceResponse

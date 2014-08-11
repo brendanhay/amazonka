@@ -82,4 +82,4 @@ instance AWSRequest AssociateDhcpOptions where
     type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
 
     request = post "AssociateDhcpOptions"
-    response _ _ = return (Right AssociateDhcpOptionsResponse)
+    response _ = nullaryResponse AssociateDhcpOptionsResponse

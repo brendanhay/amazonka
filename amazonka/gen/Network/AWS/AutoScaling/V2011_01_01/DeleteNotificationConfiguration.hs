@@ -47,4 +47,4 @@ instance AWSRequest DeleteNotificationConfiguration where
     type Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse
 
     request = post "DeleteNotificationConfiguration"
-    response _ _ = return (Right DeleteNotificationConfigurationResponse)
+    response _ = nullaryResponse DeleteNotificationConfigurationResponse

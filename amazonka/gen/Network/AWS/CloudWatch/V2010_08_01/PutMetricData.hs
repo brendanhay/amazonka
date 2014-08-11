@@ -56,4 +56,4 @@ instance AWSRequest PutMetricData where
     type Rs PutMetricData = PutMetricDataResponse
 
     request = post "PutMetricData"
-    response _ _ = return (Right PutMetricDataResponse)
+    response _ = nullaryResponse PutMetricDataResponse

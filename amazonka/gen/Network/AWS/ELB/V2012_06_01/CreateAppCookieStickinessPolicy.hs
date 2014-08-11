@@ -66,4 +66,4 @@ instance AWSRequest CreateAppCookieStickinessPolicy where
     type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse
 
     request = post "CreateAppCookieStickinessPolicy"
-    response _ _ = return (Right CreateAppCookieStickinessPolicyResponse)
+    response _ = nullaryResponse CreateAppCookieStickinessPolicyResponse

@@ -69,4 +69,4 @@ instance AWSRequest DeleteStreamingDistribution where
     type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
 
     request = delete
-    response _ _ = return (Right DeleteStreamingDistributionResponse)
+    response _ = nullaryResponse DeleteStreamingDistributionResponse

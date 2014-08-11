@@ -48,4 +48,4 @@ instance AWSRequest DeleteDomain where
     type Rs DeleteDomain = DeleteDomainResponse
 
     request = post "DeleteDomain"
-    response _ _ = return (Right DeleteDomainResponse)
+    response _ = nullaryResponse DeleteDomainResponse

@@ -96,4 +96,4 @@ instance AWSRequest PutBucketAcl where
     type Rs PutBucketAcl = PutBucketAclResponse
 
     request = put
-    response _ _ = return (Right PutBucketAclResponse)
+    response _ = nullaryResponse PutBucketAclResponse

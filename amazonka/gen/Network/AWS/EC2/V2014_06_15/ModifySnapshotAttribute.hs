@@ -93,4 +93,4 @@ instance AWSRequest ModifySnapshotAttribute where
     type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse
 
     request = post "ModifySnapshotAttribute"
-    response _ _ = return (Right ModifySnapshotAttributeResponse)
+    response _ = nullaryResponse ModifySnapshotAttributeResponse

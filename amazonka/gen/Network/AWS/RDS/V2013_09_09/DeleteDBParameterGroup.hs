@@ -53,4 +53,4 @@ instance AWSRequest DeleteDBParameterGroup where
     type Rs DeleteDBParameterGroup = DeleteDBParameterGroupResponse
 
     request = post "DeleteDBParameterGroup"
-    response _ _ = return (Right DeleteDBParameterGroupResponse)
+    response _ = nullaryResponse DeleteDBParameterGroupResponse

@@ -77,4 +77,4 @@ instance AWSRequest SetVisibleToAllUsers where
     type Rs SetVisibleToAllUsers = SetVisibleToAllUsersResponse
 
     request = get
-    response _ _ = return (Right SetVisibleToAllUsersResponse)
+    response _ = nullaryResponse SetVisibleToAllUsersResponse

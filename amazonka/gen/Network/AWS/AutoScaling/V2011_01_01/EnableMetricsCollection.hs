@@ -67,4 +67,4 @@ instance AWSRequest EnableMetricsCollection where
     type Rs EnableMetricsCollection = EnableMetricsCollectionResponse
 
     request = post "EnableMetricsCollection"
-    response _ _ = return (Right EnableMetricsCollectionResponse)
+    response _ = nullaryResponse EnableMetricsCollectionResponse

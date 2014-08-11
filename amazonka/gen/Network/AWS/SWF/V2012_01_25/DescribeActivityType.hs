@@ -98,4 +98,4 @@ instance AWSRequest DescribeActivityType where
     type Rs DescribeActivityType = DescribeActivityTypeResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

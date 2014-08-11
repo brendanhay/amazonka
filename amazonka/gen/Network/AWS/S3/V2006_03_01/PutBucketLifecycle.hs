@@ -71,4 +71,4 @@ instance AWSRequest PutBucketLifecycle where
     type Rs PutBucketLifecycle = PutBucketLifecycleResponse
 
     request = put
-    response _ _ = return (Right PutBucketLifecycleResponse)
+    response _ = nullaryResponse PutBucketLifecycleResponse

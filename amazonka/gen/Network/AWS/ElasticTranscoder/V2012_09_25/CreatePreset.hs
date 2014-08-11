@@ -142,4 +142,4 @@ instance AWSRequest CreatePreset where
     type Rs CreatePreset = CreatePresetResponse
 
     request = post
-    response _ = undefined
+    response _ = jsonResponse

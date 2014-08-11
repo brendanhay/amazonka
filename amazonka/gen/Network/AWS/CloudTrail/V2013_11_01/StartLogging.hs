@@ -49,4 +49,4 @@ instance AWSRequest StartLogging where
     type Rs StartLogging = StartLoggingResponse
 
     request = get
-    response _ _ = return (Right StartLoggingResponse)
+    response _ = nullaryResponse StartLoggingResponse

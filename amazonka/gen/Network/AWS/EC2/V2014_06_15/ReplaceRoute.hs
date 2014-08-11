@@ -84,4 +84,4 @@ instance AWSRequest ReplaceRoute where
     type Rs ReplaceRoute = ReplaceRouteResponse
 
     request = post "ReplaceRoute"
-    response _ _ = return (Right ReplaceRouteResponse)
+    response _ = nullaryResponse ReplaceRouteResponse

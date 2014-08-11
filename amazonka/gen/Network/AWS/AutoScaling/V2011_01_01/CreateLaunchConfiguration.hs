@@ -180,4 +180,4 @@ instance AWSRequest CreateLaunchConfiguration where
     type Rs CreateLaunchConfiguration = CreateLaunchConfigurationResponse
 
     request = post "CreateLaunchConfiguration"
-    response _ _ = return (Right CreateLaunchConfigurationResponse)
+    response _ = nullaryResponse CreateLaunchConfigurationResponse

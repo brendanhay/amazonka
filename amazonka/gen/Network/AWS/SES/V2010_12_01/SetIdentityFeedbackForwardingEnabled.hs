@@ -70,4 +70,4 @@ instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Rs SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabledResponse
 
     request = post "SetIdentityFeedbackForwardingEnabled"
-    response _ _ = return (Right SetIdentityFeedbackForwardingEnabledResponse)
+    response _ = nullaryResponse SetIdentityFeedbackForwardingEnabledResponse

@@ -92,4 +92,4 @@ instance AWSRequest CreateSnapshot where
     type Rs CreateSnapshot = CreateSnapshotResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

@@ -48,4 +48,4 @@ instance AWSRequest DeleteAccountAlias where
     type Rs DeleteAccountAlias = DeleteAccountAliasResponse
 
     request = post "DeleteAccountAlias"
-    response _ _ = return (Right DeleteAccountAliasResponse)
+    response _ = nullaryResponse DeleteAccountAliasResponse

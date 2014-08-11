@@ -66,4 +66,4 @@ instance AWSRequest SetStatus where
     type Rs SetStatus = SetStatusResponse
 
     request = get
-    response _ _ = return (Right SetStatusResponse)
+    response _ = nullaryResponse SetStatusResponse

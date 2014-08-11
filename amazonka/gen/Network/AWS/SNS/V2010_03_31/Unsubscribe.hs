@@ -60,4 +60,4 @@ instance AWSRequest Unsubscribe where
     type Rs Unsubscribe = UnsubscribeResponse
 
     request = post "Unsubscribe"
-    response _ _ = return (Right UnsubscribeResponse)
+    response _ = nullaryResponse UnsubscribeResponse

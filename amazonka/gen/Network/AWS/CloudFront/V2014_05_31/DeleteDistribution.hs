@@ -69,4 +69,4 @@ instance AWSRequest DeleteDistribution where
     type Rs DeleteDistribution = DeleteDistributionResponse
 
     request = delete
-    response _ _ = return (Right DeleteDistributionResponse)
+    response _ = nullaryResponse DeleteDistributionResponse

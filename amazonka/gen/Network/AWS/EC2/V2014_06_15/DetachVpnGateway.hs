@@ -71,4 +71,4 @@ instance AWSRequest DetachVpnGateway where
     type Rs DetachVpnGateway = DetachVpnGatewayResponse
 
     request = post "DetachVpnGateway"
-    response _ _ = return (Right DetachVpnGatewayResponse)
+    response _ = nullaryResponse DetachVpnGatewayResponse

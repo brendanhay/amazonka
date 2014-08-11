@@ -122,4 +122,4 @@ instance AWSRequest TerminateWorkflowExecution where
     type Rs TerminateWorkflowExecution = TerminateWorkflowExecutionResponse
 
     request = get
-    response _ _ = return (Right TerminateWorkflowExecutionResponse)
+    response _ = nullaryResponse TerminateWorkflowExecutionResponse

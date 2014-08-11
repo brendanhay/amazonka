@@ -83,4 +83,4 @@ instance AWSRequest ShutdownGateway where
     type Rs ShutdownGateway = ShutdownGatewayResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

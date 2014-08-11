@@ -111,7 +111,7 @@ instance AWSRequest ListActivityTypes where
     type Rs ListActivityTypes = ListActivityTypesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager ListActivityTypes where
     next rq rs = (\x -> rq { _latiNextPageToken = Just x })

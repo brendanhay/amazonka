@@ -63,4 +63,4 @@ instance AWSRequest ListIdentities where
     type Rs ListIdentities = ListIdentitiesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

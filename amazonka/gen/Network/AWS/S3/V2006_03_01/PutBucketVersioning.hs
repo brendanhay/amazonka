@@ -78,4 +78,4 @@ instance AWSRequest PutBucketVersioning where
     type Rs PutBucketVersioning = PutBucketVersioningResponse
 
     request = put
-    response _ _ = return (Right PutBucketVersioningResponse)
+    response _ = nullaryResponse PutBucketVersioningResponse

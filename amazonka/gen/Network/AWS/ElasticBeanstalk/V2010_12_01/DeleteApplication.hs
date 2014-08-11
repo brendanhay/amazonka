@@ -61,4 +61,4 @@ instance AWSRequest DeleteApplication where
     type Rs DeleteApplication = DeleteApplicationResponse
 
     request = post "DeleteApplication"
-    response _ _ = return (Right DeleteApplicationResponse)
+    response _ = nullaryResponse DeleteApplicationResponse

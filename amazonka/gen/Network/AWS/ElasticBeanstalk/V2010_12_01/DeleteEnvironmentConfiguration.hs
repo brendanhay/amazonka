@@ -56,4 +56,4 @@ instance AWSRequest DeleteEnvironmentConfiguration where
     type Rs DeleteEnvironmentConfiguration = DeleteEnvironmentConfigurationResponse
 
     request = post "DeleteEnvironmentConfiguration"
-    response _ _ = return (Right DeleteEnvironmentConfigurationResponse)
+    response _ = nullaryResponse DeleteEnvironmentConfigurationResponse

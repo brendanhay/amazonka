@@ -63,4 +63,4 @@ instance AWSRequest DeleteHealthCheck where
     type Rs DeleteHealthCheck = DeleteHealthCheckResponse
 
     request = delete
-    response _ _ = return (Right DeleteHealthCheckResponse)
+    response _ = nullaryResponse DeleteHealthCheckResponse

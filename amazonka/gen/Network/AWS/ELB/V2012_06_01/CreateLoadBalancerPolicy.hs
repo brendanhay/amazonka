@@ -75,4 +75,4 @@ instance AWSRequest CreateLoadBalancerPolicy where
     type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
 
     request = post "CreateLoadBalancerPolicy"
-    response _ _ = return (Right CreateLoadBalancerPolicyResponse)
+    response _ = nullaryResponse CreateLoadBalancerPolicyResponse

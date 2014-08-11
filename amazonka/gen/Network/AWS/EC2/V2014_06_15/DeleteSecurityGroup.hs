@@ -71,4 +71,4 @@ instance AWSRequest DeleteSecurityGroup where
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
 
     request = post "DeleteSecurityGroup"
-    response _ _ = return (Right DeleteSecurityGroupResponse)
+    response _ = nullaryResponse DeleteSecurityGroupResponse

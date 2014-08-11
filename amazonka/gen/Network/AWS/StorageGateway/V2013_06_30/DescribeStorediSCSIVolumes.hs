@@ -77,4 +77,4 @@ instance AWSRequest DescribeStorediSCSIVolumes where
     type Rs DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

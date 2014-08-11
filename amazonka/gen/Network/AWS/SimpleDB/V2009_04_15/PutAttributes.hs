@@ -90,4 +90,4 @@ instance AWSRequest PutAttributes where
     type Rs PutAttributes = PutAttributesResponse
 
     request = post "PutAttributes"
-    response _ _ = return (Right PutAttributesResponse)
+    response _ = nullaryResponse PutAttributesResponse

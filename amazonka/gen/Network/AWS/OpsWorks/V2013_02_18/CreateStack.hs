@@ -194,4 +194,4 @@ instance AWSRequest CreateStack where
     type Rs CreateStack = CreateStackResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

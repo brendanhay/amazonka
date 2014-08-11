@@ -45,4 +45,4 @@ instance AWSRequest DeleteAlarms where
     type Rs DeleteAlarms = DeleteAlarmsResponse
 
     request = post "DeleteAlarms"
-    response _ _ = return (Right DeleteAlarmsResponse)
+    response _ = nullaryResponse DeleteAlarmsResponse

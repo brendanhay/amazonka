@@ -45,4 +45,4 @@ instance AWSRequest DeleteEventSubscription where
     type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
 
     request = post "DeleteEventSubscription"
-    response _ _ = return (Right DeleteEventSubscriptionResponse)
+    response _ = nullaryResponse DeleteEventSubscriptionResponse

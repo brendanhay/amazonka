@@ -75,4 +75,4 @@ instance AWSRequest DeleteChapCredentials where
     type Rs DeleteChapCredentials = DeleteChapCredentialsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

@@ -81,4 +81,4 @@ instance AWSRequest UpdateMaintenanceStartTime where
     type Rs UpdateMaintenanceStartTime = UpdateMaintenanceStartTimeResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

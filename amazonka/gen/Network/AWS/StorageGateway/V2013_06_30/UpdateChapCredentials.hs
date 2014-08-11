@@ -99,4 +99,4 @@ instance AWSRequest UpdateChapCredentials where
     type Rs UpdateChapCredentials = UpdateChapCredentialsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

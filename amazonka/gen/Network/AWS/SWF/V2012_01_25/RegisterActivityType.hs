@@ -159,4 +159,4 @@ instance AWSRequest RegisterActivityType where
     type Rs RegisterActivityType = RegisterActivityTypeResponse
 
     request = get
-    response _ _ = return (Right RegisterActivityTypeResponse)
+    response _ = nullaryResponse RegisterActivityTypeResponse

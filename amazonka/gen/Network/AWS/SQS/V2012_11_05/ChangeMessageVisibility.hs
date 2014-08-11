@@ -87,4 +87,4 @@ instance AWSRequest ChangeMessageVisibility where
     type Rs ChangeMessageVisibility = ChangeMessageVisibilityResponse
 
     request = post "ChangeMessageVisibility"
-    response _ _ = return (Right ChangeMessageVisibilityResponse)
+    response _ = nullaryResponse ChangeMessageVisibilityResponse

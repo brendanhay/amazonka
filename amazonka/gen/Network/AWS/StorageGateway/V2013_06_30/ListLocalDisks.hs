@@ -78,4 +78,4 @@ instance AWSRequest ListLocalDisks where
     type Rs ListLocalDisks = ListLocalDisksResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

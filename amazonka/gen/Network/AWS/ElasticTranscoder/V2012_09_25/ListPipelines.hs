@@ -116,7 +116,7 @@ instance AWSRequest ListPipelines where
     type Rs ListPipelines = ListPipelinesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager ListPipelines where
     next rq rs = (\x -> rq { _lprPageToken = Just x })

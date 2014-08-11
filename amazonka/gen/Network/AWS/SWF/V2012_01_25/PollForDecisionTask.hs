@@ -181,7 +181,7 @@ instance AWSRequest PollForDecisionTask where
     type Rs PollForDecisionTask = PollForDecisionTaskResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager PollForDecisionTask where
     next rq rs = (\x -> rq { _pfdtiNextPageToken = Just x })

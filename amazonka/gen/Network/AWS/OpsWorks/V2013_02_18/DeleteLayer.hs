@@ -54,4 +54,4 @@ instance AWSRequest DeleteLayer where
     type Rs DeleteLayer = DeleteLayerResponse
 
     request = get
-    response _ _ = return (Right DeleteLayerResponse)
+    response _ = nullaryResponse DeleteLayerResponse

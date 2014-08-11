@@ -134,4 +134,4 @@ instance AWSRequest UpdateAutoScalingGroup where
     type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
 
     request = post "UpdateAutoScalingGroup"
-    response _ _ = return (Right UpdateAutoScalingGroupResponse)
+    response _ = nullaryResponse UpdateAutoScalingGroupResponse

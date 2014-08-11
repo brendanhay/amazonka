@@ -64,4 +64,4 @@ instance AWSRequest DetachNetworkInterface where
     type Rs DetachNetworkInterface = DetachNetworkInterfaceResponse
 
     request = post "DetachNetworkInterface"
-    response _ _ = return (Right DetachNetworkInterfaceResponse)
+    response _ = nullaryResponse DetachNetworkInterfaceResponse

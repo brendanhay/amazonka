@@ -55,4 +55,4 @@ instance AWSRequest RemoveRoleFromInstanceProfile where
     type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
 
     request = post "RemoveRoleFromInstanceProfile"
-    response _ _ = return (Right RemoveRoleFromInstanceProfileResponse)
+    response _ = nullaryResponse RemoveRoleFromInstanceProfileResponse

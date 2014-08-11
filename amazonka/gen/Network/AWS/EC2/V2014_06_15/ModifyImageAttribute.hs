@@ -85,4 +85,4 @@ instance AWSRequest ModifyImageAttribute where
     type Rs ModifyImageAttribute = ModifyImageAttributeResponse
 
     request = post "ModifyImageAttribute"
-    response _ _ = return (Right ModifyImageAttributeResponse)
+    response _ = nullaryResponse ModifyImageAttributeResponse

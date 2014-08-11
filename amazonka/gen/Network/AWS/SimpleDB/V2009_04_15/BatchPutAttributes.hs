@@ -80,4 +80,4 @@ instance AWSRequest BatchPutAttributes where
     type Rs BatchPutAttributes = BatchPutAttributesResponse
 
     request = post "BatchPutAttributes"
-    response _ _ = return (Right BatchPutAttributesResponse)
+    response _ = nullaryResponse BatchPutAttributesResponse

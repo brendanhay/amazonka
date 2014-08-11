@@ -97,4 +97,4 @@ instance AWSRequest RequestCancelWorkflowExecution where
     type Rs RequestCancelWorkflowExecution = RequestCancelWorkflowExecutionResponse
 
     request = get
-    response _ _ = return (Right RequestCancelWorkflowExecutionResponse)
+    response _ = nullaryResponse RequestCancelWorkflowExecutionResponse

@@ -70,4 +70,4 @@ instance AWSRequest UpdateServerCertificate where
     type Rs UpdateServerCertificate = UpdateServerCertificateResponse
 
     request = post "UpdateServerCertificate"
-    response _ _ = return (Right UpdateServerCertificateResponse)
+    response _ = nullaryResponse UpdateServerCertificateResponse

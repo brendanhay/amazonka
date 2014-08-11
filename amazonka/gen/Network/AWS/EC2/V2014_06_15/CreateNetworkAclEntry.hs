@@ -106,4 +106,4 @@ instance AWSRequest CreateNetworkAclEntry where
     type Rs CreateNetworkAclEntry = CreateNetworkAclEntryResponse
 
     request = post "CreateNetworkAclEntry"
-    response _ _ = return (Right CreateNetworkAclEntryResponse)
+    response _ = nullaryResponse CreateNetworkAclEntryResponse

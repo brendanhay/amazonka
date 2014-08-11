@@ -75,4 +75,4 @@ instance AWSRequest ReadJob where
     type Rs ReadJob = ReadJobResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

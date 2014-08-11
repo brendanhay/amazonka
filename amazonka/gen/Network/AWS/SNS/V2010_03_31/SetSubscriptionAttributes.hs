@@ -79,4 +79,4 @@ instance AWSRequest SetSubscriptionAttributes where
     type Rs SetSubscriptionAttributes = SetSubscriptionAttributesResponse
 
     request = post "SetSubscriptionAttributes"
-    response _ _ = return (Right SetSubscriptionAttributesResponse)
+    response _ = nullaryResponse SetSubscriptionAttributesResponse

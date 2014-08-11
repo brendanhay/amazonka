@@ -113,4 +113,4 @@ instance AWSRequest CreatePublicVirtualInterface where
     type Rs CreatePublicVirtualInterface = CreatePublicVirtualInterfaceResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

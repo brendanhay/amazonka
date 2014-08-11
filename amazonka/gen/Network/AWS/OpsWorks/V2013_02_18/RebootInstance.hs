@@ -53,4 +53,4 @@ instance AWSRequest RebootInstance where
     type Rs RebootInstance = RebootInstanceResponse
 
     request = get
-    response _ _ = return (Right RebootInstanceResponse)
+    response _ = nullaryResponse RebootInstanceResponse

@@ -98,4 +98,4 @@ instance AWSRequest CreateStream where
     type Rs CreateStream = CreateStreamResponse
 
     request = get
-    response _ _ = return (Right CreateStreamResponse)
+    response _ = nullaryResponse CreateStreamResponse

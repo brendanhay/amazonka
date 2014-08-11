@@ -73,4 +73,4 @@ instance AWSRequest DeleteMessage where
     type Rs DeleteMessage = DeleteMessageResponse
 
     request = post "DeleteMessage"
-    response _ _ = return (Right DeleteMessageResponse)
+    response _ = nullaryResponse DeleteMessageResponse

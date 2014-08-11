@@ -60,4 +60,4 @@ instance AWSRequest CreateLoadBalancerListeners where
     type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse
 
     request = post "CreateLoadBalancerListeners"
-    response _ _ = return (Right CreateLoadBalancerListenersResponse)
+    response _ = nullaryResponse CreateLoadBalancerListenersResponse

@@ -63,4 +63,4 @@ instance AWSRequest DeleteVpnGateway where
     type Rs DeleteVpnGateway = DeleteVpnGatewayResponse
 
     request = post "DeleteVpnGateway"
-    response _ _ = return (Right DeleteVpnGatewayResponse)
+    response _ = nullaryResponse DeleteVpnGatewayResponse

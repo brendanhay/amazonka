@@ -51,4 +51,4 @@ instance AWSRequest AddRoleToInstanceProfile where
     type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
 
     request = post "AddRoleToInstanceProfile"
-    response _ _ = return (Right AddRoleToInstanceProfileResponse)
+    response _ = nullaryResponse AddRoleToInstanceProfileResponse

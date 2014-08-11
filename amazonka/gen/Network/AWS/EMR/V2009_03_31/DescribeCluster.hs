@@ -55,4 +55,4 @@ instance AWSRequest DescribeCluster where
     type Rs DescribeCluster = DescribeClusterResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

@@ -56,4 +56,4 @@ instance AWSRequest DeleteVerifiedEmailAddress where
     type Rs DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddressResponse
 
     request = post "DeleteVerifiedEmailAddress"
-    response _ _ = return (Right DeleteVerifiedEmailAddressResponse)
+    response _ = nullaryResponse DeleteVerifiedEmailAddressResponse

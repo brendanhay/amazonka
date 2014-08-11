@@ -68,4 +68,4 @@ instance AWSRequest AttachInternetGateway where
     type Rs AttachInternetGateway = AttachInternetGatewayResponse
 
     request = post "AttachInternetGateway"
-    response _ _ = return (Right AttachInternetGatewayResponse)
+    response _ = nullaryResponse AttachInternetGatewayResponse

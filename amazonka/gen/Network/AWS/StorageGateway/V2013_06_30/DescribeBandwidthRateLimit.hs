@@ -85,4 +85,4 @@ instance AWSRequest DescribeBandwidthRateLimit where
     type Rs DescribeBandwidthRateLimit = DescribeBandwidthRateLimitResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

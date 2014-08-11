@@ -94,4 +94,4 @@ instance AWSRequest ReportInstanceStatus where
     type Rs ReportInstanceStatus = ReportInstanceStatusResponse
 
     request = post "ReportInstanceStatus"
-    response _ _ = return (Right ReportInstanceStatusResponse)
+    response _ = nullaryResponse ReportInstanceStatusResponse

@@ -117,4 +117,4 @@ instance AWSRequest ActivateGateway where
     type Rs ActivateGateway = ActivateGatewayResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

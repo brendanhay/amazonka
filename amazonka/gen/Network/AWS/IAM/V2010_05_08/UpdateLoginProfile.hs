@@ -59,4 +59,4 @@ instance AWSRequest UpdateLoginProfile where
     type Rs UpdateLoginProfile = UpdateLoginProfileResponse
 
     request = post "UpdateLoginProfile"
-    response _ _ = return (Right UpdateLoginProfileResponse)
+    response _ = nullaryResponse UpdateLoginProfileResponse

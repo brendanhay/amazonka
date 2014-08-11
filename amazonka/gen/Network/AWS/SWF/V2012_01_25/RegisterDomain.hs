@@ -97,4 +97,4 @@ instance AWSRequest RegisterDomain where
     type Rs RegisterDomain = RegisterDomainResponse
 
     request = get
-    response _ _ = return (Right RegisterDomainResponse)
+    response _ = nullaryResponse RegisterDomainResponse

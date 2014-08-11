@@ -58,4 +58,4 @@ instance AWSRequest DescribeAttachment where
     type Rs DescribeAttachment = DescribeAttachmentResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

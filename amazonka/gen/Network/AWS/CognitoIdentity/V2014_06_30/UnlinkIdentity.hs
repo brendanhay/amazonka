@@ -49,4 +49,4 @@ instance AWSRequest UnlinkIdentity where
     type Rs UnlinkIdentity = UnlinkIdentityResponse
 
     request = get
-    response _ _ = return (Right UnlinkIdentityResponse)
+    response _ = nullaryResponse UnlinkIdentityResponse

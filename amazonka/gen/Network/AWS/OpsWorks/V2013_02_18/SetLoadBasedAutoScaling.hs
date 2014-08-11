@@ -80,4 +80,4 @@ instance AWSRequest SetLoadBasedAutoScaling where
     type Rs SetLoadBasedAutoScaling = SetLoadBasedAutoScalingResponse
 
     request = get
-    response _ _ = return (Right SetLoadBasedAutoScalingResponse)
+    response _ = nullaryResponse SetLoadBasedAutoScalingResponse

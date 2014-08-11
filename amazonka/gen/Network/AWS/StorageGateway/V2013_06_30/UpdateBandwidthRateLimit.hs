@@ -90,4 +90,4 @@ instance AWSRequest UpdateBandwidthRateLimit where
     type Rs UpdateBandwidthRateLimit = UpdateBandwidthRateLimitResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

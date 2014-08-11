@@ -60,4 +60,4 @@ instance AWSRequest ResumeProcesses where
     type Rs ResumeProcesses = ResumeProcessesResponse
 
     request = post "ResumeProcesses"
-    response _ _ = return (Right ResumeProcessesResponse)
+    response _ = nullaryResponse ResumeProcessesResponse

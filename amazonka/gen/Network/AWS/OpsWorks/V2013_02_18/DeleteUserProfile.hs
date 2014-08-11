@@ -51,4 +51,4 @@ instance AWSRequest DeleteUserProfile where
     type Rs DeleteUserProfile = DeleteUserProfileResponse
 
     request = get
-    response _ _ = return (Right DeleteUserProfileResponse)
+    response _ = nullaryResponse DeleteUserProfileResponse

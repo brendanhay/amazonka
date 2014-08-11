@@ -208,4 +208,4 @@ instance AWSRequest CloneStack where
     type Rs CloneStack = CloneStackResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

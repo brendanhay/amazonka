@@ -53,4 +53,4 @@ instance AWSRequest CreateDomain where
     type Rs CreateDomain = CreateDomainResponse
 
     request = post "CreateDomain"
-    response _ _ = return (Right CreateDomainResponse)
+    response _ = nullaryResponse CreateDomainResponse

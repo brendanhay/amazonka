@@ -137,4 +137,4 @@ instance AWSRequest AuthorizeSecurityGroupIngress where
     type Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
 
     request = post "AuthorizeSecurityGroupIngress"
-    response _ _ = return (Right AuthorizeSecurityGroupIngressResponse)
+    response _ = nullaryResponse AuthorizeSecurityGroupIngressResponse

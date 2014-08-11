@@ -52,4 +52,4 @@ instance AWSRequest CancelExportTask where
     type Rs CancelExportTask = CancelExportTaskResponse
 
     request = post "CancelExportTask"
-    response _ _ = return (Right CancelExportTaskResponse)
+    response _ = nullaryResponse CancelExportTaskResponse

@@ -71,4 +71,4 @@ instance AWSRequest ModifyVpcAttribute where
     type Rs ModifyVpcAttribute = ModifyVpcAttributeResponse
 
     request = post "ModifyVpcAttribute"
-    response _ _ = return (Right ModifyVpcAttributeResponse)
+    response _ = nullaryResponse ModifyVpcAttributeResponse

@@ -62,4 +62,4 @@ instance AWSRequest UpdateRdsDbInstance where
     type Rs UpdateRdsDbInstance = UpdateRdsDbInstanceResponse
 
     request = get
-    response _ _ = return (Right UpdateRdsDbInstanceResponse)
+    response _ = nullaryResponse UpdateRdsDbInstanceResponse

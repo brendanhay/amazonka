@@ -63,4 +63,4 @@ instance AWSRequest UpdateElasticIp where
     type Rs UpdateElasticIp = UpdateElasticIpResponse
 
     request = get
-    response _ _ = return (Right UpdateElasticIpResponse)
+    response _ = nullaryResponse UpdateElasticIpResponse

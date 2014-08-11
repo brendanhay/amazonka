@@ -64,4 +64,4 @@ instance AWSRequest ExecutePolicy where
     type Rs ExecutePolicy = ExecutePolicyResponse
 
     request = post "ExecutePolicy"
-    response _ _ = return (Right ExecutePolicyResponse)
+    response _ = nullaryResponse ExecutePolicyResponse

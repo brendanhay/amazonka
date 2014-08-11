@@ -98,4 +98,4 @@ instance AWSRequest UpdatePipelineNotifications where
     type Rs UpdatePipelineNotifications = UpdatePipelineNotificationsResponse
 
     request = post
-    response _ = undefined
+    response _ = jsonResponse

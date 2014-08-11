@@ -58,4 +58,4 @@ instance AWSRequest RemovePermission where
     type Rs RemovePermission = RemovePermissionResponse
 
     request = post "RemovePermission"
-    response _ _ = return (Right RemovePermissionResponse)
+    response _ = nullaryResponse RemovePermissionResponse

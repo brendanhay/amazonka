@@ -73,4 +73,4 @@ instance AWSRequest CreateTags where
     type Rs CreateTags = CreateTagsResponse
 
     request = post "CreateTags"
-    response _ _ = return (Right CreateTagsResponse)
+    response _ = nullaryResponse CreateTagsResponse

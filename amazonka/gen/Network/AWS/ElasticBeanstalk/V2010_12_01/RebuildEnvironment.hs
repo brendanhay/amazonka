@@ -64,4 +64,4 @@ instance AWSRequest RebuildEnvironment where
     type Rs RebuildEnvironment = RebuildEnvironmentResponse
 
     request = post "RebuildEnvironment"
-    response _ _ = return (Right RebuildEnvironmentResponse)
+    response _ = nullaryResponse RebuildEnvironmentResponse

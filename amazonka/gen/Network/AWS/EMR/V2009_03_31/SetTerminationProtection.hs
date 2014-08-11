@@ -83,4 +83,4 @@ instance AWSRequest SetTerminationProtection where
     type Rs SetTerminationProtection = SetTerminationProtectionResponse
 
     request = get
-    response _ _ = return (Right SetTerminationProtectionResponse)
+    response _ = nullaryResponse SetTerminationProtectionResponse

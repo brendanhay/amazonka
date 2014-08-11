@@ -93,4 +93,4 @@ instance AWSRequest SetTaskStatus where
     type Rs SetTaskStatus = SetTaskStatusResponse
 
     request = get
-    response _ _ = return (Right SetTaskStatusResponse)
+    response _ = nullaryResponse SetTaskStatusResponse

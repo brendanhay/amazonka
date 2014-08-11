@@ -56,4 +56,4 @@ instance AWSRequest DisableVgwRoutePropagation where
     type Rs DisableVgwRoutePropagation = DisableVgwRoutePropagationResponse
 
     request = post "DisableVgwRoutePropagation"
-    response _ _ = return (Right DisableVgwRoutePropagationResponse)
+    response _ = nullaryResponse DisableVgwRoutePropagationResponse

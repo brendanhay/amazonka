@@ -53,4 +53,4 @@ instance AWSRequest DeleteStack where
     type Rs DeleteStack = DeleteStackResponse
 
     request = get
-    response _ _ = return (Right DeleteStackResponse)
+    response _ = nullaryResponse DeleteStackResponse

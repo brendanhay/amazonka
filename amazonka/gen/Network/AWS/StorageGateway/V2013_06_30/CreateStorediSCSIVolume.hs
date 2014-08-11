@@ -129,4 +129,4 @@ instance AWSRequest CreateStorediSCSIVolume where
     type Rs CreateStorediSCSIVolume = CreateStorediSCSIVolumeResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

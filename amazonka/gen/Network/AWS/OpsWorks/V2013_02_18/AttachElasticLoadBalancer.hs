@@ -59,4 +59,4 @@ instance AWSRequest AttachElasticLoadBalancer where
     type Rs AttachElasticLoadBalancer = AttachElasticLoadBalancerResponse
 
     request = get
-    response _ _ = return (Right AttachElasticLoadBalancerResponse)
+    response _ = nullaryResponse AttachElasticLoadBalancerResponse

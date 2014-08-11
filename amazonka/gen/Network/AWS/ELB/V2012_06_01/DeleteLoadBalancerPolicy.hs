@@ -47,4 +47,4 @@ instance AWSRequest DeleteLoadBalancerPolicy where
     type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
 
     request = post "DeleteLoadBalancerPolicy"
-    response _ _ = return (Right DeleteLoadBalancerPolicyResponse)
+    response _ = nullaryResponse DeleteLoadBalancerPolicyResponse

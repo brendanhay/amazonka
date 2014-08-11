@@ -60,4 +60,4 @@ instance AWSRequest DeleteSubnet where
     type Rs DeleteSubnet = DeleteSubnetResponse
 
     request = post "DeleteSubnet"
-    response _ _ = return (Right DeleteSubnetResponse)
+    response _ = nullaryResponse DeleteSubnetResponse

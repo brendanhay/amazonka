@@ -76,4 +76,4 @@ instance AWSRequest DescribeMaintenanceStartTime where
     type Rs DescribeMaintenanceStartTime = DescribeMaintenanceStartTimeResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

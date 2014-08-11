@@ -69,4 +69,4 @@ instance AWSRequest DeleteTopic where
     type Rs DeleteTopic = DeleteTopicResponse
 
     request = post "DeleteTopic"
-    response _ _ = return (Right DeleteTopicResponse)
+    response _ = nullaryResponse DeleteTopicResponse

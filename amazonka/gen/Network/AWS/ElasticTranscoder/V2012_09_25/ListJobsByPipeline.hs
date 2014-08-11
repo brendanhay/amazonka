@@ -125,7 +125,7 @@ instance AWSRequest ListJobsByPipeline where
     type Rs ListJobsByPipeline = ListJobsByPipelineResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager ListJobsByPipeline where
     next rq rs = (\x -> rq { _ljbprPageToken = Just x })

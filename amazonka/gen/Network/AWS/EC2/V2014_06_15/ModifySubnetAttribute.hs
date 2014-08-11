@@ -59,4 +59,4 @@ instance AWSRequest ModifySubnetAttribute where
     type Rs ModifySubnetAttribute = ModifySubnetAttributeResponse
 
     request = post "ModifySubnetAttribute"
-    response _ _ = return (Right ModifySubnetAttributeResponse)
+    response _ = nullaryResponse ModifySubnetAttributeResponse

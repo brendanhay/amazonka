@@ -53,4 +53,4 @@ instance AWSRequest DeleteCacheParameterGroup where
     type Rs DeleteCacheParameterGroup = DeleteCacheParameterGroupResponse
 
     request = post "DeleteCacheParameterGroup"
-    response _ _ = return (Right DeleteCacheParameterGroupResponse)
+    response _ = nullaryResponse DeleteCacheParameterGroupResponse

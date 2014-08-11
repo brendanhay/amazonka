@@ -63,4 +63,4 @@ instance AWSRequest DeleteVolume where
     type Rs DeleteVolume = DeleteVolumeResponse
 
     request = post "DeleteVolume"
-    response _ _ = return (Right DeleteVolumeResponse)
+    response _ = nullaryResponse DeleteVolumeResponse

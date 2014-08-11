@@ -67,4 +67,4 @@ instance AWSRequest RebootInstances where
     type Rs RebootInstances = RebootInstancesResponse
 
     request = post "RebootInstances"
-    response _ _ = return (Right RebootInstancesResponse)
+    response _ = nullaryResponse RebootInstancesResponse

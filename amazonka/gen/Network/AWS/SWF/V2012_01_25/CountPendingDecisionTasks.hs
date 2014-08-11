@@ -87,4 +87,4 @@ instance AWSRequest CountPendingDecisionTasks where
     type Rs CountPendingDecisionTasks = CountPendingDecisionTasksResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

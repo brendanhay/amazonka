@@ -95,4 +95,4 @@ instance AWSRequest AddJobFlowSteps where
     type Rs AddJobFlowSteps = AddJobFlowStepsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

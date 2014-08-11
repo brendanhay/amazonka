@@ -99,4 +99,4 @@ instance AWSRequest RespondActivityTaskCompleted where
     type Rs RespondActivityTaskCompleted = RespondActivityTaskCompletedResponse
 
     request = get
-    response _ _ = return (Right RespondActivityTaskCompletedResponse)
+    response _ = nullaryResponse RespondActivityTaskCompletedResponse

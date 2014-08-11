@@ -59,4 +59,4 @@ instance AWSRequest ListIdentityPools where
     type Rs ListIdentityPools = ListIdentityPoolsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

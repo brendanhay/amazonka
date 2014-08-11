@@ -71,4 +71,4 @@ instance AWSRequest PutBucketWebsite where
     type Rs PutBucketWebsite = PutBucketWebsiteResponse
 
     request = put
-    response _ _ = return (Right PutBucketWebsiteResponse)
+    response _ = nullaryResponse PutBucketWebsiteResponse

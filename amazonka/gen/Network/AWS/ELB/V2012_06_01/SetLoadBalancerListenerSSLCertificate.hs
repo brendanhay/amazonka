@@ -60,4 +60,4 @@ instance AWSRequest SetLoadBalancerListenerSSLCertificate where
     type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
 
     request = post "SetLoadBalancerListenerSSLCertificate"
-    response _ _ = return (Right SetLoadBalancerListenerSSLCertificateResponse)
+    response _ = nullaryResponse SetLoadBalancerListenerSSLCertificateResponse

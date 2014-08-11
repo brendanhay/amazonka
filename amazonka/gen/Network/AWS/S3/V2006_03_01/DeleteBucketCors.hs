@@ -55,4 +55,4 @@ instance AWSRequest DeleteBucketCors where
     type Rs DeleteBucketCors = DeleteBucketCorsResponse
 
     request = delete
-    response _ _ = return (Right DeleteBucketCorsResponse)
+    response _ = nullaryResponse DeleteBucketCorsResponse

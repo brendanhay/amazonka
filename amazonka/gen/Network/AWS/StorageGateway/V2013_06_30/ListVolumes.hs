@@ -101,7 +101,7 @@ instance AWSRequest ListVolumes where
     type Rs ListVolumes = ListVolumesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager ListVolumes where
     next rq rs = (\x -> rq { _lviMarker = Just x })

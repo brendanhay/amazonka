@@ -51,4 +51,4 @@ instance AWSRequest UpdateAssumeRolePolicy where
     type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
 
     request = post "UpdateAssumeRolePolicy"
-    response _ _ = return (Right UpdateAssumeRolePolicyResponse)
+    response _ = nullaryResponse UpdateAssumeRolePolicyResponse

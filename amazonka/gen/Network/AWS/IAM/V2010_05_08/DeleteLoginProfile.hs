@@ -51,4 +51,4 @@ instance AWSRequest DeleteLoginProfile where
     type Rs DeleteLoginProfile = DeleteLoginProfileResponse
 
     request = post "DeleteLoginProfile"
-    response _ _ = return (Right DeleteLoginProfileResponse)
+    response _ = nullaryResponse DeleteLoginProfileResponse

@@ -66,4 +66,4 @@ instance AWSRequest ResetImageAttribute where
     type Rs ResetImageAttribute = ResetImageAttributeResponse
 
     request = post "ResetImageAttribute"
-    response _ _ = return (Right ResetImageAttributeResponse)
+    response _ = nullaryResponse ResetImageAttributeResponse

@@ -52,4 +52,4 @@ instance AWSRequest DeleteApp where
     type Rs DeleteApp = DeleteAppResponse
 
     request = get
-    response _ _ = return (Right DeleteAppResponse)
+    response _ = nullaryResponse DeleteAppResponse

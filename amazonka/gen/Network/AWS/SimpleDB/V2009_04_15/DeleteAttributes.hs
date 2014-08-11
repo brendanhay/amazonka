@@ -77,4 +77,4 @@ instance AWSRequest DeleteAttributes where
     type Rs DeleteAttributes = DeleteAttributesResponse
 
     request = post "DeleteAttributes"
-    response _ _ = return (Right DeleteAttributesResponse)
+    response _ = nullaryResponse DeleteAttributesResponse

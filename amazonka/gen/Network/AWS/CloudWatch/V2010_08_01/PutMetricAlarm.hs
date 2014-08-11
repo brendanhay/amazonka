@@ -124,4 +124,4 @@ instance AWSRequest PutMetricAlarm where
     type Rs PutMetricAlarm = PutMetricAlarmResponse
 
     request = post "PutMetricAlarm"
-    response _ _ = return (Right PutMetricAlarmResponse)
+    response _ = nullaryResponse PutMetricAlarmResponse

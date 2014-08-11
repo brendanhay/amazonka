@@ -61,4 +61,4 @@ instance AWSRequest DeregisterImage where
     type Rs DeregisterImage = DeregisterImageResponse
 
     request = post "DeregisterImage"
-    response _ _ = return (Right DeregisterImageResponse)
+    response _ = nullaryResponse DeregisterImageResponse

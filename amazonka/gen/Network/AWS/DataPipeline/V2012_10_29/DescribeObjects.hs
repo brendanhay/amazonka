@@ -100,7 +100,7 @@ instance AWSRequest DescribeObjects where
     type Rs DescribeObjects = DescribeObjectsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager DescribeObjects where
     next rq rs

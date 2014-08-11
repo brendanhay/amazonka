@@ -55,4 +55,4 @@ instance AWSRequest DeleteBucketTagging where
     type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
 
     request = delete
-    response _ _ = return (Right DeleteBucketTaggingResponse)
+    response _ = nullaryResponse DeleteBucketTaggingResponse

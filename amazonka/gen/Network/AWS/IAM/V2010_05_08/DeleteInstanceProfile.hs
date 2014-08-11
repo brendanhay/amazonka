@@ -52,4 +52,4 @@ instance AWSRequest DeleteInstanceProfile where
     type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
 
     request = post "DeleteInstanceProfile"
-    response _ _ = return (Right DeleteInstanceProfileResponse)
+    response _ = nullaryResponse DeleteInstanceProfileResponse

@@ -105,4 +105,4 @@ instance AWSRequest CreateCachediSCSIVolume where
     type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

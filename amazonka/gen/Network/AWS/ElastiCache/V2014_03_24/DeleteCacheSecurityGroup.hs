@@ -52,4 +52,4 @@ instance AWSRequest DeleteCacheSecurityGroup where
     type Rs DeleteCacheSecurityGroup = DeleteCacheSecurityGroupResponse
 
     request = post "DeleteCacheSecurityGroup"
-    response _ _ = return (Right DeleteCacheSecurityGroupResponse)
+    response _ = nullaryResponse DeleteCacheSecurityGroupResponse

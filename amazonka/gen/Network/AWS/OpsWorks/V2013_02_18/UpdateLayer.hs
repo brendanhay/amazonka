@@ -117,4 +117,4 @@ instance AWSRequest UpdateLayer where
     type Rs UpdateLayer = UpdateLayerResponse
 
     request = get
-    response _ _ = return (Right UpdateLayerResponse)
+    response _ = nullaryResponse UpdateLayerResponse

@@ -71,4 +71,4 @@ instance AWSRequest ResetInstanceAttribute where
     type Rs ResetInstanceAttribute = ResetInstanceAttributeResponse
 
     request = post "ResetInstanceAttribute"
-    response _ _ = return (Right ResetInstanceAttributeResponse)
+    response _ = nullaryResponse ResetInstanceAttributeResponse

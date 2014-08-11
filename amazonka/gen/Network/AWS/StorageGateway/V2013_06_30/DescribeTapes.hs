@@ -67,7 +67,7 @@ instance AWSRequest DescribeTapes where
     type Rs DescribeTapes = DescribeTapesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager DescribeTapes where
     next rq rs = (\x -> rq { _dtiMarker = Just x })

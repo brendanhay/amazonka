@@ -77,4 +77,4 @@ instance AWSRequest SwapEnvironmentCNAMEs where
     type Rs SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEsResponse
 
     request = post "SwapEnvironmentCNAMEs"
-    response _ _ = return (Right SwapEnvironmentCNAMEsResponse)
+    response _ = nullaryResponse SwapEnvironmentCNAMEsResponse

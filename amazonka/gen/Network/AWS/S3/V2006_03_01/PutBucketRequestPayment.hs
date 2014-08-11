@@ -74,4 +74,4 @@ instance AWSRequest PutBucketRequestPayment where
     type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
 
     request = put
-    response _ _ = return (Right PutBucketRequestPaymentResponse)
+    response _ = nullaryResponse PutBucketRequestPaymentResponse

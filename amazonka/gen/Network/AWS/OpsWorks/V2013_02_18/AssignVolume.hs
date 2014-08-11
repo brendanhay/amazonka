@@ -65,4 +65,4 @@ instance AWSRequest AssignVolume where
     type Rs AssignVolume = AssignVolumeResponse
 
     request = get
-    response _ _ = return (Right AssignVolumeResponse)
+    response _ = nullaryResponse AssignVolumeResponse

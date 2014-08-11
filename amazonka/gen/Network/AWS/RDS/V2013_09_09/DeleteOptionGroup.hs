@@ -46,4 +46,4 @@ instance AWSRequest DeleteOptionGroup where
     type Rs DeleteOptionGroup = DeleteOptionGroupResponse
 
     request = post "DeleteOptionGroup"
-    response _ _ = return (Right DeleteOptionGroupResponse)
+    response _ = nullaryResponse DeleteOptionGroupResponse

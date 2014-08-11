@@ -56,4 +56,4 @@ instance AWSRequest StopInstance where
     type Rs StopInstance = StopInstanceResponse
 
     request = get
-    response _ _ = return (Right StopInstanceResponse)
+    response _ = nullaryResponse StopInstanceResponse

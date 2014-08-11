@@ -59,4 +59,4 @@ instance AWSRequest DeleteVpnConnectionRoute where
     type Rs DeleteVpnConnectionRoute = DeleteVpnConnectionRouteResponse
 
     request = post "DeleteVpnConnectionRoute"
-    response _ _ = return (Right DeleteVpnConnectionRouteResponse)
+    response _ = nullaryResponse DeleteVpnConnectionRouteResponse

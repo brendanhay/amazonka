@@ -55,4 +55,4 @@ instance AWSRequest RegisterRdsDbInstance where
     type Rs RegisterRdsDbInstance = RegisterRdsDbInstanceResponse
 
     request = get
-    response _ _ = return (Right RegisterRdsDbInstanceResponse)
+    response _ = nullaryResponse RegisterRdsDbInstanceResponse

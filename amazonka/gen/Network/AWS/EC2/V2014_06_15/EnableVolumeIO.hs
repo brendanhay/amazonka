@@ -61,4 +61,4 @@ instance AWSRequest EnableVolumeIO where
     type Rs EnableVolumeIO = EnableVolumeIOResponse
 
     request = post "EnableVolumeIO"
-    response _ _ = return (Right EnableVolumeIOResponse)
+    response _ = nullaryResponse EnableVolumeIOResponse

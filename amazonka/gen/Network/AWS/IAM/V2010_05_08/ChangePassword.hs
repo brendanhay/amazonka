@@ -52,4 +52,4 @@ instance AWSRequest ChangePassword where
     type Rs ChangePassword = ChangePasswordResponse
 
     request = post "ChangePassword"
-    response _ _ = return (Right ChangePasswordResponse)
+    response _ = nullaryResponse ChangePasswordResponse

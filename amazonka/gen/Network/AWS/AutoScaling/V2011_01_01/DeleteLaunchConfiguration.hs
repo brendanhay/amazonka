@@ -49,4 +49,4 @@ instance AWSRequest DeleteLaunchConfiguration where
     type Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse
 
     request = post "DeleteLaunchConfiguration"
-    response _ _ = return (Right DeleteLaunchConfigurationResponse)
+    response _ = nullaryResponse DeleteLaunchConfigurationResponse

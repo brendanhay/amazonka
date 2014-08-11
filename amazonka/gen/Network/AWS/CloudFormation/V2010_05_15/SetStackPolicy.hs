@@ -68,4 +68,4 @@ instance AWSRequest SetStackPolicy where
     type Rs SetStackPolicy = SetStackPolicyResponse
 
     request = post "SetStackPolicy"
-    response _ _ = return (Right SetStackPolicyResponse)
+    response _ = nullaryResponse SetStackPolicyResponse

@@ -78,4 +78,4 @@ instance AWSRequest DeprecateDomain where
     type Rs DeprecateDomain = DeprecateDomainResponse
 
     request = get
-    response _ _ = return (Right DeprecateDomainResponse)
+    response _ = nullaryResponse DeprecateDomainResponse

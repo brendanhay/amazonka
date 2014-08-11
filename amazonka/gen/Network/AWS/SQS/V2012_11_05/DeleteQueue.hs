@@ -60,4 +60,4 @@ instance AWSRequest DeleteQueue where
     type Rs DeleteQueue = DeleteQueueResponse
 
     request = post "DeleteQueue"
-    response _ _ = return (Right DeleteQueueResponse)
+    response _ = nullaryResponse DeleteQueueResponse

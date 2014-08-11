@@ -55,4 +55,4 @@ instance AWSRequest DeleteIdentity where
     type Rs DeleteIdentity = DeleteIdentityResponse
 
     request = post "DeleteIdentity"
-    response _ _ = return (Right DeleteIdentityResponse)
+    response _ = nullaryResponse DeleteIdentityResponse

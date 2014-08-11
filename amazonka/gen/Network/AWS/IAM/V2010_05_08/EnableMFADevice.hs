@@ -56,4 +56,4 @@ instance AWSRequest EnableMFADevice where
     type Rs EnableMFADevice = EnableMFADeviceResponse
 
     request = post "EnableMFADevice"
-    response _ _ = return (Right EnableMFADeviceResponse)
+    response _ = nullaryResponse EnableMFADeviceResponse

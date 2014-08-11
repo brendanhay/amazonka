@@ -44,4 +44,4 @@ instance AWSRequest DeleteAccountPasswordPolicy where
     type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
 
     request = post "DeleteAccountPasswordPolicy"
-    response _ _ = return (Right DeleteAccountPasswordPolicyResponse)
+    response _ = nullaryResponse DeleteAccountPasswordPolicyResponse

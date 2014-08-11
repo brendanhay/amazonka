@@ -71,4 +71,4 @@ instance AWSRequest ModifyVolumeAttribute where
     type Rs ModifyVolumeAttribute = ModifyVolumeAttributeResponse
 
     request = post "ModifyVolumeAttribute"
-    response _ _ = return (Right ModifyVolumeAttributeResponse)
+    response _ = nullaryResponse ModifyVolumeAttributeResponse

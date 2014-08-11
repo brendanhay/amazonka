@@ -67,4 +67,4 @@ instance AWSRequest CancelConversionTask where
     type Rs CancelConversionTask = CancelConversionTaskResponse
 
     request = post "CancelConversionTask"
-    response _ _ = return (Right CancelConversionTaskResponse)
+    response _ = nullaryResponse CancelConversionTaskResponse

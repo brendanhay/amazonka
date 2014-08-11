@@ -65,4 +65,4 @@ instance AWSRequest AssociateElasticIp where
     type Rs AssociateElasticIp = AssociateElasticIpResponse
 
     request = get
-    response _ _ = return (Right AssociateElasticIpResponse)
+    response _ = nullaryResponse AssociateElasticIpResponse

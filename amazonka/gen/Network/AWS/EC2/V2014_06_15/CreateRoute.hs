@@ -100,4 +100,4 @@ instance AWSRequest CreateRoute where
     type Rs CreateRoute = CreateRouteResponse
 
     request = post "CreateRoute"
-    response _ _ = return (Right CreateRouteResponse)
+    response _ = nullaryResponse CreateRouteResponse

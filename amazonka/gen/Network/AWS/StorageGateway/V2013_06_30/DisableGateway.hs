@@ -56,4 +56,4 @@ instance AWSRequest DisableGateway where
     type Rs DisableGateway = DisableGatewayResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

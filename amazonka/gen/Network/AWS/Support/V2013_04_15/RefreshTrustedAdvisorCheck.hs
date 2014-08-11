@@ -61,4 +61,4 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
     type Rs RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheckResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

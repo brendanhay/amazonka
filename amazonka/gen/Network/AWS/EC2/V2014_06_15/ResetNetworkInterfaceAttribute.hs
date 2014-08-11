@@ -69,4 +69,4 @@ instance AWSRequest ResetNetworkInterfaceAttribute where
     type Rs ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeResponse
 
     request = post "ResetNetworkInterfaceAttribute"
-    response _ _ = return (Right ResetNetworkInterfaceAttributeResponse)
+    response _ = nullaryResponse ResetNetworkInterfaceAttributeResponse

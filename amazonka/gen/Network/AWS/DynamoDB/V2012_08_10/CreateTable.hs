@@ -168,4 +168,4 @@ instance AWSRequest CreateTable where
     type Rs CreateTable = CreateTableResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

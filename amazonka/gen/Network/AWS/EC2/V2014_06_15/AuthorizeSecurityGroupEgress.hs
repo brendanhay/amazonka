@@ -120,4 +120,4 @@ instance AWSRequest AuthorizeSecurityGroupEgress where
     type Rs AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressResponse
 
     request = post "AuthorizeSecurityGroupEgress"
-    response _ _ = return (Right AuthorizeSecurityGroupEgressResponse)
+    response _ = nullaryResponse AuthorizeSecurityGroupEgressResponse

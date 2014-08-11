@@ -54,4 +54,4 @@ instance AWSRequest DeleteClusterSecurityGroup where
     type Rs DeleteClusterSecurityGroup = DeleteClusterSecurityGroupResponse
 
     request = post "DeleteClusterSecurityGroup"
-    response _ _ = return (Right DeleteClusterSecurityGroupResponse)
+    response _ = nullaryResponse DeleteClusterSecurityGroupResponse

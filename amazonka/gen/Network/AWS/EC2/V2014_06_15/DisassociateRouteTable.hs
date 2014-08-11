@@ -66,4 +66,4 @@ instance AWSRequest DisassociateRouteTable where
     type Rs DisassociateRouteTable = DisassociateRouteTableResponse
 
     request = post "DisassociateRouteTable"
-    response _ _ = return (Right DisassociateRouteTableResponse)
+    response _ = nullaryResponse DisassociateRouteTableResponse

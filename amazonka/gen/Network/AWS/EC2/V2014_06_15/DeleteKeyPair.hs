@@ -60,4 +60,4 @@ instance AWSRequest DeleteKeyPair where
     type Rs DeleteKeyPair = DeleteKeyPairResponse
 
     request = post "DeleteKeyPair"
-    response _ _ = return (Right DeleteKeyPairResponse)
+    response _ = nullaryResponse DeleteKeyPairResponse

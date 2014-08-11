@@ -67,4 +67,4 @@ instance AWSRequest ConfirmConnection where
     type Rs ConfirmConnection = ConfirmConnectionResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

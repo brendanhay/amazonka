@@ -54,4 +54,4 @@ instance AWSRequest UnassignVolume where
     type Rs UnassignVolume = UnassignVolumeResponse
 
     request = get
-    response _ _ = return (Right UnassignVolumeResponse)
+    response _ = nullaryResponse UnassignVolumeResponse

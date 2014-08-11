@@ -48,4 +48,4 @@ instance AWSRequest RemoveUserFromGroup where
     type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
 
     request = post "RemoveUserFromGroup"
-    response _ _ = return (Right RemoveUserFromGroupResponse)
+    response _ = nullaryResponse RemoveUserFromGroupResponse

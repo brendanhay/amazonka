@@ -65,4 +65,4 @@ instance AWSRequest SuspendProcesses where
     type Rs SuspendProcesses = SuspendProcessesResponse
 
     request = post "SuspendProcesses"
-    response _ _ = return (Right SuspendProcessesResponse)
+    response _ = nullaryResponse SuspendProcessesResponse

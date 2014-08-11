@@ -68,4 +68,4 @@ instance AWSRequest SetInstanceHealth where
     type Rs SetInstanceHealth = SetInstanceHealthResponse
 
     request = post "SetInstanceHealth"
-    response _ _ = return (Right SetInstanceHealthResponse)
+    response _ = nullaryResponse SetInstanceHealthResponse

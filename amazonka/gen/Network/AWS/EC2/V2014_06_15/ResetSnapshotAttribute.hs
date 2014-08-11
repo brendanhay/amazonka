@@ -69,4 +69,4 @@ instance AWSRequest ResetSnapshotAttribute where
     type Rs ResetSnapshotAttribute = ResetSnapshotAttributeResponse
 
     request = post "ResetSnapshotAttribute"
-    response _ _ = return (Right ResetSnapshotAttributeResponse)
+    response _ = nullaryResponse ResetSnapshotAttributeResponse

@@ -52,4 +52,4 @@ instance AWSRequest StopStack where
     type Rs StopStack = StopStackResponse
 
     request = get
-    response _ _ = return (Right StopStackResponse)
+    response _ = nullaryResponse StopStackResponse

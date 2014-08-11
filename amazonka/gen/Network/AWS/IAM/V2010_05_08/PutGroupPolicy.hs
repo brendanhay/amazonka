@@ -60,4 +60,4 @@ instance AWSRequest PutGroupPolicy where
     type Rs PutGroupPolicy = PutGroupPolicyResponse
 
     request = post "PutGroupPolicy"
-    response _ _ = return (Right PutGroupPolicyResponse)
+    response _ = nullaryResponse PutGroupPolicyResponse

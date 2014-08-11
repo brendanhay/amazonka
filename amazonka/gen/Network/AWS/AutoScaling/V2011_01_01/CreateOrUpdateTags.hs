@@ -69,4 +69,4 @@ instance AWSRequest CreateOrUpdateTags where
     type Rs CreateOrUpdateTags = CreateOrUpdateTagsResponse
 
     request = post "CreateOrUpdateTags"
-    response _ _ = return (Right CreateOrUpdateTagsResponse)
+    response _ = nullaryResponse CreateOrUpdateTagsResponse

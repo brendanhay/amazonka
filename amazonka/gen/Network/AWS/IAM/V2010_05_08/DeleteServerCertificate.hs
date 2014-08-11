@@ -54,4 +54,4 @@ instance AWSRequest DeleteServerCertificate where
     type Rs DeleteServerCertificate = DeleteServerCertificateResponse
 
     request = post "DeleteServerCertificate"
-    response _ _ = return (Right DeleteServerCertificateResponse)
+    response _ = nullaryResponse DeleteServerCertificateResponse

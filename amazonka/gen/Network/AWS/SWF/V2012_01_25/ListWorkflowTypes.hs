@@ -120,7 +120,7 @@ instance AWSRequest ListWorkflowTypes where
     type Rs ListWorkflowTypes = ListWorkflowTypesResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager ListWorkflowTypes where
     next rq rs = (\x -> rq { _lwtiNextPageToken = Just x })

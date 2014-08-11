@@ -54,4 +54,4 @@ instance AWSRequest DeregisterVolume where
     type Rs DeregisterVolume = DeregisterVolumeResponse
 
     request = get
-    response _ _ = return (Right DeregisterVolumeResponse)
+    response _ = nullaryResponse DeregisterVolumeResponse

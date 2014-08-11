@@ -82,4 +82,4 @@ instance AWSRequest DeprecateWorkflowType where
     type Rs DeprecateWorkflowType = DeprecateWorkflowTypeResponse
 
     request = get
-    response _ _ = return (Right DeprecateWorkflowTypeResponse)
+    response _ = nullaryResponse DeprecateWorkflowTypeResponse

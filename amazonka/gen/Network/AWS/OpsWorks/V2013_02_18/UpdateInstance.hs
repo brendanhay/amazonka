@@ -117,4 +117,4 @@ instance AWSRequest UpdateInstance where
     type Rs UpdateInstance = UpdateInstanceResponse
 
     request = get
-    response _ _ = return (Right UpdateInstanceResponse)
+    response _ = nullaryResponse UpdateInstanceResponse

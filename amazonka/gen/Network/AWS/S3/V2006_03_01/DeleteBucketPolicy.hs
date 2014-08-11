@@ -55,4 +55,4 @@ instance AWSRequest DeleteBucketPolicy where
     type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
 
     request = delete
-    response _ _ = return (Right DeleteBucketPolicyResponse)
+    response _ = nullaryResponse DeleteBucketPolicyResponse

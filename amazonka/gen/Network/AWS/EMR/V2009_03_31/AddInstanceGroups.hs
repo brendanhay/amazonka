@@ -75,4 +75,4 @@ instance AWSRequest AddInstanceGroups where
     type Rs AddInstanceGroups = AddInstanceGroupsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

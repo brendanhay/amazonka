@@ -69,4 +69,4 @@ instance AWSRequest SetAlarmState where
     type Rs SetAlarmState = SetAlarmStateResponse
 
     request = post "SetAlarmState"
-    response _ _ = return (Right SetAlarmStateResponse)
+    response _ = nullaryResponse SetAlarmStateResponse

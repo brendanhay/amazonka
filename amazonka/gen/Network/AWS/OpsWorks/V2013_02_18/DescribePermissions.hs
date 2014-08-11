@@ -73,4 +73,4 @@ instance AWSRequest DescribePermissions where
     type Rs DescribePermissions = DescribePermissionsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

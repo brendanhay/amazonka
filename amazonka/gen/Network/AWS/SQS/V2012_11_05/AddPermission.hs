@@ -86,4 +86,4 @@ instance AWSRequest AddPermission where
     type Rs AddPermission = AddPermissionResponse
 
     request = post "AddPermission"
-    response _ _ = return (Right AddPermissionResponse)
+    response _ = nullaryResponse AddPermissionResponse

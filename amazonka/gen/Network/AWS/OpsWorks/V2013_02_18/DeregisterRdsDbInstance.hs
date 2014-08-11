@@ -49,4 +49,4 @@ instance AWSRequest DeregisterRdsDbInstance where
     type Rs DeregisterRdsDbInstance = DeregisterRdsDbInstanceResponse
 
     request = get
-    response _ _ = return (Right DeregisterRdsDbInstanceResponse)
+    response _ = nullaryResponse DeregisterRdsDbInstanceResponse

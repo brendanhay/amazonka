@@ -71,4 +71,4 @@ instance AWSRequest UpdateSigningCertificate where
     type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
 
     request = post "UpdateSigningCertificate"
-    response _ _ = return (Right UpdateSigningCertificateResponse)
+    response _ = nullaryResponse UpdateSigningCertificateResponse

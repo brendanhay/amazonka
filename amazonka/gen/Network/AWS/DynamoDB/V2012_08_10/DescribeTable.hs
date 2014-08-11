@@ -69,4 +69,4 @@ instance AWSRequest DescribeTable where
     type Rs DescribeTable = DescribeTableResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

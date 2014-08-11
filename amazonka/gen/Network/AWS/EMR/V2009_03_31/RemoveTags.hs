@@ -67,4 +67,4 @@ instance AWSRequest RemoveTags where
     type Rs RemoveTags = RemoveTagsResponse
 
     request = get
-    response _ _ = return (Right RemoveTagsResponse)
+    response _ = nullaryResponse RemoveTagsResponse

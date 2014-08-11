@@ -55,4 +55,4 @@ instance AWSRequest DeleteBucketWebsite where
     type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
 
     request = delete
-    response _ _ = return (Right DeleteBucketWebsiteResponse)
+    response _ = nullaryResponse DeleteBucketWebsiteResponse

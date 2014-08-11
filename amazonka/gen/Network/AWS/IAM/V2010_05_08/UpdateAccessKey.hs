@@ -70,4 +70,4 @@ instance AWSRequest UpdateAccessKey where
     type Rs UpdateAccessKey = UpdateAccessKeyResponse
 
     request = post "UpdateAccessKey"
-    response _ _ = return (Right UpdateAccessKeyResponse)
+    response _ = nullaryResponse UpdateAccessKeyResponse

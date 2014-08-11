@@ -67,4 +67,4 @@ instance AWSRequest DeleteInstance where
     type Rs DeleteInstance = DeleteInstanceResponse
 
     request = get
-    response _ _ = return (Right DeleteInstanceResponse)
+    response _ = nullaryResponse DeleteInstanceResponse

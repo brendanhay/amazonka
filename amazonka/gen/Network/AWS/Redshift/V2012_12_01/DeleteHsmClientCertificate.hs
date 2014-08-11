@@ -44,4 +44,4 @@ instance AWSRequest DeleteHsmClientCertificate where
     type Rs DeleteHsmClientCertificate = DeleteHsmClientCertificateResponse
 
     request = post "DeleteHsmClientCertificate"
-    response _ _ = return (Right DeleteHsmClientCertificateResponse)
+    response _ = nullaryResponse DeleteHsmClientCertificateResponse

@@ -61,4 +61,4 @@ instance AWSRequest AbortMultipartUpload where
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
     request = delete
-    response _ _ = return (Right AbortMultipartUploadResponse)
+    response _ = nullaryResponse AbortMultipartUploadResponse

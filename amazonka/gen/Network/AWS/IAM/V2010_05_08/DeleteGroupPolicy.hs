@@ -48,4 +48,4 @@ instance AWSRequest DeleteGroupPolicy where
     type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
 
     request = post "DeleteGroupPolicy"
-    response _ _ = return (Right DeleteGroupPolicyResponse)
+    response _ = nullaryResponse DeleteGroupPolicyResponse

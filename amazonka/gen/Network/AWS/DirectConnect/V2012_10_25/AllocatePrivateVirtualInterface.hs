@@ -120,4 +120,4 @@ instance AWSRequest AllocatePrivateVirtualInterface where
     type Rs AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterfaceResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

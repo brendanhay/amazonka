@@ -53,4 +53,4 @@ instance AWSRequest DescribeIdentityPool where
     type Rs DescribeIdentityPool = DescribeIdentityPoolResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

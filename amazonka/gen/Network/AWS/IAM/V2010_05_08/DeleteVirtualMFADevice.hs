@@ -51,4 +51,4 @@ instance AWSRequest DeleteVirtualMFADevice where
     type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
 
     request = post "DeleteVirtualMFADevice"
-    response _ _ = return (Right DeleteVirtualMFADeviceResponse)
+    response _ = nullaryResponse DeleteVirtualMFADeviceResponse

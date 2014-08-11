@@ -59,4 +59,4 @@ instance AWSRequest GetHostnameSuggestion where
     type Rs GetHostnameSuggestion = GetHostnameSuggestionResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

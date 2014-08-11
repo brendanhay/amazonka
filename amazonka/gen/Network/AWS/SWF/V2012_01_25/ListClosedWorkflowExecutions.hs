@@ -177,7 +177,7 @@ instance AWSRequest ListClosedWorkflowExecutions where
     type Rs ListClosedWorkflowExecutions = ListClosedWorkflowExecutionsResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse
 
 instance AWSPager ListClosedWorkflowExecutions where
     next rq rs = (\x -> rq { _lcweiNextPageToken = Just x })

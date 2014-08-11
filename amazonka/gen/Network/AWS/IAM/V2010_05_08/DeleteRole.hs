@@ -50,4 +50,4 @@ instance AWSRequest DeleteRole where
     type Rs DeleteRole = DeleteRoleResponse
 
     request = post "DeleteRole"
-    response _ _ = return (Right DeleteRoleResponse)
+    response _ = nullaryResponse DeleteRoleResponse

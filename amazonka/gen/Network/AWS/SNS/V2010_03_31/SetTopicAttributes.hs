@@ -86,4 +86,4 @@ instance AWSRequest SetTopicAttributes where
     type Rs SetTopicAttributes = SetTopicAttributesResponse
 
     request = post "SetTopicAttributes"
-    response _ _ = return (Right SetTopicAttributesResponse)
+    response _ = nullaryResponse SetTopicAttributesResponse

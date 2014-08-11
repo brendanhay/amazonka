@@ -50,4 +50,4 @@ instance AWSRequest DeleteCacheSubnetGroup where
     type Rs DeleteCacheSubnetGroup = DeleteCacheSubnetGroupResponse
 
     request = post "DeleteCacheSubnetGroup"
-    response _ _ = return (Right DeleteCacheSubnetGroupResponse)
+    response _ = nullaryResponse DeleteCacheSubnetGroupResponse

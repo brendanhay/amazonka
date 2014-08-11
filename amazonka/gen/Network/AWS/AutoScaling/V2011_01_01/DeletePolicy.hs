@@ -54,4 +54,4 @@ instance AWSRequest DeletePolicy where
     type Rs DeletePolicy = DeletePolicyResponse
 
     request = post "DeletePolicy"
-    response _ _ = return (Right DeletePolicyResponse)
+    response _ = nullaryResponse DeletePolicyResponse

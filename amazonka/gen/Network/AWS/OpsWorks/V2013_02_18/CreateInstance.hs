@@ -144,4 +144,4 @@ instance AWSRequest CreateInstance where
     type Rs CreateInstance = CreateInstanceResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

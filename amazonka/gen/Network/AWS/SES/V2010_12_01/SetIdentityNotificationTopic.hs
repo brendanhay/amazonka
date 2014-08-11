@@ -80,4 +80,4 @@ instance AWSRequest SetIdentityNotificationTopic where
     type Rs SetIdentityNotificationTopic = SetIdentityNotificationTopicResponse
 
     request = post "SetIdentityNotificationTopic"
-    response _ _ = return (Right SetIdentityNotificationTopicResponse)
+    response _ = nullaryResponse SetIdentityNotificationTopicResponse

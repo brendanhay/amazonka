@@ -55,4 +55,4 @@ instance AWSRequest DeleteScheduledAction where
     type Rs DeleteScheduledAction = DeleteScheduledActionResponse
 
     request = post "DeleteScheduledAction"
-    response _ _ = return (Right DeleteScheduledActionResponse)
+    response _ = nullaryResponse DeleteScheduledActionResponse

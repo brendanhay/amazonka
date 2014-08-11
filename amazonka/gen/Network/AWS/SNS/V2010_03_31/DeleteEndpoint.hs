@@ -56,4 +56,4 @@ instance AWSRequest DeleteEndpoint where
     type Rs DeleteEndpoint = DeleteEndpointResponse
 
     request = post "DeleteEndpoint"
-    response _ _ = return (Right DeleteEndpointResponse)
+    response _ = nullaryResponse DeleteEndpointResponse

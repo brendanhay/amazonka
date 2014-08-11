@@ -54,4 +54,4 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
     type Rs RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPointResponse
 
     request = get
-    response _ = undefined
+    response _ = jsonResponse

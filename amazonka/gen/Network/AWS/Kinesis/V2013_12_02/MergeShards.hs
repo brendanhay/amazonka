@@ -91,4 +91,4 @@ instance AWSRequest MergeShards where
     type Rs MergeShards = MergeShardsResponse
 
     request = get
-    response _ _ = return (Right MergeShardsResponse)
+    response _ = nullaryResponse MergeShardsResponse

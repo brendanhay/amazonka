@@ -64,4 +64,4 @@ instance AWSRequest SetTimeBasedAutoScaling where
     type Rs SetTimeBasedAutoScaling = SetTimeBasedAutoScalingResponse
 
     request = get
-    response _ _ = return (Right SetTimeBasedAutoScalingResponse)
+    response _ = nullaryResponse SetTimeBasedAutoScalingResponse

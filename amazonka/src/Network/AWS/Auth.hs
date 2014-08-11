@@ -167,7 +167,6 @@ fromProfile' name = auth >>= start
                 return (Ref r)
 
     timer r t x = do
-        -- FIXME: guard against a lower expiration than the -60
         diff x <$> getCurrentTime >>= threadDelay
         l <- runExceptT auth
         case l of

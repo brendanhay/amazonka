@@ -13,7 +13,26 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieve an EC2 instance's local metadata.
-module Network.AWS.EC2.Metadata where
+module Network.AWS.EC2.Metadata
+    (
+    -- * Requests
+    -- ** Running on EC2
+      isEC2
+
+    -- ** Dynamic
+    , Dynamic   (..)
+    , dynamic
+
+    -- ** Metadata
+    , Metadata  (..)
+    , Mapping   (..)
+    , Info      (..)
+    , Interface (..)
+    , metadata
+
+    -- ** User data
+    , userdata
+    ) where
 
 import           Control.Exception
 import           Control.Monad
@@ -28,8 +47,6 @@ import           Network.AWS.Data
 import           Network.AWS.Types          (AWSError(..), Error(..))
 import           Network.HTTP.Client
 import           Network.HTTP.Types         (status404)
-
--- FIXME: All this typing is pointless unless the response is deserialised accordingly
 
 data Dynamic
     = FWS
@@ -254,6 +271,7 @@ instance ToPath Info where
         Info                  -> "info"
         SecurityCredentials r -> "security-credentials/" <> fromMaybe "" r
 
+-- | Test whether the host is running on EC2 by requesting the instance-data.
 isEC2 :: MonadBase IO m => m Bool
 isEC2 = liftBase (req `catch` err)
   where
@@ -264,6 +282,12 @@ isEC2 = liftBase (req `catch` err)
     err :: IOException -> IO Bool
     err = const (return False)
 
+dynamic :: MonadBase IO m => Dynamic -> ExceptT Error m ByteString
+dynamic = get . mappend "http://169.254.169.254/latest/dynamic/" . toPath
+
+metadata :: MonadBase IO m => Metadata -> ExceptT Error m ByteString
+metadata = get . mappend "http://169.254.169.254/latest/meta-data/" . toPath
+
 userdata :: MonadBase IO m => ExceptT Error m (Maybe ByteString)
 userdata = Just `liftM` get "http://169.254.169.254/latest/user-data"
     `catchError` err
@@ -271,12 +295,6 @@ userdata = Just `liftM` get "http://169.254.169.254/latest/user-data"
     err (ClientError (StatusCodeException s _ _))
         | status404 == s  = return Nothing
     err e                 = throwError e
-
-metadata :: MonadBase IO m => Metadata -> ExceptT Error m ByteString
-metadata = get . mappend "http://169.254.169.254/latest/meta-data/" . toPath
-
-dynamic :: MonadBase IO m => Dynamic -> ExceptT Error m ByteString
-dynamic = get . mappend "http://169.254.169.254/latest/dynamic/" . toPath
 
 get :: MonadBase IO m => ByteString -> ExceptT Error m ByteString
 get url = ExceptT (liftBase (req `catch` err))

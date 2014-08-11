@@ -205,10 +205,8 @@ data Logging
     | Debug (Text -> IO ())
 
 debug :: MonadBase IO m => Logging -> Text -> m ()
-debug l =
-    case l of
-        None    -> const (return ())
-        Debug f -> liftBase . f
+debug None      = const (return ())
+debug (Debug f) = liftBase . f
 
 data Endpoint'
     = Global

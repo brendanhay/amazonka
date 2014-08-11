@@ -76,17 +76,16 @@ instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
 infixl 6 ~:, ~:?, ~:!
 
 (~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
-(~:) hs k = note (k `lookup` hs) >>= fromText . Text.decodeUtf8
+(~:) hs k = hs ~:? k >>= note
   where
     note Nothing  = Left (BS.unpack $ "Unable to find header: " <> CI.original k)
     note (Just x) = Right x
 
--- FIXME: Should ignore missing, but fail on parsing error if present
 (~:?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
-(~:?) hs k = Right $ hush (hs ~: k)
-  where
-    hush (Left  _) = Nothing
-    hush (Right x) = Just x
+(~:?) hs k =
+    maybe (Right Nothing)
+          (fmap Just . fromText . Text.decodeUtf8)
+          (k `lookup` hs)
 
 (~:!) :: Functor f => f (Maybe a) -> a -> f a
 (~:!) p v = fromMaybe v <$> p

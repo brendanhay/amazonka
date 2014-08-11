@@ -12,15 +12,16 @@
 
 module Network.AWS.Response
     (
+    -- * Pagination
+      keyed
+    , choice
+
     -- * Responses
-      headerResponse
+    , headerResponse
     , cursorResponse
     , xmlResponse
+    , nullaryResponse
     , bodyResponse
-
-    -- * Pagination
-    , keyed
-    , choice
     ) where
 
 import           Control.Applicative
@@ -46,7 +47,6 @@ keyed g f = fmap (toText . g) . listToMaybe . reverse . f
 choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
 choice f g x = f x <|> g x
 
--- FIXME: Keyed and choice into pagination module
 -- FIXME: the return (Right Nullary) data ctor pattern doesn't correctly
 -- check for status code errors
 -- FIXME: Implement json responses
@@ -81,6 +81,12 @@ bodyResponse :: (Monad m, AWSServiceError e)
              -> Either HttpException (Response (m ByteString))
              -> m (Either e b)
 bodyResponse f = receive (\hs bdy -> liftM (first serializerError) (f hs bdy))
+
+nullaryResponse :: (Monad m, AWSServiceError e)
+                => a
+                -> Either HttpException (ClientResponse m)
+                -> m (Either e a)
+nullaryResponse x = receive (\_ _ -> return (Right x))
 
 receive :: (Monad m, AWSServiceError e)
         => (ResponseHeaders -> m ByteString -> m (Either e b))

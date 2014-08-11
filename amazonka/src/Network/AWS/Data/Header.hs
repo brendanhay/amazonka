@@ -99,26 +99,3 @@ filterHeaders hs p =
   where
     f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
         <$> fromText (Text.decodeUtf8 v)
-
--- FIXME: Reuse FromText/ByteString instead of custom/disparate type class?
-
--- class FromHeader a where
---     fromHeader :: HeaderName -> ByteString -> Either String a
-
---     default fromHeader :: FromText a
---                        => HeaderName
---                        -> ByteString
---                        -> Either String a
---     fromHeader = const $ fromText . Text.decodeUtf8
-
--- instance FromHeader ByteString where
---     fromHeader = const Right
-
--- instance FromHeader Text where
---     fromHeader = const $ Right . Text.decodeUtf8
-
--- instance FromHeader Bool
--- instance FromHeader RFC822
--- instance FromHeader ISO8601
--- instance FromHeader BasicTime
--- instance FromHeader AWSTime

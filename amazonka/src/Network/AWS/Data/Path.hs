@@ -17,11 +17,6 @@ import           Data.Monoid
 import           Data.Text             (Text)
 import qualified Data.Text.Encoding    as Text
 
--- FIXME: A way to annotate whether a query or path is encoded or not?
--- data Path
---     = Enc ByteString
---     | Raw ByteString
-
 class ToPath a where
     toPath :: a -> ByteString
     toPath = const mempty

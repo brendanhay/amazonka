@@ -26,7 +26,6 @@ import qualified Data.ByteString            as BS
 import           Data.ByteString.Lazy.Char8 (ByteString)
 import           Data.Default
 import           Data.Foldable              (foldr', foldrM)
-import           Data.HashMap.Strict        (HashMap)
 import           Data.List.NonEmpty         (NonEmpty(..))
 import qualified Data.List.NonEmpty         as NonEmpty
 import           Data.Monoid
@@ -162,17 +161,6 @@ instance FromXML Integer where
 instance FromXML Double where
     fromXML = const fromNodeContent
 
--- FIXME: is it possible to (nicely) implement HashMaps generically?
--- IAM example:
--- <SummaryMap>
---   <entry>
---     <key>Groups</key>
---     <value>31</value>
---   </entry>
-instance (FromXML k, FromXML v) => FromXML (HashMap k v) where
-    fromXMLRoot = fromRoot "HashMap"
-    fromXML     = undefined
-
 instance FromXML a => FromXML [a] where
     fromXML o = sequence . f (xmlListElem $ untag o)
       where
@@ -293,11 +281,6 @@ instance ToXML Integer where
 
 instance ToXML Double where
     toXML _ = (:[]) . NodeContent . toText
-
--- -- FIXME: implement this shizzle
--- instance (ToXML k, ToXML v) => ToXML (HashMap k v) where
---     toXMLRoot = undefined
---     toXML o   = undefined
 
 instance ToXML a => ToXML [a] where
     toXML o = f (xmlListElem $ untag o)

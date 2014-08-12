@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
@@ -33,7 +34,12 @@ import qualified Data.Attoparsec.Text      as AText
 import           Data.ByteString           (ByteString)
 import qualified Data.ByteString.Base64    as Base64
 import           Data.Char
+import           Data.Data                 (Data)
 import           Data.Default
+import           Data.Foldable             (Foldable)
+import           Data.HashMap.Strict       (HashMap)
+import qualified Data.HashMap.Strict       as Map
+import           Data.Hashable             (Hashable)
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
@@ -417,6 +423,50 @@ instance FromJSON Base64 where
 
 instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
+
+newtype Map k v = Map { _hashMap :: HashMap k v }
+    deriving
+        ( Eq
+        , Show
+        , Read
+        , Functor
+        , Foldable
+        , Traversable
+        , Typeable
+        , Data
+        , Monoid
+        )
+
+instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
+    parseJSON = withObject "HashMap" f
+      where
+        f = fmap (Map . Map.fromList) . mapM g . Map.toList
+
+        g (k, v) = (,)
+            <$> either fail return (fromText k)
+            <*> parseJSON v
+
+instance (ToText k, ToJSON v) => ToJSON (Map k v) where
+    toJSON = Object
+        . Map.fromList
+        . map (bimap toText toJSON)
+        . Map.toList
+        . _hashMap
+
+-- -- FIXME: is it possible to (nicely) implement HashMaps generically?
+-- -- IAM example:
+-- -- <SummaryMap>
+-- --   <entry>
+-- --     <key>Groups</key>
+-- --     <value>31</value>
+-- --   </entry>
+-- instance (FromXML k, FromXML v) => FromXML (HashMap k v) where
+--     fromXMLRoot = fromRoot "HashMap"
+--     fromXML     = undefined
+
+-- FIXME: implement this shizzle
+-- instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where
+--     toQuery = undefined
 
 -- Sums
 makePrisms ''Error

@@ -305,7 +305,7 @@ typeof rq svc s = Ann req (defaults s) (monoids s) typ
 
         SStruct _ -> name
         SList   l -> "[" <> ann (_lstItem l) <> "]"
-        SMap    m -> "HashMap " <> ann (_mapKey m) <> " " <> ann (_mapValue m)
+        SMap    m -> "Map " <> ann (_mapKey m) <> " " <> ann (_mapValue m)
 
         SSum _ | switch, req -> "Switch " <> name
                | switch      -> "(Switch " <> name <> ")"

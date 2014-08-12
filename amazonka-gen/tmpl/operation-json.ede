@@ -18,7 +18,6 @@ import Network.AWS.Request.JSON
 import {{ types_namespace }}
 import Network.AWS.Prelude
 {% if service == "DynamoDB" %}
-import qualified Data.HashMap.Strict as Map
 {% endif %}
 {% if alias %}
 

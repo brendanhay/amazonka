@@ -53,7 +53,6 @@ import           Data.Char
 import           Data.Data
 import           Data.Data.Lens
 import           Data.Default
-import           Data.HashMap.Strict         (HashMap)
 import           Data.List                   (sort)
 import           Data.List.NonEmpty          (NonEmpty(..))
 import qualified Data.List.NonEmpty          as NonEmpty
@@ -188,10 +187,6 @@ instance ToQuery a => ToQuery (Maybe a) where
 instance ToQuery Bool where
     toQuery True  = toQuery ("true"  :: ByteString)
     toQuery False = toQuery ("false" :: ByteString)
-
--- FIXME: implement this shizzle
--- instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where
---     toQuery = undefined
 
 class GToQuery f where
     gToQuery :: QueryOptions -> f a -> Query

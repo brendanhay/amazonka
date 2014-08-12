@@ -32,8 +32,6 @@ import           Data.Attoparsec.Text             (Parser)
 import qualified Data.Attoparsec.Text             as AText
 import           Data.Bifunctor
 import           Data.ByteString                  (ByteString)
-import           Data.HashMap.Strict              (HashMap)
-import qualified Data.HashMap.Strict              as Map
 import           Data.Hashable
 import           Data.Int
 import           Data.Text                        (Text)
@@ -66,14 +64,6 @@ instance FromText Double     where parser = AText.rational
 instance FromText Bool where
     parser = matchCI "false" False <|> matchCI "true" True
 
--- FIXME: Orphan instances for hashmaps in general
-instance (Eq k, Hashable k, FromText k) => FromJSON (HashMap k Text) where
-    parseJSON = withObject "HashMap" (fmap Map.fromList . mapM f . Map.toList)
-      where
-        f (k, v) = (,)
-            <$> either fail return (fromText k)
-            <*> parseJSON v
-
 class ToText a where
     toText :: a -> Text
 
@@ -86,7 +76,3 @@ instance ToText Double     where toText = shortText . Build.realFloat
 
 shortText :: Builder -> Text
 shortText = LText.toStrict . Build.toLazyTextWith 32
-
--- FIXME: Orphan instances for hashmaps in general
-instance ToText k => ToJSON (HashMap k Text) where
-    toJSON = toJSON . Map.fromList . map (first toText) . Map.toList

@@ -48,9 +48,6 @@ import qualified Data.Text.Lazy.Builder.RealFloat as Build
 fromText :: FromText a => Text -> Either String a
 fromText = AText.parseOnly parser
 
--- readText :: FromText a => ReadS a
--- readText = either (const []) (\x -> [(x, "")]) . fromText . Text.pack
-
 match :: Text -> a -> Parser a
 match x y = AText.string x >> return y
 
@@ -76,9 +73,6 @@ instance (Eq k, Hashable k, FromText k) => FromJSON (HashMap k Text) where
         f (k, v) = (,)
             <$> either fail return (fromText k)
             <*> parseJSON v
-
--- showText :: ToText a => a -> String
--- showText = Text.unpack . toText
 
 class ToText a where
     toText :: a -> Text

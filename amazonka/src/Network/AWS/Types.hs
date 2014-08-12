@@ -24,6 +24,7 @@
 module Network.AWS.Types where
 
 import           Control.Applicative
+import           Control.Concurrent        (ThreadId)
 import           Control.Exception         (Exception)
 import           Control.Lens              hiding (Action)
 import           Control.Monad.Base
@@ -193,12 +194,12 @@ instance FromJSON AuthEnv where
         f g = fmap (g . Text.encodeUtf8)
 
 data Auth
-    = Ref  (IORef AuthEnv)
+    = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv
 
 withAuth :: MonadBase IO m => Auth -> (AuthEnv -> m a) -> m a
-withAuth (Ref  r) f = liftBase (readIORef r) >>= f
-withAuth (Auth e) f = f e
+withAuth (Auth  e) f = f e
+withAuth (Ref _ r) f = liftBase (readIORef r) >>= f
 
 data Logging
     = None

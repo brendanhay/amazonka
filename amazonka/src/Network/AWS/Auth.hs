@@ -47,6 +47,7 @@ import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Types
 import           System.Environment
+import           System.Mem.Weak
 
 -- | Default access key environment variable.
 accessKey :: ByteString -- ^ 'AWS_ACCESS_KEY'
@@ -147,6 +148,9 @@ fromProfile = do
 --
 -- The forked timer ensures a singular owner and pre-emptive refresh of the
 -- temporary session credentials.
+--
+-- A weak reference is used to ensure that the forked thread will eventually
+-- terminate when 'Auth' is no longer referenced.
 fromProfile' :: MonadBase IO m => ByteString -> ExceptT Error m Auth
 fromProfile' name = auth >>= start
   where
@@ -162,20 +166,27 @@ fromProfile' name = auth >>= start
             Nothing -> return (Auth a)
             Just x  -> liftBase $ do
                 r <- newIORef a
-                t <- myThreadId
-                void . forkIO $ timer r t x
-                return (Ref r)
+                p <- myThreadId
+                s <- timer r p x
+                return (Ref s r)
 
-    timer r t x = do
+    timer r p x = forkIO $ do
+        s <- myThreadId
+        w <- mkWeakIORef r (killThread s)
+        loop w p x
+
+    loop w p x = do
         diff x <$> getCurrentTime >>= threadDelay
-        l <- runExceptT auth
-        case l of
-            Left   e -> throwTo t e
+        ea <- runExceptT auth
+        case ea of
+            Left   e -> throwTo p e
             Right !a -> do
-                 atomicWriteIORef r a
-                 maybe (return ())
-                       (timer r t)
-                       (_authExpiry a)
+                 mr <- deRefWeak w
+                 case mr of
+                     Nothing -> return ()
+                     Just  r -> do
+                         atomicWriteIORef r a
+                         maybe (return ()) (loop w p) (_authExpiry a)
 
     diff x y = (* 1000000) $
         let n = truncate (diffUTCTime x y) - 60

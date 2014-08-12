@@ -12,22 +12,40 @@
 -- movement and transformation of data. With AWS Data Pipeline, you can define
 -- data-driven workflows, so that tasks can be dependent on the successful
 -- completion of previous tasks.
-module Network.AWS.DataPipeline.V2012_10_29 (module Export) where
+module Network.AWS.DataPipeline.V2012_10_29
+    ( module Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
+    , module Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
+    , module Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
+    , module Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
+    , module Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
+    , module Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
+    , module Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
+    , module Network.AWS.DataPipeline.V2012_10_29.ListPipelines
+    , module Network.AWS.DataPipeline.V2012_10_29.PollForTask
+    , module Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
+    , module Network.AWS.DataPipeline.V2012_10_29.QueryObjects
+    , module Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
+    , module Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
+    , module Network.AWS.DataPipeline.V2012_10_29.SetStatus
+    , module Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
+    , module Network.AWS.DataPipeline.V2012_10_29.Types
+    , module Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition
+    ) where
 
-import Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline as Export
-import Network.AWS.DataPipeline.V2012_10_29.CreatePipeline as Export
-import Network.AWS.DataPipeline.V2012_10_29.DeletePipeline as Export
-import Network.AWS.DataPipeline.V2012_10_29.DescribeObjects as Export
-import Network.AWS.DataPipeline.V2012_10_29.DescribePipelines as Export
-import Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression as Export
-import Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition as Export
-import Network.AWS.DataPipeline.V2012_10_29.ListPipelines as Export
-import Network.AWS.DataPipeline.V2012_10_29.PollForTask as Export
-import Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition as Export
-import Network.AWS.DataPipeline.V2012_10_29.QueryObjects as Export
-import Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress as Export
-import Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat as Export
-import Network.AWS.DataPipeline.V2012_10_29.SetStatus as Export
-import Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus as Export
-import Network.AWS.DataPipeline.V2012_10_29.Types as Export
-import Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition as Export
+import Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
+import Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
+import Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
+import Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
+import Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
+import Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
+import Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
+import Network.AWS.DataPipeline.V2012_10_29.ListPipelines
+import Network.AWS.DataPipeline.V2012_10_29.PollForTask
+import Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
+import Network.AWS.DataPipeline.V2012_10_29.QueryObjects
+import Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
+import Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
+import Network.AWS.DataPipeline.V2012_10_29.SetStatus
+import Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
+import Network.AWS.DataPipeline.V2012_10_29.Types
+import Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition

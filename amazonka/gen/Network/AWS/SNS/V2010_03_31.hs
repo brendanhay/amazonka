@@ -19,31 +19,58 @@
 -- to any HTTP endpoint. To prevent messages from being lost, all messages
 -- published to Amazon SNS are stored redundantly across multiple availability
 -- zones.
-module Network.AWS.SNS.V2010_03_31 (module Export) where
+module Network.AWS.SNS.V2010_03_31
+    ( module Network.AWS.SNS.V2010_03_31.AddPermission
+    , module Network.AWS.SNS.V2010_03_31.ConfirmSubscription
+    , module Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
+    , module Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint
+    , module Network.AWS.SNS.V2010_03_31.CreateTopic
+    , module Network.AWS.SNS.V2010_03_31.DeleteEndpoint
+    , module Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
+    , module Network.AWS.SNS.V2010_03_31.DeleteTopic
+    , module Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
+    , module Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
+    , module Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
+    , module Network.AWS.SNS.V2010_03_31.GetTopicAttributes
+    , module Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication
+    , module Network.AWS.SNS.V2010_03_31.ListPlatformApplications
+    , module Network.AWS.SNS.V2010_03_31.ListSubscriptions
+    , module Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
+    , module Network.AWS.SNS.V2010_03_31.ListTopics
+    , module Network.AWS.SNS.V2010_03_31.Publish
+    , module Network.AWS.SNS.V2010_03_31.RemovePermission
+    , module Network.AWS.SNS.V2010_03_31.SetEndpointAttributes
+    , module Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
+    , module Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes
+    , module Network.AWS.SNS.V2010_03_31.SetTopicAttributes
+    , module Network.AWS.SNS.V2010_03_31.Subscribe
+    , module Network.AWS.SNS.V2010_03_31.Types
+    , module Network.AWS.SNS.V2010_03_31.Unsubscribe
+    ) where
 
-import Network.AWS.SNS.V2010_03_31.AddPermission as Export
-import Network.AWS.SNS.V2010_03_31.ConfirmSubscription as Export
-import Network.AWS.SNS.V2010_03_31.CreatePlatformApplication as Export
-import Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint as Export
-import Network.AWS.SNS.V2010_03_31.CreateTopic as Export
-import Network.AWS.SNS.V2010_03_31.DeleteEndpoint as Export
-import Network.AWS.SNS.V2010_03_31.DeletePlatformApplication as Export
-import Network.AWS.SNS.V2010_03_31.DeleteTopic as Export
-import Network.AWS.SNS.V2010_03_31.GetEndpointAttributes as Export
-import Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes as Export
-import Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes as Export
-import Network.AWS.SNS.V2010_03_31.GetTopicAttributes as Export
-import Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication as Export
-import Network.AWS.SNS.V2010_03_31.ListPlatformApplications as Export
-import Network.AWS.SNS.V2010_03_31.ListSubscriptions as Export
-import Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic as Export
-import Network.AWS.SNS.V2010_03_31.ListTopics as Export
-import Network.AWS.SNS.V2010_03_31.Publish as Export
-import Network.AWS.SNS.V2010_03_31.RemovePermission as Export
-import Network.AWS.SNS.V2010_03_31.SetEndpointAttributes as Export
-import Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes as Export
-import Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes as Export
-import Network.AWS.SNS.V2010_03_31.SetTopicAttributes as Export
-import Network.AWS.SNS.V2010_03_31.Subscribe as Export
-import Network.AWS.SNS.V2010_03_31.Types as Export
-import Network.AWS.SNS.V2010_03_31.Unsubscribe as Export
+import Network.AWS.SNS.V2010_03_31.AddPermission
+import Network.AWS.SNS.V2010_03_31.ConfirmSubscription
+import Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
+import Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint
+import Network.AWS.SNS.V2010_03_31.CreateTopic
+import Network.AWS.SNS.V2010_03_31.DeleteEndpoint
+import Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
+import Network.AWS.SNS.V2010_03_31.DeleteTopic
+import Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
+import Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
+import Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
+import Network.AWS.SNS.V2010_03_31.GetTopicAttributes
+import Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication
+import Network.AWS.SNS.V2010_03_31.ListPlatformApplications
+import Network.AWS.SNS.V2010_03_31.ListSubscriptions
+import Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
+import Network.AWS.SNS.V2010_03_31.ListTopics
+import Network.AWS.SNS.V2010_03_31.Publish
+import Network.AWS.SNS.V2010_03_31.RemovePermission
+import Network.AWS.SNS.V2010_03_31.SetEndpointAttributes
+import Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
+import Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes
+import Network.AWS.SNS.V2010_03_31.SetTopicAttributes
+import Network.AWS.SNS.V2010_03_31.Subscribe
+import Network.AWS.SNS.V2010_03_31.Types
+import Network.AWS.SNS.V2010_03_31.Unsubscribe

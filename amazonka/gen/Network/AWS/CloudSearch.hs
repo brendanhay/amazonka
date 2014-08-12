@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.CloudSearch (module Export) where
+-- | Most recent version of the CloudSearch service.
+module Network.AWS.CloudSearch
+    ( module Network.AWS.CloudSearch.V2013_01_01
+    ) where
 
-import Network.AWS.CloudSearch.V2013_01_01 as Export
+import Network.AWS.CloudSearch.V2013_01_01

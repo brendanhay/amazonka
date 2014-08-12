@@ -1,5 +1,8 @@
 {% include "_include/license.ede" with namespace %}
 
-module {{ namespace }} (module Export) where
+-- | Current version of the {{ name }} service.
+module {{ namespace }}
+    ( module {{ version_namespace }}
+    ) where
 
-import {{ version_namespace }} as Export
+import {{ version_namespace }}

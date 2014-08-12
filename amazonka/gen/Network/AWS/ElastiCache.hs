@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.ElastiCache (module Export) where
+-- | Most recent version of the ElastiCache service.
+module Network.AWS.ElastiCache
+    ( module Network.AWS.ElastiCache.V2014_03_24
+    ) where
 
-import Network.AWS.ElastiCache.V2014_03_24 as Export
+import Network.AWS.ElastiCache.V2014_03_24

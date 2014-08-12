@@ -55,72 +55,102 @@ library
 
         , Network.AWS.Support
         , Network.AWS.Support.V2013_04_15
+
         , Network.AWS.StorageGateway
         , Network.AWS.StorageGateway.V2013_06_30
+
         , Network.AWS.SimpleDB
         , Network.AWS.SimpleDB.V2009_04_15
+
         , Network.AWS.SWF
         , Network.AWS.SWF.V2012_01_25
+
         , Network.AWS.STS
         , Network.AWS.STS.V2011_06_15
+
         , Network.AWS.SQS
         , Network.AWS.SQS.V2012_11_05
+
         , Network.AWS.SNS
         , Network.AWS.SNS.V2010_03_31
+
         , Network.AWS.SES
         , Network.AWS.SES.V2010_12_01
+
         , Network.AWS.S3
         , Network.AWS.S3.V2006_03_01
+
         , Network.AWS.Route53
         , Network.AWS.Route53.V2013_04_01
+
         , Network.AWS.Redshift
         , Network.AWS.Redshift.V2012_12_01
+
         , Network.AWS.RDS
         , Network.AWS.RDS.V2013_09_09
+
         , Network.AWS.OpsWorks
         , Network.AWS.OpsWorks.V2013_02_18
+
         , Network.AWS.Kinesis
         , Network.AWS.Kinesis.V2013_12_02
+
         , Network.AWS.ImportExport
         , Network.AWS.ImportExport.V2010_06_01
+
         , Network.AWS.IAM
         , Network.AWS.IAM.V2010_05_08
+
         , Network.AWS.ElasticTranscoder
         , Network.AWS.ElasticTranscoder.V2012_09_25
+
         , Network.AWS.ElasticBeanstalk
         , Network.AWS.ElasticBeanstalk.V2010_12_01
+
         , Network.AWS.ElastiCache
         , Network.AWS.ElastiCache.V2014_03_24
+
         , Network.AWS.EMR
         , Network.AWS.EMR.V2009_03_31
+
         , Network.AWS.ELB
         , Network.AWS.ELB.V2012_06_01
+
         , Network.AWS.EC2
         , Network.AWS.EC2.V2014_06_15
+
         , Network.AWS.DynamoDB
         , Network.AWS.DynamoDB.V2012_08_10
+
         , Network.AWS.DirectConnect
         , Network.AWS.DirectConnect.V2012_10_25
+
         , Network.AWS.DataPipeline
         , Network.AWS.DataPipeline.V2012_10_29
+
         , Network.AWS.CognitoIdentity
         , Network.AWS.CognitoIdentity.V2014_06_30
+
         , Network.AWS.CloudWatch
         , Network.AWS.CloudWatch.V2010_08_01
+
         , Network.AWS.CloudTrail
         , Network.AWS.CloudTrail.V2013_11_01
+
         , Network.AWS.CloudSearch
         , Network.AWS.CloudSearch.V2013_01_01
+
         , Network.AWS.CloudFront
         , Network.AWS.CloudFront.V2014_05_31
+
         , Network.AWS.CloudFormation
         , Network.AWS.CloudFormation.V2010_05_15
+
         , Network.AWS.AutoScaling
         , Network.AWS.AutoScaling.V2011_01_01
 
-    other-modules:
         -- * Support V2013_04_15
-          Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
+        , Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
         , Network.AWS.Support.V2013_04_15.AddCommunicationToCase
         , Network.AWS.Support.V2013_04_15.CreateCase
         , Network.AWS.Support.V2013_04_15.DescribeAttachment

@@ -15,22 +15,40 @@
 -- requiring other services to be always available. With SQS, you can offload
 -- the administrative burden of operating and scaling a highly available
 -- messaging cluster, while paying a low price for only what you use.
-module Network.AWS.SQS.V2012_11_05 (module Export) where
+module Network.AWS.SQS.V2012_11_05
+    ( module Network.AWS.SQS.V2012_11_05.AddPermission
+    , module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility
+    , module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch
+    , module Network.AWS.SQS.V2012_11_05.CreateQueue
+    , module Network.AWS.SQS.V2012_11_05.DeleteMessage
+    , module Network.AWS.SQS.V2012_11_05.DeleteMessageBatch
+    , module Network.AWS.SQS.V2012_11_05.DeleteQueue
+    , module Network.AWS.SQS.V2012_11_05.GetQueueAttributes
+    , module Network.AWS.SQS.V2012_11_05.GetQueueUrl
+    , module Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues
+    , module Network.AWS.SQS.V2012_11_05.ListQueues
+    , module Network.AWS.SQS.V2012_11_05.ReceiveMessage
+    , module Network.AWS.SQS.V2012_11_05.RemovePermission
+    , module Network.AWS.SQS.V2012_11_05.SendMessage
+    , module Network.AWS.SQS.V2012_11_05.SendMessageBatch
+    , module Network.AWS.SQS.V2012_11_05.SetQueueAttributes
+    , module Network.AWS.SQS.V2012_11_05.Types
+    ) where
 
-import Network.AWS.SQS.V2012_11_05.AddPermission as Export
-import Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility as Export
-import Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch as Export
-import Network.AWS.SQS.V2012_11_05.CreateQueue as Export
-import Network.AWS.SQS.V2012_11_05.DeleteMessage as Export
-import Network.AWS.SQS.V2012_11_05.DeleteMessageBatch as Export
-import Network.AWS.SQS.V2012_11_05.DeleteQueue as Export
-import Network.AWS.SQS.V2012_11_05.GetQueueAttributes as Export
-import Network.AWS.SQS.V2012_11_05.GetQueueUrl as Export
-import Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues as Export
-import Network.AWS.SQS.V2012_11_05.ListQueues as Export
-import Network.AWS.SQS.V2012_11_05.ReceiveMessage as Export
-import Network.AWS.SQS.V2012_11_05.RemovePermission as Export
-import Network.AWS.SQS.V2012_11_05.SendMessage as Export
-import Network.AWS.SQS.V2012_11_05.SendMessageBatch as Export
-import Network.AWS.SQS.V2012_11_05.SetQueueAttributes as Export
-import Network.AWS.SQS.V2012_11_05.Types as Export
+import Network.AWS.SQS.V2012_11_05.AddPermission
+import Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility
+import Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch
+import Network.AWS.SQS.V2012_11_05.CreateQueue
+import Network.AWS.SQS.V2012_11_05.DeleteMessage
+import Network.AWS.SQS.V2012_11_05.DeleteMessageBatch
+import Network.AWS.SQS.V2012_11_05.DeleteQueue
+import Network.AWS.SQS.V2012_11_05.GetQueueAttributes
+import Network.AWS.SQS.V2012_11_05.GetQueueUrl
+import Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues
+import Network.AWS.SQS.V2012_11_05.ListQueues
+import Network.AWS.SQS.V2012_11_05.ReceiveMessage
+import Network.AWS.SQS.V2012_11_05.RemovePermission
+import Network.AWS.SQS.V2012_11_05.SendMessage
+import Network.AWS.SQS.V2012_11_05.SendMessageBatch
+import Network.AWS.SQS.V2012_11_05.SetQueueAttributes
+import Network.AWS.SQS.V2012_11_05.Types

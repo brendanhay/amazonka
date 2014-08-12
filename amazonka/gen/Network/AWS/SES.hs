@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.SES (module Export) where
+-- | Most recent version of the SES service.
+module Network.AWS.SES
+    ( module Network.AWS.SES.V2010_12_01
+    ) where
 
-import Network.AWS.SES.V2010_12_01 as Export
+import Network.AWS.SES.V2010_12_01

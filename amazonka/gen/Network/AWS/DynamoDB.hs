@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.DynamoDB (module Export) where
+-- | Most recent version of the DynamoDB service.
+module Network.AWS.DynamoDB
+    ( module Network.AWS.DynamoDB.V2012_08_10
+    ) where
 
-import Network.AWS.DynamoDB.V2012_08_10 as Export
+import Network.AWS.DynamoDB.V2012_08_10

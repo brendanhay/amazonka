@@ -22,16 +22,28 @@
 -- can focus on application development without worrying about infrastructure
 -- provisioning, high availability, software maintenance, schema and index
 -- management, or performance tuning.
-module Network.AWS.SimpleDB.V2009_04_15 (module Export) where
+module Network.AWS.SimpleDB.V2009_04_15
+    ( module Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes
+    , module Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes
+    , module Network.AWS.SimpleDB.V2009_04_15.CreateDomain
+    , module Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes
+    , module Network.AWS.SimpleDB.V2009_04_15.DeleteDomain
+    , module Network.AWS.SimpleDB.V2009_04_15.DomainMetadata
+    , module Network.AWS.SimpleDB.V2009_04_15.GetAttributes
+    , module Network.AWS.SimpleDB.V2009_04_15.ListDomains
+    , module Network.AWS.SimpleDB.V2009_04_15.PutAttributes
+    , module Network.AWS.SimpleDB.V2009_04_15.Select
+    , module Network.AWS.SimpleDB.V2009_04_15.Types
+    ) where
 
-import Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes as Export
-import Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes as Export
-import Network.AWS.SimpleDB.V2009_04_15.CreateDomain as Export
-import Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes as Export
-import Network.AWS.SimpleDB.V2009_04_15.DeleteDomain as Export
-import Network.AWS.SimpleDB.V2009_04_15.DomainMetadata as Export
-import Network.AWS.SimpleDB.V2009_04_15.GetAttributes as Export
-import Network.AWS.SimpleDB.V2009_04_15.ListDomains as Export
-import Network.AWS.SimpleDB.V2009_04_15.PutAttributes as Export
-import Network.AWS.SimpleDB.V2009_04_15.Select as Export
-import Network.AWS.SimpleDB.V2009_04_15.Types as Export
+import Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes
+import Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes
+import Network.AWS.SimpleDB.V2009_04_15.CreateDomain
+import Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes
+import Network.AWS.SimpleDB.V2009_04_15.DeleteDomain
+import Network.AWS.SimpleDB.V2009_04_15.DomainMetadata
+import Network.AWS.SimpleDB.V2009_04_15.GetAttributes
+import Network.AWS.SimpleDB.V2009_04_15.ListDomains
+import Network.AWS.SimpleDB.V2009_04_15.PutAttributes
+import Network.AWS.SimpleDB.V2009_04_15.Select
+import Network.AWS.SimpleDB.V2009_04_15.Types

@@ -12,12 +12,20 @@
 -- request temporary, limited-privilege credentials for AWS Identity and
 -- Access Management (IAM) users or for users that you authenticate (federated
 -- users).
-module Network.AWS.STS.V2011_06_15 (module Export) where
+module Network.AWS.STS.V2011_06_15
+    ( module Network.AWS.STS.V2011_06_15.AssumeRole
+    , module Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML
+    , module Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity
+    , module Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
+    , module Network.AWS.STS.V2011_06_15.GetFederationToken
+    , module Network.AWS.STS.V2011_06_15.GetSessionToken
+    , module Network.AWS.STS.V2011_06_15.Types
+    ) where
 
-import Network.AWS.STS.V2011_06_15.AssumeRole as Export
-import Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML as Export
-import Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity as Export
-import Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage as Export
-import Network.AWS.STS.V2011_06_15.GetFederationToken as Export
-import Network.AWS.STS.V2011_06_15.GetSessionToken as Export
-import Network.AWS.STS.V2011_06_15.Types as Export
+import Network.AWS.STS.V2011_06_15.AssumeRole
+import Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML
+import Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity
+import Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
+import Network.AWS.STS.V2011_06_15.GetFederationToken
+import Network.AWS.STS.V2011_06_15.GetSessionToken
+import Network.AWS.STS.V2011_06_15.Types

@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.EMR (module Export) where
+-- | Most recent version of the EMR service.
+module Network.AWS.EMR
+    ( module Network.AWS.EMR.V2009_03_31
+    ) where
 
-import Network.AWS.EMR.V2009_03_31 as Export
+import Network.AWS.EMR.V2009_03_31

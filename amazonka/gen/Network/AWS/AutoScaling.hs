@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.AutoScaling (module Export) where
+-- | Most recent version of the AutoScaling service.
+module Network.AWS.AutoScaling
+    ( module Network.AWS.AutoScaling.V2011_01_01
+    ) where
 
-import Network.AWS.AutoScaling.V2011_01_01 as Export
+import Network.AWS.AutoScaling.V2011_01_01

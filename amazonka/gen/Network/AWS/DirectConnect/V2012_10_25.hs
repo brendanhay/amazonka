@@ -14,25 +14,46 @@
 -- AWS Direct Connect router. With this connection in place, you can create
 -- virtual interfaces directly to the AWS cloud and Amazon Virtual Private
 -- Cloud, bypassing Internet service providers in your network path.
-module Network.AWS.DirectConnect.V2012_10_25 (module Export) where
+module Network.AWS.DirectConnect.V2012_10_25
+    ( module Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
+    , module Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface
+    , module Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface
+    , module Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
+    , module Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface
+    , module Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
+    , module Network.AWS.DirectConnect.V2012_10_25.CreateConnection
+    , module Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect
+    , module Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface
+    , module Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface
+    , module Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
+    , module Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
+    , module Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface
+    , module Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
+    , module Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
+    , module Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
+    , module Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
+    , module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
+    , module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
+    , module Network.AWS.DirectConnect.V2012_10_25.Types
+    ) where
 
-import Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect as Export
-import Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface as Export
-import Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface as Export
-import Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection as Export
-import Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface as Export
-import Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface as Export
-import Network.AWS.DirectConnect.V2012_10_25.CreateConnection as Export
-import Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect as Export
-import Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface as Export
-import Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface as Export
-import Network.AWS.DirectConnect.V2012_10_25.DeleteConnection as Export
-import Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect as Export
-import Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface as Export
-import Network.AWS.DirectConnect.V2012_10_25.DescribeConnections as Export
-import Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect as Export
-import Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects as Export
-import Network.AWS.DirectConnect.V2012_10_25.DescribeLocations as Export
-import Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways as Export
-import Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces as Export
-import Network.AWS.DirectConnect.V2012_10_25.Types as Export
+import Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
+import Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface
+import Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface
+import Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
+import Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface
+import Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
+import Network.AWS.DirectConnect.V2012_10_25.CreateConnection
+import Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect
+import Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface
+import Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface
+import Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
+import Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
+import Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface
+import Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
+import Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
+import Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
+import Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
+import Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
+import Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
+import Network.AWS.DirectConnect.V2012_10_25.Types

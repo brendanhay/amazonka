@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53 (module Export) where
+-- | Most recent version of the Route53 service.
+module Network.AWS.Route53
+    ( module Network.AWS.Route53.V2013_04_01
+    ) where
 
-import Network.AWS.Route53.V2013_04_01 as Export
+import Network.AWS.Route53.V2013_04_01

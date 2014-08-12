@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.SNS (module Export) where
+-- | Most recent version of the SNS service.
+module Network.AWS.SNS
+    ( module Network.AWS.SNS.V2010_03_31
+    ) where
 
-import Network.AWS.SNS.V2010_03_31 as Export
+import Network.AWS.SNS.V2010_03_31

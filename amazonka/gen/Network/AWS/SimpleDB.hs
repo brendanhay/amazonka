@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.SimpleDB (module Export) where
+-- | Most recent version of the SimpleDB service.
+module Network.AWS.SimpleDB
+    ( module Network.AWS.SimpleDB.V2009_04_15
+    ) where
 
-import Network.AWS.SimpleDB.V2009_04_15 as Export
+import Network.AWS.SimpleDB.V2009_04_15

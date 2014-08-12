@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.DataPipeline (module Export) where
+-- | Most recent version of the DataPipeline service.
+module Network.AWS.DataPipeline
+    ( module Network.AWS.DataPipeline.V2012_10_29
+    ) where
 
-import Network.AWS.DataPipeline.V2012_10_29 as Export
+import Network.AWS.DataPipeline.V2012_10_29

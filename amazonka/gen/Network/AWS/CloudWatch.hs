@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.CloudWatch (module Export) where
+-- | Most recent version of the CloudWatch service.
+module Network.AWS.CloudWatch
+    ( module Network.AWS.CloudWatch.V2010_08_01
+    ) where
 
-import Network.AWS.CloudWatch.V2010_08_01 as Export
+import Network.AWS.CloudWatch.V2010_08_01

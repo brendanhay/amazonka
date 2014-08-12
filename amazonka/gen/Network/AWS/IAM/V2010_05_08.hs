@@ -12,82 +12,160 @@
 -- access to AWS services and resources for your users. Using IAM, you can
 -- create and manage AWS users and groups and use permissions to allow and
 -- deny their access to AWS resources.
-module Network.AWS.IAM.V2010_05_08 (module Export) where
+module Network.AWS.IAM.V2010_05_08
+    ( module Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile
+    , module Network.AWS.IAM.V2010_05_08.AddUserToGroup
+    , module Network.AWS.IAM.V2010_05_08.ChangePassword
+    , module Network.AWS.IAM.V2010_05_08.CreateAccessKey
+    , module Network.AWS.IAM.V2010_05_08.CreateAccountAlias
+    , module Network.AWS.IAM.V2010_05_08.CreateGroup
+    , module Network.AWS.IAM.V2010_05_08.CreateInstanceProfile
+    , module Network.AWS.IAM.V2010_05_08.CreateLoginProfile
+    , module Network.AWS.IAM.V2010_05_08.CreateRole
+    , module Network.AWS.IAM.V2010_05_08.CreateSAMLProvider
+    , module Network.AWS.IAM.V2010_05_08.CreateUser
+    , module Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
+    , module Network.AWS.IAM.V2010_05_08.DeactivateMFADevice
+    , module Network.AWS.IAM.V2010_05_08.DeleteAccessKey
+    , module Network.AWS.IAM.V2010_05_08.DeleteAccountAlias
+    , module Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy
+    , module Network.AWS.IAM.V2010_05_08.DeleteGroup
+    , module Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy
+    , module Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile
+    , module Network.AWS.IAM.V2010_05_08.DeleteLoginProfile
+    , module Network.AWS.IAM.V2010_05_08.DeleteRole
+    , module Network.AWS.IAM.V2010_05_08.DeleteRolePolicy
+    , module Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider
+    , module Network.AWS.IAM.V2010_05_08.DeleteServerCertificate
+    , module Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate
+    , module Network.AWS.IAM.V2010_05_08.DeleteUser
+    , module Network.AWS.IAM.V2010_05_08.DeleteUserPolicy
+    , module Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice
+    , module Network.AWS.IAM.V2010_05_08.EnableMFADevice
+    , module Network.AWS.IAM.V2010_05_08.GenerateCredentialReport
+    , module Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
+    , module Network.AWS.IAM.V2010_05_08.GetAccountSummary
+    , module Network.AWS.IAM.V2010_05_08.GetCredentialReport
+    , module Network.AWS.IAM.V2010_05_08.GetGroup
+    , module Network.AWS.IAM.V2010_05_08.GetGroupPolicy
+    , module Network.AWS.IAM.V2010_05_08.GetInstanceProfile
+    , module Network.AWS.IAM.V2010_05_08.GetLoginProfile
+    , module Network.AWS.IAM.V2010_05_08.GetRole
+    , module Network.AWS.IAM.V2010_05_08.GetRolePolicy
+    , module Network.AWS.IAM.V2010_05_08.GetSAMLProvider
+    , module Network.AWS.IAM.V2010_05_08.GetServerCertificate
+    , module Network.AWS.IAM.V2010_05_08.GetUser
+    , module Network.AWS.IAM.V2010_05_08.GetUserPolicy
+    , module Network.AWS.IAM.V2010_05_08.ListAccessKeys
+    , module Network.AWS.IAM.V2010_05_08.ListAccountAliases
+    , module Network.AWS.IAM.V2010_05_08.ListGroupPolicies
+    , module Network.AWS.IAM.V2010_05_08.ListGroups
+    , module Network.AWS.IAM.V2010_05_08.ListGroupsForUser
+    , module Network.AWS.IAM.V2010_05_08.ListInstanceProfiles
+    , module Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole
+    , module Network.AWS.IAM.V2010_05_08.ListMFADevices
+    , module Network.AWS.IAM.V2010_05_08.ListRolePolicies
+    , module Network.AWS.IAM.V2010_05_08.ListRoles
+    , module Network.AWS.IAM.V2010_05_08.ListSAMLProviders
+    , module Network.AWS.IAM.V2010_05_08.ListServerCertificates
+    , module Network.AWS.IAM.V2010_05_08.ListSigningCertificates
+    , module Network.AWS.IAM.V2010_05_08.ListUserPolicies
+    , module Network.AWS.IAM.V2010_05_08.ListUsers
+    , module Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices
+    , module Network.AWS.IAM.V2010_05_08.PutGroupPolicy
+    , module Network.AWS.IAM.V2010_05_08.PutRolePolicy
+    , module Network.AWS.IAM.V2010_05_08.PutUserPolicy
+    , module Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile
+    , module Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup
+    , module Network.AWS.IAM.V2010_05_08.ResyncMFADevice
+    , module Network.AWS.IAM.V2010_05_08.Types
+    , module Network.AWS.IAM.V2010_05_08.UpdateAccessKey
+    , module Network.AWS.IAM.V2010_05_08.UpdateAccountPasswordPolicy
+    , module Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy
+    , module Network.AWS.IAM.V2010_05_08.UpdateGroup
+    , module Network.AWS.IAM.V2010_05_08.UpdateLoginProfile
+    , module Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider
+    , module Network.AWS.IAM.V2010_05_08.UpdateServerCertificate
+    , module Network.AWS.IAM.V2010_05_08.UpdateSigningCertificate
+    , module Network.AWS.IAM.V2010_05_08.UpdateUser
+    , module Network.AWS.IAM.V2010_05_08.UploadServerCertificate
+    , module Network.AWS.IAM.V2010_05_08.UploadSigningCertificate
+    ) where
 
-import Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile as Export
-import Network.AWS.IAM.V2010_05_08.AddUserToGroup as Export
-import Network.AWS.IAM.V2010_05_08.ChangePassword as Export
-import Network.AWS.IAM.V2010_05_08.CreateAccessKey as Export
-import Network.AWS.IAM.V2010_05_08.CreateAccountAlias as Export
-import Network.AWS.IAM.V2010_05_08.CreateGroup as Export
-import Network.AWS.IAM.V2010_05_08.CreateInstanceProfile as Export
-import Network.AWS.IAM.V2010_05_08.CreateLoginProfile as Export
-import Network.AWS.IAM.V2010_05_08.CreateRole as Export
-import Network.AWS.IAM.V2010_05_08.CreateSAMLProvider as Export
-import Network.AWS.IAM.V2010_05_08.CreateUser as Export
-import Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice as Export
-import Network.AWS.IAM.V2010_05_08.DeactivateMFADevice as Export
-import Network.AWS.IAM.V2010_05_08.DeleteAccessKey as Export
-import Network.AWS.IAM.V2010_05_08.DeleteAccountAlias as Export
-import Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy as Export
-import Network.AWS.IAM.V2010_05_08.DeleteGroup as Export
-import Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy as Export
-import Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile as Export
-import Network.AWS.IAM.V2010_05_08.DeleteLoginProfile as Export
-import Network.AWS.IAM.V2010_05_08.DeleteRole as Export
-import Network.AWS.IAM.V2010_05_08.DeleteRolePolicy as Export
-import Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider as Export
-import Network.AWS.IAM.V2010_05_08.DeleteServerCertificate as Export
-import Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate as Export
-import Network.AWS.IAM.V2010_05_08.DeleteUser as Export
-import Network.AWS.IAM.V2010_05_08.DeleteUserPolicy as Export
-import Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice as Export
-import Network.AWS.IAM.V2010_05_08.EnableMFADevice as Export
-import Network.AWS.IAM.V2010_05_08.GenerateCredentialReport as Export
-import Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy as Export
-import Network.AWS.IAM.V2010_05_08.GetAccountSummary as Export
-import Network.AWS.IAM.V2010_05_08.GetCredentialReport as Export
-import Network.AWS.IAM.V2010_05_08.GetGroup as Export
-import Network.AWS.IAM.V2010_05_08.GetGroupPolicy as Export
-import Network.AWS.IAM.V2010_05_08.GetInstanceProfile as Export
-import Network.AWS.IAM.V2010_05_08.GetLoginProfile as Export
-import Network.AWS.IAM.V2010_05_08.GetRole as Export
-import Network.AWS.IAM.V2010_05_08.GetRolePolicy as Export
-import Network.AWS.IAM.V2010_05_08.GetSAMLProvider as Export
-import Network.AWS.IAM.V2010_05_08.GetServerCertificate as Export
-import Network.AWS.IAM.V2010_05_08.GetUser as Export
-import Network.AWS.IAM.V2010_05_08.GetUserPolicy as Export
-import Network.AWS.IAM.V2010_05_08.ListAccessKeys as Export
-import Network.AWS.IAM.V2010_05_08.ListAccountAliases as Export
-import Network.AWS.IAM.V2010_05_08.ListGroupPolicies as Export
-import Network.AWS.IAM.V2010_05_08.ListGroups as Export
-import Network.AWS.IAM.V2010_05_08.ListGroupsForUser as Export
-import Network.AWS.IAM.V2010_05_08.ListInstanceProfiles as Export
-import Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole as Export
-import Network.AWS.IAM.V2010_05_08.ListMFADevices as Export
-import Network.AWS.IAM.V2010_05_08.ListRolePolicies as Export
-import Network.AWS.IAM.V2010_05_08.ListRoles as Export
-import Network.AWS.IAM.V2010_05_08.ListSAMLProviders as Export
-import Network.AWS.IAM.V2010_05_08.ListServerCertificates as Export
-import Network.AWS.IAM.V2010_05_08.ListSigningCertificates as Export
-import Network.AWS.IAM.V2010_05_08.ListUserPolicies as Export
-import Network.AWS.IAM.V2010_05_08.ListUsers as Export
-import Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices as Export
-import Network.AWS.IAM.V2010_05_08.PutGroupPolicy as Export
-import Network.AWS.IAM.V2010_05_08.PutRolePolicy as Export
-import Network.AWS.IAM.V2010_05_08.PutUserPolicy as Export
-import Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile as Export
-import Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup as Export
-import Network.AWS.IAM.V2010_05_08.ResyncMFADevice as Export
-import Network.AWS.IAM.V2010_05_08.Types as Export
-import Network.AWS.IAM.V2010_05_08.UpdateAccessKey as Export
-import Network.AWS.IAM.V2010_05_08.UpdateAccountPasswordPolicy as Export
-import Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy as Export
-import Network.AWS.IAM.V2010_05_08.UpdateGroup as Export
-import Network.AWS.IAM.V2010_05_08.UpdateLoginProfile as Export
-import Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider as Export
-import Network.AWS.IAM.V2010_05_08.UpdateServerCertificate as Export
-import Network.AWS.IAM.V2010_05_08.UpdateSigningCertificate as Export
-import Network.AWS.IAM.V2010_05_08.UpdateUser as Export
-import Network.AWS.IAM.V2010_05_08.UploadServerCertificate as Export
-import Network.AWS.IAM.V2010_05_08.UploadSigningCertificate as Export
+import Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile
+import Network.AWS.IAM.V2010_05_08.AddUserToGroup
+import Network.AWS.IAM.V2010_05_08.ChangePassword
+import Network.AWS.IAM.V2010_05_08.CreateAccessKey
+import Network.AWS.IAM.V2010_05_08.CreateAccountAlias
+import Network.AWS.IAM.V2010_05_08.CreateGroup
+import Network.AWS.IAM.V2010_05_08.CreateInstanceProfile
+import Network.AWS.IAM.V2010_05_08.CreateLoginProfile
+import Network.AWS.IAM.V2010_05_08.CreateRole
+import Network.AWS.IAM.V2010_05_08.CreateSAMLProvider
+import Network.AWS.IAM.V2010_05_08.CreateUser
+import Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
+import Network.AWS.IAM.V2010_05_08.DeactivateMFADevice
+import Network.AWS.IAM.V2010_05_08.DeleteAccessKey
+import Network.AWS.IAM.V2010_05_08.DeleteAccountAlias
+import Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy
+import Network.AWS.IAM.V2010_05_08.DeleteGroup
+import Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy
+import Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile
+import Network.AWS.IAM.V2010_05_08.DeleteLoginProfile
+import Network.AWS.IAM.V2010_05_08.DeleteRole
+import Network.AWS.IAM.V2010_05_08.DeleteRolePolicy
+import Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider
+import Network.AWS.IAM.V2010_05_08.DeleteServerCertificate
+import Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate
+import Network.AWS.IAM.V2010_05_08.DeleteUser
+import Network.AWS.IAM.V2010_05_08.DeleteUserPolicy
+import Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice
+import Network.AWS.IAM.V2010_05_08.EnableMFADevice
+import Network.AWS.IAM.V2010_05_08.GenerateCredentialReport
+import Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
+import Network.AWS.IAM.V2010_05_08.GetAccountSummary
+import Network.AWS.IAM.V2010_05_08.GetCredentialReport
+import Network.AWS.IAM.V2010_05_08.GetGroup
+import Network.AWS.IAM.V2010_05_08.GetGroupPolicy
+import Network.AWS.IAM.V2010_05_08.GetInstanceProfile
+import Network.AWS.IAM.V2010_05_08.GetLoginProfile
+import Network.AWS.IAM.V2010_05_08.GetRole
+import Network.AWS.IAM.V2010_05_08.GetRolePolicy
+import Network.AWS.IAM.V2010_05_08.GetSAMLProvider
+import Network.AWS.IAM.V2010_05_08.GetServerCertificate
+import Network.AWS.IAM.V2010_05_08.GetUser
+import Network.AWS.IAM.V2010_05_08.GetUserPolicy
+import Network.AWS.IAM.V2010_05_08.ListAccessKeys
+import Network.AWS.IAM.V2010_05_08.ListAccountAliases
+import Network.AWS.IAM.V2010_05_08.ListGroupPolicies
+import Network.AWS.IAM.V2010_05_08.ListGroups
+import Network.AWS.IAM.V2010_05_08.ListGroupsForUser
+import Network.AWS.IAM.V2010_05_08.ListInstanceProfiles
+import Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole
+import Network.AWS.IAM.V2010_05_08.ListMFADevices
+import Network.AWS.IAM.V2010_05_08.ListRolePolicies
+import Network.AWS.IAM.V2010_05_08.ListRoles
+import Network.AWS.IAM.V2010_05_08.ListSAMLProviders
+import Network.AWS.IAM.V2010_05_08.ListServerCertificates
+import Network.AWS.IAM.V2010_05_08.ListSigningCertificates
+import Network.AWS.IAM.V2010_05_08.ListUserPolicies
+import Network.AWS.IAM.V2010_05_08.ListUsers
+import Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices
+import Network.AWS.IAM.V2010_05_08.PutGroupPolicy
+import Network.AWS.IAM.V2010_05_08.PutRolePolicy
+import Network.AWS.IAM.V2010_05_08.PutUserPolicy
+import Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile
+import Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup
+import Network.AWS.IAM.V2010_05_08.ResyncMFADevice
+import Network.AWS.IAM.V2010_05_08.Types
+import Network.AWS.IAM.V2010_05_08.UpdateAccessKey
+import Network.AWS.IAM.V2010_05_08.UpdateAccountPasswordPolicy
+import Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy
+import Network.AWS.IAM.V2010_05_08.UpdateGroup
+import Network.AWS.IAM.V2010_05_08.UpdateLoginProfile
+import Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider
+import Network.AWS.IAM.V2010_05_08.UpdateServerCertificate
+import Network.AWS.IAM.V2010_05_08.UpdateSigningCertificate
+import Network.AWS.IAM.V2010_05_08.UpdateUser
+import Network.AWS.IAM.V2010_05_08.UploadServerCertificate
+import Network.AWS.IAM.V2010_05_08.UploadSigningCertificate

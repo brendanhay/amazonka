@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Kinesis (module Export) where
+-- | Most recent version of the Kinesis service.
+module Network.AWS.Kinesis
+    ( module Network.AWS.Kinesis.V2013_12_02
+    ) where
 
-import Network.AWS.Kinesis.V2013_12_02 as Export
+import Network.AWS.Kinesis.V2013_12_02

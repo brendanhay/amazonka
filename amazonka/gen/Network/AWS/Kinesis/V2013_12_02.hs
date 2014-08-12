@@ -12,15 +12,26 @@
 -- processing of streaming big data. The service takes in large streams of
 -- data records that can then be consumed in real time by multiple
 -- data-processing applications that can be run on Amazon EC2 instances.
-module Network.AWS.Kinesis.V2013_12_02 (module Export) where
+module Network.AWS.Kinesis.V2013_12_02
+    ( module Network.AWS.Kinesis.V2013_12_02.CreateStream
+    , module Network.AWS.Kinesis.V2013_12_02.DeleteStream
+    , module Network.AWS.Kinesis.V2013_12_02.DescribeStream
+    , module Network.AWS.Kinesis.V2013_12_02.GetRecords
+    , module Network.AWS.Kinesis.V2013_12_02.GetShardIterator
+    , module Network.AWS.Kinesis.V2013_12_02.ListStreams
+    , module Network.AWS.Kinesis.V2013_12_02.MergeShards
+    , module Network.AWS.Kinesis.V2013_12_02.PutRecord
+    , module Network.AWS.Kinesis.V2013_12_02.SplitShard
+    , module Network.AWS.Kinesis.V2013_12_02.Types
+    ) where
 
-import Network.AWS.Kinesis.V2013_12_02.CreateStream as Export
-import Network.AWS.Kinesis.V2013_12_02.DeleteStream as Export
-import Network.AWS.Kinesis.V2013_12_02.DescribeStream as Export
-import Network.AWS.Kinesis.V2013_12_02.GetRecords as Export
-import Network.AWS.Kinesis.V2013_12_02.GetShardIterator as Export
-import Network.AWS.Kinesis.V2013_12_02.ListStreams as Export
-import Network.AWS.Kinesis.V2013_12_02.MergeShards as Export
-import Network.AWS.Kinesis.V2013_12_02.PutRecord as Export
-import Network.AWS.Kinesis.V2013_12_02.SplitShard as Export
-import Network.AWS.Kinesis.V2013_12_02.Types as Export
+import Network.AWS.Kinesis.V2013_12_02.CreateStream
+import Network.AWS.Kinesis.V2013_12_02.DeleteStream
+import Network.AWS.Kinesis.V2013_12_02.DescribeStream
+import Network.AWS.Kinesis.V2013_12_02.GetRecords
+import Network.AWS.Kinesis.V2013_12_02.GetShardIterator
+import Network.AWS.Kinesis.V2013_12_02.ListStreams
+import Network.AWS.Kinesis.V2013_12_02.MergeShards
+import Network.AWS.Kinesis.V2013_12_02.PutRecord
+import Network.AWS.Kinesis.V2013_12_02.SplitShard
+import Network.AWS.Kinesis.V2013_12_02.Types

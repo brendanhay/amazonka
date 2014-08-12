@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.ElasticTranscoder (module Export) where
+-- | Most recent version of the ElasticTranscoder service.
+module Network.AWS.ElasticTranscoder
+    ( module Network.AWS.ElasticTranscoder.V2012_09_25
+    ) where
 
-import Network.AWS.ElasticTranscoder.V2012_09_25 as Export
+import Network.AWS.ElasticTranscoder.V2012_09_25

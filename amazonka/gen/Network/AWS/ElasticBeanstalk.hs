@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.ElasticBeanstalk (module Export) where
+-- | Most recent version of the ElasticBeanstalk service.
+module Network.AWS.ElasticBeanstalk
+    ( module Network.AWS.ElasticBeanstalk.V2010_12_01
+    ) where
 
-import Network.AWS.ElasticBeanstalk.V2010_12_01 as Export
+import Network.AWS.ElasticBeanstalk.V2010_12_01

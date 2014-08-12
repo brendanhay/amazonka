@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.DirectConnect (module Export) where
+-- | Most recent version of the DirectConnect service.
+module Network.AWS.DirectConnect
+    ( module Network.AWS.DirectConnect.V2012_10_25
+    ) where
 
-import Network.AWS.DirectConnect.V2012_10_25 as Export
+import Network.AWS.DirectConnect.V2012_10_25

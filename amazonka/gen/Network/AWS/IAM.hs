@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.IAM (module Export) where
+-- | Most recent version of the IAM service.
+module Network.AWS.IAM
+    ( module Network.AWS.IAM.V2010_05_08
+    ) where
 
-import Network.AWS.IAM.V2010_05_08 as Export
+import Network.AWS.IAM.V2010_05_08

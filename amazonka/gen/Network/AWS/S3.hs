@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.S3 (module Export) where
+-- | Most recent version of the S3 service.
+module Network.AWS.S3
+    ( module Network.AWS.S3.V2006_03_01
+    ) where
 
-import Network.AWS.S3.V2006_03_01 as Export
+import Network.AWS.S3.V2006_03_01

@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.SWF (module Export) where
+-- | Most recent version of the SWF service.
+module Network.AWS.SWF
+    ( module Network.AWS.SWF.V2012_01_25
+    ) where
 
-import Network.AWS.SWF.V2012_01_25 as Export
+import Network.AWS.SWF.V2012_01_25

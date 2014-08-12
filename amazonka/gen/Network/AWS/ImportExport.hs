@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.ImportExport (module Export) where
+-- | Most recent version of the ImportExport service.
+module Network.AWS.ImportExport
+    ( module Network.AWS.ImportExport.V2010_06_01
+    ) where
 
-import Network.AWS.ImportExport.V2010_06_01 as Export
+import Network.AWS.ImportExport.V2010_06_01

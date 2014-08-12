@@ -17,20 +17,36 @@
 -- unlimited number of technical support cases with pay-by-the-month pricing
 -- and no long-term contracts, providing developers and businesses flexibility
 -- to choose the level of support that meets their needs.
-module Network.AWS.Support.V2013_04_15 (module Export) where
+module Network.AWS.Support.V2013_04_15
+    ( module Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
+    , module Network.AWS.Support.V2013_04_15.AddCommunicationToCase
+    , module Network.AWS.Support.V2013_04_15.CreateCase
+    , module Network.AWS.Support.V2013_04_15.DescribeAttachment
+    , module Network.AWS.Support.V2013_04_15.DescribeCases
+    , module Network.AWS.Support.V2013_04_15.DescribeCommunications
+    , module Network.AWS.Support.V2013_04_15.DescribeServices
+    , module Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
+    , module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuses
+    , module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult
+    , module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries
+    , module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks
+    , module Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
+    , module Network.AWS.Support.V2013_04_15.ResolveCase
+    , module Network.AWS.Support.V2013_04_15.Types
+    ) where
 
-import Network.AWS.Support.V2013_04_15.AddAttachmentsToSet as Export
-import Network.AWS.Support.V2013_04_15.AddCommunicationToCase as Export
-import Network.AWS.Support.V2013_04_15.CreateCase as Export
-import Network.AWS.Support.V2013_04_15.DescribeAttachment as Export
-import Network.AWS.Support.V2013_04_15.DescribeCases as Export
-import Network.AWS.Support.V2013_04_15.DescribeCommunications as Export
-import Network.AWS.Support.V2013_04_15.DescribeServices as Export
-import Network.AWS.Support.V2013_04_15.DescribeSeverityLevels as Export
-import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuses as Export
-import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult as Export
-import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries as Export
-import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks as Export
-import Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck as Export
-import Network.AWS.Support.V2013_04_15.ResolveCase as Export
-import Network.AWS.Support.V2013_04_15.Types as Export
+import Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
+import Network.AWS.Support.V2013_04_15.AddCommunicationToCase
+import Network.AWS.Support.V2013_04_15.CreateCase
+import Network.AWS.Support.V2013_04_15.DescribeAttachment
+import Network.AWS.Support.V2013_04_15.DescribeCases
+import Network.AWS.Support.V2013_04_15.DescribeCommunications
+import Network.AWS.Support.V2013_04_15.DescribeServices
+import Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
+import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuses
+import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult
+import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries
+import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks
+import Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
+import Network.AWS.Support.V2013_04_15.ResolveCase
+import Network.AWS.Support.V2013_04_15.Types

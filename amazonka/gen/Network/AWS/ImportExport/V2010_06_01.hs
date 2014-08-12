@@ -14,11 +14,18 @@
 -- network and bypassing the Internet. For significant data sets, AWS
 -- Import/Export is often faster than Internet transfer and more cost
 -- effective than upgrading your connectivity.
-module Network.AWS.ImportExport.V2010_06_01 (module Export) where
+module Network.AWS.ImportExport.V2010_06_01
+    ( module Network.AWS.ImportExport.V2010_06_01.CancelJob
+    , module Network.AWS.ImportExport.V2010_06_01.CreateJob
+    , module Network.AWS.ImportExport.V2010_06_01.GetStatus
+    , module Network.AWS.ImportExport.V2010_06_01.ListJobs
+    , module Network.AWS.ImportExport.V2010_06_01.Types
+    , module Network.AWS.ImportExport.V2010_06_01.UpdateJob
+    ) where
 
-import Network.AWS.ImportExport.V2010_06_01.CancelJob as Export
-import Network.AWS.ImportExport.V2010_06_01.CreateJob as Export
-import Network.AWS.ImportExport.V2010_06_01.GetStatus as Export
-import Network.AWS.ImportExport.V2010_06_01.ListJobs as Export
-import Network.AWS.ImportExport.V2010_06_01.Types as Export
-import Network.AWS.ImportExport.V2010_06_01.UpdateJob as Export
+import Network.AWS.ImportExport.V2010_06_01.CancelJob
+import Network.AWS.ImportExport.V2010_06_01.CreateJob
+import Network.AWS.ImportExport.V2010_06_01.GetStatus
+import Network.AWS.ImportExport.V2010_06_01.ListJobs
+import Network.AWS.ImportExport.V2010_06_01.Types
+import Network.AWS.ImportExport.V2010_06_01.UpdateJob

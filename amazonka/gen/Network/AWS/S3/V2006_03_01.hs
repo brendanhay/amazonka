@@ -15,55 +15,106 @@
 -- data storage infrastructure that Amazon uses to run its own global network
 -- of web sites. The service aims to maximize benefits of scale and to pass
 -- those benefits on to developers.
-module Network.AWS.S3.V2006_03_01 (module Export) where
+module Network.AWS.S3.V2006_03_01
+    ( module Network.AWS.S3.V2006_03_01.AbortMultipartUpload
+    , module Network.AWS.S3.V2006_03_01.CompleteMultipartUpload
+    , module Network.AWS.S3.V2006_03_01.CopyObject
+    , module Network.AWS.S3.V2006_03_01.CreateBucket
+    , module Network.AWS.S3.V2006_03_01.CreateMultipartUpload
+    , module Network.AWS.S3.V2006_03_01.DeleteBucket
+    , module Network.AWS.S3.V2006_03_01.DeleteBucketCors
+    , module Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle
+    , module Network.AWS.S3.V2006_03_01.DeleteBucketPolicy
+    , module Network.AWS.S3.V2006_03_01.DeleteBucketTagging
+    , module Network.AWS.S3.V2006_03_01.DeleteBucketWebsite
+    , module Network.AWS.S3.V2006_03_01.DeleteObject
+    , module Network.AWS.S3.V2006_03_01.DeleteObjects
+    , module Network.AWS.S3.V2006_03_01.GetBucketAcl
+    , module Network.AWS.S3.V2006_03_01.GetBucketCors
+    , module Network.AWS.S3.V2006_03_01.GetBucketLifecycle
+    , module Network.AWS.S3.V2006_03_01.GetBucketLocation
+    , module Network.AWS.S3.V2006_03_01.GetBucketLogging
+    , module Network.AWS.S3.V2006_03_01.GetBucketNotification
+    , module Network.AWS.S3.V2006_03_01.GetBucketPolicy
+    , module Network.AWS.S3.V2006_03_01.GetBucketRequestPayment
+    , module Network.AWS.S3.V2006_03_01.GetBucketTagging
+    , module Network.AWS.S3.V2006_03_01.GetBucketVersioning
+    , module Network.AWS.S3.V2006_03_01.GetBucketWebsite
+    , module Network.AWS.S3.V2006_03_01.GetObject
+    , module Network.AWS.S3.V2006_03_01.GetObjectAcl
+    , module Network.AWS.S3.V2006_03_01.GetObjectTorrent
+    , module Network.AWS.S3.V2006_03_01.HeadBucket
+    , module Network.AWS.S3.V2006_03_01.HeadObject
+    , module Network.AWS.S3.V2006_03_01.ListBuckets
+    , module Network.AWS.S3.V2006_03_01.ListMultipartUploads
+    , module Network.AWS.S3.V2006_03_01.ListObjectVersions
+    , module Network.AWS.S3.V2006_03_01.ListObjects
+    , module Network.AWS.S3.V2006_03_01.ListParts
+    , module Network.AWS.S3.V2006_03_01.PutBucketAcl
+    , module Network.AWS.S3.V2006_03_01.PutBucketCors
+    , module Network.AWS.S3.V2006_03_01.PutBucketLifecycle
+    , module Network.AWS.S3.V2006_03_01.PutBucketLogging
+    , module Network.AWS.S3.V2006_03_01.PutBucketNotification
+    , module Network.AWS.S3.V2006_03_01.PutBucketPolicy
+    , module Network.AWS.S3.V2006_03_01.PutBucketRequestPayment
+    , module Network.AWS.S3.V2006_03_01.PutBucketTagging
+    , module Network.AWS.S3.V2006_03_01.PutBucketVersioning
+    , module Network.AWS.S3.V2006_03_01.PutBucketWebsite
+    , module Network.AWS.S3.V2006_03_01.PutObject
+    , module Network.AWS.S3.V2006_03_01.PutObjectAcl
+    , module Network.AWS.S3.V2006_03_01.RestoreObject
+    , module Network.AWS.S3.V2006_03_01.Types
+    , module Network.AWS.S3.V2006_03_01.UploadPart
+    , module Network.AWS.S3.V2006_03_01.UploadPartCopy
+    ) where
 
-import Network.AWS.S3.V2006_03_01.AbortMultipartUpload as Export
-import Network.AWS.S3.V2006_03_01.CompleteMultipartUpload as Export
-import Network.AWS.S3.V2006_03_01.CopyObject as Export
-import Network.AWS.S3.V2006_03_01.CreateBucket as Export
-import Network.AWS.S3.V2006_03_01.CreateMultipartUpload as Export
-import Network.AWS.S3.V2006_03_01.DeleteBucket as Export
-import Network.AWS.S3.V2006_03_01.DeleteBucketCors as Export
-import Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle as Export
-import Network.AWS.S3.V2006_03_01.DeleteBucketPolicy as Export
-import Network.AWS.S3.V2006_03_01.DeleteBucketTagging as Export
-import Network.AWS.S3.V2006_03_01.DeleteBucketWebsite as Export
-import Network.AWS.S3.V2006_03_01.DeleteObject as Export
-import Network.AWS.S3.V2006_03_01.DeleteObjects as Export
-import Network.AWS.S3.V2006_03_01.GetBucketAcl as Export
-import Network.AWS.S3.V2006_03_01.GetBucketCors as Export
-import Network.AWS.S3.V2006_03_01.GetBucketLifecycle as Export
-import Network.AWS.S3.V2006_03_01.GetBucketLocation as Export
-import Network.AWS.S3.V2006_03_01.GetBucketLogging as Export
-import Network.AWS.S3.V2006_03_01.GetBucketNotification as Export
-import Network.AWS.S3.V2006_03_01.GetBucketPolicy as Export
-import Network.AWS.S3.V2006_03_01.GetBucketRequestPayment as Export
-import Network.AWS.S3.V2006_03_01.GetBucketTagging as Export
-import Network.AWS.S3.V2006_03_01.GetBucketVersioning as Export
-import Network.AWS.S3.V2006_03_01.GetBucketWebsite as Export
-import Network.AWS.S3.V2006_03_01.GetObject as Export
-import Network.AWS.S3.V2006_03_01.GetObjectAcl as Export
-import Network.AWS.S3.V2006_03_01.GetObjectTorrent as Export
-import Network.AWS.S3.V2006_03_01.HeadBucket as Export
-import Network.AWS.S3.V2006_03_01.HeadObject as Export
-import Network.AWS.S3.V2006_03_01.ListBuckets as Export
-import Network.AWS.S3.V2006_03_01.ListMultipartUploads as Export
-import Network.AWS.S3.V2006_03_01.ListObjectVersions as Export
-import Network.AWS.S3.V2006_03_01.ListObjects as Export
-import Network.AWS.S3.V2006_03_01.ListParts as Export
-import Network.AWS.S3.V2006_03_01.PutBucketAcl as Export
-import Network.AWS.S3.V2006_03_01.PutBucketCors as Export
-import Network.AWS.S3.V2006_03_01.PutBucketLifecycle as Export
-import Network.AWS.S3.V2006_03_01.PutBucketLogging as Export
-import Network.AWS.S3.V2006_03_01.PutBucketNotification as Export
-import Network.AWS.S3.V2006_03_01.PutBucketPolicy as Export
-import Network.AWS.S3.V2006_03_01.PutBucketRequestPayment as Export
-import Network.AWS.S3.V2006_03_01.PutBucketTagging as Export
-import Network.AWS.S3.V2006_03_01.PutBucketVersioning as Export
-import Network.AWS.S3.V2006_03_01.PutBucketWebsite as Export
-import Network.AWS.S3.V2006_03_01.PutObject as Export
-import Network.AWS.S3.V2006_03_01.PutObjectAcl as Export
-import Network.AWS.S3.V2006_03_01.RestoreObject as Export
-import Network.AWS.S3.V2006_03_01.Types as Export
-import Network.AWS.S3.V2006_03_01.UploadPart as Export
-import Network.AWS.S3.V2006_03_01.UploadPartCopy as Export
+import Network.AWS.S3.V2006_03_01.AbortMultipartUpload
+import Network.AWS.S3.V2006_03_01.CompleteMultipartUpload
+import Network.AWS.S3.V2006_03_01.CopyObject
+import Network.AWS.S3.V2006_03_01.CreateBucket
+import Network.AWS.S3.V2006_03_01.CreateMultipartUpload
+import Network.AWS.S3.V2006_03_01.DeleteBucket
+import Network.AWS.S3.V2006_03_01.DeleteBucketCors
+import Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle
+import Network.AWS.S3.V2006_03_01.DeleteBucketPolicy
+import Network.AWS.S3.V2006_03_01.DeleteBucketTagging
+import Network.AWS.S3.V2006_03_01.DeleteBucketWebsite
+import Network.AWS.S3.V2006_03_01.DeleteObject
+import Network.AWS.S3.V2006_03_01.DeleteObjects
+import Network.AWS.S3.V2006_03_01.GetBucketAcl
+import Network.AWS.S3.V2006_03_01.GetBucketCors
+import Network.AWS.S3.V2006_03_01.GetBucketLifecycle
+import Network.AWS.S3.V2006_03_01.GetBucketLocation
+import Network.AWS.S3.V2006_03_01.GetBucketLogging
+import Network.AWS.S3.V2006_03_01.GetBucketNotification
+import Network.AWS.S3.V2006_03_01.GetBucketPolicy
+import Network.AWS.S3.V2006_03_01.GetBucketRequestPayment
+import Network.AWS.S3.V2006_03_01.GetBucketTagging
+import Network.AWS.S3.V2006_03_01.GetBucketVersioning
+import Network.AWS.S3.V2006_03_01.GetBucketWebsite
+import Network.AWS.S3.V2006_03_01.GetObject
+import Network.AWS.S3.V2006_03_01.GetObjectAcl
+import Network.AWS.S3.V2006_03_01.GetObjectTorrent
+import Network.AWS.S3.V2006_03_01.HeadBucket
+import Network.AWS.S3.V2006_03_01.HeadObject
+import Network.AWS.S3.V2006_03_01.ListBuckets
+import Network.AWS.S3.V2006_03_01.ListMultipartUploads
+import Network.AWS.S3.V2006_03_01.ListObjectVersions
+import Network.AWS.S3.V2006_03_01.ListObjects
+import Network.AWS.S3.V2006_03_01.ListParts
+import Network.AWS.S3.V2006_03_01.PutBucketAcl
+import Network.AWS.S3.V2006_03_01.PutBucketCors
+import Network.AWS.S3.V2006_03_01.PutBucketLifecycle
+import Network.AWS.S3.V2006_03_01.PutBucketLogging
+import Network.AWS.S3.V2006_03_01.PutBucketNotification
+import Network.AWS.S3.V2006_03_01.PutBucketPolicy
+import Network.AWS.S3.V2006_03_01.PutBucketRequestPayment
+import Network.AWS.S3.V2006_03_01.PutBucketTagging
+import Network.AWS.S3.V2006_03_01.PutBucketVersioning
+import Network.AWS.S3.V2006_03_01.PutBucketWebsite
+import Network.AWS.S3.V2006_03_01.PutObject
+import Network.AWS.S3.V2006_03_01.PutObjectAcl
+import Network.AWS.S3.V2006_03_01.RestoreObject
+import Network.AWS.S3.V2006_03_01.Types
+import Network.AWS.S3.V2006_03_01.UploadPart
+import Network.AWS.S3.V2006_03_01.UploadPartCopy

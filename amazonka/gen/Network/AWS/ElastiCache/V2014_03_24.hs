@@ -19,40 +19,76 @@
 -- integration with Amazon CloudWatch, Amazon ElastiCache provides enhanced
 -- visibility into key performance metrics associated with your Memcached or
 -- Redis nodes.
-module Network.AWS.ElastiCache.V2014_03_24 (module Export) where
+module Network.AWS.ElastiCache.V2014_03_24
+    ( module Network.AWS.ElastiCache.V2014_03_24.AuthorizeCacheSecurityGroupIngress
+    , module Network.AWS.ElastiCache.V2014_03_24.CopySnapshot
+    , module Network.AWS.ElastiCache.V2014_03_24.CreateCacheCluster
+    , module Network.AWS.ElastiCache.V2014_03_24.CreateCacheParameterGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.CreateCacheSecurityGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.CreateCacheSubnetGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.CreateReplicationGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.CreateSnapshot
+    , module Network.AWS.ElastiCache.V2014_03_24.DeleteCacheCluster
+    , module Network.AWS.ElastiCache.V2014_03_24.DeleteCacheParameterGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.DeleteCacheSecurityGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.DeleteCacheSubnetGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.DeleteReplicationGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.DeleteSnapshot
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeCacheClusters
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeCacheEngineVersions
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeCacheParameterGroups
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeCacheParameters
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeCacheSecurityGroups
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeCacheSubnetGroups
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeEngineDefaultParameters
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeEvents
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeReplicationGroups
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeReservedCacheNodes
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeReservedCacheNodesOfferings
+    , module Network.AWS.ElastiCache.V2014_03_24.DescribeSnapshots
+    , module Network.AWS.ElastiCache.V2014_03_24.ModifyCacheCluster
+    , module Network.AWS.ElastiCache.V2014_03_24.ModifyCacheParameterGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.ModifyCacheSubnetGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.ModifyReplicationGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.PurchaseReservedCacheNodesOffering
+    , module Network.AWS.ElastiCache.V2014_03_24.RebootCacheCluster
+    , module Network.AWS.ElastiCache.V2014_03_24.ResetCacheParameterGroup
+    , module Network.AWS.ElastiCache.V2014_03_24.RevokeCacheSecurityGroupIngress
+    , module Network.AWS.ElastiCache.V2014_03_24.Types
+    ) where
 
-import Network.AWS.ElastiCache.V2014_03_24.AuthorizeCacheSecurityGroupIngress as Export
-import Network.AWS.ElastiCache.V2014_03_24.CopySnapshot as Export
-import Network.AWS.ElastiCache.V2014_03_24.CreateCacheCluster as Export
-import Network.AWS.ElastiCache.V2014_03_24.CreateCacheParameterGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.CreateCacheSecurityGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.CreateCacheSubnetGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.CreateReplicationGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.CreateSnapshot as Export
-import Network.AWS.ElastiCache.V2014_03_24.DeleteCacheCluster as Export
-import Network.AWS.ElastiCache.V2014_03_24.DeleteCacheParameterGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.DeleteCacheSecurityGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.DeleteCacheSubnetGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.DeleteReplicationGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.DeleteSnapshot as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheClusters as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheEngineVersions as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheParameterGroups as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheParameters as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheSecurityGroups as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheSubnetGroups as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeEngineDefaultParameters as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeEvents as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeReplicationGroups as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeReservedCacheNodes as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeReservedCacheNodesOfferings as Export
-import Network.AWS.ElastiCache.V2014_03_24.DescribeSnapshots as Export
-import Network.AWS.ElastiCache.V2014_03_24.ModifyCacheCluster as Export
-import Network.AWS.ElastiCache.V2014_03_24.ModifyCacheParameterGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.ModifyCacheSubnetGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.ModifyReplicationGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.PurchaseReservedCacheNodesOffering as Export
-import Network.AWS.ElastiCache.V2014_03_24.RebootCacheCluster as Export
-import Network.AWS.ElastiCache.V2014_03_24.ResetCacheParameterGroup as Export
-import Network.AWS.ElastiCache.V2014_03_24.RevokeCacheSecurityGroupIngress as Export
-import Network.AWS.ElastiCache.V2014_03_24.Types as Export
+import Network.AWS.ElastiCache.V2014_03_24.AuthorizeCacheSecurityGroupIngress
+import Network.AWS.ElastiCache.V2014_03_24.CopySnapshot
+import Network.AWS.ElastiCache.V2014_03_24.CreateCacheCluster
+import Network.AWS.ElastiCache.V2014_03_24.CreateCacheParameterGroup
+import Network.AWS.ElastiCache.V2014_03_24.CreateCacheSecurityGroup
+import Network.AWS.ElastiCache.V2014_03_24.CreateCacheSubnetGroup
+import Network.AWS.ElastiCache.V2014_03_24.CreateReplicationGroup
+import Network.AWS.ElastiCache.V2014_03_24.CreateSnapshot
+import Network.AWS.ElastiCache.V2014_03_24.DeleteCacheCluster
+import Network.AWS.ElastiCache.V2014_03_24.DeleteCacheParameterGroup
+import Network.AWS.ElastiCache.V2014_03_24.DeleteCacheSecurityGroup
+import Network.AWS.ElastiCache.V2014_03_24.DeleteCacheSubnetGroup
+import Network.AWS.ElastiCache.V2014_03_24.DeleteReplicationGroup
+import Network.AWS.ElastiCache.V2014_03_24.DeleteSnapshot
+import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheClusters
+import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheEngineVersions
+import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheParameterGroups
+import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheParameters
+import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheSecurityGroups
+import Network.AWS.ElastiCache.V2014_03_24.DescribeCacheSubnetGroups
+import Network.AWS.ElastiCache.V2014_03_24.DescribeEngineDefaultParameters
+import Network.AWS.ElastiCache.V2014_03_24.DescribeEvents
+import Network.AWS.ElastiCache.V2014_03_24.DescribeReplicationGroups
+import Network.AWS.ElastiCache.V2014_03_24.DescribeReservedCacheNodes
+import Network.AWS.ElastiCache.V2014_03_24.DescribeReservedCacheNodesOfferings
+import Network.AWS.ElastiCache.V2014_03_24.DescribeSnapshots
+import Network.AWS.ElastiCache.V2014_03_24.ModifyCacheCluster
+import Network.AWS.ElastiCache.V2014_03_24.ModifyCacheParameterGroup
+import Network.AWS.ElastiCache.V2014_03_24.ModifyCacheSubnetGroup
+import Network.AWS.ElastiCache.V2014_03_24.ModifyReplicationGroup
+import Network.AWS.ElastiCache.V2014_03_24.PurchaseReservedCacheNodesOffering
+import Network.AWS.ElastiCache.V2014_03_24.RebootCacheCluster
+import Network.AWS.ElastiCache.V2014_03_24.ResetCacheParameterGroup
+import Network.AWS.ElastiCache.V2014_03_24.RevokeCacheSecurityGroupIngress
+import Network.AWS.ElastiCache.V2014_03_24.Types

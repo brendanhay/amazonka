@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.CloudFormation (module Export) where
+-- | Most recent version of the CloudFormation service.
+module Network.AWS.CloudFormation
+    ( module Network.AWS.CloudFormation.V2010_05_15
+    ) where
 
-import Network.AWS.CloudFormation.V2010_05_15 as Export
+import Network.AWS.CloudFormation.V2010_05_15

@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.CognitoIdentity (module Export) where
+-- | Most recent version of the CognitoIdentity service.
+module Network.AWS.CognitoIdentity
+    ( module Network.AWS.CognitoIdentity.V2014_06_30
+    ) where
 
-import Network.AWS.CognitoIdentity.V2014_06_30 as Export
+import Network.AWS.CognitoIdentity.V2014_06_30

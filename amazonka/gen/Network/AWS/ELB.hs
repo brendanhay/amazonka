@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.ELB (module Export) where
+-- | Most recent version of the ELB service.
+module Network.AWS.ELB
+    ( module Network.AWS.ELB.V2012_06_01
+    ) where
 
-import Network.AWS.ELB.V2012_06_01 as Export
+import Network.AWS.ELB.V2012_06_01

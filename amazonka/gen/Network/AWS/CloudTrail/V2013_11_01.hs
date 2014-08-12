@@ -24,13 +24,22 @@
 -- download and install them, see the Tools for Amazon Web Services page. See
 -- the CloudTrail User Guide for information about the data that is included
 -- with each AWS API call listed in the log files.
-module Network.AWS.CloudTrail.V2013_11_01 (module Export) where
+module Network.AWS.CloudTrail.V2013_11_01
+    ( module Network.AWS.CloudTrail.V2013_11_01.CreateTrail
+    , module Network.AWS.CloudTrail.V2013_11_01.DeleteTrail
+    , module Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
+    , module Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus
+    , module Network.AWS.CloudTrail.V2013_11_01.StartLogging
+    , module Network.AWS.CloudTrail.V2013_11_01.StopLogging
+    , module Network.AWS.CloudTrail.V2013_11_01.Types
+    , module Network.AWS.CloudTrail.V2013_11_01.UpdateTrail
+    ) where
 
-import Network.AWS.CloudTrail.V2013_11_01.CreateTrail as Export
-import Network.AWS.CloudTrail.V2013_11_01.DeleteTrail as Export
-import Network.AWS.CloudTrail.V2013_11_01.DescribeTrails as Export
-import Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus as Export
-import Network.AWS.CloudTrail.V2013_11_01.StartLogging as Export
-import Network.AWS.CloudTrail.V2013_11_01.StopLogging as Export
-import Network.AWS.CloudTrail.V2013_11_01.Types as Export
-import Network.AWS.CloudTrail.V2013_11_01.UpdateTrail as Export
+import Network.AWS.CloudTrail.V2013_11_01.CreateTrail
+import Network.AWS.CloudTrail.V2013_11_01.DeleteTrail
+import Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
+import Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus
+import Network.AWS.CloudTrail.V2013_11_01.StartLogging
+import Network.AWS.CloudTrail.V2013_11_01.StopLogging
+import Network.AWS.CloudTrail.V2013_11_01.Types
+import Network.AWS.CloudTrail.V2013_11_01.UpdateTrail

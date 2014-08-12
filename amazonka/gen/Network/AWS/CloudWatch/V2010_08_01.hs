@@ -18,17 +18,30 @@
 -- visibility into resource utilization, application performance, and
 -- operational health. You can use these insights to react and keep your
 -- application running smoothly.
-module Network.AWS.CloudWatch.V2010_08_01 (module Export) where
+module Network.AWS.CloudWatch.V2010_08_01
+    ( module Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
+    , module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory
+    , module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms
+    , module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric
+    , module Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions
+    , module Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions
+    , module Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics
+    , module Network.AWS.CloudWatch.V2010_08_01.ListMetrics
+    , module Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm
+    , module Network.AWS.CloudWatch.V2010_08_01.PutMetricData
+    , module Network.AWS.CloudWatch.V2010_08_01.SetAlarmState
+    , module Network.AWS.CloudWatch.V2010_08_01.Types
+    ) where
 
-import Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms as Export
-import Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory as Export
-import Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms as Export
-import Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric as Export
-import Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions as Export
-import Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions as Export
-import Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics as Export
-import Network.AWS.CloudWatch.V2010_08_01.ListMetrics as Export
-import Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm as Export
-import Network.AWS.CloudWatch.V2010_08_01.PutMetricData as Export
-import Network.AWS.CloudWatch.V2010_08_01.SetAlarmState as Export
-import Network.AWS.CloudWatch.V2010_08_01.Types as Export
+import Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
+import Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory
+import Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms
+import Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric
+import Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions
+import Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions
+import Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics
+import Network.AWS.CloudWatch.V2010_08_01.ListMetrics
+import Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm
+import Network.AWS.CloudWatch.V2010_08_01.PutMetricData
+import Network.AWS.CloudWatch.V2010_08_01.SetAlarmState
+import Network.AWS.CloudWatch.V2010_08_01.Types

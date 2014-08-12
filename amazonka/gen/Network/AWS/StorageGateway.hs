@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.StorageGateway (module Export) where
+-- | Most recent version of the StorageGateway service.
+module Network.AWS.StorageGateway
+    ( module Network.AWS.StorageGateway.V2013_06_30
+    ) where
 
-import Network.AWS.StorageGateway.V2013_06_30 as Export
+import Network.AWS.StorageGateway.V2013_06_30

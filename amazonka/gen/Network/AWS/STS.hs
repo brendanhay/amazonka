@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.STS (module Export) where
+-- | Most recent version of the STS service.
+module Network.AWS.STS
+    ( module Network.AWS.STS.V2011_06_15
+    ) where
 
-import Network.AWS.STS.V2011_06_15 as Export
+import Network.AWS.STS.V2011_06_15

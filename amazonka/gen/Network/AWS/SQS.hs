@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.SQS (module Export) where
+-- | Most recent version of the SQS service.
+module Network.AWS.SQS
+    ( module Network.AWS.SQS.V2012_11_05
+    ) where
 
-import Network.AWS.SQS.V2012_11_05 as Export
+import Network.AWS.SQS.V2012_11_05

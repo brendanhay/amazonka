@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.RDS (module Export) where
+-- | Most recent version of the RDS service.
+module Network.AWS.RDS
+    ( module Network.AWS.RDS.V2013_09_09
+    ) where
 
-import Network.AWS.RDS.V2013_09_09 as Export
+import Network.AWS.RDS.V2013_09_09

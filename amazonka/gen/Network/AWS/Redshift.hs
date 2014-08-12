@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Redshift (module Export) where
+-- | Most recent version of the Redshift service.
+module Network.AWS.Redshift
+    ( module Network.AWS.Redshift.V2012_12_01
+    ) where
 
-import Network.AWS.Redshift.V2012_12_01 as Export
+import Network.AWS.Redshift.V2012_12_01

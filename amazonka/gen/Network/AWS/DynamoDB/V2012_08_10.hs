@@ -57,19 +57,34 @@
 -- of any request(s) in the batch will not cause the entire BatchWriteItem
 -- operation to fail. Supports batches of up to 25 items to put or delete,
 -- with a maximum total request size of 1 MB.
-module Network.AWS.DynamoDB.V2012_08_10 (module Export) where
+module Network.AWS.DynamoDB.V2012_08_10
+    ( module Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
+    , module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
+    , module Network.AWS.DynamoDB.V2012_08_10.CreateTable
+    , module Network.AWS.DynamoDB.V2012_08_10.DeleteItem
+    , module Network.AWS.DynamoDB.V2012_08_10.DeleteTable
+    , module Network.AWS.DynamoDB.V2012_08_10.DescribeTable
+    , module Network.AWS.DynamoDB.V2012_08_10.GetItem
+    , module Network.AWS.DynamoDB.V2012_08_10.ListTables
+    , module Network.AWS.DynamoDB.V2012_08_10.PutItem
+    , module Network.AWS.DynamoDB.V2012_08_10.Query
+    , module Network.AWS.DynamoDB.V2012_08_10.Scan
+    , module Network.AWS.DynamoDB.V2012_08_10.Types
+    , module Network.AWS.DynamoDB.V2012_08_10.UpdateItem
+    , module Network.AWS.DynamoDB.V2012_08_10.UpdateTable
+    ) where
 
-import Network.AWS.DynamoDB.V2012_08_10.BatchGetItem as Export
-import Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem as Export
-import Network.AWS.DynamoDB.V2012_08_10.CreateTable as Export
-import Network.AWS.DynamoDB.V2012_08_10.DeleteItem as Export
-import Network.AWS.DynamoDB.V2012_08_10.DeleteTable as Export
-import Network.AWS.DynamoDB.V2012_08_10.DescribeTable as Export
-import Network.AWS.DynamoDB.V2012_08_10.GetItem as Export
-import Network.AWS.DynamoDB.V2012_08_10.ListTables as Export
-import Network.AWS.DynamoDB.V2012_08_10.PutItem as Export
-import Network.AWS.DynamoDB.V2012_08_10.Query as Export
-import Network.AWS.DynamoDB.V2012_08_10.Scan as Export
-import Network.AWS.DynamoDB.V2012_08_10.Types as Export
-import Network.AWS.DynamoDB.V2012_08_10.UpdateItem as Export
-import Network.AWS.DynamoDB.V2012_08_10.UpdateTable as Export
+import Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
+import Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
+import Network.AWS.DynamoDB.V2012_08_10.CreateTable
+import Network.AWS.DynamoDB.V2012_08_10.DeleteItem
+import Network.AWS.DynamoDB.V2012_08_10.DeleteTable
+import Network.AWS.DynamoDB.V2012_08_10.DescribeTable
+import Network.AWS.DynamoDB.V2012_08_10.GetItem
+import Network.AWS.DynamoDB.V2012_08_10.ListTables
+import Network.AWS.DynamoDB.V2012_08_10.PutItem
+import Network.AWS.DynamoDB.V2012_08_10.Query
+import Network.AWS.DynamoDB.V2012_08_10.Scan
+import Network.AWS.DynamoDB.V2012_08_10.Types
+import Network.AWS.DynamoDB.V2012_08_10.UpdateItem
+import Network.AWS.DynamoDB.V2012_08_10.UpdateTable

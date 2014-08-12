@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.CloudTrail (module Export) where
+-- | Most recent version of the CloudTrail service.
+module Network.AWS.CloudTrail
+    ( module Network.AWS.CloudTrail.V2013_11_01
+    ) where
 
-import Network.AWS.CloudTrail.V2013_11_01 as Export
+import Network.AWS.CloudTrail.V2013_11_01

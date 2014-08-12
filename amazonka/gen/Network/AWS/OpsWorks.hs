@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.OpsWorks (module Export) where
+-- | Most recent version of the OpsWorks service.
+module Network.AWS.OpsWorks
+    ( module Network.AWS.OpsWorks.V2013_02_18
+    ) where
 
-import Network.AWS.OpsWorks.V2013_02_18 as Export
+import Network.AWS.OpsWorks.V2013_02_18

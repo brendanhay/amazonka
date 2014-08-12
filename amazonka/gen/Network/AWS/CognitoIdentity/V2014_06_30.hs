@@ -18,15 +18,26 @@
 -- access from your application. Your users are provided with Cognito tokens
 -- that uniquely identify their device and any information provided about
 -- third-party logins.
-module Network.AWS.CognitoIdentity.V2014_06_30 (module Export) where
+module Network.AWS.CognitoIdentity.V2014_06_30
+    ( module Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool
+    , module Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool
+    , module Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool
+    , module Network.AWS.CognitoIdentity.V2014_06_30.GetId
+    , module Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken
+    , module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
+    , module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
+    , module Network.AWS.CognitoIdentity.V2014_06_30.Types
+    , module Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity
+    , module Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool
+    ) where
 
-import Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.GetId as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.Types as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity as Export
-import Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool as Export
+import Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool
+import Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool
+import Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool
+import Network.AWS.CognitoIdentity.V2014_06_30.GetId
+import Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken
+import Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
+import Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
+import Network.AWS.CognitoIdentity.V2014_06_30.Types
+import Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity
+import Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool

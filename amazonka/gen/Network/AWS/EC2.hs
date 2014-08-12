@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.EC2 (module Export) where
+-- | Most recent version of the EC2 service.
+module Network.AWS.EC2
+    ( module Network.AWS.EC2.V2014_06_15
+    ) where
 
-import Network.AWS.EC2.V2014_06_15 as Export
+import Network.AWS.EC2.V2014_06_15

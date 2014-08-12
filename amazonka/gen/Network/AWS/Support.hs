@@ -8,6 +8,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Support (module Export) where
+-- | Most recent version of the Support service.
+module Network.AWS.Support
+    ( module Network.AWS.Support.V2013_04_15
+    ) where
 
-import Network.AWS.Support.V2013_04_15 as Export
+import Network.AWS.Support.V2013_04_15

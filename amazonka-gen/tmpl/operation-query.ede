@@ -29,7 +29,7 @@ data {{ request.name }} = {{ request.name }}
 makeLenses ''{{ request.name }}
 
 instance ToQuery {{ request.name }} where
-    toQuery = genericToQuery def
+    toQuery = genericQuery def
 
 data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}

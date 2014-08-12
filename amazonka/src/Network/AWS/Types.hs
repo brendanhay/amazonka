@@ -424,7 +424,7 @@ instance FromJSON Base64 where
 instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
-newtype Map k v = Map { _hashMap :: HashMap k v }
+newtype Map k v = Map { toHashMap :: HashMap k v }
     deriving
         ( Eq
         , Show
@@ -451,22 +451,23 @@ instance (ToText k, ToJSON v) => ToJSON (Map k v) where
         . Map.fromList
         . map (bimap toText toJSON)
         . Map.toList
-        . _hashMap
+        . toHashMap
 
--- -- FIXME: is it possible to (nicely) implement HashMaps generically?
--- -- IAM example:
--- -- <SummaryMap>
--- --   <entry>
--- --     <key>Groups</key>
--- --     <value>31</value>
--- --   </entry>
--- instance (FromXML k, FromXML v) => FromXML (HashMap k v) where
---     fromXMLRoot = fromRoot "HashMap"
---     fromXML     = undefined
+-- FIXME: is it possible to (nicely) implement HashMaps generically?
+-- IAM example:
+-- <SummaryMap>
+--   <entry>
+--     <key>Groups</key>
+--     <value>31</value>
+--   </entry>
+instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
+    fromXMLRoot = fromRoot "Map"
+    fromXML     = undefined
 
 -- FIXME: implement this shizzle
--- instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where
---     toQuery = undefined
+instance (ToText k, ToQuery v) => ToQuery (Map k v) where
+    toQuery = undefined
+
 
 -- Sums
 makePrisms ''Error

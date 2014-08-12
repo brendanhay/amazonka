@@ -23,7 +23,11 @@
 module Network.AWS.Data.Query
     (
     -- * Types
-      Query
+      QueryOptions (..)
+    , Query
+
+    -- * Lenses
+    , queryField
 
     -- * Traversals
     , keysOf
@@ -34,46 +38,31 @@ module Network.AWS.Data.Query
     , (=?)
 
     -- * Serialisation
-    , ToQuery   (..)
+    , ToQuery      (..)
     , renderQuery
-    , genericToQuery
+
+    , loweredQuery
+    , genericQuery
     ) where
 
 import           Control.Applicative
-import           Control.Lens                 (Traversal', _1)
-import           Control.Lens.Plated
-import           Control.Lens.TH
-import           Control.Monad
-import qualified Data.Attoparsec.ByteString   as ABS
-import           Data.Bifunctor
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString              as ByteString
-import           Data.ByteString.Char8        (ByteString)
-import qualified Data.ByteString.Char8        as BS
-import qualified Data.ByteString.Lazy         as Build
-import qualified Data.ByteString.Lazy.Builder as Build
+import           Control.Lens                hiding (to, from)
+import           Data.ByteString             (ByteString)
+import qualified Data.ByteString.Char8       as BS
 import           Data.Char
 import           Data.Data
 import           Data.Data.Lens
 import           Data.Default
-import           Data.Either
-import           Data.Foldable                (foldl')
-import qualified Data.Foldable                as Fold
-import           Data.HashMap.Strict          (HashMap)
-import           Data.List                    (sort, sortBy, intersperse)
-import           Data.List.NonEmpty           (NonEmpty(..))
-import qualified Data.List.NonEmpty           as NonEmpty
-import           Data.Maybe
+import           Data.HashMap.Strict         (HashMap)
+import           Data.List                   (sort)
+import           Data.List.NonEmpty          (NonEmpty(..))
+import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Monoid
-import           Data.Ord
 import           Data.String
-import           Data.Text                    (Text)
-import           Data.Time
-import           Data.Typeable
+import           Data.Text                   (Text)
 import           GHC.Generics
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Time
-import qualified Network.HTTP.Types.URI       as URI
 
 data Query
     = List  [Query]
@@ -82,6 +71,21 @@ data Query
       deriving (Eq, Show, Data, Typeable)
 
 makePrisms ''Query
+
+instance Monoid Query where
+    mempty = List []
+
+    mappend a b = case (a, b) of
+        (List l, List r) -> List (l ++ r)
+        (List l, r)      -> List (r : l)
+        (l,      List r) -> List (l : r)
+        (l,      r)      -> List [l, r]
+
+instance Plated Query where
+    plate = uniplate
+
+instance IsString Query where
+    fromString = toQuery . BS.pack
 
 keysOf :: Traversal' Query ByteString
 keysOf = deep (_Pair . _1)
@@ -94,28 +98,6 @@ pair k v = mappend (Pair k (toQuery v))
 
 (=?) :: ToQuery a => ByteString -> a -> Query
 (=?) k v = Pair k (toQuery v)
-
--- instance Ord Query where
---     compare (List  as) (List  bs) = as `compare` bs
---     compare (Pair a _) (Pair b _) = a  `compare` b
---     compare (Value  a) (Value  b) = a  `compare` b
---     compare (List   _) _          = GT
---     compare (Pair _ _) _          = GT
---     compare (Value  _) _          = LT
-
-instance Monoid Query where
-    mempty = List []
-
-    mappend (List l) (List r) = List (l ++ r)
-    mappend (List l) r        = List (r : l)
-    mappend l        (List r) = List (l : r)
-    mappend l        r        = List [l, r]
-
-instance Plated Query where
-    plate = uniplate
-
-instance IsString Query where
-    fromString = toQuery . BS.pack
 
 renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing
@@ -138,30 +120,26 @@ renderQuery = intercalate . sort . enc Nothing
     ksep = "&"
     vsep = "="
 
--- keysOf :: Traversal' Query ByteString
--- valuesOf :: Traversal' Query (Maybe ByteString)
-
-data QueryOptions = QueryOptions
-    { queryCtorMod  :: String -> ByteString
-    , queryFieldMod :: String -> ByteString
+newtype QueryOptions = QueryOptions
+    { _queryField :: String -> ByteString
     }
 
+queryField :: Functor f => LensLike' f QueryOptions (String -> ByteString)
+queryField f (QueryOptions g) = (\h -> QueryOptions h) <$> f g
+
 instance Default QueryOptions where
-    def = QueryOptions
-        { queryCtorMod  = BS.pack
-        , queryFieldMod = BS.pack
-        }
+    def = QueryOptions (BS.dropWhile isLower . BS.pack)
 
--- toLoweredQuery :: (Generic a, GToQuery (Rep a))
---                => a
---                -> Query
--- toLoweredQuery = genericToQuery (lowered def)
+loweredQuery :: (Generic a, GToQuery (Rep a))
+             => a
+             -> Query
+loweredQuery = genericQuery (def & queryField %~ (BS.map toLower .))
 
-genericToQuery :: (Generic a, GToQuery (Rep a))
-               => QueryOptions
-               -> a
-               -> Query
-genericToQuery o = gToQuery o . from
+genericQuery :: (Generic a, GToQuery (Rep a))
+             => QueryOptions
+             -> a
+             -> Query
+genericQuery o = gToQuery o . from
 
 class ToQuery a where
     toQuery :: a -> Query
@@ -169,14 +147,6 @@ class ToQuery a where
 
 instance ToQuery Query where
     toQuery = id
-
---     default toQuery :: (Generic a, GToQuery (Rep a))
---                     => a
---                     -> Query
---     toQuery = genericToQuery def
-
--- instance ToQuery ByteString where
---     toQuery = Value
 
 instance (ToByteString k, ToByteString v) => ToQuery (k, v) where
     toQuery (k, v) = Pair (toBS k) . Value $ Just (toBS v)
@@ -220,8 +190,8 @@ instance ToQuery Bool where
     toQuery False = toQuery ("false" :: ByteString)
 
 -- FIXME: implement this shizzle
-instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where
-    toQuery = undefined
+-- instance (ToQuery k, ToQuery v) => ToQuery (HashMap k v) where
+--     toQuery = undefined
 
 class GToQuery f where
     gToQuery :: QueryOptions -> f a -> Query
@@ -248,4 +218,4 @@ instance GToQuery f => GToQuery (C1 c f) where
 instance (Selector c, GToQuery f) => GToQuery (S1 c f) where
     gToQuery o = Pair name . gToQuery o . unM1
       where
-        name = queryFieldMod o $ selName (undefined :: S1 c f p)
+        name = _queryField o $ selName (undefined :: S1 c f p)

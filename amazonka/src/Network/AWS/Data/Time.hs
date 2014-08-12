@@ -73,7 +73,6 @@ instance ToText BasicTime where toText = Text.pack . renderFormattedTime
 instance ToText AWSTime   where toText = Text.pack . renderFormattedTime
 
 instance ToText POSIX where
-    -- FIXME: truncate?!
     toText t = toText time
       where
         time :: Integer

@@ -80,6 +80,12 @@ newEnv r c = Env r None
     <$> liftBase (newManager defaultManagerSettings)
     <*> getAuth c
 
+paginate :: (MonadBaseControl IO m, AWSPager a)
+         => Env
+         -> a
+         -> m (Either (Er (Sv a)) (Rs a, Maybe a))
+paginate e rq = fmap (second (next rq) . join (,)) `liftM` send e rq
+
 send :: (MonadBaseControl IO m, AWSRequest a)
      => Env
      -> a
@@ -100,12 +106,6 @@ with e rq f = bracket (open e rq) close go
                x
 
     er ex = return . Left $ clientError (ex :: HttpException)
-
-paginate :: (MonadBaseControl IO m, AWSPager a)
-         => Env
-         -> a
-         -> m (Either (Er (Sv a)) (Rs a, Maybe a))
-paginate e rq = fmap (second (next rq) . join (,)) `liftM` send e rq
 
 open :: (MonadBase IO m, AWSRequest a)
      => Env

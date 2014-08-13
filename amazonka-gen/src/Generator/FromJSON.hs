@@ -125,7 +125,7 @@ instance FromJSON Service where
                 | otherwise = t
             sEr = serviceError a ops
 
-        Service a n (rootNS vNS) vNS (typeNS vNS) ver rv typ sEr
+        Service a (library a) n (rootNS vNS) vNS (typeNS vNS) ver rv typ sEr
             <$> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
             <*> o .:  "documentation"

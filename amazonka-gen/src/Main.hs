@@ -27,6 +27,7 @@ data Options = Options
     { optDir      :: FilePath
     , optOverride :: FilePath
     , optModels   :: [FilePath]
+    , optAssets   :: FilePath
     , optVersions :: Int
     } deriving (Show)
 
@@ -50,6 +51,12 @@ options = Options
         <> help "Directory containing a service's models. [required]"
          ))
 
+    <*> strOption
+         ( long "assets"
+        <> metavar "PATH"
+        <> help "Directory containing service assets. [required]"
+         )
+
     <*> option
          ( long "versions"
         <> metavar "INT"
@@ -66,7 +73,6 @@ main = do
 
     runScript $ do
         ms <- models optVersions optOverride optModels
-        ts <- getTemplates
         ss <- mapM parseModel ms
 
-        render optDir ts (transform ss)
+        render optDir optAssets (transform ss)

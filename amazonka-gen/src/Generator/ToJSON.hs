@@ -25,9 +25,7 @@ import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.CaseInsensitive       (CI)
 import qualified Data.CaseInsensitive       as CI
-import           Data.Function
 import qualified Data.HashMap.Strict        as Map
-import           Data.List
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -68,22 +66,25 @@ instance ToJSON Signature where
 instance ToJSON JSONV where
     toJSON = toJSON . unJSONV
 
-instance ToJSON Cabal where
-    toJSON (Cabal ss) = object
-        [ "modules"  .= map service (sort (current ss))
-        , "versions" .= map versioned (sort ss)
-        ]
-      where
-        service s = object
-            [ "current"  .= _svcNamespace s
-            , "versions" .= map _svcVersionNamespace (filter (on (==) _svcName s) ss)
-            ]
+-- instance ToJSON Cabal where
+--     toJSON (Cabal ss) = object
+--         [ "modules"  .= map service (sort (current ss))
+--         , "versions" .= map versioned (sort ss)
+--         ]
+--       where
+--         service s = object
+--             [ "current"  .= _svcNamespace s
+--             , "versions" .= map _svcVersionNamespace (filter (on (==) _svcName s) ss)
+--             ]
 
-        versioned s@Service{..} = object
-            [ "name"    .= _svcName
-            , "version" .= _svcVersion
-            , "modules" .= serviceNamespaces s
-            ]
+--         versioned s@Service{..} = object
+--             [ "name"    .= _svcName
+--             , "version" .= _svcVersion
+--             , "modules" .= serviceNamespaces s
+--             ]
+
+instance ToJSON Library where
+    toJSON (Library l) = toJSON l
 
 instance ToJSON Service where
     toJSON s = Object (x <> y)

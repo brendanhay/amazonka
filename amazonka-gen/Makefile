@@ -1,66 +1,67 @@
+TOP      := ../
 SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
 DEPS     := vendor/botocore vendor/ede
 BOTO     := vendor/botocore/botocore/data/aws
-GEN      := ../amazonka
 VERSIONS := 1
 
-RESTS3 := $(BOTO)/s3
+RESTS3 := \
+ s3
 
 RESTXML := \
- $(BOTO)/cloudfront \
- $(BOTO)/route53
+ cloudfront \
+ route53
 
-RESTJSON := $(BOTO)/elastictranscoder
+RESTJSON := \
+ elastictranscoder
 
 QUERY := \
- $(BOTO)/autoscaling \
- $(BOTO)/cloudformation \
- $(BOTO)/cloudsearch \
- $(BOTO)/cloudwatch \
- $(BOTO)/ec2 \
- $(BOTO)/elasticache \
- $(BOTO)/elasticbeanstalk \
- $(BOTO)/elb \
- $(BOTO)/iam \
- $(BOTO)/importexport \
- $(BOTO)/rds \
- $(BOTO)/redshift \
- $(BOTO)/sdb \
- $(BOTO)/ses \
- $(BOTO)/sns \
- $(BOTO)/sqs \
- $(BOTO)/sts
+ autoscaling \
+ cloudformation \
+ cloudsearch \
+ cloudwatch \
+ ec2 \
+ elasticache \
+ elasticbeanstalk \
+ elb \
+ iam \
+ importexport \
+ rds \
+ redshift \
+ sdb \
+ ses \
+ sns \
+ sqs \
+ sts
 
 JSON := \
- $(BOTO)/cloudtrail \
- $(BOTO)/datapipeline \
- $(BOTO)/directconnect \
- $(BOTO)/dynamodb \
- $(BOTO)/emr \
- $(BOTO)/kinesis \
- $(BOTO)/opsworks \
- $(BOTO)/storagegateway \
- $(BOTO)/support \
- $(BOTO)/swf \
- $(BOTO)/cognito-identity
+ cloudtrail \
+ datapipeline \
+ directconnect \
+ dynamodb \
+ emr \
+ kinesis \
+ opsworks \
+ storagegateway \
+ support \
+ swf \
+ cognito-identity
 
 # Omitted for the time being - boto's models don't reflect the documentation
 # and my understanding of the service is too limited.
-# $(BOTO)/cognito-sync
+# cognito-sync
 
 MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 
-gen: $(GEN)/gen
-
-$(GEN)/gen: build
+gen: build
 	dist/build/amazonka-gen/amazonka-gen \
-	 --output=$(realpath $(GEN)) \
-	 --override=$(realpath ./model) \
-	 --versions=$(VERSIONS) \
-	 $(addprefix --model=,$(realpath $(MODELS)))
+ --output=$(realpath $(TOP)) \
+ --override=$(realpath ./model) \
+ --assets=$(realpath ./asset) \
+ --versions=$(VERSIONS) \
+ $(addprefix --model=,$(realpath $(addprefix $(BOTO)/,$(MODELS))))
 
 build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
@@ -70,7 +71,8 @@ install: add-sources
 
 clean:
 	cabal clean
-	rm -rf $(GEN)/gen cabal.sandbox.config .cabal-sandbox vendor
+	rm -rf $(addprefix $(TOP),$(MODELS)) \
+	 cabal.sandbox.config .cabal-sandbox vendor
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/ede

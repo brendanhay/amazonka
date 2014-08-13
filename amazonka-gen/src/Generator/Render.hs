@@ -1,4 +1,5 @@
 {-# LANGUAGE BangPatterns      #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -30,24 +31,26 @@ import           Data.Text.Util
 import           Generator.AST
 import           Generator.Log
 import           Generator.ToJSON    ()
-import           Generator.Transform
 import           System.Directory
 import           System.FilePath     hiding (normalise)
 import           Text.EDE            (Template)
 import qualified Text.EDE            as EDE
 import           Text.EDE.Filters
 
-base :: FilePath
-base = "gen"
-
 class ToPath a where
-    path :: a -> FilePath
+    toPath :: a -> FilePath
+
+instance ToPath FilePath where
+    toPath = id
+
+instance ToPath Library where
+    toPath (Library l) = Text.unpack l
 
 instance ToPath Abbrev where
-    path (Abbrev a) = base </> "Network/AWS" </> Text.unpack a <.> "hs"
+    toPath (Abbrev a) = "src/Network/AWS" </> Text.unpack a <.> "hs"
 
 instance ToPath NS where
-    path (NS xs) = base </> (Text.unpack $ Text.intercalate "/" xs) <.> "hs"
+    toPath (NS xs) = "src" </> Text.unpack (Text.intercalate "/" xs) <.> "hs"
 
 data Templates = Templates
     { tmplCabal   :: Template
@@ -84,23 +87,40 @@ loadTemplate f =
     scriptIO (say "Parse Template" f *> EDE.eitherParseFile f)
         >>= hoistEither
 
-render :: FilePath -> Templates -> [Service] -> Script ()
-render dir Templates{..} ss = do
-    forM_ ss $ \s@Service{..} -> do
-        let (types, oper) = tmplService _svcType
-
-        forM_ _svcOperations $ \o@Operation{..} ->
-            write "Render Operation" (path _opNamespace) oper o
-
-        write "Render Types" (path _svcTypesNamespace) types s
-        write "Render Interface" (path _svcVersionNamespace) tmplVersion s
-
-    forM_ (current ss) $ \s ->
-        write "Render Service" (path (_svcName s)) tmplCurrent s
-
-    write "Render Cabal" "amazonka.cabal" tmplCabal (Cabal ss)
+getAssets :: FilePath -> Script [FilePath]
+getAssets f = map (combine f) . filter dots <$> scriptIO (getDirectoryContents f)
   where
-    write lbl f t e = render' lbl dir f t (env e)
+    dots "."  = False
+    dots ".." = False
+    dots _    = True
+
+render :: FilePath -> FilePath -> [Service] -> Script ()
+render dir assets ss = do
+    as <- getAssets assets
+    ts <- getTemplates
+    mapM_ (go as ts) ss
+  where
+    go !as !Templates{..} !s@Service{..} = do
+        forM_ _svcOperations $ \x ->
+            write "Render Operation" (rel (_opNamespace x)) o x
+
+        write "Render Types"     (rel _svcTypesNamespace) t s
+        write "Render Interface" (rel _svcVersionNamespace) tmplVersion s
+        write "Render Service"   (rel _svcName) tmplCurrent s
+        write "Render Cabal"     (rel (lib <.> "cabal")) tmplCurrent s
+
+        forM_ as $ \x ->
+            let f = rel (takeFileName x)
+             in say "Copying Asset" f >> scriptIO (copyFile x f)
+      where
+        write lbl f tmpl e = render' lbl dir f tmpl (env e)
+
+        (t, o) = tmplService _svcType
+
+        rel :: ToPath a => a -> FilePath
+        rel = combine dir . combine lib . toPath
+
+        lib = toPath _svcLibrary
 
 render' :: ToJSON a => Text -> FilePath -> FilePath -> Template -> a -> Script ()
 render' lbl d f t e = do

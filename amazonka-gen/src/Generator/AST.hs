@@ -440,11 +440,15 @@ data Operation = Operation
     , _opPagination       :: Maybe Pagination
     } deriving (Eq, Show, Generic)
 
-newtype Cabal = Cabal [Service]
-    deriving (Show)
+newtype Library = Library Text
+    deriving (Show, Generic)
+
+library :: Abbrev -> Library
+library = Library . mappend "amazonka-" . Text.toLower . unAbbrev
 
 data Service = Service
     { _svcName             :: Abbrev
+    , _svcLibrary          :: Library
     , _svcFullName         :: Text
     , _svcNamespace        :: NS
     , _svcVersionNamespace :: NS
@@ -483,6 +487,7 @@ instance Ord Service where
 defaultService :: Abbrev -> Service
 defaultService a = Service
     { _svcName             = a
+    , _svcLibrary          = library a
     , _svcFullName         = unAbbrev a
     , _svcNamespace        = def
     , _svcVersionNamespace = def

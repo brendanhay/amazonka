@@ -3,7 +3,7 @@
   {% when "header" %}
     {% case field.value.location_name %}
     {% when "x-amz-meta-" %}
-            <*> (hs `filterHeaders` "{{ field.value.location_name }}")
+            <*> (Map <$> hs ~:: "{{ field.value.location_name }}")
     {% else %}
       {% if field.value.required %}
             <*> hs ~: "{{ field.value.location_name }}"
@@ -16,7 +16,7 @@
       {% endif %}
     {% endcase %}
   {% when "body" %}
-    {% if scope.type == "xml_mix" %}
+    {% if scope.type == "xml_headers" %}
       {% if field.value.required %}
             <*> xml %| "{{ field.value.name }}"
       {% else %}

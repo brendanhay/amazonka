@@ -90,11 +90,8 @@ infixl 6 ~:, ~:?, ~:!
 (~:!) :: Functor f => f (Maybe a) -> a -> f a
 (~:!) p v = fromMaybe v <$> p
 
-filterHeaders :: FromText v
-              => [Header]
-              -> Text
-              -> Either String (HashMap Text v)
-filterHeaders hs p =
+(~::) :: FromText v => [Header] -> Text -> Either String (HashMap Text v)
+(~::) hs p =
     Map.filterWithKey (const . Text.isPrefixOf p) . Map.fromList <$> mapM f hs
   where
     f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)

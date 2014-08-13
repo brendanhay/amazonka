@@ -49,7 +49,7 @@ JSON := \
 # and my understanding of the service is too limited.
 # $(BOTO)/cognito-sync
 
-MODELS ?= $(QUERY)
+MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 

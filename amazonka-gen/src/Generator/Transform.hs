@@ -177,24 +177,20 @@ http p h = h & hPath %~ map f & hQuery %~ map g
     g = qpVal %~ fmap (prefixed p)
 
 response :: Service -> Operation -> Response -> Response
-response svc@Service{..} o rs = rs
-    & rsName    .~ name
-    & rsFields  .~ fs
-    & rsPayload .~ bdy
-    & rsHeaders .~ hs
-    & rsType    .~ typ
+response svc@Service{..} o rs = rs' & rsType .~ responseType _svcType rs'
   where
+    rs' = rs
+        & rsName    .~ name
+        & rsFields  .~ fs
+        & rsPayload .~ bdy
+        & rsHeaders .~ hs
+
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
 
     hs = filter ((== LHeader) . view cmnLocation) fs
     fs = map (requireField overrides) . sort $ fields False svc shape
 
     overrides = fromMaybe [] (Map.lookup name _svcRequired)
-
-    typ | maybe False (view cmnStreaming) bdy    = RBody
-        | length hs == length fs                 = RHeaders
-        | all ((== LBody) . view cmnLocation) fs = responseType _svcType
-        | otherwise                              = def
 
     shape = rs ^. rsShape & cmnName .~ name
     name  = o ^. opName <> "Response"

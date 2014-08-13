@@ -465,8 +465,8 @@ instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
     fromXML     = undefined
 
 -- FIXME: implement this shizzle
-instance (ToText k, ToQuery v) => ToQuery (Map k v) where
-    toQuery = undefined
+-- instance (ToText k, ToQuery v) => ToQuery (Map k v) where
+--     toQuery = undefined
 
 
 -- Sums

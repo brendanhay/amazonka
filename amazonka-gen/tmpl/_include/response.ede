@@ -1,22 +1,28 @@
-{% if scope.response.fields | listLength == 0 %}
-    response _ = nullaryResponse {{ scope.response.name }}
-{% else %}
-  {% case scope.response.type %}
-  {% when "json" %}
-    response _ = jsonResponse
-  {% when "xml" %}
-    response _ = xmlResponse
-  {% when "headers" %}
+{% case scope.response.type %}
+{% when "headers" %}
     response _ = headerResponse $ \hs ->
         pure {{ scope.response.name }}
-    {% include "response-fields.ede" with scope.response %}
-  {% when "xml_mix" %}
+  {% include "response-fields.ede" with scope.response %}
+{% when "xml" %}
+    response _ = xmlResponse
+{% when "xml_headers" %}
     response _ = cursorResponse $ \hs xml ->
         pure {{ scope.response.name }}
-    {% include "response-fields.ede" with scope.response %}
-  {% when "body" %}
+  {% include "response-fields.ede" with scope.response %}
+{% when "xml_cursor" %}
+    response _ = cursorResponse $ \_ xml ->
+        pure {{ scope.response.name }}
+  {% include "response-fields.ede" with scope.response %}
+{% when "json" %}
+    response _ = jsonResponse
+{% when "body" %}
+    response _ = bodyResponse $ \_ bdy ->
+        return $! pure {{ scope.response.name }}
+  {% include "response-fields.ede" with scope.response %}
+{% when "body_headers" %}
     response _ = bodyResponse $ \hs bdy ->
         return $! pure {{ scope.response.name }}
-    {% include "response-fields.ede" with scope.response %}
-  {% endcase %}
-{% endif %}
+  {% include "response-fields.ede" with scope.response %}
+{% else %}
+    response _ = nullaryResponse {{ scope.response.name }}
+{% endcase %}

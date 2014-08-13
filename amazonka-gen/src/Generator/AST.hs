@@ -23,6 +23,7 @@ import           Data.CaseInsensitive      (CI)
 import           Data.Default
 import           Data.Function
 import           Data.HashMap.Strict       (HashMap)
+import           Data.Maybe
 import           Data.Monoid               hiding (Sum)
 import           Data.Ord
 import           Data.String
@@ -380,21 +381,39 @@ data Request = Request
 
 data RespType
     = RHeaders
-    | RXmlMix
     | RXml
+    | RXmlHeaders
+    | RXmlCursor
     | RJson
     | RBody
+    | RBodyHeaders
+    | RNullary
       deriving (Eq, Show, Generic)
 
 instance Default RespType where
-    def = RXmlMix
+    def = RXml
 
-responseType :: ServiceType -> RespType
-responseType s =
-    case s of
-        RestJson -> RJson
-        Json     -> RJson
-        _        -> def
+responseType :: ServiceType -> Response -> RespType
+responseType t Response{..} =
+    case t of
+        _ | fs == 0     -> RNullary
+
+        _ | str, hs > 0 -> RBodyHeaders
+          | str         -> RBody
+
+          | hs == fs    -> RHeaders
+
+        Json            -> RJson
+
+        _ | hs > 0      -> RXmlHeaders
+        _ | bdy         -> RXml
+        _               -> RXmlCursor
+  where
+    str = maybe False (view cmnStreaming) _rsPayload
+
+    bdy = isJust _rsPayload
+    fs  = length _rsFields
+    hs  = length _rsHeaders
 
 data Response = Response
     { _rsName    :: Text

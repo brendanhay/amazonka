@@ -1,14 +1,18 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveGeneric             #-}
+{-# LANGUAGE FlexibleInstances         #-}
+{-# LANGUAGE NoImplicitPrelude         #-}
+{-# LANGUAGE OverloadedStrings         #-}
+{-# LANGUAGE RecordWildCards           #-}
+{-# LANGUAGE TemplateHaskell           #-}
+{-# LANGUAGE TypeFamilies              #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 
 {% include "_include/license.ede" with namespace %}
 
+{% if documentation %}
 {{ documentation | above76 }}
+{% endif %}
 module {{ namespace }} where
 
 import Control.Lens.TH (makeLenses)
@@ -27,7 +31,7 @@ data {{ request.name }} = {{ request.name }}
 makeLenses ''{{ request.name }}
 
 instance ToQuery {{ request.name }} where
-    toQuery = genericToQuery def
+    toQuery = genericQuery def
 
 data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}

@@ -9,10 +9,9 @@ install: cabal.sandbox.config
 
 clean:
 	-cabal clean
-	rm -rf gen amazonka.cabal
 
 doc:
 	cabal haddock
 
 cabal.sandbox.config:
-	cabal sandbox init
+	cabal sandbox init --sandbox=../.cabal-sandbox

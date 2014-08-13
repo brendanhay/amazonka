@@ -1,4 +1,4 @@
-name:                  amazonka
+name:                  amazonka-core
 version:               0.1.0.0
 synopsis:              Comprehensive Amazon Web Services SDK
 homepage:              https://github.com/brendanhay/amazonka

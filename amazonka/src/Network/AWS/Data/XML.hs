@@ -21,7 +21,6 @@ module Network.AWS.Data.XML where
 
 import           Control.Applicative
 import           Control.Monad
-import qualified Data.Attoparsec.Text       as AText
 import qualified Data.ByteString            as BS
 import           Data.ByteString.Lazy.Char8 (ByteString)
 import           Data.Default
@@ -33,7 +32,6 @@ import           Data.Tagged
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
-import           Data.Time
 import           GHC.Generics
 import           Text.XML
 import           Text.XML.Cursor

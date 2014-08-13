@@ -27,15 +27,11 @@ module Network.AWS.Data.Text
     ) where
 
 import           Control.Applicative
-import           Data.Aeson
 import           Data.Attoparsec.Text             (Parser)
 import qualified Data.Attoparsec.Text             as AText
-import           Data.Bifunctor
 import           Data.ByteString                  (ByteString)
-import           Data.Hashable
 import           Data.Int
 import           Data.Text                        (Text)
-import qualified Data.Text                        as Text
 import qualified Data.Text.Encoding               as Text
 import qualified Data.Text.Lazy                   as LText
 import           Data.Text.Lazy.Builder           (Builder)

@@ -15,6 +15,7 @@ module {{ types_namespace }} where
 
 import Control.Lens.TH (makeIso, makeLenses)
 import Network.AWS.Prelude
+import qualified Network.AWS.Types.Map as Map
 import Network.AWS.Signing.{{ signature }}
 
 {% include "_include/service.ede" %}

@@ -52,6 +52,7 @@ library
         , Network.AWS.Signing.V3
         , Network.AWS.Signing.V4
         , Network.AWS.Types
+        , Network.AWS.Types.Map
 
   {% for service in modules %}
         , {{ service.value.current }}

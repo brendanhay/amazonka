@@ -52,6 +52,7 @@ library
         , Network.AWS.Signing.V3
         , Network.AWS.Signing.V4
         , Network.AWS.Types
+        , Network.AWS.Types.Map
 
         , Network.AWS.Support
         , Network.AWS.Support.V2013_04_15

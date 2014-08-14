@@ -99,7 +99,12 @@ render dir assets ss = do
     as <- getAssets assets
     ts <- getTemplates
     mapM_ (go as ts) ss
+    forM_ as $ \x ->
+        let f = rel (takeFileName x)
+         in say "Copying Asset" f >> scriptIO (copyFile x f)
   where
+    write lbl f t e = render' lbl dir f t (env e)
+
     go !as !Templates{..} !s@Service{..} = do
         forM_ _svcOperations $ \x ->
             write "Render Operation" (rel (_opNamespace x)) o x
@@ -113,7 +118,6 @@ render dir assets ss = do
             let f = rel (takeFileName x)
              in say "Copying Asset" f >> scriptIO (copyFile x f)
       where
-        write lbl f tmpl e = render' lbl dir f tmpl (env e)
 
         (t, o) = tmplService _svcType
 

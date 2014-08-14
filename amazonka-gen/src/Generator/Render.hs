@@ -99,9 +99,6 @@ render dir assets ss = do
     as <- getAssets assets
     ts <- getTemplates
     mapM_ (go as ts) ss
-    forM_ as $ \x ->
-        let f = rel (takeFileName x)
-         in say "Copying Asset" f >> scriptIO (copyFile x f)
   where
     write lbl f t e = render' lbl dir f t (env e)
 

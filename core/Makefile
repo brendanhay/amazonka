@@ -4,7 +4,7 @@ FLAGS := -j --disable-documentation --disable-library-coverage
 build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
-install: cabal.sandbox.config
+install: add-sources
 	cabal install $(FLAGS) --only-dependencies
 
 clean:
@@ -12,6 +12,8 @@ clean:
 
 doc:
 	cabal haddock
+
+add-sources: cabal.sandbox.config
 
 cabal.sandbox.config:
 	cabal sandbox init --sandbox=../.cabal-sandbox

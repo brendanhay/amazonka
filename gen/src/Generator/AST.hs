@@ -451,6 +451,10 @@ data Service = Service
     , _svcLibrary          :: Library
     , _svcFullName         :: Text
     , _svcNamespace        :: NS
+
+-- add a hackage synopsis + description field here which can be annotated
+-- in the overrides
+
     , _svcVersionNamespace :: NS
     , _svcTypesNamespace   :: NS
     , _svcVersion          :: Version

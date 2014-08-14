@@ -3,7 +3,6 @@ $(error TOP is not set)
 endif
 
 SHELL   := /usr/bin/env bash
-FLAGS   := -j --disable-documentation --disable-library-coverage
 SANDBOX := $(TOP)/.cabal-sandbox
 DEPS    ?= $(TOP)/core
 
@@ -11,7 +10,11 @@ build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
 install: add-sources
-	cabal install $(FLAGS) --only-dependencies
+	cabal install -j \
+ --disable-documentation \
+ --disable-library-coverage \
+ --only-dependencies \
+ --avoid-reinstalls
 
 add-sources: cabal.sandbox.config
 	cabal sandbox add-source --sandbox=$(SANDBOX) $(DEPS)

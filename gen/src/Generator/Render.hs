@@ -109,7 +109,7 @@ render dir assets ss = do
         write "Render Types"     (rel _svcTypesNamespace) t s
         write "Render Interface" (rel _svcVersionNamespace) tmplVersion s
         write "Render Service"   (rel _svcName) tmplCurrent s
-        write "Render Cabal"     (rel (lib <.> "cabal")) tmplCurrent s
+        write "Render Cabal"     (rel (lib <.> "cabal")) tmplCabal s
 
         forM_ as $ \x ->
             let f = rel (takeFileName x)

@@ -24,3 +24,38 @@ library
     hs-source-dirs:    src
 
     ghc-options:       -Wall
+
+    build-depends:
+          amazonka-autoscaling
+        , amazonka-cloudformation
+        , amazonka-cloudfront
+        , amazonka-cloudsearch
+        , amazonka-cloudtrail
+        , amazonka-cloudwatch
+        , amazonka-cognitoidentity
+        , amazonka-datapipeline
+        , amazonka-directconnect
+        , amazonka-dynamodb
+        , amazonka-ec2
+        , amazonka-elasticache
+        , amazonka-elasticbeanstalk
+        , amazonka-elastictranscoder
+        , amazonka-elb
+        , amazonka-emr
+        , amazonka-iam
+        , amazonka-importexport
+        , amazonka-kinesis
+        , amazonka-opsworks
+        , amazonka-rds
+        , amazonka-redshift
+        , amazonka-route53
+        , amazonka-s3
+        , amazonka-ses
+        , amazonka-simpledb
+        , amazonka-sns
+        , amazonka-sqs
+        , amazonka-storagegateway
+        , amazonka-sts
+        , amazonka-support
+        , amazonka-swf
+        , base                      == 4.7.*

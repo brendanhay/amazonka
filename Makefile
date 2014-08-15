@@ -1,4 +1,4 @@
-DEPS := $(wildcard amazonka-*)
+DEPS := $(wildcard ./lib/amazonka-*)
 
 .PHONY: install clean
 

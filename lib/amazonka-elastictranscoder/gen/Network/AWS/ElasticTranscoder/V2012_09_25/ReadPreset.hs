@@ -81,9 +81,11 @@ data ReadPresetResponse = ReadPresetResponse
 
 makeLenses ''ReadPresetResponse
 
+instance FromJSON ReadPresetResponse
+
 instance AWSRequest ReadPreset where
     type Sv ReadPreset = ElasticTranscoder
     type Rs ReadPreset = ReadPresetResponse
 
     request = get
-    response _ = xmlResponse
+    response _ = jsonResponse

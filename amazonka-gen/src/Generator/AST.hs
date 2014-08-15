@@ -398,12 +398,13 @@ responseType t Response{..} =
     case t of
         _ | fs == 0     -> RNullary
 
+        Json            -> RJson
+        RestJson        -> RJson
+
         _ | str, hs > 0 -> RBodyHeaders
           | str         -> RBody
 
           | hs == fs    -> RHeaders
-
-        Json            -> RJson
 
         _ | hs > 0      -> RXmlHeaders
         _ | bdy         -> RXml

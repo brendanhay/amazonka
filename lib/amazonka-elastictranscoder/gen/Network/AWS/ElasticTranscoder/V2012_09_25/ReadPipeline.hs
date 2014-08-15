@@ -71,9 +71,11 @@ data ReadPipelineResponse = ReadPipelineResponse
 
 makeLenses ''ReadPipelineResponse
 
+instance FromJSON ReadPipelineResponse
+
 instance AWSRequest ReadPipeline where
     type Sv ReadPipeline = ElasticTranscoder
     type Rs ReadPipeline = ReadPipelineResponse
 
     request = get
-    response _ = xmlResponse
+    response _ = jsonResponse

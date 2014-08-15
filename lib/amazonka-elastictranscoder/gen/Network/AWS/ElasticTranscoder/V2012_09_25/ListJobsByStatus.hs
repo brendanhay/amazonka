@@ -126,12 +126,14 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse
 
 makeLenses ''ListJobsByStatusResponse
 
+instance FromJSON ListJobsByStatusResponse
+
 instance AWSRequest ListJobsByStatus where
     type Sv ListJobsByStatus = ElasticTranscoder
     type Rs ListJobsByStatus = ListJobsByStatusResponse
 
     request = get
-    response _ = xmlResponse
+    response _ = jsonResponse
 
 instance AWSPager ListJobsByStatus where
     next rq rs = (\x -> rq { _ljbsrPageToken = Just x })

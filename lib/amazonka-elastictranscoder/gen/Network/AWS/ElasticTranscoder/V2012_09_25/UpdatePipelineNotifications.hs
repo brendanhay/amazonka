@@ -94,9 +94,11 @@ data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
 
 makeLenses ''UpdatePipelineNotificationsResponse
 
+instance FromJSON UpdatePipelineNotificationsResponse
+
 instance AWSRequest UpdatePipelineNotifications where
     type Sv UpdatePipelineNotifications = ElasticTranscoder
     type Rs UpdatePipelineNotifications = UpdatePipelineNotificationsResponse
 
     request = post
-    response _ = xmlResponse
+    response _ = jsonResponse

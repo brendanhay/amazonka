@@ -77,9 +77,11 @@ data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
 
 makeLenses ''UpdatePipelineStatusResponse
 
+instance FromJSON UpdatePipelineStatusResponse
+
 instance AWSRequest UpdatePipelineStatus where
     type Sv UpdatePipelineStatus = ElasticTranscoder
     type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
 
     request = post
-    response _ = xmlResponse
+    response _ = jsonResponse

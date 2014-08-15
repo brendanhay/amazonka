@@ -143,9 +143,11 @@ data CreateJobResponse = CreateJobResponse
 
 makeLenses ''CreateJobResponse
 
+instance FromJSON CreateJobResponse
+
 instance AWSRequest CreateJob where
     type Sv CreateJob = ElasticTranscoder
     type Rs CreateJob = CreateJobResponse
 
     request = post
-    response _ = xmlResponse
+    response _ = jsonResponse

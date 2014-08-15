@@ -94,9 +94,11 @@ data TestRoleResponse = TestRoleResponse
 
 makeLenses ''TestRoleResponse
 
+instance FromJSON TestRoleResponse
+
 instance AWSRequest TestRole where
     type Sv TestRole = ElasticTranscoder
     type Rs TestRole = TestRoleResponse
 
     request = post
-    response _ = xmlResponse
+    response _ = jsonResponse

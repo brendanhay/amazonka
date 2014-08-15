@@ -138,9 +138,11 @@ data CreatePresetResponse = CreatePresetResponse
 
 makeLenses ''CreatePresetResponse
 
+instance FromJSON CreatePresetResponse
+
 instance AWSRequest CreatePreset where
     type Sv CreatePreset = ElasticTranscoder
     type Rs CreatePreset = CreatePresetResponse
 
     request = post
-    response _ = xmlResponse
+    response _ = jsonResponse

@@ -240,9 +240,11 @@ data CreatePipelineResponse = CreatePipelineResponse
 
 makeLenses ''CreatePipelineResponse
 
+instance FromJSON CreatePipelineResponse
+
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = ElasticTranscoder
     type Rs CreatePipeline = CreatePipelineResponse
 
     request = post
-    response _ = xmlResponse
+    response _ = jsonResponse

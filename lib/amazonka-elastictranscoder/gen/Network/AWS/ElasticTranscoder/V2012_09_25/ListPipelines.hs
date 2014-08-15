@@ -112,12 +112,14 @@ data ListPipelinesResponse = ListPipelinesResponse
 
 makeLenses ''ListPipelinesResponse
 
+instance FromJSON ListPipelinesResponse
+
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = ElasticTranscoder
     type Rs ListPipelines = ListPipelinesResponse
 
     request = get
-    response _ = xmlResponse
+    response _ = jsonResponse
 
 instance AWSPager ListPipelines where
     next rq rs = (\x -> rq { _lprPageToken = Just x })

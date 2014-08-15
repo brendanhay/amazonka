@@ -121,12 +121,14 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse
 
 makeLenses ''ListJobsByPipelineResponse
 
+instance FromJSON ListJobsByPipelineResponse
+
 instance AWSRequest ListJobsByPipeline where
     type Sv ListJobsByPipeline = ElasticTranscoder
     type Rs ListJobsByPipeline = ListJobsByPipelineResponse
 
     request = get
-    response _ = xmlResponse
+    response _ = jsonResponse
 
 instance AWSPager ListJobsByPipeline where
     next rq rs = (\x -> rq { _ljbprPageToken = Just x })

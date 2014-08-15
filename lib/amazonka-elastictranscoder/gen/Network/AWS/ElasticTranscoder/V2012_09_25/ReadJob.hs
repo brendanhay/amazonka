@@ -71,9 +71,11 @@ data ReadJobResponse = ReadJobResponse
 
 makeLenses ''ReadJobResponse
 
+instance FromJSON ReadJobResponse
+
 instance AWSRequest ReadJob where
     type Sv ReadJob = ElasticTranscoder
     type Rs ReadJob = ReadJobResponse
 
     request = get
-    response _ = xmlResponse
+    response _ = jsonResponse

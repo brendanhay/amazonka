@@ -93,12 +93,14 @@ data ListPresetsResponse = ListPresetsResponse
 
 makeLenses ''ListPresetsResponse
 
+instance FromJSON ListPresetsResponse
+
 instance AWSRequest ListPresets where
     type Sv ListPresets = ElasticTranscoder
     type Rs ListPresets = ListPresetsResponse
 
     request = get
-    response _ = xmlResponse
+    response _ = jsonResponse
 
 instance AWSPager ListPresets where
     next rq rs = (\x -> rq { _lptPageToken = Just x })

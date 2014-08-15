@@ -178,9 +178,11 @@ data UpdatePipelineResponse = UpdatePipelineResponse
 
 makeLenses ''UpdatePipelineResponse
 
+instance FromJSON UpdatePipelineResponse
+
 instance AWSRequest UpdatePipeline where
     type Sv UpdatePipeline = ElasticTranscoder
     type Rs UpdatePipeline = UpdatePipelineResponse
 
     request = put
-    response _ = xmlResponse
+    response _ = jsonResponse

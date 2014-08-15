@@ -1,0 +1,85 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE FlexibleInstances  #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TemplateHaskell    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{% include "_include/license.ede" with types_namespace %}
+
+{% if documentation %}
+{{ documentation | above76 }}
+{% endif %}
+module {{ types_namespace }} where
+
+import Control.Lens.TH (makeIso, makeLenses)
+import Network.AWS.Prelude
+import Network.AWS.Signing.{{ signature }}
+
+{% include "_include/service.ede" %}
+
+xmlOptions :: Tagged a XMLOptions
+xmlOptions = Tagged def
+{% if xml_namespace %}
+    { xmlNamespace = Just "{{ xml_namespace }}"
+    }
+{% endif %}
+
+{% for data in types %}
+  {% if data.value.documentation %}
+{{ data.value.documentation | above76 }}
+  {% endif %}
+    {% case data.value.ctor %}
+    {% when "witness" %}
+data {{ data.value.name }}
+    {% when "sum" %}
+data {{ data.value.name }}
+      {% for branch in data.value.values %}
+        {% if branch.first %}
+    = {{ branch.key }} -- ^ {{ branch.value }}
+        {% else %}
+    | {{ branch.key }} -- ^ {{ branch.value }}
+        {% endif %}
+      {% endfor %}
+      deriving (Eq, Show, Generic)
+
+instance Hashable {{ data.value.name }}
+
+instance FromText {{ data.value.name }} where
+      {% for branch in data.value.values %}
+        {% if branch.first %}
+    parser = match "{{ branch.value }}" {{ branch.key }}
+        {% else %}
+         <|> match "{{ branch.value }}" {{ branch.key }}
+        {% endif %}
+      {% endfor %}
+
+instance ToText {{ data.value.name }} where
+      {% for branch in data.value.values %}
+    toText {{ branch.key }} = "{{ branch.value }}"
+      {% endfor %}
+
+instance ToByteString {{ data.value.name }}
+    {% include "_include/xml-from.ede" with data.value %}
+    {% include "_include/query-to.ede" with data.value %}
+    {% when "newtype" %}
+newtype {{ data.value.name }} = {{ data.value.name }}
+    {% include "_include/record.ede" with data.value.fields %}
+    {% include "_include/xml-from.ede" with data.value %}
+    {% include "_include/query-to.ede" with data.value %}
+    {% when "data" %}
+data {{ data.value.name }} = {{ data.value.name }}
+    {% include "_include/record.ede" with data.value.fields %}
+    {% include "_include/xml-from.ede" with data.value %}
+    {% include "_include/query-to.ede" with data.value %}
+    {% when "nullary" %}
+data {{ data.value.name }} = {{ data.value.name }}
+  {% include "_include/xml-from.ede" with data.value %}
+  {% include "_include/query-to.ede" with data.value %}
+    {% endcase %}
+  {% if !data.last %}
+
+  {% endif %}
+{% endfor %}
+{% include "_include/lens-types.ede" %}

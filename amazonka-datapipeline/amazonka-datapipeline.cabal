@@ -1,0 +1,51 @@
+name:                  amazonka-datapipeline
+version:               0.1.0.0
+synopsis:              AWS Data Pipeline
+homepage:              https://github.com/brendanhay/amazonka
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            brendan.g.hay@gmail.com
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Pending
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.DataPipeline
+        , Network.AWS.DataPipeline.V2012_10_29
+        , Network.AWS.DataPipeline.V2012_10_29.Types
+        , Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
+        , Network.AWS.DataPipeline.V2012_10_29.QueryObjects
+        , Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
+        , Network.AWS.DataPipeline.V2012_10_29.ListPipelines
+        , Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
+        , Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
+        , Network.AWS.DataPipeline.V2012_10_29.PollForTask
+        , Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
+        , Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
+        , Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
+        , Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
+        , Network.AWS.DataPipeline.V2012_10_29.SetStatus
+        , Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
+        , Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
+        , Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
+        , Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition
+
+    build-depends:
+          amazonka-core
+        , base          == 4.7.*

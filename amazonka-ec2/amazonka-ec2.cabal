@@ -1,0 +1,189 @@
+name:                  amazonka-ec2
+version:               0.1.0.0
+synopsis:              Amazon Elastic Compute Cloud
+homepage:              https://github.com/brendanhay/amazonka
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            brendan.g.hay@gmail.com
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Pending
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.EC2
+        , Network.AWS.EC2.V2014_06_15
+        , Network.AWS.EC2.V2014_06_15.Types
+        , Network.AWS.EC2.V2014_06_15.ImportInstance
+        , Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupEgress
+        , Network.AWS.EC2.V2014_06_15.CreateVpnGateway
+        , Network.AWS.EC2.V2014_06_15.CreateNetworkAcl
+        , Network.AWS.EC2.V2014_06_15.DeleteKeyPair
+        , Network.AWS.EC2.V2014_06_15.DescribeTags
+        , Network.AWS.EC2.V2014_06_15.DetachNetworkInterface
+        , Network.AWS.EC2.V2014_06_15.DetachInternetGateway
+        , Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute
+        , Network.AWS.EC2.V2014_06_15.DetachVolume
+        , Network.AWS.EC2.V2014_06_15.CancelBundleTask
+        , Network.AWS.EC2.V2014_06_15.ReleaseAddress
+        , Network.AWS.EC2.V2014_06_15.CreateInternetGateway
+        , Network.AWS.EC2.V2014_06_15.DeleteVpnConnection
+        , Network.AWS.EC2.V2014_06_15.DescribeBundleTasks
+        , Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupEgress
+        , Network.AWS.EC2.V2014_06_15.DeregisterImage
+        , Network.AWS.EC2.V2014_06_15.ModifyNetworkInterfaceAttribute
+        , Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing
+        , Network.AWS.EC2.V2014_06_15.DescribeSpotPriceHistory
+        , Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions
+        , Network.AWS.EC2.V2014_06_15.StopInstances
+        , Network.AWS.EC2.V2014_06_15.DescribeInternetGateways
+        , Network.AWS.EC2.V2014_06_15.BundleInstance
+        , Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaces
+        , Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation
+        , Network.AWS.EC2.V2014_06_15.DescribeAddresses
+        , Network.AWS.EC2.V2014_06_15.DescribeSnapshotAttribute
+        , Network.AWS.EC2.V2014_06_15.ReplaceRoute
+        , Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupIngress
+        , Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection
+        , Network.AWS.EC2.V2014_06_15.DescribeSubnets
+        , Network.AWS.EC2.V2014_06_15.CreateTags
+        , Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering
+        , Network.AWS.EC2.V2014_06_15.DeleteNetworkAclEntry
+        , Network.AWS.EC2.V2014_06_15.ResetSnapshotAttribute
+        , Network.AWS.EC2.V2014_06_15.DescribeVpnConnections
+        , Network.AWS.EC2.V2014_06_15.DeleteRoute
+        , Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclEntry
+        , Network.AWS.EC2.V2014_06_15.ResetInstanceAttribute
+        , Network.AWS.EC2.V2014_06_15.AttachNetworkInterface
+        , Network.AWS.EC2.V2014_06_15.DescribeInstanceStatus
+        , Network.AWS.EC2.V2014_06_15.ImportKeyPair
+        , Network.AWS.EC2.V2014_06_15.DeleteTags
+        , Network.AWS.EC2.V2014_06_15.ConfirmProductInstance
+        , Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute
+        , Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings
+        , Network.AWS.EC2.V2014_06_15.CreateCustomerGateway
+        , Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup
+        , Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection
+        , Network.AWS.EC2.V2014_06_15.AttachInternetGateway
+        , Network.AWS.EC2.V2014_06_15.RunInstances
+        , Network.AWS.EC2.V2014_06_15.AssociateDhcpOptions
+        , Network.AWS.EC2.V2014_06_15.DescribeReservedInstances
+        , Network.AWS.EC2.V2014_06_15.DescribeVpcs
+        , Network.AWS.EC2.V2014_06_15.DescribeConversionTasks
+        , Network.AWS.EC2.V2014_06_15.AllocateAddress
+        , Network.AWS.EC2.V2014_06_15.CancelConversionTask
+        , Network.AWS.EC2.V2014_06_15.ModifyImageAttribute
+        , Network.AWS.EC2.V2014_06_15.CreateRouteTable
+        , Network.AWS.EC2.V2014_06_15.ReportInstanceStatus
+        , Network.AWS.EC2.V2014_06_15.AttachVolume
+        , Network.AWS.EC2.V2014_06_15.RequestSpotInstances
+        , Network.AWS.EC2.V2014_06_15.DescribeVolumes
+        , Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection
+        , Network.AWS.EC2.V2014_06_15.DeleteVpnConnectionRoute
+        , Network.AWS.EC2.V2014_06_15.RegisterImage
+        , Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupIngress
+        , Network.AWS.EC2.V2014_06_15.ModifyReservedInstances
+        , Network.AWS.EC2.V2014_06_15.DeleteNetworkAcl
+        , Network.AWS.EC2.V2014_06_15.DeleteVpnGateway
+        , Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute
+        , Network.AWS.EC2.V2014_06_15.GetPasswordData
+        , Network.AWS.EC2.V2014_06_15.CreateVpc
+        , Network.AWS.EC2.V2014_06_15.CopySnapshot
+        , Network.AWS.EC2.V2014_06_15.DisassociateAddress
+        , Network.AWS.EC2.V2014_06_15.DeleteVpc
+        , Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask
+        , Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute
+        , Network.AWS.EC2.V2014_06_15.CreateVolume
+        , Network.AWS.EC2.V2014_06_15.ModifyVolumeAttribute
+        , Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription
+        , Network.AWS.EC2.V2014_06_15.DeletePlacementGroup
+        , Network.AWS.EC2.V2014_06_15.CreateSubnet
+        , Network.AWS.EC2.V2014_06_15.CreateNetworkInterface
+        , Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups
+        , Network.AWS.EC2.V2014_06_15.DescribeExportTasks
+        , Network.AWS.EC2.V2014_06_15.DetachVpnGateway
+        , Network.AWS.EC2.V2014_06_15.EnableVolumeIO
+        , Network.AWS.EC2.V2014_06_15.DescribeInstances
+        , Network.AWS.EC2.V2014_06_15.DescribeVpcPeeringConnections
+        , Network.AWS.EC2.V2014_06_15.CancelExportTask
+        , Network.AWS.EC2.V2014_06_15.DeleteNetworkInterface
+        , Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation
+        , Network.AWS.EC2.V2014_06_15.StartInstances
+        , Network.AWS.EC2.V2014_06_15.CreatePlacementGroup
+        , Network.AWS.EC2.V2014_06_15.DescribeSnapshots
+        , Network.AWS.EC2.V2014_06_15.AssociateAddress
+        , Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute
+        , Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute
+        , Network.AWS.EC2.V2014_06_15.DeleteInternetGateway
+        , Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings
+        , Network.AWS.EC2.V2014_06_15.CreateVpnConnection
+        , Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways
+        , Network.AWS.EC2.V2014_06_15.DeleteSubnet
+        , Network.AWS.EC2.V2014_06_15.CopyImage
+        , Network.AWS.EC2.V2014_06_15.UnmonitorInstances
+        , Network.AWS.EC2.V2014_06_15.CreateSecurityGroup
+        , Network.AWS.EC2.V2014_06_15.ImportVolume
+        , Network.AWS.EC2.V2014_06_15.DisableVgwRoutePropagation
+        , Network.AWS.EC2.V2014_06_15.CreateSpotDatafeedSubscription
+        , Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests
+        , Network.AWS.EC2.V2014_06_15.CreateRoute
+        , Network.AWS.EC2.V2014_06_15.DeleteSnapshot
+        , Network.AWS.EC2.V2014_06_15.AssignPrivateIpAddresses
+        , Network.AWS.EC2.V2014_06_15.ModifyInstanceAttribute
+        , Network.AWS.EC2.V2014_06_15.DeleteCustomerGateway
+        , Network.AWS.EC2.V2014_06_15.DisassociateRouteTable
+        , Network.AWS.EC2.V2014_06_15.DeleteSpotDatafeedSubscription
+        , Network.AWS.EC2.V2014_06_15.DescribePlacementGroups
+        , Network.AWS.EC2.V2014_06_15.EnableVgwRoutePropagation
+        , Network.AWS.EC2.V2014_06_15.ModifySnapshotAttribute
+        , Network.AWS.EC2.V2014_06_15.CreateSnapshot
+        , Network.AWS.EC2.V2014_06_15.CreateNetworkAclEntry
+        , Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing
+        , Network.AWS.EC2.V2014_06_15.AttachVpnGateway
+        , Network.AWS.EC2.V2014_06_15.CreateDhcpOptions
+        , Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes
+        , Network.AWS.EC2.V2014_06_15.RebootInstances
+        , Network.AWS.EC2.V2014_06_15.CreateImage
+        , Network.AWS.EC2.V2014_06_15.TerminateInstances
+        , Network.AWS.EC2.V2014_06_15.DescribeKeyPairs
+        , Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute
+        , Network.AWS.EC2.V2014_06_15.AssociateRouteTable
+        , Network.AWS.EC2.V2014_06_15.DescribeVpnGateways
+        , Network.AWS.EC2.V2014_06_15.GetConsoleOutput
+        , Network.AWS.EC2.V2014_06_15.DescribeImageAttribute
+        , Network.AWS.EC2.V2014_06_15.DeleteRouteTable
+        , Network.AWS.EC2.V2014_06_15.ResetImageAttribute
+        , Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications
+        , Network.AWS.EC2.V2014_06_15.DescribeSpotInstanceRequests
+        , Network.AWS.EC2.V2014_06_15.UnassignPrivateIpAddresses
+        , Network.AWS.EC2.V2014_06_15.DeleteDhcpOptions
+        , Network.AWS.EC2.V2014_06_15.DescribeNetworkAcls
+        , Network.AWS.EC2.V2014_06_15.DescribeRegions
+        , Network.AWS.EC2.V2014_06_15.MonitorInstances
+        , Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
+        , Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus
+        , Network.AWS.EC2.V2014_06_15.DescribeRouteTables
+        , Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones
+        , Network.AWS.EC2.V2014_06_15.ModifyVpcAttribute
+        , Network.AWS.EC2.V2014_06_15.DescribeImages
+        , Network.AWS.EC2.V2014_06_15.CreateKeyPair
+        , Network.AWS.EC2.V2014_06_15.DeleteVolume
+
+    build-depends:
+          amazonka-core
+        , base          == 4.7.*

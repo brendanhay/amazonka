@@ -288,7 +288,7 @@ data Type = Type
     } deriving (Show, Generic)
 
 instance Eq Type where
-    (==) = (==) `on` (view cmnName)
+    (==) = (==) `on` view cmnName
 
 instance Ord Type where
     compare a b = on compare _typCtor a b <> on compare _typShape a b
@@ -451,6 +451,9 @@ data Cabal = Cabal
     , _cblSynopsis      :: Text
     , _cblDocumentation :: Doc
     } deriving (Show, Generic)
+
+cabal :: Version -> Maybe Text -> Maybe Doc -> Text -> Doc -> Cabal
+cabal v ms md s d = Cabal v (fromMaybe (s <> " SDK") ms) (fromMaybe d md)
 
 data Service = Service
     { _svcName             :: Abbrev

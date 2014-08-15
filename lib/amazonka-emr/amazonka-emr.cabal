@@ -1,6 +1,6 @@
 name:                  amazonka-emr
 version:               0.1.0.0
-synopsis:              Amazon Elastic MapReduce
+synopsis:              Amazon Elastic MapReduce SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,15 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy
+    .
+    to process large amounts of data efficiently. Amazon EMR uses Hadoop
+    .
+    processing combined with several AWS products to do such tasks as web
+    .
+    indexing, data mining, log file analysis, machine learning, scientific
+    .
+    simulation, and data warehousing.
 
 source-repository head
     type:     git

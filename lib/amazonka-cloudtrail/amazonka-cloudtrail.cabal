@@ -1,6 +1,6 @@
 name:                  amazonka-cloudtrail
 version:               0.1.0.0
-synopsis:              AWS CloudTrail
+synopsis:              AWS CloudTrail SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,15 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    CloudTrail is a web service that records AWS API calls for your AWS
+    .
+    account and delivers log files to an Amazon S3 bucket. The recorded
+    .
+    information includes the identity of the user, the start time of the AWS
+    .
+    API call, the source IP address, the request parameters, and the response
+    .
+    elements returned by the service.
 
 source-repository head
     type:     git

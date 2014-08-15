@@ -1,6 +1,6 @@
 name:                  amazonka-elb
 version:               0.1.0.0
-synopsis:              Elastic Load Balancing
+synopsis:              Elastic Load Balancing SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,15 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    Elastic Load Balancing automatically distributes incoming application
+    .
+    traffic across multiple Amazon EC2 instances. It enables you to achieve
+    .
+    greater levels of fault tolerance in your applications, seamlessly
+    .
+    providing the required amount of load balancing capacity needed to
+    .
+    distribute application traffic.
 
 source-repository head
     type:     git

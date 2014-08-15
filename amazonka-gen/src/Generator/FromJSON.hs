@@ -114,12 +114,10 @@ instance FromJSON Version where
     parseJSON = withText "version" (return . Version)
 
 instance FromJSON (Text -> Doc -> Cabal) where
-    parseJSON = withObject "cabal" $ \o -> do
-        ms <- o .:? "synopsis"
-        md <- o .:? "documentation"
-        v  <- o .:  "version"
-        return $ \s d ->
-            Cabal v (fromMaybe (s <> " SDK") ms) (fromMaybe d md)
+    parseJSON = withObject "cabal" $ \o -> cabal
+        <$> o .:  "version"
+        <*> o .:? "synopsis"
+        <*> o .:? "documentation"
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
@@ -129,6 +127,9 @@ instance FromJSON Service where
         t   <- o .: "type"
         ops <- o .: "operations"
         d   <- o .: "documentation"
+
+        cbl <- fromMaybe (cabal (Version "0.1.0.0") Nothing Nothing)
+            <$> (o .:? "cabal")
 
         let ver = version rv
             vNS = namespace a ver
@@ -150,7 +151,7 @@ instance FromJSON Service where
             <*> pure ops
             <*> pure def
             <*> o .:? "required" .!= mempty
-            <*> ((\f -> f n d) <$> o .: "cabal")
+            <*> pure (cbl n d)
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $ \o ->

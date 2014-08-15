@@ -1,6 +1,6 @@
 name:                  amazonka-datapipeline
 version:               0.1.0.0
-synopsis:              AWS Data Pipeline
+synopsis:              AWS Data Pipeline SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,13 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    AWS Data Pipeline is a web service that you can use to automate the
+    .
+    movement and transformation of data. With AWS Data Pipeline, you can
+    .
+    define data-driven workflows, so that tasks can be dependent on the
+    .
+    successful completion of previous tasks.
 
 source-repository head
     type:     git

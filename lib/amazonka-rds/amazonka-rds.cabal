@@ -1,6 +1,6 @@
 name:                  amazonka-rds
 version:               0.1.0.0
-synopsis:              Amazon Relational Database Service
+synopsis:              Amazon Relational Database Service SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,15 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    Amazon Relational Database Service (Amazon RDS) is a web service that
+    .
+    makes it easy to set up, operate, and scale a relational database in the
+    .
+    cloud. It provides cost-efficient and resizable capacity while managing
+    .
+    time-consuming database administration tasks, freeing you up to focus on
+    .
+    your applications and business.
 
 source-repository head
     type:     git

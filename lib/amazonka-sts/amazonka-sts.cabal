@@ -1,6 +1,6 @@
 name:                  amazonka-sts
 version:               0.1.0.0
-synopsis:              AWS Security Token Service
+synopsis:              AWS Security Token Service SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,13 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    The AWS Security Token Service (STS) is a web service that enables you to
+    .
+    request temporary, limited-privilege credentials for AWS Identity and
+    .
+    Access Management (IAM) users or for users that you authenticate
+    .
+    (federated users).
 
 source-repository head
     type:     git

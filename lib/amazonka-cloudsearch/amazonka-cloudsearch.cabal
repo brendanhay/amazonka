@@ -1,6 +1,6 @@
 name:                  amazonka-cloudsearch
 version:               0.1.0.0
-synopsis:              Amazon CloudSearch
+synopsis:              Amazon CloudSearch SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,15 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes
+    .
+    it simple and cost-effective to set up, manage, and scale a search
+    .
+    solution for your website or application. Amazon CloudSearch supports 34
+    .
+    languages and popular search features such as highlighting, autocomplete,
+    .
+    and geospatial search.
 
 source-repository head
     type:     git

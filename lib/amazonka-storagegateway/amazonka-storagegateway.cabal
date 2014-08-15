@@ -1,6 +1,6 @@
 name:                  amazonka-storagegateway
 version:               0.1.0.0
-synopsis:              AWS Storage Gateway
+synopsis:              AWS Storage Gateway SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,13 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    AWS Storage Gateway is a service that connects an on-premises software
+    .
+    appliance with cloud-based storage to provide seamless and secure
+    .
+    integration between your on-premises IT environment and AWS's storage
+    .
+    infrastructure.
 
 source-repository head
     type:     git

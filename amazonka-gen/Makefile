@@ -1,4 +1,3 @@
-TOP      := ../
 SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
 DEPS     := vendor/botocore vendor/ede
@@ -57,7 +56,7 @@ MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 gen: build
 	dist/build/amazonka-gen/amazonka-gen \
- --output=$(realpath $(TOP)) \
+ --output=$(realpath ../lib) \
  --override=$(realpath ./model) \
  --assets=$(realpath ./asset) \
  --versions=$(VERSIONS) \

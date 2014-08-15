@@ -117,6 +117,8 @@ render dir assets ss = do
         forM_ as $ \x ->
             let f = rel (takeFileName x)
              in say "Copying Asset" f >> scriptIO (copyFile x f)
+
+        say "Create Src" >> createDirectoryIfMissing True (rel "src")
       where
 
         (t, o) = tmplService _svcType

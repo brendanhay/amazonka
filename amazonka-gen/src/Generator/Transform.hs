@@ -406,8 +406,7 @@ serviceTypes svc@Service{..} = map override
     . sort
     . Map.elems
     . (`execState` mempty)
-    . mapM uniq
-    . map (shapeType True svc . snd)
+    . mapM (uniq . shapeType True svc . snd)
     . mapMaybe exclude
     $ concatMap opfields _svcOperations
   where

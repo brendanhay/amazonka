@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric        #-}
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
@@ -60,7 +59,7 @@ parseModel Model{..} = do
         <*> load "Override" modLocal
 
     -- First merge local, then global overrides.
-    parse' . Object $ union (union l g) s
+    parse' . Object $ (l `union` g) `union` s
   where
     load :: Text -> Maybe FilePath -> Script Object
     load _ Nothing  = return mempty
@@ -78,7 +77,7 @@ parseModel Model{..} = do
     merge :: Value -> Value -> Value
     merge a b =
         case (a, b) of
-            (Object x, Object y) -> Object (union x y)
+            (Object x, Object y) -> Object (x `union` y)
             (_,        _)        -> a
 
 instance FromJSON (CI Text) where
@@ -114,8 +113,13 @@ instance FromJSON JSONV where
 instance FromJSON Version where
     parseJSON = withText "version" (return . Version)
 
-instance FromJSON Cabal where
-    parseJSON = fromField (recase Camel Under)
+instance FromJSON (Text -> Doc -> Cabal) where
+    parseJSON = withObject "cabal" $ \o -> do
+        ms <- o .:? "synopsis"
+        md <- o .:? "documentation"
+        v  <- o .:  "version"
+        return $ \s d ->
+            Cabal v (fromMaybe (s <> " SDK") ms) (fromMaybe d md)
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
@@ -124,6 +128,7 @@ instance FromJSON Service where
         rv  <- o .: "api_version"
         t   <- o .: "type"
         ops <- o .: "operations"
+        d   <- o .: "documentation"
 
         let ver = version rv
             vNS = namespace a ver
@@ -134,7 +139,7 @@ instance FromJSON Service where
         Service a (library a) n (rootNS vNS) vNS (typeNS vNS) ver rv typ sEr
             <$> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
-            <*> o .:  "documentation"
+            <*> pure d
             <*> o .:  "endpoint_prefix"
             <*> o .:? "global_endpoint"
             <*> o .:? "xmlnamespace"
@@ -145,7 +150,7 @@ instance FromJSON Service where
             <*> pure ops
             <*> pure def
             <*> o .:? "required" .!= mempty
-            <*> o .:  "cabal"
+            <*> ((\f -> f n d) <$> o .: "cabal")
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $ \o ->

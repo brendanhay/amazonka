@@ -50,7 +50,7 @@ JSON := \
 # and my understanding of the service is too limited.
 # cognito-sync
 
-MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
+MODELS ?= $(RESTS3) # $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 

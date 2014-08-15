@@ -447,9 +447,9 @@ library :: Abbrev -> Library
 library = Library . mappend "amazonka-" . Text.toLower . unAbbrev
 
 data Cabal = Cabal
-    { _cblSynopsis      :: Text
+    { _cblVersion       :: Version
+    , _cblSynopsis      :: Text
     , _cblDocumentation :: Doc
-    , _cblVersion       :: Version
     } deriving (Show, Generic)
 
 data Service = Service
@@ -516,6 +516,7 @@ defaultService a = Service
     , _svcOperations       = mempty
     , _svcTypes            = mempty
     , _svcRequired         = mempty
+    , _svcCabal            = Cabal (Version "0.1.0.0") (unAbbrev a) def
     }
 
 makeLenses ''Request

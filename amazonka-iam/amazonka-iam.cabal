@@ -26,6 +26,85 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          Network.AWS.IAM
+        , Network.AWS.IAM.V2010_05_08
+        , Network.AWS.IAM.V2010_05_08.Types
+        , Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole
+        , Network.AWS.IAM.V2010_05_08.CreateAccessKey
+        , Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
+        , Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy
+        , Network.AWS.IAM.V2010_05_08.UpdateAccountPasswordPolicy
+        , Network.AWS.IAM.V2010_05_08.GetUserPolicy
+        , Network.AWS.IAM.V2010_05_08.GetRole
+        , Network.AWS.IAM.V2010_05_08.DeactivateMFADevice
+        , Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice
+        , Network.AWS.IAM.V2010_05_08.ListRoles
+        , Network.AWS.IAM.V2010_05_08.ListUserPolicies
+        , Network.AWS.IAM.V2010_05_08.DeleteRole
+        , Network.AWS.IAM.V2010_05_08.ListUsers
+        , Network.AWS.IAM.V2010_05_08.PutUserPolicy
+        , Network.AWS.IAM.V2010_05_08.DeleteUserPolicy
+        , Network.AWS.IAM.V2010_05_08.CreateRole
+        , Network.AWS.IAM.V2010_05_08.GetCredentialReport
+        , Network.AWS.IAM.V2010_05_08.GetAccountSummary
+        , Network.AWS.IAM.V2010_05_08.ListGroupPolicies
+        , Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.CreateInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.CreateSAMLProvider
+        , Network.AWS.IAM.V2010_05_08.DeleteAccountAlias
+        , Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup
+        , Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy
+        , Network.AWS.IAM.V2010_05_08.PutGroupPolicy
+        , Network.AWS.IAM.V2010_05_08.GetLoginProfile
+        , Network.AWS.IAM.V2010_05_08.GetGroupPolicy
+        , Network.AWS.IAM.V2010_05_08.ChangePassword
+        , Network.AWS.IAM.V2010_05_08.ListServerCertificates
+        , Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy
+        , Network.AWS.IAM.V2010_05_08.GetInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.CreateLoginProfile
+        , Network.AWS.IAM.V2010_05_08.GetSAMLProvider
+        , Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile
+        , Network.AWS.IAM.V2010_05_08.ListGroupsForUser
+        , Network.AWS.IAM.V2010_05_08.AddUserToGroup
+        , Network.AWS.IAM.V2010_05_08.GetUser
+        , Network.AWS.IAM.V2010_05_08.ListSigningCertificates
+        , Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate
+        , Network.AWS.IAM.V2010_05_08.UpdateSigningCertificate
+        , Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices
+        , Network.AWS.IAM.V2010_05_08.ResyncMFADevice
+        , Network.AWS.IAM.V2010_05_08.DeleteAccessKey
+        , Network.AWS.IAM.V2010_05_08.UpdateAccessKey
+        , Network.AWS.IAM.V2010_05_08.ListAccessKeys
+        , Network.AWS.IAM.V2010_05_08.GetRolePolicy
+        , Network.AWS.IAM.V2010_05_08.CreateUser
+        , Network.AWS.IAM.V2010_05_08.PutRolePolicy
+        , Network.AWS.IAM.V2010_05_08.UploadSigningCertificate
+        , Network.AWS.IAM.V2010_05_08.DeleteRolePolicy
+        , Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
+        , Network.AWS.IAM.V2010_05_08.UpdateUser
+        , Network.AWS.IAM.V2010_05_08.DeleteUser
+        , Network.AWS.IAM.V2010_05_08.ListRolePolicies
+        , Network.AWS.IAM.V2010_05_08.CreateAccountAlias
+        , Network.AWS.IAM.V2010_05_08.ListInstanceProfiles
+        , Network.AWS.IAM.V2010_05_08.EnableMFADevice
+        , Network.AWS.IAM.V2010_05_08.ListAccountAliases
+        , Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider
+        , Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider
+        , Network.AWS.IAM.V2010_05_08.CreateGroup
+        , Network.AWS.IAM.V2010_05_08.ListMFADevices
+        , Network.AWS.IAM.V2010_05_08.UploadServerCertificate
+        , Network.AWS.IAM.V2010_05_08.ListSAMLProviders
+        , Network.AWS.IAM.V2010_05_08.GetServerCertificate
+        , Network.AWS.IAM.V2010_05_08.DeleteGroup
+        , Network.AWS.IAM.V2010_05_08.UpdateGroup
+        , Network.AWS.IAM.V2010_05_08.ListGroups
+        , Network.AWS.IAM.V2010_05_08.GenerateCredentialReport
+        , Network.AWS.IAM.V2010_05_08.UpdateLoginProfile
+        , Network.AWS.IAM.V2010_05_08.DeleteLoginProfile
+        , Network.AWS.IAM.V2010_05_08.GetGroup
+        , Network.AWS.IAM.V2010_05_08.DeleteServerCertificate
+        , Network.AWS.IAM.V2010_05_08.UpdateServerCertificate
 
     build-depends:
           amazonka-core

@@ -26,6 +26,12 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          {{ namespace }}
+        , {{ version_namespace }}
+        , {{ types_namespace }}
+{% for op in operations %}
+        , {{ op.value.namespace }}
+{% endfor %}
 
     build-depends:
           amazonka-core

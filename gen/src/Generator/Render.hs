@@ -102,6 +102,9 @@ render dir assets ss = do
   where
     write lbl f t e = render' lbl dir f t (env e)
 
+    -- FIXME: doesnt currently support writing out multiple versions of the
+    -- same service to the same dir/cabal file.
+
     go !as !Templates{..} !s@Service{..} = do
         forM_ _svcOperations $ \x ->
             write "Render Operation" (rel (_opNamespace x)) o x

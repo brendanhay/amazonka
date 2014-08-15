@@ -26,6 +26,28 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          Network.AWS.DirectConnect
+        , Network.AWS.DirectConnect.V2012_10_25
+        , Network.AWS.DirectConnect.V2012_10_25.Types
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
+        , Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
+        , Network.AWS.DirectConnect.V2012_10_25.CreateConnection
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
+        , Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
+        , Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
+        , Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
+        , Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
+        , Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
+        , Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface
+        , Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
+        , Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect
 
     build-depends:
           amazonka-core

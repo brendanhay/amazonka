@@ -26,6 +26,26 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          Network.AWS.EMR
+        , Network.AWS.EMR.V2009_03_31
+        , Network.AWS.EMR.V2009_03_31.Types
+        , Network.AWS.EMR.V2009_03_31.RunJobFlow
+        , Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers
+        , Network.AWS.EMR.V2009_03_31.TerminateJobFlows
+        , Network.AWS.EMR.V2009_03_31.DescribeStep
+        , Network.AWS.EMR.V2009_03_31.RemoveTags
+        , Network.AWS.EMR.V2009_03_31.DescribeCluster
+        , Network.AWS.EMR.V2009_03_31.SetTerminationProtection
+        , Network.AWS.EMR.V2009_03_31.AddJobFlowSteps
+        , Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups
+        , Network.AWS.EMR.V2009_03_31.ListSteps
+        , Network.AWS.EMR.V2009_03_31.DescribeJobFlows
+        , Network.AWS.EMR.V2009_03_31.AddInstanceGroups
+        , Network.AWS.EMR.V2009_03_31.ListInstanceGroups
+        , Network.AWS.EMR.V2009_03_31.ListBootstrapActions
+        , Network.AWS.EMR.V2009_03_31.AddTags
+        , Network.AWS.EMR.V2009_03_31.ListInstances
+        , Network.AWS.EMR.V2009_03_31.ListClusters
 
     build-depends:
           amazonka-core

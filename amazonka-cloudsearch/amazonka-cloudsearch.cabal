@@ -26,6 +26,33 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          Network.AWS.CloudSearch
+        , Network.AWS.CloudSearch.V2013_01_01
+        , Network.AWS.CloudSearch.V2013_01_01.Types
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeExpressions
+        , Network.AWS.CloudSearch.V2013_01_01.DefineExpression
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeSuggesters
+        , Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteExpression
+        , Network.AWS.CloudSearch.V2013_01_01.ListDomainNames
+        , Network.AWS.CloudSearch.V2013_01_01.DefineSuggester
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeDomains
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeAnalysisSchemes
+        , Network.AWS.CloudSearch.V2013_01_01.CreateDomain
+        , Network.AWS.CloudSearch.V2013_01_01.DescribeIndexFields
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteSuggester
+        , Network.AWS.CloudSearch.V2013_01_01.DefineAnalysisScheme
+        , Network.AWS.CloudSearch.V2013_01_01.IndexDocuments
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField
+        , Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies
+        , Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters
+        , Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters
+        , Network.AWS.CloudSearch.V2013_01_01.DeleteDomain
+        , Network.AWS.CloudSearch.V2013_01_01.DefineIndexField
 
     build-depends:
           amazonka-core

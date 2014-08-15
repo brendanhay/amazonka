@@ -26,6 +26,14 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          Network.AWS.ImportExport
+        , Network.AWS.ImportExport.V2010_06_01
+        , Network.AWS.ImportExport.V2010_06_01.Types
+        , Network.AWS.ImportExport.V2010_06_01.CreateJob
+        , Network.AWS.ImportExport.V2010_06_01.ListJobs
+        , Network.AWS.ImportExport.V2010_06_01.UpdateJob
+        , Network.AWS.ImportExport.V2010_06_01.GetStatus
+        , Network.AWS.ImportExport.V2010_06_01.CancelJob
 
     build-depends:
           amazonka-core

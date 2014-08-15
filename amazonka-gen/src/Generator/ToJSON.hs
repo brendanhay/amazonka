@@ -69,6 +69,9 @@ instance ToJSON JSONV where
 instance ToJSON Library where
     toJSON (Library l) = toJSON l
 
+instance ToJSON Cabal where
+    toJSON = toField (recase Camel Under . drop 4)
+
 instance ToJSON Service where
     toJSON s = Object (x <> y)
       where

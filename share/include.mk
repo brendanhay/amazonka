@@ -12,8 +12,7 @@ install: cabal.sandbox.config
 	cabal install -j \
  --disable-documentation \
  --disable-library-coverage \
- --only-dependencies \
- --avoid-reinstalls
+ --only-dependencies
 
 cabal.sandbox.config:
 	cabal sandbox init --sandbox=$(SANDBOX)

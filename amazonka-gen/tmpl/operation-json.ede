@@ -20,8 +20,6 @@ import Network.AWS.Request.JSON
 import {{ types_namespace }}
 import Network.AWS.Prelude
 import qualified Network.AWS.Types.Map as Map
-{% if service == "DynamoDB" %}
-{% endif %}
 {% if alias %}
 
 type {{ alias }} = {{ request.name }}

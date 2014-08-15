@@ -47,3 +47,4 @@ library
     build-depends:
           amazonka-core
         , base          == 4.7.*
+        , lens

@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Generator.Models
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,7 +18,6 @@ module Generator.Models
 
 import Control.Applicative
 import Control.Error
-import Control.Monad.IO.Class
 import Data.List
 import Data.Ord
 import Generator.Log
@@ -27,7 +27,7 @@ import System.FilePath
 data Model = Model
     { modPath    :: FilePath
     , modVersion :: String
-    , modGlobal  :: Maybe FilePath
+    , modGlobal  :: FilePath
     , modLocal   :: Maybe FilePath
     } deriving (Show, Eq)
 
@@ -45,22 +45,29 @@ models n o xs = concat . fmap (take n . reverse . sort) <$> mapM model xs
 fromPath :: FilePath -> FilePath -> String -> Script Model
 fromPath o d f = do
     (p, g, l) <- scriptIO $ (,,)
-        <$> doesFileExist file
-        <*> doesFileExist global
-        <*> doesFileExist local
+        <$> check file
+        <*> check global
+        <*> check local
 
-    bool (left ("Unable to locate model: " ++ file))
-         (do say "Located Model" file
-             override g global
-             override l local
-             right $ Model file (dropExtension f) (may g global) (may l local))
-         p
+    Model file
+        <$> (dropExtension <$> must p)
+        <*> must g
+        <*> may  l
   where
     file   = d </> f
     global = o </> takeBaseName d <.> ".override.json"
     local  = o </> takeBaseName d </> replaceExtension f ".override.json"
 
-    may = bool (const Nothing) Just
+    check p = (p,) <$> doesFileExist p
 
-    override :: MonadIO m => Bool -> (String -> m ())
-    override = bool (say "Missing Override") (say "Located Override")
+    must :: (FilePath, Bool) -> Script FilePath
+    must (p, e) =
+        bool (left $ "Unable to locate: " ++ p)
+             (right p)
+             e
+
+    may :: (FilePath, Bool) -> Script (Maybe FilePath)
+    may (p, e) =
+        bool (say "Missing Override" p >> right Nothing)
+             (right (Just p))
+             e

@@ -56,7 +56,7 @@ parseModel :: Model -> Script Service
 parseModel Model{..} = do
     (s, g, l) <- (,,)
         <$> load "Service"  (Just modPath)
-        <*> load "Override" modGlobal
+        <*> load "Override" (Just modGlobal)
         <*> load "Override" modLocal
 
     -- First merge local, then global overrides.
@@ -111,6 +111,12 @@ instance FromJSON JSONV where
     parseJSON (Number n) = return . JSONV . Text.pack $ show n
     parseJSON e          = fail $ "Unrecognised JSONV field: " ++ show e
 
+instance FromJSON Version where
+    parseJSON = withText "version" (return . Version)
+
+instance FromJSON Cabal where
+    parseJSON = fromField (recase Camel Under)
+
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
         n   <- o .: "service_full_name"
@@ -139,6 +145,7 @@ instance FromJSON Service where
             <*> pure ops
             <*> pure def
             <*> o .:? "required" .!= mempty
+            <*> o .:  "cabal"
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $ \o ->

@@ -1,6 +1,6 @@
 name:                  {{ library }}
-version:               0.1.0.0
-synopsis:              {{ full_name }}
+version:               {{ cabal.version }}
+synopsis:              {{ cabal.synopsis }}
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 license-file:          LICENSE
@@ -13,7 +13,7 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    {{ cabal.documentation | indent4 }}
 
 source-repository head
     type:     git

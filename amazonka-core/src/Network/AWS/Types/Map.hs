@@ -42,6 +42,8 @@ newtype Map k v = Map { toHashMap :: HashMap k v }
         , Monoid
         )
 
+null = Map.null . toHashMap
+
 instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
     parseJSON = withObject "HashMap" f
       where

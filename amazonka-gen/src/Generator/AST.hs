@@ -446,15 +446,17 @@ newtype Library = Library Text
 library :: Abbrev -> Library
 library = Library . mappend "amazonka-" . Text.toLower . unAbbrev
 
+data Cabal = Cabal
+    { _cblSynopsis      :: Text
+    , _cblDocumentation :: Doc
+    , _cblVersion       :: Version
+    } deriving (Show, Generic)
+
 data Service = Service
     { _svcName             :: Abbrev
     , _svcLibrary          :: Library
     , _svcFullName         :: Text
     , _svcNamespace        :: NS
-
--- add a hackage synopsis + description field here which can be annotated
--- in the overrides
-
     , _svcVersionNamespace :: NS
     , _svcTypesNamespace   :: NS
     , _svcVersion          :: Version
@@ -474,6 +476,7 @@ data Service = Service
     , _svcOperations       :: [Operation]
     , _svcTypes            :: [Type]
     , _svcRequired         :: HashMap Text [CI Text]
+    , _svcCabal            :: Cabal
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -524,6 +527,7 @@ makeLenses ''Token
 makeLenses ''HTTP
 makeLenses ''Response
 makeLenses ''Operation
+makeLenses ''Cabal
 makeLenses ''Service
 makeLenses ''Struct
 makeLenses ''List

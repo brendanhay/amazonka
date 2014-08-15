@@ -6,7 +6,7 @@ SHELL   := /usr/bin/env bash
 SANDBOX := $(TOP)/.cabal-sandbox
 
 build:
-	cabal build
+	cabal build -j
 
 install: cabal.sandbox.config
 	cabal install -j \

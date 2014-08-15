@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric             #-}
-{-# LANGUAGE FlexibleInstances         #-}
-{-# LANGUAGE NoImplicitPrelude         #-}
-{-# LANGUAGE OverloadedStrings         #-}
-{-# LANGUAGE RecordWildCards           #-}
-{-# LANGUAGE TemplateHaskell           #-}
-{-# LANGUAGE TypeFamilies              #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TemplateHaskell             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.V2006_03_01.GetObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>

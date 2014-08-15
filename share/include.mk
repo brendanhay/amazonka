@@ -24,7 +24,7 @@ cabal.sandbox.config:
 
 clean:
 	cabal clean
-	rm -f cabal.sandbox.config
+	rm -f gen cabal.sandbox.config
 
 doc:
 	cabal haddock

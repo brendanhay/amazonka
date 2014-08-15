@@ -47,10 +47,10 @@ instance ToPath Library where
     toPath (Library l) = Text.unpack l
 
 instance ToPath Abbrev where
-    toPath (Abbrev a) = "src/Network/AWS" </> Text.unpack a <.> "hs"
+    toPath (Abbrev a) = "gen/Network/AWS" </> Text.unpack a <.> "hs"
 
 instance ToPath NS where
-    toPath (NS xs) = "src" </> Text.unpack (Text.intercalate "/" xs) <.> "hs"
+    toPath (NS xs) = "gen" </> Text.unpack (Text.intercalate "/" xs) <.> "hs"
 
 data Templates = Templates
     { tmplCabal   :: Template

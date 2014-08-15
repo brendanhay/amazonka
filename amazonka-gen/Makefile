@@ -71,8 +71,7 @@ install: add-sources
 
 clean:
 	cabal clean
-	rm -rf $(addprefix $(TOP),$(MODELS)) \
-	 cabal.sandbox.config .cabal-sandbox vendor
+	rm -rf cabal.sandbox.config .cabal-sandbox vendor
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/ede

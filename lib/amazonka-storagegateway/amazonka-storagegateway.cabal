@@ -1,0 +1,82 @@
+name:                  amazonka-storagegateway
+version:               0.1.0.0
+synopsis:              AWS Storage Gateway
+homepage:              https://github.com/brendanhay/amazonka
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            brendan.g.hay@gmail.com
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Pending
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.StorageGateway
+        , Network.AWS.StorageGateway.V2013_06_30
+        , Network.AWS.StorageGateway.V2013_06_30.Types
+        , Network.AWS.StorageGateway.V2013_06_30.CancelArchival
+        , Network.AWS.StorageGateway.V2013_06_30.CreateStorediSCSIVolume
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeChapCredentials
+        , Network.AWS.StorageGateway.V2013_06_30.CreateTapes
+        , Network.AWS.StorageGateway.V2013_06_30.CreateCachediSCSIVolume
+        , Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeMaintenanceStartTime
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes
+        , Network.AWS.StorageGateway.V2013_06_30.AddCache
+        , Network.AWS.StorageGateway.V2013_06_30.StartGateway
+        , Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateGatewaySoftwareNow
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteChapCredentials
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeUploadBuffer
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeTapes
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes
+        , Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPoint
+        , Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeRecoveryPoint
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteGateway
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeGatewayInformation
+        , Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeArchive
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives
+        , Network.AWS.StorageGateway.V2013_06_30.DisableGateway
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeBandwidthRateLimit
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateSnapshotSchedule
+        , Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot
+        , Network.AWS.StorageGateway.V2013_06_30.CancelRetrieval
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeVTLDevices
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive
+        , Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
+        , Network.AWS.StorageGateway.V2013_06_30.ListGateways
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteTape
+        , Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks
+        , Network.AWS.StorageGateway.V2013_06_30.ListVolumes
+        , Network.AWS.StorageGateway.V2013_06_30.UpdateBandwidthRateLimit
+        , Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteBandwidthRateLimit
+        , Network.AWS.StorageGateway.V2013_06_30.ActivateGateway
+        , Network.AWS.StorageGateway.V2013_06_30.DescribeCache
+        , Network.AWS.StorageGateway.V2013_06_30.DeleteVolume
+
+    build-depends:
+          amazonka-core
+        , base          == 4.7.*

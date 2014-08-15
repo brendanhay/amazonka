@@ -103,9 +103,12 @@ render dir assets ss = do
     write lbl f t e = render' lbl dir f t (env e)
 
     -- FIXME: doesnt currently support writing out multiple versions of the
-    -- same service to the same dir/cabal file.
+    -- same service to the same cabal file.
 
     go !as !Templates{..} !s@Service{..} = do
+        say "Create Src" src
+        scriptIO (createDirectoryIfMissing True src)
+
         forM_ _svcOperations $ \x ->
             write "Render Operation" (rel (_opNamespace x)) o x
 
@@ -117,11 +120,10 @@ render dir assets ss = do
         forM_ as $ \x ->
             let f = rel (takeFileName x)
              in say "Copying Asset" f >> scriptIO (copyFile x f)
-
-        say "Create Src" >> createDirectoryIfMissing True (rel "src")
       where
-
         (t, o) = tmplService _svcType
+
+        src = rel ("src" :: FilePath)
 
         rel :: ToPath a => a -> FilePath
         rel = combine dir . combine lib . toPath

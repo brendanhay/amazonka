@@ -178,11 +178,14 @@ paginate :: ( MonadBaseControl IO m
             )
          => a
          -> m (Rs a, Maybe a)
-paginate = hoistEither <=< paginateCatch
+paginate rq = do
+    (e, m) <- paginateCatch rq
+    rs     <- hoistEither e
+    return $! (rs, m)
 
 paginateCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSPager a)
               => a
-              -> m (Either (Er (Sv a)) (Rs a, Maybe a))
+              -> m (Either (Er (Sv a)) (Rs a), Maybe a)
 paginateCatch rq = scoped (\e -> AWS.paginate e rq)
 
 async :: (MonadBaseControl IO m, MonadReader Env m)

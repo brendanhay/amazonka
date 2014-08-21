@@ -52,7 +52,6 @@ import           Control.Monad
 import           Control.Monad.Base
 import           Control.Monad.Except
 import           Control.Monad.Trans.Control
-import           Data.Bifunctor
 import           Data.ByteString             (ByteString)
 import           Data.Monoid
 import qualified Data.Text                   as Text
@@ -83,8 +82,10 @@ newEnv r c = Env r None
 paginate :: (MonadBaseControl IO m, AWSPager a)
          => Env
          -> a
-         -> m (Either (Er (Sv a)) (Rs a, Maybe a))
-paginate e rq = fmap (second (next rq) . join (,)) `liftM` send e rq
+         -> m (Either (Er (Sv a)) (Rs a), Maybe a)
+paginate e rq = do
+    x <- send e rq
+    return $! (x, either (const Nothing) (next rq) x)
 
 send :: (MonadBaseControl IO m, AWSRequest a)
      => Env

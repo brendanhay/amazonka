@@ -14,13 +14,16 @@
 module Network.AWS.Data.Body
     (
     -- * Response
-      RsBody (..)
+      RsBody      (..)
 
     -- * Request
-    , RqBody (..)
+    , RqBody      (..)
 
     -- * Classes
-    , ToBody (..)
+    , ToBody      (..)
+
+    -- * Re-exports
+    , RequestBody (..)
     ) where
 
 import           Crypto.Hash

@@ -16,33 +16,33 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS
-   (
-   -- * Environment
-     Env (..)
-   -- ** Lenses
-   , envAuth
-   , envRegion
-   , envManager
-   , envLogging
+    (
+    -- * Environment
+      Env (..)
+    -- ** Lenses
+    , envAuth
+    , envRegion
+    , envManager
+    , envLogging
 
-   -- ** Creating the environment
-   , newEnv
+    -- ** Creating the environment
+    , newEnv
 
-   -- * Synchronous requests
-   -- ** Strict
-   , send
-   -- ** Streaming
-   , with
-   -- ** Pagination
-   , paginate
+    -- * Synchronous requests
+    -- ** Strict
+    , send
+    -- ** Streaming
+    , with
+    -- ** Pagination
+    , paginate
 
-   -- * Signing URLs
-   , presign
+    -- * Signing URLs
+    , presign
 
-   -- * Request primitives
-   , open
-   , close
-   ) where
+    -- * Request primitives
+    , open
+    , close
+    ) where
 
 import           Control.Applicative
 import           Control.Exception.Lifted

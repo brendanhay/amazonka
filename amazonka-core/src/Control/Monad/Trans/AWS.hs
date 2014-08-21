@@ -153,7 +153,7 @@ send = hoistEither <=< sendCatch
 sendCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSRequest a)
           => a
           -> m (Either (Er (Sv a)) (Rs a))
-sendCatch rq = scoped $ \e -> AWS.send e rq
+sendCatch rq = scoped (\e -> AWS.send e rq)
 
 with :: ( MonadBaseControl IO m
         , MonadReader Env m
@@ -169,7 +169,7 @@ withCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSRequest a)
           => a
           -> (Rs a -> m ByteString -> m b)
           -> m (Either (Er (Sv a)) b)
-withCatch rq f = scoped $ \e -> AWS.with e rq f
+withCatch rq f = scoped (\e -> AWS.with e rq f)
 
 paginate :: ( MonadBaseControl IO m
             , MonadReader Env m
@@ -183,7 +183,7 @@ paginate = hoistEither <=< paginateCatch
 paginateCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSPager a)
               => a
               -> m (Either (Er (Sv a)) (Rs a, Maybe a))
-paginateCatch rq = scoped $ \e -> AWS.paginate e rq
+paginateCatch rq = scoped (\e -> AWS.paginate e rq)
 
 async :: (MonadBaseControl IO m, MonadReader Env m)
       => AWST m a

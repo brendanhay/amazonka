@@ -27,14 +27,15 @@ module Network.AWS.Signing.V4
 
 import           Control.Applicative
 import           Control.Lens
-import qualified Crypto.Hash.SHA256        as SHA256
-import           Data.ByteString           (ByteString)
-import qualified Data.ByteString.Base16    as Base16
-import qualified Data.ByteString.Char8     as BS
-import qualified Data.CaseInsensitive      as CI
-import qualified Data.Foldable             as Fold
+import           Crypto.Hash                (digestToHexByteString)
+import qualified Crypto.Hash.SHA256         as SHA256
+import           Data.ByteString            (ByteString)
+import qualified Data.ByteString.Base16     as Base16
+import qualified Data.ByteString.Char8      as BS
+import qualified Data.CaseInsensitive       as CI
+import qualified Data.Foldable              as Fold
 import           Data.Function
-import           Data.List                 (groupBy, intersperse, sortBy, sort)
+import           Data.List                  (groupBy, intersperse, sortBy, sort)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
@@ -179,7 +180,7 @@ finalise p qry s@Service'{..} AuthEnv{..} r Request{..} l t = Signed meta rq
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders
-       , _bdyHash _rqBody
+       , digestToHexByteString (_bdyHash _rqBody)
        ]
 
     scope =

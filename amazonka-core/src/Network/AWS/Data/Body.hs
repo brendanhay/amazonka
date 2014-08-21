@@ -11,24 +11,26 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Body where
-    -- (
-    -- -- * Types
-    --   BodySource (..)
-    -- , Body
-    -- , clientBody
-    -- , payloadHash
+module Network.AWS.Data.Body
+    (
+    -- * Response
+      RsBody (..)
 
-    -- -- * Classes
-    -- , ToBody (..)
-    -- ) where
+    -- * Request
+    , RqBody (..)
 
-import qualified           Crypto.Hash.SHA256 as SHA256
+    -- * Classes
+    , ToBody (..)
+    ) where
+
+import           Crypto.Hash
+import qualified Crypto.Hash.SHA256         as SHA256
 import           Data.Aeson
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Base16     as Base16
 import qualified Data.ByteString.Lazy       as LBS
 import qualified Data.ByteString.Lazy.Char8 as LBS8
+import           Data.Monoid
 import           Data.String
 import           Network.HTTP.Client
 
@@ -39,7 +41,7 @@ instance Show RsBody where
     show = const "RsBody <body>"
 
 data RqBody = RqBody
-    { _bdyHash :: ByteString
+    { _bdyHash :: Digest SHA256
     , _bdyBody :: RequestBody
     }
 
@@ -51,13 +53,13 @@ instance IsString RqBody where
 
 class ToBody a where
     toBody :: a -> RqBody
-    toBody = const (RqBody (base16SHA256 "") (RequestBodyLBS ""))
+    toBody = const (RqBody (hash "") (RequestBodyLBS mempty))
 
 instance ToBody RqBody where
     toBody = id
 
 instance ToBody LBS.ByteString where
-    toBody lbs = RqBody (base16SHA256 lbs) (RequestBodyLBS lbs)
+    toBody lbs = RqBody (hashlazy lbs) (RequestBodyLBS lbs)
 
 instance ToBody ByteString where
     toBody = toBody . LBS.fromStrict
@@ -65,5 +67,3 @@ instance ToBody ByteString where
 instance ToBody Value where
     toBody = toBody . encode
 
-base16SHA256 :: LBS8.ByteString -> ByteString
-base16SHA256 = Base16.encode . SHA256.hashlazy

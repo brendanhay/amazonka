@@ -79,7 +79,7 @@ paginate e = newResumableSource . go
             else maybe (return ()) go y
 
 sourceBody :: Digest SHA256 -> Int64 -> Source IO ByteString -> RqBody
-sourceBody h n = RqBody h . RequestBodyStream n . sourceToPopper
+sourceBody h n = RqBody h . RequestBodyStream n . sourcePopper
 
 sourceHandle :: Digest SHA256 -> Int64 -> Handle -> RqBody
 sourceHandle h n = sourceBody h n . Conduit.sourceHandle

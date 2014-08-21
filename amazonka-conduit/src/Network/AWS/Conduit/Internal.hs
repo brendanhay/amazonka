@@ -17,9 +17,9 @@ import qualified Data.ByteString     as BS
 import           Data.Conduit
 import           Data.IORef
 
-sourceToPopper :: Source IO ByteString
+sourcePopper :: Source IO ByteString
                -> ((IO ByteString -> IO ()) -> IO ())
-sourceToPopper src f = do
+sourcePopper src f = do
     (r, ()) <- src $$+ return ()
     ref     <- newIORef r
     f (go ref)

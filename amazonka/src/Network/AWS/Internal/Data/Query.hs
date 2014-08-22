@@ -10,7 +10,7 @@
 
 {-# LANGUAGE RankNTypes #-} -- Required for 'deep'
 
--- Module      : Network.AWS.Data.Query
+-- Module      : Network.AWS.Internal.Data.Query
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Query
+module Network.AWS.Internal.Data.Query
     (
     -- * Types
       QueryOptions (..)
@@ -60,9 +60,9 @@ import           Data.Monoid
 import           Data.String
 import           Data.Text                   (Text)
 import           GHC.Generics
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Text
-import           Network.AWS.Data.Time
+import           Network.AWS.Internal.Data.ByteString
+import           Network.AWS.Internal.Data.Text
+import           Network.AWS.Internal.Data.Time
 
 data Query
     = List  [Query]

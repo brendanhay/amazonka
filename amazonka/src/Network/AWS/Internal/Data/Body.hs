@@ -1,7 +1,7 @@
 {-# LANGUAGE GADTs             #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Data.Body
+-- Module      : Network.AWS.Internal.Data.Body
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -11,7 +11,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Body
+module Network.AWS.Internal.Data.Body
     (
     -- * Response
       RsBody      (..)
@@ -32,7 +32,8 @@ import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Conduit
 import           Data.Monoid
 import           Data.String
-import           Network.AWS.Data.Text
+import qualified Data.Text                    as Text
+import           Network.AWS.Internal.Data.Text
 import           Network.HTTP.Conduit
 
 data RsBody where
@@ -41,6 +42,9 @@ data RsBody where
 instance ToText RsBody where
     toText = const "RsBody <body>"
 
+instance Show RsBody where
+    show = Text.unpack . toText
+
 data RqBody = RqBody
     { _bdyHash :: Digest SHA256
     , _bdyBody :: RequestBody
@@ -48,6 +52,9 @@ data RqBody = RqBody
 
 instance ToText RqBody where
     toText (RqBody h _) = "RqBody " <> toText h <> " <body>"
+
+instance Show RqBody where
+    show = Text.unpack . toText
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
@@ -77,7 +84,7 @@ instance ToBody Value where
 -- sourceFile :: Digest SHA256 -> Int64 -> FilePath -> RqBody
 -- sourceFile h n = sourceBody h n . hoist runResourceT . Conduit.sourceFile
 
--- sourceFileIO :: MonadIO m => FilePath -> m RqBody
+-- sourceFileIO :: MonadIO m => FilePath ->  RqBody
 -- sourceFileIO f = sourceFile
 --     <$> runResourceT (Conduit.sourceFile f $$ Conduit.sinkHash)
 --     <*> (fromIntegral <$> withBinaryFile f ReadMode hFileSize)

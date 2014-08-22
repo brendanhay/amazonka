@@ -17,7 +17,7 @@ module Network.AWS.Request.RestXML
 
 import Control.Lens
 import Network.AWS.Data
-import Network.AWS.Request.Common
+import Network.AWS.Internal.Request
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 

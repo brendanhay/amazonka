@@ -7,7 +7,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE StandaloneDeriving  #-}
 
--- Module      : Network.AWS.Data.Time
+-- Module      : Network.AWS.Internal.Data.Time
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -17,7 +17,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Time where
+module Network.AWS.Internal.Data.Time where
 
 import           Control.Applicative
 import           Data.Aeson
@@ -28,9 +28,9 @@ import           Data.Tagged
 import qualified Data.Text                   as Text
 import           Data.Time
 import           Data.Time.Clock.POSIX
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Text
-import           Network.AWS.Data.XML
+import           Network.AWS.Internal.Data.ByteString
+import           Network.AWS.Internal.Data.Text
+import           Network.AWS.Internal.Data.XML
 import           System.Locale
 
 data Format

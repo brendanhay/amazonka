@@ -10,7 +10,7 @@
 
 module Network.AWS.Request.RestS3
     ( get
-    , Network.AWS.Request.Common.head
+    , Network.AWS.Internal.Request.head
     , delete
     , put
     , post
@@ -18,7 +18,7 @@ module Network.AWS.Request.RestS3
 
 import Control.Lens
 import Network.AWS.Data
-import Network.AWS.Request.Common
+import Network.AWS.Internal.Request
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 

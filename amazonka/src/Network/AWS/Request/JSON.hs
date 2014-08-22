@@ -19,7 +19,7 @@ import Control.Lens
 import Data.Aeson
 import Data.Default
 import Network.AWS.Data
-import Network.AWS.Request.Common
+import Network.AWS.Internal.Request
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 

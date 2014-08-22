@@ -3,7 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Signing.Common
+-- Module      : Network.AWS.Internal.Signing
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,7 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing.Common where
+module Network.AWS.Internal.Signing where
 
 import           Control.Monad.IO.Class
 import qualified Crypto.Hash.SHA256     as SHA256

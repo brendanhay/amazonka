@@ -20,10 +20,10 @@ module Network.AWS.Signing.V3
     , Meta (..)
 
     -- * Re-exports
-    , module Network.AWS.Signing.Common
+    , module Network.AWS.Internal.Signing
     ) where
 
-import Network.AWS.Signing.Common
+import Network.AWS.Internal.Signing
 import Network.AWS.Types
 
 data V3

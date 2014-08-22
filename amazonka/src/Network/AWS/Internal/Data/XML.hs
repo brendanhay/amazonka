@@ -7,7 +7,7 @@
 {-# LANGUAGE ScopedTypeVariables  #-}
 {-# LANGUAGE TypeOperators        #-}
 
--- Module      : Network.AWS.Data.XML
+-- Module      : Network.AWS.Internal.Data.XML
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -17,7 +17,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.XML where
+module Network.AWS.Internal.Data.XML where
 
 import           Control.Applicative
 import           Control.Monad
@@ -35,7 +35,7 @@ import qualified Data.Text.Encoding         as Text
 import           GHC.Generics
 import           Text.XML
 import           Text.XML.Cursor
-import           Network.AWS.Data.Text
+import           Network.AWS.Internal.Data.Text
 
 -- FIXME: rather than returning a string, return typed exceptions which can be
 -- rolled into the service serialisation errors branch.

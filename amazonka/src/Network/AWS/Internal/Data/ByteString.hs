@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.ByteString
+module Network.AWS.Internal.Data.ByteString
     (
     -- * Classes
     -- ** ToByteString
@@ -35,7 +35,7 @@ import           Data.Char
 import           Data.Int
 import           Data.Text                  (Text)
 import qualified Data.Text.Encoding         as Text
-import           Network.AWS.Data.Text
+import           Network.AWS.Internal.Data.Text
 import           Network.HTTP.Types.Method
 
 showBS :: ToByteString a => a -> String

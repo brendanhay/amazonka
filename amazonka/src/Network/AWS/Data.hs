@@ -32,12 +32,12 @@ module Network.AWS.Data
     , module URI
     ) where
 
-import Network.AWS.Data.Body       as Body
-import Network.AWS.Data.ByteString as BS
-import Network.AWS.Data.Header     as Header
-import Network.AWS.Data.Path       as Path
-import Network.AWS.Data.Query      as Query
-import Network.AWS.Data.Text       as Text
-import Network.AWS.Data.Time       as Time
-import Network.AWS.Data.URI        as URI
-import Network.AWS.Data.XML        as XML
+import Network.AWS.Internal.Data.Body       as Body
+import Network.AWS.Internal.Data.ByteString as BS
+import Network.AWS.Internal.Data.Header     as Header
+import Network.AWS.Internal.Data.Path       as Path
+import Network.AWS.Internal.Data.Query      as Query
+import Network.AWS.Internal.Data.Text       as Text
+import Network.AWS.Internal.Data.Time       as Time
+import Network.AWS.Internal.Data.URI        as URI
+import Network.AWS.Internal.Data.XML        as XML

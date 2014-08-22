@@ -28,6 +28,7 @@ module Network.AWS
 
     -- ** Creating the environment
     , newEnv
+    , module Auth
 
     -- * Synchronous requests
     -- ** Strict
@@ -39,25 +40,20 @@ module Network.AWS
     , presign
     ) where
 
-import           Control.Applicative
-import           Control.Lens                 ((^.))
-import           Control.Lens.TH
-import           Control.Monad
-import           Control.Monad.Catch
-import           Control.Monad.Except
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Resource
-import           Data.ByteString              (ByteString)
-import           Data.Conduit
-import           Data.Monoid
-import qualified Data.Text                    as Text
-import           Data.Time
-import           Network.AWS.Auth
-import           Network.AWS.Data
-import           Network.AWS.Signing.Common
-import           Network.AWS.Types
-import           Network.HTTP.Conduit
+import Control.Applicative
+import Control.Lens                 ((^.))
+import Control.Lens.TH
+import Control.Monad.Catch
+import Control.Monad.Except
+import Control.Monad.Trans.Resource
+import Data.Conduit
+import Data.Monoid
+import Data.Time
+import Network.AWS.Data
+import Network.AWS.Internal.Auth    as Auth
+import Network.AWS.Internal.Signing
+import Network.AWS.Types
+import Network.HTTP.Conduit
 
 data Env = Env
     { _envRegion  :: Region

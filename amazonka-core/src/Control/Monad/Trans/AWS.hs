@@ -18,40 +18,40 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Control.Monad.Trans.AWS
-    (
-    -- * Monad
-      AWS
+module Control.Monad.Trans.AWS where
+    -- (
+    -- -- * Monad
+    --   AWS
 
-    -- * Transformer
-    , AWST
-    , runAWST
+    -- -- * Transformer
+    -- , AWST
+    -- , runAWST
 
-    -- * Helpers
-    , hoistEither
-    , scoped
+    -- -- * Helpers
+    -- , hoistEither
+    -- , scoped
 
-    -- * Regionalisation
-    , within
+    -- -- * Regionalisation
+    -- , within
 
-    -- * Synchronous requests
-    -- ** Strict
-    , send
-    , sendCatch
-    -- ** Streaming
-    , with
-    , withCatch
-    -- ** Pagination
-    , paginate
-    , paginateCatch
+    -- -- * Synchronous requests
+    -- -- ** Strict
+    -- , send
+    -- , sendCatch
+    -- -- ** Streaming
+    -- , with
+    -- , withCatch
+    -- -- ** Pagination
+    -- , paginate
+    -- , paginateCatch
 
-    -- * Asynchronous actions
-    , async
-    , wait
+    -- -- * Asynchronous actions
+    -- , async
+    -- , wait
 
-    -- * Signing URLs
-    , presign
-    ) where
+    -- -- * Signing URLs
+    -- , presign
+    -- ) where
 
 import           Control.Applicative
 import           Control.Concurrent.Async.Lifted (Async)
@@ -63,7 +63,8 @@ import           Control.Monad.Except
 import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
-import           Data.ByteString                 (ByteString)
+import           Control.Monad.Trans.Resource
+import           Data.Conduit
 import           Data.Time
 import           Network.AWS                     (Env(..), envRegion)
 import qualified Network.AWS                     as AWS
@@ -141,51 +142,42 @@ scoped f = ask >>= f
 within :: MonadReader Env m => Region -> m a -> m a
 within r = local (envRegion .~ r)
 
-send :: ( MonadBaseControl IO m
+send :: ( MonadCatch m
+        , MonadResource m
         , MonadReader Env m
         , MonadError Error m
         , AWSRequest a
         )
      => a
      -> m (Rs a)
-send = hoistEither <=< sendCatch
+send = sendCatch >=> hoistEither
 
-sendCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSRequest a)
+sendCatch :: ( MonadCatch m
+             , MonadResource m
+             , MonadReader Env m
+             , AWSRequest a
+             )
           => a
           -> m (Either (Er (Sv a)) (Rs a))
 sendCatch rq = scoped (\e -> AWS.send e rq)
 
-with :: ( MonadBaseControl IO m
-        , MonadReader Env m
-        , MonadError Error m
-        , AWSRequest a
-        )
-     => a
-     -> (Rs a -> m ByteString -> m b)
-     -> m b
-with rq = hoistEither <=< withCatch rq
-
-withCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSRequest a)
-          => a
-          -> (Rs a -> m ByteString -> m b)
-          -> m (Either (Er (Sv a)) b)
-withCatch rq f = scoped (\e -> AWS.with e rq f)
-
-paginate :: ( MonadBaseControl IO m
-            , MonadReader Env m
+paginate :: ( MonadCatch m
+            , MonadResource m
+            , MonadReader Env (ResumableSource m)
             , MonadError Error m
             , AWSPager a
             )
          => a
-         -> m (Rs a, Maybe a)
-paginate rq = do
-    (e, m) <- paginateCatch rq
-    rs     <- hoistEither e
-    return $! (rs, m)
+         -> ResumableSource m (Rs a)
+paginate rq = paginateCatch rq $=+ awaitForever (hoistEither >=> yield)
 
-paginateCatch :: (MonadBaseControl IO m, MonadReader Env m, AWSPager a)
+paginateCatch :: ( MonadCatch m
+                 , MonadResource m
+                 , MonadReader Env (ResumableSource m)
+                 , AWSPager a
+                 )
               => a
-              -> m (Either (Er (Sv a)) (Rs a), Maybe a)
+              -> ResumableSource m (Either (Er (Sv a)) (Rs a))
 paginateCatch rq = scoped (\e -> AWS.paginate e rq)
 
 async :: (MonadBaseControl IO m, MonadReader Env m)
@@ -196,9 +188,9 @@ async m = ask >>= Async.async . runAWST m
 wait :: (MonadBaseControl IO m, MonadError Error m)
      => Async (StM m (Either Error a))
      -> m a
-wait = hoistEither <=< Async.wait
+wait = Async.wait >=> hoistEither
 
-presign :: ( MonadBase IO m
+presign :: ( MonadIO m
            , MonadReader Env m
            , AWSRequest a
            , AWSPresigner (Sg (Sv a))

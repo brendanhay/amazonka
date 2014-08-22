@@ -63,20 +63,23 @@ library
         , bifunctors
         , bytestring
         , case-insensitive
+        , conduit
+        , conduit-extra
         , cryptohash
         , data-default
         , exceptions        == 0.6.*
         , hashable
         , http-client
         , http-client-lens
+        , http-conduit
         , http-types
-        , lens              == 4.2.*
+        , lens              == 4.4.*
         , lifted-async
-        , lifted-base
         , mmorph
         , monad-control
         , mtl
         , old-locale
+        , resourcet
         , semigroups
         , tagged
         , text

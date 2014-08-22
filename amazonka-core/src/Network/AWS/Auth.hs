@@ -33,7 +33,7 @@ module Network.AWS.Auth
 import           Control.Applicative
 import           Control.Concurrent
 import           Control.Monad
-import           Control.Monad.Base
+import           Control.Monad.IO.Class
 import           Control.Monad.Except
 import qualified Data.Aeson                 as Aeson
 import           Data.ByteString            (ByteString)
@@ -97,7 +97,7 @@ instance Show Credentials where
     show = showBS
 
 -- | Retrieve authentication information from the environment or instance-data.
-getAuth :: (Functor m, MonadBase IO m) => Credentials -> ExceptT Error m Auth
+getAuth :: (Functor m, MonadIO m) => Credentials -> ExceptT Error m Auth
 getAuth c = case c of
     FromKeys a s      -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)
@@ -108,11 +108,11 @@ getAuth c = case c of
 -- | Retrieve access and secret keys from the default environment variables.
 --
 -- See: 'accessKey' and 'secretKey'
-fromEnv :: (Functor m, MonadBase IO m) => ExceptT Error m Auth
+fromEnv :: (Functor m, MonadIO m) => ExceptT Error m Auth
 fromEnv = fromEnv' accessKey secretKey
 
 -- | Retrieve access and secret keys from specific environment variables.
-fromEnv' :: (Functor m, MonadBase IO m)
+fromEnv' :: (Functor m, MonadIO m)
          => ByteString
          -> ByteString
          -> ExceptT Error m Auth
@@ -122,9 +122,9 @@ fromEnv' a s = fmap Auth $ AuthEnv
     <*> pure Nothing
     <*> pure Nothing
   where
-    key :: MonadBase IO m => ByteString -> ExceptT Error m ByteString
+    key :: MonadIO m => ByteString -> ExceptT Error m ByteString
     key (BS.unpack -> k) = do
-        m <- liftBase (lookupEnv k)
+        m <- liftIO (lookupEnv k)
         maybe (throwError . fromString $ "Unable to read ENV variable: " ++ k)
               (return . BS.pack)
               m
@@ -133,7 +133,7 @@ fromEnv' a s = fmap Auth $ AuthEnv
 --
 -- This determined by Amazon as the first IAM profile found in the response from:
 -- @http://169.254.169.254/latest/meta-data/iam/security-credentials/@
-fromProfile :: MonadBase IO m => ExceptT Error m Auth
+fromProfile :: MonadIO m => ExceptT Error m Auth
 fromProfile = do
     !ls <- BS.lines `liftM` metadata (IAM $ SecurityCredentials Nothing)
     case ls of
@@ -151,20 +151,20 @@ fromProfile = do
 --
 -- A weak reference is used to ensure that the forked thread will eventually
 -- terminate when 'Auth' is no longer referenced.
-fromProfile' :: MonadBase IO m => ByteString -> ExceptT Error m Auth
+fromProfile' :: MonadIO m => ByteString -> ExceptT Error m Auth
 fromProfile' name = auth >>= start
   where
-    auth :: MonadBase IO m => ExceptT Error m AuthEnv
+    auth :: MonadIO m => ExceptT Error m AuthEnv
     auth = do
         !m <- LBS.fromStrict `liftM` metadata
             (IAM . SecurityCredentials $ Just name)
         either (throwError . fromString) return (Aeson.eitherDecode m)
 
-    start :: MonadBase IO m => AuthEnv -> ExceptT Error m Auth
+    start :: MonadIO m => AuthEnv -> ExceptT Error m Auth
     start !a =
         case _authExpiry a of
             Nothing -> return (Auth a)
-            Just x  -> liftBase $ do
+            Just x  -> liftIO $ do
                 r <- newIORef a
                 p <- myThreadId
                 s <- timer r p x

@@ -61,6 +61,7 @@ import           Data.String
 import           Data.Text                   (Text)
 import           GHC.Generics
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Text
 import           Network.AWS.Data.Time
 
 data Query
@@ -82,6 +83,9 @@ instance Monoid Query where
 
 instance Plated Query where
     plate = uniplate
+
+instance ToText Query where
+    toText = toText . renderQuery
 
 instance IsString Query where
     fromString = toQuery . BS.pack

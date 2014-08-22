@@ -35,7 +35,6 @@ import           Data.Char
 import           Data.Int
 import           Data.Text                  (Text)
 import qualified Data.Text.Encoding         as Text
-import           Data.Time
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types.Method
 

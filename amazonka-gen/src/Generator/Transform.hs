@@ -37,6 +37,10 @@ import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: possibly parameterise (Map k v) with an additional type to control the
+-- prefixing used (specifically for metadata) unless metadata is the only usage
+-- and ToHeaders can always add x-amz-meta-*
+
 -- FIXME: Remove all the disparate request type classes in favour of case analysis
 -- in templates
 

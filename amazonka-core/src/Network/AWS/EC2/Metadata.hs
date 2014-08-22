@@ -36,7 +36,6 @@ module Network.AWS.EC2.Metadata
 
 import           Control.Exception
 import           Control.Monad
-import           Control.Monad.Base
 import           Control.Monad.Except
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
@@ -272,8 +271,8 @@ instance ToPath Info where
         SecurityCredentials r -> "security-credentials/" <> fromMaybe "" r
 
 -- | Test whether the host is running on EC2 by requesting the instance-data.
-isEC2 :: MonadBase IO m => m Bool
-isEC2 = liftBase (req `catch` err)
+isEC2 :: MonadIO m => m Bool
+isEC2 = liftIO (req `catch` err)
   where
     req = do
         !_ <- request "http://instance-data/latest"
@@ -282,22 +281,23 @@ isEC2 = liftBase (req `catch` err)
     err :: IOException -> IO Bool
     err = const (return False)
 
-dynamic :: MonadBase IO m => Dynamic -> ExceptT Error m ByteString
+dynamic :: MonadIO m => Dynamic -> ExceptT Error m ByteString
 dynamic = get . mappend "http://169.254.169.254/latest/dynamic/" . toPath
 
-metadata :: MonadBase IO m => Metadata -> ExceptT Error m ByteString
+metadata :: MonadIO m => Metadata -> ExceptT Error m ByteString
 metadata = get . mappend "http://169.254.169.254/latest/meta-data/" . toPath
 
-userdata :: MonadBase IO m => ExceptT Error m (Maybe ByteString)
-userdata = Just `liftM` get "http://169.254.169.254/latest/user-data"
+userdata :: MonadIO m => ExceptT Error m (Maybe ByteString)
+userdata = Just
+    `liftM` get "http://169.254.169.254/latest/user-data"
     `catchError` err
   where
     err (ClientError (StatusCodeException s _ _))
         | status404 == s  = return Nothing
     err e                 = throwError e
 
-get :: MonadBase IO m => ByteString -> ExceptT Error m ByteString
-get url = ExceptT (liftBase (req `catch` err))
+get :: MonadIO m => ByteString -> ExceptT Error m ByteString
+get url = ExceptT (liftIO (req `catch` err))
   where
     req = (Right . strip) `liftM` request url
 

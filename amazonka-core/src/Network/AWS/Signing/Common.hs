@@ -15,7 +15,7 @@
 
 module Network.AWS.Signing.Common where
 
-import           Control.Monad.Base
+import           Control.Monad.IO.Class
 import qualified Crypto.Hash.SHA256     as SHA256
 import qualified Crypto.MAC.HMAC        as HMAC
 import           Data.ByteString        (ByteString)
@@ -23,7 +23,7 @@ import           Data.Time
 import           Network.AWS.Types
 import           System.Locale
 
-sign :: (MonadBase IO m, AWSRequest a, AWSSigner (Sg (Sv a)))
+sign :: (MonadIO m, AWSRequest a, AWSSigner (Sg (Sv a)))
      => Auth      -- ^ AWS authentication credentials.
      -> Region    -- ^ AWS Region.
      -> Request a -- ^ Request to sign.
@@ -32,7 +32,7 @@ sign :: (MonadBase IO m, AWSRequest a, AWSSigner (Sg (Sv a)))
 sign a r rq t = withAuth a $ \e -> return $
     signed service e r rq defaultTimeLocale t
 
-presign :: (MonadBase IO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
+presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Auth      -- ^ AWS authentication credentials.
         -> Region    -- ^ AWS Region.
         -> Request a -- ^ Request to presign.

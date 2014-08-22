@@ -27,17 +27,24 @@ module Network.AWS.Data.Text
     ) where
 
 import           Control.Applicative
+import           Crypto.Hash
 import           Data.Attoparsec.Text             (Parser)
 import qualified Data.Attoparsec.Text             as AText
 import           Data.ByteString                  (ByteString)
+import           Data.CaseInsensitive             (CI)
+import qualified Data.CaseInsensitive             as CI
 import           Data.Int
+import           Data.Monoid
 import           Data.Text                        (Text)
+import qualified Data.Text                        as Text
 import qualified Data.Text.Encoding               as Text
 import qualified Data.Text.Lazy                   as LText
 import           Data.Text.Lazy.Builder           (Builder)
 import qualified Data.Text.Lazy.Builder           as Build
 import qualified Data.Text.Lazy.Builder.Int       as Build
 import qualified Data.Text.Lazy.Builder.RealFloat as Build
+import           Network.HTTP.Client
+import           Network.HTTP.Types
 
 fromText :: FromText a => Text -> Either String a
 fromText = AText.parseOnly parser
@@ -63,12 +70,26 @@ instance FromText Bool where
 class ToText a where
     toText :: a -> Text
 
+instance (ToText a, ToText b) => ToText (a, b) where
+    toText (a, b) = "(" <> toText a <> ", " <> toText b <> ")"
+
+instance ToText a => ToText [a] where
+    toText xs = "[" <> Text.intercalate ", " (map toText xs) <> "]"
+
+instance ToText a => ToText (CI a) where
+    toText = toText . CI.original
+
+instance ToText (Response a) where
+    toText rs = Text.pack . show $ rs { responseBody = () }
+
 instance ToText Text       where toText = id
 instance ToText ByteString where toText = Text.decodeUtf8
 instance ToText Int        where toText = shortText . Build.decimal
 instance ToText Int64      where toText = shortText . Build.decimal
 instance ToText Integer    where toText = shortText . Build.decimal
 instance ToText Double     where toText = shortText . Build.realFloat
+instance ToText StdMethod  where toText = toText . renderStdMethod
+instance ToText (Digest a) where toText = toText . digestToHexByteString
 
 shortText :: Builder -> Text
 shortText = LText.toStrict . Build.toLazyTextWith 32

@@ -27,12 +27,13 @@ import           Control.Applicative
 import           Control.Concurrent        (ThreadId)
 import           Control.Exception         (Exception)
 import           Control.Lens              hiding (Action)
-import           Control.Monad.Base
+import           Control.Monad.IO.Class
 import           Data.Aeson                hiding (Error)
 import qualified Data.Attoparsec.Text      as AText
 import           Data.ByteString           (ByteString)
 import qualified Data.ByteString.Base64    as Base64
 import           Data.Char
+import           Data.Conduit
 import           Data.Default
 import           Data.IORef
 import           Data.Monoid
@@ -51,7 +52,7 @@ import           Network.HTTP.Types.Method
 import           System.Locale
 
 type ClientRequest    = Client.Request
-type ClientResponse m = Client.Response (m ByteString)
+type ClientResponse m = Client.Response (ResumableSource m ByteString)
 
 clientRequest :: ClientRequest
 clientRequest = def
@@ -109,7 +110,7 @@ class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
 
 deriving instance Typeable Er
 
-class (AWSService (Sv a), AWSSigner  (Sg (Sv a))) => AWSRequest a where
+class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
     type Sv a :: *
     type Rs a :: *
 
@@ -197,17 +198,17 @@ data Auth
     = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv
 
-withAuth :: MonadBase IO m => Auth -> (AuthEnv -> m a) -> m a
+withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Auth  e) f = f e
-withAuth (Ref _ r) f = liftBase (readIORef r) >>= f
+withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 
 data Logging
     = None
     | Debug (Text -> IO ())
 
-debug :: MonadBase IO m => Logging -> Text -> m ()
+debug :: MonadIO m => Logging -> Text -> m ()
 debug None      = const (return ())
-debug (Debug f) = liftBase . f
+debug (Debug f) = liftIO . f
 
 data Endpoint'
     = Global
@@ -249,14 +250,14 @@ data Request a = Request
 instance Default (Request a) where
     def = Request GET "/" mempty mempty ""
 
-instance Show (Request a) where
-    show Request{..} = unlines
+instance ToText (Request a) where
+    toText Request{..} = Text.unlines
         [ "Request:"
-        , "_rqMethod  = " ++ show _rqMethod
-        , "_rqPath    = " ++ show _rqPath
-        , "_rqQuery   = " ++ show _rqQuery
-        , "_rqHeaders = " ++ show _rqHeaders
-        , "_rqBody    = " ++ show _rqBody
+        , "_rqMethod  = " <> toText _rqMethod
+        , "_rqPath    = " <> toText _rqPath
+        , "_rqQuery   = " <> toText _rqQuery
+        , "_rqHeaders = " <> toText _rqHeaders
+        , "_rqBody    = " <> toText _rqBody
         ]
 
 data Region

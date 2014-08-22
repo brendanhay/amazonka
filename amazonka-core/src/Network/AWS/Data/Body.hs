@@ -21,35 +21,33 @@ module Network.AWS.Data.Body
 
     -- * Classes
     , ToBody      (..)
-
-    -- * Re-exports
-    , RequestBody (..)
     ) where
 
+import           Control.Monad.Trans.Resource
 import           Crypto.Hash
-import qualified Crypto.Hash.SHA256         as SHA256
 import           Data.Aeson
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Base16     as Base16
-import qualified Data.ByteString.Lazy       as LBS
-import qualified Data.ByteString.Lazy.Char8 as LBS8
+import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Lazy         as LBS
+import qualified Data.ByteString.Lazy.Char8   as LBS8
+import           Data.Conduit
 import           Data.Monoid
 import           Data.String
-import           Network.HTTP.Client
+import           Network.AWS.Data.Text
+import           Network.HTTP.Conduit
 
 data RsBody where
-    RsBody :: Monad m => m ByteString -> RsBody
+    RsBody :: MonadResource m => ResumableSource m ByteString -> RsBody
 
-instance Show RsBody where
-    show = const "RsBody <body>"
+instance ToText RsBody where
+    toText = const "RsBody <body>"
 
 data RqBody = RqBody
     { _bdyHash :: Digest SHA256
     , _bdyBody :: RequestBody
     }
 
-instance Show RqBody where
-    show (RqBody h _) = "RqBody " ++ show h ++ " <body>"
+instance ToText RqBody where
+    toText (RqBody h _) = "RqBody " <> toText h <> " <body>"
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
@@ -70,3 +68,17 @@ instance ToBody ByteString where
 instance ToBody Value where
     toBody = toBody . encode
 
+-- sourceBody :: Digest SHA256 -> Int64 -> Source IO ByteString -> RqBody
+-- sourceBody h n = RqBody h . RequestBodyStream n . sourcePopper
+
+-- sourceHandle :: Digest SHA256 -> Int64 -> Handle -> RqBody
+-- sourceHandle h n = sourceBody h n . Conduit.sourceHandle
+
+-- sourceFile :: Digest SHA256 -> Int64 -> FilePath -> RqBody
+-- sourceFile h n = sourceBody h n . hoist runResourceT . Conduit.sourceFile
+
+-- sourceFileIO :: MonadIO m => FilePath -> m RqBody
+-- sourceFileIO f = sourceFile
+--     <$> runResourceT (Conduit.sourceFile f $$ Conduit.sinkHash)
+--     <*> (fromIntegral <$> withBinaryFile f ReadMode hFileSize)
+--     <*> pure f

@@ -1,3 +1,4 @@
+{-# LANGUAGE ConstraintKinds   #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -31,39 +32,32 @@ module Network.AWS
     -- * Synchronous requests
     -- ** Strict
     , send
-    -- ** Streaming
-    , with
     -- ** Pagination
     , paginate
 
     -- * Signing URLs
     , presign
-
-    -- * Request primitives
-    , open
-    , close
     ) where
 
 import           Control.Applicative
-import           Control.Exception.Lifted
-import           Control.Lens                ((^.))
+import           Control.Lens                 ((^.))
 import           Control.Lens.TH
 import           Control.Monad
-import           Control.Monad.Base
+import           Control.Monad.Catch
 import           Control.Monad.Except
+import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Control
-import           Data.ByteString             (ByteString)
+import           Control.Monad.Trans.Resource
+import           Data.ByteString              (ByteString)
+import           Data.Conduit
 import           Data.Monoid
-import qualified Data.Text                   as Text
+import qualified Data.Text                    as Text
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
 import           Network.AWS.Signing.Common
 import           Network.AWS.Types
-import           Network.HTTP.Client
-
--- FIXME: How to constraint send/stream to the correct data types without
--- introducing extraneous/meaningless type classes
+import           Network.HTTP.Conduit
 
 data Env = Env
     { _envRegion  :: Region
@@ -74,53 +68,43 @@ data Env = Env
 
 makeLenses ''Env
 
-newEnv :: MonadBaseControl IO m => Region -> Credentials -> ExceptT Error m Env
+newEnv :: (Functor m, MonadIO m)
+       => Region
+       -> Credentials
+       -> ExceptT Error m Env
 newEnv r c = Env r None
-    <$> liftBase (newManager defaultManagerSettings)
+    <$> liftIO (newManager conduitManagerSettings)
     <*> getAuth c
 
-paginate :: (MonadBaseControl IO m, AWSPager a)
-         => Env
-         -> a
-         -> m (Either (Er (Sv a)) (Rs a), Maybe a)
-paginate e rq = do
-    x <- send e rq
-    return $! (x, either (const Nothing) (next rq) x)
-
-send :: (MonadBaseControl IO m, AWSRequest a)
+send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
      -> m (Either (Er (Sv a)) (Rs a))
-send e rq = with e rq (const . return)
-
-with :: (MonadBaseControl IO m, AWSRequest a)
-     => Env
-     -> a
-     -> (Rs a -> m ByteString -> m b)
-     -> m (Either (Er (Sv a)) b)
-with e rq f = bracket (open e rq) close go
+send Env{..} x@(request -> rq) = go `catch` er >>= response x
   where
-    go rs = (`catch` er) $ do
-        x <- response rq (Right rs)
-        either (return . Left)
-               (\y -> Right `liftM` f y (responseBody rs))
-               x
+    go = do
+        debug _envLogging $
+            "[Raw Request]\n" <> toText rq
+        t  <- liftIO getCurrentTime
+        sg <- sign _envAuth _envRegion rq t
+        debug _envLogging $
+            "[Signed Request]\n" <> toText sg
+        rs <- http (sg ^. sgRequest) _envManager
+        debug _envLogging $
+            "[Raw Response]\n" <> toText rs
+        return (Right rs)
 
-    er ex = return . Left $ clientError (ex :: HttpException)
+    er ex = return (Left (ex :: HttpException))
 
-open :: (MonadBase IO m, AWSRequest a)
-     => Env
-     -> a
-     -> m (ClientResponse m)
-open Env{..} (request -> rq) = liftBase $ do
-    t  <- getCurrentTime
-    sg <- sign _envAuth _envRegion rq t
-    debug _envLogging $
-        "[Signed Request]\n" <> toText sg
-    rs <- responseOpen (sg ^. sgRequest) _envManager
-    debug _envLogging $
-        "[Raw Response]\n" <> Text.pack (show $ rs { responseBody = () })
-    return $ rs { responseBody = liftBase (responseBody rs)  }
-
-close :: MonadBase IO m => ClientResponse m -> m ()
-close = liftBase . responseClose
+paginate :: (MonadCatch m, MonadResource m, AWSPager a)
+         => Env
+         -> a
+         -> ResumableSource m (Either (Er (Sv a)) (Rs a))
+paginate e = newResumableSource . go
+  where
+    go rq = do
+        rs <- lift (send e rq)
+        yield rs
+        either (const $ return ())
+               (maybe (return ()) go . next rq)
+               rs

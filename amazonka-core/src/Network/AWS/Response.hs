@@ -29,18 +29,17 @@ import           Control.Applicative
 import           Control.Monad
 import           Data.Aeson
 import           Data.Bifunctor
-import           Data.ByteString      (ByteString)
-import qualified Data.ByteString      as BS
-import qualified Data.ByteString.Lazy as LBS
+import           Data.Conduit
+import qualified Data.Conduit.Binary as Conduit
 import           Data.Default
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text            (Text)
+import           Data.Text           (Text)
 import           Network.AWS.Data
 import           Network.AWS.Types
 import           Network.HTTP.Client
 import           Network.HTTP.Types
-import qualified Text.XML             as XML
+import qualified Text.XML            as XML
 import           Text.XML.Cursor
 
 keyed :: ToText c => (b -> c) -> (a -> [b]) -> a -> Maybe Text
@@ -53,14 +52,16 @@ headerResponse :: (Monad m, AWSServiceError e)
                => (ResponseHeaders -> Either String a)
                -> Either HttpException (ClientResponse m)
                -> m (Either e a)
-headerResponse f = receive (const . return . first serializerError . f)
+headerResponse f = receive $ \hs bdy -> do
+     bdy $$+- return ()
+     return $! serializerError `first` f hs
 
 cursorResponse :: (Monad m, AWSServiceError e)
                => (ResponseHeaders -> Cursor -> Either String a)
                -> Either HttpException (ClientResponse m)
                -> m (Either e a)
 cursorResponse f = receive $ \hs bdy -> do
-    lbs <- consume bdy
+    lbs <- bdy $$+- Conduit.sinkLbs
     case XML.parseLBS def lbs of
         Left  ex  -> return . Left . serializerError $ show ex
         Right doc ->
@@ -68,34 +69,35 @@ cursorResponse f = receive $ \hs bdy -> do
                 Left  s -> return . Left $ serviceError s
                 Right x -> return (Right x)
 
-
 xmlResponse :: (Monad m, AWSServiceError e, FromXML a)
             => Either HttpException (ClientResponse m)
             -> m (Either e a)
-xmlResponse = receive $
-    const (liftM (first serializerError . decodeXML) . consume)
+xmlResponse = receive $ \_ bdy -> do
+    lbs <- bdy $$+- Conduit.sinkLbs
+    return $! serializerError `first` decodeXML lbs
 
 jsonResponse :: (Monad m, AWSServiceError e, FromJSON a)
              => Either HttpException (ClientResponse m)
              -> m (Either e a)
-jsonResponse = receive $
-    const (liftM (first serializerError . eitherDecode . LBS.fromStrict))
+jsonResponse = receive $ \_ bdy -> do
+    lbs <- bdy $$+- Conduit.sinkLbs
+    return $! serializerError `first` eitherDecode lbs
 
 bodyResponse :: (Monad m, AWSServiceError e)
-             => (ResponseHeaders -> m ByteString -> m (Either String b))
-             -> Either HttpException (Response (m ByteString))
+             => (ResponseHeaders -> a -> m (Either String b))
+             -> Either HttpException (Response a)
              -> m (Either e b)
-bodyResponse f = receive (\hs bdy -> liftM (first serializerError) (f hs bdy))
+bodyResponse f = receive (\hs bdy -> first serializerError `liftM` f hs bdy)
 
 nullaryResponse :: (Monad m, AWSServiceError e)
                 => a
                 -> Either HttpException (ClientResponse m)
                 -> m (Either e a)
-nullaryResponse x = receive (\_ _ -> return (Right x))
+nullaryResponse x = receive (\_ bdy -> bdy $$+- return (Right x))
 
 receive :: (Monad m, AWSServiceError e)
-        => (ResponseHeaders -> m ByteString -> m (Either e b))
-        -> Either HttpException (Response (m ByteString))
+        => (ResponseHeaders -> a -> m (Either e b))
+        -> Either HttpException (Response a)
         -> m (Either e b)
 receive f = either failure success
   where
@@ -107,12 +109,3 @@ receive f = either failure success
       where
         st = responseStatus  rs
         hs = responseHeaders rs
-
-consume :: Monad m => m ByteString -> m LBS.ByteString
-consume action = LBS.fromChunks `liftM` go id
-  where
-    go front = do
-        x <- action
-        if BS.null x
-            then return (front [])
-            else go (front . (x:))

@@ -12,7 +12,8 @@ RESTXML := \
  route53
 
 RESTJSON := \
- elastictranscoder
+ elastictranscoder \
+ cloudsearchdomain
 
 QUERY := \
  autoscaling \
@@ -35,6 +36,7 @@ QUERY := \
 
 JSON := \
  cloudtrail \
+ route53domains \
  datapipeline \
  directconnect \
  dynamodb \
@@ -44,6 +46,7 @@ JSON := \
  storagegateway \
  support \
  swf \
+ logs \
  cognito-identity
 
 # Omitted for the time being - boto's models don't reflect the documentation

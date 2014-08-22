@@ -18,40 +18,37 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Control.Monad.Trans.AWS where
-    -- (
-    -- -- * Monad
-    --   AWS
+module Control.Monad.Trans.AWS
+    (
+    -- * Monad
+      AWS
 
-    -- -- * Transformer
-    -- , AWST
-    -- , runAWST
+    -- * Transformer
+    , AWST
+    , runAWST
 
-    -- -- * Helpers
-    -- , hoistEither
-    -- , scoped
+    -- * Helpers
+    , hoistEither
+    , scoped
 
-    -- -- * Regionalisation
-    -- , within
+    -- * Regionalisation
+    , within
 
-    -- -- * Synchronous requests
-    -- -- ** Strict
-    -- , send
-    -- , sendCatch
-    -- -- ** Streaming
-    -- , with
-    -- , withCatch
-    -- -- ** Pagination
-    -- , paginate
-    -- , paginateCatch
+    -- * Requests
+    -- ** Synchronous
+    , send
+    , sendCatch
+    -- ** Paginated
+    , paginate
+    , paginateCatch
 
-    -- -- * Asynchronous actions
-    -- , async
-    -- , wait
+    -- * Asynchronous actions
+    , async
+    , wait
 
-    -- -- * Signing URLs
-    -- , presign
-    -- ) where
+    -- * Signing URLs
+    , presign
+    ) where
 
 import           Control.Applicative
 import           Control.Concurrent.Async.Lifted (Async)

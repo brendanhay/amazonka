@@ -1,5 +1,5 @@
 name:                  amazonka-sts
-version:               0.1.0.0
+version:               0.0.1.0
 synopsis:              AWS Security Token Service SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0

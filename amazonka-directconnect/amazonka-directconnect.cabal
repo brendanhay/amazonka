@@ -1,5 +1,5 @@
 name:                  amazonka-directconnect
-version:               0.1.0.0
+version:               0.0.1.0
 synopsis:              AWS Direct Connect SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0

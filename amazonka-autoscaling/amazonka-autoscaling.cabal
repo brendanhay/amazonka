@@ -1,5 +1,5 @@
 name:                  amazonka-autoscaling
-version:               0.1.0.0
+version:               0.0.1.0
 synopsis:              Auto Scaling SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0

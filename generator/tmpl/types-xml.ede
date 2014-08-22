@@ -15,7 +15,7 @@
 {% endif %}
 module {{ types_namespace }} where
 
-import Control.Lens.TH (makeIso, makeLenses)
+import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 import qualified Network.AWS.Types.Map as Map

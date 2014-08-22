@@ -4,7 +4,7 @@
 -- Newtypes
   {% endif %}
   {% if data.value.ctor == "newtype" %}
-makeIso ''{{ data.value.name }}
+makeLenses ''{{ data.value.name }}
   {% endif %}
 {% endfor %}
 {% for data in scope.types %}

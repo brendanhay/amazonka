@@ -1,4 +1,3 @@
-TOP  := ..
-DEPS := $(wildcard $(TOP)/lib/amazonka-*)
+TOP := ..
 
 include $(TOP)/share/include.mk

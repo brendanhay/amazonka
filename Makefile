@@ -1,23 +1,23 @@
-DEPS := $(wildcard lib/amazonka-*)
+DEPS := $(wildcard amazonka-*)
 
 .PHONY: install clean
 
 build: $(addprefix build-,$(DEPS))
 
-build-lib/%:
-	make -C lib/$* build
+build-%:
+	make -C $* build
 
 install: cabal.sandbox.config $(addprefix install-,$(DEPS))
 
-install-lib/%:
-	make -C lib/$* install
+install-%:
+	make -C $* install
 
 clean: $(addprefix clean-,$(DEPS))
 	rm -rf .cabal-sandbox cabal.sandbox.config
 
-clean-lib/%:
-	make -C lib/$* clean
+clean-%:
+	make -C $* clean
 
 cabal.sandbox.config:
 	cabal sandbox init && \
- cabal sandbox add-source amazonka-core
+ cabal sandbox add-source amazonka

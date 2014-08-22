@@ -68,6 +68,9 @@ newtype Version = Version { unVersion :: Text }
 version :: Text -> Version
 version = Version . mappend "V" . Text.replace "-" "_"
 
+cabalVersion :: Version
+cabalVersion = Cabal "0.0.1.0"
+
 newtype Doc = Doc { unDoc :: Maybe Text }
     deriving (Eq, Show, Generic)
 
@@ -520,7 +523,7 @@ defaultService a = Service
     , _svcOperations       = mempty
     , _svcTypes            = mempty
     , _svcRequired         = mempty
-    , _svcCabal            = Cabal (Version "0.1.0.0") (unAbbrev a) def
+    , _svcCabal            = Cabal cabalVersion (unAbbrev a) def
     }
 
 makeLenses ''Request

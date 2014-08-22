@@ -128,7 +128,7 @@ instance FromJSON Service where
         ops <- o .: "operations"
         d   <- o .: "documentation"
 
-        cbl <- fromMaybe (cabal (Version "0.1.0.0") Nothing Nothing)
+        cbl <- fromMaybe (cabal (Version cabalVersion) Nothing Nothing)
             <$> (o .:? "cabal")
 
         let ver = version rv

@@ -69,7 +69,7 @@ version :: Text -> Version
 version = Version . mappend "V" . Text.replace "-" "_"
 
 cabalVersion :: Version
-cabalVersion = Cabal "0.0.1.0"
+cabalVersion = Version "0.0.1.0"
 
 newtype Doc = Doc { unDoc :: Maybe Text }
     deriving (Eq, Show, Generic)

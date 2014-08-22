@@ -23,21 +23,20 @@ module Network.AWS.Internal.Data.Body
     , ToBody      (..)
     ) where
 
-import           Control.Monad.Trans.Resource
 import           Crypto.Hash
 import           Data.Aeson
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Lazy         as LBS
-import qualified Data.ByteString.Lazy.Char8   as LBS8
+import           Data.ByteString                (ByteString)
+import qualified Data.ByteString.Lazy           as LBS
+import qualified Data.ByteString.Lazy.Char8     as LBS8
 import           Data.Conduit
 import           Data.Monoid
 import           Data.String
-import qualified Data.Text                    as Text
+import qualified Data.Text                      as Text
 import           Network.AWS.Internal.Data.Text
 import           Network.HTTP.Conduit
 
 data RsBody where
-    RsBody :: MonadResource m => ResumableSource m ByteString -> RsBody
+    RsBody :: Monad m => ResumableSource m ByteString -> RsBody
 
 instance ToText RsBody where
     toText = const "RsBody <body>"

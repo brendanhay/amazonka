@@ -13,7 +13,8 @@ RESTXML := \
 
 RESTJSON := \
  elastictranscoder \
- cloudsearchdomain
+ cloudsearchdomain \
+ cognito-sync
 
 QUERY := \
  autoscaling \

@@ -56,7 +56,7 @@ MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 gen: build
 	dist/build/generator/generator \
- --output=$(realpath ../lib) \
+ --output=$(realpath ../) \
  --override=$(realpath ./model) \
  --assets=$(realpath ./asset) \
  --versions=$(VERSIONS) \

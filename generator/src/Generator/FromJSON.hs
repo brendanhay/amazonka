@@ -119,14 +119,18 @@ instance FromJSON (Text -> Doc -> Cabal) where
         <*> o .:? "synopsis"
         <*> o .:? "documentation"
 
+instance FromJSON Library where
+    parseJSON = fmap library . parseJSON
+
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
-        n   <- o .: "service_full_name"
-        a   <- o .: "service_abbreviation"
-        rv  <- o .: "api_version"
-        t   <- o .: "type"
-        ops <- o .: "operations"
-        d   <- o .: "documentation"
+        n   <- o .:  "service_full_name"
+        a   <- o .:  "service_abbreviation"
+        l   <- o .:? "library_name" .!= library a
+        rv  <- o .:  "api_version"
+        t   <- o .:  "type"
+        ops <- o .:  "operations"
+        d   <- o .:  "documentation"
 
         cbl <- fromMaybe (cabal cabalVersion Nothing Nothing)
             <$> (o .:? "cabal")
@@ -137,7 +141,7 @@ instance FromJSON Service where
                 | otherwise = t
             sEr = serviceError a ops
 
-        Service a (library a) n (rootNS vNS) vNS (typeNS vNS) ver rv typ sEr
+        Service a l n (rootNS vNS) vNS (typeNS vNS) ver rv typ sEr
             <$> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
             <*> pure d

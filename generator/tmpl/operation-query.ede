@@ -15,7 +15,6 @@
 {% endif %}
 module {{ namespace }} where
 
-import Control.Lens.TH (makeLenses)
 import {{ request_namespace }}
 import {{ types_namespace }}
 import Network.AWS.Prelude

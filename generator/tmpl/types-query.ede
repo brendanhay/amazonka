@@ -15,7 +15,6 @@
 {% endif %}
 module {{ types_namespace }} where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ signature }}
 

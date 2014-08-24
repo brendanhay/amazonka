@@ -15,11 +15,10 @@
 {% endif %}
 module {{ types_namespace }} where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import           Network.AWS.Prelude
+import           Network.AWS.Signing.{{ signature }}
+import           Network.AWS.Types     (Region)
 import qualified Network.AWS.Types.Map as Map
-import Network.AWS.Signing.{{ signature }}
 
 {% include "_include/service.ede" %}
 

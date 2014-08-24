@@ -48,10 +48,14 @@ module Network.AWS.Prelude
     , RecordType      (..)
     , Service'        (..)
     , Switch          (..)
+
+    -- * Lenses
+    , makeLenses
     ) where
 
 import Control.Applicative   as Export
 import Control.Exception     (Exception)
+import Control.Lens.TH       (makeLenses)
 import Data.Aeson            (FromJSON(..), ToJSON(..))
 import Data.Bifunctor        as Export
 import Data.ByteString       (ByteString)

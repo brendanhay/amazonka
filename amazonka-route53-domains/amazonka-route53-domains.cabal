@@ -1,4 +1,4 @@
-name:                  amazonka-route53domains
+name:                  amazonka-route53-domains
 version:               0.0.1.0
 synopsis:              Amazon Route 53 Domains SDK
 homepage:              https://github.com/brendanhay/amazonka

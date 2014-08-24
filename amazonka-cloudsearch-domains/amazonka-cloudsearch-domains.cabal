@@ -1,4 +1,4 @@
-name:                  amazonka-cloudsearchdomains
+name:                  amazonka-cloudsearch-domains
 version:               0.0.1.0
 synopsis:              Amazon CloudSearch Domain SDK
 homepage:              https://github.com/brendanhay/amazonka

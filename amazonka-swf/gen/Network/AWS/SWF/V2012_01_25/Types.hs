@@ -113,7 +113,17 @@ instance ToText ActivityTaskTimeoutType where
     toText ActivityTaskTimeoutTypeScheduleToStart = "SCHEDULE_TO_START"
     toText ActivityTaskTimeoutTypeStartToClose = "START_TO_CLOSE"
 
-instance ToByteString ActivityTaskTimeoutType
+instance ToByteString ActivityTaskTimeoutType where
+    toBS ActivityTaskTimeoutTypeHeartbeat = "HEARTBEAT"
+    toBS ActivityTaskTimeoutTypeScheduleToClose = "SCHEDULE_TO_CLOSE"
+    toBS ActivityTaskTimeoutTypeScheduleToStart = "SCHEDULE_TO_START"
+    toBS ActivityTaskTimeoutTypeStartToClose = "START_TO_CLOSE"
+
+instance ToHeader ActivityTaskTimeoutType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ActivityTaskTimeoutType where
+    toQuery = toQuery . toBS
 
 instance FromJSON ActivityTaskTimeoutType
 
@@ -139,7 +149,15 @@ instance ToText CancelTimerFailedCause where
     toText CancelTimerFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
     toText CancelTimerFailedCauseTimerIdUnknown = "TIMER_ID_UNKNOWN"
 
-instance ToByteString CancelTimerFailedCause
+instance ToByteString CancelTimerFailedCause where
+    toBS CancelTimerFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS CancelTimerFailedCauseTimerIdUnknown = "TIMER_ID_UNKNOWN"
+
+instance ToHeader CancelTimerFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery CancelTimerFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON CancelTimerFailedCause
 
@@ -165,7 +183,15 @@ instance ToText CancelWorkflowExecutionFailedCause where
     toText CancelWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
     toText CancelWorkflowExecutionFailedCauseUnhandledDecision = "UNHANDLED_DECISION"
 
-instance ToByteString CancelWorkflowExecutionFailedCause
+instance ToByteString CancelWorkflowExecutionFailedCause where
+    toBS CancelWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS CancelWorkflowExecutionFailedCauseUnhandledDecision = "UNHANDLED_DECISION"
+
+instance ToHeader CancelWorkflowExecutionFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery CancelWorkflowExecutionFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON CancelWorkflowExecutionFailedCause
 
@@ -200,7 +226,16 @@ instance ToText ChildPolicy where
     toText ChildPolicyRequestCancel = "REQUEST_CANCEL"
     toText ChildPolicyTerminate = "TERMINATE"
 
-instance ToByteString ChildPolicy
+instance ToByteString ChildPolicy where
+    toBS ChildPolicyAbandon = "ABANDON"
+    toBS ChildPolicyRequestCancel = "REQUEST_CANCEL"
+    toBS ChildPolicyTerminate = "TERMINATE"
+
+instance ToHeader ChildPolicy where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ChildPolicy where
+    toQuery = toQuery . toBS
 
 instance FromJSON ChildPolicy
 
@@ -242,7 +277,19 @@ instance ToText CloseStatus where
     toText CloseStatusTerminated = "TERMINATED"
     toText CloseStatusTimedOut = "TIMED_OUT"
 
-instance ToByteString CloseStatus
+instance ToByteString CloseStatus where
+    toBS CloseStatusCanceled = "CANCELED"
+    toBS CloseStatusCompleted = "COMPLETED"
+    toBS CloseStatusContinuedAsNew = "CONTINUED_AS_NEW"
+    toBS CloseStatusFailed = "FAILED"
+    toBS CloseStatusTerminated = "TERMINATED"
+    toBS CloseStatusTimedOut = "TIMED_OUT"
+
+instance ToHeader CloseStatus where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery CloseStatus where
+    toQuery = toQuery . toBS
 
 instance FromJSON CloseStatus
 
@@ -268,7 +315,15 @@ instance ToText CompleteWorkflowExecutionFailedCause where
     toText CompleteWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
     toText CompleteWorkflowExecutionFailedCauseUnhandledDecision = "UNHANDLED_DECISION"
 
-instance ToByteString CompleteWorkflowExecutionFailedCause
+instance ToByteString CompleteWorkflowExecutionFailedCause where
+    toBS CompleteWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS CompleteWorkflowExecutionFailedCauseUnhandledDecision = "UNHANDLED_DECISION"
+
+instance ToHeader CompleteWorkflowExecutionFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery CompleteWorkflowExecutionFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON CompleteWorkflowExecutionFailedCause
 
@@ -312,7 +367,21 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
     toText ContinueAsNewWorkflowExecutionFailedCauseWorkflowTypeDeprecated = "WORKFLOW_TYPE_DEPRECATED"
     toText ContinueAsNewWorkflowExecutionFailedCauseWorkflowTypeDoesNotExist = "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
-instance ToByteString ContinueAsNewWorkflowExecutionFailedCause
+instance ToByteString ContinueAsNewWorkflowExecutionFailedCause where
+    toBS ContinueAsNewWorkflowExecutionFailedCauseDefaultChildPolicyUndefined = "DEFAULT_CHILD_POLICY_UNDEFINED"
+    toBS ContinueAsNewWorkflowExecutionFailedCauseDefaultExecutionStartToCloseTimeoutUndefined = "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+    toBS ContinueAsNewWorkflowExecutionFailedCauseDefaultTaskListUndefined = "DEFAULT_TASK_LIST_UNDEFINED"
+    toBS ContinueAsNewWorkflowExecutionFailedCauseDefaultTaskStartToCloseTimeoutUndefined = "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+    toBS ContinueAsNewWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS ContinueAsNewWorkflowExecutionFailedCauseUnhandledDecision = "UNHANDLED_DECISION"
+    toBS ContinueAsNewWorkflowExecutionFailedCauseWorkflowTypeDeprecated = "WORKFLOW_TYPE_DEPRECATED"
+    toBS ContinueAsNewWorkflowExecutionFailedCauseWorkflowTypeDoesNotExist = "WORKFLOW_TYPE_DOES_NOT_EXIST"
+
+instance ToHeader ContinueAsNewWorkflowExecutionFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ContinueAsNewWorkflowExecutionFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON ContinueAsNewWorkflowExecutionFailedCause
 
@@ -332,7 +401,14 @@ instance FromText DecisionTaskTimeoutType where
 instance ToText DecisionTaskTimeoutType where
     toText DecisionTaskTimeoutTypeStartToClose = "START_TO_CLOSE"
 
-instance ToByteString DecisionTaskTimeoutType
+instance ToByteString DecisionTaskTimeoutType where
+    toBS DecisionTaskTimeoutTypeStartToClose = "START_TO_CLOSE"
+
+instance ToHeader DecisionTaskTimeoutType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery DecisionTaskTimeoutType where
+    toQuery = toQuery . toBS
 
 instance FromJSON DecisionTaskTimeoutType
 
@@ -384,7 +460,25 @@ instance ToText DecisionType where
     toText DecisionTypeStartChildWorkflowExecution = "StartChildWorkflowExecution"
     toText DecisionTypeStartTimer = "StartTimer"
 
-instance ToByteString DecisionType
+instance ToByteString DecisionType where
+    toBS DecisionTypeCancelTimer = "CancelTimer"
+    toBS DecisionTypeCancelWorkflowExecution = "CancelWorkflowExecution"
+    toBS DecisionTypeCompleteWorkflowExecution = "CompleteWorkflowExecution"
+    toBS DecisionTypeContinueAsNewWorkflowExecution = "ContinueAsNewWorkflowExecution"
+    toBS DecisionTypeFailWorkflowExecution = "FailWorkflowExecution"
+    toBS DecisionTypeRecordMarker = "RecordMarker"
+    toBS DecisionTypeRequestCancelActivityTask = "RequestCancelActivityTask"
+    toBS DecisionTypeRequestCancelExternalWorkflowExecution = "RequestCancelExternalWorkflowExecution"
+    toBS DecisionTypeScheduleActivityTask = "ScheduleActivityTask"
+    toBS DecisionTypeSignalExternalWorkflowExecution = "SignalExternalWorkflowExecution"
+    toBS DecisionTypeStartChildWorkflowExecution = "StartChildWorkflowExecution"
+    toBS DecisionTypeStartTimer = "StartTimer"
+
+instance ToHeader DecisionType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery DecisionType where
+    toQuery = toQuery . toBS
 
 instance FromJSON DecisionType
 
@@ -541,7 +635,60 @@ instance ToText EventType where
     toText EventTypeWorkflowExecutionTerminated = "WorkflowExecutionTerminated"
     toText EventTypeWorkflowExecutionTimedOut = "WorkflowExecutionTimedOut"
 
-instance ToByteString EventType
+instance ToByteString EventType where
+    toBS EventTypeActivityTaskCancelRequested = "ActivityTaskCancelRequested"
+    toBS EventTypeActivityTaskCanceled = "ActivityTaskCanceled"
+    toBS EventTypeActivityTaskCompleted = "ActivityTaskCompleted"
+    toBS EventTypeActivityTaskFailed = "ActivityTaskFailed"
+    toBS EventTypeActivityTaskScheduled = "ActivityTaskScheduled"
+    toBS EventTypeActivityTaskStarted = "ActivityTaskStarted"
+    toBS EventTypeActivityTaskTimedOut = "ActivityTaskTimedOut"
+    toBS EventTypeCancelTimerFailed = "CancelTimerFailed"
+    toBS EventTypeCancelWorkflowExecutionFailed = "CancelWorkflowExecutionFailed"
+    toBS EventTypeChildWorkflowExecutionCanceled = "ChildWorkflowExecutionCanceled"
+    toBS EventTypeChildWorkflowExecutionCompleted = "ChildWorkflowExecutionCompleted"
+    toBS EventTypeChildWorkflowExecutionFailed = "ChildWorkflowExecutionFailed"
+    toBS EventTypeChildWorkflowExecutionStarted = "ChildWorkflowExecutionStarted"
+    toBS EventTypeChildWorkflowExecutionTerminated = "ChildWorkflowExecutionTerminated"
+    toBS EventTypeChildWorkflowExecutionTimedOut = "ChildWorkflowExecutionTimedOut"
+    toBS EventTypeCompleteWorkflowExecutionFailed = "CompleteWorkflowExecutionFailed"
+    toBS EventTypeContinueAsNewWorkflowExecutionFailed = "ContinueAsNewWorkflowExecutionFailed"
+    toBS EventTypeDecisionTaskCompleted = "DecisionTaskCompleted"
+    toBS EventTypeDecisionTaskScheduled = "DecisionTaskScheduled"
+    toBS EventTypeDecisionTaskStarted = "DecisionTaskStarted"
+    toBS EventTypeDecisionTaskTimedOut = "DecisionTaskTimedOut"
+    toBS EventTypeExternalWorkflowExecutionCancelRequested = "ExternalWorkflowExecutionCancelRequested"
+    toBS EventTypeExternalWorkflowExecutionSignaled = "ExternalWorkflowExecutionSignaled"
+    toBS EventTypeFailWorkflowExecutionFailed = "FailWorkflowExecutionFailed"
+    toBS EventTypeMarkerRecorded = "MarkerRecorded"
+    toBS EventTypeRecordMarkerFailed = "RecordMarkerFailed"
+    toBS EventTypeRequestCancelActivityTaskFailed = "RequestCancelActivityTaskFailed"
+    toBS EventTypeRequestCancelExternalWorkflowExecutionFailed = "RequestCancelExternalWorkflowExecutionFailed"
+    toBS EventTypeRequestCancelExternalWorkflowExecutionInitiated = "RequestCancelExternalWorkflowExecutionInitiated"
+    toBS EventTypeScheduleActivityTaskFailed = "ScheduleActivityTaskFailed"
+    toBS EventTypeSignalExternalWorkflowExecutionFailed = "SignalExternalWorkflowExecutionFailed"
+    toBS EventTypeSignalExternalWorkflowExecutionInitiated = "SignalExternalWorkflowExecutionInitiated"
+    toBS EventTypeStartChildWorkflowExecutionFailed = "StartChildWorkflowExecutionFailed"
+    toBS EventTypeStartChildWorkflowExecutionInitiated = "StartChildWorkflowExecutionInitiated"
+    toBS EventTypeStartTimerFailed = "StartTimerFailed"
+    toBS EventTypeTimerCanceled = "TimerCanceled"
+    toBS EventTypeTimerFired = "TimerFired"
+    toBS EventTypeTimerStarted = "TimerStarted"
+    toBS EventTypeWorkflowExecutionCancelRequested = "WorkflowExecutionCancelRequested"
+    toBS EventTypeWorkflowExecutionCanceled = "WorkflowExecutionCanceled"
+    toBS EventTypeWorkflowExecutionCompleted = "WorkflowExecutionCompleted"
+    toBS EventTypeWorkflowExecutionContinuedAsNew = "WorkflowExecutionContinuedAsNew"
+    toBS EventTypeWorkflowExecutionFailed = "WorkflowExecutionFailed"
+    toBS EventTypeWorkflowExecutionSignaled = "WorkflowExecutionSignaled"
+    toBS EventTypeWorkflowExecutionStarted = "WorkflowExecutionStarted"
+    toBS EventTypeWorkflowExecutionTerminated = "WorkflowExecutionTerminated"
+    toBS EventTypeWorkflowExecutionTimedOut = "WorkflowExecutionTimedOut"
+
+instance ToHeader EventType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery EventType where
+    toQuery = toQuery . toBS
 
 instance FromJSON EventType
 
@@ -563,7 +710,15 @@ instance ToText ExecutionStatus where
     toText ExecutionStatusClosed = "CLOSED"
     toText ExecutionStatusOpen = "OPEN"
 
-instance ToByteString ExecutionStatus
+instance ToByteString ExecutionStatus where
+    toBS ExecutionStatusClosed = "CLOSED"
+    toBS ExecutionStatusOpen = "OPEN"
+
+instance ToHeader ExecutionStatus where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ExecutionStatus where
+    toQuery = toQuery . toBS
 
 instance FromJSON ExecutionStatus
 
@@ -589,7 +744,15 @@ instance ToText FailWorkflowExecutionFailedCause where
     toText FailWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
     toText FailWorkflowExecutionFailedCauseUnhandledDecision = "UNHANDLED_DECISION"
 
-instance ToByteString FailWorkflowExecutionFailedCause
+instance ToByteString FailWorkflowExecutionFailedCause where
+    toBS FailWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS FailWorkflowExecutionFailedCauseUnhandledDecision = "UNHANDLED_DECISION"
+
+instance ToHeader FailWorkflowExecutionFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery FailWorkflowExecutionFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON FailWorkflowExecutionFailedCause
 
@@ -612,7 +775,14 @@ instance FromText RecordMarkerFailedCause where
 instance ToText RecordMarkerFailedCause where
     toText RecordMarkerFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
 
-instance ToByteString RecordMarkerFailedCause
+instance ToByteString RecordMarkerFailedCause where
+    toBS RecordMarkerFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+
+instance ToHeader RecordMarkerFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery RecordMarkerFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON RecordMarkerFailedCause
 
@@ -634,7 +804,15 @@ instance ToText RegistrationStatus where
     toText RegistrationStatusDeprecated = "DEPRECATED"
     toText RegistrationStatusRegistered = "REGISTERED"
 
-instance ToByteString RegistrationStatus
+instance ToByteString RegistrationStatus where
+    toBS RegistrationStatusDeprecated = "DEPRECATED"
+    toBS RegistrationStatusRegistered = "REGISTERED"
+
+instance ToHeader RegistrationStatus where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery RegistrationStatus where
+    toQuery = toQuery . toBS
 
 instance FromJSON RegistrationStatus
 
@@ -660,7 +838,15 @@ instance ToText RequestCancelActivityTaskFailedCause where
     toText RequestCancelActivityTaskFailedCauseActivityIdUnknown = "ACTIVITY_ID_UNKNOWN"
     toText RequestCancelActivityTaskFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
 
-instance ToByteString RequestCancelActivityTaskFailedCause
+instance ToByteString RequestCancelActivityTaskFailedCause where
+    toBS RequestCancelActivityTaskFailedCauseActivityIdUnknown = "ACTIVITY_ID_UNKNOWN"
+    toBS RequestCancelActivityTaskFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+
+instance ToHeader RequestCancelActivityTaskFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery RequestCancelActivityTaskFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON RequestCancelActivityTaskFailedCause
 
@@ -689,7 +875,16 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
     toText RequestCancelExternalWorkflowExecutionFailedCauseRequestCancelExternalWorkflowExecutionRateExceeded = "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
     toText RequestCancelExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution = "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
-instance ToByteString RequestCancelExternalWorkflowExecutionFailedCause
+instance ToByteString RequestCancelExternalWorkflowExecutionFailedCause where
+    toBS RequestCancelExternalWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS RequestCancelExternalWorkflowExecutionFailedCauseRequestCancelExternalWorkflowExecutionRateExceeded = "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+    toBS RequestCancelExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution = "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+
+instance ToHeader RequestCancelExternalWorkflowExecutionFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery RequestCancelExternalWorkflowExecutionFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause
 
@@ -742,7 +937,24 @@ instance ToText ScheduleActivityTaskFailedCause where
     toText ScheduleActivityTaskFailedCauseOpenActivitiesLimitExceeded = "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
     toText ScheduleActivityTaskFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
 
-instance ToByteString ScheduleActivityTaskFailedCause
+instance ToByteString ScheduleActivityTaskFailedCause where
+    toBS ScheduleActivityTaskFailedCauseActivityCreationRateExceeded = "ACTIVITY_CREATION_RATE_EXCEEDED"
+    toBS ScheduleActivityTaskFailedCauseActivityIdAlreadyInUse = "ACTIVITY_ID_ALREADY_IN_USE"
+    toBS ScheduleActivityTaskFailedCauseActivityTypeDeprecated = "ACTIVITY_TYPE_DEPRECATED"
+    toBS ScheduleActivityTaskFailedCauseActivityTypeDoesNotExist = "ACTIVITY_TYPE_DOES_NOT_EXIST"
+    toBS ScheduleActivityTaskFailedCauseDefaultHeartbeatTimeoutUndefined = "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
+    toBS ScheduleActivityTaskFailedCauseDefaultScheduleToCloseTimeoutUndefined = "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
+    toBS ScheduleActivityTaskFailedCauseDefaultScheduleToStartTimeoutUndefined = "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
+    toBS ScheduleActivityTaskFailedCauseDefaultStartToCloseTimeoutUndefined = "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+    toBS ScheduleActivityTaskFailedCauseDefaultTaskListUndefined = "DEFAULT_TASK_LIST_UNDEFINED"
+    toBS ScheduleActivityTaskFailedCauseOpenActivitiesLimitExceeded = "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
+    toBS ScheduleActivityTaskFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+
+instance ToHeader ScheduleActivityTaskFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ScheduleActivityTaskFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON ScheduleActivityTaskFailedCause
 
@@ -771,7 +983,16 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
     toText SignalExternalWorkflowExecutionFailedCauseSignalExternalWorkflowExecutionRateExceeded = "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
     toText SignalExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution = "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
-instance ToByteString SignalExternalWorkflowExecutionFailedCause
+instance ToByteString SignalExternalWorkflowExecutionFailedCause where
+    toBS SignalExternalWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS SignalExternalWorkflowExecutionFailedCauseSignalExternalWorkflowExecutionRateExceeded = "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+    toBS SignalExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution = "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+
+instance ToHeader SignalExternalWorkflowExecutionFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery SignalExternalWorkflowExecutionFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON SignalExternalWorkflowExecutionFailedCause
 
@@ -824,7 +1045,24 @@ instance ToText StartChildWorkflowExecutionFailedCause where
     toText StartChildWorkflowExecutionFailedCauseWorkflowTypeDeprecated = "WORKFLOW_TYPE_DEPRECATED"
     toText StartChildWorkflowExecutionFailedCauseWorkflowTypeDoesNotExist = "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
-instance ToByteString StartChildWorkflowExecutionFailedCause
+instance ToByteString StartChildWorkflowExecutionFailedCause where
+    toBS StartChildWorkflowExecutionFailedCauseChildCreationRateExceeded = "CHILD_CREATION_RATE_EXCEEDED"
+    toBS StartChildWorkflowExecutionFailedCauseDefaultChildPolicyUndefined = "DEFAULT_CHILD_POLICY_UNDEFINED"
+    toBS StartChildWorkflowExecutionFailedCauseDefaultExecutionStartToCloseTimeoutUndefined = "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+    toBS StartChildWorkflowExecutionFailedCauseDefaultTaskListUndefined = "DEFAULT_TASK_LIST_UNDEFINED"
+    toBS StartChildWorkflowExecutionFailedCauseDefaultTaskStartToCloseTimeoutUndefined = "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+    toBS StartChildWorkflowExecutionFailedCauseOpenChildrenLimitExceeded = "OPEN_CHILDREN_LIMIT_EXCEEDED"
+    toBS StartChildWorkflowExecutionFailedCauseOpenWorkflowsLimitExceeded = "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
+    toBS StartChildWorkflowExecutionFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS StartChildWorkflowExecutionFailedCauseWorkflowAlreadyRunning = "WORKFLOW_ALREADY_RUNNING"
+    toBS StartChildWorkflowExecutionFailedCauseWorkflowTypeDeprecated = "WORKFLOW_TYPE_DEPRECATED"
+    toBS StartChildWorkflowExecutionFailedCauseWorkflowTypeDoesNotExist = "WORKFLOW_TYPE_DOES_NOT_EXIST"
+
+instance ToHeader StartChildWorkflowExecutionFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery StartChildWorkflowExecutionFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON StartChildWorkflowExecutionFailedCause
 
@@ -856,7 +1094,17 @@ instance ToText StartTimerFailedCause where
     toText StartTimerFailedCauseTimerCreationRateExceeded = "TIMER_CREATION_RATE_EXCEEDED"
     toText StartTimerFailedCauseTimerIdAlreadyInUse = "TIMER_ID_ALREADY_IN_USE"
 
-instance ToByteString StartTimerFailedCause
+instance ToByteString StartTimerFailedCause where
+    toBS StartTimerFailedCauseOpenTimersLimitExceeded = "OPEN_TIMERS_LIMIT_EXCEEDED"
+    toBS StartTimerFailedCauseOperationNotPermitted = "OPERATION_NOT_PERMITTED"
+    toBS StartTimerFailedCauseTimerCreationRateExceeded = "TIMER_CREATION_RATE_EXCEEDED"
+    toBS StartTimerFailedCauseTimerIdAlreadyInUse = "TIMER_ID_ALREADY_IN_USE"
+
+instance ToHeader StartTimerFailedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery StartTimerFailedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON StartTimerFailedCause
 
@@ -878,7 +1126,14 @@ instance FromText WorkflowExecutionCancelRequestedCause where
 instance ToText WorkflowExecutionCancelRequestedCause where
     toText WorkflowExecutionCancelRequestedCauseChildPolicyApplied = "CHILD_POLICY_APPLIED"
 
-instance ToByteString WorkflowExecutionCancelRequestedCause
+instance ToByteString WorkflowExecutionCancelRequestedCause where
+    toBS WorkflowExecutionCancelRequestedCauseChildPolicyApplied = "CHILD_POLICY_APPLIED"
+
+instance ToHeader WorkflowExecutionCancelRequestedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery WorkflowExecutionCancelRequestedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON WorkflowExecutionCancelRequestedCause
 
@@ -906,7 +1161,16 @@ instance ToText WorkflowExecutionTerminatedCause where
     toText WorkflowExecutionTerminatedCauseEventLimitExceeded = "EVENT_LIMIT_EXCEEDED"
     toText WorkflowExecutionTerminatedCauseOperatorInitiated = "OPERATOR_INITIATED"
 
-instance ToByteString WorkflowExecutionTerminatedCause
+instance ToByteString WorkflowExecutionTerminatedCause where
+    toBS WorkflowExecutionTerminatedCauseChildPolicyApplied = "CHILD_POLICY_APPLIED"
+    toBS WorkflowExecutionTerminatedCauseEventLimitExceeded = "EVENT_LIMIT_EXCEEDED"
+    toBS WorkflowExecutionTerminatedCauseOperatorInitiated = "OPERATOR_INITIATED"
+
+instance ToHeader WorkflowExecutionTerminatedCause where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery WorkflowExecutionTerminatedCause where
+    toQuery = toQuery . toBS
 
 instance FromJSON WorkflowExecutionTerminatedCause
 
@@ -926,7 +1190,14 @@ instance FromText WorkflowExecutionTimeoutType where
 instance ToText WorkflowExecutionTimeoutType where
     toText WorkflowExecutionTimeoutTypeStartToClose = "START_TO_CLOSE"
 
-instance ToByteString WorkflowExecutionTimeoutType
+instance ToByteString WorkflowExecutionTimeoutType where
+    toBS WorkflowExecutionTimeoutTypeStartToClose = "START_TO_CLOSE"
+
+instance ToHeader WorkflowExecutionTimeoutType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery WorkflowExecutionTimeoutType where
+    toQuery = toQuery . toBS
 
 instance FromJSON WorkflowExecutionTimeoutType
 

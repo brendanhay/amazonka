@@ -83,7 +83,16 @@ instance ToText AppAttributesKeys where
     toText AppAttributesKeysDocumentRoot = "DocumentRoot"
     toText AppAttributesKeysRailsEnv = "RailsEnv"
 
-instance ToByteString AppAttributesKeys
+instance ToByteString AppAttributesKeys where
+    toBS AppAttributesKeysAutoBundleOnDeploy = "AutoBundleOnDeploy"
+    toBS AppAttributesKeysDocumentRoot = "DocumentRoot"
+    toBS AppAttributesKeysRailsEnv = "RailsEnv"
+
+instance ToHeader AppAttributesKeys where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery AppAttributesKeys where
+    toQuery = toQuery . toBS
 
 instance FromJSON AppAttributesKeys
 
@@ -114,7 +123,18 @@ instance ToText AppType where
     toText AppTypeRails = "rails"
     toText AppTypeStatic = "static"
 
-instance ToByteString AppType
+instance ToByteString AppType where
+    toBS AppTypeNodejs = "nodejs"
+    toBS AppTypeOther = "other"
+    toBS AppTypePhp = "php"
+    toBS AppTypeRails = "rails"
+    toBS AppTypeStatic = "static"
+
+instance ToHeader AppType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery AppType where
+    toQuery = toQuery . toBS
 
 instance FromJSON AppType
 
@@ -139,7 +159,15 @@ instance ToText Architecture where
     toText ArchitectureI386 = "i386"
     toText ArchitectureX8664 = "x86_64"
 
-instance ToByteString Architecture
+instance ToByteString Architecture where
+    toBS ArchitectureI386 = "i386"
+    toBS ArchitectureX8664 = "x86_64"
+
+instance ToHeader Architecture where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery Architecture where
+    toQuery = toQuery . toBS
 
 instance FromJSON Architecture
 
@@ -168,7 +196,15 @@ instance ToText AutoScalingType where
     toText AutoScalingTypeLoad = "load"
     toText AutoScalingTypeTimer = "timer"
 
-instance ToByteString AutoScalingType
+instance ToByteString AutoScalingType where
+    toBS AutoScalingTypeLoad = "load"
+    toBS AutoScalingTypeTimer = "timer"
+
+instance ToHeader AutoScalingType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery AutoScalingType where
+    toQuery = toQuery . toBS
 
 instance FromJSON AutoScalingType
 
@@ -229,7 +265,23 @@ instance ToText DeploymentCommandName where
     toText DeploymentCommandNameUpdateCustomCookbooks = "update_custom_cookbooks"
     toText DeploymentCommandNameUpdateDependencies = "update_dependencies"
 
-instance ToByteString DeploymentCommandName
+instance ToByteString DeploymentCommandName where
+    toBS DeploymentCommandNameDeploy = "deploy"
+    toBS DeploymentCommandNameExecuteRecipes = "execute_recipes"
+    toBS DeploymentCommandNameInstallDependencies = "install_dependencies"
+    toBS DeploymentCommandNameRestart = "restart"
+    toBS DeploymentCommandNameRollback = "rollback"
+    toBS DeploymentCommandNameStart = "start"
+    toBS DeploymentCommandNameStop = "stop"
+    toBS DeploymentCommandNameUndeploy = "undeploy"
+    toBS DeploymentCommandNameUpdateCustomCookbooks = "update_custom_cookbooks"
+    toBS DeploymentCommandNameUpdateDependencies = "update_dependencies"
+
+instance ToHeader DeploymentCommandName where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery DeploymentCommandName where
+    toQuery = toQuery . toBS
 
 instance FromJSON DeploymentCommandName
 
@@ -316,7 +368,37 @@ instance ToText LayerAttributesKeys where
     toText LayerAttributesKeysRubyVersion = "RubyVersion"
     toText LayerAttributesKeysRubygemsVersion = "RubygemsVersion"
 
-instance ToByteString LayerAttributesKeys
+instance ToByteString LayerAttributesKeys where
+    toBS LayerAttributesKeysBundlerVersion = "BundlerVersion"
+    toBS LayerAttributesKeysEnableHaproxyStats = "EnableHaproxyStats"
+    toBS LayerAttributesKeysGangliaPassword = "GangliaPassword"
+    toBS LayerAttributesKeysGangliaUrl = "GangliaUrl"
+    toBS LayerAttributesKeysGangliaUser = "GangliaUser"
+    toBS LayerAttributesKeysHaproxyHealthCheckMethod = "HaproxyHealthCheckMethod"
+    toBS LayerAttributesKeysHaproxyHealthCheckUrl = "HaproxyHealthCheckUrl"
+    toBS LayerAttributesKeysHaproxyStatsPassword = "HaproxyStatsPassword"
+    toBS LayerAttributesKeysHaproxyStatsUrl = "HaproxyStatsUrl"
+    toBS LayerAttributesKeysHaproxyStatsUser = "HaproxyStatsUser"
+    toBS LayerAttributesKeysJavaAppServer = "JavaAppServer"
+    toBS LayerAttributesKeysJavaAppServerVersion = "JavaAppServerVersion"
+    toBS LayerAttributesKeysJvm = "Jvm"
+    toBS LayerAttributesKeysJvmOptions = "JvmOptions"
+    toBS LayerAttributesKeysJvmVersion = "JvmVersion"
+    toBS LayerAttributesKeysManageBundler = "ManageBundler"
+    toBS LayerAttributesKeysMemcachedMemory = "MemcachedMemory"
+    toBS LayerAttributesKeysMysqlRootPassword = "MysqlRootPassword"
+    toBS LayerAttributesKeysMysqlRootPasswordUbiquitous = "MysqlRootPasswordUbiquitous"
+    toBS LayerAttributesKeysNodejsVersion = "NodejsVersion"
+    toBS LayerAttributesKeysPassengerVersion = "PassengerVersion"
+    toBS LayerAttributesKeysRailsStack = "RailsStack"
+    toBS LayerAttributesKeysRubyVersion = "RubyVersion"
+    toBS LayerAttributesKeysRubygemsVersion = "RubygemsVersion"
+
+instance ToHeader LayerAttributesKeys where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery LayerAttributesKeys where
+    toQuery = toQuery . toBS
 
 instance FromJSON LayerAttributesKeys
 
@@ -365,7 +447,22 @@ instance ToText LayerType where
     toText LayerTypeRailsApp = "rails-app"
     toText LayerTypeWeb = "web"
 
-instance ToByteString LayerType
+instance ToByteString LayerType where
+    toBS LayerTypeCustom = "custom"
+    toBS LayerTypeDbMaster = "db-master"
+    toBS LayerTypeLb = "lb"
+    toBS LayerTypeMemcached = "memcached"
+    toBS LayerTypeMonitoringMaster = "monitoring-master"
+    toBS LayerTypeNodejsApp = "nodejs-app"
+    toBS LayerTypePhpApp = "php-app"
+    toBS LayerTypeRailsApp = "rails-app"
+    toBS LayerTypeWeb = "web"
+
+instance ToHeader LayerType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery LayerType where
+    toQuery = toQuery . toBS
 
 instance FromJSON LayerType
 
@@ -389,7 +486,15 @@ instance ToText RootDeviceType where
     toText RootDeviceTypeEbs = "ebs"
     toText RootDeviceTypeInstanceStore = "instance-store"
 
-instance ToByteString RootDeviceType
+instance ToByteString RootDeviceType where
+    toBS RootDeviceTypeEbs = "ebs"
+    toBS RootDeviceTypeInstanceStore = "instance-store"
+
+instance ToHeader RootDeviceType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery RootDeviceType where
+    toQuery = toQuery . toBS
 
 instance FromJSON RootDeviceType
 
@@ -417,7 +522,17 @@ instance ToText SourceType where
     toText SourceTypeS3 = "s3"
     toText SourceTypeSvn = "svn"
 
-instance ToByteString SourceType
+instance ToByteString SourceType where
+    toBS SourceTypeArchive = "archive"
+    toBS SourceTypeGit = "git"
+    toBS SourceTypeS3 = "s3"
+    toBS SourceTypeSvn = "svn"
+
+instance ToHeader SourceType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery SourceType where
+    toQuery = toQuery . toBS
 
 instance FromJSON SourceType
 
@@ -435,7 +550,14 @@ instance FromText StackAttributesKeys where
 instance ToText StackAttributesKeys where
     toText StackAttributesKeysColor = "Color"
 
-instance ToByteString StackAttributesKeys
+instance ToByteString StackAttributesKeys where
+    toBS StackAttributesKeysColor = "Color"
+
+instance ToHeader StackAttributesKeys where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery StackAttributesKeys where
+    toQuery = toQuery . toBS
 
 instance FromJSON StackAttributesKeys
 

@@ -113,7 +113,18 @@ instance ToText OperatorType where
     toText OperatorTypeLe = "LE"
     toText OperatorTypeRefEq = "REF_EQ"
 
-instance ToByteString OperatorType
+instance ToByteString OperatorType where
+    toBS OperatorTypeBetween = "BETWEEN"
+    toBS OperatorTypeEq = "EQ"
+    toBS OperatorTypeGe = "GE"
+    toBS OperatorTypeLe = "LE"
+    toBS OperatorTypeRefEq = "REF_EQ"
+
+instance ToHeader OperatorType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery OperatorType where
+    toQuery = toQuery . toBS
 
 instance FromJSON OperatorType
 
@@ -139,7 +150,16 @@ instance ToText TaskStatus where
     toText TaskStatusFalse = "FALSE"
     toText TaskStatusFinished = "FINISHED"
 
-instance ToByteString TaskStatus
+instance ToByteString TaskStatus where
+    toBS TaskStatusFailed = "FAILED"
+    toBS TaskStatusFalse = "FALSE"
+    toBS TaskStatusFinished = "FINISHED"
+
+instance ToHeader TaskStatus where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery TaskStatus where
+    toQuery = toQuery . toBS
 
 instance ToJSON TaskStatus
 

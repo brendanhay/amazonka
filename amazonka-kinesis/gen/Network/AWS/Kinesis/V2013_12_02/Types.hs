@@ -107,7 +107,17 @@ instance ToText ShardIteratorType where
     toText ShardIteratorTypeLatest = "LATEST"
     toText ShardIteratorTypeTrimHorizon = "TRIM_HORIZON"
 
-instance ToByteString ShardIteratorType
+instance ToByteString ShardIteratorType where
+    toBS ShardIteratorTypeAfterSequenceNumber = "AFTER_SEQUENCE_NUMBER"
+    toBS ShardIteratorTypeAtSequenceNumber = "AT_SEQUENCE_NUMBER"
+    toBS ShardIteratorTypeLatest = "LATEST"
+    toBS ShardIteratorTypeTrimHorizon = "TRIM_HORIZON"
+
+instance ToHeader ShardIteratorType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ShardIteratorType where
+    toQuery = toQuery . toBS
 
 instance ToJSON ShardIteratorType
 
@@ -142,7 +152,17 @@ instance ToText StreamStatus where
     toText StreamStatusDeleting = "DELETING"
     toText StreamStatusUpdating = "UPDATING"
 
-instance ToByteString StreamStatus
+instance ToByteString StreamStatus where
+    toBS StreamStatusActive = "ACTIVE"
+    toBS StreamStatusCreating = "CREATING"
+    toBS StreamStatusDeleting = "DELETING"
+    toBS StreamStatusUpdating = "UPDATING"
+
+instance ToHeader StreamStatus where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery StreamStatus where
+    toQuery = toQuery . toBS
 
 instance FromJSON StreamStatus
 

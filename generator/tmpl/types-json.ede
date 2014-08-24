@@ -81,7 +81,16 @@ instance ToText {{ data.value.name }} where
     toText {{ branch.key }} = "{{ branch.value }}"
     {% endfor %}
 
-instance ToByteString {{ data.value.name }}
+instance ToByteString {{ data.value.name }} where
+    {% for branch in data.value.values %}
+    toBS {{ branch.key }} = "{{ branch.value }}"
+    {% endfor %}
+
+instance ToHeader {{ data.value.name }} where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery {{ data.value.name }} where
+    toQuery = toQuery . toBS
   {% include "_include/json-from.ede" with data.value %}
   {% include "_include/json-to.ede" with data.value %}
   {% when "newtype" %}

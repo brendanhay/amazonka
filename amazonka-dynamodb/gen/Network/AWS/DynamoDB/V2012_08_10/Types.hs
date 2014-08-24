@@ -144,7 +144,16 @@ instance ToText AttributeAction where
     toText AttributeActionDelete = "DELETE"
     toText AttributeActionPut = "PUT"
 
-instance ToByteString AttributeAction
+instance ToByteString AttributeAction where
+    toBS AttributeActionAdd = "ADD"
+    toBS AttributeActionDelete = "DELETE"
+    toBS AttributeActionPut = "PUT"
+
+instance ToHeader AttributeAction where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery AttributeAction where
+    toQuery = toQuery . toBS
 
 instance FromJSON AttributeAction
 
@@ -198,7 +207,26 @@ instance ToText ComparisonOperator where
     toText ComparisonOperatorNotNull = "NOT_NULL"
     toText ComparisonOperatorNull = "NULL"
 
-instance ToByteString ComparisonOperator
+instance ToByteString ComparisonOperator where
+    toBS ComparisonOperatorBeginsWith = "BEGINS_WITH"
+    toBS ComparisonOperatorBetween = "BETWEEN"
+    toBS ComparisonOperatorContains = "CONTAINS"
+    toBS ComparisonOperatorEq = "EQ"
+    toBS ComparisonOperatorGe = "GE"
+    toBS ComparisonOperatorGt = "GT"
+    toBS ComparisonOperatorIn = "IN"
+    toBS ComparisonOperatorLe = "LE"
+    toBS ComparisonOperatorLt = "LT"
+    toBS ComparisonOperatorNe = "NE"
+    toBS ComparisonOperatorNotContains = "NOT_CONTAINS"
+    toBS ComparisonOperatorNotNull = "NOT_NULL"
+    toBS ComparisonOperatorNull = "NULL"
+
+instance ToHeader ComparisonOperator where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ComparisonOperator where
+    toQuery = toQuery . toBS
 
 instance FromJSON ComparisonOperator
 
@@ -219,7 +247,15 @@ instance ToText ConditionalOperator where
     toText ConditionalOperatorAnd = "AND"
     toText ConditionalOperatorOr = "OR"
 
-instance ToByteString ConditionalOperator
+instance ToByteString ConditionalOperator where
+    toBS ConditionalOperatorAnd = "AND"
+    toBS ConditionalOperatorOr = "OR"
+
+instance ToHeader ConditionalOperator where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ConditionalOperator where
+    toQuery = toQuery . toBS
 
 instance ToJSON ConditionalOperator
 
@@ -249,7 +285,17 @@ instance ToText IndexStatus where
     toText IndexStatusDeleting = "DELETING"
     toText IndexStatusUpdating = "UPDATING"
 
-instance ToByteString IndexStatus
+instance ToByteString IndexStatus where
+    toBS IndexStatusActive = "ACTIVE"
+    toBS IndexStatusCreating = "CREATING"
+    toBS IndexStatusDeleting = "DELETING"
+    toBS IndexStatusUpdating = "UPDATING"
+
+instance ToHeader IndexStatus where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery IndexStatus where
+    toQuery = toQuery . toBS
 
 instance FromJSON IndexStatus
 
@@ -272,7 +318,15 @@ instance ToText KeyType where
     toText KeyTypeHash = "HASH"
     toText KeyTypeRange = "RANGE"
 
-instance ToByteString KeyType
+instance ToByteString KeyType where
+    toBS KeyTypeHash = "HASH"
+    toBS KeyTypeRange = "RANGE"
+
+instance ToHeader KeyType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery KeyType where
+    toQuery = toQuery . toBS
 
 instance FromJSON KeyType
 
@@ -301,7 +355,16 @@ instance ToText ProjectionType where
     toText ProjectionTypeInclude = "INCLUDE"
     toText ProjectionTypeKeysOnly = "KEYS_ONLY"
 
-instance ToByteString ProjectionType
+instance ToByteString ProjectionType where
+    toBS ProjectionTypeAll = "ALL"
+    toBS ProjectionTypeInclude = "INCLUDE"
+    toBS ProjectionTypeKeysOnly = "KEYS_ONLY"
+
+instance ToHeader ProjectionType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ProjectionType where
+    toQuery = toQuery . toBS
 
 instance FromJSON ProjectionType
 
@@ -329,7 +392,16 @@ instance ToText ReturnConsumedCapacity where
     toText ReturnConsumedCapacityNone = "NONE"
     toText ReturnConsumedCapacityTotal = "TOTAL"
 
-instance ToByteString ReturnConsumedCapacity
+instance ToByteString ReturnConsumedCapacity where
+    toBS ReturnConsumedCapacityIndexes = "INDEXES"
+    toBS ReturnConsumedCapacityNone = "NONE"
+    toBS ReturnConsumedCapacityTotal = "TOTAL"
+
+instance ToHeader ReturnConsumedCapacity where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ReturnConsumedCapacity where
+    toQuery = toQuery . toBS
 
 instance ToJSON ReturnConsumedCapacity
 
@@ -351,7 +423,15 @@ instance ToText ReturnItemCollectionMetrics where
     toText ReturnItemCollectionMetricsNone = "NONE"
     toText ReturnItemCollectionMetricsSize = "SIZE"
 
-instance ToByteString ReturnItemCollectionMetrics
+instance ToByteString ReturnItemCollectionMetrics where
+    toBS ReturnItemCollectionMetricsNone = "NONE"
+    toBS ReturnItemCollectionMetricsSize = "SIZE"
+
+instance ToHeader ReturnItemCollectionMetrics where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ReturnItemCollectionMetrics where
+    toQuery = toQuery . toBS
 
 instance ToJSON ReturnItemCollectionMetrics
 
@@ -385,7 +465,18 @@ instance ToText ReturnValue where
     toText ReturnValueUpdatedNew = "UPDATED_NEW"
     toText ReturnValueUpdatedOld = "UPDATED_OLD"
 
-instance ToByteString ReturnValue
+instance ToByteString ReturnValue where
+    toBS ReturnValueAllNew = "ALL_NEW"
+    toBS ReturnValueAllOld = "ALL_OLD"
+    toBS ReturnValueNone = "NONE"
+    toBS ReturnValueUpdatedNew = "UPDATED_NEW"
+    toBS ReturnValueUpdatedOld = "UPDATED_OLD"
+
+instance ToHeader ReturnValue where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ReturnValue where
+    toQuery = toQuery . toBS
 
 instance ToJSON ReturnValue
 
@@ -408,7 +499,16 @@ instance ToText ScalarAttributeType where
     toText ScalarAttributeTypeN = "N"
     toText ScalarAttributeTypeS = "S"
 
-instance ToByteString ScalarAttributeType
+instance ToByteString ScalarAttributeType where
+    toBS ScalarAttributeTypeB = "B"
+    toBS ScalarAttributeTypeN = "N"
+    toBS ScalarAttributeTypeS = "S"
+
+instance ToHeader ScalarAttributeType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ScalarAttributeType where
+    toQuery = toQuery . toBS
 
 instance FromJSON ScalarAttributeType
 
@@ -446,7 +546,17 @@ instance ToText Select where
     toText SelectCount = "COUNT"
     toText SelectSpecificAttributes = "SPECIFIC_ATTRIBUTES"
 
-instance ToByteString Select
+instance ToByteString Select where
+    toBS SelectAllAttributes = "ALL_ATTRIBUTES"
+    toBS SelectAllProjectedAttributes = "ALL_PROJECTED_ATTRIBUTES"
+    toBS SelectCount = "COUNT"
+    toBS SelectSpecificAttributes = "SPECIFIC_ATTRIBUTES"
+
+instance ToHeader Select where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery Select where
+    toQuery = toQuery . toBS
 
 instance ToJSON Select
 
@@ -476,7 +586,17 @@ instance ToText TableStatus where
     toText TableStatusDeleting = "DELETING"
     toText TableStatusUpdating = "UPDATING"
 
-instance ToByteString TableStatus
+instance ToByteString TableStatus where
+    toBS TableStatusActive = "ACTIVE"
+    toBS TableStatusCreating = "CREATING"
+    toBS TableStatusDeleting = "DELETING"
+    toBS TableStatusUpdating = "UPDATING"
+
+instance ToHeader TableStatus where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery TableStatus where
+    toQuery = toQuery . toBS
 
 instance FromJSON TableStatus
 

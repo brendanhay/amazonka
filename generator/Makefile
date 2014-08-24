@@ -10,11 +10,15 @@ RESTS3 := \
 RESTXML := \
  cloudfront \
  route53
+# Omitted - boto's models seem to only speciy a small subset
+# of the available calls in the documentation
+# cloudsearchdomain
 
 RESTJSON := \
- elastictranscoder \
- cloudsearchdomain \
- cognito-sync
+ elastictranscoder
+# Omitted - boto's models don't reflect the documentation
+# and my understanding of the service is limited.
+# cognito-sync
 
 QUERY := \
  autoscaling \
@@ -49,10 +53,6 @@ JSON := \
  swf \
  logs \
  cognito-identity
-
-# Omitted for the time being - boto's models don't reflect the documentation
-# and my understanding of the service is too limited.
-# cognito-sync
 
 MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 

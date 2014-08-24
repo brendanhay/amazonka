@@ -90,7 +90,17 @@ instance ToText ActionOnFailure where
     toText ActionOnFailureTerminateCluster = "TERMINATE_CLUSTER"
     toText ActionOnFailureTerminateJobFlow = "TERMINATE_JOB_FLOW"
 
-instance ToByteString ActionOnFailure
+instance ToByteString ActionOnFailure where
+    toBS ActionOnFailureCancelAndWait = "CANCEL_AND_WAIT"
+    toBS ActionOnFailureContinue = "CONTINUE"
+    toBS ActionOnFailureTerminateCluster = "TERMINATE_CLUSTER"
+    toBS ActionOnFailureTerminateJobFlow = "TERMINATE_JOB_FLOW"
+
+instance ToHeader ActionOnFailure where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ActionOnFailure where
+    toQuery = toQuery . toBS
 
 instance FromJSON ActionOnFailure
 
@@ -127,7 +137,20 @@ instance ToText ClusterState where
     toText ClusterStateTerminating = "TERMINATING"
     toText ClusterStateWaiting = "WAITING"
 
-instance ToByteString ClusterState
+instance ToByteString ClusterState where
+    toBS ClusterStateBootstrapping = "BOOTSTRAPPING"
+    toBS ClusterStateRunning = "RUNNING"
+    toBS ClusterStateStarting = "STARTING"
+    toBS ClusterStateTerminated = "TERMINATED"
+    toBS ClusterStateTerminatedWithErrors = "TERMINATED_WITH_ERRORS"
+    toBS ClusterStateTerminating = "TERMINATING"
+    toBS ClusterStateWaiting = "WAITING"
+
+instance ToHeader ClusterState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ClusterState where
+    toQuery = toQuery . toBS
 
 instance FromJSON ClusterState
 
@@ -164,7 +187,20 @@ instance ToText ClusterStateChangeReasonCode where
     toText ClusterStateChangeReasonCodeUserRequest = "USER_REQUEST"
     toText ClusterStateChangeReasonCodeValidationError = "VALIDATION_ERROR"
 
-instance ToByteString ClusterStateChangeReasonCode
+instance ToByteString ClusterStateChangeReasonCode where
+    toBS ClusterStateChangeReasonCodeAllStepsCompleted = "ALL_STEPS_COMPLETED"
+    toBS ClusterStateChangeReasonCodeBootstrapFailure = "BOOTSTRAP_FAILURE"
+    toBS ClusterStateChangeReasonCodeInstanceFailure = "INSTANCE_FAILURE"
+    toBS ClusterStateChangeReasonCodeInternalError = "INTERNAL_ERROR"
+    toBS ClusterStateChangeReasonCodeStepFailure = "STEP_FAILURE"
+    toBS ClusterStateChangeReasonCodeUserRequest = "USER_REQUEST"
+    toBS ClusterStateChangeReasonCodeValidationError = "VALIDATION_ERROR"
+
+instance ToHeader ClusterStateChangeReasonCode where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ClusterStateChangeReasonCode where
+    toQuery = toQuery . toBS
 
 instance FromJSON ClusterStateChangeReasonCode
 
@@ -211,7 +247,23 @@ instance ToText InstanceGroupState where
     toText InstanceGroupStateTerminated = "TERMINATED"
     toText InstanceGroupStateTerminating = "TERMINATING"
 
-instance ToByteString InstanceGroupState
+instance ToByteString InstanceGroupState where
+    toBS InstanceGroupStateArrested = "ARRESTED"
+    toBS InstanceGroupStateBootstrapping = "BOOTSTRAPPING"
+    toBS InstanceGroupStateEnded = "ENDED"
+    toBS InstanceGroupStateProvisioning = "PROVISIONING"
+    toBS InstanceGroupStateResizing = "RESIZING"
+    toBS InstanceGroupStateRunning = "RUNNING"
+    toBS InstanceGroupStateShuttingDown = "SHUTTING_DOWN"
+    toBS InstanceGroupStateSuspended = "SUSPENDED"
+    toBS InstanceGroupStateTerminated = "TERMINATED"
+    toBS InstanceGroupStateTerminating = "TERMINATING"
+
+instance ToHeader InstanceGroupState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery InstanceGroupState where
+    toQuery = toQuery . toBS
 
 instance FromJSON InstanceGroupState
 
@@ -239,7 +291,17 @@ instance ToText InstanceGroupStateChangeReasonCode where
     toText InstanceGroupStateChangeReasonCodeInternalError = "INTERNAL_ERROR"
     toText InstanceGroupStateChangeReasonCodeValidationError = "VALIDATION_ERROR"
 
-instance ToByteString InstanceGroupStateChangeReasonCode
+instance ToByteString InstanceGroupStateChangeReasonCode where
+    toBS InstanceGroupStateChangeReasonCodeClusterTerminated = "CLUSTER_TERMINATED"
+    toBS InstanceGroupStateChangeReasonCodeInstanceFailure = "INSTANCE_FAILURE"
+    toBS InstanceGroupStateChangeReasonCodeInternalError = "INTERNAL_ERROR"
+    toBS InstanceGroupStateChangeReasonCodeValidationError = "VALIDATION_ERROR"
+
+instance ToHeader InstanceGroupStateChangeReasonCode where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery InstanceGroupStateChangeReasonCode where
+    toQuery = toQuery . toBS
 
 instance FromJSON InstanceGroupStateChangeReasonCode
 
@@ -264,7 +326,16 @@ instance ToText InstanceGroupType where
     toText InstanceGroupTypeMaster = "MASTER"
     toText InstanceGroupTypeTask = "TASK"
 
-instance ToByteString InstanceGroupType
+instance ToByteString InstanceGroupType where
+    toBS InstanceGroupTypeCore = "CORE"
+    toBS InstanceGroupTypeMaster = "MASTER"
+    toBS InstanceGroupTypeTask = "TASK"
+
+instance ToHeader InstanceGroupType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery InstanceGroupType where
+    toQuery = toQuery . toBS
 
 instance FromJSON InstanceGroupType
 
@@ -289,7 +360,16 @@ instance ToText InstanceRoleType where
     toText InstanceRoleTypeMaster = "MASTER"
     toText InstanceRoleTypeTask = "TASK"
 
-instance ToByteString InstanceRoleType
+instance ToByteString InstanceRoleType where
+    toBS InstanceRoleTypeCore = "CORE"
+    toBS InstanceRoleTypeMaster = "MASTER"
+    toBS InstanceRoleTypeTask = "TASK"
+
+instance ToHeader InstanceRoleType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery InstanceRoleType where
+    toQuery = toQuery . toBS
 
 instance FromJSON InstanceRoleType
 
@@ -320,7 +400,18 @@ instance ToText InstanceState where
     toText InstanceStateRunning = "RUNNING"
     toText InstanceStateTerminated = "TERMINATED"
 
-instance ToByteString InstanceState
+instance ToByteString InstanceState where
+    toBS InstanceStateAwaitingFulfillment = "AWAITING_FULFILLMENT"
+    toBS InstanceStateBootstrapping = "BOOTSTRAPPING"
+    toBS InstanceStateProvisioning = "PROVISIONING"
+    toBS InstanceStateRunning = "RUNNING"
+    toBS InstanceStateTerminated = "TERMINATED"
+
+instance ToHeader InstanceState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery InstanceState where
+    toQuery = toQuery . toBS
 
 instance FromJSON InstanceState
 
@@ -351,7 +442,18 @@ instance ToText InstanceStateChangeReasonCode where
     toText InstanceStateChangeReasonCodeInternalError = "INTERNAL_ERROR"
     toText InstanceStateChangeReasonCodeValidationError = "VALIDATION_ERROR"
 
-instance ToByteString InstanceStateChangeReasonCode
+instance ToByteString InstanceStateChangeReasonCode where
+    toBS InstanceStateChangeReasonCodeBootstrapFailure = "BOOTSTRAP_FAILURE"
+    toBS InstanceStateChangeReasonCodeClusterTerminated = "CLUSTER_TERMINATED"
+    toBS InstanceStateChangeReasonCodeInstanceFailure = "INSTANCE_FAILURE"
+    toBS InstanceStateChangeReasonCodeInternalError = "INTERNAL_ERROR"
+    toBS InstanceStateChangeReasonCodeValidationError = "VALIDATION_ERROR"
+
+instance ToHeader InstanceStateChangeReasonCode where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery InstanceStateChangeReasonCode where
+    toQuery = toQuery . toBS
 
 instance FromJSON InstanceStateChangeReasonCode
 
@@ -391,7 +493,21 @@ instance ToText JobFlowExecutionState where
     toText JobFlowExecutionStateTerminated = "TERMINATED"
     toText JobFlowExecutionStateWaiting = "WAITING"
 
-instance ToByteString JobFlowExecutionState
+instance ToByteString JobFlowExecutionState where
+    toBS JobFlowExecutionStateBootstrapping = "BOOTSTRAPPING"
+    toBS JobFlowExecutionStateCompleted = "COMPLETED"
+    toBS JobFlowExecutionStateFailed = "FAILED"
+    toBS JobFlowExecutionStateRunning = "RUNNING"
+    toBS JobFlowExecutionStateShuttingDown = "SHUTTING_DOWN"
+    toBS JobFlowExecutionStateStarting = "STARTING"
+    toBS JobFlowExecutionStateTerminated = "TERMINATED"
+    toBS JobFlowExecutionStateWaiting = "WAITING"
+
+instance ToHeader JobFlowExecutionState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery JobFlowExecutionState where
+    toQuery = toQuery . toBS
 
 instance FromJSON JobFlowExecutionState
 
@@ -413,7 +529,15 @@ instance ToText MarketType where
     toText MarketTypeOnDemand = "ON_DEMAND"
     toText MarketTypeSpot = "SPOT"
 
-instance ToByteString MarketType
+instance ToByteString MarketType where
+    toBS MarketTypeOnDemand = "ON_DEMAND"
+    toBS MarketTypeSpot = "SPOT"
+
+instance ToHeader MarketType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery MarketType where
+    toQuery = toQuery . toBS
 
 instance FromJSON MarketType
 
@@ -450,7 +574,20 @@ instance ToText StepExecutionState where
     toText StepExecutionStatePending = "PENDING"
     toText StepExecutionStateRunning = "RUNNING"
 
-instance ToByteString StepExecutionState
+instance ToByteString StepExecutionState where
+    toBS StepExecutionStateCancelled = "CANCELLED"
+    toBS StepExecutionStateCompleted = "COMPLETED"
+    toBS StepExecutionStateContinue = "CONTINUE"
+    toBS StepExecutionStateFailed = "FAILED"
+    toBS StepExecutionStateInterrupted = "INTERRUPTED"
+    toBS StepExecutionStatePending = "PENDING"
+    toBS StepExecutionStateRunning = "RUNNING"
+
+instance ToHeader StepExecutionState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery StepExecutionState where
+    toQuery = toQuery . toBS
 
 instance FromJSON StepExecutionState
 
@@ -484,7 +621,19 @@ instance ToText StepState where
     toText StepStatePending = "PENDING"
     toText StepStateRunning = "RUNNING"
 
-instance ToByteString StepState
+instance ToByteString StepState where
+    toBS StepStateCancelled = "CANCELLED"
+    toBS StepStateCompleted = "COMPLETED"
+    toBS StepStateFailed = "FAILED"
+    toBS StepStateInterrupted = "INTERRUPTED"
+    toBS StepStatePending = "PENDING"
+    toBS StepStateRunning = "RUNNING"
+
+instance ToHeader StepState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery StepState where
+    toQuery = toQuery . toBS
 
 instance FromJSON StepState
 
@@ -503,7 +652,14 @@ instance FromText StepStateChangeReasonCode where
 instance ToText StepStateChangeReasonCode where
     toText StepStateChangeReasonCodeNone = "NONE"
 
-instance ToByteString StepStateChangeReasonCode
+instance ToByteString StepStateChangeReasonCode where
+    toBS StepStateChangeReasonCodeNone = "NONE"
+
+instance ToHeader StepStateChangeReasonCode where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery StepStateChangeReasonCode where
+    toQuery = toQuery . toBS
 
 instance FromJSON StepStateChangeReasonCode
 

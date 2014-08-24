@@ -111,7 +111,21 @@ instance ToText ConnectionState where
     toText ConnectionStateRejected = "rejected"
     toText ConnectionStateRequested = "requested"
 
-instance ToByteString ConnectionState
+instance ToByteString ConnectionState where
+    toBS ConnectionStateAvailable = "available"
+    toBS ConnectionStateDeleted = "deleted"
+    toBS ConnectionStateDeleting = "deleting"
+    toBS ConnectionStateDown = "down"
+    toBS ConnectionStateOrdering = "ordering"
+    toBS ConnectionStatePending = "pending"
+    toBS ConnectionStateRejected = "rejected"
+    toBS ConnectionStateRequested = "requested"
+
+instance ToHeader ConnectionState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ConnectionState where
+    toQuery = toQuery . toBS
 
 instance FromJSON ConnectionState
 
@@ -150,7 +164,19 @@ instance ToText InterconnectState where
     toText InterconnectStatePending = "pending"
     toText InterconnectStateRequested = "requested"
 
-instance ToByteString InterconnectState
+instance ToByteString InterconnectState where
+    toBS InterconnectStateAvailable = "available"
+    toBS InterconnectStateDeleted = "deleted"
+    toBS InterconnectStateDeleting = "deleting"
+    toBS InterconnectStateDown = "down"
+    toBS InterconnectStatePending = "pending"
+    toBS InterconnectStateRequested = "requested"
+
+instance ToHeader InterconnectState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery InterconnectState where
+    toQuery = toQuery . toBS
 
 instance FromJSON InterconnectState
 
@@ -202,7 +228,20 @@ instance ToText VirtualInterfaceState where
     toText VirtualInterfaceStateRejected = "rejected"
     toText VirtualInterfaceStateVerifying = "verifying"
 
-instance ToByteString VirtualInterfaceState
+instance ToByteString VirtualInterfaceState where
+    toBS VirtualInterfaceStateAvailable = "available"
+    toBS VirtualInterfaceStateConfirming = "confirming"
+    toBS VirtualInterfaceStateDeleted = "deleted"
+    toBS VirtualInterfaceStateDeleting = "deleting"
+    toBS VirtualInterfaceStatePending = "pending"
+    toBS VirtualInterfaceStateRejected = "rejected"
+    toBS VirtualInterfaceStateVerifying = "verifying"
+
+instance ToHeader VirtualInterfaceState where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery VirtualInterfaceState where
+    toQuery = toQuery . toBS
 
 instance FromJSON VirtualInterfaceState
 

@@ -104,7 +104,18 @@ instance ToText ContactType where
     toText ContactTypePublicBody = "PUBLIC_BODY"
     toText ContactTypeReseller = "RESELLER"
 
-instance ToByteString ContactType
+instance ToByteString ContactType where
+    toBS ContactTypeAssociation = "ASSOCIATION"
+    toBS ContactTypeCompany = "COMPANY"
+    toBS ContactTypePerson = "PERSON"
+    toBS ContactTypePublicBody = "PUBLIC_BODY"
+    toBS ContactTypeReseller = "RESELLER"
+
+instance ToHeader ContactType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ContactType where
+    toQuery = toQuery . toBS
 
 instance FromJSON ContactType
 
@@ -809,7 +820,242 @@ instance ToText CountryCode where
     toText CountryCodeZm = "ZM"
     toText CountryCodeZw = "ZW"
 
-instance ToByteString CountryCode
+instance ToByteString CountryCode where
+    toBS CountryCodeAd = "AD"
+    toBS CountryCodeAe = "AE"
+    toBS CountryCodeAf = "AF"
+    toBS CountryCodeAg = "AG"
+    toBS CountryCodeAi = "AI"
+    toBS CountryCodeAl = "AL"
+    toBS CountryCodeAm = "AM"
+    toBS CountryCodeAn = "AN"
+    toBS CountryCodeAo = "AO"
+    toBS CountryCodeAq = "AQ"
+    toBS CountryCodeAr = "AR"
+    toBS CountryCodeAs = "AS"
+    toBS CountryCodeAt = "AT"
+    toBS CountryCodeAu = "AU"
+    toBS CountryCodeAw = "AW"
+    toBS CountryCodeAz = "AZ"
+    toBS CountryCodeBa = "BA"
+    toBS CountryCodeBb = "BB"
+    toBS CountryCodeBd = "BD"
+    toBS CountryCodeBe = "BE"
+    toBS CountryCodeBf = "BF"
+    toBS CountryCodeBg = "BG"
+    toBS CountryCodeBh = "BH"
+    toBS CountryCodeBi = "BI"
+    toBS CountryCodeBj = "BJ"
+    toBS CountryCodeBl = "BL"
+    toBS CountryCodeBm = "BM"
+    toBS CountryCodeBn = "BN"
+    toBS CountryCodeBo = "BO"
+    toBS CountryCodeBr = "BR"
+    toBS CountryCodeBs = "BS"
+    toBS CountryCodeBt = "BT"
+    toBS CountryCodeBw = "BW"
+    toBS CountryCodeBy = "BY"
+    toBS CountryCodeBz = "BZ"
+    toBS CountryCodeCa = "CA"
+    toBS CountryCodeCc = "CC"
+    toBS CountryCodeCd = "CD"
+    toBS CountryCodeCf = "CF"
+    toBS CountryCodeCg = "CG"
+    toBS CountryCodeCh = "CH"
+    toBS CountryCodeCi = "CI"
+    toBS CountryCodeCk = "CK"
+    toBS CountryCodeCl = "CL"
+    toBS CountryCodeCm = "CM"
+    toBS CountryCodeCn = "CN"
+    toBS CountryCodeCo = "CO"
+    toBS CountryCodeCr = "CR"
+    toBS CountryCodeCu = "CU"
+    toBS CountryCodeCv = "CV"
+    toBS CountryCodeCx = "CX"
+    toBS CountryCodeCy = "CY"
+    toBS CountryCodeCz = "CZ"
+    toBS CountryCodeDe = "DE"
+    toBS CountryCodeDj = "DJ"
+    toBS CountryCodeDk = "DK"
+    toBS CountryCodeDm = "DM"
+    toBS CountryCodeDo = "DO"
+    toBS CountryCodeDz = "DZ"
+    toBS CountryCodeEc = "EC"
+    toBS CountryCodeEe = "EE"
+    toBS CountryCodeEg = "EG"
+    toBS CountryCodeEr = "ER"
+    toBS CountryCodeEs = "ES"
+    toBS CountryCodeEt = "ET"
+    toBS CountryCodeFi = "FI"
+    toBS CountryCodeFj = "FJ"
+    toBS CountryCodeFk = "FK"
+    toBS CountryCodeFm = "FM"
+    toBS CountryCodeFo = "FO"
+    toBS CountryCodeFr = "FR"
+    toBS CountryCodeGa = "GA"
+    toBS CountryCodeGb = "GB"
+    toBS CountryCodeGd = "GD"
+    toBS CountryCodeGe = "GE"
+    toBS CountryCodeGh = "GH"
+    toBS CountryCodeGi = "GI"
+    toBS CountryCodeGl = "GL"
+    toBS CountryCodeGm = "GM"
+    toBS CountryCodeGn = "GN"
+    toBS CountryCodeGq = "GQ"
+    toBS CountryCodeGr = "GR"
+    toBS CountryCodeGt = "GT"
+    toBS CountryCodeGu = "GU"
+    toBS CountryCodeGw = "GW"
+    toBS CountryCodeGy = "GY"
+    toBS CountryCodeHk = "HK"
+    toBS CountryCodeHn = "HN"
+    toBS CountryCodeHr = "HR"
+    toBS CountryCodeHt = "HT"
+    toBS CountryCodeHu = "HU"
+    toBS CountryCodeId = "ID"
+    toBS CountryCodeIe = "IE"
+    toBS CountryCodeIl = "IL"
+    toBS CountryCodeIm = "IM"
+    toBS CountryCodeIn = "IN"
+    toBS CountryCodeIq = "IQ"
+    toBS CountryCodeIr = "IR"
+    toBS CountryCodeIs = "IS"
+    toBS CountryCodeIt = "IT"
+    toBS CountryCodeJm = "JM"
+    toBS CountryCodeJo = "JO"
+    toBS CountryCodeJp = "JP"
+    toBS CountryCodeKe = "KE"
+    toBS CountryCodeKg = "KG"
+    toBS CountryCodeKh = "KH"
+    toBS CountryCodeKi = "KI"
+    toBS CountryCodeKm = "KM"
+    toBS CountryCodeKn = "KN"
+    toBS CountryCodeKp = "KP"
+    toBS CountryCodeKr = "KR"
+    toBS CountryCodeKw = "KW"
+    toBS CountryCodeKy = "KY"
+    toBS CountryCodeKz = "KZ"
+    toBS CountryCodeLa = "LA"
+    toBS CountryCodeLb = "LB"
+    toBS CountryCodeLc = "LC"
+    toBS CountryCodeLi = "LI"
+    toBS CountryCodeLk = "LK"
+    toBS CountryCodeLr = "LR"
+    toBS CountryCodeLs = "LS"
+    toBS CountryCodeLt = "LT"
+    toBS CountryCodeLu = "LU"
+    toBS CountryCodeLv = "LV"
+    toBS CountryCodeLy = "LY"
+    toBS CountryCodeMa = "MA"
+    toBS CountryCodeMc = "MC"
+    toBS CountryCodeMd = "MD"
+    toBS CountryCodeMe = "ME"
+    toBS CountryCodeMf = "MF"
+    toBS CountryCodeMg = "MG"
+    toBS CountryCodeMh = "MH"
+    toBS CountryCodeMk = "MK"
+    toBS CountryCodeMl = "ML"
+    toBS CountryCodeMm = "MM"
+    toBS CountryCodeMn = "MN"
+    toBS CountryCodeMo = "MO"
+    toBS CountryCodeMp = "MP"
+    toBS CountryCodeMr = "MR"
+    toBS CountryCodeMs = "MS"
+    toBS CountryCodeMt = "MT"
+    toBS CountryCodeMu = "MU"
+    toBS CountryCodeMv = "MV"
+    toBS CountryCodeMw = "MW"
+    toBS CountryCodeMx = "MX"
+    toBS CountryCodeMy = "MY"
+    toBS CountryCodeMz = "MZ"
+    toBS CountryCodeNa = "NA"
+    toBS CountryCodeNc = "NC"
+    toBS CountryCodeNe = "NE"
+    toBS CountryCodeNg = "NG"
+    toBS CountryCodeNi = "NI"
+    toBS CountryCodeNl = "NL"
+    toBS CountryCodeNo = "NO"
+    toBS CountryCodeNp = "NP"
+    toBS CountryCodeNr = "NR"
+    toBS CountryCodeNu = "NU"
+    toBS CountryCodeNz = "NZ"
+    toBS CountryCodeOm = "OM"
+    toBS CountryCodePa = "PA"
+    toBS CountryCodePe = "PE"
+    toBS CountryCodePf = "PF"
+    toBS CountryCodePg = "PG"
+    toBS CountryCodePh = "PH"
+    toBS CountryCodePk = "PK"
+    toBS CountryCodePl = "PL"
+    toBS CountryCodePm = "PM"
+    toBS CountryCodePn = "PN"
+    toBS CountryCodePr = "PR"
+    toBS CountryCodePt = "PT"
+    toBS CountryCodePw = "PW"
+    toBS CountryCodePy = "PY"
+    toBS CountryCodeQa = "QA"
+    toBS CountryCodeRo = "RO"
+    toBS CountryCodeRs = "RS"
+    toBS CountryCodeRu = "RU"
+    toBS CountryCodeRw = "RW"
+    toBS CountryCodeSa = "SA"
+    toBS CountryCodeSb = "SB"
+    toBS CountryCodeSc = "SC"
+    toBS CountryCodeSd = "SD"
+    toBS CountryCodeSe = "SE"
+    toBS CountryCodeSg = "SG"
+    toBS CountryCodeSh = "SH"
+    toBS CountryCodeSi = "SI"
+    toBS CountryCodeSk = "SK"
+    toBS CountryCodeSl = "SL"
+    toBS CountryCodeSm = "SM"
+    toBS CountryCodeSn = "SN"
+    toBS CountryCodeSo = "SO"
+    toBS CountryCodeSr = "SR"
+    toBS CountryCodeSt = "ST"
+    toBS CountryCodeSv = "SV"
+    toBS CountryCodeSy = "SY"
+    toBS CountryCodeSz = "SZ"
+    toBS CountryCodeTc = "TC"
+    toBS CountryCodeTd = "TD"
+    toBS CountryCodeTg = "TG"
+    toBS CountryCodeTh = "TH"
+    toBS CountryCodeTj = "TJ"
+    toBS CountryCodeTk = "TK"
+    toBS CountryCodeTl = "TL"
+    toBS CountryCodeTm = "TM"
+    toBS CountryCodeTn = "TN"
+    toBS CountryCodeTo = "TO"
+    toBS CountryCodeTr = "TR"
+    toBS CountryCodeTt = "TT"
+    toBS CountryCodeTv = "TV"
+    toBS CountryCodeTw = "TW"
+    toBS CountryCodeTz = "TZ"
+    toBS CountryCodeUa = "UA"
+    toBS CountryCodeUg = "UG"
+    toBS CountryCodeUs = "US"
+    toBS CountryCodeUy = "UY"
+    toBS CountryCodeUz = "UZ"
+    toBS CountryCodeVa = "VA"
+    toBS CountryCodeVc = "VC"
+    toBS CountryCodeVe = "VE"
+    toBS CountryCodeVg = "VG"
+    toBS CountryCodeVi = "VI"
+    toBS CountryCodeVn = "VN"
+    toBS CountryCodeVu = "VU"
+    toBS CountryCodeWf = "WF"
+    toBS CountryCodeWs = "WS"
+    toBS CountryCodeYe = "YE"
+    toBS CountryCodeYt = "YT"
+    toBS CountryCodeZa = "ZA"
+    toBS CountryCodeZm = "ZM"
+    toBS CountryCodeZw = "ZW"
+
+instance ToHeader CountryCode where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery CountryCode where
+    toQuery = toQuery . toBS
 
 instance FromJSON CountryCode
 
@@ -853,7 +1099,20 @@ instance ToText DomainAvailability where
     toText DomainAvailabilityUnavailablePremium = "UNAVAILABLE_PREMIUM"
     toText DomainAvailabilityUnavailableRestricted = "UNAVAILABLE_RESTRICTED"
 
-instance ToByteString DomainAvailability
+instance ToByteString DomainAvailability where
+    toBS DomainAvailabilityAvailable = "AVAILABLE"
+    toBS DomainAvailabilityAvailablePreorder = "AVAILABLE_PREORDER"
+    toBS DomainAvailabilityAvailableReserved = "AVAILABLE_RESERVED"
+    toBS DomainAvailabilityReserved = "RESERVED"
+    toBS DomainAvailabilityUnavailable = "UNAVAILABLE"
+    toBS DomainAvailabilityUnavailablePremium = "UNAVAILABLE_PREMIUM"
+    toBS DomainAvailabilityUnavailableRestricted = "UNAVAILABLE_RESTRICTED"
+
+instance ToHeader DomainAvailability where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery DomainAvailability where
+    toQuery = toQuery . toBS
 
 instance FromJSON DomainAvailability
 
@@ -923,7 +1182,30 @@ instance ToText ExtraParamName where
     toText ExtraParamNameSgIdNumber = "SG_ID_NUMBER"
     toText ExtraParamNameVatNumber = "VAT_NUMBER"
 
-instance ToByteString ExtraParamName
+instance ToByteString ExtraParamName where
+    toBS ExtraParamNameAuIdNumber = "AU_ID_NUMBER"
+    toBS ExtraParamNameAuIdType = "AU_ID_TYPE"
+    toBS ExtraParamNameBirthCity = "BIRTH_CITY"
+    toBS ExtraParamNameBirthCountry = "BIRTH_COUNTRY"
+    toBS ExtraParamNameBirthDateInYyyyMmDd = "BIRTH_DATE_IN_YYYY_MM_DD"
+    toBS ExtraParamNameBirthDepartment = "BIRTH_DEPARTMENT"
+    toBS ExtraParamNameBrandNumber = "BRAND_NUMBER"
+    toBS ExtraParamNameCaLegalType = "CA_LEGAL_TYPE"
+    toBS ExtraParamNameDocumentNumber = "DOCUMENT_NUMBER"
+    toBS ExtraParamNameDunsNumber = "DUNS_NUMBER"
+    toBS ExtraParamNameFiBusinessNumber = "FI_BUSINESS_NUMBER"
+    toBS ExtraParamNameFiIdNumber = "FI_ID_NUMBER"
+    toBS ExtraParamNameItPin = "IT_PIN"
+    toBS ExtraParamNameRuPassportData = "RU_PASSPORT_DATA"
+    toBS ExtraParamNameSeIdNumber = "SE_ID_NUMBER"
+    toBS ExtraParamNameSgIdNumber = "SG_ID_NUMBER"
+    toBS ExtraParamNameVatNumber = "VAT_NUMBER"
+
+instance ToHeader ExtraParamName where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery ExtraParamName where
+    toQuery = toQuery . toBS
 
 instance FromJSON ExtraParamName
 
@@ -954,7 +1236,18 @@ instance ToText OperationStatus where
     toText OperationStatusSubmitted = "SUBMITTED"
     toText OperationStatusSuccessful = "SUCCESSFUL"
 
-instance ToByteString OperationStatus
+instance ToByteString OperationStatus where
+    toBS OperationStatusError = "ERROR"
+    toBS OperationStatusFailed = "FAILED"
+    toBS OperationStatusInProgress = "IN_PROGRESS"
+    toBS OperationStatusSubmitted = "SUBMITTED"
+    toBS OperationStatusSuccessful = "SUCCESSFUL"
+
+instance ToHeader OperationStatus where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery OperationStatus where
+    toQuery = toQuery . toBS
 
 instance FromJSON OperationStatus
 
@@ -993,7 +1286,20 @@ instance ToText OperationType where
     toText OperationTypeUpdateDomainContact = "UPDATE_DOMAIN_CONTACT"
     toText OperationTypeUpdateNameserver = "UPDATE_NAMESERVER"
 
-instance ToByteString OperationType
+instance ToByteString OperationType where
+    toBS OperationTypeChangePrivacyProtection = "CHANGE_PRIVACY_PROTECTION"
+    toBS OperationTypeDeleteDomain = "DELETE_DOMAIN"
+    toBS OperationTypeDomainLock = "DOMAIN_LOCK"
+    toBS OperationTypeRegisterDomain = "REGISTER_DOMAIN"
+    toBS OperationTypeTransferInDomain = "TRANSFER_IN_DOMAIN"
+    toBS OperationTypeUpdateDomainContact = "UPDATE_DOMAIN_CONTACT"
+    toBS OperationTypeUpdateNameserver = "UPDATE_NAMESERVER"
+
+instance ToHeader OperationType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery OperationType where
+    toQuery = toQuery . toBS
 
 instance FromJSON OperationType
 

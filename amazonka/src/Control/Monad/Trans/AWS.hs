@@ -91,7 +91,7 @@ instance Monad m => MonadReader Env (AWST m) where
     ask = AWST (fst `liftM` ask)
     {-# INLINE ask #-}
 
-    local f = AWST . local (first f) . unAWST
+    local f = hoist . local (first f)
     {-# INLINE local #-}
 
 instance MonadTrans AWST where
@@ -197,11 +197,6 @@ paginateCatch :: ( MonadCatch m
               => a
               -> ResumableSource m (Either (Er (Sv a)) (Rs a))
 paginateCatch rq = scoped (\e -> AWS.paginate e rq)
-
--- async :: (MonadBaseControl IO m, MonadReader Env m)
---       => AWST m a
---       -> m (Async (StM m (Either Error a)))
--- . runAWST m
 
 async :: (MonadBaseControl IO m)
       => m a

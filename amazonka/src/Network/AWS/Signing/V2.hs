@@ -35,7 +35,7 @@ import           Network.AWS.Data
 import           Network.AWS.Internal.Signing
 import           Network.AWS.Types
 import           Network.HTTP.Client.Lens
-import           Network.HTTP.Types           hiding (renderQuery)
+import           Network.HTTP.Types           hiding (renderQuery, toQuery)
 
 data V2
 
@@ -87,8 +87,9 @@ instance AWSSigner V2 where
            . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
            . pair "Timestamp"        time
            . pair "AWSAccessKeyId"   (toBS _authAccess)
-           . pair "SecurityToken"    (toBS <$> _authToken)
-           $ _rqQuery
+           $ _rqQuery <> maybe mempty toQuery token
+
+        token = (("SecurityToken" :: ByteString,) . toBS <$> _authToken)
 
         headers = hdr hDate time _rqHeaders
 

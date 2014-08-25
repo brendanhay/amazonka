@@ -109,7 +109,7 @@ instance MonadTransControl AWST where
     liftWith = \f -> AWST $
         liftWith $ \g ->
             liftWith $ \h ->
-                f $ liftM StTAWS . h . g . unAWST
+                f (liftM StTAWS . h . g . unAWST)
     {-# INLINE liftWith #-}
 
     restoreT = AWST . restoreT . restoreT . liftM unStTAWS

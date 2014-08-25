@@ -90,7 +90,7 @@ instance Monad m => MonadReader Env (AWST m) where
     ask = AWST (fst `liftM` ask)
     {-# INLINE ask #-}
 
-    local f = hoist . local (first f)
+    local f = AWST . local (first f) . unAWST
     {-# INLINE local #-}
 
 instance MonadTrans AWST where

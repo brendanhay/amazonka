@@ -24,7 +24,6 @@
 -- about a minute) will set the alarm to its actual state.
 module Network.AWS.CloudWatch.V2010_08_01.SetAlarmState where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude

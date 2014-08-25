@@ -27,7 +27,6 @@
 -- &X-Amz-Credential= c130cfb7-3650-11e0-ae57-f96cfe56749c.
 module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

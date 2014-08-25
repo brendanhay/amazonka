@@ -35,7 +35,6 @@
 -- dw1.xlarge examplecluster adminuser 56a9daf4-64fa-11e2-a8da-655adc216806.
 module Network.AWS.Redshift.V2012_12_01.DescribeClusterSnapshots where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

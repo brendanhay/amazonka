@@ -35,7 +35,6 @@
 -- b61ce1b1-0401-11e1-b2f8-2dEXAMPLEbfc.
 module Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude

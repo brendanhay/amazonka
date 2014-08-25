@@ -25,7 +25,6 @@
 -- OldestLaunchConfiguration d9a05827-b735-11e2-a40c-c79a5EXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

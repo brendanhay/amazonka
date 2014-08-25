@@ -56,11 +56,10 @@
 -- "CapacityUnits": 3 }, { "TableName": "Thread", "CapacityUnits": 1 } ] }.
 module Network.AWS.DynamoDB.V2012_08_10.BatchGetItem where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DynamoDB.V2012_08_10.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DynamoDB.V2012_08_10.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'BatchGetItem' request.
 batchGetItem :: Map Text KeysAndAttributes -- ^ '_bgiiRequestItems'

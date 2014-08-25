@@ -28,11 +28,10 @@
 -- unique identifier for the check.
 module Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Support.V2013_04_15.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Support.V2013_04_15.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacrCheckId :: Text

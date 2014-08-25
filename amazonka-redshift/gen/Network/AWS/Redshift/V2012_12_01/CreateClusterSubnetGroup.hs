@@ -34,7 +34,6 @@
 -- 0a60660f-6a4a-11e2-aad2-71d00c36728e.
 module Network.AWS.Redshift.V2012_12_01.CreateClusterSubnetGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

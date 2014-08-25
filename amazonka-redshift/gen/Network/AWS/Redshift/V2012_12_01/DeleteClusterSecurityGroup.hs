@@ -31,7 +31,6 @@
 -- e54e05dc-40da-11e2-955f-313c36e9e01d.
 module Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

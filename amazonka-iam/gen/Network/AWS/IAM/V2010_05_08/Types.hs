@@ -24,7 +24,6 @@
 -- deny their access to AWS resources.
 module Network.AWS.IAM.V2010_05_08.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

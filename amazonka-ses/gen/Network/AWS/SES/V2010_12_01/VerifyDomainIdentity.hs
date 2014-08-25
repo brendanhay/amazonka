@@ -31,7 +31,6 @@
 -- 94f6368e-9bf2-11e1-8ee7-c98a0037a2b6.
 module Network.AWS.SES.V2010_12_01.VerifyDomainIdentity where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

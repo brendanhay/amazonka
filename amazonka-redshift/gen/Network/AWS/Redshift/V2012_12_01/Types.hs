@@ -26,7 +26,6 @@
 -- tenth of most other data warehousing solutions.
 module Network.AWS.Redshift.V2012_12_01.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

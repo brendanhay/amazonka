@@ -41,7 +41,6 @@
 -- configuration wlm_json_configuration 396df00b-40c4-11e2-82cf-0b45b05c0221.
 module Network.AWS.Redshift.V2012_12_01.DescribeDefaultClusterParameters where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

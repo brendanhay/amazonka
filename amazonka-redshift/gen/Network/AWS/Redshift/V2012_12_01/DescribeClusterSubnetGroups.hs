@@ -31,7 +31,6 @@
 -- subnet-78de1215 us-east-1a 42024b68-6af3-11e2-a726-6368a468fa67.
 module Network.AWS.Redshift.V2012_12_01.DescribeClusterSubnetGroups where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

@@ -31,7 +31,6 @@
 -- securitygroup1 f9ee270f-64f7-11e2-a8da-655adc216806.
 module Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

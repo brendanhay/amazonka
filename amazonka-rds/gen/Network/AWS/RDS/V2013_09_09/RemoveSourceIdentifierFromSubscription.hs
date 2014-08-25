@@ -29,7 +29,6 @@
 -- 6f0b82bf-68e9-11e2-b97b-43c6362ec60d.
 module Network.AWS.RDS.V2013_09_09.RemoveSourceIdentifierFromSubscription where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

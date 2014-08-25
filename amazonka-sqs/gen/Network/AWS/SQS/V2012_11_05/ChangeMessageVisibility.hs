@@ -57,7 +57,6 @@
 -- 6a7a282a-d013-4a59-aba9-335b0fa48bed.
 module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

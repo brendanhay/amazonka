@@ -22,11 +22,10 @@
 -- your account.
 module Network.AWS.CloudTrail.V2013_11_01.DescribeTrails where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CloudTrail.V2013_11_01.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CloudTrail.V2013_11_01.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeTrails' request.
 describeTrails :: DescribeTrails

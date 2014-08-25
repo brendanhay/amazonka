@@ -22,7 +22,6 @@
 -- system, application, and custom log files.
 module Network.AWS.CloudWatchLogs.V2014_03_28.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

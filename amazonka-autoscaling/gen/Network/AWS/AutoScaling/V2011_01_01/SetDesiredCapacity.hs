@@ -25,7 +25,6 @@
 -- 9fb7e2db-6998-11e2-a985-57c82EXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.SetDesiredCapacity where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

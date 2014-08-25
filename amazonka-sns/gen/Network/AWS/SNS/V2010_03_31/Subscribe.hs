@@ -36,7 +36,6 @@
 -- &lt;/ResponseMetadata&gt; &lt;/SubscribeResponse&gt;.
 module Network.AWS.SNS.V2010_03_31.Subscribe where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude

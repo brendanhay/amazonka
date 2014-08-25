@@ -55,7 +55,6 @@
 -- e5cca473-4fc0-4198-a451-8abb94d02c75.
 module Network.AWS.SQS.V2012_11_05.SetQueueAttributes where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

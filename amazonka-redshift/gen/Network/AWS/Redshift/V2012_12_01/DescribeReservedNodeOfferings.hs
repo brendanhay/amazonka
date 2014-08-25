@@ -38,7 +38,6 @@
 -- f4a07e06-60fc-11e2-95d9-658e9466d117.
 module Network.AWS.Redshift.V2012_12_01.DescribeReservedNodeOfferings where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

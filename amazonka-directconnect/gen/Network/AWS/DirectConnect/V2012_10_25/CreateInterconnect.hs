@@ -33,11 +33,10 @@
 -- the VLAN assigned to them by the AWS Direct Connect partner.
 module Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.V2012_10_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DirectConnect.V2012_10_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data CreateInterconnect = CreateInterconnect
     { _cirBandwidth :: Text

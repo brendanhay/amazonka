@@ -32,7 +32,6 @@
 -- 144745b0-b9d3-11e3-8a16-7978bb24ffdf.
 module Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

@@ -29,11 +29,10 @@
 -- last refresh of the check. CheckId. The unique identifier for the check.
 module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Support.V2013_04_15.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Support.V2013_04_15.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeTrustedAdvisorCheckResult' request.
 describeTrustedAdvisorCheckResult :: Text -- ^ '_dtacrrCheckId'

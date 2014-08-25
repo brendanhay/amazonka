@@ -47,11 +47,10 @@
 -- "07622379445839968487886029673945314100949536701251562127" } ] }.
 module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogStreams where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CloudWatchLogs.V2014_03_28.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeLogStreams' request.
 describeLogStreams :: Text -- ^ '_dlssLogGroupName'

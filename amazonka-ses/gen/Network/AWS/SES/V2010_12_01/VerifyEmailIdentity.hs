@@ -31,7 +31,6 @@
 -- &Version=2010-12-01 47e0ef1a-9bf2-11e1-9279-0100e8cf109a.
 module Network.AWS.SES.V2010_12_01.VerifyEmailIdentity where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

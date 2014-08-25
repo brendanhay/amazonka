@@ -25,7 +25,6 @@
 -- returned by the service.
 module Network.AWS.CloudTrail.V2013_11_01.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

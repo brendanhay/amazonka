@@ -25,7 +25,6 @@
 -- 36b5db08-f1b0-11df-8fbe-45274EXAMPLE.
 module Network.AWS.IAM.V2010_05_08.CreateAccountAlias where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude

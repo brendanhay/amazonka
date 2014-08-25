@@ -31,7 +31,6 @@
 -- aclassoc-c26596ab acl-5d659634 subnet-f0669599.
 module Network.AWS.EC2.V2014_06_15.DescribeNetworkAcls where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

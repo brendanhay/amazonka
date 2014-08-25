@@ -24,7 +24,6 @@
 -- completion of previous tasks.
 module Network.AWS.DataPipeline.V2012_10_29.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

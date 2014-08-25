@@ -27,7 +27,6 @@
 -- &AUTHPARAMS 70a76d42-9665-11e2-9fdf-211deEXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

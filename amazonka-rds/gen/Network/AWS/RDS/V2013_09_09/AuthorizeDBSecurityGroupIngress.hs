@@ -38,7 +38,6 @@
 -- d9799197-bf2d-11de-b88d-993294bf1c81.
 module Network.AWS.RDS.V2013_09_09.AuthorizeDBSecurityGroupIngress where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

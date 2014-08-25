@@ -29,7 +29,6 @@
 -- MFADevices 20 f1e38443-f1ad-11df-b1ef-a9265EXAMPLE.
 module Network.AWS.IAM.V2010_05_08.GetAccountSummary where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude

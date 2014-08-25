@@ -49,11 +49,10 @@
 -- 4718a364-3fd0-11e1-9914-a356b6ea8bdf {"count": 2, "truncated": false}.
 module Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data CountPendingDecisionTasks = CountPendingDecisionTasks
     { _cpdtiDomain :: Text

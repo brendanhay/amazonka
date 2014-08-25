@@ -28,7 +28,6 @@
 -- performance.
 module Network.AWS.DynamoDB.V2012_08_10.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

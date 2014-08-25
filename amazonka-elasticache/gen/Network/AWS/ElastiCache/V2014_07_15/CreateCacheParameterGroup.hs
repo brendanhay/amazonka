@@ -31,7 +31,6 @@
 -- parameter group 05699541-b7f9-11e0-9326-b7275b9d4a6c.
 module Network.AWS.ElastiCache.V2014_07_15.CreateCacheParameterGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

@@ -22,7 +22,6 @@
 -- for an object that already exists in a bucket.
 module Network.AWS.S3.V2006_03_01.PutObjectAcl where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude

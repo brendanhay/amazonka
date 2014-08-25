@@ -39,7 +39,6 @@
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

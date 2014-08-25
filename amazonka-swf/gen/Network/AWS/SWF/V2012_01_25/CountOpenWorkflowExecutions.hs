@@ -52,11 +52,10 @@
 -- 5ea6789e-3f05-11e1-9e8f-57bb03e21482 {"count":1,"truncated":false}.
 module Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CountOpenWorkflowExecutions' request.
 countOpenWorkflowExecutions :: Text -- ^ '_coweiDomain'

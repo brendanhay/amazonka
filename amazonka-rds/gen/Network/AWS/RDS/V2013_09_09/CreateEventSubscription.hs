@@ -56,7 +56,6 @@
 -- d064b48c-68eb-11e2-ab10-11125abcb784.
 module Network.AWS.RDS.V2013_09_09.CreateEventSubscription where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

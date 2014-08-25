@@ -25,7 +25,6 @@
 -- you can only use it on jobs you own.
 module Network.AWS.ImportExport.V2010_06_01.UpdateJob where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude

@@ -33,7 +33,6 @@
 -- rimod-3aae219d-3d63-47a9-a7e9-e764example.
 module Network.AWS.EC2.V2014_06_15.ModifyReservedInstances where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

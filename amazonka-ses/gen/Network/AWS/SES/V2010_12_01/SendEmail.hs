@@ -47,7 +47,6 @@
 -- d5964849-c866-11e0-9beb-01a62d68c57f.
 module Network.AWS.SES.V2010_12_01.SendEmail where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

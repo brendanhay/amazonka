@@ -24,7 +24,6 @@
 -- CloudSearch Developer Guide.
 module Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude

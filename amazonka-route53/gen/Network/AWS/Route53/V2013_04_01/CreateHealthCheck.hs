@@ -25,7 +25,6 @@
 -- metadata about the health check.
 module Network.AWS.Route53.V2013_04_01.CreateHealthCheck where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude

@@ -52,7 +52,6 @@
 -- ["Default-Environment"] } }, (Additional items ...) ] } }.
 module Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude

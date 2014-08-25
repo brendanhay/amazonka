@@ -29,7 +29,6 @@
 -- cb8d9bb4-a02a-11df-bd60-c955b7d6e8e0.
 module Network.AWS.RDS.V2013_09_09.DescribeDBParameterGroups where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

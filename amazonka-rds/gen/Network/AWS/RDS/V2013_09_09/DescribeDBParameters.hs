@@ -30,7 +30,6 @@
 -- 8743f2cf-bf41-11de-8c8e-49155882c409.
 module Network.AWS.RDS.V2013_09_09.DescribeDBParameters where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

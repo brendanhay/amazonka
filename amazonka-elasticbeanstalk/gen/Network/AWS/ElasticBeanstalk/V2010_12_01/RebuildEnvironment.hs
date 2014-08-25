@@ -26,7 +26,6 @@
 -- a7d6606e-f289-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude

@@ -51,11 +51,10 @@
 -- x-amzn-RequestId: 191ee17e-3fff-11e1-a23a-99d60383ae71.
 module Network.AWS.SWF.V2012_01_25.DeprecateActivityType where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data DeprecateActivityType = DeprecateActivityType
     { _datjActivityType :: ActivityType

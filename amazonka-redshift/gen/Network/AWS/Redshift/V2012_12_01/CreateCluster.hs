@@ -48,7 +48,6 @@
 -- master fa337bb4-6a4d-11e2-a12a-cb8076a904bd.
 module Network.AWS.Redshift.V2012_12_01.CreateCluster where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

@@ -32,7 +32,6 @@
 -- 5634af08-c865-11e0-8986-3f99a698f914.
 module Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

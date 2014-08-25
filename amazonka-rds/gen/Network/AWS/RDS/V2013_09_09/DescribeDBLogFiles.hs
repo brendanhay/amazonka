@@ -33,7 +33,6 @@
 -- d70fb3b3-9704-11e2-a0db-871552e0ef19.
 module Network.AWS.RDS.V2013_09_09.DescribeDBLogFiles where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

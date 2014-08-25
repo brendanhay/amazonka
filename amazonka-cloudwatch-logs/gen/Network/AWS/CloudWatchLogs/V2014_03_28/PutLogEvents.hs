@@ -45,11 +45,10 @@
 -- "49536701251539826331025683274032969384950891766572122113" }.
 module Network.AWS.CloudWatchLogs.V2014_03_28.PutLogEvents where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CloudWatchLogs.V2014_03_28.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'PutLogEvents' request.
 putLogEvents :: [InputLogEvent] -- ^ '_plerLogEvents'

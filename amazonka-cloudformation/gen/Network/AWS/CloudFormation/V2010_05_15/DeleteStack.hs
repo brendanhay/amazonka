@@ -27,7 +27,6 @@
 -- &Signature=[Signature].
 module Network.AWS.CloudFormation.V2010_05_15.DeleteStack where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude

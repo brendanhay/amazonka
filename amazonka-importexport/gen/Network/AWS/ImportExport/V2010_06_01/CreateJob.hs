@@ -25,7 +25,6 @@
 -- storage device, and the address where you should ship your storage device.
 module Network.AWS.ImportExport.V2010_06_01.CreateJob where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude

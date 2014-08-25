@@ -32,7 +32,6 @@
 -- e04f3b11-f357-11e3-a434-7f10009d5849.
 module Network.AWS.AutoScaling.V2011_01_01.DetachInstances where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

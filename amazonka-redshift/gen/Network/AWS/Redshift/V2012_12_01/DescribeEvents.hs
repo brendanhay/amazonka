@@ -33,7 +33,6 @@
 -- 3eeb9efe-40c5-11e2-816a-1bba29fad1f5.
 module Network.AWS.Redshift.V2012_12_01.DescribeEvents where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

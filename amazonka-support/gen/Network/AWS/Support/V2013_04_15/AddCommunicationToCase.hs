@@ -27,11 +27,10 @@
 -- Support Your Support Cases web form.
 module Network.AWS.Support.V2013_04_15.AddCommunicationToCase where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Support.V2013_04_15.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Support.V2013_04_15.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'AddCommunicationToCase' request.
 addCommunicationToCase :: Text -- ^ '_actcrCommunicationBody'

@@ -23,7 +23,6 @@
 -- IAM guide.
 module Network.AWS.IAM.V2010_05_08.GenerateCredentialReport where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude

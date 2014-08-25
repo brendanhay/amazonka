@@ -21,11 +21,10 @@
 -- | Provides more detail about the cluster step.
 module Network.AWS.EMR.V2009_03_31.DescribeStep where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.V2009_03_31.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.EMR.V2009_03_31.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data DescribeStep = DescribeStep
     { _dsiClusterId :: Text

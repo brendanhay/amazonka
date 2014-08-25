@@ -23,7 +23,6 @@
 -- prefix for the alarm name, the alarm state, or a prefix for any action.
 module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude

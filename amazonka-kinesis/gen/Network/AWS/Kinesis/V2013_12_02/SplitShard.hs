@@ -65,11 +65,10 @@
 -- Content-Length: Date: ]]>.
 module Network.AWS.Kinesis.V2013_12_02.SplitShard where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Kinesis.V2013_12_02.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Kinesis.V2013_12_02.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data SplitShard = SplitShard
     { _ssiNewStartingHashKey :: Text

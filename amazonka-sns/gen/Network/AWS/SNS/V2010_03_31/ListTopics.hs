@@ -34,7 +34,6 @@
 -- &lt;/ResponseMetadata&gt; &lt;/ListTopicsResponse&gt;.
 module Network.AWS.SNS.V2010_03_31.ListTopics where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude

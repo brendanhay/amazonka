@@ -40,11 +40,10 @@
 -- "metricNamespace": "MyApp", "metricName": "RequestCount" } ] } ] }.
 module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CloudWatchLogs.V2014_03_28.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeMetricFilters' request.
 describeMetricFilters :: Text -- ^ '_dmfrLogGroupName'

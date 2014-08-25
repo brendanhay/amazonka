@@ -21,7 +21,6 @@
 -- | Describes the available types of lifecycle hooks.
 module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

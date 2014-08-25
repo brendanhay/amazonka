@@ -34,7 +34,6 @@
 -- 3e24c5cd-c6e2-11df-8463-4f0c49644cb7.
 module Network.AWS.RDS.V2013_09_09.CreateDBInstanceReadReplica where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

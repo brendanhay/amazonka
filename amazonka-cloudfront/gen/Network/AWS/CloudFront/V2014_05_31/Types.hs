@@ -31,11 +31,10 @@
 -- for the definitive version of your content.
 module Network.AWS.CloudFront.V2014_05_31.Types where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import           Network.AWS.Prelude
+import           Network.AWS.Signing.V4
+import           Network.AWS.Types     (Region)
 import qualified Network.AWS.Types.Map as Map
-import Network.AWS.Signing.V4
 
 -- | Supported version (@2014-05-31@) of the
 -- @Amazon CloudFront@ service.

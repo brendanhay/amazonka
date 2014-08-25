@@ -22,7 +22,6 @@
 -- unit to filter the set of alarms further.
 module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude

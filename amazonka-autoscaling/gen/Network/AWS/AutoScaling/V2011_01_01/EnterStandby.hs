@@ -31,7 +31,6 @@
 -- i-5b73d709 126f2f31-f34b-11e3-bc51-b35178f0274f.
 module Network.AWS.AutoScaling.V2011_01_01.EnterStandby where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

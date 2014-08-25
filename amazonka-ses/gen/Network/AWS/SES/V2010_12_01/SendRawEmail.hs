@@ -62,7 +62,6 @@
 -- e0abcdfa-c866-11e0-b6d0-273d09173b49.
 module Network.AWS.SES.V2010_12_01.SendRawEmail where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

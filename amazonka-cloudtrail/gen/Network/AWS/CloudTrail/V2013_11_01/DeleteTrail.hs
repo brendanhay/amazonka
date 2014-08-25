@@ -21,11 +21,10 @@
 -- | Deletes a trail.
 module Network.AWS.CloudTrail.V2013_11_01.DeleteTrail where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CloudTrail.V2013_11_01.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CloudTrail.V2013_11_01.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data DeleteTrail = DeleteTrail
     { _dttName :: Text

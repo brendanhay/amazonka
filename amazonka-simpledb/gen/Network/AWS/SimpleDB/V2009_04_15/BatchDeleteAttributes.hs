@@ -36,7 +36,6 @@
 -- limit per BatchDeleteAttributes operation.
 module Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude

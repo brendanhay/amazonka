@@ -24,7 +24,6 @@
 -- &AuthParams f4e1b145-9080-11e0-8e5a-a558e0ce1fc4.
 module Network.AWS.ElasticBeanstalk.V2010_12_01.SwapEnvironmentCNAMEs where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude

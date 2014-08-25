@@ -29,7 +29,6 @@
 -- server 0be7b6e8-e4a0-11e0-a5bd-9f8d5a7dbc91.
 module Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude

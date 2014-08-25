@@ -35,11 +35,10 @@
 -- 06:01:47 GMT { "Success":"true" }.
 module Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.ElasticTranscoder.V2012_09_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data CancelJob = CancelJob
     { _cjvId :: Text

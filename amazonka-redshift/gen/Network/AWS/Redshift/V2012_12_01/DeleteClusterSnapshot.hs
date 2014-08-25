@@ -36,7 +36,6 @@
 -- 88a31de4-40d1-11e2-8a25-eb010998df4e.
 module Network.AWS.Redshift.V2012_12_01.DeleteClusterSnapshot where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

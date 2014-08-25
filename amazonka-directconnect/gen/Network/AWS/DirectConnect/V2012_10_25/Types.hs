@@ -26,7 +26,6 @@
 -- Cloud, bypassing Internet service providers in your network path.
 module Network.AWS.DirectConnect.V2012_10_25.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

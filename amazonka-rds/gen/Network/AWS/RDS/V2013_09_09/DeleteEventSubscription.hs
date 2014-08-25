@@ -28,7 +28,6 @@
 -- e7cf30ac-68e9-11e2-bd13-a92da73b3119.
 module Network.AWS.RDS.V2013_09_09.DeleteEventSubscription where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

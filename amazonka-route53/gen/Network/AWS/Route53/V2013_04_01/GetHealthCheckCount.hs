@@ -22,7 +22,6 @@
 -- 2013-04-01/healthcheckcount resource.
 module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude

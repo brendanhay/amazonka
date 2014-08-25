@@ -30,11 +30,10 @@
 -- after the update, are returned in the response. { }.
 module Network.AWS.DynamoDB.V2012_08_10.UpdateItem where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DynamoDB.V2012_08_10.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DynamoDB.V2012_08_10.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateItem' request.
 updateItem :: Map Text AttributeValue -- ^ '_uiiKey'

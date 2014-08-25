@@ -31,7 +31,6 @@
 -- df992dc3-b72f-11e2-81e1-750aa6EXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

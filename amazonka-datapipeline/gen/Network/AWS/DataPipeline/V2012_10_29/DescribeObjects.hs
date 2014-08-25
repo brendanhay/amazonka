@@ -37,11 +37,10 @@
 -- "df-06372391ZG65EXAMPLE"} ], "id": "Schedule", "name": "Schedule"} ] }.
 module Network.AWS.DataPipeline.V2012_10_29.DescribeObjects where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.V2012_10_29.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DataPipeline.V2012_10_29.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeObjects' request.
 describeObjects :: Text -- ^ '_doiPipelineId'

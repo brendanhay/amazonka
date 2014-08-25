@@ -37,7 +37,6 @@
 -- active 3 cf7e6fc4-b9d1-11e3-8a16-7978bb24ffdf.
 module Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

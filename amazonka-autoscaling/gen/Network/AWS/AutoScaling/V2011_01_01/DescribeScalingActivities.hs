@@ -38,7 +38,6 @@
 -- 7a641adc-84c5-11e1-a8a5-217ebEXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

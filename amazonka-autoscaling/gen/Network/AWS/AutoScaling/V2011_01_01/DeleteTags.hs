@@ -21,7 +21,6 @@
 -- | Removes the specified tags or a set of tags from a set of resources.
 module Network.AWS.AutoScaling.V2011_01_01.DeleteTags where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

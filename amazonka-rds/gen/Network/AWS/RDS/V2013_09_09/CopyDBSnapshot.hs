@@ -29,7 +29,6 @@
 -- c4181d1d-8505-11e0-90aa-eb648410240d.
 module Network.AWS.RDS.V2013_09_09.CopyDBSnapshot where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

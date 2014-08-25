@@ -62,11 +62,10 @@
 -- "workflowId": "20110927-T-1"} }.
 module Network.AWS.SWF.V2012_01_25.PollForActivityTask where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'PollForActivityTask' request.
 pollForActivityTask :: Text -- ^ '_pfatiDomain'

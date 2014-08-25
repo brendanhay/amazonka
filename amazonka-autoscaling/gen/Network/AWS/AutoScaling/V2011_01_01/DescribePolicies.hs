@@ -34,7 +34,6 @@
 -- ec3bffad-b739-11e2-b38d-15fbEXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.DescribePolicies where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

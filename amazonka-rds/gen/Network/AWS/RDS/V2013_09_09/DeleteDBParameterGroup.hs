@@ -28,7 +28,6 @@
 -- 4dc38be9-bf3b-11de-a88b-7b5b3d23b3a7.
 module Network.AWS.RDS.V2013_09_09.DeleteDBParameterGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

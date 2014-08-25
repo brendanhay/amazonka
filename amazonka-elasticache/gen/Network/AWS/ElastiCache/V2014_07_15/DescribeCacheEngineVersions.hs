@@ -28,7 +28,6 @@
 -- 1.4.5 a6ac9ad2-f8a4-11e1-a4d1-a345e5370093.
 module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheEngineVersions where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

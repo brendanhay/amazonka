@@ -32,11 +32,10 @@
 -- 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}.
 module Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.V2012_10_29.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DataPipeline.V2012_10_29.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data EvaluateExpression = EvaluateExpression
     { _eeiPipelineId :: Text

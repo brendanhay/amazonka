@@ -37,7 +37,6 @@
 -- 3bc8c9bc-6a62-11e2-8a51-4b8a1EXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.PutScheduledUpdateGroupAction where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

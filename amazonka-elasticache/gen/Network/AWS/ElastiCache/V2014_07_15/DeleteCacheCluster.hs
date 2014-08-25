@@ -32,7 +32,6 @@
 -- active 3 ab84aa7e-b7fa-11e0-9b0b-a9261be2b354.
 module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

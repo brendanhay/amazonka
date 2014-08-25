@@ -38,7 +38,6 @@
 -- examplecluster2 true masteruser f2e6b87e-6503-11e2-b343-393adc3f0a21.
 module Network.AWS.Redshift.V2012_12_01.DeleteCluster where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

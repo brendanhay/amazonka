@@ -58,7 +58,6 @@
 -- b6633655-283d-45b4-aee4-4e84e0ae6afa.
 module Network.AWS.SQS.V2012_11_05.ReceiveMessage where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

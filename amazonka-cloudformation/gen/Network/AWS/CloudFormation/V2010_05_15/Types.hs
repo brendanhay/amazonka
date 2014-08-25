@@ -31,7 +31,6 @@
 -- infrastructure the same way you do with your software.
 module Network.AWS.CloudFormation.V2010_05_15.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

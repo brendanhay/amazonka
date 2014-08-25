@@ -34,7 +34,6 @@
 -- 6c1341eb-a124-11df-bf5c-973b09643c5d.
 module Network.AWS.RDS.V2013_09_09.DescribeEngineDefaultParameters where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

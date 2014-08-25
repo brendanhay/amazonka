@@ -24,7 +24,6 @@
 -- history of an alarm for two weeks, whether or not you delete the alarm.
 module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude

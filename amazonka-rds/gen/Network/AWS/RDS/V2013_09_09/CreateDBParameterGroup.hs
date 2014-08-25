@@ -35,7 +35,6 @@
 -- 0b447b66-bf36-11de-a88b-7b5b3d23b3a7.
 module Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

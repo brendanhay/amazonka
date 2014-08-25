@@ -33,7 +33,6 @@
 -- 3dd50e97-c865-11e0-b235-099eb63d928d.
 module Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

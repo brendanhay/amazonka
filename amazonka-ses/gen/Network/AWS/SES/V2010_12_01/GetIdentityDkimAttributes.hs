@@ -45,7 +45,6 @@
 -- bb5a105d-c468-11e1-82eb-dff885ccc06a.
 module Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

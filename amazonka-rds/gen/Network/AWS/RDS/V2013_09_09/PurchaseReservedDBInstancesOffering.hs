@@ -29,7 +29,6 @@
 -- 0.123 db.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
 module Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

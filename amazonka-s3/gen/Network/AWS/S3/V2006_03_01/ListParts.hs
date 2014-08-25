@@ -21,7 +21,6 @@
 -- | Lists the parts that have been uploaded for a specific multipart upload.
 module Network.AWS.S3.V2006_03_01.ListParts where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude

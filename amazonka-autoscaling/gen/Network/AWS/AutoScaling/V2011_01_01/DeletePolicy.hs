@@ -21,7 +21,6 @@
 -- | Deletes a policy created by PutScalingPolicy.
 module Network.AWS.AutoScaling.V2011_01_01.DeletePolicy where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

@@ -25,7 +25,6 @@
 -- 2010-11-17T03:21:59.161Z 773cd80a-f26c-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude

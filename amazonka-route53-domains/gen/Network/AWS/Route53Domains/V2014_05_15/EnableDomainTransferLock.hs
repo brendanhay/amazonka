@@ -38,11 +38,10 @@
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
 module Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Route53Domains.V2014_05_15.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Route53Domains.V2014_05_15.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data EnableDomainTransferLock = EnableDomainTransferLock
     { _edtlrDomainName :: Text

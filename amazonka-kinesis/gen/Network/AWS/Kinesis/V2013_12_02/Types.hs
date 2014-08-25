@@ -24,7 +24,6 @@
 -- data-processing applications that can be run on Amazon EC2 instances.
 module Network.AWS.Kinesis.V2013_12_02.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

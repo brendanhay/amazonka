@@ -21,7 +21,6 @@
 -- | Delete a distribution.
 module Network.AWS.CloudFront.V2014_05_31.DeleteDistribution where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude

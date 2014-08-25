@@ -21,7 +21,6 @@
 -- | Pending.
 module Network.AWS.Route53Domains.V2014_05_15.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

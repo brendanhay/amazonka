@@ -31,7 +31,6 @@
 -- user@example.com cacecf23-9bf1-11e1-9279-0100e8cf109a.
 module Network.AWS.SES.V2010_12_01.ListIdentities where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

@@ -38,7 +38,6 @@
 -- &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
 module Network.AWS.EC2.V2014_06_15.DescribeVpcs where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

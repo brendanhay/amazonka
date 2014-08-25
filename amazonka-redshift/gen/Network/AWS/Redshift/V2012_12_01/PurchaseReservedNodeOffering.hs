@@ -37,7 +37,6 @@
 -- fcb117cc-61b7-11e2-b6e9-87e586e4ca38.
 module Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

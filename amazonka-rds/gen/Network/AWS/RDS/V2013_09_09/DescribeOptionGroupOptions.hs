@@ -24,7 +24,6 @@
 -- oracle-se1 0.2.v3 false false d9c8f6a1-84c7-11e1-a264-0b23c28bc344.
 module Network.AWS.RDS.V2013_09_09.DescribeOptionGroupOptions where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

@@ -23,7 +23,6 @@
 -- lists the description for that subscription.
 module Network.AWS.Redshift.V2012_12_01.DescribeEventSubscriptions where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

@@ -45,7 +45,6 @@
 -- 7a62c49f-347e-4fc4-9331-6e8e7a96aa73.
 module Network.AWS.SQS.V2012_11_05.CreateQueue where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

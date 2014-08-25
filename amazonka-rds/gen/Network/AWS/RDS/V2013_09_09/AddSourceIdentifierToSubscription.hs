@@ -30,7 +30,6 @@
 -- 05d0fd8a-68e8-11e2-8e4d-31f087d822e1.
 module Network.AWS.RDS.V2013_09_09.AddSourceIdentifierToSubscription where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

@@ -32,7 +32,6 @@
 -- 8d798a29-f083-11e1-bdfb-cb223EXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.CreateAutoScalingGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

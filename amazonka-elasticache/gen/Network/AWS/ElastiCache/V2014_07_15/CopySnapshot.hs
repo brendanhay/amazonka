@@ -21,7 +21,6 @@
 -- | The CopySnapshot operation makes a copy of an existing snapshot.
 module Network.AWS.ElastiCache.V2014_07_15.CopySnapshot where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

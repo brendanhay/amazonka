@@ -31,7 +31,6 @@
 -- release of redshift 1.0 d39cd5e5-40c2-11e2-8a25-eb010998df4e.
 module Network.AWS.Redshift.V2012_12_01.DescribeClusterVersions where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

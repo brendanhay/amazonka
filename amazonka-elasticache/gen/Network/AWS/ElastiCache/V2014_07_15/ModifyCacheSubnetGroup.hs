@@ -29,7 +29,6 @@
 -- ed662948-a57b-11df-9e38-7ffab86c801f.
 module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheSubnetGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

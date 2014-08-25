@@ -21,7 +21,6 @@
 -- | Creates a copy of an object that is already stored in Amazon S3.
 module Network.AWS.S3.V2006_03_01.CopyObject where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude

@@ -35,7 +35,6 @@
 -- &lt;/CreateVpnGatewayResponse&gt;.
 module Network.AWS.EC2.V2014_06_15.CreateVpnGateway where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

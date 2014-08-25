@@ -29,7 +29,6 @@
 -- Using Select to Create Amazon SimpleDB Queries in the Developer Guide.
 module Network.AWS.SimpleDB.V2009_04_15.Select where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude

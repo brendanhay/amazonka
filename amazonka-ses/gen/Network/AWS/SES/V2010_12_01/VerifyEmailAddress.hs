@@ -33,7 +33,6 @@
 -- 8edd7eb2-c864-11e0-9f8f-3da8fc215a7e.
 module Network.AWS.SES.V2010_12_01.VerifyEmailAddress where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

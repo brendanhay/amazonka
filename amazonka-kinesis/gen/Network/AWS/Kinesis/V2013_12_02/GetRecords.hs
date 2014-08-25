@@ -58,11 +58,10 @@
 -- "SequenceNumber": "21269319989652663814458848515492872193" } ] }.
 module Network.AWS.Kinesis.V2013_12_02.GetRecords where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Kinesis.V2013_12_02.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Kinesis.V2013_12_02.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'GetRecords' request.
 getRecords :: Text -- ^ '_griShardIterator'

@@ -21,7 +21,6 @@
 -- | Get the configuration information about an origin access identity.
 module Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentityConfig where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude

@@ -66,11 +66,10 @@
 -- e08622cd-3ff5-11e1-9b11-7182192d0b57 {"cancelRequested":false}.
 module Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RecordActivityTaskHeartbeat' request.
 recordActivityTaskHeartbeat :: Text -- ^ '_rathiTaskToken'

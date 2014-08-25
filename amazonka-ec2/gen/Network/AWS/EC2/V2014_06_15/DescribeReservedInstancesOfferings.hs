@@ -67,7 +67,6 @@
 -- &amp;Filter.3.Value.1=Linux%2FUNIX &amp;AUTHPARAMS.
 module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

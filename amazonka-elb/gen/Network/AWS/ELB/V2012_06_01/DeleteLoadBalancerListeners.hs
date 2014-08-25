@@ -21,7 +21,6 @@
 -- | Deletes listeners from the load balancer for the specified port.
 module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerListeners where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

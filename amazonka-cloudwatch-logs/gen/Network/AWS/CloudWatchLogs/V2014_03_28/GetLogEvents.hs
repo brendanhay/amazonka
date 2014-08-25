@@ -46,11 +46,10 @@
 -- "f/31132629323784151764587387538205132201699397759403884544" }.
 module Network.AWS.CloudWatchLogs.V2014_03_28.GetLogEvents where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CloudWatchLogs.V2014_03_28.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'GetLogEvents' request.
 getLogEvents :: Text -- ^ '_glerLogGroupName'

@@ -43,7 +43,6 @@
 -- 2010-07-27T22:28:28Z CREATE_IN_PROGRESS.
 module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude

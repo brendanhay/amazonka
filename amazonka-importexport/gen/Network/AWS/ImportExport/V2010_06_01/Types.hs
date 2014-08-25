@@ -26,7 +26,6 @@
 -- effective than upgrading your connectivity.
 module Network.AWS.ImportExport.V2010_06_01.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V2
 

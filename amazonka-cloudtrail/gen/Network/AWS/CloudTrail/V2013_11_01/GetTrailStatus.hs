@@ -23,11 +23,10 @@
 -- errors, and start and stop logging times for each trail.
 module Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CloudTrail.V2013_11_01.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CloudTrail.V2013_11_01.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data GetTrailStatus = GetTrailStatus
     { _gtsrName :: Text

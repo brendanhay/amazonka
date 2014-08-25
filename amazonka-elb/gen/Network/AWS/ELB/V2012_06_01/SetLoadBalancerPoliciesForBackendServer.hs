@@ -37,7 +37,6 @@
 -- associated with the back-end server.
 module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

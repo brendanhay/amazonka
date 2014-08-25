@@ -50,11 +50,10 @@
 -- application/json x-amzn-RequestId: 0800c01a-4000-11e1-9914-a356b6ea8bdf.
 module Network.AWS.SWF.V2012_01_25.DeprecateDomain where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data DeprecateDomain = DeprecateDomain
     { _ddduName :: Text

@@ -31,7 +31,6 @@
 -- db.m1.large master 7ca622e8-8508-11e0-bd9b-a7b1ece36d51.
 module Network.AWS.RDS.V2013_09_09.RestoreDBInstanceFromDBSnapshot where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

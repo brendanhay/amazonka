@@ -38,7 +38,6 @@
 -- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
 module Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

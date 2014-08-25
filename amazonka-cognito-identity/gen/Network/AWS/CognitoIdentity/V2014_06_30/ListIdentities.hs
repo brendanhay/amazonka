@@ -28,11 +28,10 @@
 -- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
 module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.V2014_06_30.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CognitoIdentity.V2014_06_30.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListIdentities' request.
 listIdentities :: Text -- ^ '_liiIdentityPoolId'

@@ -53,11 +53,10 @@
 -- x-amzn-RequestId: feadaedd-3ff8-11e1-9e8f-57bb03e21482.
 module Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RespondActivityTaskFailed' request.
 respondActivityTaskFailed :: Text -- ^ '_ratfiTaskToken'

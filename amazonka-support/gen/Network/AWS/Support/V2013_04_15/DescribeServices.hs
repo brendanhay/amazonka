@@ -30,11 +30,10 @@
 -- most recent set of service and category codes.
 module Network.AWS.Support.V2013_04_15.DescribeServices where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Support.V2013_04_15.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Support.V2013_04_15.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeServices' request.
 describeServices :: DescribeServices

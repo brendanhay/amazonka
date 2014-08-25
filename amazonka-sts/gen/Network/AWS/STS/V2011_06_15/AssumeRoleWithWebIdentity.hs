@@ -82,7 +82,6 @@
 -- ad4156e9-bce1-11e2-82e6-6b6ef249e618.
 module Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude

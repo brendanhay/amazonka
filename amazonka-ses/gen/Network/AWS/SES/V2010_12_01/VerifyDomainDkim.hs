@@ -42,7 +42,6 @@
 -- 9662c15b-c469-11e1-99d1-797d6ecd6414.
 module Network.AWS.SES.V2010_12_01.VerifyDomainDkim where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

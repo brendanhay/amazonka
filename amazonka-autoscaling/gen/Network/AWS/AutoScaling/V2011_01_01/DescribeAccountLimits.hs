@@ -29,7 +29,6 @@
 -- a32bd184-519d-11e3-a8a4-c1c467cbcc3b.
 module Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

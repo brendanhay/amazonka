@@ -22,7 +22,6 @@
 -- The operation fails if the job has already started or is complete.
 module Network.AWS.ImportExport.V2010_06_01.CancelJob where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude

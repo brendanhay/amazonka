@@ -25,7 +25,6 @@
 -- back on mobile devices, tablets, web browsers, and connected televisions.
 module Network.AWS.ElasticTranscoder.V2012_09_25.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

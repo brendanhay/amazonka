@@ -23,7 +23,6 @@
 -- execute.
 module Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude

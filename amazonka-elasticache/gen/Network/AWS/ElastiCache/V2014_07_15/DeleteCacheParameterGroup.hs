@@ -28,7 +28,6 @@
 -- d0a417cb-575b-11e0-8869-cd22b4f9d96f.
 module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheParameterGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

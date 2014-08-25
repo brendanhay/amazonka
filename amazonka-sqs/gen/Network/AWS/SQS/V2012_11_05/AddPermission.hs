@@ -42,7 +42,6 @@
 -- 9a285199-c8d6-47c2-bdb2-314cb47d599d.
 module Network.AWS.SQS.V2012_11_05.AddPermission where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

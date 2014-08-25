@@ -37,7 +37,6 @@
 -- aaf2e796-363f-11e0-a564-8f11342c56b0 ]]> -->.
 module Network.AWS.ElastiCache.V2014_07_15.CreateCacheCluster where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

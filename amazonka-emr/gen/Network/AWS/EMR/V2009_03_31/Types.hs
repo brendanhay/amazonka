@@ -25,7 +25,6 @@
 -- simulation, and data warehousing.
 module Network.AWS.EMR.V2009_03_31.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

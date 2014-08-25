@@ -26,11 +26,10 @@
 -- infrastructure outside of AWS.
 module Network.AWS.Route53.V2013_04_01.Types where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import           Network.AWS.Prelude
+import           Network.AWS.Signing.V3
+import           Network.AWS.Types     (Region)
 import qualified Network.AWS.Types.Map as Map
-import Network.AWS.Signing.V3
 
 -- | Supported version (@2013-04-01@) of the
 -- @Amazon Route 53@ service.

@@ -30,7 +30,6 @@
 -- 273021c6-c866-11e0-b926-699e21c3af9e.
 module Network.AWS.SES.V2010_12_01.GetSendQuota where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

@@ -29,7 +29,6 @@
 -- call to DeleteLoadBalancer action still succeeds.
 module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

@@ -28,7 +28,6 @@
 -- 123456789012 My Security Group a95360ae-b7fc-11e0-9326-b7275b9d4a6c.
 module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSecurityGroups where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

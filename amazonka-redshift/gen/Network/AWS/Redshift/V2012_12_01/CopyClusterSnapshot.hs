@@ -39,7 +39,6 @@
 -- aebb56f5-64fe-11e2-88c5-53eb05787dfb.
 module Network.AWS.Redshift.V2012_12_01.CopyClusterSnapshot where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

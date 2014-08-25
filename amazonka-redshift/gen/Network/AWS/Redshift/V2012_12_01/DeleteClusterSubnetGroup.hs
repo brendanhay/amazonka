@@ -28,7 +28,6 @@
 -- 3a63806b-6af4-11e2-b27b-4d850b1c672d.
 module Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

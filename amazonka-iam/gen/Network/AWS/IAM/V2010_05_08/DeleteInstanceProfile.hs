@@ -29,7 +29,6 @@
 -- 90c18667-99f3-11e1-a4c3-27EXAMPLE804.
 module Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude

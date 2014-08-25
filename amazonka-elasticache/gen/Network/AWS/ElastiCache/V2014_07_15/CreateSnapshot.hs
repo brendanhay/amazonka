@@ -29,7 +29,6 @@
 -- faf5a232-b9ce-11e3-8a16-7978bb24ffdf.
 module Network.AWS.ElastiCache.V2014_07_15.CreateSnapshot where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

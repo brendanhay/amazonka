@@ -50,7 +50,6 @@
 -- adafead0-ab8a-11e2-ba13-ab0ccEXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.UpdateAutoScalingGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

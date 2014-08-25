@@ -49,11 +49,10 @@
 -- 4b977c76-3ff2-11e1-a23a-99d60383ae71 {"count":1,"truncated":false}.
 module Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatiDomain :: Text

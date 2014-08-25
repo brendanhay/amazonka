@@ -52,11 +52,10 @@
 -- x-amzn-RequestId: 9c8d6d3b-3fff-11e1-9e8f-57bb03e21482.
 module Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data DeprecateWorkflowType = DeprecateWorkflowType
     { _dwtjDomain :: Text

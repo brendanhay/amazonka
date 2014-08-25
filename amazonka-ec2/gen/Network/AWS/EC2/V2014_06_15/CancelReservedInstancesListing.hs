@@ -32,7 +32,6 @@
 -- XqJIt1342112125076.
 module Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

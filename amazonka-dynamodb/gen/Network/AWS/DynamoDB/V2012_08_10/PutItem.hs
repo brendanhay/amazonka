@@ -40,11 +40,10 @@
 -- for the primary key attributes. { }.
 module Network.AWS.DynamoDB.V2012_08_10.PutItem where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DynamoDB.V2012_08_10.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DynamoDB.V2012_08_10.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'PutItem' request.
 putItem :: Map Text AttributeValue -- ^ '_piiItem'

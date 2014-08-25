@@ -28,7 +28,6 @@
 -- 521b420a-2961-11e1-bd06-6fe008f046c3.
 module Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodesOfferings where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

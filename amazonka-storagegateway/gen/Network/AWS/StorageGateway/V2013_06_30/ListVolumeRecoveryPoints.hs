@@ -45,11 +45,10 @@
 -- 536870912000, "VolumeUsageInBytes": 6694048 } ] }.
 module Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.V2013_06_30.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.StorageGateway.V2013_06_30.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpiGatewayARN :: Text

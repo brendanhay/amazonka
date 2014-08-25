@@ -26,11 +26,10 @@
 -- Permissions.
 module Network.AWS.OpsWorks.V2013_02_18.DeleteInstance where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.V2013_02_18.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.OpsWorks.V2013_02_18.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DeleteInstance' request.
 deleteInstance :: Text -- ^ '_dirInstanceId'

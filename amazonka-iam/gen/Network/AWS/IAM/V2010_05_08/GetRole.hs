@@ -33,7 +33,6 @@
 -- df37e965-9967-11e1-a4c3-270EXAMPLE04.
 module Network.AWS.IAM.V2010_05_08.GetRole where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude

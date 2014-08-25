@@ -37,7 +37,6 @@
 -- us-east-1c us-east-1d e37414cc-40c0-11e2-b6a0-df98b1a86860.
 module Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

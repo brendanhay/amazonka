@@ -28,7 +28,6 @@
 -- deliveries to help you fine-tune your email-sending strategy.
 module Network.AWS.SES.V2010_12_01.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

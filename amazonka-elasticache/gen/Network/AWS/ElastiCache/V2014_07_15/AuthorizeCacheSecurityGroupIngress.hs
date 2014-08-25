@@ -32,7 +32,6 @@
 -- 817fa999-3647-11e0-ae57-f96cfe56749c.
 module Network.AWS.ElastiCache.V2014_07_15.AuthorizeCacheSecurityGroupIngress where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

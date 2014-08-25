@@ -34,7 +34,6 @@
 -- 837d45d6-64f0-11e2-b07c-f7fbdd006c67.
 module Network.AWS.Redshift.V2012_12_01.DescribeClusters where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

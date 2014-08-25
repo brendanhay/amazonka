@@ -34,7 +34,6 @@
 -- dw1.xlarge 2 a6d59c61-a162-11e2-b2bc-fb54c9d11e09.
 module Network.AWS.Redshift.V2012_12_01.DescribeResize where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

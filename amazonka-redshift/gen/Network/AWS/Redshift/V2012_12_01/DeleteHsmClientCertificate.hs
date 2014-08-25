@@ -21,7 +21,6 @@
 -- | Deletes the specified HSM client certificate.
 module Network.AWS.Redshift.V2012_12_01.DeleteHsmClientCertificate where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

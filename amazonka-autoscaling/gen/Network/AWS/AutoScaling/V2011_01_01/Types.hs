@@ -28,7 +28,6 @@
 -- and available at no additional charge beyond Amazon CloudWatch fees.
 module Network.AWS.AutoScaling.V2011_01_01.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

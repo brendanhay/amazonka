@@ -29,7 +29,6 @@
 -- 06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE.
 module Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

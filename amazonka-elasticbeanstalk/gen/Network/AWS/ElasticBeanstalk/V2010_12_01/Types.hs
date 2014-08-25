@@ -30,7 +30,6 @@
 -- only for the AWS resources needed to store and run your applications.
 module Network.AWS.ElasticBeanstalk.V2010_12_01.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

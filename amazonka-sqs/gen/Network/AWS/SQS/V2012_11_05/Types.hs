@@ -27,7 +27,6 @@
 -- messaging cluster, while paying a low price for only what you use.
 module Network.AWS.SQS.V2012_11_05.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

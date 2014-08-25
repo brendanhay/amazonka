@@ -23,7 +23,6 @@
 -- Amazon CloudSearch Domain.
 module Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude

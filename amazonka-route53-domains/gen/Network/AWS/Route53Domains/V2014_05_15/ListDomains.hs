@@ -40,11 +40,10 @@
 -- "TransferLock":false } ] }.
 module Network.AWS.Route53Domains.V2014_05_15.ListDomains where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Route53Domains.V2014_05_15.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Route53Domains.V2014_05_15.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListDomains' request.
 listDomains :: ListDomains

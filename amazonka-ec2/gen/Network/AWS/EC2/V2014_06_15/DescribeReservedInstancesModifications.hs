@@ -29,7 +29,6 @@
 -- &amp;Filter.1.Name=status &amp;Filter.1.Value.1=processing &amp;AUTHPARAMS.
 module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

@@ -36,7 +36,6 @@
 -- 12 vol-1a2b3c4d active i-12655a7f.
 module Network.AWS.EC2.V2014_06_15.ImportInstance where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

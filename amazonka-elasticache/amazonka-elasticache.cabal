@@ -86,5 +86,5 @@ library
 
     build-depends:
           amazonka
-        , base          == 4.7.*
+        , base     == 4.7.*
         , lens

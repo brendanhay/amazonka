@@ -26,7 +26,6 @@
 -- successive operation call.
 module Network.AWS.SimpleDB.V2009_04_15.ListDomains where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude

@@ -21,11 +21,10 @@
 -- | Registers an Amazon RDS instance with a stack.
 module Network.AWS.OpsWorks.V2013_02_18.RegisterRdsDbInstance where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.V2013_02_18.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.OpsWorks.V2013_02_18.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data RegisterRdsDbInstance = RegisterRdsDbInstance
     { _rrdirRdsDbInstanceArn :: Text

@@ -30,7 +30,6 @@
 -- application running smoothly.
 module Network.AWS.CloudWatch.V2010_08_01.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

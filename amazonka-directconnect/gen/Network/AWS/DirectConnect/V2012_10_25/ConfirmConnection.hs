@@ -24,11 +24,10 @@
 -- confirm creation of the hosted connection.
 module Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.V2012_10_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DirectConnect.V2012_10_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data ConfirmConnection = ConfirmConnection
     { _ccsConnectionId :: Text

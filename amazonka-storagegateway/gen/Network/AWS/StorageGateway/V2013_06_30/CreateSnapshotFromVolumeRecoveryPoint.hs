@@ -53,11 +53,10 @@
 -- "VolumeRecoveryPointTime": "2012-06-30T10:10:10.000Z" }.
 module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPoint where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.V2013_06_30.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.StorageGateway.V2013_06_30.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint
     { _csfvrpiSnapshotDescription :: Text

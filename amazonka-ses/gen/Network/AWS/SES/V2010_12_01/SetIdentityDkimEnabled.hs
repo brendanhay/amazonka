@@ -40,7 +40,6 @@
 -- 7aa61362-c469-11e1-aee5-6bbb4608fbcc.
 module Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude

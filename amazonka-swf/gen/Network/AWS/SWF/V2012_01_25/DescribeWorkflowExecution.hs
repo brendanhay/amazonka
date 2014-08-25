@@ -57,11 +57,10 @@
 -- "openDecisionTasks": 1, "openTimers": 0} }.
 module Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data DescribeWorkflowExecution = DescribeWorkflowExecution
     { _dweiDomain :: Text

@@ -26,7 +26,6 @@
 -- ScheduledActions Terminate 27f2eacc-b73f-11e2-ad99-c7aba3a9c963.
 module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

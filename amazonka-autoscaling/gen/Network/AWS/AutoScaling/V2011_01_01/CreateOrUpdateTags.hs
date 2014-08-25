@@ -31,7 +31,6 @@
 -- b0203919-bf1b-11e2-8a01-13263EXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

@@ -23,11 +23,10 @@
 -- DescribeTrustedAdvisorChecks.
 module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuses where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.Support.V2013_04_15.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Support.V2013_04_15.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsrCheckIds :: [Text]

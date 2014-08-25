@@ -30,7 +30,6 @@
 -- 086265fd-bf3e-11e2-85fc-fbb1EXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.DescribeTags where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

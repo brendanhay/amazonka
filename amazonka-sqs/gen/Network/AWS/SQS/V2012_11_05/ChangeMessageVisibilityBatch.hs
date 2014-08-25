@@ -45,7 +45,6 @@
 -- change_visibility_msg_3 ca9668f7-ab1b-4f7a-8859-f15747ab17a7.
 module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

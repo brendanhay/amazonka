@@ -42,11 +42,10 @@
 -- 21:18:59 GMT.
 module Network.AWS.EMR.V2009_03_31.TerminateJobFlows where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.V2009_03_31.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.EMR.V2009_03_31.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data TerminateJobFlows = TerminateJobFlows
     { _tjfiJobFlowIds :: [Text]

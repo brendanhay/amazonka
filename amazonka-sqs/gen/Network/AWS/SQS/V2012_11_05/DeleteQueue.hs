@@ -37,7 +37,6 @@
 -- 6fde8d1e-52cd-4581-8cd9-c512f4c64223.
 module Network.AWS.SQS.V2012_11_05.DeleteQueue where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

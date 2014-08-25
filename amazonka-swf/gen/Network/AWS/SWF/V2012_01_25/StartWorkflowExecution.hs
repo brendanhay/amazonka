@@ -60,11 +60,10 @@
 -- {"runId":"1e536162-f1ea-48b0-85f3-aade88eef2f7"}.
 module Network.AWS.SWF.V2012_01_25.StartWorkflowExecution where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'StartWorkflowExecution' request.
 startWorkflowExecution :: Text -- ^ '_swejDomain'

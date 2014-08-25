@@ -35,11 +35,10 @@
 -- "TableSizeBytes": 0, "TableStatus": "DELETING" } }.
 module Network.AWS.DynamoDB.V2012_08_10.DeleteTable where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DynamoDB.V2012_08_10.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DynamoDB.V2012_08_10.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data DeleteTable = DeleteTable
     { _dtiTableName :: Text

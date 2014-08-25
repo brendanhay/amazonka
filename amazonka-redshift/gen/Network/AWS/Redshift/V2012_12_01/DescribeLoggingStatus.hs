@@ -22,7 +22,6 @@
 -- being logged for the specified Amazon Redshift cluster.
 module Network.AWS.Redshift.V2012_12_01.DescribeLoggingStatus where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

@@ -36,7 +36,6 @@
 -- &amp;Filter.2.Name.2=failed &amp;AUTHPARAMS.
 module Network.AWS.EC2.V2014_06_15.DescribeBundleTasks where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

@@ -50,7 +50,7 @@ module Network.AWS.Prelude
     , Switch          (..)
 
     -- * Lenses
-    , makeLenses
+     , makeLenses
     ) where
 
 import Control.Applicative   as Export

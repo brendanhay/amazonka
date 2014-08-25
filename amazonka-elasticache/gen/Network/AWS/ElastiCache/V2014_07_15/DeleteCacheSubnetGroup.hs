@@ -26,7 +26,6 @@
 -- 5d013245-4172-11df-8520-e7e1e602a915.
 module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSubnetGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

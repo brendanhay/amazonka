@@ -38,7 +38,6 @@
 -- mydbparametergroup 5ba91f97-bf51-11de-bf60-ef2e377db6f3.
 module Network.AWS.RDS.V2013_09_09.ModifyDBParameterGroup where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

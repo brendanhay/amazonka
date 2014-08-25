@@ -42,7 +42,6 @@
 -- USD false 3 0.7 USD false 2 0.7 USD false 1 0.1 USD false myIdempToken1.
 module Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

@@ -33,7 +33,6 @@
 -- 470a6f13-2ed9-4181-ad8a-2fdea142988e.
 module Network.AWS.SQS.V2012_11_05.GetQueueUrl where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

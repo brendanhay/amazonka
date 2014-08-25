@@ -30,7 +30,6 @@
 -- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 module Network.AWS.ELB.V2012_06_01.DetachLoadBalancerFromSubnets where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

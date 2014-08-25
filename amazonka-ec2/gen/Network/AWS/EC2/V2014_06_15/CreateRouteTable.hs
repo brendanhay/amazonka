@@ -30,7 +30,6 @@
 -- vpc-11ad4878 10.0.0.0/22 local active.
 module Network.AWS.EC2.V2014_06_15.CreateRouteTable where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

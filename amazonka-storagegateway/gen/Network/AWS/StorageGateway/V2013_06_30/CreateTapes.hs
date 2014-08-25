@@ -20,11 +20,10 @@
 
 module Network.AWS.StorageGateway.V2013_06_30.CreateTapes where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.V2013_06_30.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.StorageGateway.V2013_06_30.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data CreateTapes = CreateTapes
     { _ctiClientToken :: Text

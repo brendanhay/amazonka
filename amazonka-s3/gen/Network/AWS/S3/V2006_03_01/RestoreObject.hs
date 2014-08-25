@@ -21,7 +21,6 @@
 -- | Restores an archived copy of an object back into Amazon S3.
 module Network.AWS.S3.V2006_03_01.RestoreObject where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude

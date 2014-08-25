@@ -21,7 +21,6 @@
 -- | Uploads a part by copying data from an existing object as data source.
 module Network.AWS.S3.V2006_03_01.UploadPartCopy where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude

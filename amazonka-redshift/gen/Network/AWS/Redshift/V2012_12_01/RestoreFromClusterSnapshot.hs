@@ -40,7 +40,6 @@
 -- 52a9aee8-6505-11e2-bec0-17624ad140dd.
 module Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

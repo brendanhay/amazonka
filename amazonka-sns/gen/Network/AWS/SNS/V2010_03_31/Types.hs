@@ -31,7 +31,6 @@
 -- zones.
 module Network.AWS.SNS.V2010_03_31.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

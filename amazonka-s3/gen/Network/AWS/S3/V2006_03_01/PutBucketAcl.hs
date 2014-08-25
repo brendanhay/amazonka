@@ -21,7 +21,6 @@
 -- | Sets the permissions on a bucket using access control lists (ACL).
 module Network.AWS.S3.V2006_03_01.PutBucketAcl where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude

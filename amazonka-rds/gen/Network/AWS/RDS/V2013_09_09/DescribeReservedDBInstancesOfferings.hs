@@ -27,7 +27,6 @@
 -- false SampleOfferingId db.m1.small 521b420a-2961-11e1-bd06-6fe008f046c3.
 module Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstancesOfferings where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

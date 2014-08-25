@@ -42,11 +42,10 @@
 -- from the Thread table; this fetching occurs automatically. { "Count":`17 }.
 module Network.AWS.DynamoDB.V2012_08_10.Query where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DynamoDB.V2012_08_10.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DynamoDB.V2012_08_10.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'Query' request.
 query :: Text -- ^ '_qiTableName'

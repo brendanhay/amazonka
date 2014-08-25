@@ -31,7 +31,6 @@
 -- 06f1cfff-f28f-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude

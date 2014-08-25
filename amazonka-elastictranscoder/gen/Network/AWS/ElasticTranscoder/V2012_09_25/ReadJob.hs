@@ -37,11 +37,10 @@
 -- "PipelineId":"1111111111111-abcde1" } }.
 module Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.ElasticTranscoder.V2012_09_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data ReadJob = ReadJob
     { _rjrId :: Text

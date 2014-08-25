@@ -30,11 +30,10 @@
 -- 17:50:53 GMT {"pipelineId": "df-06372391ZG65EXAMPLE"}.
 module Network.AWS.DataPipeline.V2012_10_29.CreatePipeline where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.V2012_10_29.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.DataPipeline.V2012_10_29.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreatePipeline' request.
 createPipeline :: Text -- ^ '_cpiUniqueId'

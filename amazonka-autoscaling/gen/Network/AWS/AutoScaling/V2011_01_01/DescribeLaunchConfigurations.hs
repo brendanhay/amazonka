@@ -29,7 +29,6 @@
 -- ami-514ac838 true false d05a22f8-b690-11e2-bf8e-2113fEXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

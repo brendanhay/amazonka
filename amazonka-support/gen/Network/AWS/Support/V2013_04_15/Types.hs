@@ -29,7 +29,6 @@
 -- to choose the level of support that meets their needs.
 module Network.AWS.Support.V2013_04_15.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

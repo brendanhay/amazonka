@@ -41,7 +41,6 @@
 -- d6f86b7a-74d1-4439-b43f-196a1e29cd85.
 module Network.AWS.SQS.V2012_11_05.DeleteMessageBatch where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

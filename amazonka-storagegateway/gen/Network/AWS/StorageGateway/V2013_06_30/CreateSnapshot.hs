@@ -48,11 +48,10 @@
 -- "SnapshotId": "snap-78e22663" }.
 module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.V2013_06_30.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.StorageGateway.V2013_06_30.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data CreateSnapshot = CreateSnapshot
     { _csiSnapshotDescription :: Text

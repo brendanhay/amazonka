@@ -35,7 +35,6 @@
 -- ba6267d5-2566-11e3-9c6d-eb728EXAMPLE.
 module Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

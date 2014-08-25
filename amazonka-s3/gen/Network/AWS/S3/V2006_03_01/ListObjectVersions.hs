@@ -21,7 +21,6 @@
 -- | Returns metadata about all of the versions of objects in a bucket.
 module Network.AWS.S3.V2006_03_01.ListObjectVersions where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude

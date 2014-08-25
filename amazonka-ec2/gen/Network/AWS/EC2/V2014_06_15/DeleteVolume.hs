@@ -30,7 +30,6 @@
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVolumeResponse&gt;.
 module Network.AWS.EC2.V2014_06_15.DeleteVolume where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

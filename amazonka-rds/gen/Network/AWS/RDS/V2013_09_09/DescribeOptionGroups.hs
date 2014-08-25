@@ -27,7 +27,6 @@
 -- group. e4b234d9-84d5-11e1-87a6-71059839a52b.
 module Network.AWS.RDS.V2013_09_09.DescribeOptionGroups where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

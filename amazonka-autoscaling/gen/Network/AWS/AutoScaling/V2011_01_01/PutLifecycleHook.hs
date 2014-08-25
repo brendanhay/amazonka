@@ -39,7 +39,6 @@
 -- 1952f458-f645-11e3-bc51-b35178f0274f.
 module Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

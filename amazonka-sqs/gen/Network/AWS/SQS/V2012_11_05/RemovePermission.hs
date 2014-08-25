@@ -30,7 +30,6 @@
 -- f8bdb362-6616-42c0-977a-ce9a8bcce3bb.
 module Network.AWS.SQS.V2012_11_05.RemovePermission where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

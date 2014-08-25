@@ -39,11 +39,10 @@
 -- "j-3U7TSX5GZFD8Y" }.
 module Network.AWS.EMR.V2009_03_31.AddInstanceGroups where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.V2009_03_31.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.EMR.V2009_03_31.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 data AddInstanceGroups = AddInstanceGroups
     { _aigiInstanceGroups :: [InstanceGroupConfig]

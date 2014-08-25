@@ -33,7 +33,6 @@
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE true.
 module Network.AWS.EC2.V2014_06_15.CreateTags where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude

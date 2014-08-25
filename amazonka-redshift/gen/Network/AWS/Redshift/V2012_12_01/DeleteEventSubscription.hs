@@ -21,7 +21,6 @@
 -- | Deletes an Amazon Redshift event notification subscription.
 module Network.AWS.Redshift.V2012_12_01.DeleteEventSubscription where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

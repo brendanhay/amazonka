@@ -31,7 +31,6 @@
 -- Redis nodes.
 module Network.AWS.ElastiCache.V2014_07_15.Types where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 

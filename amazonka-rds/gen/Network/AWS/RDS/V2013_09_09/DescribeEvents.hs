@@ -35,7 +35,6 @@
 -- 95b948cd-bf45-11de-86a4-97241dfaadff.
 module Network.AWS.RDS.V2013_09_09.DescribeEvents where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

@@ -30,7 +30,6 @@
 -- 0.123 cache.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
 module Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

@@ -55,11 +55,10 @@
 -- d68969c7-3f0d-11e1-9b11-7182192d0b57.
 module Network.AWS.SWF.V2012_01_25.RegisterActivityType where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RegisterActivityType' request.
 registerActivityType :: Text -- ^ '_ratiDomain'

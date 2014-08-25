@@ -75,11 +75,10 @@
 -- "VisibleToAllUsers": false }]}.
 module Network.AWS.EMR.V2009_03_31.DescribeJobFlows where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.V2009_03_31.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.EMR.V2009_03_31.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeJobFlows' request.
 describeJobFlows :: DescribeJobFlows

@@ -38,7 +38,6 @@
 -- for up to 2 instances over a span of 2 weeks.
 module Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude

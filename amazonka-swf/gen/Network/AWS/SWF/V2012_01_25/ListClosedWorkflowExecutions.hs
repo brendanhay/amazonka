@@ -71,11 +71,10 @@
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
 module Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListClosedWorkflowExecutions' request.
 listClosedWorkflowExecutions :: Text -- ^ '_lcweiDomain'

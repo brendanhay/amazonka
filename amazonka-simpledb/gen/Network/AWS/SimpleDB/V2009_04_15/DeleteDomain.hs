@@ -25,7 +25,6 @@
 -- domain name will not result in an error response.
 module Network.AWS.SimpleDB.V2009_04_15.DeleteDomain where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude

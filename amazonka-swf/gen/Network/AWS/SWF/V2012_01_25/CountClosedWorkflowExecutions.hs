@@ -52,11 +52,10 @@
 -- 9bfad387-3f22-11e1-9914-a356b6ea8bdf { "count":3, "truncated":false }.
 module Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.V2012_01_25.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.SWF.V2012_01_25.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CountClosedWorkflowExecutions' request.
 countClosedWorkflowExecutions :: Text -- ^ '_ccweiDomain'

@@ -44,7 +44,6 @@
 -- examplecluster true adminuser acbc43d5-6504-11e2-bea9-49e0ce183f07.
 module Network.AWS.Redshift.V2012_12_01.ModifyCluster where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

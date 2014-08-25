@@ -22,7 +22,6 @@
 -- enabled for any listeners.
 module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

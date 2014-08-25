@@ -40,7 +40,6 @@
 -- Value elements in a request cannot exceed 32,000 characters.
 module Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude

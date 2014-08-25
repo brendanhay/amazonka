@@ -28,7 +28,6 @@
 -- letter queues, see Using Amazon SQS Dead Letter Queues.
 module Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude

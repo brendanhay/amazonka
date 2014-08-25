@@ -25,7 +25,6 @@
 -- by Test1.
 module Network.AWS.ImportExport.V2010_06_01.ListJobs where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude

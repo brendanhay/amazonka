@@ -32,7 +32,6 @@
 -- 2e5d4270-8501-11e0-bd9b-a7b1ece36d51.
 module Network.AWS.RDS.V2013_09_09.CreateDBInstance where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude

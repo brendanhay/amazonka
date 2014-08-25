@@ -27,7 +27,6 @@
 -- &AuthParams af9cf1b6-f25e-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude

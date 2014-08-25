@@ -29,7 +29,6 @@
 -- (...output omitted...) 31d0faee-229b-11e1-81f1-df3a2a803dad.
 module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

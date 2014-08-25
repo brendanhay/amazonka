@@ -30,7 +30,6 @@
 -- 360e81f7-1100-11e4-b6ed-0f30EXAMPLE.
 module Network.AWS.ELB.V2012_06_01.AddTags where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude

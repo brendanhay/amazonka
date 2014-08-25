@@ -26,7 +26,6 @@
 -- 7347261f-97df-11e2-8756-35eEXAMPLE.
 module Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude

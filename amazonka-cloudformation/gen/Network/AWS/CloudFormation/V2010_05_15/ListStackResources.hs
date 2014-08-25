@@ -38,7 +38,6 @@
 -- 2d06e36c-ac1d-11e0-a958-f9382b6eb86b.
 module Network.AWS.CloudFormation.V2010_05_15.ListStackResources where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude

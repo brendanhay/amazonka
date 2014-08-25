@@ -22,11 +22,10 @@
 -- specifies the settings for delivery of log data to an Amazon S3 bucket.
 module Network.AWS.CloudTrail.V2013_11_01.CreateTrail where
 
-import Control.Lens.TH (makeLenses)
-import Network.AWS.Request.JSON
-import Network.AWS.CloudTrail.V2013_11_01.Types
-import Network.AWS.Prelude
-import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.CloudTrail.V2013_11_01.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request.JSON
+import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateTrail' request.
 createTrail :: Text -- ^ '_ctrName'

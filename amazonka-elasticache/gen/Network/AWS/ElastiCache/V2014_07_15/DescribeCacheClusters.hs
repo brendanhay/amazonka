@@ -46,7 +46,6 @@
 -- f270d58f-b7fb-11e0-9326-b7275b9d4a6c.
 module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude

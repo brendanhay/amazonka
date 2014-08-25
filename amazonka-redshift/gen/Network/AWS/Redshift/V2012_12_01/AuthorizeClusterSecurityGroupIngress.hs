@@ -41,7 +41,6 @@
 -- 8c7cd4c8-6501-11e2-a8da-655adc216806.
 module Network.AWS.Redshift.V2012_12_01.AuthorizeClusterSecurityGroupIngress where
 
-import Control.Lens.TH (makeLenses)
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude

@@ -130,13 +130,13 @@ instance MFunctor AWST where
     {-# INLINE hoist #-}
 
 instance MMonad AWST where
-    embed f m = liftM2 (,) ask resourceState
+    embed f m = liftM2 (,) ask resources
             >>= f . runAWST' m
             >>= either throwError return
     {-# INLINE embed #-}
 
 instance MonadResource AWS where
-    liftResourceT f = resourceState >>= liftIO . runInternalState f
+    liftResourceT f = resources >>= liftIO . runInternalState f
     {-# INLINE liftResourceT #-}
 
 runAWST :: MonadBaseControl IO m => AWST m a -> Env -> m (Either Error a)
@@ -145,8 +145,8 @@ runAWST m e = runResourceT (withInternalState (runAWST' m . (e,)))
 runAWST' :: AWST m a -> (Env, InternalState) -> m (Either Error a)
 runAWST' (AWST k) = runExceptT . runReaderT k
 
-resourceState :: Monad m => AWST m InternalState
-resourceState = AWST (ReaderT (return . snd))
+resources :: Monad m => AWST m InternalState
+resources = AWST (ReaderT (return . snd))
 
 -- | Hoist an 'Either' throwing the 'Left' case, and returning the 'Right'.
 hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a

@@ -94,6 +94,13 @@ instance Monad m => MonadReader Env (AWST m) where
     local f = AWST . local (first f) . unAWST
     {-# INLINE local #-}
 
+class HasResources m where
+    resources :: m InternalState
+
+instance Monad m => HasResources (AWST m) where
+    resources = AWST (ReaderT (return . snd))
+    {-# INLINE resources #-}
+
 instance MonadTrans AWST where
     lift = AWST . lift . lift
     {-# INLINE lift #-}
@@ -134,12 +141,6 @@ instance MMonad AWST where
             >>= f . runAWST' m
             >>= either throwError return
     {-# INLINE embed #-}
-
-class HasResources m where
-    resources :: m InternalState
-
-instance Monad m => HasResources (AWST m) where
-    resources = AWST (ReaderT (return . snd))
 
 instance MonadResource AWS where
     liftResourceT f = resources >>= liftIO . runInternalState f

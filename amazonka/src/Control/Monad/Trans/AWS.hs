@@ -129,9 +129,8 @@ instance MFunctor AWST where
     {-# INLINE hoist #-}
 
 instance MMonad AWST where
-    embed f m = liftM2 (,) ask resources
-            >>= f . runAWST' m
-            >>= either throwError return
+    embed f m =
+        liftM2 (,) ask resources >>= f . runAWST' m >>= either throwError return
     {-# INLINE embed #-}
 
 instance MonadResource AWS where

@@ -44,7 +44,7 @@ module Control.Monad.Trans.AWS
     , paginateCatch
 
     -- * Asynchronous actions
-    , async
+    , Async.async
     , wait
 
     -- * Signing URLs
@@ -196,11 +196,6 @@ paginateCatch :: ( MonadCatch m
               => a
               -> ResumableSource m (Either (Er (Sv a)) (Rs a))
 paginateCatch rq = scoped (\e -> AWS.paginate e rq)
-
-async :: (MonadBaseControl IO m)
-      => m a
-      -> m (Async (StM m a))
-async = Async.async
 
 wait :: (MonadBaseControl IO m, MonadError Error m, AWSError e)
      => Async (StM m (Either e a))

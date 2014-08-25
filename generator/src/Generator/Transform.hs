@@ -37,6 +37,8 @@ import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: what about target-prefix (from the model) and action for query services?
+
 -- FIXME: possibly parameterise (Map k v) with an additional type to control the
 -- prefixing used (specifically for metadata) unless metadata is the only usage
 -- and ToHeaders can always add x-amz-meta-*

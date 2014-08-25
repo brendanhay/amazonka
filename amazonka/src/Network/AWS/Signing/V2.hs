@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -23,12 +24,72 @@ module Network.AWS.Signing.V2
     , module Network.AWS.Internal.Signing
     ) where
 
-import Network.AWS.Internal.Signing
-import Network.AWS.Types
+import           Control.Applicative
+import           Control.Lens
+import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Base64       as Base64
+import qualified Data.ByteString.Char8        as BS
+import           Data.Monoid
+import           Data.Time
+import           Network.AWS.Data
+import           Network.AWS.Internal.Signing
+import           Network.AWS.Types
+import           Network.HTTP.Client.Lens
+import           Network.HTTP.Types           hiding (renderQuery)
 
 data V2
 
 data instance Meta V2 = Meta
+    { _mSignature :: ByteString
+    , _mTime      :: UTCTime
+    }
+
+instance Show (Meta V2) where
+    show Meta{..} = BS.unpack $ BS.unlines
+        [ "Version 2 Metadata:"
+        , "_mSignature " <> _mSignature
+        , "_mTime      " <> toBS _mTime
+        ]
 
 instance AWSSigner V2 where
-    signed = undefined
+    signed s AuthEnv{..} r Request{..} l t = Signed meta rq
+      where
+        meta = Meta
+            { _mSignature = signature
+            , _mTime      = t
+            }
+
+        rq = clientRequest
+            & method         .~ meth
+            & host           .~ host'
+            & path           .~ _rqPath
+            & queryString    .~ renderQuery authorised
+            & requestHeaders .~ headers
+            & requestBody    .~ _bdyBody _rqBody
+
+        meth  = toBS _rqMethod
+        host' = toBS (endpoint s r)
+
+        authorised = pair "Signature" (urlEncode True signature) query
+
+        signature = Base64.encode
+            . hmacSHA256 (toBS _authSecret)
+            $ BS.intercalate "\n"
+                [ meth
+                , host'
+                , _rqPath
+                , renderQuery query
+                ]
+
+        query =
+             pair "Version"          (_svcVersion s)
+           . pair "SignatureVersion" ("2" :: ByteString)
+           . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
+           . pair "Timestamp"        time
+           . pair "AWSAccessKeyId"   (toBS _authAccess)
+           . pair "SecurityToken"    (toBS <$> _authToken)
+           $ _rqQuery
+
+        headers = hdr hDate time _rqHeaders
+
+        time = toBS (LocaleTime l t :: ISO8601)

@@ -56,7 +56,7 @@ import Network.AWS.Types
 import Network.HTTP.Conduit
 
 data Env = Env
-    { _envRegion  :: Region
+    { _envRegion  :: !Region
     , _envLogging :: Logging
     , _envManager :: Manager
     , _envAuth    :: Auth

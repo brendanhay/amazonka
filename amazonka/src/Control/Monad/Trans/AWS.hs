@@ -8,6 +8,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 {-# LANGUAGE UndecidableInstances       #-}
 
+{-# LANGUAGE TupleSections       #-}
+
 -- Module      : Control.Monad.Trans.AWS
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -61,6 +63,7 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
+import           Data.Bifunctor
 import           Data.Conduit
 import           Data.Time
 import           Network.AWS                     (Env(..), envRegion)
@@ -69,8 +72,9 @@ import           Network.AWS.Types
 
 type AWS = AWST IO
 
-newtype AWST m a = AWST { unAWST :: ReaderT Env (ExceptT Error m) a }
-    deriving
+newtype AWST m a = AWST
+    { unAWST :: ReaderT (Env, InternalState) (ExceptT Error m) a
+    } deriving
         ( Functor
         , Applicative
         , Alternative
@@ -80,9 +84,15 @@ newtype AWST m a = AWST { unAWST :: ReaderT Env (ExceptT Error m) a }
         , MonadPlus
         , MonadThrow
         , MonadCatch
-        , MonadReader Env
-        , MonadError  Error
+        , MonadError Error
         )
+
+instance Monad m => MonadReader Env (AWST m) where
+    ask = AWST (fst `liftM` ask)
+    {-# INLINE ask #-}
+
+    local f = AWST . local (first f) . unAWST
+    {-# INLINE local #-}
 
 instance MonadTrans AWST where
     lift = AWST . lift . lift
@@ -94,7 +104,7 @@ instance MonadBase b m => MonadBase b (AWST m) where
 
 instance MonadTransControl AWST where
     newtype StT AWST a = StTAWS
-        { unStTAWS :: StT (ExceptT Error) (StT (ReaderT Env) a)
+        { unStTAWS :: StT (ExceptT Error) (StT (ReaderT (Env, InternalState)) a)
         }
 
     liftWith = \f -> AWST $
@@ -106,7 +116,6 @@ instance MonadTransControl AWST where
     restoreT = AWST . restoreT . restoreT . liftM unStTAWS
     {-# INLINE restoreT #-}
 
--- NOTE: Requires UndecidableInstances
 instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
     newtype StM (AWST m) a = StMAWST { unStMAWST :: ComposeSt AWST m a }
 
@@ -117,15 +126,30 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
     {-# INLINE restoreM #-}
 
 instance MFunctor AWST where
-    hoist nat m = AWST (ReaderT (ExceptT . nat . runAWST m))
+    hoist nat m = AWST (ReaderT (ExceptT . nat . runAWST' m))
     {-# INLINE hoist #-}
 
 instance MMonad AWST where
-    embed f m = ask >>= f . runAWST m >>= either throwError return
+    embed f m = liftM2 (,) ask resources
+            >>= f . runAWST' m
+            >>= either throwError return
     {-# INLINE embed #-}
 
-runAWST :: AWST m a -> Env -> m (Either Error a)
-runAWST (AWST k) = runExceptT . runReaderT k
+class HasResources m where
+    resources :: m InternalState
+
+instance Monad m => HasResources (AWST m) where
+    resources = AWST (ReaderT (return . snd))
+
+instance MonadResource AWS where
+    liftResourceT f = resources >>= liftIO . runInternalState f
+    {-# INLINE liftResourceT #-}
+
+runAWST :: MonadBaseControl IO m => AWST m a -> Env -> m (Either Error a)
+runAWST m e = runResourceT (withInternalState (runAWST' m . (e,)))
+
+runAWST' :: AWST m a -> (Env, InternalState) -> m (Either Error a)
+runAWST' (AWST k) = runExceptT . runReaderT k
 
 -- | Hoist an 'Either' throwing the 'Left' case, and returning the 'Right'.
 hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
@@ -177,13 +201,18 @@ paginateCatch :: ( MonadCatch m
               -> ResumableSource m (Either (Er (Sv a)) (Rs a))
 paginateCatch rq = scoped (\e -> AWS.paginate e rq)
 
-async :: (MonadBaseControl IO m, MonadReader Env m)
-      => AWST m a
-      -> m (Async (StM m (Either Error a)))
-async m = ask >>= Async.async . runAWST m
+-- async :: (MonadBaseControl IO m, MonadReader Env m)
+--       => AWST m a
+--       -> m (Async (StM m (Either Error a)))
+-- . runAWST m
 
-wait :: (MonadBaseControl IO m, MonadError Error m)
-     => Async (StM m (Either Error a))
+async :: (MonadBaseControl IO m)
+      => m a
+      -> m (Async (StM m a))
+async = Async.async
+
+wait :: (MonadBaseControl IO m, MonadError Error m, AWSError e)
+     => Async (StM m (Either e a))
      -> m a
 wait = Async.wait >=> hoistEither
 

@@ -128,7 +128,7 @@ newtype QueryOptions = QueryOptions
     }
 
 queryField :: Functor f => LensLike' f QueryOptions (String -> ByteString)
-queryField f (QueryOptions g) = (\h -> QueryOptions h) <$> f g
+queryField f (QueryOptions g) = QueryOptions <$> f g
 
 instance Default QueryOptions where
     def = QueryOptions (BS.dropWhile isLower . BS.pack)

@@ -27,15 +27,15 @@ module Network.AWS.Signing.V4
 
 import           Control.Applicative
 import           Control.Lens
-import           Crypto.Hash                (digestToHexByteString)
-import qualified Crypto.Hash.SHA256         as SHA256
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Base16     as Base16
-import qualified Data.ByteString.Char8      as BS
-import qualified Data.CaseInsensitive       as CI
-import qualified Data.Foldable              as Fold
+import           Crypto.Hash                  (digestToHexByteString)
+import qualified Crypto.Hash.SHA256           as SHA256
+import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Base16       as Base16
+import qualified Data.ByteString.Char8        as BS
+import qualified Data.CaseInsensitive         as CI
+import qualified Data.Foldable                as Fold
 import           Data.Function
-import           Data.List                  (groupBy, intersperse, sortBy, sort)
+import           Data.List                    (groupBy, intersperse, sortBy, sort)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
@@ -68,12 +68,12 @@ instance Show (Meta V4) where
         , "_mCReq      " <> _mCReq
         , "_mSTS       " <> _mSTS
         , "_mSignature " <> _mSignature
-        , "_mTime      " <> BS.pack (show _mTime)
+        , "_mTime      " <> toBS _mTime
         ]
 
 instance AWSPresigner V4 where
-    presigned s a r rq l t x =
-        out & sgRequest . queryString <>~ auth (out ^. sgMeta)
+    presigned s a r rq l t x = out
+        & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
         out = finalise Nothing qry s a r rq l t
 
@@ -89,10 +89,10 @@ instance AWSPresigner V4 where
         auth = mappend "&X-AMZ-Signature=" . _mSignature
 
 instance AWSSigner V4 where
-    signed s a r rq l t =
-        out & sgRequest
-            %~ requestHeaders
-            %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
+    signed s a r rq l t = out
+        & sgRequest
+        %~ requestHeaders
+        %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
         out = finalise (Just "AWS4") (\_ _ -> id) s a r inp l t
 

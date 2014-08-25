@@ -26,15 +26,16 @@ module Network.AWS.Internal.Data.ByteString
     ) where
 
 import           Crypto.Hash
-import           Data.ByteString            (ByteString)
-import           Data.ByteString.Builder    (Builder)
-import qualified Data.ByteString.Builder    as Build
-import qualified Data.ByteString.Char8      as BS
-import qualified Data.ByteString.Lazy.Char8 as LBS
+import           Data.ByteString                (ByteString)
+import           Data.ByteString.Builder        (Builder)
+import qualified Data.ByteString.Builder        as Build
+import qualified Data.ByteString.Char8          as BS
+import qualified Data.ByteString.Lazy.Char8     as LBS
 import           Data.Char
 import           Data.Int
-import           Data.Text                  (Text)
-import qualified Data.Text.Encoding         as Text
+import           Data.Text                      (Text)
+import qualified Data.Text.Encoding             as Text
+import           Data.Time                      (UTCTime)
 import           Network.AWS.Internal.Data.Text
 import           Network.HTTP.Types.Method
 
@@ -55,6 +56,7 @@ instance ToByteString Integer    where toBS = buildBS
 instance ToByteString Double     where toBS = buildBS
 instance ToByteString StdMethod  where toBS = renderStdMethod
 instance ToByteString (Digest a) where toBS = digestToHexByteString
+instance ToByteString UTCTime    where toBS = BS.pack . show
 
 buildBS :: ToBuilder a => a -> ByteString
 buildBS = LBS.toStrict . Build.toLazyByteString . build

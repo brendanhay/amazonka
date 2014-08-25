@@ -43,6 +43,12 @@ hAMZToken = "X-AMZ-Security-Token"
 hMetaPrefix :: HeaderName
 hMetaPrefix = "X-AMZ-"
 
+hAMZAuth :: HeaderName
+hAMZAuth = "X-Amzn-Authorization"
+
+hAMZDate :: HeaderName
+hAMZDate = "X-Amz-Date"
+
 class ToHeaders a where
     toHeaders :: a -> [Header]
     toHeaders = const mempty

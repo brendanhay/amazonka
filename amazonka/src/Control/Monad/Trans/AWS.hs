@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
@@ -106,7 +105,7 @@ instance MonadTransControl AWST where
         { unStTAWS :: StT (ExceptT Error) (StT (ReaderT (Env, InternalState)) a)
         }
 
-    liftWith = \f -> AWST $
+    liftWith f = AWST $
         liftWith $ \g ->
             liftWith $ \h ->
                 f (liftM StTAWS . h . g . unAWST)
@@ -176,7 +175,7 @@ sendCatch :: ( MonadCatch m
              )
           => a
           -> m (Either (Er (Sv a)) (Rs a))
-sendCatch rq = scoped (\e -> AWS.send e rq)
+sendCatch rq = scoped (`AWS.send` rq)
 
 paginate :: ( MonadCatch m
             , MonadResource m
@@ -195,7 +194,7 @@ paginateCatch :: ( MonadCatch m
                  )
               => a
               -> ResumableSource m (Either (Er (Sv a)) (Rs a))
-paginateCatch rq = scoped (\e -> AWS.paginate e rq)
+paginateCatch rq = scoped (`AWS.paginate` rq)
 
 wait :: (MonadBaseControl IO m, MonadError Error m, AWSError e)
      => Async (StM m (Either e a))

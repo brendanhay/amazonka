@@ -54,8 +54,7 @@ JSON := \
  logs \
  cognito-identity
 
-# MODELS ?= s3 route53 autoscaling ec2 elb iam
-MODELS ?= iam
+MODELS ?= s3 route53 autoscaling ec2 elb iam
 
 .PHONY: gen
 

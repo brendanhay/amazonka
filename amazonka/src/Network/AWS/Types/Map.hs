@@ -25,6 +25,7 @@ import           Data.HashMap.Strict  (HashMap)
 import qualified Data.HashMap.Strict  as Map
 import           Data.Hashable        (Hashable)
 import           Data.Monoid
+import           Data.Tagged
 import           Data.Traversable     (Traversable)
 import           Data.Typeable        (Typeable)
 import           Network.AWS.Data
@@ -66,20 +67,9 @@ instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
         . Map.toList
         . toHashMap
 
--- fromXML :: (Eq k, Hashable k, FromText k, FromXML v)
---         => Either String (Map k v)
-
--- FIXME: is it possible to (nicely) implement HashMaps generically?
--- IAM example:
--- <SummaryMap>
---   <entry>
---     <key>Groups</key>
---     <value>31</value>
---   </entry>
-
--- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
---     fromXMLRoot    = fromRoot "Map"
---     fromXMLOptions =
+instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
+    fromXMLRoot = fromRoot "Map"
+    fromXML o   = fmap Map . fromXML (retag o)
 
 -- FIXME: implement this shizzle
 -- instance (ToText k, ToQuery v) => ToQuery (Map k v) where

@@ -181,6 +181,8 @@ instance ToQuery a => ToQuery [a] where
       where
         idx = [1..] :: [Integer]
 
+-- instance (ToQuery k, ToQuery v) => ToQuery HashMap
+
 instance ToQuery a => ToQuery (NonEmpty a) where
     toQuery = toQuery . NonEmpty.toList
 

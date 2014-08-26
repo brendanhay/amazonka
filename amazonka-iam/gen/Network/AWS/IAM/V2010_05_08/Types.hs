@@ -590,9 +590,6 @@ instance FromXML VirtualMFADevice where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "VirtualMFADevice"
 
--- Newtypes
-
--- Products
 makeLenses ''AccessKey
 makeLenses ''AccessKeyMetadata
 makeLenses ''Group

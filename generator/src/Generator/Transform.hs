@@ -37,6 +37,11 @@ import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: generate (maybe wrapped newtypes) types for base64/16 encoded bytestrings
+-- ie: IAM types VirtualMFADevice
+
+-- FIXME: remove error sum type record fields, and implement appropriate deserialisation
+
 -- FIXME: what about target-prefix (from the model) and action for query services?
 
 -- FIXME: possibly parameterise (Map k v) with an additional type to control the

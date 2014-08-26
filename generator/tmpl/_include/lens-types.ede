@@ -1,18 +1,11 @@
 {% for data in scope.types %}
   {% if data.first %}
 
--- Newtypes
   {% endif %}
-  {% if data.value.ctor == "newtype" %}
+  {% case data.value.ctor %}
+  {% when "newtype" %}
 makeLenses ''{{ data.value.name }}
-  {% endif %}
-{% endfor %}
-{% for data in scope.types %}
-  {% if data.first %}
-
--- Products
-  {% endif %}
-  {% if data.value.ctor == "data" %}
+  {% when "data" %}
 makeLenses ''{{ data.value.name }}
-  {% endif %}
+  {% endcase %}
 {% endfor %}

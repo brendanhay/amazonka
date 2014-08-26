@@ -21,21 +21,24 @@ module Network.AWS.Internal.Data.XML where
 
 import           Control.Applicative
 import           Control.Monad
-import qualified Data.ByteString            as BS
-import           Data.ByteString.Lazy.Char8 (ByteString)
+import qualified Data.ByteString                as BS
+import           Data.ByteString.Lazy.Char8     (ByteString)
 import           Data.Default
-import           Data.Foldable              (foldr', foldrM)
-import           Data.List.NonEmpty         (NonEmpty(..))
-import qualified Data.List.NonEmpty         as NonEmpty
+import           Data.Foldable                  (foldr', foldrM)
+import           Data.HashMap.Strict            (HashMap)
+import qualified Data.HashMap.Strict            as Map
+import           Data.Hashable
+import           Data.List.NonEmpty             (NonEmpty(..))
+import qualified Data.List.NonEmpty             as NonEmpty
 import           Data.Monoid
 import           Data.Tagged
-import           Data.Text                  (Text)
-import qualified Data.Text                  as Text
-import qualified Data.Text.Encoding         as Text
+import           Data.Text                      (Text)
+import qualified Data.Text                      as Text
+import qualified Data.Text.Encoding             as Text
 import           GHC.Generics
+import           Network.AWS.Internal.Data.Text
 import           Text.XML
 import           Text.XML.Cursor
-import           Network.AWS.Internal.Data.Text
 
 -- FIXME: rather than returning a string, return typed exceptions which can be
 -- rolled into the service serialisation errors branch.
@@ -71,7 +74,8 @@ encodeXML = renderLBS def . toXMLRoot o . toXML o
 data XMLOptions = XMLOptions
     { xmlInherit   :: !Bool
     , xmlNamespace :: Maybe Text
-    , xmlListElem  :: Maybe Text
+    , xmlListItem  :: Maybe Text
+    , xmlMapItem   :: Text
     , xmlCtorMod   :: String -> Text
     , xmlFieldMod  :: String -> Text
     }
@@ -80,7 +84,8 @@ instance Default XMLOptions where
     def = XMLOptions
         { xmlInherit   = True
         , xmlNamespace = Nothing
-        , xmlListElem  = Just "Item"
+        , xmlListItem  = Just "Item"
+        , xmlMapItem   = "entry"
         , xmlCtorMod   = Text.pack
         , xmlFieldMod  = Text.pack
         }
@@ -160,15 +165,36 @@ instance FromXML Double where
     fromXML = const fromNodeContent
 
 instance FromXML a => FromXML [a] where
-    fromXML o = sequence . f (xmlListElem $ untag o)
+    fromXML o = sequence . f item
       where
         f (Just x) = map (g x)
         f Nothing  = map (fromXML (retag o) . (:[]))
 
         g n (NodeElement (Element n' _ xs))
-            | n' == Name n (xmlNamespace $ untag o) Nothing = fromXML (retag o) xs
-            | otherwise = Left "Unrecognised list element name."
-        g _ _ = Left "Unable to parse list element."
+            | n' == Name n ns Nothing = fromXML (retag o) xs
+            | otherwise               = Left "Unrecognised list element name."
+        g _ _                         = Left "Unable to parse list element."
+
+        item = xmlListItem  (untag o)
+        ns   = xmlNamespace (untag o)
+
+instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (HashMap k v) where
+    fromXMLRoot = fromRoot "HashMap"
+    fromXML o   = fmap Map.fromList . mapM f
+      where
+        f (NodeElement (Element n _ xs))
+            | n == Name item ns Nothing
+            , [x, y] <- xs = (,) <$> g fromNodeContent x <*> g val y
+        f _                = Left "Unable to parse hashmap pair."
+
+        g h (NodeElement (Element _ _ xs)) = h xs
+        g _ _ = Left "Unable to parse hashmap pair."
+
+        val [NodeElement (Element _ _ xs)] = fromXML fromXMLOptions xs
+        val _ = Left "Unable to parse hashmap pair value."
+
+        item = xmlMapItem   (untag o)
+        ns   = xmlNamespace (untag o)
 
 instance FromXML a => FromXML (NonEmpty a) where
     fromXMLRoot = fromRoot "NonEmpty"
@@ -179,15 +205,13 @@ instance FromXML a => FromXML (NonEmpty a) where
         note Nothing  = Left "Unexpected empty list."
         note (Just x) = Right x
 
--- FIXME: should fail if target doesn't exist
+-- FIXME: should fail if target doesn't exist? thereby requiring the element
+-- but it can be empty?
 instance FromXML a => FromXML (Maybe a) where
     fromXML o ns =
         either (const $ Right Nothing)
                (Right . Just)
                (fromXML (retag o) ns :: Either String a)
-
--- nodeParser :: AText.Parser a -> Tagged a XMLOptions -> [Node] -> Either String a
--- nodeParser p o = join . fmap (AText.parseOnly p) . fromXML (retag o)
 
 class GFromXML f where
     gFromXML :: XMLOptions -> [Node] -> Either String (f a)
@@ -281,7 +305,7 @@ instance ToXML Double where
     toXML _ = (:[]) . NodeContent . toText
 
 instance ToXML a => ToXML [a] where
-    toXML o = f (xmlListElem $ untag o)
+    toXML o = f (xmlListItem $ untag o)
       where
         f (Just x) = map (g (Name x (xmlNamespace $ untag o) Nothing) . toXML o')
         f Nothing  = concatMap (toXML o')

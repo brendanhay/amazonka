@@ -66,6 +66,9 @@ instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
         . Map.toList
         . toHashMap
 
+-- fromXML :: (Eq k, Hashable k, FromText k, FromXML v)
+--         => Either String (Map k v)
+
 -- FIXME: is it possible to (nicely) implement HashMaps generically?
 -- IAM example:
 -- <SummaryMap>
@@ -73,10 +76,11 @@ instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
 --     <key>Groups</key>
 --     <value>31</value>
 --   </entry>
-instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
-    fromXMLRoot = fromRoot "Map"
-    fromXML     = undefined
+
+-- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
+--     fromXMLRoot    = fromRoot "Map"
+--     fromXMLOptions =
 
 -- FIXME: implement this shizzle
-instance (ToText k, ToQuery v) => ToQuery (Map k v) where
-    toQuery = undefined
+-- instance (ToText k, ToQuery v) => ToQuery (Map k v) where
+--     toQuery = undefined

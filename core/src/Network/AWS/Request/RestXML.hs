@@ -23,6 +23,8 @@ import Network.HTTP.Types.Method
 
 post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request a
 post x = put x & rqMethod .~ POST
+{-# INLINE post #-}
 
 put :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request a
 put x = get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x)
+{-# INLINE put #-}

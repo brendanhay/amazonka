@@ -25,6 +25,8 @@ import Network.HTTP.Types.Method
 
 post :: ToJSON a => a -> Request a
 post x = put x & rqMethod .~ POST
+{-# INLINE post #-}
 
 put :: ToJSON a => a -> Request a
 put x = def & rqMethod .~ PUT & rqBody .~ toBody (toJSON x)
+{-# INLINE put #-}

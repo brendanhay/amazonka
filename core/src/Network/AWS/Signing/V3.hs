@@ -35,9 +35,9 @@ import           Data.Monoid
 import           Data.Ord
 import           Data.Time
 import           Network.AWS.Data
+import           Network.AWS.Internal.Request
 import           Network.AWS.Internal.Signing
 import           Network.AWS.Types
-import           Network.HTTP.Client.Lens
 import           Network.HTTP.Types.Header
 
 data V3

@@ -20,3 +20,4 @@ import Network.HTTP.Types.Method
 
 post :: ToQuery a => Action -> a -> Request a
 post a x = def & rqMethod .~ POST & rqQuery <>~ toQuery x & rqQuery <>~ toQuery a
+{-# INLINE post #-}

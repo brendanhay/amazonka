@@ -59,20 +59,20 @@ library
     build-depends:
           aeson
         , attoparsec
-        , base                  == 4.7.*
+        , base                  >= 4.6     && < 5
         , base16-bytestring
         , base64-bytestring
         , bifunctors
         , bytestring
         , case-insensitive
-        , conduit
+        , conduit               == 1.2.*
         , conduit-extra
         , cryptohash
         , data-default
         , exceptions            == 0.6.*
         , hashable
-        , http-client
-        , http-conduit
+        , http-client           >= 0.3.6   && < 0.4
+        , http-conduit          == 2.1.4.*
         , http-types
         , lens                  == 4.4.*
         , lifted-async
@@ -80,7 +80,7 @@ library
         , monad-control
         , mtl
         , old-locale
-        , resourcet
+        , resourcet             == 1.1.*
         , semigroups
         , tagged
         , text
@@ -88,4 +88,4 @@ library
         , transformers          == 0.4.*
         , transformers-base
         , unordered-containers
-        , xml-conduit
+        , xml-conduit           == 1.2.*

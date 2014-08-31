@@ -12,8 +12,8 @@ module Network.AWS.Request.RestS3
     ( get
     , Network.AWS.Internal.Request.head
     , delete
-    , put
     , post
+    , put
     ) where
 
 import Control.Lens
@@ -22,8 +22,10 @@ import Network.AWS.Internal.Request
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-put :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
-put x = get x & rqMethod .~ PUT & rqBody .~ toBody x
-
 post :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
 post = put
+{-# INLINE post #-}
+
+put :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
+put x = get x & rqMethod .~ PUT & rqBody .~ toBody x
+{-# INLINE put #-}

@@ -1,4 +1,4 @@
-DEPS := $(filter-out amazonka-core,$(wildcard amazonka-*))
+DEPS := $(wildcard amazonka-*)
 
 .PHONY: install clean
 
@@ -20,4 +20,4 @@ clean-%:
 
 cabal.sandbox.config:
 	cabal sandbox init && \
- cabal sandbox add-source amazonka-core
+ cabal sandbox add-source core

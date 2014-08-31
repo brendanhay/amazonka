@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-identity
-version:               0.0.1.0
+version:               0.0.0
 synopsis:              Amazon Cognito Identity SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0

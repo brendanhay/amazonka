@@ -59,7 +59,7 @@ MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 .PHONY: gen
 
 gen: build
-	dist/build/generator/generator \
+	dist/build/amazonka-gen/amazonka-gen \
  --output=$(realpath ../) \
  --override=$(realpath ./model) \
  --assets=$(realpath ./asset) \

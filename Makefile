@@ -1,4 +1,4 @@
-DEPS := $(wildcard amazonka-*)
+DEPS := $(filter-out amazonka-core,$(wildcard amazonka-*))
 
 .PHONY: install clean
 

@@ -1,4 +1,4 @@
-name:                  amazonka
+name:                  amazonka-core
 version:               0.1.0.0
 synopsis:              Comprehensive Amazon Web Services SDK
 homepage:              https://github.com/brendanhay/amazonka
@@ -90,28 +90,3 @@ library
         , transformers-base
         , unordered-containers
         , xml-conduit
-
-test-suite tests
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
-
-    ghc-options:       -Wall -threaded -with-rtsopts=-N
-
-    build-depends:
-          amazonka-types
-        , attoparsec
-        , base
-        , bytestring
-        , case-insensitive
-        , data-default
-        , directory
-        , filepath
-        , http-client-lens
-        , http-types
-        , lens
-        , old-locale
-        , tasty
-        , tasty-hunit
-        , time

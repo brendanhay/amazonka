@@ -31,6 +31,10 @@ module Control.Monad.Trans.AWS
     , hoistEither
     , scoped
 
+    -- * Debug output
+    , debug
+    , whenDebug
+
     -- * Regionalisation
     , within
 
@@ -63,10 +67,12 @@ import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
 import           Data.Bifunctor
 import           Data.Conduit
+import           Data.Text                       (Text)
 import           Data.Time
 import           Network.AWS                     (Env(..), envRegion)
 import qualified Network.AWS                     as AWS
-import           Network.AWS.Types
+import qualified Network.AWS.Types               as Types
+import           Network.AWS.Types               hiding (debug)
 
 type AWS = AWST IO
 
@@ -153,6 +159,16 @@ hoistEither = either (throwError . awsError) return
 -- | Pass the current environment to a function.
 scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
+
+debug :: (MonadIO m, MonadReader Env m) => Text -> m ()
+debug t = ask >>= (`Types.debug` t) . _envLogging
+
+whenDebug :: MonadReader Env m => m () -> m ()
+whenDebug f = do
+    e <- ask
+    case _envLogging e of
+        Debug _ -> f
+        _       -> return ()
 
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a

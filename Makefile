@@ -20,4 +20,4 @@ clean-%:
 
 cabal.sandbox.config:
 	cabal sandbox init && \
- cabal sandbox add-source amazonka
+ cabal sandbox add-source amazonka-core

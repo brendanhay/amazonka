@@ -37,6 +37,8 @@ import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: make endpoints overridable
+
 -- FIXME: generate (maybe wrapped newtypes) types for base64/16 encoded bytestrings
 -- ie: IAM types VirtualMFADevice
 

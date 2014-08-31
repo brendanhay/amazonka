@@ -3,12 +3,12 @@
 set -e
 
 doc=$HOME/Projects/aws-doc
-libs=$HOME/Projects/aws/amazonka*
+libs=$HOME/Projects/aws/amazonka-*
 
 standalone-haddock \
  -o $doc \
  --package-db $HOME/Projects/aws/.cabal-sandbox/x86_64-osx-ghc-7.8.2-packages.conf.d \
- $libs
+ core $libs
 
 cd $doc
 

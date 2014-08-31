@@ -38,6 +38,9 @@ module Network.AWS
 
     -- * Signing URLs
     , presign
+
+    -- * Types
+    , module Network.AWS.Types
     ) where
 
 import Control.Applicative

@@ -1,5 +1,5 @@
-name:                  generator
-version:               0.1.0.0
+name:                  amazonka-gen
+version:               0.1.0
 synopsis:              Pending
 description:           Pending
 homepage:              https://github.com/brendanhay/amazonka

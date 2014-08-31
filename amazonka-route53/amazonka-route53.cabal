@@ -60,6 +60,6 @@ library
         , Network.AWS.Route53.V2013_04_01.ListTagsForResources
 
     build-depends:
-          amazonka
-        , base     == 4.7.*
-        , lens
+          amazonka-core
+        , base          >= 4.6   && < 5
+        , lens          == 4.4.*

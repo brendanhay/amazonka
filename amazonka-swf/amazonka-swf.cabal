@@ -1,0 +1,83 @@
+name:                  amazonka-swf
+version:               0.0.1.0
+synopsis:              Amazon Simple Workflow Service SDK
+homepage:              https://github.com/brendanhay/amazonka
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            brendan.g.hay@gmail.com
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
+    .
+    applications that coordinate work across distributed components. In
+    .
+    Amazon SWF, a task represents a logical unit of work that is performed by
+    .
+    a component of your application. Coordinating tasks across the
+    .
+    application involves managing intertask dependencies, scheduling, and
+    .
+    concurrency in accordance with the logical flow of the application.
+    .
+    Amazon SWF gives you full control over implementing tasks and
+    .
+    coordinating them without worrying about underlying complexities such as
+    .
+    tracking their progress and maintaining their state.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.SWF
+        , Network.AWS.SWF.V2012_01_25
+        , Network.AWS.SWF.V2012_01_25.Types
+        , Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.RegisterActivityType
+        , Network.AWS.SWF.V2012_01_25.ListActivityTypes
+        , Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
+        , Network.AWS.SWF.V2012_01_25.RegisterWorkflowType
+        , Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed
+        , Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
+        , Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType
+        , Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.RegisterDomain
+        , Network.AWS.SWF.V2012_01_25.RespondDecisionTaskCompleted
+        , Network.AWS.SWF.V2012_01_25.PollForActivityTask
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted
+        , Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
+        , Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat
+        , Network.AWS.SWF.V2012_01_25.DescribeDomain
+        , Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
+        , Network.AWS.SWF.V2012_01_25.DeprecateDomain
+        , Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.DescribeActivityType
+        , Network.AWS.SWF.V2012_01_25.DeprecateActivityType
+        , Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled
+        , Network.AWS.SWF.V2012_01_25.StartWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.PollForDecisionTask
+        , Network.AWS.SWF.V2012_01_25.ListDomains
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.6   && < 5
+        , lens          == 4.4.*

@@ -113,6 +113,6 @@ library
         , Network.AWS.IAM.V2010_05_08.UpdateServerCertificate
 
     build-depends:
-          amazonka
-        , base     == 4.7.*
-        , lens
+          amazonka-core
+        , base          >= 4.6   && < 5
+        , lens          == 4.4.*

@@ -92,6 +92,6 @@ library
         , Network.AWS.AutoScaling.V2011_01_01.CreateLaunchConfiguration
 
     build-depends:
-          amazonka
-        , base     == 4.7.*
-        , lens
+          amazonka-core
+        , base          >= 4.6   && < 5
+        , lens          == 4.4.*

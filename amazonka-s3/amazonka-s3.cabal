@@ -92,6 +92,6 @@ library
         , Network.AWS.S3.V2006_03_01.PutBucketAcl
 
     build-depends:
-          amazonka
-        , base     == 4.7.*
-        , lens
+          amazonka-core
+        , base          >= 4.6   && < 5
+        , lens          == 4.4.*

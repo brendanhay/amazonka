@@ -4463,13 +4463,13 @@ instance ToQuery Tag where
 
 -- | Describes a tag.
 data TagDescription = TagDescription
-    { _tdResourceId :: Maybe Text
+    { _tdResourceId :: Text
       -- ^ The ID of the resource. For example, ami-1a2b3c4d.
-    , _tdResourceType :: Maybe ResourceType
+    , _tdResourceType :: ResourceType
       -- ^ The type of resource.
     , _tdValue :: Maybe Text
       -- ^ The value of the tag.
-    , _tdKey :: Maybe Text
+    , _tdKey :: Text
       -- ^ The key of the tag.
     } deriving (Show, Generic)
 

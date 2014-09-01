@@ -744,16 +744,16 @@ instance ToQuery SuspendedProcess where
 
 -- | The tag applied to an Auto Scaling group.
 data Tag = Tag
-    { _tgResourceId :: Maybe Text
+    { _tgResourceId :: Text
       -- ^ The name of the Auto Scaling group.
-    , _tgResourceType :: Maybe Text
+    , _tgResourceType :: Text
       -- ^ The kind of resource to which the tag is applied. Currently, Auto
       -- Scaling supports the auto-scaling-group resource type.
     , _tgValue :: Maybe Text
       -- ^ The value of the tag.
     , _tgKey :: Text
       -- ^ The key of the tag.
-    , _tgPropagateAtLaunch :: Maybe Bool
+    , _tgPropagateAtLaunch :: Bool
       -- ^ Specifies whether the new tag will be applied to instances
       -- launched after the tag is created. The same behavior applies to
       -- updates: If you change a tag, the changed tag will be applied to
@@ -765,16 +765,16 @@ instance ToQuery Tag where
 
 -- | The tag applied to an Auto Scaling group.
 data TagDescription = TagDescription
-    { _tdResourceId :: Maybe Text
+    { _tdResourceId :: Text
       -- ^ The name of the Auto Scaling group.
-    , _tdResourceType :: Maybe Text
+    , _tdResourceType :: Text
       -- ^ The kind of resource to which the tag is applied. Currently, Auto
       -- Scaling supports the auto-scaling-group resource type.
     , _tdValue :: Maybe Text
       -- ^ The value of the tag.
-    , _tdKey :: Maybe Text
+    , _tdKey :: Text
       -- ^ The key of the tag.
-    , _tdPropagateAtLaunch :: Maybe Bool
+    , _tdPropagateAtLaunch :: Bool
       -- ^ Specifies whether the new tag will be applied to instances
       -- launched after the tag is created. The same behavior applies to
       -- updates: If you change a tag, the changed tag will be applied to

@@ -37,6 +37,9 @@ import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: When replacing/ignoring types via 'existing', it should actually merge
+-- the request/response shenannigans so the correct instances are written for the type
+
 -- FIXME: Ability to specify additional non-generated src files per service model
 
 -- FIXME: ResourceRecordSet/ResourceRecords is a list but the type ann it gets is Maybe [a]

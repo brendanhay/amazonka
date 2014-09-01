@@ -49,6 +49,11 @@
         ],
         "Tag": [
             "Key"
+        ],
+        "TagDescription": [
+            "ResourceId",
+            "ResourceType",
+            "Key"
         ]
     },
     "unprefixed": [

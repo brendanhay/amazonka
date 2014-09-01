@@ -507,7 +507,7 @@ instance ToQuery EnabledMetric where
 data Filter = Filter
     { _gValues :: [Text]
       -- ^ The value of the filter.
-    , _gName :: Maybe Text
+    , _gName :: Text
       -- ^ The name of the filter. Valid Name values are:
       -- "auto-scaling-group", "key", "value", and "propagate-at-launch".
     } deriving (Show, Generic)

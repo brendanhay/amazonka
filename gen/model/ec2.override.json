@@ -17,6 +17,9 @@
         "InternetGatewayAttachment": [
             "State",
             "VpcId"
+        ],
+        "Filter": [
+            "Name"
         ]
     }
 }

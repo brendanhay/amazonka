@@ -2711,7 +2711,7 @@ instance ToQuery ExportToS3TaskSpecification where
 data Filter = Filter
     { _frValues :: [Text]
       -- ^ One or more filter values.
-    , _frName :: Maybe Text
+    , _frName :: Text
       -- ^ The name of the filter.
     } deriving (Show, Generic)
 
@@ -3375,7 +3375,7 @@ instance ToQuery InstanceStatusSummary where
 data InternetGateway = InternetGateway
     { _igAttachments :: [InternetGatewayAttachment]
       -- ^ Any VPCs attached to the Internet gateway.
-    , _igInternetGatewayId :: Maybe Text
+    , _igInternetGatewayId :: Text
       -- ^ The ID of the Internet gateway.
     , _igTags :: [Tag]
       -- ^ Any tags assigned to the Internet gateway.
@@ -3387,9 +3387,9 @@ instance FromXML InternetGateway where
 
 -- | Describes the attachment of a VPC to an Internet gateway.
 data InternetGatewayAttachment = InternetGatewayAttachment
-    { _igaState :: Maybe AttachmentStatus
+    { _igaState :: AttachmentStatus
       -- ^ The current state of the attachment.
-    , _igaVpcId :: Maybe Text
+    , _igaVpcId :: Text
       -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 

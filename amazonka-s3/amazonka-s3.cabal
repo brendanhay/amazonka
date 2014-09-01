@@ -91,6 +91,9 @@ library
         , Network.AWS.S3.V2006_03_01.UploadPartCopy
         , Network.AWS.S3.V2006_03_01.PutBucketAcl
 
+    other-modules:
+          Network.AWS.S3.Internal.Types
+
     build-depends:
           amazonka-core
         , base          >= 4.6   && < 5

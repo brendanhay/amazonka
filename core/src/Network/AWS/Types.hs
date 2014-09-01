@@ -332,83 +332,8 @@ newtype Action = Action Text
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
-newtype BucketName = BucketName Text
-    deriving (Eq, Show, Generic, IsString)
-
-instance FromText     BucketName where parser = BucketName <$> takeText
-instance ToText       BucketName where toText (BucketName b) = b
-instance ToByteString BucketName
-instance FromXML      BucketName
-instance ToXML        BucketName
-instance ToQuery      BucketName where toQuery = toQuery . toBS
-
-newtype ObjectKey = ObjectKey Text
-    deriving (Eq, Show, Generic, IsString)
-
-instance FromText     ObjectKey where parser = ObjectKey <$> takeText
-instance ToText       ObjectKey where toText (ObjectKey k) = k
-instance ToByteString ObjectKey
-instance FromXML      ObjectKey
-instance ToXML        ObjectKey
-instance ToQuery      ObjectKey where toQuery = toQuery . toBS
-
-newtype ObjectVersionId = ObjectVersionId Text
-    deriving (Eq, Show, Generic, IsString)
-
-instance FromText     ObjectVersionId where parser = ObjectVersionId <$> takeText
-instance ToText       ObjectVersionId where toText (ObjectVersionId v) = v
-instance ToByteString ObjectVersionId
-instance FromXML      ObjectVersionId
-instance ToXML        ObjectVersionId
-instance ToQuery      ObjectVersionId where toQuery = toQuery . toBS
-
-newtype ETag = ETag Text
-    deriving (Eq, Show, Generic, IsString)
-
-instance FromText     ETag where parser = ETag <$> takeText
-instance ToText       ETag where toText (ETag t) = t
-instance ToByteString ETag
-instance FromXML      ETag
-instance ToXML        ETag
-instance ToQuery      ETag where toQuery = toQuery . toBS
-
 data Switch a = Enabled | Disabled
     deriving (Eq, Show, Generic)
-
-data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
-    deriving (Eq, Read, Show, Ord, Generic)
-
-instance FromText RecordType where
-    parser = match "A"     A
-         <|> match "AAAA"  AAAA
-         <|> match "CNAME" CNAME
-         <|> match "MX"    MX
-         <|> match "NS"    NS
-         <|> match "PTR"   PTR
-         <|> match "SOA"   SOA
-         <|> match "SPF"   SPF
-         <|> match "SRV"   SRV
-         <|> match "TXT"   TXT
-
-instance ToText RecordType where
-    toText t = case t of
-         A     -> "A"
-         AAAA  -> "AAAA"
-         CNAME -> "CNAME"
-         MX    -> "MX"
-         NS    -> "NS"
-         PTR   -> "PTR"
-         SOA   -> "SOA"
-         SPF   -> "SPF"
-         SRV   -> "SRV"
-         TXT   -> "TXT"
-
-instance ToByteString RecordType
-instance FromXML      RecordType
-instance ToXML        RecordType
-
-instance ToQuery RecordType where
-    toQuery = toQuery . toBS
 
 newtype Base64 = Base64 ByteString
     deriving (Eq, Show, Generic)

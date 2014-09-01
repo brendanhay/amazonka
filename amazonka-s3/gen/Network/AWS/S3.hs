@@ -11,6 +11,8 @@
 -- | Current version of the S3 service.
 module Network.AWS.S3
     ( module Network.AWS.S3.V2006_03_01
+    , module Network.AWS.S3.Internal.Types
     ) where
 
 import Network.AWS.S3.V2006_03_01
+import Network.AWS.S3.Internal.Types

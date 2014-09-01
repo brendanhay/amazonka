@@ -1,3 +1,6 @@
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+
 -- Module      : Network.AWS.Route53.Internal.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -10,6 +13,8 @@
 
 module Network.AWS.Route53.Internal.Types where
 
+import Data.String
+import GHC.Generics
 import Network.AWS.Prelude
 
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT

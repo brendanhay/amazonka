@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveGeneric #-}
+
 -- Module      : Network.AWS.S3.Internal.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -10,6 +12,8 @@
 
 module Network.AWS.S3.Internal.Types where
 
+import Data.String
+import GHC.Generics
 import Network.AWS.Prelude
 
 newtype BucketName = BucketName Text

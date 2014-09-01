@@ -10,6 +10,13 @@
             "IpProtocol",
             "FromPort",
             "ToPort"
+        ],
+        "InternetGateway": [
+            "InternetGatewayId"
+        ],
+        "InternetGatewayAttachment": [
+            "State",
+            "VpcId"
         ]
     }
 }

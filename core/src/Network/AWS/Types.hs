@@ -41,6 +41,7 @@ import           Data.String
 import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
 import qualified Data.Text.Encoding        as Text
+import qualified Data.Text.Lazy            as LText
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
@@ -88,6 +89,12 @@ instance AWSError Error where
 
 instance AWSError String where
     awsError = ServiceError
+
+instance AWSError Text where
+    awsError = ServiceError . Text.unpack
+
+instance AWSError LText.Text where
+    awsError = ServiceError . LText.unpack
 
 instance AWSError HttpException where
     awsError = ClientError

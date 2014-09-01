@@ -10,7 +10,7 @@
 
 module Network.AWS.Route53.Internal.Types where
 
-import Network.AWS.Data
+import Network.AWS.Prelude
 
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
     deriving (Eq, Read, Show, Ord, Generic)

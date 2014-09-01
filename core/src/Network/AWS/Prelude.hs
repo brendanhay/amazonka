@@ -39,13 +39,8 @@ module Network.AWS.Prelude
 
     -- * Shared
     , Action          (..)
-    , BucketName      (..)
-    , ETag            (..)
     , Endpoint'       (..)
     , Map             (..)
-    , ObjectKey       (..)
-    , ObjectVersionId (..)
-    , RecordType      (..)
     , Service'        (..)
     , Switch          (..)
 

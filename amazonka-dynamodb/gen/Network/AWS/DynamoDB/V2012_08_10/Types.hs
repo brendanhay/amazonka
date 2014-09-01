@@ -30,6 +30,20 @@ module Network.AWS.DynamoDB.V2012_08_10.Types where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
+import Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
+import Network.AWS.DynamoDB.V2012_08_10.CreateTable
+import Network.AWS.DynamoDB.V2012_08_10.DeleteItem
+import Network.AWS.DynamoDB.V2012_08_10.DeleteTable
+import Network.AWS.DynamoDB.V2012_08_10.DescribeTable
+import Network.AWS.DynamoDB.V2012_08_10.GetItem
+import Network.AWS.DynamoDB.V2012_08_10.ListTables
+import Network.AWS.DynamoDB.V2012_08_10.PutItem
+import Network.AWS.DynamoDB.V2012_08_10.Query
+import Network.AWS.DynamoDB.V2012_08_10.Scan
+import Network.AWS.DynamoDB.V2012_08_10.Types
+import Network.AWS.DynamoDB.V2012_08_10.UpdateItem
+import Network.AWS.DynamoDB.V2012_08_10.UpdateTable
 
 -- | Supported version (@2012-08-10@) of the
 -- @Amazon DynamoDB@ service.

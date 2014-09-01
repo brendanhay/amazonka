@@ -19,6 +19,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Signing.{{ signature }}
 import           Network.AWS.Types     (Region)
 import qualified Network.AWS.Types.Map as Map
+{% for module in static %}
+import           {{ module.value }}
+{% endfor %}
 
 {% include "_include/service.ede" %}
 

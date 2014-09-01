@@ -10,8 +10,7 @@
 
 module Network.AWS.S3.Internal.Types where
 
-import Data.Text        (Text)
-import Network.AWS.Data
+import Network.AWS.Prelude
 
 newtype BucketName = BucketName Text
     deriving (Eq, Show, Generic, IsString)

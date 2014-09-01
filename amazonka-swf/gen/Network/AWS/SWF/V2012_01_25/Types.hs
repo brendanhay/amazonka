@@ -31,6 +31,38 @@ module Network.AWS.SWF.V2012_01_25.Types where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
+import Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions
+import Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
+import Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
+import Network.AWS.SWF.V2012_01_25.DeprecateActivityType
+import Network.AWS.SWF.V2012_01_25.DeprecateDomain
+import Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType
+import Network.AWS.SWF.V2012_01_25.DescribeActivityType
+import Network.AWS.SWF.V2012_01_25.DescribeDomain
+import Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
+import Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
+import Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
+import Network.AWS.SWF.V2012_01_25.ListActivityTypes
+import Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
+import Network.AWS.SWF.V2012_01_25.ListDomains
+import Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
+import Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
+import Network.AWS.SWF.V2012_01_25.PollForActivityTask
+import Network.AWS.SWF.V2012_01_25.PollForDecisionTask
+import Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat
+import Network.AWS.SWF.V2012_01_25.RegisterActivityType
+import Network.AWS.SWF.V2012_01_25.RegisterDomain
+import Network.AWS.SWF.V2012_01_25.RegisterWorkflowType
+import Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution
+import Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled
+import Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted
+import Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed
+import Network.AWS.SWF.V2012_01_25.RespondDecisionTaskCompleted
+import Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution
+import Network.AWS.SWF.V2012_01_25.StartWorkflowExecution
+import Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution
+import Network.AWS.SWF.V2012_01_25.Types
 
 -- | Supported version (@2012-01-25@) of the
 -- @Amazon Simple Workflow Service@ service.

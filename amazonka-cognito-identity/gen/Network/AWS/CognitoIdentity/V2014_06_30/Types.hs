@@ -32,6 +32,16 @@ module Network.AWS.CognitoIdentity.V2014_06_30.Types where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool
+import Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool
+import Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool
+import Network.AWS.CognitoIdentity.V2014_06_30.GetId
+import Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken
+import Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
+import Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
+import Network.AWS.CognitoIdentity.V2014_06_30.Types
+import Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity
+import Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool
 
 -- | Supported version (@2014-06-30@) of the
 -- @Amazon Cognito Identity@ service.

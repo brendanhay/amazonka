@@ -27,6 +27,24 @@ module Network.AWS.EMR.V2009_03_31.Types where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import Network.AWS.EMR.V2009_03_31.AddInstanceGroups
+import Network.AWS.EMR.V2009_03_31.AddJobFlowSteps
+import Network.AWS.EMR.V2009_03_31.AddTags
+import Network.AWS.EMR.V2009_03_31.DescribeCluster
+import Network.AWS.EMR.V2009_03_31.DescribeJobFlows
+import Network.AWS.EMR.V2009_03_31.DescribeStep
+import Network.AWS.EMR.V2009_03_31.ListBootstrapActions
+import Network.AWS.EMR.V2009_03_31.ListClusters
+import Network.AWS.EMR.V2009_03_31.ListInstanceGroups
+import Network.AWS.EMR.V2009_03_31.ListInstances
+import Network.AWS.EMR.V2009_03_31.ListSteps
+import Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups
+import Network.AWS.EMR.V2009_03_31.RemoveTags
+import Network.AWS.EMR.V2009_03_31.RunJobFlow
+import Network.AWS.EMR.V2009_03_31.SetTerminationProtection
+import Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers
+import Network.AWS.EMR.V2009_03_31.TerminateJobFlows
+import Network.AWS.EMR.V2009_03_31.Types
 
 -- | Supported version (@2009-03-31@) of the
 -- @Amazon Elastic MapReduce@ service.

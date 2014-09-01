@@ -30,6 +30,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Signing.V3
 import           Network.AWS.Types     (Region)
 import qualified Network.AWS.Types.Map as Map
+import           Network.AWS.Route53.Internal.Types
 
 -- | Supported version (@2013-04-01@) of the
 -- @Amazon Route 53@ service.

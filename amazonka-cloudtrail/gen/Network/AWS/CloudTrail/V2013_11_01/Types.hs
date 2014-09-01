@@ -27,6 +27,14 @@ module Network.AWS.CloudTrail.V2013_11_01.Types where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import Network.AWS.CloudTrail.V2013_11_01.CreateTrail
+import Network.AWS.CloudTrail.V2013_11_01.DeleteTrail
+import Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
+import Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus
+import Network.AWS.CloudTrail.V2013_11_01.StartLogging
+import Network.AWS.CloudTrail.V2013_11_01.StopLogging
+import Network.AWS.CloudTrail.V2013_11_01.Types
+import Network.AWS.CloudTrail.V2013_11_01.UpdateTrail
 
 -- | Supported version (@2013-11-01@) of the
 -- @AWS CloudTrail@ service.

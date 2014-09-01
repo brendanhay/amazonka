@@ -17,6 +17,9 @@ module {{ types_namespace }} where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ signature }}
+{% for module in modules %}
+import {{ module.value }}
+{% endfor %}
 
 {% include "_include/service.ede" %}
 

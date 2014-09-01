@@ -26,6 +26,16 @@ module Network.AWS.Kinesis.V2013_12_02.Types where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import Network.AWS.Kinesis.V2013_12_02.CreateStream
+import Network.AWS.Kinesis.V2013_12_02.DeleteStream
+import Network.AWS.Kinesis.V2013_12_02.DescribeStream
+import Network.AWS.Kinesis.V2013_12_02.GetRecords
+import Network.AWS.Kinesis.V2013_12_02.GetShardIterator
+import Network.AWS.Kinesis.V2013_12_02.ListStreams
+import Network.AWS.Kinesis.V2013_12_02.MergeShards
+import Network.AWS.Kinesis.V2013_12_02.PutRecord
+import Network.AWS.Kinesis.V2013_12_02.SplitShard
+import Network.AWS.Kinesis.V2013_12_02.Types
 
 -- | Supported version (@2013-12-02@) of the
 -- @Amazon Kinesis@ service.

@@ -2153,7 +2153,7 @@ instance ToQuery AvailabilityZoneMessage where
 
 -- | Describes an IP range.
 newtype IpRange = IpRange
-    { _irCidrIp :: Maybe Text
+    { _irCidrIp :: Text
       -- ^ The CIDR range. You can either specify a CIDR range or a source
       -- security group, not both.
     } deriving (Show, Generic)

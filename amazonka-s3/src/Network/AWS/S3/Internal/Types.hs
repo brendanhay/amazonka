@@ -1,4 +1,4 @@
--- Module      : Network.AWS.Route53.Internal.Types
+-- Module      : Network.AWS.S3.Internal.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +8,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53.Internal.Types where
+module Network.AWS.S3.Internal.Types where
 
 import Data.Text        (Text)
 import Network.AWS.Data

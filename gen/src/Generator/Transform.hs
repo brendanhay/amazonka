@@ -148,12 +148,12 @@ uniquify svc (special svc -> s) = do
     succ' n 'z' = Text.toLower (Text.pack [Text.head n, Text.last n])
     succ' _ c   = Text.singleton (succ c)
 
-special :: Service -> Shape -> Shape
+special :: HasCommon a => Service -> a -> a
 special svc s = f (_svcName svc) (s ^. cmnName) s
   where
-    -- Special cases for erroneous service model types
+    -- FIXME: Special case for erroneous service model types
     f "EC2" "String" = cmnName .~ "VirtualizationType"
-    f _     _        = id
+    f _     n        = cmnName .~ fromMaybe n (renameType svc s)
 
 request :: Service -> Operation -> Request -> Request
 request svc o rq = rq
@@ -257,37 +257,6 @@ serviceNamespaces :: Service -> [NS]
 serviceNamespaces s = sort $
     _svcTypesNamespace s : map _opNamespace (_svcOperations s)
 
-shapeEnums :: Text -> [Text] -> HashMap Text Text
-shapeEnums n = Map.fromList . map trans . filter (not . Text.null)
-  where
-    trans = first (mappend (reserve n) . rules) . join (,)
-
-    reserve x
-        | x `elem` unprefixed = ""
-        | otherwise           = x
-
-    unprefixed =
-        [ "InstanceType"
-        ]
-
-    rules x =
-        let y  = Text.replace ":" ""
-               . Text.replace "." " "
-               . Text.replace "/" " "
-               . Text.replace "(" " "
-               . Text.replace ")" " "
-               . Text.replace "_" " "
-               $ Text.replace "-" " " x
-            zs = Text.words y
-
-         in if | length zs > 1      -> Text.concat (map Text.toTitle zs)
-               | Text.all isUpper y -> Text.toTitle y
-               | otherwise          -> upcase y
-
-    upcase x
-        | Text.null x = x
-        | otherwise   = toUpper (Text.head x) `Text.cons` Text.tail x
-
 fields :: Bool -> Service -> Shape -> [Field]
 fields rq svc s = case s of
     SStruct Struct{..} -> map f (Map.toList _sctFields)
@@ -310,7 +279,8 @@ typeof :: Bool -> Service -> Shape -> Ann
 typeof rq svc s = Ann req (defaults s) (monoids s) typ
   where
     typ = case s of
-        _ | Just x <- remapType svc s -> x
+        _ | Just x <- renameType   svc s -> x
+        _ | Just x <- existingType svc s -> x
 
         SStruct _ -> name
         SList   l -> "[" <> ann (_lstItem l) <> "]"
@@ -335,21 +305,11 @@ typeof rq svc s = Ann req (defaults s) (monoids s) typ
 isBody :: HasCommon a => a -> Bool
 isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming
 
-remapType :: HasCommon a => Service -> a -> Maybe Text
-remapType Service{..} x = lookup (x ^. cmnName) $
-    case _svcName of
-        "S3" ->
-            [ ("BucketName",      "BucketName")
-            , ("ObjectKey",       "ObjectKey")
-            , ("ObjectVersionId", "ObjectVersionId")
-            , ("ETag",            "ETag")
-            , ("Delimiter",       "Char")
-            ]
-        "Route53" ->
-            [ ("RRType",                  "RecordType")
-            , ("ResourceRecordSetRegion", "Region")
-            ]
-        _ -> []
+existingType :: HasCommon a => Service -> a -> Maybe Text
+existingType s x = Map.lookup (x ^. cmnName) (_svcExist s)
+
+renameType :: HasCommon a => Service -> a -> Maybe Text
+renameType s x = Map.lookup (x ^. cmnName) (_svcRename s)
 
 formatPrim :: Service -> Prim -> Text
 formatPrim Service{..} Prim{..} = Text.pack $
@@ -430,7 +390,7 @@ serviceTypes svc@Service{..} = map override
         candidates = fromMaybe [] (Map.lookup (t ^. cmnName) _svcRequired)
 
     exclude :: (a, Shape) -> Maybe (a, Shape)
-    exclude x = maybe (Just x) (const Nothing) (remapType svc (snd x))
+    exclude x = maybe (Just x) (const Nothing) (existingType svc (snd x))
 
     uniq :: Type -> State (HashMap Text Type) ()
     uniq x = modify $ \m ->
@@ -453,14 +413,43 @@ serviceTypes svc@Service{..} = map override
     flat p (SSum     x)         = [(p, SSum $ rename x)]
     flat _ _                    = []
 
-    rename s
-        | (s ^. cmnName) `notElem` switches = s
-        | otherwise = s { _sumValues        = f (_sumValues s) }
+    rename s@Sum{..}
+        | (s ^. cmnName) `elem` switches = s { _sumValues = ss }
+        | otherwise                      = s { _sumValues = es }
       where
-        f = Map.fromList . map g . Map.toList
+        es = enumPairs svc (s ^. cmnName) (Map.elems _sumValues)
 
-        g (_, "Enabled") = ("Enabled", "Enabled")
-        g (_, v)         = ("Disabled", v)
+        ss = Map.fromList . map f $ Map.toList _sumValues
+
+        f (_, "Enabled") = ("Enabled",  "Enabled")
+        f (_, v)         = ("Disabled", v)
+
+enumPairs :: Service -> Text -> [Text] -> HashMap Text Text
+enumPairs Service{..} n = Map.fromList . map trans . filter (not . Text.null)
+  where
+    trans = first (mappend (reserve n) . rules) . join (,)
+
+    reserve x
+        | x `elem` _svcUnprefixed = ""
+        | otherwise               = x
+
+    rules x =
+        let y  = Text.replace ":" ""
+               . Text.replace "." " "
+               . Text.replace "/" " "
+               . Text.replace "(" " "
+               . Text.replace ")" " "
+               . Text.replace "_" " "
+               $ Text.replace "-" " " x
+            zs = Text.words y
+
+         in if | length zs > 1      -> Text.concat (map Text.toTitle zs)
+               | Text.all isUpper y -> Text.toTitle y
+               | otherwise          -> upcase y
+
+    upcase x
+        | Text.null x = x
+        | otherwise   = toUpper (Text.head x) `Text.cons` Text.tail x
 
 serviceError :: Abbrev -> [Operation] -> Error
 serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts

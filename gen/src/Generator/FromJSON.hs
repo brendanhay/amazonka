@@ -156,6 +156,9 @@ instance FromJSON Service where
             <*> pure def
             <*> o .:? "required" .!= mempty
             <*> pure (cbl n d)
+            <*> o .:? "existing"   .!= mempty
+            <*> o .:? "rename"     .!= mempty
+            <*> o .:? "unprefixed" .!= mempty
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $ \o ->
@@ -241,17 +244,16 @@ instance FromJSON Shape where
 
         f c o typ = do
             ms <- o .:? "enum"
-
-            let e = shapeEnums (_cmnName c) <$> ms
-
-            case e of
-                Just vs -> return . SSum $ Sum vs c
+            case ms of
+                Just vs -> return . SSum $ Sum (enum vs) c
                 Nothing -> fmap SPrim $ Prim
                     <$> parseJSON (String typ)
                     <*> o .:? "min_length" .!= 0
                     <*> o .:? "max_length" .!= 0
                     <*> o .:? "pattern"
                     <*> pure c
+
+        enum = Map.fromList . map (join (,))
 
 instance FromJSON Primitive where
     parseJSON = withText "type" $ \t ->

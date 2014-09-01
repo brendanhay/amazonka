@@ -14,5 +14,12 @@
             "StorageClass",
             "LastModified"
         ]
+    },
+    "exist": {
+        "BucketName": "BucketName",
+        "ObjectKey": "ObjectKey",
+        "ObjectVersionId": "ObjectVersionId",
+        "ETag": "ETag",
+        "Delimiter": "Char"
     }
 }

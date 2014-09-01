@@ -484,6 +484,9 @@ data Service = Service
     , _svcTypes            :: [Type]
     , _svcRequired         :: HashMap Text [CI Text]
     , _svcCabal            :: Cabal
+    , _svcExist            :: HashMap Text Text
+    , _svcRename           :: HashMap Text Text
+    , _svcUnprefixed       :: [Text]
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -524,6 +527,9 @@ defaultService a = Service
     , _svcTypes            = mempty
     , _svcRequired         = mempty
     , _svcCabal            = Cabal cabalVersion (unAbbrev a) def
+    , _svcExist            = mempty
+    , _svcRename           = mempty
+    , _svcUnprefixed       = mempty
     }
 
 makeLenses ''Request

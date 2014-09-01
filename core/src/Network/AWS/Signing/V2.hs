@@ -89,7 +89,7 @@ instance AWSSigner V2 where
            . pair "AWSAccessKeyId"   (toBS _authAccess)
            $ _rqQuery <> maybe mempty toQuery token
 
-        token = (("SecurityToken" :: ByteString,) . toBS <$> _authToken)
+        token = ("SecurityToken" :: ByteString,) . toBS <$> _authToken
 
         headers = hdr hDate time _rqHeaders
 

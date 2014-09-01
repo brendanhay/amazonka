@@ -2332,7 +2332,7 @@ data BlockDeviceMapping = BlockDeviceMapping
     , _bdmEbs :: Maybe EbsBlockDevice
       -- ^ Parameters used to automatically set up Amazon EBS volumes when
       -- the instance is launched.
-    , _bdmDeviceName :: Maybe Text
+    , _bdmDeviceName :: Text
       -- ^ The device name exposed to the instance (for example, /dev/sdh).
     } deriving (Show, Generic)
 
@@ -4196,16 +4196,16 @@ data SecurityGroup = SecurityGroup
       -- ^ [EC2-VPC] The ID of the VPC for the security group.
     , _siIpPermissions :: [IpPermission]
       -- ^ One or more inbound rules associated with the security group.
-    , _siOwnerId :: Maybe Text
+    , _siOwnerId :: Text
       -- ^ The AWS account ID of the owner of the security group.
     , _siIpPermissionsEgress :: [IpPermission]
       -- ^ [EC2-VPC] One or more outbound rules associated with the security
       -- group.
-    , _siGroupId :: Maybe Text
+    , _siGroupId :: Text
       -- ^ The ID of the security group.
-    , _siGroupName :: Maybe Text
+    , _siGroupName :: Text
       -- ^ The name of the security group.
-    , _siDescription :: Maybe Text
+    , _siDescription :: Text
       -- ^ A description of the security group.
     , _siTags :: [Tag]
       -- ^ Any tags assigned to the security group.

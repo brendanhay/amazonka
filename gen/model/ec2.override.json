@@ -20,6 +20,15 @@
         ],
         "Filter": [
             "Name"
+        ],
+        "BlockDeviceMapping": [
+            "DeviceName"
+        ],
+        "SecurityGroup": [
+            "OwnerId",
+            "GroupId",
+            "GroupName",
+            "Description"
         ]
     },
     "unprefixed": [

@@ -46,6 +46,9 @@
         "InstanceState": [
             "Name",
             "Code"
+        ],
+        "Tag": [
+            "Key"
         ]
     },
     "unprefixed": [

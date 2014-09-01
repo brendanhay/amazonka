@@ -180,6 +180,48 @@ instance FromXML ChangeStatus where
 instance ToQuery ChangeStatus where
       toQuery = toQuery . toBS
 
+-- | Failover resource record sets only: Among resource record sets that have
+-- the same combination of DNS name and type, a value that indicates whether
+-- the current resource record set is a primary or secondary resource record
+-- set. A failover set may contain at most one resource record set marked as
+-- primary and one resource record set marked as secondary. A resource record
+-- set marked as primary will be returned if any of the following are true:
+-- (1) an associated health check is passing, (2) if the resource record set
+-- is an alias with the evaluate target health and at least one target
+-- resource record set is healthy, (3) both the primary and secondary resource
+-- record set are failing health checks or (4) there is no secondary resource
+-- record set. A secondary resource record set will be returned if: (1) the
+-- primary is failing a health check and either the secondary is passing a
+-- health check or has no associated health check, or (2) there is no primary
+-- resource record set. Valid values: PRIMARY | SECONDARY.
+data Failover
+    = Primary -- ^ PRIMARY
+    | Secondary -- ^ SECONDARY
+      deriving (Eq, Show, Generic)
+
+instance Hashable Failover
+
+instance FromText Failover where
+    parser = match "PRIMARY" Primary
+         <|> match "SECONDARY" Secondary
+
+instance ToText Failover where
+    toText Primary = "PRIMARY"
+    toText Secondary = "SECONDARY"
+
+instance ToByteString Failover
+
+instance FromXML Failover where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResourceRecordSetFailover"
+
+instance ToXML Failover where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ResourceRecordSetFailover"
+
+instance ToQuery Failover where
+      toQuery = toQuery . toBS
+
 -- | The type of health check to be performed. Currently supported types are
 -- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
 data HealthCheckType
@@ -217,48 +259,6 @@ instance ToXML HealthCheckType where
     toXMLRoot    = toRoot "HealthCheckType"
 
 instance ToQuery HealthCheckType where
-      toQuery = toQuery . toBS
-
--- | Failover resource record sets only: Among resource record sets that have
--- the same combination of DNS name and type, a value that indicates whether
--- the current resource record set is a primary or secondary resource record
--- set. A failover set may contain at most one resource record set marked as
--- primary and one resource record set marked as secondary. A resource record
--- set marked as primary will be returned if any of the following are true:
--- (1) an associated health check is passing, (2) if the resource record set
--- is an alias with the evaluate target health and at least one target
--- resource record set is healthy, (3) both the primary and secondary resource
--- record set are failing health checks or (4) there is no secondary resource
--- record set. A secondary resource record set will be returned if: (1) the
--- primary is failing a health check and either the secondary is passing a
--- health check or has no associated health check, or (2) there is no primary
--- resource record set. Valid values: PRIMARY | SECONDARY.
-data ResourceRecordSetFailover
-    = ResourceRecordSetFailoverPrimary -- ^ PRIMARY
-    | ResourceRecordSetFailoverSecondary -- ^ SECONDARY
-      deriving (Eq, Show, Generic)
-
-instance Hashable ResourceRecordSetFailover
-
-instance FromText ResourceRecordSetFailover where
-    parser = match "PRIMARY" ResourceRecordSetFailoverPrimary
-         <|> match "SECONDARY" ResourceRecordSetFailoverSecondary
-
-instance ToText ResourceRecordSetFailover where
-    toText ResourceRecordSetFailoverPrimary = "PRIMARY"
-    toText ResourceRecordSetFailoverSecondary = "SECONDARY"
-
-instance ToByteString ResourceRecordSetFailover
-
-instance FromXML ResourceRecordSetFailover where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceRecordSetFailover"
-
-instance ToXML ResourceRecordSetFailover where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResourceRecordSetFailover"
-
-instance ToQuery ResourceRecordSetFailover where
       toQuery = toQuery . toBS
 
 -- | The type of the resource. The resource type for health checks is
@@ -589,7 +589,7 @@ data ResourceRecordSet = ResourceRecordSet
       -- ^ Weighted, Latency, Geo, and Failover resource record sets only:
       -- An identifier that differentiates among multiple resource record
       -- sets that have the same combination of DNS name and type.
-    , _rrsFailover :: Maybe ResourceRecordSetFailover
+    , _rrsFailover :: Maybe Failover
       -- ^ Failover resource record sets only: Among resource record sets
       -- that have the same combination of DNS name and type, a value that
       -- indicates whether the current resource record set is a primary or

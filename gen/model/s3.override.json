@@ -15,7 +15,7 @@
             "LastModified"
         ]
     },
-    "exist": {
+    "existing": {
         "BucketName": "BucketName",
         "ObjectKey": "ObjectKey",
         "ObjectVersionId": "ObjectVersionId",

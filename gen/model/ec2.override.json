@@ -21,5 +21,8 @@
         "Filter": [
             "Name"
         ]
-    }
+    },
+    "unprefixed": [
+        "InstanceType"
+    ]
 }

@@ -5,6 +5,11 @@
     "required": {
         "IpRange": [
             "CidrIp"
+        ],
+        "IpPermission": [
+            "IpProtocol",
+            "FromPort",
+            "ToPort"
         ]
     }
 }

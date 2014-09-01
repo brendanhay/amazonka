@@ -3402,17 +3402,17 @@ instance ToQuery InternetGatewayAttachment where
 
 -- | Describes a security group rule.
 data IpPermission = IpPermission
-    { _ipFromPort :: Maybe Integer
+    { _ipFromPort :: Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. A value of -1 indicates all ICMP types.
     , _ipUserIdGroupPairs :: [UserIdGroupPair]
       -- ^ One or more security group and AWS account ID pairs.
-    , _ipIpProtocol :: Maybe Text
+    , _ipIpProtocol :: Text
       -- ^ The protocol. When you call DescribeSecurityGroups, the protocol
       -- value returned is the number. Exception: For TCP, UDP, and ICMP,
       -- the value returned is the name (for example, tcp, udp, or icmp).
       -- For a list of protocol numbers, see Protocol Numbers.
-    , _ipToPort :: Maybe Integer
+    , _ipToPort :: Integer
       -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
       -- code. A value of -1 indicates all ICMP codes for the specified
       -- ICMP type.

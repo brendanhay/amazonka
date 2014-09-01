@@ -32,6 +32,15 @@ library
 {% for op in operations %}
         , {{ op.value.namespace }}
 {% endfor %}
+{% for module in static %}
+  {% if module.first %}
+
+    other-modules:
+          {{ module.value }}
+  {% else %}
+        , {{ module.value }}
+  {% endif %}
+{% endfor %}
 
     build-depends:
           amazonka-core

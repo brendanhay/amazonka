@@ -37,6 +37,10 @@ import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
 
+-- FIXME: Ability to specify additional non-generated src files per service model
+
+-- FIXME: ResourceRecordSet/ResourceRecords is a list but the type ann it gets is Maybe [a]
+
 -- FIXME: make endpoints overridable
 
 -- FIXME: generate (maybe wrapped newtypes) types for base64/16 encoded bytestrings

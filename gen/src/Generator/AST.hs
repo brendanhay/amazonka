@@ -52,7 +52,10 @@ instance Default NS where
     def = mempty
 
 instance IsString NS where
-    fromString = NS . filter (/= "") . Text.split (== '.') . Text.pack
+    fromString = namespaceFromText . Text.pack
+
+namespaceFromText :: Text -> NS
+namespaceFromText = NS . filter (/= "") . Text.split (== '.')
 
 namespace :: Abbrev -> Version -> NS
 namespace a v = NS
@@ -487,6 +490,7 @@ data Service = Service
     , _svcExist            :: HashMap Text Text
     , _svcRename           :: HashMap Text Text
     , _svcUnprefixed       :: [Text]
+    , _svcStatic           :: [NS]
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -530,6 +534,7 @@ defaultService a = Service
     , _svcExist            = mempty
     , _svcRename           = mempty
     , _svcUnprefixed       = mempty
+    , _svcStatic           = mempty
     }
 
 makeLenses ''Request

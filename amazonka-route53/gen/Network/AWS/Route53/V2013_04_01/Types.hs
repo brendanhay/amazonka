@@ -574,7 +574,7 @@ instance FromXML HostedZone where
 data ResourceRecordSet = ResourceRecordSet
     { _rrsTTL :: Maybe Integer
       -- ^ The cache time to live for the current resource record set.
-    , _rrsResourceRecords :: Maybe [ResourceRecord]
+    , _rrsResourceRecords :: [ResourceRecord]
       -- ^ A complex type that contains the resource records for the current
       -- resource record set.
     , _rrsAliasTarget :: Maybe AliasTarget

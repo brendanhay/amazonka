@@ -86,6 +86,9 @@ instance FromJSON (CI Text) where
 instance FromJSON Abbrev where
     parseJSON = withText "abbrev" (return . Abbrev)
 
+instance FromJSON NS where
+    parseJSON = withText "namespace" (return . namespaceFromText)
+
 instance FromJSON Doc where
     parseJSON = withText "documentation" (return . documentation)
 
@@ -159,6 +162,7 @@ instance FromJSON Service where
             <*> o .:? "existing"   .!= mempty
             <*> o .:? "rename"     .!= mempty
             <*> o .:? "unprefixed" .!= mempty
+            <*> o .:? "static"     .!= mempty
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $ \o ->

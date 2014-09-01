@@ -59,6 +59,9 @@ library
         , Network.AWS.Route53.V2013_04_01.GetGeoLocation
         , Network.AWS.Route53.V2013_04_01.ListTagsForResources
 
+    other-modules:
+          Network.AWS.Route53.Internal.Types
+
     build-depends:
           amazonka-core
         , base          >= 4.6   && < 5

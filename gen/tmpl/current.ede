@@ -3,6 +3,12 @@
 -- | Current version of the {{ name }} service.
 module {{ namespace }}
     ( module {{ version_namespace }}
+{% for module in static %}
+    , module {{ module.value }}
+{% endfor %}
     ) where
 
 import {{ version_namespace }}
+{% for module in static %}
+import {{ module.value }}
+{% endfor %}

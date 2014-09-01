@@ -75,7 +75,7 @@ instance ToJSON Service where
     toJSON s = Object (x <> y)
       where
         Object x = toField (recase Camel Under . drop 4) s
-        Object y = object ["modules" .= serviceNamespaces s]
+        Object y = object ["modules" .= (serviceNamespaces s <> _svcStatic s)]
 
 instance ToJSON Error where
     toJSON = toField (recase Camel Under . drop 3)

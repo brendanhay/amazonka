@@ -11,6 +11,8 @@
 -- | Current version of the Route53 service.
 module Network.AWS.Route53
     ( module Network.AWS.Route53.V2013_04_01
+    , module Network.AWS.Route53.Internal.Types
     ) where
 
 import Network.AWS.Route53.V2013_04_01
+import Network.AWS.Route53.Internal.Types

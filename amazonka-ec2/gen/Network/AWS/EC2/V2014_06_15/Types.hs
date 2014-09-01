@@ -2783,17 +2783,17 @@ instance ToQuery IcmpTypeCode where
 
 -- | Describes an image.
 data Image = Image
-    { _ijState :: Maybe ImageState
+    { _ijState :: ImageState
       -- ^ The current state of the AMI. If the state is available, the
       -- image is successfully registered and can be used to launch an
       -- instance.
-    , _ijVirtualizationType :: Maybe VirtualizationType
+    , _ijVirtualizationType :: VirtualizationType
       -- ^ The type of virtualization of the AMI.
-    , _ijHypervisor :: Maybe HypervisorType
+    , _ijHypervisor :: HypervisorType
       -- ^ The hypervisor type of the image.
     , _ijPlatform :: Maybe PlatformValues
       -- ^ The value is Windows for Windows AMIs; otherwise blank.
-    , _ijImageLocation :: Maybe Text
+    , _ijImageLocation :: Text
       -- ^ The location of the AMI.
     , _ijImageOwnerAlias :: Maybe Text
       -- ^ The AWS account alias (for example, amazon, self) or the AWS
@@ -2809,21 +2809,21 @@ data Image = Image
       -- xvda).
     , _ijSriovNetSupport :: Maybe Text
       -- ^ Specifies whether enhanced networking is enabled.
-    , _ijOwnerId :: Maybe Text
+    , _ijOwnerId :: Text
       -- ^ The AWS account ID of the image owner.
-    , _ijImageType :: Maybe ImageTypeValues
+    , _ijImageType :: ImageTypeValues
       -- ^ The type of image.
-    , _ijName :: Maybe Text
+    , _ijName :: Text
       -- ^ The name of the AMI that was provided during image creation.
-    , _ijImageId :: Maybe Text
+    , _ijImageId :: Text
       -- ^ The ID of the AMI.
-    , _ijArchitecture :: Maybe ArchitectureValues
+    , _ijArchitecture :: ArchitectureValues
       -- ^ The architecture of the image.
     , _ijProductCodes :: [ProductCode]
       -- ^ Any product codes associated with the AMI.
     , _ijStateReason :: Maybe StateReason
       -- ^ The reason for the state change.
-    , _ijRootDeviceType :: Maybe DeviceType
+    , _ijRootDeviceType :: DeviceType
       -- ^ The type of root device used by the AMI. The AMI can use an
       -- Amazon EBS volume or an instance store volume.
     , _ijDescription :: Maybe Text
@@ -2833,7 +2833,7 @@ data Image = Image
       -- ^ Any block device mapping entries.
     , _ijTags :: [Tag]
       -- ^ Any tags assigned to the image.
-    , _ijPublic :: Maybe Bool
+    , _ijPublic :: Bool
       -- ^ Indicates whether the image has public launch permissions. The
       -- value is true if this image has public launch permissions or
       -- false if it has only implicit and explicit launch permissions.
@@ -3265,9 +3265,9 @@ instance ToQuery InstancePrivateIpAddress where
 
 -- | The current state of the instance.
 data InstanceState = InstanceState
-    { _iihName :: Maybe InstanceStateName
+    { _iihName :: InstanceStateName
       -- ^ The current state of the instance.
-    , _iihCode :: Maybe Integer
+    , _iihCode :: Integer
       -- ^ The low byte represents the state. The high byte is an opaque
       -- internal value and should be ignored. 0 : pending 16 : running 32
       -- : shutting-down 48 : terminated 64 : stopping 80 : stopped.

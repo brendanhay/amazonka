@@ -29,6 +29,23 @@
             "GroupId",
             "GroupName",
             "Description"
+        ],
+        "Image": [
+            "ImageId",
+            "ImageLocation",
+            "State",
+            "OwnerId",
+            "Public",
+            "Architecture",
+            "ImageType",
+            "Name",
+            "RootDeviceType",
+            "VirtualizationType",
+            "Hypervisor"
+        ],
+        "InstanceState": [
+            "Name",
+            "Code"
         ]
     },
     "unprefixed": [

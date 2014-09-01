@@ -30,7 +30,9 @@
 -- pay only for capacity that you actually use. Amazon EC2 provides developers
 -- the tools to build failure resilient applications and isolate themselves
 -- from common failure scenarios.
-module Network.AWS.EC2.V2014_06_15.Types where
+module Network.AWS.EC2.V2014_06_15.Types
+    ( module Network.AWS.EC2.V2014_06_15.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

@@ -22,7 +22,9 @@
 -- access to AWS services and resources for your users. Using IAM, you can
 -- create and manage AWS users and groups and use permissions to allow and
 -- deny their access to AWS resources.
-module Network.AWS.IAM.V2010_05_08.Types where
+module Network.AWS.IAM.V2010_05_08.Types
+    ( module Network.AWS.IAM.V2010_05_08.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

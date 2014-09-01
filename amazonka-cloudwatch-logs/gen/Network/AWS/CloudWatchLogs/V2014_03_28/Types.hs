@@ -20,25 +20,12 @@
 
 -- | Amazon CloudWatch Logs enables you to monitor, store, and access your
 -- system, application, and custom log files.
-module Network.AWS.CloudWatchLogs.V2014_03_28.Types where
+module Network.AWS.CloudWatchLogs.V2014_03_28.Types
+    ( module Network.AWS.CloudWatchLogs.V2014_03_28.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogGroup
-import Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream
-import Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogGroup
-import Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogStream
-import Network.AWS.CloudWatchLogs.V2014_03_28.DeleteMetricFilter
-import Network.AWS.CloudWatchLogs.V2014_03_28.DeleteRetentionPolicy
-import Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups
-import Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogStreams
-import Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters
-import Network.AWS.CloudWatchLogs.V2014_03_28.GetLogEvents
-import Network.AWS.CloudWatchLogs.V2014_03_28.PutLogEvents
-import Network.AWS.CloudWatchLogs.V2014_03_28.PutMetricFilter
-import Network.AWS.CloudWatchLogs.V2014_03_28.PutRetentionPolicy
-import Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter
-import Network.AWS.CloudWatchLogs.V2014_03_28.Types
 
 -- | Supported version (@2014-03-28@) of the
 -- @Amazon CloudWatch Logs@ service.

@@ -22,27 +22,12 @@
 -- movement and transformation of data. With AWS Data Pipeline, you can define
 -- data-driven workflows, so that tasks can be dependent on the successful
 -- completion of previous tasks.
-module Network.AWS.DataPipeline.V2012_10_29.Types where
+module Network.AWS.DataPipeline.V2012_10_29.Types
+    ( module Network.AWS.DataPipeline.V2012_10_29.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
-import Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
-import Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
-import Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
-import Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
-import Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
-import Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
-import Network.AWS.DataPipeline.V2012_10_29.ListPipelines
-import Network.AWS.DataPipeline.V2012_10_29.PollForTask
-import Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
-import Network.AWS.DataPipeline.V2012_10_29.QueryObjects
-import Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
-import Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
-import Network.AWS.DataPipeline.V2012_10_29.SetStatus
-import Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
-import Network.AWS.DataPipeline.V2012_10_29.Types
-import Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition
 
 -- | Supported version (@2012-10-29@) of the
 -- @AWS Data Pipeline@ service.

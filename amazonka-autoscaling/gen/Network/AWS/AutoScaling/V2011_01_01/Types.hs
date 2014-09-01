@@ -26,7 +26,9 @@
 -- particularly well suited for applications that experience hourly, daily, or
 -- weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch
 -- and available at no additional charge beyond Amazon CloudWatch fees.
-module Network.AWS.AutoScaling.V2011_01_01.Types where
+module Network.AWS.AutoScaling.V2011_01_01.Types
+    ( module Network.AWS.AutoScaling.V2011_01_01.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

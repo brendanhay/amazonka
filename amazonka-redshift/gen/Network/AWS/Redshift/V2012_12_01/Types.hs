@@ -24,7 +24,9 @@
 -- small for just $0.25 per hour with no commitments or upfront costs and
 -- scale to a petabyte or more for $1,000 per terabyte per year, less than a
 -- tenth of most other data warehousing solutions.
-module Network.AWS.Redshift.V2012_12_01.Types where
+module Network.AWS.Redshift.V2012_12_01.Types
+    ( module Network.AWS.Redshift.V2012_12_01.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

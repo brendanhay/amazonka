@@ -28,7 +28,9 @@
 -- visibility into resource utilization, application performance, and
 -- operational health. You can use these insights to react and keep your
 -- application running smoothly.
-module Network.AWS.CloudWatch.V2010_08_01.Types where
+module Network.AWS.CloudWatch.V2010_08_01.Types
+    ( module Network.AWS.CloudWatch.V2010_08_01.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

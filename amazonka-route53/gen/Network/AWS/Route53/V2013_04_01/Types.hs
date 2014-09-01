@@ -24,7 +24,10 @@
 -- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
 -- (Amazon S3). You can also use Amazon Route 53 to route users to your
 -- infrastructure outside of AWS.
-module Network.AWS.Route53.V2013_04_01.Types where
+module Network.AWS.Route53.V2013_04_01.Types
+    ( module Network.AWS.Route53.V2013_04_01.Types
+    , module Network.AWS.Route53.Internal.Types
+    ) where
 
 import           Network.AWS.Prelude
 import           Network.AWS.Signing.V3

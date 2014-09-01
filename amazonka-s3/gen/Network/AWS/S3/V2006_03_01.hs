@@ -66,7 +66,6 @@ module Network.AWS.S3.V2006_03_01
     , module Network.AWS.S3.V2006_03_01.Types
     , module Network.AWS.S3.V2006_03_01.UploadPart
     , module Network.AWS.S3.V2006_03_01.UploadPartCopy
-    , module Network.AWS.S3.Internal.Types
     ) where
 
 import Network.AWS.S3.V2006_03_01.AbortMultipartUpload
@@ -119,4 +118,3 @@ import Network.AWS.S3.V2006_03_01.RestoreObject
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.S3.V2006_03_01.UploadPart
 import Network.AWS.S3.V2006_03_01.UploadPartCopy
-import Network.AWS.S3.Internal.Types

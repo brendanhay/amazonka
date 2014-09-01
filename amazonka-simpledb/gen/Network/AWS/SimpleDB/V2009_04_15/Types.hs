@@ -32,7 +32,9 @@
 -- can focus on application development without worrying about infrastructure
 -- provisioning, high availability, software maintenance, schema and index
 -- management, or performance tuning.
-module Network.AWS.SimpleDB.V2009_04_15.Types where
+module Network.AWS.SimpleDB.V2009_04_15.Types
+    ( module Network.AWS.SimpleDB.V2009_04_15.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V2

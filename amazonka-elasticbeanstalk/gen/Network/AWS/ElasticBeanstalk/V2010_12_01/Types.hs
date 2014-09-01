@@ -28,7 +28,9 @@
 -- resources powering your application and can access the underlying resources
 -- at any time. There is no additional charge for Elastic Beanstalk - you pay
 -- only for the AWS resources needed to store and run your applications.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.Types where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
+    ( module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

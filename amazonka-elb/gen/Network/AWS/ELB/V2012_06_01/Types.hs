@@ -23,7 +23,9 @@
 -- greater levels of fault tolerance in your applications, seamlessly
 -- providing the required amount of load balancing capacity needed to
 -- distribute application traffic.
-module Network.AWS.ELB.V2012_06_01.Types where
+module Network.AWS.ELB.V2012_06_01.Types
+    ( module Network.AWS.ELB.V2012_06_01.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

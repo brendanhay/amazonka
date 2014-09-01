@@ -26,7 +26,9 @@
 -- high deliverability, Amazon SES provides easy, real-time access to your
 -- sending statistics and built-in notifications for bounces, complaints, and
 -- deliveries to help you fine-tune your email-sending strategy.
-module Network.AWS.SES.V2010_12_01.Types where
+module Network.AWS.SES.V2010_12_01.Types
+    ( module Network.AWS.SES.V2010_12_01.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

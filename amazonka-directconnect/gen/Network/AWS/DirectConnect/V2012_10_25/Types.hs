@@ -24,30 +24,12 @@
 -- AWS Direct Connect router. With this connection in place, you can create
 -- virtual interfaces directly to the AWS cloud and Amazon Virtual Private
 -- Cloud, bypassing Internet service providers in your network path.
-module Network.AWS.DirectConnect.V2012_10_25.Types where
+module Network.AWS.DirectConnect.V2012_10_25.Types
+    ( module Network.AWS.DirectConnect.V2012_10_25.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
-import Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface
-import Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface
-import Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
-import Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface
-import Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
-import Network.AWS.DirectConnect.V2012_10_25.CreateConnection
-import Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect
-import Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface
-import Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface
-import Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
-import Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
-import Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface
-import Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
-import Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
-import Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
-import Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
-import Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
-import Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
-import Network.AWS.DirectConnect.V2012_10_25.Types
 
 -- | Supported version (@2012-10-25@) of the
 -- @AWS Direct Connect@ service.

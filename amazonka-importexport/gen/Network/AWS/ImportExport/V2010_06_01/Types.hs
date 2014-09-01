@@ -24,7 +24,9 @@
 -- network and bypassing the Internet. For significant data sets, AWS
 -- Import/Export is often faster than Internet transfer and more cost
 -- effective than upgrading your connectivity.
-module Network.AWS.ImportExport.V2010_06_01.Types where
+module Network.AWS.ImportExport.V2010_06_01.Types
+    ( module Network.AWS.ImportExport.V2010_06_01.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V2

@@ -35,7 +35,6 @@ module Network.AWS.Route53.V2013_04_01
     , module Network.AWS.Route53.V2013_04_01.ListTagsForResources
     , module Network.AWS.Route53.V2013_04_01.Types
     , module Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
-    , module Network.AWS.Route53.Internal.Types
     ) where
 
 import Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
@@ -58,4 +57,3 @@ import Network.AWS.Route53.V2013_04_01.ListTagsForResource
 import Network.AWS.Route53.V2013_04_01.ListTagsForResources
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
-import Network.AWS.Route53.Internal.Types

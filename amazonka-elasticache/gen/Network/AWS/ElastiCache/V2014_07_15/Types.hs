@@ -29,7 +29,9 @@
 -- integration with Amazon CloudWatch, Amazon ElastiCache provides enhanced
 -- visibility into key performance metrics associated with your Memcached or
 -- Redis nodes.
-module Network.AWS.ElastiCache.V2014_07_15.Types where
+module Network.AWS.ElastiCache.V2014_07_15.Types
+    ( module Network.AWS.ElastiCache.V2014_07_15.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

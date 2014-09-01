@@ -23,7 +23,9 @@
 -- It provides cost-efficient and resizable capacity while managing
 -- time-consuming database administration tasks, freeing you up to focus on
 -- your applications and business.
-module Network.AWS.RDS.V2013_09_09.Types where
+module Network.AWS.RDS.V2013_09_09.Types
+    ( module Network.AWS.RDS.V2013_09_09.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

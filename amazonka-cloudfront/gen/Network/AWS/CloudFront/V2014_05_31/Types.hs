@@ -29,7 +29,9 @@
 -- edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP
 -- server (for example, a web server) that you have identified as the source
 -- for the definitive version of your content.
-module Network.AWS.CloudFront.V2014_05_31.Types where
+module Network.AWS.CloudFront.V2014_05_31.Types
+    ( module Network.AWS.CloudFront.V2014_05_31.Types
+    ) where
 
 import           Network.AWS.Prelude
 import           Network.AWS.Signing.V4

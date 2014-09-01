@@ -25,7 +25,10 @@
 -- data storage infrastructure that Amazon uses to run its own global network
 -- of web sites. The service aims to maximize benefits of scale and to pass
 -- those benefits on to developers.
-module Network.AWS.S3.V2006_03_01.Types where
+module Network.AWS.S3.V2006_03_01.Types
+    ( module Network.AWS.S3.V2006_03_01.Types
+    , module Network.AWS.S3.Internal.Types
+    ) where
 
 import           Network.AWS.Prelude
 import           Network.AWS.Signing.V4

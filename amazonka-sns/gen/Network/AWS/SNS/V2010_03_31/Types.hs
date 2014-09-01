@@ -29,7 +29,9 @@
 -- to any HTTP endpoint. To prevent messages from being lost, all messages
 -- published to Amazon SNS are stored redundantly across multiple availability
 -- zones.
-module Network.AWS.SNS.V2010_03_31.Types where
+module Network.AWS.SNS.V2010_03_31.Types
+    ( module Network.AWS.SNS.V2010_03_31.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

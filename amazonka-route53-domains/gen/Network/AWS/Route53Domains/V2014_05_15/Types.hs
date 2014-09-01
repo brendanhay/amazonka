@@ -19,24 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Pending.
-module Network.AWS.Route53Domains.V2014_05_15.Types where
+module Network.AWS.Route53Domains.V2014_05_15.Types
+    ( module Network.AWS.Route53Domains.V2014_05_15.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability
-import Network.AWS.Route53Domains.V2014_05_15.DisableDomainTransferLock
-import Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock
-import Network.AWS.Route53Domains.V2014_05_15.GetDomainDetail
-import Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail
-import Network.AWS.Route53Domains.V2014_05_15.ListDomains
-import Network.AWS.Route53Domains.V2014_05_15.ListOperations
-import Network.AWS.Route53Domains.V2014_05_15.RegisterDomain
-import Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode
-import Network.AWS.Route53Domains.V2014_05_15.TransferDomain
-import Network.AWS.Route53Domains.V2014_05_15.Types
-import Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContact
-import Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy
-import Network.AWS.Route53Domains.V2014_05_15.UpdateDomainNameservers
 
 -- | Supported version (@2014-05-15@) of the
 -- @Amazon Route 53 Domains@ service.

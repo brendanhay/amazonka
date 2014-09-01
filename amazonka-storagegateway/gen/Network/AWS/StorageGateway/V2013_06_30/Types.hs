@@ -22,58 +22,12 @@
 -- appliance with cloud-based storage to provide seamless and secure
 -- integration between your on-premises IT environment and AWS's storage
 -- infrastructure.
-module Network.AWS.StorageGateway.V2013_06_30.Types where
+module Network.AWS.StorageGateway.V2013_06_30.Types
+    ( module Network.AWS.StorageGateway.V2013_06_30.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.StorageGateway.V2013_06_30.ActivateGateway
-import Network.AWS.StorageGateway.V2013_06_30.AddCache
-import Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer
-import Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage
-import Network.AWS.StorageGateway.V2013_06_30.CancelArchival
-import Network.AWS.StorageGateway.V2013_06_30.CancelRetrieval
-import Network.AWS.StorageGateway.V2013_06_30.CreateCachediSCSIVolume
-import Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot
-import Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPoint
-import Network.AWS.StorageGateway.V2013_06_30.CreateStorediSCSIVolume
-import Network.AWS.StorageGateway.V2013_06_30.CreateTapes
-import Network.AWS.StorageGateway.V2013_06_30.DeleteBandwidthRateLimit
-import Network.AWS.StorageGateway.V2013_06_30.DeleteChapCredentials
-import Network.AWS.StorageGateway.V2013_06_30.DeleteGateway
-import Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule
-import Network.AWS.StorageGateway.V2013_06_30.DeleteTape
-import Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive
-import Network.AWS.StorageGateway.V2013_06_30.DeleteVolume
-import Network.AWS.StorageGateway.V2013_06_30.DescribeBandwidthRateLimit
-import Network.AWS.StorageGateway.V2013_06_30.DescribeCache
-import Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes
-import Network.AWS.StorageGateway.V2013_06_30.DescribeChapCredentials
-import Network.AWS.StorageGateway.V2013_06_30.DescribeGatewayInformation
-import Network.AWS.StorageGateway.V2013_06_30.DescribeMaintenanceStartTime
-import Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule
-import Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes
-import Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives
-import Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints
-import Network.AWS.StorageGateway.V2013_06_30.DescribeTapes
-import Network.AWS.StorageGateway.V2013_06_30.DescribeUploadBuffer
-import Network.AWS.StorageGateway.V2013_06_30.DescribeVTLDevices
-import Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage
-import Network.AWS.StorageGateway.V2013_06_30.DisableGateway
-import Network.AWS.StorageGateway.V2013_06_30.ListGateways
-import Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks
-import Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
-import Network.AWS.StorageGateway.V2013_06_30.ListVolumes
-import Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeArchive
-import Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeRecoveryPoint
-import Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway
-import Network.AWS.StorageGateway.V2013_06_30.StartGateway
-import Network.AWS.StorageGateway.V2013_06_30.Types
-import Network.AWS.StorageGateway.V2013_06_30.UpdateBandwidthRateLimit
-import Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials
-import Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation
-import Network.AWS.StorageGateway.V2013_06_30.UpdateGatewaySoftwareNow
-import Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime
-import Network.AWS.StorageGateway.V2013_06_30.UpdateSnapshotSchedule
 
 -- | Supported version (@2013-06-30@) of the
 -- @AWS Storage Gateway@ service.

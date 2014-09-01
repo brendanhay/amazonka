@@ -23,7 +23,9 @@
 -- for your website or application. Amazon CloudSearch supports 34 languages
 -- and popular search features such as highlighting, autocomplete, and
 -- geospatial search.
-module Network.AWS.CloudSearch.V2013_01_01.Types where
+module Network.AWS.CloudSearch.V2013_01_01.Types
+    ( module Network.AWS.CloudSearch.V2013_01_01.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

@@ -22,7 +22,9 @@
 -- request temporary, limited-privilege credentials for AWS Identity and
 -- Access Management (IAM) users or for users that you authenticate (federated
 -- users).
-module Network.AWS.STS.V2011_06_15.Types where
+module Network.AWS.STS.V2011_06_15.Types
+    ( module Network.AWS.STS.V2011_06_15.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

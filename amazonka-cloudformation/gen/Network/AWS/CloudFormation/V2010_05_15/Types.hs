@@ -29,7 +29,9 @@
 -- resources are deployed, you can modify and update them in a controlled and
 -- predictable way, in effect applying version control to your AWS
 -- infrastructure the same way you do with your software.
-module Network.AWS.CloudFormation.V2010_05_15.Types where
+module Network.AWS.CloudFormation.V2010_05_15.Types
+    ( module Network.AWS.CloudFormation.V2010_05_15.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

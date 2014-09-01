@@ -27,25 +27,12 @@
 -- unlimited number of technical support cases with pay-by-the-month pricing
 -- and no long-term contracts, providing developers and businesses flexibility
 -- to choose the level of support that meets their needs.
-module Network.AWS.Support.V2013_04_15.Types where
+module Network.AWS.Support.V2013_04_15.Types
+    ( module Network.AWS.Support.V2013_04_15.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
-import Network.AWS.Support.V2013_04_15.AddCommunicationToCase
-import Network.AWS.Support.V2013_04_15.CreateCase
-import Network.AWS.Support.V2013_04_15.DescribeAttachment
-import Network.AWS.Support.V2013_04_15.DescribeCases
-import Network.AWS.Support.V2013_04_15.DescribeCommunications
-import Network.AWS.Support.V2013_04_15.DescribeServices
-import Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
-import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuses
-import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult
-import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries
-import Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks
-import Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
-import Network.AWS.Support.V2013_04_15.ResolveCase
-import Network.AWS.Support.V2013_04_15.Types
 
 -- | Supported version (@2013-04-15@) of the
 -- @AWS Support@ service.

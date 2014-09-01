@@ -25,7 +25,9 @@
 -- requiring other services to be always available. With SQS, you can offload
 -- the administrative burden of operating and scaling a highly available
 -- messaging cluster, while paying a low price for only what you use.
-module Network.AWS.SQS.V2012_11_05.Types where
+module Network.AWS.SQS.V2012_11_05.Types
+    ( module Network.AWS.SQS.V2012_11_05.Types
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4

@@ -13,7 +13,12 @@
 {% if documentation %}
 {{ documentation | above76 }}
 {% endif %}
-module {{ types_namespace }} where
+module {{ types_namespace }}
+    ( module {{ types_namespace }}
+{% for module in static %}
+    , module {{ module.value }}
+{% endfor %}
+    ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ signature }}

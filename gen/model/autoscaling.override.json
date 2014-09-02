@@ -9,13 +9,15 @@
             "ResourceId",
             "ResourceType",
             "Key",
-            "PropagateAtLaunch"
+            "PropagateAtLaunch",
+            "Value"
         ],
         "TagDescription": [
             "ResourceId",
             "ResourceType",
             "Key",
-            "PropagateAtLaunch"
+            "PropagateAtLaunch",
+            "Value"
         ]
     }
 }

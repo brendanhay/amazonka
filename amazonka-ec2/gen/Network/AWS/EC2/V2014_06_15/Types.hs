@@ -4448,7 +4448,7 @@ data Tag = Tag
       -- ^ The key of the tag. Constraints: Tag keys are case-sensitive and
       -- accept a maximum of 127 Unicode characters. May not begin with
       -- aws:.
-    , _tgValue :: Maybe Text
+    , _tgValue :: Text
       -- ^ The value of the tag. Constraints: Tag values are case-sensitive
       -- and accept a maximum of 255 Unicode characters.
     } deriving (Show, Generic)
@@ -4468,7 +4468,7 @@ data TagDescription = TagDescription
       -- ^ The ID of the resource. For example, ami-1a2b3c4d.
     , _tdResourceType :: ResourceType
       -- ^ The type of resource.
-    , _tdValue :: Maybe Text
+    , _tdValue :: Text
       -- ^ The value of the tag.
     } deriving (Show, Generic)
 

@@ -756,7 +756,7 @@ data Tag = Tag
     , _tgResourceType :: Text
       -- ^ The kind of resource to which the tag is applied. Currently, Auto
       -- Scaling supports the auto-scaling-group resource type.
-    , _tgValue :: Maybe Text
+    , _tgValue :: Text
       -- ^ The value of the tag.
     } deriving (Show, Generic)
 
@@ -777,7 +777,7 @@ data TagDescription = TagDescription
     , _tdResourceType :: Text
       -- ^ The kind of resource to which the tag is applied. Currently, Auto
       -- Scaling supports the auto-scaling-group resource type.
-    , _tdValue :: Maybe Text
+    , _tdValue :: Text
       -- ^ The value of the tag.
     } deriving (Show, Generic)
 

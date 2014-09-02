@@ -53,12 +53,14 @@
             "Code"
         ],
         "Tag": [
-            "Key"
+            "Key",
+            "Value"
         ],
         "TagDescription": [
             "ResourceId",
             "ResourceType",
-            "Key"
+            "Key",
+            "Value"
         ]
     },
     "unprefixed": [

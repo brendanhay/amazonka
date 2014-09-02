@@ -315,38 +315,6 @@ data Python
     | Choice Python Python
       deriving (Eq, Show, Generic)
 
--- _Keyed :: Prism' Python Text
--- _Keyed = prism remitter_abVZ reviewer_abW0
---   where
---     remitter_abVZ x0_abW2 = Keyed x0_abW2
-
---     reviewer_abW0 (Keyed x0_abW2) = Right x0_abW2
---     reviewer_abW0 x_abW1 = Left x_abW1
-
--- _Index :: Prism' Python (Text, Python)
--- _Index = prism remitter_abW3 reviewer_abW4
---   where
---     remitter_abW3 (x0_abW6, x1_abW7) = Index x0_abW6 x1_abW7
-
---     reviewer_abW4 (Index x0_abW6 x1_abW7) = Right (x0_abW6, x1_abW7)
---     reviewer_abW4 x_abW5 = Left x_abW5
-
--- _Apply :: Prism' Python (Text, Python)
--- _Apply = prism remitter_abW8 reviewer_abW9
---   where
---     remitter_abW8 (x0_abWb, x1_abWc) = Apply x0_abWb x1_abWc
-
---     reviewer_abW9 (Apply x0_abWb x1_abWc) = Right (x0_abWb, x1_abWc)
---     reviewer_abW9 x_abWa = Left x_abWa
-
--- _Choice :: Prism' Python (Text, Python)
--- _Choice = prism remitter_abWd reviewer_abWe
---   where
---     remitter_abWd (x0_abWg, x1_abWh) = Choice x0_abWg x1_abWh
-
---     reviewer_abWe (Choice x0_abWg x1_abWh) = Right (x0_abWg, x1_abWh)
---     reviewer_abWe x_abWf = Left x_abWf
-
 data Token = Token
     { _tokInput  :: Python
     , _tokOutput :: Python

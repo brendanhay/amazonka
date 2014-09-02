@@ -65,16 +65,13 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeTags' request.
 describeTags :: DescribeTags
 describeTags = DescribeTags
-    { _dtrDryRun = Nothing
-    , _dtrFilters = mempty
+    { _dtrFilters = mempty
     , _dtrMaxResults = Nothing
     , _dtrNextToken = Nothing
     }
 
 data DescribeTags = DescribeTags
-    { _dtrDryRun :: Maybe Bool
-      -- ^ 
-    , _dtrFilters :: [Filter]
+    { _dtrFilters :: [Filter]
       -- ^ One or more filters. key - The tag key. resource-id - The
       -- resource ID. resource-type - The resource type (customer-gateway
       -- | dhcp-options | image | instance | internet-gateway |

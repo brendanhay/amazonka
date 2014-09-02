@@ -492,5 +492,5 @@ requireField cs f
 ignoreFields :: HashMap Text [CI Text] -> Shape -> Shape
 ignoreFields m (SStruct s)
     | Just cs <- Map.lookup (s ^. cmnName) m = SStruct $
-        s & sctFields %~ Map.filterWithKey (\k _ -> CI.mk k `elem` cs)
+        s & sctFields %~ Map.filterWithKey (\k _ -> CI.mk k `notElem` cs)
 ignoreFields _ s = s

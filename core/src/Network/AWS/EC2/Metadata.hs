@@ -281,13 +281,13 @@ isEC2 = liftIO (req `catch` err)
     err :: IOException -> IO Bool
     err = const (return False)
 
-dynamic :: MonadIO m => Dynamic -> ExceptT Error m ByteString
+dynamic :: (MonadIO m, MonadError Error m) => Dynamic -> m ByteString
 dynamic = get . mappend "http://169.254.169.254/latest/dynamic/" . toPath
 
-metadata :: MonadIO m => Metadata -> ExceptT Error m ByteString
+metadata :: (MonadIO m, MonadError Error m) => Metadata -> m ByteString
 metadata = get . mappend "http://169.254.169.254/latest/meta-data/" . toPath
 
-userdata :: MonadIO m => ExceptT Error m (Maybe ByteString)
+userdata :: (MonadIO m, MonadError Error m) => m (Maybe ByteString)
 userdata = Just
     `liftM` get "http://169.254.169.254/latest/user-data"
     `catchError` err
@@ -296,8 +296,8 @@ userdata = Just
         | status404 == s  = return Nothing
     err e                 = throwError e
 
-get :: MonadIO m => ByteString -> ExceptT Error m ByteString
-get url = ExceptT (liftIO (req `catch` err))
+get :: (MonadIO m, MonadError Error m) => ByteString -> m ByteString
+get url = liftIO (req `catch` err) >>= either throwError return
   where
     req = (Right . strip) `liftM` request url
 

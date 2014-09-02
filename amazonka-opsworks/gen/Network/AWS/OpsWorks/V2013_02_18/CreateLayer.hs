@@ -37,20 +37,20 @@ import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateLayer' request.
 createLayer :: LayerType -- ^ '_clrType'
-            -> Text -- ^ '_clrShortname'
             -> Text -- ^ '_clrName'
+            -> Text -- ^ '_clrShortname'
             -> Text -- ^ '_clrStackId'
             -> CreateLayer
 createLayer p1 p2 p3 p4 = CreateLayer
     { _clrType = p1
-    , _clrShortname = p2
-    , _clrName = p3
+    , _clrName = p2
+    , _clrShortname = p3
     , _clrStackId = p4
-    , _clrInstallUpdatesOnBoot = Nothing
-    , _clrEnableAutoHealing = Nothing
-    , _clrAutoAssignPublicIps = Nothing
-    , _clrUseEbsOptimizedInstances = Nothing
     , _clrAutoAssignElasticIps = Nothing
+    , _clrAutoAssignPublicIps = Nothing
+    , _clrEnableAutoHealing = Nothing
+    , _clrInstallUpdatesOnBoot = Nothing
+    , _clrUseEbsOptimizedInstances = Nothing
     , _clrAttributes = mempty
     , _clrCustomRecipes = Nothing
     , _clrCustomInstanceProfileArn = Nothing
@@ -69,16 +69,25 @@ data CreateLayer = CreateLayer
       -- memcached: A Memcached layer monitoring-master: A Ganglia layer
       -- nodejs-app: A Node.js App Server layer php-app: A PHP App Server
       -- layer web: A Static Web Server layer.
+    , _clrName :: Text
+      -- ^ The layer name, which is used by the console.
     , _clrShortname :: Text
       -- ^ The layer short name, which is used internally by AWS OpsWorks
       -- and by Chef recipes. The short name is also used as the name for
       -- the directory where your app files are installed. It can have a
       -- maximum of 200 characters, which are limited to the alphanumeric
       -- characters, '-', '_', and '.'.
-    , _clrName :: Text
-      -- ^ The layer name, which is used by the console.
     , _clrStackId :: Text
       -- ^ The layer stack ID.
+    , _clrAutoAssignElasticIps :: Maybe Bool
+      -- ^ Whether to automatically assign an Elastic IP address to the
+      -- layer's instances. For more information, see How to Edit a Layer.
+    , _clrAutoAssignPublicIps :: Maybe Bool
+      -- ^ For stacks that are running in a VPC, whether to automatically
+      -- assign a public IP address to the layer's instances. For more
+      -- information, see How to Edit a Layer.
+    , _clrEnableAutoHealing :: Maybe Bool
+      -- ^ Whether to disable auto healing for the layer.
     , _clrInstallUpdatesOnBoot :: Maybe Bool
       -- ^ Whether to install operating system and package updates when the
       -- instance boots. The default value is true. To control when
@@ -88,17 +97,8 @@ data CreateLayer = CreateLayer
       -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
       -- recommend using the default value of true, to ensure that your
       -- instances have the latest security updates.
-    , _clrEnableAutoHealing :: Maybe Bool
-      -- ^ Whether to disable auto healing for the layer.
-    , _clrAutoAssignPublicIps :: Maybe Bool
-      -- ^ For stacks that are running in a VPC, whether to automatically
-      -- assign a public IP address to the layer's instances. For more
-      -- information, see How to Edit a Layer.
     , _clrUseEbsOptimizedInstances :: Maybe Bool
       -- ^ Whether to use Amazon EBS-optimized instances.
-    , _clrAutoAssignElasticIps :: Maybe Bool
-      -- ^ Whether to automatically assign an Elastic IP address to the
-      -- layer's instances. For more information, see How to Edit a Layer.
     , _clrAttributes :: Map LayerAttributesKeys Text
       -- ^ One or more user-defined key/value pairs to be added to the stack
       -- attributes.

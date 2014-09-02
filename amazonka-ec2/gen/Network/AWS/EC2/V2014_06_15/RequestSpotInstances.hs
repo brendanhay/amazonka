@@ -53,8 +53,8 @@ requestSpotInstances :: Text -- ^ '_rsirSpotPrice'
 requestSpotInstances p1 = RequestSpotInstances
     { _rsirSpotPrice = p1
     , _rsirDryRun = Nothing
-    , _rsirValidUntil = Nothing
     , _rsirValidFrom = Nothing
+    , _rsirValidUntil = Nothing
     , _rsirInstanceCount = Nothing
     , _rsirLaunchSpecification = Nothing
     , _rsirType = Nothing
@@ -68,12 +68,6 @@ data RequestSpotInstances = RequestSpotInstances
       -- fulfill the request.
     , _rsirDryRun :: Maybe Bool
       -- ^ 
-    , _rsirValidUntil :: Maybe ISO8601
-      -- ^ The end date of the request. If this is a one-time request, the
-      -- request remains active until all instances launch, the request is
-      -- canceled, or this date is reached. If the request is persistent,
-      -- it remains active until it is canceled or this date and time is
-      -- reached. Default: The request is effective indefinitely.
     , _rsirValidFrom :: Maybe ISO8601
       -- ^ The start date of the request. If this is a one-time request, the
       -- request becomes active at this date and time and remains active
@@ -81,6 +75,12 @@ data RequestSpotInstances = RequestSpotInstances
       -- is canceled. If the request is persistent, the request becomes
       -- active at this date and time and remains active until it expires
       -- or is canceled. Default: The request is effective indefinitely.
+    , _rsirValidUntil :: Maybe ISO8601
+      -- ^ The end date of the request. If this is a one-time request, the
+      -- request remains active until all instances launch, the request is
+      -- canceled, or this date is reached. If the request is persistent,
+      -- it remains active until it is canceled or this date and time is
+      -- reached. Default: The request is effective indefinitely.
     , _rsirInstanceCount :: Maybe Integer
       -- ^ The maximum number of Spot Instances to launch. Default: 1.
     , _rsirLaunchSpecification :: Maybe LaunchSpecification

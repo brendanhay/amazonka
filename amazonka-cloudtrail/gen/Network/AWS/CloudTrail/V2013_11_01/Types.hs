@@ -73,20 +73,20 @@ instance Exception (Er CloudTrail)
 
 -- | The settings for a trail.
 data Trail = Trail
-    { _tS3KeyPrefix :: Maybe Text
+    { _tIncludeGlobalServiceEvents :: Maybe Bool
+      -- ^ Set to True to include AWS API calls from AWS global services
+      -- such as IAM. Otherwise, False.
+    , _tName :: Maybe Text
+      -- ^ Name of the trail set by calling CreateTrail.
+    , _tS3BucketName :: Maybe Text
+      -- ^ Name of the Amazon S3 bucket into which CloudTrail delivers your
+      -- trail files.
+    , _tS3KeyPrefix :: Maybe Text
       -- ^ Value of the Amazon S3 prefix.
     , _tSnsTopicName :: Maybe Text
       -- ^ Name of the existing Amazon SNS topic that CloudTrail uses to
       -- notify the account owner when new CloudTrail log files have been
       -- delivered.
-    , _tName :: Maybe Text
-      -- ^ Name of the trail set by calling CreateTrail.
-    , _tIncludeGlobalServiceEvents :: Maybe Bool
-      -- ^ Set to True to include AWS API calls from AWS global services
-      -- such as IAM. Otherwise, False.
-    , _tS3BucketName :: Maybe Text
-      -- ^ Name of the Amazon S3 bucket into which CloudTrail delivers your
-      -- trail files.
     } deriving (Show, Generic)
 
 instance FromJSON Trail

@@ -77,13 +77,13 @@ registerImage p1 = RegisterImage
     , _ritArchitecture = Nothing
     , _ritBlockDeviceMappings = mempty
     , _ritDryRun = Nothing
-    , _ritVirtualizationType = Nothing
+    , _ritDescription = Nothing
     , _ritImageLocation = Nothing
-    , _ritRamdiskId = Nothing
     , _ritKernelId = Nothing
+    , _ritRamdiskId = Nothing
     , _ritRootDeviceName = Nothing
     , _ritSriovNetSupport = Nothing
-    , _ritDescription = Nothing
+    , _ritVirtualizationType = Nothing
     }
 
 data RegisterImage = RegisterImage
@@ -99,14 +99,14 @@ data RegisterImage = RegisterImage
       -- ^ One or more block device mapping entries.
     , _ritDryRun :: Maybe Bool
       -- ^ 
-    , _ritVirtualizationType :: Maybe VirtualizationType
-      -- ^ The type of virtualization.
+    , _ritDescription :: Maybe Text
+      -- ^ A description for your AMI.
     , _ritImageLocation :: Maybe Text
       -- ^ The full path to your AMI manifest in Amazon S3 storage.
-    , _ritRamdiskId :: Maybe Text
-      -- ^ The ID of the RAM disk.
     , _ritKernelId :: Maybe Text
       -- ^ The ID of the kernel.
+    , _ritRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk.
     , _ritRootDeviceName :: Maybe Text
       -- ^ The name of the root device (for example, /dev/sda1, or xvda).
     , _ritSriovNetSupport :: Maybe Text
@@ -115,8 +115,8 @@ data RegisterImage = RegisterImage
       -- disable enhanced networking at this time. This option is
       -- supported only for HVM AMIs. Specifying this option with a PV AMI
       -- can make instances launched from the AMI unreachable.
-    , _ritDescription :: Maybe Text
-      -- ^ A description for your AMI.
+    , _ritVirtualizationType :: Maybe VirtualizationType
+      -- ^ The type of virtualization.
     } deriving (Show, Generic)
 
 makeLenses ''RegisterImage

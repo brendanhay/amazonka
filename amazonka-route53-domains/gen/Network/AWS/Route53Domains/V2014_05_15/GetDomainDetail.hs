@@ -81,14 +81,14 @@ instance ToHeaders GetDomainDetail
 instance ToJSON GetDomainDetail
 
 data GetDomainDetailResponse = GetDomainDetailResponse
-    { _gddsRegistrantContact :: ContactDetail
-      -- ^ Provides details about the domain registrant. Type: Complex
-      -- Children: FirstName, MiddleName, LastName, ContactType,
-      -- OrganizationName, AddressLine1, AddressLine2, City, State,
-      -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
-    , _gddsAdminContact :: ContactDetail
+    { _gddsAdminContact :: ContactDetail
       -- ^ Provides details about the domain administrative contact. Type:
       -- Complex Children: FirstName, MiddleName, LastName, ContactType,
+      -- OrganizationName, AddressLine1, AddressLine2, City, State,
+      -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
+    , _gddsRegistrantContact :: ContactDetail
+      -- ^ Provides details about the domain registrant. Type: Complex
+      -- Children: FirstName, MiddleName, LastName, ContactType,
       -- OrganizationName, AddressLine1, AddressLine2, City, State,
       -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
     , _gddsTechContact :: ContactDetail
@@ -100,18 +100,6 @@ data GetDomainDetailResponse = GetDomainDetailResponse
       -- ^ The name of a domain. Type: String.
     , _gddsNameservers :: [Nameserver]
       -- ^ The name of the domain. Type: String.
-    , _gddsTechPrivacy :: Maybe Bool
-      -- ^ Specifies whether contact information for the tech contact is
-      -- concealed from WHOIS queries. If the value is true, WHOIS ("who
-      -- is") queries will return contact information for our registrar
-      -- partner, Gandi, instead of the contact information that you
-      -- enter. Type: Boolean.
-    , _gddsRegistrantPrivacy :: Maybe Bool
-      -- ^ Specifies whether contact information for the registrant contact
-      -- is concealed from WHOIS queries. If the value is true, WHOIS
-      -- ("who is") queries will return contact information for our
-      -- registrar partner, Gandi, instead of the contact information that
-      -- you enter. Type: Boolean.
     , _gddsAdminPrivacy :: Maybe Bool
       -- ^ Specifies whether contact information for the admin contact is
       -- concealed from WHOIS queries. If the value is true, WHOIS ("who
@@ -121,6 +109,18 @@ data GetDomainDetailResponse = GetDomainDetailResponse
     , _gddsAutoRenew :: Maybe Bool
       -- ^ Specifies whether the domain registration is set to renew
       -- automatically. Type: Boolean.
+    , _gddsRegistrantPrivacy :: Maybe Bool
+      -- ^ Specifies whether contact information for the registrant contact
+      -- is concealed from WHOIS queries. If the value is true, WHOIS
+      -- ("who is") queries will return contact information for our
+      -- registrar partner, Gandi, instead of the contact information that
+      -- you enter. Type: Boolean.
+    , _gddsTechPrivacy :: Maybe Bool
+      -- ^ Specifies whether contact information for the tech contact is
+      -- concealed from WHOIS queries. If the value is true, WHOIS ("who
+      -- is") queries will return contact information for our registrar
+      -- partner, Gandi, instead of the contact information that you
+      -- enter. Type: Boolean.
     , _gddsAbuseContactPhone :: Maybe Text
       -- ^ Phone number for reporting abuse. Type: String.
     , _gddsDnsSec :: Maybe Text
@@ -158,15 +158,15 @@ data GetDomainDetailResponse = GetDomainDetailResponse
       -- ^ Reseller of the domain. Domains registered or transferred using
       -- Amazon Route 53 domains will have "Amazon" as the reseller. Type:
       -- String.
-    , _gddsUpdatedDate :: Maybe ISO8601
-      -- ^ The last updated date of the domain as found in the response to a
-      -- WHOIS query. The date format is Unix time.
-    , _gddsExpirationDate :: Maybe ISO8601
-      -- ^ The date when the registration for the domain is set to expire.
-      -- The date format is Unix time.
     , _gddsCreationDate :: Maybe ISO8601
       -- ^ The date when the domain was created as found in the response to
       -- a WHOIS query. The date format is Unix time.
+    , _gddsExpirationDate :: Maybe ISO8601
+      -- ^ The date when the registration for the domain is set to expire.
+      -- The date format is Unix time.
+    , _gddsUpdatedDate :: Maybe ISO8601
+      -- ^ The last updated date of the domain as found in the response to a
+      -- WHOIS query. The date format is Unix time.
     } deriving (Show, Generic)
 
 makeLenses ''GetDomainDetailResponse

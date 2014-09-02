@@ -340,9 +340,9 @@ instance ToXML ResourceRecord where
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
 data AliasTarget = AliasTarget
-    { _atHostedZoneId :: Text
-      -- ^ Alias resource record sets only: The value of the hosted zone ID
-      -- for the AWS resource. For more information and an example, see
+    { _atDNSName :: Text
+      -- ^ Alias resource record sets only: The external DNS name associated
+      -- with the AWS Resource. For more information and an example, see
       -- Creating Alias Resource Record Sets in the Amazon Route 53
       -- Developer Guide.
     , _atEvaluateTargetHealth :: Bool
@@ -352,9 +352,9 @@ data AliasTarget = AliasTarget
       -- which it is linked to. For more information and an example, see
       -- Creating Alias Resource Record Sets in the Amazon Route 53
       -- Developer Guide.
-    , _atDNSName :: Text
-      -- ^ Alias resource record sets only: The external DNS name associated
-      -- with the AWS Resource. For more information and an example, see
+    , _atHostedZoneId :: Text
+      -- ^ Alias resource record sets only: The value of the hosted zone ID
+      -- for the AWS resource. For more information and an example, see
       -- Creating Alias Resource Record Sets in the Amazon Route 53
       -- Developer Guide.
     } deriving (Show, Generic)
@@ -398,7 +398,15 @@ instance ToXML ChangeBatch where
 -- including the change batch ID, the status of the change, and the date and
 -- time of the request.
 data ChangeInfo = ChangeInfo
-    { _ciStatus :: ChangeStatus
+    { _ciComment :: Maybe Text
+      -- ^ A complex type that describes change information about changes
+      -- made to your hosted zone. This element contains an ID that you
+      -- use when performing a GetChange action to get detailed
+      -- information about the change.
+    , _ciId :: Text
+      -- ^ The ID of the request. Use this ID to track when the change has
+      -- completed across all Amazon Route 53 DNS servers.
+    , _ciStatus :: ChangeStatus
       -- ^ The current state of the request. PENDING indicates that this
       -- request has not yet been applied to all Amazon Route 53 DNS
       -- servers. Valid Values: PENDING | INSYNC.
@@ -408,14 +416,6 @@ data ChangeInfo = ChangeInfo
       -- example, 2009-11-19T19:37:58Z). The Z after the time indicates
       -- that the time is listed in Coordinated Universal Time (UTC),
       -- which is synonymous with Greenwich Mean Time in this context.
-    , _ciId :: Text
-      -- ^ The ID of the request. Use this ID to track when the change has
-      -- completed across all Amazon Route 53 DNS servers.
-    , _ciComment :: Maybe Text
-      -- ^ A complex type that describes change information about changes
-      -- made to your hosted zone. This element contains an ID that you
-      -- use when performing a GetChange action to get detailed
-      -- information about the change.
     } deriving (Show, Generic)
 
 instance FromXML ChangeInfo where
@@ -426,22 +426,22 @@ instance FromXML ChangeInfo where
 -- have the same combination of DNS name and type, a value that specifies the
 -- geo location for the current resource record set.
 data GeoLocation = GeoLocation
-    { _glSubdivisionCode :: Maybe Text
-      -- ^ The code for a country's subdivision (e.g., a province of
-      -- Canada). A subdivision code is only valid with the appropriate
-      -- country code. Constraint: Specifying SubdivisionCode without
-      -- CountryCode returns an InvalidInput error.
+    { _glContinentCode :: Maybe Text
+      -- ^ The code for a continent geo location. Note: only continent
+      -- locations have a continent code. Valid values: AF | AN | AS | EU
+      -- | OC | NA | SA Constraint: Specifying ContinentCode with either
+      -- CountryCode or SubdivisionCode returns an InvalidInput error.
     , _glCountryCode :: Maybe Text
       -- ^ The code for a country geo location. The default location uses
       -- '*' for the country code and will match all locations that are
       -- not matched by a geo location. The default geo location uses a *
       -- for the country code. All other country codes follow the ISO 3166
       -- two-character code.
-    , _glContinentCode :: Maybe Text
-      -- ^ The code for a continent geo location. Note: only continent
-      -- locations have a continent code. Valid values: AF | AN | AS | EU
-      -- | OC | NA | SA Constraint: Specifying ContinentCode with either
-      -- CountryCode or SubdivisionCode returns an InvalidInput error.
+    , _glSubdivisionCode :: Maybe Text
+      -- ^ The code for a country's subdivision (e.g., a province of
+      -- Canada). A subdivision code is only valid with the appropriate
+      -- country code. Constraint: Specifying SubdivisionCode without
+      -- CountryCode returns an InvalidInput error.
     } deriving (Show, Generic)
 
 instance FromXML GeoLocation where
@@ -454,28 +454,28 @@ instance ToXML GeoLocation where
 
 -- | A complex type that contains information about a GeoLocation.
 data GeoLocationDetails = GeoLocationDetails
-    { _gldSubdivisionName :: Maybe Text
-      -- ^ The name of the subdivision. This element is only present if
-      -- SubdivisionCode is also present.
-    , _gldSubdivisionCode :: Maybe Text
-      -- ^ The code for a country's subdivision (e.g., a province of
-      -- Canada). A subdivision code is only valid with the appropriate
-      -- country code.
-    , _gldCountryName :: Maybe Text
-      -- ^ The name of the country. This element is only present if
-      -- CountryCode is also present.
+    { _gldContinentCode :: Maybe Text
+      -- ^ The code for a continent geo location. Note: only continent
+      -- locations have a continent code.
+    , _gldContinentName :: Maybe Text
+      -- ^ The name of the continent. This element is only present if
+      -- ContinentCode is also present.
     , _gldCountryCode :: Maybe Text
       -- ^ The code for a country geo location. The default location uses
       -- '*' for the country code and will match all locations that are
       -- not matched by a geo location. The default geo location uses a *
       -- for the country code. All other country codes follow the ISO 3166
       -- two-character code.
-    , _gldContinentCode :: Maybe Text
-      -- ^ The code for a continent geo location. Note: only continent
-      -- locations have a continent code.
-    , _gldContinentName :: Maybe Text
-      -- ^ The name of the continent. This element is only present if
-      -- ContinentCode is also present.
+    , _gldCountryName :: Maybe Text
+      -- ^ The name of the country. This element is only present if
+      -- CountryCode is also present.
+    , _gldSubdivisionCode :: Maybe Text
+      -- ^ The code for a country's subdivision (e.g., a province of
+      -- Canada). A subdivision code is only valid with the appropriate
+      -- country code.
+    , _gldSubdivisionName :: Maybe Text
+      -- ^ The name of the subdivision. This element is only present if
+      -- SubdivisionCode is also present.
     } deriving (Show, Generic)
 
 instance FromXML GeoLocationDetails where
@@ -485,17 +485,17 @@ instance FromXML GeoLocationDetails where
 -- | A complex type that contains identifying information about the health
 -- check.
 data HealthCheck = HealthCheck
-    { _hcHealthCheckConfig :: HealthCheckConfig
+    { _hcCallerReference :: Text
+      -- ^ A unique string that identifies the request to create the health
+      -- check.
+    , _hcHealthCheckConfig :: HealthCheckConfig
       -- ^ A complex type that contains the health check configuration.
-    , _hcId :: Text
-      -- ^ The ID of the specified health check.
     , _hcHealthCheckVersion :: Integer
       -- ^ The version of the health check. You can optionally pass this
       -- value in a call to UpdateHealthCheck to prevent overwriting
       -- another change to the health check.
-    , _hcCallerReference :: Text
-      -- ^ A unique string that identifies the request to create the health
-      -- check.
+    , _hcId :: Text
+      -- ^ The ID of the specified health check.
     } deriving (Show, Generic)
 
 instance FromXML HealthCheck where
@@ -511,32 +511,32 @@ data HealthCheckConfig = HealthCheckConfig
       -- are integers between 1 and 10. For more information, see "How
       -- Amazon Route 53 Determines Whether an Endpoint Is Healthy" in the
       -- Amazon Route 53 Developer Guide.
-    , _hccIPAddress :: Maybe Text
-      -- ^ IP Address of the instance being checked.
-    , _hccSearchString :: Maybe Text
-      -- ^ A string to search for in the body of a health check response.
-      -- Required for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
-    , _hccResourcePath :: Maybe Text
-      -- ^ Path to ping on the instance to check the health. Required for
-      -- HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks,
-      -- HTTP request is issued to the instance on the given port and
-      -- path.
-    , _hccType :: HealthCheckType
-      -- ^ The type of health check to be performed. Currently supported
-      -- types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
     , _hccFullyQualifiedDomainName :: Maybe Text
       -- ^ Fully qualified domain name of the instance to be health checked.
+    , _hccIPAddress :: Maybe Text
+      -- ^ IP Address of the instance being checked.
+    , _hccPort :: Maybe Integer
+      -- ^ Port on which connection will be opened to the instance to health
+      -- check. For HTTP and HTTP_STR_MATCH this defaults to 80 if the
+      -- port is not specified. For HTTPS and HTTPS_STR_MATCH this
+      -- defaults to 443 if the port is not specified.
     , _hccRequestInterval :: Maybe Integer
       -- ^ The number of seconds between the time that Route 53 gets a
       -- response from your endpoint and the time that it sends the next
       -- health-check request. Each Route 53 health checker makes requests
       -- at this interval. Valid values are 10 and 30. The default value
       -- is 30.
-    , _hccPort :: Maybe Integer
-      -- ^ Port on which connection will be opened to the instance to health
-      -- check. For HTTP and HTTP_STR_MATCH this defaults to 80 if the
-      -- port is not specified. For HTTPS and HTTPS_STR_MATCH this
-      -- defaults to 443 if the port is not specified.
+    , _hccResourcePath :: Maybe Text
+      -- ^ Path to ping on the instance to check the health. Required for
+      -- HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks,
+      -- HTTP request is issued to the instance on the given port and
+      -- path.
+    , _hccSearchString :: Maybe Text
+      -- ^ A string to search for in the body of a health check response.
+      -- Required for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
+    , _hccType :: HealthCheckType
+      -- ^ The type of health check to be performed. Currently supported
+      -- types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
     } deriving (Show, Generic)
 
 instance FromXML HealthCheckConfig where
@@ -549,8 +549,13 @@ instance ToXML HealthCheckConfig where
 
 -- | A complex type that contains identifying information about the hosted zone.
 data HostedZone = HostedZone
-    { _hzConfig :: Maybe HostedZoneConfig
+    { _hzCallerReference :: Text
+      -- ^ A unique string that identifies the request to create the hosted
+      -- zone.
+    , _hzConfig :: Maybe HostedZoneConfig
       -- ^ A complex type that contains the Comment element.
+    , _hzId :: Text
+      -- ^ The ID of the specified hosted zone.
     , _hzName :: Text
       -- ^ The name of the domain. This must be a fully-specified domain,
       -- for example, www.example.com. The trailing dot is optional; Route
@@ -561,13 +566,8 @@ data HostedZone = HostedZone
       -- your registrar to change the authoritative name servers for your
       -- domain to the set of NameServers elements returned in
       -- DelegationSet.
-    , _hzId :: Text
-      -- ^ The ID of the specified hosted zone.
     , _hzResourceRecordSetCount :: Maybe Integer
       -- ^ Total number of resource record sets in the hosted zone.
-    , _hzCallerReference :: Text
-      -- ^ A unique string that identifies the request to create the hosted
-      -- zone.
     } deriving (Show, Generic)
 
 instance FromXML HostedZone where
@@ -576,23 +576,9 @@ instance FromXML HostedZone where
 
 -- | Information about the resource record set to create or delete.
 data ResourceRecordSet = ResourceRecordSet
-    { _rrsTTL :: Maybe Integer
-      -- ^ The cache time to live for the current resource record set.
-    , _rrsResourceRecords :: [ResourceRecord]
-      -- ^ A complex type that contains the resource records for the current
-      -- resource record set.
-    , _rrsAliasTarget :: Maybe AliasTarget
+    { _rrsAliasTarget :: Maybe AliasTarget
       -- ^ Alias resource record sets only: Information about the AWS
       -- resource to which you are redirecting traffic.
-    , _rrsWeight :: Maybe Integer
-      -- ^ Weighted resource record sets only: Among resource record sets
-      -- that have the same combination of DNS name and type, a value that
-      -- determines what portion of traffic for the current resource
-      -- record set is routed to the associated location.
-    , _rrsSetIdentifier :: Maybe Text
-      -- ^ Weighted, Latency, Geo, and Failover resource record sets only:
-      -- An identifier that differentiates among multiple resource record
-      -- sets that have the same combination of DNS name and type.
     , _rrsFailover :: Maybe Failover
       -- ^ Failover resource record sets only: Among resource record sets
       -- that have the same combination of DNS name and type, a value that
@@ -610,24 +596,38 @@ data ResourceRecordSet = ResourceRecordSet
       -- health check and either the secondary is passing a health check
       -- or has no associated health check, or (2) there is no primary
       -- resource record set. Valid values: PRIMARY | SECONDARY.
-    , _rrsName :: Text
-      -- ^ The domain name of the current resource record set.
-    , _rrsHealthCheckId :: Maybe Text
-      -- ^ Health Check resource record sets only, not required for alias
-      -- resource record sets: An identifier that is used to identify
-      -- health check associated with the resource record set.
-    , _rrsRegion :: Maybe Region
-      -- ^ Latency-based resource record sets only: Among resource record
-      -- sets that have the same combination of DNS name and type, a value
-      -- that specifies the AWS region for the current resource record
-      -- set.
-    , _rrsType :: RecordType
-      -- ^ The type of the current resource record set.
     , _rrsGeoLocation :: Maybe GeoLocation
       -- ^ Geo location resource record sets only: Among resource record
       -- sets that have the same combination of DNS name and type, a value
       -- that specifies the geo location for the current resource record
       -- set.
+    , _rrsHealthCheckId :: Maybe Text
+      -- ^ Health Check resource record sets only, not required for alias
+      -- resource record sets: An identifier that is used to identify
+      -- health check associated with the resource record set.
+    , _rrsName :: Text
+      -- ^ The domain name of the current resource record set.
+    , _rrsRegion :: Maybe Region
+      -- ^ Latency-based resource record sets only: Among resource record
+      -- sets that have the same combination of DNS name and type, a value
+      -- that specifies the AWS region for the current resource record
+      -- set.
+    , _rrsResourceRecords :: [ResourceRecord]
+      -- ^ A complex type that contains the resource records for the current
+      -- resource record set.
+    , _rrsSetIdentifier :: Maybe Text
+      -- ^ Weighted, Latency, Geo, and Failover resource record sets only:
+      -- An identifier that differentiates among multiple resource record
+      -- sets that have the same combination of DNS name and type.
+    , _rrsTTL :: Maybe Integer
+      -- ^ The cache time to live for the current resource record set.
+    , _rrsType :: RecordType
+      -- ^ The type of the current resource record set.
+    , _rrsWeight :: Maybe Integer
+      -- ^ Weighted resource record sets only: Among resource record sets
+      -- that have the same combination of DNS name and type, a value that
+      -- determines what portion of traffic for the current resource
+      -- record set is routed to the associated location.
     } deriving (Show, Generic)
 
 instance FromXML ResourceRecordSet where
@@ -655,10 +655,10 @@ instance FromXML ResourceTagSet where
 
 -- | A single tag containing a key and value.
 data Tag = Tag
-    { _tValue :: Maybe Text
-      -- ^ The value for a Tag.
-    , _tKey :: Maybe Text
+    { _tKey :: Maybe Text
       -- ^ The key for a Tag.
+    , _tValue :: Maybe Text
+      -- ^ The value for a Tag.
     } deriving (Show, Generic)
 
 instance FromXML Tag where

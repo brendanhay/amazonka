@@ -38,36 +38,36 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ReplaceRoute' request.
-replaceRoute :: Text -- ^ '_rrrRouteTableId'
-             -> Text -- ^ '_rrrDestinationCidrBlock'
+replaceRoute :: Text -- ^ '_rrrDestinationCidrBlock'
+             -> Text -- ^ '_rrrRouteTableId'
              -> ReplaceRoute
 replaceRoute p1 p2 = ReplaceRoute
-    { _rrrRouteTableId = p1
-    , _rrrDestinationCidrBlock = p2
+    { _rrrDestinationCidrBlock = p1
+    , _rrrRouteTableId = p2
     , _rrrDryRun = Nothing
-    , _rrrVpcPeeringConnectionId = Nothing
+    , _rrrGatewayId = Nothing
     , _rrrInstanceId = Nothing
     , _rrrNetworkInterfaceId = Nothing
-    , _rrrGatewayId = Nothing
+    , _rrrVpcPeeringConnectionId = Nothing
     }
 
 data ReplaceRoute = ReplaceRoute
-    { _rrrRouteTableId :: Text
-      -- ^ The ID of the route table.
-    , _rrrDestinationCidrBlock :: Text
+    { _rrrDestinationCidrBlock :: Text
       -- ^ The CIDR address block used for the destination match. The value
       -- you provide must match the CIDR of an existing route in the
       -- table.
+    , _rrrRouteTableId :: Text
+      -- ^ The ID of the route table.
     , _rrrDryRun :: Maybe Bool
       -- ^ 
-    , _rrrVpcPeeringConnectionId :: Maybe Text
-      -- ^ The ID of a VPC peering connection.
+    , _rrrGatewayId :: Maybe Text
+      -- ^ The ID of an Internet gateway attached to your VPC.
     , _rrrInstanceId :: Maybe Text
       -- ^ The ID of a NAT instance in your VPC.
     , _rrrNetworkInterfaceId :: Maybe Text
       -- ^ The ID of a network interface.
-    , _rrrGatewayId :: Maybe Text
-      -- ^ The ID of an Internet gateway attached to your VPC.
+    , _rrrVpcPeeringConnectionId :: Maybe Text
+      -- ^ The ID of a VPC peering connection.
     } deriving (Show, Generic)
 
 makeLenses ''ReplaceRoute

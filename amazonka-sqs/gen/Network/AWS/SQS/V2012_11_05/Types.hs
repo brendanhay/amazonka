@@ -164,14 +164,14 @@ instance FromXML DeleteMessageBatchResultEntry where
 -- | This is used in the responses of batch API to give a detailed description
 -- of the result of an action on each entry in the request.
 data BatchResultErrorEntry = BatchResultErrorEntry
-    { _breeSenderFault :: Bool
-      -- ^ Whether the error happened due to the sender's fault.
+    { _breeCode :: Text
+      -- ^ An error code representing why the action failed on this entry.
     , _breeId :: Text
       -- ^ The id of an entry in a batch request.
-    , _breeCode :: Text
-      -- ^ An error code representing why the action failed on this entry.
     , _breeMessage :: Maybe Text
       -- ^ A message explaining why the action failed on this entry.
+    , _breeSenderFault :: Bool
+      -- ^ Whether the error happened due to the sender's fault.
     } deriving (Show, Generic)
 
 instance FromXML BatchResultErrorEntry where
@@ -188,14 +188,14 @@ instance FromXML BatchResultErrorEntry where
 -- &amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=Your_Receipt_Handle
 -- &amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry
-    { _cmvbreVisibilityTimeout :: Maybe Integer
-      -- ^ The new value (in seconds) for the message's visibility timeout.
-    , _cmvbreId :: Text
+    { _cmvbreId :: Text
       -- ^ An identifier for this particular receipt handle. This is used to
       -- communicate the result. Note that the Ids of a batch request need
       -- to be unique within the request.
     , _cmvbreReceiptHandle :: Text
       -- ^ A receipt handle.
+    , _cmvbreVisibilityTimeout :: Maybe Integer
+      -- ^ The new value (in seconds) for the message's visibility timeout.
     } deriving (Show, Generic)
 
 instance ToQuery ChangeMessageVisibilityBatchRequestEntry where
@@ -216,32 +216,32 @@ instance ToQuery DeleteMessageBatchRequestEntry where
 
 -- | An Amazon SQS message.
 data Message = Message
-    { _nMessageAttributes :: Map Text MessageAttributeValue
-      -- ^ Each message attribute consists of a Name, Type, and Value. For
-      -- more information, see Message Attribute Items.
-    , _nMD5OfBody :: Maybe Text
-      -- ^ An MD5 digest of the non-URL-encoded message body string.
-    , _nBody :: Maybe Text
-      -- ^ The message's contents (not URL-encoded).
-    , _nAttributes :: Map QueueAttributeName Text
+    { _nAttributes :: Map QueueAttributeName Text
       -- ^ SenderId, SentTimestamp, ApproximateReceiveCount, and/or
       -- ApproximateFirstReceiveTimestamp. SentTimestamp and
       -- ApproximateFirstReceiveTimestamp are each returned as an integer
       -- representing the epoch time in milliseconds.
-    , _nReceiptHandle :: Maybe Text
-      -- ^ An identifier associated with the act of receiving the message. A
-      -- new receipt handle is returned every time you receive a message.
-      -- When deleting a message, you provide the last received receipt
-      -- handle to delete the message.
-    , _nMessageId :: Maybe Text
-      -- ^ A unique identifier for the message. Message IDs are considered
-      -- unique across all AWS accounts for an extended period of time.
+    , _nBody :: Maybe Text
+      -- ^ The message's contents (not URL-encoded).
+    , _nMD5OfBody :: Maybe Text
+      -- ^ An MD5 digest of the non-URL-encoded message body string.
     , _nMD5OfMessageAttributes :: Maybe Text
       -- ^ An MD5 digest of the non-URL-encoded message attribute string.
       -- This can be used to verify that Amazon SQS received the message
       -- correctly. Amazon SQS first URL decodes the message before
       -- creating the MD5 digest. For information about MD5, go to
       -- http://www.faqs.org/rfcs/rfc1321.html.
+    , _nMessageAttributes :: Map Text MessageAttributeValue
+      -- ^ Each message attribute consists of a Name, Type, and Value. For
+      -- more information, see Message Attribute Items.
+    , _nMessageId :: Maybe Text
+      -- ^ A unique identifier for the message. Message IDs are considered
+      -- unique across all AWS accounts for an extended period of time.
+    , _nReceiptHandle :: Maybe Text
+      -- ^ An identifier associated with the act of receiving the message. A
+      -- new receipt handle is returned every time you receive a message.
+      -- When deleting a message, you provide the last received receipt
+      -- handle to delete the message.
     } deriving (Show, Generic)
 
 instance FromXML Message where
@@ -256,21 +256,21 @@ instance FromXML Message where
 -- are included in the message size restriction, which is currently 256 KB
 -- (262,144 bytes).
 data MessageAttributeValue = MessageAttributeValue
-    { _mavBinaryValue :: Maybe ByteString
+    { _mavBinaryListValues :: [ByteString]
+      -- ^ Not implemented. Reserved for future use.
+    , _mavBinaryValue :: Maybe ByteString
       -- ^ Binary type attributes can store any binary data, for example,
       -- compressed data, encrypted data, or images.
+    , _mavDataType :: Text
+      -- ^ Amazon SQS supports the following logical data types: String,
+      -- Number, and Binary. In addition, you can append your own custom
+      -- labels. For more information, see Message Attribute Data Types.
     , _mavStringListValues :: [Text]
       -- ^ Not implemented. Reserved for future use.
     , _mavStringValue :: Maybe Text
       -- ^ Strings are Unicode with UTF8 binary encoding. For a list of code
       -- values, see
       -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
-    , _mavBinaryListValues :: [ByteString]
-      -- ^ Not implemented. Reserved for future use.
-    , _mavDataType :: Text
-      -- ^ Amazon SQS supports the following logical data types: String,
-      -- Number, and Binary. In addition, you can append your own custom
-      -- labels. For more information, see Message Attribute Data Types.
     } deriving (Show, Generic)
 
 instance FromXML MessageAttributeValue where
@@ -282,15 +282,15 @@ instance ToQuery MessageAttributeValue where
 
 -- | Contains the details of a single Amazon SQS message along with a Id.
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
-    { _smbreMessageAttributes :: Map Text MessageAttributeValue
-      -- ^ Each message attribute consists of a Name, Type, and Value. For
-      -- more information, see Message Attribute Items.
-    , _smbreDelaySeconds :: Maybe Integer
+    { _smbreDelaySeconds :: Maybe Integer
       -- ^ The number of seconds for which the message has to be delayed.
     , _smbreId :: Text
       -- ^ An identifier for the message in this batch. This is used to
       -- communicate the result. Note that the Ids of a batch request need
       -- to be unique within the request.
+    , _smbreMessageAttributes :: Map Text MessageAttributeValue
+      -- ^ Each message attribute consists of a Name, Type, and Value. For
+      -- more information, see Message Attribute Items.
     , _smbreMessageBody :: Text
       -- ^ Body of the message.
     } deriving (Show, Generic)
@@ -303,20 +303,20 @@ instance ToQuery SendMessageBatchRequestEntry where
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry
     { _smbrfId :: Text
       -- ^ An identifier for the message in this batch.
-    , _smbrfMessageId :: Text
-      -- ^ An identifier for the message.
-    , _smbrfMD5OfMessageBody :: Text
-      -- ^ An MD5 digest of the non-URL-encoded message body string. This
-      -- can be used to verify that Amazon SQS received the message
-      -- correctly. Amazon SQS first URL decodes the message before
-      -- creating the MD5 digest. For information about MD5, go to
-      -- http://www.faqs.org/rfcs/rfc1321.html.
     , _smbrfMD5OfMessageAttributes :: Maybe Text
       -- ^ An MD5 digest of the non-URL-encoded message attribute string.
       -- This can be used to verify that Amazon SQS received the message
       -- batch correctly. Amazon SQS first URL decodes the message before
       -- creating the MD5 digest. For information about MD5, go to
       -- http://www.faqs.org/rfcs/rfc1321.html.
+    , _smbrfMD5OfMessageBody :: Text
+      -- ^ An MD5 digest of the non-URL-encoded message body string. This
+      -- can be used to verify that Amazon SQS received the message
+      -- correctly. Amazon SQS first URL decodes the message before
+      -- creating the MD5 digest. For information about MD5, go to
+      -- http://www.faqs.org/rfcs/rfc1321.html.
+    , _smbrfMessageId :: Text
+      -- ^ An identifier for the message.
     } deriving (Show, Generic)
 
 instance FromXML SendMessageBatchResultEntry where

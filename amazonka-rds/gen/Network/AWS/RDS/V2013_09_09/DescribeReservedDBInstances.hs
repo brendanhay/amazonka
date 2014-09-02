@@ -38,13 +38,13 @@ describeReservedDBInstances :: DescribeReservedDBInstances
 describeReservedDBInstances = DescribeReservedDBInstances
     { _drdbimMultiAZ = Nothing
     , _drdbimMaxRecords = Nothing
+    , _drdbimDBInstanceClass = Nothing
+    , _drdbimDuration = Nothing
+    , _drdbimMarker = Nothing
+    , _drdbimOfferingType = Nothing
     , _drdbimProductDescription = Nothing
     , _drdbimReservedDBInstanceId = Nothing
-    , _drdbimDBInstanceClass = Nothing
-    , _drdbimMarker = Nothing
     , _drdbimReservedDBInstancesOfferingId = Nothing
-    , _drdbimOfferingType = Nothing
-    , _drdbimDuration = Nothing
     }
 
 data DescribeReservedDBInstances = DescribeReservedDBInstances
@@ -57,6 +57,23 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances
       -- a marker is included in the response so that the following
       -- results can be retrieved. Default: 100 Constraints: minimum 20,
       -- maximum 100.
+    , _drdbimDBInstanceClass :: Maybe Text
+      -- ^ The DB instance class filter value. Specify this parameter to
+      -- show only those reservations matching the specified DB instances
+      -- class.
+    , _drdbimDuration :: Maybe Text
+      -- ^ The duration filter value, specified in years or seconds. Specify
+      -- this parameter to show only reservations for this duration. Valid
+      -- Values: 1 | 3 | 31536000 | 94608000.
+    , _drdbimMarker :: Maybe Text
+      -- ^ An optional pagination token provided by a previous request. If
+      -- this parameter is specified, the response includes only records
+      -- beyond the marker, up to the value specified by MaxRecords.
+    , _drdbimOfferingType :: Maybe Text
+      -- ^ The offering type filter value. Specify this parameter to show
+      -- only the available offerings matching the specified offering
+      -- type. Valid Values: "Light Utilization" | "Medium Utilization" |
+      -- "Heavy Utilization".
     , _drdbimProductDescription :: Maybe Text
       -- ^ The product description filter value. Specify this parameter to
       -- show only those reservations matching the specified product
@@ -65,27 +82,10 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances
       -- ^ The reserved DB instance identifier filter value. Specify this
       -- parameter to show only the reservation that matches the specified
       -- reservation ID.
-    , _drdbimDBInstanceClass :: Maybe Text
-      -- ^ The DB instance class filter value. Specify this parameter to
-      -- show only those reservations matching the specified DB instances
-      -- class.
-    , _drdbimMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous request. If
-      -- this parameter is specified, the response includes only records
-      -- beyond the marker, up to the value specified by MaxRecords.
     , _drdbimReservedDBInstancesOfferingId :: Maybe Text
       -- ^ The offering identifier filter value. Specify this parameter to
       -- show only purchased reservations matching the specified offering
       -- identifier.
-    , _drdbimOfferingType :: Maybe Text
-      -- ^ The offering type filter value. Specify this parameter to show
-      -- only the available offerings matching the specified offering
-      -- type. Valid Values: "Light Utilization" | "Medium Utilization" |
-      -- "Heavy Utilization".
-    , _drdbimDuration :: Maybe Text
-      -- ^ The duration filter value, specified in years or seconds. Specify
-      -- this parameter to show only reservations for this duration. Valid
-      -- Values: 1 | 3 | 31536000 | 94608000.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeReservedDBInstances

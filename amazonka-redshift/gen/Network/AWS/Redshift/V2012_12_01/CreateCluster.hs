@@ -53,38 +53,47 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateCluster' request.
-createCluster :: Text -- ^ '_ccmMasterUserPassword'
+createCluster :: Text -- ^ '_ccmClusterIdentifier'
+              -> Text -- ^ '_ccmMasterUserPassword'
               -> Text -- ^ '_ccmMasterUsername'
-              -> Text -- ^ '_ccmClusterIdentifier'
               -> Text -- ^ '_ccmNodeType'
               -> CreateCluster
 createCluster p1 p2 p3 p4 = CreateCluster
-    { _ccmMasterUserPassword = p1
-    , _ccmMasterUsername = p2
-    , _ccmClusterIdentifier = p3
+    { _ccmClusterIdentifier = p1
+    , _ccmMasterUserPassword = p2
+    , _ccmMasterUsername = p3
     , _ccmNodeType = p4
-    , _ccmPubliclyAccessible = Nothing
-    , _ccmEncrypted = Nothing
     , _ccmAllowVersionUpgrade = Nothing
+    , _ccmEncrypted = Nothing
+    , _ccmPubliclyAccessible = Nothing
     , _ccmClusterSecurityGroups = mempty
     , _ccmAutomatedSnapshotRetentionPeriod = Nothing
     , _ccmNumberOfNodes = Nothing
     , _ccmPort = Nothing
-    , _ccmHsmConfigurationIdentifier = Nothing
-    , _ccmClusterSubnetGroupName = Nothing
-    , _ccmHsmClientCertificateIdentifier = Nothing
-    , _ccmElasticIp = Nothing
-    , _ccmPreferredMaintenanceWindow = Nothing
     , _ccmAvailabilityZone = Nothing
+    , _ccmClusterParameterGroupName = Nothing
+    , _ccmClusterSubnetGroupName = Nothing
     , _ccmClusterType = Nothing
     , _ccmClusterVersion = Nothing
-    , _ccmClusterParameterGroupName = Nothing
     , _ccmDBName = Nothing
+    , _ccmElasticIp = Nothing
+    , _ccmHsmClientCertificateIdentifier = Nothing
+    , _ccmHsmConfigurationIdentifier = Nothing
+    , _ccmPreferredMaintenanceWindow = Nothing
     , _ccmVpcSecurityGroupIds = mempty
     }
 
 data CreateCluster = CreateCluster
-    { _ccmMasterUserPassword :: Text
+    { _ccmClusterIdentifier :: Text
+      -- ^ A unique identifier for the cluster. You use this identifier to
+      -- refer to the cluster for any subsequent cluster operations such
+      -- as deleting or modifying. The identifier also appears in the
+      -- Amazon Redshift console. Constraints: Must contain from 1 to 63
+      -- alphanumeric characters or hyphens. Alphabetic characters must be
+      -- lowercase. First character must be a letter. Cannot end with a
+      -- hyphen or contain two consecutive hyphens. Must be unique for all
+      -- clusters within an AWS account. Example: myexamplecluster.
+    , _ccmMasterUserPassword :: Text
       -- ^ The password associated with the master user account for the
       -- cluster that is being created. Constraints: Must be between 8 and
       -- 64 characters in length. Must contain at least one uppercase
@@ -98,25 +107,11 @@ data CreateCluster = CreateCluster
       -- alphanumeric characters. First character must be a letter. Cannot
       -- be a reserved word. A list of reserved words can be found in
       -- Reserved Words in the Amazon Redshift Database Developer Guide.
-    , _ccmClusterIdentifier :: Text
-      -- ^ A unique identifier for the cluster. You use this identifier to
-      -- refer to the cluster for any subsequent cluster operations such
-      -- as deleting or modifying. The identifier also appears in the
-      -- Amazon Redshift console. Constraints: Must contain from 1 to 63
-      -- alphanumeric characters or hyphens. Alphabetic characters must be
-      -- lowercase. First character must be a letter. Cannot end with a
-      -- hyphen or contain two consecutive hyphens. Must be unique for all
-      -- clusters within an AWS account. Example: myexamplecluster.
     , _ccmNodeType :: Text
       -- ^ The node type to be provisioned for the cluster. For information
       -- about node types, go to Working with Clusters in the Amazon
       -- Redshift Management Guide. Valid Values: dw1.xlarge | dw1.8xlarge
       -- | dw2.large | dw2.8xlarge.
-    , _ccmPubliclyAccessible :: Maybe Bool
-      -- ^ If true, the cluster can be accessed from a public network.
-    , _ccmEncrypted :: Maybe Bool
-      -- ^ If true, the data in the cluster is encrypted at rest. Default:
-      -- false.
     , _ccmAllowVersionUpgrade :: Maybe Bool
       -- ^ If true, upgrades can be applied during the maintenance window to
       -- the Amazon Redshift engine that is running on the cluster. When a
@@ -124,6 +119,11 @@ data CreateCluster = CreateCluster
       -- request that the service automatically apply upgrades during the
       -- maintenance window to the Amazon Redshift engine that is running
       -- on your cluster. Default: true.
+    , _ccmEncrypted :: Maybe Bool
+      -- ^ If true, the data in the cluster is encrypted at rest. Default:
+      -- false.
+    , _ccmPubliclyAccessible :: Maybe Bool
+      -- ^ If true, the cluster can be accessed from a public network.
     , _ccmClusterSecurityGroups :: [Text]
       -- ^ A list of security groups to be associated with this cluster.
       -- Default: The default cluster security group for Amazon Redshift.
@@ -149,24 +149,63 @@ data CreateCluster = CreateCluster
       -- connection strings. Part of the connection string requires the
       -- port on which the cluster will listen for incoming connections.
       -- Default: 5439 Valid Values: 1150-65535.
-    , _ccmHsmConfigurationIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM configuration that contains the
-      -- information the Amazon Redshift cluster can use to retrieve and
-      -- store keys in an HSM.
+    , _ccmAvailabilityZone :: Maybe Text
+      -- ^ The EC2 Availability Zone (AZ) in which you want Amazon Redshift
+      -- to provision the cluster. For example, if you have several EC2
+      -- instances running in a specific Availability Zone, then you might
+      -- want the cluster to be provisioned in the same zone in order to
+      -- decrease network latency. Default: A random, system-chosen
+      -- Availability Zone in the region that is specified by the
+      -- endpoint. Example: us-east-1d Constraint: The specified
+      -- Availability Zone must be in the same region as the current
+      -- endpoint.
+    , _ccmClusterParameterGroupName :: Maybe Text
+      -- ^ The name of the parameter group to be associated with this
+      -- cluster. Default: The default Amazon Redshift cluster parameter
+      -- group. For information about the default parameter group, go to
+      -- Working with Amazon Redshift Parameter Groups Constraints: Must
+      -- be 1 to 255 alphanumeric characters or hyphens. First character
+      -- must be a letter. Cannot end with a hyphen or contain two
+      -- consecutive hyphens.
     , _ccmClusterSubnetGroupName :: Maybe Text
       -- ^ The name of a cluster subnet group to be associated with this
       -- cluster. If this parameter is not provided the resulting cluster
       -- will be deployed outside virtual private cloud (VPC).
-    , _ccmHsmClientCertificateIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM client certificate the Amazon
-      -- Redshift cluster uses to retrieve the data encryption keys stored
-      -- in an HSM.
+    , _ccmClusterType :: Maybe Text
+      -- ^ The type of the cluster. When cluster type is specified as
+      -- single-node, the NumberOfNodes parameter is not required.
+      -- multi-node, the NumberOfNodes parameter is required. Valid
+      -- Values: multi-node | single-node Default: multi-node.
+    , _ccmClusterVersion :: Maybe Text
+      -- ^ The version of the Amazon Redshift engine software that you want
+      -- to deploy on the cluster. The version selected runs on all the
+      -- nodes in the cluster. Constraints: Only version 1.0 is currently
+      -- available. Example: 1.0.
+    , _ccmDBName :: Maybe Text
+      -- ^ The name of the first database to be created when the cluster is
+      -- created. To create additional databases after the cluster is
+      -- created, connect to the cluster with a SQL client and use SQL
+      -- commands to create a database. For more information, go to Create
+      -- a Database in the Amazon Redshift Database Developer Guide.
+      -- Default: dev Constraints: Must contain 1 to 64 alphanumeric
+      -- characters. Must contain only lowercase letters. Cannot be a word
+      -- that is reserved by the service. A list of reserved words can be
+      -- found in Reserved Words in the Amazon Redshift Database Developer
+      -- Guide.
     , _ccmElasticIp :: Maybe Text
       -- ^ The Elastic IP (EIP) address for the cluster. Constraints: The
       -- cluster must be provisioned in EC2-VPC and publicly-accessible
       -- through an Internet gateway. For more information about
       -- provisioning clusters in EC2-VPC, go to Supported Platforms to
       -- Launch Your Cluster in the Amazon Redshift Management Guide.
+    , _ccmHsmClientCertificateIdentifier :: Maybe Text
+      -- ^ Specifies the name of the HSM client certificate the Amazon
+      -- Redshift cluster uses to retrieve the data encryption keys stored
+      -- in an HSM.
+    , _ccmHsmConfigurationIdentifier :: Maybe Text
+      -- ^ Specifies the name of the HSM configuration that contains the
+      -- information the Amazon Redshift cluster can use to retrieve and
+      -- store keys in an HSM.
     , _ccmPreferredMaintenanceWindow :: Maybe Text
       -- ^ The weekly time range (in UTC) during which automated cluster
       -- maintenance can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: A
@@ -180,45 +219,6 @@ data CreateCluster = CreateCluster
       -- UTC Asia Pacific (Tokyo) Region 17:00-03:00 UTC Valid Days: Mon |
       -- Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute
       -- window.
-    , _ccmAvailabilityZone :: Maybe Text
-      -- ^ The EC2 Availability Zone (AZ) in which you want Amazon Redshift
-      -- to provision the cluster. For example, if you have several EC2
-      -- instances running in a specific Availability Zone, then you might
-      -- want the cluster to be provisioned in the same zone in order to
-      -- decrease network latency. Default: A random, system-chosen
-      -- Availability Zone in the region that is specified by the
-      -- endpoint. Example: us-east-1d Constraint: The specified
-      -- Availability Zone must be in the same region as the current
-      -- endpoint.
-    , _ccmClusterType :: Maybe Text
-      -- ^ The type of the cluster. When cluster type is specified as
-      -- single-node, the NumberOfNodes parameter is not required.
-      -- multi-node, the NumberOfNodes parameter is required. Valid
-      -- Values: multi-node | single-node Default: multi-node.
-    , _ccmClusterVersion :: Maybe Text
-      -- ^ The version of the Amazon Redshift engine software that you want
-      -- to deploy on the cluster. The version selected runs on all the
-      -- nodes in the cluster. Constraints: Only version 1.0 is currently
-      -- available. Example: 1.0.
-    , _ccmClusterParameterGroupName :: Maybe Text
-      -- ^ The name of the parameter group to be associated with this
-      -- cluster. Default: The default Amazon Redshift cluster parameter
-      -- group. For information about the default parameter group, go to
-      -- Working with Amazon Redshift Parameter Groups Constraints: Must
-      -- be 1 to 255 alphanumeric characters or hyphens. First character
-      -- must be a letter. Cannot end with a hyphen or contain two
-      -- consecutive hyphens.
-    , _ccmDBName :: Maybe Text
-      -- ^ The name of the first database to be created when the cluster is
-      -- created. To create additional databases after the cluster is
-      -- created, connect to the cluster with a SQL client and use SQL
-      -- commands to create a database. For more information, go to Create
-      -- a Database in the Amazon Redshift Database Developer Guide.
-      -- Default: dev Constraints: Must contain 1 to 64 alphanumeric
-      -- characters. Must contain only lowercase letters. Cannot be a word
-      -- that is reserved by the service. A list of reserved words can be
-      -- found in Reserved Words in the Amazon Redshift Database Developer
-      -- Guide.
     , _ccmVpcSecurityGroupIds :: [Text]
       -- ^ A list of Virtual Private Cloud (VPC) security groups to be
       -- associated with the cluster. Default: The default VPC security

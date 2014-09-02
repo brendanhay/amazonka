@@ -58,23 +58,23 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AttachVolume' request.
-attachVolume :: Text -- ^ '_avrInstanceId'
-             -> Text -- ^ '_avrDevice'
+attachVolume :: Text -- ^ '_avrDevice'
+             -> Text -- ^ '_avrInstanceId'
              -> Text -- ^ '_avrVolumeId'
              -> AttachVolume
 attachVolume p1 p2 p3 = AttachVolume
-    { _avrInstanceId = p1
-    , _avrDevice = p2
+    { _avrDevice = p1
+    , _avrInstanceId = p2
     , _avrVolumeId = p3
     , _avrDryRun = Nothing
     }
 
 data AttachVolume = AttachVolume
-    { _avrInstanceId :: Text
-      -- ^ The ID of the instance.
-    , _avrDevice :: Text
+    { _avrDevice :: Text
       -- ^ The device name to expose to the instance (for example, /dev/sdh
       -- or xvdh).
+    , _avrInstanceId :: Text
+      -- ^ The ID of the instance.
     , _avrVolumeId :: Text
       -- ^ The ID of the Amazon EBS volume. The volume and instance must be
       -- within the same Availability Zone.
@@ -93,10 +93,10 @@ data AttachVolumeResponse = AttachVolumeResponse
       -- termination.
     , _vvvvvvvvvvvvvvvvvvvvvvvtAttachTime :: Maybe ISO8601
       -- ^ The time stamp when the attachment initiated.
-    , _vvvvvvvvvvvvvvvvvvvvvvvtInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
     , _vvvvvvvvvvvvvvvvvvvvvvvtDevice :: Maybe Text
       -- ^ The device name.
+    , _vvvvvvvvvvvvvvvvvvvvvvvtInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
     , _vvvvvvvvvvvvvvvvvvvvvvvtVolumeId :: Maybe Text
       -- ^ The ID of the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvtState :: Maybe VolumeAttachmentState

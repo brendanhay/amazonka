@@ -37,10 +37,10 @@ describeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferings
 describeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
     { _drcnomMaxRecords = Nothing
     , _drcnomCacheNodeType = Nothing
-    , _drcnomProductDescription = Nothing
+    , _drcnomDuration = Nothing
     , _drcnomMarker = Nothing
     , _drcnomOfferingType = Nothing
-    , _drcnomDuration = Nothing
+    , _drcnomProductDescription = Nothing
     , _drcnomReservedCacheNodesOfferingId = Nothing
     }
 
@@ -53,10 +53,10 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
     , _drcnomCacheNodeType :: Maybe Text
       -- ^ The cache node type filter value. Use this parameter to show only
       -- the available offerings matching the specified cache node type.
-    , _drcnomProductDescription :: Maybe Text
-      -- ^ The product description filter value. Use this parameter to show
-      -- only the available offerings matching the specified product
-      -- description.
+    , _drcnomDuration :: Maybe Text
+      -- ^ Duration filter value, specified in years or seconds. Use this
+      -- parameter to show only reservations for a given duration. Valid
+      -- Values: 1 | 3 | 31536000 | 94608000.
     , _drcnomMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
@@ -67,10 +67,10 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
       -- the available offerings matching the specified offering type.
       -- Valid Values: "Light Utilization" | "Medium Utilization" | "Heavy
       -- Utilization".
-    , _drcnomDuration :: Maybe Text
-      -- ^ Duration filter value, specified in years or seconds. Use this
-      -- parameter to show only reservations for a given duration. Valid
-      -- Values: 1 | 3 | 31536000 | 94608000.
+    , _drcnomProductDescription :: Maybe Text
+      -- ^ The product description filter value. Use this parameter to show
+      -- only the available offerings matching the specified product
+      -- description.
     , _drcnomReservedCacheNodesOfferingId :: Maybe Text
       -- ^ The offering identifier filter value. Use this parameter to show
       -- only the available offering that matches the specified

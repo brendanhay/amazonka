@@ -33,24 +33,24 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBSecurityGroup' request.
-createDBSecurityGroup :: Text -- ^ '_cdbsgmDBSecurityGroupName'
-                      -> Text -- ^ '_cdbsgmDBSecurityGroupDescription'
+createDBSecurityGroup :: Text -- ^ '_cdbsgmDBSecurityGroupDescription'
+                      -> Text -- ^ '_cdbsgmDBSecurityGroupName'
                       -> CreateDBSecurityGroup
 createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
-    { _cdbsgmDBSecurityGroupName = p1
-    , _cdbsgmDBSecurityGroupDescription = p2
+    { _cdbsgmDBSecurityGroupDescription = p1
+    , _cdbsgmDBSecurityGroupName = p2
     , _cdbsgmTags = mempty
     }
 
 data CreateDBSecurityGroup = CreateDBSecurityGroup
-    { _cdbsgmDBSecurityGroupName :: Text
+    { _cdbsgmDBSecurityGroupDescription :: Text
+      -- ^ The description for the DB security group.
+    , _cdbsgmDBSecurityGroupName :: Text
       -- ^ The name for the DB security group. This value is stored as a
       -- lowercase string. Constraints: Must be 1 to 255 alphanumeric
       -- characters First character must be a letter Cannot end with a
       -- hyphen or contain two consecutive hyphens Must not be "Default"
       -- May not contain spaces Example: mysecuritygroup.
-    , _cdbsgmDBSecurityGroupDescription :: Text
-      -- ^ The description for the DB security group.
     , _cdbsgmTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)

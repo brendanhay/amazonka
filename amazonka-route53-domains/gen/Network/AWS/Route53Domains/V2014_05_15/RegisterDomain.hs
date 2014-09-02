@@ -73,32 +73,32 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RegisterDomain' request.
-registerDomain :: ContactDetail -- ^ '_rdrRegistrantContact'
-               -> ContactDetail -- ^ '_rdrAdminContact'
+registerDomain :: ContactDetail -- ^ '_rdrAdminContact'
+               -> ContactDetail -- ^ '_rdrRegistrantContact'
                -> ContactDetail -- ^ '_rdrTechContact'
                -> Text -- ^ '_rdrDomainName'
                -> Integer -- ^ '_rdrDurationInYears'
                -> RegisterDomain
 registerDomain p1 p2 p3 p4 p5 = RegisterDomain
-    { _rdrRegistrantContact = p1
-    , _rdrAdminContact = p2
+    { _rdrAdminContact = p1
+    , _rdrRegistrantContact = p2
     , _rdrTechContact = p3
     , _rdrDomainName = p4
     , _rdrDurationInYears = p5
-    , _rdrPrivacyProtectTechContact = Nothing
-    , _rdrPrivacyProtectRegistrantContact = Nothing
     , _rdrAutoRenew = Nothing
     , _rdrPrivacyProtectAdminContact = Nothing
+    , _rdrPrivacyProtectRegistrantContact = Nothing
+    , _rdrPrivacyProtectTechContact = Nothing
     , _rdrIdnLangCode = Nothing
     }
 
 data RegisterDomain = RegisterDomain
-    { _rdrRegistrantContact :: ContactDetail
+    { _rdrAdminContact :: ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
       -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _rdrAdminContact :: ContactDetail
+    , _rdrRegistrantContact :: ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
@@ -118,7 +118,12 @@ data RegisterDomain = RegisterDomain
       -- registered for a minimum of one year. The maximum period depends
       -- on the top-level domain. Type: Integer Default: 1 Valid values:
       -- Integer from 1 to 10 Required: Yes.
-    , _rdrPrivacyProtectTechContact :: Maybe Bool
+    , _rdrAutoRenew :: Maybe Bool
+      -- ^ Indicates whether the domain will be automatically renewed (true)
+      -- or not (false). Autorenewal only takes effect after the account
+      -- is charged. Type: Boolean Valid values: true | false Default:
+      -- true Required: No.
+    , _rdrPrivacyProtectAdminContact :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
       -- return contact information for our registrar partner, Gandi,
@@ -130,12 +135,7 @@ data RegisterDomain = RegisterDomain
       -- return contact information for our registrar partner, Gandi,
       -- instead of the contact information that you enter. Type: Boolean
       -- Default: true Valid values: true | false Required: No.
-    , _rdrAutoRenew :: Maybe Bool
-      -- ^ Indicates whether the domain will be automatically renewed (true)
-      -- or not (false). Autorenewal only takes effect after the account
-      -- is charged. Type: Boolean Valid values: true | false Default:
-      -- true Required: No.
-    , _rdrPrivacyProtectAdminContact :: Maybe Bool
+    , _rdrPrivacyProtectTechContact :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
       -- return contact information for our registrar partner, Gandi,

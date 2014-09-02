@@ -145,15 +145,15 @@ instance ToQuery JobType where
 
 -- | Representation of a job returned by the ListJobs operation.
 data Job = Job
-    { _jJobType :: JobType
-      -- ^ Specifies whether the job to initiate is an import or export job.
-    , _jJobId :: Text
-      -- ^ A unique identifier which refers to a particular job.
-    , _jIsCanceled :: Bool
-      -- ^ Indicates whether the job was canceled.
-    , _jCreationDate :: ISO8601
+    { _jCreationDate :: ISO8601
       -- ^ Timestamp of the CreateJob request in ISO8601 date format. For
       -- example "2010-03-28T20:27:35Z".
+    , _jIsCanceled :: Bool
+      -- ^ Indicates whether the job was canceled.
+    , _jJobId :: Text
+      -- ^ A unique identifier which refers to a particular job.
+    , _jJobType :: JobType
+      -- ^ Specifies whether the job to initiate is an import or export job.
     } deriving (Show, Generic)
 
 instance FromXML Job where

@@ -64,8 +64,8 @@ updateDomainContact :: Text -- ^ '_udcrDomainName'
                     -> UpdateDomainContact
 updateDomainContact p1 = UpdateDomainContact
     { _udcrDomainName = p1
-    , _udcrRegistrantContact = Nothing
     , _udcrAdminContact = Nothing
+    , _udcrRegistrantContact = Nothing
     , _udcrTechContact = Nothing
     }
 
@@ -75,12 +75,12 @@ data UpdateDomainContact = UpdateDomainContact
       -- domain name can contain only the letters a through z, the numbers
       -- 0 through 9, and hyphen (-). Internationalized Domain Names are
       -- not supported. Required: Yes.
-    , _udcrRegistrantContact :: Maybe ContactDetail
+    , _udcrAdminContact :: Maybe ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
       -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _udcrAdminContact :: Maybe ContactDetail
+    , _udcrRegistrantContact :: Maybe ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,

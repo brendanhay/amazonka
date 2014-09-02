@@ -204,22 +204,27 @@ instance ToQuery AvailabilityZone where
 
 -- | Describes a cluster.
 data Cluster = Cluster
-    { _cRestoreStatus :: Maybe RestoreStatus
-      -- ^ Describes the status of a cluster restore action. Returns null if
-      -- the cluster was not created by restoring a snapshot.
-    , _cClusterSnapshotCopyStatus :: Maybe ClusterSnapshotCopyStatus
-      -- ^ Returns the destination region and retention period that are
-      -- configured for cross-region snapshot copy.
+    { _cAllowVersionUpgrade :: Maybe Bool
+      -- ^ If true, version upgrades will be applied automatically to the
+      -- cluster during the maintenance window.
+    , _cAutomatedSnapshotRetentionPeriod :: Maybe Integer
+      -- ^ The number of days that automatic cluster snapshots are retained.
+    , _cAvailabilityZone :: Maybe Text
+      -- ^ The name of the Availability Zone in which the cluster is
+      -- located.
+    , _cClusterCreateTime :: Maybe ISO8601
+      -- ^ The date and time that the cluster was created.
+    , _cClusterIdentifier :: Maybe Text
+      -- ^ The unique identifier of the cluster.
+    , _cClusterNodes :: [ClusterNode]
+      -- ^ The nodes in a cluster.
+    , _cClusterParameterGroups :: [ClusterParameterGroupStatus]
+      -- ^ The list of cluster parameter groups that are associated with
+      -- this cluster.
+    , _cClusterPublicKey :: Maybe Text
+      -- ^ The public key for the cluster.
     , _cClusterRevisionNumber :: Maybe Text
       -- ^ The specific revision number of the database in the cluster.
-    , _cPubliclyAccessible :: Maybe Bool
-      -- ^ If true, the cluster can be accessed from a public network.
-    , _cMasterUsername :: Maybe Text
-      -- ^ The master user name for the cluster. This name is used to
-      -- connect to the database that is specified in DBName.
-    , _cVpcId :: Maybe Text
-      -- ^ The identifier of the VPC the cluster is in, if the cluster is in
-      -- a VPC.
     , _cClusterSecurityGroups :: [ClusterSecurityGroupMembership]
       -- ^ A list of cluster security group that are associated with the
       -- cluster. Each security group is represented by an element that
@@ -228,66 +233,61 @@ data Cluster = Cluster
       -- are used when the cluster is not created in a VPC. Clusters that
       -- are created in a VPC use VPC security groups, which are listed by
       -- the VpcSecurityGroups parameter.
-    , _cAutomatedSnapshotRetentionPeriod :: Maybe Integer
-      -- ^ The number of days that automatic cluster snapshots are retained.
-    , _cEncrypted :: Maybe Bool
-      -- ^ If true, data in the cluster is encrypted at rest.
-    , _cClusterSubnetGroupName :: Maybe Text
-      -- ^ The name of the subnet group that is associated with the cluster.
-      -- This parameter is valid only when the cluster is in a VPC.
-    , _cClusterIdentifier :: Maybe Text
-      -- ^ The unique identifier of the cluster.
-    , _cNumberOfNodes :: Maybe Integer
-      -- ^ The number of compute nodes in the cluster.
-    , _cClusterPublicKey :: Maybe Text
-      -- ^ The public key for the cluster.
-    , _cPreferredMaintenanceWindow :: Maybe Text
-      -- ^ The weekly time range (in UTC) during which system maintenance
-      -- can occur.
-    , _cModifyStatus :: Maybe Text
-      -- ^ The status of a modify operation, if any, initiated for the
-      -- cluster.
-    , _cClusterParameterGroups :: [ClusterParameterGroupStatus]
-      -- ^ The list of cluster parameter groups that are associated with
-      -- this cluster.
-    , _cAvailabilityZone :: Maybe Text
-      -- ^ The name of the Availability Zone in which the cluster is
-      -- located.
-    , _cVpcSecurityGroups :: [VpcSecurityGroupMembership]
-      -- ^ A list of Virtual Private Cloud (VPC) security groups that are
-      -- associated with the cluster. This parameter is returned only if
-      -- the cluster is in a VPC.
-    , _cHsmStatus :: Maybe HsmStatus
-      -- ^ Reports whether the Amazon Redshift cluster has finished applying
-      -- any HSM settings changes specified in a modify cluster command.
-      -- Values: active, applying.
-    , _cElasticIpStatus :: Maybe ElasticIpStatus
-      -- ^ Describes the status of the elastic IP (EIP) address.
-    , _cClusterVersion :: Maybe Text
-      -- ^ The version ID of the Amazon Redshift engine that is running on
-      -- the cluster.
-    , _cNodeType :: Maybe Text
-      -- ^ The node type for the nodes in the cluster.
-    , _cClusterCreateTime :: Maybe ISO8601
-      -- ^ The date and time that the cluster was created.
-    , _cEndpoint :: Maybe Endpoint
-      -- ^ The connection endpoint.
-    , _cAllowVersionUpgrade :: Maybe Bool
-      -- ^ If true, version upgrades will be applied automatically to the
-      -- cluster during the maintenance window.
+    , _cClusterSnapshotCopyStatus :: Maybe ClusterSnapshotCopyStatus
+      -- ^ Returns the destination region and retention period that are
+      -- configured for cross-region snapshot copy.
     , _cClusterStatus :: Maybe Text
       -- ^ The current state of this cluster. Possible values include
       -- available, creating, deleting, rebooting, renaming, and resizing.
-    , _cPendingModifiedValues :: Maybe PendingModifiedValues
-      -- ^ If present, changes to the cluster are pending. Specific pending
-      -- changes are identified by subelements.
-    , _cClusterNodes :: [ClusterNode]
-      -- ^ The nodes in a cluster.
+    , _cClusterSubnetGroupName :: Maybe Text
+      -- ^ The name of the subnet group that is associated with the cluster.
+      -- This parameter is valid only when the cluster is in a VPC.
+    , _cClusterVersion :: Maybe Text
+      -- ^ The version ID of the Amazon Redshift engine that is running on
+      -- the cluster.
     , _cDBName :: Maybe Text
       -- ^ The name of the initial database that was created when the
       -- cluster was created. This same name is returned for the life of
       -- the cluster. If an initial database was not specified, a database
       -- named "dev" was created by default.
+    , _cElasticIpStatus :: Maybe ElasticIpStatus
+      -- ^ Describes the status of the elastic IP (EIP) address.
+    , _cEncrypted :: Maybe Bool
+      -- ^ If true, data in the cluster is encrypted at rest.
+    , _cEndpoint :: Maybe Endpoint
+      -- ^ The connection endpoint.
+    , _cHsmStatus :: Maybe HsmStatus
+      -- ^ Reports whether the Amazon Redshift cluster has finished applying
+      -- any HSM settings changes specified in a modify cluster command.
+      -- Values: active, applying.
+    , _cMasterUsername :: Maybe Text
+      -- ^ The master user name for the cluster. This name is used to
+      -- connect to the database that is specified in DBName.
+    , _cModifyStatus :: Maybe Text
+      -- ^ The status of a modify operation, if any, initiated for the
+      -- cluster.
+    , _cNodeType :: Maybe Text
+      -- ^ The node type for the nodes in the cluster.
+    , _cNumberOfNodes :: Maybe Integer
+      -- ^ The number of compute nodes in the cluster.
+    , _cPendingModifiedValues :: Maybe PendingModifiedValues
+      -- ^ If present, changes to the cluster are pending. Specific pending
+      -- changes are identified by subelements.
+    , _cPreferredMaintenanceWindow :: Maybe Text
+      -- ^ The weekly time range (in UTC) during which system maintenance
+      -- can occur.
+    , _cPubliclyAccessible :: Maybe Bool
+      -- ^ If true, the cluster can be accessed from a public network.
+    , _cRestoreStatus :: Maybe RestoreStatus
+      -- ^ Describes the status of a cluster restore action. Returns null if
+      -- the cluster was not created by restoring a snapshot.
+    , _cVpcId :: Maybe Text
+      -- ^ The identifier of the VPC the cluster is in, if the cluster is in
+      -- a VPC.
+    , _cVpcSecurityGroups :: [VpcSecurityGroupMembership]
+      -- ^ A list of Virtual Private Cloud (VPC) security groups that are
+      -- associated with the cluster. This parameter is returned only if
+      -- the cluster is in a VPC.
     } deriving (Show, Generic)
 
 instance FromXML Cluster where
@@ -313,11 +313,11 @@ instance ToQuery ClusterNode where
 
 -- | Describes a parameter group.
 data ClusterParameterGroup = ClusterParameterGroup
-    { _cpgParameterGroupFamily :: Maybe Text
+    { _cpgDescription :: Maybe Text
+      -- ^ The description of the parameter group.
+    , _cpgParameterGroupFamily :: Maybe Text
       -- ^ The name of the cluster parameter group family that this cluster
       -- parameter group is compatible with.
-    , _cpgDescription :: Maybe Text
-      -- ^ The description of the parameter group.
     , _cpgParameterGroupName :: Maybe Text
       -- ^ The name of the cluster parameter group.
     } deriving (Show, Generic)
@@ -346,14 +346,14 @@ data ClusterSecurityGroup = ClusterSecurityGroup
     { _csiClusterSecurityGroupName :: Maybe Text
       -- ^ The name of the cluster security group to which the operation was
       -- applied.
-    , _csiIPRanges :: [IPRange]
-      -- ^ A list of IP ranges (CIDR blocks) that are permitted to access
-      -- clusters associated with this cluster security group.
+    , _csiDescription :: Maybe Text
+      -- ^ A description of the security group.
     , _csiEC2SecurityGroups :: [EC2SecurityGroup]
       -- ^ A list of EC2 security groups that are permitted to access
       -- clusters associated with this cluster security group.
-    , _csiDescription :: Maybe Text
-      -- ^ A description of the security group.
+    , _csiIPRanges :: [IPRange]
+      -- ^ A list of IP ranges (CIDR blocks) that are permitted to access
+      -- clusters associated with this cluster security group.
     } deriving (Show, Generic)
 
 instance FromXML ClusterSecurityGroup where
@@ -362,10 +362,10 @@ instance FromXML ClusterSecurityGroup where
 
 -- | Describes a security group.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership
-    { _csgmStatus :: Maybe Text
-      -- ^ The status of the cluster security group.
-    , _csgmClusterSecurityGroupName :: Maybe Text
+    { _csgmClusterSecurityGroupName :: Maybe Text
       -- ^ The name of the cluster security group.
+    , _csgmStatus :: Maybe Text
+      -- ^ The status of the cluster security group.
     } deriving (Show, Generic)
 
 instance FromXML ClusterSecurityGroupMembership where
@@ -378,12 +378,12 @@ instance ToQuery ClusterSecurityGroupMembership where
 -- | Returns the destination region and retention period that are configured for
 -- cross-region snapshot copy.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
-    { _cscsRetentionPeriod :: Maybe Integer
-      -- ^ The number of days that automated snapshots are retained in the
-      -- destination region after they are copied from a source region.
-    , _cscsDestinationRegion :: Maybe Text
+    { _cscsDestinationRegion :: Maybe Text
       -- ^ The destination region that snapshots are automatically copied to
       -- when cross-region snapshot copy is enabled.
+    , _cscsRetentionPeriod :: Maybe Integer
+      -- ^ The number of days that automated snapshots are retained in the
+      -- destination region after they are copied from a source region.
     } deriving (Show, Generic)
 
 instance FromXML ClusterSnapshotCopyStatus where
@@ -395,17 +395,17 @@ instance ToQuery ClusterSnapshotCopyStatus where
 
 -- | Describes a subnet group.
 data ClusterSubnetGroup = ClusterSubnetGroup
-    { _csgVpcId :: Maybe Text
-      -- ^ The VPC ID of the cluster subnet group.
-    , _csgSubnets :: [Subnet]
-      -- ^ A list of the VPC Subnet elements.
-    , _csgClusterSubnetGroupName :: Maybe Text
+    { _csgClusterSubnetGroupName :: Maybe Text
       -- ^ The name of the cluster subnet group.
+    , _csgDescription :: Maybe Text
+      -- ^ The description of the cluster subnet group.
     , _csgSubnetGroupStatus :: Maybe Text
       -- ^ The status of the cluster subnet group. Possible values are
       -- Complete, Incomplete and Invalid.
-    , _csgDescription :: Maybe Text
-      -- ^ The description of the cluster subnet group.
+    , _csgSubnets :: [Subnet]
+      -- ^ A list of the VPC Subnet elements.
+    , _csgVpcId :: Maybe Text
+      -- ^ The VPC ID of the cluster subnet group.
     } deriving (Show, Generic)
 
 instance FromXML ClusterSubnetGroup where
@@ -436,11 +436,11 @@ data DefaultClusterParameters = DefaultClusterParameters
       -- providing this returned marker value in the Marker parameter and
       -- retrying the command. If the Marker field is empty, all response
       -- records have been retrieved for the request.
-    , _dcpParameters :: [Parameter]
-      -- ^ The list of cluster default parameters.
     , _dcpParameterGroupFamily :: Maybe Text
       -- ^ The name of the cluster parameter group family to which the
       -- engine default parameters apply.
+    , _dcpParameters :: [Parameter]
+      -- ^ The list of cluster default parameters.
     } deriving (Show, Generic)
 
 instance FromXML DefaultClusterParameters where
@@ -449,13 +449,13 @@ instance FromXML DefaultClusterParameters where
 
 -- | Describes an Amazon EC2 security group.
 data EC2SecurityGroup = EC2SecurityGroup
-    { _ecsgStatus :: Maybe Text
-      -- ^ The status of the EC2 security group.
+    { _ecsgEC2SecurityGroupName :: Maybe Text
+      -- ^ The name of the EC2 Security Group.
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
       -- ^ The AWS ID of the owner of the EC2 security group specified in
       -- the EC2SecurityGroupName field.
-    , _ecsgEC2SecurityGroupName :: Maybe Text
-      -- ^ The name of the EC2 Security Group.
+    , _ecsgStatus :: Maybe Text
+      -- ^ The status of the EC2 security group.
     } deriving (Show, Generic)
 
 instance FromXML EC2SecurityGroup where
@@ -467,10 +467,10 @@ instance ToQuery EC2SecurityGroup where
 
 -- | Describes the status of the elastic IP (EIP) address.
 data ElasticIpStatus = ElasticIpStatus
-    { _eisStatus :: Maybe Text
-      -- ^ Describes the status of the elastic IP (EIP) address.
-    , _eisElasticIp :: Maybe Text
+    { _eisElasticIp :: Maybe Text
       -- ^ The elastic IP (EIP) address for the cluster.
+    , _eisStatus :: Maybe Text
+      -- ^ Describes the status of the elastic IP (EIP) address.
     } deriving (Show, Generic)
 
 instance FromXML ElasticIpStatus where
@@ -482,9 +482,9 @@ instance ToQuery ElasticIpStatus where
 
 -- | The connection endpoint.
 data Endpoint = Endpoint
-    { _fAddress :: Maybe Text
+    { _eAddress :: Maybe Text
       -- ^ The DNS address of the Cluster.
-    , _fPort :: Maybe Integer
+    , _ePort :: Maybe Integer
       -- ^ The port that the database engine is listening on.
     } deriving (Show, Generic)
 
@@ -497,20 +497,20 @@ instance ToQuery Endpoint where
 
 -- | Describes an event.
 data Event = Event
-    { _etSourceType :: Maybe SourceType
-      -- ^ The source type for this event.
+    { _etDate :: Maybe ISO8601
+      -- ^ The date and time of the event.
+    , _etEventCategories :: [Text]
+      -- ^ A list of the event categories.
+    , _etEventId :: Maybe Text
+      -- ^ The identifier of the event.
+    , _etMessage :: Maybe Text
+      -- ^ The text of this event.
     , _etSeverity :: Maybe Text
       -- ^ The severity of the event. Values: ERROR, INFO.
     , _etSourceIdentifier :: Maybe Text
       -- ^ The identifier for the source of the event.
-    , _etDate :: Maybe ISO8601
-      -- ^ The date and time of the event.
-    , _etEventCategories :: [Text]
-      -- ^ A list of the event categories.
-    , _etMessage :: Maybe Text
-      -- ^ The text of this event.
-    , _etEventId :: Maybe Text
-      -- ^ The identifier of the event.
+    , _etSourceType :: Maybe SourceType
+      -- ^ The source type for this event.
     } deriving (Show, Generic)
 
 instance FromXML Event where
@@ -519,11 +519,11 @@ instance FromXML Event where
 
 -- | 
 data EventCategoriesMap = EventCategoriesMap
-    { _ecsSourceType :: Maybe Text
+    { _ecsEvents :: [EventInfoMap]
+      -- ^ The events in the event category.
+    , _ecsSourceType :: Maybe Text
       -- ^ The Amazon Redshift source type, such as cluster or
       -- cluster-snapshot, that the returned categories belong to.
-    , _ecsEvents :: [EventInfoMap]
-      -- ^ The events in the event category.
     } deriving (Show, Generic)
 
 instance FromXML EventCategoriesMap where
@@ -532,14 +532,14 @@ instance FromXML EventCategoriesMap where
 
 -- | 
 data EventInfoMap = EventInfoMap
-    { _eimEventDescription :: Maybe Text
-      -- ^ The description of an Amazon Redshift event.
-    , _eimSeverity :: Maybe Text
-      -- ^ The severity of the event. Values: ERROR, INFO.
-    , _eimEventCategories :: [Text]
+    { _eimEventCategories :: [Text]
       -- ^ The category of an Amazon Redshift event.
+    , _eimEventDescription :: Maybe Text
+      -- ^ The description of an Amazon Redshift event.
     , _eimEventId :: Maybe Text
       -- ^ The identifier of an Amazon Redshift event.
+    , _eimSeverity :: Maybe Text
+      -- ^ The severity of the event. Values: ERROR, INFO.
     } deriving (Show, Generic)
 
 instance FromXML EventInfoMap where
@@ -551,40 +551,40 @@ instance ToQuery EventInfoMap where
 
 -- | 
 data EventSubscription = EventSubscription
-    { _esStatus :: Maybe Text
+    { _esCustSubscriptionId :: Maybe Text
+      -- ^ The name of the Amazon Redshift event notification subscription.
+    , _esCustomerAwsId :: Maybe Text
+      -- ^ The AWS customer account associated with the Amazon Redshift
+      -- event notification subscription.
+    , _esEnabled :: Maybe Bool
+      -- ^ A Boolean value indicating whether the subscription is enabled.
+      -- true indicates the subscription is enabled.
+    , _esEventCategoriesList :: [Text]
+      -- ^ The list of Amazon Redshift event categories specified in the
+      -- event notification subscription. Values: Configuration,
+      -- Management, Monitoring, Security.
+    , _esSeverity :: Maybe Text
+      -- ^ The event severity specified in the Amazon Redshift event
+      -- notification subscription. Values: ERROR, INFO.
+    , _esSnsTopicArn :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic used by
+      -- the event notification subscription.
+    , _esSourceIdsList :: [Text]
+      -- ^ A list of the sources that publish events to the Amazon Redshift
+      -- event notification subscription.
+    , _esSourceType :: Maybe Text
+      -- ^ The source type of the events returned the Amazon Redshift event
+      -- notification, such as cluster, or cluster-snapshot.
+    , _esStatus :: Maybe Text
       -- ^ The status of the Amazon Redshift event notification
       -- subscription. Constraints: Can be one of the following: active |
       -- no-permission | topic-not-exist The status "no-permission"
       -- indicates that Amazon Redshift no longer has permission to post
       -- to the Amazon SNS topic. The status "topic-not-exist" indicates
       -- that the topic was deleted after the subscription was created.
-    , _esCustomerAwsId :: Maybe Text
-      -- ^ The AWS customer account associated with the Amazon Redshift
-      -- event notification subscription.
-    , _esCustSubscriptionId :: Maybe Text
-      -- ^ The name of the Amazon Redshift event notification subscription.
-    , _esSnsTopicArn :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic used by
-      -- the event notification subscription.
-    , _esEnabled :: Maybe Bool
-      -- ^ A Boolean value indicating whether the subscription is enabled.
-      -- true indicates the subscription is enabled.
-    , _esSourceType :: Maybe Text
-      -- ^ The source type of the events returned the Amazon Redshift event
-      -- notification, such as cluster, or cluster-snapshot.
-    , _esSeverity :: Maybe Text
-      -- ^ The event severity specified in the Amazon Redshift event
-      -- notification subscription. Values: ERROR, INFO.
     , _esSubscriptionCreationTime :: Maybe ISO8601
       -- ^ The date and time the Amazon Redshift event notification
       -- subscription was created.
-    , _esEventCategoriesList :: [Text]
-      -- ^ The list of Amazon Redshift event categories specified in the
-      -- event notification subscription. Values: Configuration,
-      -- Management, Monitoring, Security.
-    , _esSourceIdsList :: [Text]
-      -- ^ A list of the sources that publish events to the Amazon Redshift
-      -- event notification subscription.
     } deriving (Show, Generic)
 
 instance FromXML EventSubscription where
@@ -610,16 +610,16 @@ instance FromXML HsmClientCertificate where
 -- describes to Amazon Redshift clusters the information they require to
 -- connect to an HSM where they can store database encryption keys.
 data HsmConfiguration = HsmConfiguration
-    { _hcHsmConfigurationIdentifier :: Maybe Text
-      -- ^ The name of the Amazon Redshift HSM configuration.
-    , _hcHsmPartitionName :: Maybe Text
-      -- ^ The name of the partition in the HSM where the Amazon Redshift
-      -- clusters will store their database encryption keys.
-    , _hcDescription :: Maybe Text
+    { _hcDescription :: Maybe Text
       -- ^ A text description of the HSM configuration.
+    , _hcHsmConfigurationIdentifier :: Maybe Text
+      -- ^ The name of the Amazon Redshift HSM configuration.
     , _hcHsmIpAddress :: Maybe Text
       -- ^ The IP address that the Amazon Redshift cluster must use to
       -- access the HSM.
+    , _hcHsmPartitionName :: Maybe Text
+      -- ^ The name of the partition in the HSM where the Amazon Redshift
+      -- clusters will store their database encryption keys.
     } deriving (Show, Generic)
 
 instance FromXML HsmConfiguration where
@@ -630,18 +630,18 @@ instance FromXML HsmConfiguration where
 -- settings changes specified in a modify cluster command. Values: active,
 -- applying.
 data HsmStatus = HsmStatus
-    { _hsStatus :: Maybe Text
-      -- ^ Reports whether the Amazon Redshift cluster has finished applying
-      -- any HSM settings changes specified in a modify cluster command.
-      -- Values: active, applying.
+    { _hsHsmClientCertificateIdentifier :: Maybe Text
+      -- ^ Specifies the name of the HSM client certificate the Amazon
+      -- Redshift cluster uses to retrieve the data encryption keys stored
+      -- in an HSM.
     , _hsHsmConfigurationIdentifier :: Maybe Text
       -- ^ Specifies the name of the HSM configuration that contains the
       -- information the Amazon Redshift cluster can use to retrieve and
       -- store keys in an HSM.
-    , _hsHsmClientCertificateIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM client certificate the Amazon
-      -- Redshift cluster uses to retrieve the data encryption keys stored
-      -- in an HSM.
+    , _hsStatus :: Maybe Text
+      -- ^ Reports whether the Amazon Redshift cluster has finished applying
+      -- any HSM settings changes specified in a modify cluster command.
+      -- Values: active, applying.
     } deriving (Show, Generic)
 
 instance FromXML HsmStatus where
@@ -653,10 +653,10 @@ instance ToQuery HsmStatus where
 
 -- | Describes an IP range used in a security group.
 data IPRange = IPRange
-    { _iprStatus :: Maybe Text
-      -- ^ The status of the IP range, for example, "authorized".
-    , _iprCIDRIP :: Maybe Text
+    { _iprCIDRIP :: Maybe Text
       -- ^ The IP range in Classless Inter-Domain Routing (CIDR) notation.
+    , _iprStatus :: Maybe Text
+      -- ^ The status of the IP range, for example, "authorized".
     } deriving (Show, Generic)
 
 instance FromXML IPRange where
@@ -684,25 +684,25 @@ instance FromXML OrderableClusterOption where
 
 -- | Describes a parameter in a cluster parameter group.
 data Parameter = Parameter
-    { _prParameterValue :: Maybe Text
-      -- ^ The value of the parameter.
-    , _prMinimumEngineVersion :: Maybe Text
-      -- ^ The earliest engine version to which the parameter can apply.
-    , _prSource :: Maybe Text
-      -- ^ The source of the parameter value, such as "engine-default" or
-      -- "user".
+    { _prAllowedValues :: Maybe Text
+      -- ^ The valid range of values for the parameter.
+    , _prDataType :: Maybe Text
+      -- ^ The data type of the parameter.
+    , _prDescription :: Maybe Text
+      -- ^ A description of the parameter.
     , _prIsModifiable :: Maybe Bool
       -- ^ If true, the parameter can be modified. Some parameters have
       -- security or operational implications that prevent them from being
       -- changed.
-    , _prDataType :: Maybe Text
-      -- ^ The data type of the parameter.
-    , _prAllowedValues :: Maybe Text
-      -- ^ The valid range of values for the parameter.
+    , _prMinimumEngineVersion :: Maybe Text
+      -- ^ The earliest engine version to which the parameter can apply.
     , _prParameterName :: Maybe Text
       -- ^ The name of the parameter.
-    , _prDescription :: Maybe Text
-      -- ^ A description of the parameter.
+    , _prParameterValue :: Maybe Text
+      -- ^ The value of the parameter.
+    , _prSource :: Maybe Text
+      -- ^ The source of the parameter value, such as "engine-default" or
+      -- "user".
     } deriving (Show, Generic)
 
 instance FromXML Parameter where
@@ -715,24 +715,24 @@ instance ToQuery Parameter where
 -- | If present, changes to the cluster are pending. Specific pending changes
 -- are identified by subelements.
 data PendingModifiedValues = PendingModifiedValues
-    { _pmvMasterUserPassword :: Maybe Text
-      -- ^ The pending or in-progress change of the master user password for
-      -- the cluster.
-    , _pmvAutomatedSnapshotRetentionPeriod :: Maybe Integer
+    { _pmvAutomatedSnapshotRetentionPeriod :: Maybe Integer
       -- ^ The pending or in-progress change of the automated snapshot
       -- retention period.
     , _pmvClusterIdentifier :: Maybe Text
       -- ^ The pending or in-progress change of the new identifier for the
       -- cluster.
-    , _pmvNumberOfNodes :: Maybe Integer
-      -- ^ The pending or in-progress change of the number of nodes in the
-      -- cluster.
     , _pmvClusterType :: Maybe Text
       -- ^ The pending or in-progress change of the cluster type.
     , _pmvClusterVersion :: Maybe Text
       -- ^ The pending or in-progress change of the service version.
+    , _pmvMasterUserPassword :: Maybe Text
+      -- ^ The pending or in-progress change of the master user password for
+      -- the cluster.
     , _pmvNodeType :: Maybe Text
       -- ^ The pending or in-progress change of the cluster's node type.
+    , _pmvNumberOfNodes :: Maybe Integer
+      -- ^ The pending or in-progress change of the number of nodes in the
+      -- cluster.
     } deriving (Show, Generic)
 
 instance FromXML PendingModifiedValues where
@@ -744,11 +744,11 @@ instance ToQuery PendingModifiedValues where
 
 -- | Describes a recurring charge.
 data RecurringCharge = RecurringCharge
-    { _rcRecurringChargeFrequency :: Maybe Text
-      -- ^ The frequency at which the recurring charge amount is applied.
-    , _rcRecurringChargeAmount :: Maybe Double
+    { _rcRecurringChargeAmount :: Maybe Double
       -- ^ The amount charged per the period of time specified by the
       -- recurring charge frequency.
+    , _rcRecurringChargeFrequency :: Maybe Text
+      -- ^ The frequency at which the recurring charge amount is applied.
     } deriving (Show, Generic)
 
 instance FromXML RecurringCharge where
@@ -760,39 +760,39 @@ instance ToQuery RecurringCharge where
 
 -- | Describes a reserved node.
 data ReservedNode = ReservedNode
-    { _rnState :: Maybe Text
+    { _rnCurrencyCode :: Maybe Text
+      -- ^ The currency code for the reserved cluster.
+    , _rnDuration :: Maybe Integer
+      -- ^ The duration of the node reservation in seconds.
+    , _rnFixedPrice :: Maybe Double
+      -- ^ The fixed cost Amazon Redshift charged you for this reserved
+      -- node.
+    , _rnNodeCount :: Maybe Integer
+      -- ^ The number of reserved compute nodes.
+    , _rnNodeType :: Maybe Text
+      -- ^ The node type of the reserved node.
+    , _rnOfferingType :: Maybe Text
+      -- ^ The anticipated utilization of the reserved node, as defined in
+      -- the reserved node offering.
+    , _rnRecurringCharges :: [RecurringCharge]
+      -- ^ The recurring charges for the reserved node.
+    , _rnReservedNodeId :: Maybe Text
+      -- ^ The unique identifier for the reservation.
+    , _rnReservedNodeOfferingId :: Maybe Text
+      -- ^ The identifier for the reserved node offering.
+    , _rnStartTime :: Maybe ISO8601
+      -- ^ The time the reservation started. You purchase a reserved node
+      -- offering for a duration. This is the start time of that duration.
+    , _rnState :: Maybe Text
       -- ^ The state of the reserved Compute Node. Possible Values:
       -- pending-payment-This reserved node has recently been purchased,
       -- and the sale has been approved, but payment has not yet been
       -- confirmed. active-This reserved node is owned by the caller and
       -- is available for use. payment-failed-Payment failed for the
       -- purchase attempt.
-    , _rnCurrencyCode :: Maybe Text
-      -- ^ The currency code for the reserved cluster.
-    , _rnStartTime :: Maybe ISO8601
-      -- ^ The time the reservation started. You purchase a reserved node
-      -- offering for a duration. This is the start time of that duration.
-    , _rnNodeCount :: Maybe Integer
-      -- ^ The number of reserved compute nodes.
-    , _rnReservedNodeId :: Maybe Text
-      -- ^ The unique identifier for the reservation.
-    , _rnReservedNodeOfferingId :: Maybe Text
-      -- ^ The identifier for the reserved node offering.
-    , _rnRecurringCharges :: [RecurringCharge]
-      -- ^ The recurring charges for the reserved node.
-    , _rnOfferingType :: Maybe Text
-      -- ^ The anticipated utilization of the reserved node, as defined in
-      -- the reserved node offering.
     , _rnUsagePrice :: Maybe Double
       -- ^ The hourly rate Amazon Redshift charge you for this reserved
       -- node.
-    , _rnNodeType :: Maybe Text
-      -- ^ The node type of the reserved node.
-    , _rnFixedPrice :: Maybe Double
-      -- ^ The fixed cost Amazon Redshift charged you for this reserved
-      -- node.
-    , _rnDuration :: Maybe Integer
-      -- ^ The duration of the node reservation in seconds.
     } deriving (Show, Generic)
 
 instance FromXML ReservedNode where
@@ -803,26 +803,26 @@ instance FromXML ReservedNode where
 data ReservedNodeOffering = ReservedNodeOffering
     { _rnoCurrencyCode :: Maybe Text
       -- ^ The currency code for the compute nodes offering.
-    , _rnoReservedNodeOfferingId :: Maybe Text
-      -- ^ The offering identifier.
+    , _rnoDuration :: Maybe Integer
+      -- ^ The duration, in seconds, for which the offering will reserve the
+      -- node.
+    , _rnoFixedPrice :: Maybe Double
+      -- ^ The upfront fixed charge you will pay to purchase the specific
+      -- reserved node offering.
+    , _rnoNodeType :: Maybe Text
+      -- ^ The node type offered by the reserved node offering.
+    , _rnoOfferingType :: Maybe Text
+      -- ^ The anticipated utilization of the reserved node, as defined in
+      -- the reserved node offering.
     , _rnoRecurringCharges :: [RecurringCharge]
       -- ^ The charge to your account regardless of whether you are creating
       -- any clusters using the node offering. Recurring charges are only
       -- in effect for heavy-utilization reserved nodes.
-    , _rnoOfferingType :: Maybe Text
-      -- ^ The anticipated utilization of the reserved node, as defined in
-      -- the reserved node offering.
+    , _rnoReservedNodeOfferingId :: Maybe Text
+      -- ^ The offering identifier.
     , _rnoUsagePrice :: Maybe Double
       -- ^ The rate you are charged for each hour the cluster that is using
       -- the offering is running.
-    , _rnoNodeType :: Maybe Text
-      -- ^ The node type offered by the reserved node offering.
-    , _rnoFixedPrice :: Maybe Double
-      -- ^ The upfront fixed charge you will pay to purchase the specific
-      -- reserved node offering.
-    , _rnoDuration :: Maybe Integer
-      -- ^ The duration, in seconds, for which the offering will reserve the
-      -- node.
     } deriving (Show, Generic)
 
 instance FromXML ReservedNodeOffering where
@@ -832,23 +832,23 @@ instance FromXML ReservedNodeOffering where
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
 data RestoreStatus = RestoreStatus
-    { _rsStatus :: Maybe Text
-      -- ^ The status of the restore action. Returns starting, restoring,
-      -- completed, or failed.
-    , _rsEstimatedTimeToCompletionInSeconds :: Maybe Integer
-      -- ^ The estimate of the time remaining before the restore will
-      -- complete. Returns 0 for a completed restore.
-    , _rsCurrentRestoreRateInMegaBytesPerSecond :: Maybe Double
+    { _rsCurrentRestoreRateInMegaBytesPerSecond :: Maybe Double
       -- ^ The number of megabytes per second being transferred from the
       -- backup storage. Returns the average rate for a completed backup.
-    , _rsProgressInMegaBytes :: Maybe Integer
-      -- ^ The number of megabytes that have been transferred from snapshot
-      -- storage.
     , _rsElapsedTimeInSeconds :: Maybe Integer
       -- ^ The amount of time an in-progress restore has been running, or
       -- the amount of time it took a completed restore to finish.
+    , _rsEstimatedTimeToCompletionInSeconds :: Maybe Integer
+      -- ^ The estimate of the time remaining before the restore will
+      -- complete. Returns 0 for a completed restore.
+    , _rsProgressInMegaBytes :: Maybe Integer
+      -- ^ The number of megabytes that have been transferred from snapshot
+      -- storage.
     , _rsSnapshotSizeInMegaBytes :: Maybe Integer
       -- ^ The size of the set of snapshot data used to restore the cluster.
+    , _rsStatus :: Maybe Text
+      -- ^ The status of the restore action. Returns starting, restoring,
+      -- completed, or failed.
     } deriving (Show, Generic)
 
 instance FromXML RestoreStatus where
@@ -860,79 +860,79 @@ instance ToQuery RestoreStatus where
 
 -- | Describes a snapshot.
 data Snapshot = Snapshot
-    { _ssstStatus :: Maybe Text
-      -- ^ The snapshot status. The value of the status depends on the API
-      -- operation used. CreateClusterSnapshot and CopyClusterSnapshot
-      -- returns status as "creating". DescribeClusterSnapshots returns
-      -- status as "creating", "available", "final snapshot", or "failed".
-      -- DeleteClusterSnapshot returns status as "deleted".
-    , _ssstAccountsWithRestoreAccess :: [AccountWithRestoreAccess]
+    { _ssstAccountsWithRestoreAccess :: [AccountWithRestoreAccess]
       -- ^ A list of the AWS customer accounts authorized to restore the
       -- snapshot. Returns null if no accounts are authorized. Visible
       -- only to the snapshot owner.
-    , _ssstSnapshotIdentifier :: Maybe Text
-      -- ^ The snapshot identifier that is provided in the request.
+    , _ssstActualIncrementalBackupSizeInMegaBytes :: Maybe Double
+      -- ^ The size of the incremental backup.
+    , _ssstAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone in which the cluster was created.
+    , _ssstBackupProgressInMegaBytes :: Maybe Double
+      -- ^ The number of megabytes that have been transferred to the
+      -- snapshot backup.
+    , _ssstClusterCreateTime :: Maybe ISO8601
+      -- ^ The time (UTC) when the cluster was originally created.
+    , _ssstClusterIdentifier :: Maybe Text
+      -- ^ The identifier of the cluster for which the snapshot was taken.
+    , _ssstClusterVersion :: Maybe Text
+      -- ^ The version ID of the Amazon Redshift engine that is running on
+      -- the cluster.
+    , _ssstCurrentBackupRateInMegaBytesPerSecond :: Maybe Double
+      -- ^ The number of megabytes per second being transferred to the
+      -- snapshot backup. Returns 0 for a completed backup.
+    , _ssstDBName :: Maybe Text
+      -- ^ The name of the database that was created when the cluster was
+      -- created.
+    , _ssstElapsedTimeInSeconds :: Maybe Integer
+      -- ^ The amount of time an in-progress snapshot backup has been
+      -- running, or the amount of time it took a completed backup to
+      -- finish.
+    , _ssstEncrypted :: Maybe Bool
+      -- ^ If true, the data in the snapshot is encrypted at rest.
     , _ssstEncryptedWithHSM :: Maybe Bool
       -- ^ A boolean that indicates whether the snapshot data is encrypted
       -- using the HSM keys of the source cluster. true indicates that the
       -- data is encrypted using HSM keys.
+    , _ssstEstimatedSecondsToCompletion :: Maybe Integer
+      -- ^ The estimate of the time remaining before the snapshot backup
+      -- will complete. Returns 0 for a completed backup.
     , _ssstMasterUsername :: Maybe Text
       -- ^ The master user name for the cluster.
-    , _ssstSourceRegion :: Maybe Text
-      -- ^ The source region from which the snapshot was copied.
-    , _ssstVpcId :: Maybe Text
-      -- ^ The VPC identifier of the cluster if the snapshot is from a
-      -- cluster in a VPC. Otherwise, this field is not in the output.
-    , _ssstBackupProgressInMegaBytes :: Maybe Double
-      -- ^ The number of megabytes that have been transferred to the
-      -- snapshot backup.
-    , _ssstEncrypted :: Maybe Bool
-      -- ^ If true, the data in the snapshot is encrypted at rest.
-    , _ssstClusterIdentifier :: Maybe Text
-      -- ^ The identifier of the cluster for which the snapshot was taken.
+    , _ssstNodeType :: Maybe Text
+      -- ^ The node type of the nodes in the cluster.
     , _ssstNumberOfNodes :: Maybe Integer
       -- ^ The number of nodes in the cluster.
-    , _ssstSnapshotType :: Maybe Text
-      -- ^ The snapshot type. Snapshots created using CreateClusterSnapshot
-      -- and CopyClusterSnapshot will be of type "manual".
-    , _ssstAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone in which the cluster was created.
-    , _ssstCurrentBackupRateInMegaBytesPerSecond :: Maybe Double
-      -- ^ The number of megabytes per second being transferred to the
-      -- snapshot backup. Returns 0 for a completed backup.
-    , _ssstSnapshotCreateTime :: Maybe ISO8601
-      -- ^ The time (UTC) when Amazon Redshift began the snapshot. A
-      -- snapshot contains a copy of the cluster data as of this exact
-      -- time.
-    , _ssstClusterVersion :: Maybe Text
-      -- ^ The version ID of the Amazon Redshift engine that is running on
-      -- the cluster.
     , _ssstOwnerAccount :: Maybe Text
       -- ^ For manual snapshots, the AWS customer account used to create or
       -- copy the snapshot. For automatic snapshots, the owner of the
       -- cluster. The owner can perform all snapshot actions, such as
       -- sharing a manual snapshot.
-    , _ssstNodeType :: Maybe Text
-      -- ^ The node type of the nodes in the cluster.
-    , _ssstElapsedTimeInSeconds :: Maybe Integer
-      -- ^ The amount of time an in-progress snapshot backup has been
-      -- running, or the amount of time it took a completed backup to
-      -- finish.
-    , _ssstClusterCreateTime :: Maybe ISO8601
-      -- ^ The time (UTC) when the cluster was originally created.
-    , _ssstEstimatedSecondsToCompletion :: Maybe Integer
-      -- ^ The estimate of the time remaining before the snapshot backup
-      -- will complete. Returns 0 for a completed backup.
-    , _ssstActualIncrementalBackupSizeInMegaBytes :: Maybe Double
-      -- ^ The size of the incremental backup.
     , _ssstPort :: Maybe Integer
       -- ^ The port that the cluster is listening on.
+    , _ssstSnapshotCreateTime :: Maybe ISO8601
+      -- ^ The time (UTC) when Amazon Redshift began the snapshot. A
+      -- snapshot contains a copy of the cluster data as of this exact
+      -- time.
+    , _ssstSnapshotIdentifier :: Maybe Text
+      -- ^ The snapshot identifier that is provided in the request.
+    , _ssstSnapshotType :: Maybe Text
+      -- ^ The snapshot type. Snapshots created using CreateClusterSnapshot
+      -- and CopyClusterSnapshot will be of type "manual".
+    , _ssstSourceRegion :: Maybe Text
+      -- ^ The source region from which the snapshot was copied.
+    , _ssstStatus :: Maybe Text
+      -- ^ The snapshot status. The value of the status depends on the API
+      -- operation used. CreateClusterSnapshot and CopyClusterSnapshot
+      -- returns status as "creating". DescribeClusterSnapshots returns
+      -- status as "creating", "available", "final snapshot", or "failed".
+      -- DeleteClusterSnapshot returns status as "deleted".
     , _ssstTotalBackupSizeInMegaBytes :: Maybe Double
       -- ^ The size of the complete set of backup data that would be used to
       -- restore the cluster.
-    , _ssstDBName :: Maybe Text
-      -- ^ The name of the database that was created when the cluster was
-      -- created.
+    , _ssstVpcId :: Maybe Text
+      -- ^ The VPC identifier of the cluster if the snapshot is from a
+      -- cluster in a VPC. Otherwise, this field is not in the output.
     } deriving (Show, Generic)
 
 instance FromXML Snapshot where
@@ -941,12 +941,12 @@ instance FromXML Snapshot where
 
 -- | Describes a subnet.
 data Subnet = Subnet
-    { _ssssssxSubnetStatus :: Maybe Text
-      -- ^ The status of the subnet.
-    , _ssssssxSubnetIdentifier :: Maybe Text
-      -- ^ The identifier of the subnet.
-    , _ssssssxSubnetAvailabilityZone :: Maybe AvailabilityZone
+    { _sssssszSubnetAvailabilityZone :: Maybe AvailabilityZone
       -- ^ Describes an availability zone.
+    , _sssssszSubnetIdentifier :: Maybe Text
+      -- ^ The identifier of the subnet.
+    , _sssssszSubnetStatus :: Maybe Text
+      -- ^ The status of the subnet.
     } deriving (Show, Generic)
 
 instance FromXML Subnet where

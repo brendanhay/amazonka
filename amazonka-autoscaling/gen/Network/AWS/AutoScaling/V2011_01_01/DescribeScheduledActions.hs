@@ -33,8 +33,8 @@ describeScheduledActions = DescribeScheduledActions
     { _dsauMaxRecords = Nothing
     , _dsauAutoScalingGroupName = Nothing
     , _dsauScheduledActionNames = mempty
-    , _dsauStartTime = Nothing
     , _dsauEndTime = Nothing
+    , _dsauStartTime = Nothing
     , _dsauNextToken = Nothing
     }
 
@@ -50,12 +50,12 @@ data DescribeScheduledActions = DescribeScheduledActions
       -- an auto scaling group name is provided, the results are limited
       -- to that group. If unknown scheduled actions are requested, they
       -- are ignored with no error.
-    , _dsauStartTime :: Maybe ISO8601
-      -- ^ The earliest scheduled start time to return. If scheduled action
-      -- names are provided, this field will be ignored.
     , _dsauEndTime :: Maybe ISO8601
       -- ^ The latest scheduled start time to return. If scheduled action
       -- names are provided, this field is ignored.
+    , _dsauStartTime :: Maybe ISO8601
+      -- ^ The earliest scheduled start time to return. If scheduled action
+      -- names are provided, this field will be ignored.
     , _dsauNextToken :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.

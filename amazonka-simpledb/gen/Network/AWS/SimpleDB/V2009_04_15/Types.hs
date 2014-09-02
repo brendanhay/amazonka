@@ -128,14 +128,14 @@ xmlOptions = Tagged def
 
 -- | 
 data Attribute = Attribute
-    { _aAlternateValueEncoding :: Maybe Text
+    { _aAlternateNameEncoding :: Maybe Text
       -- ^ 
-    , _aValue :: Text
-      -- ^ The value of the attribute.
-    , _aAlternateNameEncoding :: Maybe Text
+    , _aAlternateValueEncoding :: Maybe Text
       -- ^ 
     , _aName :: Text
       -- ^ The name of the attribute.
+    , _aValue :: Text
+      -- ^ The value of the attribute.
     } deriving (Show, Generic)
 
 instance FromXML Attribute where
@@ -169,14 +169,14 @@ instance FromXML Item where
 
 -- | 
 data ReplaceableAttribute = ReplaceableAttribute
-    { _raReplace :: Maybe Bool
+    { _raName :: Text
+      -- ^ The name of the replaceable attribute.
+    , _raReplace :: Maybe Bool
       -- ^ A flag specifying whether or not to replace the attribute/value
       -- pair or to add a new attribute/value pair. The default setting is
       -- false.
     , _raValue :: Text
       -- ^ The value of the replaceable attribute.
-    , _raName :: Text
-      -- ^ The name of the replaceable attribute.
     } deriving (Show, Generic)
 
 instance FromXML ReplaceableAttribute where
@@ -208,11 +208,11 @@ data UpdateCondition = UpdateCondition
       -- update condition to be satisfied. Specify false if the attribute
       -- should not exist in order for the update condition to be
       -- satisfied.
+    , _ucName :: Maybe Text
+      -- ^ The name of the attribute involved in the condition.
     , _ucValue :: Maybe Text
       -- ^ The value of an attribute. This value can only be specified when
       -- the Exists parameter is equal to true.
-    , _ucName :: Maybe Text
-      -- ^ The name of the attribute involved in the condition.
     } deriving (Show, Generic)
 
 instance ToQuery UpdateCondition where

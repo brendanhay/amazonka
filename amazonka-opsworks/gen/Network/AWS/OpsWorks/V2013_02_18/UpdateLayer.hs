@@ -34,16 +34,16 @@ updateLayer :: Text -- ^ '_ulrLayerId'
             -> UpdateLayer
 updateLayer p1 = UpdateLayer
     { _ulrLayerId = p1
-    , _ulrInstallUpdatesOnBoot = Nothing
-    , _ulrEnableAutoHealing = Nothing
-    , _ulrAutoAssignPublicIps = Nothing
-    , _ulrUseEbsOptimizedInstances = Nothing
     , _ulrAutoAssignElasticIps = Nothing
+    , _ulrAutoAssignPublicIps = Nothing
+    , _ulrEnableAutoHealing = Nothing
+    , _ulrInstallUpdatesOnBoot = Nothing
+    , _ulrUseEbsOptimizedInstances = Nothing
     , _ulrAttributes = mempty
     , _ulrCustomRecipes = Nothing
     , _ulrCustomInstanceProfileArn = Nothing
-    , _ulrShortname = Nothing
     , _ulrName = Nothing
+    , _ulrShortname = Nothing
     , _ulrCustomSecurityGroupIds = mempty
     , _ulrPackages = mempty
     , _ulrVolumeConfigurations = mempty
@@ -52,6 +52,15 @@ updateLayer p1 = UpdateLayer
 data UpdateLayer = UpdateLayer
     { _ulrLayerId :: Text
       -- ^ The layer ID.
+    , _ulrAutoAssignElasticIps :: Maybe Bool
+      -- ^ Whether to automatically assign an Elastic IP address to the
+      -- layer's instances. For more information, see How to Edit a Layer.
+    , _ulrAutoAssignPublicIps :: Maybe Bool
+      -- ^ For stacks that are running in a VPC, whether to automatically
+      -- assign a public IP address to the layer's instances. For more
+      -- information, see How to Edit a Layer.
+    , _ulrEnableAutoHealing :: Maybe Bool
+      -- ^ Whether to disable auto healing for the layer.
     , _ulrInstallUpdatesOnBoot :: Maybe Bool
       -- ^ Whether to install operating system and package updates when the
       -- instance boots. The default value is true. To control when
@@ -61,17 +70,8 @@ data UpdateLayer = UpdateLayer
       -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
       -- recommend using the default value of true, to ensure that your
       -- instances have the latest security updates.
-    , _ulrEnableAutoHealing :: Maybe Bool
-      -- ^ Whether to disable auto healing for the layer.
-    , _ulrAutoAssignPublicIps :: Maybe Bool
-      -- ^ For stacks that are running in a VPC, whether to automatically
-      -- assign a public IP address to the layer's instances. For more
-      -- information, see How to Edit a Layer.
     , _ulrUseEbsOptimizedInstances :: Maybe Bool
       -- ^ Whether to use Amazon EBS-optimized instances.
-    , _ulrAutoAssignElasticIps :: Maybe Bool
-      -- ^ Whether to automatically assign an Elastic IP address to the
-      -- layer's instances. For more information, see How to Edit a Layer.
     , _ulrAttributes :: Map LayerAttributesKeys Text
       -- ^ One or more user-defined key/value pairs to be added to the stack
       -- attributes.
@@ -82,14 +82,14 @@ data UpdateLayer = UpdateLayer
       -- ^ The ARN of an IAM profile to be used for all of the layer's EC2
       -- instances. For more information about IAM ARNs, see Using
       -- Identifiers.
+    , _ulrName :: Maybe Text
+      -- ^ The layer name, which is used by the console.
     , _ulrShortname :: Maybe Text
       -- ^ The layer short name, which is used internally by AWS OpsWorksand
       -- by Chef. The short name is also used as the name for the
       -- directory where your app files are installed. It can have a
       -- maximum of 200 characters and must be in the following format:
       -- /\A[a-z0-9\-\_\.]+\Z/.
-    , _ulrName :: Maybe Text
-      -- ^ The layer name, which is used by the console.
     , _ulrCustomSecurityGroupIds :: [Text]
       -- ^ An array containing the layer's custom security group IDs.
     , _ulrPackages :: [Text]

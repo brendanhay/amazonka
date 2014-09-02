@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 describeEventSubscriptions :: DescribeEventSubscriptions
 describeEventSubscriptions = DescribeEventSubscriptions
     { _desnMaxRecords = Nothing
-    , _desnSubscriptionName = Nothing
     , _desnMarker = Nothing
+    , _desnSubscriptionName = Nothing
     }
 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
@@ -51,14 +51,14 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
       -- token called a marker is included in the response so that the
       -- remaining results can be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _desnSubscriptionName :: Maybe Text
-      -- ^ The name of the RDS event notification subscription you want to
-      -- describe.
     , _desnMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeOrderableDBInstanceOptions request. If this parameter is
       -- specified, the response includes only records beyond the marker,
       -- up to the value specified by MaxRecords .
+    , _desnSubscriptionName :: Maybe Text
+      -- ^ The name of the RDS event notification subscription you want to
+      -- describe.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeEventSubscriptions

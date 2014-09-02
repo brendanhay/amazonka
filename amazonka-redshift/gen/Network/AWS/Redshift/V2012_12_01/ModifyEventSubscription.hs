@@ -33,9 +33,9 @@ modifyEventSubscription p1 = ModifyEventSubscription
     , _mesmEnabled = Nothing
     , _mesmEventCategories = mempty
     , _mesmSourceIds = mempty
+    , _mesmSeverity = Nothing
     , _mesmSnsTopicArn = Nothing
     , _mesmSourceType = Nothing
-    , _mesmSeverity = Nothing
     }
 
 data ModifyEventSubscription = ModifyEventSubscription
@@ -57,6 +57,9 @@ data ModifyEventSubscription = ModifyEventSubscription
       -- not specified, then events are returned for all objects within
       -- the source type specified. Example: my-cluster-1, my-cluster-2
       -- Example: my-snapshot-20131010.
+    , _mesmSeverity :: Maybe Text
+      -- ^ Specifies the Amazon Redshift event severity to be published by
+      -- the event notification subscription. Values: ERROR, INFO.
     , _mesmSnsTopicArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the SNS topic to be used by the
       -- event notification subscription.
@@ -69,9 +72,6 @@ data ModifyEventSubscription = ModifyEventSubscription
       -- order to specify source IDs. Valid values: cluster,
       -- cluster-parameter-group, cluster-security-group, and
       -- cluster-snapshot.
-    , _mesmSeverity :: Maybe Text
-      -- ^ Specifies the Amazon Redshift event severity to be published by
-      -- the event notification subscription. Values: ERROR, INFO.
     } deriving (Show, Generic)
 
 makeLenses ''ModifyEventSubscription

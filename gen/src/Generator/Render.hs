@@ -29,7 +29,7 @@ import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import qualified Data.Text.Lazy.IO   as LText
 import           Data.Text.Util
-import           Generator.AST
+import           Generator.AST       hiding (HashMap)
 import           Generator.Log
 import           Generator.ToJSON    ()
 import           System.Directory

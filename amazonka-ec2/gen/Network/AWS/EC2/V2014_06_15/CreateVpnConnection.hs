@@ -77,25 +77,25 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateVpnConnection' request.
-createVpnConnection :: Text -- ^ '_cvcrVpnGatewayId'
-                    -> Text -- ^ '_cvcrCustomerGatewayId'
+createVpnConnection :: Text -- ^ '_cvcrCustomerGatewayId'
                     -> Text -- ^ '_cvcrType'
+                    -> Text -- ^ '_cvcrVpnGatewayId'
                     -> CreateVpnConnection
 createVpnConnection p1 p2 p3 = CreateVpnConnection
-    { _cvcrVpnGatewayId = p1
-    , _cvcrCustomerGatewayId = p2
-    , _cvcrType = p3
+    { _cvcrCustomerGatewayId = p1
+    , _cvcrType = p2
+    , _cvcrVpnGatewayId = p3
     , _cvcrDryRun = Nothing
     , _cvcrOptions = Nothing
     }
 
 data CreateVpnConnection = CreateVpnConnection
-    { _cvcrVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _cvcrCustomerGatewayId :: Text
+    { _cvcrCustomerGatewayId :: Text
       -- ^ The ID of the customer gateway.
     , _cvcrType :: Text
       -- ^ The type of VPN connection.
+    , _cvcrVpnGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
     , _cvcrDryRun :: Maybe Bool
       -- ^ 
     , _cvcrOptions :: Maybe VpnConnectionOptionsSpecification

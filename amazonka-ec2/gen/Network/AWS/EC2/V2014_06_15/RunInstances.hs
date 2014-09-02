@@ -101,8 +101,8 @@ runInstances p1 p2 p3 = RunInstances
     , _rirImageId = p3
     , _rirBlockDeviceMappings = mempty
     , _rirDisableApiTermination = Nothing
-    , _rirEbsOptimized = Nothing
     , _rirDryRun = Nothing
+    , _rirEbsOptimized = Nothing
     , _rirIamInstanceProfile = Nothing
     , _rirNetworkInterfaces = mempty
     , _rirInstanceType = Nothing
@@ -113,12 +113,12 @@ runInstances p1 p2 p3 = RunInstances
     , _rirInstanceInitiatedShutdownBehavior = Nothing
     , _rirAdditionalInfo = Nothing
     , _rirClientToken = Nothing
+    , _rirKernelId = Nothing
     , _rirKeyName = Nothing
+    , _rirPrivateIpAddress = Nothing
     , _rirRamdiskId = Nothing
     , _rirSubnetId = Nothing
-    , _rirKernelId = Nothing
     , _rirUserData = Nothing
-    , _rirPrivateIpAddress = Nothing
     }
 
 data RunInstances = RunInstances
@@ -153,6 +153,8 @@ data RunInstances = RunInstances
       -- InstanceInitiatedShutdownBehavior to terminate, you can terminate
       -- the instance by running the shutdown command from the instance.
       -- Default: false.
+    , _rirDryRun :: Maybe Bool
+      -- ^ 
     , _rirEbsOptimized :: Maybe Bool
       -- ^ Indicates whether the instance is optimized for EBS I/O. This
       -- optimization provides dedicated throughput to Amazon EBS and an
@@ -160,8 +162,6 @@ data RunInstances = RunInstances
       -- performance. This optimization isn't available with all instance
       -- types. Additional usage charges apply when using an EBS-optimized
       -- instance. Default: false.
-    , _rirDryRun :: Maybe Bool
-      -- ^ 
     , _rirIamInstanceProfile :: Maybe IamInstanceProfileSpecification
       -- ^ The IAM instance profile.
     , _rirNetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
@@ -192,23 +192,15 @@ data RunInstances = RunInstances
       -- idempotency of the request. For more information, see How to
       -- Ensure Idempotency in the Amazon Elastic Compute Cloud User
       -- Guide. Constraints: Maximum 64 ASCII characters.
-    , _rirKeyName :: Maybe Text
-      -- ^ The name of the key pair. You can create a key pair using
-      -- CreateKeyPair or ImportKeyPair. If you launch an instance without
-      -- specifying a key pair, you can't connect to the instance.
-    , _rirRamdiskId :: Maybe Text
-      -- ^ The ID of the RAM disk.
-    , _rirSubnetId :: Maybe Text
-      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
     , _rirKernelId :: Maybe Text
       -- ^ The ID of the kernel. We recommend that you use PV-GRUB instead
       -- of kernels and RAM disks. For more information, see PV-GRUB: A
       -- New Amazon Kernel Image in the Amazon Elastic Compute Cloud User
       -- Guide.
-    , _rirUserData :: Maybe ByteString
-      -- ^ The user data for the instances. You can specify the user data as
-      -- a string, or if the user data contents are in a file, you can use
-      -- file://filename.
+    , _rirKeyName :: Maybe Text
+      -- ^ The name of the key pair. You can create a key pair using
+      -- CreateKeyPair or ImportKeyPair. If you launch an instance without
+      -- specifying a key pair, you can't connect to the instance.
     , _rirPrivateIpAddress :: Maybe Text
       -- ^ [EC2-VPC] The primary IP address. You must specify a value from
       -- the IP address range of the subnet. Only one private IP address
@@ -217,6 +209,14 @@ data RunInstances = RunInstances
       -- PrivateIpAddresses.n.PrivateIpAddress is set to an IP address.
       -- Default: We select an IP address from the IP address range of the
       -- subnet.
+    , _rirRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk.
+    , _rirSubnetId :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
+    , _rirUserData :: Maybe ByteString
+      -- ^ The user data for the instances. You can specify the user data as
+      -- a string, or if the user data contents are in a file, you can use
+      -- file://filename.
     } deriving (Show, Generic)
 
 makeLenses ''RunInstances
@@ -231,11 +231,11 @@ data RunInstancesResponse = RunInstancesResponse
       -- ^ One or more instances.
     , _rnOwnerId :: Maybe Text
       -- ^ The ID of the AWS account that owns the reservation.
-    , _rnReservationId :: Maybe Text
-      -- ^ The ID of the reservation.
     , _rnRequesterId :: Maybe Text
       -- ^ The ID of the requester that launched the instances on your
       -- behalf (for example, AWS Management Console or Auto Scaling).
+    , _rnReservationId :: Maybe Text
+      -- ^ The ID of the reservation.
     } deriving (Show, Generic)
 
 makeLenses ''RunInstancesResponse

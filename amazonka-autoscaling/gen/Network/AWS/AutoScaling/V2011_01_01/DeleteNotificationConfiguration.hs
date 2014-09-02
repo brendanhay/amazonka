@@ -26,11 +26,11 @@ import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
-    { _dnctTopicARN :: Text
+    { _dnctAutoScalingGroupName :: Text
+      -- ^ The name of the Auto Scaling group.
+    , _dnctTopicARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
       -- Service (SNS) topic.
-    , _dnctAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group.
     } deriving (Show, Generic)
 
 makeLenses ''DeleteNotificationConfiguration

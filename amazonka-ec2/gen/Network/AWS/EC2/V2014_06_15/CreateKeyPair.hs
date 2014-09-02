@@ -80,10 +80,10 @@ instance ToQuery CreateKeyPair where
 data CreateKeyPairResponse = CreateKeyPairResponse
     { _ckpsKeyFingerprint :: Maybe Text
       -- ^ The SHA-1 digest of the DER encoded private key.
-    , _ckpsKeyName :: Maybe Text
-      -- ^ The name of the key pair.
     , _ckpsKeyMaterial :: Maybe Text
       -- ^ An unencrypted PEM encoded RSA private key.
+    , _ckpsKeyName :: Maybe Text
+      -- ^ The name of the key pair.
     } deriving (Show, Generic)
 
 makeLenses ''CreateKeyPairResponse

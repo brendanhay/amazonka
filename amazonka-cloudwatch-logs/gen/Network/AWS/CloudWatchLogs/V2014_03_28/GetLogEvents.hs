@@ -61,8 +61,8 @@ getLogEvents p1 p2 = GetLogEvents
     , _glerLimit = Nothing
     , _glerNextToken = Nothing
     , _glerStartFromHead = Nothing
-    , _glerStartTime = Nothing
     , _glerEndTime = Nothing
+    , _glerStartTime = Nothing
     }
 
 data GetLogEvents = GetLogEvents
@@ -79,10 +79,10 @@ data GetLogEvents = GetLogEvents
       -- or nextBackwardToken fields in the response of the previous
       -- GetLogEvents request.
     , _glerStartFromHead :: Maybe Bool
-    , _glerStartTime :: Maybe Integer
+    , _glerEndTime :: Maybe Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
-    , _glerEndTime :: Maybe Integer
+    , _glerStartTime :: Maybe Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
     } deriving (Show, Generic)

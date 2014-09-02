@@ -47,16 +47,16 @@ getMetricStatistics :: Text -- ^ '_gmsiMetricName'
                     -> Text -- ^ '_gmsiNamespace'
                     -> Integer -- ^ '_gmsiPeriod'
                     -> [Statistic] -- ^ '_gmsiStatistics'
-                    -> ISO8601 -- ^ '_gmsiStartTime'
                     -> ISO8601 -- ^ '_gmsiEndTime'
+                    -> ISO8601 -- ^ '_gmsiStartTime'
                     -> GetMetricStatistics
 getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
     { _gmsiMetricName = p1
     , _gmsiNamespace = p2
     , _gmsiPeriod = p3
     , _gmsiStatistics = p4
-    , _gmsiStartTime = p5
-    , _gmsiEndTime = p6
+    , _gmsiEndTime = p5
+    , _gmsiStartTime = p6
     , _gmsiDimensions = mempty
     , _gmsiUnit = Nothing
     }
@@ -72,6 +72,10 @@ data GetMetricStatistics = GetMetricStatistics
       -- default value is 60.
     , _gmsiStatistics :: [Statistic]
       -- ^ The metric statistics to return.
+    , _gmsiEndTime :: ISO8601
+      -- ^ The time stamp to use for determining the last datapoint to
+      -- return. The value specified is exclusive; results will include
+      -- datapoints up to the time stamp specified.
     , _gmsiStartTime :: ISO8601
       -- ^ The time stamp to use for determining the first datapoint to
       -- return. The value specified is inclusive; results include
@@ -80,10 +84,6 @@ data GetMetricStatistics = GetMetricStatistics
       -- returned for start times up to two weeks in the past. Specified
       -- start times that are more than two weeks in the past will not
       -- return datapoints for metrics that are older than two weeks.
-    , _gmsiEndTime :: ISO8601
-      -- ^ The time stamp to use for determining the last datapoint to
-      -- return. The value specified is exclusive; results will include
-      -- datapoints up to the time stamp specified.
     , _gmsiDimensions :: [Dimension]
       -- ^ A list of dimensions describing qualities of the metric.
     , _gmsiUnit :: Maybe StandardUnit

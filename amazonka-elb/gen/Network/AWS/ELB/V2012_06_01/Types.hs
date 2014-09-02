@@ -154,13 +154,13 @@ data AccessLog = AccessLog
       -- interval of either 5 minutes or 60 minutes. Default: 60 minutes.
     , _alEnabled :: Bool
       -- ^ Specifies whether access log is enabled for the load balancer.
+    , _alS3BucketName :: Maybe Text
+      -- ^ The name of the Amazon S3 bucket where the access logs are
+      -- stored.
     , _alS3BucketPrefix :: Maybe Text
       -- ^ The logical hierarchy you created for your Amazon S3 bucket, for
       -- example my-bucket-prefix/prod. If the prefix is not provided, the
       -- log is placed at the root level of the bucket.
-    , _alS3BucketName :: Maybe Text
-      -- ^ The name of the Amazon S3 bucket where the access logs are
-      -- stored.
     } deriving (Show, Generic)
 
 instance FromXML AccessLog where
@@ -172,11 +172,11 @@ instance ToQuery AccessLog where
 
 -- | The AppCookieStickinessPolicy data type.
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy
-    { _acsqPolicyName :: Maybe Text
+    { _acsqCookieName :: Maybe Text
+      -- ^ The name of the application cookie used for stickiness.
+    , _acsqPolicyName :: Maybe Text
       -- ^ The mnemonic name for the policy being created. The name must be
       -- unique within a set of policies for this load balancer.
-    , _acsqCookieName :: Maybe Text
-      -- ^ The name of the application cookie used for stickiness.
     } deriving (Show, Generic)
 
 instance FromXML AppCookieStickinessPolicy where
@@ -189,10 +189,10 @@ instance ToQuery AppCookieStickinessPolicy where
 -- | This data type is used as a response element in the DescribeLoadBalancers
 -- action to describe the configuration of the back-end server.
 data BackendServerDescription = BackendServerDescription
-    { _bsePolicyNames :: [Text]
-      -- ^ Provides a list of policy names enabled for the back-end server.
-    , _bseInstancePort :: Maybe Integer
+    { _bseInstancePort :: Maybe Integer
       -- ^ Provides the port on which the back-end server is listening.
+    , _bsePolicyNames :: [Text]
+      -- ^ Provides a list of policy names enabled for the back-end server.
     } deriving (Show, Generic)
 
 instance FromXML BackendServerDescription where
@@ -231,13 +231,6 @@ data HealthCheck = HealthCheck
     , _hcInterval :: Integer
       -- ^ Specifies the approximate interval, in seconds, between health
       -- checks of an individual instance.
-    , _hcTimeout :: Integer
-      -- ^ Specifies the amount of time, in seconds, during which no
-      -- response means a failed health probe. This value must be less
-      -- than the Interval value.
-    , _hcUnhealthyThreshold :: Integer
-      -- ^ Specifies the number of consecutive health probe failures
-      -- required before moving the instance to the Unhealthy state.
     , _hcTarget :: Text
       -- ^ Specifies the instance being checked. The protocol is either TCP,
       -- HTTP, HTTPS, or SSL. The range of valid ports is one (1) through
@@ -254,6 +247,13 @@ data HealthCheck = HealthCheck
       -- other than "200 OK" within the timeout period is considered
       -- unhealthy. The total length of the HTTP ping target needs to be
       -- 1024 16-bit Unicode characters or less.
+    , _hcTimeout :: Integer
+      -- ^ Specifies the amount of time, in seconds, during which no
+      -- response means a failed health probe. This value must be less
+      -- than the Interval value.
+    , _hcUnhealthyThreshold :: Integer
+      -- ^ Specifies the number of consecutive health probe failures
+      -- required before moving the instance to the Unhealthy state.
     } deriving (Show, Generic)
 
 instance FromXML HealthCheck where
@@ -265,18 +265,18 @@ instance ToQuery HealthCheck where
 
 -- | The InstanceState data type.
 data InstanceState = InstanceState
-    { _ivInstanceId :: Maybe Text
+    { _ivDescription :: Maybe Text
+      -- ^ Provides a description of the instance state.
+    , _ivInstanceId :: Maybe Text
       -- ^ Provides an EC2 instance ID.
-    , _ivState :: Maybe Text
-      -- ^ Specifies the current state of the instance. Valid value:
-      -- InService|OutOfService|Unknown.
     , _ivReasonCode :: Maybe Text
       -- ^ Provides information about the cause of OutOfService instances.
       -- Specifically, it indicates whether the cause is Elastic Load
       -- Balancing or the instance behind the load balancer. Valid value:
       -- ELB|Instance|N/A.
-    , _ivDescription :: Maybe Text
-      -- ^ Provides a description of the instance state.
+    , _ivState :: Maybe Text
+      -- ^ Specifies the current state of the instance. Valid value:
+      -- InService|OutOfService|Unknown.
     } deriving (Show, Generic)
 
 instance FromXML InstanceState where
@@ -285,14 +285,14 @@ instance FromXML InstanceState where
 
 -- | The LBCookieStickinessPolicy data type.
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy
-    { _lbcsqPolicyName :: Maybe Text
-      -- ^ The name for the policy being created. The name must be unique
-      -- within the set of policies for this load balancer.
-    , _lbcsqCookieExpirationPeriod :: Maybe Integer
+    { _lbcsqCookieExpirationPeriod :: Maybe Integer
       -- ^ The time period in seconds after which the cookie should be
       -- considered stale. Not specifying this parameter indicates that
       -- the stickiness session will last for the duration of the browser
       -- session.
+    , _lbcsqPolicyName :: Maybe Text
+      -- ^ The name for the policy being created. The name must be unique
+      -- within the set of policies for this load balancer.
     } deriving (Show, Generic)
 
 instance FromXML LBCookieStickinessPolicy where
@@ -304,7 +304,11 @@ instance ToQuery LBCookieStickinessPolicy where
 
 -- | The Listener data type.
 data Listener = Listener
-    { _lInstanceProtocol :: Maybe Text
+    { _lInstancePort :: Integer
+      -- ^ Specifies the TCP port on which the instance server is listening.
+      -- This property cannot be modified for the life of the load
+      -- balancer.
+    , _lInstanceProtocol :: Maybe Text
       -- ^ Specifies the protocol to use for routing traffic to back-end
       -- instances - HTTP, HTTPS, TCP, or SSL. This property cannot be
       -- modified for the life of the load balancer. If the front-end
@@ -317,10 +321,6 @@ data Listener = Listener
       -- is another listener with the same InstancePort whose
       -- InstanceProtocol is HTTP or TCP, the listener's InstanceProtocol
       -- must be either HTTP or TCP.
-    , _lInstancePort :: Integer
-      -- ^ Specifies the TCP port on which the instance server is listening.
-      -- This property cannot be modified for the life of the load
-      -- balancer.
     , _lLoadBalancerPort :: Integer
       -- ^ Specifies the external load balancer port number. This property
       -- cannot be modified for the life of the load balancer.
@@ -343,11 +343,11 @@ instance ToQuery Listener where
 
 -- | The ListenerDescription data type.
 data ListenerDescription = ListenerDescription
-    { _lePolicyNames :: [Text]
+    { _leListener :: Maybe Listener
+      -- ^ The Listener data type.
+    , _lePolicyNames :: [Text]
       -- ^ A list of policies enabled for this listener. An empty list
       -- indicates that no policies are enabled.
-    , _leListener :: Maybe Listener
-      -- ^ The Listener data type.
     } deriving (Show, Generic)
 
 instance FromXML ListenerDescription where
@@ -359,16 +359,17 @@ instance ToQuery ListenerDescription where
 
 -- | Attributes of the load balancer.
 data LoadBalancerAttributes = LoadBalancerAttributes
-    { _lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing
-      -- ^ The name of the load balancer attribute. If enabled, the load
-      -- balancer routes the request traffic evenly across all back-end
-      -- instances regardless of the Availability Zones. For more
-      -- information, see Enable Cross-Zone Load Balancing.
-    , _lbaAccessLog :: Maybe AccessLog
+    { _lbaAccessLog :: Maybe AccessLog
       -- ^ The name of the load balancer attribute. If enabled, the load
       -- balancer captures detailed information of all the requests and
       -- delivers the information to the Amazon S3 bucket that you
       -- specify. For more information, see Enable Access Logs.
+    , _lbaConnectionDraining :: Maybe ConnectionDraining
+      -- ^ The name of the load balancer attribute. If enabled, the load
+      -- balancer allows existing requests to complete before the load
+      -- balancer shifts traffic away from a deregistered or unhealthy
+      -- back-end instance. For more information, see Enable Connection
+      -- Draining.
     , _lbaConnectionSettings :: Maybe ConnectionSettings
       -- ^ The name of the load balancer attribute. By default, Elastic Load
       -- Balancing maintains a 60-second idle connection timeout for both
@@ -377,12 +378,11 @@ data LoadBalancerAttributes = LoadBalancerAttributes
       -- allow the connections to remain idle (no data is sent over the
       -- connection) for the specified duration. For more information, see
       -- Configure Idle Connection Timeout.
-    , _lbaConnectionDraining :: Maybe ConnectionDraining
+    , _lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing
       -- ^ The name of the load balancer attribute. If enabled, the load
-      -- balancer allows existing requests to complete before the load
-      -- balancer shifts traffic away from a deregistered or unhealthy
-      -- back-end instance. For more information, see Enable Connection
-      -- Draining.
+      -- balancer routes the request traffic evenly across all back-end
+      -- instances regardless of the Availability Zones. For more
+      -- information, see Enable Cross-Zone Load Balancing.
     } deriving (Show, Generic)
 
 instance FromXML LoadBalancerAttributes where
@@ -394,43 +394,40 @@ instance ToQuery LoadBalancerAttributes where
 
 -- | Contains the result of a successful invocation of DescribeLoadBalancers.
 data LoadBalancerDescription = LoadBalancerDescription
-    { _lbeSourceSecurityGroup :: Maybe SourceSecurityGroup
-      -- ^ The security group that you can use as part of your inbound rules
-      -- for your load balancer's back-end Amazon EC2 application
-      -- instances. To only allow traffic from load balancers, add a
-      -- security group rule to your back end instance that specifies this
-      -- source security group as the inbound source.
+    { _lbeAvailabilityZones :: [Text]
+      -- ^ Specifies a list of Availability Zones.
+    , _lbeBackendServerDescriptions :: [BackendServerDescription]
+      -- ^ Contains a list of back-end server descriptions.
     , _lbeCanonicalHostedZoneName :: Maybe Text
       -- ^ Provides the name of the Amazon Route 53 hosted zone that is
       -- associated with the load balancer. For information on how to
       -- associate your load balancer with a hosted zone, go to Using
       -- Domain Names With Elastic Load Balancing in the Elastic Load
       -- Balancing Developer Guide.
-    , _lbeSecurityGroups :: [Text]
-      -- ^ The security groups the load balancer is a member of (VPC only).
-    , _lbeHealthCheck :: Maybe HealthCheck
-      -- ^ Specifies information regarding the various health probes
-      -- conducted on the load balancer.
-    , _lbeLoadBalancerName :: Maybe Text
-      -- ^ Specifies the name associated with the load balancer.
-    , _lbeCreatedTime :: Maybe ISO8601
-      -- ^ Provides the date and time the load balancer was created.
-    , _lbeVPCId :: Maybe Text
-      -- ^ Provides the ID of the VPC attached to the load balancer.
-    , _lbeSubnets :: [Text]
-      -- ^ Provides a list of VPC subnet IDs for the load balancer.
-    , _lbeAvailabilityZones :: [Text]
-      -- ^ Specifies a list of Availability Zones.
-    , _lbeBackendServerDescriptions :: [BackendServerDescription]
-      -- ^ Contains a list of back-end server descriptions.
     , _lbeCanonicalHostedZoneNameID :: Maybe Text
       -- ^ Provides the ID of the Amazon Route 53 hosted zone name that is
       -- associated with the load balancer. For information on how to
       -- associate or disassociate your load balancer with a hosted zone,
       -- go to Using Domain Names With Elastic Load Balancing in the
       -- Elastic Load Balancing Developer Guide.
+    , _lbeCreatedTime :: Maybe ISO8601
+      -- ^ Provides the date and time the load balancer was created.
+    , _lbeDNSName :: Maybe Text
+      -- ^ Specifies the external DNS name associated with the load
+      -- balancer.
+    , _lbeHealthCheck :: Maybe HealthCheck
+      -- ^ Specifies information regarding the various health probes
+      -- conducted on the load balancer.
     , _lbeInstances :: [Instance]
       -- ^ Provides a list of EC2 instance IDs for the load balancer.
+    , _lbeListenerDescriptions :: [ListenerDescription]
+      -- ^ LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
+      -- PolicyNames are returned in a list of tuples in the
+      -- ListenerDescriptions element.
+    , _lbeLoadBalancerName :: Maybe Text
+      -- ^ Specifies the name associated with the load balancer.
+    , _lbePolicies :: Maybe Policies
+      -- ^ Provides a list of policies defined for the load balancer.
     , _lbeScheme :: Maybe Text
       -- ^ Specifies the type of load balancer. If the Scheme is
       -- internet-facing, the load balancer has a publicly resolvable DNS
@@ -438,15 +435,18 @@ data LoadBalancerDescription = LoadBalancerDescription
       -- internal, the load balancer has a publicly resolvable DNS name
       -- that resolves to private IP addresses. This option is only
       -- available for load balancers attached to an Amazon VPC.
-    , _lbeListenerDescriptions :: [ListenerDescription]
-      -- ^ LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
-      -- PolicyNames are returned in a list of tuples in the
-      -- ListenerDescriptions element.
-    , _lbeDNSName :: Maybe Text
-      -- ^ Specifies the external DNS name associated with the load
-      -- balancer.
-    , _lbePolicies :: Maybe Policies
-      -- ^ Provides a list of policies defined for the load balancer.
+    , _lbeSecurityGroups :: [Text]
+      -- ^ The security groups the load balancer is a member of (VPC only).
+    , _lbeSourceSecurityGroup :: Maybe SourceSecurityGroup
+      -- ^ The security group that you can use as part of your inbound rules
+      -- for your load balancer's back-end Amazon EC2 application
+      -- instances. To only allow traffic from load balancers, add a
+      -- security group rule to your back end instance that specifies this
+      -- source security group as the inbound source.
+    , _lbeSubnets :: [Text]
+      -- ^ Provides a list of VPC subnet IDs for the load balancer.
+    , _lbeVPCId :: Maybe Text
+      -- ^ Provides the ID of the VPC attached to the load balancer.
     } deriving (Show, Generic)
 
 instance FromXML LoadBalancerDescription where
@@ -455,14 +455,14 @@ instance FromXML LoadBalancerDescription where
 
 -- | Provides a list of policies defined for the load balancer.
 data Policies = Policies
-    { _rOtherPolicies :: [Text]
-      -- ^ A list of policy names other than the stickiness policies.
+    { _rAppCookieStickinessPolicies :: [AppCookieStickinessPolicy]
+      -- ^ A list of the AppCookieStickinessPolicy objects created with
+      -- CreateAppCookieStickinessPolicy.
     , _rLBCookieStickinessPolicies :: [LBCookieStickinessPolicy]
       -- ^ A list of LBCookieStickinessPolicy objects created with
       -- CreateAppCookieStickinessPolicy.
-    , _rAppCookieStickinessPolicies :: [AppCookieStickinessPolicy]
-      -- ^ A list of the AppCookieStickinessPolicy objects created with
-      -- CreateAppCookieStickinessPolicy.
+    , _rOtherPolicies :: [Text]
+      -- ^ A list of policy names other than the stickiness policies.
     } deriving (Show, Generic)
 
 instance FromXML Policies where
@@ -475,10 +475,10 @@ instance ToQuery Policies where
 -- | The PolicyAttribute data type. This data type contains a key/value pair
 -- that defines properties of a specific policy.
 data PolicyAttribute = PolicyAttribute
-    { _pbAttributeValue :: Maybe Text
-      -- ^ The value of the attribute associated with the policy.
-    , _pbAttributeName :: Maybe Text
+    { _pbAttributeName :: Maybe Text
       -- ^ The name of the attribute associated with the policy.
+    , _pbAttributeValue :: Maybe Text
+      -- ^ The value of the attribute associated with the policy.
     } deriving (Show, Generic)
 
 instance ToQuery PolicyAttribute where
@@ -487,10 +487,10 @@ instance ToQuery PolicyAttribute where
 -- | The PolicyAttributeDescription data type. This data type is used to
 -- describe the attributes and values associated with a policy.
 data PolicyAttributeDescription = PolicyAttributeDescription
-    { _paeAttributeValue :: Maybe Text
-      -- ^ The value of the attribute associated with the policy.
-    , _paeAttributeName :: Maybe Text
+    { _paeAttributeName :: Maybe Text
       -- ^ The name of the attribute associated with the policy.
+    , _paeAttributeValue :: Maybe Text
+      -- ^ The value of the attribute associated with the policy.
     } deriving (Show, Generic)
 
 instance FromXML PolicyAttributeDescription where
@@ -503,7 +503,9 @@ instance ToQuery PolicyAttributeDescription where
 -- | The PolicyAttributeTypeDescription data type. This data type is used to
 -- describe values that are acceptable for the policy attribute.
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
-    { _pateAttributeType :: Maybe Text
+    { _pateAttributeName :: Maybe Text
+      -- ^ The name of the attribute associated with the policy type.
+    , _pateAttributeType :: Maybe Text
       -- ^ The type of attribute. For example, Boolean, Integer, etc.
     , _pateCardinality :: Maybe Text
       -- ^ The cardinality of the attribute. Valid Values: ONE(1) : Single
@@ -513,8 +515,6 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
       -- allowed.
     , _pateDefaultValue :: Maybe Text
       -- ^ The default value of the attribute, if applicable.
-    , _pateAttributeName :: Maybe Text
-      -- ^ The name of the attribute associated with the policy type.
     , _pateDescription :: Maybe Text
       -- ^ A human-readable description of the attribute.
     } deriving (Show, Generic)
@@ -528,10 +528,10 @@ instance ToQuery PolicyAttributeTypeDescription where
 
 -- | The PolicyDescription data type.
 data PolicyDescription = PolicyDescription
-    { _pePolicyName :: Maybe Text
-      -- ^ The name of the policy associated with the load balancer.
-    , _pePolicyAttributeDescriptions :: [PolicyAttributeDescription]
+    { _pePolicyAttributeDescriptions :: [PolicyAttributeDescription]
       -- ^ A list of policy attribute description structures.
+    , _pePolicyName :: Maybe Text
+      -- ^ The name of the policy associated with the load balancer.
     , _pePolicyTypeName :: Maybe Text
       -- ^ The name of the policy type associated with the load balancer.
     } deriving (Show, Generic)
@@ -542,13 +542,13 @@ instance FromXML PolicyDescription where
 
 -- | The PolicyTypeDescription data type.
 data PolicyTypeDescription = PolicyTypeDescription
-    { _ptePolicyTypeName :: Maybe Text
-      -- ^ The name of the policy type.
-    , _pteDescription :: Maybe Text
+    { _pteDescription :: Maybe Text
       -- ^ A human-readable description of the policy type.
     , _ptePolicyAttributeTypeDescriptions :: [PolicyAttributeTypeDescription]
       -- ^ The description of the policy attributes associated with the load
       -- balancer policies defined by the Elastic Load Balancing service.
+    , _ptePolicyTypeName :: Maybe Text
+      -- ^ The name of the policy type.
     } deriving (Show, Generic)
 
 instance FromXML PolicyTypeDescription where
@@ -560,13 +560,13 @@ instance FromXML PolicyTypeDescription where
 -- traffic from load balancers, add a security group rule to your back end
 -- instance that specifies this source security group as the inbound source.
 data SourceSecurityGroup = SourceSecurityGroup
-    { _ssgOwnerAlias :: Maybe Text
-      -- ^ Owner of the source security group. Use this value for the
-      -- --source-group-user parameter of the ec2-authorize command in the
-      -- Amazon EC2 command line tool.
-    , _ssgGroupName :: Maybe Text
+    { _ssgGroupName :: Maybe Text
       -- ^ Name of the source security group. Use this value for the
       -- --source-group parameter of the ec2-authorize command in the
+      -- Amazon EC2 command line tool.
+    , _ssgOwnerAlias :: Maybe Text
+      -- ^ Owner of the source security group. Use this value for the
+      -- --source-group-user parameter of the ec2-authorize command in the
       -- Amazon EC2 command line tool.
     } deriving (Show, Generic)
 
@@ -580,10 +580,10 @@ instance ToQuery SourceSecurityGroup where
 -- | Metadata assigned to a load balancer consisting of key-value pair. For more
 -- information, see Tagging in the Elastic Load Balancing Developer Guide.
 data Tag = Tag
-    { _tValue :: Maybe Text
-      -- ^ The value of the tag.
-    , _tKey :: Text
+    { _tKey :: Text
       -- ^ The key of the tag.
+    , _tValue :: Maybe Text
+      -- ^ The value of the tag.
     } deriving (Show, Generic)
 
 instance FromXML Tag where

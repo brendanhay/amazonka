@@ -89,11 +89,11 @@ instance Exception (Er CognitoIdentity)
 
 -- | A description of the identity.
 data IdentityDescription = IdentityDescription
-    { _idLogins :: [Text]
+    { _idIdentityId :: Maybe Text
+      -- ^ A unique identifier in the format REGION:GUID.
+    , _idLogins :: [Text]
       -- ^ A set of optional name/value pairs that map provider names to
       -- provider tokens.
-    , _idIdentityId :: Maybe Text
-      -- ^ A unique identifier in the format REGION:GUID.
     } deriving (Show, Generic)
 
 instance FromJSON IdentityDescription

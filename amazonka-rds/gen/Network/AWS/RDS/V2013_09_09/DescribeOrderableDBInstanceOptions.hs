@@ -44,8 +44,8 @@ describeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
     { _dodbiomEngine = p1
     , _dodbiomVpc = Nothing
     , _dodbiomMaxRecords = Nothing
-    , _dodbiomEngineVersion = Nothing
     , _dodbiomDBInstanceClass = Nothing
+    , _dodbiomEngineVersion = Nothing
     , _dodbiomLicenseModel = Nothing
     , _dodbiomMarker = Nothing
     }
@@ -62,14 +62,14 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
       -- token called a marker is included in the response so that the
       -- remaining results can be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _dodbiomEngineVersion :: Maybe Text
-      -- ^ The engine version filter value. Specify this parameter to show
-      -- only the available offerings matching the specified engine
-      -- version.
     , _dodbiomDBInstanceClass :: Maybe Text
       -- ^ The DB instance class filter value. Specify this parameter to
       -- show only the available offerings matching the specified DB
       -- instance class.
+    , _dodbiomEngineVersion :: Maybe Text
+      -- ^ The engine version filter value. Specify this parameter to show
+      -- only the available offerings matching the specified engine
+      -- version.
     , _dodbiomLicenseModel :: Maybe Text
       -- ^ The license model filter value. Specify this parameter to show
       -- only the available offerings matching the specified license

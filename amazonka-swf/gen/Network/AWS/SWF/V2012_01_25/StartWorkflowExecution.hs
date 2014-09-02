@@ -76,8 +76,8 @@ startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
     , _swejWorkflowType = p3
     , _swejChildPolicy = Nothing
     , _swejInput = Nothing
-    , _swejTaskStartToCloseTimeout = Nothing
     , _swejExecutionStartToCloseTimeout = Nothing
+    , _swejTaskStartToCloseTimeout = Nothing
     , _swejTagList = mempty
     , _swejTaskList = Nothing
     }
@@ -122,18 +122,6 @@ data StartWorkflowExecution = StartWorkflowExecution
       -- which should be meaningful to the workflow you are starting. This
       -- input is made available to the new workflow execution in the
       -- WorkflowExecutionStarted history event.
-    , _swejTaskStartToCloseTimeout :: Maybe Text
-      -- ^ Specifies the maximum duration of decision tasks for this
-      -- workflow execution. This parameter overrides the
-      -- defaultTaskStartToCloseTimout specified when registering the
-      -- workflow type using RegisterWorkflowType. The valid values are
-      -- integers greater than or equal to 0. An integer value can be used
-      -- to specify the duration in seconds while NONE can be used to
-      -- specify unlimited duration. A task start-to-close timeout for
-      -- this workflow execution must be specified either as a default for
-      -- the workflow type or through this parameter. If neither this
-      -- parameter is set nor a default task start-to-close timeout was
-      -- specified at registration time then a fault will be returned.
     , _swejExecutionStartToCloseTimeout :: Maybe Text
       -- ^ The total duration for this workflow execution. This overrides
       -- the defaultExecutionStartToCloseTimeout specified when
@@ -147,6 +135,18 @@ data StartWorkflowExecution = StartWorkflowExecution
       -- through this parameter or as a default when the workflow type is
       -- registered. If neither this parameter nor a default execution
       -- start-to-close timeout is specified, a fault is returned.
+    , _swejTaskStartToCloseTimeout :: Maybe Text
+      -- ^ Specifies the maximum duration of decision tasks for this
+      -- workflow execution. This parameter overrides the
+      -- defaultTaskStartToCloseTimout specified when registering the
+      -- workflow type using RegisterWorkflowType. The valid values are
+      -- integers greater than or equal to 0. An integer value can be used
+      -- to specify the duration in seconds while NONE can be used to
+      -- specify unlimited duration. A task start-to-close timeout for
+      -- this workflow execution must be specified either as a default for
+      -- the workflow type or through this parameter. If neither this
+      -- parameter is set nor a default task start-to-close timeout was
+      -- specified at registration time then a fault will be returned.
     , _swejTagList :: [Text]
       -- ^ The list of tags to associate with the workflow execution. You
       -- can specify a maximum of 5 tags. You can list workflow executions

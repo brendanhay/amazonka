@@ -39,27 +39,15 @@ revokeDBSecurityGroupIngress :: Text -- ^ '_rdbsgimDBSecurityGroupName'
                              -> RevokeDBSecurityGroupIngress
 revokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
     { _rdbsgimDBSecurityGroupName = p1
-    , _rdbsgimEC2SecurityGroupOwnerId = Nothing
-    , _rdbsgimEC2SecurityGroupName = Nothing
     , _rdbsgimCIDRIP = Nothing
     , _rdbsgimEC2SecurityGroupId = Nothing
+    , _rdbsgimEC2SecurityGroupName = Nothing
+    , _rdbsgimEC2SecurityGroupOwnerId = Nothing
     }
 
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
     { _rdbsgimDBSecurityGroupName :: Text
       -- ^ The name of the DB security group to revoke ingress from.
-    , _rdbsgimEC2SecurityGroupOwnerId :: Maybe Text
-      -- ^ The AWS Account Number of the owner of the EC2 security group
-      -- specified in the EC2SecurityGroupName parameter. The AWS Access
-      -- Key ID is not an acceptable value. For VPC DB security groups,
-      -- EC2SecurityGroupId must be provided. Otherwise,
-      -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
-      -- EC2SecurityGroupId must be provided.
-    , _rdbsgimEC2SecurityGroupName :: Maybe Text
-      -- ^ The name of the EC2 security group to revoke access from. For VPC
-      -- DB security groups, EC2SecurityGroupId must be provided.
-      -- Otherwise, EC2SecurityGroupOwnerId and either
-      -- EC2SecurityGroupName or EC2SecurityGroupId must be provided.
     , _rdbsgimCIDRIP :: Maybe Text
       -- ^ The IP range to revoke access from. Must be a valid CIDR range.
       -- If CIDRIP is specified, EC2SecurityGroupName, EC2SecurityGroupId
@@ -69,6 +57,18 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
       -- DB security groups, EC2SecurityGroupId must be provided.
       -- Otherwise, EC2SecurityGroupOwnerId and either
       -- EC2SecurityGroupName or EC2SecurityGroupId must be provided.
+    , _rdbsgimEC2SecurityGroupName :: Maybe Text
+      -- ^ The name of the EC2 security group to revoke access from. For VPC
+      -- DB security groups, EC2SecurityGroupId must be provided.
+      -- Otherwise, EC2SecurityGroupOwnerId and either
+      -- EC2SecurityGroupName or EC2SecurityGroupId must be provided.
+    , _rdbsgimEC2SecurityGroupOwnerId :: Maybe Text
+      -- ^ The AWS Account Number of the owner of the EC2 security group
+      -- specified in the EC2SecurityGroupName parameter. The AWS Access
+      -- Key ID is not an acceptable value. For VPC DB security groups,
+      -- EC2SecurityGroupId must be provided. Otherwise,
+      -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
+      -- EC2SecurityGroupId must be provided.
     } deriving (Show, Generic)
 
 makeLenses ''RevokeDBSecurityGroupIngress

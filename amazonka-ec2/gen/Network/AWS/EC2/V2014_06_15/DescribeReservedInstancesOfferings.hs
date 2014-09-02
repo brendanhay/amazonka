@@ -74,8 +74,8 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeReservedInstancesOfferings' request.
 describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
 describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _driorIncludeMarketplace = Nothing
-    , _driorDryRun = Nothing
+    { _driorDryRun = Nothing
+    , _driorIncludeMarketplace = Nothing
     , _driorFilters = mempty
     , _driorInstanceType = Nothing
     , _driorMaxInstanceCount = Nothing
@@ -86,15 +86,15 @@ describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _driorProductDescription = Nothing
     , _driorReservedInstancesOfferingIds = mempty
     , _driorInstanceTenancy = Nothing
-    , _driorNextToken = Nothing
     , _driorAvailabilityZone = Nothing
+    , _driorNextToken = Nothing
     }
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _driorIncludeMarketplace :: Maybe Bool
-      -- ^ Include Marketplace offerings in the response.
-    , _driorDryRun :: Maybe Bool
+    { _driorDryRun :: Maybe Bool
       -- ^ 
+    , _driorIncludeMarketplace :: Maybe Bool
+      -- ^ Include Marketplace offerings in the response.
     , _driorFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
       -- where the Reserved Instance can be used. duration - The duration
@@ -136,11 +136,11 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
       -- ^ The tenancy of the Reserved Instance offering. A Reserved
       -- Instance with dedicated tenancy runs on single-tenant hardware
       -- and can only be launched within a VPC. Default: default.
+    , _driorAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone in which the Reserved Instance can be used.
     , _driorNextToken :: Maybe Text
       -- ^ The token to use when requesting the next paginated set of
       -- offerings.
-    , _driorAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone in which the Reserved Instance can be used.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeReservedInstancesOfferings

@@ -60,14 +60,14 @@ instance ToQuery DescribeImageAttribute where
     toQuery = genericQuery def
 
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
-    { _ibRamdiskId :: Maybe AttributeValue
-      -- ^ The RAM disk ID.
+    { _ibDescription :: Maybe AttributeValue
+      -- ^ A description for the AMI.
     , _ibKernelId :: Maybe AttributeValue
       -- ^ The kernel ID.
+    , _ibRamdiskId :: Maybe AttributeValue
+      -- ^ The RAM disk ID.
     , _ibSriovNetSupport :: Maybe AttributeValue
       -- ^ 
-    , _ibDescription :: Maybe AttributeValue
-      -- ^ A description for the AMI.
     , _ibBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ One or more block device mapping entries.
     , _ibLaunchPermissions :: [LaunchPermission]

@@ -36,17 +36,22 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreatePipeline' request.
-createPipeline :: Text -- ^ '_cpiUniqueId'
-               -> Text -- ^ '_cpiName'
+createPipeline :: Text -- ^ '_cpiName'
+               -> Text -- ^ '_cpiUniqueId'
                -> CreatePipeline
 createPipeline p1 p2 = CreatePipeline
-    { _cpiUniqueId = p1
-    , _cpiName = p2
+    { _cpiName = p1
+    , _cpiUniqueId = p2
     , _cpiDescription = Nothing
     }
 
 data CreatePipeline = CreatePipeline
-    { _cpiUniqueId :: Text
+    { _cpiName :: Text
+      -- ^ The name of the new pipeline. You can use the same name for
+      -- multiple pipelines associated with your AWS account, because AWS
+      -- Data Pipeline assigns each new pipeline a unique pipeline
+      -- identifier.
+    , _cpiUniqueId :: Text
       -- ^ A unique identifier that you specify. This identifier is not the
       -- same as the pipeline identifier assigned by AWS Data Pipeline.
       -- You are responsible for defining the format and ensuring the
@@ -61,11 +66,6 @@ data CreatePipeline = CreatePipeline
       -- previous attempt. The uniqueness of the name and unique
       -- identifier combination is scoped to the AWS account or IAM user
       -- credentials.
-    , _cpiName :: Text
-      -- ^ The name of the new pipeline. You can use the same name for
-      -- multiple pipelines associated with your AWS account, because AWS
-      -- Data Pipeline assigns each new pipeline a unique pipeline
-      -- identifier.
     , _cpiDescription :: Maybe Text
       -- ^ The description of the new pipeline.
     } deriving (Show, Generic)

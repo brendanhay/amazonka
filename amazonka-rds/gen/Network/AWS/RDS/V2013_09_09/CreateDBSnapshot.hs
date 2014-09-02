@@ -33,28 +33,28 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBSnapshot' request.
-createDBSnapshot :: Text -- ^ '_cdbsnDBSnapshotIdentifier'
-                 -> Text -- ^ '_cdbsnDBInstanceIdentifier'
+createDBSnapshot :: Text -- ^ '_cdbsnDBInstanceIdentifier'
+                 -> Text -- ^ '_cdbsnDBSnapshotIdentifier'
                  -> CreateDBSnapshot
 createDBSnapshot p1 p2 = CreateDBSnapshot
-    { _cdbsnDBSnapshotIdentifier = p1
-    , _cdbsnDBInstanceIdentifier = p2
+    { _cdbsnDBInstanceIdentifier = p1
+    , _cdbsnDBSnapshotIdentifier = p2
     , _cdbsnTags = mempty
     }
 
 data CreateDBSnapshot = CreateDBSnapshot
-    { _cdbsnDBSnapshotIdentifier :: Text
-      -- ^ The identifier for the DB snapshot. Constraints: Cannot be null,
-      -- empty, or blank Must contain from 1 to 255 alphanumeric
-      -- characters or hyphens First character must be a letter Cannot end
-      -- with a hyphen or contain two consecutive hyphens Example:
-      -- my-snapshot-id.
-    , _cdbsnDBInstanceIdentifier :: Text
+    { _cdbsnDBInstanceIdentifier :: Text
       -- ^ The DB instance identifier. This is the unique key that
       -- identifies a DB instance. This parameter isn't case sensitive.
       -- Constraints: Must contain from 1 to 63 alphanumeric characters or
       -- hyphens First character must be a letter Cannot end with a hyphen
       -- or contain two consecutive hyphens.
+    , _cdbsnDBSnapshotIdentifier :: Text
+      -- ^ The identifier for the DB snapshot. Constraints: Cannot be null,
+      -- empty, or blank Must contain from 1 to 255 alphanumeric
+      -- characters or hyphens First character must be a letter Cannot end
+      -- with a hyphen or contain two consecutive hyphens Example:
+      -- my-snapshot-id.
     , _cdbsnTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)

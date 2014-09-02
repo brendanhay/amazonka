@@ -34,25 +34,25 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBSubnetGroup' request.
-createDBSubnetGroup :: Text -- ^ '_cdbsgnDBSubnetGroupName'
-                    -> Text -- ^ '_cdbsgnDBSubnetGroupDescription'
+createDBSubnetGroup :: Text -- ^ '_cdbsgnDBSubnetGroupDescription'
+                    -> Text -- ^ '_cdbsgnDBSubnetGroupName'
                     -> [Text] -- ^ '_cdbsgnSubnetIds'
                     -> CreateDBSubnetGroup
 createDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
-    { _cdbsgnDBSubnetGroupName = p1
-    , _cdbsgnDBSubnetGroupDescription = p2
+    { _cdbsgnDBSubnetGroupDescription = p1
+    , _cdbsgnDBSubnetGroupName = p2
     , _cdbsgnSubnetIds = p3
     , _cdbsgnTags = mempty
     }
 
 data CreateDBSubnetGroup = CreateDBSubnetGroup
-    { _cdbsgnDBSubnetGroupName :: Text
+    { _cdbsgnDBSubnetGroupDescription :: Text
+      -- ^ The description for the DB subnet group.
+    , _cdbsgnDBSubnetGroupName :: Text
       -- ^ The name for the DB subnet group. This value is stored as a
       -- lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters or hyphens. Must not be "Default".
       -- Example: mySubnetgroup.
-    , _cdbsgnDBSubnetGroupDescription :: Text
-      -- ^ The description for the DB subnet group.
     , _cdbsgnSubnetIds :: [Text]
       -- ^ The EC2 Subnet IDs for the DB subnet group.
     , _cdbsgnTags :: [Tag]

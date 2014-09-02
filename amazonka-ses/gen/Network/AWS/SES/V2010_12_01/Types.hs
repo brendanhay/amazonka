@@ -173,26 +173,27 @@ instance ToQuery RawMessage where
 
 -- | The message body.
 data Body = Body
-    { _byText :: Maybe Content
-      -- ^ The content of the message, in text format. Use this for
-      -- text-based email clients, or clients on high-latency networks
-      -- (such as mobile devices).
-    , _byHtml :: Maybe Content
+    { _byHtml :: Maybe Content
       -- ^ The content of the message, in HTML format. Use this for email
       -- clients that can process HTML. You can include clickable links,
       -- formatted text, and much more in an HTML message.
+    , _byText :: Maybe Content
+      -- ^ The content of the message, in text format. Use this for
+      -- text-based email clients, or clients on high-latency networks
+      -- (such as mobile devices).
     } deriving (Show, Generic)
 
 instance ToQuery Body where
     toQuery = genericQuery def
 
--- | The subject of the message: A short summary of the content, which will
--- appear in the recipient's inbox.
+-- | The content of the message, in HTML format. Use this for email clients that
+-- can process HTML. You can include clickable links, formatted text, and much
+-- more in an HTML message.
 data Content = Content
-    { _ctData :: Text
-      -- ^ The textual data of the content.
-    , _ctCharset :: Maybe Text
+    { _ctCharset :: Maybe Text
       -- ^ The character set of the content.
+    , _ctData :: Text
+      -- ^ The textual data of the content.
     } deriving (Show, Generic)
 
 instance ToQuery Content where
@@ -213,7 +214,10 @@ instance ToQuery Destination where
 
 -- | Represents the DKIM attributes of a verified email address or a domain.
 data IdentityDkimAttributes = IdentityDkimAttributes
-    { _idaDkimTokens :: [Text]
+    { _idaDkimEnabled :: Bool
+      -- ^ True if DKIM signing is enabled for email sent from the identity;
+      -- false otherwise.
+    , _idaDkimTokens :: [Text]
       -- ^ A set of character strings that represent the domain's identity.
       -- Using these tokens, you will need to create DNS CNAME records
       -- that point to DKIM public keys hosted by Amazon SES. Amazon Web
@@ -224,9 +228,6 @@ data IdentityDkimAttributes = IdentityDkimAttributes
       -- identities, not email address identities.) For more information
       -- about creating DNS records using DKIM tokens, go to the Amazon
       -- SES Developer Guide.
-    , _idaDkimEnabled :: Bool
-      -- ^ True if DKIM signing is enabled for email sent from the identity;
-      -- false otherwise.
     , _idaDkimVerificationStatus :: VerificationStatus
       -- ^ Describes whether Amazon SES has successfully verified the DKIM
       -- DNS records (tokens) published in the domain name's DNS. (This
@@ -243,15 +244,15 @@ instance FromXML IdentityDkimAttributes where
 -- bounce, complaint, and/or delivery notifications, and whether feedback
 -- forwarding is enabled for bounce and complaint notifications.
 data IdentityNotificationAttributes = IdentityNotificationAttributes
-    { _inaDeliveryTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish delivery notifications.
-    , _inaBounceTopic :: Text
+    { _inaBounceTopic :: Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
       -- Amazon SES will publish bounce notifications.
     , _inaComplaintTopic :: Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
       -- Amazon SES will publish complaint notifications.
+    , _inaDeliveryTopic :: Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
+      -- Amazon SES will publish delivery notifications.
     , _inaForwardingEnabled :: Bool
       -- ^ Describes whether Amazon SES will forward bounce and complaint
       -- notifications as email. true indicates that Amazon SES will
@@ -267,12 +268,12 @@ instance FromXML IdentityNotificationAttributes where
 
 -- | Represents the verification attributes of a single identity.
 data IdentityVerificationAttributes = IdentityVerificationAttributes
-    { _ivaVerificationToken :: Maybe Text
-      -- ^ The verification token for a domain identity. Null for email
-      -- address identities.
-    , _ivaVerificationStatus :: VerificationStatus
+    { _ivaVerificationStatus :: VerificationStatus
       -- ^ The verification status of the identity: "Pending", "Success",
       -- "Failed", or "TemporaryFailure".
+    , _ivaVerificationToken :: Maybe Text
+      -- ^ The verification token for a domain identity. Null for email
+      -- address identities.
     } deriving (Show, Generic)
 
 instance FromXML IdentityVerificationAttributes where
@@ -281,11 +282,11 @@ instance FromXML IdentityVerificationAttributes where
 
 -- | The message to be sent.
 data Message = Message
-    { _meSubject :: Content
+    { _meBody :: Body
+      -- ^ The message body.
+    , _meSubject :: Content
       -- ^ The subject of the message: A short summary of the content, which
       -- will appear in the recipient's inbox.
-    , _meBody :: Body
-      -- ^ The message body.
     } deriving (Show, Generic)
 
 instance ToQuery Message where
@@ -294,14 +295,14 @@ instance ToQuery Message where
 -- | Represents sending statistics data. Each SendDataPoint contains statistics
 -- for a 15-minute period of sending activity.
 data SendDataPoint = SendDataPoint
-    { _sdpRejects :: Maybe Integer
-      -- ^ Number of emails rejected by Amazon SES.
+    { _sdpBounces :: Maybe Integer
+      -- ^ Number of emails that have bounced.
     , _sdpComplaints :: Maybe Integer
       -- ^ Number of unwanted emails that were rejected by recipients.
     , _sdpDeliveryAttempts :: Maybe Integer
       -- ^ Number of emails that have been enqueued for sending.
-    , _sdpBounces :: Maybe Integer
-      -- ^ Number of emails that have bounced.
+    , _sdpRejects :: Maybe Integer
+      -- ^ Number of emails rejected by Amazon SES.
     , _sdpTimestamp :: Maybe ISO8601
       -- ^ Time of the data point.
     } deriving (Show, Generic)

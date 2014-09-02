@@ -31,8 +31,8 @@ import Network.AWS.Prelude
 describeEventSubscriptions :: DescribeEventSubscriptions
 describeEventSubscriptions = DescribeEventSubscriptions
     { _desnMaxRecords = Nothing
-    , _desnSubscriptionName = Nothing
     , _desnMarker = Nothing
+    , _desnSubscriptionName = Nothing
     }
 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
@@ -43,9 +43,6 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _desnSubscriptionName :: Maybe Text
-      -- ^ The name of the Amazon Redshift event notification subscription
-      -- to be described.
     , _desnMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -54,6 +51,9 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
+    , _desnSubscriptionName :: Maybe Text
+      -- ^ The name of the Amazon Redshift event notification subscription
+      -- to be described.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeEventSubscriptions

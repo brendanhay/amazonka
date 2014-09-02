@@ -23,11 +23,10 @@ import           Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
 import           Data.Char
 import           Data.Default
-import           Data.HashMap.Strict  (HashMap)
-import qualified Data.HashMap.Strict  as Map
 import           Data.HashSet         (HashSet)
 import qualified Data.HashSet         as Set
 import           Data.List
+import qualified Data.Map.Strict      as Map
 import           Data.Maybe
 import           Data.Monoid          hiding (Sum)
 import           Data.Ord
@@ -36,6 +35,8 @@ import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Generator.AST
 import           Text.EDE.Filters
+
+-- FIXME: Ensure record fields are written according to boto's ordering
 
 -- FIXME: When replacing/ignoring types via 'existing', it should actually merge
 -- the request/response shenannigans so the correct instances are written for the type

@@ -38,11 +38,11 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
-    { _dvcrrVpnConnectionId :: Text
-      -- ^ The ID of the VPN connection.
-    , _dvcrrDestinationCidrBlock :: Text
+    { _dvcrrDestinationCidrBlock :: Text
       -- ^ The CIDR block associated with the local subnet of the customer
       -- network.
+    , _dvcrrVpnConnectionId :: Text
+      -- ^ The ID of the VPN connection.
     } deriving (Show, Generic)
 
 makeLenses ''DeleteVpnConnectionRoute

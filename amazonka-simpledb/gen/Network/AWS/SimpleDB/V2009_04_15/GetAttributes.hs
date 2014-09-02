@@ -33,21 +33,21 @@ import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'GetAttributes' request.
-getAttributes :: Text -- ^ '_garItemName'
-              -> Text -- ^ '_garDomainName'
+getAttributes :: Text -- ^ '_garDomainName'
+              -> Text -- ^ '_garItemName'
               -> GetAttributes
 getAttributes p1 p2 = GetAttributes
-    { _garItemName = p1
-    , _garDomainName = p2
+    { _garDomainName = p1
+    , _garItemName = p2
     , _garAttributeNames = mempty
     , _garConsistentRead = Nothing
     }
 
 data GetAttributes = GetAttributes
-    { _garItemName :: Text
-      -- ^ The name of the item.
-    , _garDomainName :: Text
+    { _garDomainName :: Text
       -- ^ The name of the domain in which to perform the operation.
+    , _garItemName :: Text
+      -- ^ The name of the item.
     , _garAttributeNames :: [Text]
       -- ^ The names of the attributes.
     , _garConsistentRead :: Maybe Bool

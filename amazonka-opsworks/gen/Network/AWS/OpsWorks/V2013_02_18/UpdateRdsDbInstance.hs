@@ -31,17 +31,17 @@ updateRdsDbInstance :: Text -- ^ '_urdirRdsDbInstanceArn'
                     -> UpdateRdsDbInstance
 updateRdsDbInstance p1 = UpdateRdsDbInstance
     { _urdirRdsDbInstanceArn = p1
-    , _urdirDbUser = Nothing
     , _urdirDbPassword = Nothing
+    , _urdirDbUser = Nothing
     }
 
 data UpdateRdsDbInstance = UpdateRdsDbInstance
     { _urdirRdsDbInstanceArn :: Text
       -- ^ The Amazon RDS instance's ARN.
-    , _urdirDbUser :: Maybe Text
-      -- ^ The master user name.
     , _urdirDbPassword :: Maybe Text
       -- ^ The database password.
+    , _urdirDbUser :: Maybe Text
+      -- ^ The master user name.
     } deriving (Show, Generic)
 
 makeLenses ''UpdateRdsDbInstance

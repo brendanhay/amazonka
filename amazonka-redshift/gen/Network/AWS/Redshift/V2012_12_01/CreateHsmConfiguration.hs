@@ -33,22 +33,22 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 data CreateHsmConfiguration = CreateHsmConfiguration
-    { _chcmHsmServerPublicCertificate :: Text
-      -- ^ The HSMs public certificate file. When using Cloud HSM, the file
-      -- name is server.pem.
+    { _chcmDescription :: Text
+      -- ^ A text description of the HSM configuration to be created.
     , _chcmHsmConfigurationIdentifier :: Text
       -- ^ The identifier to be assigned to the new Amazon Redshift HSM
       -- configuration.
+    , _chcmHsmIpAddress :: Text
+      -- ^ The IP address that the Amazon Redshift cluster must use to
+      -- access the HSM.
     , _chcmHsmPartitionName :: Text
       -- ^ The name of the partition in the HSM where the Amazon Redshift
       -- clusters will store their database encryption keys.
     , _chcmHsmPartitionPassword :: Text
       -- ^ The password required to access the HSM partition.
-    , _chcmDescription :: Text
-      -- ^ A text description of the HSM configuration to be created.
-    , _chcmHsmIpAddress :: Text
-      -- ^ The IP address that the Amazon Redshift cluster must use to
-      -- access the HSM.
+    , _chcmHsmServerPublicCertificate :: Text
+      -- ^ The HSMs public certificate file. When using Cloud HSM, the file
+      -- name is server.pem.
     } deriving (Show, Generic)
 
 makeLenses ''CreateHsmConfiguration

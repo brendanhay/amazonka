@@ -34,27 +34,29 @@ updateStack :: Text -- ^ '_usrStackId'
             -> UpdateStack
 updateStack p1 = UpdateStack
     { _usrStackId = p1
-    , _usrUseOpsworksSecurityGroups = Nothing
     , _usrUseCustomCookbooks = Nothing
+    , _usrUseOpsworksSecurityGroups = Nothing
     , _usrChefConfiguration = Nothing
     , _usrDefaultRootDeviceType = Nothing
     , _usrCustomCookbooksSource = Nothing
     , _usrAttributes = mempty
     , _usrConfigurationManager = Nothing
-    , _usrDefaultInstanceProfileArn = Nothing
-    , _usrServiceRoleArn = Nothing
-    , _usrDefaultSshKeyName = Nothing
     , _usrCustomJson = Nothing
     , _usrDefaultAvailabilityZone = Nothing
-    , _usrName = Nothing
+    , _usrDefaultInstanceProfileArn = Nothing
     , _usrDefaultOs = Nothing
+    , _usrDefaultSshKeyName = Nothing
     , _usrDefaultSubnetId = Nothing
     , _usrHostnameTheme = Nothing
+    , _usrName = Nothing
+    , _usrServiceRoleArn = Nothing
     }
 
 data UpdateStack = UpdateStack
     { _usrStackId :: Text
       -- ^ The stack ID.
+    , _usrUseCustomCookbooks :: Maybe Bool
+      -- ^ Whether the stack uses custom cookbooks.
     , _usrUseOpsworksSecurityGroups :: Maybe Bool
       -- ^ Whether to associate the AWS OpsWorks built-in security groups
       -- with the stack's layers. AWS OpsWorks provides a standard set of
@@ -73,8 +75,6 @@ data UpdateStack = UpdateStack
       -- group with a layer on creation; custom security groups are
       -- required only for those layers that need custom settings. For
       -- more information, see Create a New Stack.
-    , _usrUseCustomCookbooks :: Maybe Bool
-      -- ^ Whether the stack uses custom cookbooks.
     , _usrChefConfiguration :: Maybe ChefConfiguration
       -- ^ A ChefConfiguration object that specifies whether to enable
       -- Berkshelf and the Berkshelf version on Chef 11.10 stacks. For
@@ -96,22 +96,6 @@ data UpdateStack = UpdateStack
       -- that you use the configuration manager to specify the Chef
       -- version, 0.9, 11.4, or 11.10. The default value is currently
       -- 11.4.
-    , _usrDefaultInstanceProfileArn :: Maybe Text
-      -- ^ The ARN of an IAM profile that is the default profile for all of
-      -- the stack's EC2 instances. For more information about IAM ARNs,
-      -- see Using Identifiers.
-    , _usrServiceRoleArn :: Maybe Text
-      -- ^ The stack AWS Identity and Access Management (IAM) role, which
-      -- allows AWS OpsWorks to work with AWS resources on your behalf.
-      -- You must set this parameter to the Amazon Resource Name (ARN) for
-      -- an existing IAM role. For more information about IAM ARNs, see
-      -- Using Identifiers. You must set this parameter to a valid service
-      -- role ARN or the action will fail; there is no default value. You
-      -- can specify the stack's current service role ARN, if you prefer,
-      -- but you must do so explicitly.
-    , _usrDefaultSshKeyName :: Maybe Text
-      -- ^ A default SSH key for the stack instances. You can override this
-      -- value when you create or update an instance.
     , _usrCustomJson :: Maybe Text
       -- ^ A string that contains user-defined, custom JSON. It is used to
       -- override the corresponding default stack configuration JSON
@@ -125,11 +109,16 @@ data UpdateStack = UpdateStack
       -- Endpoints. If you also specify a value for DefaultSubnetId, the
       -- subnet must be in the same zone. For more information, see
       -- CreateStack.
-    , _usrName :: Maybe Text
-      -- ^ The stack's new name.
+    , _usrDefaultInstanceProfileArn :: Maybe Text
+      -- ^ The ARN of an IAM profile that is the default profile for all of
+      -- the stack's EC2 instances. For more information about IAM ARNs,
+      -- see Using Identifiers.
     , _usrDefaultOs :: Maybe Text
       -- ^ The stack's default operating system, which must be set to Amazon
       -- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
+    , _usrDefaultSshKeyName :: Maybe Text
+      -- ^ A default SSH key for the stack instances. You can override this
+      -- value when you create or update an instance.
     , _usrDefaultSubnetId :: Maybe Text
       -- ^ The stack's default subnet ID. All instances will be launched
       -- into this subnet unless you specify otherwise when you create the
@@ -147,6 +136,17 @@ data UpdateStack = UpdateStack
       -- Scottish_Islands US_Cities Wild_Cats To obtain a generated host
       -- name, call GetHostNameSuggestion, which returns a host name based
       -- on the current theme.
+    , _usrName :: Maybe Text
+      -- ^ The stack's new name.
+    , _usrServiceRoleArn :: Maybe Text
+      -- ^ The stack AWS Identity and Access Management (IAM) role, which
+      -- allows AWS OpsWorks to work with AWS resources on your behalf.
+      -- You must set this parameter to the Amazon Resource Name (ARN) for
+      -- an existing IAM role. For more information about IAM ARNs, see
+      -- Using Identifiers. You must set this parameter to a valid service
+      -- role ARN or the action will fail; there is no default value. You
+      -- can specify the stack's current service role ARN, if you prefer,
+      -- but you must do so explicitly.
     } deriving (Show, Generic)
 
 makeLenses ''UpdateStack

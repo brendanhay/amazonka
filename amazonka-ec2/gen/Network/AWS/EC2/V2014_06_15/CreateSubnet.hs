@@ -49,22 +49,22 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateSubnet' request.
-createSubnet :: Text -- ^ '_cstVpcId'
-             -> Text -- ^ '_cstCidrBlock'
+createSubnet :: Text -- ^ '_cstCidrBlock'
+             -> Text -- ^ '_cstVpcId'
              -> CreateSubnet
 createSubnet p1 p2 = CreateSubnet
-    { _cstVpcId = p1
-    , _cstCidrBlock = p2
+    { _cstCidrBlock = p1
+    , _cstVpcId = p2
     , _cstDryRun = Nothing
     , _cstAvailabilityZone = Nothing
     }
 
 data CreateSubnet = CreateSubnet
-    { _cstVpcId :: Text
-      -- ^ The ID of the VPC.
-    , _cstCidrBlock :: Text
+    { _cstCidrBlock :: Text
       -- ^ The network range for the subnet, in CIDR notation. For example,
       -- 10.0.0.0/24.
+    , _cstVpcId :: Text
+      -- ^ The ID of the VPC.
     , _cstDryRun :: Maybe Bool
       -- ^ 
     , _cstAvailabilityZone :: Maybe Text

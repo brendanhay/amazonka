@@ -93,8 +93,8 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeInstanceStatus' request.
 describeInstanceStatus :: DescribeInstanceStatus
 describeInstanceStatus = DescribeInstanceStatus
-    { _disrIncludeAllInstances = Nothing
-    , _disrDryRun = Nothing
+    { _disrDryRun = Nothing
+    , _disrIncludeAllInstances = Nothing
     , _disrFilters = mempty
     , _disrInstanceIds = mempty
     , _disrMaxResults = Nothing
@@ -102,12 +102,12 @@ describeInstanceStatus = DescribeInstanceStatus
     }
 
 data DescribeInstanceStatus = DescribeInstanceStatus
-    { _disrIncludeAllInstances :: Maybe Bool
+    { _disrDryRun :: Maybe Bool
+      -- ^ 
+    , _disrIncludeAllInstances :: Maybe Bool
       -- ^ When true, includes the health status for all instances. When
       -- false, includes the health status for running instances only.
       -- Default: false.
-    , _disrDryRun :: Maybe Bool
-      -- ^ 
     , _disrFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone of
       -- the instance. event.code - The code identifying the type of event

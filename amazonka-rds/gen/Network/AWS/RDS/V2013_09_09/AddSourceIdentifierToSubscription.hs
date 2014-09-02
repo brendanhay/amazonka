@@ -35,10 +35,7 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
-    { _asitsmSubscriptionName :: Text
-      -- ^ The name of the RDS event notification subscription you want to
-      -- add a source identifier to.
-    , _asitsmSourceIdentifier :: Text
+    { _asitsmSourceIdentifier :: Text
       -- ^ The identifier of the event source to be added. An identifier
       -- must begin with a letter and must contain only ASCII letters,
       -- digits, and hyphens; it cannot end with a hyphen or contain two
@@ -48,6 +45,9 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
       -- supplied. If the source type is a DB parameter group, a
       -- DBParameterGroupName must be supplied. If the source type is a DB
       -- snapshot, a DBSnapshotIdentifier must be supplied.
+    , _asitsmSubscriptionName :: Text
+      -- ^ The name of the RDS event notification subscription you want to
+      -- add a source identifier to.
     } deriving (Show, Generic)
 
 makeLenses ''AddSourceIdentifierToSubscription

@@ -1306,71 +1306,23 @@ instance FromJSON OperationType
 
 instance ToJSON OperationType
 
--- | Provides details about the domain registrant. Type: Complex Children:
--- FirstName, MiddleName, LastName, ContactType, OrganizationName,
+-- | Provides details about the domain administrative contact. Type: Complex
+-- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
 -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
 -- Email, Fax, ExtraParams.
 data ContactDetail = ContactDetail
-    { _cdOrganizationName :: Maybe Text
-      -- ^ Name of the organization for contact types other than PERSON.
-      -- Type: String Default: None Constraints: Maximum 255 characters.
-      -- Contact type must not be PERSON. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: No.
-    , _cdEmail :: Maybe Text
-      -- ^ Email address of the contact. Type: String Default: None
-      -- Constraints: Maximum 254 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
-    , _cdState :: Maybe Text
-      -- ^ The state or province of the contact's city. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
-    , _cdFax :: Maybe Text
-      -- ^ Fax number of the contact. Type: String Default: None
-      -- Constraints: Phone number must be specified in the format
-      -- "+[country dialing code].[number including any area code]". For
-      -- example, a US phone number might appear as "+1.1234567890".
-      -- Parents: RegistrantContact, AdminContact, TechContact Required:
-      -- No.
-    , _cdLastName :: Maybe Text
-      -- ^ Last name of contact. Type: String Default: None Constraints:
-      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
-      -- TechContact Required: Yes.
-    , _cdExtraParams :: [ExtraParam]
-      -- ^ A list of name-value pairs for parameters required by certain
-      -- top-level domains. Type: Complex Default: None Parents:
-      -- RegistrantContact, AdminContact, TechContact Children: Name,
-      -- Value Required: No.
-    , _cdZipCode :: Maybe Text
-      -- ^ The zip or postal code of the contact's address. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
-    , _cdAddressLine1 :: Maybe Text
+    { _cdAddressLine1 :: Maybe Text
       -- ^ First line of the contact's address. Type: String Default: None
       -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
       -- AdminContact, TechContact Required: Yes.
-    , _cdCity :: Maybe Text
-      -- ^ The city of the contact's address. Type: String Default: None
-      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
-    , _cdPhoneNumber :: Maybe Text
-      -- ^ The phone number of the contact. Type: String Default: None
-      -- Constraints: Phone number must be specified in the format
-      -- "+[country dialing code].[number including any area code&gt;]".
-      -- For example, a US phone number might appear as "+1.1234567890".
-      -- Parents: RegistrantContact, AdminContact, TechContact Required:
-      -- Yes.
     , _cdAddressLine2 :: Maybe Text
       -- ^ Second line of contact's address, if any. Type: String Default:
       -- None Constraints: Maximum 255 characters. Parents:
       -- RegistrantContact, AdminContact, TechContact Required: No.
-    , _cdFirstName :: Maybe Text
-      -- ^ First name of contact. Type: String Default: None Constraints:
-      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
-      -- TechContact Required: Yes.
-    , _cdCountryCode :: Maybe CountryCode
-      -- ^ Code for the country of the contact's address. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: Yes.
+    , _cdCity :: Maybe Text
+      -- ^ The city of the contact's address. Type: String Default: None
+      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: Yes.
     , _cdContactType :: Maybe ContactType
       -- ^ Indicates whether the contact is a person, company, association,
       -- or public organization. If you choose an option other than
@@ -1379,6 +1331,54 @@ data ContactDetail = ContactDetail
       -- Constraints: Maximum 255 characters. Valid values: PERSON |
       -- COMPANY | ASSOCIATION | PUBLIC_BODY Parents: RegistrantContact,
       -- AdminContact, TechContact Required: Yes.
+    , _cdCountryCode :: Maybe CountryCode
+      -- ^ Code for the country of the contact's address. Type: String
+      -- Default: None Constraints: Maximum 255 characters. Parents:
+      -- RegistrantContact, AdminContact, TechContact Required: Yes.
+    , _cdEmail :: Maybe Text
+      -- ^ Email address of the contact. Type: String Default: None
+      -- Constraints: Maximum 254 characters. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: Yes.
+    , _cdExtraParams :: [ExtraParam]
+      -- ^ A list of name-value pairs for parameters required by certain
+      -- top-level domains. Type: Complex Default: None Parents:
+      -- RegistrantContact, AdminContact, TechContact Children: Name,
+      -- Value Required: No.
+    , _cdFax :: Maybe Text
+      -- ^ Fax number of the contact. Type: String Default: None
+      -- Constraints: Phone number must be specified in the format
+      -- "+[country dialing code].[number including any area code]". For
+      -- example, a US phone number might appear as "+1.1234567890".
+      -- Parents: RegistrantContact, AdminContact, TechContact Required:
+      -- No.
+    , _cdFirstName :: Maybe Text
+      -- ^ First name of contact. Type: String Default: None Constraints:
+      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
+      -- TechContact Required: Yes.
+    , _cdLastName :: Maybe Text
+      -- ^ Last name of contact. Type: String Default: None Constraints:
+      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
+      -- TechContact Required: Yes.
+    , _cdOrganizationName :: Maybe Text
+      -- ^ Name of the organization for contact types other than PERSON.
+      -- Type: String Default: None Constraints: Maximum 255 characters.
+      -- Contact type must not be PERSON. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: No.
+    , _cdPhoneNumber :: Maybe Text
+      -- ^ The phone number of the contact. Type: String Default: None
+      -- Constraints: Phone number must be specified in the format
+      -- "+[country dialing code].[number including any area code&gt;]".
+      -- For example, a US phone number might appear as "+1.1234567890".
+      -- Parents: RegistrantContact, AdminContact, TechContact Required:
+      -- Yes.
+    , _cdState :: Maybe Text
+      -- ^ The state or province of the contact's city. Type: String
+      -- Default: None Constraints: Maximum 255 characters. Parents:
+      -- RegistrantContact, AdminContact, TechContact Required: No.
+    , _cdZipCode :: Maybe Text
+      -- ^ The zip or postal code of the contact's address. Type: String
+      -- Default: None Constraints: Maximum 255 characters. Parents:
+      -- RegistrantContact, AdminContact, TechContact Required: No.
     } deriving (Show, Generic)
 
 instance FromJSON ContactDetail
@@ -1386,29 +1386,24 @@ instance FromJSON ContactDetail
 instance ToJSON ContactDetail
 
 data DomainSummary = DomainSummary
-    { _ddyExpiry :: Maybe ISO8601
+    { _ddyAutoRenew :: Maybe Bool
+      -- ^ Indicates whether the domain is automatically renewed upon
+      -- expiration. Type: Boolean Valid values: True | False.
+    , _ddyDomainName :: Text
+      -- ^ The name of a domain. Type: String.
+    , _ddyExpiry :: Maybe ISO8601
       -- ^ Expiration date of the domain in Coordinated Universal Time
       -- (UTC). Type: Long.
     , _ddyTransferLock :: Maybe Bool
       -- ^ Indicates whether a domain is locked from unauthorized transfer
       -- to another party. Type: Boolean Valid values: True | False.
-    , _ddyAutoRenew :: Maybe Bool
-      -- ^ Indicates whether the domain is automatically renewed upon
-      -- expiration. Type: Boolean Valid values: True | False.
-    , _ddyDomainName :: Text
-      -- ^ The name of a domain. Type: String.
     } deriving (Show, Generic)
 
 instance FromJSON DomainSummary
 
 -- | ExtraParam includes the following elements.
 data ExtraParam = ExtraParam
-    { _epValue :: Text
-      -- ^ Values corresponding to the additional parameter names required
-      -- by some top-level domains. Type: String Default: None
-      -- Constraints: Maximum 2048 characters. Parent: ExtraParams
-      -- Required: Yes.
-    , _epName :: ExtraParamName
+    { _epName :: ExtraParamName
       -- ^ Name of the additional parameter required by the top-level
       -- domain. Type: String Default: None Valid values: DUNS_NUMBER |
       -- BRAND_NUMBER | BIRTH_DEPARTMENT | BIRTH_DATE_IN_YYYY_MM_DD |
@@ -1416,6 +1411,11 @@ data ExtraParam = ExtraParam
       -- AU_ID_TYPE | CA_LEGAL_TYPE | FI_BUSINESS_NUMBER | FI_ID_NUMBER |
       -- IT_PIN | RU_PASSPORT_DATA | SE_ID_NUMBER | SG_ID_NUMBER |
       -- VAT_NUMBER Parent: ExtraParams Required: Yes.
+    , _epValue :: Text
+      -- ^ Values corresponding to the additional parameter names required
+      -- by some top-level domains. Type: String Default: None
+      -- Constraints: Maximum 2048 characters. Parent: ExtraParams
+      -- Required: Yes.
     } deriving (Show, Generic)
 
 instance FromJSON ExtraParam
@@ -1424,10 +1424,7 @@ instance ToJSON ExtraParam
 
 -- | Nameserver includes the following elements.
 data Nameserver = Nameserver
-    { _nName :: Text
-      -- ^ The fully qualified host name of the name server. Type: String
-      -- Constraint: Maximum 255 characterss Parent: Nameservers.
-    , _nGlueIps :: [Text]
+    { _nGlueIps :: [Text]
       -- ^ Glue IP address of a name server entry. Glue IP addresses are
       -- required only when the name of the name server is a subdomain of
       -- the domain. For example, if your domain is example.com and the
@@ -1435,6 +1432,9 @@ data Nameserver = Nameserver
       -- the IP address for ns.example.com. Type: List of IP addresses.
       -- Constraints: The list can contain only one IPv4 and one IPv6
       -- address. Parent: Nameservers.
+    , _nName :: Text
+      -- ^ The fully qualified host name of the name server. Type: String
+      -- Constraint: Maximum 255 characterss Parent: Nameservers.
     } deriving (Show, Generic)
 
 instance FromJSON Nameserver
@@ -1443,13 +1443,13 @@ instance ToJSON Nameserver
 
 -- | OperationSummary includes the following elements.
 data OperationSummary = OperationSummary
-    { _osStatus :: OperationStatus
+    { _osOperationId :: Text
+      -- ^ Identifier returned to track the requested action. Type: String.
+    , _osStatus :: OperationStatus
       -- ^ The current status of the requested operation in the system.
       -- Type: String.
     , _osSubmittedDate :: ISO8601
       -- ^ The date when the request was submitted.
-    , _osOperationId :: Text
-      -- ^ Identifier returned to track the requested action. Type: String.
     , _osType :: OperationType
       -- ^ Type of the action requested. Type: String Valid values:
       -- REGISTER_DOMAIN | DELETE_DOMAIN | TRANSFER_IN_DOMAIN |

@@ -40,8 +40,8 @@ describeClusterVersions :: DescribeClusterVersions
 describeClusterVersions = DescribeClusterVersions
     { _dcvmMaxRecords = Nothing
     , _dcvmClusterParameterGroupFamily = Nothing
-    , _dcvmMarker = Nothing
     , _dcvmClusterVersion = Nothing
+    , _dcvmMarker = Nothing
     }
 
 data DescribeClusterVersions = DescribeClusterVersions
@@ -57,6 +57,8 @@ data DescribeClusterVersions = DescribeClusterVersions
       -- details for. Constraints: Must be 1 to 255 alphanumeric
       -- characters First character must be a letter Cannot end with a
       -- hyphen or contain two consecutive hyphens.
+    , _dcvmClusterVersion :: Maybe Text
+      -- ^ The specific cluster version to return. Example: 1.0.
     , _dcvmMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -65,8 +67,6 @@ data DescribeClusterVersions = DescribeClusterVersions
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
-    , _dcvmClusterVersion :: Maybe Text
-      -- ^ The specific cluster version to return. Example: 1.0.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeClusterVersions

@@ -33,20 +33,20 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeInstances' request.
 describeInstances :: DescribeInstances
 describeInstances = DescribeInstances
-    { _disStackId = Nothing
-    , _disLayerId = Nothing
+    { _disLayerId = Nothing
+    , _disStackId = Nothing
     , _disInstanceIds = mempty
     }
 
 data DescribeInstances = DescribeInstances
-    { _disStackId :: Maybe Text
-      -- ^ A stack ID. If you use this parameter, DescribeInstances returns
-      -- descriptions of the instances associated with the specified
-      -- stack.
-    , _disLayerId :: Maybe Text
+    { _disLayerId :: Maybe Text
       -- ^ A layer ID. If you use this parameter, DescribeInstances returns
       -- descriptions of the instances associated with the specified
       -- layer.
+    , _disStackId :: Maybe Text
+      -- ^ A stack ID. If you use this parameter, DescribeInstances returns
+      -- descriptions of the instances associated with the specified
+      -- stack.
     , _disInstanceIds :: [Text]
       -- ^ An array of instance IDs to be described. If you use this
       -- parameter, DescribeInstances returns a description of the

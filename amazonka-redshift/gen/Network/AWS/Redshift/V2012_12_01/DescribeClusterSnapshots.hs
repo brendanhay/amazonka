@@ -43,13 +43,13 @@ import Network.AWS.Prelude
 describeClusterSnapshots :: DescribeClusterSnapshots
 describeClusterSnapshots = DescribeClusterSnapshots
     { _dcsnMaxRecords = Nothing
-    , _dcsnSnapshotIdentifier = Nothing
     , _dcsnClusterIdentifier = Nothing
-    , _dcsnSnapshotType = Nothing
     , _dcsnMarker = Nothing
     , _dcsnOwnerAccount = Nothing
-    , _dcsnStartTime = Nothing
+    , _dcsnSnapshotIdentifier = Nothing
+    , _dcsnSnapshotType = Nothing
     , _dcsnEndTime = Nothing
+    , _dcsnStartTime = Nothing
     }
 
 data DescribeClusterSnapshots = DescribeClusterSnapshots
@@ -60,16 +60,9 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcsnSnapshotIdentifier :: Maybe Text
-      -- ^ The snapshot identifier of the snapshot about which to return
-      -- information.
     , _dcsnClusterIdentifier :: Maybe Text
       -- ^ The identifier of the cluster for which information about
       -- snapshots is requested.
-    , _dcsnSnapshotType :: Maybe Text
-      -- ^ The type of snapshots for which you are requesting information.
-      -- By default, snapshots of all types are returned. Valid Values:
-      -- automated | manual.
     , _dcsnMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -83,16 +76,23 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots
       -- this field to filter the results to snapshots owned by a
       -- particular account. To describe snapshots you own, either specify
       -- your AWS customer account, or do not specify the parameter.
-    , _dcsnStartTime :: Maybe ISO8601
-      -- ^ A value that requests only snapshots created at or after the
-      -- specified time. The time value is specified in ISO 8601 format.
-      -- For more information about ISO 8601, go to the ISO8601 Wikipedia
-      -- page. Example: 2012-07-16T18:00:00Z.
+    , _dcsnSnapshotIdentifier :: Maybe Text
+      -- ^ The snapshot identifier of the snapshot about which to return
+      -- information.
+    , _dcsnSnapshotType :: Maybe Text
+      -- ^ The type of snapshots for which you are requesting information.
+      -- By default, snapshots of all types are returned. Valid Values:
+      -- automated | manual.
     , _dcsnEndTime :: Maybe ISO8601
       -- ^ A time value that requests only snapshots created at or before
       -- the specified time. The time value is specified in ISO 8601
       -- format. For more information about ISO 8601, go to the ISO8601
       -- Wikipedia page. Example: 2012-07-16T18:00:00Z.
+    , _dcsnStartTime :: Maybe ISO8601
+      -- ^ A value that requests only snapshots created at or after the
+      -- specified time. The time value is specified in ISO 8601 format.
+      -- For more information about ISO 8601, go to the ISO8601 Wikipedia
+      -- page. Example: 2012-07-16T18:00:00Z.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeClusterSnapshots

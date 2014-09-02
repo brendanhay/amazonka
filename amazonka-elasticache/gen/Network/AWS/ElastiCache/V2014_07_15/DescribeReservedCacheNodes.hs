@@ -38,11 +38,11 @@ describeReservedCacheNodes :: DescribeReservedCacheNodes
 describeReservedCacheNodes = DescribeReservedCacheNodes
     { _drcnmMaxRecords = Nothing
     , _drcnmCacheNodeType = Nothing
-    , _drcnmProductDescription = Nothing
-    , _drcnmMarker = Nothing
-    , _drcnmReservedCacheNodeId = Nothing
-    , _drcnmOfferingType = Nothing
     , _drcnmDuration = Nothing
+    , _drcnmMarker = Nothing
+    , _drcnmOfferingType = Nothing
+    , _drcnmProductDescription = Nothing
+    , _drcnmReservedCacheNodeId = Nothing
     , _drcnmReservedCacheNodesOfferingId = Nothing
     }
 
@@ -55,28 +55,28 @@ data DescribeReservedCacheNodes = DescribeReservedCacheNodes
     , _drcnmCacheNodeType :: Maybe Text
       -- ^ The cache node type filter value. Use this parameter to show only
       -- those reservations matching the specified cache node type.
-    , _drcnmProductDescription :: Maybe Text
-      -- ^ The product description filter value. Use this parameter to show
-      -- only those reservations matching the specified product
-      -- description.
+    , _drcnmDuration :: Maybe Text
+      -- ^ The duration filter value, specified in years or seconds. Use
+      -- this parameter to show only reservations for this duration. Valid
+      -- Values: 1 | 3 | 31536000 | 94608000.
     , _drcnmMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
-    , _drcnmReservedCacheNodeId :: Maybe Text
-      -- ^ The reserved cache node identifier filter value. Use this
-      -- parameter to show only the reservation that matches the specified
-      -- reservation ID.
     , _drcnmOfferingType :: Maybe Text
       -- ^ The offering type filter value. Use this parameter to show only
       -- the available offerings matching the specified offering type.
       -- Valid values: "Light Utilization" | "Medium Utilization" | "Heavy
       -- Utilization".
-    , _drcnmDuration :: Maybe Text
-      -- ^ The duration filter value, specified in years or seconds. Use
-      -- this parameter to show only reservations for this duration. Valid
-      -- Values: 1 | 3 | 31536000 | 94608000.
+    , _drcnmProductDescription :: Maybe Text
+      -- ^ The product description filter value. Use this parameter to show
+      -- only those reservations matching the specified product
+      -- description.
+    , _drcnmReservedCacheNodeId :: Maybe Text
+      -- ^ The reserved cache node identifier filter value. Use this
+      -- parameter to show only the reservation that matches the specified
+      -- reservation ID.
     , _drcnmReservedCacheNodesOfferingId :: Maybe Text
       -- ^ The offering identifier filter value. Use this parameter to show
       -- only purchased reservations matching the specified offering

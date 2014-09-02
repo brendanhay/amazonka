@@ -50,12 +50,12 @@ revokeSecurityGroupIngress = RevokeSecurityGroupIngress
     , _rsgirFromPort = Nothing
     , _rsgirToPort = Nothing
     , _rsgirIpPermissions = mempty
-    , _rsgirIpProtocol = Nothing
-    , _rsgirGroupId = Nothing
     , _rsgirCidrIp = Nothing
-    , _rsgirSourceSecurityGroupOwnerId = Nothing
+    , _rsgirGroupId = Nothing
     , _rsgirGroupName = Nothing
+    , _rsgirIpProtocol = Nothing
     , _rsgirSourceSecurityGroupName = Nothing
+    , _rsgirSourceSecurityGroupOwnerId = Nothing
     }
 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
@@ -71,23 +71,23 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
       -- codes for the ICMP type.
     , _rsgirIpPermissions :: [IpPermission]
       -- ^ 
-    , _rsgirIpProtocol :: Maybe Text
-      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
-      -- Numbers). Use -1 to specify all.
-    , _rsgirGroupId :: Maybe Text
-      -- ^ The ID of the security group.
     , _rsgirCidrIp :: Maybe Text
       -- ^ The CIDR IP address range. You can't specify this parameter when
       -- specifying a source security group.
-    , _rsgirSourceSecurityGroupOwnerId :: Maybe Text
-      -- ^ The ID of the source security group. You can't specify a source
-      -- security group and a CIDR IP address range.
+    , _rsgirGroupId :: Maybe Text
+      -- ^ The ID of the security group.
     , _rsgirGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the security group.
+    , _rsgirIpProtocol :: Maybe Text
+      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
+      -- Numbers). Use -1 to specify all.
     , _rsgirSourceSecurityGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the source security group.
       -- You can't specify a source security group and a CIDR IP address
       -- range.
+    , _rsgirSourceSecurityGroupOwnerId :: Maybe Text
+      -- ^ The ID of the source security group. You can't specify a source
+      -- security group and a CIDR IP address range.
     } deriving (Show, Generic)
 
 makeLenses ''RevokeSecurityGroupIngress

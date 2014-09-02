@@ -47,20 +47,20 @@ authorizeDBSecurityGroupIngress :: Text -- ^ '_adbsgimDBSecurityGroupName'
                                 -> AuthorizeDBSecurityGroupIngress
 authorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngress
     { _adbsgimDBSecurityGroupName = p1
-    , _adbsgimEC2SecurityGroupOwnerId = Nothing
-    , _adbsgimEC2SecurityGroupName = Nothing
     , _adbsgimCIDRIP = Nothing
     , _adbsgimEC2SecurityGroupId = Nothing
+    , _adbsgimEC2SecurityGroupName = Nothing
+    , _adbsgimEC2SecurityGroupOwnerId = Nothing
     }
 
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
     { _adbsgimDBSecurityGroupName :: Text
       -- ^ The name of the DB security group to add authorization to.
-    , _adbsgimEC2SecurityGroupOwnerId :: Maybe Text
-      -- ^ AWS Account Number of the owner of the EC2 security group
-      -- specified in the EC2SecurityGroupName parameter. The AWS Access
-      -- Key ID is not an acceptable value. For VPC DB security groups,
-      -- EC2SecurityGroupId must be provided. Otherwise,
+    , _adbsgimCIDRIP :: Maybe Text
+      -- ^ The IP range to authorize.
+    , _adbsgimEC2SecurityGroupId :: Maybe Text
+      -- ^ Id of the EC2 security group to authorize. For VPC DB security
+      -- groups, EC2SecurityGroupId must be provided. Otherwise,
       -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
       -- EC2SecurityGroupId must be provided.
     , _adbsgimEC2SecurityGroupName :: Maybe Text
@@ -68,11 +68,11 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
       -- groups, EC2SecurityGroupId must be provided. Otherwise,
       -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
       -- EC2SecurityGroupId must be provided.
-    , _adbsgimCIDRIP :: Maybe Text
-      -- ^ The IP range to authorize.
-    , _adbsgimEC2SecurityGroupId :: Maybe Text
-      -- ^ Id of the EC2 security group to authorize. For VPC DB security
-      -- groups, EC2SecurityGroupId must be provided. Otherwise,
+    , _adbsgimEC2SecurityGroupOwnerId :: Maybe Text
+      -- ^ AWS Account Number of the owner of the EC2 security group
+      -- specified in the EC2SecurityGroupName parameter. The AWS Access
+      -- Key ID is not an acceptable value. For VPC DB security groups,
+      -- EC2SecurityGroupId must be provided. Otherwise,
       -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
       -- EC2SecurityGroupId must be provided.
     } deriving (Show, Generic)

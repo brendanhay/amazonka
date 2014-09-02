@@ -57,15 +57,15 @@ modifyCluster p1 = ModifyCluster
     , _mcmClusterSecurityGroups = mempty
     , _mcmAutomatedSnapshotRetentionPeriod = Nothing
     , _mcmNumberOfNodes = Nothing
-    , _mcmMasterUserPassword = Nothing
-    , _mcmHsmConfigurationIdentifier = Nothing
-    , _mcmHsmClientCertificateIdentifier = Nothing
-    , _mcmPreferredMaintenanceWindow = Nothing
-    , _mcmClusterType = Nothing
-    , _mcmNewClusterIdentifier = Nothing
-    , _mcmClusterVersion = Nothing
-    , _mcmNodeType = Nothing
     , _mcmClusterParameterGroupName = Nothing
+    , _mcmClusterType = Nothing
+    , _mcmClusterVersion = Nothing
+    , _mcmHsmClientCertificateIdentifier = Nothing
+    , _mcmHsmConfigurationIdentifier = Nothing
+    , _mcmMasterUserPassword = Nothing
+    , _mcmNewClusterIdentifier = Nothing
+    , _mcmNodeType = Nothing
+    , _mcmPreferredMaintenanceWindow = Nothing
     , _mcmVpcSecurityGroupIds = mempty
     }
 
@@ -105,6 +105,38 @@ data ModifyCluster = ModifyCluster
       -- permissions for the cluster are restored. You can use
       -- DescribeResize to track the progress of the resize request. Valid
       -- Values: Integer greater than 0.
+    , _mcmClusterParameterGroupName :: Maybe Text
+      -- ^ The name of the cluster parameter group to apply to this cluster.
+      -- This change is applied only after the cluster is rebooted. To
+      -- reboot a cluster use RebootCluster. Default: Uses existing
+      -- setting. Constraints: The cluster parameter group must be in the
+      -- same parameter group family that matches the cluster version.
+    , _mcmClusterType :: Maybe Text
+      -- ^ The new cluster type. When you submit your cluster resize
+      -- request, your existing cluster goes into a read-only mode. After
+      -- Amazon Redshift provisions a new cluster based on your resize
+      -- requirements, there will be outage for a period while the old
+      -- cluster is deleted and your connection is switched to the new
+      -- cluster. You can use DescribeResize to track the progress of the
+      -- resize request. Valid Values: multi-node | single-node.
+    , _mcmClusterVersion :: Maybe Text
+      -- ^ The new version number of the Amazon Redshift engine to upgrade
+      -- to. For major version upgrades, if a non-default cluster
+      -- parameter group is currently in use, a new cluster parameter
+      -- group in the cluster parameter group family for the new version
+      -- must be specified. The new cluster parameter group can be the
+      -- default for that cluster parameter group family. For more
+      -- information about managing parameter groups, go to Amazon
+      -- Redshift Parameter Groups in the Amazon Redshift Management
+      -- Guide. Example: 1.0.
+    , _mcmHsmClientCertificateIdentifier :: Maybe Text
+      -- ^ Specifies the name of the HSM client certificate the Amazon
+      -- Redshift cluster uses to retrieve the data encryption keys stored
+      -- in an HSM.
+    , _mcmHsmConfigurationIdentifier :: Maybe Text
+      -- ^ Specifies the name of the HSM configuration that contains the
+      -- information the Amazon Redshift cluster can use to retrieve and
+      -- store keys in an HSM.
     , _mcmMasterUserPassword :: Maybe Text
       -- ^ The new password for the cluster master user. This change is
       -- asynchronously applied as soon as possible. Between the time of
@@ -119,33 +151,6 @@ data ModifyCluster = ModifyCluster
       -- one number. Can be any printable ASCII character (ASCII code 33
       -- to 126) except ' (single quote), " (double quote), \, /, @, or
       -- space.
-    , _mcmHsmConfigurationIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM configuration that contains the
-      -- information the Amazon Redshift cluster can use to retrieve and
-      -- store keys in an HSM.
-    , _mcmHsmClientCertificateIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM client certificate the Amazon
-      -- Redshift cluster uses to retrieve the data encryption keys stored
-      -- in an HSM.
-    , _mcmPreferredMaintenanceWindow :: Maybe Text
-      -- ^ The weekly time range (in UTC) during which system maintenance
-      -- can occur, if necessary. If system maintenance is necessary
-      -- during the window, it may result in an outage. This maintenance
-      -- window change is made immediately. If the new maintenance window
-      -- indicates the current time, there must be at least 120 minutes
-      -- between the current time and end of the window in order to ensure
-      -- that pending changes are applied. Default: Uses existing setting.
-      -- Format: ddd:hh24:mi-ddd:hh24:mi, for example wed:07:30-wed:08:00.
-      -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints:
-      -- Must be at least 30 minutes.
-    , _mcmClusterType :: Maybe Text
-      -- ^ The new cluster type. When you submit your cluster resize
-      -- request, your existing cluster goes into a read-only mode. After
-      -- Amazon Redshift provisions a new cluster based on your resize
-      -- requirements, there will be outage for a period while the old
-      -- cluster is deleted and your connection is switched to the new
-      -- cluster. You can use DescribeResize to track the progress of the
-      -- resize request. Valid Values: multi-node | single-node.
     , _mcmNewClusterIdentifier :: Maybe Text
       -- ^ The new identifier for the cluster. Constraints: Must contain
       -- from 1 to 63 alphanumeric characters or hyphens. Alphabetic
@@ -153,16 +158,6 @@ data ModifyCluster = ModifyCluster
       -- Cannot end with a hyphen or contain two consecutive hyphens. Must
       -- be unique for all clusters within an AWS account. Example:
       -- examplecluster.
-    , _mcmClusterVersion :: Maybe Text
-      -- ^ The new version number of the Amazon Redshift engine to upgrade
-      -- to. For major version upgrades, if a non-default cluster
-      -- parameter group is currently in use, a new cluster parameter
-      -- group in the cluster parameter group family for the new version
-      -- must be specified. The new cluster parameter group can be the
-      -- default for that cluster parameter group family. For more
-      -- information about managing parameter groups, go to Amazon
-      -- Redshift Parameter Groups in the Amazon Redshift Management
-      -- Guide. Example: 1.0.
     , _mcmNodeType :: Maybe Text
       -- ^ The new node type of the cluster. If you specify a new node type,
       -- you must also specify the number of nodes parameter also. When
@@ -175,12 +170,17 @@ data ModifyCluster = ModifyCluster
       -- permissions for the cluster are restored. You can use the
       -- DescribeResize to track the progress of the resize request. Valid
       -- Values: dw1.xlarge | dw1.8xlarge | dw2.large | dw2.8xlarge.
-    , _mcmClusterParameterGroupName :: Maybe Text
-      -- ^ The name of the cluster parameter group to apply to this cluster.
-      -- This change is applied only after the cluster is rebooted. To
-      -- reboot a cluster use RebootCluster. Default: Uses existing
-      -- setting. Constraints: The cluster parameter group must be in the
-      -- same parameter group family that matches the cluster version.
+    , _mcmPreferredMaintenanceWindow :: Maybe Text
+      -- ^ The weekly time range (in UTC) during which system maintenance
+      -- can occur, if necessary. If system maintenance is necessary
+      -- during the window, it may result in an outage. This maintenance
+      -- window change is made immediately. If the new maintenance window
+      -- indicates the current time, there must be at least 120 minutes
+      -- between the current time and end of the window in order to ensure
+      -- that pending changes are applied. Default: Uses existing setting.
+      -- Format: ddd:hh24:mi-ddd:hh24:mi, for example wed:07:30-wed:08:00.
+      -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints:
+      -- Must be at least 30 minutes.
     , _mcmVpcSecurityGroupIds :: [Text]
       -- ^ A list of virtual private cloud (VPC) security groups to be
       -- associated with the cluster.

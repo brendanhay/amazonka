@@ -41,25 +41,30 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CopySnapshot' request.
-copySnapshot :: Text -- ^ '_csrSourceSnapshotId'
-             -> Text -- ^ '_csrSourceRegion'
+copySnapshot :: Text -- ^ '_csrSourceRegion'
+             -> Text -- ^ '_csrSourceSnapshotId'
              -> CopySnapshot
 copySnapshot p1 p2 = CopySnapshot
-    { _csrSourceSnapshotId = p1
-    , _csrSourceRegion = p2
+    { _csrSourceRegion = p1
+    , _csrSourceSnapshotId = p2
     , _csrDryRun = Nothing
-    , _csrPresignedUrl = Nothing
-    , _csrDestinationRegion = Nothing
     , _csrDescription = Nothing
+    , _csrDestinationRegion = Nothing
+    , _csrPresignedUrl = Nothing
     }
 
 data CopySnapshot = CopySnapshot
-    { _csrSourceSnapshotId :: Text
-      -- ^ The ID of the Amazon EBS snapshot to copy.
-    , _csrSourceRegion :: Text
+    { _csrSourceRegion :: Text
       -- ^ The ID of the region that contains the snapshot to be copied.
+    , _csrSourceSnapshotId :: Text
+      -- ^ The ID of the Amazon EBS snapshot to copy.
     , _csrDryRun :: Maybe Bool
       -- ^ 
+    , _csrDescription :: Maybe Text
+      -- ^ A description for the new Amazon EBS snapshot.
+    , _csrDestinationRegion :: Maybe Text
+      -- ^ The destination region of the snapshot copy operation. This
+      -- parameter is required in the PresignedUrl.
     , _csrPresignedUrl :: Maybe Text
       -- ^ The pre-signed URL that facilitates copying an encrypted
       -- snapshot. This parameter is only required when copying an
@@ -75,11 +80,6 @@ data CopySnapshot = CopySnapshot
       -- Simple Storage Service API Reference. An invalid or improperly
       -- signed PresignedUrl will cause the copy operation to fail
       -- asynchronously, and the snapshot will move to an error state.
-    , _csrDestinationRegion :: Maybe Text
-      -- ^ The destination region of the snapshot copy operation. This
-      -- parameter is required in the PresignedUrl.
-    , _csrDescription :: Maybe Text
-      -- ^ A description for the new Amazon EBS snapshot.
     } deriving (Show, Generic)
 
 makeLenses ''CopySnapshot

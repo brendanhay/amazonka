@@ -51,9 +51,9 @@ putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
     , _psugatDesiredCapacity = Nothing
     , _psugatMaxSize = Nothing
     , _psugatMinSize = Nothing
+    , _psugatEndTime = Nothing
     , _psugatStartTime = Nothing
     , _psugatTime = Nothing
-    , _psugatEndTime = Nothing
     , _psugatRecurrence = Nothing
     }
 
@@ -69,6 +69,8 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
       -- ^ The maximum size for the Auto Scaling group.
     , _psugatMinSize :: Maybe Integer
       -- ^ The minimum size for the new Auto Scaling group.
+    , _psugatEndTime :: Maybe ISO8601
+      -- ^ The time for this action to end.
     , _psugatStartTime :: Maybe ISO8601
       -- ^ The time for this action to start, as in --start-time
       -- 2010-06-01T00:00:00Z. If you try to schedule your action in the
@@ -81,8 +83,6 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
       -- vice versa. If both Time and StartTime are specified, their
       -- values should be identical. Otherwise,
       -- PutScheduledUpdateGroupAction will return an error.
-    , _psugatEndTime :: Maybe ISO8601
-      -- ^ The time for this action to end.
     , _psugatRecurrence :: Maybe Text
       -- ^ The time when recurring future actions will start. Start time is
       -- specified by the user following the Unix cron syntax format. For

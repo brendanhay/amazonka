@@ -39,8 +39,8 @@ modifyImageAttribute p1 = ModifyImageAttribute
     , _miarUserGroups = mempty
     , _miarUserIds = mempty
     , _miarAttribute = Nothing
-    , _miarValue = Nothing
     , _miarOperationType = Nothing
+    , _miarValue = Nothing
     }
 
 data ModifyImageAttribute = ModifyImageAttribute
@@ -64,11 +64,11 @@ data ModifyImageAttribute = ModifyImageAttribute
       -- the launchPermission attribute.
     , _miarAttribute :: Maybe Text
       -- ^ The name of the attribute to modify.
+    , _miarOperationType :: Maybe Text
+      -- ^ The operation type.
     , _miarValue :: Maybe Text
       -- ^ The value of the attribute being modified. This is only valid
       -- when modifying the description attribute.
-    , _miarOperationType :: Maybe Text
-      -- ^ The operation type.
     } deriving (Show, Generic)
 
 makeLenses ''ModifyImageAttribute

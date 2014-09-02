@@ -36,13 +36,13 @@ updateInstance p1 = UpdateInstance
     { _uirInstanceId = p1
     , _uirArchitecture = Nothing
     , _uirAutoScalingType = Nothing
-    , _uirInstallUpdatesOnBoot = Nothing
     , _uirEbsOptimized = Nothing
+    , _uirInstallUpdatesOnBoot = Nothing
+    , _uirAmiId = Nothing
     , _uirHostname = Nothing
-    , _uirSshKeyName = Nothing
     , _uirInstanceType = Nothing
     , _uirOs = Nothing
-    , _uirAmiId = Nothing
+    , _uirSshKeyName = Nothing
     , _uirLayerIds = mempty
     }
 
@@ -61,6 +61,8 @@ data UpdateInstance = UpdateInstance
       -- instance, which is started and stopped based on a specified
       -- schedule. LoadBasedAutoScaling: A load-based auto scaling
       -- instance, which is started and stopped based on load metrics.
+    , _uirEbsOptimized :: Maybe Bool
+      -- ^ Whether this is an Amazon EBS-optimized instance.
     , _uirInstallUpdatesOnBoot :: Maybe Bool
       -- ^ Whether to install operating system and package updates when the
       -- instance boots. The default value is true. To control when
@@ -70,12 +72,12 @@ data UpdateInstance = UpdateInstance
       -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
       -- recommend using the default value of true, to ensure that your
       -- instances have the latest security updates.
-    , _uirEbsOptimized :: Maybe Bool
-      -- ^ Whether this is an Amazon EBS-optimized instance.
+    , _uirAmiId :: Maybe Text
+      -- ^ A custom AMI ID to be used to create the instance. The AMI should
+      -- be based on one of the standard AWS OpsWorks APIs: Amazon Linux
+      -- or Ubuntu 12.04 LTS. For more information, see Instances.
     , _uirHostname :: Maybe Text
       -- ^ The instance host name.
-    , _uirSshKeyName :: Maybe Text
-      -- ^ The instance SSH key name.
     , _uirInstanceType :: Maybe Text
       -- ^ The instance type. AWS OpsWorks supports all instance types
       -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
@@ -91,10 +93,8 @@ data UpdateInstance = UpdateInstance
       -- that you want to use. For more information on the standard
       -- operating systems, see Operating SystemsFor more information on
       -- how to use custom AMIs with OpsWorks, see Using Custom AMIs.
-    , _uirAmiId :: Maybe Text
-      -- ^ A custom AMI ID to be used to create the instance. The AMI should
-      -- be based on one of the standard AWS OpsWorks APIs: Amazon Linux
-      -- or Ubuntu 12.04 LTS. For more information, see Instances.
+    , _uirSshKeyName :: Maybe Text
+      -- ^ The instance SSH key name.
     , _uirLayerIds :: [Text]
       -- ^ The instance's layer IDs.
     } deriving (Show, Generic)

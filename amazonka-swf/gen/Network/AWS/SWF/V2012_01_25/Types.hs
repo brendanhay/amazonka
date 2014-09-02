@@ -1218,7 +1218,7 @@ instance ToJSON CancelTimerDecisionAttributes
 -- | Provides details of the CancelWorkflowExecution decision. It is not set for
 -- other decision types.
 newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes
-    { _cwedbDetails :: Maybe Text
+    { _cwedaDetails :: Maybe Text
       -- ^ Optional details of the cancellation.
     } deriving (Show, Generic)
 
@@ -1243,7 +1243,7 @@ instance ToJSON CloseStatusFilter
 -- | Provides details of the CompleteWorkflowExecution decision. It is not set
 -- for other decision types.
 newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes
-    { _cwedaResult :: Maybe Text
+    { _cwedbResult :: Maybe Text
       -- ^ The result of the workflow execution. The form of the result is
       -- implementation defined.
     } deriving (Show, Generic)
@@ -1327,19 +1327,19 @@ instance ToJSON ActivityTaskCancelRequestedEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes
-    { _atcebLatestCancelRequestedEventId :: Maybe Integer
+    { _atceaDetails :: Maybe Text
+      -- ^ Details of the cancellation (if any).
+    , _atceaLatestCancelRequestedEventId :: Maybe Integer
       -- ^ If set, contains the Id of the last ActivityTaskCancelRequested
       -- event recorded for this activity task. This information can be
       -- useful for diagnosing problems by tracing back the chain of
       -- events leading up to this event.
-    , _atcebScheduledEventId :: Integer
+    , _atceaScheduledEventId :: Integer
       -- ^ The id of the ActivityTaskScheduled event that was recorded when
       -- this activity task was scheduled. This information can be useful
       -- for diagnosing problems by tracing back the chain of events
       -- leading up to this event.
-    , _atcebDetails :: Maybe Text
-      -- ^ Details of the cancellation (if any).
-    , _atcebStartedEventId :: Integer
+    , _atceaStartedEventId :: Integer
       -- ^ The Id of the ActivityTaskStarted event recorded when this
       -- activity task was started. This information can be useful for
       -- diagnosing problems by tracing back the chain of events leading
@@ -1354,14 +1354,14 @@ instance ToJSON ActivityTaskCanceledEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
-    { _atceaScheduledEventId :: Integer
+    { _atcebResult :: Maybe Text
+      -- ^ The results of the activity task (if any).
+    , _atcebScheduledEventId :: Integer
       -- ^ The id of the ActivityTaskScheduled event that was recorded when
       -- this activity task was scheduled. This information can be useful
       -- for diagnosing problems by tracing back the chain of events
       -- leading up to this event.
-    , _atceaResult :: Maybe Text
-      -- ^ The results of the activity task (if any).
-    , _atceaStartedEventId :: Integer
+    , _atcebStartedEventId :: Integer
       -- ^ The Id of the ActivityTaskStarted event recorded when this
       -- activity task was started. This information can be useful for
       -- diagnosing problems by tracing back the chain of events leading
@@ -1376,15 +1376,15 @@ instance ToJSON ActivityTaskCompletedEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes
-    { _atfeaScheduledEventId :: Integer
+    { _atfeaDetails :: Maybe Text
+      -- ^ The details of the failure (if any).
+    , _atfeaReason :: Maybe Text
+      -- ^ The reason provided for the failure (if any).
+    , _atfeaScheduledEventId :: Integer
       -- ^ The id of the ActivityTaskScheduled event that was recorded when
       -- this activity task was scheduled. This information can be useful
       -- for diagnosing problems by tracing back the chain of events
       -- leading up to this event.
-    , _atfeaReason :: Maybe Text
-      -- ^ The reason provided for the failure (if any).
-    , _atfeaDetails :: Maybe Text
-      -- ^ The details of the failure (if any).
     , _atfeaStartedEventId :: Integer
       -- ^ The Id of the ActivityTaskStarted event recorded when this
       -- activity task was started. This information can be useful for
@@ -1400,37 +1400,37 @@ instance ToJSON ActivityTaskFailedEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
-    { _atseaControl :: Maybe Text
+    { _atseaActivityId :: Text
+      -- ^ The unique id of the activity task.
+    , _atseaActivityType :: ActivityType
+      -- ^ The type of the activity task.
+    , _atseaControl :: Maybe Text
       -- ^ Optional data attached to the event that can be used by the
       -- decider in subsequent workflow tasks. This data is not sent to
       -- the activity.
-    , _atseaActivityType :: ActivityType
-      -- ^ The type of the activity task.
-    , _atseaActivityId :: Text
-      -- ^ The unique id of the activity task.
+    , _atseaDecisionTaskCompletedEventId :: Integer
+      -- ^ The id of the DecisionTaskCompleted event corresponding to the
+      -- decision that resulted in the scheduling of this activity task.
+      -- This information can be useful for diagnosing problems by tracing
+      -- back the chain of events leading up to this event.
     , _atseaHeartbeatTimeout :: Maybe Text
       -- ^ The maximum time before which the worker processing this task
       -- must report progress by calling RecordActivityTaskHeartbeat. If
       -- the timeout is exceeded, the activity task is automatically timed
       -- out. If the worker subsequently attempts to record a heartbeat or
       -- return a result, it will be ignored.
-    , _atseaScheduleToCloseTimeout :: Maybe Text
-      -- ^ The maximum amount of time for this activity task.
     , _atseaInput :: Maybe Text
       -- ^ The input provided to the activity task.
-    , _atseaTaskList :: TaskList
-      -- ^ The task list in which the activity task has been scheduled.
+    , _atseaScheduleToCloseTimeout :: Maybe Text
+      -- ^ The maximum amount of time for this activity task.
     , _atseaScheduleToStartTimeout :: Maybe Text
       -- ^ The maximum amount of time the activity task can wait to be
       -- assigned to a worker.
     , _atseaStartToCloseTimeout :: Maybe Text
       -- ^ The maximum amount of time a worker may take to process the
       -- activity task.
-    , _atseaDecisionTaskCompletedEventId :: Integer
-      -- ^ The id of the DecisionTaskCompleted event corresponding to the
-      -- decision that resulted in the scheduling of this activity task.
-      -- This information can be useful for diagnosing problems by tracing
-      -- back the chain of events leading up to this event.
+    , _atseaTaskList :: TaskList
+      -- ^ The task list in which the activity task has been scheduled.
     } deriving (Show, Generic)
 
 instance FromJSON ActivityTaskScheduledEventAttributes
@@ -1441,15 +1441,15 @@ instance ToJSON ActivityTaskScheduledEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes
-    { _atsebScheduledEventId :: Integer
+    { _atsebIdentity :: Maybe Text
+      -- ^ Identity of the worker that was assigned this task. This aids
+      -- diagnostics when problems arise. The form of this identity is
+      -- user defined.
+    , _atsebScheduledEventId :: Integer
       -- ^ The id of the ActivityTaskScheduled event that was recorded when
       -- this activity task was scheduled. This information can be useful
       -- for diagnosing problems by tracing back the chain of events
       -- leading up to this event.
-    , _atsebIdentity :: Maybe Text
-      -- ^ Identity of the worker that was assigned this task. This aids
-      -- diagnostics when problems arise. The form of this identity is
-      -- user defined.
     } deriving (Show, Generic)
 
 instance FromJSON ActivityTaskStartedEventAttributes
@@ -1460,21 +1460,21 @@ instance ToJSON ActivityTaskStartedEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes
-    { _attoeaScheduledEventId :: Integer
+    { _attoeaDetails :: Maybe Text
+      -- ^ Contains the content of the details parameter for the last call
+      -- made by the activity to RecordActivityTaskHeartbeat.
+    , _attoeaScheduledEventId :: Integer
       -- ^ The id of the ActivityTaskScheduled event that was recorded when
       -- this activity task was scheduled. This information can be useful
       -- for diagnosing problems by tracing back the chain of events
       -- leading up to this event.
-    , _attoeaTimeoutType :: ActivityTaskTimeoutType
-      -- ^ The type of the timeout that caused this event.
-    , _attoeaDetails :: Maybe Text
-      -- ^ Contains the content of the details parameter for the last call
-      -- made by the activity to RecordActivityTaskHeartbeat.
     , _attoeaStartedEventId :: Integer
       -- ^ The Id of the ActivityTaskStarted event recorded when this
       -- activity task was started. This information can be useful for
       -- diagnosing problems by tracing back the chain of events leading
       -- up to this event.
+    , _attoeaTimeoutType :: ActivityTaskTimeoutType
+      -- ^ The type of the timeout that caused this event.
     } deriving (Show, Generic)
 
 instance FromJSON ActivityTaskTimedOutEventAttributes
@@ -1497,21 +1497,7 @@ instance ToJSON ActivityType
 
 -- | The configuration settings registered with the activity type.
 data ActivityTypeConfiguration = ActivityTypeConfiguration
-    { _atcDefaultTaskScheduleToStartTimeout :: Maybe Text
-      -- ^ The optional default maximum duration, specified when registering
-      -- the activity type, that a task of an activity type can wait
-      -- before being assigned to a worker. You can override this default
-      -- when scheduling a task through the ScheduleActivityTask Decision.
-      -- The valid values are integers greater than or equal to 0. An
-      -- integer value can be used to specify the duration in seconds
-      -- while NONE can be used to specify unlimited duration.
-    , _atcDefaultTaskList :: Maybe TaskList
-      -- ^ The optional default task list specified for this activity type
-      -- at registration. This default task list is used if a task list is
-      -- not provided when a task is scheduled through the
-      -- ScheduleActivityTask Decision. You can override this default when
-      -- scheduling a task through the ScheduleActivityTask Decision.
-    , _atcDefaultTaskHeartbeatTimeout :: Maybe Text
+    { _atcDefaultTaskHeartbeatTimeout :: Maybe Text
       -- ^ The optional default maximum time, specified when registering the
       -- activity type, before which a worker processing a task must
       -- report progress by calling RecordActivityTaskHeartbeat. You can
@@ -1524,6 +1510,12 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration
       -- valid values are integers greater than or equal to 0. An integer
       -- value can be used to specify the duration in seconds while NONE
       -- can be used to specify unlimited duration.
+    , _atcDefaultTaskList :: Maybe TaskList
+      -- ^ The optional default task list specified for this activity type
+      -- at registration. This default task list is used if a task list is
+      -- not provided when a task is scheduled through the
+      -- ScheduleActivityTask Decision. You can override this default when
+      -- scheduling a task through the ScheduleActivityTask Decision.
     , _atcDefaultTaskScheduleToCloseTimeout :: Maybe Text
       -- ^ The optional default maximum duration, specified when registering
       -- the activity type, for tasks of this activity type. You can
@@ -1532,6 +1524,14 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration
       -- greater than or equal to 0. An integer value can be used to
       -- specify the duration in seconds while NONE can be used to specify
       -- unlimited duration.
+    , _atcDefaultTaskScheduleToStartTimeout :: Maybe Text
+      -- ^ The optional default maximum duration, specified when registering
+      -- the activity type, that a task of an activity type can wait
+      -- before being assigned to a worker. You can override this default
+      -- when scheduling a task through the ScheduleActivityTask Decision.
+      -- The valid values are integers greater than or equal to 0. An
+      -- integer value can be used to specify the duration in seconds
+      -- while NONE can be used to specify unlimited duration.
     , _atcDefaultTaskStartToCloseTimeout :: Maybe Text
       -- ^ The optional default maximum duration for tasks of an activity
       -- type specified when registering the activity type. You can
@@ -1546,19 +1546,19 @@ instance FromJSON ActivityTypeConfiguration
 
 -- | Detailed information about an activity type.
 data ActivityTypeInfo = ActivityTypeInfo
-    { _atjStatus :: RegistrationStatus
-      -- ^ The current status of the activity type.
-    , _atjActivityType :: ActivityType
+    { _atjActivityType :: ActivityType
       -- ^ The ActivityType type structure representing the activity type.
-    , _atjDeprecationDate :: Maybe POSIX
-      -- ^ If DEPRECATED, the date and time DeprecateActivityType was
-      -- called.
     , _atjCreationDate :: POSIX
       -- ^ The date and time this activity type was created through
       -- RegisterActivityType.
+    , _atjDeprecationDate :: Maybe POSIX
+      -- ^ If DEPRECATED, the date and time DeprecateActivityType was
+      -- called.
     , _atjDescription :: Maybe Text
       -- ^ The description of the activity type provided in
       -- RegisterActivityType.
+    , _atjStatus :: RegistrationStatus
+      -- ^ The current status of the activity type.
     } deriving (Show, Generic)
 
 instance FromJSON ActivityTypeInfo
@@ -1574,13 +1574,13 @@ data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes
       -- the decision failed because it lacked sufficient permissions. For
       -- details and example IAM policies, see Using IAM to Manage Access
       -- to Amazon SWF Workflows.
-    , _ctfeaTimerId :: Text
-      -- ^ The timerId provided in the CancelTimer decision that failed.
     , _ctfeaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the CancelTimer decision to cancel
       -- this timer. This information can be useful for diagnosing
       -- problems by tracing back the cause of events.
+    , _ctfeaTimerId :: Text
+      -- ^ The timerId provided in the CancelTimer decision that failed.
     } deriving (Show, Generic)
 
 instance FromJSON CancelTimerFailedEventAttributes
@@ -1591,13 +1591,13 @@ instance ToJSON CancelTimerFailedEventAttributes
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFailedEventAttributes
-    { _cwefebCause :: CancelWorkflowExecutionFailedCause
+    { _cwefeaCause :: CancelWorkflowExecutionFailedCause
       -- ^ The cause of the failure. This information is generated by the
       -- system and can be useful for diagnostic purposes. If cause is set
       -- to OPERATION_NOT_PERMITTED, the decision failed because it lacked
       -- sufficient permissions. For details and example IAM policies, see
       -- Using IAM to Manage Access to Amazon SWF Workflows.
-    , _cwefebDecisionTaskCompletedEventId :: Integer
+    , _cwefeaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the CancelWorkflowExecution
       -- decision for this cancellation request. This information can be
@@ -1613,23 +1613,23 @@ instance ToJSON CancelWorkflowExecutionFailedEventAttributes
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes
-    { _cwecebWorkflowType :: WorkflowType
-      -- ^ The type of the child workflow execution.
-    , _cwecebDetails :: Maybe Text
+    { _cweceaDetails :: Maybe Text
       -- ^ Details of the cancellation (if provided).
-    , _cwecebStartedEventId :: Integer
-      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
-      -- this child workflow execution was started. This information can
-      -- be useful for diagnosing problems by tracing back the chain of
-      -- events leading up to this event.
-    , _cwecebInitiatedEventId :: Integer
+    , _cweceaInitiatedEventId :: Integer
       -- ^ The id of the StartChildWorkflowExecutionInitiated event
       -- corresponding to the StartChildWorkflowExecution Decision to
       -- start this child workflow execution. This information can be
       -- useful for diagnosing problems by tracing back the chain of
       -- events leading up to this event.
-    , _cwecebWorkflowExecution :: WorkflowExecution
+    , _cweceaStartedEventId :: Integer
+      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
+      -- this child workflow execution was started. This information can
+      -- be useful for diagnosing problems by tracing back the chain of
+      -- events leading up to this event.
+    , _cweceaWorkflowExecution :: WorkflowExecution
       -- ^ The child workflow execution that was canceled.
+    , _cweceaWorkflowType :: WorkflowType
+      -- ^ The type of the child workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON ChildWorkflowExecutionCanceledEventAttributes
@@ -1640,23 +1640,23 @@ instance ToJSON ChildWorkflowExecutionCanceledEventAttributes
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionCompletedEventAttributes
-    { _cweceaWorkflowType :: WorkflowType
-      -- ^ The type of the child workflow execution.
-    , _cweceaResult :: Maybe Text
-      -- ^ The result of the child workflow execution (if any).
-    , _cweceaStartedEventId :: Integer
-      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
-      -- this child workflow execution was started. This information can
-      -- be useful for diagnosing problems by tracing back the chain of
-      -- events leading up to this event.
-    , _cweceaInitiatedEventId :: Integer
+    { _cwecebInitiatedEventId :: Integer
       -- ^ The id of the StartChildWorkflowExecutionInitiated event
       -- corresponding to the StartChildWorkflowExecution Decision to
       -- start this child workflow execution. This information can be
       -- useful for diagnosing problems by tracing back the chain of
       -- events leading up to this event.
-    , _cweceaWorkflowExecution :: WorkflowExecution
+    , _cwecebResult :: Maybe Text
+      -- ^ The result of the child workflow execution (if any).
+    , _cwecebStartedEventId :: Integer
+      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
+      -- this child workflow execution was started. This information can
+      -- be useful for diagnosing problems by tracing back the chain of
+      -- events leading up to this event.
+    , _cwecebWorkflowExecution :: WorkflowExecution
       -- ^ The child workflow execution that was completed.
+    , _cwecebWorkflowType :: WorkflowType
+      -- ^ The type of the child workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON ChildWorkflowExecutionCompletedEventAttributes
@@ -1667,25 +1667,25 @@ instance ToJSON ChildWorkflowExecutionCompletedEventAttributes
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes
-    { _cwefecWorkflowType :: WorkflowType
-      -- ^ The type of the child workflow execution.
-    , _cwefecReason :: Maybe Text
-      -- ^ The reason for the failure (if provided).
-    , _cwefecDetails :: Maybe Text
+    { _cwefebDetails :: Maybe Text
       -- ^ The details of the failure (if provided).
-    , _cwefecStartedEventId :: Integer
-      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
-      -- this child workflow execution was started. This information can
-      -- be useful for diagnosing problems by tracing back the chain of
-      -- events leading up to this event.
-    , _cwefecInitiatedEventId :: Integer
+    , _cwefebInitiatedEventId :: Integer
       -- ^ The id of the StartChildWorkflowExecutionInitiated event
       -- corresponding to the StartChildWorkflowExecution Decision to
       -- start this child workflow execution. This information can be
       -- useful for diagnosing problems by tracing back the chain of
       -- events leading up to this event.
-    , _cwefecWorkflowExecution :: WorkflowExecution
+    , _cwefebReason :: Maybe Text
+      -- ^ The reason for the failure (if provided).
+    , _cwefebStartedEventId :: Integer
+      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
+      -- this child workflow execution was started. This information can
+      -- be useful for diagnosing problems by tracing back the chain of
+      -- events leading up to this event.
+    , _cwefebWorkflowExecution :: WorkflowExecution
       -- ^ The child workflow execution that failed.
+    , _cwefebWorkflowType :: WorkflowType
+      -- ^ The type of the child workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON ChildWorkflowExecutionFailedEventAttributes
@@ -1696,9 +1696,7 @@ instance ToJSON ChildWorkflowExecutionFailedEventAttributes
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStartedEventAttributes
-    { _cweseaWorkflowType :: WorkflowType
-      -- ^ The type of the child workflow execution.
-    , _cweseaInitiatedEventId :: Integer
+    { _cweseaInitiatedEventId :: Integer
       -- ^ The id of the StartChildWorkflowExecutionInitiated event
       -- corresponding to the StartChildWorkflowExecution Decision to
       -- start this child workflow execution. This information can be
@@ -1706,6 +1704,8 @@ data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStarte
       -- events leading up to this event.
     , _cweseaWorkflowExecution :: WorkflowExecution
       -- ^ The child workflow execution that was started.
+    , _cweseaWorkflowType :: WorkflowType
+      -- ^ The type of the child workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON ChildWorkflowExecutionStartedEventAttributes
@@ -1716,21 +1716,21 @@ instance ToJSON ChildWorkflowExecutionStartedEventAttributes
 -- is set and provides detailed information about the event. It is not set for
 -- other event types.
 data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTerminatedEventAttributes
-    { _cweteaWorkflowType :: WorkflowType
-      -- ^ The type of the child workflow execution.
-    , _cweteaStartedEventId :: Integer
-      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
-      -- this child workflow execution was started. This information can
-      -- be useful for diagnosing problems by tracing back the chain of
-      -- events leading up to this event.
-    , _cweteaInitiatedEventId :: Integer
+    { _cweteaInitiatedEventId :: Integer
       -- ^ The id of the StartChildWorkflowExecutionInitiated event
       -- corresponding to the StartChildWorkflowExecution Decision to
       -- start this child workflow execution. This information can be
       -- useful for diagnosing problems by tracing back the chain of
       -- events leading up to this event.
+    , _cweteaStartedEventId :: Integer
+      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
+      -- this child workflow execution was started. This information can
+      -- be useful for diagnosing problems by tracing back the chain of
+      -- events leading up to this event.
     , _cweteaWorkflowExecution :: WorkflowExecution
       -- ^ The child workflow execution that was terminated.
+    , _cweteaWorkflowType :: WorkflowType
+      -- ^ The type of the child workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON ChildWorkflowExecutionTerminatedEventAttributes
@@ -1741,24 +1741,24 @@ instance ToJSON ChildWorkflowExecutionTerminatedEventAttributes
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimedOutEventAttributes
-    { _cwetoeaWorkflowType :: WorkflowType
-      -- ^ The type of the child workflow execution.
-    , _cwetoeaTimeoutType :: WorkflowExecutionTimeoutType
-      -- ^ The type of the timeout that caused the child workflow execution
-      -- to time out.
-    , _cwetoeaStartedEventId :: Integer
-      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
-      -- this child workflow execution was started. This information can
-      -- be useful for diagnosing problems by tracing back the chain of
-      -- events leading up to this event.
-    , _cwetoeaInitiatedEventId :: Integer
+    { _cwetoeaInitiatedEventId :: Integer
       -- ^ The id of the StartChildWorkflowExecutionInitiated event
       -- corresponding to the StartChildWorkflowExecution Decision to
       -- start this child workflow execution. This information can be
       -- useful for diagnosing problems by tracing back the chain of
       -- events leading up to this event.
+    , _cwetoeaStartedEventId :: Integer
+      -- ^ The Id of the ChildWorkflowExecutionStarted event recorded when
+      -- this child workflow execution was started. This information can
+      -- be useful for diagnosing problems by tracing back the chain of
+      -- events leading up to this event.
+    , _cwetoeaTimeoutType :: WorkflowExecutionTimeoutType
+      -- ^ The type of the timeout that caused the child workflow execution
+      -- to time out.
     , _cwetoeaWorkflowExecution :: WorkflowExecution
       -- ^ The child workflow execution that timed out.
+    , _cwetoeaWorkflowType :: WorkflowType
+      -- ^ The type of the child workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON ChildWorkflowExecutionTimedOutEventAttributes
@@ -1769,13 +1769,13 @@ instance ToJSON ChildWorkflowExecutionTimedOutEventAttributes
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionFailedEventAttributes
-    { _cwefeaCause :: CompleteWorkflowExecutionFailedCause
+    { _cwefecCause :: CompleteWorkflowExecutionFailedCause
       -- ^ The cause of the failure. This information is generated by the
       -- system and can be useful for diagnostic purposes. If cause is set
       -- to OPERATION_NOT_PERMITTED, the decision failed because it lacked
       -- sufficient permissions. For details and example IAM policies, see
       -- Using IAM to Manage Access to Amazon SWF Workflows.
-    , _cwefeaDecisionTaskCompletedEventId :: Integer
+    , _cwefecDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the CompleteWorkflowExecution
       -- decision to complete this execution. This information can be
@@ -1790,41 +1790,7 @@ instance ToJSON CompleteWorkflowExecutionFailedEventAttributes
 -- | Provides details of the ContinueAsNewWorkflowExecution decision. It is not
 -- set for other decision types.
 data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes
-    { _canwedaTagList :: [Text]
-      -- ^ The list of tags to associate with the new workflow execution. A
-      -- maximum of 5 tags can be specified. You can list workflow
-      -- executions with a specific tag by calling
-      -- ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
-      -- specifying a TagFilter.
-    , _canwedaTaskStartToCloseTimeout :: Maybe Text
-      -- ^ Specifies the maximum duration of decision tasks for the new
-      -- workflow execution. This parameter overrides the
-      -- defaultTaskStartToCloseTimout specified when registering the
-      -- workflow type using RegisterWorkflowType. The valid values are
-      -- integers greater than or equal to 0. An integer value can be used
-      -- to specify the duration in seconds while NONE can be used to
-      -- specify unlimited duration. A task start-to-close timeout for the
-      -- new workflow execution must be specified either as a default for
-      -- the workflow type or through this parameter. If neither this
-      -- parameter is set nor a default task start-to-close timeout was
-      -- specified at registration time then a fault will be returned.
-    , _canwedaInput :: Maybe Text
-      -- ^ The input provided to the new workflow execution.
-    , _canwedaWorkflowTypeVersion :: Maybe Text
-    , _canwedaExecutionStartToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the total duration for this workflow execution.
-      -- This overrides the defaultExecutionStartToCloseTimeout specified
-      -- when registering the workflow type. The valid values are integers
-      -- greater than or equal to 0. An integer value can be used to
-      -- specify the duration in seconds while NONE can be used to specify
-      -- unlimited duration. An execution start-to-close timeout for this
-      -- workflow execution must be specified either as a default for the
-      -- workflow type or through this field. If neither this field is set
-      -- nor a default execution start-to-close timeout was specified at
-      -- registration time then a fault will be returned.
-    , _canwedaTaskList :: Maybe TaskList
-      -- ^ Represents a task list.
-    , _canwedaChildPolicy :: Maybe ChildPolicy
+    { _canwedaChildPolicy :: Maybe ChildPolicy
       -- ^ If set, specifies the policy to use for the child workflow
       -- executions of the new execution if it is terminated by calling
       -- the TerminateWorkflowExecution action explicitly or due to an
@@ -1842,6 +1808,40 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
       -- type or through this field. If neither this field is set nor a
       -- default child policy was specified at registration time then a
       -- fault will be returned.
+    , _canwedaExecutionStartToCloseTimeout :: Maybe Text
+      -- ^ If set, specifies the total duration for this workflow execution.
+      -- This overrides the defaultExecutionStartToCloseTimeout specified
+      -- when registering the workflow type. The valid values are integers
+      -- greater than or equal to 0. An integer value can be used to
+      -- specify the duration in seconds while NONE can be used to specify
+      -- unlimited duration. An execution start-to-close timeout for this
+      -- workflow execution must be specified either as a default for the
+      -- workflow type or through this field. If neither this field is set
+      -- nor a default execution start-to-close timeout was specified at
+      -- registration time then a fault will be returned.
+    , _canwedaInput :: Maybe Text
+      -- ^ The input provided to the new workflow execution.
+    , _canwedaTagList :: [Text]
+      -- ^ The list of tags to associate with the new workflow execution. A
+      -- maximum of 5 tags can be specified. You can list workflow
+      -- executions with a specific tag by calling
+      -- ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
+      -- specifying a TagFilter.
+    , _canwedaTaskList :: Maybe TaskList
+      -- ^ Represents a task list.
+    , _canwedaTaskStartToCloseTimeout :: Maybe Text
+      -- ^ Specifies the maximum duration of decision tasks for the new
+      -- workflow execution. This parameter overrides the
+      -- defaultTaskStartToCloseTimout specified when registering the
+      -- workflow type using RegisterWorkflowType. The valid values are
+      -- integers greater than or equal to 0. An integer value can be used
+      -- to specify the duration in seconds while NONE can be used to
+      -- specify unlimited duration. A task start-to-close timeout for the
+      -- new workflow execution must be specified either as a default for
+      -- the workflow type or through this parameter. If neither this
+      -- parameter is set nor a default task start-to-close timeout was
+      -- specified at registration time then a fault will be returned.
+    , _canwedaWorkflowTypeVersion :: Maybe Text
     } deriving (Show, Generic)
 
 instance FromJSON ContinueAsNewWorkflowExecutionDecisionAttributes
@@ -1973,7 +1973,30 @@ instance ToJSON ContinueAsNewWorkflowExecutionFailedEventAttributes
 -- RequestCancelExternalWorkflowExecutionDecisionAttributes
 -- StartChildWorkflowExecutionDecisionAttributes.
 data Decision = Decision
-    { _dzRequestCancelExternalWorkflowExecutionDecisionAttributes :: Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes
+    { _dzCancelTimerDecisionAttributes :: Maybe CancelTimerDecisionAttributes
+      -- ^ Provides details of the CancelTimer decision. It is not set for
+      -- other decision types.
+    , _dzCancelWorkflowExecutionDecisionAttributes :: Maybe CancelWorkflowExecutionDecisionAttributes
+      -- ^ Provides details of the CancelWorkflowExecution decision. It is
+      -- not set for other decision types.
+    , _dzCompleteWorkflowExecutionDecisionAttributes :: Maybe CompleteWorkflowExecutionDecisionAttributes
+      -- ^ Provides details of the CompleteWorkflowExecution decision. It is
+      -- not set for other decision types.
+    , _dzContinueAsNewWorkflowExecutionDecisionAttributes :: Maybe ContinueAsNewWorkflowExecutionDecisionAttributes
+      -- ^ Provides details of the ContinueAsNewWorkflowExecution decision.
+      -- It is not set for other decision types.
+    , _dzDecisionType :: DecisionType
+      -- ^ Specifies the type of the decision.
+    , _dzFailWorkflowExecutionDecisionAttributes :: Maybe FailWorkflowExecutionDecisionAttributes
+      -- ^ Provides details of the FailWorkflowExecution decision. It is not
+      -- set for other decision types.
+    , _dzRecordMarkerDecisionAttributes :: Maybe RecordMarkerDecisionAttributes
+      -- ^ Provides details of the RecordMarker decision. It is not set for
+      -- other decision types.
+    , _dzRequestCancelActivityTaskDecisionAttributes :: Maybe RequestCancelActivityTaskDecisionAttributes
+      -- ^ Provides details of the RequestCancelActivityTask decision. It is
+      -- not set for other decision types.
+    , _dzRequestCancelExternalWorkflowExecutionDecisionAttributes :: Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes
       -- ^ Provides details of the RequestCancelExternalWorkflowExecution
       -- decision. It is not set for other decision types.
     , _dzScheduleActivityTaskDecisionAttributes :: Maybe ScheduleActivityTaskDecisionAttributes
@@ -1982,35 +2005,12 @@ data Decision = Decision
     , _dzSignalExternalWorkflowExecutionDecisionAttributes :: Maybe SignalExternalWorkflowExecutionDecisionAttributes
       -- ^ Provides details of the SignalExternalWorkflowExecution decision.
       -- It is not set for other decision types.
-    , _dzStartTimerDecisionAttributes :: Maybe StartTimerDecisionAttributes
-      -- ^ Provides details of the StartTimer decision. It is not set for
-      -- other decision types.
-    , _dzDecisionType :: DecisionType
-      -- ^ Specifies the type of the decision.
-    , _dzRecordMarkerDecisionAttributes :: Maybe RecordMarkerDecisionAttributes
-      -- ^ Provides details of the RecordMarker decision. It is not set for
-      -- other decision types.
-    , _dzFailWorkflowExecutionDecisionAttributes :: Maybe FailWorkflowExecutionDecisionAttributes
-      -- ^ Provides details of the FailWorkflowExecution decision. It is not
-      -- set for other decision types.
     , _dzStartChildWorkflowExecutionDecisionAttributes :: Maybe StartChildWorkflowExecutionDecisionAttributes
       -- ^ Provides details of the StartChildWorkflowExecution decision. It
       -- is not set for other decision types.
-    , _dzCompleteWorkflowExecutionDecisionAttributes :: Maybe CompleteWorkflowExecutionDecisionAttributes
-      -- ^ Provides details of the CompleteWorkflowExecution decision. It is
-      -- not set for other decision types.
-    , _dzRequestCancelActivityTaskDecisionAttributes :: Maybe RequestCancelActivityTaskDecisionAttributes
-      -- ^ Provides details of the RequestCancelActivityTask decision. It is
-      -- not set for other decision types.
-    , _dzCancelWorkflowExecutionDecisionAttributes :: Maybe CancelWorkflowExecutionDecisionAttributes
-      -- ^ Provides details of the CancelWorkflowExecution decision. It is
-      -- not set for other decision types.
-    , _dzCancelTimerDecisionAttributes :: Maybe CancelTimerDecisionAttributes
-      -- ^ Provides details of the CancelTimer decision. It is not set for
+    , _dzStartTimerDecisionAttributes :: Maybe StartTimerDecisionAttributes
+      -- ^ Provides details of the StartTimer decision. It is not set for
       -- other decision types.
-    , _dzContinueAsNewWorkflowExecutionDecisionAttributes :: Maybe ContinueAsNewWorkflowExecutionDecisionAttributes
-      -- ^ Provides details of the ContinueAsNewWorkflowExecution decision.
-      -- It is not set for other decision types.
     } deriving (Show, Generic)
 
 instance ToJSON Decision
@@ -2019,13 +2019,13 @@ instance ToJSON Decision
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
-    { _dtceaScheduledEventId :: Integer
+    { _dtceaExecutionContext :: Maybe Text
+      -- ^ User defined context for the workflow execution.
+    , _dtceaScheduledEventId :: Integer
       -- ^ The id of the DecisionTaskScheduled event that was recorded when
       -- this decision task was scheduled. This information can be useful
       -- for diagnosing problems by tracing back the chain of events
       -- leading up to this event.
-    , _dtceaExecutionContext :: Maybe Text
-      -- ^ User defined context for the workflow execution.
     , _dtceaStartedEventId :: Integer
       -- ^ The Id of the DecisionTaskStarted event recorded when this
       -- decision task was started. This information can be useful for
@@ -2041,15 +2041,15 @@ instance ToJSON DecisionTaskCompletedEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
-    { _dtseaTaskList :: TaskList
-      -- ^ The name of the task list in which the decision task was
-      -- scheduled.
-    , _dtseaStartToCloseTimeout :: Maybe Text
+    { _dtseaStartToCloseTimeout :: Maybe Text
       -- ^ The maximum duration for this decision task. The task is
       -- considered timed out if it does not completed within this
       -- duration. The valid values are integers greater than or equal to
       -- 0. An integer value can be used to specify the duration in
       -- seconds while NONE can be used to specify unlimited duration.
+    , _dtseaTaskList :: TaskList
+      -- ^ The name of the task list in which the decision task was
+      -- scheduled.
     } deriving (Show, Generic)
 
 instance FromJSON DecisionTaskScheduledEventAttributes
@@ -2060,15 +2060,15 @@ instance ToJSON DecisionTaskScheduledEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes
-    { _dtsebScheduledEventId :: Integer
+    { _dtsebIdentity :: Maybe Text
+      -- ^ Identity of the decider making the request. This enables
+      -- diagnostic tracing when problems arise. The form of this identity
+      -- is user defined.
+    , _dtsebScheduledEventId :: Integer
       -- ^ The id of the DecisionTaskScheduled event that was recorded when
       -- this decision task was scheduled. This information can be useful
       -- for diagnosing problems by tracing back the chain of events
       -- leading up to this event.
-    , _dtsebIdentity :: Maybe Text
-      -- ^ Identity of the decider making the request. This enables
-      -- diagnostic tracing when problems arise. The form of this identity
-      -- is user defined.
     } deriving (Show, Generic)
 
 instance FromJSON DecisionTaskStartedEventAttributes
@@ -2084,14 +2084,14 @@ data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes
       -- this decision task was scheduled. This information can be useful
       -- for diagnosing problems by tracing back the chain of events
       -- leading up to this event.
-    , _dttoeaTimeoutType :: DecisionTaskTimeoutType
-      -- ^ The type of timeout that expired before the decision task could
-      -- be completed.
     , _dttoeaStartedEventId :: Integer
       -- ^ The Id of the DecisionTaskStarted event recorded when this
       -- decision task was started. This information can be useful for
       -- diagnosing problems by tracing back the chain of events leading
       -- up to this event.
+    , _dttoeaTimeoutType :: DecisionTaskTimeoutType
+      -- ^ The type of timeout that expired before the decision task could
+      -- be completed.
     } deriving (Show, Generic)
 
 instance FromJSON DecisionTaskTimedOutEventAttributes
@@ -2100,16 +2100,16 @@ instance ToJSON DecisionTaskTimedOutEventAttributes
 
 -- | Contains general information about a domain.
 data DomainInfo = DomainInfo
-    { _ddqStatus :: RegistrationStatus
+    { _ddqDescription :: Maybe Text
+      -- ^ The description of the domain provided through RegisterDomain.
+    , _ddqName :: Text
+      -- ^ The name of the domain. This name is unique within the account.
+    , _ddqStatus :: RegistrationStatus
       -- ^ The status of the domain: REGISTERED: The domain is properly
       -- registered and available. You can use this domain for registering
       -- types and creating new workflow executions. DEPRECATED: The
       -- domain was deprecated using DeprecateDomain, but is still in use.
       -- You should not create new workflow executions in this domain.
-    , _ddqName :: Text
-      -- ^ The name of the domain. This name is unique within the account.
-    , _ddqDescription :: Maybe Text
-      -- ^ The description of the domain provided through RegisterDomain.
     } deriving (Show, Generic)
 
 instance FromJSON DomainInfo
@@ -2165,11 +2165,11 @@ instance ToJSON ExternalWorkflowExecutionSignaledEventAttributes
 -- | Provides details of the FailWorkflowExecution decision. It is not set for
 -- other decision types.
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes
-    { _fwedaReason :: Maybe Text
+    { _fwedaDetails :: Maybe Text
+      -- ^ Optional details of the failure.
+    , _fwedaReason :: Maybe Text
       -- ^ A descriptive reason for the failure that may help in
       -- diagnostics.
-    , _fwedaDetails :: Maybe Text
-      -- ^ Optional details of the failure.
     } deriving (Show, Generic)
 
 instance FromJSON FailWorkflowExecutionDecisionAttributes
@@ -2268,51 +2268,119 @@ instance ToJSON FailWorkflowExecutionFailedEventAttributes
 -- RequestCancelExternalWorkflowExecutionFailed: Request to cancel an external
 -- workflow execution failed.
 data HistoryEvent = HistoryEvent
-    { _heWorkflowExecutionCancelRequestedEventAttributes :: Maybe WorkflowExecutionCancelRequestedEventAttributes
-      -- ^ If the event is of type WorkflowExecutionCancelRequested then
-      -- this member is set and provides detailed information about the
-      -- event. It is not set for other event types.
-    , _heRecordMarkerFailedEventAttributes :: Maybe RecordMarkerFailedEventAttributes
-      -- ^ If the event is of type DecisionTaskFailed then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-      -- ^ If the event is of type
-      -- RequestCancelExternalWorkflowExecutionInitiated then this member
-      -- is set and provides detailed information about the event. It is
-      -- not set for other event types.
-    , _heDecisionTaskScheduledEventAttributes :: Maybe DecisionTaskScheduledEventAttributes
-      -- ^ If the event is of type DecisionTaskScheduled then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heWorkflowExecutionCompletedEventAttributes :: Maybe WorkflowExecutionCompletedEventAttributes
-      -- ^ If the event is of type WorkflowExecutionCompleted then this
+    { _heActivityTaskCancelRequestedEventAttributes :: Maybe ActivityTaskCancelRequestedEventAttributes
+      -- ^ If the event is of type ActivityTaskcancelRequested then this
       -- member is set and provides detailed information about the event.
       -- It is not set for other event types.
-    , _heStartTimerFailedEventAttributes :: Maybe StartTimerFailedEventAttributes
-      -- ^ If the event is of type StartTimerFailed then this member is set
-      -- and provides detailed information about the event. It is not set
-      -- for other event types.
-    , _heEventTimestamp :: POSIX
-      -- ^ The date and time when the event occurred.
+    , _heActivityTaskCanceledEventAttributes :: Maybe ActivityTaskCanceledEventAttributes
+      -- ^ If the event is of type ActivityTaskCanceled then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heActivityTaskCompletedEventAttributes :: Maybe ActivityTaskCompletedEventAttributes
+      -- ^ If the event is of type ActivityTaskCompleted then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heActivityTaskFailedEventAttributes :: Maybe ActivityTaskFailedEventAttributes
+      -- ^ If the event is of type ActivityTaskFailed then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
     , _heActivityTaskScheduledEventAttributes :: Maybe ActivityTaskScheduledEventAttributes
       -- ^ If the event is of type ActivityTaskScheduled then this member is
       -- set and provides detailed information about the event. It is not
       -- set for other event types.
-    , _heScheduleActivityTaskFailedEventAttributes :: Maybe ScheduleActivityTaskFailedEventAttributes
-      -- ^ If the event is of type ScheduleActivityTaskFailed then this
+    , _heActivityTaskStartedEventAttributes :: Maybe ActivityTaskStartedEventAttributes
+      -- ^ If the event is of type ActivityTaskStarted then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heActivityTaskTimedOutEventAttributes :: Maybe ActivityTaskTimedOutEventAttributes
+      -- ^ If the event is of type ActivityTaskTimedOut then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heCancelTimerFailedEventAttributes :: Maybe CancelTimerFailedEventAttributes
+      -- ^ If the event is of type CancelTimerFailed then this member is set
+      -- and provides detailed information about the event. It is not set
+      -- for other event types.
+    , _heCancelWorkflowExecutionFailedEventAttributes :: Maybe CancelWorkflowExecutionFailedEventAttributes
+      -- ^ If the event is of type CancelWorkflowExecutionFailed then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
+    , _heChildWorkflowExecutionCanceledEventAttributes :: Maybe ChildWorkflowExecutionCanceledEventAttributes
+      -- ^ If the event is of type ChildWorkflowExecutionCanceled then this
       -- member is set and provides detailed information about the event.
       -- It is not set for other event types.
     , _heChildWorkflowExecutionCompletedEventAttributes :: Maybe ChildWorkflowExecutionCompletedEventAttributes
       -- ^ If the event is of type ChildWorkflowExecutionCompleted then this
       -- member is set and provides detailed information about the event.
       -- It is not set for other event types.
+    , _heChildWorkflowExecutionFailedEventAttributes :: Maybe ChildWorkflowExecutionFailedEventAttributes
+      -- ^ If the event is of type ChildWorkflowExecutionFailed then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
+    , _heChildWorkflowExecutionStartedEventAttributes :: Maybe ChildWorkflowExecutionStartedEventAttributes
+      -- ^ If the event is of type ChildWorkflowExecutionStarted then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
+    , _heChildWorkflowExecutionTerminatedEventAttributes :: Maybe ChildWorkflowExecutionTerminatedEventAttributes
+      -- ^ If the event is of type ChildWorkflowExecutionTerminated then
+      -- this member is set and provides detailed information about the
+      -- event. It is not set for other event types.
+    , _heChildWorkflowExecutionTimedOutEventAttributes :: Maybe ChildWorkflowExecutionTimedOutEventAttributes
+      -- ^ If the event is of type ChildWorkflowExecutionTimedOut then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
+    , _heCompleteWorkflowExecutionFailedEventAttributes :: Maybe CompleteWorkflowExecutionFailedEventAttributes
+      -- ^ If the event is of type CompleteWorkflowExecutionFailed then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
+    , _heContinueAsNewWorkflowExecutionFailedEventAttributes :: Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes
+      -- ^ If the event is of type ContinueAsNewWorkflowExecutionFailed then
+      -- this member is set and provides detailed information about the
+      -- event. It is not set for other event types.
+    , _heDecisionTaskCompletedEventAttributes :: Maybe DecisionTaskCompletedEventAttributes
+      -- ^ If the event is of type DecisionTaskCompleted then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heDecisionTaskScheduledEventAttributes :: Maybe DecisionTaskScheduledEventAttributes
+      -- ^ If the event is of type DecisionTaskScheduled then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heDecisionTaskStartedEventAttributes :: Maybe DecisionTaskStartedEventAttributes
+      -- ^ If the event is of type DecisionTaskStarted then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heDecisionTaskTimedOutEventAttributes :: Maybe DecisionTaskTimedOutEventAttributes
+      -- ^ If the event is of type DecisionTaskTimedOut then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heEventId :: Integer
+      -- ^ The system generated id of the event. This id uniquely identifies
+      -- the event with in the workflow execution history.
+    , _heEventTimestamp :: POSIX
+      -- ^ The date and time when the event occurred.
+    , _heEventType :: EventType
+      -- ^ The type of the history event.
+    , _heExternalWorkflowExecutionCancelRequestedEventAttributes :: Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes
+      -- ^ If the event is of type ExternalWorkflowExecutionCancelRequested
+      -- then this member is set and provides detailed information about
+      -- the event. It is not set for other event types.
+    , _heExternalWorkflowExecutionSignaledEventAttributes :: Maybe ExternalWorkflowExecutionSignaledEventAttributes
+      -- ^ If the event is of type ExternalWorkflowExecutionSignaled then
+      -- this member is set and provides detailed information about the
+      -- event. It is not set for other event types.
+    , _heFailWorkflowExecutionFailedEventAttributes :: Maybe FailWorkflowExecutionFailedEventAttributes
+      -- ^ If the event is of type FailWorkflowExecutionFailed then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
     , _heMarkerRecordedEventAttributes :: Maybe MarkerRecordedEventAttributes
       -- ^ If the event is of type MarkerRecorded then this member is set
       -- and provides detailed information about the event. It is not set
       -- for other event types.
-    , _heCompleteWorkflowExecutionFailedEventAttributes :: Maybe CompleteWorkflowExecutionFailedEventAttributes
-      -- ^ If the event is of type CompleteWorkflowExecutionFailed then this
+    , _heRecordMarkerFailedEventAttributes :: Maybe RecordMarkerFailedEventAttributes
+      -- ^ If the event is of type DecisionTaskFailed then this member is
+      -- set and provides detailed information about the event. It is not
+      -- set for other event types.
+    , _heRequestCancelActivityTaskFailedEventAttributes :: Maybe RequestCancelActivityTaskFailedEventAttributes
+      -- ^ If the event is of type RequestCancelActivityTaskFailed then this
       -- member is set and provides detailed information about the event.
       -- It is not set for other event types.
     , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes
@@ -2320,151 +2388,83 @@ data HistoryEvent = HistoryEvent
       -- RequestCancelExternalWorkflowExecutionFailed then this member is
       -- set and provides detailed information about the event. It is not
       -- set for other event types.
-    , _heTimerCanceledEventAttributes :: Maybe TimerCanceledEventAttributes
-      -- ^ If the event is of type TimerCanceled then this member is set and
-      -- provides detailed information about the event. It is not set for
-      -- other event types.
-    , _heWorkflowExecutionStartedEventAttributes :: Maybe WorkflowExecutionStartedEventAttributes
-      -- ^ If the event is of type WorkflowExecutionStarted then this member
+    , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+      -- ^ If the event is of type
+      -- RequestCancelExternalWorkflowExecutionInitiated then this member
       -- is set and provides detailed information about the event. It is
       -- not set for other event types.
-    , _heActivityTaskCompletedEventAttributes :: Maybe ActivityTaskCompletedEventAttributes
-      -- ^ If the event is of type ActivityTaskCompleted then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heDecisionTaskTimedOutEventAttributes :: Maybe DecisionTaskTimedOutEventAttributes
-      -- ^ If the event is of type DecisionTaskTimedOut then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heCancelTimerFailedEventAttributes :: Maybe CancelTimerFailedEventAttributes
-      -- ^ If the event is of type CancelTimerFailed then this member is set
-      -- and provides detailed information about the event. It is not set
-      -- for other event types.
-    , _heChildWorkflowExecutionStartedEventAttributes :: Maybe ChildWorkflowExecutionStartedEventAttributes
-      -- ^ If the event is of type ChildWorkflowExecutionStarted then this
+    , _heScheduleActivityTaskFailedEventAttributes :: Maybe ScheduleActivityTaskFailedEventAttributes
+      -- ^ If the event is of type ScheduleActivityTaskFailed then this
       -- member is set and provides detailed information about the event.
       -- It is not set for other event types.
-    , _heEventType :: EventType
-      -- ^ The type of the history event.
-    , _heActivityTaskCanceledEventAttributes :: Maybe ActivityTaskCanceledEventAttributes
-      -- ^ If the event is of type ActivityTaskCanceled then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heActivityTaskTimedOutEventAttributes :: Maybe ActivityTaskTimedOutEventAttributes
-      -- ^ If the event is of type ActivityTaskTimedOut then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heDecisionTaskStartedEventAttributes :: Maybe DecisionTaskStartedEventAttributes
-      -- ^ If the event is of type DecisionTaskStarted then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heWorkflowExecutionTerminatedEventAttributes :: Maybe WorkflowExecutionTerminatedEventAttributes
-      -- ^ If the event is of type WorkflowExecutionTerminated then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heChildWorkflowExecutionCanceledEventAttributes :: Maybe ChildWorkflowExecutionCanceledEventAttributes
-      -- ^ If the event is of type ChildWorkflowExecutionCanceled then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heRequestCancelActivityTaskFailedEventAttributes :: Maybe RequestCancelActivityTaskFailedEventAttributes
-      -- ^ If the event is of type RequestCancelActivityTaskFailed then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heChildWorkflowExecutionTimedOutEventAttributes :: Maybe ChildWorkflowExecutionTimedOutEventAttributes
-      -- ^ If the event is of type ChildWorkflowExecutionTimedOut then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heCancelWorkflowExecutionFailedEventAttributes :: Maybe CancelWorkflowExecutionFailedEventAttributes
-      -- ^ If the event is of type CancelWorkflowExecutionFailed then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heStartChildWorkflowExecutionInitiatedEventAttributes :: Maybe StartChildWorkflowExecutionInitiatedEventAttributes
-      -- ^ If the event is of type StartChildWorkflowExecutionInitiated then
-      -- this member is set and provides detailed information about the
-      -- event. It is not set for other event types.
     , _heSignalExternalWorkflowExecutionFailedEventAttributes :: Maybe SignalExternalWorkflowExecutionFailedEventAttributes
       -- ^ If the event is of type SignalExternalWorkflowExecutionFailed
       -- then this member is set and provides detailed information about
       -- the event. It is not set for other event types.
-    , _heActivityTaskStartedEventAttributes :: Maybe ActivityTaskStartedEventAttributes
-      -- ^ If the event is of type ActivityTaskStarted then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heChildWorkflowExecutionTerminatedEventAttributes :: Maybe ChildWorkflowExecutionTerminatedEventAttributes
-      -- ^ If the event is of type ChildWorkflowExecutionTerminated then
+    , _heSignalExternalWorkflowExecutionInitiatedEventAttributes :: Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes
+      -- ^ If the event is of type SignalExternalWorkflowExecutionInitiated
+      -- then this member is set and provides detailed information about
+      -- the event. It is not set for other event types.
+    , _heStartChildWorkflowExecutionFailedEventAttributes :: Maybe StartChildWorkflowExecutionFailedEventAttributes
+      -- ^ If the event is of type StartChildWorkflowExecutionFailed then
+      -- this member is set and provides detailed information about the
+      -- event. It is not set for other event types.
+    , _heStartChildWorkflowExecutionInitiatedEventAttributes :: Maybe StartChildWorkflowExecutionInitiatedEventAttributes
+      -- ^ If the event is of type StartChildWorkflowExecutionInitiated then
+      -- this member is set and provides detailed information about the
+      -- event. It is not set for other event types.
+    , _heStartTimerFailedEventAttributes :: Maybe StartTimerFailedEventAttributes
+      -- ^ If the event is of type StartTimerFailed then this member is set
+      -- and provides detailed information about the event. It is not set
+      -- for other event types.
+    , _heTimerCanceledEventAttributes :: Maybe TimerCanceledEventAttributes
+      -- ^ If the event is of type TimerCanceled then this member is set and
+      -- provides detailed information about the event. It is not set for
+      -- other event types.
+    , _heTimerFiredEventAttributes :: Maybe TimerFiredEventAttributes
+      -- ^ If the event is of type TimerFired then this member is set and
+      -- provides detailed information about the event. It is not set for
+      -- other event types.
+    , _heTimerStartedEventAttributes :: Maybe TimerStartedEventAttributes
+      -- ^ If the event is of type TimerStarted then this member is set and
+      -- provides detailed information about the event. It is not set for
+      -- other event types.
+    , _heWorkflowExecutionCancelRequestedEventAttributes :: Maybe WorkflowExecutionCancelRequestedEventAttributes
+      -- ^ If the event is of type WorkflowExecutionCancelRequested then
       -- this member is set and provides detailed information about the
       -- event. It is not set for other event types.
     , _heWorkflowExecutionCanceledEventAttributes :: Maybe WorkflowExecutionCanceledEventAttributes
       -- ^ If the event is of type WorkflowExecutionCanceled then this
       -- member is set and provides detailed information about the event.
       -- It is not set for other event types.
-    , _heTimerStartedEventAttributes :: Maybe TimerStartedEventAttributes
-      -- ^ If the event is of type TimerStarted then this member is set and
-      -- provides detailed information about the event. It is not set for
-      -- other event types.
-    , _heActivityTaskCancelRequestedEventAttributes :: Maybe ActivityTaskCancelRequestedEventAttributes
-      -- ^ If the event is of type ActivityTaskcancelRequested then this
+    , _heWorkflowExecutionCompletedEventAttributes :: Maybe WorkflowExecutionCompletedEventAttributes
+      -- ^ If the event is of type WorkflowExecutionCompleted then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
+    , _heWorkflowExecutionContinuedAsNewEventAttributes :: Maybe WorkflowExecutionContinuedAsNewEventAttributes
+      -- ^ If the event is of type WorkflowExecutionContinuedAsNew then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
+    , _heWorkflowExecutionFailedEventAttributes :: Maybe WorkflowExecutionFailedEventAttributes
+      -- ^ If the event is of type WorkflowExecutionFailed then this member
+      -- is set and provides detailed information about the event. It is
+      -- not set for other event types.
+    , _heWorkflowExecutionSignaledEventAttributes :: Maybe WorkflowExecutionSignaledEventAttributes
+      -- ^ If the event is of type WorkflowExecutionSignaled then this
+      -- member is set and provides detailed information about the event.
+      -- It is not set for other event types.
+    , _heWorkflowExecutionStartedEventAttributes :: Maybe WorkflowExecutionStartedEventAttributes
+      -- ^ If the event is of type WorkflowExecutionStarted then this member
+      -- is set and provides detailed information about the event. It is
+      -- not set for other event types.
+    , _heWorkflowExecutionTerminatedEventAttributes :: Maybe WorkflowExecutionTerminatedEventAttributes
+      -- ^ If the event is of type WorkflowExecutionTerminated then this
       -- member is set and provides detailed information about the event.
       -- It is not set for other event types.
     , _heWorkflowExecutionTimedOutEventAttributes :: Maybe WorkflowExecutionTimedOutEventAttributes
       -- ^ If the event is of type WorkflowExecutionTimedOut then this
       -- member is set and provides detailed information about the event.
       -- It is not set for other event types.
-    , _heWorkflowExecutionSignaledEventAttributes :: Maybe WorkflowExecutionSignaledEventAttributes
-      -- ^ If the event is of type WorkflowExecutionSignaled then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heTimerFiredEventAttributes :: Maybe TimerFiredEventAttributes
-      -- ^ If the event is of type TimerFired then this member is set and
-      -- provides detailed information about the event. It is not set for
-      -- other event types.
-    , _heActivityTaskFailedEventAttributes :: Maybe ActivityTaskFailedEventAttributes
-      -- ^ If the event is of type ActivityTaskFailed then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heExternalWorkflowExecutionSignaledEventAttributes :: Maybe ExternalWorkflowExecutionSignaledEventAttributes
-      -- ^ If the event is of type ExternalWorkflowExecutionSignaled then
-      -- this member is set and provides detailed information about the
-      -- event. It is not set for other event types.
-    , _heDecisionTaskCompletedEventAttributes :: Maybe DecisionTaskCompletedEventAttributes
-      -- ^ If the event is of type DecisionTaskCompleted then this member is
-      -- set and provides detailed information about the event. It is not
-      -- set for other event types.
-    , _heStartChildWorkflowExecutionFailedEventAttributes :: Maybe StartChildWorkflowExecutionFailedEventAttributes
-      -- ^ If the event is of type StartChildWorkflowExecutionFailed then
-      -- this member is set and provides detailed information about the
-      -- event. It is not set for other event types.
-    , _heChildWorkflowExecutionFailedEventAttributes :: Maybe ChildWorkflowExecutionFailedEventAttributes
-      -- ^ If the event is of type ChildWorkflowExecutionFailed then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heFailWorkflowExecutionFailedEventAttributes :: Maybe FailWorkflowExecutionFailedEventAttributes
-      -- ^ If the event is of type FailWorkflowExecutionFailed then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heContinueAsNewWorkflowExecutionFailedEventAttributes :: Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes
-      -- ^ If the event is of type ContinueAsNewWorkflowExecutionFailed then
-      -- this member is set and provides detailed information about the
-      -- event. It is not set for other event types.
-    , _heSignalExternalWorkflowExecutionInitiatedEventAttributes :: Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes
-      -- ^ If the event is of type SignalExternalWorkflowExecutionInitiated
-      -- then this member is set and provides detailed information about
-      -- the event. It is not set for other event types.
-    , _heEventId :: Integer
-      -- ^ The system generated id of the event. This id uniquely identifies
-      -- the event with in the workflow execution history.
-    , _heWorkflowExecutionFailedEventAttributes :: Maybe WorkflowExecutionFailedEventAttributes
-      -- ^ If the event is of type WorkflowExecutionFailed then this member
-      -- is set and provides detailed information about the event. It is
-      -- not set for other event types.
-    , _heWorkflowExecutionContinuedAsNewEventAttributes :: Maybe WorkflowExecutionContinuedAsNewEventAttributes
-      -- ^ If the event is of type WorkflowExecutionContinuedAsNew then this
-      -- member is set and provides detailed information about the event.
-      -- It is not set for other event types.
-    , _heExternalWorkflowExecutionCancelRequestedEventAttributes :: Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes
-      -- ^ If the event is of type ExternalWorkflowExecutionCancelRequested
-      -- then this member is set and provides detailed information about
-      -- the event. It is not set for other event types.
     } deriving (Show, Generic)
 
 instance FromJSON HistoryEvent
@@ -2472,15 +2472,15 @@ instance FromJSON HistoryEvent
 -- | If the event is of type MarkerRecorded then this member is set and provides
 -- detailed information about the event. It is not set for other event types.
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes
-    { _mreaMarkerName :: Text
-      -- ^ The name of the marker.
-    , _mreaDetails :: Maybe Text
-      -- ^ Details of the marker (if any).
-    , _mreaDecisionTaskCompletedEventId :: Integer
+    { _mreaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the RecordMarker decision that
       -- requested this marker. This information can be useful for
       -- diagnosing problems by tracing back the cause of events.
+    , _mreaDetails :: Maybe Text
+      -- ^ Details of the marker (if any).
+    , _mreaMarkerName :: Text
+      -- ^ The name of the marker.
     } deriving (Show, Generic)
 
 instance FromJSON MarkerRecordedEventAttributes
@@ -2490,10 +2490,10 @@ instance ToJSON MarkerRecordedEventAttributes
 -- | Provides details of the RecordMarker decision. It is not set for other
 -- decision types.
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes
-    { _rmdaMarkerName :: Text
-      -- ^ The name of the marker. This file is required.
-    , _rmdaDetails :: Maybe Text
+    { _rmdaDetails :: Maybe Text
       -- ^ Optional details of the marker.
+    , _rmdaMarkerName :: Text
+      -- ^ The name of the marker. This file is required.
     } deriving (Show, Generic)
 
 instance FromJSON RecordMarkerDecisionAttributes
@@ -2504,9 +2504,7 @@ instance ToJSON RecordMarkerDecisionAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes
-    { _rmfeaMarkerName :: Text
-      -- ^ The marker's name.
-    , _rmfeaCause :: RecordMarkerFailedCause
+    { _rmfeaCause :: RecordMarkerFailedCause
       -- ^ The cause of the failure to process the decision. This
       -- information is generated by the system and can be useful for
       -- diagnostic purposes. If cause is set to OPERATION_NOT_PERMITTED,
@@ -2518,6 +2516,8 @@ data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes
       -- decision task that resulted in the RecordMarkerFailed decision
       -- for this cancellation request. This information can be useful for
       -- diagnosing problems by tracing back the cause of events.
+    , _rmfeaMarkerName :: Text
+      -- ^ The marker's name.
     } deriving (Show, Generic)
 
 instance FromJSON RecordMarkerFailedEventAttributes
@@ -2571,31 +2571,31 @@ instance ToJSON RequestCancelExternalWorkflowExecutionDecisionAttributes
 -- this member is set and provides detailed information about the event. It is
 -- not set for other event types.
 data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    { _rcewefeaControl :: Maybe Text
-    , _rcewefeaCause :: RequestCancelExternalWorkflowExecutionFailedCause
+    { _rcewefeaCause :: RequestCancelExternalWorkflowExecutionFailedCause
       -- ^ The cause of the failure to process the decision. This
       -- information is generated by the system and can be useful for
       -- diagnostic purposes. If cause is set to OPERATION_NOT_PERMITTED,
       -- the decision failed because it lacked sufficient permissions. For
       -- details and example IAM policies, see Using IAM to Manage Access
       -- to Amazon SWF Workflows.
-    , _rcewefeaRunId :: Maybe Text
-      -- ^ The runId of the external workflow execution.
-    , _rcewefeaInitiatedEventId :: Integer
-      -- ^ The id of the RequestCancelExternalWorkflowExecutionInitiated
-      -- event corresponding to the RequestCancelExternalWorkflowExecution
-      -- decision to cancel this external workflow execution. This
-      -- information can be useful for diagnosing problems by tracing back
-      -- the chain of events leading up to this event.
-    , _rcewefeaWorkflowId :: Text
-      -- ^ The workflowId of the external workflow to which the cancel
-      -- request was to be delivered.
+    , _rcewefeaControl :: Maybe Text
     , _rcewefeaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the
       -- RequestCancelExternalWorkflowExecution decision for this
       -- cancellation request. This information can be useful for
       -- diagnosing problems by tracing back the cause of events.
+    , _rcewefeaInitiatedEventId :: Integer
+      -- ^ The id of the RequestCancelExternalWorkflowExecutionInitiated
+      -- event corresponding to the RequestCancelExternalWorkflowExecution
+      -- decision to cancel this external workflow execution. This
+      -- information can be useful for diagnosing problems by tracing back
+      -- the chain of events leading up to this event.
+    , _rcewefeaRunId :: Maybe Text
+      -- ^ The runId of the external workflow execution.
+    , _rcewefeaWorkflowId :: Text
+      -- ^ The workflowId of the external workflow to which the cancel
+      -- request was to be delivered.
     } deriving (Show, Generic)
 
 instance FromJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes
@@ -2609,16 +2609,16 @@ data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCan
     { _rceweieaControl :: Maybe Text
       -- ^ Optional data attached to the event that can be used by the
       -- decider in subsequent workflow tasks.
-    , _rceweieaRunId :: Maybe Text
-      -- ^ The runId of the external workflow execution to be canceled.
-    , _rceweieaWorkflowId :: Text
-      -- ^ The workflowId of the external workflow execution to be canceled.
     , _rceweieaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the
       -- RequestCancelExternalWorkflowExecution decision for this
       -- cancellation request. This information can be useful for
       -- diagnosing problems by tracing back the cause of events.
+    , _rceweieaRunId :: Maybe Text
+      -- ^ The runId of the external workflow execution to be canceled.
+    , _rceweieaWorkflowId :: Text
+      -- ^ The workflowId of the external workflow execution to be canceled.
     } deriving (Show, Generic)
 
 instance FromJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
@@ -2628,19 +2628,19 @@ instance ToJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
 -- | Provides details of the ScheduleActivityTask decision. It is not set for
 -- other decision types.
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes
-    { _satdaControl :: Maybe Text
-      -- ^ Optional data attached to the event that can be used by the
-      -- decider in subsequent workflow tasks. This data is not sent to
-      -- the activity.
-    , _satdaActivityType :: ActivityType
-      -- ^ The type of the activity task to schedule. This field is
-      -- required.
-    , _satdaActivityId :: Text
+    { _satdaActivityId :: Text
       -- ^ The activityId of the activity task. This field is required. The
       -- specified string must not start or end with whitespace. It must
       -- not contain a : (colon), / (slash), | (vertical bar), or any
       -- control characters (\u0000-\u001f | \u007f - \u009f). Also, it
       -- must not contain the literal string &quot;arn&quot;.
+    , _satdaActivityType :: ActivityType
+      -- ^ The type of the activity task to schedule. This field is
+      -- required.
+    , _satdaControl :: Maybe Text
+      -- ^ Optional data attached to the event that can be used by the
+      -- decider in subsequent workflow tasks. This data is not sent to
+      -- the activity.
     , _satdaHeartbeatTimeout :: Maybe Text
       -- ^ If set, specifies the maximum time before which a worker
       -- processing a task of this type must report progress by calling
@@ -2653,6 +2653,8 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
       -- or equal to 0. An integer value can be used to specify the
       -- duration in seconds while NONE can be used to specify unlimited
       -- duration.
+    , _satdaInput :: Maybe Text
+      -- ^ The input provided to the activity task.
     , _satdaScheduleToCloseTimeout :: Maybe Text
       -- ^ The maximum duration for this activity task. The valid values are
       -- integers greater than or equal to 0. An integer value can be used
@@ -2662,20 +2664,6 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
       -- activity type or through this field. If neither this field is set
       -- nor a default schedule-to-close timeout was specified at
       -- registration time then a fault will be returned.
-    , _satdaInput :: Maybe Text
-      -- ^ The input provided to the activity task.
-    , _satdaTaskList :: Maybe TaskList
-      -- ^ If set, specifies the name of the task list in which to schedule
-      -- the activity task. If not specified, the defaultTaskList
-      -- registered with the activity type will be used. A task list for
-      -- this activity task must be specified either as a default for the
-      -- activity type or through this field. If neither this field is set
-      -- nor a default task list was specified at registration time then a
-      -- fault will be returned. The specified string must not start or
-      -- end with whitespace. It must not contain a : (colon), / (slash),
-      -- | (vertical bar), or any control characters (\u0000-\u001f |
-      -- \u007f - \u009f). Also, it must not contain the literal string
-      -- &quot;arn&quot;.
     , _satdaScheduleToStartTimeout :: Maybe Text
       -- ^ If set, specifies the maximum duration the activity task can wait
       -- to be assigned to a worker. This overrides the default
@@ -2700,6 +2688,18 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
       -- or through this field. If neither this field is set nor a default
       -- start-to-close timeout was specified at registration time then a
       -- fault will be returned.
+    , _satdaTaskList :: Maybe TaskList
+      -- ^ If set, specifies the name of the task list in which to schedule
+      -- the activity task. If not specified, the defaultTaskList
+      -- registered with the activity type will be used. A task list for
+      -- this activity task must be specified either as a default for the
+      -- activity type or through this field. If neither this field is set
+      -- nor a default task list was specified at registration time then a
+      -- fault will be returned. The specified string must not start or
+      -- end with whitespace. It must not contain a : (colon), / (slash),
+      -- | (vertical bar), or any control characters (\u0000-\u001f |
+      -- \u007f - \u009f). Also, it must not contain the literal string
+      -- &quot;arn&quot;.
     } deriving (Show, Generic)
 
 instance FromJSON ScheduleActivityTaskDecisionAttributes
@@ -2710,12 +2710,12 @@ instance ToJSON ScheduleActivityTaskDecisionAttributes
 -- and provides detailed information about the event. It is not set for other
 -- event types.
 data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEventAttributes
-    { _satfeaActivityType :: ActivityType
-      -- ^ The activity type provided in the ScheduleActivityTask decision
-      -- that failed.
-    , _satfeaActivityId :: Text
+    { _satfeaActivityId :: Text
       -- ^ The activityId provided in the ScheduleActivityTask decision that
       -- failed.
+    , _satfeaActivityType :: ActivityType
+      -- ^ The activity type provided in the ScheduleActivityTask decision
+      -- that failed.
     , _satfeaCause :: ScheduleActivityTaskFailedCause
       -- ^ The cause of the failure to process the decision. This
       -- information is generated by the system and can be useful for
@@ -2746,13 +2746,13 @@ data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowE
       -- signal.
     , _sewedaRunId :: Maybe Text
       -- ^ The runId of the workflow execution to be signaled.
-    , _sewedaWorkflowId :: Text
-      -- ^ The workflowId of the workflow execution to be signaled. This
-      -- field is required.
     , _sewedaSignalName :: Text
       -- ^ The name of the signal.The target workflow execution will use the
       -- signal name and input to process the signal. This field is
       -- required.
+    , _sewedaWorkflowId :: Text
+      -- ^ The workflowId of the workflow execution to be signaled. This
+      -- field is required.
     } deriving (Show, Generic)
 
 instance FromJSON SignalExternalWorkflowExecutionDecisionAttributes
@@ -2763,32 +2763,32 @@ instance ToJSON SignalExternalWorkflowExecutionDecisionAttributes
 -- member is set and provides detailed information about the event. It is not
 -- set for other event types.
 data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkflowExecutionFailedEventAttributes
-    { _sewefeaControl :: Maybe Text
-    , _sewefeaCause :: SignalExternalWorkflowExecutionFailedCause
+    { _sewefeaCause :: SignalExternalWorkflowExecutionFailedCause
       -- ^ The cause of the failure to process the decision. This
       -- information is generated by the system and can be useful for
       -- diagnostic purposes. If cause is set to OPERATION_NOT_PERMITTED,
       -- the decision failed because it lacked sufficient permissions. For
       -- details and example IAM policies, see Using IAM to Manage Access
       -- to Amazon SWF Workflows.
-    , _sewefeaRunId :: Maybe Text
-      -- ^ The runId of the external workflow execution that the signal was
-      -- being delivered to.
-    , _sewefeaInitiatedEventId :: Integer
-      -- ^ The id of the SignalExternalWorkflowExecutionInitiated event
-      -- corresponding to the SignalExternalWorkflowExecution decision to
-      -- request this signal. This information can be useful for
-      -- diagnosing problems by tracing back the chain of events leading
-      -- up to this event.
-    , _sewefeaWorkflowId :: Text
-      -- ^ The workflowId of the external workflow execution that the signal
-      -- was being delivered to.
+    , _sewefeaControl :: Maybe Text
     , _sewefeaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the
       -- SignalExternalWorkflowExecution decision for this signal. This
       -- information can be useful for diagnosing problems by tracing back
       -- the cause of events leading up to this event.
+    , _sewefeaInitiatedEventId :: Integer
+      -- ^ The id of the SignalExternalWorkflowExecutionInitiated event
+      -- corresponding to the SignalExternalWorkflowExecution decision to
+      -- request this signal. This information can be useful for
+      -- diagnosing problems by tracing back the chain of events leading
+      -- up to this event.
+    , _sewefeaRunId :: Maybe Text
+      -- ^ The runId of the external workflow execution that the signal was
+      -- being delivered to.
+    , _sewefeaWorkflowId :: Text
+      -- ^ The workflowId of the external workflow execution that the signal
+      -- was being delivered to.
     } deriving (Show, Generic)
 
 instance FromJSON SignalExternalWorkflowExecutionFailedEventAttributes
@@ -2802,21 +2802,21 @@ data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWor
     { _seweieaControl :: Maybe Text
       -- ^ Optional data attached to the event that can be used by the
       -- decider in subsequent decision tasks.
-    , _seweieaInput :: Maybe Text
-      -- ^ Input provided to the signal (if any).
-    , _seweieaRunId :: Maybe Text
-      -- ^ The runId of the external workflow execution to send the signal
-      -- to.
-    , _seweieaWorkflowId :: Text
-      -- ^ The workflowId of the external workflow execution.
-    , _seweieaSignalName :: Text
-      -- ^ The name of the signal.
     , _seweieaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the
       -- SignalExternalWorkflowExecution decision for this signal. This
       -- information can be useful for diagnosing problems by tracing back
       -- the cause of events leading up to this event.
+    , _seweieaInput :: Maybe Text
+      -- ^ Input provided to the signal (if any).
+    , _seweieaRunId :: Maybe Text
+      -- ^ The runId of the external workflow execution to send the signal
+      -- to.
+    , _seweieaSignalName :: Text
+      -- ^ The name of the signal.
+    , _seweieaWorkflowId :: Text
+      -- ^ The workflowId of the external workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON SignalExternalWorkflowExecutionInitiatedEventAttributes
@@ -2826,56 +2826,7 @@ instance ToJSON SignalExternalWorkflowExecutionInitiatedEventAttributes
 -- | Provides details of the StartChildWorkflowExecution decision. It is not set
 -- for other decision types.
 data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecutionDecisionAttributes
-    { _scwedaControl :: Maybe Text
-      -- ^ Optional data attached to the event that can be used by the
-      -- decider in subsequent workflow tasks. This data is not sent to
-      -- the child workflow execution.
-    , _scwedaTagList :: [Text]
-      -- ^ The list of tags to associate with the child workflow execution.
-      -- A maximum of 5 tags can be specified. You can list workflow
-      -- executions with a specific tag by calling
-      -- ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
-      -- specifying a TagFilter.
-    , _scwedaTaskStartToCloseTimeout :: Maybe Text
-      -- ^ Specifies the maximum duration of decision tasks for this
-      -- workflow execution. This parameter overrides the
-      -- defaultTaskStartToCloseTimout specified when registering the
-      -- workflow type using RegisterWorkflowType. The valid values are
-      -- integers greater than or equal to 0. An integer value can be used
-      -- to specify the duration in seconds while NONE can be used to
-      -- specify unlimited duration. A task start-to-close timeout for
-      -- this workflow execution must be specified either as a default for
-      -- the workflow type or through this parameter. If neither this
-      -- parameter is set nor a default task start-to-close timeout was
-      -- specified at registration time then a fault will be returned.
-    , _scwedaWorkflowType :: WorkflowType
-      -- ^ The type of the workflow execution to be started. This field is
-      -- required.
-    , _scwedaInput :: Maybe Text
-      -- ^ The input to be provided to the workflow execution.
-    , _scwedaExecutionStartToCloseTimeout :: Maybe Text
-      -- ^ The total duration for this workflow execution. This overrides
-      -- the defaultExecutionStartToCloseTimeout specified when
-      -- registering the workflow type. The valid values are integers
-      -- greater than or equal to 0. An integer value can be used to
-      -- specify the duration in seconds while NONE can be used to specify
-      -- unlimited duration. An execution start-to-close timeout for this
-      -- workflow execution must be specified either as a default for the
-      -- workflow type or through this parameter. If neither this
-      -- parameter is set nor a default execution start-to-close timeout
-      -- was specified at registration time then a fault will be returned.
-    , _scwedaTaskList :: Maybe TaskList
-      -- ^ The name of the task list to be used for decision tasks of the
-      -- child workflow execution. A task list for this workflow execution
-      -- must be specified either as a default for the workflow type or
-      -- through this parameter. If neither this parameter is set nor a
-      -- default task list was specified at registration time then a fault
-      -- will be returned. The specified string must not start or end with
-      -- whitespace. It must not contain a : (colon), / (slash), |
-      -- (vertical bar), or any control characters (\u0000-\u001f | \u007f
-      -- - \u009f). Also, it must not contain the literal string
-      -- &quot;arn&quot;.
-    , _scwedaChildPolicy :: Maybe ChildPolicy
+    { _scwedaChildPolicy :: Maybe ChildPolicy
       -- ^ If set, specifies the policy to use for the child workflow
       -- executions if the workflow execution being started is terminated
       -- by calling the TerminateWorkflowExecution action explicitly or
@@ -2893,12 +2844,61 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
       -- workflow type or through this field. If neither this field is set
       -- nor a default child policy was specified at registration time
       -- then a fault will be returned.
+    , _scwedaControl :: Maybe Text
+      -- ^ Optional data attached to the event that can be used by the
+      -- decider in subsequent workflow tasks. This data is not sent to
+      -- the child workflow execution.
+    , _scwedaExecutionStartToCloseTimeout :: Maybe Text
+      -- ^ The total duration for this workflow execution. This overrides
+      -- the defaultExecutionStartToCloseTimeout specified when
+      -- registering the workflow type. The valid values are integers
+      -- greater than or equal to 0. An integer value can be used to
+      -- specify the duration in seconds while NONE can be used to specify
+      -- unlimited duration. An execution start-to-close timeout for this
+      -- workflow execution must be specified either as a default for the
+      -- workflow type or through this parameter. If neither this
+      -- parameter is set nor a default execution start-to-close timeout
+      -- was specified at registration time then a fault will be returned.
+    , _scwedaInput :: Maybe Text
+      -- ^ The input to be provided to the workflow execution.
+    , _scwedaTagList :: [Text]
+      -- ^ The list of tags to associate with the child workflow execution.
+      -- A maximum of 5 tags can be specified. You can list workflow
+      -- executions with a specific tag by calling
+      -- ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
+      -- specifying a TagFilter.
+    , _scwedaTaskList :: Maybe TaskList
+      -- ^ The name of the task list to be used for decision tasks of the
+      -- child workflow execution. A task list for this workflow execution
+      -- must be specified either as a default for the workflow type or
+      -- through this parameter. If neither this parameter is set nor a
+      -- default task list was specified at registration time then a fault
+      -- will be returned. The specified string must not start or end with
+      -- whitespace. It must not contain a : (colon), / (slash), |
+      -- (vertical bar), or any control characters (\u0000-\u001f | \u007f
+      -- - \u009f). Also, it must not contain the literal string
+      -- &quot;arn&quot;.
+    , _scwedaTaskStartToCloseTimeout :: Maybe Text
+      -- ^ Specifies the maximum duration of decision tasks for this
+      -- workflow execution. This parameter overrides the
+      -- defaultTaskStartToCloseTimout specified when registering the
+      -- workflow type using RegisterWorkflowType. The valid values are
+      -- integers greater than or equal to 0. An integer value can be used
+      -- to specify the duration in seconds while NONE can be used to
+      -- specify unlimited duration. A task start-to-close timeout for
+      -- this workflow execution must be specified either as a default for
+      -- the workflow type or through this parameter. If neither this
+      -- parameter is set nor a default task start-to-close timeout was
+      -- specified at registration time then a fault will be returned.
     , _scwedaWorkflowId :: Text
       -- ^ The workflowId of the workflow execution. This field is required.
       -- The specified string must not start or end with whitespace. It
       -- must not contain a : (colon), / (slash), | (vertical bar), or any
       -- control characters (\u0000-\u001f | \u007f - \u009f). Also, it
       -- must not contain the literal string &quot;arn&quot;.
+    , _scwedaWorkflowType :: WorkflowType
+      -- ^ The type of the workflow execution to be started. This field is
+      -- required.
     } deriving (Show, Generic)
 
 instance FromJSON StartChildWorkflowExecutionDecisionAttributes
@@ -2909,17 +2909,20 @@ instance ToJSON StartChildWorkflowExecutionDecisionAttributes
 -- is set and provides detailed information about the event. It is not set for
 -- other event types.
 data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecutionFailedEventAttributes
-    { _scwefeaControl :: Maybe Text
-    , _scwefeaWorkflowType :: WorkflowType
-      -- ^ The workflow type provided in the StartChildWorkflowExecution
-      -- Decision that failed.
-    , _scwefeaCause :: StartChildWorkflowExecutionFailedCause
+    { _scwefeaCause :: StartChildWorkflowExecutionFailedCause
       -- ^ The cause of the failure to process the decision. This
       -- information is generated by the system and can be useful for
       -- diagnostic purposes. If cause is set to OPERATION_NOT_PERMITTED,
       -- the decision failed because it lacked sufficient permissions. For
       -- details and example IAM policies, see Using IAM to Manage Access
       -- to Amazon SWF Workflows.
+    , _scwefeaControl :: Maybe Text
+    , _scwefeaDecisionTaskCompletedEventId :: Integer
+      -- ^ The id of the DecisionTaskCompleted event corresponding to the
+      -- decision task that resulted in the StartChildWorkflowExecution
+      -- Decision to request this child workflow execution. This
+      -- information can be useful for diagnosing problems by tracing back
+      -- the cause of events.
     , _scwefeaInitiatedEventId :: Integer
       -- ^ The id of the StartChildWorkflowExecutionInitiated event
       -- corresponding to the StartChildWorkflowExecution Decision to
@@ -2928,12 +2931,9 @@ data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecut
       -- events leading up to this event.
     , _scwefeaWorkflowId :: Text
       -- ^ The workflowId of the child workflow execution.
-    , _scwefeaDecisionTaskCompletedEventId :: Integer
-      -- ^ The id of the DecisionTaskCompleted event corresponding to the
-      -- decision task that resulted in the StartChildWorkflowExecution
-      -- Decision to request this child workflow execution. This
-      -- information can be useful for diagnosing problems by tracing back
-      -- the cause of events.
+    , _scwefeaWorkflowType :: WorkflowType
+      -- ^ The workflow type provided in the StartChildWorkflowExecution
+      -- Decision that failed.
     } deriving (Show, Generic)
 
 instance FromJSON StartChildWorkflowExecutionFailedEventAttributes
@@ -2944,32 +2944,7 @@ instance ToJSON StartChildWorkflowExecutionFailedEventAttributes
 -- member is set and provides detailed information about the event. It is not
 -- set for other event types.
 data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes
-    { _scweieaControl :: Maybe Text
-      -- ^ Optional data attached to the event that can be used by the
-      -- decider in subsequent decision tasks. This data is not sent to
-      -- the activity.
-    , _scweieaTagList :: [Text]
-      -- ^ The list of tags to associated with the child workflow execution.
-    , _scweieaTaskStartToCloseTimeout :: Maybe Text
-      -- ^ The maximum duration allowed for the decision tasks for this
-      -- workflow execution. The valid values are integers greater than or
-      -- equal to 0. An integer value can be used to specify the duration
-      -- in seconds while NONE can be used to specify unlimited duration.
-    , _scweieaWorkflowType :: WorkflowType
-      -- ^ The type of the child workflow execution.
-    , _scweieaInput :: Maybe Text
-      -- ^ The inputs provided to the child workflow execution (if any).
-    , _scweieaExecutionStartToCloseTimeout :: Maybe Text
-      -- ^ The maximum duration for the child workflow execution. If the
-      -- workflow execution is not closed within this duration, it will be
-      -- timed out and force terminated. The valid values are integers
-      -- greater than or equal to 0. An integer value can be used to
-      -- specify the duration in seconds while NONE can be used to specify
-      -- unlimited duration.
-    , _scweieaTaskList :: TaskList
-      -- ^ The name of the task list used for the decision tasks of the
-      -- child workflow execution.
-    , _scweieaChildPolicy :: ChildPolicy
+    { _scweieaChildPolicy :: ChildPolicy
       -- ^ The policy to use for the child workflow executions if this
       -- execution gets terminated by explicitly calling the
       -- TerminateWorkflowExecution action or due to an expired timeout.
@@ -2980,14 +2955,39 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
       -- to the decider to take appropriate actions when it receives an
       -- execution history with this event. ABANDON: no action will be
       -- taken. The child executions will continue to run.
-    , _scweieaWorkflowId :: Text
-      -- ^ The workflowId of the child workflow execution.
+    , _scweieaControl :: Maybe Text
+      -- ^ Optional data attached to the event that can be used by the
+      -- decider in subsequent decision tasks. This data is not sent to
+      -- the activity.
     , _scweieaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the StartChildWorkflowExecution
       -- Decision to request this child workflow execution. This
       -- information can be useful for diagnosing problems by tracing back
       -- the cause of events.
+    , _scweieaExecutionStartToCloseTimeout :: Maybe Text
+      -- ^ The maximum duration for the child workflow execution. If the
+      -- workflow execution is not closed within this duration, it will be
+      -- timed out and force terminated. The valid values are integers
+      -- greater than or equal to 0. An integer value can be used to
+      -- specify the duration in seconds while NONE can be used to specify
+      -- unlimited duration.
+    , _scweieaInput :: Maybe Text
+      -- ^ The inputs provided to the child workflow execution (if any).
+    , _scweieaTagList :: [Text]
+      -- ^ The list of tags to associated with the child workflow execution.
+    , _scweieaTaskList :: TaskList
+      -- ^ The name of the task list used for the decision tasks of the
+      -- child workflow execution.
+    , _scweieaTaskStartToCloseTimeout :: Maybe Text
+      -- ^ The maximum duration allowed for the decision tasks for this
+      -- workflow execution. The valid values are integers greater than or
+      -- equal to 0. An integer value can be used to specify the duration
+      -- in seconds while NONE can be used to specify unlimited duration.
+    , _scweieaWorkflowId :: Text
+      -- ^ The workflowId of the child workflow execution.
+    , _scweieaWorkflowType :: WorkflowType
+      -- ^ The type of the child workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON StartChildWorkflowExecutionInitiatedEventAttributes
@@ -3000,16 +3000,16 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes
     { _stdaControl :: Maybe Text
       -- ^ Optional data attached to the event that can be used by the
       -- decider in subsequent workflow tasks.
+    , _stdaStartToFireTimeout :: Text
+      -- ^ The duration to wait before firing the timer. This field is
+      -- required. The duration is specified in seconds. The valid values
+      -- are integers greater than or equal to 0.
     , _stdaTimerId :: Text
       -- ^ The unique Id of the timer. This field is required. The specified
       -- string must not start or end with whitespace. It must not contain
       -- a : (colon), / (slash), | (vertical bar), or any control
       -- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not
       -- contain the literal string &quot;arn&quot;.
-    , _stdaStartToFireTimeout :: Text
-      -- ^ The duration to wait before firing the timer. This field is
-      -- required. The duration is specified in seconds. The valid values
-      -- are integers greater than or equal to 0.
     } deriving (Show, Generic)
 
 instance FromJSON StartTimerDecisionAttributes
@@ -3027,13 +3027,13 @@ data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes
       -- the decision failed because it lacked sufficient permissions. For
       -- details and example IAM policies, see Using IAM to Manage Access
       -- to Amazon SWF Workflows.
-    , _stfeaTimerId :: Text
-      -- ^ The timerId provided in the StartTimer decision that failed.
     , _stfeaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the StartTimer decision for this
       -- activity task. This information can be useful for diagnosing
       -- problems by tracing back the cause of events.
+    , _stfeaTimerId :: Text
+      -- ^ The timerId provided in the StartTimer decision that failed.
     } deriving (Show, Generic)
 
 instance FromJSON StartTimerFailedEventAttributes
@@ -3043,18 +3043,18 @@ instance ToJSON StartTimerFailedEventAttributes
 -- | If the event is of type TimerCanceled then this member is set and provides
 -- detailed information about the event. It is not set for other event types.
 data TimerCanceledEventAttributes = TimerCanceledEventAttributes
-    { _tceaTimerId :: Text
-      -- ^ The unique Id of the timer that was canceled.
+    { _tceaDecisionTaskCompletedEventId :: Integer
+      -- ^ The id of the DecisionTaskCompleted event corresponding to the
+      -- decision task that resulted in the CancelTimer decision to cancel
+      -- this timer. This information can be useful for diagnosing
+      -- problems by tracing back the cause of events.
     , _tceaStartedEventId :: Integer
       -- ^ The id of the TimerStarted event that was recorded when this
       -- timer was started. This information can be useful for diagnosing
       -- problems by tracing back the chain of events leading up to this
       -- event.
-    , _tceaDecisionTaskCompletedEventId :: Integer
-      -- ^ The id of the DecisionTaskCompleted event corresponding to the
-      -- decision task that resulted in the CancelTimer decision to cancel
-      -- this timer. This information can be useful for diagnosing
-      -- problems by tracing back the cause of events.
+    , _tceaTimerId :: Text
+      -- ^ The unique Id of the timer that was canceled.
     } deriving (Show, Generic)
 
 instance FromJSON TimerCanceledEventAttributes
@@ -3064,13 +3064,13 @@ instance ToJSON TimerCanceledEventAttributes
 -- | If the event is of type TimerFired then this member is set and provides
 -- detailed information about the event. It is not set for other event types.
 data TimerFiredEventAttributes = TimerFiredEventAttributes
-    { _tfeaTimerId :: Text
-      -- ^ The unique Id of the timer that fired.
-    , _tfeaStartedEventId :: Integer
+    { _tfeaStartedEventId :: Integer
       -- ^ The id of the TimerStarted event that was recorded when this
       -- timer was started. This information can be useful for diagnosing
       -- problems by tracing back the chain of events leading up to this
       -- event.
+    , _tfeaTimerId :: Text
+      -- ^ The unique Id of the timer that fired.
     } deriving (Show, Generic)
 
 instance FromJSON TimerFiredEventAttributes
@@ -3083,25 +3083,24 @@ data TimerStartedEventAttributes = TimerStartedEventAttributes
     { _tseaControl :: Maybe Text
       -- ^ Optional data attached to the event that can be used by the
       -- decider in subsequent workflow tasks.
-    , _tseaTimerId :: Text
-      -- ^ The unique Id of the timer that was started.
-    , _tseaStartToFireTimeout :: Text
-      -- ^ The duration of time after which the timer will fire. The
-      -- duration is specified in seconds. The valid values are integers
-      -- greater than or equal to 0.
     , _tseaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the StartTimer decision for this
       -- activity task. This information can be useful for diagnosing
       -- problems by tracing back the cause of events.
+    , _tseaStartToFireTimeout :: Text
+      -- ^ The duration of time after which the timer will fire. The
+      -- duration is specified in seconds. The valid values are integers
+      -- greater than or equal to 0.
+    , _tseaTimerId :: Text
+      -- ^ The unique Id of the timer that was started.
     } deriving (Show, Generic)
 
 instance FromJSON TimerStartedEventAttributes
 
 instance ToJSON TimerStartedEventAttributes
 
--- | If this workflow execution is a child of another execution then contains
--- the workflow execution that started this execution.
+-- | The workflow execution this information is about.
 data WorkflowExecution = WorkflowExecution
     { _weRunId :: Text
       -- ^ A system generated unique identifier for the workflow execution.
@@ -3118,9 +3117,12 @@ instance ToJSON WorkflowExecution
 -- is set and provides detailed information about the event. It is not set for
 -- other event types.
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes
-    { _wecreaExternalWorkflowExecution :: Maybe WorkflowExecution
-      -- ^ The external workflow execution for which the cancellation was
-      -- requested.
+    { _wecreaCause :: Maybe WorkflowExecutionCancelRequestedCause
+      -- ^ If set, indicates that the request to cancel the workflow
+      -- execution was automatically generated, and specifies the cause.
+      -- This happens if the parent workflow execution times out or is
+      -- terminated, and the child policy is set to cancel child
+      -- executions.
     , _wecreaExternalInitiatedEventId :: Maybe Integer
       -- ^ The id of the RequestCancelExternalWorkflowExecutionInitiated
       -- event corresponding to the RequestCancelExternalWorkflowExecution
@@ -3128,12 +3130,9 @@ data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRe
       -- this Id can be found in the history of the source workflow
       -- execution. This information can be useful for diagnosing problems
       -- by tracing back the chain of events leading up to this event.
-    , _wecreaCause :: Maybe WorkflowExecutionCancelRequestedCause
-      -- ^ If set, indicates that the request to cancel the workflow
-      -- execution was automatically generated, and specifies the cause.
-      -- This happens if the parent workflow execution times out or is
-      -- terminated, and the child policy is set to cancel child
-      -- executions.
+    , _wecreaExternalWorkflowExecution :: Maybe WorkflowExecution
+      -- ^ The external workflow execution for which the cancellation was
+      -- requested.
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionCancelRequestedEventAttributes
@@ -3144,14 +3143,14 @@ instance ToJSON WorkflowExecutionCancelRequestedEventAttributes
 -- and provides detailed information about the event. It is not set for other
 -- event types.
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes
-    { _wecebDetails :: Maybe Text
-      -- ^ Details for the cancellation (if any).
-    , _wecebDecisionTaskCompletedEventId :: Integer
+    { _weceaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the CancelWorkflowExecution
       -- decision for this cancellation request. This information can be
       -- useful for diagnosing problems by tracing back the cause of
       -- events.
+    , _weceaDetails :: Maybe Text
+      -- ^ Details for the cancellation (if any).
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionCanceledEventAttributes
@@ -3162,15 +3161,15 @@ instance ToJSON WorkflowExecutionCanceledEventAttributes
 -- and provides detailed information about the event. It is not set for other
 -- event types.
 data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEventAttributes
-    { _weceaResult :: Maybe Text
-      -- ^ The result produced by the workflow execution upon successful
-      -- completion.
-    , _weceaDecisionTaskCompletedEventId :: Integer
+    { _wecebDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the CompleteWorkflowExecution
       -- decision to complete this execution. This information can be
       -- useful for diagnosing problems by tracing back the cause of
       -- events.
+    , _wecebResult :: Maybe Text
+      -- ^ The result produced by the workflow execution upon successful
+      -- completion.
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionCompletedEventAttributes
@@ -3180,20 +3179,7 @@ instance ToJSON WorkflowExecutionCompletedEventAttributes
 -- | The configuration settings for this workflow execution including timeout
 -- values, tasklist etc.
 data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
-    { _weeTaskStartToCloseTimeout :: Text
-      -- ^ The maximum duration allowed for decision tasks for this workflow
-      -- execution. The valid values are integers greater than or equal to
-      -- 0. An integer value can be used to specify the duration in
-      -- seconds while NONE can be used to specify unlimited duration.
-    , _weeExecutionStartToCloseTimeout :: Text
-      -- ^ The total duration for this workflow execution. The valid values
-      -- are integers greater than or equal to 0. An integer value can be
-      -- used to specify the duration in seconds while NONE can be used to
-      -- specify unlimited duration.
-    , _weeTaskList :: TaskList
-      -- ^ The task list used for the decision tasks generated for this
-      -- workflow execution.
-    , _weeChildPolicy :: ChildPolicy
+    { _weeChildPolicy :: ChildPolicy
       -- ^ The policy to use for the child workflow executions if this
       -- workflow execution is terminated, by calling the
       -- TerminateWorkflowExecution action explicitly or due to an expired
@@ -3204,6 +3190,19 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
       -- to the decider to take appropriate actions when it receives an
       -- execution history with this event. ABANDON: no action will be
       -- taken. The child executions will continue to run.
+    , _weeExecutionStartToCloseTimeout :: Text
+      -- ^ The total duration for this workflow execution. The valid values
+      -- are integers greater than or equal to 0. An integer value can be
+      -- used to specify the duration in seconds while NONE can be used to
+      -- specify unlimited duration.
+    , _weeTaskList :: TaskList
+      -- ^ The task list used for the decision tasks generated for this
+      -- workflow execution.
+    , _weeTaskStartToCloseTimeout :: Text
+      -- ^ The maximum duration allowed for decision tasks for this workflow
+      -- execution. The valid values are integers greater than or equal to
+      -- 0. An integer value can be used to specify the duration in
+      -- seconds while NONE can be used to specify unlimited duration.
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionConfiguration
@@ -3212,25 +3211,7 @@ instance FromJSON WorkflowExecutionConfiguration
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes
-    { _wecaneaTagList :: [Text]
-      -- ^ The list of tags associated with the new workflow execution.
-    , _wecaneaTaskStartToCloseTimeout :: Maybe Text
-      -- ^ The maximum duration of decision tasks for the new workflow
-      -- execution. The valid values are integers greater than or equal to
-      -- 0. An integer value can be used to specify the duration in
-      -- seconds while NONE can be used to specify unlimited duration.
-    , _wecaneaWorkflowType :: WorkflowType
-      -- ^ Represents a workflow type.
-    , _wecaneaInput :: Maybe Text
-      -- ^ The input provided to the new workflow execution.
-    , _wecaneaExecutionStartToCloseTimeout :: Maybe Text
-      -- ^ The total duration allowed for the new workflow execution. The
-      -- valid values are integers greater than or equal to 0. An integer
-      -- value can be used to specify the duration in seconds while NONE
-      -- can be used to specify unlimited duration.
-    , _wecaneaTaskList :: TaskList
-      -- ^ Represents a task list.
-    , _wecaneaChildPolicy :: ChildPolicy
+    { _wecaneaChildPolicy :: ChildPolicy
       -- ^ The policy to use for the child workflow executions of the new
       -- execution if it is terminated by calling the
       -- TerminateWorkflowExecution action explicitly or due to an expired
@@ -3241,14 +3222,32 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
       -- to the decider to take appropriate actions when it receives an
       -- execution history with this event. ABANDON: no action will be
       -- taken. The child executions will continue to run.
-    , _wecaneaNewExecutionRunId :: Text
-      -- ^ The runId of the new workflow execution.
     , _wecaneaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the ContinueAsNewWorkflowExecution
       -- decision that started this execution. This information can be
       -- useful for diagnosing problems by tracing back the cause of
       -- events.
+    , _wecaneaExecutionStartToCloseTimeout :: Maybe Text
+      -- ^ The total duration allowed for the new workflow execution. The
+      -- valid values are integers greater than or equal to 0. An integer
+      -- value can be used to specify the duration in seconds while NONE
+      -- can be used to specify unlimited duration.
+    , _wecaneaInput :: Maybe Text
+      -- ^ The input provided to the new workflow execution.
+    , _wecaneaNewExecutionRunId :: Text
+      -- ^ The runId of the new workflow execution.
+    , _wecaneaTagList :: [Text]
+      -- ^ The list of tags associated with the new workflow execution.
+    , _wecaneaTaskList :: TaskList
+      -- ^ Represents a task list.
+    , _wecaneaTaskStartToCloseTimeout :: Maybe Text
+      -- ^ The maximum duration of decision tasks for the new workflow
+      -- execution. The valid values are integers greater than or equal to
+      -- 0. An integer value can be used to specify the duration in
+      -- seconds while NONE can be used to specify unlimited duration.
+    , _wecaneaWorkflowType :: WorkflowType
+      -- ^ Represents a workflow type.
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionContinuedAsNewEventAttributes
@@ -3259,15 +3258,15 @@ instance ToJSON WorkflowExecutionContinuedAsNewEventAttributes
 -- provides detailed information about the event. It is not set for other
 -- event types.
 data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttributes
-    { _wefeaReason :: Maybe Text
-      -- ^ The descriptive reason provided for the failure (if any).
-    , _wefeaDetails :: Maybe Text
-      -- ^ The details of the failure (if any).
-    , _wefeaDecisionTaskCompletedEventId :: Integer
+    { _wefeaDecisionTaskCompletedEventId :: Integer
       -- ^ The id of the DecisionTaskCompleted event corresponding to the
       -- decision task that resulted in the FailWorkflowExecution decision
       -- to fail this execution. This information can be useful for
       -- diagnosing problems by tracing back the cause of events.
+    , _wefeaDetails :: Maybe Text
+      -- ^ The details of the failure (if any).
+    , _wefeaReason :: Maybe Text
+      -- ^ The descriptive reason provided for the failure (if any).
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionFailedEventAttributes
@@ -3277,20 +3276,9 @@ instance ToJSON WorkflowExecutionFailedEventAttributes
 -- | Contains information about a workflow execution. DescribeWorkflowExecution.
 -- -->.
 data WorkflowExecutionInfo = WorkflowExecutionInfo
-    { _wejParent :: Maybe WorkflowExecution
-      -- ^ If this workflow execution is a child of another execution then
-      -- contains the workflow execution that started this execution.
-    , _wejTagList :: [Text]
-      -- ^ The list of tags associated with the workflow execution. Tags can
-      -- be used to identify and list workflow executions of interest
-      -- through the visibility APIs. A workflow execution can have a
-      -- maximum of 5 tags.
-    , _wejWorkflowType :: WorkflowType
-      -- ^ The type of the workflow execution.
-    , _wejExecutionStatus :: ExecutionStatus
-      -- ^ The current status of the execution.
-    , _wejExecution :: WorkflowExecution
-      -- ^ The workflow execution this information is about.
+    { _wejCancelRequested :: Maybe Bool
+      -- ^ Set to true if a cancellation is requested for this workflow
+      -- execution.
     , _wejCloseStatus :: Maybe CloseStatus
       -- ^ If the execution status is closed then this specifies how the
       -- execution was closed: COMPLETED: the execution was successfully
@@ -3306,11 +3294,22 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo
     , _wejCloseTimestamp :: Maybe POSIX
       -- ^ The time when the workflow execution was closed. Set only if the
       -- execution status is CLOSED.
+    , _wejExecution :: WorkflowExecution
+      -- ^ The workflow execution this information is about.
+    , _wejExecutionStatus :: ExecutionStatus
+      -- ^ The current status of the execution.
+    , _wejParent :: Maybe WorkflowExecution
+      -- ^ If this workflow execution is a child of another execution then
+      -- contains the workflow execution that started this execution.
     , _wejStartTimestamp :: POSIX
       -- ^ The time when the execution was started.
-    , _wejCancelRequested :: Maybe Bool
-      -- ^ Set to true if a cancellation is requested for this workflow
-      -- execution.
+    , _wejTagList :: [Text]
+      -- ^ The list of tags associated with the workflow execution. Tags can
+      -- be used to identify and list workflow executions of interest
+      -- through the visibility APIs. A workflow execution can have a
+      -- maximum of 5 tags.
+    , _wejWorkflowType :: WorkflowType
+      -- ^ The type of the workflow execution.
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionInfo
@@ -3318,10 +3317,10 @@ instance FromJSON WorkflowExecutionInfo
 -- | The number of tasks for this workflow execution. This includes open and
 -- closed tasks of all types.
 data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts
-    { _weocOpenChildWorkflowExecutions :: Integer
-      -- ^ The count of child workflow executions whose status is OPEN.
-    , _weocOpenActivityTasks :: Integer
+    { _weocOpenActivityTasks :: Integer
       -- ^ The count of activity tasks whose status is OPEN.
+    , _weocOpenChildWorkflowExecutions :: Integer
+      -- ^ The count of child workflow executions whose status is OPEN.
     , _weocOpenDecisionTasks :: Integer
       -- ^ The count of decision tasks whose status is OPEN. A workflow
       -- execution can have at most one open decision task.
@@ -3336,10 +3335,7 @@ instance FromJSON WorkflowExecutionOpenCounts
 -- and provides detailed information about the event. It is not set for other
 -- event types.
 data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAttributes
-    { _wesebExternalWorkflowExecution :: Maybe WorkflowExecution
-      -- ^ The workflow execution that sent the signal. This is set only of
-      -- the signal was sent by another workflow execution.
-    , _wesebExternalInitiatedEventId :: Maybe Integer
+    { _weseaExternalInitiatedEventId :: Maybe Integer
       -- ^ The id of the SignalExternalWorkflowExecutionInitiated event
       -- corresponding to the SignalExternalWorkflow decision to signal
       -- this workflow execution.The source event with this Id can be
@@ -3347,10 +3343,13 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
       -- information can be useful for diagnosing problems by tracing back
       -- the chain of events leading up to this event. This field is set
       -- only if the signal was initiated by another workflow execution.
-    , _wesebInput :: Maybe Text
+    , _weseaExternalWorkflowExecution :: Maybe WorkflowExecution
+      -- ^ The workflow execution that sent the signal. This is set only of
+      -- the signal was sent by another workflow execution.
+    , _weseaInput :: Maybe Text
       -- ^ Inputs provided with the signal (if any). The decider can use the
       -- signal name and inputs to determine how to process the signal.
-    , _wesebSignalName :: Text
+    , _weseaSignalName :: Text
       -- ^ The name of the signal received. The decider can use the signal
       -- name and inputs to determine how to the process the signal.
     } deriving (Show, Generic)
@@ -3363,34 +3362,7 @@ instance ToJSON WorkflowExecutionSignaledEventAttributes
 -- and provides detailed information about the event. It is not set for other
 -- event types.
 data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes
-    { _weseaParentInitiatedEventId :: Maybe Integer
-      -- ^ The id of the StartChildWorkflowExecutionInitiated event
-      -- corresponding to the StartChildWorkflowExecution Decision to
-      -- start this workflow execution. The source event with this Id can
-      -- be found in the history of the source workflow execution. This
-      -- information can be useful for diagnosing problems by tracing back
-      -- the chain of events leading up to this event.
-    , _weseaTagList :: [Text]
-      -- ^ The list of tags associated with this workflow execution. An
-      -- execution can have up to 5 tags.
-    , _weseaTaskStartToCloseTimeout :: Maybe Text
-      -- ^ The maximum duration of decision tasks for this workflow type.
-      -- The valid values are integers greater than or equal to 0. An
-      -- integer value can be used to specify the duration in seconds
-      -- while NONE can be used to specify unlimited duration.
-    , _weseaWorkflowType :: WorkflowType
-      -- ^ The workflow type of this execution.
-    , _weseaInput :: Maybe Text
-      -- ^ The input provided to the workflow execution (if any).
-    , _weseaExecutionStartToCloseTimeout :: Maybe Text
-      -- ^ The maximum duration for this workflow execution. The valid
-      -- values are integers greater than or equal to 0. An integer value
-      -- can be used to specify the duration in seconds while NONE can be
-      -- used to specify unlimited duration.
-    , _weseaTaskList :: TaskList
-      -- ^ The name of the task list for scheduling the decision tasks for
-      -- this workflow execution.
-    , _weseaChildPolicy :: ChildPolicy
+    { _wesebChildPolicy :: ChildPolicy
       -- ^ The policy to use for the child workflow executions if this
       -- workflow execution is terminated, by calling the
       -- TerminateWorkflowExecution action explicitly or due to an expired
@@ -3401,15 +3373,42 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
       -- to the decider to take appropriate actions when it receives an
       -- execution history with this event. ABANDON: no action will be
       -- taken. The child executions will continue to run.
-    , _weseaParentWorkflowExecution :: Maybe WorkflowExecution
-      -- ^ The source workflow execution that started this workflow
-      -- execution. The member is not set if the workflow execution was
-      -- not started by a workflow.
-    , _weseaContinuedExecutionRunId :: Maybe Text
+    , _wesebContinuedExecutionRunId :: Maybe Text
       -- ^ If this workflow execution was started due to a
       -- ContinueAsNewWorkflowExecution decision, then it contains the
       -- runId of the previous workflow execution that was closed and
       -- continued as this execution.
+    , _wesebExecutionStartToCloseTimeout :: Maybe Text
+      -- ^ The maximum duration for this workflow execution. The valid
+      -- values are integers greater than or equal to 0. An integer value
+      -- can be used to specify the duration in seconds while NONE can be
+      -- used to specify unlimited duration.
+    , _wesebInput :: Maybe Text
+      -- ^ The input provided to the workflow execution (if any).
+    , _wesebParentInitiatedEventId :: Maybe Integer
+      -- ^ The id of the StartChildWorkflowExecutionInitiated event
+      -- corresponding to the StartChildWorkflowExecution Decision to
+      -- start this workflow execution. The source event with this Id can
+      -- be found in the history of the source workflow execution. This
+      -- information can be useful for diagnosing problems by tracing back
+      -- the chain of events leading up to this event.
+    , _wesebParentWorkflowExecution :: Maybe WorkflowExecution
+      -- ^ The source workflow execution that started this workflow
+      -- execution. The member is not set if the workflow execution was
+      -- not started by a workflow.
+    , _wesebTagList :: [Text]
+      -- ^ The list of tags associated with this workflow execution. An
+      -- execution can have up to 5 tags.
+    , _wesebTaskList :: TaskList
+      -- ^ The name of the task list for scheduling the decision tasks for
+      -- this workflow execution.
+    , _wesebTaskStartToCloseTimeout :: Maybe Text
+      -- ^ The maximum duration of decision tasks for this workflow type.
+      -- The valid values are integers greater than or equal to 0. An
+      -- integer value can be used to specify the duration in seconds
+      -- while NONE can be used to specify unlimited duration.
+    , _wesebWorkflowType :: WorkflowType
+      -- ^ The workflow type of this execution.
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionStartedEventAttributes
@@ -3425,8 +3424,6 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
       -- terminated, and specifies the cause. This happens if the parent
       -- workflow execution times out or is terminated and the child
       -- policy is set to terminate child executions.
-    , _weteaReason :: Maybe Text
-      -- ^ The reason provided for the termination (if any).
     , _weteaChildPolicy :: ChildPolicy
       -- ^ The policy used for the child workflow executions of this
       -- workflow execution. The supported child policies are: TERMINATE:
@@ -3438,6 +3435,8 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
       -- action will be taken. The child executions will continue to run.
     , _weteaDetails :: Maybe Text
       -- ^ The details provided for the termination (if any).
+    , _weteaReason :: Maybe Text
+      -- ^ The reason provided for the termination (if any).
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionTerminatedEventAttributes
@@ -3448,9 +3447,7 @@ instance ToJSON WorkflowExecutionTerminatedEventAttributes
 -- and provides detailed information about the event. It is not set for other
 -- event types.
 data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAttributes
-    { _wetoeaTimeoutType :: WorkflowExecutionTimeoutType
-      -- ^ The type of timeout that caused this event.
-    , _wetoeaChildPolicy :: ChildPolicy
+    { _wetoeaChildPolicy :: ChildPolicy
       -- ^ The policy used for the child workflow executions of this
       -- workflow execution. The supported child policies are: TERMINATE:
       -- the child executions will be terminated. REQUEST_CANCEL: a
@@ -3459,6 +3456,8 @@ data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAt
       -- history. It is up to the decider to take appropriate actions when
       -- it receives an execution history with this event. ABANDON: no
       -- action will be taken. The child executions will continue to run.
+    , _wetoeaTimeoutType :: WorkflowExecutionTimeoutType
+      -- ^ The type of timeout that caused this event.
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowExecutionTimedOutEventAttributes
@@ -3498,12 +3497,6 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration
       -- to the decider to take appropriate actions when it receives an
       -- execution history with this event. ABANDON: no action will be
       -- taken. The child executions will continue to run.
-    , _wtcDefaultTaskList :: Maybe TaskList
-      -- ^ The optional default task list, specified when registering the
-      -- workflow type, for decisions tasks scheduled for workflow
-      -- executions of this type. This default can be overridden when
-      -- starting a workflow execution using the StartWorkflowExecution
-      -- action or the StartChildWorkflowExecution Decision.
     , _wtcDefaultExecutionStartToCloseTimeout :: Maybe Text
       -- ^ The optional default maximum duration, specified when registering
       -- the workflow type, for executions of this workflow type. This
@@ -3513,6 +3506,12 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration
       -- integers greater than or equal to 0. An integer value can be used
       -- to specify the duration in seconds while NONE can be used to
       -- specify unlimited duration.
+    , _wtcDefaultTaskList :: Maybe TaskList
+      -- ^ The optional default task list, specified when registering the
+      -- workflow type, for decisions tasks scheduled for workflow
+      -- executions of this type. This default can be overridden when
+      -- starting a workflow execution using the StartWorkflowExecution
+      -- action or the StartChildWorkflowExecution Decision.
     , _wtcDefaultTaskStartToCloseTimeout :: Maybe Text
       -- ^ The optional default maximum duration, specified when registering
       -- the workflow type, that a decision task for executions of this
@@ -3544,18 +3543,18 @@ instance ToJSON WorkflowTypeFilter
 
 -- | Contains information about a workflow type.
 data WorkflowTypeInfo = WorkflowTypeInfo
-    { _wtjStatus :: RegistrationStatus
-      -- ^ The current status of the workflow type.
-    , _wtjWorkflowType :: WorkflowType
-      -- ^ The workflow type this information is about.
+    { _wtjCreationDate :: POSIX
+      -- ^ The date when this type was registered.
     , _wtjDeprecationDate :: Maybe POSIX
       -- ^ If the type is in deprecated state, then it is set to the date
       -- when the type was deprecated.
-    , _wtjCreationDate :: POSIX
-      -- ^ The date when this type was registered.
     , _wtjDescription :: Maybe Text
       -- ^ The description of the type registered through
       -- RegisterWorkflowType.
+    , _wtjStatus :: RegistrationStatus
+      -- ^ The current status of the workflow type.
+    , _wtjWorkflowType :: WorkflowType
+      -- ^ The workflow type this information is about.
     } deriving (Show, Generic)
 
 instance FromJSON WorkflowTypeInfo

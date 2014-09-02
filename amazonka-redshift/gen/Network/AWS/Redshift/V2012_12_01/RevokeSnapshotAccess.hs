@@ -30,22 +30,22 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RevokeSnapshotAccess' request.
-revokeSnapshotAccess :: Text -- ^ '_rsamSnapshotIdentifier'
-                     -> Text -- ^ '_rsamAccountWithRestoreAccess'
+revokeSnapshotAccess :: Text -- ^ '_rsamAccountWithRestoreAccess'
+                     -> Text -- ^ '_rsamSnapshotIdentifier'
                      -> RevokeSnapshotAccess
 revokeSnapshotAccess p1 p2 = RevokeSnapshotAccess
-    { _rsamSnapshotIdentifier = p1
-    , _rsamAccountWithRestoreAccess = p2
+    { _rsamAccountWithRestoreAccess = p1
+    , _rsamSnapshotIdentifier = p2
     , _rsamSnapshotClusterIdentifier = Nothing
     }
 
 data RevokeSnapshotAccess = RevokeSnapshotAccess
-    { _rsamSnapshotIdentifier :: Text
-      -- ^ The identifier of the snapshot that the account can no longer
-      -- access.
-    , _rsamAccountWithRestoreAccess :: Text
+    { _rsamAccountWithRestoreAccess :: Text
       -- ^ The identifier of the AWS customer account that can no longer
       -- restore the specified snapshot.
+    , _rsamSnapshotIdentifier :: Text
+      -- ^ The identifier of the snapshot that the account can no longer
+      -- access.
     , _rsamSnapshotClusterIdentifier :: Maybe Text
       -- ^ The identifier of the cluster the snapshot was created from. This
       -- parameter is required if your IAM user has a policy containing a

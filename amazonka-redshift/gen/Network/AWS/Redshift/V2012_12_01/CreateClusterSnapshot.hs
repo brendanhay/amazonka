@@ -37,15 +37,15 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 data CreateClusterSnapshot = CreateClusterSnapshot
-    { _ccsmSnapshotIdentifier :: Text
+    { _ccsmClusterIdentifier :: Text
+      -- ^ The cluster identifier for which you want a snapshot.
+    , _ccsmSnapshotIdentifier :: Text
       -- ^ A unique identifier for the snapshot that you are requesting.
       -- This identifier must be unique for all snapshots within the AWS
       -- account. Constraints: Cannot be null, empty, or blank Must
       -- contain from 1 to 255 alphanumeric characters or hyphens First
       -- character must be a letter Cannot end with a hyphen or contain
       -- two consecutive hyphens Example: my-snapshot-id.
-    , _ccsmClusterIdentifier :: Text
-      -- ^ The cluster identifier for which you want a snapshot.
     } deriving (Show, Generic)
 
 makeLenses ''CreateClusterSnapshot

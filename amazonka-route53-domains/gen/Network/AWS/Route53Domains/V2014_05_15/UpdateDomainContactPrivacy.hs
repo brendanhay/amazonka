@@ -53,9 +53,9 @@ updateDomainContactPrivacy :: Text -- ^ '_udcprDomainName'
                            -> UpdateDomainContactPrivacy
 updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
     { _udcprDomainName = p1
-    , _udcprTechPrivacy = Nothing
-    , _udcprRegistrantPrivacy = Nothing
     , _udcprAdminPrivacy = Nothing
+    , _udcprRegistrantPrivacy = Nothing
+    , _udcprTechPrivacy = Nothing
     }
 
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
@@ -64,7 +64,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
       -- domain name can contain only the letters a through z, the numbers
       -- 0 through 9, and hyphen (-). Internationalized Domain Names are
       -- not supported. Required: Yes.
-    , _udcprTechPrivacy :: Maybe Bool
+    , _udcprAdminPrivacy :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
       -- return contact information for our registrar partner, Gandi,
@@ -76,7 +76,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
       -- return contact information for our registrar partner, Gandi,
       -- instead of the contact information that you enter. Type: Boolean
       -- Default: None Valid values: true | false Required: No.
-    , _udcprAdminPrivacy :: Maybe Bool
+    , _udcprTechPrivacy :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
       -- return contact information for our registrar partner, Gandi,

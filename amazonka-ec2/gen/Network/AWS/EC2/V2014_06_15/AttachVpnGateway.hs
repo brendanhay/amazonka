@@ -37,20 +37,20 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AttachVpnGateway' request.
-attachVpnGateway :: Text -- ^ '_avgrVpnGatewayId'
-                 -> Text -- ^ '_avgrVpcId'
+attachVpnGateway :: Text -- ^ '_avgrVpcId'
+                 -> Text -- ^ '_avgrVpnGatewayId'
                  -> AttachVpnGateway
 attachVpnGateway p1 p2 = AttachVpnGateway
-    { _avgrVpnGatewayId = p1
-    , _avgrVpcId = p2
+    { _avgrVpcId = p1
+    , _avgrVpnGatewayId = p2
     , _avgrDryRun = Nothing
     }
 
 data AttachVpnGateway = AttachVpnGateway
-    { _avgrVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _avgrVpcId :: Text
+    { _avgrVpcId :: Text
       -- ^ The ID of the VPC.
+    , _avgrVpnGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
     , _avgrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)

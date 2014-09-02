@@ -50,24 +50,24 @@ authorizeClusterSecurityGroupIngress :: Text -- ^ '_acsgimClusterSecurityGroupNa
                                      -> AuthorizeClusterSecurityGroupIngress
 authorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
     { _acsgimClusterSecurityGroupName = p1
-    , _acsgimEC2SecurityGroupOwnerId = Nothing
-    , _acsgimEC2SecurityGroupName = Nothing
     , _acsgimCIDRIP = Nothing
+    , _acsgimEC2SecurityGroupName = Nothing
+    , _acsgimEC2SecurityGroupOwnerId = Nothing
     }
 
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     { _acsgimClusterSecurityGroupName :: Text
       -- ^ The name of the security group to which the ingress rule is
       -- added.
+    , _acsgimCIDRIP :: Maybe Text
+      -- ^ The IP range to be added the Amazon Redshift security group.
+    , _acsgimEC2SecurityGroupName :: Maybe Text
+      -- ^ The EC2 security group to be added the Amazon Redshift security
+      -- group.
     , _acsgimEC2SecurityGroupOwnerId :: Maybe Text
       -- ^ The AWS account number of the owner of the security group
       -- specified by the EC2SecurityGroupName parameter. The AWS Access
       -- Key ID is not an acceptable value. Example: 111122223333.
-    , _acsgimEC2SecurityGroupName :: Maybe Text
-      -- ^ The EC2 security group to be added the Amazon Redshift security
-      -- group.
-    , _acsgimCIDRIP :: Maybe Text
-      -- ^ The IP range to be added the Amazon Redshift security group.
     } deriving (Show, Generic)
 
 makeLenses ''AuthorizeClusterSecurityGroupIngress

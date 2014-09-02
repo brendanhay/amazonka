@@ -47,9 +47,6 @@ instance ToJSON GetTrailStatus
 data GetTrailStatusResponse = GetTrailStatusResponse
     { _gtssIsLogging :: Maybe Bool
       -- ^ Whether the CloudTrail is currently logging AWS API calls.
-    , _gtssStartLoggingTime :: Maybe ISO8601
-      -- ^ Specifies the most recent date and time when CloudTrail started
-      -- recording API calls for an AWS account.
     , _gtssLatestDeliveryTime :: Maybe ISO8601
       -- ^ Specifies the date and time that CloudTrail last delivered log
       -- files to an account's Amazon S3 bucket.
@@ -57,6 +54,9 @@ data GetTrailStatusResponse = GetTrailStatusResponse
       -- ^ Specifies the date and time of the most recent Amazon SNS
       -- notification that CloudTrail has written a new log file to an
       -- account's Amazon S3 bucket.
+    , _gtssStartLoggingTime :: Maybe ISO8601
+      -- ^ Specifies the most recent date and time when CloudTrail started
+      -- recording API calls for an AWS account.
     , _gtssStopLoggingTime :: Maybe ISO8601
       -- ^ Specifies the most recent date and time when CloudTrail stopped
       -- recording API calls for an AWS account.

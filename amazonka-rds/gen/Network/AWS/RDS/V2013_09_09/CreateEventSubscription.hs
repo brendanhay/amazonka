@@ -61,12 +61,12 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateEventSubscription' request.
-createEventSubscription :: Text -- ^ '_cesmSubscriptionName'
-                        -> Text -- ^ '_cesmSnsTopicArn'
+createEventSubscription :: Text -- ^ '_cesmSnsTopicArn'
+                        -> Text -- ^ '_cesmSubscriptionName'
                         -> CreateEventSubscription
 createEventSubscription p1 p2 = CreateEventSubscription
-    { _cesmSubscriptionName = p1
-    , _cesmSnsTopicArn = p2
+    { _cesmSnsTopicArn = p1
+    , _cesmSubscriptionName = p2
     , _cesmEnabled = Nothing
     , _cesmEventCategories = mempty
     , _cesmSourceIds = mempty
@@ -75,13 +75,13 @@ createEventSubscription p1 p2 = CreateEventSubscription
     }
 
 data CreateEventSubscription = CreateEventSubscription
-    { _cesmSubscriptionName :: Text
-      -- ^ The name of the subscription. Constraints: The name must be less
-      -- than 255 characters.
-    , _cesmSnsTopicArn :: Text
+    { _cesmSnsTopicArn :: Text
       -- ^ The Amazon Resource Name (ARN) of the SNS topic created for event
       -- notification. The ARN is created by Amazon SNS when you create a
       -- topic and subscribe to it.
+    , _cesmSubscriptionName :: Text
+      -- ^ The name of the subscription. Constraints: The name must be less
+      -- than 255 characters.
     , _cesmEnabled :: Maybe Bool
       -- ^ A Boolean value; set to true to activate the subscription, set to
       -- false to create the subscription but not active it.

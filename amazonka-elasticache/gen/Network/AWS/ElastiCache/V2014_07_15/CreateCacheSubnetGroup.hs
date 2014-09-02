@@ -35,12 +35,12 @@ import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup
-    { _ccsgnCacheSubnetGroupName :: Text
+    { _ccsgnCacheSubnetGroupDescription :: Text
+      -- ^ A description for the cache subnet group.
+    , _ccsgnCacheSubnetGroupName :: Text
       -- ^ A name for the cache subnet group. This value is stored as a
       -- lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters or hyphens. Example: mysubnetgroup.
-    , _ccsgnCacheSubnetGroupDescription :: Text
-      -- ^ A description for the cache subnet group.
     , _ccsgnSubnetIds :: [Text]
       -- ^ A list of VPC subnet IDs for the cache subnet group.
     } deriving (Show, Generic)

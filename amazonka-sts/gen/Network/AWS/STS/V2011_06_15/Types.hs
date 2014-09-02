@@ -111,16 +111,16 @@ instance FromXML AssumedRoleUser where
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security (or session) token.
 data Credentials = Credentials
-    { _cSecretAccessKey :: Text
+    { _cAccessKeyId :: Text
+      -- ^ The access key ID that identifies the temporary security
+      -- credentials.
+    , _cExpiration :: ISO8601
+      -- ^ The date on which the current credentials expire.
+    , _cSecretAccessKey :: Text
       -- ^ The secret access key that can be used to sign requests.
     , _cSessionToken :: Text
       -- ^ The token that users must pass to the service API to use the
       -- temporary credentials.
-    , _cExpiration :: ISO8601
-      -- ^ The date on which the current credentials expire.
-    , _cAccessKeyId :: Text
-      -- ^ The access key ID that identifies the temporary security
-      -- credentials.
     } deriving (Show, Generic)
 
 instance FromXML Credentials where

@@ -37,12 +37,12 @@ import Network.AWS.Prelude
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
     { _rcsgimCacheSecurityGroupName :: Text
       -- ^ The name of the cache security group to revoke ingress from.
+    , _rcsgimEC2SecurityGroupName :: Text
+      -- ^ The name of the Amazon EC2 security group to revoke access from.
     , _rcsgimEC2SecurityGroupOwnerId :: Text
       -- ^ The AWS account number of the Amazon EC2 security group owner.
       -- Note that this is not the same thing as an AWS access key ID -
       -- you must provide a valid AWS account number for this parameter.
-    , _rcsgimEC2SecurityGroupName :: Text
-      -- ^ The name of the Amazon EC2 security group to revoke access from.
     } deriving (Show, Generic)
 
 makeLenses ''RevokeCacheSecurityGroupIngress

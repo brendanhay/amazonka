@@ -53,10 +53,10 @@ createVolume :: Text -- ^ '_cvtAvailabilityZone'
              -> CreateVolume
 createVolume p1 = CreateVolume
     { _cvtAvailabilityZone = p1
-    , _cvtEncrypted = Nothing
     , _cvtDryRun = Nothing
-    , _cvtSize = Nothing
+    , _cvtEncrypted = Nothing
     , _cvtIops = Nothing
+    , _cvtSize = Nothing
     , _cvtSnapshotId = Nothing
     , _cvtVolumeType = Nothing
     }
@@ -66,18 +66,18 @@ data CreateVolume = CreateVolume
       -- ^ The Availability Zone in which to create the volume. Use
       -- DescribeAvailabilityZones to list the Availability Zones that are
       -- currently available to you.
-    , _cvtEncrypted :: Maybe Bool
-      -- ^ Specifies whether the volume should be encrypted.
     , _cvtDryRun :: Maybe Bool
       -- ^ 
+    , _cvtEncrypted :: Maybe Bool
+      -- ^ Specifies whether the volume should be encrypted.
+    , _cvtIops :: Maybe Integer
+      -- ^ Only valid for Provisioned IOPS (SSD) volumes. The number of I/O
+      -- operations per second (IOPS) to provision for the volume.
     , _cvtSize :: Maybe Integer
       -- ^ The size of the volume, in GiBs. Constraints: If the volume type
       -- is io1, the minimum size of the volume is 10 GiB. Default: If
       -- you're creating the volume from a snapshot and don't specify a
       -- volume size, the default is the snapshot size.
-    , _cvtIops :: Maybe Integer
-      -- ^ Only valid for Provisioned IOPS (SSD) volumes. The number of I/O
-      -- operations per second (IOPS) to provision for the volume.
     , _cvtSnapshotId :: Maybe Text
       -- ^ The snapshot from which to create the volume.
     , _cvtVolumeType :: Maybe VolumeType
@@ -96,8 +96,6 @@ data CreateVolumeResponse = CreateVolumeResponse
       -- ^ Indicates whether the volume is encrypted.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhCreateTime :: Maybe ISO8601
       -- ^ The time stamp when volume creation was initiated.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhSize :: Maybe Integer
-      -- ^ The size of the volume, in GiBs.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhIops :: Maybe Integer
       -- ^ The number of I/O operations per second (IOPS) that the volume
       -- supports. For Provisioned IOPS (SSD) volumes, this represents the
@@ -112,14 +110,16 @@ data CreateVolumeResponse = CreateVolumeResponse
       -- Condition: This parameter is required for requests to create io1
       -- volumes; it is not used in requests to create standard or gp2
       -- volumes.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhSize :: Maybe Integer
+      -- ^ The size of the volume, in GiBs.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhTags :: [Tag]
       -- ^ Any tags assigned to the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone for the volume.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhVolumeId :: Maybe Text
-      -- ^ The ID of the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhSnapshotId :: Maybe Text
       -- ^ The snapshot from which the volume was created, if applicable.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhVolumeId :: Maybe Text
+      -- ^ The ID of the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhAttachments :: [VolumeAttachment]
       -- ^ 
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhState :: Maybe VolumeState

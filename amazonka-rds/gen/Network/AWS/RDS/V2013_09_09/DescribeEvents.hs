@@ -43,30 +43,35 @@ import Network.AWS.Prelude
 describeEvents :: DescribeEvents
 describeEvents = DescribeEvents
     { _demEventCategories = mempty
-    , _demMaxRecords = Nothing
     , _demDuration = Nothing
+    , _demMaxRecords = Nothing
     , _demSourceType = Nothing
-    , _demSourceIdentifier = Nothing
     , _demMarker = Nothing
-    , _demStartTime = Nothing
+    , _demSourceIdentifier = Nothing
     , _demEndTime = Nothing
+    , _demStartTime = Nothing
     }
 
 data DescribeEvents = DescribeEvents
     { _demEventCategories :: [Text]
       -- ^ A list of event categories that trigger notifications for a event
       -- notification subscription.
+    , _demDuration :: Maybe Integer
+      -- ^ The number of minutes to retrieve events for. Default: 60.
     , _demMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a pagination
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _demDuration :: Maybe Integer
-      -- ^ The number of minutes to retrieve events for. Default: 60.
     , _demSourceType :: Maybe SourceType
       -- ^ The event source to retrieve events for. If no value is
       -- specified, all events are returned.
+    , _demMarker :: Maybe Text
+      -- ^ An optional pagination token provided by a previous
+      -- DescribeEvents request. If this parameter is specified, the
+      -- response includes only records beyond the marker, up to the value
+      -- specified by MaxRecords.
     , _demSourceIdentifier :: Maybe Text
       -- ^ The identifier of the event source for which events will be
       -- returned. If not specified, then all sources are included in the
@@ -78,18 +83,13 @@ data DescribeEvents = DescribeEvents
       -- DBParameterGroupName must be supplied. If the source type is
       -- DBSnapshot, a DBSnapshotIdentifier must be supplied. Cannot end
       -- with a hyphen or contain two consecutive hyphens.
-    , _demMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeEvents request. If this parameter is specified, the
-      -- response includes only records beyond the marker, up to the value
-      -- specified by MaxRecords.
-    , _demStartTime :: Maybe ISO8601
-      -- ^ The beginning of the time interval to retrieve events for,
+    , _demEndTime :: Maybe ISO8601
+      -- ^ The end of the time interval for which to retrieve events,
       -- specified in ISO 8601 format. For more information about ISO
       -- 8601, go to the ISO8601 Wikipedia page. Example:
       -- 2009-07-08T18:00Z.
-    , _demEndTime :: Maybe ISO8601
-      -- ^ The end of the time interval for which to retrieve events,
+    , _demStartTime :: Maybe ISO8601
+      -- ^ The beginning of the time interval to retrieve events for,
       -- specified in ISO 8601 format. For more information about ISO
       -- 8601, go to the ISO8601 Wikipedia page. Example:
       -- 2009-07-08T18:00Z.

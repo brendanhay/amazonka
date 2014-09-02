@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 describeOrderableClusterOptions :: DescribeOrderableClusterOptions
 describeOrderableClusterOptions = DescribeOrderableClusterOptions
     { _docomMaxRecords = Nothing
-    , _docomMarker = Nothing
     , _docomClusterVersion = Nothing
+    , _docomMarker = Nothing
     , _docomNodeType = Nothing
     }
 
@@ -58,6 +58,11 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
+    , _docomClusterVersion :: Maybe Text
+      -- ^ The version filter value. Specify this parameter to show only the
+      -- available offerings matching the specified version. Default: All
+      -- versions. Constraints: Must be one of the version returned from
+      -- DescribeClusterVersions.
     , _docomMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -66,11 +71,6 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
       -- of the response. You can retrieve the next set of response
       -- records by providing the returned marker value in the Marker
       -- parameter and retrying the request.
-    , _docomClusterVersion :: Maybe Text
-      -- ^ The version filter value. Specify this parameter to show only the
-      -- available offerings matching the specified version. Default: All
-      -- versions. Constraints: Must be one of the version returned from
-      -- DescribeClusterVersions.
     , _docomNodeType :: Maybe Text
       -- ^ The node type filter value. Specify this parameter to show only
       -- the available offerings matching the specified node type.

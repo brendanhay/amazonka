@@ -43,8 +43,8 @@ describeDBLogFiles :: Text -- ^ '_ddblfmDBInstanceIdentifier'
 describeDBLogFiles p1 = DescribeDBLogFiles
     { _ddblfmDBInstanceIdentifier = p1
     , _ddblfmMaxRecords = Nothing
-    , _ddblfmFileSize = Nothing
     , _ddblfmFileLastWritten = Nothing
+    , _ddblfmFileSize = Nothing
     , _ddblfmFilenameContains = Nothing
     , _ddblfmMarker = Nothing
     }
@@ -61,12 +61,12 @@ data DescribeDBLogFiles = DescribeDBLogFiles
       -- records exist than the specified MaxRecords value, a pagination
       -- token called a marker is included in the response so that the
       -- remaining results can be retrieved.
-    , _ddblfmFileSize :: Maybe Integer
-      -- ^ Filters the available log files for files larger than the
-      -- specified size.
     , _ddblfmFileLastWritten :: Maybe Integer
       -- ^ Filters the available log files for files written since the
       -- specified date, in POSIX timestamp format.
+    , _ddblfmFileSize :: Maybe Integer
+      -- ^ Filters the available log files for files larger than the
+      -- specified size.
     , _ddblfmFilenameContains :: Maybe Text
       -- ^ Filters the available log files for log file names that contain
       -- the specified string.

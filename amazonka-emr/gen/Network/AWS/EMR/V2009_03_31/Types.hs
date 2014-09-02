@@ -697,15 +697,15 @@ instance ToJSON PlacementType
 -- arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow
 -- using MapR M3 or M5 Edition, respectively.
 data Application = Application
-    { _rArgs :: [Text]
-      -- ^ Arguments for Amazon EMR to pass to the application.
-    , _rAdditionalInfo :: Map Text Text
+    { _lAdditionalInfo :: Map Text Text
       -- ^ This option is for advanced users only. This is meta information
       -- about third-party applications that third-party vendors use for
       -- testing purposes.
-    , _rName :: Maybe Text
+    , _lArgs :: [Text]
+      -- ^ Arguments for Amazon EMR to pass to the application.
+    , _lName :: Maybe Text
       -- ^ The name of the application.
-    , _rVersion :: Maybe Text
+    , _lVersion :: Maybe Text
       -- ^ The version of the application.
     } deriving (Show, Generic)
 
@@ -725,26 +725,36 @@ instance ToJSON BootstrapActionConfig
 
 -- | This output contains the details for the requested cluster.
 data Cluster = Cluster
-    { _kStatus :: Maybe ClusterStatus
-      -- ^ The current status details about the cluster.
-    , _kRequestedAmiVersion :: Maybe Text
-      -- ^ The AMI version requested for this
-      -- cluster.JobFlowDetail$AmiVersion.-->.
+    { _kApplications :: [Application]
+      -- ^ The applications installed on this cluster.
+    , _kAutoTerminate :: Maybe Bool
+      -- ^ Specifies whether the cluster should terminate after completing
+      -- all steps.
     , _kEc2InstanceAttributes :: Maybe Ec2InstanceAttributes
       -- ^ Provides information about the EC2 instances in a cluster grouped
       -- by category. For example, key name, subnet ID, IAM instance
       -- profile, and so on.
-    , _kName :: Maybe Text
-      -- ^ The name of the cluster.
+    , _kId :: Maybe Text
+      -- ^ The unique identifier for the cluster.
     , _kLogUri :: Maybe Text
       -- ^ The path to the Amazon S3 location where logs for this cluster
       -- are stored.
-    , _kId :: Maybe Text
-      -- ^ The unique identifier for the cluster.
+    , _kName :: Maybe Text
+      -- ^ The name of the cluster.
+    , _kRequestedAmiVersion :: Maybe Text
+      -- ^ The AMI version requested for this
+      -- cluster.JobFlowDetail$AmiVersion.-->.
     , _kRunningAmiVersion :: Maybe Text
       -- ^ The AMI version running on this cluster. This differs from the
       -- requested version only if the requested version is a meta
       -- version, such as "latest". JobFlowDetail$AmiVersion.-->.
+    , _kServiceRole :: Maybe Text
+      -- ^ The IAM role that will be assumed by the Amazon EMR service to
+      -- access AWS resources on your behalf.
+    , _kStatus :: Maybe ClusterStatus
+      -- ^ The current status details about the cluster.
+    , _kTags :: [Tag]
+      -- ^ A list of tags associated with a cluster.
     , _kTerminationProtected :: Maybe Bool
       -- ^ Indicates whether Amazon EMR will lock the cluster to prevent the
       -- EC2 instances from being terminated by an API call or user
@@ -757,16 +767,6 @@ data Cluster = Cluster
       -- value is false, only the IAM user that created the cluster can
       -- view and manage it. This value can be changed using the
       -- SetVisibleToAllUsers action.
-    , _kAutoTerminate :: Maybe Bool
-      -- ^ Specifies whether the cluster should terminate after completing
-      -- all steps.
-    , _kApplications :: [Application]
-      -- ^ The applications installed on this cluster.
-    , _kTags :: [Tag]
-      -- ^ A list of tags associated with a cluster.
-    , _kServiceRole :: Maybe Text
-      -- ^ The IAM role that will be assumed by the Amazon EMR service to
-      -- access AWS resources on your behalf.
     } deriving (Show, Generic)
 
 instance FromJSON Cluster
@@ -800,12 +800,12 @@ instance ToJSON ClusterStatus
 
 -- | The summary description of the cluster.
 data ClusterSummary = ClusterSummary
-    { _cwStatus :: Maybe ClusterStatus
-      -- ^ The details about the current status of the cluster.
+    { _cwId :: Maybe Text
+      -- ^ The unique identifier for the cluster.
     , _cwName :: Maybe Text
       -- ^ The name of the cluster.
-    , _cwId :: Maybe Text
-      -- ^ The unique identifier for the cluster.
+    , _cwStatus :: Maybe ClusterStatus
+      -- ^ The details about the current status of the cluster.
     } deriving (Show, Generic)
 
 instance FromJSON ClusterSummary
@@ -813,12 +813,12 @@ instance FromJSON ClusterSummary
 -- | A timeline that represents the status of a cluster over the lifetime of the
 -- cluster.
 data ClusterTimeline = ClusterTimeline
-    { _cuReadyDateTime :: Maybe POSIX
-      -- ^ The date and time when the cluster was ready to execute steps.
-    , _cuCreationDateTime :: Maybe POSIX
+    { _cuCreationDateTime :: Maybe POSIX
       -- ^ The creation date and time of the cluster.
     , _cuEndDateTime :: Maybe POSIX
       -- ^ The date and time when the cluster was terminated.
+    , _cuReadyDateTime :: Maybe POSIX
+      -- ^ The date and time when the cluster was ready to execute steps.
     } deriving (Show, Generic)
 
 instance FromJSON ClusterTimeline
@@ -829,10 +829,10 @@ instance ToJSON ClusterTimeline
 data Command = Command
     { _cdArgs :: [Text]
       -- ^ Arguments for Amazon EMR to pass to the command for execution.
-    , _cdScriptPath :: Maybe Text
-      -- ^ The Amazon S3 location of the command script.
     , _cdName :: Maybe Text
       -- ^ The name of the command.
+    , _cdScriptPath :: Maybe Text
+      -- ^ The Amazon S3 location of the command script.
     } deriving (Show, Generic)
 
 instance FromJSON Command
@@ -841,12 +841,11 @@ instance FromJSON Command
 -- category. For example, key name, subnet ID, IAM instance profile, and so
 -- on.
 data Ec2InstanceAttributes = Ec2InstanceAttributes
-    { _eiaEc2KeyName :: Maybe Text
+    { _eiaEc2AvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone in which the cluster will run.
+    , _eiaEc2KeyName :: Maybe Text
       -- ^ The name of the Amazon EC2 key pair to use when connecting with
       -- SSH into the master node as a user named "hadoop".
-    , _eiaIamInstanceProfile :: Maybe Text
-      -- ^ The IAM role that was specified when the job flow was launched.
-      -- The EC2 instances of the job flow assume this role.
     , _eiaEc2SubnetId :: Maybe Text
       -- ^ To launch the job flow in Amazon VPC, set this parameter to the
       -- identifier of the Amazon VPC subnet where you want the job flow
@@ -855,8 +854,9 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
       -- currently does not support cluster compute quadruple extra large
       -- (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge
       -- instance type for nodes of a job flow launched in a VPC.
-    , _eiaEc2AvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone in which the cluster will run.
+    , _eiaIamInstanceProfile :: Maybe Text
+      -- ^ The IAM role that was specified when the job flow was launched.
+      -- The EC2 instances of the job flow assume this role.
     } deriving (Show, Generic)
 
 instance FromJSON Ec2InstanceAttributes
@@ -903,20 +903,20 @@ instance FromJSON HadoopStepConfig
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 data Instance = Instance
-    { _ieStatus :: Maybe InstanceStatus
-      -- ^ The current status of the instance.
-    , _iePublicDnsName :: Maybe Text
-      -- ^ The public DNS name of the instance.
-    , _ieEc2InstanceId :: Maybe Text
+    { _ieEc2InstanceId :: Maybe Text
       -- ^ The unique identifier of the instance in Amazon EC2.
-    , _iePrivateIpAddress :: Maybe Text
-      -- ^ The private IP address of the instance.
     , _ieId :: Maybe Text
       -- ^ The unique identifier for the instance in Amazon EMR.
     , _iePrivateDnsName :: Maybe Text
       -- ^ The private DNS name of the instance.
+    , _iePrivateIpAddress :: Maybe Text
+      -- ^ The private IP address of the instance.
+    , _iePublicDnsName :: Maybe Text
+      -- ^ The public DNS name of the instance.
     , _iePublicIpAddress :: Maybe Text
       -- ^ The public IP address of the instance.
+    , _ieStatus :: Maybe InstanceStatus
+      -- ^ The current status of the instance.
     } deriving (Show, Generic)
 
 instance FromJSON Instance
@@ -925,15 +925,11 @@ instance FromJSON Instance
 -- that have common purpose. For example, CORE instance group is used for
 -- HDFS.
 data InstanceGroup = InstanceGroup
-    { _igStatus :: Maybe InstanceGroupStatus
-      -- ^ The current status of the instance group.
-    , _igBidPrice :: Maybe Text
+    { _igBidPrice :: Maybe Text
       -- ^ The bid price for each EC2 instance in the instance group when
       -- launching nodes as Spot Instances, expressed in USD.
-    , _igRequestedInstanceCount :: Maybe Integer
-      -- ^ The target number of instances for the instance group.
-    , _igRunningInstanceCount :: Maybe Integer
-      -- ^ The number of instances currently running in this instance group.
+    , _igId :: Maybe Text
+      -- ^ The identifier of the instance group.
     , _igInstanceGroupType :: Maybe InstanceGroupType
       -- ^ The type of the instance group. Valid values are MASTER, CORE or
       -- TASK.
@@ -944,8 +940,12 @@ data InstanceGroup = InstanceGroup
       -- values are ON_DEMAND or SPOT.
     , _igName :: Maybe Text
       -- ^ The name of the instance group.
-    , _igId :: Maybe Text
-      -- ^ The identifier of the instance group.
+    , _igRequestedInstanceCount :: Maybe Integer
+      -- ^ The target number of instances for the instance group.
+    , _igRunningInstanceCount :: Maybe Integer
+      -- ^ The number of instances currently running in this instance group.
+    , _igStatus :: Maybe InstanceGroupStatus
+      -- ^ The current status of the instance group.
     } deriving (Show, Generic)
 
 instance FromJSON InstanceGroup
@@ -973,37 +973,37 @@ instance ToJSON InstanceGroupConfig
 
 -- | Detailed information about an instance group.
 data InstanceGroupDetail = InstanceGroupDetail
-    { _igdState :: InstanceGroupState
-      -- ^ State of instance group. The following values are deprecated:
-      -- STARTING, TERMINATED, and FAILED.
-    , _igdBidPrice :: Maybe Text
+    { _igdBidPrice :: Maybe Text
       -- ^ Bid price for EC2 Instances when launching nodes as Spot
       -- Instances, expressed in USD.
-    , _igdReadyDateTime :: Maybe POSIX
-      -- ^ The date/time the instance group was available to the cluster.
-    , _igdInstanceRole :: InstanceRoleType
-      -- ^ Instance group role in the cluster.
-    , _igdInstanceType :: Text
-      -- ^ Amazon EC2 Instance type.
-    , _igdMarket :: MarketType
-      -- ^ Market type of the Amazon EC2 instances used to create a cluster
-      -- node.
-    , _igdLastStateChangeReason :: Maybe Text
-      -- ^ Details regarding the state of the instance group.
-    , _igdName :: Maybe Text
-      -- ^ Friendly name for the instance group.
-    , _igdInstanceRunningCount :: Integer
-      -- ^ Actual count of running instances.
     , _igdCreationDateTime :: POSIX
       -- ^ The date/time the instance group was created.
+    , _igdEndDateTime :: Maybe POSIX
+      -- ^ The date/time the instance group was terminated.
     , _igdInstanceGroupId :: Maybe Text
       -- ^ Unique identifier for the instance group.
     , _igdInstanceRequestCount :: Integer
       -- ^ Target number of instances to run in the instance group.
-    , _igdEndDateTime :: Maybe POSIX
-      -- ^ The date/time the instance group was terminated.
+    , _igdInstanceRole :: InstanceRoleType
+      -- ^ Instance group role in the cluster.
+    , _igdInstanceRunningCount :: Integer
+      -- ^ Actual count of running instances.
+    , _igdInstanceType :: Text
+      -- ^ Amazon EC2 Instance type.
+    , _igdLastStateChangeReason :: Maybe Text
+      -- ^ Details regarding the state of the instance group.
+    , _igdMarket :: MarketType
+      -- ^ Market type of the Amazon EC2 instances used to create a cluster
+      -- node.
+    , _igdName :: Maybe Text
+      -- ^ Friendly name for the instance group.
+    , _igdReadyDateTime :: Maybe POSIX
+      -- ^ The date/time the instance group was available to the cluster.
     , _igdStartDateTime :: Maybe POSIX
       -- ^ The date/time the instance group was started.
+    , _igdState :: InstanceGroupState
+      -- ^ State of instance group. The following values are deprecated:
+      -- STARTING, TERMINATED, and FAILED.
     } deriving (Show, Generic)
 
 instance FromJSON InstanceGroupDetail
@@ -1012,12 +1012,12 @@ instance ToJSON InstanceGroupDetail
 
 -- | Modify an instance group size.
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig
-    { _igmcInstanceCount :: Maybe Integer
-      -- ^ Target size for the instance group.
-    , _igmcEC2InstanceIdsToTerminate :: [Text]
+    { _igmcEC2InstanceIdsToTerminate :: [Text]
       -- ^ The EC2 InstanceIds to terminate. For advanced users only. Once
       -- you terminate the instances, the instance group will not return
       -- to its original requested size.
+    , _igmcInstanceCount :: Maybe Integer
+      -- ^ Target size for the instance group.
     , _igmcInstanceGroupId :: Text
       -- ^ Unique ID of the instance group to expand or shrink.
     } deriving (Show, Generic)
@@ -1038,11 +1038,11 @@ instance ToJSON InstanceGroupStateChangeReason
 
 -- | The current status of the instance group.
 data InstanceGroupStatus = InstanceGroupStatus
-    { _igtState :: Maybe InstanceGroupState
+    { _iguState :: Maybe InstanceGroupState
       -- ^ The current state of the instance group.
-    , _igtStateChangeReason :: Maybe InstanceGroupStateChangeReason
+    , _iguStateChangeReason :: Maybe InstanceGroupStateChangeReason
       -- ^ The status change reason details for the instance group.
-    , _igtTimeline :: Maybe InstanceGroupTimeline
+    , _iguTimeline :: Maybe InstanceGroupTimeline
       -- ^ The timeline of the instance group status over time.
     } deriving (Show, Generic)
 
@@ -1052,13 +1052,13 @@ instance ToJSON InstanceGroupStatus
 
 -- | The timeline of the instance group status over time.
 data InstanceGroupTimeline = InstanceGroupTimeline
-    { _igvReadyDateTime :: Maybe POSIX
+    { _igwCreationDateTime :: Maybe POSIX
+      -- ^ The creation date and time of the instance group.
+    , _igwEndDateTime :: Maybe POSIX
+      -- ^ The date and time when the instance group terminated.
+    , _igwReadyDateTime :: Maybe POSIX
       -- ^ The date and time when the instance group became ready to perform
       -- tasks.
-    , _igvCreationDateTime :: Maybe POSIX
-      -- ^ The creation date and time of the instance group.
-    , _igvEndDateTime :: Maybe POSIX
-      -- ^ The date and time when the instance group terminated.
     } deriving (Show, Generic)
 
 instance FromJSON InstanceGroupTimeline
@@ -1079,11 +1079,11 @@ instance ToJSON InstanceStateChangeReason
 
 -- | The current status of the instance.
 data InstanceStatus = InstanceStatus
-    { _iiwState :: Maybe InstanceState
+    { _iivState :: Maybe InstanceState
       -- ^ The current state of the instance.
-    , _iiwStateChangeReason :: Maybe InstanceStateChangeReason
+    , _iivStateChangeReason :: Maybe InstanceStateChangeReason
       -- ^ The details of the status change reason for the instance.
-    , _iiwTimeline :: Maybe InstanceTimeline
+    , _iivTimeline :: Maybe InstanceTimeline
       -- ^ The timeline of the instance status over time.
     } deriving (Show, Generic)
 
@@ -1093,12 +1093,12 @@ instance ToJSON InstanceStatus
 
 -- | The timeline of the instance status over time.
 data InstanceTimeline = InstanceTimeline
-    { _iihReadyDateTime :: Maybe POSIX
-      -- ^ The date and time when the instance was ready to perform tasks.
-    , _iihCreationDateTime :: Maybe POSIX
+    { _iiiCreationDateTime :: Maybe POSIX
       -- ^ The creation date and time of the instance.
-    , _iihEndDateTime :: Maybe POSIX
+    , _iiiEndDateTime :: Maybe POSIX
       -- ^ The date and time when the instance was terminated.
+    , _iiiReadyDateTime :: Maybe POSIX
+      -- ^ The date and time when the instance was ready to perform tasks.
     } deriving (Show, Generic)
 
 instance FromJSON InstanceTimeline
@@ -1112,23 +1112,30 @@ data JobFlowDetail = JobFlowDetail
       -- the job flow. For a list of AMI versions currently supported by
       -- Amazon ElasticMapReduce, go to AMI Versions Supported in Elastic
       -- MapReduce in the Amazon Elastic MapReduce Developer's Guide.
+    , _jfdBootstrapActions :: [BootstrapActionDetail]
+      -- ^ A list of the bootstrap actions run by the job flow.
     , _jfdExecutionStatusDetail :: JobFlowExecutionStatusDetail
       -- ^ Describes the execution status of the job flow.
+    , _jfdInstances :: JobFlowInstancesDetail
+      -- ^ Describes the Amazon EC2 instances of the job flow.
     , _jfdJobFlowId :: Text
       -- ^ The job flow identifier.
-    , _jfdSteps :: [StepDetail]
-      -- ^ A list of steps run by the job flow.
     , _jfdJobFlowRole :: Maybe Text
       -- ^ The IAM role that was specified when the job flow was launched.
       -- The EC2 instances of the job flow assume this role.
-    , _jfdBootstrapActions :: [BootstrapActionDetail]
-      -- ^ A list of the bootstrap actions run by the job flow.
-    , _jfdName :: Text
-      -- ^ The name of the job flow.
     , _jfdLogUri :: Maybe Text
       -- ^ The location in Amazon S3 where log files for the job are stored.
-    , _jfdInstances :: JobFlowInstancesDetail
-      -- ^ Describes the Amazon EC2 instances of the job flow.
+    , _jfdName :: Text
+      -- ^ The name of the job flow.
+    , _jfdServiceRole :: Maybe Text
+      -- ^ The IAM role that will be assumed by the Amazon EMR service to
+      -- access AWS resources on your behalf.
+    , _jfdSteps :: [StepDetail]
+      -- ^ A list of steps run by the job flow.
+    , _jfdSupportedProducts :: [Text]
+      -- ^ A list of strings set by third party software when the job flow
+      -- is launched. If you are not using third party software to manage
+      -- the job flow this value is empty.
     , _jfdVisibleToAllUsers :: Maybe Bool
       -- ^ Specifies whether the job flow is visible to all IAM users of the
       -- AWS account associated with the job flow. If this value is set to
@@ -1137,32 +1144,25 @@ data JobFlowDetail = JobFlowDetail
       -- it is set to false, only the IAM user that created the job flow
       -- can view and manage it. This value can be changed using the
       -- SetVisibleToAllUsers action.
-    , _jfdSupportedProducts :: [Text]
-      -- ^ A list of strings set by third party software when the job flow
-      -- is launched. If you are not using third party software to manage
-      -- the job flow this value is empty.
-    , _jfdServiceRole :: Maybe Text
-      -- ^ The IAM role that will be assumed by the Amazon EMR service to
-      -- access AWS resources on your behalf.
     } deriving (Show, Generic)
 
 instance FromJSON JobFlowDetail
 
 -- | Describes the execution status of the job flow.
 data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
-    { _jfesdState :: JobFlowExecutionState
-      -- ^ The state of the job flow.
-    , _jfesdReadyDateTime :: Maybe POSIX
-      -- ^ The date and time when the job flow was ready to start running
-      -- bootstrap actions.
-    , _jfesdLastStateChangeReason :: Maybe Text
-      -- ^ Description of the job flow last changed state.
-    , _jfesdCreationDateTime :: POSIX
+    { _jfesdCreationDateTime :: POSIX
       -- ^ The creation date and time of the job flow.
     , _jfesdEndDateTime :: Maybe POSIX
       -- ^ The completion date and time of the job flow.
+    , _jfesdLastStateChangeReason :: Maybe Text
+      -- ^ Description of the job flow last changed state.
+    , _jfesdReadyDateTime :: Maybe POSIX
+      -- ^ The date and time when the job flow was ready to start running
+      -- bootstrap actions.
     , _jfesdStartDateTime :: Maybe POSIX
       -- ^ The start date and time of the job flow.
+    , _jfesdState :: JobFlowExecutionState
+      -- ^ The state of the job flow.
     } deriving (Show, Generic)
 
 instance FromJSON JobFlowExecutionStatusDetail
@@ -1175,16 +1175,6 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
     { _jficEc2KeyName :: Maybe Text
       -- ^ The name of the Amazon EC2 key pair that can be used to ssh to
       -- the master node as the user called "hadoop.".
-    , _jficSlaveInstanceType :: Maybe Text
-      -- ^ The EC2 instance type of the slave nodes.
-    , _jficInstanceCount :: Maybe Integer
-      -- ^ The number of Amazon EC2 instances used to execute the job flow.
-    , _jficHadoopVersion :: Maybe Text
-      -- ^ The Hadoop version for the job flow. Valid inputs are "0.18",
-      -- "0.20", or "0.20.205". If you do not set this value, the default
-      -- of 0.18 is used, unless the AmiVersion parameter is set in the
-      -- RunJobFlow call, in which case the default version of Hadoop for
-      -- that AMI version is used.
     , _jficEc2SubnetId :: Maybe Text
       -- ^ To launch the job flow in Amazon Virtual Private Cloud (Amazon
       -- VPC), set this parameter to the identifier of the Amazon VPC
@@ -1194,19 +1184,29 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
       -- currently does not support cluster compute quadruple extra large
       -- (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge
       -- instance type for nodes of a job flow launched in a Amazon VPC.
-    , _jficMasterInstanceType :: Maybe Text
-      -- ^ The EC2 instance type of the master node.
+    , _jficHadoopVersion :: Maybe Text
+      -- ^ The Hadoop version for the job flow. Valid inputs are "0.18",
+      -- "0.20", or "0.20.205". If you do not set this value, the default
+      -- of 0.18 is used, unless the AmiVersion parameter is set in the
+      -- RunJobFlow call, in which case the default version of Hadoop for
+      -- that AMI version is used.
+    , _jficInstanceCount :: Maybe Integer
+      -- ^ The number of Amazon EC2 instances used to execute the job flow.
     , _jficInstanceGroups :: [InstanceGroupConfig]
       -- ^ Configuration for the job flow's instance groups.
     , _jficKeepJobFlowAliveWhenNoSteps :: Maybe Bool
       -- ^ Specifies whether the job flow should terminate after completing
       -- all steps.
+    , _jficMasterInstanceType :: Maybe Text
+      -- ^ The EC2 instance type of the master node.
+    , _jficPlacement :: Maybe PlacementType
+      -- ^ The Availability Zone the job flow will run in.
+    , _jficSlaveInstanceType :: Maybe Text
+      -- ^ The EC2 instance type of the slave nodes.
     , _jficTerminationProtected :: Maybe Bool
       -- ^ Specifies whether to lock the job flow to prevent the Amazon EC2
       -- instances from being terminated by API call, user intervention,
       -- or in the event of a job flow error.
-    , _jficPlacement :: Maybe PlacementType
-      -- ^ The Availability Zone the job flow will run in.
     } deriving (Show, Generic)
 
 instance ToJSON JobFlowInstancesConfig
@@ -1216,13 +1216,28 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
     { _jfidEc2KeyName :: Maybe Text
       -- ^ The name of an Amazon EC2 key pair that can be used to ssh to the
       -- master node of job flow.
-    , _jfidSlaveInstanceType :: Text
-      -- ^ The Amazon EC2 slave node instance type.
+    , _jfidEc2SubnetId :: Maybe Text
+      -- ^ For job flows launched within Amazon Virtual Private Cloud, this
+      -- value specifies the identifier of the subnet where the job flow
+      -- was launched.
+    , _jfidHadoopVersion :: Maybe Text
+      -- ^ The Hadoop version for the job flow.
     , _jfidInstanceCount :: Integer
       -- ^ The number of Amazon EC2 instances in the cluster. If the value
       -- is 1, the same instance serves as both the master and slave node.
       -- If the value is greater than 1, one instance is the master node
       -- and all others are slave nodes.
+    , _jfidInstanceGroups :: [InstanceGroupDetail]
+      -- ^ Details about the job flow's instance groups.
+    , _jfidKeepJobFlowAliveWhenNoSteps :: Maybe Bool
+      -- ^ Specifies whether the job flow should terminate after completing
+      -- all steps.
+    , _jfidMasterInstanceId :: Maybe Text
+      -- ^ The Amazon EC2 instance identifier of the master node.
+    , _jfidMasterInstanceType :: Text
+      -- ^ The Amazon EC2 master node instance type.
+    , _jfidMasterPublicDnsName :: Maybe Text
+      -- ^ The DNS name of the master node.
     , _jfidNormalizedInstanceHours :: Maybe Integer
       -- ^ An approximation of the cost of the job flow, represented in
       -- m1.small/hours. This value is incremented once for every hour an
@@ -1231,29 +1246,14 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
       -- result in the normalized instance hours being incremented by
       -- four. This result is only an approximation and does not reflect
       -- the actual billing rate.
-    , _jfidHadoopVersion :: Maybe Text
-      -- ^ The Hadoop version for the job flow.
-    , _jfidEc2SubnetId :: Maybe Text
-      -- ^ For job flows launched within Amazon Virtual Private Cloud, this
-      -- value specifies the identifier of the subnet where the job flow
-      -- was launched.
-    , _jfidMasterInstanceType :: Text
-      -- ^ The Amazon EC2 master node instance type.
-    , _jfidInstanceGroups :: [InstanceGroupDetail]
-      -- ^ Details about the job flow's instance groups.
-    , _jfidKeepJobFlowAliveWhenNoSteps :: Maybe Bool
-      -- ^ Specifies whether the job flow should terminate after completing
-      -- all steps.
-    , _jfidMasterInstanceId :: Maybe Text
-      -- ^ The Amazon EC2 instance identifier of the master node.
-    , _jfidMasterPublicDnsName :: Maybe Text
-      -- ^ The DNS name of the master node.
+    , _jfidPlacement :: Maybe PlacementType
+      -- ^ The Amazon EC2 Availability Zone for the job flow.
+    , _jfidSlaveInstanceType :: Text
+      -- ^ The Amazon EC2 slave node instance type.
     , _jfidTerminationProtected :: Maybe Bool
       -- ^ Specifies whether the Amazon EC2 instances in the cluster are
       -- protected from termination by API calls, user intervention, or in
       -- the event of a job flow error.
-    , _jfidPlacement :: Maybe PlacementType
-      -- ^ The Amazon EC2 Availability Zone for the job flow.
     } deriving (Show, Generic)
 
 instance FromJSON JobFlowInstancesDetail
@@ -1262,10 +1262,10 @@ instance ToJSON JobFlowInstancesDetail
 
 -- | A key value pair.
 data KeyValue = KeyValue
-    { _kvValue :: Maybe Text
-      -- ^ The value part of the identified key.
-    , _kvKey :: Maybe Text
+    { _kvKey :: Maybe Text
       -- ^ The unique identifier of a key value pair.
+    , _kvValue :: Maybe Text
+      -- ^ The value part of the identified key.
     } deriving (Show, Generic)
 
 instance FromJSON KeyValue
@@ -1288,18 +1288,18 @@ instance ToJSON ScriptBootstrapActionConfig
 
 -- | The step details for the requested step identifier.
 data Step = Step
-    { _vStatus :: Maybe StepStatus
-      -- ^ The current execution status details of the cluster step.
-    , _vActionOnFailure :: Maybe ActionOnFailure
+    { _vActionOnFailure :: Maybe ActionOnFailure
       -- ^ This specifies what action to take when the cluster step fails.
       -- Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and
       -- CONTINUE.
     , _vConfig :: Maybe HadoopStepConfig
       -- ^ The Hadoop job configuration of the cluster step.
-    , _vName :: Maybe Text
-      -- ^ The name of the cluster step.
     , _vId :: Maybe Text
       -- ^ The identifier of the cluster step.
+    , _vName :: Maybe Text
+      -- ^ The name of the cluster step.
+    , _vStatus :: Maybe StepStatus
+      -- ^ The current execution status details of the cluster step.
     } deriving (Show, Generic)
 
 instance FromJSON Step
@@ -1332,16 +1332,16 @@ instance ToJSON StepDetail
 
 -- | The description of the step status.
 data StepExecutionStatusDetail = StepExecutionStatusDetail
-    { _sesdState :: StepExecutionState
-      -- ^ The state of the job flow step.
-    , _sesdLastStateChangeReason :: Maybe Text
-      -- ^ A description of the step's current state.
-    , _sesdCreationDateTime :: POSIX
+    { _sesdCreationDateTime :: POSIX
       -- ^ The creation date and time of the step.
     , _sesdEndDateTime :: Maybe POSIX
       -- ^ The completion date and time of the step.
+    , _sesdLastStateChangeReason :: Maybe Text
+      -- ^ A description of the step's current state.
     , _sesdStartDateTime :: Maybe POSIX
       -- ^ The start date and time of the step.
+    , _sesdState :: StepExecutionState
+      -- ^ The state of the job flow step.
     } deriving (Show, Generic)
 
 instance FromJSON StepExecutionStatusDetail
@@ -1376,12 +1376,12 @@ instance ToJSON StepStatus
 
 -- | The summary of the cluster step.
 data StepSummary = StepSummary
-    { _ssyStatus :: Maybe StepStatus
-      -- ^ The current execution status details of the cluster step.
+    { _ssyId :: Maybe Text
+      -- ^ The identifier of the cluster step.
     , _ssyName :: Maybe Text
       -- ^ The name of the cluster step.
-    , _ssyId :: Maybe Text
-      -- ^ The identifier of the cluster step.
+    , _ssyStatus :: Maybe StepStatus
+      -- ^ The current execution status details of the cluster step.
     } deriving (Show, Generic)
 
 instance FromJSON StepSummary
@@ -1418,13 +1418,13 @@ instance ToJSON SupportedProductConfig
 -- various ways, such as grouping clu\ sters to track your Amazon EMR resource
 -- allocation costs. For more information, see Tagging Amazon EMR Resources.
 data Tag = Tag
-    { _tValue :: Maybe Text
-      -- ^ A user-defined value, which is optional in a tag. For more
-      -- information, see Tagging Amazon EMR Resources.
-    , _tKey :: Maybe Text
+    { _tKey :: Maybe Text
       -- ^ A user-defined key, which is the minimum required information for
       -- a valid tag. For more information, see Tagging Amazon EMR
       -- Resources.
+    , _tValue :: Maybe Text
+      -- ^ A user-defined value, which is optional in a tag. For more
+      -- information, see Tagging Amazon EMR Resources.
     } deriving (Show, Generic)
 
 instance FromJSON Tag

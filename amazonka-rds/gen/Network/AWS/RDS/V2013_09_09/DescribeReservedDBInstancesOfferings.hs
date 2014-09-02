@@ -36,12 +36,12 @@ describeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings
 describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     { _drdbiomMultiAZ = Nothing
     , _drdbiomMaxRecords = Nothing
-    , _drdbiomProductDescription = Nothing
     , _drdbiomDBInstanceClass = Nothing
-    , _drdbiomMarker = Nothing
-    , _drdbiomReservedDBInstancesOfferingId = Nothing
-    , _drdbiomOfferingType = Nothing
     , _drdbiomDuration = Nothing
+    , _drdbiomMarker = Nothing
+    , _drdbiomOfferingType = Nothing
+    , _drdbiomProductDescription = Nothing
+    , _drdbiomReservedDBInstancesOfferingId = Nothing
     }
 
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
@@ -55,32 +55,32 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
       -- a marker is included in the response so that the following
       -- results can be retrieved. Default: 100 Constraints: minimum 20,
       -- maximum 100.
-    , _drdbiomProductDescription :: Maybe Text
-      -- ^ Product description filter value. Specify this parameter to show
-      -- only the available offerings matching the specified product
-      -- description.
     , _drdbiomDBInstanceClass :: Maybe Text
       -- ^ The DB instance class filter value. Specify this parameter to
       -- show only the available offerings matching the specified DB
       -- instance class.
+    , _drdbiomDuration :: Maybe Text
+      -- ^ Duration filter value, specified in years or seconds. Specify
+      -- this parameter to show only reservations for this duration. Valid
+      -- Values: 1 | 3 | 31536000 | 94608000.
     , _drdbiomMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
-    , _drdbiomReservedDBInstancesOfferingId :: Maybe Text
-      -- ^ The offering identifier filter value. Specify this parameter to
-      -- show only the available offering that matches the specified
-      -- reservation identifier. Example:
-      -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
     , _drdbiomOfferingType :: Maybe Text
       -- ^ The offering type filter value. Specify this parameter to show
       -- only the available offerings matching the specified offering
       -- type. Valid Values: "Light Utilization" | "Medium Utilization" |
       -- "Heavy Utilization".
-    , _drdbiomDuration :: Maybe Text
-      -- ^ Duration filter value, specified in years or seconds. Specify
-      -- this parameter to show only reservations for this duration. Valid
-      -- Values: 1 | 3 | 31536000 | 94608000.
+    , _drdbiomProductDescription :: Maybe Text
+      -- ^ Product description filter value. Specify this parameter to show
+      -- only the available offerings matching the specified product
+      -- description.
+    , _drdbiomReservedDBInstancesOfferingId :: Maybe Text
+      -- ^ The offering identifier filter value. Specify this parameter to
+      -- show only the available offering that matches the specified
+      -- reservation identifier. Example:
+      -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeReservedDBInstancesOfferings

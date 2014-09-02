@@ -2103,7 +2103,7 @@ instance ToQuery VpnStaticRouteSource where
 
 -- | Describes a value of an account attribute.
 newtype AccountAttributeValue = AccountAttributeValue
-    { _aaagAttributeValue :: Maybe Text
+    { _aaahAttributeValue :: Maybe Text
       -- ^ The value.
     } deriving (Show, Generic)
 
@@ -2269,10 +2269,10 @@ instance ToQuery VpnConnectionOptionsSpecification where
 
 -- | Describes an account attribute.
 data AccountAttribute = AccountAttribute
-    { _aaAttributeValues :: [AccountAttributeValue]
-      -- ^ One or more values for the account attribute.
-    , _aaAttributeName :: Maybe Text
+    { _aaAttributeName :: Maybe Text
       -- ^ The name of the account attribute.
+    , _aaAttributeValues :: [AccountAttributeValue]
+      -- ^ One or more values for the account attribute.
     } deriving (Show, Generic)
 
 instance FromXML AccountAttribute where
@@ -2281,21 +2281,21 @@ instance FromXML AccountAttribute where
 
 -- | Describes an Elastic IP address.
 data Address = Address
-    { _ayAssociationId :: Maybe Text
-      -- ^ The ID representing the association of the address with an
-      -- instance in a VPC.
-    , _ayInstanceId :: Maybe Text
-      -- ^ The ID of the instance the address is associated with (if any).
-    , _ayNetworkInterfaceOwnerId :: Maybe Text
-      -- ^ The ID of the AWS account that owns the network interface.
-    , _ayAllocationId :: Maybe Text
+    { _ayAllocationId :: Maybe Text
       -- ^ The ID representing the allocation of the address for use with
       -- EC2-VPC.
+    , _ayAssociationId :: Maybe Text
+      -- ^ The ID representing the association of the address with an
+      -- instance in a VPC.
     , _ayDomain :: Maybe DomainType
       -- ^ Indicates whether this Elastic IP address is for use with
       -- instances in EC2-Classic (standard) or instances in a VPC (vpc).
+    , _ayInstanceId :: Maybe Text
+      -- ^ The ID of the instance the address is associated with (if any).
     , _ayNetworkInterfaceId :: Maybe Text
       -- ^ The ID of the network interface.
+    , _ayNetworkInterfaceOwnerId :: Maybe Text
+      -- ^ The ID of the AWS account that owns the network interface.
     , _ayPrivateIpAddress :: Maybe Text
       -- ^ The private IP address associated with the Elastic IP address.
     , _ayPublicIp :: Maybe Text
@@ -2308,14 +2308,14 @@ instance FromXML Address where
 
 -- | Describes an Availability Zone.
 data AvailabilityZone = AvailabilityZone
-    { _aaalState :: Maybe AvailabilityZoneState
-      -- ^ The state of the Availability Zone.
-    , _aaalRegionName :: Maybe Text
-      -- ^ The name of the region.
-    , _aaalZoneName :: Maybe Text
-      -- ^ The name of the Availability Zone.
-    , _aaalMessages :: [AvailabilityZoneMessage]
+    { _aaamMessages :: [AvailabilityZoneMessage]
       -- ^ Any messages about the Availability Zone.
+    , _aaamRegionName :: Maybe Text
+      -- ^ The name of the region.
+    , _aaamState :: Maybe AvailabilityZoneState
+      -- ^ The state of the Availability Zone.
+    , _aaamZoneName :: Maybe Text
+      -- ^ The name of the Availability Zone.
     } deriving (Show, Generic)
 
 instance FromXML AvailabilityZone where
@@ -2324,16 +2324,16 @@ instance FromXML AvailabilityZone where
 
 -- | Describes a block device mapping.
 data BlockDeviceMapping = BlockDeviceMapping
-    { _bdmVirtualName :: Maybe Text
-      -- ^ The virtual device name.
-    , _bdmNoDevice :: Maybe Text
-      -- ^ Suppresses the specified device included in the block device
-      -- mapping of the AMI.
+    { _bdmDeviceName :: Text
+      -- ^ The device name exposed to the instance (for example, /dev/sdh).
     , _bdmEbs :: Maybe EbsBlockDevice
       -- ^ Parameters used to automatically set up Amazon EBS volumes when
       -- the instance is launched.
-    , _bdmDeviceName :: Text
-      -- ^ The device name exposed to the instance (for example, /dev/sdh).
+    , _bdmNoDevice :: Maybe Text
+      -- ^ Suppresses the specified device included in the block device
+      -- mapping of the AMI.
+    , _bdmVirtualName :: Maybe Text
+      -- ^ The virtual device name.
     } deriving (Show, Generic)
 
 instance FromXML BlockDeviceMapping where
@@ -2345,22 +2345,22 @@ instance ToQuery BlockDeviceMapping where
 
 -- | The bundle task.
 data BundleTask = BundleTask
-    { _bxInstanceId :: Maybe Text
+    { _bxBundleId :: Maybe Text
+      -- ^ The ID for this bundle task.
+    , _bxBundleTaskError :: Maybe BundleTaskError
+      -- ^ If the task fails, a description of the error.
+    , _bxInstanceId :: Maybe Text
       -- ^ The ID of the instance associated with this bundle task.
-    , _bxState :: Maybe BundleTaskState
-      -- ^ The state of the task.
     , _bxProgress :: Maybe Text
       -- ^ The level of task completion, as a percent (for example, 20%).
     , _bxStartTime :: Maybe ISO8601
       -- ^ The time this task started.
-    , _bxBundleId :: Maybe Text
-      -- ^ The ID for this bundle task.
+    , _bxState :: Maybe BundleTaskState
+      -- ^ The state of the task.
     , _bxStorage :: Maybe Storage
       -- ^ The Amazon S3 storage locations.
     , _bxUpdateTime :: Maybe ISO8601
       -- ^ The time of the most recent update for the task.
-    , _bxBundleTaskError :: Maybe BundleTaskError
-      -- ^ If the task fails, a description of the error.
     } deriving (Show, Generic)
 
 instance FromXML BundleTask where
@@ -2384,10 +2384,10 @@ instance ToQuery BundleTaskError where
 
 -- | Describes a request to cancel a Spot Instance.
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
-    { _csirState :: Maybe CancelSpotInstanceRequestState
-      -- ^ The state of the Spot Instance request.
-    , _csirSpotInstanceRequestId :: Maybe Text
+    { _csirSpotInstanceRequestId :: Maybe Text
       -- ^ The ID of the Spot Instance request.
+    , _csirState :: Maybe CancelSpotInstanceRequestState
+      -- ^ The state of the Spot Instance request.
     } deriving (Show, Generic)
 
 instance FromXML CancelledSpotInstanceRequest where
@@ -2396,21 +2396,21 @@ instance FromXML CancelledSpotInstanceRequest where
 
 -- | 
 data ConversionTask = ConversionTask
-    { _ctImportInstance :: Maybe ImportInstanceTaskDetails
-      -- ^ If the task is for importing an instance, this contains
-      -- information about the import instance task.
-    , _ctState :: ConversionTaskState
-      -- ^ The state of the conversion task.
-    , _ctStatusMessage :: Maybe Text
-      -- ^ The status message related to the conversion task.
-    , _ctImportVolume :: Maybe ImportVolumeTaskDetails
-      -- ^ If the task is for importing a volume, this contains information
-      -- about the import volume task.
-    , _ctConversionTaskId :: Text
+    { _ctConversionTaskId :: Text
       -- ^ The ID of the conversion task.
     , _ctExpirationTime :: Maybe Text
       -- ^ The time when the task expires. If the upload isn't complete
       -- before the expiration time, we automatically cancel the task.
+    , _ctImportInstance :: Maybe ImportInstanceTaskDetails
+      -- ^ If the task is for importing an instance, this contains
+      -- information about the import instance task.
+    , _ctImportVolume :: Maybe ImportVolumeTaskDetails
+      -- ^ If the task is for importing a volume, this contains information
+      -- about the import volume task.
+    , _ctState :: ConversionTaskState
+      -- ^ The state of the conversion task.
+    , _ctStatusMessage :: Maybe Text
+      -- ^ The status message related to the conversion task.
     , _ctTags :: [Tag]
       -- ^ 
     } deriving (Show, Generic)
@@ -2438,12 +2438,12 @@ instance ToQuery CreateVolumePermission where
 
 -- | A JSON representation of the snapshot attribute modification.
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications
-    { _cvpmRemove :: [CreateVolumePermission]
-      -- ^ Removes a specific AWS account ID or group from a volume's list
-      -- of create volume permissions.
-    , _cvpmAdd :: [CreateVolumePermission]
+    { _cvpmAdd :: [CreateVolumePermission]
       -- ^ Adds a specific AWS account ID or group to a volume's list of
       -- create volume permissions.
+    , _cvpmRemove :: [CreateVolumePermission]
+      -- ^ Removes a specific AWS account ID or group from a volume's list
+      -- of create volume permissions.
     } deriving (Show, Generic)
 
 instance ToQuery CreateVolumePermissionModifications where
@@ -2451,20 +2451,20 @@ instance ToQuery CreateVolumePermissionModifications where
 
 -- | Information about the customer gateway.
 data CustomerGateway = CustomerGateway
-    { _cgState :: Maybe Text
-      -- ^ The current state of the customer gateway.
-    , _cgIpAddress :: Maybe Text
-      -- ^ The Internet-routable IP address of the customer gateway's
-      -- outside interface.
-    , _cgBgpAsn :: Maybe Text
+    { _cgBgpAsn :: Maybe Text
       -- ^ The customer gateway's Border Gateway Protocol (BGP) Autonomous
       -- System Number (ASN).
     , _cgCustomerGatewayId :: Maybe Text
       -- ^ The ID of the customer gateway.
-    , _cgType :: Maybe Text
-      -- ^ The type of VPN connection the customer gateway supports.
+    , _cgIpAddress :: Maybe Text
+      -- ^ The Internet-routable IP address of the customer gateway's
+      -- outside interface.
+    , _cgState :: Maybe Text
+      -- ^ The current state of the customer gateway.
     , _cgTags :: [Tag]
       -- ^ Any tags assigned to the customer gateway.
+    , _cgType :: Maybe Text
+      -- ^ The type of VPN connection the customer gateway supports.
     } deriving (Show, Generic)
 
 instance FromXML CustomerGateway where
@@ -2473,10 +2473,10 @@ instance FromXML CustomerGateway where
 
 -- | Describes a DHCP configuration option.
 data DhcpConfiguration = DhcpConfiguration
-    { _dcValues :: [Text]
-      -- ^ One or more values for the DHCP option.
-    , _dcKey :: Maybe Text
+    { _dcKey :: Maybe Text
       -- ^ The name of a DHCP option.
+    , _dcValues :: [Text]
+      -- ^ One or more values for the DHCP option.
     } deriving (Show, Generic)
 
 instance FromXML DhcpConfiguration where
@@ -2502,11 +2502,11 @@ instance FromXML DhcpOptions where
 
 -- | Describes a disk image.
 data DiskImage = DiskImage
-    { _diImage :: Maybe DiskImageDetail
+    { _diDescription :: Maybe Text
+      -- ^ 
+    , _diImage :: Maybe DiskImageDetail
       -- ^ 
     , _diVolume :: Maybe VolumeDetail
-      -- ^ 
-    , _diDescription :: Maybe Text
       -- ^ 
     } deriving (Show, Generic)
 
@@ -2515,9 +2515,7 @@ instance ToQuery DiskImage where
 
 -- | The image.
 data DiskImageDescription = DiskImageDescription
-    { _dieSize :: Integer
-      -- ^ The size of the disk image.
-    , _dieChecksum :: Maybe Text
+    { _dieChecksum :: Maybe Text
       -- ^ The checksum computed for the disk image.
     , _dieFormat :: DiskImageFormat
       -- ^ The disk image format.
@@ -2527,6 +2525,8 @@ data DiskImageDescription = DiskImageDescription
       -- object, read the "Query String Request Authentication
       -- Alternative" section of the Authenticating REST Requests topic in
       -- the Amazon Simple Storage Service Developer Guide.
+    , _dieSize :: Integer
+      -- ^ The size of the disk image.
     } deriving (Show, Generic)
 
 instance FromXML DiskImageDescription where
@@ -2538,7 +2538,9 @@ instance ToQuery DiskImageDescription where
 
 -- | 
 data DiskImageDetail = DiskImageDetail
-    { _didFormat :: DiskImageFormat
+    { _didBytes :: Integer
+      -- ^ 
+    , _didFormat :: DiskImageFormat
       -- ^ The disk image format.
     , _didImportManifestUrl :: Text
       -- ^ A presigned URL for the import manifest stored in Amazon S3. For
@@ -2546,8 +2548,6 @@ data DiskImageDetail = DiskImageDetail
       -- object, read the "Query String Request Authentication
       -- Alternative" section of the Authenticating REST Requests topic in
       -- the Amazon Simple Storage Service Developer Guide.
-    , _didBytes :: Integer
-      -- ^ 
     } deriving (Show, Generic)
 
 instance FromXML DiskImageDetail where
@@ -2559,10 +2559,10 @@ instance ToQuery DiskImageDetail where
 
 -- | The volume.
 data DiskImageVolumeDescription = DiskImageVolumeDescription
-    { _divdSize :: Maybe Integer
-      -- ^ The size of the volume.
-    , _divdId :: Text
+    { _divdId :: Text
       -- ^ The volume identifier.
+    , _divdSize :: Maybe Integer
+      -- ^ The size of the volume.
     } deriving (Show, Generic)
 
 instance FromXML DiskImageVolumeDescription where
@@ -2578,12 +2578,8 @@ data EbsBlockDevice = EbsBlockDevice
     { _ebdDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the Amazon EBS volume is deleted on instance
       -- termination.
-    , _ebdVolumeSize :: Maybe Integer
-      -- ^ The size of the volume, in GiB. Constraints: If the volume type
-      -- is io1, the minimum size of the volume is 10 GiB; otherwise, the
-      -- minimum size is 1 GiB. The maximum volume size is 1024 GiB.
-      -- Default: If you're creating the volume from a snapshot and don't
-      -- specify a volume size, the default is the snapshot size.
+    , _ebdEncrypted :: Maybe Bool
+      -- ^ Indicates whether the Amazon EBS volume is encrypted.
     , _ebdIops :: Maybe Integer
       -- ^ The number of I/O operations per second (IOPS) that the volume
       -- supports. For Provisioned IOPS (SSD) volumes, this represents the
@@ -2598,14 +2594,18 @@ data EbsBlockDevice = EbsBlockDevice
       -- Condition: This parameter is required for requests to create io1
       -- volumes; it is not used in requests to create standard or gp2
       -- volumes.
-    , _ebdEncrypted :: Maybe Bool
-      -- ^ Indicates whether the Amazon EBS volume is encrypted.
+    , _ebdSnapshotId :: Maybe Text
+      -- ^ The ID of the snapshot.
+    , _ebdVolumeSize :: Maybe Integer
+      -- ^ The size of the volume, in GiB. Constraints: If the volume type
+      -- is io1, the minimum size of the volume is 10 GiB; otherwise, the
+      -- minimum size is 1 GiB. The maximum volume size is 1024 GiB.
+      -- Default: If you're creating the volume from a snapshot and don't
+      -- specify a volume size, the default is the snapshot size.
     , _ebdVolumeType :: Maybe VolumeType
       -- ^ The volume type. gp2 for General Purpose (SSD) volumes, io1 for
       -- Provisioned IOPS (SSD) volumes, and standard for Magnetic
       -- volumes. Default: standard.
-    , _ebdSnapshotId :: Maybe Text
-      -- ^ The ID of the snapshot.
     } deriving (Show, Generic)
 
 instance FromXML EbsBlockDevice where
@@ -2618,14 +2618,14 @@ instance ToQuery EbsBlockDevice where
 -- | Parameters used to automatically set up Amazon EBS volumes when the
 -- instance is launched.
 data EbsInstanceBlockDevice = EbsInstanceBlockDevice
-    { _eibdStatus :: Maybe AttachmentStatus
-      -- ^ The attachment state.
+    { _eibdAttachTime :: Maybe ISO8601
+      -- ^ The time stamp when the attachment initiated.
     , _eibdDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the volume is deleted on instance termination.
+    , _eibdStatus :: Maybe AttachmentStatus
+      -- ^ The attachment state.
     , _eibdVolumeId :: Maybe Text
       -- ^ The ID of the Amazon EBS volume.
-    , _eibdAttachTime :: Maybe ISO8601
-      -- ^ The time stamp when the attachment initiated.
     } deriving (Show, Generic)
 
 instance FromXML EbsInstanceBlockDevice where
@@ -2653,18 +2653,18 @@ instance ToQuery EbsInstanceBlockDeviceSpecification where
 
 -- | 
 data ExportTask = ExportTask
-    { _etExportTaskId :: Maybe Text
+    { _etDescription :: Maybe Text
+      -- ^ A description of the resource being exported.
+    , _etExportTaskId :: Maybe Text
       -- ^ The ID of the export task.
-    , _etState :: Maybe ExportTaskState
-      -- ^ The state of the conversion task.
     , _etExportToS3Task :: Maybe ExportToS3Task
       -- ^ 
     , _etInstanceExportDetails :: Maybe InstanceExportDetails
       -- ^ The instance being exported.
+    , _etState :: Maybe ExportTaskState
+      -- ^ The state of the conversion task.
     , _etStatusMessage :: Maybe Text
       -- ^ The status message related to the export task.
-    , _etDescription :: Maybe Text
-      -- ^ A description of the resource being exported.
     } deriving (Show, Generic)
 
 instance FromXML ExportTask where
@@ -2673,17 +2673,17 @@ instance FromXML ExportTask where
 
 -- | 
 data ExportToS3Task = ExportToS3Task
-    { _etstS3Key :: Maybe Text
-      -- ^ 
-    , _etstContainerFormat :: Maybe ContainerFormat
+    { _etstContainerFormat :: Maybe ContainerFormat
       -- ^ The container format used to combine disk images with metadata
       -- (such as OVF). If absent, only the disk image is exported.
+    , _etstDiskImageFormat :: Maybe DiskImageFormat
+      -- ^ The format for the exported image.
     , _etstS3Bucket :: Maybe Text
       -- ^ The Amazon S3 bucket for the destination image. The destination
       -- bucket must exist and grant WRITE and READ_ACL permissions to the
       -- AWS account vm-import-export@amazon.com.
-    , _etstDiskImageFormat :: Maybe DiskImageFormat
-      -- ^ The format for the exported image.
+    , _etstS3Key :: Maybe Text
+      -- ^ 
     } deriving (Show, Generic)
 
 instance FromXML ExportToS3Task where
@@ -2697,13 +2697,13 @@ instance ToQuery ExportToS3Task where
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification
     { _etstsContainerFormat :: Maybe ContainerFormat
       -- ^ 
+    , _etstsDiskImageFormat :: Maybe DiskImageFormat
+      -- ^ 
+    , _etstsS3Bucket :: Maybe Text
+      -- ^ 
     , _etstsS3Prefix :: Maybe Text
       -- ^ The image is written to a single object in the Amazon S3 bucket
       -- at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
-    , _etstsS3Bucket :: Maybe Text
-      -- ^ 
-    , _etstsDiskImageFormat :: Maybe DiskImageFormat
-      -- ^ 
     } deriving (Show, Generic)
 
 instance ToQuery ExportToS3TaskSpecification where
@@ -2711,10 +2711,10 @@ instance ToQuery ExportToS3TaskSpecification where
 
 -- | 
 data Filter = Filter
-    { _frValues :: [Text]
-      -- ^ One or more filter values.
-    , _frName :: Text
+    { _frName :: Text
       -- ^ The name of the filter.
+    , _frValues :: [Text]
+      -- ^ One or more filter values.
     } deriving (Show, Generic)
 
 instance ToQuery Filter where
@@ -2737,9 +2737,9 @@ instance ToQuery GroupIdentifier where
 
 -- | The IAM instance profile associated with the instance.
 data IamInstanceProfile = IamInstanceProfile
-    { _iiieArn :: Maybe Text
+    { _iipArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the instance profile.
-    , _iiieId :: Maybe Text
+    , _iipId :: Maybe Text
       -- ^ The ID of the instance profile.
     } deriving (Show, Generic)
 
@@ -2783,60 +2783,60 @@ instance ToQuery IcmpTypeCode where
 
 -- | Describes an image.
 data Image = Image
-    { _ijState :: ImageState
-      -- ^ The current state of the AMI. If the state is available, the
-      -- image is successfully registered and can be used to launch an
-      -- instance.
-    , _ijVirtualizationType :: VirtualizationType
-      -- ^ The type of virtualization of the AMI.
+    { _ijArchitecture :: ArchitectureValues
+      -- ^ The architecture of the image.
+    , _ijBlockDeviceMappings :: [BlockDeviceMapping]
+      -- ^ Any block device mapping entries.
+    , _ijDescription :: Maybe Text
+      -- ^ The description of the AMI that was provided during image
+      -- creation.
     , _ijHypervisor :: HypervisorType
       -- ^ The hypervisor type of the image.
-    , _ijPlatform :: Maybe PlatformValues
-      -- ^ The value is Windows for Windows AMIs; otherwise blank.
+    , _ijImageId :: Text
+      -- ^ The ID of the AMI.
     , _ijImageLocation :: Text
       -- ^ The location of the AMI.
     , _ijImageOwnerAlias :: Maybe Text
       -- ^ The AWS account alias (for example, amazon, self) or the AWS
       -- account ID of the AMI owner.
-    , _ijRamdiskId :: Maybe Text
-      -- ^ The RAM disk associated with the image, if any. Only applicable
-      -- for machine images.
+    , _ijImageType :: ImageTypeValues
+      -- ^ The type of image.
     , _ijKernelId :: Maybe Text
       -- ^ The kernel associated with the image, if any. Only applicable for
       -- machine images.
-    , _ijRootDeviceName :: Maybe Text
-      -- ^ The device name of the root device (for example, /dev/sda1 or
-      -- xvda).
-    , _ijSriovNetSupport :: Maybe Text
-      -- ^ Specifies whether enhanced networking is enabled.
-    , _ijOwnerId :: Text
-      -- ^ The AWS account ID of the image owner.
-    , _ijImageType :: ImageTypeValues
-      -- ^ The type of image.
     , _ijName :: Text
       -- ^ The name of the AMI that was provided during image creation.
-    , _ijImageId :: Text
-      -- ^ The ID of the AMI.
-    , _ijArchitecture :: ArchitectureValues
-      -- ^ The architecture of the image.
+    , _ijOwnerId :: Text
+      -- ^ The AWS account ID of the image owner.
+    , _ijPlatform :: Maybe PlatformValues
+      -- ^ The value is Windows for Windows AMIs; otherwise blank.
     , _ijProductCodes :: [ProductCode]
       -- ^ Any product codes associated with the AMI.
-    , _ijStateReason :: Maybe StateReason
-      -- ^ The reason for the state change.
-    , _ijRootDeviceType :: DeviceType
-      -- ^ The type of root device used by the AMI. The AMI can use an
-      -- Amazon EBS volume or an instance store volume.
-    , _ijDescription :: Maybe Text
-      -- ^ The description of the AMI that was provided during image
-      -- creation.
-    , _ijBlockDeviceMappings :: [BlockDeviceMapping]
-      -- ^ Any block device mapping entries.
-    , _ijTags :: [Tag]
-      -- ^ Any tags assigned to the image.
     , _ijPublic :: Bool
       -- ^ Indicates whether the image has public launch permissions. The
       -- value is true if this image has public launch permissions or
       -- false if it has only implicit and explicit launch permissions.
+    , _ijRamdiskId :: Maybe Text
+      -- ^ The RAM disk associated with the image, if any. Only applicable
+      -- for machine images.
+    , _ijRootDeviceName :: Maybe Text
+      -- ^ The device name of the root device (for example, /dev/sda1 or
+      -- xvda).
+    , _ijRootDeviceType :: DeviceType
+      -- ^ The type of root device used by the AMI. The AMI can use an
+      -- Amazon EBS volume or an instance store volume.
+    , _ijSriovNetSupport :: Maybe Text
+      -- ^ Specifies whether enhanced networking is enabled.
+    , _ijState :: ImageState
+      -- ^ The current state of the AMI. If the state is available, the
+      -- image is successfully registered and can be used to launch an
+      -- instance.
+    , _ijStateReason :: Maybe StateReason
+      -- ^ The reason for the state change.
+    , _ijTags :: [Tag]
+      -- ^ Any tags assigned to the image.
+    , _ijVirtualizationType :: VirtualizationType
+      -- ^ The type of virtualization of the AMI.
     } deriving (Show, Generic)
 
 instance FromXML Image where
@@ -2847,29 +2847,29 @@ instance FromXML Image where
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     { _iilsAdditionalInfo :: Maybe Text
       -- ^ 
+    , _iilsArchitecture :: Maybe ArchitectureValues
+      -- ^ The architecture of the instance.
     , _iilsGroupNames :: [Text]
       -- ^ One or more security group names.
-    , _iilsSubnetId :: Maybe Text
-      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
+    , _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
+      -- ^ Indicates whether an instance stops or terminates when you
+      -- initiate shutdown from the instance (using the operating system
+      -- command for system shutdown).
     , _iilsInstanceType :: Maybe InstanceType
       -- ^ The instance type. For more information, see Instance Types in
       -- the Amazon Elastic Compute Cloud User Guide.
-    , _iilsUserData :: Maybe Text
-      -- ^ User data to be made available to the instance.
     , _iilsMonitoring :: Maybe Bool
+      -- ^ 
+    , _iilsPlacement :: Maybe Placement
       -- ^ 
     , _iilsPrivateIpAddress :: Maybe Text
       -- ^ [EC2-VPC] Optionally, you can use this parameter to assign the
       -- instance a specific available IP address from the IP address
       -- range of the subnet.
-    , _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
-      -- ^ Indicates whether an instance stops or terminates when you
-      -- initiate shutdown from the instance (using the operating system
-      -- command for system shutdown).
-    , _iilsArchitecture :: Maybe ArchitectureValues
-      -- ^ The architecture of the instance.
-    , _iilsPlacement :: Maybe Placement
-      -- ^ 
+    , _iilsSubnetId :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
+    , _iilsUserData :: Maybe Text
+      -- ^ User data to be made available to the instance.
     } deriving (Show, Generic)
 
 instance ToQuery ImportInstanceLaunchSpecification where
@@ -2878,13 +2878,13 @@ instance ToQuery ImportInstanceLaunchSpecification where
 -- | If the task is for importing an instance, this contains information about
 -- the import instance task.
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails
-    { _iitdInstanceId :: Maybe Text
+    { _iitdDescription :: Maybe Text
+      -- ^ 
+    , _iitdInstanceId :: Maybe Text
       -- ^ 
     , _iitdPlatform :: Maybe PlatformValues
       -- ^ The instance operating system.
     , _iitdVolumes :: [ImportInstanceVolumeDetailItem]
-      -- ^ 
-    , _iitdDescription :: Maybe Text
       -- ^ 
     } deriving (Show, Generic)
 
@@ -2897,20 +2897,20 @@ instance ToQuery ImportInstanceTaskDetails where
 
 -- | Describes an import volume task.
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
-    { _iivdiStatus :: Text
-      -- ^ The status of the import of this particular disk image.
+    { _iivdiAvailabilityZone :: Text
+      -- ^ The Availability Zone where the resulting instance will reside.
     , _iivdiBytesConverted :: Integer
       -- ^ The number of bytes converted so far.
-    , _iivdiImage :: DiskImageDescription
-      -- ^ The image.
-    , _iivdiVolume :: DiskImageVolumeDescription
-      -- ^ The volume.
-    , _iivdiAvailabilityZone :: Text
-      -- ^ The Availability Zone where the resulting instance will reside.
-    , _iivdiStatusMessage :: Maybe Text
-      -- ^ The status information or errors related to the disk image.
     , _iivdiDescription :: Maybe Text
       -- ^ 
+    , _iivdiImage :: DiskImageDescription
+      -- ^ The image.
+    , _iivdiStatus :: Text
+      -- ^ The status of the import of this particular disk image.
+    , _iivdiStatusMessage :: Maybe Text
+      -- ^ The status information or errors related to the disk image.
+    , _iivdiVolume :: DiskImageVolumeDescription
+      -- ^ The volume.
     } deriving (Show, Generic)
 
 instance FromXML ImportInstanceVolumeDetailItem where
@@ -2923,17 +2923,17 @@ instance ToQuery ImportInstanceVolumeDetailItem where
 -- | If the task is for importing a volume, this contains information about the
 -- import volume task.
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails
-    { _ivtdBytesConverted :: Integer
+    { _ivtdAvailabilityZone :: Text
+      -- ^ The Availability Zone where the resulting volume will reside.
+    , _ivtdBytesConverted :: Integer
       -- ^ The number of bytes converted so far.
+    , _ivtdDescription :: Maybe Text
+      -- ^ The description you provided when starting the import volume
+      -- task.
     , _ivtdImage :: DiskImageDescription
       -- ^ The image.
     , _ivtdVolume :: DiskImageVolumeDescription
       -- ^ The volume.
-    , _ivtdAvailabilityZone :: Text
-      -- ^ The Availability Zone where the resulting volume will reside.
-    , _ivtdDescription :: Maybe Text
-      -- ^ The description you provided when starting the import volume
-      -- task.
     } deriving (Show, Generic)
 
 instance FromXML ImportVolumeTaskDetails where
@@ -2945,52 +2945,16 @@ instance ToQuery ImportVolumeTaskDetails where
 
 -- | Describes an instance.
 data Instance = Instance
-    { _ieInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
-    , _ieState :: Maybe InstanceState
-      -- ^ The current state of the instance.
-    , _ieVirtualizationType :: Maybe VirtualizationType
-      -- ^ The virtualization type of the instance.
-    , _iePublicDnsName :: Maybe Text
-      -- ^ The public DNS name assigned to the instance. This name is not
-      -- available until the instance enters the running state.
-    , _ieHypervisor :: Maybe HypervisorType
-      -- ^ The hypervisor type of the instance.
-    , _iePlatform :: Maybe PlatformValues
-      -- ^ The value is Windows for Windows instances; otherwise blank.
-    , _ieSecurityGroups :: [GroupIdentifier]
-      -- ^ One or more security groups for the instance.
+    { _ieAmiLaunchIndex :: Maybe Integer
+      -- ^ The AMI launch index, which can be used to find this instance in
+      -- the launch group.
+    , _ieArchitecture :: Maybe ArchitectureValues
+      -- ^ The architecture of the image.
+    , _ieBlockDeviceMappings :: [InstanceBlockDeviceMapping]
+      -- ^ Any block device mapping entries for the instance.
     , _ieClientToken :: Maybe Text
       -- ^ The idempotency token you provided when you launched the
       -- instance.
-    , _ieSourceDestCheck :: Maybe Bool
-      -- ^ Specifies whether to enable an instance launched in a VPC to
-      -- perform NAT. This controls whether source/destination checking is
-      -- enabled on the instance. A value of true means checking is
-      -- enabled, and false means checking is disabled. The value must be
-      -- false for the instance to perform NAT. For more information, see
-      -- NAT Instances in the Amazon Virtual Private Cloud User Guide.
-    , _ieVpcId :: Maybe Text
-      -- ^ The ID of the VPC in which the instance is running.
-    , _ieKeyName :: Maybe Text
-      -- ^ The name of the key pair, if this instance was launched with an
-      -- associated key pair.
-    , _ieLaunchTime :: Maybe ISO8601
-      -- ^ The time the instance was launched.
-    , _ieNetworkInterfaces :: [InstanceNetworkInterface]
-      -- ^ [EC2-VPC] One or more network interfaces for the instance.
-    , _ieRamdiskId :: Maybe Text
-      -- ^ The RAM disk associated with this instance.
-    , _ieSubnetId :: Maybe Text
-      -- ^ The ID of the subnet in which the instance is running.
-    , _ieKernelId :: Maybe Text
-      -- ^ The kernel associated with this instance.
-    , _ieRootDeviceName :: Maybe Text
-      -- ^ The root device name (for example, /dev/sda1).
-    , _ieInstanceType :: Maybe InstanceType
-      -- ^ The instance type.
-    , _ieSriovNetSupport :: Maybe Text
-      -- ^ Specifies whether enhanced networking is enabled.
     , _ieEbsOptimized :: Maybe Bool
       -- ^ Indicates whether the instance is optimized for EBS I/O. This
       -- optimization provides dedicated throughput to Amazon EBS and an
@@ -2998,45 +2962,81 @@ data Instance = Instance
       -- This optimization isn't available with all instance types.
       -- Additional usage charges apply when using an EBS Optimized
       -- instance.
-    , _ieMonitoring :: Maybe Monitoring
-      -- ^ The monitoring information for the instance.
-    , _ieStateTransitionReason :: Maybe Text
-      -- ^ The reason for the most recent state transition. This might be an
-      -- empty string.
-    , _ieInstanceLifecycle :: Maybe InstanceLifecycleType
-      -- ^ Indicates whether this is a Spot Instance.
+    , _ieHypervisor :: Maybe HypervisorType
+      -- ^ The hypervisor type of the instance.
     , _ieIamInstanceProfile :: Maybe IamInstanceProfile
       -- ^ The IAM instance profile associated with the instance.
     , _ieImageId :: Maybe Text
       -- ^ The ID of the AMI used to launch the instance.
-    , _iePrivateIpAddress :: Maybe Text
-      -- ^ The private IP address assigned to the instance.
-    , _ieArchitecture :: Maybe ArchitectureValues
-      -- ^ The architecture of the image.
-    , _ieProductCodes :: [ProductCode]
-      -- ^ The product codes attached to this instance.
-    , _ieSpotInstanceRequestId :: Maybe Text
-      -- ^ The ID of the Spot Instance request.
+    , _ieInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
+    , _ieInstanceLifecycle :: Maybe InstanceLifecycleType
+      -- ^ Indicates whether this is a Spot Instance.
+    , _ieInstanceType :: Maybe InstanceType
+      -- ^ The instance type.
+    , _ieKernelId :: Maybe Text
+      -- ^ The kernel associated with this instance.
+    , _ieKeyName :: Maybe Text
+      -- ^ The name of the key pair, if this instance was launched with an
+      -- associated key pair.
+    , _ieLaunchTime :: Maybe ISO8601
+      -- ^ The time the instance was launched.
+    , _ieMonitoring :: Maybe Monitoring
+      -- ^ The monitoring information for the instance.
+    , _ieNetworkInterfaces :: [InstanceNetworkInterface]
+      -- ^ [EC2-VPC] One or more network interfaces for the instance.
+    , _iePlacement :: Maybe Placement
+      -- ^ The location where the instance launched.
+    , _iePlatform :: Maybe PlatformValues
+      -- ^ The value is Windows for Windows instances; otherwise blank.
     , _iePrivateDnsName :: Maybe Text
       -- ^ The private DNS name assigned to the instance. This DNS name can
       -- only be used inside the Amazon EC2 network. This name is not
       -- available until the instance enters the running state.
-    , _ieStateReason :: Maybe StateReason
-      -- ^ The reason for the most recent state transition.
+    , _iePrivateIpAddress :: Maybe Text
+      -- ^ The private IP address assigned to the instance.
+    , _ieProductCodes :: [ProductCode]
+      -- ^ The product codes attached to this instance.
+    , _iePublicDnsName :: Maybe Text
+      -- ^ The public DNS name assigned to the instance. This name is not
+      -- available until the instance enters the running state.
+    , _iePublicIpAddress :: Maybe Text
+      -- ^ The public IP address assigned to the instance.
+    , _ieRamdiskId :: Maybe Text
+      -- ^ The RAM disk associated with this instance.
+    , _ieRootDeviceName :: Maybe Text
+      -- ^ The root device name (for example, /dev/sda1).
     , _ieRootDeviceType :: Maybe DeviceType
       -- ^ The root device type used by the AMI. The AMI can use an Amazon
       -- EBS volume or an instance store volume.
-    , _ieBlockDeviceMappings :: [InstanceBlockDeviceMapping]
-      -- ^ Any block device mapping entries for the instance.
-    , _ieAmiLaunchIndex :: Maybe Integer
-      -- ^ The AMI launch index, which can be used to find this instance in
-      -- the launch group.
-    , _iePublicIpAddress :: Maybe Text
-      -- ^ The public IP address assigned to the instance.
-    , _iePlacement :: Maybe Placement
-      -- ^ The location where the instance launched.
+    , _ieSecurityGroups :: [GroupIdentifier]
+      -- ^ One or more security groups for the instance.
+    , _ieSourceDestCheck :: Maybe Bool
+      -- ^ Specifies whether to enable an instance launched in a VPC to
+      -- perform NAT. This controls whether source/destination checking is
+      -- enabled on the instance. A value of true means checking is
+      -- enabled, and false means checking is disabled. The value must be
+      -- false for the instance to perform NAT. For more information, see
+      -- NAT Instances in the Amazon Virtual Private Cloud User Guide.
+    , _ieSpotInstanceRequestId :: Maybe Text
+      -- ^ The ID of the Spot Instance request.
+    , _ieSriovNetSupport :: Maybe Text
+      -- ^ Specifies whether enhanced networking is enabled.
+    , _ieState :: Maybe InstanceState
+      -- ^ The current state of the instance.
+    , _ieStateReason :: Maybe StateReason
+      -- ^ The reason for the most recent state transition.
+    , _ieStateTransitionReason :: Maybe Text
+      -- ^ The reason for the most recent state transition. This might be an
+      -- empty string.
+    , _ieSubnetId :: Maybe Text
+      -- ^ The ID of the subnet in which the instance is running.
     , _ieTags :: [Tag]
       -- ^ Any tags assigned to the instance.
+    , _ieVirtualizationType :: Maybe VirtualizationType
+      -- ^ The virtualization type of the instance.
+    , _ieVpcId :: Maybe Text
+      -- ^ The ID of the VPC in which the instance is running.
     } deriving (Show, Generic)
 
 instance FromXML Instance where
@@ -3048,11 +3048,11 @@ instance ToQuery Instance where
 
 -- | Describes a block device mapping.
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
-    { _ibdmEbs :: Maybe EbsInstanceBlockDevice
+    { _ibdmDeviceName :: Maybe Text
+      -- ^ The device name exposed to the instance (for example, /dev/sdh).
+    , _ibdmEbs :: Maybe EbsInstanceBlockDevice
       -- ^ Parameters used to automatically set up Amazon EBS volumes when
       -- the instance is launched.
-    , _ibdmDeviceName :: Maybe Text
-      -- ^ The device name exposed to the instance (for example, /dev/sdh).
     } deriving (Show, Generic)
 
 instance FromXML InstanceBlockDeviceMapping where
@@ -3064,16 +3064,16 @@ instance ToQuery InstanceBlockDeviceMapping where
 
 -- | Describes a block device mapping entry.
 data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification
-    { _ibdmsVirtualName :: Maybe Text
-      -- ^ The virtual device name.
-    , _ibdmsNoDevice :: Maybe Text
-      -- ^ suppress the specified device included in the block device
-      -- mapping.
+    { _ibdmsDeviceName :: Maybe Text
+      -- ^ The device name exposed to the instance (for example, /dev/sdh).
     , _ibdmsEbs :: Maybe EbsInstanceBlockDeviceSpecification
       -- ^ Parameters used to automatically set up Amazon EBS volumes when
       -- the instance is launched.
-    , _ibdmsDeviceName :: Maybe Text
-      -- ^ The device name exposed to the instance (for example, /dev/sdh).
+    , _ibdmsNoDevice :: Maybe Text
+      -- ^ suppress the specified device included in the block device
+      -- mapping.
+    , _ibdmsVirtualName :: Maybe Text
+      -- ^ The virtual device name.
     } deriving (Show, Generic)
 
 instance ToQuery InstanceBlockDeviceMappingSpecification where
@@ -3081,11 +3081,11 @@ instance ToQuery InstanceBlockDeviceMappingSpecification where
 
 -- | Describes a Reserved Instance listing state.
 data InstanceCount = InstanceCount
-    { _icState :: Maybe ListingState
-      -- ^ The states of the listed Reserved Instances.
-    , _icInstanceCount :: Maybe Integer
+    { _icInstanceCount :: Maybe Integer
       -- ^ he number of listed Reserved Instances in the state specified by
       -- the state.
+    , _icState :: Maybe ListingState
+      -- ^ The states of the listed Reserved Instances.
     } deriving (Show, Generic)
 
 instance FromXML InstanceCount where
@@ -3097,10 +3097,10 @@ instance ToQuery InstanceCount where
 
 -- | The instance being exported.
 data InstanceExportDetails = InstanceExportDetails
-    { _iedTargetEnvironment :: Maybe ExportEnvironment
-      -- ^ The target virtualization environment.
-    , _iedInstanceId :: Maybe Text
+    { _iedInstanceId :: Maybe Text
       -- ^ The ID of the resource being exported.
+    , _iedTargetEnvironment :: Maybe ExportEnvironment
+      -- ^ The target virtualization environment.
     } deriving (Show, Generic)
 
 instance FromXML InstanceExportDetails where
@@ -3124,34 +3124,34 @@ instance FromXML InstanceMonitoring where
 
 -- | Describes a network interface.
 data InstanceNetworkInterface = InstanceNetworkInterface
-    { _iniGroups :: [GroupIdentifier]
+    { _iniAssociation :: Maybe InstanceNetworkInterfaceAssociation
+      -- ^ The association information for an Elastic IP associated with the
+      -- network interface.
+    , _iniAttachment :: Maybe InstanceNetworkInterfaceAttachment
+      -- ^ The network interface attachment.
+    , _iniDescription :: Maybe Text
+      -- ^ The description.
+    , _iniGroups :: [GroupIdentifier]
       -- ^ One or more security groups.
-    , _iniStatus :: Maybe NetworkInterfaceStatus
-      -- ^ The status of the network interface.
+    , _iniNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of the network interface.
+    , _iniOwnerId :: Maybe Text
+      -- ^ The ID of the AWS account that created the network interface.
+    , _iniPrivateDnsName :: Maybe Text
+      -- ^ The private DNS name.
+    , _iniPrivateIpAddress :: Maybe Text
+      -- ^ The IP address of the network interface within the subnet.
     , _iniPrivateIpAddresses :: [InstancePrivateIpAddress]
       -- ^ The private IP addresses associated with the network interface.
     , _iniSourceDestCheck :: Maybe Bool
       -- ^ Indicates whether to validate network traffic to or from this
       -- network interface.
-    , _iniVpcId :: Maybe Text
-      -- ^ The ID of the VPC.
-    , _iniNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of the network interface.
+    , _iniStatus :: Maybe NetworkInterfaceStatus
+      -- ^ The status of the network interface.
     , _iniSubnetId :: Maybe Text
       -- ^ The ID of the subnet.
-    , _iniAttachment :: Maybe InstanceNetworkInterfaceAttachment
-      -- ^ The network interface attachment.
-    , _iniOwnerId :: Maybe Text
-      -- ^ The ID of the AWS account that created the network interface.
-    , _iniPrivateIpAddress :: Maybe Text
-      -- ^ The IP address of the network interface within the subnet.
-    , _iniPrivateDnsName :: Maybe Text
-      -- ^ The private DNS name.
-    , _iniDescription :: Maybe Text
-      -- ^ The description.
-    , _iniAssociation :: Maybe InstanceNetworkInterfaceAssociation
-      -- ^ The association information for an Elastic IP associated with the
-      -- network interface.
+    , _iniVpcId :: Maybe Text
+      -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
 instance FromXML InstanceNetworkInterface where
@@ -3161,13 +3161,13 @@ instance FromXML InstanceNetworkInterface where
 instance ToQuery InstanceNetworkInterface where
     toQuery = genericQuery def
 
--- | The association information for an Elastic IP address for the network
+-- | The association information for an Elastic IP associated with the network
 -- interface.
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
-    { _iniaPublicDnsName :: Maybe Text
-      -- ^ The public DNS name.
-    , _iniaIpOwnerId :: Maybe Text
+    { _iniaIpOwnerId :: Maybe Text
       -- ^ The ID of the owner of the Elastic IP address.
+    , _iniaPublicDnsName :: Maybe Text
+      -- ^ The public DNS name.
     , _iniaPublicIp :: Maybe Text
       -- ^ The address of the Elastic IP address bound to the network
       -- interface.
@@ -3182,18 +3182,18 @@ instance ToQuery InstanceNetworkInterfaceAssociation where
 
 -- | The network interface attachment.
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
-    { _inibStatus :: Maybe AttachmentStatus
-      -- ^ The attachment state.
+    { _inibAttachTime :: Maybe ISO8601
+      -- ^ The time stamp when the attachment initiated.
+    , _inibAttachmentId :: Maybe Text
+      -- ^ The ID of the network interface attachment.
     , _inibDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the network interface is deleted when the
       -- instance is terminated.
-    , _inibAttachmentId :: Maybe Text
-      -- ^ The ID of the network interface attachment.
-    , _inibAttachTime :: Maybe ISO8601
-      -- ^ The time stamp when the attachment initiated.
     , _inibDeviceIndex :: Maybe Integer
       -- ^ The index of the device on the instance for the network interface
       -- attachment.
+    , _inibStatus :: Maybe AttachmentStatus
+      -- ^ The attachment state.
     } deriving (Show, Generic)
 
 instance FromXML InstanceNetworkInterfaceAttachment where
@@ -3205,34 +3205,34 @@ instance ToQuery InstanceNetworkInterfaceAttachment where
 
 -- | Describes a network interface.
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification
-    { _inisGroups :: [Text]
-      -- ^ The IDs of the security groups for the network interface.
-    , _inisPrivateIpAddresses :: [PrivateIpAddressSpecification]
-      -- ^ One or more private IP addresses to assign to the network
-      -- interface.
-    , _inisDeleteOnTermination :: Maybe Bool
-      -- ^ If set to true, the interface is deleted when the instance is
-      -- terminated.
-    , _inisAssociatePublicIpAddress :: Maybe Bool
+    { _inisAssociatePublicIpAddress :: Maybe Bool
       -- ^ Indicates whether to auto-assign a public IP address to an
       -- instance in a VPC. This public IP address can be assigned to the
       -- network interface for eth0 only when you launch the instance. You
       -- must create the network interface instead of using an existing
       -- network interface for eth0, and you must not specify more than
       -- one network interface.
-    , _inisNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of the network interface.
-    , _inisSubnetId :: Maybe Text
-      -- ^ The ID of the subnet associated with the network string.
-    , _inisPrivateIpAddress :: Maybe Text
-      -- ^ The private IP address of the network interface.
-    , _inisSecondaryPrivateIpAddressCount :: Maybe Integer
-      -- ^ The number of secondary private IP addresses.
+    , _inisDeleteOnTermination :: Maybe Bool
+      -- ^ If set to true, the interface is deleted when the instance is
+      -- terminated.
     , _inisDescription :: Maybe Text
       -- ^ The description of the network interface.
     , _inisDeviceIndex :: Maybe Integer
       -- ^ The index of the device on the instance for the network interface
       -- attachment.
+    , _inisGroups :: [Text]
+      -- ^ The IDs of the security groups for the network interface.
+    , _inisNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of the network interface.
+    , _inisPrivateIpAddress :: Maybe Text
+      -- ^ The private IP address of the network interface.
+    , _inisPrivateIpAddresses :: [PrivateIpAddressSpecification]
+      -- ^ One or more private IP addresses to assign to the network
+      -- interface.
+    , _inisSecondaryPrivateIpAddressCount :: Maybe Integer
+      -- ^ The number of secondary private IP addresses.
+    , _inisSubnetId :: Maybe Text
+      -- ^ The ID of the subnet associated with the network string.
     } deriving (Show, Generic)
 
 instance FromXML InstanceNetworkInterfaceSpecification where
@@ -3244,16 +3244,16 @@ instance ToQuery InstanceNetworkInterfaceSpecification where
 
 -- | Describes a private IP address.
 data InstancePrivateIpAddress = InstancePrivateIpAddress
-    { _ipiaPrimary :: Maybe Bool
-      -- ^ Indicates whether this IP address is the primary private IP
-      -- address of the network interface.
-    , _ipiaPrivateIpAddress :: Maybe Text
-      -- ^ The private IP address of the network interface.
-    , _ipiaPrivateDnsName :: Maybe Text
-      -- ^ The private DNS name.
-    , _ipiaAssociation :: Maybe InstanceNetworkInterfaceAssociation
+    { _ipiaAssociation :: Maybe InstanceNetworkInterfaceAssociation
       -- ^ The association information for an Elastic IP address for the
       -- network interface.
+    , _ipiaPrimary :: Maybe Bool
+      -- ^ Indicates whether this IP address is the primary private IP
+      -- address of the network interface.
+    , _ipiaPrivateDnsName :: Maybe Text
+      -- ^ The private DNS name.
+    , _ipiaPrivateIpAddress :: Maybe Text
+      -- ^ The private IP address of the network interface.
     } deriving (Show, Generic)
 
 instance FromXML InstancePrivateIpAddress where
@@ -3265,12 +3265,12 @@ instance ToQuery InstancePrivateIpAddress where
 
 -- | The current state of the instance.
 data InstanceState = InstanceState
-    { _iihName :: InstanceStateName
-      -- ^ The current state of the instance.
-    , _iihCode :: Integer
+    { _iihCode :: Integer
       -- ^ The low byte represents the state. The high byte is an opaque
       -- internal value and should be ignored. 0 : pending 16 : running 32
       -- : shutting-down 48 : terminated 64 : stopping 80 : stopped.
+    , _iihName :: InstanceStateName
+      -- ^ The current state of the instance.
     } deriving (Show, Generic)
 
 instance FromXML InstanceState where
@@ -3282,10 +3282,10 @@ instance ToQuery InstanceState where
 
 -- | Describes an instance state change.
 data InstanceStateChange = InstanceStateChange
-    { _iscInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
-    , _iscCurrentState :: Maybe InstanceState
+    { _iscCurrentState :: Maybe InstanceState
       -- ^ The current state of the instance.
+    , _iscInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
     , _iscPreviousState :: Maybe InstanceState
       -- ^ The previous state of the instance.
     } deriving (Show, Generic)
@@ -3296,22 +3296,22 @@ instance FromXML InstanceStateChange where
 
 -- | Describes the status of an instance.
 data InstanceStatus = InstanceStatus
-    { _iiiizInstanceId :: Maybe Text
+    { _iiiizAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone of the instance.
+    , _iiiizEvents :: [InstanceStatusEvent]
+      -- ^ Extra information regarding events associated with the instance.
+    , _iiiizInstanceId :: Maybe Text
       -- ^ The ID of the instance.
+    , _iiiizInstanceState :: Maybe InstanceState
+      -- ^ The intended state of the instance. DescribeInstanceStatus
+      -- requires that an instance be in the running state.
+    , _iiiizInstanceStatus :: Maybe InstanceStatusSummary
+      -- ^ Reports impaired functionality that stems from issues internal to
+      -- the instance, such as impaired reachability.
     , _iiiizSystemStatus :: Maybe InstanceStatusSummary
       -- ^ Reports impaired functionality that stems from issues related to
       -- the systems that support an instance, such as hardware failures
       -- and network connectivity problems.
-    , _iiiizEvents :: [InstanceStatusEvent]
-      -- ^ Extra information regarding events associated with the instance.
-    , _iiiizAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone of the instance.
-    , _iiiizInstanceStatus :: Maybe InstanceStatusSummary
-      -- ^ Reports impaired functionality that stems from issues internal to
-      -- the instance, such as impaired reachability.
-    , _iiiizInstanceState :: Maybe InstanceState
-      -- ^ The intended state of the instance. DescribeInstanceStatus
-      -- requires that an instance be in the running state.
     } deriving (Show, Generic)
 
 instance FromXML InstanceStatus where
@@ -3320,14 +3320,14 @@ instance FromXML InstanceStatus where
 
 -- | Describes the instance status.
 data InstanceStatusDetails = InstanceStatusDetails
-    { _isdStatus :: Maybe StatusType
-      -- ^ The status.
-    , _isdImpairedSince :: Maybe ISO8601
+    { _isdImpairedSince :: Maybe ISO8601
       -- ^ The time when a status check failed. For an instance that was
       -- launched and impaired, this is the time when the instance was
       -- launched.
     , _isdName :: Maybe StatusName
       -- ^ The type of instance status.
+    , _isdStatus :: Maybe StatusType
+      -- ^ The status.
     } deriving (Show, Generic)
 
 instance FromXML InstanceStatusDetails where
@@ -3339,14 +3339,14 @@ instance ToQuery InstanceStatusDetails where
 
 -- | Describes an instance event.
 data InstanceStatusEvent = InstanceStatusEvent
-    { _iseNotBefore :: Maybe ISO8601
-      -- ^ The earliest scheduled start time for the event.
-    , _iseCode :: Maybe EventCode
+    { _iseCode :: Maybe EventCode
       -- ^ The associated code of the event.
     , _iseDescription :: Maybe Text
       -- ^ A description of the event.
     , _iseNotAfter :: Maybe ISO8601
       -- ^ The latest scheduled end time for the event.
+    , _iseNotBefore :: Maybe ISO8601
+      -- ^ The earliest scheduled start time for the event.
     } deriving (Show, Generic)
 
 instance FromXML InstanceStatusEvent where
@@ -3356,19 +3356,18 @@ instance FromXML InstanceStatusEvent where
 instance ToQuery InstanceStatusEvent where
     toQuery = genericQuery def
 
--- | Reports impaired functionality that stems from issues related to the
--- systems that support an instance, such as hardware failures and network
--- connectivity problems.
+-- | Reports impaired functionality that stems from issues internal to the
+-- instance, such as impaired reachability.
 data InstanceStatusSummary = InstanceStatusSummary
-    { _issStatus :: Maybe SummaryStatus
-      -- ^ The status.
-    , _issDetails :: [InstanceStatusDetails]
+    { _issDetails :: [InstanceStatusDetails]
       -- ^ The system instance health or application instance health.
+    , _issStatus :: Maybe SummaryStatus
+      -- ^ The status.
     } deriving (Show, Generic)
 
 instance FromXML InstanceStatusSummary where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "systemStatus"
+    fromXMLRoot    = fromRoot "instanceStatus"
 
 instance ToQuery InstanceStatusSummary where
     toQuery = genericQuery def
@@ -3407,19 +3406,19 @@ data IpPermission = IpPermission
     { _ipFromPort :: Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. A value of -1 indicates all ICMP types.
-    , _ipUserIdGroupPairs :: [UserIdGroupPair]
-      -- ^ One or more security group and AWS account ID pairs.
     , _ipIpProtocol :: Text
       -- ^ The protocol. When you call DescribeSecurityGroups, the protocol
       -- value returned is the number. Exception: For TCP, UDP, and ICMP,
       -- the value returned is the name (for example, tcp, udp, or icmp).
       -- For a list of protocol numbers, see Protocol Numbers.
+    , _ipIpRanges :: [IpRange]
+      -- ^ One or more IP ranges.
     , _ipToPort :: Integer
       -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
       -- code. A value of -1 indicates all ICMP codes for the specified
       -- ICMP type.
-    , _ipIpRanges :: [IpRange]
-      -- ^ One or more IP ranges.
+    , _ipUserIdGroupPairs :: [UserIdGroupPair]
+      -- ^ One or more security group and AWS account ID pairs.
     } deriving (Show, Generic)
 
 instance FromXML IpPermission where
@@ -3461,12 +3460,12 @@ instance ToQuery LaunchPermission where
 
 -- | 
 data LaunchPermissionModifications = LaunchPermissionModifications
-    { _lpmRemove :: [LaunchPermission]
-      -- ^ The AWS account ID to remove from the list of launch permissions
-      -- for the AMI.
-    , _lpmAdd :: [LaunchPermission]
+    { _lpmAdd :: [LaunchPermission]
       -- ^ The AWS account ID to add to the list of launch permissions for
       -- the AMI.
+    , _lpmRemove :: [LaunchPermission]
+      -- ^ The AWS account ID to remove from the list of launch permissions
+      -- for the AMI.
     } deriving (Show, Generic)
 
 instance ToQuery LaunchPermissionModifications where
@@ -3474,20 +3473,10 @@ instance ToQuery LaunchPermissionModifications where
 
 -- | The launch specification.
 data LaunchSpecification = LaunchSpecification
-    { _lxSecurityGroupIds :: [Text]
-    , _lxSecurityGroups :: [Text]
-    , _lxKeyName :: Maybe Text
-      -- ^ The name of the key pair.
-    , _lxNetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
-      -- ^ One or more network interfaces.
-    , _lxRamdiskId :: Maybe Text
-      -- ^ The ID of the RAM disk.
-    , _lxSubnetId :: Maybe Text
-      -- ^ The ID of the subnet in which to launch the Spot Instance.
-    , _lxKernelId :: Maybe Text
-      -- ^ The ID of the kernel.
-    , _lxInstanceType :: Maybe InstanceType
-      -- ^ The instance type.
+    { _lxAddressingType :: Maybe Text
+      -- ^ 
+    , _lxBlockDeviceMappings :: [BlockDeviceMapping]
+      -- ^ One or more block device mapping entries.
     , _lxEbsOptimized :: Maybe Bool
       -- ^ Indicates whether the instance is optimized for EBS I/O. This
       -- optimization provides dedicated throughput to Amazon EBS and an
@@ -3495,20 +3484,30 @@ data LaunchSpecification = LaunchSpecification
       -- performance. This optimization isn't available with all instance
       -- types. Additional usage charges apply when using an EBS Optimized
       -- instance. Default: false.
-    , _lxUserData :: Maybe Text
-      -- ^ The Base64-encoded MIME user data to make available to the
-      -- instances.
-    , _lxMonitoring :: Maybe Monitoring
     , _lxIamInstanceProfile :: Maybe IamInstanceProfileSpecification
       -- ^ The IAM instance profile.
     , _lxImageId :: Maybe Text
       -- ^ The ID of the AMI.
-    , _lxAddressingType :: Maybe Text
-      -- ^ 
-    , _lxBlockDeviceMappings :: [BlockDeviceMapping]
-      -- ^ One or more block device mapping entries.
+    , _lxInstanceType :: Maybe InstanceType
+      -- ^ The instance type.
+    , _lxKernelId :: Maybe Text
+      -- ^ The ID of the kernel.
+    , _lxKeyName :: Maybe Text
+      -- ^ The name of the key pair.
+    , _lxMonitoring :: Maybe Monitoring
+    , _lxNetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
+      -- ^ One or more network interfaces.
     , _lxPlacement :: Maybe SpotPlacement
       -- ^ The placement information for the instance.
+    , _lxRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk.
+    , _lxSecurityGroupIds :: [Text]
+    , _lxSecurityGroups :: [Text]
+    , _lxSubnetId :: Maybe Text
+      -- ^ The ID of the subnet in which to launch the Spot Instance.
+    , _lxUserData :: Maybe Text
+      -- ^ The Base64-encoded MIME user data to make available to the
+      -- instances.
     } deriving (Show, Generic)
 
 instance FromXML LaunchSpecification where
@@ -3520,18 +3519,18 @@ instance ToQuery LaunchSpecification where
 
 -- | Information about the network ACL.
 data NetworkAcl = NetworkAcl
-    { _naEntries :: [NetworkAclEntry]
-      -- ^ One or more entries (rules) in the network ACL.
-    , _naNetworkAclId :: Maybe Text
-      -- ^ The ID of the network ACL.
-    , _naVpcId :: Maybe Text
-      -- ^ The ID of the VPC for the network ACL.
-    , _naAssociations :: [NetworkAclAssociation]
+    { _naAssociations :: [NetworkAclAssociation]
       -- ^ Any associations between the network ACL and one or more subnets.
-    , _naTags :: [Tag]
-      -- ^ Any tags assigned to the network ACL.
+    , _naEntries :: [NetworkAclEntry]
+      -- ^ One or more entries (rules) in the network ACL.
     , _naIsDefault :: Maybe Bool
       -- ^ Indicates whether this is the default network ACL for the VPC.
+    , _naNetworkAclId :: Maybe Text
+      -- ^ The ID of the network ACL.
+    , _naTags :: [Tag]
+      -- ^ Any tags assigned to the network ACL.
+    , _naVpcId :: Maybe Text
+      -- ^ The ID of the VPC for the network ACL.
     } deriving (Show, Generic)
 
 instance FromXML NetworkAcl where
@@ -3540,12 +3539,12 @@ instance FromXML NetworkAcl where
 
 -- | Describes an association between a network ACL and a subnet.
 data NetworkAclAssociation = NetworkAclAssociation
-    { _naaNetworkAclId :: Maybe Text
+    { _naaNetworkAclAssociationId :: Maybe Text
+      -- ^ The ID of the association between a network ACL and a subnet.
+    , _naaNetworkAclId :: Maybe Text
       -- ^ The ID of the network ACL.
     , _naaSubnetId :: Maybe Text
       -- ^ The ID of the subnet.
-    , _naaNetworkAclAssociationId :: Maybe Text
-      -- ^ The ID of the association between a network ACL and a subnet.
     } deriving (Show, Generic)
 
 instance FromXML NetworkAclAssociation where
@@ -3557,23 +3556,23 @@ instance ToQuery NetworkAclAssociation where
 
 -- | Describes an entry in a network ACL.
 data NetworkAclEntry = NetworkAclEntry
-    { _naeIcmpTypeCode :: Maybe IcmpTypeCode
-      -- ^ ICMP protocol: The ICMP type and code.
-    , _naeRuleNumber :: Maybe Integer
-      -- ^ The rule number for the entry. ACL entries are processed in
-      -- ascending order by rule number.
-    , _naeRuleAction :: Maybe RuleAction
-      -- ^ Indicates whether to allow or deny the traffic that matches the
-      -- rule.
-    , _naeProtocol :: Maybe Text
-      -- ^ The protocol. A value of -1 means all protocols.
-    , _naePortRange :: Maybe PortRange
-      -- ^ TCP or UDP protocols: The range of ports the rule applies to.
-    , _naeCidrBlock :: Maybe Text
+    { _naeCidrBlock :: Maybe Text
       -- ^ The network range to allow or deny, in CIDR notation.
     , _naeEgress :: Maybe Bool
       -- ^ Indicates whether the rule is an egress rule (applied to traffic
       -- leaving the subnet).
+    , _naeIcmpTypeCode :: Maybe IcmpTypeCode
+      -- ^ ICMP protocol: The ICMP type and code.
+    , _naePortRange :: Maybe PortRange
+      -- ^ TCP or UDP protocols: The range of ports the rule applies to.
+    , _naeProtocol :: Maybe Text
+      -- ^ The protocol. A value of -1 means all protocols.
+    , _naeRuleAction :: Maybe RuleAction
+      -- ^ Indicates whether to allow or deny the traffic that matches the
+      -- rule.
+    , _naeRuleNumber :: Maybe Integer
+      -- ^ The rule number for the entry. ACL entries are processed in
+      -- ascending order by rule number.
     } deriving (Show, Generic)
 
 instance FromXML NetworkAclEntry where
@@ -3585,61 +3584,61 @@ instance ToQuery NetworkAclEntry where
 
 -- | Describes a network interface.
 data NetworkInterface = NetworkInterface
-    { _niGroups :: [GroupIdentifier]
-      -- ^ Any security groups for the network interface.
-    , _niStatus :: Maybe NetworkInterfaceStatus
-      -- ^ The status of the network interface.
-    , _niPrivateIpAddresses :: [NetworkInterfacePrivateIpAddress]
-      -- ^ The private IP addresses associated with the network interface.
-    , _niSourceDestCheck :: Maybe Bool
-      -- ^ Indicates whether traffic to or from the instance is validated.
-    , _niVpcId :: Maybe Text
-      -- ^ The ID of the VPC.
-    , _niTagSet :: [Tag]
-      -- ^ Any tags assigned to the network interface.
-    , _niRequesterManaged :: Maybe Bool
-      -- ^ Indicates whether the network interface is being managed by AWS.
-    , _niNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of the network interface.
-    , _niSubnetId :: Maybe Text
-      -- ^ The ID of the subnet.
-    , _niMacAddress :: Maybe Text
-      -- ^ The MAC address.
+    { _niAssociation :: Maybe NetworkInterfaceAssociation
+      -- ^ The association information for an Elastic IP associated with the
+      -- network interface.
     , _niAttachment :: Maybe NetworkInterfaceAttachment
       -- ^ The network interface attachment.
-    , _niOwnerId :: Maybe Text
-      -- ^ The AWS account ID of the owner of the network interface.
     , _niAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone.
-    , _niPrivateIpAddress :: Maybe Text
-      -- ^ The IP address of the network interface within the subnet.
+    , _niDescription :: Maybe Text
+      -- ^ A description.
+    , _niGroups :: [GroupIdentifier]
+      -- ^ Any security groups for the network interface.
+    , _niMacAddress :: Maybe Text
+      -- ^ The MAC address.
+    , _niNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of the network interface.
+    , _niOwnerId :: Maybe Text
+      -- ^ The AWS account ID of the owner of the network interface.
     , _niPrivateDnsName :: Maybe Text
       -- ^ The private DNS name.
+    , _niPrivateIpAddress :: Maybe Text
+      -- ^ The IP address of the network interface within the subnet.
+    , _niPrivateIpAddresses :: [NetworkInterfacePrivateIpAddress]
+      -- ^ The private IP addresses associated with the network interface.
     , _niRequesterId :: Maybe Text
       -- ^ The ID of the entity that launched the instance on your behalf
       -- (for example, AWS Management Console or Auto Scaling).
-    , _niDescription :: Maybe Text
-      -- ^ A description.
-    , _niAssociation :: Maybe NetworkInterfaceAssociation
-      -- ^ The association information for an Elastic IP associated with the
-      -- network interface.
+    , _niRequesterManaged :: Maybe Bool
+      -- ^ Indicates whether the network interface is being managed by AWS.
+    , _niSourceDestCheck :: Maybe Bool
+      -- ^ Indicates whether traffic to or from the instance is validated.
+    , _niStatus :: Maybe NetworkInterfaceStatus
+      -- ^ The status of the network interface.
+    , _niSubnetId :: Maybe Text
+      -- ^ The ID of the subnet.
+    , _niTagSet :: [Tag]
+      -- ^ Any tags assigned to the network interface.
+    , _niVpcId :: Maybe Text
+      -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
 instance FromXML NetworkInterface where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "item"
 
--- | The association information for an Elastic IP address associated with the
--- network interface.
+-- | The association information for an Elastic IP associated with the network
+-- interface.
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation
-    { _niaAssociationId :: Maybe Text
-      -- ^ The association ID.
-    , _niaPublicDnsName :: Maybe Text
-      -- ^ The public DNS name.
-    , _niaAllocationId :: Maybe Text
+    { _niaAllocationId :: Maybe Text
       -- ^ The allocation ID.
+    , _niaAssociationId :: Maybe Text
+      -- ^ The association ID.
     , _niaIpOwnerId :: Maybe Text
       -- ^ The ID of the Elastic IP address owner.
+    , _niaPublicDnsName :: Maybe Text
+      -- ^ The public DNS name.
     , _niaPublicIp :: Maybe Text
       -- ^ The address of the Elastic IP address bound to the network
       -- interface.
@@ -3654,22 +3653,22 @@ instance ToQuery NetworkInterfaceAssociation where
 
 -- | The network interface attachment.
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment
-    { _nibInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
-    , _nibStatus :: Maybe AttachmentStatus
-      -- ^ The attachment state.
+    { _nibAttachTime :: Maybe ISO8601
+      -- ^ The timestamp indicating when the attachment initiated.
+    , _nibAttachmentId :: Maybe Text
+      -- ^ The ID of the network interface attachment.
     , _nibDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the network interface is deleted when the
       -- instance is terminated.
-    , _nibAttachmentId :: Maybe Text
-      -- ^ The ID of the network interface attachment.
-    , _nibInstanceOwnerId :: Maybe Text
-      -- ^ The AWS account ID of the owner of the instance.
-    , _nibAttachTime :: Maybe ISO8601
-      -- ^ The timestamp indicating when the attachment initiated.
     , _nibDeviceIndex :: Maybe Integer
       -- ^ The device index of the network interface attachment on the
       -- instance.
+    , _nibInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
+    , _nibInstanceOwnerId :: Maybe Text
+      -- ^ The AWS account ID of the owner of the instance.
+    , _nibStatus :: Maybe AttachmentStatus
+      -- ^ The attachment state.
     } deriving (Show, Generic)
 
 instance FromXML NetworkInterfaceAttachment where
@@ -3681,11 +3680,11 @@ instance ToQuery NetworkInterfaceAttachment where
 
 -- | The ID of the interface attachment.
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
-    { _niacDeleteOnTermination :: Maybe Bool
+    { _niacAttachmentId :: Maybe Text
+      -- ^ The ID of the network interface attachment.
+    , _niacDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the network interface is deleted when the
       -- instance is terminated.
-    , _niacAttachmentId :: Maybe Text
-      -- ^ The ID of the network interface attachment.
     } deriving (Show, Generic)
 
 instance ToQuery NetworkInterfaceAttachmentChanges where
@@ -3693,16 +3692,16 @@ instance ToQuery NetworkInterfaceAttachmentChanges where
 
 -- | Describes the private IP address of a network interface.
 data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
-    { _nipiaPrimary :: Maybe Bool
-      -- ^ Indicates whether this IP address is the primary private IP
-      -- address of the network interface.
-    , _nipiaPrivateIpAddress :: Maybe Text
-      -- ^ The private IP address.
-    , _nipiaPrivateDnsName :: Maybe Text
-      -- ^ The private DNS name.
-    , _nipiaAssociation :: Maybe NetworkInterfaceAssociation
+    { _nipiaAssociation :: Maybe NetworkInterfaceAssociation
       -- ^ The association information for an Elastic IP address associated
       -- with the network interface.
+    , _nipiaPrimary :: Maybe Bool
+      -- ^ Indicates whether this IP address is the primary private IP
+      -- address of the network interface.
+    , _nipiaPrivateDnsName :: Maybe Text
+      -- ^ The private DNS name.
+    , _nipiaPrivateIpAddress :: Maybe Text
+      -- ^ The private IP address.
     } deriving (Show, Generic)
 
 instance FromXML NetworkInterfacePrivateIpAddress where
@@ -3716,13 +3715,13 @@ instance ToQuery NetworkInterfacePrivateIpAddress where
 data Placement = Placement
     { _pAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone of the instance.
+    , _pGroupName :: Maybe Text
+      -- ^ The name of the placement group the instance is in (for cluster
+      -- compute instances).
     , _pTenancy :: Maybe Tenancy
       -- ^ The tenancy of the instance (if the instance is running in a
       -- VPC). An instance with a tenancy of dedicated runs on
       -- single-tenant hardware.
-    , _pGroupName :: Maybe Text
-      -- ^ The name of the placement group the instance is in (for cluster
-      -- compute instances).
     } deriving (Show, Generic)
 
 instance FromXML Placement where
@@ -3734,12 +3733,12 @@ instance ToQuery Placement where
 
 -- | Describes a placement group.
 data PlacementGroup = PlacementGroup
-    { _plState :: Maybe PlacementGroupState
+    { _plGroupName :: Maybe Text
+      -- ^ The name of the placement group.
+    , _plState :: Maybe PlacementGroupState
       -- ^ The state of the placement group.
     , _plStrategy :: Maybe PlacementStrategy
       -- ^ The placement strategy.
-    , _plGroupName :: Maybe Text
-      -- ^ The name of the placement group.
     } deriving (Show, Generic)
 
 instance FromXML PlacementGroup where
@@ -3748,10 +3747,10 @@ instance FromXML PlacementGroup where
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 data PortRange = PortRange
-    { _prTo :: Maybe Integer
-      -- ^ The last port in the range.
-    , _prFrom :: Maybe Integer
+    { _prFrom :: Maybe Integer
       -- ^ The first port in the range.
+    , _prTo :: Maybe Integer
+      -- ^ The last port in the range.
     } deriving (Show, Generic)
 
 instance FromXML PortRange where
@@ -3763,14 +3762,7 @@ instance ToQuery PortRange where
 
 -- | Describes the price for a Reserved Instance.
 data PriceSchedule = PriceSchedule
-    { _psCurrencyCode :: Maybe CurrencyCodeValues
-      -- ^ The currency for transacting the Reserved Instance resale. At
-      -- this time, the only supported currency is USD.
-    , _psTerm :: Maybe Integer
-      -- ^ The number of months remaining in the reservation. For example, 2
-      -- is the second to the last month before the capacity reservation
-      -- expires.
-    , _psActive :: Maybe Bool
+    { _psActive :: Maybe Bool
       -- ^ The current price schedule, as determined by the term remaining
       -- for the Reserved Instance in the listing. A specific price
       -- schedule is always in effect, but only one price schedule can be
@@ -3781,8 +3773,15 @@ data PriceSchedule = PriceSchedule
       -- remaining term, will be active during months 5, 4, and 3. Then
       -- schedule 2, covering the last two months of the term, will be
       -- active for months 2 and 1.
+    , _psCurrencyCode :: Maybe CurrencyCodeValues
+      -- ^ The currency for transacting the Reserved Instance resale. At
+      -- this time, the only supported currency is USD.
     , _psPrice :: Maybe Double
       -- ^ The fixed price for the term.
+    , _psTerm :: Maybe Integer
+      -- ^ The number of months remaining in the reservation. For example, 2
+      -- is the second to the last month before the capacity reservation
+      -- expires.
     } deriving (Show, Generic)
 
 instance FromXML PriceSchedule where
@@ -3797,12 +3796,12 @@ data PriceScheduleSpecification = PriceScheduleSpecification
     { _pssCurrencyCode :: Maybe CurrencyCodeValues
       -- ^ The currency for transacting the Reserved Instance resale. At
       -- this time, the only supported currency is USD.
+    , _pssPrice :: Maybe Double
+      -- ^ The fixed price for the term.
     , _pssTerm :: Maybe Integer
       -- ^ The number of months remaining in the reservation. For example, 2
       -- is the second to the last month before the capacity reservation
       -- expires.
-    , _pssPrice :: Maybe Double
-      -- ^ The fixed price for the term.
     } deriving (Show, Generic)
 
 instance ToQuery PriceScheduleSpecification where
@@ -3841,10 +3840,10 @@ instance ToQuery PrivateIpAddressSpecification where
 
 -- | Describes a product code.
 data ProductCode = ProductCode
-    { _pcProductCodeType :: Maybe ProductCodeValues
-      -- ^ The type of product code.
-    , _pcProductCodeId :: Maybe Text
+    { _pcProductCodeId :: Maybe Text
       -- ^ The product code.
+    , _pcProductCodeType :: Maybe ProductCodeValues
+      -- ^ The type of product code.
     } deriving (Show, Generic)
 
 instance FromXML ProductCode where
@@ -3871,10 +3870,10 @@ instance ToQuery RecurringCharge where
 
 -- | Describes a region.
 data Region = Region
-    { _rrRegionName :: Maybe Text
-      -- ^ The name of the region.
-    , _rrEndpoint :: Maybe Text
+    { _rrEndpoint :: Maybe Text
       -- ^ The region service endpoint.
+    , _rrRegionName :: Maybe Text
+      -- ^ The name of the region.
     } deriving (Show, Generic)
 
 instance FromXML Region where
@@ -3885,15 +3884,15 @@ instance FromXML Region where
 data Reservation = Reservation
     { _rpGroups :: [GroupIdentifier]
       -- ^ One or more security groups.
-    , _rpOwnerId :: Maybe Text
-      -- ^ The ID of the AWS account that owns the reservation.
     , _rpInstances :: [Instance]
       -- ^ One or more instances.
-    , _rpReservationId :: Maybe Text
-      -- ^ The ID of the reservation.
+    , _rpOwnerId :: Maybe Text
+      -- ^ The ID of the AWS account that owns the reservation.
     , _rpRequesterId :: Maybe Text
       -- ^ The ID of the requester that launched the instances on your
       -- behalf (for example, AWS Management Console or Auto Scaling).
+    , _rpReservationId :: Maybe Text
+      -- ^ The ID of the reservation.
     } deriving (Show, Generic)
 
 instance FromXML Reservation where
@@ -3917,40 +3916,40 @@ instance ToQuery ReservedInstanceLimitPrice where
 
 -- | Describes a Reserved Instance.
 data ReservedInstances = ReservedInstances
-    { _riState :: Maybe ReservedInstanceState
-      -- ^ The state of the Reserved Instance purchase.
+    { _riAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone in which the Reserved Instance can be used.
     , _riCurrencyCode :: Maybe CurrencyCodeValues
       -- ^ The currency of the Reserved Instance. It's specified using ISO
       -- 4217 standard currency codes. At this time, the only supported
       -- currency is USD.
-    , _riInstanceCount :: Maybe Integer
-      -- ^ The number of Reserved Instances purchased.
-    , _riProductDescription :: Maybe RIProductDescription
-      -- ^ The Reserved Instance description.
-    , _riStart :: Maybe ISO8601
-      -- ^ The date and time the Reserved Instance started.
-    , _riInstanceType :: Maybe InstanceType
-      -- ^ The instance type on which the Reserved Instance can be used.
-    , _riEnd :: Maybe ISO8601
-      -- ^ The time when the Reserved Instance expires.
-    , _riAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone in which the Reserved Instance can be used.
-    , _riRecurringCharges :: [RecurringCharge]
-      -- ^ The recurring charge tag assigned to the resource.
-    , _riOfferingType :: Maybe OfferingTypeValues
-      -- ^ The Reserved Instance offering type.
-    , _riUsagePrice :: Maybe Double
-      -- ^ The usage price of the Reserved Instance, per hour.
-    , _riFixedPrice :: Maybe Double
-      -- ^ The purchase price of the Reserved Instance.
-    , _riReservedInstancesId :: Maybe Text
-      -- ^ The ID of the Reserved Instance.
-    , _riInstanceTenancy :: Maybe Tenancy
-      -- ^ The tenancy of the reserved instance.
     , _riDuration :: Maybe Integer
       -- ^ The duration of the Reserved Instance, in seconds.
+    , _riEnd :: Maybe ISO8601
+      -- ^ The time when the Reserved Instance expires.
+    , _riFixedPrice :: Maybe Double
+      -- ^ The purchase price of the Reserved Instance.
+    , _riInstanceCount :: Maybe Integer
+      -- ^ The number of Reserved Instances purchased.
+    , _riInstanceTenancy :: Maybe Tenancy
+      -- ^ The tenancy of the reserved instance.
+    , _riInstanceType :: Maybe InstanceType
+      -- ^ The instance type on which the Reserved Instance can be used.
+    , _riOfferingType :: Maybe OfferingTypeValues
+      -- ^ The Reserved Instance offering type.
+    , _riProductDescription :: Maybe RIProductDescription
+      -- ^ The Reserved Instance description.
+    , _riRecurringCharges :: [RecurringCharge]
+      -- ^ The recurring charge tag assigned to the resource.
+    , _riReservedInstancesId :: Maybe Text
+      -- ^ The ID of the Reserved Instance.
+    , _riStart :: Maybe ISO8601
+      -- ^ The date and time the Reserved Instance started.
+    , _riState :: Maybe ReservedInstanceState
+      -- ^ The state of the Reserved Instance purchase.
     , _riTags :: [Tag]
       -- ^ Any tags assigned to the resource.
+    , _riUsagePrice :: Maybe Double
+      -- ^ The usage price of the Reserved Instance, per hour.
     } deriving (Show, Generic)
 
 instance FromXML ReservedInstances where
@@ -3959,15 +3958,15 @@ instance FromXML ReservedInstances where
 
 -- | Describes the configuration settings for the modified Reserved Instances.
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration
-    { _ricPlatform :: Maybe Text
-      -- ^ The network platform of the modified Reserved Instances, which is
-      -- either EC2-Classic or EC2-VPC.
+    { _ricAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone for the modified Reserved Instances.
     , _ricInstanceCount :: Maybe Integer
       -- ^ The number of modified Reserved Instances.
     , _ricInstanceType :: Maybe InstanceType
       -- ^ The instance type for the modified Reserved Instances.
-    , _ricAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone for the modified Reserved Instances.
+    , _ricPlatform :: Maybe Text
+      -- ^ The network platform of the modified Reserved Instances, which is
+      -- either EC2-Classic or EC2-VPC.
     } deriving (Show, Generic)
 
 instance FromXML ReservedInstancesConfiguration where
@@ -3979,27 +3978,27 @@ instance ToQuery ReservedInstancesConfiguration where
 
 -- | Describes a Reserved Instance listing.
 data ReservedInstancesListing = ReservedInstancesListing
-    { _rilStatus :: Maybe ListingStatus
-      -- ^ The status of the Reserved Instance listing.
-    , _rilClientToken :: Maybe Text
+    { _rilClientToken :: Maybe Text
       -- ^ The idempotency token you provided when you created the listing.
-    , _rilUpdateDate :: Maybe ISO8601
-      -- ^ The last modified timestamp of the listing.
     , _rilCreateDate :: Maybe ISO8601
       -- ^ The time the listing was created.
+    , _rilInstanceCounts :: [InstanceCount]
+      -- ^ The number of instances in this state.
     , _rilPriceSchedules :: [PriceSchedule]
       -- ^ The price of the Reserved Instance listing.
+    , _rilReservedInstancesId :: Maybe Text
+      -- ^ The ID of the Reserved Instance.
+    , _rilReservedInstancesListingId :: Maybe Text
+      -- ^ The ID of the Reserved Instance listing.
+    , _rilStatus :: Maybe ListingStatus
+      -- ^ The status of the Reserved Instance listing.
     , _rilStatusMessage :: Maybe Text
       -- ^ The reason for the current status of the Reserved Instance
       -- listing. The response can be blank.
-    , _rilReservedInstancesId :: Maybe Text
-      -- ^ The ID of the Reserved Instance.
     , _rilTags :: [Tag]
       -- ^ Any tags assigned to the resource.
-    , _rilInstanceCounts :: [InstanceCount]
-      -- ^ The number of instances in this state.
-    , _rilReservedInstancesListingId :: Maybe Text
-      -- ^ The ID of the Reserved Instance listing.
+    , _rilUpdateDate :: Maybe ISO8601
+      -- ^ The last modified timestamp of the listing.
     } deriving (Show, Generic)
 
 instance FromXML ReservedInstancesListing where
@@ -4008,26 +4007,26 @@ instance FromXML ReservedInstancesListing where
 
 -- | Describes a Reserved Instance modification.
 data ReservedInstancesModification = ReservedInstancesModification
-    { _rixModificationResults :: [ReservedInstancesModificationResult]
-      -- ^ Contains target configurations along with their corresponding new
-      -- Reserved Instance IDs.
-    , _rixStatus :: Maybe Text
-      -- ^ The status of the Reserved Instances modification request.
-    , _rixClientToken :: Maybe Text
+    { _rixClientToken :: Maybe Text
       -- ^ A unique, case-sensitive key supplied by the client to ensure
       -- that the modification request is idempotent.
-    , _rixUpdateDate :: Maybe ISO8601
-      -- ^ The time when the modification request was last updated.
     , _rixCreateDate :: Maybe ISO8601
       -- ^ The time when the modification request was created.
     , _rixEffectiveDate :: Maybe ISO8601
       -- ^ The time for the modification to become effective.
-    , _rixStatusMessage :: Maybe Text
-      -- ^ The reason for the status.
-    , _rixReservedInstancesModificationId :: Maybe Text
-      -- ^ A unique ID for the Reserved Instance modification.
+    , _rixModificationResults :: [ReservedInstancesModificationResult]
+      -- ^ Contains target configurations along with their corresponding new
+      -- Reserved Instance IDs.
     , _rixReservedInstancesIds :: [ReservedInstancesId]
       -- ^ The IDs of one or more Reserved Instances.
+    , _rixReservedInstancesModificationId :: Maybe Text
+      -- ^ A unique ID for the Reserved Instance modification.
+    , _rixStatus :: Maybe Text
+      -- ^ The status of the Reserved Instances modification request.
+    , _rixStatusMessage :: Maybe Text
+      -- ^ The reason for the status.
+    , _rixUpdateDate :: Maybe ISO8601
+      -- ^ The time when the modification request was last updated.
     } deriving (Show, Generic)
 
 instance FromXML ReservedInstancesModification where
@@ -4054,36 +4053,36 @@ instance ToQuery ReservedInstancesModificationResult where
 
 -- | Describes a Reserved Instance offering.
 data ReservedInstancesOffering = ReservedInstancesOffering
-    { _rioMarketplace :: Maybe Bool
-      -- ^ Indicates whether the offering is available through the Reserved
-      -- Instance Marketplace (resale) or AWS. If it's a Reserved Instance
-      -- Marketplace offering, this is true.
+    { _rioAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone in which the Reserved Instance can be used.
     , _rioCurrencyCode :: Maybe CurrencyCodeValues
       -- ^ The currency of the Reserved Instance offering you are
       -- purchasing. It's specified using ISO 4217 standard currency
       -- codes. At this time, the only supported currency is USD.
-    , _rioProductDescription :: Maybe RIProductDescription
-      -- ^ The Reserved Instance description.
-    , _rioInstanceType :: Maybe InstanceType
-      -- ^ The instance type on which the Reserved Instance can be used.
-    , _rioAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone in which the Reserved Instance can be used.
-    , _rioPricingDetails :: [PricingDetail]
-      -- ^ The pricing details of the Reserved Instance offering.
-    , _rioRecurringCharges :: [RecurringCharge]
-      -- ^ The recurring charge tag assigned to the resource.
-    , _rioOfferingType :: Maybe OfferingTypeValues
-      -- ^ The Reserved Instance offering type.
-    , _rioUsagePrice :: Maybe Double
-      -- ^ The usage price of the Reserved Instance, per hour.
+    , _rioDuration :: Maybe Integer
+      -- ^ The duration of the Reserved Instance, in seconds.
     , _rioFixedPrice :: Maybe Double
       -- ^ The purchase price of the Reserved Instance.
     , _rioInstanceTenancy :: Maybe Tenancy
       -- ^ The tenancy of the reserved instance.
+    , _rioInstanceType :: Maybe InstanceType
+      -- ^ The instance type on which the Reserved Instance can be used.
+    , _rioMarketplace :: Maybe Bool
+      -- ^ Indicates whether the offering is available through the Reserved
+      -- Instance Marketplace (resale) or AWS. If it's a Reserved Instance
+      -- Marketplace offering, this is true.
+    , _rioOfferingType :: Maybe OfferingTypeValues
+      -- ^ The Reserved Instance offering type.
+    , _rioPricingDetails :: [PricingDetail]
+      -- ^ The pricing details of the Reserved Instance offering.
+    , _rioProductDescription :: Maybe RIProductDescription
+      -- ^ The Reserved Instance description.
+    , _rioRecurringCharges :: [RecurringCharge]
+      -- ^ The recurring charge tag assigned to the resource.
     , _rioReservedInstancesOfferingId :: Maybe Text
       -- ^ The ID of the Reserved Instance offering.
-    , _rioDuration :: Maybe Integer
-      -- ^ The duration of the Reserved Instance, in seconds.
+    , _rioUsagePrice :: Maybe Double
+      -- ^ The usage price of the Reserved Instance, per hour.
     } deriving (Show, Generic)
 
 instance FromXML ReservedInstancesOffering where
@@ -4092,10 +4091,16 @@ instance FromXML ReservedInstancesOffering where
 
 -- | Describes a route in a route table.
 data Route = Route
-    { _reVpcPeeringConnectionId :: Maybe Text
-      -- ^ The ID of the VPC peering connection.
+    { _reDestinationCidrBlock :: Maybe Text
+      -- ^ The CIDR block used for the destination match.
+    , _reGatewayId :: Maybe Text
+      -- ^ The ID of a gateway attached to your VPC.
     , _reInstanceId :: Maybe Text
       -- ^ The ID of a NAT instance in your VPC.
+    , _reInstanceOwnerId :: Maybe Text
+      -- ^ The AWS account ID of the owner of the instance.
+    , _reNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of the network interface.
     , _reOrigin :: Maybe RouteOrigin
       -- ^ Describes how the route was created. CreateRouteTable indicates
       -- that route was automatically created when the route table was
@@ -4107,14 +4112,8 @@ data Route = Route
       -- route's target isn't available (for example, the specified
       -- gateway isn't attached to the VPC, or the specified NAT instance
       -- has been terminated).
-    , _reNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of the network interface.
-    , _reGatewayId :: Maybe Text
-      -- ^ The ID of a gateway attached to your VPC.
-    , _reInstanceOwnerId :: Maybe Text
-      -- ^ The AWS account ID of the owner of the instance.
-    , _reDestinationCidrBlock :: Maybe Text
-      -- ^ The CIDR block used for the destination match.
+    , _reVpcPeeringConnectionId :: Maybe Text
+      -- ^ The ID of the VPC peering connection.
     } deriving (Show, Generic)
 
 instance FromXML Route where
@@ -4126,18 +4125,18 @@ instance ToQuery Route where
 
 -- | Information about the route table.
 data RouteTable = RouteTable
-    { _ruRouteTableId :: Maybe Text
+    { _ruAssociations :: [RouteTableAssociation]
+      -- ^ The associations between the route table and one or more subnets.
+    , _ruPropagatingVgws :: [PropagatingVgw]
+      -- ^ Any virtual private gateway (VGW) propagating routes.
+    , _ruRouteTableId :: Maybe Text
       -- ^ The ID of the route table.
     , _ruRoutes :: [Route]
       -- ^ The routes in the route table.
-    , _ruVpcId :: Maybe Text
-      -- ^ The ID of the VPC.
-    , _ruPropagatingVgws :: [PropagatingVgw]
-      -- ^ Any virtual private gateway (VGW) propagating routes.
-    , _ruAssociations :: [RouteTableAssociation]
-      -- ^ The associations between the route table and one or more subnets.
     , _ruTags :: [Tag]
       -- ^ Any tags assigned to the route table.
+    , _ruVpcId :: Maybe Text
+      -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
 instance FromXML RouteTable where
@@ -4146,12 +4145,12 @@ instance FromXML RouteTable where
 
 -- | Describes an association between a route table and a subnet.
 data RouteTableAssociation = RouteTableAssociation
-    { _rtaRouteTableId :: Maybe Text
-      -- ^ The ID of the route table.
+    { _rtaMain :: Maybe Bool
+      -- ^ Indicates whether this is the main route table.
     , _rtaRouteTableAssociationId :: Maybe Text
       -- ^ The ID of the association between a route table and a subnet.
-    , _rtaMain :: Maybe Bool
-      -- ^ Indicates whether this is the main route table.
+    , _rtaRouteTableId :: Maybe Text
+      -- ^ The ID of the route table.
     , _rtaSubnetId :: Maybe Text
       -- ^ The ID of the subnet.
     } deriving (Show, Generic)
@@ -4165,22 +4164,22 @@ instance ToQuery RouteTableAssociation where
 
 -- | An Amazon S3 storage location.
 data S3Storage = S3Storage
-    { _ssPrefix :: Maybe Text
-      -- ^ The beginning of the file name of the AMI.
-    , _ssUploadPolicy :: Maybe Text
-      -- ^ A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
-      -- permission to upload items into Amazon S3 on your behalf.
+    { _ssAWSAccessKeyId :: Maybe Text
+      -- ^ The access key ID of the owner of the bucket. Before you specify
+      -- a value for your access key ID, review and follow the guidance in
+      -- Best Practices for Managing AWS Access Keys.
     , _ssBucket :: Maybe Text
       -- ^ The bucket in which to store the AMI. You can specify a bucket
       -- that you already own or a new bucket that Amazon EC2 creates on
       -- your behalf. If you specify a bucket that belongs to someone
       -- else, Amazon EC2 returns an error.
+    , _ssPrefix :: Maybe Text
+      -- ^ The beginning of the file name of the AMI.
+    , _ssUploadPolicy :: Maybe Text
+      -- ^ A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
+      -- permission to upload items into Amazon S3 on your behalf.
     , _ssUploadPolicySignature :: Maybe Text
       -- ^ The signature of the Base64 encoded JSON document.
-    , _ssAWSAccessKeyId :: Maybe Text
-      -- ^ The access key ID of the owner of the bucket. Before you specify
-      -- a value for your access key ID, review and follow the guidance in
-      -- Best Practices for Managing AWS Access Keys.
     } deriving (Show, Generic)
 
 instance FromXML S3Storage where
@@ -4192,23 +4191,23 @@ instance ToQuery S3Storage where
 
 -- | Describes a security group.
 data SecurityGroup = SecurityGroup
-    { _siVpcId :: Maybe Text
-      -- ^ [EC2-VPC] The ID of the VPC for the security group.
-    , _siIpPermissions :: [IpPermission]
-      -- ^ One or more inbound rules associated with the security group.
-    , _siOwnerId :: Text
-      -- ^ The AWS account ID of the owner of the security group.
-    , _siIpPermissionsEgress :: [IpPermission]
-      -- ^ [EC2-VPC] One or more outbound rules associated with the security
-      -- group.
+    { _siDescription :: Text
+      -- ^ A description of the security group.
     , _siGroupId :: Text
       -- ^ The ID of the security group.
     , _siGroupName :: Text
       -- ^ The name of the security group.
-    , _siDescription :: Text
-      -- ^ A description of the security group.
+    , _siIpPermissions :: [IpPermission]
+      -- ^ One or more inbound rules associated with the security group.
+    , _siIpPermissionsEgress :: [IpPermission]
+      -- ^ [EC2-VPC] One or more outbound rules associated with the security
+      -- group.
+    , _siOwnerId :: Text
+      -- ^ The AWS account ID of the owner of the security group.
     , _siTags :: [Tag]
       -- ^ Any tags assigned to the security group.
+    , _siVpcId :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the VPC for the security group.
     } deriving (Show, Generic)
 
 instance FromXML SecurityGroup where
@@ -4217,29 +4216,29 @@ instance FromXML SecurityGroup where
 
 -- | Describes a snapshot.
 data Snapshot = Snapshot
-    { _ssxState :: Maybe SnapshotState
-      -- ^ The snapshot state.
+    { _ssxDescription :: Maybe Text
+      -- ^ The description for the snapshot.
+    , _ssxEncrypted :: Maybe Bool
+      -- ^ Indicates whether the snapshot is encrypted.
     , _ssxOwnerAlias :: Maybe Text
       -- ^ The AWS account alias (for example, amazon, self) or AWS account
       -- ID that owns the snapshot.
-    , _ssxProgress :: Maybe Text
-      -- ^ The progress of the snapshot, as a percentage.
-    , _ssxStartTime :: Maybe ISO8601
-      -- ^ The time stamp when the snapshot was initiated.
-    , _ssxVolumeSize :: Maybe Integer
-      -- ^ The size of the volume, in GiB.
-    , _ssxEncrypted :: Maybe Bool
-      -- ^ Indicates whether the snapshot is encrypted.
     , _ssxOwnerId :: Maybe Text
       -- ^ The AWS account ID of the Amazon EBS snapshot owner.
-    , _ssxVolumeId :: Maybe Text
-      -- ^ The ID of the volume.
-    , _ssxDescription :: Maybe Text
-      -- ^ The description for the snapshot.
-    , _ssxTags :: [Tag]
-      -- ^ Any tags assigned to the snapshot.
+    , _ssxProgress :: Maybe Text
+      -- ^ The progress of the snapshot, as a percentage.
     , _ssxSnapshotId :: Maybe Text
       -- ^ The ID of the snapshot.
+    , _ssxStartTime :: Maybe ISO8601
+      -- ^ The time stamp when the snapshot was initiated.
+    , _ssxState :: Maybe SnapshotState
+      -- ^ The snapshot state.
+    , _ssxTags :: [Tag]
+      -- ^ Any tags assigned to the snapshot.
+    , _ssxVolumeId :: Maybe Text
+      -- ^ The ID of the volume.
+    , _ssxVolumeSize :: Maybe Integer
+      -- ^ The size of the volume, in GiB.
     } deriving (Show, Generic)
 
 instance FromXML Snapshot where
@@ -4248,16 +4247,16 @@ instance FromXML Snapshot where
 
 -- | The Spot Instance datafeed subscription.
 data SpotDatafeedSubscription = SpotDatafeedSubscription
-    { _sdsState :: Maybe DatafeedSubscriptionState
-      -- ^ The state of the Spot Instance datafeed subscription.
-    , _sdsPrefix :: Maybe Text
-      -- ^ The prefix that is prepended to datafeed files.
-    , _sdsBucket :: Maybe Text
+    { _sdsBucket :: Maybe Text
       -- ^ The Amazon S3 bucket where the Spot Instance datafeed is located.
-    , _sdsOwnerId :: Maybe Text
-      -- ^ The AWS account ID of the account.
     , _sdsFault :: Maybe SpotInstanceStateFault
       -- ^ The fault codes for the Spot Instance request, if any.
+    , _sdsOwnerId :: Maybe Text
+      -- ^ The AWS account ID of the account.
+    , _sdsPrefix :: Maybe Text
+      -- ^ The prefix that is prepended to datafeed files.
+    , _sdsState :: Maybe DatafeedSubscriptionState
+      -- ^ The state of the Spot Instance datafeed subscription.
     } deriving (Show, Generic)
 
 instance FromXML SpotDatafeedSubscription where
@@ -4266,42 +4265,41 @@ instance FromXML SpotDatafeedSubscription where
 
 -- | Describe a Spot Instance request.
 data SpotInstanceRequest = SpotInstanceRequest
-    { _siuInstanceId :: Maybe Text
+    { _siuAvailabilityZoneGroup :: Maybe Text
+      -- ^ The Availability Zone group. If you specify the same Availability
+      -- Zone group for all Spot Instance requests, all Spot Instances are
+      -- launched in the same Availability Zone.
+    , _siuCreateTime :: Maybe ISO8601
+      -- ^ The time stamp when the Spot Instance request was created.
+    , _siuFault :: Maybe SpotInstanceStateFault
+      -- ^ The fault codes for the Spot Instance request, if any.
+    , _siuInstanceId :: Maybe Text
       -- ^ The instance ID, if an instance has been launched to fulfill the
       -- Spot Instance request.
-    , _siuStatus :: Maybe SpotInstanceStatus
-      -- ^ The status code and status message describing the Spot Instance
-      -- request.
+    , _siuLaunchGroup :: Maybe Text
+      -- ^ The instance launch group. Launch groups are Spot Instances that
+      -- launch together and terminate together.
+    , _siuLaunchSpecification :: Maybe LaunchSpecification
+      -- ^ Additional information for launching instances.
+    , _siuLaunchedAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone in which the bid is launched.
+    , _siuProductDescription :: Maybe RIProductDescription
+      -- ^ The product description associated with the Spot Instance.
+    , _siuSpotInstanceRequestId :: Maybe Text
+      -- ^ The ID of the Spot Instance request.
+    , _siuSpotPrice :: Maybe Text
+      -- ^ The maximum hourly price for any Spot Instance launched to
+      -- fulfill the request.
     , _siuState :: Maybe SpotInstanceState
       -- ^ The state of the Spot Instance request. Spot bid status
       -- information can help you track your Spot Instance requests. For
       -- information, see Tracking Spot Requests with Bid Status Codes in
       -- the Amazon Elastic Compute Cloud User Guide.
-    , _siuProductDescription :: Maybe RIProductDescription
-      -- ^ The product description associated with the Spot Instance.
-    , _siuSpotPrice :: Maybe Text
-      -- ^ The maximum hourly price for any Spot Instance launched to
-      -- fulfill the request.
-    , _siuLaunchSpecification :: Maybe LaunchSpecification
-      -- ^ Additional information for launching instances.
-    , _siuAvailabilityZoneGroup :: Maybe Text
-      -- ^ The Availability Zone group. If you specify the same Availability
-      -- Zone group for all Spot Instance requests, all Spot Instances are
-      -- launched in the same Availability Zone.
-    , _siuLaunchedAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone in which the bid is launched.
-    , _siuValidUntil :: Maybe ISO8601
-      -- ^ The end date of the request. If this is a one-time request, the
-      -- request remains active until all instances launch, the request is
-      -- canceled, or this date is reached. If the request is persistent,
-      -- it remains active until it is canceled or this date is reached.
-    , _siuLaunchGroup :: Maybe Text
-      -- ^ The instance launch group. Launch groups are Spot Instances that
-      -- launch together and terminate together.
-    , _siuFault :: Maybe SpotInstanceStateFault
-      -- ^ The fault codes for the Spot Instance request, if any.
-    , _siuSpotInstanceRequestId :: Maybe Text
-      -- ^ The ID of the Spot Instance request.
+    , _siuStatus :: Maybe SpotInstanceStatus
+      -- ^ The status code and status message describing the Spot Instance
+      -- request.
+    , _siuTags :: [Tag]
+      -- ^ Any tags assigned to the resource.
     , _siuType :: Maybe SpotInstanceType
       -- ^ The Spot Instance request type.
     , _siuValidFrom :: Maybe ISO8601
@@ -4311,10 +4309,11 @@ data SpotInstanceRequest = SpotInstanceRequest
       -- is canceled. If the request is persistent, the request becomes
       -- active at this date and time and remains active until it expires
       -- or is canceled.
-    , _siuCreateTime :: Maybe ISO8601
-      -- ^ The time stamp when the Spot Instance request was created.
-    , _siuTags :: [Tag]
-      -- ^ Any tags assigned to the resource.
+    , _siuValidUntil :: Maybe ISO8601
+      -- ^ The end date of the request. If this is a one-time request, the
+      -- request remains active until all instances launch, the request is
+      -- canceled, or this date is reached. If the request is persistent,
+      -- it remains active until it is canceled or this date is reached.
     } deriving (Show, Generic)
 
 instance FromXML SpotInstanceRequest where
@@ -4338,12 +4337,12 @@ instance ToQuery SpotInstanceStateFault where
 
 -- | The status code and status message describing the Spot Instance request.
 data SpotInstanceStatus = SpotInstanceStatus
-    { _sivUpdateTime :: Maybe ISO8601
-      -- ^ The time of the most recent status update.
-    , _sivCode :: Maybe Text
+    { _siwCode :: Maybe Text
       -- ^ The status code of the request.
-    , _sivMessage :: Maybe Text
+    , _siwMessage :: Maybe Text
       -- ^ The description for the status code for the Spot request.
+    , _siwUpdateTime :: Maybe ISO8601
+      -- ^ The time of the most recent status update.
     } deriving (Show, Generic)
 
 instance FromXML SpotInstanceStatus where
@@ -4370,15 +4369,15 @@ instance ToQuery SpotPlacement where
 
 -- | Describes the Spot Price.
 data SpotPrice = SpotPrice
-    { _spProductDescription :: Maybe RIProductDescription
+    { _spAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone.
+    , _spInstanceType :: Maybe InstanceType
+      -- ^ The instance type.
+    , _spProductDescription :: Maybe RIProductDescription
       -- ^ A general description of the AMI.
     , _spSpotPrice :: Maybe Text
       -- ^ The maximum price you will pay to launch one or more Spot
       -- Instances.
-    , _spInstanceType :: Maybe InstanceType
-      -- ^ The instance type.
-    , _spAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone.
     , _spTimestamp :: Maybe ISO8601
       -- ^ The date and time the request was created.
     } deriving (Show, Generic)
@@ -4416,27 +4415,27 @@ instance ToQuery StateReason where
 
 -- | Describes a subnet.
 data Subnet = Subnet
-    { _swState :: Maybe SubnetState
-      -- ^ The current state of the subnet.
+    { _swAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone of the subnet.
     , _swAvailableIpAddressCount :: Maybe Integer
       -- ^ The number of unused IP addresses in the subnet. Note that the IP
       -- addresses for any stopped instances are considered unavailable.
-    , _swVpcId :: Maybe Text
-      -- ^ The ID of the VPC the subnet is in.
-    , _swSubnetId :: Maybe Text
-      -- ^ The ID of the subnet.
-    , _swAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone of the subnet.
     , _swCidrBlock :: Maybe Text
       -- ^ The CIDR block assigned to the subnet.
-    , _swMapPublicIpOnLaunch :: Maybe Bool
-      -- ^ Indicates whether instances launched in this subnet receive a
-      -- public IP address.
     , _swDefaultForAz :: Maybe Bool
       -- ^ Indicates whether this is the default subnet for the Availability
       -- Zone.
+    , _swMapPublicIpOnLaunch :: Maybe Bool
+      -- ^ Indicates whether instances launched in this subnet receive a
+      -- public IP address.
+    , _swState :: Maybe SubnetState
+      -- ^ The current state of the subnet.
+    , _swSubnetId :: Maybe Text
+      -- ^ The ID of the subnet.
     , _swTags :: [Tag]
       -- ^ Any tags assigned to the subnet.
+    , _swVpcId :: Maybe Text
+      -- ^ The ID of the VPC the subnet is in.
     } deriving (Show, Generic)
 
 instance FromXML Subnet where
@@ -4445,13 +4444,13 @@ instance FromXML Subnet where
 
 -- | Describes a tag.
 data Tag = Tag
-    { _tgValue :: Maybe Text
-      -- ^ The value of the tag. Constraints: Tag values are case-sensitive
-      -- and accept a maximum of 255 Unicode characters.
-    , _tgKey :: Text
+    { _tgKey :: Text
       -- ^ The key of the tag. Constraints: Tag keys are case-sensitive and
       -- accept a maximum of 127 Unicode characters. May not begin with
       -- aws:.
+    , _tgValue :: Maybe Text
+      -- ^ The value of the tag. Constraints: Tag values are case-sensitive
+      -- and accept a maximum of 255 Unicode characters.
     } deriving (Show, Generic)
 
 instance FromXML Tag where
@@ -4463,14 +4462,14 @@ instance ToQuery Tag where
 
 -- | Describes a tag.
 data TagDescription = TagDescription
-    { _tdResourceId :: Text
+    { _tdKey :: Text
+      -- ^ The key of the tag.
+    , _tdResourceId :: Text
       -- ^ The ID of the resource. For example, ami-1a2b3c4d.
     , _tdResourceType :: ResourceType
       -- ^ The type of resource.
     , _tdValue :: Maybe Text
       -- ^ The value of the tag.
-    , _tdKey :: Text
-      -- ^ The key of the tag.
     } deriving (Show, Generic)
 
 instance FromXML TagDescription where
@@ -4479,12 +4478,12 @@ instance FromXML TagDescription where
 
 -- | Describes a security group and AWS account ID pair for EC2-Classic.
 data UserIdGroupPair = UserIdGroupPair
-    { _uigpUserId :: Maybe Text
-      -- ^ The ID of an AWS account.
-    , _uigpGroupId :: Maybe Text
+    { _uigpGroupId :: Maybe Text
       -- ^ The name of the security group in the specified AWS account.
     , _uigpGroupName :: Maybe Text
       -- ^ The ID of the security group owned by the specified AWS account.
+    , _uigpUserId :: Maybe Text
+      -- ^ The ID of an AWS account.
     } deriving (Show, Generic)
 
 instance FromXML UserIdGroupPair where
@@ -4496,15 +4495,15 @@ instance ToQuery UserIdGroupPair where
 
 -- | Describes telemetry for a VPN tunnel.
 data VgwTelemetry = VgwTelemetry
-    { _vvvvvvvvvvvvvyStatus :: Maybe TelemetryStatus
-      -- ^ The status of the VPN tunnel.
+    { _vvvvvvvvvvvvvyAcceptedRouteCount :: Maybe Integer
+      -- ^ The number of accepted routes.
+    , _vvvvvvvvvvvvvyLastStatusChange :: Maybe ISO8601
+      -- ^ The date and time of the last change in status.
     , _vvvvvvvvvvvvvyOutsideIpAddress :: Maybe Text
       -- ^ The Internet-routable IP address of the virtual private gateway's
       -- outside interface.
-    , _vvvvvvvvvvvvvyLastStatusChange :: Maybe ISO8601
-      -- ^ The date and time of the last change in status.
-    , _vvvvvvvvvvvvvyAcceptedRouteCount :: Maybe Integer
-      -- ^ The number of accepted routes.
+    , _vvvvvvvvvvvvvyStatus :: Maybe TelemetryStatus
+      -- ^ The status of the VPN tunnel.
     , _vvvvvvvvvvvvvyStatusMessage :: Maybe Text
       -- ^ If an error occurs, a description of the error.
     } deriving (Show, Generic)
@@ -4518,12 +4517,14 @@ instance ToQuery VgwTelemetry where
 
 -- | Describes a volume.
 data Volume = Volume
-    { _vvvvvvvvvvvvvvvvvvvvvvvvvvkState :: Maybe VolumeState
-      -- ^ The volume state.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkAttachments :: [VolumeAttachment]
+    { _vvvvvvvvvvvvvvvvvvvvvvvvvvkAttachments :: [VolumeAttachment]
       -- ^ 
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkSize :: Maybe Integer
-      -- ^ The size of the volume, in GiBs.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone for the volume.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkCreateTime :: Maybe ISO8601
+      -- ^ The time stamp when volume creation was initiated.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkEncrypted :: Maybe Bool
+      -- ^ Indicates whether the volume is encrypted.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvkIops :: Maybe Integer
       -- ^ The number of I/O operations per second (IOPS) that the volume
       -- supports. For Provisioned IOPS (SSD) volumes, this represents the
@@ -4538,22 +4539,20 @@ data Volume = Volume
       -- Condition: This parameter is required for requests to create io1
       -- volumes; it is not used in requests to create standard or gp2
       -- volumes.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkEncrypted :: Maybe Bool
-      -- ^ Indicates whether the volume is encrypted.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone for the volume.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkSize :: Maybe Integer
+      -- ^ The size of the volume, in GiBs.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkSnapshotId :: Maybe Text
+      -- ^ The snapshot from which the volume was created, if applicable.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkState :: Maybe VolumeState
+      -- ^ The volume state.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkTags :: [Tag]
+      -- ^ Any tags assigned to the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvkVolumeId :: Maybe Text
       -- ^ The ID of the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvkVolumeType :: Maybe VolumeType
       -- ^ The volume type. This can be gp2 for General Purpose (SSD)
       -- volumes, io1 for Provisioned IOPS (SSD) volumes, or standard for
       -- Magnetic volumes.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkCreateTime :: Maybe ISO8601
-      -- ^ The time stamp when volume creation was initiated.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkTags :: [Tag]
-      -- ^ Any tags assigned to the volume.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvkSnapshotId :: Maybe Text
-      -- ^ The snapshot from which the volume was created, if applicable.
     } deriving (Show, Generic)
 
 instance FromXML Volume where
@@ -4562,19 +4561,19 @@ instance FromXML Volume where
 
 -- | Describes volume attachment details.
 data VolumeAttachment = VolumeAttachment
-    { _vvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
+    { _vvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime :: Maybe ISO8601
+      -- ^ The time stamp when the attachment initiated.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the Amazon EBS volume is deleted on instance
       -- termination.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvuState :: Maybe VolumeAttachmentState
-      -- ^ The attachment state of the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvuDevice :: Maybe Text
       -- ^ The device name.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvuState :: Maybe VolumeAttachmentState
+      -- ^ The attachment state of the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId :: Maybe Text
       -- ^ The ID of the volume.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime :: Maybe ISO8601
-      -- ^ The time stamp when the attachment initiated.
     } deriving (Show, Generic)
 
 instance FromXML VolumeAttachment where
@@ -4586,15 +4585,15 @@ instance ToQuery VolumeAttachment where
 
 -- | Describes a volume status operation code.
 data VolumeStatusAction = VolumeStatusAction
-    { _vsaEventType :: Maybe Text
-      -- ^ The event type associated with this operation.
-    , _vsaCode :: Maybe Text
+    { _vsaCode :: Maybe Text
       -- ^ The code identifying the operation, for example,
       -- enable-volume-io.
     , _vsaDescription :: Maybe Text
       -- ^ A description of the operation.
     , _vsaEventId :: Maybe Text
       -- ^ The ID of the event associated with this operation.
+    , _vsaEventType :: Maybe Text
+      -- ^ The event type associated with this operation.
     } deriving (Show, Generic)
 
 instance FromXML VolumeStatusAction where
@@ -4606,10 +4605,10 @@ instance ToQuery VolumeStatusAction where
 
 -- | Describes a volume status.
 data VolumeStatusDetails = VolumeStatusDetails
-    { _vsdStatus :: Maybe Text
-      -- ^ The intended status of the volume status.
-    , _vsdName :: Maybe VolumeStatusName
+    { _vsdName :: Maybe VolumeStatusName
       -- ^ The name of the volume status.
+    , _vsdStatus :: Maybe Text
+      -- ^ The intended status of the volume status.
     } deriving (Show, Generic)
 
 instance FromXML VolumeStatusDetails where
@@ -4621,16 +4620,16 @@ instance ToQuery VolumeStatusDetails where
 
 -- | Describes a volume status event.
 data VolumeStatusEvent = VolumeStatusEvent
-    { _vseNotBefore :: Maybe ISO8601
-      -- ^ The earliest start time of the event.
-    , _vseEventType :: Maybe Text
-      -- ^ The type of this event.
-    , _vseDescription :: Maybe Text
+    { _vseDescription :: Maybe Text
       -- ^ A description of the event.
-    , _vseNotAfter :: Maybe ISO8601
-      -- ^ The latest end time of the event.
     , _vseEventId :: Maybe Text
       -- ^ The ID of this event.
+    , _vseEventType :: Maybe Text
+      -- ^ The type of this event.
+    , _vseNotAfter :: Maybe ISO8601
+      -- ^ The latest end time of the event.
+    , _vseNotBefore :: Maybe ISO8601
+      -- ^ The earliest start time of the event.
     } deriving (Show, Generic)
 
 instance FromXML VolumeStatusEvent where
@@ -4642,10 +4641,10 @@ instance ToQuery VolumeStatusEvent where
 
 -- | The volume status.
 data VolumeStatusInfo = VolumeStatusInfo
-    { _vsjStatus :: Maybe VolumeStatusInfoStatus
-      -- ^ The status of the volume.
-    , _vsjDetails :: [VolumeStatusDetails]
+    { _vsjDetails :: [VolumeStatusDetails]
       -- ^ The details of the volume status.
+    , _vsjStatus :: Maybe VolumeStatusInfoStatus
+      -- ^ The status of the volume.
     } deriving (Show, Generic)
 
 instance FromXML VolumeStatusInfo where
@@ -4657,16 +4656,16 @@ instance ToQuery VolumeStatusInfo where
 
 -- | Describes the volume status.
 data VolumeStatusItem = VolumeStatusItem
-    { _vsiVolumeStatus :: Maybe VolumeStatusInfo
-      -- ^ The volume status.
-    , _vsiActions :: [VolumeStatusAction]
+    { _vsiActions :: [VolumeStatusAction]
       -- ^ The details of the operation.
-    , _vsiEvents :: [VolumeStatusEvent]
-      -- ^ A list of events associated with the volume.
     , _vsiAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone of the volume.
+    , _vsiEvents :: [VolumeStatusEvent]
+      -- ^ A list of events associated with the volume.
     , _vsiVolumeId :: Maybe Text
       -- ^ The volume ID.
+    , _vsiVolumeStatus :: Maybe VolumeStatusInfo
+      -- ^ The volume status.
     } deriving (Show, Generic)
 
 instance FromXML VolumeStatusItem where
@@ -4675,21 +4674,21 @@ instance FromXML VolumeStatusItem where
 
 -- | Describes a VPC.
 data Vpc = Vpc
-    { _vvcState :: Maybe VpcState
-      -- ^ The current state of the VPC.
-    , _vvcVpcId :: Maybe Text
-      -- ^ The ID of the VPC.
+    { _vvcCidrBlock :: Maybe Text
+      -- ^ The CIDR block for the VPC.
     , _vvcDhcpOptionsId :: Maybe Text
       -- ^ The ID of the set of DHCP options you've associated with the VPC
       -- (or default if the default options are associated with the VPC).
-    , _vvcCidrBlock :: Maybe Text
-      -- ^ The CIDR block for the VPC.
     , _vvcInstanceTenancy :: Maybe Tenancy
       -- ^ The allowed tenancy of instances launched into the VPC.
-    , _vvcTags :: [Tag]
-      -- ^ Any tags assigned to the VPC.
     , _vvcIsDefault :: Maybe Bool
       -- ^ Indicates whether the VPC is the default VPC.
+    , _vvcState :: Maybe VpcState
+      -- ^ The current state of the VPC.
+    , _vvcTags :: [Tag]
+      -- ^ Any tags assigned to the VPC.
+    , _vvcVpcId :: Maybe Text
+      -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
 instance FromXML Vpc where
@@ -4713,18 +4712,18 @@ instance ToQuery VpcAttachment where
 
 -- | Information about the VPC peering connection.
 data VpcPeeringConnection = VpcPeeringConnection
-    { _vpcVpcPeeringConnectionId :: Maybe Text
-      -- ^ The ID of the VPC peering connection.
-    , _vpcStatus :: Maybe VpcPeeringConnectionStateReason
-      -- ^ The status of the VPC peering connection.
-    , _vpcAccepterVpcInfo :: Maybe VpcPeeringConnectionVpcInfo
+    { _vpcAccepterVpcInfo :: Maybe VpcPeeringConnectionVpcInfo
       -- ^ The information of the peer VPC.
-    , _vpcRequesterVpcInfo :: Maybe VpcPeeringConnectionVpcInfo
-      -- ^ The information of the requester VPC.
     , _vpcExpirationTime :: Maybe ISO8601
       -- ^ The time that an unaccepted VPC peering connection will expire.
+    , _vpcRequesterVpcInfo :: Maybe VpcPeeringConnectionVpcInfo
+      -- ^ The information of the requester VPC.
+    , _vpcStatus :: Maybe VpcPeeringConnectionStateReason
+      -- ^ The status of the VPC peering connection.
     , _vpcTags :: [Tag]
       -- ^ Any tags assigned to the resource.
+    , _vpcVpcPeeringConnectionId :: Maybe Text
+      -- ^ The ID of the VPC peering connection.
     } deriving (Show, Generic)
 
 instance FromXML VpcPeeringConnection where
@@ -4749,12 +4748,12 @@ instance ToQuery VpcPeeringConnectionStateReason where
 
 -- | The information of the peer VPC.
 data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
-    { _vpcviVpcId :: Maybe Text
-      -- ^ The ID of the VPC.
+    { _vpcviCidrBlock :: Maybe Text
+      -- ^ The CIDR block for the VPC.
     , _vpcviOwnerId :: Maybe Text
       -- ^ The AWS account ID of the VPC owner.
-    , _vpcviCidrBlock :: Maybe Text
-      -- ^ The CIDR block for the VPC.
+    , _vpcviVpcId :: Maybe Text
+      -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
 instance FromXML VpcPeeringConnectionVpcInfo where
@@ -4772,25 +4771,25 @@ data VpnConnection = VpnConnection
       -- present in the CreateVpnConnection response; however, it's
       -- present in the DescribeVpnConnections response only if the VPN
       -- connection is in the pending or available state.
-    , _vcState :: Maybe VpnState
-      -- ^ The current state of the VPN connection.
+    , _vcCustomerGatewayId :: Maybe Text
+      -- ^ The ID of the customer gateway at your end of the VPN connection.
+    , _vcOptions :: Maybe VpnConnectionOptions
+      -- ^ The VPN connection options.
     , _vcRoutes :: [VpnStaticRoute]
       -- ^ The static routes associated with the VPN connection.
+    , _vcState :: Maybe VpnState
+      -- ^ The current state of the VPN connection.
+    , _vcTags :: [Tag]
+      -- ^ Any tags assigned to the VPN connection.
+    , _vcType :: Maybe GatewayType
+      -- ^ The type of VPN connection.
+    , _vcVgwTelemetry :: [VgwTelemetry]
+      -- ^ Information about the VPN tunnel.
+    , _vcVpnConnectionId :: Maybe Text
+      -- ^ The ID of the VPN connection.
     , _vcVpnGatewayId :: Maybe Text
       -- ^ The ID of the virtual private gateway at the AWS side of the VPN
       -- connection.
-    , _vcCustomerGatewayId :: Maybe Text
-      -- ^ The ID of the customer gateway at your end of the VPN connection.
-    , _vcType :: Maybe GatewayType
-      -- ^ The type of VPN connection.
-    , _vcOptions :: Maybe VpnConnectionOptions
-      -- ^ The VPN connection options.
-    , _vcVpnConnectionId :: Maybe Text
-      -- ^ The ID of the VPN connection.
-    , _vcTags :: [Tag]
-      -- ^ Any tags assigned to the VPN connection.
-    , _vcVgwTelemetry :: [VgwTelemetry]
-      -- ^ Information about the VPN tunnel.
     } deriving (Show, Generic)
 
 instance FromXML VpnConnection where
@@ -4799,19 +4798,19 @@ instance FromXML VpnConnection where
 
 -- | Information about the virtual private gateway.
 data VpnGateway = VpnGateway
-    { _vvyState :: Maybe VpnState
+    { _vvyAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone where the virtual private gateway was
+      -- created.
+    , _vvyState :: Maybe VpnState
       -- ^ The current state of the virtual private gateway.
+    , _vvyTags :: [Tag]
+      -- ^ Any tags assigned to the virtual private gateway.
+    , _vvyType :: Maybe GatewayType
+      -- ^ The type of VPN connection the virtual private gateway supports.
     , _vvyVpcAttachments :: [VpcAttachment]
       -- ^ Any VPCs attached to the virtual private gateway.
     , _vvyVpnGatewayId :: Maybe Text
       -- ^ The ID of the virtual private gateway.
-    , _vvyAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone where the virtual private gateway was
-      -- created.
-    , _vvyType :: Maybe GatewayType
-      -- ^ The type of VPN connection the virtual private gateway supports.
-    , _vvyTags :: [Tag]
-      -- ^ Any tags assigned to the virtual private gateway.
     } deriving (Show, Generic)
 
 instance FromXML VpnGateway where
@@ -4820,13 +4819,13 @@ instance FromXML VpnGateway where
 
 -- | Describes a static route for a VPN connection.
 data VpnStaticRoute = VpnStaticRoute
-    { _vswState :: Maybe VpnState
-      -- ^ The current state of the static route.
-    , _vswSource :: Maybe VpnStaticRouteSource
-      -- ^ Indicates how the routes were provided.
-    , _vswDestinationCidrBlock :: Maybe Text
+    { _vswDestinationCidrBlock :: Maybe Text
       -- ^ The CIDR block associated with the local subnet of the customer
       -- data center.
+    , _vswSource :: Maybe VpnStaticRouteSource
+      -- ^ Indicates how the routes were provided.
+    , _vswState :: Maybe VpnState
+      -- ^ The current state of the static route.
     } deriving (Show, Generic)
 
 instance FromXML VpnStaticRoute where

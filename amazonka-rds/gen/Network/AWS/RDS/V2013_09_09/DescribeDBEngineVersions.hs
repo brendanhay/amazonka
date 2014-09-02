@@ -59,9 +59,9 @@ describeDBEngineVersions = DescribeDBEngineVersions
     { _ddbevmDefaultOnly = Nothing
     , _ddbevmListSupportedCharacterSets = Nothing
     , _ddbevmMaxRecords = Nothing
-    , _ddbevmEngineVersion = Nothing
-    , _ddbevmEngine = Nothing
     , _ddbevmDBParameterGroupFamily = Nothing
+    , _ddbevmEngine = Nothing
+    , _ddbevmEngineVersion = Nothing
     , _ddbevmMarker = Nothing
     }
 
@@ -80,15 +80,15 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
       -- a marker is included in the response so that the following
       -- results can be retrieved. Default: 100 Constraints: minimum 20,
       -- maximum 100.
-    , _ddbevmEngineVersion :: Maybe Text
-      -- ^ The database engine version to return. Example: 5.1.49.
-    , _ddbevmEngine :: Maybe Text
-      -- ^ The database engine to return.
     , _ddbevmDBParameterGroupFamily :: Maybe Text
       -- ^ The name of a specific DB parameter group family to return
       -- details for. Constraints: Must be 1 to 255 alphanumeric
       -- characters First character must be a letter Cannot end with a
       -- hyphen or contain two consecutive hyphens.
+    , _ddbevmEngine :: Maybe Text
+      -- ^ The database engine to return.
+    , _ddbevmEngineVersion :: Maybe Text
+      -- ^ The database engine version to return. Example: 5.1.49.
     , _ddbevmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records

@@ -41,16 +41,16 @@ createInstance p1 p2 p3 = CreateInstance
     , _cirLayerIds = p3
     , _cirArchitecture = Nothing
     , _cirAutoScalingType = Nothing
-    , _cirInstallUpdatesOnBoot = Nothing
     , _cirEbsOptimized = Nothing
+    , _cirInstallUpdatesOnBoot = Nothing
     , _cirRootDeviceType = Nothing
-    , _cirVirtualizationType = Nothing
+    , _cirAmiId = Nothing
+    , _cirAvailabilityZone = Nothing
     , _cirHostname = Nothing
+    , _cirOs = Nothing
     , _cirSshKeyName = Nothing
     , _cirSubnetId = Nothing
-    , _cirOs = Nothing
-    , _cirAvailabilityZone = Nothing
-    , _cirAmiId = Nothing
+    , _cirVirtualizationType = Nothing
     }
 
 data CreateInstance = CreateInstance
@@ -79,6 +79,8 @@ data CreateInstance = CreateInstance
       -- is started and stopped based on load metrics. To use load-based
       -- auto scaling, you must enable it for the instance layer and
       -- configure the thresholds by calling SetLoadBasedAutoScaling.
+    , _cirEbsOptimized :: Maybe Bool
+      -- ^ Whether to create an Amazon EBS-optimized instance.
     , _cirInstallUpdatesOnBoot :: Maybe Bool
       -- ^ Whether to install operating system and package updates when the
       -- instance boots. The default value is true. To control when
@@ -88,22 +90,18 @@ data CreateInstance = CreateInstance
       -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
       -- recommend using the default value of true to ensure that your
       -- instances have the latest security updates.
-    , _cirEbsOptimized :: Maybe Bool
-      -- ^ Whether to create an Amazon EBS-optimized instance.
     , _cirRootDeviceType :: Maybe RootDeviceType
       -- ^ The instance root device type. For more information, see Storage
       -- for the Root Device.
-    , _cirVirtualizationType :: Maybe Text
-      -- ^ The instance's virtualization type, paravirtual or hvm.
+    , _cirAmiId :: Maybe Text
+      -- ^ A custom AMI ID to be used to create the instance. The AMI should
+      -- be based on one of the standard AWS OpsWorks APIs: Amazon Linux
+      -- or Ubuntu 12.04 LTS. For more information, see Instances.
+    , _cirAvailabilityZone :: Maybe Text
+      -- ^ The instance Availability Zone. For more information, see Regions
+      -- and Endpoints.
     , _cirHostname :: Maybe Text
       -- ^ The instance host name.
-    , _cirSshKeyName :: Maybe Text
-      -- ^ The instance SSH key name.
-    , _cirSubnetId :: Maybe Text
-      -- ^ The ID of the instance's subnet. If the stack is running in a
-      -- VPC, you can use this parameter to override the stack's default
-      -- subnet ID value and direct AWS OpsWorks to launch the instance in
-      -- a different subnet.
     , _cirOs :: Maybe Text
       -- ^ The instance operating system, which must be set to one of the
       -- following. Standard operating systems: Amazon Linux or Ubuntu
@@ -113,13 +111,15 @@ data CreateInstance = CreateInstance
       -- that you want to use. For more information on the standard
       -- operating systems, see Operating SystemsFor more information on
       -- how to use custom AMIs with OpsWorks, see Using Custom AMIs.
-    , _cirAvailabilityZone :: Maybe Text
-      -- ^ The instance Availability Zone. For more information, see Regions
-      -- and Endpoints.
-    , _cirAmiId :: Maybe Text
-      -- ^ A custom AMI ID to be used to create the instance. The AMI should
-      -- be based on one of the standard AWS OpsWorks APIs: Amazon Linux
-      -- or Ubuntu 12.04 LTS. For more information, see Instances.
+    , _cirSshKeyName :: Maybe Text
+      -- ^ The instance SSH key name.
+    , _cirSubnetId :: Maybe Text
+      -- ^ The ID of the instance's subnet. If the stack is running in a
+      -- VPC, you can use this parameter to override the stack's default
+      -- subnet ID value and direct AWS OpsWorks to launch the instance in
+      -- a different subnet.
+    , _cirVirtualizationType :: Maybe Text
+      -- ^ The instance's virtualization type, paravirtual or hvm.
     } deriving (Show, Generic)
 
 makeLenses ''CreateInstance

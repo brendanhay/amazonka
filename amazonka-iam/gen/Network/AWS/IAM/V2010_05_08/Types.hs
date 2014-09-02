@@ -271,17 +271,17 @@ instance FromXML SummaryKeyType where
 
 -- | Information about the access key.
 data AccessKey = AccessKey
-    { _akStatus :: StatusType
-      -- ^ The status of the access key. Active means the key is valid for
-      -- API calls, while Inactive means it is not.
-    , _akSecretAccessKey :: Text
-      -- ^ The secret key used to sign requests.
+    { _akAccessKeyId :: Text
+      -- ^ The ID for this access key.
     , _akCreateDate :: Maybe ISO8601
       -- ^ The date when the access key was created.
+    , _akSecretAccessKey :: Text
+      -- ^ The secret key used to sign requests.
+    , _akStatus :: StatusType
+      -- ^ The status of the access key. Active means the key is valid for
+      -- API calls, while Inactive means it is not.
     , _akUserName :: Text
       -- ^ Name of the user the key is associated with.
-    , _akAccessKeyId :: Text
-      -- ^ The ID for this access key.
     } deriving (Show, Generic)
 
 instance FromXML AccessKey where
@@ -292,15 +292,15 @@ instance FromXML AccessKey where
 -- without its secret key. This data type is used as a response element in the
 -- action ListAccessKeys.
 data AccessKeyMetadata = AccessKeyMetadata
-    { _akmStatus :: Maybe StatusType
-      -- ^ The status of the access key. Active means the key is valid for
-      -- API calls, while Inactive means it is not.
+    { _akmAccessKeyId :: Maybe Text
+      -- ^ The ID for this access key.
     , _akmCreateDate :: Maybe ISO8601
       -- ^ The date when the access key was created.
+    , _akmStatus :: Maybe StatusType
+      -- ^ The status of the access key. Active means the key is valid for
+      -- API calls, while Inactive means it is not.
     , _akmUserName :: Maybe Text
       -- ^ Name of the user the key is associated with.
-    , _akmAccessKeyId :: Maybe Text
-      -- ^ The ID for this access key.
     } deriving (Show, Generic)
 
 instance FromXML AccessKeyMetadata where
@@ -315,9 +315,6 @@ data Group = Group
       -- ^ The Amazon Resource Name (ARN) specifying the group. For more
       -- information about ARNs and how to use them in policies, see
       -- Identifiers for IAM Entities in the Using IAM guide.
-    , _gpPath :: Text
-      -- ^ Path to the group. For more information about paths, see
-      -- Identifiers for IAM Entities in the Using IAM guide.
     , _gpCreateDate :: ISO8601
       -- ^ The date when the group was created.
     , _gpGroupId :: Text
@@ -326,6 +323,9 @@ data Group = Group
       -- Using IAM guide.
     , _gpGroupName :: Text
       -- ^ The name that identifies the group.
+    , _gpPath :: Text
+      -- ^ Path to the group. For more information about paths, see
+      -- Identifiers for IAM Entities in the Using IAM guide.
     } deriving (Show, Generic)
 
 instance FromXML Group where
@@ -337,14 +337,9 @@ instance FromXML Group where
 -- actions: CreateInstanceProfile GetInstanceProfile ListInstanceProfiles
 -- ListInstanceProfilesForRole.
 data InstanceProfile = InstanceProfile
-    { _ipRoles :: [Role]
-      -- ^ The role associated with the instance profile.
-    , _ipArn :: Text
+    { _ipArn :: Text
       -- ^ The Amazon Resource Name (ARN) specifying the instance profile.
       -- For more information about ARNs and how to use them in policies,
-      -- see Identifiers for IAM Entities in the Using IAM guide.
-    , _ipPath :: Text
-      -- ^ Path to the instance profile. For more information about paths,
       -- see Identifiers for IAM Entities in the Using IAM guide.
     , _ipCreateDate :: ISO8601
       -- ^ The date when the instance profile was created.
@@ -354,6 +349,11 @@ data InstanceProfile = InstanceProfile
       -- in the Using IAM guide.
     , _ipInstanceProfileName :: Text
       -- ^ The name identifying the instance profile.
+    , _ipPath :: Text
+      -- ^ Path to the instance profile. For more information about paths,
+      -- see Identifiers for IAM Entities in the Using IAM guide.
+    , _ipRoles :: [Role]
+      -- ^ The role associated with the instance profile.
     } deriving (Show, Generic)
 
 instance FromXML InstanceProfile where
@@ -364,12 +364,12 @@ instance FromXML InstanceProfile where
 data LoginProfile = LoginProfile
     { _lpCreateDate :: ISO8601
       -- ^ The date when the password for the user was created.
-    , _lpUserName :: Text
-      -- ^ The name of the user, which can be used for signing in to the AWS
-      -- Management Console.
     , _lpPasswordResetRequired :: Maybe Bool
       -- ^ Specifies whether the user is required to set a new password on
       -- next sign-in.
+    , _lpUserName :: Text
+      -- ^ The name of the user, which can be used for signing in to the AWS
+      -- Management Console.
     } deriving (Show, Generic)
 
 instance FromXML LoginProfile where
@@ -379,13 +379,13 @@ instance FromXML LoginProfile where
 -- | The MFADevice data type contains information about an MFA device. This data
 -- type is used as a response element in the action ListMFADevices.
 data MFADevice = MFADevice
-    { _mfadUserName :: Text
-      -- ^ The user with whom the MFA device is associated.
-    , _mfadEnableDate :: ISO8601
+    { _mfadEnableDate :: ISO8601
       -- ^ The date when the MFA device was enabled for the user.
     , _mfadSerialNumber :: Text
       -- ^ The serial number that uniquely identifies the MFA device. For
       -- virtual MFA devices, the serial number is the device ARN.
+    , _mfadUserName :: Text
+      -- ^ The user with whom the MFA device is associated.
     } deriving (Show, Generic)
 
 instance FromXML MFADevice where
@@ -396,32 +396,32 @@ instance FromXML MFADevice where
 -- password policy. This data type is used as a response element in the action
 -- GetAccountPasswordPolicy.
 data PasswordPolicy = PasswordPolicy
-    { _ppExpirePasswords :: Maybe Bool
+    { _ppAllowUsersToChangePassword :: Maybe Bool
+      -- ^ Specifies whether IAM users are allowed to change their own
+      -- password.
+    , _ppExpirePasswords :: Maybe Bool
       -- ^ Specifies whether IAM users are required to change their password
       -- after a specified number of days.
+    , _ppHardExpiry :: Maybe Bool
+      -- ^ Specifies whether IAM users are prevented from setting a new
+      -- password after their password has expired.
+    , _ppMaxPasswordAge :: Maybe Integer
+      -- ^ The number of days that an IAM user password is valid.
     , _ppMinimumPasswordLength :: Maybe Integer
       -- ^ Minimum length to require for IAM user passwords.
-    , _ppRequireNumbers :: Maybe Bool
-      -- ^ Specifies whether to require numbers for IAM user passwords.
     , _ppPasswordReusePrevention :: Maybe Integer
       -- ^ Specifies the number of previous passwords that IAM users are
       -- prevented from reusing.
     , _ppRequireLowercaseCharacters :: Maybe Bool
       -- ^ Specifies whether to require lowercase characters for IAM user
       -- passwords.
-    , _ppMaxPasswordAge :: Maybe Integer
-      -- ^ The number of days that an IAM user password is valid.
-    , _ppHardExpiry :: Maybe Bool
-      -- ^ Specifies whether IAM users are prevented from setting a new
-      -- password after their password has expired.
+    , _ppRequireNumbers :: Maybe Bool
+      -- ^ Specifies whether to require numbers for IAM user passwords.
     , _ppRequireSymbols :: Maybe Bool
       -- ^ Specifies whether to require symbols for IAM user passwords.
     , _ppRequireUppercaseCharacters :: Maybe Bool
       -- ^ Specifies whether to require uppercase characters for IAM user
       -- passwords.
-    , _ppAllowUsersToChangePassword :: Maybe Bool
-      -- ^ Specifies whether IAM users are allowed to change their own
-      -- password.
     } deriving (Show, Generic)
 
 instance FromXML PasswordPolicy where
@@ -432,26 +432,26 @@ instance FromXML PasswordPolicy where
 -- used as a response element in the following actions: CreateRole GetRole
 -- ListRoles.
 data Role = Role
-    { _rAssumeRolePolicyDocument :: Maybe Text
+    { _rArn :: Text
+      -- ^ The Amazon Resource Name (ARN) specifying the role. For more
+      -- information about ARNs and how to use them in policies, see
+      -- Identifiers for IAM Entities in the Using IAM guide.
+    , _rAssumeRolePolicyDocument :: Maybe Text
       -- ^ The policy that grants an entity permission to assume the role.
       -- The returned policy is URL-encoded according to RFC 3986. For
       -- more information about RFC 3986, go to
       -- http://www.faqs.org/rfcs/rfc3986.html.
-    , _rArn :: Text
-      -- ^ The Amazon Resource Name (ARN) specifying the role. For more
-      -- information about ARNs and how to use them in policies, see
-      -- Identifiers for IAM Entities in the Using IAM guide.
+    , _rCreateDate :: ISO8601
+      -- ^ The date when the role was created.
     , _rPath :: Text
       -- ^ Path to the role. For more information about paths, see
       -- Identifiers for IAM Entities in the Using IAM guide.
-    , _rCreateDate :: ISO8601
-      -- ^ The date when the role was created.
-    , _rRoleName :: Text
-      -- ^ The name identifying the role.
     , _rRoleId :: Text
       -- ^ The stable and unique string identifying the role. For more
       -- information about IDs, see Identifiers for IAM Entities in the
       -- Using IAM guide.
+    , _rRoleName :: Text
+      -- ^ The name identifying the role.
     } deriving (Show, Generic)
 
 instance FromXML Role where
@@ -477,13 +477,13 @@ instance FromXML SAMLProviderListEntry where
 
 -- | Information about the server certificate.
 data ServerCertificate = ServerCertificate
-    { _seServerCertificateMetadata :: ServerCertificateMetadata
-      -- ^ The meta information of the server certificate, such as its name,
-      -- path, ID, and ARN.
-    , _seCertificateBody :: Text
+    { _seCertificateBody :: Text
       -- ^ The contents of the public key certificate.
     , _seCertificateChain :: Maybe Text
       -- ^ The contents of the public key certificate chain.
+    , _seServerCertificateMetadata :: ServerCertificateMetadata
+      -- ^ The meta information of the server certificate, such as its name,
+      -- path, ID, and ARN.
     } deriving (Show, Generic)
 
 instance FromXML ServerCertificate where
@@ -495,23 +495,23 @@ instance FromXML ServerCertificate where
 -- type is used as a response element in the action UploadServerCertificate
 -- and ListServerCertificates.
 data ServerCertificateMetadata = ServerCertificateMetadata
-    { _scmServerCertificateName :: Text
-      -- ^ The name that identifies the server certificate.
-    , _scmUploadDate :: Maybe ISO8601
-      -- ^ The date when the server certificate was uploaded.
+    { _scmArn :: Text
+      -- ^ The Amazon Resource Name (ARN) specifying the server certificate.
+      -- For more information about ARNs and how to use them in policies,
+      -- see Identifiers for IAM Entities in the Using IAM guide.
+    , _scmExpiration :: Maybe ISO8601
+      -- ^ The date on which the certificate is set to expire.
+    , _scmPath :: Text
+      -- ^ Path to the server certificate. For more information about paths,
+      -- see Identifiers for IAM Entities in the Using IAM guide.
     , _scmServerCertificateId :: Text
       -- ^ The stable and unique string identifying the server certificate.
       -- For more information about IDs, see Identifiers for IAM Entities
       -- in the Using IAM guide.
-    , _scmArn :: Text
-      -- ^ The Amazon Resource Name (ARN) specifying the server certificate.
-      -- For more information about ARNs and how to use them in policies,
-      -- see Identifiers for IAM Entities in the Using IAM guide.
-    , _scmPath :: Text
-      -- ^ Path to the server certificate. For more information about paths,
-      -- see Identifiers for IAM Entities in the Using IAM guide.
-    , _scmExpiration :: Maybe ISO8601
-      -- ^ The date on which the certificate is set to expire.
+    , _scmServerCertificateName :: Text
+      -- ^ The name that identifies the server certificate.
+    , _scmUploadDate :: Maybe ISO8601
+      -- ^ The date when the server certificate was uploaded.
     } deriving (Show, Generic)
 
 instance FromXML ServerCertificateMetadata where
@@ -522,17 +522,17 @@ instance FromXML ServerCertificateMetadata where
 -- signing certificate. This data type is used as a response element in the
 -- actions UploadSigningCertificate and ListSigningCertificates.
 data SigningCertificate = SigningCertificate
-    { _scStatus :: StatusType
+    { _scCertificateBody :: Text
+      -- ^ The contents of the signing certificate.
+    , _scCertificateId :: Text
+      -- ^ The ID for the signing certificate.
+    , _scStatus :: StatusType
       -- ^ The status of the signing certificate. Active means the key is
       -- valid for API calls, while Inactive means it is not.
     , _scUploadDate :: Maybe ISO8601
       -- ^ The date when the signing certificate was uploaded.
-    , _scCertificateId :: Text
-      -- ^ The ID for the signing certificate.
     , _scUserName :: Text
       -- ^ Name of the user the signing certificate is associated with.
-    , _scCertificateBody :: Text
-      -- ^ The contents of the signing certificate.
     } deriving (Show, Generic)
 
 instance FromXML SigningCertificate where
@@ -547,17 +547,17 @@ data User = User
       -- ^ The Amazon Resource Name (ARN) specifying the user. For more
       -- information about ARNs and how to use them in policies, see
       -- Identifiers for IAM Entities in the Using IAM guide.
+    , _uCreateDate :: ISO8601
+      -- ^ The date when the user was created.
     , _uPath :: Text
       -- ^ Path to the user. For more information about paths, see
       -- Identifiers for IAM Entities in the Using IAM guide.
-    , _uCreateDate :: ISO8601
-      -- ^ The date when the user was created.
-    , _uUserName :: Text
-      -- ^ The name identifying the user.
     , _uUserId :: Text
       -- ^ The stable and unique string identifying the user. For more
       -- information about IDs, see Identifiers for IAM Entities in the
       -- Using IAM guide.
+    , _uUserName :: Text
+      -- ^ The name identifying the user.
     } deriving (Show, Generic)
 
 instance FromXML User where
@@ -569,23 +569,23 @@ instance ToQuery User where
 
 -- | A newly created virtual MFA device.
 data VirtualMFADevice = VirtualMFADevice
-    { _vmfadQRCodePNG :: Maybe ByteString
+    { _vmfadBase32StringSeed :: Maybe ByteString
+      -- ^ The Base32 seed defined as specified in RFC3548. The
+      -- Base32StringSeed is Base64-encoded.
+    , _vmfadEnableDate :: Maybe ISO8601
+    , _vmfadQRCodePNG :: Maybe ByteString
       -- ^ A QR code PNG image that encodes
       -- otpauth://totp/$virtualMFADeviceName@$AccountName?
       -- secret=$Base32String where $virtualMFADeviceName is one of the
       -- create call arguments, AccountName is the user name if set
       -- (accountId otherwise), and Base32String is the seed in Base32
       -- format. The Base32String is Base64-encoded.
-    , _vmfadBase32StringSeed :: Maybe ByteString
-      -- ^ The Base32 seed defined as specified in RFC3548. The
-      -- Base32StringSeed is Base64-encoded.
+    , _vmfadSerialNumber :: Text
+      -- ^ The serial number associated with VirtualMFADevice.
     , _vmfadUser :: Maybe User
       -- ^ The User data type contains information about a user. This data
       -- type is used as a response element in the following actions:
       -- CreateUser GetUser ListUsers.
-    , _vmfadEnableDate :: Maybe ISO8601
-    , _vmfadSerialNumber :: Text
-      -- ^ The serial number associated with VirtualMFADevice.
     } deriving (Show, Generic)
 
 instance FromXML VirtualMFADevice where

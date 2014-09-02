@@ -40,8 +40,8 @@ updateApp p1 = UpdateApp
     , _uarDataSources = mempty
     , _uarAppSource = Nothing
     , _uarSslConfiguration = Nothing
-    , _uarName = Nothing
     , _uarDescription = Nothing
+    , _uarName = Nothing
     , _uarDomains = mempty
     }
 
@@ -61,10 +61,10 @@ data UpdateApp = UpdateApp
       -- ^ A Source object that specifies the app repository.
     , _uarSslConfiguration :: Maybe SslConfiguration
       -- ^ An SslConfiguration object with the SSL configuration.
-    , _uarName :: Maybe Text
-      -- ^ The app name.
     , _uarDescription :: Maybe Text
       -- ^ A description of the app.
+    , _uarName :: Maybe Text
+      -- ^ The app name.
     , _uarDomains :: [Text]
       -- ^ The app's virtual host settings, with multiple domains separated
       -- by commas. For example: 'www.example.com, example.com'.

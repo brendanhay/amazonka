@@ -27,14 +27,14 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 data RegisterRdsDbInstance = RegisterRdsDbInstance
-    { _rrdirRdsDbInstanceArn :: Text
-      -- ^ The Amazon RDS instance's ARN.
+    { _rrdirDbPassword :: Text
+      -- ^ The database password.
     , _rrdirDbUser :: Text
       -- ^ The database's master user name.
+    , _rrdirRdsDbInstanceArn :: Text
+      -- ^ The Amazon RDS instance's ARN.
     , _rrdirStackId :: Text
       -- ^ The stack ID.
-    , _rrdirDbPassword :: Text
-      -- ^ The database password.
     } deriving (Show, Generic)
 
 makeLenses ''RegisterRdsDbInstance

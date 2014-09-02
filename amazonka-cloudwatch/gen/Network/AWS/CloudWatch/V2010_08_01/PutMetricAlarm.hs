@@ -53,9 +53,9 @@ putMetricAlarm p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarm
     , _pmaiActionsEnabled = Nothing
     , _pmaiAlarmDescription = Nothing
     , _pmaiDimensions = mempty
-    , _pmaiOKActions = mempty
-    , _pmaiInsufficientDataActions = mempty
     , _pmaiAlarmActions = mempty
+    , _pmaiInsufficientDataActions = mempty
+    , _pmaiOKActions = mempty
     , _pmaiUnit = Nothing
     }
 
@@ -88,24 +88,24 @@ data PutMetricAlarm = PutMetricAlarm
       -- ^ The description for the alarm.
     , _pmaiDimensions :: [Dimension]
       -- ^ The dimensions for the alarm's associated metric.
-    , _pmaiOKActions :: [Text]
-      -- ^ The list of actions to execute when this alarm transitions into
-      -- an OK state from any other state. Each action is specified as an
-      -- Amazon Resource Number (ARN). Currently the only action supported
-      -- is publishing to an Amazon SNS topic or an Amazon Auto Scaling
-      -- policy.
-    , _pmaiInsufficientDataActions :: [Text]
-      -- ^ The list of actions to execute when this alarm transitions into
-      -- an INSUFFICIENT_DATA state from any other state. Each action is
-      -- specified as an Amazon Resource Number (ARN). Currently the only
-      -- action supported is publishing to an Amazon SNS topic or an
-      -- Amazon Auto Scaling policy.
     , _pmaiAlarmActions :: [Text]
       -- ^ The list of actions to execute when this alarm transitions into
       -- an ALARM state from any other state. Each action is specified as
       -- an Amazon Resource Number (ARN). Currently the only action
       -- supported is publishing to an Amazon SNS topic or an Amazon Auto
       -- Scaling policy.
+    , _pmaiInsufficientDataActions :: [Text]
+      -- ^ The list of actions to execute when this alarm transitions into
+      -- an INSUFFICIENT_DATA state from any other state. Each action is
+      -- specified as an Amazon Resource Number (ARN). Currently the only
+      -- action supported is publishing to an Amazon SNS topic or an
+      -- Amazon Auto Scaling policy.
+    , _pmaiOKActions :: [Text]
+      -- ^ The list of actions to execute when this alarm transitions into
+      -- an OK state from any other state. Each action is specified as an
+      -- Amazon Resource Number (ARN). Currently the only action supported
+      -- is publishing to an Amazon SNS topic or an Amazon Auto Scaling
+      -- policy.
     , _pmaiUnit :: Maybe StandardUnit
       -- ^ The unit for the alarm's associated metric.
     } deriving (Show, Generic)

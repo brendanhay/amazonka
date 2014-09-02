@@ -67,8 +67,8 @@ updateAutoScalingGroup p1 = UpdateAutoScalingGroup
     , _uasgtHealthCheckGracePeriod = Nothing
     , _uasgtLaunchConfigurationName = Nothing
     , _uasgtTerminationPolicies = mempty
-    , _uasgtVPCZoneIdentifier = Nothing
     , _uasgtPlacementGroup = Nothing
+    , _uasgtVPCZoneIdentifier = Nothing
     , _uasgtHealthCheckType = Nothing
     }
 
@@ -101,6 +101,10 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
       -- on creating a termination policy for your Auto Scaling group, go
       -- to Instance Termination Policy for Your Auto Scaling Group in the
       -- the Auto Scaling Developer Guide.
+    , _uasgtPlacementGroup :: Maybe Text
+      -- ^ The name of the cluster placement group, if applicable. For more
+      -- information, go to Using Cluster Instances in the Amazon EC2 User
+      -- Guide.
     , _uasgtVPCZoneIdentifier :: Maybe Text
       -- ^ The subnet identifier for the Amazon VPC connection, if
       -- applicable. You can specify several subnets in a comma-separated
@@ -110,10 +114,6 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
       -- your Auto Scaling group in Amazon VPC by specifying subnets, see
       -- Launch Auto Scaling Instances into Amazon VPC in the the Auto
       -- Scaling Developer Guide.
-    , _uasgtPlacementGroup :: Maybe Text
-      -- ^ The name of the cluster placement group, if applicable. For more
-      -- information, go to Using Cluster Instances in the Amazon EC2 User
-      -- Guide.
     , _uasgtHealthCheckType :: Maybe Text
       -- ^ The type of health check for the instances in the Auto Scaling
       -- group. The health check type can either be EC2 for Amazon EC2 or

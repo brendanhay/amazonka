@@ -37,8 +37,8 @@ setPermission :: Text -- ^ '_sprIamUserArn'
 setPermission p1 p2 = SetPermission
     { _sprIamUserArn = p1
     , _sprStackId = p2
-    , _sprAllowSudo = Nothing
     , _sprAllowSsh = Nothing
+    , _sprAllowSudo = Nothing
     , _sprLevel = Nothing
     }
 
@@ -47,10 +47,10 @@ data SetPermission = SetPermission
       -- ^ The user's IAM ARN.
     , _sprStackId :: Text
       -- ^ The stack ID.
-    , _sprAllowSudo :: Maybe Bool
-      -- ^ The user is allowed to use sudo to elevate privileges.
     , _sprAllowSsh :: Maybe Bool
       -- ^ The user is allowed to use SSH to communicate with the instance.
+    , _sprAllowSudo :: Maybe Bool
+      -- ^ The user is allowed to use sudo to elevate privileges.
     , _sprLevel :: Maybe Text
       -- ^ The user's permission level, which must be set to one of the
       -- following strings. You cannot set your own permissions level.

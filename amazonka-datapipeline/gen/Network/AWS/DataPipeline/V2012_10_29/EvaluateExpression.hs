@@ -38,10 +38,10 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 data EvaluateExpression = EvaluateExpression
-    { _eeiPipelineId :: Text
-      -- ^ The identifier of the pipeline.
-    , _eeiObjectId :: Text
+    { _eeiObjectId :: Text
       -- ^ The identifier of the object.
+    , _eeiPipelineId :: Text
+      -- ^ The identifier of the pipeline.
     , _eeiExpression :: Text
       -- ^ The expression to evaluate.
     } deriving (Show, Generic)

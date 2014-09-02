@@ -52,22 +52,22 @@ import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SendMessage' request.
-sendMessage :: Text -- ^ '_smrQueueUrl'
-            -> Text -- ^ '_smrMessageBody'
+sendMessage :: Text -- ^ '_smrMessageBody'
+            -> Text -- ^ '_smrQueueUrl'
             -> SendMessage
 sendMessage p1 p2 = SendMessage
-    { _smrQueueUrl = p1
-    , _smrMessageBody = p2
+    { _smrMessageBody = p1
+    , _smrQueueUrl = p2
     , _smrDelaySeconds = Nothing
     , _smrMessageAttributes = mempty
     }
 
 data SendMessage = SendMessage
-    { _smrQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
-    , _smrMessageBody :: Text
+    { _smrMessageBody :: Text
       -- ^ The message to send. String maximum 256 KB in size. For a list of
       -- allowed characters, see the preceding important note.
+    , _smrQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
     , _smrDelaySeconds :: Maybe Integer
       -- ^ The number of seconds (0 to 900 - 15 minutes) to delay a specific
       -- message. Messages with a positive DelaySeconds value become
@@ -84,22 +84,22 @@ instance ToQuery SendMessage where
     toQuery = genericQuery def
 
 data SendMessageResponse = SendMessageResponse
-    { _smsMessageId :: Maybe Text
-      -- ^ An element containing the message ID of the message sent to the
-      -- queue. For more information, see Queue and Message Identifiers in
-      -- the Amazon SQS Developer Guide.
+    { _smsMD5OfMessageAttributes :: Maybe Text
+      -- ^ An MD5 digest of the non-URL-encoded message attribute string.
+      -- This can be used to verify that Amazon SQS received the message
+      -- correctly. Amazon SQS first URL decodes the message before
+      -- creating the MD5 digest. For information about MD5, go to
+      -- http://www.faqs.org/rfcs/rfc1321.html.
     , _smsMD5OfMessageBody :: Maybe Text
       -- ^ An MD5 digest of the non-URL-encoded message body string. This
       -- can be used to verify that Amazon SQS received the message
       -- correctly. Amazon SQS first URL decodes the message before
       -- creating the MD5 digest. For information about MD5, go to
       -- http://www.faqs.org/rfcs/rfc1321.html.
-    , _smsMD5OfMessageAttributes :: Maybe Text
-      -- ^ An MD5 digest of the non-URL-encoded message attribute string.
-      -- This can be used to verify that Amazon SQS received the message
-      -- correctly. Amazon SQS first URL decodes the message before
-      -- creating the MD5 digest. For information about MD5, go to
-      -- http://www.faqs.org/rfcs/rfc1321.html.
+    , _smsMessageId :: Maybe Text
+      -- ^ An element containing the message ID of the message sent to the
+      -- queue. For more information, see Queue and Message Identifiers in
+      -- the Amazon SQS Developer Guide.
     } deriving (Show, Generic)
 
 makeLenses ''SendMessageResponse

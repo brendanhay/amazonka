@@ -38,14 +38,14 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'PutScalingPolicy' request.
 putScalingPolicy :: Integer -- ^ '_psptScalingAdjustment'
                  -> Text -- ^ '_psptAutoScalingGroupName'
-                 -> Text -- ^ '_psptPolicyName'
                  -> Text -- ^ '_psptAdjustmentType'
+                 -> Text -- ^ '_psptPolicyName'
                  -> PutScalingPolicy
 putScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
     { _psptScalingAdjustment = p1
     , _psptAutoScalingGroupName = p2
-    , _psptPolicyName = p3
-    , _psptAdjustmentType = p4
+    , _psptAdjustmentType = p3
+    , _psptPolicyName = p4
     , _psptCooldown = Nothing
     , _psptMinAdjustmentStep = Nothing
     }
@@ -59,14 +59,14 @@ data PutScalingPolicy = PutScalingPolicy
       -- and a negative value removes from the current capacity.
     , _psptAutoScalingGroupName :: Text
       -- ^ The name or ARN of the Auto Scaling group.
-    , _psptPolicyName :: Text
-      -- ^ The name of the policy you want to create or update.
     , _psptAdjustmentType :: Text
       -- ^ Specifies whether the ScalingAdjustment is an absolute number or
       -- a percentage of the current capacity. Valid values are
       -- ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity. For
       -- more information about the adjustment types supported by Auto
       -- Scaling, see Scale Based on Demand.
+    , _psptPolicyName :: Text
+      -- ^ The name of the policy you want to create or update.
     , _psptCooldown :: Maybe Integer
       -- ^ The amount of time, in seconds, after a scaling activity
       -- completes and before the next scaling activity can start. For

@@ -62,21 +62,21 @@ stopInstances :: [Text] -- ^ '_sirInstanceIds'
               -> StopInstances
 stopInstances p1 = StopInstances
     { _sirInstanceIds = p1
-    , _sirForce = Nothing
     , _sirDryRun = Nothing
+    , _sirForce = Nothing
     }
 
 data StopInstances = StopInstances
     { _sirInstanceIds :: [Text]
       -- ^ One or more instance IDs.
+    , _sirDryRun :: Maybe Bool
+      -- ^ 
     , _sirForce :: Maybe Bool
       -- ^ Forces the instances to stop. The instances do not have an
       -- opportunity to flush file system caches or file system metadata.
       -- If you use this option, you must perform file system check and
       -- repair procedures. This option is not recommended for Windows
       -- instances. Default: false.
-    , _sirDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''StopInstances

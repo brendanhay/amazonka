@@ -39,42 +39,42 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeEvents' request.
 describeEvents :: DescribeEvents
 describeEvents = DescribeEvents
-    { _demMaxRecords = Nothing
-    , _demDuration = Nothing
+    { _demDuration = Nothing
+    , _demMaxRecords = Nothing
     , _demSourceType = Nothing
-    , _demSourceIdentifier = Nothing
     , _demMarker = Nothing
-    , _demStartTime = Nothing
+    , _demSourceIdentifier = Nothing
     , _demEndTime = Nothing
+    , _demStartTime = Nothing
     }
 
 data DescribeEvents = DescribeEvents
-    { _demMaxRecords :: Maybe Integer
+    { _demDuration :: Maybe Integer
+      -- ^ The number of minutes' worth of events to retrieve.
+    , _demMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _demDuration :: Maybe Integer
-      -- ^ The number of minutes' worth of events to retrieve.
     , _demSourceType :: Maybe SourceType
       -- ^ The event source to retrieve events for. If no value is
       -- specified, all events are returned. Valid values are:
       -- cache-cluster | cache-parameter-group | cache-security-group |
       -- cache-subnet-group.
-    , _demSourceIdentifier :: Maybe Text
-      -- ^ The identifier of the event source for which events will be
-      -- returned. If not specified, then all sources are included in the
-      -- response.
     , _demMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
-    , _demStartTime :: Maybe ISO8601
-      -- ^ The beginning of the time interval to retrieve events for,
-      -- specified in ISO 8601 format.
+    , _demSourceIdentifier :: Maybe Text
+      -- ^ The identifier of the event source for which events will be
+      -- returned. If not specified, then all sources are included in the
+      -- response.
     , _demEndTime :: Maybe ISO8601
       -- ^ The end of the time interval for which to retrieve events,
+      -- specified in ISO 8601 format.
+    , _demStartTime :: Maybe ISO8601
+      -- ^ The beginning of the time interval to retrieve events for,
       -- specified in ISO 8601 format.
     } deriving (Show, Generic)
 

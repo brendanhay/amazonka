@@ -35,20 +35,20 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DetachInternetGateway' request.
-detachInternetGateway :: Text -- ^ '_digrVpcId'
-                      -> Text -- ^ '_digrInternetGatewayId'
+detachInternetGateway :: Text -- ^ '_digrInternetGatewayId'
+                      -> Text -- ^ '_digrVpcId'
                       -> DetachInternetGateway
 detachInternetGateway p1 p2 = DetachInternetGateway
-    { _digrVpcId = p1
-    , _digrInternetGatewayId = p2
+    { _digrInternetGatewayId = p1
+    , _digrVpcId = p2
     , _digrDryRun = Nothing
     }
 
 data DetachInternetGateway = DetachInternetGateway
-    { _digrVpcId :: Text
-      -- ^ The ID of the VPC.
-    , _digrInternetGatewayId :: Text
+    { _digrInternetGatewayId :: Text
       -- ^ The ID of the Internet gateway.
+    , _digrVpcId :: Text
+      -- ^ The ID of the VPC.
     , _digrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)

@@ -35,11 +35,11 @@ import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
 data RemovePermission = RemovePermission
-    { _rprQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
-    , _rprLabel :: Text
+    { _rprLabel :: Text
       -- ^ The identification of the permission to remove. This is the label
       -- added with the AddPermission action.
+    , _rprQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
 makeLenses ''RemovePermission

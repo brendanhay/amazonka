@@ -37,17 +37,17 @@ detachNetworkInterface :: Text -- ^ '_dnirAttachmentId'
                        -> DetachNetworkInterface
 detachNetworkInterface p1 = DetachNetworkInterface
     { _dnirAttachmentId = p1
-    , _dnirForce = Nothing
     , _dnirDryRun = Nothing
+    , _dnirForce = Nothing
     }
 
 data DetachNetworkInterface = DetachNetworkInterface
     { _dnirAttachmentId :: Text
       -- ^ The ID of the attachment.
-    , _dnirForce :: Maybe Bool
-      -- ^ Specifies whether to force a detachment.
     , _dnirDryRun :: Maybe Bool
       -- ^ 
+    , _dnirForce :: Maybe Bool
+      -- ^ Specifies whether to force a detachment.
     } deriving (Show, Generic)
 
 makeLenses ''DetachNetworkInterface

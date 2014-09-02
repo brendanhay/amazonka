@@ -49,15 +49,17 @@ detachVolume :: Text -- ^ '_dvrVolumeId'
              -> DetachVolume
 detachVolume p1 = DetachVolume
     { _dvrVolumeId = p1
-    , _dvrForce = Nothing
     , _dvrDryRun = Nothing
-    , _dvrInstanceId = Nothing
+    , _dvrForce = Nothing
     , _dvrDevice = Nothing
+    , _dvrInstanceId = Nothing
     }
 
 data DetachVolume = DetachVolume
     { _dvrVolumeId :: Text
       -- ^ The ID of the volume.
+    , _dvrDryRun :: Maybe Bool
+      -- ^ 
     , _dvrForce :: Maybe Bool
       -- ^ Forces detachment if the previous detachment attempt did not
       -- occur cleanly (for example, logging into an instance, unmounting
@@ -67,12 +69,10 @@ data DetachVolume = DetachVolume
       -- won't have an opportunity to flush file system caches or file
       -- system metadata. If you use this option, you must perform file
       -- system check and repair procedures.
-    , _dvrDryRun :: Maybe Bool
-      -- ^ 
-    , _dvrInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
     , _dvrDevice :: Maybe Text
       -- ^ The device name.
+    , _dvrInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
     } deriving (Show, Generic)
 
 makeLenses ''DetachVolume
@@ -86,10 +86,10 @@ data DetachVolumeResponse = DetachVolumeResponse
       -- termination.
     , _vbAttachTime :: Maybe ISO8601
       -- ^ The time stamp when the attachment initiated.
-    , _vbInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
     , _vbDevice :: Maybe Text
       -- ^ The device name.
+    , _vbInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
     , _vbVolumeId :: Maybe Text
       -- ^ The ID of the volume.
     , _vbState :: Maybe VolumeAttachmentState

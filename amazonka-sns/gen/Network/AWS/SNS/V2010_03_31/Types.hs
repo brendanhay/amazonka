@@ -134,14 +134,14 @@ data MessageAttributeValue = MessageAttributeValue
     { _mavBinaryValue :: Maybe ByteString
       -- ^ Binary type attributes can store any binary data, for example,
       -- compressed data, encrypted data, or images.
-    , _mavStringValue :: Maybe Text
-      -- ^ Strings are Unicode with UTF8 binary encoding. For a list of code
-      -- values, see
-      -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
     , _mavDataType :: Text
       -- ^ Amazon SNS supports the following logical data types: String,
       -- Number, and Binary. For more information, see Message Attribute
       -- Data Types.
+    , _mavStringValue :: Maybe Text
+      -- ^ Strings are Unicode with UTF8 binary encoding. For a list of code
+      -- values, see
+      -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
     } deriving (Show, Generic)
 
 instance ToQuery MessageAttributeValue where
@@ -149,10 +149,10 @@ instance ToQuery MessageAttributeValue where
 
 -- | Platform application object.
 data PlatformApplication = PlatformApplication
-    { _paPlatformApplicationArn :: Maybe Text
-      -- ^ PlatformApplicationArn for platform application object.
-    , _paAttributes :: Map Text Text
+    { _paAttributes :: Map Text Text
       -- ^ Attributes for platform application object.
+    , _paPlatformApplicationArn :: Maybe Text
+      -- ^ PlatformApplicationArn for platform application object.
     } deriving (Show, Generic)
 
 instance FromXML PlatformApplication where
@@ -161,16 +161,16 @@ instance FromXML PlatformApplication where
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 data Subscription = Subscription
-    { _snProtocol :: Maybe Text
-      -- ^ The subscription's protocol.
+    { _snEndpoint :: Maybe Text
+      -- ^ The subscription's endpoint (format depends on the protocol).
     , _snOwner :: Maybe Text
       -- ^ The subscription's owner.
-    , _snTopicArn :: Maybe Text
-      -- ^ The ARN of the subscription's topic.
-    , _snEndpoint :: Maybe Text
-      -- ^ The subscription's endpoint (format depends on the protocol).
+    , _snProtocol :: Maybe Text
+      -- ^ The subscription's protocol.
     , _snSubscriptionArn :: Maybe Text
       -- ^ The subscription's ARN.
+    , _snTopicArn :: Maybe Text
+      -- ^ The ARN of the subscription's topic.
     } deriving (Show, Generic)
 
 instance FromXML Subscription where

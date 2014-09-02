@@ -26,10 +26,10 @@ import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 data CopySnapshot = CopySnapshot
-    { _csmTargetSnapshotName :: Text
-      -- ^ A name for the copied snapshot.
-    , _csmSourceSnapshotName :: Text
+    { _csmSourceSnapshotName :: Text
       -- ^ The name of an existing snapshot from which to copy.
+    , _csmTargetSnapshotName :: Text
+      -- ^ A name for the copied snapshot.
     } deriving (Show, Generic)
 
 makeLenses ''CopySnapshot

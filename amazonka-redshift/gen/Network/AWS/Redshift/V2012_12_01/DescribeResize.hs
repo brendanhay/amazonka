@@ -69,6 +69,11 @@ data DescribeResizeResponse = DescribeResizeResponse
     , _rpmTargetNumberOfNodes :: Maybe Integer
       -- ^ The number of nodes that the cluster will have after the resize
       -- operation is complete.
+    , _rpmElapsedTimeInSeconds :: Maybe Integer
+      -- ^ The amount of seconds that have elapsed since the resize
+      -- operation began. After the resize operation completes, this value
+      -- shows the total actual time, in seconds, for the resize
+      -- operation.
     , _rpmEstimatedTimeToCompletionInSeconds :: Maybe Integer
       -- ^ The estimated time remaining, in seconds, until the resize
       -- operation is complete. This value is calculated based on the
@@ -85,20 +90,15 @@ data DescribeResizeResponse = DescribeResizeResponse
     , _rpmTotalResizeDataInMegaBytes :: Maybe Integer
       -- ^ The estimated total amount of data, in megabytes, on the cluster
       -- before the resize operation began.
-    , _rpmElapsedTimeInSeconds :: Maybe Integer
-      -- ^ The amount of seconds that have elapsed since the resize
-      -- operation began. After the resize operation completes, this value
-      -- shows the total actual time, in seconds, for the resize
-      -- operation.
     , _rpmStatus :: Maybe Text
       -- ^ The status of the resize operation. Valid Values: NONE |
       -- IN_PROGRESS | FAILED | SUCCEEDED.
-    , _rpmTargetNodeType :: Maybe Text
-      -- ^ The node type that the cluster will have after the resize
-      -- operation is complete.
     , _rpmTargetClusterType :: Maybe Text
       -- ^ The cluster type after the resize operation is complete. Valid
       -- Values: multi-node | single-node.
+    , _rpmTargetNodeType :: Maybe Text
+      -- ^ The node type that the cluster will have after the resize
+      -- operation is complete.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeResizeResponse

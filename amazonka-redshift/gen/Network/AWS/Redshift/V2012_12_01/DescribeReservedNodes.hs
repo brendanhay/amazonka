@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 describeReservedNodes :: DescribeReservedNodes
 describeReservedNodes = DescribeReservedNodes
     { _drnmMaxRecords = Nothing
-    , _drnmReservedNodeId = Nothing
     , _drnmMarker = Nothing
+    , _drnmReservedNodeId = Nothing
     }
 
 data DescribeReservedNodes = DescribeReservedNodes
@@ -52,8 +52,6 @@ data DescribeReservedNodes = DescribeReservedNodes
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _drnmReservedNodeId :: Maybe Text
-      -- ^ Identifier for the node reservation.
     , _drnmMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -62,6 +60,8 @@ data DescribeReservedNodes = DescribeReservedNodes
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
+    , _drnmReservedNodeId :: Maybe Text
+      -- ^ Identifier for the node reservation.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeReservedNodes

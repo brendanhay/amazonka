@@ -58,15 +58,15 @@ modifyInstanceAttribute :: Text -- ^ '_miasInstanceId'
                         -> ModifyInstanceAttribute
 modifyInstanceAttribute p1 = ModifyInstanceAttribute
     { _miasInstanceId = p1
-    , _miasSourceDestCheck = Nothing
     , _miasDisableApiTermination = Nothing
     , _miasEbsOptimized = Nothing
+    , _miasSourceDestCheck = Nothing
+    , _miasInstanceInitiatedShutdownBehavior = Nothing
+    , _miasInstanceType = Nothing
     , _miasKernel = Nothing
     , _miasRamdisk = Nothing
-    , _miasInstanceType = Nothing
     , _miasSriovNetSupport = Nothing
     , _miasUserData = Nothing
-    , _miasInstanceInitiatedShutdownBehavior = Nothing
     , _miasDryRun = Nothing
     , _miasGroups = mempty
     , _miasAttribute = Nothing
@@ -77,11 +77,6 @@ modifyInstanceAttribute p1 = ModifyInstanceAttribute
 data ModifyInstanceAttribute = ModifyInstanceAttribute
     { _miasInstanceId :: Text
       -- ^ The ID of the instance.
-    , _miasSourceDestCheck :: Maybe AttributeBooleanValue
-      -- ^ Specifies whether source/destination checking is enabled. A value
-      -- of true means that checking is enabled, and false means checking
-      -- is disabled. This value must be false for a NAT instance to
-      -- perform NAT.
     , _miasDisableApiTermination :: Maybe AttributeBooleanValue
       -- ^ Specifies whether to disable the ability to terminate the
       -- instance using the Amazon EC2 console, CLI, and API.
@@ -92,14 +87,23 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
       -- performance. This optimization isn't available with all instance
       -- types. Additional usage charges apply when using an EBS Optimized
       -- instance.
-    , _miasKernel :: Maybe AttributeValue
-      -- ^ Changes the instance's kernel to the specified value.
-    , _miasRamdisk :: Maybe AttributeValue
-      -- ^ Changes the instance's RAM disk to the specified value.
+    , _miasSourceDestCheck :: Maybe AttributeBooleanValue
+      -- ^ Specifies whether source/destination checking is enabled. A value
+      -- of true means that checking is enabled, and false means checking
+      -- is disabled. This value must be false for a NAT instance to
+      -- perform NAT.
+    , _miasInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
+      -- ^ Specifies whether an instance stops or terminates when you
+      -- initiate shutdown from the instance (using the operating system
+      -- command for system shutdown).
     , _miasInstanceType :: Maybe AttributeValue
       -- ^ Changes the instance type to the specified value. For more
       -- information, see Instance Types. If the instance type is not
       -- valid, the error returned is InvalidInstanceAttributeValue.
+    , _miasKernel :: Maybe AttributeValue
+      -- ^ Changes the instance's kernel to the specified value.
+    , _miasRamdisk :: Maybe AttributeValue
+      -- ^ Changes the instance's RAM disk to the specified value.
     , _miasSriovNetSupport :: Maybe AttributeValue
       -- ^ Set to simple to enable enhanced networking for the instance.
       -- There is no way to disable enhanced networking at this time. This
@@ -107,10 +111,6 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
       -- option with a PV instance can make it unreachable.
     , _miasUserData :: Maybe AttributeValue
       -- ^ Changes the instance's user data to the specified value.
-    , _miasInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
-      -- ^ Specifies whether an instance stops or terminates when you
-      -- initiate shutdown from the instance (using the operating system
-      -- command for system shutdown).
     , _miasDryRun :: Maybe Bool
       -- ^ 
     , _miasGroups :: [Text]

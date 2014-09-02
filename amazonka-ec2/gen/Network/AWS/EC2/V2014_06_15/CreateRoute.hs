@@ -53,37 +53,37 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateRoute' request.
-createRoute :: Text -- ^ '_crrRouteTableId'
-            -> Text -- ^ '_crrDestinationCidrBlock'
+createRoute :: Text -- ^ '_crrDestinationCidrBlock'
+            -> Text -- ^ '_crrRouteTableId'
             -> CreateRoute
 createRoute p1 p2 = CreateRoute
-    { _crrRouteTableId = p1
-    , _crrDestinationCidrBlock = p2
+    { _crrDestinationCidrBlock = p1
+    , _crrRouteTableId = p2
     , _crrDryRun = Nothing
-    , _crrVpcPeeringConnectionId = Nothing
+    , _crrGatewayId = Nothing
     , _crrInstanceId = Nothing
     , _crrNetworkInterfaceId = Nothing
-    , _crrGatewayId = Nothing
+    , _crrVpcPeeringConnectionId = Nothing
     }
 
 data CreateRoute = CreateRoute
-    { _crrRouteTableId :: Text
-      -- ^ The ID of the route table for the route.
-    , _crrDestinationCidrBlock :: Text
+    { _crrDestinationCidrBlock :: Text
       -- ^ The CIDR address block used for the destination match. Routing
       -- decisions are based on the most specific match.
+    , _crrRouteTableId :: Text
+      -- ^ The ID of the route table for the route.
     , _crrDryRun :: Maybe Bool
       -- ^ 
-    , _crrVpcPeeringConnectionId :: Maybe Text
-      -- ^ The ID of a VPC peering connection.
+    , _crrGatewayId :: Maybe Text
+      -- ^ The ID of an Internet gateway attached to your VPC.
     , _crrInstanceId :: Maybe Text
       -- ^ The ID of a NAT instance in your VPC. The operation fails if you
       -- specify an instance ID unless exactly one network interface is
       -- attached.
     , _crrNetworkInterfaceId :: Maybe Text
       -- ^ The ID of a network interface.
-    , _crrGatewayId :: Maybe Text
-      -- ^ The ID of an Internet gateway attached to your VPC.
+    , _crrVpcPeeringConnectionId :: Maybe Text
+      -- ^ The ID of a VPC peering connection.
     } deriving (Show, Generic)
 
 makeLenses ''CreateRoute

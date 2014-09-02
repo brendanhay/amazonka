@@ -27,6 +27,7 @@ executable amazonka-gen
         , bifunctors
         , bytestring
         , case-insensitive
+        , containers
         , data-default
         , directory
         , ede                  >= 0.1.5

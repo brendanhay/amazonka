@@ -57,12 +57,12 @@ instance ToQuery ModifyClusterParameterGroup where
     toQuery = genericQuery def
 
 data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
-    { _cpgnnParameterGroupStatus :: Maybe Text
+    { _cpgnnParameterGroupName :: Maybe Text
+      -- ^ The name of the cluster parameter group.
+    , _cpgnnParameterGroupStatus :: Maybe Text
       -- ^ The status of the parameter group. For example, if you made a
       -- change to a parameter group name-value pair, then the change
       -- could be pending a reboot of an associated cluster.
-    , _cpgnnParameterGroupName :: Maybe Text
-      -- ^ The name of the cluster parameter group.
     } deriving (Show, Generic)
 
 makeLenses ''ModifyClusterParameterGroupResponse

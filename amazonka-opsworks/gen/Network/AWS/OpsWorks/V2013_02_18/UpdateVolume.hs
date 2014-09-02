@@ -35,17 +35,17 @@ updateVolume :: Text -- ^ '_uvsVolumeId'
              -> UpdateVolume
 updateVolume p1 = UpdateVolume
     { _uvsVolumeId = p1
-    , _uvsName = Nothing
     , _uvsMountPoint = Nothing
+    , _uvsName = Nothing
     }
 
 data UpdateVolume = UpdateVolume
     { _uvsVolumeId :: Text
       -- ^ The volume ID.
-    , _uvsName :: Maybe Text
-      -- ^ The new name.
     , _uvsMountPoint :: Maybe Text
       -- ^ The new mount point.
+    , _uvsName :: Maybe Text
+      -- ^ The new name.
     } deriving (Show, Generic)
 
 makeLenses ''UpdateVolume

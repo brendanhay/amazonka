@@ -46,8 +46,8 @@ setTaskStatus p1 p2 = SetTaskStatus
     { _stsiTaskId = p1
     , _stsiTaskStatus = p2
     , _stsiErrorMessage = Nothing
-    , _stsiErrorStackTrace = Nothing
     , _stsiErrorId = Nothing
+    , _stsiErrorStackTrace = Nothing
     }
 
 data SetTaskStatus = SetTaskStatus
@@ -62,17 +62,17 @@ data SetTaskStatus = SetTaskStatus
       -- description of the error. This value is set on the physical
       -- attempt object. It is used to display error information to the
       -- user. The web service does not parse this value.
-    , _stsiErrorStackTrace :: Maybe Text
-      -- ^ If an error occurred during the task, this value specifies the
-      -- stack trace associated with the error. This value is set on the
-      -- physical attempt object. It is used to display error information
-      -- to the user. The web service does not parse this value.
     , _stsiErrorId :: Maybe Text
       -- ^ If an error occurred during the task, this value specifies an id
       -- value that represents the error. This value is set on the
       -- physical attempt object. It is used to display error information
       -- to the user. It should not start with string "Service_" which is
       -- reserved by the system.
+    , _stsiErrorStackTrace :: Maybe Text
+      -- ^ If an error occurred during the task, this value specifies the
+      -- stack trace associated with the error. This value is set on the
+      -- physical attempt object. It is used to display error information
+      -- to the user. The web service does not parse this value.
     } deriving (Show, Generic)
 
 makeLenses ''SetTaskStatus

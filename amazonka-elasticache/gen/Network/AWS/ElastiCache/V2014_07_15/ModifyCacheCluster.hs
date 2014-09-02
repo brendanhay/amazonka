@@ -43,17 +43,17 @@ modifyCacheCluster p1 = ModifyCacheCluster
     , _mccmAutoMinorVersionUpgrade = Nothing
     , _mccmCacheNodeIdsToRemove = mempty
     , _mccmCacheSecurityGroupNames = mempty
-    , _mccmSnapshotRetentionLimit = Nothing
     , _mccmNumCacheNodes = Nothing
+    , _mccmSnapshotRetentionLimit = Nothing
     , _mccmNewAvailabilityZones = mempty
     , _mccmSecurityGroupIds = mempty
-    , _mccmEngineVersion = Nothing
-    , _mccmCacheParameterGroupName = Nothing
-    , _mccmSnapshotWindow = Nothing
-    , _mccmPreferredMaintenanceWindow = Nothing
-    , _mccmNotificationTopicStatus = Nothing
     , _mccmAZMode = Nothing
+    , _mccmCacheParameterGroupName = Nothing
+    , _mccmEngineVersion = Nothing
     , _mccmNotificationTopicArn = Nothing
+    , _mccmNotificationTopicStatus = Nothing
+    , _mccmPreferredMaintenanceWindow = Nothing
+    , _mccmSnapshotWindow = Nothing
     }
 
 data ModifyCacheCluster = ModifyCacheCluster
@@ -92,13 +92,6 @@ data ModifyCacheCluster = ModifyCacheCluster
       -- created outside of an Amazon Virtual Private Cloud (VPC).
       -- Constraints: Must contain no more than 255 alphanumeric
       -- characters. Must not be "Default".
-    , _mccmSnapshotRetentionLimit :: Maybe Integer
-      -- ^ The number of days for which ElastiCache will retain automatic
-      -- cache cluster snapshots before deleting them. For example, if you
-      -- set SnapshotRetentionLimit to 5, then a snapshot that was taken
-      -- today will be retained for 5 days before being deleted.
-      -- ImportantIf the value of SnapshotRetentionLimit is set to zero
-      -- (0), backups are turned off.
     , _mccmNumCacheNodes :: Maybe Integer
       -- ^ The number of cache nodes that the cache cluster should have. If
       -- the value for NumCacheNodes is greater than the sum of the number
@@ -130,6 +123,13 @@ data ModifyCacheCluster = ModifyCacheCluster
       -- pending actions to modify the number of cache nodes in a cluster,
       -- use the ModifyCacheCluster request and set NumCacheNodes equal to
       -- the number of cache nodes currently in the cache cluster.
+    , _mccmSnapshotRetentionLimit :: Maybe Integer
+      -- ^ The number of days for which ElastiCache will retain automatic
+      -- cache cluster snapshots before deleting them. For example, if you
+      -- set SnapshotRetentionLimit to 5, then a snapshot that was taken
+      -- today will be retained for 5 days before being deleted.
+      -- ImportantIf the value of SnapshotRetentionLimit is set to zero
+      -- (0), backups are turned off.
     , _mccmNewAvailabilityZones :: [Text]
       -- ^ The list of Availability Zones where the new Memcached cache
       -- nodes will be created. This parameter is only valid when
@@ -165,28 +165,6 @@ data ModifyCacheCluster = ModifyCacheCluster
       -- ^ Specifies the VPC Security Groups associated with the cache
       -- cluster. This parameter can be used only with clusters that are
       -- created in an Amazon Virtual Private Cloud (VPC).
-    , _mccmEngineVersion :: Maybe Text
-      -- ^ The upgraded version of the cache engine to be run on the cache
-      -- nodes.
-    , _mccmCacheParameterGroupName :: Maybe Text
-      -- ^ The name of the cache parameter group to apply to this cache
-      -- cluster. This change is asynchronously applied as soon as
-      -- possible for parameters when the ApplyImmediately parameter is
-      -- specified as true for this request.
-    , _mccmSnapshotWindow :: Maybe Text
-      -- ^ The daily time range (in UTC) during which ElastiCache will begin
-      -- taking a daily snapshot of your cache cluster.
-    , _mccmPreferredMaintenanceWindow :: Maybe Text
-      -- ^ The weekly time range (in UTC) during which system maintenance
-      -- can occur. Note that system maintenance may result in an outage.
-      -- This change is made immediately. If you are moving this window to
-      -- the current time, there must be at least 120 minutes between the
-      -- current time and end of the window to ensure that pending changes
-      -- are applied.
-    , _mccmNotificationTopicStatus :: Maybe Text
-      -- ^ The status of the Amazon SNS notification topic. Notifications
-      -- are sent only if the status is active. Valid values: active |
-      -- inactive.
     , _mccmAZMode :: Maybe Text
       -- ^ Specifies whether the new nodes in this Memcached cache cluster
       -- are all created in a single Availability Zone or created across
@@ -200,10 +178,32 @@ data ModifyCacheCluster = ModifyCacheCluster
       -- existing Memcached nodes to different Availability Zones, see the
       -- Availability Zone Considerations section of Cache Node
       -- Considerations for Memcached.
+    , _mccmCacheParameterGroupName :: Maybe Text
+      -- ^ The name of the cache parameter group to apply to this cache
+      -- cluster. This change is asynchronously applied as soon as
+      -- possible for parameters when the ApplyImmediately parameter is
+      -- specified as true for this request.
+    , _mccmEngineVersion :: Maybe Text
+      -- ^ The upgraded version of the cache engine to be run on the cache
+      -- nodes.
     , _mccmNotificationTopicArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic to which
       -- notifications will be sent. The Amazon SNS topic owner must be
       -- same as the cache cluster owner.
+    , _mccmNotificationTopicStatus :: Maybe Text
+      -- ^ The status of the Amazon SNS notification topic. Notifications
+      -- are sent only if the status is active. Valid values: active |
+      -- inactive.
+    , _mccmPreferredMaintenanceWindow :: Maybe Text
+      -- ^ The weekly time range (in UTC) during which system maintenance
+      -- can occur. Note that system maintenance may result in an outage.
+      -- This change is made immediately. If you are moving this window to
+      -- the current time, there must be at least 120 minutes between the
+      -- current time and end of the window to ensure that pending changes
+      -- are applied.
+    , _mccmSnapshotWindow :: Maybe Text
+      -- ^ The daily time range (in UTC) during which ElastiCache will begin
+      -- taking a daily snapshot of your cache cluster.
     } deriving (Show, Generic)
 
 makeLenses ''ModifyCacheCluster

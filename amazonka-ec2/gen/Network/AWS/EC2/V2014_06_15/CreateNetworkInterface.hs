@@ -132,8 +132,8 @@ createNetworkInterface p1 = CreateNetworkInterface
     , _cnirSecondaryPrivateIpAddressCount = Nothing
     , _cnirPrivateIpAddresses = mempty
     , _cnirGroups = mempty
-    , _cnirPrivateIpAddress = Nothing
     , _cnirDescription = Nothing
+    , _cnirPrivateIpAddress = Nothing
     }
 
 data CreateNetworkInterface = CreateNetworkInterface
@@ -153,12 +153,12 @@ data CreateNetworkInterface = CreateNetworkInterface
       -- ^ One or more private IP addresses.
     , _cnirGroups :: [Text]
       -- ^ The IDs of one or more security groups.
+    , _cnirDescription :: Maybe Text
+      -- ^ A description for the network interface.
     , _cnirPrivateIpAddress :: Maybe Text
       -- ^ The primary private IP address of the network interface. If you
       -- don't specify an IP address, Amazon EC2 selects one for you from
       -- the subnet range.
-    , _cnirDescription :: Maybe Text
-      -- ^ A description for the network interface.
     } deriving (Show, Generic)
 
 makeLenses ''CreateNetworkInterface

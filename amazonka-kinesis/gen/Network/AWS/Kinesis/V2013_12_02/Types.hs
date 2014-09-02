@@ -183,29 +183,29 @@ instance ToJSON HashKeyRange
 -- | The unit of data of the Amazon Kinesis stream, which is composed of a
 -- sequence number, a partition key, and a data blob.
 data Record = Record
-    { _rSequenceNumber :: Text
-      -- ^ The unique identifier for the record in the Amazon Kinesis
-      -- stream.
-    , _rPartitionKey :: Text
-      -- ^ Identifies which shard in the stream the data record is assigned
-      -- to.
-    , _rData :: Base64
+    { _rData :: Base64
       -- ^ The data blob. The data in the blob is both opaque and immutable
       -- to the Amazon Kinesis service, which does not inspect, interpret,
       -- or change the data in the blob in any way. The maximum size of
       -- the data blob (the payload after Base64-decoding) is 50 kilobytes
       -- (KB).
+    , _rPartitionKey :: Text
+      -- ^ Identifies which shard in the stream the data record is assigned
+      -- to.
+    , _rSequenceNumber :: Text
+      -- ^ The unique identifier for the record in the Amazon Kinesis
+      -- stream.
     } deriving (Show, Generic)
 
 instance FromJSON Record
 
 -- | The range of possible sequence numbers for the shard.
 data SequenceNumberRange = SequenceNumberRange
-    { _snrStartingSequenceNumber :: Text
-      -- ^ The starting sequence number for the range.
-    , _snrEndingSequenceNumber :: Maybe Text
+    { _snrEndingSequenceNumber :: Maybe Text
       -- ^ The ending sequence number for the range. Shards that are in the
       -- OPEN state have an ending sequence number of null.
+    , _snrStartingSequenceNumber :: Text
+      -- ^ The starting sequence number for the range.
     } deriving (Show, Generic)
 
 instance FromJSON SequenceNumberRange
@@ -234,7 +234,16 @@ instance FromJSON Shard
 -- shard objects that comprise the stream, and states whether there are more
 -- shards available.
 data StreamDescription = StreamDescription
-    { _sdStreamStatus :: StreamStatus
+    { _sdHasMoreShards :: Bool
+      -- ^ If set to true there are more shards in the stream available to
+      -- describe.
+    , _sdShards :: [Shard]
+      -- ^ The shards that comprise the stream.
+    , _sdStreamARN :: Text
+      -- ^ The Amazon Resource Name (ARN) for the stream being described.
+    , _sdStreamName :: Text
+      -- ^ The name of the stream being described.
+    , _sdStreamStatus :: StreamStatus
       -- ^ The current status of the stream being described. The stream
       -- status is one of the following states: CREATING - The stream is
       -- being created. Upon receiving a CreateStream request, Amazon
@@ -247,15 +256,6 @@ data StreamDescription = StreamDescription
       -- stream. UPDATING - Shards in the stream are being merged or
       -- split. Read and write operations continue to work while the
       -- stream is in the UPDATING state.
-    , _sdHasMoreShards :: Bool
-      -- ^ If set to true there are more shards in the stream available to
-      -- describe.
-    , _sdStreamARN :: Text
-      -- ^ The Amazon Resource Name (ARN) for the stream being described.
-    , _sdShards :: [Shard]
-      -- ^ The shards that comprise the stream.
-    , _sdStreamName :: Text
-      -- ^ The name of the stream being described.
     } deriving (Show, Generic)
 
 instance FromJSON StreamDescription

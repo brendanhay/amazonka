@@ -44,27 +44,27 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CopyClusterSnapshot' request.
-copyClusterSnapshot :: Text -- ^ '_ccsnTargetSnapshotIdentifier'
-                    -> Text -- ^ '_ccsnSourceSnapshotIdentifier'
+copyClusterSnapshot :: Text -- ^ '_ccsnSourceSnapshotIdentifier'
+                    -> Text -- ^ '_ccsnTargetSnapshotIdentifier'
                     -> CopyClusterSnapshot
 copyClusterSnapshot p1 p2 = CopyClusterSnapshot
-    { _ccsnTargetSnapshotIdentifier = p1
-    , _ccsnSourceSnapshotIdentifier = p2
+    { _ccsnSourceSnapshotIdentifier = p1
+    , _ccsnTargetSnapshotIdentifier = p2
     , _ccsnSourceSnapshotClusterIdentifier = Nothing
     }
 
 data CopyClusterSnapshot = CopyClusterSnapshot
-    { _ccsnTargetSnapshotIdentifier :: Text
+    { _ccsnSourceSnapshotIdentifier :: Text
+      -- ^ The identifier for the source snapshot. Constraints: Must be the
+      -- identifier for a valid automated snapshot whose state is
+      -- available.
+    , _ccsnTargetSnapshotIdentifier :: Text
       -- ^ The identifier given to the new manual snapshot. Constraints:
       -- Cannot be null, empty, or blank. Must contain from 1 to 255
       -- alphanumeric characters or hyphens. First character must be a
       -- letter. Cannot end with a hyphen or contain two consecutive
       -- hyphens. Must be unique for the AWS account that is making the
       -- request.
-    , _ccsnSourceSnapshotIdentifier :: Text
-      -- ^ The identifier for the source snapshot. Constraints: Must be the
-      -- identifier for a valid automated snapshot whose state is
-      -- available.
     , _ccsnSourceSnapshotClusterIdentifier :: Maybe Text
       -- ^ The identifier of the cluster the source snapshot was created
       -- from. This parameter is required if your IAM user has a policy

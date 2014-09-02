@@ -35,11 +35,11 @@ data PutNotificationConfiguration = PutNotificationConfiguration
       -- ^ The type of event that will cause the notification to be sent.
       -- For details about notification types supported by Auto Scaling,
       -- see DescribeAutoScalingNotificationTypes.
+    , _pnctAutoScalingGroupName :: Text
+      -- ^ The name of the Auto Scaling group.
     , _pnctTopicARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
       -- Service (SNS) topic.
-    , _pnctAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group.
     } deriving (Show, Generic)
 
 makeLenses ''PutNotificationConfiguration

@@ -40,23 +40,23 @@ setLoadBasedAutoScaling :: Text -- ^ '_slbasrLayerId'
                         -> SetLoadBasedAutoScaling
 setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
     { _slbasrLayerId = p1
-    , _slbasrUpScaling = Nothing
     , _slbasrDownScaling = Nothing
+    , _slbasrUpScaling = Nothing
     , _slbasrEnable = Nothing
     }
 
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     { _slbasrLayerId :: Text
       -- ^ The layer ID.
-    , _slbasrUpScaling :: Maybe AutoScalingThresholds
-      -- ^ An AutoScalingThresholds object with the upscaling threshold
-      -- configuration. If the load exceeds these thresholds for a
-      -- specified amount of time, AWS OpsWorks starts a specified number
-      -- of instances.
     , _slbasrDownScaling :: Maybe AutoScalingThresholds
       -- ^ An AutoScalingThresholds object with the downscaling threshold
       -- configuration. If the load falls below these thresholds for a
       -- specified amount of time, AWS OpsWorks stops a specified number
+      -- of instances.
+    , _slbasrUpScaling :: Maybe AutoScalingThresholds
+      -- ^ An AutoScalingThresholds object with the upscaling threshold
+      -- configuration. If the load exceeds these thresholds for a
+      -- specified amount of time, AWS OpsWorks starts a specified number
       -- of instances.
     , _slbasrEnable :: Maybe Bool
       -- ^ Enables load-based auto scaling for the layer.

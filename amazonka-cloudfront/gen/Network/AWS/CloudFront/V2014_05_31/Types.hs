@@ -523,16 +523,16 @@ instance ToXML S3OriginConfig where
 data ActiveTrustedSigners = ActiveTrustedSigners
     { _atsEnabled :: Bool
       -- ^ Each active trusted signer.
-    , _atsQuantity :: Integer
-      -- ^ The number of unique trusted signers included in all cache
-      -- behaviors. For example, if three cache behaviors all list the
-      -- same three AWS accounts, the value of Quantity for
-      -- ActiveTrustedSigners will be 3.
     , _atsItems :: [Signer]
       -- ^ A complex type that contains one Signer complex type for each
       -- unique trusted signer that is specified in the TrustedSigners
       -- complex type, including trusted signers in the default cache
       -- behavior and in all of the other cache behaviors.
+    , _atsQuantity :: Integer
+      -- ^ The number of unique trusted signers included in all cache
+      -- behaviors. For example, if three cache behaviors all list the
+      -- same three AWS accounts, the value of Quantity for
+      -- ActiveTrustedSigners will be 3.
     } deriving (Show, Generic)
 
 instance FromXML ActiveTrustedSigners where
@@ -542,11 +542,11 @@ instance FromXML ActiveTrustedSigners where
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
 data Aliases = Aliases
-    { _aQuantity :: Integer
-      -- ^ The number of CNAMEs, if any, for this distribution.
-    , _aItems :: [Text]
+    { _aItems :: [Text]
       -- ^ Optional: A complex type that contains CNAME elements, if any,
       -- for this distribution. If Quantity is 0, you can omit Items.
+    , _aQuantity :: Integer
+      -- ^ The number of CNAMEs, if any, for this distribution.
     } deriving (Show, Generic)
 
 instance FromXML Aliases where
@@ -566,13 +566,13 @@ instance ToXML Aliases where
 -- don't want them to. For example, you may not want users to have permission
 -- to delete objects from your origin.
 data AllowedMethods = AllowedMethods
-    { _aoQuantity :: Integer
+    { _aoItems :: [Method]
+      -- ^ A complex type that contains the HTTP methods that you want
+      -- CloudFront to process and forward to your origin.
+    , _aoQuantity :: Integer
       -- ^ The number of HTTP methods that you want CloudFront to forward to
       -- your origin. Valid values are 2 (for GET and HEAD requests) and 7
       -- (for DELETE, GET, HEAD, OPTIONS, PATCH, POST, and PUT requests).
-    , _aoItems :: [Method]
-      -- ^ A complex type that contains the HTTP methods that you want
-      -- CloudFront to process and forward to your origin.
     } deriving (Show, Generic)
 
 instance FromXML AllowedMethods where
@@ -609,32 +609,31 @@ data CacheBehavior = CacheBehavior
       -- your custom origin so users can't perform operations that you
       -- don't want them to. For example, you may not want users to have
       -- permission to delete objects from your origin.
-    , _ccViewerProtocolPolicy :: ViewerProtocolPolicy
-      -- ^ Use this element to specify the protocol that users can use to
-      -- access the files in the origin specified by TargetOriginId when a
-      -- request matches the path pattern in PathPattern. If you want
-      -- CloudFront to allow end users to use any available protocol,
-      -- specify allow-all. If you want CloudFront to require HTTPS,
-      -- specify https. If you want CloudFront to respond to an HTTP
-      -- request with an HTTP status code of 301 (Moved Permanently) and
-      -- the HTTPS URL, specify redirect-to-https. The viewer then
-      -- resubmits the request using the HTTPS URL.
-    , _ccTargetOriginId :: Text
-      -- ^ The value of ID for the origin that you want CloudFront to route
-      -- requests to when a request matches the path pattern either for a
-      -- cache behavior or for the default cache behavior.
+    , _ccForwardedValues :: ForwardedValues
+      -- ^ A complex type that specifies how CloudFront handles query
+      -- strings, cookies and headers.
     , _ccMinTTL :: Integer
       -- ^ The minimum amount of time that you want objects to stay in
       -- CloudFront caches before CloudFront queries your origin to see
       -- whether the object has been updated.You can specify a value from
       -- 0 to 3,153,600,000 seconds (100 years).
+    , _ccPathPattern :: Text
+      -- ^ The pattern (for example, images/*.jpg) that specifies which
+      -- requests you want this cache behavior to apply to. When
+      -- CloudFront receives an end-user request, the requested path is
+      -- compared with path patterns in the order in which cache behaviors
+      -- are listed in the distribution. The path pattern for the default
+      -- cache behavior is * and cannot be changed. If the request for an
+      -- object does not match the path pattern for any cache behaviors,
+      -- CloudFront applies the behavior in the default cache behavior.
     , _ccSmoothStreaming :: Maybe Bool
       -- ^ Indicates whether you want to distribute media files in Microsoft
       -- Smooth Streaming format using the origin that is associated with
       -- this cache behavior. If so, specify true; if not, specify false.
-    , _ccForwardedValues :: ForwardedValues
-      -- ^ A complex type that specifies how CloudFront handles query
-      -- strings, cookies and headers.
+    , _ccTargetOriginId :: Text
+      -- ^ The value of ID for the origin that you want CloudFront to route
+      -- requests to when a request matches the path pattern either for a
+      -- cache behavior or for the default cache behavior.
     , _ccTrustedSigners :: TrustedSigners
       -- ^ A complex type that specifies the AWS accounts, if any, that you
       -- want to allow to create signed URLs for private content. If you
@@ -650,15 +649,16 @@ data CacheBehavior = CacheBehavior
       -- false), change Quantity as applicable, and specify all of the
       -- trusted signers that you want to include in the updated
       -- distribution.
-    , _ccPathPattern :: Text
-      -- ^ The pattern (for example, images/*.jpg) that specifies which
-      -- requests you want this cache behavior to apply to. When
-      -- CloudFront receives an end-user request, the requested path is
-      -- compared with path patterns in the order in which cache behaviors
-      -- are listed in the distribution. The path pattern for the default
-      -- cache behavior is * and cannot be changed. If the request for an
-      -- object does not match the path pattern for any cache behaviors,
-      -- CloudFront applies the behavior in the default cache behavior.
+    , _ccViewerProtocolPolicy :: ViewerProtocolPolicy
+      -- ^ Use this element to specify the protocol that users can use to
+      -- access the files in the origin specified by TargetOriginId when a
+      -- request matches the path pattern in PathPattern. If you want
+      -- CloudFront to allow end users to use any available protocol,
+      -- specify allow-all. If you want CloudFront to require HTTPS,
+      -- specify https. If you want CloudFront to respond to an HTTP
+      -- request with an HTTP status code of 301 (Moved Permanently) and
+      -- the HTTPS URL, specify redirect-to-https. The viewer then
+      -- resubmits the request using the HTTPS URL.
     } deriving (Show, Generic)
 
 instance FromXML CacheBehavior where
@@ -671,11 +671,11 @@ instance ToXML CacheBehavior where
 
 -- | A complex type that contains zero or more CacheBehavior elements.
 data CacheBehaviors = CacheBehaviors
-    { _cbQuantity :: Integer
-      -- ^ The number of cache behaviors for this distribution.
-    , _cbItems :: [CacheBehavior]
+    { _cbItems :: [CacheBehavior]
       -- ^ Optional: A complex type that contains cache behaviors for this
       -- distribution. If Quantity is 0, you can omit Items.
+    , _cbQuantity :: Integer
+      -- ^ The number of cache behaviors for this distribution.
     } deriving (Show, Generic)
 
 instance FromXML CacheBehaviors where
@@ -705,10 +705,7 @@ instance FromXML CloudFrontOriginAccessIdentity where
 
 -- | The identity's configuration information.
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
-    { _cfoaicComment :: Text
-      -- ^ Any comments you want to include about the origin access
-      -- identity.
-    , _cfoaicCallerReference :: Text
+    { _cfoaicCallerReference :: Text
       -- ^ A unique number that ensures the request can't be replayed. If
       -- the CallerReference is new (no matter the content of the
       -- CloudFrontOriginAccessIdentityConfig object), a new origin access
@@ -722,6 +719,9 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
       -- CloudFrontOriginAccessIdentityConfig is different from the
       -- original request, CloudFront returns a
       -- CloudFrontOriginAccessIdentityAlreadyExists error.
+    , _cfoaicComment :: Text
+      -- ^ Any comments you want to include about the origin access
+      -- identity.
     } deriving (Show, Generic)
 
 instance FromXML CloudFrontOriginAccessIdentityConfig where
@@ -734,9 +734,11 @@ instance ToXML CloudFrontOriginAccessIdentityConfig where
 
 -- | The CloudFrontOriginAccessIdentityList type.
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
-    { _cfoailQuantity :: Integer
-      -- ^ The number of CloudFront origin access identities that were
-      -- created by the current AWS account.
+    { _cfoailIsTruncated :: Bool
+      -- ^ A flag that indicates whether more origin access identities
+      -- remain to be listed. If your results were truncated, you can make
+      -- a follow-up pagination request using the Marker request parameter
+      -- to retrieve more items in the list.
     , _cfoailItems :: [CloudFrontOriginAccessIdentitySummary]
       -- ^ A complex type that contains one
       -- CloudFrontOriginAccessIdentitySummary element for each origin
@@ -749,11 +751,9 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value you can use for the Marker request parameter to continue
       -- listing your origin access identities where they left off.
-    , _cfoailIsTruncated :: Bool
-      -- ^ A flag that indicates whether more origin access identities
-      -- remain to be listed. If your results were truncated, you can make
-      -- a follow-up pagination request using the Marker request parameter
-      -- to retrieve more items in the list.
+    , _cfoailQuantity :: Integer
+      -- ^ The number of CloudFront origin access identities that were
+      -- created by the current AWS account.
     } deriving (Show, Generic)
 
 instance FromXML CloudFrontOriginAccessIdentityList where
@@ -762,12 +762,12 @@ instance FromXML CloudFrontOriginAccessIdentityList where
 
 -- | Summary of the information about a CloudFront origin access identity.
 data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary
-    { _cfoaisId :: Text
-      -- ^ The ID for the origin access identity. For example:
-      -- E74FTE3AJFJ256A.
-    , _cfoaisComment :: Text
+    { _cfoaisComment :: Text
       -- ^ The comment for this origin access identity, as originally
       -- specified when created.
+    , _cfoaisId :: Text
+      -- ^ The ID for the origin access identity. For example:
+      -- E74FTE3AJFJ256A.
     , _cfoaisS3CanonicalUserId :: Text
       -- ^ The Amazon S3 canonical user ID for the origin access identity,
       -- which you use when giving the origin access identity read
@@ -782,11 +782,11 @@ instance FromXML CloudFrontOriginAccessIdentitySummary where
 -- want CloudFront to forward to your origin that is associated with this
 -- cache behavior.
 data CookieNames = CookieNames
-    { _cnQuantity :: Integer
-      -- ^ The number of whitelisted cookies for this cache behavior.
-    , _cnItems :: [Text]
+    { _cnItems :: [Text]
       -- ^ Optional: A complex type that contains whitelisted cookies for
       -- this cache behavior. If Quantity is 0, you can omit Items.
+    , _cnQuantity :: Integer
+      -- ^ The number of whitelisted cookies for this cache behavior.
     } deriving (Show, Generic)
 
 instance FromXML CookieNames where
@@ -799,16 +799,16 @@ instance ToXML CookieNames where
 
 -- | A complex type that specifies how CloudFront handles cookies.
 data CookiePreference = CookiePreference
-    { _cpWhitelistedNames :: Maybe CookieNames
-      -- ^ A complex type that specifies the whitelisted cookies, if any,
-      -- that you want CloudFront to forward to your origin that is
-      -- associated with this cache behavior.
-    , _cpForward :: ItemSelection
+    { _cpForward :: ItemSelection
       -- ^ Use this element to specify whether you want CloudFront to
       -- forward cookies to the origin that is associated with this cache
       -- behavior. You can specify all, none or whitelist. If you choose
       -- All, CloudFront forwards all cookies regardless of how many your
       -- application uses.
+    , _cpWhitelistedNames :: Maybe CookieNames
+      -- ^ A complex type that specifies the whitelisted cookies, if any,
+      -- that you want CloudFront to forward to your origin that is
+      -- associated with this cache behavior.
     } deriving (Show, Generic)
 
 instance FromXML CookiePreference where
@@ -831,20 +831,7 @@ instance ToXML CookiePreference where
 -- update the distribution configuration and specify all of the custom error
 -- responses that you want to include in the updated distribution.
 data CustomErrorResponse = CustomErrorResponse
-    { _cesResponsePagePath :: Maybe Text
-      -- ^ The path of the custom error page (for example,
-      -- /custom_404.html). The path is relative to the distribution and
-      -- must begin with a slash (/). If the path includes any non-ASCII
-      -- characters or unsafe characters as defined in RFC 1783
-      -- (http://www.ietf.org/rfc/rfc1738.txt), URL encode those
-      -- characters. Do not URL encode any other characters in the path,
-      -- or CloudFront will not return the custom error page to the
-      -- viewer.
-    , _cesResponseCode :: Maybe Text
-      -- ^ The HTTP status code that you want CloudFront to return with the
-      -- custom error page to the viewer. For a list of HTTP status codes
-      -- that you can replace, see CloudFront Documentation.
-    , _cesErrorCachingMinTTL :: Maybe Integer
+    { _cesErrorCachingMinTTL :: Maybe Integer
       -- ^ The minimum amount of time you want HTTP error codes to stay in
       -- CloudFront caches before CloudFront queries your origin to see
       -- whether the object has been updated. You can specify a value from
@@ -853,6 +840,19 @@ data CustomErrorResponse = CustomErrorResponse
       -- ^ The 4xx or 5xx HTTP status code that you want to customize. For a
       -- list of HTTP status codes that you can customize, see CloudFront
       -- documentation.
+    , _cesResponseCode :: Maybe Text
+      -- ^ The HTTP status code that you want CloudFront to return with the
+      -- custom error page to the viewer. For a list of HTTP status codes
+      -- that you can replace, see CloudFront Documentation.
+    , _cesResponsePagePath :: Maybe Text
+      -- ^ The path of the custom error page (for example,
+      -- /custom_404.html). The path is relative to the distribution and
+      -- must begin with a slash (/). If the path includes any non-ASCII
+      -- characters or unsafe characters as defined in RFC 1783
+      -- (http://www.ietf.org/rfc/rfc1738.txt), URL encode those
+      -- characters. Do not URL encode any other characters in the path,
+      -- or CloudFront will not return the custom error page to the
+      -- viewer.
     } deriving (Show, Generic)
 
 instance FromXML CustomErrorResponse where
@@ -865,11 +865,11 @@ instance ToXML CustomErrorResponse where
 
 -- | A complex type that contains zero or more CustomErrorResponse elements.
 data CustomErrorResponses = CustomErrorResponses
-    { _cerQuantity :: Integer
-      -- ^ The number of custom error responses for this distribution.
-    , _cerItems :: [CustomErrorResponse]
+    { _cerItems :: [CustomErrorResponse]
       -- ^ Optional: A complex type that contains custom error responses for
       -- this distribution. If Quantity is 0, you can omit Items.
+    , _cerQuantity :: Integer
+      -- ^ The number of custom error responses for this distribution.
     } deriving (Show, Generic)
 
 instance FromXML CustomErrorResponses where
@@ -883,12 +883,12 @@ instance ToXML CustomErrorResponses where
 -- | A complex type that contains information about a custom origin. If the
 -- origin is an Amazon S3 bucket, use the S3OriginConfig element instead.
 data CustomOriginConfig = CustomOriginConfig
-    { _cocOriginProtocolPolicy :: OriginProtocolPolicy
-      -- ^ The origin protocol policy to apply to your origin.
-    , _cocHTTPPort :: Integer
+    { _cocHTTPPort :: Integer
       -- ^ The HTTP port the custom origin listens on.
     , _cocHTTPSPort :: Integer
       -- ^ The HTTPS port the custom origin listens on.
+    , _cocOriginProtocolPolicy :: OriginProtocolPolicy
+      -- ^ The origin protocol policy to apply to your origin.
     } deriving (Show, Generic)
 
 instance FromXML CustomOriginConfig where
@@ -914,20 +914,9 @@ data DefaultCacheBehavior = DefaultCacheBehavior
       -- your custom origin so users can't perform operations that you
       -- don't want them to. For example, you may not want users to have
       -- permission to delete objects from your origin.
-    , _dcbViewerProtocolPolicy :: ViewerProtocolPolicy
-      -- ^ Use this element to specify the protocol that users can use to
-      -- access the files in the origin specified by TargetOriginId when a
-      -- request matches the path pattern in PathPattern. If you want
-      -- CloudFront to allow end users to use any available protocol,
-      -- specify allow-all. If you want CloudFront to require HTTPS,
-      -- specify https. If you want CloudFront to respond to an HTTP
-      -- request with an HTTP status code of 301 (Moved Permanently) and
-      -- the HTTPS URL, specify redirect-to-https. The viewer then
-      -- resubmits the request using the HTTPS URL.
-    , _dcbTargetOriginId :: Text
-      -- ^ The value of ID for the origin that you want CloudFront to route
-      -- requests to when a request matches the path pattern either for a
-      -- cache behavior or for the default cache behavior.
+    , _dcbForwardedValues :: ForwardedValues
+      -- ^ A complex type that specifies how CloudFront handles query
+      -- strings, cookies and headers.
     , _dcbMinTTL :: Integer
       -- ^ The minimum amount of time that you want objects to stay in
       -- CloudFront caches before CloudFront queries your origin to see
@@ -937,9 +926,10 @@ data DefaultCacheBehavior = DefaultCacheBehavior
       -- ^ Indicates whether you want to distribute media files in Microsoft
       -- Smooth Streaming format using the origin that is associated with
       -- this cache behavior. If so, specify true; if not, specify false.
-    , _dcbForwardedValues :: ForwardedValues
-      -- ^ A complex type that specifies how CloudFront handles query
-      -- strings, cookies and headers.
+    , _dcbTargetOriginId :: Text
+      -- ^ The value of ID for the origin that you want CloudFront to route
+      -- requests to when a request matches the path pattern either for a
+      -- cache behavior or for the default cache behavior.
     , _dcbTrustedSigners :: TrustedSigners
       -- ^ A complex type that specifies the AWS accounts, if any, that you
       -- want to allow to create signed URLs for private content. If you
@@ -955,6 +945,16 @@ data DefaultCacheBehavior = DefaultCacheBehavior
       -- false), change Quantity as applicable, and specify all of the
       -- trusted signers that you want to include in the updated
       -- distribution.
+    , _dcbViewerProtocolPolicy :: ViewerProtocolPolicy
+      -- ^ Use this element to specify the protocol that users can use to
+      -- access the files in the origin specified by TargetOriginId when a
+      -- request matches the path pattern in PathPattern. If you want
+      -- CloudFront to allow end users to use any available protocol,
+      -- specify allow-all. If you want CloudFront to require HTTPS,
+      -- specify https. If you want CloudFront to respond to an HTTP
+      -- request with an HTTP status code of 301 (Moved Permanently) and
+      -- the HTTPS URL, specify redirect-to-https. The viewer then
+      -- resubmits the request using the HTTPS URL.
     } deriving (Show, Generic)
 
 instance FromXML DefaultCacheBehavior where
@@ -967,24 +967,7 @@ instance ToXML DefaultCacheBehavior where
 
 -- | The distribution's information.
 data Distribution = Distribution
-    { _dnInProgressInvalidationBatches :: Integer
-      -- ^ The number of invalidation batches currently in progress.
-    , _dnStatus :: Text
-      -- ^ This response element indicates the current status of the
-      -- distribution. When the status is Deployed, the distribution's
-      -- information is fully propagated throughout the Amazon CloudFront
-      -- system.
-    , _dnDistributionConfig :: DistributionConfig
-      -- ^ The current configuration information for the distribution.
-    , _dnLastModifiedTime :: ISO8601
-      -- ^ The date and time the distribution was last modified.
-    , _dnDomainName :: Text
-      -- ^ The domain name corresponding to the distribution. For example:
-      -- d604721fxaaqy9.cloudfront.net.
-    , _dnId :: Text
-      -- ^ The identifier for the distribution. For example:
-      -- EDFDVBD632BHDS5.
-    , _dnActiveTrustedSigners :: ActiveTrustedSigners
+    { _dnActiveTrustedSigners :: ActiveTrustedSigners
       -- ^ CloudFront automatically adds this element to the response only
       -- if you've set up the distribution to serve private content with
       -- signed URLs. The element lists the key pair IDs that CloudFront
@@ -994,6 +977,23 @@ data Distribution = Distribution
       -- includes the IDs of any active key pairs associated with the
       -- trusted signer's AWS account. If no KeyPairId element appears for
       -- a Signer, that signer can't create working signed URLs.
+    , _dnDistributionConfig :: DistributionConfig
+      -- ^ The current configuration information for the distribution.
+    , _dnDomainName :: Text
+      -- ^ The domain name corresponding to the distribution. For example:
+      -- d604721fxaaqy9.cloudfront.net.
+    , _dnId :: Text
+      -- ^ The identifier for the distribution. For example:
+      -- EDFDVBD632BHDS5.
+    , _dnInProgressInvalidationBatches :: Integer
+      -- ^ The number of invalidation batches currently in progress.
+    , _dnLastModifiedTime :: ISO8601
+      -- ^ The date and time the distribution was last modified.
+    , _dnStatus :: Text
+      -- ^ This response element indicates the current status of the
+      -- distribution. When the status is Deployed, the distribution's
+      -- information is fully propagated throughout the Amazon CloudFront
+      -- system.
     } deriving (Show, Generic)
 
 instance FromXML Distribution where
@@ -1002,52 +1002,11 @@ instance FromXML Distribution where
 
 -- | The distribution's configuration information.
 data DistributionConfig = DistributionConfig
-    { _dcEnabled :: Bool
-      -- ^ Whether the distribution is enabled to accept end user requests
-      -- for content.
-    , _dcAliases :: Aliases
+    { _dcAliases :: Aliases
       -- ^ A complex type that contains information about CNAMEs (alternate
       -- domain names), if any, for this distribution.
-    , _dcDefaultRootObject :: Text
-      -- ^ The object that you want CloudFront to return (for example,
-      -- index.html) when an end user requests the root URL for your
-      -- distribution (http://www.example.com) instead of an object in
-      -- your distribution (http://www.example.com/index.html). Specifying
-      -- a default root object avoids exposing the contents of your
-      -- distribution. If you don't want to specify a default root object
-      -- when you create a distribution, include an empty
-      -- DefaultRootObject element. To delete the default root object from
-      -- an existing distribution, update the distribution configuration
-      -- and include an empty DefaultRootObject element. To replace the
-      -- default root object, update the distribution configuration and
-      -- specify the new object.
-    , _dcPriceClass :: PriceClass
-      -- ^ A complex type that contains information about price class for
-      -- this distribution.
-    , _dcCustomErrorResponses :: Maybe CustomErrorResponses
-      -- ^ A complex type that contains zero or more CustomErrorResponse
-      -- elements.
-    , _dcViewerCertificate :: Maybe ViewerCertificate
-      -- ^ A complex type that contains information about viewer
-      -- certificates for this distribution.
-    , _dcRestrictions :: Maybe Restrictions
-      -- ^ A complex type that identifies ways in which you want to restrict
-      -- distribution of your content.
-    , _dcOrigins :: Origins
-      -- ^ A complex type that contains information about origins for this
-      -- distribution.
-    , _dcLogging :: LoggingConfig
-      -- ^ A complex type that controls whether access logs are written for
-      -- the distribution.
     , _dcCacheBehaviors :: CacheBehaviors
       -- ^ A complex type that contains zero or more CacheBehavior elements.
-    , _dcDefaultCacheBehavior :: DefaultCacheBehavior
-      -- ^ A complex type that describes the default cache behavior if you
-      -- do not specify a CacheBehavior element or if files don't match
-      -- any of the values of PathPattern in CacheBehavior elements.You
-      -- must create exactly one default cache behavior.
-    , _dcComment :: Text
-      -- ^ Any comments you want to include about the distribution.
     , _dcCallerReference :: Text
       -- ^ A unique number that ensures the request can't be replayed. If
       -- the CallerReference is new (no matter the content of the
@@ -1061,6 +1020,47 @@ data DistributionConfig = DistributionConfig
       -- the content of the DistributionConfig is different from the
       -- original request, CloudFront returns a DistributionAlreadyExists
       -- error.
+    , _dcComment :: Text
+      -- ^ Any comments you want to include about the distribution.
+    , _dcCustomErrorResponses :: Maybe CustomErrorResponses
+      -- ^ A complex type that contains zero or more CustomErrorResponse
+      -- elements.
+    , _dcDefaultCacheBehavior :: DefaultCacheBehavior
+      -- ^ A complex type that describes the default cache behavior if you
+      -- do not specify a CacheBehavior element or if files don't match
+      -- any of the values of PathPattern in CacheBehavior elements.You
+      -- must create exactly one default cache behavior.
+    , _dcDefaultRootObject :: Text
+      -- ^ The object that you want CloudFront to return (for example,
+      -- index.html) when an end user requests the root URL for your
+      -- distribution (http://www.example.com) instead of an object in
+      -- your distribution (http://www.example.com/index.html). Specifying
+      -- a default root object avoids exposing the contents of your
+      -- distribution. If you don't want to specify a default root object
+      -- when you create a distribution, include an empty
+      -- DefaultRootObject element. To delete the default root object from
+      -- an existing distribution, update the distribution configuration
+      -- and include an empty DefaultRootObject element. To replace the
+      -- default root object, update the distribution configuration and
+      -- specify the new object.
+    , _dcEnabled :: Bool
+      -- ^ Whether the distribution is enabled to accept end user requests
+      -- for content.
+    , _dcLogging :: LoggingConfig
+      -- ^ A complex type that controls whether access logs are written for
+      -- the distribution.
+    , _dcOrigins :: Origins
+      -- ^ A complex type that contains information about origins for this
+      -- distribution.
+    , _dcPriceClass :: PriceClass
+      -- ^ A complex type that contains information about price class for
+      -- this distribution.
+    , _dcRestrictions :: Maybe Restrictions
+      -- ^ A complex type that identifies ways in which you want to restrict
+      -- distribution of your content.
+    , _dcViewerCertificate :: Maybe ViewerCertificate
+      -- ^ A complex type that contains information about viewer
+      -- certificates for this distribution.
     } deriving (Show, Generic)
 
 instance FromXML DistributionConfig where
@@ -1073,9 +1073,11 @@ instance ToXML DistributionConfig where
 
 -- | The DistributionList type.
 data DistributionList = DistributionList
-    { _dlQuantity :: Integer
-      -- ^ The number of distributions that were created by the current AWS
-      -- account.
+    { _dlIsTruncated :: Bool
+      -- ^ A flag that indicates whether more distributions remain to be
+      -- listed. If your results were truncated, you can make a follow-up
+      -- pagination request using the Marker request parameter to retrieve
+      -- more distributions in the list.
     , _dlItems :: [DistributionSummary]
       -- ^ A complex type that contains one DistributionSummary element for
       -- each distribution that was created by the current AWS account.
@@ -1087,11 +1089,9 @@ data DistributionList = DistributionList
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value you can use for the Marker request parameter to continue
       -- listing your distributions where they left off.
-    , _dlIsTruncated :: Bool
-      -- ^ A flag that indicates whether more distributions remain to be
-      -- listed. If your results were truncated, you can make a follow-up
-      -- pagination request using the Marker request parameter to retrieve
-      -- more distributions in the list.
+    , _dlQuantity :: Integer
+      -- ^ The number of distributions that were created by the current AWS
+      -- account.
     } deriving (Show, Generic)
 
 instance FromXML DistributionList where
@@ -1100,48 +1100,48 @@ instance FromXML DistributionList where
 
 -- | A summary of the information for an Amazon CloudFront distribution.
 data DistributionSummary = DistributionSummary
-    { _dsStatus :: Text
-      -- ^ This response element indicates the current status of the
-      -- distribution. When the status is Deployed, the distribution's
-      -- information is fully propagated throughout the Amazon CloudFront
-      -- system.
-    , _dsEnabled :: Bool
-      -- ^ Whether the distribution is enabled to accept end user requests
-      -- for content.
-    , _dsAliases :: Aliases
+    { _dsAliases :: Aliases
       -- ^ A complex type that contains information about CNAMEs (alternate
       -- domain names), if any, for this distribution.
-    , _dsPriceClass :: PriceClass
+    , _dsCacheBehaviors :: CacheBehaviors
+      -- ^ A complex type that contains zero or more CacheBehavior elements.
+    , _dsComment :: Text
+      -- ^ The comment originally specified when this distribution was
+      -- created.
     , _dsCustomErrorResponses :: CustomErrorResponses
       -- ^ A complex type that contains zero or more CustomErrorResponses
       -- elements.
-    , _dsLastModifiedTime :: ISO8601
-      -- ^ The date and time the distribution was last modified.
-    , _dsViewerCertificate :: ViewerCertificate
-      -- ^ A complex type that contains information about viewer
-      -- certificates for this distribution.
-    , _dsDomainName :: Text
-      -- ^ The domain name corresponding to the distribution. For example:
-      -- d604721fxaaqy9.cloudfront.net.
-    , _dsRestrictions :: Restrictions
-      -- ^ A complex type that identifies ways in which you want to restrict
-      -- distribution of your content.
-    , _dsOrigins :: Origins
-      -- ^ A complex type that contains information about origins for this
-      -- distribution.
-    , _dsId :: Text
-      -- ^ The identifier for the distribution. For example:
-      -- EDFDVBD632BHDS5.
-    , _dsCacheBehaviors :: CacheBehaviors
-      -- ^ A complex type that contains zero or more CacheBehavior elements.
     , _dsDefaultCacheBehavior :: DefaultCacheBehavior
       -- ^ A complex type that describes the default cache behavior if you
       -- do not specify a CacheBehavior element or if files don't match
       -- any of the values of PathPattern in CacheBehavior elements.You
       -- must create exactly one default cache behavior.
-    , _dsComment :: Text
-      -- ^ The comment originally specified when this distribution was
-      -- created.
+    , _dsDomainName :: Text
+      -- ^ The domain name corresponding to the distribution. For example:
+      -- d604721fxaaqy9.cloudfront.net.
+    , _dsEnabled :: Bool
+      -- ^ Whether the distribution is enabled to accept end user requests
+      -- for content.
+    , _dsId :: Text
+      -- ^ The identifier for the distribution. For example:
+      -- EDFDVBD632BHDS5.
+    , _dsLastModifiedTime :: ISO8601
+      -- ^ The date and time the distribution was last modified.
+    , _dsOrigins :: Origins
+      -- ^ A complex type that contains information about origins for this
+      -- distribution.
+    , _dsPriceClass :: PriceClass
+    , _dsRestrictions :: Restrictions
+      -- ^ A complex type that identifies ways in which you want to restrict
+      -- distribution of your content.
+    , _dsStatus :: Text
+      -- ^ This response element indicates the current status of the
+      -- distribution. When the status is Deployed, the distribution's
+      -- information is fully propagated throughout the Amazon CloudFront
+      -- system.
+    , _dsViewerCertificate :: ViewerCertificate
+      -- ^ A complex type that contains information about viewer
+      -- certificates for this distribution.
     } deriving (Show, Generic)
 
 instance FromXML DistributionSummary where
@@ -1151,11 +1151,11 @@ instance FromXML DistributionSummary where
 -- | A complex type that specifies how CloudFront handles query strings, cookies
 -- and headers.
 data ForwardedValues = ForwardedValues
-    { _fvHeaders :: Maybe Headers
+    { _fvCookies :: CookiePreference
+      -- ^ A complex type that specifies how CloudFront handles cookies.
+    , _fvHeaders :: Maybe Headers
       -- ^ A complex type that specifies the Headers, if any, that you want
       -- CloudFront to vary upon for this cache behavior.
-    , _fvCookies :: CookiePreference
-      -- ^ A complex type that specifies how CloudFront handles cookies.
     , _fvQueryString :: Bool
       -- ^ Indicates whether you want CloudFront to forward query strings to
       -- the origin that is associated with this cache behavior. If so,
@@ -1177,11 +1177,7 @@ instance ToXML ForwardedValues where
 -- information about the accuracy of these databases, see How accurate are
 -- your GeoIP databases? on the MaxMind website.
 data GeoRestriction = GeoRestriction
-    { _grQuantity :: Integer
-      -- ^ When geo restriction is enabled, this is the number of countries
-      -- in your whitelist or blacklist. Otherwise, when it is not
-      -- enabled, Quantity is 0, and you can omit Items.
-    , _grItems :: [Text]
+    { _grItems :: [Text]
       -- ^ A complex type that contains a Location element for each country
       -- in which you want CloudFront either to distribute your content
       -- (whitelist) or not distribute your content (blacklist). The
@@ -1193,6 +1189,10 @@ data GeoRestriction = GeoRestriction
       -- code on the International Organization for Standardization
       -- website. You can also refer to the country list in the CloudFront
       -- console, which includes both country names and codes.
+    , _grQuantity :: Integer
+      -- ^ When geo restriction is enabled, this is the number of countries
+      -- in your whitelist or blacklist. Otherwise, when it is not
+      -- enabled, Quantity is 0, and you can omit Items.
     , _grRestrictionType :: GeoRestrictionType
       -- ^ The method that you want to use to restrict distribution of your
       -- content by country: - none: No geo restriction is enabled,
@@ -1214,7 +1214,11 @@ instance ToXML GeoRestriction where
 -- | A complex type that specifies the Headers, if any, that you want CloudFront
 -- to vary upon for this cache behavior.
 data Headers = Headers
-    { _hsQuantity :: Integer
+    { _hsItems :: [Text]
+      -- ^ Optional: A complex type that contains a Name element for each
+      -- header that you want CloudFront to forward to the origin and to
+      -- vary on for this cache behavior. If Quantity is 0, omit Items.
+    , _hsQuantity :: Integer
       -- ^ The number of different headers that you want CloudFront to
       -- forward to the origin and to vary on for this cache behavior. The
       -- maximum number of headers that you can specify by name is 10. If
@@ -1223,10 +1227,6 @@ data Headers = Headers
       -- don't want CloudFront to forward any additional headers to the
       -- origin or to vary on any headers, specify 0 for Quantity and omit
       -- Items.
-    , _hsItems :: [Text]
-      -- ^ Optional: A complex type that contains a Name element for each
-      -- header that you want CloudFront to forward to the origin and to
-      -- vary on for this cache behavior. If Quantity is 0, omit Items.
     } deriving (Show, Generic)
 
 instance FromXML Headers where
@@ -1239,16 +1239,16 @@ instance ToXML Headers where
 
 -- | The invalidation's information.
 data Invalidation = Invalidation
-    { _inStatus :: Text
-      -- ^ The status of the invalidation request. When the invalidation
-      -- batch is finished, the status is Completed.
-    , _inInvalidationBatch :: InvalidationBatch
-      -- ^ The current invalidation information for the batch request.
+    { _inCreateTime :: ISO8601
+      -- ^ The date and time the invalidation request was first made.
     , _inId :: Text
       -- ^ The identifier for the invalidation request. For example:
       -- IDFDVBD632BHDS5.
-    , _inCreateTime :: ISO8601
-      -- ^ The date and time the invalidation request was first made.
+    , _inInvalidationBatch :: InvalidationBatch
+      -- ^ The current invalidation information for the batch request.
+    , _inStatus :: Text
+      -- ^ The status of the invalidation request. When the invalidation
+      -- batch is finished, the status is Completed.
     } deriving (Show, Generic)
 
 instance FromXML Invalidation where
@@ -1290,9 +1290,11 @@ instance ToXML InvalidationBatch where
 
 -- | Information about invalidation batches.
 data InvalidationList = InvalidationList
-    { _ilQuantity :: Integer
-      -- ^ The number of invalidation batches that were created by the
-      -- current AWS account.
+    { _ilIsTruncated :: Bool
+      -- ^ A flag that indicates whether more invalidation batch requests
+      -- remain to be listed. If your results were truncated, you can make
+      -- a follow-up pagination request using the Marker request parameter
+      -- to retrieve more invalidation batches in the list.
     , _ilItems :: [InvalidationSummary]
       -- ^ A complex type that contains one InvalidationSummary element for
       -- each invalidation batch that was created by the current AWS
@@ -1305,11 +1307,9 @@ data InvalidationList = InvalidationList
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value you can use for the Marker request parameter to continue
       -- listing your invalidation batches where they left off.
-    , _ilIsTruncated :: Bool
-      -- ^ A flag that indicates whether more invalidation batch requests
-      -- remain to be listed. If your results were truncated, you can make
-      -- a follow-up pagination request using the Marker request parameter
-      -- to retrieve more invalidation batches in the list.
+    , _ilQuantity :: Integer
+      -- ^ The number of invalidation batches that were created by the
+      -- current AWS account.
     } deriving (Show, Generic)
 
 instance FromXML InvalidationList where
@@ -1318,11 +1318,11 @@ instance FromXML InvalidationList where
 
 -- | Summary of an invalidation request.
 data InvalidationSummary = InvalidationSummary
-    { _iiiiiiiiiiyStatus :: Text
-      -- ^ The status of an invalidation request.
+    { _iiiiiiiiiiyCreateTime :: ISO8601
     , _iiiiiiiiiiyId :: Text
       -- ^ The unique ID for an invalidation request.
-    , _iiiiiiiiiiyCreateTime :: ISO8601
+    , _iiiiiiiiiiyStatus :: Text
+      -- ^ The status of an invalidation request.
     } deriving (Show, Generic)
 
 instance FromXML InvalidationSummary where
@@ -1332,11 +1332,11 @@ instance FromXML InvalidationSummary where
 -- | A complex type that lists the active CloudFront key pairs, if any, that are
 -- associated with AwsAccountNumber.
 data KeyPairIds = KeyPairIds
-    { _kpiQuantity :: Integer
-      -- ^ The number of active CloudFront key pairs for AwsAccountNumber.
-    , _kpiItems :: [Text]
+    { _kpiItems :: [Text]
       -- ^ A complex type that lists the active CloudFront key pairs, if
       -- any, that are associated with AwsAccountNumber.
+    , _kpiQuantity :: Integer
+      -- ^ The number of active CloudFront key pairs for AwsAccountNumber.
     } deriving (Show, Generic)
 
 instance FromXML KeyPairIds where
@@ -1350,7 +1350,10 @@ instance ToXML KeyPairIds where
 -- | A complex type that controls whether access logs are written for the
 -- distribution.
 data LoggingConfig = LoggingConfig
-    { _lcEnabled :: Bool
+    { _lcBucket :: Text
+      -- ^ The Amazon S3 bucket to store the access logs in, for example,
+      -- myawslogbucket.s3.amazonaws.com.
+    , _lcEnabled :: Bool
       -- ^ Specifies whether you want CloudFront to save access logs to an
       -- Amazon S3 bucket. If you do not want to enable logging when you
       -- create a distribution or if you want to disable logging for an
@@ -1358,15 +1361,6 @@ data LoggingConfig = LoggingConfig
       -- empty Bucket and Prefix elements. If you specify false for
       -- Enabled but you specify values for Bucket, prefix and
       -- IncludeCookies, the values are automatically deleted.
-    , _lcPrefix :: Text
-      -- ^ An optional string that you want CloudFront to prefix to the
-      -- access log filenames for this distribution, for example,
-      -- myprefix/. If you want to enable logging, but you do not want to
-      -- specify a prefix, you still must include an empty Prefix element
-      -- in the Logging element.
-    , _lcBucket :: Text
-      -- ^ The Amazon S3 bucket to store the access logs in, for example,
-      -- myawslogbucket.s3.amazonaws.com.
     , _lcIncludeCookies :: Bool
       -- ^ Specifies whether you want CloudFront to include cookies in
       -- access logs, specify true for IncludeCookies. If you choose to
@@ -1375,6 +1369,12 @@ data LoggingConfig = LoggingConfig
       -- If you do not want to include cookies when you create a
       -- distribution or if you want to disable include cookies for an
       -- existing distribution, specify false for IncludeCookies.
+    , _lcPrefix :: Text
+      -- ^ An optional string that you want CloudFront to prefix to the
+      -- access log filenames for this distribution, for example,
+      -- myprefix/. If you want to enable logging, but you do not want to
+      -- specify a prefix, you still must include an empty Prefix element
+      -- in the Logging element.
     } deriving (Show, Generic)
 
 instance FromXML LoggingConfig where
@@ -1393,10 +1393,6 @@ data Origin = Origin
       -- ^ A complex type that contains information about a custom origin.
       -- If the origin is an Amazon S3 bucket, use the S3OriginConfig
       -- element instead.
-    , _onS3OriginConfig :: Maybe S3OriginConfig
-      -- ^ A complex type that contains information about the Amazon S3
-      -- origin. If the origin is a custom origin, use the
-      -- CustomOriginConfig element instead.
     , _onDomainName :: Text
       -- ^ Amazon S3 origins: The DNS name of the Amazon S3 bucket from
       -- which you want CloudFront to get objects for this origin, for
@@ -1409,6 +1405,10 @@ data Origin = Origin
       -- create a cache behavior. The Id identifies the origin that
       -- CloudFront routes a request to when the request matches the path
       -- pattern for that cache behavior.
+    , _onS3OriginConfig :: Maybe S3OriginConfig
+      -- ^ A complex type that contains information about the Amazon S3
+      -- origin. If the origin is a custom origin, use the
+      -- CustomOriginConfig element instead.
     } deriving (Show, Generic)
 
 instance FromXML Origin where
@@ -1422,10 +1422,10 @@ instance ToXML Origin where
 -- | A complex type that contains information about origins for this
 -- distribution.
 data Origins = Origins
-    { _osQuantity :: Integer
-      -- ^ The number of origins for this distribution.
-    , _osItems :: Maybe [Origin]
+    { _osItems :: Maybe [Origin]
       -- ^ A complex type that contains origins for this distribution.
+    , _osQuantity :: Integer
+      -- ^ The number of origins for this distribution.
     } deriving (Show, Generic)
 
 instance FromXML Origins where
@@ -1444,11 +1444,11 @@ instance ToXML Origins where
 -- URL encode any other characters in the path, or CloudFront will not
 -- invalidate the old version of the updated object.
 data Paths = Paths
-    { _psQuantity :: Integer
-      -- ^ The number of objects that you want to invalidate.
-    , _psItems :: [Text]
+    { _psItems :: [Text]
       -- ^ A complex type that contains a list of the objects that you want
       -- to invalidate.
+    , _psQuantity :: Integer
+      -- ^ The number of objects that you want to invalidate.
     } deriving (Show, Generic)
 
 instance FromXML Paths where
@@ -1480,12 +1480,12 @@ instance ToXML S3Origin where
 -- TrustedSigners complex type, as well as their active CloudFront key pair
 -- IDs, if any.
 data Signer = Signer
-    { _szAwsAccountNumber :: Maybe Text
+    { _srAwsAccountNumber :: Maybe Text
       -- ^ Specifies an AWS account that can create signed URLs. Values:
       -- self, which indicates that the AWS account that was used to
       -- create the distribution can created signed URLs, or an AWS
       -- account number. Omit the dashes in the account number.
-    , _szKeyPairIds :: Maybe KeyPairIds
+    , _srKeyPairIds :: Maybe KeyPairIds
       -- ^ A complex type that lists the active CloudFront key pairs, if
       -- any, that are associated with AwsAccountNumber.
     } deriving (Show, Generic)
@@ -1496,22 +1496,7 @@ instance FromXML Signer where
 
 -- | The streaming distribution's information.
 data StreamingDistribution = StreamingDistribution
-    { _sdStatus :: Text
-      -- ^ The current status of the streaming distribution. When the status
-      -- is Deployed, the distribution's information is fully propagated
-      -- throughout the Amazon CloudFront system.
-    , _sdStreamingDistributionConfig :: StreamingDistributionConfig
-      -- ^ The current configuration information for the streaming
-      -- distribution.
-    , _sdLastModifiedTime :: Maybe ISO8601
-      -- ^ The date and time the distribution was last modified.
-    , _sdDomainName :: Text
-      -- ^ The domain name corresponding to the streaming distribution. For
-      -- example: s5c39gqb8ow64r.cloudfront.net.
-    , _sdId :: Text
-      -- ^ The identifier for the streaming distribution. For example:
-      -- EGTXBD79H29TRA8.
-    , _sdActiveTrustedSigners :: ActiveTrustedSigners
+    { _sdActiveTrustedSigners :: ActiveTrustedSigners
       -- ^ CloudFront automatically adds this element to the response only
       -- if you've set up the distribution to serve private content with
       -- signed URLs. The element lists the key pair IDs that CloudFront
@@ -1521,6 +1506,21 @@ data StreamingDistribution = StreamingDistribution
       -- includes the IDs of any active key pairs associated with the
       -- trusted signer's AWS account. If no KeyPairId element appears for
       -- a Signer, that signer can't create working signed URLs.
+    , _sdDomainName :: Text
+      -- ^ The domain name corresponding to the streaming distribution. For
+      -- example: s5c39gqb8ow64r.cloudfront.net.
+    , _sdId :: Text
+      -- ^ The identifier for the streaming distribution. For example:
+      -- EGTXBD79H29TRA8.
+    , _sdLastModifiedTime :: Maybe ISO8601
+      -- ^ The date and time the distribution was last modified.
+    , _sdStatus :: Text
+      -- ^ The current status of the streaming distribution. When the status
+      -- is Deployed, the distribution's information is fully propagated
+      -- throughout the Amazon CloudFront system.
+    , _sdStreamingDistributionConfig :: StreamingDistributionConfig
+      -- ^ The current configuration information for the streaming
+      -- distribution.
     } deriving (Show, Generic)
 
 instance FromXML StreamingDistribution where
@@ -1529,12 +1529,31 @@ instance FromXML StreamingDistribution where
 
 -- | The streaming distribution's configuration information.
 data StreamingDistributionConfig = StreamingDistributionConfig
-    { _sdcEnabled :: Bool
-      -- ^ Whether the streaming distribution is enabled to accept end user
-      -- requests for content.
-    , _sdcAliases :: Aliases
+    { _sdcAliases :: Aliases
       -- ^ A complex type that contains information about CNAMEs (alternate
       -- domain names), if any, for this streaming distribution.
+    , _sdcCallerReference :: Text
+      -- ^ A unique number that ensures the request can't be replayed. If
+      -- the CallerReference is new (no matter the content of the
+      -- StreamingDistributionConfig object), a new streaming distribution
+      -- is created. If the CallerReference is a value you already sent in
+      -- a previous request to create a streaming distribution, and the
+      -- content of the StreamingDistributionConfig is identical to the
+      -- original request (ignoring white space), the response includes
+      -- the same information returned to the original request. If the
+      -- CallerReference is a value you already sent in a previous request
+      -- to create a streaming distribution but the content of the
+      -- StreamingDistributionConfig is different from the original
+      -- request, CloudFront returns a DistributionAlreadyExists error.
+    , _sdcComment :: Text
+      -- ^ Any comments you want to include about the streaming
+      -- distribution.
+    , _sdcEnabled :: Bool
+      -- ^ Whether the streaming distribution is enabled to accept end user
+      -- requests for content.
+    , _sdcLogging :: StreamingLoggingConfig
+      -- ^ A complex type that controls whether access logs are written for
+      -- the streaming distribution.
     , _sdcPriceClass :: PriceClass
       -- ^ A complex type that contains information about price class for
       -- this streaming distribution.
@@ -1557,25 +1576,6 @@ data StreamingDistributionConfig = StreamingDistributionConfig
       -- false), change Quantity as applicable, and specify all of the
       -- trusted signers that you want to include in the updated
       -- distribution.
-    , _sdcLogging :: StreamingLoggingConfig
-      -- ^ A complex type that controls whether access logs are written for
-      -- the streaming distribution.
-    , _sdcComment :: Text
-      -- ^ Any comments you want to include about the streaming
-      -- distribution.
-    , _sdcCallerReference :: Text
-      -- ^ A unique number that ensures the request can't be replayed. If
-      -- the CallerReference is new (no matter the content of the
-      -- StreamingDistributionConfig object), a new streaming distribution
-      -- is created. If the CallerReference is a value you already sent in
-      -- a previous request to create a streaming distribution, and the
-      -- content of the StreamingDistributionConfig is identical to the
-      -- original request (ignoring white space), the response includes
-      -- the same information returned to the original request. If the
-      -- CallerReference is a value you already sent in a previous request
-      -- to create a streaming distribution but the content of the
-      -- StreamingDistributionConfig is different from the original
-      -- request, CloudFront returns a DistributionAlreadyExists error.
     } deriving (Show, Generic)
 
 instance FromXML StreamingDistributionConfig where
@@ -1588,9 +1588,11 @@ instance ToXML StreamingDistributionConfig where
 
 -- | The StreamingDistributionList type.
 data StreamingDistributionList = StreamingDistributionList
-    { _sdlQuantity :: Integer
-      -- ^ The number of streaming distributions that were created by the
-      -- current AWS account.
+    { _sdlIsTruncated :: Bool
+      -- ^ A flag that indicates whether more streaming distributions remain
+      -- to be listed. If your results were truncated, you can make a
+      -- follow-up pagination request using the Marker request parameter
+      -- to retrieve more distributions in the list.
     , _sdlItems :: [StreamingDistributionSummary]
       -- ^ A complex type that contains one StreamingDistributionSummary
       -- element for each distribution that was created by the current AWS
@@ -1603,11 +1605,9 @@ data StreamingDistributionList = StreamingDistributionList
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value you can use for the Marker request parameter to continue
       -- listing your streaming distributions where they left off.
-    , _sdlIsTruncated :: Bool
-      -- ^ A flag that indicates whether more streaming distributions remain
-      -- to be listed. If your results were truncated, you can make a
-      -- follow-up pagination request using the Marker request parameter
-      -- to retrieve more distributions in the list.
+    , _sdlQuantity :: Integer
+      -- ^ The number of streaming distributions that were created by the
+      -- current AWS account.
     } deriving (Show, Generic)
 
 instance FromXML StreamingDistributionList where
@@ -1617,26 +1617,32 @@ instance FromXML StreamingDistributionList where
 -- | A summary of the information for an Amazon CloudFront streaming
 -- distribution.
 data StreamingDistributionSummary = StreamingDistributionSummary
-    { _sdsStatus :: Text
-      -- ^ Indicates the current status of the distribution. When the status
-      -- is Deployed, the distribution's information is fully propagated
-      -- throughout the Amazon CloudFront system.
+    { _sdsAliases :: Aliases
+      -- ^ A complex type that contains information about CNAMEs (alternate
+      -- domain names), if any, for this streaming distribution.
+    , _sdsComment :: Text
+      -- ^ The comment originally specified when this distribution was
+      -- created.
+    , _sdsDomainName :: Text
+      -- ^ The domain name corresponding to the distribution. For example:
+      -- d604721fxaaqy9.cloudfront.net.
     , _sdsEnabled :: Bool
       -- ^ Whether the distribution is enabled to accept end user requests
       -- for content.
-    , _sdsAliases :: Aliases
-      -- ^ A complex type that contains information about CNAMEs (alternate
-      -- domain names), if any, for this streaming distribution.
-    , _sdsPriceClass :: PriceClass
+    , _sdsId :: Text
+      -- ^ The identifier for the distribution. For example:
+      -- EDFDVBD632BHDS5.
     , _sdsLastModifiedTime :: ISO8601
       -- ^ The date and time the distribution was last modified.
+    , _sdsPriceClass :: PriceClass
     , _sdsS3Origin :: S3Origin
       -- ^ A complex type that contains information about the Amazon S3
       -- bucket from which you want CloudFront to get your media files for
       -- distribution.
-    , _sdsDomainName :: Text
-      -- ^ The domain name corresponding to the distribution. For example:
-      -- d604721fxaaqy9.cloudfront.net.
+    , _sdsStatus :: Text
+      -- ^ Indicates the current status of the distribution. When the status
+      -- is Deployed, the distribution's information is fully propagated
+      -- throughout the Amazon CloudFront system.
     , _sdsTrustedSigners :: TrustedSigners
       -- ^ A complex type that specifies the AWS accounts, if any, that you
       -- want to allow to create signed URLs for private content. If you
@@ -1652,12 +1658,6 @@ data StreamingDistributionSummary = StreamingDistributionSummary
       -- false), change Quantity as applicable, and specify all of the
       -- trusted signers that you want to include in the updated
       -- distribution.
-    , _sdsId :: Text
-      -- ^ The identifier for the distribution. For example:
-      -- EDFDVBD632BHDS5.
-    , _sdsComment :: Text
-      -- ^ The comment originally specified when this distribution was
-      -- created.
     } deriving (Show, Generic)
 
 instance FromXML StreamingDistributionSummary where
@@ -1667,7 +1667,10 @@ instance FromXML StreamingDistributionSummary where
 -- | A complex type that controls whether access logs are written for the
 -- streaming distribution.
 data StreamingLoggingConfig = StreamingLoggingConfig
-    { _slcEnabled :: Bool
+    { _slcBucket :: Text
+      -- ^ The Amazon S3 bucket to store the access logs in, for example,
+      -- myawslogbucket.s3.amazonaws.com.
+    , _slcEnabled :: Bool
       -- ^ Specifies whether you want CloudFront to save access logs to an
       -- Amazon S3 bucket. If you do not want to enable logging when you
       -- create a streaming distribution or if you want to disable logging
@@ -1681,9 +1684,6 @@ data StreamingLoggingConfig = StreamingLoggingConfig
       -- example, myprefix/. If you want to enable logging, but you do not
       -- want to specify a prefix, you still must include an empty Prefix
       -- element in the Logging element.
-    , _slcBucket :: Text
-      -- ^ The Amazon S3 bucket to store the access logs in, for example,
-      -- myawslogbucket.s3.amazonaws.com.
     } deriving (Show, Generic)
 
 instance FromXML StreamingLoggingConfig where
@@ -1711,11 +1711,11 @@ data TrustedSigners = TrustedSigners
       -- ^ Specifies whether you want to require end users to use signed
       -- URLs to access the files specified by PathPattern and
       -- TargetOriginId.
-    , _tsQuantity :: Integer
-      -- ^ The number of trusted signers for this cache behavior.
     , _tsItems :: [Text]
       -- ^ Optional: A complex type that contains trusted signers for this
       -- cache behavior. If Quantity is 0, you can omit Items.
+    , _tsQuantity :: Integer
+      -- ^ The number of trusted signers for this cache behavior.
     } deriving (Show, Generic)
 
 instance FromXML TrustedSigners where
@@ -1729,7 +1729,20 @@ instance ToXML TrustedSigners where
 -- | A complex type that contains information about viewer certificates for this
 -- distribution.
 data ViewerCertificate = ViewerCertificate
-    { _vcSSLSupportMethod :: Maybe SSLSupportMethod
+    { _vcCloudFrontDefaultCertificate :: Maybe Bool
+      -- ^ If you want viewers to use HTTPS to request your objects and
+      -- you're using the CloudFront domain name of your distribution in
+      -- your object URLs (for example,
+      -- https://d111111abcdef8.cloudfront.net/logo.jpg), set to true.
+      -- Omit this value if you are setting an IAMCertificateId.
+    , _vcIAMCertificateId :: Maybe Text
+      -- ^ If you want viewers to use HTTPS to request your objects and
+      -- you're using an alternate domain name in your object URLs (for
+      -- example, https://example.com/logo.jpg), specify the IAM
+      -- certificate identifier of the custom viewer certificate for this
+      -- distribution. Specify either this value or
+      -- CloudFrontDefaultCertificate.
+    , _vcSSLSupportMethod :: Maybe SSLSupportMethod
       -- ^ If you specify a value for IAMCertificateId, you must also
       -- specify how you want CloudFront to serve HTTPS requests. Valid
       -- values are vip and sni-only. If you specify vip, CloudFront uses
@@ -1741,19 +1754,6 @@ data ViewerCertificate = ViewerCertificate
       -- All modern browsers support SNI, but some browsers still in use
       -- don't support SNI. Do not specify a value for SSLSupportMethod if
       -- you specified true for CloudFrontDefaultCertificate.
-    , _vcIAMCertificateId :: Maybe Text
-      -- ^ If you want viewers to use HTTPS to request your objects and
-      -- you're using an alternate domain name in your object URLs (for
-      -- example, https://example.com/logo.jpg), specify the IAM
-      -- certificate identifier of the custom viewer certificate for this
-      -- distribution. Specify either this value or
-      -- CloudFrontDefaultCertificate.
-    , _vcCloudFrontDefaultCertificate :: Maybe Bool
-      -- ^ If you want viewers to use HTTPS to request your objects and
-      -- you're using the CloudFront domain name of your distribution in
-      -- your object URLs (for example,
-      -- https://d111111abcdef8.cloudfront.net/logo.jpg), set to true.
-      -- Omit this value if you are setting an IAMCertificateId.
     } deriving (Show, Generic)
 
 instance FromXML ViewerCertificate where

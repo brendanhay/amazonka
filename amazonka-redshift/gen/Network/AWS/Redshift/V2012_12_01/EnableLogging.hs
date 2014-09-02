@@ -27,23 +27,23 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'EnableLogging' request.
-enableLogging :: Text -- ^ '_elmClusterIdentifier'
-              -> Text -- ^ '_elmBucketName'
+enableLogging :: Text -- ^ '_elmBucketName'
+              -> Text -- ^ '_elmClusterIdentifier'
               -> EnableLogging
 enableLogging p1 p2 = EnableLogging
-    { _elmClusterIdentifier = p1
-    , _elmBucketName = p2
+    { _elmBucketName = p1
+    , _elmClusterIdentifier = p2
     , _elmS3KeyPrefix = Nothing
     }
 
 data EnableLogging = EnableLogging
-    { _elmClusterIdentifier :: Text
-      -- ^ The identifier of the cluster on which logging is to be started.
-      -- Example: examplecluster.
-    , _elmBucketName :: Text
+    { _elmBucketName :: Text
       -- ^ The name of an existing S3 bucket where the log files are to be
       -- stored. Constraints: Must be in the same region as the cluster
       -- The cluster must have read bucket and put object permissions.
+    , _elmClusterIdentifier :: Text
+      -- ^ The identifier of the cluster on which logging is to be started.
+      -- Example: examplecluster.
     , _elmS3KeyPrefix :: Maybe Text
       -- ^ The prefix applied to the log file names. Constraints: Cannot
       -- exceed 512 characters Cannot contain spaces( ), double quotes
@@ -60,12 +60,12 @@ instance ToQuery EnableLogging where
 data EnableLoggingResponse = EnableLoggingResponse
     { _ltLoggingEnabled :: Maybe Bool
       -- ^ true if logging is on, false if logging is off.
-    , _ltS3KeyPrefix :: Maybe Text
-      -- ^ The prefix applied to the log file names.
     , _ltBucketName :: Maybe Text
       -- ^ The name of the S3 bucket where the log files are stored.
     , _ltLastFailureMessage :: Maybe Text
       -- ^ The message indicating that logs failed to be delivered.
+    , _ltS3KeyPrefix :: Maybe Text
+      -- ^ The prefix applied to the log file names.
     , _ltLastFailureTime :: Maybe ISO8601
       -- ^ The last time when logs failed to be delivered.
     , _ltLastSuccessfulDeliveryTime :: Maybe ISO8601

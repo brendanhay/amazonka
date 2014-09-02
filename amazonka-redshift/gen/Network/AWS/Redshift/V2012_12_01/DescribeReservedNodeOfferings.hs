@@ -46,8 +46,8 @@ import Network.AWS.Prelude
 describeReservedNodeOfferings :: DescribeReservedNodeOfferings
 describeReservedNodeOfferings = DescribeReservedNodeOfferings
     { _drnomMaxRecords = Nothing
-    , _drnomReservedNodeOfferingId = Nothing
     , _drnomMarker = Nothing
+    , _drnomReservedNodeOfferingId = Nothing
     }
 
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
@@ -58,8 +58,6 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _drnomReservedNodeOfferingId :: Maybe Text
-      -- ^ The unique identifier for the offering.
     , _drnomMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -68,6 +66,8 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
+    , _drnomReservedNodeOfferingId :: Maybe Text
+      -- ^ The unique identifier for the offering.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeReservedNodeOfferings

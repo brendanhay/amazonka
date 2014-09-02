@@ -47,13 +47,13 @@ data DomainMetadataResponse = DomainMetadataResponse
     , _dmsTimestamp :: Maybe Integer
       -- ^ The data and time when metadata was calculated, in Epoch (UNIX)
       -- seconds.
-    , _dmsItemNamesSizeBytes :: Maybe Integer
-      -- ^ The total size of all item names in the domain, in bytes.
-    , _dmsAttributeValuesSizeBytes :: Maybe Integer
-      -- ^ The total size of all attribute values in the domain, in bytes.
     , _dmsAttributeNamesSizeBytes :: Maybe Integer
       -- ^ The total size of all unique attribute names in the domain, in
       -- bytes.
+    , _dmsAttributeValuesSizeBytes :: Maybe Integer
+      -- ^ The total size of all attribute values in the domain, in bytes.
+    , _dmsItemNamesSizeBytes :: Maybe Integer
+      -- ^ The total size of all item names in the domain, in bytes.
     } deriving (Show, Generic)
 
 makeLenses ''DomainMetadataResponse

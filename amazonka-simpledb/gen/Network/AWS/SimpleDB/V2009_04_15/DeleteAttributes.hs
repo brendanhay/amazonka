@@ -35,23 +35,23 @@ import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteAttributes' request.
-deleteAttributes :: Text -- ^ '_darItemName'
-                 -> Text -- ^ '_darDomainName'
+deleteAttributes :: Text -- ^ '_darDomainName'
+                 -> Text -- ^ '_darItemName'
                  -> DeleteAttributes
 deleteAttributes p1 p2 = DeleteAttributes
-    { _darItemName = p1
-    , _darDomainName = p2
+    { _darDomainName = p1
+    , _darItemName = p2
     , _darAttributes = mempty
     , _darExpected = Nothing
     }
 
 data DeleteAttributes = DeleteAttributes
-    { _darItemName :: Text
+    { _darDomainName :: Text
+      -- ^ The name of the domain in which to perform the operation.
+    , _darItemName :: Text
       -- ^ The name of the item. Similar to rows on a spreadsheet, items
       -- represent individual objects that contain one or more
       -- value-attribute pairs.
-    , _darDomainName :: Text
-      -- ^ The name of the domain in which to perform the operation.
     , _darAttributes :: [Attribute]
       -- ^ A list of Attributes. Similar to columns on a spreadsheet,
       -- attributes represent categories of data that can be assigned to

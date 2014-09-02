@@ -75,35 +75,35 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'TransferDomain' request.
-transferDomain :: ContactDetail -- ^ '_tdrRegistrantContact'
-               -> ContactDetail -- ^ '_tdrAdminContact'
+transferDomain :: ContactDetail -- ^ '_tdrAdminContact'
+               -> ContactDetail -- ^ '_tdrRegistrantContact'
                -> ContactDetail -- ^ '_tdrTechContact'
                -> Text -- ^ '_tdrDomainName'
                -> Integer -- ^ '_tdrDurationInYears'
                -> [Nameserver] -- ^ '_tdrNameservers'
                -> TransferDomain
 transferDomain p1 p2 p3 p4 p5 p6 = TransferDomain
-    { _tdrRegistrantContact = p1
-    , _tdrAdminContact = p2
+    { _tdrAdminContact = p1
+    , _tdrRegistrantContact = p2
     , _tdrTechContact = p3
     , _tdrDomainName = p4
     , _tdrDurationInYears = p5
     , _tdrNameservers = p6
-    , _tdrPrivacyProtectTechContact = Nothing
-    , _tdrPrivacyProtectRegistrantContact = Nothing
     , _tdrAutoRenew = Nothing
     , _tdrPrivacyProtectAdminContact = Nothing
+    , _tdrPrivacyProtectRegistrantContact = Nothing
+    , _tdrPrivacyProtectTechContact = Nothing
     , _tdrAuthCode = Nothing
     , _tdrIdnLangCode = Nothing
     }
 
 data TransferDomain = TransferDomain
-    { _tdrRegistrantContact :: ContactDetail
+    { _tdrAdminContact :: ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
       -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _tdrAdminContact :: ContactDetail
+    , _tdrRegistrantContact :: ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
@@ -126,7 +126,12 @@ data TransferDomain = TransferDomain
     , _tdrNameservers :: [Nameserver]
       -- ^ Contains details for the host and glue IP addresses. Type:
       -- Complex Children: GlueIps, Name.
-    , _tdrPrivacyProtectTechContact :: Maybe Bool
+    , _tdrAutoRenew :: Maybe Bool
+      -- ^ Indicates whether the domain will be automatically renewed (true)
+      -- or not (false). Autorenewal only takes effect after the account
+      -- is charged. Type: Boolean Valid values: true | false Default:
+      -- true Required: No.
+    , _tdrPrivacyProtectAdminContact :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
       -- return contact information for our registrar partner, Gandi,
@@ -138,12 +143,7 @@ data TransferDomain = TransferDomain
       -- return contact information for our registrar partner, Gandi,
       -- instead of the contact information that you enter. Type: Boolean
       -- Default: true Valid values: true | false Required: No.
-    , _tdrAutoRenew :: Maybe Bool
-      -- ^ Indicates whether the domain will be automatically renewed (true)
-      -- or not (false). Autorenewal only takes effect after the account
-      -- is charged. Type: Boolean Valid values: true | false Default:
-      -- true Required: No.
-    , _tdrPrivacyProtectAdminContact :: Maybe Bool
+    , _tdrPrivacyProtectTechContact :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
       -- return contact information for our registrar partner, Gandi,

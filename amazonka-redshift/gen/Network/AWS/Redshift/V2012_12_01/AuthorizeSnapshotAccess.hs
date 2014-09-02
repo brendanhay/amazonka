@@ -28,22 +28,22 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AuthorizeSnapshotAccess' request.
-authorizeSnapshotAccess :: Text -- ^ '_asamSnapshotIdentifier'
-                        -> Text -- ^ '_asamAccountWithRestoreAccess'
+authorizeSnapshotAccess :: Text -- ^ '_asamAccountWithRestoreAccess'
+                        -> Text -- ^ '_asamSnapshotIdentifier'
                         -> AuthorizeSnapshotAccess
 authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccess
-    { _asamSnapshotIdentifier = p1
-    , _asamAccountWithRestoreAccess = p2
+    { _asamAccountWithRestoreAccess = p1
+    , _asamSnapshotIdentifier = p2
     , _asamSnapshotClusterIdentifier = Nothing
     }
 
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
-    { _asamSnapshotIdentifier :: Text
-      -- ^ The identifier of the snapshot the account is authorized to
-      -- restore.
-    , _asamAccountWithRestoreAccess :: Text
+    { _asamAccountWithRestoreAccess :: Text
       -- ^ The identifier of the AWS customer account authorized to restore
       -- the specified snapshot.
+    , _asamSnapshotIdentifier :: Text
+      -- ^ The identifier of the snapshot the account is authorized to
+      -- restore.
     , _asamSnapshotClusterIdentifier :: Maybe Text
       -- ^ The identifier of the cluster the snapshot was created from. This
       -- parameter is required if your IAM user has a policy containing a

@@ -47,11 +47,11 @@ createLaunchConfiguration p1 = CreateLaunchConfiguration
     , _clctSpotPrice = Nothing
     , _clctInstanceId = Nothing
     , _clctIamInstanceProfile = Nothing
+    , _clctImageId = Nothing
+    , _clctInstanceType = Nothing
+    , _clctKernelId = Nothing
     , _clctKeyName = Nothing
     , _clctRamdiskId = Nothing
-    , _clctKernelId = Nothing
-    , _clctInstanceType = Nothing
-    , _clctImageId = Nothing
     , _clctPlacementTenancy = Nothing
     , _clctUserData = Nothing
     }
@@ -136,23 +136,23 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
       -- information on launching EC2 instances with an IAM role, go to
       -- Launching Auto Scaling Instances With an IAM Role in the Auto
       -- Scaling Developer Guide.
+    , _clctImageId :: Maybe Text
+      -- ^ Unique ID of the Amazon Machine Image (AMI) you want to use to
+      -- launch your EC2 instances. For information about finding Amazon
+      -- EC2 AMIs, see Finding a Suitable AMI in the Amazon Elastic
+      -- Compute Cloud User Guide.
+    , _clctInstanceType :: Maybe Text
+      -- ^ The instance type of the Amazon EC2 instance. For information
+      -- about available Amazon EC2 instance types, see Available Instance
+      -- Types in the Amazon Elastic Cloud Compute User Guide.
+    , _clctKernelId :: Maybe Text
+      -- ^ The ID of the kernel associated with the Amazon EC2 AMI.
     , _clctKeyName :: Maybe Text
       -- ^ The name of the Amazon EC2 key pair. For more information, see
       -- Getting a Key Pair in the Amazon Elastic Compute Cloud User
       -- Guide.
     , _clctRamdiskId :: Maybe Text
       -- ^ The ID of the RAM disk associated with the Amazon EC2 AMI.
-    , _clctKernelId :: Maybe Text
-      -- ^ The ID of the kernel associated with the Amazon EC2 AMI.
-    , _clctInstanceType :: Maybe Text
-      -- ^ The instance type of the Amazon EC2 instance. For information
-      -- about available Amazon EC2 instance types, see Available Instance
-      -- Types in the Amazon Elastic Cloud Compute User Guide.
-    , _clctImageId :: Maybe Text
-      -- ^ Unique ID of the Amazon Machine Image (AMI) you want to use to
-      -- launch your EC2 instances. For information about finding Amazon
-      -- EC2 AMIs, see Finding a Suitable AMI in the Amazon Elastic
-      -- Compute Cloud User Guide.
     , _clctPlacementTenancy :: Maybe Text
       -- ^ The tenancy of the instance. An instance with a tenancy of
       -- dedicated runs on single-tenant hardware and can only be launched

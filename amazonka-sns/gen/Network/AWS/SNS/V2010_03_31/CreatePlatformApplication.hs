@@ -58,14 +58,14 @@ import Network.AWS.Prelude
 data CreatePlatformApplication = CreatePlatformApplication
     { _cpaiAttributes :: Map Text Text
       -- ^ For a list of attributes, see SetPlatformApplicationAttributes.
-    , _cpaiPlatform :: Text
-      -- ^ The following platforms are supported: ADM (Amazon Device
-      -- Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX,
-      -- and GCM (Google Cloud Messaging).
     , _cpaiName :: Text
       -- ^ Application names must be made up of only uppercase and lowercase
       -- ASCII letters, numbers, underscores, hyphens, and periods, and
       -- must be between 1 and 256 characters long.
+    , _cpaiPlatform :: Text
+      -- ^ The following platforms are supported: ADM (Amazon Device
+      -- Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX,
+      -- and GCM (Google Cloud Messaging).
     } deriving (Show, Generic)
 
 makeLenses ''CreatePlatformApplication

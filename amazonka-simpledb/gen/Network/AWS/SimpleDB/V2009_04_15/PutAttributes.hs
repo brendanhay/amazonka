@@ -52,23 +52,23 @@ import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutAttributes' request.
 putAttributes :: [ReplaceableAttribute] -- ^ '_parAttributes'
-              -> Text -- ^ '_parItemName'
               -> Text -- ^ '_parDomainName'
+              -> Text -- ^ '_parItemName'
               -> PutAttributes
 putAttributes p1 p2 p3 = PutAttributes
     { _parAttributes = p1
-    , _parItemName = p2
-    , _parDomainName = p3
+    , _parDomainName = p2
+    , _parItemName = p3
     , _parExpected = Nothing
     }
 
 data PutAttributes = PutAttributes
     { _parAttributes :: [ReplaceableAttribute]
       -- ^ The list of attributes.
-    , _parItemName :: Text
-      -- ^ The name of the item.
     , _parDomainName :: Text
       -- ^ The name of the domain in which to perform the operation.
+    , _parItemName :: Text
+      -- ^ The name of the item.
     , _parExpected :: Maybe UpdateCondition
       -- ^ The update condition which, if specified, determines whether the
       -- specified attributes will be updated or not. The update condition

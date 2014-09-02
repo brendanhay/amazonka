@@ -44,8 +44,8 @@ createApp p1 p2 p3 = CreateApp
     , _carDataSources = mempty
     , _carAppSource = Nothing
     , _carSslConfiguration = Nothing
-    , _carShortname = Nothing
     , _carDescription = Nothing
+    , _carShortname = Nothing
     , _carDomains = mempty
     }
 
@@ -70,10 +70,10 @@ data CreateApp = CreateApp
       -- ^ A Source object that specifies the app repository.
     , _carSslConfiguration :: Maybe SslConfiguration
       -- ^ An SslConfiguration object with the SSL configuration.
-    , _carShortname :: Maybe Text
-      -- ^ The app's short name.
     , _carDescription :: Maybe Text
       -- ^ A description of the app.
+    , _carShortname :: Maybe Text
+      -- ^ The app's short name.
     , _carDomains :: [Text]
       -- ^ The app virtual host settings, with multiple domains separated by
       -- commas. For example: 'www.example.com, example.com'.

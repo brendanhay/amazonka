@@ -63,13 +63,13 @@ data AddPermission = AddPermission
       -- for the ActionName.n also grants permissions for the
       -- corresponding batch versions of those actions: SendMessageBatch,
       -- DeleteMessageBatch, and ChangeMessageVisibilityBatch.
-    , _aprQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
     , _aprLabel :: Text
       -- ^ The unique identification of the permission you're setting (e.g.,
       -- AliceSendMessage). Constraints: Maximum 80 characters;
       -- alphanumeric characters, hyphens (-), and underscores (_) are
       -- allowed.
+    , _aprQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
 makeLenses ''AddPermission

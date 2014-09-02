@@ -51,11 +51,11 @@ instance ToHeaders ResolveCase
 instance ToJSON ResolveCase
 
 data ResolveCaseResponse = ResolveCaseResponse
-    { _rcsInitialCaseStatus :: Maybe Text
-      -- ^ The status of the case when the ResolveCase request was sent.
-    , _rcsFinalCaseStatus :: Maybe Text
+    { _rcsFinalCaseStatus :: Maybe Text
       -- ^ The status of the case after the ResolveCase request was
       -- processed.
+    , _rcsInitialCaseStatus :: Maybe Text
+      -- ^ The status of the case when the ResolveCase request was sent.
     } deriving (Show, Generic)
 
 makeLenses ''ResolveCaseResponse

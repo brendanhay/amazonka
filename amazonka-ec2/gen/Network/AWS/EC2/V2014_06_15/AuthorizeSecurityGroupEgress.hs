@@ -70,10 +70,10 @@ authorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
     , _asgerFromPort = Nothing
     , _asgerToPort = Nothing
     , _asgerIpPermissions = mempty
-    , _asgerIpProtocol = Nothing
     , _asgerCidrIp = Nothing
-    , _asgerSourceSecurityGroupOwnerId = Nothing
+    , _asgerIpProtocol = Nothing
     , _asgerSourceSecurityGroupName = Nothing
+    , _asgerSourceSecurityGroupOwnerId = Nothing
     }
 
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
@@ -91,19 +91,19 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
       -- codes for the ICMP type.
     , _asgerIpPermissions :: [IpPermission]
       -- ^ 
-    , _asgerIpProtocol :: Maybe Text
-      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
-      -- Numbers). Use -1 to specify all.
     , _asgerCidrIp :: Maybe Text
       -- ^ The CIDR IP address range. You can't specify this parameter when
       -- specifying a source security group.
-    , _asgerSourceSecurityGroupOwnerId :: Maybe Text
-      -- ^ The ID of the source security group. You can't specify a source
-      -- security group and a CIDR IP address range.
+    , _asgerIpProtocol :: Maybe Text
+      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
+      -- Numbers). Use -1 to specify all.
     , _asgerSourceSecurityGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the source security group.
       -- You can't specify a source security group and a CIDR IP address
       -- range.
+    , _asgerSourceSecurityGroupOwnerId :: Maybe Text
+      -- ^ The ID of the source security group. You can't specify a source
+      -- security group and a CIDR IP address range.
     } deriving (Show, Generic)
 
 makeLenses ''AuthorizeSecurityGroupEgress

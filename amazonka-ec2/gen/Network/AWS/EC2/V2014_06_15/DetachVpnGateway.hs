@@ -39,20 +39,20 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DetachVpnGateway' request.
-detachVpnGateway :: Text -- ^ '_dvgsVpnGatewayId'
-                 -> Text -- ^ '_dvgsVpcId'
+detachVpnGateway :: Text -- ^ '_dvgsVpcId'
+                 -> Text -- ^ '_dvgsVpnGatewayId'
                  -> DetachVpnGateway
 detachVpnGateway p1 p2 = DetachVpnGateway
-    { _dvgsVpnGatewayId = p1
-    , _dvgsVpcId = p2
+    { _dvgsVpcId = p1
+    , _dvgsVpnGatewayId = p2
     , _dvgsDryRun = Nothing
     }
 
 data DetachVpnGateway = DetachVpnGateway
-    { _dvgsVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _dvgsVpcId :: Text
+    { _dvgsVpcId :: Text
       -- ^ The ID of the VPC.
+    , _dvgsVpnGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
     , _dvgsDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)

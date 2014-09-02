@@ -36,17 +36,17 @@ deleteInstance :: Text -- ^ '_dirInstanceId'
                -> DeleteInstance
 deleteInstance p1 = DeleteInstance
     { _dirInstanceId = p1
-    , _dirDeleteVolumes = Nothing
     , _dirDeleteElasticIp = Nothing
+    , _dirDeleteVolumes = Nothing
     }
 
 data DeleteInstance = DeleteInstance
     { _dirInstanceId :: Text
       -- ^ The instance ID.
-    , _dirDeleteVolumes :: Maybe Bool
-      -- ^ Whether to delete the instance's Amazon EBS volumes.
     , _dirDeleteElasticIp :: Maybe Bool
       -- ^ Whether to delete the instance Elastic IP address.
+    , _dirDeleteVolumes :: Maybe Bool
+      -- ^ Whether to delete the instance's Amazon EBS volumes.
     } deriving (Show, Generic)
 
 makeLenses ''DeleteInstance

@@ -40,28 +40,28 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeEvents' request.
 describeEvents :: DescribeEvents
 describeEvents = DescribeEvents
-    { _demMaxRecords = Nothing
-    , _demDuration = Nothing
+    { _demDuration = Nothing
+    , _demMaxRecords = Nothing
     , _demSourceType = Nothing
-    , _demSourceIdentifier = Nothing
     , _demMarker = Nothing
-    , _demStartTime = Nothing
+    , _demSourceIdentifier = Nothing
     , _demEndTime = Nothing
+    , _demStartTime = Nothing
     }
 
 data DescribeEvents = DescribeEvents
-    { _demMaxRecords :: Maybe Integer
+    { _demDuration :: Maybe Integer
+      -- ^ The number of minutes prior to the time of the request for which
+      -- to retrieve events. For example, if the request is sent at 18:00
+      -- and you specify a duration of 60, then only events which have
+      -- occurred after 17:00 will be returned. Default: 60.
+    , _demMaxRecords :: Maybe Integer
       -- ^ The maximum number of response records to return in each call. If
       -- the number of remaining response records exceeds the specified
       -- MaxRecords value, a value is returned in a marker field of the
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _demDuration :: Maybe Integer
-      -- ^ The number of minutes prior to the time of the request for which
-      -- to retrieve events. For example, if the request is sent at 18:00
-      -- and you specify a duration of 60, then only events which have
-      -- occurred after 17:00 will be returned. Default: 60.
     , _demSourceType :: Maybe SourceType
       -- ^ The event source to retrieve events for. If no value is
       -- specified, all events are returned. Constraints: If SourceType is
@@ -72,6 +72,13 @@ data DescribeEvents = DescribeEvents
       -- SourceIdentifier is a cluster parameter group name. Specify
       -- cluster-snapshot when SourceIdentifier is a cluster snapshot
       -- identifier.
+    , _demMarker :: Maybe Text
+      -- ^ An optional parameter that specifies the starting point to return
+      -- a set of response records. When the results of a DescribeEvents
+      -- request exceed the value specified in MaxRecords, AWS returns a
+      -- value in the Marker field of the response. You can retrieve the
+      -- next set of response records by providing the returned marker
+      -- value in the Marker parameter and retrying the request.
     , _demSourceIdentifier :: Maybe Text
       -- ^ The identifier of the event source for which events will be
       -- returned. If this parameter is not specified, then all sources
@@ -82,20 +89,13 @@ data DescribeEvents = DescribeEvents
       -- cluster parameter group name when SourceType is
       -- cluster-parameter-group. Specify a cluster snapshot identifier
       -- when SourceType is cluster-snapshot.
-    , _demMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a DescribeEvents
-      -- request exceed the value specified in MaxRecords, AWS returns a
-      -- value in the Marker field of the response. You can retrieve the
-      -- next set of response records by providing the returned marker
-      -- value in the Marker parameter and retrying the request.
-    , _demStartTime :: Maybe ISO8601
-      -- ^ The beginning of the time interval to retrieve events for,
+    , _demEndTime :: Maybe ISO8601
+      -- ^ The end of the time interval for which to retrieve events,
       -- specified in ISO 8601 format. For more information about ISO
       -- 8601, go to the ISO8601 Wikipedia page. Example:
       -- 2009-07-08T18:00Z.
-    , _demEndTime :: Maybe ISO8601
-      -- ^ The end of the time interval for which to retrieve events,
+    , _demStartTime :: Maybe ISO8601
+      -- ^ The beginning of the time interval to retrieve events for,
       -- specified in ISO 8601 format. For more information about ISO
       -- 8601, go to the ISO8601 Wikipedia page. Example:
       -- 2009-07-08T18:00Z.

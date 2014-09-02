@@ -335,15 +335,15 @@ instance FromJSON ErrorCode
 instance ToJSON ErrorCode
 
 data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
-    { _cscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-      -- ^ Lists iSCSI information about a volume.
-    , _cscsiviVolumeStatus :: Maybe Text
-    , _cscsiviSourceSnapshotId :: Maybe Text
+    { _cscsiviSourceSnapshotId :: Maybe Text
     , _cscsiviVolumeARN :: Maybe Text
+    , _cscsiviVolumeId :: Maybe Text
     , _cscsiviVolumeProgress :: Maybe Double
     , _cscsiviVolumeSizeInBytes :: Maybe Integer
-    , _cscsiviVolumeId :: Maybe Text
+    , _cscsiviVolumeStatus :: Maybe Text
     , _cscsiviVolumeType :: Maybe Text
+    , _cscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
+      -- ^ Lists iSCSI information about a volume.
     } deriving (Show, Generic)
 
 instance FromJSON CachediSCSIVolumeInformation
@@ -351,26 +351,26 @@ instance FromJSON CachediSCSIVolumeInformation
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
 -- that supports authentication between your gateway and iSCSI initiators.
 data ChapInfo = ChapInfo
-    { _ciTargetARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to
-      -- 500 lowercase letters, numbers, periods (.), and hyphens (-).
+    { _ciInitiatorName :: Maybe Text
+      -- ^ The iSCSI initiator that connects to the target.
     , _ciSecretToAuthenticateInitiator :: Maybe Text
       -- ^ The secret key that the initiator (e.g. Windows client) must
       -- provide to participate in mutual CHAP with the target.
-    , _ciInitiatorName :: Maybe Text
-      -- ^ The iSCSI initiator that connects to the target.
     , _ciSecretToAuthenticateTarget :: Maybe Text
       -- ^ The secret key that the target must provide to participate in
       -- mutual CHAP with the initiator (e.g. Windows client).
+    , _ciTargetARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to
+      -- 500 lowercase letters, numbers, periods (.), and hyphens (-).
     } deriving (Show, Generic)
 
 instance FromJSON ChapInfo
 
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes
-    { _dscsiaTargetARN :: Maybe Text
-    , _dscsiaChapEnabled :: Maybe Bool
+    { _dscsiaChapEnabled :: Maybe Bool
     , _dscsiaNetworkInterfaceId :: Maybe Text
     , _dscsiaNetworkInterfacePort :: Maybe Integer
+    , _dscsiaTargetARN :: Maybe Text
     } deriving (Show, Generic)
 
 instance FromJSON DeviceiSCSIAttributes
@@ -380,10 +380,10 @@ instance ToJSON DeviceiSCSIAttributes
 data DiskInformation = DiskInformation
     { _dwDiskAllocationResource :: Maybe Text
     , _dwDiskAllocationType :: Maybe Text
+    , _dwDiskId :: Maybe Text
     , _dwDiskNode :: Maybe Text
     , _dwDiskPath :: Maybe Text
     , _dwDiskSizeInBytes :: Maybe Integer
-    , _dwDiskId :: Maybe Text
     } deriving (Show, Generic)
 
 instance FromJSON DiskInformation
@@ -400,14 +400,14 @@ instance FromJSON GatewayInformation
 
 -- | Describes a gateway's network interface.
 data NetworkInterface = NetworkInterface
-    { _niIpv6Address :: Maybe Text
+    { _niIpv4Address :: Maybe Text
+      -- ^ The Internet Protocol version 4 (IPv4) address of the interface.
+    , _niIpv6Address :: Maybe Text
       -- ^ The Internet Protocol version 6 (IPv6) address of the interface.
       -- Currently not supported.
     , _niMacAddress :: Maybe Text
       -- ^ The Media Access Control (MAC) address of the interface. This is
       -- currently unsupported and will not be returned in output.
-    , _niIpv4Address :: Maybe Text
-      -- ^ The Internet Protocol version 4 (IPv4) address of the interface.
     } deriving (Show, Generic)
 
 instance FromJSON NetworkInterface
@@ -415,11 +415,11 @@ instance FromJSON NetworkInterface
 -- | A StorageGatewayError that provides more detail about the cause of the
 -- error.
 data StorageGatewayError = StorageGatewayError
-    { _sgeErrorDetails :: Map Text Text
+    { _sgeErrorCode :: Maybe ErrorCode
+      -- ^ Additional information about the error.
+    , _sgeErrorDetails :: Map Text Text
       -- ^ Human-readable text that provides detail about the error that
       -- occured.
-    , _sgeErrorCode :: Maybe ErrorCode
-      -- ^ Additional information about the error.
     } deriving (Show, Generic)
 
 instance FromJSON StorageGatewayError
@@ -427,49 +427,49 @@ instance FromJSON StorageGatewayError
 instance ToJSON StorageGatewayError
 
 data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
-    { _sscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-      -- ^ Lists iSCSI information about a volume.
-    , _sscsiviVolumeStatus :: Maybe Text
+    { _sscsiviPreservedExistingData :: Maybe Bool
     , _sscsiviSourceSnapshotId :: Maybe Text
-    , _sscsiviPreservedExistingData :: Maybe Bool
     , _sscsiviVolumeARN :: Maybe Text
+    , _sscsiviVolumeDiskId :: Maybe Text
+    , _sscsiviVolumeId :: Maybe Text
     , _sscsiviVolumeProgress :: Maybe Double
     , _sscsiviVolumeSizeInBytes :: Maybe Integer
-    , _sscsiviVolumeId :: Maybe Text
-    , _sscsiviVolumeDiskId :: Maybe Text
+    , _sscsiviVolumeStatus :: Maybe Text
     , _sscsiviVolumeType :: Maybe Text
+    , _sscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
+      -- ^ Lists iSCSI information about a volume.
     } deriving (Show, Generic)
 
 instance FromJSON StorediSCSIVolumeInformation
 
 data Tape = Tape
-    { _vTapeBarcode :: Maybe Text
-    , _vTapeStatus :: Maybe Text
+    { _vProgress :: Maybe Double
     , _vTapeARN :: Maybe Text
-    , _vProgress :: Maybe Double
+    , _vTapeBarcode :: Maybe Text
     , _vTapeSizeInBytes :: Maybe Integer
+    , _vTapeStatus :: Maybe Text
     , _vVTLDevice :: Maybe Text
     } deriving (Show, Generic)
 
 instance FromJSON Tape
 
 data TapeArchive = TapeArchive
-    { _tcTapeBarcode :: Maybe Text
-    , _tcTapeStatus :: Maybe Text
-    , _tcTapeARN :: Maybe Text
-    , _tcTapeSizeInBytes :: Maybe Integer
-    , _tcCompletionTime :: Maybe ISO8601
+    { _tcCompletionTime :: Maybe ISO8601
     , _tcRetrievedTo :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
+    , _tcTapeARN :: Maybe Text
+    , _tcTapeBarcode :: Maybe Text
+    , _tcTapeSizeInBytes :: Maybe Integer
+    , _tcTapeStatus :: Maybe Text
     } deriving (Show, Generic)
 
 instance FromJSON TapeArchive
 
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo
-    { _trpjTapeRecoveryPointTime :: Maybe ISO8601
-    , _trpjTapeARN :: Maybe Text
+    { _trpjTapeARN :: Maybe Text
+    , _trpjTapeRecoveryPointTime :: Maybe ISO8601
     , _trpjTapeSizeInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
@@ -490,8 +490,8 @@ data VolumeInformation = VolumeInformation
 instance FromJSON VolumeInformation
 
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
-    { _vrpjVolumeRecoveryPointTime :: Maybe Text
-    , _vrpjVolumeARN :: Maybe Text
+    { _vrpjVolumeARN :: Maybe Text
+    , _vrpjVolumeRecoveryPointTime :: Maybe Text
     , _vrpjVolumeSizeInBytes :: Maybe Integer
     , _vrpjVolumeUsageInBytes :: Maybe Integer
     } deriving (Show, Generic)
@@ -500,16 +500,16 @@ instance FromJSON VolumeRecoveryPointInfo
 
 -- | Lists iSCSI information about a volume.
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes
-    { _vscsiaLunNumber :: Maybe Integer
-      -- ^ The logical disk number.
-    , _vscsiaTargetARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the volume target.
-    , _vscsiaChapEnabled :: Maybe Bool
+    { _vscsiaChapEnabled :: Maybe Bool
       -- ^ Indicates whether mutual CHAP is enabled for the iSCSI target.
+    , _vscsiaLunNumber :: Maybe Integer
+      -- ^ The logical disk number.
     , _vscsiaNetworkInterfaceId :: Maybe Text
       -- ^ The network interface identifier.
     , _vscsiaNetworkInterfacePort :: Maybe Integer
       -- ^ The port used to communicate with iSCSI targets.
+    , _vscsiaTargetARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the volume target.
     } deriving (Show, Generic)
 
 instance FromJSON VolumeiSCSIAttributes

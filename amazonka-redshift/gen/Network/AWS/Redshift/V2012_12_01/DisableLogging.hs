@@ -40,12 +40,12 @@ instance ToQuery DisableLogging where
 data DisableLoggingResponse = DisableLoggingResponse
     { _lsLoggingEnabled :: Maybe Bool
       -- ^ true if logging is on, false if logging is off.
-    , _lsS3KeyPrefix :: Maybe Text
-      -- ^ The prefix applied to the log file names.
     , _lsBucketName :: Maybe Text
       -- ^ The name of the S3 bucket where the log files are stored.
     , _lsLastFailureMessage :: Maybe Text
       -- ^ The message indicating that logs failed to be delivered.
+    , _lsS3KeyPrefix :: Maybe Text
+      -- ^ The prefix applied to the log file names.
     , _lsLastFailureTime :: Maybe ISO8601
       -- ^ The last time when logs failed to be delivered.
     , _lsLastSuccessfulDeliveryTime :: Maybe ISO8601

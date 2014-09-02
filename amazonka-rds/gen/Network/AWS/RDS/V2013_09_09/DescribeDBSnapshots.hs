@@ -41,10 +41,10 @@ import Network.AWS.Prelude
 describeDBSnapshots :: DescribeDBSnapshots
 describeDBSnapshots = DescribeDBSnapshots
     { _ddbsmMaxRecords = Nothing
-    , _ddbsmDBSnapshotIdentifier = Nothing
-    , _ddbsmSnapshotType = Nothing
     , _ddbsmDBInstanceIdentifier = Nothing
+    , _ddbsmDBSnapshotIdentifier = Nothing
     , _ddbsmMarker = Nothing
+    , _ddbsmSnapshotType = Nothing
     }
 
 data DescribeDBSnapshots = DescribeDBSnapshots
@@ -54,6 +54,13 @@ data DescribeDBSnapshots = DescribeDBSnapshots
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
+    , _ddbsmDBInstanceIdentifier :: Maybe Text
+      -- ^ A DB instance identifier to retrieve the list of DB snapshots
+      -- for. Cannot be used in conjunction with DBSnapshotIdentifier.
+      -- This parameter is not case sensitive. Constraints: Must contain
+      -- from 1 to 63 alphanumeric characters or hyphens First character
+      -- must be a letter Cannot end with a hyphen or contain two
+      -- consecutive hyphens.
     , _ddbsmDBSnapshotIdentifier :: Maybe Text
       -- ^ A specific DB snapshot identifier to describe. Cannot be used in
       -- conjunction with DBInstanceIdentifier. This value is stored as a
@@ -62,22 +69,15 @@ data DescribeDBSnapshots = DescribeDBSnapshots
       -- hyphen or contain two consecutive hyphens If this is the
       -- identifier of an automated snapshot, the SnapshotType parameter
       -- must also be specified.
-    , _ddbsmSnapshotType :: Maybe Text
-      -- ^ The type of snapshots that will be returned. Values can be
-      -- "automated" or "manual." If not specified, the returned results
-      -- will include all snapshots types.
-    , _ddbsmDBInstanceIdentifier :: Maybe Text
-      -- ^ A DB instance identifier to retrieve the list of DB snapshots
-      -- for. Cannot be used in conjunction with DBSnapshotIdentifier.
-      -- This parameter is not case sensitive. Constraints: Must contain
-      -- from 1 to 63 alphanumeric characters or hyphens First character
-      -- must be a letter Cannot end with a hyphen or contain two
-      -- consecutive hyphens.
     , _ddbsmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeDBSnapshots request. If this parameter is specified, the
       -- response includes only records beyond the marker, up to the value
       -- specified by MaxRecords.
+    , _ddbsmSnapshotType :: Maybe Text
+      -- ^ The type of snapshots that will be returned. Values can be
+      -- "automated" or "manual." If not specified, the returned results
+      -- will include all snapshots types.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeDBSnapshots

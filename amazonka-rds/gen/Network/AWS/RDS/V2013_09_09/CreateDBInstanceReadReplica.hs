@@ -39,25 +39,29 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBInstanceReadReplica' request.
-createDBInstanceReadReplica :: Text -- ^ '_cdbirrmSourceDBInstanceIdentifier'
-                            -> Text -- ^ '_cdbirrmDBInstanceIdentifier'
+createDBInstanceReadReplica :: Text -- ^ '_cdbirrmDBInstanceIdentifier'
+                            -> Text -- ^ '_cdbirrmSourceDBInstanceIdentifier'
                             -> CreateDBInstanceReadReplica
 createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
-    { _cdbirrmSourceDBInstanceIdentifier = p1
-    , _cdbirrmDBInstanceIdentifier = p2
-    , _cdbirrmPubliclyAccessible = Nothing
+    { _cdbirrmDBInstanceIdentifier = p1
+    , _cdbirrmSourceDBInstanceIdentifier = p2
     , _cdbirrmAutoMinorVersionUpgrade = Nothing
+    , _cdbirrmPubliclyAccessible = Nothing
     , _cdbirrmIops = Nothing
     , _cdbirrmPort = Nothing
-    , _cdbirrmDBSubnetGroupName = Nothing
-    , _cdbirrmDBInstanceClass = Nothing
     , _cdbirrmAvailabilityZone = Nothing
+    , _cdbirrmDBInstanceClass = Nothing
+    , _cdbirrmDBSubnetGroupName = Nothing
     , _cdbirrmOptionGroupName = Nothing
     , _cdbirrmTags = mempty
     }
 
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
-    { _cdbirrmSourceDBInstanceIdentifier :: Text
+    { _cdbirrmDBInstanceIdentifier :: Text
+      -- ^ The DB instance identifier of the read replica. This is the
+      -- unique key that identifies a DB instance. This parameter is
+      -- stored as a lowercase string.
+    , _cdbirrmSourceDBInstanceIdentifier :: Text
       -- ^ The identifier of the DB instance that will act as the source for
       -- the read replica. Each DB instance can have up to five read
       -- replicas. Constraints: Must be the identifier of an existing DB
@@ -65,10 +69,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
       -- if the source is running MySQL 5.6. The specified DB instance
       -- must have automatic backups enabled, its backup retention period
       -- must be greater than 0.
-    , _cdbirrmDBInstanceIdentifier :: Text
-      -- ^ The DB instance identifier of the read replica. This is the
-      -- unique key that identifies a DB instance. This parameter is
-      -- stored as a lowercase string.
+    , _cdbirrmAutoMinorVersionUpgrade :: Maybe Bool
+      -- ^ Indicates that minor engine upgrades will be applied
+      -- automatically to the read replica during the maintenance window.
+      -- Default: Inherits from the source DB instance.
     , _cdbirrmPubliclyAccessible :: Maybe Bool
       -- ^ Specifies the accessibility options for the DB instance. A value
       -- of true specifies an Internet-facing instance with a publicly
@@ -83,10 +87,6 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
       -- a specific DB subnet group has been specified as part of the
       -- request and the PubliclyAccessible value has not been set, the DB
       -- instance will be private.
-    , _cdbirrmAutoMinorVersionUpgrade :: Maybe Bool
-      -- ^ Indicates that minor engine upgrades will be applied
-      -- automatically to the read replica during the maintenance window.
-      -- Default: Inherits from the source DB instance.
     , _cdbirrmIops :: Maybe Integer
       -- ^ The amount of Provisioned IOPS (input/output operations per
       -- second) to be initially allocated for the DB instance.
@@ -94,21 +94,21 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
       -- ^ The port number that the DB instance uses for connections.
       -- Default: Inherits from the source DB instance Valid Values:
       -- 1150-65535.
+    , _cdbirrmAvailabilityZone :: Maybe Text
+      -- ^ The Amazon EC2 Availability Zone that the read replica will be
+      -- created in. Default: A random, system-chosen Availability Zone in
+      -- the endpoint's region. Example: us-east-1d.
+    , _cdbirrmDBInstanceClass :: Maybe Text
+      -- ^ The compute and memory capacity of the read replica. Valid
+      -- Values: db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
+      -- db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge Default: Inherits
+      -- from the source DB instance.
     , _cdbirrmDBSubnetGroupName :: Maybe Text
       -- ^ A DB Subnet Group to associate with this DB Instance in case of a
       -- cross region read replica. If there is no DB Subnet Group, then
       -- it is a non-VPC DB instance. Constraints: All the cross region
       -- read replicas that share the source instance should lie within
       -- the same VPC.
-    , _cdbirrmDBInstanceClass :: Maybe Text
-      -- ^ The compute and memory capacity of the read replica. Valid
-      -- Values: db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
-      -- db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge Default: Inherits
-      -- from the source DB instance.
-    , _cdbirrmAvailabilityZone :: Maybe Text
-      -- ^ The Amazon EC2 Availability Zone that the read replica will be
-      -- created in. Default: A random, system-chosen Availability Zone in
-      -- the endpoint's region. Example: us-east-1d.
     , _cdbirrmOptionGroupName :: Maybe Text
       -- ^ The option group the DB instance will be associated with. If
       -- omitted, the default option group for the engine specified will

@@ -90,19 +90,19 @@ data CreateSnapshotResponse = CreateSnapshotResponse
       -- ^ The size of the volume, in GiB.
     , _ssyState :: Maybe SnapshotState
       -- ^ The snapshot state.
+    , _ssyDescription :: Maybe Text
+      -- ^ The description for the snapshot.
     , _ssyOwnerAlias :: Maybe Text
       -- ^ The AWS account alias (for example, amazon, self) or AWS account
       -- ID that owns the snapshot.
-    , _ssyProgress :: Maybe Text
-      -- ^ The progress of the snapshot, as a percentage.
     , _ssyOwnerId :: Maybe Text
       -- ^ The AWS account ID of the Amazon EBS snapshot owner.
-    , _ssyVolumeId :: Maybe Text
-      -- ^ The ID of the volume.
-    , _ssyDescription :: Maybe Text
-      -- ^ The description for the snapshot.
+    , _ssyProgress :: Maybe Text
+      -- ^ The progress of the snapshot, as a percentage.
     , _ssySnapshotId :: Maybe Text
       -- ^ The ID of the snapshot.
+    , _ssyVolumeId :: Maybe Text
+      -- ^ The ID of the volume.
     } deriving (Show, Generic)
 
 makeLenses ''CreateSnapshotResponse

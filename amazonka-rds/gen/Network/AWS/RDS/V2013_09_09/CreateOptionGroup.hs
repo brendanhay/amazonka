@@ -31,28 +31,28 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateOptionGroup' request.
-createOptionGroup :: Text -- ^ '_cogmOptionGroupDescription'
-                  -> Text -- ^ '_cogmEngineName'
+createOptionGroup :: Text -- ^ '_cogmEngineName'
                   -> Text -- ^ '_cogmMajorEngineVersion'
+                  -> Text -- ^ '_cogmOptionGroupDescription'
                   -> Text -- ^ '_cogmOptionGroupName'
                   -> CreateOptionGroup
 createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
-    { _cogmOptionGroupDescription = p1
-    , _cogmEngineName = p2
-    , _cogmMajorEngineVersion = p3
+    { _cogmEngineName = p1
+    , _cogmMajorEngineVersion = p2
+    , _cogmOptionGroupDescription = p3
     , _cogmOptionGroupName = p4
     , _cogmTags = mempty
     }
 
 data CreateOptionGroup = CreateOptionGroup
-    { _cogmOptionGroupDescription :: Text
-      -- ^ The description of the option group.
-    , _cogmEngineName :: Text
+    { _cogmEngineName :: Text
       -- ^ Specifies the name of the engine that this option group should be
       -- associated with.
     , _cogmMajorEngineVersion :: Text
       -- ^ Specifies the major version of the engine that this option group
       -- should be associated with.
+    , _cogmOptionGroupDescription :: Text
+      -- ^ The description of the option group.
     , _cogmOptionGroupName :: Text
       -- ^ Specifies the name of the option group to be created.
       -- Constraints: Must be 1 to 255 alphanumeric characters or hyphens

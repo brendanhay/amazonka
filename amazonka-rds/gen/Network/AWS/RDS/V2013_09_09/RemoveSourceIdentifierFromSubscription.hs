@@ -34,13 +34,13 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
-    { _rsifsmSubscriptionName :: Text
-      -- ^ The name of the RDS event notification subscription you want to
-      -- remove a source identifier from.
-    , _rsifsmSourceIdentifier :: Text
+    { _rsifsmSourceIdentifier :: Text
       -- ^ The source identifier to be removed from the subscription, such
       -- as the DB instance identifier for a DB instance or the name of a
       -- security group.
+    , _rsifsmSubscriptionName :: Text
+      -- ^ The name of the RDS event notification subscription you want to
+      -- remove a source identifier from.
     } deriving (Show, Generic)
 
 makeLenses ''RemoveSourceIdentifierFromSubscription

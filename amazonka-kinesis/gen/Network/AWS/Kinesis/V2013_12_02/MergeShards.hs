@@ -64,11 +64,11 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 data MergeShards = MergeShards
-    { _msiShardToMerge :: Text
+    { _msiAdjacentShardToMerge :: Text
+      -- ^ The shard ID of the adjacent shard for the merge.
+    , _msiShardToMerge :: Text
       -- ^ The shard ID of the shard to combine with the adjacent shard for
       -- the merge.
-    , _msiAdjacentShardToMerge :: Text
-      -- ^ The shard ID of the adjacent shard for the merge.
     , _msiStreamName :: Text
       -- ^ The name of the stream for the merge.
     } deriving (Show, Generic)

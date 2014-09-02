@@ -54,8 +54,8 @@ createAutoScalingGroup p1 p2 p3 = CreateAutoScalingGroup
     , _casgtTags = mempty
     , _casgtTerminationPolicies = mempty
     , _casgtInstanceId = Nothing
-    , _casgtVPCZoneIdentifier = Nothing
     , _casgtPlacementGroup = Nothing
+    , _casgtVPCZoneIdentifier = Nothing
     , _casgtHealthCheckType = Nothing
     }
 
@@ -126,6 +126,10 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
       -- BlockDeviceMapping. For more information, see Create an Auto
       -- Scaling Group Using EC2 Instance in the Auto Scaling Developer
       -- Guide.
+    , _casgtPlacementGroup :: Maybe Text
+      -- ^ Physical location of an existing cluster placement group into
+      -- which you want to launch your instances. For information about
+      -- cluster placement group, see Using Cluster Instances.
     , _casgtVPCZoneIdentifier :: Maybe Text
       -- ^ A comma-separated list of subnet identifiers of Amazon Virtual
       -- Private Clouds (Amazon VPCs). If you specify subnets and
@@ -134,10 +138,6 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
       -- information on launching your Auto Scaling group into Amazon VPC
       -- subnets, see Auto Scaling in Amazon Virtual Private Cloud in the
       -- Auto Scaling Developer Guide .
-    , _casgtPlacementGroup :: Maybe Text
-      -- ^ Physical location of an existing cluster placement group into
-      -- which you want to launch your instances. For information about
-      -- cluster placement group, see Using Cluster Instances.
     , _casgtHealthCheckType :: Maybe Text
       -- ^ The service you want the health checks from, Amazon EC2 or
       -- Elastic Load Balancer. Valid values are EC2 or ELB. By default,

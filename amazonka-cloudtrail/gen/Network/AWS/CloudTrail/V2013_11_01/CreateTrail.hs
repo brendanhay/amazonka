@@ -70,17 +70,17 @@ data CreateTrailResponse = CreateTrailResponse
     { _ctsIncludeGlobalServiceEvents :: Maybe Bool
       -- ^ Specifies whether the trail is publishing events from global
       -- services such as IAM to the log files.
+    , _ctsName :: Maybe Text
+      -- ^ Specifies the name of the trail.
+    , _ctsS3BucketName :: Maybe Text
+      -- ^ Specifies the name of the Amazon S3 bucket designated for
+      -- publishing log files.
     , _ctsS3KeyPrefix :: Maybe Text
       -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
       -- bucket you have designated for log file delivery.
     , _ctsSnsTopicName :: Maybe Text
       -- ^ Specifies the name of the Amazon SNS topic defined for
       -- notification of log file delivery.
-    , _ctsName :: Maybe Text
-      -- ^ Specifies the name of the trail.
-    , _ctsS3BucketName :: Maybe Text
-      -- ^ Specifies the name of the Amazon S3 bucket designated for
-      -- publishing log files.
     } deriving (Show, Generic)
 
 makeLenses ''CreateTrailResponse

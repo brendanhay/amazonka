@@ -163,7 +163,7 @@ special svc s = f (_svcName svc) (s ^. cmnName) s
     f _     n        = cmnName .~ fromMaybe n (renameType svc s)
 
 request :: Service -> Operation -> Request -> Request
-request svc o rq = rq
+request svc@Service{..} o rq = rq
     & rqName          .~ name
     & rqShape         .~ shape
     & rqDefault       .~ lowerFirst name
@@ -179,13 +179,13 @@ request svc o rq = rq
     hs = filter ((== LHeader) . view cmnLocation) fs
     fs = map (requireField overrides . upd) . sort $ fields True svc shape
 
-    overrides = fromMaybe [] (Map.lookup name (_svcRequired svc))
+    overrides = fromMaybe [] (Map.lookup name _svcRequired)
 
     upd f | f ^. cmnLocation == LBody
           , f ^. cmnStreaming         = f & cmnRequired .~ True
           | otherwise                 = f
 
-    shape = rq ^. rqShape & cmnName .~ name
+    shape = ignoreFields _svcIgnored (rq ^. rqShape & cmnName .~ name)
     name  = o ^. opName
 
 http :: Shape -> HTTP -> HTTP
@@ -212,7 +212,7 @@ response svc@Service{..} o rs = rs' & rsType .~ responseType _svcType rs'
 
     overrides = fromMaybe [] (Map.lookup name _svcRequired)
 
-    shape = rs ^. rsShape & cmnName .~ name
+    shape = ignoreFields _svcIgnored (rs ^. rsShape & cmnName .~ name)
     name  = o ^. opName <> "Response"
 
 pagination :: Service -> Operation -> Pagination -> Pagination
@@ -488,3 +488,9 @@ requireField :: [CI Text] -> Field -> Field
 requireField cs f
     | CI.mk (_fldName f) `notElem` cs = f
     | otherwise = f & cmnRequired .~ True & fldType.anRequired_ .~ True
+
+ignoreFields :: HashMap Text [CI Text] -> Shape -> Shape
+ignoreFields m (SStruct s)
+    | Just cs <- Map.lookup (s ^. cmnName) m = SStruct $
+        s & sctFields %~ Map.filterWithKey (\k _ -> CI.mk k `elem` cs)
+ignoreFields _ s = s

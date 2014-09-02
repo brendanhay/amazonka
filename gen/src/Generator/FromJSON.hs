@@ -157,8 +157,9 @@ instance FromJSON Service where
             <*> o .:? "target_prefix"
             <*> pure ops
             <*> pure def
-            <*> o .:? "required" .!= mempty
             <*> pure (cbl n d)
+            <*> o .:? "ignored"    .!= mempty
+            <*> o .:? "required"   .!= mempty
             <*> o .:? "existing"   .!= mempty
             <*> o .:? "rename"     .!= mempty
             <*> o .:? "unprefixed" .!= mempty

@@ -485,8 +485,9 @@ data Service = Service
     , _svcTargetPrefix     :: Maybe Text
     , _svcOperations       :: [Operation]
     , _svcTypes            :: [Type]
-    , _svcRequired         :: HashMap Text [CI Text]
     , _svcCabal            :: Cabal
+    , _svcIgnored          :: HashMap Text [CI Text]
+    , _svcRequired         :: HashMap Text [CI Text]
     , _svcExist            :: HashMap Text Text
     , _svcRename           :: HashMap Text Text
     , _svcUnprefixed       :: [Text]
@@ -529,8 +530,9 @@ defaultService a = Service
     , _svcTargetPrefix     = def
     , _svcOperations       = mempty
     , _svcTypes            = mempty
-    , _svcRequired         = mempty
     , _svcCabal            = Cabal cabalVersion (unAbbrev a) def
+    , _svcIgnored          = mempty
+    , _svcRequired         = mempty
     , _svcExist            = mempty
     , _svcRename           = mempty
     , _svcUnprefixed       = mempty

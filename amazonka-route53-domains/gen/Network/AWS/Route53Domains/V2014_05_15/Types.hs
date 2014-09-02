@@ -1306,24 +1306,12 @@ instance FromJSON OperationType
 
 instance ToJSON OperationType
 
--- | Provides details about the domain administrative contact. Type: Complex
--- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
+-- | Provides details about the domain registrant. Type: Complex Children:
+-- FirstName, MiddleName, LastName, ContactType, OrganizationName,
 -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
 -- Email, Fax, ExtraParams.
 data ContactDetail = ContactDetail
-    { _cdAddressLine1 :: Maybe Text
-      -- ^ First line of the contact's address. Type: String Default: None
-      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
-    , _cdAddressLine2 :: Maybe Text
-      -- ^ Second line of contact's address, if any. Type: String Default:
-      -- None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
-    , _cdCity :: Maybe Text
-      -- ^ The city of the contact's address. Type: String Default: None
-      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
-    , _cdContactType :: Maybe ContactType
+    { _cdContactType :: Maybe ContactType
       -- ^ Indicates whether the contact is a person, company, association,
       -- or public organization. If you choose an option other than
       -- PERSON, you must enter an organization name, and you can't enable
@@ -1335,35 +1323,14 @@ data ContactDetail = ContactDetail
       -- ^ Code for the country of the contact's address. Type: String
       -- Default: None Constraints: Maximum 255 characters. Parents:
       -- RegistrantContact, AdminContact, TechContact Required: Yes.
-    , _cdEmail :: Maybe Text
-      -- ^ Email address of the contact. Type: String Default: None
-      -- Constraints: Maximum 254 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
-    , _cdExtraParams :: [ExtraParam]
-      -- ^ A list of name-value pairs for parameters required by certain
-      -- top-level domains. Type: Complex Default: None Parents:
-      -- RegistrantContact, AdminContact, TechContact Children: Name,
-      -- Value Required: No.
-    , _cdFax :: Maybe Text
-      -- ^ Fax number of the contact. Type: String Default: None
-      -- Constraints: Phone number must be specified in the format
-      -- "+[country dialing code].[number including any area code]". For
-      -- example, a US phone number might appear as "+1.1234567890".
-      -- Parents: RegistrantContact, AdminContact, TechContact Required:
-      -- No.
     , _cdFirstName :: Maybe Text
       -- ^ First name of contact. Type: String Default: None Constraints:
       -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
       -- TechContact Required: Yes.
-    , _cdLastName :: Maybe Text
-      -- ^ Last name of contact. Type: String Default: None Constraints:
-      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
-      -- TechContact Required: Yes.
-    , _cdOrganizationName :: Maybe Text
-      -- ^ Name of the organization for contact types other than PERSON.
-      -- Type: String Default: None Constraints: Maximum 255 characters.
-      -- Contact type must not be PERSON. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: No.
+    , _cdAddressLine2 :: Maybe Text
+      -- ^ Second line of contact's address, if any. Type: String Default:
+      -- None Constraints: Maximum 255 characters. Parents:
+      -- RegistrantContact, AdminContact, TechContact Required: No.
     , _cdPhoneNumber :: Maybe Text
       -- ^ The phone number of the contact. Type: String Default: None
       -- Constraints: Phone number must be specified in the format
@@ -1371,14 +1338,47 @@ data ContactDetail = ContactDetail
       -- For example, a US phone number might appear as "+1.1234567890".
       -- Parents: RegistrantContact, AdminContact, TechContact Required:
       -- Yes.
-    , _cdState :: Maybe Text
-      -- ^ The state or province of the contact's city. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
+    , _cdCity :: Maybe Text
+      -- ^ The city of the contact's address. Type: String Default: None
+      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: Yes.
+    , _cdAddressLine1 :: Maybe Text
+      -- ^ First line of the contact's address. Type: String Default: None
+      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: Yes.
     , _cdZipCode :: Maybe Text
       -- ^ The zip or postal code of the contact's address. Type: String
       -- Default: None Constraints: Maximum 255 characters. Parents:
       -- RegistrantContact, AdminContact, TechContact Required: No.
+    , _cdExtraParams :: [ExtraParam]
+      -- ^ A list of name-value pairs for parameters required by certain
+      -- top-level domains. Type: Complex Default: None Parents:
+      -- RegistrantContact, AdminContact, TechContact Children: Name,
+      -- Value Required: No.
+    , _cdLastName :: Maybe Text
+      -- ^ Last name of contact. Type: String Default: None Constraints:
+      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
+      -- TechContact Required: Yes.
+    , _cdFax :: Maybe Text
+      -- ^ Fax number of the contact. Type: String Default: None
+      -- Constraints: Phone number must be specified in the format
+      -- "+[country dialing code].[number including any area code]". For
+      -- example, a US phone number might appear as "+1.1234567890".
+      -- Parents: RegistrantContact, AdminContact, TechContact Required:
+      -- No.
+    , _cdState :: Maybe Text
+      -- ^ The state or province of the contact's city. Type: String
+      -- Default: None Constraints: Maximum 255 characters. Parents:
+      -- RegistrantContact, AdminContact, TechContact Required: No.
+    , _cdEmail :: Maybe Text
+      -- ^ Email address of the contact. Type: String Default: None
+      -- Constraints: Maximum 254 characters. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: Yes.
+    , _cdOrganizationName :: Maybe Text
+      -- ^ Name of the organization for contact types other than PERSON.
+      -- Type: String Default: None Constraints: Maximum 255 characters.
+      -- Contact type must not be PERSON. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: No.
     } deriving (Show, Generic)
 
 instance FromJSON ContactDetail
@@ -1386,17 +1386,17 @@ instance FromJSON ContactDetail
 instance ToJSON ContactDetail
 
 data DomainSummary = DomainSummary
-    { _ddyAutoRenew :: Maybe Bool
+    { _ddyDomainName :: Text
+      -- ^ The name of a domain. Type: String.
+    , _ddyAutoRenew :: Maybe Bool
       -- ^ Indicates whether the domain is automatically renewed upon
       -- expiration. Type: Boolean Valid values: True | False.
-    , _ddyDomainName :: Text
-      -- ^ The name of a domain. Type: String.
-    , _ddyExpiry :: Maybe ISO8601
-      -- ^ Expiration date of the domain in Coordinated Universal Time
-      -- (UTC). Type: Long.
     , _ddyTransferLock :: Maybe Bool
       -- ^ Indicates whether a domain is locked from unauthorized transfer
       -- to another party. Type: Boolean Valid values: True | False.
+    , _ddyExpiry :: Maybe ISO8601
+      -- ^ Expiration date of the domain in Coordinated Universal Time
+      -- (UTC). Type: Long.
     } deriving (Show, Generic)
 
 instance FromJSON DomainSummary
@@ -1443,18 +1443,18 @@ instance ToJSON Nameserver
 
 -- | OperationSummary includes the following elements.
 data OperationSummary = OperationSummary
-    { _osOperationId :: Text
-      -- ^ Identifier returned to track the requested action. Type: String.
-    , _osStatus :: OperationStatus
-      -- ^ The current status of the requested operation in the system.
-      -- Type: String.
-    , _osSubmittedDate :: ISO8601
-      -- ^ The date when the request was submitted.
-    , _osType :: OperationType
+    { _osType :: OperationType
       -- ^ Type of the action requested. Type: String Valid values:
       -- REGISTER_DOMAIN | DELETE_DOMAIN | TRANSFER_IN_DOMAIN |
       -- UPDATE_DOMAIN_CONTACT | UPDATE_NAMESERVER |
       -- CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
+    , _osOperationId :: Text
+      -- ^ Identifier returned to track the requested action. Type: String.
+    , _osSubmittedDate :: ISO8601
+      -- ^ The date when the request was submitted.
+    , _osStatus :: OperationStatus
+      -- ^ The current status of the requested operation in the system.
+      -- Type: String.
     } deriving (Show, Generic)
 
 instance FromJSON OperationSummary

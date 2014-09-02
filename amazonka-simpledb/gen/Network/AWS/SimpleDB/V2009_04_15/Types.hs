@@ -128,14 +128,14 @@ xmlOptions = Tagged def
 
 -- | 
 data Attribute = Attribute
-    { _aAlternateNameEncoding :: Maybe Text
-      -- ^ 
-    , _aAlternateValueEncoding :: Maybe Text
-      -- ^ 
-    , _aName :: Text
+    { _aName :: Text
       -- ^ The name of the attribute.
+    , _aAlternateNameEncoding :: Maybe Text
+      -- ^ 
     , _aValue :: Text
       -- ^ The value of the attribute.
+    , _aAlternateValueEncoding :: Maybe Text
+      -- ^ 
     } deriving (Show, Generic)
 
 instance FromXML Attribute where
@@ -146,8 +146,8 @@ instance ToQuery Attribute where
     toQuery = genericQuery def
 
 data DeletableItem = DeletableItem
-    { _diAttributes :: [Attribute]
-    , _diName :: Text
+    { _diName :: Text
+    , _diAttributes :: [Attribute]
     } deriving (Show, Generic)
 
 instance ToQuery DeletableItem where
@@ -155,12 +155,12 @@ instance ToQuery DeletableItem where
 
 -- | 
 data Item = Item
-    { _pAlternateNameEncoding :: Maybe Text
-      -- ^ 
+    { _pName :: Text
+      -- ^ The name of the item.
     , _pAttributes :: [Attribute]
       -- ^ A list of attributes.
-    , _pName :: Text
-      -- ^ The name of the item.
+    , _pAlternateNameEncoding :: Maybe Text
+      -- ^ 
     } deriving (Show, Generic)
 
 instance FromXML Item where
@@ -171,12 +171,12 @@ instance FromXML Item where
 data ReplaceableAttribute = ReplaceableAttribute
     { _raName :: Text
       -- ^ The name of the replaceable attribute.
+    , _raValue :: Text
+      -- ^ The value of the replaceable attribute.
     , _raReplace :: Maybe Bool
       -- ^ A flag specifying whether or not to replace the attribute/value
       -- pair or to add a new attribute/value pair. The default setting is
       -- false.
-    , _raValue :: Text
-      -- ^ The value of the replaceable attribute.
     } deriving (Show, Generic)
 
 instance FromXML ReplaceableAttribute where
@@ -188,10 +188,10 @@ instance ToQuery ReplaceableAttribute where
 
 -- | 
 data ReplaceableItem = ReplaceableItem
-    { _riAttributes :: [ReplaceableAttribute]
-      -- ^ The list of attributes for a replaceable item.
-    , _riName :: Text
+    { _riName :: Text
       -- ^ The name of the replaceable item.
+    , _riAttributes :: [ReplaceableAttribute]
+      -- ^ The list of attributes for a replaceable item.
     } deriving (Show, Generic)
 
 instance ToQuery ReplaceableItem where
@@ -201,18 +201,18 @@ instance ToQuery ReplaceableItem where
 -- attributes will be deleted or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be deleted.
 data UpdateCondition = UpdateCondition
-    { _ucExists :: Maybe Bool
+    { _ucName :: Maybe Text
+      -- ^ The name of the attribute involved in the condition.
+    , _ucValue :: Maybe Text
+      -- ^ The value of an attribute. This value can only be specified when
+      -- the Exists parameter is equal to true.
+    , _ucExists :: Maybe Bool
       -- ^ A value specifying whether or not the specified attribute must
       -- exist with the specified value in order for the update condition
       -- to be satisfied. Specify true if the attribute must exist for the
       -- update condition to be satisfied. Specify false if the attribute
       -- should not exist in order for the update condition to be
       -- satisfied.
-    , _ucName :: Maybe Text
-      -- ^ The name of the attribute involved in the condition.
-    , _ucValue :: Maybe Text
-      -- ^ The value of an attribute. This value can only be specified when
-      -- the Exists parameter is equal to true.
     } deriving (Show, Generic)
 
 instance ToQuery UpdateCondition where

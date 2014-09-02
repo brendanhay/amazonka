@@ -182,10 +182,10 @@ instance ToJSON Query
 data Field = Field
     { _fKey :: Text
       -- ^ The field identifier.
-    , _fRefValue :: Maybe Text
-      -- ^ The field value, expressed as the identifier of another object.
     , _fStringValue :: Maybe Text
       -- ^ The field value, expressed as a String.
+    , _fRefValue :: Maybe Text
+      -- ^ The field value, expressed as the identifier of another object.
     } deriving (Show, Generic)
 
 instance FromJSON Field
@@ -244,11 +244,11 @@ instance ToJSON Operator
 
 -- | Contains pipeline metadata.
 data PipelineDescription = PipelineDescription
-    { _pdDescription :: Maybe Text
-      -- ^ Description of the pipeline.
-    , _pdFields :: [Field]
+    { _pdFields :: [Field]
       -- ^ A list of read-only fields that contain metadata about the
       -- pipeline: @userId, @accountId, and @pipelineState.
+    , _pdDescription :: Maybe Text
+      -- ^ Description of the pipeline.
     , _pdName :: Text
       -- ^ Name of the pipeline.
     , _pdPipelineId :: Text
@@ -307,17 +307,17 @@ instance ToJSON Selector
 -- assigned. The calling task runner uses taskId in subsequent calls to
 -- ReportTaskProgress and SetTaskStatus.
 data TaskObject = TaskObject
-    { _toAttemptId :: Maybe Text
-      -- ^ Identifier of the pipeline task attempt object. AWS Data Pipeline
-      -- uses this value to track how many times a task is attempted.
-    , _toObjects :: Map Text PipelineObject
+    { _toObjects :: Map Text PipelineObject
       -- ^ Connection information for the location where the task runner
       -- will publish the output of the task.
-    , _toPipelineId :: Maybe Text
-      -- ^ Identifier of the pipeline that provided the task.
     , _toTaskId :: Maybe Text
       -- ^ An internal identifier for the task. This ID is passed to the
       -- SetTaskStatus and ReportTaskProgress actions.
+    , _toAttemptId :: Maybe Text
+      -- ^ Identifier of the pipeline task attempt object. AWS Data Pipeline
+      -- uses this value to track how many times a task is attempted.
+    , _toPipelineId :: Maybe Text
+      -- ^ Identifier of the pipeline that provided the task.
     } deriving (Show, Generic)
 
 instance FromJSON TaskObject

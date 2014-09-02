@@ -34,17 +34,23 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CopyDBSnapshot' request.
-copyDBSnapshot :: Text -- ^ '_cdbsmSourceDBSnapshotIdentifier'
-               -> Text -- ^ '_cdbsmTargetDBSnapshotIdentifier'
+copyDBSnapshot :: Text -- ^ '_cdbsmTargetDBSnapshotIdentifier'
+               -> Text -- ^ '_cdbsmSourceDBSnapshotIdentifier'
                -> CopyDBSnapshot
 copyDBSnapshot p1 p2 = CopyDBSnapshot
-    { _cdbsmSourceDBSnapshotIdentifier = p1
-    , _cdbsmTargetDBSnapshotIdentifier = p2
+    { _cdbsmTargetDBSnapshotIdentifier = p1
+    , _cdbsmSourceDBSnapshotIdentifier = p2
     , _cdbsmTags = mempty
     }
 
 data CopyDBSnapshot = CopyDBSnapshot
-    { _cdbsmSourceDBSnapshotIdentifier :: Text
+    { _cdbsmTargetDBSnapshotIdentifier :: Text
+      -- ^ The identifier for the copied snapshot. Constraints: Cannot be
+      -- null, empty, or blank Must contain from 1 to 255 alphanumeric
+      -- characters or hyphens First character must be a letter Cannot end
+      -- with a hyphen or contain two consecutive hyphens Example:
+      -- my-db-snapshot.
+    , _cdbsmSourceDBSnapshotIdentifier :: Text
       -- ^ The identifier for the source DB snapshot. Constraints: Must
       -- specify a valid system snapshot in the "available" state. If the
       -- source snapshot is in the same region as the copy, specify a
@@ -54,12 +60,6 @@ data CopyDBSnapshot = CopyDBSnapshot
       -- rds:mydb-2012-04-02-00-01 Example:
       -- arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805.
       -- 
-    , _cdbsmTargetDBSnapshotIdentifier :: Text
-      -- ^ The identifier for the copied snapshot. Constraints: Cannot be
-      -- null, empty, or blank Must contain from 1 to 255 alphanumeric
-      -- characters or hyphens First character must be a letter Cannot end
-      -- with a hyphen or contain two consecutive hyphens Example:
-      -- my-db-snapshot.
     , _cdbsmTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)

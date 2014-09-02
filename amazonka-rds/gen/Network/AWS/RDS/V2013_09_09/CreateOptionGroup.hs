@@ -31,33 +31,33 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateOptionGroup' request.
-createOptionGroup :: Text -- ^ '_cogmEngineName'
+createOptionGroup :: Text -- ^ '_cogmOptionGroupName'
                   -> Text -- ^ '_cogmMajorEngineVersion'
+                  -> Text -- ^ '_cogmEngineName'
                   -> Text -- ^ '_cogmOptionGroupDescription'
-                  -> Text -- ^ '_cogmOptionGroupName'
                   -> CreateOptionGroup
 createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
-    { _cogmEngineName = p1
+    { _cogmOptionGroupName = p1
     , _cogmMajorEngineVersion = p2
-    , _cogmOptionGroupDescription = p3
-    , _cogmOptionGroupName = p4
+    , _cogmEngineName = p3
+    , _cogmOptionGroupDescription = p4
     , _cogmTags = mempty
     }
 
 data CreateOptionGroup = CreateOptionGroup
-    { _cogmEngineName :: Text
-      -- ^ Specifies the name of the engine that this option group should be
-      -- associated with.
-    , _cogmMajorEngineVersion :: Text
-      -- ^ Specifies the major version of the engine that this option group
-      -- should be associated with.
-    , _cogmOptionGroupDescription :: Text
-      -- ^ The description of the option group.
-    , _cogmOptionGroupName :: Text
+    { _cogmOptionGroupName :: Text
       -- ^ Specifies the name of the option group to be created.
       -- Constraints: Must be 1 to 255 alphanumeric characters or hyphens
       -- First character must be a letter Cannot end with a hyphen or
       -- contain two consecutive hyphens Example: myoptiongroup.
+    , _cogmMajorEngineVersion :: Text
+      -- ^ Specifies the major version of the engine that this option group
+      -- should be associated with.
+    , _cogmEngineName :: Text
+      -- ^ Specifies the name of the engine that this option group should be
+      -- associated with.
+    , _cogmOptionGroupDescription :: Text
+      -- ^ The description of the option group.
     , _cogmTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)

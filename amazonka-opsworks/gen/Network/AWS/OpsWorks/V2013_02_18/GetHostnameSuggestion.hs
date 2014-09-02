@@ -46,10 +46,10 @@ instance ToHeaders GetHostnameSuggestion
 instance ToJSON GetHostnameSuggestion
 
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
-    { _ghssHostname :: Maybe Text
-      -- ^ The generated host name.
-    , _ghssLayerId :: Maybe Text
+    { _ghssLayerId :: Maybe Text
       -- ^ The layer ID.
+    , _ghssHostname :: Maybe Text
+      -- ^ The generated host name.
     } deriving (Show, Generic)
 
 makeLenses ''GetHostnameSuggestionResponse

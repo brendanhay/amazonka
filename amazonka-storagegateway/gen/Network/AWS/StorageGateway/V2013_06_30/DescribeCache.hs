@@ -66,8 +66,8 @@ instance ToJSON DescribeCache
 data DescribeCacheResponse = DescribeCacheResponse
     { _dcoDiskIds :: [Text]
     , _dcoCacheDirtyPercentage :: Maybe Double
-    , _dcoCacheHitPercentage :: Maybe Double
     , _dcoCacheMissPercentage :: Maybe Double
+    , _dcoCacheHitPercentage :: Maybe Double
     , _dcoCacheUsedPercentage :: Maybe Double
     , _dcoGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the

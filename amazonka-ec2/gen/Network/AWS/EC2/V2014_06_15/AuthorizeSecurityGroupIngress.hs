@@ -80,47 +80,47 @@ import Network.AWS.Prelude
 authorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
 authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     { _asgirDryRun = Nothing
-    , _asgirFromPort = Nothing
     , _asgirToPort = Nothing
+    , _asgirFromPort = Nothing
     , _asgirIpPermissions = mempty
+    , _asgirSourceSecurityGroupName = Nothing
+    , _asgirGroupName = Nothing
+    , _asgirSourceSecurityGroupOwnerId = Nothing
     , _asgirCidrIp = Nothing
     , _asgirGroupId = Nothing
-    , _asgirGroupName = Nothing
     , _asgirIpProtocol = Nothing
-    , _asgirSourceSecurityGroupName = Nothing
-    , _asgirSourceSecurityGroupOwnerId = Nothing
     }
 
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     { _asgirDryRun :: Maybe Bool
       -- ^ 
-    , _asgirFromPort :: Maybe Integer
-      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
-      -- type number. For the ICMP type number, use -1 to specify all ICMP
-      -- types.
     , _asgirToPort :: Maybe Integer
       -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
       -- code number. For the ICMP code number, use -1 to specify all ICMP
       -- codes for the ICMP type.
+    , _asgirFromPort :: Maybe Integer
+      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
+      -- type number. For the ICMP type number, use -1 to specify all ICMP
+      -- types.
     , _asgirIpPermissions :: [IpPermission]
       -- ^ 
+    , _asgirSourceSecurityGroupName :: Maybe Text
+      -- ^ [EC2-Classic, default VPC] The name of the source security group.
+      -- You can't specify a source security group and a CIDR IP address
+      -- range.
+    , _asgirGroupName :: Maybe Text
+      -- ^ [EC2-Classic, default VPC] The name of the security group.
+    , _asgirSourceSecurityGroupOwnerId :: Maybe Text
+      -- ^ The ID of the source security group. You can't specify a source
+      -- security group and a CIDR IP address range.
     , _asgirCidrIp :: Maybe Text
       -- ^ The CIDR IP address range. You can't specify this parameter when
       -- specifying a source security group.
     , _asgirGroupId :: Maybe Text
       -- ^ The ID of the security group.
-    , _asgirGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the security group.
     , _asgirIpProtocol :: Maybe Text
       -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
       -- Numbers). Use -1 to specify all.
-    , _asgirSourceSecurityGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the source security group.
-      -- You can't specify a source security group and a CIDR IP address
-      -- range.
-    , _asgirSourceSecurityGroupOwnerId :: Maybe Text
-      -- ^ The ID of the source security group. You can't specify a source
-      -- security group and a CIDR IP address range.
     } deriving (Show, Generic)
 
 makeLenses ''AuthorizeSecurityGroupIngress

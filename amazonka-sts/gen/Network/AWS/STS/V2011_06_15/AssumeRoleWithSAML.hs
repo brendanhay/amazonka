@@ -62,25 +62,25 @@ import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AssumeRoleWithSAML' request.
-assumeRoleWithSAML :: Text -- ^ '_arwsamlrPrincipalArn'
-                   -> Text -- ^ '_arwsamlrRoleArn'
+assumeRoleWithSAML :: Text -- ^ '_arwsamlrRoleArn'
+                   -> Text -- ^ '_arwsamlrPrincipalArn'
                    -> Text -- ^ '_arwsamlrSAMLAssertion'
                    -> AssumeRoleWithSAML
 assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
-    { _arwsamlrPrincipalArn = p1
-    , _arwsamlrRoleArn = p2
+    { _arwsamlrRoleArn = p1
+    , _arwsamlrPrincipalArn = p2
     , _arwsamlrSAMLAssertion = p3
     , _arwsamlrDurationSeconds = Nothing
     , _arwsamlrPolicy = Nothing
     }
 
 data AssumeRoleWithSAML = AssumeRoleWithSAML
-    { _arwsamlrPrincipalArn :: Text
-      -- ^ The Amazon Resource Name (ARN) of the SAML provider in IAM that
-      -- describes the IdP.
-    , _arwsamlrRoleArn :: Text
+    { _arwsamlrRoleArn :: Text
       -- ^ The Amazon Resource Name (ARN) of the role that the caller is
       -- assuming.
+    , _arwsamlrPrincipalArn :: Text
+      -- ^ The Amazon Resource Name (ARN) of the SAML provider in IAM that
+      -- describes the IdP.
     , _arwsamlrSAMLAssertion :: Text
       -- ^ The base-64 encoded SAML authentication response provided by the
       -- IdP. For more information, see Configuring a Relying Party and

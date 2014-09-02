@@ -40,31 +40,31 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBParameterGroup' request.
-createDBParameterGroup :: Text -- ^ '_cdbpgmDBParameterGroupFamily'
+createDBParameterGroup :: Text -- ^ '_cdbpgmDescription'
                        -> Text -- ^ '_cdbpgmDBParameterGroupName'
-                       -> Text -- ^ '_cdbpgmDescription'
+                       -> Text -- ^ '_cdbpgmDBParameterGroupFamily'
                        -> CreateDBParameterGroup
 createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
-    { _cdbpgmDBParameterGroupFamily = p1
+    { _cdbpgmDescription = p1
     , _cdbpgmDBParameterGroupName = p2
-    , _cdbpgmDescription = p3
+    , _cdbpgmDBParameterGroupFamily = p3
     , _cdbpgmTags = mempty
     }
 
 data CreateDBParameterGroup = CreateDBParameterGroup
-    { _cdbpgmDBParameterGroupFamily :: Text
-      -- ^ The DB parameter group family name. A DB parameter group can be
-      -- associated with one and only one DB parameter group family, and
-      -- can be applied only to a DB instance running a database engine
-      -- and engine version compatible with that DB parameter group
-      -- family.
+    { _cdbpgmDescription :: Text
+      -- ^ The description for the DB parameter group.
     , _cdbpgmDBParameterGroupName :: Text
       -- ^ The name of the DB parameter group. Constraints: Must be 1 to 255
       -- alphanumeric characters First character must be a letter Cannot
       -- end with a hyphen or contain two consecutive hyphens This value
       -- is stored as a lower-case string.
-    , _cdbpgmDescription :: Text
-      -- ^ The description for the DB parameter group.
+    , _cdbpgmDBParameterGroupFamily :: Text
+      -- ^ The DB parameter group family name. A DB parameter group can be
+      -- associated with one and only one DB parameter group family, and
+      -- can be applied only to a DB instance running a database engine
+      -- and engine version compatible with that DB parameter group
+      -- family.
     , _cdbpgmTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)

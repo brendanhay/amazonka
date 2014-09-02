@@ -67,14 +67,14 @@ instance ToQuery AllocateAddress where
     toQuery = genericQuery def
 
 data AllocateAddressResponse = AllocateAddressResponse
-    { _aavDomain :: Maybe DomainType
+    { _aawDomain :: Maybe DomainType
       -- ^ Indicates whether this Elastic IP address is for use with
       -- instances in EC2-Classic (standard) or instances in a VPC (vpc).
-    , _aavAllocationId :: Maybe Text
+    , _aawPublicIp :: Maybe Text
+      -- ^ The Elastic IP address.
+    , _aawAllocationId :: Maybe Text
       -- ^ [EC2-VPC] The ID that AWS assigns to represent the allocation of
       -- the Elastic IP address for use with instances in a VPC.
-    , _aavPublicIp :: Maybe Text
-      -- ^ The Elastic IP address.
     } deriving (Show, Generic)
 
 makeLenses ''AllocateAddressResponse

@@ -37,15 +37,15 @@ import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
-    { _acsgimCacheSecurityGroupName :: Text
-      -- ^ The cache security group which will allow network ingress.
-    , _acsgimEC2SecurityGroupName :: Text
+    { _acsgimEC2SecurityGroupName :: Text
       -- ^ The Amazon EC2 security group to be authorized for ingress to the
       -- cache security group.
     , _acsgimEC2SecurityGroupOwnerId :: Text
       -- ^ The AWS account number of the Amazon EC2 security group owner.
       -- Note that this is not the same thing as an AWS access key ID -
       -- you must provide a valid AWS account number for this parameter.
+    , _acsgimCacheSecurityGroupName :: Text
+      -- ^ The cache security group which will allow network ingress.
     } deriving (Show, Generic)
 
 makeLenses ''AuthorizeCacheSecurityGroupIngress

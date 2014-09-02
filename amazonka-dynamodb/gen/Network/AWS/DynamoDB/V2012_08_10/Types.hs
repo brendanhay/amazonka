@@ -669,7 +669,11 @@ instance ToJSON AttributeDefinition
 -- | Represents the data for an attribute. You can set one, and only one, of the
 -- elements.
 data AttributeValue = AttributeValue
-    { _avB :: Maybe Base64
+    { _avS :: Maybe Text
+      -- ^ A String data type.
+    , _avSS :: [Text]
+      -- ^ A String set data type.
+    , _avB :: Maybe Base64
       -- ^ A Binary data type.
     , _avBS :: [Base64]
       -- ^ A Binary set data type.
@@ -677,10 +681,6 @@ data AttributeValue = AttributeValue
       -- ^ A Number data type.
     , _avNS :: [Text]
       -- ^ Number set data type.
-    , _avS :: Maybe Text
-      -- ^ A String data type.
-    , _avSS :: [Text]
-      -- ^ A String set data type.
     } deriving (Show, Generic)
 
 instance FromJSON AttributeValue
@@ -760,19 +760,7 @@ instance ToJSON AttributeValueUpdate
 -- conditions are "ANDed" together. In other words, all of the conditions must
 -- be met to be included in the output.
 data Condition = Condition
-    { _cnAttributeValueList :: [AttributeValue]
-      -- ^ One or more values to evaluate against the supplied attribute.
-      -- This list contains exactly one value, except for a BETWEEN or IN
-      -- comparison, in which case the list contains two values. For type
-      -- Number, value comparisons are numeric. String value comparisons
-      -- for greater than, equals, or less than are based on ASCII
-      -- character code values. For example, a is greater than A, and aa
-      -- is greater than B. For a list of code values, see
-      -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
-      -- For Binary, DynamoDB treats each byte of the binary data as
-      -- unsigned when it compares binary values, for example when
-      -- evaluating query expressions.
-    , _cnComparisonOperator :: ComparisonOperator
+    { _cnComparisonOperator :: ComparisonOperator
       -- ^ A comparator for evaluating attributes. For example, equals,
       -- greater than, less than, etc. Valid comparison operators for
       -- Query: EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN Valid
@@ -853,6 +841,18 @@ data Condition = Condition
       -- does not match. For example, {"S":"6"} does not compare to
       -- {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
       -- "1"]}.
+    , _cnAttributeValueList :: [AttributeValue]
+      -- ^ One or more values to evaluate against the supplied attribute.
+      -- This list contains exactly one value, except for a BETWEEN or IN
+      -- comparison, in which case the list contains two values. For type
+      -- Number, value comparisons are numeric. String value comparisons
+      -- for greater than, equals, or less than are based on ASCII
+      -- character code values. For example, a is greater than A, and aa
+      -- is greater than B. For a list of code values, see
+      -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
+      -- For Binary, DynamoDB treats each byte of the binary data as
+      -- unsigned when it compares binary values, for example when
+      -- evaluating query expressions.
     } deriving (Show, Generic)
 
 instance ToJSON Condition
@@ -863,19 +863,19 @@ instance ToJSON Condition
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
 data ConsumedCapacity = ConsumedCapacity
-    { _ccCapacityUnits :: Maybe Double
+    { _ccTableName :: Maybe Text
+      -- ^ The name of the table that was affected by the operation.
+    , _ccTable :: Maybe Capacity
+      -- ^ The amount of throughput consumed on the table affected by the
+      -- operation.
+    , _ccLocalSecondaryIndexes :: Map Text Capacity
+      -- ^ The amount of throughput consumed on each local index affected by
+      -- the operation.
+    , _ccCapacityUnits :: Maybe Double
       -- ^ The total number of capacity units consumed by the operation.
     , _ccGlobalSecondaryIndexes :: Map Text Capacity
       -- ^ The amount of throughput consumed on each global index affected
       -- by the operation.
-    , _ccLocalSecondaryIndexes :: Map Text Capacity
-      -- ^ The amount of throughput consumed on each local index affected by
-      -- the operation.
-    , _ccTable :: Maybe Capacity
-      -- ^ The amount of throughput consumed on the table affected by the
-      -- operation.
-    , _ccTableName :: Maybe Text
-      -- ^ The name of the table that was affected by the operation.
     } deriving (Show, Generic)
 
 instance FromJSON ConsumedCapacity
@@ -885,8 +885,10 @@ instance FromJSON ConsumedCapacity
 -- already exists; or if the attribute exists and has a particular value
 -- before updating it.
 data ExpectedAttributeValue = ExpectedAttributeValue
-    { _eavAttributeValueList :: [AttributeValue]
-    , _eavComparisonOperator :: Maybe ComparisonOperator
+    { _eavComparisonOperator :: Maybe ComparisonOperator
+    , _eavValue :: Maybe AttributeValue
+      -- ^ Represents the data for an attribute. You can set one, and only
+      -- one, of the elements.
     , _eavExists :: Maybe Bool
       -- ^ Causes DynamoDB to evaluate the value before attempting a
       -- conditional operation: If Exists is true, DynamoDB will check to
@@ -909,9 +911,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue
       -- Exists, then all of the conditions must evaluate to true. (In
       -- other words, the conditions are ANDed together.) Otherwise, the
       -- conditional operation will fail.
-    , _eavValue :: Maybe AttributeValue
-      -- ^ Represents the data for an attribute. You can set one, and only
-      -- one, of the elements.
+    , _eavAttributeValueList :: [AttributeValue]
     } deriving (Show, Generic)
 
 instance ToJSON ExpectedAttributeValue
@@ -921,15 +921,15 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex
     { _gsiIndexName :: Text
       -- ^ The name of the global secondary index. The name must be unique
       -- among all other indexes on this table.
-    , _gsiKeySchema :: [KeySchemaElement]
-      -- ^ The complete key schema for a global secondary index, which
-      -- consists of one or more pairs of attribute names and key types
-      -- (HASH or RANGE).
     , _gsiProjection :: Projection
       -- ^ Represents attributes that are copied (projected) from the table
       -- into an index. These are in addition to the primary key
       -- attributes and index key attributes, which are automatically
       -- projected.
+    , _gsiKeySchema :: [KeySchemaElement]
+      -- ^ The complete key schema for a global secondary index, which
+      -- consists of one or more pairs of attribute names and key types
+      -- (HASH or RANGE).
     , _gsiProvisionedThroughput :: ProvisionedThroughput
       -- ^ Represents the provisioned throughput settings for a specified
       -- table or index. The settings can be modified using the
@@ -944,10 +944,23 @@ instance ToJSON GlobalSecondaryIndex
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName :: Maybe Text
       -- ^ The name of the global secondary index.
-    , _gsidIndexSizeBytes :: Maybe Integer
-      -- ^ The total size of the specified index, in bytes. DynamoDB updates
-      -- this value approximately every six hours. Recent changes might
-      -- not be reflected in this value.
+    , _gsidItemCount :: Maybe Integer
+      -- ^ The number of items in the specified index. DynamoDB updates this
+      -- value approximately every six hours. Recent changes might not be
+      -- reflected in this value.
+    , _gsidProjection :: Maybe Projection
+      -- ^ Represents attributes that are copied (projected) from the table
+      -- into an index. These are in addition to the primary key
+      -- attributes and index key attributes, which are automatically
+      -- projected.
+    , _gsidKeySchema :: Maybe [KeySchemaElement]
+      -- ^ The complete key schema for the global secondary index,
+      -- consisting of one or more pairs of attribute names and key types
+      -- (HASH or RANGE).
+    , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
+      -- ^ Represents the provisioned throughput settings for the table,
+      -- consisting of read and write capacity units, along with data
+      -- about increases and decreases.
     , _gsidIndexStatus :: Maybe IndexStatus
       -- ^ The current state of the global secondary index: CREATING - The
       -- index is being created, as the result of a CreateTable or
@@ -955,23 +968,10 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
       -- the result of a CreateTable or UpdateTable operation. DELETING -
       -- The index is being deleted, as the result of a DeleteTable
       -- operation. ACTIVE - The index is ready for use.
-    , _gsidItemCount :: Maybe Integer
-      -- ^ The number of items in the specified index. DynamoDB updates this
-      -- value approximately every six hours. Recent changes might not be
-      -- reflected in this value.
-    , _gsidKeySchema :: Maybe [KeySchemaElement]
-      -- ^ The complete key schema for the global secondary index,
-      -- consisting of one or more pairs of attribute names and key types
-      -- (HASH or RANGE).
-    , _gsidProjection :: Maybe Projection
-      -- ^ Represents attributes that are copied (projected) from the table
-      -- into an index. These are in addition to the primary key
-      -- attributes and index key attributes, which are automatically
-      -- projected.
-    , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
-      -- ^ Represents the provisioned throughput settings for the table,
-      -- consisting of read and write capacity units, along with data
-      -- about increases and decreases.
+    , _gsidIndexSizeBytes :: Maybe Integer
+      -- ^ The total size of the specified index, in bytes. DynamoDB updates
+      -- this value approximately every six hours. Recent changes might
+      -- not be reflected in this value.
     } deriving (Show, Generic)
 
 instance FromJSON GlobalSecondaryIndexDescription
@@ -991,10 +991,7 @@ instance FromJSON GlobalSecondaryIndexDescription
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
 data ItemCollectionMetrics = ItemCollectionMetrics
-    { _icmItemCollectionKey :: Map Text AttributeValue
-      -- ^ The hash key value of the item collection. This is the same as
-      -- the hash key of the item.
-    , _icmSizeEstimateRangeGB :: [Double]
+    { _icmSizeEstimateRangeGB :: [Double]
       -- ^ An estimate of item collection size, measured in gigabytes. This
       -- is a two-element array containing a lower bound and an upper
       -- bound for the estimate. The estimate includes the size of all the
@@ -1004,6 +1001,9 @@ data ItemCollectionMetrics = ItemCollectionMetrics
       -- approaching its size limit. The estimate is subject to change
       -- over time; therefore, do not rely on the precision or accuracy of
       -- the estimate.
+    , _icmItemCollectionKey :: Map Text AttributeValue
+      -- ^ The hash key value of the item collection. This is the same as
+      -- the hash key of the item.
     } deriving (Show, Generic)
 
 instance FromJSON ItemCollectionMetrics
@@ -1028,18 +1028,18 @@ instance ToJSON KeySchemaElement
 -- | Represents a set of primary keys and, for each key, the attributes to
 -- retrieve from the table.
 data KeysAndAttributes = KeysAndAttributes
-    { _kaaAttributesToGet :: Maybe [Text]
-      -- ^ One or more attributes to retrieve from the table or index. If no
-      -- attribute names are specified then all attributes will be
-      -- returned. If any of the specified attributes are not found, they
-      -- will not appear in the result.
+    { _kaaKeys :: [Map Text AttributeValue]
+      -- ^ The primary key attribute values that define the items and the
+      -- attributes associated with the items.
     , _kaaConsistentRead :: Maybe Bool
       -- ^ The consistency of a read operation. If set to true, then a
       -- strongly consistent read is used; otherwise, an eventually
       -- consistent read is used.
-    , _kaaKeys :: [Map Text AttributeValue]
-      -- ^ The primary key attribute values that define the items and the
-      -- attributes associated with the items.
+    , _kaaAttributesToGet :: Maybe [Text]
+      -- ^ One or more attributes to retrieve from the table or index. If no
+      -- attribute names are specified then all attributes will be
+      -- returned. If any of the specified attributes are not found, they
+      -- will not appear in the result.
     } deriving (Show, Generic)
 
 instance FromJSON KeysAndAttributes
@@ -1051,15 +1051,15 @@ data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName :: Text
       -- ^ The name of the local secondary index. The name must be unique
       -- among all other indexes on this table.
-    , _lsiKeySchema :: [KeySchemaElement]
-      -- ^ The complete key schema for the local secondary index, consisting
-      -- of one or more pairs of attribute names and key types (HASH or
-      -- RANGE).
     , _lsiProjection :: Projection
       -- ^ Represents attributes that are copied (projected) from the table
       -- into an index. These are in addition to the primary key
       -- attributes and index key attributes, which are automatically
       -- projected.
+    , _lsiKeySchema :: [KeySchemaElement]
+      -- ^ The complete key schema for the local secondary index, consisting
+      -- of one or more pairs of attribute names and key types (HASH or
+      -- RANGE).
     } deriving (Show, Generic)
 
 instance ToJSON LocalSecondaryIndex
@@ -1068,22 +1068,22 @@ instance ToJSON LocalSecondaryIndex
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName :: Maybe Text
       -- ^ Represents the name of the local secondary index.
-    , _lsidIndexSizeBytes :: Maybe Integer
-      -- ^ The total size of the specified index, in bytes. DynamoDB updates
-      -- this value approximately every six hours. Recent changes might
-      -- not be reflected in this value.
     , _lsidItemCount :: Maybe Integer
       -- ^ The number of items in the specified index. DynamoDB updates this
       -- value approximately every six hours. Recent changes might not be
       -- reflected in this value.
-    , _lsidKeySchema :: Maybe [KeySchemaElement]
-      -- ^ The complete index key schema, which consists of one or more
-      -- pairs of attribute names and key types (HASH or RANGE).
     , _lsidProjection :: Maybe Projection
       -- ^ Represents attributes that are copied (projected) from the table
       -- into an index. These are in addition to the primary key
       -- attributes and index key attributes, which are automatically
       -- projected.
+    , _lsidKeySchema :: Maybe [KeySchemaElement]
+      -- ^ The complete index key schema, which consists of one or more
+      -- pairs of attribute names and key types (HASH or RANGE).
+    , _lsidIndexSizeBytes :: Maybe Integer
+      -- ^ The total size of the specified index, in bytes. DynamoDB updates
+      -- this value approximately every six hours. Recent changes might
+      -- not be reflected in this value.
     } deriving (Show, Generic)
 
 instance FromJSON LocalSecondaryIndexDescription
@@ -1092,14 +1092,14 @@ instance FromJSON LocalSecondaryIndexDescription
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 data Projection = Projection
-    { _qNonKeyAttributes :: Maybe [Text]
+    { _tNonKeyAttributes :: Maybe [Text]
       -- ^ Represents the non-key attribute names which will be projected
       -- into the index. For local secondary indexes, the total count of
       -- NonKeyAttributes summed across all of the local secondary
       -- indexes, must not exceed 20. If you project the same attribute
       -- into two different indexes, this counts as two distinct
       -- attributes when determining the total.
-    , _qProjectionType :: Maybe ProjectionType
+    , _tProjectionType :: Maybe ProjectionType
       -- ^ The set of attributes that are projected into the index:
       -- KEYS_ONLY - Only the index and primary keys are projected into
       -- the index. INCLUDE - Only the specified table attributes are
@@ -1117,30 +1117,26 @@ instance ToJSON Projection
 -- current minimum and maximum provisioned throughput values, see Limits in
 -- the Amazon DynamoDB Developer Guide.
 data ProvisionedThroughput = ProvisionedThroughput
-    { _pvReadCapacityUnits :: Integer
-      -- ^ The maximum number of strongly consistent reads consumed per
-      -- second before DynamoDB returns a ThrottlingException. For more
-      -- information, see Specifying Read and Write Requirements in the
-      -- Amazon DynamoDB Developer Guide.
-    , _pvWriteCapacityUnits :: Integer
+    { _pvWriteCapacityUnits :: Integer
       -- ^ The maximum number of writes consumed per second before DynamoDB
       -- returns a ThrottlingException. For more information, see
       -- Specifying Read and Write Requirements in the Amazon DynamoDB
       -- Developer Guide.
+    , _pvReadCapacityUnits :: Integer
+      -- ^ The maximum number of strongly consistent reads consumed per
+      -- second before DynamoDB returns a ThrottlingException. For more
+      -- information, see Specifying Read and Write Requirements in the
+      -- Amazon DynamoDB Developer Guide.
     } deriving (Show, Generic)
 
 instance FromJSON ProvisionedThroughput
 
 instance ToJSON ProvisionedThroughput
 
--- | Represents the provisioned throughput settings for the table, consisting of
--- read and write capacity units, along with data about increases and
--- decreases.
+-- | The provisioned throughput settings for the table, consisting of read and
+-- write capacity units, along with data about increases and decreases.
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription
-    { _ptdLastDecreaseDateTime :: Maybe ISO8601
-      -- ^ The date and time of the last provisioned throughput decrease for
-      -- this table.
-    , _ptdLastIncreaseDateTime :: Maybe ISO8601
+    { _ptdLastIncreaseDateTime :: Maybe ISO8601
       -- ^ The date and time of the last provisioned throughput increase for
       -- this table.
     , _ptdNumberOfDecreasesToday :: Maybe Integer
@@ -1148,15 +1144,18 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription
       -- during this UTC calendar day. For current maximums on provisioned
       -- throughput decreases, see Limits in the Amazon DynamoDB Developer
       -- Guide.
+    , _ptdWriteCapacityUnits :: Maybe Integer
+      -- ^ The maximum number of writes consumed per second before DynamoDB
+      -- returns a ThrottlingException.
+    , _ptdLastDecreaseDateTime :: Maybe ISO8601
+      -- ^ The date and time of the last provisioned throughput decrease for
+      -- this table.
     , _ptdReadCapacityUnits :: Maybe Integer
       -- ^ The maximum number of strongly consistent reads consumed per
       -- second before DynamoDB returns a ThrottlingException. Eventually
       -- consistent reads require less effort than strongly consistent
       -- reads, so a setting of 50 ReadCapacityUnits per second provides
       -- 100 eventually consistent ReadCapacityUnits per second.
-    , _ptdWriteCapacityUnits :: Maybe Integer
-      -- ^ The maximum number of writes consumed per second before DynamoDB
-      -- returns a ThrottlingException.
     } deriving (Show, Generic)
 
 instance FromJSON ProvisionedThroughputDescription
@@ -1165,15 +1164,47 @@ instance ToJSON ProvisionedThroughputDescription
 
 -- | Represents the properties of a table.
 data TableDescription = TableDescription
-    { _tdAttributeDefinitions :: [AttributeDefinition]
-      -- ^ An array of AttributeDefinition objects. Each of these objects
-      -- describes one attribute in the table and index key schema. Each
-      -- AttributeDefinition object in this array is composed of:
-      -- AttributeName - The name of the attribute. AttributeType - The
-      -- data type for the attribute.
+    { _tdTableName :: Maybe Text
+      -- ^ The name of the table.
+    , _tdItemCount :: Maybe Integer
+      -- ^ The number of items in the specified table. DynamoDB updates this
+      -- value approximately every six hours. Recent changes might not be
+      -- reflected in this value.
     , _tdCreationDateTime :: Maybe ISO8601
       -- ^ The date and time when the table was created, in UNIX epoch time
       -- format.
+    , _tdLocalSecondaryIndexes :: [LocalSecondaryIndexDescription]
+      -- ^ Represents one or more local secondary indexes on the table. Each
+      -- index is scoped to a given hash key value. Tables with one or
+      -- more local secondary indexes are subject to an item collection
+      -- size limit, where the amount of data within a given item
+      -- collection cannot exceed 10 GB. Each element is composed of:
+      -- IndexName - The name of the local secondary index. KeySchema -
+      -- Specifies the complete index key schema. The attribute names in
+      -- the key schema must be between 1 and 255 characters (inclusive).
+      -- The key schema must begin with the same hash key attribute as the
+      -- table. Projection - Specifies attributes that are copied
+      -- (projected) from the table into the index. These are in addition
+      -- to the primary key attributes and index key attributes, which are
+      -- automatically projected. Each attribute specification is composed
+      -- of: ProjectionType - One of the following: KEYS_ONLY - Only the
+      -- index and primary keys are projected into the index. INCLUDE -
+      -- Only the specified table attributes are projected into the index.
+      -- The list of projected attributes are in NonKeyAttributes. ALL -
+      -- All of the table attributes are projected into the index.
+      -- NonKeyAttributes - A list of one or more non-key attribute names
+      -- that are projected into the secondary index. The total count of
+      -- attributes specified in NonKeyAttributes, summed across all of
+      -- the secondary indexes, must not exceed 20. If you project the
+      -- same attribute into two different indexes, this counts as two
+      -- distinct attributes when determining the total. IndexSizeBytes -
+      -- Represents the total size of the index, in bytes. DynamoDB
+      -- updates this value approximately every six hours. Recent changes
+      -- might not be reflected in this value. ItemCount - Represents the
+      -- number of items in the index. DynamoDB updates this value
+      -- approximately every six hours. Recent changes might not be
+      -- reflected in this value. If the table is in the DELETING state,
+      -- no information about indexes will be returned.
     , _tdGlobalSecondaryIndexes :: [GlobalSecondaryIndexDescription]
       -- ^ The global secondary indexes, if any, on the table. Each index is
       -- scoped to a given hash key value. Each element is composed of:
@@ -1210,64 +1241,32 @@ data TableDescription = TableDescription
       -- read and write capacity units, along with data about increases
       -- and decreases. If the table is in the DELETING state, no
       -- information about indexes will be returned.
-    , _tdItemCount :: Maybe Integer
-      -- ^ The number of items in the specified table. DynamoDB updates this
-      -- value approximately every six hours. Recent changes might not be
-      -- reflected in this value.
     , _tdKeySchema :: Maybe [KeySchemaElement]
       -- ^ The primary key structure for the table. Each KeySchemaElement
       -- consists of: AttributeName - The name of the attribute. KeyType -
       -- The key type for the attribute. Can be either HASH or RANGE. For
       -- more information about primary keys, see Primary Key in the
       -- Amazon DynamoDB Developer Guide.
-    , _tdLocalSecondaryIndexes :: [LocalSecondaryIndexDescription]
-      -- ^ Represents one or more local secondary indexes on the table. Each
-      -- index is scoped to a given hash key value. Tables with one or
-      -- more local secondary indexes are subject to an item collection
-      -- size limit, where the amount of data within a given item
-      -- collection cannot exceed 10 GB. Each element is composed of:
-      -- IndexName - The name of the local secondary index. KeySchema -
-      -- Specifies the complete index key schema. The attribute names in
-      -- the key schema must be between 1 and 255 characters (inclusive).
-      -- The key schema must begin with the same hash key attribute as the
-      -- table. Projection - Specifies attributes that are copied
-      -- (projected) from the table into the index. These are in addition
-      -- to the primary key attributes and index key attributes, which are
-      -- automatically projected. Each attribute specification is composed
-      -- of: ProjectionType - One of the following: KEYS_ONLY - Only the
-      -- index and primary keys are projected into the index. INCLUDE -
-      -- Only the specified table attributes are projected into the index.
-      -- The list of projected attributes are in NonKeyAttributes. ALL -
-      -- All of the table attributes are projected into the index.
-      -- NonKeyAttributes - A list of one or more non-key attribute names
-      -- that are projected into the secondary index. The total count of
-      -- attributes specified in NonKeyAttributes, summed across all of
-      -- the secondary indexes, must not exceed 20. If you project the
-      -- same attribute into two different indexes, this counts as two
-      -- distinct attributes when determining the total. IndexSizeBytes -
-      -- Represents the total size of the index, in bytes. DynamoDB
-      -- updates this value approximately every six hours. Recent changes
-      -- might not be reflected in this value. ItemCount - Represents the
-      -- number of items in the index. DynamoDB updates this value
-      -- approximately every six hours. Recent changes might not be
-      -- reflected in this value. If the table is in the DELETING state,
-      -- no information about indexes will be returned.
-    , _tdProvisionedThroughput :: Maybe ProvisionedThroughputDescription
-      -- ^ The provisioned throughput settings for the table, consisting of
-      -- read and write capacity units, along with data about increases
-      -- and decreases.
-    , _tdTableName :: Maybe Text
-      -- ^ The name of the table.
-    , _tdTableSizeBytes :: Maybe Integer
-      -- ^ The total size of the specified table, in bytes. DynamoDB updates
-      -- this value approximately every six hours. Recent changes might
-      -- not be reflected in this value.
     , _tdTableStatus :: Maybe TableStatus
       -- ^ The current state of the table: CREATING - The table is being
       -- created, as the result of a CreateTable operation. UPDATING - The
       -- table is being updated, as the result of an UpdateTable
       -- operation. DELETING - The table is being deleted, as the result
       -- of a DeleteTable operation. ACTIVE - The table is ready for use.
+    , _tdProvisionedThroughput :: Maybe ProvisionedThroughputDescription
+      -- ^ The provisioned throughput settings for the table, consisting of
+      -- read and write capacity units, along with data about increases
+      -- and decreases.
+    , _tdAttributeDefinitions :: [AttributeDefinition]
+      -- ^ An array of AttributeDefinition objects. Each of these objects
+      -- describes one attribute in the table and index key schema. Each
+      -- AttributeDefinition object in this array is composed of:
+      -- AttributeName - The name of the attribute. AttributeType - The
+      -- data type for the attribute.
+    , _tdTableSizeBytes :: Maybe Integer
+      -- ^ The total size of the specified table, in bytes. DynamoDB updates
+      -- this value approximately every six hours. Recent changes might
+      -- not be reflected in this value.
     } deriving (Show, Generic)
 
 instance FromJSON TableDescription
@@ -1294,10 +1293,10 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 -- If you do need to perform both of these operations, you will need to
 -- specify two separate WriteRequest objects.
 data WriteRequest = WriteRequest
-    { _wsDeleteRequest :: Maybe DeleteRequest
-      -- ^ A request to perform a DeleteItem operation.
-    , _wsPutRequest :: Maybe PutRequest
+    { _wsPutRequest :: Maybe PutRequest
       -- ^ A request to perform a PutItem operation.
+    , _wsDeleteRequest :: Maybe DeleteRequest
+      -- ^ A request to perform a DeleteItem operation.
     } deriving (Show, Generic)
 
 instance FromJSON WriteRequest

@@ -770,9 +770,9 @@ instance ToXML Tagging where
     toXMLRoot    = toRoot "Tagging"
 
 data AccessControlPolicy = AccessControlPolicy
-    { _acpGrants :: [Grant]
+    { _acpOwner :: Maybe Owner
+    , _acpGrants :: [Grant]
       -- ^ A list of grants.
-    , _acpOwner :: Maybe Owner
     } deriving (Show, Generic)
 
 instance ToXML AccessControlPolicy where
@@ -791,22 +791,22 @@ instance FromXML Bucket where
     fromXMLRoot    = fromRoot "Bucket"
 
 data CORSRule = CORSRule
-    { _corssAllowedHeaders :: [Text]
-      -- ^ Specifies which headers are allowed in a pre-flight OPTIONS
-      -- request.
-    , _corssAllowedMethods :: [Text]
-      -- ^ Identifies HTTP methods that the domain/origin specified in the
-      -- rule is allowed to execute.
-    , _corssAllowedOrigins :: [Text]
-      -- ^ One or more origins you want customers to be able to access the
-      -- bucket from.
-    , _corssExposeHeaders :: [Text]
+    { _corssExposeHeaders :: [Text]
       -- ^ One or more headers in the response that you want customers to be
       -- able to access from their applications (for example, from a
       -- JavaScript XMLHttpRequest object).
+    , _corssAllowedOrigins :: [Text]
+      -- ^ One or more origins you want customers to be able to access the
+      -- bucket from.
+    , _corssAllowedHeaders :: [Text]
+      -- ^ Specifies which headers are allowed in a pre-flight OPTIONS
+      -- request.
     , _corssMaxAgeSeconds :: Maybe Integer
       -- ^ The time in seconds that your browser is to cache the preflight
       -- response for the specified resource.
+    , _corssAllowedMethods :: [Text]
+      -- ^ Identifies HTTP methods that the domain/origin specified in the
+      -- rule is allowed to execute.
     } deriving (Show, Generic)
 
 instance FromXML CORSRule where
@@ -818,10 +818,10 @@ instance ToXML CORSRule where
     toXMLRoot    = toRoot "CORSRule"
 
 data CompletedPart = CompletedPart
-    { _cyETag :: Maybe ETag
-      -- ^ Entity tag returned when the part was uploaded.
-    , _cyPartNumber :: Maybe Integer
+    { _cyPartNumber :: Maybe Integer
       -- ^ Part number that identifies the part.
+    , _cyETag :: Maybe ETag
+      -- ^ Entity tag returned when the part was uploaded.
     } deriving (Show, Generic)
 
 instance ToXML CompletedPart where
@@ -861,8 +861,8 @@ instance ToXML Condition where
     toXMLRoot    = toRoot "Condition"
 
 data CopyObjectResult = CopyObjectResult
-    { _cosETag :: Maybe ETag
-    , _cosLastModified :: Maybe RFC822
+    { _cosLastModified :: Maybe RFC822
+    , _cosETag :: Maybe ETag
     } deriving (Show, Generic)
 
 instance FromXML CopyObjectResult where
@@ -870,10 +870,10 @@ instance FromXML CopyObjectResult where
     fromXMLRoot    = fromRoot "CopyObjectResult"
 
 data CopyPartResult = CopyPartResult
-    { _cprETag :: Maybe ETag
-      -- ^ Entity tag of the object.
-    , _cprLastModified :: Maybe RFC822
+    { _cprLastModified :: Maybe RFC822
       -- ^ Date and time at which the object was uploaded.
+    , _cprETag :: Maybe ETag
+      -- ^ Entity tag of the object.
     } deriving (Show, Generic)
 
 instance FromXML CopyPartResult where
@@ -892,14 +892,14 @@ instance ToXML Delete where
     toXMLRoot    = toRoot "Delete"
 
 data DeleteMarkerEntry = DeleteMarkerEntry
-    { _dmeIsLatest :: Maybe Bool
-      -- ^ Specifies whether the object is (true) or is not (false) the
-      -- latest version of an object.
+    { _dmeLastModified :: Maybe RFC822
+      -- ^ Date and time the object was last modified.
     , _dmeKey :: Maybe ObjectKey
       -- ^ The object key.
-    , _dmeLastModified :: Maybe RFC822
-      -- ^ Date and time the object was last modified.
     , _dmeOwner :: Maybe Owner
+    , _dmeIsLatest :: Maybe Bool
+      -- ^ Specifies whether the object is (true) or is not (false) the
+      -- latest version of an object.
     , _dmeVersionId :: Maybe ObjectVersionId
       -- ^ Version ID of an object.
     } deriving (Show, Generic)
@@ -909,9 +909,9 @@ instance FromXML DeleteMarkerEntry where
     fromXMLRoot    = fromRoot "DeleteMarkerEntry"
 
 data DeletedObject = DeletedObject
-    { _ddyDeleteMarker :: Maybe Bool
+    { _ddyKey :: Maybe ObjectKey
     , _ddyDeleteMarkerVersionId :: Maybe Text
-    , _ddyKey :: Maybe ObjectKey
+    , _ddyDeleteMarker :: Maybe Bool
     , _ddyVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
@@ -920,9 +920,9 @@ instance FromXML DeletedObject where
     fromXMLRoot    = fromRoot "DeletedObject"
 
 data Error = Error
-    { _erCode :: Maybe Text
+    { _erMessage :: Maybe Text
+    , _erCode :: Maybe Text
     , _erKey :: Maybe ObjectKey
-    , _erMessage :: Maybe Text
     , _erVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
@@ -945,14 +945,14 @@ instance ToXML Grant where
     toXMLRoot    = toRoot "Grant"
 
 data Grantee = Grantee
-    { _gDisplayName :: Maybe Text
+    { _gType :: Type
+      -- ^ Type of grantee.
+    , _gID :: Maybe Text
+      -- ^ The canonical user ID of the grantee.
+    , _gDisplayName :: Maybe Text
       -- ^ Screen name of the grantee.
     , _gEmailAddress :: Maybe Text
       -- ^ Email address of the grantee.
-    , _gID :: Maybe Text
-      -- ^ The canonical user ID of the grantee.
-    , _gType :: Type
-      -- ^ Type of grantee.
     , _gURI :: Maybe Text
       -- ^ URI of the grantee group.
     } deriving (Show, Generic)
@@ -967,12 +967,12 @@ instance ToXML Grantee where
 
 -- | Identifies who initiated the multipart upload.
 data Initiator = Initiator
-    { _irDisplayName :: Maybe Text
-      -- ^ Name of the Principal.
-    , _irID :: Maybe Text
+    { _irID :: Maybe Text
       -- ^ If the principal is an AWS account, it provides the Canonical
       -- User ID. If the principal is an IAM User, it provides a user ARN
       -- value.
+    , _irDisplayName :: Maybe Text
+      -- ^ Name of the Principal.
     } deriving (Show, Generic)
 
 instance FromXML Initiator where
@@ -1001,7 +1001,11 @@ instance ToXML LifecycleExpiration where
     toXMLRoot    = toRoot "LifecycleExpiration"
 
 data LoggingEnabled = LoggingEnabled
-    { _leTargetBucket :: Maybe Text
+    { _leTargetPrefix :: Maybe Text
+      -- ^ This element lets you specify a prefix for the keys that the log
+      -- files will be stored under.
+    , _leTargetGrants :: [TargetGrant]
+    , _leTargetBucket :: Maybe Text
       -- ^ Specifies the bucket where you want Amazon S3 to store server
       -- access logs. You can have your logs delivered to any bucket that
       -- you own, including the same bucket that is being logged. You can
@@ -1009,10 +1013,6 @@ data LoggingEnabled = LoggingEnabled
       -- target bucket. In this case you should choose a different
       -- TargetPrefix for each source bucket so that the delivered log
       -- files can be distinguished by key.
-    , _leTargetGrants :: [TargetGrant]
-    , _leTargetPrefix :: Maybe Text
-      -- ^ This element lets you specify a prefix for the keys that the log
-      -- files will be stored under.
     } deriving (Show, Generic)
 
 instance FromXML LoggingEnabled where
@@ -1024,17 +1024,17 @@ instance ToXML LoggingEnabled where
     toXMLRoot    = toRoot "LoggingEnabled"
 
 data MultipartUpload = MultipartUpload
-    { _mwInitiated :: Maybe RFC822
-      -- ^ Date and time at which the multipart upload was initiated.
-    , _mwInitiator :: Maybe Initiator
-      -- ^ Identifies who initiated the multipart upload.
+    { _mwUploadId :: Maybe Text
+      -- ^ Upload ID that identifies the multipart upload.
+    , _mwStorageClass :: Maybe StorageClass
+      -- ^ The class of storage used to store the object.
     , _mwKey :: Maybe ObjectKey
       -- ^ Key of the object for which the multipart upload was initiated.
     , _mwOwner :: Maybe Owner
-    , _mwStorageClass :: Maybe StorageClass
-      -- ^ The class of storage used to store the object.
-    , _mwUploadId :: Maybe Text
-      -- ^ Upload ID that identifies the multipart upload.
+    , _mwInitiator :: Maybe Initiator
+      -- ^ Identifies who initiated the multipart upload.
+    , _mwInitiated :: Maybe RFC822
+      -- ^ Date and time at which the multipart upload was initiated.
     } deriving (Show, Generic)
 
 instance FromXML MultipartUpload where
@@ -1066,13 +1066,13 @@ instance ToXML NoncurrentVersionTransition where
     toXMLRoot    = toRoot "NoncurrentVersionTransition"
 
 data Object = Object
-    { _oouETag :: ETag
-    , _oouKey :: ObjectKey
-    , _oouLastModified :: RFC822
-    , _oouOwner :: Owner
-    , _oouSize :: Integer
+    { _oouLastModified :: RFC822
     , _oouStorageClass :: ObjectStorageClass
       -- ^ The class of storage used to store the object.
+    , _oouKey :: ObjectKey
+    , _oouOwner :: Owner
+    , _oouSize :: Integer
+    , _oouETag :: ETag
     } deriving (Show, Generic)
 
 instance FromXML Object where
@@ -1091,21 +1091,21 @@ instance ToXML ObjectIdentifier where
     toXMLRoot    = toRoot "ObjectIdentifier"
 
 data ObjectVersion = ObjectVersion
-    { _ovETag :: Maybe ETag
+    { _ovLastModified :: Maybe RFC822
+      -- ^ Date and time the object was last modified.
+    , _ovStorageClass :: Maybe ObjectVersionStorageClass
+      -- ^ The class of storage used to store the object.
+    , _ovKey :: Maybe ObjectKey
+      -- ^ The object key.
+    , _ovOwner :: Maybe Owner
     , _ovIsLatest :: Maybe Bool
       -- ^ Specifies whether the object is (true) or is not (false) the
       -- latest version of an object.
-    , _ovKey :: Maybe ObjectKey
-      -- ^ The object key.
-    , _ovLastModified :: Maybe RFC822
-      -- ^ Date and time the object was last modified.
-    , _ovOwner :: Maybe Owner
     , _ovSize :: Maybe Integer
       -- ^ Size in bytes of the object.
-    , _ovStorageClass :: Maybe ObjectVersionStorageClass
-      -- ^ The class of storage used to store the object.
     , _ovVersionId :: Maybe ObjectVersionId
       -- ^ Version ID of an object.
+    , _ovETag :: Maybe ETag
     } deriving (Show, Generic)
 
 instance FromXML ObjectVersion where
@@ -1113,8 +1113,8 @@ instance FromXML ObjectVersion where
     fromXMLRoot    = fromRoot "ObjectVersion"
 
 data Owner = Owner
-    { _oDisplayName :: Maybe Text
-    , _oID :: Maybe Text
+    { _oID :: Maybe Text
+    , _oDisplayName :: Maybe Text
     } deriving (Show, Generic)
 
 instance FromXML Owner where
@@ -1126,14 +1126,14 @@ instance ToXML Owner where
     toXMLRoot    = toRoot "Owner"
 
 data Part = Part
-    { _pvETag :: Maybe ETag
-      -- ^ Entity tag returned when the part was uploaded.
-    , _pvLastModified :: Maybe RFC822
+    { _pvLastModified :: Maybe RFC822
       -- ^ Date and time at which the part was uploaded.
     , _pvPartNumber :: Maybe Integer
       -- ^ Part number identifying the part.
     , _pvSize :: Maybe Integer
       -- ^ Size of the uploaded part data.
+    , _pvETag :: Maybe ETag
+      -- ^ Entity tag returned when the part was uploaded.
     } deriving (Show, Generic)
 
 instance FromXML Part where
@@ -1144,15 +1144,7 @@ instance FromXML Part where
 -- host, to another page, or with another protocol. In the event of an error,
 -- you can can specify a different error code to return.
 data Redirect = Redirect
-    { _rtHostName :: Maybe Text
-      -- ^ The host name to use in the redirect request.
-    , _rtHttpRedirectCode :: Maybe Text
-      -- ^ The HTTP redirect code to use on the response. Not required if
-      -- one of the siblings is present.
-    , _rtProtocol :: Maybe Protocol
-      -- ^ Protocol to use (http, https) when redirecting requests. The
-      -- default is the protocol that is used in the original request.
-    , _rtReplaceKeyPrefixWith :: Maybe Text
+    { _rtReplaceKeyPrefixWith :: Maybe Text
       -- ^ The object key prefix to use in the redirect request. For
       -- example, to redirect requests for all pages with prefix docs/
       -- (objects in the docs/ folder) to documents/, you can set a
@@ -1165,6 +1157,14 @@ data Redirect = Redirect
       -- example, redirect request to error.html. Not required if one of
       -- the sibling is present. Can be present only if
       -- ReplaceKeyPrefixWith is not provided.
+    , _rtHttpRedirectCode :: Maybe Text
+      -- ^ The HTTP redirect code to use on the response. Not required if
+      -- one of the siblings is present.
+    , _rtProtocol :: Maybe Protocol
+      -- ^ Protocol to use (http, https) when redirecting requests. The
+      -- default is the protocol that is used in the original request.
+    , _rtHostName :: Maybe Text
+      -- ^ The host name to use in the redirect request.
     } deriving (Show, Generic)
 
 instance FromXML Redirect where
@@ -1176,11 +1176,11 @@ instance ToXML Redirect where
     toXMLRoot    = toRoot "Redirect"
 
 data RedirectAllRequestsTo = RedirectAllRequestsTo
-    { _rartHostName :: Text
-      -- ^ Name of the host where requests will be redirected.
-    , _rartProtocol :: Maybe Protocol
+    { _rartProtocol :: Maybe Protocol
       -- ^ Protocol to use (http, https) when redirecting requests. The
       -- default is the protocol that is used in the original request.
+    , _rartHostName :: Text
+      -- ^ Name of the host where requests will be redirected.
     } deriving (Show, Generic)
 
 instance FromXML RedirectAllRequestsTo where
@@ -1214,17 +1214,9 @@ instance ToXML RoutingRule where
     toXMLRoot    = toRoot "RoutingRule"
 
 data Rule = Rule
-    { _rhExpiration :: Maybe LifecycleExpiration
-    , _rhID :: Maybe Text
+    { _rhID :: Maybe Text
       -- ^ Unique identifier for the rule. The value cannot be longer than
       -- 255 characters.
-    , _rhNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
-      -- ^ Specifies when noncurrent object versions expire. Upon
-      -- expiration, Amazon S3 permanently deletes the noncurrent object
-      -- versions. You set this lifecycle configuration action on a bucket
-      -- that has versioning enabled (or suspended) to request that Amazon
-      -- S3 delete noncurrent object versions at a specific period in the
-      -- object's lifetime.
     , _rhNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition
       -- ^ Container for the transition rule that describes when noncurrent
       -- objects transition to the GLACIER storage class. If your bucket
@@ -1232,12 +1224,20 @@ data Rule = Rule
       -- this action to request that Amazon S3 transition noncurrent
       -- object versions to the GLACIER storage class at a specific period
       -- in the object's lifetime.
+    , _rhExpiration :: Maybe LifecycleExpiration
     , _rhPrefix :: Text
       -- ^ Prefix identifying one or more objects to which the rule applies.
+    , _rhTransition :: Maybe Transition
+    , _rhNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
+      -- ^ Specifies when noncurrent object versions expire. Upon
+      -- expiration, Amazon S3 permanently deletes the noncurrent object
+      -- versions. You set this lifecycle configuration action on a bucket
+      -- that has versioning enabled (or suspended) to request that Amazon
+      -- S3 delete noncurrent object versions at a specific period in the
+      -- object's lifetime.
     , _rhStatus :: Switch ExpirationStatus
       -- ^ If 'Enabled', the rule is currently being applied. If 'Disabled',
       -- the rule is not currently being applied.
-    , _rhTransition :: Maybe Transition
     } deriving (Show, Generic)
 
 instance FromXML Rule where
@@ -1278,11 +1278,11 @@ instance ToXML TargetGrant where
     toXMLRoot    = toRoot "Grant"
 
 data TopicConfiguration = TopicConfiguration
-    { _tcEvent :: Maybe Event
-      -- ^ Bucket event for which to send notifications.
-    , _tcTopic :: Maybe Text
+    { _tcTopic :: Maybe Text
       -- ^ Amazon SNS topic to which Amazon S3 will publish a message to
       -- report the specified events for the bucket.
+    , _tcEvent :: Maybe Event
+      -- ^ Bucket event for which to send notifications.
     } deriving (Show, Generic)
 
 instance FromXML TopicConfiguration where
@@ -1294,14 +1294,14 @@ instance ToXML TopicConfiguration where
     toXMLRoot    = toRoot "TopicConfiguration"
 
 data Transition = Transition
-    { _tnDate :: Maybe RFC822
+    { _tnStorageClass :: Maybe TransitionStorageClass
+      -- ^ The class of storage used to store the object.
+    , _tnDate :: Maybe RFC822
       -- ^ Indicates at what date the object is to be moved or deleted.
       -- Should be in GMT ISO 8601 Format.
     , _tnDays :: Maybe Integer
       -- ^ Indicates the lifetime, in days, of the objects that are subject
       -- to the rule. The value must be a non-zero positive integer.
-    , _tnStorageClass :: Maybe TransitionStorageClass
-      -- ^ The class of storage used to store the object.
     } deriving (Show, Generic)
 
 instance FromXML Transition where
@@ -1327,10 +1327,10 @@ instance ToXML VersioningConfiguration where
     toXMLRoot    = toRoot "VersioningConfiguration"
 
 data WebsiteConfiguration = WebsiteConfiguration
-    { _wcErrorDocument :: Maybe ErrorDocument
+    { _wcRoutingRules :: [RoutingRule]
     , _wcIndexDocument :: Maybe IndexDocument
+    , _wcErrorDocument :: Maybe ErrorDocument
     , _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _wcRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
 
 instance ToXML WebsiteConfiguration where

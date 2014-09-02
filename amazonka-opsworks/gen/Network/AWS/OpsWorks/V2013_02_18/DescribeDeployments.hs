@@ -33,20 +33,20 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeDeployments' request.
 describeDeployments :: DescribeDeployments
 describeDeployments = DescribeDeployments
-    { _ddrAppId = Nothing
-    , _ddrStackId = Nothing
+    { _ddrStackId = Nothing
+    , _ddrAppId = Nothing
     , _ddrDeploymentIds = mempty
     }
 
 data DescribeDeployments = DescribeDeployments
-    { _ddrAppId :: Maybe Text
-      -- ^ The app ID. If you include this parameter, DescribeDeployments
-      -- returns a description of the commands associated with the
-      -- specified app.
-    , _ddrStackId :: Maybe Text
+    { _ddrStackId :: Maybe Text
       -- ^ The stack ID. If you include this parameter, DescribeDeployments
       -- returns a description of the commands associated with the
       -- specified stack.
+    , _ddrAppId :: Maybe Text
+      -- ^ The app ID. If you include this parameter, DescribeDeployments
+      -- returns a description of the commands associated with the
+      -- specified app.
     , _ddrDeploymentIds :: [Text]
       -- ^ An array of deployment IDs to be described. If you include this
       -- parameter, DescribeDeployments returns a description of the

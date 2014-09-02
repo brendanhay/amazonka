@@ -254,9 +254,9 @@ data QueryResponse = QueryResponse
       -- the operation. ConsumedCapacity is only returned if it was asked
       -- for in the request. For more information, see Provisioned
       -- Throughput in the Amazon DynamoDB Developer Guide.
+    , _qoScannedCount :: Maybe Integer
     , _qoCount :: Maybe Integer
       -- ^ The number of items in the response.
-    , _qoScannedCount :: Maybe Integer
     , _qoItems :: [Map Text AttributeValue]
       -- ^ An array of item attributes that match the query criteria. Each
       -- element in this array consists of an attribute name and the value

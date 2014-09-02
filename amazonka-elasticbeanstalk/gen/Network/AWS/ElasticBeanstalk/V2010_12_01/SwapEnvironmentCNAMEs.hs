@@ -31,35 +31,35 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'SwapEnvironmentCNAMEs' request.
 swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
 swapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
-    { _secnamemDestinationEnvironmentId = Nothing
-    , _secnamemSourceEnvironmentId = Nothing
-    , _secnamemDestinationEnvironmentName = Nothing
+    { _secnamemSourceEnvironmentId = Nothing
+    , _secnamemDestinationEnvironmentId = Nothing
     , _secnamemSourceEnvironmentName = Nothing
+    , _secnamemDestinationEnvironmentName = Nothing
     }
 
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
-    { _secnamemDestinationEnvironmentId :: Maybe Text
+    { _secnamemSourceEnvironmentId :: Maybe Text
+      -- ^ The ID of the source environment. Condition: You must specify at
+      -- least the SourceEnvironmentID or the SourceEnvironmentName. You
+      -- may also specify both. If you specify the SourceEnvironmentId,
+      -- you must specify the DestinationEnvironmentId.
+    , _secnamemDestinationEnvironmentId :: Maybe Text
       -- ^ The ID of the destination environment. Condition: You must
       -- specify at least the DestinationEnvironmentID or the
       -- DestinationEnvironmentName. You may also specify both. You must
       -- specify the SourceEnvironmentId with the
       -- DestinationEnvironmentId.
-    , _secnamemSourceEnvironmentId :: Maybe Text
-      -- ^ The ID of the source environment. Condition: You must specify at
-      -- least the SourceEnvironmentID or the SourceEnvironmentName. You
-      -- may also specify both. If you specify the SourceEnvironmentId,
-      -- you must specify the DestinationEnvironmentId.
-    , _secnamemDestinationEnvironmentName :: Maybe Text
-      -- ^ The name of the destination environment. Condition: You must
-      -- specify at least the DestinationEnvironmentID or the
-      -- DestinationEnvironmentName. You may also specify both. You must
-      -- specify the SourceEnvironmentName with the
-      -- DestinationEnvironmentName.
     , _secnamemSourceEnvironmentName :: Maybe Text
       -- ^ The name of the source environment. Condition: You must specify
       -- at least the SourceEnvironmentID or the SourceEnvironmentName.
       -- You may also specify both. If you specify the
       -- SourceEnvironmentName, you must specify the
+      -- DestinationEnvironmentName.
+    , _secnamemDestinationEnvironmentName :: Maybe Text
+      -- ^ The name of the destination environment. Condition: You must
+      -- specify at least the DestinationEnvironmentID or the
+      -- DestinationEnvironmentName. You may also specify both. You must
+      -- specify the SourceEnvironmentName with the
       -- DestinationEnvironmentName.
     } deriving (Show, Generic)
 

@@ -47,28 +47,28 @@ instance ToJSON GetTrailStatus
 data GetTrailStatusResponse = GetTrailStatusResponse
     { _gtssIsLogging :: Maybe Bool
       -- ^ Whether the CloudTrail is currently logging AWS API calls.
-    , _gtssLatestDeliveryTime :: Maybe ISO8601
-      -- ^ Specifies the date and time that CloudTrail last delivered log
-      -- files to an account's Amazon S3 bucket.
+    , _gtssStopLoggingTime :: Maybe ISO8601
+      -- ^ Specifies the most recent date and time when CloudTrail stopped
+      -- recording API calls for an AWS account.
     , _gtssLatestNotificationTime :: Maybe ISO8601
       -- ^ Specifies the date and time of the most recent Amazon SNS
       -- notification that CloudTrail has written a new log file to an
       -- account's Amazon S3 bucket.
+    , _gtssLatestDeliveryTime :: Maybe ISO8601
+      -- ^ Specifies the date and time that CloudTrail last delivered log
+      -- files to an account's Amazon S3 bucket.
     , _gtssStartLoggingTime :: Maybe ISO8601
       -- ^ Specifies the most recent date and time when CloudTrail started
       -- recording API calls for an AWS account.
-    , _gtssStopLoggingTime :: Maybe ISO8601
-      -- ^ Specifies the most recent date and time when CloudTrail stopped
-      -- recording API calls for an AWS account.
+    , _gtssLatestNotificationError :: Maybe Text
+      -- ^ Displays any Amazon SNS error that CloudTrail encountered when
+      -- attempting to send a notification. For more information about
+      -- Amazon SNS errors, see the Amazon SNS Developer Guide.
     , _gtssLatestDeliveryError :: Maybe Text
       -- ^ Displays any Amazon S3 error that CloudTrail encountered when
       -- attempting to deliver log files to the designated bucket. For
       -- more information see the topic Error Responses in the Amazon S3
       -- API Reference.
-    , _gtssLatestNotificationError :: Maybe Text
-      -- ^ Displays any Amazon SNS error that CloudTrail encountered when
-      -- attempting to send a notification. For more information about
-      -- Amazon SNS errors, see the Amazon SNS Developer Guide.
     } deriving (Show, Generic)
 
 makeLenses ''GetTrailStatusResponse

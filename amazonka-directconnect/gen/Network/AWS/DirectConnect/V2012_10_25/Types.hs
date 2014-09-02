@@ -263,14 +263,7 @@ instance ToJSON RouteFilterPrefix
 -- | A connection represents the physical network connection between the AWS
 -- Direct Connect location and the customer.
 data Connection = Connection
-    { _kBandwidth :: Maybe Text
-      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
-    , _kConnectionId :: Maybe Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
-    , _kConnectionName :: Maybe Text
-      -- ^ The name of the connection. Example: "1G Connection to AWS"
-      -- Default: None.
-    , _kConnectionState :: Maybe ConnectionState
+    { _kConnectionState :: Maybe ConnectionState
       -- ^ State of the connection. Ordering: The initial state of a hosted
       -- connection provisioned on an interconnect. The connection stays
       -- in the ordering state until the owner of the hosted connection
@@ -283,13 +276,20 @@ data Connection = Connection
       -- Deleted: The connection has been deleted. Rejected: A hosted
       -- connection in the 'Ordering' state will enter the 'Rejected'
       -- state if it is deleted by the end customer.
-    , _kLocation :: Maybe Text
-      -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _kOwnerAccount :: Maybe Text
-    , _kPartnerName :: Maybe Text
     , _kRegion :: Maybe Text
       -- ^ The AWS region where the connection is located. Example:
       -- us-east-1 Default: None.
+    , _kOwnerAccount :: Maybe Text
+    , _kBandwidth :: Maybe Text
+      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
+    , _kConnectionName :: Maybe Text
+      -- ^ The name of the connection. Example: "1G Connection to AWS"
+      -- Default: None.
+    , _kPartnerName :: Maybe Text
+    , _kConnectionId :: Maybe Text
+      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
+    , _kLocation :: Maybe Text
+      -- ^ Where the connection is located. Example: EqSV5 Default: None.
     , _kVlan :: Maybe Integer
       -- ^ The VLAN ID. Example: 101.
     } deriving (Show, Generic)
@@ -307,12 +307,9 @@ instance FromJSON Connection
 -- and the owner of the interconnect determines how these resources are
 -- assigned.
 data Interconnect = Interconnect
-    { _jBandwidth :: Maybe Text
-      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
-    , _jInterconnectId :: Maybe Text
-      -- ^ The ID of the interconnect. Example: dxcon-abc123.
-    , _jInterconnectName :: Maybe Text
-      -- ^ The name of the interconnect. Example: "1G Interconnect to AWS".
+    { _jRegion :: Maybe Text
+      -- ^ The AWS region where the connection is located. Example:
+      -- us-east-1 Default: None.
     , _jInterconnectState :: Maybe InterconnectState
       -- ^ State of the interconnect. Requested: The initial state of an
       -- interconnect. The interconnect stays in the requested state until
@@ -321,11 +318,14 @@ data Interconnect = Interconnect
       -- initialized. Available: The network link is up, and the
       -- interconnect is ready for use. Down: The network link is down.
       -- Deleted: The interconnect has been deleted.
+    , _jBandwidth :: Maybe Text
+      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
+    , _jInterconnectName :: Maybe Text
+      -- ^ The name of the interconnect. Example: "1G Interconnect to AWS".
     , _jLocation :: Maybe Text
       -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _jRegion :: Maybe Text
-      -- ^ The AWS region where the connection is located. Example:
-      -- us-east-1 Default: None.
+    , _jInterconnectId :: Maybe Text
+      -- ^ The ID of the interconnect. Example: dxcon-abc123.
     } deriving (Show, Generic)
 
 instance FromJSON Interconnect
@@ -346,25 +346,25 @@ instance FromJSON Location
 -- | Detailed information for the private virtual interface to be created.
 -- Default: None.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface
-    { _npvjAmazonAddress :: Maybe Text
-      -- ^ IP address assigned to the Amazon interface. Example:
-      -- 192.168.1.1/30.
+    { _npvjVirtualInterfaceName :: Text
+      -- ^ The name of the virtual interface assigned by the customer.
+      -- Example: "My VPC".
+    , _npvjAuthKey :: Maybe Text
+      -- ^ Authentication key for BGP configuration. Example: asdf34example.
     , _npvjAsn :: Integer
       -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
       -- configuration. Example: 65000.
-    , _npvjAuthKey :: Maybe Text
-      -- ^ Authentication key for BGP configuration. Example: asdf34example.
+    , _npvjAmazonAddress :: Maybe Text
+      -- ^ IP address assigned to the Amazon interface. Example:
+      -- 192.168.1.1/30.
+    , _npvjVlan :: Integer
+      -- ^ The VLAN ID. Example: 101.
     , _npvjCustomerAddress :: Maybe Text
       -- ^ IP address assigned to the customer interface. Example:
       -- 192.168.1.2/30.
     , _npvjVirtualGatewayId :: Text
       -- ^ The ID of the virtual private gateway to a VPC. This only applies
       -- to private virtual interfaces. Example: vgw-123er56.
-    , _npvjVirtualInterfaceName :: Text
-      -- ^ The name of the virtual interface assigned by the customer.
-      -- Example: "My VPC".
-    , _npvjVlan :: Integer
-      -- ^ The VLAN ID. Example: 101.
     } deriving (Show, Generic)
 
 instance ToJSON NewPrivateVirtualInterface
@@ -372,22 +372,22 @@ instance ToJSON NewPrivateVirtualInterface
 -- | Detailed information for the private virtual interface to be provisioned.
 -- Default: None.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
-    { _npviaAmazonAddress :: Maybe Text
-      -- ^ IP address assigned to the Amazon interface. Example:
-      -- 192.168.1.1/30.
+    { _npviaVirtualInterfaceName :: Text
+      -- ^ The name of the virtual interface assigned by the customer.
+      -- Example: "My VPC".
+    , _npviaAuthKey :: Maybe Text
+      -- ^ Authentication key for BGP configuration. Example: asdf34example.
     , _npviaAsn :: Integer
       -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
       -- configuration. Example: 65000.
-    , _npviaAuthKey :: Maybe Text
-      -- ^ Authentication key for BGP configuration. Example: asdf34example.
+    , _npviaAmazonAddress :: Maybe Text
+      -- ^ IP address assigned to the Amazon interface. Example:
+      -- 192.168.1.1/30.
+    , _npviaVlan :: Integer
+      -- ^ The VLAN ID. Example: 101.
     , _npviaCustomerAddress :: Maybe Text
       -- ^ IP address assigned to the customer interface. Example:
       -- 192.168.1.2/30.
-    , _npviaVirtualInterfaceName :: Text
-      -- ^ The name of the virtual interface assigned by the customer.
-      -- Example: "My VPC".
-    , _npviaVlan :: Integer
-      -- ^ The VLAN ID. Example: 101.
     } deriving (Show, Generic)
 
 instance ToJSON NewPrivateVirtualInterfaceAllocation
@@ -395,14 +395,19 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 -- | Detailed information for the public virtual interface to be created.
 -- Default: None.
 data NewPublicVirtualInterface = NewPublicVirtualInterface
-    { _npviAmazonAddress :: Text
-      -- ^ IP address assigned to the Amazon interface. Example:
-      -- 192.168.1.1/30.
+    { _npviVirtualInterfaceName :: Text
+      -- ^ The name of the virtual interface assigned by the customer.
+      -- Example: "My VPC".
+    , _npviAuthKey :: Maybe Text
+      -- ^ Authentication key for BGP configuration. Example: asdf34example.
     , _npviAsn :: Integer
       -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
       -- configuration. Example: 65000.
-    , _npviAuthKey :: Maybe Text
-      -- ^ Authentication key for BGP configuration. Example: asdf34example.
+    , _npviAmazonAddress :: Text
+      -- ^ IP address assigned to the Amazon interface. Example:
+      -- 192.168.1.1/30.
+    , _npviVlan :: Integer
+      -- ^ The VLAN ID. Example: 101.
     , _npviCustomerAddress :: Text
       -- ^ IP address assigned to the customer interface. Example:
       -- 192.168.1.2/30.
@@ -410,11 +415,6 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface
       -- ^ A list of routes to be advertised to the AWS network in this
       -- region (public virtual interface) or your VPC (private virtual
       -- interface).
-    , _npviVirtualInterfaceName :: Text
-      -- ^ The name of the virtual interface assigned by the customer.
-      -- Example: "My VPC".
-    , _npviVlan :: Integer
-      -- ^ The VLAN ID. Example: 101.
     } deriving (Show, Generic)
 
 instance ToJSON NewPublicVirtualInterface
@@ -422,14 +422,19 @@ instance ToJSON NewPublicVirtualInterface
 -- | Detailed information for the public virtual interface to be provisioned.
 -- Default: None.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
-    { _npvibAmazonAddress :: Text
-      -- ^ IP address assigned to the Amazon interface. Example:
-      -- 192.168.1.1/30.
+    { _npvibVirtualInterfaceName :: Text
+      -- ^ The name of the virtual interface assigned by the customer.
+      -- Example: "My VPC".
+    , _npvibAuthKey :: Maybe Text
+      -- ^ Authentication key for BGP configuration. Example: asdf34example.
     , _npvibAsn :: Integer
       -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
       -- configuration. Example: 65000.
-    , _npvibAuthKey :: Maybe Text
-      -- ^ Authentication key for BGP configuration. Example: asdf34example.
+    , _npvibAmazonAddress :: Text
+      -- ^ IP address assigned to the Amazon interface. Example:
+      -- 192.168.1.1/30.
+    , _npvibVlan :: Integer
+      -- ^ The VLAN ID. Example: 101.
     , _npvibCustomerAddress :: Text
       -- ^ IP address assigned to the customer interface. Example:
       -- 192.168.1.2/30.
@@ -437,11 +442,6 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
       -- ^ A list of routes to be advertised to the AWS network in this
       -- region (public virtual interface) or your VPC (private virtual
       -- interface).
-    , _npvibVirtualInterfaceName :: Text
-      -- ^ The name of the virtual interface assigned by the customer.
-      -- Example: "My VPC".
-    , _npvibVlan :: Integer
-      -- ^ The VLAN ID. Example: 101.
     } deriving (Show, Generic)
 
 instance ToJSON NewPublicVirtualInterfaceAllocation
@@ -451,16 +451,16 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 -- managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the
 -- Amazon EC2 CreateVpnGateway action.
 data VirtualGateway = VirtualGateway
-    { _vhVirtualGatewayId :: Maybe Text
-      -- ^ The ID of the virtual private gateway to a VPC. This only applies
-      -- to private virtual interfaces. Example: vgw-123er56.
-    , _vhVirtualGatewayState :: Maybe Text
+    { _vhVirtualGatewayState :: Maybe Text
       -- ^ State of the virtual private gateway. Pending: This is the
       -- initial state after calling CreateVpnGateway. Available: Ready
       -- for use by a private virtual interface. Deleting: This is the
       -- initial state after calling DeleteVpnGateway. Deleted: In this
       -- state, a private virtual interface is unable to send traffic over
       -- this gateway.
+    , _vhVirtualGatewayId :: Maybe Text
+      -- ^ The ID of the virtual private gateway to a VPC. This only applies
+      -- to private virtual interfaces. Example: vgw-123er56.
     } deriving (Show, Generic)
 
 instance FromJSON VirtualGateway
@@ -468,37 +468,25 @@ instance FromJSON VirtualGateway
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
 -- Connect location and the customer.
 data VirtualInterface = VirtualInterface
-    { _vlAmazonAddress :: Maybe Text
-      -- ^ IP address assigned to the Amazon interface. Example:
-      -- 192.168.1.1/30.
-    , _vlAsn :: Maybe Integer
-      -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
-      -- configuration. Example: 65000.
-    , _vlAuthKey :: Maybe Text
-      -- ^ Authentication key for BGP configuration. Example: asdf34example.
-    , _vlConnectionId :: Maybe Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
-    , _vlCustomerAddress :: Maybe Text
-      -- ^ IP address assigned to the customer interface. Example:
-      -- 192.168.1.2/30.
-    , _vlCustomerRouterConfig :: Maybe Text
-      -- ^ Information for generating the customer router configuration.
-    , _vlLocation :: Maybe Text
-      -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _vlOwnerAccount :: Maybe Text
-    , _vlRouteFilterPrefixes :: [RouteFilterPrefix]
-      -- ^ A list of routes to be advertised to the AWS network in this
-      -- region (public virtual interface) or your VPC (private virtual
-      -- interface).
-    , _vlVirtualGatewayId :: Maybe Text
-      -- ^ The ID of the virtual private gateway to a VPC. This only applies
-      -- to private virtual interfaces. Example: vgw-123er56.
-    , _vlVirtualInterfaceId :: Maybe Text
+    { _vlVirtualInterfaceId :: Maybe Text
       -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
       -- None.
     , _vlVirtualInterfaceName :: Maybe Text
       -- ^ The name of the virtual interface assigned by the customer.
       -- Example: "My VPC".
+    , _vlOwnerAccount :: Maybe Text
+    , _vlCustomerRouterConfig :: Maybe Text
+      -- ^ Information for generating the customer router configuration.
+    , _vlAuthKey :: Maybe Text
+      -- ^ Authentication key for BGP configuration. Example: asdf34example.
+    , _vlAsn :: Maybe Integer
+      -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
+      -- configuration. Example: 65000.
+    , _vlVirtualInterfaceType :: Maybe Text
+      -- ^ The type of virtual interface. Example: private (Amazon VPC) or
+      -- public (Amazon S3, Amazon DynamoDB, and so on.).
+    , _vlConnectionId :: Maybe Text
+      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
     , _vlVirtualInterfaceState :: Maybe VirtualInterfaceState
       -- ^ State of the virtual interface. Confirming: The creation of the
       -- virtual interface is pending confirmation from the virtual
@@ -519,11 +507,23 @@ data VirtualInterface = VirtualInterface
       -- interface in the 'Confirming' state is deleted by the virtual
       -- interface owner, the virtual interface will enter the 'Rejected'
       -- state.
-    , _vlVirtualInterfaceType :: Maybe Text
-      -- ^ The type of virtual interface. Example: private (Amazon VPC) or
-      -- public (Amazon S3, Amazon DynamoDB, and so on.).
+    , _vlAmazonAddress :: Maybe Text
+      -- ^ IP address assigned to the Amazon interface. Example:
+      -- 192.168.1.1/30.
+    , _vlLocation :: Maybe Text
+      -- ^ Where the connection is located. Example: EqSV5 Default: None.
     , _vlVlan :: Maybe Integer
       -- ^ The VLAN ID. Example: 101.
+    , _vlCustomerAddress :: Maybe Text
+      -- ^ IP address assigned to the customer interface. Example:
+      -- 192.168.1.2/30.
+    , _vlRouteFilterPrefixes :: [RouteFilterPrefix]
+      -- ^ A list of routes to be advertised to the AWS network in this
+      -- region (public virtual interface) or your VPC (private virtual
+      -- interface).
+    , _vlVirtualGatewayId :: Maybe Text
+      -- ^ The ID of the virtual private gateway to a VPC. This only applies
+      -- to private virtual interfaces. Example: vgw-123er56.
     } deriving (Show, Generic)
 
 instance FromJSON VirtualInterface

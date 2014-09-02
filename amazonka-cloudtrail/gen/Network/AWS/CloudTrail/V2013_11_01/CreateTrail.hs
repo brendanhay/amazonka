@@ -28,32 +28,32 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateTrail' request.
-createTrail :: Text -- ^ '_ctrName'
-            -> Text -- ^ '_ctrS3BucketName'
+createTrail :: Text -- ^ '_ctrS3BucketName'
+            -> Text -- ^ '_ctrName'
             -> CreateTrail
 createTrail p1 p2 = CreateTrail
-    { _ctrName = p1
-    , _ctrS3BucketName = p2
+    { _ctrS3BucketName = p1
+    , _ctrName = p2
     , _ctrIncludeGlobalServiceEvents = Nothing
-    , _ctrS3KeyPrefix = Nothing
     , _ctrSnsTopicName = Nothing
+    , _ctrS3KeyPrefix = Nothing
     }
 
 data CreateTrail = CreateTrail
-    { _ctrName :: Text
-      -- ^ Specifies the name of the trail.
-    , _ctrS3BucketName :: Text
+    { _ctrS3BucketName :: Text
       -- ^ Specifies the name of the Amazon S3 bucket designated for
       -- publishing log files.
+    , _ctrName :: Text
+      -- ^ Specifies the name of the trail.
     , _ctrIncludeGlobalServiceEvents :: Maybe Bool
       -- ^ Specifies whether the trail is publishing events from global
       -- services such as IAM to the log files.
-    , _ctrS3KeyPrefix :: Maybe Text
-      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
-      -- bucket you have designated for log file delivery.
     , _ctrSnsTopicName :: Maybe Text
       -- ^ Specifies the name of the Amazon SNS topic defined for
       -- notification of log file delivery.
+    , _ctrS3KeyPrefix :: Maybe Text
+      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
+      -- bucket you have designated for log file delivery.
     } deriving (Show, Generic)
 
 makeLenses ''CreateTrail
@@ -70,17 +70,17 @@ data CreateTrailResponse = CreateTrailResponse
     { _ctsIncludeGlobalServiceEvents :: Maybe Bool
       -- ^ Specifies whether the trail is publishing events from global
       -- services such as IAM to the log files.
-    , _ctsName :: Maybe Text
-      -- ^ Specifies the name of the trail.
     , _ctsS3BucketName :: Maybe Text
       -- ^ Specifies the name of the Amazon S3 bucket designated for
       -- publishing log files.
-    , _ctsS3KeyPrefix :: Maybe Text
-      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
-      -- bucket you have designated for log file delivery.
+    , _ctsName :: Maybe Text
+      -- ^ Specifies the name of the trail.
     , _ctsSnsTopicName :: Maybe Text
       -- ^ Specifies the name of the Amazon SNS topic defined for
       -- notification of log file delivery.
+    , _ctsS3KeyPrefix :: Maybe Text
+      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
+      -- bucket you have designated for log file delivery.
     } deriving (Show, Generic)
 
 makeLenses ''CreateTrailResponse

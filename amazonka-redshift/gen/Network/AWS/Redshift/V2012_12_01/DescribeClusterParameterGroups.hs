@@ -43,8 +43,8 @@ import Network.AWS.Prelude
 describeClusterParameterGroups :: DescribeClusterParameterGroups
 describeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpgmMaxRecords = Nothing
-    , _dcpgmMarker = Nothing
     , _dcpgmParameterGroupName = Nothing
+    , _dcpgmMarker = Nothing
     }
 
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups
@@ -55,6 +55,10 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
+    , _dcpgmParameterGroupName :: Maybe Text
+      -- ^ The name of a specific parameter group for which to return
+      -- details. By default, details about all parameter groups and the
+      -- default parameter group are returned.
     , _dcpgmMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -63,10 +67,6 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
-    , _dcpgmParameterGroupName :: Maybe Text
-      -- ^ The name of a specific parameter group for which to return
-      -- details. By default, details about all parameter groups and the
-      -- default parameter group are returned.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeClusterParameterGroups

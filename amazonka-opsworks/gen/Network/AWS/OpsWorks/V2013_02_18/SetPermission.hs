@@ -31,22 +31,22 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'SetPermission' request.
-setPermission :: Text -- ^ '_sprIamUserArn'
-              -> Text -- ^ '_sprStackId'
+setPermission :: Text -- ^ '_sprStackId'
+              -> Text -- ^ '_sprIamUserArn'
               -> SetPermission
 setPermission p1 p2 = SetPermission
-    { _sprIamUserArn = p1
-    , _sprStackId = p2
+    { _sprStackId = p1
+    , _sprIamUserArn = p2
     , _sprAllowSsh = Nothing
     , _sprAllowSudo = Nothing
     , _sprLevel = Nothing
     }
 
 data SetPermission = SetPermission
-    { _sprIamUserArn :: Text
-      -- ^ The user's IAM ARN.
-    , _sprStackId :: Text
+    { _sprStackId :: Text
       -- ^ The stack ID.
+    , _sprIamUserArn :: Text
+      -- ^ The user's IAM ARN.
     , _sprAllowSsh :: Maybe Bool
       -- ^ The user is allowed to use SSH to communicate with the instance.
     , _sprAllowSudo :: Maybe Bool

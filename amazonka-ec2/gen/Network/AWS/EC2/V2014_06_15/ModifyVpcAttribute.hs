@@ -34,19 +34,13 @@ modifyVpcAttribute :: Text -- ^ '_mvasVpcId'
                    -> ModifyVpcAttribute
 modifyVpcAttribute p1 = ModifyVpcAttribute
     { _mvasVpcId = p1
-    , _mvasEnableDnsHostnames = Nothing
     , _mvasEnableDnsSupport = Nothing
+    , _mvasEnableDnsHostnames = Nothing
     }
 
 data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvasVpcId :: Text
       -- ^ The ID of the VPC.
-    , _mvasEnableDnsHostnames :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the instances launched in the VPC get DNS
-      -- hostnames. If this attribute is true, instances in the VPC get
-      -- DNS hostnames; otherwise, they do not. You can only set
-      -- enableDnsHostnames to true if you also set the EnableDnsSupport
-      -- attribute to true.
     , _mvasEnableDnsSupport :: Maybe AttributeBooleanValue
       -- ^ Indicates whether the DNS resolution is supported for the VPC. If
       -- this attribute is false, the Amazon provided DNS service in the
@@ -55,6 +49,12 @@ data ModifyVpcAttribute = ModifyVpcAttribute
       -- provided DNS server at the 169.254.169.253 IP address, or the
       -- reserved IP address at the base of the VPC network range "plus
       -- two" will succeed.
+    , _mvasEnableDnsHostnames :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether the instances launched in the VPC get DNS
+      -- hostnames. If this attribute is true, instances in the VPC get
+      -- DNS hostnames; otherwise, they do not. You can only set
+      -- enableDnsHostnames to true if you also set the EnableDnsSupport
+      -- attribute to true.
     } deriving (Show, Generic)
 
 makeLenses ''ModifyVpcAttribute

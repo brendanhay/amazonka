@@ -46,17 +46,17 @@ import Network.AWS.Prelude
 releaseAddress :: ReleaseAddress
 releaseAddress = ReleaseAddress
     { _rarDryRun = Nothing
-    , _rarAllocationId = Nothing
     , _rarPublicIp = Nothing
+    , _rarAllocationId = Nothing
     }
 
 data ReleaseAddress = ReleaseAddress
     { _rarDryRun :: Maybe Bool
       -- ^ 
-    , _rarAllocationId :: Maybe Text
-      -- ^ [EC2-VPC] The allocation ID.
     , _rarPublicIp :: Maybe Text
       -- ^ [EC2-Classic] The Elastic IP address.
+    , _rarAllocationId :: Maybe Text
+      -- ^ [EC2-VPC] The allocation ID.
     } deriving (Show, Generic)
 
 makeLenses ''ReleaseAddress

@@ -57,8 +57,8 @@ describeClusterParameters :: Text -- ^ '_dcpmParameterGroupName'
 describeClusterParameters p1 = DescribeClusterParameters
     { _dcpmParameterGroupName = p1
     , _dcpmMaxRecords = Nothing
-    , _dcpmMarker = Nothing
     , _dcpmSource = Nothing
+    , _dcpmMarker = Nothing
     }
 
 data DescribeClusterParameters = DescribeClusterParameters
@@ -72,6 +72,12 @@ data DescribeClusterParameters = DescribeClusterParameters
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
+    , _dcpmSource :: Maybe Text
+      -- ^ The parameter types to return. Specify user to show parameters
+      -- that are different form the default. Similarly, specify
+      -- engine-default to show parameters that are the same as the
+      -- default parameter group. Default: All parameter types returned.
+      -- Valid Values: user | engine-default.
     , _dcpmMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -80,12 +86,6 @@ data DescribeClusterParameters = DescribeClusterParameters
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
-    , _dcpmSource :: Maybe Text
-      -- ^ The parameter types to return. Specify user to show parameters
-      -- that are different form the default. Similarly, specify
-      -- engine-default to show parameters that are the same as the
-      -- default parameter group. Default: All parameter types returned.
-      -- Valid Values: user | engine-default.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeClusterParameters

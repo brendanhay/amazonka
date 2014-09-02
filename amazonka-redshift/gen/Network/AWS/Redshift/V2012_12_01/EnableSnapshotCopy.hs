@@ -27,25 +27,25 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'EnableSnapshotCopy' request.
-enableSnapshotCopy :: Text -- ^ '_escmClusterIdentifier'
-                   -> Text -- ^ '_escmDestinationRegion'
+enableSnapshotCopy :: Text -- ^ '_escmDestinationRegion'
+                   -> Text -- ^ '_escmClusterIdentifier'
                    -> EnableSnapshotCopy
 enableSnapshotCopy p1 p2 = EnableSnapshotCopy
-    { _escmClusterIdentifier = p1
-    , _escmDestinationRegion = p2
+    { _escmDestinationRegion = p1
+    , _escmClusterIdentifier = p2
     , _escmRetentionPeriod = Nothing
     }
 
 data EnableSnapshotCopy = EnableSnapshotCopy
-    { _escmClusterIdentifier :: Text
-      -- ^ The unique identifier of the source cluster to copy snapshots
-      -- from. Constraints: Must be the valid name of an existing cluster
-      -- that does not already have cross-region snapshot copy enabled.
-    , _escmDestinationRegion :: Text
+    { _escmDestinationRegion :: Text
       -- ^ The destination region that you want to copy snapshots to.
       -- Constraints: Must be the name of a valid region. For more
       -- information, see Regions and Endpoints in the Amazon Web Services
       -- General Reference.
+    , _escmClusterIdentifier :: Text
+      -- ^ The unique identifier of the source cluster to copy snapshots
+      -- from. Constraints: Must be the valid name of an existing cluster
+      -- that does not already have cross-region snapshot copy enabled.
     , _escmRetentionPeriod :: Maybe Integer
       -- ^ The number of days to retain automated snapshots in the
       -- destination region after they are copied from the source region.

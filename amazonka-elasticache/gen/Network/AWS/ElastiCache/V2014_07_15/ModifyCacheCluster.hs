@@ -47,13 +47,13 @@ modifyCacheCluster p1 = ModifyCacheCluster
     , _mccmSnapshotRetentionLimit = Nothing
     , _mccmNewAvailabilityZones = mempty
     , _mccmSecurityGroupIds = mempty
-    , _mccmAZMode = Nothing
-    , _mccmCacheParameterGroupName = Nothing
-    , _mccmEngineVersion = Nothing
     , _mccmNotificationTopicArn = Nothing
+    , _mccmAZMode = Nothing
     , _mccmNotificationTopicStatus = Nothing
     , _mccmPreferredMaintenanceWindow = Nothing
     , _mccmSnapshotWindow = Nothing
+    , _mccmCacheParameterGroupName = Nothing
+    , _mccmEngineVersion = Nothing
     }
 
 data ModifyCacheCluster = ModifyCacheCluster
@@ -165,6 +165,10 @@ data ModifyCacheCluster = ModifyCacheCluster
       -- ^ Specifies the VPC Security Groups associated with the cache
       -- cluster. This parameter can be used only with clusters that are
       -- created in an Amazon Virtual Private Cloud (VPC).
+    , _mccmNotificationTopicArn :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+      -- notifications will be sent. The Amazon SNS topic owner must be
+      -- same as the cache cluster owner.
     , _mccmAZMode :: Maybe Text
       -- ^ Specifies whether the new nodes in this Memcached cache cluster
       -- are all created in a single Availability Zone or created across
@@ -178,18 +182,6 @@ data ModifyCacheCluster = ModifyCacheCluster
       -- existing Memcached nodes to different Availability Zones, see the
       -- Availability Zone Considerations section of Cache Node
       -- Considerations for Memcached.
-    , _mccmCacheParameterGroupName :: Maybe Text
-      -- ^ The name of the cache parameter group to apply to this cache
-      -- cluster. This change is asynchronously applied as soon as
-      -- possible for parameters when the ApplyImmediately parameter is
-      -- specified as true for this request.
-    , _mccmEngineVersion :: Maybe Text
-      -- ^ The upgraded version of the cache engine to be run on the cache
-      -- nodes.
-    , _mccmNotificationTopicArn :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic to which
-      -- notifications will be sent. The Amazon SNS topic owner must be
-      -- same as the cache cluster owner.
     , _mccmNotificationTopicStatus :: Maybe Text
       -- ^ The status of the Amazon SNS notification topic. Notifications
       -- are sent only if the status is active. Valid values: active |
@@ -204,6 +196,14 @@ data ModifyCacheCluster = ModifyCacheCluster
     , _mccmSnapshotWindow :: Maybe Text
       -- ^ The daily time range (in UTC) during which ElastiCache will begin
       -- taking a daily snapshot of your cache cluster.
+    , _mccmCacheParameterGroupName :: Maybe Text
+      -- ^ The name of the cache parameter group to apply to this cache
+      -- cluster. This change is asynchronously applied as soon as
+      -- possible for parameters when the ApplyImmediately parameter is
+      -- specified as true for this request.
+    , _mccmEngineVersion :: Maybe Text
+      -- ^ The upgraded version of the cache engine to be run on the cache
+      -- nodes.
     } deriving (Show, Generic)
 
 makeLenses ''ModifyCacheCluster

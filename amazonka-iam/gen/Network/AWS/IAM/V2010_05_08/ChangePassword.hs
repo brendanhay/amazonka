@@ -31,11 +31,11 @@ import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 data ChangePassword = ChangePassword
-    { _cprNewPassword :: Text
+    { _cprOldPassword :: Text
+      -- ^ The IAM users's current password.
+    , _cprNewPassword :: Text
       -- ^ The new password. The new password must conform to the AWS
       -- account's password policy, if one exists.
-    , _cprOldPassword :: Text
-      -- ^ The IAM users's current password.
     } deriving (Show, Generic)
 
 makeLenses ''ChangePassword

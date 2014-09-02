@@ -40,18 +40,18 @@ import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 data CreateReplicationGroup = CreateReplicationGroup
-    { _crgmPrimaryClusterId :: Text
-      -- ^ The identifier of the cache cluster that will serve as the
-      -- primary for this replication group. This cache cluster must
-      -- already exist and have a status of available.
-    , _crgmReplicationGroupDescription :: Text
-      -- ^ A user-specified description for the replication group.
-    , _crgmReplicationGroupId :: Text
+    { _crgmReplicationGroupId :: Text
       -- ^ The replication group identifier. This parameter is stored as a
       -- lowercase string. Constraints: Must contain from 1 to 20
       -- alphanumeric characters or hyphens. First character must be a
       -- letter. Cannot end with a hyphen or contain two consecutive
       -- hyphens.
+    , _crgmPrimaryClusterId :: Text
+      -- ^ The identifier of the cache cluster that will serve as the
+      -- primary for this replication group. This cache cluster must
+      -- already exist and have a status of available.
+    , _crgmReplicationGroupDescription :: Text
+      -- ^ A user-specified description for the replication group.
     } deriving (Show, Generic)
 
 makeLenses ''CreateReplicationGroup

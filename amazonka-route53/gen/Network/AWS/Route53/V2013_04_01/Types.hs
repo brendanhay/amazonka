@@ -370,10 +370,10 @@ instance ToXML AliasTarget where
 -- | A complex type that contains the information for each change in a change
 -- batch request.
 data Change = Change
-    { _dAction :: ChangeAction
-      -- ^ The action to perform. Valid values: CREATE | DELETE | UPSERT.
-    , _dResourceRecordSet :: ResourceRecordSet
+    { _dResourceRecordSet :: ResourceRecordSet
       -- ^ Information about the resource record set to create or delete.
+    , _dAction :: ChangeAction
+      -- ^ The action to perform. Valid values: CREATE | DELETE | UPSERT.
     } deriving (Show, Generic)
 
 instance ToXML Change where
@@ -382,12 +382,12 @@ instance ToXML Change where
 
 -- | A complex type that contains an optional comment and the Changes element.
 data ChangeBatch = ChangeBatch
-    { _cbChanges :: [Change]
-      -- ^ A complex type that contains one Change element for each resource
-      -- record set that you want to create or delete.
-    , _cbComment :: Maybe Text
+    { _cbComment :: Maybe Text
       -- ^ Optional: Any comments you want to include about a change batch
       -- request.
+    , _cbChanges :: [Change]
+      -- ^ A complex type that contains one Change element for each resource
+      -- record set that you want to create or delete.
     } deriving (Show, Generic)
 
 instance ToXML ChangeBatch where
@@ -406,16 +406,16 @@ data ChangeInfo = ChangeInfo
     , _ciId :: Text
       -- ^ The ID of the request. Use this ID to track when the change has
       -- completed across all Amazon Route 53 DNS servers.
-    , _ciStatus :: ChangeStatus
-      -- ^ The current state of the request. PENDING indicates that this
-      -- request has not yet been applied to all Amazon Route 53 DNS
-      -- servers. Valid Values: PENDING | INSYNC.
     , _ciSubmittedAt :: ISO8601
       -- ^ The date and time the change was submitted, in the format
       -- YYYY-MM-DDThh:mm:ssZ, as specified in the ISO 8601 standard (for
       -- example, 2009-11-19T19:37:58Z). The Z after the time indicates
       -- that the time is listed in Coordinated Universal Time (UTC),
       -- which is synonymous with Greenwich Mean Time in this context.
+    , _ciStatus :: ChangeStatus
+      -- ^ The current state of the request. PENDING indicates that this
+      -- request has not yet been applied to all Amazon Route 53 DNS
+      -- servers. Valid Values: PENDING | INSYNC.
     } deriving (Show, Generic)
 
 instance FromXML ChangeInfo where
@@ -454,12 +454,12 @@ instance ToXML GeoLocation where
 
 -- | A complex type that contains information about a GeoLocation.
 data GeoLocationDetails = GeoLocationDetails
-    { _gldContinentCode :: Maybe Text
-      -- ^ The code for a continent geo location. Note: only continent
-      -- locations have a continent code.
-    , _gldContinentName :: Maybe Text
+    { _gldContinentName :: Maybe Text
       -- ^ The name of the continent. This element is only present if
       -- ContinentCode is also present.
+    , _gldContinentCode :: Maybe Text
+      -- ^ The code for a continent geo location. Note: only continent
+      -- locations have a continent code.
     , _gldCountryCode :: Maybe Text
       -- ^ The code for a country geo location. The default location uses
       -- '*' for the country code and will match all locations that are
@@ -488,14 +488,14 @@ data HealthCheck = HealthCheck
     { _hcCallerReference :: Text
       -- ^ A unique string that identifies the request to create the health
       -- check.
-    , _hcHealthCheckConfig :: HealthCheckConfig
-      -- ^ A complex type that contains the health check configuration.
     , _hcHealthCheckVersion :: Integer
       -- ^ The version of the health check. You can optionally pass this
       -- value in a call to UpdateHealthCheck to prevent overwriting
       -- another change to the health check.
     , _hcId :: Text
       -- ^ The ID of the specified health check.
+    , _hcHealthCheckConfig :: HealthCheckConfig
+      -- ^ A complex type that contains the health check configuration.
     } deriving (Show, Generic)
 
 instance FromXML HealthCheck where
@@ -504,18 +504,7 @@ instance FromXML HealthCheck where
 
 -- | A complex type that contains the health check configuration.
 data HealthCheckConfig = HealthCheckConfig
-    { _hccFailureThreshold :: Maybe Integer
-      -- ^ The number of consecutive health checks that an endpoint must
-      -- pass or fail for Route 53 to change the current status of the
-      -- endpoint from unhealthy to healthy or vice versa. Valid values
-      -- are integers between 1 and 10. For more information, see "How
-      -- Amazon Route 53 Determines Whether an Endpoint Is Healthy" in the
-      -- Amazon Route 53 Developer Guide.
-    , _hccFullyQualifiedDomainName :: Maybe Text
-      -- ^ Fully qualified domain name of the instance to be health checked.
-    , _hccIPAddress :: Maybe Text
-      -- ^ IP Address of the instance being checked.
-    , _hccPort :: Maybe Integer
+    { _hccPort :: Maybe Integer
       -- ^ Port on which connection will be opened to the instance to health
       -- check. For HTTP and HTTP_STR_MATCH this defaults to 80 if the
       -- port is not specified. For HTTPS and HTTPS_STR_MATCH this
@@ -526,6 +515,11 @@ data HealthCheckConfig = HealthCheckConfig
       -- health-check request. Each Route 53 health checker makes requests
       -- at this interval. Valid values are 10 and 30. The default value
       -- is 30.
+    , _hccFullyQualifiedDomainName :: Maybe Text
+      -- ^ Fully qualified domain name of the instance to be health checked.
+    , _hccType :: HealthCheckType
+      -- ^ The type of health check to be performed. Currently supported
+      -- types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
     , _hccResourcePath :: Maybe Text
       -- ^ Path to ping on the instance to check the health. Required for
       -- HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks,
@@ -534,9 +528,15 @@ data HealthCheckConfig = HealthCheckConfig
     , _hccSearchString :: Maybe Text
       -- ^ A string to search for in the body of a health check response.
       -- Required for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
-    , _hccType :: HealthCheckType
-      -- ^ The type of health check to be performed. Currently supported
-      -- types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
+    , _hccIPAddress :: Maybe Text
+      -- ^ IP Address of the instance being checked.
+    , _hccFailureThreshold :: Maybe Integer
+      -- ^ The number of consecutive health checks that an endpoint must
+      -- pass or fail for Route 53 to change the current status of the
+      -- endpoint from unhealthy to healthy or vice versa. Valid values
+      -- are integers between 1 and 10. For more information, see "How
+      -- Amazon Route 53 Determines Whether an Endpoint Is Healthy" in the
+      -- Amazon Route 53 Developer Guide.
     } deriving (Show, Generic)
 
 instance FromXML HealthCheckConfig where
@@ -552,8 +552,8 @@ data HostedZone = HostedZone
     { _hzCallerReference :: Text
       -- ^ A unique string that identifies the request to create the hosted
       -- zone.
-    , _hzConfig :: Maybe HostedZoneConfig
-      -- ^ A complex type that contains the Comment element.
+    , _hzResourceRecordSetCount :: Maybe Integer
+      -- ^ Total number of resource record sets in the hosted zone.
     , _hzId :: Text
       -- ^ The ID of the specified hosted zone.
     , _hzName :: Text
@@ -566,8 +566,8 @@ data HostedZone = HostedZone
       -- your registrar to change the authoritative name servers for your
       -- domain to the set of NameServers elements returned in
       -- DelegationSet.
-    , _hzResourceRecordSetCount :: Maybe Integer
-      -- ^ Total number of resource record sets in the hosted zone.
+    , _hzConfig :: Maybe HostedZoneConfig
+      -- ^ A complex type that contains the Comment element.
     } deriving (Show, Generic)
 
 instance FromXML HostedZone where
@@ -576,9 +576,24 @@ instance FromXML HostedZone where
 
 -- | Information about the resource record set to create or delete.
 data ResourceRecordSet = ResourceRecordSet
-    { _rrsAliasTarget :: Maybe AliasTarget
-      -- ^ Alias resource record sets only: Information about the AWS
-      -- resource to which you are redirecting traffic.
+    { _rrsGeoLocation :: Maybe GeoLocation
+      -- ^ Geo location resource record sets only: Among resource record
+      -- sets that have the same combination of DNS name and type, a value
+      -- that specifies the geo location for the current resource record
+      -- set.
+    , _rrsType :: RecordType
+      -- ^ The type of the current resource record set.
+    , _rrsRegion :: Maybe Region
+      -- ^ Latency-based resource record sets only: Among resource record
+      -- sets that have the same combination of DNS name and type, a value
+      -- that specifies the AWS region for the current resource record
+      -- set.
+    , _rrsHealthCheckId :: Maybe Text
+      -- ^ Health Check resource record sets only, not required for alias
+      -- resource record sets: An identifier that is used to identify
+      -- health check associated with the resource record set.
+    , _rrsName :: Text
+      -- ^ The domain name of the current resource record set.
     , _rrsFailover :: Maybe Failover
       -- ^ Failover resource record sets only: Among resource record sets
       -- that have the same combination of DNS name and type, a value that
@@ -596,38 +611,23 @@ data ResourceRecordSet = ResourceRecordSet
       -- health check and either the secondary is passing a health check
       -- or has no associated health check, or (2) there is no primary
       -- resource record set. Valid values: PRIMARY | SECONDARY.
-    , _rrsGeoLocation :: Maybe GeoLocation
-      -- ^ Geo location resource record sets only: Among resource record
-      -- sets that have the same combination of DNS name and type, a value
-      -- that specifies the geo location for the current resource record
-      -- set.
-    , _rrsHealthCheckId :: Maybe Text
-      -- ^ Health Check resource record sets only, not required for alias
-      -- resource record sets: An identifier that is used to identify
-      -- health check associated with the resource record set.
-    , _rrsName :: Text
-      -- ^ The domain name of the current resource record set.
-    , _rrsRegion :: Maybe Region
-      -- ^ Latency-based resource record sets only: Among resource record
-      -- sets that have the same combination of DNS name and type, a value
-      -- that specifies the AWS region for the current resource record
-      -- set.
-    , _rrsResourceRecords :: [ResourceRecord]
-      -- ^ A complex type that contains the resource records for the current
-      -- resource record set.
     , _rrsSetIdentifier :: Maybe Text
       -- ^ Weighted, Latency, Geo, and Failover resource record sets only:
       -- An identifier that differentiates among multiple resource record
       -- sets that have the same combination of DNS name and type.
-    , _rrsTTL :: Maybe Integer
-      -- ^ The cache time to live for the current resource record set.
-    , _rrsType :: RecordType
-      -- ^ The type of the current resource record set.
     , _rrsWeight :: Maybe Integer
       -- ^ Weighted resource record sets only: Among resource record sets
       -- that have the same combination of DNS name and type, a value that
       -- determines what portion of traffic for the current resource
       -- record set is routed to the associated location.
+    , _rrsAliasTarget :: Maybe AliasTarget
+      -- ^ Alias resource record sets only: Information about the AWS
+      -- resource to which you are redirecting traffic.
+    , _rrsResourceRecords :: [ResourceRecord]
+      -- ^ A complex type that contains the resource records for the current
+      -- resource record set.
+    , _rrsTTL :: Maybe Integer
+      -- ^ The cache time to live for the current resource record set.
     } deriving (Show, Generic)
 
 instance FromXML ResourceRecordSet where
@@ -640,13 +640,13 @@ instance ToXML ResourceRecordSet where
 
 -- | A ResourceTagSet containing tags associated with the specified resource.
 data ResourceTagSet = ResourceTagSet
-    { _rtsResourceId :: Maybe Text
-      -- ^ The ID for the specified resource.
+    { _rtsTags :: Maybe [Tag]
+      -- ^ The tags associated with the specified resource.
     , _rtsResourceType :: Maybe TagResourceType
       -- ^ The type of the resource. The resource type for health checks is
       -- healthcheck.
-    , _rtsTags :: Maybe [Tag]
-      -- ^ The tags associated with the specified resource.
+    , _rtsResourceId :: Maybe Text
+      -- ^ The ID for the specified resource.
     } deriving (Show, Generic)
 
 instance FromXML ResourceTagSet where

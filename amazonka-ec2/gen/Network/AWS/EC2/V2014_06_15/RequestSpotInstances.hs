@@ -58,8 +58,8 @@ requestSpotInstances p1 = RequestSpotInstances
     , _rsirInstanceCount = Nothing
     , _rsirLaunchSpecification = Nothing
     , _rsirType = Nothing
-    , _rsirAvailabilityZoneGroup = Nothing
     , _rsirLaunchGroup = Nothing
+    , _rsirAvailabilityZoneGroup = Nothing
     }
 
 data RequestSpotInstances = RequestSpotInstances
@@ -87,6 +87,10 @@ data RequestSpotInstances = RequestSpotInstances
       -- ^ The launch specification.
     , _rsirType :: Maybe SpotInstanceType
       -- ^ The Spot Instance request type. Default: one-time.
+    , _rsirLaunchGroup :: Maybe Text
+      -- ^ The instance launch group. Launch groups are Spot Instances that
+      -- launch together and terminate together. Default: Instances are
+      -- launched and terminated individually.
     , _rsirAvailabilityZoneGroup :: Maybe Text
       -- ^ The user-specified name for a logical grouping of bids. When you
       -- specify an Availability Zone group in a Spot Instance request,
@@ -107,10 +111,6 @@ data RequestSpotInstances = RequestSpotInstances
       -- request, even if you specified the same Availability Zone group.
       -- Default: Instances are launched in any available Availability
       -- Zone.
-    , _rsirLaunchGroup :: Maybe Text
-      -- ^ The instance launch group. Launch groups are Spot Instances that
-      -- launch together and terminate together. Default: Instances are
-      -- launched and terminated individually.
     } deriving (Show, Generic)
 
 makeLenses ''RequestSpotInstances

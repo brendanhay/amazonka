@@ -71,8 +71,8 @@ registerWorkflowType p1 p2 p3 = RegisterWorkflowType
     , _rwtiVersion = p3
     , _rwtiDefaultChildPolicy = Nothing
     , _rwtiDescription = Nothing
-    , _rwtiDefaultExecutionStartToCloseTimeout = Nothing
     , _rwtiDefaultTaskStartToCloseTimeout = Nothing
+    , _rwtiDefaultExecutionStartToCloseTimeout = Nothing
     , _rwtiDefaultTaskList = Nothing
     }
 
@@ -110,6 +110,14 @@ data RegisterWorkflowType = RegisterWorkflowType
       -- taken. The child executions will continue to run.
     , _rwtiDescription :: Maybe Text
       -- ^ Textual description of the workflow type.
+    , _rwtiDefaultTaskStartToCloseTimeout :: Maybe Text
+      -- ^ If set, specifies the default maximum duration of decision tasks
+      -- for this workflow type. This default can be overridden when
+      -- starting a workflow execution using the StartWorkflowExecution
+      -- action or the StartChildWorkflowExecution Decision. The valid
+      -- values are integers greater than or equal to 0. An integer value
+      -- can be used to specify the duration in seconds while NONE can be
+      -- used to specify unlimited duration.
     , _rwtiDefaultExecutionStartToCloseTimeout :: Maybe Text
       -- ^ If set, specifies the default maximum duration for executions of
       -- this workflow type. You can override this default when starting
@@ -121,14 +129,6 @@ data RegisterWorkflowType = RegisterWorkflowType
       -- defaultExecutionStartToCloseTimeout; there is a one-year max
       -- limit on the time that a workflow execution can run. Exceeding
       -- this limit will always cause the workflow execution to time out.
-    , _rwtiDefaultTaskStartToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration of decision tasks
-      -- for this workflow type. This default can be overridden when
-      -- starting a workflow execution using the StartWorkflowExecution
-      -- action or the StartChildWorkflowExecution Decision. The valid
-      -- values are integers greater than or equal to 0. An integer value
-      -- can be used to specify the duration in seconds while NONE can be
-      -- used to specify unlimited duration.
     , _rwtiDefaultTaskList :: Maybe TaskList
       -- ^ If set, specifies the default task list to use for scheduling
       -- decision tasks for executions of this workflow type. This default

@@ -37,25 +37,25 @@ import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DownloadDBLogFilePortion' request.
-downloadDBLogFilePortion :: Text -- ^ '_ddblfpmDBInstanceIdentifier'
-                         -> Text -- ^ '_ddblfpmLogFileName'
+downloadDBLogFilePortion :: Text -- ^ '_ddblfpmLogFileName'
+                         -> Text -- ^ '_ddblfpmDBInstanceIdentifier'
                          -> DownloadDBLogFilePortion
 downloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortion
-    { _ddblfpmDBInstanceIdentifier = p1
-    , _ddblfpmLogFileName = p2
+    { _ddblfpmLogFileName = p1
+    , _ddblfpmDBInstanceIdentifier = p2
     , _ddblfpmNumberOfLines = Nothing
     , _ddblfpmMarker = Nothing
     }
 
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion
-    { _ddblfpmDBInstanceIdentifier :: Text
+    { _ddblfpmLogFileName :: Text
+      -- ^ The name of the log file to be downloaded.
+    , _ddblfpmDBInstanceIdentifier :: Text
       -- ^ The customer-assigned name of the DB instance that contains the
       -- log files you want to list. Constraints: Must contain from 1 to
       -- 63 alphanumeric characters or hyphens First character must be a
       -- letter Cannot end with a hyphen or contain two consecutive
       -- hyphens.
-    , _ddblfpmLogFileName :: Text
-      -- ^ The name of the log file to be downloaded.
     , _ddblfpmNumberOfLines :: Maybe Integer
       -- ^ The number of lines remaining to be downloaded.
     , _ddblfpmMarker :: Maybe Text

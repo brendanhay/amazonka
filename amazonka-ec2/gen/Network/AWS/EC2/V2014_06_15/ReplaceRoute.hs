@@ -46,8 +46,8 @@ replaceRoute p1 p2 = ReplaceRoute
     , _rrrRouteTableId = p2
     , _rrrDryRun = Nothing
     , _rrrGatewayId = Nothing
-    , _rrrInstanceId = Nothing
     , _rrrNetworkInterfaceId = Nothing
+    , _rrrInstanceId = Nothing
     , _rrrVpcPeeringConnectionId = Nothing
     }
 
@@ -62,10 +62,10 @@ data ReplaceRoute = ReplaceRoute
       -- ^ 
     , _rrrGatewayId :: Maybe Text
       -- ^ The ID of an Internet gateway attached to your VPC.
-    , _rrrInstanceId :: Maybe Text
-      -- ^ The ID of a NAT instance in your VPC.
     , _rrrNetworkInterfaceId :: Maybe Text
       -- ^ The ID of a network interface.
+    , _rrrInstanceId :: Maybe Text
+      -- ^ The ID of a NAT instance in your VPC.
     , _rrrVpcPeeringConnectionId :: Maybe Text
       -- ^ The ID of a VPC peering connection.
     } deriving (Show, Generic)

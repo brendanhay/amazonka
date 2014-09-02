@@ -322,16 +322,16 @@ instance ToQuery Statistic where
 -- CloudWatch returns this data type as part of the DescribeAlarmHistoryResult
 -- data type.
 data AlarmHistoryItem = AlarmHistoryItem
-    { _ahjAlarmName :: Maybe Text
-      -- ^ The descriptive name for the alarm.
+    { _ahjTimestamp :: Maybe ISO8601
+      -- ^ The time stamp for the alarm history item.
+    , _ahjHistorySummary :: Maybe Text
+      -- ^ A human-readable summary of the alarm history.
     , _ahjHistoryData :: Maybe Text
       -- ^ Machine-readable data about the alarm in JSON format.
     , _ahjHistoryItemType :: Maybe HistoryItemType
       -- ^ The type of alarm history item.
-    , _ahjHistorySummary :: Maybe Text
-      -- ^ A human-readable summary of the alarm history.
-    , _ahjTimestamp :: Maybe ISO8601
-      -- ^ The time stamp for the alarm history item.
+    , _ahjAlarmName :: Maybe Text
+      -- ^ The descriptive name for the alarm.
     } deriving (Show, Generic)
 
 instance FromXML AlarmHistoryItem where
@@ -341,21 +341,21 @@ instance FromXML AlarmHistoryItem where
 -- | The Datapoint data type encapsulates the statistical data that Amazon
 -- CloudWatch computes from metric data.
 data Datapoint = Datapoint
-    { _dtAverage :: Maybe Double
-      -- ^ The average of metric values that correspond to the datapoint.
-    , _dtMaximum :: Maybe Double
-      -- ^ The maximum of the metric value used for the datapoint.
-    , _dtMinimum :: Maybe Double
-      -- ^ The minimum metric value used for the datapoint.
-    , _dtSampleCount :: Maybe Double
-      -- ^ The number of metric values that contributed to the aggregate
-      -- value of this datapoint.
-    , _dtSum :: Maybe Double
-      -- ^ The sum of metric values used for the datapoint.
-    , _dtTimestamp :: Maybe ISO8601
+    { _dtTimestamp :: Maybe ISO8601
       -- ^ The time stamp used for the datapoint.
     , _dtUnit :: Maybe StandardUnit
       -- ^ The standard unit used for the datapoint.
+    , _dtSum :: Maybe Double
+      -- ^ The sum of metric values used for the datapoint.
+    , _dtMinimum :: Maybe Double
+      -- ^ The minimum metric value used for the datapoint.
+    , _dtAverage :: Maybe Double
+      -- ^ The average of metric values that correspond to the datapoint.
+    , _dtMaximum :: Maybe Double
+      -- ^ The maximum of the metric value used for the datapoint.
+    , _dtSampleCount :: Maybe Double
+      -- ^ The number of metric values that contributed to the aggregate
+      -- value of this datapoint.
     } deriving (Show, Generic)
 
 instance FromXML Datapoint where
@@ -397,10 +397,10 @@ instance ToQuery DimensionFilter where
 data Metric = Metric
     { _rDimensions :: [Dimension]
       -- ^ A list of dimensions associated with the metric.
-    , _rMetricName :: Maybe Text
-      -- ^ The name of the metric.
     , _rNamespace :: Maybe Text
       -- ^ The namespace of the metric.
+    , _rMetricName :: Maybe Text
+      -- ^ The name of the metric.
     } deriving (Show, Generic)
 
 instance FromXML Metric where
@@ -410,9 +410,10 @@ instance FromXML Metric where
 -- | The MetricAlarm data type represents an alarm. You can use PutMetricAlarm
 -- to create or update an alarm.
 data MetricAlarm = MetricAlarm
-    { _mbActionsEnabled :: Maybe Bool
-      -- ^ Indicates whether actions should be executed during any changes
-      -- to the alarm's state.
+    { _mbStatistic :: Maybe Statistic
+      -- ^ The statistic to apply to the alarm's associated metric.
+    , _mbUnit :: Maybe StandardUnit
+      -- ^ The unit of the alarm's associated metric.
     , _mbAlarmActions :: [Text]
       -- ^ The list of actions to execute when this alarm transitions into
       -- an ALARM state from any other state. Each action is specified as
@@ -421,55 +422,54 @@ data MetricAlarm = MetricAlarm
       -- Auto Scaling policy.
     , _mbAlarmArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the alarm.
-    , _mbAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
-      -- ^ The time stamp of the last update to the alarm configuration.
-    , _mbAlarmDescription :: Maybe Text
-      -- ^ The description for the alarm.
-    , _mbAlarmName :: Maybe Text
-      -- ^ The name of the alarm.
-    , _mbComparisonOperator :: Maybe ComparisonOperator
-      -- ^ The arithmetic operation to use when comparing the specified
-      -- Statistic and Threshold. The specified Statistic value is used as
-      -- the first operand.
     , _mbDimensions :: [Dimension]
       -- ^ The list of dimensions associated with the alarm's associated
       -- metric.
-    , _mbEvaluationPeriods :: Maybe Integer
-      -- ^ The number of periods over which data is compared to the
-      -- specified threshold.
+    , _mbStateReasonData :: Maybe Text
+      -- ^ An explanation for the alarm's state in machine-readable JSON
+      -- format.
+    , _mbStateReason :: Maybe Text
+      -- ^ A human-readable explanation for the alarm's state.
     , _mbInsufficientDataActions :: [Text]
       -- ^ The list of actions to execute when this alarm transitions into
       -- an INSUFFICIENT_DATA state from any other state. Each action is
       -- specified as an Amazon Resource Number (ARN). Currently the only
       -- actions supported are publishing to an Amazon SNS topic or
       -- triggering an Auto Scaling policy.
-    , _mbMetricName :: Maybe Text
-      -- ^ The name of the alarm's metric.
-    , _mbNamespace :: Maybe Text
-      -- ^ The namespace of alarm's associated metric.
+    , _mbActionsEnabled :: Maybe Bool
+      -- ^ Indicates whether actions should be executed during any changes
+      -- to the alarm's state.
+    , _mbAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
+      -- ^ The time stamp of the last update to the alarm configuration.
+    , _mbThreshold :: Maybe Double
+      -- ^ The value against which the specified statistic is compared.
+    , _mbStateValue :: Maybe StateValue
+      -- ^ The state value for the alarm.
     , _mbOKActions :: [Text]
       -- ^ The list of actions to execute when this alarm transitions into
       -- an OK state from any other state. Each action is specified as an
       -- Amazon Resource Number (ARN). Currently the only actions
       -- supported are publishing to an Amazon SNS topic and triggering an
       -- Auto Scaling policy.
+    , _mbComparisonOperator :: Maybe ComparisonOperator
+      -- ^ The arithmetic operation to use when comparing the specified
+      -- Statistic and Threshold. The specified Statistic value is used as
+      -- the first operand.
+    , _mbNamespace :: Maybe Text
+      -- ^ The namespace of alarm's associated metric.
+    , _mbMetricName :: Maybe Text
+      -- ^ The name of the alarm's metric.
+    , _mbEvaluationPeriods :: Maybe Integer
+      -- ^ The number of periods over which data is compared to the
+      -- specified threshold.
+    , _mbAlarmDescription :: Maybe Text
+      -- ^ The description for the alarm.
     , _mbPeriod :: Maybe Integer
       -- ^ The period in seconds over which the statistic is applied.
-    , _mbStateReason :: Maybe Text
-      -- ^ A human-readable explanation for the alarm's state.
-    , _mbStateReasonData :: Maybe Text
-      -- ^ An explanation for the alarm's state in machine-readable JSON
-      -- format.
     , _mbStateUpdatedTimestamp :: Maybe ISO8601
       -- ^ The time stamp of the last update to the alarm's state.
-    , _mbStateValue :: Maybe StateValue
-      -- ^ The state value for the alarm.
-    , _mbStatistic :: Maybe Statistic
-      -- ^ The statistic to apply to the alarm's associated metric.
-    , _mbThreshold :: Maybe Double
-      -- ^ The value against which the specified statistic is compared.
-    , _mbUnit :: Maybe StandardUnit
-      -- ^ The unit of the alarm's associated metric.
+    , _mbAlarmName :: Maybe Text
+      -- ^ The name of the alarm.
     } deriving (Show, Generic)
 
 instance FromXML MetricAlarm where
@@ -480,23 +480,23 @@ instance FromXML MetricAlarm where
 -- PutMetricData to either create a new metric or add new values to be
 -- aggregated into an existing metric.
 data MetricDatum = MetricDatum
-    { _meDimensions :: [Dimension]
-      -- ^ A list of dimensions associated with the metric.
-    , _meMetricName :: Text
-      -- ^ The name of the metric.
-    , _meStatisticValues :: Maybe StatisticSet
+    { _meStatisticValues :: Maybe StatisticSet
       -- ^ A set of statistical values describing the metric.
     , _meTimestamp :: Maybe ISO8601
       -- ^ The time stamp used for the metric. If not specified, the default
       -- value is set to the time the metric data was received.
     , _meUnit :: Maybe StandardUnit
       -- ^ The unit of the metric.
+    , _meDimensions :: [Dimension]
+      -- ^ A list of dimensions associated with the metric.
     , _meValue :: Maybe Double
       -- ^ The value for the metric. Although the Value parameter accepts
       -- numbers of type Double, Amazon CloudWatch truncates values with
       -- very large exponents. Values with base-10 exponents greater than
       -- 126 (1 x 10^126) are truncated. Likewise, values with base-10
       -- exponents less than -130 (1 x 10^-130) are also truncated.
+    , _meMetricName :: Text
+      -- ^ The name of the metric.
     } deriving (Show, Generic)
 
 instance ToQuery MetricDatum where
@@ -504,14 +504,14 @@ instance ToQuery MetricDatum where
 
 -- | A set of statistical values describing the metric.
 data StatisticSet = StatisticSet
-    { _ssMaximum :: Double
-      -- ^ The maximum value of the sample set.
+    { _ssSum :: Double
+      -- ^ The sum of values for the sample set.
     , _ssMinimum :: Double
       -- ^ The minimum value of the sample set.
+    , _ssMaximum :: Double
+      -- ^ The maximum value of the sample set.
     , _ssSampleCount :: Double
       -- ^ The number of samples used for the statistic set.
-    , _ssSum :: Double
-      -- ^ The sum of values for the sample set.
     } deriving (Show, Generic)
 
 instance FromXML StatisticSet where

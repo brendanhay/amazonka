@@ -33,10 +33,10 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 data RegisterElasticIp = RegisterElasticIp
-    { _reirElasticIp :: Text
-      -- ^ The Elastic IP address.
-    , _reirStackId :: Text
+    { _reirStackId :: Text
       -- ^ The stack ID.
+    , _reirElasticIp :: Text
+      -- ^ The Elastic IP address.
     } deriving (Show, Generic)
 
 makeLenses ''RegisterElasticIp

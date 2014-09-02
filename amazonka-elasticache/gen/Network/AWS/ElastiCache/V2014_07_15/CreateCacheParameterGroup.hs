@@ -36,14 +36,14 @@ import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 data CreateCacheParameterGroup = CreateCacheParameterGroup
-    { _ccpgmCacheParameterGroupFamily :: Text
+    { _ccpgmDescription :: Text
+      -- ^ A user-specified description for the cache parameter group.
+    , _ccpgmCacheParameterGroupName :: Text
+      -- ^ A user-specified name for the cache parameter group.
+    , _ccpgmCacheParameterGroupFamily :: Text
       -- ^ The name of the cache parameter group family the cache parameter
       -- group can be used with. Valid values are: memcached1.4 | redis2.6
       -- | redis2.8.
-    , _ccpgmCacheParameterGroupName :: Text
-      -- ^ A user-specified name for the cache parameter group.
-    , _ccpgmDescription :: Text
-      -- ^ A user-specified description for the cache parameter group.
     } deriving (Show, Generic)
 
 makeLenses ''CreateCacheParameterGroup

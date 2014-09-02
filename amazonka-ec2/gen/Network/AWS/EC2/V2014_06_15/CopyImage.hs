@@ -46,9 +46,9 @@ copyImage p1 p2 = CopyImage
     { _cirSourceImageId = p1
     , _cirSourceRegion = p2
     , _cirDryRun = Nothing
-    , _cirClientToken = Nothing
     , _cirDescription = Nothing
     , _cirName = Nothing
+    , _cirClientToken = Nothing
     }
 
 data CopyImage = CopyImage
@@ -58,15 +58,15 @@ data CopyImage = CopyImage
       -- ^ The name of the region that contains the AMI to copy.
     , _cirDryRun :: Maybe Bool
       -- ^ 
+    , _cirDescription :: Maybe Text
+      -- ^ A description for the new AMI in the destination region.
+    , _cirName :: Maybe Text
+      -- ^ The name of the new AMI in the destination region.
     , _cirClientToken :: Maybe Text
       -- ^ Unique, case-sensitive identifier you provide to ensure
       -- idempotency of the request. For more information, see How to
       -- Ensure Idempotency in the Amazon Elastic Compute Cloud User
       -- Guide.
-    , _cirDescription :: Maybe Text
-      -- ^ A description for the new AMI in the destination region.
-    , _cirName :: Maybe Text
-      -- ^ The name of the new AMI in the destination region.
     } deriving (Show, Generic)
 
 makeLenses ''CopyImage

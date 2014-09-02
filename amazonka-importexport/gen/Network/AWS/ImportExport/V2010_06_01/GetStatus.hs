@@ -71,12 +71,12 @@ data GetStatusResponse = GetStatusResponse
       -- ^ A token representing the state of the job, such as "Started".
     , _gsoProgressMessage :: Maybe Text
       -- ^ A more human readable form of the job status.
-    , _gsoSignature :: Maybe Text
+    , _gsoSignatureFileContents :: Maybe Text
       -- ^ An encrypted code used to authenticate the request and response,
       -- for example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value
       -- is you want to create the signature file yourself. Generally you
       -- should use the SignatureFileContents value.
-    , _gsoSignatureFileContents :: Maybe Text
+    , _gsoSignature :: Maybe Text
       -- ^ An encrypted code used to authenticate the request and response,
       -- for example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value
       -- is you want to create the signature file yourself. Generally you

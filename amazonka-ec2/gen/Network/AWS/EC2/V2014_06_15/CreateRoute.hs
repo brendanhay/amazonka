@@ -61,8 +61,8 @@ createRoute p1 p2 = CreateRoute
     , _crrRouteTableId = p2
     , _crrDryRun = Nothing
     , _crrGatewayId = Nothing
-    , _crrInstanceId = Nothing
     , _crrNetworkInterfaceId = Nothing
+    , _crrInstanceId = Nothing
     , _crrVpcPeeringConnectionId = Nothing
     }
 
@@ -76,12 +76,12 @@ data CreateRoute = CreateRoute
       -- ^ 
     , _crrGatewayId :: Maybe Text
       -- ^ The ID of an Internet gateway attached to your VPC.
+    , _crrNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of a network interface.
     , _crrInstanceId :: Maybe Text
       -- ^ The ID of a NAT instance in your VPC. The operation fails if you
       -- specify an instance ID unless exactly one network interface is
       -- attached.
-    , _crrNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of a network interface.
     , _crrVpcPeeringConnectionId :: Maybe Text
       -- ^ The ID of a VPC peering connection.
     } deriving (Show, Generic)

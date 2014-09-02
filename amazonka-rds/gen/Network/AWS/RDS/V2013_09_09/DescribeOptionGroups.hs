@@ -35,10 +35,10 @@ import Network.AWS.Prelude
 describeOptionGroups :: DescribeOptionGroups
 describeOptionGroups = DescribeOptionGroups
     { _dogmMaxRecords = Nothing
-    , _dogmEngineName = Nothing
-    , _dogmMajorEngineVersion = Nothing
-    , _dogmMarker = Nothing
     , _dogmOptionGroupName = Nothing
+    , _dogmMarker = Nothing
+    , _dogmMajorEngineVersion = Nothing
+    , _dogmEngineName = Nothing
     }
 
 data DescribeOptionGroups = DescribeOptionGroups
@@ -48,21 +48,21 @@ data DescribeOptionGroups = DescribeOptionGroups
       -- token called a marker is included in the response so that the
       -- remaining results can be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _dogmEngineName :: Maybe Text
-      -- ^ Filters the list of option groups to only include groups
-      -- associated with a specific database engine.
-    , _dogmMajorEngineVersion :: Maybe Text
-      -- ^ Filters the list of option groups to only include groups
-      -- associated with a specific database engine version. If specified,
-      -- then EngineName must also be specified.
+    , _dogmOptionGroupName :: Maybe Text
+      -- ^ The name of the option group to describe. Cannot be supplied
+      -- together with EngineName or MajorEngineVersion.
     , _dogmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeOptionGroups request. If this parameter is specified, the
       -- response includes only records beyond the marker, up to the value
       -- specified by MaxRecords.
-    , _dogmOptionGroupName :: Maybe Text
-      -- ^ The name of the option group to describe. Cannot be supplied
-      -- together with EngineName or MajorEngineVersion.
+    , _dogmMajorEngineVersion :: Maybe Text
+      -- ^ Filters the list of option groups to only include groups
+      -- associated with a specific database engine version. If specified,
+      -- then EngineName must also be specified.
+    , _dogmEngineName :: Maybe Text
+      -- ^ Filters the list of option groups to only include groups
+      -- associated with a specific database engine.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeOptionGroups

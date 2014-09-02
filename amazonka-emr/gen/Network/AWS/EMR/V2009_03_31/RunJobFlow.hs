@@ -82,10 +82,10 @@ runJobFlow p1 p2 = RunJobFlow
     , _rjfiSteps = mempty
     , _rjfiSupportedProducts = mempty
     , _rjfiTags = mempty
-    , _rjfiAdditionalInfo = Nothing
-    , _rjfiJobFlowRole = Nothing
-    , _rjfiLogUri = Nothing
     , _rjfiServiceRole = Nothing
+    , _rjfiLogUri = Nothing
+    , _rjfiJobFlowRole = Nothing
+    , _rjfiAdditionalInfo = Nothing
     , _rjfiAmiVersion = Nothing
     }
 
@@ -127,19 +127,19 @@ data RunJobFlow = RunJobFlow
     , _rjfiTags :: [Tag]
       -- ^ A list of tags to associate with a cluster and propagate to
       -- Amazon EC2 instances.
-    , _rjfiAdditionalInfo :: Maybe Text
-      -- ^ A JSON string for selecting additional features.
+    , _rjfiServiceRole :: Maybe Text
+      -- ^ The IAM role that will be assumed by the Amazon EMR service to
+      -- access AWS resources on your behalf.
+    , _rjfiLogUri :: Maybe Text
+      -- ^ The location in Amazon S3 to write the log files of the job flow.
+      -- If a value is not provided, logs are not created.
     , _rjfiJobFlowRole :: Maybe Text
       -- ^ An IAM role for the job flow. The EC2 instances of the job flow
       -- assume this role. The default role is EMRJobflowDefault. In order
       -- to use the default role, you must have already created it using
       -- the CLI.
-    , _rjfiLogUri :: Maybe Text
-      -- ^ The location in Amazon S3 to write the log files of the job flow.
-      -- If a value is not provided, logs are not created.
-    , _rjfiServiceRole :: Maybe Text
-      -- ^ The IAM role that will be assumed by the Amazon EMR service to
-      -- access AWS resources on your behalf.
+    , _rjfiAdditionalInfo :: Maybe Text
+      -- ^ A JSON string for selecting additional features.
     , _rjfiAmiVersion :: Maybe Text
       -- ^ The version of the Amazon Machine Image (AMI) to use when
       -- launching Amazon EC2 instances in the job flow. The following

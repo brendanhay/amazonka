@@ -311,12 +311,8 @@ instance FromXML ProcessType where
 -- be a process to replace an instance, or a process to perform any other
 -- long-running operations supported by the API.
 data Activity = Activity
-    { _hActivityId :: Text
-      -- ^ Specifies the ID of the activity.
-    , _hAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group.
-    , _hCause :: Text
-      -- ^ Contains the reason the activity was begun.
+    { _hStatusCode :: ScalingActivityStatusCode
+      -- ^ Contains the current status of the activity.
     , _hDescription :: Maybe Text
       -- ^ Contains a friendly, more verbose description of the scaling
       -- activity.
@@ -324,16 +320,20 @@ data Activity = Activity
       -- ^ Contains details of the scaling activity.
     , _hEndTime :: Maybe ISO8601
       -- ^ Provides the end time of this activity.
-    , _hProgress :: Maybe Integer
-      -- ^ Specifies a value between 0 and 100 that indicates the progress
-      -- of the activity.
-    , _hStartTime :: ISO8601
-      -- ^ Provides the start time of this activity.
-    , _hStatusCode :: ScalingActivityStatusCode
-      -- ^ Contains the current status of the activity.
+    , _hAutoScalingGroupName :: Text
+      -- ^ The name of the Auto Scaling group.
     , _hStatusMessage :: Maybe Text
       -- ^ Contains a friendly, more verbose description of the activity
       -- status.
+    , _hCause :: Text
+      -- ^ Contains the reason the activity was begun.
+    , _hActivityId :: Text
+      -- ^ Specifies the ID of the activity.
+    , _hStartTime :: ISO8601
+      -- ^ Provides the start time of this activity.
+    , _hProgress :: Maybe Integer
+      -- ^ Specifies a value between 0 and 100 that indicates the progress
+      -- of the activity.
     } deriving (Show, Generic)
 
 instance FromXML Activity where
@@ -357,25 +357,18 @@ instance ToQuery Alarm where
 
 -- | The AutoScalingGroup data type.
 data AutoScalingGroup = AutoScalingGroup
-    { _ashAutoScalingGroupARN :: Maybe Text
+    { _ashTags :: [TagDescription]
+      -- ^ A list of tags for the Auto Scaling group.
+    , _ashLoadBalancerNames :: [Text]
+      -- ^ A list of load balancers associated with this Auto Scaling group.
+    , _ashSuspendedProcesses :: [SuspendedProcess]
+      -- ^ Suspended processes associated with this Auto Scaling group.
+    , _ashPlacementGroup :: Maybe Text
+      -- ^ The name of the cluster placement group, if applicable. For more
+      -- information, go to Using Cluster Instances in the Amazon EC2 User
+      -- Guide.
+    , _ashAutoScalingGroupARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the Auto Scaling group.
-    , _ashAutoScalingGroupName :: Text
-      -- ^ Specifies the name of the group.
-    , _ashAvailabilityZones :: [Text]
-      -- ^ Contains a list of Availability Zones for the group.
-    , _ashCreatedTime :: ISO8601
-      -- ^ Specifies the date and time the Auto Scaling group was created.
-    , _ashDefaultCooldown :: Integer
-      -- ^ The number of seconds after a scaling activity completes before
-      -- any further scaling activities can start.
-    , _ashDesiredCapacity :: Integer
-      -- ^ Specifies the desired capacity for the Auto Scaling group.
-    , _ashEnabledMetrics :: [EnabledMetric]
-      -- ^ A list of metrics enabled for this Auto Scaling group.
-    , _ashHealthCheckGracePeriod :: Maybe Integer
-      -- ^ The length of time that Auto Scaling waits before checking an
-      -- instance's health status. The grace period begins when an
-      -- instance comes into service.
     , _ashHealthCheckType :: Text
       -- ^ The service of interest for the health status check, either "EC2"
       -- for Amazon EC2 or "ELB" for Elastic Load Balancing.
@@ -383,32 +376,39 @@ data AutoScalingGroup = AutoScalingGroup
       -- ^ Provides a summary list of Amazon EC2 instances.
     , _ashLaunchConfigurationName :: Text
       -- ^ Specifies the name of the associated LaunchConfiguration.
-    , _ashLoadBalancerNames :: [Text]
-      -- ^ A list of load balancers associated with this Auto Scaling group.
-    , _ashMaxSize :: Integer
-      -- ^ Contains the maximum size of the Auto Scaling group.
+    , _ashAutoScalingGroupName :: Text
+      -- ^ Specifies the name of the group.
+    , _ashEnabledMetrics :: [EnabledMetric]
+      -- ^ A list of metrics enabled for this Auto Scaling group.
     , _ashMinSize :: Integer
       -- ^ Contains the minimum size of the Auto Scaling group.
-    , _ashPlacementGroup :: Maybe Text
-      -- ^ The name of the cluster placement group, if applicable. For more
-      -- information, go to Using Cluster Instances in the Amazon EC2 User
-      -- Guide.
-    , _ashStatus :: Maybe Text
-      -- ^ The current state of the Auto Scaling group when a
-      -- DeleteAutoScalingGroup action is in progress.
-    , _ashSuspendedProcesses :: [SuspendedProcess]
-      -- ^ Suspended processes associated with this Auto Scaling group.
-    , _ashTags :: [TagDescription]
-      -- ^ A list of tags for the Auto Scaling group.
-    , _ashTerminationPolicies :: [Text]
-      -- ^ A standalone termination policy or a list of termination policies
-      -- for this Auto Scaling group.
+    , _ashDesiredCapacity :: Integer
+      -- ^ Specifies the desired capacity for the Auto Scaling group.
+    , _ashAvailabilityZones :: [Text]
+      -- ^ Contains a list of Availability Zones for the group.
+    , _ashMaxSize :: Integer
+      -- ^ Contains the maximum size of the Auto Scaling group.
+    , _ashDefaultCooldown :: Integer
+      -- ^ The number of seconds after a scaling activity completes before
+      -- any further scaling activities can start.
     , _ashVPCZoneIdentifier :: Maybe Text
       -- ^ The subnet identifier for the Amazon VPC connection, if
       -- applicable. You can specify several subnets in a comma-separated
       -- list. When you specify VPCZoneIdentifier with AvailabilityZones,
       -- ensure that the subnets' Availability Zones match the values you
       -- specify for AvailabilityZones.
+    , _ashHealthCheckGracePeriod :: Maybe Integer
+      -- ^ The length of time that Auto Scaling waits before checking an
+      -- instance's health status. The grace period begins when an
+      -- instance comes into service.
+    , _ashCreatedTime :: ISO8601
+      -- ^ Specifies the date and time the Auto Scaling group was created.
+    , _ashTerminationPolicies :: [Text]
+      -- ^ A standalone termination policy or a list of termination policies
+      -- for this Auto Scaling group.
+    , _ashStatus :: Maybe Text
+      -- ^ The current state of the Auto Scaling group when a
+      -- DeleteAutoScalingGroup action is in progress.
     } deriving (Show, Generic)
 
 instance FromXML AutoScalingGroup where
@@ -417,22 +417,22 @@ instance FromXML AutoScalingGroup where
 
 -- | The AutoScalingInstanceDetails data type.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
-    { _asidAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group associated with this instance.
-    , _asidAvailabilityZone :: Text
-      -- ^ The Availability Zone in which this instance resides.
+    { _asidLifecycleState :: Text
+      -- ^ The life cycle state of this instance. for more information, see
+      -- Instance Lifecycle State in the Auto Scaling Developer Guide.
     , _asidHealthStatus :: Text
       -- ^ The health status of this instance. "Healthy" means that the
       -- instance is healthy and should remain in service. "Unhealthy"
       -- means that the instance is unhealthy. Auto Scaling should
       -- terminate and replace it.
-    , _asidInstanceId :: Text
-      -- ^ The instance ID of the Amazon EC2 instance.
     , _asidLaunchConfigurationName :: Text
       -- ^ The launch configuration associated with this instance.
-    , _asidLifecycleState :: Text
-      -- ^ The life cycle state of this instance. for more information, see
-      -- Instance Lifecycle State in the Auto Scaling Developer Guide.
+    , _asidAutoScalingGroupName :: Text
+      -- ^ The name of the Auto Scaling group associated with this instance.
+    , _asidAvailabilityZone :: Text
+      -- ^ The Availability Zone in which this instance resides.
+    , _asidInstanceId :: Text
+      -- ^ The instance ID of the Amazon EC2 instance.
     } deriving (Show, Generic)
 
 instance FromXML AutoScalingInstanceDetails where
@@ -464,23 +464,23 @@ instance ToQuery BlockDeviceMapping where
 
 -- | The Elastic Block Storage volume information.
 data Ebs = Ebs
-    { _esDeleteOnTermination :: Maybe Bool
-      -- ^ Indicates whether to delete the volume on instance termination.
-      -- Default: true.
+    { _esSnapshotId :: Maybe Text
+      -- ^ The snapshot ID.
+    , _esVolumeType :: Maybe Text
+      -- ^ The volume type. Valid values: standard | io1 Default: standard.
     , _esIops :: Maybe Integer
       -- ^ The number of I/O operations per second (IOPS) that the volume
       -- supports. The maximum ratio of IOPS to volume size is 30.0 Valid
       -- Values: Range is 100 to 4000. Default: None.
-    , _esSnapshotId :: Maybe Text
-      -- ^ The snapshot ID.
     , _esVolumeSize :: Maybe Integer
       -- ^ The volume size, in gigabytes. Valid values: If the volume type
       -- is io1, the minimum size of the volume is 10. Default: If you're
       -- creating the volume from a snapshot, and you don't specify a
       -- volume size, the default is the snapshot size. Required: Required
       -- when the volume type is io1.
-    , _esVolumeType :: Maybe Text
-      -- ^ The volume type. Valid values: standard | io1 Default: standard.
+    , _esDeleteOnTermination :: Maybe Bool
+      -- ^ Indicates whether to delete the volume on instance termination.
+      -- Default: true.
     } deriving (Show, Generic)
 
 instance FromXML Ebs where
@@ -492,10 +492,10 @@ instance ToQuery Ebs where
 
 -- | The EnabledMetric data type.
 data EnabledMetric = EnabledMetric
-    { _enGranularity :: Maybe Text
-      -- ^ The granularity of the enabled metric.
-    , _enMetric :: Maybe Text
+    { _enMetric :: Maybe Text
       -- ^ The name of the enabled metric.
+    , _enGranularity :: Maybe Text
+      -- ^ The granularity of the enabled metric.
     } deriving (Show, Generic)
 
 instance FromXML EnabledMetric where
@@ -519,17 +519,17 @@ instance ToQuery Filter where
 
 -- | The Instance data type.
 data Instance = Instance
-    { _ieAvailabilityZone :: Text
-      -- ^ Availability Zones associated with this instance.
-    , _ieHealthStatus :: Text
-      -- ^ The instance's health status.
-    , _ieInstanceId :: Text
-      -- ^ Specifies the ID of the Amazon EC2 instance.
-    , _ieLaunchConfigurationName :: Text
-      -- ^ The launch configuration associated with this instance.
-    , _ieLifecycleState :: LifecycleState
+    { _ieLifecycleState :: LifecycleState
       -- ^ Contains a description of the current lifecycle state. The
       -- Quarantined lifecycle state is currently not used.
+    , _ieHealthStatus :: Text
+      -- ^ The instance's health status.
+    , _ieLaunchConfigurationName :: Text
+      -- ^ The launch configuration associated with this instance.
+    , _ieAvailabilityZone :: Text
+      -- ^ Availability Zones associated with this instance.
+    , _ieInstanceId :: Text
+      -- ^ Specifies the ID of the Amazon EC2 instance.
     } deriving (Show, Generic)
 
 instance FromXML Instance where
@@ -541,52 +541,52 @@ instance ToQuery Instance where
 
 -- | The LaunchConfiguration data type.
 data LaunchConfiguration = LaunchConfiguration
-    { _ldAssociatePublicIpAddress :: Maybe Bool
-      -- ^ Specifies whether the instance is associated with a public IP
-      -- address (true) or not (false).
-    , _ldBlockDeviceMappings :: [BlockDeviceMapping]
+    { _ldBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ Specifies how block devices are exposed to the instance. Each
       -- mapping is made up of a virtualName and a deviceName.
-    , _ldCreatedTime :: ISO8601
-      -- ^ Provides the creation date and time for this launch
-      -- configuration.
-    , _ldEbsOptimized :: Maybe Bool
-      -- ^ Specifies whether the instance is optimized for EBS I/O (true) or
-      -- not (false).
-    , _ldIamInstanceProfile :: Maybe Text
-      -- ^ Provides the name or the Amazon Resource Name (ARN) of the
-      -- instance profile associated with the IAM role for the instance.
-      -- The instance profile contains the IAM role.
-    , _ldImageId :: Text
-      -- ^ Provides the unique ID of the Amazon Machine Image (AMI) that was
-      -- assigned during registration.
-    , _ldInstanceMonitoring :: Maybe InstanceMonitoring
-      -- ^ Controls whether instances in this group are launched with
-      -- detailed monitoring or not.
-    , _ldInstanceType :: Text
-      -- ^ Specifies the instance type of the Amazon EC2 instance.
-    , _ldKernelId :: Maybe Text
-      -- ^ Provides the ID of the kernel associated with the Amazon EC2 AMI.
-    , _ldKeyName :: Maybe Text
-      -- ^ Provides the name of the Amazon EC2 key pair.
-    , _ldLaunchConfigurationARN :: Maybe Text
-      -- ^ The launch configuration's Amazon Resource Name (ARN).
-    , _ldLaunchConfigurationName :: Text
-      -- ^ Specifies the name of the launch configuration.
     , _ldPlacementTenancy :: Maybe Text
       -- ^ Specifies the tenancy of the instance. It can be either default
       -- or dedicated. An instance with dedicated tenancy runs in an
       -- isolated, single-tenant hardware and it can only be launched in a
       -- VPC.
+    , _ldLaunchConfigurationARN :: Maybe Text
+      -- ^ The launch configuration's Amazon Resource Name (ARN).
+    , _ldLaunchConfigurationName :: Text
+      -- ^ Specifies the name of the launch configuration.
+    , _ldImageId :: Text
+      -- ^ Provides the unique ID of the Amazon Machine Image (AMI) that was
+      -- assigned during registration.
+    , _ldIamInstanceProfile :: Maybe Text
+      -- ^ Provides the name or the Amazon Resource Name (ARN) of the
+      -- instance profile associated with the IAM role for the instance.
+      -- The instance profile contains the IAM role.
+    , _ldUserData :: Maybe Text
+      -- ^ The user data available to the launched Amazon EC2 instances.
+    , _ldEbsOptimized :: Maybe Bool
+      -- ^ Specifies whether the instance is optimized for EBS I/O (true) or
+      -- not (false).
+    , _ldInstanceType :: Text
+      -- ^ Specifies the instance type of the Amazon EC2 instance.
+    , _ldKernelId :: Maybe Text
+      -- ^ Provides the ID of the kernel associated with the Amazon EC2 AMI.
     , _ldRamdiskId :: Maybe Text
       -- ^ Provides ID of the RAM disk associated with the Amazon EC2 AMI.
+    , _ldKeyName :: Maybe Text
+      -- ^ Provides the name of the Amazon EC2 key pair.
+    , _ldInstanceMonitoring :: Maybe InstanceMonitoring
+      -- ^ Controls whether instances in this group are launched with
+      -- detailed monitoring or not.
+    , _ldCreatedTime :: ISO8601
+      -- ^ Provides the creation date and time for this launch
+      -- configuration.
+    , _ldSpotPrice :: Maybe Text
+      -- ^ Specifies the price to bid when launching Spot Instances.
     , _ldSecurityGroups :: [Text]
       -- ^ A description of the security groups to associate with the Amazon
       -- EC2 instances.
-    , _ldSpotPrice :: Maybe Text
-      -- ^ Specifies the price to bid when launching Spot Instances.
-    , _ldUserData :: Maybe Text
-      -- ^ The user data available to the launched Amazon EC2 instances.
+    , _ldAssociatePublicIpAddress :: Maybe Bool
+      -- ^ Specifies whether the instance is associated with a public IP
+      -- address (true) or not (false).
     } deriving (Show, Generic)
 
 instance FromXML LaunchConfiguration where
@@ -600,33 +600,13 @@ instance FromXML LaunchConfiguration where
 -- terminates, but before it is fully terminated To learn more, see Auto
 -- Scaling Pending State and Auto Scaling Terminating State.
 data LifecycleHook = LifecycleHook
-    { _liAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group to which the lifecycle action
-      -- belongs.
-    , _liDefaultResult :: Maybe Text
-      -- ^ Defines the action the Auto Scaling group should take when the
-      -- lifecycle hook timeout elapses or if an unexpected failure
-      -- occurs. The value for this parameter can be either CONTINUE or
-      -- ABANDON. The default value for this parameter is CONTINUE.
-    , _liGlobalTimeout :: Maybe Integer
-      -- ^ The maximum length of time an instance can remain in a
-      -- Pending:Wait or Terminating:Wait state. Currently, this value is
-      -- set at 48 hours.
-    , _liHeartbeatTimeout :: Maybe Integer
-      -- ^ Defines the amount of time that can elapse before the lifecycle
-      -- hook times out. When the lifecycle hook times out, Auto Scaling
-      -- performs the action defined in the DefaultResult parameter. You
-      -- can prevent the lifecycle hook from timing out by calling
-      -- RecordLifecycleActionHeartbeat.
-    , _liLifecycleHookName :: Maybe Text
-      -- ^ The name of the lifecycle action hook.
+    { _liRoleARN :: Maybe Text
+      -- ^ The ARN of the Amazon IAM role that allows the Auto Scaling group
+      -- to publish to the specified notification target.
     , _liLifecycleTransition :: Maybe Text
       -- ^ The Amazon EC2 instance state to which you want to attach the
       -- lifecycle hook. See DescribeLifecycleHooks for a list of
       -- available lifecycle hook types.
-    , _liNotificationMetadata :: Maybe Text
-      -- ^ Contains additional information that you want to include any time
-      -- Auto Scaling sends a message to the notification target.
     , _liNotificationTargetARN :: Maybe Text
       -- ^ The ARN of the notification target that Auto Scaling will use to
       -- notify you when an instance is in the transition state for the
@@ -635,9 +615,29 @@ data LifecycleHook = LifecycleHook
       -- include: Lifecycle action token User account ID Name of the Auto
       -- Scaling group Lifecycle hook name EC2 instance ID Lifecycle
       -- transition Notification metadata.
-    , _liRoleARN :: Maybe Text
-      -- ^ The ARN of the Amazon IAM role that allows the Auto Scaling group
-      -- to publish to the specified notification target.
+    , _liGlobalTimeout :: Maybe Integer
+      -- ^ The maximum length of time an instance can remain in a
+      -- Pending:Wait or Terminating:Wait state. Currently, this value is
+      -- set at 48 hours.
+    , _liNotificationMetadata :: Maybe Text
+      -- ^ Contains additional information that you want to include any time
+      -- Auto Scaling sends a message to the notification target.
+    , _liAutoScalingGroupName :: Maybe Text
+      -- ^ The name of the Auto Scaling group to which the lifecycle action
+      -- belongs.
+    , _liHeartbeatTimeout :: Maybe Integer
+      -- ^ Defines the amount of time that can elapse before the lifecycle
+      -- hook times out. When the lifecycle hook times out, Auto Scaling
+      -- performs the action defined in the DefaultResult parameter. You
+      -- can prevent the lifecycle hook from timing out by calling
+      -- RecordLifecycleActionHeartbeat.
+    , _liLifecycleHookName :: Maybe Text
+      -- ^ The name of the lifecycle action hook.
+    , _liDefaultResult :: Maybe Text
+      -- ^ Defines the action the Auto Scaling group should take when the
+      -- lifecycle hook timeout elapses or if an unexpected failure
+      -- occurs. The value for this parameter can be either CONTINUE or
+      -- ABANDON. The default value for this parameter is CONTINUE.
     } deriving (Show, Generic)
 
 instance FromXML LifecycleHook where
@@ -646,10 +646,10 @@ instance FromXML LifecycleHook where
 
 -- | The NotificationConfiguration data type.
 data NotificationConfiguration = NotificationConfiguration
-    { _neAutoScalingGroupName :: Maybe Text
-      -- ^ Specifies the Auto Scaling group name.
-    , _neNotificationType :: Maybe Text
+    { _neNotificationType :: Maybe Text
       -- ^ The types of events for an action to start.
+    , _neAutoScalingGroupName :: Maybe Text
+      -- ^ Specifies the Auto Scaling group name.
     , _neTopicARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
       -- Service (SNS) topic.
@@ -661,30 +661,30 @@ instance FromXML NotificationConfiguration where
 
 -- | The ScalingPolicy data type.
 data ScalingPolicy = ScalingPolicy
-    { _ssAdjustmentType :: Maybe Text
-      -- ^ Specifies whether the ScalingAdjustment is an absolute number or
-      -- a percentage of the current capacity. Valid values are
-      -- ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
-    , _ssAlarms :: [Alarm]
+    { _ssAlarms :: [Alarm]
       -- ^ A list of CloudWatch Alarms related to the policy.
-    , _ssAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group associated with this scaling
-      -- policy.
+    , _ssPolicyARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the policy.
     , _ssCooldown :: Maybe Integer
       -- ^ The amount of time, in seconds, after a scaling activity
       -- completes before any further trigger-related scaling activities
       -- can start.
-    , _ssMinAdjustmentStep :: Maybe Integer
-      -- ^ Changes the DesiredCapacity of the Auto Scaling group by at least
-      -- the specified number of instances.
-    , _ssPolicyARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the policy.
-    , _ssPolicyName :: Maybe Text
-      -- ^ The name of the scaling policy.
     , _ssScalingAdjustment :: Maybe Integer
       -- ^ The number associated with the specified adjustment type. A
       -- positive value adds to the current capacity and a negative value
       -- removes from the current capacity.
+    , _ssAutoScalingGroupName :: Maybe Text
+      -- ^ The name of the Auto Scaling group associated with this scaling
+      -- policy.
+    , _ssAdjustmentType :: Maybe Text
+      -- ^ Specifies whether the ScalingAdjustment is an absolute number or
+      -- a percentage of the current capacity. Valid values are
+      -- ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
+    , _ssPolicyName :: Maybe Text
+      -- ^ The name of the scaling policy.
+    , _ssMinAdjustmentStep :: Maybe Integer
+      -- ^ Changes the DesiredCapacity of the Auto Scaling group by at least
+      -- the specified number of instances.
     } deriving (Show, Generic)
 
 instance FromXML ScalingPolicy where
@@ -694,32 +694,32 @@ instance FromXML ScalingPolicy where
 -- | This data type stores information about a scheduled update to an Auto
 -- Scaling group.
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
-    { _sugbAutoScalingGroupName :: Maybe Text
+    { _sugbEndTime :: Maybe ISO8601
+      -- ^ The time that the action is scheduled to end. This value can be
+      -- up to one month in the future.
+    , _sugbAutoScalingGroupName :: Maybe Text
       -- ^ The name of the Auto Scaling group to be updated.
+    , _sugbMinSize :: Maybe Integer
+      -- ^ The minimum size of the Auto Scaling group.
     , _sugbDesiredCapacity :: Maybe Integer
       -- ^ The number of instances you prefer to maintain in your Auto
       -- Scaling group.
-    , _sugbEndTime :: Maybe ISO8601
-      -- ^ The time that the action is scheduled to end. This value can be
-      -- up to one month in the future.
-    , _sugbMaxSize :: Maybe Integer
-      -- ^ The maximum size of the Auto Scaling group.
-    , _sugbMinSize :: Maybe Integer
-      -- ^ The minimum size of the Auto Scaling group.
     , _sugbRecurrence :: Maybe Text
       -- ^ The regular schedule that an action occurs.
-    , _sugbScheduledActionARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of this scheduled action.
+    , _sugbMaxSize :: Maybe Integer
+      -- ^ The maximum size of the Auto Scaling group.
     , _sugbScheduledActionName :: Maybe Text
       -- ^ The name of this scheduled action.
+    , _sugbTime :: Maybe ISO8601
+      -- ^ Time is deprecated. The time that the action is scheduled to
+      -- begin. Time is an alias for StartTime.
     , _sugbStartTime :: Maybe ISO8601
       -- ^ The time that the action is scheduled to begin. This value can be
       -- up to one month in the future. When StartTime and EndTime are
       -- specified with Recurrence, they form the boundaries of when the
       -- recurring action will start and stop.
-    , _sugbTime :: Maybe ISO8601
-      -- ^ Time is deprecated. The time that the action is scheduled to
-      -- begin. Time is an alias for StartTime.
+    , _sugbScheduledActionARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of this scheduled action.
     } deriving (Show, Generic)
 
 instance FromXML ScheduledUpdateGroupAction where
@@ -729,10 +729,10 @@ instance FromXML ScheduledUpdateGroupAction where
 -- | An Auto Scaling process that has been suspended. For more information, see
 -- ProcessType.
 data SuspendedProcess = SuspendedProcess
-    { _sqProcessName :: Maybe Text
-      -- ^ The name of the suspended process.
-    , _sqSuspensionReason :: Maybe Text
+    { _sqSuspensionReason :: Maybe Text
       -- ^ The reason that the process was suspended.
+    , _sqProcessName :: Maybe Text
+      -- ^ The name of the suspended process.
     } deriving (Show, Generic)
 
 instance FromXML SuspendedProcess where
@@ -744,20 +744,20 @@ instance ToQuery SuspendedProcess where
 
 -- | The tag applied to an Auto Scaling group.
 data Tag = Tag
-    { _tgKey :: Text
-      -- ^ The key of the tag.
-    , _tgPropagateAtLaunch :: Bool
+    { _tgPropagateAtLaunch :: Bool
       -- ^ Specifies whether the new tag will be applied to instances
       -- launched after the tag is created. The same behavior applies to
       -- updates: If you change a tag, the changed tag will be applied to
       -- all instances launched after you made the change.
-    , _tgResourceId :: Text
-      -- ^ The name of the Auto Scaling group.
+    , _tgKey :: Text
+      -- ^ The key of the tag.
+    , _tgValue :: Text
+      -- ^ The value of the tag.
     , _tgResourceType :: Text
       -- ^ The kind of resource to which the tag is applied. Currently, Auto
       -- Scaling supports the auto-scaling-group resource type.
-    , _tgValue :: Text
-      -- ^ The value of the tag.
+    , _tgResourceId :: Text
+      -- ^ The name of the Auto Scaling group.
     } deriving (Show, Generic)
 
 instance ToQuery Tag where
@@ -765,20 +765,20 @@ instance ToQuery Tag where
 
 -- | The tag applied to an Auto Scaling group.
 data TagDescription = TagDescription
-    { _tdKey :: Text
-      -- ^ The key of the tag.
-    , _tdPropagateAtLaunch :: Bool
+    { _tdPropagateAtLaunch :: Bool
       -- ^ Specifies whether the new tag will be applied to instances
       -- launched after the tag is created. The same behavior applies to
       -- updates: If you change a tag, the changed tag will be applied to
       -- all instances launched after you made the change.
-    , _tdResourceId :: Text
-      -- ^ The name of the Auto Scaling group.
+    , _tdKey :: Text
+      -- ^ The key of the tag.
+    , _tdValue :: Text
+      -- ^ The value of the tag.
     , _tdResourceType :: Text
       -- ^ The kind of resource to which the tag is applied. Currently, Auto
       -- Scaling supports the auto-scaling-group resource type.
-    , _tdValue :: Text
-      -- ^ The value of the tag.
+    , _tdResourceId :: Text
+      -- ^ The name of the Auto Scaling group.
     } deriving (Show, Generic)
 
 instance FromXML TagDescription where

@@ -47,12 +47,12 @@ createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
     , _cdbirrmSourceDBInstanceIdentifier = p2
     , _cdbirrmAutoMinorVersionUpgrade = Nothing
     , _cdbirrmPubliclyAccessible = Nothing
-    , _cdbirrmIops = Nothing
     , _cdbirrmPort = Nothing
+    , _cdbirrmIops = Nothing
+    , _cdbirrmOptionGroupName = Nothing
     , _cdbirrmAvailabilityZone = Nothing
     , _cdbirrmDBInstanceClass = Nothing
     , _cdbirrmDBSubnetGroupName = Nothing
-    , _cdbirrmOptionGroupName = Nothing
     , _cdbirrmTags = mempty
     }
 
@@ -87,13 +87,17 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
       -- a specific DB subnet group has been specified as part of the
       -- request and the PubliclyAccessible value has not been set, the DB
       -- instance will be private.
-    , _cdbirrmIops :: Maybe Integer
-      -- ^ The amount of Provisioned IOPS (input/output operations per
-      -- second) to be initially allocated for the DB instance.
     , _cdbirrmPort :: Maybe Integer
       -- ^ The port number that the DB instance uses for connections.
       -- Default: Inherits from the source DB instance Valid Values:
       -- 1150-65535.
+    , _cdbirrmIops :: Maybe Integer
+      -- ^ The amount of Provisioned IOPS (input/output operations per
+      -- second) to be initially allocated for the DB instance.
+    , _cdbirrmOptionGroupName :: Maybe Text
+      -- ^ The option group the DB instance will be associated with. If
+      -- omitted, the default option group for the engine specified will
+      -- be used.
     , _cdbirrmAvailabilityZone :: Maybe Text
       -- ^ The Amazon EC2 Availability Zone that the read replica will be
       -- created in. Default: A random, system-chosen Availability Zone in
@@ -109,10 +113,6 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
       -- it is a non-VPC DB instance. Constraints: All the cross region
       -- read replicas that share the source instance should lie within
       -- the same VPC.
-    , _cdbirrmOptionGroupName :: Maybe Text
-      -- ^ The option group the DB instance will be associated with. If
-      -- omitted, the default option group for the engine specified will
-      -- be used.
     , _cdbirrmTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)

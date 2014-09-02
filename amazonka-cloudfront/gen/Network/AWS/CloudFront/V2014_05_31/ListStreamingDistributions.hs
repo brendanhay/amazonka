@@ -28,21 +28,21 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ListStreamingDistributions' request.
 listStreamingDistributions :: ListStreamingDistributions
 listStreamingDistributions = ListStreamingDistributions
-    { _lsdrMarker = Nothing
-    , _lsdrMaxItems = Nothing
+    { _lsdrMaxItems = Nothing
+    , _lsdrMarker = Nothing
     }
 
 data ListStreamingDistributions = ListStreamingDistributions
-    { _lsdrMarker :: Maybe Text
+    { _lsdrMaxItems :: Maybe Text
+      -- ^ The maximum number of streaming distributions you want in the
+      -- response body.
+    , _lsdrMarker :: Maybe Text
       -- ^ Use this when paginating results to indicate where to begin in
       -- your list of streaming distributions. The results include
       -- distributions in the list that occur after the marker. To get the
       -- next page of results, set the Marker to the value of the
       -- NextMarker from the current page's response (which is also the ID
       -- of the last distribution on that page).
-    , _lsdrMaxItems :: Maybe Text
-      -- ^ The maximum number of streaming distributions you want in the
-      -- response body.
     } deriving (Show, Generic)
 
 makeLenses ''ListStreamingDistributions

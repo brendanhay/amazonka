@@ -38,8 +38,8 @@ instance AWSService CloudSearch where
     type Sg CloudSearch = V4
     data Er CloudSearch
         = BaseException
-            { _beCode :: Maybe Text
-            , _beMessage :: Maybe Text
+            { _beMessage :: Maybe Text
+            , _beCode :: Maybe Text
             }
         | CloudSearchClient HttpException
         | CloudSearchSerializer String
@@ -424,12 +424,7 @@ instance FromXML AccessPoliciesStatus where
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
 data AnalysisOptions = AnalysisOptions
-    { _aoAlgorithmicStemming :: Maybe AlgorithmicStemming
-      -- ^ The level of algorithmic stemming to perform: none, minimal,
-      -- light, or full. The available levels vary depending on the
-      -- language. For more information, see Language Specific Text
-      -- Processing Settings in the Amazon CloudSearch Developer Guide.
-    , _aoStemmingDictionary :: Maybe Text
+    { _aoStemmingDictionary :: Maybe Text
       -- ^ A JSON object that contains a collection of string:value pairs
       -- that each map a term to its stem. For example, {"term1": "stem1",
       -- "term2": "stem2", "term3": "stem3"}. The stemming dictionary is
@@ -437,11 +432,6 @@ data AnalysisOptions = AnalysisOptions
       -- to override the results of the algorithmic stemming to correct
       -- specific cases of overstemming or understemming. The maximum size
       -- of a stemming dictionary is 500 KB.
-    , _aoStopwords :: Maybe Text
-      -- ^ A JSON array of terms to ignore during indexing and searching.
-      -- For example, ["a", "an", "the", "of"]. The stopwords dictionary
-      -- must explicitly list each word you want to ignore. Wildcards and
-      -- regular expressions are not supported.
     , _aoSynonyms :: Maybe Text
       -- ^ A JSON object that defines synonym groups and aliases. A synonym
       -- group is an array of arrays, where each sub-array is a group of
@@ -453,6 +443,16 @@ data AnalysisOptions = AnalysisOptions
       -- specified term, but the term is not considered a synonym of the
       -- alias. For more information about specifying synonyms, see
       -- Synonyms in the Amazon CloudSearch Developer Guide.
+    , _aoStopwords :: Maybe Text
+      -- ^ A JSON array of terms to ignore during indexing and searching.
+      -- For example, ["a", "an", "the", "of"]. The stopwords dictionary
+      -- must explicitly list each word you want to ignore. Wildcards and
+      -- regular expressions are not supported.
+    , _aoAlgorithmicStemming :: Maybe AlgorithmicStemming
+      -- ^ The level of algorithmic stemming to perform: none, minimal,
+      -- light, or full. The available levels vary depending on the
+      -- language. For more information, see Language Specific Text
+      -- Processing Settings in the Amazon CloudSearch Developer Guide.
     } deriving (Show, Generic)
 
 instance FromXML AnalysisOptions where
@@ -467,16 +467,16 @@ instance ToQuery AnalysisOptions where
 -- following options can be configured for an analysis scheme: Synonyms,
 -- Stopwords, StemmingDictionary, and AlgorithmicStemming.
 data AnalysisScheme = AnalysisScheme
-    { _asAnalysisOptions :: Maybe AnalysisOptions
-      -- ^ Synonyms, stopwords, and stemming options for an analysis scheme.
-    , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
-      -- ^ An IETF RFC 4646 language code or mul for multiple languages.
-    , _asAnalysisSchemeName :: Text
+    { _asAnalysisSchemeName :: Text
       -- ^ A string that represents the name of an index field. Field names
       -- begin with a letter and can contain the following characters: a-z
       -- (lowercase), 0-9, and _ (underscore). The name "score" is
       -- reserved and cannot be used as a field name. To reference a
       -- document's ID, you can use the name _id.
+    , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
+      -- ^ An IETF RFC 4646 language code or mul for multiple languages.
+    , _asAnalysisOptions :: Maybe AnalysisOptions
+      -- ^ Synonyms, stopwords, and stemming options for an analysis scheme.
     } deriving (Show, Generic)
 
 instance FromXML AnalysisScheme where
@@ -519,17 +519,17 @@ instance FromXML AvailabilityOptionsStatus where
 -- IndexFieldType specifies the field is of type date-array. All options are
 -- enabled by default.
 data DateArrayOptions = DateArrayOptions
-    { _daoDefaultValue :: Maybe Text
+    { _dapDefaultValue :: Maybe Text
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
-    , _daoFacetEnabled :: Maybe Bool
+    , _dapSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
+    , _dapFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
-    , _daoReturnEnabled :: Maybe Bool
+    , _dapReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _daoSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _daoSourceFields :: Maybe Text
+    , _dapSourceFields :: Maybe Text
       -- ^ A list of source fields to map to the field.
     } deriving (Show, Generic)
 
@@ -548,15 +548,15 @@ data DateOptions = DateOptions
     { _dduDefaultValue :: Maybe Text
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
+    , _dduSortEnabled :: Maybe Bool
+      -- ^ Whether the field can be used to sort the search results.
+    , _dduSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
     , _dduFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
     , _dduReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _dduSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _dduSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     , _dduSourceField :: Maybe Text
       -- ^ A string that represents the name of an index field. Field names
       -- begin with a letter and can contain the following characters: a-z
@@ -597,47 +597,47 @@ instance ToQuery DocumentSuggesterOptions where
 
 -- | The current status of the search domain.
 data DomainStatus = DomainStatus
-    { _dyARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the search domain. See
-      -- Identifiers for IAM Entities in Using AWS Identity and Access
-      -- Management for more information.
-    , _dyCreated :: Maybe Bool
-      -- ^ True if the search domain is created. It can take several minutes
-      -- to initialize a domain when CreateDomain is called. Newly created
-      -- search domains are returned from DescribeDomains with a false
-      -- value for Created until domain creation is complete.
+    { _dyProcessing :: Maybe Bool
+      -- ^ True if processing is being done to activate the current domain
+      -- configuration.
+    , _dyDomainId :: Text
+      -- ^ An internally generated unique identifier for a domain.
     , _dyDeleted :: Maybe Bool
       -- ^ True if the search domain has been deleted. The system must clean
       -- up resources dedicated to the search domain when DeleteDomain is
       -- called. Newly deleted search domains are returned from
       -- DescribeDomains with a true value for IsDeleted for several
       -- minutes until resource cleanup is complete.
-    , _dyDocService :: Maybe ServiceEndpoint
-      -- ^ The service endpoint for updating documents in a search domain.
-    , _dyDomainId :: Text
-      -- ^ An internally generated unique identifier for a domain.
+    , _dySearchPartitionCount :: Maybe Integer
+      -- ^ The number of partitions across which the search index is spread.
     , _dyDomainName :: Text
       -- ^ A string that represents the name of a domain. Domain names are
       -- unique across the domains owned by an account within an AWS
       -- region. Domain names start with a letter or number and can
       -- contain the following characters: a-z (lowercase), 0-9, and -
       -- (hyphen).
-    , _dyProcessing :: Maybe Bool
-      -- ^ True if processing is being done to activate the current domain
-      -- configuration.
     , _dyRequiresIndexDocuments :: Bool
       -- ^ True if IndexDocuments needs to be called to activate the current
       -- domain configuration.
-    , _dySearchInstanceCount :: Maybe Integer
-      -- ^ The number of search instances that are available to process
-      -- search requests.
-    , _dySearchInstanceType :: Maybe Text
-      -- ^ The instance type that is being used to process search requests.
-    , _dySearchPartitionCount :: Maybe Integer
-      -- ^ The number of partitions across which the search index is spread.
     , _dySearchService :: Maybe ServiceEndpoint
       -- ^ The service endpoint for requesting search results from a search
       -- domain.
+    , _dyCreated :: Maybe Bool
+      -- ^ True if the search domain is created. It can take several minutes
+      -- to initialize a domain when CreateDomain is called. Newly created
+      -- search domains are returned from DescribeDomains with a false
+      -- value for Created until domain creation is complete.
+    , _dyARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the search domain. See
+      -- Identifiers for IAM Entities in Using AWS Identity and Access
+      -- Management for more information.
+    , _dyDocService :: Maybe ServiceEndpoint
+      -- ^ The service endpoint for updating documents in a search domain.
+    , _dySearchInstanceType :: Maybe Text
+      -- ^ The instance type that is being used to process search requests.
+    , _dySearchInstanceCount :: Maybe Integer
+      -- ^ The number of search instances that are available to process
+      -- search requests.
     } deriving (Show, Generic)
 
 instance FromXML DomainStatus where
@@ -648,17 +648,17 @@ instance FromXML DomainStatus where
 -- floating point values. Present if IndexFieldType specifies the field is of
 -- type double-array. All options are enabled by default.
 data DoubleArrayOptions = DoubleArrayOptions
-    { _dapDefaultValue :: Maybe Double
+    { _daoDefaultValue :: Maybe Double
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
-    , _dapFacetEnabled :: Maybe Bool
+    , _daoSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
+    , _daoFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
-    , _dapReturnEnabled :: Maybe Bool
+    , _daoReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _dapSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _dapSourceFields :: Maybe Text
+    , _daoSourceFields :: Maybe Text
       -- ^ A list of source fields to map to the field.
     } deriving (Show, Generic)
 
@@ -677,15 +677,15 @@ data DoubleOptions = DoubleOptions
       -- ^ A value to use for the field if the field isn't specified for a
       -- document. This can be important if you are using the field in an
       -- expression and that field is not present in every document.
+    , _ddvSortEnabled :: Maybe Bool
+      -- ^ Whether the field can be used to sort the search results.
+    , _ddvSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
     , _ddvFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
     , _ddvReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _ddvSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _ddvSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     , _ddvSourceField :: Maybe Text
       -- ^ The name of the source field to map to the field.
     } deriving (Show, Generic)
@@ -700,17 +700,17 @@ instance ToQuery DoubleOptions where
 -- | The expression that is evaluated for sorting or filtering while processing
 -- a search request.
 data Expression = Expression
-    { _eExpressionName :: Text
+    { _fExpressionValue :: Text
+      -- ^ The expression to evaluate for sorting while processing a search
+      -- request. The Expression syntax is based on JavaScript
+      -- expressions. For more information, see Configuring Expressions in
+      -- the Amazon CloudSearch Developer Guide.
+    , _fExpressionName :: Text
       -- ^ A string that represents the name of an index field. Field names
       -- begin with a letter and can contain the following characters: a-z
       -- (lowercase), 0-9, and _ (underscore). The name "score" is
       -- reserved and cannot be used as a field name. To reference a
       -- document's ID, you can use the name _id.
-    , _eExpressionValue :: Text
-      -- ^ The expression to evaluate for sorting while processing a search
-      -- request. The Expression syntax is based on JavaScript
-      -- expressions. For more information, see Configuring Expressions in
-      -- the Amazon CloudSearch Developer Guide.
     } deriving (Show, Generic)
 
 instance FromXML Expression where
@@ -736,10 +736,54 @@ instance FromXML ExpressionStatus where
 -- | Configuration information for a field in the index, including its name,
 -- type, and options. The supported options depend on the IndexFieldType.
 data IndexField = IndexField
-    { _ifDateArrayOptions :: Maybe DateArrayOptions
+    { _ifIndexFieldName :: Text
+      -- ^ The name of a field in the search index. Field names must begin
+      -- with a letter and can contain the following characters: a-z
+      -- (lowercase), 0-9, and _ (underscore). Uppercase letters and
+      -- hyphens are not allowed. The name "score" is reserved and cannot
+      -- be specified as field or expression name.
+    , _ifLiteralOptions :: Maybe LiteralOptions
+      -- ^ Options for literal field. Present if IndexFieldType specifies
+      -- the field is of type literal. All options are enabled by default.
+    , _ifIntOptions :: Maybe IntOptions
+      -- ^ Options for a 64-bit signed integer field. Present if
+      -- IndexFieldType specifies the field is of type int. All options
+      -- are enabled by default.
+    , _ifDateArrayOptions :: Maybe DateArrayOptions
       -- ^ Options for a field that contains an array of dates. Present if
       -- IndexFieldType specifies the field is of type date-array. All
       -- options are enabled by default.
+    , _ifIntArrayOptions :: Maybe IntArrayOptions
+      -- ^ Options for a field that contains an array of 64-bit signed
+      -- integers. Present if IndexFieldType specifies the field is of
+      -- type int-array. All options are enabled by default.
+    , _ifLiteralArrayOptions :: Maybe LiteralArrayOptions
+      -- ^ Options for a field that contains an array of literal strings.
+      -- Present if IndexFieldType specifies the field is of type
+      -- literal-array. All options are enabled by default.
+    , _ifLatLonOptions :: Maybe LatLonOptions
+      -- ^ Options for a latlon field. A latlon field contains a location
+      -- stored as a latitude and longitude value pair. Present if
+      -- IndexFieldType specifies the field is of type latlon. All options
+      -- are enabled by default.
+    , _ifIndexFieldType :: IndexFieldType
+      -- ^ The type of field. The valid options for a field depend on the
+      -- field type. For more information about the supported field types,
+      -- see Configuring Index Fields in the Amazon CloudSearch Developer
+      -- Guide.
+    , _ifTextOptions :: Maybe TextOptions
+      -- ^ Options for text field. Present if IndexFieldType specifies the
+      -- field is of type text. A text field is always searchable. All
+      -- options are enabled by default.
+    , _ifDoubleOptions :: Maybe DoubleOptions
+      -- ^ Options for a double-precision 64-bit floating point field.
+      -- Present if IndexFieldType specifies the field is of type double.
+      -- All options are enabled by default.
+    , _ifTextArrayOptions :: Maybe TextArrayOptions
+      -- ^ Options for a field that contains an array of text strings.
+      -- Present if IndexFieldType specifies the field is of type
+      -- text-array. A text-array field is always searchable. All options
+      -- are enabled by default.
     , _ifDateOptions :: Maybe DateOptions
       -- ^ Options for a date field. Dates and times are specified in UTC
       -- (Coordinated Universal Time) according to IETF RFC3339:
@@ -750,50 +794,6 @@ data IndexField = IndexField
       -- 64-bit floating point values. Present if IndexFieldType specifies
       -- the field is of type double-array. All options are enabled by
       -- default.
-    , _ifDoubleOptions :: Maybe DoubleOptions
-      -- ^ Options for a double-precision 64-bit floating point field.
-      -- Present if IndexFieldType specifies the field is of type double.
-      -- All options are enabled by default.
-    , _ifIndexFieldName :: Text
-      -- ^ The name of a field in the search index. Field names must begin
-      -- with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). Uppercase letters and
-      -- hyphens are not allowed. The name "score" is reserved and cannot
-      -- be specified as field or expression name.
-    , _ifIndexFieldType :: IndexFieldType
-      -- ^ The type of field. The valid options for a field depend on the
-      -- field type. For more information about the supported field types,
-      -- see Configuring Index Fields in the Amazon CloudSearch Developer
-      -- Guide.
-    , _ifIntArrayOptions :: Maybe IntArrayOptions
-      -- ^ Options for a field that contains an array of 64-bit signed
-      -- integers. Present if IndexFieldType specifies the field is of
-      -- type int-array. All options are enabled by default.
-    , _ifIntOptions :: Maybe IntOptions
-      -- ^ Options for a 64-bit signed integer field. Present if
-      -- IndexFieldType specifies the field is of type int. All options
-      -- are enabled by default.
-    , _ifLatLonOptions :: Maybe LatLonOptions
-      -- ^ Options for a latlon field. A latlon field contains a location
-      -- stored as a latitude and longitude value pair. Present if
-      -- IndexFieldType specifies the field is of type latlon. All options
-      -- are enabled by default.
-    , _ifLiteralArrayOptions :: Maybe LiteralArrayOptions
-      -- ^ Options for a field that contains an array of literal strings.
-      -- Present if IndexFieldType specifies the field is of type
-      -- literal-array. All options are enabled by default.
-    , _ifLiteralOptions :: Maybe LiteralOptions
-      -- ^ Options for literal field. Present if IndexFieldType specifies
-      -- the field is of type literal. All options are enabled by default.
-    , _ifTextArrayOptions :: Maybe TextArrayOptions
-      -- ^ Options for a field that contains an array of text strings.
-      -- Present if IndexFieldType specifies the field is of type
-      -- text-array. A text-array field is always searchable. All options
-      -- are enabled by default.
-    , _ifTextOptions :: Maybe TextOptions
-      -- ^ Options for text field. Present if IndexFieldType specifies the
-      -- field is of type text. A text field is always searchable. All
-      -- options are enabled by default.
     } deriving (Show, Generic)
 
 instance FromXML IndexField where
@@ -824,13 +824,13 @@ data IntArrayOptions = IntArrayOptions
     { _iaoDefaultValue :: Maybe Integer
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
+    , _iaoSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
     , _iaoFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
     , _iaoReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _iaoSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
     , _iaoSourceFields :: Maybe Text
       -- ^ A list of source fields to map to the field.
     } deriving (Show, Generic)
@@ -849,15 +849,15 @@ data IntOptions = IntOptions
       -- ^ A value to use for the field if the field isn't specified for a
       -- document. This can be important if you are using the field in an
       -- expression and that field is not present in every document.
+    , _ioSortEnabled :: Maybe Bool
+      -- ^ Whether the field can be used to sort the search results.
+    , _ioSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
     , _ioFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
     , _ioReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _ioSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _ioSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     , _ioSourceField :: Maybe Text
       -- ^ The name of the source field to map to the field.
     } deriving (Show, Generic)
@@ -876,15 +876,15 @@ data LatLonOptions = LatLonOptions
     { _lloDefaultValue :: Maybe Text
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
+    , _lloSortEnabled :: Maybe Bool
+      -- ^ Whether the field can be used to sort the search results.
+    , _lloSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
     , _lloFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
     , _lloReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _lloSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _lloSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     , _lloSourceField :: Maybe Text
       -- ^ A string that represents the name of an index field. Field names
       -- begin with a letter and can contain the following characters: a-z
@@ -907,13 +907,13 @@ data LiteralArrayOptions = LiteralArrayOptions
     { _laoDefaultValue :: Maybe Text
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
+    , _laoSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
     , _laoFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
     , _laoReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _laoSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
     , _laoSourceFields :: Maybe Text
       -- ^ A list of source fields to map to the field.
     } deriving (Show, Generic)
@@ -931,15 +931,15 @@ data LiteralOptions = LiteralOptions
     { _loDefaultValue :: Maybe Text
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
+    , _loSortEnabled :: Maybe Bool
+      -- ^ Whether the field can be used to sort the search results.
+    , _loSearchEnabled :: Maybe Bool
+      -- ^ Whether the contents of the field are searchable.
     , _loFacetEnabled :: Maybe Bool
       -- ^ Whether facet information can be returned for the field.
     , _loReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _loSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _loSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     , _loSourceField :: Maybe Text
       -- ^ A string that represents the name of an index field. Field names
       -- begin with a letter and can contain the following characters: a-z
@@ -957,11 +957,16 @@ instance ToQuery LiteralOptions where
 
 -- | The status of domain configuration option.
 data OptionStatus = OptionStatus
-    { _osCreationDate :: ISO8601
+    { _osUpdateVersion :: Maybe Integer
+      -- ^ A unique integer that indicates when this option was last
+      -- updated.
+    , _osCreationDate :: ISO8601
       -- ^ A timestamp for when this option was created.
     , _osPendingDeletion :: Maybe Bool
       -- ^ Indicates that the option will be deleted once processing is
       -- complete.
+    , _osUpdateDate :: ISO8601
+      -- ^ A timestamp for when this option was last updated.
     , _osState :: OptionState
       -- ^ The state of processing a change to an option. Possible values:
       -- RequiresIndexDocuments: the option's latest value will not be
@@ -972,11 +977,6 @@ data OptionStatus = OptionStatus
       -- compatible with the domain's data and cannot be used to index the
       -- data. You must either modify the option value or update or remove
       -- the incompatible documents.
-    , _osUpdateDate :: ISO8601
-      -- ^ A timestamp for when this option was last updated.
-    , _osUpdateVersion :: Maybe Integer
-      -- ^ A unique integer that indicates when this option was last
-      -- updated.
     } deriving (Show, Generic)
 
 instance FromXML OptionStatus where
@@ -989,16 +989,16 @@ instance ToQuery OptionStatus where
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
 data ScalingParameters = ScalingParameters
-    { _spDesiredInstanceType :: Maybe PartitionInstanceType
-      -- ^ The instance type that you want to preconfigure for your domain.
-      -- For example, search.m1.small.
-    , _spDesiredPartitionCount :: Maybe Integer
+    { _spDesiredPartitionCount :: Maybe Integer
       -- ^ The number of partitions you want to preconfigure for your
       -- domain. Only valid when you select m2.2xlarge as the desired
       -- instance type.
     , _spDesiredReplicationCount :: Maybe Integer
       -- ^ The number of replicas you want to preconfigure for each index
       -- partition.
+    , _spDesiredInstanceType :: Maybe PartitionInstanceType
+      -- ^ The instance type that you want to preconfigure for your domain.
+      -- For example, search.m1.small.
     } deriving (Show, Generic)
 
 instance FromXML ScalingParameters where
@@ -1026,14 +1026,14 @@ instance FromXML ScalingParametersStatus where
 -- The following options can be configured for a suggester: FuzzyMatching,
 -- SortExpression.
 data Suggester = Suggester
-    { _sDocumentSuggesterOptions :: DocumentSuggesterOptions
-      -- ^ Options for a search suggester.
-    , _sSuggesterName :: Text
+    { _sSuggesterName :: Text
       -- ^ A string that represents the name of an index field. Field names
       -- begin with a letter and can contain the following characters: a-z
       -- (lowercase), 0-9, and _ (underscore). The name "score" is
       -- reserved and cannot be used as a field name. To reference a
       -- document's ID, you can use the name _id.
+    , _sDocumentSuggesterOptions :: DocumentSuggesterOptions
+      -- ^ Options for a search suggester.
     } deriving (Show, Generic)
 
 instance FromXML Suggester where
@@ -1062,13 +1062,13 @@ instance FromXML SuggesterStatus where
 -- IndexFieldType specifies the field is of type text-array. A text-array
 -- field is always searchable. All options are enabled by default.
 data TextArrayOptions = TextArrayOptions
-    { _taoAnalysisScheme :: Maybe Text
-      -- ^ The name of an analysis scheme for a text-array field.
-    , _taoDefaultValue :: Maybe Text
+    { _taoDefaultValue :: Maybe Text
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
     , _taoHighlightEnabled :: Maybe Bool
       -- ^ Whether highlights can be returned for the field.
+    , _taoAnalysisScheme :: Maybe Text
+      -- ^ The name of an analysis scheme for a text-array field.
     , _taoReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
@@ -1087,18 +1087,18 @@ instance ToQuery TextArrayOptions where
 -- type text. A text field is always searchable. All options are enabled by
 -- default.
 data TextOptions = TextOptions
-    { _toAnalysisScheme :: Maybe Text
-      -- ^ The name of an analysis scheme for a text field.
-    , _toDefaultValue :: Maybe Text
+    { _toDefaultValue :: Maybe Text
       -- ^ A value to use for the field if the field isn't specified for a
       -- document.
+    , _toSortEnabled :: Maybe Bool
+      -- ^ Whether the field can be used to sort the search results.
     , _toHighlightEnabled :: Maybe Bool
       -- ^ Whether highlights can be returned for the field.
+    , _toAnalysisScheme :: Maybe Text
+      -- ^ The name of an analysis scheme for a text field.
     , _toReturnEnabled :: Maybe Bool
       -- ^ Whether the contents of the field can be returned in the search
       -- results.
-    , _toSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     , _toSourceField :: Maybe Text
       -- ^ A string that represents the name of an index field. Field names
       -- begin with a letter and can contain the following characters: a-z

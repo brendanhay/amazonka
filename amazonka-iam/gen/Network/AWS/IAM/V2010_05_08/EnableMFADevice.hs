@@ -31,10 +31,10 @@ import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 data EnableMFADevice = EnableMFADevice
-    { _emfadrAuthenticationCode1 :: Text
-      -- ^ An authentication code emitted by the device.
-    , _emfadrAuthenticationCode2 :: Text
+    { _emfadrAuthenticationCode2 :: Text
       -- ^ A subsequent authentication code emitted by the device.
+    , _emfadrAuthenticationCode1 :: Text
+      -- ^ An authentication code emitted by the device.
     , _emfadrUserName :: Text
       -- ^ Name of the user for whom you want to enable the MFA device.
     , _emfadrSerialNumber :: Text

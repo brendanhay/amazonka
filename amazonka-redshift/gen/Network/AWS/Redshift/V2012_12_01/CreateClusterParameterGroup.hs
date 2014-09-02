@@ -42,7 +42,13 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 data CreateClusterParameterGroup = CreateClusterParameterGroup
-    { _ccpgmDescription :: Text
+    { _ccpgmParameterGroupName :: Text
+      -- ^ The name of the cluster parameter group. Constraints: Must be 1
+      -- to 255 alphanumeric characters or hyphens First character must be
+      -- a letter. Cannot end with a hyphen or contain two consecutive
+      -- hyphens. Must be unique withing your AWS account. This value is
+      -- stored as a lower-case string.
+    , _ccpgmDescription :: Text
       -- ^ A description of the parameter group.
     , _ccpgmParameterGroupFamily :: Text
       -- ^ The Amazon Redshift engine version to which the cluster parameter
@@ -55,12 +61,6 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
       -- family names associated with the default parameter groups provide
       -- you the valid values. For example, a valid family name is
       -- "redshift-1.0".
-    , _ccpgmParameterGroupName :: Text
-      -- ^ The name of the cluster parameter group. Constraints: Must be 1
-      -- to 255 alphanumeric characters or hyphens First character must be
-      -- a letter. Cannot end with a hyphen or contain two consecutive
-      -- hyphens. Must be unique withing your AWS account. This value is
-      -- stored as a lower-case string.
     } deriving (Show, Generic)
 
 makeLenses ''CreateClusterParameterGroup

@@ -74,14 +74,14 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
-    , _dwsoWorkingStorageAllocatedInBytes :: Maybe Integer
-      -- ^ The total working storage in bytes allocated for the gateway. If
-      -- no working storage is configured for the gateway, this field
-      -- returns 0.
     , _dwsoWorkingStorageUsedInBytes :: Maybe Integer
       -- ^ The total working storage in bytes in use by the gateway. If no
       -- working storage is configured for the gateway, this field returns
       -- 0.
+    , _dwsoWorkingStorageAllocatedInBytes :: Maybe Integer
+      -- ^ The total working storage in bytes allocated for the gateway. If
+      -- no working storage is configured for the gateway, this field
+      -- returns 0.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeWorkingStorageResponse

@@ -40,8 +40,8 @@ describeDBParameters :: Text -- ^ '_ddbpmDBParameterGroupName'
 describeDBParameters p1 = DescribeDBParameters
     { _ddbpmDBParameterGroupName = p1
     , _ddbpmMaxRecords = Nothing
-    , _ddbpmMarker = Nothing
     , _ddbpmSource = Nothing
+    , _ddbpmMarker = Nothing
     }
 
 data DescribeDBParameters = DescribeDBParameters
@@ -56,14 +56,14 @@ data DescribeDBParameters = DescribeDBParameters
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
+    , _ddbpmSource :: Maybe Text
+      -- ^ The parameter types to return. Default: All parameter types
+      -- returned Valid Values: user | system | engine-default.
     , _ddbpmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeDBParameters request. If this parameter is specified, the
       -- response includes only records beyond the marker, up to the value
       -- specified by MaxRecords.
-    , _ddbpmSource :: Maybe Text
-      -- ^ The parameter types to return. Default: All parameter types
-      -- returned Valid Values: user | system | engine-default.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeDBParameters

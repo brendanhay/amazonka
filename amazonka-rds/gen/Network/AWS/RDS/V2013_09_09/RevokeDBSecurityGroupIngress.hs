@@ -39,8 +39,8 @@ revokeDBSecurityGroupIngress :: Text -- ^ '_rdbsgimDBSecurityGroupName'
                              -> RevokeDBSecurityGroupIngress
 revokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
     { _rdbsgimDBSecurityGroupName = p1
-    , _rdbsgimCIDRIP = Nothing
     , _rdbsgimEC2SecurityGroupId = Nothing
+    , _rdbsgimCIDRIP = Nothing
     , _rdbsgimEC2SecurityGroupName = Nothing
     , _rdbsgimEC2SecurityGroupOwnerId = Nothing
     }
@@ -48,15 +48,15 @@ revokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
     { _rdbsgimDBSecurityGroupName :: Text
       -- ^ The name of the DB security group to revoke ingress from.
-    , _rdbsgimCIDRIP :: Maybe Text
-      -- ^ The IP range to revoke access from. Must be a valid CIDR range.
-      -- If CIDRIP is specified, EC2SecurityGroupName, EC2SecurityGroupId
-      -- and EC2SecurityGroupOwnerId cannot be provided.
     , _rdbsgimEC2SecurityGroupId :: Maybe Text
       -- ^ The id of the EC2 security group to revoke access from. For VPC
       -- DB security groups, EC2SecurityGroupId must be provided.
       -- Otherwise, EC2SecurityGroupOwnerId and either
       -- EC2SecurityGroupName or EC2SecurityGroupId must be provided.
+    , _rdbsgimCIDRIP :: Maybe Text
+      -- ^ The IP range to revoke access from. Must be a valid CIDR range.
+      -- If CIDRIP is specified, EC2SecurityGroupName, EC2SecurityGroupId
+      -- and EC2SecurityGroupOwnerId cannot be provided.
     , _rdbsgimEC2SecurityGroupName :: Maybe Text
       -- ^ The name of the EC2 security group to revoke access from. For VPC
       -- DB security groups, EC2SecurityGroupId must be provided.

@@ -62,8 +62,8 @@ createVpcPeeringConnection :: CreateVpcPeeringConnection
 createVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcrDryRun = Nothing
     , _cvpcrPeerOwnerId = Nothing
-    , _cvpcrPeerVpcId = Nothing
     , _cvpcrVpcId = Nothing
+    , _cvpcrPeerVpcId = Nothing
     }
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
@@ -72,11 +72,11 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     , _cvpcrPeerOwnerId :: Maybe Text
       -- ^ The AWS account ID of the owner of the peer VPC. Default: Your
       -- AWS account ID.
+    , _cvpcrVpcId :: Maybe Text
+      -- ^ The ID of the requester VPC.
     , _cvpcrPeerVpcId :: Maybe Text
       -- ^ The ID of the VPC with which you are creating the VPC peering
       -- connection.
-    , _cvpcrVpcId :: Maybe Text
-      -- ^ The ID of the requester VPC.
     } deriving (Show, Generic)
 
 makeLenses ''CreateVpcPeeringConnection

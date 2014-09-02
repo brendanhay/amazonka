@@ -26,10 +26,10 @@ import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
 data GetInvalidation = GetInvalidation
-    { _girDistributionId :: Text
-      -- ^ The distribution's id.
-    , _girId :: Text
+    { _girId :: Text
       -- ^ The invalidation's id.
+    , _girDistributionId :: Text
+      -- ^ The distribution's id.
     } deriving (Show, Generic)
 
 makeLenses ''GetInvalidation

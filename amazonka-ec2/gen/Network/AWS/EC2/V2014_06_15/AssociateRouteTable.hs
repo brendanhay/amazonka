@@ -40,20 +40,20 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AssociateRouteTable' request.
-associateRouteTable :: Text -- ^ '_artrRouteTableId'
-                    -> Text -- ^ '_artrSubnetId'
+associateRouteTable :: Text -- ^ '_artrSubnetId'
+                    -> Text -- ^ '_artrRouteTableId'
                     -> AssociateRouteTable
 associateRouteTable p1 p2 = AssociateRouteTable
-    { _artrRouteTableId = p1
-    , _artrSubnetId = p2
+    { _artrSubnetId = p1
+    , _artrRouteTableId = p2
     , _artrDryRun = Nothing
     }
 
 data AssociateRouteTable = AssociateRouteTable
-    { _artrRouteTableId :: Text
-      -- ^ The ID of the route table.
-    , _artrSubnetId :: Text
+    { _artrSubnetId :: Text
       -- ^ The ID of the subnet.
+    , _artrRouteTableId :: Text
+      -- ^ The ID of the route table.
     , _artrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)

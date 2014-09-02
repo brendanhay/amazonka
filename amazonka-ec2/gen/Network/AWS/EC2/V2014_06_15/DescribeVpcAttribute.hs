@@ -70,15 +70,15 @@ instance ToQuery DescribeVpcAttribute where
     toQuery = genericQuery def
 
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
-    { _dvauEnableDnsHostnames :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the instances launched in the VPC get DNS
-      -- hostnames. If this attribute is true, instances in the VPC get
-      -- DNS hostnames; otherwise, they do not.
-    , _dvauEnableDnsSupport :: Maybe AttributeBooleanValue
+    { _dvauEnableDnsSupport :: Maybe AttributeBooleanValue
       -- ^ Indicates whether DNS resolution is enabled for the VPC. If this
       -- attribute is true, the Amazon DNS server resolves DNS hostnames
       -- for your instances to their corresponding IP addresses;
       -- otherwise, it does not.
+    , _dvauEnableDnsHostnames :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether the instances launched in the VPC get DNS
+      -- hostnames. If this attribute is true, instances in the VPC get
+      -- DNS hostnames; otherwise, they do not.
     , _dvauVpcId :: Maybe Text
       -- ^ The ID of the VPC.
     } deriving (Show, Generic)

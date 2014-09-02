@@ -78,11 +78,11 @@ registerImage p1 = RegisterImage
     , _ritBlockDeviceMappings = mempty
     , _ritDryRun = Nothing
     , _ritDescription = Nothing
-    , _ritImageLocation = Nothing
+    , _ritSriovNetSupport = Nothing
+    , _ritRootDeviceName = Nothing
     , _ritKernelId = Nothing
     , _ritRamdiskId = Nothing
-    , _ritRootDeviceName = Nothing
-    , _ritSriovNetSupport = Nothing
+    , _ritImageLocation = Nothing
     , _ritVirtualizationType = Nothing
     }
 
@@ -101,20 +101,20 @@ data RegisterImage = RegisterImage
       -- ^ 
     , _ritDescription :: Maybe Text
       -- ^ A description for your AMI.
-    , _ritImageLocation :: Maybe Text
-      -- ^ The full path to your AMI manifest in Amazon S3 storage.
-    , _ritKernelId :: Maybe Text
-      -- ^ The ID of the kernel.
-    , _ritRamdiskId :: Maybe Text
-      -- ^ The ID of the RAM disk.
-    , _ritRootDeviceName :: Maybe Text
-      -- ^ The name of the root device (for example, /dev/sda1, or xvda).
     , _ritSriovNetSupport :: Maybe Text
       -- ^ Set to simple to enable enhanced networking for the AMI and any
       -- instances that you launch from the AMI. There is no way to
       -- disable enhanced networking at this time. This option is
       -- supported only for HVM AMIs. Specifying this option with a PV AMI
       -- can make instances launched from the AMI unreachable.
+    , _ritRootDeviceName :: Maybe Text
+      -- ^ The name of the root device (for example, /dev/sda1, or xvda).
+    , _ritKernelId :: Maybe Text
+      -- ^ The ID of the kernel.
+    , _ritRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk.
+    , _ritImageLocation :: Maybe Text
+      -- ^ The full path to your AMI manifest in Amazon S3 storage.
     , _ritVirtualizationType :: Maybe VirtualizationType
       -- ^ The type of virtualization.
     } deriving (Show, Generic)

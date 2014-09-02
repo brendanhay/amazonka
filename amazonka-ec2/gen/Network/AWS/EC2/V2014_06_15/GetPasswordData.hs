@@ -64,10 +64,10 @@ instance ToQuery GetPasswordData where
 data GetPasswordDataResponse = GetPasswordDataResponse
     { _gpdsTimestamp :: Maybe ISO8601
       -- ^ The time the data was last updated.
-    , _gpdsInstanceId :: Maybe Text
-      -- ^ The ID of the Windows instance.
     , _gpdsPasswordData :: Maybe Text
       -- ^ The password of the instance.
+    , _gpdsInstanceId :: Maybe Text
+      -- ^ The ID of the Windows instance.
     } deriving (Show, Generic)
 
 makeLenses ''GetPasswordDataResponse

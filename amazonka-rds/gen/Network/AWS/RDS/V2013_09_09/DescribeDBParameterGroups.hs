@@ -37,8 +37,8 @@ import Network.AWS.Prelude
 describeDBParameterGroups :: DescribeDBParameterGroups
 describeDBParameterGroups = DescribeDBParameterGroups
     { _ddbpgmMaxRecords = Nothing
-    , _ddbpgmDBParameterGroupName = Nothing
     , _ddbpgmMarker = Nothing
+    , _ddbpgmDBParameterGroupName = Nothing
     }
 
 data DescribeDBParameterGroups = DescribeDBParameterGroups
@@ -48,16 +48,16 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _ddbpgmDBParameterGroupName :: Maybe Text
-      -- ^ The name of a specific DB parameter group to return details for.
-      -- Constraints: Must be 1 to 255 alphanumeric characters First
-      -- character must be a letter Cannot end with a hyphen or contain
-      -- two consecutive hyphens.
     , _ddbpgmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeDBParameterGroups request. If this parameter is
       -- specified, the response includes only records beyond the marker,
       -- up to the value specified by MaxRecords.
+    , _ddbpgmDBParameterGroupName :: Maybe Text
+      -- ^ The name of a specific DB parameter group to return details for.
+      -- Constraints: Must be 1 to 255 alphanumeric characters First
+      -- character must be a letter Cannot end with a hyphen or contain
+      -- two consecutive hyphens.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeDBParameterGroups

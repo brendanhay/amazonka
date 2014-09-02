@@ -40,16 +40,16 @@ instance ToQuery DescribeLoggingStatus where
 data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     { _llzLoggingEnabled :: Maybe Bool
       -- ^ true if logging is on, false if logging is off.
-    , _llzBucketName :: Maybe Text
-      -- ^ The name of the S3 bucket where the log files are stored.
     , _llzLastFailureMessage :: Maybe Text
       -- ^ The message indicating that logs failed to be delivered.
+    , _llzBucketName :: Maybe Text
+      -- ^ The name of the S3 bucket where the log files are stored.
     , _llzS3KeyPrefix :: Maybe Text
       -- ^ The prefix applied to the log file names.
-    , _llzLastFailureTime :: Maybe ISO8601
-      -- ^ The last time when logs failed to be delivered.
     , _llzLastSuccessfulDeliveryTime :: Maybe ISO8601
       -- ^ The last time when logs were delivered.
+    , _llzLastFailureTime :: Maybe ISO8601
+      -- ^ The last time when logs failed to be delivered.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeLoggingStatusResponse

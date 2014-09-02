@@ -23,10 +23,10 @@ import           Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
 import           Data.Char
 import           Data.Default
+import qualified Data.HashMap.Strict  as Map
 import           Data.HashSet         (HashSet)
 import qualified Data.HashSet         as Set
 import           Data.List
-import qualified Data.Map.Strict      as Map
 import           Data.Maybe
 import           Data.Monoid          hiding (Sum)
 import           Data.Ord
@@ -129,8 +129,9 @@ uniquify svc (special svc -> s) = do
     x <- go (s ^. cmnPrefix) (s ^. cmnName)
     case s of
         SStruct c@Struct{..} -> do
-            xs <- mapM (uniquify svc) (Map.elems _sctFields)
-            let fs = Map.fromList (zip (Map.keys _sctFields) xs)
+            fs <- Map.traverseWithKey (const $ uniquify svc) _sctFields
+            -- xs <- mapM (uniquify svc) (Map.elems _sctFields)
+            -- let fs = Map.fromList (zip (Map.keys _sctFields) xs)
             return . SStruct $ (c & cmnPrefix .~ x) { _sctFields = fs }
         SList l@List{..} -> do
             i <- uniquify svc _lstItem
@@ -267,7 +268,7 @@ serviceNamespaces s = sort $
 
 fields :: Bool -> Service -> Shape -> [Field]
 fields rq svc s = case s of
-    SStruct Struct{..} -> map f (Map.toList _sctFields)
+    SStruct Struct{..} -> map f (reverse $ Map.toList _sctFields)
     _                  -> []
   where
     f :: (Text, Shape) -> Field

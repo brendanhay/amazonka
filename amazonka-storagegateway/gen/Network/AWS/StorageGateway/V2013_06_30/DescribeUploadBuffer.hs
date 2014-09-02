@@ -70,8 +70,8 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
-    , _duboUploadBufferAllocatedInBytes :: Maybe Integer
     , _duboUploadBufferUsedInBytes :: Maybe Integer
+    , _duboUploadBufferAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
 makeLenses ''DescribeUploadBufferResponse

@@ -75,53 +75,53 @@ instance Exception (Er CloudWatchLogs)
 -- CloudWatch Logs understands contains two properties: the timestamp of when
 -- the event occurred, and the raw event message.
 data InputLogEvent = InputLogEvent
-    { _ilfMessage :: Text
-    , _ilfTimestamp :: Integer
+    { _ilfTimestamp :: Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
+    , _ilfMessage :: Text
     } deriving (Show, Generic)
 
 instance ToJSON InputLogEvent
 
 data LogGroup = LogGroup
-    { _lhArn :: Maybe Text
-    , _lhCreationTime :: Maybe Integer
-      -- ^ A point in time expressed as the number milliseconds since Jan 1,
-      -- 1970 00:00:00 UTC.
-    , _lhLogGroupName :: Maybe Text
-    , _lhMetricFilterCount :: Maybe Integer
-      -- ^ The number of metric filters associated with the log group.
+    { _lhStoredBytes :: Maybe Integer
     , _lhRetentionInDays :: Maybe Integer
       -- ^ Specifies the number of days you want to retain log events in the
       -- specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60,
       -- 90, 120, 150, 180, 365, 400, 547, 730.
-    , _lhStoredBytes :: Maybe Integer
+    , _lhLogGroupName :: Maybe Text
+    , _lhArn :: Maybe Text
+    , _lhMetricFilterCount :: Maybe Integer
+      -- ^ The number of metric filters associated with the log group.
+    , _lhCreationTime :: Maybe Integer
+      -- ^ A point in time expressed as the number milliseconds since Jan 1,
+      -- 1970 00:00:00 UTC.
     } deriving (Show, Generic)
 
 instance FromJSON LogGroup
 
 -- | A log stream is sequence of log events that share the same emitter.
 data LogStream = LogStream
-    { _ltArn :: Maybe Text
-    , _ltCreationTime :: Maybe Integer
-      -- ^ A point in time expressed as the number milliseconds since Jan 1,
-      -- 1970 00:00:00 UTC.
-    , _ltFirstEventTimestamp :: Maybe Integer
-      -- ^ A point in time expressed as the number milliseconds since Jan 1,
-      -- 1970 00:00:00 UTC.
-    , _ltLastEventTimestamp :: Maybe Integer
+    { _ltLastEventTimestamp :: Maybe Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
     , _ltLastIngestionTime :: Maybe Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
-    , _ltLogStreamName :: Maybe Text
     , _ltStoredBytes :: Maybe Integer
+    , _ltLogStreamName :: Maybe Text
+    , _ltFirstEventTimestamp :: Maybe Integer
+      -- ^ A point in time expressed as the number milliseconds since Jan 1,
+      -- 1970 00:00:00 UTC.
+    , _ltArn :: Maybe Text
     , _ltUploadSequenceToken :: Maybe Text
       -- ^ A string token used for making PutLogEvents requests. A
       -- sequenceToken can only be used once, and PutLogEvents requests
       -- must include the sequenceToken obtained from the response of the
       -- previous request.
+    , _ltCreationTime :: Maybe Integer
+      -- ^ A point in time expressed as the number milliseconds since Jan 1,
+      -- 1970 00:00:00 UTC.
     } deriving (Show, Generic)
 
 instance FromJSON LogStream
@@ -130,13 +130,13 @@ instance FromJSON LogStream
 -- extract metric observations from ingested log events and transform them to
 -- metric data in a CloudWatch metric.
 data MetricFilter = MetricFilter
-    { _mgCreationTime :: Maybe Integer
-      -- ^ A point in time expressed as the number milliseconds since Jan 1,
-      -- 1970 00:00:00 UTC.
+    { _mgMetricTransformations :: Maybe [MetricTransformation]
+    , _mgFilterPattern :: Maybe Text
     , _mgFilterName :: Maybe Text
       -- ^ The name of the metric filter.
-    , _mgFilterPattern :: Maybe Text
-    , _mgMetricTransformations :: Maybe [MetricTransformation]
+    , _mgCreationTime :: Maybe Integer
+      -- ^ A point in time expressed as the number milliseconds since Jan 1,
+      -- 1970 00:00:00 UTC.
     } deriving (Show, Generic)
 
 instance FromJSON MetricFilter
@@ -150,9 +150,9 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord
 instance FromJSON MetricFilterMatchRecord
 
 data MetricTransformation = MetricTransformation
-    { _muMetricName :: Text
+    { _muMetricValue :: Text
     , _muMetricNamespace :: Text
-    , _muMetricValue :: Text
+    , _muMetricName :: Text
     } deriving (Show, Generic)
 
 instance FromJSON MetricTransformation
@@ -160,11 +160,11 @@ instance FromJSON MetricTransformation
 instance ToJSON MetricTransformation
 
 data OutputLogEvent = OutputLogEvent
-    { _olfIngestionTime :: Maybe Integer
+    { _olfTimestamp :: Maybe Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
     , _olfMessage :: Maybe Text
-    , _olfTimestamp :: Maybe Integer
+    , _olfIngestionTime :: Maybe Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
     } deriving (Show, Generic)

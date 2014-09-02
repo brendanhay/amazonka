@@ -42,8 +42,8 @@ import Network.AWS.Prelude
 describeClusters :: DescribeClusters
 describeClusters = DescribeClusters
     { _dcmMaxRecords = Nothing
-    , _dcmClusterIdentifier = Nothing
     , _dcmMarker = Nothing
+    , _dcmClusterIdentifier = Nothing
     }
 
 data DescribeClusters = DescribeClusters
@@ -54,10 +54,6 @@ data DescribeClusters = DescribeClusters
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcmClusterIdentifier :: Maybe Text
-      -- ^ The unique identifier of a cluster whose properties you are
-      -- requesting. This parameter is case sensitive. The default is that
-      -- all clusters defined for an account are returned.
     , _dcmMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a DescribeClusters
@@ -67,6 +63,10 @@ data DescribeClusters = DescribeClusters
       -- value in the Marker parameter and retrying the request.
       -- Constraints: You can specify either the ClusterIdentifier
       -- parameter or the Marker parameter, but not both.
+    , _dcmClusterIdentifier :: Maybe Text
+      -- ^ The unique identifier of a cluster whose properties you are
+      -- requesting. This parameter is case sensitive. The default is that
+      -- all clusters defined for an account are returned.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeClusters

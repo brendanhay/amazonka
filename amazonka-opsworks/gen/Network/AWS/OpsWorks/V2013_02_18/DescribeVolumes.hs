@@ -33,24 +33,24 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeVolumes' request.
 describeVolumes :: DescribeVolumes
 describeVolumes = DescribeVolumes
-    { _dvsInstanceId = Nothing
+    { _dvsStackId = Nothing
     , _dvsRaidArrayId = Nothing
-    , _dvsStackId = Nothing
+    , _dvsInstanceId = Nothing
     , _dvsVolumeIds = mempty
     }
 
 data DescribeVolumes = DescribeVolumes
-    { _dvsInstanceId :: Maybe Text
-      -- ^ The instance ID. If you use this parameter, DescribeVolumes
-      -- returns descriptions of the volumes associated with the specified
-      -- instance.
+    { _dvsStackId :: Maybe Text
+      -- ^ A stack ID. The action describes the stack's registered Amazon
+      -- EBS volumes.
     , _dvsRaidArrayId :: Maybe Text
       -- ^ The RAID array ID. If you use this parameter, DescribeVolumes
       -- returns descriptions of the volumes associated with the specified
       -- RAID array.
-    , _dvsStackId :: Maybe Text
-      -- ^ A stack ID. The action describes the stack's registered Amazon
-      -- EBS volumes.
+    , _dvsInstanceId :: Maybe Text
+      -- ^ The instance ID. If you use this parameter, DescribeVolumes
+      -- returns descriptions of the volumes associated with the specified
+      -- instance.
     , _dvsVolumeIds :: [Text]
       -- ^ Am array of volume IDs. If you use this parameter,
       -- DescribeVolumes returns descriptions of the specified volumes.

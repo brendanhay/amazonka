@@ -114,12 +114,12 @@ data CreateVolumeResponse = CreateVolumeResponse
       -- ^ The size of the volume, in GiBs.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhTags :: [Tag]
       -- ^ Any tags assigned to the volume.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone for the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhSnapshotId :: Maybe Text
       -- ^ The snapshot from which the volume was created, if applicable.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhVolumeId :: Maybe Text
       -- ^ The ID of the volume.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone for the volume.
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhAttachments :: [VolumeAttachment]
       -- ^ 
     , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhState :: Maybe VolumeState

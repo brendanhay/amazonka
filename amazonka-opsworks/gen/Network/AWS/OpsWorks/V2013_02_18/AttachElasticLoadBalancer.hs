@@ -34,11 +34,11 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer
-    { _aelbrElasticLoadBalancerName :: Text
-      -- ^ The Elastic Load Balancing instance's name.
-    , _aelbrLayerId :: Text
+    { _aelbrLayerId :: Text
       -- ^ The ID of the layer that the Elastic Load Balancing instance is
       -- to be attached to.
+    , _aelbrElasticLoadBalancerName :: Text
+      -- ^ The Elastic Load Balancing instance's name.
     } deriving (Show, Generic)
 
 makeLenses ''AttachElasticLoadBalancer

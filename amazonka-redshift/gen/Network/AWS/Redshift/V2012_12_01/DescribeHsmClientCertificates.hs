@@ -31,8 +31,8 @@ import Network.AWS.Prelude
 describeHsmClientCertificates :: DescribeHsmClientCertificates
 describeHsmClientCertificates = DescribeHsmClientCertificates
     { _dhccmMaxRecords = Nothing
-    , _dhccmHsmClientCertificateIdentifier = Nothing
     , _dhccmMarker = Nothing
+    , _dhccmHsmClientCertificateIdentifier = Nothing
     }
 
 data DescribeHsmClientCertificates = DescribeHsmClientCertificates
@@ -43,11 +43,6 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dhccmHsmClientCertificateIdentifier :: Maybe Text
-      -- ^ The identifier of a specific HSM client certificate for which you
-      -- want information. If no identifier is specified, information is
-      -- returned for all HSM client certificates owned by your AWS
-      -- customer account.
     , _dhccmMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -56,6 +51,11 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
+    , _dhccmHsmClientCertificateIdentifier :: Maybe Text
+      -- ^ The identifier of a specific HSM client certificate for which you
+      -- want information. If no identifier is specified, information is
+      -- returned for all HSM client certificates owned by your AWS
+      -- customer account.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeHsmClientCertificates

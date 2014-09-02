@@ -29,10 +29,10 @@ import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 data ResyncMFADevice = ResyncMFADevice
-    { _rmfadrAuthenticationCode1 :: Text
-      -- ^ An authentication code emitted by the device.
-    , _rmfadrAuthenticationCode2 :: Text
+    { _rmfadrAuthenticationCode2 :: Text
       -- ^ A subsequent authentication code emitted by the device.
+    , _rmfadrAuthenticationCode1 :: Text
+      -- ^ An authentication code emitted by the device.
     , _rmfadrUserName :: Text
       -- ^ Name of the user whose MFA device you want to resynchronize.
     , _rmfadrSerialNumber :: Text

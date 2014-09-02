@@ -22,7 +22,7 @@ import           Control.Lens
 import           Data.CaseInsensitive      (CI)
 import           Data.Default
 import           Data.Function
-import qualified Data.Map.Strict           as Map
+import qualified Data.HashMap.Strict       as Map
 import           Data.Maybe
 import           Data.Monoid               hiding (Sum)
 import           Data.Ord
@@ -32,7 +32,7 @@ import qualified Data.Text                 as Text
 import           GHC.Generics
 import           Network.HTTP.Types.Method
 
-type HashMap = Map.Map
+type HashMap = Map.HashMap
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Ord, Show, Generic)

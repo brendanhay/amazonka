@@ -65,12 +65,12 @@ data ChangeMessageVisibility = ChangeMessageVisibility
     { _cmvrVisibilityTimeout :: Integer
       -- ^ The new value (in seconds - from 0 to 43200 - maximum 12 hours)
       -- for the message's visibility timeout.
-    , _cmvrQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
     , _cmvrReceiptHandle :: Text
       -- ^ The receipt handle associated with the message whose visibility
       -- timeout should be changed. This parameter is returned by the
       -- ReceiveMessage action.
+    , _cmvrQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
 makeLenses ''ChangeMessageVisibility

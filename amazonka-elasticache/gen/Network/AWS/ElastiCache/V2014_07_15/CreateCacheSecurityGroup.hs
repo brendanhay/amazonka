@@ -37,13 +37,13 @@ import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
-    { _ccsgmCacheSecurityGroupName :: Text
+    { _ccsgmDescription :: Text
+      -- ^ A description for the cache security group.
+    , _ccsgmCacheSecurityGroupName :: Text
       -- ^ A name for the cache security group. This value is stored as a
       -- lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters. Must not be the word "Default". Example:
       -- mysecuritygroup.
-    , _ccsgmDescription :: Text
-      -- ^ A description for the cache security group.
     } deriving (Show, Generic)
 
 makeLenses ''CreateCacheSecurityGroup

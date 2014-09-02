@@ -32,16 +32,16 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribePermissions' request.
 describePermissions :: DescribePermissions
 describePermissions = DescribePermissions
-    { _dprIamUserArn = Nothing
-    , _dprStackId = Nothing
+    { _dprStackId = Nothing
+    , _dprIamUserArn = Nothing
     }
 
 data DescribePermissions = DescribePermissions
-    { _dprIamUserArn :: Maybe Text
+    { _dprStackId :: Maybe Text
+      -- ^ The stack ID.
+    , _dprIamUserArn :: Maybe Text
       -- ^ The user's IAM ARN. For more information about IAM ARNs, see
       -- Using Identifiers.
-    , _dprStackId :: Maybe Text
-      -- ^ The stack ID.
     } deriving (Show, Generic)
 
 makeLenses ''DescribePermissions

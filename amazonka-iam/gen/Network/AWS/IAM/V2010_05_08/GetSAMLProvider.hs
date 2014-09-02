@@ -42,10 +42,10 @@ instance ToQuery GetSAMLProvider where
     toQuery = genericQuery def
 
 data GetSAMLProviderResponse = GetSAMLProviderResponse
-    { _gsamlpsCreateDate :: Maybe ISO8601
-      -- ^ The date and time when the SAML provider was created.
-    , _gsamlpsValidUntil :: Maybe ISO8601
+    { _gsamlpsValidUntil :: Maybe ISO8601
       -- ^ The expiration date and time for the SAML provider.
+    , _gsamlpsCreateDate :: Maybe ISO8601
+      -- ^ The date and time when the SAML provider was created.
     , _gsamlpsSAMLMetadataDocument :: Maybe Text
       -- ^ The XML metadata document that includes information about an
       -- identity provider.

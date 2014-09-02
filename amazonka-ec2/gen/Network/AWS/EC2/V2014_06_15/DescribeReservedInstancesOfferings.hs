@@ -78,10 +78,10 @@ describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _driorIncludeMarketplace = Nothing
     , _driorFilters = mempty
     , _driorInstanceType = Nothing
-    , _driorMaxInstanceCount = Nothing
     , _driorMaxResults = Nothing
-    , _driorMaxDuration = Nothing
+    , _driorMaxInstanceCount = Nothing
     , _driorMinDuration = Nothing
+    , _driorMaxDuration = Nothing
     , _driorOfferingType = Nothing
     , _driorProductDescription = Nothing
     , _driorReservedInstancesOfferingIds = mempty
@@ -114,16 +114,16 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
       -- ^ The instance type on which the Reserved Instance can be used. For
       -- more information, see Instance Types in the Amazon Elastic
       -- Compute Cloud User Guide.
+    , _driorMaxResults :: Maybe Integer
+      -- ^ The maximum number of offerings to return.
     , _driorMaxInstanceCount :: Maybe Integer
       -- ^ The maximum number of instances to filter when searching for
       -- offerings.
-    , _driorMaxResults :: Maybe Integer
-      -- ^ The maximum number of offerings to return.
-    , _driorMaxDuration :: Maybe Integer
-      -- ^ The maximum duration (in seconds) to filter when searching for
-      -- offerings.
     , _driorMinDuration :: Maybe Integer
       -- ^ The minimum duration (in seconds) to filter when searching for
+      -- offerings.
+    , _driorMaxDuration :: Maybe Integer
+      -- ^ The maximum duration (in seconds) to filter when searching for
       -- offerings.
     , _driorOfferingType :: Maybe OfferingTypeValues
       -- ^ The Reserved Instance offering type.

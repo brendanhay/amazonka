@@ -30,13 +30,16 @@ listInvalidations :: Text -- ^ '_lirDistributionId'
                   -> ListInvalidations
 listInvalidations p1 = ListInvalidations
     { _lirDistributionId = p1
-    , _lirMarker = Nothing
     , _lirMaxItems = Nothing
+    , _lirMarker = Nothing
     }
 
 data ListInvalidations = ListInvalidations
     { _lirDistributionId :: Text
       -- ^ The distribution's id.
+    , _lirMaxItems :: Maybe Text
+      -- ^ The maximum number of invalidation batches you want in the
+      -- response body.
     , _lirMarker :: Maybe Text
       -- ^ Use this parameter when paginating results to indicate where to
       -- begin in your list of invalidation batches. Because the results
@@ -46,9 +49,6 @@ data ListInvalidations = ListInvalidations
       -- results, set the Marker to the value of the NextMarker from the
       -- current page's response. This value is the same as the ID of the
       -- last invalidation batch on that page.
-    , _lirMaxItems :: Maybe Text
-      -- ^ The maximum number of invalidation batches you want in the
-      -- response body.
     } deriving (Show, Generic)
 
 makeLenses ''ListInvalidations

@@ -34,8 +34,8 @@ createUserProfile :: Text -- ^ '_cuprIamUserArn'
 createUserProfile p1 = CreateUserProfile
     { _cuprIamUserArn = p1
     , _cuprAllowSelfManagement = Nothing
-    , _cuprSshPublicKey = Nothing
     , _cuprSshUsername = Nothing
+    , _cuprSshPublicKey = Nothing
     }
 
 data CreateUserProfile = CreateUserProfile
@@ -45,14 +45,14 @@ data CreateUserProfile = CreateUserProfile
       -- ^ Whether users can specify their own SSH public key through the My
       -- Settings page. For more information, see Setting an IAM User's
       -- Public SSH Key.
-    , _cuprSshPublicKey :: Maybe Text
-      -- ^ The user's public SSH key.
     , _cuprSshUsername :: Maybe Text
       -- ^ The user's SSH user name. The allowable characters are [a-z],
       -- [A-Z], [0-9], '-', and '_'. If the specified name includes other
       -- punctuation marks, AWS OpsWorks removes them. For example,
       -- my.name will be changed to myname. If you do not specify an SSH
       -- user name, AWS OpsWorks generates one from the IAM user name.
+    , _cuprSshPublicKey :: Maybe Text
+      -- ^ The user's public SSH key.
     } deriving (Show, Generic)
 
 makeLenses ''CreateUserProfile

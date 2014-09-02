@@ -179,64 +179,15 @@ instance ToQuery ReplicationGroupPendingModifiedValues where
 
 -- | Contains all of the attributes of a specific cache cluster.
 data CacheCluster = CacheCluster
-    { _ccAutoMinorVersionUpgrade :: Maybe Bool
-      -- ^ If true, then minor version patches are applied automatically; if
-      -- false, then automatic minor version patches are disabled.
-    , _ccCacheClusterCreateTime :: Maybe ISO8601
-      -- ^ The date and time when the cache cluster was created.
-    , _ccCacheClusterId :: Maybe Text
-      -- ^ The user-supplied identifier of the cache cluster. This is a
-      -- unique key that identifies a cache cluster.
-    , _ccCacheClusterStatus :: Maybe Text
-      -- ^ The current state of this cache cluster - creating, available,
-      -- etc.
-    , _ccCacheNodeType :: Maybe Text
-      -- ^ The name of the compute and memory capacity node type for the
-      -- cache cluster.
-    , _ccCacheNodes :: [CacheNode]
-      -- ^ A list of cache nodes that are members of the cache cluster.
-    , _ccCacheParameterGroup :: Maybe CacheParameterGroupStatus
-      -- ^ The status of the cache parameter group.
-    , _ccCacheSecurityGroups :: [CacheSecurityGroupMembership]
-      -- ^ A list of cache security group elements, composed of name and
-      -- status sub-elements.
-    , _ccCacheSubnetGroupName :: Maybe Text
-      -- ^ The name of the cache subnet group associated with the cache
-      -- cluster.
-    , _ccClientDownloadLandingPage :: Maybe Text
-      -- ^ The URL of the web page where you can download the latest
-      -- ElastiCache client library.
-    , _ccConfigurationEndpoint :: Maybe Endpoint
-      -- ^ Represents the information required for client programs to
-      -- connect to a cache node.
-    , _ccEngine :: Maybe Text
-      -- ^ The name of the cache engine (memcached or redis) to be used for
-      -- this cache cluster.
-    , _ccEngineVersion :: Maybe Text
-      -- ^ The version of the cache engine version that is used in this
-      -- cache cluster.
-    , _ccNotificationConfiguration :: Maybe NotificationConfiguration
-      -- ^ Describes a notification topic and its status. Notification
-      -- topics are used for publishing ElastiCache events to subscribers
-      -- using Amazon Simple Notification Service (SNS).
-    , _ccNumCacheNodes :: Maybe Integer
+    { _ccNumCacheNodes :: Maybe Integer
       -- ^ The number of cache nodes in the cache cluster.
     , _ccPendingModifiedValues :: Maybe PendingModifiedValues
       -- ^ A group of settings that will be applied to the cache cluster in
       -- the future, or that are currently being applied.
-    , _ccPreferredAvailabilityZone :: Maybe Text
-      -- ^ The name of the Availability Zone in which the cache cluster is
-      -- located or "Multiple" if the cache nodes are located in different
-      -- Availability Zones.
-    , _ccPreferredMaintenanceWindow :: Maybe Text
-      -- ^ The time range (in UTC) during which weekly system maintenance
-      -- can occur.
     , _ccReplicationGroupId :: Maybe Text
       -- ^ The replication group to which this cache cluster belongs. If
       -- this field is empty, the cache cluster is not associated with any
       -- replication group.
-    , _ccSecurityGroups :: [SecurityGroupMembership]
-      -- ^ A list of VPC Security Groups associated with the cache cluster.
     , _ccSnapshotRetentionLimit :: Maybe Integer
       -- ^ The number of days for which ElastiCache will retain automatic
       -- cache cluster snapshots before deleting them. For example, if you
@@ -244,10 +195,59 @@ data CacheCluster = CacheCluster
       -- today will be retained for 5 days before being deleted.
       -- ImportantIf the value of SnapshotRetentionLimit is set to zero
       -- (0), backups are turned off.
+    , _ccCacheClusterStatus :: Maybe Text
+      -- ^ The current state of this cache cluster - creating, available,
+      -- etc.
+    , _ccCacheParameterGroup :: Maybe CacheParameterGroupStatus
+      -- ^ The status of the cache parameter group.
+    , _ccPreferredAvailabilityZone :: Maybe Text
+      -- ^ The name of the Availability Zone in which the cache cluster is
+      -- located or "Multiple" if the cache nodes are located in different
+      -- Availability Zones.
+    , _ccCacheSubnetGroupName :: Maybe Text
+      -- ^ The name of the cache subnet group associated with the cache
+      -- cluster.
+    , _ccPreferredMaintenanceWindow :: Maybe Text
+      -- ^ The time range (in UTC) during which weekly system maintenance
+      -- can occur.
+    , _ccClientDownloadLandingPage :: Maybe Text
+      -- ^ The URL of the web page where you can download the latest
+      -- ElastiCache client library.
+    , _ccCacheSecurityGroups :: [CacheSecurityGroupMembership]
+      -- ^ A list of cache security group elements, composed of name and
+      -- status sub-elements.
+    , _ccEngine :: Maybe Text
+      -- ^ The name of the cache engine (memcached or redis) to be used for
+      -- this cache cluster.
+    , _ccConfigurationEndpoint :: Maybe Endpoint
+      -- ^ Represents the information required for client programs to
+      -- connect to a cache node.
+    , _ccCacheClusterId :: Maybe Text
+      -- ^ The user-supplied identifier of the cache cluster. This is a
+      -- unique key that identifies a cache cluster.
     , _ccSnapshotWindow :: Maybe Text
       -- ^ The daily time range (in UTC) during which ElastiCache will begin
       -- taking a daily snapshot of your cache cluster. Example:
       -- 05:00-09:00.
+    , _ccNotificationConfiguration :: Maybe NotificationConfiguration
+      -- ^ Describes a notification topic and its status. Notification
+      -- topics are used for publishing ElastiCache events to subscribers
+      -- using Amazon Simple Notification Service (SNS).
+    , _ccSecurityGroups :: [SecurityGroupMembership]
+      -- ^ A list of VPC Security Groups associated with the cache cluster.
+    , _ccAutoMinorVersionUpgrade :: Maybe Bool
+      -- ^ If true, then minor version patches are applied automatically; if
+      -- false, then automatic minor version patches are disabled.
+    , _ccCacheClusterCreateTime :: Maybe ISO8601
+      -- ^ The date and time when the cache cluster was created.
+    , _ccCacheNodes :: [CacheNode]
+      -- ^ A list of cache nodes that are members of the cache cluster.
+    , _ccCacheNodeType :: Maybe Text
+      -- ^ The name of the compute and memory capacity node type for the
+      -- cache cluster.
+    , _ccEngineVersion :: Maybe Text
+      -- ^ The version of the cache engine version that is used in this
+      -- cache cluster.
     } deriving (Show, Generic)
 
 instance FromXML CacheCluster where
@@ -256,15 +256,15 @@ instance FromXML CacheCluster where
 
 -- | Provides all of the details about a particular cache engine version.
 data CacheEngineVersion = CacheEngineVersion
-    { _cevCacheEngineDescription :: Maybe Text
-      -- ^ The description of the cache engine.
-    , _cevCacheEngineVersionDescription :: Maybe Text
+    { _cevCacheEngineVersionDescription :: Maybe Text
       -- ^ The description of the cache engine version.
+    , _cevEngine :: Maybe Text
+      -- ^ The name of the cache engine.
+    , _cevCacheEngineDescription :: Maybe Text
+      -- ^ The description of the cache engine.
     , _cevCacheParameterGroupFamily :: Maybe Text
       -- ^ The name of the cache parameter group family associated with this
       -- cache engine.
-    , _cevEngine :: Maybe Text
-      -- ^ The name of the cache engine.
     , _cevEngineVersion :: Maybe Text
       -- ^ The version number of the cache engine.
     } deriving (Show, Generic)
@@ -277,20 +277,20 @@ instance FromXML CacheEngineVersion where
 -- runs its own instance of the cluster's protocol-compliant caching software
 -- - either Memcached or Redis.
 data CacheNode = CacheNode
-    { _cnCacheNodeCreateTime :: Maybe ISO8601
-      -- ^ The date and time when the cache node was created.
+    { _cnEndpoint :: Maybe Endpoint
+      -- ^ The hostname and IP address for connecting to this cache node.
+    , _cnCacheNodeStatus :: Maybe Text
+      -- ^ The current state of this cache node.
     , _cnCacheNodeId :: Maybe Text
       -- ^ The cache node identifier. A node ID is a numeric identifier
       -- (0001, 0002, etc.). The combination of cluster ID and node ID
       -- uniquely identifies every cache node used in a customer's AWS
       -- account.
-    , _cnCacheNodeStatus :: Maybe Text
-      -- ^ The current state of this cache node.
     , _cnCustomerAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone where this node was created and now
       -- resides.
-    , _cnEndpoint :: Maybe Endpoint
-      -- ^ The hostname and IP address for connecting to this cache node.
+    , _cnCacheNodeCreateTime :: Maybe ISO8601
+      -- ^ The date and time when the cache node was created.
     , _cnParameterGroupStatus :: Maybe Text
       -- ^ The status of the parameter group applied to this cache node.
     , _cnSourceCacheNodeId :: Maybe Text
@@ -310,26 +310,26 @@ instance ToQuery CacheNode where
 -- applied to. For example, in a Redis cache cluster, a cache.m1.large cache
 -- node type would have a larger maxmemory value than a cache.m1.small type.
 data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
-    { _cntspAllowedValues :: Maybe Text
+    { _cntspDescription :: Maybe Text
+      -- ^ A description of the parameter.
+    , _cntspParameterName :: Maybe Text
+      -- ^ The name of the parameter.
+    , _cntspAllowedValues :: Maybe Text
       -- ^ The valid range of values for the parameter.
-    , _cntspCacheNodeTypeSpecificValues :: [CacheNodeTypeSpecificValue]
-      -- ^ A list of cache node types and their corresponding values for
-      -- this parameter.
     , _cntspDataType :: Maybe Text
       -- ^ The valid data type for the parameter.
-    , _cntspDescription :: Maybe Text
-      -- ^ A description of the parameter.
     , _cntspIsModifiable :: Maybe Bool
       -- ^ Indicates whether (true) or not (false) the parameter can be
       -- modified. Some parameters have security or operational
       -- implications that prevent them from being changed.
+    , _cntspSource :: Maybe Text
+      -- ^ The source of the parameter value.
     , _cntspMinimumEngineVersion :: Maybe Text
       -- ^ The earliest cache engine version to which the parameter can
       -- apply.
-    , _cntspParameterName :: Maybe Text
-      -- ^ The name of the parameter.
-    , _cntspSource :: Maybe Text
-      -- ^ The source of the parameter value.
+    , _cntspCacheNodeTypeSpecificValues :: [CacheNodeTypeSpecificValue]
+      -- ^ A list of cache node types and their corresponding values for
+      -- this parameter.
     } deriving (Show, Generic)
 
 instance FromXML CacheNodeTypeSpecificParameter where
@@ -338,10 +338,10 @@ instance FromXML CacheNodeTypeSpecificParameter where
 
 -- | A value that applies only to a certain cache node type.
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
-    { _cntsvCacheNodeType :: Maybe Text
-      -- ^ The cache node type for which this value applies.
-    , _cntsvValue :: Maybe Text
+    { _cntsvValue :: Maybe Text
       -- ^ The value for the cache node type.
+    , _cntsvCacheNodeType :: Maybe Text
+      -- ^ The cache node type for which this value applies.
     } deriving (Show, Generic)
 
 instance FromXML CacheNodeTypeSpecificValue where
@@ -353,13 +353,13 @@ instance ToQuery CacheNodeTypeSpecificValue where
 
 -- | Represents the output of a CreateCacheParameterGroup operation.
 data CacheParameterGroup = CacheParameterGroup
-    { _cpgCacheParameterGroupFamily :: Maybe Text
-      -- ^ The name of the cache parameter group family that this cache
-      -- parameter group is compatible with.
+    { _cpgDescription :: Maybe Text
+      -- ^ The description for this cache parameter group.
     , _cpgCacheParameterGroupName :: Maybe Text
       -- ^ The name of the cache parameter group.
-    , _cpgDescription :: Maybe Text
-      -- ^ The description for this cache parameter group.
+    , _cpgCacheParameterGroupFamily :: Maybe Text
+      -- ^ The name of the cache parameter group family that this cache
+      -- parameter group is compatible with.
     } deriving (Show, Generic)
 
 instance FromXML CacheParameterGroup where
@@ -368,14 +368,14 @@ instance FromXML CacheParameterGroup where
 
 -- | The status of the cache parameter group.
 data CacheParameterGroupStatus = CacheParameterGroupStatus
-    { _cpgsCacheNodeIdsToReboot :: [Text]
+    { _cpgsParameterApplyStatus :: Maybe Text
+      -- ^ The status of parameter updates.
+    , _cpgsCacheNodeIdsToReboot :: [Text]
       -- ^ A list of the cache node IDs which need to be rebooted for
       -- parameter changes to be applied. A node ID is a numeric
       -- identifier (0001, 0002, etc.).
     , _cpgsCacheParameterGroupName :: Maybe Text
       -- ^ The name of the cache parameter group.
-    , _cpgsParameterApplyStatus :: Maybe Text
-      -- ^ The status of parameter updates.
     } deriving (Show, Generic)
 
 instance FromXML CacheParameterGroupStatus where
@@ -389,15 +389,15 @@ instance ToQuery CacheParameterGroupStatus where
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
 -- RevokeCacheSecurityGroupIngress.
 data CacheSecurityGroup = CacheSecurityGroup
-    { _csgCacheSecurityGroupName :: Maybe Text
-      -- ^ The name of the cache security group.
-    , _csgDescription :: Maybe Text
+    { _csgDescription :: Maybe Text
       -- ^ The description of the cache security group.
     , _csgEC2SecurityGroups :: [EC2SecurityGroup]
       -- ^ A list of Amazon EC2 security groups that are associated with
       -- this cache security group.
     , _csgOwnerId :: Maybe Text
       -- ^ The AWS account ID of the cache security group owner.
+    , _csgCacheSecurityGroupName :: Maybe Text
+      -- ^ The name of the cache security group.
     } deriving (Show, Generic)
 
 instance FromXML CacheSecurityGroup where
@@ -460,10 +460,10 @@ instance ToQuery EC2SecurityGroup where
 -- | Represents the information required for client programs to connect to a
 -- cache node.
 data Endpoint = Endpoint
-    { _eAddress :: Maybe Text
-      -- ^ The DNS hostname of the cache node.
-    , _ePort :: Maybe Integer
+    { _ePort :: Maybe Integer
       -- ^ The port number that the cache engine is listening on.
+    , _eAddress :: Maybe Text
+      -- ^ The DNS hostname of the cache node.
     } deriving (Show, Generic)
 
 instance FromXML Endpoint where
@@ -475,17 +475,17 @@ instance ToQuery Endpoint where
 
 -- | Represents the output of a DescribeEngineDefaultParameters operation.
 data EngineDefaults = EngineDefaults
-    { _edCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
+    { _edParameters :: [Parameter]
+      -- ^ Contains a list of engine default parameters.
+    , _edMarker :: Maybe Text
+      -- ^ Provides an identifier to allow retrieval of paginated results.
+    , _edCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
       -- ^ A list of parameters specific to a particular cache node type.
       -- Each element in the list contains detailed information about one
       -- parameter.
     , _edCacheParameterGroupFamily :: Maybe Text
       -- ^ Specifies the name of the cache parameter group family to which
       -- the engine default parameters apply.
-    , _edMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
-    , _edParameters :: [Parameter]
-      -- ^ Contains a list of engine default parameters.
     } deriving (Show, Generic)
 
 instance FromXML EngineDefaults where
@@ -496,10 +496,10 @@ instance FromXML EngineDefaults where
 -- Some examples of events are creating a cache cluster, adding or removing a
 -- cache node, or rebooting a node.
 data Event = Event
-    { _euDate :: Maybe ISO8601
-      -- ^ The date and time when the event occurred.
-    , _euMessage :: Maybe Text
+    { _euMessage :: Maybe Text
       -- ^ The text of the event.
+    , _euDate :: Maybe ISO8601
+      -- ^ The date and time when the event occurred.
     , _euSourceIdentifier :: Maybe Text
       -- ^ The identifier for the source of the event. For example, if the
       -- event occurred at the cache cluster level, the identifier would
@@ -538,19 +538,19 @@ instance ToQuery NodeGroup where
 
 -- | Represents a single node within a node group.
 data NodeGroupMember = NodeGroupMember
-    { _ngmCacheClusterId :: Maybe Text
-      -- ^ The ID of the cache cluster to which the node belongs.
-    , _ngmCacheNodeId :: Maybe Text
-      -- ^ The ID of the node within its cache cluster. A node ID is a
-      -- numeric identifier (0001, 0002, etc.).
+    { _ngmReadEndpoint :: Maybe Endpoint
+      -- ^ Represents the information required for client programs to
+      -- connect to a cache node.
     , _ngmCurrentRole :: Maybe Text
       -- ^ The role that is currently assigned to the node - primary or
       -- replica.
     , _ngmPreferredAvailabilityZone :: Maybe Text
       -- ^ The name of the Availability Zone in which the node is located.
-    , _ngmReadEndpoint :: Maybe Endpoint
-      -- ^ Represents the information required for client programs to
-      -- connect to a cache node.
+    , _ngmCacheNodeId :: Maybe Text
+      -- ^ The ID of the node within its cache cluster. A node ID is a
+      -- numeric identifier (0001, 0002, etc.).
+    , _ngmCacheClusterId :: Maybe Text
+      -- ^ The ID of the cache cluster to which the node belongs.
     } deriving (Show, Generic)
 
 instance FromXML NodeGroupMember where
@@ -562,17 +562,17 @@ instance ToQuery NodeGroupMember where
 
 -- | Represents an individual cache node in a snapshot of a cache cluster.
 data NodeSnapshot = NodeSnapshot
-    { _nsCacheNodeCreateTime :: Maybe ISO8601
-      -- ^ The date and time when the cache node was created in the source
-      -- cache cluster.
-    , _nsCacheNodeId :: Maybe Text
-      -- ^ The cache node identifier for the node in the source cache
-      -- cluster.
-    , _nsCacheSize :: Maybe Text
+    { _nsCacheSize :: Maybe Text
       -- ^ The size of the cache on the source cache node.
     , _nsSnapshotCreateTime :: Maybe ISO8601
       -- ^ The date and time when the source node's metadata and cache data
       -- set was obtained for the snapshot.
+    , _nsCacheNodeId :: Maybe Text
+      -- ^ The cache node identifier for the node in the source cache
+      -- cluster.
+    , _nsCacheNodeCreateTime :: Maybe ISO8601
+      -- ^ The date and time when the cache node was created in the source
+      -- cache cluster.
     } deriving (Show, Generic)
 
 instance FromXML NodeSnapshot where
@@ -602,25 +602,25 @@ instance ToQuery NotificationConfiguration where
 -- | Describes an individual setting that controls some aspect of ElastiCache
 -- behavior.
 data Parameter = Parameter
-    { _prAllowedValues :: Maybe Text
+    { _prDescription :: Maybe Text
+      -- ^ A description of the parameter.
+    , _prParameterName :: Maybe Text
+      -- ^ The name of the parameter.
+    , _prAllowedValues :: Maybe Text
       -- ^ The valid range of values for the parameter.
     , _prDataType :: Maybe Text
       -- ^ The valid data type for the parameter.
-    , _prDescription :: Maybe Text
-      -- ^ A description of the parameter.
     , _prIsModifiable :: Maybe Bool
       -- ^ Indicates whether (true) or not (false) the parameter can be
       -- modified. Some parameters have security or operational
       -- implications that prevent them from being changed.
+    , _prSource :: Maybe Text
+      -- ^ The source of the parameter.
     , _prMinimumEngineVersion :: Maybe Text
       -- ^ The earliest cache engine version to which the parameter can
       -- apply.
-    , _prParameterName :: Maybe Text
-      -- ^ The name of the parameter.
     , _prParameterValue :: Maybe Text
       -- ^ The value of the parameter.
-    , _prSource :: Maybe Text
-      -- ^ The source of the parameter.
     } deriving (Show, Generic)
 
 instance FromXML Parameter where
@@ -642,14 +642,14 @@ instance ToQuery ParameterNameValue where
 -- | A group of settings that will be applied to the cache cluster in the
 -- future, or that are currently being applied.
 data PendingModifiedValues = PendingModifiedValues
-    { _pmvCacheNodeIdsToRemove :: [Text]
+    { _pmvNumCacheNodes :: Maybe Integer
+      -- ^ The new number of cache nodes for the cache cluster.
+    , _pmvCacheNodeIdsToRemove :: [Text]
       -- ^ A list of cache node IDs that are being removed (or will be
       -- removed) from the cache cluster. A node ID is a numeric
       -- identifier (0001, 0002, etc.).
     , _pmvEngineVersion :: Maybe Text
       -- ^ The new cache engine version that the cache cluster will run.
-    , _pmvNumCacheNodes :: Maybe Integer
-      -- ^ The new number of cache nodes for the cache cluster.
     } deriving (Show, Generic)
 
 instance FromXML PendingModifiedValues where
@@ -677,22 +677,22 @@ instance ToQuery RecurringCharge where
 
 -- | Contains all of the attributes of a specific replication group.
 data ReplicationGroup = ReplicationGroup
-    { _rgDescription :: Maybe Text
-      -- ^ The description of the replication group.
-    , _rgMemberClusters :: [Text]
-      -- ^ The names of all the cache clusters that are part of this
-      -- replication group.
-    , _rgNodeGroups :: [NodeGroup]
-      -- ^ A single element list with information about the nodes in the
-      -- replication group.
-    , _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues
+    { _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues
       -- ^ A group of settings to be applied to the replication group,
       -- either immediately or during the next maintenance window.
     , _rgReplicationGroupId :: Maybe Text
       -- ^ The identifier for the replication group.
+    , _rgDescription :: Maybe Text
+      -- ^ The description of the replication group.
+    , _rgMemberClusters :: [Text]
+      -- ^ The names of all the cache clusters that are part of this
+      -- replication group.
     , _rgSnapshottingClusterId :: Maybe Text
       -- ^ The cache cluster ID that is used as the daily snapshot source
       -- for the replication group.
+    , _rgNodeGroups :: [NodeGroup]
+      -- ^ A single element list with information about the nodes in the
+      -- replication group.
     , _rgStatus :: Maybe Text
       -- ^ The current state of this replication group - creating,
       -- available, etc.
@@ -704,30 +704,30 @@ instance FromXML ReplicationGroup where
 
 -- | Represents the output of a PurchaseReservedCacheNodesOffering operation.
 data ReservedCacheNode = ReservedCacheNode
-    { _rcnCacheNodeCount :: Maybe Integer
-      -- ^ The number of cache nodes that have been reserved.
-    , _rcnCacheNodeType :: Maybe Text
-      -- ^ The cache node type for the reserved cache nodes.
+    { _rcnReservedCacheNodesOfferingId :: Maybe Text
+      -- ^ The offering identifier.
     , _rcnDuration :: Maybe Integer
       -- ^ The duration of the reservation in seconds.
     , _rcnFixedPrice :: Maybe Double
       -- ^ The fixed price charged for this reserved cache node.
+    , _rcnUsagePrice :: Maybe Double
+      -- ^ The hourly price charged for this reserved cache node.
     , _rcnOfferingType :: Maybe Text
       -- ^ The offering type of this reserved cache node.
-    , _rcnProductDescription :: Maybe Text
-      -- ^ The description of the reserved cache node.
     , _rcnRecurringCharges :: [RecurringCharge]
       -- ^ The recurring price charged to run this reserved cache node.
     , _rcnReservedCacheNodeId :: Maybe Text
       -- ^ The unique identifier for the reservation.
-    , _rcnReservedCacheNodesOfferingId :: Maybe Text
-      -- ^ The offering identifier.
+    , _rcnCacheNodeCount :: Maybe Integer
+      -- ^ The number of cache nodes that have been reserved.
+    , _rcnProductDescription :: Maybe Text
+      -- ^ The description of the reserved cache node.
     , _rcnStartTime :: Maybe ISO8601
       -- ^ The time the reservation started.
     , _rcnState :: Maybe Text
       -- ^ The state of the reserved cache node.
-    , _rcnUsagePrice :: Maybe Double
-      -- ^ The hourly price charged for this reserved cache node.
+    , _rcnCacheNodeType :: Maybe Text
+      -- ^ The cache node type for the reserved cache nodes.
     } deriving (Show, Generic)
 
 instance FromXML ReservedCacheNode where
@@ -736,22 +736,22 @@ instance FromXML ReservedCacheNode where
 
 -- | Describes all of the attributes of a reserved cache node offering.
 data ReservedCacheNodesOffering = ReservedCacheNodesOffering
-    { _rcnoCacheNodeType :: Maybe Text
-      -- ^ The cache node type for the reserved cache node.
+    { _rcnoReservedCacheNodesOfferingId :: Maybe Text
+      -- ^ A unique identifier for the reserved cache node offering.
     , _rcnoDuration :: Maybe Integer
       -- ^ The duration of the offering. in seconds.
     , _rcnoFixedPrice :: Maybe Double
       -- ^ The fixed price charged for this offering.
-    , _rcnoOfferingType :: Maybe Text
-      -- ^ The offering type.
-    , _rcnoProductDescription :: Maybe Text
-      -- ^ The cache engine used by the offering.
-    , _rcnoRecurringCharges :: [RecurringCharge]
-      -- ^ The recurring price charged to run this reserved cache node.
-    , _rcnoReservedCacheNodesOfferingId :: Maybe Text
-      -- ^ A unique identifier for the reserved cache node offering.
     , _rcnoUsagePrice :: Maybe Double
       -- ^ The hourly price charged for this offering.
+    , _rcnoOfferingType :: Maybe Text
+      -- ^ The offering type.
+    , _rcnoRecurringCharges :: [RecurringCharge]
+      -- ^ The recurring price charged to run this reserved cache node.
+    , _rcnoProductDescription :: Maybe Text
+      -- ^ The cache engine used by the offering.
+    , _rcnoCacheNodeType :: Maybe Text
+      -- ^ The cache node type for the reserved cache node.
     } deriving (Show, Generic)
 
 instance FromXML ReservedCacheNodesOffering where
@@ -778,41 +778,14 @@ instance ToQuery SecurityGroupMembership where
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
 data Snapshot = Snapshot
-    { _ssssssssssssssstAutoMinorVersionUpgrade :: Maybe Bool
-      -- ^ For the source cache cluster, indicates whether minor version
-      -- patches are applied automatically (true) or not (false).
-    , _ssssssssssssssstCacheClusterCreateTime :: Maybe ISO8601
-      -- ^ The date and time when the source cache cluster was created.
-    , _ssssssssssssssstCacheClusterId :: Maybe Text
-      -- ^ The user-supplied identifier of the source cache cluster.
-    , _ssssssssssssssstCacheNodeType :: Maybe Text
-      -- ^ The name of the compute and memory capacity node type for the
-      -- source cache cluster.
-    , _ssssssssssssssstCacheParameterGroupName :: Maybe Text
-      -- ^ The cache parameter group that is associated with the source
-      -- cache cluster.
-    , _ssssssssssssssstCacheSubnetGroupName :: Maybe Text
-      -- ^ The name of the cache subnet group associated with the source
-      -- cache cluster.
-    , _ssssssssssssssstEngine :: Maybe Text
-      -- ^ The name of the cache engine (memcached or redis) used by the
-      -- source cache cluster.
-    , _ssssssssssssssstEngineVersion :: Maybe Text
-      -- ^ The version of the cache engine version that is used by the
-      -- source cache cluster.
-    , _ssssssssssssssstNodeSnapshots :: [NodeSnapshot]
-      -- ^ A list of the cache nodes in the source cache cluster.
-    , _ssssssssssssssstNumCacheNodes :: Maybe Integer
-      -- ^ The number of cache nodes in the source cache cluster.
+    { _ssssssssssssssstSnapshotSource :: Maybe Text
+      -- ^ Indicates whether the snapshot is from an automatic backup
+      -- (automated) or was created manually (manual).
     , _ssssssssssssssstPort :: Maybe Integer
       -- ^ The port number used by each cache nodes in the source cache
       -- cluster.
-    , _ssssssssssssssstPreferredAvailabilityZone :: Maybe Text
-      -- ^ The name of the Availability Zone in which the source cache
-      -- cluster is located.
-    , _ssssssssssssssstPreferredMaintenanceWindow :: Maybe Text
-      -- ^ The time range (in UTC) during which weekly system maintenance
-      -- can occur on the source cache cluster.
+    , _ssssssssssssssstNumCacheNodes :: Maybe Integer
+      -- ^ The number of cache nodes in the source cache cluster.
     , _ssssssssssssssstSnapshotName :: Maybe Text
       -- ^ The name of a snapshot. For an automatic snapshot, the name is
       -- system-generated; for a manual snapshot, this is the
@@ -826,21 +799,48 @@ data Snapshot = Snapshot
       -- can only be deleted using the DeleteSnapshot action. ImportantIf
       -- the value of SnapshotRetentionLimit is set to zero (0), backups
       -- are turned off.
-    , _ssssssssssssssstSnapshotSource :: Maybe Text
-      -- ^ Indicates whether the snapshot is from an automatic backup
-      -- (automated) or was created manually (manual).
-    , _ssssssssssssssstSnapshotStatus :: Maybe Text
-      -- ^ The status of the snapshot. Valid values: creating | available |
-      -- restoring | copying | deleting.
-    , _ssssssssssssssstSnapshotWindow :: Maybe Text
-      -- ^ The daily time range during which ElastiCache takes daily
-      -- snapshots of the source cache cluster.
+    , _ssssssssssssssstPreferredAvailabilityZone :: Maybe Text
+      -- ^ The name of the Availability Zone in which the source cache
+      -- cluster is located.
+    , _ssssssssssssssstCacheSubnetGroupName :: Maybe Text
+      -- ^ The name of the cache subnet group associated with the source
+      -- cache cluster.
+    , _ssssssssssssssstNodeSnapshots :: [NodeSnapshot]
+      -- ^ A list of the cache nodes in the source cache cluster.
     , _ssssssssssssssstTopicArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) for the topic used by the source
       -- cache cluster for publishing notifications.
+    , _ssssssssssssssstPreferredMaintenanceWindow :: Maybe Text
+      -- ^ The time range (in UTC) during which weekly system maintenance
+      -- can occur on the source cache cluster.
+    , _ssssssssssssssstEngine :: Maybe Text
+      -- ^ The name of the cache engine (memcached or redis) used by the
+      -- source cache cluster.
+    , _ssssssssssssssstCacheClusterId :: Maybe Text
+      -- ^ The user-supplied identifier of the source cache cluster.
+    , _ssssssssssssssstSnapshotWindow :: Maybe Text
+      -- ^ The daily time range during which ElastiCache takes daily
+      -- snapshots of the source cache cluster.
+    , _ssssssssssssssstSnapshotStatus :: Maybe Text
+      -- ^ The status of the snapshot. Valid values: creating | available |
+      -- restoring | copying | deleting.
     , _ssssssssssssssstVpcId :: Maybe Text
       -- ^ The Amazon Virtual Private Cloud identifier (VPC ID) of the cache
       -- subnet group for the source cache cluster.
+    , _ssssssssssssssstCacheParameterGroupName :: Maybe Text
+      -- ^ The cache parameter group that is associated with the source
+      -- cache cluster.
+    , _ssssssssssssssstAutoMinorVersionUpgrade :: Maybe Bool
+      -- ^ For the source cache cluster, indicates whether minor version
+      -- patches are applied automatically (true) or not (false).
+    , _ssssssssssssssstCacheClusterCreateTime :: Maybe ISO8601
+      -- ^ The date and time when the source cache cluster was created.
+    , _ssssssssssssssstCacheNodeType :: Maybe Text
+      -- ^ The name of the compute and memory capacity node type for the
+      -- source cache cluster.
+    , _ssssssssssssssstEngineVersion :: Maybe Text
+      -- ^ The version of the cache engine version that is used by the
+      -- source cache cluster.
     } deriving (Show, Generic)
 
 instance FromXML Snapshot where

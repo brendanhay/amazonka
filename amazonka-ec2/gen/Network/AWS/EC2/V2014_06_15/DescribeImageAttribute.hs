@@ -62,12 +62,12 @@ instance ToQuery DescribeImageAttribute where
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     { _ibDescription :: Maybe AttributeValue
       -- ^ A description for the AMI.
+    , _ibSriovNetSupport :: Maybe AttributeValue
+      -- ^ 
     , _ibKernelId :: Maybe AttributeValue
       -- ^ The kernel ID.
     , _ibRamdiskId :: Maybe AttributeValue
       -- ^ The RAM disk ID.
-    , _ibSriovNetSupport :: Maybe AttributeValue
-      -- ^ 
     , _ibBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ One or more block device mapping entries.
     , _ibLaunchPermissions :: [LaunchPermission]

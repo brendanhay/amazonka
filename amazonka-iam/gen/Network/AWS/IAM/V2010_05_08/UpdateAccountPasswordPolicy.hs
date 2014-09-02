@@ -37,10 +37,10 @@ updateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
 updateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     { _uapprHardExpiry = Nothing
     , _uapprAllowUsersToChangePassword = Nothing
+    , _uapprRequireUppercaseCharacters = Nothing
+    , _uapprRequireSymbols = Nothing
     , _uapprRequireLowercaseCharacters = Nothing
     , _uapprRequireNumbers = Nothing
-    , _uapprRequireSymbols = Nothing
-    , _uapprRequireUppercaseCharacters = Nothing
     , _uapprMaxPasswordAge = Nothing
     , _uapprMinimumPasswordLength = Nothing
     , _uapprPasswordReusePrevention = Nothing
@@ -55,19 +55,19 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
       -- Console to change their own passwords. For more information, see
       -- Letting IAM Users Change Their Own Passwords in the Using IAM
       -- guide.
+    , _uapprRequireUppercaseCharacters :: Maybe Bool
+      -- ^ Specifies whether IAM user passwords must contain at least one
+      -- uppercase character from the ISO basic Latin alphabet (A to Z).
+    , _uapprRequireSymbols :: Maybe Bool
+      -- ^ Specifies whether IAM user passwords must contain at least one of
+      -- the following non-alphanumeric characters: ! @ # $ % ^ &amp; * (
+      -- ) _ + - = [ ] { } | '.
     , _uapprRequireLowercaseCharacters :: Maybe Bool
       -- ^ Specifies whether IAM user passwords must contain at least one
       -- lowercase character from the ISO basic Latin alphabet (a to z).
     , _uapprRequireNumbers :: Maybe Bool
       -- ^ Specifies whether IAM user passwords must contain at least one
       -- numeric character (0 to 9).
-    , _uapprRequireSymbols :: Maybe Bool
-      -- ^ Specifies whether IAM user passwords must contain at least one of
-      -- the following non-alphanumeric characters: ! @ # $ % ^ &amp; * (
-      -- ) _ + - = [ ] { } | '.
-    , _uapprRequireUppercaseCharacters :: Maybe Bool
-      -- ^ Specifies whether IAM user passwords must contain at least one
-      -- uppercase character from the ISO basic Latin alphabet (A to Z).
     , _uapprMaxPasswordAge :: Maybe Integer
       -- ^ The number of days that an IAM user password is valid.
     , _uapprMinimumPasswordLength :: Maybe Integer

@@ -44,10 +44,10 @@ describeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
     { _dodbiomEngine = p1
     , _dodbiomVpc = Nothing
     , _dodbiomMaxRecords = Nothing
+    , _dodbiomMarker = Nothing
+    , _dodbiomLicenseModel = Nothing
     , _dodbiomDBInstanceClass = Nothing
     , _dodbiomEngineVersion = Nothing
-    , _dodbiomLicenseModel = Nothing
-    , _dodbiomMarker = Nothing
     }
 
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
@@ -62,6 +62,15 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
       -- token called a marker is included in the response so that the
       -- remaining results can be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
+    , _dodbiomMarker :: Maybe Text
+      -- ^ An optional pagination token provided by a previous
+      -- DescribeOrderableDBInstanceOptions request. If this parameter is
+      -- specified, the response includes only records beyond the marker,
+      -- up to the value specified by MaxRecords .
+    , _dodbiomLicenseModel :: Maybe Text
+      -- ^ The license model filter value. Specify this parameter to show
+      -- only the available offerings matching the specified license
+      -- model.
     , _dodbiomDBInstanceClass :: Maybe Text
       -- ^ The DB instance class filter value. Specify this parameter to
       -- show only the available offerings matching the specified DB
@@ -70,15 +79,6 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
       -- ^ The engine version filter value. Specify this parameter to show
       -- only the available offerings matching the specified engine
       -- version.
-    , _dodbiomLicenseModel :: Maybe Text
-      -- ^ The license model filter value. Specify this parameter to show
-      -- only the available offerings matching the specified license
-      -- model.
-    , _dodbiomMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeOrderableDBInstanceOptions request. If this parameter is
-      -- specified, the response includes only records beyond the marker,
-      -- up to the value specified by MaxRecords .
     } deriving (Show, Generic)
 
 makeLenses ''DescribeOrderableDBInstanceOptions

@@ -46,13 +46,13 @@ instance ToXML CreateCloudFrontOriginAccessIdentity where
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
     { _ccfoaisCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
       -- ^ The origin access identity's information.
-    , _ccfoaisETag :: Maybe Text
-      -- ^ The current version of the origin access identity created.
     , _ccfoaisLocation :: Maybe Text
       -- ^ The fully qualified URI of the new origin access identity just
       -- created. For example:
       -- https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
       -- 
+    , _ccfoaisETag :: Maybe Text
+      -- ^ The current version of the origin access identity created.
     } deriving (Show, Generic)
 
 makeLenses ''CreateCloudFrontOriginAccessIdentityResponse
@@ -65,5 +65,5 @@ instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     response _ = cursorResponse $ \hs xml ->
         pure CreateCloudFrontOriginAccessIdentityResponse
             <*> xml %|? "CloudFrontOriginAccessIdentity"
-            <*> hs ~:? "ETag"
             <*> hs ~:? "Location"
+            <*> hs ~:? "ETag"

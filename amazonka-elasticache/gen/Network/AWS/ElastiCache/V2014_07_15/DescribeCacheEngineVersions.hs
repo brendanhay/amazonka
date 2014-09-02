@@ -37,10 +37,10 @@ describeCacheEngineVersions :: DescribeCacheEngineVersions
 describeCacheEngineVersions = DescribeCacheEngineVersions
     { _dcevmDefaultOnly = Nothing
     , _dcevmMaxRecords = Nothing
-    , _dcevmCacheParameterGroupFamily = Nothing
-    , _dcevmEngine = Nothing
-    , _dcevmEngineVersion = Nothing
     , _dcevmMarker = Nothing
+    , _dcevmEngine = Nothing
+    , _dcevmCacheParameterGroupFamily = Nothing
+    , _dcevmEngineVersion = Nothing
     }
 
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions
@@ -52,20 +52,20 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dcevmCacheParameterGroupFamily :: Maybe Text
-      -- ^ The name of a specific cache parameter group family to return
-      -- details for. Constraints: Must be 1 to 255 alphanumeric
-      -- characters First character must be a letter Cannot end with a
-      -- hyphen or contain two consecutive hyphens.
-    , _dcevmEngine :: Maybe Text
-      -- ^ The cache engine to return. Valid values: memcached | redis.
-    , _dcevmEngineVersion :: Maybe Text
-      -- ^ The cache engine version to return. Example: 1.4.14.
     , _dcevmMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
+    , _dcevmEngine :: Maybe Text
+      -- ^ The cache engine to return. Valid values: memcached | redis.
+    , _dcevmCacheParameterGroupFamily :: Maybe Text
+      -- ^ The name of a specific cache parameter group family to return
+      -- details for. Constraints: Must be 1 to 255 alphanumeric
+      -- characters First character must be a letter Cannot end with a
+      -- hyphen or contain two consecutive hyphens.
+    , _dcevmEngineVersion :: Maybe Text
+      -- ^ The cache engine version to return. Example: 1.4.14.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeCacheEngineVersions

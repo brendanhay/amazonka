@@ -35,8 +35,8 @@ describeAlarmHistory = DescribeAlarmHistory
     , _dahiHistoryItemType = Nothing
     , _dahiMaxRecords = Nothing
     , _dahiNextToken = Nothing
-    , _dahiEndDate = Nothing
     , _dahiStartDate = Nothing
+    , _dahiEndDate = Nothing
     }
 
 data DescribeAlarmHistory = DescribeAlarmHistory
@@ -49,10 +49,10 @@ data DescribeAlarmHistory = DescribeAlarmHistory
     , _dahiNextToken :: Maybe Text
       -- ^ The token returned by a previous call to indicate that there is
       -- more data available.
-    , _dahiEndDate :: Maybe ISO8601
-      -- ^ The ending date to retrieve alarm history.
     , _dahiStartDate :: Maybe ISO8601
       -- ^ The starting date to retrieve alarm history.
+    , _dahiEndDate :: Maybe ISO8601
+      -- ^ The ending date to retrieve alarm history.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeAlarmHistory

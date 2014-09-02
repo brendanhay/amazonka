@@ -91,18 +91,18 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RunInstances' request.
-runInstances :: Integer -- ^ '_rirMaxCount'
-             -> Integer -- ^ '_rirMinCount'
+runInstances :: Integer -- ^ '_rirMinCount'
+             -> Integer -- ^ '_rirMaxCount'
              -> Text -- ^ '_rirImageId'
              -> RunInstances
 runInstances p1 p2 p3 = RunInstances
-    { _rirMaxCount = p1
-    , _rirMinCount = p2
+    { _rirMinCount = p1
+    , _rirMaxCount = p2
     , _rirImageId = p3
     , _rirBlockDeviceMappings = mempty
-    , _rirDisableApiTermination = Nothing
     , _rirDryRun = Nothing
     , _rirEbsOptimized = Nothing
+    , _rirDisableApiTermination = Nothing
     , _rirIamInstanceProfile = Nothing
     , _rirNetworkInterfaces = mempty
     , _rirInstanceType = Nothing
@@ -111,18 +111,26 @@ runInstances p1 p2 p3 = RunInstances
     , _rirSecurityGroupIds = mempty
     , _rirSecurityGroups = mempty
     , _rirInstanceInitiatedShutdownBehavior = Nothing
-    , _rirAdditionalInfo = Nothing
-    , _rirClientToken = Nothing
-    , _rirKernelId = Nothing
-    , _rirKeyName = Nothing
     , _rirPrivateIpAddress = Nothing
-    , _rirRamdiskId = Nothing
-    , _rirSubnetId = Nothing
     , _rirUserData = Nothing
+    , _rirKernelId = Nothing
+    , _rirSubnetId = Nothing
+    , _rirRamdiskId = Nothing
+    , _rirKeyName = Nothing
+    , _rirClientToken = Nothing
+    , _rirAdditionalInfo = Nothing
     }
 
 data RunInstances = RunInstances
-    { _rirMaxCount :: Integer
+    { _rirMinCount :: Integer
+      -- ^ The minimum number of instances to launch. If you specify a
+      -- minimum that is more instances than Amazon EC2 can launch in the
+      -- target Availability Zone, Amazon EC2 launches no instances.
+      -- Constraints: Between 1 and the maximum number you're allowed for
+      -- the specified instance type. For more information about the
+      -- default limits, and how to request an increase, see How many
+      -- instances can I run in Amazon EC2 in the Amazon EC2 General FAQ.
+    , _rirMaxCount :: Integer
       -- ^ The maximum number of instances to launch. If you specify more
       -- instances than Amazon EC2 can launch in the target Availability
       -- Zone, Amazon EC2 launches the largest possible number of
@@ -131,18 +139,19 @@ data RunInstances = RunInstances
       -- information about the default limits, and how to request an
       -- increase, see How many instances can I run in Amazon EC2 in the
       -- Amazon EC2 General FAQ.
-    , _rirMinCount :: Integer
-      -- ^ The minimum number of instances to launch. If you specify a
-      -- minimum that is more instances than Amazon EC2 can launch in the
-      -- target Availability Zone, Amazon EC2 launches no instances.
-      -- Constraints: Between 1 and the maximum number you're allowed for
-      -- the specified instance type. For more information about the
-      -- default limits, and how to request an increase, see How many
-      -- instances can I run in Amazon EC2 in the Amazon EC2 General FAQ.
     , _rirImageId :: Text
       -- ^ The ID of the AMI, which you can get by calling DescribeImages.
     , _rirBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ The block device mapping.
+    , _rirDryRun :: Maybe Bool
+      -- ^ 
+    , _rirEbsOptimized :: Maybe Bool
+      -- ^ Indicates whether the instance is optimized for EBS I/O. This
+      -- optimization provides dedicated throughput to Amazon EBS and an
+      -- optimized configuration stack to provide optimal Amazon EBS I/O
+      -- performance. This optimization isn't available with all instance
+      -- types. Additional usage charges apply when using an EBS-optimized
+      -- instance. Default: false.
     , _rirDisableApiTermination :: Maybe Bool
       -- ^ If you set this parameter to true, you can't terminate the
       -- instance using the Amazon EC2 console, CLI, or API; otherwise,
@@ -153,15 +162,6 @@ data RunInstances = RunInstances
       -- InstanceInitiatedShutdownBehavior to terminate, you can terminate
       -- the instance by running the shutdown command from the instance.
       -- Default: false.
-    , _rirDryRun :: Maybe Bool
-      -- ^ 
-    , _rirEbsOptimized :: Maybe Bool
-      -- ^ Indicates whether the instance is optimized for EBS I/O. This
-      -- optimization provides dedicated throughput to Amazon EBS and an
-      -- optimized configuration stack to provide optimal Amazon EBS I/O
-      -- performance. This optimization isn't available with all instance
-      -- types. Additional usage charges apply when using an EBS-optimized
-      -- instance. Default: false.
     , _rirIamInstanceProfile :: Maybe IamInstanceProfileSpecification
       -- ^ The IAM instance profile.
     , _rirNetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
@@ -185,22 +185,6 @@ data RunInstances = RunInstances
       -- ^ Indicates whether an instance stops or terminates when you
       -- initiate shutdown from the instance (using the operating system
       -- command for system shutdown). Default: stop.
-    , _rirAdditionalInfo :: Maybe Text
-      -- ^ Reserved.
-    , _rirClientToken :: Maybe Text
-      -- ^ Unique, case-sensitive identifier you provide to ensure the
-      -- idempotency of the request. For more information, see How to
-      -- Ensure Idempotency in the Amazon Elastic Compute Cloud User
-      -- Guide. Constraints: Maximum 64 ASCII characters.
-    , _rirKernelId :: Maybe Text
-      -- ^ The ID of the kernel. We recommend that you use PV-GRUB instead
-      -- of kernels and RAM disks. For more information, see PV-GRUB: A
-      -- New Amazon Kernel Image in the Amazon Elastic Compute Cloud User
-      -- Guide.
-    , _rirKeyName :: Maybe Text
-      -- ^ The name of the key pair. You can create a key pair using
-      -- CreateKeyPair or ImportKeyPair. If you launch an instance without
-      -- specifying a key pair, you can't connect to the instance.
     , _rirPrivateIpAddress :: Maybe Text
       -- ^ [EC2-VPC] The primary IP address. You must specify a value from
       -- the IP address range of the subnet. Only one private IP address
@@ -209,14 +193,30 @@ data RunInstances = RunInstances
       -- PrivateIpAddresses.n.PrivateIpAddress is set to an IP address.
       -- Default: We select an IP address from the IP address range of the
       -- subnet.
-    , _rirRamdiskId :: Maybe Text
-      -- ^ The ID of the RAM disk.
-    , _rirSubnetId :: Maybe Text
-      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
     , _rirUserData :: Maybe ByteString
       -- ^ The user data for the instances. You can specify the user data as
       -- a string, or if the user data contents are in a file, you can use
       -- file://filename.
+    , _rirKernelId :: Maybe Text
+      -- ^ The ID of the kernel. We recommend that you use PV-GRUB instead
+      -- of kernels and RAM disks. For more information, see PV-GRUB: A
+      -- New Amazon Kernel Image in the Amazon Elastic Compute Cloud User
+      -- Guide.
+    , _rirSubnetId :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
+    , _rirRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk.
+    , _rirKeyName :: Maybe Text
+      -- ^ The name of the key pair. You can create a key pair using
+      -- CreateKeyPair or ImportKeyPair. If you launch an instance without
+      -- specifying a key pair, you can't connect to the instance.
+    , _rirClientToken :: Maybe Text
+      -- ^ Unique, case-sensitive identifier you provide to ensure the
+      -- idempotency of the request. For more information, see How to
+      -- Ensure Idempotency in the Amazon Elastic Compute Cloud User
+      -- Guide. Constraints: Maximum 64 ASCII characters.
+    , _rirAdditionalInfo :: Maybe Text
+      -- ^ Reserved.
     } deriving (Show, Generic)
 
 makeLenses ''RunInstances
@@ -229,13 +229,13 @@ data RunInstancesResponse = RunInstancesResponse
       -- ^ One or more security groups.
     , _rnInstances :: [Instance]
       -- ^ One or more instances.
-    , _rnOwnerId :: Maybe Text
-      -- ^ The ID of the AWS account that owns the reservation.
     , _rnRequesterId :: Maybe Text
       -- ^ The ID of the requester that launched the instances on your
       -- behalf (for example, AWS Management Console or Auto Scaling).
     , _rnReservationId :: Maybe Text
       -- ^ The ID of the reservation.
+    , _rnOwnerId :: Maybe Text
+      -- ^ The ID of the AWS account that owns the reservation.
     } deriving (Show, Generic)
 
 makeLenses ''RunInstancesResponse

@@ -86,12 +86,12 @@ data DetachVolumeResponse = DetachVolumeResponse
       -- termination.
     , _vbAttachTime :: Maybe ISO8601
       -- ^ The time stamp when the attachment initiated.
+    , _vbVolumeId :: Maybe Text
+      -- ^ The ID of the volume.
     , _vbDevice :: Maybe Text
       -- ^ The device name.
     , _vbInstanceId :: Maybe Text
       -- ^ The ID of the instance.
-    , _vbVolumeId :: Maybe Text
-      -- ^ The ID of the volume.
     , _vbState :: Maybe VolumeAttachmentState
       -- ^ The attachment state of the volume.
     } deriving (Show, Generic)

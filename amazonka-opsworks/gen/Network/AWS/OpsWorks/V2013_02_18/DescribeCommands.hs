@@ -33,20 +33,20 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeCommands' request.
 describeCommands :: DescribeCommands
 describeCommands = DescribeCommands
-    { _dcrDeploymentId = Nothing
-    , _dcrInstanceId = Nothing
+    { _dcrInstanceId = Nothing
+    , _dcrDeploymentId = Nothing
     , _dcrCommandIds = mempty
     }
 
 data DescribeCommands = DescribeCommands
-    { _dcrDeploymentId :: Maybe Text
-      -- ^ The deployment ID. If you include this parameter,
-      -- DescribeCommands returns a description of the commands associated
-      -- with the specified deployment.
-    , _dcrInstanceId :: Maybe Text
+    { _dcrInstanceId :: Maybe Text
       -- ^ The instance ID. If you include this parameter, DescribeCommands
       -- returns a description of the commands associated with the
       -- specified instance.
+    , _dcrDeploymentId :: Maybe Text
+      -- ^ The deployment ID. If you include this parameter,
+      -- DescribeCommands returns a description of the commands associated
+      -- with the specified deployment.
     , _dcrCommandIds :: [Text]
       -- ^ An array of command IDs. If you include this parameter,
       -- DescribeCommands returns a description of the specified commands.

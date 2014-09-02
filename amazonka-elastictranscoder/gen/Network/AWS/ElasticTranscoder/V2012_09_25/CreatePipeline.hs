@@ -71,8 +71,8 @@ createPipeline p1 p2 p3 = CreatePipeline
     , _cptRole = p3
     , _cptOutputBucket = Nothing
     , _cptNotifications = Nothing
-    , _cptContentConfig = Nothing
     , _cptThumbnailConfig = Nothing
+    , _cptContentConfig = Nothing
     }
 
 data CreatePipeline = CreatePipeline
@@ -126,6 +126,49 @@ data CreatePipeline = CreatePipeline
       -- notify when Elastic Transcoder encounters an error condition
       -- while processing a job in this pipeline. This is the ARN that
       -- Amazon SNS returned when you created the topic.
+    , _cptThumbnailConfig :: Maybe PipelineOutputConfig
+      -- ^ The ThumbnailConfig object specifies several values, including
+      -- the Amazon S3 bucket in which you want Elastic Transcoder to save
+      -- thumbnail files, which users you want to have access to the
+      -- files, the type of access you want users to have, and the storage
+      -- class that you want to assign to the files. If you specify values
+      -- for ContentConfig, you must also specify values for
+      -- ThumbnailConfig even if you don't want to create thumbnails. If
+      -- you specify values for ContentConfig and ThumbnailConfig, omit
+      -- the OutputBucket object. Bucket: The Amazon S3 bucket in which
+      -- you want Elastic Transcoder to save thumbnail files. Permissions
+      -- (Optional): The Permissions object specifies which users and/or
+      -- predefined Amazon S3 groups you want to have access to thumbnail
+      -- files, and the type of access you want them to have. You can
+      -- grant permissions to a maximum of 30 users and/or predefined
+      -- Amazon S3 groups. GranteeType: Specify the type of value that
+      -- appears in the Grantee object: Canonical: The value in the
+      -- Grantee object is either the canonical user ID for an AWS account
+      -- or an origin access identity for an Amazon CloudFront
+      -- distribution. A canonical user ID is not the same as an AWS
+      -- account number. Email: The value in the Grantee object is the
+      -- registered email address of an AWS account. Group: The value in
+      -- the Grantee object is one of the following predefined Amazon S3
+      -- groups: AllUsers, AuthenticatedUsers, or LogDelivery. Grantee:
+      -- The AWS user or group that you want to have access to thumbnail
+      -- files. To identify the user or group, you can specify the
+      -- canonical user ID for an AWS account, an origin access identity
+      -- for a CloudFront distribution, the registered email address of an
+      -- AWS account, or a predefined Amazon S3 group. Access: The
+      -- permission that you want to give to the AWS user that you
+      -- specified in Grantee. Permissions are granted on the thumbnail
+      -- files that Elastic Transcoder adds to the bucket. Valid values
+      -- include: READ: The grantee can read the thumbnails and metadata
+      -- for objects that Elastic Transcoder adds to the Amazon S3 bucket.
+      -- READ_ACP: The grantee can read the object ACL for thumbnails that
+      -- Elastic Transcoder adds to the Amazon S3 bucket. WRITE_ACP: The
+      -- grantee can write the ACL for the thumbnails that Elastic
+      -- Transcoder adds to the Amazon S3 bucket. FULL_CONTROL: The
+      -- grantee has READ, READ_ACP, and WRITE_ACP permissions for the
+      -- thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
+      -- StorageClass: The Amazon S3 storage class, Standard or
+      -- ReducedRedundancy, that you want Elastic Transcoder to assign to
+      -- the thumbnails that it stores in your Amazon S3 bucket.
     , _cptContentConfig :: Maybe PipelineOutputConfig
       -- ^ The optional ContentConfig object specifies information about the
       -- Amazon S3 bucket in which you want Elastic Transcoder to save
@@ -175,49 +218,6 @@ data CreatePipeline = CreatePipeline
       -- Standard or ReducedRedundancy, that you want Elastic Transcoder
       -- to assign to the video files and playlists that it stores in your
       -- Amazon S3 bucket.
-    , _cptThumbnailConfig :: Maybe PipelineOutputConfig
-      -- ^ The ThumbnailConfig object specifies several values, including
-      -- the Amazon S3 bucket in which you want Elastic Transcoder to save
-      -- thumbnail files, which users you want to have access to the
-      -- files, the type of access you want users to have, and the storage
-      -- class that you want to assign to the files. If you specify values
-      -- for ContentConfig, you must also specify values for
-      -- ThumbnailConfig even if you don't want to create thumbnails. If
-      -- you specify values for ContentConfig and ThumbnailConfig, omit
-      -- the OutputBucket object. Bucket: The Amazon S3 bucket in which
-      -- you want Elastic Transcoder to save thumbnail files. Permissions
-      -- (Optional): The Permissions object specifies which users and/or
-      -- predefined Amazon S3 groups you want to have access to thumbnail
-      -- files, and the type of access you want them to have. You can
-      -- grant permissions to a maximum of 30 users and/or predefined
-      -- Amazon S3 groups. GranteeType: Specify the type of value that
-      -- appears in the Grantee object: Canonical: The value in the
-      -- Grantee object is either the canonical user ID for an AWS account
-      -- or an origin access identity for an Amazon CloudFront
-      -- distribution. A canonical user ID is not the same as an AWS
-      -- account number. Email: The value in the Grantee object is the
-      -- registered email address of an AWS account. Group: The value in
-      -- the Grantee object is one of the following predefined Amazon S3
-      -- groups: AllUsers, AuthenticatedUsers, or LogDelivery. Grantee:
-      -- The AWS user or group that you want to have access to thumbnail
-      -- files. To identify the user or group, you can specify the
-      -- canonical user ID for an AWS account, an origin access identity
-      -- for a CloudFront distribution, the registered email address of an
-      -- AWS account, or a predefined Amazon S3 group. Access: The
-      -- permission that you want to give to the AWS user that you
-      -- specified in Grantee. Permissions are granted on the thumbnail
-      -- files that Elastic Transcoder adds to the bucket. Valid values
-      -- include: READ: The grantee can read the thumbnails and metadata
-      -- for objects that Elastic Transcoder adds to the Amazon S3 bucket.
-      -- READ_ACP: The grantee can read the object ACL for thumbnails that
-      -- Elastic Transcoder adds to the Amazon S3 bucket. WRITE_ACP: The
-      -- grantee can write the ACL for the thumbnails that Elastic
-      -- Transcoder adds to the Amazon S3 bucket. FULL_CONTROL: The
-      -- grantee has READ, READ_ACP, and WRITE_ACP permissions for the
-      -- thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
-      -- StorageClass: The Amazon S3 storage class, Standard or
-      -- ReducedRedundancy, that you want Elastic Transcoder to assign to
-      -- the thumbnails that it stores in your Amazon S3 bucket.
     } deriving (Show, Generic)
 
 makeLenses ''CreatePipeline

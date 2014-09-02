@@ -37,8 +37,8 @@ updateTrail p1 = UpdateTrail
     { _utrName = p1
     , _utrIncludeGlobalServiceEvents = Nothing
     , _utrS3BucketName = Nothing
-    , _utrS3KeyPrefix = Nothing
     , _utrSnsTopicName = Nothing
+    , _utrS3KeyPrefix = Nothing
     }
 
 data UpdateTrail = UpdateTrail
@@ -50,12 +50,12 @@ data UpdateTrail = UpdateTrail
     , _utrS3BucketName :: Maybe Text
       -- ^ Specifies the name of the Amazon S3 bucket designated for
       -- publishing log files.
-    , _utrS3KeyPrefix :: Maybe Text
-      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
-      -- bucket you have designated for log file delivery.
     , _utrSnsTopicName :: Maybe Text
       -- ^ Specifies the name of the Amazon SNS topic defined for
       -- notification of log file delivery.
+    , _utrS3KeyPrefix :: Maybe Text
+      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
+      -- bucket you have designated for log file delivery.
     } deriving (Show, Generic)
 
 makeLenses ''UpdateTrail
@@ -72,17 +72,17 @@ data UpdateTrailResponse = UpdateTrailResponse
     { _utsIncludeGlobalServiceEvents :: Maybe Bool
       -- ^ Specifies whether the trail is publishing events from global
       -- services such as IAM to the log files.
-    , _utsName :: Maybe Text
-      -- ^ Specifies the name of the trail.
     , _utsS3BucketName :: Maybe Text
       -- ^ Specifies the name of the Amazon S3 bucket designated for
       -- publishing log files.
-    , _utsS3KeyPrefix :: Maybe Text
-      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
-      -- bucket you have designated for log file delivery.
+    , _utsName :: Maybe Text
+      -- ^ Specifies the name of the trail.
     , _utsSnsTopicName :: Maybe Text
       -- ^ Specifies the name of the Amazon SNS topic defined for
       -- notification of log file delivery.
+    , _utsS3KeyPrefix :: Maybe Text
+      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
+      -- bucket you have designated for log file delivery.
     } deriving (Show, Generic)
 
 makeLenses ''UpdateTrailResponse

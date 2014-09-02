@@ -31,13 +31,13 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateInstance' request.
-createInstance :: Text -- ^ '_cirInstanceType'
-               -> Text -- ^ '_cirStackId'
+createInstance :: Text -- ^ '_cirStackId'
+               -> Text -- ^ '_cirInstanceType'
                -> [Text] -- ^ '_cirLayerIds'
                -> CreateInstance
 createInstance p1 p2 p3 = CreateInstance
-    { _cirInstanceType = p1
-    , _cirStackId = p2
+    { _cirStackId = p1
+    , _cirInstanceType = p2
     , _cirLayerIds = p3
     , _cirArchitecture = Nothing
     , _cirAutoScalingType = Nothing
@@ -46,22 +46,22 @@ createInstance p1 p2 p3 = CreateInstance
     , _cirRootDeviceType = Nothing
     , _cirAmiId = Nothing
     , _cirAvailabilityZone = Nothing
-    , _cirHostname = Nothing
     , _cirOs = Nothing
-    , _cirSshKeyName = Nothing
     , _cirSubnetId = Nothing
+    , _cirSshKeyName = Nothing
+    , _cirHostname = Nothing
     , _cirVirtualizationType = Nothing
     }
 
 data CreateInstance = CreateInstance
-    { _cirInstanceType :: Text
+    { _cirStackId :: Text
+      -- ^ The stack ID.
+    , _cirInstanceType :: Text
       -- ^ The instance type. AWS OpsWorks supports all instance types
       -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
       -- more information, see Instance Families and Types. The parameter
       -- values that you use to specify the various types are in the API
       -- Name column of the Available Instance Types table.
-    , _cirStackId :: Text
-      -- ^ The stack ID.
     , _cirLayerIds :: [Text]
       -- ^ An array that contains the instance layer IDs.
     , _cirArchitecture :: Maybe Architecture
@@ -100,8 +100,6 @@ data CreateInstance = CreateInstance
     , _cirAvailabilityZone :: Maybe Text
       -- ^ The instance Availability Zone. For more information, see Regions
       -- and Endpoints.
-    , _cirHostname :: Maybe Text
-      -- ^ The instance host name.
     , _cirOs :: Maybe Text
       -- ^ The instance operating system, which must be set to one of the
       -- following. Standard operating systems: Amazon Linux or Ubuntu
@@ -111,13 +109,15 @@ data CreateInstance = CreateInstance
       -- that you want to use. For more information on the standard
       -- operating systems, see Operating SystemsFor more information on
       -- how to use custom AMIs with OpsWorks, see Using Custom AMIs.
-    , _cirSshKeyName :: Maybe Text
-      -- ^ The instance SSH key name.
     , _cirSubnetId :: Maybe Text
       -- ^ The ID of the instance's subnet. If the stack is running in a
       -- VPC, you can use this parameter to override the stack's default
       -- subnet ID value and direct AWS OpsWorks to launch the instance in
       -- a different subnet.
+    , _cirSshKeyName :: Maybe Text
+      -- ^ The instance SSH key name.
+    , _cirHostname :: Maybe Text
+      -- ^ The instance host name.
     , _cirVirtualizationType :: Maybe Text
       -- ^ The instance's virtualization type, paravirtual or hvm.
     } deriving (Show, Generic)

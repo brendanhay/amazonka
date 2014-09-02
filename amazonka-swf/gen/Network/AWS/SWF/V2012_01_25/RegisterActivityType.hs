@@ -70,10 +70,10 @@ registerActivityType p1 p2 p3 = RegisterActivityType
     , _ratiName = p2
     , _ratiVersion = p3
     , _ratiDescription = Nothing
-    , _ratiDefaultTaskHeartbeatTimeout = Nothing
-    , _ratiDefaultTaskScheduleToCloseTimeout = Nothing
-    , _ratiDefaultTaskScheduleToStartTimeout = Nothing
     , _ratiDefaultTaskStartToCloseTimeout = Nothing
+    , _ratiDefaultTaskScheduleToCloseTimeout = Nothing
+    , _ratiDefaultTaskHeartbeatTimeout = Nothing
+    , _ratiDefaultTaskScheduleToStartTimeout = Nothing
     , _ratiDefaultTaskList = Nothing
     }
 
@@ -97,6 +97,21 @@ data RegisterActivityType = RegisterActivityType
       -- &quot;arn&quot;.
     , _ratiDescription :: Maybe Text
       -- ^ A textual description of the activity type.
+    , _ratiDefaultTaskStartToCloseTimeout :: Maybe Text
+      -- ^ If set, specifies the default maximum duration that a worker can
+      -- take to process tasks of this activity type. This default can be
+      -- overridden when scheduling an activity task using the
+      -- ScheduleActivityTask Decision. The valid values are integers
+      -- greater than or equal to 0. An integer value can be used to
+      -- specify the duration in seconds while NONE can be used to specify
+      -- unlimited duration.
+    , _ratiDefaultTaskScheduleToCloseTimeout :: Maybe Text
+      -- ^ If set, specifies the default maximum duration for a task of this
+      -- activity type. This default can be overridden when scheduling an
+      -- activity task using the ScheduleActivityTask Decision. The valid
+      -- values are integers greater than or equal to 0. An integer value
+      -- can be used to specify the duration in seconds while NONE can be
+      -- used to specify unlimited duration.
     , _ratiDefaultTaskHeartbeatTimeout :: Maybe Text
       -- ^ If set, specifies the default maximum time before which a worker
       -- processing a task of this type must report progress by calling
@@ -111,13 +126,6 @@ data RegisterActivityType = RegisterActivityType
       -- valid values are integers greater than or equal to 0. An integer
       -- value can be used to specify the duration in seconds while NONE
       -- can be used to specify unlimited duration.
-    , _ratiDefaultTaskScheduleToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration for a task of this
-      -- activity type. This default can be overridden when scheduling an
-      -- activity task using the ScheduleActivityTask Decision. The valid
-      -- values are integers greater than or equal to 0. An integer value
-      -- can be used to specify the duration in seconds while NONE can be
-      -- used to specify unlimited duration.
     , _ratiDefaultTaskScheduleToStartTimeout :: Maybe Text
       -- ^ If set, specifies the default maximum duration that a task of
       -- this activity type can wait before being assigned to a worker.
@@ -126,14 +134,6 @@ data RegisterActivityType = RegisterActivityType
       -- integers greater than or equal to 0. An integer value can be used
       -- to specify the duration in seconds while NONE can be used to
       -- specify unlimited duration.
-    , _ratiDefaultTaskStartToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration that a worker can
-      -- take to process tasks of this activity type. This default can be
-      -- overridden when scheduling an activity task using the
-      -- ScheduleActivityTask Decision. The valid values are integers
-      -- greater than or equal to 0. An integer value can be used to
-      -- specify the duration in seconds while NONE can be used to specify
-      -- unlimited duration.
     , _ratiDefaultTaskList :: Maybe TaskList
       -- ^ If set, specifies the default task list to use for scheduling
       -- tasks of this activity type. This default task list is used if a

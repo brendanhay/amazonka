@@ -50,8 +50,8 @@ createLaunchConfiguration p1 = CreateLaunchConfiguration
     , _clctImageId = Nothing
     , _clctInstanceType = Nothing
     , _clctKernelId = Nothing
-    , _clctKeyName = Nothing
     , _clctRamdiskId = Nothing
+    , _clctKeyName = Nothing
     , _clctPlacementTenancy = Nothing
     , _clctUserData = Nothing
     }
@@ -147,12 +147,12 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
       -- Types in the Amazon Elastic Cloud Compute User Guide.
     , _clctKernelId :: Maybe Text
       -- ^ The ID of the kernel associated with the Amazon EC2 AMI.
+    , _clctRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk associated with the Amazon EC2 AMI.
     , _clctKeyName :: Maybe Text
       -- ^ The name of the Amazon EC2 key pair. For more information, see
       -- Getting a Key Pair in the Amazon Elastic Compute Cloud User
       -- Guide.
-    , _clctRamdiskId :: Maybe Text
-      -- ^ The ID of the RAM disk associated with the Amazon EC2 AMI.
     , _clctPlacementTenancy :: Maybe Text
       -- ^ The tenancy of the instance. An instance with a tenancy of
       -- dedicated runs on single-tenant hardware and can only be launched

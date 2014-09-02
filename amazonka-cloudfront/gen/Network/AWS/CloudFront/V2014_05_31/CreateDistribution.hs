@@ -46,13 +46,13 @@ instance ToXML CreateDistribution where
 data CreateDistributionResponse = CreateDistributionResponse
     { _cdsDistribution :: Maybe Distribution
       -- ^ The distribution's information.
-    , _cdsETag :: Maybe Text
-      -- ^ The current version of the distribution created.
     , _cdsLocation :: Maybe Text
       -- ^ The fully qualified URI of the new distribution resource just
       -- created. For example:
       -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
       -- 
+    , _cdsETag :: Maybe Text
+      -- ^ The current version of the distribution created.
     } deriving (Show, Generic)
 
 makeLenses ''CreateDistributionResponse
@@ -65,5 +65,5 @@ instance AWSRequest CreateDistribution where
     response _ = cursorResponse $ \hs xml ->
         pure CreateDistributionResponse
             <*> xml %|? "Distribution"
-            <*> hs ~:? "ETag"
             <*> hs ~:? "Location"
+            <*> hs ~:? "ETag"

@@ -40,8 +40,8 @@ createDeployment :: DeploymentCommand -- ^ '_cdrCommand'
 createDeployment p1 p2 = CreateDeployment
     { _cdrCommand = p1
     , _cdrStackId = p2
-    , _cdrAppId = Nothing
     , _cdrComment = Nothing
+    , _cdrAppId = Nothing
     , _cdrCustomJson = Nothing
     , _cdrInstanceIds = mempty
     }
@@ -52,11 +52,11 @@ data CreateDeployment = CreateDeployment
       -- and any associated arguments.
     , _cdrStackId :: Text
       -- ^ The stack ID.
+    , _cdrComment :: Maybe Text
+      -- ^ A user-defined comment.
     , _cdrAppId :: Maybe Text
       -- ^ The app ID. This parameter is required for app deployments, but
       -- not for other deployment commands.
-    , _cdrComment :: Maybe Text
-      -- ^ A user-defined comment.
     , _cdrCustomJson :: Maybe Text
       -- ^ A string that contains user-defined, custom JSON. It is used to
       -- override the corresponding default stack configuration JSON

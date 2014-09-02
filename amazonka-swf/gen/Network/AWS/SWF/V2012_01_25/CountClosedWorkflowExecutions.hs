@@ -63,8 +63,8 @@ countClosedWorkflowExecutions :: Text -- ^ '_ccweiDomain'
 countClosedWorkflowExecutions p1 = CountClosedWorkflowExecutions
     { _ccweiDomain = p1
     , _ccweiCloseStatusFilter = Nothing
-    , _ccweiCloseTimeFilter = Nothing
     , _ccweiStartTimeFilter = Nothing
+    , _ccweiCloseTimeFilter = Nothing
     , _ccweiTagFilter = Nothing
     , _ccweiExecutionFilter = Nothing
     , _ccweiTypeFilter = Nothing
@@ -80,13 +80,13 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
       -- executionStatus is specified as CLOSED. closeStatusFilter,
       -- executionFilter, typeFilter and tagFilter are mutually exclusive.
       -- You can specify at most one of these in a request.
-    , _ccweiCloseTimeFilter :: Maybe ExecutionTimeFilter
-      -- ^ If specified, only workflow executions that meet the close time
+    , _ccweiStartTimeFilter :: Maybe ExecutionTimeFilter
+      -- ^ If specified, only workflow executions that meet the start time
       -- criteria of the filter are counted. startTimeFilter and
       -- closeTimeFilter are mutually exclusive. You must specify one of
       -- these in a request but not both.
-    , _ccweiStartTimeFilter :: Maybe ExecutionTimeFilter
-      -- ^ If specified, only workflow executions that meet the start time
+    , _ccweiCloseTimeFilter :: Maybe ExecutionTimeFilter
+      -- ^ If specified, only workflow executions that meet the close time
       -- criteria of the filter are counted. startTimeFilter and
       -- closeTimeFilter are mutually exclusive. You must specify one of
       -- these in a request but not both.

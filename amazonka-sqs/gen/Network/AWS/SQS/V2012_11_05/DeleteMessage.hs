@@ -53,10 +53,10 @@ import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
 data DeleteMessage = DeleteMessage
-    { _dmrQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
-    , _dmrReceiptHandle :: Text
+    { _dmrReceiptHandle :: Text
       -- ^ The receipt handle associated with the message to delete.
+    , _dmrQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
 makeLenses ''DeleteMessage

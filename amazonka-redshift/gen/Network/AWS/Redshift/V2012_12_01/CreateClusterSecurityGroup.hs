@@ -36,14 +36,14 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
-    { _ccsgnClusterSecurityGroupName :: Text
+    { _ccsgnDescription :: Text
+      -- ^ A description for the security group.
+    , _ccsgnClusterSecurityGroupName :: Text
       -- ^ The name for the security group. Amazon Redshift stores the value
       -- as a lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters or hyphens. Must not be "Default". Must
       -- be unique for all security groups that are created by your AWS
       -- account. Example: examplesecuritygroup.
-    , _ccsgnDescription :: Text
-      -- ^ A description for the security group.
     } deriving (Show, Generic)
 
 makeLenses ''CreateClusterSecurityGroup

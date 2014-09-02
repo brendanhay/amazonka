@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 describeClusterSecurityGroups :: DescribeClusterSecurityGroups
 describeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsgnMaxRecords = Nothing
-    , _dcsgnClusterSecurityGroupName = Nothing
     , _dcsgnMarker = Nothing
+    , _dcsgnClusterSecurityGroupName = Nothing
     }
 
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
@@ -52,11 +52,6 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcsgnClusterSecurityGroupName :: Maybe Text
-      -- ^ The name of a cluster security group for which you are requesting
-      -- details. You can specify either the Marker parameter or a
-      -- ClusterSecurityGroupName parameter, but not both. Example:
-      -- securitygroup1.
     , _dcsgnMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -67,6 +62,11 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
       -- retrying the request. Constraints: You can specify either the
       -- ClusterSecurityGroupName parameter or the Marker parameter, but
       -- not both.
+    , _dcsgnClusterSecurityGroupName :: Maybe Text
+      -- ^ The name of a cluster security group for which you are requesting
+      -- details. You can specify either the Marker parameter or a
+      -- ClusterSecurityGroupName parameter, but not both. Example:
+      -- securitygroup1.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeClusterSecurityGroups

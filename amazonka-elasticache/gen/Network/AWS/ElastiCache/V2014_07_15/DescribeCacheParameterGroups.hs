@@ -39,8 +39,8 @@ import Network.AWS.Prelude
 describeCacheParameterGroups :: DescribeCacheParameterGroups
 describeCacheParameterGroups = DescribeCacheParameterGroups
     { _dcpgmMaxRecords = Nothing
-    , _dcpgmCacheParameterGroupName = Nothing
     , _dcpgmMarker = Nothing
+    , _dcpgmCacheParameterGroupName = Nothing
     }
 
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups
@@ -49,14 +49,14 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dcpgmCacheParameterGroupName :: Maybe Text
-      -- ^ The name of a specific cache parameter group to return details
-      -- for.
     , _dcpgmMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
+    , _dcpgmCacheParameterGroupName :: Maybe Text
+      -- ^ The name of a specific cache parameter group to return details
+      -- for.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeCacheParameterGroups

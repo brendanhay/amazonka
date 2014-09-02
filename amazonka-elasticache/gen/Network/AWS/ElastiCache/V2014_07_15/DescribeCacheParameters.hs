@@ -42,8 +42,8 @@ describeCacheParameters :: Text -- ^ '_dcpmCacheParameterGroupName'
 describeCacheParameters p1 = DescribeCacheParameters
     { _dcpmCacheParameterGroupName = p1
     , _dcpmMaxRecords = Nothing
-    , _dcpmMarker = Nothing
     , _dcpmSource = Nothing
+    , _dcpmMarker = Nothing
     }
 
 data DescribeCacheParameters = DescribeCacheParameters
@@ -55,14 +55,14 @@ data DescribeCacheParameters = DescribeCacheParameters
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
+    , _dcpmSource :: Maybe Text
+      -- ^ The parameter types to return. Valid values: user | system |
+      -- engine-default.
     , _dcpmMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
-    , _dcpmSource :: Maybe Text
-      -- ^ The parameter types to return. Valid values: user | system |
-      -- engine-default.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeCacheParameters

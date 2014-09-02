@@ -254,13 +254,13 @@ instance ToQuery Output where
 
 -- | The Parameter data type.
 data Parameter = Parameter
-    { _qParameterKey :: Maybe Text
+    { _qUsePreviousValue :: Maybe Bool
+      -- ^ During a stack update, use the existing parameter value that is
+      -- being used for the stack.
+    , _qParameterKey :: Maybe Text
       -- ^ The key associated with the parameter.
     , _qParameterValue :: Maybe Text
       -- ^ The value associated with the parameter.
-    , _qUsePreviousValue :: Maybe Bool
-      -- ^ During a stack update, use the existing parameter value that is
-      -- being used for the stack.
     } deriving (Show, Generic)
 
 instance FromXML Parameter where
@@ -272,37 +272,37 @@ instance ToQuery Parameter where
 
 -- | The Stack data type.
 data Stack = Stack
-    { _uCapabilities :: [Capability]
-      -- ^ The capabilities allowed in the stack.
-    , _uCreationTime :: ISO8601
-      -- ^ Time at which the stack was created.
-    , _uDescription :: Maybe Text
-      -- ^ User defined description associated with the stack.
-    , _uDisableRollback :: Maybe Bool
-      -- ^ Boolean to enable or disable rollback on stack creation failures:
-      -- true: disable rollback false: enable rollback.
-    , _uLastUpdatedTime :: Maybe ISO8601
-      -- ^ The time the stack was last updated. This field will only be
-      -- returned if the stack has been updated at least once.
-    , _uNotificationARNs :: [Text]
-      -- ^ SNS topic ARNs to which stack related events are published.
-    , _uOutputs :: [Output]
-      -- ^ A list of output structures.
-    , _uParameters :: [Parameter]
-      -- ^ A list of Parameter structures.
-    , _uStackId :: Maybe Text
-      -- ^ Unique identifier of the stack.
-    , _uStackName :: Text
+    { _uStackName :: Text
       -- ^ The name associated with the stack.
-    , _uStackStatus :: StackStatus
-      -- ^ Current status of the stack.
-    , _uStackStatusReason :: Maybe Text
-      -- ^ Success/failure message associated with the stack status.
+    , _uTimeoutInMinutes :: Maybe Integer
+      -- ^ The amount of time within which stack creation should complete.
     , _uTags :: [Tag]
       -- ^ A list of Tags that specify cost allocation information for the
       -- stack.
-    , _uTimeoutInMinutes :: Maybe Integer
-      -- ^ The amount of time within which stack creation should complete.
+    , _uCapabilities :: [Capability]
+      -- ^ The capabilities allowed in the stack.
+    , _uDescription :: Maybe Text
+      -- ^ User defined description associated with the stack.
+    , _uStackId :: Maybe Text
+      -- ^ Unique identifier of the stack.
+    , _uParameters :: [Parameter]
+      -- ^ A list of Parameter structures.
+    , _uOutputs :: [Output]
+      -- ^ A list of output structures.
+    , _uStackStatusReason :: Maybe Text
+      -- ^ Success/failure message associated with the stack status.
+    , _uNotificationARNs :: [Text]
+      -- ^ SNS topic ARNs to which stack related events are published.
+    , _uLastUpdatedTime :: Maybe ISO8601
+      -- ^ The time the stack was last updated. This field will only be
+      -- returned if the stack has been updated at least once.
+    , _uDisableRollback :: Maybe Bool
+      -- ^ Boolean to enable or disable rollback on stack creation failures:
+      -- true: disable rollback false: enable rollback.
+    , _uStackStatus :: StackStatus
+      -- ^ Current status of the stack.
+    , _uCreationTime :: ISO8601
+      -- ^ Time at which the stack was created.
     } deriving (Show, Generic)
 
 instance FromXML Stack where
@@ -311,28 +311,28 @@ instance FromXML Stack where
 
 -- | The StackEvent data type.
 data StackEvent = StackEvent
-    { _sfEventId :: Text
+    { _sfStackName :: Text
+      -- ^ The name associated with a stack.
+    , _sfEventId :: Text
       -- ^ The unique ID of this event.
-    , _sfLogicalResourceId :: Maybe Text
-      -- ^ The logical name of the resource specified in the template.
-    , _sfPhysicalResourceId :: Maybe Text
-      -- ^ The name or unique identifier associated with the physical
-      -- instance of the resource.
-    , _sfResourceProperties :: Maybe Text
-      -- ^ BLOB of the properties used to create the resource.
+    , _sfTimestamp :: ISO8601
+      -- ^ Time the status was updated.
+    , _sfStackId :: Text
+      -- ^ The unique ID name of the instance of the stack.
     , _sfResourceStatus :: Maybe ResourceStatus
       -- ^ Current status of the resource.
+    , _sfResourceProperties :: Maybe Text
+      -- ^ BLOB of the properties used to create the resource.
     , _sfResourceStatusReason :: Maybe Text
       -- ^ Success/failure message associated with the resource.
     , _sfResourceType :: Maybe Text
       -- ^ Type of resource. (For more information, go to AWS Resource Types
       -- Reference in the AWS CloudFormation User Guide.).
-    , _sfStackId :: Text
-      -- ^ The unique ID name of the instance of the stack.
-    , _sfStackName :: Text
-      -- ^ The name associated with a stack.
-    , _sfTimestamp :: ISO8601
-      -- ^ Time the status was updated.
+    , _sfPhysicalResourceId :: Maybe Text
+      -- ^ The name or unique identifier associated with the physical
+      -- instance of the resource.
+    , _sfLogicalResourceId :: Maybe Text
+      -- ^ The logical name of the resource specified in the template.
     } deriving (Show, Generic)
 
 instance FromXML StackEvent where
@@ -341,13 +341,14 @@ instance FromXML StackEvent where
 
 -- | The StackResource data type.
 data StackResource = StackResource
-    { _sshDescription :: Maybe Text
+    { _sshStackName :: Maybe Text
+      -- ^ The name associated with the stack.
+    , _sshTimestamp :: ISO8601
+      -- ^ Time the status was updated.
+    , _sshDescription :: Maybe Text
       -- ^ User defined description associated with the resource.
-    , _sshLogicalResourceId :: Text
-      -- ^ The logical name of the resource specified in the template.
-    , _sshPhysicalResourceId :: Maybe Text
-      -- ^ The name or unique identifier that corresponds to a physical
-      -- instance ID of a resource supported by AWS CloudFormation.
+    , _sshStackId :: Maybe Text
+      -- ^ Unique identifier of the stack.
     , _sshResourceStatus :: ResourceStatus
       -- ^ Current status of the resource.
     , _sshResourceStatusReason :: Maybe Text
@@ -355,12 +356,11 @@ data StackResource = StackResource
     , _sshResourceType :: Text
       -- ^ Type of resource. (For more information, go to AWS Resource Types
       -- Reference in the AWS CloudFormation User Guide.).
-    , _sshStackId :: Maybe Text
-      -- ^ Unique identifier of the stack.
-    , _sshStackName :: Maybe Text
-      -- ^ The name associated with the stack.
-    , _sshTimestamp :: ISO8601
-      -- ^ Time the status was updated.
+    , _sshPhysicalResourceId :: Maybe Text
+      -- ^ The name or unique identifier that corresponds to a physical
+      -- instance ID of a resource supported by AWS CloudFormation.
+    , _sshLogicalResourceId :: Text
+      -- ^ The logical name of the resource specified in the template.
     } deriving (Show, Generic)
 
 instance FromXML StackResource where
@@ -370,19 +370,18 @@ instance FromXML StackResource where
 -- | A StackResourceDetail structure containing the description of the specified
 -- resource in the specified stack.
 data StackResourceDetail = StackResourceDetail
-    { _srdDescription :: Maybe Text
-      -- ^ User defined description associated with the resource.
+    { _srdStackName :: Maybe Text
+      -- ^ The name associated with the stack.
     , _srdLastUpdatedTimestamp :: ISO8601
       -- ^ Time the status was updated.
-    , _srdLogicalResourceId :: Text
-      -- ^ The logical name of the resource specified in the template.
+    , _srdDescription :: Maybe Text
+      -- ^ User defined description associated with the resource.
+    , _srdStackId :: Maybe Text
+      -- ^ Unique identifier of the stack.
     , _srdMetadata :: Maybe Text
       -- ^ The JSON format content of the Metadata attribute declared for
       -- the resource. For more information, see Metadata Attribute in the
       -- AWS CloudFormation User Guide.
-    , _srdPhysicalResourceId :: Maybe Text
-      -- ^ The name or unique identifier that corresponds to a physical
-      -- instance ID of a resource supported by AWS CloudFormation.
     , _srdResourceStatus :: ResourceStatus
       -- ^ Current status of the resource.
     , _srdResourceStatusReason :: Maybe Text
@@ -390,10 +389,11 @@ data StackResourceDetail = StackResourceDetail
     , _srdResourceType :: Text
       -- ^ Type of resource. ((For more information, go to AWS Resource
       -- Types Reference in the AWS CloudFormation User Guide.).
-    , _srdStackId :: Maybe Text
-      -- ^ Unique identifier of the stack.
-    , _srdStackName :: Maybe Text
-      -- ^ The name associated with the stack.
+    , _srdPhysicalResourceId :: Maybe Text
+      -- ^ The name or unique identifier that corresponds to a physical
+      -- instance ID of a resource supported by AWS CloudFormation.
+    , _srdLogicalResourceId :: Text
+      -- ^ The logical name of the resource specified in the template.
     } deriving (Show, Generic)
 
 instance FromXML StackResourceDetail where
@@ -404,11 +404,6 @@ instance FromXML StackResourceDetail where
 data StackResourceSummary = StackResourceSummary
     { _srtLastUpdatedTimestamp :: ISO8601
       -- ^ Time the status was updated.
-    , _srtLogicalResourceId :: Text
-      -- ^ The logical name of the resource specified in the template.
-    , _srtPhysicalResourceId :: Maybe Text
-      -- ^ The name or unique identifier that corresponds to a physical
-      -- instance ID of the resource.
     , _srtResourceStatus :: ResourceStatus
       -- ^ Current status of the resource.
     , _srtResourceStatusReason :: Maybe Text
@@ -416,6 +411,11 @@ data StackResourceSummary = StackResourceSummary
     , _srtResourceType :: Text
       -- ^ Type of resource. (For more information, go to AWS Resource Types
       -- Reference in the AWS CloudFormation User Guide.).
+    , _srtPhysicalResourceId :: Maybe Text
+      -- ^ The name or unique identifier that corresponds to a physical
+      -- instance ID of the resource.
+    , _srtLogicalResourceId :: Text
+      -- ^ The logical name of the resource specified in the template.
     } deriving (Show, Generic)
 
 instance FromXML StackResourceSummary where
@@ -424,24 +424,24 @@ instance FromXML StackResourceSummary where
 
 -- | The StackSummary Data Type.
 data StackSummary = StackSummary
-    { _ssyCreationTime :: ISO8601
-      -- ^ The time the stack was created.
-    , _ssyDeletionTime :: Maybe ISO8601
-      -- ^ The time the stack was deleted.
-    , _ssyLastUpdatedTime :: Maybe ISO8601
-      -- ^ The time the stack was last updated. This field will only be
-      -- returned if the stack has been updated at least once.
+    { _ssyStackName :: Text
+      -- ^ The name associated with the stack.
     , _ssyStackId :: Maybe Text
       -- ^ Unique stack identifier.
-    , _ssyStackName :: Text
-      -- ^ The name associated with the stack.
-    , _ssyStackStatus :: StackStatus
-      -- ^ The current status of the stack.
-    , _ssyStackStatusReason :: Maybe Text
-      -- ^ Success/Failure message associated with the stack status.
+    , _ssyDeletionTime :: Maybe ISO8601
+      -- ^ The time the stack was deleted.
     , _ssyTemplateDescription :: Maybe Text
       -- ^ The template description of the template used to create the
       -- stack.
+    , _ssyStackStatusReason :: Maybe Text
+      -- ^ Success/Failure message associated with the stack status.
+    , _ssyLastUpdatedTime :: Maybe ISO8601
+      -- ^ The time the stack was last updated. This field will only be
+      -- returned if the stack has been updated at least once.
+    , _ssyStackStatus :: StackStatus
+      -- ^ The current status of the stack.
+    , _ssyCreationTime :: ISO8601
+      -- ^ The time the stack was created.
     } deriving (Show, Generic)
 
 instance FromXML StackSummary where
@@ -470,13 +470,13 @@ instance ToQuery Tag where
 
 -- | The TemplateParameter data type.
 data TemplateParameter = TemplateParameter
-    { _tqDefaultValue :: Maybe Text
-      -- ^ The default value associated with the parameter.
-    , _tqDescription :: Maybe Text
+    { _tqDescription :: Maybe Text
       -- ^ User defined description associated with the parameter.
     , _tqNoEcho :: Maybe Bool
       -- ^ Flag indicating whether the parameter should be displayed as
       -- plain text in logs and UIs.
+    , _tqDefaultValue :: Maybe Text
+      -- ^ The default value associated with the parameter.
     , _tqParameterKey :: Maybe Text
       -- ^ The name associated with the parameter.
     } deriving (Show, Generic)

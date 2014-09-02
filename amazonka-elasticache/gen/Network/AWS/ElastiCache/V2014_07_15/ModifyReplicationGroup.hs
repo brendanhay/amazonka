@@ -48,15 +48,15 @@ modifyReplicationGroup p1 = ModifyReplicationGroup
     , _mrgmCacheSecurityGroupNames = mempty
     , _mrgmSnapshotRetentionLimit = Nothing
     , _mrgmSecurityGroupIds = mempty
-    , _mrgmCacheParameterGroupName = Nothing
-    , _mrgmEngineVersion = Nothing
     , _mrgmNotificationTopicArn = Nothing
     , _mrgmNotificationTopicStatus = Nothing
     , _mrgmPreferredMaintenanceWindow = Nothing
     , _mrgmPrimaryClusterId = Nothing
-    , _mrgmReplicationGroupDescription = Nothing
     , _mrgmSnapshotWindow = Nothing
+    , _mrgmReplicationGroupDescription = Nothing
+    , _mrgmCacheParameterGroupName = Nothing
     , _mrgmSnapshottingClusterId = Nothing
+    , _mrgmEngineVersion = Nothing
     }
 
 data ModifyReplicationGroup = ModifyReplicationGroup
@@ -94,15 +94,6 @@ data ModifyReplicationGroup = ModifyReplicationGroup
       -- clusters in the replication group. This parameter can be used
       -- only with replication groups containing cache clusters running in
       -- an Amazon Virtual Private Cloud (VPC).
-    , _mrgmCacheParameterGroupName :: Maybe Text
-      -- ^ The name of the cache parameter group to apply to all of the
-      -- cache nodes in this replication group. This change is
-      -- asynchronously applied as soon as possible for parameters when
-      -- the ApplyImmediately parameter is specified as true for this
-      -- request.
-    , _mrgmEngineVersion :: Maybe Text
-      -- ^ The upgraded version of the cache engine to be run on the nodes
-      -- in the replication group..
     , _mrgmNotificationTopicArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic to which
       -- notifications will be sent. The Amazon SNS topic owner must be
@@ -123,18 +114,27 @@ data ModifyReplicationGroup = ModifyReplicationGroup
       -- the nodes in the specified cache cluster to the primary role. The
       -- nodes of all other clusters in the replication group will be read
       -- replicas.
-    , _mrgmReplicationGroupDescription :: Maybe Text
-      -- ^ A description for the replication group. Maximum length is 255
-      -- characters.
     , _mrgmSnapshotWindow :: Maybe Text
       -- ^ The daily time range (in UTC) during which ElastiCache will begin
       -- taking a daily snapshot of the cache cluster specified by
       -- SnapshottingClusterId. Example: 05:00-09:00 If you do not specify
       -- this parameter, then ElastiCache will automatically choose an
       -- appropriate time range.
+    , _mrgmReplicationGroupDescription :: Maybe Text
+      -- ^ A description for the replication group. Maximum length is 255
+      -- characters.
+    , _mrgmCacheParameterGroupName :: Maybe Text
+      -- ^ The name of the cache parameter group to apply to all of the
+      -- cache nodes in this replication group. This change is
+      -- asynchronously applied as soon as possible for parameters when
+      -- the ApplyImmediately parameter is specified as true for this
+      -- request.
     , _mrgmSnapshottingClusterId :: Maybe Text
       -- ^ The cache cluster ID that will be used as the daily snapshot
       -- source for the replication group.
+    , _mrgmEngineVersion :: Maybe Text
+      -- ^ The upgraded version of the cache engine to be run on the nodes
+      -- in the replication group..
     } deriving (Show, Generic)
 
 makeLenses ''ModifyReplicationGroup

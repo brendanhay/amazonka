@@ -30,35 +30,37 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CloneStack' request.
-cloneStack :: Text -- ^ '_cstServiceRoleArn'
-           -> Text -- ^ '_cstSourceStackId'
+cloneStack :: Text -- ^ '_cstSourceStackId'
+           -> Text -- ^ '_cstServiceRoleArn'
            -> CloneStack
 cloneStack p1 p2 = CloneStack
-    { _cstServiceRoleArn = p1
-    , _cstSourceStackId = p2
-    , _cstClonePermissions = Nothing
+    { _cstSourceStackId = p1
+    , _cstServiceRoleArn = p2
     , _cstUseCustomCookbooks = Nothing
     , _cstUseOpsworksSecurityGroups = Nothing
+    , _cstClonePermissions = Nothing
     , _cstChefConfiguration = Nothing
     , _cstDefaultRootDeviceType = Nothing
     , _cstCustomCookbooksSource = Nothing
     , _cstAttributes = mempty
     , _cstConfigurationManager = Nothing
-    , _cstCustomJson = Nothing
-    , _cstDefaultAvailabilityZone = Nothing
-    , _cstDefaultInstanceProfileArn = Nothing
-    , _cstDefaultOs = Nothing
-    , _cstDefaultSshKeyName = Nothing
-    , _cstDefaultSubnetId = Nothing
     , _cstHostnameTheme = Nothing
-    , _cstName = Nothing
     , _cstRegion = Nothing
+    , _cstDefaultSubnetId = Nothing
+    , _cstDefaultOs = Nothing
+    , _cstName = Nothing
+    , _cstDefaultAvailabilityZone = Nothing
+    , _cstCustomJson = Nothing
+    , _cstDefaultSshKeyName = Nothing
     , _cstVpcId = Nothing
+    , _cstDefaultInstanceProfileArn = Nothing
     , _cstCloneAppIds = mempty
     }
 
 data CloneStack = CloneStack
-    { _cstServiceRoleArn :: Text
+    { _cstSourceStackId :: Text
+      -- ^ The source stack ID.
+    , _cstServiceRoleArn :: Text
       -- ^ The stack AWS Identity and Access Management (IAM) role, which
       -- allows AWS OpsWorks to work with AWS resources on your behalf.
       -- You must set this parameter to the Amazon Resource Name (ARN) for
@@ -70,10 +72,6 @@ data CloneStack = CloneStack
       -- role ARN or the action will fail; there is no default value. You
       -- can specify the source stack's service role ARN, if you prefer,
       -- but you must do so explicitly.
-    , _cstSourceStackId :: Text
-      -- ^ The source stack ID.
-    , _cstClonePermissions :: Maybe Bool
-      -- ^ Whether to clone the source stack's permissions.
     , _cstUseCustomCookbooks :: Maybe Bool
       -- ^ Whether to use custom cookbooks.
     , _cstUseOpsworksSecurityGroups :: Maybe Bool
@@ -94,6 +92,8 @@ data CloneStack = CloneStack
       -- group with a layer on creation; custom security groups are
       -- required only for those layers that need custom settings. For
       -- more information, see Create a New Stack.
+    , _cstClonePermissions :: Maybe Bool
+      -- ^ Whether to clone the source stack's permissions.
     , _cstChefConfiguration :: Maybe ChefConfiguration
       -- ^ A ChefConfiguration object that specifies whether to enable
       -- Berkshelf and the Berkshelf version on Chef 11.10 stacks. For
@@ -115,37 +115,6 @@ data CloneStack = CloneStack
       -- that you use the configuration manager to specify the Chef
       -- version, 0.9, 11.4, or 11.10. The default value is currently
       -- 11.4.
-    , _cstCustomJson :: Maybe Text
-      -- ^ A string that contains user-defined, custom JSON. It is used to
-      -- override the corresponding default stack configuration JSON
-      -- values. The string should be in the following format and must
-      -- escape characters such as '"'.: "{\"key1\": \"value1\", \"key2\":
-      -- \"value2\",...}" For more information on custom JSON, see Use
-      -- Custom JSON to Modify the Stack Configuration JSON.
-    , _cstDefaultAvailabilityZone :: Maybe Text
-      -- ^ The cloned stack's default Availability Zone, which must be in
-      -- the specified region. For more information, see Regions and
-      -- Endpoints. If you also specify a value for DefaultSubnetId, the
-      -- subnet must be in the same zone. For more information, see the
-      -- VpcId parameter description.
-    , _cstDefaultInstanceProfileArn :: Maybe Text
-      -- ^ The ARN of an IAM profile that is the default profile for all of
-      -- the stack's EC2 instances. For more information about IAM ARNs,
-      -- see Using Identifiers.
-    , _cstDefaultOs :: Maybe Text
-      -- ^ The cloned stack's default operating system, which must be set to
-      -- Amazon Linux or Ubuntu 12.04 LTS. The default option is Amazon
-      -- Linux.
-    , _cstDefaultSshKeyName :: Maybe Text
-      -- ^ A default SSH key for the stack instances. You can override this
-      -- value when you create or update an instance.
-    , _cstDefaultSubnetId :: Maybe Text
-      -- ^ The stack's default subnet ID. All instances will be launched
-      -- into this subnet unless you specify otherwise when you create the
-      -- instance. If you also specify a value for
-      -- DefaultAvailabilityZone, the subnet must be in the same zone. For
-      -- information on default values and when this parameter is
-      -- required, see the VpcId parameter description.
     , _cstHostnameTheme :: Maybe Text
       -- ^ The stack's host name theme, with spaces are replaced by
       -- underscores. The theme is used to generate host names for the
@@ -157,11 +126,38 @@ data CloneStack = CloneStack
       -- Scottish_Islands US_Cities Wild_Cats To obtain a generated host
       -- name, call GetHostNameSuggestion, which returns a host name based
       -- on the current theme.
-    , _cstName :: Maybe Text
-      -- ^ The cloned stack name.
     , _cstRegion :: Maybe Text
       -- ^ The cloned stack AWS region, such as "us-east-1". For more
       -- information about AWS regions, see Regions and Endpoints.
+    , _cstDefaultSubnetId :: Maybe Text
+      -- ^ The stack's default subnet ID. All instances will be launched
+      -- into this subnet unless you specify otherwise when you create the
+      -- instance. If you also specify a value for
+      -- DefaultAvailabilityZone, the subnet must be in the same zone. For
+      -- information on default values and when this parameter is
+      -- required, see the VpcId parameter description.
+    , _cstDefaultOs :: Maybe Text
+      -- ^ The cloned stack's default operating system, which must be set to
+      -- Amazon Linux or Ubuntu 12.04 LTS. The default option is Amazon
+      -- Linux.
+    , _cstName :: Maybe Text
+      -- ^ The cloned stack name.
+    , _cstDefaultAvailabilityZone :: Maybe Text
+      -- ^ The cloned stack's default Availability Zone, which must be in
+      -- the specified region. For more information, see Regions and
+      -- Endpoints. If you also specify a value for DefaultSubnetId, the
+      -- subnet must be in the same zone. For more information, see the
+      -- VpcId parameter description.
+    , _cstCustomJson :: Maybe Text
+      -- ^ A string that contains user-defined, custom JSON. It is used to
+      -- override the corresponding default stack configuration JSON
+      -- values. The string should be in the following format and must
+      -- escape characters such as '"'.: "{\"key1\": \"value1\", \"key2\":
+      -- \"value2\",...}" For more information on custom JSON, see Use
+      -- Custom JSON to Modify the Stack Configuration JSON.
+    , _cstDefaultSshKeyName :: Maybe Text
+      -- ^ A default SSH key for the stack instances. You can override this
+      -- value when you create or update an instance.
     , _cstVpcId :: Maybe Text
       -- ^ The ID of the VPC that the cloned stack is to be launched into.
       -- It must be in the specified region. All instances will be
@@ -181,6 +177,10 @@ data CloneStack = CloneStack
       -- how to use AWS OpsWorks with a VPC, see Running a Stack in a VPC.
       -- For more information on default VPC and EC2 Classic, see
       -- Supported Platforms.
+    , _cstDefaultInstanceProfileArn :: Maybe Text
+      -- ^ The ARN of an IAM profile that is the default profile for all of
+      -- the stack's EC2 instances. For more information about IAM ARNs,
+      -- see Using Identifiers.
     , _cstCloneAppIds :: [Text]
       -- ^ A list of source stack app IDs to be included in the cloned
       -- stack.

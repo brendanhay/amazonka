@@ -38,36 +38,36 @@ import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBInstance' request.
 createDBInstance :: Integer -- ^ '_cdbimAllocatedStorage'
-                 -> Text -- ^ '_cdbimDBInstanceClass'
                  -> Text -- ^ '_cdbimDBInstanceIdentifier'
+                 -> Text -- ^ '_cdbimDBInstanceClass'
                  -> Text -- ^ '_cdbimEngine'
-                 -> Text -- ^ '_cdbimMasterUserPassword'
                  -> Text -- ^ '_cdbimMasterUsername'
+                 -> Text -- ^ '_cdbimMasterUserPassword'
                  -> CreateDBInstance
 createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstance
     { _cdbimAllocatedStorage = p1
-    , _cdbimDBInstanceClass = p2
-    , _cdbimDBInstanceIdentifier = p3
+    , _cdbimDBInstanceIdentifier = p2
+    , _cdbimDBInstanceClass = p3
     , _cdbimEngine = p4
-    , _cdbimMasterUserPassword = p5
-    , _cdbimMasterUsername = p6
-    , _cdbimAutoMinorVersionUpgrade = Nothing
+    , _cdbimMasterUsername = p5
+    , _cdbimMasterUserPassword = p6
     , _cdbimMultiAZ = Nothing
+    , _cdbimAutoMinorVersionUpgrade = Nothing
     , _cdbimPubliclyAccessible = Nothing
     , _cdbimDBSecurityGroups = mempty
+    , _cdbimPort = Nothing
     , _cdbimBackupRetentionPeriod = Nothing
     , _cdbimIops = Nothing
-    , _cdbimPort = Nothing
-    , _cdbimAvailabilityZone = Nothing
-    , _cdbimCharacterSetName = Nothing
     , _cdbimDBName = Nothing
+    , _cdbimOptionGroupName = Nothing
+    , _cdbimAvailabilityZone = Nothing
+    , _cdbimPreferredBackupWindow = Nothing
     , _cdbimDBParameterGroupName = Nothing
+    , _cdbimCharacterSetName = Nothing
+    , _cdbimPreferredMaintenanceWindow = Nothing
+    , _cdbimLicenseModel = Nothing
     , _cdbimDBSubnetGroupName = Nothing
     , _cdbimEngineVersion = Nothing
-    , _cdbimLicenseModel = Nothing
-    , _cdbimOptionGroupName = Nothing
-    , _cdbimPreferredBackupWindow = Nothing
-    , _cdbimPreferredMaintenanceWindow = Nothing
     , _cdbimTags = mempty
     , _cdbimVpcSecurityGroupIds = mempty
     }
@@ -80,26 +80,20 @@ data CreateDBInstance = CreateDBInstance
       -- integer from 10 to 1024. SQL Server Constraints: Must be an
       -- integer from 200 to 1024 (Standard Edition and Enterprise
       -- Edition) or from 30 to 1024 (Express Edition and Web Edition).
-    , _cdbimDBInstanceClass :: Text
-      -- ^ The compute and memory capacity of the DB instance. Valid Values:
-      -- db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
-      -- db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge.
     , _cdbimDBInstanceIdentifier :: Text
       -- ^ The DB instance identifier. This parameter is stored as a
       -- lowercase string. Constraints: Must contain from 1 to 63
       -- alphanumeric characters or hyphens (1 to 15 for SQL Server).
       -- First character must be a letter. Cannot end with a hyphen or
       -- contain two consecutive hyphens. Example: mydbinstance.
+    , _cdbimDBInstanceClass :: Text
+      -- ^ The compute and memory capacity of the DB instance. Valid Values:
+      -- db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
+      -- db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge.
     , _cdbimEngine :: Text
       -- ^ The name of the database engine to be used for this instance.
       -- Valid Values: MySQL | oracle-se1 | oracle-se | oracle-ee |
       -- sqlserver-ee | sqlserver-se | sqlserver-ex | sqlserver-web.
-    , _cdbimMasterUserPassword :: Text
-      -- ^ The password for the master database user. Can be any printable
-      -- ASCII character except "/", """, or "@". Type: String MySQL
-      -- Constraints: Must contain from 8 to 41 characters. Oracle
-      -- Constraints: Must contain from 8 to 30 characters. SQL Server
-      -- Constraints: Must contain from 8 to 128 characters.
     , _cdbimMasterUsername :: Text
       -- ^ The name of master user for the client DB instance. MySQL
       -- Constraints: Must be 1 to 16 alphanumeric characters. First
@@ -110,14 +104,20 @@ data CreateDBInstance = CreateDBInstance
       -- SQL Server Constraints: Must be 1 to 128 alphanumeric characters.
       -- First character must be a letter. Cannot be a reserved word for
       -- the chosen database engine.
-    , _cdbimAutoMinorVersionUpgrade :: Maybe Bool
-      -- ^ Indicates that minor engine upgrades will be applied
-      -- automatically to the DB instance during the maintenance window.
-      -- Default: true.
+    , _cdbimMasterUserPassword :: Text
+      -- ^ The password for the master database user. Can be any printable
+      -- ASCII character except "/", """, or "@". Type: String MySQL
+      -- Constraints: Must contain from 8 to 41 characters. Oracle
+      -- Constraints: Must contain from 8 to 30 characters. SQL Server
+      -- Constraints: Must contain from 8 to 128 characters.
     , _cdbimMultiAZ :: Maybe Bool
       -- ^ Specifies if the DB instance is a Multi-AZ deployment. You cannot
       -- set the AvailabilityZone parameter if the MultiAZ parameter is
       -- set to true.
+    , _cdbimAutoMinorVersionUpgrade :: Maybe Bool
+      -- ^ Indicates that minor engine upgrades will be applied
+      -- automatically to the DB instance during the maintenance window.
+      -- Default: true.
     , _cdbimPubliclyAccessible :: Maybe Bool
       -- ^ Specifies the accessibility options for the DB instance. A value
       -- of true specifies an Internet-facing instance with a publicly
@@ -135,6 +135,11 @@ data CreateDBInstance = CreateDBInstance
     , _cdbimDBSecurityGroups :: [Text]
       -- ^ A list of DB security groups to associate with this DB instance.
       -- Default: The default DB security group for the database engine.
+    , _cdbimPort :: Maybe Integer
+      -- ^ The port number on which the database accepts connections. MySQL
+      -- Default: 3306 Valid Values: 1150-65535 Type: Integer Oracle
+      -- Default: 1521 Valid Values: 1150-65535 SQL Server Default: 1433
+      -- Valid Values: 1150-65535 except for 1434 and 3389.
     , _cdbimBackupRetentionPeriod :: Maybe Integer
       -- ^ The number of days for which automated backups are retained.
       -- Setting this parameter to a positive number enables backups.
@@ -145,21 +150,6 @@ data CreateDBInstance = CreateDBInstance
       -- ^ The amount of Provisioned IOPS (input/output operations per
       -- second) to be initially allocated for the DB instance.
       -- Constraints: Must be an integer greater than 1000.
-    , _cdbimPort :: Maybe Integer
-      -- ^ The port number on which the database accepts connections. MySQL
-      -- Default: 3306 Valid Values: 1150-65535 Type: Integer Oracle
-      -- Default: 1521 Valid Values: 1150-65535 SQL Server Default: 1433
-      -- Valid Values: 1150-65535 except for 1434 and 3389.
-    , _cdbimAvailabilityZone :: Maybe Text
-      -- ^ The EC2 Availability Zone that the database instance will be
-      -- created in. Default: A random, system-chosen Availability Zone in
-      -- the endpoint's region. Example: us-east-1d Constraint: The
-      -- AvailabilityZone parameter cannot be specified if the MultiAZ
-      -- parameter is set to true. The specified Availability Zone must be
-      -- in the same region as the current endpoint.
-    , _cdbimCharacterSetName :: Maybe Text
-      -- ^ For supported engines, indicates that the DB instance should be
-      -- associated with the specified CharacterSet.
     , _cdbimDBName :: Maybe Text
       -- ^ The meaning of this parameter differs according to the database
       -- engine you use. MySQL The name of the database to create when the
@@ -170,24 +160,6 @@ data CreateDBInstance = CreateDBInstance
       -- ID (SID) of the created DB instance. Default: ORCL Constraints:
       -- Cannot be longer than 8 characters SQL Server Not applicable.
       -- Must be null.
-    , _cdbimDBParameterGroupName :: Maybe Text
-      -- ^ The name of the DB parameter group to associate with this DB
-      -- instance. If this argument is omitted, the default
-      -- DBParameterGroup for the specified engine will be used.
-      -- Constraints: Must be 1 to 255 alphanumeric characters First
-      -- character must be a letter Cannot end with a hyphen or contain
-      -- two consecutive hyphens.
-    , _cdbimDBSubnetGroupName :: Maybe Text
-      -- ^ A DB subnet group to associate with this DB instance. If there is
-      -- no DB subnet group, then it is a non-VPC DB instance.
-    , _cdbimEngineVersion :: Maybe Text
-      -- ^ The version number of the database engine to use. MySQL Example:
-      -- 5.1.42 Type: String Oracle Example: 11.2.0.2.v2 Type: String SQL
-      -- Server Example: 10.50.2789.0.v1.
-    , _cdbimLicenseModel :: Maybe Text
-      -- ^ License model information for this DB instance. Valid values:
-      -- license-included | bring-your-own-license |
-      -- general-public-license.
     , _cdbimOptionGroupName :: Maybe Text
       -- ^ Indicates that the DB instance should be associated with the
       -- specified option group. cannot be removed from an option group
@@ -196,6 +168,13 @@ data CreateDBInstance = CreateDBInstance
       -- Security TDE, cannot be removed from an option group, and that
       -- option group cannot be removed from a DB instance once it is
       -- associated with a DB instance.
+    , _cdbimAvailabilityZone :: Maybe Text
+      -- ^ The EC2 Availability Zone that the database instance will be
+      -- created in. Default: A random, system-chosen Availability Zone in
+      -- the endpoint's region. Example: us-east-1d Constraint: The
+      -- AvailabilityZone parameter cannot be specified if the MultiAZ
+      -- parameter is set to true. The specified Availability Zone must be
+      -- in the same region as the current endpoint.
     , _cdbimPreferredBackupWindow :: Maybe Text
       -- ^ The daily time range during which automated backups are created
       -- if automated backups are enabled, using the BackupRetentionPeriod
@@ -206,6 +185,16 @@ data CreateDBInstance = CreateDBInstance
       -- hh24:mi-hh24:mi. Times should be Universal Time Coordinated
       -- (UTC). Must not conflict with the preferred maintenance window.
       -- Must be at least 30 minutes.
+    , _cdbimDBParameterGroupName :: Maybe Text
+      -- ^ The name of the DB parameter group to associate with this DB
+      -- instance. If this argument is omitted, the default
+      -- DBParameterGroup for the specified engine will be used.
+      -- Constraints: Must be 1 to 255 alphanumeric characters First
+      -- character must be a letter Cannot end with a hyphen or contain
+      -- two consecutive hyphens.
+    , _cdbimCharacterSetName :: Maybe Text
+      -- ^ For supported engines, indicates that the DB instance should be
+      -- associated with the specified CharacterSet.
     , _cdbimPreferredMaintenanceWindow :: Maybe Text
       -- ^ The weekly time range (in UTC) during which system maintenance
       -- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: A 30-minute
@@ -214,6 +203,17 @@ data CreateDBInstance = CreateDBInstance
       -- blocks available, see Adjusting the Preferred Maintenance Window
       -- in the Amazon RDS User Guide. Valid Days: Mon, Tue, Wed, Thu,
       -- Fri, Sat, Sun Constraints: Minimum 30-minute window.
+    , _cdbimLicenseModel :: Maybe Text
+      -- ^ License model information for this DB instance. Valid values:
+      -- license-included | bring-your-own-license |
+      -- general-public-license.
+    , _cdbimDBSubnetGroupName :: Maybe Text
+      -- ^ A DB subnet group to associate with this DB instance. If there is
+      -- no DB subnet group, then it is a non-VPC DB instance.
+    , _cdbimEngineVersion :: Maybe Text
+      -- ^ The version number of the database engine to use. MySQL Example:
+      -- 5.1.42 Type: String Oracle Example: 11.2.0.2.v2 Type: String SQL
+      -- Server Example: 10.50.2789.0.v1.
     , _cdbimTags :: [Tag]
       -- ^ A list of tags.
     , _cdbimVpcSecurityGroupIds :: [Text]

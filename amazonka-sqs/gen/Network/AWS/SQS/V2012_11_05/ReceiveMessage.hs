@@ -69,8 +69,8 @@ receiveMessage p1 = ReceiveMessage
     { _rmrQueueUrl = p1
     , _rmrAttributeNames = mempty
     , _rmrMaxNumberOfMessages = Nothing
-    , _rmrVisibilityTimeout = Nothing
     , _rmrWaitTimeSeconds = Nothing
+    , _rmrVisibilityTimeout = Nothing
     , _rmrMessageAttributeNames = mempty
     }
 
@@ -93,14 +93,14 @@ data ReceiveMessage = ReceiveMessage
       -- returns more messages than this value but may return fewer.
       -- Values can be from 1 to 10. Default is 1. All of the messages are
       -- not necessarily returned.
-    , _rmrVisibilityTimeout :: Maybe Integer
-      -- ^ The duration (in seconds) that the received messages are hidden
-      -- from subsequent retrieve requests after being retrieved by a
-      -- ReceiveMessage request.
     , _rmrWaitTimeSeconds :: Maybe Integer
       -- ^ The duration (in seconds) for which the call will wait for a
       -- message to arrive in the queue before returning. If a message is
       -- available, the call will return sooner than WaitTimeSeconds.
+    , _rmrVisibilityTimeout :: Maybe Integer
+      -- ^ The duration (in seconds) that the received messages are hidden
+      -- from subsequent retrieve requests after being retrieved by a
+      -- ReceiveMessage request.
     , _rmrMessageAttributeNames :: [Text]
       -- ^ The message attribute Name can contain the following characters:
       -- A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The

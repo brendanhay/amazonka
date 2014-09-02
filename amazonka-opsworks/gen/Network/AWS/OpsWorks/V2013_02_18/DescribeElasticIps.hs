@@ -33,20 +33,20 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeElasticIps' request.
 describeElasticIps :: DescribeElasticIps
 describeElasticIps = DescribeElasticIps
-    { _deitInstanceId = Nothing
-    , _deitStackId = Nothing
+    { _deitStackId = Nothing
+    , _deitInstanceId = Nothing
     , _deitIps = mempty
     }
 
 data DescribeElasticIps = DescribeElasticIps
-    { _deitInstanceId :: Maybe Text
-      -- ^ The instance ID. If you include this parameter,
-      -- DescribeElasticIps returns a description of the Elastic IP
-      -- addresses associated with the specified instance.
-    , _deitStackId :: Maybe Text
+    { _deitStackId :: Maybe Text
       -- ^ A stack ID. If you include this parameter, DescribeElasticIps
       -- returns a description of the Elastic IP addresses that are
       -- registered with the specified stack.
+    , _deitInstanceId :: Maybe Text
+      -- ^ The instance ID. If you include this parameter,
+      -- DescribeElasticIps returns a description of the Elastic IP
+      -- addresses associated with the specified instance.
     , _deitIps :: [Text]
       -- ^ An array of Elastic IP addresses to be described. If you include
       -- this parameter, DescribeElasticIps returns a description of the

@@ -48,24 +48,24 @@ createCacheCluster p1 = CreateCacheCluster
     { _cccmCacheClusterId = p1
     , _cccmAutoMinorVersionUpgrade = Nothing
     , _cccmCacheSecurityGroupNames = mempty
-    , _cccmNumCacheNodes = Nothing
     , _cccmPort = Nothing
+    , _cccmNumCacheNodes = Nothing
     , _cccmSnapshotRetentionLimit = Nothing
     , _cccmPreferredAvailabilityZones = mempty
     , _cccmSecurityGroupIds = mempty
     , _cccmSnapshotArns = mempty
-    , _cccmAZMode = Nothing
-    , _cccmCacheNodeType = Nothing
-    , _cccmCacheParameterGroupName = Nothing
-    , _cccmCacheSubnetGroupName = Nothing
-    , _cccmEngine = Nothing
-    , _cccmEngineVersion = Nothing
     , _cccmNotificationTopicArn = Nothing
-    , _cccmPreferredAvailabilityZone = Nothing
-    , _cccmPreferredMaintenanceWindow = Nothing
     , _cccmReplicationGroupId = Nothing
     , _cccmSnapshotName = Nothing
+    , _cccmAZMode = Nothing
+    , _cccmPreferredAvailabilityZone = Nothing
+    , _cccmCacheSubnetGroupName = Nothing
+    , _cccmPreferredMaintenanceWindow = Nothing
+    , _cccmEngine = Nothing
     , _cccmSnapshotWindow = Nothing
+    , _cccmCacheParameterGroupName = Nothing
+    , _cccmCacheNodeType = Nothing
+    , _cccmEngineVersion = Nothing
     }
 
 data CreateCacheCluster = CreateCacheCluster
@@ -84,6 +84,9 @@ data CreateCacheCluster = CreateCacheCluster
       -- ^ A list of cache security group names to associate with this cache
       -- cluster. Use this parameter only when you are creating a cluster
       -- outside of an Amazon Virtual Private Cloud (VPC).
+    , _cccmPort :: Maybe Integer
+      -- ^ The port number on which each of the cache nodes will accept
+      -- connections.
     , _cccmNumCacheNodes :: Maybe Integer
       -- ^ The initial number of cache nodes that the cache cluster will
       -- have. For a Memcached cluster, valid values are between 1 and 20.
@@ -91,9 +94,6 @@ data CreateCacheCluster = CreateCacheCluster
       -- Limit Increase Request form at . For Redis, only single-node
       -- cache clusters are supported at this time, so the value for this
       -- parameter must be 1.
-    , _cccmPort :: Maybe Integer
-      -- ^ The port number on which each of the cache nodes will accept
-      -- connections.
     , _cccmSnapshotRetentionLimit :: Maybe Integer
       -- ^ The number of days for which ElastiCache will retain automatic
       -- cache cluster snapshots before deleting them. For example, if you
@@ -131,6 +131,21 @@ data CreateCacheCluster = CreateCacheCluster
       -- in the ARN cannot contain any commas. Here is an example of an
       -- Amazon S3 ARN: arn:aws:s3:::my_bucket/snapshot1.rdb Note: This
       -- parameter is only valid if the Engine parameter is redis.
+    , _cccmNotificationTopicArn :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
+      -- Service (SNS) topic to which notifications will be sent. The
+      -- Amazon SNS topic owner must be the same as the cache cluster
+      -- owner.
+    , _cccmReplicationGroupId :: Maybe Text
+      -- ^ The replication group to which this cache cluster should belong.
+      -- If this parameter is specified, the cache cluster will be added
+      -- to the specified replication group as a read replica; otherwise,
+      -- the cache cluster will be a standalone primary that is not part
+      -- of any replication group.
+    , _cccmSnapshotName :: Maybe Text
+      -- ^ The name of a snapshot from which to restore data into the new
+      -- cache cluster. The snapshot's status changes to restoring while
+      -- the new cache cluster is being created.
     , _cccmAZMode :: Maybe Text
       -- ^ Specifies whether the nodes in this Memcached cache cluster are
       -- created in a single Availability Zone or created across multiple
@@ -138,6 +153,32 @@ data CreateCacheCluster = CreateCacheCluster
       -- cache clusters. If the AZMode and PreferredAvailabilityZones are
       -- not specified, ElastiCache assumes single-az mode. Valid values:
       -- single-az | cross-az.
+    , _cccmPreferredAvailabilityZone :: Maybe Text
+      -- ^ The EC2 Availability Zone in which the cache cluster will be
+      -- created. All cache nodes belonging to this Memcached cache
+      -- cluster are placed in the preferred Availability Zone. If you
+      -- want to create your cache nodes across multiple Availability
+      -- Zones, use PreferredAvailabilityZones. Default: System chosen
+      -- Availability Zone.
+    , _cccmCacheSubnetGroupName :: Maybe Text
+      -- ^ The name of the cache subnet group to be used for the cache
+      -- cluster. Use this parameter only when you are creating a cluster
+      -- in an Amazon Virtual Private Cloud (VPC).
+    , _cccmPreferredMaintenanceWindow :: Maybe Text
+      -- ^ The weekly time range (in UTC) during which system maintenance
+      -- can occur. Example: sun:05:00-sun:09:00.
+    , _cccmEngine :: Maybe Text
+      -- ^ The name of the cache engine to be used for this cache cluster.
+      -- Valid values for this parameter are: memcached | redis.
+    , _cccmSnapshotWindow :: Maybe Text
+      -- ^ The daily time range (in UTC) during which ElastiCache will begin
+      -- taking a daily snapshot of your cache cluster. Example:
+      -- 05:00-09:00 If you do not specify this parameter, then
+      -- ElastiCache will automatically choose an appropriate time range.
+    , _cccmCacheParameterGroupName :: Maybe Text
+      -- ^ The name of the cache parameter group to associate with this
+      -- cache cluster. If this argument is omitted, the default cache
+      -- parameter group for the specified engine will be used.
     , _cccmCacheNodeType :: Maybe Text
       -- ^ The compute and memory capacity of the nodes in the cache
       -- cluster. Valid cache types Microcache.t1.micro | cache.m1.small
@@ -152,51 +193,10 @@ data CreateCacheCluster = CreateCacheCluster
       -- see Cache Node Type-Specific Parameters for Memcached or Cache
       -- Node Type-Specific Parameters for Redis and Amazon ElastiCache
       -- Product Features and Details.
-    , _cccmCacheParameterGroupName :: Maybe Text
-      -- ^ The name of the cache parameter group to associate with this
-      -- cache cluster. If this argument is omitted, the default cache
-      -- parameter group for the specified engine will be used.
-    , _cccmCacheSubnetGroupName :: Maybe Text
-      -- ^ The name of the cache subnet group to be used for the cache
-      -- cluster. Use this parameter only when you are creating a cluster
-      -- in an Amazon Virtual Private Cloud (VPC).
-    , _cccmEngine :: Maybe Text
-      -- ^ The name of the cache engine to be used for this cache cluster.
-      -- Valid values for this parameter are: memcached | redis.
     , _cccmEngineVersion :: Maybe Text
       -- ^ The version number of the cache engine to be used for this
       -- cluster. To view the supported cache engine versions, use the
       -- DescribeCacheEngineVersions operation.
-    , _cccmNotificationTopicArn :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
-      -- Service (SNS) topic to which notifications will be sent. The
-      -- Amazon SNS topic owner must be the same as the cache cluster
-      -- owner.
-    , _cccmPreferredAvailabilityZone :: Maybe Text
-      -- ^ The EC2 Availability Zone in which the cache cluster will be
-      -- created. All cache nodes belonging to this Memcached cache
-      -- cluster are placed in the preferred Availability Zone. If you
-      -- want to create your cache nodes across multiple Availability
-      -- Zones, use PreferredAvailabilityZones. Default: System chosen
-      -- Availability Zone.
-    , _cccmPreferredMaintenanceWindow :: Maybe Text
-      -- ^ The weekly time range (in UTC) during which system maintenance
-      -- can occur. Example: sun:05:00-sun:09:00.
-    , _cccmReplicationGroupId :: Maybe Text
-      -- ^ The replication group to which this cache cluster should belong.
-      -- If this parameter is specified, the cache cluster will be added
-      -- to the specified replication group as a read replica; otherwise,
-      -- the cache cluster will be a standalone primary that is not part
-      -- of any replication group.
-    , _cccmSnapshotName :: Maybe Text
-      -- ^ The name of a snapshot from which to restore data into the new
-      -- cache cluster. The snapshot's status changes to restoring while
-      -- the new cache cluster is being created.
-    , _cccmSnapshotWindow :: Maybe Text
-      -- ^ The daily time range (in UTC) during which ElastiCache will begin
-      -- taking a daily snapshot of your cache cluster. Example:
-      -- 05:00-09:00 If you do not specify this parameter, then
-      -- ElastiCache will automatically choose an appropriate time range.
     } deriving (Show, Generic)
 
 makeLenses ''CreateCacheCluster

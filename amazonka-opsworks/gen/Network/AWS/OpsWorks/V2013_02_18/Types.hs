@@ -566,43 +566,52 @@ instance ToJSON StackAttributesKeys
 
 -- | A description of the app.
 data App = App
-    { _apAppId :: Maybe Text
-      -- ^ The app ID.
-    , _apAppSource :: Maybe Source
-      -- ^ A Source object that describes the app repository.
-    , _apAttributes :: Map AppAttributesKeys Text
-      -- ^ The stack attributes.
-    , _apCreatedAt :: Maybe Text
-      -- ^ When the app was created.
-    , _apDataSources :: [DataSource]
-      -- ^ The app's data sources.
-    , _apDescription :: Maybe Text
+    { _apDescription :: Maybe Text
       -- ^ A description of the app.
     , _apDomains :: [Text]
       -- ^ The app vhost settings with multiple domains separated by commas.
       -- For example: 'www.example.com, example.com'.
-    , _apEnableSsl :: Maybe Bool
-      -- ^ Whether to enable SSL for the app.
-    , _apName :: Maybe Text
-      -- ^ The app name.
-    , _apShortname :: Maybe Text
-      -- ^ The app's short name.
-    , _apSslConfiguration :: Maybe SslConfiguration
-      -- ^ An SslConfiguration object with the SSL configuration.
     , _apStackId :: Maybe Text
       -- ^ The app stack ID.
     , _apType :: Maybe AppType
       -- ^ The app type.
+    , _apName :: Maybe Text
+      -- ^ The app name.
+    , _apAttributes :: Map AppAttributesKeys Text
+      -- ^ The stack attributes.
+    , _apAppId :: Maybe Text
+      -- ^ The app ID.
+    , _apAppSource :: Maybe Source
+      -- ^ A Source object that describes the app repository.
+    , _apDataSources :: [DataSource]
+      -- ^ The app's data sources.
+    , _apShortname :: Maybe Text
+      -- ^ The app's short name.
+    , _apCreatedAt :: Maybe Text
+      -- ^ When the app was created.
+    , _apEnableSsl :: Maybe Bool
+      -- ^ Whether to enable SSL for the app.
+    , _apSslConfiguration :: Maybe SslConfiguration
+      -- ^ An SslConfiguration object with the SSL configuration.
     } deriving (Show, Generic)
 
 instance FromJSON App
 
--- | An AutoScalingThresholds object with the downscaling threshold
--- configuration. If the load falls below these thresholds for a specified
--- amount of time, AWS OpsWorks stops a specified number of instances.
+-- | An AutoScalingThresholds object with the upscaling threshold configuration.
+-- If the load exceeds these thresholds for a specified amount of time, AWS
+-- OpsWorks starts a specified number of instances.
 data AutoScalingThresholds = AutoScalingThresholds
     { _astCpuThreshold :: Maybe Double
       -- ^ The CPU utilization threshold, as a percent of the available CPU.
+    , _astMemoryThreshold :: Maybe Double
+      -- ^ The memory utilization threshold, as a percent of the available
+      -- memory.
+    , _astThresholdsWaitTime :: Maybe Integer
+      -- ^ The amount of time, in minutes, that the load must exceed a
+      -- threshold before more instances are added or removed.
+    , _astLoadThreshold :: Maybe Double
+      -- ^ The load threshold. For more information about how load is
+      -- computed, see Load (computing).
     , _astIgnoreMetricsTime :: Maybe Integer
       -- ^ The amount of time (in minutes) after a scaling event occurs that
       -- AWS OpsWorks should ignore metrics and not raise any additional
@@ -616,15 +625,6 @@ data AutoScalingThresholds = AutoScalingThresholds
     , _astInstanceCount :: Maybe Integer
       -- ^ The number of instances to add or remove when the load exceeds a
       -- threshold.
-    , _astLoadThreshold :: Maybe Double
-      -- ^ The load threshold. For more information about how load is
-      -- computed, see Load (computing).
-    , _astMemoryThreshold :: Maybe Double
-      -- ^ The memory utilization threshold, as a percent of the available
-      -- memory.
-    , _astThresholdsWaitTime :: Maybe Integer
-      -- ^ The amount of time, in minutes, that the load must exceed a
-      -- threshold before more instances are added or removed.
     } deriving (Show, Generic)
 
 instance FromJSON AutoScalingThresholds
@@ -635,10 +635,10 @@ instance ToJSON AutoScalingThresholds
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
 -- Create a New Stack.
 data ChefConfiguration = ChefConfiguration
-    { _ccBerkshelfVersion :: Maybe Text
-      -- ^ The Berkshelf version.
-    , _ccManageBerkshelf :: Maybe Bool
+    { _ccManageBerkshelf :: Maybe Bool
       -- ^ Whether to enable Berkshelf.
+    , _ccBerkshelfVersion :: Maybe Text
+      -- ^ The Berkshelf version.
     } deriving (Show, Generic)
 
 instance FromJSON ChefConfiguration
@@ -649,39 +649,39 @@ instance ToJSON ChefConfiguration
 data Command = Command
     { _cgAcknowledgedAt :: Maybe Text
       -- ^ Date and time when the command was acknowledged.
-    , _cgCommandId :: Maybe Text
-      -- ^ The command ID.
     , _cgCompletedAt :: Maybe Text
       -- ^ Date when the command completed.
-    , _cgCreatedAt :: Maybe Text
-      -- ^ Date and time when the command was run.
-    , _cgDeploymentId :: Maybe Text
-      -- ^ The command deployment ID.
-    , _cgExitCode :: Maybe Integer
-      -- ^ The command exit code.
-    , _cgInstanceId :: Maybe Text
-      -- ^ The ID of the instance where the command was executed.
-    , _cgLogUrl :: Maybe Text
-      -- ^ The URL of the command log.
-    , _cgStatus :: Maybe Text
-      -- ^ The command status: failed successful skipped pending.
     , _cgType :: Maybe Text
       -- ^ The command type: deploy rollback start stop restart undeploy
       -- update_dependencies install_dependencies update_custom_cookbooks
       -- execute_recipes.
+    , _cgExitCode :: Maybe Integer
+      -- ^ The command exit code.
+    , _cgCommandId :: Maybe Text
+      -- ^ The command ID.
+    , _cgCreatedAt :: Maybe Text
+      -- ^ Date and time when the command was run.
+    , _cgLogUrl :: Maybe Text
+      -- ^ The URL of the command log.
+    , _cgStatus :: Maybe Text
+      -- ^ The command status: failed successful skipped pending.
+    , _cgInstanceId :: Maybe Text
+      -- ^ The ID of the instance where the command was executed.
+    , _cgDeploymentId :: Maybe Text
+      -- ^ The command deployment ID.
     } deriving (Show, Generic)
 
 instance FromJSON Command
 
 -- | Describes an app's data source.
 data DataSource = DataSource
-    { _dvArn :: Maybe Text
-      -- ^ The data source's ARN.
-    , _dvDatabaseName :: Maybe Text
-      -- ^ The database name.
-    , _dvType :: Maybe Text
+    { _dvType :: Maybe Text
       -- ^ The data source's type, AutoSelectOpsworksMysqlInstance,
       -- OpsworksMysqlInstance, or RdsDbInstance.
+    , _dvDatabaseName :: Maybe Text
+      -- ^ The database name.
+    , _dvArn :: Maybe Text
+      -- ^ The data source's ARN.
     } deriving (Show, Generic)
 
 instance FromJSON DataSource
@@ -690,16 +690,20 @@ instance ToJSON DataSource
 
 -- | Describes a deployment of a stack or app.
 data Deployment = Deployment
-    { _ddtAppId :: Maybe Text
-      -- ^ The app ID.
-    , _ddtCommand :: Maybe DeploymentCommand
-      -- ^ Used to specify a deployment operation.
+    { _ddtDuration :: Maybe Integer
+      -- ^ The deployment duration.
     , _ddtComment :: Maybe Text
       -- ^ A user-defined comment.
+    , _ddtStackId :: Maybe Text
+      -- ^ The stack ID.
     , _ddtCompletedAt :: Maybe Text
       -- ^ Date when the deployment completed.
-    , _ddtCreatedAt :: Maybe Text
-      -- ^ Date when the deployment was created.
+    , _ddtInstanceIds :: [Text]
+      -- ^ The IDs of the target instances.
+    , _ddtAppId :: Maybe Text
+      -- ^ The app ID.
+    , _ddtIamUserArn :: Maybe Text
+      -- ^ The user's IAM ARN.
     , _ddtCustomJson :: Maybe Text
       -- ^ A string that contains user-defined custom JSON. It is used to
       -- override the corresponding default stack configuration JSON
@@ -707,18 +711,14 @@ data Deployment = Deployment
       -- and must escape characters such as '"'.: "{\"key1\": \"value1\",
       -- \"key2\": \"value2\",...}" For more information on custom JSON,
       -- see Use Custom JSON to Modify the Stack Configuration JSON.
-    , _ddtDeploymentId :: Maybe Text
-      -- ^ The deployment ID.
-    , _ddtDuration :: Maybe Integer
-      -- ^ The deployment duration.
-    , _ddtIamUserArn :: Maybe Text
-      -- ^ The user's IAM ARN.
-    , _ddtInstanceIds :: [Text]
-      -- ^ The IDs of the target instances.
-    , _ddtStackId :: Maybe Text
-      -- ^ The stack ID.
+    , _ddtCreatedAt :: Maybe Text
+      -- ^ Date when the deployment was created.
+    , _ddtCommand :: Maybe DeploymentCommand
+      -- ^ Used to specify a deployment operation.
     , _ddtStatus :: Maybe Text
       -- ^ The deployment status: running successful failed.
+    , _ddtDeploymentId :: Maybe Text
+      -- ^ The deployment ID.
     } deriving (Show, Generic)
 
 instance FromJSON Deployment
@@ -726,11 +726,7 @@ instance FromJSON Deployment
 -- | A DeploymentCommand object that specifies the deployment command and any
 -- associated arguments.
 data DeploymentCommand = DeploymentCommand
-    { _dcArgs :: Map Text [Text]
-      -- ^ The arguments of those commands that take arguments. It should be
-      -- set to a JSON object with the following format:
-      -- {"arg_name":["value1", "value2", ...]}.
-    , _dcName :: DeploymentCommandName
+    { _dcName :: DeploymentCommandName
       -- ^ Specifies the operation. You can specify only one command. For
       -- stacks, the following commands are available: execute_recipes:
       -- Execute one or more recipes. To specify the recipes, set an Args
@@ -750,6 +746,10 @@ data DeploymentCommand = DeploymentCommand
       -- server. stop: Stop the app's web or application server. restart:
       -- Restart the app's web or application server. undeploy: Undeploy
       -- the app.
+    , _dcArgs :: Map Text [Text]
+      -- ^ The arguments of those commands that take arguments. It should be
+      -- set to a JSON object with the following format:
+      -- {"arg_name":["value1", "value2", ...]}.
     } deriving (Show, Generic)
 
 instance FromJSON DeploymentCommand
@@ -758,53 +758,64 @@ instance ToJSON DeploymentCommand
 
 -- | Describes an Elastic IP address.
 data ElasticIp = ElasticIp
-    { _ejDomain :: Maybe Text
+    { _ejRegion :: Maybe Text
+      -- ^ The AWS region. For more information, see Regions and Endpoints.
+    , _ejName :: Maybe Text
+      -- ^ The name.
+    , _ejIp :: Maybe Text
+      -- ^ The IP address.
+    , _ejDomain :: Maybe Text
       -- ^ The domain.
     , _ejInstanceId :: Maybe Text
       -- ^ The ID of the instance that the address is attached to.
-    , _ejIp :: Maybe Text
-      -- ^ The IP address.
-    , _ejName :: Maybe Text
-      -- ^ The name.
-    , _ejRegion :: Maybe Text
-      -- ^ The AWS region. For more information, see Regions and Endpoints.
     } deriving (Show, Generic)
 
 instance FromJSON ElasticIp
 
 -- | Describes an Elastic Load Balancing instance.
 data ElasticLoadBalancer = ElasticLoadBalancer
-    { _elcAvailabilityZones :: [Text]
-      -- ^ A list of Availability Zones.
-    , _elcDnsName :: Maybe Text
+    { _elcDnsName :: Maybe Text
       -- ^ The instance's public DNS name.
+    , _elcLayerId :: Maybe Text
+      -- ^ The ID of the layer that the instance is attached to.
     , _elcEc2InstanceIds :: [Text]
       -- ^ A list of the EC2 instances that the Elastic Load Balancing
       -- instance is managing traffic for.
-    , _elcElasticLoadBalancerName :: Maybe Text
-      -- ^ The Elastic Load Balancing instance's name.
-    , _elcLayerId :: Maybe Text
-      -- ^ The ID of the layer that the instance is attached to.
-    , _elcRegion :: Maybe Text
-      -- ^ The instance's AWS region.
     , _elcStackId :: Maybe Text
       -- ^ The ID of the stack that the instance is associated with.
-    , _elcSubnetIds :: [Text]
-      -- ^ A list of subnet IDs, if the stack is running in a VPC.
+    , _elcElasticLoadBalancerName :: Maybe Text
+      -- ^ The Elastic Load Balancing instance's name.
+    , _elcRegion :: Maybe Text
+      -- ^ The instance's AWS region.
+    , _elcAvailabilityZones :: [Text]
+      -- ^ A list of Availability Zones.
     , _elcVpcId :: Maybe Text
       -- ^ The VPC ID.
+    , _elcSubnetIds :: [Text]
+      -- ^ A list of subnet IDs, if the stack is running in a VPC.
     } deriving (Show, Generic)
 
 instance FromJSON ElasticLoadBalancer
 
 -- | Describes an instance.
 data Instance = Instance
-    { _ieAmiId :: Maybe Text
+    { _ieRootDeviceType :: Maybe RootDeviceType
+      -- ^ The instance root device type. For more information, see Storage
+      -- for the Root Device.
+    , _ieStackId :: Maybe Text
+      -- ^ The stack ID.
+    , _iePublicIp :: Maybe Text
+      -- ^ The instance public IP address.
+    , _ieAmiId :: Maybe Text
       -- ^ A custom AMI ID to be used to create the instance. The AMI should
       -- be based on one of the standard AWS OpsWorks APIs: Amazon Linux
       -- or Ubuntu 12.04 LTS. For more information, see Instances.
+    , _iePublicDns :: Maybe Text
+      -- ^ The instance public DNS name.
     , _ieArchitecture :: Maybe Architecture
       -- ^ The instance architecture, "i386" or "x86_64".
+    , _ieLayerIds :: [Text]
+      -- ^ An array containing the instance layer IDs.
     , _ieAutoScalingType :: Maybe AutoScalingType
       -- ^ The instance's auto scaling type, which has three possible
       -- values: AlwaysRunning: A 24/7 instance, which is not affected by
@@ -812,19 +823,47 @@ data Instance = Instance
       -- instance, which is started and stopped based on a specified
       -- schedule. LoadBasedAutoScaling: A load-based auto scaling
       -- instance, which is started and stopped based on load metrics.
+    , _ieLastServiceErrorId :: Maybe Text
+      -- ^ The ID of the last service error. For more information, call
+      -- DescribeServiceErrors.
     , _ieAvailabilityZone :: Maybe Text
       -- ^ The instance Availability Zone. For more information, see Regions
       -- and Endpoints.
-    , _ieCreatedAt :: Maybe Text
-      -- ^ The time that the instance was created.
-    , _ieEbsOptimized :: Maybe Bool
-      -- ^ Whether this is an Amazon EBS-optimized instance.
-    , _ieEc2InstanceId :: Maybe Text
-      -- ^ The ID of the associated Amazon EC2 instance.
+    , _ieOs :: Maybe Text
+      -- ^ The instance operating system.
     , _ieElasticIp :: Maybe Text
       -- ^ The instance Elastic IP address .
+    , _ieEbsOptimized :: Maybe Bool
+      -- ^ Whether this is an Amazon EBS-optimized instance.
+    , _ieInstanceType :: Maybe Text
+      -- ^ The instance type. AWS OpsWorks supports all instance types
+      -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
+      -- more information, see Instance Families and Types. The parameter
+      -- values that specify the various types are in the API Name column
+      -- of the Available Instance Types table.
+    , _ieSshHostDsaKeyFingerprint :: Maybe Text
+      -- ^ The SSH key's DSA fingerprint.
+    , _ieSubnetId :: Maybe Text
+      -- ^ The instance's subnet ID, if the stack is running in a VPC.
+    , _ieRootDeviceVolumeId :: Maybe Text
+      -- ^ The root device volume ID.
+    , _ieSshKeyName :: Maybe Text
+      -- ^ The instance SSH key name.
+    , _ieEc2InstanceId :: Maybe Text
+      -- ^ The ID of the associated Amazon EC2 instance.
+    , _ieCreatedAt :: Maybe Text
+      -- ^ The time that the instance was created.
+    , _ieSecurityGroupIds :: [Text]
+      -- ^ An array containing the instance security group IDs.
+    , _ieSshHostRsaKeyFingerprint :: Maybe Text
+      -- ^ The SSH key's RSA fingerprint.
     , _ieHostname :: Maybe Text
       -- ^ The instance host name.
+    , _ieInstanceProfileArn :: Maybe Text
+      -- ^ The ARN of the instance's IAM profile. For more information about
+      -- IAM ARNs, see Using Identifiers.
+    , _ieVirtualizationType :: Maybe Text
+      -- ^ The instance's virtualization type, paravirtual or hvm.
     , _ieInstallUpdatesOnBoot :: Maybe Bool
       -- ^ Whether to install operating system and package updates when the
       -- instance boots. The default value is true. If this value is set
@@ -833,87 +872,48 @@ data Instance = Instance
       -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the
       -- instances. We strongly recommend using the default value of true,
       -- to ensure that your instances have the latest security updates.
-    , _ieInstanceId :: Maybe Text
-      -- ^ The instance ID.
-    , _ieInstanceProfileArn :: Maybe Text
-      -- ^ The ARN of the instance's IAM profile. For more information about
-      -- IAM ARNs, see Using Identifiers.
-    , _ieInstanceType :: Maybe Text
-      -- ^ The instance type. AWS OpsWorks supports all instance types
-      -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
-      -- more information, see Instance Families and Types. The parameter
-      -- values that specify the various types are in the API Name column
-      -- of the Available Instance Types table.
-    , _ieLastServiceErrorId :: Maybe Text
-      -- ^ The ID of the last service error. For more information, call
-      -- DescribeServiceErrors.
-    , _ieLayerIds :: [Text]
-      -- ^ An array containing the instance layer IDs.
-    , _ieOs :: Maybe Text
-      -- ^ The instance operating system.
-    , _iePrivateDns :: Maybe Text
-      -- ^ The instance private DNS name.
     , _iePrivateIp :: Maybe Text
       -- ^ The instance private IP address.
-    , _iePublicDns :: Maybe Text
-      -- ^ The instance public DNS name.
-    , _iePublicIp :: Maybe Text
-      -- ^ The instance public IP address.
-    , _ieRootDeviceType :: Maybe RootDeviceType
-      -- ^ The instance root device type. For more information, see Storage
-      -- for the Root Device.
-    , _ieRootDeviceVolumeId :: Maybe Text
-      -- ^ The root device volume ID.
-    , _ieSecurityGroupIds :: [Text]
-      -- ^ An array containing the instance security group IDs.
-    , _ieSshHostDsaKeyFingerprint :: Maybe Text
-      -- ^ The SSH key's DSA fingerprint.
-    , _ieSshHostRsaKeyFingerprint :: Maybe Text
-      -- ^ The SSH key's RSA fingerprint.
-    , _ieSshKeyName :: Maybe Text
-      -- ^ The instance SSH key name.
-    , _ieStackId :: Maybe Text
-      -- ^ The stack ID.
     , _ieStatus :: Maybe Text
       -- ^ The instance status: requested booting running_setup online
       -- setup_failed start_failed terminating terminated stopped
       -- connection_lost.
-    , _ieSubnetId :: Maybe Text
-      -- ^ The instance's subnet ID, if the stack is running in a VPC.
-    , _ieVirtualizationType :: Maybe Text
-      -- ^ The instance's virtualization type, paravirtual or hvm.
+    , _ieInstanceId :: Maybe Text
+      -- ^ The instance ID.
+    , _iePrivateDns :: Maybe Text
+      -- ^ The instance private DNS name.
     } deriving (Show, Generic)
 
 instance FromJSON Instance
 
 -- | An InstancesCount object with the number of instances in each status.
 data InstancesCount = InstancesCount
-    { _icBooting :: Maybe Integer
-      -- ^ The number of instances with booting status.
-    , _icConnectionLost :: Maybe Integer
-      -- ^ The number of instances with connection_lost status.
-    , _icOnline :: Maybe Integer
-      -- ^ The number of instances with online status.
-    , _icPending :: Maybe Integer
-      -- ^ The number of instances with pending status.
-    , _icRebooting :: Maybe Integer
-      -- ^ The number of instances with rebooting status.
-    , _icRequested :: Maybe Integer
-      -- ^ The number of instances with requested status.
-    , _icRunningSetup :: Maybe Integer
-      -- ^ The number of instances with running_setup status.
-    , _icSetupFailed :: Maybe Integer
-      -- ^ The number of instances with setup_failed status.
-    , _icShuttingDown :: Maybe Integer
-      -- ^ The number of instances with shutting_down status.
-    , _icStartFailed :: Maybe Integer
+    { _icStartFailed :: Maybe Integer
       -- ^ The number of instances with start_failed status.
-    , _icStopped :: Maybe Integer
-      -- ^ The number of instances with stopped status.
     , _icStopping :: Maybe Integer
       -- ^ The number of instances with stopping status.
     , _icTerminated :: Maybe Integer
       -- ^ The number of instances with terminated status.
+    , _icConnectionLost :: Maybe Integer
+      -- ^ The number of instances with connection_lost status.
+    , _icSetupFailed :: Maybe Integer
+      -- ^ The number of instances with setup_failed status.
+    , _icShuttingDown :: Maybe Integer
+      -- ^ The number of instances with shutting_down status.
+    , _icRebooting :: Maybe Integer
+      -- ^ The number of instances with rebooting status.
+    , _icStopped :: Maybe Integer
+      -- ^ The number of instances with stopped status.
+    , _icBooting :: Maybe Integer
+      -- ^ The number of instances with booting status.
+    , _icRequested :: Maybe Integer
+      -- ^ The number of instances with requested status.
+    , _icRunningSetup :: Maybe Integer
+      -- ^ The number of instances with running_setup status.
+    , _icOnline :: Maybe Integer
+      -- ^ The number of instances with online status.
+    , _icPending :: Maybe Integer
+      -- ^ The number of instances with pending status.
     , _icTerminating :: Maybe Integer
       -- ^ The number of instances with terminating status.
     } deriving (Show, Generic)
@@ -922,26 +922,39 @@ instance FromJSON InstancesCount
 
 -- | Describes a layer.
 data Layer = Layer
-    { _lrAttributes :: Map LayerAttributesKeys Text
-      -- ^ The layer attributes.
-    , _lrAutoAssignElasticIps :: Maybe Bool
+    { _lrAutoAssignElasticIps :: Maybe Bool
       -- ^ Whether to automatically assign an Elastic IP address to the
       -- layer's instances. For more information, see How to Edit a Layer.
+    , _lrDefaultSecurityGroupNames :: [Text]
+      -- ^ An array containing the layer's security group names.
+    , _lrLayerId :: Maybe Text
+      -- ^ The layer ID.
+    , _lrStackId :: Maybe Text
+      -- ^ The layer stack ID.
+    , _lrUseEbsOptimizedInstances :: Maybe Bool
+      -- ^ Whether the layer uses Amazon EBS-optimized instances.
+    , _lrType :: Maybe LayerType
+      -- ^ The layer type, which must be one of the following: Custom
+      -- GangliaMonitoringMaster HaProxy MemcachedServer MySqlMaster
+      -- NodeJsAppServer PhpAppServer RailsAppServer WebServer.
     , _lrAutoAssignPublicIps :: Maybe Bool
       -- ^ For stacks that are running in a VPC, whether to automatically
       -- assign a public IP address to the layer's instances. For more
       -- information, see How to Edit a Layer.
-    , _lrCreatedAt :: Maybe Text
-      -- ^ Date when the layer was created.
-    , _lrCustomInstanceProfileArn :: Maybe Text
-      -- ^ The ARN of the default IAM profile to be used for the layer's EC2
-      -- instances. For more information about IAM ARNs, see Using
-      -- Identifiers.
+    , _lrName :: Maybe Text
+      -- ^ The layer name.
+    , _lrAttributes :: Map LayerAttributesKeys Text
+      -- ^ The layer attributes.
+    , _lrPackages :: [Text]
+      -- ^ An array of Package objects that describe the layer's packages.
+    , _lrEnableAutoHealing :: Maybe Bool
+      -- ^ Whether auto healing is disabled for the layer.
+    , _lrVolumeConfigurations :: [VolumeConfiguration]
+      -- ^ A VolumeConfigurations object that describes the layer's Amazon
+      -- EBS volumes.
     , _lrCustomRecipes :: Maybe Recipes
       -- ^ A LayerCustomRecipes object that specifies the layer's custom
       -- recipes.
-    , _lrCustomSecurityGroupIds :: [Text]
-      -- ^ An array containing the layer's custom security group IDs.
     , _lrDefaultRecipes :: Maybe Recipes
       -- ^ AWS OpsWorks supports five lifecycle events, setup,
       -- configuration, deploy, undeploy, and shutdown. For each layer,
@@ -955,10 +968,10 @@ data Layer = Layer
       -- is the recipe's file name without the .rb extension. For example:
       -- phpapp2::dbsetup specifies the dbsetup.rb recipe in the
       -- repository's phpapp2 folder.
-    , _lrDefaultSecurityGroupNames :: [Text]
-      -- ^ An array containing the layer's security group names.
-    , _lrEnableAutoHealing :: Maybe Bool
-      -- ^ Whether auto healing is disabled for the layer.
+    , _lrShortname :: Maybe Text
+      -- ^ The layer short name.
+    , _lrCreatedAt :: Maybe Text
+      -- ^ Date when the layer was created.
     , _lrInstallUpdatesOnBoot :: Maybe Bool
       -- ^ Whether to install operating system and package updates when the
       -- instance boots. The default value is true. If this value is set
@@ -967,39 +980,26 @@ data Layer = Layer
       -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the
       -- instances. We strongly recommend using the default value of true,
       -- to ensure that your instances have the latest security updates.
-    , _lrLayerId :: Maybe Text
-      -- ^ The layer ID.
-    , _lrName :: Maybe Text
-      -- ^ The layer name.
-    , _lrPackages :: [Text]
-      -- ^ An array of Package objects that describe the layer's packages.
-    , _lrShortname :: Maybe Text
-      -- ^ The layer short name.
-    , _lrStackId :: Maybe Text
-      -- ^ The layer stack ID.
-    , _lrType :: Maybe LayerType
-      -- ^ The layer type, which must be one of the following: Custom
-      -- GangliaMonitoringMaster HaProxy MemcachedServer MySqlMaster
-      -- NodeJsAppServer PhpAppServer RailsAppServer WebServer.
-    , _lrUseEbsOptimizedInstances :: Maybe Bool
-      -- ^ Whether the layer uses Amazon EBS-optimized instances.
-    , _lrVolumeConfigurations :: [VolumeConfiguration]
-      -- ^ A VolumeConfigurations object that describes the layer's Amazon
-      -- EBS volumes.
+    , _lrCustomSecurityGroupIds :: [Text]
+      -- ^ An array containing the layer's custom security group IDs.
+    , _lrCustomInstanceProfileArn :: Maybe Text
+      -- ^ The ARN of the default IAM profile to be used for the layer's EC2
+      -- instances. For more information about IAM ARNs, see Using
+      -- Identifiers.
     } deriving (Show, Generic)
 
 instance FromJSON Layer
 
 -- | Describes a layer's load-based auto scaling configuration.
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
-    { _lbasdDownScaling :: Maybe AutoScalingThresholds
+    { _lbasdLayerId :: Maybe Text
+      -- ^ The layer ID.
+    , _lbasdDownScaling :: Maybe AutoScalingThresholds
       -- ^ A LoadBasedAutoscalingInstruction object that describes the
       -- downscaling configuration, which defines how and when AWS
       -- OpsWorks reduces the number of instances.
     , _lbasdEnable :: Maybe Bool
       -- ^ Whether load-based auto scaling is enabled for the layer.
-    , _lbasdLayerId :: Maybe Text
-      -- ^ The layer ID.
     , _lbasdUpScaling :: Maybe AutoScalingThresholds
       -- ^ A LoadBasedAutoscalingInstruction object that describes the
       -- upscaling configuration, which defines how and when AWS OpsWorks
@@ -1012,12 +1012,6 @@ instance FromJSON LoadBasedAutoScalingConfiguration
 data Permission = Permission
     { _pnAllowSsh :: Maybe Bool
       -- ^ Whether the user can use SSH.
-    , _pnAllowSudo :: Maybe Bool
-      -- ^ Whether the user can use sudo.
-    , _pnIamUserArn :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) for an AWS Identity and Access
-      -- Management (IAM) role. For more information about IAM ARNs, see
-      -- Using Identifiers.
     , _pnLevel :: Maybe Text
       -- ^ The user's permission level, which must be the following: deny
       -- show deploy manage iam_only For more information on the
@@ -1025,51 +1019,59 @@ data Permission = Permission
       -- Permissions.
     , _pnStackId :: Maybe Text
       -- ^ A stack ID.
+    , _pnAllowSudo :: Maybe Bool
+      -- ^ Whether the user can use sudo.
+    , _pnIamUserArn :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) for an AWS Identity and Access
+      -- Management (IAM) role. For more information about IAM ARNs, see
+      -- Using Identifiers.
     } deriving (Show, Generic)
 
 instance FromJSON Permission
 
 -- | Describes an instance's RAID array.
 data RaidArray = RaidArray
-    { _rbAvailabilityZone :: Maybe Text
-      -- ^ The array's Availability Zone. For more information, see Regions
-      -- and Endpoints.
-    , _rbCreatedAt :: Maybe Text
-      -- ^ When the RAID array was created.
-    , _rbDevice :: Maybe Text
-      -- ^ The array's Linux device. For example /dev/mdadm0.
-    , _rbInstanceId :: Maybe Text
-      -- ^ The instance ID.
-    , _rbIops :: Maybe Integer
-      -- ^ For PIOPS volumes, the IOPS per disk.
-    , _rbMountPoint :: Maybe Text
+    { _rbMountPoint :: Maybe Text
       -- ^ The array's mount point.
-    , _rbName :: Maybe Text
-      -- ^ The array name.
-    , _rbNumberOfDisks :: Maybe Integer
-      -- ^ The number of disks in the array.
-    , _rbRaidArrayId :: Maybe Text
-      -- ^ The array ID.
-    , _rbRaidLevel :: Maybe Integer
-      -- ^ The RAID level.
-    , _rbSize :: Maybe Integer
-      -- ^ The array's size.
     , _rbVolumeType :: Maybe Text
       -- ^ The volume type, standard or PIOPS.
+    , _rbRaidArrayId :: Maybe Text
+      -- ^ The array ID.
+    , _rbName :: Maybe Text
+      -- ^ The array name.
+    , _rbAvailabilityZone :: Maybe Text
+      -- ^ The array's Availability Zone. For more information, see Regions
+      -- and Endpoints.
+    , _rbNumberOfDisks :: Maybe Integer
+      -- ^ The number of disks in the array.
+    , _rbDevice :: Maybe Text
+      -- ^ The array's Linux device. For example /dev/mdadm0.
+    , _rbRaidLevel :: Maybe Integer
+      -- ^ The RAID level.
+    , _rbCreatedAt :: Maybe Text
+      -- ^ When the RAID array was created.
+    , _rbIops :: Maybe Integer
+      -- ^ For PIOPS volumes, the IOPS per disk.
+    , _rbSize :: Maybe Integer
+      -- ^ The array's size.
+    , _rbInstanceId :: Maybe Text
+      -- ^ The instance ID.
     } deriving (Show, Generic)
 
 instance FromJSON RaidArray
 
 -- | Describes an Amazon RDS instance.
 data RdsDbInstance = RdsDbInstance
-    { _rdjAddress :: Maybe Text
-      -- ^ The instance's address.
+    { _rdjDbPassword :: Maybe Text
+      -- ^ The database password.
+    , _rdjStackId :: Maybe Text
+      -- ^ The ID of the stack that the instance is registered with.
+    , _rdjRegion :: Maybe Text
+      -- ^ The instance's AWS region.
     , _rdjDbInstanceIdentifier :: Maybe Text
       -- ^ The DB instance identifier.
-    , _rdjDbPassword :: Maybe Text
-      -- ^ The database password.
-    , _rdjDbUser :: Maybe Text
-      -- ^ The master user name.
+    , _rdjAddress :: Maybe Text
+      -- ^ The instance's address.
     , _rdjEngine :: Maybe Text
       -- ^ The instance's database engine.
     , _rdjMissingOnRds :: Maybe Bool
@@ -1077,32 +1079,30 @@ data RdsDbInstance = RdsDbInstance
       -- instance. AWS OpsWorks attempts to discover the instance only
       -- once. If this value is set to true, you must deregister the
       -- instance and then register it again.
+    , _rdjDbUser :: Maybe Text
+      -- ^ The master user name.
     , _rdjRdsDbInstanceArn :: Maybe Text
       -- ^ The instance's ARN.
-    , _rdjRegion :: Maybe Text
-      -- ^ The instance's AWS region.
-    , _rdjStackId :: Maybe Text
-      -- ^ The ID of the stack that the instance is registered with.
     } deriving (Show, Generic)
 
 instance FromJSON RdsDbInstance
 
 -- | A LayerCustomRecipes object that specifies the layer custom recipes.
 data Recipes = Recipes
-    { _rConfigure :: [Text]
-      -- ^ An array of custom recipe names to be run following a configure
-      -- event.
-    , _rDeploy :: [Text]
+    { _rDeploy :: [Text]
       -- ^ An array of custom recipe names to be run following a deploy
       -- event.
-    , _rSetup :: [Text]
-      -- ^ An array of custom recipe names to be run following a setup
+    , _rConfigure :: [Text]
+      -- ^ An array of custom recipe names to be run following a configure
+      -- event.
+    , _rUndeploy :: [Text]
+      -- ^ An array of custom recipe names to be run following a undeploy
       -- event.
     , _rShutdown :: [Text]
       -- ^ An array of custom recipe names to be run following a shutdown
       -- event.
-    , _rUndeploy :: [Text]
-      -- ^ An array of custom recipe names to be run following a undeploy
+    , _rSetup :: [Text]
+      -- ^ An array of custom recipe names to be run following a setup
       -- event.
     } deriving (Show, Generic)
 
@@ -1112,32 +1112,32 @@ instance ToJSON Recipes
 
 -- | A UserProfile object that describes the user's SSH information.
 data SelfUserProfile = SelfUserProfile
-    { _supIamUserArn :: Maybe Text
-      -- ^ The user's IAM ARN.
-    , _supName :: Maybe Text
+    { _supName :: Maybe Text
       -- ^ The user's name.
-    , _supSshPublicKey :: Maybe Text
-      -- ^ The user's SSH public key.
+    , _supIamUserArn :: Maybe Text
+      -- ^ The user's IAM ARN.
     , _supSshUsername :: Maybe Text
       -- ^ The user's SSH user name.
+    , _supSshPublicKey :: Maybe Text
+      -- ^ The user's SSH public key.
     } deriving (Show, Generic)
 
 instance FromJSON SelfUserProfile
 
 -- | Describes an AWS OpsWorks service error.
 data ServiceError = ServiceError
-    { _ssssssssssssssssssssssrCreatedAt :: Maybe Text
-      -- ^ When the error occurred.
-    , _ssssssssssssssssssssssrInstanceId :: Maybe Text
-      -- ^ The instance ID.
-    , _ssssssssssssssssssssssrMessage :: Maybe Text
+    { _ssssssssssssssssssssssrMessage :: Maybe Text
       -- ^ A message that describes the error.
-    , _ssssssssssssssssssssssrServiceErrorId :: Maybe Text
-      -- ^ The error ID.
     , _ssssssssssssssssssssssrStackId :: Maybe Text
       -- ^ The stack ID.
     , _ssssssssssssssssssssssrType :: Maybe Text
       -- ^ The error type.
+    , _ssssssssssssssssssssssrServiceErrorId :: Maybe Text
+      -- ^ The error ID.
+    , _ssssssssssssssssssssssrCreatedAt :: Maybe Text
+      -- ^ When the error occurred.
+    , _ssssssssssssssssssssssrInstanceId :: Maybe Text
+      -- ^ The instance ID.
     } deriving (Show, Generic)
 
 instance FromJSON ServiceError
@@ -1146,29 +1146,29 @@ instance FromJSON ServiceError
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
 data Source = Source
-    { _sePassword :: Maybe Text
-      -- ^ This parameter depends on the repository type. For Amazon S3
-      -- bundles, set Password to the appropriate IAM secret access key.
-      -- For HTTP bundles and Subversion repositories, set Password to the
-      -- password. For more information on how to safely handle IAM
-      -- credentials, see .
-    , _seRevision :: Maybe Text
+    { _seRevision :: Maybe Text
       -- ^ The application's version. AWS OpsWorks enables you to easily
       -- deploy new versions of an application. One of the simplest
       -- approaches is to have branches or revisions in your repository
       -- that represent different versions that can potentially be
       -- deployed.
-    , _seSshKey :: Maybe Text
-      -- ^ The repository's SSH key.
     , _seType :: Maybe SourceType
       -- ^ The repository type.
-    , _seUrl :: Maybe Text
-      -- ^ The source URL.
+    , _sePassword :: Maybe Text
+      -- ^ This parameter depends on the repository type. For Amazon S3
+      -- bundles, set Password to the appropriate IAM secret access key.
+      -- For HTTP bundles and Subversion repositories, set Password to the
+      -- password. For more information on how to safely handle IAM
+      -- credentials, see .
+    , _seSshKey :: Maybe Text
+      -- ^ The repository's SSH key.
     , _seUsername :: Maybe Text
       -- ^ This parameter depends on the repository type. For Amazon S3
       -- bundles, set Username to the appropriate IAM access key ID. For
       -- HTTP bundles, Git repositories, and Subversion repositories, set
       -- Username to the user name.
+    , _seUrl :: Maybe Text
+      -- ^ The source URL.
     } deriving (Show, Generic)
 
 instance FromJSON Source
@@ -1177,11 +1177,11 @@ instance ToJSON Source
 
 -- | An SslConfiguration object with the SSL configuration.
 data SslConfiguration = SslConfiguration
-    { _scCertificate :: Text
-      -- ^ The contents of the certificate's domain.crt file.
-    , _scChain :: Maybe Text
+    { _scChain :: Maybe Text
       -- ^ Optional. Can be used to specify an intermediate certificate
       -- authority key or client authentication.
+    , _scCertificate :: Text
+      -- ^ The contents of the certificate's domain.crt file.
     , _scPrivateKey :: Text
       -- ^ The private key; the contents of the certificate's domain.kex
       -- file.
@@ -1193,18 +1193,32 @@ instance ToJSON SslConfiguration
 
 -- | Describes a stack.
 data Stack = Stack
-    { _ssssssqArn :: Maybe Text
-      -- ^ The stack's ARN.
-    , _ssssssqAttributes :: Map StackAttributesKeys Text
-      -- ^ The stack's attributes.
-    , _ssssssqChefConfiguration :: Maybe ChefConfiguration
-      -- ^ A ChefConfiguration object that specifies whether to enable
-      -- Berkshelf and the Berkshelf version. For more information, see
-      -- Create a New Stack.
+    { _ssssssqHostnameTheme :: Maybe Text
+      -- ^ The stack host name theme, with spaces replaced by underscores.
+    , _ssssssqStackId :: Maybe Text
+      -- ^ The stack ID.
     , _ssssssqConfigurationManager :: Maybe StackConfigurationManager
       -- ^ The configuration manager.
-    , _ssssssqCreatedAt :: Maybe Text
-      -- ^ Date when the stack was created.
+    , _ssssssqRegion :: Maybe Text
+      -- ^ The stack AWS region, such as "us-east-1". For more information
+      -- about AWS regions, see Regions and Endpoints.
+    , _ssssssqDefaultSubnetId :: Maybe Text
+      -- ^ The default subnet ID, if the stack is running in a VPC.
+    , _ssssssqUseCustomCookbooks :: Maybe Bool
+      -- ^ Whether the stack uses custom cookbooks.
+    , _ssssssqUseOpsworksSecurityGroups :: Maybe Bool
+      -- ^ Whether the stack automatically associates the AWS OpsWorks
+      -- built-in security groups with the stack's layers.
+    , _ssssssqDefaultOs :: Maybe Text
+      -- ^ The stack's default operating system, which must be set to Amazon
+      -- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
+    , _ssssssqName :: Maybe Text
+      -- ^ The stack name.
+    , _ssssssqAttributes :: Map StackAttributesKeys Text
+      -- ^ The stack's attributes.
+    , _ssssssqDefaultAvailabilityZone :: Maybe Text
+      -- ^ The stack's default Availability Zone. For more information, see
+      -- Regions and Endpoints.
     , _ssssssqCustomCookbooksSource :: Maybe Source
       -- ^ Contains the information required to retrieve an app or cookbook
       -- from a repository. For more information, see Creating Apps or
@@ -1216,44 +1230,30 @@ data Stack = Stack
       -- escape characters such as '"'.: "{\"key1\": \"value1\", \"key2\":
       -- \"value2\",...}" For more information on custom JSON, see Use
       -- Custom JSON to Modify the Stack Configuration JSON.
-    , _ssssssqDefaultAvailabilityZone :: Maybe Text
-      -- ^ The stack's default Availability Zone. For more information, see
-      -- Regions and Endpoints.
-    , _ssssssqDefaultInstanceProfileArn :: Maybe Text
-      -- ^ The ARN of an IAM profile that is the default profile for all of
-      -- the stack's EC2 instances. For more information about IAM ARNs,
-      -- see Using Identifiers.
-    , _ssssssqDefaultOs :: Maybe Text
-      -- ^ The stack's default operating system, which must be set to Amazon
-      -- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
+    , _ssssssqDefaultSshKeyName :: Maybe Text
+      -- ^ A default SSH key for the stack's instances. You can override
+      -- this value when you create or update an instance.
+    , _ssssssqChefConfiguration :: Maybe ChefConfiguration
+      -- ^ A ChefConfiguration object that specifies whether to enable
+      -- Berkshelf and the Berkshelf version. For more information, see
+      -- Create a New Stack.
+    , _ssssssqVpcId :: Maybe Text
+      -- ^ The VPC ID, if the stack is running in a VPC.
+    , _ssssssqCreatedAt :: Maybe Text
+      -- ^ Date when the stack was created.
+    , _ssssssqArn :: Maybe Text
+      -- ^ The stack's ARN.
     , _ssssssqDefaultRootDeviceType :: Maybe RootDeviceType
       -- ^ The default root device type. This value is used by default for
       -- all instances in the stack, but you can override it when you
       -- create an instance. For more information, see Storage for the
       -- Root Device.
-    , _ssssssqDefaultSshKeyName :: Maybe Text
-      -- ^ A default SSH key for the stack's instances. You can override
-      -- this value when you create or update an instance.
-    , _ssssssqDefaultSubnetId :: Maybe Text
-      -- ^ The default subnet ID, if the stack is running in a VPC.
-    , _ssssssqHostnameTheme :: Maybe Text
-      -- ^ The stack host name theme, with spaces replaced by underscores.
-    , _ssssssqName :: Maybe Text
-      -- ^ The stack name.
-    , _ssssssqRegion :: Maybe Text
-      -- ^ The stack AWS region, such as "us-east-1". For more information
-      -- about AWS regions, see Regions and Endpoints.
     , _ssssssqServiceRoleArn :: Maybe Text
       -- ^ The stack AWS Identity and Access Management (IAM) role.
-    , _ssssssqStackId :: Maybe Text
-      -- ^ The stack ID.
-    , _ssssssqUseCustomCookbooks :: Maybe Bool
-      -- ^ Whether the stack uses custom cookbooks.
-    , _ssssssqUseOpsworksSecurityGroups :: Maybe Bool
-      -- ^ Whether the stack automatically associates the AWS OpsWorks
-      -- built-in security groups with the stack's layers.
-    , _ssssssqVpcId :: Maybe Text
-      -- ^ The VPC ID, if the stack is running in a VPC.
+    , _ssssssqDefaultInstanceProfileArn :: Maybe Text
+      -- ^ The ARN of an IAM profile that is the default profile for all of
+      -- the stack's EC2 instances. For more information about IAM ARNs,
+      -- see Using Identifiers.
     } deriving (Show, Generic)
 
 instance FromJSON Stack
@@ -1262,11 +1262,11 @@ instance FromJSON Stack
 -- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
 -- The default value is currently 11.4.
 data StackConfigurationManager = StackConfigurationManager
-    { _scmName :: Maybe Text
-      -- ^ The name. This parameter must be set to "Chef".
-    , _scmVersion :: Maybe Text
+    { _scmVersion :: Maybe Text
       -- ^ The Chef version. This parameter must be set to 0.9, 11.4, or
       -- 11.10. The default value is 11.4.
+    , _scmName :: Maybe Text
+      -- ^ The name. This parameter must be set to "Chef".
     } deriving (Show, Generic)
 
 instance FromJSON StackConfigurationManager
@@ -1275,19 +1275,19 @@ instance ToJSON StackConfigurationManager
 
 -- | A StackSummary object that contains the results.
 data StackSummary = StackSummary
-    { _sssssssssssssyAppsCount :: Maybe Integer
-      -- ^ The number of apps.
-    , _sssssssssssssyArn :: Maybe Text
-      -- ^ The stack's ARN.
-    , _sssssssssssssyInstancesCount :: Maybe InstancesCount
+    { _sssssssssssssyInstancesCount :: Maybe InstancesCount
       -- ^ An InstancesCount object with the number of instances in each
       -- status.
     , _sssssssssssssyLayersCount :: Maybe Integer
       -- ^ The number of layers.
-    , _sssssssssssssyName :: Maybe Text
-      -- ^ The stack name.
     , _sssssssssssssyStackId :: Maybe Text
       -- ^ The stack ID.
+    , _sssssssssssssyName :: Maybe Text
+      -- ^ The stack name.
+    , _sssssssssssssyAppsCount :: Maybe Integer
+      -- ^ The number of apps.
+    , _sssssssssssssyArn :: Maybe Text
+      -- ^ The stack's ARN.
     } deriving (Show, Generic)
 
 instance FromJSON StackSummary
@@ -1304,70 +1304,70 @@ instance FromJSON TimeBasedAutoScalingConfiguration
 
 -- | Describes a user's SSH information.
 data UserProfile = UserProfile
-    { _uueAllowSelfManagement :: Maybe Bool
+    { _uueName :: Maybe Text
+      -- ^ The user's name.
+    , _uueIamUserArn :: Maybe Text
+      -- ^ The user's IAM ARN.
+    , _uueSshUsername :: Maybe Text
+      -- ^ The user's SSH user name.
+    , _uueSshPublicKey :: Maybe Text
+      -- ^ The user's SSH public key.
+    , _uueAllowSelfManagement :: Maybe Bool
       -- ^ Whether users can specify their own SSH public key through the My
       -- Settings page. For more information, see Managing User
       -- Permissions.
-    , _uueIamUserArn :: Maybe Text
-      -- ^ The user's IAM ARN.
-    , _uueName :: Maybe Text
-      -- ^ The user's name.
-    , _uueSshPublicKey :: Maybe Text
-      -- ^ The user's SSH public key.
-    , _uueSshUsername :: Maybe Text
-      -- ^ The user's SSH user name.
     } deriving (Show, Generic)
 
 instance FromJSON UserProfile
 
 -- | Describes an instance's Amazon EBS volume.
 data Volume = Volume
-    { _vgAvailabilityZone :: Maybe Text
+    { _vgMountPoint :: Maybe Text
+      -- ^ The volume mount point. For example "/dev/sdh".
+    , _vgEc2VolumeId :: Maybe Text
+      -- ^ The Amazon EC2 volume ID.
+    , _vgVolumeType :: Maybe Text
+      -- ^ The volume type, standard or PIOPS.
+    , _vgRegion :: Maybe Text
+      -- ^ The AWS region. For more information about AWS regions, see
+      -- Regions and Endpoints.
+    , _vgVolumeId :: Maybe Text
+      -- ^ The volume ID.
+    , _vgRaidArrayId :: Maybe Text
+      -- ^ The RAID array ID.
+    , _vgName :: Maybe Text
+      -- ^ The volume name.
+    , _vgAvailabilityZone :: Maybe Text
       -- ^ The volume Availability Zone. For more information, see Regions
       -- and Endpoints.
     , _vgDevice :: Maybe Text
       -- ^ The device name.
-    , _vgEc2VolumeId :: Maybe Text
-      -- ^ The Amazon EC2 volume ID.
-    , _vgInstanceId :: Maybe Text
-      -- ^ The instance ID.
     , _vgIops :: Maybe Integer
       -- ^ For PIOPS volumes, the IOPS per disk.
-    , _vgMountPoint :: Maybe Text
-      -- ^ The volume mount point. For example "/dev/sdh".
-    , _vgName :: Maybe Text
-      -- ^ The volume name.
-    , _vgRaidArrayId :: Maybe Text
-      -- ^ The RAID array ID.
-    , _vgRegion :: Maybe Text
-      -- ^ The AWS region. For more information about AWS regions, see
-      -- Regions and Endpoints.
     , _vgSize :: Maybe Integer
       -- ^ The volume size.
     , _vgStatus :: Maybe Text
       -- ^ The value returned by DescribeVolumes.
-    , _vgVolumeId :: Maybe Text
-      -- ^ The volume ID.
-    , _vgVolumeType :: Maybe Text
-      -- ^ The volume type, standard or PIOPS.
+    , _vgInstanceId :: Maybe Text
+      -- ^ The instance ID.
     } deriving (Show, Generic)
 
 instance FromJSON Volume
 
 -- | Describes an Amazon EBS volume configuration.
 data VolumeConfiguration = VolumeConfiguration
-    { _vdIops :: Maybe Integer
-      -- ^ For PIOPS volumes, the IOPS per disk.
-    , _vdMountPoint :: Text
+    { _vdMountPoint :: Text
       -- ^ The volume mount point. For example "/dev/sdh".
+    , _vdVolumeType :: Maybe Text
+      -- ^ The volume type, standard or PIOPS.
     , _vdNumberOfDisks :: Integer
       -- ^ The number of disks in the volume.
     , _vdRaidLevel :: Maybe Integer
       -- ^ The volume RAID level.
+    , _vdIops :: Maybe Integer
+      -- ^ For PIOPS volumes, the IOPS per disk.
     , _vdSize :: Integer
       -- ^ The volume size.
-    , _vdVolumeType :: Maybe Text
-      -- ^ The volume type, standard or PIOPS.
     } deriving (Show, Generic)
 
 instance FromJSON VolumeConfiguration
@@ -1376,20 +1376,20 @@ instance ToJSON VolumeConfiguration
 
 -- | A WeeklyAutoScalingSchedule object with the instance schedule.
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
-    { _wassFriday :: Map Text Text
+    { _wassTuesday :: Map Text Text
+      -- ^ The schedule for Tuesday.
+    , _wassSunday :: Map Text Text
+      -- ^ The schedule for Sunday.
+    , _wassFriday :: Map Text Text
       -- ^ The schedule for Friday.
     , _wassMonday :: Map Text Text
       -- ^ The schedule for Monday.
     , _wassSaturday :: Map Text Text
       -- ^ The schedule for Saturday.
-    , _wassSunday :: Map Text Text
-      -- ^ The schedule for Sunday.
-    , _wassThursday :: Map Text Text
-      -- ^ The schedule for Thursday.
-    , _wassTuesday :: Map Text Text
-      -- ^ The schedule for Tuesday.
     , _wassWednesday :: Map Text Text
       -- ^ The schedule for Wednesday.
+    , _wassThursday :: Map Text Text
+      -- ^ The schedule for Thursday.
     } deriving (Show, Generic)
 
 instance FromJSON WeeklyAutoScalingSchedule

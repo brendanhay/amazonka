@@ -250,14 +250,14 @@ data ScanResponse = ScanResponse
       -- the operation. ConsumedCapacity is only returned if it was asked
       -- for in the request. For more information, see Provisioned
       -- Throughput in the Amazon DynamoDB Developer Guide.
-    , _soCount :: Maybe Integer
-      -- ^ The number of items in the response.
     , _soScannedCount :: Maybe Integer
       -- ^ The number of items in the complete scan, before any filters are
       -- applied. A high ScannedCount value with few, or no, Count results
       -- indicates an inefficient Scan operation. For more information,
       -- see Count and ScannedCount in the Amazon DynamoDB Developer
       -- Guide.
+    , _soCount :: Maybe Integer
+      -- ^ The number of items in the response.
     , _soItems :: [Map Text AttributeValue]
       -- ^ An array of item attributes that match the scan criteria. Each
       -- element in this array consists of an attribute name and the value

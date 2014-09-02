@@ -52,8 +52,8 @@ putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
     , _psugatMaxSize = Nothing
     , _psugatMinSize = Nothing
     , _psugatEndTime = Nothing
-    , _psugatStartTime = Nothing
     , _psugatTime = Nothing
+    , _psugatStartTime = Nothing
     , _psugatRecurrence = Nothing
     }
 
@@ -71,18 +71,18 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
       -- ^ The minimum size for the new Auto Scaling group.
     , _psugatEndTime :: Maybe ISO8601
       -- ^ The time for this action to end.
-    , _psugatStartTime :: Maybe ISO8601
-      -- ^ The time for this action to start, as in --start-time
-      -- 2010-06-01T00:00:00Z. If you try to schedule your action in the
-      -- past, Auto Scaling returns an error message. When StartTime and
-      -- EndTime are specified with Recurrence, they form the boundaries
-      -- of when the recurring action will start and stop.
     , _psugatTime :: Maybe ISO8601
       -- ^ Time is deprecated. The time for this action to start. Time is an
       -- alias for StartTime and can be specified instead of StartTime, or
       -- vice versa. If both Time and StartTime are specified, their
       -- values should be identical. Otherwise,
       -- PutScheduledUpdateGroupAction will return an error.
+    , _psugatStartTime :: Maybe ISO8601
+      -- ^ The time for this action to start, as in --start-time
+      -- 2010-06-01T00:00:00Z. If you try to schedule your action in the
+      -- past, Auto Scaling returns an error message. When StartTime and
+      -- EndTime are specified with Recurrence, they form the boundaries
+      -- of when the recurring action will start and stop.
     , _psugatRecurrence :: Maybe Text
       -- ^ The time when recurring future actions will start. Start time is
       -- specified by the user following the Unix cron syntax format. For

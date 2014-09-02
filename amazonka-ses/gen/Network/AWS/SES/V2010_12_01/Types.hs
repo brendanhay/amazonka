@@ -186,9 +186,8 @@ data Body = Body
 instance ToQuery Body where
     toQuery = genericQuery def
 
--- | The content of the message, in HTML format. Use this for email clients that
--- can process HTML. You can include clickable links, formatted text, and much
--- more in an HTML message.
+-- | The subject of the message: A short summary of the content, which will
+-- appear in the recipient's inbox.
 data Content = Content
     { _ctCharset :: Maybe Text
       -- ^ The character set of the content.
@@ -201,12 +200,12 @@ instance ToQuery Content where
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
 data Destination = Destination
-    { _dnBccAddresses :: [Text]
-      -- ^ The BCC: field(s) of the message.
+    { _dnToAddresses :: [Text]
+      -- ^ The To: field(s) of the message.
     , _dnCcAddresses :: [Text]
       -- ^ The CC: field(s) of the message.
-    , _dnToAddresses :: [Text]
-      -- ^ The To: field(s) of the message.
+    , _dnBccAddresses :: [Text]
+      -- ^ The BCC: field(s) of the message.
     } deriving (Show, Generic)
 
 instance ToQuery Destination where
@@ -214,7 +213,12 @@ instance ToQuery Destination where
 
 -- | Represents the DKIM attributes of a verified email address or a domain.
 data IdentityDkimAttributes = IdentityDkimAttributes
-    { _idaDkimEnabled :: Bool
+    { _idaDkimVerificationStatus :: VerificationStatus
+      -- ^ Describes whether Amazon SES has successfully verified the DKIM
+      -- DNS records (tokens) published in the domain name's DNS. (This
+      -- only applies to domain identities, not email address
+      -- identities.).
+    , _idaDkimEnabled :: Bool
       -- ^ True if DKIM signing is enabled for email sent from the identity;
       -- false otherwise.
     , _idaDkimTokens :: [Text]
@@ -228,11 +232,6 @@ data IdentityDkimAttributes = IdentityDkimAttributes
       -- identities, not email address identities.) For more information
       -- about creating DNS records using DKIM tokens, go to the Amazon
       -- SES Developer Guide.
-    , _idaDkimVerificationStatus :: VerificationStatus
-      -- ^ Describes whether Amazon SES has successfully verified the DKIM
-      -- DNS records (tokens) published in the domain name's DNS. (This
-      -- only applies to domain identities, not email address
-      -- identities.).
     } deriving (Show, Generic)
 
 instance FromXML IdentityDkimAttributes where
@@ -244,22 +243,22 @@ instance FromXML IdentityDkimAttributes where
 -- bounce, complaint, and/or delivery notifications, and whether feedback
 -- forwarding is enabled for bounce and complaint notifications.
 data IdentityNotificationAttributes = IdentityNotificationAttributes
-    { _inaBounceTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish bounce notifications.
-    , _inaComplaintTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish complaint notifications.
-    , _inaDeliveryTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish delivery notifications.
-    , _inaForwardingEnabled :: Bool
+    { _inaForwardingEnabled :: Bool
       -- ^ Describes whether Amazon SES will forward bounce and complaint
       -- notifications as email. true indicates that Amazon SES will
       -- forward bounce and complaint notifications as email, while false
       -- indicates that bounce and complaint notifications will be
       -- published only to the specified bounce and complaint Amazon SNS
       -- topics.
+    , _inaComplaintTopic :: Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
+      -- Amazon SES will publish complaint notifications.
+    , _inaBounceTopic :: Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
+      -- Amazon SES will publish bounce notifications.
+    , _inaDeliveryTopic :: Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
+      -- Amazon SES will publish delivery notifications.
     } deriving (Show, Generic)
 
 instance FromXML IdentityNotificationAttributes where
@@ -295,16 +294,16 @@ instance ToQuery Message where
 -- | Represents sending statistics data. Each SendDataPoint contains statistics
 -- for a 15-minute period of sending activity.
 data SendDataPoint = SendDataPoint
-    { _sdpBounces :: Maybe Integer
+    { _sdpTimestamp :: Maybe ISO8601
+      -- ^ Time of the data point.
+    , _sdpBounces :: Maybe Integer
       -- ^ Number of emails that have bounced.
-    , _sdpComplaints :: Maybe Integer
-      -- ^ Number of unwanted emails that were rejected by recipients.
     , _sdpDeliveryAttempts :: Maybe Integer
       -- ^ Number of emails that have been enqueued for sending.
+    , _sdpComplaints :: Maybe Integer
+      -- ^ Number of unwanted emails that were rejected by recipients.
     , _sdpRejects :: Maybe Integer
       -- ^ Number of emails rejected by Amazon SES.
-    , _sdpTimestamp :: Maybe ISO8601
-      -- ^ Time of the data point.
     } deriving (Show, Generic)
 
 instance FromXML SendDataPoint where

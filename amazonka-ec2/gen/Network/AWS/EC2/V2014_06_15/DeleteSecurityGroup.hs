@@ -44,17 +44,17 @@ import Network.AWS.Prelude
 deleteSecurityGroup :: DeleteSecurityGroup
 deleteSecurityGroup = DeleteSecurityGroup
     { _dsgrDryRun = Nothing
-    , _dsgrGroupId = Nothing
     , _dsgrGroupName = Nothing
+    , _dsgrGroupId = Nothing
     }
 
 data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsgrDryRun :: Maybe Bool
       -- ^ 
-    , _dsgrGroupId :: Maybe Text
-      -- ^ The ID of the security group.
     , _dsgrGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the security group.
+    , _dsgrGroupId :: Maybe Text
+      -- ^ The ID of the security group.
     } deriving (Show, Generic)
 
 makeLenses ''DeleteSecurityGroup

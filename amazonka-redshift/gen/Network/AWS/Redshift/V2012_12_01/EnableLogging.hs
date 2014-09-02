@@ -60,16 +60,16 @@ instance ToQuery EnableLogging where
 data EnableLoggingResponse = EnableLoggingResponse
     { _ltLoggingEnabled :: Maybe Bool
       -- ^ true if logging is on, false if logging is off.
-    , _ltBucketName :: Maybe Text
-      -- ^ The name of the S3 bucket where the log files are stored.
     , _ltLastFailureMessage :: Maybe Text
       -- ^ The message indicating that logs failed to be delivered.
+    , _ltBucketName :: Maybe Text
+      -- ^ The name of the S3 bucket where the log files are stored.
     , _ltS3KeyPrefix :: Maybe Text
       -- ^ The prefix applied to the log file names.
-    , _ltLastFailureTime :: Maybe ISO8601
-      -- ^ The last time when logs failed to be delivered.
     , _ltLastSuccessfulDeliveryTime :: Maybe ISO8601
       -- ^ The last time when logs were delivered.
+    , _ltLastFailureTime :: Maybe ISO8601
+      -- ^ The last time when logs failed to be delivered.
     } deriving (Show, Generic)
 
 makeLenses ''EnableLoggingResponse

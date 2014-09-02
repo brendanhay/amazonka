@@ -98,11 +98,11 @@ instance ToHeaders GetLogEvents
 instance ToJSON GetLogEvents
 
 data GetLogEventsResponse = GetLogEventsResponse
-    { _glesNextBackwardToken :: Maybe Text
+    { _glesNextForwardToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous request. The token expires after 24 hours.
-    , _glesNextForwardToken :: Maybe Text
+    , _glesNextBackwardToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous request. The token expires after 24 hours.

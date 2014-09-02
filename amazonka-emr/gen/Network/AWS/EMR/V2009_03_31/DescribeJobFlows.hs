@@ -83,17 +83,17 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeJobFlows' request.
 describeJobFlows :: DescribeJobFlows
 describeJobFlows = DescribeJobFlows
-    { _djfiCreatedAfter = Nothing
-    , _djfiCreatedBefore = Nothing
+    { _djfiCreatedBefore = Nothing
+    , _djfiCreatedAfter = Nothing
     , _djfiJobFlowStates = mempty
     , _djfiJobFlowIds = mempty
     }
 
 data DescribeJobFlows = DescribeJobFlows
-    { _djfiCreatedAfter :: Maybe POSIX
-      -- ^ Return only job flows created after this date and time.
-    , _djfiCreatedBefore :: Maybe POSIX
+    { _djfiCreatedBefore :: Maybe POSIX
       -- ^ Return only job flows created before this date and time.
+    , _djfiCreatedAfter :: Maybe POSIX
+      -- ^ Return only job flows created after this date and time.
     , _djfiJobFlowStates :: [JobFlowExecutionState]
       -- ^ Return only job flows whose state is contained in this list.
     , _djfiJobFlowIds :: [Text]

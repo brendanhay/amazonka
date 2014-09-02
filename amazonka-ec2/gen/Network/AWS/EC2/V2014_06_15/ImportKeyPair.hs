@@ -54,21 +54,21 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ImportKeyPair' request.
-importKeyPair :: Text -- ^ '_ikprKeyName'
-              -> ByteString -- ^ '_ikprPublicKeyMaterial'
+importKeyPair :: ByteString -- ^ '_ikprPublicKeyMaterial'
+              -> Text -- ^ '_ikprKeyName'
               -> ImportKeyPair
 importKeyPair p1 p2 = ImportKeyPair
-    { _ikprKeyName = p1
-    , _ikprPublicKeyMaterial = p2
+    { _ikprPublicKeyMaterial = p1
+    , _ikprKeyName = p2
     , _ikprDryRun = Nothing
     }
 
 data ImportKeyPair = ImportKeyPair
-    { _ikprKeyName :: Text
-      -- ^ A unique name for the key pair.
-    , _ikprPublicKeyMaterial :: ByteString
+    { _ikprPublicKeyMaterial :: ByteString
       -- ^ The public key. You must base64 encode the public key material
       -- before sending it to AWS.
+    , _ikprKeyName :: Text
+      -- ^ A unique name for the key pair.
     , _ikprDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
@@ -79,11 +79,11 @@ instance ToQuery ImportKeyPair where
     toQuery = genericQuery def
 
 data ImportKeyPairResponse = ImportKeyPairResponse
-    { _ikpsKeyFingerprint :: Maybe Text
+    { _ikpsKeyName :: Maybe Text
+      -- ^ The key pair name you provided.
+    , _ikpsKeyFingerprint :: Maybe Text
       -- ^ The MD5 public key fingerprint as specified in section 4 of RFC
       -- 4716.
-    , _ikpsKeyName :: Maybe Text
-      -- ^ The key pair name you provided.
     } deriving (Show, Generic)
 
 makeLenses ''ImportKeyPairResponse

@@ -54,13 +54,13 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 data TestRole = TestRole
-    { _trrInputBucket :: Text
-      -- ^ The Amazon S3 bucket that contains media files to be transcoded.
-      -- The action attempts to read from this bucket.
-    , _trrOutputBucket :: Text
+    { _trrOutputBucket :: Text
       -- ^ The Amazon S3 bucket that Elastic Transcoder will write
       -- transcoded media files to. The action attempts to read from this
       -- bucket.
+    , _trrInputBucket :: Text
+      -- ^ The Amazon S3 bucket that contains media files to be transcoded.
+      -- The action attempts to read from this bucket.
     , _trrRole :: Text
       -- ^ The IAM Amazon Resource Name (ARN) for the role that you want
       -- Elastic Transcoder to test.

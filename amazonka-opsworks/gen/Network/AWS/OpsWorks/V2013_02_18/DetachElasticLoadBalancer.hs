@@ -31,11 +31,11 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
-    { _delbrElasticLoadBalancerName :: Text
-      -- ^ The Elastic Load Balancing instance's name.
-    , _delbrLayerId :: Text
+    { _delbrLayerId :: Text
       -- ^ The ID of the layer that the Elastic Load Balancing instance is
       -- attached to.
+    , _delbrElasticLoadBalancerName :: Text
+      -- ^ The Elastic Load Balancing instance's name.
     } deriving (Show, Generic)
 
 makeLenses ''DetachElasticLoadBalancer

@@ -39,10 +39,10 @@ updateInstance p1 = UpdateInstance
     , _uirEbsOptimized = Nothing
     , _uirInstallUpdatesOnBoot = Nothing
     , _uirAmiId = Nothing
-    , _uirHostname = Nothing
-    , _uirInstanceType = Nothing
     , _uirOs = Nothing
+    , _uirInstanceType = Nothing
     , _uirSshKeyName = Nothing
+    , _uirHostname = Nothing
     , _uirLayerIds = mempty
     }
 
@@ -76,14 +76,6 @@ data UpdateInstance = UpdateInstance
       -- ^ A custom AMI ID to be used to create the instance. The AMI should
       -- be based on one of the standard AWS OpsWorks APIs: Amazon Linux
       -- or Ubuntu 12.04 LTS. For more information, see Instances.
-    , _uirHostname :: Maybe Text
-      -- ^ The instance host name.
-    , _uirInstanceType :: Maybe Text
-      -- ^ The instance type. AWS OpsWorks supports all instance types
-      -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
-      -- more information, see Instance Families and Types. The parameter
-      -- values that you use to specify the various types are in the API
-      -- Name column of the Available Instance Types table.
     , _uirOs :: Maybe Text
       -- ^ The instance operating system, which must be set to one of the
       -- following. Standard operating systems: Amazon Linux or Ubuntu
@@ -93,8 +85,16 @@ data UpdateInstance = UpdateInstance
       -- that you want to use. For more information on the standard
       -- operating systems, see Operating SystemsFor more information on
       -- how to use custom AMIs with OpsWorks, see Using Custom AMIs.
+    , _uirInstanceType :: Maybe Text
+      -- ^ The instance type. AWS OpsWorks supports all instance types
+      -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
+      -- more information, see Instance Families and Types. The parameter
+      -- values that you use to specify the various types are in the API
+      -- Name column of the Available Instance Types table.
     , _uirSshKeyName :: Maybe Text
       -- ^ The instance SSH key name.
+    , _uirHostname :: Maybe Text
+      -- ^ The instance host name.
     , _uirLayerIds :: [Text]
       -- ^ The instance's layer IDs.
     } deriving (Show, Generic)

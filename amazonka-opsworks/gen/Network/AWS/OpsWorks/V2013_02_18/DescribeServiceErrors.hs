@@ -32,20 +32,20 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeServiceErrors' request.
 describeServiceErrors :: DescribeServiceErrors
 describeServiceErrors = DescribeServiceErrors
-    { _dserInstanceId = Nothing
-    , _dserStackId = Nothing
+    { _dserStackId = Nothing
+    , _dserInstanceId = Nothing
     , _dserServiceErrorIds = mempty
     }
 
 data DescribeServiceErrors = DescribeServiceErrors
-    { _dserInstanceId :: Maybe Text
-      -- ^ The instance ID. If you use this parameter, DescribeServiceErrors
-      -- returns descriptions of the errors associated with the specified
-      -- instance.
-    , _dserStackId :: Maybe Text
+    { _dserStackId :: Maybe Text
       -- ^ The stack ID. If you use this parameter, DescribeServiceErrors
       -- returns descriptions of the errors associated with the specified
       -- stack.
+    , _dserInstanceId :: Maybe Text
+      -- ^ The instance ID. If you use this parameter, DescribeServiceErrors
+      -- returns descriptions of the errors associated with the specified
+      -- instance.
     , _dserServiceErrorIds :: [Text]
       -- ^ An array of service error IDs. If you use this parameter,
       -- DescribeServiceErrors returns descriptions of the specified

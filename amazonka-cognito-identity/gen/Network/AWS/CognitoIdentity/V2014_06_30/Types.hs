@@ -100,10 +100,10 @@ instance FromJSON IdentityDescription
 
 -- | A description of the identity pool.
 data IdentityPoolShortDescription = IdentityPoolShortDescription
-    { _ipsdIdentityPoolId :: Maybe Text
-      -- ^ An identity pool ID in the format REGION:GUID.
-    , _ipsdIdentityPoolName :: Maybe Text
+    { _ipsdIdentityPoolName :: Maybe Text
       -- ^ A string that you provide.
+    , _ipsdIdentityPoolId :: Maybe Text
+      -- ^ An identity pool ID in the format REGION:GUID.
     } deriving (Show, Generic)
 
 instance FromJSON IdentityPoolShortDescription

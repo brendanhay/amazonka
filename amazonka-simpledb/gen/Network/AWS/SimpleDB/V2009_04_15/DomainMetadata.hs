@@ -38,15 +38,15 @@ instance ToQuery DomainMetadata where
     toQuery = genericQuery def
 
 data DomainMetadataResponse = DomainMetadataResponse
-    { _dmsAttributeNameCount :: Maybe Integer
-      -- ^ The number of unique attribute names in the domain.
-    , _dmsAttributeValueCount :: Maybe Integer
-      -- ^ The number of all attribute name/value pairs in the domain.
-    , _dmsItemCount :: Maybe Integer
-      -- ^ The number of all items in the domain.
-    , _dmsTimestamp :: Maybe Integer
+    { _dmsTimestamp :: Maybe Integer
       -- ^ The data and time when metadata was calculated, in Epoch (UNIX)
       -- seconds.
+    , _dmsItemCount :: Maybe Integer
+      -- ^ The number of all items in the domain.
+    , _dmsAttributeValueCount :: Maybe Integer
+      -- ^ The number of all attribute name/value pairs in the domain.
+    , _dmsAttributeNameCount :: Maybe Integer
+      -- ^ The number of unique attribute names in the domain.
     , _dmsAttributeNamesSizeBytes :: Maybe Integer
       -- ^ The total size of all unique attribute names in the domain, in
       -- bytes.

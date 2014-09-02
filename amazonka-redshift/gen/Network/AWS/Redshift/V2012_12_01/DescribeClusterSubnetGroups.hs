@@ -39,8 +39,8 @@ import Network.AWS.Prelude
 describeClusterSubnetGroups :: DescribeClusterSubnetGroups
 describeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsgoMaxRecords = Nothing
-    , _dcsgoClusterSubnetGroupName = Nothing
     , _dcsgoMarker = Nothing
+    , _dcsgoClusterSubnetGroupName = Nothing
     }
 
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
@@ -51,9 +51,6 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcsgoClusterSubnetGroupName :: Maybe Text
-      -- ^ The name of the cluster subnet group for which information is
-      -- requested.
     , _dcsgoMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -62,6 +59,9 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
+    , _dcsgoClusterSubnetGroupName :: Maybe Text
+      -- ^ The name of the cluster subnet group for which information is
+      -- requested.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeClusterSubnetGroups

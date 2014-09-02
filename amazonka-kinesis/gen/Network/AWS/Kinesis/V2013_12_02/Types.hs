@@ -170,10 +170,10 @@ instance FromJSON StreamStatus
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
 data HashKeyRange = HashKeyRange
-    { _hkrEndingHashKey :: Text
-      -- ^ The ending hash key of the hash key range.
-    , _hkrStartingHashKey :: Text
+    { _hkrStartingHashKey :: Text
       -- ^ The starting hash key of the hash key range.
+    , _hkrEndingHashKey :: Text
+      -- ^ The ending hash key of the hash key range.
     } deriving (Show, Generic)
 
 instance FromJSON HashKeyRange
@@ -214,18 +214,18 @@ instance ToJSON SequenceNumberRange
 
 -- | A uniquely identified group of data records in an Amazon Kinesis stream.
 data Shard = Shard
-    { _sAdjacentParentShardId :: Maybe Text
-      -- ^ The shard Id of the shard adjacent to the shard's parent.
+    { _sShardId :: Text
+      -- ^ The unique identifier of the shard within the Amazon Kinesis
+      -- stream.
+    , _sSequenceNumberRange :: SequenceNumberRange
+      -- ^ The range of possible sequence numbers for the shard.
+    , _sParentShardId :: Maybe Text
+      -- ^ The shard Id of the shard's parent.
     , _sHashKeyRange :: HashKeyRange
       -- ^ The range of possible hash key values for the shard, which is a
       -- set of ordered contiguous positive integers.
-    , _sParentShardId :: Maybe Text
-      -- ^ The shard Id of the shard's parent.
-    , _sSequenceNumberRange :: SequenceNumberRange
-      -- ^ The range of possible sequence numbers for the shard.
-    , _sShardId :: Text
-      -- ^ The unique identifier of the shard within the Amazon Kinesis
-      -- stream.
+    , _sAdjacentParentShardId :: Maybe Text
+      -- ^ The shard Id of the shard adjacent to the shard's parent.
     } deriving (Show, Generic)
 
 instance FromJSON Shard
@@ -234,15 +234,15 @@ instance FromJSON Shard
 -- shard objects that comprise the stream, and states whether there are more
 -- shards available.
 data StreamDescription = StreamDescription
-    { _sdHasMoreShards :: Bool
-      -- ^ If set to true there are more shards in the stream available to
-      -- describe.
+    { _sdStreamName :: Text
+      -- ^ The name of the stream being described.
     , _sdShards :: [Shard]
       -- ^ The shards that comprise the stream.
     , _sdStreamARN :: Text
       -- ^ The Amazon Resource Name (ARN) for the stream being described.
-    , _sdStreamName :: Text
-      -- ^ The name of the stream being described.
+    , _sdHasMoreShards :: Bool
+      -- ^ If set to true there are more shards in the stream available to
+      -- describe.
     , _sdStreamStatus :: StreamStatus
       -- ^ The current status of the stream being described. The stream
       -- status is one of the following states: CREATING - The stream is

@@ -38,8 +38,8 @@ import Network.AWS.Prelude
 describeDBInstances :: DescribeDBInstances
 describeDBInstances = DescribeDBInstances
     { _ddbinMaxRecords = Nothing
-    , _ddbinDBInstanceIdentifier = Nothing
     , _ddbinMarker = Nothing
+    , _ddbinDBInstanceIdentifier = Nothing
     }
 
 data DescribeDBInstances = DescribeDBInstances
@@ -49,6 +49,11 @@ data DescribeDBInstances = DescribeDBInstances
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
+    , _ddbinMarker :: Maybe Text
+      -- ^ An optional pagination token provided by a previous
+      -- DescribeDBInstances request. If this parameter is specified, the
+      -- response includes only records beyond the marker, up to the value
+      -- specified by MaxRecords .
     , _ddbinDBInstanceIdentifier :: Maybe Text
       -- ^ The user-supplied instance identifier. If this parameter is
       -- specified, information from only the specific DB instance is
@@ -56,11 +61,6 @@ data DescribeDBInstances = DescribeDBInstances
       -- contain from 1 to 63 alphanumeric characters or hyphens First
       -- character must be a letter Cannot end with a hyphen or contain
       -- two consecutive hyphens.
-    , _ddbinMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeDBInstances request. If this parameter is specified, the
-      -- response includes only records beyond the marker, up to the value
-      -- specified by MaxRecords .
     } deriving (Show, Generic)
 
 makeLenses ''DescribeDBInstances

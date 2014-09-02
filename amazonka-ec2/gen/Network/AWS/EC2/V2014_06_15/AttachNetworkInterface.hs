@@ -35,23 +35,23 @@ import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AttachNetworkInterface' request.
 attachNetworkInterface :: Integer -- ^ '_anirDeviceIndex'
-                       -> Text -- ^ '_anirInstanceId'
                        -> Text -- ^ '_anirNetworkInterfaceId'
+                       -> Text -- ^ '_anirInstanceId'
                        -> AttachNetworkInterface
 attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
     { _anirDeviceIndex = p1
-    , _anirInstanceId = p2
-    , _anirNetworkInterfaceId = p3
+    , _anirNetworkInterfaceId = p2
+    , _anirInstanceId = p3
     , _anirDryRun = Nothing
     }
 
 data AttachNetworkInterface = AttachNetworkInterface
     { _anirDeviceIndex :: Integer
       -- ^ The index of the device for the network interface attachment.
-    , _anirInstanceId :: Text
-      -- ^ The ID of the instance.
     , _anirNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
+    , _anirInstanceId :: Text
+      -- ^ The ID of the instance.
     , _anirDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)

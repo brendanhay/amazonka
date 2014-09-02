@@ -59,10 +59,10 @@ describeDBEngineVersions = DescribeDBEngineVersions
     { _ddbevmDefaultOnly = Nothing
     , _ddbevmListSupportedCharacterSets = Nothing
     , _ddbevmMaxRecords = Nothing
+    , _ddbevmMarker = Nothing
     , _ddbevmDBParameterGroupFamily = Nothing
     , _ddbevmEngine = Nothing
     , _ddbevmEngineVersion = Nothing
-    , _ddbevmMarker = Nothing
     }
 
 data DescribeDBEngineVersions = DescribeDBEngineVersions
@@ -80,6 +80,10 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
       -- a marker is included in the response so that the following
       -- results can be retrieved. Default: 100 Constraints: minimum 20,
       -- maximum 100.
+    , _ddbevmMarker :: Maybe Text
+      -- ^ An optional pagination token provided by a previous request. If
+      -- this parameter is specified, the response includes only records
+      -- beyond the marker, up to the value specified by MaxRecords.
     , _ddbevmDBParameterGroupFamily :: Maybe Text
       -- ^ The name of a specific DB parameter group family to return
       -- details for. Constraints: Must be 1 to 255 alphanumeric
@@ -89,10 +93,6 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
       -- ^ The database engine to return.
     , _ddbevmEngineVersion :: Maybe Text
       -- ^ The database engine version to return. Example: 5.1.49.
-    , _ddbevmMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous request. If
-      -- this parameter is specified, the response includes only records
-      -- beyond the marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeDBEngineVersions

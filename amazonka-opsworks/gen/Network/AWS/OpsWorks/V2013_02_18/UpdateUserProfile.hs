@@ -35,8 +35,8 @@ updateUserProfile :: Text -- ^ '_uuprIamUserArn'
 updateUserProfile p1 = UpdateUserProfile
     { _uuprIamUserArn = p1
     , _uuprAllowSelfManagement = Nothing
-    , _uuprSshPublicKey = Nothing
     , _uuprSshUsername = Nothing
+    , _uuprSshPublicKey = Nothing
     }
 
 data UpdateUserProfile = UpdateUserProfile
@@ -46,14 +46,14 @@ data UpdateUserProfile = UpdateUserProfile
       -- ^ Whether users can specify their own SSH public key through the My
       -- Settings page. For more information, see Managing User
       -- Permissions.
-    , _uuprSshPublicKey :: Maybe Text
-      -- ^ The user's new SSH public key.
     , _uuprSshUsername :: Maybe Text
       -- ^ The user's SSH user name. The allowable characters are [a-z],
       -- [A-Z], [0-9], '-', and '_'. If the specified name includes other
       -- punctuation marks, AWS OpsWorks removes them. For example,
       -- my.name will be changed to myname. If you do not specify an SSH
       -- user name, AWS OpsWorks generates one from the IAM user name.
+    , _uuprSshPublicKey :: Maybe Text
+      -- ^ The user's new SSH public key.
     } deriving (Show, Generic)
 
 makeLenses ''UpdateUserProfile

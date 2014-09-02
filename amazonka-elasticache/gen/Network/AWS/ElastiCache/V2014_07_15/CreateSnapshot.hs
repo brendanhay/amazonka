@@ -34,11 +34,11 @@ import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 data CreateSnapshot = CreateSnapshot
-    { _csoCacheClusterId :: Text
+    { _csoSnapshotName :: Text
+      -- ^ A name for the snapshot being created.
+    , _csoCacheClusterId :: Text
       -- ^ The identifier of an existing cache cluster. The snapshot will be
       -- created from this cache cluster.
-    , _csoSnapshotName :: Text
-      -- ^ A name for the snapshot being created.
     } deriving (Show, Generic)
 
 makeLenses ''CreateSnapshot

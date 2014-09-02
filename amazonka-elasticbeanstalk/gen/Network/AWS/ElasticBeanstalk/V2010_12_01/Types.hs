@@ -392,17 +392,17 @@ instance FromXML Trigger where
 
 -- | Describes the properties of an application.
 data ApplicationDescription = ApplicationDescription
-    { _adApplicationName :: Maybe Text
-      -- ^ The name of the application.
+    { _adDescription :: Maybe Text
+      -- ^ User-defined description of the application.
     , _adConfigurationTemplates :: [Text]
       -- ^ The names of the configuration templates associated with this
       -- application.
+    , _adApplicationName :: Maybe Text
+      -- ^ The name of the application.
     , _adDateCreated :: Maybe ISO8601
       -- ^ The date when the application was created.
     , _adDateUpdated :: Maybe ISO8601
       -- ^ The date when the application was last modified.
-    , _adDescription :: Maybe Text
-      -- ^ User-defined description of the application.
     , _adVersions :: [Text]
       -- ^ The names of the versions for this application.
     } deriving (Show, Generic)
@@ -413,19 +413,19 @@ instance FromXML ApplicationDescription where
 
 -- | The ApplicationVersionDescription of the application version.
 data ApplicationVersionDescription = ApplicationVersionDescription
-    { _avdApplicationName :: Maybe Text
+    { _avdDescription :: Maybe Text
+      -- ^ The description of this application version.
+    , _avdApplicationName :: Maybe Text
       -- ^ The name of the application associated with this release.
+    , _avdVersionLabel :: Maybe Text
+      -- ^ A label uniquely identifying the version for the associated
+      -- application.
     , _avdDateCreated :: Maybe ISO8601
       -- ^ The creation date of the application version.
     , _avdDateUpdated :: Maybe ISO8601
       -- ^ The last modified date of the application version.
-    , _avdDescription :: Maybe Text
-      -- ^ The description of this application version.
     , _avdSourceBundle :: Maybe S3Location
       -- ^ The location where the source bundle is located for this version.
-    , _avdVersionLabel :: Maybe Text
-      -- ^ A label uniquely identifying the version for the associated
-      -- application.
     } deriving (Show, Generic)
 
 instance FromXML ApplicationVersionDescription where
@@ -434,7 +434,25 @@ instance FromXML ApplicationVersionDescription where
 
 -- | Describes the possible values for a configuration option.
 data ConfigurationOptionDescription = ConfigurationOptionDescription
-    { _coeChangeSeverity :: Maybe Text
+    { _coeMinValue :: Maybe Integer
+      -- ^ If specified, the configuration option must be a numeric value
+      -- greater than this value.
+    , _coeValueType :: Maybe ConfigurationOptionValueType
+      -- ^ An indication of which type of values this option has and whether
+      -- it is allowable to select one or more than one of the possible
+      -- values: Scalar : Values for this option are a single selection
+      -- from the possible values, or a unformatted string or numeric
+      -- value governed by the MIN/MAX/Regex constraints: List : Values
+      -- for this option are multiple selections of the possible values.
+      -- Boolean : Values for this option are either true or false .
+      -- Scalar : Values for this option are a single selection from the
+      -- possible values, or an unformatted string, or numeric value
+      -- governed by the MIN/MAX/Regex constraints. List : Values for this
+      -- option are multiple selections from the possible values. Boolean
+      -- : Values for this option are either true or false .
+    , _coeDefaultValue :: Maybe Text
+      -- ^ The default value for this configuration option.
+    , _coeChangeSeverity :: Maybe Text
       -- ^ An indication of which action is required if the value for this
       -- configuration option changes: NoInterruption - There is no
       -- interruption to the environment or application availability.
@@ -452,25 +470,14 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
       -- entire time. However, a short application outage occurs when the
       -- application servers on the running Amazon EC2 instances are
       -- restarted.
-    , _coeDefaultValue :: Maybe Text
-      -- ^ The default value for this configuration option.
-    , _coeMaxLength :: Maybe Integer
-      -- ^ If specified, the configuration option must be a string value no
-      -- longer than this value.
-    , _coeMaxValue :: Maybe Integer
-      -- ^ If specified, the configuration option must be a numeric value
-      -- less than this value.
-    , _coeMinValue :: Maybe Integer
-      -- ^ If specified, the configuration option must be a numeric value
-      -- greater than this value.
     , _coeName :: Maybe Text
       -- ^ The name of the configuration option.
+    , _coeValueOptions :: [Text]
+      -- ^ If specified, values for the configuration option are selected
+      -- from this list.
     , _coeNamespace :: Maybe Text
       -- ^ A unique namespace identifying the option's associated AWS
       -- resource.
-    , _coeRegex :: Maybe OptionRestrictionRegex
-      -- ^ If specified, the configuration option must be a string value
-      -- that satisfies this regular expression.
     , _coeUserDefined :: Maybe Bool
       -- ^ An indication of whether the user defined this configuration
       -- option: true : This configuration option was defined by the user.
@@ -482,22 +489,15 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
       -- false : This configuration was not defined by the user.
       -- Constraint: You can remove only UserDefined options from a
       -- configuration. Valid Values: true | false.
-    , _coeValueOptions :: [Text]
-      -- ^ If specified, values for the configuration option are selected
-      -- from this list.
-    , _coeValueType :: Maybe ConfigurationOptionValueType
-      -- ^ An indication of which type of values this option has and whether
-      -- it is allowable to select one or more than one of the possible
-      -- values: Scalar : Values for this option are a single selection
-      -- from the possible values, or a unformatted string or numeric
-      -- value governed by the MIN/MAX/Regex constraints: List : Values
-      -- for this option are multiple selections of the possible values.
-      -- Boolean : Values for this option are either true or false .
-      -- Scalar : Values for this option are a single selection from the
-      -- possible values, or an unformatted string, or numeric value
-      -- governed by the MIN/MAX/Regex constraints. List : Values for this
-      -- option are multiple selections from the possible values. Boolean
-      -- : Values for this option are either true or false .
+    , _coeMaxLength :: Maybe Integer
+      -- ^ If specified, the configuration option must be a string value no
+      -- longer than this value.
+    , _coeRegex :: Maybe OptionRestrictionRegex
+      -- ^ If specified, the configuration option must be a string value
+      -- that satisfies this regular expression.
+    , _coeMaxValue :: Maybe Integer
+      -- ^ If specified, the configuration option must be a numeric value
+      -- less than this value.
     } deriving (Show, Generic)
 
 instance FromXML ConfigurationOptionDescription where
@@ -508,13 +508,13 @@ instance FromXML ConfigurationOptionDescription where
 -- its current value. For a list of possible option values, go to Option
 -- Values in the AWS Elastic Beanstalk Developer Guide.
 data ConfigurationOptionSetting = ConfigurationOptionSetting
-    { _cosNamespace :: Maybe Text
+    { _cosValue :: Maybe Text
+      -- ^ The current value for the configuration option.
+    , _cosNamespace :: Maybe Text
       -- ^ A unique namespace identifying the option's associated AWS
       -- resource.
     , _cosOptionName :: Maybe Text
       -- ^ The name of the configuration option.
-    , _cosValue :: Maybe Text
-      -- ^ The current value for the configuration option.
     } deriving (Show, Generic)
 
 instance FromXML ConfigurationOptionSetting where
@@ -526,14 +526,10 @@ instance ToQuery ConfigurationOptionSetting where
 
 -- | Describes the settings for a configuration set.
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription
-    { _csgApplicationName :: Maybe Text
-      -- ^ The name of the application associated with this configuration
-      -- set.
-    , _csgDateCreated :: Maybe ISO8601
-      -- ^ The date (in UTC time) when this configuration set was created.
-    , _csgDateUpdated :: Maybe ISO8601
-      -- ^ The date (in UTC time) when this configuration set was last
-      -- modified.
+    { _csgDescription :: Maybe Text
+      -- ^ Describes this configuration set.
+    , _csgSolutionStackName :: Maybe Text
+      -- ^ The name of the solution stack this configuration set uses.
     , _csgDeploymentStatus :: Maybe ConfigurationDeploymentStatus
       -- ^ If this configuration set is associated with an environment, the
       -- DeploymentStatus parameter indicates the deployment status of
@@ -550,16 +546,20 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
       -- configuration that is currently deployed to the associated
       -- running environment. failed: This is a draft configuration that
       -- failed to successfully deploy.
-    , _csgDescription :: Maybe Text
-      -- ^ Describes this configuration set.
+    , _csgApplicationName :: Maybe Text
+      -- ^ The name of the application associated with this configuration
+      -- set.
     , _csgEnvironmentName :: Maybe Text
       -- ^ If not null, the name of the environment for this configuration
       -- set.
+    , _csgDateCreated :: Maybe ISO8601
+      -- ^ The date (in UTC time) when this configuration set was created.
+    , _csgDateUpdated :: Maybe ISO8601
+      -- ^ The date (in UTC time) when this configuration set was last
+      -- modified.
     , _csgOptionSettings :: [ConfigurationOptionSetting]
       -- ^ A list of the configuration options and their values in this
       -- configuration set.
-    , _csgSolutionStackName :: Maybe Text
-      -- ^ The name of the solution stack this configuration set uses.
     , _csgTemplateName :: Maybe Text
       -- ^ If not null, the name of the configuration template for this
       -- configuration set.
@@ -571,24 +571,20 @@ instance FromXML ConfigurationSettingsDescription where
 
 -- | Describes the properties of an environment.
 data EnvironmentDescription = EnvironmentDescription
-    { _eeenApplicationName :: Maybe Text
-      -- ^ The name of the application associated with this environment.
-    , _eeenCNAME :: Maybe Text
-      -- ^ The URL to the CNAME for this environment.
-    , _eeenDateCreated :: Maybe ISO8601
-      -- ^ The creation date for this environment.
-    , _eeenDateUpdated :: Maybe ISO8601
-      -- ^ The last modified date for this environment.
-    , _eeenDescription :: Maybe Text
+    { _eeenDescription :: Maybe Text
       -- ^ Describes this environment.
-    , _eeenEndpointURL :: Maybe Text
-      -- ^ For load-balanced, autoscaling environments, the URL to the
-      -- LoadBalancer. For single-instance environments, the IP address of
-      -- the instance.
     , _eeenEnvironmentId :: Maybe Text
       -- ^ The ID of this environment.
+    , _eeenSolutionStackName :: Maybe Text
+      -- ^ The name of the SolutionStack deployed with this environment.
+    , _eeenApplicationName :: Maybe Text
+      -- ^ The name of the application associated with this environment.
     , _eeenEnvironmentName :: Maybe Text
       -- ^ The name of this environment.
+    , _eeenTier :: Maybe EnvironmentTier
+      -- ^ Describes the current tier of this environment.
+    , _eeenVersionLabel :: Maybe Text
+      -- ^ The application version deployed in this environment.
     , _eeenHealth :: Maybe EnvironmentHealth
       -- ^ Describes the health status of the environment. AWS Elastic
       -- Beanstalk indicates the failure levels for a running environment:
@@ -604,10 +600,21 @@ data EnvironmentDescription = EnvironmentDescription
       -- environment. The environment is not fully launched and health
       -- checks have not started or health checks are suspended during an
       -- UpdateEnvironment or RestartEnvironement request. Default: Grey.
+    , _eeenDateCreated :: Maybe ISO8601
+      -- ^ The creation date for this environment.
+    , _eeenDateUpdated :: Maybe ISO8601
+      -- ^ The last modified date for this environment.
     , _eeenResources :: Maybe EnvironmentResourcesDescription
       -- ^ The description of the AWS resources used by this environment.
-    , _eeenSolutionStackName :: Maybe Text
-      -- ^ The name of the SolutionStack deployed with this environment.
+    , _eeenEndpointURL :: Maybe Text
+      -- ^ For load-balanced, autoscaling environments, the URL to the
+      -- LoadBalancer. For single-instance environments, the IP address of
+      -- the instance.
+    , _eeenTemplateName :: Maybe Text
+      -- ^ The name of the configuration template used to originally launch
+      -- this environment.
+    , _eeenCNAME :: Maybe Text
+      -- ^ The URL to the CNAME for this environment.
     , _eeenStatus :: Maybe EnvironmentStatus
       -- ^ The current operational status of the environment: Launching:
       -- Environment is in the process of initial deployment. Updating:
@@ -616,13 +623,6 @@ data EnvironmentDescription = EnvironmentDescription
       -- to have an action performed on it, such as update or terminate.
       -- Terminating: Environment is in the shut-down process. Terminated:
       -- Environment is not running.
-    , _eeenTemplateName :: Maybe Text
-      -- ^ The name of the configuration template used to originally launch
-      -- this environment.
-    , _eeenTier :: Maybe EnvironmentTier
-      -- ^ Describes the current tier of this environment.
-    , _eeenVersionLabel :: Maybe Text
-      -- ^ The application version deployed in this environment.
     } deriving (Show, Generic)
 
 instance FromXML EnvironmentDescription where
@@ -631,12 +631,12 @@ instance FromXML EnvironmentDescription where
 
 -- | The information retrieved from the Amazon EC2 instances.
 data EnvironmentInfoDescription = EnvironmentInfoDescription
-    { _eidEc2InstanceId :: Maybe Text
-      -- ^ The Amazon EC2 Instance ID for this information.
+    { _eidMessage :: Maybe Text
+      -- ^ The retrieved information.
     , _eidInfoType :: Maybe EnvironmentInfoType
       -- ^ The type of information retrieved.
-    , _eidMessage :: Maybe Text
-      -- ^ The retrieved information.
+    , _eidEc2InstanceId :: Maybe Text
+      -- ^ The Amazon EC2 Instance ID for this information.
     , _eidSampleTimestamp :: Maybe ISO8601
       -- ^ The time stamp when this information was retrieved.
     } deriving (Show, Generic)
@@ -649,19 +649,19 @@ instance FromXML EnvironmentInfoDescription where
 data EnvironmentResourceDescription = EnvironmentResourceDescription
     { _erfAutoScalingGroups :: [AutoScalingGroup]
       -- ^ The AutoScalingGroups used by this environment.
-    , _erfEnvironmentName :: Maybe Text
-      -- ^ The name of the environment.
-    , _erfInstances :: [Instance]
-      -- ^ The Amazon EC2 instances used by this environment.
     , _erfLaunchConfigurations :: [LaunchConfiguration]
       -- ^ The Auto Scaling launch configurations in use by this
       -- environment.
+    , _erfInstances :: [Instance]
+      -- ^ The Amazon EC2 instances used by this environment.
+    , _erfEnvironmentName :: Maybe Text
+      -- ^ The name of the environment.
     , _erfLoadBalancers :: [LoadBalancer]
       -- ^ The LoadBalancers in use by this environment.
-    , _erfQueues :: [Queue]
-      -- ^ The queues used by this environment.
     , _erfTriggers :: [Trigger]
       -- ^ The AutoScaling triggers in use by this environment.
+    , _erfQueues :: [Queue]
+      -- ^ The queues used by this environment.
     } deriving (Show, Generic)
 
 instance FromXML EnvironmentResourceDescription where
@@ -672,12 +672,12 @@ instance FromXML EnvironmentResourceDescription where
 -- can only update the tier version for an environment. If you change the name
 -- of the type, AWS Elastic Beanstalk returns InvalidParameterValue error.
 data EnvironmentTier = EnvironmentTier
-    { _etName :: Maybe Text
-      -- ^ The name of this environment tier.
-    , _etType :: Maybe Text
+    { _etType :: Maybe Text
       -- ^ The type of this environment tier.
     , _etVersion :: Maybe Text
       -- ^ The version of this environment tier.
+    , _etName :: Maybe Text
+      -- ^ The name of this environment tier.
     } deriving (Show, Generic)
 
 instance FromXML EnvironmentTier where
@@ -689,23 +689,23 @@ instance ToQuery EnvironmentTier where
 
 -- | Describes an event.
 data EventDescription = EventDescription
-    { _efApplicationName :: Maybe Text
+    { _efMessage :: Maybe Text
+      -- ^ The event message.
+    , _efEventDate :: Maybe ISO8601
+      -- ^ The date when the event occurred.
+    , _efApplicationName :: Maybe Text
       -- ^ The application associated with the event.
     , _efEnvironmentName :: Maybe Text
       -- ^ The name of the environment associated with this event.
-    , _efEventDate :: Maybe ISO8601
-      -- ^ The date when the event occurred.
-    , _efMessage :: Maybe Text
-      -- ^ The event message.
-    , _efRequestId :: Maybe Text
-      -- ^ The web service request ID for the activity of this event.
+    , _efVersionLabel :: Maybe Text
+      -- ^ The release label for the application version associated with
+      -- this event.
     , _efSeverity :: Maybe EventSeverity
       -- ^ The severity level of this event.
     , _efTemplateName :: Maybe Text
       -- ^ The name of the configuration associated with this event.
-    , _efVersionLabel :: Maybe Text
-      -- ^ The release label for the application version associated with
-      -- this event.
+    , _efRequestId :: Maybe Text
+      -- ^ The web service request ID for the activity of this event.
     } deriving (Show, Generic)
 
 instance FromXML EventDescription where
@@ -729,10 +729,10 @@ instance ToQuery Listener where
 
 -- | Describes the LoadBalancer.
 data LoadBalancerDescription = LoadBalancerDescription
-    { _lbdDomain :: Maybe Text
-      -- ^ The domain name of the LoadBalancer.
-    , _lbdListeners :: [Listener]
+    { _lbdListeners :: [Listener]
       -- ^ A list of Listeners used by the LoadBalancer.
+    , _lbdDomain :: Maybe Text
+      -- ^ The domain name of the LoadBalancer.
     , _lbdLoadBalancerName :: Maybe Text
       -- ^ The name of the LoadBalancer.
     } deriving (Show, Generic)
@@ -809,10 +809,10 @@ instance ToQuery S3Location where
 
 -- | Describes the solution stack.
 data SolutionStackDescription = SolutionStackDescription
-    { _ssdPermittedFileTypes :: [Text]
-      -- ^ The permitted file types allowed for a solution stack.
-    , _ssdSolutionStackName :: Maybe Text
+    { _ssdSolutionStackName :: Maybe Text
       -- ^ The name of the solution stack.
+    , _ssdPermittedFileTypes :: [Text]
+      -- ^ The permitted file types allowed for a solution stack.
     } deriving (Show, Generic)
 
 instance FromXML SolutionStackDescription where
@@ -855,8 +855,6 @@ data ValidationMessage = ValidationMessage
       -- ^ A message describing the error or warning.
     , _vyNamespace :: Maybe Text
       -- ^ 
-    , _vyOptionName :: Maybe Text
-      -- ^ 
     , _vySeverity :: Maybe ValidationSeverity
       -- ^ An indication of the severity of this message: error: This
       -- message indicates that this is not a valid setting for an option.
@@ -864,6 +862,8 @@ data ValidationMessage = ValidationMessage
       -- into account. error: This message indicates that this is not a
       -- valid setting for an option. warning: This message is providing
       -- information you should take into account.
+    , _vyOptionName :: Maybe Text
+      -- ^ 
     } deriving (Show, Generic)
 
 instance FromXML ValidationMessage where

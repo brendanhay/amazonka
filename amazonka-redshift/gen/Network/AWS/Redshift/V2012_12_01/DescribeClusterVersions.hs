@@ -39,9 +39,9 @@ import Network.AWS.Prelude
 describeClusterVersions :: DescribeClusterVersions
 describeClusterVersions = DescribeClusterVersions
     { _dcvmMaxRecords = Nothing
-    , _dcvmClusterParameterGroupFamily = Nothing
     , _dcvmClusterVersion = Nothing
     , _dcvmMarker = Nothing
+    , _dcvmClusterParameterGroupFamily = Nothing
     }
 
 data DescribeClusterVersions = DescribeClusterVersions
@@ -52,11 +52,6 @@ data DescribeClusterVersions = DescribeClusterVersions
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcvmClusterParameterGroupFamily :: Maybe Text
-      -- ^ The name of a specific cluster parameter group family to return
-      -- details for. Constraints: Must be 1 to 255 alphanumeric
-      -- characters First character must be a letter Cannot end with a
-      -- hyphen or contain two consecutive hyphens.
     , _dcvmClusterVersion :: Maybe Text
       -- ^ The specific cluster version to return. Example: 1.0.
     , _dcvmMarker :: Maybe Text
@@ -67,6 +62,11 @@ data DescribeClusterVersions = DescribeClusterVersions
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
+    , _dcvmClusterParameterGroupFamily :: Maybe Text
+      -- ^ The name of a specific cluster parameter group family to return
+      -- details for. Constraints: Must be 1 to 255 alphanumeric
+      -- characters First character must be a letter Cannot end with a
+      -- hyphen or contain two consecutive hyphens.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeClusterVersions

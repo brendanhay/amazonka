@@ -106,10 +106,10 @@ instance ToJSON TrustedAdvisorCategorySpecificSummary
 
 -- | The attachment content and file name.
 data Attachment = Attachment
-    { _aData :: Maybe Base64
-      -- ^ The content of the attachment file.
-    , _aFileName :: Maybe Text
+    { _aFileName :: Maybe Text
       -- ^ The name of the attachment file.
+    , _aData :: Maybe Base64
+      -- ^ The content of the attachment file.
     } deriving (Show, Generic)
 
 instance FromJSON Attachment
@@ -119,10 +119,10 @@ instance ToJSON Attachment
 -- | The file name and ID of an attachment to a case communication. You can use
 -- the ID to retrieve the attachment with the DescribeAttachment operation.
 data AttachmentDetails = AttachmentDetails
-    { _adAttachmentId :: Maybe Text
-      -- ^ The ID of the attachment.
-    , _adFileName :: Maybe Text
+    { _adFileName :: Maybe Text
       -- ^ The file name of the attachment.
+    , _adAttachmentId :: Maybe Text
+      -- ^ The ID of the attachment.
     } deriving (Show, Generic)
 
 instance FromJSON AttachmentDetails
@@ -151,43 +151,43 @@ instance ToJSON AttachmentDetails
 -- address of the account that submitted the case. TimeCreated. The time the
 -- case was created, in ISO-8601 format.
 data CaseDetails = CaseDetails
-    { _cdCaseId :: Maybe Text
-      -- ^ The AWS Support case ID requested or returned in the call. The
-      -- case ID is an alphanumeric string formatted as shown in this
-      -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
+    { _cdServiceCode :: Maybe Text
+      -- ^ The code for the AWS service returned by the call to
+      -- DescribeServices.
     , _cdCategoryCode :: Maybe Text
       -- ^ The category of problem for the AWS Support case.
-    , _cdCcEmailAddresses :: [Text]
-      -- ^ The email addresses that receive copies of communication about
-      -- the case.
-    , _cdDisplayId :: Maybe Text
-      -- ^ The ID displayed for the case in the AWS Support Center. This is
-      -- a numeric string.
+    , _cdTimeCreated :: Maybe Text
+      -- ^ The time that the case was case created in the AWS Support
+      -- Center.
     , _cdLanguage :: Maybe Text
       -- ^ The ISO 639-1 code for the language in which AWS provides
       -- support. AWS Support currently supports English ("en") and
       -- Japanese ("ja"). Language parameters must be passed explicitly
       -- for operations that take them.
+    , _cdSubmittedBy :: Maybe Text
+      -- ^ The email address of the account that submitted the case.
+    , _cdDisplayId :: Maybe Text
+      -- ^ The ID displayed for the case in the AWS Support Center. This is
+      -- a numeric string.
+    , _cdCcEmailAddresses :: [Text]
+      -- ^ The email addresses that receive copies of communication about
+      -- the case.
+    , _cdCaseId :: Maybe Text
+      -- ^ The AWS Support case ID requested or returned in the call. The
+      -- case ID is an alphanumeric string formatted as shown in this
+      -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
+    , _cdSeverityCode :: Maybe Text
+      -- ^ The code for the severity level returned by the call to
+      -- DescribeSeverityLevels.
     , _cdRecentCommunications :: Maybe RecentCaseCommunications
       -- ^ The five most recent communications between you and AWS Support
       -- Center, including the IDs of any attachments to the
       -- communications. Also includes a nextToken that you can use to
       -- retrieve earlier communications.
-    , _cdServiceCode :: Maybe Text
-      -- ^ The code for the AWS service returned by the call to
-      -- DescribeServices.
-    , _cdSeverityCode :: Maybe Text
-      -- ^ The code for the severity level returned by the call to
-      -- DescribeSeverityLevels.
     , _cdStatus :: Maybe Text
       -- ^ The status of the case.
     , _cdSubject :: Maybe Text
       -- ^ The subject line for the case in the AWS Support Center.
-    , _cdSubmittedBy :: Maybe Text
-      -- ^ The email address of the account that submitted the case.
-    , _cdTimeCreated :: Maybe Text
-      -- ^ The time that the case was case created in the AWS Support
-      -- Center.
     } deriving (Show, Generic)
 
 instance FromJSON CaseDetails
@@ -212,18 +212,18 @@ instance ToJSON Category
 data Communication = Communication
     { _cAttachmentSet :: [AttachmentDetails]
       -- ^ Information about the attachments to the case communication.
-    , _cBody :: Maybe Text
-      -- ^ The text of the communication between the customer and AWS
-      -- Support.
+    , _cTimeCreated :: Maybe Text
+      -- ^ The time the communication was created.
+    , _cSubmittedBy :: Maybe Text
+      -- ^ The email address of the account that submitted the AWS Support
+      -- case.
     , _cCaseId :: Maybe Text
       -- ^ The AWS Support case ID requested or returned in the call. The
       -- case ID is an alphanumeric string formatted as shown in this
       -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
-    , _cSubmittedBy :: Maybe Text
-      -- ^ The email address of the account that submitted the AWS Support
-      -- case.
-    , _cTimeCreated :: Maybe Text
-      -- ^ The time the communication was created.
+    , _cBody :: Maybe Text
+      -- ^ The text of the communication between the customer and AWS
+      -- Support.
     } deriving (Show, Generic)
 
 instance FromJSON Communication
@@ -247,18 +247,18 @@ instance ToJSON RecentCaseCommunications
 -- | Information about an AWS service returned by the DescribeServices
 -- operation.
 data Service = Service
-    { _ssfCategories :: [Category]
-      -- ^ A list of categories that describe the type of support issue a
-      -- case describes. Categories consist of a category name and a
-      -- category code. Category names and codes are passed to AWS Support
-      -- when you call CreateCase.
-    , _ssfCode :: Maybe Text
+    { _ssfCode :: Maybe Text
       -- ^ The code for an AWS service returned by the DescribeServices
       -- response. The Name element contains the corresponding friendly
       -- name.
     , _ssfName :: Maybe Text
       -- ^ The friendly name for an AWS service. The Code element contains
       -- the corresponding code.
+    , _ssfCategories :: [Category]
+      -- ^ A list of categories that describe the type of support issue a
+      -- case describes. Categories consist of a category name and a
+      -- category code. Category names and codes are passed to AWS Support
+      -- when you call CreateCase.
     } deriving (Show, Generic)
 
 instance FromJSON Service
@@ -279,9 +279,7 @@ instance FromJSON SeverityLevel
 
 -- | The description and metadata for a Trusted Advisor check.
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
-    { _tacdCategory :: Text
-      -- ^ The category of the Trusted Advisor check.
-    , _tacdDescription :: Text
+    { _tacdDescription :: Text
       -- ^ The description of the Trusted Advisor check, which includes the
       -- alert criteria and recommended actions (contains HTML markup).
     , _tacdId :: Text
@@ -295,6 +293,8 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
       -- summary data.
     , _tacdName :: Text
       -- ^ The display name for the Trusted Advisor check.
+    , _tacdCategory :: Text
+      -- ^ The category of the Trusted Advisor check.
     } deriving (Show, Generic)
 
 instance FromJSON TrustedAdvisorCheckDescription
@@ -304,34 +304,34 @@ instance FromJSON TrustedAdvisorCheckDescription
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId :: Text
       -- ^ The unique identifier for the Trusted Advisor check.
-    , _tacrsMillisUntilNextRefreshable :: Integer
-      -- ^ The amount of time, in milliseconds, until the Trusted Advisor
-      -- check is eligible for refresh.
     , _tacrsStatus :: Text
       -- ^ The status of the Trusted Advisor check for which a refresh has
       -- been requested: "none", "enqueued", "processing", "success", or
       -- "abandoned".
+    , _tacrsMillisUntilNextRefreshable :: Integer
+      -- ^ The amount of time, in milliseconds, until the Trusted Advisor
+      -- check is eligible for refresh.
     } deriving (Show, Generic)
 
 instance FromJSON TrustedAdvisorCheckRefreshStatus
 
 -- | The detailed results of the Trusted Advisor check.
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
-    { _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
-      -- ^ Summary information that relates to the category of the check.
-      -- Cost Optimizing is the only category that is currently supported.
-    , _tacrCheckId :: Text
-      -- ^ The unique identifier for the Trusted Advisor check.
-    , _tacrFlaggedResources :: [TrustedAdvisorResourceDetail]
-      -- ^ The details about each resource listed in the check result.
+    { _tacrTimestamp :: Text
+      -- ^ The time of the last refresh of the check.
     , _tacrResourcesSummary :: TrustedAdvisorResourcesSummary
       -- ^ Details about AWS resources that were analyzed in a call to
       -- Trusted Advisor DescribeTrustedAdvisorCheckSummaries.
+    , _tacrFlaggedResources :: [TrustedAdvisorResourceDetail]
+      -- ^ The details about each resource listed in the check result.
+    , _tacrCheckId :: Text
+      -- ^ The unique identifier for the Trusted Advisor check.
     , _tacrStatus :: Text
       -- ^ The alert status of the check: "ok" (green), "warning" (yellow),
       -- "error" (red), or "not_available".
-    , _tacrTimestamp :: Text
-      -- ^ The time of the last refresh of the check.
+    , _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
+      -- ^ Summary information that relates to the category of the check.
+      -- Cost Optimizing is the only category that is currently supported.
     } deriving (Show, Generic)
 
 instance FromJSON TrustedAdvisorCheckResult
@@ -339,22 +339,22 @@ instance FromJSON TrustedAdvisorCheckResult
 -- | A summary of a Trusted Advisor check result, including the alert status,
 -- last refresh, and number of resources examined.
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
-    { _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
-      -- ^ Summary information that relates to the category of the check.
-      -- Cost Optimizing is the only category that is currently supported.
-    , _tacsCheckId :: Text
-      -- ^ The unique identifier for the Trusted Advisor check.
-    , _tacsHasFlaggedResources :: Maybe Bool
+    { _tacsHasFlaggedResources :: Maybe Bool
       -- ^ Specifies whether the Trusted Advisor check has flagged
       -- resources.
+    , _tacsTimestamp :: Text
+      -- ^ The time of the last refresh of the check.
     , _tacsResourcesSummary :: TrustedAdvisorResourcesSummary
       -- ^ Details about AWS resources that were analyzed in a call to
       -- Trusted Advisor DescribeTrustedAdvisorCheckSummaries.
+    , _tacsCheckId :: Text
+      -- ^ The unique identifier for the Trusted Advisor check.
     , _tacsStatus :: Text
       -- ^ The alert status of the check: "ok" (green), "warning" (yellow),
       -- "error" (red), or "not_available".
-    , _tacsTimestamp :: Text
-      -- ^ The time of the last refresh of the check.
+    , _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
+      -- ^ Summary information that relates to the category of the check.
+      -- Cost Optimizing is the only category that is currently supported.
     } deriving (Show, Generic)
 
 instance FromJSON TrustedAdvisorCheckSummary
@@ -362,11 +362,11 @@ instance FromJSON TrustedAdvisorCheckSummary
 -- | The summary information about cost savings for a Trusted Advisor check that
 -- is in the Cost Optimizing category.
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
-    { _tacosEstimatedMonthlySavings :: Double
-      -- ^ The estimated monthly savings that might be realized if the
-      -- recommended actions are taken.
-    , _tacosEstimatedPercentMonthlySavings :: Double
+    { _tacosEstimatedPercentMonthlySavings :: Double
       -- ^ The estimated percentage of savings that might be realized if the
+      -- recommended actions are taken.
+    , _tacosEstimatedMonthlySavings :: Double
+      -- ^ The estimated monthly savings that might be realized if the
       -- recommended actions are taken.
     } deriving (Show, Generic)
 
@@ -377,9 +377,8 @@ instance ToJSON TrustedAdvisorCostOptimizingSummary
 -- | Contains information about a resource identified by a Trusted Advisor
 -- check.
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
-    { _tardIsSuppressed :: Maybe Bool
-      -- ^ Specifies whether the AWS resource was ignored by Trusted Advisor
-      -- because it was marked as suppressed by the user.
+    { _tardRegion :: Text
+      -- ^ The AWS region in which the identified resource is located.
     , _tardMetadata :: [Text]
       -- ^ Additional information about the identified resource. The exact
       -- metadata and its order can be obtained by inspecting the
@@ -387,8 +386,9 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
       -- DescribeTrustedAdvisorChecks. Metadata contains all the data that
       -- is shown in the Excel download, even in those cases where the UI
       -- shows just summary data.
-    , _tardRegion :: Text
-      -- ^ The AWS region in which the identified resource is located.
+    , _tardIsSuppressed :: Maybe Bool
+      -- ^ Specifies whether the AWS resource was ignored by Trusted Advisor
+      -- because it was marked as suppressed by the user.
     , _tardResourceId :: Text
       -- ^ The unique identifier for the identified resource.
     , _tardStatus :: Text
@@ -401,18 +401,18 @@ instance FromJSON TrustedAdvisorResourceDetail
 -- | Details about AWS resources that were analyzed in a call to Trusted Advisor
 -- DescribeTrustedAdvisorCheckSummaries.
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
-    { _tarsResourcesFlagged :: Integer
+    { _tarsResourcesSuppressed :: Integer
+      -- ^ The number of AWS resources ignored by Trusted Advisor because
+      -- they were marked as suppressed by the user.
+    , _tarsResourcesFlagged :: Integer
       -- ^ The number of AWS resources that were flagged (listed) by the
       -- Trusted Advisor check.
-    , _tarsResourcesIgnored :: Integer
-      -- ^ The number of AWS resources ignored by Trusted Advisor because
-      -- information was unavailable.
     , _tarsResourcesProcessed :: Integer
       -- ^ The number of AWS resources that were analyzed by the Trusted
       -- Advisor check.
-    , _tarsResourcesSuppressed :: Integer
+    , _tarsResourcesIgnored :: Integer
       -- ^ The number of AWS resources ignored by Trusted Advisor because
-      -- they were marked as suppressed by the user.
+      -- information was unavailable.
     } deriving (Show, Generic)
 
 instance FromJSON TrustedAdvisorResourcesSummary

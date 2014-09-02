@@ -52,16 +52,16 @@ createNetworkAclEntry :: Bool -- ^ '_cnaerEgress'
                       -> Integer -- ^ '_cnaerRuleNumber'
                       -> RuleAction -- ^ '_cnaerRuleAction'
                       -> Text -- ^ '_cnaerCidrBlock'
-                      -> Text -- ^ '_cnaerNetworkAclId'
                       -> Text -- ^ '_cnaerProtocol'
+                      -> Text -- ^ '_cnaerNetworkAclId'
                       -> CreateNetworkAclEntry
 createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     { _cnaerEgress = p1
     , _cnaerRuleNumber = p2
     , _cnaerRuleAction = p3
     , _cnaerCidrBlock = p4
-    , _cnaerNetworkAclId = p5
-    , _cnaerProtocol = p6
+    , _cnaerProtocol = p5
+    , _cnaerNetworkAclId = p6
     , _cnaerDryRun = Nothing
     , _cnaerIcmpTypeCode = Nothing
     , _cnaerPortRange = Nothing
@@ -80,10 +80,10 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
       -- rule.
     , _cnaerCidrBlock :: Text
       -- ^ The network range to allow or deny, in CIDR notation.
-    , _cnaerNetworkAclId :: Text
-      -- ^ The ID of the ACL.
     , _cnaerProtocol :: Text
       -- ^ The protocol. A value of -1 means all protocols.
+    , _cnaerNetworkAclId :: Text
+      -- ^ The ID of the ACL.
     , _cnaerDryRun :: Maybe Bool
       -- ^ 
     , _cnaerIcmpTypeCode :: Maybe IcmpTypeCode

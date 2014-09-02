@@ -34,20 +34,20 @@ import qualified Network.AWS.Types.Map    as Map
 listClusters :: ListClusters
 listClusters = ListClusters
     { _lciClusterStates = mempty
-    , _lciCreatedAfter = Nothing
     , _lciCreatedBefore = Nothing
+    , _lciCreatedAfter = Nothing
     , _lciMarker = Nothing
     }
 
 data ListClusters = ListClusters
     { _lciClusterStates :: [ClusterState]
       -- ^ The cluster state filters to apply when listing clusters.
-    , _lciCreatedAfter :: Maybe POSIX
-      -- ^ The creation date and time beginning value filter for listing
-      -- clusters .
     , _lciCreatedBefore :: Maybe POSIX
       -- ^ The creation date and time end value filter for listing clusters
       -- .
+    , _lciCreatedAfter :: Maybe POSIX
+      -- ^ The creation date and time beginning value filter for listing
+      -- clusters .
     , _lciMarker :: Maybe Text
       -- ^ The pagination token that indicates the next set of results to
       -- retrieve.

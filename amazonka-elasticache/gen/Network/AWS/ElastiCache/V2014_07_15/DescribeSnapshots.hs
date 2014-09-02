@@ -39,10 +39,10 @@ import Network.AWS.Prelude
 describeSnapshots :: DescribeSnapshots
 describeSnapshots = DescribeSnapshots
     { _dsmMaxRecords = Nothing
-    , _dsmCacheClusterId = Nothing
-    , _dsmMarker = Nothing
-    , _dsmSnapshotName = Nothing
     , _dsmSnapshotSource = Nothing
+    , _dsmSnapshotName = Nothing
+    , _dsmMarker = Nothing
+    , _dsmCacheClusterId = Nothing
     }
 
 data DescribeSnapshots = DescribeSnapshots
@@ -51,23 +51,23 @@ data DescribeSnapshots = DescribeSnapshots
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 50 Constraints: minimum 20; maximum 50.
-    , _dsmCacheClusterId :: Maybe Text
-      -- ^ A user-supplied cluster identifier. If this parameter is
-      -- specified, only snapshots associated with that specific cache
-      -- cluster will be described.
-    , _dsmMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
-    , _dsmSnapshotName :: Maybe Text
-      -- ^ A user-supplied name of the snapshot. If this parameter is
-      -- specified, only this snapshot will be described.
     , _dsmSnapshotSource :: Maybe Text
       -- ^ If set to system, the output shows snapshots that were
       -- automatically created by ElastiCache. If set to user the output
       -- shows snapshots that were manually created. If omitted, the
       -- output shows both automatically and manually created snapshots.
+    , _dsmSnapshotName :: Maybe Text
+      -- ^ A user-supplied name of the snapshot. If this parameter is
+      -- specified, only this snapshot will be described.
+    , _dsmMarker :: Maybe Text
+      -- ^ An optional marker returned from a prior request. Use this marker
+      -- for pagination of results from this operation. If this parameter
+      -- is specified, the response includes only records beyond the
+      -- marker, up to the value specified by MaxRecords.
+    , _dsmCacheClusterId :: Maybe Text
+      -- ^ A user-supplied cluster identifier. If this parameter is
+      -- specified, only snapshots associated with that specific cache
+      -- cluster will be described.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeSnapshots

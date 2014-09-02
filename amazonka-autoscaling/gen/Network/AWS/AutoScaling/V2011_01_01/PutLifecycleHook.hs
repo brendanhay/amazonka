@@ -53,8 +53,8 @@ putLifecycleHook p1 p2 = PutLifecycleHook
     , _plhtHeartbeatTimeout = Nothing
     , _plhtDefaultResult = Nothing
     , _plhtLifecycleTransition = Nothing
-    , _plhtNotificationTargetARN = Nothing
     , _plhtRoleARN = Nothing
+    , _plhtNotificationTargetARN = Nothing
     , _plhtNotificationMetadata = Nothing
     }
 
@@ -81,6 +81,11 @@ data PutLifecycleHook = PutLifecycleHook
       -- lifecycle hook. See DescribeLifecycleHookTypes for a list of
       -- available lifecycle hook types. This parameter is required for
       -- new lifecycle hooks, but optional when updating existing hooks.
+    , _plhtRoleARN :: Maybe Text
+      -- ^ The ARN of the Amazon IAM role that allows the Auto Scaling group
+      -- to publish to the specified notification target. This parameter
+      -- is required for new lifecycle hooks, but optional when updating
+      -- existing hooks.
     , _plhtNotificationTargetARN :: Maybe Text
       -- ^ The ARN of the notification target that Auto Scaling will use to
       -- notify you when an instance is in the transition state for the
@@ -99,11 +104,6 @@ data PutLifecycleHook = PutLifecycleHook
       -- operation, a test message is sent to the notification target.
       -- This test message contains an additional key/value pair:
       -- Event:autoscaling:TEST_NOTIFICATION.
-    , _plhtRoleARN :: Maybe Text
-      -- ^ The ARN of the Amazon IAM role that allows the Auto Scaling group
-      -- to publish to the specified notification target. This parameter
-      -- is required for new lifecycle hooks, but optional when updating
-      -- existing hooks.
     , _plhtNotificationMetadata :: Maybe Text
       -- ^ Contains additional information that you want to include any time
       -- Auto Scaling sends a message to the notification target.

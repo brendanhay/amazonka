@@ -39,17 +39,17 @@ import Network.AWS.Prelude
 disassociateAddress :: DisassociateAddress
 disassociateAddress = DisassociateAddress
     { _datDryRun = Nothing
-    , _datAssociationId = Nothing
     , _datPublicIp = Nothing
+    , _datAssociationId = Nothing
     }
 
 data DisassociateAddress = DisassociateAddress
     { _datDryRun :: Maybe Bool
       -- ^ 
-    , _datAssociationId :: Maybe Text
-      -- ^ [EC2-VPC] The association ID.
     , _datPublicIp :: Maybe Text
       -- ^ [EC2-Classic] The Elastic IP address.
+    , _datAssociationId :: Maybe Text
+      -- ^ [EC2-VPC] The association ID.
     } deriving (Show, Generic)
 
 makeLenses ''DisassociateAddress

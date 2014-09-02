@@ -31,8 +31,7 @@ import qualified Data.ByteString.Lazy       as LBS
 import           Data.CaseInsensitive       (CI)
 import qualified Data.CaseInsensitive       as CI
 import           Data.Default
-import qualified Data.HashMap.Strict        as HashMap
-import qualified Data.Map.Strict            as Map
+import qualified Data.HashMap.Strict        as Map
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -73,7 +72,7 @@ parseModel Model{..} = do
     parse' = hoistEither . parseEither parseJSON
 
     union :: Object -> Object -> Object
-    union = HashMap.unionWith merge
+    union = Map.unionWith merge
 
     merge :: Value -> Value -> Value
     merge a b =
@@ -168,7 +167,7 @@ instance FromJSON Service where
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $ \o ->
-        forM (HashMap.toList o) $ \(k, v) ->
+        forM (Map.toList o) $ \(k, v) ->
             ($ k) <$> parseJSON v
 
 instance FromJSON (Text -> Operation) where

@@ -54,27 +54,27 @@ import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreatePlatformEndpoint' request.
-createPlatformEndpoint :: Text -- ^ '_cpeiPlatformApplicationArn'
-                       -> Text -- ^ '_cpeiToken'
+createPlatformEndpoint :: Text -- ^ '_cpeiToken'
+                       -> Text -- ^ '_cpeiPlatformApplicationArn'
                        -> CreatePlatformEndpoint
 createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
-    { _cpeiPlatformApplicationArn = p1
-    , _cpeiToken = p2
+    { _cpeiToken = p1
+    , _cpeiPlatformApplicationArn = p2
     , _cpeiAttributes = mempty
     , _cpeiCustomUserData = Nothing
     }
 
 data CreatePlatformEndpoint = CreatePlatformEndpoint
-    { _cpeiPlatformApplicationArn :: Text
-      -- ^ PlatformApplicationArn returned from CreatePlatformApplication is
-      -- used to create a an endpoint.
-    , _cpeiToken :: Text
+    { _cpeiToken :: Text
       -- ^ Unique identifier created by the notification service for an app
       -- on a device. The specific name for Token will vary, depending on
       -- which notification service is being used. For example, when using
       -- APNS as the notification service, you need the device token.
       -- Alternatively, when using GCM or ADM, the device token equivalent
       -- is called the registration ID.
+    , _cpeiPlatformApplicationArn :: Text
+      -- ^ PlatformApplicationArn returned from CreatePlatformApplication is
+      -- used to create a an endpoint.
     , _cpeiAttributes :: Map Text Text
       -- ^ For a list of attributes, see SetEndpointAttributes.
     , _cpeiCustomUserData :: Maybe Text

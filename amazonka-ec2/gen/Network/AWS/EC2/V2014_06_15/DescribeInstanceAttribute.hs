@@ -80,11 +80,11 @@ instance ToQuery DescribeInstanceAttribute where
     toQuery = genericQuery def
 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
-    { _iaDisableApiTermination :: Maybe AttributeBooleanValue
+    { _iaEbsOptimized :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether the instance is optimized for EBS I/O.
+    , _iaDisableApiTermination :: Maybe AttributeBooleanValue
       -- ^ If the value is true, you can't terminate the instance through
       -- the Amazon EC2 console, CLI, or API; otherwise, you can.
-    , _iaEbsOptimized :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the instance is optimized for EBS I/O.
     , _iaSourceDestCheck :: Maybe AttributeBooleanValue
       -- ^ Indicates whether source/destination checking is enabled. A value
       -- of true means checking is enabled, and false means checking is
@@ -94,18 +94,18 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
       -- ^ Indicates whether an instance stops or terminates when you
       -- initiate shutdown from the instance (using the operating system
       -- command for system shutdown).
+    , _iaUserData :: Maybe AttributeValue
+      -- ^ The Base64-encoded MIME user data.
+    , _iaSriovNetSupport :: Maybe AttributeValue
+      -- ^ 
     , _iaInstanceType :: Maybe AttributeValue
       -- ^ The instance type.
+    , _iaRootDeviceName :: Maybe AttributeValue
+      -- ^ The name of the root device (for example, /dev/sda1).
     , _iaKernelId :: Maybe AttributeValue
       -- ^ The kernel ID.
     , _iaRamdiskId :: Maybe AttributeValue
       -- ^ The RAM disk ID.
-    , _iaRootDeviceName :: Maybe AttributeValue
-      -- ^ The name of the root device (for example, /dev/sda1).
-    , _iaSriovNetSupport :: Maybe AttributeValue
-      -- ^ 
-    , _iaUserData :: Maybe AttributeValue
-      -- ^ The Base64-encoded MIME user data.
     , _iaBlockDeviceMappings :: [InstanceBlockDeviceMapping]
       -- ^ The block device mapping of the instance.
     , _iaProductCodes :: [ProductCode]

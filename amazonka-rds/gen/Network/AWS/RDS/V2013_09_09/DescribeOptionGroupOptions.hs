@@ -34,8 +34,8 @@ describeOptionGroupOptions :: Text -- ^ '_dogomEngineName'
 describeOptionGroupOptions p1 = DescribeOptionGroupOptions
     { _dogomEngineName = p1
     , _dogomMaxRecords = Nothing
-    , _dogomMajorEngineVersion = Nothing
     , _dogomMarker = Nothing
+    , _dogomMajorEngineVersion = Nothing
     }
 
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions
@@ -48,13 +48,13 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions
       -- token called a marker is included in the response so that the
       -- remaining results can be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _dogomMajorEngineVersion :: Maybe Text
-      -- ^ If specified, filters the results to include only options for the
-      -- specified major engine version.
     , _dogomMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
+    , _dogomMajorEngineVersion :: Maybe Text
+      -- ^ If specified, filters the results to include only options for the
+      -- specified major engine version.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeOptionGroupOptions

@@ -82,8 +82,8 @@ listClosedWorkflowExecutions :: Text -- ^ '_lcweiDomain'
 listClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
     { _lcweiDomain = p1
     , _lcweiCloseStatusFilter = Nothing
-    , _lcweiCloseTimeFilter = Nothing
     , _lcweiStartTimeFilter = Nothing
+    , _lcweiCloseTimeFilter = Nothing
     , _lcweiMaximumPageSize = Nothing
     , _lcweiNextPageToken = Nothing
     , _lcweiReverseOrder = Nothing
@@ -103,18 +103,18 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
       -- closeStatusFilter, executionFilter, typeFilter and tagFilter are
       -- mutually exclusive. You can specify at most one of these in a
       -- request.
-    , _lcweiCloseTimeFilter :: Maybe ExecutionTimeFilter
-      -- ^ If specified, the workflow executions are included in the
-      -- returned results based on whether their close times are within
-      -- the range specified by this filter. Also, if this parameter is
-      -- specified, the returned results are ordered by their close times.
-      -- startTimeFilter and closeTimeFilter are mutually exclusive. You
-      -- must specify one of these in a request but not both.
     , _lcweiStartTimeFilter :: Maybe ExecutionTimeFilter
       -- ^ If specified, the workflow executions are included in the
       -- returned results based on whether their start times are within
       -- the range specified by this filter. Also, if this parameter is
       -- specified, the returned results are ordered by their start times.
+      -- startTimeFilter and closeTimeFilter are mutually exclusive. You
+      -- must specify one of these in a request but not both.
+    , _lcweiCloseTimeFilter :: Maybe ExecutionTimeFilter
+      -- ^ If specified, the workflow executions are included in the
+      -- returned results based on whether their close times are within
+      -- the range specified by this filter. Also, if this parameter is
+      -- specified, the returned results are ordered by their close times.
       -- startTimeFilter and closeTimeFilter are mutually exclusive. You
       -- must specify one of these in a request but not both.
     , _lcweiMaximumPageSize :: Maybe Integer

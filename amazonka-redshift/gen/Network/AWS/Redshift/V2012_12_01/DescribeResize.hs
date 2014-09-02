@@ -74,12 +74,9 @@ data DescribeResizeResponse = DescribeResizeResponse
       -- operation began. After the resize operation completes, this value
       -- shows the total actual time, in seconds, for the resize
       -- operation.
-    , _rpmEstimatedTimeToCompletionInSeconds :: Maybe Integer
-      -- ^ The estimated time remaining, in seconds, until the resize
-      -- operation is complete. This value is calculated based on the
-      -- average resize rate and the estimated amount of data remaining to
-      -- be processed. Once the resize operation is complete, this value
-      -- will be 0.
+    , _rpmTotalResizeDataInMegaBytes :: Maybe Integer
+      -- ^ The estimated total amount of data, in megabytes, on the cluster
+      -- before the resize operation began.
     , _rpmProgressInMegaBytes :: Maybe Integer
       -- ^ While the resize operation is in progress, this value shows the
       -- current amount of data, in megabytes, that has been processed so
@@ -87,18 +84,21 @@ data DescribeResizeResponse = DescribeResizeResponse
       -- total amount of data, in megabytes, on the cluster, which may be
       -- more or less than TotalResizeDataInMegaBytes (the estimated total
       -- amount of data before resize).
-    , _rpmTotalResizeDataInMegaBytes :: Maybe Integer
-      -- ^ The estimated total amount of data, in megabytes, on the cluster
-      -- before the resize operation began.
-    , _rpmStatus :: Maybe Text
-      -- ^ The status of the resize operation. Valid Values: NONE |
-      -- IN_PROGRESS | FAILED | SUCCEEDED.
+    , _rpmEstimatedTimeToCompletionInSeconds :: Maybe Integer
+      -- ^ The estimated time remaining, in seconds, until the resize
+      -- operation is complete. This value is calculated based on the
+      -- average resize rate and the estimated amount of data remaining to
+      -- be processed. Once the resize operation is complete, this value
+      -- will be 0.
     , _rpmTargetClusterType :: Maybe Text
       -- ^ The cluster type after the resize operation is complete. Valid
       -- Values: multi-node | single-node.
     , _rpmTargetNodeType :: Maybe Text
       -- ^ The node type that the cluster will have after the resize
       -- operation is complete.
+    , _rpmStatus :: Maybe Text
+      -- ^ The status of the resize operation. Valid Values: NONE |
+      -- IN_PROGRESS | FAILED | SUCCEEDED.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeResizeResponse

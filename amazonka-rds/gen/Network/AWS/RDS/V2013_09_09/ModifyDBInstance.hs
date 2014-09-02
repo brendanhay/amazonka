@@ -40,22 +40,22 @@ modifyDBInstance :: Text -- ^ '_mdbimDBInstanceIdentifier'
                  -> ModifyDBInstance
 modifyDBInstance p1 = ModifyDBInstance
     { _mdbimDBInstanceIdentifier = p1
-    , _mdbimAllowMajorVersionUpgrade = Nothing
     , _mdbimApplyImmediately = Nothing
-    , _mdbimAutoMinorVersionUpgrade = Nothing
+    , _mdbimAllowMajorVersionUpgrade = Nothing
     , _mdbimMultiAZ = Nothing
+    , _mdbimAutoMinorVersionUpgrade = Nothing
     , _mdbimDBSecurityGroups = mempty
     , _mdbimAllocatedStorage = Nothing
     , _mdbimBackupRetentionPeriod = Nothing
     , _mdbimIops = Nothing
-    , _mdbimDBInstanceClass = Nothing
-    , _mdbimDBParameterGroupName = Nothing
-    , _mdbimEngineVersion = Nothing
-    , _mdbimMasterUserPassword = Nothing
-    , _mdbimNewDBInstanceIdentifier = Nothing
     , _mdbimOptionGroupName = Nothing
     , _mdbimPreferredBackupWindow = Nothing
+    , _mdbimDBParameterGroupName = Nothing
     , _mdbimPreferredMaintenanceWindow = Nothing
+    , _mdbimDBInstanceClass = Nothing
+    , _mdbimNewDBInstanceIdentifier = Nothing
+    , _mdbimMasterUserPassword = Nothing
+    , _mdbimEngineVersion = Nothing
     , _mdbimVpcSecurityGroupIds = mempty
     }
 
@@ -66,13 +66,6 @@ data ModifyDBInstance = ModifyDBInstance
       -- instance Must contain from 1 to 63 alphanumeric characters or
       -- hyphens First character must be a letter Cannot end with a hyphen
       -- or contain two consecutive hyphens.
-    , _mdbimAllowMajorVersionUpgrade :: Maybe Bool
-      -- ^ Indicates that major version upgrades are allowed. Changing this
-      -- parameter does not result in an outage and the change is
-      -- asynchronously applied as soon as possible. Constraints: This
-      -- parameter must be set to true when specifying a value for the
-      -- EngineVersion parameter that is a different major version than
-      -- the DB instance's current version.
     , _mdbimApplyImmediately :: Maybe Bool
       -- ^ Specifies whether or not the modifications in this request and
       -- any pending modifications are asynchronously applied as soon as
@@ -82,6 +75,20 @@ data ModifyDBInstance = ModifyDBInstance
       -- RebootDBInstance, the next maintenance reboot, or the next
       -- failure reboot, whichever occurs first. See each parameter to
       -- determine when a change is applied. Default: false.
+    , _mdbimAllowMajorVersionUpgrade :: Maybe Bool
+      -- ^ Indicates that major version upgrades are allowed. Changing this
+      -- parameter does not result in an outage and the change is
+      -- asynchronously applied as soon as possible. Constraints: This
+      -- parameter must be set to true when specifying a value for the
+      -- EngineVersion parameter that is a different major version than
+      -- the DB instance's current version.
+    , _mdbimMultiAZ :: Maybe Bool
+      -- ^ Specifies if the DB instance is a Multi-AZ deployment. Changing
+      -- this parameter does not result in an outage and the change is
+      -- applied during the next maintenance window unless the
+      -- ApplyImmediately parameter is set to true for this request.
+      -- Constraints: Cannot be specified if the DB instance is a read
+      -- replica.
     , _mdbimAutoMinorVersionUpgrade :: Maybe Bool
       -- ^ Indicates that minor version upgrades will be applied
       -- automatically to the DB instance during the maintenance window.
@@ -91,13 +98,6 @@ data ModifyDBInstance = ModifyDBInstance
       -- to true during the maintenance window, and a newer minor version
       -- is available, and RDS has enabled auto patching for that engine
       -- version.
-    , _mdbimMultiAZ :: Maybe Bool
-      -- ^ Specifies if the DB instance is a Multi-AZ deployment. Changing
-      -- this parameter does not result in an outage and the change is
-      -- applied during the next maintenance window unless the
-      -- ApplyImmediately parameter is set to true for this request.
-      -- Constraints: Cannot be specified if the DB instance is a read
-      -- replica.
     , _mdbimDBSecurityGroups :: [Text]
       -- ^ A list of DB security groups to authorize on this DB instance.
       -- Changing this parameter does not result in an outage and the
@@ -173,53 +173,6 @@ data ModifyDBInstance = ModifyDBInstance
       -- the instance, rebooting the instance, deleting the instance,
       -- creating a read replica for the instance, and creating a DB
       -- snapshot of the instance.
-    , _mdbimDBInstanceClass :: Maybe Text
-      -- ^ The new compute and memory capacity of the DB instance. To
-      -- determine the instance classes that are available for a
-      -- particular DB engine, use the DescribeOrderableDBInstanceOptions
-      -- action. Passing a value for this parameter causes an outage
-      -- during the change and is applied during the next maintenance
-      -- window, unless the ApplyImmediately parameter is specified as
-      -- true for this request. Default: Uses existing setting Valid
-      -- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
-      -- db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge.
-    , _mdbimDBParameterGroupName :: Maybe Text
-      -- ^ The name of the DB parameter group to apply to this DB instance.
-      -- Changing this parameter does not result in an outage and the
-      -- change is applied during the next maintenance window unless the
-      -- ApplyImmediately parameter is set to true for this request.
-      -- Default: Uses existing setting Constraints: The DB parameter
-      -- group must be in the same DB parameter group family as this DB
-      -- instance.
-    , _mdbimEngineVersion :: Maybe Text
-      -- ^ The version number of the database engine to upgrade to. Changing
-      -- this parameter results in an outage and the change is applied
-      -- during the next maintenance window unless the ApplyImmediately
-      -- parameter is set to true for this request. For major version
-      -- upgrades, if a non-default DB parameter group is currently in
-      -- use, a new DB parameter group in the DB parameter group family
-      -- for the new engine version must be specified. The new DB
-      -- parameter group can be the default for that DB parameter group
-      -- family. Example: 5.1.42.
-    , _mdbimMasterUserPassword :: Maybe Text
-      -- ^ The new password for the DB instance master user. Can be any
-      -- printable ASCII character except "/", """, or "@". Changing this
-      -- parameter does not result in an outage and the change is
-      -- asynchronously applied as soon as possible. Between the time of
-      -- the request and the completion of the request, the
-      -- MasterUserPassword element exists in the PendingModifiedValues
-      -- element of the operation response. Default: Uses existing setting
-      -- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8
-      -- to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric
-      -- characters (SQL Server). Amazon RDS API actions never return the
-      -- password, so this action provides a way to regain access to a
-      -- master instance user if the password is lost.
-    , _mdbimNewDBInstanceIdentifier :: Maybe Text
-      -- ^ The new DB instance identifier for the DB instance when renaming
-      -- a DB Instance. This value is stored as a lowercase string.
-      -- Constraints: Must contain from 1 to 63 alphanumeric characters or
-      -- hyphens First character must be a letter Cannot end with a hyphen
-      -- or contain two consecutive hyphens.
     , _mdbimOptionGroupName :: Maybe Text
       -- ^ Indicates that the DB instance should be associated with the
       -- specified option group. Changing this parameter does not result
@@ -244,6 +197,14 @@ data ModifyDBInstance = ModifyDBInstance
       -- Times should be Universal Time Coordinated (UTC) Must not
       -- conflict with the preferred maintenance window Must be at least
       -- 30 minutes.
+    , _mdbimDBParameterGroupName :: Maybe Text
+      -- ^ The name of the DB parameter group to apply to this DB instance.
+      -- Changing this parameter does not result in an outage and the
+      -- change is applied during the next maintenance window unless the
+      -- ApplyImmediately parameter is set to true for this request.
+      -- Default: Uses existing setting Constraints: The DB parameter
+      -- group must be in the same DB parameter group family as this DB
+      -- instance.
     , _mdbimPreferredMaintenanceWindow :: Maybe Text
       -- ^ The weekly time range (in UTC) during which system maintenance
       -- can occur, which may result in an outage. Changing this parameter
@@ -258,6 +219,45 @@ data ModifyDBInstance = ModifyDBInstance
       -- setting Format: ddd:hh24:mi-ddd:hh24:mi Valid Days: Mon | Tue |
       -- Wed | Thu | Fri | Sat | Sun Constraints: Must be at least 30
       -- minutes.
+    , _mdbimDBInstanceClass :: Maybe Text
+      -- ^ The new compute and memory capacity of the DB instance. To
+      -- determine the instance classes that are available for a
+      -- particular DB engine, use the DescribeOrderableDBInstanceOptions
+      -- action. Passing a value for this parameter causes an outage
+      -- during the change and is applied during the next maintenance
+      -- window, unless the ApplyImmediately parameter is specified as
+      -- true for this request. Default: Uses existing setting Valid
+      -- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
+      -- db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge.
+    , _mdbimNewDBInstanceIdentifier :: Maybe Text
+      -- ^ The new DB instance identifier for the DB instance when renaming
+      -- a DB Instance. This value is stored as a lowercase string.
+      -- Constraints: Must contain from 1 to 63 alphanumeric characters or
+      -- hyphens First character must be a letter Cannot end with a hyphen
+      -- or contain two consecutive hyphens.
+    , _mdbimMasterUserPassword :: Maybe Text
+      -- ^ The new password for the DB instance master user. Can be any
+      -- printable ASCII character except "/", """, or "@". Changing this
+      -- parameter does not result in an outage and the change is
+      -- asynchronously applied as soon as possible. Between the time of
+      -- the request and the completion of the request, the
+      -- MasterUserPassword element exists in the PendingModifiedValues
+      -- element of the operation response. Default: Uses existing setting
+      -- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8
+      -- to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric
+      -- characters (SQL Server). Amazon RDS API actions never return the
+      -- password, so this action provides a way to regain access to a
+      -- master instance user if the password is lost.
+    , _mdbimEngineVersion :: Maybe Text
+      -- ^ The version number of the database engine to upgrade to. Changing
+      -- this parameter results in an outage and the change is applied
+      -- during the next maintenance window unless the ApplyImmediately
+      -- parameter is set to true for this request. For major version
+      -- upgrades, if a non-default DB parameter group is currently in
+      -- use, a new DB parameter group in the DB parameter group family
+      -- for the new engine version must be specified. The new DB
+      -- parameter group can be the default for that DB parameter group
+      -- family. Example: 5.1.42.
     , _mdbimVpcSecurityGroupIds :: [Text]
       -- ^ A list of EC2 VPC security groups to authorize on this DB
       -- instance. This change is asynchronously applied as soon as

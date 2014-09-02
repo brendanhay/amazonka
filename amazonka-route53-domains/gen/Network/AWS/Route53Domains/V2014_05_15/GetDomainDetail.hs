@@ -81,7 +81,12 @@ instance ToHeaders GetDomainDetail
 instance ToJSON GetDomainDetail
 
 data GetDomainDetailResponse = GetDomainDetailResponse
-    { _gddsAdminContact :: ContactDetail
+    { _gddsTechContact :: ContactDetail
+      -- ^ Provides details about the domain technical contact. Type:
+      -- Complex Children: FirstName, MiddleName, LastName, ContactType,
+      -- OrganizationName, AddressLine1, AddressLine2, City, State,
+      -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
+    , _gddsAdminContact :: ContactDetail
       -- ^ Provides details about the domain administrative contact. Type:
       -- Complex Children: FirstName, MiddleName, LastName, ContactType,
       -- OrganizationName, AddressLine1, AddressLine2, City, State,
@@ -91,24 +96,19 @@ data GetDomainDetailResponse = GetDomainDetailResponse
       -- Children: FirstName, MiddleName, LastName, ContactType,
       -- OrganizationName, AddressLine1, AddressLine2, City, State,
       -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
-    , _gddsTechContact :: ContactDetail
-      -- ^ Provides details about the domain technical contact. Type:
-      -- Complex Children: FirstName, MiddleName, LastName, ContactType,
-      -- OrganizationName, AddressLine1, AddressLine2, City, State,
-      -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
     , _gddsDomainName :: Text
       -- ^ The name of a domain. Type: String.
     , _gddsNameservers :: [Nameserver]
       -- ^ The name of the domain. Type: String.
+    , _gddsAutoRenew :: Maybe Bool
+      -- ^ Specifies whether the domain registration is set to renew
+      -- automatically. Type: Boolean.
     , _gddsAdminPrivacy :: Maybe Bool
       -- ^ Specifies whether contact information for the admin contact is
       -- concealed from WHOIS queries. If the value is true, WHOIS ("who
       -- is") queries will return contact information for our registrar
       -- partner, Gandi, instead of the contact information that you
       -- enter. Type: Boolean.
-    , _gddsAutoRenew :: Maybe Bool
-      -- ^ Specifies whether the domain registration is set to renew
-      -- automatically. Type: Boolean.
     , _gddsRegistrantPrivacy :: Maybe Bool
       -- ^ Specifies whether contact information for the registrant contact
       -- is concealed from WHOIS queries. If the value is true, WHOIS

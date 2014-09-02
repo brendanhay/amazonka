@@ -30,16 +30,16 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateStack' request.
-createStack :: Text -- ^ '_csrDefaultInstanceProfileArn'
+createStack :: Text -- ^ '_csrRegion'
             -> Text -- ^ '_csrName'
-            -> Text -- ^ '_csrRegion'
             -> Text -- ^ '_csrServiceRoleArn'
+            -> Text -- ^ '_csrDefaultInstanceProfileArn'
             -> CreateStack
 createStack p1 p2 p3 p4 = CreateStack
-    { _csrDefaultInstanceProfileArn = p1
+    { _csrRegion = p1
     , _csrName = p2
-    , _csrRegion = p3
-    , _csrServiceRoleArn = p4
+    , _csrServiceRoleArn = p3
+    , _csrDefaultInstanceProfileArn = p4
     , _csrUseCustomCookbooks = Nothing
     , _csrUseOpsworksSecurityGroups = Nothing
     , _csrChefConfiguration = Nothing
@@ -47,31 +47,31 @@ createStack p1 p2 p3 p4 = CreateStack
     , _csrCustomCookbooksSource = Nothing
     , _csrAttributes = mempty
     , _csrConfigurationManager = Nothing
-    , _csrCustomJson = Nothing
-    , _csrDefaultAvailabilityZone = Nothing
-    , _csrDefaultOs = Nothing
-    , _csrDefaultSshKeyName = Nothing
-    , _csrDefaultSubnetId = Nothing
     , _csrHostnameTheme = Nothing
+    , _csrDefaultSubnetId = Nothing
+    , _csrDefaultOs = Nothing
+    , _csrDefaultAvailabilityZone = Nothing
+    , _csrCustomJson = Nothing
+    , _csrDefaultSshKeyName = Nothing
     , _csrVpcId = Nothing
     }
 
 data CreateStack = CreateStack
-    { _csrDefaultInstanceProfileArn :: Text
-      -- ^ The ARN of an IAM profile that is the default profile for all of
-      -- the stack's EC2 instances. For more information about IAM ARNs,
-      -- see Using Identifiers.
-    , _csrName :: Text
-      -- ^ The stack name.
-    , _csrRegion :: Text
+    { _csrRegion :: Text
       -- ^ The stack AWS region, such as "us-east-1". For more information
       -- about Amazon regions, see Regions and Endpoints.
+    , _csrName :: Text
+      -- ^ The stack name.
     , _csrServiceRoleArn :: Text
       -- ^ The stack AWS Identity and Access Management (IAM) role, which
       -- allows AWS OpsWorks to work with AWS resources on your behalf.
       -- You must set this parameter to the Amazon Resource Name (ARN) for
       -- an existing IAM role. For more information about IAM ARNs, see
       -- Using Identifiers.
+    , _csrDefaultInstanceProfileArn :: Text
+      -- ^ The ARN of an IAM profile that is the default profile for all of
+      -- the stack's EC2 instances. For more information about IAM ARNs,
+      -- see Using Identifiers.
     , _csrUseCustomCookbooks :: Maybe Bool
       -- ^ Whether the stack uses custom cookbooks.
     , _csrUseOpsworksSecurityGroups :: Maybe Bool
@@ -113,32 +113,6 @@ data CreateStack = CreateStack
       -- that you use the configuration manager to specify the Chef
       -- version, 0.9, 11.4, or 11.10. The default value is currently
       -- 11.4.
-    , _csrCustomJson :: Maybe Text
-      -- ^ A string that contains user-defined, custom JSON. It is used to
-      -- override the corresponding default stack configuration JSON
-      -- values. The string should be in the following format and must
-      -- escape characters such as '"'.: "{\"key1\": \"value1\", \"key2\":
-      -- \"value2\",...}" For more information on custom JSON, see Use
-      -- Custom JSON to Modify the Stack Configuration JSON.
-    , _csrDefaultAvailabilityZone :: Maybe Text
-      -- ^ The stack's default Availability Zone, which must be in the
-      -- specified region. For more information, see Regions and
-      -- Endpoints. If you also specify a value for DefaultSubnetId, the
-      -- subnet must be in the same zone. For more information, see the
-      -- VpcId parameter description.
-    , _csrDefaultOs :: Maybe Text
-      -- ^ The stack's default operating system, which must be set to Amazon
-      -- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
-    , _csrDefaultSshKeyName :: Maybe Text
-      -- ^ A default SSH key for the stack instances. You can override this
-      -- value when you create or update an instance.
-    , _csrDefaultSubnetId :: Maybe Text
-      -- ^ The stack's default subnet ID. All instances will be launched
-      -- into this subnet unless you specify otherwise when you create the
-      -- instance. If you also specify a value for
-      -- DefaultAvailabilityZone, the subnet must be in that zone. For
-      -- information on default values and when this parameter is
-      -- required, see the VpcId parameter description.
     , _csrHostnameTheme :: Maybe Text
       -- ^ The stack's host name theme, with spaces are replaced by
       -- underscores. The theme is used to generate host names for the
@@ -150,6 +124,32 @@ data CreateStack = CreateStack
       -- Scottish_Islands US_Cities Wild_Cats To obtain a generated host
       -- name, call GetHostNameSuggestion, which returns a host name based
       -- on the current theme.
+    , _csrDefaultSubnetId :: Maybe Text
+      -- ^ The stack's default subnet ID. All instances will be launched
+      -- into this subnet unless you specify otherwise when you create the
+      -- instance. If you also specify a value for
+      -- DefaultAvailabilityZone, the subnet must be in that zone. For
+      -- information on default values and when this parameter is
+      -- required, see the VpcId parameter description.
+    , _csrDefaultOs :: Maybe Text
+      -- ^ The stack's default operating system, which must be set to Amazon
+      -- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
+    , _csrDefaultAvailabilityZone :: Maybe Text
+      -- ^ The stack's default Availability Zone, which must be in the
+      -- specified region. For more information, see Regions and
+      -- Endpoints. If you also specify a value for DefaultSubnetId, the
+      -- subnet must be in the same zone. For more information, see the
+      -- VpcId parameter description.
+    , _csrCustomJson :: Maybe Text
+      -- ^ A string that contains user-defined, custom JSON. It is used to
+      -- override the corresponding default stack configuration JSON
+      -- values. The string should be in the following format and must
+      -- escape characters such as '"'.: "{\"key1\": \"value1\", \"key2\":
+      -- \"value2\",...}" For more information on custom JSON, see Use
+      -- Custom JSON to Modify the Stack Configuration JSON.
+    , _csrDefaultSshKeyName :: Maybe Text
+      -- ^ A default SSH key for the stack instances. You can override this
+      -- value when you create or update an instance.
     , _csrVpcId :: Maybe Text
       -- ^ The ID of the VPC that the stack is to be launched into. It must
       -- be in the specified region. All instances will be launched into

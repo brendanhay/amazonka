@@ -39,14 +39,14 @@ import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
-    { _ccsgmClusterSubnetGroupName :: Text
+    { _ccsgmDescription :: Text
+      -- ^ A description for the subnet group.
+    , _ccsgmClusterSubnetGroupName :: Text
       -- ^ The name for the subnet group. Amazon Redshift stores the value
       -- as a lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters or hyphens. Must not be "Default". Must
       -- be unique for all subnet groups that are created by your AWS
       -- account. Example: examplesubnetgroup.
-    , _ccsgmDescription :: Text
-      -- ^ A description for the subnet group.
     , _ccsgmSubnetIds :: [Text]
       -- ^ An array of VPC subnet IDs. A maximum of 20 subnets can be
       -- modified in a single request.

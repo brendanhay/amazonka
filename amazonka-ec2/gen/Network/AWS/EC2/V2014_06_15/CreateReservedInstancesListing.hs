@@ -55,13 +55,13 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
     , _criltPriceSchedules :: [PriceScheduleSpecification]
       -- ^ A list specifying the price of the Reserved Instance for each
       -- month remaining in the Reserved Instance term.
+    , _criltReservedInstancesId :: Text
+      -- ^ The ID of the active Reserved Instance.
     , _criltClientToken :: Text
       -- ^ Unique, case-sensitive identifier you provide to ensure
       -- idempotency of your listings. This helps avoid duplicate
       -- listings. For more information, see Ensuring Idempotency in the
       -- Amazon Elastic Compute Cloud User Guide.
-    , _criltReservedInstancesId :: Text
-      -- ^ The ID of the active Reserved Instance.
     } deriving (Show, Generic)
 
 makeLenses ''CreateReservedInstancesListing

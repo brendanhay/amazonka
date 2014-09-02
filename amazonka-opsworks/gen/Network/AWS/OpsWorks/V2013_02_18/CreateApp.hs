@@ -32,13 +32,13 @@ import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateApp' request.
 createApp :: AppType -- ^ '_carType'
-          -> Text -- ^ '_carName'
           -> Text -- ^ '_carStackId'
+          -> Text -- ^ '_carName'
           -> CreateApp
 createApp p1 p2 p3 = CreateApp
     { _carType = p1
-    , _carName = p2
-    , _carStackId = p3
+    , _carStackId = p2
+    , _carName = p3
     , _carAttributes = mempty
     , _carEnableSsl = Nothing
     , _carDataSources = mempty
@@ -55,10 +55,10 @@ data CreateApp = CreateApp
       -- layer. For example, PHP applications are associated with a PHP
       -- layer. AWS OpsWorks deploys an application to those instances
       -- that are members of the corresponding layer.
-    , _carName :: Text
-      -- ^ The app name.
     , _carStackId :: Text
       -- ^ The stack ID.
+    , _carName :: Text
+      -- ^ The app name.
     , _carAttributes :: Map AppAttributesKeys Text
       -- ^ One or more user-defined key/value pairs to be added to the stack
       -- attributes.

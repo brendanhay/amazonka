@@ -45,8 +45,8 @@ describeDBLogFiles p1 = DescribeDBLogFiles
     , _ddblfmMaxRecords = Nothing
     , _ddblfmFileLastWritten = Nothing
     , _ddblfmFileSize = Nothing
-    , _ddblfmFilenameContains = Nothing
     , _ddblfmMarker = Nothing
+    , _ddblfmFilenameContains = Nothing
     }
 
 data DescribeDBLogFiles = DescribeDBLogFiles
@@ -67,13 +67,13 @@ data DescribeDBLogFiles = DescribeDBLogFiles
     , _ddblfmFileSize :: Maybe Integer
       -- ^ Filters the available log files for files larger than the
       -- specified size.
-    , _ddblfmFilenameContains :: Maybe Text
-      -- ^ Filters the available log files for log file names that contain
-      -- the specified string.
     , _ddblfmMarker :: Maybe Text
       -- ^ The pagination token provided in the previous request. If this
       -- parameter is specified the response includes only records beyond
       -- the marker, up to MaxRecords.
+    , _ddblfmFilenameContains :: Maybe Text
+      -- ^ Filters the available log files for log file names that contain
+      -- the specified string.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeDBLogFiles

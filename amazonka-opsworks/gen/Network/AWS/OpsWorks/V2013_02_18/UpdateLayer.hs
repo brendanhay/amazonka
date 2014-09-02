@@ -35,17 +35,17 @@ updateLayer :: Text -- ^ '_ulrLayerId'
 updateLayer p1 = UpdateLayer
     { _ulrLayerId = p1
     , _ulrAutoAssignElasticIps = Nothing
+    , _ulrUseEbsOptimizedInstances = Nothing
     , _ulrAutoAssignPublicIps = Nothing
     , _ulrEnableAutoHealing = Nothing
     , _ulrInstallUpdatesOnBoot = Nothing
-    , _ulrUseEbsOptimizedInstances = Nothing
     , _ulrAttributes = mempty
     , _ulrCustomRecipes = Nothing
-    , _ulrCustomInstanceProfileArn = Nothing
     , _ulrName = Nothing
     , _ulrShortname = Nothing
-    , _ulrCustomSecurityGroupIds = mempty
+    , _ulrCustomInstanceProfileArn = Nothing
     , _ulrPackages = mempty
+    , _ulrCustomSecurityGroupIds = mempty
     , _ulrVolumeConfigurations = mempty
     }
 
@@ -55,6 +55,8 @@ data UpdateLayer = UpdateLayer
     , _ulrAutoAssignElasticIps :: Maybe Bool
       -- ^ Whether to automatically assign an Elastic IP address to the
       -- layer's instances. For more information, see How to Edit a Layer.
+    , _ulrUseEbsOptimizedInstances :: Maybe Bool
+      -- ^ Whether to use Amazon EBS-optimized instances.
     , _ulrAutoAssignPublicIps :: Maybe Bool
       -- ^ For stacks that are running in a VPC, whether to automatically
       -- assign a public IP address to the layer's instances. For more
@@ -70,18 +72,12 @@ data UpdateLayer = UpdateLayer
       -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
       -- recommend using the default value of true, to ensure that your
       -- instances have the latest security updates.
-    , _ulrUseEbsOptimizedInstances :: Maybe Bool
-      -- ^ Whether to use Amazon EBS-optimized instances.
     , _ulrAttributes :: Map LayerAttributesKeys Text
       -- ^ One or more user-defined key/value pairs to be added to the stack
       -- attributes.
     , _ulrCustomRecipes :: Maybe Recipes
       -- ^ A LayerCustomRecipes object that specifies the layer's custom
       -- recipes.
-    , _ulrCustomInstanceProfileArn :: Maybe Text
-      -- ^ The ARN of an IAM profile to be used for all of the layer's EC2
-      -- instances. For more information about IAM ARNs, see Using
-      -- Identifiers.
     , _ulrName :: Maybe Text
       -- ^ The layer name, which is used by the console.
     , _ulrShortname :: Maybe Text
@@ -90,10 +86,14 @@ data UpdateLayer = UpdateLayer
       -- directory where your app files are installed. It can have a
       -- maximum of 200 characters and must be in the following format:
       -- /\A[a-z0-9\-\_\.]+\Z/.
-    , _ulrCustomSecurityGroupIds :: [Text]
-      -- ^ An array containing the layer's custom security group IDs.
+    , _ulrCustomInstanceProfileArn :: Maybe Text
+      -- ^ The ARN of an IAM profile to be used for all of the layer's EC2
+      -- instances. For more information about IAM ARNs, see Using
+      -- Identifiers.
     , _ulrPackages :: [Text]
       -- ^ An array of Package objects that describe the layer's packages.
+    , _ulrCustomSecurityGroupIds :: [Text]
+      -- ^ An array containing the layer's custom security group IDs.
     , _ulrVolumeConfigurations :: [VolumeConfiguration]
       -- ^ A VolumeConfigurations object that describes the layer's Amazon
       -- EBS volumes.

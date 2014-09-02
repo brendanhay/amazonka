@@ -31,8 +31,8 @@ import Network.AWS.Prelude
 describeHsmConfigurations :: DescribeHsmConfigurations
 describeHsmConfigurations = DescribeHsmConfigurations
     { _dhcnMaxRecords = Nothing
-    , _dhcnHsmConfigurationIdentifier = Nothing
     , _dhcnMarker = Nothing
+    , _dhcnHsmConfigurationIdentifier = Nothing
     }
 
 data DescribeHsmConfigurations = DescribeHsmConfigurations
@@ -43,11 +43,6 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dhcnHsmConfigurationIdentifier :: Maybe Text
-      -- ^ The identifier of a specific Amazon Redshift HSM configuration to
-      -- be described. If no identifier is specified, information is
-      -- returned for all HSM configurations owned by your AWS customer
-      -- account.
     , _dhcnMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -56,6 +51,11 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
+    , _dhcnHsmConfigurationIdentifier :: Maybe Text
+      -- ^ The identifier of a specific Amazon Redshift HSM configuration to
+      -- be described. If no identifier is specified, information is
+      -- returned for all HSM configurations owned by your AWS customer
+      -- account.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeHsmConfigurations

@@ -57,7 +57,7 @@ options = Options
         <> help "Directory containing service assets. [required]"
          )
 
-    <*> option
+    <*> option auto
          ( long "versions"
         <> metavar "INT"
         <> help "Maximum number of model versions to load. [required]"

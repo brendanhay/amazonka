@@ -1,24 +1,4 @@
-{-# LANGUAGE DeriveDataTypeable          #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
-{-# LANGUAGE TypeFamilies                #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
-{% include "_include/license.ede" with types_namespace %}
-
-{% if documentation %}
-{{ documentation | above76 }}
-{% endif %}
-module {{ types_namespace }}
-    ( module {{ types_namespace }}
-{% for module in static %}
-    , module {{ module.value }}
-{% endfor %}
-    ) where
+{% include "_include/types-exports.ede" %}
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ signature }}
@@ -74,12 +54,12 @@ instance ToByteString {{ data.value.name }}
     {% include "_include/query-to.ede" with data.value %}
     {% when "newtype" %}
 newtype {{ data.value.name }} = {{ data.value.name }}
-    {% include "_include/record.ede" with data.value.fields %}
+    {% include "_include/record.ede" with data.value %}
     {% include "_include/xml-from.ede" with data.value %}
     {% include "_include/query-to.ede" with data.value %}
     {% when "data" %}
 data {{ data.value.name }} = {{ data.value.name }}
-    {% include "_include/record.ede" with data.value.fields %}
+    {% include "_include/record.ede" with data.value %}
     {% include "_include/xml-from.ede" with data.value %}
     {% include "_include/query-to.ede" with data.value %}
     {% when "nullary" %}
@@ -91,4 +71,3 @@ data {{ data.value.name }} = {{ data.value.name }}
 
   {% endif %}
 {% endfor %}
-{% include "_include/lens-types.ede" %}

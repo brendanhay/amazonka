@@ -57,7 +57,7 @@ instance ToJSON Checksum where
     toJSON = toCtor lowered
 
 instance ToJSON ServiceType where
-    toJSON = toJSON . show
+    toJSON = toCtor lowered
 
 instance ToJSON Signature where
     toJSON = toCtor id

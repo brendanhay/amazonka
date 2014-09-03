@@ -1,0 +1,50 @@
+{-# LANGUAGE DeriveDataTypeable          #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE StandaloneDeriving          #-}
+{-# LANGUAGE TypeFamilies                #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{% include "license.ede" with scope.types_namespace %}
+
+{% if scope.documentation %}
+{{ scope.documentation | above76 }}
+{% endif %}
+module {{ scope.types_namespace }}
+    (
+    -- * Service
+      {{ scope.name }}
+    -- ** Errors
+    , Er (..)
+{% case scope.type %}
+{% when "xml" %}
+    -- ** XML
+    , xmlOptions
+{% when "query" %}
+    -- ** XML
+    , xmlOptions
+{% endcase %}
+
+{% for data in scope.types %}
+    -- * {{ data.value.name }}
+    , {{ data.value.name }} (..)
+  {% for field in data.value.fields %}
+    , {{ field.value.prefixed | lens }}
+  {% endfor %}
+
+{% endfor %}
+{% for module in scope.static %}
+  {% if module.first %}
+
+    -- * Common
+    , module {{ module.value }}
+  {% else %}
+    , module {{ module.value }}
+  {% endif %}
+  {% if module.last %}
+
+  {% endif %}
+{% endfor %}
+    ) where

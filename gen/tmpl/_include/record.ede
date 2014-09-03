@@ -1,4 +1,4 @@
-{% for field in scope %}
+{% for field in scope.fields %}
   {% if field.first %}
     { {{ field.value.prefixed }} :: {{ field.value.type }}
     {% if field.value.documentation %}
@@ -16,3 +16,4 @@
 {% else %}
     deriving (Eq, Show, Generic)
 {% endfor %}
+{% include "lens-signatures.ede" with scope %}

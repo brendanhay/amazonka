@@ -1,18 +1,3 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
-{-# LANGUAGE TypeFamilies                #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
-{% include "_include/license.ede" with namespace %}
-
-{% if documentation %}
-{{ documentation | above76 }}
-{% endif %}
 {% include "_include/operation-exports.ede" %}
 
 import {{ request_namespace }}
@@ -25,17 +10,13 @@ type {{ alias }} = {{ request.name }}
 {% include "_include/method.ede" with request %}
 
 data {{ request.name }} = {{ request.name }}
-{% include "_include/record.ede" with request.fields %}
-
-makeSiglessLenses ''{{ request.name }}
+{% include "_include/record.ede" with request %}
 
 instance ToQuery {{ request.name }} where
     toQuery = genericQuery def
 
 data {{ response.name }} = {{ response.name }}
-{% include "_include/record.ede" with response.fields %}
-
-makeSiglessLenses ''{{ response.name }}
+{% include "_include/record.ede" with response %}
 {% if response.type == "xml" %}
 
 instance FromXML {{ response.name }} where
@@ -49,5 +30,3 @@ instance AWSRequest {{ request.name }} where
     request = post "{{ request.name }}"
 {% include "_include/response.ede" %}
 {% include "_include/pager.ede" %}
-{% include "_include/lens-signatures.ede" with request %}
-{% include "_include/lens-signatures.ede" with response %}

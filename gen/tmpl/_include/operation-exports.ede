@@ -1,12 +1,26 @@
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{% include "license.ede" with scope.namespace %}
+
+{% if scope.documentation %}
+{{ scope.documentation | above76 }}
+{% endif %}
 module {{ scope.namespace }}
     (
     -- * Request
       {{ scope.request.name }}
-    -- ** Default constructor
+    -- ** Request constructor
     , {{ scope.request.default }}
 {% for lens in scope.request.fields %}
   {% if lens.first %}
-    -- ** Lenses
+    -- ** Request lenses
   {% endif %}
     , {{ lens.value.prefixed | lens }}
   {% if lens.last %}
@@ -17,7 +31,7 @@ module {{ scope.namespace }}
     , {{ scope.response.name }}
 {% for lens in scope.response.fields %}
   {% if lens.first %}
-    -- ** Lenses
+    -- ** Response lenses
   {% endif %}
     , {{ lens.value.prefixed | lens }}
 {% endfor %}

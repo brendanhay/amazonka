@@ -5,7 +5,16 @@
   {% if field.value.documentation %}
 {{ field.value.documentation | above76 }}
   {% endif %}
-{{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} ({{ field.value.type}})
+{{ field.value.prefixed | lens }}
+    :: Functor f
+    => ({{ field.value.type }}
+    -> f ({{ field.value.type}}))
+    -> {{ scope.name }}
+    -> f {{ scope.name }}
+{{ field.value.prefixed | lens }} f x =
+    (\y -> x { {{ field.value.prefixed }} = y })
+       <$> f ({{ field.value.prefixed }} x)
+{-# INLINE {{ field.value.prefixed | lens }} #-}
   {% if !field.last %}
 
   {% endif %}

@@ -1,6 +1,6 @@
 SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
-DEPS     := vendor/botocore vendor/ede
+DEPS     := vendor/botocore vendor/ede vendor/jason
 BOTO     := vendor/botocore/botocore/data/aws
 VERSIONS := 1
 
@@ -54,7 +54,7 @@ JSON := \
  logs \
  cognito-identity
 
-MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
+MODELS ?= ec2 #$(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 
@@ -78,6 +78,7 @@ clean:
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/ede
+	cabal sandbox add-source vendor/jason
 
 cabal.sandbox.config:
 	cabal sandbox init

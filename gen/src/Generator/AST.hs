@@ -191,7 +191,7 @@ instance Default Common where
 makeClassy ''Common
 
 data Struct = Struct
-    { _sctFields    :: HashMap Text Shape
+    { _sctFields    :: [(Text, Shape)]
     , _sctCommon    :: Common
     } deriving (Eq, Show, Generic)
 

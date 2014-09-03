@@ -1,6 +1,7 @@
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Generator.Transform
@@ -15,6 +16,7 @@
 
 module Generator.Transform where
 
+import           Control.Applicative
 import           Control.Lens         hiding (indexed)
 import           Control.Monad
 import           Control.Monad.State
@@ -129,9 +131,7 @@ uniquify svc (special svc -> s) = do
     x <- go (s ^. cmnPrefix) (s ^. cmnName)
     case s of
         SStruct c@Struct{..} -> do
-            fs <- Map.traverseWithKey (const $ uniquify svc) _sctFields
-            -- xs <- mapM (uniquify svc) (Map.elems _sctFields)
-            -- let fs = Map.fromList (zip (Map.keys _sctFields) xs)
+            fs <- traverse (\(k, v) -> (k,) <$> uniquify svc v) _sctFields
             return . SStruct $ (c & cmnPrefix .~ x) { _sctFields = fs }
         SList l@List{..} -> do
             i <- uniquify svc _lstItem
@@ -268,7 +268,7 @@ serviceNamespaces s = sort $
 
 fields :: Bool -> Service -> Shape -> [Field]
 fields rq svc s = case s of
-    SStruct Struct{..} -> map f (reverse $ Map.toList _sctFields)
+    SStruct Struct{..} -> map f _sctFields
     _                  -> []
   where
     f :: (Text, Shape) -> Field
@@ -341,8 +341,8 @@ ctorof :: Shape -> Ctor
 ctorof s =
     case s of
         SStruct Struct{..}
-            | Map.size _sctFields == 1       -> CNewtype
-            | Map.null _sctFields            -> CNullary
+            | length _sctFields == 1     -> CNewtype
+            | null _sctFields            -> CNullary
         SSum{}
             | (s ^. cmnName) `elem` switches -> CSwitch
             | otherwise                      -> CSum
@@ -370,7 +370,7 @@ setDirection :: Direction -> Shape -> Shape
 setDirection d s =
     case s of
         SStruct x@Struct{..} ->
-            SStruct (dir x { _sctFields = Map.map (setDirection d) _sctFields })
+            SStruct (dir x { _sctFields = map (second (setDirection d)) _sctFields })
         SList x@List{..} ->
             SList (dir x { _lstItem = dir _lstItem })
         SMap x@Map{..} ->
@@ -413,7 +413,7 @@ serviceTypes svc@Service{..} = map override
         ++ descend (_rsShape $ _opResponse o)
         ++ concatMap descend (_opErrors o)
 
-    descend (SStruct Struct{..}) = concatMap (uncurry flat) (Map.toList _sctFields)
+    descend (SStruct Struct{..}) = concatMap (uncurry flat) _sctFields
     descend _                    = []
 
     flat p s@SStruct {}         = (p, s) : descend s
@@ -478,7 +478,7 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
 
     svc = defaultService a
 
-    except k v = SStruct (Struct (Map.fromList [("", field)]) ctor)
+    except k v = SStruct (Struct [("", field)] ctor)
       where
         field = SStruct . Struct mempty $ def
             & cmnName .~ v
@@ -494,5 +494,5 @@ requireField cs f
 ignoreFields :: HashMap Text [CI Text] -> Shape -> Shape
 ignoreFields m (SStruct s)
     | Just cs <- Map.lookup (s ^. cmnName) m = SStruct $
-        s & sctFields %~ Map.filterWithKey (\k _ -> CI.mk k `notElem` cs)
+        s & sctFields %~ filter (\(k, _) -> CI.mk k `notElem` cs)
 ignoreFields _ s = s

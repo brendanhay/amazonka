@@ -22,8 +22,6 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Lens               ((&), (%~), (.~))
 import           Control.Monad
-import           Data.Aeson                 hiding (Error)
-import           Data.Aeson.Types           hiding (Error)
 import qualified Data.Attoparsec.Text       as AText
 import           Data.Bifunctor
 import qualified Data.ByteString.Char8      as BS
@@ -32,6 +30,9 @@ import           Data.CaseInsensitive       (CI)
 import qualified Data.CaseInsensitive       as CI
 import           Data.Default
 import qualified Data.HashMap.Strict        as Map
+import           Data.Jason                 hiding (Error)
+import           Data.Jason.Types           hiding (Error)
+import           Data.List
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -39,12 +40,15 @@ import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
 import           Data.Text.Util
+import           Data.Traversable           (traverse)
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Log
 import           Generator.Models
 import           Generator.Transform
 import           Network.HTTP.Types.Method
+
+import           Debug.Trace
 
 -- FIXME: considering the pervasive-ness/requirements of having overrides
 -- maybe it should error if they don't exist, just global?
@@ -59,7 +63,7 @@ parseModel Model{..} = do
         <*> load "Override" modLocal
 
     -- First merge local, then global overrides.
-    parse' . Object $ (l `union` g) `union` s
+    parse' . Object $ (l `union'` g) `union'` s
   where
     load :: Text -> Maybe FilePath -> Script Object
     load _ Nothing  = return mempty
@@ -71,13 +75,15 @@ parseModel Model{..} = do
     parse' :: FromJSON a => Value -> Script a
     parse' = hoistEither . parseEither parseJSON
 
-    union :: Object -> Object -> Object
-    union = Map.unionWith merge
+    union' :: Object -> Object -> Object
+    union' (Obj a) (Obj b) = Obj (a `union` b)
+
+--    union = Map.unionWith merge
 
     merge :: Value -> Value -> Value
     merge a b =
         case (a, b) of
-            (Object x, Object y) -> Object (x `union` y)
+            (Object x, Object y) -> Object (x `union'` y)
             (_,        _)        -> a
 
 instance FromJSON (CI Text) where
@@ -166,9 +172,8 @@ instance FromJSON Service where
             <*> o .:? "static"     .!= mempty
 
 instance FromJSON [Operation] where
-    parseJSON = withObject "operations" $ \o ->
-        forM (Map.toList o) $ \(k, v) ->
-            ($ k) <$> parseJSON v
+    parseJSON = withObject "operations" $
+        mapM (\(k, v) -> ($ k) <$> parseJSON v) . unObject
 
 instance FromJSON (Text -> Operation) where
     parseJSON = withObject "operation" $ \o -> do
@@ -225,15 +230,16 @@ instance FromJSON Shape where
         o .: "type" >>= f c o
       where
         f c o "structure" = do
-            xs <- o .:? "members"      .!= mempty
-            ys <- o .:? "member_order" .!= Map.keys xs :: Parser [Text]
+            Obj xs <- o .:? "members"      .!= mempty
+            ys     <- o .:? "member_order" .!= map fst xs :: Parser [Text]
+
+            xs' <- traverse (\(k, v) -> (k,) <$> parseJSON v) xs
 
             let g y x | x == defName = y
                       | otherwise    = x
-                h y = second (cmnName %~ g y) . (y,) <$> Map.lookup y xs
-                fs  = Map.fromList $ mapMaybe h ys
+                h y = second (cmnName %~ g y) . (y,) <$> lookup y xs'
 
-            return . SStruct $ Struct fs c
+            return . SStruct $ Struct (mapMaybe h ys) c
 
         f c o "list" = fmap SList $ List
             <$> o .:  "members"

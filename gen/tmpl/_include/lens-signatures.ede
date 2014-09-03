@@ -5,12 +5,15 @@
   {% if field.value.documentation %}
 {{ field.value.documentation | above76 }}
   {% endif %}
-{{ field.value.prefixed | lens }}
-    :: Functor f
-    => ({{ field.value.type }}
-    -> f ({{ field.value.type}}))
-    -> {{ scope.name }}
-    -> f {{ scope.name }}
+  {% if field.value.required %}
+{{ field.value.prefixed | lens }} :: Functor f => LensLike' f {{ scope.name }} {{ field.value.type }}
+  {% else %}
+    {% if field.value.monoid %}
+{{ field.value.prefixed | lens }} :: Functor f => LensLike' f {{ scope.name }} {{ field.value.type }}
+    {% else %}
+{{ field.value.prefixed | lens }} :: Functor f => LensLike' f {{ scope.name }} ({{ field.value.type }})
+    {% endif %}
+  {% endif %}
 {{ field.value.prefixed | lens }} f x =
     (\y -> x { {{ field.value.prefixed }} = y })
        <$> f ({{ field.value.prefixed }} x)

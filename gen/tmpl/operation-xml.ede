@@ -27,7 +27,7 @@ type {{ alias }} = {{ request.name }}
 data {{ request.name }} = {{ request.name }}
 {% include "_include/record.ede" with request.fields %}
 
-makeLenses ''{{ request.name }}
+makeSiglessLenses ''{{ request.name }}
 
 {% include "_include/path.ede" with request %}
 
@@ -45,7 +45,7 @@ makeLenses ''{{ request.name }}
 data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}
 
-makeLenses ''{{ response.name }}
+makeSiglessLenses ''{{ response.name }}
 {% if response.type == "xml" %}
 
 instance FromXML {{ response.name }} where
@@ -59,3 +59,5 @@ instance AWSRequest {{ request.name }} where
     request = {{ request.method }}
 {% include "_include/response.ede" %}
 {% include "_include/pager.ede" %}
+{% include "_include/lens-signatures.ede" with request %}
+{% include "_include/lens-signatures.ede" with response %}

@@ -25,6 +25,7 @@ type {{ alias }} = {{ request.name }}
 {% include "_include/method.ede" with request %}
 
 data {{ request.name }} = {{ request.name }}
+{% include "_include/record.ede" with request.fields %}
 
 makeSiglessLenses ''{{ request.name }}
 

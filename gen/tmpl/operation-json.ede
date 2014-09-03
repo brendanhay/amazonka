@@ -28,7 +28,7 @@ type {{ alias }} = {{ request.name }}
 data {{ request.name }} = {{ request.name }}
 {% include "_include/record.ede" with request.fields %}
 
-makeLenses ''{{ request.name }}
+makeSiglessLenses ''{{ request.name }}
 
 {% include "_include/path.ede" with request %}
 
@@ -40,7 +40,7 @@ makeLenses ''{{ request.name }}
 data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response.fields %}
 
-makeLenses ''{{ response.name }}
+makeSiglessLenses ''{{ response.name }}
 {% if response.type == "json" %}
 
 instance FromJSON {{ response.name }}
@@ -64,3 +64,5 @@ instance AWSRequest {{ request.name }} where
 {% else %}
   {% include "_include/pager.ede" %}
 {% endif %}
+{% include "_include/lens-signatures.ede" with request %}
+{% include "_include/lens-signatures.ede" with response %}

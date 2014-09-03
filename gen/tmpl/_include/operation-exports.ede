@@ -1,0 +1,24 @@
+module {{ scope.namespace }}
+    (
+    -- * Request
+      {{ scope.request.name }}
+    -- ** Default constructor
+    , {{ scope.request.default }}
+{% for lens in scope.request.fields %}
+  {% if lens.first %}
+    -- ** Lenses
+  {% endif %}
+    , {{ lens.value.prefixed | lens }}
+  {% if lens.last %}
+
+  {% endif %}
+{% endfor %}
+    -- * Response
+    , {{ scope.response.name }}
+{% for lens in scope.response.fields %}
+  {% if lens.first %}
+    -- ** Lenses
+  {% endif %}
+    , {{ lens.value.prefixed | lens }}
+{% endfor %}
+    ) where

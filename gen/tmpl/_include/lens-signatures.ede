@@ -1,0 +1,12 @@
+{% for field in scope.fields %}
+  {% if field.first %}
+
+  {% endif %}
+  {% if field.value.documentation %}
+{{ field.value.documentation | above76 }}
+  {% endif %}
+{{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} ({{ field.value.type}})
+  {% if !field.last %}
+
+  {% endif %}
+{% endfor %}

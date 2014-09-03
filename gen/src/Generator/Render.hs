@@ -148,7 +148,9 @@ env x =
         e        -> error ("Failed to extract JSON Object from: " ++ show e)
 
 filters :: HashMap Text Fun
-filters = EDE.defaultFilters <> Map.fromList fs
+filters = EDE.defaultFilters
+    <> Map.fromList fs
+    <> Map.singleton "lens" (Fun TText TText lens)
   where
     fs = funN "pad"     pad         [4, 8]
       ++ funN "indent"  indent      [4, 6, 8, 10]
@@ -156,6 +158,8 @@ filters = EDE.defaultFilters <> Map.fromList fs
       ++ funN "above"   (wrap "| ") [66, 76]
       ++ funN "below"   (wrap "^ ") [66, 76]
       ++ funN "haddock" haddock     [74]
+
+    lens t = fromMaybe t (Text.stripPrefix "_" t)
 
     haddock n t =
         case normalise n t of

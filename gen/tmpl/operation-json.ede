@@ -13,7 +13,7 @@
 {% if documentation %}
 {{ documentation | above76 }}
 {% endif %}
-module {{ namespace }} where
+{% include "_include/operation-exports.ede" %}
 
 import           {{ types_namespace }}
 import           Network.AWS.Prelude

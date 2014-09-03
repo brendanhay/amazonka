@@ -56,7 +56,28 @@
 -- &amp;Filter.1.Name=resource-type &amp;Filter.1.Value.1=instance
 -- &amp;Filter.2.Name=key &amp;Filter.2.Value.1=Purpose
 -- &amp;Filter.3.Name=value &amp;Filter.3.Value.1= &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeTags where
+module Network.AWS.EC2.V2014_06_15.DescribeTags
+    (
+    -- * Request
+      DescribeTags
+    -- ** Default constructor
+    , describeTags
+    -- ** Accessors and lenses
+    , _dtsFilters
+    , dtsFilters
+    , _dtsMaxResults
+    , dtsMaxResults
+    , _dtsNextToken
+    , dtsNextToken
+
+    -- * Response
+    , DescribeTagsResponse
+    -- ** Accessors and lenses
+    , _dttTags
+    , dttTags
+    , _dttNextToken
+    , dttNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -71,25 +92,8 @@ describeTags = DescribeTags
     }
 
 data DescribeTags = DescribeTags
-    { _dtsFilters :: [Filter]
-      -- ^ One or more filters. key - The tag key. resource-id - The
-      -- resource ID. resource-type - The resource type (customer-gateway
-      -- | dhcp-options | image | instance | internet-gateway |
-      -- network-acl | network-interface | reserved-instances |
-      -- route-table | security-group | snapshot | spot-instances-request
-      -- | subnet | volume | vpc | vpn-connection | vpn-gateway). value -
-      -- The tag value.
-    , _dtsMaxResults :: Maybe Integer
-      -- ^ The maximum number of items to return for this call. The call
-      -- also returns a token that you can specify in a subsequent call to
-      -- get the next set of results. If the value is greater than 1000,
-      -- we return only 1000 items.
-    , _dtsNextToken :: Maybe Text
-      -- ^ The token for the next set of items to return. (You received this
-      -- token from a prior call.).
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeTags
+makeSiglessLenses ''DescribeTags
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
@@ -102,7 +106,7 @@ data DescribeTagsResponse = DescribeTagsResponse
       -- are no additional items to return, the string is empty.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTagsResponse
+makeSiglessLenses ''DescribeTagsResponse
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
@@ -117,3 +121,27 @@ instance AWSRequest DescribeTags where
 instance AWSPager DescribeTags where
     next rq rs = (\x -> rq { _dtsNextToken = Just x })
         <$> (_dttNextToken rs)
+
+-- | One or more filters. key - The tag key. resource-id - The resource ID.
+-- resource-type - The resource type (customer-gateway | dhcp-options | image
+-- | instance | internet-gateway | network-acl | network-interface |
+-- reserved-instances | route-table | security-group | snapshot |
+-- spot-instances-request | subnet | volume | vpc | vpn-connection |
+-- vpn-gateway). value - The tag value.
+dtsFilters :: Lens' DescribeTags ([Filter])
+
+-- | The maximum number of items to return for this call. The call also returns
+-- a token that you can specify in a subsequent call to get the next set of
+-- results. If the value is greater than 1000, we return only 1000 items.
+dtsMaxResults :: Lens' DescribeTags (Maybe Integer)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a prior call.).
+dtsNextToken :: Lens' DescribeTags (Maybe Text)
+
+-- | A list of tags.
+dttTags :: Lens' DescribeTagsResponse ([TagDescription])
+
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+dttNextToken :: Lens' DescribeTagsResponse (Maybe Text)

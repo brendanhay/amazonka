@@ -27,25 +27,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;e1c6d73b-edaa-4e62-9909-6611404e1739&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkInterfaceResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteNetworkInterface where
+module Network.AWS.EC2.V2014_06_15.DeleteNetworkInterface
+    (
+    -- * Request
+      DeleteNetworkInterface
+    -- ** Default constructor
+    , deleteNetworkInterface
+    -- ** Accessors and lenses
+    , _dnirNetworkInterfaceId
+    , dnirNetworkInterfaceId
+
+    -- * Response
+    , DeleteNetworkInterfaceResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteNetworkInterface' request.
-deleteNetworkInterface :: Text -- ^ '_dnirNetworkInterfaceId'
+deleteNetworkInterface :: Text -- ^ 'dnirNetworkInterfaceId'
                        -> DeleteNetworkInterface
 deleteNetworkInterface p1 = DeleteNetworkInterface
     { _dnirNetworkInterfaceId = p1
     }
 
 data DeleteNetworkInterface = DeleteNetworkInterface
-    { _dnirNetworkInterfaceId :: Text
-      -- ^ The ID of the network interface.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteNetworkInterface
+makeSiglessLenses ''DeleteNetworkInterface
 
 instance ToQuery DeleteNetworkInterface where
     toQuery = genericQuery def
@@ -53,7 +62,7 @@ instance ToQuery DeleteNetworkInterface where
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteNetworkInterfaceResponse
+makeSiglessLenses ''DeleteNetworkInterfaceResponse
 
 instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2
@@ -61,3 +70,6 @@ instance AWSRequest DeleteNetworkInterface where
 
     request = post "DeleteNetworkInterface"
     response _ = nullaryResponse DeleteNetworkInterfaceResponse
+
+-- | The ID of the network interface.
+dnirNetworkInterfaceId :: Lens' DeleteNetworkInterface (Text)

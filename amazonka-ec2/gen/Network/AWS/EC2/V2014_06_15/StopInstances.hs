@@ -51,14 +51,31 @@
 -- &lt;/currentState&gt; &lt;previousState&gt; &lt;code&gt;16&lt;/code&gt;
 -- &lt;name&gt;running&lt;/name&gt; &lt;/previousState&gt;
 -- &lt;/instancesSet&gt; &lt;/StopInstancesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.StopInstances where
+module Network.AWS.EC2.V2014_06_15.StopInstances
+    (
+    -- * Request
+      StopInstances
+    -- ** Default constructor
+    , stopInstances
+    -- ** Accessors and lenses
+    , _sisvInstanceIds
+    , sisvInstanceIds
+    , _sisvForce
+    , sisvForce
+
+    -- * Response
+    , StopInstancesResponse
+    -- ** Accessors and lenses
+    , _siswStoppingInstances
+    , siswStoppingInstances
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'StopInstances' request.
-stopInstances :: [Text] -- ^ '_sisvInstanceIds'
+stopInstances :: [Text] -- ^ 'sisvInstanceIds'
               -> StopInstances
 stopInstances p1 = StopInstances
     { _sisvInstanceIds = p1
@@ -66,17 +83,8 @@ stopInstances p1 = StopInstances
     }
 
 data StopInstances = StopInstances
-    { _sisvInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
-    , _sisvForce :: Maybe Bool
-      -- ^ Forces the instances to stop. The instances do not have an
-      -- opportunity to flush file system caches or file system metadata.
-      -- If you use this option, you must perform file system check and
-      -- repair procedures. This option is not recommended for Windows
-      -- instances. Default: false.
-    } deriving (Show, Generic)
 
-makeLenses ''StopInstances
+makeSiglessLenses ''StopInstances
 
 instance ToQuery StopInstances where
     toQuery = genericQuery def
@@ -86,7 +94,7 @@ data StopInstancesResponse = StopInstancesResponse
       -- ^ Information about one or more stopped instances.
     } deriving (Show, Generic)
 
-makeLenses ''StopInstancesResponse
+makeSiglessLenses ''StopInstancesResponse
 
 instance FromXML StopInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -97,3 +105,15 @@ instance AWSRequest StopInstances where
 
     request = post "StopInstances"
     response _ = xmlResponse
+
+-- | One or more instance IDs.
+sisvInstanceIds :: Lens' StopInstances ([Text])
+
+-- | Forces the instances to stop. The instances do not have an opportunity to
+-- flush file system caches or file system metadata. If you use this option,
+-- you must perform file system check and repair procedures. This option is
+-- not recommended for Windows instances. Default: false.
+sisvForce :: Lens' StopInstances (Maybe Bool)
+
+-- | Information about one or more stopped instances.
+siswStoppingInstances :: Lens' StopInstancesResponse ([InstanceStateChange])

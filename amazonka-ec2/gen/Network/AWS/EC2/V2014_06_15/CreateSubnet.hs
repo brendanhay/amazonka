@@ -42,15 +42,34 @@
 -- &lt;availableIpAddressCount&gt;251&lt;/availableIpAddressCount&gt;
 -- &lt;availabilityZone&gt;us-east-1a&lt;/availabilityZone&gt; &lt;tagSet/&gt;
 -- &lt;/subnet&gt; &lt;/CreateSubnetResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreateSubnet where
+module Network.AWS.EC2.V2014_06_15.CreateSubnet
+    (
+    -- * Request
+      CreateSubnet
+    -- ** Default constructor
+    , createSubnet
+    -- ** Accessors and lenses
+    , _csuVpcId
+    , csuVpcId
+    , _csuCidrBlock
+    , csuCidrBlock
+    , _csuAvailabilityZone
+    , csuAvailabilityZone
+
+    -- * Response
+    , CreateSubnetResponse
+    -- ** Accessors and lenses
+    , _csvSubnet
+    , csvSubnet
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateSubnet' request.
-createSubnet :: Text -- ^ '_csuVpcId'
-             -> Text -- ^ '_csuCidrBlock'
+createSubnet :: Text -- ^ 'csuVpcId'
+             -> Text -- ^ 'csuCidrBlock'
              -> CreateSubnet
 createSubnet p1 p2 = CreateSubnet
     { _csuVpcId = p1
@@ -59,17 +78,8 @@ createSubnet p1 p2 = CreateSubnet
     }
 
 data CreateSubnet = CreateSubnet
-    { _csuVpcId :: Text
-      -- ^ The ID of the VPC.
-    , _csuCidrBlock :: Text
-      -- ^ The network range for the subnet, in CIDR notation. For example,
-      -- 10.0.0.0/24.
-    , _csuAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone for the subnet. Default: Amazon EC2 selects
-      -- one for you (recommended).
-    } deriving (Show, Generic)
 
-makeLenses ''CreateSubnet
+makeSiglessLenses ''CreateSubnet
 
 instance ToQuery CreateSubnet where
     toQuery = genericQuery def
@@ -79,7 +89,7 @@ data CreateSubnetResponse = CreateSubnetResponse
       -- ^ Information about the subnet.
     } deriving (Show, Generic)
 
-makeLenses ''CreateSubnetResponse
+makeSiglessLenses ''CreateSubnetResponse
 
 instance FromXML CreateSubnetResponse where
     fromXMLOptions = xmlOptions
@@ -90,3 +100,17 @@ instance AWSRequest CreateSubnet where
 
     request = post "CreateSubnet"
     response _ = xmlResponse
+
+-- | The ID of the VPC.
+csuVpcId :: Lens' CreateSubnet (Text)
+
+-- | The network range for the subnet, in CIDR notation. For example,
+-- 10.0.0.0/24.
+csuCidrBlock :: Lens' CreateSubnet (Text)
+
+-- | The Availability Zone for the subnet. Default: Amazon EC2 selects one for
+-- you (recommended).
+csuAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
+
+-- | Information about the subnet.
+csvSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)

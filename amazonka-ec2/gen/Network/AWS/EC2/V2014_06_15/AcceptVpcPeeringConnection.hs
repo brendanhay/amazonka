@@ -39,7 +39,22 @@
 -- &lt;status&gt; &lt;code&gt;active&lt;/code&gt;
 -- &lt;message&gt;Active&lt;/message&gt; &lt;/status&gt; &lt;tagSet/&gt;
 -- &lt;/vpcPeeringConnection&gt; &lt;/AcceptVpcPeeringConnectionResponse&gt;".
-module Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection where
+module Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
+    (
+    -- * Request
+      AcceptVpcPeeringConnection
+    -- ** Default constructor
+    , acceptVpcPeeringConnection
+    -- ** Accessors and lenses
+    , _avpcrVpcPeeringConnectionId
+    , avpcrVpcPeeringConnectionId
+
+    -- * Response
+    , AcceptVpcPeeringConnectionResponse
+    -- ** Accessors and lenses
+    , _avpcsVpcPeeringConnection
+    , avpcsVpcPeeringConnection
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -52,11 +67,8 @@ acceptVpcPeeringConnection = AcceptVpcPeeringConnection
     }
 
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
-    { _avpcrVpcPeeringConnectionId :: Maybe Text
-      -- ^ The ID of the VPC peering connection.
-    } deriving (Show, Generic)
 
-makeLenses ''AcceptVpcPeeringConnection
+makeSiglessLenses ''AcceptVpcPeeringConnection
 
 instance ToQuery AcceptVpcPeeringConnection where
     toQuery = genericQuery def
@@ -66,7 +78,7 @@ data AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
       -- ^ Information about the VPC peering connection.
     } deriving (Show, Generic)
 
-makeLenses ''AcceptVpcPeeringConnectionResponse
+makeSiglessLenses ''AcceptVpcPeeringConnectionResponse
 
 instance FromXML AcceptVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -77,3 +89,9 @@ instance AWSRequest AcceptVpcPeeringConnection where
 
     request = post "AcceptVpcPeeringConnection"
     response _ = xmlResponse
+
+-- | The ID of the VPC peering connection.
+avpcrVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
+
+-- | Information about the VPC peering connection.
+avpcsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)

@@ -41,14 +41,28 @@
 -- key is Purpose and the tag value is the empty string.
 -- https://ec2.amazonaws.com/?Action=DeleteTags &amp;ResourceId.1=i-5f4e3d2a
 -- &amp;Tag.1.Key=Purpose &amp;Tag.2.Value= &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DeleteTags where
+module Network.AWS.EC2.V2014_06_15.DeleteTags
+    (
+    -- * Request
+      DeleteTags
+    -- ** Default constructor
+    , deleteTags
+    -- ** Accessors and lenses
+    , _dtrResources
+    , dtrResources
+    , _dtrTags
+    , dtrTags
+
+    -- * Response
+    , DeleteTagsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteTags' request.
-deleteTags :: [Text] -- ^ '_dtrResources'
+deleteTags :: [Text] -- ^ 'dtrResources'
            -> DeleteTags
 deleteTags p1 = DeleteTags
     { _dtrResources = p1
@@ -56,17 +70,8 @@ deleteTags p1 = DeleteTags
     }
 
 data DeleteTags = DeleteTags
-    { _dtrResources :: [Text]
-      -- ^ The ID of the resource. For example, ami-1a2b3c4d. You can
-      -- specify more than one resource ID.
-    , _dtrTags :: [Tag]
-      -- ^ One or more tags to delete. If you omit the value parameter, we
-      -- delete the tag regardless of its value. If you specify this
-      -- parameter with an empty string as the value, we delete the key
-      -- only if its value is an empty string.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteTags
+makeSiglessLenses ''DeleteTags
 
 instance ToQuery DeleteTags where
     toQuery = genericQuery def
@@ -74,7 +79,7 @@ instance ToQuery DeleteTags where
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteTagsResponse
+makeSiglessLenses ''DeleteTagsResponse
 
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = EC2
@@ -82,3 +87,13 @@ instance AWSRequest DeleteTags where
 
     request = post "DeleteTags"
     response _ = nullaryResponse DeleteTagsResponse
+
+-- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
+-- than one resource ID.
+dtrResources :: Lens' DeleteTags ([Text])
+
+-- | One or more tags to delete. If you omit the value parameter, we delete the
+-- tag regardless of its value. If you specify this parameter with an empty
+-- string as the value, we delete the key only if its value is an empty
+-- string.
+dtrTags :: Lens' DeleteTags ([Tag])

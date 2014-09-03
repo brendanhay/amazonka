@@ -30,15 +30,32 @@
 -- &lt;attachment&gt; &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt;
 -- &lt;state&gt;attaching&lt;/state&gt; &lt;/attachment&gt;
 -- &lt;/AttachVpnGatewayResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.AttachVpnGateway where
+module Network.AWS.EC2.V2014_06_15.AttachVpnGateway
+    (
+    -- * Request
+      AttachVpnGateway
+    -- ** Default constructor
+    , attachVpnGateway
+    -- ** Accessors and lenses
+    , _avgrVpnGatewayId
+    , avgrVpnGatewayId
+    , _avgrVpcId
+    , avgrVpcId
+
+    -- * Response
+    , AttachVpnGatewayResponse
+    -- ** Accessors and lenses
+    , _avgsVpcAttachment
+    , avgsVpcAttachment
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AttachVpnGateway' request.
-attachVpnGateway :: Text -- ^ '_avgrVpnGatewayId'
-                 -> Text -- ^ '_avgrVpcId'
+attachVpnGateway :: Text -- ^ 'avgrVpnGatewayId'
+                 -> Text -- ^ 'avgrVpcId'
                  -> AttachVpnGateway
 attachVpnGateway p1 p2 = AttachVpnGateway
     { _avgrVpnGatewayId = p1
@@ -46,13 +63,8 @@ attachVpnGateway p1 p2 = AttachVpnGateway
     }
 
 data AttachVpnGateway = AttachVpnGateway
-    { _avgrVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _avgrVpcId :: Text
-      -- ^ The ID of the VPC.
-    } deriving (Show, Generic)
 
-makeLenses ''AttachVpnGateway
+makeSiglessLenses ''AttachVpnGateway
 
 instance ToQuery AttachVpnGateway where
     toQuery = genericQuery def
@@ -62,7 +74,7 @@ data AttachVpnGatewayResponse = AttachVpnGatewayResponse
       -- ^ Information about the attachment.
     } deriving (Show, Generic)
 
-makeLenses ''AttachVpnGatewayResponse
+makeSiglessLenses ''AttachVpnGatewayResponse
 
 instance FromXML AttachVpnGatewayResponse where
     fromXMLOptions = xmlOptions
@@ -73,3 +85,12 @@ instance AWSRequest AttachVpnGateway where
 
     request = post "AttachVpnGateway"
     response _ = xmlResponse
+
+-- | The ID of the virtual private gateway.
+avgrVpnGatewayId :: Lens' AttachVpnGateway (Text)
+
+-- | The ID of the VPC.
+avgrVpcId :: Lens' AttachVpnGateway (Text)
+
+-- | Information about the attachment.
+avgsVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)

@@ -40,7 +40,24 @@
 -- &lt;/attachmentSet&gt; &lt;volumeType&gt;standard&lt;/volumeType&gt;
 -- &lt;encrypted&gt;true&lt;/encrypted&gt; &lt;/item&gt; &lt;/volumeSet&gt;
 -- &lt;/DescribeVolumesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DescribeVolumes where
+module Network.AWS.EC2.V2014_06_15.DescribeVolumes
+    (
+    -- * Request
+      DescribeVolumes
+    -- ** Default constructor
+    , describeVolumes
+    -- ** Accessors and lenses
+    , _dvtFilters
+    , dvtFilters
+    , _dvtVolumeIds
+    , dvtVolumeIds
+
+    -- * Response
+    , DescribeVolumesResponse
+    -- ** Accessors and lenses
+    , _dvuVolumes
+    , dvuVolumes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -54,38 +71,8 @@ describeVolumes = DescribeVolumes
     }
 
 data DescribeVolumes = DescribeVolumes
-    { _dvtFilters :: [Filter]
-      -- ^ One or more filters. attachment.attach-time - The time stamp when
-      -- the attachment initiated. attachment.delete-on-termination -
-      -- Whether the volume is deleted on instance termination.
-      -- attachment.device - The device name that is exposed to the
-      -- instance (for example, /dev/sda1). attachment.instance-id - The
-      -- ID of the instance the volume is attached to. attachment.status -
-      -- The attachment state (attaching | attached | detaching |
-      -- detached). availability-zone - The Availability Zone in which the
-      -- volume was created. create-time - The time stamp when the volume
-      -- was created. encrypted - The encryption status of the volume.
-      -- size - The size of the volume, in GiB. snapshot-id - The snapshot
-      -- from which the volume was created. status - The status of the
-      -- volume (creating | available | in-use | deleting | deleted |
-      -- error). tag:key=value - The key/value combination of a tag
-      -- assigned to the resource. tag-key - The key of a tag assigned to
-      -- the resource. This filter is independent of the tag-value filter.
-      -- For example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter. volume-id - The
-      -- volume ID. volume-type - The Amazon EBS volume type. This can be
-      -- gp2 for General Purpose (SSD) volumes, io1 for Provisioned IOPS
-      -- (SSD) volumes, or standard for Magnetic volumes.
-    , _dvtVolumeIds :: [Text]
-      -- ^ One or more volume IDs.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeVolumes
+makeSiglessLenses ''DescribeVolumes
 
 instance ToQuery DescribeVolumes where
     toQuery = genericQuery def
@@ -95,7 +82,7 @@ data DescribeVolumesResponse = DescribeVolumesResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVolumesResponse
+makeSiglessLenses ''DescribeVolumesResponse
 
 instance FromXML DescribeVolumesResponse where
     fromXMLOptions = xmlOptions
@@ -106,3 +93,34 @@ instance AWSRequest DescribeVolumes where
 
     request = post "DescribeVolumes"
     response _ = xmlResponse
+
+-- | One or more filters. attachment.attach-time - The time stamp when the
+-- attachment initiated. attachment.delete-on-termination - Whether the volume
+-- is deleted on instance termination. attachment.device - The device name
+-- that is exposed to the instance (for example, /dev/sda1).
+-- attachment.instance-id - The ID of the instance the volume is attached to.
+-- attachment.status - The attachment state (attaching | attached | detaching
+-- | detached). availability-zone - The Availability Zone in which the volume
+-- was created. create-time - The time stamp when the volume was created.
+-- encrypted - The encryption status of the volume. size - The size of the
+-- volume, in GiB. snapshot-id - The snapshot from which the volume was
+-- created. status - The status of the volume (creating | available | in-use |
+-- deleting | deleted | error). tag:key=value - The key/value combination of a
+-- tag assigned to the resource. tag-key - The key of a tag assigned to the
+-- resource. This filter is independent of the tag-value filter. For example,
+-- if you use both the filter "tag-key=Purpose" and the filter "tag-value=X",
+-- you get any resources assigned both the tag key Purpose (regardless of what
+-- the tag's value is), and the tag value X (regardless of what the tag's key
+-- is). If you want to list only resources where Purpose is X, see the
+-- tag:key=value filter. tag-value - The value of a tag assigned to the
+-- resource. This filter is independent of the tag-key filter. volume-id - The
+-- volume ID. volume-type - The Amazon EBS volume type. This can be gp2 for
+-- General Purpose (SSD) volumes, io1 for Provisioned IOPS (SSD) volumes, or
+-- standard for Magnetic volumes.
+dvtFilters :: Lens' DescribeVolumes ([Filter])
+
+-- | One or more volume IDs.
+dvtVolumeIds :: Lens' DescribeVolumes ([Text])
+
+-- | 
+dvuVolumes :: Lens' DescribeVolumesResponse ([Volume])

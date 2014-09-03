@@ -30,14 +30,39 @@
 -- &lt;sourceDestCheck&gt; &lt;value&gt;true&lt;/value&gt;
 -- &lt;/sourceDestCheck&gt;
 -- &lt;/DescribeNetworkInterfaceAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute where
+module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute
+    (
+    -- * Request
+      DescribeNetworkInterfaceAttribute
+    -- ** Default constructor
+    , describeNetworkInterfaceAttribute
+    -- ** Accessors and lenses
+    , _dniarNetworkInterfaceId
+    , dniarNetworkInterfaceId
+    , _dniarAttribute
+    , dniarAttribute
+
+    -- * Response
+    , DescribeNetworkInterfaceAttributeResponse
+    -- ** Accessors and lenses
+    , _dniasSourceDestCheck
+    , dniasSourceDestCheck
+    , _dniasDescription
+    , dniasDescription
+    , _dniasGroups
+    , dniasGroups
+    , _dniasAttachment
+    , dniasAttachment
+    , _dniasNetworkInterfaceId
+    , dniasNetworkInterfaceId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeNetworkInterfaceAttribute' request.
-describeNetworkInterfaceAttribute :: Text -- ^ '_dniarNetworkInterfaceId'
+describeNetworkInterfaceAttribute :: Text -- ^ 'dniarNetworkInterfaceId'
                                   -> DescribeNetworkInterfaceAttribute
 describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     { _dniarNetworkInterfaceId = p1
@@ -45,13 +70,8 @@ describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     }
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
-    { _dniarNetworkInterfaceId :: Text
-      -- ^ The ID of the network interface.
-    , _dniarAttribute :: Maybe NetworkInterfaceAttribute
-      -- ^ The attribute of the network interface.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeNetworkInterfaceAttribute
+makeSiglessLenses ''DescribeNetworkInterfaceAttribute
 
 instance ToQuery DescribeNetworkInterfaceAttribute where
     toQuery = genericQuery def
@@ -69,7 +89,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
       -- ^ The ID of the network interface.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeNetworkInterfaceAttributeResponse
+makeSiglessLenses ''DescribeNetworkInterfaceAttributeResponse
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -80,3 +100,24 @@ instance AWSRequest DescribeNetworkInterfaceAttribute where
 
     request = post "DescribeNetworkInterfaceAttribute"
     response _ = xmlResponse
+
+-- | The ID of the network interface.
+dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute (Text)
+
+-- | The attribute of the network interface.
+dniarAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
+
+-- | Indicates whether source/destination checking is enabled.
+dniasSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
+
+-- | The description of the network interface.
+dniasDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
+
+-- | The security groups associated with the network interface.
+dniasGroups :: Lens' DescribeNetworkInterfaceAttributeResponse ([GroupIdentifier])
+
+-- | The attachment (if any) of the network interface.
+dniasAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
+
+-- | The ID of the network interface.
+dniasNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)

@@ -24,7 +24,18 @@
 -- https://ec2.amazonaws.com/?Action=DescribeSpotDatafeedSubscription
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE 123456789012
 -- my-s3-bucket spotdata_ Active.
-module Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription where
+module Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription
+    (
+    -- * Request
+      DescribeSpotDatafeedSubscription
+    -- ** Default constructor
+    , describeSpotDatafeedSubscription
+    -- * Response
+    , DescribeSpotDatafeedSubscriptionResponse
+    -- ** Accessors and lenses
+    , _dsdstSpotDatafeedSubscription
+    , dsdstSpotDatafeedSubscription
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -35,9 +46,8 @@ describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
 describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-    deriving (Eq, Show, Generic)
 
-makeLenses ''DescribeSpotDatafeedSubscription
+makeSiglessLenses ''DescribeSpotDatafeedSubscription
 
 instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery = genericQuery def
@@ -47,7 +57,7 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
       -- ^ The Spot Instance datafeed subscription.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSpotDatafeedSubscriptionResponse
+makeSiglessLenses ''DescribeSpotDatafeedSubscriptionResponse
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
@@ -58,3 +68,6 @@ instance AWSRequest DescribeSpotDatafeedSubscription where
 
     request = post "DescribeSpotDatafeedSubscription"
     response _ = xmlResponse
+
+-- | The Spot Instance datafeed subscription.
+dsdstSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)

@@ -26,7 +26,24 @@
 -- import-i-fh95npoc 2010-12-22T12:01Z 1000 us-east-1a VDMK 128696320
 -- https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
 -- 8 vol-34d8a2ff active.
-module Network.AWS.EC2.V2014_06_15.DescribeConversionTasks where
+module Network.AWS.EC2.V2014_06_15.DescribeConversionTasks
+    (
+    -- * Request
+      DescribeConversionTasks
+    -- ** Default constructor
+    , describeConversionTasks
+    -- ** Accessors and lenses
+    , _dctrConversionTaskIds
+    , dctrConversionTaskIds
+    , _dctrFilters
+    , dctrFilters
+
+    -- * Response
+    , DescribeConversionTasksResponse
+    -- ** Accessors and lenses
+    , _dctsConversionTasks
+    , dctsConversionTasks
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -40,13 +57,8 @@ describeConversionTasks = DescribeConversionTasks
     }
 
 data DescribeConversionTasks = DescribeConversionTasks
-    { _dctrConversionTaskIds :: [Text]
-      -- ^ One or more conversion task IDs.
-    , _dctrFilters :: [Filter]
-      -- ^ 
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeConversionTasks
+makeSiglessLenses ''DescribeConversionTasks
 
 instance ToQuery DescribeConversionTasks where
     toQuery = genericQuery def
@@ -56,7 +68,7 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeLenses ''DescribeConversionTasksResponse
+makeSiglessLenses ''DescribeConversionTasksResponse
 
 instance FromXML DescribeConversionTasksResponse where
     fromXMLOptions = xmlOptions
@@ -67,3 +79,12 @@ instance AWSRequest DescribeConversionTasks where
 
     request = post "DescribeConversionTasks"
     response _ = xmlResponse
+
+-- | One or more conversion task IDs.
+dctrConversionTaskIds :: Lens' DescribeConversionTasks ([Text])
+
+-- | 
+dctrFilters :: Lens' DescribeConversionTasks ([Filter])
+
+-- | 
+dctsConversionTasks :: Lens' DescribeConversionTasksResponse ([ConversionTask])

@@ -45,15 +45,32 @@
 -- &lt;bucket&gt;myawsbucket&lt;/bucket&gt;
 -- &lt;prefix&gt;winami&lt;/prefix&gt; &lt;/S3&gt; &lt;/storage&gt;
 -- &lt;/bundleInstanceTask&gt; &lt;/BundleInstanceResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.BundleInstance where
+module Network.AWS.EC2.V2014_06_15.BundleInstance
+    (
+    -- * Request
+      BundleInstance
+    -- ** Default constructor
+    , bundleInstance
+    -- ** Accessors and lenses
+    , _birStorage
+    , birStorage
+    , _birInstanceId
+    , birInstanceId
+
+    -- * Response
+    , BundleInstanceResponse
+    -- ** Accessors and lenses
+    , _bisBundleTask
+    , bisBundleTask
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'BundleInstance' request.
-bundleInstance :: Storage -- ^ '_birStorage'
-               -> Text -- ^ '_birInstanceId'
+bundleInstance :: Storage -- ^ 'birStorage'
+               -> Text -- ^ 'birInstanceId'
                -> BundleInstance
 bundleInstance p1 p2 = BundleInstance
     { _birStorage = p1
@@ -61,16 +78,8 @@ bundleInstance p1 p2 = BundleInstance
     }
 
 data BundleInstance = BundleInstance
-    { _birStorage :: Storage
-      -- ^ The bucket in which to store the AMI. You can specify a bucket
-      -- that you already own or a new bucket that Amazon EC2 creates on
-      -- your behalf. If you specify a bucket that belongs to someone
-      -- else, Amazon EC2 returns an error.
-    , _birInstanceId :: Text
-      -- ^ The ID of the instance to bundle.
-    } deriving (Show, Generic)
 
-makeLenses ''BundleInstance
+makeSiglessLenses ''BundleInstance
 
 instance ToQuery BundleInstance where
     toQuery = genericQuery def
@@ -80,7 +89,7 @@ data BundleInstanceResponse = BundleInstanceResponse
       -- ^ Information about the bundle task.
     } deriving (Show, Generic)
 
-makeLenses ''BundleInstanceResponse
+makeSiglessLenses ''BundleInstanceResponse
 
 instance FromXML BundleInstanceResponse where
     fromXMLOptions = xmlOptions
@@ -91,3 +100,14 @@ instance AWSRequest BundleInstance where
 
     request = post "BundleInstance"
     response _ = xmlResponse
+
+-- | The bucket in which to store the AMI. You can specify a bucket that you
+-- already own or a new bucket that Amazon EC2 creates on your behalf. If you
+-- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
+birStorage :: Lens' BundleInstance (Storage)
+
+-- | The ID of the instance to bundle.
+birInstanceId :: Lens' BundleInstance (Text)
+
+-- | Information about the bundle task.
+bisBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)

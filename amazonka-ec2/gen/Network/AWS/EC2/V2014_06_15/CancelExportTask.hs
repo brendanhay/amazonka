@@ -26,26 +26,34 @@
 -- https://ec2.amazonaws.com/?Action=CancelExportTask
 -- &amp;exportTaskId=export-i-1234wxyz &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
-module Network.AWS.EC2.V2014_06_15.CancelExportTask where
+module Network.AWS.EC2.V2014_06_15.CancelExportTask
+    (
+    -- * Request
+      CancelExportTask
+    -- ** Default constructor
+    , cancelExportTask
+    -- ** Accessors and lenses
+    , _cetrExportTaskId
+    , cetrExportTaskId
+
+    -- * Response
+    , CancelExportTaskResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CancelExportTask' request.
-cancelExportTask :: Text -- ^ '_cetrExportTaskId'
+cancelExportTask :: Text -- ^ 'cetrExportTaskId'
                  -> CancelExportTask
 cancelExportTask p1 = CancelExportTask
     { _cetrExportTaskId = p1
     }
 
 data CancelExportTask = CancelExportTask
-    { _cetrExportTaskId :: Text
-      -- ^ The ID of the export task. This is the ID returned by
-      -- CreateInstanceExportTask.
-    } deriving (Show, Generic)
 
-makeLenses ''CancelExportTask
+makeSiglessLenses ''CancelExportTask
 
 instance ToQuery CancelExportTask where
     toQuery = genericQuery def
@@ -53,7 +61,7 @@ instance ToQuery CancelExportTask where
 data CancelExportTaskResponse = CancelExportTaskResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''CancelExportTaskResponse
+makeSiglessLenses ''CancelExportTaskResponse
 
 instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2
@@ -61,3 +69,7 @@ instance AWSRequest CancelExportTask where
 
     request = post "CancelExportTask"
     response _ = nullaryResponse CancelExportTaskResponse
+
+-- | The ID of the export task. This is the ID returned by
+-- CreateInstanceExportTask.
+cetrExportTaskId :: Lens' CancelExportTask (Text)

@@ -29,15 +29,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetSnapshotAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ResetSnapshotAttribute where
+module Network.AWS.EC2.V2014_06_15.ResetSnapshotAttribute
+    (
+    -- * Request
+      ResetSnapshotAttribute
+    -- ** Default constructor
+    , resetSnapshotAttribute
+    -- ** Accessors and lenses
+    , _rsarAttribute
+    , rsarAttribute
+    , _rsarSnapshotId
+    , rsarSnapshotId
+
+    -- * Response
+    , ResetSnapshotAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ResetSnapshotAttribute' request.
-resetSnapshotAttribute :: SnapshotAttributeName -- ^ '_rsarAttribute'
-                       -> Text -- ^ '_rsarSnapshotId'
+resetSnapshotAttribute :: SnapshotAttributeName -- ^ 'rsarAttribute'
+                       -> Text -- ^ 'rsarSnapshotId'
                        -> ResetSnapshotAttribute
 resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     { _rsarAttribute = p1
@@ -45,14 +59,8 @@ resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     }
 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
-    { _rsarAttribute :: SnapshotAttributeName
-      -- ^ The attribute to reset (currently only the attribute for
-      -- permission to create volumes can be reset).
-    , _rsarSnapshotId :: Text
-      -- ^ The ID of the snapshot.
-    } deriving (Show, Generic)
 
-makeLenses ''ResetSnapshotAttribute
+makeSiglessLenses ''ResetSnapshotAttribute
 
 instance ToQuery ResetSnapshotAttribute where
     toQuery = genericQuery def
@@ -60,7 +68,7 @@ instance ToQuery ResetSnapshotAttribute where
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ResetSnapshotAttributeResponse
+makeSiglessLenses ''ResetSnapshotAttributeResponse
 
 instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2
@@ -68,3 +76,10 @@ instance AWSRequest ResetSnapshotAttribute where
 
     request = post "ResetSnapshotAttribute"
     response _ = nullaryResponse ResetSnapshotAttributeResponse
+
+-- | The attribute to reset (currently only the attribute for permission to
+-- create volumes can be reset).
+rsarAttribute :: Lens' ResetSnapshotAttribute (SnapshotAttributeName)
+
+-- | The ID of the snapshot.
+rsarSnapshotId :: Lens' ResetSnapshotAttribute (Text)

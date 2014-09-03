@@ -42,14 +42,35 @@
 -- &lt;productCode&gt;a1b2c3d4e5f6g7h8i9j10k11&lt;/productCode&gt;
 -- &lt;type&gt;marketplace&lt;/type&gt; &lt;/item&gt; &lt;/productCodes&gt;
 -- &lt;/DescribeVolumeAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute where
+module Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute
+    (
+    -- * Request
+      DescribeVolumeAttribute
+    -- ** Default constructor
+    , describeVolumeAttribute
+    -- ** Accessors and lenses
+    , _dvarVolumeId
+    , dvarVolumeId
+    , _dvarAttribute
+    , dvarAttribute
+
+    -- * Response
+    , DescribeVolumeAttributeResponse
+    -- ** Accessors and lenses
+    , _dvasAutoEnableIO
+    , dvasAutoEnableIO
+    , _dvasProductCodes
+    , dvasProductCodes
+    , _dvasVolumeId
+    , dvasVolumeId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeVolumeAttribute' request.
-describeVolumeAttribute :: Text -- ^ '_dvarVolumeId'
+describeVolumeAttribute :: Text -- ^ 'dvarVolumeId'
                         -> DescribeVolumeAttribute
 describeVolumeAttribute p1 = DescribeVolumeAttribute
     { _dvarVolumeId = p1
@@ -57,13 +78,8 @@ describeVolumeAttribute p1 = DescribeVolumeAttribute
     }
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
-    { _dvarVolumeId :: Text
-      -- ^ The ID of the volume.
-    , _dvarAttribute :: Maybe VolumeAttributeName
-      -- ^ The instance attribute.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeVolumeAttribute
+makeSiglessLenses ''DescribeVolumeAttribute
 
 instance ToQuery DescribeVolumeAttribute where
     toQuery = genericQuery def
@@ -77,7 +93,7 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
       -- ^ The ID of the volume.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVolumeAttributeResponse
+makeSiglessLenses ''DescribeVolumeAttributeResponse
 
 instance FromXML DescribeVolumeAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -88,3 +104,18 @@ instance AWSRequest DescribeVolumeAttribute where
 
     request = post "DescribeVolumeAttribute"
     response _ = xmlResponse
+
+-- | The ID of the volume.
+dvarVolumeId :: Lens' DescribeVolumeAttribute (Text)
+
+-- | The instance attribute.
+dvarAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
+
+-- | The state of autoEnableIO attribute.
+dvasAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
+
+-- | A list of product codes.
+dvasProductCodes :: Lens' DescribeVolumeAttributeResponse ([ProductCode])
+
+-- | The ID of the volume.
+dvasVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)

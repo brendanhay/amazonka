@@ -47,15 +47,34 @@
 -- &lt;keyName&gt;my-key-pair&lt;/keyName&gt;
 -- &lt;keyFingerprint&gt;1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f&lt;/keyFingerprint&gt;
 -- &lt;/ImportKeyPairResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ImportKeyPair where
+module Network.AWS.EC2.V2014_06_15.ImportKeyPair
+    (
+    -- * Request
+      ImportKeyPair
+    -- ** Default constructor
+    , importKeyPair
+    -- ** Accessors and lenses
+    , _ikprKeyName
+    , ikprKeyName
+    , _ikprPublicKeyMaterial
+    , ikprPublicKeyMaterial
+
+    -- * Response
+    , ImportKeyPairResponse
+    -- ** Accessors and lenses
+    , _ikpsKeyName
+    , ikpsKeyName
+    , _ikpsKeyFingerprint
+    , ikpsKeyFingerprint
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ImportKeyPair' request.
-importKeyPair :: Text -- ^ '_ikprKeyName'
-              -> ByteString -- ^ '_ikprPublicKeyMaterial'
+importKeyPair :: Text -- ^ 'ikprKeyName'
+              -> ByteString -- ^ 'ikprPublicKeyMaterial'
               -> ImportKeyPair
 importKeyPair p1 p2 = ImportKeyPair
     { _ikprKeyName = p1
@@ -63,14 +82,8 @@ importKeyPair p1 p2 = ImportKeyPair
     }
 
 data ImportKeyPair = ImportKeyPair
-    { _ikprKeyName :: Text
-      -- ^ A unique name for the key pair.
-    , _ikprPublicKeyMaterial :: ByteString
-      -- ^ The public key. You must base64 encode the public key material
-      -- before sending it to AWS.
-    } deriving (Show, Generic)
 
-makeLenses ''ImportKeyPair
+makeSiglessLenses ''ImportKeyPair
 
 instance ToQuery ImportKeyPair where
     toQuery = genericQuery def
@@ -83,7 +96,7 @@ data ImportKeyPairResponse = ImportKeyPairResponse
       -- 4716.
     } deriving (Show, Generic)
 
-makeLenses ''ImportKeyPairResponse
+makeSiglessLenses ''ImportKeyPairResponse
 
 instance FromXML ImportKeyPairResponse where
     fromXMLOptions = xmlOptions
@@ -94,3 +107,16 @@ instance AWSRequest ImportKeyPair where
 
     request = post "ImportKeyPair"
     response _ = xmlResponse
+
+-- | A unique name for the key pair.
+ikprKeyName :: Lens' ImportKeyPair (Text)
+
+-- | The public key. You must base64 encode the public key material before
+-- sending it to AWS.
+ikprPublicKeyMaterial :: Lens' ImportKeyPair (ByteString)
+
+-- | The key pair name you provided.
+ikpsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
+
+-- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+ikpsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)

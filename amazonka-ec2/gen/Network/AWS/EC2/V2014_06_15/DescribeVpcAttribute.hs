@@ -40,14 +40,35 @@
 -- &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt; &lt;enableDnsHostnames&gt;
 -- &lt;value&gt;true&lt;/value&gt; &lt;/enableDnsHostnames&gt;
 -- &lt;/DescribeVpcAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute where
+module Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute
+    (
+    -- * Request
+      DescribeVpcAttribute
+    -- ** Default constructor
+    , describeVpcAttribute
+    -- ** Accessors and lenses
+    , _dvatVpcId
+    , dvatVpcId
+    , _dvatAttribute
+    , dvatAttribute
+
+    -- * Response
+    , DescribeVpcAttributeResponse
+    -- ** Accessors and lenses
+    , _dvauEnableDnsSupport
+    , dvauEnableDnsSupport
+    , _dvauEnableDnsHostnames
+    , dvauEnableDnsHostnames
+    , _dvauVpcId
+    , dvauVpcId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeVpcAttribute' request.
-describeVpcAttribute :: Text -- ^ '_dvatVpcId'
+describeVpcAttribute :: Text -- ^ 'dvatVpcId'
                      -> DescribeVpcAttribute
 describeVpcAttribute p1 = DescribeVpcAttribute
     { _dvatVpcId = p1
@@ -55,13 +76,8 @@ describeVpcAttribute p1 = DescribeVpcAttribute
     }
 
 data DescribeVpcAttribute = DescribeVpcAttribute
-    { _dvatVpcId :: Text
-      -- ^ The ID of the VPC.
-    , _dvatAttribute :: Maybe VpcAttributeName
-      -- ^ The VPC attribute.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeVpcAttribute
+makeSiglessLenses ''DescribeVpcAttribute
 
 instance ToQuery DescribeVpcAttribute where
     toQuery = genericQuery def
@@ -80,7 +96,7 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
       -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVpcAttributeResponse
+makeSiglessLenses ''DescribeVpcAttributeResponse
 
 instance FromXML DescribeVpcAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -91,3 +107,22 @@ instance AWSRequest DescribeVpcAttribute where
 
     request = post "DescribeVpcAttribute"
     response _ = xmlResponse
+
+-- | The ID of the VPC.
+dvatVpcId :: Lens' DescribeVpcAttribute (Text)
+
+-- | The VPC attribute.
+dvatAttribute :: Lens' DescribeVpcAttribute (Maybe VpcAttributeName)
+
+-- | Indicates whether DNS resolution is enabled for the VPC. If this attribute
+-- is true, the Amazon DNS server resolves DNS hostnames for your instances to
+-- their corresponding IP addresses; otherwise, it does not.
+dvauEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
+
+-- | Indicates whether the instances launched in the VPC get DNS hostnames. If
+-- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
+-- they do not.
+dvauEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
+
+-- | The ID of the VPC.
+dvauVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)

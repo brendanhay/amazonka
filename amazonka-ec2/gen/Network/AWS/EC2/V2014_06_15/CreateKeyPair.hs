@@ -51,25 +51,41 @@
 -- computer to connect to your instance, use the following command to set the
 -- permissions of your private key file so that only you can read it. chmod
 -- 400 my-key-pair.pem.
-module Network.AWS.EC2.V2014_06_15.CreateKeyPair where
+module Network.AWS.EC2.V2014_06_15.CreateKeyPair
+    (
+    -- * Request
+      CreateKeyPair
+    -- ** Default constructor
+    , createKeyPair
+    -- ** Accessors and lenses
+    , _ckprKeyName
+    , ckprKeyName
+
+    -- * Response
+    , CreateKeyPairResponse
+    -- ** Accessors and lenses
+    , _ckpsKeyName
+    , ckpsKeyName
+    , _ckpsKeyFingerprint
+    , ckpsKeyFingerprint
+    , _ckpsKeyMaterial
+    , ckpsKeyMaterial
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateKeyPair' request.
-createKeyPair :: Text -- ^ '_ckprKeyName'
+createKeyPair :: Text -- ^ 'ckprKeyName'
               -> CreateKeyPair
 createKeyPair p1 = CreateKeyPair
     { _ckprKeyName = p1
     }
 
 data CreateKeyPair = CreateKeyPair
-    { _ckprKeyName :: Text
-      -- ^ A unique name for the key pair.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateKeyPair
+makeSiglessLenses ''CreateKeyPair
 
 instance ToQuery CreateKeyPair where
     toQuery = genericQuery def
@@ -83,7 +99,7 @@ data CreateKeyPairResponse = CreateKeyPairResponse
       -- ^ An unencrypted PEM encoded RSA private key.
     } deriving (Show, Generic)
 
-makeLenses ''CreateKeyPairResponse
+makeSiglessLenses ''CreateKeyPairResponse
 
 instance FromXML CreateKeyPairResponse where
     fromXMLOptions = xmlOptions
@@ -94,3 +110,15 @@ instance AWSRequest CreateKeyPair where
 
     request = post "CreateKeyPair"
     response _ = xmlResponse
+
+-- | A unique name for the key pair.
+ckprKeyName :: Lens' CreateKeyPair (Text)
+
+-- | The name of the key pair.
+ckpsKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
+
+-- | The SHA-1 digest of the DER encoded private key.
+ckpsKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
+
+-- | An unencrypted PEM encoded RSA private key.
+ckpsKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)

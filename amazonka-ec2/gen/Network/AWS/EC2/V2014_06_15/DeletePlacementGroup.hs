@@ -28,25 +28,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
 -- &lt;requestId&gt;d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeletePlacementGroupResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeletePlacementGroup where
+module Network.AWS.EC2.V2014_06_15.DeletePlacementGroup
+    (
+    -- * Request
+      DeletePlacementGroup
+    -- ** Default constructor
+    , deletePlacementGroup
+    -- ** Accessors and lenses
+    , _dpgrGroupName
+    , dpgrGroupName
+
+    -- * Response
+    , DeletePlacementGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeletePlacementGroup' request.
-deletePlacementGroup :: Text -- ^ '_dpgrGroupName'
+deletePlacementGroup :: Text -- ^ 'dpgrGroupName'
                      -> DeletePlacementGroup
 deletePlacementGroup p1 = DeletePlacementGroup
     { _dpgrGroupName = p1
     }
 
 data DeletePlacementGroup = DeletePlacementGroup
-    { _dpgrGroupName :: Text
-      -- ^ The name of the placement group.
-    } deriving (Show, Generic)
 
-makeLenses ''DeletePlacementGroup
+makeSiglessLenses ''DeletePlacementGroup
 
 instance ToQuery DeletePlacementGroup where
     toQuery = genericQuery def
@@ -54,7 +63,7 @@ instance ToQuery DeletePlacementGroup where
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeletePlacementGroupResponse
+makeSiglessLenses ''DeletePlacementGroupResponse
 
 instance AWSRequest DeletePlacementGroup where
     type Sv DeletePlacementGroup = EC2
@@ -62,3 +71,6 @@ instance AWSRequest DeletePlacementGroup where
 
     request = post "DeletePlacementGroup"
     response _ = nullaryResponse DeletePlacementGroupResponse
+
+-- | The name of the placement group.
+dpgrGroupName :: Lens' DeletePlacementGroup (Text)

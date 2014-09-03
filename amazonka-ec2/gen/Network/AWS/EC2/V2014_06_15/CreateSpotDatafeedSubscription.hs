@@ -33,14 +33,31 @@
 -- &lt;prefix&gt;spotdata_&lt;/prefix&gt; &lt;state&gt;Active&lt;/state&gt;
 -- &lt;/spotDatafeedSubscription&gt;
 -- &lt;/CreateSpotDatafeedSubscriptionResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreateSpotDatafeedSubscription where
+module Network.AWS.EC2.V2014_06_15.CreateSpotDatafeedSubscription
+    (
+    -- * Request
+      CreateSpotDatafeedSubscription
+    -- ** Default constructor
+    , createSpotDatafeedSubscription
+    -- ** Accessors and lenses
+    , _csdsrBucket
+    , csdsrBucket
+    , _csdsrPrefix
+    , csdsrPrefix
+
+    -- * Response
+    , CreateSpotDatafeedSubscriptionResponse
+    -- ** Accessors and lenses
+    , _csdssSpotDatafeedSubscription
+    , csdssSpotDatafeedSubscription
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateSpotDatafeedSubscription' request.
-createSpotDatafeedSubscription :: Text -- ^ '_csdsrBucket'
+createSpotDatafeedSubscription :: Text -- ^ 'csdsrBucket'
                                -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     { _csdsrBucket = p1
@@ -48,15 +65,8 @@ createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     }
 
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
-    { _csdsrBucket :: Text
-      -- ^ The Amazon S3 bucket in which to store the Spot Instance
-      -- datafeed. Constraints: Must be a valid bucket associated with
-      -- your AWS account.
-    , _csdsrPrefix :: Maybe Text
-      -- ^ A prefix for the datafeed file names.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateSpotDatafeedSubscription
+makeSiglessLenses ''CreateSpotDatafeedSubscription
 
 instance ToQuery CreateSpotDatafeedSubscription where
     toQuery = genericQuery def
@@ -66,7 +76,7 @@ data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResp
       -- ^ The Spot Instance datafeed subscription.
     } deriving (Show, Generic)
 
-makeLenses ''CreateSpotDatafeedSubscriptionResponse
+makeSiglessLenses ''CreateSpotDatafeedSubscriptionResponse
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
@@ -77,3 +87,13 @@ instance AWSRequest CreateSpotDatafeedSubscription where
 
     request = post "CreateSpotDatafeedSubscription"
     response _ = xmlResponse
+
+-- | The Amazon S3 bucket in which to store the Spot Instance datafeed.
+-- Constraints: Must be a valid bucket associated with your AWS account.
+csdsrBucket :: Lens' CreateSpotDatafeedSubscription (Text)
+
+-- | A prefix for the datafeed file names.
+csdsrPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
+
+-- | The Spot Instance datafeed subscription.
+csdssSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)

@@ -41,7 +41,24 @@
 -- &amp;Filter.1.Name=availability-zone &amp;Filter.1.Value.1=us-east-1a
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeVpnGateways where
+module Network.AWS.EC2.V2014_06_15.DescribeVpnGateways
+    (
+    -- * Request
+      DescribeVpnGateways
+    -- ** Default constructor
+    , describeVpnGateways
+    -- ** Accessors and lenses
+    , _dvgsFilters
+    , dvgsFilters
+    , _dvgsVpnGatewayIds
+    , dvgsVpnGatewayIds
+
+    -- * Response
+    , DescribeVpnGatewaysResponse
+    -- ** Accessors and lenses
+    , _dvgtVpnGateways
+    , dvgtVpnGateways
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -55,31 +72,8 @@ describeVpnGateways = DescribeVpnGateways
     }
 
 data DescribeVpnGateways = DescribeVpnGateways
-    { _dvgsFilters :: [Filter]
-      -- ^ One or more filters. attachment.state - The current state of the
-      -- attachment between the gateway and the VPC (attaching | attached
-      -- | detaching | detached). attachment.vpc-id - The ID of an
-      -- attached VPC. availability-zone - The Availability Zone for the
-      -- virtual private gateway. state - The state of the virtual private
-      -- gateway (pending | available | deleting | deleted). tag:key=value
-      -- - The key/value combination of a tag assigned to the resource.
-      -- tag-key - The key of a tag assigned to the resource. This filter
-      -- is independent of the tag-value filter. For example, if you use
-      -- both the filter "tag-key=Purpose" and the filter "tag-value=X",
-      -- you get any resources assigned both the tag key Purpose
-      -- (regardless of what the tag's value is), and the tag value X
-      -- (regardless of what the tag's key is). If you want to list only
-      -- resources where Purpose is X, see the tag:key=value filter.
-      -- tag-value - The value of a tag assigned to the resource. This
-      -- filter is independent of the tag-key filter. type - The type of
-      -- virtual private gateway. Currently the only supported type is
-      -- ipsec.1. vpn-gateway-id - The ID of the virtual private gateway.
-    , _dvgsVpnGatewayIds :: [Text]
-      -- ^ One or more virtual private gateway IDs. Default: Describes all
-      -- your virtual private gateways.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeVpnGateways
+makeSiglessLenses ''DescribeVpnGateways
 
 instance ToQuery DescribeVpnGateways where
     toQuery = genericQuery def
@@ -89,7 +83,7 @@ data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
       -- ^ Information about one or more virtual private gateways.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVpnGatewaysResponse
+makeSiglessLenses ''DescribeVpnGatewaysResponse
 
 instance FromXML DescribeVpnGatewaysResponse where
     fromXMLOptions = xmlOptions
@@ -100,3 +94,28 @@ instance AWSRequest DescribeVpnGateways where
 
     request = post "DescribeVpnGateways"
     response _ = xmlResponse
+
+-- | One or more filters. attachment.state - The current state of the attachment
+-- between the gateway and the VPC (attaching | attached | detaching |
+-- detached). attachment.vpc-id - The ID of an attached VPC. availability-zone
+-- - The Availability Zone for the virtual private gateway. state - The state
+-- of the virtual private gateway (pending | available | deleting | deleted).
+-- tag:key=value - The key/value combination of a tag assigned to the
+-- resource. tag-key - The key of a tag assigned to the resource. This filter
+-- is independent of the tag-value filter. For example, if you use both the
+-- filter "tag-key=Purpose" and the filter "tag-value=X", you get any
+-- resources assigned both the tag key Purpose (regardless of what the tag's
+-- value is), and the tag value X (regardless of what the tag's key is). If
+-- you want to list only resources where Purpose is X, see the tag:key=value
+-- filter. tag-value - The value of a tag assigned to the resource. This
+-- filter is independent of the tag-key filter. type - The type of virtual
+-- private gateway. Currently the only supported type is ipsec.1.
+-- vpn-gateway-id - The ID of the virtual private gateway.
+dvgsFilters :: Lens' DescribeVpnGateways ([Filter])
+
+-- | One or more virtual private gateway IDs. Default: Describes all your
+-- virtual private gateways.
+dvgsVpnGatewayIds :: Lens' DescribeVpnGateways ([Text])
+
+-- | Information about one or more virtual private gateways.
+dvgtVpnGateways :: Lens' DescribeVpnGatewaysResponse ([VpnGateway])

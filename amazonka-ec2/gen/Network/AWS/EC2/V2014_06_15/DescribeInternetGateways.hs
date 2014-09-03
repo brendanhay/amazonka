@@ -23,7 +23,24 @@
 -- https://ec2.amazonaws.com/?Action=DescribeInternetGateways &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883EXAMPLE vpc-11ad4878
 -- available.
-module Network.AWS.EC2.V2014_06_15.DescribeInternetGateways where
+module Network.AWS.EC2.V2014_06_15.DescribeInternetGateways
+    (
+    -- * Request
+      DescribeInternetGateways
+    -- ** Default constructor
+    , describeInternetGateways
+    -- ** Accessors and lenses
+    , _digsFilters
+    , digsFilters
+    , _digsInternetGatewayIds
+    , digsInternetGatewayIds
+
+    -- * Response
+    , DescribeInternetGatewaysResponse
+    -- ** Accessors and lenses
+    , _digtInternetGateways
+    , digtInternetGateways
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -37,27 +54,8 @@ describeInternetGateways = DescribeInternetGateways
     }
 
 data DescribeInternetGateways = DescribeInternetGateways
-    { _digsFilters :: [Filter]
-      -- ^ One or more filters. attachment.state - The current state of the
-      -- attachment between the gateway and the VPC. Present only if a VPC
-      -- is attached. attachment.vpc-id - The ID of an attached VPC.
-      -- internet-gateway-id - The ID of the Internet gateway.
-      -- tag:key=value - The key/value combination of a tag assigned to
-      -- the resource. tag-key - The key of a tag assigned to the
-      -- resource. This filter is independent of the tag-value filter. For
-      -- example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter.
-    , _digsInternetGatewayIds :: [Text]
-      -- ^ One or more Internet gateway IDs. Default: Describes all your
-      -- Internet gateways.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeInternetGateways
+makeSiglessLenses ''DescribeInternetGateways
 
 instance ToQuery DescribeInternetGateways where
     toQuery = genericQuery def
@@ -67,7 +65,7 @@ data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
       -- ^ Information about one or more Internet gateways.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeInternetGatewaysResponse
+makeSiglessLenses ''DescribeInternetGatewaysResponse
 
 instance FromXML DescribeInternetGatewaysResponse where
     fromXMLOptions = xmlOptions
@@ -78,3 +76,24 @@ instance AWSRequest DescribeInternetGateways where
 
     request = post "DescribeInternetGateways"
     response _ = xmlResponse
+
+-- | One or more filters. attachment.state - The current state of the attachment
+-- between the gateway and the VPC. Present only if a VPC is attached.
+-- attachment.vpc-id - The ID of an attached VPC. internet-gateway-id - The ID
+-- of the Internet gateway. tag:key=value - The key/value combination of a tag
+-- assigned to the resource. tag-key - The key of a tag assigned to the
+-- resource. This filter is independent of the tag-value filter. For example,
+-- if you use both the filter "tag-key=Purpose" and the filter "tag-value=X",
+-- you get any resources assigned both the tag key Purpose (regardless of what
+-- the tag's value is), and the tag value X (regardless of what the tag's key
+-- is). If you want to list only resources where Purpose is X, see the
+-- tag:key=value filter. tag-value - The value of a tag assigned to the
+-- resource. This filter is independent of the tag-key filter.
+digsFilters :: Lens' DescribeInternetGateways ([Filter])
+
+-- | One or more Internet gateway IDs. Default: Describes all your Internet
+-- gateways.
+digsInternetGatewayIds :: Lens' DescribeInternetGateways ([Text])
+
+-- | Information about one or more Internet gateways.
+digtInternetGateways :: Lens' DescribeInternetGatewaysResponse ([InternetGateway])

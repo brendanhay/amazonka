@@ -41,14 +41,43 @@
 -- Your Spot request has been submitted for review, and is pending evaluation.
 -- MyAzGroup ami-1a2b3c4d my-key-pair sg-1a2b3c4d websrv m1.small false false
 -- YYYY-MM-DDTHH:MM:SS.000Z Linux/UNIX.
-module Network.AWS.EC2.V2014_06_15.RequestSpotInstances where
+module Network.AWS.EC2.V2014_06_15.RequestSpotInstances
+    (
+    -- * Request
+      RequestSpotInstances
+    -- ** Default constructor
+    , requestSpotInstances
+    -- ** Accessors and lenses
+    , _rsirSpotPrice
+    , rsirSpotPrice
+    , _rsirValidFrom
+    , rsirValidFrom
+    , _rsirValidUntil
+    , rsirValidUntil
+    , _rsirInstanceCount
+    , rsirInstanceCount
+    , _rsirLaunchSpecification
+    , rsirLaunchSpecification
+    , _rsirType
+    , rsirType
+    , _rsirLaunchGroup
+    , rsirLaunchGroup
+    , _rsirAvailabilityZoneGroup
+    , rsirAvailabilityZoneGroup
+
+    -- * Response
+    , RequestSpotInstancesResponse
+    -- ** Accessors and lenses
+    , _rsisSpotInstanceRequests
+    , rsisSpotInstanceRequests
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RequestSpotInstances' request.
-requestSpotInstances :: Text -- ^ '_rsirSpotPrice'
+requestSpotInstances :: Text -- ^ 'rsirSpotPrice'
                      -> RequestSpotInstances
 requestSpotInstances p1 = RequestSpotInstances
     { _rsirSpotPrice = p1
@@ -62,55 +91,8 @@ requestSpotInstances p1 = RequestSpotInstances
     }
 
 data RequestSpotInstances = RequestSpotInstances
-    { _rsirSpotPrice :: Text
-      -- ^ The maximum hourly price for any Spot Instance launched to
-      -- fulfill the request.
-    , _rsirValidFrom :: Maybe ISO8601
-      -- ^ The start date of the request. If this is a one-time request, the
-      -- request becomes active at this date and time and remains active
-      -- until all instances launch, the request expires, or the request
-      -- is canceled. If the request is persistent, the request becomes
-      -- active at this date and time and remains active until it expires
-      -- or is canceled. Default: The request is effective indefinitely.
-    , _rsirValidUntil :: Maybe ISO8601
-      -- ^ The end date of the request. If this is a one-time request, the
-      -- request remains active until all instances launch, the request is
-      -- canceled, or this date is reached. If the request is persistent,
-      -- it remains active until it is canceled or this date and time is
-      -- reached. Default: The request is effective indefinitely.
-    , _rsirInstanceCount :: Maybe Integer
-      -- ^ The maximum number of Spot Instances to launch. Default: 1.
-    , _rsirLaunchSpecification :: Maybe LaunchSpecification
-      -- ^ The launch specification.
-    , _rsirType :: Maybe SpotInstanceType
-      -- ^ The Spot Instance request type. Default: one-time.
-    , _rsirLaunchGroup :: Maybe Text
-      -- ^ The instance launch group. Launch groups are Spot Instances that
-      -- launch together and terminate together. Default: Instances are
-      -- launched and terminated individually.
-    , _rsirAvailabilityZoneGroup :: Maybe Text
-      -- ^ The user-specified name for a logical grouping of bids. When you
-      -- specify an Availability Zone group in a Spot Instance request,
-      -- all Spot Instances in the request are launched in the same
-      -- Availability Zone. Instance proximity is maintained with this
-      -- parameter, but the choice of Availability Zone is not. The group
-      -- applies only to bids for Spot Instances of the same instance
-      -- type. Any additional Spot Instance requests that are specified
-      -- with the same Availability Zone group name are launched in that
-      -- same Availability Zone, as long as at least one instance from the
-      -- group is still active. If there is no active instance running in
-      -- the Availability Zone group that you specify for a new Spot
-      -- Instance request (all instances are terminated, the bid is
-      -- expired, or the bid falls below current market), then Amazon EC2
-      -- launches the instance in any Availability Zone where the
-      -- constraint can be met. Consequently, the subsequent set of Spot
-      -- Instances could be placed in a different zone from the original
-      -- request, even if you specified the same Availability Zone group.
-      -- Default: Instances are launched in any available Availability
-      -- Zone.
-    } deriving (Show, Generic)
 
-makeLenses ''RequestSpotInstances
+makeSiglessLenses ''RequestSpotInstances
 
 instance ToQuery RequestSpotInstances where
     toQuery = genericQuery def
@@ -120,7 +102,7 @@ data RequestSpotInstancesResponse = RequestSpotInstancesResponse
       -- ^ Information about the Spot Instance request.
     } deriving (Show, Generic)
 
-makeLenses ''RequestSpotInstancesResponse
+makeSiglessLenses ''RequestSpotInstancesResponse
 
 instance FromXML RequestSpotInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -131,3 +113,57 @@ instance AWSRequest RequestSpotInstances where
 
     request = post "RequestSpotInstances"
     response _ = xmlResponse
+
+-- | The maximum hourly price for any Spot Instance launched to fulfill the
+-- request.
+rsirSpotPrice :: Lens' RequestSpotInstances (Text)
+
+-- | The start date of the request. If this is a one-time request, the request
+-- becomes active at this date and time and remains active until all instances
+-- launch, the request expires, or the request is canceled. If the request is
+-- persistent, the request becomes active at this date and time and remains
+-- active until it expires or is canceled. Default: The request is effective
+-- indefinitely.
+rsirValidFrom :: Lens' RequestSpotInstances (Maybe ISO8601)
+
+-- | The end date of the request. If this is a one-time request, the request
+-- remains active until all instances launch, the request is canceled, or this
+-- date is reached. If the request is persistent, it remains active until it
+-- is canceled or this date and time is reached. Default: The request is
+-- effective indefinitely.
+rsirValidUntil :: Lens' RequestSpotInstances (Maybe ISO8601)
+
+-- | The maximum number of Spot Instances to launch. Default: 1.
+rsirInstanceCount :: Lens' RequestSpotInstances (Maybe Integer)
+
+-- | The launch specification.
+rsirLaunchSpecification :: Lens' RequestSpotInstances (Maybe LaunchSpecification)
+
+-- | The Spot Instance request type. Default: one-time.
+rsirType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
+
+-- | The instance launch group. Launch groups are Spot Instances that launch
+-- together and terminate together. Default: Instances are launched and
+-- terminated individually.
+rsirLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
+
+-- | The user-specified name for a logical grouping of bids. When you specify an
+-- Availability Zone group in a Spot Instance request, all Spot Instances in
+-- the request are launched in the same Availability Zone. Instance proximity
+-- is maintained with this parameter, but the choice of Availability Zone is
+-- not. The group applies only to bids for Spot Instances of the same instance
+-- type. Any additional Spot Instance requests that are specified with the
+-- same Availability Zone group name are launched in that same Availability
+-- Zone, as long as at least one instance from the group is still active. If
+-- there is no active instance running in the Availability Zone group that you
+-- specify for a new Spot Instance request (all instances are terminated, the
+-- bid is expired, or the bid falls below current market), then Amazon EC2
+-- launches the instance in any Availability Zone where the constraint can be
+-- met. Consequently, the subsequent set of Spot Instances could be placed in
+-- a different zone from the original request, even if you specified the same
+-- Availability Zone group. Default: Instances are launched in any available
+-- Availability Zone.
+rsirAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
+
+-- | Information about the Spot Instance request.
+rsisSpotInstanceRequests :: Lens' RequestSpotInstancesResponse ([SpotInstanceRequest])

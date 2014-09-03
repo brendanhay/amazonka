@@ -34,14 +34,35 @@
 -- import-i-ffvko9js 2010-12-22T12:01Z 0 us-east-1a VMDK 1179593728
 -- https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
 -- 12 vol-1a2b3c4d active i-12655a7f.
-module Network.AWS.EC2.V2014_06_15.ImportInstance where
+module Network.AWS.EC2.V2014_06_15.ImportInstance
+    (
+    -- * Request
+      ImportInstance
+    -- ** Default constructor
+    , importInstance
+    -- ** Accessors and lenses
+    , _iiiiiiiiiuPlatform
+    , iiiiiiiiiuPlatform
+    , _iiiiiiiiiuDiskImages
+    , iiiiiiiiiuDiskImages
+    , _iiiiiiiiiuLaunchSpecification
+    , iiiiiiiiiuLaunchSpecification
+    , _iiiiiiiiiuDescription
+    , iiiiiiiiiuDescription
+
+    -- * Response
+    , ImportInstanceResponse
+    -- ** Accessors and lenses
+    , _iiiiiiiiivConversionTask
+    , iiiiiiiiivConversionTask
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ImportInstance' request.
-importInstance :: PlatformValues -- ^ '_iiiiiiiiiuPlatform'
+importInstance :: PlatformValues -- ^ 'iiiiiiiiiuPlatform'
                -> ImportInstance
 importInstance p1 = ImportInstance
     { _iiiiiiiiiuPlatform = p1
@@ -51,17 +72,8 @@ importInstance p1 = ImportInstance
     }
 
 data ImportInstance = ImportInstance
-    { _iiiiiiiiiuPlatform :: PlatformValues
-      -- ^ The instance operating system.
-    , _iiiiiiiiiuDiskImages :: [DiskImage]
-      -- ^ 
-    , _iiiiiiiiiuLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
-      -- ^ 
-    , _iiiiiiiiiuDescription :: Maybe Text
-      -- ^ A description for the instance being imported.
-    } deriving (Show, Generic)
 
-makeLenses ''ImportInstance
+makeSiglessLenses ''ImportInstance
 
 instance ToQuery ImportInstance where
     toQuery = genericQuery def
@@ -71,7 +83,7 @@ data ImportInstanceResponse = ImportInstanceResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeLenses ''ImportInstanceResponse
+makeSiglessLenses ''ImportInstanceResponse
 
 instance FromXML ImportInstanceResponse where
     fromXMLOptions = xmlOptions
@@ -82,3 +94,18 @@ instance AWSRequest ImportInstance where
 
     request = post "ImportInstance"
     response _ = xmlResponse
+
+-- | The instance operating system.
+iiiiiiiiiuPlatform :: Lens' ImportInstance (PlatformValues)
+
+-- | 
+iiiiiiiiiuDiskImages :: Lens' ImportInstance ([DiskImage])
+
+-- | 
+iiiiiiiiiuLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
+
+-- | A description for the instance being imported.
+iiiiiiiiiuDescription :: Lens' ImportInstance (Maybe Text)
+
+-- | 
+iiiiiiiiivConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)

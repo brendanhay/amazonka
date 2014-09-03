@@ -26,25 +26,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/EnableVolumeIOResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.EnableVolumeIO where
+module Network.AWS.EC2.V2014_06_15.EnableVolumeIO
+    (
+    -- * Request
+      EnableVolumeIO
+    -- ** Default constructor
+    , enableVolumeIO
+    -- ** Accessors and lenses
+    , _eviorVolumeId
+    , eviorVolumeId
+
+    -- * Response
+    , EnableVolumeIOResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'EnableVolumeIO' request.
-enableVolumeIO :: Text -- ^ '_eviorVolumeId'
+enableVolumeIO :: Text -- ^ 'eviorVolumeId'
                -> EnableVolumeIO
 enableVolumeIO p1 = EnableVolumeIO
     { _eviorVolumeId = p1
     }
 
 data EnableVolumeIO = EnableVolumeIO
-    { _eviorVolumeId :: Text
-      -- ^ The ID of the volume.
-    } deriving (Show, Generic)
 
-makeLenses ''EnableVolumeIO
+makeSiglessLenses ''EnableVolumeIO
 
 instance ToQuery EnableVolumeIO where
     toQuery = genericQuery def
@@ -52,7 +61,7 @@ instance ToQuery EnableVolumeIO where
 data EnableVolumeIOResponse = EnableVolumeIOResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''EnableVolumeIOResponse
+makeSiglessLenses ''EnableVolumeIOResponse
 
 instance AWSRequest EnableVolumeIO where
     type Sv EnableVolumeIO = EC2
@@ -60,3 +69,6 @@ instance AWSRequest EnableVolumeIO where
 
     request = post "EnableVolumeIO"
     response _ = nullaryResponse EnableVolumeIOResponse
+
+-- | The ID of the volume.
+eviorVolumeId :: Lens' EnableVolumeIO (Text)

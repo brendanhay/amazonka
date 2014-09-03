@@ -33,14 +33,31 @@
 -- &lt;availabilityZone&gt;us-east-1a&lt;/availabilityZone&gt;
 -- &lt;attachments/&gt; &lt;tagSet/&gt; &lt;/vpnGateway&gt;
 -- &lt;/CreateVpnGatewayResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreateVpnGateway where
+module Network.AWS.EC2.V2014_06_15.CreateVpnGateway
+    (
+    -- * Request
+      CreateVpnGateway
+    -- ** Default constructor
+    , createVpnGateway
+    -- ** Accessors and lenses
+    , _cvgrType
+    , cvgrType
+    , _cvgrAvailabilityZone
+    , cvgrAvailabilityZone
+
+    -- * Response
+    , CreateVpnGatewayResponse
+    -- ** Accessors and lenses
+    , _cvgsVpnGateway
+    , cvgsVpnGateway
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateVpnGateway' request.
-createVpnGateway :: GatewayType -- ^ '_cvgrType'
+createVpnGateway :: GatewayType -- ^ 'cvgrType'
                  -> CreateVpnGateway
 createVpnGateway p1 = CreateVpnGateway
     { _cvgrType = p1
@@ -48,13 +65,8 @@ createVpnGateway p1 = CreateVpnGateway
     }
 
 data CreateVpnGateway = CreateVpnGateway
-    { _cvgrType :: GatewayType
-      -- ^ The type of VPN connection this virtual private gateway supports.
-    , _cvgrAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone for the virtual private gateway.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateVpnGateway
+makeSiglessLenses ''CreateVpnGateway
 
 instance ToQuery CreateVpnGateway where
     toQuery = genericQuery def
@@ -64,7 +76,7 @@ data CreateVpnGatewayResponse = CreateVpnGatewayResponse
       -- ^ Information about the virtual private gateway.
     } deriving (Show, Generic)
 
-makeLenses ''CreateVpnGatewayResponse
+makeSiglessLenses ''CreateVpnGatewayResponse
 
 instance FromXML CreateVpnGatewayResponse where
     fromXMLOptions = xmlOptions
@@ -75,3 +87,12 @@ instance AWSRequest CreateVpnGateway where
 
     request = post "CreateVpnGateway"
     response _ = xmlResponse
+
+-- | The type of VPN connection this virtual private gateway supports.
+cvgrType :: Lens' CreateVpnGateway (GatewayType)
+
+-- | The Availability Zone for the virtual private gateway.
+cvgrAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
+
+-- | Information about the virtual private gateway.
+cvgsVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)

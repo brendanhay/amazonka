@@ -29,25 +29,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpcResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteVpc where
+module Network.AWS.EC2.V2014_06_15.DeleteVpc
+    (
+    -- * Request
+      DeleteVpc
+    -- ** Default constructor
+    , deleteVpc
+    -- ** Accessors and lenses
+    , _dvsVpcId
+    , dvsVpcId
+
+    -- * Response
+    , DeleteVpcResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteVpc' request.
-deleteVpc :: Text -- ^ '_dvsVpcId'
+deleteVpc :: Text -- ^ 'dvsVpcId'
           -> DeleteVpc
 deleteVpc p1 = DeleteVpc
     { _dvsVpcId = p1
     }
 
 data DeleteVpc = DeleteVpc
-    { _dvsVpcId :: Text
-      -- ^ The ID of the VPC.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteVpc
+makeSiglessLenses ''DeleteVpc
 
 instance ToQuery DeleteVpc where
     toQuery = genericQuery def
@@ -55,7 +64,7 @@ instance ToQuery DeleteVpc where
 data DeleteVpcResponse = DeleteVpcResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteVpcResponse
+makeSiglessLenses ''DeleteVpcResponse
 
 instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2
@@ -63,3 +72,6 @@ instance AWSRequest DeleteVpc where
 
     request = post "DeleteVpc"
     response _ = nullaryResponse DeleteVpcResponse
+
+-- | The ID of the VPC.
+dvsVpcId :: Lens' DeleteVpc (Text)

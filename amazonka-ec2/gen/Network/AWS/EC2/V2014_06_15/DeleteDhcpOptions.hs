@@ -28,25 +28,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteDhcpOptionsResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteDhcpOptions where
+module Network.AWS.EC2.V2014_06_15.DeleteDhcpOptions
+    (
+    -- * Request
+      DeleteDhcpOptions
+    -- ** Default constructor
+    , deleteDhcpOptions
+    -- ** Accessors and lenses
+    , _ddorDhcpOptionsId
+    , ddorDhcpOptionsId
+
+    -- * Response
+    , DeleteDhcpOptionsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteDhcpOptions' request.
-deleteDhcpOptions :: Text -- ^ '_ddorDhcpOptionsId'
+deleteDhcpOptions :: Text -- ^ 'ddorDhcpOptionsId'
                   -> DeleteDhcpOptions
 deleteDhcpOptions p1 = DeleteDhcpOptions
     { _ddorDhcpOptionsId = p1
     }
 
 data DeleteDhcpOptions = DeleteDhcpOptions
-    { _ddorDhcpOptionsId :: Text
-      -- ^ The ID of the DHCP options set.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteDhcpOptions
+makeSiglessLenses ''DeleteDhcpOptions
 
 instance ToQuery DeleteDhcpOptions where
     toQuery = genericQuery def
@@ -54,7 +63,7 @@ instance ToQuery DeleteDhcpOptions where
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteDhcpOptionsResponse
+makeSiglessLenses ''DeleteDhcpOptionsResponse
 
 instance AWSRequest DeleteDhcpOptions where
     type Sv DeleteDhcpOptions = EC2
@@ -62,3 +71,6 @@ instance AWSRequest DeleteDhcpOptions where
 
     request = post "DeleteDhcpOptions"
     response _ = nullaryResponse DeleteDhcpOptionsResponse
+
+-- | The ID of the DHCP options set.
+ddorDhcpOptionsId :: Lens' DeleteDhcpOptions (Text)

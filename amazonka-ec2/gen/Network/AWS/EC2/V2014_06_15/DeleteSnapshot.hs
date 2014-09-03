@@ -34,25 +34,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSnapshotResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteSnapshot where
+module Network.AWS.EC2.V2014_06_15.DeleteSnapshot
+    (
+    -- * Request
+      DeleteSnapshot
+    -- ** Default constructor
+    , deleteSnapshot
+    -- ** Accessors and lenses
+    , _dsrSnapshotId
+    , dsrSnapshotId
+
+    -- * Response
+    , DeleteSnapshotResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteSnapshot' request.
-deleteSnapshot :: Text -- ^ '_dsrSnapshotId'
+deleteSnapshot :: Text -- ^ 'dsrSnapshotId'
                -> DeleteSnapshot
 deleteSnapshot p1 = DeleteSnapshot
     { _dsrSnapshotId = p1
     }
 
 data DeleteSnapshot = DeleteSnapshot
-    { _dsrSnapshotId :: Text
-      -- ^ The ID of the Amazon EBS snapshot.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteSnapshot
+makeSiglessLenses ''DeleteSnapshot
 
 instance ToQuery DeleteSnapshot where
     toQuery = genericQuery def
@@ -60,7 +69,7 @@ instance ToQuery DeleteSnapshot where
 data DeleteSnapshotResponse = DeleteSnapshotResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteSnapshotResponse
+makeSiglessLenses ''DeleteSnapshotResponse
 
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2
@@ -68,3 +77,6 @@ instance AWSRequest DeleteSnapshot where
 
     request = post "DeleteSnapshot"
     response _ = nullaryResponse DeleteSnapshotResponse
+
+-- | The ID of the Amazon EBS snapshot.
+dsrSnapshotId :: Lens' DeleteSnapshot (Text)

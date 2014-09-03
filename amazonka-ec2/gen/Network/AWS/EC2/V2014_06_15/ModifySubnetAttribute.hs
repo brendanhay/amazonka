@@ -24,14 +24,28 @@
 -- https://ec2.amazonaws.com/?Action=ModifySubnetAttribute
 -- &amp;SubnetId=subnet-1a2b3c4d &amp;MapPublicIpOnLaunch.Value=true
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute where
+module Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute
+    (
+    -- * Request
+      ModifySubnetAttribute
+    -- ** Default constructor
+    , modifySubnetAttribute
+    -- ** Accessors and lenses
+    , _msasSubnetId
+    , msasSubnetId
+    , _msasMapPublicIpOnLaunch
+    , msasMapPublicIpOnLaunch
+
+    -- * Response
+    , ModifySubnetAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifySubnetAttribute' request.
-modifySubnetAttribute :: Text -- ^ '_msasSubnetId'
+modifySubnetAttribute :: Text -- ^ 'msasSubnetId'
                       -> ModifySubnetAttribute
 modifySubnetAttribute p1 = ModifySubnetAttribute
     { _msasSubnetId = p1
@@ -39,13 +53,8 @@ modifySubnetAttribute p1 = ModifySubnetAttribute
     }
 
 data ModifySubnetAttribute = ModifySubnetAttribute
-    { _msasSubnetId :: Text
-      -- ^ The ID of the subnet.
-    , _msasMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
-      -- ^ 
-    } deriving (Show, Generic)
 
-makeLenses ''ModifySubnetAttribute
+makeSiglessLenses ''ModifySubnetAttribute
 
 instance ToQuery ModifySubnetAttribute where
     toQuery = genericQuery def
@@ -53,7 +62,7 @@ instance ToQuery ModifySubnetAttribute where
 data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ModifySubnetAttributeResponse
+makeSiglessLenses ''ModifySubnetAttributeResponse
 
 instance AWSRequest ModifySubnetAttribute where
     type Sv ModifySubnetAttribute = EC2
@@ -61,3 +70,9 @@ instance AWSRequest ModifySubnetAttribute where
 
     request = post "ModifySubnetAttribute"
     response _ = nullaryResponse ModifySubnetAttributeResponse
+
+-- | The ID of the subnet.
+msasSubnetId :: Lens' ModifySubnetAttribute (Text)
+
+-- | 
+msasMapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)

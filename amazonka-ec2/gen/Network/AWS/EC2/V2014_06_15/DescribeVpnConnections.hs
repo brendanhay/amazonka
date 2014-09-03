@@ -45,7 +45,24 @@
 -- &amp;Filter.1.Name=customer-gateway-id &amp;Filter.1.Value.1=cgw-b4dc3961
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeVpnConnections where
+module Network.AWS.EC2.V2014_06_15.DescribeVpnConnections
+    (
+    -- * Request
+      DescribeVpnConnections
+    -- ** Default constructor
+    , describeVpnConnections
+    -- ** Accessors and lenses
+    , _dvcsFilters
+    , dvcsFilters
+    , _dvcsVpnConnectionIds
+    , dvcsVpnConnectionIds
+
+    -- * Response
+    , DescribeVpnConnectionsResponse
+    -- ** Accessors and lenses
+    , _dvctVpnConnections
+    , dvctVpnConnections
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -59,37 +76,8 @@ describeVpnConnections = DescribeVpnConnections
     }
 
 data DescribeVpnConnections = DescribeVpnConnections
-    { _dvcsFilters :: [Filter]
-      -- ^ One or more filters. customer-gateway-configuration - The
-      -- configuration information for the customer gateway.
-      -- customer-gateway-id - The ID of a customer gateway associated
-      -- with the VPN connection. state - The state of the VPN connection
-      -- (pending | available | deleting | deleted).
-      -- option.static-routes-only - Indicates whether the connection has
-      -- static routes only. Used for devices that do not support Border
-      -- Gateway Protocol (BGP). route.destination-cidr-block - The
-      -- destination CIDR block. This corresponds to the subnet used in a
-      -- customer data center. bgp-asn - The BGP Autonomous System Number
-      -- (ASN) associated with a BGP device. tag:key=value - The key/value
-      -- combination of a tag assigned to the resource. tag-key - The key
-      -- of a tag assigned to the resource. This filter is independent of
-      -- the tag-value filter. For example, if you use both the filter
-      -- "tag-key=Purpose" and the filter "tag-value=X", you get any
-      -- resources assigned both the tag key Purpose (regardless of what
-      -- the tag's value is), and the tag value X (regardless of what the
-      -- tag's key is). If you want to list only resources where Purpose
-      -- is X, see the tag:key=value filter. tag-value - The value of a
-      -- tag assigned to the resource. This filter is independent of the
-      -- tag-key filter. type - The type of VPN connection. Currently the
-      -- only supported type is ipsec.1. vpn-connection-id - The ID of the
-      -- VPN connection. vpn-gateway-id - The ID of a virtual private
-      -- gateway associated with the VPN connection.
-    , _dvcsVpnConnectionIds :: [Text]
-      -- ^ One or more VPN connection IDs. Default: Describes your VPN
-      -- connections.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeVpnConnections
+makeSiglessLenses ''DescribeVpnConnections
 
 instance ToQuery DescribeVpnConnections where
     toQuery = genericQuery def
@@ -99,7 +87,7 @@ data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
       -- ^ Information about one or more VPN connections.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVpnConnectionsResponse
+makeSiglessLenses ''DescribeVpnConnectionsResponse
 
 instance FromXML DescribeVpnConnectionsResponse where
     fromXMLOptions = xmlOptions
@@ -110,3 +98,32 @@ instance AWSRequest DescribeVpnConnections where
 
     request = post "DescribeVpnConnections"
     response _ = xmlResponse
+
+-- | One or more filters. customer-gateway-configuration - The configuration
+-- information for the customer gateway. customer-gateway-id - The ID of a
+-- customer gateway associated with the VPN connection. state - The state of
+-- the VPN connection (pending | available | deleting | deleted).
+-- option.static-routes-only - Indicates whether the connection has static
+-- routes only. Used for devices that do not support Border Gateway Protocol
+-- (BGP). route.destination-cidr-block - The destination CIDR block. This
+-- corresponds to the subnet used in a customer data center. bgp-asn - The BGP
+-- Autonomous System Number (ASN) associated with a BGP device. tag:key=value
+-- - The key/value combination of a tag assigned to the resource. tag-key -
+-- The key of a tag assigned to the resource. This filter is independent of
+-- the tag-value filter. For example, if you use both the filter
+-- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
+-- assigned both the tag key Purpose (regardless of what the tag's value is),
+-- and the tag value X (regardless of what the tag's key is). If you want to
+-- list only resources where Purpose is X, see the tag:key=value filter.
+-- tag-value - The value of a tag assigned to the resource. This filter is
+-- independent of the tag-key filter. type - The type of VPN connection.
+-- Currently the only supported type is ipsec.1. vpn-connection-id - The ID of
+-- the VPN connection. vpn-gateway-id - The ID of a virtual private gateway
+-- associated with the VPN connection.
+dvcsFilters :: Lens' DescribeVpnConnections ([Filter])
+
+-- | One or more VPN connection IDs. Default: Describes your VPN connections.
+dvcsVpnConnectionIds :: Lens' DescribeVpnConnections ([Text])
+
+-- | Information about one or more VPN connections.
+dvctVpnConnections :: Lens' DescribeVpnConnectionsResponse ([VpnConnection])

@@ -51,16 +51,45 @@
 -- &lt;status&gt;attaching&lt;/status&gt;
 -- &lt;attachTime&gt;YYYY-MM-DDTHH:MM:SS.000Z&lt;/attachTime&gt;
 -- &lt;/AttachVolumeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.AttachVolume where
+module Network.AWS.EC2.V2014_06_15.AttachVolume
+    (
+    -- * Request
+      AttachVolume
+    -- ** Default constructor
+    , attachVolume
+    -- ** Accessors and lenses
+    , _avrVolumeId
+    , avrVolumeId
+    , _avrInstanceId
+    , avrInstanceId
+    , _avrDevice
+    , avrDevice
+
+    -- * Response
+    , AttachVolumeResponse
+    -- ** Accessors and lenses
+    , _vaDeleteOnTermination
+    , vaDeleteOnTermination
+    , _vaAttachTime
+    , vaAttachTime
+    , _vaVolumeId
+    , vaVolumeId
+    , _vaInstanceId
+    , vaInstanceId
+    , _vaDevice
+    , vaDevice
+    , _vaState
+    , vaState
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AttachVolume' request.
-attachVolume :: Text -- ^ '_avrVolumeId'
-             -> Text -- ^ '_avrInstanceId'
-             -> Text -- ^ '_avrDevice'
+attachVolume :: Text -- ^ 'avrVolumeId'
+             -> Text -- ^ 'avrInstanceId'
+             -> Text -- ^ 'avrDevice'
              -> AttachVolume
 attachVolume p1 p2 p3 = AttachVolume
     { _avrVolumeId = p1
@@ -69,17 +98,8 @@ attachVolume p1 p2 p3 = AttachVolume
     }
 
 data AttachVolume = AttachVolume
-    { _avrVolumeId :: Text
-      -- ^ The ID of the Amazon EBS volume. The volume and instance must be
-      -- within the same Availability Zone.
-    , _avrInstanceId :: Text
-      -- ^ The ID of the instance.
-    , _avrDevice :: Text
-      -- ^ The device name to expose to the instance (for example, /dev/sdh
-      -- or xvdh).
-    } deriving (Show, Generic)
 
-makeLenses ''AttachVolume
+makeSiglessLenses ''AttachVolume
 
 instance ToQuery AttachVolume where
     toQuery = genericQuery def
@@ -100,7 +120,7 @@ data AttachVolumeResponse = AttachVolumeResponse
       -- ^ The attachment state of the volume.
     } deriving (Show, Generic)
 
-makeLenses ''AttachVolumeResponse
+makeSiglessLenses ''AttachVolumeResponse
 
 instance FromXML AttachVolumeResponse where
     fromXMLOptions = xmlOptions
@@ -111,3 +131,31 @@ instance AWSRequest AttachVolume where
 
     request = post "AttachVolume"
     response _ = xmlResponse
+
+-- | The ID of the Amazon EBS volume. The volume and instance must be within the
+-- same Availability Zone.
+avrVolumeId :: Lens' AttachVolume (Text)
+
+-- | The ID of the instance.
+avrInstanceId :: Lens' AttachVolume (Text)
+
+-- | The device name to expose to the instance (for example, /dev/sdh or xvdh).
+avrDevice :: Lens' AttachVolume (Text)
+
+-- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+vaDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
+
+-- | The time stamp when the attachment initiated.
+vaAttachTime :: Lens' AttachVolumeResponse (Maybe ISO8601)
+
+-- | The ID of the volume.
+vaVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
+
+-- | The ID of the instance.
+vaInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
+
+-- | The device name.
+vaDevice :: Lens' AttachVolumeResponse (Maybe Text)
+
+-- | The attachment state of the volume.
+vaState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)

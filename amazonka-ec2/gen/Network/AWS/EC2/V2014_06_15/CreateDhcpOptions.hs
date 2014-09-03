@@ -59,25 +59,37 @@
 -- &lt;/item&gt; &lt;item&gt; &lt;value&gt;10.2.5.2&lt;/value&gt;
 -- &lt;/item&gt; &lt;/valueSet&gt; &lt;/item&gt; &lt;/dhcpConfigurationSet&gt;
 -- &lt;tagSet/&gt; &lt;/dhcpOptions&gt; &lt;/CreateDhcpOptionsResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreateDhcpOptions where
+module Network.AWS.EC2.V2014_06_15.CreateDhcpOptions
+    (
+    -- * Request
+      CreateDhcpOptions
+    -- ** Default constructor
+    , createDhcpOptions
+    -- ** Accessors and lenses
+    , _cdorDhcpConfigurations
+    , cdorDhcpConfigurations
+
+    -- * Response
+    , CreateDhcpOptionsResponse
+    -- ** Accessors and lenses
+    , _cdosDhcpOptions
+    , cdosDhcpOptions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDhcpOptions' request.
-createDhcpOptions :: [DhcpConfiguration] -- ^ '_cdorDhcpConfigurations'
+createDhcpOptions :: [DhcpConfiguration] -- ^ 'cdorDhcpConfigurations'
                   -> CreateDhcpOptions
 createDhcpOptions p1 = CreateDhcpOptions
     { _cdorDhcpConfigurations = p1
     }
 
 data CreateDhcpOptions = CreateDhcpOptions
-    { _cdorDhcpConfigurations :: [DhcpConfiguration]
-      -- ^ A DHCP configuration option.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateDhcpOptions
+makeSiglessLenses ''CreateDhcpOptions
 
 instance ToQuery CreateDhcpOptions where
     toQuery = genericQuery def
@@ -87,7 +99,7 @@ data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
       -- ^ A set of DHCP options.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDhcpOptionsResponse
+makeSiglessLenses ''CreateDhcpOptionsResponse
 
 instance FromXML CreateDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -98,3 +110,9 @@ instance AWSRequest CreateDhcpOptions where
 
     request = post "CreateDhcpOptions"
     response _ = xmlResponse
+
+-- | A DHCP configuration option.
+cdorDhcpConfigurations :: Lens' CreateDhcpOptions ([DhcpConfiguration])
+
+-- | A set of DHCP options.
+cdosDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)

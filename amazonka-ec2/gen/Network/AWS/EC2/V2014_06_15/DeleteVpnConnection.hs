@@ -28,25 +28,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpnConnectionResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteVpnConnection where
+module Network.AWS.EC2.V2014_06_15.DeleteVpnConnection
+    (
+    -- * Request
+      DeleteVpnConnection
+    -- ** Default constructor
+    , deleteVpnConnection
+    -- ** Accessors and lenses
+    , _dvcrVpnConnectionId
+    , dvcrVpnConnectionId
+
+    -- * Response
+    , DeleteVpnConnectionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteVpnConnection' request.
-deleteVpnConnection :: Text -- ^ '_dvcrVpnConnectionId'
+deleteVpnConnection :: Text -- ^ 'dvcrVpnConnectionId'
                     -> DeleteVpnConnection
 deleteVpnConnection p1 = DeleteVpnConnection
     { _dvcrVpnConnectionId = p1
     }
 
 data DeleteVpnConnection = DeleteVpnConnection
-    { _dvcrVpnConnectionId :: Text
-      -- ^ The ID of the VPN connection.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteVpnConnection
+makeSiglessLenses ''DeleteVpnConnection
 
 instance ToQuery DeleteVpnConnection where
     toQuery = genericQuery def
@@ -54,7 +63,7 @@ instance ToQuery DeleteVpnConnection where
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteVpnConnectionResponse
+makeSiglessLenses ''DeleteVpnConnectionResponse
 
 instance AWSRequest DeleteVpnConnection where
     type Sv DeleteVpnConnection = EC2
@@ -62,3 +71,6 @@ instance AWSRequest DeleteVpnConnection where
 
     request = post "DeleteVpnConnection"
     response _ = nullaryResponse DeleteVpnConnectionResponse
+
+-- | The ID of the VPN connection.
+dvcrVpnConnectionId :: Lens' DeleteVpnConnection (Text)

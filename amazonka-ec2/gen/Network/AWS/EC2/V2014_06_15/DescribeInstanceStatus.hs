@@ -84,7 +84,32 @@
 -- us-east-1d 16 running ok reachability passed ok reachability passed
 -- i-4a2b3c4d us-east-1d 16 running ok reachability passed insufficient-data
 -- reachability insufficient-data.
-module Network.AWS.EC2.V2014_06_15.DescribeInstanceStatus where
+module Network.AWS.EC2.V2014_06_15.DescribeInstanceStatus
+    (
+    -- * Request
+      DescribeInstanceStatus
+    -- ** Default constructor
+    , describeInstanceStatus
+    -- ** Accessors and lenses
+    , _disrIncludeAllInstances
+    , disrIncludeAllInstances
+    , _disrFilters
+    , disrFilters
+    , _disrInstanceIds
+    , disrInstanceIds
+    , _disrMaxResults
+    , disrMaxResults
+    , _disrNextToken
+    , disrNextToken
+
+    -- * Response
+    , DescribeInstanceStatusResponse
+    -- ** Accessors and lenses
+    , _dissInstanceStatuses
+    , dissInstanceStatuses
+    , _dissNextToken
+    , dissNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -101,45 +126,8 @@ describeInstanceStatus = DescribeInstanceStatus
     }
 
 data DescribeInstanceStatus = DescribeInstanceStatus
-    { _disrIncludeAllInstances :: Maybe Bool
-      -- ^ When true, includes the health status for all instances. When
-      -- false, includes the health status for running instances only.
-      -- Default: false.
-    , _disrFilters :: [Filter]
-      -- ^ One or more filters. availability-zone - The Availability Zone of
-      -- the instance. event.code - The code identifying the type of event
-      -- (instance-reboot | system-reboot | system-maintenance |
-      -- instance-retirement | instance-stop). event.description - A
-      -- description of the event. event.not-after - The latest end time
-      -- for the scheduled event. event.not-before - The earliest start
-      -- time for the scheduled event. instance-state-code - A code
-      -- representing the state of the instance, as a 16-bit unsigned
-      -- integer. The high byte is an opaque internal value and should be
-      -- ignored. The low byte is set based on the state represented. The
-      -- valid values are 0 (pending), 16 (running), 32 (shutting-down),
-      -- 48 (terminated), 64 (stopping), and 80 (stopped).
-      -- instance-state-name - The state of the instance (pending |
-      -- running | shutting-down | terminated | stopping | stopped).
-      -- instance-status.reachability - Filters on instance status where
-      -- the name is reachability (passed | failed | initializing |
-      -- insufficient-data). instance-status.status - The status of the
-      -- instance (ok | impaired | initializing | insufficient-data |
-      -- not-applicable). system-status.reachability - Filters on system
-      -- status where the name is reachability (passed | failed |
-      -- initializing | insufficient-data). system-status.status - The
-      -- system status of the instance (ok | impaired | initializing |
-      -- insufficient-data | not-applicable).
-    , _disrInstanceIds :: [Text]
-      -- ^ One or more instance IDs. Default: Describes all your instances.
-      -- Constraints: Maximum 100 explicitly specified instance IDs.
-    , _disrMaxResults :: Maybe Integer
-      -- ^ The maximum number of paginated instance items per response.
-      -- Default: 1000.
-    , _disrNextToken :: Maybe Text
-      -- ^ The next paginated set of results to return.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeInstanceStatus
+makeSiglessLenses ''DescribeInstanceStatus
 
 instance ToQuery DescribeInstanceStatus where
     toQuery = genericQuery def
@@ -151,7 +139,7 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
       -- ^ The next paginated set of results to return.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeInstanceStatusResponse
+makeSiglessLenses ''DescribeInstanceStatusResponse
 
 instance FromXML DescribeInstanceStatusResponse where
     fromXMLOptions = xmlOptions
@@ -166,3 +154,45 @@ instance AWSRequest DescribeInstanceStatus where
 instance AWSPager DescribeInstanceStatus where
     next rq rs = (\x -> rq { _disrNextToken = Just x })
         <$> (_dissNextToken rs)
+
+-- | When true, includes the health status for all instances. When false,
+-- includes the health status for running instances only. Default: false.
+disrIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
+
+-- | One or more filters. availability-zone - The Availability Zone of the
+-- instance. event.code - The code identifying the type of event
+-- (instance-reboot | system-reboot | system-maintenance | instance-retirement
+-- | instance-stop). event.description - A description of the event.
+-- event.not-after - The latest end time for the scheduled event.
+-- event.not-before - The earliest start time for the scheduled event.
+-- instance-state-code - A code representing the state of the instance, as a
+-- 16-bit unsigned integer. The high byte is an opaque internal value and
+-- should be ignored. The low byte is set based on the state represented. The
+-- valid values are 0 (pending), 16 (running), 32 (shutting-down), 48
+-- (terminated), 64 (stopping), and 80 (stopped). instance-state-name - The
+-- state of the instance (pending | running | shutting-down | terminated |
+-- stopping | stopped). instance-status.reachability - Filters on instance
+-- status where the name is reachability (passed | failed | initializing |
+-- insufficient-data). instance-status.status - The status of the instance (ok
+-- | impaired | initializing | insufficient-data | not-applicable).
+-- system-status.reachability - Filters on system status where the name is
+-- reachability (passed | failed | initializing | insufficient-data).
+-- system-status.status - The system status of the instance (ok | impaired |
+-- initializing | insufficient-data | not-applicable).
+disrFilters :: Lens' DescribeInstanceStatus ([Filter])
+
+-- | One or more instance IDs. Default: Describes all your instances.
+-- Constraints: Maximum 100 explicitly specified instance IDs.
+disrInstanceIds :: Lens' DescribeInstanceStatus ([Text])
+
+-- | The maximum number of paginated instance items per response. Default: 1000.
+disrMaxResults :: Lens' DescribeInstanceStatus (Maybe Integer)
+
+-- | The next paginated set of results to return.
+disrNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
+
+-- | One or more instance status descriptions.
+dissInstanceStatuses :: Lens' DescribeInstanceStatusResponse ([InstanceStatus])
+
+-- | The next paginated set of results to return.
+dissNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)

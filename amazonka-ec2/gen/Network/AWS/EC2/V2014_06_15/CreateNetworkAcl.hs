@@ -31,25 +31,37 @@
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE acl-5fb85d36
 -- vpc-11ad4878 false 32767 all deny true 0.0.0.0/0 32767 all deny false
 -- 0.0.0.0/0.
-module Network.AWS.EC2.V2014_06_15.CreateNetworkAcl where
+module Network.AWS.EC2.V2014_06_15.CreateNetworkAcl
+    (
+    -- * Request
+      CreateNetworkAcl
+    -- ** Default constructor
+    , createNetworkAcl
+    -- ** Accessors and lenses
+    , _cnarVpcId
+    , cnarVpcId
+
+    -- * Response
+    , CreateNetworkAclResponse
+    -- ** Accessors and lenses
+    , _cnasNetworkAcl
+    , cnasNetworkAcl
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateNetworkAcl' request.
-createNetworkAcl :: Text -- ^ '_cnarVpcId'
+createNetworkAcl :: Text -- ^ 'cnarVpcId'
                  -> CreateNetworkAcl
 createNetworkAcl p1 = CreateNetworkAcl
     { _cnarVpcId = p1
     }
 
 data CreateNetworkAcl = CreateNetworkAcl
-    { _cnarVpcId :: Text
-      -- ^ The ID of the VPC.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateNetworkAcl
+makeSiglessLenses ''CreateNetworkAcl
 
 instance ToQuery CreateNetworkAcl where
     toQuery = genericQuery def
@@ -59,7 +71,7 @@ data CreateNetworkAclResponse = CreateNetworkAclResponse
       -- ^ Information about the network ACL.
     } deriving (Show, Generic)
 
-makeLenses ''CreateNetworkAclResponse
+makeSiglessLenses ''CreateNetworkAclResponse
 
 instance FromXML CreateNetworkAclResponse where
     fromXMLOptions = xmlOptions
@@ -70,3 +82,9 @@ instance AWSRequest CreateNetworkAcl where
 
     request = post "CreateNetworkAcl"
     response _ = xmlResponse
+
+-- | The ID of the VPC.
+cnarVpcId :: Lens' CreateNetworkAcl (Text)
+
+-- | Information about the network ACL.
+cnasNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)

@@ -29,14 +29,28 @@
 -- https://ec2.amazonaws.com/?Action=CancelConversionTask
 -- &amp;ConversionTaskId=import-i-fh95npoc &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
-module Network.AWS.EC2.V2014_06_15.CancelConversionTask where
+module Network.AWS.EC2.V2014_06_15.CancelConversionTask
+    (
+    -- * Request
+      CancelConversionTask
+    -- ** Default constructor
+    , cancelConversionTask
+    -- ** Accessors and lenses
+    , _ccrConversionTaskId
+    , ccrConversionTaskId
+    , _ccrReasonMessage
+    , ccrReasonMessage
+
+    -- * Response
+    , CancelConversionTaskResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CancelConversionTask' request.
-cancelConversionTask :: Text -- ^ '_ccrConversionTaskId'
+cancelConversionTask :: Text -- ^ 'ccrConversionTaskId'
                      -> CancelConversionTask
 cancelConversionTask p1 = CancelConversionTask
     { _ccrConversionTaskId = p1
@@ -44,13 +58,8 @@ cancelConversionTask p1 = CancelConversionTask
     }
 
 data CancelConversionTask = CancelConversionTask
-    { _ccrConversionTaskId :: Text
-      -- ^ The ID of the conversion task.
-    , _ccrReasonMessage :: Maybe Text
-      -- ^ 
-    } deriving (Show, Generic)
 
-makeLenses ''CancelConversionTask
+makeSiglessLenses ''CancelConversionTask
 
 instance ToQuery CancelConversionTask where
     toQuery = genericQuery def
@@ -58,7 +67,7 @@ instance ToQuery CancelConversionTask where
 data CancelConversionTaskResponse = CancelConversionTaskResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''CancelConversionTaskResponse
+makeSiglessLenses ''CancelConversionTaskResponse
 
 instance AWSRequest CancelConversionTask where
     type Sv CancelConversionTask = EC2
@@ -66,3 +75,9 @@ instance AWSRequest CancelConversionTask where
 
     request = post "CancelConversionTask"
     response _ = nullaryResponse CancelConversionTaskResponse
+
+-- | The ID of the conversion task.
+ccrConversionTaskId :: Lens' CancelConversionTask (Text)
+
+-- | 
+ccrReasonMessage :: Lens' CancelConversionTask (Maybe Text)

@@ -24,7 +24,18 @@
 -- Private Cloud User Guide. Example This example creates an Internet gateway.
 -- https://ec2.amazonaws.com/?Action=CreateInternetGateway &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883.
-module Network.AWS.EC2.V2014_06_15.CreateInternetGateway where
+module Network.AWS.EC2.V2014_06_15.CreateInternetGateway
+    (
+    -- * Request
+      CreateInternetGateway
+    -- ** Default constructor
+    , createInternetGateway
+    -- * Response
+    , CreateInternetGatewayResponse
+    -- ** Accessors and lenses
+    , _cigsInternetGateway
+    , cigsInternetGateway
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -35,9 +46,8 @@ createInternetGateway :: CreateInternetGateway
 createInternetGateway = CreateInternetGateway
 
 data CreateInternetGateway = CreateInternetGateway
-    deriving (Eq, Show, Generic)
 
-makeLenses ''CreateInternetGateway
+makeSiglessLenses ''CreateInternetGateway
 
 instance ToQuery CreateInternetGateway where
     toQuery = genericQuery def
@@ -47,7 +57,7 @@ data CreateInternetGatewayResponse = CreateInternetGatewayResponse
       -- ^ Information about the Internet gateway.
     } deriving (Show, Generic)
 
-makeLenses ''CreateInternetGatewayResponse
+makeSiglessLenses ''CreateInternetGatewayResponse
 
 instance FromXML CreateInternetGatewayResponse where
     fromXMLOptions = xmlOptions
@@ -58,3 +68,6 @@ instance AWSRequest CreateInternetGateway where
 
     request = post "CreateInternetGateway"
     response _ = xmlResponse
+
+-- | Information about the Internet gateway.
+cigsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)

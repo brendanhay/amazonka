@@ -30,25 +30,37 @@
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DeleteVpcPeeringConnectionResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection where
+module Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection
+    (
+    -- * Request
+      DeleteVpcPeeringConnection
+    -- ** Default constructor
+    , deleteVpcPeeringConnection
+    -- ** Accessors and lenses
+    , _dvpcrVpcPeeringConnectionId
+    , dvpcrVpcPeeringConnectionId
+
+    -- * Response
+    , DeleteVpcPeeringConnectionResponse
+    -- ** Accessors and lenses
+    , _dvpcsReturn
+    , dvpcsReturn
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteVpcPeeringConnection' request.
-deleteVpcPeeringConnection :: Text -- ^ '_dvpcrVpcPeeringConnectionId'
+deleteVpcPeeringConnection :: Text -- ^ 'dvpcrVpcPeeringConnectionId'
                            -> DeleteVpcPeeringConnection
 deleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
     { _dvpcrVpcPeeringConnectionId = p1
     }
 
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
-    { _dvpcrVpcPeeringConnectionId :: Text
-      -- ^ The ID of the VPC peering connection.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteVpcPeeringConnection
+makeSiglessLenses ''DeleteVpcPeeringConnection
 
 instance ToQuery DeleteVpcPeeringConnection where
     toQuery = genericQuery def
@@ -59,7 +71,7 @@ data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
       -- error.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteVpcPeeringConnectionResponse
+makeSiglessLenses ''DeleteVpcPeeringConnectionResponse
 
 instance FromXML DeleteVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -70,3 +82,9 @@ instance AWSRequest DeleteVpcPeeringConnection where
 
     request = post "DeleteVpcPeeringConnection"
     response _ = xmlResponse
+
+-- | The ID of the VPC peering connection.
+dvpcrVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection (Text)
+
+-- | Returns true if the request succeeds; otherwise, it returns an error.
+dvpcsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)

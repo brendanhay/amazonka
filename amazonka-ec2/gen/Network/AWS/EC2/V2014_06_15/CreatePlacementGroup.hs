@@ -29,15 +29,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
 -- &lt;requestId&gt;d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/CreatePlacementGroupResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreatePlacementGroup where
+module Network.AWS.EC2.V2014_06_15.CreatePlacementGroup
+    (
+    -- * Request
+      CreatePlacementGroup
+    -- ** Default constructor
+    , createPlacementGroup
+    -- ** Accessors and lenses
+    , _cpgrStrategy
+    , cpgrStrategy
+    , _cpgrGroupName
+    , cpgrGroupName
+
+    -- * Response
+    , CreatePlacementGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreatePlacementGroup' request.
-createPlacementGroup :: PlacementStrategy -- ^ '_cpgrStrategy'
-                     -> Text -- ^ '_cpgrGroupName'
+createPlacementGroup :: PlacementStrategy -- ^ 'cpgrStrategy'
+                     -> Text -- ^ 'cpgrGroupName'
                      -> CreatePlacementGroup
 createPlacementGroup p1 p2 = CreatePlacementGroup
     { _cpgrStrategy = p1
@@ -45,14 +59,8 @@ createPlacementGroup p1 p2 = CreatePlacementGroup
     }
 
 data CreatePlacementGroup = CreatePlacementGroup
-    { _cpgrStrategy :: PlacementStrategy
-      -- ^ The placement strategy.
-    , _cpgrGroupName :: Text
-      -- ^ A name for the placement group. Constraints: Up to 255 ASCII
-      -- characters.
-    } deriving (Show, Generic)
 
-makeLenses ''CreatePlacementGroup
+makeSiglessLenses ''CreatePlacementGroup
 
 instance ToQuery CreatePlacementGroup where
     toQuery = genericQuery def
@@ -60,7 +68,7 @@ instance ToQuery CreatePlacementGroup where
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''CreatePlacementGroupResponse
+makeSiglessLenses ''CreatePlacementGroupResponse
 
 instance AWSRequest CreatePlacementGroup where
     type Sv CreatePlacementGroup = EC2
@@ -68,3 +76,9 @@ instance AWSRequest CreatePlacementGroup where
 
     request = post "CreatePlacementGroup"
     response _ = nullaryResponse CreatePlacementGroupResponse
+
+-- | The placement strategy.
+cpgrStrategy :: Lens' CreatePlacementGroup (PlacementStrategy)
+
+-- | A name for the placement group. Constraints: Up to 255 ASCII characters.
+cpgrGroupName :: Lens' CreatePlacementGroup (Text)

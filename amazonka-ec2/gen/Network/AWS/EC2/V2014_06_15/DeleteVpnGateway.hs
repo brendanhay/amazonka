@@ -28,25 +28,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpnGatewayResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteVpnGateway where
+module Network.AWS.EC2.V2014_06_15.DeleteVpnGateway
+    (
+    -- * Request
+      DeleteVpnGateway
+    -- ** Default constructor
+    , deleteVpnGateway
+    -- ** Accessors and lenses
+    , _dvgrVpnGatewayId
+    , dvgrVpnGatewayId
+
+    -- * Response
+    , DeleteVpnGatewayResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteVpnGateway' request.
-deleteVpnGateway :: Text -- ^ '_dvgrVpnGatewayId'
+deleteVpnGateway :: Text -- ^ 'dvgrVpnGatewayId'
                  -> DeleteVpnGateway
 deleteVpnGateway p1 = DeleteVpnGateway
     { _dvgrVpnGatewayId = p1
     }
 
 data DeleteVpnGateway = DeleteVpnGateway
-    { _dvgrVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteVpnGateway
+makeSiglessLenses ''DeleteVpnGateway
 
 instance ToQuery DeleteVpnGateway where
     toQuery = genericQuery def
@@ -54,7 +63,7 @@ instance ToQuery DeleteVpnGateway where
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteVpnGatewayResponse
+makeSiglessLenses ''DeleteVpnGatewayResponse
 
 instance AWSRequest DeleteVpnGateway where
     type Sv DeleteVpnGateway = EC2
@@ -62,3 +71,6 @@ instance AWSRequest DeleteVpnGateway where
 
     request = post "DeleteVpnGateway"
     response _ = nullaryResponse DeleteVpnGatewayResponse
+
+-- | The ID of the virtual private gateway.
+dvgrVpnGatewayId :: Lens' DeleteVpnGateway (Text)

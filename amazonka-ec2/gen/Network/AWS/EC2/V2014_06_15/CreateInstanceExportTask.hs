@@ -47,14 +47,35 @@
 -- &lt;s3Key&gt;my-exports/ export-i-1234wxyz .ova&lt;/s3Key&gt;
 -- &lt;/exportToS3&gt; &lt;/exportTask&gt;
 -- &lt;/CreateInstanceExportTaskResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask where
+module Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask
+    (
+    -- * Request
+      CreateInstanceExportTask
+    -- ** Default constructor
+    , createInstanceExportTask
+    -- ** Accessors and lenses
+    , _cietrInstanceId
+    , cietrInstanceId
+    , _cietrTargetEnvironment
+    , cietrTargetEnvironment
+    , _cietrExportToS3Task
+    , cietrExportToS3Task
+    , _cietrDescription
+    , cietrDescription
+
+    -- * Response
+    , CreateInstanceExportTaskResponse
+    -- ** Accessors and lenses
+    , _cietsExportTask
+    , cietsExportTask
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateInstanceExportTask' request.
-createInstanceExportTask :: Text -- ^ '_cietrInstanceId'
+createInstanceExportTask :: Text -- ^ 'cietrInstanceId'
                          -> CreateInstanceExportTask
 createInstanceExportTask p1 = CreateInstanceExportTask
     { _cietrInstanceId = p1
@@ -64,18 +85,8 @@ createInstanceExportTask p1 = CreateInstanceExportTask
     }
 
 data CreateInstanceExportTask = CreateInstanceExportTask
-    { _cietrInstanceId :: Text
-      -- ^ The ID of the instance.
-    , _cietrTargetEnvironment :: Maybe ExportEnvironment
-      -- ^ The target virtualization environment.
-    , _cietrExportToS3Task :: Maybe ExportToS3TaskSpecification
-      -- ^ 
-    , _cietrDescription :: Maybe Text
-      -- ^ A description for the conversion task or the resource being
-      -- exported. The maximum length is 255 bytes.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateInstanceExportTask
+makeSiglessLenses ''CreateInstanceExportTask
 
 instance ToQuery CreateInstanceExportTask where
     toQuery = genericQuery def
@@ -85,7 +96,7 @@ data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeLenses ''CreateInstanceExportTaskResponse
+makeSiglessLenses ''CreateInstanceExportTaskResponse
 
 instance FromXML CreateInstanceExportTaskResponse where
     fromXMLOptions = xmlOptions
@@ -96,3 +107,19 @@ instance AWSRequest CreateInstanceExportTask where
 
     request = post "CreateInstanceExportTask"
     response _ = xmlResponse
+
+-- | The ID of the instance.
+cietrInstanceId :: Lens' CreateInstanceExportTask (Text)
+
+-- | The target virtualization environment.
+cietrTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
+
+-- | 
+cietrExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
+
+-- | A description for the conversion task or the resource being exported. The
+-- maximum length is 255 bytes.
+cietrDescription :: Lens' CreateInstanceExportTask (Maybe Text)
+
+-- | 
+cietsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)

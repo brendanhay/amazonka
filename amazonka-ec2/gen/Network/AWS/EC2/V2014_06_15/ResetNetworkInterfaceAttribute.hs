@@ -28,14 +28,28 @@
 -- &lt;requestId&gt;5187642e-3f16-44a3-b05f-24c3848b5162&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/ResetNetworkInterfaceAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute where
+module Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute
+    (
+    -- * Request
+      ResetNetworkInterfaceAttribute
+    -- ** Default constructor
+    , resetNetworkInterfaceAttribute
+    -- ** Accessors and lenses
+    , _rniarNetworkInterfaceId
+    , rniarNetworkInterfaceId
+    , _rniarSourceDestCheck
+    , rniarSourceDestCheck
+
+    -- * Response
+    , ResetNetworkInterfaceAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ResetNetworkInterfaceAttribute' request.
-resetNetworkInterfaceAttribute :: Text -- ^ '_rniarNetworkInterfaceId'
+resetNetworkInterfaceAttribute :: Text -- ^ 'rniarNetworkInterfaceId'
                                -> ResetNetworkInterfaceAttribute
 resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     { _rniarNetworkInterfaceId = p1
@@ -43,16 +57,8 @@ resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     }
 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
-    { _rniarNetworkInterfaceId :: Text
-      -- ^ The ID of the network interface.
-    , _rniarSourceDestCheck :: Maybe Text
-      -- ^ Indicates whether source/destination checking is enabled. A value
-      -- of true means checking is enabled, and false means checking is
-      -- disabled. This value must be false for a NAT instance to perform
-      -- NAT.
-    } deriving (Show, Generic)
 
-makeLenses ''ResetNetworkInterfaceAttribute
+makeSiglessLenses ''ResetNetworkInterfaceAttribute
 
 instance ToQuery ResetNetworkInterfaceAttribute where
     toQuery = genericQuery def
@@ -60,7 +66,7 @@ instance ToQuery ResetNetworkInterfaceAttribute where
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ResetNetworkInterfaceAttributeResponse
+makeSiglessLenses ''ResetNetworkInterfaceAttributeResponse
 
 instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2
@@ -68,3 +74,11 @@ instance AWSRequest ResetNetworkInterfaceAttribute where
 
     request = post "ResetNetworkInterfaceAttribute"
     response _ = nullaryResponse ResetNetworkInterfaceAttributeResponse
+
+-- | The ID of the network interface.
+rniarNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute (Text)
+
+-- | Indicates whether source/destination checking is enabled. A value of true
+-- means checking is enabled, and false means checking is disabled. This value
+-- must be false for a NAT instance to perform NAT.
+rniarSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)

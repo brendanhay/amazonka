@@ -39,7 +39,26 @@
 -- &lt;domain&gt;vpc&lt;/domain&gt;
 -- &lt;allocationId&gt;eipalloc-5723d13e&lt;/allocationId&gt;
 -- &lt;/AllocateAddressResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.AllocateAddress where
+module Network.AWS.EC2.V2014_06_15.AllocateAddress
+    (
+    -- * Request
+      AllocateAddress
+    -- ** Default constructor
+    , allocateAddress
+    -- ** Accessors and lenses
+    , _aarDomain
+    , aarDomain
+
+    -- * Response
+    , AllocateAddressResponse
+    -- ** Accessors and lenses
+    , _aasDomain
+    , aasDomain
+    , _aasPublicIp
+    , aasPublicIp
+    , _aasAllocationId
+    , aasAllocationId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -52,13 +71,8 @@ allocateAddress = AllocateAddress
     }
 
 data AllocateAddress = AllocateAddress
-    { _aarDomain :: Maybe DomainType
-      -- ^ Set to vpc to allocate the address for use with instances in a
-      -- VPC. Default: The address is for use with instances in
-      -- EC2-Classic.
-    } deriving (Show, Generic)
 
-makeLenses ''AllocateAddress
+makeSiglessLenses ''AllocateAddress
 
 instance ToQuery AllocateAddress where
     toQuery = genericQuery def
@@ -74,7 +88,7 @@ data AllocateAddressResponse = AllocateAddressResponse
       -- the Elastic IP address for use with instances in a VPC.
     } deriving (Show, Generic)
 
-makeLenses ''AllocateAddressResponse
+makeSiglessLenses ''AllocateAddressResponse
 
 instance FromXML AllocateAddressResponse where
     fromXMLOptions = xmlOptions
@@ -85,3 +99,18 @@ instance AWSRequest AllocateAddress where
 
     request = post "AllocateAddress"
     response _ = xmlResponse
+
+-- | Set to vpc to allocate the address for use with instances in a VPC.
+-- Default: The address is for use with instances in EC2-Classic.
+aarDomain :: Lens' AllocateAddress (Maybe DomainType)
+
+-- | Indicates whether this Elastic IP address is for use with instances in
+-- EC2-Classic (standard) or instances in a VPC (vpc).
+aasDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
+
+-- | The Elastic IP address.
+aasPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
+
+-- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
+-- Elastic IP address for use with instances in a VPC.
+aasAllocationId :: Lens' AllocateAddressResponse (Maybe Text)

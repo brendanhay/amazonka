@@ -33,15 +33,32 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;newAssociationId&gt;aclassoc-17b85d7e&lt;/newAssociationId&gt;
 -- &lt;/ReplaceNetworkAclAssociationResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation where
+module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation
+    (
+    -- * Request
+      ReplaceNetworkAclAssociation
+    -- ** Default constructor
+    , replaceNetworkAclAssociation
+    -- ** Accessors and lenses
+    , _rnaarAssociationId
+    , rnaarAssociationId
+    , _rnaarNetworkAclId
+    , rnaarNetworkAclId
+
+    -- * Response
+    , ReplaceNetworkAclAssociationResponse
+    -- ** Accessors and lenses
+    , _rnaasNewAssociationId
+    , rnaasNewAssociationId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ReplaceNetworkAclAssociation' request.
-replaceNetworkAclAssociation :: Text -- ^ '_rnaarAssociationId'
-                             -> Text -- ^ '_rnaarNetworkAclId'
+replaceNetworkAclAssociation :: Text -- ^ 'rnaarAssociationId'
+                             -> Text -- ^ 'rnaarNetworkAclId'
                              -> ReplaceNetworkAclAssociation
 replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     { _rnaarAssociationId = p1
@@ -49,14 +66,8 @@ replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     }
 
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
-    { _rnaarAssociationId :: Text
-      -- ^ The ID of the current association between the original network
-      -- ACL and the subnet.
-    , _rnaarNetworkAclId :: Text
-      -- ^ The ID of the new ACL to associate with the subnet.
-    } deriving (Show, Generic)
 
-makeLenses ''ReplaceNetworkAclAssociation
+makeSiglessLenses ''ReplaceNetworkAclAssociation
 
 instance ToQuery ReplaceNetworkAclAssociation where
     toQuery = genericQuery def
@@ -66,7 +77,7 @@ data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
       -- ^ The ID of the new association.
     } deriving (Show, Generic)
 
-makeLenses ''ReplaceNetworkAclAssociationResponse
+makeSiglessLenses ''ReplaceNetworkAclAssociationResponse
 
 instance FromXML ReplaceNetworkAclAssociationResponse where
     fromXMLOptions = xmlOptions
@@ -77,3 +88,13 @@ instance AWSRequest ReplaceNetworkAclAssociation where
 
     request = post "ReplaceNetworkAclAssociation"
     response _ = xmlResponse
+
+-- | The ID of the current association between the original network ACL and the
+-- subnet.
+rnaarAssociationId :: Lens' ReplaceNetworkAclAssociation (Text)
+
+-- | The ID of the new ACL to associate with the subnet.
+rnaarNetworkAclId :: Lens' ReplaceNetworkAclAssociation (Text)
+
+-- | The ID of the new association.
+rnaasNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)

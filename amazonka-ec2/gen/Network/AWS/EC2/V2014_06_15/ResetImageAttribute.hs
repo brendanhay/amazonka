@@ -26,15 +26,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-02-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetImageAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ResetImageAttribute where
+module Network.AWS.EC2.V2014_06_15.ResetImageAttribute
+    (
+    -- * Request
+      ResetImageAttribute
+    -- ** Default constructor
+    , resetImageAttribute
+    -- ** Accessors and lenses
+    , _riarAttribute
+    , riarAttribute
+    , _riarImageId
+    , riarImageId
+
+    -- * Response
+    , ResetImageAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ResetImageAttribute' request.
-resetImageAttribute :: ResetImageAttributeName -- ^ '_riarAttribute'
-                    -> Text -- ^ '_riarImageId'
+resetImageAttribute :: ResetImageAttributeName -- ^ 'riarAttribute'
+                    -> Text -- ^ 'riarImageId'
                     -> ResetImageAttribute
 resetImageAttribute p1 p2 = ResetImageAttribute
     { _riarAttribute = p1
@@ -42,14 +56,8 @@ resetImageAttribute p1 p2 = ResetImageAttribute
     }
 
 data ResetImageAttribute = ResetImageAttribute
-    { _riarAttribute :: ResetImageAttributeName
-      -- ^ The attribute to reset (currently you can only reset the launch
-      -- permission attribute).
-    , _riarImageId :: Text
-      -- ^ The ID of the AMI.
-    } deriving (Show, Generic)
 
-makeLenses ''ResetImageAttribute
+makeSiglessLenses ''ResetImageAttribute
 
 instance ToQuery ResetImageAttribute where
     toQuery = genericQuery def
@@ -57,7 +65,7 @@ instance ToQuery ResetImageAttribute where
 data ResetImageAttributeResponse = ResetImageAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ResetImageAttributeResponse
+makeSiglessLenses ''ResetImageAttributeResponse
 
 instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2
@@ -65,3 +73,10 @@ instance AWSRequest ResetImageAttribute where
 
     request = post "ResetImageAttribute"
     response _ = nullaryResponse ResetImageAttributeResponse
+
+-- | The attribute to reset (currently you can only reset the launch permission
+-- attribute).
+riarAttribute :: Lens' ResetImageAttribute (ResetImageAttributeName)
+
+-- | The ID of the AMI.
+riarImageId :: Lens' ResetImageAttribute (Text)

@@ -47,7 +47,28 @@
 -- a1b2c3d4e5f6g7h8i9j10k11 marketplace i386 machine aki-1a2b3c4d
 -- aws-marketplace example-marketplace-amzn-ami.1 Amazon Linux AMI i386 EBS
 -- ebs /dev/sda1 /dev/sda1 snap-1a2b3c4d 8 true paravirtual xen ...
-module Network.AWS.EC2.V2014_06_15.DescribeImages where
+module Network.AWS.EC2.V2014_06_15.DescribeImages
+    (
+    -- * Request
+      DescribeImages
+    -- ** Default constructor
+    , describeImages
+    -- ** Accessors and lenses
+    , _disExecutableUsers
+    , disExecutableUsers
+    , _disFilters
+    , disFilters
+    , _disImageIds
+    , disImageIds
+    , _disOwners
+    , disOwners
+
+    -- * Response
+    , DescribeImagesResponse
+    -- ** Accessors and lenses
+    , _ditImages
+    , ditImages
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -63,60 +84,8 @@ describeImages = DescribeImages
     }
 
 data DescribeImages = DescribeImages
-    { _disExecutableUsers :: [Text]
-      -- ^ Scopes the images by users with explicit launch permissions.
-      -- Specify an AWS account ID, self (the sender of the request), or
-      -- all (public AMIs).
-    , _disFilters :: [Filter]
-      -- ^ One or more filters. architecture - The image architecture (i386
-      -- | x86_64). block-device-mapping.delete-on-termination - A Boolean
-      -- value that indicates whether the Amazon EBS volume is deleted on
-      -- instance termination. block-device-mapping.device-name - The
-      -- device name for the Amazon EBS volume (for example, /dev/sdh).
-      -- block-device-mapping.snapshot-id - The ID of the snapshot used
-      -- for the Amazon EBS volume. block-device-mapping.volume-size - The
-      -- volume size of the Amazon EBS volume, in GiB.
-      -- block-device-mapping.volume-type - The volume type of the Amazon
-      -- EBS volume (gp2 | standard | io1). description - The description
-      -- of the image (provided during image creation). hypervisor - The
-      -- hypervisor type (ovm | xen). image-id - The ID of the image.
-      -- image-type - The image type (machine | kernel | ramdisk).
-      -- is-public - A Boolean that indicates whether the image is public.
-      -- kernel-id - The kernel ID. manifest-location - The location of
-      -- the image manifest. name - The name of the AMI (provided during
-      -- image creation). owner-alias - The AWS account alias (for
-      -- example, amazon). owner-id - The AWS account ID of the image
-      -- owner. platform - The platform. To only list Windows-based AMIs,
-      -- use windows. product-code - The product code. product-code.type -
-      -- The type of the product code (devpay | marketplace). ramdisk-id -
-      -- The RAM disk ID. root-device-name - The name of the root device
-      -- volume (for example, /dev/sda1). root-device-type - The type of
-      -- the root device volume (ebs | instance-store). state - The state
-      -- of the image (available | pending | failed). state-reason-code -
-      -- The reason code for the state change. state-reason-message - The
-      -- message for the state change. tag:key=value - The key/value
-      -- combination of a tag assigned to the resource. tag-key - The key
-      -- of a tag assigned to the resource. This filter is independent of
-      -- the tag-value filter. For example, if you use both the filter
-      -- "tag-key=Purpose" and the filter "tag-value=X", you get any
-      -- resources assigned both the tag key Purpose (regardless of what
-      -- the tag's value is), and the tag value X (regardless of what the
-      -- tag's key is). If you want to list only resources where Purpose
-      -- is X, see the tag:key=value filter. tag-value - The value of a
-      -- tag assigned to the resource. This filter is independent of the
-      -- tag-key filter. virtualization-type - The virtualization type
-      -- (paravirtual | hvm).
-    , _disImageIds :: [Text]
-      -- ^ One or more image IDs. Default: Describes all images available to
-      -- you.
-    , _disOwners :: [Text]
-      -- ^ Filters the images by the owner. Specify an AWS account ID,
-      -- amazon (owner is Amazon), aws-marketplace (owner is AWS
-      -- Marketplace), self (owner is the sender of the request), or all
-      -- (all owners).
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeImages
+makeSiglessLenses ''DescribeImages
 
 instance ToQuery DescribeImages where
     toQuery = genericQuery def
@@ -126,7 +95,7 @@ data DescribeImagesResponse = DescribeImagesResponse
       -- ^ Information about one or more images.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeImagesResponse
+makeSiglessLenses ''DescribeImagesResponse
 
 instance FromXML DescribeImagesResponse where
     fromXMLOptions = xmlOptions
@@ -137,3 +106,53 @@ instance AWSRequest DescribeImages where
 
     request = post "DescribeImages"
     response _ = xmlResponse
+
+-- | Scopes the images by users with explicit launch permissions. Specify an AWS
+-- account ID, self (the sender of the request), or all (public AMIs).
+disExecutableUsers :: Lens' DescribeImages ([Text])
+
+-- | One or more filters. architecture - The image architecture (i386 | x86_64).
+-- block-device-mapping.delete-on-termination - A Boolean value that indicates
+-- whether the Amazon EBS volume is deleted on instance termination.
+-- block-device-mapping.device-name - The device name for the Amazon EBS
+-- volume (for example, /dev/sdh). block-device-mapping.snapshot-id - The ID
+-- of the snapshot used for the Amazon EBS volume.
+-- block-device-mapping.volume-size - The volume size of the Amazon EBS
+-- volume, in GiB. block-device-mapping.volume-type - The volume type of the
+-- Amazon EBS volume (gp2 | standard | io1). description - The description of
+-- the image (provided during image creation). hypervisor - The hypervisor
+-- type (ovm | xen). image-id - The ID of the image. image-type - The image
+-- type (machine | kernel | ramdisk). is-public - A Boolean that indicates
+-- whether the image is public. kernel-id - The kernel ID. manifest-location -
+-- The location of the image manifest. name - The name of the AMI (provided
+-- during image creation). owner-alias - The AWS account alias (for example,
+-- amazon). owner-id - The AWS account ID of the image owner. platform - The
+-- platform. To only list Windows-based AMIs, use windows. product-code - The
+-- product code. product-code.type - The type of the product code (devpay |
+-- marketplace). ramdisk-id - The RAM disk ID. root-device-name - The name of
+-- the root device volume (for example, /dev/sda1). root-device-type - The
+-- type of the root device volume (ebs | instance-store). state - The state of
+-- the image (available | pending | failed). state-reason-code - The reason
+-- code for the state change. state-reason-message - The message for the state
+-- change. tag:key=value - The key/value combination of a tag assigned to the
+-- resource. tag-key - The key of a tag assigned to the resource. This filter
+-- is independent of the tag-value filter. For example, if you use both the
+-- filter "tag-key=Purpose" and the filter "tag-value=X", you get any
+-- resources assigned both the tag key Purpose (regardless of what the tag's
+-- value is), and the tag value X (regardless of what the tag's key is). If
+-- you want to list only resources where Purpose is X, see the tag:key=value
+-- filter. tag-value - The value of a tag assigned to the resource. This
+-- filter is independent of the tag-key filter. virtualization-type - The
+-- virtualization type (paravirtual | hvm).
+disFilters :: Lens' DescribeImages ([Filter])
+
+-- | One or more image IDs. Default: Describes all images available to you.
+disImageIds :: Lens' DescribeImages ([Text])
+
+-- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
+-- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is the
+-- sender of the request), or all (all owners).
+disOwners :: Lens' DescribeImages ([Text])
+
+-- | Information about one or more images.
+ditImages :: Lens' DescribeImagesResponse ([Image])

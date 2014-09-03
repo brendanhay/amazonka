@@ -30,7 +30,24 @@
 -- https://ec2.amazonaws.com/?Action=DescribePlacementGroups
 -- &amp;Filter.1.Name=group-name &amp;Filter.1.Value=*Project* &amp;AUTHPARAMS
 -- d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE Project-cluster cluster available.
-module Network.AWS.EC2.V2014_06_15.DescribePlacementGroups where
+module Network.AWS.EC2.V2014_06_15.DescribePlacementGroups
+    (
+    -- * Request
+      DescribePlacementGroups
+    -- ** Default constructor
+    , describePlacementGroups
+    -- ** Accessors and lenses
+    , _dpgsFilters
+    , dpgsFilters
+    , _dpgsGroupNames
+    , dpgsGroupNames
+
+    -- * Response
+    , DescribePlacementGroupsResponse
+    -- ** Accessors and lenses
+    , _dpgtPlacementGroups
+    , dpgtPlacementGroups
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -44,17 +61,8 @@ describePlacementGroups = DescribePlacementGroups
     }
 
 data DescribePlacementGroups = DescribePlacementGroups
-    { _dpgsFilters :: [Filter]
-      -- ^ One or more filters. group-name - The name of the placement
-      -- group. state - The state of the placement group (pending |
-      -- available | deleting | deleted). strategy - The strategy of the
-      -- placement group (cluster).
-    , _dpgsGroupNames :: [Text]
-      -- ^ One or more placement group names. Default: Describes all your
-      -- placement groups, or only those otherwise specified.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribePlacementGroups
+makeSiglessLenses ''DescribePlacementGroups
 
 instance ToQuery DescribePlacementGroups where
     toQuery = genericQuery def
@@ -64,7 +72,7 @@ data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
       -- ^ One or more placement groups.
     } deriving (Show, Generic)
 
-makeLenses ''DescribePlacementGroupsResponse
+makeSiglessLenses ''DescribePlacementGroupsResponse
 
 instance FromXML DescribePlacementGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -75,3 +83,15 @@ instance AWSRequest DescribePlacementGroups where
 
     request = post "DescribePlacementGroups"
     response _ = xmlResponse
+
+-- | One or more filters. group-name - The name of the placement group. state -
+-- The state of the placement group (pending | available | deleting |
+-- deleted). strategy - The strategy of the placement group (cluster).
+dpgsFilters :: Lens' DescribePlacementGroups ([Filter])
+
+-- | One or more placement group names. Default: Describes all your placement
+-- groups, or only those otherwise specified.
+dpgsGroupNames :: Lens' DescribePlacementGroups ([Text])
+
+-- | One or more placement groups.
+dpgtPlacementGroups :: Lens' DescribePlacementGroupsResponse ([PlacementGroup])

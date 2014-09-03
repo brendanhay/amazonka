@@ -38,7 +38,22 @@
 -- &lt;s3Key&gt;my-exports/ export-i-1234wxyz .ova&lt;/s3Key&gt;
 -- &lt;/exportToS3&gt; &lt;/item&gt; &lt;/exportTaskSet&gt; &lt;/
 -- DescribeExportTasksResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DescribeExportTasks where
+module Network.AWS.EC2.V2014_06_15.DescribeExportTasks
+    (
+    -- * Request
+      DescribeExportTasks
+    -- ** Default constructor
+    , describeExportTasks
+    -- ** Accessors and lenses
+    , _detrExportTaskIds
+    , detrExportTaskIds
+
+    -- * Response
+    , DescribeExportTasksResponse
+    -- ** Accessors and lenses
+    , _detsExportTasks
+    , detsExportTasks
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -51,11 +66,8 @@ describeExportTasks = DescribeExportTasks
     }
 
 data DescribeExportTasks = DescribeExportTasks
-    { _detrExportTaskIds :: [Text]
-      -- ^ One or more export task IDs.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeExportTasks
+makeSiglessLenses ''DescribeExportTasks
 
 instance ToQuery DescribeExportTasks where
     toQuery = genericQuery def
@@ -65,7 +77,7 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeLenses ''DescribeExportTasksResponse
+makeSiglessLenses ''DescribeExportTasksResponse
 
 instance FromXML DescribeExportTasksResponse where
     fromXMLOptions = xmlOptions
@@ -76,3 +88,9 @@ instance AWSRequest DescribeExportTasks where
 
     request = post "DescribeExportTasks"
     response _ = xmlResponse
+
+-- | One or more export task IDs.
+detrExportTaskIds :: Lens' DescribeExportTasks ([Text])
+
+-- | 
+detsExportTasks :: Lens' DescribeExportTasksResponse ([ExportTask])

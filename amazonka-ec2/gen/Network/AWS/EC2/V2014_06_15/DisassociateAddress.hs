@@ -29,7 +29,21 @@
 -- to which it is associated.
 -- https://ec2.amazonaws.com/?Action=DisassociateAddress
 -- &amp;AssociationId=eipassoc-aa7486c3 &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DisassociateAddress where
+module Network.AWS.EC2.V2014_06_15.DisassociateAddress
+    (
+    -- * Request
+      DisassociateAddress
+    -- ** Default constructor
+    , disassociateAddress
+    -- ** Accessors and lenses
+    , _datPublicIp
+    , datPublicIp
+    , _datAssociationId
+    , datAssociationId
+
+    -- * Response
+    , DisassociateAddressResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -43,13 +57,8 @@ disassociateAddress = DisassociateAddress
     }
 
 data DisassociateAddress = DisassociateAddress
-    { _datPublicIp :: Maybe Text
-      -- ^ [EC2-Classic] The Elastic IP address.
-    , _datAssociationId :: Maybe Text
-      -- ^ [EC2-VPC] The association ID.
-    } deriving (Show, Generic)
 
-makeLenses ''DisassociateAddress
+makeSiglessLenses ''DisassociateAddress
 
 instance ToQuery DisassociateAddress where
     toQuery = genericQuery def
@@ -57,7 +66,7 @@ instance ToQuery DisassociateAddress where
 data DisassociateAddressResponse = DisassociateAddressResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DisassociateAddressResponse
+makeSiglessLenses ''DisassociateAddressResponse
 
 instance AWSRequest DisassociateAddress where
     type Sv DisassociateAddress = EC2
@@ -65,3 +74,9 @@ instance AWSRequest DisassociateAddress where
 
     request = post "DisassociateAddress"
     response _ = nullaryResponse DisassociateAddressResponse
+
+-- | [EC2-Classic] The Elastic IP address.
+datPublicIp :: Lens' DisassociateAddress (Maybe Text)
+
+-- | [EC2-VPC] The association ID.
+datAssociationId :: Lens' DisassociateAddress (Maybe Text)

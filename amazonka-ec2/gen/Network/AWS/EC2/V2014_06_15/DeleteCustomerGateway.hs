@@ -27,25 +27,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteCustomerGatewayResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteCustomerGateway where
+module Network.AWS.EC2.V2014_06_15.DeleteCustomerGateway
+    (
+    -- * Request
+      DeleteCustomerGateway
+    -- ** Default constructor
+    , deleteCustomerGateway
+    -- ** Accessors and lenses
+    , _dcgrCustomerGatewayId
+    , dcgrCustomerGatewayId
+
+    -- * Response
+    , DeleteCustomerGatewayResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteCustomerGateway' request.
-deleteCustomerGateway :: Text -- ^ '_dcgrCustomerGatewayId'
+deleteCustomerGateway :: Text -- ^ 'dcgrCustomerGatewayId'
                       -> DeleteCustomerGateway
 deleteCustomerGateway p1 = DeleteCustomerGateway
     { _dcgrCustomerGatewayId = p1
     }
 
 data DeleteCustomerGateway = DeleteCustomerGateway
-    { _dcgrCustomerGatewayId :: Text
-      -- ^ The ID of the customer gateway.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteCustomerGateway
+makeSiglessLenses ''DeleteCustomerGateway
 
 instance ToQuery DeleteCustomerGateway where
     toQuery = genericQuery def
@@ -53,7 +62,7 @@ instance ToQuery DeleteCustomerGateway where
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteCustomerGatewayResponse
+makeSiglessLenses ''DeleteCustomerGatewayResponse
 
 instance AWSRequest DeleteCustomerGateway where
     type Sv DeleteCustomerGateway = EC2
@@ -61,3 +70,6 @@ instance AWSRequest DeleteCustomerGateway where
 
     request = post "DeleteCustomerGateway"
     response _ = nullaryResponse DeleteCustomerGatewayResponse
+
+-- | The ID of the customer gateway.
+dcgrCustomerGatewayId :: Lens' DeleteCustomerGateway (Text)

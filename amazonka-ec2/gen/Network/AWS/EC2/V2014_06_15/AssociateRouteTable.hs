@@ -33,15 +33,32 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;associationId&gt;rtbassoc-f8ad4891&lt;/associationId&gt;
 -- &lt;/AssociateRouteTableResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.AssociateRouteTable where
+module Network.AWS.EC2.V2014_06_15.AssociateRouteTable
+    (
+    -- * Request
+      AssociateRouteTable
+    -- ** Default constructor
+    , associateRouteTable
+    -- ** Accessors and lenses
+    , _artrSubnetId
+    , artrSubnetId
+    , _artrRouteTableId
+    , artrRouteTableId
+
+    -- * Response
+    , AssociateRouteTableResponse
+    -- ** Accessors and lenses
+    , _artsAssociationId
+    , artsAssociationId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AssociateRouteTable' request.
-associateRouteTable :: Text -- ^ '_artrSubnetId'
-                    -> Text -- ^ '_artrRouteTableId'
+associateRouteTable :: Text -- ^ 'artrSubnetId'
+                    -> Text -- ^ 'artrRouteTableId'
                     -> AssociateRouteTable
 associateRouteTable p1 p2 = AssociateRouteTable
     { _artrSubnetId = p1
@@ -49,13 +66,8 @@ associateRouteTable p1 p2 = AssociateRouteTable
     }
 
 data AssociateRouteTable = AssociateRouteTable
-    { _artrSubnetId :: Text
-      -- ^ The ID of the subnet.
-    , _artrRouteTableId :: Text
-      -- ^ The ID of the route table.
-    } deriving (Show, Generic)
 
-makeLenses ''AssociateRouteTable
+makeSiglessLenses ''AssociateRouteTable
 
 instance ToQuery AssociateRouteTable where
     toQuery = genericQuery def
@@ -66,7 +78,7 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse
       -- table).
     } deriving (Show, Generic)
 
-makeLenses ''AssociateRouteTableResponse
+makeSiglessLenses ''AssociateRouteTableResponse
 
 instance FromXML AssociateRouteTableResponse where
     fromXMLOptions = xmlOptions
@@ -77,3 +89,12 @@ instance AWSRequest AssociateRouteTable where
 
     request = post "AssociateRouteTable"
     response _ = xmlResponse
+
+-- | The ID of the subnet.
+artrSubnetId :: Lens' AssociateRouteTable (Text)
+
+-- | The ID of the route table.
+artrRouteTableId :: Lens' AssociateRouteTable (Text)
+
+-- | The route table association ID (needed to disassociate the route table).
+artsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)

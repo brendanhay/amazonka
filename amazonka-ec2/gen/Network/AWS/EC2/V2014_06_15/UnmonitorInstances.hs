@@ -33,25 +33,37 @@
 -- &lt;item&gt; &lt;instanceId&gt;i-23a3397d&lt;/instanceId&gt;
 -- &lt;monitoring&gt; &lt;state&gt;disabled&lt;/state&gt; &lt;/monitoring&gt;
 -- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/UnmonitorInstancesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.UnmonitorInstances where
+module Network.AWS.EC2.V2014_06_15.UnmonitorInstances
+    (
+    -- * Request
+      UnmonitorInstances
+    -- ** Default constructor
+    , unmonitorInstances
+    -- ** Accessors and lenses
+    , _uirInstanceIds
+    , uirInstanceIds
+
+    -- * Response
+    , UnmonitorInstancesResponse
+    -- ** Accessors and lenses
+    , _uisInstanceMonitorings
+    , uisInstanceMonitorings
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UnmonitorInstances' request.
-unmonitorInstances :: [Text] -- ^ '_uirInstanceIds'
+unmonitorInstances :: [Text] -- ^ 'uirInstanceIds'
                    -> UnmonitorInstances
 unmonitorInstances p1 = UnmonitorInstances
     { _uirInstanceIds = p1
     }
 
 data UnmonitorInstances = UnmonitorInstances
-    { _uirInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
-    } deriving (Show, Generic)
 
-makeLenses ''UnmonitorInstances
+makeSiglessLenses ''UnmonitorInstances
 
 instance ToQuery UnmonitorInstances where
     toQuery = genericQuery def
@@ -61,7 +73,7 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse
       -- ^ Monitoring information for one or more instances.
     } deriving (Show, Generic)
 
-makeLenses ''UnmonitorInstancesResponse
+makeSiglessLenses ''UnmonitorInstancesResponse
 
 instance FromXML UnmonitorInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -72,3 +84,9 @@ instance AWSRequest UnmonitorInstances where
 
     request = post "UnmonitorInstances"
     response _ = xmlResponse
+
+-- | One or more instance IDs.
+uirInstanceIds :: Lens' UnmonitorInstances ([Text])
+
+-- | Monitoring information for one or more instances.
+uisInstanceMonitorings :: Lens' UnmonitorInstancesResponse ([InstanceMonitoring])

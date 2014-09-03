@@ -48,14 +48,31 @@
 -- &lt;dhcpOptionsId&gt;dopt-1a2b3c4d2&lt;/dhcpOptionsId&gt;
 -- &lt;instanceTenancy&gt;dedicated&lt;/instanceTenancy&gt; &lt;/vpc&gt;
 -- &lt;/CreateVpcResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreateVpc where
+module Network.AWS.EC2.V2014_06_15.CreateVpc
+    (
+    -- * Request
+      CreateVpc
+    -- ** Default constructor
+    , createVpc
+    -- ** Accessors and lenses
+    , _cvsCidrBlock
+    , cvsCidrBlock
+    , _cvsInstanceTenancy
+    , cvsInstanceTenancy
+
+    -- * Response
+    , CreateVpcResponse
+    -- ** Accessors and lenses
+    , _cvtVpc
+    , cvtVpc
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateVpc' request.
-createVpc :: Text -- ^ '_cvsCidrBlock'
+createVpc :: Text -- ^ 'cvsCidrBlock'
           -> CreateVpc
 createVpc p1 = CreateVpc
     { _cvsCidrBlock = p1
@@ -63,20 +80,8 @@ createVpc p1 = CreateVpc
     }
 
 data CreateVpc = CreateVpc
-    { _cvsCidrBlock :: Text
-      -- ^ The network range for the VPC, in CIDR notation. For example,
-      -- 10.0.0.0/16.
-    , _cvsInstanceTenancy :: Maybe Tenancy
-      -- ^ The supported tenancy options for instances launched into the
-      -- VPC. A value of default means that instances can be launched with
-      -- any tenancy; a value of dedicated means all instances launched
-      -- into the VPC are launched as dedicated tenancy instances
-      -- regardless of the tenancy assigned to the instance at launch.
-      -- Dedicated tenancy instances runs on single-tenant hardware.
-      -- Default: default.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateVpc
+makeSiglessLenses ''CreateVpc
 
 instance ToQuery CreateVpc where
     toQuery = genericQuery def
@@ -86,7 +91,7 @@ data CreateVpcResponse = CreateVpcResponse
       -- ^ Information about the VPC.
     } deriving (Show, Generic)
 
-makeLenses ''CreateVpcResponse
+makeSiglessLenses ''CreateVpcResponse
 
 instance FromXML CreateVpcResponse where
     fromXMLOptions = xmlOptions
@@ -97,3 +102,17 @@ instance AWSRequest CreateVpc where
 
     request = post "CreateVpc"
     response _ = xmlResponse
+
+-- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
+cvsCidrBlock :: Lens' CreateVpc (Text)
+
+-- | The supported tenancy options for instances launched into the VPC. A value
+-- of default means that instances can be launched with any tenancy; a value
+-- of dedicated means all instances launched into the VPC are launched as
+-- dedicated tenancy instances regardless of the tenancy assigned to the
+-- instance at launch. Dedicated tenancy instances runs on single-tenant
+-- hardware. Default: default.
+cvsInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
+
+-- | Information about the VPC.
+cvtVpc :: Lens' CreateVpcResponse (Maybe Vpc)

@@ -26,25 +26,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteRouteTableResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteRouteTable where
+module Network.AWS.EC2.V2014_06_15.DeleteRouteTable
+    (
+    -- * Request
+      DeleteRouteTable
+    -- ** Default constructor
+    , deleteRouteTable
+    -- ** Accessors and lenses
+    , _drtrRouteTableId
+    , drtrRouteTableId
+
+    -- * Response
+    , DeleteRouteTableResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteRouteTable' request.
-deleteRouteTable :: Text -- ^ '_drtrRouteTableId'
+deleteRouteTable :: Text -- ^ 'drtrRouteTableId'
                  -> DeleteRouteTable
 deleteRouteTable p1 = DeleteRouteTable
     { _drtrRouteTableId = p1
     }
 
 data DeleteRouteTable = DeleteRouteTable
-    { _drtrRouteTableId :: Text
-      -- ^ The ID of the route table.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteRouteTable
+makeSiglessLenses ''DeleteRouteTable
 
 instance ToQuery DeleteRouteTable where
     toQuery = genericQuery def
@@ -52,7 +61,7 @@ instance ToQuery DeleteRouteTable where
 data DeleteRouteTableResponse = DeleteRouteTableResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteRouteTableResponse
+makeSiglessLenses ''DeleteRouteTableResponse
 
 instance AWSRequest DeleteRouteTable where
     type Sv DeleteRouteTable = EC2
@@ -60,3 +69,6 @@ instance AWSRequest DeleteRouteTable where
 
     request = post "DeleteRouteTable"
     response _ = nullaryResponse DeleteRouteTableResponse
+
+-- | The ID of the route table.
+drtrRouteTableId :: Lens' DeleteRouteTable (Text)

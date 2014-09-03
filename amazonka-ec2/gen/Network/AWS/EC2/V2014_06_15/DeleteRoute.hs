@@ -26,15 +26,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteRouteResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteRoute where
+module Network.AWS.EC2.V2014_06_15.DeleteRoute
+    (
+    -- * Request
+      DeleteRoute
+    -- ** Default constructor
+    , deleteRoute
+    -- ** Accessors and lenses
+    , _drrRouteTableId
+    , drrRouteTableId
+    , _drrDestinationCidrBlock
+    , drrDestinationCidrBlock
+
+    -- * Response
+    , DeleteRouteResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteRoute' request.
-deleteRoute :: Text -- ^ '_drrRouteTableId'
-            -> Text -- ^ '_drrDestinationCidrBlock'
+deleteRoute :: Text -- ^ 'drrRouteTableId'
+            -> Text -- ^ 'drrDestinationCidrBlock'
             -> DeleteRoute
 deleteRoute p1 p2 = DeleteRoute
     { _drrRouteTableId = p1
@@ -42,14 +56,8 @@ deleteRoute p1 p2 = DeleteRoute
     }
 
 data DeleteRoute = DeleteRoute
-    { _drrRouteTableId :: Text
-      -- ^ The ID of the route table.
-    , _drrDestinationCidrBlock :: Text
-      -- ^ The CIDR range for the route. The value you specify must match
-      -- the CIDR for the route exactly.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteRoute
+makeSiglessLenses ''DeleteRoute
 
 instance ToQuery DeleteRoute where
     toQuery = genericQuery def
@@ -57,7 +65,7 @@ instance ToQuery DeleteRoute where
 data DeleteRouteResponse = DeleteRouteResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteRouteResponse
+makeSiglessLenses ''DeleteRouteResponse
 
 instance AWSRequest DeleteRoute where
     type Sv DeleteRoute = EC2
@@ -65,3 +73,10 @@ instance AWSRequest DeleteRoute where
 
     request = post "DeleteRoute"
     response _ = nullaryResponse DeleteRouteResponse
+
+-- | The ID of the route table.
+drrRouteTableId :: Lens' DeleteRoute (Text)
+
+-- | The CIDR range for the route. The value you specify must match the CIDR for
+-- the route exactly.
+drrDestinationCidrBlock :: Lens' DeleteRoute (Text)

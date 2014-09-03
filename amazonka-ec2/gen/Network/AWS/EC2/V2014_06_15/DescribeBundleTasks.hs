@@ -34,7 +34,24 @@
 -- &amp;Filter.1.Name=s3-bucket &amp;Filter.1.Value.1=myawsbucket
 -- &amp;Filter.2.Name=state &amp;Filter.2.Name.1=complete
 -- &amp;Filter.2.Name.2=failed &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeBundleTasks where
+module Network.AWS.EC2.V2014_06_15.DescribeBundleTasks
+    (
+    -- * Request
+      DescribeBundleTasks
+    -- ** Default constructor
+    , describeBundleTasks
+    -- ** Accessors and lenses
+    , _dbtrBundleIds
+    , dbtrBundleIds
+    , _dbtrFilters
+    , dbtrFilters
+
+    -- * Response
+    , DescribeBundleTasksResponse
+    -- ** Accessors and lenses
+    , _dbtsBundleTasks
+    , dbtsBundleTasks
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -48,24 +65,8 @@ describeBundleTasks = DescribeBundleTasks
     }
 
 data DescribeBundleTasks = DescribeBundleTasks
-    { _dbtrBundleIds :: [Text]
-      -- ^ One or more bundle task IDs. Default: Describes all your bundle
-      -- tasks.
-    , _dbtrFilters :: [Filter]
-      -- ^ One or more filters. bundle-id - The ID of the bundle task.
-      -- error-code - If the task failed, the error code returned.
-      -- error-message - If the task failed, the error message returned.
-      -- instance-id - The ID of the instance. progress - The level of
-      -- task completion, as a percentage (for example, 20%). s3-bucket -
-      -- The Amazon S3 bucket to store the AMI. s3-prefix - The beginning
-      -- of the AMI name. start-time - The time the task started (for
-      -- example, 2013-09-15T17:15:20.000Z). state - The state of the task
-      -- (pending | waiting-for-shutdown | bundling | storing | cancelling
-      -- | complete | failed). update-time - The time of the most recent
-      -- update for the task.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeBundleTasks
+makeSiglessLenses ''DescribeBundleTasks
 
 instance ToQuery DescribeBundleTasks where
     toQuery = genericQuery def
@@ -75,7 +76,7 @@ data DescribeBundleTasksResponse = DescribeBundleTasksResponse
       -- ^ Information about one or more bundle tasks.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeBundleTasksResponse
+makeSiglessLenses ''DescribeBundleTasksResponse
 
 instance FromXML DescribeBundleTasksResponse where
     fromXMLOptions = xmlOptions
@@ -86,3 +87,20 @@ instance AWSRequest DescribeBundleTasks where
 
     request = post "DescribeBundleTasks"
     response _ = xmlResponse
+
+-- | One or more bundle task IDs. Default: Describes all your bundle tasks.
+dbtrBundleIds :: Lens' DescribeBundleTasks ([Text])
+
+-- | One or more filters. bundle-id - The ID of the bundle task. error-code - If
+-- the task failed, the error code returned. error-message - If the task
+-- failed, the error message returned. instance-id - The ID of the instance.
+-- progress - The level of task completion, as a percentage (for example,
+-- 20%). s3-bucket - The Amazon S3 bucket to store the AMI. s3-prefix - The
+-- beginning of the AMI name. start-time - The time the task started (for
+-- example, 2013-09-15T17:15:20.000Z). state - The state of the task (pending
+-- | waiting-for-shutdown | bundling | storing | cancelling | complete |
+-- failed). update-time - The time of the most recent update for the task.
+dbtrFilters :: Lens' DescribeBundleTasks ([Filter])
+
+-- | Information about one or more bundle tasks.
+dbtsBundleTasks :: Lens' DescribeBundleTasksResponse ([BundleTask])

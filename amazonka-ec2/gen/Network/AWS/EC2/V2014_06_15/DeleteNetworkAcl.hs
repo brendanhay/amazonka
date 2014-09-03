@@ -26,25 +26,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkAclResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteNetworkAcl where
+module Network.AWS.EC2.V2014_06_15.DeleteNetworkAcl
+    (
+    -- * Request
+      DeleteNetworkAcl
+    -- ** Default constructor
+    , deleteNetworkAcl
+    -- ** Accessors and lenses
+    , _dnarNetworkAclId
+    , dnarNetworkAclId
+
+    -- * Response
+    , DeleteNetworkAclResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteNetworkAcl' request.
-deleteNetworkAcl :: Text -- ^ '_dnarNetworkAclId'
+deleteNetworkAcl :: Text -- ^ 'dnarNetworkAclId'
                  -> DeleteNetworkAcl
 deleteNetworkAcl p1 = DeleteNetworkAcl
     { _dnarNetworkAclId = p1
     }
 
 data DeleteNetworkAcl = DeleteNetworkAcl
-    { _dnarNetworkAclId :: Text
-      -- ^ The ID of the network ACL.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteNetworkAcl
+makeSiglessLenses ''DeleteNetworkAcl
 
 instance ToQuery DeleteNetworkAcl where
     toQuery = genericQuery def
@@ -52,7 +61,7 @@ instance ToQuery DeleteNetworkAcl where
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteNetworkAclResponse
+makeSiglessLenses ''DeleteNetworkAclResponse
 
 instance AWSRequest DeleteNetworkAcl where
     type Sv DeleteNetworkAcl = EC2
@@ -60,3 +69,6 @@ instance AWSRequest DeleteNetworkAcl where
 
     request = post "DeleteNetworkAcl"
     response _ = nullaryResponse DeleteNetworkAclResponse
+
+-- | The ID of the network ACL.
+dnarNetworkAclId :: Lens' DeleteNetworkAcl (Text)

@@ -27,7 +27,28 @@
 -- Reserved Instances modification requests with status processing.
 -- https://ec2.amazonaws.com/?Action=DescribeReservedInstancesModifications
 -- &amp;Filter.1.Name=status &amp;Filter.1.Value.1=processing &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications where
+module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications
+    (
+    -- * Request
+      DescribeReservedInstancesModifications
+    -- ** Default constructor
+    , describeReservedInstancesModifications
+    -- ** Accessors and lenses
+    , _drimrFilters
+    , drimrFilters
+    , _drimrReservedInstancesModificationIds
+    , drimrReservedInstancesModificationIds
+    , _drimrNextToken
+    , drimrNextToken
+
+    -- * Response
+    , DescribeReservedInstancesModificationsResponse
+    -- ** Accessors and lenses
+    , _drimsReservedInstancesModifications
+    , drimsReservedInstancesModifications
+    , _drimsNextToken
+    , drimsNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -42,36 +63,8 @@ describeReservedInstancesModifications = DescribeReservedInstancesModifications
     }
 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
-    { _drimrFilters :: [Filter]
-      -- ^ One or more filters. client-token - The idempotency token for the
-      -- modification request. create-date - The time when the
-      -- modification request was created. effective-date - The time when
-      -- the modification becomes effective.
-      -- modification-result.reserved-instances-id - The ID for the
-      -- Reserved Instances created as part of the modification request.
-      -- This ID is only available when the status of the modification is
-      -- fulfilled.
-      -- modification-result.target-configuration.availability-zone - The
-      -- Availability Zone for the new Reserved Instances.
-      -- modification-result.target-configuration.instance-count - The
-      -- number of new Reserved Instances.
-      -- modification-result.target-configuration.instance-type - The
-      -- instance type of the new Reserved Instances.
-      -- modification-result.target-configuration.platform - The network
-      -- platform of the new Reserved Instances (EC2-Classic | EC2-VPC).
-      -- reserved-instances-id - The ID of the Reserved Instances
-      -- modified. reserved-instances-modification-id - The ID of the
-      -- modification request. status - The status of the Reserved
-      -- Instances modification request (processing | fulfilled | failed).
-      -- status-message - The reason for the status. update-date - The
-      -- time when the modification request was last updated.
-    , _drimrReservedInstancesModificationIds :: [Text]
-      -- ^ IDs for the submitted modification request.
-    , _drimrNextToken :: Maybe Text
-      -- ^ The token for the next page of data.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeReservedInstancesModifications
+makeSiglessLenses ''DescribeReservedInstancesModifications
 
 instance ToQuery DescribeReservedInstancesModifications where
     toQuery = genericQuery def
@@ -83,7 +76,7 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
       -- ^ The token for the next page of data.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeReservedInstancesModificationsResponse
+makeSiglessLenses ''DescribeReservedInstancesModificationsResponse
 
 instance FromXML DescribeReservedInstancesModificationsResponse where
     fromXMLOptions = xmlOptions
@@ -98,3 +91,36 @@ instance AWSRequest DescribeReservedInstancesModifications where
 instance AWSPager DescribeReservedInstancesModifications where
     next rq rs = (\x -> rq { _drimrNextToken = Just x })
         <$> (_drimsNextToken rs)
+
+-- | One or more filters. client-token - The idempotency token for the
+-- modification request. create-date - The time when the modification request
+-- was created. effective-date - The time when the modification becomes
+-- effective. modification-result.reserved-instances-id - The ID for the
+-- Reserved Instances created as part of the modification request. This ID is
+-- only available when the status of the modification is fulfilled.
+-- modification-result.target-configuration.availability-zone - The
+-- Availability Zone for the new Reserved Instances.
+-- modification-result.target-configuration.instance-count - The number of new
+-- Reserved Instances. modification-result.target-configuration.instance-type
+-- - The instance type of the new Reserved Instances.
+-- modification-result.target-configuration.platform - The network platform of
+-- the new Reserved Instances (EC2-Classic | EC2-VPC). reserved-instances-id -
+-- The ID of the Reserved Instances modified.
+-- reserved-instances-modification-id - The ID of the modification request.
+-- status - The status of the Reserved Instances modification request
+-- (processing | fulfilled | failed). status-message - The reason for the
+-- status. update-date - The time when the modification request was last
+-- updated.
+drimrFilters :: Lens' DescribeReservedInstancesModifications ([Filter])
+
+-- | IDs for the submitted modification request.
+drimrReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications ([Text])
+
+-- | The token for the next page of data.
+drimrNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
+
+-- | The Reserved Instance modification information.
+drimsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse ([ReservedInstancesModification])
+
+-- | The token for the next page of data.
+drimsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)

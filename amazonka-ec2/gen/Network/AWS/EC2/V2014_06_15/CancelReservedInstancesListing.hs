@@ -30,25 +30,37 @@
 -- Available 0 Sold 0 Cancelled 1 Pending 0 5 166.64 USD false 4 133.32 USD
 -- false 3 99.99 USD false 2 66.66 USD false 1 33.33 USD false
 -- XqJIt1342112125076.
-module Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing where
+module Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing
+    (
+    -- * Request
+      CancelReservedInstancesListing
+    -- ** Default constructor
+    , cancelReservedInstancesListing
+    -- ** Accessors and lenses
+    , _crilrReservedInstancesListingId
+    , crilrReservedInstancesListingId
+
+    -- * Response
+    , CancelReservedInstancesListingResponse
+    -- ** Accessors and lenses
+    , _crilsReservedInstancesListings
+    , crilsReservedInstancesListings
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CancelReservedInstancesListing' request.
-cancelReservedInstancesListing :: Text -- ^ '_crilrReservedInstancesListingId'
+cancelReservedInstancesListing :: Text -- ^ 'crilrReservedInstancesListingId'
                                -> CancelReservedInstancesListing
 cancelReservedInstancesListing p1 = CancelReservedInstancesListing
     { _crilrReservedInstancesListingId = p1
     }
 
 data CancelReservedInstancesListing = CancelReservedInstancesListing
-    { _crilrReservedInstancesListingId :: Text
-      -- ^ The ID of the Reserved Instance listing.
-    } deriving (Show, Generic)
 
-makeLenses ''CancelReservedInstancesListing
+makeSiglessLenses ''CancelReservedInstancesListing
 
 instance ToQuery CancelReservedInstancesListing where
     toQuery = genericQuery def
@@ -58,7 +70,7 @@ data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResp
       -- ^ The Reserved Instance listing.
     } deriving (Show, Generic)
 
-makeLenses ''CancelReservedInstancesListingResponse
+makeSiglessLenses ''CancelReservedInstancesListingResponse
 
 instance FromXML CancelReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions
@@ -69,3 +81,9 @@ instance AWSRequest CancelReservedInstancesListing where
 
     request = post "CancelReservedInstancesListing"
     response _ = xmlResponse
+
+-- | The ID of the Reserved Instance listing.
+crilrReservedInstancesListingId :: Lens' CancelReservedInstancesListing (Text)
+
+-- | The Reserved Instance listing.
+crilsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse ([ReservedInstancesListing])

@@ -40,7 +40,24 @@
 -- &amp;Filter.1.Name=ip-address &amp;Filter.1.Value.1=12.1.2.3
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways where
+module Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways
+    (
+    -- * Request
+      DescribeCustomerGateways
+    -- ** Default constructor
+    , describeCustomerGateways
+    -- ** Accessors and lenses
+    , _dcgsCustomerGatewayIds
+    , dcgsCustomerGatewayIds
+    , _dcgsFilters
+    , dcgsFilters
+
+    -- * Response
+    , DescribeCustomerGatewaysResponse
+    -- ** Accessors and lenses
+    , _dcgtCustomerGateways
+    , dcgtCustomerGateways
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -54,30 +71,8 @@ describeCustomerGateways = DescribeCustomerGateways
     }
 
 data DescribeCustomerGateways = DescribeCustomerGateways
-    { _dcgsCustomerGatewayIds :: [Text]
-      -- ^ One or more customer gateway IDs. Default: Describes all your
-      -- customer gateways.
-    , _dcgsFilters :: [Filter]
-      -- ^ One or more filters. bgp-asn - The customer gateway's Border
-      -- Gateway Protocol (BGP) Autonomous System Number (ASN).
-      -- customer-gateway-id - The ID of the customer gateway. ip-address
-      -- - The IP address of the customer gateway's Internet-routable
-      -- external interface. state - The state of the customer gateway
-      -- (pending | available | deleting | deleted). type - The type of
-      -- customer gateway. Currently, the only supported type is ipsec.1.
-      -- tag:key=value - The key/value combination of a tag assigned to
-      -- the resource. tag-key - The key of a tag assigned to the
-      -- resource. This filter is independent of the tag-value filter. For
-      -- example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeCustomerGateways
+makeSiglessLenses ''DescribeCustomerGateways
 
 instance ToQuery DescribeCustomerGateways where
     toQuery = genericQuery def
@@ -87,7 +82,7 @@ data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
       -- ^ Information about one or more customer gateways.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCustomerGatewaysResponse
+makeSiglessLenses ''DescribeCustomerGatewaysResponse
 
 instance FromXML DescribeCustomerGatewaysResponse where
     fromXMLOptions = xmlOptions
@@ -98,3 +93,27 @@ instance AWSRequest DescribeCustomerGateways where
 
     request = post "DescribeCustomerGateways"
     response _ = xmlResponse
+
+-- | One or more customer gateway IDs. Default: Describes all your customer
+-- gateways.
+dcgsCustomerGatewayIds :: Lens' DescribeCustomerGateways ([Text])
+
+-- | One or more filters. bgp-asn - The customer gateway's Border Gateway
+-- Protocol (BGP) Autonomous System Number (ASN). customer-gateway-id - The ID
+-- of the customer gateway. ip-address - The IP address of the customer
+-- gateway's Internet-routable external interface. state - The state of the
+-- customer gateway (pending | available | deleting | deleted). type - The
+-- type of customer gateway. Currently, the only supported type is ipsec.1.
+-- tag:key=value - The key/value combination of a tag assigned to the
+-- resource. tag-key - The key of a tag assigned to the resource. This filter
+-- is independent of the tag-value filter. For example, if you use both the
+-- filter "tag-key=Purpose" and the filter "tag-value=X", you get any
+-- resources assigned both the tag key Purpose (regardless of what the tag's
+-- value is), and the tag value X (regardless of what the tag's key is). If
+-- you want to list only resources where Purpose is X, see the tag:key=value
+-- filter. tag-value - The value of a tag assigned to the resource. This
+-- filter is independent of the tag-key filter.
+dcgsFilters :: Lens' DescribeCustomerGateways ([Filter])
+
+-- | Information about one or more customer gateways.
+dcgtCustomerGateways :: Lens' DescribeCustomerGatewaysResponse ([CustomerGateway])

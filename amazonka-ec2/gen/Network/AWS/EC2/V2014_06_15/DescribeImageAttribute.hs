@@ -29,15 +29,46 @@
 -- &amp;ImageId=ami-2bb65342 &amp;Attribute=productCodes &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE ami-2bb65342 a1b2c3d4e5f6g7h8i9j10k11
 -- marketplace.
-module Network.AWS.EC2.V2014_06_15.DescribeImageAttribute where
+module Network.AWS.EC2.V2014_06_15.DescribeImageAttribute
+    (
+    -- * Request
+      DescribeImageAttribute
+    -- ** Default constructor
+    , describeImageAttribute
+    -- ** Accessors and lenses
+    , _diarAttribute
+    , diarAttribute
+    , _diarImageId
+    , diarImageId
+
+    -- * Response
+    , DescribeImageAttributeResponse
+    -- ** Accessors and lenses
+    , _iaKernelId
+    , iaKernelId
+    , _iaRamdiskId
+    , iaRamdiskId
+    , _iaDescription
+    , iaDescription
+    , _iaSriovNetSupport
+    , iaSriovNetSupport
+    , _iaBlockDeviceMappings
+    , iaBlockDeviceMappings
+    , _iaLaunchPermissions
+    , iaLaunchPermissions
+    , _iaProductCodes
+    , iaProductCodes
+    , _iaImageId
+    , iaImageId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeImageAttribute' request.
-describeImageAttribute :: ImageAttributeName -- ^ '_diarAttribute'
-                       -> Text -- ^ '_diarImageId'
+describeImageAttribute :: ImageAttributeName -- ^ 'diarAttribute'
+                       -> Text -- ^ 'diarImageId'
                        -> DescribeImageAttribute
 describeImageAttribute p1 p2 = DescribeImageAttribute
     { _diarAttribute = p1
@@ -45,13 +76,8 @@ describeImageAttribute p1 p2 = DescribeImageAttribute
     }
 
 data DescribeImageAttribute = DescribeImageAttribute
-    { _diarAttribute :: ImageAttributeName
-      -- ^ The AMI attribute.
-    , _diarImageId :: Text
-      -- ^ The ID of the AMI.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeImageAttribute
+makeSiglessLenses ''DescribeImageAttribute
 
 instance ToQuery DescribeImageAttribute where
     toQuery = genericQuery def
@@ -75,7 +101,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
       -- ^ The ID of the AMI.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeImageAttributeResponse
+makeSiglessLenses ''DescribeImageAttributeResponse
 
 instance FromXML DescribeImageAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -86,3 +112,33 @@ instance AWSRequest DescribeImageAttribute where
 
     request = post "DescribeImageAttribute"
     response _ = xmlResponse
+
+-- | The AMI attribute.
+diarAttribute :: Lens' DescribeImageAttribute (ImageAttributeName)
+
+-- | The ID of the AMI.
+diarImageId :: Lens' DescribeImageAttribute (Text)
+
+-- | The kernel ID.
+iaKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+
+-- | The RAM disk ID.
+iaRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+
+-- | A description for the AMI.
+iaDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+
+-- | 
+iaSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+
+-- | One or more block device mapping entries.
+iaBlockDeviceMappings :: Lens' DescribeImageAttributeResponse ([BlockDeviceMapping])
+
+-- | One or more launch permissions.
+iaLaunchPermissions :: Lens' DescribeImageAttributeResponse ([LaunchPermission])
+
+-- | One or more product codes.
+iaProductCodes :: Lens' DescribeImageAttributeResponse ([ProductCode])
+
+-- | The ID of the AMI.
+iaImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)

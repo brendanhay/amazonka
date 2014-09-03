@@ -32,15 +32,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetInstanceAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ResetInstanceAttribute where
+module Network.AWS.EC2.V2014_06_15.ResetInstanceAttribute
+    (
+    -- * Request
+      ResetInstanceAttribute
+    -- ** Default constructor
+    , resetInstanceAttribute
+    -- ** Accessors and lenses
+    , _riasAttribute
+    , riasAttribute
+    , _riasInstanceId
+    , riasInstanceId
+
+    -- * Response
+    , ResetInstanceAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ResetInstanceAttribute' request.
-resetInstanceAttribute :: InstanceAttributeName -- ^ '_riasAttribute'
-                       -> Text -- ^ '_riasInstanceId'
+resetInstanceAttribute :: InstanceAttributeName -- ^ 'riasAttribute'
+                       -> Text -- ^ 'riasInstanceId'
                        -> ResetInstanceAttribute
 resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     { _riasAttribute = p1
@@ -48,13 +62,8 @@ resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     }
 
 data ResetInstanceAttribute = ResetInstanceAttribute
-    { _riasAttribute :: InstanceAttributeName
-      -- ^ The attribute to reset.
-    , _riasInstanceId :: Text
-      -- ^ The ID of the instance.
-    } deriving (Show, Generic)
 
-makeLenses ''ResetInstanceAttribute
+makeSiglessLenses ''ResetInstanceAttribute
 
 instance ToQuery ResetInstanceAttribute where
     toQuery = genericQuery def
@@ -62,7 +71,7 @@ instance ToQuery ResetInstanceAttribute where
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ResetInstanceAttributeResponse
+makeSiglessLenses ''ResetInstanceAttributeResponse
 
 instance AWSRequest ResetInstanceAttribute where
     type Sv ResetInstanceAttribute = EC2
@@ -70,3 +79,9 @@ instance AWSRequest ResetInstanceAttribute where
 
     request = post "ResetInstanceAttribute"
     response _ = nullaryResponse ResetInstanceAttributeResponse
+
+-- | The attribute to reset.
+riasAttribute :: Lens' ResetInstanceAttribute (InstanceAttributeName)
+
+-- | The ID of the instance.
+riasInstanceId :: Lens' ResetInstanceAttribute (Text)

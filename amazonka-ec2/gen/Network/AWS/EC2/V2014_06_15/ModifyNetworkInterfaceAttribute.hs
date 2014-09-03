@@ -28,14 +28,34 @@
 -- &lt;requestId&gt;657a4623-5620-4232-b03b-427e852d71cf&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/ModifyNetworkInterfaceAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ModifyNetworkInterfaceAttribute where
+module Network.AWS.EC2.V2014_06_15.ModifyNetworkInterfaceAttribute
+    (
+    -- * Request
+      ModifyNetworkInterfaceAttribute
+    -- ** Default constructor
+    , modifyNetworkInterfaceAttribute
+    -- ** Accessors and lenses
+    , _mniarNetworkInterfaceId
+    , mniarNetworkInterfaceId
+    , _mniarSourceDestCheck
+    , mniarSourceDestCheck
+    , _mniarDescription
+    , mniarDescription
+    , _mniarAttachment
+    , mniarAttachment
+    , _mniarGroups
+    , mniarGroups
+
+    -- * Response
+    , ModifyNetworkInterfaceAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifyNetworkInterfaceAttribute' request.
-modifyNetworkInterfaceAttribute :: Text -- ^ '_mniarNetworkInterfaceId'
+modifyNetworkInterfaceAttribute :: Text -- ^ 'mniarNetworkInterfaceId'
                                 -> ModifyNetworkInterfaceAttribute
 modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     { _mniarNetworkInterfaceId = p1
@@ -46,27 +66,8 @@ modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     }
 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
-    { _mniarNetworkInterfaceId :: Text
-      -- ^ The ID of the network interface.
-    , _mniarSourceDestCheck :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether source/destination checking is enabled. A value
-      -- of true means checking is enabled, and false means checking is
-      -- disabled. This value must be false for a NAT instance to perform
-      -- NAT. For more information, see NAT Instances in the Amazon
-      -- Virtual Private Cloud User Guide.
-    , _mniarDescription :: Maybe AttributeValue
-      -- ^ A description for the network interface.
-    , _mniarAttachment :: Maybe NetworkInterfaceAttachmentChanges
-      -- ^ The ID of the interface attachment.
-    , _mniarGroups :: [Text]
-      -- ^ Changes the security groups for the network interface. The new
-      -- set of groups you specify replaces the current set. You must
-      -- specify at least one group, even if it's just the default
-      -- security group in the VPC. You must specify the ID of the
-      -- security group, not the name.
-    } deriving (Show, Generic)
 
-makeLenses ''ModifyNetworkInterfaceAttribute
+makeSiglessLenses ''ModifyNetworkInterfaceAttribute
 
 instance ToQuery ModifyNetworkInterfaceAttribute where
     toQuery = genericQuery def
@@ -74,7 +75,7 @@ instance ToQuery ModifyNetworkInterfaceAttribute where
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ModifyNetworkInterfaceAttributeResponse
+makeSiglessLenses ''ModifyNetworkInterfaceAttributeResponse
 
 instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2
@@ -82,3 +83,24 @@ instance AWSRequest ModifyNetworkInterfaceAttribute where
 
     request = post "ModifyNetworkInterfaceAttribute"
     response _ = nullaryResponse ModifyNetworkInterfaceAttributeResponse
+
+-- | The ID of the network interface.
+mniarNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute (Text)
+
+-- | Indicates whether source/destination checking is enabled. A value of true
+-- means checking is enabled, and false means checking is disabled. This value
+-- must be false for a NAT instance to perform NAT. For more information, see
+-- NAT Instances in the Amazon Virtual Private Cloud User Guide.
+mniarSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
+
+-- | A description for the network interface.
+mniarDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
+
+-- | The ID of the interface attachment.
+mniarAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
+
+-- | Changes the security groups for the network interface. The new set of
+-- groups you specify replaces the current set. You must specify at least one
+-- group, even if it's just the default security group in the VPC. You must
+-- specify the ID of the security group, not the name.
+mniarGroups :: Lens' ModifyNetworkInterfaceAttribute ([Text])

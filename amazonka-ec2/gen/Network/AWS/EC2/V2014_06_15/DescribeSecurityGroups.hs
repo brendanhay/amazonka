@@ -39,7 +39,26 @@
 -- &amp;Filter.4.Name=ip-permission.group-name
 -- &amp;Filter.4.Value.1=app_server_group &amp;Filter.4.Value.2=database_group
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups where
+module Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups
+    (
+    -- * Request
+      DescribeSecurityGroups
+    -- ** Default constructor
+    , describeSecurityGroups
+    -- ** Accessors and lenses
+    , _dsgsFilters
+    , dsgsFilters
+    , _dsgsGroupIds
+    , dsgsGroupIds
+    , _dsgsGroupNames
+    , dsgsGroupNames
+
+    -- * Response
+    , DescribeSecurityGroupsResponse
+    -- ** Accessors and lenses
+    , _dsgtSecurityGroups
+    , dsgtSecurityGroups
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -54,33 +73,8 @@ describeSecurityGroups = DescribeSecurityGroups
     }
 
 data DescribeSecurityGroups = DescribeSecurityGroups
-    { _dsgsFilters :: [Filter]
-      -- ^ One or more filters. description - The description of the
-      -- security group. group-id - The ID of the security group.
-      -- group-name - The name of the security group. ip-permission.cidr -
-      -- A CIDR range that has been granted permission.
-      -- ip-permission.from-port - The start of port range for the TCP and
-      -- UDP protocols, or an ICMP type number. ip-permission.group-id -
-      -- The ID of a security group that has been granted permission.
-      -- ip-permission.group-name - The name of a security group that has
-      -- been granted permission. ip-permission.protocol - The IP protocol
-      -- for the permission (tcp | udp | icmp or a protocol number).
-      -- ip-permission.to-port - The end of port range for the TCP and UDP
-      -- protocols, or an ICMP code. ip-permission.user-id - The ID of an
-      -- AWS account that has been granted permission. owner-id - The AWS
-      -- account ID of the owner of the security group. tag-key - The key
-      -- of a tag assigned to the security group. tag-value - The value of
-      -- a tag assigned to the security group. vpc-id - The ID of the VPC
-      -- specified when the security group was created.
-    , _dsgsGroupIds :: [Text]
-      -- ^ One or more security group IDs. Default: Describes all your
-      -- security groups.
-    , _dsgsGroupNames :: [Text]
-      -- ^ [EC2-Classic, default VPC] One or more security group names.
-      -- Default: Describes all your security groups.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeSecurityGroups
+makeSiglessLenses ''DescribeSecurityGroups
 
 instance ToQuery DescribeSecurityGroups where
     toQuery = genericQuery def
@@ -90,7 +84,7 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
       -- ^ Information about one or more security groups.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSecurityGroupsResponse
+makeSiglessLenses ''DescribeSecurityGroupsResponse
 
 instance FromXML DescribeSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -101,3 +95,31 @@ instance AWSRequest DescribeSecurityGroups where
 
     request = post "DescribeSecurityGroups"
     response _ = xmlResponse
+
+-- | One or more filters. description - The description of the security group.
+-- group-id - The ID of the security group. group-name - The name of the
+-- security group. ip-permission.cidr - A CIDR range that has been granted
+-- permission. ip-permission.from-port - The start of port range for the TCP
+-- and UDP protocols, or an ICMP type number. ip-permission.group-id - The ID
+-- of a security group that has been granted permission.
+-- ip-permission.group-name - The name of a security group that has been
+-- granted permission. ip-permission.protocol - The IP protocol for the
+-- permission (tcp | udp | icmp or a protocol number). ip-permission.to-port -
+-- The end of port range for the TCP and UDP protocols, or an ICMP code.
+-- ip-permission.user-id - The ID of an AWS account that has been granted
+-- permission. owner-id - The AWS account ID of the owner of the security
+-- group. tag-key - The key of a tag assigned to the security group. tag-value
+-- - The value of a tag assigned to the security group. vpc-id - The ID of the
+-- VPC specified when the security group was created.
+dsgsFilters :: Lens' DescribeSecurityGroups ([Filter])
+
+-- | One or more security group IDs. Default: Describes all your security
+-- groups.
+dsgsGroupIds :: Lens' DescribeSecurityGroups ([Text])
+
+-- | [EC2-Classic, default VPC] One or more security group names. Default:
+-- Describes all your security groups.
+dsgsGroupNames :: Lens' DescribeSecurityGroups ([Text])
+
+-- | Information about one or more security groups.
+dsgtSecurityGroups :: Lens' DescribeSecurityGroupsResponse ([SecurityGroup])

@@ -32,25 +32,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/RebootInstancesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.RebootInstances where
+module Network.AWS.EC2.V2014_06_15.RebootInstances
+    (
+    -- * Request
+      RebootInstances
+    -- ** Default constructor
+    , rebootInstances
+    -- ** Accessors and lenses
+    , _riuInstanceIds
+    , riuInstanceIds
+
+    -- * Response
+    , RebootInstancesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RebootInstances' request.
-rebootInstances :: [Text] -- ^ '_riuInstanceIds'
+rebootInstances :: [Text] -- ^ 'riuInstanceIds'
                 -> RebootInstances
 rebootInstances p1 = RebootInstances
     { _riuInstanceIds = p1
     }
 
 data RebootInstances = RebootInstances
-    { _riuInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
-    } deriving (Show, Generic)
 
-makeLenses ''RebootInstances
+makeSiglessLenses ''RebootInstances
 
 instance ToQuery RebootInstances where
     toQuery = genericQuery def
@@ -58,7 +67,7 @@ instance ToQuery RebootInstances where
 data RebootInstancesResponse = RebootInstancesResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''RebootInstancesResponse
+makeSiglessLenses ''RebootInstancesResponse
 
 instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2
@@ -66,3 +75,6 @@ instance AWSRequest RebootInstances where
 
     request = post "RebootInstances"
     response _ = nullaryResponse RebootInstancesResponse
+
+-- | One or more instance IDs.
+riuInstanceIds :: Lens' RebootInstances ([Text])

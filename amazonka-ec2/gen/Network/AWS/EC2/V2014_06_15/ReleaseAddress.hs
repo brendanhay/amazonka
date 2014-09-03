@@ -36,7 +36,21 @@
 -- Elastic IP address for EC2-VPC.
 -- https://ec2.amazonaws.com/?Action=ReleaseAddress
 -- &amp;AllocationId=eipalloc-5723d13e &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.ReleaseAddress where
+module Network.AWS.EC2.V2014_06_15.ReleaseAddress
+    (
+    -- * Request
+      ReleaseAddress
+    -- ** Default constructor
+    , releaseAddress
+    -- ** Accessors and lenses
+    , _rarPublicIp
+    , rarPublicIp
+    , _rarAllocationId
+    , rarAllocationId
+
+    -- * Response
+    , ReleaseAddressResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -50,13 +64,8 @@ releaseAddress = ReleaseAddress
     }
 
 data ReleaseAddress = ReleaseAddress
-    { _rarPublicIp :: Maybe Text
-      -- ^ [EC2-Classic] The Elastic IP address.
-    , _rarAllocationId :: Maybe Text
-      -- ^ [EC2-VPC] The allocation ID.
-    } deriving (Show, Generic)
 
-makeLenses ''ReleaseAddress
+makeSiglessLenses ''ReleaseAddress
 
 instance ToQuery ReleaseAddress where
     toQuery = genericQuery def
@@ -64,7 +73,7 @@ instance ToQuery ReleaseAddress where
 data ReleaseAddressResponse = ReleaseAddressResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ReleaseAddressResponse
+makeSiglessLenses ''ReleaseAddressResponse
 
 instance AWSRequest ReleaseAddress where
     type Sv ReleaseAddress = EC2
@@ -72,3 +81,9 @@ instance AWSRequest ReleaseAddress where
 
     request = post "ReleaseAddress"
     response _ = nullaryResponse ReleaseAddressResponse
+
+-- | [EC2-Classic] The Elastic IP address.
+rarPublicIp :: Lens' ReleaseAddress (Maybe Text)
+
+-- | [EC2-VPC] The allocation ID.
+rarAllocationId :: Lens' ReleaseAddress (Maybe Text)

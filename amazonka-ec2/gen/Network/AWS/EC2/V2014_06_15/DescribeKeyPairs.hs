@@ -28,7 +28,24 @@
 -- example filters the response to include only key pairs whose names include
 -- the string Dave. https://ec2.amazonaws.com/?Action=DescribeKeyPairs
 -- &amp;Filter.1.Name=key-name &amp;Filter.1.Value.1=*Dave* &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeKeyPairs where
+module Network.AWS.EC2.V2014_06_15.DescribeKeyPairs
+    (
+    -- * Request
+      DescribeKeyPairs
+    -- ** Default constructor
+    , describeKeyPairs
+    -- ** Accessors and lenses
+    , _dkpsFilters
+    , dkpsFilters
+    , _dkpsKeyNames
+    , dkpsKeyNames
+
+    -- * Response
+    , DescribeKeyPairsResponse
+    -- ** Accessors and lenses
+    , _dkptKeyPairs
+    , dkptKeyPairs
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -42,15 +59,8 @@ describeKeyPairs = DescribeKeyPairs
     }
 
 data DescribeKeyPairs = DescribeKeyPairs
-    { _dkpsFilters :: [Filter]
-      -- ^ One or more filters. fingerprint - The fingerprint of the key
-      -- pair. key-name - The name of the key pair.
-    , _dkpsKeyNames :: [Text]
-      -- ^ One or more key pair names. Default: Describes all your key
-      -- pairs.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeKeyPairs
+makeSiglessLenses ''DescribeKeyPairs
 
 instance ToQuery DescribeKeyPairs where
     toQuery = genericQuery def
@@ -60,7 +70,7 @@ data DescribeKeyPairsResponse = DescribeKeyPairsResponse
       -- ^ Information about one or more key pairs.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeKeyPairsResponse
+makeSiglessLenses ''DescribeKeyPairsResponse
 
 instance FromXML DescribeKeyPairsResponse where
     fromXMLOptions = xmlOptions
@@ -71,3 +81,13 @@ instance AWSRequest DescribeKeyPairs where
 
     request = post "DescribeKeyPairs"
     response _ = xmlResponse
+
+-- | One or more filters. fingerprint - The fingerprint of the key pair.
+-- key-name - The name of the key pair.
+dkpsFilters :: Lens' DescribeKeyPairs ([Filter])
+
+-- | One or more key pair names. Default: Describes all your key pairs.
+dkpsKeyNames :: Lens' DescribeKeyPairs ([Text])
+
+-- | Information about one or more key pairs.
+dkptKeyPairs :: Lens' DescribeKeyPairsResponse ([KeyPairInfo])

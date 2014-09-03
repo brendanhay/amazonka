@@ -27,16 +27,32 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkAclEntryResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteNetworkAclEntry where
+module Network.AWS.EC2.V2014_06_15.DeleteNetworkAclEntry
+    (
+    -- * Request
+      DeleteNetworkAclEntry
+    -- ** Default constructor
+    , deleteNetworkAclEntry
+    -- ** Accessors and lenses
+    , _dnaerEgress
+    , dnaerEgress
+    , _dnaerRuleNumber
+    , dnaerRuleNumber
+    , _dnaerNetworkAclId
+    , dnaerNetworkAclId
+
+    -- * Response
+    , DeleteNetworkAclEntryResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteNetworkAclEntry' request.
-deleteNetworkAclEntry :: Bool -- ^ '_dnaerEgress'
-                      -> Integer -- ^ '_dnaerRuleNumber'
-                      -> Text -- ^ '_dnaerNetworkAclId'
+deleteNetworkAclEntry :: Bool -- ^ 'dnaerEgress'
+                      -> Integer -- ^ 'dnaerRuleNumber'
+                      -> Text -- ^ 'dnaerNetworkAclId'
                       -> DeleteNetworkAclEntry
 deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
     { _dnaerEgress = p1
@@ -45,15 +61,8 @@ deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
     }
 
 data DeleteNetworkAclEntry = DeleteNetworkAclEntry
-    { _dnaerEgress :: Bool
-      -- ^ Indicates whether the rule is an egress rule.
-    , _dnaerRuleNumber :: Integer
-      -- ^ The rule number of the entry to delete.
-    , _dnaerNetworkAclId :: Text
-      -- ^ The ID of the network ACL.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteNetworkAclEntry
+makeSiglessLenses ''DeleteNetworkAclEntry
 
 instance ToQuery DeleteNetworkAclEntry where
     toQuery = genericQuery def
@@ -61,7 +70,7 @@ instance ToQuery DeleteNetworkAclEntry where
 data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteNetworkAclEntryResponse
+makeSiglessLenses ''DeleteNetworkAclEntryResponse
 
 instance AWSRequest DeleteNetworkAclEntry where
     type Sv DeleteNetworkAclEntry = EC2
@@ -69,3 +78,12 @@ instance AWSRequest DeleteNetworkAclEntry where
 
     request = post "DeleteNetworkAclEntry"
     response _ = nullaryResponse DeleteNetworkAclEntryResponse
+
+-- | Indicates whether the rule is an egress rule.
+dnaerEgress :: Lens' DeleteNetworkAclEntry (Bool)
+
+-- | The rule number of the entry to delete.
+dnaerRuleNumber :: Lens' DeleteNetworkAclEntry (Integer)
+
+-- | The ID of the network ACL.
+dnaerNetworkAclId :: Lens' DeleteNetworkAclEntry (Text)

@@ -34,7 +34,21 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSecurityGroupResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup where
+module Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup
+    (
+    -- * Request
+      DeleteSecurityGroup
+    -- ** Default constructor
+    , deleteSecurityGroup
+    -- ** Accessors and lenses
+    , _dsgrGroupName
+    , dsgrGroupName
+    , _dsgrGroupId
+    , dsgrGroupId
+
+    -- * Response
+    , DeleteSecurityGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -48,13 +62,8 @@ deleteSecurityGroup = DeleteSecurityGroup
     }
 
 data DeleteSecurityGroup = DeleteSecurityGroup
-    { _dsgrGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the security group.
-    , _dsgrGroupId :: Maybe Text
-      -- ^ The ID of the security group.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteSecurityGroup
+makeSiglessLenses ''DeleteSecurityGroup
 
 instance ToQuery DeleteSecurityGroup where
     toQuery = genericQuery def
@@ -62,7 +71,7 @@ instance ToQuery DeleteSecurityGroup where
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteSecurityGroupResponse
+makeSiglessLenses ''DeleteSecurityGroupResponse
 
 instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2
@@ -70,3 +79,9 @@ instance AWSRequest DeleteSecurityGroup where
 
     request = post "DeleteSecurityGroup"
     response _ = nullaryResponse DeleteSecurityGroupResponse
+
+-- | [EC2-Classic, default VPC] The name of the security group.
+dsgrGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
+
+-- | The ID of the security group.
+dsgrGroupId :: Lens' DeleteSecurityGroup (Maybe Text)

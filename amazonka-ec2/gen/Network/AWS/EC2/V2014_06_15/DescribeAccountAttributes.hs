@@ -66,7 +66,22 @@
 -- &lt;attributeValue&gt;none&lt;/attributeValue&gt; &lt;/item&gt;
 -- &lt;/attributeValueSet&gt; &lt;/item&gt; &lt;/accountAttributeSet&gt;
 -- &lt;/DescribeAccountAttributesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes where
+module Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes
+    (
+    -- * Request
+      DescribeAccountAttributes
+    -- ** Default constructor
+    , describeAccountAttributes
+    -- ** Accessors and lenses
+    , _daarAttributeNames
+    , daarAttributeNames
+
+    -- * Response
+    , DescribeAccountAttributesResponse
+    -- ** Accessors and lenses
+    , _daasAccountAttributes
+    , daasAccountAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -79,11 +94,8 @@ describeAccountAttributes = DescribeAccountAttributes
     }
 
 data DescribeAccountAttributes = DescribeAccountAttributes
-    { _daarAttributeNames :: [AccountAttributeName]
-      -- ^ One or more account attribute names.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeAccountAttributes
+makeSiglessLenses ''DescribeAccountAttributes
 
 instance ToQuery DescribeAccountAttributes where
     toQuery = genericQuery def
@@ -93,7 +105,7 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
       -- ^ Information about one or more account attributes.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAccountAttributesResponse
+makeSiglessLenses ''DescribeAccountAttributesResponse
 
 instance FromXML DescribeAccountAttributesResponse where
     fromXMLOptions = xmlOptions
@@ -104,3 +116,9 @@ instance AWSRequest DescribeAccountAttributes where
 
     request = post "DescribeAccountAttributes"
     response _ = xmlResponse
+
+-- | One or more account attribute names.
+daarAttributeNames :: Lens' DescribeAccountAttributes ([AccountAttributeName])
+
+-- | Information about one or more account attributes.
+daasAccountAttributes :: Lens' DescribeAccountAttributesResponse ([AccountAttribute])

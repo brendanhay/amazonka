@@ -40,17 +40,38 @@
 -- Sold 0 Cancelled 0 Pending 0 11 2.5 USD true 10 2.5 USD false 9 2.5 USD
 -- false 8 2.0 USD false 7 2.0 USD false 6 2.0 USD false 5 1.5 USD false 4 1.5
 -- USD false 3 0.7 USD false 2 0.7 USD false 1 0.1 USD false myIdempToken1.
-module Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing where
+module Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing
+    (
+    -- * Request
+      CreateReservedInstancesListing
+    -- ** Default constructor
+    , createReservedInstancesListing
+    -- ** Accessors and lenses
+    , _criltInstanceCount
+    , criltInstanceCount
+    , _criltPriceSchedules
+    , criltPriceSchedules
+    , _criltReservedInstancesId
+    , criltReservedInstancesId
+    , _criltClientToken
+    , criltClientToken
+
+    -- * Response
+    , CreateReservedInstancesListingResponse
+    -- ** Accessors and lenses
+    , _criluReservedInstancesListings
+    , criluReservedInstancesListings
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateReservedInstancesListing' request.
-createReservedInstancesListing :: Integer -- ^ '_criltInstanceCount'
-                               -> [PriceScheduleSpecification] -- ^ '_criltPriceSchedules'
-                               -> Text -- ^ '_criltReservedInstancesId'
-                               -> Text -- ^ '_criltClientToken'
+createReservedInstancesListing :: Integer -- ^ 'criltInstanceCount'
+                               -> [PriceScheduleSpecification] -- ^ 'criltPriceSchedules'
+                               -> Text -- ^ 'criltReservedInstancesId'
+                               -> Text -- ^ 'criltClientToken'
                                -> CreateReservedInstancesListing
 createReservedInstancesListing p1 p2 p3 p4 = CreateReservedInstancesListing
     { _criltInstanceCount = p1
@@ -60,24 +81,8 @@ createReservedInstancesListing p1 p2 p3 p4 = CreateReservedInstancesListing
     }
 
 data CreateReservedInstancesListing = CreateReservedInstancesListing
-    { _criltInstanceCount :: Integer
-      -- ^ The number of instances that are a part of a Reserved Instance
-      -- account to be listed in the Reserved Instance Marketplace. This
-      -- number should be less than or equal to the instance count
-      -- associated with the Reserved Instance ID specified in this call.
-    , _criltPriceSchedules :: [PriceScheduleSpecification]
-      -- ^ A list specifying the price of the Reserved Instance for each
-      -- month remaining in the Reserved Instance term.
-    , _criltReservedInstancesId :: Text
-      -- ^ The ID of the active Reserved Instance.
-    , _criltClientToken :: Text
-      -- ^ Unique, case-sensitive identifier you provide to ensure
-      -- idempotency of your listings. This helps avoid duplicate
-      -- listings. For more information, see Ensuring Idempotency in the
-      -- Amazon Elastic Compute Cloud User Guide.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateReservedInstancesListing
+makeSiglessLenses ''CreateReservedInstancesListing
 
 instance ToQuery CreateReservedInstancesListing where
     toQuery = genericQuery def
@@ -87,7 +92,7 @@ data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResp
       -- ^ Information about the Reserved Instances listing.
     } deriving (Show, Generic)
 
-makeLenses ''CreateReservedInstancesListingResponse
+makeSiglessLenses ''CreateReservedInstancesListingResponse
 
 instance FromXML CreateReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions
@@ -98,3 +103,24 @@ instance AWSRequest CreateReservedInstancesListing where
 
     request = post "CreateReservedInstancesListing"
     response _ = xmlResponse
+
+-- | The number of instances that are a part of a Reserved Instance account to
+-- be listed in the Reserved Instance Marketplace. This number should be less
+-- than or equal to the instance count associated with the Reserved Instance
+-- ID specified in this call.
+criltInstanceCount :: Lens' CreateReservedInstancesListing (Integer)
+
+-- | A list specifying the price of the Reserved Instance for each month
+-- remaining in the Reserved Instance term.
+criltPriceSchedules :: Lens' CreateReservedInstancesListing ([PriceScheduleSpecification])
+
+-- | The ID of the active Reserved Instance.
+criltReservedInstancesId :: Lens' CreateReservedInstancesListing (Text)
+
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of your
+-- listings. This helps avoid duplicate listings. For more information, see
+-- Ensuring Idempotency in the Amazon Elastic Compute Cloud User Guide.
+criltClientToken :: Lens' CreateReservedInstancesListing (Text)
+
+-- | Information about the Reserved Instances listing.
+criluReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse ([ReservedInstancesListing])

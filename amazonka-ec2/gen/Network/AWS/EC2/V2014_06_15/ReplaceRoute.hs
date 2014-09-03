@@ -31,15 +31,37 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ReplaceRouteResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ReplaceRoute where
+module Network.AWS.EC2.V2014_06_15.ReplaceRoute
+    (
+    -- * Request
+      ReplaceRoute
+    -- ** Default constructor
+    , replaceRoute
+    -- ** Accessors and lenses
+    , _rrrRouteTableId
+    , rrrRouteTableId
+    , _rrrDestinationCidrBlock
+    , rrrDestinationCidrBlock
+    , _rrrGatewayId
+    , rrrGatewayId
+    , _rrrInstanceId
+    , rrrInstanceId
+    , _rrrNetworkInterfaceId
+    , rrrNetworkInterfaceId
+    , _rrrVpcPeeringConnectionId
+    , rrrVpcPeeringConnectionId
+
+    -- * Response
+    , ReplaceRouteResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ReplaceRoute' request.
-replaceRoute :: Text -- ^ '_rrrRouteTableId'
-             -> Text -- ^ '_rrrDestinationCidrBlock'
+replaceRoute :: Text -- ^ 'rrrRouteTableId'
+             -> Text -- ^ 'rrrDestinationCidrBlock'
              -> ReplaceRoute
 replaceRoute p1 p2 = ReplaceRoute
     { _rrrRouteTableId = p1
@@ -51,23 +73,8 @@ replaceRoute p1 p2 = ReplaceRoute
     }
 
 data ReplaceRoute = ReplaceRoute
-    { _rrrRouteTableId :: Text
-      -- ^ The ID of the route table.
-    , _rrrDestinationCidrBlock :: Text
-      -- ^ The CIDR address block used for the destination match. The value
-      -- you provide must match the CIDR of an existing route in the
-      -- table.
-    , _rrrGatewayId :: Maybe Text
-      -- ^ The ID of an Internet gateway attached to your VPC.
-    , _rrrInstanceId :: Maybe Text
-      -- ^ The ID of a NAT instance in your VPC.
-    , _rrrNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of a network interface.
-    , _rrrVpcPeeringConnectionId :: Maybe Text
-      -- ^ The ID of a VPC peering connection.
-    } deriving (Show, Generic)
 
-makeLenses ''ReplaceRoute
+makeSiglessLenses ''ReplaceRoute
 
 instance ToQuery ReplaceRoute where
     toQuery = genericQuery def
@@ -75,7 +82,7 @@ instance ToQuery ReplaceRoute where
 data ReplaceRouteResponse = ReplaceRouteResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ReplaceRouteResponse
+makeSiglessLenses ''ReplaceRouteResponse
 
 instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2
@@ -83,3 +90,22 @@ instance AWSRequest ReplaceRoute where
 
     request = post "ReplaceRoute"
     response _ = nullaryResponse ReplaceRouteResponse
+
+-- | The ID of the route table.
+rrrRouteTableId :: Lens' ReplaceRoute (Text)
+
+-- | The CIDR address block used for the destination match. The value you
+-- provide must match the CIDR of an existing route in the table.
+rrrDestinationCidrBlock :: Lens' ReplaceRoute (Text)
+
+-- | The ID of an Internet gateway attached to your VPC.
+rrrGatewayId :: Lens' ReplaceRoute (Maybe Text)
+
+-- | The ID of a NAT instance in your VPC.
+rrrInstanceId :: Lens' ReplaceRoute (Maybe Text)
+
+-- | The ID of a network interface.
+rrrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
+
+-- | The ID of a VPC peering connection.
+rrrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)

@@ -29,15 +29,29 @@
 -- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DisableVgwRoutePropagationResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DisableVgwRoutePropagation where
+module Network.AWS.EC2.V2014_06_15.DisableVgwRoutePropagation
+    (
+    -- * Request
+      DisableVgwRoutePropagation
+    -- ** Default constructor
+    , disableVgwRoutePropagation
+    -- ** Accessors and lenses
+    , _dvrprRouteTableId
+    , dvrprRouteTableId
+    , _dvrprGatewayId
+    , dvrprGatewayId
+
+    -- * Response
+    , DisableVgwRoutePropagationResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DisableVgwRoutePropagation' request.
-disableVgwRoutePropagation :: Text -- ^ '_dvrprRouteTableId'
-                           -> Text -- ^ '_dvrprGatewayId'
+disableVgwRoutePropagation :: Text -- ^ 'dvrprRouteTableId'
+                           -> Text -- ^ 'dvrprGatewayId'
                            -> DisableVgwRoutePropagation
 disableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
     { _dvrprRouteTableId = p1
@@ -45,13 +59,8 @@ disableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
     }
 
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
-    { _dvrprRouteTableId :: Text
-      -- ^ The ID of the routing table.
-    , _dvrprGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    } deriving (Show, Generic)
 
-makeLenses ''DisableVgwRoutePropagation
+makeSiglessLenses ''DisableVgwRoutePropagation
 
 instance ToQuery DisableVgwRoutePropagation where
     toQuery = genericQuery def
@@ -59,7 +68,7 @@ instance ToQuery DisableVgwRoutePropagation where
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DisableVgwRoutePropagationResponse
+makeSiglessLenses ''DisableVgwRoutePropagationResponse
 
 instance AWSRequest DisableVgwRoutePropagation where
     type Sv DisableVgwRoutePropagation = EC2
@@ -67,3 +76,9 @@ instance AWSRequest DisableVgwRoutePropagation where
 
     request = post "DisableVgwRoutePropagation"
     response _ = nullaryResponse DisableVgwRoutePropagationResponse
+
+-- | The ID of the routing table.
+dvrprRouteTableId :: Lens' DisableVgwRoutePropagation (Text)
+
+-- | The ID of the virtual private gateway.
+dvrprGatewayId :: Lens' DisableVgwRoutePropagation (Text)

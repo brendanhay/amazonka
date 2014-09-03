@@ -32,15 +32,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachVpnGatewayResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DetachVpnGateway where
+module Network.AWS.EC2.V2014_06_15.DetachVpnGateway
+    (
+    -- * Request
+      DetachVpnGateway
+    -- ** Default constructor
+    , detachVpnGateway
+    -- ** Accessors and lenses
+    , _dvguVpnGatewayId
+    , dvguVpnGatewayId
+    , _dvguVpcId
+    , dvguVpcId
+
+    -- * Response
+    , DetachVpnGatewayResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DetachVpnGateway' request.
-detachVpnGateway :: Text -- ^ '_dvguVpnGatewayId'
-                 -> Text -- ^ '_dvguVpcId'
+detachVpnGateway :: Text -- ^ 'dvguVpnGatewayId'
+                 -> Text -- ^ 'dvguVpcId'
                  -> DetachVpnGateway
 detachVpnGateway p1 p2 = DetachVpnGateway
     { _dvguVpnGatewayId = p1
@@ -48,13 +62,8 @@ detachVpnGateway p1 p2 = DetachVpnGateway
     }
 
 data DetachVpnGateway = DetachVpnGateway
-    { _dvguVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _dvguVpcId :: Text
-      -- ^ The ID of the VPC.
-    } deriving (Show, Generic)
 
-makeLenses ''DetachVpnGateway
+makeSiglessLenses ''DetachVpnGateway
 
 instance ToQuery DetachVpnGateway where
     toQuery = genericQuery def
@@ -62,7 +71,7 @@ instance ToQuery DetachVpnGateway where
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DetachVpnGatewayResponse
+makeSiglessLenses ''DetachVpnGatewayResponse
 
 instance AWSRequest DetachVpnGateway where
     type Sv DetachVpnGateway = EC2
@@ -70,3 +79,9 @@ instance AWSRequest DetachVpnGateway where
 
     request = post "DetachVpnGateway"
     response _ = nullaryResponse DetachVpnGatewayResponse
+
+-- | The ID of the virtual private gateway.
+dvguVpnGatewayId :: Lens' DetachVpnGateway (Text)
+
+-- | The ID of the VPC.
+dvguVpcId :: Lens' DetachVpnGateway (Text)

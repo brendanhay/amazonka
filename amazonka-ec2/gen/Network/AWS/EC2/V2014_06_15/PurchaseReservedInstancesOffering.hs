@@ -40,15 +40,34 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;reservedInstancesId&gt;e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE&lt;/reservedInstancesId&gt;
 -- &lt;/PurchaseReservedInstancesOfferingResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering where
+module Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering
+    (
+    -- * Request
+      PurchaseReservedInstancesOffering
+    -- ** Default constructor
+    , purchaseReservedInstancesOffering
+    -- ** Accessors and lenses
+    , _priorInstanceCount
+    , priorInstanceCount
+    , _priorReservedInstancesOfferingId
+    , priorReservedInstancesOfferingId
+    , _priorLimitPrice
+    , priorLimitPrice
+
+    -- * Response
+    , PurchaseReservedInstancesOfferingResponse
+    -- ** Accessors and lenses
+    , _priosReservedInstancesId
+    , priosReservedInstancesId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PurchaseReservedInstancesOffering' request.
-purchaseReservedInstancesOffering :: Integer -- ^ '_priorInstanceCount'
-                                  -> Text -- ^ '_priorReservedInstancesOfferingId'
+purchaseReservedInstancesOffering :: Integer -- ^ 'priorInstanceCount'
+                                  -> Text -- ^ 'priorReservedInstancesOfferingId'
                                   -> PurchaseReservedInstancesOffering
 purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     { _priorInstanceCount = p1
@@ -57,17 +76,8 @@ purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     }
 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
-    { _priorInstanceCount :: Integer
-      -- ^ The number of Reserved Instances to purchase.
-    , _priorReservedInstancesOfferingId :: Text
-      -- ^ The ID of the Reserved Instance offering to purchase.
-    , _priorLimitPrice :: Maybe ReservedInstanceLimitPrice
-      -- ^ Specified for Reserved Instance Marketplace offerings to limit
-      -- the total order and ensure that the Reserved Instances are not
-      -- purchased at unexpected prices.
-    } deriving (Show, Generic)
 
-makeLenses ''PurchaseReservedInstancesOffering
+makeSiglessLenses ''PurchaseReservedInstancesOffering
 
 instance ToQuery PurchaseReservedInstancesOffering where
     toQuery = genericQuery def
@@ -77,7 +87,7 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
       -- ^ The IDs of the purchased Reserved Instances.
     } deriving (Show, Generic)
 
-makeLenses ''PurchaseReservedInstancesOfferingResponse
+makeSiglessLenses ''PurchaseReservedInstancesOfferingResponse
 
 instance FromXML PurchaseReservedInstancesOfferingResponse where
     fromXMLOptions = xmlOptions
@@ -88,3 +98,17 @@ instance AWSRequest PurchaseReservedInstancesOffering where
 
     request = post "PurchaseReservedInstancesOffering"
     response _ = xmlResponse
+
+-- | The number of Reserved Instances to purchase.
+priorInstanceCount :: Lens' PurchaseReservedInstancesOffering (Integer)
+
+-- | The ID of the Reserved Instance offering to purchase.
+priorReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering (Text)
+
+-- | Specified for Reserved Instance Marketplace offerings to limit the total
+-- order and ensure that the Reserved Instances are not purchased at
+-- unexpected prices.
+priorLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
+
+-- | The IDs of the purchased Reserved Instances.
+priosReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)

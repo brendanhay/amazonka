@@ -31,15 +31,29 @@
 -- &amp;Tag.2.Key=stack &amp;Tag.2.Value=Production &amp;AUTHPARAMS
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/">
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE true.
-module Network.AWS.EC2.V2014_06_15.CreateTags where
+module Network.AWS.EC2.V2014_06_15.CreateTags
+    (
+    -- * Request
+      CreateTags
+    -- ** Default constructor
+    , createTags
+    -- ** Accessors and lenses
+    , _ctrResources
+    , ctrResources
+    , _ctrTags
+    , ctrTags
+
+    -- * Response
+    , CreateTagsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateTags' request.
-createTags :: [Text] -- ^ '_ctrResources'
-           -> [Tag] -- ^ '_ctrTags'
+createTags :: [Text] -- ^ 'ctrResources'
+           -> [Tag] -- ^ 'ctrTags'
            -> CreateTags
 createTags p1 p2 = CreateTags
     { _ctrResources = p1
@@ -47,16 +61,8 @@ createTags p1 p2 = CreateTags
     }
 
 data CreateTags = CreateTags
-    { _ctrResources :: [Text]
-      -- ^ The IDs of one or more resources to tag. For example,
-      -- ami-1a2b3c4d.
-    , _ctrTags :: [Tag]
-      -- ^ One or more tags. The value parameter is required, but if you
-      -- don't want the tag to have a value, specify the parameter with no
-      -- value, and we set the value to an empty string.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateTags
+makeSiglessLenses ''CreateTags
 
 instance ToQuery CreateTags where
     toQuery = genericQuery def
@@ -64,7 +70,7 @@ instance ToQuery CreateTags where
 data CreateTagsResponse = CreateTagsResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''CreateTagsResponse
+makeSiglessLenses ''CreateTagsResponse
 
 instance AWSRequest CreateTags where
     type Sv CreateTags = EC2
@@ -72,3 +78,11 @@ instance AWSRequest CreateTags where
 
     request = post "CreateTags"
     response _ = nullaryResponse CreateTagsResponse
+
+-- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
+ctrResources :: Lens' CreateTags ([Text])
+
+-- | One or more tags. The value parameter is required, but if you don't want
+-- the tag to have a value, specify the parameter with no value, and we set
+-- the value to an empty string.
+ctrTags :: Lens' CreateTags ([Tag])

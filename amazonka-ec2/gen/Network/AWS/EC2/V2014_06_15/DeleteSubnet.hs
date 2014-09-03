@@ -25,25 +25,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSubnetResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteSubnet where
+module Network.AWS.EC2.V2014_06_15.DeleteSubnet
+    (
+    -- * Request
+      DeleteSubnet
+    -- ** Default constructor
+    , deleteSubnet
+    -- ** Accessors and lenses
+    , _dstSubnetId
+    , dstSubnetId
+
+    -- * Response
+    , DeleteSubnetResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteSubnet' request.
-deleteSubnet :: Text -- ^ '_dstSubnetId'
+deleteSubnet :: Text -- ^ 'dstSubnetId'
              -> DeleteSubnet
 deleteSubnet p1 = DeleteSubnet
     { _dstSubnetId = p1
     }
 
 data DeleteSubnet = DeleteSubnet
-    { _dstSubnetId :: Text
-      -- ^ The ID of the subnet.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteSubnet
+makeSiglessLenses ''DeleteSubnet
 
 instance ToQuery DeleteSubnet where
     toQuery = genericQuery def
@@ -51,7 +60,7 @@ instance ToQuery DeleteSubnet where
 data DeleteSubnetResponse = DeleteSubnetResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteSubnetResponse
+makeSiglessLenses ''DeleteSubnetResponse
 
 instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2
@@ -59,3 +68,6 @@ instance AWSRequest DeleteSubnet where
 
     request = post "DeleteSubnet"
     response _ = nullaryResponse DeleteSubnetResponse
+
+-- | The ID of the subnet.
+dstSubnetId :: Lens' DeleteSubnet (Text)

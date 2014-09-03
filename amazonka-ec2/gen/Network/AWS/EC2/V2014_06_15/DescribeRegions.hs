@@ -27,7 +27,24 @@
 -- &amp;RegionName.1=us-east-1 &amp;RegionName.2=eu-west-1 &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE us-east-1 ec2.us-east-1.amazonaws.com
 -- eu-west-1 ec2.eu-west-1amazonaws.com.
-module Network.AWS.EC2.V2014_06_15.DescribeRegions where
+module Network.AWS.EC2.V2014_06_15.DescribeRegions
+    (
+    -- * Request
+      DescribeRegions
+    -- ** Default constructor
+    , describeRegions
+    -- ** Accessors and lenses
+    , _drsFilters
+    , drsFilters
+    , _drsRegionNames
+    , drsRegionNames
+
+    -- * Response
+    , DescribeRegionsResponse
+    -- ** Accessors and lenses
+    , _drtRegions
+    , drtRegions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -41,15 +58,8 @@ describeRegions = DescribeRegions
     }
 
 data DescribeRegions = DescribeRegions
-    { _drsFilters :: [Filter]
-      -- ^ One or more filters. endpoint - The endpoint of the region (for
-      -- example, ec2.us-east-1.amazonaws.com). region-name - The name of
-      -- the region (for example, us-east-1).
-    , _drsRegionNames :: [Text]
-      -- ^ The names of one or more regions.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeRegions
+makeSiglessLenses ''DescribeRegions
 
 instance ToQuery DescribeRegions where
     toQuery = genericQuery def
@@ -59,7 +69,7 @@ data DescribeRegionsResponse = DescribeRegionsResponse
       -- ^ Information about one or more regions.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeRegionsResponse
+makeSiglessLenses ''DescribeRegionsResponse
 
 instance FromXML DescribeRegionsResponse where
     fromXMLOptions = xmlOptions
@@ -70,3 +80,14 @@ instance AWSRequest DescribeRegions where
 
     request = post "DescribeRegions"
     response _ = xmlResponse
+
+-- | One or more filters. endpoint - The endpoint of the region (for example,
+-- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
+-- example, us-east-1).
+drsFilters :: Lens' DescribeRegions ([Filter])
+
+-- | The names of one or more regions.
+drsRegionNames :: Lens' DescribeRegions ([Text])
+
+-- | Information about one or more regions.
+drtRegions :: Lens' DescribeRegionsResponse ([Region])

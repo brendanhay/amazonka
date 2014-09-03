@@ -33,25 +33,37 @@
 -- &lt;bucket&gt;myawsbucket&lt;/bucket&gt;
 -- &lt;prefix&gt;my-new-image&lt;/prefix&gt; &lt;/S3&gt; &lt;/storage&gt;
 -- &lt;/bundleInstanceTask&gt; &lt;/CancelBundleTaskResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CancelBundleTask where
+module Network.AWS.EC2.V2014_06_15.CancelBundleTask
+    (
+    -- * Request
+      CancelBundleTask
+    -- ** Default constructor
+    , cancelBundleTask
+    -- ** Accessors and lenses
+    , _cbtrBundleId
+    , cbtrBundleId
+
+    -- * Response
+    , CancelBundleTaskResponse
+    -- ** Accessors and lenses
+    , _cbtsBundleTask
+    , cbtsBundleTask
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CancelBundleTask' request.
-cancelBundleTask :: Text -- ^ '_cbtrBundleId'
+cancelBundleTask :: Text -- ^ 'cbtrBundleId'
                  -> CancelBundleTask
 cancelBundleTask p1 = CancelBundleTask
     { _cbtrBundleId = p1
     }
 
 data CancelBundleTask = CancelBundleTask
-    { _cbtrBundleId :: Text
-      -- ^ The ID of the bundle task.
-    } deriving (Show, Generic)
 
-makeLenses ''CancelBundleTask
+makeSiglessLenses ''CancelBundleTask
 
 instance ToQuery CancelBundleTask where
     toQuery = genericQuery def
@@ -61,7 +73,7 @@ data CancelBundleTaskResponse = CancelBundleTaskResponse
       -- ^ The bundle task.
     } deriving (Show, Generic)
 
-makeLenses ''CancelBundleTaskResponse
+makeSiglessLenses ''CancelBundleTaskResponse
 
 instance FromXML CancelBundleTaskResponse where
     fromXMLOptions = xmlOptions
@@ -72,3 +84,9 @@ instance AWSRequest CancelBundleTask where
 
     request = post "CancelBundleTask"
     response _ = xmlResponse
+
+-- | The ID of the bundle task.
+cbtrBundleId :: Lens' CancelBundleTask (Text)
+
+-- | The bundle task.
+cbtsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)

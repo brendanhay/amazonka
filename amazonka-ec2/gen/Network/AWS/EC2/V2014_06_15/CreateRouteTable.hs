@@ -28,25 +28,37 @@
 -- https://ec2.amazonaws.com/?Action=CreateRouteTable &amp;VpcId=vpc-11ad4878
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE rtb-f9ad4890
 -- vpc-11ad4878 10.0.0.0/22 local active.
-module Network.AWS.EC2.V2014_06_15.CreateRouteTable where
+module Network.AWS.EC2.V2014_06_15.CreateRouteTable
+    (
+    -- * Request
+      CreateRouteTable
+    -- ** Default constructor
+    , createRouteTable
+    -- ** Accessors and lenses
+    , _crtrVpcId
+    , crtrVpcId
+
+    -- * Response
+    , CreateRouteTableResponse
+    -- ** Accessors and lenses
+    , _crtsRouteTable
+    , crtsRouteTable
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateRouteTable' request.
-createRouteTable :: Text -- ^ '_crtrVpcId'
+createRouteTable :: Text -- ^ 'crtrVpcId'
                  -> CreateRouteTable
 createRouteTable p1 = CreateRouteTable
     { _crtrVpcId = p1
     }
 
 data CreateRouteTable = CreateRouteTable
-    { _crtrVpcId :: Text
-      -- ^ The ID of the VPC.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateRouteTable
+makeSiglessLenses ''CreateRouteTable
 
 instance ToQuery CreateRouteTable where
     toQuery = genericQuery def
@@ -56,7 +68,7 @@ data CreateRouteTableResponse = CreateRouteTableResponse
       -- ^ Information about the route table.
     } deriving (Show, Generic)
 
-makeLenses ''CreateRouteTableResponse
+makeSiglessLenses ''CreateRouteTableResponse
 
 instance FromXML CreateRouteTableResponse where
     fromXMLOptions = xmlOptions
@@ -67,3 +79,9 @@ instance AWSRequest CreateRouteTable where
 
     request = post "CreateRouteTable"
     response _ = xmlResponse
+
+-- | The ID of the VPC.
+crtrVpcId :: Lens' CreateRouteTable (Text)
+
+-- | Information about the route table.
+crtsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)

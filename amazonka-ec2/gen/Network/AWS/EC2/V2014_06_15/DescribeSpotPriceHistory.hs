@@ -44,7 +44,38 @@
 -- &amp;Filter.1.Name=timestamp &amp;Filter.1.Value.1=2009-12-04*
 -- &amp;Filter.2.Name=availability-zone &amp;Filter.2.Value.1=us-east-1a
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeSpotPriceHistory where
+module Network.AWS.EC2.V2014_06_15.DescribeSpotPriceHistory
+    (
+    -- * Request
+      DescribeSpotPriceHistory
+    -- ** Default constructor
+    , describeSpotPriceHistory
+    -- ** Accessors and lenses
+    , _dsphrStartTime
+    , dsphrStartTime
+    , _dsphrEndTime
+    , dsphrEndTime
+    , _dsphrFilters
+    , dsphrFilters
+    , _dsphrInstanceTypes
+    , dsphrInstanceTypes
+    , _dsphrMaxResults
+    , dsphrMaxResults
+    , _dsphrProductDescriptions
+    , dsphrProductDescriptions
+    , _dsphrAvailabilityZone
+    , dsphrAvailabilityZone
+    , _dsphrNextToken
+    , dsphrNextToken
+
+    -- * Response
+    , DescribeSpotPriceHistoryResponse
+    -- ** Accessors and lenses
+    , _dsphsSpotPriceHistory
+    , dsphsSpotPriceHistory
+    , _dsphsNextToken
+    , dsphsNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -64,35 +95,8 @@ describeSpotPriceHistory = DescribeSpotPriceHistory
     }
 
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
-    { _dsphrStartTime :: Maybe ISO8601
-      -- ^ The start date and time of the Spot Price history data.
-    , _dsphrEndTime :: Maybe ISO8601
-      -- ^ The end date and time of the Spot Price history data.
-    , _dsphrFilters :: [Filter]
-      -- ^ One or more filters. availability-zone - The Availability Zone
-      -- for which prices should be returned. instance-type - The type of
-      -- instance (for example, m1.small). product-description - The
-      -- product description for the Spot Price (Linux/UNIX | SUSE Linux |
-      -- Windows | Linux/UNIX (Amazon VPC) | SUSE Linux (Amazon VPC) |
-      -- Windows (Amazon VPC)). spot-price - The Spot Price. The value
-      -- must match exactly (or use wildcards; greater than or less than
-      -- comparison is not supported). timestamp - The timestamp of the
-      -- Spot Price history (for example, 2010-08-16T05:06:11.000Z). You
-      -- can use wildcards (* and ?). Greater than or less than comparison
-      -- is not supported.
-    , _dsphrInstanceTypes :: [InstanceType]
-      -- ^ One or more instance types.
-    , _dsphrMaxResults :: Maybe Integer
-      -- ^ The number of rows to return.
-    , _dsphrProductDescriptions :: [Text]
-      -- ^ One or more basic product descriptions.
-    , _dsphrAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone.
-    , _dsphrNextToken :: Maybe Text
-      -- ^ The next set of rows to return.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeSpotPriceHistory
+makeSiglessLenses ''DescribeSpotPriceHistory
 
 instance ToQuery DescribeSpotPriceHistory where
     toQuery = genericQuery def
@@ -105,7 +109,7 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
       -- there are no more results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSpotPriceHistoryResponse
+makeSiglessLenses ''DescribeSpotPriceHistoryResponse
 
 instance FromXML DescribeSpotPriceHistoryResponse where
     fromXMLOptions = xmlOptions
@@ -120,3 +124,42 @@ instance AWSRequest DescribeSpotPriceHistory where
 instance AWSPager DescribeSpotPriceHistory where
     next rq rs = (\x -> rq { _dsphrNextToken = Just x })
         <$> (_dsphsNextToken rs)
+
+-- | The start date and time of the Spot Price history data.
+dsphrStartTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
+
+-- | The end date and time of the Spot Price history data.
+dsphrEndTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
+
+-- | One or more filters. availability-zone - The Availability Zone for which
+-- prices should be returned. instance-type - The type of instance (for
+-- example, m1.small). product-description - The product description for the
+-- Spot Price (Linux/UNIX | SUSE Linux | Windows | Linux/UNIX (Amazon VPC) |
+-- SUSE Linux (Amazon VPC) | Windows (Amazon VPC)). spot-price - The Spot
+-- Price. The value must match exactly (or use wildcards; greater than or less
+-- than comparison is not supported). timestamp - The timestamp of the Spot
+-- Price history (for example, 2010-08-16T05:06:11.000Z). You can use
+-- wildcards (* and ?). Greater than or less than comparison is not supported.
+dsphrFilters :: Lens' DescribeSpotPriceHistory ([Filter])
+
+-- | One or more instance types.
+dsphrInstanceTypes :: Lens' DescribeSpotPriceHistory ([InstanceType])
+
+-- | The number of rows to return.
+dsphrMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Integer)
+
+-- | One or more basic product descriptions.
+dsphrProductDescriptions :: Lens' DescribeSpotPriceHistory ([Text])
+
+-- | The Availability Zone.
+dsphrAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
+
+-- | The next set of rows to return.
+dsphrNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
+
+-- | The historical Spot Prices.
+dsphsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse ([SpotPrice])
+
+-- | The string marking the next set of results. This is empty if there are no
+-- more results.
+dsphsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)

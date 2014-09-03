@@ -32,15 +32,32 @@
 -- https://ec2.amazonaws.com/?Action=ReplaceRouteTableAssociation
 -- &amp;AssociationId=rtbassoc-f8ad4891 &amp;RouteTableId=rtb-f9ad4890
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE rtbassoc-faad4893.
-module Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation where
+module Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation
+    (
+    -- * Request
+      ReplaceRouteTableAssociation
+    -- ** Default constructor
+    , replaceRouteTableAssociation
+    -- ** Accessors and lenses
+    , _rrtarAssociationId
+    , rrtarAssociationId
+    , _rrtarRouteTableId
+    , rrtarRouteTableId
+
+    -- * Response
+    , ReplaceRouteTableAssociationResponse
+    -- ** Accessors and lenses
+    , _rrtasNewAssociationId
+    , rrtasNewAssociationId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ReplaceRouteTableAssociation' request.
-replaceRouteTableAssociation :: Text -- ^ '_rrtarAssociationId'
-                             -> Text -- ^ '_rrtarRouteTableId'
+replaceRouteTableAssociation :: Text -- ^ 'rrtarAssociationId'
+                             -> Text -- ^ 'rrtarRouteTableId'
                              -> ReplaceRouteTableAssociation
 replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     { _rrtarAssociationId = p1
@@ -48,13 +65,8 @@ replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     }
 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
-    { _rrtarAssociationId :: Text
-      -- ^ The association ID.
-    , _rrtarRouteTableId :: Text
-      -- ^ The ID of the new route table to associate with the subnet.
-    } deriving (Show, Generic)
 
-makeLenses ''ReplaceRouteTableAssociation
+makeSiglessLenses ''ReplaceRouteTableAssociation
 
 instance ToQuery ReplaceRouteTableAssociation where
     toQuery = genericQuery def
@@ -64,7 +76,7 @@ data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
       -- ^ The ID of the new association.
     } deriving (Show, Generic)
 
-makeLenses ''ReplaceRouteTableAssociationResponse
+makeSiglessLenses ''ReplaceRouteTableAssociationResponse
 
 instance FromXML ReplaceRouteTableAssociationResponse where
     fromXMLOptions = xmlOptions
@@ -75,3 +87,12 @@ instance AWSRequest ReplaceRouteTableAssociation where
 
     request = post "ReplaceRouteTableAssociation"
     response _ = xmlResponse
+
+-- | The association ID.
+rrtarAssociationId :: Lens' ReplaceRouteTableAssociation (Text)
+
+-- | The ID of the new route table to associate with the subnet.
+rrtarRouteTableId :: Lens' ReplaceRouteTableAssociation (Text)
+
+-- | The ID of the new association.
+rrtasNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)

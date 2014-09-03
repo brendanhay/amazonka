@@ -51,7 +51,26 @@
 -- a peering connection between your VPCs vpc-1a2b3c4d and vpc-11122233.
 -- https://ec2.amazonaws.com/?Action=CreateVpcPeeringConnection
 -- &amp;VpcId=vpc-1a2b3c4d &amp;PeerVpcId=vpc-11122233 &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection where
+module Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection
+    (
+    -- * Request
+      CreateVpcPeeringConnection
+    -- ** Default constructor
+    , createVpcPeeringConnection
+    -- ** Accessors and lenses
+    , _cvpcrVpcId
+    , cvpcrVpcId
+    , _cvpcrPeerVpcId
+    , cvpcrPeerVpcId
+    , _cvpcrPeerOwnerId
+    , cvpcrPeerOwnerId
+
+    -- * Response
+    , CreateVpcPeeringConnectionResponse
+    -- ** Accessors and lenses
+    , _cvpcsVpcPeeringConnection
+    , cvpcsVpcPeeringConnection
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -66,17 +85,8 @@ createVpcPeeringConnection = CreateVpcPeeringConnection
     }
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
-    { _cvpcrVpcId :: Maybe Text
-      -- ^ The ID of the requester VPC.
-    , _cvpcrPeerVpcId :: Maybe Text
-      -- ^ The ID of the VPC with which you are creating the VPC peering
-      -- connection.
-    , _cvpcrPeerOwnerId :: Maybe Text
-      -- ^ The AWS account ID of the owner of the peer VPC. Default: Your
-      -- AWS account ID.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateVpcPeeringConnection
+makeSiglessLenses ''CreateVpcPeeringConnection
 
 instance ToQuery CreateVpcPeeringConnection where
     toQuery = genericQuery def
@@ -86,7 +96,7 @@ data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
       -- ^ Information about the VPC peering connection.
     } deriving (Show, Generic)
 
-makeLenses ''CreateVpcPeeringConnectionResponse
+makeSiglessLenses ''CreateVpcPeeringConnectionResponse
 
 instance FromXML CreateVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -97,3 +107,16 @@ instance AWSRequest CreateVpcPeeringConnection where
 
     request = post "CreateVpcPeeringConnection"
     response _ = xmlResponse
+
+-- | The ID of the requester VPC.
+cvpcrVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
+
+-- | The ID of the VPC with which you are creating the VPC peering connection.
+cvpcrPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
+
+-- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account
+-- ID.
+cvpcrPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
+
+-- | Information about the VPC peering connection.
+cvpcsVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)

@@ -46,14 +46,36 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifySnapshotAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ModifySnapshotAttribute where
+module Network.AWS.EC2.V2014_06_15.ModifySnapshotAttribute
+    (
+    -- * Request
+      ModifySnapshotAttribute
+    -- ** Default constructor
+    , modifySnapshotAttribute
+    -- ** Accessors and lenses
+    , _msarSnapshotId
+    , msarSnapshotId
+    , _msarCreateVolumePermission
+    , msarCreateVolumePermission
+    , _msarGroupNames
+    , msarGroupNames
+    , _msarAttribute
+    , msarAttribute
+    , _msarUserIds
+    , msarUserIds
+    , _msarOperationType
+    , msarOperationType
+
+    -- * Response
+    , ModifySnapshotAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifySnapshotAttribute' request.
-modifySnapshotAttribute :: Text -- ^ '_msarSnapshotId'
+modifySnapshotAttribute :: Text -- ^ 'msarSnapshotId'
                         -> ModifySnapshotAttribute
 modifySnapshotAttribute p1 = ModifySnapshotAttribute
     { _msarSnapshotId = p1
@@ -65,21 +87,8 @@ modifySnapshotAttribute p1 = ModifySnapshotAttribute
     }
 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
-    { _msarSnapshotId :: Text
-      -- ^ The ID of the snapshot.
-    , _msarCreateVolumePermission :: Maybe CreateVolumePermissionModifications
-      -- ^ A JSON representation of the snapshot attribute modification.
-    , _msarGroupNames :: [Text]
-      -- ^ The group to modify for the snapshot.
-    , _msarAttribute :: Maybe SnapshotAttributeName
-      -- ^ The snapshot attribute to modify.
-    , _msarUserIds :: [Text]
-      -- ^ The account ID to modify for the snapshot.
-    , _msarOperationType :: Maybe Text
-      -- ^ The type of operation to perform to the attribute.
-    } deriving (Show, Generic)
 
-makeLenses ''ModifySnapshotAttribute
+makeSiglessLenses ''ModifySnapshotAttribute
 
 instance ToQuery ModifySnapshotAttribute where
     toQuery = genericQuery def
@@ -87,7 +96,7 @@ instance ToQuery ModifySnapshotAttribute where
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ModifySnapshotAttributeResponse
+makeSiglessLenses ''ModifySnapshotAttributeResponse
 
 instance AWSRequest ModifySnapshotAttribute where
     type Sv ModifySnapshotAttribute = EC2
@@ -95,3 +104,21 @@ instance AWSRequest ModifySnapshotAttribute where
 
     request = post "ModifySnapshotAttribute"
     response _ = nullaryResponse ModifySnapshotAttributeResponse
+
+-- | The ID of the snapshot.
+msarSnapshotId :: Lens' ModifySnapshotAttribute (Text)
+
+-- | A JSON representation of the snapshot attribute modification.
+msarCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
+
+-- | The group to modify for the snapshot.
+msarGroupNames :: Lens' ModifySnapshotAttribute ([Text])
+
+-- | The snapshot attribute to modify.
+msarAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
+
+-- | The account ID to modify for the snapshot.
+msarUserIds :: Lens' ModifySnapshotAttribute ([Text])
+
+-- | The type of operation to perform to the attribute.
+msarOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)

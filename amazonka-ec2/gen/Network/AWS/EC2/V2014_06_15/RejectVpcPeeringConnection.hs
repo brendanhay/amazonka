@@ -29,25 +29,37 @@
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/RejectVpcPeeringConnectionResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection where
+module Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection
+    (
+    -- * Request
+      RejectVpcPeeringConnection
+    -- ** Default constructor
+    , rejectVpcPeeringConnection
+    -- ** Accessors and lenses
+    , _rvpcrVpcPeeringConnectionId
+    , rvpcrVpcPeeringConnectionId
+
+    -- * Response
+    , RejectVpcPeeringConnectionResponse
+    -- ** Accessors and lenses
+    , _rvpcsReturn
+    , rvpcsReturn
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RejectVpcPeeringConnection' request.
-rejectVpcPeeringConnection :: Text -- ^ '_rvpcrVpcPeeringConnectionId'
+rejectVpcPeeringConnection :: Text -- ^ 'rvpcrVpcPeeringConnectionId'
                            -> RejectVpcPeeringConnection
 rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
     { _rvpcrVpcPeeringConnectionId = p1
     }
 
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
-    { _rvpcrVpcPeeringConnectionId :: Text
-      -- ^ The ID of the VPC peering connection.
-    } deriving (Show, Generic)
 
-makeLenses ''RejectVpcPeeringConnection
+makeSiglessLenses ''RejectVpcPeeringConnection
 
 instance ToQuery RejectVpcPeeringConnection where
     toQuery = genericQuery def
@@ -58,7 +70,7 @@ data RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
       -- error.
     } deriving (Show, Generic)
 
-makeLenses ''RejectVpcPeeringConnectionResponse
+makeSiglessLenses ''RejectVpcPeeringConnectionResponse
 
 instance FromXML RejectVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -69,3 +81,9 @@ instance AWSRequest RejectVpcPeeringConnection where
 
     request = post "RejectVpcPeeringConnection"
     response _ = xmlResponse
+
+-- | The ID of the VPC peering connection.
+rvpcrVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection (Text)
+
+-- | Returns true if the request succeeds; otherwise, it returns an error.
+rvpcsReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)

@@ -44,25 +44,37 @@
 -- &lt;/currentState&gt; &lt;previousState&gt; &lt;code&gt;16&lt;/code&gt;
 -- &lt;name&gt;running&lt;/name&gt; &lt;/previousState&gt; &lt;/item&gt;
 -- &lt;/instancesSet&gt; &lt;/TerminateInstancesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.TerminateInstances where
+module Network.AWS.EC2.V2014_06_15.TerminateInstances
+    (
+    -- * Request
+      TerminateInstances
+    -- ** Default constructor
+    , terminateInstances
+    -- ** Accessors and lenses
+    , _tirInstanceIds
+    , tirInstanceIds
+
+    -- * Response
+    , TerminateInstancesResponse
+    -- ** Accessors and lenses
+    , _tisTerminatingInstances
+    , tisTerminatingInstances
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'TerminateInstances' request.
-terminateInstances :: [Text] -- ^ '_tirInstanceIds'
+terminateInstances :: [Text] -- ^ 'tirInstanceIds'
                    -> TerminateInstances
 terminateInstances p1 = TerminateInstances
     { _tirInstanceIds = p1
     }
 
 data TerminateInstances = TerminateInstances
-    { _tirInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
-    } deriving (Show, Generic)
 
-makeLenses ''TerminateInstances
+makeSiglessLenses ''TerminateInstances
 
 instance ToQuery TerminateInstances where
     toQuery = genericQuery def
@@ -72,7 +84,7 @@ data TerminateInstancesResponse = TerminateInstancesResponse
       -- ^ Information about one or more terminated instances.
     } deriving (Show, Generic)
 
-makeLenses ''TerminateInstancesResponse
+makeSiglessLenses ''TerminateInstancesResponse
 
 instance FromXML TerminateInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -83,3 +95,9 @@ instance AWSRequest TerminateInstances where
 
     request = post "TerminateInstances"
     response _ = xmlResponse
+
+-- | One or more instance IDs.
+tirInstanceIds :: Lens' TerminateInstances ([Text])
+
+-- | Information about one or more terminated instances.
+tisTerminatingInstances :: Lens' TerminateInstancesResponse ([InstanceStateChange])

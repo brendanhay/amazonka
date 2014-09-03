@@ -26,15 +26,36 @@
 -- https://ec2.amazonaws.com/?Action=DescribeSnapshotAttribute
 -- &amp;SnapshotId=snap-1a2b3c4d &amp;Attribute=createVolumePermission
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE snap-1a2b3c4d all.
-module Network.AWS.EC2.V2014_06_15.DescribeSnapshotAttribute where
+module Network.AWS.EC2.V2014_06_15.DescribeSnapshotAttribute
+    (
+    -- * Request
+      DescribeSnapshotAttribute
+    -- ** Default constructor
+    , describeSnapshotAttribute
+    -- ** Accessors and lenses
+    , _dsarAttribute
+    , dsarAttribute
+    , _dsarSnapshotId
+    , dsarSnapshotId
+
+    -- * Response
+    , DescribeSnapshotAttributeResponse
+    -- ** Accessors and lenses
+    , _dsasCreateVolumePermissions
+    , dsasCreateVolumePermissions
+    , _dsasProductCodes
+    , dsasProductCodes
+    , _dsasSnapshotId
+    , dsasSnapshotId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeSnapshotAttribute' request.
-describeSnapshotAttribute :: SnapshotAttributeName -- ^ '_dsarAttribute'
-                          -> Text -- ^ '_dsarSnapshotId'
+describeSnapshotAttribute :: SnapshotAttributeName -- ^ 'dsarAttribute'
+                          -> Text -- ^ 'dsarSnapshotId'
                           -> DescribeSnapshotAttribute
 describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     { _dsarAttribute = p1
@@ -42,13 +63,8 @@ describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     }
 
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
-    { _dsarAttribute :: SnapshotAttributeName
-      -- ^ The snapshot attribute you would like to view.
-    , _dsarSnapshotId :: Text
-      -- ^ The ID of the Amazon EBS snapshot.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeSnapshotAttribute
+makeSiglessLenses ''DescribeSnapshotAttribute
 
 instance ToQuery DescribeSnapshotAttribute where
     toQuery = genericQuery def
@@ -62,7 +78,7 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
       -- ^ The ID of the Amazon EBS snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSnapshotAttributeResponse
+makeSiglessLenses ''DescribeSnapshotAttributeResponse
 
 instance FromXML DescribeSnapshotAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -73,3 +89,18 @@ instance AWSRequest DescribeSnapshotAttribute where
 
     request = post "DescribeSnapshotAttribute"
     response _ = xmlResponse
+
+-- | The snapshot attribute you would like to view.
+dsarAttribute :: Lens' DescribeSnapshotAttribute (SnapshotAttributeName)
+
+-- | The ID of the Amazon EBS snapshot.
+dsarSnapshotId :: Lens' DescribeSnapshotAttribute (Text)
+
+-- | A list of permissions for creating volumes from the snapshot.
+dsasCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse ([CreateVolumePermission])
+
+-- | A list of product codes.
+dsasProductCodes :: Lens' DescribeSnapshotAttributeResponse ([ProductCode])
+
+-- | The ID of the Amazon EBS snapshot.
+dsasSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)

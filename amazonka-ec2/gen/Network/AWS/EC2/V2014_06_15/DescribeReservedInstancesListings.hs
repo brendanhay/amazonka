@@ -29,7 +29,26 @@
 -- 20 Sold 0 Cancelled 0 Pending 0 8 480.0 USD false 7 420.0 USD false 6 360.0
 -- USD active 5 300.0 USD false 4 240.0 USD false 3 180.0 USD false 2 120.0
 -- USD false 1 60.0 USD false myclienttoken1.
-module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings where
+module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings
+    (
+    -- * Request
+      DescribeReservedInstancesListings
+    -- ** Default constructor
+    , describeReservedInstancesListings
+    -- ** Accessors and lenses
+    , _drilrFilters
+    , drilrFilters
+    , _drilrReservedInstancesId
+    , drilrReservedInstancesId
+    , _drilrReservedInstancesListingId
+    , drilrReservedInstancesListingId
+
+    -- * Response
+    , DescribeReservedInstancesListingsResponse
+    -- ** Accessors and lenses
+    , _drilsReservedInstancesListings
+    , drilsReservedInstancesListings
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -44,19 +63,8 @@ describeReservedInstancesListings = DescribeReservedInstancesListings
     }
 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
-    { _drilrFilters :: [Filter]
-      -- ^ One or more filters. reserved-instances-id - The ID of the
-      -- Reserved Instances. reserved-instances-listing-id - The ID of the
-      -- Reserved Instances listing. status - The status of the Reserved
-      -- Instance listing (pending | active | cancelled | closed).
-      -- status-message - The reason for the status.
-    , _drilrReservedInstancesId :: Maybe Text
-      -- ^ One or more Reserved Instance IDs.
-    , _drilrReservedInstancesListingId :: Maybe Text
-      -- ^ One or more Reserved Instance Listing IDs.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeReservedInstancesListings
+makeSiglessLenses ''DescribeReservedInstancesListings
 
 instance ToQuery DescribeReservedInstancesListings where
     toQuery = genericQuery def
@@ -66,7 +74,7 @@ data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListin
       -- ^ Information about the Reserved Instance listing.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeReservedInstancesListingsResponse
+makeSiglessLenses ''DescribeReservedInstancesListingsResponse
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     fromXMLOptions = xmlOptions
@@ -77,3 +85,18 @@ instance AWSRequest DescribeReservedInstancesListings where
 
     request = post "DescribeReservedInstancesListings"
     response _ = xmlResponse
+
+-- | One or more filters. reserved-instances-id - The ID of the Reserved
+-- Instances. reserved-instances-listing-id - The ID of the Reserved Instances
+-- listing. status - The status of the Reserved Instance listing (pending |
+-- active | cancelled | closed). status-message - The reason for the status.
+drilrFilters :: Lens' DescribeReservedInstancesListings ([Filter])
+
+-- | One or more Reserved Instance IDs.
+drilrReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
+
+-- | One or more Reserved Instance Listing IDs.
+drilrReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
+
+-- | Information about the Reserved Instance listing.
+drilsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse ([ReservedInstancesListing])

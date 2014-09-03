@@ -35,25 +35,41 @@
 -- 15:00:00&lt;/timestamp&gt;
 -- &lt;passwordData&gt;TGludXggdmVyc2lvbiAyLjYuMTYteGVuVSAoYnVpbGRlckBwYXRjaGJhdC5hbWF6b25zYSkgKGdj&lt;/passwordData&gt;
 -- &lt;/GetPasswordDataResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.GetPasswordData where
+module Network.AWS.EC2.V2014_06_15.GetPasswordData
+    (
+    -- * Request
+      GetPasswordData
+    -- ** Default constructor
+    , getPasswordData
+    -- ** Accessors and lenses
+    , _gpdrInstanceId
+    , gpdrInstanceId
+
+    -- * Response
+    , GetPasswordDataResponse
+    -- ** Accessors and lenses
+    , _gpdsTimestamp
+    , gpdsTimestamp
+    , _gpdsInstanceId
+    , gpdsInstanceId
+    , _gpdsPasswordData
+    , gpdsPasswordData
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'GetPasswordData' request.
-getPasswordData :: Text -- ^ '_gpdrInstanceId'
+getPasswordData :: Text -- ^ 'gpdrInstanceId'
                 -> GetPasswordData
 getPasswordData p1 = GetPasswordData
     { _gpdrInstanceId = p1
     }
 
 data GetPasswordData = GetPasswordData
-    { _gpdrInstanceId :: Text
-      -- ^ The ID of the Windows instance.
-    } deriving (Show, Generic)
 
-makeLenses ''GetPasswordData
+makeSiglessLenses ''GetPasswordData
 
 instance ToQuery GetPasswordData where
     toQuery = genericQuery def
@@ -67,7 +83,7 @@ data GetPasswordDataResponse = GetPasswordDataResponse
       -- ^ The password of the instance.
     } deriving (Show, Generic)
 
-makeLenses ''GetPasswordDataResponse
+makeSiglessLenses ''GetPasswordDataResponse
 
 instance FromXML GetPasswordDataResponse where
     fromXMLOptions = xmlOptions
@@ -78,3 +94,15 @@ instance AWSRequest GetPasswordData where
 
     request = post "GetPasswordData"
     response _ = xmlResponse
+
+-- | The ID of the Windows instance.
+gpdrInstanceId :: Lens' GetPasswordData (Text)
+
+-- | The time the data was last updated.
+gpdsTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
+
+-- | The ID of the Windows instance.
+gpdsInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
+
+-- | The password of the instance.
+gpdsPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)

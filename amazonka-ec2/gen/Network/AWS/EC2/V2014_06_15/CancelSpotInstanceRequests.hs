@@ -36,25 +36,37 @@
 -- &lt;state&gt;cancelled&lt;/state&gt; &lt;/item&gt;
 -- &lt;/spotInstanceRequestSet&gt;
 -- &lt;/CancelSpotInstanceRequestsResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests where
+module Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests
+    (
+    -- * Request
+      CancelSpotInstanceRequests
+    -- ** Default constructor
+    , cancelSpotInstanceRequests
+    -- ** Accessors and lenses
+    , _csirrSpotInstanceRequestIds
+    , csirrSpotInstanceRequestIds
+
+    -- * Response
+    , CancelSpotInstanceRequestsResponse
+    -- ** Accessors and lenses
+    , _csirsCancelledSpotInstanceRequests
+    , csirsCancelledSpotInstanceRequests
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CancelSpotInstanceRequests' request.
-cancelSpotInstanceRequests :: [Text] -- ^ '_csirrSpotInstanceRequestIds'
+cancelSpotInstanceRequests :: [Text] -- ^ 'csirrSpotInstanceRequestIds'
                            -> CancelSpotInstanceRequests
 cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
     { _csirrSpotInstanceRequestIds = p1
     }
 
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
-    { _csirrSpotInstanceRequestIds :: [Text]
-      -- ^ One or more Spot Instance request IDs.
-    } deriving (Show, Generic)
 
-makeLenses ''CancelSpotInstanceRequests
+makeSiglessLenses ''CancelSpotInstanceRequests
 
 instance ToQuery CancelSpotInstanceRequests where
     toQuery = genericQuery def
@@ -64,7 +76,7 @@ data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
       -- ^ One or more Spot Instance requests.
     } deriving (Show, Generic)
 
-makeLenses ''CancelSpotInstanceRequestsResponse
+makeSiglessLenses ''CancelSpotInstanceRequestsResponse
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions
@@ -75,3 +87,9 @@ instance AWSRequest CancelSpotInstanceRequests where
 
     request = post "CancelSpotInstanceRequests"
     response _ = xmlResponse
+
+-- | One or more Spot Instance request IDs.
+csirrSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests ([Text])
+
+-- | One or more Spot Instance requests.
+csirsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse ([CancelledSpotInstanceRequest])

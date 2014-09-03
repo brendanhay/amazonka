@@ -42,14 +42,31 @@
 -- &lt;/currentState&gt; &lt;previousState&gt; &lt;code&gt;80&lt;/code&gt;
 -- &lt;name&gt;stopped&lt;/name&gt; &lt;/previousState&gt; &lt;/item&gt;
 -- &lt;/instancesSet&gt; &lt;/StartInstancesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.StartInstances where
+module Network.AWS.EC2.V2014_06_15.StartInstances
+    (
+    -- * Request
+      StartInstances
+    -- ** Default constructor
+    , startInstances
+    -- ** Accessors and lenses
+    , _sistInstanceIds
+    , sistInstanceIds
+    , _sistAdditionalInfo
+    , sistAdditionalInfo
+
+    -- * Response
+    , StartInstancesResponse
+    -- ** Accessors and lenses
+    , _sisuStartingInstances
+    , sisuStartingInstances
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'StartInstances' request.
-startInstances :: [Text] -- ^ '_sistInstanceIds'
+startInstances :: [Text] -- ^ 'sistInstanceIds'
                -> StartInstances
 startInstances p1 = StartInstances
     { _sistInstanceIds = p1
@@ -57,13 +74,8 @@ startInstances p1 = StartInstances
     }
 
 data StartInstances = StartInstances
-    { _sistInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
-    , _sistAdditionalInfo :: Maybe Text
-      -- ^ Reserved.
-    } deriving (Show, Generic)
 
-makeLenses ''StartInstances
+makeSiglessLenses ''StartInstances
 
 instance ToQuery StartInstances where
     toQuery = genericQuery def
@@ -73,7 +85,7 @@ data StartInstancesResponse = StartInstancesResponse
       -- ^ Information about one or more started instances.
     } deriving (Show, Generic)
 
-makeLenses ''StartInstancesResponse
+makeSiglessLenses ''StartInstancesResponse
 
 instance FromXML StartInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -84,3 +96,12 @@ instance AWSRequest StartInstances where
 
     request = post "StartInstances"
     response _ = xmlResponse
+
+-- | One or more instance IDs.
+sistInstanceIds :: Lens' StartInstances ([Text])
+
+-- | Reserved.
+sistAdditionalInfo :: Lens' StartInstances (Maybe Text)
+
+-- | Information about one or more started instances.
+sisuStartingInstances :: Lens' StartInstancesResponse ([InstanceStateChange])

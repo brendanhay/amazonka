@@ -26,25 +26,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-02-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeregisterImageResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeregisterImage where
+module Network.AWS.EC2.V2014_06_15.DeregisterImage
+    (
+    -- * Request
+      DeregisterImage
+    -- ** Default constructor
+    , deregisterImage
+    -- ** Accessors and lenses
+    , _dirImageId
+    , dirImageId
+
+    -- * Response
+    , DeregisterImageResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeregisterImage' request.
-deregisterImage :: Text -- ^ '_dirImageId'
+deregisterImage :: Text -- ^ 'dirImageId'
                 -> DeregisterImage
 deregisterImage p1 = DeregisterImage
     { _dirImageId = p1
     }
 
 data DeregisterImage = DeregisterImage
-    { _dirImageId :: Text
-      -- ^ The ID of the AMI.
-    } deriving (Show, Generic)
 
-makeLenses ''DeregisterImage
+makeSiglessLenses ''DeregisterImage
 
 instance ToQuery DeregisterImage where
     toQuery = genericQuery def
@@ -52,7 +61,7 @@ instance ToQuery DeregisterImage where
 data DeregisterImageResponse = DeregisterImageResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeregisterImageResponse
+makeSiglessLenses ''DeregisterImageResponse
 
 instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2
@@ -60,3 +69,6 @@ instance AWSRequest DeregisterImage where
 
     request = post "DeregisterImage"
     response _ = nullaryResponse DeregisterImageResponse
+
+-- | The ID of the AMI.
+dirImageId :: Lens' DeregisterImage (Text)

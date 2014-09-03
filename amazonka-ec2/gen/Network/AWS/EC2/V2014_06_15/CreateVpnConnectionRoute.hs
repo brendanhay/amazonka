@@ -34,15 +34,29 @@
 -- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/CreateVpnConnectionRouteResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute where
+module Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute
+    (
+    -- * Request
+      CreateVpnConnectionRoute
+    -- ** Default constructor
+    , createVpnConnectionRoute
+    -- ** Accessors and lenses
+    , _cvcrrVpnConnectionId
+    , cvcrrVpnConnectionId
+    , _cvcrrDestinationCidrBlock
+    , cvcrrDestinationCidrBlock
+
+    -- * Response
+    , CreateVpnConnectionRouteResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateVpnConnectionRoute' request.
-createVpnConnectionRoute :: Text -- ^ '_cvcrrVpnConnectionId'
-                         -> Text -- ^ '_cvcrrDestinationCidrBlock'
+createVpnConnectionRoute :: Text -- ^ 'cvcrrVpnConnectionId'
+                         -> Text -- ^ 'cvcrrDestinationCidrBlock'
                          -> CreateVpnConnectionRoute
 createVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
     { _cvcrrVpnConnectionId = p1
@@ -50,14 +64,8 @@ createVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
     }
 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
-    { _cvcrrVpnConnectionId :: Text
-      -- ^ The ID of the VPN connection.
-    , _cvcrrDestinationCidrBlock :: Text
-      -- ^ The CIDR block associated with the local subnet of the customer
-      -- network.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateVpnConnectionRoute
+makeSiglessLenses ''CreateVpnConnectionRoute
 
 instance ToQuery CreateVpnConnectionRoute where
     toQuery = genericQuery def
@@ -65,7 +73,7 @@ instance ToQuery CreateVpnConnectionRoute where
 data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''CreateVpnConnectionRouteResponse
+makeSiglessLenses ''CreateVpnConnectionRouteResponse
 
 instance AWSRequest CreateVpnConnectionRoute where
     type Sv CreateVpnConnectionRoute = EC2
@@ -73,3 +81,9 @@ instance AWSRequest CreateVpnConnectionRoute where
 
     request = post "CreateVpnConnectionRoute"
     response _ = nullaryResponse CreateVpnConnectionRouteResponse
+
+-- | The ID of the VPN connection.
+cvcrrVpnConnectionId :: Lens' CreateVpnConnectionRoute (Text)
+
+-- | The CIDR block associated with the local subnet of the customer network.
+cvcrrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute (Text)

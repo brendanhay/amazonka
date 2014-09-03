@@ -43,7 +43,24 @@
 -- https://ec2.amazonaws.com/?Action=DescribeDhcpOptions
 -- &amp;Filter.1.Name=key &amp;Filter.1.Value.1=domain-name
 -- &amp;Filter.2.Name=value &amp;Filter.2.Value.1=*example* &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions where
+module Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions
+    (
+    -- * Request
+      DescribeDhcpOptions
+    -- ** Default constructor
+    , describeDhcpOptions
+    -- ** Accessors and lenses
+    , _ddosDhcpOptionsIds
+    , ddosDhcpOptionsIds
+    , _ddosFilters
+    , ddosFilters
+
+    -- * Response
+    , DescribeDhcpOptionsResponse
+    -- ** Accessors and lenses
+    , _ddotDhcpOptions
+    , ddotDhcpOptions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -57,26 +74,8 @@ describeDhcpOptions = DescribeDhcpOptions
     }
 
 data DescribeDhcpOptions = DescribeDhcpOptions
-    { _ddosDhcpOptionsIds :: [Text]
-      -- ^ The IDs of one or more DHCP options sets. Default: Describes all
-      -- your DHCP options sets.
-    , _ddosFilters :: [Filter]
-      -- ^ One or more filters. dhcp-options-id - The ID of a set of DHCP
-      -- options. key - The key for one of the options (for example,
-      -- domain-name). value - The value for one of the options.
-      -- tag:key=value - The key/value combination of a tag assigned to
-      -- the resource. tag-key - The key of a tag assigned to the
-      -- resource. This filter is independent of the tag-value filter. For
-      -- example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeDhcpOptions
+makeSiglessLenses ''DescribeDhcpOptions
 
 instance ToQuery DescribeDhcpOptions where
     toQuery = genericQuery def
@@ -86,7 +85,7 @@ data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
       -- ^ Information about one or more DHCP options sets.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDhcpOptionsResponse
+makeSiglessLenses ''DescribeDhcpOptionsResponse
 
 instance FromXML DescribeDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -97,3 +96,23 @@ instance AWSRequest DescribeDhcpOptions where
 
     request = post "DescribeDhcpOptions"
     response _ = xmlResponse
+
+-- | The IDs of one or more DHCP options sets. Default: Describes all your DHCP
+-- options sets.
+ddosDhcpOptionsIds :: Lens' DescribeDhcpOptions ([Text])
+
+-- | One or more filters. dhcp-options-id - The ID of a set of DHCP options. key
+-- - The key for one of the options (for example, domain-name). value - The
+-- value for one of the options. tag:key=value - The key/value combination of
+-- a tag assigned to the resource. tag-key - The key of a tag assigned to the
+-- resource. This filter is independent of the tag-value filter. For example,
+-- if you use both the filter "tag-key=Purpose" and the filter "tag-value=X",
+-- you get any resources assigned both the tag key Purpose (regardless of what
+-- the tag's value is), and the tag value X (regardless of what the tag's key
+-- is). If you want to list only resources where Purpose is X, see the
+-- tag:key=value filter. tag-value - The value of a tag assigned to the
+-- resource. This filter is independent of the tag-key filter.
+ddosFilters :: Lens' DescribeDhcpOptions ([Filter])
+
+-- | Information about one or more DHCP options sets.
+ddotDhcpOptions :: Lens' DescribeDhcpOptionsResponse ([DhcpOptions])

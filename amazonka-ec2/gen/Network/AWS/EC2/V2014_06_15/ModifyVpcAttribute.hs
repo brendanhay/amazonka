@@ -23,14 +23,30 @@
 -- https://ec2.amazonaws.com/?Action=ModifyVpcAttribute
 -- &amp;VpcId=vpc-1a2b3c4d &amp;EnableDnsHostnames.Value=false
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.ModifyVpcAttribute where
+module Network.AWS.EC2.V2014_06_15.ModifyVpcAttribute
+    (
+    -- * Request
+      ModifyVpcAttribute
+    -- ** Default constructor
+    , modifyVpcAttribute
+    -- ** Accessors and lenses
+    , _mvasVpcId
+    , mvasVpcId
+    , _mvasEnableDnsSupport
+    , mvasEnableDnsSupport
+    , _mvasEnableDnsHostnames
+    , mvasEnableDnsHostnames
+
+    -- * Response
+    , ModifyVpcAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifyVpcAttribute' request.
-modifyVpcAttribute :: Text -- ^ '_mvasVpcId'
+modifyVpcAttribute :: Text -- ^ 'mvasVpcId'
                    -> ModifyVpcAttribute
 modifyVpcAttribute p1 = ModifyVpcAttribute
     { _mvasVpcId = p1
@@ -39,25 +55,8 @@ modifyVpcAttribute p1 = ModifyVpcAttribute
     }
 
 data ModifyVpcAttribute = ModifyVpcAttribute
-    { _mvasVpcId :: Text
-      -- ^ The ID of the VPC.
-    , _mvasEnableDnsSupport :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the DNS resolution is supported for the VPC. If
-      -- this attribute is false, the Amazon provided DNS service in the
-      -- VPC that resolves public DNS hostnames to IP addresses is not
-      -- enabled. If this attribute is true, queries to the Amazon
-      -- provided DNS server at the 169.254.169.253 IP address, or the
-      -- reserved IP address at the base of the VPC network range "plus
-      -- two" will succeed.
-    , _mvasEnableDnsHostnames :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the instances launched in the VPC get DNS
-      -- hostnames. If this attribute is true, instances in the VPC get
-      -- DNS hostnames; otherwise, they do not. You can only set
-      -- enableDnsHostnames to true if you also set the EnableDnsSupport
-      -- attribute to true.
-    } deriving (Show, Generic)
 
-makeLenses ''ModifyVpcAttribute
+makeSiglessLenses ''ModifyVpcAttribute
 
 instance ToQuery ModifyVpcAttribute where
     toQuery = genericQuery def
@@ -65,7 +64,7 @@ instance ToQuery ModifyVpcAttribute where
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ModifyVpcAttributeResponse
+makeSiglessLenses ''ModifyVpcAttributeResponse
 
 instance AWSRequest ModifyVpcAttribute where
     type Sv ModifyVpcAttribute = EC2
@@ -73,3 +72,20 @@ instance AWSRequest ModifyVpcAttribute where
 
     request = post "ModifyVpcAttribute"
     response _ = nullaryResponse ModifyVpcAttributeResponse
+
+-- | The ID of the VPC.
+mvasVpcId :: Lens' ModifyVpcAttribute (Text)
+
+-- | Indicates whether the DNS resolution is supported for the VPC. If this
+-- attribute is false, the Amazon provided DNS service in the VPC that
+-- resolves public DNS hostnames to IP addresses is not enabled. If this
+-- attribute is true, queries to the Amazon provided DNS server at the
+-- 169.254.169.253 IP address, or the reserved IP address at the base of the
+-- VPC network range "plus two" will succeed.
+mvasEnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
+
+-- | Indicates whether the instances launched in the VPC get DNS hostnames. If
+-- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
+-- they do not. You can only set enableDnsHostnames to true if you also set
+-- the EnableDnsSupport attribute to true.
+mvasEnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)

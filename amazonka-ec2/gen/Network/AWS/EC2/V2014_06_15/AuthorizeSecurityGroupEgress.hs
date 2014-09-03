@@ -55,14 +55,40 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/AuthorizeSecurityGroupEgressResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupEgress where
+module Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupEgress
+    (
+    -- * Request
+      AuthorizeSecurityGroupEgress
+    -- ** Default constructor
+    , authorizeSecurityGroupEgress
+    -- ** Accessors and lenses
+    , _asgerGroupId
+    , asgerGroupId
+    , _asgerFromPort
+    , asgerFromPort
+    , _asgerToPort
+    , asgerToPort
+    , _asgerIpPermissions
+    , asgerIpPermissions
+    , _asgerSourceSecurityGroupName
+    , asgerSourceSecurityGroupName
+    , _asgerSourceSecurityGroupOwnerId
+    , asgerSourceSecurityGroupOwnerId
+    , _asgerIpProtocol
+    , asgerIpProtocol
+    , _asgerCidrIp
+    , asgerCidrIp
+
+    -- * Response
+    , AuthorizeSecurityGroupEgressResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AuthorizeSecurityGroupEgress' request.
-authorizeSecurityGroupEgress :: Text -- ^ '_asgerGroupId'
+authorizeSecurityGroupEgress :: Text -- ^ 'asgerGroupId'
                              -> AuthorizeSecurityGroupEgress
 authorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
     { _asgerGroupId = p1
@@ -76,34 +102,8 @@ authorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
     }
 
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
-    { _asgerGroupId :: Text
-      -- ^ The ID of the security group.
-    , _asgerFromPort :: Maybe Integer
-      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
-      -- type number. For the ICMP type number, use -1 to specify all ICMP
-      -- types.
-    , _asgerToPort :: Maybe Integer
-      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
-      -- code number. For the ICMP code number, use -1 to specify all ICMP
-      -- codes for the ICMP type.
-    , _asgerIpPermissions :: [IpPermission]
-      -- ^ 
-    , _asgerSourceSecurityGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the source security group.
-      -- You can't specify a source security group and a CIDR IP address
-      -- range.
-    , _asgerSourceSecurityGroupOwnerId :: Maybe Text
-      -- ^ The ID of the source security group. You can't specify a source
-      -- security group and a CIDR IP address range.
-    , _asgerIpProtocol :: Maybe Text
-      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
-      -- Numbers). Use -1 to specify all.
-    , _asgerCidrIp :: Maybe Text
-      -- ^ The CIDR IP address range. You can't specify this parameter when
-      -- specifying a source security group.
-    } deriving (Show, Generic)
 
-makeLenses ''AuthorizeSecurityGroupEgress
+makeSiglessLenses ''AuthorizeSecurityGroupEgress
 
 instance ToQuery AuthorizeSecurityGroupEgress where
     toQuery = genericQuery def
@@ -111,7 +111,7 @@ instance ToQuery AuthorizeSecurityGroupEgress where
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''AuthorizeSecurityGroupEgressResponse
+makeSiglessLenses ''AuthorizeSecurityGroupEgressResponse
 
 instance AWSRequest AuthorizeSecurityGroupEgress where
     type Sv AuthorizeSecurityGroupEgress = EC2
@@ -119,3 +119,34 @@ instance AWSRequest AuthorizeSecurityGroupEgress where
 
     request = post "AuthorizeSecurityGroupEgress"
     response _ = nullaryResponse AuthorizeSecurityGroupEgressResponse
+
+-- | The ID of the security group.
+asgerGroupId :: Lens' AuthorizeSecurityGroupEgress (Text)
+
+-- | The start of port range for the TCP and UDP protocols, or an ICMP type
+-- number. For the ICMP type number, use -1 to specify all ICMP types.
+asgerFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Integer)
+
+-- | The end of port range for the TCP and UDP protocols, or an ICMP code
+-- number. For the ICMP code number, use -1 to specify all ICMP codes for the
+-- ICMP type.
+asgerToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Integer)
+
+-- | 
+asgerIpPermissions :: Lens' AuthorizeSecurityGroupEgress ([IpPermission])
+
+-- | [EC2-Classic, default VPC] The name of the source security group. You can't
+-- specify a source security group and a CIDR IP address range.
+asgerSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
+
+-- | The ID of the source security group. You can't specify a source security
+-- group and a CIDR IP address range.
+asgerSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
+
+-- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
+-- -1 to specify all.
+asgerIpProtocol :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
+
+-- | The CIDR IP address range. You can't specify this parameter when specifying
+-- a source security group.
+asgerCidrIp :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)

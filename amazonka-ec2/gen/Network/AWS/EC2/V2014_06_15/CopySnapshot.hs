@@ -34,15 +34,38 @@
 -- &lt;requestId&gt;60bc441d-fa2c-494d-b155-5d6a3EXAMPLE&lt;/requestId&gt;
 -- &lt;snapshotId&gt;snap-2a2b3c4d&lt;/snapshotId&gt;
 -- &lt;/CopySnapshotResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CopySnapshot where
+module Network.AWS.EC2.V2014_06_15.CopySnapshot
+    (
+    -- * Request
+      CopySnapshot
+    -- ** Default constructor
+    , copySnapshot
+    -- ** Accessors and lenses
+    , _csrSourceRegion
+    , csrSourceRegion
+    , _csrSourceSnapshotId
+    , csrSourceSnapshotId
+    , _csrDescription
+    , csrDescription
+    , _csrDestinationRegion
+    , csrDestinationRegion
+    , _csrPresignedUrl
+    , csrPresignedUrl
+
+    -- * Response
+    , CopySnapshotResponse
+    -- ** Accessors and lenses
+    , _cssSnapshotId
+    , cssSnapshotId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CopySnapshot' request.
-copySnapshot :: Text -- ^ '_csrSourceRegion'
-             -> Text -- ^ '_csrSourceSnapshotId'
+copySnapshot :: Text -- ^ 'csrSourceRegion'
+             -> Text -- ^ 'csrSourceSnapshotId'
              -> CopySnapshot
 copySnapshot p1 p2 = CopySnapshot
     { _csrSourceRegion = p1
@@ -53,33 +76,8 @@ copySnapshot p1 p2 = CopySnapshot
     }
 
 data CopySnapshot = CopySnapshot
-    { _csrSourceRegion :: Text
-      -- ^ The ID of the region that contains the snapshot to be copied.
-    , _csrSourceSnapshotId :: Text
-      -- ^ The ID of the Amazon EBS snapshot to copy.
-    , _csrDescription :: Maybe Text
-      -- ^ A description for the new Amazon EBS snapshot.
-    , _csrDestinationRegion :: Maybe Text
-      -- ^ The destination region of the snapshot copy operation. This
-      -- parameter is required in the PresignedUrl.
-    , _csrPresignedUrl :: Maybe Text
-      -- ^ The pre-signed URL that facilitates copying an encrypted
-      -- snapshot. This parameter is only required when copying an
-      -- encrypted snapshot with the Amazon EC2 Query API; it is available
-      -- as an optional parameter in all other cases. The PresignedUrl
-      -- should use the snapshot source endpoint, the CopySnapshot action,
-      -- and include the SourceRegion, SourceSnapshotId, and
-      -- DestinationRegion parameters. The PresignedUrl must be signed
-      -- using AWS Signature Version 4. Because Amazon EBS snapshots are
-      -- stored in Amazon S3, the signing algorithm for this parameter
-      -- uses the same logic that is described in Authenticating Requests
-      -- by Using Query Parameters (AWS Signature Version 4) in the Amazon
-      -- Simple Storage Service API Reference. An invalid or improperly
-      -- signed PresignedUrl will cause the copy operation to fail
-      -- asynchronously, and the snapshot will move to an error state.
-    } deriving (Show, Generic)
 
-makeLenses ''CopySnapshot
+makeSiglessLenses ''CopySnapshot
 
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
@@ -89,7 +87,7 @@ data CopySnapshotResponse = CopySnapshotResponse
       -- ^ The ID of the new snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''CopySnapshotResponse
+makeSiglessLenses ''CopySnapshotResponse
 
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions
@@ -100,3 +98,33 @@ instance AWSRequest CopySnapshot where
 
     request = post "CopySnapshot"
     response _ = xmlResponse
+
+-- | The ID of the region that contains the snapshot to be copied.
+csrSourceRegion :: Lens' CopySnapshot (Text)
+
+-- | The ID of the Amazon EBS snapshot to copy.
+csrSourceSnapshotId :: Lens' CopySnapshot (Text)
+
+-- | A description for the new Amazon EBS snapshot.
+csrDescription :: Lens' CopySnapshot (Maybe Text)
+
+-- | The destination region of the snapshot copy operation. This parameter is
+-- required in the PresignedUrl.
+csrDestinationRegion :: Lens' CopySnapshot (Maybe Text)
+
+-- | The pre-signed URL that facilitates copying an encrypted snapshot. This
+-- parameter is only required when copying an encrypted snapshot with the
+-- Amazon EC2 Query API; it is available as an optional parameter in all other
+-- cases. The PresignedUrl should use the snapshot source endpoint, the
+-- CopySnapshot action, and include the SourceRegion, SourceSnapshotId, and
+-- DestinationRegion parameters. The PresignedUrl must be signed using AWS
+-- Signature Version 4. Because Amazon EBS snapshots are stored in Amazon S3,
+-- the signing algorithm for this parameter uses the same logic that is
+-- described in Authenticating Requests by Using Query Parameters (AWS
+-- Signature Version 4) in the Amazon Simple Storage Service API Reference. An
+-- invalid or improperly signed PresignedUrl will cause the copy operation to
+-- fail asynchronously, and the snapshot will move to an error state.
+csrPresignedUrl :: Lens' CopySnapshot (Maybe Text)
+
+-- | The ID of the new snapshot.
+cssSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)

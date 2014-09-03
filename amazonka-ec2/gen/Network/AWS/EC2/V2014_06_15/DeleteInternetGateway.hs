@@ -27,25 +27,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteInternetGatewayResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteInternetGateway where
+module Network.AWS.EC2.V2014_06_15.DeleteInternetGateway
+    (
+    -- * Request
+      DeleteInternetGateway
+    -- ** Default constructor
+    , deleteInternetGateway
+    -- ** Accessors and lenses
+    , _digrInternetGatewayId
+    , digrInternetGatewayId
+
+    -- * Response
+    , DeleteInternetGatewayResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteInternetGateway' request.
-deleteInternetGateway :: Text -- ^ '_digrInternetGatewayId'
+deleteInternetGateway :: Text -- ^ 'digrInternetGatewayId'
                       -> DeleteInternetGateway
 deleteInternetGateway p1 = DeleteInternetGateway
     { _digrInternetGatewayId = p1
     }
 
 data DeleteInternetGateway = DeleteInternetGateway
-    { _digrInternetGatewayId :: Text
-      -- ^ The ID of the Internet gateway.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteInternetGateway
+makeSiglessLenses ''DeleteInternetGateway
 
 instance ToQuery DeleteInternetGateway where
     toQuery = genericQuery def
@@ -53,7 +62,7 @@ instance ToQuery DeleteInternetGateway where
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteInternetGatewayResponse
+makeSiglessLenses ''DeleteInternetGatewayResponse
 
 instance AWSRequest DeleteInternetGateway where
     type Sv DeleteInternetGateway = EC2
@@ -61,3 +70,6 @@ instance AWSRequest DeleteInternetGateway where
 
     request = post "DeleteInternetGateway"
     response _ = nullaryResponse DeleteInternetGatewayResponse
+
+-- | The ID of the Internet gateway.
+digrInternetGatewayId :: Lens' DeleteInternetGateway (Text)

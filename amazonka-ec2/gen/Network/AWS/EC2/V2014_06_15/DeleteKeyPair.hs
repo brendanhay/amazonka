@@ -25,25 +25,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteKeyPairResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteKeyPair where
+module Network.AWS.EC2.V2014_06_15.DeleteKeyPair
+    (
+    -- * Request
+      DeleteKeyPair
+    -- ** Default constructor
+    , deleteKeyPair
+    -- ** Accessors and lenses
+    , _dkprKeyName
+    , dkprKeyName
+
+    -- * Response
+    , DeleteKeyPairResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteKeyPair' request.
-deleteKeyPair :: Text -- ^ '_dkprKeyName'
+deleteKeyPair :: Text -- ^ 'dkprKeyName'
               -> DeleteKeyPair
 deleteKeyPair p1 = DeleteKeyPair
     { _dkprKeyName = p1
     }
 
 data DeleteKeyPair = DeleteKeyPair
-    { _dkprKeyName :: Text
-      -- ^ The name of the key pair.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteKeyPair
+makeSiglessLenses ''DeleteKeyPair
 
 instance ToQuery DeleteKeyPair where
     toQuery = genericQuery def
@@ -51,7 +60,7 @@ instance ToQuery DeleteKeyPair where
 data DeleteKeyPairResponse = DeleteKeyPairResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteKeyPairResponse
+makeSiglessLenses ''DeleteKeyPairResponse
 
 instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2
@@ -59,3 +68,6 @@ instance AWSRequest DeleteKeyPair where
 
     request = post "DeleteKeyPair"
     response _ = nullaryResponse DeleteKeyPairResponse
+
+-- | The name of the key pair.
+dkprKeyName :: Lens' DeleteKeyPair (Text)

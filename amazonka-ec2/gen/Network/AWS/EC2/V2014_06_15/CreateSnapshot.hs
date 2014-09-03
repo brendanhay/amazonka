@@ -52,14 +52,49 @@
 -- &lt;ownerId&gt;111122223333&lt;/ownerId&gt;
 -- &lt;volumeSize&gt;30&lt;/volumeSize&gt; &lt;description&gt;Daily
 -- Backup&lt;/description&gt; &lt;/CreateSnapshotResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.CreateSnapshot where
+module Network.AWS.EC2.V2014_06_15.CreateSnapshot
+    (
+    -- * Request
+      CreateSnapshot
+    -- ** Default constructor
+    , createSnapshot
+    -- ** Accessors and lenses
+    , _cstVolumeId
+    , cstVolumeId
+    , _cstDescription
+    , cstDescription
+
+    -- * Response
+    , CreateSnapshotResponse
+    -- ** Accessors and lenses
+    , _svEncrypted
+    , svEncrypted
+    , _svStartTime
+    , svStartTime
+    , _svVolumeSize
+    , svVolumeSize
+    , _svState
+    , svState
+    , _svSnapshotId
+    , svSnapshotId
+    , _svVolumeId
+    , svVolumeId
+    , _svProgress
+    , svProgress
+    , _svOwnerId
+    , svOwnerId
+    , _svDescription
+    , svDescription
+    , _svOwnerAlias
+    , svOwnerAlias
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateSnapshot' request.
-createSnapshot :: Text -- ^ '_cstVolumeId'
+createSnapshot :: Text -- ^ 'cstVolumeId'
                -> CreateSnapshot
 createSnapshot p1 = CreateSnapshot
     { _cstVolumeId = p1
@@ -67,13 +102,8 @@ createSnapshot p1 = CreateSnapshot
     }
 
 data CreateSnapshot = CreateSnapshot
-    { _cstVolumeId :: Text
-      -- ^ The ID of the Amazon EBS volume.
-    , _cstDescription :: Maybe Text
-      -- ^ A description for the snapshot.
-    } deriving (Show, Generic)
 
-makeLenses ''CreateSnapshot
+makeSiglessLenses ''CreateSnapshot
 
 instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
@@ -102,7 +132,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
       -- ID that owns the snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''CreateSnapshotResponse
+makeSiglessLenses ''CreateSnapshotResponse
 
 instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions
@@ -113,3 +143,40 @@ instance AWSRequest CreateSnapshot where
 
     request = post "CreateSnapshot"
     response _ = xmlResponse
+
+-- | The ID of the Amazon EBS volume.
+cstVolumeId :: Lens' CreateSnapshot (Text)
+
+-- | A description for the snapshot.
+cstDescription :: Lens' CreateSnapshot (Maybe Text)
+
+-- | Indicates whether the snapshot is encrypted.
+svEncrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
+
+-- | The time stamp when the snapshot was initiated.
+svStartTime :: Lens' CreateSnapshotResponse (Maybe ISO8601)
+
+-- | The size of the volume, in GiB.
+svVolumeSize :: Lens' CreateSnapshotResponse (Maybe Integer)
+
+-- | The snapshot state.
+svState :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
+
+-- | The ID of the snapshot.
+svSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
+
+-- | The ID of the volume.
+svVolumeId :: Lens' CreateSnapshotResponse (Maybe Text)
+
+-- | The progress of the snapshot, as a percentage.
+svProgress :: Lens' CreateSnapshotResponse (Maybe Text)
+
+-- | The AWS account ID of the Amazon EBS snapshot owner.
+svOwnerId :: Lens' CreateSnapshotResponse (Maybe Text)
+
+-- | The description for the snapshot.
+svDescription :: Lens' CreateSnapshotResponse (Maybe Text)
+
+-- | The AWS account alias (for example, amazon, self) or AWS account ID that
+-- owns the snapshot.
+svOwnerAlias :: Lens' CreateSnapshotResponse (Maybe Text)

@@ -31,19 +31,45 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ReplaceNetworkAclEntryResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclEntry where
+module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclEntry
+    (
+    -- * Request
+      ReplaceNetworkAclEntry
+    -- ** Default constructor
+    , replaceNetworkAclEntry
+    -- ** Accessors and lenses
+    , _rnaerEgress
+    , rnaerEgress
+    , _rnaerRuleNumber
+    , rnaerRuleNumber
+    , _rnaerRuleAction
+    , rnaerRuleAction
+    , _rnaerNetworkAclId
+    , rnaerNetworkAclId
+    , _rnaerProtocol
+    , rnaerProtocol
+    , _rnaerCidrBlock
+    , rnaerCidrBlock
+    , _rnaerIcmpTypeCode
+    , rnaerIcmpTypeCode
+    , _rnaerPortRange
+    , rnaerPortRange
+
+    -- * Response
+    , ReplaceNetworkAclEntryResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ReplaceNetworkAclEntry' request.
-replaceNetworkAclEntry :: Bool -- ^ '_rnaerEgress'
-                       -> Integer -- ^ '_rnaerRuleNumber'
-                       -> RuleAction -- ^ '_rnaerRuleAction'
-                       -> Text -- ^ '_rnaerNetworkAclId'
-                       -> Text -- ^ '_rnaerProtocol'
-                       -> Text -- ^ '_rnaerCidrBlock'
+replaceNetworkAclEntry :: Bool -- ^ 'rnaerEgress'
+                       -> Integer -- ^ 'rnaerRuleNumber'
+                       -> RuleAction -- ^ 'rnaerRuleAction'
+                       -> Text -- ^ 'rnaerNetworkAclId'
+                       -> Text -- ^ 'rnaerProtocol'
+                       -> Text -- ^ 'rnaerCidrBlock'
                        -> ReplaceNetworkAclEntry
 replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     { _rnaerEgress = p1
@@ -57,27 +83,8 @@ replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     }
 
 data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
-    { _rnaerEgress :: Bool
-      -- ^ Indicates whether to replace the egress rule. Default: If no
-      -- value is specified, we replace the ingress rule.
-    , _rnaerRuleNumber :: Integer
-      -- ^ The rule number of the entry to replace.
-    , _rnaerRuleAction :: RuleAction
-      -- ^ Indicates whether to allow or deny the traffic that matches the
-      -- rule.
-    , _rnaerNetworkAclId :: Text
-      -- ^ The ID of the ACL.
-    , _rnaerProtocol :: Text
-      -- ^ The IP protocol. You can specify all or -1 to mean all protocols.
-    , _rnaerCidrBlock :: Text
-      -- ^ The network range to allow or deny, in CIDR notation.
-    , _rnaerIcmpTypeCode :: Maybe IcmpTypeCode
-      -- ^ ICMP protocol: The ICMP type and code.
-    , _rnaerPortRange :: Maybe PortRange
-      -- ^ TCP or UDP protocols: The range of ports the rule applies to.
-    } deriving (Show, Generic)
 
-makeLenses ''ReplaceNetworkAclEntry
+makeSiglessLenses ''ReplaceNetworkAclEntry
 
 instance ToQuery ReplaceNetworkAclEntry where
     toQuery = genericQuery def
@@ -85,7 +92,7 @@ instance ToQuery ReplaceNetworkAclEntry where
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ReplaceNetworkAclEntryResponse
+makeSiglessLenses ''ReplaceNetworkAclEntryResponse
 
 instance AWSRequest ReplaceNetworkAclEntry where
     type Sv ReplaceNetworkAclEntry = EC2
@@ -93,3 +100,28 @@ instance AWSRequest ReplaceNetworkAclEntry where
 
     request = post "ReplaceNetworkAclEntry"
     response _ = nullaryResponse ReplaceNetworkAclEntryResponse
+
+-- | Indicates whether to replace the egress rule. Default: If no value is
+-- specified, we replace the ingress rule.
+rnaerEgress :: Lens' ReplaceNetworkAclEntry (Bool)
+
+-- | The rule number of the entry to replace.
+rnaerRuleNumber :: Lens' ReplaceNetworkAclEntry (Integer)
+
+-- | Indicates whether to allow or deny the traffic that matches the rule.
+rnaerRuleAction :: Lens' ReplaceNetworkAclEntry (RuleAction)
+
+-- | The ID of the ACL.
+rnaerNetworkAclId :: Lens' ReplaceNetworkAclEntry (Text)
+
+-- | The IP protocol. You can specify all or -1 to mean all protocols.
+rnaerProtocol :: Lens' ReplaceNetworkAclEntry (Text)
+
+-- | The network range to allow or deny, in CIDR notation.
+rnaerCidrBlock :: Lens' ReplaceNetworkAclEntry (Text)
+
+-- | ICMP protocol: The ICMP type and code.
+rnaerIcmpTypeCode :: Lens' ReplaceNetworkAclEntry (Maybe IcmpTypeCode)
+
+-- | TCP or UDP protocols: The range of ports the rule applies to.
+rnaerPortRange :: Lens' ReplaceNetworkAclEntry (Maybe PortRange)

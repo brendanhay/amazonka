@@ -51,7 +51,24 @@
 -- https://ec2.amazonaws.com/?Action=DescribeSubnets &amp;Filter.1.Name=vpc-id
 -- &amp;Filter.1.Value.1=vpc-1a2b3c4d &amp;Filter.1.Value.2=vpc-6e7f8a92
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeSubnets where
+module Network.AWS.EC2.V2014_06_15.DescribeSubnets
+    (
+    -- * Request
+      DescribeSubnets
+    -- ** Default constructor
+    , describeSubnets
+    -- ** Accessors and lenses
+    , _dsxFilters
+    , dsxFilters
+    , _dsxSubnetIds
+    , dsxSubnetIds
+
+    -- * Response
+    , DescribeSubnetsResponse
+    -- ** Accessors and lenses
+    , _dsySubnets
+    , dsySubnets
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -65,33 +82,8 @@ describeSubnets = DescribeSubnets
     }
 
 data DescribeSubnets = DescribeSubnets
-    { _dsxFilters :: [Filter]
-      -- ^ One or more filters. availabilityZone - The Availability Zone for
-      -- the subnet. You can also use availability-zone as the filter
-      -- name. available-ip-address-count - The number of IP addresses in
-      -- the subnet that are available. cidrBlock - The CIDR block of the
-      -- subnet. The CIDR block you specify must exactly match the
-      -- subnet's CIDR block for information to be returned for the
-      -- subnet. You can also use cidr or cidr-block as the filter names.
-      -- defaultForAz - Indicates whether this is the default subnet for
-      -- the Availability Zone. You can also use default-for-az as the
-      -- filter name. state - The state of the subnet (pending |
-      -- available). subnet-id - The ID of the subnet. tag:key=value - The
-      -- key/value combination of a tag assigned to the resource. tag-key
-      -- - The key of a tag assigned to the resource. This filter is
-      -- independent of the tag-value filter. For example, if you use both
-      -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
-      -- get any resources assigned both the tag key Purpose (regardless
-      -- of what the tag's value is), and the tag value X (regardless of
-      -- what the tag's key is). If you want to list only resources where
-      -- Purpose is X, see the tag:key=value filter. tag-value - The value
-      -- of a tag assigned to the resource. This filter is independent of
-      -- the tag-key filter. vpc-id - The ID of the VPC for the subnet.
-    , _dsxSubnetIds :: [Text]
-      -- ^ One or more subnet IDs. Default: Describes all your subnets.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeSubnets
+makeSiglessLenses ''DescribeSubnets
 
 instance ToQuery DescribeSubnets where
     toQuery = genericQuery def
@@ -101,7 +93,7 @@ data DescribeSubnetsResponse = DescribeSubnetsResponse
       -- ^ Information about one or more subnets.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSubnetsResponse
+makeSiglessLenses ''DescribeSubnetsResponse
 
 instance FromXML DescribeSubnetsResponse where
     fromXMLOptions = xmlOptions
@@ -112,3 +104,30 @@ instance AWSRequest DescribeSubnets where
 
     request = post "DescribeSubnets"
     response _ = xmlResponse
+
+-- | One or more filters. availabilityZone - The Availability Zone for the
+-- subnet. You can also use availability-zone as the filter name.
+-- available-ip-address-count - The number of IP addresses in the subnet that
+-- are available. cidrBlock - The CIDR block of the subnet. The CIDR block you
+-- specify must exactly match the subnet's CIDR block for information to be
+-- returned for the subnet. You can also use cidr or cidr-block as the filter
+-- names. defaultForAz - Indicates whether this is the default subnet for the
+-- Availability Zone. You can also use default-for-az as the filter name.
+-- state - The state of the subnet (pending | available). subnet-id - The ID
+-- of the subnet. tag:key=value - The key/value combination of a tag assigned
+-- to the resource. tag-key - The key of a tag assigned to the resource. This
+-- filter is independent of the tag-value filter. For example, if you use both
+-- the filter "tag-key=Purpose" and the filter "tag-value=X", you get any
+-- resources assigned both the tag key Purpose (regardless of what the tag's
+-- value is), and the tag value X (regardless of what the tag's key is). If
+-- you want to list only resources where Purpose is X, see the tag:key=value
+-- filter. tag-value - The value of a tag assigned to the resource. This
+-- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
+-- the subnet.
+dsxFilters :: Lens' DescribeSubnets ([Filter])
+
+-- | One or more subnet IDs. Default: Describes all your subnets.
+dsxSubnetIds :: Lens' DescribeSubnets ([Text])
+
+-- | Information about one or more subnets.
+dsySubnets :: Lens' DescribeSubnetsResponse ([Subnet])

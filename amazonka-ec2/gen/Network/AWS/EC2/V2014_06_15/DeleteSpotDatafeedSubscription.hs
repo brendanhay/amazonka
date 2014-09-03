@@ -27,7 +27,15 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DeleteSpotDatafeedSubscriptionResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteSpotDatafeedSubscription where
+module Network.AWS.EC2.V2014_06_15.DeleteSpotDatafeedSubscription
+    (
+    -- * Request
+      DeleteSpotDatafeedSubscription
+    -- ** Default constructor
+    , deleteSpotDatafeedSubscription
+    -- * Response
+    , DeleteSpotDatafeedSubscriptionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -38,9 +46,8 @@ deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
 
 data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-    deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteSpotDatafeedSubscription
+makeSiglessLenses ''DeleteSpotDatafeedSubscription
 
 instance ToQuery DeleteSpotDatafeedSubscription where
     toQuery = genericQuery def
@@ -48,7 +55,7 @@ instance ToQuery DeleteSpotDatafeedSubscription where
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteSpotDatafeedSubscriptionResponse
+makeSiglessLenses ''DeleteSpotDatafeedSubscriptionResponse
 
 instance AWSRequest DeleteSpotDatafeedSubscription where
     type Sv DeleteSpotDatafeedSubscription = EC2

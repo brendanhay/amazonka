@@ -53,25 +53,41 @@
 -- bHQgMSB6b25lbGlzdHMKS2VybmVsIGNvbW1hbmQgbGluZTogcm9vdD0vZGV2L3NkYTEgcm8gNApF
 -- bmFibGluZyBmYXN0IEZQVSBzYXZlIGFuZCByZXN0b3JlLi4uIGRvbmUuCg==&lt;/output&gt;
 -- &lt;/GetConsoleOutputResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.GetConsoleOutput where
+module Network.AWS.EC2.V2014_06_15.GetConsoleOutput
+    (
+    -- * Request
+      GetConsoleOutput
+    -- ** Default constructor
+    , getConsoleOutput
+    -- ** Accessors and lenses
+    , _gcorInstanceId
+    , gcorInstanceId
+
+    -- * Response
+    , GetConsoleOutputResponse
+    -- ** Accessors and lenses
+    , _gcosTimestamp
+    , gcosTimestamp
+    , _gcosInstanceId
+    , gcosInstanceId
+    , _gcosOutput
+    , gcosOutput
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'GetConsoleOutput' request.
-getConsoleOutput :: Text -- ^ '_gcorInstanceId'
+getConsoleOutput :: Text -- ^ 'gcorInstanceId'
                  -> GetConsoleOutput
 getConsoleOutput p1 = GetConsoleOutput
     { _gcorInstanceId = p1
     }
 
 data GetConsoleOutput = GetConsoleOutput
-    { _gcorInstanceId :: Text
-      -- ^ The ID of the instance.
-    } deriving (Show, Generic)
 
-makeLenses ''GetConsoleOutput
+makeSiglessLenses ''GetConsoleOutput
 
 instance ToQuery GetConsoleOutput where
     toQuery = genericQuery def
@@ -85,7 +101,7 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
       -- ^ The console output, Base64 encoded.
     } deriving (Show, Generic)
 
-makeLenses ''GetConsoleOutputResponse
+makeSiglessLenses ''GetConsoleOutputResponse
 
 instance FromXML GetConsoleOutputResponse where
     fromXMLOptions = xmlOptions
@@ -96,3 +112,15 @@ instance AWSRequest GetConsoleOutput where
 
     request = post "GetConsoleOutput"
     response _ = xmlResponse
+
+-- | The ID of the instance.
+gcorInstanceId :: Lens' GetConsoleOutput (Text)
+
+-- | The time the output was last updated.
+gcosTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
+
+-- | The ID of the instance.
+gcosInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
+
+-- | The console output, Base64 encoded.
+gcosOutput :: Lens' GetConsoleOutputResponse (Maybe Text)

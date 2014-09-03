@@ -36,7 +36,24 @@
 -- &amp;Filter.1.Name=dhcp-options-id &amp;Filter.1.Value.1=dopt-7a8b9c2d
 -- &amp;Filter.1.Value.2=dopt-2b2a3d3c &amp;Filter.2.Name=state
 -- &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeVpcs where
+module Network.AWS.EC2.V2014_06_15.DescribeVpcs
+    (
+    -- * Request
+      DescribeVpcs
+    -- ** Default constructor
+    , describeVpcs
+    -- ** Accessors and lenses
+    , _dvvFilters
+    , dvvFilters
+    , _dvvVpcIds
+    , dvvVpcIds
+
+    -- * Response
+    , DescribeVpcsResponse
+    -- ** Accessors and lenses
+    , _dvwVpcs
+    , dvwVpcs
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -50,28 +67,8 @@ describeVpcs = DescribeVpcs
     }
 
 data DescribeVpcs = DescribeVpcs
-    { _dvvFilters :: [Filter]
-      -- ^ One or more filters. cidr - The CIDR block of the VPC. The CIDR
-      -- block you specify must exactly match the VPC's CIDR block for
-      -- information to be returned for the VPC. dhcp-options-id - The ID
-      -- of a set of DHCP options. isDefault - Indicates whether the VPC
-      -- is the default VPC. state - The state of the VPC (pending |
-      -- available). tag:key=value - The key/value combination of a tag
-      -- assigned to the resource. tag-key - The key of a tag assigned to
-      -- the resource. This filter is independent of the tag-value filter.
-      -- For example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter. vpc-id - The ID
-      -- of the VPC.
-    , _dvvVpcIds :: [Text]
-      -- ^ One or more VPC IDs. Default: Describes all your VPCs.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeVpcs
+makeSiglessLenses ''DescribeVpcs
 
 instance ToQuery DescribeVpcs where
     toQuery = genericQuery def
@@ -81,7 +78,7 @@ data DescribeVpcsResponse = DescribeVpcsResponse
       -- ^ Information about one or more VPCs.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVpcsResponse
+makeSiglessLenses ''DescribeVpcsResponse
 
 instance FromXML DescribeVpcsResponse where
     fromXMLOptions = xmlOptions
@@ -92,3 +89,25 @@ instance AWSRequest DescribeVpcs where
 
     request = post "DescribeVpcs"
     response _ = xmlResponse
+
+-- | One or more filters. cidr - The CIDR block of the VPC. The CIDR block you
+-- specify must exactly match the VPC's CIDR block for information to be
+-- returned for the VPC. dhcp-options-id - The ID of a set of DHCP options.
+-- isDefault - Indicates whether the VPC is the default VPC. state - The state
+-- of the VPC (pending | available). tag:key=value - The key/value combination
+-- of a tag assigned to the resource. tag-key - The key of a tag assigned to
+-- the resource. This filter is independent of the tag-value filter. For
+-- example, if you use both the filter "tag-key=Purpose" and the filter
+-- "tag-value=X", you get any resources assigned both the tag key Purpose
+-- (regardless of what the tag's value is), and the tag value X (regardless of
+-- what the tag's key is). If you want to list only resources where Purpose is
+-- X, see the tag:key=value filter. tag-value - The value of a tag assigned to
+-- the resource. This filter is independent of the tag-key filter. vpc-id -
+-- The ID of the VPC.
+dvvFilters :: Lens' DescribeVpcs ([Filter])
+
+-- | One or more VPC IDs. Default: Describes all your VPCs.
+dvvVpcIds :: Lens' DescribeVpcs ([Text])
+
+-- | Information about one or more VPCs.
+dvwVpcs :: Lens' DescribeVpcsResponse ([Vpc])

@@ -49,15 +49,56 @@
 -- &lt;instanceId&gt;i-10a64379&lt;/instanceId&gt;
 -- &lt;disableApiTermination&gt; &lt;value&gt;false&lt;/value&gt;
 -- &lt;/disableApiTermination&gt; &lt;/DescribeInstanceAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute where
+module Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute
+    (
+    -- * Request
+      DescribeInstanceAttribute
+    -- ** Default constructor
+    , describeInstanceAttribute
+    -- ** Accessors and lenses
+    , _diasAttribute
+    , diasAttribute
+    , _diasInstanceId
+    , diasInstanceId
+
+    -- * Response
+    , DescribeInstanceAttributeResponse
+    -- ** Accessors and lenses
+    , _ibDisableApiTermination
+    , ibDisableApiTermination
+    , _ibEbsOptimized
+    , ibEbsOptimized
+    , _ibSourceDestCheck
+    , ibSourceDestCheck
+    , _ibInstanceType
+    , ibInstanceType
+    , _ibKernelId
+    , ibKernelId
+    , _ibRamdiskId
+    , ibRamdiskId
+    , _ibUserData
+    , ibUserData
+    , _ibInstanceInitiatedShutdownBehavior
+    , ibInstanceInitiatedShutdownBehavior
+    , _ibRootDeviceName
+    , ibRootDeviceName
+    , _ibSriovNetSupport
+    , ibSriovNetSupport
+    , _ibBlockDeviceMappings
+    , ibBlockDeviceMappings
+    , _ibProductCodes
+    , ibProductCodes
+    , _ibInstanceId
+    , ibInstanceId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeInstanceAttribute' request.
-describeInstanceAttribute :: InstanceAttributeName -- ^ '_diasAttribute'
-                          -> Text -- ^ '_diasInstanceId'
+describeInstanceAttribute :: InstanceAttributeName -- ^ 'diasAttribute'
+                          -> Text -- ^ 'diasInstanceId'
                           -> DescribeInstanceAttribute
 describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     { _diasAttribute = p1
@@ -65,13 +106,8 @@ describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     }
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
-    { _diasAttribute :: InstanceAttributeName
-      -- ^ The instance attribute.
-    , _diasInstanceId :: Text
-      -- ^ The ID of the instance.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeInstanceAttribute
+makeSiglessLenses ''DescribeInstanceAttribute
 
 instance ToQuery DescribeInstanceAttribute where
     toQuery = genericQuery def
@@ -111,7 +147,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
       -- ^ The ID of the instance.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeInstanceAttributeResponse
+makeSiglessLenses ''DescribeInstanceAttributeResponse
 
 instance FromXML DescribeInstanceAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -122,3 +158,53 @@ instance AWSRequest DescribeInstanceAttribute where
 
     request = post "DescribeInstanceAttribute"
     response _ = xmlResponse
+
+-- | The instance attribute.
+diasAttribute :: Lens' DescribeInstanceAttribute (InstanceAttributeName)
+
+-- | The ID of the instance.
+diasInstanceId :: Lens' DescribeInstanceAttribute (Text)
+
+-- | If the value is true, you can't terminate the instance through the Amazon
+-- EC2 console, CLI, or API; otherwise, you can.
+ibDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+
+-- | Indicates whether the instance is optimized for EBS I/O.
+ibEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+
+-- | Indicates whether source/destination checking is enabled. A value of true
+-- means checking is enabled, and false means checking is disabled. This value
+-- must be false for a NAT instance to perform NAT.
+ibSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+
+-- | The instance type.
+ibInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+
+-- | The kernel ID.
+ibKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+
+-- | The RAM disk ID.
+ibRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+
+-- | The Base64-encoded MIME user data.
+ibUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+
+-- | Indicates whether an instance stops or terminates when you initiate
+-- shutdown from the instance (using the operating system command for system
+-- shutdown).
+ibInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+
+-- | The name of the root device (for example, /dev/sda1).
+ibRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+
+-- | 
+ibSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+
+-- | The block device mapping of the instance.
+ibBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse ([InstanceBlockDeviceMapping])
+
+-- | A list of product codes.
+ibProductCodes :: Lens' DescribeInstanceAttributeResponse ([ProductCode])
+
+-- | The ID of the instance.
+ibInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)

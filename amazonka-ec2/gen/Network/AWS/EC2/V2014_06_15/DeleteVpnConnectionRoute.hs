@@ -31,15 +31,29 @@
 -- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DeleteVpnConnectionRouteResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteVpnConnectionRoute where
+module Network.AWS.EC2.V2014_06_15.DeleteVpnConnectionRoute
+    (
+    -- * Request
+      DeleteVpnConnectionRoute
+    -- ** Default constructor
+    , deleteVpnConnectionRoute
+    -- ** Accessors and lenses
+    , _dvcrrVpnConnectionId
+    , dvcrrVpnConnectionId
+    , _dvcrrDestinationCidrBlock
+    , dvcrrDestinationCidrBlock
+
+    -- * Response
+    , DeleteVpnConnectionRouteResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteVpnConnectionRoute' request.
-deleteVpnConnectionRoute :: Text -- ^ '_dvcrrVpnConnectionId'
-                         -> Text -- ^ '_dvcrrDestinationCidrBlock'
+deleteVpnConnectionRoute :: Text -- ^ 'dvcrrVpnConnectionId'
+                         -> Text -- ^ 'dvcrrDestinationCidrBlock'
                          -> DeleteVpnConnectionRoute
 deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
     { _dvcrrVpnConnectionId = p1
@@ -47,14 +61,8 @@ deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
     }
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
-    { _dvcrrVpnConnectionId :: Text
-      -- ^ The ID of the VPN connection.
-    , _dvcrrDestinationCidrBlock :: Text
-      -- ^ The CIDR block associated with the local subnet of the customer
-      -- network.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteVpnConnectionRoute
+makeSiglessLenses ''DeleteVpnConnectionRoute
 
 instance ToQuery DeleteVpnConnectionRoute where
     toQuery = genericQuery def
@@ -62,7 +70,7 @@ instance ToQuery DeleteVpnConnectionRoute where
 data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteVpnConnectionRouteResponse
+makeSiglessLenses ''DeleteVpnConnectionRouteResponse
 
 instance AWSRequest DeleteVpnConnectionRoute where
     type Sv DeleteVpnConnectionRoute = EC2
@@ -70,3 +78,9 @@ instance AWSRequest DeleteVpnConnectionRoute where
 
     request = post "DeleteVpnConnectionRoute"
     response _ = nullaryResponse DeleteVpnConnectionRouteResponse
+
+-- | The ID of the VPN connection.
+dvcrrVpnConnectionId :: Lens' DeleteVpnConnectionRoute (Text)
+
+-- | The CIDR block associated with the local subnet of the customer network.
+dvcrrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute (Text)

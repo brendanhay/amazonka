@@ -27,15 +27,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/EnableVgwRoutePropagation&gt;.
-module Network.AWS.EC2.V2014_06_15.EnableVgwRoutePropagation where
+module Network.AWS.EC2.V2014_06_15.EnableVgwRoutePropagation
+    (
+    -- * Request
+      EnableVgwRoutePropagation
+    -- ** Default constructor
+    , enableVgwRoutePropagation
+    -- ** Accessors and lenses
+    , _evrprRouteTableId
+    , evrprRouteTableId
+    , _evrprGatewayId
+    , evrprGatewayId
+
+    -- * Response
+    , EnableVgwRoutePropagationResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'EnableVgwRoutePropagation' request.
-enableVgwRoutePropagation :: Text -- ^ '_evrprRouteTableId'
-                          -> Text -- ^ '_evrprGatewayId'
+enableVgwRoutePropagation :: Text -- ^ 'evrprRouteTableId'
+                          -> Text -- ^ 'evrprGatewayId'
                           -> EnableVgwRoutePropagation
 enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     { _evrprRouteTableId = p1
@@ -43,13 +57,8 @@ enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     }
 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
-    { _evrprRouteTableId :: Text
-      -- ^ The ID of the routing table.
-    , _evrprGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    } deriving (Show, Generic)
 
-makeLenses ''EnableVgwRoutePropagation
+makeSiglessLenses ''EnableVgwRoutePropagation
 
 instance ToQuery EnableVgwRoutePropagation where
     toQuery = genericQuery def
@@ -57,7 +66,7 @@ instance ToQuery EnableVgwRoutePropagation where
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''EnableVgwRoutePropagationResponse
+makeSiglessLenses ''EnableVgwRoutePropagationResponse
 
 instance AWSRequest EnableVgwRoutePropagation where
     type Sv EnableVgwRoutePropagation = EC2
@@ -65,3 +74,9 @@ instance AWSRequest EnableVgwRoutePropagation where
 
     request = post "EnableVgwRoutePropagation"
     response _ = nullaryResponse EnableVgwRoutePropagationResponse
+
+-- | The ID of the routing table.
+evrprRouteTableId :: Lens' EnableVgwRoutePropagation (Text)
+
+-- | The ID of the virtual private gateway.
+evrprGatewayId :: Lens' EnableVgwRoutePropagation (Text)

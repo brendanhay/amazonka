@@ -28,15 +28,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachInternetGatewayResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DetachInternetGateway where
+module Network.AWS.EC2.V2014_06_15.DetachInternetGateway
+    (
+    -- * Request
+      DetachInternetGateway
+    -- ** Default constructor
+    , detachInternetGateway
+    -- ** Accessors and lenses
+    , _diguInternetGatewayId
+    , diguInternetGatewayId
+    , _diguVpcId
+    , diguVpcId
+
+    -- * Response
+    , DetachInternetGatewayResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DetachInternetGateway' request.
-detachInternetGateway :: Text -- ^ '_diguInternetGatewayId'
-                      -> Text -- ^ '_diguVpcId'
+detachInternetGateway :: Text -- ^ 'diguInternetGatewayId'
+                      -> Text -- ^ 'diguVpcId'
                       -> DetachInternetGateway
 detachInternetGateway p1 p2 = DetachInternetGateway
     { _diguInternetGatewayId = p1
@@ -44,13 +58,8 @@ detachInternetGateway p1 p2 = DetachInternetGateway
     }
 
 data DetachInternetGateway = DetachInternetGateway
-    { _diguInternetGatewayId :: Text
-      -- ^ The ID of the Internet gateway.
-    , _diguVpcId :: Text
-      -- ^ The ID of the VPC.
-    } deriving (Show, Generic)
 
-makeLenses ''DetachInternetGateway
+makeSiglessLenses ''DetachInternetGateway
 
 instance ToQuery DetachInternetGateway where
     toQuery = genericQuery def
@@ -58,7 +67,7 @@ instance ToQuery DetachInternetGateway where
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DetachInternetGatewayResponse
+makeSiglessLenses ''DetachInternetGatewayResponse
 
 instance AWSRequest DetachInternetGateway where
     type Sv DetachInternetGateway = EC2
@@ -66,3 +75,9 @@ instance AWSRequest DetachInternetGateway where
 
     request = post "DetachInternetGateway"
     response _ = nullaryResponse DetachInternetGatewayResponse
+
+-- | The ID of the Internet gateway.
+diguInternetGatewayId :: Lens' DetachInternetGateway (Text)
+
+-- | The ID of the VPC.
+diguVpcId :: Lens' DetachInternetGateway (Text)

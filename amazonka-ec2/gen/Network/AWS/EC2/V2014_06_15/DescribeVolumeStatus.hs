@@ -62,7 +62,30 @@
 -- &amp;Filter.2.Value.1=io-enabled
 -- &amp;Filter.3.Name=volume-status.details-status
 -- &amp;Filter.3.Value.1=failed &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus where
+module Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus
+    (
+    -- * Request
+      DescribeVolumeStatus
+    -- ** Default constructor
+    , describeVolumeStatus
+    -- ** Accessors and lenses
+    , _dvsrFilters
+    , dvsrFilters
+    , _dvsrMaxResults
+    , dvsrMaxResults
+    , _dvsrNextToken
+    , dvsrNextToken
+    , _dvsrVolumeIds
+    , dvsrVolumeIds
+
+    -- * Response
+    , DescribeVolumeStatusResponse
+    -- ** Accessors and lenses
+    , _dvssNextToken
+    , dvssNextToken
+    , _dvssVolumeStatuses
+    , dvssVolumeStatuses
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -78,34 +101,8 @@ describeVolumeStatus = DescribeVolumeStatus
     }
 
 data DescribeVolumeStatus = DescribeVolumeStatus
-    { _dvsrFilters :: [Filter]
-      -- ^ One or more filters. action.code - The action code for the event
-      -- (for example, enable-volume-io). action.description - A
-      -- description of the action. action.event-id - The event ID
-      -- associated with the action. availability-zone - The Availability
-      -- Zone of the instance. event.description - A description of the
-      -- event. event.event-id - The event ID. event.event-type - The
-      -- event type (for io-enabled: passed | failed; for io-performance:
-      -- io-performance:degraded | io-performance:severely-degraded |
-      -- io-performance:stalled). event.not-after - The latest end time
-      -- for the event. event.not-before - The earliest start time for the
-      -- event. volume-status.details-name - The cause for
-      -- volume-status.status (io-enabled | io-performance).
-      -- volume-status.details-status - The status of
-      -- volume-status.details-name (for io-enabled: passed | failed; for
-      -- io-performance: normal | degraded | severely-degraded | stalled).
-      -- volume-status.status - The status of the volume (ok | impaired |
-      -- warning | insufficient-data).
-    , _dvsrMaxResults :: Maybe Integer
-      -- ^ The maximum number of paginated volume items per response.
-    , _dvsrNextToken :: Maybe Text
-      -- ^ The next paginated set of results to return using the pagination
-      -- token returned by a previous call.
-    , _dvsrVolumeIds :: [Text]
-      -- ^ One or more volume IDs. Default: Describes all your volumes.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeVolumeStatus
+makeSiglessLenses ''DescribeVolumeStatus
 
 instance ToQuery DescribeVolumeStatus where
     toQuery = genericQuery def
@@ -117,7 +114,7 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
       -- ^ A list of volumes.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVolumeStatusResponse
+makeSiglessLenses ''DescribeVolumeStatusResponse
 
 instance FromXML DescribeVolumeStatusResponse where
     fromXMLOptions = xmlOptions
@@ -132,3 +129,36 @@ instance AWSRequest DescribeVolumeStatus where
 instance AWSPager DescribeVolumeStatus where
     next rq rs = (\x -> rq { _dvsrNextToken = Just x })
         <$> (_dvssNextToken rs)
+
+-- | One or more filters. action.code - The action code for the event (for
+-- example, enable-volume-io). action.description - A description of the
+-- action. action.event-id - The event ID associated with the action.
+-- availability-zone - The Availability Zone of the instance.
+-- event.description - A description of the event. event.event-id - The event
+-- ID. event.event-type - The event type (for io-enabled: passed | failed; for
+-- io-performance: io-performance:degraded | io-performance:severely-degraded
+-- | io-performance:stalled). event.not-after - The latest end time for the
+-- event. event.not-before - The earliest start time for the event.
+-- volume-status.details-name - The cause for volume-status.status (io-enabled
+-- | io-performance). volume-status.details-status - The status of
+-- volume-status.details-name (for io-enabled: passed | failed; for
+-- io-performance: normal | degraded | severely-degraded | stalled).
+-- volume-status.status - The status of the volume (ok | impaired | warning |
+-- insufficient-data).
+dvsrFilters :: Lens' DescribeVolumeStatus ([Filter])
+
+-- | The maximum number of paginated volume items per response.
+dvsrMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
+
+-- | The next paginated set of results to return using the pagination token
+-- returned by a previous call.
+dvsrNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
+
+-- | One or more volume IDs. Default: Describes all your volumes.
+dvsrVolumeIds :: Lens' DescribeVolumeStatus ([Text])
+
+-- | The next paginated set of results to return.
+dvssNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
+
+-- | A list of volumes.
+dvssVolumeStatuses :: Lens' DescribeVolumeStatusResponse ([VolumeStatusItem])

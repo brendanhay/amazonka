@@ -31,15 +31,32 @@
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;ownerId&gt;111122223333&lt;/ownerId&gt;
 -- &lt;/ConfirmProductInstanceResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ConfirmProductInstance where
+module Network.AWS.EC2.V2014_06_15.ConfirmProductInstance
+    (
+    -- * Request
+      ConfirmProductInstance
+    -- ** Default constructor
+    , confirmProductInstance
+    -- ** Accessors and lenses
+    , _cpirProductCode
+    , cpirProductCode
+    , _cpirInstanceId
+    , cpirInstanceId
+
+    -- * Response
+    , ConfirmProductInstanceResponse
+    -- ** Accessors and lenses
+    , _cpisOwnerId
+    , cpisOwnerId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ConfirmProductInstance' request.
-confirmProductInstance :: Text -- ^ '_cpirProductCode'
-                       -> Text -- ^ '_cpirInstanceId'
+confirmProductInstance :: Text -- ^ 'cpirProductCode'
+                       -> Text -- ^ 'cpirInstanceId'
                        -> ConfirmProductInstance
 confirmProductInstance p1 p2 = ConfirmProductInstance
     { _cpirProductCode = p1
@@ -47,14 +64,8 @@ confirmProductInstance p1 p2 = ConfirmProductInstance
     }
 
 data ConfirmProductInstance = ConfirmProductInstance
-    { _cpirProductCode :: Text
-      -- ^ The product code. This must be an Amazon DevPay product code that
-      -- you own.
-    , _cpirInstanceId :: Text
-      -- ^ The ID of the instance.
-    } deriving (Show, Generic)
 
-makeLenses ''ConfirmProductInstance
+makeSiglessLenses ''ConfirmProductInstance
 
 instance ToQuery ConfirmProductInstance where
     toQuery = genericQuery def
@@ -65,7 +76,7 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
       -- the product code is attached to the instance.
     } deriving (Show, Generic)
 
-makeLenses ''ConfirmProductInstanceResponse
+makeSiglessLenses ''ConfirmProductInstanceResponse
 
 instance FromXML ConfirmProductInstanceResponse where
     fromXMLOptions = xmlOptions
@@ -76,3 +87,13 @@ instance AWSRequest ConfirmProductInstance where
 
     request = post "ConfirmProductInstance"
     response _ = xmlResponse
+
+-- | The product code. This must be an Amazon DevPay product code that you own.
+cpirProductCode :: Lens' ConfirmProductInstance (Text)
+
+-- | The ID of the instance.
+cpirInstanceId :: Lens' ConfirmProductInstance (Text)
+
+-- | The AWS account ID of the instance owner. This is only present if the
+-- product code is attached to the instance.
+cpisOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)

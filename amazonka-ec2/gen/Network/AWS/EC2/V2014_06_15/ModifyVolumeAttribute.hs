@@ -32,14 +32,28 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
 -- &lt;requestId&gt;5jkdf074-37ed-4004-8671-a78ee82bf1cbEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifyVolumeAttributeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.ModifyVolumeAttribute where
+module Network.AWS.EC2.V2014_06_15.ModifyVolumeAttribute
+    (
+    -- * Request
+      ModifyVolumeAttribute
+    -- ** Default constructor
+    , modifyVolumeAttribute
+    -- ** Accessors and lenses
+    , _mvarVolumeId
+    , mvarVolumeId
+    , _mvarAutoEnableIO
+    , mvarAutoEnableIO
+
+    -- * Response
+    , ModifyVolumeAttributeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifyVolumeAttribute' request.
-modifyVolumeAttribute :: Text -- ^ '_mvarVolumeId'
+modifyVolumeAttribute :: Text -- ^ 'mvarVolumeId'
                       -> ModifyVolumeAttribute
 modifyVolumeAttribute p1 = ModifyVolumeAttribute
     { _mvarVolumeId = p1
@@ -47,14 +61,8 @@ modifyVolumeAttribute p1 = ModifyVolumeAttribute
     }
 
 data ModifyVolumeAttribute = ModifyVolumeAttribute
-    { _mvarVolumeId :: Text
-      -- ^ The ID of the volume.
-    , _mvarAutoEnableIO :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the volume should be auto-enabled for I/O
-      -- operations.
-    } deriving (Show, Generic)
 
-makeLenses ''ModifyVolumeAttribute
+makeSiglessLenses ''ModifyVolumeAttribute
 
 instance ToQuery ModifyVolumeAttribute where
     toQuery = genericQuery def
@@ -62,7 +70,7 @@ instance ToQuery ModifyVolumeAttribute where
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''ModifyVolumeAttributeResponse
+makeSiglessLenses ''ModifyVolumeAttributeResponse
 
 instance AWSRequest ModifyVolumeAttribute where
     type Sv ModifyVolumeAttribute = EC2
@@ -70,3 +78,9 @@ instance AWSRequest ModifyVolumeAttribute where
 
     request = post "ModifyVolumeAttribute"
     response _ = nullaryResponse ModifyVolumeAttributeResponse
+
+-- | The ID of the volume.
+mvarVolumeId :: Lens' ModifyVolumeAttribute (Text)
+
+-- | Indicates whether the volume should be auto-enabled for I/O operations.
+mvarAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)

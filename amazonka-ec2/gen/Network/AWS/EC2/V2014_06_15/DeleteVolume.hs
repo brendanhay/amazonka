@@ -28,25 +28,34 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVolumeResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DeleteVolume where
+module Network.AWS.EC2.V2014_06_15.DeleteVolume
+    (
+    -- * Request
+      DeleteVolume
+    -- ** Default constructor
+    , deleteVolume
+    -- ** Accessors and lenses
+    , _dvrVolumeId
+    , dvrVolumeId
+
+    -- * Response
+    , DeleteVolumeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteVolume' request.
-deleteVolume :: Text -- ^ '_dvrVolumeId'
+deleteVolume :: Text -- ^ 'dvrVolumeId'
              -> DeleteVolume
 deleteVolume p1 = DeleteVolume
     { _dvrVolumeId = p1
     }
 
 data DeleteVolume = DeleteVolume
-    { _dvrVolumeId :: Text
-      -- ^ The ID of the volume.
-    } deriving (Show, Generic)
 
-makeLenses ''DeleteVolume
+makeSiglessLenses ''DeleteVolume
 
 instance ToQuery DeleteVolume where
     toQuery = genericQuery def
@@ -54,7 +63,7 @@ instance ToQuery DeleteVolume where
 data DeleteVolumeResponse = DeleteVolumeResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''DeleteVolumeResponse
+makeSiglessLenses ''DeleteVolumeResponse
 
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2
@@ -62,3 +71,6 @@ instance AWSRequest DeleteVolume where
 
     request = post "DeleteVolume"
     response _ = nullaryResponse DeleteVolumeResponse
+
+-- | The ID of the volume.
+dvrVolumeId :: Lens' DeleteVolume (Text)

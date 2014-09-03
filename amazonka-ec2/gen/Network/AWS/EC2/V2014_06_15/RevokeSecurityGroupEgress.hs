@@ -39,14 +39,40 @@
 -- &amp;GroupId=sg-1a2b3c4d &amp;IpPermissions.1.IpProtocol=tcp
 -- &amp;IpPermissions.1.FromPort=1433 &amp;IpPermissions.1.ToPort=1433
 -- &amp;IpPermissions.1.Groups.1.GroupId=sg-9a8d7f5c &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupEgress where
+module Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupEgress
+    (
+    -- * Request
+      RevokeSecurityGroupEgress
+    -- ** Default constructor
+    , revokeSecurityGroupEgress
+    -- ** Accessors and lenses
+    , _rsgerGroupId
+    , rsgerGroupId
+    , _rsgerFromPort
+    , rsgerFromPort
+    , _rsgerToPort
+    , rsgerToPort
+    , _rsgerIpPermissions
+    , rsgerIpPermissions
+    , _rsgerSourceSecurityGroupName
+    , rsgerSourceSecurityGroupName
+    , _rsgerSourceSecurityGroupOwnerId
+    , rsgerSourceSecurityGroupOwnerId
+    , _rsgerIpProtocol
+    , rsgerIpProtocol
+    , _rsgerCidrIp
+    , rsgerCidrIp
+
+    -- * Response
+    , RevokeSecurityGroupEgressResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RevokeSecurityGroupEgress' request.
-revokeSecurityGroupEgress :: Text -- ^ '_rsgerGroupId'
+revokeSecurityGroupEgress :: Text -- ^ 'rsgerGroupId'
                           -> RevokeSecurityGroupEgress
 revokeSecurityGroupEgress p1 = RevokeSecurityGroupEgress
     { _rsgerGroupId = p1
@@ -60,34 +86,8 @@ revokeSecurityGroupEgress p1 = RevokeSecurityGroupEgress
     }
 
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
-    { _rsgerGroupId :: Text
-      -- ^ The ID of the security group.
-    , _rsgerFromPort :: Maybe Integer
-      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
-      -- type number. For the ICMP type number, use -1 to specify all ICMP
-      -- types.
-    , _rsgerToPort :: Maybe Integer
-      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
-      -- code number. For the ICMP code number, use -1 to specify all ICMP
-      -- codes for the ICMP type.
-    , _rsgerIpPermissions :: [IpPermission]
-      -- ^ 
-    , _rsgerSourceSecurityGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the source security group.
-      -- You can't specify a source security group and a CIDR IP address
-      -- range.
-    , _rsgerSourceSecurityGroupOwnerId :: Maybe Text
-      -- ^ The ID of the source security group. You can't specify a source
-      -- security group and a CIDR IP address range.
-    , _rsgerIpProtocol :: Maybe Text
-      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
-      -- Numbers). Use -1 to specify all.
-    , _rsgerCidrIp :: Maybe Text
-      -- ^ The CIDR IP address range. You can't specify this parameter when
-      -- specifying a source security group.
-    } deriving (Show, Generic)
 
-makeLenses ''RevokeSecurityGroupEgress
+makeSiglessLenses ''RevokeSecurityGroupEgress
 
 instance ToQuery RevokeSecurityGroupEgress where
     toQuery = genericQuery def
@@ -95,7 +95,7 @@ instance ToQuery RevokeSecurityGroupEgress where
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''RevokeSecurityGroupEgressResponse
+makeSiglessLenses ''RevokeSecurityGroupEgressResponse
 
 instance AWSRequest RevokeSecurityGroupEgress where
     type Sv RevokeSecurityGroupEgress = EC2
@@ -103,3 +103,34 @@ instance AWSRequest RevokeSecurityGroupEgress where
 
     request = post "RevokeSecurityGroupEgress"
     response _ = nullaryResponse RevokeSecurityGroupEgressResponse
+
+-- | The ID of the security group.
+rsgerGroupId :: Lens' RevokeSecurityGroupEgress (Text)
+
+-- | The start of port range for the TCP and UDP protocols, or an ICMP type
+-- number. For the ICMP type number, use -1 to specify all ICMP types.
+rsgerFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Integer)
+
+-- | The end of port range for the TCP and UDP protocols, or an ICMP code
+-- number. For the ICMP code number, use -1 to specify all ICMP codes for the
+-- ICMP type.
+rsgerToPort :: Lens' RevokeSecurityGroupEgress (Maybe Integer)
+
+-- | 
+rsgerIpPermissions :: Lens' RevokeSecurityGroupEgress ([IpPermission])
+
+-- | [EC2-Classic, default VPC] The name of the source security group. You can't
+-- specify a source security group and a CIDR IP address range.
+rsgerSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+
+-- | The ID of the source security group. You can't specify a source security
+-- group and a CIDR IP address range.
+rsgerSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+
+-- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
+-- -1 to specify all.
+rsgerIpProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+
+-- | The CIDR IP address range. You can't specify this parameter when specifying
+-- a source security group.
+rsgerCidrIp :: Lens' RevokeSecurityGroupEgress (Maybe Text)

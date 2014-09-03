@@ -58,7 +58,26 @@
 -- EC2-VPC This example describes your Elastic IP addresses for EC2-VPC only.
 -- https://ec2.amazonaws.com/?Action=DescribeAddresses
 -- &amp;Filter.1.Name=domain &amp;Filter.1.Value.1=vpc &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeAddresses where
+module Network.AWS.EC2.V2014_06_15.DescribeAddresses
+    (
+    -- * Request
+      DescribeAddresses
+    -- ** Default constructor
+    , describeAddresses
+    -- ** Accessors and lenses
+    , _darAllocationIds
+    , darAllocationIds
+    , _darFilters
+    , darFilters
+    , _darPublicIps
+    , darPublicIps
+
+    -- * Response
+    , DescribeAddressesResponse
+    -- ** Accessors and lenses
+    , _dasAddresses
+    , dasAddresses
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -73,26 +92,8 @@ describeAddresses = DescribeAddresses
     }
 
 data DescribeAddresses = DescribeAddresses
-    { _darAllocationIds :: [Text]
-      -- ^ [EC2-VPC] One or more allocation IDs. Default: Describes all your
-      -- Elastic IP addresses.
-    , _darFilters :: [Filter]
-      -- ^ One or more filters. allocation-id - [EC2-VPC] The allocation ID
-      -- for the address. association-id - [EC2-VPC] The association ID
-      -- for the address. domain - Indicates whether the address is for
-      -- use in EC2-Classic (standard) or in a VPC (vpc). instance-id -
-      -- The ID of the instance the address is associated with, if any.
-      -- network-interface-id - [EC2-VPC] The ID of the network interface
-      -- that the address is associated with, if any.
-      -- network-interface-owner-id - The AWS account ID of the owner.
-      -- private-ip-address - [EC2-VPC] The private IP address associated
-      -- with the Elastic IP address. public-ip - The Elastic IP address.
-    , _darPublicIps :: [Text]
-      -- ^ [EC2-Classic] One or more Elastic IP addresses. Default:
-      -- Describes all your Elastic IP addresses.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeAddresses
+makeSiglessLenses ''DescribeAddresses
 
 instance ToQuery DescribeAddresses where
     toQuery = genericQuery def
@@ -102,7 +103,7 @@ data DescribeAddressesResponse = DescribeAddressesResponse
       -- ^ Information about one or more Elastic IP addresses.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAddressesResponse
+makeSiglessLenses ''DescribeAddressesResponse
 
 instance FromXML DescribeAddressesResponse where
     fromXMLOptions = xmlOptions
@@ -113,3 +114,25 @@ instance AWSRequest DescribeAddresses where
 
     request = post "DescribeAddresses"
     response _ = xmlResponse
+
+-- | [EC2-VPC] One or more allocation IDs. Default: Describes all your Elastic
+-- IP addresses.
+darAllocationIds :: Lens' DescribeAddresses ([Text])
+
+-- | One or more filters. allocation-id - [EC2-VPC] The allocation ID for the
+-- address. association-id - [EC2-VPC] The association ID for the address.
+-- domain - Indicates whether the address is for use in EC2-Classic (standard)
+-- or in a VPC (vpc). instance-id - The ID of the instance the address is
+-- associated with, if any. network-interface-id - [EC2-VPC] The ID of the
+-- network interface that the address is associated with, if any.
+-- network-interface-owner-id - The AWS account ID of the owner.
+-- private-ip-address - [EC2-VPC] The private IP address associated with the
+-- Elastic IP address. public-ip - The Elastic IP address.
+darFilters :: Lens' DescribeAddresses ([Filter])
+
+-- | [EC2-Classic] One or more Elastic IP addresses. Default: Describes all your
+-- Elastic IP addresses.
+darPublicIps :: Lens' DescribeAddresses ([Text])
+
+-- | Information about one or more Elastic IP addresses.
+dasAddresses :: Lens' DescribeAddressesResponse ([Address])

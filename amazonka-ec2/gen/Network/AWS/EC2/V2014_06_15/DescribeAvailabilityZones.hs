@@ -45,7 +45,24 @@
 -- &lt;regionName&gt;us-east-1&lt;/regionName&gt; &lt;messageSet/&gt;
 -- &lt;/item&gt; &lt;/availabilityZoneInfo&gt;
 -- &lt;/DescribeAvailabilityZonesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones where
+module Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones
+    (
+    -- * Request
+      DescribeAvailabilityZones
+    -- ** Default constructor
+    , describeAvailabilityZones
+    -- ** Accessors and lenses
+    , _dazrFilters
+    , dazrFilters
+    , _dazrZoneNames
+    , dazrZoneNames
+
+    -- * Response
+    , DescribeAvailabilityZonesResponse
+    -- ** Accessors and lenses
+    , _dazsAvailabilityZones
+    , dazsAvailabilityZones
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -59,17 +76,8 @@ describeAvailabilityZones = DescribeAvailabilityZones
     }
 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
-    { _dazrFilters :: [Filter]
-      -- ^ One or more filters. message - Information about the Availability
-      -- Zone. region-name - The name of the region for the Availability
-      -- Zone (for example, us-east-1). state - The state of the
-      -- Availability Zone (available | impaired | unavailable). zone-name
-      -- - The name of the Availability Zone (for example, us-east-1a).
-    , _dazrZoneNames :: [Text]
-      -- ^ The names of one or more Availability Zones.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeAvailabilityZones
+makeSiglessLenses ''DescribeAvailabilityZones
 
 instance ToQuery DescribeAvailabilityZones where
     toQuery = genericQuery def
@@ -79,7 +87,7 @@ data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
       -- ^ Information about one or more Availability Zones.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAvailabilityZonesResponse
+makeSiglessLenses ''DescribeAvailabilityZonesResponse
 
 instance FromXML DescribeAvailabilityZonesResponse where
     fromXMLOptions = xmlOptions
@@ -90,3 +98,16 @@ instance AWSRequest DescribeAvailabilityZones where
 
     request = post "DescribeAvailabilityZones"
     response _ = xmlResponse
+
+-- | One or more filters. message - Information about the Availability Zone.
+-- region-name - The name of the region for the Availability Zone (for
+-- example, us-east-1). state - The state of the Availability Zone (available
+-- | impaired | unavailable). zone-name - The name of the Availability Zone
+-- (for example, us-east-1a).
+dazrFilters :: Lens' DescribeAvailabilityZones ([Filter])
+
+-- | The names of one or more Availability Zones.
+dazrZoneNames :: Lens' DescribeAvailabilityZones ([Text])
+
+-- | Information about one or more Availability Zones.
+dazsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse ([AvailabilityZone])

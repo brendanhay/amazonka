@@ -33,25 +33,37 @@
 -- &lt;item&gt; &lt;instanceId&gt;i-23a3397d&lt;/instanceId&gt;
 -- &lt;monitoring&gt; &lt;state&gt;pending&lt;/state&gt; &lt;/monitoring&gt;
 -- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/MonitorInstancesResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.MonitorInstances where
+module Network.AWS.EC2.V2014_06_15.MonitorInstances
+    (
+    -- * Request
+      MonitorInstances
+    -- ** Default constructor
+    , monitorInstances
+    -- ** Accessors and lenses
+    , _mirInstanceIds
+    , mirInstanceIds
+
+    -- * Response
+    , MonitorInstancesResponse
+    -- ** Accessors and lenses
+    , _misInstanceMonitorings
+    , misInstanceMonitorings
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'MonitorInstances' request.
-monitorInstances :: [Text] -- ^ '_mirInstanceIds'
+monitorInstances :: [Text] -- ^ 'mirInstanceIds'
                  -> MonitorInstances
 monitorInstances p1 = MonitorInstances
     { _mirInstanceIds = p1
     }
 
 data MonitorInstances = MonitorInstances
-    { _mirInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
-    } deriving (Show, Generic)
 
-makeLenses ''MonitorInstances
+makeSiglessLenses ''MonitorInstances
 
 instance ToQuery MonitorInstances where
     toQuery = genericQuery def
@@ -61,7 +73,7 @@ data MonitorInstancesResponse = MonitorInstancesResponse
       -- ^ Monitoring information for one or more instances.
     } deriving (Show, Generic)
 
-makeLenses ''MonitorInstancesResponse
+makeSiglessLenses ''MonitorInstancesResponse
 
 instance FromXML MonitorInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -72,3 +84,9 @@ instance AWSRequest MonitorInstances where
 
     request = post "MonitorInstances"
     response _ = xmlResponse
+
+-- | One or more instance IDs.
+mirInstanceIds :: Lens' MonitorInstances ([Text])
+
+-- | Monitoring information for one or more instances.
+misInstanceMonitorings :: Lens' MonitorInstancesResponse ([InstanceMonitoring])

@@ -65,7 +65,48 @@
 -- &amp;Filter.2.Name=instance-type &amp;Filter.2.Value.1=m1.small
 -- &amp;Filter.2.Value.2=m1.large &amp;Filter.3.Name=product-description
 -- &amp;Filter.3.Value.1=Linux%2FUNIX &amp;AUTHPARAMS.
-module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings where
+module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings
+    (
+    -- * Request
+      DescribeReservedInstancesOfferings
+    -- ** Default constructor
+    , describeReservedInstancesOfferings
+    -- ** Accessors and lenses
+    , _driorIncludeMarketplace
+    , driorIncludeMarketplace
+    , _driorFilters
+    , driorFilters
+    , _driorInstanceType
+    , driorInstanceType
+    , _driorMaxResults
+    , driorMaxResults
+    , _driorMaxInstanceCount
+    , driorMaxInstanceCount
+    , _driorMinDuration
+    , driorMinDuration
+    , _driorMaxDuration
+    , driorMaxDuration
+    , _driorOfferingType
+    , driorOfferingType
+    , _driorProductDescription
+    , driorProductDescription
+    , _driorReservedInstancesOfferingIds
+    , driorReservedInstancesOfferingIds
+    , _driorInstanceTenancy
+    , driorInstanceTenancy
+    , _driorAvailabilityZone
+    , driorAvailabilityZone
+    , _driorNextToken
+    , driorNextToken
+
+    -- * Response
+    , DescribeReservedInstancesOfferingsResponse
+    -- ** Accessors and lenses
+    , _driosReservedInstancesOfferings
+    , driosReservedInstancesOfferings
+    , _driosNextToken
+    , driosNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
@@ -90,57 +131,8 @@ describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     }
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _driorIncludeMarketplace :: Maybe Bool
-      -- ^ Include Marketplace offerings in the response.
-    , _driorFilters :: [Filter]
-      -- ^ One or more filters. availability-zone - The Availability Zone
-      -- where the Reserved Instance can be used. duration - The duration
-      -- of the Reserved Instance (for example, one year or three years),
-      -- in seconds. fixed-price - The purchase price of the Reserved
-      -- Instance (for example, 9800.0). instance-type - The instance type
-      -- on which the Reserved Instance can be used. marketplace - Set to
-      -- true to show only Reserved Instance Marketplace offerings. When
-      -- this filter is not used, which is the default behavior, all
-      -- offerings from AWS and Reserved Instance Marketplace are listed.
-      -- product-description - The description of the Reserved Instance
-      -- (Linux/UNIX | Linux/UNIX (Amazon VPC) | Windows | Windows (Amazon
-      -- VPC)). reserved-instances-offering-id - The Reserved Instances
-      -- offering ID. usage-price - The usage price of the Reserved
-      -- Instance, per hour (for example, 0.84).
-    , _driorInstanceType :: Maybe InstanceType
-      -- ^ The instance type on which the Reserved Instance can be used. For
-      -- more information, see Instance Types in the Amazon Elastic
-      -- Compute Cloud User Guide.
-    , _driorMaxResults :: Maybe Integer
-      -- ^ The maximum number of offerings to return.
-    , _driorMaxInstanceCount :: Maybe Integer
-      -- ^ The maximum number of instances to filter when searching for
-      -- offerings.
-    , _driorMinDuration :: Maybe Integer
-      -- ^ The minimum duration (in seconds) to filter when searching for
-      -- offerings.
-    , _driorMaxDuration :: Maybe Integer
-      -- ^ The maximum duration (in seconds) to filter when searching for
-      -- offerings.
-    , _driorOfferingType :: Maybe OfferingTypeValues
-      -- ^ The Reserved Instance offering type.
-    , _driorProductDescription :: Maybe RIProductDescription
-      -- ^ The Reserved Instance description. Instances that include (Amazon
-      -- VPC) in the description are for use with Amazon VPC.
-    , _driorReservedInstancesOfferingIds :: [Text]
-      -- ^ One or more Reserved Instances offering IDs.
-    , _driorInstanceTenancy :: Maybe Tenancy
-      -- ^ The tenancy of the Reserved Instance offering. A Reserved
-      -- Instance with dedicated tenancy runs on single-tenant hardware
-      -- and can only be launched within a VPC. Default: default.
-    , _driorAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone in which the Reserved Instance can be used.
-    , _driorNextToken :: Maybe Text
-      -- ^ The token to use when requesting the next paginated set of
-      -- offerings.
-    } deriving (Show, Generic)
 
-makeLenses ''DescribeReservedInstancesOfferings
+makeSiglessLenses ''DescribeReservedInstancesOfferings
 
 instance ToQuery DescribeReservedInstancesOfferings where
     toQuery = genericQuery def
@@ -152,7 +144,7 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
       -- ^ The next paginated set of results to return.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeReservedInstancesOfferingsResponse
+makeSiglessLenses ''DescribeReservedInstancesOfferingsResponse
 
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -167,3 +159,65 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 instance AWSPager DescribeReservedInstancesOfferings where
     next rq rs = (\x -> rq { _driorNextToken = Just x })
         <$> (_driosNextToken rs)
+
+-- | Include Marketplace offerings in the response.
+driorIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
+
+-- | One or more filters. availability-zone - The Availability Zone where the
+-- Reserved Instance can be used. duration - The duration of the Reserved
+-- Instance (for example, one year or three years), in seconds. fixed-price -
+-- The purchase price of the Reserved Instance (for example, 9800.0).
+-- instance-type - The instance type on which the Reserved Instance can be
+-- used. marketplace - Set to true to show only Reserved Instance Marketplace
+-- offerings. When this filter is not used, which is the default behavior, all
+-- offerings from AWS and Reserved Instance Marketplace are listed.
+-- product-description - The description of the Reserved Instance (Linux/UNIX
+-- | Linux/UNIX (Amazon VPC) | Windows | Windows (Amazon VPC)).
+-- reserved-instances-offering-id - The Reserved Instances offering ID.
+-- usage-price - The usage price of the Reserved Instance, per hour (for
+-- example, 0.84).
+driorFilters :: Lens' DescribeReservedInstancesOfferings ([Filter])
+
+-- | The instance type on which the Reserved Instance can be used. For more
+-- information, see Instance Types in the Amazon Elastic Compute Cloud User
+-- Guide.
+driorInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
+
+-- | The maximum number of offerings to return.
+driorMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+
+-- | The maximum number of instances to filter when searching for offerings.
+driorMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+
+-- | The minimum duration (in seconds) to filter when searching for offerings.
+driorMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+
+-- | The maximum duration (in seconds) to filter when searching for offerings.
+driorMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+
+-- | The Reserved Instance offering type.
+driorOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
+
+-- | The Reserved Instance description. Instances that include (Amazon VPC) in
+-- the description are for use with Amazon VPC.
+driorProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
+
+-- | One or more Reserved Instances offering IDs.
+driorReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings ([Text])
+
+-- | The tenancy of the Reserved Instance offering. A Reserved Instance with
+-- dedicated tenancy runs on single-tenant hardware and can only be launched
+-- within a VPC. Default: default.
+driorInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
+
+-- | The Availability Zone in which the Reserved Instance can be used.
+driorAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+
+-- | The token to use when requesting the next paginated set of offerings.
+driorNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+
+-- | A list of Reserved Instances offerings.
+driosReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse ([ReservedInstancesOffering])
+
+-- | The next paginated set of results to return.
+driosNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)

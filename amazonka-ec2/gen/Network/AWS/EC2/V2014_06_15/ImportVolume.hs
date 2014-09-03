@@ -33,16 +33,37 @@
 -- us-east-1c VDMK 128696320
 -- https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
 -- ccb1b0536a4a70e86016b85229b5c6b10b14a4eb 8 vol-34d8a2ff active.
-module Network.AWS.EC2.V2014_06_15.ImportVolume where
+module Network.AWS.EC2.V2014_06_15.ImportVolume
+    (
+    -- * Request
+      ImportVolume
+    -- ** Default constructor
+    , importVolume
+    -- ** Accessors and lenses
+    , _ivrImage
+    , ivrImage
+    , _ivrAvailabilityZone
+    , ivrAvailabilityZone
+    , _ivrVolume
+    , ivrVolume
+    , _ivrDescription
+    , ivrDescription
+
+    -- * Response
+    , ImportVolumeResponse
+    -- ** Accessors and lenses
+    , _ivsConversionTask
+    , ivsConversionTask
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ImportVolume' request.
-importVolume :: DiskImageDetail -- ^ '_ivrImage'
-             -> Text -- ^ '_ivrAvailabilityZone'
-             -> VolumeDetail -- ^ '_ivrVolume'
+importVolume :: DiskImageDetail -- ^ 'ivrImage'
+             -> Text -- ^ 'ivrAvailabilityZone'
+             -> VolumeDetail -- ^ 'ivrVolume'
              -> ImportVolume
 importVolume p1 p2 p3 = ImportVolume
     { _ivrImage = p1
@@ -52,17 +73,8 @@ importVolume p1 p2 p3 = ImportVolume
     }
 
 data ImportVolume = ImportVolume
-    { _ivrImage :: DiskImageDetail
-      -- ^ 
-    , _ivrAvailabilityZone :: Text
-      -- ^ The Availability Zone for the resulting Amazon EBS volume.
-    , _ivrVolume :: VolumeDetail
-      -- ^ 
-    , _ivrDescription :: Maybe Text
-      -- ^ An optional description for the volume being imported.
-    } deriving (Show, Generic)
 
-makeLenses ''ImportVolume
+makeSiglessLenses ''ImportVolume
 
 instance ToQuery ImportVolume where
     toQuery = genericQuery def
@@ -72,7 +84,7 @@ data ImportVolumeResponse = ImportVolumeResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeLenses ''ImportVolumeResponse
+makeSiglessLenses ''ImportVolumeResponse
 
 instance FromXML ImportVolumeResponse where
     fromXMLOptions = xmlOptions
@@ -83,3 +95,18 @@ instance AWSRequest ImportVolume where
 
     request = post "ImportVolume"
     response _ = xmlResponse
+
+-- | 
+ivrImage :: Lens' ImportVolume (DiskImageDetail)
+
+-- | The Availability Zone for the resulting Amazon EBS volume.
+ivrAvailabilityZone :: Lens' ImportVolume (Text)
+
+-- | 
+ivrVolume :: Lens' ImportVolume (VolumeDetail)
+
+-- | An optional description for the volume being imported.
+ivrDescription :: Lens' ImportVolume (Maybe Text)
+
+-- | 
+ivsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)

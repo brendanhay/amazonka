@@ -42,15 +42,29 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/AssociateDhcpOptionsResponse&gt;.
-module Network.AWS.EC2.V2014_06_15.AssociateDhcpOptions where
+module Network.AWS.EC2.V2014_06_15.AssociateDhcpOptions
+    (
+    -- * Request
+      AssociateDhcpOptions
+    -- ** Default constructor
+    , associateDhcpOptions
+    -- ** Accessors and lenses
+    , _adorDhcpOptionsId
+    , adorDhcpOptionsId
+    , _adorVpcId
+    , adorVpcId
+
+    -- * Response
+    , AssociateDhcpOptionsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AssociateDhcpOptions' request.
-associateDhcpOptions :: Text -- ^ '_adorDhcpOptionsId'
-                     -> Text -- ^ '_adorVpcId'
+associateDhcpOptions :: Text -- ^ 'adorDhcpOptionsId'
+                     -> Text -- ^ 'adorVpcId'
                      -> AssociateDhcpOptions
 associateDhcpOptions p1 p2 = AssociateDhcpOptions
     { _adorDhcpOptionsId = p1
@@ -58,14 +72,8 @@ associateDhcpOptions p1 p2 = AssociateDhcpOptions
     }
 
 data AssociateDhcpOptions = AssociateDhcpOptions
-    { _adorDhcpOptionsId :: Text
-      -- ^ The ID of the DHCP options set, or default to associate no DHCP
-      -- options with the VPC.
-    , _adorVpcId :: Text
-      -- ^ The ID of the VPC.
-    } deriving (Show, Generic)
 
-makeLenses ''AssociateDhcpOptions
+makeSiglessLenses ''AssociateDhcpOptions
 
 instance ToQuery AssociateDhcpOptions where
     toQuery = genericQuery def
@@ -73,7 +81,7 @@ instance ToQuery AssociateDhcpOptions where
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
     deriving (Eq, Show, Generic)
 
-makeLenses ''AssociateDhcpOptionsResponse
+makeSiglessLenses ''AssociateDhcpOptionsResponse
 
 instance AWSRequest AssociateDhcpOptions where
     type Sv AssociateDhcpOptions = EC2
@@ -81,3 +89,10 @@ instance AWSRequest AssociateDhcpOptions where
 
     request = post "AssociateDhcpOptions"
     response _ = nullaryResponse AssociateDhcpOptionsResponse
+
+-- | The ID of the DHCP options set, or default to associate no DHCP options
+-- with the VPC.
+adorDhcpOptionsId :: Lens' AssociateDhcpOptions (Text)
+
+-- | The ID of the VPC.
+adorVpcId :: Lens' AssociateDhcpOptions (Text)

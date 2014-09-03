@@ -53,32 +53,32 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifySnapshotAttribute' request.
-modifySnapshotAttribute :: Text -- ^ '_msasSnapshotId'
+modifySnapshotAttribute :: Text -- ^ '_msarSnapshotId'
                         -> ModifySnapshotAttribute
 modifySnapshotAttribute p1 = ModifySnapshotAttribute
-    { _msasSnapshotId = p1
-    , _msasDryRun = Nothing
-    , _msasCreateVolumePermission = Nothing
-    , _msasGroupNames = mempty
-    , _msasAttribute = Nothing
-    , _msasUserIds = mempty
-    , _msasOperationType = Nothing
+    { _msarSnapshotId = p1
+    , _msarDryRun = Nothing
+    , _msarCreateVolumePermission = Nothing
+    , _msarGroupNames = mempty
+    , _msarAttribute = Nothing
+    , _msarUserIds = mempty
+    , _msarOperationType = Nothing
     }
 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
-    { _msasSnapshotId :: Text
+    { _msarSnapshotId :: Text
       -- ^ The ID of the snapshot.
-    , _msasDryRun :: Maybe Bool
+    , _msarDryRun :: Maybe Bool
       -- ^ 
-    , _msasCreateVolumePermission :: Maybe CreateVolumePermissionModifications
+    , _msarCreateVolumePermission :: Maybe CreateVolumePermissionModifications
       -- ^ A JSON representation of the snapshot attribute modification.
-    , _msasGroupNames :: [Text]
+    , _msarGroupNames :: [Text]
       -- ^ The group to modify for the snapshot.
-    , _msasAttribute :: Maybe SnapshotAttributeName
+    , _msarAttribute :: Maybe SnapshotAttributeName
       -- ^ The snapshot attribute to modify.
-    , _msasUserIds :: [Text]
+    , _msarUserIds :: [Text]
       -- ^ The account ID to modify for the snapshot.
-    , _msasOperationType :: Maybe Text
+    , _msarOperationType :: Maybe Text
       -- ^ The type of operation to perform to the attribute.
     } deriving (Show, Generic)
 

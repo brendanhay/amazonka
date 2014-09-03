@@ -31,17 +31,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifySubnetAttribute' request.
-modifySubnetAttribute :: Text -- ^ '_msarSubnetId'
+modifySubnetAttribute :: Text -- ^ '_msasSubnetId'
                       -> ModifySubnetAttribute
 modifySubnetAttribute p1 = ModifySubnetAttribute
-    { _msarSubnetId = p1
-    , _msarMapPublicIpOnLaunch = Nothing
+    { _msasSubnetId = p1
+    , _msasMapPublicIpOnLaunch = Nothing
     }
 
 data ModifySubnetAttribute = ModifySubnetAttribute
-    { _msarSubnetId :: Text
+    { _msasSubnetId :: Text
       -- ^ The ID of the subnet.
-    , _msarMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
+    , _msasMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
       -- ^ 
     } deriving (Show, Generic)
 

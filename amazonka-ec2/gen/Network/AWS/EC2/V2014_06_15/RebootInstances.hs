@@ -39,17 +39,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RebootInstances' request.
-rebootInstances :: [Text] -- ^ '_riwInstanceIds'
+rebootInstances :: [Text] -- ^ '_riuInstanceIds'
                 -> RebootInstances
 rebootInstances p1 = RebootInstances
-    { _riwInstanceIds = p1
-    , _riwDryRun = Nothing
+    { _riuInstanceIds = p1
+    , _riuDryRun = Nothing
     }
 
 data RebootInstances = RebootInstances
-    { _riwInstanceIds :: [Text]
+    { _riuInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _riwDryRun :: Maybe Bool
+    , _riuDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

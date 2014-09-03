@@ -34,17 +34,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteCustomerGateway' request.
-deleteCustomerGateway :: Text -- ^ '_dcgtCustomerGatewayId'
+deleteCustomerGateway :: Text -- ^ '_dcgrCustomerGatewayId'
                       -> DeleteCustomerGateway
 deleteCustomerGateway p1 = DeleteCustomerGateway
-    { _dcgtCustomerGatewayId = p1
-    , _dcgtDryRun = Nothing
+    { _dcgrCustomerGatewayId = p1
+    , _dcgrDryRun = Nothing
     }
 
 data DeleteCustomerGateway = DeleteCustomerGateway
-    { _dcgtCustomerGatewayId :: Text
+    { _dcgrCustomerGatewayId :: Text
       -- ^ The ID of the customer gateway.
-    , _dcgtDryRun :: Maybe Bool
+    , _dcgrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

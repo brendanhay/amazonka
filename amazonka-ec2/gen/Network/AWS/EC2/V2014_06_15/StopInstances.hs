@@ -58,20 +58,20 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'StopInstances' request.
-stopInstances :: [Text] -- ^ '_sirInstanceIds'
+stopInstances :: [Text] -- ^ '_sisvInstanceIds'
               -> StopInstances
 stopInstances p1 = StopInstances
-    { _sirInstanceIds = p1
-    , _sirDryRun = Nothing
-    , _sirForce = Nothing
+    { _sisvInstanceIds = p1
+    , _sisvDryRun = Nothing
+    , _sisvForce = Nothing
     }
 
 data StopInstances = StopInstances
-    { _sirInstanceIds :: [Text]
+    { _sisvInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _sirDryRun :: Maybe Bool
+    , _sisvDryRun :: Maybe Bool
       -- ^ 
-    , _sirForce :: Maybe Bool
+    , _sisvForce :: Maybe Bool
       -- ^ Forces the instances to stop. The instances do not have an
       -- opportunity to flush file system caches or file system metadata.
       -- If you use this option, you must perform file system check and
@@ -85,7 +85,7 @@ instance ToQuery StopInstances where
     toQuery = genericQuery def
 
 data StopInstancesResponse = StopInstancesResponse
-    { _sisStoppingInstances :: [InstanceStateChange]
+    { _siswStoppingInstances :: [InstanceStateChange]
       -- ^ Information about one or more stopped instances.
     } deriving (Show, Generic)
 

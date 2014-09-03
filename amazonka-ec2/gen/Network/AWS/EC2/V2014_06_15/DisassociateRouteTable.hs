@@ -37,18 +37,18 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DisassociateRouteTable' request.
-disassociateRouteTable :: Text -- ^ '_drtrAssociationId'
+disassociateRouteTable :: Text -- ^ '_drtuAssociationId'
                        -> DisassociateRouteTable
 disassociateRouteTable p1 = DisassociateRouteTable
-    { _drtrAssociationId = p1
-    , _drtrDryRun = Nothing
+    { _drtuAssociationId = p1
+    , _drtuDryRun = Nothing
     }
 
 data DisassociateRouteTable = DisassociateRouteTable
-    { _drtrAssociationId :: Text
+    { _drtuAssociationId :: Text
       -- ^ The association ID representing the current association between
       -- the route table and subnet.
-    , _drtrDryRun :: Maybe Bool
+    , _drtuDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

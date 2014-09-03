@@ -36,17 +36,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteVpc' request.
-deleteVpc :: Text -- ^ '_dvwVpcId'
+deleteVpc :: Text -- ^ '_dvsVpcId'
           -> DeleteVpc
 deleteVpc p1 = DeleteVpc
-    { _dvwVpcId = p1
-    , _dvwDryRun = Nothing
+    { _dvsVpcId = p1
+    , _dvsDryRun = Nothing
     }
 
 data DeleteVpc = DeleteVpc
-    { _dvwVpcId :: Text
+    { _dvsVpcId :: Text
       -- ^ The ID of the VPC.
-    , _dvwDryRun :: Maybe Bool
+    , _dvsDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

@@ -49,18 +49,18 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeCustomerGateways' request.
 describeCustomerGateways :: DescribeCustomerGateways
 describeCustomerGateways = DescribeCustomerGateways
-    { _dcgrDryRun = Nothing
-    , _dcgrCustomerGatewayIds = mempty
-    , _dcgrFilters = mempty
+    { _dcgsDryRun = Nothing
+    , _dcgsCustomerGatewayIds = mempty
+    , _dcgsFilters = mempty
     }
 
 data DescribeCustomerGateways = DescribeCustomerGateways
-    { _dcgrDryRun :: Maybe Bool
+    { _dcgsDryRun :: Maybe Bool
       -- ^ 
-    , _dcgrCustomerGatewayIds :: [Text]
+    , _dcgsCustomerGatewayIds :: [Text]
       -- ^ One or more customer gateway IDs. Default: Describes all your
       -- customer gateways.
-    , _dcgrFilters :: [Filter]
+    , _dcgsFilters :: [Filter]
       -- ^ One or more filters. bgp-asn - The customer gateway's Border
       -- Gateway Protocol (BGP) Autonomous System Number (ASN).
       -- customer-gateway-id - The ID of the customer gateway. ip-address
@@ -86,7 +86,7 @@ instance ToQuery DescribeCustomerGateways where
     toQuery = genericQuery def
 
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgsCustomerGateways :: [CustomerGateway]
+    { _dcgtCustomerGateways :: [CustomerGateway]
       -- ^ Information about one or more customer gateways.
     } deriving (Show, Generic)
 

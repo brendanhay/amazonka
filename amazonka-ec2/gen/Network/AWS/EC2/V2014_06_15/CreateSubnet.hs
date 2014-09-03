@@ -49,25 +49,25 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateSubnet' request.
-createSubnet :: Text -- ^ '_cstCidrBlock'
-             -> Text -- ^ '_cstVpcId'
+createSubnet :: Text -- ^ '_csuVpcId'
+             -> Text -- ^ '_csuCidrBlock'
              -> CreateSubnet
 createSubnet p1 p2 = CreateSubnet
-    { _cstCidrBlock = p1
-    , _cstVpcId = p2
-    , _cstDryRun = Nothing
-    , _cstAvailabilityZone = Nothing
+    { _csuVpcId = p1
+    , _csuCidrBlock = p2
+    , _csuDryRun = Nothing
+    , _csuAvailabilityZone = Nothing
     }
 
 data CreateSubnet = CreateSubnet
-    { _cstCidrBlock :: Text
+    { _csuVpcId :: Text
+      -- ^ The ID of the VPC.
+    , _csuCidrBlock :: Text
       -- ^ The network range for the subnet, in CIDR notation. For example,
       -- 10.0.0.0/24.
-    , _cstVpcId :: Text
-      -- ^ The ID of the VPC.
-    , _cstDryRun :: Maybe Bool
+    , _csuDryRun :: Maybe Bool
       -- ^ 
-    , _cstAvailabilityZone :: Maybe Text
+    , _csuAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone for the subnet. Default: Amazon EC2 selects
       -- one for you (recommended).
     } deriving (Show, Generic)
@@ -78,7 +78,7 @@ instance ToQuery CreateSubnet where
     toQuery = genericQuery def
 
 data CreateSubnetResponse = CreateSubnetResponse
-    { _csuSubnet :: Maybe Subnet
+    { _csvSubnet :: Maybe Subnet
       -- ^ Information about the subnet.
     } deriving (Show, Generic)
 

@@ -45,15 +45,15 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVpcs' request.
 describeVpcs :: DescribeVpcs
 describeVpcs = DescribeVpcs
-    { _dvsDryRun = Nothing
-    , _dvsFilters = mempty
-    , _dvsVpcIds = mempty
+    { _dvvDryRun = Nothing
+    , _dvvFilters = mempty
+    , _dvvVpcIds = mempty
     }
 
 data DescribeVpcs = DescribeVpcs
-    { _dvsDryRun :: Maybe Bool
+    { _dvvDryRun :: Maybe Bool
       -- ^ 
-    , _dvsFilters :: [Filter]
+    , _dvvFilters :: [Filter]
       -- ^ One or more filters. cidr - The CIDR block of the VPC. The CIDR
       -- block you specify must exactly match the VPC's CIDR block for
       -- information to be returned for the VPC. dhcp-options-id - The ID
@@ -70,7 +70,7 @@ data DescribeVpcs = DescribeVpcs
       -- filter. tag-value - The value of a tag assigned to the resource.
       -- This filter is independent of the tag-key filter. vpc-id - The ID
       -- of the VPC.
-    , _dvsVpcIds :: [Text]
+    , _dvvVpcIds :: [Text]
       -- ^ One or more VPC IDs. Default: Describes all your VPCs.
     } deriving (Show, Generic)
 
@@ -80,7 +80,7 @@ instance ToQuery DescribeVpcs where
     toQuery = genericQuery def
 
 data DescribeVpcsResponse = DescribeVpcsResponse
-    { _dvtVpcs :: [Vpc]
+    { _dvwVpcs :: [Vpc]
       -- ^ Information about one or more VPCs.
     } deriving (Show, Generic)
 

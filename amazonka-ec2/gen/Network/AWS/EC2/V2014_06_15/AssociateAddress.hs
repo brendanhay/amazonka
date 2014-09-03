@@ -58,39 +58,39 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'AssociateAddress' request.
 associateAddress :: AssociateAddress
 associateAddress = AssociateAddress
-    { _aaauDryRun = Nothing
-    , _aaauAllowReassociation = Nothing
-    , _aaauPublicIp = Nothing
-    , _aaauPrivateIpAddress = Nothing
-    , _aaauNetworkInterfaceId = Nothing
-    , _aaauAllocationId = Nothing
-    , _aaauInstanceId = Nothing
+    { _aatDryRun = Nothing
+    , _aatAllowReassociation = Nothing
+    , _aatInstanceId = Nothing
+    , _aatPublicIp = Nothing
+    , _aatAllocationId = Nothing
+    , _aatNetworkInterfaceId = Nothing
+    , _aatPrivateIpAddress = Nothing
     }
 
 data AssociateAddress = AssociateAddress
-    { _aaauDryRun :: Maybe Bool
+    { _aatDryRun :: Maybe Bool
       -- ^ 
-    , _aaauAllowReassociation :: Maybe Bool
+    , _aatAllowReassociation :: Maybe Bool
       -- ^ [EC2-VPC] Allows an Elastic IP address that is already associated
       -- with an instance or network interface to be re-associated with
       -- the specified instance or network interface. Otherwise, the
       -- operation fails. Default: false.
-    , _aaauPublicIp :: Maybe Text
+    , _aatInstanceId :: Maybe Text
+      -- ^ The ID of the instance. The operation fails if you specify an
+      -- instance ID unless exactly one network interface is attached.
+    , _aatPublicIp :: Maybe Text
       -- ^ The Elastic IP address.
-    , _aaauPrivateIpAddress :: Maybe Text
+    , _aatAllocationId :: Maybe Text
+      -- ^ [EC2-VPC] The allocation ID. This is required for EC2-VPC.
+    , _aatNetworkInterfaceId :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the network interface. If the instance has
+      -- more than one network interface, you must specify a network
+      -- interface ID.
+    , _aatPrivateIpAddress :: Maybe Text
       -- ^ [EC2-VPC] The primary or secondary private IP address to
       -- associate with the Elastic IP address. If no private IP address
       -- is specified, the Elastic IP address is associated with the
       -- primary private IP address.
-    , _aaauNetworkInterfaceId :: Maybe Text
-      -- ^ [EC2-VPC] The ID of the network interface. If the instance has
-      -- more than one network interface, you must specify a network
-      -- interface ID.
-    , _aaauAllocationId :: Maybe Text
-      -- ^ [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-    , _aaauInstanceId :: Maybe Text
-      -- ^ The ID of the instance. The operation fails if you specify an
-      -- instance ID unless exactly one network interface is attached.
     } deriving (Show, Generic)
 
 makeLenses ''AssociateAddress
@@ -99,7 +99,7 @@ instance ToQuery AssociateAddress where
     toQuery = genericQuery def
 
 data AssociateAddressResponse = AssociateAddressResponse
-    { _aaavAssociationId :: Maybe Text
+    { _aauAssociationId :: Maybe Text
       -- ^ [EC2-VPC] The ID that represents the association of the Elastic
       -- IP address with an instance.
     } deriving (Show, Generic)

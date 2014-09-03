@@ -55,21 +55,21 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateVpc' request.
-createVpc :: Text -- ^ '_cvrCidrBlock'
+createVpc :: Text -- ^ '_cvsCidrBlock'
           -> CreateVpc
 createVpc p1 = CreateVpc
-    { _cvrCidrBlock = p1
-    , _cvrDryRun = Nothing
-    , _cvrInstanceTenancy = Nothing
+    { _cvsCidrBlock = p1
+    , _cvsDryRun = Nothing
+    , _cvsInstanceTenancy = Nothing
     }
 
 data CreateVpc = CreateVpc
-    { _cvrCidrBlock :: Text
+    { _cvsCidrBlock :: Text
       -- ^ The network range for the VPC, in CIDR notation. For example,
       -- 10.0.0.0/16.
-    , _cvrDryRun :: Maybe Bool
+    , _cvsDryRun :: Maybe Bool
       -- ^ 
-    , _cvrInstanceTenancy :: Maybe Tenancy
+    , _cvsInstanceTenancy :: Maybe Tenancy
       -- ^ The supported tenancy options for instances launched into the
       -- VPC. A value of default means that instances can be launched with
       -- any tenancy; a value of dedicated means all instances launched
@@ -85,7 +85,7 @@ instance ToQuery CreateVpc where
     toQuery = genericQuery def
 
 data CreateVpcResponse = CreateVpcResponse
-    { _cvsVpc :: Maybe Vpc
+    { _cvtVpc :: Maybe Vpc
       -- ^ Information about the VPC.
     } deriving (Show, Generic)
 

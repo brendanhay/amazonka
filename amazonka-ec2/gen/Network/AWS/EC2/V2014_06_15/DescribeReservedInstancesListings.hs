@@ -39,8 +39,8 @@ import Network.AWS.Prelude
 describeReservedInstancesListings :: DescribeReservedInstancesListings
 describeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilrFilters = mempty
-    , _drilrReservedInstancesListingId = Nothing
     , _drilrReservedInstancesId = Nothing
+    , _drilrReservedInstancesListingId = Nothing
     }
 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
@@ -50,10 +50,10 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
       -- Reserved Instances listing. status - The status of the Reserved
       -- Instance listing (pending | active | cancelled | closed).
       -- status-message - The reason for the status.
-    , _drilrReservedInstancesListingId :: Maybe Text
-      -- ^ One or more Reserved Instance Listing IDs.
     , _drilrReservedInstancesId :: Maybe Text
       -- ^ One or more Reserved Instance IDs.
+    , _drilrReservedInstancesListingId :: Maybe Text
+      -- ^ One or more Reserved Instance Listing IDs.
     } deriving (Show, Generic)
 
 makeLenses ''DescribeReservedInstancesListings

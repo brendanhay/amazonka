@@ -65,13 +65,13 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeTags' request.
 describeTags :: DescribeTags
 describeTags = DescribeTags
-    { _dtrFilters = mempty
-    , _dtrMaxResults = Nothing
-    , _dtrNextToken = Nothing
+    { _dtsFilters = mempty
+    , _dtsMaxResults = Nothing
+    , _dtsNextToken = Nothing
     }
 
 data DescribeTags = DescribeTags
-    { _dtrFilters :: [Filter]
+    { _dtsFilters :: [Filter]
       -- ^ One or more filters. key - The tag key. resource-id - The
       -- resource ID. resource-type - The resource type (customer-gateway
       -- | dhcp-options | image | instance | internet-gateway |
@@ -79,12 +79,12 @@ data DescribeTags = DescribeTags
       -- route-table | security-group | snapshot | spot-instances-request
       -- | subnet | volume | vpc | vpn-connection | vpn-gateway). value -
       -- The tag value.
-    , _dtrMaxResults :: Maybe Integer
+    , _dtsMaxResults :: Maybe Integer
       -- ^ The maximum number of items to return for this call. The call
       -- also returns a token that you can specify in a subsequent call to
       -- get the next set of results. If the value is greater than 1000,
       -- we return only 1000 items.
-    , _dtrNextToken :: Maybe Text
+    , _dtsNextToken :: Maybe Text
       -- ^ The token for the next set of items to return. (You received this
       -- token from a prior call.).
     } deriving (Show, Generic)
@@ -95,9 +95,9 @@ instance ToQuery DescribeTags where
     toQuery = genericQuery def
 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _dtsTags :: [TagDescription]
+    { _dttTags :: [TagDescription]
       -- ^ A list of tags.
-    , _dtsNextToken :: Maybe Text
+    , _dttNextToken :: Maybe Text
       -- ^ The token to use when requesting the next set of items. If there
       -- are no additional items to return, the string is empty.
     } deriving (Show, Generic)
@@ -115,5 +115,5 @@ instance AWSRequest DescribeTags where
     response _ = xmlResponse
 
 instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq { _dtrNextToken = Just x })
-        <$> (_dtsNextToken rs)
+    next rq rs = (\x -> rq { _dtsNextToken = Just x })
+        <$> (_dttNextToken rs)

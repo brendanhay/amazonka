@@ -33,21 +33,21 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteRoute' request.
-deleteRoute :: Text -- ^ '_drrDestinationCidrBlock'
-            -> Text -- ^ '_drrRouteTableId'
+deleteRoute :: Text -- ^ '_drrRouteTableId'
+            -> Text -- ^ '_drrDestinationCidrBlock'
             -> DeleteRoute
 deleteRoute p1 p2 = DeleteRoute
-    { _drrDestinationCidrBlock = p1
-    , _drrRouteTableId = p2
+    { _drrRouteTableId = p1
+    , _drrDestinationCidrBlock = p2
     , _drrDryRun = Nothing
     }
 
 data DeleteRoute = DeleteRoute
-    { _drrDestinationCidrBlock :: Text
+    { _drrRouteTableId :: Text
+      -- ^ The ID of the route table.
+    , _drrDestinationCidrBlock :: Text
       -- ^ The CIDR range for the route. The value you specify must match
       -- the CIDR for the route exactly.
-    , _drrRouteTableId :: Text
-      -- ^ The ID of the route table.
     , _drrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)

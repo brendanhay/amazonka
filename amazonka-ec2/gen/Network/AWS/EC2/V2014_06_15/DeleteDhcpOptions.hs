@@ -35,17 +35,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteDhcpOptions' request.
-deleteDhcpOptions :: Text -- ^ '_ddotDhcpOptionsId'
+deleteDhcpOptions :: Text -- ^ '_ddorDhcpOptionsId'
                   -> DeleteDhcpOptions
 deleteDhcpOptions p1 = DeleteDhcpOptions
-    { _ddotDhcpOptionsId = p1
-    , _ddotDryRun = Nothing
+    { _ddorDhcpOptionsId = p1
+    , _ddorDryRun = Nothing
     }
 
 data DeleteDhcpOptions = DeleteDhcpOptions
-    { _ddotDhcpOptionsId :: Text
+    { _ddorDhcpOptionsId :: Text
       -- ^ The ID of the DHCP options set.
-    , _ddotDryRun :: Maybe Bool
+    , _ddorDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

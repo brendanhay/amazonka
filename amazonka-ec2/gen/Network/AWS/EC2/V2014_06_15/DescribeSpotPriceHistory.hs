@@ -54,8 +54,8 @@ import Network.AWS.Prelude
 describeSpotPriceHistory :: DescribeSpotPriceHistory
 describeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphrDryRun = Nothing
-    , _dsphrEndTime = Nothing
     , _dsphrStartTime = Nothing
+    , _dsphrEndTime = Nothing
     , _dsphrFilters = mempty
     , _dsphrInstanceTypes = mempty
     , _dsphrMaxResults = Nothing
@@ -67,10 +67,10 @@ describeSpotPriceHistory = DescribeSpotPriceHistory
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphrDryRun :: Maybe Bool
       -- ^ 
-    , _dsphrEndTime :: Maybe ISO8601
-      -- ^ The end date and time of the Spot Price history data.
     , _dsphrStartTime :: Maybe ISO8601
       -- ^ The start date and time of the Spot Price history data.
+    , _dsphrEndTime :: Maybe ISO8601
+      -- ^ The end date and time of the Spot Price history data.
     , _dsphrFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
       -- for which prices should be returned. instance-type - The type of

@@ -67,13 +67,13 @@ authorizeSecurityGroupEgress :: Text -- ^ '_asgerGroupId'
 authorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
     { _asgerGroupId = p1
     , _asgerDryRun = Nothing
-    , _asgerToPort = Nothing
     , _asgerFromPort = Nothing
+    , _asgerToPort = Nothing
     , _asgerIpPermissions = mempty
     , _asgerSourceSecurityGroupName = Nothing
     , _asgerSourceSecurityGroupOwnerId = Nothing
-    , _asgerCidrIp = Nothing
     , _asgerIpProtocol = Nothing
+    , _asgerCidrIp = Nothing
     }
 
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
@@ -81,14 +81,14 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
       -- ^ The ID of the security group.
     , _asgerDryRun :: Maybe Bool
       -- ^ 
-    , _asgerToPort :: Maybe Integer
-      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
-      -- code number. For the ICMP code number, use -1 to specify all ICMP
-      -- codes for the ICMP type.
     , _asgerFromPort :: Maybe Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. For the ICMP type number, use -1 to specify all ICMP
       -- types.
+    , _asgerToPort :: Maybe Integer
+      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
+      -- code number. For the ICMP code number, use -1 to specify all ICMP
+      -- codes for the ICMP type.
     , _asgerIpPermissions :: [IpPermission]
       -- ^ 
     , _asgerSourceSecurityGroupName :: Maybe Text
@@ -98,12 +98,12 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     , _asgerSourceSecurityGroupOwnerId :: Maybe Text
       -- ^ The ID of the source security group. You can't specify a source
       -- security group and a CIDR IP address range.
-    , _asgerCidrIp :: Maybe Text
-      -- ^ The CIDR IP address range. You can't specify this parameter when
-      -- specifying a source security group.
     , _asgerIpProtocol :: Maybe Text
       -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
       -- Numbers). Use -1 to specify all.
+    , _asgerCidrIp :: Maybe Text
+      -- ^ The CIDR IP address range. You can't specify this parameter when
+      -- specifying a source security group.
     } deriving (Show, Generic)
 
 makeLenses ''AuthorizeSecurityGroupEgress

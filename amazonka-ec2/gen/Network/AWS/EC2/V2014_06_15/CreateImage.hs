@@ -39,12 +39,12 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateImage' request.
-createImage :: Text -- ^ '_citName'
-            -> Text -- ^ '_citInstanceId'
+createImage :: Text -- ^ '_citInstanceId'
+            -> Text -- ^ '_citName'
             -> CreateImage
 createImage p1 p2 = CreateImage
-    { _citName = p1
-    , _citInstanceId = p2
+    { _citInstanceId = p1
+    , _citName = p2
     , _citBlockDeviceMappings = mempty
     , _citDryRun = Nothing
     , _citNoReboot = Nothing
@@ -52,12 +52,12 @@ createImage p1 p2 = CreateImage
     }
 
 data CreateImage = CreateImage
-    { _citName :: Text
+    { _citInstanceId :: Text
+      -- ^ The ID of the instance.
+    , _citName :: Text
       -- ^ A name for the new image. Constraints: 3-128 alphanumeric
       -- characters, parenthesis (()), periods (.), slashes (/), dashes
       -- (-), or underscores(_).
-    , _citInstanceId :: Text
-      -- ^ The ID of the instance.
     , _citBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ Information about one or more block device mappings.
     , _citDryRun :: Maybe Bool

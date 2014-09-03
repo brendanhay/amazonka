@@ -39,29 +39,29 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CopyImage' request.
-copyImage :: Text -- ^ '_cirSourceImageId'
-          -> Text -- ^ '_cirSourceRegion'
+copyImage :: Text -- ^ '_cirSourceRegion'
+          -> Text -- ^ '_cirSourceImageId'
           -> CopyImage
 copyImage p1 p2 = CopyImage
-    { _cirSourceImageId = p1
-    , _cirSourceRegion = p2
+    { _cirSourceRegion = p1
+    , _cirSourceImageId = p2
     , _cirDryRun = Nothing
-    , _cirDescription = Nothing
     , _cirName = Nothing
+    , _cirDescription = Nothing
     , _cirClientToken = Nothing
     }
 
 data CopyImage = CopyImage
-    { _cirSourceImageId :: Text
-      -- ^ The ID of the AMI to copy.
-    , _cirSourceRegion :: Text
+    { _cirSourceRegion :: Text
       -- ^ The name of the region that contains the AMI to copy.
+    , _cirSourceImageId :: Text
+      -- ^ The ID of the AMI to copy.
     , _cirDryRun :: Maybe Bool
       -- ^ 
-    , _cirDescription :: Maybe Text
-      -- ^ A description for the new AMI in the destination region.
     , _cirName :: Maybe Text
       -- ^ The name of the new AMI in the destination region.
+    , _cirDescription :: Maybe Text
+      -- ^ A description for the new AMI in the destination region.
     , _cirClientToken :: Maybe Text
       -- ^ Unique, case-sensitive identifier you provide to ensure
       -- idempotency of the request. For more information, see How to

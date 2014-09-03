@@ -36,10 +36,10 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
-    { _dvrprGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _dvrprRouteTableId :: Text
+    { _dvrprRouteTableId :: Text
       -- ^ The ID of the routing table.
+    , _dvrprGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
     } deriving (Show, Generic)
 
 makeLenses ''DisableVgwRoutePropagation

@@ -61,24 +61,24 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateSecurityGroup' request.
-createSecurityGroup :: Text -- ^ '_csgrDescription'
-                    -> Text -- ^ '_csgrGroupName'
+createSecurityGroup :: Text -- ^ '_csgrGroupName'
+                    -> Text -- ^ '_csgrDescription'
                     -> CreateSecurityGroup
 createSecurityGroup p1 p2 = CreateSecurityGroup
-    { _csgrDescription = p1
-    , _csgrGroupName = p2
+    { _csgrGroupName = p1
+    , _csgrDescription = p2
     , _csgrDryRun = Nothing
     , _csgrVpcId = Nothing
     }
 
 data CreateSecurityGroup = CreateSecurityGroup
-    { _csgrDescription :: Text
-      -- ^ A description for the security group. This is informational only.
-    , _csgrGroupName :: Text
+    { _csgrGroupName :: Text
       -- ^ The name of the security group. Constraints: Up to 255 characters
       -- in length Constraints for EC2-Classic: ASCII characters
       -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
       -- ._-:/()#,@[]+=&amp;;{}!$*.
+    , _csgrDescription :: Text
+      -- ^ A description for the security group. This is informational only.
     , _csgrDryRun :: Maybe Bool
       -- ^ 
     , _csgrVpcId :: Maybe Text

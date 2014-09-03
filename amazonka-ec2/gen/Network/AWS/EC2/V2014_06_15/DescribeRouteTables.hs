@@ -38,15 +38,15 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeRouteTables' request.
 describeRouteTables :: DescribeRouteTables
 describeRouteTables = DescribeRouteTables
-    { _drttDryRun = Nothing
-    , _drttFilters = mempty
-    , _drttRouteTableIds = mempty
+    { _drtsDryRun = Nothing
+    , _drtsFilters = mempty
+    , _drtsRouteTableIds = mempty
     }
 
 data DescribeRouteTables = DescribeRouteTables
-    { _drttDryRun :: Maybe Bool
+    { _drtsDryRun :: Maybe Bool
       -- ^ 
-    , _drttFilters :: [Filter]
+    , _drtsFilters :: [Filter]
       -- ^ One or more filters. association.route-table-association-id - The
       -- ID of an association ID for the route table.
       -- association.route-table-id - The ID of the route table involved
@@ -77,7 +77,7 @@ data DescribeRouteTables = DescribeRouteTables
       -- of a tag assigned to the resource. This filter is independent of
       -- the tag-key filter. vpc-id - The ID of the VPC for the route
       -- table.
-    , _drttRouteTableIds :: [Text]
+    , _drtsRouteTableIds :: [Text]
       -- ^ One or more route table IDs. Default: Describes all your route
       -- tables.
     } deriving (Show, Generic)
@@ -88,7 +88,7 @@ instance ToQuery DescribeRouteTables where
     toQuery = genericQuery def
 
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse
-    { _drtuRouteTables :: [RouteTable]
+    { _drttRouteTables :: [RouteTable]
       -- ^ Information about one or more route tables.
     } deriving (Show, Generic)
 

@@ -59,20 +59,20 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateSnapshot' request.
-createSnapshot :: Text -- ^ '_csvVolumeId'
+createSnapshot :: Text -- ^ '_cstVolumeId'
                -> CreateSnapshot
 createSnapshot p1 = CreateSnapshot
-    { _csvVolumeId = p1
-    , _csvDryRun = Nothing
-    , _csvDescription = Nothing
+    { _cstVolumeId = p1
+    , _cstDryRun = Nothing
+    , _cstDescription = Nothing
     }
 
 data CreateSnapshot = CreateSnapshot
-    { _csvVolumeId :: Text
+    { _cstVolumeId :: Text
       -- ^ The ID of the Amazon EBS volume.
-    , _csvDryRun :: Maybe Bool
+    , _cstDryRun :: Maybe Bool
       -- ^ 
-    , _csvDescription :: Maybe Text
+    , _cstDescription :: Maybe Text
       -- ^ A description for the snapshot.
     } deriving (Show, Generic)
 
@@ -82,25 +82,25 @@ instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
 
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { _ssyEncrypted :: Maybe Bool
+    { _svEncrypted :: Maybe Bool
       -- ^ Indicates whether the snapshot is encrypted.
-    , _ssyStartTime :: Maybe ISO8601
+    , _svStartTime :: Maybe ISO8601
       -- ^ The time stamp when the snapshot was initiated.
-    , _ssyVolumeSize :: Maybe Integer
+    , _svVolumeSize :: Maybe Integer
       -- ^ The size of the volume, in GiB.
-    , _ssyState :: Maybe SnapshotState
+    , _svState :: Maybe SnapshotState
       -- ^ The snapshot state.
-    , _ssySnapshotId :: Maybe Text
+    , _svSnapshotId :: Maybe Text
       -- ^ The ID of the snapshot.
-    , _ssyDescription :: Maybe Text
-      -- ^ The description for the snapshot.
-    , _ssyVolumeId :: Maybe Text
+    , _svVolumeId :: Maybe Text
       -- ^ The ID of the volume.
-    , _ssyOwnerId :: Maybe Text
-      -- ^ The AWS account ID of the Amazon EBS snapshot owner.
-    , _ssyProgress :: Maybe Text
+    , _svProgress :: Maybe Text
       -- ^ The progress of the snapshot, as a percentage.
-    , _ssyOwnerAlias :: Maybe Text
+    , _svOwnerId :: Maybe Text
+      -- ^ The AWS account ID of the Amazon EBS snapshot owner.
+    , _svDescription :: Maybe Text
+      -- ^ The description for the snapshot.
+    , _svOwnerAlias :: Maybe Text
       -- ^ The AWS account alias (for example, amazon, self) or AWS account
       -- ID that owns the snapshot.
     } deriving (Show, Generic)

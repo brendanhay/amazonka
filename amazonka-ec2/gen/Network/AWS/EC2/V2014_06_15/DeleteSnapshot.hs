@@ -41,17 +41,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteSnapshot' request.
-deleteSnapshot :: Text -- ^ '_dsySnapshotId'
+deleteSnapshot :: Text -- ^ '_dsrSnapshotId'
                -> DeleteSnapshot
 deleteSnapshot p1 = DeleteSnapshot
-    { _dsySnapshotId = p1
-    , _dsyDryRun = Nothing
+    { _dsrSnapshotId = p1
+    , _dsrDryRun = Nothing
     }
 
 data DeleteSnapshot = DeleteSnapshot
-    { _dsySnapshotId :: Text
+    { _dsrSnapshotId :: Text
       -- ^ The ID of the Amazon EBS snapshot.
-    , _dsyDryRun :: Maybe Bool
+    , _dsrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

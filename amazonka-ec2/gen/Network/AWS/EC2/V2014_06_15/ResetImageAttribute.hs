@@ -33,22 +33,22 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ResetImageAttribute' request.
-resetImageAttribute :: ResetImageAttributeName -- ^ '_riasAttribute'
-                    -> Text -- ^ '_riasImageId'
+resetImageAttribute :: ResetImageAttributeName -- ^ '_riarAttribute'
+                    -> Text -- ^ '_riarImageId'
                     -> ResetImageAttribute
 resetImageAttribute p1 p2 = ResetImageAttribute
-    { _riasAttribute = p1
-    , _riasImageId = p2
-    , _riasDryRun = Nothing
+    { _riarAttribute = p1
+    , _riarImageId = p2
+    , _riarDryRun = Nothing
     }
 
 data ResetImageAttribute = ResetImageAttribute
-    { _riasAttribute :: ResetImageAttributeName
+    { _riarAttribute :: ResetImageAttributeName
       -- ^ The attribute to reset (currently you can only reset the launch
       -- permission attribute).
-    , _riasImageId :: Text
+    , _riarImageId :: Text
       -- ^ The ID of the AMI.
-    , _riasDryRun :: Maybe Bool
+    , _riarDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

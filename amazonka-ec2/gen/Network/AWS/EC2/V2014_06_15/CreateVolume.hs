@@ -49,38 +49,38 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateVolume' request.
-createVolume :: Text -- ^ '_cvtAvailabilityZone'
+createVolume :: Text -- ^ '_cvrAvailabilityZone'
              -> CreateVolume
 createVolume p1 = CreateVolume
-    { _cvtAvailabilityZone = p1
-    , _cvtDryRun = Nothing
-    , _cvtEncrypted = Nothing
-    , _cvtIops = Nothing
-    , _cvtSize = Nothing
-    , _cvtSnapshotId = Nothing
-    , _cvtVolumeType = Nothing
+    { _cvrAvailabilityZone = p1
+    , _cvrDryRun = Nothing
+    , _cvrEncrypted = Nothing
+    , _cvrSize = Nothing
+    , _cvrIops = Nothing
+    , _cvrSnapshotId = Nothing
+    , _cvrVolumeType = Nothing
     }
 
 data CreateVolume = CreateVolume
-    { _cvtAvailabilityZone :: Text
+    { _cvrAvailabilityZone :: Text
       -- ^ The Availability Zone in which to create the volume. Use
       -- DescribeAvailabilityZones to list the Availability Zones that are
       -- currently available to you.
-    , _cvtDryRun :: Maybe Bool
+    , _cvrDryRun :: Maybe Bool
       -- ^ 
-    , _cvtEncrypted :: Maybe Bool
+    , _cvrEncrypted :: Maybe Bool
       -- ^ Specifies whether the volume should be encrypted.
-    , _cvtIops :: Maybe Integer
-      -- ^ Only valid for Provisioned IOPS (SSD) volumes. The number of I/O
-      -- operations per second (IOPS) to provision for the volume.
-    , _cvtSize :: Maybe Integer
+    , _cvrSize :: Maybe Integer
       -- ^ The size of the volume, in GiBs. Constraints: If the volume type
       -- is io1, the minimum size of the volume is 10 GiB. Default: If
       -- you're creating the volume from a snapshot and don't specify a
       -- volume size, the default is the snapshot size.
-    , _cvtSnapshotId :: Maybe Text
+    , _cvrIops :: Maybe Integer
+      -- ^ Only valid for Provisioned IOPS (SSD) volumes. The number of I/O
+      -- operations per second (IOPS) to provision for the volume.
+    , _cvrSnapshotId :: Maybe Text
       -- ^ The snapshot from which to create the volume.
-    , _cvtVolumeType :: Maybe VolumeType
+    , _cvrVolumeType :: Maybe VolumeType
       -- ^ The volume type. This can be gp2 for General Purpose (SSD)
       -- volumes, io1 for Provisioned IOPS (SSD) volumes, or standard for
       -- Magnetic volumes. Default: standard.
@@ -92,11 +92,13 @@ instance ToQuery CreateVolume where
     toQuery = genericQuery def
 
 data CreateVolumeResponse = CreateVolumeResponse
-    { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhEncrypted :: Maybe Bool
+    { _vvvvvvvvvvvvxEncrypted :: Maybe Bool
       -- ^ Indicates whether the volume is encrypted.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhCreateTime :: Maybe ISO8601
+    , _vvvvvvvvvvvvxCreateTime :: Maybe ISO8601
       -- ^ The time stamp when volume creation was initiated.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhIops :: Maybe Integer
+    , _vvvvvvvvvvvvxSize :: Maybe Integer
+      -- ^ The size of the volume, in GiBs.
+    , _vvvvvvvvvvvvxIops :: Maybe Integer
       -- ^ The number of I/O operations per second (IOPS) that the volume
       -- supports. For Provisioned IOPS (SSD) volumes, this represents the
       -- number of IOPS that are provisioned for the volume. For General
@@ -110,21 +112,19 @@ data CreateVolumeResponse = CreateVolumeResponse
       -- Condition: This parameter is required for requests to create io1
       -- volumes; it is not used in requests to create standard or gp2
       -- volumes.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhSize :: Maybe Integer
-      -- ^ The size of the volume, in GiBs.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhTags :: [Tag]
+    , _vvvvvvvvvvvvxTags :: [Tag]
       -- ^ Any tags assigned to the volume.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhSnapshotId :: Maybe Text
-      -- ^ The snapshot from which the volume was created, if applicable.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhVolumeId :: Maybe Text
+    , _vvvvvvvvvvvvxVolumeId :: Maybe Text
       -- ^ The ID of the volume.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhAvailabilityZone :: Maybe Text
+    , _vvvvvvvvvvvvxSnapshotId :: Maybe Text
+      -- ^ The snapshot from which the volume was created, if applicable.
+    , _vvvvvvvvvvvvxAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone for the volume.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhAttachments :: [VolumeAttachment]
+    , _vvvvvvvvvvvvxAttachments :: [VolumeAttachment]
       -- ^ 
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhState :: Maybe VolumeState
+    , _vvvvvvvvvvvvxState :: Maybe VolumeState
       -- ^ The volume state.
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvhVolumeType :: Maybe VolumeType
+    , _vvvvvvvvvvvvxVolumeType :: Maybe VolumeType
       -- ^ The volume type. This can be gp2 for General Purpose (SSD)
       -- volumes, io1 for Provisioned IOPS (SSD) volumes, or standard for
       -- Magnetic volumes.

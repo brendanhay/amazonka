@@ -45,22 +45,22 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DetachVolume' request.
-detachVolume :: Text -- ^ '_dvrVolumeId'
+detachVolume :: Text -- ^ '_dvxVolumeId'
              -> DetachVolume
 detachVolume p1 = DetachVolume
-    { _dvrVolumeId = p1
-    , _dvrDryRun = Nothing
-    , _dvrForce = Nothing
-    , _dvrDevice = Nothing
-    , _dvrInstanceId = Nothing
+    { _dvxVolumeId = p1
+    , _dvxDryRun = Nothing
+    , _dvxForce = Nothing
+    , _dvxInstanceId = Nothing
+    , _dvxDevice = Nothing
     }
 
 data DetachVolume = DetachVolume
-    { _dvrVolumeId :: Text
+    { _dvxVolumeId :: Text
       -- ^ The ID of the volume.
-    , _dvrDryRun :: Maybe Bool
+    , _dvxDryRun :: Maybe Bool
       -- ^ 
-    , _dvrForce :: Maybe Bool
+    , _dvxForce :: Maybe Bool
       -- ^ Forces detachment if the previous detachment attempt did not
       -- occur cleanly (for example, logging into an instance, unmounting
       -- the volume, and detaching normally). This option can lead to data
@@ -69,10 +69,10 @@ data DetachVolume = DetachVolume
       -- won't have an opportunity to flush file system caches or file
       -- system metadata. If you use this option, you must perform file
       -- system check and repair procedures.
-    , _dvrDevice :: Maybe Text
-      -- ^ The device name.
-    , _dvrInstanceId :: Maybe Text
+    , _dvxInstanceId :: Maybe Text
       -- ^ The ID of the instance.
+    , _dvxDevice :: Maybe Text
+      -- ^ The device name.
     } deriving (Show, Generic)
 
 makeLenses ''DetachVolume
@@ -81,18 +81,18 @@ instance ToQuery DetachVolume where
     toQuery = genericQuery def
 
 data DetachVolumeResponse = DetachVolumeResponse
-    { _vbDeleteOnTermination :: Maybe Bool
+    { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the Amazon EBS volume is deleted on instance
       -- termination.
-    , _vbAttachTime :: Maybe ISO8601
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime :: Maybe ISO8601
       -- ^ The time stamp when the attachment initiated.
-    , _vbVolumeId :: Maybe Text
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId :: Maybe Text
       -- ^ The ID of the volume.
-    , _vbDevice :: Maybe Text
-      -- ^ The device name.
-    , _vbInstanceId :: Maybe Text
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId :: Maybe Text
       -- ^ The ID of the instance.
-    , _vbState :: Maybe VolumeAttachmentState
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice :: Maybe Text
+      -- ^ The device name.
+    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState :: Maybe VolumeAttachmentState
       -- ^ The attachment state of the volume.
     } deriving (Show, Generic)
 

@@ -32,17 +32,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteSubnet' request.
-deleteSubnet :: Text -- ^ '_dswSubnetId'
+deleteSubnet :: Text -- ^ '_dstSubnetId'
              -> DeleteSubnet
 deleteSubnet p1 = DeleteSubnet
-    { _dswSubnetId = p1
-    , _dswDryRun = Nothing
+    { _dstSubnetId = p1
+    , _dstDryRun = Nothing
     }
 
 data DeleteSubnet = DeleteSubnet
-    { _dswSubnetId :: Text
+    { _dstSubnetId :: Text
       -- ^ The ID of the subnet.
-    , _dswDryRun :: Maybe Bool
+    , _dstDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

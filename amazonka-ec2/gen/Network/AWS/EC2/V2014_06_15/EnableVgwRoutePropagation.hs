@@ -34,10 +34,10 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
-    { _evrprGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _evrprRouteTableId :: Text
+    { _evrprRouteTableId :: Text
       -- ^ The ID of the routing table.
+    , _evrprGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
     } deriving (Show, Generic)
 
 makeLenses ''EnableVgwRoutePropagation

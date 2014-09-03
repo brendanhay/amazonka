@@ -60,15 +60,15 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeSubnets' request.
 describeSubnets :: DescribeSubnets
 describeSubnets = DescribeSubnets
-    { _dsrDryRun = Nothing
-    , _dsrFilters = mempty
-    , _dsrSubnetIds = mempty
+    { _dsxDryRun = Nothing
+    , _dsxFilters = mempty
+    , _dsxSubnetIds = mempty
     }
 
 data DescribeSubnets = DescribeSubnets
-    { _dsrDryRun :: Maybe Bool
+    { _dsxDryRun :: Maybe Bool
       -- ^ 
-    , _dsrFilters :: [Filter]
+    , _dsxFilters :: [Filter]
       -- ^ One or more filters. availabilityZone - The Availability Zone for
       -- the subnet. You can also use availability-zone as the filter
       -- name. available-ip-address-count - The number of IP addresses in
@@ -90,7 +90,7 @@ data DescribeSubnets = DescribeSubnets
       -- Purpose is X, see the tag:key=value filter. tag-value - The value
       -- of a tag assigned to the resource. This filter is independent of
       -- the tag-key filter. vpc-id - The ID of the VPC for the subnet.
-    , _dsrSubnetIds :: [Text]
+    , _dsxSubnetIds :: [Text]
       -- ^ One or more subnet IDs. Default: Describes all your subnets.
     } deriving (Show, Generic)
 
@@ -100,7 +100,7 @@ instance ToQuery DescribeSubnets where
     toQuery = genericQuery def
 
 data DescribeSubnetsResponse = DescribeSubnetsResponse
-    { _dssSubnets :: [Subnet]
+    { _dsySubnets :: [Subnet]
       -- ^ Information about one or more subnets.
     } deriving (Show, Generic)
 

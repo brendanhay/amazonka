@@ -34,17 +34,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteInternetGateway' request.
-deleteInternetGateway :: Text -- ^ '_diguInternetGatewayId'
+deleteInternetGateway :: Text -- ^ '_digrInternetGatewayId'
                       -> DeleteInternetGateway
 deleteInternetGateway p1 = DeleteInternetGateway
-    { _diguInternetGatewayId = p1
-    , _diguDryRun = Nothing
+    { _digrInternetGatewayId = p1
+    , _digrDryRun = Nothing
     }
 
 data DeleteInternetGateway = DeleteInternetGateway
-    { _diguInternetGatewayId :: Text
+    { _digrInternetGatewayId :: Text
       -- ^ The ID of the Internet gateway.
-    , _diguDryRun :: Maybe Bool
+    , _digrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

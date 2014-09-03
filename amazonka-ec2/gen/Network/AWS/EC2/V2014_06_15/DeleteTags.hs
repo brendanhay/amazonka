@@ -48,21 +48,21 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteTags' request.
-deleteTags :: [Text] -- ^ '_dttResources'
+deleteTags :: [Text] -- ^ '_dtrResources'
            -> DeleteTags
 deleteTags p1 = DeleteTags
-    { _dttResources = p1
-    , _dttDryRun = Nothing
-    , _dttTags = mempty
+    { _dtrResources = p1
+    , _dtrDryRun = Nothing
+    , _dtrTags = mempty
     }
 
 data DeleteTags = DeleteTags
-    { _dttResources :: [Text]
+    { _dtrResources :: [Text]
       -- ^ The ID of the resource. For example, ami-1a2b3c4d. You can
       -- specify more than one resource ID.
-    , _dttDryRun :: Maybe Bool
+    , _dtrDryRun :: Maybe Bool
       -- ^ 
-    , _dttTags :: [Tag]
+    , _dtrTags :: [Tag]
       -- ^ One or more tags to delete. If you omit the value parameter, we
       -- delete the tag regardless of its value. If you specify this
       -- parameter with an empty string as the value, we delete the key

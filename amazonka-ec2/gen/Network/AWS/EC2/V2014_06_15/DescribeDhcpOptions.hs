@@ -52,18 +52,18 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeDhcpOptions' request.
 describeDhcpOptions :: DescribeDhcpOptions
 describeDhcpOptions = DescribeDhcpOptions
-    { _ddorDryRun = Nothing
-    , _ddorDhcpOptionsIds = mempty
-    , _ddorFilters = mempty
+    { _ddosDryRun = Nothing
+    , _ddosDhcpOptionsIds = mempty
+    , _ddosFilters = mempty
     }
 
 data DescribeDhcpOptions = DescribeDhcpOptions
-    { _ddorDryRun :: Maybe Bool
+    { _ddosDryRun :: Maybe Bool
       -- ^ 
-    , _ddorDhcpOptionsIds :: [Text]
+    , _ddosDhcpOptionsIds :: [Text]
       -- ^ The IDs of one or more DHCP options sets. Default: Describes all
       -- your DHCP options sets.
-    , _ddorFilters :: [Filter]
+    , _ddosFilters :: [Filter]
       -- ^ One or more filters. dhcp-options-id - The ID of a set of DHCP
       -- options. key - The key for one of the options (for example,
       -- domain-name). value - The value for one of the options.
@@ -85,7 +85,7 @@ instance ToQuery DescribeDhcpOptions where
     toQuery = genericQuery def
 
 data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
-    { _ddosDhcpOptions :: [DhcpOptions]
+    { _ddotDhcpOptions :: [DhcpOptions]
       -- ^ Information about one or more DHCP options sets.
     } deriving (Show, Generic)
 

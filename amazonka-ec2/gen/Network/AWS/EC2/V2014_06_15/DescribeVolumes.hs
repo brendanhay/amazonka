@@ -49,15 +49,15 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVolumes' request.
 describeVolumes :: DescribeVolumes
 describeVolumes = DescribeVolumes
-    { _dvuDryRun = Nothing
-    , _dvuFilters = mempty
-    , _dvuVolumeIds = mempty
+    { _dvtDryRun = Nothing
+    , _dvtFilters = mempty
+    , _dvtVolumeIds = mempty
     }
 
 data DescribeVolumes = DescribeVolumes
-    { _dvuDryRun :: Maybe Bool
+    { _dvtDryRun :: Maybe Bool
       -- ^ 
-    , _dvuFilters :: [Filter]
+    , _dvtFilters :: [Filter]
       -- ^ One or more filters. attachment.attach-time - The time stamp when
       -- the attachment initiated. attachment.delete-on-termination -
       -- Whether the volume is deleted on instance termination.
@@ -84,7 +84,7 @@ data DescribeVolumes = DescribeVolumes
       -- volume ID. volume-type - The Amazon EBS volume type. This can be
       -- gp2 for General Purpose (SSD) volumes, io1 for Provisioned IOPS
       -- (SSD) volumes, or standard for Magnetic volumes.
-    , _dvuVolumeIds :: [Text]
+    , _dvtVolumeIds :: [Text]
       -- ^ One or more volume IDs.
     } deriving (Show, Generic)
 
@@ -94,7 +94,7 @@ instance ToQuery DescribeVolumes where
     toQuery = genericQuery def
 
 data DescribeVolumesResponse = DescribeVolumesResponse
-    { _dvvVolumes :: [Volume]
+    { _dvuVolumes :: [Volume]
       -- ^ 
     } deriving (Show, Generic)
 

@@ -33,20 +33,20 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DetachNetworkInterface' request.
-detachNetworkInterface :: Text -- ^ '_dnirAttachmentId'
+detachNetworkInterface :: Text -- ^ '_dniuAttachmentId'
                        -> DetachNetworkInterface
 detachNetworkInterface p1 = DetachNetworkInterface
-    { _dnirAttachmentId = p1
-    , _dnirDryRun = Nothing
-    , _dnirForce = Nothing
+    { _dniuAttachmentId = p1
+    , _dniuDryRun = Nothing
+    , _dniuForce = Nothing
     }
 
 data DetachNetworkInterface = DetachNetworkInterface
-    { _dnirAttachmentId :: Text
+    { _dniuAttachmentId :: Text
       -- ^ The ID of the attachment.
-    , _dnirDryRun :: Maybe Bool
+    , _dniuDryRun :: Maybe Bool
       -- ^ 
-    , _dnirForce :: Maybe Bool
+    , _dniuForce :: Maybe Bool
       -- ^ Specifies whether to force a detachment.
     } deriving (Show, Generic)
 

@@ -39,21 +39,21 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ResetInstanceAttribute' request.
-resetInstanceAttribute :: InstanceAttributeName -- ^ '_riarAttribute'
-                       -> Text -- ^ '_riarInstanceId'
+resetInstanceAttribute :: InstanceAttributeName -- ^ '_riasAttribute'
+                       -> Text -- ^ '_riasInstanceId'
                        -> ResetInstanceAttribute
 resetInstanceAttribute p1 p2 = ResetInstanceAttribute
-    { _riarAttribute = p1
-    , _riarInstanceId = p2
-    , _riarDryRun = Nothing
+    { _riasAttribute = p1
+    , _riasInstanceId = p2
+    , _riasDryRun = Nothing
     }
 
 data ResetInstanceAttribute = ResetInstanceAttribute
-    { _riarAttribute :: InstanceAttributeName
+    { _riasAttribute :: InstanceAttributeName
       -- ^ The attribute to reset.
-    , _riarInstanceId :: Text
+    , _riasInstanceId :: Text
       -- ^ The ID of the instance.
-    , _riarDryRun :: Maybe Bool
+    , _riasDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

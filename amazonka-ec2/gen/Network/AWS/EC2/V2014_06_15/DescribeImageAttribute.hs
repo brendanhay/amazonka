@@ -36,21 +36,21 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeImageAttribute' request.
-describeImageAttribute :: ImageAttributeName -- ^ '_diasAttribute'
-                       -> Text -- ^ '_diasImageId'
+describeImageAttribute :: ImageAttributeName -- ^ '_diarAttribute'
+                       -> Text -- ^ '_diarImageId'
                        -> DescribeImageAttribute
 describeImageAttribute p1 p2 = DescribeImageAttribute
-    { _diasAttribute = p1
-    , _diasImageId = p2
-    , _diasDryRun = Nothing
+    { _diarAttribute = p1
+    , _diarImageId = p2
+    , _diarDryRun = Nothing
     }
 
 data DescribeImageAttribute = DescribeImageAttribute
-    { _diasAttribute :: ImageAttributeName
+    { _diarAttribute :: ImageAttributeName
       -- ^ The AMI attribute.
-    , _diasImageId :: Text
+    , _diarImageId :: Text
       -- ^ The ID of the AMI.
-    , _diasDryRun :: Maybe Bool
+    , _diarDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 
@@ -60,21 +60,21 @@ instance ToQuery DescribeImageAttribute where
     toQuery = genericQuery def
 
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
-    { _ibDescription :: Maybe AttributeValue
-      -- ^ A description for the AMI.
-    , _ibSriovNetSupport :: Maybe AttributeValue
-      -- ^ 
-    , _ibKernelId :: Maybe AttributeValue
+    { _iaKernelId :: Maybe AttributeValue
       -- ^ The kernel ID.
-    , _ibRamdiskId :: Maybe AttributeValue
+    , _iaRamdiskId :: Maybe AttributeValue
       -- ^ The RAM disk ID.
-    , _ibBlockDeviceMappings :: [BlockDeviceMapping]
+    , _iaDescription :: Maybe AttributeValue
+      -- ^ A description for the AMI.
+    , _iaSriovNetSupport :: Maybe AttributeValue
+      -- ^ 
+    , _iaBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ One or more block device mapping entries.
-    , _ibLaunchPermissions :: [LaunchPermission]
+    , _iaLaunchPermissions :: [LaunchPermission]
       -- ^ One or more launch permissions.
-    , _ibProductCodes :: [ProductCode]
+    , _iaProductCodes :: [ProductCode]
       -- ^ One or more product codes.
-    , _ibImageId :: Maybe Text
+    , _iaImageId :: Maybe Text
       -- ^ The ID of the AMI.
     } deriving (Show, Generic)
 

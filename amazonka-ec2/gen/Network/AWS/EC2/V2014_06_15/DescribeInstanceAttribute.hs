@@ -56,21 +56,21 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeInstanceAttribute' request.
-describeInstanceAttribute :: InstanceAttributeName -- ^ '_diarAttribute'
-                          -> Text -- ^ '_diarInstanceId'
+describeInstanceAttribute :: InstanceAttributeName -- ^ '_diasAttribute'
+                          -> Text -- ^ '_diasInstanceId'
                           -> DescribeInstanceAttribute
 describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
-    { _diarAttribute = p1
-    , _diarInstanceId = p2
-    , _diarDryRun = Nothing
+    { _diasAttribute = p1
+    , _diasInstanceId = p2
+    , _diasDryRun = Nothing
     }
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
-    { _diarAttribute :: InstanceAttributeName
+    { _diasAttribute :: InstanceAttributeName
       -- ^ The instance attribute.
-    , _diarInstanceId :: Text
+    , _diasInstanceId :: Text
       -- ^ The ID of the instance.
-    , _diarDryRun :: Maybe Bool
+    , _diasDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 
@@ -80,37 +80,37 @@ instance ToQuery DescribeInstanceAttribute where
     toQuery = genericQuery def
 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
-    { _iaEbsOptimized :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the instance is optimized for EBS I/O.
-    , _iaDisableApiTermination :: Maybe AttributeBooleanValue
+    { _ibDisableApiTermination :: Maybe AttributeBooleanValue
       -- ^ If the value is true, you can't terminate the instance through
       -- the Amazon EC2 console, CLI, or API; otherwise, you can.
-    , _iaSourceDestCheck :: Maybe AttributeBooleanValue
+    , _ibEbsOptimized :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether the instance is optimized for EBS I/O.
+    , _ibSourceDestCheck :: Maybe AttributeBooleanValue
       -- ^ Indicates whether source/destination checking is enabled. A value
       -- of true means checking is enabled, and false means checking is
       -- disabled. This value must be false for a NAT instance to perform
       -- NAT.
-    , _iaInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
+    , _ibInstanceType :: Maybe AttributeValue
+      -- ^ The instance type.
+    , _ibKernelId :: Maybe AttributeValue
+      -- ^ The kernel ID.
+    , _ibRamdiskId :: Maybe AttributeValue
+      -- ^ The RAM disk ID.
+    , _ibUserData :: Maybe AttributeValue
+      -- ^ The Base64-encoded MIME user data.
+    , _ibInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
       -- ^ Indicates whether an instance stops or terminates when you
       -- initiate shutdown from the instance (using the operating system
       -- command for system shutdown).
-    , _iaUserData :: Maybe AttributeValue
-      -- ^ The Base64-encoded MIME user data.
-    , _iaSriovNetSupport :: Maybe AttributeValue
-      -- ^ 
-    , _iaInstanceType :: Maybe AttributeValue
-      -- ^ The instance type.
-    , _iaRootDeviceName :: Maybe AttributeValue
+    , _ibRootDeviceName :: Maybe AttributeValue
       -- ^ The name of the root device (for example, /dev/sda1).
-    , _iaKernelId :: Maybe AttributeValue
-      -- ^ The kernel ID.
-    , _iaRamdiskId :: Maybe AttributeValue
-      -- ^ The RAM disk ID.
-    , _iaBlockDeviceMappings :: [InstanceBlockDeviceMapping]
+    , _ibSriovNetSupport :: Maybe AttributeValue
+      -- ^ 
+    , _ibBlockDeviceMappings :: [InstanceBlockDeviceMapping]
       -- ^ The block device mapping of the instance.
-    , _iaProductCodes :: [ProductCode]
+    , _ibProductCodes :: [ProductCode]
       -- ^ A list of product codes.
-    , _iaInstanceId :: Maybe Text
+    , _ibInstanceId :: Maybe Text
       -- ^ The ID of the instance.
     } deriving (Show, Generic)
 

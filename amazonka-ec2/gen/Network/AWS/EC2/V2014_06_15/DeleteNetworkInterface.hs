@@ -34,17 +34,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteNetworkInterface' request.
-deleteNetworkInterface :: Text -- ^ '_dniuNetworkInterfaceId'
+deleteNetworkInterface :: Text -- ^ '_dnirNetworkInterfaceId'
                        -> DeleteNetworkInterface
 deleteNetworkInterface p1 = DeleteNetworkInterface
-    { _dniuNetworkInterfaceId = p1
-    , _dniuDryRun = Nothing
+    { _dnirNetworkInterfaceId = p1
+    , _dnirDryRun = Nothing
     }
 
 data DeleteNetworkInterface = DeleteNetworkInterface
-    { _dniuNetworkInterfaceId :: Text
+    { _dnirNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
-    , _dniuDryRun :: Maybe Bool
+    , _dnirDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

@@ -35,17 +35,17 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteVolume' request.
-deleteVolume :: Text -- ^ '_dvxVolumeId'
+deleteVolume :: Text -- ^ '_dvrVolumeId'
              -> DeleteVolume
 deleteVolume p1 = DeleteVolume
-    { _dvxVolumeId = p1
-    , _dvxDryRun = Nothing
+    { _dvrVolumeId = p1
+    , _dvrDryRun = Nothing
     }
 
 data DeleteVolume = DeleteVolume
-    { _dvxVolumeId :: Text
+    { _dvrVolumeId :: Text
       -- ^ The ID of the volume.
-    , _dvxDryRun :: Maybe Bool
+    , _dvrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

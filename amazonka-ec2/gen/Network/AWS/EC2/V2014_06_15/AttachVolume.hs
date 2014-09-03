@@ -59,13 +59,13 @@ import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AttachVolume' request.
 attachVolume :: Text -- ^ '_avrVolumeId'
-             -> Text -- ^ '_avrDevice'
              -> Text -- ^ '_avrInstanceId'
+             -> Text -- ^ '_avrDevice'
              -> AttachVolume
 attachVolume p1 p2 p3 = AttachVolume
     { _avrVolumeId = p1
-    , _avrDevice = p2
-    , _avrInstanceId = p3
+    , _avrInstanceId = p2
+    , _avrDevice = p3
     , _avrDryRun = Nothing
     }
 
@@ -73,11 +73,11 @@ data AttachVolume = AttachVolume
     { _avrVolumeId :: Text
       -- ^ The ID of the Amazon EBS volume. The volume and instance must be
       -- within the same Availability Zone.
+    , _avrInstanceId :: Text
+      -- ^ The ID of the instance.
     , _avrDevice :: Text
       -- ^ The device name to expose to the instance (for example, /dev/sdh
       -- or xvdh).
-    , _avrInstanceId :: Text
-      -- ^ The ID of the instance.
     , _avrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
@@ -88,18 +88,18 @@ instance ToQuery AttachVolume where
     toQuery = genericQuery def
 
 data AttachVolumeResponse = AttachVolumeResponse
-    { _vvvvvvvvvvvvvvvvvvvvvvvtDeleteOnTermination :: Maybe Bool
+    { _vaDeleteOnTermination :: Maybe Bool
       -- ^ Indicates whether the Amazon EBS volume is deleted on instance
       -- termination.
-    , _vvvvvvvvvvvvvvvvvvvvvvvtAttachTime :: Maybe ISO8601
+    , _vaAttachTime :: Maybe ISO8601
       -- ^ The time stamp when the attachment initiated.
-    , _vvvvvvvvvvvvvvvvvvvvvvvtVolumeId :: Maybe Text
+    , _vaVolumeId :: Maybe Text
       -- ^ The ID of the volume.
-    , _vvvvvvvvvvvvvvvvvvvvvvvtDevice :: Maybe Text
-      -- ^ The device name.
-    , _vvvvvvvvvvvvvvvvvvvvvvvtInstanceId :: Maybe Text
+    , _vaInstanceId :: Maybe Text
       -- ^ The ID of the instance.
-    , _vvvvvvvvvvvvvvvvvvvvvvvtState :: Maybe VolumeAttachmentState
+    , _vaDevice :: Maybe Text
+      -- ^ The device name.
+    , _vaState :: Maybe VolumeAttachmentState
       -- ^ The attachment state of the volume.
     } deriving (Show, Generic)
 

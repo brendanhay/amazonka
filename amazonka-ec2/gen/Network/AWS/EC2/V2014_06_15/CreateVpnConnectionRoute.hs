@@ -41,11 +41,11 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
-    { _cvcrrDestinationCidrBlock :: Text
+    { _cvcrrVpnConnectionId :: Text
+      -- ^ The ID of the VPN connection.
+    , _cvcrrDestinationCidrBlock :: Text
       -- ^ The CIDR block associated with the local subnet of the customer
       -- network.
-    , _cvcrrVpnConnectionId :: Text
-      -- ^ The ID of the VPN connection.
     } deriving (Show, Generic)
 
 makeLenses ''CreateVpnConnectionRoute

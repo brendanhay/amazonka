@@ -82,10 +82,10 @@ instance ToQuery GetConsoleOutput where
 data GetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcosTimestamp :: Maybe ISO8601
       -- ^ The time the output was last updated.
-    , _gcosOutput :: Maybe Text
-      -- ^ The console output, Base64 encoded.
     , _gcosInstanceId :: Maybe Text
       -- ^ The ID of the instance.
+    , _gcosOutput :: Maybe Text
+      -- ^ The console output, Base64 encoded.
     } deriving (Show, Generic)
 
 makeLenses ''GetConsoleOutputResponse

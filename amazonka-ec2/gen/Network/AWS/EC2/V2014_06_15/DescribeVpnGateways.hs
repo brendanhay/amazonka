@@ -50,15 +50,15 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVpnGateways' request.
 describeVpnGateways :: DescribeVpnGateways
 describeVpnGateways = DescribeVpnGateways
-    { _dvgtDryRun = Nothing
-    , _dvgtFilters = mempty
-    , _dvgtVpnGatewayIds = mempty
+    { _dvgsDryRun = Nothing
+    , _dvgsFilters = mempty
+    , _dvgsVpnGatewayIds = mempty
     }
 
 data DescribeVpnGateways = DescribeVpnGateways
-    { _dvgtDryRun :: Maybe Bool
+    { _dvgsDryRun :: Maybe Bool
       -- ^ 
-    , _dvgtFilters :: [Filter]
+    , _dvgsFilters :: [Filter]
       -- ^ One or more filters. attachment.state - The current state of the
       -- attachment between the gateway and the VPC (attaching | attached
       -- | detaching | detached). attachment.vpc-id - The ID of an
@@ -77,7 +77,7 @@ data DescribeVpnGateways = DescribeVpnGateways
       -- filter is independent of the tag-key filter. type - The type of
       -- virtual private gateway. Currently the only supported type is
       -- ipsec.1. vpn-gateway-id - The ID of the virtual private gateway.
-    , _dvgtVpnGatewayIds :: [Text]
+    , _dvgsVpnGatewayIds :: [Text]
       -- ^ One or more virtual private gateway IDs. Default: Describes all
       -- your virtual private gateways.
     } deriving (Show, Generic)
@@ -88,7 +88,7 @@ instance ToQuery DescribeVpnGateways where
     toQuery = genericQuery def
 
 data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
-    { _dvguVpnGateways :: [VpnGateway]
+    { _dvgtVpnGateways :: [VpnGateway]
       -- ^ Information about one or more virtual private gateways.
     } deriving (Show, Generic)
 

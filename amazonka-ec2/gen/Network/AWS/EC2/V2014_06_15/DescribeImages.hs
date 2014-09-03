@@ -56,21 +56,21 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeImages' request.
 describeImages :: DescribeImages
 describeImages = DescribeImages
-    { _didtDryRun = Nothing
-    , _didtExecutableUsers = mempty
-    , _didtFilters = mempty
-    , _didtImageIds = mempty
-    , _didtOwners = mempty
+    { _disDryRun = Nothing
+    , _disExecutableUsers = mempty
+    , _disFilters = mempty
+    , _disImageIds = mempty
+    , _disOwners = mempty
     }
 
 data DescribeImages = DescribeImages
-    { _didtDryRun :: Maybe Bool
+    { _disDryRun :: Maybe Bool
       -- ^ 
-    , _didtExecutableUsers :: [Text]
+    , _disExecutableUsers :: [Text]
       -- ^ Scopes the images by users with explicit launch permissions.
       -- Specify an AWS account ID, self (the sender of the request), or
       -- all (public AMIs).
-    , _didtFilters :: [Filter]
+    , _disFilters :: [Filter]
       -- ^ One or more filters. architecture - The image architecture (i386
       -- | x86_64). block-device-mapping.delete-on-termination - A Boolean
       -- value that indicates whether the Amazon EBS volume is deleted on
@@ -109,10 +109,10 @@ data DescribeImages = DescribeImages
       -- tag assigned to the resource. This filter is independent of the
       -- tag-key filter. virtualization-type - The virtualization type
       -- (paravirtual | hvm).
-    , _didtImageIds :: [Text]
+    , _disImageIds :: [Text]
       -- ^ One or more image IDs. Default: Describes all images available to
       -- you.
-    , _didtOwners :: [Text]
+    , _disOwners :: [Text]
       -- ^ Filters the images by the owner. Specify an AWS account ID,
       -- amazon (owner is Amazon), aws-marketplace (owner is AWS
       -- Marketplace), self (owner is the sender of the request), or all
@@ -125,7 +125,7 @@ instance ToQuery DescribeImages where
     toQuery = genericQuery def
 
 data DescribeImagesResponse = DescribeImagesResponse
-    { _diduImages :: [Image]
+    { _ditImages :: [Image]
       -- ^ Information about one or more images.
     } deriving (Show, Generic)
 

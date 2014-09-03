@@ -33,11 +33,11 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeSpotDatafeedSubscription' request.
 describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
 describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-    { _dsdsrDryRun = Nothing
+    { _dsdssDryRun = Nothing
     }
 
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-    { _dsdsrDryRun :: Maybe Bool
+    { _dsdssDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 
@@ -47,7 +47,7 @@ instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery = genericQuery def
 
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
-    { _dsdssSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+    { _dsdstSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
       -- ^ The Spot Instance datafeed subscription.
     } deriving (Show, Generic)
 

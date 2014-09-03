@@ -49,20 +49,20 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'StartInstances' request.
-startInstances :: [Text] -- ^ '_siyInstanceIds'
+startInstances :: [Text] -- ^ '_sistInstanceIds'
                -> StartInstances
 startInstances p1 = StartInstances
-    { _siyInstanceIds = p1
-    , _siyDryRun = Nothing
-    , _siyAdditionalInfo = Nothing
+    { _sistInstanceIds = p1
+    , _sistDryRun = Nothing
+    , _sistAdditionalInfo = Nothing
     }
 
 data StartInstances = StartInstances
-    { _siyInstanceIds :: [Text]
+    { _sistInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _siyDryRun :: Maybe Bool
+    , _sistDryRun :: Maybe Bool
       -- ^ 
-    , _siyAdditionalInfo :: Maybe Text
+    , _sistAdditionalInfo :: Maybe Text
       -- ^ Reserved.
     } deriving (Show, Generic)
 
@@ -72,7 +72,7 @@ instance ToQuery StartInstances where
     toQuery = genericQuery def
 
 data StartInstancesResponse = StartInstancesResponse
-    { _sizStartingInstances :: [InstanceStateChange]
+    { _sisuStartingInstances :: [InstanceStateChange]
       -- ^ Information about one or more started instances.
     } deriving (Show, Generic)
 

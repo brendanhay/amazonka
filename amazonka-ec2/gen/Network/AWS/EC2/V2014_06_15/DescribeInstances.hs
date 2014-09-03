@@ -134,17 +134,17 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeInstances' request.
 describeInstances :: DescribeInstances
 describeInstances = DescribeInstances
-    { _disDryRun = Nothing
-    , _disFilters = mempty
-    , _disInstanceIds = mempty
-    , _disMaxResults = Nothing
-    , _disNextToken = Nothing
+    { _diuDryRun = Nothing
+    , _diuFilters = mempty
+    , _diuInstanceIds = mempty
+    , _diuMaxResults = Nothing
+    , _diuNextToken = Nothing
     }
 
 data DescribeInstances = DescribeInstances
-    { _disDryRun :: Maybe Bool
+    { _diuDryRun :: Maybe Bool
       -- ^ 
-    , _disFilters :: [Filter]
+    , _diuFilters :: [Filter]
       -- ^ One or more filters. architecture - The instance architecture
       -- (i386 | x86_64). availability-zone - The Availability Zone of the
       -- instance. block-device-mapping.attach-time - The attach time for
@@ -288,14 +288,14 @@ data DescribeInstances = DescribeInstances
       -- address for your network interface. association.association-id -
       -- The association ID returned when the network interface was
       -- associated with an IP address.
-    , _disInstanceIds :: [Text]
+    , _diuInstanceIds :: [Text]
       -- ^ One or more instance IDs. Default: Describes all your instances.
-    , _disMaxResults :: Maybe Integer
+    , _diuMaxResults :: Maybe Integer
       -- ^ The maximum number of items to return for this call. The call
       -- also returns a token that you can specify in a subsequent call to
       -- get the next set of results. If the value is greater than 1000,
       -- we return only 1000 items.
-    , _disNextToken :: Maybe Text
+    , _diuNextToken :: Maybe Text
       -- ^ The token for the next set of items to return. (You received this
       -- token from a prior call.).
     } deriving (Show, Generic)
@@ -306,9 +306,9 @@ instance ToQuery DescribeInstances where
     toQuery = genericQuery def
 
 data DescribeInstancesResponse = DescribeInstancesResponse
-    { _ditReservations :: [Reservation]
+    { _divReservations :: [Reservation]
       -- ^ One or more reservations.
-    , _ditNextToken :: Maybe Text
+    , _divNextToken :: Maybe Text
       -- ^ The token to use when requesting the next set of items. If there
       -- are no additional items to return, the string is empty.
     } deriving (Show, Generic)
@@ -326,5 +326,5 @@ instance AWSRequest DescribeInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeInstances where
-    next rq rs = (\x -> rq { _disNextToken = Just x })
-        <$> (_ditNextToken rs)
+    next rq rs = (\x -> rq { _diuNextToken = Just x })
+        <$> (_divNextToken rs)

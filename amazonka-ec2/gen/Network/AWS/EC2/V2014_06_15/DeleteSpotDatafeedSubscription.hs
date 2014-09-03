@@ -36,11 +36,11 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DeleteSpotDatafeedSubscription' request.
 deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-    { _dsdstDryRun = Nothing
+    { _dsdsrDryRun = Nothing
     }
 
 data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-    { _dsdstDryRun :: Maybe Bool
+    { _dsdsrDryRun :: Maybe Bool
       -- ^ 
     } deriving (Show, Generic)
 

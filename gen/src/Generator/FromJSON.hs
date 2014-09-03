@@ -29,6 +29,7 @@ import qualified Data.ByteString.Lazy       as LBS
 import           Data.CaseInsensitive       (CI)
 import qualified Data.CaseInsensitive       as CI
 import           Data.Default
+import           Data.Function
 import qualified Data.HashMap.Strict        as Map
 import           Data.Jason                 hiding (Error)
 import           Data.Jason.Types           hiding (Error)
@@ -48,8 +49,6 @@ import           Generator.Models
 import           Generator.Transform
 import           Network.HTTP.Types.Method
 
-import           Debug.Trace
-
 -- FIXME: considering the pervasive-ness/requirements of having overrides
 -- maybe it should error if they don't exist, just global?
 
@@ -63,7 +62,7 @@ parseModel Model{..} = do
         <*> load "Override" modLocal
 
     -- First merge local, then global overrides.
-    parse' . Object $ (l `union'` g) `union'` s
+    parse' . Object $ (l `unionObject` g) `unionObject` s
   where
     load :: Text -> Maybe FilePath -> Script Object
     load _ Nothing  = return mempty
@@ -75,16 +74,20 @@ parseModel Model{..} = do
     parse' :: FromJSON a => Value -> Script a
     parse' = hoistEither . parseEither parseJSON
 
-    union' :: Object -> Object -> Object
-    union' (Obj a) (Obj b) = Obj (a `union` b)
+    unionObject :: Object -> Object -> Object
+    unionObject (Obj a) (Obj b) = Obj (assocUnion mergeValue a b)
 
---    union = Map.unionWith merge
-
-    merge :: Value -> Value -> Value
-    merge a b =
+    mergeValue :: Value -> Value -> Value
+    mergeValue a b =
         case (a, b) of
-            (Object x, Object y) -> Object (x `union'` y)
+            (Object x, Object y) -> Object (x `unionObject` y)
             (_,        _)        -> a
+
+    assocUnion :: Eq k => (v -> v -> v) -> [(k, v)] -> [(k, v)] -> [(k, v)]
+    assocUnion f xs ys = unionBy ((==) `on` fst) (map g xs) ys
+      where
+        g (k, x) | Just y <- lookup k ys = (k, f x y)
+                 | otherwise             = (k, x)
 
 instance FromJSON (CI Text) where
     parseJSON = withText "case-insensitive" (return . CI.mk)

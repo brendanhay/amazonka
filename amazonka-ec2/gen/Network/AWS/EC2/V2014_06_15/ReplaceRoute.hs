@@ -38,34 +38,34 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ReplaceRoute' request.
-replaceRoute :: Text -- ^ '_rrrDestinationCidrBlock'
-             -> Text -- ^ '_rrrRouteTableId'
+replaceRoute :: Text -- ^ '_rrrRouteTableId'
+             -> Text -- ^ '_rrrDestinationCidrBlock'
              -> ReplaceRoute
 replaceRoute p1 p2 = ReplaceRoute
-    { _rrrDestinationCidrBlock = p1
-    , _rrrRouteTableId = p2
+    { _rrrRouteTableId = p1
+    , _rrrDestinationCidrBlock = p2
     , _rrrDryRun = Nothing
     , _rrrGatewayId = Nothing
-    , _rrrNetworkInterfaceId = Nothing
     , _rrrInstanceId = Nothing
+    , _rrrNetworkInterfaceId = Nothing
     , _rrrVpcPeeringConnectionId = Nothing
     }
 
 data ReplaceRoute = ReplaceRoute
-    { _rrrDestinationCidrBlock :: Text
+    { _rrrRouteTableId :: Text
+      -- ^ The ID of the route table.
+    , _rrrDestinationCidrBlock :: Text
       -- ^ The CIDR address block used for the destination match. The value
       -- you provide must match the CIDR of an existing route in the
       -- table.
-    , _rrrRouteTableId :: Text
-      -- ^ The ID of the route table.
     , _rrrDryRun :: Maybe Bool
       -- ^ 
     , _rrrGatewayId :: Maybe Text
       -- ^ The ID of an Internet gateway attached to your VPC.
-    , _rrrNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of a network interface.
     , _rrrInstanceId :: Maybe Text
       -- ^ The ID of a NAT instance in your VPC.
+    , _rrrNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of a network interface.
     , _rrrVpcPeeringConnectionId :: Maybe Text
       -- ^ The ID of a VPC peering connection.
     } deriving (Show, Generic)

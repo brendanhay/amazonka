@@ -91,38 +91,38 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RunInstances' request.
-runInstances :: Integer -- ^ '_rirMinCount'
-             -> Integer -- ^ '_rirMaxCount'
-             -> Text -- ^ '_rirImageId'
+runInstances :: Integer -- ^ '_rixMinCount'
+             -> Integer -- ^ '_rixMaxCount'
+             -> Text -- ^ '_rixImageId'
              -> RunInstances
 runInstances p1 p2 p3 = RunInstances
-    { _rirMinCount = p1
-    , _rirMaxCount = p2
-    , _rirImageId = p3
-    , _rirBlockDeviceMappings = mempty
-    , _rirDryRun = Nothing
-    , _rirEbsOptimized = Nothing
-    , _rirDisableApiTermination = Nothing
-    , _rirIamInstanceProfile = Nothing
-    , _rirNetworkInterfaces = mempty
-    , _rirInstanceType = Nothing
-    , _rirPlacement = Nothing
-    , _rirMonitoring = Nothing
-    , _rirSecurityGroupIds = mempty
-    , _rirSecurityGroups = mempty
-    , _rirInstanceInitiatedShutdownBehavior = Nothing
-    , _rirPrivateIpAddress = Nothing
-    , _rirUserData = Nothing
-    , _rirKernelId = Nothing
-    , _rirSubnetId = Nothing
-    , _rirRamdiskId = Nothing
-    , _rirKeyName = Nothing
-    , _rirClientToken = Nothing
-    , _rirAdditionalInfo = Nothing
+    { _rixMinCount = p1
+    , _rixMaxCount = p2
+    , _rixImageId = p3
+    , _rixBlockDeviceMappings = mempty
+    , _rixDryRun = Nothing
+    , _rixDisableApiTermination = Nothing
+    , _rixEbsOptimized = Nothing
+    , _rixIamInstanceProfile = Nothing
+    , _rixNetworkInterfaces = mempty
+    , _rixInstanceType = Nothing
+    , _rixPlacement = Nothing
+    , _rixMonitoring = Nothing
+    , _rixSecurityGroupIds = mempty
+    , _rixSecurityGroups = mempty
+    , _rixInstanceInitiatedShutdownBehavior = Nothing
+    , _rixKeyName = Nothing
+    , _rixUserData = Nothing
+    , _rixKernelId = Nothing
+    , _rixRamdiskId = Nothing
+    , _rixSubnetId = Nothing
+    , _rixPrivateIpAddress = Nothing
+    , _rixClientToken = Nothing
+    , _rixAdditionalInfo = Nothing
     }
 
 data RunInstances = RunInstances
-    { _rirMinCount :: Integer
+    { _rixMinCount :: Integer
       -- ^ The minimum number of instances to launch. If you specify a
       -- minimum that is more instances than Amazon EC2 can launch in the
       -- target Availability Zone, Amazon EC2 launches no instances.
@@ -130,7 +130,7 @@ data RunInstances = RunInstances
       -- the specified instance type. For more information about the
       -- default limits, and how to request an increase, see How many
       -- instances can I run in Amazon EC2 in the Amazon EC2 General FAQ.
-    , _rirMaxCount :: Integer
+    , _rixMaxCount :: Integer
       -- ^ The maximum number of instances to launch. If you specify more
       -- instances than Amazon EC2 can launch in the target Availability
       -- Zone, Amazon EC2 launches the largest possible number of
@@ -139,20 +139,13 @@ data RunInstances = RunInstances
       -- information about the default limits, and how to request an
       -- increase, see How many instances can I run in Amazon EC2 in the
       -- Amazon EC2 General FAQ.
-    , _rirImageId :: Text
+    , _rixImageId :: Text
       -- ^ The ID of the AMI, which you can get by calling DescribeImages.
-    , _rirBlockDeviceMappings :: [BlockDeviceMapping]
+    , _rixBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ The block device mapping.
-    , _rirDryRun :: Maybe Bool
+    , _rixDryRun :: Maybe Bool
       -- ^ 
-    , _rirEbsOptimized :: Maybe Bool
-      -- ^ Indicates whether the instance is optimized for EBS I/O. This
-      -- optimization provides dedicated throughput to Amazon EBS and an
-      -- optimized configuration stack to provide optimal Amazon EBS I/O
-      -- performance. This optimization isn't available with all instance
-      -- types. Additional usage charges apply when using an EBS-optimized
-      -- instance. Default: false.
-    , _rirDisableApiTermination :: Maybe Bool
+    , _rixDisableApiTermination :: Maybe Bool
       -- ^ If you set this parameter to true, you can't terminate the
       -- instance using the Amazon EC2 console, CLI, or API; otherwise,
       -- you can. If you set this parameter to true and then later want to
@@ -162,30 +155,54 @@ data RunInstances = RunInstances
       -- InstanceInitiatedShutdownBehavior to terminate, you can terminate
       -- the instance by running the shutdown command from the instance.
       -- Default: false.
-    , _rirIamInstanceProfile :: Maybe IamInstanceProfileSpecification
+    , _rixEbsOptimized :: Maybe Bool
+      -- ^ Indicates whether the instance is optimized for EBS I/O. This
+      -- optimization provides dedicated throughput to Amazon EBS and an
+      -- optimized configuration stack to provide optimal Amazon EBS I/O
+      -- performance. This optimization isn't available with all instance
+      -- types. Additional usage charges apply when using an EBS-optimized
+      -- instance. Default: false.
+    , _rixIamInstanceProfile :: Maybe IamInstanceProfileSpecification
       -- ^ The IAM instance profile.
-    , _rirNetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
+    , _rixNetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
       -- ^ One or more network interfaces.
-    , _rirInstanceType :: Maybe InstanceType
+    , _rixInstanceType :: Maybe InstanceType
       -- ^ The instance type. For more information, see Instance Types in
       -- the Amazon Elastic Compute Cloud User Guide. Default: m1.small.
-    , _rirPlacement :: Maybe Placement
+    , _rixPlacement :: Maybe Placement
       -- ^ The placement for the instance.
-    , _rirMonitoring :: Maybe RunInstancesMonitoringEnabled
+    , _rixMonitoring :: Maybe RunInstancesMonitoringEnabled
       -- ^ The monitoring for the instance.
-    , _rirSecurityGroupIds :: [Text]
+    , _rixSecurityGroupIds :: [Text]
       -- ^ One or more security group IDs. You can create a security group
       -- using CreateSecurityGroup. Default: Amazon EC2 uses the default
       -- security group.
-    , _rirSecurityGroups :: [Text]
+    , _rixSecurityGroups :: [Text]
       -- ^ [EC2-Classic, default VPC] One or more security group names. For
       -- a nondefault VPC, you must use security group IDs instead.
       -- Default: Amazon EC2 uses the default security group.
-    , _rirInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
+    , _rixInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
       -- ^ Indicates whether an instance stops or terminates when you
       -- initiate shutdown from the instance (using the operating system
       -- command for system shutdown). Default: stop.
-    , _rirPrivateIpAddress :: Maybe Text
+    , _rixKeyName :: Maybe Text
+      -- ^ The name of the key pair. You can create a key pair using
+      -- CreateKeyPair or ImportKeyPair. If you launch an instance without
+      -- specifying a key pair, you can't connect to the instance.
+    , _rixUserData :: Maybe ByteString
+      -- ^ The user data for the instances. You can specify the user data as
+      -- a string, or if the user data contents are in a file, you can use
+      -- file://filename.
+    , _rixKernelId :: Maybe Text
+      -- ^ The ID of the kernel. We recommend that you use PV-GRUB instead
+      -- of kernels and RAM disks. For more information, see PV-GRUB: A
+      -- New Amazon Kernel Image in the Amazon Elastic Compute Cloud User
+      -- Guide.
+    , _rixRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk.
+    , _rixSubnetId :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
+    , _rixPrivateIpAddress :: Maybe Text
       -- ^ [EC2-VPC] The primary IP address. You must specify a value from
       -- the IP address range of the subnet. Only one private IP address
       -- can be designated as primary. Therefore, you can't specify this
@@ -193,29 +210,12 @@ data RunInstances = RunInstances
       -- PrivateIpAddresses.n.PrivateIpAddress is set to an IP address.
       -- Default: We select an IP address from the IP address range of the
       -- subnet.
-    , _rirUserData :: Maybe ByteString
-      -- ^ The user data for the instances. You can specify the user data as
-      -- a string, or if the user data contents are in a file, you can use
-      -- file://filename.
-    , _rirKernelId :: Maybe Text
-      -- ^ The ID of the kernel. We recommend that you use PV-GRUB instead
-      -- of kernels and RAM disks. For more information, see PV-GRUB: A
-      -- New Amazon Kernel Image in the Amazon Elastic Compute Cloud User
-      -- Guide.
-    , _rirSubnetId :: Maybe Text
-      -- ^ [EC2-VPC] The ID of the subnet to launch the instance into.
-    , _rirRamdiskId :: Maybe Text
-      -- ^ The ID of the RAM disk.
-    , _rirKeyName :: Maybe Text
-      -- ^ The name of the key pair. You can create a key pair using
-      -- CreateKeyPair or ImportKeyPair. If you launch an instance without
-      -- specifying a key pair, you can't connect to the instance.
-    , _rirClientToken :: Maybe Text
+    , _rixClientToken :: Maybe Text
       -- ^ Unique, case-sensitive identifier you provide to ensure the
       -- idempotency of the request. For more information, see How to
       -- Ensure Idempotency in the Amazon Elastic Compute Cloud User
       -- Guide. Constraints: Maximum 64 ASCII characters.
-    , _rirAdditionalInfo :: Maybe Text
+    , _rixAdditionalInfo :: Maybe Text
       -- ^ Reserved.
     } deriving (Show, Generic)
 
@@ -225,17 +225,17 @@ instance ToQuery RunInstances where
     toQuery = genericQuery def
 
 data RunInstancesResponse = RunInstancesResponse
-    { _rnGroups :: [GroupIdentifier]
+    { _ryGroups :: [GroupIdentifier]
       -- ^ One or more security groups.
-    , _rnInstances :: [Instance]
+    , _ryInstances :: [Instance]
       -- ^ One or more instances.
-    , _rnRequesterId :: Maybe Text
+    , _ryReservationId :: Maybe Text
+      -- ^ The ID of the reservation.
+    , _ryOwnerId :: Maybe Text
+      -- ^ The ID of the AWS account that owns the reservation.
+    , _ryRequesterId :: Maybe Text
       -- ^ The ID of the requester that launched the instances on your
       -- behalf (for example, AWS Management Console or Auto Scaling).
-    , _rnReservationId :: Maybe Text
-      -- ^ The ID of the reservation.
-    , _rnOwnerId :: Maybe Text
-      -- ^ The ID of the AWS account that owns the reservation.
     } deriving (Show, Generic)
 
 makeLenses ''RunInstancesResponse

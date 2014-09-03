@@ -61,22 +61,22 @@ import Network.AWS.Prelude
 createVpcPeeringConnection :: CreateVpcPeeringConnection
 createVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcrDryRun = Nothing
-    , _cvpcrPeerOwnerId = Nothing
     , _cvpcrVpcId = Nothing
     , _cvpcrPeerVpcId = Nothing
+    , _cvpcrPeerOwnerId = Nothing
     }
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcrDryRun :: Maybe Bool
       -- ^ 
-    , _cvpcrPeerOwnerId :: Maybe Text
-      -- ^ The AWS account ID of the owner of the peer VPC. Default: Your
-      -- AWS account ID.
     , _cvpcrVpcId :: Maybe Text
       -- ^ The ID of the requester VPC.
     , _cvpcrPeerVpcId :: Maybe Text
       -- ^ The ID of the VPC with which you are creating the VPC peering
       -- connection.
+    , _cvpcrPeerOwnerId :: Maybe Text
+      -- ^ The AWS account ID of the owner of the peer VPC. Default: Your
+      -- AWS account ID.
     } deriving (Show, Generic)
 
 makeLenses ''CreateVpcPeeringConnection

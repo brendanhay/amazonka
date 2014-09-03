@@ -41,17 +41,17 @@ import Network.AWS.Prelude
 replaceNetworkAclEntry :: Bool -- ^ '_rnaerEgress'
                        -> Integer -- ^ '_rnaerRuleNumber'
                        -> RuleAction -- ^ '_rnaerRuleAction'
-                       -> Text -- ^ '_rnaerCidrBlock'
-                       -> Text -- ^ '_rnaerProtocol'
                        -> Text -- ^ '_rnaerNetworkAclId'
+                       -> Text -- ^ '_rnaerProtocol'
+                       -> Text -- ^ '_rnaerCidrBlock'
                        -> ReplaceNetworkAclEntry
 replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     { _rnaerEgress = p1
     , _rnaerRuleNumber = p2
     , _rnaerRuleAction = p3
-    , _rnaerCidrBlock = p4
+    , _rnaerNetworkAclId = p4
     , _rnaerProtocol = p5
-    , _rnaerNetworkAclId = p6
+    , _rnaerCidrBlock = p6
     , _rnaerDryRun = Nothing
     , _rnaerIcmpTypeCode = Nothing
     , _rnaerPortRange = Nothing
@@ -66,12 +66,12 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaerRuleAction :: RuleAction
       -- ^ Indicates whether to allow or deny the traffic that matches the
       -- rule.
-    , _rnaerCidrBlock :: Text
-      -- ^ The network range to allow or deny, in CIDR notation.
-    , _rnaerProtocol :: Text
-      -- ^ The IP protocol. You can specify all or -1 to mean all protocols.
     , _rnaerNetworkAclId :: Text
       -- ^ The ID of the ACL.
+    , _rnaerProtocol :: Text
+      -- ^ The IP protocol. You can specify all or -1 to mean all protocols.
+    , _rnaerCidrBlock :: Text
+      -- ^ The network range to allow or deny, in CIDR notation.
     , _rnaerDryRun :: Maybe Bool
       -- ^ 
     , _rnaerIcmpTypeCode :: Maybe IcmpTypeCode

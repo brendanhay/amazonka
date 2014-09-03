@@ -41,26 +41,26 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ImportInstance' request.
-importInstance :: PlatformValues -- ^ '_iirPlatform'
+importInstance :: PlatformValues -- ^ '_iiiiiiiiiuPlatform'
                -> ImportInstance
 importInstance p1 = ImportInstance
-    { _iirPlatform = p1
-    , _iirDryRun = Nothing
-    , _iirDiskImages = mempty
-    , _iirLaunchSpecification = Nothing
-    , _iirDescription = Nothing
+    { _iiiiiiiiiuPlatform = p1
+    , _iiiiiiiiiuDryRun = Nothing
+    , _iiiiiiiiiuDiskImages = mempty
+    , _iiiiiiiiiuLaunchSpecification = Nothing
+    , _iiiiiiiiiuDescription = Nothing
     }
 
 data ImportInstance = ImportInstance
-    { _iirPlatform :: PlatformValues
+    { _iiiiiiiiiuPlatform :: PlatformValues
       -- ^ The instance operating system.
-    , _iirDryRun :: Maybe Bool
+    , _iiiiiiiiiuDryRun :: Maybe Bool
       -- ^ 
-    , _iirDiskImages :: [DiskImage]
+    , _iiiiiiiiiuDiskImages :: [DiskImage]
       -- ^ 
-    , _iirLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
+    , _iiiiiiiiiuLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
       -- ^ 
-    , _iirDescription :: Maybe Text
+    , _iiiiiiiiiuDescription :: Maybe Text
       -- ^ A description for the instance being imported.
     } deriving (Show, Generic)
 
@@ -70,7 +70,7 @@ instance ToQuery ImportInstance where
     toQuery = genericQuery def
 
 data ImportInstanceResponse = ImportInstanceResponse
-    { _iisConversionTask :: Maybe ConversionTask
+    { _iiiiiiiiivConversionTask :: Maybe ConversionTask
       -- ^ 
     } deriving (Show, Generic)
 

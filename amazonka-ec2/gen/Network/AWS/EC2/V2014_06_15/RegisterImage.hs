@@ -70,53 +70,53 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RegisterImage' request.
-registerImage :: Text -- ^ '_ritName'
+registerImage :: Text -- ^ '_rivName'
               -> RegisterImage
 registerImage p1 = RegisterImage
-    { _ritName = p1
-    , _ritArchitecture = Nothing
-    , _ritBlockDeviceMappings = mempty
-    , _ritDryRun = Nothing
-    , _ritDescription = Nothing
-    , _ritSriovNetSupport = Nothing
-    , _ritRootDeviceName = Nothing
-    , _ritKernelId = Nothing
-    , _ritRamdiskId = Nothing
-    , _ritImageLocation = Nothing
-    , _ritVirtualizationType = Nothing
+    { _rivName = p1
+    , _rivArchitecture = Nothing
+    , _rivBlockDeviceMappings = mempty
+    , _rivDryRun = Nothing
+    , _rivImageLocation = Nothing
+    , _rivDescription = Nothing
+    , _rivKernelId = Nothing
+    , _rivRamdiskId = Nothing
+    , _rivRootDeviceName = Nothing
+    , _rivVirtualizationType = Nothing
+    , _rivSriovNetSupport = Nothing
     }
 
 data RegisterImage = RegisterImage
-    { _ritName :: Text
+    { _rivName :: Text
       -- ^ A name for your AMI. Constraints: 3-128 alphanumeric characters,
       -- parenthesis (()), commas (,), slashes (/), dashes (-), or
       -- underscores (_).
-    , _ritArchitecture :: Maybe ArchitectureValues
+    , _rivArchitecture :: Maybe ArchitectureValues
       -- ^ The architecture of the AMI. Default: For Amazon EBS-backed AMIs,
       -- i386. For instance store-backed AMIs, the architecture specified
       -- in the manifest file.
-    , _ritBlockDeviceMappings :: [BlockDeviceMapping]
+    , _rivBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ One or more block device mapping entries.
-    , _ritDryRun :: Maybe Bool
+    , _rivDryRun :: Maybe Bool
       -- ^ 
-    , _ritDescription :: Maybe Text
+    , _rivImageLocation :: Maybe Text
+      -- ^ The full path to your AMI manifest in Amazon S3 storage.
+    , _rivDescription :: Maybe Text
       -- ^ A description for your AMI.
-    , _ritSriovNetSupport :: Maybe Text
+    , _rivKernelId :: Maybe Text
+      -- ^ The ID of the kernel.
+    , _rivRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk.
+    , _rivRootDeviceName :: Maybe Text
+      -- ^ The name of the root device (for example, /dev/sda1, or xvda).
+    , _rivVirtualizationType :: Maybe VirtualizationType
+      -- ^ The type of virtualization.
+    , _rivSriovNetSupport :: Maybe Text
       -- ^ Set to simple to enable enhanced networking for the AMI and any
       -- instances that you launch from the AMI. There is no way to
       -- disable enhanced networking at this time. This option is
       -- supported only for HVM AMIs. Specifying this option with a PV AMI
       -- can make instances launched from the AMI unreachable.
-    , _ritRootDeviceName :: Maybe Text
-      -- ^ The name of the root device (for example, /dev/sda1, or xvda).
-    , _ritKernelId :: Maybe Text
-      -- ^ The ID of the kernel.
-    , _ritRamdiskId :: Maybe Text
-      -- ^ The ID of the RAM disk.
-    , _ritImageLocation :: Maybe Text
-      -- ^ The full path to your AMI manifest in Amazon S3 storage.
-    , _ritVirtualizationType :: Maybe VirtualizationType
-      -- ^ The type of virtualization.
     } deriving (Show, Generic)
 
 makeLenses ''RegisterImage
@@ -125,7 +125,7 @@ instance ToQuery RegisterImage where
     toQuery = genericQuery def
 
 data RegisterImageResponse = RegisterImageResponse
-    { _riuImageId :: Maybe Text
+    { _riwImageId :: Maybe Text
       -- ^ The ID of the newly registered AMI.
     } deriving (Show, Generic)
 

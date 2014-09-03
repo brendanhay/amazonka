@@ -35,15 +35,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeConversionTasks' request.
 describeConversionTasks :: DescribeConversionTasks
 describeConversionTasks = DescribeConversionTasks
-    { _dctrDryRun = Nothing
-    , _dctrConversionTaskIds = mempty
+    { _dctrConversionTaskIds = mempty
     , _dctrFilters = mempty
     }
 
 data DescribeConversionTasks = DescribeConversionTasks
-    { _dctrDryRun :: Maybe Bool
-      -- ^ 
-    , _dctrConversionTaskIds :: [Text]
+    { _dctrConversionTaskIds :: [Text]
       -- ^ One or more conversion task IDs.
     , _dctrFilters :: [Filter]
       -- ^ 

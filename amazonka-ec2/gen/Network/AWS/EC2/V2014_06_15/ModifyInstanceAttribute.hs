@@ -67,7 +67,6 @@ modifyInstanceAttribute p1 = ModifyInstanceAttribute
     , _miasUserData = Nothing
     , _miasInstanceInitiatedShutdownBehavior = Nothing
     , _miasSriovNetSupport = Nothing
-    , _miasDryRun = Nothing
     , _miasGroups = mempty
     , _miasAttribute = Nothing
     , _miasBlockDeviceMappings = mempty
@@ -111,8 +110,6 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
       -- There is no way to disable enhanced networking at this time. This
       -- option is supported only for HVM instances. Specifying this
       -- option with a PV instance can make it unreachable.
-    , _miasDryRun :: Maybe Bool
-      -- ^ 
     , _miasGroups :: [Text]
       -- ^ [EC2-VPC] Changes the security groups of the instance. You must
       -- specify at least one security group, even if it's just the

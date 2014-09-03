@@ -32,19 +32,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteNetworkAcl' request.
-deleteNetworkAcl :: Text -- ^ '_dnarNetworkAclId'
-                 -> DeleteNetworkAcl
-deleteNetworkAcl p1 = DeleteNetworkAcl
-    { _dnarNetworkAclId = p1
-    , _dnarDryRun = Nothing
-    }
-
 data DeleteNetworkAcl = DeleteNetworkAcl
     { _dnarNetworkAclId :: Text
       -- ^ The ID of the network ACL.
-    , _dnarDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''DeleteNetworkAcl

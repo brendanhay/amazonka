@@ -456,7 +456,7 @@ data Service = Service
     , _svcOperations       :: [Operation]
     , _svcTypes            :: [Type]
     , _svcCabal            :: Cabal
-    , _svcIgnored          :: HashMap Text [CI Text]
+    , _svcIgnored          :: [Text]
     , _svcRequired         :: HashMap Text [CI Text]
     , _svcExist            :: HashMap Text Text
     , _svcRename           :: HashMap Text Text

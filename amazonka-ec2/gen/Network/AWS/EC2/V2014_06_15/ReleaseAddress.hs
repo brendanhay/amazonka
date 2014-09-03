@@ -45,15 +45,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ReleaseAddress' request.
 releaseAddress :: ReleaseAddress
 releaseAddress = ReleaseAddress
-    { _rarDryRun = Nothing
-    , _rarPublicIp = Nothing
+    { _rarPublicIp = Nothing
     , _rarAllocationId = Nothing
     }
 
 data ReleaseAddress = ReleaseAddress
-    { _rarDryRun :: Maybe Bool
-      -- ^ 
-    , _rarPublicIp :: Maybe Text
+    { _rarPublicIp :: Maybe Text
       -- ^ [EC2-Classic] The Elastic IP address.
     , _rarAllocationId :: Maybe Text
       -- ^ [EC2-VPC] The allocation ID.

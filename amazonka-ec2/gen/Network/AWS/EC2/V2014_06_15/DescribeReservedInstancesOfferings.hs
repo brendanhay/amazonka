@@ -74,8 +74,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeReservedInstancesOfferings' request.
 describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
 describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _driorDryRun = Nothing
-    , _driorIncludeMarketplace = Nothing
+    { _driorIncludeMarketplace = Nothing
     , _driorFilters = mempty
     , _driorInstanceType = Nothing
     , _driorMaxResults = Nothing
@@ -91,9 +90,7 @@ describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     }
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _driorDryRun :: Maybe Bool
-      -- ^ 
-    , _driorIncludeMarketplace :: Maybe Bool
+    { _driorIncludeMarketplace :: Maybe Bool
       -- ^ Include Marketplace offerings in the response.
     , _driorFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone

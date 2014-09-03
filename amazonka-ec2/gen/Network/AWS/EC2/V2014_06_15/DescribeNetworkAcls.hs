@@ -38,15 +38,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeNetworkAcls' request.
 describeNetworkAcls :: DescribeNetworkAcls
 describeNetworkAcls = DescribeNetworkAcls
-    { _dnasDryRun = Nothing
-    , _dnasFilters = mempty
+    { _dnasFilters = mempty
     , _dnasNetworkAclIds = mempty
     }
 
 data DescribeNetworkAcls = DescribeNetworkAcls
-    { _dnasDryRun :: Maybe Bool
-      -- ^ 
-    , _dnasFilters :: [Filter]
+    { _dnasFilters :: [Filter]
       -- ^ One or more filters. association.association-id - The ID of an
       -- association ID for the ACL. association.network-acl-id - The ID
       -- of the network ACL involved in the association.

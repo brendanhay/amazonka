@@ -39,24 +39,12 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ReplaceNetworkAclAssociation' request.
-replaceNetworkAclAssociation :: Text -- ^ '_rnaarAssociationId'
-                             -> Text -- ^ '_rnaarNetworkAclId'
-                             -> ReplaceNetworkAclAssociation
-replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
-    { _rnaarAssociationId = p1
-    , _rnaarNetworkAclId = p2
-    , _rnaarDryRun = Nothing
-    }
-
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaarAssociationId :: Text
       -- ^ The ID of the current association between the original network
       -- ACL and the subnet.
     , _rnaarNetworkAclId :: Text
       -- ^ The ID of the new ACL to associate with the subnet.
-    , _rnaarDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''ReplaceNetworkAclAssociation

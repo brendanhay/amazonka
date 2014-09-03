@@ -39,15 +39,12 @@ resetNetworkInterfaceAttribute :: Text -- ^ '_rniarNetworkInterfaceId'
                                -> ResetNetworkInterfaceAttribute
 resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     { _rniarNetworkInterfaceId = p1
-    , _rniarDryRun = Nothing
     , _rniarSourceDestCheck = Nothing
     }
 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniarNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
-    , _rniarDryRun :: Maybe Bool
-      -- ^ 
     , _rniarSourceDestCheck :: Maybe Text
       -- ^ Indicates whether source/destination checking is enabled. A value
       -- of true means checking is enabled, and false means checking is

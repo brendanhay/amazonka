@@ -134,17 +134,14 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeInstances' request.
 describeInstances :: DescribeInstances
 describeInstances = DescribeInstances
-    { _diuDryRun = Nothing
-    , _diuFilters = mempty
+    { _diuFilters = mempty
     , _diuInstanceIds = mempty
     , _diuMaxResults = Nothing
     , _diuNextToken = Nothing
     }
 
 data DescribeInstances = DescribeInstances
-    { _diuDryRun :: Maybe Bool
-      -- ^ 
-    , _diuFilters :: [Filter]
+    { _diuFilters :: [Filter]
       -- ^ One or more filters. architecture - The instance architecture
       -- (i386 | x86_64). availability-zone - The Availability Zone of the
       -- instance. block-device-mapping.attach-time - The attach time for

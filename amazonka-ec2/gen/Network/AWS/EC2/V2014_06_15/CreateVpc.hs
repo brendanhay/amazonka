@@ -59,7 +59,6 @@ createVpc :: Text -- ^ '_cvsCidrBlock'
           -> CreateVpc
 createVpc p1 = CreateVpc
     { _cvsCidrBlock = p1
-    , _cvsDryRun = Nothing
     , _cvsInstanceTenancy = Nothing
     }
 
@@ -67,8 +66,6 @@ data CreateVpc = CreateVpc
     { _cvsCidrBlock :: Text
       -- ^ The network range for the VPC, in CIDR notation. For example,
       -- 10.0.0.0/16.
-    , _cvsDryRun :: Maybe Bool
-      -- ^ 
     , _cvsInstanceTenancy :: Maybe Tenancy
       -- ^ The supported tenancy options for instances launched into the
       -- VPC. A value of default means that instances can be launched with

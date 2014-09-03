@@ -50,7 +50,6 @@ revokeSecurityGroupEgress :: Text -- ^ '_rsgerGroupId'
                           -> RevokeSecurityGroupEgress
 revokeSecurityGroupEgress p1 = RevokeSecurityGroupEgress
     { _rsgerGroupId = p1
-    , _rsgerDryRun = Nothing
     , _rsgerFromPort = Nothing
     , _rsgerToPort = Nothing
     , _rsgerIpPermissions = mempty
@@ -63,8 +62,6 @@ revokeSecurityGroupEgress p1 = RevokeSecurityGroupEgress
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     { _rsgerGroupId :: Text
       -- ^ The ID of the security group.
-    , _rsgerDryRun :: Maybe Bool
-      -- ^ 
     , _rsgerFromPort :: Maybe Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. For the ICMP type number, use -1 to specify all ICMP

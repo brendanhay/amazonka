@@ -36,15 +36,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeRegions' request.
 describeRegions :: DescribeRegions
 describeRegions = DescribeRegions
-    { _drsDryRun = Nothing
-    , _drsFilters = mempty
+    { _drsFilters = mempty
     , _drsRegionNames = mempty
     }
 
 data DescribeRegions = DescribeRegions
-    { _drsDryRun :: Maybe Bool
-      -- ^ 
-    , _drsFilters :: [Filter]
+    { _drsFilters :: [Filter]
       -- ^ One or more filters. endpoint - The endpoint of the region (for
       -- example, ec2.us-east-1.amazonaws.com). region-name - The name of
       -- the region (for example, us-east-1).

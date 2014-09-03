@@ -60,15 +60,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeSubnets' request.
 describeSubnets :: DescribeSubnets
 describeSubnets = DescribeSubnets
-    { _dsxDryRun = Nothing
-    , _dsxFilters = mempty
+    { _dsxFilters = mempty
     , _dsxSubnetIds = mempty
     }
 
 data DescribeSubnets = DescribeSubnets
-    { _dsxDryRun :: Maybe Bool
-      -- ^ 
-    , _dsxFilters :: [Filter]
+    { _dsxFilters :: [Filter]
       -- ^ One or more filters. availabilityZone - The Availability Zone for
       -- the subnet. You can also use availability-zone as the filter
       -- name. available-ip-address-count - The number of IP addresses in

@@ -62,15 +62,12 @@ stopInstances :: [Text] -- ^ '_sisvInstanceIds'
               -> StopInstances
 stopInstances p1 = StopInstances
     { _sisvInstanceIds = p1
-    , _sisvDryRun = Nothing
     , _sisvForce = Nothing
     }
 
 data StopInstances = StopInstances
     { _sisvInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _sisvDryRun :: Maybe Bool
-      -- ^ 
     , _sisvForce :: Maybe Bool
       -- ^ Forces the instances to stop. The instances do not have an
       -- opportunity to flush file system caches or file system metadata.

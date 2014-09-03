@@ -51,15 +51,12 @@ describeVpcAttribute :: Text -- ^ '_dvatVpcId'
                      -> DescribeVpcAttribute
 describeVpcAttribute p1 = DescribeVpcAttribute
     { _dvatVpcId = p1
-    , _dvatDryRun = Nothing
     , _dvatAttribute = Nothing
     }
 
 data DescribeVpcAttribute = DescribeVpcAttribute
     { _dvatVpcId :: Text
       -- ^ The ID of the VPC.
-    , _dvatDryRun :: Maybe Bool
-      -- ^ 
     , _dvatAttribute :: Maybe VpcAttributeName
       -- ^ The VPC attribute.
     } deriving (Show, Generic)

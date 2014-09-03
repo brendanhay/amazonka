@@ -59,7 +59,6 @@ createRoute :: Text -- ^ '_crrRouteTableId'
 createRoute p1 p2 = CreateRoute
     { _crrRouteTableId = p1
     , _crrDestinationCidrBlock = p2
-    , _crrDryRun = Nothing
     , _crrGatewayId = Nothing
     , _crrInstanceId = Nothing
     , _crrNetworkInterfaceId = Nothing
@@ -72,8 +71,6 @@ data CreateRoute = CreateRoute
     , _crrDestinationCidrBlock :: Text
       -- ^ The CIDR address block used for the destination match. Routing
       -- decisions are based on the most specific match.
-    , _crrDryRun :: Maybe Bool
-      -- ^ 
     , _crrGatewayId :: Maybe Text
       -- ^ The ID of an Internet gateway attached to your VPC.
     , _crrInstanceId :: Maybe Text

@@ -52,7 +52,6 @@ requestSpotInstances :: Text -- ^ '_rsirSpotPrice'
                      -> RequestSpotInstances
 requestSpotInstances p1 = RequestSpotInstances
     { _rsirSpotPrice = p1
-    , _rsirDryRun = Nothing
     , _rsirValidFrom = Nothing
     , _rsirValidUntil = Nothing
     , _rsirInstanceCount = Nothing
@@ -66,8 +65,6 @@ data RequestSpotInstances = RequestSpotInstances
     { _rsirSpotPrice :: Text
       -- ^ The maximum hourly price for any Spot Instance launched to
       -- fulfill the request.
-    , _rsirDryRun :: Maybe Bool
-      -- ^ 
     , _rsirValidFrom :: Maybe ISO8601
       -- ^ The start date of the request. If this is a one-time request, the
       -- request becomes active at this date and time and remains active

@@ -37,16 +37,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateTags' request.
-createTags :: [Text] -- ^ '_ctrResources'
-           -> [Tag] -- ^ '_ctrTags'
-           -> CreateTags
-createTags p1 p2 = CreateTags
-    { _ctrResources = p1
-    , _ctrTags = p2
-    , _ctrDryRun = Nothing
-    }
-
 data CreateTags = CreateTags
     { _ctrResources :: [Text]
       -- ^ The IDs of one or more resources to tag. For example,
@@ -55,8 +45,6 @@ data CreateTags = CreateTags
       -- ^ One or more tags. The value parameter is required, but if you
       -- don't want the tag to have a value, specify the parameter with no
       -- value, and we set the value to an empty string.
-    , _ctrDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''CreateTags

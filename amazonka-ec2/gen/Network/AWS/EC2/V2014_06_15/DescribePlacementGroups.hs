@@ -39,15 +39,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribePlacementGroups' request.
 describePlacementGroups :: DescribePlacementGroups
 describePlacementGroups = DescribePlacementGroups
-    { _dpgsDryRun = Nothing
-    , _dpgsFilters = mempty
+    { _dpgsFilters = mempty
     , _dpgsGroupNames = mempty
     }
 
 data DescribePlacementGroups = DescribePlacementGroups
-    { _dpgsDryRun :: Maybe Bool
-      -- ^ 
-    , _dpgsFilters :: [Filter]
+    { _dpgsFilters :: [Filter]
       -- ^ One or more filters. group-name - The name of the placement
       -- group. state - The state of the placement group (pending |
       -- available | deleting | deleted). strategy - The strategy of the

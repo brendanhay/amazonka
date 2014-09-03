@@ -50,15 +50,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVpnGateways' request.
 describeVpnGateways :: DescribeVpnGateways
 describeVpnGateways = DescribeVpnGateways
-    { _dvgsDryRun = Nothing
-    , _dvgsFilters = mempty
+    { _dvgsFilters = mempty
     , _dvgsVpnGatewayIds = mempty
     }
 
 data DescribeVpnGateways = DescribeVpnGateways
-    { _dvgsDryRun :: Maybe Bool
-      -- ^ 
-    , _dvgsFilters :: [Filter]
+    { _dvgsFilters :: [Filter]
       -- ^ One or more filters. attachment.state - The current state of the
       -- attachment between the gateway and the VPC (attaching | attached
       -- | detaching | detached). attachment.vpc-id - The ID of an

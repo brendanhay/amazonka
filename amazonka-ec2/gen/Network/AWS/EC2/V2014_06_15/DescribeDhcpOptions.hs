@@ -52,15 +52,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeDhcpOptions' request.
 describeDhcpOptions :: DescribeDhcpOptions
 describeDhcpOptions = DescribeDhcpOptions
-    { _ddosDryRun = Nothing
-    , _ddosDhcpOptionsIds = mempty
+    { _ddosDhcpOptionsIds = mempty
     , _ddosFilters = mempty
     }
 
 data DescribeDhcpOptions = DescribeDhcpOptions
-    { _ddosDryRun :: Maybe Bool
-      -- ^ 
-    , _ddosDhcpOptionsIds :: [Text]
+    { _ddosDhcpOptionsIds :: [Text]
       -- ^ The IDs of one or more DHCP options sets. Default: Describes all
       -- your DHCP options sets.
     , _ddosFilters :: [Filter]

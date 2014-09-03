@@ -37,24 +37,12 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ConfirmProductInstance' request.
-confirmProductInstance :: Text -- ^ '_cpirProductCode'
-                       -> Text -- ^ '_cpirInstanceId'
-                       -> ConfirmProductInstance
-confirmProductInstance p1 p2 = ConfirmProductInstance
-    { _cpirProductCode = p1
-    , _cpirInstanceId = p2
-    , _cpirDryRun = Nothing
-    }
-
 data ConfirmProductInstance = ConfirmProductInstance
     { _cpirProductCode :: Text
       -- ^ The product code. This must be an Amazon DevPay product code that
       -- you own.
     , _cpirInstanceId :: Text
       -- ^ The ID of the instance.
-    , _cpirDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''ConfirmProductInstance

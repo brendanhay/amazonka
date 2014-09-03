@@ -47,7 +47,6 @@ reportInstanceStatus p1 p2 p3 = ReportInstanceStatus
     { _risrInstances = p1
     , _risrReasonCodes = p2
     , _risrStatus = p3
-    , _risrDryRun = Nothing
     , _risrStartTime = Nothing
     , _risrEndTime = Nothing
     , _risrDescription = Nothing
@@ -73,8 +72,6 @@ data ReportInstanceStatus = ReportInstanceStatus
       -- parameter].
     , _risrStatus :: ReportStatusType
       -- ^ The status of all instances listed.
-    , _risrDryRun :: Maybe Bool
-      -- ^ 
     , _risrStartTime :: Maybe ISO8601
       -- ^ The time at which the reported instance health state began.
     , _risrEndTime :: Maybe ISO8601

@@ -41,15 +41,12 @@ describeNetworkInterfaceAttribute :: Text -- ^ '_dniarNetworkInterfaceId'
                                   -> DescribeNetworkInterfaceAttribute
 describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     { _dniarNetworkInterfaceId = p1
-    , _dniarDryRun = Nothing
     , _dniarAttribute = Nothing
     }
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniarNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
-    , _dniarDryRun :: Maybe Bool
-      -- ^ 
     , _dniarAttribute :: Maybe NetworkInterfaceAttribute
       -- ^ The attribute of the network interface.
     } deriving (Show, Generic)

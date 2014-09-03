@@ -68,7 +68,6 @@ import Network.AWS.Prelude
 describeAddresses :: DescribeAddresses
 describeAddresses = DescribeAddresses
     { _darAllocationIds = mempty
-    , _darDryRun = Nothing
     , _darFilters = mempty
     , _darPublicIps = mempty
     }
@@ -77,8 +76,6 @@ data DescribeAddresses = DescribeAddresses
     { _darAllocationIds :: [Text]
       -- ^ [EC2-VPC] One or more allocation IDs. Default: Describes all your
       -- Elastic IP addresses.
-    , _darDryRun :: Maybe Bool
-      -- ^ 
     , _darFilters :: [Filter]
       -- ^ One or more filters. allocation-id - [EC2-VPC] The allocation ID
       -- for the address. association-id - [EC2-VPC] The association ID

@@ -48,16 +48,13 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeSecurityGroups' request.
 describeSecurityGroups :: DescribeSecurityGroups
 describeSecurityGroups = DescribeSecurityGroups
-    { _dsgsDryRun = Nothing
-    , _dsgsFilters = mempty
+    { _dsgsFilters = mempty
     , _dsgsGroupIds = mempty
     , _dsgsGroupNames = mempty
     }
 
 data DescribeSecurityGroups = DescribeSecurityGroups
-    { _dsgsDryRun :: Maybe Bool
-      -- ^ 
-    , _dsgsFilters :: [Filter]
+    { _dsgsFilters :: [Filter]
       -- ^ One or more filters. description - The description of the
       -- security group. group-id - The ID of the security group.
       -- group-name - The name of the security group. ip-permission.cidr -

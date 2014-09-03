@@ -38,15 +38,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DisassociateAddress' request.
 disassociateAddress :: DisassociateAddress
 disassociateAddress = DisassociateAddress
-    { _datDryRun = Nothing
-    , _datPublicIp = Nothing
+    { _datPublicIp = Nothing
     , _datAssociationId = Nothing
     }
 
 data DisassociateAddress = DisassociateAddress
-    { _datDryRun :: Maybe Bool
-      -- ^ 
-    , _datPublicIp :: Maybe Text
+    { _datPublicIp :: Maybe Text
       -- ^ [EC2-Classic] The Elastic IP address.
     , _datAssociationId :: Maybe Text
       -- ^ [EC2-VPC] The association ID.

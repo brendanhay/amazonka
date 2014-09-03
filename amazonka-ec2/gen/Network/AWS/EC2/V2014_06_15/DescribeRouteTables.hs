@@ -38,15 +38,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeRouteTables' request.
 describeRouteTables :: DescribeRouteTables
 describeRouteTables = DescribeRouteTables
-    { _drtsDryRun = Nothing
-    , _drtsFilters = mempty
+    { _drtsFilters = mempty
     , _drtsRouteTableIds = mempty
     }
 
 data DescribeRouteTables = DescribeRouteTables
-    { _drtsDryRun :: Maybe Bool
-      -- ^ 
-    , _drtsFilters :: [Filter]
+    { _drtsFilters :: [Filter]
       -- ^ One or more filters. association.route-table-association-id - The
       -- ID of an association ID for the route table.
       -- association.route-table-id - The ID of the route table involved

@@ -43,15 +43,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeBundleTasks' request.
 describeBundleTasks :: DescribeBundleTasks
 describeBundleTasks = DescribeBundleTasks
-    { _dbtrDryRun = Nothing
-    , _dbtrBundleIds = mempty
+    { _dbtrBundleIds = mempty
     , _dbtrFilters = mempty
     }
 
 data DescribeBundleTasks = DescribeBundleTasks
-    { _dbtrDryRun :: Maybe Bool
-      -- ^ 
-    , _dbtrBundleIds :: [Text]
+    { _dbtrBundleIds :: [Text]
       -- ^ One or more bundle task IDs. Default: Describes all your bundle
       -- tasks.
     , _dbtrFilters :: [Filter]

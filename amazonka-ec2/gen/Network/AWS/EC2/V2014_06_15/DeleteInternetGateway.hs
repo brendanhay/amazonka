@@ -33,19 +33,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteInternetGateway' request.
-deleteInternetGateway :: Text -- ^ '_digrInternetGatewayId'
-                      -> DeleteInternetGateway
-deleteInternetGateway p1 = DeleteInternetGateway
-    { _digrInternetGatewayId = p1
-    , _digrDryRun = Nothing
-    }
-
 data DeleteInternetGateway = DeleteInternetGateway
     { _digrInternetGatewayId :: Text
       -- ^ The ID of the Internet gateway.
-    , _digrDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''DeleteInternetGateway

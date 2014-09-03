@@ -53,7 +53,6 @@ createVolume :: Text -- ^ '_cvrAvailabilityZone'
              -> CreateVolume
 createVolume p1 = CreateVolume
     { _cvrAvailabilityZone = p1
-    , _cvrDryRun = Nothing
     , _cvrEncrypted = Nothing
     , _cvrSize = Nothing
     , _cvrIops = Nothing
@@ -66,8 +65,6 @@ data CreateVolume = CreateVolume
       -- ^ The Availability Zone in which to create the volume. Use
       -- DescribeAvailabilityZones to list the Availability Zones that are
       -- currently available to you.
-    , _cvrDryRun :: Maybe Bool
-      -- ^ 
     , _cvrEncrypted :: Maybe Bool
       -- ^ Specifies whether the volume should be encrypted.
     , _cvrSize :: Maybe Integer

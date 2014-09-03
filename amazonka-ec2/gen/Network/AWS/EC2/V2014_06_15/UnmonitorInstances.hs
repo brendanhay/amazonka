@@ -39,19 +39,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UnmonitorInstances' request.
-unmonitorInstances :: [Text] -- ^ '_uirInstanceIds'
-                   -> UnmonitorInstances
-unmonitorInstances p1 = UnmonitorInstances
-    { _uirInstanceIds = p1
-    , _uirDryRun = Nothing
-    }
-
 data UnmonitorInstances = UnmonitorInstances
     { _uirInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _uirDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''UnmonitorInstances

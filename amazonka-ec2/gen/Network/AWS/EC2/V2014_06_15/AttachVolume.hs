@@ -57,18 +57,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AttachVolume' request.
-attachVolume :: Text -- ^ '_avrVolumeId'
-             -> Text -- ^ '_avrInstanceId'
-             -> Text -- ^ '_avrDevice'
-             -> AttachVolume
-attachVolume p1 p2 p3 = AttachVolume
-    { _avrVolumeId = p1
-    , _avrInstanceId = p2
-    , _avrDevice = p3
-    , _avrDryRun = Nothing
-    }
-
 data AttachVolume = AttachVolume
     { _avrVolumeId :: Text
       -- ^ The ID of the Amazon EBS volume. The volume and instance must be
@@ -78,8 +66,6 @@ data AttachVolume = AttachVolume
     , _avrDevice :: Text
       -- ^ The device name to expose to the instance (for example, /dev/sdh
       -- or xvdh).
-    , _avrDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''AttachVolume

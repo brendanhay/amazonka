@@ -53,8 +53,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeSpotPriceHistory' request.
 describeSpotPriceHistory :: DescribeSpotPriceHistory
 describeSpotPriceHistory = DescribeSpotPriceHistory
-    { _dsphrDryRun = Nothing
-    , _dsphrStartTime = Nothing
+    { _dsphrStartTime = Nothing
     , _dsphrEndTime = Nothing
     , _dsphrFilters = mempty
     , _dsphrInstanceTypes = mempty
@@ -65,9 +64,7 @@ describeSpotPriceHistory = DescribeSpotPriceHistory
     }
 
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
-    { _dsphrDryRun :: Maybe Bool
-      -- ^ 
-    , _dsphrStartTime :: Maybe ISO8601
+    { _dsphrStartTime :: Maybe ISO8601
       -- ^ The start date and time of the Spot Price history data.
     , _dsphrEndTime :: Maybe ISO8601
       -- ^ The end date and time of the Spot Price history data.

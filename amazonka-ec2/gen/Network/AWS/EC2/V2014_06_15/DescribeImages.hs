@@ -56,17 +56,14 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeImages' request.
 describeImages :: DescribeImages
 describeImages = DescribeImages
-    { _disDryRun = Nothing
-    , _disExecutableUsers = mempty
+    { _disExecutableUsers = mempty
     , _disFilters = mempty
     , _disImageIds = mempty
     , _disOwners = mempty
     }
 
 data DescribeImages = DescribeImages
-    { _disDryRun :: Maybe Bool
-      -- ^ 
-    , _disExecutableUsers :: [Text]
+    { _disExecutableUsers :: [Text]
       -- ^ Scopes the images by users with explicit launch permissions.
       -- Specify an AWS account ID, self (the sender of the request), or
       -- all (public AMIs).

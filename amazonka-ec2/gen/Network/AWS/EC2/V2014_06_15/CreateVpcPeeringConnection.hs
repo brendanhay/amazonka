@@ -60,16 +60,13 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'CreateVpcPeeringConnection' request.
 createVpcPeeringConnection :: CreateVpcPeeringConnection
 createVpcPeeringConnection = CreateVpcPeeringConnection
-    { _cvpcrDryRun = Nothing
-    , _cvpcrVpcId = Nothing
+    { _cvpcrVpcId = Nothing
     , _cvpcrPeerVpcId = Nothing
     , _cvpcrPeerOwnerId = Nothing
     }
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
-    { _cvpcrDryRun :: Maybe Bool
-      -- ^ 
-    , _cvpcrVpcId :: Maybe Text
+    { _cvpcrVpcId :: Maybe Text
       -- ^ The ID of the requester VPC.
     , _cvpcrPeerVpcId :: Maybe Text
       -- ^ The ID of the VPC with which you are creating the VPC peering

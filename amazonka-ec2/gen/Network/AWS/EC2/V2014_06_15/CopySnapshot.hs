@@ -47,7 +47,6 @@ copySnapshot :: Text -- ^ '_csrSourceRegion'
 copySnapshot p1 p2 = CopySnapshot
     { _csrSourceRegion = p1
     , _csrSourceSnapshotId = p2
-    , _csrDryRun = Nothing
     , _csrDescription = Nothing
     , _csrDestinationRegion = Nothing
     , _csrPresignedUrl = Nothing
@@ -58,8 +57,6 @@ data CopySnapshot = CopySnapshot
       -- ^ The ID of the region that contains the snapshot to be copied.
     , _csrSourceSnapshotId :: Text
       -- ^ The ID of the Amazon EBS snapshot to copy.
-    , _csrDryRun :: Maybe Bool
-      -- ^ 
     , _csrDescription :: Maybe Text
       -- ^ A description for the new Amazon EBS snapshot.
     , _csrDestinationRegion :: Maybe Text

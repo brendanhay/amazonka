@@ -52,7 +52,6 @@ deleteTags :: [Text] -- ^ '_dtrResources'
            -> DeleteTags
 deleteTags p1 = DeleteTags
     { _dtrResources = p1
-    , _dtrDryRun = Nothing
     , _dtrTags = mempty
     }
 
@@ -60,8 +59,6 @@ data DeleteTags = DeleteTags
     { _dtrResources :: [Text]
       -- ^ The ID of the resource. For example, ami-1a2b3c4d. You can
       -- specify more than one resource ID.
-    , _dtrDryRun :: Maybe Bool
-      -- ^ 
     , _dtrTags :: [Tag]
       -- ^ One or more tags to delete. If you omit the value parameter, we
       -- delete the tag regardless of its value. If you specify this

@@ -76,14 +76,11 @@ import Network.AWS.Prelude
 describeAccountAttributes :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes
     { _daarAttributeNames = mempty
-    , _daarDryRun = Nothing
     }
 
 data DescribeAccountAttributes = DescribeAccountAttributes
     { _daarAttributeNames :: [AccountAttributeName]
       -- ^ One or more account attribute names.
-    , _daarDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''DescribeAccountAttributes

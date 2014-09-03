@@ -49,15 +49,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeSpotInstanceRequests' request.
 describeSpotInstanceRequests :: DescribeSpotInstanceRequests
 describeSpotInstanceRequests = DescribeSpotInstanceRequests
-    { _dsirrDryRun = Nothing
-    , _dsirrFilters = mempty
+    { _dsirrFilters = mempty
     , _dsirrSpotInstanceRequestIds = mempty
     }
 
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
-    { _dsirrDryRun :: Maybe Bool
-      -- ^ 
-    , _dsirrFilters :: [Filter]
+    { _dsirrFilters :: [Filter]
       -- ^ One or more filters. availability-zone-group - The Availability
       -- Zone group. create-time - The time stamp when the Spot Instance
       -- request was created. fault-code - The fault code related to the

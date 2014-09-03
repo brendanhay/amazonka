@@ -63,15 +63,12 @@ createSnapshot :: Text -- ^ '_cstVolumeId'
                -> CreateSnapshot
 createSnapshot p1 = CreateSnapshot
     { _cstVolumeId = p1
-    , _cstDryRun = Nothing
     , _cstDescription = Nothing
     }
 
 data CreateSnapshot = CreateSnapshot
     { _cstVolumeId :: Text
       -- ^ The ID of the Amazon EBS volume.
-    , _cstDryRun :: Maybe Bool
-      -- ^ 
     , _cstDescription :: Maybe Text
       -- ^ A description for the snapshot.
     } deriving (Show, Generic)

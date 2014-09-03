@@ -54,15 +54,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeAvailabilityZones' request.
 describeAvailabilityZones :: DescribeAvailabilityZones
 describeAvailabilityZones = DescribeAvailabilityZones
-    { _dazrDryRun = Nothing
-    , _dazrFilters = mempty
+    { _dazrFilters = mempty
     , _dazrZoneNames = mempty
     }
 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
-    { _dazrDryRun :: Maybe Bool
-      -- ^ 
-    , _dazrFilters :: [Filter]
+    { _dazrFilters :: [Filter]
       -- ^ One or more filters. message - Information about the Availability
       -- Zone. region-name - The name of the region for the Availability
       -- Zone (for example, us-east-1). state - The state of the

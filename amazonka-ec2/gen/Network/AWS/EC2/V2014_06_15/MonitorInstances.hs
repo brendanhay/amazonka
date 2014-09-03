@@ -39,19 +39,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'MonitorInstances' request.
-monitorInstances :: [Text] -- ^ '_mirInstanceIds'
-                 -> MonitorInstances
-monitorInstances p1 = MonitorInstances
-    { _mirInstanceIds = p1
-    , _mirDryRun = Nothing
-    }
-
 data MonitorInstances = MonitorInstances
     { _mirInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _mirDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''MonitorInstances

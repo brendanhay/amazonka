@@ -48,7 +48,6 @@ importVolume p1 p2 p3 = ImportVolume
     { _ivrImage = p1
     , _ivrAvailabilityZone = p2
     , _ivrVolume = p3
-    , _ivrDryRun = Nothing
     , _ivrDescription = Nothing
     }
 
@@ -58,8 +57,6 @@ data ImportVolume = ImportVolume
     , _ivrAvailabilityZone :: Text
       -- ^ The Availability Zone for the resulting Amazon EBS volume.
     , _ivrVolume :: VolumeDetail
-      -- ^ 
-    , _ivrDryRun :: Maybe Bool
       -- ^ 
     , _ivrDescription :: Maybe Text
       -- ^ An optional description for the volume being imported.

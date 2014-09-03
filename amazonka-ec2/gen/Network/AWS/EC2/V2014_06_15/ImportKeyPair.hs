@@ -53,24 +53,12 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ImportKeyPair' request.
-importKeyPair :: Text -- ^ '_ikprKeyName'
-              -> ByteString -- ^ '_ikprPublicKeyMaterial'
-              -> ImportKeyPair
-importKeyPair p1 p2 = ImportKeyPair
-    { _ikprKeyName = p1
-    , _ikprPublicKeyMaterial = p2
-    , _ikprDryRun = Nothing
-    }
-
 data ImportKeyPair = ImportKeyPair
     { _ikprKeyName :: Text
       -- ^ A unique name for the key pair.
     , _ikprPublicKeyMaterial :: ByteString
       -- ^ The public key. You must base64 encode the public key material
       -- before sending it to AWS.
-    , _ikprDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''ImportKeyPair

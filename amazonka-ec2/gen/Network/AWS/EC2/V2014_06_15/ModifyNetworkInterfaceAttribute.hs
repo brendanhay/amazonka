@@ -41,7 +41,6 @@ modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     { _mniarNetworkInterfaceId = p1
     , _mniarSourceDestCheck = Nothing
     , _mniarDescription = Nothing
-    , _mniarDryRun = Nothing
     , _mniarAttachment = Nothing
     , _mniarGroups = mempty
     }
@@ -57,8 +56,6 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
       -- Virtual Private Cloud User Guide.
     , _mniarDescription :: Maybe AttributeValue
       -- ^ A description for the network interface.
-    , _mniarDryRun :: Maybe Bool
-      -- ^ 
     , _mniarAttachment :: Maybe NetworkInterfaceAttachmentChanges
       -- ^ The ID of the interface attachment.
     , _mniarGroups :: [Text]

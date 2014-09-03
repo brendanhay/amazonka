@@ -128,7 +128,6 @@ createNetworkInterface :: Text -- ^ '_cnirSubnetId'
                        -> CreateNetworkInterface
 createNetworkInterface p1 = CreateNetworkInterface
     { _cnirSubnetId = p1
-    , _cnirDryRun = Nothing
     , _cnirSecondaryPrivateIpAddressCount = Nothing
     , _cnirPrivateIpAddresses = mempty
     , _cnirGroups = mempty
@@ -139,8 +138,6 @@ createNetworkInterface p1 = CreateNetworkInterface
 data CreateNetworkInterface = CreateNetworkInterface
     { _cnirSubnetId :: Text
       -- ^ The ID of the subnet to associate with the network interface.
-    , _cnirDryRun :: Maybe Bool
-      -- ^ 
     , _cnirSecondaryPrivateIpAddressCount :: Maybe Integer
       -- ^ The number of secondary private IP addresses to assign to a
       -- network interface. When you specify a number of secondary IP

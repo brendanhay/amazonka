@@ -60,15 +60,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVpcPeeringConnections' request.
 describeVpcPeeringConnections :: DescribeVpcPeeringConnections
 describeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpctDryRun = Nothing
-    , _dvpctFilters = mempty
+    { _dvpctFilters = mempty
     , _dvpctVpcPeeringConnectionIds = mempty
     }
 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpctDryRun :: Maybe Bool
-      -- ^ 
-    , _dvpctFilters :: [Filter]
+    { _dvpctFilters :: [Filter]
       -- ^ One or more filters. accepter-vpc-info.cidr-block - The CIDR
       -- block of the peer VPC. accepter-vpc-info.owner-id - The AWS
       -- account ID of the owner of the peer VPC. accepter-vpc-info.vpc-id

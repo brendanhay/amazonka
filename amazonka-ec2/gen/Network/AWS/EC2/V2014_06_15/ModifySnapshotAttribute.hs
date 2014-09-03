@@ -57,7 +57,6 @@ modifySnapshotAttribute :: Text -- ^ '_msarSnapshotId'
                         -> ModifySnapshotAttribute
 modifySnapshotAttribute p1 = ModifySnapshotAttribute
     { _msarSnapshotId = p1
-    , _msarDryRun = Nothing
     , _msarCreateVolumePermission = Nothing
     , _msarGroupNames = mempty
     , _msarAttribute = Nothing
@@ -68,8 +67,6 @@ modifySnapshotAttribute p1 = ModifySnapshotAttribute
 data ModifySnapshotAttribute = ModifySnapshotAttribute
     { _msarSnapshotId :: Text
       -- ^ The ID of the snapshot.
-    , _msarDryRun :: Maybe Bool
-      -- ^ 
     , _msarCreateVolumePermission :: Maybe CreateVolumePermissionModifications
       -- ^ A JSON representation of the snapshot attribute modification.
     , _msarGroupNames :: [Text]

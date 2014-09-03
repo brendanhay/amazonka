@@ -49,15 +49,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVolumes' request.
 describeVolumes :: DescribeVolumes
 describeVolumes = DescribeVolumes
-    { _dvtDryRun = Nothing
-    , _dvtFilters = mempty
+    { _dvtFilters = mempty
     , _dvtVolumeIds = mempty
     }
 
 data DescribeVolumes = DescribeVolumes
-    { _dvtDryRun :: Maybe Bool
-      -- ^ 
-    , _dvtFilters :: [Filter]
+    { _dvtFilters :: [Filter]
       -- ^ One or more filters. attachment.attach-time - The time stamp when
       -- the attachment initiated. attachment.delete-on-termination -
       -- Whether the volume is deleted on instance termination.

@@ -53,15 +53,12 @@ describeVolumeAttribute :: Text -- ^ '_dvarVolumeId'
                         -> DescribeVolumeAttribute
 describeVolumeAttribute p1 = DescribeVolumeAttribute
     { _dvarVolumeId = p1
-    , _dvarDryRun = Nothing
     , _dvarAttribute = Nothing
     }
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dvarVolumeId :: Text
       -- ^ The ID of the volume.
-    , _dvarDryRun :: Maybe Bool
-      -- ^ 
     , _dvarAttribute :: Maybe VolumeAttributeName
       -- ^ The instance attribute.
     } deriving (Show, Generic)

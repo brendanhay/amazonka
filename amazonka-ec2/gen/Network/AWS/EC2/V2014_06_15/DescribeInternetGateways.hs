@@ -32,15 +32,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeInternetGateways' request.
 describeInternetGateways :: DescribeInternetGateways
 describeInternetGateways = DescribeInternetGateways
-    { _digsDryRun = Nothing
-    , _digsFilters = mempty
+    { _digsFilters = mempty
     , _digsInternetGatewayIds = mempty
     }
 
 data DescribeInternetGateways = DescribeInternetGateways
-    { _digsDryRun :: Maybe Bool
-      -- ^ 
-    , _digsFilters :: [Filter]
+    { _digsFilters :: [Filter]
       -- ^ One or more filters. attachment.state - The current state of the
       -- attachment between the gateway and the VPC. Present only if a VPC
       -- is attached. attachment.vpc-id - The ID of an attached VPC.

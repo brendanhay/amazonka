@@ -48,14 +48,11 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'AcceptVpcPeeringConnection' request.
 acceptVpcPeeringConnection :: AcceptVpcPeeringConnection
 acceptVpcPeeringConnection = AcceptVpcPeeringConnection
-    { _avpcrDryRun = Nothing
-    , _avpcrVpcPeeringConnectionId = Nothing
+    { _avpcrVpcPeeringConnectionId = Nothing
     }
 
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
-    { _avpcrDryRun :: Maybe Bool
-      -- ^ 
-    , _avpcrVpcPeeringConnectionId :: Maybe Text
+    { _avpcrVpcPeeringConnectionId :: Maybe Text
       -- ^ The ID of the VPC peering connection.
     } deriving (Show, Generic)
 

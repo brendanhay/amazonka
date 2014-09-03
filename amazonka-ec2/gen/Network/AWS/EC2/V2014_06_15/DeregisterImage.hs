@@ -32,19 +32,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeregisterImage' request.
-deregisterImage :: Text -- ^ '_dirImageId'
-                -> DeregisterImage
-deregisterImage p1 = DeregisterImage
-    { _dirImageId = p1
-    , _dirDryRun = Nothing
-    }
-
 data DeregisterImage = DeregisterImage
     { _dirImageId :: Text
       -- ^ The ID of the AMI.
-    , _dirDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''DeregisterImage

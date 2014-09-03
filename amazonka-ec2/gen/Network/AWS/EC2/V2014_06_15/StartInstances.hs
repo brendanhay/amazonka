@@ -53,15 +53,12 @@ startInstances :: [Text] -- ^ '_sistInstanceIds'
                -> StartInstances
 startInstances p1 = StartInstances
     { _sistInstanceIds = p1
-    , _sistDryRun = Nothing
     , _sistAdditionalInfo = Nothing
     }
 
 data StartInstances = StartInstances
     { _sistInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _sistDryRun :: Maybe Bool
-      -- ^ 
     , _sistAdditionalInfo :: Maybe Text
       -- ^ Reserved.
     } deriving (Show, Generic)

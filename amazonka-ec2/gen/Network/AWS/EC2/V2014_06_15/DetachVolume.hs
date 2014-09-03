@@ -49,7 +49,6 @@ detachVolume :: Text -- ^ '_dvxVolumeId'
              -> DetachVolume
 detachVolume p1 = DetachVolume
     { _dvxVolumeId = p1
-    , _dvxDryRun = Nothing
     , _dvxForce = Nothing
     , _dvxInstanceId = Nothing
     , _dvxDevice = Nothing
@@ -58,8 +57,6 @@ detachVolume p1 = DetachVolume
 data DetachVolume = DetachVolume
     { _dvxVolumeId :: Text
       -- ^ The ID of the volume.
-    , _dvxDryRun :: Maybe Bool
-      -- ^ 
     , _dvxForce :: Maybe Bool
       -- ^ Forces detachment if the previous detachment attempt did not
       -- occur cleanly (for example, logging into an instance, unmounting

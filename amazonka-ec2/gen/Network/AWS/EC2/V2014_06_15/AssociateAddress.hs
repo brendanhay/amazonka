@@ -58,8 +58,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'AssociateAddress' request.
 associateAddress :: AssociateAddress
 associateAddress = AssociateAddress
-    { _aatDryRun = Nothing
-    , _aatAllowReassociation = Nothing
+    { _aatAllowReassociation = Nothing
     , _aatInstanceId = Nothing
     , _aatPublicIp = Nothing
     , _aatAllocationId = Nothing
@@ -68,9 +67,7 @@ associateAddress = AssociateAddress
     }
 
 data AssociateAddress = AssociateAddress
-    { _aatDryRun :: Maybe Bool
-      -- ^ 
-    , _aatAllowReassociation :: Maybe Bool
+    { _aatAllowReassociation :: Maybe Bool
       -- ^ [EC2-VPC] Allows an Elastic IP address that is already associated
       -- with an instance or network interface to be re-associated with
       -- the specified instance or network interface. Otherwise, the

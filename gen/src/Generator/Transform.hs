@@ -491,8 +491,7 @@ requireField cs f
     | CI.mk (_fldName f) `notElem` cs = f
     | otherwise = f & cmnRequired .~ True & fldType.anRequired_ .~ True
 
-ignoreFields :: HashMap Text [CI Text] -> Shape -> Shape
-ignoreFields m (SStruct s)
-    | Just cs <- Map.lookup (s ^. cmnName) m = SStruct $
-        s & sctFields %~ filter (\(k, _) -> CI.mk k `notElem` cs)
+ignoreFields :: [Text] -> Shape -> Shape
+ignoreFields cs (SStruct s) =
+    SStruct (s & sctFields %~ filter (\(k, _) -> k `notElem` cs))
 ignoreFields _ s = s

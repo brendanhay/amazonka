@@ -79,8 +79,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'AuthorizeSecurityGroupIngress' request.
 authorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
 authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
-    { _asgirDryRun = Nothing
-    , _asgirFromPort = Nothing
+    { _asgirFromPort = Nothing
     , _asgirToPort = Nothing
     , _asgirIpPermissions = mempty
     , _asgirGroupName = Nothing
@@ -92,9 +91,7 @@ authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     }
 
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
-    { _asgirDryRun :: Maybe Bool
-      -- ^ 
-    , _asgirFromPort :: Maybe Integer
+    { _asgirFromPort :: Maybe Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. For the ICMP type number, use -1 to specify all ICMP
       -- types.

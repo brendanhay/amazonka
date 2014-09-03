@@ -67,7 +67,6 @@ createSecurityGroup :: Text -- ^ '_csgrGroupName'
 createSecurityGroup p1 p2 = CreateSecurityGroup
     { _csgrGroupName = p1
     , _csgrDescription = p2
-    , _csgrDryRun = Nothing
     , _csgrVpcId = Nothing
     }
 
@@ -79,8 +78,6 @@ data CreateSecurityGroup = CreateSecurityGroup
       -- ._-:/()#,@[]+=&amp;;{}!$*.
     , _csgrDescription :: Text
       -- ^ A description for the security group. This is informational only.
-    , _csgrDryRun :: Maybe Bool
-      -- ^ 
     , _csgrVpcId :: Maybe Text
       -- ^ [EC2-VPC] The ID of the VPC.
     } deriving (Show, Generic)

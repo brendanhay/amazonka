@@ -52,7 +52,6 @@ replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     , _rnaerNetworkAclId = p4
     , _rnaerProtocol = p5
     , _rnaerCidrBlock = p6
-    , _rnaerDryRun = Nothing
     , _rnaerIcmpTypeCode = Nothing
     , _rnaerPortRange = Nothing
     }
@@ -72,8 +71,6 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
       -- ^ The IP protocol. You can specify all or -1 to mean all protocols.
     , _rnaerCidrBlock :: Text
       -- ^ The network range to allow or deny, in CIDR notation.
-    , _rnaerDryRun :: Maybe Bool
-      -- ^ 
     , _rnaerIcmpTypeCode :: Maybe IcmpTypeCode
       -- ^ ICMP protocol: The ICMP type and code.
     , _rnaerPortRange :: Maybe PortRange

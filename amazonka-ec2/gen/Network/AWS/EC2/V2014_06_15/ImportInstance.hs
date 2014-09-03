@@ -45,7 +45,6 @@ importInstance :: PlatformValues -- ^ '_iiiiiiiiiuPlatform'
                -> ImportInstance
 importInstance p1 = ImportInstance
     { _iiiiiiiiiuPlatform = p1
-    , _iiiiiiiiiuDryRun = Nothing
     , _iiiiiiiiiuDiskImages = mempty
     , _iiiiiiiiiuLaunchSpecification = Nothing
     , _iiiiiiiiiuDescription = Nothing
@@ -54,8 +53,6 @@ importInstance p1 = ImportInstance
 data ImportInstance = ImportInstance
     { _iiiiiiiiiuPlatform :: PlatformValues
       -- ^ The instance operating system.
-    , _iiiiiiiiiuDryRun :: Maybe Bool
-      -- ^ 
     , _iiiiiiiiiuDiskImages :: [DiskImage]
       -- ^ 
     , _iiiiiiiiiuLaunchSpecification :: Maybe ImportInstanceLaunchSpecification

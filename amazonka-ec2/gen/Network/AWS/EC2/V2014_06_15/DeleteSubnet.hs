@@ -31,19 +31,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteSubnet' request.
-deleteSubnet :: Text -- ^ '_dstSubnetId'
-             -> DeleteSubnet
-deleteSubnet p1 = DeleteSubnet
-    { _dstSubnetId = p1
-    , _dstDryRun = Nothing
-    }
-
 data DeleteSubnet = DeleteSubnet
     { _dstSubnetId :: Text
       -- ^ The ID of the subnet.
-    , _dstDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''DeleteSubnet

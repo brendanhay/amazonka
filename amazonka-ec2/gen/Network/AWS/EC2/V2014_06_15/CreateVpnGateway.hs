@@ -44,15 +44,12 @@ createVpnGateway :: GatewayType -- ^ '_cvgrType'
                  -> CreateVpnGateway
 createVpnGateway p1 = CreateVpnGateway
     { _cvgrType = p1
-    , _cvgrDryRun = Nothing
     , _cvgrAvailabilityZone = Nothing
     }
 
 data CreateVpnGateway = CreateVpnGateway
     { _cvgrType :: GatewayType
       -- ^ The type of VPN connection this virtual private gateway supports.
-    , _cvgrDryRun :: Maybe Bool
-      -- ^ 
     , _cvgrAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone for the virtual private gateway.
     } deriving (Show, Generic)

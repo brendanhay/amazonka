@@ -32,19 +32,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteRouteTable' request.
-deleteRouteTable :: Text -- ^ '_drtrRouteTableId'
-                 -> DeleteRouteTable
-deleteRouteTable p1 = DeleteRouteTable
-    { _drtrRouteTableId = p1
-    , _drtrDryRun = Nothing
-    }
-
 data DeleteRouteTable = DeleteRouteTable
     { _drtrRouteTableId :: Text
       -- ^ The ID of the route table.
-    , _drtrDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''DeleteRouteTable

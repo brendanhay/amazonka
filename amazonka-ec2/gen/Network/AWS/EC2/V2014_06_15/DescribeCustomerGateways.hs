@@ -49,15 +49,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeCustomerGateways' request.
 describeCustomerGateways :: DescribeCustomerGateways
 describeCustomerGateways = DescribeCustomerGateways
-    { _dcgsDryRun = Nothing
-    , _dcgsCustomerGatewayIds = mempty
+    { _dcgsCustomerGatewayIds = mempty
     , _dcgsFilters = mempty
     }
 
 data DescribeCustomerGateways = DescribeCustomerGateways
-    { _dcgsDryRun :: Maybe Bool
-      -- ^ 
-    , _dcgsCustomerGatewayIds :: [Text]
+    { _dcgsCustomerGatewayIds :: [Text]
       -- ^ One or more customer gateway IDs. Default: Describes all your
       -- customer gateways.
     , _dcgsFilters :: [Filter]

@@ -46,7 +46,6 @@ createImage p1 p2 = CreateImage
     { _citInstanceId = p1
     , _citName = p2
     , _citBlockDeviceMappings = mempty
-    , _citDryRun = Nothing
     , _citNoReboot = Nothing
     , _citDescription = Nothing
     }
@@ -60,8 +59,6 @@ data CreateImage = CreateImage
       -- (-), or underscores(_).
     , _citBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ Information about one or more block device mappings.
-    , _citDryRun :: Maybe Bool
-      -- ^ 
     , _citNoReboot :: Maybe Bool
       -- ^ By default, this parameter is set to false, which means Amazon
       -- EC2 attempts to shut down the instance cleanly before image

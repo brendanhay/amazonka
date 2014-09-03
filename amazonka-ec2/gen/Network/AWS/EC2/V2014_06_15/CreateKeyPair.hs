@@ -57,19 +57,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateKeyPair' request.
-createKeyPair :: Text -- ^ '_ckprKeyName'
-              -> CreateKeyPair
-createKeyPair p1 = CreateKeyPair
-    { _ckprKeyName = p1
-    , _ckprDryRun = Nothing
-    }
-
 data CreateKeyPair = CreateKeyPair
     { _ckprKeyName :: Text
       -- ^ A unique name for the key pair.
-    , _ckprDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''CreateKeyPair

@@ -35,24 +35,12 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ResetSnapshotAttribute' request.
-resetSnapshotAttribute :: SnapshotAttributeName -- ^ '_rsarAttribute'
-                       -> Text -- ^ '_rsarSnapshotId'
-                       -> ResetSnapshotAttribute
-resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
-    { _rsarAttribute = p1
-    , _rsarSnapshotId = p2
-    , _rsarDryRun = Nothing
-    }
-
 data ResetSnapshotAttribute = ResetSnapshotAttribute
     { _rsarAttribute :: SnapshotAttributeName
       -- ^ The attribute to reset (currently only the attribute for
       -- permission to create volumes can be reset).
     , _rsarSnapshotId :: Text
       -- ^ The ID of the snapshot.
-    , _rsarDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''ResetSnapshotAttribute

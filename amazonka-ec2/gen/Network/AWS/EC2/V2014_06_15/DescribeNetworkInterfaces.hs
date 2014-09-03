@@ -90,15 +90,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeNetworkInterfaces' request.
 describeNetworkInterfaces :: DescribeNetworkInterfaces
 describeNetworkInterfaces = DescribeNetworkInterfaces
-    { _dnisDryRun = Nothing
-    , _dnisFilters = mempty
+    { _dnisFilters = mempty
     , _dnisNetworkInterfaceIds = mempty
     }
 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
-    { _dnisDryRun :: Maybe Bool
-      -- ^ 
-    , _dnisFilters :: [Filter]
+    { _dnisFilters :: [Filter]
       -- ^ One or more filters. addresses.private-ip-address - The private
       -- IP addresses associated with the network interface.
       -- addresses.primary - Whether the private IP address is the primary

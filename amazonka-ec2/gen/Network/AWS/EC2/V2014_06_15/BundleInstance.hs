@@ -51,16 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'BundleInstance' request.
-bundleInstance :: Storage -- ^ '_birStorage'
-               -> Text -- ^ '_birInstanceId'
-               -> BundleInstance
-bundleInstance p1 p2 = BundleInstance
-    { _birStorage = p1
-    , _birInstanceId = p2
-    , _birDryRun = Nothing
-    }
-
 data BundleInstance = BundleInstance
     { _birStorage :: Storage
       -- ^ The bucket in which to store the AMI. You can specify a bucket
@@ -69,8 +59,6 @@ data BundleInstance = BundleInstance
       -- else, Amazon EC2 returns an error.
     , _birInstanceId :: Text
       -- ^ The ID of the instance to bundle.
-    , _birDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''BundleInstance

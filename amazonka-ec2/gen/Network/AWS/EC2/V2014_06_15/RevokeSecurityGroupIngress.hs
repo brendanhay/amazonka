@@ -46,8 +46,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'RevokeSecurityGroupIngress' request.
 revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
 revokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgirDryRun = Nothing
-    , _rsgirFromPort = Nothing
+    { _rsgirFromPort = Nothing
     , _rsgirToPort = Nothing
     , _rsgirIpPermissions = mempty
     , _rsgirGroupName = Nothing
@@ -59,9 +58,7 @@ revokeSecurityGroupIngress = RevokeSecurityGroupIngress
     }
 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgirDryRun :: Maybe Bool
-      -- ^ 
-    , _rsgirFromPort :: Maybe Integer
+    { _rsgirFromPort :: Maybe Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. For the ICMP type number, use -1 to specify all ICMP
       -- types.

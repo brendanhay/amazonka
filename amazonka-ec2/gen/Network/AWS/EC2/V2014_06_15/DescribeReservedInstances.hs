@@ -43,16 +43,13 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeReservedInstances' request.
 describeReservedInstances :: DescribeReservedInstances
 describeReservedInstances = DescribeReservedInstances
-    { _drirDryRun = Nothing
-    , _drirFilters = mempty
+    { _drirFilters = mempty
     , _drirOfferingType = Nothing
     , _drirReservedInstancesIds = mempty
     }
 
 data DescribeReservedInstances = DescribeReservedInstances
-    { _drirDryRun :: Maybe Bool
-      -- ^ 
-    , _drirFilters :: [Filter]
+    { _drirFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
       -- where the Reserved Instance can be used. duration - The duration
       -- of the Reserved Instance (one year or three years), in seconds

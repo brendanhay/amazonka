@@ -55,7 +55,6 @@ createSubnet :: Text -- ^ '_csuVpcId'
 createSubnet p1 p2 = CreateSubnet
     { _csuVpcId = p1
     , _csuCidrBlock = p2
-    , _csuDryRun = Nothing
     , _csuAvailabilityZone = Nothing
     }
 
@@ -65,8 +64,6 @@ data CreateSubnet = CreateSubnet
     , _csuCidrBlock :: Text
       -- ^ The network range for the subnet, in CIDR notation. For example,
       -- 10.0.0.0/24.
-    , _csuDryRun :: Maybe Bool
-      -- ^ 
     , _csuAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone for the subnet. Default: Amazon EC2 selects
       -- one for you (recommended).

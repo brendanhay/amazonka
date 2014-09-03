@@ -48,14 +48,11 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'AllocateAddress' request.
 allocateAddress :: AllocateAddress
 allocateAddress = AllocateAddress
-    { _aarDryRun = Nothing
-    , _aarDomain = Nothing
+    { _aarDomain = Nothing
     }
 
 data AllocateAddress = AllocateAddress
-    { _aarDryRun :: Maybe Bool
-      -- ^ 
-    , _aarDomain :: Maybe DomainType
+    { _aarDomain :: Maybe DomainType
       -- ^ Set to vpc to allocate the address for use with instances in a
       -- VPC. Default: The address is for use with instances in
       -- EC2-Classic.

@@ -32,23 +32,11 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeSnapshotAttribute' request.
-describeSnapshotAttribute :: SnapshotAttributeName -- ^ '_dsarAttribute'
-                          -> Text -- ^ '_dsarSnapshotId'
-                          -> DescribeSnapshotAttribute
-describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
-    { _dsarAttribute = p1
-    , _dsarSnapshotId = p2
-    , _dsarDryRun = Nothing
-    }
-
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsarAttribute :: SnapshotAttributeName
       -- ^ The snapshot attribute you would like to view.
     , _dsarSnapshotId :: Text
       -- ^ The ID of the Amazon EBS snapshot.
-    , _dsarDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''DescribeSnapshotAttribute

@@ -38,23 +38,11 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ReplaceRouteTableAssociation' request.
-replaceRouteTableAssociation :: Text -- ^ '_rrtarAssociationId'
-                             -> Text -- ^ '_rrtarRouteTableId'
-                             -> ReplaceRouteTableAssociation
-replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
-    { _rrtarAssociationId = p1
-    , _rrtarRouteTableId = p2
-    , _rrtarDryRun = Nothing
-    }
-
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtarAssociationId :: Text
       -- ^ The association ID.
     , _rrtarRouteTableId :: Text
       -- ^ The ID of the new route table to associate with the subnet.
-    , _rrtarDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''ReplaceRouteTableAssociation

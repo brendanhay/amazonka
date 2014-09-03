@@ -44,7 +44,6 @@ modifyVolumeAttribute :: Text -- ^ '_mvarVolumeId'
 modifyVolumeAttribute p1 = ModifyVolumeAttribute
     { _mvarVolumeId = p1
     , _mvarAutoEnableIO = Nothing
-    , _mvarDryRun = Nothing
     }
 
 data ModifyVolumeAttribute = ModifyVolumeAttribute
@@ -53,8 +52,6 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
     , _mvarAutoEnableIO :: Maybe AttributeBooleanValue
       -- ^ Indicates whether the volume should be auto-enabled for I/O
       -- operations.
-    , _mvarDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''ModifyVolumeAttribute

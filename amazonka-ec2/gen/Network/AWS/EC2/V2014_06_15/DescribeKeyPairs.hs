@@ -37,15 +37,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeKeyPairs' request.
 describeKeyPairs :: DescribeKeyPairs
 describeKeyPairs = DescribeKeyPairs
-    { _dkpsDryRun = Nothing
-    , _dkpsFilters = mempty
+    { _dkpsFilters = mempty
     , _dkpsKeyNames = mempty
     }
 
 data DescribeKeyPairs = DescribeKeyPairs
-    { _dkpsDryRun :: Maybe Bool
-      -- ^ 
-    , _dkpsFilters :: [Filter]
+    { _dkpsFilters :: [Filter]
       -- ^ One or more filters. fingerprint - The fingerprint of the key
       -- pair. key-name - The name of the key pair.
     , _dkpsKeyNames :: [Text]

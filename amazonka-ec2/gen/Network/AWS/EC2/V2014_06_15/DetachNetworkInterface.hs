@@ -37,15 +37,12 @@ detachNetworkInterface :: Text -- ^ '_dniuAttachmentId'
                        -> DetachNetworkInterface
 detachNetworkInterface p1 = DetachNetworkInterface
     { _dniuAttachmentId = p1
-    , _dniuDryRun = Nothing
     , _dniuForce = Nothing
     }
 
 data DetachNetworkInterface = DetachNetworkInterface
     { _dniuAttachmentId :: Text
       -- ^ The ID of the attachment.
-    , _dniuDryRun :: Maybe Bool
-      -- ^ 
     , _dniuForce :: Maybe Bool
       -- ^ Specifies whether to force a detachment.
     } deriving (Show, Generic)

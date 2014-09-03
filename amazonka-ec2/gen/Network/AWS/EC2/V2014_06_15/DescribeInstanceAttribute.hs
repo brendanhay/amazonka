@@ -55,23 +55,11 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeInstanceAttribute' request.
-describeInstanceAttribute :: InstanceAttributeName -- ^ '_diasAttribute'
-                          -> Text -- ^ '_diasInstanceId'
-                          -> DescribeInstanceAttribute
-describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
-    { _diasAttribute = p1
-    , _diasInstanceId = p2
-    , _diasDryRun = Nothing
-    }
-
 data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _diasAttribute :: InstanceAttributeName
       -- ^ The instance attribute.
     , _diasInstanceId :: Text
       -- ^ The ID of the instance.
-    , _diasDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''DescribeInstanceAttribute

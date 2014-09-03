@@ -48,24 +48,12 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AssociateDhcpOptions' request.
-associateDhcpOptions :: Text -- ^ '_adorDhcpOptionsId'
-                     -> Text -- ^ '_adorVpcId'
-                     -> AssociateDhcpOptions
-associateDhcpOptions p1 p2 = AssociateDhcpOptions
-    { _adorDhcpOptionsId = p1
-    , _adorVpcId = p2
-    , _adorDryRun = Nothing
-    }
-
 data AssociateDhcpOptions = AssociateDhcpOptions
     { _adorDhcpOptionsId :: Text
       -- ^ The ID of the DHCP options set, or default to associate no DHCP
       -- options with the VPC.
     , _adorVpcId :: Text
       -- ^ The ID of the VPC.
-    , _adorDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''AssociateDhcpOptions

@@ -66,7 +66,6 @@ authorizeSecurityGroupEgress :: Text -- ^ '_asgerGroupId'
                              -> AuthorizeSecurityGroupEgress
 authorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
     { _asgerGroupId = p1
-    , _asgerDryRun = Nothing
     , _asgerFromPort = Nothing
     , _asgerToPort = Nothing
     , _asgerIpPermissions = mempty
@@ -79,8 +78,6 @@ authorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     { _asgerGroupId :: Text
       -- ^ The ID of the security group.
-    , _asgerDryRun :: Maybe Bool
-      -- ^ 
     , _asgerFromPort :: Maybe Integer
       -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
       -- type number. For the ICMP type number, use -1 to specify all ICMP

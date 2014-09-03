@@ -50,19 +50,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'TerminateInstances' request.
-terminateInstances :: [Text] -- ^ '_tirInstanceIds'
-                   -> TerminateInstances
-terminateInstances p1 = TerminateInstances
-    { _tirInstanceIds = p1
-    , _tirDryRun = Nothing
-    }
-
 data TerminateInstances = TerminateInstances
     { _tirInstanceIds :: [Text]
       -- ^ One or more instance IDs.
-    , _tirDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''TerminateInstances

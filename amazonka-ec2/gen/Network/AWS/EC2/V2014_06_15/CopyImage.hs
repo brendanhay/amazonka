@@ -45,7 +45,6 @@ copyImage :: Text -- ^ '_cirSourceRegion'
 copyImage p1 p2 = CopyImage
     { _cirSourceRegion = p1
     , _cirSourceImageId = p2
-    , _cirDryRun = Nothing
     , _cirName = Nothing
     , _cirDescription = Nothing
     , _cirClientToken = Nothing
@@ -56,8 +55,6 @@ data CopyImage = CopyImage
       -- ^ The name of the region that contains the AMI to copy.
     , _cirSourceImageId :: Text
       -- ^ The ID of the AMI to copy.
-    , _cirDryRun :: Maybe Bool
-      -- ^ 
     , _cirName :: Maybe Text
       -- ^ The name of the new AMI in the destination region.
     , _cirDescription :: Maybe Text

@@ -62,7 +62,6 @@ createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     , _cnaerNetworkAclId = p4
     , _cnaerProtocol = p5
     , _cnaerCidrBlock = p6
-    , _cnaerDryRun = Nothing
     , _cnaerIcmpTypeCode = Nothing
     , _cnaerPortRange = Nothing
     }
@@ -84,8 +83,6 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
       -- ^ The protocol. A value of -1 means all protocols.
     , _cnaerCidrBlock :: Text
       -- ^ The network range to allow or deny, in CIDR notation.
-    , _cnaerDryRun :: Maybe Bool
-      -- ^ 
     , _cnaerIcmpTypeCode :: Maybe IcmpTypeCode
       -- ^ ICMP protocol: The ICMP type and code.
     , _cnaerPortRange :: Maybe PortRange

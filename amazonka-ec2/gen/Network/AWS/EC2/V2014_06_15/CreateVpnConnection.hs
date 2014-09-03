@@ -85,7 +85,6 @@ createVpnConnection p1 p2 p3 = CreateVpnConnection
     { _cvcrType = p1
     , _cvcrCustomerGatewayId = p2
     , _cvcrVpnGatewayId = p3
-    , _cvcrDryRun = Nothing
     , _cvcrOptions = Nothing
     }
 
@@ -96,8 +95,6 @@ data CreateVpnConnection = CreateVpnConnection
       -- ^ The ID of the customer gateway.
     , _cvcrVpnGatewayId :: Text
       -- ^ The ID of the virtual private gateway.
-    , _cvcrDryRun :: Maybe Bool
-      -- ^ 
     , _cvcrOptions :: Maybe VpnConnectionOptionsSpecification
       -- ^ Indicates whether the VPN connection requires static routes. If
       -- you are creating a VPN connection for a device that does not

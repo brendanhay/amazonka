@@ -45,15 +45,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVpcs' request.
 describeVpcs :: DescribeVpcs
 describeVpcs = DescribeVpcs
-    { _dvvDryRun = Nothing
-    , _dvvFilters = mempty
+    { _dvvFilters = mempty
     , _dvvVpcIds = mempty
     }
 
 data DescribeVpcs = DescribeVpcs
-    { _dvvDryRun :: Maybe Bool
-      -- ^ 
-    , _dvvFilters :: [Filter]
+    { _dvvFilters :: [Filter]
       -- ^ One or more filters. cidr - The CIDR block of the VPC. The CIDR
       -- block you specify must exactly match the VPC's CIDR block for
       -- information to be returned for the VPC. dhcp-options-id - The ID

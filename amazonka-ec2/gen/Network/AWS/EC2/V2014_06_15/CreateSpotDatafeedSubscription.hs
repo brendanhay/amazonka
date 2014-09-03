@@ -44,7 +44,6 @@ createSpotDatafeedSubscription :: Text -- ^ '_csdsrBucket'
                                -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     { _csdsrBucket = p1
-    , _csdsrDryRun = Nothing
     , _csdsrPrefix = Nothing
     }
 
@@ -53,8 +52,6 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
       -- ^ The Amazon S3 bucket in which to store the Spot Instance
       -- datafeed. Constraints: Must be a valid bucket associated with
       -- your AWS account.
-    , _csdsrDryRun :: Maybe Bool
-      -- ^ 
     , _csdsrPrefix :: Maybe Text
       -- ^ A prefix for the datafeed file names.
     } deriving (Show, Generic)

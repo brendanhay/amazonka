@@ -40,15 +40,12 @@ cancelConversionTask :: Text -- ^ '_ccrConversionTaskId'
                      -> CancelConversionTask
 cancelConversionTask p1 = CancelConversionTask
     { _ccrConversionTaskId = p1
-    , _ccrDryRun = Nothing
     , _ccrReasonMessage = Nothing
     }
 
 data CancelConversionTask = CancelConversionTask
     { _ccrConversionTaskId :: Text
       -- ^ The ID of the conversion task.
-    , _ccrDryRun :: Maybe Bool
-      -- ^ 
     , _ccrReasonMessage :: Maybe Text
       -- ^ 
     } deriving (Show, Generic)

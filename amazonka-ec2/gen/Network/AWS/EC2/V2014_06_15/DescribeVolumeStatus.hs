@@ -71,17 +71,14 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVolumeStatus' request.
 describeVolumeStatus :: DescribeVolumeStatus
 describeVolumeStatus = DescribeVolumeStatus
-    { _dvsrDryRun = Nothing
-    , _dvsrFilters = mempty
+    { _dvsrFilters = mempty
     , _dvsrMaxResults = Nothing
     , _dvsrNextToken = Nothing
     , _dvsrVolumeIds = mempty
     }
 
 data DescribeVolumeStatus = DescribeVolumeStatus
-    { _dvsrDryRun :: Maybe Bool
-      -- ^ 
-    , _dvsrFilters :: [Filter]
+    { _dvsrFilters :: [Filter]
       -- ^ One or more filters. action.code - The action code for the event
       -- (for example, enable-volume-io). action.description - A
       -- description of the action. action.event-id - The event ID

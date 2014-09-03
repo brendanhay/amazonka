@@ -59,19 +59,9 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetConsoleOutput' request.
-getConsoleOutput :: Text -- ^ '_gcorInstanceId'
-                 -> GetConsoleOutput
-getConsoleOutput p1 = GetConsoleOutput
-    { _gcorInstanceId = p1
-    , _gcorDryRun = Nothing
-    }
-
 data GetConsoleOutput = GetConsoleOutput
     { _gcorInstanceId :: Text
       -- ^ The ID of the instance.
-    , _gcorDryRun :: Maybe Bool
-      -- ^ 
     } deriving (Show, Generic)
 
 makeLenses ''GetConsoleOutput

@@ -33,7 +33,6 @@ modifyImageAttribute :: Text -- ^ '_miarImageId'
 modifyImageAttribute p1 = ModifyImageAttribute
     { _miarImageId = p1
     , _miarDescription = Nothing
-    , _miarDryRun = Nothing
     , _miarLaunchPermission = Nothing
     , _miarProductCodes = mempty
     , _miarUserGroups = mempty
@@ -48,8 +47,6 @@ data ModifyImageAttribute = ModifyImageAttribute
       -- ^ The ID of the AMI.
     , _miarDescription :: Maybe AttributeValue
       -- ^ A description for the AMI.
-    , _miarDryRun :: Maybe Bool
-      -- ^ 
     , _miarLaunchPermission :: Maybe LaunchPermissionModifications
       -- ^ 
     , _miarProductCodes :: [Text]

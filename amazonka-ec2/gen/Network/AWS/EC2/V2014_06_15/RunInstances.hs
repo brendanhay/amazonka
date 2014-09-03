@@ -100,7 +100,6 @@ runInstances p1 p2 p3 = RunInstances
     , _rixMaxCount = p2
     , _rixImageId = p3
     , _rixBlockDeviceMappings = mempty
-    , _rixDryRun = Nothing
     , _rixDisableApiTermination = Nothing
     , _rixEbsOptimized = Nothing
     , _rixIamInstanceProfile = Nothing
@@ -143,8 +142,6 @@ data RunInstances = RunInstances
       -- ^ The ID of the AMI, which you can get by calling DescribeImages.
     , _rixBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ The block device mapping.
-    , _rixDryRun :: Maybe Bool
-      -- ^ 
     , _rixDisableApiTermination :: Maybe Bool
       -- ^ If you set this parameter to true, you can't terminate the
       -- instance using the Amazon EC2 console, CLI, or API; otherwise,

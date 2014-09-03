@@ -76,7 +76,6 @@ registerImage p1 = RegisterImage
     { _rivName = p1
     , _rivArchitecture = Nothing
     , _rivBlockDeviceMappings = mempty
-    , _rivDryRun = Nothing
     , _rivImageLocation = Nothing
     , _rivDescription = Nothing
     , _rivKernelId = Nothing
@@ -97,8 +96,6 @@ data RegisterImage = RegisterImage
       -- in the manifest file.
     , _rivBlockDeviceMappings :: [BlockDeviceMapping]
       -- ^ One or more block device mapping entries.
-    , _rivDryRun :: Maybe Bool
-      -- ^ 
     , _rivImageLocation :: Maybe Text
       -- ^ The full path to your AMI manifest in Amazon S3 storage.
     , _rivDescription :: Maybe Text

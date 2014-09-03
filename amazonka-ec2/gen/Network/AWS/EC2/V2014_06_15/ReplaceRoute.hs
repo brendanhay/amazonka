@@ -44,7 +44,6 @@ replaceRoute :: Text -- ^ '_rrrRouteTableId'
 replaceRoute p1 p2 = ReplaceRoute
     { _rrrRouteTableId = p1
     , _rrrDestinationCidrBlock = p2
-    , _rrrDryRun = Nothing
     , _rrrGatewayId = Nothing
     , _rrrInstanceId = Nothing
     , _rrrNetworkInterfaceId = Nothing
@@ -58,8 +57,6 @@ data ReplaceRoute = ReplaceRoute
       -- ^ The CIDR address block used for the destination match. The value
       -- you provide must match the CIDR of an existing route in the
       -- table.
-    , _rrrDryRun :: Maybe Bool
-      -- ^ 
     , _rrrGatewayId :: Maybe Text
       -- ^ The ID of an Internet gateway attached to your VPC.
     , _rrrInstanceId :: Maybe Text

@@ -93,8 +93,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeInstanceStatus' request.
 describeInstanceStatus :: DescribeInstanceStatus
 describeInstanceStatus = DescribeInstanceStatus
-    { _disrDryRun = Nothing
-    , _disrIncludeAllInstances = Nothing
+    { _disrIncludeAllInstances = Nothing
     , _disrFilters = mempty
     , _disrInstanceIds = mempty
     , _disrMaxResults = Nothing
@@ -102,9 +101,7 @@ describeInstanceStatus = DescribeInstanceStatus
     }
 
 data DescribeInstanceStatus = DescribeInstanceStatus
-    { _disrDryRun :: Maybe Bool
-      -- ^ 
-    , _disrIncludeAllInstances :: Maybe Bool
+    { _disrIncludeAllInstances :: Maybe Bool
       -- ^ When true, includes the health status for all instances. When
       -- false, includes the health status for running instances only.
       -- Default: false.

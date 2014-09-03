@@ -30,16 +30,8 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeSpotDatafeedSubscription' request.
-describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
-describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-    { _dsdssDryRun = Nothing
-    }
-
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-    { _dsdssDryRun :: Maybe Bool
-      -- ^ 
-    } deriving (Show, Generic)
+    deriving (Eq, Show, Generic)
 
 makeLenses ''DescribeSpotDatafeedSubscription
 

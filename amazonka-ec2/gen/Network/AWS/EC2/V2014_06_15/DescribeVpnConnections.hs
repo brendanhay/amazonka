@@ -54,15 +54,12 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeVpnConnections' request.
 describeVpnConnections :: DescribeVpnConnections
 describeVpnConnections = DescribeVpnConnections
-    { _dvcsDryRun = Nothing
-    , _dvcsFilters = mempty
+    { _dvcsFilters = mempty
     , _dvcsVpnConnectionIds = mempty
     }
 
 data DescribeVpnConnections = DescribeVpnConnections
-    { _dvcsDryRun :: Maybe Bool
-      -- ^ 
-    , _dvcsFilters :: [Filter]
+    { _dvcsFilters :: [Filter]
       -- ^ One or more filters. customer-gateway-configuration - The
       -- configuration information for the customer gateway.
       -- customer-gateway-id - The ID of a customer gateway associated

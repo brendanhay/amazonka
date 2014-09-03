@@ -53,7 +53,6 @@ purchaseReservedInstancesOffering :: Integer -- ^ '_priorInstanceCount'
 purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     { _priorInstanceCount = p1
     , _priorReservedInstancesOfferingId = p2
-    , _priorDryRun = Nothing
     , _priorLimitPrice = Nothing
     }
 
@@ -62,8 +61,6 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
       -- ^ The number of Reserved Instances to purchase.
     , _priorReservedInstancesOfferingId :: Text
       -- ^ The ID of the Reserved Instance offering to purchase.
-    , _priorDryRun :: Maybe Bool
-      -- ^ 
     , _priorLimitPrice :: Maybe ReservedInstanceLimitPrice
       -- ^ Specified for Reserved Instance Marketplace offerings to limit
       -- the total order and ensure that the Reserved Instances are not

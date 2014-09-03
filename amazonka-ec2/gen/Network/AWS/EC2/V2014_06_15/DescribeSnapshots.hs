@@ -66,17 +66,14 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeSnapshots' request.
 describeSnapshots :: DescribeSnapshots
 describeSnapshots = DescribeSnapshots
-    { _dsuDryRun = Nothing
-    , _dsuFilters = mempty
+    { _dsuFilters = mempty
     , _dsuOwnerIds = mempty
     , _dsuRestorableByUserIds = mempty
     , _dsuSnapshotIds = mempty
     }
 
 data DescribeSnapshots = DescribeSnapshots
-    { _dsuDryRun :: Maybe Bool
-      -- ^ 
-    , _dsuFilters :: [Filter]
+    { _dsuFilters :: [Filter]
       -- ^ One or more filters. description - A description of the snapshot.
       -- owner-alias - The AWS account alias (for example, amazon) that
       -- owns the snapshot. owner-id - The ID of the AWS account that owns
